@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: SDK do Python'
+title: 'Início rápido: SDK do Python'
 titleSuffix: Azure Cognitive Services
 description: Neste Início Rápido, você aprenderá a usar o SDK do Python para tarefas comuns.
 services: cognitive-services
@@ -8,24 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/15/2019
+ms.date: 02/26/2019
 ms.author: pafarley
-ms.openlocfilehash: 3043067f326f782c51be38382070ae0db0e90f4d
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: d14b9c88b447583eedc8b50f4f9acf80ae4e3c75
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56314163"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889623"
 ---
 # <a name="azure-cognitive-services-computer-vision-sdk-for-python"></a>SDK da Pesquisa Visual Computacional dos Serviços Cognitivos do Azure para Python
 
-O serviço de Pesquisa Visual Computacional fornece aos desenvolvedores o acesso a algoritmos avançados para processar imagens e retornar informações. Os algoritmos da Pesquisa Visual Computacional analisam o conteúdo de uma imagem de diferentes maneiras, dependendo das características visuais que interessam a você. Por exemplo, a Pesquisa Visual Computacional pode determinar se uma imagem apresenta conteúdo para adulto ou erótico, localizar todos os rostos em uma imagem e obter o texto manuscrito ou impresso. Esse serviço funciona com formatos de imagem populares, como JPEG e PNG. 
+O serviço de Pesquisa Visual Computacional fornece aos desenvolvedores o acesso a algoritmos avançados para processar imagens e retornar informações. Os algoritmos da Pesquisa Visual Computacional analisam o conteúdo de uma imagem de diferentes maneiras, dependendo das características visuais que interessam a você. 
 
-Use a Pesquisa Visual Computacional em seu aplicativo para:
+* [Analisar uma imagem](#analyze-an-image)
+* [Obter a lista de domínios de assunto](#get-subject-domain-list)
+* [Analisar uma imagem por domínio](#analyze-an-image-by-domain)
+* [Obter uma descrição de texto de uma imagem](#get-text-description-of-an-image)
+* [Obter o texto manuscrito de uma imagem](#get-text-from-image)
+* [Gerar uma miniatura](#generate-thumbnail)
 
-- Analisar imagens quanto a insights
-- Extrair texto de imagens
-- Gerar miniaturas
+Para obter mais informações sobre esse serviço, confira [O que é a Pesquisa Visual Computacional?][computervision_docs].
 
 Procurando mais documentação?
 
@@ -34,11 +37,21 @@ Procurando mais documentação?
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Assinatura do Azure – [Criar uma conta gratuita][azure_sub]
-* [Recurso da Pesquisa Visual Computacional][computervision_resource] do Azure
 * [Python 3.6 e posterior][python]
+* [Chave da Pesquisa Visual Computacional][computervision_resource] gratuita e a região associada. Você precisará desses valores ao criar a instância do objeto de cliente da [ComputerVisionAPI][ref_computervisionclient]. Use um dos métodos a seguir para obter esses valores. 
 
-Caso precise de uma conta da API da Pesquisa Visual Computacional, crie uma com este comando da [CLI do Azure][azure_cli]:
+### <a name="if-you-dont-have-an-azure-subscription"></a>Caso você não tenha uma assinatura do Azure
+
+Crie uma chave gratuita válida por 7 dias com a experiência **Experimentar**. Quando a chave for criada, copie a chave e o nome da região. Você precisará disso para [criar o cliente](#create-client).
+
+Mantenha o seguinte depois que a chave for criada:
+
+* Valor da chave: uma cadeia de caracteres de 32 caracteres com o formato `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` 
+* Região da chave: o subdomínio da URL do ponto de extremidade, https://**westcentralus**.api.cognitive.microsoft.com
+
+### <a name="if-you-have-an-azure-subscription"></a>Caso você tenha uma assinatura do Azure
+
+Se precisar de uma conta da API da Pesquisa Visual Computacional, o método mais fácil para criar uma em sua assinatura será usar o comando [da CLI do Azure][azure_cli] a seguir. Você precisa escolher o nome do grupo de recursos, por exemplo, "my-cogserv-group", e o nome do recurso da pesquisa visual computacional, como "my-computer-vision-resource". 
 
 ```Bash
 RES_REGION=westeurope 
@@ -54,18 +67,20 @@ az cognitiveservices account create \
     --yes
 ```
 
-## <a name="installation"></a>Instalação
+<!--
+## Installation
 
-Instale o SDK da Pesquisa Visual Computacional dos Serviços Cognitivos do Azure com o [pip][pip], opcionalmente em um [ambiente virtual][venv].
+Install the Azure Cognitive Services Computer Vision SDK with [pip][pip], optionally within a [virtual environment][venv].
 
-### <a name="configure-a-virtual-environment-optional"></a>Configurar um ambiente virtual (opcional)
+### Configure a virtual environment (optional)
 
-Embora não seja necessário, você poderá manter o sistema base e os ambientes do SDK do Azure isolados uns dos outros se você usar um [ambiente virtual][virtualenv]. Execute os seguintes comandos para configurar um ambiente virtual e, em seguida, entre nele com o [venv][venv], como `cogsrv-vision-env`:
+Although not required, you can keep your base system and Azure SDK environments isolated from one another if you use a [virtual environment][virtualenv]. Execute the following commands to configure and then enter a virtual environment with [venv][venv], such as `cogsrv-vision-env`:
 
 ```Bash
 python3 -m venv cogsrv-vision-env
 source cogsrv-vision-env/bin/activate
 ```
+-->
 
 ### <a name="install-the-sdk"></a>Instalar o SDK
 
@@ -81,9 +96,20 @@ Depois de criar o recurso da Pesquisa Visual Computacional, você precisará da 
 
 Use esses valores ao criar a instância do objeto de cliente da [ComputerVisionAPI][ref_computervisionclient]. 
 
-### <a name="get-credentials"></a>Obter credenciais
+<!--
 
-Use o snippet da [CLI do Azure][cloud_shell] abaixo para popular duas variáveis de ambiente com a **região** e uma das **chaves** da conta da Pesquisa Visual Computacional (encontre também esses valores no [portal do Azure][azure_portal]). O trecho é formatado para o shell do Bash.
+For example, use the Bash terminal to set the environment variables:
+
+```Bash
+ACCOUNT_REGION=<resourcegroup-name>
+ACCT_NAME=<computervision-account-name>
+```
+
+### For Azure subscription usrs, get credentials for key and region
+
+If you do not remember your region and key, you can use the following method to find them. If you need to create a key and region, you can use the method for [Azure subscription holders](#if-you-have-an-azure-subscription) or for [users without an Azure subscription](#if-you-dont-have-an-azure-subscription).
+
+Use the [Azure CLI][cloud_shell] snippet below to populate two environment variables with the Computer Vision account **region** and one of its **keys** (you can also find these values in the [Azure portal][azure_portal]). The snippet is formatted for the Bash shell.
 
 ```Bash
 RES_GROUP=<resourcegroup-name>
@@ -101,44 +127,25 @@ export ACCOUNT_KEY=$(az cognitiveservices account keys list \
     --query key1 \
     --output tsv)
 ```
+-->
 
 ### <a name="create-client"></a>Criar cliente
 
-Depois de popular as variáveis de ambiente `ACCOUNT_REGION` e `ACCOUNT_KEY`, crie o objeto de cliente da [ComputerVisionAPI][ref_computervisionclient].
+Crie o objeto de cliente da [ComputerVisionAPI][ref_computervisionclient]. Altere os valores da região e da chave no exemplo de código a seguir para seus próprios valores.
 
 ```Python
 from azure.cognitiveservices.vision.computervision import ComputerVisionAPI
 from azure.cognitiveservices.vision.computervision.models import VisualFeatureTypes
 from msrest.authentication import CognitiveServicesCredentials
 
-import os
-region = os.environ['ACCOUNT_REGION']
-key = os.environ['ACCOUNT_KEY']
+region = "westcentralus"
+key = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 credentials = CognitiveServicesCredentials(key)
 client = ComputerVisionAPI(region, credentials)
 ```
 
-## <a name="usage"></a>Uso
-
-Depois de inicializar um objeto de cliente da [ComputerVisionAPI][ref_computervisionclient], você poderá:
-
-* Analisar uma imagem: Analise uma imagem para detectar determinadas características, como rostos, cores e marcas.   
-* Gerar miniaturas: Crie uma imagem JPEG personalizada a ser usada como uma miniatura da imagem original.
-* Obter a descrição de uma imagem: Obtenha uma descrição da imagem com base em seu domínio de assunto. 
-
-Para obter mais informações sobre esse serviço, confira [O que é a Pesquisa Visual Computacional?][computervision_docs].
-
-## <a name="examples"></a>Exemplos
-
-As seguintes seções fornecem vários snippets de código que abrangem algumas das tarefas mais comuns da Pesquisa Visual Computacional, incluindo:
-
-* [Analisar uma imagem](#analyze-an-image)
-* [Obter a lista de domínios de assunto](#get-subject-domain-list)
-* [Analisar uma imagem por domínio](#analyze-an-image-by-domain)
-* [Obter uma descrição de texto de uma imagem](#get-text-description-of-an-image)
-* [Obter o texto manuscrito de uma imagem](#get-text-from-image)
-* [Gerar uma miniatura](#generate-thumbnail)
+Você precisará de um objeto de cliente da [ComputerVisionAPI][ref_computervisionclient] antes de usar uma das tarefas a seguir.
 
 ### <a name="analyze-an-image"></a>Analisar uma imagem
 
@@ -169,8 +176,13 @@ for x in models.models_property:
 Analise uma imagem por domínio de assunto com [`analyze_image_by_domain`][ref_computervisionclient_analyze_image_by_domain]. Obtenha a [lista de domínios de assunto com suporte](#get-subject-domain-list) para usar o nome de domínio correto.  
 
 ```Python
+# type of prediction
 domain = "landmarks"
-url = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Broadway_and_Times_Square_by_night.jpg/450px-Broadway_and_Times_Square_by_night.jpg"
+
+# Public domain image of Eiffel tower
+url = "https://images.pexels.com/photos/338515/pexels-photo-338515.jpeg"
+
+# English language response
 language = "en"
 
 analysis = client.analyze_image_by_domain(domain, url, language)
@@ -202,6 +214,10 @@ for caption in analysis.captions:
 Obtenha qualquer texto manuscrito ou impresso de uma imagem. Isso exige duas chamadas ao SDK: [`recognize_text`][ref_computervisionclient_recognize_text] e [`get_text_operation_result`][ref_computervisionclient_get_text_operation_result]. A chamada a recognize_text é assíncrona. Nos resultados da chamada a get_text_operation_result, você precisa verificar se a primeira chamada é concluída com [`TextOperationStatusCodes`][ref_computervision_model_textoperationstatuscodes] antes de extrair os dados de texto. Os resultados incluem o texto, bem como as coordenadas da caixa delimitadora para o texto. 
 
 ```Python
+# import models
+from azure.cognitiveservices.vision.computervision.models import TextRecognitionMode
+from azure.cognitiveservices.vision.computervision.models import TextOperationStatusCodes
+
 url = "https://azurecomcdn.azureedge.net/cvt-1979217d3d0d31c5c87cbd991bccfee2d184b55eeb4081200012bdaf6a65601a/images/shared/cognitive-services-demos/read-text/read-1-thumbnail.png"
 mode = TextRecognitionMode.handwritten
 raw = True
@@ -231,10 +247,19 @@ if result.status == TextOperationStatusCodes.succeeded:
 
 Gere uma miniatura (JPG) de uma imagem com [`generate_thumbnail`][ref_computervisionclient_generate_thumbnail]. A miniatura não precisa estar nas mesmas proporções da imagem original. 
 
-Este exemplo usa o pacote do [Pillow][pypi_pillow] para salvar a nova imagem em miniatura localmente.
+Instale o **Pillow** para usar este exemplo:
+
+```bash
+pip install Pillow
+``` 
+
+Depois de instalar o Pillow, use o pacote no exemplo de código a seguir para gerar a imagem em miniatura.
 
 ```Python
+# Pillow package
 from PIL import Image
+
+# IO package to create local image
 import io
 
 width = 50
@@ -281,17 +306,16 @@ except HTTPFailure as e:
 
 Ao trabalhar com o cliente da [ComputerVisionAPI][ref_computervisionclient], você poderá encontrar falhas transitórias causadas por [limites de taxa][computervision_request_units] impostos pelo serviço ou outros problemas transitórios, como interrupções de rede. Para obter informações sobre como lidar com esses tipos de falhas, confira [Padrão de repetição][azure_pattern_retry] no guia Padrões de Design de Nuvem e o [padrão de Disjuntor][azure_pattern_circuit_breaker] relacionado.
 
-## <a name="next-steps"></a>Próximas etapas
-
 ### <a name="more-sample-code"></a>Mais códigos de exemplo
 
 Várias amostras do SDK da Pesquisa Visual Computacional para Python estão disponíveis para você no repositório GitHub do SDK. Essas amostras fornecem códigos de exemplo para cenários adicionais comumente encontrados ao trabalhar com a Pesquisa Visual Computacional:
 
 * [recognize_text][recognize-text]
 
-### <a name="additional-documentation"></a>Documentação adicional
+## <a name="next-steps"></a>Próximas etapas
 
-Para obter uma documentação mais abrangente sobre o serviço de Pesquisa Visual Computacional, confira a [documentação da Pesquisa Visual Computacional do Azure][computervision_docs] em docs.microsoft.com.
+> [!div class="nextstepaction"]
+> [Aplicando marcas de conteúdo a imagens](../concept-tagging-images.md)
 
 <!-- LINKS -->
 [pip]: https://pypi.org/project/pip/

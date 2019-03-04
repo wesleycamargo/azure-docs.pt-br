@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 06/15/2018
+ms.date: 02/24/2019
 ms.author: apimpm
-ms.openlocfilehash: 4173c0b26b2d176549d3a89cc6fdfa928b6cca5b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 0e104f4cbdef7edc5c109781509e3924400e5ba4
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963837"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959724"
 ---
 # <a name="import-and-publish-your-first-api"></a>Importar e publicar sua primeira API 
 
@@ -48,7 +48,7 @@ Neste tutorial, você aprenderá como:
 Esta seção mostra como importar e publicar uma API de back-end da especificação OpenAPI.
  
 1. Selecione **APIs** em **GERENCIAMENTO DE API**.
-2. Selecione a **Especificação OpenAPI** na lista.
+2. Selecione **Especificação do OpenAPI** na lista e clique em **Completo** no pop-up.
 
     ![Criar uma API](./media/api-management-get-started/create-api.png)
 
@@ -65,7 +65,8 @@ Esta seção mostra como importar e publicar uma API de back-end da especificaç
     | **Esquema de URL**            | *HTTPS*                                            | Determina quais protocolos podem ser usados para acessar a API.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
     | **Sufixo da URL da API**        | *conference*                                       | O sufixo é acrescentado à URL base do serviço de gerenciamento de API. O Gerenciamento de API diferencia as APIs pelo sufixo e, portanto, o sufixo deve ser único para cada API para um editor específico.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
     | **Produtos**              | *Ilimitado*                                        | Os produtos são associações de uma ou mais APIs. É possível incluir várias APIs em um produto e oferecê-las aos desenvolvedores por meio do portal do desenvolvedor. <br/>Você publica a API associando-a a um produto (neste exemplo, *Ilimitado*). Para adicionar essa nova API a um produto, digite o nome do produto (você também pode fazer isso posteriormente, na página **Configurações**). Esta etapa pode ser repetida várias vezes para adicionar a API a vários produtos.<br/>Para obter acesso à API, os desenvolvedores devem, primeiro, inscrever-se em um produto. Com a assinatura, eles obtêm uma chave de assinatura que funciona para qualquer API no produto. <br/> Se você criou a instância do APIM, já é um administrador e, portanto, está inscrito em cada produto.<br/> Por padrão, cada instância de Gerenciamento de API é fornecida com dois produtos função Web: **Starter** e **Ilimitado**. |
-    | Versão desta API?         |                                                    | Para obter mais informações sobre o controle de versão, consulte [Publicar várias versões de sua API](api-management-get-started-publish-versions.md)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+    | **Marcas**                  |                                                    | Marcas para organizar APIs. As marcas podem ser usadas para pesquisa, agrupamento ou filtragem.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+    | **Controlar a versão desta API?**     |                                                    | Para obter mais informações sobre o controle de versão, consulte [Publicar várias versões de sua API](api-management-get-started-publish-versions.md)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 
     >[!NOTE]
     > Para publicar a API, você deve associá-la a um produto. É possível fazer isso na **página Configurações**.

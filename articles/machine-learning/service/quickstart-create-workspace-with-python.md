@@ -11,12 +11,12 @@ author: hning86
 ms.author: haining
 ms.date: 01/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1962cef85c5e663de640f296a6e8e9efd5a1f4d6
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 513df9f68fdd54b5dc90e57bd8389688c46bf615
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310348"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804239"
 ---
 # <a name="quickstart-use-the-python-sdk-to-get-started-with-azure-machine-learning"></a>Início rápido: Usar o SDK do Python para começar a usar o Azure Machine Learning
 
@@ -60,16 +60,18 @@ Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de co
 
 Antes de instalar o SDK, recomendamos que você crie um ambiente de Python isolado primeiro. Embora este artigo use o [Miniconda](https://docs.conda.io/en/latest/miniconda.html), você também poderá usar o [Anaconda](https://www.anaconda.com/) completo instalado ou o [Python virtualenv](https://virtualenv.pypa.io/en/stable/).
 
+As instruções neste início rápido instalarão todos os pacotes necessários para executar o início rápido e os notebooks do tutorial.  Outros notebooks de exemplo podem exigir a instalação de componentes adicionais.  Para obter mais informações sobre esses componentes, veja [Instalar o SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/install).
+
 ### <a name="install-miniconda"></a>Instalar o Miniconda
 
-[Baixe e instale o Miniconda](https://docs.conda.io/en/latest/miniconda.html). Selecione o Python 3.7 ou versão posterior para instalar. Não selecione a versão do Python 2.x.  
+[Baixe e instale o Miniconda](https://docs.conda.io/en/latest/miniconda.html). Selecione a versão 3.7 do Python para instalar. Não selecione a versão do Python 2.x.  
 
 ### <a name="create-an-isolated-python-environment"></a>Criar um ambiente isolado do Python
 
-1. Abra uma janela de linha de comando e crie um ambiente do Conda chamado *myenv* e instale o Python 3.6. O SDK do Azure Machine Learning funcionará com o Python 3.5.2 ou posterior, mas os componentes de aprendizado de máquina automatizado não serão totalmente funcionais no Python 3.7.
+1. Abra uma janela de linha de comando e crie um ambiente do Conda chamado *myenv* e instale o Python 3.6.5. O SDK do Azure Machine Learning funcionará com o Python 3.5.2 ou posterior, mas os componentes de aprendizado de máquina automatizado não serão totalmente funcionais no Python 3.7.  Levará vários minutos para criar o ambiente enquanto os componentes e pacotes são baixados.
 
     ```shell
-    conda create -n myenv -y Python=3.6
+    conda create -n myenv python=3.6.5
     ```
 
 1. Ative o ambiente.
@@ -78,18 +80,24 @@ Antes de instalar o SDK, recomendamos que você crie um ambiente de Python isola
     conda activate myenv
     ```
 
+1. Habilite os kernels ipython específicos do ambiente:
+
+    ```shell
+    conda install notebook ipykernel
+    ```
+
+    Em seguida, crie o kernel:
+
+    ```shell
+    ipython kernel install --user
+    ```
+
 ### <a name="install-the-sdk"></a>Instalar o SDK
 
 1. No ambiente Conda ativado, instale os componentes principais do SDK do Machine Learning com funcionalidades do Jupyter Notebook.  A instalação leva alguns minutos para ser concluída, dependendo da configuração do computador.
 
   ```shell
     pip install --upgrade azureml-sdk[notebooks]
-    ```
-
-1. Instale um servidor do Jupyter Notebook no ambiente do Conda.
-
-  ```shell
-    conda install -y nb_conda
     ```
 
 1. Para usar esse ambiente para os tutoriais do Azure Machine Learning, instale esses pacotes.

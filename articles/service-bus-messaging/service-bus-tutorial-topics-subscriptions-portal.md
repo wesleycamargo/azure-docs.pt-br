@@ -9,12 +9,12 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: fb3358775881f102ecea62fbd20a1e4d85dda308
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 10f3f7d6b878e8f1d4efee360e0f8a9967ac07bc
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001627"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886427"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Tutorial: Atualizar estoque usando o portal do Azure e tópicos/assinaturas
 
@@ -45,49 +45,11 @@ Para concluir este tutorial, verifique se você tem o seguinte instalado:
 
 Cada [assinatura a um tópico](service-bus-messaging-overview.md#topics) pode receber uma cópia de cada mensagem. Os tópicos tem total compatibilidade de protocolo e semântica com filas do Barramento de Serviço. Os tópicos do Barramento de Serviço dão suporte a uma ampla matriz de regras de seleção com condições de filtro, com ações opcionais que definem ou modificam as propriedades da mensagem. Cada vez que uma regra corresponde, é produzida uma mensagem. Para saber mais sobre regras, filtros e ações, consulte este [link](topic-filters.md).
 
-## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-Primeiro, vá para o [portal do Azure][Azure portal] e entre usando a assinatura do Azure. A primeira etapa é criar um namespace de Barramento de Serviço do tipo **Mensagens**.
+[!INCLUDE [service-bus-create-topics-three-subscriptions-portal](../../includes/service-bus-create-topics-three-subscriptions-portal.md)]
 
-## <a name="create-a-service-bus-namespace"></a>Criar um namespace do Barramento de Serviço
 
-Um namespace de mensagens do Barramento de Serviço fornece um contêiner de escopo exclusivo, referenciado pelo [nome de domínio totalmente qualificado][], em que você cria uma ou mais filas, tópicos e assinaturas. O exemplo a seguir cria um namespace de mensagens do Barramento de Serviço em um [grupo de recursos](/azure/azure-resource-manager/resource-group-portal):
-
-1. No painel de navegação esquerdo do portal, clique em **+ Criar um recurso**, depois em **Integração Corporativa** e em **Barramento de Serviço**.
-2. Na caixa de diálogo **Criar um namespace** , digite um nome de namespace. O sistema imediatamente verifica para ver se o nome está disponível.
-3. Após verificar se o nome do namespace está disponível, escolha o tipo de preço (Standard ou Premium).
-4. No campo **Assinatura** , escolha uma assinatura do Azure na qual criar o namespace.
-5. No campo **Grupo de Recursos** , escolha um grupo de recursos existente no qual o namespace residirá, ou então crie um novo.      
-6. Em **Localização**, escolha o país ou região no qual o namespace deve ser hospedado.
-7. Clique em **Criar**. Agora, o sistema cria o seu namespace e o habilita. Talvez você precise aguardar vários minutos, conforme o sistema fornece recursos para sua conta.
-
-  ![namespace](./media/service-bus-tutorial-topics-subscriptions-portal/create-namespace.png)
-
-### <a name="obtain-the-management-credentials"></a>Obter as credenciais de gerenciamento
-
-A criação de um novo namespace gera automaticamente uma regra de SAS (assinatura de acesso compartilhado) inicial com um par de chaves primárias e secundárias associado que concede, cada um, controle total sobre todos os aspectos do namespace. Para copiar a regra inicial, siga estas etapas:
-
-1. Clique em **Todos os recursos** e depois clique no nome do namespace recém-criado.
-2. Na janela namespace, clique em **Políticas de acesso compartilhado**.
-3. Na tela **Políticas de acesso compartilhado**, clique em **RootManageSharedAccessKey**.
-4. Na janela **Política: RootManageSharedAccessKey**, clique no botão **Copiar** próximo à **Cadeia de Conexão Primária** para copiar a cadeia de conexão na área de transferência para uso posterior. Cole esse valor no Bloco de notas ou em outro local temporário.
-
-    ![connection-string][connection-string]
-5. Repita a etapa anterior, copiando e colando o valor de **chave primária** para um local temporário para uso posterior.
-
-## <a name="create-a-topic-and-subscriptions"></a>Criar um tópico e assinaturas
-
-Para criar um tópico de Barramento de Serviço, especifique o namespace sob o qual você deseja criá-lo. O exemplo a seguir mostra como criar um tópico no portal:
-
-1. No painel de navegação à esquerda do portal, clique em **Barramento de Serviço** (se a opção **Barramento de Serviço** não estiver visível, clique em **Todos os serviços**).
-2. Clique no namespace no qual você gostaria de criar o Tópico.
-3. Na janela do namespace, clique em **Tópicos** e, em seguida, na janela **Tópicos**, clique em **+ Tópicos**.
-4. Insira o **Nome** do Tópico e deixe os outros valores com os padrões.
-5. Na parte inferior da janela, clique em **Criar**.
-6. Anote o nome do tópico.
-7. Selecione o tópico que você acabou de criar.
-8. Clique em **+ Assinatura**, insira o nome da assinatura **S1** e deixe todos os outros valores com os padrões.
-9. Repita a etapa anterior mais duas vezes, criando assinaturas nomeadas como **S2** e **S3**.
 
 ## <a name="create-filter-rules-on-subscriptions"></a>Criar regras de filtro nas assinaturas
 
@@ -105,7 +67,7 @@ Para executar o código, faça o seguinte:
 
 2. Navegue até a pasta de exemplo `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveTutorialwithFilters`.
 
-3. Obtenha a cadeia de conexão que você copiou para o Bloco de Notas na seção [ Obter as credenciais de gerenciamento ](#obtain-the-management-credentials) deste tutorial. Também será necessário o nome do tópico que você criou na seção anterior.
+3. Obtenha a cadeia de conexão copiada para o Bloco de notas na seção Obter as credenciais de gerenciamento deste tutorial. Também será necessário o nome do tópico que você criou na seção anterior.
 
 4. No prompt de comando, digite o comando a seguir:
 
@@ -451,7 +413,7 @@ Avance para o próximo tutorial para saber mais sobre como usar os recursos de p
 > [Atualizar estoque usando o PowerShell e tópicos/assinaturas](service-bus-tutorial-topics-subscriptions-powershell.md)
 
 [conta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[nome de domínio totalmente qualificado]: https://wikipedia.org/wiki/Fully_qualified_domain_name
+[fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Azure portal]: https://portal.azure.com/
 
 [connection-string]: ./media/service-bus-tutorial-topics-subscriptions-portal/connection-string.png

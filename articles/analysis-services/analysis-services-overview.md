@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 02/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 114dac10592213d3b2fdfff909913039b3dba344
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 53ce82a6e1180d4493e2d4014bf6e26e9bde2466
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429427"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731388"
 ---
 # <a name="what-is-azure-analysis-services"></a>O que é o Azure Analysis Services?
 
@@ -132,7 +132,7 @@ O custo total depende de vários fatores, por exemplo, a região escolhida, cama
 
 ## <a name="built-on-sql-server-analysis-services"></a>Criado no SQL Server Analysis Services
 
-O Azure Analysis Services é compatível com os mesmos recursos incríveis já presentes no SQL Server Analysis Services Enterprise Edition. O Azure Analysis Services dá suporte a modelos tabulares nos [níveis de compatibilidade](analysis-services-compat-level.md) 1200 e superior. Modelos tabulares são constructos de modelagem relacional (modelo, tabelas, colunas), articulados nas definições do objeto de metadados tabulares no código TOM (Modelo de Objeto Tabular) e TMSL (Linguagem de Scripts de Modelo de Tabela). Partições, perspectivas, segurança em nível de linha, relacionamentos bidirecionais e traduções todos têm suporte*. Modelos multidimensionais e PowerPivot para SharePoint *não* têm suporte no Azure Analysis Services.
+O Azure Analysis Services é compatível com os mesmos recursos incríveis já presentes no SQL Server Analysis Services Enterprise Edition. O Azure Analysis Services dá suporte a modelos tabulares nos [níveis de compatibilidade](analysis-services-compat-level.md) 1200 e superior. Modelos tabulares são constructos de modelagem relacional (modelo, tabelas, colunas), articulados nas definições do objeto de metadados tabulares no código TOM (Modelo de Objeto Tabular) e TMSL (Linguagem de Scripts de Modelo de Tabela). Partições, perspectivas, segurança em nível de linha, relacionamentos bidirecionais e traduções: são todos têm suporte\*. Modelos multidimensionais e PowerPivot para SharePoint *não* têm suporte no Azure Analysis Services.
 
 Há suporte para ambos os modos DirectQuery e in-memory. No modo in-memory (padrão), os modelos tabulares dão suporte a várias fontes de dados. Como os dados do modelo são altamente compactados e armazenados em cache in-memory, esse modo fornece a resposta de consulta mais rápida em grandes quantidades de dados. Ele também fornece a maior flexibilidade para consultas e conjuntos de dados complexos. O particionamento habilita cargas incrementais, aumenta a paralelização e reduz o consumo de memória. Outros recursos avançados de modelagem de dados, como tabelas calculadas e todas as funções do DAX têm suporte. Os modelos in-memory devem ser atualizados (processados) para atualizar os dados armazenados em cache das fontes de dados. Com o suporte à entidade de serviço do Azure, as operações de atualização autônoma usando PowerShell, TOM, TMSL e REST oferecem flexibilidade para garantir que os dados do modelo estejam sempre atualizados. 
 
@@ -203,7 +203,7 @@ Gerencie seus servidores e bancos de dados modelo usando o [SQL Server Managemen
 
 ### <a name="powershell"></a>PowerShell
 
-As tarefas de gerenciamento de recursos de servidor, como criar servidores, suspender ou retomar operações de servidor ou alterar o nível de serviço (camada), usam cmdlets do AzureRM (Azure Resource Manager). Outras tarefas de gerenciamento de bancos de dados, como adição ou remoção de membros da função, processamento ou execução de scripts TMSL usam os cmdlets incluídos no módulo SqlServer. Para saber mais, consulte [Gerenciar o Azure Analysis Services com o PowerShell ](analysis-services-powershell.md).
+As tarefas de gerenciamento de recursos de servidor, como criar servidores, suspender ou retomar operações de servidor ou alterar o nível de serviço (camada), usam cmdlets do Azure PowerShell. Outras tarefas de gerenciamento de bancos de dados, como adição ou remoção de membros da função, processamento ou execução de scripts TMSL usam os cmdlets incluídos no módulo SqlServer. Para saber mais, consulte [Gerenciar o Azure Analysis Services com o PowerShell ](analysis-services-powershell.md).
 
 ### <a name="object-model-and-scripting"></a>Modelo de objeto e script
 

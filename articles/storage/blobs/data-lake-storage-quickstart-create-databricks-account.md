@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Analisar dados no Azure Data Lake Storage Gen2 usando o Azure Databricks | Microsoft Docs'
+title: 'Início Rápido: Analisar dados no Azure Data Lake Storage Gen2 usando o Azure Databricks | Microsoft Docs'
 description: Saiba como executar um trabalho do Spark no Azure Databricks usando o portal do Azure e uma conta de armazenamento do Azure Data Lake Storage Gen2.
 services: storage
 author: normesta
@@ -8,14 +8,14 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/15/2019
-ms.openlocfilehash: 9d00819143d9a8fc38bfc09844d55f088e732b46
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 1b5f05f3cddea986230327165399b0fe530e361b
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453019"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56588068"
 ---
-# <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>Início rápido: Analisar dados no Azure Data Lake Storage Gen2 usando o Azure Databricks
+# <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>Início Rápido: Analisar dados no Azure Data Lake Storage Gen2 usando o Azure Databricks
 
 Este início rápido mostra como executar um trabalho do Apache Spark usando o Azure Databricks para executar uma análise dos dados armazenados em uma conta de armazenamento com o Azure Data Lake Storage Gen2 habilitado.
 
@@ -124,6 +124,9 @@ Nesta seção, você cria um bloco de anotações no workspace do Azure Databric
     > Esse bloco de código acessa diretamente o ponto de extremidade do Data Lake Gen2 usando o OAuth, mas há outras maneiras de conectar o workspace do Databricks à sua conta do Data Lake Storage Gen2. Por exemplo, você pode montar o sistema de arquivos usando o OAuth ou usar um acesso direto com uma Chave Compartilhada. <br>Para ver exemplos dessas abordagens, confira o artigo [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) no site do Azure Databricks.
 
 5. Neste bloco de código, substitua os valores de espaço reservado `storage-account-name`, `application-id`, `authentication-id` e `tenant-id` pelos valores coletados ao criar a entidade de serviço. Defina o valor de espaço reservado `file-system-name` com qualquer nome que deseja fornecer ao sistema de arquivos.
+
+    > [!NOTE]
+    > Em uma configuração de produção, considere armazenar sua chave de autenticação no Azure Databricks. Em seguida, adicione uma chave de pesquisa ao bloco de código em vez da chave de autenticação. Depois de concluir este início rápido, consulte o artigo [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) no site Azure Databricks para ver exemplos dessa abordagem.
 
 6. Pressione as teclas **SHIFT+ENTER** para executar o código nesse bloco.
 

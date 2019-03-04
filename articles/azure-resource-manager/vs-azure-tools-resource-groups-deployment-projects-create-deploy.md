@@ -11,22 +11,20 @@ ms.devlang: multiple
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/02/2018
+ms.date: 02/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0b00bff2b32ac9dd16d4d38ee35be006c0247bb8
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 246ee5f8360869c1b0f901ee54d56e017ac8aeb7
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493408"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649672"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Criação e implantação de grupos de recurso do Azure por meio do Visual Studio
 
 Com o Visual Studio, você pode criar um projeto que implementa sua infraestrutura e o código no Azure. Por exemplo, você pode definir o host da Web, o site da Web e o banco de dados para seu aplicativo, e implantar essa infraestrutura juntamente com o código. O Visual Studio fornece muitos modelos iniciais diferentes para implantar cenários comuns. Neste artigo, você pode implantar um aplicativo Web e o Banco de Dados SQL.  
 
 Este artigo mostra como usar o [Visual Studio 2017 com as cargas de trabalho de Desenvolvimento do Azure e ASP.NET](/dotnet/azure/dotnet-tools). Se você usar o Visual Studio 2015 Atualização 2 e o SDK do Microsoft Azure para .NET 2.9, ou o Visual Studio 2013 com o SDK do Azure 2.9, sua experiência será basicamente a mesma.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="create-azure-resource-group-project"></a>Criar um projeto do Grupo de Recursos do Azure
 
@@ -101,7 +99,7 @@ O parâmetro **storageType** é predefinido com os tipos permitidos e um tipo pa
 }
 ```
 
-O Visual Studio também fornece o intellisense para ajudá-lo a entender quais propriedades estão disponíveis ao editar o modelo. Por exemplo, para editar as propriedades de seu plano do Serviço de Aplicativo, navegue até o recurso **HostingPlan** e adicione um valor para as **propriedades**. Observe que o intellisense mostra os valores disponíveis e fornece uma descrição desse valor.
+O Visual Studio também fornece o intellisense para ajudá-lo a entender as propriedades que estão disponíveis ao editar o modelo. Por exemplo, para editar as propriedades de seu plano do Serviço de Aplicativo, navegue até o recurso **HostingPlan** e adicione um valor para as **propriedades**. Observe que o intellisense mostra os valores disponíveis e fornece uma descrição desse valor.
 
 ![mostrar intellisense](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-intellisense.png)
 
@@ -148,7 +146,9 @@ Agora, você está pronto para implantar seu projeto. Quando você implanta um p
 5. Escolha o botão **Implantar** para implantar o projeto no Azure. Um console do PowerShell é aberto fora da instância do Visual Studio. Digite a senha de administrador do SQL Server no console do PowerShell quando for solicitado. **O console do PowerShell pode estar oculto por trás de outros itens ou minimizado na barra de tarefas.** Procure esse console e selecione-o para fornecer a senha.
    
    > [!NOTE]
-   > O Visual Studio pode solicitar que você instale os cmdlets do Azure PowerShell. Você precisa dos cmdlets do Azure PowerShell para implantar com êxito os grupos de recursos. Se solicitado, instale-os. Para obter mais informações, consulte [Instalar e configurar o Azure PowerShell](/powershell/azure/install-az-ps).
+   > O Visual Studio pode solicitar que você instale os cmdlets do Azure PowerShell. Se solicitado, instale-os. Você precisa dos módulos do Azure PowerShell para implantar com êxito os grupos de recursos. O script do PowerShell no projeto não funciona com o novo [módulo Az do Azure PowerShell](/powershell/azure/new-azureps-module-az). 
+   >
+   > Para obter mais informações, consulte [Instalar e configurar módulos do Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
    > 
    > 
 6. A implantação pode demorar alguns minutos. Nas janelas de **Saída**, confira o status da implantação. Quando a implantação tiver sido concluída, a última mensagem indicará uma implantação bem-sucedida com algo semelhante a:

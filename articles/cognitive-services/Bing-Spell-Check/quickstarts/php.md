@@ -1,31 +1,32 @@
 ---
-title: 'Início Rápido: API de Verificação Ortográfica do Bing, PHP'
+title: 'Início rápido: Verificar a ortografia com a API REST de Verificação Ortográfica do Bing e o PHP'
 titlesuffix: Azure Cognitive Services
-description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar rapidamente a API de Verificação Ortográfica do Bing.
+description: Comece a usar a API de Verificação Ortográfica do Bing para verificar a ortografia e a gramática.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 09/14/2017
+ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: abce882edb9b6c97ea3b8a91219f8e2887cfb78d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bb952a9169710a7ba8248293e1eab30c7a2da6c0
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862302"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888926"
 ---
-# <a name="quickstart-for-bing-spell-check-api-with-php"></a>Início Rápido para a API de Verificação Ortográfica do Bing com PHP 
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-php"></a>Início Rápido: Verificar a ortografia com a API REST de Verificação Ortográfica do Bing e o PHP
 
-Este artigo mostra como usar a [API de Verificação Ortográfica do Bing](https://azure.microsoft.com/services/cognitive-services/spell-check/)  com PHP. A API de Verificação Ortográfica retorna uma lista de palavras que ela não reconhece, juntamente com as substituições sugeridas. Normalmente, você enviaria texto para essa API e faria as substituições sugeridas no texto, ou então as mostraria para o usuário do seu aplicativo para que ele pudesse decidir realizar ou não as substituições. Este artigo mostra como enviar uma solicitação que contém o texto "Omá, mndo!" As substituições sugeridas são "Olá" e "mundo".
+Use este Início Rápido para fazer sua primeira chamada à API REST de Verificação Ortográfica do Bing. Este aplicativo Python simples envia uma solicitação à API e retorna uma lista de correções sugeridas. Embora esse aplicativo seja escrito em Python, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Você precisará ter o [PHP 5.6.x](http://php.net/downloads.php) para executar esse código.
+* [PHP 5.6.x](http://php.net/downloads.php)
 
-É necessário ter uma [conta de API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **API de Verificação Ortográfica do Bing v7**. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/#lang) é suficiente para esse início rápido. É necessário ter a chave de acesso fornecida ao ativar a avaliação gratuita ou você poderá usar uma chave de assinatura paga no painel do Azure.  Veja também [Cognitive Services Pricing - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+[!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
+
 
 ## <a name="get-spell-check-results"></a>Obter resultados da Verificação Ortográfica
 
@@ -130,13 +131,10 @@ Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exem
    ]
 }
 ```
-
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Tutorial de Verificação Ortográfica do Bing](../tutorials/spellcheck.md)
+> [Criar um aplicativo Web de página única](../tutorials/spellcheck.md)
 
-## <a name="see-also"></a>Consulte também
-
-- [Visão geral da Verificação Ortográfica do Bing](../proof-text.md)
+- [O que é API de Verificação Ortográfica do Bing?](../overview.md)
 - [Referência de API de Verificação Ortográfica do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)

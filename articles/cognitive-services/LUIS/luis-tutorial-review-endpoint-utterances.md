@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: 88ac9f07fb8791ca3d64123663b0380a56220cdd
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 25841971a2e7921c89c63032e8fd48bc528263aa
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865940"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878160"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Tutorial: Corrigir previsões incertas examinando os enunciados de ponto de extremidade
 Neste tutorial, melhore as previsões de aplicativo verificando ou corrigindo os enunciados recebidos pelo ponto de extremidade HTTP do LUIS sobre os quais o LUIS não tem certeza. Alguns enunciados podem precisar ser verificados quanto à intenção e outros quanto à entidade. Você deve analisar os enunciados de ponto de extremidade como uma parte regular da sua manutenção agendada do LUIS. 
@@ -50,11 +50,13 @@ Use as seguintes etapas:
 
 1.  Baixe e salve o [arquivo JSON do aplicativo](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json).
 
-2. Importe o JSON em um novo aplicativo.
+1. Importe o JSON em um novo aplicativo.
 
-3. Na seção **Gerenciar**, na guia **Versões**, clone a versão e nomeie-a como `review`. A clonagem é uma ótima maneira de testar vários recursos de LUIS sem afetar a versão original. Como o nome da versão é usado como parte da rota de URL, o nome não pode conter nenhum caractere que não seja válido em uma URL.
+1. Na seção **Gerenciar**, na guia **Versões**, clone a versão e nomeie-a como `review`. A clonagem é uma ótima maneira de testar vários recursos de LUIS sem afetar a versão original. Como o nome da versão é usado como parte da rota de URL, o nome não pode conter nenhum caractere que não seja válido em uma URL.
 
-    Se você usar este tutorial como um aplicativo novo e importado, você também precisa treinar, publicar e, em seguida, adicionar os enunciados para o ponto de extremidade com um [script](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) ou a partir do ponto de extremidade em um navegador. Os enunciados a serem adicionados são:
+1. Treine e publique o novo aplicativo.
+
+1. Use o ponto de extremidade para adicionar os enunciados a seguir. Faça isso com um [script](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) ou por meio do ponto de extremidade em um navegador. Os enunciados a serem adicionados são:
 
    [!code-nodejs[Node.js code showing endpoint utterances to add](~/samples-luis/examples/demo-upload-endpoint-utterances/endpoint.js?range=15-26)]
 
@@ -64,13 +66,13 @@ Use as seguintes etapas:
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-2. Selecione **Examinar enunciados de ponto de extremidade** na barra de navegação à esquerda. A lista é filtrada para a intenção **ApplyForJob**. 
+1. Selecione **Examinar enunciados de ponto de extremidade** na barra de navegação à esquerda. A lista é filtrada para a intenção **ApplyForJob**. 
 
-    [ ![Captura de tela do botão Examinar enunciados de ponto de extremidade na barra de navegação à esquerda](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png#lightbox)
+    [![Captura de tela do botão Examinar enunciados de ponto de extremidade na barra de navegação à esquerda](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png#lightbox)
 
-3. Alterne o **modo de exibição de Entidades** para ver as entidades rotuladas. 
+1. Alterne o **modo de exibição de Entidades** para ver as entidades rotuladas. 
     
-    [ ![Captura de tela de Examinar enunciados de ponto de extremidade com o modo de exibição de Entidades destacado](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png#lightbox)
+    [![Captura de tela de Examinar enunciados de ponto de extremidade com a alternância da exibição Entidades realçada](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png#lightbox)
 
     |Enunciado|Intenção correta|Entidades ausentes|
     |:--|:--|:--|
@@ -78,29 +80,29 @@ Use as seguintes etapas:
 
     Esse enunciado não está na intenção correta e tem uma pontuação inferior a 50%. A intenção **ApplyForJob** tem 21 declarações em comparação com os sete enunciados em **GetJobInformation**. Além de alinhar corretamente o enunciado de ponto de extremidade, mais enunciados devem ser adicionados à intenção **GetJobInformation**. Isso será deixado como um exercício para você concluir por conta própria. Cada intenção, exceto a intenção **None**, deve ter aproximadamente o mesmo número de enunciados de exemplo. A intenção **None** deve conter 10% do total de enunciados no aplicativo. 
 
-4. Para a intenção `I'm looking for a job with Natual Language Processing`, selecione a intenção correta **GetJobInformation** na coluna **Alinhar intenção**. 
+1. Para a intenção `I'm looking for a job with Natual Language Processing`, selecione a intenção correta **GetJobInformation** na coluna **Alinhar intenção**. 
 
-    [ ![Captura de tela de Examinar enunciados de ponto de extremidade alinhando o enunciado com a intenção](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png)](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png#lightbox)
+    [![Captura de tela de Examinar enunciados de ponto de extremidade alinhando o enunciado com a intenção](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png)](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png#lightbox)
 
-5. No mesmo enunciado, a entidade para `Natural Language Processing` é a keyPhrase. Essa deve ser uma entidade **Trabalho**. Selecione `Natural Language Processing`, em seguida, selecione a entidade **Trabalho** na lista.
+1. No mesmo enunciado, a entidade para `Natural Language Processing` é a keyPhrase. Essa deve ser uma entidade **Trabalho**. Selecione `Natural Language Processing`, em seguida, selecione a entidade **Trabalho** na lista.
 
-    [ ![Captura de tela de Examinar enunciados de ponto de extremidade rotulando a entidade no enunciado](./media/luis-tutorial-review-endpoint-utterances/label-entity.png)](./media/luis-tutorial-review-endpoint-utterances/label-entity.png#lightbox)
+    [![Captura de tela de Examinar enunciados de ponto de extremidade rotulando a entidade no enunciado](./media/luis-tutorial-review-endpoint-utterances/label-entity.png)](./media/luis-tutorial-review-endpoint-utterances/label-entity.png#lightbox)
 
-6. Na mesma linha, selecione a marca de seleção dentro de um círculo na coluna **Adicionar à intenção alinhada**. 
+1. Na mesma linha, selecione a marca de seleção dentro de um círculo na coluna **Adicionar à intenção alinhada**. 
 
-    [ ![Captura de tela de Finalizando o alinhamento do enunciado na intenção](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png)](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png#lightbox)
+    [![Captura de tela de Finalizando o alinhamento do enunciado na intenção](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png)](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png#lightbox)
 
     Essa ação move o enunciado de **Examinar os enunciados de ponto de extremidade** para a intenção **GetJobInformation**. O enunciado de ponto de extremidade agora é um enunciado de exemplo para essa intenção. 
 
-7. Examine o restante dos enunciados nessa intenção, rotulando os enunciados e corrigindo a **Intenção alinhada**, se estas estiverem incorretas.
+1. Examine o restante dos enunciados nessa intenção, rotulando os enunciados e corrigindo a **Intenção alinhada**, se estas estiverem incorretas.
 
-8. Quando todos os enunciados estiverem corretos, marque a caixa de seleção em cada linha, em seguida **Adicionar selecionada** para alinhar os enunciados corretamente. 
+1. Quando todos os enunciados estiverem corretos, marque a caixa de seleção em cada linha, em seguida **Adicionar selecionada** para alinhar os enunciados corretamente. 
 
-    [ ![Captura de tela de Finalizando os enunciados restantes para a intenção alinhada](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png)](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png#lightbox)
+    [![Captura de tela de Finalizando os enunciados restantes na intenção alinhada](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png)](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png#lightbox)
 
-9. A lista não deve ter mais esses enunciados. Se aparecerem mais enunciados, continue a trabalhar na lista, corrigindo as intenções e rotulando quaisquer entidades ausentes, até que ela fique vazia. 
+1. A lista não deve ter mais esses enunciados. Se aparecerem mais enunciados, continue a trabalhar na lista, corrigindo as intenções e rotulando quaisquer entidades ausentes, até que ela fique vazia. 
 
-10. Selecione a intenção seguinte na lista de Filtros e continue a corrigir os enunciados e a rotular as entidades. Lembre-se que a última etapa de cada intenção é selecionar **Adicionar à intenção alinhada** na linha do enunciado ou marcar a caixa para cada enunciado e selecionar **Adicionar selecionada** acima da tabela.
+1. Selecione a intenção seguinte na lista de Filtros e continue a corrigir os enunciados e a rotular as entidades. Lembre-se que a última etapa de cada intenção é selecionar **Adicionar à intenção alinhada** na linha do enunciado ou marcar a caixa para cada enunciado e selecionar **Adicionar selecionada** acima da tabela.
 
     Continue até que todas as intenções e entidades na lista de filtro tenham uma lista vazia. Esse é um aplicativo muito pequeno. O processo de revisão leva apenas alguns minutos. 
 

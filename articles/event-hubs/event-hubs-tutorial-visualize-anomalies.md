@@ -8,13 +8,13 @@ ms.author: shvija
 ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
-ms.date: 12/06/2018
-ms.openlocfilehash: 5f9af39616e45983a7ec592f33c3f2ffd34ea34f
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.date: 02/26/2019
+ms.openlocfilehash: 4f72def4d81f51fcf1bedbeb83798b16ebb6eb32
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233391"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888654"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Tutorial: Visualizar anomalias de dados nos eventos em tempo real enviados aos Hubs de Eventos do Azure
 
@@ -324,6 +324,8 @@ No trabalho do Stream Analytics, clique em **Iniciar**, **Agora**, **Iniciar**. 
 
     ![Captura de tela da especificação do título e do subtítulo do bloco do painel.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-tile-details.png)
 
+    > [!IMPORTANT]
+    > Quando você executa o aplicativo de exemplo e transmite dados para o hub de eventos, o número nesse bloco muda rapidamente (a cada segundo). Isso ocorre porque a consulta do Stream Analytics, na verdade, atualiza o valor a **cada segundo**. Atualize a consulta para uma janela em cascata de 3 minutos para ver a soma dos últimos minutos. 
 11. Adicione outra visualização. Repita as primeiras etapas novamente:
 
    * Clique em **Adicionar Bloco**.

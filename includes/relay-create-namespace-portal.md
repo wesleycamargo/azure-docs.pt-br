@@ -4,18 +4,18 @@ ms.service: service-bus-relay
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: clemensv
-ms.openlocfilehash: 13ac2ec0569dc79791eca9efb2bd51e7b76ddd05
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: bbcf38ab54632144920b729f433c222f426d96dc
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51571743"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56825488"
 ---
 1. Entre no [Portal do Azure][Azure portal].
 2. No menu esquerdo, selecione **+ Criar um recurso**. Em seguida, selecione **Integração** > **Retransmissão**. Se a opção **Retransmissão** não for exibida na lista, selecione **Ver Tudo** no canto superior direito. 
 3. Em **Criar um namespace**, insira um nome de namespace. O sistema imediatamente verifica para ver se o nome está disponível.
 4. Na caixa **Assinatura**, selecione uma assinatura do Azure na qual criar o namespace.
-5. Na caixa [Grupo de recursos](../articles/azure-resource-manager/resource-group-portal.md), selecione um grupo de recursos existente no qual colocar o namespace, ou então crie um novo.  
+5. Na caixa [Grupo de recursos](../articles/azure-resource-manager/manage-resource-groups-portal.md), selecione um grupo de recursos existente no qual colocar o namespace, ou então crie um novo.  
 6. Em **Localização**, selecione o país ou região no qual o namespace deve ser hospedado.
    
     ![Criar um namespace][create-namespace]
@@ -28,7 +28,7 @@ ms.locfileid: "51571743"
 3. Em **Políticas de acesso compartilhado**, selecione **RootManageSharedAccessKey**.
    
     ![informações de conexão][connection-info]
-4. Em **política: RootManageSharedAccessKey**, selecione o botão **Cópia** ao lado de **Cadeia de conexão – Chave primária**. Isso copiará a cadeia de conexão para a área de transferência para uso posterior. Cole esse valor no Bloco de notas ou em outro local temporário.
+4. Em **Política: RootManageSharedAccessKey**, selecione o botão **Cópia** ao lado de **Cadeia de conexão – Chave primária**. Isso copiará a cadeia de conexão para a área de transferência para uso posterior. Cole esse valor no Bloco de notas ou em outro local temporário.
    
     ![connection-string][connection-string]
 

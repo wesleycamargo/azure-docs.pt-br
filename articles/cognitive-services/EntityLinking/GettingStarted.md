@@ -10,12 +10,12 @@ ms.subservice: entity-linking-intelligence
 ms.topic: tutorial
 ms.date: 07/06/2016
 ms.author: davl
-ms.openlocfilehash: c3e7d27fa0e62c1dcc92e7eac7ddb56a1de5ba49
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: fc1bdd5c6ad4829e22af9922c6749e60f842abaf
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857798"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594025"
 ---
 # <a name="tutorial-build-an-entity-linking-app-with-c"></a>Tutorial: Criar um aplicativo de vinculação de entidade com C#
 
@@ -55,7 +55,7 @@ A Vinculação de Entidade agora está instalada como parte do seu aplicativo. V
  ![Biblioteca do nuget incluído no projeto](./Images/NugetLibraryInProject.png)
  
 ### <a name="step-4-add-an-input-and-output-text-block-to-your-apps-xaml">Etapa 4: Adicionar um bloco de texto de entrada e saída para XAML do seu aplicativo</a>
-Navegue até **MainPage. XAML** no **Gerenciador de Soluções**, em seguida, clique duas vezes no arquivo que será aberto em uma nova janela. Para sua conveniência, você pode clicar duas vezes no botão **XAML** da guia **Designer**, isso ocultará o **Visual Designer** e reservará todo o espaço para o modo de exibição de código.
+Navegue até **MainPage.xaml** no **Gerenciador de Soluções** e, em seguida, clique duas vezes no arquivo que será aberto em uma nova janela. Para sua conveniência, você pode clicar duas vezes no botão **XAML** da guia **Designer**, isso ocultará o **Visual Designer** e reservará todo o espaço para o modo de exibição de código.
 
  ![Biblioteca do nuget incluído no projeto](./Images/UWPMainPage.png)
  

@@ -7,18 +7,20 @@ ms.service: firewall
 ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: victorh
-ms.openlocfilehash: 1354faad4abf9a8a4b56414628d39d9a6f90d721
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 2befbf66733430e6077f5e5ff3044c30a77b7e5c
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426160"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958962"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Tutorial: Monitorar os logs e as métricas do Firewall do Azure
 
 Você pode monitorar o Firewall do Azure usando os logs de firewall. Você também pode usar os logs de atividades para auditar operações nos recursos do Firewall do Azure. Usando as métricas, você pode exibir contadores de desempenho no portal. 
 
-Você pode acessar alguns desses logs por meio do portal. Os logs podem ser enviados para [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), Armazenamento e Hubs de Eventos e analisados no Log Analytics ou por outras ferramentas, como Excel e Power BI.
+Você pode acessar alguns desses logs por meio do portal. Os logs podem ser enviados para os [logs do Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md), o Armazenamento e os Hubs de Eventos e analisados nos logs do Azure Monitor ou por ferramentas diferentes, como Excel e Power BI.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 Neste tutorial, você aprenderá como:
 
@@ -48,7 +50,7 @@ Pode levar alguns minutos até que os dados sejam exibidos em seus logs depois d
 
 3. Para iniciar a coleta de dados., clique em **Ativar diagnóstico**.
 4. A página **Configurações de diagnóstico** fornece as configurações dos logs de diagnóstico. 
-5. Neste exemplo, o Log Analytics armazena os logs, então digite **Firewall do log analytics** para o nome.
+5. Neste exemplo, os logs do Azure Monitor armazenam os logs; portanto, digite **Log Analytics do Firewall** para o nome.
 6. Clique em **Enviar para o Log Analytics** para configurar seu workspace. Você também pode usar os hubs de eventos e uma conta de armazenamento para salvar os logs de diagnóstico.
 7. Em **Log Analytics**, clique em **Configurar**.
 8. Na página Workspaces do Log Analytics, clique em **Criar Novo Workspace**.
@@ -89,14 +91,14 @@ Para habilitar os logs de diagnóstico, realize as seguintes etapas:
 
 Você pode exibir e analisar os dados do log de atividades usando um dos seguintes métodos:
 
-* **Ferramentas do Azure**: recupere informações do log de atividades por meio do Azure PowerShell, da CLI do Azure, da API REST do Azure ou do portal do Azure. As instruções passo a passo para cada método são detalhadas no artigo [Activity operations with Resource Manager](../azure-resource-manager/resource-group-audit.md) (Operações de atividade com o Resource Manager).
-* **Power BI**: se ainda não tiver uma conta do [Power BI](https://powerbi.microsoft.com/pricing), experimente uma gratuitamente. Com o [pacote de conteúdo dos Logs de Atividades do Azure para Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/), você pode analisar seus dados com painéis pré-configurados que podem ser usados no estado em que se encontram ou ser personalizados.
+* **Ferramentas do Azure**: Recupere informações do log de atividades por meio do Azure PowerShell, da CLI do Azure, da API REST do Azure ou do portal do Azure. As instruções passo a passo para cada método são detalhadas no artigo [Activity operations with Resource Manager](../azure-resource-manager/resource-group-audit.md) (Operações de atividade com o Resource Manager).
+* **Power BI**: Se ainda não tiver uma conta do [Power BI](https://powerbi.microsoft.com/pricing), experimente uma gratuitamente. Com o [pacote de conteúdo dos Logs de Atividades do Azure para Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/), você pode analisar seus dados com painéis pré-configurados que podem ser usados no estado em que se encontram ou ser personalizados.
 
 ## <a name="view-and-analyze-the-network-and-application-rule-logs"></a>Exibir e analisar os logs de regra de aplicativo e de rede
 
-O Azure [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md) coleta os arquivos de log de eventos e o contador. Ele inclui visualizações e funcionalidades de pesquisa avançadas para analisar os logs.
+Os [logs do Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md) coletam os arquivos de log de eventos e de contador. Ele inclui visualizações e funcionalidades de pesquisa avançadas para analisar os logs.
 
-Para consultas de exemplo do Log Analytics do Firewall do Azure, consulte [Exemplos de Log Analytics do Firewall do Azure](log-analytics-samples.md).
+Para consultas de exemplo do Log Analytics do Firewall do Azure, confira [Amostras do Log Analytics do Firewall do Azure](log-analytics-samples.md).
 
 Você também pode se conectar à sua conta de armazenamento e recuperar as entradas de log JSON para logs de desempenho e acesso. Depois de baixar os arquivos JSON, você pode convertê-los em CSV e exibi-los no Excel, no Power BI ou em qualquer outra ferramenta de visualização de dados.
 
@@ -108,10 +110,10 @@ Navegue até um Firewall do Azure e, em **Monitoramento**, clique em **Métricas
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que configurou o firewall para coletar logs, você poderá explorar o Log Analytics para exibir seus dados.
+Agora que você configurou o firewall para coletar logs, poderá explorar os logs do Azure Monitor para exibir seus dados.
 
 > [!div class="nextstepaction"]
-> [Soluções de monitoramento de rede no Log Analytics](../azure-monitor/insights/azure-networking-analytics.md)
+> [Soluções de monitoramento de rede nos logs do Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md)
 
 [1]: ./media/tutorial-diagnostics/figure1.png
 [2]: ./media/tutorial-diagnostics/figure2.png

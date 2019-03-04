@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2019
 ms.author: jdial
-ms.openlocfilehash: e145642a12db941d52c55081032e247b6d65d38b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: a71870115c3ea5e64c8b365d6c4aa64920bc6ca3
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997321"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56675034"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipos de endereço IP e métodos de alocação no Azure
 
@@ -121,7 +121,7 @@ Um [Gateway de VPN do Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc
 
 ### <a name="application-gateways"></a>Application gateways
 
-Você pode associar um endereço IP público do Azure [Application Gateway](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json), atribuindo-o à configuração de **front-end** do gateway. Esse endereço IP público serve como um VIP com balanceamento de carga. Você pode atribuir apenas um endereço IP público básico *dinâmico* a uma configuração de front-end do gateway de aplicativo.
+Você pode associar um endereço IP público do Azure [Application Gateway](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json), atribuindo-o à configuração de **front-end** do gateway. Esse endereço IP público serve como um VIP com balanceamento de carga. Você só pode atribuir um endereço IP público *dinâmico* básico a uma configuração de front-end de gateway de aplicativo V1 e apenas um endereço de SKU estático, básico ou standard a uma configuração de front-end V2.
 
 ### <a name="at-a-glance"></a>Imediato
 A tabela a seguir mostra a propriedade específica por meio da qual um endereço IP público pode ser associado a um recurso de nível superior e os métodos possíveis de alocação (dinâmico ou estático) que podem ser usados.
@@ -131,7 +131,7 @@ A tabela a seguir mostra a propriedade específica por meio da qual um endereço
 | Máquina virtual |interface de rede |Sim |Sim |
 | Balanceador de carga voltado para a Internet |Configuração de front-end |Sim |Sim |
 | gateway de VPN |Configuração de IP do gateway |Sim |Sim |
-| Gateway de Aplicativo |Configuração de front-end |Sim |Sim |
+| Gateway de Aplicativo |Configuração de front-end |Sim (apenas V1) |Sim (apenas V2) |
 
 ## <a name="private-ip-addresses"></a>Endereços IP privados
 Endereços IP privados permitem que os recursos do Azure comuniquem-se com outros recursos de uma [rede virtual](virtual-networks-overview.md) , ou na rede local por meio de um gateway de VPN ou circuito de ExpressRoute, sem usar um endereço IP acessível pela Internet.

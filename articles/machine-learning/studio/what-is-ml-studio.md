@@ -2,7 +2,6 @@
 title: O que é
 titleSuffix: Azure Machine Learning Studio
 description: O Azure Machine Learning Studio é uma ferramenta do tipo "arrastar e soltar" para criação rápida de modelos com base em uma biblioteca pronta para uso de algoritmos e módulos.
-keywords: aprendizado de máquina do azure, azure ml, ml studio
 services: machine-learning
 documentationcenter: ''
 author: garyericson
@@ -16,19 +15,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 03/28/2018
-ms.openlocfilehash: 4f69de744be3a9926e1c5d3e674966e24c3020dc
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 44f2c24f1fe53b6fadabf23f03a6feda75c87883
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455646"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56738276"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>O que é o Azure Machine Learning Studio?
 O Microsoft Azure Machine Learning Studio é uma ferramenta colaborativa do tipo "arrastar e soltar", que você pode usar para criar, testar e implantar soluções de análise preditiva em seus dados. O Machine Learning Studio publica modelos como serviços Web que podem ser facilmente consumidos por aplicativos personalizados ou ferramentas de BI como o Excel.
 
 O Machine Learning Studio é onde a ciência de dados, as análises preditivas, os recursos de nuvem e seus dados se encontram!
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="the-machine-learning-studio-interactive-workspace"></a>O workspace interativo do Machine Learning Studio
 Para desenvolver um modelo de análise preditiva, normalmente você usa dados de uma ou mais fontes, transforma e analisa esses dados com várias funções de manipulação de dados e estatísticas e gera um conjunto de resultados. Desenvolver um modelo como este é um processo iterativo. À medida que você modifica as diversas funções e seus parâmetros, seus resultados convergem até que você esteja satisfeito, com um modelo treinado e eficiente.
@@ -39,14 +37,16 @@ Não há necessidade de programação, basta conectar visualmente os conjuntos d
 
 ![Diagrama do Azure Machine Learning Studio: crie experimentos, leia dados de várias fontes, grave dados de pontuação, grave modelos.](./media/what-is-ml-studio/azure-ml-studio-diagram.jpg)
 
+## <a name="download-the-machine-learning-studio-overview-diagram"></a>Baixe o diagrama de visão geral do Machine Learning Studio
+Baixe o diagrama de **Visão geral de recursos do Microsoft Azure Machine Learning Studio** e obtenha uma exibição de alto nível dos recursos do Machine Learning Studio. Para mantê-lo próximo, imprima o diagrama em tamanho tabloide (11 x 17 polegadas).
+
+**Baixe aqui o diagrama: [Visão geral dos recursos do Microsoft Azure Machine Learning Studio](http://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)**
+![Visão geral dos recursos do Microsoft Azure Machine Learning Studio](./media/what-is-ml-studio/ml_studio_overview_v1.1.png)
+
 ## <a name="get-started-with-machine-learning-studio"></a>Introdução ao Machine Learning Studio
 Ao entrar pela primeira vez no [Machine Learning Studio,](https://studio.azureml.net) você verá a página **Inicial** . Aqui você pode exibir a documentação, vídeos, seminários na Web e obter outros recursos valiosos.
 
 Clique no menu superior esquerdo ![Menu](./media/what-is-ml-studio/menu.png) e você verá várias opções.
-
-### <a name="cortana-intelligence"></a>Cortana Intelligence
-Clique em **Cortana Intelligence** e você será levado para a página inicial do [Cortana Intelligence Suite](https://www.microsoft.com/cloud-platform/cortana-intelligence-suite). O Cortana Intelligence Suite é um pacote de análise avançada e de big data totalmente gerenciado que permite transformar seus dados em ação inteligente. Consulte a página do Suite para obter a documentação completa, inclusive histórias de clientes.
-
 ### <a name="azure-machine-learning-studio"></a>Azure Machine Learning Studio
 Há duas opções aqui, **Home**, a página onde você começou, e **Studio**.
 
@@ -78,7 +78,7 @@ Você pode criar uma experiência do zero, ou você pode usar uma experiência d
 
 Para obter um exemplo de criação de um teste simples, consulte [Criar um teste simples no Azure Machine Learning Studio](create-experiment.md).
 
-Para obter uma explicação mais completa da criação de uma solução de análise preditiva, consulte [Desenvolver uma solução preditiva com o Azure Machine Learning](tutorial-part1-credit-risk.md).
+Para obter uma explicação mais completa da criação de uma solução de análise preditiva, consulte [Desenvolver uma solução preditiva com o Azure Machine Learning Studio](tutorial-part1-credit-risk.md).
 
 ### <a name="datasets"></a>Conjunto de dados
 Um conjunto de dados inclui dados que foram atualizados no Machine Learning Studio, de forma que possam ser usados no processo de modelagem. Alguns conjuntos de dados de amostra estão incluídos no Machine Learning Studio, com os quais você pode testar, além de ser possível também carregar mais conjuntos de dados, caso necessário. Aqui estão alguns exemplos dos conjuntos de dados incluídos:
@@ -103,59 +103,30 @@ Um módulo é um algoritmo que você pode executar em seus dados. O Machine Lear
 
 Um módulo pode ter um conjunto de parâmetros que você pode usar para configurar os algoritmos internos do módulo. Ao selecionar um módulo nas telas, os parâmetros do módulo são exibidos no painel **Propriedades** à direita das telas. Você pode modificar os parâmetros nesse painel para ajustar seu modelo.
 
-Para obter ajuda sobre navegação através da biblioteca grande dos algoritmos de aprendizado de máquina disponíveis, consulte [Como escolher algoritmos para o Microsoft Azure Machine Learning](algorithm-choice.md).
+Para obter ajuda sobre navegação através da grande biblioteca de algoritmos de aprendizado de máquina disponíveis, consulte [Como escolher algoritmos para o Microsoft Azure Machine Learning Studio](algorithm-choice.md).
 
 ## <a name="deploying-a-predictive-analytics-web-service"></a>Implantando um serviço Web de análise preditiva
 Quando seu modelo de análise preditiva estiver pronto, você pode implantá-lo como um serviço Web diretamente no Machine Learning Studio. Para obter mais detalhes sobre esse processo, consulte [Implantar um serviço Web do Azure Machine Learning](publish-a-machine-learning-web-service.md).
 
 
-## <a name="key-machine-learning-terms-and-concepts"></a>Principais termos e conceitos do aprendizado de máquina
-Termos do aprendizado de máquina podem ser confusos. Aqui estão as definições dos principais termos para ajudá-lo. Use comentários para nos dizer sobre qualquer outro termo que gostaria de ver definido.
+## <a name="how-is-machine-learning-studio-different-from-azure-machine-learning-service"></a>Qual é a diferença entre o Machine Learning Studio e o Serviço do Azure Machine Learning?
 
-### <a name="data-exploration-descriptive-analytics-and-predictive-analytics"></a>Exploração de dados, análise descritiva e análise preditiva
+O [Serviço do Azure Machine Learning](../service/overview-what-is-azure-ml.md) fornece SDKs e serviços para rapidamente preparar dados, treinar e implantar modelos de machine learning. Aprimore a produtividade e os custos com pipelines e computação de dimensionamento automático. Use essas funcionalidades com estruturas do Python de software livre, como a PyTorch, a TensorFlow e a Scikit-learn. 
 
-**Exploração de dados** é o processo de coleta de informações sobre um conjunto de dados grande e geralmente não estruturado para encontrar características para uma análise focada.
+Use o Machine Learning Studio quando quiser experimentar com modelos de aprendizado de máquina de maneira rápida e fácil, e os algoritmos de aprendizado de máquina internos são suficientes para as suas soluções.
 
-**Mineração de dados** refere-se à mineração de dados automatizada.
+Use o serviço Machine Learning se você trabalhar em um ambiente do Python, quiser mais controle sobre os algoritmos de aprendizado de máquina ou desejar usar bibliotecas de aprendizado de máquina de software livre.
 
-**Análise descritiva** é o processo de análise de um conjunto de dados para gerar um resumo do que aconteceu. A grande maioria da análise de negócios - como relatórios de vendas, métricas de Web e análises de redes sociais - são descritivas.
+> [!NOTE]
+> Modelos criados no Azure Machine Learning Studio não podem ser implantados nem gerenciados pelo Serviço do Azure Machine Learning.
 
-**Análise preditiva** é o processo de criação de modelos por meio de dados atuais ou históricos para prever resultados futuros.
+## <a name="free-trial"></a>Avaliação gratuita
 
-### <a name="supervised-and-unsupervised-learning"></a>Aprendizado supervisionado e não supervisionado
- **aprendizado supervisionado** são treinados com dados rotulados – em outras palavras, dados compostos de exemplos das respostas desejadas. Por exemplo, um modelo que identifica o uso fraudulento do cartão de crédito seria treinado por meio de um conjunto de dados com pontos de dados rotulados de cobranças fraudulentas e válidas conhecidas. Na maioria das vezes, o aprendizado de máquina é supervisionado.
+[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
- **aprendizado não supervisionado** é usado em dados sem rótulos e o objetivo é localizar relações existentes nos dados. Por exemplo, você talvez queira localizar agrupamentos de dados demográficos de clientes com hábitos de compra semelhantes.
-
-### <a name="model-training-and-evaluation"></a>Treinamento e avaliação de modelo
-Um modelo de aprendizado de máquina é uma abstração da pergunta que você está tentando responder ou o resultado que você deseja prever. Os modelos são treinados e avaliados por meio de dados existentes.
-
-#### <a name="training-data"></a>Dados de treinamento
-Quando você treina um modelo a partir de dados, usa um conjunto de dados conhecido e faz ajustes no modelo com base nas características dos dados para obter a resposta mais precisa. No Azure Machine Learning, um modelo é criado por meio de um módulo de algoritmos que processa os dados de treinamento e módulos funcionais, por exemplo, um módulo de pontuação.
-
-No aprendizado supervisionado, se você estiver treinando um modelo de detecção de fraudes, usará um conjunto de transações rotuladas como fraudulentas ou válidas. Você dividirá seu conjunto de dados aleatoriamente e usará uma parte para treinar o modelo e outra para testar ou avaliar o modelo.
-
-#### <a name="evaluation-data"></a>Dados de avaliação
-A partir do momento em que você tem um modelo treinado, avalie esse modelo usando os dados de teste restantes. Você utiliza os dados cujos resultados você já conhece, para que você possa determinar se o seu modelo prevê com precisão.
-
-## <a name="other-common-machine-learning-terms"></a>Outros termos comuns de aprendizado de máquina
-* **algoritmo**: um conjunto independente de regras usadas para resolver problemas por meio do processamento de dados, cálculo ou raciocínio automatizado.
-* **detecção de anomalias**: um modelo que marca eventos ou valores incomuns e ajuda a descobrir problemas. Por exemplo, a detecção de fraudes de cartão de crédito procura compras incomuns.
-* **dados categóricos**: dados organizados em categorias que podem ser divididos em grupos. Por exemplo, um conjunto de dados categórico para carros poderia especificar ano, marca, modelo e preço.
-* **classificação**: um modelo para organizar pontos de dados em categorias com base em um conjunto de dados para o qual os agrupamentos de categorias já são conhecidos.
-* **engenharia de recursos**: o processo de extração ou seleção de recursos relacionados a um conjunto de dados para otimizar o conjunto de dados e aprimorar os resultados. Por exemplo, dados de passagens aéreas poderiam ser otimizados classificando-os em dias de semana e feriados. Consulte [Engenharia e seleção de recursos no Azure Machine Learning](../team-data-science-process/create-features.md).
-* **módulo**: uma parte funcional em um modelo do Machine Learning Studio, como, por exemplo, o módulo Inserir Dados, que permite inserir e editar pequenos conjuntos de dados. Um algoritmo também é um tipo de módulo no Machine Learning Studio.
-* **modelo**: um modelo de aprendizado supervisionado é o produto de um experimento do aprendizado de máquina composto por dados de treinamento, módulo de algoritmo e módulos funcionais, como um módulo do Modelo de Pontuação.
-* **dados numéricos**: dados que têm significado, como medidas (dados contínuos) ou contagens (dados discretos). Também conhecidos como *dados quantitativos*.
-* **partição**: o método pelo qual você divide dados em exemplos. Consulte [Partição e Exemplo](https://msdn.microsoft.com/library/azure/dn905960.aspx) para obter mais informações.
-* **previsão**: uma previsão é uma estimativa de valor ou valores de um modelo de machine learning. Você também pode ver o termo "pontuação prevista." No entanto, as pontuações previstas não são a saída final de um modelo. Uma avaliação do modelo vem a seguir da pontuação.
-* **regressão**: um modelo para prever um valor com base em variáveis independentes, como prever o preço de um carro com base em seu ano e marca.
-* **pontuação**: um valor previsto gerado por meio de uma classificação treinada ou de um modelo de regressão, usando o [módulo Modelo de Pontuação](https://msdn.microsoft.com/library/azure/dn905995.aspx) no Machine Learning Studio. Os modelos de classificação também retornam uma pontuação para a probabilidade do valor previsto. Depois de ter gerado pontuações por meio de um modelo, você pode avaliar a precisão desse modelo usando o [módulo Avaliar modelo](https://msdn.microsoft.com/library/azure/dn905915.aspx).
-* **amostra**: uma parte de um conjunto de dados com a finalidade de ser representativa do todo. Exemplos podem ser selecionados aleatoriamente ou com base em recursos específicos do conjunto de dados.
 
 ## <a name="next-steps"></a>Próximas etapas
 Você pode aprender os fundamentos da análise preditiva e aprendizado de máquina usando um [guia de início rápido passo a passo](create-experiment.md) e [aproveitando os exemplos](sample-experiments.md).
-
 
 <!-- Module References -->
 [convert-to-arff]: https://msdn.microsoft.com/library/azure/62d2cece-d832-4a7a-a0bd-f01f03af0960/

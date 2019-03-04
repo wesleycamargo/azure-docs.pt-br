@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: dineshm
-ms.openlocfilehash: b5d7be25ba18e256352d8793689bcb63a013e20b
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 14e8d54b7b9cf579bb5dcbce595e2591c158b841
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56452585"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56585416"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Tutorial: Acessar dados de Data Lake Storage Gen2 com o Azure Databricks usando o Spark
 
@@ -146,6 +146,9 @@ Nesta seção, você criará um sistema de arquivos e uma pasta em sua conta de 
    * A `tenant-id` é proveniente de sua assinatura.
 
    * O `storage-account-name` é o nome de sua conta de armazenamento do Azure Data Lake Storage Gen2.
+
+    > [!NOTE]
+    > Em uma configuração de produção, considere armazenar sua chave de autenticação no Azure Databricks. Em seguida, adicione uma chave de pesquisa ao bloco de código em vez da chave de autenticação. Depois de concluir este início rápido, consulte o artigo [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) no site Azure Databricks para ver exemplos dessa abordagem.
 
 19. Pressione as teclas **SHIFT+ENTER** para executar o código nesse bloco.
 

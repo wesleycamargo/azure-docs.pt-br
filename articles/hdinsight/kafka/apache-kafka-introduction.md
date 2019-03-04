@@ -1,6 +1,6 @@
 ---
 title: Uma introdução ao Apache Kafka no HDInsight – Azure
-description: 'Saiba mais sobre o Apache Kafka no HDInsight: o que é o que ele faz e onde encontrar exemplos e informações de introdução.'
+description: 'Saiba mais sobre o Apache Kafka no HDInsight: O que é, o que ele faz e onde encontrar exemplos e obter informações introdutórias.'
 services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 04/11/2018
-ms.openlocfilehash: 587279d247b945b787051721d256f00a090d56db
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 4d054542d600f2569170f40b8f6c053e005fc8af
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313955"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889181"
 ---
 # <a name="what-is-apache-kafka-on-hdinsight"></a>O que é Apache Kafka no HDInsight?
 
@@ -38,7 +38,7 @@ Estas são as características específicas do Kafka no HDInsight:
 
     Para saber mais, confira [Alta disponibilidade com Apache Kafka no HDInsight](apache-kafka-high-availability.md).
 
-* O Azure Log Analytics pode ser usado para monitorar o Kafka no HDInsight. O Log Analytics expõe as informações do nível da máquina virtual, como o disco e as métricas NIC e as métricas JMX do Kafka.
+* Os logs do Azure Monitor podem ser usados para monitorar o Kafka no HDInsight. Os logs do Azure Monitor expõem as informações do nível da máquina virtual, como o disco e as métricas NIC, além das métricas JMX do Kafka.
 
     Para saber mais, confira [Analisar logs do Apache Kafka no HDInsight](apache-kafka-log-analytics-operations-management.md).
 
@@ -60,11 +60,11 @@ A replicação é utilizada para duplicar partições entre os nós, protegendo 
 
 Veja a seguir tarefas e padrões comuns que podem ser executadas usando Kafka no HDInsight:
 
-* **Replicação de dados do Apache Kafka**: o Kafka fornece o utilitário MirrorMaker, que replica os dados entre os clusters do Kafka.
+* **Replicação de dados do Apache Kafka**: O Kafka fornece o utilitário MirrorMaker, que replica os dados entre os clusters do Kafka.
 
     Para saber mais sobre como usar o MirrorMaker, confira [Replicar tópicos do Apache Kafka com o Apache Kafka no HDInsight](apache-kafka-mirroring.md).
 
-* **Padrão de mensagens publicar-assinar**: O Kafka fornece uma API de Produtor para publicação de registros em um tópico do Kafka. A API de Consumidor é usada na assinatura de um tópico.
+* **Padrão de mensagens de publicação/assinatura**: O Kafka fornece uma API de Produtor para publicação de registros em um tópico do Kafka. A API de Consumidor é usada na assinatura de um tópico.
 
     Para saber mais, confira [Introdução ao Apache Kafka no HDInsight](apache-kafka-get-started.md).
 
@@ -82,19 +82,19 @@ Veja a seguir tarefas e padrões comuns que podem ser executadas usando Kafka no
 
 ## <a name="use-cases"></a>Casos de uso
 
-* **Mensagens**: já que ele oferece suporte ao padrão de mensagem publicar-assinar, o Kafka geralmente é usado como um agente de mensagem.
+* **Sistema de mensagens**: Como ele dá suporte ao padrão de mensagem de publicação/assinatura, o Kafka geralmente é usado como um agente de mensagem.
 
-* **Rastreamento de atividades**: como o Kafka oferece o registro em log ordenado de registros, pode ser usado para rastrear e recriar as atividades. Por exemplo, as ações do usuário em um site ou em um aplicativo.
+* **Acompanhamento de atividades**: Como o Kafka fornece o log em ordem de registros, ele pode ser usado para acompanhar e recriar atividades. Por exemplo, as ações do usuário em um site ou em um aplicativo.
 
-* **Agregação**: usando processamento de fluxo, você pode agregar informações de fluxos diferentes para combinar e centralizar as informações em dados operacionais.
+* **Agregação**: Usando o processamento de fluxo, você pode agregar informações de fluxos diferentes para combinar e centralizar as informações em dados operacionais.
 
-* **Transformação**: usando processamento de fluxo, você pode combinar e enriquecer dados de vários tópicos de entrada em um ou mais tópicos de saída.
+* **Transformação**: Usando o processamento de fluxo, você pode combinar e enriquecer dados de vários tópicos de entrada em um ou mais tópicos de saída.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Use os links a seguir para aprender a usar o Apache Kafka no HDInsight:
 
-* [Início Rápido: Criar Apache Kafka no HDInsight](apache-kafka-get-started.md)
+* [Início Rápido: Criar o Apache Kafka no HDInsight](apache-kafka-get-started.md)
 
 * [Tutorial: Usar o Apache Spark com o Apache Kafka no HDInsight](../hdinsight-apache-spark-with-kafka.md)
 

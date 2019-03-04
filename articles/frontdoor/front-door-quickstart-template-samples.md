@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/13/2018
 ms.author: sharadag
-ms.openlocfilehash: 1e4571edb15bf1a06948e720e51c672f890d68b6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c0dccdd38f4b945df3702178e7351db58687bf82
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959505"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56883889"
 ---
 # <a name="azure-resource-manager-deployment-model-templates-for-front-door"></a>Modelo de implantação do Azure Resource Manager para o Front Door
 
@@ -26,7 +26,7 @@ A tabela a seguir inclui links para modelos dos modelos de implantação do Azur
 | [Criar um Front Door básico](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-create-basic)| Cria uma configuração básica de Front Door com um único back-end. |
 | [Criar um Front Door com vários back-ends e pools de back-end e roteamento com base em URL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-create-multiple-backends)| Cria um Front Door com balanceamento de carga configurado para vários back-ends em um pool de back-end e também entre pools de back-end com base no caminho da URL. |
 | [Integrar um domínio personalizado com HTTPS (certificado gerenciado do Front Door) com o Front Door](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-custom-domain)| Adicionar um domínio personalizado ao Front Door e permitir o tráfego HTTPS para ele com um certificado gerenciado do Front Door, gerado por meio do DigiCert. |
-| [Criar Front Door com filtragem geográfica](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering)| Crie um Front Door que permite/bloqueia tráfego de determinados países. |
+| [Criar um Front Door com filtragem geográfica](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering)| Crie um Front Door que permite/bloqueia tráfego de determinados países. |
 | [Controlar as investigações de integridade para os back-ends no Front Door](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-health-probes)| Atualize o Front Door para alterar as configurações de investigação de integridade, atualizando o caminho de investigação e também os intervalos nos quais as investigações serão enviadas. |
 | [Criar o Front Door com a configuração de back-end Ativa/Em espera](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-priority-lb)| Cria um Front Door que demonstra o roteamento baseado em prioridade para topologia de aplicativo ativa/em espera, ou seja, enviar por padrão todo o tráfego para o back-end primário (prioridade mais alta) até ele ficar não disponível. |
 | [Criar um Front Door com o cache habilitado para determinadas rotas](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-create-caching)| Cria um Front Door com o cache habilitado para a configuração de roteamento definida, consequentemente armazenando em cache todos os ativos estáticos para sua carga de trabalho. |

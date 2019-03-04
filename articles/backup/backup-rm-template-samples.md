@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 96d4a61a14d3b1fac1c31c485edf66742c763673
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: c0b023b6bdd01bc64eb5a6deb5fafa8e3c34c616
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497750"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819013"
 ---
 # <a name="azure-resource-manager-templates-for-azure-backup"></a>Modelos do Azure Resource Manager para o Backup do Azure
 
@@ -31,6 +31,6 @@ A tabela a seguir contém links para modelos do Azure Resource Manager para uso 
 | [Criar política de backup diário para VMs IaaS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-daily-backup-policy-create) | O modelo cria um cofre dos Serviços de Recuperação e uma política de backup diário que são usados para fazer backup de máquinas virtuais do Gerenciador de Recursos e clássicas.|
 | [Implantar VM do Windows Server com backup habilitado](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-create-vm-and-configure-backup) | O modelo cria uma VM do Windows Server e um cofre dos Serviços de Recuperação com a política de backup padrão habilitada.|
 |**Monitorar trabalhos de backup** |  |
-| [Usar o Log Analytics para monitorar o Backup do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-backup-oms-monitoring) | O modelo implanta o Monitoramento do Log Analytics para o Backup do Azure, que permite monitorar o backup e restaurar trabalhos, fazer backup de alertas e do armazenamento em nuvem usado em seus cofres dos Serviços de Recuperação.|  
+| [Use os logs do Azure Monitor com o Backup do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-backup-oms-monitoring) | O modelo implanta os logs do Azure Monitor com o Backup do Azure, que permite que você monitore os trabalhos de backup e restauração, alertas de backup e armazenamento em Nuvem usado em seus cofres dos Serviços de Recuperação.|  
 |   |   |
 

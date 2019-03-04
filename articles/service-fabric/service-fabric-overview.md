@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: msfussell
 ms.custom: mvc
-ms.openlocfilehash: 5c7586ae2ff1a648348c1155a528035fa72c7744
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: a48d14f20d885849a233c592db8d9cf587342755
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299807"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870051"
 ---
 # <a name="overview-of-azure-service-fabric"></a>Visão geral do Azure Service Fabric
 O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, implantação e gerenciamento de microsserviços e contêineres escalonáveis e confiáveis. O Service Fabric resolve os desafios significativos de desenvolvimento e gerenciamento de aplicativos em nuvem nativos. Desenvolvedores e administradores podem evitar problemas complexos de infraestrutura e se concentrarem na implementação de cargas de trabalho essenciais e exigentes que são escalonáveis, confiáveis e gerenciáveis. O Service Fabric representa a plataforma de última geração para criação e gerenciamento de aplicativos escalonáveis de nuvem de camada 1 e nível corporativo.
@@ -56,7 +56,7 @@ Para obter mais informações sobre a criação de clusters, leia sobre [como cr
 ## <a name="stateless-and-stateful-microservices-for-service-fabric"></a>Microsserviços com e sem estado para o Service Fabric
 O Service Fabric permite compilar aplicativos que consistam em microsserviços ou contêineres. Os microsserviços sem estado (como gateways de protocolo e proxies Web) não mantêm um estado mutável fora de uma solicitação e sua resposta do serviço. As funções de trabalho dos Serviços de Nuvem do Azure são um exemplo de serviço sem estado. Os microsserviços com estado (como contas de usuário, bancos de dados, dispositivos, carrinhos de compra e filas) mantêm um estado mutável e autoritativo além da solicitação e sua resposta. Os aplicativos em escala da Internet de hoje consistem em uma combinação de microsserviços com e sem estado. 
 
-Uma diferença importante com o Service Fabric é seu foco na criação de serviços com estado, com os [modelos de programação internos ](service-fabric-choose-framework.md) ou com serviços com estado em contêineres. Os [cenários de aplicativo](service-fabric-application-scenarios.md) descrevem os cenários em que os serviços com monitoração de estado são usados.
+Uma diferença importante com o Service Fabric é seu foco na criação de serviços com estado, com os [modelos de programação internos](service-fabric-choose-framework.md) ou com serviços com estado em contêineres. Os [cenários de aplicativo](service-fabric-application-scenarios.md) descrevem os cenários em que os serviços com monitoração de estado são usados.
 
 
 ## <a name="application-lifecycle-management"></a>Gerenciamento do ciclo de vida de aplicativos

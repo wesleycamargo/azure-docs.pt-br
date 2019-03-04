@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 02/07/2019
+ms.date: 02/26/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 0f4fd963ce3649c901a76f6677be059ba5be25af
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: de1bd8599682baae860737401d02c7c1dec9e223
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56337554"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960642"
 ---
 # <a name="what-is-azure-media-services-v3"></a>O que são os Serviços de Mídia v3 do Azure?
 
@@ -76,7 +76,7 @@ Confira o exemplo [Obter a política de chave de conteúdo – .NET](get-content
 
 ## <a name="how-can-i-get-started-with-v3"></a>Como posso começar a v3?
 
-Para obter informações sobre como iniciar o desenvolvimento com a API dos Serviços de Mídia v3 usando uma variedade de ferramentas e SDKs, confira [Começar o desenvolvimento](developers-guide.md).
+Para obter informações sobre como iniciar o desenvolvimento com a API dos Serviços de Mídia v3 usando uma variedade de ferramentas e SDKs, confira [Iniciar o desenvolvimento](developers-guide.md).
 
 ## <a name="v3-content-map"></a>Mapa de conteúdo da v3
 
@@ -88,7 +88,7 @@ O conteúdo dos Serviços de Mídia v3 é organizado de acordo com a seguinte es
 | Guia de início rápido | Mostra instruções iniciais básicas para que os novos clientes experimentem os Serviços de Mídia rapidamente.|
 | Tutoriais | Mostra procedimentos baseados em cenário para algumas das principais tarefas dos Serviços de Mídia.|
 | Exemplos | Links para exemplos de código. |
-| Conceitos | Contém explicações detalhadas sobre a funcionalidade e diagramas dos Serviços de Mídia v3. Os conceitos fundamentais descritos nestes tópicos devem ser examinados antes do início do desenvolvimento.<br/><br/>* Upload e armazenamento na nuvem<br/>* Codificação<br/>* Análise de mídia<br/>* Empacotamento, entrega, proteção<br/>* Transmissão ao vivo<br/>* Monitoramento contínuo<br/>* Clientes de player<br/><br/>e mais. |
+| Conceitos | Contém explicações detalhadas sobre [os conceitos e as funcionalidades dos Serviços de Mídia v3](concepts-overview.md). Os conceitos fundamentais descritos nestes tópicos devem ser examinados antes do início do desenvolvimento.<br/><br/>* Upload e armazenamento na nuvem<br/>* Codificação<br/>* Análise de mídia<br/>* Empacotamento, entrega, proteção<br/>* Transmissão ao vivo<br/>* Monitoramento<br/>* Clientes de player<br/><br/>e mais. |
 | Guias de instruções | Demonstra como concluir uma tarefa.|
 
 ## <a name="next-steps"></a>Próximas etapas

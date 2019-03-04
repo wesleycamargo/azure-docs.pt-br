@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: diberry
-ms.openlocfilehash: 8a24ffa4717244d8ce2ef507183cff06cbea5797
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 852cc5e5b3b018d871bd40775dce64d669fb3011
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492225"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880607"
 ---
 # <a name="tutorial-luis-bot-in-nodejs-with-the-bot-framework-4x-and-the-azure-web-app-bot"></a>Tutorial: Bot do LUIS em Node.js com o Bot Framework 4.x e o bot de aplicativo Web do Azure
 Usando Node.js, crie um chatbot integrado com reconhecimento vocal (LUIS). Este bot usa o aplicativo HomeAutomation para implementar uma solução de bot. O bot é criado no [bot do aplicativo Web](https://docs.microsoft.com/azure/bot-service/) do Azure com o [Bot Framework versão](https://github.com/Microsoft/botbuilder-js) v4.
@@ -66,7 +66,7 @@ Usando Node.js, crie um chatbot integrado com reconhecimento vocal (LUIS). Este 
     
 5. Selecione **Criar**. Isso cria e implanta o serviço de bot no Azure. Parte deste processo cria um aplicativo LUIS chamado `luis-nodejs-bot-XXXX`. Esse nome é baseado no nome do bot e do aplicativo na seção anterior.
 
-    [ ![Criar bot de aplicativo Web](./media/bfv4-nodejs/create-web-app-service.png) ](./media/bfv4-nodejs/create-web-app-service.png#lightbox)
+    [![Criar um bot de aplicativo Web](./media/bfv4-nodejs/create-web-app-service.png)](./media/bfv4-nodejs/create-web-app-service.png#lightbox)
 
 6. Deixe esta guia do navegador aberta. Para quaisquer etapas com o portal do LUIS, abra uma nova guia do navegador. Passe para a próxima seção quando o novo serviço de bot for implantado.
 
@@ -106,7 +106,7 @@ Para desenvolver o código de bot do aplicativo Web, baixe o código e use em se
 
 3. Selecione **Baixar código-fonte do bot**. 
 
-    [ ![Baixar o código-fonte do bot do aplicativo Web para bot básico](../../../includes/media/cognitive-services-luis/bfv4/download-code.png) ](../../../includes/media/cognitive-services-luis/bfv4/download-code.png#lightbox)
+    [![Baixar o código-fonte do bot de aplicativo Web para o bot básico](../../../includes/media/cognitive-services-luis/bfv4/download-code.png)](../../../includes/media/cognitive-services-luis/bfv4/download-code.png#lightbox)
 
 4. Quando o código-fonte for compactado, uma mensagem fornecerá um link para baixar o código. Selecione o link. 
 
@@ -230,7 +230,7 @@ Antes de alterar qualquer código ou as configurações, verifique se o bot func
 
 2. No emulador de bot, selecione o arquivo *.bot na raiz do projeto. Este arquivo `.bot` inclui o ponto de extremidade de URL do bot para mensagens:
 
-    [ ![Emulador de bot v4](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png) ](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png#lightbox)
+    [![Bot Emulator v4](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png)](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png#lightbox)
 
 3. Insira o segredo do bot copiado das Configurações do Aplicativo do Serviço de Bot do Azure na Etapa 1 da seção **[Baixar o bot do aplicativo Web](#download-the-web-app-bot)**. Isso permite que o emulador acesse quaisquer campos criptografados no arquivo .bot.
 
@@ -239,7 +239,7 @@ Antes de alterar qualquer código ou as configurações, verifique se o bot func
 
 4. No emulador de bot, insira `Hello` e obtenha a resposta adequada do bot básico.
 
-    [ ![Resposta do bot básico no emulador](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png) ](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png#lightbox)
+    [![Resposta do bot básico no emulador](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png)](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png#lightbox)
 
 ## <a name="modify-bot-code"></a>Modificar o código de bot 
 

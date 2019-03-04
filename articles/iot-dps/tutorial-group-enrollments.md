@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 6447061e79946abf8070daf29eeb57bad7b6fa55
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 8e926c3ff7c3d7abc9467291e9b1de77781f664e
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184960"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805046"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>Criar e provisionar um dispositivo X.509 simulado usando o SDK do serviço e dispositivo Java e registros de grupo para Java para o Serviço de Provisionamento do Dispositivo Hub IoT
 
@@ -32,21 +32,21 @@ Conclua as etapas em [Configurar o Serviço de Provisionamento do Dispositivo Hu
 
 1. Verifique se o `git` está instalado em seu computador e é adicionado às variáveis de ambiente que podem ser acessadas pela janela de comando. Confira [ferramentas de cliente Git do Software Freedom Conservancy](https://git-scm.com/download/) para obter a versão mais recente das ferramentas `git` a serem instaladas, que inclui o **Git Bash**, o aplicativo de linha de comando que você pode usar para interagir com seu repositório Git local. 
 
-1. Use a seguinte [Visão geral de certificados](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) para criar seus certificados de teste.
+1. Use a seguinte [Visão Geral de Certificados](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) para criar seus certificados de teste.
 
     > [!NOTE]
-    > Esta etapa requer [OpenSSL](https://www.openssl.org/), que pode a ser criada e instalada da fonte ou baixada e instalada de [terceiros](https://wiki.openssl.org/index.php/Binaries) como [este](https://sourceforge.net/projects/openssl/). Se você já tiver criado seus certificados de _raiz_, _intermediário_ e _dispositivo_, você pode ignorar esta etapa.
+    > Esta etapa requer [OpenSSL](https://www.openssl.org/), que pode a ser criado e instalado da fonte ou baixada e instalada de [terceiros](https://wiki.openssl.org/index.php/Binaries) como [este](https://sourceforge.net/projects/openssl/). Se você já tiver criado seus certificados de _raiz_, _intermediário_ e _dispositivo_, você pode ignorar esta etapa.
     >
 
     1. Execute as etapas 1 e 2 para criar seus certificados _raiz_ e _intermediário_.
 
-    1. Faça logon no portal do Azure, clique no botão **Todos os recursos** no menu esquerdo e abra o serviço de provisionamento.
+    1. Entre no portal do Azure, clique no botão **Todos os recursos** no menu esquerdo e abra o serviço de provisionamento.
 
         1. Na folha de resumo do Serviço de Provisionamento de Dispositivos, selecione **Certificados** e clique no botão **Adicionar** na parte superior.
 
         1. Em **Adicionar Certificado**, insira as seguintes informações:
             - Digite um nome de certificado exclusivo.
-            - Selecione o arquivo **_RootCA.pem_** que você acabou de criar.
+            - Selecione o arquivo **_RootCA.pem_** que você criou.
             - Uma vez concluído, clique no botão **Salvar**.
 
            ![Adicionar certificado](./media/tutorial-group-enrollments/add-certificate.png)
@@ -68,7 +68,7 @@ Conclua as etapas em [Configurar o Serviço de Provisionamento do Dispositivo Hu
 ## <a name="create-a-device-enrollment-entry"></a>Criar uma entrada de registro de dispositivo
 
 1. Abra um prompt de comando. Clone o repositório do GitHub para os exemplos de código do SDK do Java:
-    
+
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
@@ -77,11 +77,11 @@ Conclua as etapas em [Configurar o Serviço de Provisionamento do Dispositivo Hu
 
     1. Adicione a `[Provisioning Connection String]` do serviço de provisionamento pelo portal desta forma:
 
-        1. Navegue até seu serviço de provisionamento no [Portal do Azure](https://portal.azure.com). 
+        1. Navegue até seu serviço de provisionamento no [Portal do Azure](https://portal.azure.com).
 
         1. Abra as **Políticas de acesso compartilhadas** e selecione uma política que tenha a permissão *EnrollmentWrite*.
-    
-        1. Copie a **Cadeia de conexão da chave primária**. 
+
+        1. Copie a **Cadeia de conexão da chave primária**.
 
             ![Obter a cadeia de conexão de provisionamento do portal](./media/tutorial-group-enrollments/provisioning-string.png)  
 
@@ -91,7 +91,9 @@ Conclua as etapas em [Configurar o Serviço de Provisionamento do Dispositivo Hu
             private static final String PROVISIONING_CONNECTION_STRING = "[Provisioning Connection String]";
             ```
 
-    1. Abra o arquivo **_RootCA.pem_** em um editor de texto. Atribua o valor do **Certificado raiz** ao parâmetro **PUBLIC_KEY_CERTIFICATE_STRING** conforme mostrado abaixo:
+    1. Abra o arquivo de certificado de assinatura intermediário em um editor de texto. Atualize o valor `PUBLIC_KEY_CERTIFICATE_STRING` com o valor de seu certificado de assinatura intermediário.
+
+        Se você gerou seus certificados de dispositivo com o shell de Bash, *./certs/azure-iot-test-only.intermediate.cert.pem* contém a chave do certificado intermediário. Se seus certificados forem gerados com o PowerShell, *./Intermediate1.pem* será seu arquivo de certificado intermediário.
 
         ```java
         private static final String PUBLIC_KEY_CERTIFICATE_STRING =
@@ -108,7 +110,7 @@ Conclua as etapas em [Configurar o Serviço de Provisionamento do Dispositivo Hu
                 "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
                 "-----END CERTIFICATE-----\n";
         ```
- 
+
     1. Navegue até o hub IoT vinculado ao serviço de provisionamento no [Portal do Azure](https://portal.azure.com). Abra a guia **Visão geral** do hub e copie o **Nome do host**. Atribua este **Nome do host** ao parâmetro *IOTHUB_HOST_NAME*.
 
         ```java
@@ -123,7 +125,7 @@ Conclua as etapas em [Configurar o Serviço de Provisionamento do Dispositivo Hu
         provisioningServiceClient.deleteEnrollmentGroup(enrollmentGroupId);
         ```
 
-    1. Salve o arquivo _ServiceEnrollmentGroupSample.java_. 
+    1. Salve o arquivo _ServiceEnrollmentGroupSample.java_.
 
 1. Abra uma janela de comando e navegue até a pasta **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_**.
 
@@ -144,8 +146,7 @@ Conclua as etapas em [Configurar o Serviço de Provisionamento do Dispositivo Hu
 
     ![Registro bem-sucedido](./media/tutorial-group-enrollments/enrollment.png) 
 
-1. Navegue até seu serviço de provisionamento no Portal do Azure. Clique em **Gerenciar registros**. Observe que o grupo de dispositivos X.509 é exibido na guia **Grupos de registro**, com um *NOME DE GRUPO* gerado automaticamente. 
-
+1. Navegue até seu serviço de provisionamento no Portal do Azure. Clique em **Gerenciar registros**. Observe que o grupo de dispositivos X.509 é exibido na guia **Grupos de registro**, com um *NOME DE GRUPO* gerado automaticamente.
 
 ## <a name="simulate-the-device"></a>Simular o dispositivo
 
@@ -159,36 +160,79 @@ Conclua as etapas em [Configurar o Serviço de Provisionamento do Dispositivo Hu
     cd azure-iot-sdk-java/provisioning/provisioning-samples/provisioning-X509-sample
     ```
 
-1. Insira as informações do grupo do registros da seguinte maneira:
+1. Edite `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` para incluir o _Escopo da ID_ e o _Ponto de Extremidade Global do Serviço de Provisionamento_ anotado anteriormente.
 
-    - Edite `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` para incluir o _Escopo da ID_ e o _Ponto de Extremidade Global do Serviço de Provisionamento_ conforme anotado antes. Abra o arquivo **_{deviceName}-public.pem_** e inclua esse valor como seu _Certificado de cliente_. Abra o arquivo **_{deviceName}-all.pem_** e copie o texto de _---BEGIN PRIVATE KEY---_ para _---END PRIVATE KEY---_.  Use isso como sua _Chave privada do certificado de cliente_.
+    ```java
+    private static final String idScope = "[Your ID scope here]";
+    private static final String globalEndpoint = "[Your Provisioning Service Global Endpoint here]";
+    private static final ProvisioningDeviceClientTransportProtocol PROVISIONING_DEVICE_CLIENT_TRANSPORT_PROTOCOL = ProvisioningDeviceClientTransportProtocol.HTTPS;
+    private static final int MAX_TIME_TO_WAIT_FOR_REGISTRATION = 10000; // in milli seconds
+    private static final String leafPublicPem = "<Your Public PEM Certificate here>";
+    private static final String leafPrivateKey = "<Your Private PEM Key here>";
+    ```
 
-        ```java
-        private static final String idScope = "[Your ID scope here]";
-        private static final String globalEndpoint = "[Your Provisioning Service Global Endpoint here]";
-        private static final ProvisioningDeviceClientTransportProtocol PROVISIONING_DEVICE_CLIENT_TRANSPORT_PROTOCOL = ProvisioningDeviceClientTransportProtocol.HTTPS;
-        private static final String leafPublicPem = "<Your Public PEM Certificate here>";
-        private static final String leafPrivateKey = "<Your Private PEM Key here>";
-        ```
+1. Atualize as variáveis `leafPublicPem` e `leafPrivateKey` com os certificados de dispositivo público e privado.
 
-        - Use o seguinte formato para incluir certificado e chave:
-            
-            ```java
-            private static final String leafPublicPem = "-----BEGIN CERTIFICATE-----\n" +
-                "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                "+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                "-----END CERTIFICATE-----\n";
-            private static final String leafPrivateKey = "-----BEGIN PRIVATE KEY-----\n" +
-                "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                "XXXXXXXXXX\n" +
-                "-----END PRIVATE KEY-----\n";
-            ```
+    Se você gerou seus certificados de dispositivo com o PowerShell, os arquivos mydevice* contêm a chave pública, a chave privada e o PFX para o dispositivo.
 
-1. Compile o exemplo. Navegue até a pasta de destino e execute o arquivo jar criado.
+    Se você gerou seus certificados de dispositivo com o shell Bash, /certs/new-device.cert.pem contém a chave pública. A chave privada do dispositivo estará no arquivo ./private/new-device.key.pem.
+
+    Abra seu arquivo de chave pública e atualize a variável `leafPublicPem` com esse valor. Copie o texto de _-----BEGIN PRIVATE KEY-----_ a _-----END PRIVATE KEY-----_.
+
+    ```java
+    private static final String leafPublicPem = "-----BEGIN CERTIFICATE-----\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "-----END CERTIFICATE-----\n";
+    ```
+
+    Abra seu arquivo de chave privada e atualize a variável `leafPrivatePem` com esse valor. Copie o texto de _-----BEGIN RSA PRIVATE KEY-----_ para _-----END RSA PRIVATE KEY-----_.
+
+    ```java
+    private static final String leafPrivateKey = "-----BEGIN RSA PRIVATE KEY-----\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "-----END RSA PRIVATE KEY-----\n";
+    ```
+
+1. Adicione uma nova variável logo abaixo de `leafPrivateKey` para seu certificado intermediário. Dê um nome a essa nova variável `intermediateKey`. Dê a ela o valor do seu certificado de autenticação intermediário.
+
+    Se você gerou seus certificados de dispositivo com o shell de Bash, *./certs/azure-iot-test-only.intermediate.cert.pem* contém a chave do certificado intermediário. Se seus certificados forem gerados com o PowerShell, *./Intermediate1.pem* será seu arquivo de certificado intermediário.
+
+    ```java
+    private static final String intermediateKey = "-----BEGIN CERTIFICATE-----\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "-----END CERTIFICATE-----\n";
+    ```
+
+1. Na função `main`, adicione a coleção `intermediateKey` para a coleção `signerCertificates` antes da inicialização de `securityProviderX509`.
+
+    ```java
+    public static void main(String[] args) throws Exception
+    {
+        ...
+
+        try
+        {
+            ProvisioningStatus provisioningStatus = new ProvisioningStatus();
+
+            // Add intermediate certificate as part of the certificate key chain.
+            signerCertificates.add(intermediateKey);
+
+            SecurityProvider securityProviderX509 = new SecurityProviderX509Cert(leafPublicPem, leafPrivateKey, signerCertificates);
+    ```
+
+1. Salve suas alterações e compile o exemplo. Navegue até a pasta de destino e execute o arquivo jar criado.
 
     ```cmd/sh
     mvn clean install

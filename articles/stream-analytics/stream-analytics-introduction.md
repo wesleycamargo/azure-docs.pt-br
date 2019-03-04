@@ -10,12 +10,12 @@ ms.topic: overview
 ms.workload: data-services
 ms.custom: seodec18
 ms.date: 12/07/2018
-ms.openlocfilehash: e14da7dff62d85c730034b620a6168b3d9b3dde7
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: d08fb915870355b49fafa91752cdd4264cbe6ad8
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53752683"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887532"
 ---
 # <a name="what-is-azure-stream-analytics"></a>O que é o Azure Stream Analytics?
 
@@ -76,11 +76,18 @@ O Azure Stream Analytics usa a mesma linguagem de consulta na nuvem e na borda i
 
 Como um serviço de nuvem, o Stream Analytics é otimizado para que você possa economizar custos. Não há nenhum custo inicial envolvido; você só paga pelas [unidades de streaming que consumir](stream-analytics-streaming-unit-consumption.md) e pela quantidade de dados processados. Não há nenhum compromisso ou provisionamento de cluster necessário. Você pode expandir ou reduzir seus trabalhos de streaming com base nas necessidades do negócio. 
 
-## <a name="reliability"></a>Confiabilidade 
+## <a name="mission-critical-ready"></a>Pronto para necessidades críticas
+O Azure Stream Analytics está disponível em várias regiões em todo o mundo e foi projetado para executar cargas de trabalho críticas, dando suporte a requisitos de confiabilidade, segurança e conformidade.
+### <a name="reliability"></a>Confiabilidade
+O Azure Stream Analytics garante o processamento de eventos exatamente uma vez e pelo menos uma entrega de eventos; portanto, os eventos nunca são perdidos. O processamento exatamente uma vez é garantido com a saída selecionada, conforme descrito em [Garantias de entrega de evento](https://docs.microsoft.com/en-us/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics). O Azure Stream Analytics tem funcionalidades internas de recuperação no caso de falha na entrega de um evento. Além disso, o Stream Analytics fornece um ponto de verificação interno para manter o estado do trabalho e fornece resultados reproduzíveis.
 
-O Stream Analytics garante o processamento de eventos exatamente uma vez e pelo menos uma entrega de eventos, portanto, os eventos nunca são perdidos. Ele tem recursos internos de recuperação no caso de falha na entrega de um evento. Além disso, o Stream Analytics fornece um ponto de verificação interno para manter o estado do trabalho e fornece resultados reproduzíveis.
+Como um serviço gerenciado, o Stream Analytics garante o processamento de eventos com 99,9% de disponibilidade no nível do minuto. Para obter mais informações, confira a página do [SLA do Stream Analytics](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/) que contém mais detalhes. 
 
-Como um serviço gerenciado, o Stream Analytics garante o processamento de eventos com 99,9% de disponibilidade. Para obter mais informações, confira a página do [SLA do Stream Analytics](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/) que contém mais detalhes. 
+### <a name="security"></a>Segurança
+Em termos de segurança, o Azure Stream Analytics criptografa todas as comunicações de entrada e de saída e dá suporte ao TLS 1.2. Os pontos de verificação internos também são criptografados. O Stream Analytics não armazena os dados de entrada, pois todo o processamento é feito na memória. 
+
+### <a name="compliance"></a>Conformidade
+O Azure Stream Analytics segue várias certificações de conformidade, conforme descrito na [Visão geral de conformidade do Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
 
 ## <a name="performance"></a>Desempenho
 

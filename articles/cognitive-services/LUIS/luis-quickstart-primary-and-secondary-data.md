@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: 9da2f8fa345ad3447d7c3344772458c451cf427e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d333eb6baa41321fdf7daca3c545d5d5e3ed5fe4
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867232"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732694"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Tutorial: Extrair nomes com uma entidade simples e uma lista de frases
 
@@ -233,7 +233,9 @@ Abra o [jobs-phrase-list.csv](https://github.com/Azure-Samples/cognitive-service
 
     [![Captura de tela da caixa de diálogo pop-up Criar nova lista de frases](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Captura de tela da caixa de diálogo pop-up Criar nova lista de frases")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
-    Se você quiser adicionar mais palavras à lista de frases, revise os **Valores Relacionados** e adicione os que forem relevantes. 
+    Se você quiser adicionar mais palavras à lista de frases, selecione **Recommand** e, em seguida, examine os novos **Valores Relacionados**, adicionando os que forem relevantes. 
+
+    Mantenha **Esses valores são intercambiáveis** marcada porque esses valores devem ser tratados como sinônimos para trabalhos. Saiba mais sobre [conceitos de lista de frases](luis-concept-feature.md#how-to-use-phrase-lists) intercambiáveis e não intercambiáveis.
 
 1. Selecione **Salvar** para ativar a lista de frases.
 

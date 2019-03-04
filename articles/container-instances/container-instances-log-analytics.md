@@ -1,24 +1,26 @@
 ---
-title: Registrar em log uma instância de contêiner com Azure Log Analytics
-description: Saiba como enviar saída de contêiner (STDOUT e STDERR) para o Azure Log Analytics.
+title: Log de instância de contêiner com os logs do Azure Monitor
+description: Saiba como enviar a saída de contêiner (StdOut e stderr) para os logs do Azure Monitor.
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: overview
 ms.date: 07/17/2018
 ms.author: danlep
-ms.openlocfilehash: 4dbcccc1a4b23ca37918495dc536df08a70cade7
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 13f1fa92365c284ed10bd7c0a1b2fdefef50b29e
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337879"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56879695"
 ---
-# <a name="container-instance-logging-with-azure-log-analytics"></a>Registrar em log uma instância de contêiner com Azure Log Analytics
+# <a name="container-instance-logging-with-azure-monitor-logs"></a>Log de instância de contêiner com os logs do Azure Monitor
 
-Os workspaces do Log Analytics fornecem um local centralizado para armazenar e consultar dados de log não apenas dos recursos do Azure, mas também dos recursos locais e recursos em outras nuvens. As Instâncias de Contêiner do Azure incluem suporte interno para enviar dados ao Log Analytics.
+Os workspaces do Log Analytics fornecem um local centralizado para armazenar e consultar dados de log não apenas dos recursos do Azure, mas também dos recursos locais e recursos em outras nuvens. As Instâncias de Contêiner do Azure incluem suporte interno para enviar dados aos logs do Azure Monitor.
 
-Para enviar dados da instância de contêiner ao Log Analytics, é necessário criar um grupo de contêineres usando a CLI do Azure (ou Cloud Shell) e um arquivo YAML. As seções a seguir descrevem a criação de um grupo de contêineres com registro em log habilitado e consulta de logs.
+Para enviar dados da instância de contêiner aos logs do Azure Monitor, é necessário criar um grupo de contêineres usando a CLI do Azure (ou o Cloud Shell) e um arquivo YAML. As seções a seguir descrevem a criação de um grupo de contêineres com registro em log habilitado e consulta de logs.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -42,7 +44,7 @@ Para obter a ID do workspace do Log Analytics e a chave primária:
 
 ## <a name="create-container-group"></a>Criar grupo de contêineres
 
-Agora que você tem a ID e a chave primária do workspace do Log Analytics, você está pronto para criar um grupo de contêineres com registro em log habilitado.
+Agora que você tem a ID e do workspace do Log Analytics e a chave primária, você está pronto para criar um grupo de contêineres habilitado para log.
 
 Os exemplos a seguir demonstram duas maneiras de criar um grupo de contêineres com um único contêiner [fluentd][fluentd]: CLI do Azure e CLI do Azure com um modelo YAML. O contêiner Fluentd produz várias linhas de saída na configuração padrão. Como essa saída é enviada para o workspace do Log Analytics, ela funciona bem para demonstrar a visualização e a consulta de logs.
 
@@ -96,7 +98,7 @@ az container create --resource-group myResourceGroup --name mycontainergroup001 
 
 Você deverá receber uma resposta do Azure contendo detalhes da implantação, logo após a emissão do comando.
 
-## <a name="view-logs-in-log-analytics"></a>Exibir logs no Log Analytics
+## <a name="view-logs-in-azure-monitor-logs"></a>Exibir logs nos logs do Azure Monitor
 
 Após implantar o grupo de contêineres, poderá demorar vários minutos (até 10) para que as primeiras entradas de log apareçam no portal do Azure. Para exibir os logs do grupo de contêineres, abra o workspace do Log Analytics e:
 
@@ -109,7 +111,7 @@ Você deverá ver vários resultados exibidos pela consulta `search *`. Caso nã
 
 ## <a name="query-container-logs"></a>Consulta de logs do contêiner
 
-O Log Analytics inclui uma [linguagem de consulta][query_lang] extensa para efetuar pull das informações de potencialmente milhares de linhas de saída de log.
+Os logs do Azure Monitor incluem uma [linguagem de consulta][query_lang] extensa para efetuar pull das informações de potencialmente milhares de linhas de saída de log.
 
 O agente de log das Instâncias de Contêiner do Azure envia entradas para a tabela `ContainerInstanceLog_CL` no workspace do Log Analytics. A estrutura básica de uma consulta é a tabela de origem (`ContainerInstanceLog_CL`) seguida por uma série de operadores separados pelo caractere de pipe (`|`). É possível encadear vários operadores para refinar os resultados e executar funções avançadas.
 
@@ -130,11 +132,11 @@ ContainerInstanceLog_CL
 
 ## <a name="next-steps"></a>Próximas etapas
 
-### <a name="log-analytics"></a>Log Analytics
+### <a name="azure-monitor-logs"></a>Logs do Azure Monitor
 
-Para obter mais informações sobre como consultar logs e configurar alertas no Azure Log Analytics, consulte:
+Para obter mais informações sobre como consultar logs e configurar alertas nos logs do Azure Monitor, confira:
 
-* [Compreendendo as pesquisas de logs no Log Analytics](../log-analytics/log-analytics-log-search.md)
+* [Noções básicas sobre pesquisas de logs nos logs do Azure Monitor](../log-analytics/log-analytics-log-search.md)
 * [Alertas unificados no Azure Monitor](../azure-monitor/platform/alerts-overview.md)
 
 

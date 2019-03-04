@@ -1,41 +1,45 @@
 ---
-title: Início Rápido para criar um compartilhamento de arquivo do Azure para Windows | Microsoft Docs
-description: Use este início rápido para criar e usar um compartilhamento de arquivo do Azure para Windows.
+title: Início Rápido do Azure – criar e usar um compartilhamento do serviço Arquivos do Azure em VMs do Windows | Microsoft Docs
+description: Neste início rápido, você configura um compartilhamento do serviço Arquivos do Azure no portal do Azure e o conecta a uma máquina virtual do Windows. Você se conecta ao compartilhamento do serviço Arquivos e carrega um arquivo nele. Em seguida, tira um instantâneo do compartilhamento do Arquivos, modifica o arquivo no compartilhamento do Arquivos e restaura um instantâneo anterior do compartilhamento do Arquivos.
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/01/2019
-ms.author: wgries
-ms.component: files
-ms.openlocfilehash: 141a8c9d63d3f0fd615ec0648b15c669f28f7118
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.author: rogarana
+ms.subservice: files
+ms.openlocfilehash: 12dea044dab2aafad1d7597214d159011b5ab536
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663988"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652460"
 ---
-# <a name="quickstart-create-and-use-an-azure-file-share-for-windows"></a>Início Rápido: criar e usar um compartilhamento de arquivo do Azure para Windows
-O artigo demonstra as etapas básicas para criar e usar um compartilhamento de arquivo do Azure. Neste início rápido, a ênfase é como configurar rapidamente um compartilhamento de arquivo do Azure para que você possa experimentar o funcionamento do serviço. Se precisar de instruções mais detalhadas para criar e usar compartilhamentos de arquivo do Azure em seu próprio ambiente, consulte [Usar um compartilhamento de arquivos do Azure com o Windows](storage-how-to-use-files-windows.md).
+# <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Início rápido: Criar e gerenciar compartilhamento do Armazenamento de Arquivos do Azure com máquinas de virtuais do Windows
+
+O artigo demonstra as etapas básicas para criar e usar um compartilhamento do Arquivos do Azure. Neste início rápido, a ênfase é como configurar rapidamente um compartilhamento do Arquivos do Azure para que você possa experimentar o funcionamento do serviço. Se precisar de instruções mais detalhadas para criar e usar compartilhamentos de arquivo do Azure em seu próprio ambiente, consulte [Usar um compartilhamento de arquivos do Azure com o Windows](storage-how-to-use-files-windows.md).
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
+
 Entre no [Portal do Azure](https://portal.azure.com).
 
 ## <a name="prepare-your-environment"></a>Prepare o seu ambiente
-Antes de criar um compartilhamento de arquivo do Azure, você precisa configurar os itens a seguir para este início rápido:
+
+Neste início rápido, você configura os seguintes itens:
 
 - Uma conta de armazenamento e um compartilhamento de arquivo do Azure
 - Uma VM do Windows Server 2016 Datacenter
 
 ### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-Antes de poder trabalhar com um compartilhamento de arquivo do Azure, você precisa criar uma conta de armazenamento do Azure. Uma conta de armazenamento é um pool compartilhado de armazenamento no qual você pode implantar um compartilhamento de arquivos do Azure ou outros recursos de armazenamento como blobs ou filas. Uma conta de armazenamento pode conter uma quantidade ilimitada de compartilhamentos. Um compartilhamento pode conter uma quantidade ilimitada de arquivos, até os limites de capacidade da conta de armazenamento.
+Antes de poder trabalhar com um compartilhamento de arquivo do Azure, você precisa criar uma conta de armazenamento do Azure. Uma conta de armazenamento v2 de uso geral fornece acesso a todos os serviços do Armazenamento do Azure: blobs, arquivos, filas e tabelas. O guia de início rápido cria uma conta de armazenamento de uso geral v2, mas as etapas para criar qualquer tipo de conta de armazenamento são semelhantes. Uma conta de armazenamento pode conter uma quantidade ilimitada de compartilhamentos. Um compartilhamento pode conter uma quantidade ilimitada de arquivos, até os limites de capacidade da conta de armazenamento.
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ### <a name="create-an-azure-file-share"></a>Criar um compartilhamento de arquivos do Azure
+
 Em seguida, crie um compartilhamento de arquivos.
 
 1. Quando a implantação da conta de armazenamento do Azure for concluída, selecione **Ir para o recurso**.
@@ -58,6 +62,7 @@ Em seguida, crie um compartilhamento de arquivos.
 Até agora, você criou uma conta de armazenamento do Azure e um compartilhamento de arquivo contendo um arquivo no Azure. Em seguida, você criará a VM do Azure com o Windows Server 2016 Datacenter para representar o servidor local neste início rápido.
 
 ### <a name="deploy-a-vm"></a>Implantar uma máquina virtual
+
 1. Em seguida, expanda o menu no lado esquerdo do portal e escolha **Criar um recurso** no canto superior esquerdo do portal do Azure.
 1. Na caixa de pesquisa acima da lista de recursos do **Azure Marketplace**, procure e selecione **Windows Server 2016 Datacenter**, em seguida, escolha **Criar**.
 1. Na guia **Básico**, em **Detalhes do projeto**, selecione o grupo de recursos que você criou para este início rápido.
@@ -112,6 +117,7 @@ Nesta altura, você já criou uma nova máquina virtual e anexou um disco de dad
       ![O caminho UNC do painel Conectar dos Arquivos do Azure](./media/storage-files-quick-create-use-windows/portal_netuse_connect3.png)
 
 ## <a name="create-a-share-snapshot"></a>Criar um instantâneo de compartilhamento
+
 Agora que mapeou a unidade, você pode criar um instantâneo.
 
 1. No portal, navegue até o compartilhamento de arquivo e selecione **Criar instantâneo**.
@@ -132,7 +138,7 @@ Agora que mapeou a unidade, você pode criar um instantâneo.
 
 ## <a name="restore-from-a-snapshot"></a>Restaurar de um instantâneo
 
-1. No portal, selecione *qsTestFile* > selecione o botão **Restaurar**.
+1. Na folha de instantâneo do compartilhamento de arquivo, clique com o botão direito do mouse em *qsTestFile* e selecione o botão **Restaurar**.
 1. Selecione **Substituir arquivo original**.
 
    ![Botões Baixar e Restaurar](./media/storage-files-quick-create-use-windows/snapshot-download-restore-portal.png)
@@ -147,6 +153,7 @@ Agora que mapeou a unidade, você pode criar um instantâneo.
    ![Botão Excluir](./media/storage-files-quick-create-use-windows/portal-snapshots-delete.png)
 
 ## <a name="use-a-share-snapshot-in-windows"></a>Usar um instantâneo de compartilhamento no Windows
+
 Assim como acontece com instantâneos locais do VSS, você pode exibir os instantâneos de seu compartilhamento de arquivo do Azure montado usando a guia Versões Anteriores.
 
 1. No Explorador de Arquivos, localize o compartilhamento montado.

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: ab920094561b9143945793ddd4ea3da877a7ae90
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 46dae28fd6c9eaa3d5e03f5f06c5e92449653679
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340528"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737715"
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Fazer failover e failback de VMs do Azure entre regiões do Azure
 
@@ -48,7 +48,7 @@ Este tutorial descreve como fazer failover de uma única VM do Azure para uma re
    * **Mais recente processado**: essa opção reverte a máquina virtual para o ponto de recuperação mais recente que foi processado pelo serviço Site Recovery.
    * **Personalizado**: use essa opção para fazer failover para um determinado ponto de recuperação. Essa opção é útil para fazer um failover de teste.
 
-3. Selecione **Desligue o computador antes do início do failover** se quiser que o Site Recovery tente realizar um desligamento das máquinas virtuais de origem antes de disparar o failover. O failover continuará mesmo o desligamento falhar.
+3. Selecione **Desligue o computador antes do início do failover** se quiser que o Site Recovery tente realizar um desligamento das máquinas virtuais de origem antes de disparar o failover. O failover continuará mesmo o desligamento falhar. Observe que o Site Recovery não limpa a origem após o failover.
 
 4. Acompanhe o progresso do failover na página **Trabalhos**.
 

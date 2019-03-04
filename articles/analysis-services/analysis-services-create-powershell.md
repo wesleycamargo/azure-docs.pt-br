@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 01bd8b5d1f8ed0d78f3331b4150df37ef0a1049e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 571cce2fafe1d19653dfa1e3d9a91042584621eb
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426770"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56735934"
 ---
 # <a name="quickstart-create-a-server---powershell"></a>Início Rápido: Criar um servidor – PowerShell
 
@@ -21,49 +21,51 @@ Este início rápido descreve como usar o PowerShell em uma linha de comando par
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 - **Assinatura do Azure**: Acesse [Avaliação Gratuita do Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) para criar uma conta.
 - **Azure Active Directory**: Sua assinatura deve estar associada a um locatário do Azure Active Directory e você precisa ter uma conta nesse diretório. Para obter mais informações, confira [Autenticação e permissões de usuário](analysis-services-manage-users.md).
-- **Versão de módulo do Azure PowerShell 4.0 ou posterior**. Para saber qual é a versão, execute ` Get-Module -ListAvailable AzureRM`. Para instalar ou atualizar, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+- **Azure PowerShell**. Para localizar a versão instalada, execute `Get-Module -ListAvailable Az`. Para instalar ou atualizar, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-Az-ps).
 
-## <a name="import-azurermanalysisservices-module"></a>Importar o módulo AzureRm.AnalysisServices
+## <a name="import-azanalysisservices-module"></a>Importar o módulo Az.AnalysisServices
 
-Para criar um servidor em sua assinatura, use o módulo de componente [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices). Carregar o módulo AzureRm.AnalysisServices em sua sessão do PowerShell.
+Para criar um servidor em sua assinatura, use o módulo [Az.AnalysisServices](/powershell/module/az.analysisservices). Carregar o módulo Az.AnalysisServices em sua sessão do PowerShell.
 
 ```powershell
-Import-Module AzureRM.AnalysisServices
+Import-Module Az.AnalysisServices
 ```
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Entre na assinatura do Azure usando o comando [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount). Siga as instruções na tela.
+Entre na assinatura do Azure usando o comando [Connect-AzAccount](/powershell/module/az.profile/connect-azaccount). Siga as instruções na tela.
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados em grupo. Quando você cria o servidor, precisa especificar um grupo de recursos em sua assinatura. Se você ainda não tiver um grupo de recursos, crie um novo usando o comando [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). O exemplo a seguir cria um grupo de recursos chamado `myResourceGroup` na região Oeste dos EUA.
+Um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados em grupo. Quando você cria o servidor, precisa especificar um grupo de recursos em sua assinatura. Se você ainda não tem um grupo de recursos, crie um novo usando o comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). O exemplo a seguir cria um grupo de recursos chamado `myResourceGroup` na região Oeste dos EUA.
 
 ```powershell
-New-AzureRmResourceGroup -Name "myResourceGroup" -Location "WestUS"
+New-AzResourceGroup -Name "myResourceGroup" -Location "WestUS"
 ```
 
 ## <a name="create-a-server"></a>Criar um servidor
 
-Crie um novo servidor usando o comando [New-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver). O exemplo a seguir cria um servidor chamado myServer em myResourceGroup, na região Oeste dos EUA, na camada D1 (grátis) e especifica philipc@adventureworks.com como administrador do servidor.
+Crie um novo servidor usando o comando [New-AzAnalysisServicesServer](/powershell/module/az.analysisservices/new-azanalysisservicesserver). O exemplo a seguir cria um servidor chamado myServer em myResourceGroup, na região Oeste dos EUA, na camada D1 (grátis) e especifica philipc@adventureworks.com como administrador do servidor.
 
 ```powershell
-New-AzureRmAnalysisServicesServer -ResourceGroupName "myResourceGroup" -Name "myserver" -Location WestUS -Sku D1 -Administrator "philipc@adventure-works.com"
+New-AzAnalysisServicesServer -ResourceGroupName "myResourceGroup" -Name "myserver" -Location WestUS -Sku D1 -Administrator "philipc@adventure-works.com"
 ```
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Você pode remover o servidor de sua assinatura usando o comando [Remove-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver). Se você ainda for seguir outros guias de início rápido e tutoriais desta coleção, não remova o servidor. O exemplo a seguir remove o servidor criado na etapa anterior.
+Você pode remover o servidor de sua assinatura usando o comando [Remove-AzAnalysisServicesServer](/powershell/module/az.analysisservices/new-azanalysisservicesserver). Se você ainda for seguir outros guias de início rápido e tutoriais desta coleção, não remova o servidor. O exemplo a seguir remove o servidor criado na etapa anterior.
 
 
 ```powershell
-Remove-AzureRmAnalysisServicesServer -Name "myserver" -ResourceGroupName "myResourceGroup"
+Remove-AzAnalysisServicesServer -Name "myserver" -ResourceGroupName "myResourceGroup"
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

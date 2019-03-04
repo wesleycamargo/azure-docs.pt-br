@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 9493e8b5d5e02f1408423334ceaa5c5c47ae6668
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1805d54e66187a97bf598734801f0d94895e7490
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867742"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880336"
 ---
 # <a name="tutorial--get-sentiment-of-utterance"></a>Tutorial:  Obter o sentimento do enunciado
 
@@ -90,7 +90,7 @@ Adicione uma nova intenção para capturar comentários do funcionário entre os
     |Julio Pinto arrasou na apresentação de vendas em Harvard|
     |Valerio Pereira fez um bom trabalho na apresentação em Stanford|
 
-    [ ![Captura de tela do aplicativo LUIS com exemplos de enunciados na intenção EmployeeFeedback](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png#lightbox)
+    [![Captura de tela do aplicativo LUIS com enunciados de exemplo na intenção EmployeeFeedback](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png#lightbox)
 
 ## <a name="add-example-utterances-to-the-none-intent"></a>Adicionar enunciados de exemplo à intenção None 
 

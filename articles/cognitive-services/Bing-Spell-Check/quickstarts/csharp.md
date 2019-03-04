@@ -1,183 +1,142 @@
 ---
-title: 'Início Rápido: API de Verificação Ortográfica do Bing, C#'
+title: 'Início Rápido: Verificar a ortografia com a API REST de Verificação Ortográfica do Bing e o C#'
 titlesuffix: Azure Cognitive Services
-description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar rapidamente a API de Verificação Ortográfica do Bing.
+description: Comece a usar a API REST de Verificação Ortográfica do Bing para verificar a ortografia e a gramática.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 09/14/2017
+ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 8d97627d398e3e09fe4cf580fe42fdfec278ec7f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a33dfe2e20cdb6c1944d4be89692ec1da5a5482e
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861206"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889657"
 ---
-# <a name="quickstart-for-bing-spell-check-api-with-c"></a>Início Rápido para a API de Verificação Ortográfica do Bing com C#
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>Início Rápido: Verificar a ortografia com a API REST de Verificação Ortográfica do Bing e o C#
 
-Este artigo mostra como usar a [API de Verificação Ortográfica do Bing](https://azure.microsoft.com/services/cognitive-services/spell-check/)  com C#. A API de Verificação Ortográfica retorna uma lista de palavras que ela não reconhece, juntamente com as substituições sugeridas. Normalmente, você enviaria texto para essa API e faria as substituições sugeridas no texto, ou então as mostraria para o usuário do seu aplicativo para que ele pudesse decidir realizar ou não as substituições. Este artigo mostra como enviar uma solicitação que contém o texto "Omá, mndo!" As substituições sugeridas são "Olá" e "mundo".
+Use este Início Rápido para fazer sua primeira chamada à API REST de Verificação Ortográfica do Bing. Este aplicativo C# simples envia uma solicitação à API e retorna uma lista de correções sugeridas. Embora esse aplicativo seja escrito em C#, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte desse aplicativo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingAutosuggestv7.cs).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Você precisará ter o [Visual Studio 2017](https://www.visualstudio.com/downloads/) para executar esse código no Windows. (O Community Edition gratuito funciona.) Veja também [Cognitive Services Pricing - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+* Qualquer edição do [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* A estrutura [Json.NET](https://www.newtonsoft.com/json), disponível como um pacote do NuGet.
+* Se você estiver usando Linux/MacOS, este aplicativo poderá ser executado usando [Mono](http://www.mono-project.com/).
 
-É necessário ter uma [conta de API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **API de Verificação Ortográfica do Bing v7**. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/#lang) é suficiente para esse início rápido. É necessário ter a chave de acesso fornecida ao ativar a avaliação gratuita ou você poderá usar uma chave de assinatura paga no painel do Azure.
+[!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
-## <a name="get-spell-check-results"></a>Obter resultados da Verificação Ortográfica
+## <a name="create-and-initialize-a-project"></a>Criar e inicializar um projeto
 
-1. Crie um novo projeto C# no seu IDE favorito.
-2. Adicione o código fornecido abaixo.
-3. Substitua o valor `subscriptionKey` por uma chave de acesso válida para a sua assinatura.
-4. Execute o programa.
+1. crie uma nova solução de console chamada `SpellCheckSample` no Visual Studio. Em seguida, adicione os seguintes namespaces no arquivo de código principal.
+    
+    ```csharp
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Net.Http;
+    using System.Net.Http.Headers;
+    using System.Text;
+    using Newtonsoft.Json;
+    ```
 
-```csharp
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
+2. Crie variáveis para o ponto de extremidade de API, a chave de assinatura e o texto que terá a ortografia verificada.
 
-namespace SpellCheckSample1
-{
-    class Program
+    ```csharp
+    namespace SpellCheckSample
     {
-        static string host = "https://api.cognitive.microsoft.com";
-        static string path = "/bing/v7.0/spellcheck?";
-
-        // For a list of available markets, go to:
-        // https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#market-codes
-        static string params_ = "mkt=en-US&mode=proof";
-
-        // NOTE: Replace this example key with a valid subscription key.
-        static string key = "ENTER KEY HERE";
-
-        static string text = "Hollo, wrld!";
-
-        // These properties are used for optional headers (see below).
-        // static string ClientId = "<Client ID from Previous Response Goes Here>";
-        //static string ClientId = "2325577A61966D252A475CD760C96C03";
-        // static string ClientIp = "999.999.999.999";
-        // static string ClientLocation = "+90.0000000000000;long: 00.0000000000000;re:100.000000000000";
-
-        async static void SpellCheck()
+        class Program
         {
-            HttpClient client = new HttpClient();
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
-
-            // The following headers are optional, but it is recommended they be treated as required.
-            // These headers help the service return more accurate results.
-            //client.DefaultRequestHeaders.Add("X-Search-Location", ClientLocation);
-            //client.DefaultRequestHeaders.Add("X-MSEdge-ClientID", ClientId);
-            //client.DefaultRequestHeaders.Add("X-MSEdge-ClientIP", ClientIp);
-
-            HttpResponseMessage response = new HttpResponseMessage();
-            string uri = host + path + params_;
-
-            List<KeyValuePair<string, string>> values = new List<KeyValuePair<string, string>>();
-            values.Add(new KeyValuePair<string, string>("text", text));
-
-            using (FormUrlEncodedContent content = new FormUrlEncodedContent(values))
-            {
-                content.Headers.ContentType = new MediaTypeHeaderValue("application/x-www-form-urlencoded");
-                response = await client.PostAsync(uri, content);
-            }
-
-            string client_id;
-            if (response.Headers.TryGetValues("X-MSEdge-ClientID", out IEnumerable<string> header_values))
-            {
-                client_id = header_values.First();
-                Console.WriteLine("Client ID: " + client_id);
-            }
-
-            string contentString = await response.Content.ReadAsStringAsync();
-            Console.WriteLine(JsonPrettyPrint(contentString));
-
-        }
-
-        static void Main(string[] args)
-        {
-            SpellCheck();
-            Console.ReadLine();
-        }
-
-        static string JsonPrettyPrint(string json)
-        {
-            if (string.IsNullOrEmpty(json))
-            {
-                return string.Empty;
-            }
-
-            json = json.Replace(Environment.NewLine, "").Replace("\t", "");
-
-            StringBuilder sb = new StringBuilder();
-            bool quote = false;
-            bool ignore = false;
-            char last = ' ';
-            int offset = 0;
-            int indentLength = 3;
-
-            foreach (char ch in json)
-            {
-                switch (ch)
-                {
-                    case '"':
-                        if (!ignore) quote = !quote;
-                        break;
-                    case '\\':
-                        if (quote && last != '\\') ignore = true;
-                        break;
-                }
-
-                if (quote)
-                {
-                    sb.Append(ch);
-                    if (last == '\\' && ignore) ignore = false;
-                }
-                else
-                {
-                    switch (ch)
-                    {
-                        case '{':
-                        case '[':
-                            sb.Append(ch);
-                            sb.Append(Environment.NewLine);
-                            sb.Append(new string(' ', ++offset * indentLength));
-                            break;
-                        case '}':
-                        case ']':
-                            sb.Append(Environment.NewLine);
-                            sb.Append(new string(' ', --offset * indentLength));
-                            sb.Append(ch);
-                            break;
-                        case ',':
-                            sb.Append(ch);
-                            sb.Append(Environment.NewLine);
-                            sb.Append(new string(' ', offset * indentLength));
-                            break;
-                        case ':':
-                            sb.Append(ch);
-                            sb.Append(' ');
-                            break;
-                        default:
-                            if (quote || ch != ' ') sb.Append(ch);
-                            break;
-                    }
-                }
-                last = ch;
-            }
-
-            return sb.ToString().Trim();
+            static string host = "https://api.cognitive.microsoft.com";
+            static string path = "/bing/v7.0/spellcheck?";
+            static string key = "enter your key here";
+            //text to be spell-checked
+            static string text = "Hollo, wrld!";
         }
     }
+    ```
+
+3. Crie uma variável para os parâmetros de pesquisa. Acrescente o código de mercado a `mkt=` e o modo de verificação ortográfica a `&mode=`.
+    
+    ```csharp
+    static string params_ = "mkt=en-US&mode=proof";
+    ```
+
+## <a name="create-and-send-a-spell-check-request"></a>Criar e enviar uma solicitação de verificação ortográfica
+
+1. Crie uma função assíncrona chamada `SpellCheck()` para enviar uma solicitação à API. Crie um `HttpClient` e adicione a chave de assinatura ao cabeçalho `Ocp-Apim-Subscription-Key`. Em seguida, execute as etapas a seguir dentro da função.
+
+    ```csharp
+    async static void SpellCheck()
+    {
+        HttpClient client = new HttpClient();
+        client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
+
+        HttpResponseMessage response = new HttpResponseMessage();
+        //...
+    }
+
+2. Create the URI for your request by appending your host, path, and parameters. 
+    
+    ```csharp
+    string uri = host + path + params_;
+    ```
+
+3. Crie uma lista com um objeto `KeyValuePair` que contém o texto e use-o para criar um objeto `FormUrlEncodedContent`. Defina as informações de cabeçalho e use `PostAsync()` para enviar a solicitação.
+
+    ```csharp
+    List<KeyValuePair<string, string>> values = new List<KeyValuePair<string, string>>();
+    values.Add(new KeyValuePair<string, string>("text", text));
+    
+    using (FormUrlEncodedContent content = new FormUrlEncodedContent(values))
+    {
+        content.Headers.ContentType = new MediaTypeHeaderValue("application/x-www-form-urlencoded");
+        response = await client.PostAsync(uri, content);
+    }
+    ```
+
+## <a name="get-and-print-the-api-response"></a>Obter e imprimir a resposta da API
+
+### <a name="get-the-client-id-header"></a>Obter o cabeçalho da ID do cliente
+
+Se a resposta contém um cabeçalho `X-MSEdge-ClientID`, obtenha o valor e imprima-o.
+
+``` csharp
+string client_id;
+if (response.Headers.TryGetValues("X-MSEdge-ClientID", out IEnumerable<string> header_values))
+{
+    client_id = header_values.First();
+    Console.WriteLine("Client ID: " + client_id);
 }
 ```
 
-**Resposta**
+### <a name="get-the-response"></a>Obter a resposta
+
+Obtenha a resposta da API. Desserialize o objeto JSON e imprima-o no console.
+
+```csharp
+string contentString = await response.Content.ReadAsStringAsync();
+
+dynamic jsonObj = JsonConvert.DeserializeObject(contentString);
+Console.WriteLine(jsonObj);
+```
+
+## <a name="call-the-spell-check-function"></a>Chamar a função de verificação ortográfica
+
+Na função Main do projeto, chame `SpellCheck()`.
+
+```csharp
+static void Main(string[] args)
+{
+    SpellCheck();
+    Console.ReadLine();
+}
+```
+
+## <a name="example-json-response"></a>Resposta JSON de exemplo
 
 Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
@@ -222,9 +181,7 @@ Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exem
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Tutorial de Verificação Ortográfica do Bing](../tutorials/spellcheck.md)
+> [Criar um aplicativo Web de página única](../tutorials/spellcheck.md)
 
-## <a name="see-also"></a>Consulte também
-
-- [Visão geral da Verificação Ortográfica do Bing](../proof-text.md)
+- [O que é API de Verificação Ortográfica do Bing?](../overview.md)
 - [Referência de API de Verificação Ortográfica do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)

@@ -1,5 +1,5 @@
 ---
-title: Início rápido para adicionar um usuário convidado com a colaboração B2B do Azure Active Directory para PowerShell | Microsoft Docs
+title: 'Início Rápido: adicionar um usuário convidado com o PowerShell – Azure Active Directory | Microsoft Docs'
 description: Este início rápido ensinará a usar o PowerShell para enviar um convite para um usuário de colaboração do Azure AD B2B.
 services: active-directory
 ms.service: active-directory
@@ -10,14 +10,14 @@ ms.author: mimart
 author: msmimart
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3cb34fa0552eaa8f0d567ff85843e4b7df3fa967
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8417e2118de01d00e8b0450374a9b10bff40221f
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205368"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56675136"
 ---
-# <a name="quickstart-add-a-guest-user-with-powershell"></a>Início rápido: Adicionar um usuário convidado com o PowerShell
+# <a name="quickstart-add-a-guest-user-with-powershell"></a>Início Rápido: Adicionar um usuário convidado com o PowerShell
 
 Existem várias maneiras de convidar parceiros externos para aplicativos e serviços com a colaboração B2B do Azure Active Directory. No início rápido anterior, você aprendeu como adicionar usuários convidados diretamente no portal de administração do Azure Active Directory. Também é possível usar o PowerShell para adicionar usuários convidados, um de cada vez ou em massa. Neste início rápido, você usará o comando New-AzureADMSInvitation para adicionar um usuário convidado ao seu locatário do Azure.
 

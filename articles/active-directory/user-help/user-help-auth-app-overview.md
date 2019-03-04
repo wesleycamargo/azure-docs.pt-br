@@ -12,14 +12,18 @@ ms.topic: overview
 ms.date: 01/24/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79abead77705d13df909703a234bf72ee121a5be
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 8585557672c7db15e07be6a5e663ba1811e07694
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301172"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961305"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>O que é o aplicativo Microsoft Authenticator?
+
+>[!Important]
+>Este conteúdo destina-se aos usuários. Se você for um administrador, é possível encontrar mais informações sobre como configurar e gerenciar seu ambiente do Azure Active Directory (Azure AD) na [Documentação do Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
+
 O aplicativo Microsoft Authenticator ajuda você a entrar em suas contas quando você usa a verificação de dois fatores. A verificação de dois fatores ajuda você a acessar suas contas com mais segurança, especialmente durante a exibição de informações confidenciais. Como as senhas podem ser esquecidas, roubadas ou comprometidas, a verificação de dois fatores é uma etapa adicional de segurança que ajuda a proteger sua conta, dificultando que ela seja invadida por outras pessoas.
 
 Você pode usar o aplicativo Microsoft Authenticator de várias maneiras, incluindo:
@@ -29,9 +33,9 @@ Você pode usar o aplicativo Microsoft Authenticator de várias maneiras, inclui
 - Fornecendo a entrada sem exigir uma senha, usando seu nome de usuário e seu dispositivo móvel com impressão digital, rosto ou PIN.
 
 >[!Important]
->O aplicativo Microsoft Authenticator funciona com qualquer aplicativo que use a verificação de dois fatores e com qualquer conta que dê suporte a padrões das TOTP (Senhas Avulsas por Tempo Limitado).
+>O aplicativo Microsoft Authenticator funciona com qualquer aplicativo que use a verificação de dois fatores e com qualquer conta que dê suporte a padrões das Senhas Avulsas por Tempo Limitado (TOTP).
 
->Este conteúdo destina-se aos usuários. Se você for um administrador, é possível encontrar mais informações sobre como configurar e gerenciar seu ambiente do Azure Active Directory (Azure AD) na [Documentação do Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
+>Sua organização pode exigir que você use um aplicativo autenticador para entrar e acessar seus dados e documentos organizacionais. Embora seu nome de usuário possa ser exibido no aplicativo, a conta, na verdade, não está configurada para funcionar como um método de verificação até você concluir o processo de registro. Para obter mais informações, confira [Adicionar sua conta corporativa ou de estudante](user-help-auth-app-overview.md).
 
 >Caso esteja tendo problemas ao entrar em sua conta, confira [Quando você não consegue entrar em sua conta Microsoft](https://support.microsoft.com/help/12429) para obter ajuda. Obtenha mais informações sobre o que fazer quando receber a mensagem [“Essa conta Microsoft não existe”](https://support.microsoft.com/help/13811) ao tentar entrar em sua conta Microsoft.
 

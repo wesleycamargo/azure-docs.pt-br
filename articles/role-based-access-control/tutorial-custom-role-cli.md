@@ -11,18 +11,18 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 06/12/2018
+ms.date: 02/20/2019
 ms.author: rolyon
-ms.openlocfilehash: 9cd736272fce71f08006d32a169b88d092a48231
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: de1805d91f48b5718ecf293c2b8672ba40fb81a9
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340205"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56588153"
 ---
 # <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-cli"></a>Tutorial: Criar uma função personalizada para recursos do Azure usando a CLI do Azure
 
-Se as [funções internas dos recursos do Azure](built-in-roles.md) não atenderem às necessidades específicas de sua organização, você poderá criar suas próprias funções personalizadas. Para este tutorial, crie uma função personalizada chamada Tíquetes de suporte do leitor usando a CLI do Azure. A função personalizada permite que o usuário veja tudo na assinatura e também os tíquetes de suporte abertos.
+Se as [funções internas dos recursos do Azure](built-in-roles.md) não atenderem às necessidades específicas de sua organização, você poderá criar suas próprias funções personalizadas. Para este tutorial, crie uma função personalizada chamada Tíquetes de suporte do leitor usando a CLI do Azure. A função personalizada permite ao usuário exibir tudo no plano de gerenciamento de uma assinatura e também abrir tíquetes de suporte.
 
 Neste tutorial, você aprenderá como:
 
@@ -39,7 +39,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 Para concluir este tutorial, você precisará de:
 
 - Permissões para criar funções personalizadas, como [Proprietário](built-in-roles.md#owner) ou [Administrador de acesso do usuário](built-in-roles.md#user-access-administrator)
-- [CLI do Azure](/cli/azure/install-azure-cli) instalada localmente
+- [Azure Cloud Shell](../cloud-shell/overview.md) ou [CLI do Azure](/cli/azure/install-azure-cli)
 
 ## <a name="sign-in-to-azure-cli"></a>Entrar na CLI do Azure
 
@@ -61,7 +61,7 @@ A maneira mais fácil de criar uma função personalizada é começar com um mod
 
 1. Abra ReaderSupportRole.json em um editor e adicione o JSON a seguir.
 
-    Para obter informações sobre as diversas propriedades, confira [Funções personalizadas](custom-roles.md).
+    Para obter informações sobre as diversas propriedades, confira [Funções personalizadas para recursos do Azure](custom-roles.md).
 
     ```json
     {

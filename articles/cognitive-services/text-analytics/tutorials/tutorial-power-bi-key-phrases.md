@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 2439244edcc1b7026a2cc8a62a946188e279f15f
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 4489fc82f836d8c311fcd776e211670897618b54
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245823"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889470"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Tutorial: Integrar o Power BI ao Serviço Cognitivo de Análise de Texto
 
@@ -94,7 +94,7 @@ A [API de Frases-chave](//westus.dev.cognitive.microsoft.com/docs/services/TextA
 | | |
 | - | - |
 | `id`  | Um identificador exclusivo para este documento dentro da solicitação. A resposta também contém esse campo. Dessa forma, se você processar mais de um documento, poderá associar facilmente as frases-chave extraídas ao documento que as originou. Neste tutorial, como você está processando apenas um documento por solicitação, é possível embutir o valor de `id` em código para ser o mesmo para cada solicitação.|
-| `text`  | O texto a ser processado. O valor desse campo é proveniente da coluna `Merged` que você criou na [seção anterior](#PreparingData), que contém o texto de comentário e a linha do assunto combinados. A API de frases-chave requer que esses dados tenham menos de 5 mil caracteres.|
+| `text`  | O texto a ser processado. O valor desse campo é proveniente da coluna `Merged` que você criou na [seção anterior](#PreparingData), que contém o texto de comentário e a linha do assunto combinados. A API de Frases-Chave exige que esses dados tenham menos de 5.120 caracteres.|
 | `language` | O código para o idioma natural em que o documento foi escrito. Todas as mensagens nos dados de exemplo estão em inglês; portanto, é possível embutir o valor `en` em código para esse campo.|
 
 ## <a name="create-a-custom-function"></a>Criar uma função personalizada

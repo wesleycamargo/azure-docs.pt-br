@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,mvc
 ms.topic: overview
 ms.date: 01/28/2019
 ms.author: hrasheed
-ms.openlocfilehash: c08672b178a9327b39414ca1c0e71653f62d1d07
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 264faaf0168d1604668e3358b1d99bc169d7e2f0
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55295790"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985165"
 ---
 # <a name="what-is-apache-spark-in-azure-hdinsight"></a>O que é o Apache Spark no Azure HDInsight
 
@@ -38,7 +38,7 @@ Os clusters Spark no HDInsight oferecem um serviço Spark totalmente gerenciado.
 | Suporte ao Azure Data Lake Storage | Os clusters Spark no HDInsight podem usar o Azure Data Lake Storage como o armazenamento primário ou um armazenamento adicional. Para obter mais informações sobre o Data Lake Storage, confira [Visão geral do Azure Data Lake Storage](../../data-lake-store/data-lake-store-overview.md). |
 | Integração com serviços do Azure |O cluster Spark no HDInsight é fornecido com um conector para Hubs de Eventos do Azure. Você pode criar aplicativos de fluxo contínuo usando os Hubs de Eventos, além do [Apache Kafka](https://kafka.apache.org/), que já está disponível como parte do Spark. |
 | Suporte para ML Server | O suporte para ML Server no HDInsight é fornecido como o tipo de cluster **ML Services**. Você pode configurar um cluster de ML Services para executar cálculos R distribuídos com as velocidades prometidas com um cluster Spark. Para saber mais, veja [Introdução ao uso do ML Server no HDInsight](../r-server/r-server-get-started.md). |
-| Integração com IDEs de terceiros | O HDInsight fornece vários plug-ins IDE que são úteis para criar e enviar aplicativos a um cluster Spark do HDInsight. Para saber mais, confira [Usar o Azure Toolkit for IntelliJ IDEA](apache-spark-intellij-tool-plugin.md), Usar o HDInsight para VSCode e [Usar o Azure Toolkit for Eclipse](apache-spark-eclipse-tool-plugin.md).|
+| Integração com IDEs de terceiros | O HDInsight fornece vários plug-ins IDE que são úteis para criar e enviar aplicativos a um cluster Spark do HDInsight. Para saber mais, confira [Use Azure Toolkit for IntelliJ IDEA](apache-spark-intellij-tool-plugin.md) (Usar o Azure Toolkit for IntelliJ IDEA), [Use HDInsight for VSCode](../hdinsight-for-vscode.md) (Usar o HDInsight para VSCode) e [Use Azure Toolkit for Eclipse](apache-spark-eclipse-tool-plugin.md) (Usar o Azure Toolkit for Eclipse).|
 | Consultas simultâneas |Os clusters Spark no HDInsight dão suporte a consultas simultâneas. Essa funcionalidade permite que várias consultas de um usuário ou várias consultas de vários usuários e aplicativos compartilhem os mesmos recursos de cluster. |
 | Armazenamento em cache no SSDs |Você pode escolher os dados em cache na memória ou em SSDs anexados a nós do cluster. O armazenamento em cache na memória proporciona o melhor desempenho das consultas, porém o custo pode ser alto. O armazenamento em cache oferece uma ótima opção para melhorar o desempenho das consultas, sem necessidade de criar um cluster que caiba todo o conjunto de dados na memória. |
 | Integração com ferramentas de BI |Os clusters Spark no HDInsight fornecem conectores para ferramentas de BI como o [Power BI](https://www.powerbi.com/) para análise de dados. |

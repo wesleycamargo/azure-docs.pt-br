@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/16/2018
+ms.date: 02/21/2019
 ms.author: jdial
-ms.openlocfilehash: c91292bff22a76e4c15f031094809e20fdc43031
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3f308c38e9fa23c36f964b117f620a39e56c9bbd
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175720"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958177"
 ---
 # <a name="virtual-network-peering"></a>Emparelhamento de rede virtual
 
@@ -63,7 +63,7 @@ Quando as redes virtuais estiverem emparelhadas na mesma região, você também 
 
 ![trânsito de emparelhamento de rede virtual](./media/virtual-networks-peering-overview/figure04.png)
 
-Não há suporte para o trânsito de gateway na relação de emparelhamento entre redes virtuais criadas em regiões diferentes. As duas redes virtuais na relação de emparelhamento devem existir na mesma região para que o tráfego de gateway funcione. Há suporte para o tráfego de gateway entre redes virtuais criadas por meio de diferentes modelos de implantação (Resource Manager e clássico) apenas se o gateway está na rede virtual (Resource Manager). Para saber mais sobre como usar um gateway para trânsito, consulte [Configurar um gateway de VPN para trânsito em um emparelhamento de rede virtual](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Não há suporte para o trânsito de gateway na relação de emparelhamento entre redes virtuais criadas em regiões diferentes. As duas redes virtuais na relação de emparelhamento devem existir na mesma região para que o tráfego de gateway funcione. Há suporte para o tráfego de gateway entre redes virtuais criadas por meio de diferentes modelos de implantação (Resource Manager e clássico) apenas se o gateway (VPN ou ExpressRoute) está na rede virtual (Resource Manager). Para saber mais sobre como usar um gateway para trânsito, consulte [Configurar um gateway de VPN para trânsito em um emparelhamento de rede virtual](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Quando as redes virtuais que compartilham uma única conexão de Azure ExpressRoute forem emparelhadas, o tráfego entre elas passará pela relação de emparelhamento (isto é, pela rede de backbone do Azure). Você ainda pode usar gateways locais em cada rede virtual para se conectar ao circuito local. Como alternativa, você pode usar um gateway compartilhado e configurar o trânsito para conectividade local.
 
@@ -77,8 +77,7 @@ Você também pode experimentar a [Solução de problemas para problemas de empa
 
 ## <a name="requirements-and-constraints"></a>Requisitos e restrições
 
-As seguintes restrições se aplicam quando as redes virtuais estão pareadas globalmente:
-- As redes virtuais podem existir em qualquer região da nuvem pública do Azure e em regiões de nuvem do Azure na China, mas não em nuvens do Azure Governamental.
+As seguintes restrições se aplicam somente quando as redes virtuais são emparelhadas globalmente:
 - Os recursos em uma rede virtual não podem se comunicar com o endereço IP de front-end de um balanceador de carga interno do Azure em uma rede virtual com cobertura global. O balanceador de carga e os recursos que se comunicam com ele devem estar na mesma região.
 - Você não pode usar gateways remotos ou permitir o tráfego de gateway. Para usar gateways remotos ou permitir trânsito de gateway, as redes virtuais emparelhadas devem estar na mesma região.
 

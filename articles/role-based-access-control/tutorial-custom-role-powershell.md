@@ -11,18 +11,18 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 02/02/2019
+ms.date: 02/20/2019
 ms.author: rolyon
-ms.openlocfilehash: 23ee8aef4ab9b7ea54dae0587e2caaafbf08e5b2
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 269bd74aca85ddbc2bafda30542c48f8ab391b32
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339151"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587355"
 ---
 # <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-powershell"></a>Tutorial: Criar uma função personalizada para recursos do Azure usando o Azure PowerShell
 
-Se as [funções internas dos recursos do Azure](built-in-roles.md) não atenderem às necessidades específicas de sua organização, você poderá criar suas próprias funções personalizadas. Para este tutorial, crie uma função personalizada chamada Tíquetes de suporte do leitor usando o Azure PowerShell. A função personalizada permite que o usuário veja tudo na assinatura e também os tíquetes de suporte abertos.
+Se as [funções internas dos recursos do Azure](built-in-roles.md) não atenderem às necessidades específicas de sua organização, você poderá criar suas próprias funções personalizadas. Para este tutorial, crie uma função personalizada chamada Tíquetes de suporte do leitor usando o Azure PowerShell. A função personalizada permite ao usuário exibir tudo no plano de gerenciamento de uma assinatura e também abrir tíquetes de suporte.
 
 Neste tutorial, você aprenderá como:
 
@@ -41,7 +41,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 Para concluir este tutorial, você precisará de:
 
 - Permissões para criar funções personalizadas, como [Proprietário](built-in-roles.md#owner) ou [Administrador de acesso do usuário](built-in-roles.md#user-access-administrator)
-- [Azure PowerShell](/powershell/azure/install-az-ps) instalado localmente
+- [Azure Cloud Shell](../cloud-shell/overview.md) ou [Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## <a name="sign-in-to-azure-powershell"></a>Entre no Azure PowerShell
 

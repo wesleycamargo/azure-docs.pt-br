@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: dea623684454d4b14a370251df10599eb03bbb34
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c17a74c81d9c9d2ac3f585ab17f0b7d2acc628f6
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55856913"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873909"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>Tutorial: Extrair dados relacionados ao contexto de um enunciado
 
@@ -74,7 +74,7 @@ A entidade hierárquica é uma boa opção para esse tipo de dados porque as dua
     |Transferir Valério Pereira de São Diego para Bellevue |
     |remover Fabio Pena de Kansas City e movê-lo para Chicago|
 
-    [ ![Captura de tela do LUIS com novos enunciados na intenção MoveEmployee](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png)](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png#lightbox)
+    [![Captura de tela do LUIS com novos enunciados na intenção MoveEmployee](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png)](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png#lightbox)
 
 ## <a name="create-a-location-entity"></a>Criar uma entidade de local
 LUIS precisa entender o que é um local rotulando a origem e o destino nos enunciados. Se você precisar ver a expressão no modo de exibição de token (bruto), selecione a alternância na barra acima dos enunciados rotulada **Modo de Exibição de Entidades**. Depois de alternar a opção, o controle é rotulado **exibição Tokens**.
@@ -91,7 +91,7 @@ Se apenas um filho (origem ou destino) de uma entidade hierárquica estiver pres
 
 1. No enunciado, `move John W. Smith leaving Seattle headed to Dallas`, selecione a palavra `Seattle`. Um menu suspenso é exibido com uma caixa de texto na parte superior. Insira o nome da entidade `Location` na caixa de texto, selecione **Criar nova entidade** no menu suspenso. 
 
-    [![Captura de tela da criação da nova entidade na página de intenção](media/luis-quickstart-intent-and-hier-entity/create-location-hierarchical-entity-from-example-utterance.png "Captura de tela da criação da nova entidade na página de intenção")](media/luis-quickstart-intent-and-hier-entity/create-location-hierarchical-entity-from-example-utterance.png#lightbox)
+    [![Captura de tela da criação da nova entidade na página de intenção](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-1.png "Captura de tela da criação da nova entidade na página de intenção")](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-1.png#lightbox)
 
 1. Na janela pop-up, selecione o tipo de entidade **Hierárquica** com `Origin` e `Destination` como as entidades filho. Selecione **Concluído**.
 
@@ -99,7 +99,7 @@ Se apenas um filho (origem ou destino) de uma entidade hierárquica estiver pres
 
 1. O rótulo de `Seattle` está marcado como `Location` porque o LUIS não sabe se o termo foi a origem, o destino ou nenhum deles. Selecione `Seattle`, escolha **Localização**, em seguida, siga o menu à direita e selecione `Origin`.
 
-    [![Captura de tela da caixa de diálogo pop-up de rotulação de entidade para alterar localizações da entidade child](media/luis-quickstart-intent-and-hier-entity/choose-hierarchical-child-entity-from-example-utterance.png "Captura de tela da caixa de diálogo pop-up de rotulação de entidade para alterar localizações da entidade child")](media/luis-quickstart-intent-and-hier-entity/choose-hierarchical-child-entity-from-example-utterance.png#lightbox)
+    [![Captura de tela da caixa de diálogo pop-up de rotulação de entidade para alterar localizações da entidade child](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-2.png "Captura de tela da caixa de diálogo pop-up de rotulação de entidade para alterar localizações da entidade child")](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-2.png#lightbox)
 
 1. Rotule os outros locais em todos os outros enunciados. Quando todos os locais estiverem marcados, os enunciados começarão a ficar como um padrão. 
 

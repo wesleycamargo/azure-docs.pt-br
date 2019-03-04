@@ -8,12 +8,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 12/18/2018
 ms.author: dkshir
-ms.openlocfilehash: 488b97074d74650ecf5602d25e2a90a1998e5585
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 8f8bdb4d601e35cf489c1c4c1db3574fb8c8f18f
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883867"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730778"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-your-azure-digital-twins-spaces-by-using-time-series-insights"></a>Tutorial: Visualizar e analisar eventos de espaços dos Gêmeos Digitais do Azure usando o Time Series Insights
 
@@ -90,13 +90,13 @@ Você pode usar o serviço [Hubs de Eventos](../event-hubs/event-hubs-about.md) 
       - UdfCustom
       connectionString: Primary_connection_string_for_your_event_hub
       secondaryConnectionString: Secondary_connection_string_for_your_event_hub
-      path: Name_of_your_Event_Hubs_namespace
+      path: Name_of_your_Event_Hub
     - type: EventHub
       eventTypes:
       - DeviceMessage
       connectionString: Primary_connection_string_for_your_event_hub
       secondaryConnectionString: Secondary_connection_string_for_your_event_hub
-      path: Name_of_your_Event_Hubs_namespace
+      path: Name_of_your_Event_Hub
     ```
 
 1. Substitua os espaços reservados `Primary_connection_string_for_your_event_hub` pelo valor da **Cadeia de conexão – chave primária** para o hub de eventos. Verifique se o formato dessa cadeia de conexão é o seguinte:
@@ -111,7 +111,7 @@ Você pode usar o serviço [Hubs de Eventos](../event-hubs/event-hubs-about.md) 
    Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey2GUID;EntityPath=nameOfYourEventHub
    ```
 
-1. Substitua os espaços reservados `Name_of_your_Event_Hubs_namespace` pelo nome do seu namespace de Hubs de Eventos.
+1. Substitua os espaços reservados `Name_of_your_Event_Hub` pelo nome do seu Hub de Eventos.
 
     > [!IMPORTANT]
     > Insira todos os valores sem aspas. Verifique se há pelo menos um caractere de espaço após os dois-pontos no arquivo YAML. Você também pode validar o conteúdo do arquivo YAML usando qualquer validador YAML online, como [esta ferramenta](https://onlineyamltools.com/validate-yaml).

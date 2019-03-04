@@ -11,14 +11,14 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 02/22/2019
 ms.author: rolyon
-ms.openlocfilehash: 41f1c6dc8904f167f34ea72aeb9b3866504b7087
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 9352130eeeb68a87947450cb5616aa59e8e99ae9
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341293"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807364"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Tutorial: Permitir acesso a um usuário aos recursos do Azure usando o RBAC e o portal do Azure
 
@@ -48,9 +48,9 @@ Entre no Portal do Azure em http://portal.azure.com.
 
 1. Selecione uma assinatura e localização.
 
-1. Escolha **Criar** para criar o grupo de recursos.
+1. Clique em **Criar** para criar o grupo de recursos.
 
-1. Escolha **Atualizar** para atualizar a lista de grupos de recursos.
+1. Clique em **Atualizar** para atualizar a lista de grupos de recursos.
 
    O novo grupo de recursos é exibido em sua lista de grupos de recursos.
 
@@ -60,17 +60,19 @@ Entre no Portal do Azure em http://portal.azure.com.
 
 No RBAC, para conceder acesso, você cria uma atribuição de função.
 
-1. Na lista de **Grupos de recursos**, escolha o novo grupo de recursos **rbac-resource-group**.
+1. Na lista de **Grupos de recursos**, clique no novo grupo de recursos **rbac-resource-group**.
 
 1. Clique em **Controle de acesso (IAM)**.
 
-1. Escolha a aba **Atribuições de função** para ver a lista atual das atribuições de função.
+1. Clique na guia **Atribuições de função** para ver a lista atual das atribuições de função.
 
    ![Folha Controle de acesso (IAM) para o grupo de recursos](./media/quickstart-assign-role-user-portal/access-control.png)
 
-1. Escolha **Adicionar atribuição de função** para abrir o painel Adicionar atribuição de função.
+1. Clique em **Adicionar** > **Adicionar atribuição de função** para abrir o painel Adicionar atribuição de função.
 
    Se você não tiver permissões para atribuir funções, a opção Adicionar atribuição de função será desativada.
+
+   ![Adicionar menu](./media/role-assignments-portal/add-menu.png)
 
    ![Adicionar painel de atribuição de função](./media/quickstart-assign-role-user-portal/add-role-assignment.png)
 
@@ -78,7 +80,7 @@ No RBAC, para conceder acesso, você cria uma atribuição de função.
 
 1. Na lista **Selecionar**, selecione você mesmo ou outro usuário.
 
-1. Escolha **Salvar** para criar a atribuição de função.
+1. Clique em **Salvar** para criar a atribuição de função.
 
    Após alguns instantes, a função Colaborador da Máquina Virtual é atribuída ao usuário no escopo do grupo de recursos rbac-resource-group.
 
@@ -90,25 +92,25 @@ No RBAC, para remover o acesso, você deve remover uma atribuição de função.
 
 1. Na lista de atribuições de função, adicione uma marca de seleção ao lado do usuário com a função de Colaborador da Máquina Virtual.
 
-1. Escolha **Remover**.
+1. Clique em **Remover**.
 
    ![Remover mensagem de atribuição de função](./media/quickstart-assign-role-user-portal/remove-role-assignment.png)
 
-1. Na mensagem de remoção de atribuição de função que aparece, escolha **Sim**.
+1. Na mensagem para remover a atribuição de função exibida, clique em **Sim**.
 
 ## <a name="clean-up"></a>Limpar
 
 1. Na lista de navegação, escolha **Grupos de recursos**.
 
-1. Escolha **rbac-resource-group** para abrir o grupo de recursos.
+1. Clique em **rbac-resource-group** para abrir o grupo de recursos.
 
-1. Escolha **Excluir grupo de recursos** para excluir o grupo de recursos.
+1. Clique em **Excluir grupo de recursos** para excluir o grupo de recursos.
 
    ![Excluir grupo de recursos](./media/quickstart-assign-role-user-portal/delete-resource-group.png)
 
 1. Na folha **Tem certeza de que deseja excluir**, digite o nome do grupo de recursos: **rbac-resource-group**.
 
-1. Escolha **Excluir** para excluir o grupo de recursos.
+1. Clique em **Excluir** para excluir o grupo de recursos.
 
 ## <a name="next-steps"></a>Próximas etapas
 

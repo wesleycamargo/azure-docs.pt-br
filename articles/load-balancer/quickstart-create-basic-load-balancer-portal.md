@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/27/2018
+ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 64c0a42ac3cc074e5fd9e2824180009431b11e1e
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 3ec4b8fb9ebb7a03983ce5da3dad56e0fe9917e8
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231964"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986321"
 ---
-# <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>Início Rápido: criar um balanceador de carga Básico público usando o portal do Azure
+# <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>Início rápido: Criar um Load Balancer Básico usando o portal do Azure
 
 O balanceamento de carga fornece um nível mais alto de disponibilidade e escala com a distribuição das solicitações recebidas entre VMs (máquinas virtuais). Você pode usar o portal do Azure para criar um balanceador de carga e usá-lo entre VMs. Este início rápido mostra como criar e configurar um balanceador de carga, servidores back-end e um recursos de rede no tipo de preço Básico.
 
@@ -30,25 +30,27 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Para realizar todas as tarefas deste início rápido, entre no [portal do Azure](http://portal.azure.com).
 
-## <a name="create-a-basic-load-balancer"></a>Criar o balanceador de carga Básico
+## <a name="create-a-basic-load-balancer"></a>Criar o Load Balancer Básico
 
-Primeiro, crie um balanceador de carga Básico público usando o portal. O nome e o endereço IP público que você criar são configurados automaticamente como o front-end do balanceador de carga.
+Primeiro, crie um Load Balancer Básico usando o portal. O nome e o endereço IP público que você criar são configurados automaticamente como o front-end do balanceador de carga.
 
-1. No canto superior esquerdo do portal, selecione **Criar um recurso** > **Rede** > **Balanceador de Carga**.
-   
-1. No painel **Criar balanceador de carga**, insira ou selecione estes valores:
-   
-   - **Nome**: digite *MyLoadBalancer*.
-   - **Tipo**: selecione **Público**. 
-   - **SKU**: Selecione **Basic**.
-   - **Endereço IP público:** Selecione **Criar novo**. 
-     - Campo **Endereço IP público**: digite *MyPublicIP*.
-     - **Configurar o endereço IP público** > **Atribuição**: selecione **Dinâmico**.
-   - **ResourceGroup**: selecione **Criar novo**, insira *MyResourceGroupLB* e selecione **OK**. 
-   
-1. Selecione **Criar**.
-   
-![Criar um balanceador de carga](./media/load-balancer-get-started-internet-portal/1-load-balancer.png)
+1. No canto superior esquerdo da tela, clique em **Criar um recurso** > **Rede** > **Load Balancer**.
+2. Na guia **Noções Básicas** da página **Criar balanceador de carga**, insira ou selecione as seguintes informações, aceite os padrões para as configurações restantes e selecione **Revisar + criar**:
+
+    | Configuração                 | Valor                                              |
+    | ---                     | ---                                                |
+    | Assinatura               | Selecione sua assinatura.    |    
+    | Grupo de recursos         | Selecione **Criar** e digite *MyResourceGroupLB* na caixa de texto.|
+    | NOME                   | *myLoadBalancer*                                   |
+    | Região         | Selecione **Europa Ocidental**.                                        |
+    | Type          | Selecione **Público**.                                        |
+    | SKU           | Selecione **Basic**.                          |
+    | Endereço IP público | Selecione **Criar novo**. |
+    | Nome do endereço IP público              | *MyPublicIP*   |
+    | Atribuição| estático|
+
+3. Na guia **Revisar + criar**, clique em **Criar**.   
+
 
 ## <a name="create-back-end-servers"></a>Criar servidores back-end
 

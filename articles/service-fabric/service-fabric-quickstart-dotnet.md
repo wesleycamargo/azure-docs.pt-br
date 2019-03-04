@@ -15,12 +15,12 @@ ms.workload: azure-vs
 ms.date: 03/26/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: 3b7b70a5ac0c74cc920df823d1f9ae1152f86bff
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 8e83da53d0b2f71abc1f74a0ca8fbc2405e75bda
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561188"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56736576"
 ---
 # <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Início rápido: Implantar um aplicativo Reliable Services em .NET no Service Fabric
 
@@ -55,10 +55,10 @@ Para concluir este guia de início rápido:
 
 Depois de instalar o tempo de execução, os SDKs, as ferramentas do Visual Studio, Docker e estar com o Docker funcionando, crie um cluster de desenvolvimento local de cinco nós.
 
-> [!IMPORTANT]
-> O Docker **deve** estar em execução antes de um cluster ser compilado.
+> [!Note]
+> O motivo para ter o Docker em execução quando você cria o cluster é para que o cluster seja criado com recursos de contêiner habilitados. Se o Docker não estiver em execução, você terá que recriar o cluster para habilitar recursos de contêiner.
+> Embora desnecessário para este guia de início rápido específico, a instrução de ter o Docker em execução ao criar o cluster é incluída como uma prática recomendada.
 > Teste se o Docker está em execução abrindo uma janela de terminal e executando `docker ps` para ver se ocorre um erro. Se a resposta não indicar um erro, o Docker está em execução e você está pronto para compilar um cluster.
-
 
 1. Abra uma janela nova, com privilégios elevados do PowerShell como administrador.
 2. Digite o seguinte comando do PowerShell para criar um cluster de desenvolvimento:

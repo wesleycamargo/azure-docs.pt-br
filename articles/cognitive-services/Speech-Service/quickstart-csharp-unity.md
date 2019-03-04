@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Reconhecer fala, Unity – Serviços de Fala'
+title: 'Início Rápido: Reconhecer fala, Unity – Serviços de Fala'
 titleSuffix: Azure Cognitive Services
 description: Use este guia para criar um aplicativo de conversão de fala em texto com o Unity e o SDK de Fala para Unity (Beta). Quando terminar, você pode usar o microfone do computador para transcrever a conversão de fala em texto em tempo real.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: 8e31717f9fd232a7c256b65d044a97396af8f960
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 0978db31f4aa8caa273c63c2f55d5146b19dea26
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56448582"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878006"
 ---
-# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-unity-beta"></a>Início rápido: Reconhecer fala com o SDK de Fala para Unity (Beta)
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-unity-beta"></a>Início Rápido: Reconhecer fala com o SDK de Fala para Unity (Beta)
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -74,7 +74,7 @@ Adicionamos uma interface do usuário mínima à nossa cena, consistindo em um b
 
 Quando você terminar, a interface do usuário deverá ser semelhante a esta captura de tela:
 
-[ ![Captura de tela da interface do usuário do Início Rápido no Editor do Unity](media/sdk/qs-csharp-unity-02-ui-inline.png) ](media/sdk/qs-csharp-unity-02-ui-expanded.png#lightbox)
+[![Captura de tela da interface do usuário do Início Rápido no Editor do Unity](media/sdk/qs-csharp-unity-02-ui-inline.png)](media/sdk/qs-csharp-unity-02-ui-expanded.png#lightbox)
 
 ## <a name="add-the-sample-code"></a>Adicione o código de amostra
 
@@ -111,7 +111,7 @@ Quando você terminar, a interface do usuário deverá ser semelhante a esta cap
 
 * Depois que o aplicativo for iniciado, clique no botão e fale uma frase ou uma sentença em inglês no microfone do computador. Sua fala será transmitida para o serviço de Fala e transcrita para texto, que será exibida na janela.
 
-  [ ![Captura de tela do Início Rápido em execução na janela de Jogo do Unity](media/sdk/qs-csharp-unity-03-output-inline.png) ](media/sdk/qs-csharp-unity-03-output-expanded.png#lightbox)
+  [![Captura de tela do Início Rápido em execução na janela do jogo do Unity](media/sdk/qs-csharp-unity-03-output-inline.png)](media/sdk/qs-csharp-unity-03-output-expanded.png#lightbox)
 
 * Verifique a [Janela do Console](https://docs.unity3d.com/Manual/Console.html) para ver se há mensagens de depuração.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
-ms.openlocfilehash: ed2d1256508e588000970879dae7ac653797fbf9
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 7f20f237b83550b4c78b1fb7488e62119470a85a
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883306"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876986"
 ---
 # <a name="virtual-network-integration-for-azure-data-lake-storage-gen1"></a>Integração de rede virtual para o Azure Data Lake Storage Gen1
 
@@ -87,7 +87,7 @@ Algumas opções disponíveis:
 
 1.  Vá para o portal do Azure e entre em sua conta.
  
-2.  [Crie uma nova rede virtual ](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)em sua assinatura. Ou você pode ir para uma rede virtual existente. A rede virtual deve estar na mesma região que a conta do Data Lake Storage Gen 1.
+2.  [Crie uma rede virtual](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)em sua assinatura. Ou você pode ir para uma rede virtual existente. A rede virtual deve estar na mesma região que a conta do Data Lake Storage Gen 1.
  
 3.  Na folha **Rede virtual**, escolha **Pontos de extremidade de serviço**.
  

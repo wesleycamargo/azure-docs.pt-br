@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/13/2018
+ms.date: 02/25/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: c5bf56482534a55d24d8ca043e36c39cec99b1f0
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: be1249969fc50f5305dc5844f2578f8a24a6a220
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267522"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817942"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Tutorial: Criar modelos do Azure Resource Manager com recursos dependentes
 
@@ -122,22 +122,10 @@ Há muitos métodos para implantar modelos.  Neste tutorial, você usa o Cloud S
 
     ![Cloud Shell no portal do Azure carregar arquivo](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-upload-file.png)
 4. Escolha o modelo que você salvou anteriormente no tutorial. O nome padrão é **azuredeploy.json**.  Se você tiver um arquivo com o mesmo nome de arquivo, o arquivo antigo será substituído sem nenhuma notificação.
-5. No Cloud Shell, execute o comando a seguir para verificar se o arquivo foi carregado com êxito. 
 
-    ```bash
-    ls
-    ```
+    Opcionalmente, você pode usar o comando **ls $HOME** e o comando **cat $HOME/azuredeploy.json** para verificar se os arquivos são carregados com êxito. 
 
-    ![Cloud Shell no portal do Azure listar arquivo](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-list-file.png)
-
-    O nome de arquivo mostrado na captura de tela é azuredeploy.json.
-
-6. No Cloud Shell, execute o seguinte comando para verificar o conteúdo do arquivo JSON:
-
-    ```bash
-    cat azuredeploy.json
-    ```
-7. No Cloud Shell, execute os seguintes comandos do PowerShell. Para aumentar a segurança, use uma senha gerada para a conta de administrador da máquina virtual. Consulte [Pré-requisitos](#prerequisites).
+5. No Cloud Shell, execute os seguintes comandos do PowerShell. Para aumentar a segurança, use uma senha gerada para a conta de administrador da máquina virtual. Consulte [Pré-requisitos](#prerequisites).
 
     ```azurepowershell
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -146,17 +134,14 @@ Há muitos métodos para implantar modelos.  Neste tutorial, você usa o Cloud S
     $adminPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
     $dnsLabelPrefix = Read-Host -Prompt "Enter the DNS label prefix"
 
-    New-AzResourceGroup -Name $resourceGroupName -Location $location
+    New-AzResourceGroup -Name $resourceGroupName -Location "$location"
     New-AzResourceGroupDeployment `
         -ResourceGroupName $resourceGroupName `
         -adminUsername $adminUsername `
         -adminPassword $adminPassword `
         -dnsLabelPrefix $dnsLabelPrefix `
-        -TemplateFile azuredeploy.json
+        -TemplateFile "$HOME/azuredeploy.json"
     ```
-
-    > [!NOTE]
-    > Há um problema de E/S de arquivo com o uso do Azure PowerShell no Cloud Shell.  A mensagem de erro é *Não é possível recuperar os parâmetros dinâmicos para o cmdlet. Não é possível encontrar o caminho 'Azure:/azuredeploy.json' porque ele não existe.*  Uma solução alternativa temporária é não incluir a opção **-TemplateFile** no comando `New-AzResourceGroupDeploy`. O comando solicitará que você insira o nome do arquivo.
 
 8. Execute o seguinte comando do PowerShell para listar a máquina virtual criada recentemente:
 

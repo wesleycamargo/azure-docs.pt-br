@@ -7,16 +7,16 @@ ms.service: terraform
 ms.topic: quickstart
 ms.date: 02/04/2019
 ms.author: nepeters
-ms.openlocfilehash: 408e07e9b6214dbd223bd4ec7959b00ecc414f1e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b3d872008c95d94a8401e6f38665c3c88616a168
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869170"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56736916"
 ---
 # <a name="create-a-terraform-configuration-for-azure"></a>Criar uma configuração do Terraform no Azure
 
-Neste exemplo, você obterá experiência na criação de uma configuração do Terraform e na implantação dessa configuração no Azure. Após a conclusão, você terá implantado uma instância do Azure Cosmos DB, Instâncias de Contêiner do Azure e um aplicativo que funciona nesses dois recursos. Este documento pressupõe que todo o trabalho seja concluído no Azure Cloud Shell, que tem as ferramentas do Terraform pré-instaladas. Caso você deseje trabalhar com o exemplo em seu próprio sistema, o Terraform poderá ser instalado usando as instruções encontradas [aqui](../virtual-machines/linux/terraform-install-configure.md).
+Neste exemplo, você obterá experiência na criação de uma configuração do Terraform e na implantação dessa configuração no Azure. Após a conclusão, você terá implantado uma instância do Azure Cosmos DB, uma Instância de Contêiner do Azure e um aplicativo que funciona nesses dois recursos. Este documento pressupõe que todo o trabalho seja concluído no Azure Cloud Shell, que tem as ferramentas do Terraform pré-instaladas. Caso você deseje trabalhar com o exemplo em seu próprio sistema, o Terraform poderá ser instalado usando as instruções encontradas [aqui](../virtual-machines/linux/terraform-install-configure.md).
 
 ## <a name="create-first-configuration"></a>Criar a primeira configuração
 
@@ -30,7 +30,7 @@ code .
 
 Copie e cole a configuração do Terraform a seguir.
 
-Essa configuração modela um grupo de recursos do Azure, um inteiro aleatório e uma instância do Azure Cosmos DB. O inteiro aleatório é usado no nome das instâncias do Cosmos DB. Várias configurações do Cosmos DB também são definidas. Para obter uma lista completa das configurações do Terraform no Cosmos DB, confira a [referência do Terraform no Cosmos DB](https://www.terraform.io/docs/providers/azurerm/r/cosmosdb_account.html).
+Essa configuração modela um grupo de recursos do Azure, um inteiro aleatório e uma instância do Azure Cosmos DB. O inteiro aleatório é usado no nome da instância do Cosmos DB. Várias configurações do Cosmos DB também são definidas. Para obter uma lista completa das configurações do Terraform no Cosmos DB, confira a [referência do Terraform no Cosmos DB](https://www.terraform.io/docs/providers/azurerm/r/cosmosdb_account.html).
 
 Salve o arquivo como `main.tf` quando terminar. Essa operação pode ser feita usando as reticências na parte superior direita do editor de códigos.
 

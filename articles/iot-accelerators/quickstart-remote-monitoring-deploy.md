@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2018
 ms.author: dobett
-ms.openlocfilehash: 3f30b46138fc7753a1a4282497cbb06b6a4defbc
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 60876cb95e6efe4fbde55bd8a224eab658b10d66
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608350"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749980"
 ---
 # <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Início Rápido: Experimentar uma solução de monitoramento remoto baseado em nuvem
 
@@ -45,7 +45,7 @@ Insira um **Nome de solução** exclusivo para o acelerador de solução de Moni
 Selecione a **Assinatura** e a **Região** que você deseja usar para o acelerador de solução. Normalmente a região escolhida é a mais próxima de você. Para este início rápido, usamos **Leste dos EUA**.
 Escolha **Visual Studio Enterprise**, mas você deve ser [administrador global ou usuário](iot-accelerators-permissions.md) para fazer isso.
 
-Para iniciar a implantação, clique em **Criar Solução**. Esse processo leva pelo menos cinco minutos para ser executado:
+Para iniciar a implantação, clique em **Criar**. Esse processo leva pelo menos cinco minutos para ser executado:
 
 ![Detalhes da solução de Monitoramento Remoto](./media/quickstart-remote-monitoring-deploy/createform.png)
 
@@ -57,7 +57,7 @@ Na página **Soluções provisionadas**, clique em seu novo acelerador de soluç
 
 ![Escolher a nova solução](./media/quickstart-remote-monitoring-deploy/choosenew.png)
 
-Você pode exibir informações sobre o acelerador de solução de Monitoramento Remoto no painel exibido. Escolha **Painel da solução** para exibir o acelerador de solução de Monitoramento Remoto:
+Você pode exibir informações sobre o acelerador de solução de Monitoramento Remoto no painel exibido. Escolha **Ir para o acelerador de solução** para exibir o acelerador de solução do Monitoramento Remoto:
 
 ![Painel de solução](./media/quickstart-remote-monitoring-deploy/solutionpanel.png)
 
@@ -134,6 +134,9 @@ Se você planeja passar para outros tutoriais, deixe o acelerador de solução d
 Caso não precise mais do acelerador de solução, exclua-o da página [Soluções provisionadas](https://www.azureiotsolutions.com/Accelerators#dashboard) selecionando-o e clicando em **Excluir solução**:
 
 ![Excluir solução](media/quickstart-remote-monitoring-deploy/deletesolution.png)
+
+
+![Excluir solução](media/quickstart-remote-monitoring-deploy/deletesolution-page.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

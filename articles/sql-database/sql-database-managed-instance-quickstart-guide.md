@@ -11,33 +11,38 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: 3940c2f239a4354cfb44a499f7375f4ba34f8aa8
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.date: 02/18/2019
+ms.openlocfilehash: 3bf0f62b0a8d909231ad747435ce363e6686fe80
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892020"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874742"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Introdução à instância gerenciada do Banco de Dados SQL do Azure
 
-A opção de implantação de [instância gerenciada](sql-database-managed-instance-index.yml) cria um banco de dados com quase 100% de compatibilidade com o Mecanismo de Banco de Dados (Enterprise Edition) local do SQL Server, fornecendo uma implementação de [VNet (rede virtual)](../virtual-network/virtual-networks-overview.md) nativa que resolve preocupações comuns de segurança e um [modelo de negócios](https://azure.microsoft.com/pricing/details/sql-database/) favorável para clientes do SQL Server locais. Nesta seção, você aprenderá como configurar e criar rapidamente uma instância gerenciada e como migrar seus bancos de dados.
+A opção de implantação de [instância gerenciada](sql-database-managed-instance-index.yml) cria um banco de dados com quase 100% de compatibilidade com o mecanismo de banco de dados (Enterprise Edition) local do SQL Server, fornecendo uma implementação de [VNet (rede virtual)](../virtual-network/virtual-networks-overview.md) nativa que resolve preocupações comuns de segurança e um [modelo de negócios](https://azure.microsoft.com/pricing/details/sql-database/) favorável para clientes do SQL Server locais. Neste artigo, você aprenderá como configurar e criar rapidamente uma instância gerenciada e como migrar seus bancos de dados.
 
 ## <a name="quickstart-overview"></a>Visão geral do início rápido
 
-Os inícios rápidos a seguir permitem que você crie rapidamente uma instância gerenciada, configure uma máquina virtual ou aponte para a conexão VPN do site para o aplicativo cliente e restaure um banco de dados para sua nova instância gerenciada usando um arquivo `.bak`:
+Os inícios rápidos a seguir permitem que você crie rapidamente uma instância gerenciada, configure uma máquina virtual ou aponte para a conexão VPN do site para o aplicativo cliente e restaure um banco de dados para sua nova instância gerenciada usando um arquivo `.bak`.
 
-- [Criar uma instância gerenciada usando o portal do Azure](sql-database-managed-instance-get-started.md). No portal do Azure, você configura os parâmetros necessários (nome de usuário/senha, número de núcleos, armazenamento máximo) e cria automaticamente o ambiente de rede do Azure sem precisar conhecer os detalhes da rede e os requisitos de infraestrutura. Certifique-se de ter um [tipo de assinatura](sql-database-managed-instance-resource-limits.md#supported-subscription-types) com permissão para criar uma instância gerenciada. Se você tiver uma rede própria que deseja usar ou se desejar personalizar a rede, confira como configurar o ambiente de rede para uma instância gerenciada.
-- Uma instância gerenciada é criada na própria VNet sem nenhum ponto de extremidade público. Para ter acesso a aplicativos cliente, é possível criar uma VM na mesma VNet (sub-rede diferente) ou criar uma conexão VPN ponto a site com a VNet do computador cliente usando um desses inícios rápidos.
+### <a name="configure-environment"></a>Configurar ambiente
+Como uma primeira etapa, você precisaria criar sua primeira Instância Gerenciada com o ambiente de rede em que ela será colocada e habilitar a conexão do computador ou máquina virtual em que você está executando consultas para a Instância Gerenciada. É possível usar as seguintes orientações:
+
+- [Criar uma instância gerenciada usando o portal do Azure](sql-database-managed-instance-get-started.md). No portal do Azure, você configura os parâmetros necessários (nome de usuário/senha, número de núcleos e quantidade máxima de armazenamento) e cria automaticamente o ambiente de rede do Azure sem precisar conhecer os detalhes da rede e os requisitos de infraestrutura. Verifique se você tem [tipo de assinatura](sql-database-managed-instance-resource-limits.md#supported-subscription-types) que tenha, no momento, permissão para criar uma instância gerenciada. Se você tiver sua própria rede que você deseja usar ou quiser personalizar a rede, veja [Configurar uma rede virtual existente para a instância gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance-configure-vnet-subnet.md) ou [Criar uma rede virtual para a instância gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance-create-vnet-subnet.md).
+- Uma instância gerenciada é criada na própria VNet sem nenhum ponto de extremidade público. Para ter acesso a aplicativos cliente, é possível **criar uma VM na mesma VNet (sub-rede diferente)** ou **criar uma conexão VPN ponto a site com a VNet do computador cliente** usando um desses inícios rápidos:
+
   - Crie uma [máquina virtual do Azure na VNet de instância gerenciada](sql-database-managed-instance-configure-vm.md) para obter conectividade de aplicativo cliente, incluindo o SQL Server Management Studio.
   - Configure a [conexão VPN ponto a site com sua instância gerenciada](sql-database-managed-instance-configure-p2s.md) do computador cliente no qual você tem o SQL Server Management Studio e outros aplicativos de conectividade de cliente. Esta é a outra das duas opções para conectividade com sua instância gerenciada e com sua VNet.
 
   > [!NOTE]
   > Também é possível usar a rota expressa ou a conexão site a site da rede local, mas essas abordagens estão fora do escopo desses inícios rápidos.
 
-Após você criar uma instância gerenciada e configurar o acesso, será possível começar a migrar os bancos de dados colocados no SQL Server local ou em VMs do Azure. A migração falhará se você tiver alguns recursos sem suporte no banco de dados de origem que você deseja migrar. Para evitar falhas e verificar a compatibilidade, você pode instalar o [AMD (Assistente de Migração de Dados)](https://www.microsoft.com/download/details.aspx?id=53595), que analisa seus bancos de dados no SQL Server e encontra qualquer problema que possa bloquear a migração para uma instância gerenciada, como a existência de [FileStream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) ou de vários arquivos de log. Se você resolver esses problemas, seus bancos de dados estarão prontos para migrar para a instância gerenciada. O [Assistente para Experimentos de Banco de Dados](https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/) é outra ferramenta útil que pode registrar a carga de trabalho no SQL Server e reproduzi-la em uma instância gerenciada para que você possa determinar se haverá problemas de desempenho se você migrar para uma instância gerenciada.
+### <a name="migrate-your-databases"></a>Migrar seus bancos de dados 
+Após você criar uma instância gerenciada e configurar o acesso, será possível começar a migrar os bancos de dados do SQL Server local ou em VMs do Azure. A migração falhará se você tiver alguns recursos sem suporte no banco de dados de origem que você deseja migrar. Para evitar falhas e verificar a compatibilidade, você pode instalar o [AMD (Assistente de Migração de Dados)](https://www.microsoft.com/download/details.aspx?id=53595), que analisa seus bancos de dados no SQL Server e encontra qualquer problema que possa bloquear a migração para uma instância gerenciada, como a existência de [FileStream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) ou de vários arquivos de log. Se você resolver esses problemas, seus bancos de dados estarão prontos para migrar para a instância gerenciada. O [Assistente para Experimentos de Banco de Dados](https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/) é outra ferramenta útil que pode registrar a carga de trabalho no SQL Server e reproduzi-la em uma instância gerenciada para que você possa determinar se haverá problemas de desempenho se você migrar para uma instância gerenciada.
 
-Após ter a certeza de que você pode migrar o banco de dados para uma instância gerenciada, será possível usar as funcionalidades nativas de restauração do SQL Server para restaurar um banco de dados em uma instância gerenciada de um arquivo `.bak`. Para um início rápido, confira [Restore from backup to a managed instance](sql-database-managed-instance-get-started-restore.md) (Restaurar do backup para uma instância gerenciada). Neste início rápido, você restaurará de um arquivo `.bak` armazenado no Armazenamento de Blobs do Azure usando o comando `RESTORE` Transact-SQL. 
+Após ter a certeza de que você pode migrar o banco de dados para uma instância gerenciada, será possível usar as funcionalidades nativas de restauração do SQL Server para restaurar um banco de dados em uma instância gerenciada de um arquivo `.bak`. Você pode usar esse método para migrar bancos de dados do mecanismo de banco de dados do SQL Server instalado localmente ou na VM do Azure. Para um início rápido, confira [Restore from backup to a managed instance](sql-database-managed-instance-get-started-restore.md) (Restaurar do backup para uma instância gerenciada). Neste início rápido, você restaurará de um arquivo `.bak` armazenado no Armazenamento de Blobs do Azure usando o comando `RESTORE` Transact-SQL. 
 
 > [!TIP]
 > Para usar o comando `BACKUP` Transact-SQL para criar um backup do banco de dados no Armazenamento de Blobs do Azure, confira [Backup do SQL Server para URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url).
@@ -66,6 +71,6 @@ Os artigos nestes inícios rápidos permitem que você configure uma instância 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Encontre uma [lista de alto nível dos recursos com suporte na Instância Gerenciada aqui](sql-database-features.md) e [detalhes e problemas conhecidos aqui](sql-database-managed-instance-transact-sql-information.md).
-- Saiba mais sobre as [características técnicas da Instância Gerenciada](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits). 
+- Encontre uma [lista de alto nível dos recursos com suporte na instância gerenciada aqui](sql-database-features.md) e [detalhes e problemas conhecidos aqui](sql-database-managed-instance-transact-sql-information.md).
+- Saiba mais sobre as [características técnicas da instância gerenciada](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits). 
 - Encontre instruções mais avançadas em [como usar uma instância gerenciada no Banco de Dados SQL do Azure](sql-database-howto-managed-instance.md). 

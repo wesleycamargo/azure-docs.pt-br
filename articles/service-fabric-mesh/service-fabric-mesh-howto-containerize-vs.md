@@ -3,18 +3,18 @@ title: Colocar um aplicativo .NET existente em um contêiner da Malha do Service
 description: Adicionar suporte à Malha para um aplicativo .NET existente
 services: service-fabric-mesh
 keywords: Colocar a malha do service fabric em um contêiner
-author: tylermsft
-ms.author: twhitney
+author: dkkapur
+ms.author: dekapur
 ms.date: 11/08/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
-manager: jeconnoc
-ms.openlocfilehash: 6f71f45d435b6be3358f79d8b6e72e4636d92ab6
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+manager: chakdan
+ms.openlocfilehash: bb4aacafaa90f16370bc097b5feab7791def4006
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52891829"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806939"
 ---
 # <a name="containerize-an-existing-net-app-for-service-fabric-mesh"></a>Colocar um aplicativo .NET existente em um contêiner da Malha do Service Fabric
 
@@ -71,4 +71,4 @@ Agora você pode publicar o aplicativo na Malha do Azure Service Fabric.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Veja como publicar um aplicativo na Malha do Service Fabric: [Tutorial - Implantar um aplicativo de Malha do Service Fabric para a Malha do Service Fabric](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+Veja como publicar um aplicativo na Malha do Service Fabric: [Tutorial – Implantar um aplicativo da Malha do Service Fabric](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)

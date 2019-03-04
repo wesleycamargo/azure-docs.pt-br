@@ -13,14 +13,14 @@ ms.date: 11/28/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df5d42135c538ca3d0a63252805efb44cef7e8b0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 536edcf74bff6f89dade4a713c40c9bef12e18af
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190459"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881797"
 ---
-# <a name="what-is-hybrid-identity"></a>O que é identidade híbrida? 
+# <a name="what-is-hybrid-identity"></a>O que é identidade híbrida?
 
 Hoje, as empresas e corporações estão se tornando cada vez mais uma mistura de aplicativos locais e na nuvem.  Os usuários precisam ter acesso local e na nuvem a esses aplicativos. Esse requisito se tornou um cenário desafiador. 
 
@@ -30,7 +30,7 @@ Para obter identidade híbrida, pode ser usado um dos três métodos de autentic
 
 - **[PHS (sincronização de hash de senha)](whatis-phs.md)**  
 - **[PTA (autenticação de passagem)](how-to-connect-pta.md)**  
-- **[Federação](whatis-fed.md)** 
+- **[Federação (AD FS)](whatis-fed.md)** 
 
 Esses métodos de autenticação também fornecem funcionalidades de [logon único](how-to-connect-sso.md).  O logon único faz logon automaticamente dos seus usuários quando eles estão em seus dispositivos corporativos, conectados à sua rede corporativa.
 
@@ -47,7 +47,7 @@ Aqui estão alguns dos cenários comuns de gerenciamento de acesso e identidade 
 |Habilitar os usuários a entrar e acessar serviços de nuvem usando suas senhas locais.|![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)| ![Recomendadas](./media/whatis-hybrid-identity/ic195031.png) |![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)| 
 |Implementar o logon único usando credenciais corporativas.|![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)| ![Recomendadas](./media/whatis-hybrid-identity/ic195031.png) |![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)|  
 |Assegurar que nenhum hash de senha seja armazenado na nuvem.| |![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)|![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)| 
-|Habilitar soluções de autenticação multifator de nuvem.| |![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)|![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)| 
+|Habilite soluções de autenticação multifator baseadas em nuvem.|![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)|![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)|![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)| 
 |Habilitar soluções de autenticação multifator locais.| | |![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)| 
 |Dar suporte à autenticação de cartão inteligente para meus usuários.<sup>4</sup>| | |![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)| 
 |Exibir notificações de expiração de senha no Portal do Office e na área de trabalho do Windows 10.| | |![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)| 

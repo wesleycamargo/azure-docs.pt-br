@@ -11,16 +11,16 @@ ms.author: cforbe
 ms.reviewer: trbye
 ms.date: 02/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4f6c1af2051d946b29e2022c90d0ad9820b4d283
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 1d483d14a08f589fc8d014a13a47008b9fb59690
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823494"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984944"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Tutorial: Preparar dados para modelagem de regressão
 
-Neste tutorial, você aprenderá como preparar dados para a modelagem de regressão usando o SDK de preparação de dados do Azure Machine Learning. Você executará várias transformações para filtrar e combinar dois conjuntos diferentes de dados de táxi em Nova York.
+Neste tutorial, você aprenderá a preparar dados para a modelagem de regressão usando o [SDK de Preparação de Dados do Azure Machine Learning para Python](https://aka.ms/data-prep-sdk). Você executará várias transformações para filtrar e combinar dois conjuntos diferentes de dados de táxi em Nova York.
 
 Este tutorial é **parte uma de uma série de tutoriais de duas partes**. Depois de concluir a série de tutoriais, você poderá prever o custo de uma corrida de táxi treinando um modelo em recursos de dados. Esses recursos incluem o dia e a hora da retirada, o número de passageiros e o local de retirada.
 
@@ -48,7 +48,7 @@ Obtenha todos esses pré-requisitos de qualquer uma das seções a seguir.
 
 ### <a name="azure"></a>Usar o Azure Notebooks: notebooks gratuitos do Jupyter na nuvem
 
-É fácil começar a usar o Azure Notebooks! O [SDK da Preparação de Dados do Azure Machine Learning para Python](https://aka.ms/data-prep-sdk) já está instalado e configurado para você no [Azure Notebooks](https://notebooks.azure.com/). A instalação e as atualizações futuras são gerenciadas automaticamente por meio dos serviços do Azure.
+É fácil começar a usar o Azure Notebooks! O SDK de Preparação de Dados do Azure Machine Learning já está instalado e configurado para você no [Azure Notebooks](https://notebooks.azure.com/). A instalação e as atualizações futuras são gerenciadas automaticamente por meio dos serviços do Azure.
 
 Após concluir as etapas abaixo, execute o notebook **tutorials/regression-part1-data-prep.ipynb** em seu projeto de **Introdução**.
 
@@ -662,7 +662,7 @@ Observe que a saída do perfil de dados na coluna `store_forward` mostra que os 
 replaced_stfor_vals_df = latlong_filtered_df.replace(columns="store_forward", find="0", replace_with="N").fill_nulls("store_forward", "N")
 ```
 
-Execute a função `replace` no campo `distance`. A função reformata os valores de distância rotulados incorretamente como `.00` e preenche os nulos com zeros. Converta o campo `distance` em formato numérico. Esses pontos de dados incorretos são provavelmente anomalias no sistema de coleta dados nos táxis.
+Execute a função `replace` no campo `distance`. A função reformata os valores de distância rotulados incorretamente como `.00` e preenche os nulos com zeros. Converta o campo `distance` em formato numérico. Esses pontos de dados incorretos provavelmente são anomalias no sistema de coleta de dados nos táxis.
 
 
 ```python

@@ -9,15 +9,15 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/21/2018
+ms.date: 02/22/2019
 ms.author: dobett
 ms.custom: mvc
-ms.openlocfilehash: 20891b0d73783c9b68a42ecfed130e377b6f8eab
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: c387a7c10b962cfd27a7563c00ce58f58e97b9d5
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729805"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56671818"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Tutorial: Implementar um processo de atualização de firmware de dispositivos
 
@@ -94,7 +94,8 @@ az iot hub device-identity show-connection-string --device-id MyFirmwareUpdateDe
 
 ```
 
-Se você executar esses comandos em um prompt de comando do Windows ou prompt do PowerShell, confira a página [azure-iot-cli-extension tips](https://github.com/Azure/azure-iot-cli-extension/wiki/Tips
+> [!TIP]
+> Se você executar esses comandos em um prompt de comando do Windows ou prompt do PowerShell, confira a página [azure-iot-cli-extension tips](https://github.com/Azure/azure-iot-cli-extension/wiki/Tips
 ) para obter informações sobre como citar as cadeias de caracteres JSON.
 
 ## <a name="start-the-firmware-update"></a>Iniciar a atualização do firmware
@@ -205,7 +206,7 @@ az group delete --name tutorial-iot-hub-rg
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como implementar um processo de atualização do firmware para seus dispositivos conectados. Avance para o próximo tutorial para saber como usar ferramentas do portal do Hub IoT e comandos da CLI do Azure para testar a conectividade de dispositivo.
+Neste tutorial, você aprendeu como implementar um processo de atualização do firmware para seus dispositivos conectados. Avance para o próximo tutorial para saber como usar ferramentas do portal do Hub IoT e comandos da CLI do Azure para testar a conectividade do dispositivo.
 
 > [!div class="nextstepaction"]
 [Usar um dispositivo simulado para testar a conectividade com o hub IoT](tutorial-connectivity.md)

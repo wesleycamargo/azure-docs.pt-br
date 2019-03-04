@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/28/2018
+ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 16c9eea61391511f7515308131b3541e186cd7ae
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: b8600ed03140e302c730d44c6410d2020b7c48a3
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232610"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983176"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Tutorial: balancear carga de tráfego interna com um balanceador de carga Básico no portal do Azure
 
@@ -87,24 +87,27 @@ Crie um balanceador de carga interno Básico usando o portal. O nome e o endere�
 
 1. No canto superior esquerdo do portal, selecione **Criar um recurso** > **Rede** > **Balanceador de Carga**.
    
-1. No painel **Criar balanceador de carga**, insira ou selecione estes valores:
+2. Na guia **Noções Básicas** da página **Criar balanceador de carga**, insira ou selecione as seguintes informações, aceite os padrões para as configurações restantes e selecione **Revisar + criar**:
+
+    | Configuração                 | Valor                                              |
+    | ---                     | ---                                                |
+    | Assinatura               | Selecione sua assinatura.    |    
+    | Grupo de recursos         | Selecione **Criar** e digite *MyResourceGroupLB* na caixa de texto.|
+    | NOME                   | *myLoadBalancer*                                   |
+    | Região         | Selecione **Europa Ocidental**.                                        |
+    | Type          | Selecione **Público**.                                        |
+    | SKU           | Selecione **Basic**.                          |
+    | Rede virtual           | Selecione *MyVNet*.                          |    
+| Endereço IP público | Selecione **Criar novo**. |
+    | Atribuição de endereço IP público              | Selecione **Estático**.   |
+    | Endereço IP privado|digite um endereço que está no espaço de endereço de sua rede virtual e sub-rede, por exemplo, *10.3.0.7*.  |
+
+3. Na guia **Revisar + criar**, clique em **Criar**. 
    
-   - **Nome**: digite *MyLoadBalancer*.
-   - **Tipo**: selecione **Interno**. 
-   - **SKU**: Selecione **Basic**.
-   - **Rede virtual**: selecione **Escolher uma rede virtual**e **MyVNet**.
-   - **Sub-rede**: selecione **Escolher uma sub-rede**e **MyBackendSubnet**.
-   - **Atribuição de endereço IP**: selecione **Estático** se não selecionado.
-   - **Endereço IP privado**: digite um endereço que está no espaço de endereço de sua rede virtual e sub-rede, por exemplo, *10.3.0.7*.
-   - **ResourceGroup**: abra a lista suspensa **Selecionar existente** e selecione **MyResourceGroupLB**. 
-   
-1. Selecione **Criar**.
-   
-![Criar um balanceador de carga](./media/tutorial-load-balancer-basic-internal-portal/1-load-balancer.png)
 
 ## <a name="create-basic-load-balancer-resources"></a>Criar recursos do balanceador de carga Básico
 
-Nesta seção, você define as configurações do balanceador de carga para um pool de endereços de back-end e uma investigação de integridade, além de especificar as regras do balanceador de carga.
+Nesta seção, você definirá as configurações do balanceador de carga para um pool de endereços de back-end e uma investigação de integridade, além de especificar as regras do balanceador de carga.
 
 ### <a name="create-a-back-end-address-pool"></a>Criar um pool de endereços de back-end
 

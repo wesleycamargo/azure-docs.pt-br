@@ -11,12 +11,12 @@ ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 9fa1e3ffd92b3c375837c7b9a4a0e7fd1a80893a
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 77dda5f113a10f0bfb59457b1059563c58db0dde
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433672"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816923"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Solucionar problemas de alterações em seu ambiente
 
@@ -62,12 +62,14 @@ Durante a integração, a VM é provisionada com o MMA (Microsoft Monitoring Age
 Esse agente é usado para comunicar-se com a VM e obter informações sobre o software instalado.
 
 A habilitação da solução pode levar até 15 minutos. Durante esse tempo, não feche a janela do navegador.
-Depois que a solução for habilitada, as informações sobre o software instalado e as alterações na VM fluirão para o Log Analytics.
+Depois que a solução é habilitada, as informações sobre o software instalado e as alterações na VM fluem para os logs do Azure Monitor.
 Pode levar entre 30 minutos e 6 horas para que os dados fiquem disponíveis para análise.
 
-## <a name="using-change-tracking-in-log-analytics"></a>Usando o Controle de alterações no Log Analytics
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-O controle de alterações gera dados de log que são enviados para o Log Analytics.
+## <a name="using-change-tracking-in-azure-monitor-logs"></a>Usando o controle de alterações no Azure Monitor logs
+
+O controle de alterações gera dados de log que são enviados para os logs do Azure Monitor.
 Para pesquisar os logs executando consultas, selecione **Log Analytics** na parte superior da janela **Controle de alterações**.
 Os dados do Controle de alterações são armazenados com o tipo **ConfigurationChange**.
 A consulta de exemplo do Log Analytics retorna todos os serviços do Windows que foram interrompidos.
@@ -77,7 +79,7 @@ ConfigurationChange
 | where ConfigChangeType == "WindowsServices" and SvcState == "Stopped"
 ```
 
-Para saber mais sobre como executar e pesquisar arquivos de log no Log Analytics, consulte [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md).
+Para saber mais sobre como executar e pesquisar arquivos de log nos logs do Azure Monitor, veja [logs do Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 
 ## <a name="configure-change-tracking"></a>Configurar o Controle de alterações
 

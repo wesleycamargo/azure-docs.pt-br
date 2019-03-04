@@ -11,12 +11,12 @@ ms.service: automation
 ms.subservice: change-inventory-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: ffa14e3fb3fd41d6a30e1cf30713b26d7ecd255a
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 2cce925f4b3e1acc6c93019615b81983a5c95f6f
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436001"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56815885"
 ---
 # <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>Descobrir qual software está instalado em computadores Azure e não Azure
 
@@ -58,8 +58,10 @@ Para habilitar a solução, configure o local, o workspace do Log Analytics e a 
 Um workspace do [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) é usado para coletar dados gerados por recursos e serviços como Inventário.
 O workspace fornece um único local para examinar e analisar dados de várias fontes.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 A habilitação da solução pode levar até 15 minutos. Durante esse tempo, não feche a janela do navegador.
-Depois que a solução for habilitada, as informações sobre o software instalado e as alterações na VM fluirão para o Log Analytics.
+Depois que a solução é habilitada, as informações sobre o software instalado e as alterações na VM fluem para os logs do Azure Monitor.
 Pode levar entre 30 minutos e 6 horas para que os dados fiquem disponíveis para análise.
 
 ## <a name="onboard-a-vm"></a>Integrar uma VM
@@ -101,7 +103,7 @@ Por exemplo, pesquisar "Contoso" retorna todos os softwares com um nome, um edit
 
 ## <a name="search-inventory-logs-for-installed-software"></a>Pesquisar software instalado nos registros de inventário
 
-O Inventário gera dados de log que são enviados para o Log Analytics. Para pesquisar os logs executando consultas, selecione **Log Analytics** na parte superior da janela **Inventário**.
+O inventário gera dados de log que são enviados para os logs do Azure Monitor. Para pesquisar os logs executando consultas, selecione **Log Analytics** na parte superior da janela **Inventário**.
 
 Os dados de inventário são armazenados com o tipo **ConfigurationData**.
 A consulta de exemplo a seguir do Log Analytics retorna os resultados de inventário onde o publicador é igual a "Microsoft Corporation".
@@ -113,11 +115,11 @@ ConfigurationData
 | summarize arg_max(TimeGenerated, *) by SoftwareName, Computer
 ```
 
-Para saber mais sobre como executar e pesquisar arquivos de log no Log Analytics, consulte [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md).
+Para saber mais sobre como executar e pesquisar arquivos de log nos logs do Azure Monitor, veja [logs do Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 
 ### <a name="single-machine-inventory"></a>Inventário de computador único
 
-Para ver o inventário de software para um único computador, é possível acessar o Inventário da página de recursos de VM do Azure ou usar o Log Analytics para filtrar até o computador correspondente.
+Para ver o inventário de software para um único computador, é possível acessar o Inventário da página de recursos de VM do Azure ou usar os logs do Azure Monitor para filtrar até o computador correspondente.
 A consulta de exemplo do Log Analytics a seguir retorna a lista de software para um computador chamado ContosoVM.
 
 ```loganalytics

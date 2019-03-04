@@ -3,8 +3,8 @@ title: Tutorial – Limpeza de recursos da Malha do Azure Service Fabric | Micro
 description: Saiba como remover recursos da Malha do Azure Service Fabric para não ser cobrado por recursos que não estiver mais usando.
 services: service-fabric-mesh
 documentationcenter: .net
-author: TylerMSFT
-manager: jeconnoc
+author: dkkapur
+manager: chakdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric-mesh
@@ -13,16 +13,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/18/2018
-ms.author: twhitney
+ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: fb7a444c54a57e7f2c38d941eb99f2fea7eebcef
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a60c42310f0698b8290e7ba6195eeed44fe0b95e
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993350"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56815783"
 ---
-# <a name="tutorial-remove-azure-resources"></a>Tutorial: remover recursos do Azure
+# <a name="tutorial-remove-azure-resources"></a>Tutorial: Remover recursos do Azure
 
 Este tutorial é a parte cinco de uma série, e mostra como excluir o aplicativo e seus recursos, para que você não seja cobrado por eles.
 
@@ -62,7 +62,7 @@ az group delete --resource-group sfmeshTutorial1RG
 Remove-AzureRmResourceGroup -Name sfmeshTutorial1RG
 ```
 
-Como alternativa, é possível excluir o grupo de recursos **sfmeshTutorial1RG** [no portal](../azure-resource-manager/resource-group-portal.md#delete-resource-group-or-resources). 
+Como alternativa, é possível excluir o grupo de recursos **sfmeshTutorial1RG** [no portal](../azure-resource-manager/manage-resource-groups-portal.md#delete-resource-groups). 
 
 ## <a name="next-steps"></a>Próximas etapas
 

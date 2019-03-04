@@ -6,15 +6,15 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.custom: mvc
-ms.date: 05/29/2018
+ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: bb9bcfcc5f78ee82f187d331055e8f2fd2ed9e64
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: ebd206f6de031ea73d621568e091632e2e8123b9
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745802"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674491"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Tutorial: Usar um dispositivo simulado para testar a conectividade com o hub IoT
 
@@ -133,7 +133,7 @@ Para gerar um token SAS válido usando a CLI, execute o comando a seguir:
 az iot hub generate-sas-token --device-id MyTestDevice --hub-name {YourIoTHubName}
 ```
 
-Anote o texto completo do token SAS gerado. Um token SAS é semelhante ao seguinte: `'SharedAccessSignature sr=tutorials-iot-hub.azure-devices.net%2Fdevices%2FMyTestDevice&sig=....&se=1524155307'`
+Anote o texto completo do token SAS gerado. Um token SAS é semelhante ao seguinte: `SharedAccessSignature sr=tutorials-iot-hub.azure-devices.net%2Fdevices%2FMyTestDevice&sig=....&se=1524155307`
 
 Em uma janela de terminal no computador de desenvolvimento, navegue até a pasta raiz do projeto Node.js de exemplo que você baixou. Em seguida, navegue até a pasta **iot-hub\Tutorials\ConnectivityTests\simulated-device**.
 
@@ -189,13 +189,9 @@ A janela do terminal exibe informações conforme envia a telemetria para o hub:
 
 ![Dispositivo simulado enviando mensagens](media/tutorial-connectivity/sim-3-sending.png)
 
-Você pode usar **Métricas** no portal para verificar se as mensagens de telemetria estão alcançando o Hub IoT:
+Você pode usar **Métricas** no portal para verificar se as mensagens de telemetria estão alcançando o hub IoT. Selecione o Hub IoT na lista suspensa **Recurso**, selecione **Mensagens de telemetria enviadas** omo a métrica e defina o intervalo de tempo para **Última hora**. O gráfico mostra a contagem agregada de mensagens enviadas pelo dispositivo simulado:
 
-![Navegue até as métricas do Hub IoT](media/tutorial-connectivity/metrics-portal.png)
-
-Selecione o Hub IoT na lista suspensa **Recurso**, selecione **Mensagens de telemetria enviadas** omo a métrica e defina o intervalo de tempo para **Última hora**. O gráfico mostra a contagem agregada de mensagens enviadas pelo dispositivo simulado:
-
-![Mostrar métricas do Hub IoT](media/tutorial-connectivity/metrics-active.png)
+![Mostrar métricas do Hub IoT](media/tutorial-connectivity/metrics-portal.png)
 
 Demora alguns minutos para que as métricas sejam disponibilizadas após o início do dispositivo simulado.
 

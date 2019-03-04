@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 55dc0fa31398bcc04d9793c8cffc9258dc29e4c7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 7bd4c261af4159429a91bd8b425180037eec8c23
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244446"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670886"
 ---
 # <a name="set-up-a-geofence-by-using-azure-maps"></a>Configurar um limite geográfico usando o Azure Mapas
 
@@ -60,7 +60,7 @@ Abra o aplicativo Postman e siga as etapas a seguir para carregar o limite geogr
    
     ![Postman de parâmetros de chave-valor](./media/tutorial-geofence/postman-key-vals.png)
 
-4. Clique em **Corpo**, depois selecione o formato de entrada bruto e escolha JSON como o formato de entrada na lista suspensa. Forneça o JSON a seguir como dados a serem carregados:
+4. Clique em **Corpo** e, em seguida, selecione o formato de entrada bruto e escolha JSON como o formato de entrada na lista suspensa. Forneça o seguinte JSON como dados a serem carregados:
 
    ```JSON
    {
@@ -148,7 +148,7 @@ Abra o aplicativo Postman e siga as etapas a seguir para carregar o limite geogr
    }
    ```
 
-5. Clique em enviar e analise o cabeçalho da resposta. O cabeçalho de localização contém o URI para acessar ou baixar os dados para uso futuro. Ele também contém um `udId` exclusivo para os dados carregados.
+5. Clique em enviar e revise o cabeçalho de resposta. O cabeçalho de localização contém o URI para acessar ou baixar os dados para uso futuro. Ele também contém um `udId` exclusivo para os dados carregados.
 
   ```HTTP
   https://atlas.microsoft.com/mapData/{udId}/status?api-version=1.0&subscription-key={Subscription-key}
@@ -165,7 +165,7 @@ Você pode ver todos os [manipuladores de eventos com suporte](https://docs.micr
 
   ![Criar Aplicativos Lógicos](./media/tutorial-geofence/logic-app.png)
 
-2. Selecione um gatilho de solicitação HTTP e, em seguida, selecione "Enviar e enviar por email" como uma ação no conector do Outlook
+2. Selecione um gatilho de solicitação HTTP e, em seguida, selecione "enviar um email" como uma ação no conector do Outlook
   
   ![Esquema dos Aplicativos Lógicos](./media/tutorial-geofence/logic-app-schema.png)
 

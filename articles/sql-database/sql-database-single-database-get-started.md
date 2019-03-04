@@ -11,13 +11,13 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 66640bd60f6ba8c2f612a6bc9b88a07b13012997
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.date: 02/25/2019
+ms.openlocfilehash: 64d16073062c0fd7f0b97a64950ceab9efc0eacf
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990027"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984876"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal"></a>Início Rápido: Criar um banco de dados individual no Banco de Dados SQL do Azure usando o portal do Azure
 
@@ -29,7 +29,7 @@ Para todas as etapas deste início rápido, entre no [portal do Azure](https://p
 
 ## <a name="create-a-single-database"></a>Criar um banco de dados individual
 
-Um banco de dados individual tem um conjunto definido de recursos de computação, memória, E/S e armazenamento usando um dos dois [purchasing model(sql-database-purchase-models.md). Quando você cria um banco de dados individual, você também define um [servidor do Banco de Dados SQL](sql-database-servers.md) para gerenciá-lo e colocá-lo no [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) em uma região especificada.
+Um banco de dados individual tem um conjunto definido de recursos de computação, memória, E/S e armazenamento usando um dos dois [modelos de compra](sql-database-purchase-models.md). Quando você cria um banco de dados individual, você também define um [servidor do Banco de Dados SQL](sql-database-servers.md) para gerenciá-lo e colocá-lo no [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) em uma região especificada.
 
 Para criar um banco de dados individual que contém os dados de exemplo AdventureWorksLT:
 
@@ -42,8 +42,8 @@ Para criar um banco de dados individual que contém os dados de exemplo Adventur
    - **Grupo de recursos**: Selecione **Criar**, digite *myResourceGroup* e selecione **OK**.
    - **Selecionar fonte**: Selecione a lista suspensa e escolha **Amostra (AdventureWorksLT)**.
 
-    >[!IMPORTANT]
-    >Selecione os dados da **Amostra (AdventureWorksLT)** para seguir com facilidade este e outros Guias de Início Rápido do Banco de Dados SQL do Azure que usam esses dados.
+    > [!IMPORTANT]
+    > Selecione os dados da **Amostra (AdventureWorksLT)** para seguir com facilidade este e outros Guias de Início Rápido do Banco de Dados SQL do Azure que usam esses dados.
   
    ![Criar banco de dados individual](./media/sql-database-get-started-portal/create-database-1.png)
 
@@ -56,18 +56,18 @@ Para criar um banco de dados individual que contém os dados de exemplo Adventur
    - **Confirmar Senha**: Digite a senha novamente.
    - **Localização**: Selecione a lista suspensa e escolha qualquer localização válida.  
 
-   >[!IMPORTANT]
-   >Lembre-se de registrar o logon de administrador do servidor e a senha para fazer logon no servidor e nos bancos de dados deste e de outros inícios rápidos. Caso esqueça seu logon ou a senha, obtenha o nome de logon ou redefina a senha na página **SQL Server**. Para abrir a página **SQL Server**, selecione o nome do servidor na página **Visão Geral** do banco de dados após a criação do banco de dados.
+   > [!IMPORTANT]
+   > Lembre-se de registrar o logon de administrador do servidor e a senha para fazer logon no servidor e nos bancos de dados deste e de outros inícios rápidos. Caso esqueça seu logon ou a senha, obtenha o nome de logon ou redefina a senha na página **SQL Server**. Para abrir a página **SQL Server**, selecione o nome do servidor na página **Visão Geral** do banco de dados após a criação do banco de dados.
 
     ![Criar servidor](./media/sql-database-get-started-portal/create-database-server.png)
 
 6. Escolha **Selecionar**.
 7. No formulário **Banco de Dados SQL**, selecione **Tipo de preço**. Explore a quantidade de DTUs e de armazenamento disponível para cada camada de serviço.
 
-   >[!NOTE]
-   >Este início rápido usa o [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md), mas o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) também está disponível.
-   >[!IMPORTANT]
-   >Mais de 1 TB de armazenamento na camada Premium está atualmente disponível em todas as regiões, exceto: Norte do Reino Unido, Centro-oeste dos EUA, Sul do Reino Unido 2, Leste da China, US DoD Central, Alemanha Central, US DoD Leste, US Gov Sudoeste, US Gov Centro-Sul, Nordeste da Alemanha, Norte da China e US Gov Leste. Nessas regiões, o armazenamento máximo na camada Premium é limitado a 1 TB. Para obter mais informações, confira [Limitações atuais de P11-P15](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   > [!NOTE]
+   > Este início rápido usa o [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md), mas o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) também está disponível.
+   > [!IMPORTANT]
+   > Mais de 1 TB de armazenamento na camada Premium está atualmente disponível em todas as regiões, exceto: Leste da China, Norte da China, Alemanha Central, Nordeste da Alemanha, Centro-oeste dos EUA, regiões US DoD e US Government Central. Nessas regiões, o armazenamento máximo na camada Premium é limitado a 1 TB.  Para obter mais informações, confira [Limitações atuais de P11-P15](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 8. Para este início rápido, selecione a camada de serviço **Standard** e, em seguida, use o controle deslizante para selecionar **10 DTUs (S0)** e **1** GB de armazenamento.
 9. Escolha **Aplicar**.  

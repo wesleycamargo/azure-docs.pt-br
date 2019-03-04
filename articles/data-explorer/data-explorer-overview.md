@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: ebce27f3558661aca9e1bd6e7130c96c396d33ee
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: bb173981e3f06c923fa7357eb64777493bd17b8c
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257115"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958262"
 ---
 # <a name="what-is-azure-data-explorer"></a>O que é o Gerenciador de dados do Azure?
 
@@ -45,11 +45,11 @@ O diagrama a seguir mostra os diferentes aspectos de como trabalhar com o Data E
 
 O trabalho no Azure Data Explorer geralmente segue esse padrão:
 
-1. **Criar banco de dados:** Crie um *cluster* e crie um ou mais *bancos de dados* nesse cluster. [Início rápido: Criar um cluster do Gerenciador de dados do Azure e o banco de dados](create-cluster-database-portal.md)
+1. **Criar banco de dados:** Crie um *cluster* e, em seguida, crie um ou mais *bancos de dados* nesse cluster. [Início Rápido: Criar um cluster e um banco de dados do Azure Data Explorer](create-cluster-database-portal.md)
 
-1. **Ingerir dados:** Carregue dados em tabelas de banco de dados para que você possa executar consultas sobre ele. [Início rápido: insira dados do Hub de eventos no Azure Data Explorer](ingest-data-event-hub.md)
+1. **Ingerir dados:** Carregue dados em tabelas de banco de dados para executar consultas nele. [Início Rápido: Ingerir dados do Hub de Eventos no Azure Data Explorer](ingest-data-event-hub.md)
 
-1. **Banco de dados de consulta:** Use nosso aplicativo da Web para executar, revisar e compartilhar consultas e resultados. Está disponível no portal do Azure e como um aplicativo independente. Além disso, você pode enviar consultas programaticamente (usando um SDK) ou um ponto de extremidade da API REST. [Guia de início rápido: Consultar dados no Data Explorer do Azure](web-query-data.md)
+1. **Consultar banco de dados:** Use nosso aplicativo Web para executar, examinar e compartilhar consultas e resultados. Está disponível no portal do Azure e como um aplicativo independente. Além disso, você pode enviar consultas programaticamente (usando um SDK) ou um ponto de extremidade da API REST. [Início Rápido: consultar dados no Azure Data Explorer](web-query-data.md)
 
 ## <a name="query-experience"></a>Experiência de consulta
 
@@ -57,7 +57,7 @@ Uma consulta no Azure Data Explorer é uma solicitação somente leitura para pr
 
 O Azure Data Explorer manipula grandes quantidades de dados estruturados, semi-estruturados (tipos aninhados semelhantes a JSON) e dados não estruturados (texto livre) igualmente bem. Ele permite que você pesquise termos de texto específicos, localize eventos específicos e faça cálculos no estilo de métrica em dados estruturados. O Explorador de Dados do Azure conecta os mundos de logs de texto não estruturados e números e dimensões estruturados, extraindo valores em tempo de execução de campos de texto de formato livre. A exploração de dados é simplificada pela combinação de operações de indexação rápida de texto, armazenamento de colunas e séries temporais.
 
-Recursos do Gerenciador de dados do Azure são estendidos por outros serviços criados na sua linguagem de consulta eficiente, incluindo [do Log Analytics](/azure/log-analytics/), [Application Insights](/azure/application-insights/), [doTimeSeriesInsights](/azure/time-series-insights/), e [proteção avançada contra ameaças do Windows Defender](/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection/).
+As funcionalidades do Azure Data Explorer são estendidas por outros serviços baseados em sua linguagem de consulta avançada, incluindo [logs do Azure Monitor](/azure/log-analytics/), [Application Insights](/azure/application-insights/), [Time Series Insights](/azure/time-series-insights/) e [Proteção Avançada contra Ameaças do Windows Defender](/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection/).
 
 ## <a name="feedback"></a>Comentários
 
@@ -71,8 +71,8 @@ Gostaríamos de receber seus comentários sobre o Azure Data Explorer e sua ling
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Início rápido: Criar um cluster do Gerenciador de dados do Azure e o banco de dados](create-cluster-database-portal.md)
+[Início Rápido: Criar um cluster e um banco de dados do Azure Data Explorer](create-cluster-database-portal.md)
 
-[Início rápido: insira dados do Hub de eventos no Azure Data Explorer](ingest-data-event-hub.md)
+[Início Rápido: Ingerir dados do Hub de Eventos no Azure Data Explorer](ingest-data-event-hub.md)
 
-[Guia de início rápido: Consultar dados no Data Explorer do Azure](web-query-data.md)
+[Início Rápido: consultar dados no Azure Data Explorer](web-query-data.md)
