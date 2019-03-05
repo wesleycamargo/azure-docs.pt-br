@@ -16,12 +16,12 @@ ms.date: 05/18/2018
 ms.author: anwestg
 ms.reviewer: sethm
 ms.lastreviewed: 05/18/2018
-ms.openlocfilehash: 0fa938b02b24bd79017bede5346b882e6587bd5d
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 8126397dfb3b02778413ab6ee696a8138c792c15
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766917"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342557"
 ---
 # <a name="app-service-on-azure-stack-update-2-release-notes"></a>Serviço de aplicativo em notas de versão de atualização 2 do Azure Stack
 
@@ -56,7 +56,7 @@ Serviço de aplicativo do Azure no Azure Stack atualização 2 inclui os seguint
 - Atualizações para o serviço principal para melhorar a confiabilidade e mais fáceis de diagnóstico dos problemas comuns de habilitação de mensagens de erro.
 
 - **Atualizações para os seguintes estruturas de aplicativo e as ferramentas**:
-  - Adição do .net Framework 4.7.1
+  - Adição do .NET Framework 4.7.1
   - Adicionado **Node. js** versões:
     - NodeJS 6.12.3
     - NodeJS 8.9.4
@@ -84,15 +84,15 @@ Serviço de aplicativo do Azure no Azure Stack atualização 2 inclui os seguint
 - Trabalhadores são incapazes de alcançar o servidor de arquivos quando o serviço de aplicativo é implantado em uma rede virtual existente e o servidor de arquivos só está disponível na rede privada.
 
 Se você optar por implantar em uma rede virtual existente e um endereço IP interno para se conectar ao seu servidor de arquivos, você deve adicionar uma regra de segurança de saída, permitindo o tráfego entre a sub-rede de trabalho e o servidor de arquivos SMB. Para fazer isso, vá para o WorkersNsg no Portal de administração e adicionar uma regra de segurança de saída com as seguintes propriedades:
- * Origem: Qualquer
- * Intervalo de porta de origem: *
- * Destino: Endereços IP
- * Intervalo de endereços IP de destino: Intervalo de IPs para seu servidor de arquivos
- * Intervalo de porta de destino: 445
- * Protocolo: TCP
- * Ação: PERMITIR
- * Prioridade: 700
- * Nome: Outbound_Allow_SMB445
+* Origem: Qualquer
+* Intervalo de porta de origem: *
+* Destino: Endereços IP
+* Intervalo de endereços IP de destino: Intervalo de IPs para seu servidor de arquivos
+* Intervalo de porta de destino: 445
+* Protocolo: TCP
+* Ação: PERMITIR
+* Prioridade: 700
+* Nome: Outbound_Allow_SMB445
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Problemas conhecidos para administradores de nuvem, a operação de serviço de aplicativo do Azure no Azure Stack
 
