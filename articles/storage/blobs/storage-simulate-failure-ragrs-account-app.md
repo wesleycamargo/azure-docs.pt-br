@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 01/03/2019
 ms.author: tamram
-ms.openlocfilehash: 2d86c0c4838fb2ae9d839e64a067824019133d8b
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 0cbb4d2bc6449dc1cf12a374085b429743224995
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024426"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872872"
 ---
 # <a name="tutorial-simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Tutorial: Simular uma falha ao acessar o armazenamento com acesso de leitura
 
@@ -75,7 +75,7 @@ Após a conclusão, selecione **Arquivo** e **Salvar** para salvar as alteraçõ
 
 ### <a name="interrupting-the-application"></a>Interrompendo o aplicativo
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python e Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python e Java v7](#tab/dotnet-python-java-v7)
 
 Execute o aplicativo no IDE ou no shell.
 
@@ -83,7 +83,7 @@ Depois que o aplicativo começa a ler o ponto de extremidade primário, pression
 
 ![Aplicativo do cenário](media/storage-simulate-failure-ragrs-account-app/scenario.png)
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 Execute o aplicativo no IDE ou no shell.
 
@@ -113,7 +113,7 @@ Remova a marca de comentário das linhas a seguir e substitua `STORAGEACCOUNTNAM
          }
 ```
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python e Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python e Java v7](#tab/dotnet-python-java-v7)
 
 Para continuar a usar o aplicativo, pressione **qualquer tecla**.
 
@@ -123,7 +123,7 @@ Esse é o padrão [Disjuntor](https://docs.microsoft.com/azure/architecture/patt
 
 ![Cole a regra personalizada](media/storage-simulate-failure-ragrs-account-app/figure3.png)
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 Agora que você introduziu a falha, insira **G** para testá-la.
 
@@ -133,7 +133,7 @@ Ela informará que está usando o pipeline secundário em vez do pipeline primá
 
 ### <a name="simulate-primary-endpoint-restoration"></a>Simular a restauração do ponto de extremidade primário
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python e Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python e Java v7](#tab/dotnet-python-java-v7)
 
 Com a regra personalizada do Fiddler definida na etapa anterior, as solicitações para o ponto de extremidade primário falham.
 
@@ -153,7 +153,7 @@ Após concluir essa etapa, pressione **qualquer tecla** para continuar a usar o 
 
 ![Retomar o aplicativo](media/storage-simulate-failure-ragrs-account-app/figure4.png)
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 Com a regra personalizada do Fiddler definida na etapa anterior, as solicitações para o ponto de extremidade primário falham.
 
@@ -173,11 +173,11 @@ Após a conclusão, insira **G** para testar o download. O aplicativo relatará 
 
 ### <a name="start-and-pause-the-application"></a>Inicie e pause o aplicativo
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python e Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python e Java v7](#tab/dotnet-python-java-v7)
 
 Execute o aplicativo no IDE ou no shell. Depois que o aplicativo começa a ler o ponto de extremidade primário, pressione **qualquer tecla** na janela do console para pausar o aplicativo.
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 Como você controla a amostra, você não precisa interrompê-la para testar a falha.
 
@@ -210,13 +210,13 @@ Para adicionar uma rota estática a um host de destino, digite o comando a segui
 
 Substitua `<destination_ip>` pelo seu endereço IP da conta de armazenamento e `<gateway_ip>` pelo seu endereço IP do host local.
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python e Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python e Java v7](#tab/dotnet-python-java-v7)
 
 Para continuar a usar o aplicativo, pressione **qualquer tecla**.
 
 Depois que o aplicativo começar a ser executado novamente, as solicitações para o ponto de extremidade primário começam a falhar. O aplicativo tenta se reconectar ao ponto de extremidade primário cinco vezes. Após o limite de falha de cinco tentativas, ele solicita a imagem do ponto de extremidade secundário de somente leitura. Depois que o aplicativo recupera com sucesso a imagem do ponto de extremidade secundário 20 vezes, o aplicativo tenta se conectar ao ponto de extremidade primário. Se o ponto de extremidade primário ainda estiver inacessível, o aplicativo retoma a leitura a partir do ponto de extremidade secundário. Esse é o padrão [Disjuntor](/azure/architecture/patterns/circuit-breaker) descrito no tutorial anterior.
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 Agora que você introduziu a falha, insira **G** para testá-la. Ela informará que está usando o pipeline secundário em vez do pipeline primário.
 
@@ -236,14 +236,14 @@ Para excluir uma rota estática de um host de destino, a conta de armazenamento,
 
 `route delete <destination_ip>`
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python e Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python e Java v7](#tab/dotnet-python-java-v7)
 
 Pressione **qualquer tecla** para continuar a usar o aplicativo. O aplicativo continua a leitura a partir do ponto de extremidade primário até atingir 999 leituras.
 
 ![Retomar o aplicativo](media/storage-simulate-failure-ragrs-account-app/figure4.png)
 
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 Insira **G** para testar o download. O aplicativo relatará que agora está usando o pipeline primário novamente.
 

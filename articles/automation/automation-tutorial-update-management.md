@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/04/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: bd7072ce8212366bf3d8a0a9e0a30000debea2ea
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: fbca620fca1aeb53acc9bd70561e783b49ff1a60
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434607"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822337"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Gerenciar atualizações do Windows com a Automação do Azure
 
@@ -66,7 +66,7 @@ Em **Gerenciamento de Atualizações**, defina o local, o workspace do Log Analy
 
 ![Habilitar a janela da solução Gerenciamento de Atualizações](./media/automation-tutorial-update-management/manageupdates-update-enable.png)
 
-A habilitação da solução pode levar alguns minutos. Durante esse tempo, não feche a janela do navegador. Depois que a solução for habilitada, as informações sobre atualizações ausentes na VM fluirão para o Log Analytics. Pode levar entre 30 minutos e 6 horas para que os dados fiquem disponíveis para análise.
+A habilitação da solução pode levar alguns minutos. Durante esse tempo, não feche a janela do navegador. Depois que a solução for habilitada, as informações sobre atualizações ausentes na VM fluirão para os logs do Azure Monitor. Pode levar entre 30 minutos e 6 horas para que os dados fiquem disponíveis para análise.
 
 ## <a name="view-update-assessment"></a>Exibir avaliação de atualização
 
@@ -137,13 +137,13 @@ Em **Nova implantação de atualização**, especifique as seguintes informaçõ
 
 * **Grupos para atualizar (versão prévia)**: Defina uma consulta com base em uma combinação de assinatura, grupos de recursos, locais e tags para criar um grupo dinâmico de VMs do Azure para incluir em sua implantação. Para obter mais informações, consulte [grupos dinâmicos](automation-update-management.md#using-dynamic-groups)
 
-* **Computadores para atualizar**: Selecione uma pesquisa salva, um grupo importado ou selecione a máquina na lista suspensa e selecione máquinas individuais. Se você escolher **Machines**, a prontidão da máquina é mostrada na coluna **UPDATE AGENT READINESS**. Para saber mais sobre os diferentes métodos de criação de grupos de computadores no Log Analytics, consulte [grupos de computadores no Log Analytics](../azure-monitor/platform/computer-groups.md)
+* **Computadores para atualizar**: Selecione uma pesquisa salva, um grupo importado ou selecione a máquina na lista suspensa e selecione máquinas individuais. Se você escolher **Machines**, a prontidão da máquina é mostrada na coluna **UPDATE AGENT READINESS**. Para saber mais sobre os diferentes métodos de criação de grupos de computadores nos logs do Azure Monitor, veja [Grupos de computadores nos logs do Azure Monitor](../azure-monitor/platform/computer-groups.md)
 
 * **Classificação de atualização**: selecione os tipos de software que a implantação de atualização incluiu na implantação. Para este tutorial, deixe todos os tipos selecionados.
 
   Os tipos de classificação são:
 
-   |SO  |Tipo  |
+   |SO  |Type  |
    |---------|---------|
    | Windows     | Atualizações críticas</br>Atualizações de segurança</br>Pacotes cumulativos de atualização</br>Feature packs</br>Service packs</br>Atualizações de definição</br>Ferramentas</br>Atualizações        |
    |Linux     | Atualizações críticas ou de segurança</br>Outras atualizações       |

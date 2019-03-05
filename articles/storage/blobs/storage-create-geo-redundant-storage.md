@@ -9,12 +9,12 @@ ms.date: 01/03/2019
 ms.author: tamram
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: d2fef3a47cbcb4cfd8bce8978003eca1044d7de3
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: b031e7b772389aa81fd214d31365c20018cf48ae
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510626"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874436"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Tutorial: Criar um aplicativo altamente disponível com o armazenamento de Blobs
 
@@ -37,24 +37,24 @@ Na primeira parte da série, você aprenderá a:
 
 Para concluir este tutorial:
 
-# <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
 * Instale o [Visual Studio 2017](https://www.visualstudio.com/downloads/) com as cargas de trabalho a seguir:
   - **Desenvolvimento do Azure**
 
   ![Desenvolvimento do Azure (em Web e Nuvem)](media/storage-create-geo-redundant-storage/workloads.png)
 
-# <a name="python-tabpython"></a>[Python] (#tab/python)
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 * Instalar o [Python](https://www.python.org/downloads/)
 * Baixe e instale o [SDK do Armazenamento do Azure para Python](https://github.com/Azure/azure-storage-python)
 
-# <a name="java-v7-sdk--tabjava-v7"></a>[SDK do Java V7] (#tab/java-v7)
+# <a name="java-v7-sdk-tabjava-v7"></a>[SDK Java V7](#tab/java-v7)
 
 * Instale e configure o [Maven](http://maven.apache.org/download.cgi) para trabalhar a partir da linha de comando
 * Instalar e configurar um [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
-# <a name="java-v10-sdk-tabjava-v10"></a>[SDK do Java V10] (#tab/java-v10)
+# <a name="java-v10-sdktabjava-v10"></a>[SDK V10 Java](#tab/java-v10)
 
 * Instale e configure o [Maven](http://maven.apache.org/download.cgi) para trabalhar a partir da linha de comando
 * Instalar e configurar um [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
