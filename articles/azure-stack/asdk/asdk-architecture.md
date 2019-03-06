@@ -16,15 +16,15 @@ ms.date: 01/21/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 9157acc7517aea56f087a3dbff0fe7114f8b4c87
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: c69b124f84e87e8f0b937dfa275378c376894f9b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55958798"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447193"
 ---
 # <a name="microsoft-azure-stack-development-kit-architecture"></a>Arquitetura do Kit de desenvolvimento do Microsoft Azure Stack
-O Azure Stack desenvolvimento ASDK (Kit) é uma implantação de nó único do Azure Stack em execução em um único computador host. Compontents de roteamento de borda são instalados no computador host para fornecer recursos de NAT e VPN para o Azure Stack. As funções de infraestrutura do Azure Stack é executado na camada de computador físico do host do Hyper-V.
+O Azure Stack desenvolvimento ASDK (Kit) é uma implantação de nó único do Azure Stack em execução em um único computador host. Componentes de roteamento de borda é instalado no computador host para fornecer recursos de NAT e VPN para o Azure Stack. As funções de infraestrutura do Azure Stack é executado na camada de computador físico do host do Hyper-V.
 
 
 ## <a name="virtual-machine-roles"></a>Funções de máquina virtual

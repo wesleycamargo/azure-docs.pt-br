@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2019
+ms.date: 03/04/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.lastreviewed: 02/14/2019
-ms.openlocfilehash: 1fb9917e30a88cf5a68c9e170d66eeaa1d477deb
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.lastreviewed: 03/04/2019
+ms.openlocfilehash: 12edea505ba3b0c8009512a52e3eea9ecea5bb26
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877139"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405191"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registre-se a pilha do Azure com o Azure
 
@@ -303,7 +303,7 @@ Opcionalmente, você pode usar o cmdlet Get-Content para apontar para um arquivo
 
 ## <a name="verify-azure-stack-registration"></a>Verificar o registro do Azure Stack
 
-Você pode usar o **gerenciamento de região** lado a lado para verificar se o registro do Azure Stack foi bem-sucedida. Esse bloco está disponível no painel no portal do administrador padrão. O status pode ser registrado ou não registrado. Se registrado, ele também mostra a ID da assinatura do Azure que é usado para registrar seu Azure Stack, juntamente com o grupo de recursos de registro e o nome.
+Você pode usar o **gerenciamento de região** lado a lado para verificar se o registro do Azure Stack foi bem-sucedida. Esse bloco está disponível no painel padrão no portal de administração. O status pode ser registrado ou não registrado. Se registrado, ele também mostra a ID da assinatura do Azure que é usado para registrar seu Azure Stack, juntamente com o grupo de recursos de registro e o nome.
 
 1. Entrar para o [portal de administração do Azure Stack](https://adminportal.local.azurestack.external).
 
@@ -325,7 +325,7 @@ Você pode usar o **gerenciamento de região** lado a lado para verificar se o r
 
     Registros de aplicativo do Azure Stack são prefixados com **do Azure Stack**.
 
-Como alternativa, você pode verificar se o seu registro foi bem-sucedido usando o recurso de gerenciamento do Marketplace. Se você vir uma lista de itens do marketplace na folha de gerenciamento do Marketplace, seu registro foi bem-sucedido. No entanto, em ambientes desconectados, você não poderá ver os itens do marketplace no gerenciamento do Marketplace. No entanto, você pode usar a ferramenta offline para verificar o registro.
+Como alternativa, você pode verificar se o seu registro foi bem-sucedido usando o recurso de gerenciamento do Marketplace. Se você vir uma lista de itens do marketplace na folha de gerenciamento do Marketplace, seu registro foi bem-sucedido. No entanto, em ambientes desconectados, você não poderá ver os itens do marketplace no gerenciamento do Marketplace.
 
 > [!NOTE]
 > Após a conclusão do registro, o Active Directory aviso por não registrar não aparecerá mais. Em cenários desconectados, você verá uma mensagem no gerenciamento de Marketplace solicitando que você se registrar e ativar o Azure Stack, mesmo se você tiver registrado com êxito.

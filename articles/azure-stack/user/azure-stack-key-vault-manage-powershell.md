@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: sethm
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 4ec662cd60e2ca8e5db76a3fda4c68df6f3164e4
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: b5c43215ce1800ac162c8b5d19ba4d4c987a3bac
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893673"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445799"
 ---
 # <a name="manage-key-vault-in-azure-stack-using-powershell"></a>Gerenciar o Key Vault no Azure Stack usando o PowerShell
 
@@ -33,7 +33,7 @@ Você pode gerenciar o Cofre de chaves no Azure Stack usando o PowerShell. Saiba
 * Autorize usuários ou aplicativos para invocar operações no cofre.
 
 >[!NOTE]
->Os cmdlets PowerShell do Cofre de chaves descritos neste artigo são fornecidos no SDK do Azure PowerShell.
+>Os cmdlets do PowerShell do Cofre de chaves descritos neste artigo são fornecidos no SDK do Azure PowerShell.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

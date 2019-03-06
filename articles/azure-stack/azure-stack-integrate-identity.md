@@ -6,29 +6,19 @@ author: PatAltimore
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 03/04/2019
 ms.author: patricka
 ms.reviewer: thoroet
-ms.lastreviewed: 01/23/19
-ms.openlocfilehash: 86a7f98f8232d4fb3e915efee6d9b53f1fae6e7e
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.lastreviewed: 03/04/2019
+ms.openlocfilehash: 65e5a678b4619897930873e77208005e14c054d2
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737698"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57410274"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integração do datacenter do Azure Stack - identidade
-Você pode implantar o Azure Stack usando o Azure Active Directory (Azure AD) ou os serviços de Federação do Active Directory (AD FS) como os provedores de identidade. Você deve fazer a escolha antes de implantar o Azure Stack. Implantação usando o AD FS também é chamada da implantação do Azure Stack no modo desconectado.
-
-A tabela a seguir mostra as diferenças entre as opções de dois identidade:
-
-||Desconectado da internet|Conectado à internet|
-|---------|---------|---------|
-|Cobrança|Deve ser a capacidade<br> Enterprise Agreement (EA) apenas|Capacidade ou pagamento-como-uso<br>EA ou provedor de soluções de nuvem (CSP)|
-|Identidade|Deve ser o AD FS|Azure AD ou AD FS|
-|Marketplace |Com suporte<br>Licenciamento de BYOL|Com suporte<br>Licenciamento de BYOL|
-|Registro|Obrigatório, requer mídia removível<br> e um dispositivo conectado separado.|Automatizado|
-|Patches e atualizações|Obrigatório, requer mídia removível<br> e um dispositivo conectado separado.|Pacote de atualização pode ser baixada diretamente<br> da Internet para o Azure Stack.|
+Você pode implantar o Azure Stack usando o Azure Active Directory (Azure AD) ou os serviços de Federação do Active Directory (AD FS) como os provedores de identidade. Você deve fazer a escolha antes de implantar o Azure Stack. Em um cenário conectado, você pode escolher o Azure AD ou AD FS. Para um cenário desconectado, apenas o AD FS tem suporte.
 
 > [!IMPORTANT]
 > É possível alternar o provedor de identidade sem reimplantar a solução inteira do Azure Stack.
@@ -43,7 +33,7 @@ Autenticação é uma parte da identidade. Para gerenciar com base em acesso RBA
 
 O AD FS existente é o conta Serviço de token segurança (STS) que envia declarações para o Azure Stack AD FS (o recurso STS). No Azure Stack, a automação cria a relação de confiança do provedor de declarações com o ponto de extremidade de metadados para o AD FS existente.
 
-No AD FS existente, uma terceira parte confiável deve ser configurada. Esta etapa não é feita pela automação e deve ser configurada pelo operador. O ponto de extremidade de metadados do Azure Stack está documentado no arquivo AzureStackStampDeploymentInfo.JSON ou por meio do ponto de extremidade com privilégios, executando o comando `Get-AzureStackInfo`.
+No AD FS existente, uma terceira parte confiável deve ser configurada. Esta etapa não é feita pela automação e deve ser configurada pelo operador. O ponto de extremidade de VIP de pilha do Azure para o AD FS pode ser criado usando o padrão `https://adfs.<Region>.<ExternalFQDN>/`.
 
 A configuração de confiança da terceira parte confiável também exige que você configure as regras de transformação de declaração são fornecidas pela Microsoft.
 
