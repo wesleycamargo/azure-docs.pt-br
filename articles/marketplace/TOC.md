@@ -99,12 +99,12 @@
 #### [Excluir oferta](./cloud-partner-portal/manage-offers/cpp-delete-offer.md) 
 
 ### Test drive
-#### [O que é Test Drive?](./cloud-partner-portal-orig/what-is-test-drive.md)
-#### [Test Drive do Azure Resource Manager](./cloud-partner-portal-orig/azure-resource-manager-test-drive.md)
-#### [Test Drive Hospedado](./cloud-partner-portal-orig/hosted-test-drive.md)
-#### [Test Drive do aplicativo lógico](./cloud-partner-portal-orig/logic-app-test-drive.md)
-#### [Transformando exemplos para Test Drive](./cloud-partner-portal-orig/transforming-examples-for-test-drive.md)
-#### [Marketing e práticas recomendadas](./cloud-partner-portal-orig/marketing-and-best-practices.md)
+#### [O que é Test Drive?](./cloud-partner-portal/test-drive/what-is-test-drive.md)
+#### [Test Drive do Azure Resource Manager](./cloud-partner-portal/test-drive/azure-resource-manager-test-drive.md)
+#### [Test Drive Hospedado](./cloud-partner-portal/test-drive/hosted-test-drive.md)
+#### [Test Drive do aplicativo lógico](./cloud-partner-portal/test-drive/logic-app-test-drive.md)
+#### [Transformando exemplos para Test Drive](./cloud-partner-portal/test-drive/transforming-examples-for-test-drive.md)
+#### [Marketing e práticas recomendadas](./cloud-partner-portal/test-drive/marketing-and-best-practices.md)
 
 ### [Oferta de aplicativo do Azure](./cloud-partner-portal/azure-applications/cpp-azure-app-offer.md)
 #### [Pré-requisitos](./cloud-partner-portal/azure-applications/cpp-prerequisites.md)
