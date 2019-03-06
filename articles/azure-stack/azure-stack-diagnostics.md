@@ -11,12 +11,12 @@ ms.date: 11/20/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: bd1994aca3dbbc23977b01d3511f87b5ec08b96d
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 41609a75efec6c15d894b61867fb9d3ae727dc8c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251853"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440549"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Ferramentas de diagnóstico do Azure Stack
 
@@ -163,7 +163,7 @@ Use estas etapas para executar o Get-AzureStackLog em um computador de host ASDK
     -   Logs do ACS são coletados na *armazenamento* e *ACS* funções.
 
 > [!NOTE]
-> Os logs coletados conforme é essencial para garantir que a utilização eficiente de seu espaço de armazenamento para garantir que nada é inundado com os logs são impostos limites de tamanho e idade. No entanto, para diagnosticar um problema você precisa, às vezes, os logs que talvez não exista mais devido a esses limites. Portanto, é **altamente recomendado** descarregamento de logs para um espaço de armazenamento externo (uma conta de armazenamento do Azure, um dispositivo de armazenamento adicional no local etc.) a cada 8 a 12 horas e mantê-los lá por 1 a 3 meses, dependendo do seu requisitos. Além disso, verifique se que o local de armazenamento é criptografado.
+> Os logs coletados conforme é essencial para garantir que a utilização eficiente de seu espaço de armazenamento para garantir que nada é inundado com os logs são impostos limites de tamanho e idade. No entanto, para diagnosticar um problema você precisa, às vezes, os logs que talvez não exista mais devido a esses limites. Portanto, é **altamente recomendado** que descarregar os logs para um espaço de armazenamento externo (uma conta de armazenamento no Azure, adicional no dispositivo de armazenamento local etc.) a cada 8 a 12 horas e mantê-los lá por 1 a 3 meses, dependendo do seu requisitos. Além disso, verifique se que o local de armazenamento é criptografado.
 
 ## <a name="next-steps"></a>Próximas etapas
 [Solução de problemas do Microsoft Azure Stack](azure-stack-troubleshooting.md)

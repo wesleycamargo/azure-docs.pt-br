@@ -16,16 +16,16 @@ ms.date: 02/12/2019
 ms.author: patricka
 ms.reviewer: unknown
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 5c07288bbfbf70be62723f835192cf09d92166ab
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 40b26429cf4e7f218c2b5a276ae936f60bd6abe4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163216"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453228"
 ---
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Adicionar uma nova conta de locatário do Azure Stack no Active Directory do Azure
 
-Após [Implantando o Kit de desenvolvimento do Azure Stack](azure-stack-run-powershell-script.md), será necessário uma conta de usuário do locatário para que você possa explorar o portal de locatário e suas ofertas e planos de teste. Você pode criar uma conta de locatário [usando o portal do Azure](#create-an-azure-stack-tenant-account-using-the-azure-portal) ou pelo [usando o PowerShell](#create-an-azure-stack-tenant-account-using-powershell).
+Após [Implantando o Kit de desenvolvimento do Azure Stack](azure-stack-run-powershell-script.md), será necessário uma conta de usuário do locatário para que você possa explorar o portal de locatário e suas ofertas e planos de teste. Você pode criar uma conta de locatário [usando o portal do Azure](#create-an-azure-stack-tenant-account-using-the-azure-portal) ou por meio do PowerShell.
 
 ## <a name="create-an-azure-stack-tenant-account-using-the-azure-portal"></a>Criar uma conta de locatário do Azure Stack usando o portal do Azure
 
