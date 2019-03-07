@@ -292,7 +292,7 @@ Azure DevOps Projects </a>
                                                 <h3>Desenvolva suas habilidades com o Microsoft Learn</h3>
                                                 <ul class="noBullet">
                                                     <li>
-                                                        <a class="barLink" href="/learn/modules/tour-azure-services-and-features/">
+                                                        <a class="barLink" href="/learn/modules/tour-azure-portal/">
                                                             <img src="https://docs.microsoft.com/learn/achievements/tour-azure-services-and-features.svg" alt="">
 Conheça os recursos e serviços do Azure </a>
                                                     </li>
@@ -1021,6 +1021,21 @@ Automatizar tarefas do Azure usando scripts com o PowerShell </a>
                                             <a href="/azure/migrate/migrate-overview">
                                                 <img src="media/index/azure-migrate.svg" alt="" />
                                                 <p>Migrações para Azure</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>Realidade Misturada</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/digital-twins/">
+                                                <img src="media/index/digital_twin.svg" alt="" />
+                                                <p>Gêmeos Digitais do Azure</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/spatial-anchors/">
+                                                <img src="https://azure.microsoft.com/patterns/styles/glyphs-icons/hololens.svg" alt="" />
+                                                <p>Âncoras Espaciais do Azure</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -2475,7 +2490,7 @@ Automatizar tarefas do Azure usando scripts com o PowerShell </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/en-us/azure/databox-family/" data-linktype="absolute-path">
+                                <a href="/azure/databox-family/" data-linktype="absolute-path">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2494,7 +2509,7 @@ Automatizar tarefas do Azure usando scripts com o PowerShell </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/en-us/azure/avere-vfxt/" data-linktype="absolute-path">
+                                <a href="/azure/avere-vfxt/" data-linktype="absolute-path">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -5788,6 +5803,49 @@ Automatizar tarefas do Azure usando scripts com o PowerShell </a>
                                                 <div class="cardText">
                                                     <h3>Microsoft Azure na China 21Vianet</h3>
                                                     <p>Crie e hospede aplicativos em conformidade com as políticas e regulamentos de manipulação de dados estipulados pelo Governo na China</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#mixed">Realidade Misturada</a>
+                        <ul id="mixed" class="cardsA">
+                            <li>
+                                <a href="/azure/digital-twins/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/digital_twin.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Gêmeos Digitais do Azure</h3>
+                                                    <p>Crie soluções de inteligência espacial de IoT da próxima geração</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/spatial-anchors/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="https://azure.microsoft.com/patterns/styles/glyphs-icons/hololens.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Âncoras Espaciais do Azure</h3>
+                                                    <p>Crie experiências de realidade misturada multiusuário e com reconhecimento espacial</p>
                                                 </div>
                                             </div>
                                         </div>
