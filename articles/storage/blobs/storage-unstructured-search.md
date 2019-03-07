@@ -37,13 +37,13 @@ Neste tutorial, você aprenderá a:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Cada conta de armazenamento deve pertencer a um grupo de recursos do Azure. Um grupo de recursos é um contêiner lógico para agrupar seus serviços do Azure. Quando você cria uma conta de armazenamento, tem a opção de criar um novo grupo de recursos ou usar um grupo de recursos existente. Esse tutorial cria um novo grupo de recursos.
+Cada conta de armazenamento deve pertencer a um grupo de recursos do Azure. Um grupo de recursos é um contêiner lógico para agrupar seus serviços do Azure. Ao criar uma conta de armazenamento, você tem a opção de criar um novo grupo de recursos ou usar um grupo de recursos existente. Esse tutorial cria um novo grupo de recursos.
 
 Entre no [Portal do Azure](http://portal.azure.com).
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
-Um conjunto de dados de exemplo foi preparado para você para que você possa usá-lo para este tutorial. Baixe [clinical-trials.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials.zip) e descompacte-o em sua própria pasta.
+Preparamos um conjunto de dados de exemplo para ser usado neste tutorial. Baixe [clinical-trials.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials.zip) e descompacte-o em sua própria pasta.
 
 O exemplo consiste em arquivos de texto obtidos de [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results). Este tutorial usa-os como arquivos de texto de exemplo que são pesquisados usando os serviços do Azure Search.
 
@@ -210,7 +210,7 @@ Digite **Miopia** no campo **Cadeia de consulta** e selecione **Pesquisar**. Est
 
 Além de uma pesquisa de texto completo, você pode criar consultas que pesquisam propriedades do sistema usando o parâmetro `$select`.
 
-Insira `$select=metadata_storage_name` na cadeia de consulta e pressione **Enter**. Isso faz somente um determinado retornar.
+Insira `$select=metadata_storage_name` na cadeia de consulta e pressione **Enter**. Com isso, somente um determinado campo é retornado.
 
 A cadeia de consulta está modificando a URL diretamente e, portanto, não são permitidos espaços. Para pesquisar vários campos, use uma vírgula, como:`$select=metadata_storage_name,metadata_storage_path`
 
