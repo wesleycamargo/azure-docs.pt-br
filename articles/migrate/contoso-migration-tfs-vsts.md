@@ -92,7 +92,7 @@ A Contoso concluirá o processo de migração da seguinte maneira:
 > [!div class="checklist"]
 > * **Etapa 1: Criar uma conta do Armazenamento do Azure**: essa conta de armazenamento será usada durante o processo de migração.
 > * **Etapa 2: Atualizar o TFS**: a Contoso atualizará sua implantação para o TFS 2018 Atualização 2. 
-> *  **Etapa 3: Validar a coleção**: a Contoso validará a coleção do TFS em preparação para a migração.
+> * **Etapa 3: Validar a coleção**: a Contoso validará a coleção do TFS em preparação para a migração.
 > * **Etapa 4: Criar arquivo de preparação**: a Contoso criará os arquivos de migração usando a Ferramenta de Migração do TFS. 
 
 
