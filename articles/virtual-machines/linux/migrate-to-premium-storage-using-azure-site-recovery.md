@@ -83,7 +83,7 @@ Você pode usar o Site Recovery para migrar VMs IaaS do Azure entre regiões ou 
 ### <a name="step-2-choose-your-protection-goals"></a>Etapa 2: Escolher as metas de proteção 
 
 1. Na VM em que você deseja instalar o servidor de configuração, abra o [portal do Azure](https://portal.azure.com).
-2. Vá para **Cofres dos Serviços de Recuperação** > **Configurações** > **Site Recovery** > **Etapa 1: Preparar a Infraestrutura**** > Meta de proteção**.
+2. Vá para **Cofres dos Serviços de Recuperação** > **Configurações** > **Site Recovery** > **Etapa 1: Preparar a Infraestrutura** > **Meta de proteção**.
 
    ![Navegando até o painel de meta de proteção][2]
 
