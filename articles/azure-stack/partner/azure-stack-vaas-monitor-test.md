@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: d4854bd623bb11d50a712be3a5aea07db24c2951
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 9b64631b274423edda35189a942e2f142ae591f1
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432236"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57761159"
 ---
 # <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>Monitorar e gerenciar testes no portal VaaS
 
@@ -40,7 +40,7 @@ Depois de agendar os testes em sua solução do Azure Stack, a validação como 
 
 ## <a name="change-workflow-parameters"></a>Alterar os parâmetros de fluxo de trabalho
 
-Cada tipo de fluxo de trabalho permite que você edite os [parâmetros de teste](azure-stack-vaas-parameters.md#test-parameters) especificados durante a criação de fluxo de trabalho.
+Você pode editar a [parâmetros de teste](azure-stack-vaas-parameters.md#test-parameters) especificados durante a criação de fluxo de trabalho para qualquer tipo de fluxo de trabalho.
 
 1. Na página de resumo de testes, selecione a **editar** botão.
 
@@ -81,7 +81,7 @@ Cada instância de teste agendada mostra as seguintes informações:
 
 ### <a name="actions"></a>Ações
 
-Cada instância de teste lista Ações disponíveis que podem ser executadas quando você clicar no menu de contexto **[...]**  na tabela de instâncias de teste.
+Cada instância de teste lista Ações disponíveis que podem ser executadas quando você seleciona o menu de contexto **[...]**  na tabela de instâncias de teste.
 
 #### <a name="view-information-about-the-test-definition"></a>Exibir informações sobre a definição de teste
 

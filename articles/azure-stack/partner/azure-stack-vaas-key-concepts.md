@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 01/07/2019
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: a128be720675898a2512f43bf714b9ad6aca0450
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 3830dc15cebe24a8fb910b641b7b986437aeec52
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338528"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768971"
 ---
 # <a name="validation-as-a-service-key-concepts"></a>Validação como um conceitos principais do serviço
 
@@ -33,7 +33,7 @@ Uma solução VaaS representa uma solução do Azure Stack com uma lista de hard
 ### <a name="create-a-solution-in-the-vaas-portal"></a>Criar uma solução no portal do VaaS
 
 1. Entrar para o [VaaS portal](https://azurestackvalidation.com).
-2. No painel de soluções, selecione na **nova solução**.
+2. No painel de soluções, selecione **nova solução**.
 3. Insira um nome para a solução. Para obter sugestões, consulte [convenção de nomenclatura para soluções de VaaS](azure-stack-vaas-best-practice.md#naming-convention-for-vaas-solutions).
 4. Selecione **salvar** para criar a solução.
 
@@ -41,7 +41,7 @@ Uma solução VaaS representa uma solução do Azure Stack com uma lista de hard
 
 Um fluxo de trabalho VaaS opera dentro do contexto de uma solução VaaS. Ele representa um conjunto de conjuntos de testes que exercitam a funcionalidade de uma implantação do Azure Stack. Um fluxo de trabalho deve ser criado para cada atualização de software ou implantação de uma solução do Azure Stack.
 
-Fluxos de trabalho são categorizados por tipo de cenário de teste. Em testes não oficial, o **aprovação do teste** fluxo de trabalho permite que você selecione os testes de todos os materiais VaaS disponíveis. Em testes oficial, o **validação** fluxos de trabalho destinam a cenários específicos de testes selecionados pela Microsoft.
+Fluxos de trabalho são categorizados por tipo de cenário de teste. Em testes não oficial, o **aprovação do teste** fluxo de trabalho lhe permite selecionar os testes de todos os materiais VaaS disponíveis. Em testes oficial, o **validação** fluxos de trabalho destinam a cenários específicos de testes selecionados pela Microsoft.
 
 ![Blocos de fluxo de trabalho VaaS](media/tile_all-workflows.png)
 
@@ -52,7 +52,7 @@ Para obter mais informações sobre tipos de fluxo de trabalho, consulte [o que 
 
 ### <a name="getting-started-with-vaas-workflows"></a>Guia de Introdução com fluxos de trabalho VaaS
 
-1. No painel de soluções, criar uma nova solução ou selecione um existente. Isso atualiza e permite que os blocos de fluxo de trabalho.
+1. No painel de soluções, criar uma nova solução ou selecione um existente. Isso atualiza e ativa os blocos de fluxo de trabalho.
 2. Para criar um novo fluxo de trabalho, selecione na **iniciar** em qualquer bloco. Para obter informações específicas para cada fluxo de trabalho, consulte os seguintes artigos:
     - Aprovação do teste: [Início Rápido: Usar a validação como um portal de serviço para agendar seu primeiro teste](azure-stack-vaas-schedule-test-pass.md)
     - Validação da solução: [Validar uma nova solução do Azure Stack](azure-stack-vaas-validate-solution-new.md)
@@ -65,7 +65,7 @@ Para obter mais informações sobre propriedades de fluxo de trabalho e os parâ
 
 ## <a name="tests"></a>Testes
 
-Um teste no VaaS consiste em um conjunto de ações que são executadas em relação a uma solução do Azure Stack. Testes têm diferentes finalidades pretendidas identificadas por uma categoria, como funcional ou a confiabilidade e um ou mais serviços do Azure Stack de destino. Cada teste define seu próprio conjunto de parâmetros, algumas das quais são especificadas pelos parâmetros comuns do fluxo de trabalho que contém.
+Um teste no VaaS consiste em um conjunto de operações executadas em uma solução do Azure Stack. Testes têm diferentes finalidades pretendidas identificadas por uma categoria, como funcional ou a confiabilidade e um ou mais serviços do Azure Stack de destino. Cada teste define seu próprio conjunto de parâmetros, algumas das quais são especificadas pelos parâmetros comuns do fluxo de trabalho que contém.
 
 Para obter mais informações sobre como gerenciar e testes de monitoramento, consulte [monitorar e gerenciar testes no portal do VaaS](azure-stack-vaas-monitor-test.md).
 
@@ -76,7 +76,7 @@ Para obter mais informações sobre parâmetros de teste, consulte [parâmetros 
 Um agente VaaS unidades de execução de teste. Dois tipos de agentes para executar testes de VaaS:
 
 - O **agente de nuvem**. Isso é o agente de padrão disponível no VaaS. Nenhuma configuração é necessária, mas isso requer conectividade de entrada para seu ambiente e pontos de extremidade do Azure Stack deverá ser resolvidos na internet. Alguns testes não são compatíveis com o agente de nuvem.
-- Um **agente local**. Isso permite que você para executar a validação em cenários em que a conectividade de entrada para seu ambiente não é viável. Alguns testes exigem a execução por meio do agente local.
+- Um **agente local**. Isso permite que você execute a validação em cenários em que a conectividade de entrada para seu ambiente não for viável. Alguns testes exigem a execução por meio do agente local.
 
 Os agentes locais não estão vinculados a qualquer solução do Azure Stack ou VaaS específica. Como prática recomendada, ele deve ser executado fora de um ambiente do Azure Stack.
 

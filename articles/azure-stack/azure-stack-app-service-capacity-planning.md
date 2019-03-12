@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 03/11/2019
 ms.author: jeffgilb
 ms.reviewer: anwestg
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 20b79b3c2581db94627746f52ed6837aa80b6be5
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 2c726675d799a8bb5f9ed1d1dd595aa7f4700036
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447728"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57774585"
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Planejamento de capacidade para funções de servidor do serviço de aplicativo do Azure no Azure Stack
 
@@ -52,7 +52,7 @@ O controlador de serviço de aplicativo do Azure geralmente apresenta baixo de c
 
 **Mínimo recomendado de**: Duas instâncias do Standard A1
 
-O front-end encaminha solicitações para web workers dependendo da disponibilidade do web worker. Para alta disponibilidade, você deve ter mais de um front-end e pode ter mais de dois. Para fins de planejamento de capacidade, considere que cada núcleo pode lidar com aproximadamente 100 solicitações por segundo.
+As solicitações de rotas de front-end para web workers dependendo da disponibilidade do web worker. Para alta disponibilidade, você deve ter mais de um front-end e pode ter mais de dois. Para fins de planejamento de capacidade, considere que cada núcleo pode lidar com aproximadamente 100 solicitações por segundo.
 
 ## <a name="management-role"></a>Função de gerenciamento
 

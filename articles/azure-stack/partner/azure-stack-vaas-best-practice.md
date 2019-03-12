@@ -1,6 +1,6 @@
 ---
 title: Práticas recomendadas de validação de pilha do Azure. | Microsoft Docs
-description: Este artigo apresenta as práticas recomendadas para a validação como um serviço.
+description: Este artigo discute as práticas recomendadas para a validação como um serviço.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: b61c4a22d0c5343d41e35f2bbd66829b2b9e8d48
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 30b7a5327a709fb35c3c3360f4bb0246e9a5f75f
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57336965"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57771218"
 ---
 # <a name="best-practices-for-validation-as-a-service"></a>Práticas recomendadas para a validação como um serviço
 
@@ -46,7 +46,7 @@ Use a mesma solução VaaS quando executam fluxos de trabalho no mesmo hardware 
 
 ### <a name="naming-convention-for-vaas-workflows"></a>Convenção de nomenclatura para fluxos de trabalho VaaS
 
-Use uma convenção de nomenclatura consistente para todas as execuções de fluxo de trabalho VaaS. Por exemplo, a construção de um fluxo de trabalho nome das propriedades de compilação abaixo da seguinte maneira:
+Use uma convenção de nomenclatura consistente para todas as execuções de fluxo de trabalho VaaS. Por exemplo, construa um nome de fluxo de trabalho de propriedades de compilação abaixo da seguinte maneira:
 
 |(Principal) do número de build | Data | Tamanho de solução | Nome do Fluxo de Trabalho
 |---|---|---| ---|
