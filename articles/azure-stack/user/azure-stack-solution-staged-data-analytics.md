@@ -15,12 +15,12 @@ ms.date: 03/04/2018
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: 0261dff10e553ecbd39d394eb19e7ad3dd76f0a2
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 1115e11d6bf830afad3746eb41d6368cb89bdbf3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340959"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534363"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>Tutorial: Criar uma solução de análise de dados preparados com o Azure e o Azure Stack 
 
@@ -54,7 +54,7 @@ Algumas preparações é necessário para criar essa solução:
 
 -   Uma assinatura do Azure. (Criar uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
 
--   Baixe e instale o [Gerenciador de Armazenamento do Microsoft Azure](http://storageexplorer.com/).
+-   Baixe e instale o [Gerenciador de Armazenamento do Microsoft Azure](https://storageexplorer.com/).
 
 -   Você precisará fornecer seus próprios dados a ser processado pelas funções. Dados devem ser gerados e disponível para carregar no contêiner de blob de armazenamento do Azure Stack.
 

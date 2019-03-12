@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 12edea505ba3b0c8009512a52e3eea9ecea5bb26
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 2ed9598ecfb45323505e8527cfb3ab9fe7d8b58e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405191"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57764720"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registre-se a pilha do Azure com o Azure
 
@@ -483,11 +483,18 @@ Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-Privil
 
 ## <a name="registration-failures"></a>Falhas de registro
 
-Você pode ver um dos erros a seguir durante a tentativa de registro do Azure Stack:
+Você poderá ver um dos erros a seguir durante a tentativa de registro do Azure Stack:
 1. Não foi possível recuperar informações de hardware obrigatório para $hostName. Por favor, verifique a conectividade e o host físico e tente executar novamente o registro.
+
 2. Não é possível conectar ao $hostName para obter informações sobre o hardware - Verifique a conectividade e o host físico e tente executar novamente o registro.
 
-Causa: Isso é normalmente porque podemos tentar obter os detalhes de hardware, como o UUID, Bios e CPU do host para tentar a ativação e não foi possível devido à incapacidade de se conectar ao host físico.
+> Causa: isso é normalmente porque podemos tentar obter os detalhes de hardware, como o UUID, Bios e CPU do host para tentar a ativação e não foi possível devido à incapacidade de se conectar ao host físico.
+
+Ao tentar acessar o gerenciamento do Marketplace, ocorrerá um erro ao tentar distribuir produtos. 
+> Causa: isso geralmente acontece quando o Azure Stack não pode acessar o recurso de registro. Uma razão comum para isso é que quando o locatário de diretório de uma assinatura do Azure é alterado redefine o registro. Se você tiver alterado o locatário de diretório da assinatura, você não pode acessar o uso do Azure Stack marketplace ou do relatório. Você precisará registrar novamente para corrigir esse problema.
+
+Gerenciamento de Marketplace ainda solicitará que você se registrar e ativar o Azure Stack, mesmo quando você já tiver registrado seu carimbo de data / usando o processo desconectado. 
+> Causa: esse é um problema conhecido para ambientes desconectados. Você pode verificar o status do registro seguindo [essas etapas](azure-stack-registration.md#verify-azure-stack-registration). Para usar o gerenciamento do Marketplace, você precisará usar [a ferramenta offline](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario). 
 
 ## <a name="next-steps"></a>Próximas etapas
 
