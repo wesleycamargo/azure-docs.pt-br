@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2018
+ms.date: 03/11/2019
 ms.author: patricka
-ms.reviewer: unknown
-ms.lastreviewed: 12/06/2018
-ms.openlocfilehash: 03c1879c34a00bb09b5a4dee6af7da7b984045fc
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.reviewer: fiseraci
+ms.lastreviewed: 03/11/2019
+ms.openlocfilehash: 3565bf4c4a19bcf1b136b4cbb781006658865a1c
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241178"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767202"
 ---
 # <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>Gerenciar o acesso a recursos com controle de acesso Azure Stack Role-Based
 
@@ -93,8 +93,8 @@ As etapas a seguir descrevem como configurar permissões para um usuário.
 2. No painel de navegação esquerdo, selecione **Grupos de recursos**.
 3. Escolha o nome do grupo de recursos que você deseja definir permissões em.
 4. No painel de navegação do grupo de recursos, escolha **controle de acesso (IAM)**. O **atribuições de função** exibição lista os itens que têm acesso ao grupo de recursos. Você pode filtrar e agrupar os resultados.
-5. Sobre o **controle de acesso** menu da barra, escolha **Adicionar atribuição de função**.
-6. Na **Adicionar atribuição de função** painel:
+5. Sobre o **controle de acesso** menu da barra, escolha **Add**.
+6. Na **adicionar permissões** painel:
 
    * Escolha a função que você deseja atribuir a partir de **função** lista suspensa.
    * Escolha o recurso que você deseja atribuir a partir de **atribuir acesso a** lista suspensa.

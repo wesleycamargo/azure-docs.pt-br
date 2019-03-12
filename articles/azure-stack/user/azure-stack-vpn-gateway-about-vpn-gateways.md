@@ -11,16 +11,16 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: sethm
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 7bf7034d30a8aac187fb2eeae6569f2f495e4439
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 83d5215049976b67d22e29c2e4b75ec63a505b36
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327232"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776607"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Sobre o gateway VPN para o Azure Stack
 
@@ -78,7 +78,7 @@ Um *site a site* (S2S) conexão de gateway VPN é uma conexão por túnel VPN IP
 
 ![Exemplo de configuração de conexão de VPN site a site](media/azure-stack-vpn-gateway-about-vpn-gateways/vpngateway-site-to-site-connection-diagram.png)
 
-### <a name="multi-site"></a>Multissite
+### <a name="multi-site"></a>Vários sites
 
 Um *multissite* conexão é uma variação da conexão site a site. Você pode criar mais de uma conexão de VPN em seu gateway de rede virtual, normalmente se conectando a vários sites locais. Ao trabalhar com várias conexões, você deve usar um tipo de VPN baseado em rota (conhecido como gateway dinâmico ao trabalhar com redes virtuais clássicas). Como cada rede virtual pode ter apenas um gateway de VPN, todas as conexões por meio do gateway compartilham a largura de banda disponível.
 

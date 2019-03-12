@@ -1,26 +1,26 @@
 ---
 title: Preparar para o host de extensão para o Azure Stack | Microsoft Docs
-description: Aprenda a se preparar para o host de extensão, que é habilitado automaticamente por meio de um pacote de atualização da pilha do Azure futuras.
+description: Aprenda a se preparar para o host de extensão, habilitada automaticamente com um pacote de atualização futuro do Azure Stack.
 services: azure-stack
 keywords: ''
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 02/07/2019
+ms.date: 03/07/2019
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
-ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: b0d3b3e4901fbcece13c201938be8bccb1bb9c82
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.lastreviewed: 03/07/2019
+ms.openlocfilehash: 47cc7d9f09b7fb22cf99ad010f1dc75e6388c314
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962359"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731927"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>Preparar para o host de extensão para o Azure Stack
 
-O host de extensão protege o Azure Stack, reduzindo o número de portas TCP/IP. Este artigo examina a preparação do Azure Stack para o host de extensão, que é habilitado automaticamente por meio de um pacote de atualização de pilha do Azure após a atualização 1808. Este artigo se aplica a atualizações do Azure Stack 1808, 1809 e 1811.
+O host de extensão protege o Azure Stack, reduzindo o número de portas TCP/IP. Este artigo examina a preparação do Azure Stack para o host de extensão que é habilitado automaticamente por meio de um pacote de atualização do Azure Stack depois da atualização 1808. Este artigo se aplica a atualizações do Azure Stack 1808, 1809 e 1811.
 
 ## <a name="certificate-requirements"></a>Requisitos de certificado
 
@@ -66,15 +66,14 @@ A ferramenta de verificador de preparação do Azure Stack fornece a capacidade 
     > [!Note]  
     > Se você implantar com o Azure Active Directory Federated Services (AD FS) os diretórios a seguir devem ser adicionados ao **$directories** no script: `ADFS`, `Graph`.
 
-4. Execute os seguintes cmdlets para iniciar a verificação do certificado:
+4. Coloque os certificados existentes, o que você estiver usando atualmente no Azure Stack, nos diretórios apropriados. Por exemplo, colocar o **ARM de administrador** in de certificado o `Arm Admin` pasta. E, em seguida, coloque os certificados de hospedagem recém-criado `Admin extension host` e `Public extension host` diretórios.
+5. Execute o seguinte cmdlet para iniciar a verificação do certificado:
 
     ```PowerShell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
 
     Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD
     ```
-
-5. Coloque os certificados nos diretórios apropriados.
 
 6. Verifique a saída e todos os certificados passarem todos os testes.
 
@@ -141,7 +140,7 @@ O artigo [integração de datacenter do Azure Stack – publicar pontos de extre
 
 ### <a name="publish-new-endpoints"></a>Novos pontos de extremidade de publicação
 
-Há dois novos pontos de extremidade necessários para ser publicado por meio de seu firewall. Os IPs alocado do pool de VIP público pode ser recuperado usando o seguinte código que deve ser executado por meio do Azure Stack [ambiente do privilegiado ponto de extremidade](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
+Há dois novos pontos de extremidade necessários para ser publicado por meio de seu firewall. Os IPs alocado do pool de VIP público pode ser recuperado usando o seguinte código que precisa ser executado no Azure Stack [ambiente do privilegiado ponto de extremidade](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
 
 ```PowerShell
 # Create a PEP Session

@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7d675eb55e7ecda1dcf79859e85821c4e86ccbdd
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 7f9a4ce4f1e16f69a1d8998e24c1bfe955d17d92
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338511"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767100"
 ---
 # <a name="automate-azure-stack-validation-with-powershell"></a>Automatizar a validação de pilha do Azure com o PowerShell
 
@@ -29,13 +29,13 @@ Validação como um serviço (VaaS) fornece a capacidade de automatizar a inicia
 > [!NOTE]  
 > Automação só está disponível para o fluxo de trabalho de aprovação do teste. Somente há suporte para os fluxos de trabalho de validação de pacote e a validação de solução por meio do portal VaaS.
 
-Neste tutorial, você aprenderá a criar um script que:
+Esse script pode ser usado para:
 
 > [!div class="checklist"]
-> * Instala pré-requisitos
-> * Instala e inicia o agente local
-> * Inicia uma categoria de testes, como a integração, funcional, confiabilidade
-> * Relatórios de resultados de teste
+> * Instalar pré-requisitos
+> * Instalar e iniciar o agente local
+> * Inicie uma categoria de testes, como *integration*, *funcional*, *confiabilidade*
+> * Resultados de teste de relatório
 
 ## <a name="launch-the-test-pass-workflow"></a>Iniciar o fluxo de trabalho de aprovação do teste
 
@@ -89,7 +89,7 @@ Neste tutorial, você aprenderá a criar um script que:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre o PowerShell no Azure Stack, examine os módulos mais recente.
+Para saber mais sobre o PowerShell no Azure Stack, examine os módulos mais recentes.
 
 > [!div class="nextstepaction"]
 > [Módulo do Azure Stack](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.6.0)
