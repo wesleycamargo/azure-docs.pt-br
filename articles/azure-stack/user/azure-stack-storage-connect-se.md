@@ -9,17 +9,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 9debcd121cbbde626758abccfe838abda12ad840
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 1c59f092957704c44b5cda012aa7c471fdaa3275
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822826"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57763360"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>Conectar-se o Gerenciador de armazenamento para uma assinatura do Azure Stack ou uma conta de armazenamento
 
@@ -30,7 +30,7 @@ Neste artigo, você aprenderá como se conectar a suas assinaturas do Azure Stac
 > [!NOTE]  
 > Há várias ferramentas disponíveis para mover dados bidirecionalmente no armazenamento do Azure Stack. Para obter mais informações, consulte [transferência de dados de ferramentas para o armazenamento do Azure Stack](azure-stack-storage-transfer.md).
 
-Se você ainda não instalou ainda, o Gerenciador de armazenamento [baixar o Gerenciador de armazenamento](http://www.storageexplorer.com/) e instalá-lo.
+Se você ainda não instalou ainda, o Gerenciador de armazenamento [baixar o Gerenciador de armazenamento](https://www.storageexplorer.com/) e instalá-lo.
 
 Depois de se conectar a uma assinatura do Azure Stack ou uma conta de armazenamento, você pode usar o [artigos do Gerenciador de armazenamento do Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md) para trabalhar com seus dados do Azure Stack. 
 
