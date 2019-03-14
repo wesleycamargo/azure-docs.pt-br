@@ -63,47 +63,49 @@ items:
       href: how-to-search-for-address.md
     - name: Renderizar dados personalizados no mapa estático
       href: how-to-render-custom-data.md
-  - name: Criar mapas de JavaScript
+  - name: Desenvolver com o SDK da Web
     items:
-    - name: Usar o controle de mapa
-      href: how-to-use-map-control.md
-    - name: Criar um mapa
-      href: map-create.md
-    - name: Escolher um estilo de mapa
-      href: choose-map-style.md
-    - name: Adicionar controles de mapa
-      href: map-add-controls.md
-    - name: Adicionar uma camada de símbolo
-      href: map-add-pin.md
-    - name: Adicionar um pop-up
-      href: map-add-popup.md
-    - name: Adicionar uma camada de bolha
-      href: map-add-bubble-layer.md
-    - name: Adicionar uma forma
-      href: map-add-shape.md
-    - name: Adicionar uma camada do mapa de calor
-      href: map-add-heat-map-layer.md
-    - name: Adicionar uma camada de imagem
-      href: map-add-image-layer.md
-    - name: Adicionar uma camada de bloco
-      href: map-add-tile-layer.md
-    - name: Adicionar marcadores HTML
-      href: map-add-custom-html.md
-    - name: Serviços
+    - name: Controle de mapa
+      items:
+      - name: Usar o controle de mapa
+        href: how-to-use-map-control.md
+      - name: Criar um mapa
+        href: map-create.md
+      - name: Escolher um estilo de mapa
+        href: choose-map-style.md
+      - name: Adicionar controles ao mapa
+        href: map-add-controls.md
+      - name: Adicionar uma camada de símbolo
+        href: map-add-pin.md
+      - name: Adicionar um pop-up
+        href: map-add-popup.md
+      - name: Adicionar uma camada de bolha
+        href: map-add-bubble-layer.md
+      - name: Adicionar formas
+        href: map-add-shape.md
+      - name: Adicionar uma camada do mapa de calor
+        href: map-add-heat-map-layer.md
+      - name: Sobrepor uma imagem
+        href: map-add-image-layer.md
+      - name: Adicionar camadas de bloco
+        href: map-add-tile-layer.md
+      - name: Marcadores HTML
+        href: map-add-custom-html.md
+      - name: Mostrar o tráfego
+        href: map-show-traffic.md
+      - name: Interagir com eventos de mouse
+        href: map-events.md
+      - name: Tornar o aplicativo acessível
+        href: map-accessibility.md
+    - name: Módulo de serviços
       items:
       - name: Mostrar resultados da pesquisa
         href: map-search-location.md
       - name: Obter informações de uma coordenada
         href: map-get-information-from-coordinate.md
-      - name: Mostrar instruções de A para B
+      - name: Mostrar direções de A para B
         href: map-route.md
-    - name: Mostrar o tráfego
-      href: map-show-traffic.md
-    - name: Interagir com eventos de mouse
-      href: map-events.md
-    - name: Aplicativos de mapa acessíveis
-      href: map-accessibility.md
-  - name: Criar mapas do Android
+  - name: Desenvolver com o SDK do Android
     items:
     - name: Como usar o controle de mapa do Android
       href: how-to-use-android-map-control-library.md
@@ -150,7 +152,7 @@ items:
 - name: Recursos
   items:
   - name: Termos de uso do Azure Mapas
-    href: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31.
+    href: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31.
   - name: Preços
     href: https://azure.microsoft.com/pricing/details/azure-maps
   - name: Calculadora de preço
@@ -197,9 +199,9 @@ items:
       href: /azure/iot-edge
     - name: SDKs do dispositivo IoT
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
-ms.openlocfilehash: b0584c77ed7d8b3ed6c6962d02b75e061a97bf14
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 2d974c96dd953c7a2727bcd5b1bcc3b60ad807a0
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57336726"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569222"

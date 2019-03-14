@@ -20,8 +20,10 @@ items:
       href: azure-to-azure-tutorial-enable-replication.md
     - name: Realizar uma simulação de recuperação de desastre
       href: azure-to-azure-tutorial-dr-drill.md
-    - name: Fazer failover e failback
+    - name: Fazer failover e proteger novamente
       href: azure-to-azure-tutorial-failover-failback.md
+    - name: Fazer failback
+      href: azure-to-azure-tutorial-failback.md
   - name: Recuperação de desastre da VM do VMware para o Azure
     items:
     - name: Preparar o Azure
@@ -82,6 +84,8 @@ items:
       href: azure-vm-disaster-recovery-with-accelerated-networking.md
     - name: ExpressRoute com a recuperação de desastres de máquinas virtuais do Azure
       href: azure-vm-disaster-recovery-with-expressroute.md
+    - name: Recuperação de desastre de VM do Azure e Interoperabilidade de Backup do Azure
+      href: site-recovery-backup-interoperability.md
   - name: Sobre a recuperação de desastres da VM do VMware para o Azure
     items:
     - name: Visão geral da recuperação de desastres do VMware
@@ -464,9 +468,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Atualizações de serviço
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: 04547a737cc05b3f1049d76e536366e608ee665a
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 749a7483167e3ddf3e1c15af17ee7aa9aa93fde0
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56866429"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731014"
