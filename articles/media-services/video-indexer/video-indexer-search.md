@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 02/25/2019
 ms.author: juliako
-ms.openlocfilehash: d2c2e87b3dade68dc311aa38743c11a60a69f68b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 07b3c806dc5df5f93bee3206cbca53485675e7dd
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004530"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872396"
 ---
 # <a name="find-exact-moments-within-videos"></a>Localizar os minutos exatos nos vídeos
 
@@ -23,23 +23,27 @@ Este tópico mostra as opções de pesquisa que permitem que você localize os m
 1. Navegue até o site do [Video Indexer](https://www.videoindexer.ai/) e entre.
 2. Pesquise entre todos os vídeos da sua conta.
 
-    No exemplo a seguir, pesquisamos todos os vídeos criados pelo Channel9 com Scott Hanselman.
+    No exemplo a seguir, podemos pesquisar todos os vídeos que falam sobre a segurança e na qual Satya é exibida,
 
-    ![Search](./media/video-indexer-search/video-indexer-search01.png)
+    ![Pesquisa](./media/video-indexer-search/video-indexer-search01.png)
 3. Pesquise os insights resumidos do vídeo.
 
-    Em seguida, é possível pesquisar dentro de um vídeo clicando em **Reproduzir** no vídeo. Em seguida, é possível pesquisar no vídeo selecionando a guia **Pesquisar**. Por exemplo, procuramos todos os locais em que o texto "proteção de identidade" é usado. 
+    Em seguida, é possível pesquisar dentro de um vídeo clicando em **Reproduzir** no vídeo. Em seguida, é possível pesquisar no vídeo selecionando a guia **Pesquisar**. 
 
-    ![Search](./media/video-indexer-search/video-indexer-search02.png)
+    No exemplo a seguir, vamos procurar "segura" dentro do vídeo selecionado.
+
+    ![Pesquisa](./media/video-indexer-search/video-indexer-search02.png)
 
     Se você clicar em um dos resultados, o player direcionará você até esse momento no vídeo. É possível obter a exibição do player/insights e a sincronização no seu aplicativo. Para obter mais informações, consulte [Embed Video Indexer widgets into your application](video-indexer-embed-widgets.md) (Inserir widgets do Video Indexer em seu aplicativo). 
 4. Pesquise a análise detalhada do vídeo.
+    
+    Se você quiser criar seus próprios clipes com base no vídeo que você encontrou, pressione a **editar** botão. Esta página mostra vídeo junto com seus insights como filtros. Para obter mais informações, consulte [Exibir e editar insights do Video Indexer](video-indexer-view-edit.md). 
 
-    Se desejar criar sua própria análise com base no vídeo encontrado, pressione o botão **Editar**. Esta página mostra a análise completa de um vídeo. É possível pesquisar na análise para mostrar apenas as linhas nas quais você está interessado. Para obter mais informações, consulte [Exibir e editar insights do Video Indexer](video-indexer-view-edit.md).
-
-    Nesse exemplo, pesquisamos o texto "proteção de identidade". Também aplicamos filtros adicionais, conforme mostrado na tela abaixo.
-
-    ![Search](./media/video-indexer-search/video-indexer-search03.png)
+    Você pode pesquisar no vídeo para mostrar apenas as linhas que você está interessado e usa os insights de lado para filtrar as partes que você deseja ver. Quando você terminar, você pode visualizar o clipe e pressione **publicar** para criar o novo clipe que aparece na Galeria de.
+    
+    O exemplo a seguir, procuramos o texto "realidade misturada". Também aplicamos filtros adicionais, conforme mostrado na tela abaixo.
+    
+    ![Pesquisa](./media/video-indexer-search/video-indexer-search03.png)
 
 ## <a name="next-steps"></a>Próximas etapas 
 

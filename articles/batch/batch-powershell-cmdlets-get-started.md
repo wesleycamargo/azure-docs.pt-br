@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: ''
 ms.service: batch
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: powershell
 ms.workload: big-compute
 ms.date: 01/15/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 5f0358bf58e61632fdeef8363d24b39c2cf2ebf0
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 10d8683724622f164299016a801e1960e0a868c7
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811419"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57770024"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Gerenciar recursos do Lote com cmdlets do PowerShell
 
@@ -48,15 +48,15 @@ Este artigo baseia-se nos cmdlets do módulo do Lote do Az 1.0.0. É recomendáv
 
 ## <a name="manage-batch-accounts-and-keys"></a>Gerenciar contas e chaves do Batch
 
-### <a name="create-a-batch-account"></a>Criar uma conta do Batch
+### <a name="create-a-batch-account"></a>Criar uma conta do Lote
 
-**New-AzBatchAccount** cria uma conta do Lote em um grupo de recursos especificado. Se você ainda não tiver um grupo de recursos, crie um executando o cmdlet [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Especifique uma das regiões do Azure no parâmetro**Location**, como "EUA Central”. Por exemplo: 
+**New-AzBatchAccount** cria uma conta do Lote em um grupo de recursos especificado. Se você ainda não tiver um grupo de recursos, crie um executando o cmdlet [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Especifique uma das regiões do Azure no parâmetro**Location**, como "EUA Central”. Por exemplo:
 
 ```PowerShell
 New-AzResourceGroup –Name MyBatchResourceGroup –Location "Central US"
 ```
 
-Em seguida, crie uma conta do Lote no grupo de recursos. Especifique um nome para a conta em <*account_name*> e a localização e o nome do seu grupo de recursos. A criação da conta de lote pode levar algum tempo para ser concluída. Por exemplo: 
+Em seguida, crie uma conta do Lote no grupo de recursos. Especifique um nome para a conta em <*account_name*> e a localização e o nome do seu grupo de recursos. A criação da conta de lote pode levar algum tempo para ser concluída. Por exemplo:
 
 ```PowerShell
 New-AzBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName <res_group_name>
@@ -90,7 +90,7 @@ New-AzBatchAccountKey -AccountName <account_name> -KeyType Primary
 
 ### <a name="delete-a-batch-account"></a>Excluir uma conta do Batch
 
-**Remove-AzBatchAccount** exclui uma conta do Lote. Por exemplo: 
+**Remove-AzBatchAccount** exclui uma conta do Lote. Por exemplo:
 
 ```PowerShell
 Remove-AzBatchAccount -AccountName <account_name>
@@ -175,7 +175,7 @@ O parâmetro **Id** só dá suporte à pesquisa de ID completa, não a curingas 
 
 ### <a name="use-the-maxcount-parameter"></a>Usar o parâmetro MaxCount
 
-Por padrão, cada cmdlet retorna no máximo 1.000 objetos. Se você atingir esse limite, refine seu filtro para retornar menos objetos ou defina explicitamente um máximo usando o parâmetro **MaxCount** . Por exemplo: 
+Por padrão, cada cmdlet retorna no máximo 1.000 objetos. Se você atingir esse limite, refine seu filtro para retornar menos objetos ou defina explicitamente um máximo usando o parâmetro **MaxCount** . Por exemplo:
 
 ```PowerShell
 Get-AzBatchTask -MaxCount 2500 -BatchContext $context

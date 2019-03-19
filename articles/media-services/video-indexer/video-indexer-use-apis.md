@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: dc3e654e741fd1a326c83e51c72284f41ad74798
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 6a7d79d8a9328eaf0808c79ed359299e1ec37d1a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55988044"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57862703"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Tutorial: Usar a API do Video Indexer
 
@@ -23,7 +23,7 @@ ms.locfileid: "55988044"
 
 O Video Indexer consolida várias tecnologias de inteligência artificial (AI) de áudio e vídeo oferecidas pela Microsoft em um único serviço integrado, tornando o desenvolvimento mais simples. As APIs são projetadas para permitir que os desenvolvedores se concentrem no consumo de tecnologias de AI de mídia sem se preocupar com escala, alcance global, disponibilidade e confiabilidade da plataforma de nuvem. Você pode usar a API para fazer upload de seus arquivos, obter insights de vídeo detalhados, obter URLs de insights e widgets de player para incorporá-los ao seu aplicativo e outras tarefas.
 
-Ao criar uma conta do Video Indexer, você pode escolher uma conta de avaliação gratuita (em que você obtém um determinado número de minutos de indexação gratuitos) ou uma opção paga (onde você não está limitado pela cota). Com o teste gratuito, o Video Indexer fornece até 600 minutos de indexação gratuita para usuários do site e até 2400 minutos de indexação gratuita para usuários da API. Com a opção paga, você cria uma conta do Indexador de Vídeo que está [conectada à sua assinatura do Azure e a uma conta dos Serviços de Mídia do Azure](connect-to-azure.md). Você paga pelos minutos indexados, bem como os encargos relacionados à conta dos Serviços de Mídia do Azure. 
+Ao criar uma conta do Video Indexer, você pode escolher uma conta de avaliação gratuita (em que você obtém um determinado número de minutos de indexação gratuitos) ou uma opção paga (onde você não está limitado pela cota). Com o teste gratuito, o Video Indexer fornece até 600 minutos de indexação gratuita para usuários do site e até 2400 minutos de indexação gratuita para usuários da API. Com a opção paga, você criar uma conta de indexador de vídeo que está [conectado à sua assinatura do Azure e uma conta de serviços de mídia do Azure](connect-to-azure.md). Você paga pelos minutos indexados, bem como os encargos relacionados à conta dos Serviços de Mídia do Azure. 
 
 Este artigo mostra como os desenvolvedores podem aproveitar a [API do Video Indexer](https://api-portal.videoindexer.ai/).
 
@@ -33,23 +33,23 @@ Este artigo mostra como os desenvolvedores podem aproveitar a [API do Video Inde
     
     ![Entrar](./media/video-indexer-use-apis/video-indexer-api01.png)
 
-    > [!Important]
-    > * Você deve usar o mesmo provedor usado quando se inscreveu no Video Indexer.
-    > * As contas pessoais Google e Microsoft (perspectiva / vida) só podem ser usadas para contas de avaliação. Contas conectadas ao Azure exigem o Azure AD.
-    > * Pode haver apenas uma conta ativa por email. Se um usuário tenta entrar com user@gmail.com para o LinkedIn e, depois disso com user@gmail.com para Google o posterior exibirá uma página de erro, informando que o usuário já existe.
+   > [!Important]
+   > * Você deve usar o mesmo provedor usado quando se inscreveu no Video Indexer.
+   > * As contas pessoais Google e Microsoft (perspectiva / vida) só podem ser usadas para contas de avaliação. Contas conectadas ao Azure exigem o Azure AD.
+   > * Pode haver apenas uma conta ativa por email. Se um usuário tenta entrar com user@gmail.com para o LinkedIn e, depois disso com user@gmail.com para Google o posterior exibirá uma página de erro, informando que o usuário já existe.
 
 2. Inscrever-se.
 
     Selecione a guia [Produtos](https://api-portal.videoindexer.ai/products). Em seguida, selecione a autorização e inscrever-se. 
     
-    ![Inscrição](./media/video-indexer-use-apis/video-indexer-api02.png)
+    ![Inscreva-se](./media/video-indexer-use-apis/video-indexer-api02.png)
 
     > [!NOTE]
     > Novos usuários são automaticamente inscritos na Autorização.
     
     Depois de se inscrever, você poderá ver sua assinatura e suas chaves primárias e secundárias. As chaves devem ser protegidas. As chaves só devem ser usadas pelo seu código do servidor. Eles não devem estar disponíveis no lado do cliente (.js, .html, etc.).
 
-    ![Inscrição](./media/video-indexer-use-apis/video-indexer-api03.png)
+    ![Inscreva-se](./media/video-indexer-use-apis/video-indexer-api03.png)
 
 > [!TIP]
 > O usuário do Video Indexer pode usar uma chave de assinatura única para se conectar a várias contas do aplicativo. Depois você pode vincular essas contas do Video Indexer para diferentes contas de Serviços de Mídia.
@@ -72,9 +72,9 @@ Para facilitar, você pode usar a **API de autorização**> **GetAccounts** para
 
 Os tokens de acesso expiram após 1 hora. Certifique-se de que seu token de acesso seja válido antes de usar a API de operações. Se expirar, chame a API de autorização novamente para obter um novo token de acesso.
  
-Você está pronto para começar a integrar com a API. Encontre [a descrição detalhada de cada API REST do Indexador de Vídeo](http://api-portal.videoindexer.ai/).
+Você está pronto para começar a integrar com a API. Encontre [a descrição detalhada de cada API REST do Indexador de Vídeo](https://api-portal.videoindexer.ai/).
 
-## <a name="location"></a>Local padrão
+## <a name="location"></a>Local
 
 Todas as APIs de operação requerem um parâmetro Location, que indica a região para a qual a chamada deve ser roteada e na qual a conta foi criada.
 
@@ -83,9 +83,9 @@ Os valores descritos na tabela a seguir se aplicam. O **valor Param** é o valor
 |**Nome**|**Valor do parâmetro**|**Descrição**|
 |---|---|---|
 |Avaliação|trilha|Usado para contas de avaliação.|
-|Oeste dos EUA|westus2|Usado para a região do Azure Oeste dos EUA 2.|
-|Norte da Europa |northeurope|Usado para a região do Azure Norte da Europa.|
-|Ásia Oriental|eastasia|Usado para a região do Azure East Asia.|
+|Oeste dos Estados Unidos|westus2|Usado para a região do Azure Oeste dos EUA 2.|
+|Europa Setentrional |northeurope|Usado para a região do Azure Norte da Europa.|
+|Leste da Ásia|eastasia|Usado para a região do Azure East Asia.|
 
 ## <a name="account-id"></a>ID da Conta 
 

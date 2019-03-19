@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/01/2019
+ms.date: 03/01/2019
 ms.author: juliako
-ms.openlocfilehash: cce3ea06ebd7d3469dad14e491124f81567610ea
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: c4be56b3ee32a5177c66353ba45c6b3647c732f2
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894040"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240075"
 ---
 # <a name="live-events-and-live-outputs"></a>Eventos ao Vivo e Saídas Dinâmicas
 
@@ -32,7 +32,7 @@ O Azure Media Services permite entregar eventos ao vivo para seus clientes na nu
 * [URL de visualização do evento ao vivo](#live-event-preview-url)
 * [Saídas ao vivo](#live-outputs).
 
-## <a name="live-events"></a>Eventos ao Vivo
+## <a name="live-events"></a>Eventos ao vivo
 
 [Eventos ao Vivo](https://docs.microsoft.com/rest/api/media/liveevents) são responsáveis pela ingestão e pelo processamento dos feeds de vídeo ao vivo. Quando você cria um Evento ao vivo, é criado um ponto de extremidade de entrada que pode ser usado para enviar um sinal ao vivo de um codificador remoto. O codificador dinâmico remoto envia o feed de contribuição para esse terminal de entrada usando o protocolo [RTMP](https://www.adobe.com/devnet/rtmp.html) ou [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (fragmented-MP4). Para o protocolo de ingestão Smooth Streaming, os esquemas de URL compatíveis são `http://` ou `https://`. Para o protocolo de ingestão RTMP, os esquemas de URL com suporte são `rtmp://` ou `rtmps://`. 
 
@@ -42,7 +42,7 @@ Um [Evento ao vivo](https://docs.microsoft.com/rest/api/media/liveevents) pode s
 
 ### <a name="pass-through"></a>Passagem
 
-![passagem](./media/live-streaming/pass-through.png)
+![passagem](./media/live-streaming/pass-through.svg)
 
 Ao usar o **Evento ao vivo** de passagem, você depende de seu codificador dinâmico local para gerar um fluxo de vídeo com várias taxas de bits e enviá-lo como o feed de contribuição para o Evento ao vivo (usando o protocolo RTMP ou MP4 fragmentado). A seguir, o Evento ao vivo executa os fluxos de vídeo de entrada sem qualquer processamento adicional. Esse LiveEvent de passagem é otimizado para eventos ao vivo de longa duração ou streaming ao vivo linear 24x365. Ao criar esse tipo de Evento ao vivo, especifique Nenhum (LiveEventEncodingType.None).
 
@@ -56,11 +56,16 @@ Veja um exemplo de código do .NET no [MediaV3LiveApp](https://github.com/Azure-
 
 ### <a name="live-encoding"></a>Codificação ativa  
 
-![Codificação ativa](./media/live-streaming/live-encoding.png)
+![Codificação ativa](./media/live-streaming/live-encoding.svg)
 
 Usando a codificação dinâmica com os Serviços de Mídia, você configuraria seu codificador dinâmico local para enviar um vídeo de taxa de bits única como o feed de contribuição para o Evento ao vivo (usando o protocolo RTMP ou MP4 fragmentado). O Evento ao vivo codifica esse fluxo de entrada de taxa de bits única para um [fluxo de vídeo de taxa de bits múltipla](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), tornando-o disponível para entrega para reproduzir dispositivos através de protocolos como MPEG-DASH, HLS e Smooth Streaming. Ao criar esse tipo de Evento ao vivo, especifique o tipo de codificação como **Padrão** (LiveEventEncodingType.Standard).
 
 Você pode enviar a alimentação de contribuição com resolução de até 1080p a uma taxa de quadros de 30 quadros/segundo, com codec de vídeo H.264/AVC e codec de áudio AAC (AAC-LC, HE-AAC v1 ou HE-AAC v2). Confira o artigo [Comparação de tipos de Eventos ao Vivo](live-event-types-comparison.md) para saber mais.
+
+Ao usar a codificação ao vivo (conjunto de eventos ao vivo **Standard**), a predefinição de codificação define como o fluxo de entrada é codificado em várias taxas de bits ou camadas. Para obter informações, consulte [predefinições do sistema](live-event-types-comparison.md#system-presets).
+
+> [!NOTE]
+> Atualmente, a única predefinição valor permitido para o tipo padrão de evento ao vivo está *Default720p*. Se você precisar usar uma predefinição de codifica ao vivo personalizada, entre em contato com amshelp@microsoft.com. Você deve especificar a tabela desejada da resolução e taxas de bits. Verifique se há apenas uma camada em 720p e no máximo de 6 camadas.
 
 ## <a name="live-event-creation-options"></a>Opções de criação de Evento ao vivo
 

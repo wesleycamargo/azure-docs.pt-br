@@ -6,18 +6,18 @@ ms.service: sql-database
 ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
-ms.topic: howto
+ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 01c4bcfcea038f3e69620cdce78719c8c5128faf
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: efb6d932e616ada6b8dfff637af469c16fc2f293
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55964784"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57761814"
 ---
 # <a name="sql-database-application-development-overview"></a>Visão geral do desenvolvimento de aplicativos de Banco de Dados SQL
 
@@ -58,7 +58,7 @@ Para obter mais informações sobre como se preparar para eventos de manutençã
 - No computador que hospeda o programa cliente, certifique-se de que o firewall permite comunicação TCP de saída na porta 1433.  Mais informações: [Configurar um firewall do Banco de Dados SQL do Azure](sql-database-configure-firewall-settings.md).
 - Se o programa cliente se conectar ao Banco de Dados SQL enquanto seu cliente estiver em execução em uma VM (máquina virtual) do Azure, será necessário abrir determinados intervalos de porta na VM. Mais informações: [Portas acima da 1433 para o ADO.NET 4.5 e o Banco de Dados SQL](sql-database-develop-direct-route-ports-adonet-v12.md).
 - Às vezes, as conexões de cliente para o Banco de Dados SQL do Azure ignoram o proxy e interagem diretamente com o banco de dados. Outras portas diferentes da 1433 se tornam importantes. Para obter mais informações, [Arquitetura de conectividade de Banco de Dados SQL do Azure](sql-database-connectivity-architecture.md) e [Portas além da 1433 para ADO.NET 4.5 e Banco de Dados SQL](sql-database-develop-direct-route-ports-adonet-v12.md).
-- Para configurar a rede para uma instância gerenciada, confira [configuração de rede para instâncias gerenciadas](sql-database-howto-managed-instance.md#network-configuration).
+- Para configuração de rede para uma instância gerenciada, consulte [configuração de rede para instâncias gerenciadas](sql-database-howto-managed-instance.md#network-configuration).
 
 ## <a name="next-steps"></a>Próximas etapas
 

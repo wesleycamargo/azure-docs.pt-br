@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7278eba1c9039c180f75cdd2dfd1e18a77baf423
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: dc30b28203ad416370f1304436e7e6e642921be9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416778"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441501"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Gerenciar pré-scripts e pós-scripts (versão prévia)
 
@@ -44,7 +44,7 @@ Termine de configurar sua Implantação de Atualização.
 
 Quando sua Implantação de Atualização for concluída, você poderá acessar **Implantações de atualização** para exibir os resultados. Como pode ver, são informados os status do pré-script e do pós-script.
 
-![Atualizar resultados](./media/pre-post-scripts/update-results.png)
+![Atualizar Resultados](./media/pre-post-scripts/update-results.png)
 
 Ao clicar na execução da implantação de atualização, você recebe detalhes adicionais dos pré-scripts e pós-scripts. Um link para a fonte do script no momento da execução é fornecido.
 
@@ -70,7 +70,7 @@ Além dos parâmetros do runbook padrão, um parâmetro adicional é fornecido. 
 
 ### <a name="softwareupdateconfigurationruncontext-properties"></a>Propriedades de SoftwareUpdateConfigurationRunContext
 
-|Propriedade  |DESCRIÇÃO  |
+|Propriedade  |Descrição  |
 |---------|---------|
 |SoftwareUpdateConfigurationName     | O nome da configuração da atualização de software        |
 |SoftwareUpdateConfigurationRunId     | A ID exclusiva para a execução.        |

@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: ed4b581cb962c7db706a71ab995963a3c445af55
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 2c6ca05e2a76cb6fbf7aabc1e9d801a2639665d5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998122"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850319"
 ---
-# <a name="overview-and-comparison-of-azure-on-demand-media-encoders-legacy"></a>Visão geral e comparação de codificadores de mídia sob demanda do Azure (herdado)
+# <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Visão geral e comparação de codificadores de mídia sob demanda do Azure 
 
 ## <a name="encoding-overview"></a>Visão Geral de Codificação
 Os Serviços de Mídia do Azure fornecem várias opções para a codificação de mídia na nuvem.
@@ -44,7 +44,7 @@ Este artigo fornece uma breve visão geral dos codificadores de mídia sob deman
 >[!NOTE]
 >Por padrão, cada conta dos Serviços de Mídia pode ter uma tarefa de codificação ativa por vez. Você pode reservar unidades de codificação que permitem ter várias tarefas de codificação em execução simultaneamente, uma para cada unidade reservada de codificação que você comprar. Para saber mais, consulte [Dimensionamento das unidades de codificação](media-services-scale-media-processing-overview.md).
 
-## <a name="media-encoder-standard"></a>Media Encoder Standard
+## <a name="media-encoder-standard"></a>Codificador de Mídia Padrão
 ### <a name="how-to-use"></a>Como usar
 [Como codificar com o Codificador de Mídia Padrão](media-services-dotnet-encode-with-media-encoder-standard.md)
 
@@ -71,7 +71,7 @@ Para obter informações, veja [Como criar sobreposições usando o Codificador 
 ### <a name="see-also"></a>Consulte também
 [O blog Serviços de Mídia](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
 
-## <a name="media-encoder-premium-workflow"></a>Fluxo de trabalho do Media Encoder Premium
+## <a name="media-encoder-premium-workflow"></a>Media Encoder Premium Workflow
 ### <a name="overview"></a>Visão geral
 [Apresentando a codificação Premium nos Serviços de Mídia do Azure](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services/)
 
@@ -95,4 +95,4 @@ Se o vídeo de entrada não contiver a legendagem oculta, o ativo de saída aind
 * [Cotas e limitações](media-services-quotas-and-limitations.md)
 
 <!--Reference links in article-->
-[1]: http://azure.microsoft.com/pricing/details/media-services/
+[1]: https://azure.microsoft.com/pricing/details/media-services/

@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: fb8c94b1-6d0a-4b77-8d14-ae6efcdd99f4
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: f595fbb6571c3deaaa0644ba9d62f598181592e3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 4c933145c54c47b5af083edd593ecb66b089f9c9
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106304"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769141"
 ---
 # <a name="quickstart-sign-in-and-set-a-user-id"></a>Início Rápido: Entrar e definir uma ID de usuário
 
@@ -51,6 +51,9 @@ Embora você sempre possa exibir os blocos de anotações do Azure Notebooks sem
 1. Depois de entrar com êxito, o Azure Notebooks navega para sua página de perfil público, no qual você pode selecionar **Editar Informações de Perfil** para preencher o restante das suas informações (para obter mais informações, consulte [seu perfil e a ID de usuário](azure-notebooks-user-profile.md)):
 
     ![Visão inicial de uma página de perfil do Azure Notebooks](media/accounts/profile-page-new.png)
+
+> [!NOTE]
+> Se você vir a mensagem, "ID de usuário já está em uso," Tente um ID diferente. As IDs de usuário são exclusivas em todas as contas do Azure Notebooks e blocos de anotações do Azure também reserva determinadas IDs de usuário, como nomes de marca da Microsoft.
 
 ## <a name="sign-out"></a>Sair
 

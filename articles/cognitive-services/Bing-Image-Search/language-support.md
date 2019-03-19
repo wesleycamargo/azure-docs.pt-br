@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: article
-ms.date: 10/06/2017
+ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 3b1c4108b18d744eb526a765a98f740d6e27a444
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 92316d3f84f0a8d3cda0e98fd8ae751eb78b7e56
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868388"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337695"
 ---
 # <a name="language-and-region-support-for-the-bing-image-search-api"></a>Suporte de idioma e região para a API de Pesquisa de Imagem do Bing
 
@@ -34,25 +34,25 @@ Como alternativa, é possível especificar o país/região usando o parâmetro d
 
 ## <a name="countries"></a>Países
 
-|País/Região|Código|
+|País/região|Codificar|
 |-------|----|
 |Argentina|AR|
 |Austrália|AU|
 |Áustria|AT|
 |Bélgica|BE|
 |Brasil|BR|
-|Canadá|CA|
+|Canadá|AC|
 |Chile|CL|
 |Dinamarca|DK|
 |Finlândia|FI|
 |França|FR|
-|Alemanha|DE|
-|Hong Kong|HK|
+|Alemanha|Alemanha|
+|RAE de Hong Kong|HK|
 |Índia|IN|
 |Indonésia|ID|
-|Itália|IT|
+|Itália|TI|
 |Japão|JP|
-|Coreia do Sul|KR|
+|Coreia|KR|
 |Malásia|MY|
 |México|MX|
 |Países Baixos|NL|
@@ -76,7 +76,7 @@ Como alternativa, é possível especificar o país/região usando o parâmetro d
 
 ## <a name="markets"></a>Mercados
 
-|País/Região|Linguagem|Código de mercado|
+|País/região|Idioma|Código de mercado|
 |-------|--------|-----------|
 |Argentina|Espanhol|es-AR|
 |Austrália|Inglês|en-AU|
@@ -91,12 +91,12 @@ Como alternativa, é possível especificar o país/região usando o parâmetro d
 |Finlândia|Finlandês|fi-FI|
 |França|Francês|fr-FR|
 |Alemanha|Alemão|de-DE|
-|Hong Kong|Chinês tradicional|zh-HK|
+|RAE de Hong Kong|Chinês Tradicional|zh-HK|
 |Índia|Inglês|en-IN|
 |Indonésia|Inglês|en-ID|
 |Itália|Italiano|it-IT|
 |Japão|Japonês|ja-JP|
-|Coreia do Sul|Coreano|ko-KR|
+|Coreia|Coreano|ko-KR|
 |Malásia|Inglês|en-MY|
 |México|Espanhol|es-MX|
 |Países Baixos|Holandês|nl-NL|
@@ -112,10 +112,10 @@ Como alternativa, é possível especificar o país/região usando o parâmetro d
 |Suécia|Sueco|sv-SE|
 |Suíça|Francês|fr-CH|
 |Suíça|Alemão|de-CH|
-|Taiwan|Chinês tradicional|zh-TW|
+|Taiwan|Chinês Tradicional|zh-TW|
 |Turquia|Turco|tr-TR|
 |Reino Unido|Inglês|en-GB|
-|Estados Unidos|Inglês|en-US|
+|Estados Unidos|Inglês|pt-BR|
 |Estados Unidos|Espanhol|es-US|
 
 ## <a name="next-steps"></a>Próximas etapas

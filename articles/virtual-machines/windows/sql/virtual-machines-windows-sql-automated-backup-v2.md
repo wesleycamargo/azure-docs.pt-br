@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: e20599833d3073e4819dbc974d4b2afe962ba18a
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 540acd1735eb539ecaac468e74511ba5f751278f
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984300"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57780007"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Backup Automatizado v2 para Máquinas Virtuais do Azure (Resource Manager)
 
@@ -52,7 +52,7 @@ Para usar o Backup Automatizado v2, examine os seguintes pré-requisitos:
 
 - Os bancos de dados de destino devem usar o modelo de recuperação completa. Para obter mais informações sobre o impacto do modelo de recuperação completa em backups, consulte [Backup com o modelo de recuperação completa](https://technet.microsoft.com/library/ms190217.aspx).
 - Os bancos de dados do sistema não precisam usar o modelo de recuperação completa. No entanto, se você precisar que os backups de log sejam considerados para o Modelo ou MSDB, será necessário usar o modelo de recuperação completa.
-- Os bancos de dados de destino devem estar na instância padrão do SQL Server. A extensão de IaaS do SQL Server não oferece suporte a instâncias nomeadas.
+- Bancos de dados de destino devem estar em qualquer um da padrão instância do SQL Server, ou um [corretamente instalado](virtual-machines-windows-sql-server-iaas-faq.md#administration) instância nomeada. 
 
 > [!NOTE]
 > O Backup Automatizado conta com a **Extensão do agente IaaS do SQL Server**. As imagens atuais da galeria da máquina virtual do SQL adicionam essa extensão por padrão. Para obter mais informações, consulte [Extensão do agente IaaS do SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
@@ -62,7 +62,7 @@ A tabela a seguir descreve as opções que podem ser configuradas para o Backup 
 
 ### <a name="basic-settings"></a>Configurações Básicas
 
-| Configuração | Intervalo (Padrão) | DESCRIÇÃO |
+| Configuração | Intervalo (Padrão) | Descrição |
 | --- | --- | --- |
 | **Backup Automatizado** | Habilitar/desabilitar (Desabilitado) | Habilita ou desabilita o Backup Automatizado para uma VM do Azure em execução no SQL Server 2016/2017 Developer, Standard ou Enterprise. |
 | **Período de retenção** | Um a 30 dias (30 dias) | O número de dias para manter os backups. |
@@ -72,7 +72,7 @@ A tabela a seguir descreve as opções que podem ser configuradas para o Backup 
 
 ### <a name="advanced-settings"></a>Configurações avançadas
 
-| Configuração | Intervalo (Padrão) | DESCRIÇÃO |
+| Configuração | Intervalo (Padrão) | Descrição |
 | --- | --- | --- |
 | **Backups de Banco de Dados do Sistema** | Habilitar/desabilitar (Desabilitado) | Quando habilitado, esse recurso também faz backup dos bancos de dados do sistema: Mestre, MSDB e Modelo. Para os bancos de dados Modelo e MSDB, verifique se eles estão no modo de recuperação completa se desejar que os backups de log sejam executados. Os backups de log nunca são feitos para o Mestre. E não é feito nenhum backup para o TempDB. |
 | **Agendamento de Backup** | Manual/Automatizado (Automatizado) | Por padrão, o agendamento de backup é automaticamente determinado com base no crescimento do log. O agendamento de backup manual permite que o usuário especifique a janela de tempo para backups. Nesse caso, os backups ocorrem apenas na frequência especificada e durante a janela de tempo especificada de determinado dia. |
@@ -119,7 +119,7 @@ Em seguida, na terça-feira às 22h, por seis horas, os backups completos de tod
 > [!IMPORTANT]
 > Ao agendar backups diários, é recomendável que você agende uma janela de tempo ampla para garantir que todos os bancos de dados possam ter o backup realizado dentro desse período. Isso é especialmente importante no caso em que você tem uma grande quantidade de dados para backup.
 
-## <a name="configure-in-the-portal"></a>Configurar no portal
+## <a name="configure-in-the-portal"></a>Configure no portal
 
 É possível usar o portal do Azure para configurar o Backup Automatizado v2 durante o provisionamento ou para VMs do SQL Server 2016/2017 existentes.
 

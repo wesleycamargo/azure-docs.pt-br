@@ -6,18 +6,18 @@ ms.service: sql-database
 ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
-ms.topic: howto
+ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: f63f929f21d4df06e409784e2ccab611e951a1bc
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: f7e31c9e153f25faae9224f04eabf5ca54bb06b4
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477702"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57759212"
 ---
 # <a name="how-to-use-azure-sql-database"></a>Como usar o Banco de Dados SQL do Azure
 
@@ -68,7 +68,7 @@ Nesta seção, é possível encontrar vários guias, scripts e explicações que
 - [Configurar OLTP na memória](sql-database-in-memory-oltp-migration.md)
 - [Configurar Automação do Azure](sql-database-manage-automation.md)
 
-## <a name="develop-applications"></a>Desenvolver aplicativos
+## <a name="develop-applications"></a>Desenvolva aplicativos
 
 - [Conectividade](sql-database-libraries.md)
 - [Usar o Conector do Spark](sql-database-spark-connector.md)

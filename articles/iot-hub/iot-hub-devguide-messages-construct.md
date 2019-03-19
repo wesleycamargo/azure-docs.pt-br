@@ -1,6 +1,6 @@
 ---
 title: Entender o formato de mensagem do Hub IoT do Azure| Microsoft Docs
-description: Guia do desenvolvedor - descreve o formato e o conteúdo esperado de mensagens do Hub IoT.
+description: Guia do desenvolvedor - descreve o formato e o conteúdo esperado de mensagens do IoT Hub.
 author: ash2017
 manager: briz
 ms.service: iot-hub
@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 164f3b8ef42d07606d98d200fa9bebcd0add3d38
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
-ms.translationtype: HT
+ms.openlocfilehash: 08eb7171249c42348877afedc80c6c6338265422
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319567"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861717"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Criar e ler mensagens do Hub IoT
 
@@ -31,7 +31,7 @@ Uma mensagem do Hub IoT consiste em:
 
 * Um corpo de binário opaco.
 
-Os valores e nomes de propriedade podem conter apenas caracteres alfanuméricos ASCII mais `{'!', '#', '$', '%, '&', ''', '*', '+', '-', '.', '^', '_', '`', '|', '~'}` quando você envia mensagens de dispositivo para nuvem usando o protocolo HTTPS ou envia mensagens da nuvem para dispositivo.
+Os valores e nomes de propriedade podem conter apenas caracteres alfanuméricos ASCII mais ``{'!', '#', '$', '%, '&', ''', '*', '+', '-', '.', '^', '_', '`', '|', '~'}`` quando você envia mensagens de dispositivo para nuvem usando o protocolo HTTPS ou envia mensagens da nuvem para dispositivo.
 
 As mensagens de dispositivo para a nuvem com o Hub IoT têm as seguintes características:
 
@@ -47,21 +47,20 @@ Para obter mais informações de como codificar e decodificar mensagens enviadas
 
 A tabela a seguir lista o conjunto de propriedades do sistema em mensagens do Hub IoT.
 
-| Propriedade | DESCRIÇÃO | O usuário é configurável? |
+| Propriedade | Descrição | O usuário é configurável? |
 | --- | --- | --- |
-| message-id |Um identificador configurável pelo usuário para a mensagem utilizada para padrões de resposta à solicitação. Formato: uma cadeia de caracteres que diferencia maiúsculas de minúsculas (com até 128 caracteres) de caracteres alfanuméricos ASCII de 7 bits + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. | SIM |
+| message-id |Um identificador configurável pelo usuário para a mensagem utilizada para padrões de resposta à solicitação. Formato: Uma cadeia de caracteres que diferencia maiúsculas de minúsculas (com até 128 caracteres) de caracteres alfanuméricos ASCII de 7 bits + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. | Sim |
 | número de sequência |Um número (exclusivo por fila de dispositivos) atribuído pelo Hub IoT a cada mensagem da nuvem para o dispositivo. | Não para mensagens C2D, caso contrário, sim. |
-| para |Um destino especificado em mensagens [Da nuvem para o dispositivo](iot-hub-devguide-c2d-guidance.md) . | Não para mensagens C2D, caso contrário, sim. |
-| absolute-expiry-time |Data e hora de expiração da mensagem. | SIM |
+| a |Um destino especificado em mensagens [Da nuvem para o dispositivo](iot-hub-devguide-c2d-guidance.md) . | Não para mensagens C2D, caso contrário, sim. |
+| absolute-expiry-time |Data e hora de expiração da mensagem. | Sim |
 | iothub-enqueuedtime |Data e hora que a mensagem [Nuvem para Dispositivo](iot-hub-devguide-c2d-guidance.md) foi recebida pelo Hub IoT. | Não para mensagens C2D, caso contrário, sim. |
-| correlation-id |Uma cadeia de propriedade em uma mensagem de resposta que geralmente contém a MessageId da solicitação em padrões de solicitação-resposta. | SIM |
-| user-id |Uma ID usada para especificar a origem das mensagens. Quando as mensagens são geradas pelo Hub IoT, são definidas como `{iot hub name}`. | Não  |
-| iothub-ack |Um gerador de mensagem de comentários. Essa propriedade é usada em mensagens da nuvem para o dispositivo para solicitar ao Hub IoT a geração de mensagens de comentários como resultado do consumo da mensagem pelo dispositivo. Valores possíveis: **nenhum** (padrão): nenhuma mensagem de comentários é gerada, **positivo**: ocorrerá o recebimento de uma mensagem de comentários se a mensagem estiver completa, **negativo**: ocorrerá o recebimento de uma mensagem de comentários se a mensagem expirar (ou se a contagem máxima de entrega tiver sido atingida) sem ser concluída pelo dispositivo ou **total**: positivos e negativos. 
-<!-- robinsh For more information, see [Message feedback][lnk-feedback].--> | SIM |
+| correlation-id |Uma cadeia de propriedade em uma mensagem de resposta que geralmente contém a MessageId da solicitação em padrões de solicitação-resposta. | Sim |
+| user-id |Uma ID usada para especificar a origem das mensagens. Quando as mensagens são geradas pelo Hub IoT, são definidas como `{iot hub name}`. | Não |
+| iothub-ack |Um gerador de mensagem de comentários. Essa propriedade é usada em mensagens da nuvem para o dispositivo para solicitar ao Hub IoT a geração de mensagens de comentários como resultado do consumo da mensagem pelo dispositivo. Valores possíveis: **nenhum** (padrão): nenhuma mensagem de comentários é gerada, **positivo**: ocorrerá o recebimento de uma mensagem de comentários se a mensagem estiver completa, **negativo**: ocorrerá o recebimento de uma mensagem de comentários se a mensagem expirar (ou se a contagem máxima de entrega tiver sido atingida) sem ser concluída pelo dispositivo ou **total**: positivos e negativos. <!-- robinsh For more information, see [Message feedback][lnk-feedback].--> | Sim |
 | iothub-connection-device-id |Uma ID definida pelo Hub IoT em mensagens do dispositivo para a nuvem. Contém a **deviceId** do dispositivo que enviou a mensagem. | Não para mensagens D2C, caso contrário, sim. |
 | iothub-connection-auth-generation-id |Uma ID definida pelo Hub IoT em mensagens do dispositivo para a nuvem. Contém a **generationId** (de acordo com as [Propriedades de identidade de dispositivo](iot-hub-devguide-identity-registry.md#device-identity-properties)) do dispositivo que enviou a mensagem. | Não para mensagens D2C, caso contrário, sim. |
 | iothub-connection-auth-method |Um método de autenticação definido pelo Hub IoT em mensagens do dispositivo para a nuvem. Essa propriedade contém informações sobre o método de autenticação usado para autenticar o dispositivo que envia a mensagem. <!-- ROBINSH For more information, see [Device to cloud anti-spoofing][lnk-antispoofing].--> | Não para mensagens D2C, caso contrário, sim. |
-| iothub-creation-time-utc | Data e hora em que a mensagem foi criada em um dispositivo. Um dispositivo deve definir esse valor explicitamente. | SIM |
+| iothub-creation-time-utc | Data e hora em que a mensagem foi criada em um dispositivo. Um dispositivo deve definir esse valor explicitamente. | Sim |
 
 ## <a name="message-size"></a>Tamanho da mensagem
 

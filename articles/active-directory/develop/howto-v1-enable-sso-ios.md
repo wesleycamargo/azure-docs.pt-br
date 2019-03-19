@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 602fba95b3cc69521fe3fe17d8c89cc332131566
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e79b73123b33a012c062a89fb9748fa101fabcea
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190221"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448672"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Como: Habilitar o SSO entre aplicativos no iOS usando o ADAL
 
@@ -38,7 +38,7 @@ Estas instruções se aplicam a:
 * Azure Active Directory (Azure Active Directory)
 * Azure Active Directory B2C
 * Azure Active Directory B2B
-* Acesso condicional ao Azure Active Directory
+* Acesso Condicional do Active Directory do Azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -231,7 +231,7 @@ Quando os direitos estiverem configurados corretamente, você deverá ver um arq
 </plist>
 ```
 
-Quando o direito do conjunto de chaves estiver habilitado em cada um de seus aplicativos e você estiver pronto para usar o SSO, informe ao SDK de identidade sobre o conjunto de chaves usando a seguinte configuração em seu `ADAuthenticationSettings` com a seguinte configuração:
+Quando você tem os direitos do conjunto de chaves habilitado em cada um de seus aplicativos, e você está pronto para usar o SSO, conte a identidade do SDK sobre seu conjunto de chaves usando a seguinte configuração seu `ADAuthenticationSettings` com a seguinte configuração:
 
 ```
 defaultKeychainSharingGroup=@"com.myapp.mycache";
@@ -240,7 +240,7 @@ defaultKeychainSharingGroup=@"com.myapp.mycache";
 > [!WARNING]
 > Quando você compartilha um conjunto de chaves em seus aplicativos, qualquer aplicativo pode excluir usuários, ou pior, excluir todos os tokens em seu aplicativo. Isso é particularmente desastroso se você tiver aplicativos que dependem dos tokens para o trabalho em segundo plano. O compartilhamento do conjunto de chaves significa que você deve ter muito cuidado com toda e qualquer operação de remoção por meio dos SDKs de identidade.
 
-É isso! O SDK agora compartilhará as credenciais om todos os seus aplicativos. A lista de usuários também será compartilhada entre instâncias do aplicativo.
+É só isso! O SDK agora compartilhará as credenciais om todos os seus aplicativos. A lista de usuários também será compartilhada entre instâncias do aplicativo.
 
 ### <a name="turning-on-sso-for-broker-assisted-sso"></a>Ativar o SSO assistido por agente
 

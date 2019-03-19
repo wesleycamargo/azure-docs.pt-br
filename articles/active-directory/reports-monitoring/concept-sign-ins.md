@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f47de0544d6d708d3c8b104be4edada86c11551
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 993a8ca48df40b400c21852d3d28941d9d62affb
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190357"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549010"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividades de entrada no portal do Azure Active Directory
 
@@ -149,23 +149,13 @@ Se você adicionar outros campos ao modo de exibição de entradas, esses campos
 
 ## <a name="download-sign-in-activities"></a>Baixar atividades de entrada
 
-Você poderá [baixar os dados de entradas](quickstart-download-sign-in-report.md), caso queira trabalhar com esses dados fora do portal do Azure. Clicar em **Baixar** cria um arquivo CSV contendo os 5 mil registros mais recentes.  Além de um botão de download, o portal do Azure também oferece uma opção para [gerar um script para baixar seus dados](tutorial-signin-logs-download-script.md).  
+Você poderá [baixar os dados de entradas](quickstart-download-sign-in-report.md), caso queira trabalhar com esses dados fora do portal do Azure. Clicando em **baixar** lhe dá a opção de criar um arquivo CSV ou JSCON dos registros de 250.000 mais recentes.  
 
 ![Baixar](./media/concept-sign-ins/71.png "Baixar")
-
-Se você precisar de mais flexibilidade, você pode usar a solução de script. Clicar em **Script** cria um script do PowerShell que inclui todos os filtros que você definiu. Baixe e execute esse script no **modo de administrador** para gerar o arquivo CSV. 
 
 > [!IMPORTANT]
 > O número de registros que podem ser baixados é restringido pelas [políticas de retenção de relatórios do Azure Active Directory](reference-reports-data-retention.md).  
 
-### <a name="running-the-script-on-a-windows-10-machine"></a>Executando o script em uma máquina com Windows 10
-
-Se você deseja executar o script em uma máquina do **Windows 10**, é necessário executar algumas etapas adicionais primeiro. 
-
-1. Instale o [módulo Az](/powershell/azure/install-az-ps).
-2. Importe o módulo abrindo um prompt do PowerShell e executando o comando **Import-Module Az**.
-3. Execute **Set-ExecutionPolicy irrestrito** e escolha **Sim para Todos**. 
-4. Agora você pode executar o script do PowerShell baixado no modo de administrador para gerar o arquivo CSV.
 
 ## <a name="sign-ins-data-shortcuts"></a>Atalhos dos dados de entradas
 
