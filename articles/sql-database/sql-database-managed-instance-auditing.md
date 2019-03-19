@@ -14,12 +14,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 452811cae74253570591e5ffe2c58708fe632b39
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: d283cfa18d31e360aed78ae5262c5416f94c0676
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894387"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086047"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Introdução à Auditoria da instância gerenciada do Banco de Dados SQL do Azure
 
@@ -50,7 +50,7 @@ A seção a seguir descreve a configuração da auditoria na instância gerencia
 
    1. Forneça um contêiner **Nome**, defina o nível de acesso Público para **Privado** e, em seguida, clique em **OK**.
 
-     ![Criar a configuração do contêiner de blobs](./media/sql-managed-instance-auditing/3_create_container_config.png)
+      ![Criar a configuração do contêiner de blobs](./media/sql-managed-instance-auditing/3_create_container_config.png)
 
 1. Depois de criar o contêiner para os Logs de auditoria, há duas maneiras de configurá-lo como o destino dos logs de auditoria: [usando o T-SQL](#blobtsql) ou [usando a interface do usuário do SSMS (SQL Server Management Studio)](#blobssms):
 
@@ -113,7 +113,7 @@ A seção a seguir descreve a configuração da auditoria na instância gerencia
         GO
         ```
 
-      1. Continue [criando uma Especificação de Auditoria de Servidor ou uma Especificação de Auditoria de Banco de Dados](#createspec)
+        1. Continue [criando uma Especificação de Auditoria de Servidor ou uma Especificação de Auditoria de Banco de Dados](#createspec)
 
    - <a id="blobssms"></a>Configure o armazenamento de blobs para os logs de auditoria usando o SSMS (SQL Server Management Studio) 18 (Versão Prévia):
 
@@ -135,7 +135,7 @@ A seção a seguir descreve a configuração da auditoria na instância gerencia
 
      1. Selecione uma assinatura, uma conta de armazenamento e um contêiner de Blobs nos menus suspensos ou crie seu próprio contêiner clicando em **Criar**. Quando terminar, clique em **OK**:
 
-        ![Selecionar uma assinatura do Azure, uma conta de armazenamento e um contêiner de blobs](./media/sql-managed-instance-auditing/13_mi_SSMS_select_subscription_account_container.png)
+        ![Selecione a assinatura do Azure, conta de armazenamento e contêiner de blob](./media/sql-managed-instance-auditing/13_mi_SSMS_select_subscription_account_container.png)
 
      1. Clique em **OK** na caixa de diálogo "Criar Auditoria".
 
@@ -158,9 +158,9 @@ Para informações adicionais:
 - [CRIAR AUDITORIA DE SERVIDOR](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
 - [ALTERAR AUDITORIA DE SERVIDOR](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
-## <a name="set-up-auditing-for-your-server-to-event-hub-or-log-analytics"></a>Configurar a auditoria para o servidor no Hub de Eventos ou no Log Analytics
+## <a name="set-up-auditing-for-your-server-to-event-hub-or-azure-monitor-logs"></a>Configurar a auditoria para o servidor para os logs do Hub de eventos ou o Azure Monitor
 
-Os logs de auditoria de uma Instância gerenciada podem ser enviados para os Hubs de Eventos ou para o Log Analytics usando o Azure Monitor. Esta seção descreve como fazer essa configuração:
+Registros de auditoria de uma instância gerenciada podem ser enviados para até mesmo os Hubs ou logs do Azure Monitor. Esta seção descreve como fazer essa configuração:
 
 1. No [Portal do Azure](https://portal.azure.com/), navegue até a instância gerenciada.
 
@@ -170,7 +170,7 @@ Os logs de auditoria de uma Instância gerenciada podem ser enviados para os Hub
 
 4. Selecione **SQLSecurityAuditEvents** na lista de logs.
 
-5. Selecione um destino para os eventos de auditoria – Hub de Eventos, Log Analytics ou ambos. Configure os parâmetros necessários (por exemplo, workspace do Log Analytics) para cada destino.
+5. Selecione um destino para os eventos de auditoria - Hub de eventos, logs do Azure Monitor ou ambos. Configure os parâmetros necessários (por exemplo, workspace do Log Analytics) para cada destino.
 
 6. Clique em **Salvar**.
 
@@ -190,7 +190,7 @@ Os logs de auditoria de uma Instância gerenciada podem ser enviados para os Hub
    - [Guia Criar T-SQL de especificação de auditoria de servidor](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
    - [Guia Criar T-SQL de especificação de auditoria de banco de dados](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
-10. Habilite a auditoria de servidor criada na etapa 7:
+10. Habilite a auditoria de servidor criada na etapa 8:
  
     ```SQL
     ALTER SERVER AUDIT [<your_audit_name>] WITH (STATE=ON);
@@ -213,11 +213,13 @@ Há vários métodos que podem ser usados para exibir os logs de auditoria de bl
 
 Para consumir dados de logs de auditoria do Hub de Eventos, você precisará configurar um fluxo para consumir eventos e gravá-las em um destino. Para obter mais informações, veja a Documentação de Hubs de Eventos do Azure.
 
-### <a name="consume-and-analyze-logs-stored-in-log-analytics"></a>Consumir e analisar logs armazenados no Log Analytics
+### <a name="consume-and-analyze-logs-stored-in-azure-monitor-logs"></a>Consumir e analisar logs armazenados nos logs do Azure Monitor
 
-Se os logs de auditoria forem gravados no Log Analytics, eles estarão disponíveis no workspace do Log Analytics, onde você poderá executar pesquisas avançadas nos dados de auditoria. Como ponto de partida, navegue até o Log Analytics e, na seção *Geral*, clique em *Logs* e insira uma consulta simples, como: `search "SQLSecurityAuditEvents"` para exibir os logs de auditoria.  
+Se os logs de auditoria são gravados nos logs do Azure Monitor, eles estão disponíveis no espaço de trabalho do Log Analytics, onde você pode executar pesquisas avançadas em dados de auditoria. Como ponto de partida, navegue até o espaço de trabalho do Log Analytics e, em *gerais* seção clique *Logs* e insira uma consulta simples, como: `search "SQLSecurityAuditEvents"` para exibir a auditoria de logs.  
 
-O Log Analytics fornece análises operacionais em tempo real usando pesquisa integrada e painéis personalizados para analisar prontamente milhões de registros em todas as suas cargas de trabalho e servidores. Para obter informações úteis adicionais sobre o idioma e os comandos de pesquisa do Log Analytics, consulte [Referência de pesquisa do Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
+Os logs do Azure Monitor fornece informações operacionais em tempo real usando pesquisa integrada e painéis personalizados para analisar prontamente milhões de registros em todas as suas cargas de trabalho e servidores. Para obter informações adicionais úteis sobre a linguagem de pesquisa de logs do Azure Monitor e comandos, consulte [referência de pesquisa de logs do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server"></a>Diferenças entre a auditoria em bancos de dados no Banco de Dados SQL do Azure e em bancos de dados no SQL Server
 
@@ -232,7 +234,7 @@ A auditoria XEvent na instância gerenciada dá suporte aos destinos do armazena
 As principais diferenças na sintaxe `CREATE AUDIT` para a auditoria do armazenamento de Blobs do Azure são:
 
 - Uma nova sintaxe `TO URL` é fornecida e permite que você especifique a URL do contêiner de armazenamento de blobs do Azure onde arquivos `.xel` são colocados.
-- Uma nova sintaxe `TO EXTERNAL MONITOR` é fornecida para permitir destinos no Hub de Eventos e no Log Analytics.
+- Uma nova sintaxe `TO EXTERNAL MONITOR` é fornecido para permitir que os destinos de logs mesmo Hub e o Azure Monitor.
 - A sintaxe `TO FILE` **não tem suporte** porque a instância gerenciada do Banco de Dados SQL não pode acessar compartilhamentos de arquivos do Windows.
 - A opção de desligamento **não é compatível**.
 - **Não há suporte** para `queue_delay` de 0.

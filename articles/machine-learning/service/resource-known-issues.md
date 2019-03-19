@@ -8,15 +8,15 @@ ms.author: jmartens
 ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: b10e434aece0ac214a0fd397ea94cbeccca4e44a
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 5814e05aa65bf005a3156aa75e65747bbd46733c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746483"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58171050"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Problemas conhecidos e solução de problemas do serviço Azure Machine Learning
 
@@ -45,29 +45,60 @@ Falha na criação da imagem ao implantar o serviço Web. Uma solução alternat
 Caso veja `['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`, altere o SKU das VMs usadas na implantação para uma que tenha mais memória.
 
 ## <a name="fpgas"></a>FPGAs
+
 Não será possível implantar modelos em FPGAs até que você tenha solicitado e recebido aprovação para cota de FPGA. Para solicitar acesso, preencha o formulário de solicitação de cota: https://aka.ms/aml-real-time-ai
 
 ## <a name="databricks"></a>Databricks
 
 Problemas do Databricks e do Azure Machine Learning.
 
-1. Falhas de instalação do SDK do Azure Machine Learning no Databricks quando mais pacotes são instalados.
+### <a name="failure-when-installing-packages"></a>Falha ao instalar os pacotes
 
-   Alguns pacotes, como `psutil`, podem causar conflitos. Para evitar erros de instalação, instale pacotes congelando a versão lib. Esse problema está relacionado ao Databricks, e não ao SDK de Serviço do Azure Machine Learning. Você pode enfrentá-lo com outras bibliotecas também. Exemplo:
-   ```python
-   pstuil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
+Instalação do SDK de aprendizado de máquina do Azure falha no Azure Databricks quando mais pacotes são instalados. Alguns pacotes, como `psutil`, podem causar conflitos. Para evitar erros de instalação, instale pacotes congelando a versão da biblioteca. Esse problema está relacionado ao Databricks e não para o SDK do serviço de Azure Machine Learning. Você poderá enfrentar esse problema com outras bibliotecas, muito. Exemplo:
+
+```python
+pstuil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
+```
+
+Como alternativa, você pode usar scripts de inicialização, se você manter enfrentando problemas de instalação com bibliotecas Python. Essa abordagem não é oficialmente suportada. Para obter mais informações, consulte [scripts de inicialização no escopo do Cluster](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
+
+### <a name="cancel-an-automated-machine-learning-run"></a>Cancelar uma execução de aprendizado de máquina automatizada
+
+Quando você usa automatizado recursos de machine learning no Azure Databricks, para cancelar uma execução e iniciar um novo teste em execução, reinicie o cluster do Azure Databricks.
+
+### <a name="10-iterations-for-automated-machine-learning"></a>> 10 iterações de aprendizado de máquina automatizado
+
+Na máquina automatizada aprendizado configurações, se você tiver mais de 10 iterações, defina `show_output` para `False` quando você envia a execução.
+
+### <a name="widget-for-the-azure-machine-learning-sdkautomated-machine-learning"></a>Widget para o aprendizado de máquina do Azure Machine Learning SDK/automatizada
+
+O widget do SDK do Azure Machine Learning não tem suporte em um notebook do Databricks, porque os blocos de anotações não é possível analisar os widgets HTML. Você pode exibir o widget no portal usando esse código Python na célula de notebook do Databricks do Azure:
+
+```
+displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
+```
+
+### <a name="import-error-no-module-named-pandascoreindexes"></a>Erro de importação: Nenhum módulo chamado 'pandas.core.indexes'
+
+Se você vir esse erro quando você usa automatizada de aprendizado de máquina:
+
+1. Execute este comando para instalar dois pacotes em seu cluster do Azure Databricks: 
+
    ```
-   Como alternativa, você pode usar scripts de inicialização se continuar tendo problemas de instalação com as bibliotecas de Python. Essa abordagem não é uma abordagem oficialmente com suporte. Você pode consultar [este documento](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
+   scikit-learn==0.19.1
+   pandas==0.22.0
+   ```
 
-2. Ao usar o Machine Learning Automatizado no Databricks, se você quiser cancelar uma execução e iniciar um novo teste em execução, reinicie o seu cluster do Azure Databricks.
+1. Desanexar e anexar novamente o cluster para o bloco de anotações. 
 
-3. Nas configurações de ML automatizada, se você tiver mais de 10 iterações, defina `show_output` para `False` ao enviar a execução.
-
+Se isso não resolver o problema, tente reiniciar o cluster.
 
 ## <a name="azure-portal"></a>Portal do Azure
+
 Se você for diretamente exibir seu espaço de trabalho a partir de um link de compartilhamento do SDK ou do portal, não poderá exibir a página de Visão Geral normal com as informações de assinatura na extensão. Você também não poderá alternar para outro espaço de trabalho. Se você precisar exibir outro workspace, a solução alternativa será ir diretamente para o [portal do Azure](https://portal.azure.com) e procurar o nome do workspace.
 
 ## <a name="diagnostic-logs"></a>Logs de diagnóstico
+
 Às vezes, pode ser útil fornecer informações de diagnóstico ao pedir ajuda.
 Este é o local em que ficam os arquivos de log:
 

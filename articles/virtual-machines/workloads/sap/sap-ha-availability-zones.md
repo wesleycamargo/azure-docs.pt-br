@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2d98a5ab13c2aecd3b3cef590526031f5bdee594
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 687f99fb6447eddb4ce10ce81bc349181ec5c48c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268304"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094745"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Configurações de carga de trabalho do SAP com Zonas de Disponibilidade do Azure
 As [Zonas de Disponibilidade do Azure](https://docs.microsoft.com/azure/availability-zones/az-overview) são um dos recursos de alta disponibilidade que o Azure oferece. Usar as Zonas de Disponibilidade melhora a disponibilidade geral das cargas de trabalho do SAP no Azure. Este recurso já está disponível em algumas [regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/). No futuro, ele estará disponível em mais regiões.
@@ -109,8 +109,8 @@ As seguintes considerações se aplicam a essa configuração:
 - Em todas as máquinas virtuais implantadas, você precisa usar [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/). Não há suporte para discos não gerenciados em implantações de zona.
 - O Armazenamento Premium do Azure e o [Armazenamento SSD Ultra](https://docs.microsoft.com/azure/virtual-machines/windows/disks-ultra-ssd) não oferecem suporte a qualquer tipo de replicação de armazenamento entre zonas. O aplicativo (DBMS ou SAP Central Services) deve replicar dados importantes.
 - O mesmo ocorre com o diretório sapmnt compartilhado, que é um disco compartilhado (Windows), um compartilhamento CIFS (Windows) ou um compartilhamento NFS (Linux). Você precisa usar uma tecnologia que replique esses discos compartilhados ou compartilhamentos entre as zonas. Há suporte para as seguintes tecnologias:
-    - No Windows, uma solução de cluster que usa o SIOS Datakeeper, como documentado em [Clusterizar uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando um disco compartilhado de cluster no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk).
-    - Para o SUSE Linux, um compartilhamento NFS criado conforme documentado em [Alta disponibilidade para NFS em VMs do Azure no SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs).
+  - No Windows, uma solução de cluster que usa o SIOS Datakeeper, como documentado em [Clusterizar uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando um disco compartilhado de cluster no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk).
+  - Para o SUSE Linux, um compartilhamento NFS criado conforme documentado em [Alta disponibilidade para NFS em VMs do Azure no SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs).
     
     No momento, não há suporte nas zonas para a solução que usa o Servidor de Arquivos de Escalabilidade Horizontal da Microsoft, conforme documentado no artigo [Preparar a infraestrutura do Azure para alta disponibilidade do SAP usando um cluster de failover do Windows e compartilhamento de arquivos para instâncias ASCS/SCS do SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-file-share).
 - A terceira zona é usada para hospedar o dispositivo SBD, caso você crie um [cluster do SUSE Linux Pacemaker](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-azure-fence-agent-stonith-device) ou instâncias de aplicativo adicionais.
@@ -123,7 +123,7 @@ Caso não consiga encontrar um delta aceitável entre a latência de rede dentro
 
 O layout básico da arquitetura é semelhante a este:
 
-![Implantação de zona ativa/passiva](./media/sap-ha-availability-zones/active_active_zones_deployment.png)
+![Implantação de zona ativa/passiva](./media/sap-ha-availability-zones/active_passive_zones_deployment.png)
 
 As seguintes considerações se aplicam a essa configuração:
 

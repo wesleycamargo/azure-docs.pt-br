@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 20c1e2a4394c249b410a1253356d0ef96c30e970
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: 8098196abc415dedba392737fc17a4de5739339d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818890"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100233"
 ---
 # <a name="contoso-migration--refactor-a-team-foundation-server-deployment-to-azure-devops-services"></a>Migração para Contoso:  Refatorar uma implantação do Team Foundation Server para o Azure DevOps Services
 
@@ -225,11 +225,11 @@ Com a validação completa, os administradores da Contoso podem usar a Ferrament
 
 6. Eles examinam o arquivo de mapa de log de identidade que mostra as contas que serão trazidas para o Azure DevOps Services durante a importação. 
 
-    - Identidades ativas referem-se a identidades que se tornarão usuários no Azure DevOps Services após a importação.
-    - No Azure DevOps Services, essas identidades serão licenciadas e aparecerão como um usuário na organização após a migração.
-    - Essas identidades são marcadas como **Ativa** na coluna **Status de Importação Esperado** no arquivo.
+   - Identidades ativas referem-se a identidades que se tornarão usuários no Azure DevOps Services após a importação.
+   - No Azure DevOps Services, essas identidades serão licenciadas e aparecerão como um usuário na organização após a migração.
+   - Essas identidades são marcadas como **Ativa** na coluna **Status de Importação Esperado** no arquivo.
 
-    ![Preparar](./media/contoso-migration-tfs-vsts/prep6.png)
+     ![Preparar](./media/contoso-migration-tfs-vsts/prep6.png)
 
 
 

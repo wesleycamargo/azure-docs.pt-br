@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 06430bf476c2e9f3af2102272fb54d201a3f1066
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: 862846c8ec544cf082d45cea650269b6518a016f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790802"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003535"
 ---
 # <a name="install-the-mobility-service-manually-on-vmware-vms-and-physical-servers"></a>Instale o serviço Mobility manualmente em VMs e servidores físicos VMware
 
@@ -65,29 +65,30 @@ Antes de instalar, crie uma frase secreta que será usada durante a instalação
 
 1. Copie o instalador para uma pasta local (digamos, C:\Temp) no servidor que você deseja proteger. 
 
-  ```
-  cd C:\Temp
-  ren Microsoft-ASR_UA*Windows*release.exe MobilityServiceInstaller.exe
-  MobilityServiceInstaller.exe /q /x:C:\Temp\Extracted
-  cd C:\Temp\Extracted.
-  ```
+   ```
+   cd C:\Temp
+   ren Microsoft-ASR_UA*Windows*release.exe MobilityServiceInstaller.exe
+   MobilityServiceInstaller.exe /q /x:C:\Temp\Extracted
+   cd C:\Temp\Extracted.
+   ```
 2. Instale da seguinte maneira:
 
-  ```
-  UnifiedAgent.exe /Role "MS" /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /Platform "VmWare" /Silent
-  ```
+   ```
+   UnifiedAgent.exe /Role "MS" /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /Platform "VmWare" /Silent
+   ```
 
 3. Registre o agente no servidor de configuração.
 
-  ```
-  cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
-  UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
-  ```
+   ```
+   cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
+   UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
+   ```
 
 #### <a name="installation-settings"></a>Configurações de instalação
+
 **Configuração** | **Detalhes**
 --- | ---
-Uso | UnifiedAgent.exe /Role <MS|MT> /InstallLocation <Install Location> /Platform “VmWare” /Silent
+Uso | /Role UnifiedAgent.exe < MS\|MT > /InstallLocation <Install Location> /Platform "VmWare" /silent.
 Logs de instalação | Sob %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
 /Role | Parâmetro de instalação obrigatório. Especifica se o serviço Mobility (MS) ou o destino mestre (MT) deve ser instalado.
 /InstallLocation| Parâmetro opcional. Especifica o local de instalação do serviço Mobility (qualquer pasta).
@@ -95,6 +96,7 @@ Logs de instalação | Sob %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.l
 /Silent| Opcional. Especifica se deve executar o instalador no modo silencioso.
 
 #### <a name="registration-settings"></a>Configurações de registro
+
 **Configuração** | **Detalhes**
 --- | ---
 Uso | UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
@@ -106,33 +108,35 @@ Logs de configuração do agente | Sob %ProgramData%\ASRSetupLogs\ASRUnifiedAgen
 ### <a name="on-a-linux-machine"></a>Em um computador Linux
 
 1. Copie o instalador para uma pasta local (digamos, /tmp) no servidor que você deseja proteger. Execute os seguintes comandos em um terminal:
-  ```
-  cd /tmp ;
+   ```
+   cd /tmp ;
 
-  tar -xvzf Microsoft-ASR_UA*release.tar.gz
-  ```
+   tar -xvzf Microsoft-ASR_UA*release.tar.gz
+   ```
 2. Instale da seguinte maneira:
 
-  ```
-  sudo ./install -d <Install Location> -r MS -v VmWare -q
-  ```
+   ```
+   sudo ./install -d <Install Location> -r MS -v VmWare -q
+   ```
 3. Após concluir a instalação, o Serviço de Mobilidade precisa ser registrado no servidor de configuração. Execute o seguinte comando para registrar o Serviço de Mobilidade com o servidor de configuração:
 
-  ```
-  /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <CSIP> -P /var/passphrase.txt
-  ```
+   ```
+   /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <CSIP> -P /var/passphrase.txt
+   ```
 
 
 #### <a name="installation-settings"></a>Configurações de instalação
+
 **Configuração** | **Detalhes**
 --- | ---
-Uso | ./install -d <Install Location> -r <MS|MT> -v VmWare -q
+Uso | . /Install -d <Install Location> - r < MS\|MT > VmWare - q - v
 -r | Parâmetro de instalação obrigatório. Especifica se o serviço Mobility (MS) ou o destino mestre (MT) deve ser instalado.
 -d | Parâmetro opcional. Especifica o local de instalação do serviço Mobility: / usr / local / ASR.
 -v | Obrigatório. Especifica a plataforma onde o Serviço de Mobilidade está instalado. **VMware** para VMs do Mware/servidores físicos; **Azure** para VMs do Azure. 
 -q | Opcional. Especifica se deve executar o instalador no modo silencioso.
 
 #### <a name="registration-settings"></a>Configurações de registro
+
 **Configuração** | **Detalhes**
 --- | ---
 Uso | cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i <CSIP> -P <PassphraseFilePath>
@@ -140,5 +144,6 @@ Uso | cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i <CSIP> -
 -P |  Obrigatório. Caminho de arquivo completo do arquivo no qual a frase secreta é salvo. Use qualquer pasta válida
 
 ## <a name="next-steps"></a>Próximas etapas
+
 - [Configure a recuperação de desastre para VMs do VMware](vmware-azure-tutorial.md)
 - [Configure a recuperação de desastre para servidores físicos](physical-azure-disaster-recovery.md)

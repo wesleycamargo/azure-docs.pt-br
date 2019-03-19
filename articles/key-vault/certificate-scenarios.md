@@ -3,7 +3,7 @@ title: Introdução aos certificados com Key Vault
 description: Os cenários a seguir descrevem vários dos principais usos do serviço de gerenciamento de certificado do Key Vault incluindo as etapas adicionais necessárias para criar seu primeiro certificado em seu Key Vault.
 services: key-vault
 documentationcenter: ''
-author: bryanla
+author: msmbaldwin
 manager: barbkess
 tags: azure-resource-manager
 ms.assetid: a788b958-3acb-4bb6-9c94-4776852aeea1
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.author: bryanla
-ms.openlocfilehash: aeba7473437e6cb7bfe8060b742ed1d6863047e9
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.author: mbaldwin
+ms.openlocfilehash: 8b56151ae56de44cbab3003743ce6df33ec89612
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109207"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58075622"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Introdução aos certificados com Key Vault
 Os cenários a seguir descrevem vários dos principais usos do serviço de gerenciamento de certificado do Key Vault incluindo as etapas adicionais necessárias para criar seu primeiro certificado em seu Key Vault.
@@ -50,12 +50,12 @@ Certificados são compostos de três recursos inter-relacionados vinculados como
 
 **Etapa 3** - Um administrador de Contoso, junto com um funcionário da Contoso (usuário do Key Vault) que possui certificados, dependendo da autoridade de certificação, pode obter um certificado com o administrador ou diretamente a partir da conta com a autoridade de certificação.  
 
--   Inicie uma operação de inclusão de credenciais em um cofre de chaves, definindo [um recurso de emissor de certificado](/rest/api/keyvault/setcertificateissuer/setcertificateissuer). Um emissor do certificado é uma entidade representada no Azure Key Vault (KV) como um recurso CertificateIssuer. Ele é usado para fornecer informações sobre a origem de um certificado KV; nome do emissor, provedor, credenciais e outros detalhes administrativos.
-    -   Ex.: MyDigiCertIssuer  
-        -   Provedor  
-        -   Credenciais – Credenciais da conta da autoridade de certificação. Cada autoridade de certificação tem seus próprios dados específicos.  
+- Inicie uma operação de inclusão de credenciais em um cofre de chaves, definindo [um recurso de emissor de certificado](/rest/api/keyvault/setcertificateissuer/setcertificateissuer). Um emissor do certificado é uma entidade representada no Azure Key Vault (KV) como um recurso CertificateIssuer. Ele é usado para fornecer informações sobre a origem de um certificado KV; nome do emissor, provedor, credenciais e outros detalhes administrativos.
+  - Ex.: MyDigiCertIssuer  
+    -   Provedor  
+    -   Credenciais – Credenciais da conta da autoridade de certificação. Cada autoridade de certificação tem seus próprios dados específicos.  
 
-     Para obter mais informações sobre como criar contas com provedores de autoridade de certificação, consulte a postagem relacionada no [blog do Key Vault](https://aka.ms/kvcertsblog).  
+    Para obter mais informações sobre como criar contas com provedores de autoridade de certificação, consulte a postagem relacionada no [blog do Key Vault](https://aka.ms/kvcertsblog).  
 
 **Etapa 3.1** – Configurar [contatos do certificado](/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts) para notificações. Este é o contato para o usuário do Key Vault. O Key Vault não impõe essa etapa.  
 

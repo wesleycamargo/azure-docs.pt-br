@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: kumud
-ms.openlocfilehash: 40b266c92a86006746ab5341ac5fa1d785ee6032
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: de7288e2062fdfab363c46749b34c7afcacbb6e1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54197161"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094796"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Configurar o método de roteamento de Múltiplos Valores no Gerenciador de Tráfego
 
@@ -49,7 +49,7 @@ Crie um perfil do Gerenciador de Tráfego que direciona o tráfego do usuário e
     | Local padrão                | Essa configuração refere-se ao local do grupo de recursos e não tem impacto no perfil do Gerenciador de Tráfego que será implantado globalmente.                              |
    |        |           | 
   
-  ![Criar um perfil do Gerenciador de Tráfego](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
+   ![Criar um perfil do Gerenciador de Tráfego](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
 
 ## <a name="add-traffic-manager-endpoints"></a>Adicionar pontos de extremidade do Gerenciador de Tráfego
 
@@ -61,13 +61,13 @@ Adicione dois endereços IP como pontos de extremidade externos ao perfil do Ger
 
     | Configuração                 | Valor                                              |
     | ---                     | ---                                                |
-    | Tipo                    | Ponto de extremidade externo                                   |
+    | Type                    | Ponto de extremidade externo                                   |
     | NOME           | myEndpoint1                                        |
     | FQDN (nome de domínio totalmente qualificado) ou IP           | Digite o endereço IP público do ponto de extremidade que você que adicionar a esse perfil do Gerenciador de Tráfego                         |
     |        |           |
 
 4. Repita as etapas 2 e 3 para adicionar outro ponto de extremidade nomeado *myEndpoint2*, para **FQDN (nome de domínio totalmente qualificado) ou IP**, insira o endereço IP público do segundo ponto de extremidade.
-5.  Quando a adição de ambos os pontos de extremidade estiver concluída, eles serão exibidos em **Perfil do Gerenciador de Tráfego** com seu status de monitoramento como **Online**.
+5. Quando a adição de ambos os pontos de extremidade estiver concluída, eles serão exibidos em **Perfil do Gerenciador de Tráfego** com seu status de monitoramento como **Online**.
 
    ![Adicionar um ponto de extremidade do Gerenciador de Tráfego](./media/traffic-manager-multivalue-routing-method/add-endpoint.png)
  

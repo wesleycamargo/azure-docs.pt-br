@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: c7d66c389958aa3b5274a3d81f27f416308acdee
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: HT
+ms.openlocfilehash: 053d400a9986d0997344b2be09140d8afb0e1faf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975654"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996373"
 ---
 # <a name="about-recovery-plans"></a>Sobre planos de recuperação
 
@@ -29,7 +29,7 @@ Um plano de recuperação ajuda-o a definir um processo de recuperação sistem�
 
 * Modelar um aplicativo em torno de suas dependências.
 * Automatizar as tarefas de recuperação para reduzir o RTO.
-- Verifique se você está preparado para migração ou recuperação de desastre, garantindo que os aplicativos façam parte de um plano de recuperação.
+* Verifique se você está preparado para migração ou recuperação de desastre, garantindo que os aplicativos façam parte de um plano de recuperação.
 * Execute failover de teste nos planos de recuperação para garantir que a recuperação de desastre ou a migração funcionem conforme o esperado.
 
 
@@ -42,10 +42,10 @@ Um plano de recuperação ajuda-o a definir um processo de recuperação sistem�
     - Essa ordem garante que, quando o middleware iniciar e tentar conectar-se à camada do SQL Server, a camada do SQL Server já esteja em execução. 
     - Essa ordem também ajuda a garantir que o servidor front-end inicie por último, de modo que os usuários finais não conectem-se à URL do aplicativo antes que todos os componentes estejam ativos e em execução, e o aplicativo pronto para aceitar as solicitações.
 
-Para criar essa ordem, adicione grupos ao grupo de recuperação e adicione computadores nos grupos. 
-    - Onde a ordem é especificada, o sequenciamento é usado. As ações executam em paralelo, quando apropriado, para melhorar o RTO de recuperação do aplicativo.
-    - Computadores em um único grupo fazem failover em paralelo.
-    - Computadores em grupos diferentes fazem failover na ordem do grupo, para que os computadores do Grupo 2 iniciem o failover somente depois que todos os computadores do Grupo 1 tiverem feito o failover e iniciados.
+Para criar essa ordem, adicione grupos ao grupo de recuperação e adicione computadores nos grupos.
+- Onde a ordem é especificada, o sequenciamento é usado. As ações executam em paralelo, quando apropriado, para melhorar o RTO de recuperação do aplicativo.
+- Computadores em um único grupo fazem failover em paralelo.
+- Computadores em grupos diferentes fazem failover na ordem do grupo, para que os computadores do Grupo 2 iniciem o failover somente depois que todos os computadores do Grupo 1 tiverem feito o failover e iniciados.
 
     ![Exemplo de plano de recuperação](./media/recovery-plan-overview/rp.png)
 
@@ -93,4 +93,4 @@ Assista a um vídeo de exemplo rápido mostrando um failover ao clicar em um apl
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Criar](site-recovery-create-recovery-plans.md) um plano de recuperação.
-* Saiba mais sobre [execução de failovers](site-recovery-failover.md).  
+- Saiba mais sobre [execução de failovers](site-recovery-failover.md).  

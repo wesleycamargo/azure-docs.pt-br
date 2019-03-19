@@ -1,5 +1,5 @@
 ---
-title: Consultas avançadas no Azure Monitor | Microsoft Docs
+title: Consultas no Azure Monitor avançadas | Microsoft Docs
 description: Este artigo fornece um tutorial para usar o portal do Analytics para escrever consultas no Azure Monitor.
 services: log-analytics
 documentationcenter: ''
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
-ms.openlocfilehash: 401a8d527fc3a8d0430e7eff965b6f5e20db8dc0
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 65713ed9c2d0635e776a7a7e5f205b6d55438ed4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268004"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451613"
 ---
 # <a name="writing-advanced-queries-in-azure-monitor"></a>Escrever consultas avançadas no Azure Monitor
 
 > [!NOTE]
-> Você deve concluir a [Introdução ao Log Analytics do Azure Monitor](get-started-portal.md) e a [Introdução às consultas](get-started-queries.md) antes de concluir esta lição.
+> Você deve concluir [Introdução ao Log Analytics do Azure Monitor](get-started-portal.md) e [Introdução às consultas](get-started-queries.md) antes de concluir esta lição.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -76,7 +76,7 @@ Event
 ```
 
 ## <a name="print"></a>Imprimir
-`print` retornará uma tabela com uma única coluna e uma única linha, mostrando o resultado de um cálculo. Isso geralmente é usado em casos em que é necessário um cálculo simples. Por exemplo, para localizar a hora atual em PST e adicionar uma coluna com EST:
+`print` retornará uma tabela com uma única coluna e uma única linha, mostrando o resultado de um cálculo. Isso geralmente é usado em casos em que você precisa de um cálculo simples. Por exemplo, para localizar a hora atual em PST e adicionar uma coluna com EST:
 
 ```Kusto
 print nowPst = now()-8h

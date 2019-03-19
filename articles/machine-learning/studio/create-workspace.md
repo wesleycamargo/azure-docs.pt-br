@@ -5,17 +5,17 @@ description: Para usar o Azure Machine Learning Studio é necessário ter um esp
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/07/2017
-ms.openlocfilehash: bcd5b377f00ad43ff727c581471aad3ac651bdbb
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 7aeee4f24f6c7133ad978bc0c6c7fb8853bc4c35
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270074"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086132"
 ---
 # <a name="create-and-share-an-azure-machine-learning-studio-workspace"></a>Criar e compartilhar um espaço de trabalho do Azure Machine Learning Studio
 
@@ -36,10 +36,10 @@ Para usar o Azure Machine Learning Studio é necessário ter um espaço de traba
 
 4. Insira suas informações de workspace:
 
-    - O *nome do workspace* pode ter até 260 caracteres, sem terminar com um espaço. O nome não pode incluir estes caracteres:`< > * % & : \ ? + /`
-    - O *plano do serviço Web* escolhido (ou criado), juntamente com o *tipo de preço* associado, será usado se você implantar os serviços Web deste workspace.
+   - O *nome do workspace* pode ter até 260 caracteres, sem terminar com um espaço. O nome não pode incluir estes caracteres:`< > * % & : \ ? + /`
+   - O *plano do serviço Web* escolhido (ou criado), juntamente com o *tipo de preço* associado, será usado se você implantar os serviços Web deste workspace.
 
-    ![Criar um novo workspace do Studio.](./media/create-workspace/create-new-workspace.png)
+     ![Criar um novo workspace do Studio.](./media/create-workspace/create-new-workspace.png)
 
 5. Clique em **Criar**.
 

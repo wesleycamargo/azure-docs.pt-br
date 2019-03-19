@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 8e527d4f580acbff55c07d90c564d443780fce2b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: dc9acae1e4d31e1456cd971fdab2745e7c58e910
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005006"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57892669"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Carregar arquivos em uma conta dos Serviços de Mídia usando o REST  
 > [!div class="op_single_selector"]
@@ -52,7 +52,7 @@ Neste tutorial, aprenda a carregar um arquivo e outra operação associada a ele
 As seguintes considerações se aplicam ao usar a API de REST de Serviços de Mídia:
  
 * Ao acessar entidades nos Serviços de Mídia do REST API, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md). <br/>A coleção do Postman usada neste tutorial se encarrega da configuração de todos os cabeçalhos necessários.
-* Os serviços de mídia usam o valor da propriedade IAssetFile.Name ao construir URLs para o conteúdo de streaming (por exemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por esse motivo, não é permitida a codificação por porcentagem. O valor da propriedade **Name** não pode ter quaisquer dos seguintes [caracteres reservados para codificação de percentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Além disso, pode haver somente um '.' para a extensão de nome de arquivo.
+* Os serviços de mídia usam o valor da propriedade IAssetFile.Name ao construir URLs para o conteúdo de streaming (por exemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por esse motivo, não é permitida a codificação por porcentagem. O valor da propriedade **Name** não pode ter quaisquer dos seguintes [caracteres reservados para codificação de percentual](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Além disso, pode haver somente um '.' para a extensão de nome de arquivo.
 * O comprimento do nome não deve ser maior do que 260 caracteres.
 * Há um limite no tamanho máximo de arquivo com suporte para o processamento nos Serviços de Mídia. Confira [este](media-services-quotas-and-limitations.md) artigo para obter detalhes sobre a limitação de tamanho do arquivo.
 
@@ -156,7 +156,7 @@ Uma URL SAS tem o seguinte formato:
 Algumas considerações se aplicam:
 
 * Você não pode ter mais do que cinco localizadores exclusivos associados a um determinado ativo ao mesmo tempo. Para saber mais, consulte Localizador.
-* Se você precisar carregar os arquivos imediatamente, você deve definir o valor StartTime como cinco minutos antes da hora atual. Isso ocorre porque pode haver uma defasagem horária entre o computador do cliente e os serviços de mídia. Além disso, seu valor de StartTime deve estar no seguinte formato de data e hora: AAA-MM-DDTHH:mm:ssZ (por exemplo, “2014-05-23T17:53:50Z”).    
+* Se você precisar carregar os arquivos imediatamente, você deve definir o valor StartTime como cinco minutos antes da hora atual. Isso ocorre porque pode haver uma defasagem horária entre o computador do cliente e os serviços de mídia. Além disso, seu valor de StartTime deve estar no seguinte formato de data e hora: AAAA-MM-DDTHH:mm:ssZ (por exemplo, “2014-05-23T17:53:50Z”).    
 * Pode haver um 30 a 40 segundos de atraso após a criação de um localizador quando ele está disponível para uso.
 
 ### <a name="create-a-sas-locator"></a>Criar um localizador SAS.

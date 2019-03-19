@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 5ff0a70d8b370655df1eef55dac68804a1db406b
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
-ms.translationtype: HT
+ms.openlocfilehash: f83ee40c97e49add539a44a6ba764024a8e47bfa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55082139"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081484"
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Criar e gerenciar VMs requisitáveis no Azure DevTest Labs
 Você adiciona uma VM declarável a um laboratório de maneira semelhante a como [adiciona uma VM padrão](devtest-lab-add-vm.md) – de uma *base* que é uma [imagem personalizada](devtest-lab-create-template.md), [fórmula](devtest-lab-manage-formulas.md), ou [imagem do Marketplace](devtest-lab-configure-marketplace-images.md). Este tutorial explica como usar o Portal do Azure para adicionar uma VM requisitável a um laboratório no DevTest Labs e mostra o processo que um usuário segue para declarar a VM e cancelar sua declaração.
@@ -64,12 +64,12 @@ Um usuário pode declarar qualquer VM na lista de “Máquinas virtuais declará
 
 * Na lista de “Máquinas virtuais requisitáveis” na parte inferior d painel Visão geral do laboratório, clique com o botão direito do mouse em uma das VMs da lista e escolha **Declarar computador**.
 
- ![Solicite uma VM declarável específica.](./media/devtest-lab-add-vm/devtestlab-claim-VM.png)
+  ![Solicite uma VM declarável específica.](./media/devtest-lab-add-vm/devtestlab-claim-VM.png)
 
 
 * Na parte superior do painel “Visão geral”, escolha **Declarar qualquer uma**. Uma máquina virtual aleatória é atribuída da lista de VMs declaráveis.
 
- ![Solicite uma VM declarável.](./media/devtest-lab-add-vm/devtestlab-claim-any.png)
+  ![Solicite uma VM declarável.](./media/devtest-lab-add-vm/devtestlab-claim-any.png)
 
 
 Depois que um usuário declara uma VM, ela é movida para cima em sua lista de “Minhas máquinas virtuais” e não é mais declarável por nenhum outro usuário.

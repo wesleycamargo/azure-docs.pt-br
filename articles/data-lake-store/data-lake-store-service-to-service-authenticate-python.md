@@ -1,5 +1,5 @@
 ---
-title: 'Autenticação de serviço a serviço: Python com Azure Data Lake Storage Gen1 usando Azure Active Directory | Microsoft Docs'
+title: 'Autenticação serviço a serviço: Python com Gen1 de armazenamento do Azure Data Lake usando o Active Directory do Azure | Microsoft Docs'
 description: Saiba como obter a autenticação de serviço a serviço com o Azure Data Lake Storage Gen1 usando o Azure Active Directory usando Python
 services: data-lake-store
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: a51eb8f560d598f86caf57b7b24737b0a3574b68
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
-ms.translationtype: HT
+ms.openlocfilehash: 4cad09877a3fc4f586db2d92ce97a64b6efe295e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957201"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537143"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-python"></a>Autenticação de serviço a serviço com Azure Data Lake Storage Gen1 usando Python
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ Para trabalhar com o Data Lake Storage Gen1 usando o Python, você precisa insta
 
 * O módulo `azure-mgmt-resource`, que inclui módulos do Azure para o Active Directory etc.
 * O módulo `azure-mgmt-datalake-store`, que inclui as operações de gerenciamento de conta do Data Lake Storage Gen1. Para obter mais informações sobre esse módulo, consulte [Referência do módulo de gerenciamento do Azure Data Lake Storage Gen1](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python).
-* O módulo `azure-datalake-store`, que inclui as operações do sistema de arquivos do Data Lake Storage Gen1. Para obter mais informações sobre esse módulo, consulte [referência do módulo Filesystem azure-datalake-store](http://azure-datalake-store.readthedocs.io/en/latest/).
+* O módulo `azure-datalake-store`, que inclui as operações do sistema de arquivos do Data Lake Storage Gen1. Para obter mais informações sobre esse módulo, consulte [referência do módulo Filesystem azure-datalake-store](https://azure-datalake-store.readthedocs.io/en/latest/).
 
 Use os comandos a seguir para instalar os módulos.
 

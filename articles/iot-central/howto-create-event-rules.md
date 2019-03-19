@@ -3,17 +3,17 @@ title: Criar e gerenciar regras de eventos no aplicativo Azure IoT Central | Mic
 description: As regras de eventos do Azure IoT Central permitem monitorar os dispositivos quase em tempo real e invocar ações automaticamente, como enviar um email, quando a regra é disparada.
 author: ankitscribbles
 ms.author: ankitgup
-ms.date: 08/14/2018
+ms.date: 02/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: af85ff8272853be82bae5c79622295fddfc60ade
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: f350d0ae6602fb393da3ddc350f33ec89e86078e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337267"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081433"
 ---
 # <a name="create-an-event-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Criar uma regra de Eventos e configurar notificações no aplicativo Azure IoT Central
 
@@ -27,31 +27,23 @@ Dispositivos podem usar a medição de evento para enviar eventos de dispositivo
 
 Para criar uma regra de evento, o modelo do dispositivo deve ter pelo menos um evento de medida definido. Este exemplo usa um dispositivo de máquina de venda refrigerada que relata um evento de erro do motor da ventoinha. A regra monitora o evento relatado pelo dispositivo e enviará um email sempre que o evento for relatado.
 
-1. Usando o Device Explorer, navegue até o modelo de dispositivo para o qual você está adicionando a regra.
-
-1. No modelo selecionado, clique em um dispositivo existente. 
-
-    >[!TIP] 
-    >Se o modelo não tiver nenhum dispositivo, primeiramente adicione um novo dispositivo.
+1. Usando o **modelos de dispositivo** página, navegue até o modelo de dispositivo para o qual você está adicionando a regra para.
 
 1. Se você ainda não criou regras, a tela a seguir será exibida:
 
     ![Não há regras](media/howto-create-event-rules/Rules_Landing_Page.png)
 
+1. Sobre o **regras** guia, selecione **+ nova regra** para ver os tipos de regras que você pode criar.
 
-1. Na guia **Regras**, clique em **Editar Modelo** e, em seguida, em **+ Nova Regra** para ver os tipos de regras que você pode criar.
-
-
-1. Clique no bloco **Evento** para criar uma regra de monitoramento de eventos.
+1. Escolha o **evento** lado a lado para criar uma regra de monitoramento de evento.
 
     ![Tipos de regras](media/howto-create-event-rules/Rule_Types.png)
 
-    
 1. Digite um nome que o ajude a identificar a regra neste modelo de dispositivo.
 
-1. Para habilitar imediatamente a regra para todos os dispositivos criados a partir desse modelo, alterne **Habilitar regra para todos os dispositivos deste modelo**.
+1. Para habilitar imediatamente a regra para todos os dispositivos criados com base neste modelo, ativar/desativar **Habilitar regra para todos os dispositivos deste modelo**.
 
-    ![Detalhes da Regra](media/howto-create-event-rules/Rule_Detail.png)
+    ![Detalhe da Regra](media/howto-create-event-rules/Rule_Detail.png)
 
     A regra se aplica automaticamente a todos os dispositivos no modelo de dispositivo.
 
@@ -63,26 +55,25 @@ A condição define os critérios que são monitorados pela regra.
 
 1. Escolha o evento que deseja monitorar na lista suspensa Medida. Neste exemplo, foi selecionado o evento **Erro do Motor do Ventilador**.
 
-   ![Condição](media/howto-create-event-rules/Condition_Filled_Out.png) 
-
+   ![Condição](media/howto-create-event-rules/Condition_Filled_Out.png)
 
 1. Opcionalmente, você também pode definir **Contagem** como **Agregação** e fornecer o limite correspondente.
 
-    - Sem agregação, a regra dispara para cada ponto de dados de evento que atenda à condição. Por exemplo, se você configurar a condição da regra para disparar quando ocorrer um evento de “Erro do Motor do Ventilador”, a regra será disparada quase que imediatamente quando o dispositivo relatar esse evento.
-    - Se a Contagem for usada como uma função de agregação, você precisará fornecer um **Limite** e uma **Janela de tempo de agregação** por meio dos quais a condição precisa ser avaliada. Nesse caso, a contagem de eventos é agregada, e a regra será disparar apenas se a contagem de eventos agregados corresponder ao limite.
- 
-    Por exemplo, se você quiser alertar quando há mais de três eventos de dispositivo em cinco minutos, selecione o evento e defina a função de agregação como "contagem", o operador como "maior que" e "limite" como 3. Defina "Período de tempo de agregação" como "5 minutos". A regra dispara quando mais de três eventos são enviados pelo dispositivo em cinco minutos. A frequência de avaliação da regra é igual à **Janela de tempo de agregação**, o que significa que, neste exemplo, a regra é avaliada uma vez a cada cinco minutos. 
+   - Sem agregação, a regra dispara para cada ponto de dados de evento que atenda à condição. Por exemplo, se você configurar a regra de condição para disparar quando uma **erro de Motor do ventilador** evento ocorre em seguida, a regra dispara quase que imediatamente quando o dispositivo relata que o evento.
+   - Se a Contagem for usada como uma função de agregação, você precisará fornecer um **Limite** e uma **Janela de tempo de agregação** por meio dos quais a condição precisa ser avaliada. Nesse caso, a contagem de eventos é agregada e a regra dispara apenas se a contagem de eventos agregados com o limite.
 
-    ![Adicionar a condição de evento](media/howto-create-event-rules/Aggregate_Condition_Filled_Out.png)
+     Por exemplo, se você quiser alertar quando há mais de três eventos de dispositivo em cinco minutos, selecione o evento e defina a função de agregação como "contagem", o operador como "maior que" e "limite" como 3. Defina "Período de tempo de agregação" como "5 minutos". A regra dispara quando mais de três eventos são enviados pelo dispositivo em cinco minutos. A frequência de avaliação da regra é igual à **Janela de tempo de agregação**, o que significa que, neste exemplo, a regra é avaliada uma vez a cada cinco minutos.
 
-    >[!NOTE] 
-    >Mais de uma medida de evento pode ser adicionada em **Condição**. Quando várias condições são especificadas, todas as condições devem ser atendidas para que a regra seja disparada. Cada condição é unida por uma cláusula 'AND' implicitamente. Ao usar a agregação, cada medida deve ser agregada.
+     ![Adicionar a condição de evento](media/howto-create-event-rules/Aggregate_Condition_Filled_Out.png)
+
+     >[!NOTE]
+     >Mais de uma medida de evento pode ser adicionada em **Condição**. Quando várias condições são especificadas, todas as condições devem ser atendidas para que a regra seja disparada. Cada condição obtém unida por uma cláusula 'AND' implicitamente. Ao usar a agregação, cada medida deve ser agregada.
 
 ### <a name="configure-actions"></a>Configurar ações
 
 Esta seção mostra como configurar as ações a serem executadas quando a regra é disparada. Ações são invocadas quando todas as condições especificadas na regra são avaliadas como true.
 
-1. Escolha **+** próximo a **Ações**. Aqui, você vê a lista de ações disponíveis. 
+1. Escolha **+** próximo a **Ações**. Aqui, você vê a lista de ações disponíveis.
 
     ![Adicionar Ação](media/howto-create-event-rules/Add_Action.png)
 
@@ -94,8 +85,6 @@ Esta seção mostra como configurar as ações a serem executadas quando a regra
    ![Configurar Ação](media/howto-create-event-rules/Configure_Action.png)
 
 1. Para salvar a regra, escolha **Salvar**. A regra entra em ação em alguns minutos e começa a monitorar os eventos enviados ao aplicativo. Quando a condição especificada na regra corresponde, a regra dispara a ação de email configurada.
-
-1. Escolha **Concluído** para sair do modo **Editar Modelo**.
 
 É possível adicionar outras ações à regra, como o Microsoft Flow e webhooks. Você pode adicionar até 5 ações por regra.
 

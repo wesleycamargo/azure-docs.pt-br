@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: b2330d322c6939ba6d9581c125c512fcea9f924b
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 1ea34d69c867d2d14496320f497df2ece5280e0c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242738"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009347"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Como usar o Reconhecimento de Entidade Nomeada na Análise de Texto (versão prévia)
 
@@ -23,7 +23,7 @@ A [API de Reconhecimento de Entidade](https://westus.dev.cognitive.microsoft.com
 
 ## <a name="entity-linking-and-named-entity-recognition"></a>Vinculação de Entidade e Reconhecimento de Entidade Nomeada
 
-O ponto de extremidade de Análise de Texto `entities` dá suporte a NER (reconhecimento de entidade nomeada) e à vinculação de entidade.
+Análise de texto `entities` dá suporte de ponto de extremidade nomeados vinculação de entidade e reconhecimento de entidade (NER).
 
 ### <a name="entity-linking"></a>Vinculação de Identidade
 Vinculação de entidade é a capacidade de identificar e desambiguar a identidade de uma entidade encontrada no texto (por exemplo, determinar se o "Marte" está sendo usado como o planeta ou como o deus romano da guerra). Esse processo exige a presença de uma base de conhecimento a qual as entidades reconhecidas são vinculadas. A Wikipédia é usada como a base de conhecimento para o ponto de extremidade `entities` da Análise de Texto.
@@ -62,8 +62,9 @@ O uso da vinculação de entidade em vários idiomas exige o uso de uma base de 
 | DateTime      | Duration      | "1 minuto e 45 segundos"   | 
 | DateTime      | Definir           | "toda terça-feira"     | 
 | DateTime      | timeZone      |    | 
-| URL           | N/D\*         | "http://www.bing.com"    |
+| URL           | N/D\*         | "<https://www.bing.com>"    |
 | Email         | N/D\*         | "support@contoso.com" |
+
 \* Dependendo da entrada e das entidades extraídas, determinadas entidades podem omitir o `SubType`.
 
 
@@ -74,7 +75,7 @@ Você deve ter documentos JSON neste formato: id, texto, idioma
 
 Para os idiomas atualmente suportados, veja [esta lista](../text-analytics-supported-languages.md).
 
-O tamanho do documento deve ter menos de 5.000 caracteres por documento e você pode ter até 1.000 itens (IDs) por coleção. A coleção é enviada no corpo da solicitação. O exemplo a seguir é uma ilustração do conteúdo que você pode enviar para a extremidade de vinculação de entidade.
+O tamanho do documento precisa ter menos de 5.120 caracteres por documento, e você pode ter até 1.000 itens (IDs) por coleção. A coleção é enviada no corpo da solicitação. O exemplo a seguir é uma ilustração do conteúdo que você pode enviar para a extremidade de vinculação de entidade.
 
 ```
 {"documents": [{"id": "1",

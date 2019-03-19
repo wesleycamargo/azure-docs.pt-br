@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 5e6d155a3efebfc8289263ac703a87e9aa3287cd
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: dc8deb16f7d124c5fb11568f25050eee99a245b8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834750"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096751"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Executar uma simulação de recuperação de desastres para as VMs do Hyper-V em um site secundário
 
@@ -32,9 +32,9 @@ Executa-se um failover de teste do site principal para o site secundário. Se vo
 - Você precisa selecionar um ponto de recuperação para o failover de teste: 
     - **Mais recente processado**: Essa opção executa failover de uma VM para o último ponto de recuperação processado pelo Site Recovery. Essa opção fornece um RTO (Objetivo do Tempo de Recuperação) baixo porque não há tempo gasto para processar dados não processados.
     - **Último consistente com o aplicativo**: Essa opção executa failover de uma VM para o ponto de recuperação consistente com o aplicativo mais recente pelo Site Recovery. 
-    - **Mais recente**: Essa opção primeiro processa todos os dados que foram enviados ao serviço do Site Recovery para criar um ponto de recuperação para cada VM antes de fazer failover para ele. Essa opção fornece o RPO (objetivo de ponto de recuperação) mais baixo porque a VM criada após o failover tem todos os dados replicados para o Site Recovery quando o failover for disparado.
+    - **Mais recente**: Essa opção primeiro processa todos os dados que foram enviados ao serviço do Site Recovery, para criar um ponto de recuperação para cada VM antes do failover da VM. Essa opção fornece o RPO (objetivo de ponto de recuperação) mais baixo porque a VM criada após o failover tem todos os dados replicados para o Site Recovery quando o failover for disparado.
     - **Multi-VMs mais recentes processadas**: Disponível para os planos de recuperação que incluem uma ou mais VMs que tenham consistência de várias VMs ativadas. As VMs com a configuração habilitaram o failover para o último ponto de recuperação consistente com várias VMs em comum. Outras VMs fazem failover para o último ponto de recuperação processado.
-    - **Multi-VMs mais recentes consistentes com o aplicativo**: Essa opção está disponível para planos de recuperação com uma ou mais VMs que tenham consistência de várias VMs ativadas. As VMs que fazem parte de um failover do grupo de replicação para o ponto de recuperação comum mais recente de várias VMs consistente com aplicativo. Outras VMs fazem failover para seus últimos pontos de recuperação consistentes com aplicativo.
+    - **Multi-VMs mais recentes consistentes com o aplicativo**: Essa opção está disponível para planos de recuperação com uma ou mais VMs com consistência de várias VM habilitada. As VMs que fazem parte de um failover do grupo de replicação para o ponto de recuperação comum mais recente de várias VMs consistente com aplicativo. Outras VMs fazem failover para seus últimos pontos de recuperação consistentes com aplicativo.
     - **Personalizado**: Use essa opção para fazer failover de uma VM específica para um ponto de recuperação específico.
 
 
@@ -43,11 +43,11 @@ Executa-se um failover de teste do site principal para o site secundário. Se vo
 
 Ao executar um failover de teste, você deverá selecionar as configurações de rede para os computadores de réplica de teste, como resumido na tabela.
 
-**Opção** | **Detalhes** 
---- | --- 
-**Nenhum** | A VM de teste é criada no host no qual está localizada a VM de réplica. Ela não é adicionada à nuvem e não está conectada a nenhuma rede.<br/><br/> Você pode conectar o computador a uma rede de VMs depois que ela for criada.
-**Usar existente** | A VM de teste é criada no host no qual está localizada a VM de réplica. Não é adicionada à nuvem.<br/><br/>Crie uma rede VM isolada da rede de produção.<br/><br/>Se você estiver usando uma rede baseada em VLAN, recomendamos criar uma rede lógica separada (não usada em produção) no VMM para essa finalidade. Essa rede lógica é usada para criar redes VM para failovers de teste.<br/><br/>A rede lógica deve estar associada a, pelo menos, um dos adaptadores de rede de todos os servidores do Hyper-V que hospedam máquinas virtuais.<br/><br/>Para redes lógicas VLAN, os sites de rede adicionados à rede lógica devem ser isolados.<br/><br/>Se você está estiver usando uma rede lógica baseada na Virtualização de Rede do Windows, o Azure Site Recovery criará automaticamente redes de VM isoladas. 
-**Criar uma rede** | Uma rede de teste temporária é criada automaticamente com base na configuração especificada em **Rede Lógica** e seus sites de rede relacionados.<br/><br/> O failover verifica se as VMs são criadas. |Você deve usar esta opção se o plano de recuperação usa mais de uma rede de VMs.<br/><br/> Caso esteja usando redes da Virtualização de Rede do Windows, essa opção pode ser usada para criar automaticamente redes VM com as mesmas configurações (sub-redes e pools de endereços IP) na rede da máquina virtual de réplica. Essas redes VM são removidas automaticamente depois que o failover de teste é concluído.<br/><br/> A VM de teste é criada no host no qual existe a máquina virtual de réplica. Não é adicionada à nuvem.
+| **Opção** | **Detalhes** | |
+| --- | --- | --- |
+| **Nenhum** | A VM de teste é criada no host no qual está localizada a VM de réplica. Ela não é adicionada à nuvem e não está conectada a nenhuma rede.<br/><br/> Você pode conectar o computador a uma rede de VMs depois que ela for criada.| |
+| **Usar existente** | A VM de teste é criada no host no qual está localizada a VM de réplica. Não é adicionada à nuvem.<br/><br/>Crie uma rede VM isolada da rede de produção.<br/><br/>Se você estiver usando uma rede baseada em VLAN, recomendamos criar uma rede lógica separada (não usada em produção) no VMM para essa finalidade. Essa rede lógica é usada para criar redes VM para failovers de teste.<br/><br/>A rede lógica deve estar associada a, pelo menos, um dos adaptadores de rede de todos os servidores do Hyper-V que hospedam máquinas virtuais.<br/><br/>Para redes lógicas VLAN, os sites de rede adicionados à rede lógica devem ser isolados.<br/><br/>Se você está estiver usando uma rede lógica baseada na Virtualização de Rede do Windows, o Azure Site Recovery criará automaticamente redes de VM isoladas. | |
+| **Criar uma rede** | Uma rede de teste temporária é criada automaticamente com base na configuração especificada em **Rede Lógica** e seus sites de rede relacionados.<br/><br/> O failover verifica se as VMs são criadas.<br/><br/> Você deve usar esta opção se o plano de recuperação usa mais de uma rede de VMs.<br/><br/> Caso esteja usando redes da Virtualização de Rede do Windows, essa opção pode ser usada para criar automaticamente redes VM com as mesmas configurações (sub-redes e pools de endereços IP) na rede da máquina virtual de réplica. Essas redes VM são removidas automaticamente depois que o failover de teste é concluído.<br/><br/> A VM de teste é criada no host no qual existe a máquina virtual de réplica. Não é adicionada à nuvem.|
 
 ### <a name="best-practices"></a>Práticas recomendadas
 

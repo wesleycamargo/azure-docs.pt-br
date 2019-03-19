@@ -17,12 +17,12 @@ ms.date: 10/31/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecc7eb45b439140cf9d1de048a6d4a7db48c34c3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 15d0d537a23e21eeda3b284e7ec706cde2b443e7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204400"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014082"
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Alteração da senha da conta do serviço de sincronização do Azure AD Connect
 Se você alterar a senha de conta do serviço de sincronização do Azure AD Connect, o serviço de sincronização não será capaz de iniciar corretamente até você ter abandonado a chave de criptografia e reinicializado a senha da conta do serviço de sincronização do Azure AD Connect. 
@@ -46,7 +46,7 @@ Segundo, sob condições específicas, se a senha for atualizada, o serviço de 
 Você verá erros, como:
 
 - No Gerenciador de Controle de Serviço do Windows, se você tentar iniciar o serviço de sincronização e não for possível recuperar a chave de criptografia, ele falhará com o erro “<strong>O Windows não pôde iniciar o Microsoft Azure AD Sync no computador local. Para saber mais, examine o log de eventos do sistema. Se for um serviço de terceiros, não Microsoft, entre em contato com o fornecedor do serviço e mencione o código de erro específico do serviço -21451857952</strong>.”
-- No Visualizador de Eventos do Windows, o log de eventos do aplicativo contém um erro com **ID de evento 6028** e a mensagem de erro *“**A chave de criptografia do servidor não pode ser acessada.**”*
+- No Visualizador de eventos do Windows, o log de eventos do aplicativo contém um erro com **ID de evento 6028** e a mensagem de erro *"a chave de criptografia do servidor não pode ser acessada."*
 
 Para garantir que você não receba esses erros, siga os procedimentos em [Abandonando a chave de criptografia de sincronização do Azure AD Connect](#abandoning-the-azure-ad-connect-sync-encryption-key) ao alterar a senha.
  

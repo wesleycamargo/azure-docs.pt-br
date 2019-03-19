@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: szark
-ms.openlocfilehash: a46f2b4ed1bb3fc5fff65a627bd3d808ed85ffce
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 4e32d2357636cb488d3a58b78b025860da3f74c4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967275"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091351"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Preparar uma máquina virtual baseada em CentOS para o Azure
 
@@ -301,11 +301,11 @@ A preparação de uma máquina virtual CentOS 7 para o Azure é muito parecida c
 
 10. Se a criação da imagem de **VMware, VirtualBox ou KVM:** Certifique-se de que os drivers Hyper-V estão incluídos no initramfs:
 
-   Edite `/etc/dracut.conf`e adicione o conteúdo:
+    Edite `/etc/dracut.conf`e adicione o conteúdo:
 
         add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
 
-   Recompile o initramfs:
+    Recompile o initramfs:
 
         # sudo dracut -f -v
 
@@ -316,7 +316,7 @@ A preparação de uma máquina virtual CentOS 7 para o Azure é muito parecida c
 
 12. Não crie espaço de permuta no disco do SO.
 
-   O Agente Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local que é anexado à VM após o provisionamento no Azure. Observe que o disco de recurso local é um disco *temporário* e pode ser esvaziado quando a VM é desprovisionada. Depois de instalar o Agente Linux do Azure (confira a etapa anterior), modifique adequadamente os seguintes parâmetros em `/etc/waagent.conf` :
+    O Agente Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local que é anexado à VM após o provisionamento no Azure. Observe que o disco de recurso local é um disco *temporário* e pode ser esvaziado quando a VM é desprovisionada. Depois de instalar o Agente Linux do Azure (confira a etapa anterior), modifique adequadamente os seguintes parâmetros em `/etc/waagent.conf` :
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4

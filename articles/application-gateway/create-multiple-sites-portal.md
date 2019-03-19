@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 2/20/2019
 ms.author: victorh
-ms.openlocfilehash: 09bb81b0382f18c9cb94e5e4d0932dc6597ae73c
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 86be94404e7ab492beeebd6a467d23e68e7bce6b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454271"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080160"
 ---
 # <a name="create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Criar e configurar um gateway de aplicativo para hospedar vários sites web usando o portal do Azure.
 
@@ -44,20 +44,20 @@ Uma rede virtual é necessária para a comunicação entre os recursos que você
 2. Selecione **Rede** e depois **Gateway de Aplicativo** na lista em destaque.
 3. Insira esses valores para o gateway de aplicativo:
 
-    - *myAppGateway* - para o nome do gateway de aplicativo.
-    - *myResourceGroupAG* - para o novo grupo de recursos.
+   - *myAppGateway* - para o nome do gateway de aplicativo.
+   - *myResourceGroupAG* - para o novo grupo de recursos.
 
-    ![Criar novo gateway de aplicativo](./media/create-multiple-sites-portal/application-gateway-create.png)
+     ![Criar novo gateway de aplicativo](./media/create-multiple-sites-portal/application-gateway-create.png)
 
 4. Aceite os valores padrão para as outras configurações e, em seguida, clique em **OK**.
 5. Clique em **Escolher uma rede virtual**, clique em **Criar novo** e insira esses valores para a rede virtual:
 
-    - *myVNet* – para o nome da rede virtual.
-    - *10.0.0.0/16* – para o espaço de endereço da rede virtual.
-    - *myAGSubnet* – para o nome da sub-rede.
-    - *10.0.0.0/24* - para o espaço de endereço da sub-rede.
+   - *myVNet* – para o nome da rede virtual.
+   - *10.0.0.0/16* – para o espaço de endereço da rede virtual.
+   - *myAGSubnet* – para o nome da sub-rede.
+   - *10.0.0.0/24* - para o espaço de endereço da sub-rede.
 
-    ![Criar rede virtual](./media/create-multiple-sites-portal/application-gateway-vnet.png)
+     ![Criar rede virtual](./media/create-multiple-sites-portal/application-gateway-vnet.png)
 
 6. Clique em **OK** para criar a rede virtual e a sub-rede.
 7. Clique em **Escolher um endereço IP público**, clique em **Criar novo** e digite o nome do endereço IP público. Neste exemplo, o endereço IP público é denominado *myAGPublicIPAddress*. Aceite os valores padrão para as outras configurações e, em seguida, clique em **OK**.
@@ -94,6 +94,8 @@ Neste exemplo, você cria duas máquinas virtuais para serem usadas como servido
 
 ### <a name="install-iis"></a>Instalar o IIS
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 1. Abra o shell interativo e verifique se ele está definido como **PowerShell**.
 
     ![Instalar a extensão personalizada](./media/create-multiple-sites-portal/application-gateway-extension.png)
@@ -102,7 +104,7 @@ Neste exemplo, você cria duas máquinas virtuais para serem usadas como servido
 
     ```azurepowershell-interactive
     $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `
       -ExtensionName IIS `
@@ -113,7 +115,7 @@ Neste exemplo, você cria duas máquinas virtuais para serem usadas como servido
       -Settings $publicSettings
     ```
 
-3. Crie a segunda máquina virtual e instale o IIS usando as etapas que você acabou de concluir. Insira os nomes de *fabrikamVM* para o nome e o valor de VMName em Set-AzureRmVMExtension.
+3. Crie a segunda máquina virtual e instale o IIS usando as etapas que você acabou de concluir. Insira os nomes dos *fabrikamVM* para o nome e o valor de VMName em Set-AzVMExtension.
 
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>Criar pools de back-end com as máquinas virtuais
 
@@ -132,8 +134,8 @@ Neste exemplo, você cria duas máquinas virtuais para serem usadas como servido
 1. Clique em **Ouvintes** e, em seguida, clique em **Vários sites**.
 2. Insira esses valores para o ouvinte:
     
-    - *contosoListener* – para o nome do ouvinte.
-    - *www.contoso.com* – substitua este exemplo de nome de host pelo nome de domínio.
+   - *contosoListener* – para o nome do ouvinte.
+   - *www.contoso.com* – substitua este exemplo de nome de host pelo nome de domínio.
 
 3. Clique em **OK**.
 4. Crie um segundo ouvinte usando o nome de *fabrikamListener* e use seu segundo nome de domínio. Neste exemplo, *www.fabrikam.com* é usado.

@@ -8,16 +8,16 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/18/2018
-ms.openlocfilehash: ce7cc489b107ce4bd95270b9a7f8cb560a2d2398
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 38b283ed666b39b4e090bd95051a4454a9b47e62
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249639"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57975654"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>API .NET Standard de Tabela do Azure Cosmos DB: download e notas sobre a versão
 > [!div class="op_single_selector"]
-
+> 
 > * [.NET](table-sdk-dotnet.md)
 > * [.NET Standard](table-sdk-dotnet-standard.md)
 > * [Java](table-sdk-java.md)
@@ -27,9 +27,20 @@ ms.locfileid: "55249639"
 |   |   |
 |---|---|
 |**Baixe o SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)|
+|**Amostra**|[Exemplo de .NET do cosmos DB API de tabela](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started)|
+|**Início rápido**|[Início rápido](create-table-dotnet.md)|
+|**Tutorial**|[Tutorial](tutorial-develop-table-dotnet.md)|
 |**Framework atualmente com suporte**|[Microsoft .NET Standard 2.0](https://www.nuget.org/packages/NETStandard.Library)|
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
+* Versão de disponibilidade geral
+
+### <a name="a-name0110-preview0110-preview"></a><a name="0.11.0-preview"/>0.11.0-Preview
+* As alterações foram feitas como CloudTableClient pode ser configurado. Leva apenas um objeto um TableClientConfiguration durante a construção. TableClientConfiguration fornece propriedades diferentes para configurar o comportamento do cliente, dependendo se o ponto de extremidade de destino é a API de tabela ou a API de tabela de armazenamento do Azure.
+* Adicionado suporte para TableQuery para retornar os resultados em ordem classificada em uma coluna personalizada. Esse recurso tem suporte apenas em pontos de extremidade de tabela do Cosmos DB.
+* Adicionado suporte para expor RequestCharges em vários tipos de resultado. Esse recurso tem suporte apenas em pontos de extremidade de tabela do Cosmos DB.
 
 ### <a name="a-name0101-preview0101-preview"></a><a name="0.10.1-preview"/>0.10.1-preview
 * Adicione suporte para o token SAS, operações de TablePermissions, ServiceProperties e ServiceStats nos pontos de extremidade da tabela de Armazenamento do Azure. 
@@ -51,6 +62,8 @@ A Microsoft notifica pelo menos **12 meses** antes de desativar um SDK, a fim de
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [1.0.0](#1.0.0) |13 de março de 2019 |--- |
+| [0.11.0-preview](#0.11.0-preview) |5 de março de 2019 |--- |
 | [0.10.1-preview](#0.10.1-preview) |22 janeiro de 2019 |--- |
 | [0.10.0-preview](#0.10.0-preview) |18 de dezembro de 2018 |--- |
 | [0.9.1-preview](#0.9.1-preview) |18 de outubro de 2018 |--- |

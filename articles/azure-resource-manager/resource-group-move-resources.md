@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 02/28/2019
 ms.author: tomfitz
-ms.openlocfilehash: ddbd77cbc199e78e74324c87d49155f27d6edeea
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 80577b4585a6c9e4ec83a8f21b358b7609d85268
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417084"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081246"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou uma nova assinatura
 
@@ -57,6 +57,7 @@ A lista a seguir fornece um resumo geral dos serviços do Azure que podem ser mo
 * Certificados do Serviço de Aplicativo – veja [Limitações de Certificado de Serviço de Aplicativo](#app-service-certificate-limitations)
 * Automação: os runbooks devem existir no mesmo grupo de recursos que a conta de automação.
 * Azure Active Directory B2C
+* Cache do Azure para Redis – se o Cache do Azure para instância do Redis estiver configurado com uma rede virtual, a instância não poderá ser movida para uma assinatura diferente. Confira [Limitações de redes virtuais](#virtual-networks-limitations).
 * Azure Cosmos DB
 * Azure Data Explorer
 * Banco de Dados do Azure para MariaDB
@@ -64,6 +65,7 @@ A lista a seguir fornece um resumo geral dos serviços do Azure que podem ser mo
 * Banco de Dados do Azure para PostgreSQL
 * Azure DevOps – as organizações do Azure DevOps com compras de extensão que não são da Microsoft precisam [cancelar suas compras](https://go.microsoft.com/fwlink/?linkid=871160) para que possam mover a conta entre assinaturas.
 * Mapas do Azure
+* Logs do Azure Monitor
 * Retransmissão do Azure
 * Azure Stack - registros
 * Lote
@@ -89,10 +91,9 @@ A lista a seguir fornece um resumo geral dos serviços do Azure que podem ser mo
 * Hubs IoT
 * Key Vault - é usado para criptografia de disco e não pode ser movido para grupos de recursos na mesma assinatura ou entre assinaturas.
 * Load Balancer - SKU básica pode ser movido. O balanceador de carga de SKU padrão não pode ser movido.
-* Log Analytics
 * Aplicativos Lógicos
 * Aprendizado de Máquina - os serviços Web do Machine Learning Studio podem ser movidos para um grupo de recursos na mesma assinatura, mas não uma assinatura diferente. Outros recursos de Microsoft Machine Learning podem ser movidos entre assinaturas.
-* Managed Disks – veja [Limitações das máquinas virtuais para restrições](#virtual-machines-limitations)
+* Managed Disks - Managed Disks em zonas de disponibilidade não podem ser movidos para uma assinatura diferente
 * Identidade gerenciada - atribuída pelo usuário
 * Serviços de mídia
 * Monitor - verifique se mover para nova assinatura não excede as [cotas de assinatura](../azure-subscription-service-limits.md#monitor-limits)
@@ -103,7 +104,6 @@ A lista a seguir fornece um resumo geral dos serviços do Azure que podem ser mo
 * Power BI - tanto o Power BI inserido Embedded como a coleção de workspaces do BI
 * IP público - SKU básica pode ser movido. O IP Público SKU padrão não pode ser movido.
 * Cofre dos Serviços de Recuperação – registrar em uma [versão prévia](#recovery-services-limitations).
-* Cache do Azure para Redis – se o Cache do Azure para instância do Redis estiver configurado com uma rede virtual, a instância não poderá ser movida para uma assinatura diferente. Confira [Limitações de redes virtuais](#virtual-networks-limitations).
 * Agendador
 * Pesquisa - não é possível mover vários recursos de Pesquisa em regiões diferentes em uma operação. Em vez disso, mova-os em operações separadas.
 * Barramento de Serviço
@@ -116,7 +116,7 @@ A lista a seguir fornece um resumo geral dos serviços do Azure que podem ser mo
 * Servidor de Banco de Dados SQL – o banco de dados e o servidor devem estar no mesmo grupo de recursos. Quando você move um SQL Server, todos os seus bancos de dados também são movidos. Este comportamento se aplica ao Banco de Dados SQL do Azure e ao banco de dados SQL Data Warehouse do Azure.
 * Time Series Insights
 * Gerenciador de Tráfego
-* Máquinas virtuais – para VMs com discos gerenciados, confira [Limitações das máquinas virtuais](#virtual-machines-limitations)
+* Máquinas virtuais – consulte [limitações das máquinas virtuais](#virtual-machines-limitations)
 * Máquinas virtuais (clássicas) - consulte [Limitações da implantação clássica](#classic-deployment-limitations)
 * Conjuntos de Dimensionamento de Máquinas Virtuais – consulte [Limitações de máquinas virtuais](#virtual-machines-limitations)
 * Redes virtuais – consulte [Limitações de redes virtuais](#virtual-networks-limitations)
@@ -133,6 +133,7 @@ A lista a seguir fornece um resumo geral dos serviços do Azure que não podem s
 * Azure Databricks
 * Firewall do Azure
 * Migrações para Azure
+* Azure NetApp Files
 * Certificados - Os certificados do Serviço de Aplicativo podem ser movidos, mas os certificados carregados têm [limitações](#app-service-limitations).
 * Aplicativos clássicos
 * Instâncias de Contêiner
@@ -145,7 +146,6 @@ A lista a seguir fornece um resumo geral dos serviços do Azure que não podem s
 * Serviços de Laboratórios – mover para um novo grupo de recursos na mesma assinatura está habilitado, mas a troca entre assinaturas está desabilitado.
 * Aplicativos gerenciados
 * Microsoft Genomics
-* NetApp
 * SAP HANA no Azure
 * Segurança
 * Site Recovery
@@ -166,13 +166,12 @@ A seção fornece descrições de como lidar com cenários complicados para move
 
 ### <a name="virtual-machines-limitations"></a>Limitações das máquinas virtuais
 
-A partir de 24 de setembro de 2018, você poderá mover discos gerenciados. Esse suporte significa que você pode mover máquinas virtuais, com os discos gerenciados, imagens gerenciadas, instantâneos gerenciados e conjuntos de disponibilidade com máquinas virtuais que usam discos gerenciados.
+Você pode mover máquinas virtuais, com os discos gerenciados, imagens gerenciadas, os instantâneos gerenciados e conjuntos de disponibilidade com máquinas virtuais que usam discos gerenciados. Discos gerenciados em zonas de disponibilidade não podem ser movidos para uma assinatura diferente.
 
 Ainda não há suporte para os cenários a seguir:
 
 * Máquinas Virtuais com certificado armazenado no Key Vault podem ser movidas para um novo grupo de recursos na mesma assinatura, mas não entre assinaturas.
-* Managed Disks em zonas de disponibilidade não podem ser movidos para uma assinatura diferente
-* Os Conjuntos de Dimensionamento de Máquinas Virtuais com o Load Balancer do SKU Standard ou o IP público do SKU Standard não podem ser movidos
+* Conjuntos de dimensionamento de máquina virtual com o balanceador de carga de SKU Standard ou IP público do SKU Standard não pode ser movidos.
 * As máquinas virtuais criadas a partir dos recursos do Marketplace com os planos anexados não podem ser movidas entre grupos de recursos ou assinaturas. Desprovisione a máquina virtual na assinatura atual e implante-a novamente na nova assinatura.
 
 Para mover máquinas virtuais configuradas com o Backup do Azure, use a seguinte solução alternativa:
@@ -190,6 +189,8 @@ Para mover máquinas virtuais configuradas com o Backup do Azure, use a seguinte
 ### <a name="virtual-networks-limitations"></a>Limitações das redes virtuais
 
 Ao mover uma rede virtual, você também deve mover os recursos dependentes. Para Gateways de VPN, você deve mover endereços IP, gateways de rede virtual e todos os recursos de conexão associados. Os gateways de rede local podem estar em um grupo de recursos diferentes.
+
+Para mover uma máquina virtual com uma placa de interface de rede, você deve mover todos os recursos dependentes. Você deve mover a rede virtual para a placa de interface de rede, todas as outras placas de interface de rede para a rede virtual e os gateways de VPN.
 
 Para mover uma rede virtual emparelhada, primeiro é necessário desabilitar o emparelhamento de rede virtual. Quando desabilitado, você pode mover a rede virtual. Após a movimentação, reabilite o emparelhamento de rede virtual.
 
@@ -254,58 +255,58 @@ Para mover recursos clássicos para uma nova assinatura, use operações REST es
 
 1. Verifique se a assinatura de origem pode participar de uma movimentação entre assinaturas. Use a operação a seguir:
 
-  ```HTTP
-  POST https://management.azure.com/subscriptions/{sourceSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
-  ```
+   ```HTTP
+   POST https://management.azure.com/subscriptions/{sourceSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
+   ```
 
      No corpo da solicitação, inclua:
 
-  ```json
-  {
+   ```json
+   {
     "role": "source"
-  }
-  ```
+   }
+   ```
 
      A resposta para a operação de validação é no seguinte formato:
 
-  ```json
-  {
+   ```json
+   {
     "status": "{status}",
     "reasons": [
       "reason1",
       "reason2"
     ]
-  }
-  ```
+   }
+   ```
 
 2. Verifique se a assinatura de destino pode participar de uma movimentação entre assinaturas. Use a operação a seguir:
 
-  ```HTTP
-  POST https://management.azure.com/subscriptions/{destinationSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
-  ```
+   ```HTTP
+   POST https://management.azure.com/subscriptions/{destinationSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
+   ```
 
      No corpo da solicitação, inclua:
 
-  ```json
-  {
+   ```json
+   {
     "role": "target"
-  }
-  ```
+   }
+   ```
 
      A resposta está no mesmo formato que a validação de assinatura de origem.
 3. Se ambas as assinaturas forem aprovadas na validação, mova todos os recursos clássicos de uma assinatura para outra, use a seguinte operação:
 
-  ```HTTP
-  POST https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ClassicCompute/moveSubscriptionResources?api-version=2016-04-01
-  ```
+   ```HTTP
+   POST https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ClassicCompute/moveSubscriptionResources?api-version=2016-04-01
+   ```
 
     No corpo da solicitação, inclua:
 
-  ```json
-  {
+   ```json
+   {
     "target": "/subscriptions/{target-subscription-id}"
-  }
-  ```
+   }
+   ```
 
 A operação pode executar por vários minutos.
 
@@ -344,52 +345,52 @@ Há algumas etapas importantes a serem executadas antes de mover um recurso. Ao 
 
 1. As assinaturas de origem e de destino devem existir no mesmo [locatário do Azure Active Directory](../active-directory/develop/quickstart-create-new-tenant.md). Para verificar se as duas assinaturas têm a mesma ID de locatário, use o Azure PowerShell ou a CLI do Azure.
 
-  Para o Azure PowerShell, use:
+   Para o Azure PowerShell, use:
 
-  ```azurepowershell-interactive
-  (Get-AzSubscription -SubscriptionName <your-source-subscription>).TenantId
-  (Get-AzSubscription -SubscriptionName <your-destination-subscription>).TenantId
-  ```
+   ```azurepowershell-interactive
+   (Get-AzSubscription -SubscriptionName <your-source-subscription>).TenantId
+   (Get-AzSubscription -SubscriptionName <your-destination-subscription>).TenantId
+   ```
 
-  Para a CLI do Azure, use:
+   Para a CLI do Azure, use:
 
-  ```azurecli-interactive
-  az account show --subscription <your-source-subscription> --query tenantId
-  az account show --subscription <your-destination-subscription> --query tenantId
-  ```
+   ```azurecli-interactive
+   az account show --subscription <your-source-subscription> --query tenantId
+   az account show --subscription <your-destination-subscription> --query tenantId
+   ```
 
-  Se as IDs de locatário para as assinaturas de origem e de destino não forem iguais, use os métodos a seguir para reconciliá-las:
+   Se as IDs de locatário para as assinaturas de origem e de destino não forem iguais, use os métodos a seguir para reconciliá-las:
 
-  * [Transferir a propriedade de uma assinatura do Azure para outra conta](../billing/billing-subscription-transfer.md)
-  * [Como associar ou adicionar uma assinatura do Azure ao Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
+   * [Transferir a propriedade de uma assinatura do Azure para outra conta](../billing/billing-subscription-transfer.md)
+   * [Como associar ou adicionar uma assinatura do Azure ao Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
 1. A assinatura de destino deve estar registrada para que o provedor de recursos do recurso seja movido. Se não estiver, você receberá um erro afirmando que a **assinatura não está registrada para um tipo de recurso**. Você pode ver esse erro ao mover um recurso para uma nova assinatura que nunca tenha sido usada com esse tipo de recurso.
 
-  Para o PowerShell, use os seguintes comandos para obter o status do registro:
+   Para o PowerShell, use os seguintes comandos para obter o status do registro:
 
-  ```azurepowershell-interactive
-  Set-AzContext -Subscription <destination-subscription-name-or-id>
-  Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
-  ```
+   ```azurepowershell-interactive
+   Set-AzContext -Subscription <destination-subscription-name-or-id>
+   Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
+   ```
 
-  Para registrar um provedor de recursos, use:
+   Para registrar um provedor de recursos, use:
 
-  ```azurepowershell-interactive
-  Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
-  ```
+   ```azurepowershell-interactive
+   Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
+   ```
 
-  Para a CLI do Azure, use os seguintes comandos para obter o status do registro:
+   Para a CLI do Azure, use os seguintes comandos para obter o status do registro:
 
-  ```azurecli-interactive
-  az account set -s <destination-subscription-name-or-id>
-  az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
-  ```
+   ```azurecli-interactive
+   az account set -s <destination-subscription-name-or-id>
+   az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
+   ```
 
-  Para registrar um provedor de recursos, use:
+   Para registrar um provedor de recursos, use:
 
-  ```azurecli-interactive
-  az provider register --namespace Microsoft.Batch
-  ```
+   ```azurecli-interactive
+   az provider register --namespace Microsoft.Batch
+   ```
 
 1. A conta de movimentação de recursos deve ter pelo menos as seguintes permissões:
 
@@ -513,7 +514,7 @@ No corpo da solicitação, especifique o grupo de recursos de destino e os recur
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para saber mais sobre os cmdlets do PowerShell para gerenciar sua assinatura, veja [Como usar o Azure PowerShell com o Resource Manager](powershell-azure-resource-manager.md).
-* Para saber mais sobre os comandos da CLI do Azure para gerenciar sua assinatura, veja [Como usar a CLI do Azure com o Resource Manager](xplat-cli-azure-resource-manager.md).
+* Para saber mais sobre os cmdlets do PowerShell para gerenciar os recursos, consulte [usando o Azure PowerShell com o Resource Manager](manage-resources-powershell.md).
+* Para saber mais sobre os comandos da CLI do Azure para gerenciar os recursos, consulte [usando a CLI do Azure com o Resource Manager](manage-resources-cli.md).
 * Para saber mais sobre os recursos do portal para gerenciar sua assinatura, veja [Usar o Portal do Azure para gerenciar recursos](resource-group-portal.md).
 * Para saber mais sobre como aplicar uma organização lógica aos seus recursos, veja [Usando marcações para organizar seus recursos](resource-group-using-tags.md).
