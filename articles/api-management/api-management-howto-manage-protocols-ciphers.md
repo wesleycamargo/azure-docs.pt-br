@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2018
+ms.date: 02/26/2019
 ms.author: apimpm
-ms.openlocfilehash: a55d16a35b5eec1af2b24d02e158905493615999
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
-ms.translationtype: HT
+ms.openlocfilehash: 91b6cd64a42319b2a5307919c2efe6bc8e5dcd64
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441105"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983193"
 ---
 # <a name="manage-protocols-and-ciphers-in-azure-api-management"></a>Gerenciar protocolos e cifras no Gerenciamento de API do Azure
 
@@ -39,11 +39,9 @@ Para seguir as etapas deste artigo, você precisa ter:
 ## <a name="how-to-manage-tls-protocols-and-3des-cipher"></a>Como gerenciar protocolos TLS e a cifra 3DES
 
 1. Navegue até sua **instância de Gerenciamento de API** no portal do Azure.
-2. Selecione **SSL** no menu.  
-    ![Gerenciar protocolos e cifras no APIM – menu](./media/api-management-howto-manage-protocols-ciphers/api-management-menu.png)
+2. Selecione **configurações do protocolo** no menu.  
 3. Habilite ou desabilite os protocolos ou cifras desejados.
 4. Clique em **Salvar**. As alterações serão aplicadas em uma hora.  
-    ![Gerenciar protocolos e cifras no APIM – salvar](./media/api-management-howto-manage-protocols-ciphers/api-management-protocols-ciphers-save.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

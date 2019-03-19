@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: c57385bc398544e786aec77dae9886784e3a0b3c
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 75ce5d6a88b5398bd010cc363b4241bc90068f55
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243613"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436560"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>Governança da infraestrutura do Azure DevTest Labs – Integração e migração de aplicativos
 Depois que seu ambiente de laboratório de desenvolvimento/teste tiver sido estabelecido, você precisará pensar sobre as perguntas a seguir:
@@ -117,7 +117,7 @@ Há uma regra com relação a quantas máquinas virtuais devo definir por usuár
 Ao considerar o número de máquinas virtuais por usuário ou por laboratório, há três principais preocupações:
 
 - O **custo geral** que a equipe pode gastar em recursos do laboratório. É fácil acelerar várias máquinas. Para controlar os custos, um mecanismo serve para limitar o número de máquinas virtuais por usuário e/ou por laboratório
-- O número total de máquinas virtuais em um laboratório é afetado pelas [cotas de nível de assinatura](../azure-subscription-service-limits.md) disponíveis. Um dos limites superiores é 800 grupos de recursos por assinatura. Os Laboratórios de Desenvolvimento/Teste criam um novo grupo de recursos para cada máquina virtual (a menos que sejam usados IPs públicos compartilhados). Se existem 10 laboratórios em uma assinatura, os laboratórios podem abrigar aproximadamente 79 máquinas virtuais em cada laboratório (limite superior de 800 – 10 grupos de recursos para os 10 laboratórios) = 79 máquinas virtuais por laboratório.
+- O número total de máquinas virtuais em um laboratório é afetado pelas [cotas de nível de assinatura](../azure-subscription-service-limits.md) disponíveis. Um dos limites superiores é 800 grupos de recursos por assinatura. Os Laboratórios de Desenvolvimento/Teste criam um novo grupo de recursos para cada máquina virtual (a menos que sejam usados IPs públicos compartilhados). Se houver 10 laboratórios em uma assinatura, laboratórios poderia caber aproximadamente 79 as máquinas virtuais em cada laboratório (800 limite superior – 10 grupos de recursos para os laboratórios de 10 em si) = 79 máquinas virtuais por laboratório.
 - Se o laboratório é conectado ao local por meio da Rota Expressa (por exemplo), há **espaços de endereço IP definidos disponíveis** para a VNet/sub-rede. Para garantir que as máquinas virtuais no laboratório não falhem ao serem criadas (erro: não é possível obter o endereço IP), os proprietários de laboratório podem especificar o máximo de máquinas virtuais por laboratório alinhado com o espaço de endereço IP disponível.
 
 ## <a name="use-resource-manager-templates"></a>Use modelos do Gerenciador de Recursos

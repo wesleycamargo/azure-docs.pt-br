@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: ''
+ms.date: 02/02/2019
 ms.author: haroldw
-ms.openlocfilehash: 6a4af0efb14d8ad45add906262ffd2121e8b78d0
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
-ms.translationtype: HT
+ms.openlocfilehash: f94189e8f39771e0c3d7856ccbb8a23ba81d94aa
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085766"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447267"
 ---
 # <a name="troubleshoot-openshift-deployment-in-azure"></a>Solução de problemas de implantação do OpenShift no Azure
 
 Se o cluster do OpenShift não for implantado com êxito, o portal do Azure fornecerá a saída de erro. A saída pode ser difícil de ler, o que dificulta a identificação do problema. Examine rapidamente essa saída para o código de saída 3, 4 ou 5. A seguir, informações sobre esses três códigos de saída:
 
-- Código de Saída 3: Nome/senha de usuário de assinatura do Red Hat ou ID/chave de ativação estão incorretos
-- Código de Saída 4: a ID do Pool do Red Hat está incorreta ou não há direitos disponíveis
-- Código de Saída 5: não foi possível provisionar o Volume do pool dinâmico do Docker
+- Código de saída 3: Seu nome de usuário de assinatura do Red Hat / senha ou ID / chave de ativação estão incorreta
+- Código de saída 4: Sua ID do Pool do Red Hat está incorreta ou não há direitos disponíveis
+- Código de saída 5: Não foi possível provisionar o Volume do Pool dinâmico do Docker
 
 Para todos os outros códigos de saída, conecte-se ao (s) host (s) via ssh para visualizar os arquivos de log.
 

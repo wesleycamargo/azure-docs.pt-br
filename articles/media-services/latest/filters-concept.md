@@ -11,18 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/25/2019
 ms.author: juliako
-ms.openlocfilehash: 09de372ffdb48c00fde9a43c07f8f8b574462d1f
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 60623ab4b41c343cab0f9be1abd8ab45051b3f9e
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56372913"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889351"
 ---
 # <a name="define-account-filters-and-asset-filters"></a>Definir filtros de contas e de ativos  
 
-Ao entregar seu conteúdo aos clientes (streaming de eventos ao vivo ou Video por Demanda), seu cliente pode precisar de mais flexibilidade do que o descrito no arquivo de manifesto do ativo padrão. Os Serviços de Mídia do Azure permitem definir filtros de conta e filtros de recursos para o seu conteúdo. 
+Ao fornecer conteúdo aos clientes (eventos de transmissão ao vivo ou vídeo sob demanda) seu cliente pode precisar de mais flexibilidade que o que é descrito no arquivo de manifesto do ativo padrão. Os Serviços de Mídia do Azure permitem definir filtros de conta e filtros de recursos para o seu conteúdo. 
 
 Os filtros são regras do lado do servidor que permitem que seus clientes façam coisas como: 
 
@@ -38,10 +38,9 @@ A tabela a seguir mostra alguns exemplos de URLs com filtros:
 
 |Protocolo|Exemplo|
 |---|---|
-|HLS V4|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl,filter=myAccountFilter)`|
-|HLS V3|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,filter=myAccountFilter)`|
-|MPEG DASH|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf,filter=myAssetFilter)`|
-|Smooth Streaming|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=myAssetFilter)`|
+|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`<br/>Para HLS v3, use: `format=m3u8-aapl-v3`.|
+|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
+|Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
 
 ## <a name="define-filters"></a>Definir filtros
 
@@ -68,23 +67,23 @@ Use essa propriedade com **filtros de ativo**. Não é recomendável definir a p
 
 |NOME|DESCRIÇÃO|
 |---|---|
-|**endTimestamp**|O limite de tempo final absoluto. Aplica-se ao Video on Demand (VoD). Para a apresentação Live, ela é silenciosamente ignorada e aplicada quando a apresentação termina e o fluxo se torna VoD.<br/><br/>O valor representa um ponto final absoluto do fluxo. Ele é arredondado para o próximo início do GOP.<br/><br/>Use StartTimestamp e EndTimestamp para aparar a lista de reprodução (manifesto). Por exemplo, StartTimestamp = 40000000 e EndTimestamp = 100000000 gerará uma lista de reprodução que contém mídia entre StartTimestamp e EndTimestamp. Se um fragmento ultrapassar o limite, o fragmento inteiro será incluído no manifesto.<br/><br/>Além disso, consulte a definição **forceEndTimestamp** a seguir.|
-|**forceEndTimestamp**|Se aplica aos filtros em tempo real.<br/><br/>**forceEndTimestamp** é um valor booliano que indica se ou não **endTimestamp** foi definido como um valor válido. <br/><br/>Se o valor for **verdadeiro**, o valor **endTimestamp** deverá ser especificado. Se não for especificado, uma solicitação incorreta será retornada.<br/><br/>Se, por exemplo, você quiser definir um filtro que comece com 5 minutos no vídeo de entrada e dure até o final do fluxo, defina **forceEndTimestamp** como false e omita a configuração  **endTimestamp**.|
-|**liveBackoffDuration**|Aplica-se útil apenas. A propriedade é usada para definir a posição de reprodução ao vivo. Usando essa regra, você pode atrasar a posição de reprodução ao vivo e criar um buffer do lado do servidor para os jogadores. LiveBackoffDuration é relativo à posição ao vivo. A duração máxima de retirada ao vivo é de 300 segundos.|
-|**presentationWindowDuration**|Aplica-se útil. Use **presentationWindowDuration** para aplicar uma janela deslizante à lista de reprodução. Por exemplo, definir presentationWindowDuration = 1200000000 para aplicar uma janela deslizante de dois minutos. Mídia dentro de 2 minutos da borda ao vivo será incluída na lista de reprodução. Se um fragmento ultrapassar o limite, todo o fragmento será incluído na lista de reprodução. A duração mínima da janela de apresentação é de 60 segundos.|
-|**startTimestamp**|Aplica-se a fluxos de VoD ou ao vivo. O valor representa um ponto inicial absoluto do fluxo. O valor é arredondado para o próximo início de GOP mais próximo.<br/><br/>Use **startTimestamp** e **endTimestamp** para aparar a lista de reprodução (manifesto). Por exemplo, startTimestamp = 40000000 e endTimestamp = 100000000 gerarão uma lista de reprodução que contém mídia entre StartTimestamp e EndTimestamp. Se um fragmento ultrapassar o limite, o fragmento inteiro será incluído no manifesto.|
-|**Escala de tempo**|Aplica-se a fluxos de VoD ou ao vivo. A escala de tempo usada pelos timestamps e durações especificadas acima. A escala de tempo padrão é 10000000. Uma escala de tempo alternativa pode ser usada. O padrão é 10000000 HNS (cem nanossegundos).|
+|**endTimestamp**|Aplica-se ao Video on Demand (VoD).<br/>Para a apresentação de transmissão ao vivo, ela será silenciosamente ignorada e aplicada quando as extremidades de apresentação e o fluxo se torna VoD.<br/>Isso é um valor longo que representa um ponto de extremidade absoluto da apresentação, arredondado para o próximo início de GOP mais próximo. A unidade é a escala de tempo, portanto, seria um endTimestamp de 1800000000 para 3 minutos.<br/>Use startTimestamp e endTimestamp para cortar os fragmentos que estarão na lista de reprodução (manifesto).<br/>Por exemplo, startTimestamp = 40000000 e endTimestamp = 100000000 usando a escala de tempo padrão irá gerar uma lista de reprodução que contém os fragmentos de intervalo entre 4 segundos e 10 segundos da apresentação VoD. Se um fragmento ultrapassar o limite, o fragmento inteiro será incluído no manifesto.|
+|**forceEndTimestamp**|Aplica-se à transmissão ao vivo.<br/>Indica se a propriedade endTimestamp deve estar presente. Se for true, endTimestamp deve ser especificado ou um código de solicitação incorreta é retornado.<br/>Valores permitidos: false, true.|
+|**liveBackoffDuration**|Aplica-se à transmissão ao vivo.<br/> Esse valor define a posição mais recentes ao vivo em que um cliente pode buscar.<br/>Usando essa propriedade, você pode atrasar a posição de reprodução ao vivo e criar um buffer do lado do servidor para os jogadores.<br/>A unidade para essa propriedade é a escala de tempo (veja abaixo).<br/>O máximo ao vivo-a duração é de 300 segundos (3000000000).<br/>Por exemplo, um valor de 2000000000 significa que o conteúdo mais recente disponível é de 20 segundos atrasado da borda ao vivo real.|
+|**presentationWindowDuration**|Aplica-se à transmissão ao vivo.<br/>Use presentationWindowDuration para aplicar uma janela deslizante de fragmentos para incluir em uma lista de reprodução.<br/>A unidade para essa propriedade é a escala de tempo (veja abaixo).<br/>Por exemplo, definir presentationWindowDuration = 1200000000 para aplicar uma janela deslizante de dois minutos. Mídia dentro de 2 minutos da borda ao vivo será incluída na lista de reprodução. Se um fragmento ultrapassar o limite, todo o fragmento será incluído na lista de reprodução. A duração mínima da janela de apresentação é de 60 segundos.|
+|**startTimestamp**|Aplica-se ao vídeo sob demanda (VoD) ou transmissão ao vivo.<br/>Isso é um valor longo que representa um ponto de partida absoluto do fluxo. O valor é arredondado para o próximo início de GOP mais próximo. A unidade é a escala de tempo, portanto, seria um startTimestamp de 150000000 para 15 segundos.<br/>Use startTimestamp e endTimestampp para cortar os fragmentos que estarão na lista de reprodução (manifesto).<br/>Por exemplo, startTimestamp = 40000000 e endTimestamp = 100000000 usando a escala de tempo padrão irá gerar uma lista de reprodução que contém os fragmentos de intervalo entre 4 segundos e 10 segundos da apresentação VoD. Se um fragmento ultrapassar o limite, o fragmento inteiro será incluído no manifesto.|
+|**Escala de tempo**|Aplica-se a todos os carimbos de hora e durações em um intervalo de tempo de apresentação, especificado como o número de incrementos em um segundo.<br/>O padrão é 10000000 - dez milhões de incrementos em um segundo, em que cada incremento seria longo de 100 nanossegundos.<br/>Por exemplo, se você desejar definir um startTimestamp em 30 segundos, você usaria um valor de 300000000 ao usar a escala de tempo padrão.|
 
 ### <a name="tracks"></a>Faixas
 
-Você especifica uma lista de condições de propriedade da faixa de filtro (FilterTrackPropertyConditions) com base nas quais as faixas de seu fluxo (Live ou Video on Demand) devem ser incluídas no manifesto criado dinamicamente. Os filtros são combinados usando uma operação lógica **E** e **OU**.
+Você especifica uma lista de condições de propriedade de controle de filtro (FilterTrackPropertyConditions) com base no qual as faixas do seu fluxo (transmissão ao vivo ou vídeo sob demanda) devem ser incluídas no manifesto criado dinamicamente. Os filtros são combinados usando uma operação lógica **E** e **OU**.
 
 As condições de propriedade da faixa de filtro descrevem tipos de trilha, valores (descritos na tabela a seguir) e operações (Equal, NotEqual). 
 
 |NOME|DESCRIÇÃO|
 |---|---|
 |**Bitrate**|Use a taxa de bits da faixa para filtragem.<br/><br/>O valor recomendado é um intervalo de bitrates, em bits por segundo. Por exemplo, "0-2427000".<br/><br/>Nota: embora você possa usar um valor de taxa de bits específico, como 250000 (bits por segundo), essa abordagem não é recomendada, pois as taxas de bits exatas podem variar de um ativo para outro.|
-|**FourCC**|Use o valor de FourCC da faixa para filtragem.<br/><br/>O valor é o primeiro elemento do formato de codecs, conforme especificado na [6381 RFC](https://tools.ietf.org/html/rfc6381). Atualmente, há suporte para os seguintes codecs: <br/>Vídeo: "Avc1", "hev1", "hvc1"<br/>Para áudio: "Mp4a", "ec-3"<br/><br/>Para determinar os valores de FourCC para faixas em um ativo [obter e examine o arquivo de manifesto](#get-and-examine-manifest-files).|
+|**FourCC**|Use o valor de FourCC da faixa para filtragem.<br/><br/>O valor é o primeiro elemento do formato de codecs, conforme especificado na [6381 RFC](https://tools.ietf.org/html/rfc6381). Atualmente, há suporte para os seguintes codecs: <br/>Vídeo: "Avc1", "hev1", "hvc1"<br/>Para áudio: "Mp4a", "ec-3"<br/><br/>Para determinar os valores de FourCC para faixas em um ativo, obter e examine o arquivo de manifesto.|
 |**Linguagem**|Use a linguagem da faixa para filtragem.<br/><br/>O valor é a tag de um idioma que você deseja incluir, conforme especificado no RFC 5646. Por exemplo, “in”|
 |**Nome**|Use o nome da faixa para filtragem.|
 |**Tipo**|Use o tipo da faixa para filtragem.<br/><br/>Os seguintes valores são permitidos: "video", "áudio" ou "texto".|

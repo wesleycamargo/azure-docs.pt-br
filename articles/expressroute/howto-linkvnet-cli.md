@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: anzaman,cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: ae97fff6a81f437510def1141dd226ad4e67209a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 5ddcfe14873d13384b043f7a977dc4f069dbe8dd
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074036"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57408251"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Conectar uma rede virtual a um circuito de ExpressRoute usando a CLI
 
@@ -125,7 +125,7 @@ az network express-route auth delete --circuit-name MyCircuit -g ExpressRouteRes
 O usuário do circuito precisa da ID do par e de uma chave de autorização do proprietário do circuito. A chave de autorização é um GUID.
 
 ```azurecli
-Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
+Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 ```
 
 **Resgatar uma autorização de conexão**

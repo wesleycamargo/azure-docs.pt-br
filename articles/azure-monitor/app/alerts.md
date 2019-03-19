@@ -13,30 +13,29 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 233ce5623195a9a661f67b5c3ded40e68c8eb33a
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: c1165fcebf8382d30b1be86f102da78ef0a4ac9a
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54843507"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244359"
 ---
 # <a name="set-alerts-in-application-insights"></a>Definir alertas no Application Insights
 O [Azure Application Insights][start] pode alertá-lo sobre as alterações nas métricas de desempenho ou de uso do aplicativo Web. 
 
 O Application Insights monitora o aplicativo ativo em um [ampla variedade de plataformas][platforms] para ajudá-lo a diagnosticar problemas de desempenho e compreender os padrões de uso.
 
-Há três tipos de alerta:
+Há vários tipos de alertas:
 
-* Os **alertas de métrica** informam quando uma métrica ultrapassa um valor limite durante determinado período – como tempos de resposta, contagens de exceção, uso da CPU ou exibições de página. 
+* [**Alertas de métrica** ](../../azure-monitor/platform/alerts-metric-overview.md) informam quando uma métrica ultrapassa um valor limite durante determinado período – como tempos de resposta, contagens de exceção, uso da CPU ou exibições de página.
+* [**Alertas de log** ](../../azure-monitor/platform/alerts-unified-log.md) é usado para descrever alertas em que o sinal de alerta se baseia em uma consulta do Kusto personalizada.
 * Os [**testes da Web**][availability] informam quando site está indisponível na Internet ou está respondendo com lentidão. [Saiba mais][availability].
 * Os [**diagnósticos proativos**](../../azure-monitor/app/proactive-diagnostics.md) são configurados automaticamente para notificar você sobre padrões de desempenho incomuns.
 
-Vamos nos concentrar nos alertas de métricas deste artigo.
-
 ## <a name="set-a-metric-alert"></a>Definir um alerta de Métrica
-Abra a folha Regras de alerta e, em seguida, use o botão adicionar. 
+Abra a guia regras de alerta e, em seguida, use o botão Adicionar.
 
-![Na folha das Regras de alerta, escolha Adicionar Alerta. Defina seu aplicativo como o recurso a ser medido, forneça um nome para o alerta e escolha uma métrica.](./media/alerts/01-set-metric.png)
+![Na guia regras de alerta, escolha Adicionar alerta. Defina seu aplicativo como o recurso a ser medido, forneça um nome para o alerta e escolha uma métrica.](./media/alerts/01-set-metric.png)
 
 * Defina o recurso antes de outras propriedades. **Escolha o recurso "(componentes)"** se desejar definir alertas em métricas de desempenho ou de uso.
 * O nome dado ao alerta deve ser exclusivo dentro do grupo de recursos (não apenas no seu aplicativo).
@@ -44,21 +43,21 @@ Abra a folha Regras de alerta e, em seguida, use o botão adicionar.
 * Se você marcar a caixa “Proprietários de email...”, os alertas serão enviados por email para qualquer pessoa que tenha acesso a esse grupo de recursos. Para expandir esse grupo de pessoas, adicione-as à [assinatura ou grupo de recursos](../../azure-monitor/app/resources-roles-access-control.md) (não o recurso).
 * Se você especificar “Emails adicionais”, os alertas serão enviados aos indivíduos ou grupos (sem levar em conta se a caixa “proprietários de email...” foi marcada ou não). 
 * Defina um [endereço de webhook](../../azure-monitor/platform/alerts-webhooks.md) se tiver configurado um aplicativo Web que responda aos alertas. Ele é chamado quando o alerta é ativado e quando ele está resolvido. (Mas observe que, no momento, os parâmetros de consulta não são passados como propriedades de webhook)
-* É possível Desabilitar ou Habilitar o alerta: veja os botões na parte superior da folha.
+* Você pode desabilitar ou habilitar o alerta: Veja os botões na parte superior.
 
-*Não vejo o botão Adicionar Alerta.* 
+*Não vejo o botão Adicionar Alerta.*
 
-* Você está usando uma conta organizacional? Você poderá definir alertas se tiver acesso de proprietário ou colaborador a esse recurso de aplicativo. Vejamos a folha Controle de Acesso. [Saiba mais sobre o controle de acesso][roles].
+* Você está usando uma conta organizacional? Você poderá definir alertas se tiver acesso de proprietário ou colaborador a esse recurso de aplicativo. Examine a guia de controle de acesso. [Saiba mais sobre o controle de acesso][roles].
 
 > [!NOTE]
-> Na folha de alertas, já existe uma configuração de alerta: [Diagnóstico proativo](../../azure-monitor/app/proactive-failure-diagnostics.md). O alerta automático monitora uma métrica específica, taxa de falha de solicitação. A menos que você opte por desabilitar o alerta proativo, não precisa definir seu próprio alerta na taxa de falha de solicitação. 
+> Na folha de alertas, já existe uma configuração de alerta: [Diagnóstico proativo](../../azure-monitor/app/proactive-failure-diagnostics.md). O alerta automático monitora uma métrica específica, taxa de falha de solicitação. A menos que você opte por desabilitar o alerta proativo, não precisa definir seu próprio alerta na taxa de falha de solicitação.
 > 
 > 
 
 ## <a name="see-your-alerts"></a>Ver seus alertas
 Você recebe um email quando o estado de um alerta é mudado de inativo para ativo. 
 
-O estado atual de cada alerta é mostrado na folha de regras de Alerta.
+O estado atual de cada alerta é mostrado na guia regras de alerta.
 
 Há um resumo da atividade recente no menu suspenso de alertas:
 
@@ -66,7 +65,7 @@ Há um resumo da atividade recente no menu suspenso de alertas:
 
 O histórico das alterações de estado está no Log de Atividades:
 
-![Na folha Visão geral, clique em Configurações, Logs de Auditoria](./media/alerts/09-alerts.png)
+![Na guia Visão geral, clique em configurações, logs de auditoria](./media/alerts/09-alerts.png)
 
 ## <a name="how-alerts-work"></a>Como funcionam os alertas
 * Um alerta tem três estados: "Nunca ativado", "Ativado" e "Resolvido". Ativado significa que a condição especificada era true, quando ela foi avaliada pela última vez.
@@ -91,13 +90,68 @@ Alguns alertas populares são:
 
 Não se esqueça de que [diagnósticos de taxa de falha proativos](../../azure-monitor/app/proactive-failure-diagnostics.md) monitoram automaticamente a taxa em que seu aplicativo responde às solicitações com códigos de falha.
 
+## <a name="how-to-set-an-exception-alert-using-custom-log-search"></a>Como definir um alerta de exceção usando a pesquisa de log personalizado
+
+Nesta seção, veremos como definir um alerta de exceção baseado em consulta. Neste exemplo, digamos que um alerta quando a taxa de falha é maior que 10% nas últimas 24 horas.
+
+1. Vá para seu recurso do Application Insights no portal do Azure.
+2. À esquerda, em Configurar clique em **alerta**.
+
+    ![À esquerda, em Configurar clique alerta](./media/alerts/1appinsightalert.png)
+
+3. Na parte superior da guia alerta, selecione **nova regra de alerta**.
+
+     ![Na parte superior da guia alerta, clique em nova regra de alerta](./media/alerts/2createalert.png)
+
+4. O recurso deve ser selecionada automaticamente. Para definir uma condição, clique em **Adicionar condição**.
+
+    ![Clique em Adicionar condição](./media/alerts/3addcondition.png)
+
+5. Na guia Configurar sinal lógica selecione **pesquisa de logs personalizada**
+
+    ![Clique em pesquisa de log personalizado](./media/alerts/4customlogsearch.png)
+
+6. Na guia de pesquisa de log personalizado, insira sua consulta na caixa de "Consulta de pesquisa". Neste exemplo, usaremos a consulta do Kusto abaixo.
+    ```kusto
+    let percentthreshold = 10;
+    let period = 24h;
+    requests
+    | where timestamp >ago(period)
+    | summarize requestsCount = sum(itemCount)
+    | project requestsCount, exceptionsCount = toscalar(exceptions | where timestamp >ago(period) | summarize sum(itemCount))
+    | extend exceptionsRate = toreal(exceptionsCount)/toreal(requestsCount) * 100
+    | where exceptionsRate > percentthreshold
+
+    ```
+
+    ![Digite a consulta na caixa de consulta de pesquisa](./media/alerts/5searchquery.png)
+    
+    > [!NOTE]
+    > Você também pode aplicar essas etapas para outros tipos de alertas com base em consulta. Você pode aprender mais sobre a linguagem de consulta Kusto deste [Kusto Introdução doc](https://docs.microsoft.com/azure/kusto/concepts/) ou isso [folha de dados do SQL para Kusto](https://docs.microsoft.com/azure/kusto/query/sqlcheatsheet)
+
+7. Em "Lógica de alerta", escolha a se ela é baseada no número de resultados ou medição métrica. Em seguida, selecione a condição (igual a, menor que, maior que) e um limite. Enquanto você estiver alterando esses valores, você pode observar as alterações de frase de visualização de condição. Neste exemplo estamos usando "igual a".
+
+    ![Em Alert logic escolher entre as opções fornecidas para com base no e a condição e digite um limite](./media/alerts/6alertlogic.png)
+
+8. Em "Avaliadas com base em", defina o período e frequência. O período de aqui deve corresponder ao valor que colocamos para período na consulta acima. Em seguida, clique em **feito**.
+
+    ![Definir o período e frequência na parte inferior e, em seguida, clique em concluído](./media/alerts/7evaluate.png)
+
+9. Agora, podemos ver a condição que criamos com o custo mensal estimado. Abaixo sob ["Grupos de ação"](../platform/action-groups.md) você pode criar um novo grupo ou selecione um existente. Se você quiser, você pode personalizar as ações.
+
+    ![Clique em Selecionar ou criar botões no grupo de ação](./media/alerts/8actiongroup.png)
+
+10. Por fim, adicione seus detalhes do alerta (nome da regra, a descrição, a severidade do alerta). Quando você terminar, clique em **criar regra de alerta** na parte inferior.
+
+    ![Em detalhes do alerta digite seu nome de regra de alerta, escreva uma descrição e selecione uma severidade ](./media/alerts/9alertdetails.png)
+
 ## <a name="who-receives-the-classic-alert-notifications"></a>Quem recebe as notificações de alerta (clássicas)?
 
-Esta seção só se aplica aos alertas clássicos e ajudará você a otimizar suas notificações de alerta para fazer com que somente os destinatários desejados recebam notificações. Para saber mais sobre a diferença entre [alertas clássicos](../platform/alerts-classic.overview.md) e a nova experiência de alertas, confira o [artigo sobre visão geral de alertas](../platform/alerts-overview.md). Para controlar a notificação de alerta na nova experiência de alertas, use [grupos de ação](../platform/action-groups.md).
+Esta seção só se aplica aos alertas clássicos e ajudará você a otimizar suas notificações de alerta para fazer com que somente os destinatários desejados recebam notificações. Para saber mais sobre a diferença entre [alertas clássicos](../platform/alerts-classic.overview.md) e a experiência de novos alertas, consulte o [artigo de visão geral de alertas](../platform/alerts-overview.md). Para controlar a notificação de alerta na nova experiência de alertas, use [grupos de ação](../platform/action-groups.md).
 
 * Recomendamos o uso de destinatários específicos para notificações de alertas clássicos.
 
-* Para alertas sobre métrica do Application Insights (incluindo métrica de disponibilidade), a opção de caixa de seleção **em massa/em grupo**, se habilitada, envia para os usuários com funções de leitor, colaborador ou proprietário na assinatura. Na verdade, _todos_ os usuários com acesso à assinatura do recurso do Application Insights fazem parte do escopo e receberão notificações. 
+* Para alertas sobre métrica do Application Insights (incluindo métrica de disponibilidade), a opção de caixa de seleção **em massa/em grupo**, se habilitada, envia para os usuários com funções de leitor, colaborador ou proprietário na assinatura. Na verdade, _todos_ os usuários com acesso à assinatura do recurso do Application Insights fazem parte do escopo e receberão notificações.
 
 > [!NOTE]
 > Se você estiver usando a opção de caixa de seleção **em massa/grupo** e desabilitá-la, não poderá reverter a alteração.
@@ -107,10 +161,6 @@ Use a nova experiência de alerta/alertas quase em tempo real caso precise notif
 ## <a name="automation"></a>Automação
 * [Usar o PowerShell para automatizar a configuração de alertas](../../azure-monitor/app/powershell-alerts.md)
 * [Usar webhooks para automatizar a resposta a alertas](../../azure-monitor/platform/alerts-webhooks.md)
-
-## <a name="video"></a>Vídeo
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="see-also"></a>Consulte também
 * [Testes de disponibilidade na Web](../../azure-monitor/app/monitor-web-app-availability.md)

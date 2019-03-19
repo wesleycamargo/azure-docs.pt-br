@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: a7461f6160c4c848106b16b1a9eaacb96ddf7499
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 13ea2b68027c81bca7b43cef62cf7039aa0ea8dd
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699135"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443463"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Blueprint de conformidade e segurança do Azure - Aplicativo Web de IaaS de três camadas para OFICIAL DO REINO UNIDO
 
@@ -25,7 +25,7 @@ ms.locfileid: "55699135"
 
  O NCSC recomenda que seus Princípios de Segurança de Nuvem sejam usados pelos clientes para avaliar as propriedades de segurança do serviço e para ajudar a entender a divisão de responsabilidades entre cliente e fornecedor. Fornecemos informações em relação a cada um desses princípios para ajudá-lo a entender a divisão das responsabilidades.
 
- Essa arquitetura e modelos correspondentes do Azure Resource Manager têm suporte do white paper da Microsoft [14 Cloud Security Controls for UK cloud Using Microsoft Azure](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1). Este documento cataloga como os serviços do Azure estão de acordo com os Princípios de Segurança de Rede 14 do UK NCSC, permitindo que as organizações agilizem sua capacidade de atender às obrigações de conformidade usando serviços baseados em nuvem globalmente e no Reino Unido na nuvem do Microsoft Azure.
+ Essa arquitetura e modelos correspondentes do Azure Resource Manager têm suporte do white paper da Microsoft [14 Cloud Security Controls for UK cloud Using Microsoft Azure](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1). Este documento cataloga os serviços do Azure como se alinhar com o UK NCSC 14 princípios de segurança, permitindo que as organizações agilizem sua capacidade para atender às suas obrigações de conformidade usando serviços baseados em nuvem globalmente e no Reino Unido no Microsoft Azure nuvem.
 
  Este modelo implanta a infraestrutura para a carga de trabalho. O código do aplicativo e o software de camada de dados e de negócios precisa estar instalado e configurado. As instruções detalhadas de implantação estão disponíveis [aqui](https://aka.ms/ukwebappblueprintrepo).
 
@@ -176,7 +176,7 @@ Essas VNets ainda são gerenciados como recursos separados, mas aparecem como um
 
 **Logs de Firewall**: O Gateway de Aplicativo fornece logs completos de diagnóstico e de acesso. Logs do firewall estão disponíveis para recursos de gateway de aplicativo que têm o WAF habilitado.
 
-**Arquivamento de Log**: O armazenamento de dados de log pode ser configurado para gravação em uma conta centralizada de armazenamento do Azure para arquivamento e um período de retenção definido. Os logs podem ser processados usando o Azure Log Analytics ou por sistemas SIEM de terceiros.
+**Arquivamento de Log**: Armazenamento de dados de log pode ser configurado para gravar em uma conta de armazenamento do Azure centralizada para arquivamento e um período de retenção definido. Os logs podem ser processados usando os logs do Azure Monitor ou por sistemas SIEM de terceiros.
 
 ### <a name="identity"></a>Identidade
 
@@ -208,7 +208,7 @@ Os clientes podem optar por usar um [modelo administrativo de segurança aprimor
 
 **Restrições de Controle de Acesso**: Use o [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) (Controle de Acesso Baseado em Função) para gerenciar os recursos em seu aplicativo usando [funções personalizadas](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). O RBAC pode ser usado para restringir as operações que o DevOps pode executar em cada camada. Ao conceder permissões, use o [princípio de privilégios mínimos](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1). Registre em log todas as operações administrativas e execute auditorias regulares para confirmar se todas as alterações de configuração foram planejadas.
 
-**Acesso à Internet**: Essa arquitetura de referência usa o [Gateway de Aplicativo do Azure](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) como o gateway para a Internet e o balanceador de carga. Alguns clientes também podem pensar em usar soluções de virtualização de rede de terceiros para camadas adicionais de segurança como uma alternativa ao [Gateway de Aplicativo do Azure](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction).
+**Acesso à Internet**: Essa arquitetura de referência utiliza [Gateway de aplicativo do Azure](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) como o balanceador de carga e gateway de internet. Alguns clientes também podem pensar em usar soluções de virtualização de rede de terceiros para camadas adicionais de segurança como uma alternativa ao [Gateway de Aplicativo do Azure](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction).
 
 **Central de Segurança do Azure**: A [Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro) fornece uma visão central do status de segurança dos recursos na assinatura, além de recomendações que ajudam a impedir que os recursos sejam comprometidos. Ele também pode ser usado para habilitar políticas mais refinadas. Por exemplo, as políticas podem ser aplicadas a grupos de recursos específicos, o que permite que a empresa personalize sua postura de risco. É recomendável que os clientes habilitem a Central de Segurança do Azure em sua assinatura do Azure.
 
@@ -226,7 +226,7 @@ Além disso, a CSA (Cloud Security Alliance) publicou a Matriz de Controle de Nu
 
 ## <a name="deploy-the-solution"></a>Implantar a solução
 
-Há dois métodos que os usuários de implantação podem usar para implantar essa automação do projeto. O primeiro método usa um script do PowerShell e o segundo usa o portal do Azure para implantar a arquitetura de referência. As instruções detalhadas de implantação estão disponíveis [aqui](https://aka.ms/ukofficial-iaaswa-repo).
+Há dois métodos que os usuários de implantação podem usar para implantar essa automação do projeto. O primeiro método usa um script do PowerShell, enquanto o segundo método utiliza o portal do Azure para implantar a arquitetura de referência. As instruções detalhadas de implantação estão disponíveis [aqui](https://aka.ms/ukofficial-iaaswa-repo).
 
 ## <a name="disclaimer"></a>Isenção de responsabilidade
 

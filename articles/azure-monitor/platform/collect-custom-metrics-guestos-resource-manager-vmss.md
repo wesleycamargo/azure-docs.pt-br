@@ -4,18 +4,20 @@ description: Enviar métricas do sistema operacional convidado para o repositór
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 2b032405a2fb3b8b608228d8a739bf91dcf439ef
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 64fb3acf9b134b7188d316633bc663d7dd9b14b8
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895934"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760215"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Enviar métricas do sistema operacional convidado para o repositório de métricas do Monitor do Azure usando um modelo do Azure Resource Manager para um conjunto de dimensionamento de máquina virtual do Windows
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Usando a extensão do [Windows Azure Diagnostics](diagnostics-extension-overview.md) do Monitor do Azure, é possível coletar métricas e logs do sistema operacional convidado (SO guest) executado como parte de uma máquina virtual, serviço de nuvem ou do Azure Service Fabric. grupo. A extensão pode enviar telemetria para vários locais diferentes listados no artigo vinculado anteriormente.  
 
@@ -27,7 +29,7 @@ Se você é novo nos modelos do Resource Manager, aprenda sobre [implantações 
 
 - Sua assinatura deve ser registrada com [Microsoft. Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
-- Você precisa ter [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) instalado, ou você pode usar [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). 
+- Você precisa ter [Azure PowerShell](/powershell/azure) instalado, ou você pode usar [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). 
 
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Configurar o Azure Monitor como um coletor de dados 
@@ -236,17 +238,17 @@ Salve e feche ambos os arquivos.
 Para implantar o modelo do Resource Manager, use o Azure PowerShell:  
 
 1. Inicie o PowerShell. 
-1. Entre no Azure usando `Login-AzureRmAccount`.
-1. Obtenha a lista de assinaturas usando `Get-AzureRmSubscription`.
+1. Entre no Azure usando `Login-AzAccount`.
+1. Obtenha a lista de assinaturas usando `Get-AzSubscription`.
 1. Defina a assinatura que você criará ou atualize a máquina virtual: 
 
    ```PowerShell
-   Select-AzureRmSubscription -SubscriptionName "<Name of the subscription>" 
+   Select-AzSubscription -SubscriptionName "<Name of the subscription>" 
    ```
 1. Crie um novo grupo de recursos para a VM sendo implantada. Execute o comando a seguir: 
 
    ```PowerShell
-    New-AzureRmResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 
+    New-AzResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 
    ```
 
    > [!NOTE]  
@@ -258,7 +260,7 @@ Para implantar o modelo do Resource Manager, use o Azure PowerShell:
    > Se você quiser atualizar um conjunto de escala existente, adicione **-Mode Incremental** ao final do comando. 
  
    ```PowerShell
-   New-AzureRmResourceGroupDeployment -Name "VMSSWADTest" -ResourceGroupName "VMSSWADtestGrp" -TemplateFile "<File path of your azuredeploy.JSON file>" -TemplateParameterFile "<File path of your azuredeploy.parameters.JSON file>"  
+   New-AzResourceGroupDeployment -Name "VMSSWADTest" -ResourceGroupName "VMSSWADtestGrp" -TemplateFile "<File path of your azuredeploy.JSON file>" -TemplateParameterFile "<File path of your azuredeploy.parameters.JSON file>"  
    ```
 
 1. Depois que sua implantação for bem-sucedida, você deverá localizar a escala da máquina virtual definida no portal do Azure. Ele deve emitir métricas para o Monitor do Azure. 

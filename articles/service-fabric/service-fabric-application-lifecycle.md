@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 1e714faa04717ac8e6687db3c074b8a77d649fb2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 65104503af2e177f1898d8509c2d82bd9b58c266
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217200"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446955"
 ---
 # <a name="service-fabric-application-lifecycle"></a>Ciclo de vida do aplicativo Service Fabric
 Semelhante a outras plataformas, um aplicativo no Azure Service Fabric geralmente passa pelas seguintes fases: design, desenvolvimento, teste, implantação, atualização, manutenção e remoção. O Service Fabric dá um excelente suporte ao ciclo de vida completo dos aplicativos em nuvem, desde o desenvolvimento até a implantação, gerenciamento diário, manutenção e possível encerramento. O modelo de serviço permite que várias funções diferentes participem do ciclo de vida do aplicativo de forma independente. Este artigo fornece uma visão geral das APIs e como elas são usadas pelas diferentes funções em todas as fases do ciclo de vida de um aplicativo da Malha do Serviço.
@@ -29,7 +29,7 @@ Semelhante a outras plataformas, um aplicativo no Azure Service Fabric geralment
 ## <a name="service-model-roles"></a>Funções do modelo de serviço
 As funções do modelo de serviço são:
 
-* **Desenvolvedor de serviço**: desenvolve serviços modulares e genéricos que podem ser redefinidos e usados em vários aplicativos do mesmo tipo ou de tipos diferentes. Por exemplo, um serviço de fila pode ser usado para criar um aplicativo de emissão de tíquetes (assistência técnica) ou um aplicativo de comércio eletrônico (carrinho de compras).
+* **Desenvolvedor de serviço**: Desenvolve serviços modulares e genéricos que podem ser redefinidos e usados em vários aplicativos do mesmo tipo ou tipos diferentes. Por exemplo, um serviço de fila pode ser usado para criar um aplicativo de emissão de tíquetes (assistência técnica) ou um aplicativo de comércio eletrônico (carrinho de compras).
 * **Desenvolvedor de aplicativo**: cria aplicativos integrando uma coleção de serviços para atender a determinados requisitos ou cenários específicos. Por exemplo, um site de comércio eletrônico pode integrar o “Serviço de Front-End JSON sem Monitoração de Estado”, "Serviço de Monitoração de Estado do Leilão" e "Serviço de Monitoração de Estado da Fila" para criar uma solução de leilão.
 * **Administrador de aplicativo**: toma decisões sobre a configuração do aplicativo (preenchendo os parâmetros do modelo de configuração), a implantação (mapeando para recursos disponíveis) e a qualidade do serviço. Por exemplo, um administrador do aplicativo decide a localidade do idioma do aplicativo (inglês para os EUA ou japonês para o Japão, por exemplo). Outro aplicativo implantado pode ter configurações diferentes.
 * **Operador**: implanta os aplicativos com base na configuração do aplicativo e nos requisitos especificados pelo administrador do aplicativo. Por exemplo, um operador provisiona, implanta o aplicativo e verifica se ele está em execução no Azure. Os operadores de monitoram as informações de integridade e de desempenho do aplicativo e mantêm a infra-estrutura física conforme necessário.

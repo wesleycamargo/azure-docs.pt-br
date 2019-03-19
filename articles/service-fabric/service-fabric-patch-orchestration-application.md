@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: 717b895696ca93444744955937c6de23626c7835
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: d5d7f45b4833bb535e98542ee513e9ea8bf0f9e5
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234741"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432984"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Patch do sistema operacional Windows em seu cluster do Service Fabric
 
@@ -60,6 +60,9 @@ O aplicativo de orquestração de patch é composto dos seguintes subcomponentes
 > O aplicativo de orquestração de patch usa o serviço do sistema do gerenciador de reparo do Service Fabric para habilitar ou desabilitar o nó e executar as verificações de integridade. A tarefa de reparo criada pelo aplicativo de orquestração de patch rastreia o progresso do Windows Update para cada nó.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
+> [!NOTE]
+> Versão mínima do .NET framework necessária é a 4.6.
 
 ### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>Habilite o serviço do gerenciador de reparo (se ainda não estiver em execução)
 
@@ -152,7 +155,7 @@ O comportamento do aplicativo de orquestração de patch pode ser configurado pa
 |MaxResultsToCache    |long                              | Número máximo de resultados do Windows Update, que devem ser armazenados em cache. <br>O valor padrão é 3000, supondo que o: <br> - Número de nós é 20. <br> - Número de atualizações acontecendo em um nó por mês seja de cinco. <br> – Número de resultados por operação possa ser de 10. <br> - Resultados para os últimos três meses devem ser armazenados. |
 |TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |A TaskApprovalPolicy indica a política a ser usada pelo Serviço do Coordinator para instalar atualizações do Windows em todos os nós de cluster do Service Fabric.<br>                         Valores permitidos são: <br>                                                           <b>NodeWise</b>. O Windows Update é instalado em um nó por vez. <br>                                                           <b>UpgradeDomainWise</b>. O Windows Update é instalado em um domínio de atualização por vez. (No máximo, todos os nós que pertencem a um domínio de atualização podem ir para o Windows Update.)<br> Consulte a seção [Perguntas Frequentes](#frequently-asked-questions) sobre como decidir qual é a política mais adequada para seu cluster.
 |LogsDiskQuotaInMB   |long  <br> (Padrão: 1024)               |Tamanho máximo dos logs do aplicativo de orquestração de patch em MB, que pode ser mantido localmente no nó.
-| WUQuery               | string<br>(Padrão: "IsInstalled=0")                | Consulta para obter atualizações do Windows. Para obter mais informações, consulte [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
+| WUQuery               | cadeia de caracteres<br>(Padrão: "IsInstalled=0")                | Consulta para obter atualizações do Windows. Para obter mais informações, consulte [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
 | InstallWindowsOSOnlyUpdates | BOOLEAN <br> (padrão: false)                 | Use esse sinalizador para controlar quais atualizações devem ser baixadas e instaladas. Os seguintes valores são permitidos <br>true – instala somente as atualizações do sistema operacional Windows.<br>false – instala todas as atualizações disponíveis no computador.          |
 | WUOperationTimeOutInMinutes | Int <br>(Padrão: 90)                   | Especifica o tempo limite para qualquer operação do Windows Update (pesquisar, baixar ou instalar). Se a operação não for concluída dentro do tempo limite especificado, ela será anulada.       |
 | WURescheduleCount     | Int <br> (Padrão: 5)                  | O número máximo de vezes que o serviço reagendaria o Windows Update no caso de falha persistente na operação.          |
@@ -415,4 +418,4 @@ Um administrador deve intervir e determinar por que o aplicativo ou cluster se t
 - Alteração do valor padrão de InstallWindowsOSOnlyUpdates para False.
 
 ### <a name="version-132"></a>Versão 1.3.2
-- Correção de um problema que efetuou o ciclo de vida de aplicação de patch em um nó caso haja nós com o nome que seja um subconjunto do nome do nó atual. Para esses nós, é possível que aplicação de patch seja ignorada ou a reinicialização fique pendente. 
+- Corrigindo um problema que afetado a aplicação de patch cyle de vida em um nó em caso de nós com o nome que é um subconjunto do nome do nó atual. Para esses nós, é possível que aplicação de patch seja ignorada ou a reinicialização fique pendente. 

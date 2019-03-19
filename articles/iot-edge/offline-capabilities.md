@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 7bf672715b45233807ab848c78aeb1bed2d352e9
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: e82c842ec8fce703c48c98eaf09ea5c8d91be9be
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699339"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57307982"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>Entender os recursos offline estendidos para dispositivos, módulos e dispositivos filho do IoT Edge (versão prévia)
 
@@ -73,7 +73,7 @@ Para melhorar a robustez, é recomendável que você especificar os endereços d
 
 ```json
 {
-    "dns": [“1.1.1.1”]
+    "dns": ["1.1.1.1"]
 }
 ```
 
@@ -136,7 +136,7 @@ Você pode configurar variáveis de ambiente e as opções de criação para o m
 
 Substitua `<HostStoragePath>` e `<ModuleStoragePath>` pelo seu caminho de armazenamento de host e módulo; o caminho de armazenamento do host e do módulo deve ser um caminho absoluto. Nas opções de criação, associe os caminhos de armazenamento do host e do módulo. Em seguida, crie uma variável de ambiente que aponta para o caminho de armazenamento do módulo.  
 
-Por exemplo, `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` significa que o diretório **/etc/iotedge/storage** no host do sistema é mapeado para o diretório **/iotedge/storage/** no contêiner. Ou outro exemplo de sistemas Windows: `"Binds":["C:\\temp:C:\\contemp]"` significa que o diretório **C:\\temp** no sistema do host é mapeado para o diretório **C:\\contemp** no contêiner. 
+Por exemplo, `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` significa que o diretório **/etc/iotedge/storage** no host do sistema é mapeado para o diretório **/iotedge/storage/** no contêiner. Ou outro exemplo de sistemas Windows: `"Binds":["C:\\temp:C:\\contemp"]` significa que o diretório **C:\\temp** no sistema do host é mapeado para o diretório **C:\\contemp** no contêiner. 
 
 Você também pode encontrar mais detalhes sobre opções de criação nos [documentos do Docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
 

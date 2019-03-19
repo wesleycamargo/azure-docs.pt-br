@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ergreenl
-ms.openlocfilehash: 1609d413604e172b9c718bd11768c495dfa8afe8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 734fb5ce641d48800cef68ea79cdb258e44ac267
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191407"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867092"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Habilite o Azure Active Directory Domain Services usando o portal do Azure
 
@@ -83,7 +83,7 @@ O processo de provisionamento de seu domínio gerenciado pode levar até uma hor
 
 3. A guia **Visão Geral** mostra que o domínio gerenciado está sendo provisionado no momento. Você não pode configurar o domínio gerenciado até que ele esteja totalmente provisionado. Pode levar até uma hora para que o domínio gerenciado seja totalmente provisionado.
 
-    ![Serviços de domínio – guia Visão Geral no estado de provisionamento ](./media/getting-started/domain-services-provisioning-state-details.png)
+    ![Serviços de domínio – guia Visão Geral no estado de provisionamento](./media/getting-started/domain-services-provisioning-state-details.png)
 
 4. Quando o domínio gerenciado está totalmente provisionado, a guia **Visão Geral** mostra o status do domínio como **Em execução**.
 

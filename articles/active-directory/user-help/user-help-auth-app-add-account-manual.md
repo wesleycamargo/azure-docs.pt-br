@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e82e8f6caafb38b758f552913def234a92a0d83
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 696b6b14b2a369e8b80ac615fc77fa7f48f51c57
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454643"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959928"
 ---
 # <a name="manually-add-an-account-to-the-app"></a>Adicionar uma conta manualmente ao aplicativo
 Se a câmera não conseguir capturar o código QR, você poderá adicionar manualmente as informações da conta ao aplicativo Microsoft Authenticator para verificação de dois fatores. Isso funciona para contas corporativas ou de estudante e contas não Microsoft.
@@ -90,9 +90,9 @@ Você pode adicionar sua conta da Amazon ativando a verificação de dois fatore
 
 4. Conclua o restante do processo de inscrição, incluindo a adição de um método de verificação de backup, tal como uma mensagem de texto. Em seguida, selecione **Enviar código**.
 
-5. Na página **Adicionar um método de verificação de backup** em seu computador, digite o código de verificação de seis dígitos fornecido pelo seu método de verificação de backup para sua conta da Amazon e, em seguida, selecione **Verificar código e continuar**.
+5. No computador, na página **Adicionar um método de verificação de backup**, digite o código de verificação de seis dígitos fornecido pelo método de verificação de backup para sua conta da Amazon e escolha **Verificar código e continuar**.
 
-6. Na página Quase concluído, decida se deseja tornar seu computador um dispositivo confiável e, em seguida, selecione **Entendi. Ative a verificação em duas etapas**.
+6. Na página Quase concluído, decida se deseja tornar seu computador um dispositivo confiável e escolha **Entendi. Ative a verificação em duas etapas**.
 
     A página **Configurações de Segurança Avançadas** é exibida, mostrando os detalhes da sua verificação de dois fatores atualizada.
 
@@ -102,5 +102,7 @@ Você pode adicionar sua conta da Amazon ativando a verificação de dois fatore
 ## <a name="next-steps"></a>Próximas etapas
 
 - Depois de adicionar as contas ao aplicativo, você poderá entrar usando o aplicativo Microsoft Authenticator em seu dispositivo. Para obter mais informações, confira [Entrar usando o aplicativo](user-help-auth-app-sign-in.md).
+
+- Se você estiver tendo problemas ao obter o código de verificação para sua conta pessoal da Microsoft, consulte o **solução de problemas de código de verificação** seção o [& verificação de informações de segurança de conta Microsoft códigos de](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-verification-codes) artigo.
 
 - Para dispositivos que executam o iOS, você também pode fazer backup das credenciais da sua conta e das configurações de aplicativos relacionadas, tais como a ordem de suas contas, na nuvem. Para obter mais informações, confira [Fazer backup e recuperar informações com o aplicativo Microsoft Authenticator](user-help-auth-app-backup-recovery.md).

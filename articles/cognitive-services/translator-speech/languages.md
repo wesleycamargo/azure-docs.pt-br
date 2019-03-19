@@ -10,18 +10,19 @@ ms.subservice: translator-speech
 ms.topic: conceptual
 ms.date: 3/5/2018
 ms.author: v-jansko
-ms.openlocfilehash: 482968af53694f7d40a7077435d33a83884c8808
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 63592a0afc7e5da0a37c25c226b92b587aa5f886
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873035"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673685"
 ---
 # <a name="languages-supported-by-the-translator-speech-api"></a>Idiomas com suporte da API de Tradução de Fala
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
-Os idiomas a seguir são compatíveis com tradução de fala. Se ambos os idiomas forem compatíveis com tradução de fala, a conversão de fala em fala ou a conversão de fala em texto estará disponível. Se não houver suporte para o idioma de destino para a tradução de fala, apenas a tradução com conversão de fala em texto estará disponível. 
+Os idiomas a seguir são compatíveis com tradução de fala. Se ambos os idiomas forem compatíveis com tradução de fala, a conversão de fala em fala ou a conversão de fala em texto estará disponível. Se não houver suporte para o idioma de destino para a tradução de fala, apenas a tradução com conversão de fala em texto estará disponível.
 
 | Idioma de fala    |
 |:----------- |
@@ -34,9 +35,9 @@ Os idiomas a seguir são compatíveis com tradução de fala. Se ambos os idioma
 | Japonês      |
 | Português (Brasil)     |
 | Russo      |
-| Espanhol      | 
+| Espanhol      |
 
-A API de Tradução de Fala dá suporte aos seguintes idiomas como destino para tradução com conversão de fala em texto. 
+A API de Tradução de Fala dá suporte aos seguintes idiomas como destino para tradução com conversão de fala em texto.
 
 | Idioma de texto    | Código de idioma |
 |:----------- |:-------------:|
@@ -47,7 +48,7 @@ A API de Tradução de Fala dá suporte aos seguintes idiomas como destino para 
 | Búlgaro      | `bg`          |
 | Cantonês (tradicional)      | `yue`          |
 | Catalão      | `ca`          |
-| Chinês (simplificado)      | `zh-Hans`          | 
+| Chinês (simplificado)      | `zh-Hans`          |
 | Chinês (tradicional)      | `zh-Hant`          |
 | Croata      | `hr`          |
 | Tcheco      | `cs`          |
@@ -116,4 +117,4 @@ O recurso de Idiomas retorna a lista de idiomas compatíveis para fala, texto e 
 
 Para uma rápida olhada nos idiomas, o site Microsoft Translator mostra todos os idiomas compatíveis com a Speech API e a API de Tradução de Texto. Esta lista não inclui informações específicas do desenvolvedor, como códigos de idioma.
 
-[Veja a lista de idiomas](https://www.microsoft.com/translator/languages.aspx) 
+[Veja a lista de idiomas](https://www.microsoft.com/translator/languages.aspx)
