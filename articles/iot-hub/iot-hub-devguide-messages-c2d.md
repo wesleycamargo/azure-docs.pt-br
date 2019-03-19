@@ -1,19 +1,19 @@
 ---
 title: Entender mensagens de nuvem para o dispositivo Hub IoT do Azure| Microsoft Docs
 description: Guia do desenvolvedor - como usar mensagens de nuvem para o dispositivo com o Hub IoT. Inclui informações sobre o ciclo de vida da mensagem e as opções de configuração.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.author: dobett
-ms.openlocfilehash: 3f137ea80dc67bb075f34846e5563fb72c72b69a
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
-ms.translationtype: HT
+ms.openlocfilehash: c8424743f30ec1bbf8d8096f6630c7451bc910c8
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585638"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010235"
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>Enviar mensagens de nuvem para o dispositivo do Hub IoT
 

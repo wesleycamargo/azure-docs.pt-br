@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: f169c411-1bd7-4554-80c1-84351247bf94
 ms.date: 01/27/2017
-ms.openlocfilehash: 6c4144d26042729684e507b1afaa5e3006d8a34e
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: 180d90450497b38f107f3601944385a003f50282
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125923"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193501"
 ---
 # <a name="create-schemas-for-tracking-as2-messages-and-mdns-in-integration-accounts-for-azure-logic-apps"></a>Criar esquemas para acompanhamento de mensagens AS2 e MDNs em contas de integração para os Aplicativos Lógicos do Azure
 
@@ -56,7 +56,7 @@ Você pode usar esses esquemas de acompanhamento AS2 em sua conta de integraçã
 }
 ```
 
-| Propriedade | Tipo | DESCRIÇÃO |
+| Propriedade | Type | DESCRIÇÃO |
 | --- | --- | --- |
 | senderPartnerName | Cadeia de caracteres | O nome do parceiro do remetente da mensagem AS2. (Opcional) |
 | receiverPartnerName | Cadeia de caracteres | O nome do parceiro do destinatário da mensagem AS2. (Opcional) |
@@ -109,7 +109,7 @@ Você pode usar esses esquemas de acompanhamento AS2 em sua conta de integraçã
 }
 ```
 
-| Propriedade | Tipo | DESCRIÇÃO |
+| Propriedade | Type | DESCRIÇÃO |
 | --- | --- | --- |
 | senderPartnerName | Cadeia de caracteres | O nome do parceiro do remetente da mensagem AS2. (Opcional) |
 | receiverPartnerName | Cadeia de caracteres | O nome do parceiro do destinatário da mensagem AS2. (Opcional) |
@@ -140,4 +140,4 @@ Para obter informações sobre esquemas de acompanhamento do protocolo B2B, veja
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre o [monitoramento de mensagens B2B](logic-apps-monitor-b2b-message.md)
-* Saiba mais sobre [acompanhamento de mensagens B2B no Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)
+* Saiba mais sobre [rastreando mensagens B2B nos logs do Azure Monitor](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)
