@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: barclayn
-ms.openlocfilehash: c9e3a98b1073a2b198a341f31a320bba670b0596
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 4ced712b1b2716d85f0366ea892460053db598b8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117894"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076897"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Criptografia de dados em repouso no Azure
 
@@ -258,7 +258,7 @@ A criptografia do cliente dos dados do Banco de Dados SQL do Azure tem suporte p
 |                                  |                    | **Modelo de criptografia e gerenciamento de chaves** |                    |
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
 |                                  | **Lado do servidor usando chave de serviço gerenciado**     | **Lado do servidor usando gerenciado pelo cliente no Key Vault**             | **Lado do cliente usando gerenciado pelo cliente**      |
-| **Armazenamento e banco de dados**        |                    |                    |                    |                    |
+| **Armazenamento e banco de dados**        |                    |                    |                    |
 | Disco (IaaS)                      | -                  | Sim, RSA 2048-bit  | -                  |
 | SQL Server (IaaS)                | Sim                | Sim, RSA 2048-bit  | Sim                |
 | Banco de Dados SQL/SQL Data Warehouse do Azure | Sim                | Sim, RSA 2048-bit  | Sim                |
@@ -268,7 +268,7 @@ A criptografia do cliente dos dados do Banco de Dados SQL do Azure tem suporte p
 | Armazenamento do Microsoft Azure (Tabelas, Consultas)   | Sim                | -                  | Sim                |
 | Cosmos DB (DocumentDB)          | Sim                | -                  | -                  |
 | StorSimple                       | Sim                | -                  | Sim                |
-| Backup                           | -                  | -                  | Sim                |
+| Backup                           | Sim                | -                  | Sim                |
 | **Inteligência e Análise**   |                    |                    |                    |
 | Fábrica de dados do Azure               | Sim                | -                  | -                  |
 | Azure Machine Learning           | -                  | Versão prévia, RSA de 2048 bits | -                  |

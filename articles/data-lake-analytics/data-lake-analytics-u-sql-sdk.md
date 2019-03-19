@@ -8,12 +8,12 @@ ms.author: yanacai
 ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 03/01/2017
-ms.openlocfilehash: 6a73ef058a76152678099eca3f1bd15590b0b03d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 14908225e78b79cb748e712ae23643ddde4a4242
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238787"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089957"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Executar e testar U-SQL com o SDK do U-SQL do Azure Data Lake
 
@@ -32,11 +32,11 @@ O SDK para U-SQL do Data Lake exige as seguintes dependências:
 - [Microsoft .NET Framework 4.6 ou mais recente](https://www.microsoft.com/download/details.aspx?id=17851).
 - Microsoft Visual C++ 14 e SDK do Windows 10.0.10240.0 ou mais novo (que é chamado CppSDK neste artigo). Há duas maneiras de obter o CppSDK:
 
-    - Instalar o [Visual Studio Community Edition](https://developer.microsoft.com/downloads/vs-thankyou). Você terá uma pasta \Windows Kits\10 na pasta Arquivos de Programa – por exemplo, C:\Program Files (x86) \Windows Kits\10\. Você também encontrará a versão do SDK do Windows 10 em \Windows Kits\10\Lib. Se você não vir essas pastas, reinstale o Visual Studio e selecione o SDK do Windows 10 durante a instalação. Se você tiver isso instalado com o Visual Studio, o compilador local do U-SQL o encontrará automaticamente.
+  - Instalar o [Visual Studio Community Edition](https://developer.microsoft.com/downloads/vs-thankyou). Você terá uma pasta \Windows Kits\10 na pasta Arquivos de Programa – por exemplo, C:\Program Files (x86) \Windows Kits\10\. Você também encontrará a versão do SDK do Windows 10 em \Windows Kits\10\Lib. Se você não vir essas pastas, reinstale o Visual Studio e selecione o SDK do Windows 10 durante a instalação. Se você tiver isso instalado com o Visual Studio, o compilador local do U-SQL o encontrará automaticamente.
 
     ![SDK para Windows 10 da execução local das Ferramentas do Data Lake para Visual Studio](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-windows-10-sdk.png)
 
-    - Instalar [Ferramentas do Data Lake para Visual Studio](https://aka.ms/adltoolsvs). Você pode encontrar os arquivos pré-empacotados do SDK do Windows e Visual C++ em C:\Arquivos de Programas (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK. Nesse caso, o compilador local U-SQL não pode localizar as dependências automaticamente. Você precisa especificar o caminho CppSDK para ele. Você pode copiar os arquivos para outro local ou usá-los como estão.
+  - Instalar [Ferramentas do Data Lake para Visual Studio](https://aka.ms/adltoolsvs). Você pode encontrar os arquivos pré-empacotados do SDK do Windows e Visual C++ em C:\Arquivos de Programas (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK. Nesse caso, o compilador local U-SQL não pode localizar as dependências automaticamente. Você precisa especificar o caminho CppSDK para ele. Você pode copiar os arquivos para outro local ou usá-los como estão.
 
 ## <a name="understand-basic-concepts"></a>Entender os conceitos básicos
 
@@ -223,7 +223,7 @@ Aqui está um exemplo de uso:
 
 As interfaces de programação estão localizadas no LocalRunHelper.exe. Você pode usá-los para integrar a funcionalidade do SDK para U-SQL e a estrutura de teste C# a fim de dimensionar o teste local do script U-SQL. Neste artigo, usarei o projeto de teste de unidade padrão do C# para mostrar como usar essas interfaces para testar o script U-SQL.
 
-### <a name="step-1-create-c-unit-test-project-and-configuration"></a>Etapa 1: Criar o projeto de teste de unidade do C# e a configuração
+### <a name="step-1-create-c-unit-test-project-and-configuration"></a>Etapa 1: Criar C# configuração e projeto de teste de unidade
 
 - Crie um projeto de teste de unidade do C# por meio de Arquivo > Novo > Projeto > Visual C# > Teste > Projeto de Teste de Unidade.
 - Adicione LocalRunHelper.exe como uma referência do projeto. O LocalRunHelper.exe está localizado em \build\runtime\LocalRunHelper.exe no pacote NuGet.
@@ -240,7 +240,7 @@ As interfaces de programação estão localizadas no LocalRunHelper.exe. Você p
 
 - Lembre-se de copiar todos os arquivos de dependência em NugetPackage\build\runtime\ para o diretório de trabalho do projeto que, normalmente, está em ProjectFolder\bin\x64\Debug.
 
-### <a name="step-2-create-u-sql-script-test-case"></a>Etapa 2: Criar um caso de teste do script U-SQL
+### <a name="step-2-create-u-sql-script-test-case"></a>Etapa 2: Criar caso de teste do script U-SQL
 
 Veja abaixo o código de exemplo para o teste de script U-SQL. Para testar, você precisa preparar scripts, arquivos de entrada e os arquivos de saída esperados.
 
@@ -332,34 +332,34 @@ O LocalRunHelper.exe fornece as interfaces de programação para a compilação 
 
 public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
-|Parâmetro|Tipo|DESCRIÇÃO|
+|Parâmetro|Type|DESCRIÇÃO|
 |---------|----|-----------|
 |messageOutput|System.IO.TextWriter|para mensagens de saída, definido como nulo para usar o Console|
 
 **Propriedades**
 
-|Propriedade|Tipo|DESCRIÇÃO|
+|Propriedade|Type|DESCRIÇÃO|
 |--------|----|-----------|
-|AlgebraPath|string|O caminho para o arquivo de álgebra (o arquivo de álgebra é um dos resultados da compilação)|
-|CodeBehindReferences|string|Se o script tiver referências code-behind adicionais, especifique os caminhos separados por “;”|
-|CppSdkDir|string|Diretório do CppSDK|
-|CurrentDir|string|Diretório atual|
-|DataRoot|string|Caminho da raiz de dados|
-|DebuggerMailPath|string|O caminho para o slot de correio do depurador|
+|AlgebraPath|cadeia de caracteres|O caminho para o arquivo de álgebra (o arquivo de álgebra é um dos resultados da compilação)|
+|CodeBehindReferences|cadeia de caracteres|Se o script tiver referências code-behind adicionais, especifique os caminhos separados por “;”|
+|CppSdkDir|cadeia de caracteres|Diretório do CppSDK|
+|CurrentDir|cadeia de caracteres|Diretório atual|
+|DataRoot|cadeia de caracteres|Caminho da raiz de dados|
+|DebuggerMailPath|cadeia de caracteres|O caminho para o slot de correio do depurador|
 |GenerateUdoRedirect|bool|Se quisermos gerar a configuração de substituição do redirecionamento de carregamento do assembly|
 |HasCodeBehind|bool|Se o script tiver code-behind|
-|InputDir|string|Diretório dos dados de entrada|
-|MessagePath|string|Caminho do arquivo de despejo da mensagem|
-|OutputDir|string|Diretório dos dados de saída|
+|InputDir|cadeia de caracteres|Diretório dos dados de entrada|
+|MessagePath|cadeia de caracteres|Caminho do arquivo de despejo da mensagem|
+|OutputDir|cadeia de caracteres|Diretório dos dados de saída|
 |Paralelismo|int|Paralelismo para executar a álgebra|
 |ParentPid|int|PID do pai no qual o serviço monitora a saída, definido como 0 ou negativo para ignorar|
-|ResultPath|string|Caminho do arquivo de despejo do resultado|
-|RuntimeDir|string|Diretório do tempo de execução|
-|ScriptPath|string|Local em que o script pode ser encontrado|
+|ResultPath|cadeia de caracteres|Caminho do arquivo de despejo do resultado|
+|RuntimeDir|cadeia de caracteres|Diretório do tempo de execução|
+|ScriptPath|cadeia de caracteres|Local em que o script pode ser encontrado|
 |Shallow|bool|Compilação superficial ou não|
-|TempDir|string|Diretório temporário|
-|UseDataBase|string|Especifique o banco de dados a ser usado para o registro de assembly temporário code-behind, mestre por padrão|
-|WorkDir|string|Diretório de trabalho preferencial|
+|TempDir|cadeia de caracteres|Diretório temporário|
+|UseDataBase|cadeia de caracteres|Especifique o banco de dados a ser usado para o registro de assembly temporário code-behind, mestre por padrão|
+|WorkDir|cadeia de caracteres|Diretório de trabalho preferencial|
 
 
 **Método**
@@ -375,11 +375,11 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 ## <a name="faq-about-common-issue"></a>Perguntas frequentes sobre um problema comum
 
 ### <a name="error-1"></a>Erro 1:
-E_CSC_SYSTEM_INTERNAL: Erro interno. Não foi possível carregar o arquivo ou o assembly “ScopeEngineManaged.dll” ou uma de suas dependências. O módulo especificado não pôde ser encontrado.
+E_CSC_SYSTEM_INTERNAL: Erro interno! Não foi possível carregar o arquivo ou o assembly “ScopeEngineManaged.dll” ou uma de suas dependências. O módulo especificado não pôde ser encontrado.
 
 Verifique o seguinte:
 
-- Verifique se você tem o ambiente x64. A plataforma de destino do build e o ambiente de teste devem ser x64; consulte **Etapa 1: Criar configuração e projeto de teste de unidade do C#** acima.
+- Verifique se você tem o ambiente x64. A plataforma de destino de compilação e o ambiente de teste deve ser x64, consulte **etapa 1: Criar C# configuração e projeto de teste de unidade** acima.
 - Verifique se você copiou todos os arquivos de dependência em NugetPackage\build\runtime\ para o diretório de trabalho do projeto.
 
 

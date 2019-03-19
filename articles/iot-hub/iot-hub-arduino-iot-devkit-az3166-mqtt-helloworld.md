@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/02/2018
 ms.author: liydu
-ms.openlocfilehash: 8959c1d773a7e4ea79c7a7531c2bba578f2801e2
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 60520f5a72fd7e27d4ea64ac76511a00a727426e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158475"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57552003"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>Enviar mensagens para um servidor MQTT
 
 Os sistemas de Internet das Coisas (IoT) normalmente lidam com conexões de Internet de qualidade ruim, intermitentes ou lentas. MQTT é um protocolo de conectividade entre máquinas (M2M), que foi desenvolvido com esses desafios em mente. 
 
-A biblioteca de clientes MQTT usada aqui é parte do projeto [PEclipse Paho](http://www.eclipse.org/paho/), que fornece APIs para usar MQTT em vários meios de transporte.
+A biblioteca de clientes MQTT usada aqui é parte do projeto [PEclipse Paho](https://www.eclipse.org/paho/), que fornece APIs para usar MQTT em vários meios de transporte.
 
 ## <a name="what-you-learn"></a>O que você aprenderá
 
@@ -77,7 +77,7 @@ O Serial Monitor exibe todas as mensagens enviadas pelo esboço de exemplo. O es
 
 Se você encontrar problemas, consulte [as perguntas frequentes do Kit de Desenvolvedores de IoT](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) ou entre em contato conosco usando os seguintes canais:
 
-* [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
+* [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="see-also"></a>Consulte também

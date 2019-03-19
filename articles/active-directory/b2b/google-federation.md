@@ -1,5 +1,5 @@
 ---
-title: Adicionar o Google como provedor de identidade para o Azure Active Directory B2B | Microsoft Docs
+title: Adicionar Google como um provedor de identidade para B2B – Azure Active Directory | Microsoft Docs
 description: Associe ao Google para permitir que usuários convidados entrem em seus aplicativos Azure AD usando as próprias contas do Gmail
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d565d2215ac84d42b6682f4c4a52dd87278a70a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8c1d6f541123a3f31c22352d646d701c37356e51
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206830"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088308"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Adicionar o Google como provedor de identidade para usuários convidados B2B
 
@@ -62,8 +62,8 @@ Primeiramente, crie um novo projeto no Console de Desenvolvedores do Google para
    - `https://login.microsoftonline.com` 
    - `https://login.microsoftonline.com/te/<directory id>/oauth2/authresp` <br>(em que `<directory id>` é a ID do seu diretório)
    
-    > [!NOTE]
-    > Para localizar a ID do seu diretório, acesse https://portal.azure.com e, em **Azure Active Directory**, escolha **Propriedades** e copie o **ID do diretório**.
+     > [!NOTE]
+     > Para localizar a ID do seu diretório, acesse https://portal.azure.com e, em **Azure Active Directory**, escolha **Propriedades** e copie o **ID do diretório**.
 
    ![Criar ID do cliente OAuth](media/google-federation/google-create-oauth-client-id.png)
 
@@ -99,8 +99,8 @@ Agora, você definirá a ID do cliente e o segredo do cliente do Google, seja in
 ### <a name="to-delete-google-federation-in-the-azure-ad-portal"></a>Para excluir a federação do Google no portal do Azure AD: 
 1. Vá para o [Portal do Azure](https://portal.azure.com). No painel esquerdo, selecione **Azure Active Directory**. 
 2. Selecione **Relações organizacionais**.
-3. Selecione **Provedores de identidade** e, em seguida, clique no botão **Google**.
-4. Selecione **Google** e, em seguida, selecione **Excluir**. 
+3. Selecione **provedores de identidade**.
+4. Sobre o **Google** , selecione o menu de contexto (**...** ) e, em seguida, selecione **excluir**. 
    
    ![Provedor de identidade social excluído](media/google-federation/google-social-identity-providers.png)
 

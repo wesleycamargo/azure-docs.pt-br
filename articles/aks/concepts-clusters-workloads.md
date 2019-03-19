@@ -5,18 +5,18 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 7f964397b476d5a97ecdde0ae22bd6662a435e1a
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: bf1ff4391e65fea68ac019be8fde8709fb4422b2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456513"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181343"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceitos de Kubernetes para o serviço de Kubernetes do Azure (AKS)
 
-À medida que o desenvolvimento de aplicativos se move em direção a uma abordagem baseada em contêiner, a necessidade de orquestrar e gerenciar os recursos interconectados torna-se importante. O Kubernetes é a plataforma líder que fornece a capacidade de fornecer agendamento confiável de cargas de trabalho de aplicativos tolerantes a falhas. O Azure Kubernetes Service (AKS) é uma oferta gerenciada da Kubernetes que simplifica ainda mais a implantação e o gerenciamento de aplicativos baseados em contêiner.
+Como o desenvolvimento de aplicativos se mova em direção de uma abordagem baseada em contêiner, a necessidade para orquestrar e gerenciar recursos é importante. O Kubernetes é a plataforma líder que fornece a capacidade de fornecer agendamento confiável de cargas de trabalho de aplicativos tolerantes a falhas. O Azure Kubernetes Service (AKS) é uma oferta gerenciada da Kubernetes que simplifica ainda mais a implantação e o gerenciamento de aplicativos baseados em contêiner.
 
 Este artigo apresenta os principais componentes da infraestrutura do Kubernetes, como os *conjuntos mestre de clusters*, *nós* e *conjuntos de nós*. Recursos de carga de trabalho, como *pods*, *implantações* e *conjuntos*, também são apresentados, além de como agrupar recursos em *namespaces*.
 
@@ -28,7 +28,7 @@ Você pode criar e executar aplicativos modernos, portáteis e baseados em micro
 
 Como uma plataforma aberta, o Kubernetes permite que você construa seus aplicativos com sua linguagem de programação, sistema operacional, bibliotecas ou barramento de mensagens preferido. As ferramentas existentes de integração contínua e entrega contínua (CI/CD) podem ser integradas ao Kubernetes para agendar e implantar versões.
 
-O Serviço de Kubernetes do Azure (AKS) fornece um serviço de Kubernetes gerenciado que reduz a complexidade das tarefas de implantação e gerenciamento principal, incluindo a coordenação de atualizações. Os mestres de cluster do AKS são gerenciados pela plataforma do Azure e você paga apenas pelos nós do AKS que executam seus aplicativos. O AKS é criado sobre o mecanismo de Serviço de Kubernetes do Azure de software livre (mecanismo aks).
+O Serviço de Kubernetes do Azure (AKS) fornece um serviço de Kubernetes gerenciado que reduz a complexidade das tarefas de implantação e gerenciamento principal, incluindo a coordenação de atualizações. Os mestres de cluster do AKS são gerenciados pela plataforma do Azure e você paga apenas pelos nós do AKS que executam seus aplicativos. AKS é criado sobre o mecanismo do serviço do código-fonte aberto Azure Kubernetes ([aks-engine][aks-engine]).
 
 ## <a name="kubernetes-cluster-architecture"></a>Arquitetura de cluster do Kubernetes
 
@@ -41,7 +41,7 @@ Um cluster Kubernetes é dividido em dois componentes:
 
 ## <a name="cluster-master"></a>Mestre do cluster
 
-Quando você cria um cluster AKS, um mestre de cluster é criado e configurado automaticamente. Esse mestre de cluster é fornecido como um recurso gerenciado do Azure abstraído do usuário. Não há custo para o mestre de cluster, apenas os nós que fazem parte do cluster AKS.
+Quando você cria um cluster AKS, um mestre de cluster é criado e configurado automaticamente. Esse mestre de cluster é fornecido como um recurso gerenciado do Azure abstraído do usuário. Não há nenhum custo para o mestre do cluster, somente os nós que fazem parte do cluster do AKS.
 
 O mestre do cluster inclui os seguintes componentes principais do Kubernetes:
 
@@ -52,9 +52,11 @@ O mestre do cluster inclui os seguintes componentes principais do Kubernetes:
 
 O AKS fornece um mestre de cluster de locatário único, com um servidor de API dedicado, Agendador, etc. Você define o número e o tamanho dos nós e a plataforma do Azure configura a comunicação segura entre o mestre do cluster e os nós. A interação com o mestre do cluster ocorre por meio das APIs do Kubernetes, como `kubectl` ou o painel do Kubernetes.
 
-Esse cluster gerenciado gerenciado significa que você não precisa configurar componentes como um armazenamento *etcd* altamente disponível, mas isso também significa que você não pode acessar o mestre do cluster diretamente. Os upgrades para o Kubernetes são orquestrados por meio do CLI do Azure ou do portal do Azure, que atualiza o mestre do cluster e, em seguida, os nós. Para solucionar possíveis problemas, você pode examinar os logs de mestre do cluster por meio do Logs do Azure Monitor.
+Este mestre do cluster gerenciado significa que você não precisa configurar os componentes como altamente disponível *etcd* store, mas isso também significa que você não pode acessar diretamente o mestre do cluster. Os upgrades para o Kubernetes são orquestrados por meio do CLI do Azure ou do portal do Azure, que atualiza o mestre do cluster e, em seguida, os nós. Para solucionar possíveis problemas, você pode examinar os logs de mestre do cluster por meio do Logs do Azure Monitor.
 
 Se você precisar configurar o mestre do cluster de uma maneira específica ou precisar de acesso direto a eles, poderá implantar seu próprio cluster do Kubernetes usando [aks-engine][aks-engine].
+
+Para práticas recomendadas associadas, consulte [práticas recomendadas para segurança de cluster e as atualizações no AKS][operator-best-practices-cluster-security].
 
 ## <a name="nodes-and-node-pools"></a>Nós e pools de nós
 
@@ -62,15 +64,15 @@ Para executar seus aplicativos e serviços de suporte, é necessário um Kuberne
 
 - O `kubelet` é o agente do Kubernetes que processa as solicitações de orquestração do mestre do cluster e o agendamento da execução dos contêineres solicitados.
 - A rede virtual é tratada pelos *kube-proxy* em cada nó. As rotas de proxy o tráfego de rede e gerencia o endereçamento IP para os serviços e os pods.
-- O *tempo de execução do contêiner* é o componente que permite que aplicativos em contêiner sejam executados e interajam com recursos adicionais, como a rede virtual e o armazenamento. No AKS, o Docker é usado como o tempo de execução do contêiner.
+- O *tempo de execução do contêiner* é o componente que permite que aplicativos em contêiner sejam executados e interajam com recursos adicionais, como a rede virtual e o armazenamento. AKS, Moby é usado como o tempo de execução do contêiner.
 
 ![Máquina virtual do Azure e recursos de suporte para um nó do Kubernetes](media/concepts-clusters-workloads/aks-node-resource-interactions.png)
 
 O tamanho da VM do Azure para seus nós define quantas CPUs, quanto de memória e tamanho e tipo de armazenamento disponível (como SSD de alto desempenho ou HDD normal). Se você antecipar a necessidade de aplicativos que exijam grandes quantidades de CPU e memória ou armazenamento de alto desempenho, planeje o tamanho do nó de acordo. Você também pode aumentar o número de nós em seu cluster AKS para atender à demanda.
 
-No AKS, a imagem da VM para os nós em seu cluster é atualmente baseada no Ubuntu Linux. Quando você cria um cluster AKS ou aumenta o número de nós, a plataforma do Azure cria o número solicitado de VMs e as configura. Não há configuração manual para você realizar.
+No AKS, a imagem da VM para os nós em seu cluster é atualmente baseada no Ubuntu Linux. Quando você cria um cluster AKS ou aumenta o número de nós, a plataforma do Azure cria o número solicitado de VMs e as configura. Não há nenhuma configuração manual para executar.
 
-Se você precisar usar um SO de host diferente, um tempo de execução do contêiner ou incluir pacotes personalizados, poderá implantar seu próprio cluster do Kubernetes usando o [aks-engine][aks-engine]. O `aks-engine` upstream libera recursos e fornece opções de configuração antes que eles tenham suporte oficial nos clusters do AKS. Por exemplo, se você deseja usar contêineres do Windows ou um tempo de execução de contêiner diferente do Docker, é possível usar `aks-engine` para configurar e implantar um cluster do Kubernetes que atenda às suas necessidades atuais.
+Se você precisar usar um SO de host diferente, um tempo de execução do contêiner ou incluir pacotes personalizados, poderá implantar seu próprio cluster do Kubernetes usando o [aks-engine][aks-engine]. O `aks-engine` upstream libera recursos e fornece opções de configuração antes que eles tenham suporte oficial nos clusters do AKS. Por exemplo, se você quiser usar contêineres do Windows ou um tempo de execução do contêiner que não seja Moby, você pode usar `aks-engine` para configurar e implantar um cluster do Kubernetes que atenda às suas necessidades atuais.
 
 ### <a name="resource-reservations"></a>Reservas de recursos
 
@@ -92,6 +94,8 @@ Por exemplo:
     - Um total de *(32 - 4) = 28 GiB* está disponível para o nó
     
 O SO do nó subjacente também requer uma certa quantidade de recursos de CPU e memória para concluir suas próprias funções principais.
+
+Para práticas recomendadas associadas, consulte [práticas recomendadas para recursos do Agendador básica no AKS][operator-best-practices-scheduler].
 
 ### <a name="node-pools"></a>Pools de nós
 
@@ -115,7 +119,7 @@ Uma *implementação* representa um ou mais pods idênticos, gerenciados pelo Ku
 
 Você pode atualizar as implantações para alterar a configuração de pods, a imagem do contêiner usada ou o armazenamento anexado. O controlador de implantação drena e encerra um determinado número de réplicas, cria réplicas da nova definição de implantação e continua o processo até que todas as réplicas na implantação sejam atualizadas.
 
-A maioria dos aplicativos sem monitoração de estado no AKS devem usar o modelo de implantação em vez de agendamento pods individuais. O Kubernetes pode monitorar a integridade e o status das implantações para garantir que o número necessário de réplicas seja executado dentro do cluster. Quando você agenda apenas pods individuais, os pods não são reiniciados se encontrarem um problema e não são reprogramados em nós saudáveis se o nó atual encontrar um problema.
+A maioria dos aplicativos sem monitoração de estado no AKS devem usar o modelo de implantação em vez de agendamento pods individuais. O Kubernetes pode monitorar a integridade e o status das implantações para garantir que o número necessário de réplicas seja executado dentro do cluster. Quando você só pode agendar pods individuais, os pods não são reiniciados se encontrar um problema e não são reagendadas em nós íntegros se o nó atual tiver um problema.
 
 Se um aplicativo exigir que um quorum de instâncias esteja sempre disponível para que as decisões de gerenciamento sejam tomadas, você não deseja que um processo de atualização interrompa essa capacidade. *Orçamentos de interrupção de pod* podem ser usados para definir quantas réplicas em uma implantação podem ser desativadas durante uma atualização ou atualização de nó. Por exemplo, se você tiver *5* réplicas em sua implantação, você pode definir uma interrupção de pod do *4* para permitir apenas uma réplica do que está sendo excluído/reagendada por vez. Assim como os limites de recursos do pod, uma prática recomendada é definir orçamentos de interrupção de pod em aplicativos que exigem que um número mínimo de réplicas esteja sempre presente.
 
@@ -236,3 +240,5 @@ Este artigo aborda alguns dos componentes principais do Kubernetes e como elas s
 [aks-concepts-network]: concepts-network.md
 [acr-helm]: ../container-registry/container-registry-helm-repos.md
 [aks-helm]: kubernetes-helm.md
+[operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
+[operator-best-practices-scheduler]: operator-best-practices-scheduler.md

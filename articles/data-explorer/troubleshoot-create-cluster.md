@@ -8,14 +8,14 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 0edf9ebcde2df7e639666f8fe7472baacdeb8640
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.openlocfilehash: 9b8bfe2a4b9b7a8432f14fb53b3e7a4cae49a3b4
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212175"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189964"
 ---
-# <a name="troubleshoot-failure-to-create-a-cluster-in-azure-data-explorer"></a>Solucionar problemas: falha ao criar um cluster no Gerenciador de dados do Azure
+# <a name="troubleshoot-failure-to-create-a-cluster-in-azure-data-explorer"></a>Solucionar problemas: Falha ao criar um cluster no Explorador de Dados do Azure
 
 No caso improvável de falha na criação de cluster no Azure Data Explorer, siga estas etapas.
 
@@ -23,7 +23,7 @@ No caso improvável de falha na criação de cluster no Azure Data Explorer, sig
 
 1. Verifique se não há erros de validação relacionados ao nome do cluster digitado em **Criar cluster** no portal do Azure.
 
-1. Verifique as [painel de integridade do serviço do Azure](https://azure.microsoft.com/status/>). Procure o status do Azure Data Explorer na região em que você está tentando criar o cluster.
+1. Verifique as [painel de integridade do serviço do Azure](https://azure.microsoft.com/status/). Procure o status do Azure Data Explorer na região em que você está tentando criar o cluster.
 
     Se o status não for **Bom** (marca de seleção verde), tente criar o cluster após a melhoria do status.
 

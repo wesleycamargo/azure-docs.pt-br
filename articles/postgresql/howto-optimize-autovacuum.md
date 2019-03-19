@@ -6,12 +6,12 @@ ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: e8e9991f20481deee85a6d582582335eb98e3c24
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: e1b4bf1f9fa956da7a7b0ca1521439002d1ce76b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815210"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993433"
 ---
 # <a name="optimize-autovacuum-on-an-azure-database-for-postgresql-server"></a>Otimizar o vácuo automático no Banco de Dados do Azure para PostgreSQL 
 Este artigo descreve como otimizar de maneira eficaz o vácuo automático em um Banco de Dados do Azure para PostgreSQL.
@@ -43,6 +43,7 @@ Os parâmetros de configuração que controlam o vácuo automático são baseado
 - Quanto ele limpa depois de ter começado?
 
 A seguir, há alguns parâmetros de configuração de vácuo automático que você pode atualizar com base nas perguntas acima, bem como algumas diretrizes.
+
 Parâmetro|DESCRIÇÃO|Valor padrão
 ---|---|---
 autovacuum_vacuum_threshold|Especifica o número mínimo de tuplas atualizadas ou excluídas necessárias para disparar uma operação de vácuo em qualquer tabela. O padrão é 50 tuplas. Este parâmetro pode ser definido apenas no arquivo postgresql.conf ou na linha de comando do servidor. Para substituir a configuração para tabelas individuais, altere os parâmetros de armazenamento da tabela.|50
@@ -51,6 +52,7 @@ autovacuum_vacuum_cost_limit|Especifica o valor do limite de custo usado em oper
 autovacuum_vacuum_cost_delay|Especifica o valor do atraso de custo usado em operações de vácuo automático. Se -1 for especificado, o valor normal de vacuum_cost_delay será usado. O valor padrão é 20 milissegundos. Este parâmetro pode ser definido apenas no arquivo postgresql.conf ou na linha de comando do servidor. Para substituir a configuração para tabelas individuais, altere os parâmetros de armazenamento da tabela.|20 ms
 autovacuum_nap_time|Especifica o atraso mínimo entre execuções do vácuo automático em qualquer determinado banco de dados. Em cada turno, o daemon examina o banco de dados e emite comandos VACUUM e ANALYZE conforme necessário para as tabelas nesse banco de dados. O atraso é medido em segundos, sendo que o padrão é um minuto (1 minuto). Este parâmetro pode ser definido apenas no arquivo postgresql.conf ou na linha de comando do servidor.|15 s
 autovacuum_max_workers|Especifica o número máximo de processos de vácuo automático, exceto pelo inicializador do vácuo automático, que podem ser executados simultaneamente. O padrão é três. Defina esse parâmetro somente na inicialização do servidor.|3
+
 Para substituir as configurações de tabelas individuais, altere os parâmetros de armazenamento da tabela. 
 
 ## <a name="autovacuum-cost"></a>Custo do vácuo automático

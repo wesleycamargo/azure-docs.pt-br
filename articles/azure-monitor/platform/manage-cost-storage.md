@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 851098840356c7d391c2b10fae1c18884f5dab02
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: a1d8984b8c9d0859ff754e3d5bfb35bd98236b54
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236100"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098552"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics"></a>Gerenciar o uso e custos do Log Analytics
 
@@ -118,7 +118,7 @@ Se quiser mover seu workspace para o tipo de preço atual, você precisará [alt
 > Se o seu workspace está vinculado a uma conta de automação, antes de poder selecionar o tipo de preços *Autônomo (por GB)*, deve excluir quaisquer soluções de **Automação e Controle** e desvincular a conta de Automação. Na folha do workspace, em **geral**, clique em **soluções** para ver e excluir soluções. Para desvincular a conta de automação, clique no nome da conta de automação na folha **Tipo de preços**.
 
 > [!NOTE]
-> Saiba mais sobre (definindo o tipo de preço por meio do ARM) [https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#create-a-log-analytics-workspace] e como garantir que sua implantação do ARM terá êxito, independentemente da assinatura estar no modelo de herança ou de novo preço. 
+> Você pode saber mais sobre [definir o tipo de preço por meio do ARM](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#create-a-log-analytics-workspace) e como garantir que sua implantação do ARM terá êxito, independentemente se a assinatura está no herdado ou no novo modelo de preços. 
 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Solucionar problemas se o Log Analytics não está mais coletando dados
@@ -163,7 +163,7 @@ Para reconhecer o número de computadores (nós) que relatam dados a cada dia no
 | summarize dcount(Computer) by bin(TimeGenerated, 1d)    
 | render timechart`
 
-Para obter uma lista de computadores que estão enviando **tipos de dados cobrados** (alguns tipos de dados são gratuitos), aproveite a propriedade [_IsBillable](log-standard-properties.md#isbillable):
+Para obter uma lista de computadores que estão enviando **tipos de dados cobrados** (alguns tipos de dados são gratuitos), aproveite a propriedade [_IsBillable](log-standard-properties.md#_isbillable):
 
 `union withsource = tt * 
 | where _IsBillable == true 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli;
-ms.openlocfilehash: e0df86e40d0dc1092ad7ff04f01bbc3e5e3d1c4e
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
-ms.translationtype: HT
+ms.openlocfilehash: fb8cfd4767f6bb9afe1b5731d3b4db1c68a73056
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2018
-ms.locfileid: "27743035"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107120"
 ---
 # <a name="contact-microsoft-support"></a>Contatar o Suporte da Microsoft
 
@@ -45,7 +45,7 @@ Dependendo do seu [plano de suporte](https://azure.microsoft.com/support/plans/)
    1. Na lista suspensa **Tipo de problema**, selecione **Técnico**.
    2. O tipo de **Assinatura**, **Serviço** e o **Recurso** (serviço de Gerenciador de Dispositivos StorSimple) atuais são automaticamente escolhidos. 
    3. Selecione um **Plano de suporte** na lista suspensa se você tiver vários planos associados à sua assinatura. É necessário um plano de suporte pago para habilitar o Suporte Técnico.
-   4. Clique em **Próximo**.
+   4. Clique em **Avançar**.
 
        ![Contate o Suporte da MS por meio do novo portal](./media/storsimple-8000-contact-microsoft-support/contactsupport2.png)
 
@@ -57,20 +57,20 @@ Dependendo do seu [plano de suporte](https://azure.microsoft.com/support/plans/)
     4. Forneça a data de início e a hora para o problema.
     5. Em **Upload do arquivo**, clique no ícone de pasta para procurar o pacote de suporte.
     6. Marque **Compartilhar informações de diagnóstico**.
-    7. Clique em **Próximo**.
+    7. Clique em **Avançar**.
 
        ![Contate o Suporte da MS por meio do novo portal](./media/storsimple-8000-contact-microsoft-support/contactsupport3.png) 
 
 4. Na folha **Nova solicitação de suporte**, clique em **Etapa 3 Informações de contato**. Na folha **Informações de contato**, execute as seguintes etapas:
 
-    1. Nas **Opções de contato**, forneça seu método de contato preferencial (telefone ou email) e o idioma. O tempo de resposta é selecionado automaticamente com base em seu plano de assinatura.
-    2. Nas Informações de contato, informe seu nome, email, contato opcional e país. Marque a caixa de seleção **Salvar alterações de contato para futuras solicitações de suporte** .
-    3. Clique em **Criar**.
+   1. Nas **Opções de contato**, forneça seu método de contato preferencial (telefone ou email) e o idioma. O tempo de resposta é selecionado automaticamente com base em seu plano de assinatura.
+   2. Nas Informações de contato, informe seu nome, email, contato opcional e país. Marque a caixa de seleção **Salvar alterações de contato para futuras solicitações de suporte** .
+   3. Clique em **Criar**.
    
-        ![Contate o Suporte da MS por meio do novo portal](./media/storsimple-8000-contact-microsoft-support/contactsupport5.png)   
+       ![Contate o Suporte da MS por meio do novo portal](./media/storsimple-8000-contact-microsoft-support/contactsupport5.png)   
 
-    O Microsoft Support usará essas informações para entrar em contato com você para obter mais informações, diagnóstico e resolução.
-Depois que você enviar sua solicitação, um engenheiro de Suporte entrará em contato com você assim que possível para prosseguir com sua solicitação.
+      O Microsoft Support usará essas informações para entrar em contato com você para obter mais informações, diagnóstico e resolução.
+      Depois que você enviar sua solicitação, um engenheiro de Suporte entrará em contato com você assim que possível para prosseguir com sua solicitação.
 
 ## <a name="manage-a-support-request"></a>Gerenciar uma solicitação de suporte
 

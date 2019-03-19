@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 30a7eea751a9fbfa0ee95a7edb039a13860be7f8
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 2aabe3d1fa8a6034c2dab38c8d6fa6da4b00ac1b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115463"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080332"
 ---
 # <a name="azure-network-security-overview"></a>Visão geral da segurança de rede do Azure
 
@@ -61,8 +61,8 @@ O Azure dá suporte a vários tipos de controle de acesso à rede, como:
 
 Qualquer implantação segura requer alguma medida de controle de acesso à rede. O objetivo do controle de acesso à rede é restringir a comunicação de máquina virtual para os sistemas necessários. Outras tentativas de comunicação são bloqueadas.
 
->[!NOTE]
-Os Firewalls de Armazenamento são abordados no artigo [Visão geral de segurança do armazenamento do Azure](security-storage-overview.md)
+> [!NOTE]
+> Os Firewalls de Armazenamento são abordados no artigo [Visão geral de segurança do armazenamento do Azure](security-storage-overview.md)
 
 #### <a name="network-security-rules-nsgs"></a>regras de segurança de rede (NSGs)
 
@@ -178,7 +178,7 @@ Uma maneira de fazer isso é usar uma [VPN site a site](https://www.techopedia.c
 Saiba mais:
 
 * [Criar uma rede virtual do Gerenciador de Recursos com uma conexão VPN site a site usando o portal do Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-* [Planejamento e design para o Gateway de VPN](../vpn-gateway/vpn-gateway-plan-design.md)
+* [Sobre o Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md)
 
 ### <a name="connect-your-on-premises-network-to-a-virtual-network-with-a-dedicated-wan-link"></a>Conectar a rede local a uma rede virtual com uma conexão WAN dedicada
 
@@ -324,7 +324,7 @@ A Microsoft fornece proteção contra DDoS conhecido como **Básico** como parte
 * **Ajuste adaptável:** a criação de perfis de tráfego inteligente aprende sobre o tráfego do seu aplicativo ao longo do tempo e seleciona e atualiza o perfil mais adequado para seu serviço. O perfil se ajusta conforme o tráfego é alterado ao longo do tempo. Proteção das camadas 3 a 7: fornece proteção contra DDoS de pilha completa, quando usado com um firewall do aplicativo Web.
 * **Escala de mitigação ampla:** mais de 60 tipos de ataques diferentes podem ser atenuados, com capacidade global, para proteger contra os maiores ataques de DDoS conhecidos.
 * **Métricas de ataque:** as métricas resumidas de cada ataque são acessíveis por meio do Azure Monitor.
-* **Alerta de ataque:** alertas podem ser configurados no início, durante e após a interrupção de um ataque, usando métricas de ataque internas. Os alertas integram-se ao software operacional, como o Microsoft Azure Log Analytics, Splunk, Armazenamento do Microsoft Azure, Email e o Portal do Azure.
+* **Alerta de ataque:** alertas podem ser configurados no início, durante e após a interrupção de um ataque, usando métricas de ataque internas. Alertas são integrados em seu software operacional como logs do Microsoft Azure Monitor, Splunk, armazenamento do Azure, Email e o portal do Azure.
 * **Garantia de custo:**  créditos de serviço de expansão de aplicativo para ataques de DDoS documentados.
 * **DDoS Os clientes do padrão de proteção DDoS** de resposta rápida agora têm acesso à equipe de resposta rápida durante um ataque ativo. A DRR pode ajudar na investigação de ataques, atenuações personalizadas durante uma análise de ataque e pós-ataque.
 
@@ -365,8 +365,8 @@ A [captura de pacote](../network-watcher/network-watcher-packet-capture-overview
 
 Para saber mais sobre o Observador de Rede e como começar a testar algumas das funcionalidades nos laboratórios, consulte a [Visão geral do monitoramento do Observador de Rede do Azure](../network-watcher/network-watcher-monitoring-overview.md).
 
->[!NOTE]
-Para ver as notificações mais recentes sobre disponibilidade e status desse serviço, verifique a [página de atualizações do Azure](https://azure.microsoft.com/updates/?product=network-watcher).
+> [!NOTE]
+> Para ver as notificações mais recentes sobre disponibilidade e status desse serviço, verifique a [página de atualizações do Azure](https://azure.microsoft.com/updates/?product=network-watcher).
 
 ### <a name="azure-security-center"></a>Central de Segurança do Azure
 
@@ -401,4 +401,4 @@ O log em um nível de rede é uma função essencial em qualquer cenário de seg
 Você também pode usar o [Microsoft Power BI](https://powerbi.microsoft.com/what-is-power-bi/), uma ferramenta de visualização de dados avançada, para exibir e analisar esses logs.
 Saiba mais:
 
-* [Análise de logs para NSGs (grupos de segurança de rede)](../virtual-network/virtual-network-nsg-manage-log.md)
+* [Logs de Monitor do Azure para grupos de segurança de rede (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md)

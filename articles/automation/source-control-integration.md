@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 400cf53172fbd1ce5803cf3de298749afbf45cd4
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 49a28901e2ea471f97270c0407e2f6c0a4a533fd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54430187"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58169146"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integração de controle de origem na Automação do Azure
 
@@ -140,6 +140,10 @@ O controle do código-fonte requer algumas permissões mínimas para tokens de a
 Para desconectar-se de um repositório de controle do código-fonte, abra **Controle do código-fonte (Visualização)** em **Configurações de conta** na sua conta de Automação.
 
 Selecione o controle do código-fonte que você deseja remover. Na página **Resumo do controle do código-fonte**, clique em **Excluir**.
+
+## <a name="encoding"></a>Codificação
+
+Se várias pessoas estão editando runbooks em seu repositório de controle do código-fonte com diferentes editores há oportunidade de se deparar com problemas de codificação. Isso pode inserir caracteres incorretos no runbook. Para saber mais sobre isso, consulte [causas comuns de problemas de codificação](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
 
 ## <a name="next-steps"></a>Próximas etapas
 

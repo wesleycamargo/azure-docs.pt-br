@@ -14,12 +14,12 @@ ms.date: 11/09/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09914de48df09dabd4069cd33e7acbea328fa89d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 26e94c9b56ba65e3a7c51c1a85e97f7521377bae
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193145"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546850"
 ---
 # <a name="start-using-pim"></a>Comece a usar o PIM
 
@@ -106,7 +106,6 @@ Depois que o PIM é configurado, você pode executar suas tarefas de gerenciamen
 | --- | --- |
 | **Minhas Funções**  | Exibe uma lista de funções qualificadas e ativas atribuídas a você. É aqui que você pode ativar as funções qualificadas atribuídas. |
 | **Minhas solicitações** | Exibe as solicitações pendentes para ativar atribuições de função qualificadas. |
-| **Acesso a aplicativos** | Permite que você reduza possíveis atrasos e use uma função imediatamente após a ativação. |
 | **Aprovar solicitações** | Exibe uma lista de solicitações de usuários para ativar funções qualificadas em seu diretório, que você pode aprovar. |
 | **Análise de acesso** | Lista as revisões de acesso ativas atribuídas a você para completar, esteja você revisando o acesso para si mesmo ou para outra pessoa. |
 | **Funções do Microsoft Azure Active Directory** | Exibe um painel e configurações para que administradores com função com privilégios gerenciem atribuições de função do diretório do Azure AD. Esse painel é desabilitado para todos que não forem administradores de função com privilégios. Esses usuários têm acesso a um painel especial denominado Minha exibição. O painel Minha exibição exibe somente informações sobre o usuário que acessa o painel, não o locatário inteiro. |

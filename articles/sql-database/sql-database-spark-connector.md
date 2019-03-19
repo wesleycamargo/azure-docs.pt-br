@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 927b887dbe9214867c0a694a611ca9fd9dc647a2
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 8e531de34302ef8aee571c960955d33a4832aa11
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565285"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013705"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>Acelerar a análise de Big Data em tempo real com o conector do Spark para Banco de Dados SQL do Azure e SQL Server
 
@@ -219,5 +219,5 @@ Se ainda não tiver feito isso, baixe o conector do Spark para o Banco de Dados 
 -   [Blocos de anotações de exemplo do Azure Databricks](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/notebooks)
 - [Scripts de exemplo (Scala)](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/scripts)
 
-Pode ser útil também ler o [Guia do Apache Spark SQL, DataFrames e Conjuntos de dados](http://spark.apache.org/docs/latest/sql-programming-guide.html) e a [documentação do Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/).
+Pode ser útil também ler o [Guia do Apache Spark SQL, DataFrames e Conjuntos de dados](https://spark.apache.org/docs/latest/sql-programming-guide.html) e a [documentação do Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/).
 

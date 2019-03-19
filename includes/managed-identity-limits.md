@@ -9,14 +9,14 @@ ms.topic: include
 ms.date: 05/31/2018
 ms.author: daveba
 ms.custom: include file
-ms.openlocfilehash: 7cdd2ce44cfa24b2b6bad2bb45260299bc8eda5f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 887646c7e0ae87cd5e290a68ccc43b80dfbb109c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252363"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553267"
 ---
 | Categoria | Limite |
 | --- | --- |
-| Identidades Gerenciadas Atribuídas ao Usuário | <ul><li>Ao criar identidades gerenciadas atribuídas pelo usuário, somente caracteres alfanuméricos (0-9, a-z, A-Z) e o hífen (-) são suportados. Além disso, o nome deve ser limitado a 24 caracteres para que a atribuição ao VM / VMSS funcione corretamente.</li><li>Se estiver usando a extensão da máquina virtual de identidade gerenciada, o limite suportado é 32 identidades gerenciadas atribuídas pelo usuário.  Sem a extensão da máquina virtual de identidade gerenciada, o limite suportado é 32 identidades gerenciadas atribuídas pelo usuário.</li>|
+| Usuário atribuído identidades gerenciadas | <ul><li>Quando você cria o usuário atribuído gerenciados identidades, apenas caracteres alfanuméricos (0-9, a-z e A-Z) e o hífen (-) têm suporte. Para a atribuição de uma máquina virtual ou o dimensionamento de máquinas virtuais definido para funcionar corretamente, o nome é limitado a 24 caracteres.</li><li>Se você usar a extensão de máquina virtual de identidade gerenciada, o limite com suporte é 32 identidades gerenciadas atribuída pelo usuário. Sem a extensão de máquina virtual de identidade gerenciada, o limite com suporte é de 512 identidades atribuídas.</li>|
 

@@ -5,50 +5,50 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 08/20/2017
+ms.date: 03/14/2019
 ms.author: danlep
-ms.openlocfilehash: cbfbe5bf0df1b4f40752b5b233dff6416bcdd309
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 0a3d2d0e858dc052095c0a58287970d10c06f0ba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770594"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099841"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Como usar webhooks do Registro de Contêiner do Azure
 
-Um registro de contêiner do Azure armazena e gerencia imagens de contêiner privadas do Docker, de forma semelhante a como o Docker Hub armazena imagens públicas do Docker. É possível usar webhooks para disparar eventos quando certas ações ocorrem em um dos repositórios do Registro. Webhooks podem responder a eventos no nível do registro ou podem ter o escopo reduzido para a marca de um repositório específico.
+Um registro de contêiner do Azure armazena e gerencia imagens de contêiner privadas do Docker, de forma semelhante a como o Docker Hub armazena imagens públicas do Docker. Ele também pode hospedar repositórios para [gráficos do Helm](container-registry-helm-repos.md) (visualização), formato de um pacote para implantar aplicativos no Kubernetes. É possível usar webhooks para disparar eventos quando certas ações ocorrem em um dos repositórios do Registro. Webhooks podem responder a eventos no nível do registro ou podem ter o escopo reduzido para a marca de um repositório específico.
 
 Para obter detalhes sobre solicitações de webhook, consulte [Azure Container Registry webhook schema reference](container-registry-webhook-reference.md) (Referência de esquema de webhook do Registro de Contêiner do Azure).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Registro de Contêiner do Azure – Crie um Registro de contêiner em sua assinatura do Azure. Por exemplo, use o [Portal do Azure](container-registry-get-started-portal.md) ou a [CLI do Azure](container-registry-get-started-azure-cli.md).
+* Registro de Contêiner do Azure – Crie um Registro de contêiner em sua assinatura do Azure. Por exemplo, use o [Portal do Azure](container-registry-get-started-portal.md) ou a [CLI do Azure](container-registry-get-started-azure-cli.md). O [SKUs de registro de contêiner do Azure](container-registry-skus.md) tem cotas de webhooks diferentes.
 * CLI do Docker – para configurar o computador local como um host do Docker e acessar os comandos da CLI do Docker, instale o [Mecanismo do Docker](https://docs.docker.com/engine/installation/).
 
-## <a name="create-webhook-azure-portal"></a>Criar webhook no portal do Azure
+## <a name="create-webhook---azure-portal"></a>Criar webhook - portal do Azure
 
-1. Entre no [Portal do Azure](https://portal.azure.com)
+1. Entre no [Portal do Azure](https://portal.azure.com).
 1. Navegue até o Registro de contêiner no qual você deseja criar um webhook.
-1. Em **SERVIÇOS**, selecione **Webhooks**.
+1. Sob **Services**, selecione **Webhooks**.
 1. Selecione **Adicionar** na barra de ferramentas do webhook.
 1. Preencha o formulário *Criar webhook* com as seguintes informações:
 
 | Valor | DESCRIÇÃO |
 |---|---|
-| NOME | O nome que você deseja dar ao webhook. Ele pode conter somente caracteres minúsculos e números e deve ter de 5 a 50 caracteres de extensão. |
+| NOME | O nome que você deseja dar ao webhook. Ele pode conter apenas letras e números e deve ser de 5 a 50 caracteres de comprimento. |
 | URI de serviço | O URI para que o webhook deveria enviar notificações POST. |
 | Cabeçalhos personalizados | Cabeçalhos que você deseja passar junto com a solicitação POST. Eles devem estar no formato "chave: valor". |
-| Ações de gatilho | Ações que disparam o webhook. Webhooks no momento podem ser acionados por push de imagem e/ou ações de exclusão. |
+| Ações de gatilho | Ações que disparam o webhook. Ações incluem o push de imagem, exclusão de imagem, por push de gráfico do Helm, exclusão de gráfico do Helm e quarentena de imagem. Você pode escolher uma ou mais ações para disparar o webhook. |
 | Status | O status do webhook depois que ele é criado. Ele é habilitado por padrão. |
-| Escopo | O escopo no qual o webhook funciona. Por padrão, o escopo é para todos os eventos no registro. Pode ser especificado para um repositório ou uma marca usando o formato "repositório:marca". |
+| Escopo | O escopo no qual o webhook funciona. Se não for especificado, o escopo é para todos os eventos no registro. Ele pode ser especificado para um repositório ou uma marca usando o formato "repositório: marca" ou "repositório: *" para todas as marcas em um repositório. |
 
 Formulário de webhook de exemplo:
 
 ![Interface do usuário de criação de webhook ACR no portal do Azure](./media/container-registry-webhook/webhook.png)
 
-## <a name="create-webhook-azure-cli"></a>Criar webhook na CLI do Azure
+## <a name="create-webhook---azure-cli"></a>Criar webhook - CLI do Azure
 
-Para criar um webhook usando a CLI do Azure, use o comando [az acr webhook create](/cli/azure/acr/webhook#az-acr-webhook-create).
+Para criar um webhook usando a CLI do Azure, use o comando [az acr webhook create](/cli/azure/acr/webhook#az-acr-webhook-create). O comando a seguir cria um webhook para todos os eventos de exclusão no registro de imagem *mycontainerregistry*:
 
 ```azurecli-interactive
 az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --actions delete --uri http://webhookuri.com
@@ -58,7 +58,7 @@ az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --act
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-Antes de usar o webhook em ações de exclusão e de push de imagem de contêiner, você pode testá-lo com o botão **Ping**. O ping envia uma solicitação POST genérica para o ponto de extremidade especificado e registra a resposta. Usar o recurso de ping pode ajudá-lo a verificar se você configurou corretamente o webhook.
+Antes de usar o webhook, você pode testá-lo com o **Ping** botão. O ping envia uma solicitação POST genérica para o ponto de extremidade especificado e registra a resposta. Usar o recurso de ping pode ajudá-lo a verificar se você configurou corretamente o webhook.
 
 1. Selecione o webhook que você deseja testar.
 2. Na barra de ferramentas superior, selecione **Ping**.

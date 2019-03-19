@@ -5,17 +5,17 @@ description: Saiba como atualizar um serviço Web para usar um modelo de machine
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: b57dd40c8610953563a3d5b8861e144d775b4eb7
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: ea73c16687d393cd1e61c4aee83fbf74cc4ae9a7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330504"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108113"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Treinar novamente e implantar um modelo de machine learning
 
@@ -42,7 +42,7 @@ Use as etapas a seguir para implantar um serviço Web de novo treinamento:
 
     Depois de executar o experimento, o fluxo de trabalho resultante deve ser semelhante à seguinte imagem:
 
-    ![Fluxo de trabalho resultante](media/retrain-existing-arm-web-service/machine-learning-retrain-models-programmatically-IMAGE04.png)
+    ![Fluxo de trabalho resultante](media/retrain-machine-learning/machine-learning-retrain-models-programmatically-IMAGE04.png)
 
     Agora, implante o teste de treinamento como um serviço Web de novo treinamento que gera um modelo treinado e os resultados de avaliação do modelo.
 
@@ -68,7 +68,7 @@ Adicione o pacote NuGet Microsoft.AspNet.WebApi.Client como especificado nos com
 
 A captura de tela a seguir mostra a página **Consumir** no portal de Serviços Web do Azure Machine Learning.
 
-![Página Consumir](media/retrain-existing-arm-web-service/machine-learning-retrain-models-consume-page.png)
+![Página Consumir](media/retrain-machine-learning/machine-learning-retrain-models-consume-page.png)
 
 ### <a name="update-the-apikey-declaration"></a>Atualizar a declaração da apikey
 
@@ -114,7 +114,7 @@ Ao especificar o local de saída no Conteúdo de Solicitação, a extensão do a
 
 Confira um exemplo de saída de novo treinamento:
 
-![Saída da readaptação](media/retrain-existing-arm-web-service/machine-learning-retrain-models-programmatically-IMAGE06.png)
+![Saída da readaptação](media/retrain-machine-learning/machine-learning-retrain-models-programmatically-IMAGE06.png)
 
 ### <a name="evaluate-the-retraining-results"></a>Avaliar os resultados da readaptação
 
@@ -190,5 +190,5 @@ Finalmente, use o cmdlet [Update-AzureRmMlWebService](https://docs.microsoft.com
 
 Para saber mais sobre como gerenciar serviços Web ou acompanhar várias execuções de testes, confira os seguintes artigos:
 
-* [Explore o portal de Serviços Web](manage-new-webservice.md)
-* [Gerencie interações de teste](manage-experiment-iterations.md)
+* [Explorar o portal dos Serviços Web](manage-new-webservice.md)
+* [Gerenciar iterações de teste](manage-experiment-iterations.md)

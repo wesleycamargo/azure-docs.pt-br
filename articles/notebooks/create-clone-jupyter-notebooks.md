@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 9b6a49e2-1d71-4c0b-9e5d-16e059427e38
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: 8961a863f1b268a034310554230096cc0f9d5260
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: b99197f44961bdfa23050e9481e290e6c3d24845
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54844051"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57759078"
 ---
 # <a name="create-and-clone-projects"></a>Criar e clonar projetos
 
@@ -49,7 +49,7 @@ O que você pode fazer no painel depende se você estiver conectado com a conta 
 
 Quando você usa o comando **Compartilhamento** de comando e seleciona a guia **Inserção**, você pode copiar o código HTML ou Markdown que cria uma notificação “iniciar bloco de notificações”:
 
-![Iniciar a notificação do notebook ](https://notebooks.azure.com/launch.png)
+![Iniciar a notificação do notebook](https://notebooks.azure.com/launch.png)
 
 Se você não tiver um projeto do Microsoft Azure Notebooks, você pode criar um link que clona do GitHub diretamente usando os modelos a seguir, substituindo o nome de usuário apropriado e os nomes de repositório:
 
@@ -67,10 +67,26 @@ Quando você usa o comando **+ Novo projeto**, o Microsoft Azure Notebooks exibe
 
 | Campo | DESCRIÇÃO |
 | --- | --- |
-| Nome do projeto | Um nome amigável para seu projeto que usa o Azure Notebooks para fins de exibição. Por exemplo, "Meu Projeto Notebook”. |
-| ID do projeto | Um identificador personalizado que se torna parte da URL que você usa para compartilhar um projeto. Essa ID pode usar apenas letras, números e hifens e é limitado a 30 caracteres. Se você não tiver certeza sobre o que usar, uma convenção comum é usar uma versão em letras minúsculas do nome do seu projeto, na qual espaços são transformados em hifens, por exemplo “projeto-meu-notebook” (truncado se necessário para encaixar o limite de comprimento). |
+| Nome do projeto | Um nome amigável para seu projeto que usa o Azure Notebooks para fins de exibição. Por exemplo, "Meu Bloco de anotações do projeto". |
+| ID do projeto | Um identificador personalizado que se torna parte da URL que você usa para compartilhar um projeto (o formulário é `https://notebooks.azure.com/<user_id>/projects/<project_id>`). Essa ID pode usar apenas letras, números e hifens, é limitada a 30 caracteres e não pode ser um [reservado da ID do projeto](#reserved-project-ids). Se você não tiver certeza sobre o que usar, uma convenção comum é usar uma versão em letras minúsculas do nome do seu projeto, na qual espaços são transformados em hifens, por exemplo “projeto-meu-notebook” (truncado se necessário para encaixar o limite de comprimento). |
 | Público | Se definido, permite que qualquer pessoa com o link acesse o projeto. Ao criar um projeto privado, desmarque essa opção. |
 | Inicializar este projeto com um arquivo LEIAME | Se definido, cria um padrão de arquivo *README.md* no projeto. Um arquivo *README.md* é onde você fornece documentação para seu projeto, se desejado. |
+
+### <a name="reserved-project-ids"></a>IDs de projeto reservado
+
+As seguintes palavras reservadas não podem ser usadas por si só, como IDs de projeto. Essas palavras reservadas no entanto, podem ser usados como parte do projeto mais IDs.
+
+| | | | | | |
+| --- | --- | --- | --- | --- | --- |
+| about | conta | Administração | api | Blog | classroom |
+| conteúdo | painel Transações da Web | Explorar | faq | ajuda | html |
+| inicial | importar | biblioteca | gerenciamento | novo | notebook |
+| Blocos de anotações | pdf | preview | preços | Perfil | pequisa |
+| status | suporte | test | | | |
+
+Se você tentar usar uma dessas palavras como uma ID do projeto, o **criar novo projeto** e **configurações do projeto** indicar pop-ups, "id da biblioteca é um identificador reservado".
+
+Como uma ID de projeto também é parte da URL do projeto, o software de bloqueio do ad pode bloquear o uso de determinadas palavras-chave, como "anúncio". Nesses casos, usar uma palavra diferente na ID de projeto.
 
 ## <a name="import-a-project-from-github"></a>Importa o projeto do GitHub
 
@@ -81,7 +97,7 @@ Você pode importar facilmente um repositório do GitHub público inteiro como u
 | Repositório GitHub | O nome do repositório de origem em github.com. Por exemplo, para clonar os blocos de anotações do Jupyter para os serviços Cognitivos do Azure em [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks), insira "Microsoft/cognitive-services-notebooks".  |
 | Clonar recursivamente | Repositórios do GitHub podem conter vários repositórios filho. Defina essa opção se você deseja clonar o repositório pai e todos os seus filhos. Como é possível que um repositório tenha muitos filhos, deixe essa opção não criptografada, a menos que você saiba que ele precisa. |
 | Nome do projeto | Um nome amigável para seu projeto que usa o Azure Notebooks para fins de exibição. |
-| ID do projeto | Um identificador personalizado que se torna parte da URL que você usa para compartilhar um projeto. A ID pode conter apenas letras, números e hifens. |
+| ID do projeto | Um identificador personalizado que se torna parte da URL que você usa para compartilhar um projeto (o formulário é `https://notebooks.azure.com/<user_id>/projects/<project_id>`). Essa ID pode usar apenas letras, números e hifens, é limitada a 30 caracteres e não pode ser um [reservado da ID do projeto](#reserved-project-ids). Se você não tiver certeza sobre o que usar, uma convenção comum é usar uma versão em letras minúsculas do nome do seu projeto, na qual espaços são transformados em hifens, por exemplo “projeto-meu-notebook” (truncado se necessário para encaixar o limite de comprimento). |
 | Público | Se definido, permite que qualquer pessoa com o link acesse o projeto. Ao criar um projeto privado, desmarque essa opção. |
 
 Importar um repositório do GitHub também importa o seu histórico. Você pode usar comandos do Git padrão do terminal para confirmar as novas alterações, receber alterações do GitHub e assim por diante.

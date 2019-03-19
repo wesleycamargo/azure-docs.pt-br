@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.reviewr: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a488c30f5b9438a91d2eae429cf65689af992dcb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: fccf671edbc121501a17975be303453a798837e4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167075"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122192"
 ---
 # <a name="how-applications-appear-on-the-access-panel"></a>Como aplicativos aparecem no painel de acesso
 
@@ -46,41 +46,41 @@ Um usuário pode estar vendo um aplicativo em seu Painel de Acesso por ter sido 
 
 Para verificar se um usuário é atribuído ao aplicativo, execute estas etapas:
 
-1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global.**
+1. Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global.**
 
-2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
+2. Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
-3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
+3. Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4. clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
-5.  clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+5. clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
-6.  **Pesquise** pelo nome do aplicativo em questão.
+6. **Pesquise** pelo nome do aplicativo em questão.
 
-7.  Clique em **Usuários e grupos**.
+7. Clique em **Usuários e grupos**.
 
-8.  Verifique se o usuário está atribuído ao aplicativo.
+8. Verifique se o usuário está atribuído ao aplicativo.
 
-  * Se quiser remover o usuário do aplicativo, **clique na linha** do usuário e selecione **excluir**.
+   * Se quiser remover o usuário do aplicativo, **clique na linha** do usuário e selecione **excluir**.
 
 ### <a name="check-if-a-user-is-under-a-license-related-to-the-application"></a>Verificar se um usuário está sob uma licença relacionada ao aplicativo
 
 Para verificar as licenças atribuídas de um usuário, siga estas etapas:
 
-1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global.**
+1. Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global.**
 
-2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
+2. Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
-3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
+3. Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  Clique em **Usuários e grupos** no menu de navegação.
+4. Clique em **Usuários e grupos** no menu de navegação.
 
-5.  Clique em **Todos os usuários**.
+5. Clique em **Todos os usuários**.
 
-6.  **Pesquise** pelo usuário no qual você está interessado e **clique na linha** para selecionar.
+6. **Pesquise** pelo usuário no qual você está interessado e **clique na linha** para selecionar.
 
-7.  clique em **Licenças** para ver quais licenças o usuário atribuiu atualmente.
+7. clique em **Licenças** para ver quais licenças o usuário atribuiu atualmente.
 
    * Se o usuário for atribuído a uma licença do Office, isso permitirá que os aplicativos primários do Office apareçam no Painel de Acesso do usuário.
 
@@ -96,45 +96,45 @@ Um usuário pode estar vendo um aplicativo em seu Painel de Acesso por fazer par
 
 Para verificar a associação de um grupo, siga estas etapas:
 
-1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global.**
+1. Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global.**
 
-2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
+2. Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
-3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
+3. Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  Clique em **Usuários e grupos** no menu de navegação.
+4. Clique em **Usuários e grupos** no menu de navegação.
 
-5.  Clique em **Todos os usuários**.
+5. Clique em **Todos os usuários**.
 
-6.  **Pesquise** pelo usuário no qual você está interessado e **clique na linha** para selecionar.
+6. **Pesquise** pelo usuário no qual você está interessado e **clique na linha** para selecionar.
 
-7.  Clique em **Grupos.**
+7. Clique em **Grupos.**
 
-8.  Verifique se o usuário faz parte de um Grupo atribuído ao aplicativo.
+8. Verifique se o usuário faz parte de um Grupo atribuído ao aplicativo.
 
    * Se quiser remover o usuário do grupo, **clique na linha** do grupo e selecione excluir.
 
 ### <a name="check-if-a-user-is-a-member-of-a-group-assigned-to-a-license"></a>Verificar se um usuário é membro de um grupo atribuído a uma licença
 
-1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global.**
+1. Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global.**
 
-2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
+2. Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
-3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
+3. Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  Clique em **Usuários e grupos** no menu de navegação.
+4. Clique em **Usuários e grupos** no menu de navegação.
 
-5.  Clique em **Todos os usuários**.
+5. Clique em **Todos os usuários**.
 
-6.  **Pesquise** pelo usuário no qual você está interessado e **clique na linha** para selecionar.
+6. **Pesquise** pelo usuário no qual você está interessado e **clique na linha** para selecionar.
 
-7.  Clique em **Grupos.**
+7. Clique em **Grupos.**
 
-8.  Clique na linha de um grupo específico.
+8. Clique na linha de um grupo específico.
 
-9.  Clique em **Licenças** para ver quais licenças o grupo atribuiu a ele.
+9. Clique em **Licenças** para ver quais licenças o grupo atribuiu a ele.
 
-  * Se o grupo for atribuído a uma licença do Office, isso poderá permitir que determinados aplicativos primários do Office apareçam no Painel de Acesso do usuário.
+   * Se o grupo for atribuído a uma licença do Office, isso poderá permitir que determinados aplicativos primários do Office apareçam no Painel de Acesso do usuário.
 
 
 ## <a name="if-these-troubleshooting-steps-do-not-the-resolve-the-issue"></a>Se essas etapas de solução de problemas não resolverem o problema

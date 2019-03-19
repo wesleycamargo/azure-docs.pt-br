@@ -5,16 +5,16 @@ description: A página de lista de documentos mostra os primeiros 10 documentos 
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.subservice: translator-text
+ms.date: 02/21/2019
 ms.author: v-rada
-ms.topic: how to edit a model
-ms.openlocfilehash: e656c6dd7050851eb9885fe253ab29f4e3675216
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: d380c8bcdcb4954901df0b460269493c5be0a6de
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219797"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57777381"
 ---
 # <a name="view-document-details"></a>Exibir detalhes do documento
 
@@ -22,7 +22,7 @@ A página de lista de documentos mostra os primeiros 10 documentos no espaço de
 
 Clique em um documento individual para exibir a página de detalhes do documento. A página de detalhes de documento exibe a lista de frases extraídas do documento.
 
-- Por padrão, o idioma de "origem" é selecionado no campo suspenso, mas é possível alternar para exibir as frases no idioma de destino. 
+- Por padrão, o idioma de "origem" é selecionado no campo suspenso, mas é possível alternar para exibir as frases no idioma de destino.
 - Por padrão, são exibidas 20 frases por página. Você pode usar o controle de paginação para navegar entre as páginas.
 
 ![detalhes do documento](media/how-to/how-to-view-document-details.png)

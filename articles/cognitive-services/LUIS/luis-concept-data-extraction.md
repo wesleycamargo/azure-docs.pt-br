@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: 385e0065123b86f8f8b7c8503fe6de6daa7c6562
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 3d9c2a694562977c2a012d9faa9c282c6b8fff9d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874117"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099824"
 ---
 # <a name="data-extraction-from-intents-and-entities"></a>Extração de dados de intenções e entidades
 O LUIS oferece a capacidade de obter informações de declarações de idioma natural de um usuário. As informações são extraídas de forma que possam ser usadas por um programa, aplicativo ou chat bot para executar uma ação. Nas seções a seguir, saiba quais dados são retornados de intenções e entidades com exemplos de JSON.
@@ -195,7 +195,7 @@ Os dados retornados do ponto de extremidade incluem o nome da entidade e o nome 
 ```
 
 |Objeto de dados|Pai|Filho|Valor|
-|--|--|--|--|--|
+|--|--|--|--|
 |Entidade hierárquica|Local padrão|ToLocation|"paris"|
 
 ## <a name="composite-entity-data"></a>Dados da entidade composta

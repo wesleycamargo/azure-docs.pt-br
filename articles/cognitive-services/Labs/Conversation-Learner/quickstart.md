@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 0990ae2c21017c0d6ff25478eb4b5e3bfb4f0d11
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 743b4d4888738579a023e879dc7b6e95cd23ccc7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251428"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994366"
 ---
 # <a name="create-a-conversation-learner-model-using-nodejs"></a>Como criar um modelo de Aprendiz de Conversa usando Node.js
 
@@ -33,7 +33,7 @@ O Aprendiz de Conversa do Projeto consiste em um SDK que você adiciona ao bot e
   
 - Chave de criação do LUIS:
 
-  1. Faça logon em [http://www.luis.ai](http://www.luis.ai).
+  1. Faça logon em [https://www.luis.ai](https://www.luis.ai).
 
   2. Clique no seu nome no canto superior direito e, em seguida, em "configurações"
 
@@ -78,35 +78,35 @@ O Aprendiz de Conversa do Projeto consiste em um SDK que você adiciona ao bot e
 
     Isso executa o bot vazio genérico em `cl-bot-01/src/app.ts`.
 
-3. Abra o navegador para http://localhost:3978
+3. Abra o navegador para `http://localhost:3978`
 
 Agora, você está usando o Aprendiz de Conversa e pode criar e ensinar um modelo de Aprendiz de Conversa.  
 
 > [!NOTE]
-> Na inicialização, o Aprendiz de Conversa do Projeto está disponível por convite.  Se http://localhost:3978/ui mostrar um erro HTTP `403`, significa que sua conta não foi convidada.  [Solicite um convite](https://aka.ms/conversation-learner-request-invite).
+> Na inicialização, o Aprendiz de Conversa do Projeto está disponível por convite.  Se `http://localhost:3978/ui` mostrar um erro HTTP `403`, significa que sua conta não foi convidada.  [Solicite um convite](https://aka.ms/conversation-learner-request-invite).
 
 ## <a name="tutorials-demos-and-switching-between-bots"></a>Tutoriais, demonstrações e alternância entre bots
 
 As instruções acima iniciaram o bot vazio genérico.  Para executar um tutorial ou um bot de demonstração:
 
-1. Se você tiver a interface do usuário da Web do Aprendiz de Conversa aberta, retorne à lista de modelos em http://localhost:3978/ui/home.
+1. Se você tiver a interface do usuário da Web do Aprendiz de Conversa aberta, retorne à lista de modelos em `http://localhost:3978/ui/home`.
     
 2. Se outro bot estiver em execução (como `npm start` ou `npm run demo-pizza`), pare-o.  Não é necessário parar o processo da interface do usuário ou fechar o navegador da Web.
 
 3. Execute um bot de demonstração na linha de comando (etapa 2 acima).  Demonstrações incluem:
 
-  ```bash
-  npm run tutorial-general
-  npm run tutorial-entity-detection
-  npm run tutorial-session-callbacks
-  npm run tutorial-api-calls
-  npm run tutorial-hybrid
-  npm run demo-password
-  npm run demo-pizza
-  npm run demo-storage
-  ```
+   ```bash
+   npm run tutorial-general
+   npm run tutorial-entity-detection
+   npm run tutorial-session-callbacks
+   npm run tutorial-api-calls
+   npm run tutorial-hybrid
+   npm run demo-password
+   npm run demo-pizza
+   npm run demo-storage
+   ```
 
-4. Caso ainda não esteja, alterne para a interface do usuário da Web do Aprendiz de Conversa no Chrome, carregando http://localhost:3978/ui/home. 
+4. Caso ainda não esteja, alterne para a interface do usuário da Web do Aprendiz de Conversa no Chrome, carregando `http://localhost:3978/ui/home`. 
 
 5. Clique em “Importar tutoriais” e selecione o modelo de demonstração na interface do usuário do Aprendiz de Conversa que corresponde à demonstração que você iniciou.
 
@@ -114,7 +114,7 @@ Os arquivos de origem das demonstrações estão em `cl-bot-01/src/demos`
 
 ## <a name="create-a-bot-which-includes-back-end-code"></a>Crie um bot que inclua código back-end
 
-1. Se você tiver a interface do usuário da Web do Aprendiz de Conversa aberta, retorne à lista de modelos em http://localhost:3978/ui/home.
+1. Se você tiver a interface do usuário da Web do Aprendiz de Conversa aberta, retorne à lista de modelos em `http://localhost:3978/ui/home`.
     
 2. Se um bot estiver em execução( como `npm run demo-pizza`), pare-o.  Não é necessário parar o processo da interface do usuário ou fechar o navegador da Web.
 
@@ -127,7 +127,7 @@ Os arquivos de origem das demonstrações estão em `cl-bot-01/src/demos`
     npm start
     ```
 
-5. Caso ainda não esteja, alterne para a interface do usuário da Web do Aprendiz de Conversa no Chrome, carregando http://localhost:3978/ui/home. 
+5. Caso ainda não esteja, alterne para a interface do usuário da Web do Aprendiz de Conversa no Chrome, carregando `http://localhost:3978/ui/home`. 
 
 6. Crie um novo modelo de Aprendiz de Conversa na interface do usuário e comece a ensinar.
 

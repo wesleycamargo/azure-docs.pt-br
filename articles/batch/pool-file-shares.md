@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/24/2018
 ms.author: lahugh
 ms.custom: ''
-ms.openlocfilehash: 13ed2caa5ae547747707c368246ea23486dbed72
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 1e9d039769e7fbcb9c2b7285aa727acd7322bcdf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469559"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103325"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>Usar um compartilhamento de arquivos do Azure com um pool do Lote
 
@@ -66,16 +66,16 @@ Para simplificar a operação de montagem, opcionalmente mantenha as credenciais
 
 1. Execute o utilitário de linha de comando `cmdkey` usando uma tarefa inicial na configuração do pool. Isso mantém as credenciais em cada nó do Windows. A linha de comando da tarefa inicial é semelhante a:
 
-  ```
-  cmd /c "cmdkey /add:mystorageaccountname.file.core.windows.net /user:AZURE\mystorageaccountname /pass:XXXXXXXXXXXXXXXXXXXXX=="
+   ```
+   cmd /c "cmdkey /add:mystorageaccountname.file.core.windows.net /user:AZURE\mystorageaccountname /pass:XXXXXXXXXXXXXXXXXXXXX=="
 
-  ```
+   ```
 
 2. Montar o compartilhamento em cada nó como parte de cada tarefa usando `net use`. Por exemplo, a seguinte linha de comando da tarefa monta o compartilhamento de arquivos como a unidade *S:*. Isso deve ser seguido por um comando ou script que referencie o compartilhamento. As credenciais armazenadas em cache são usadas na chamada para `net use`. Esta etapa pressupõe que você esteja usando a mesma identidade de usuário para as tarefas que usou na tarefa inicial no pool, o que não é apropriado para todos os cenários.
 
-  ```
-  cmd /c "net use S: \\mystorageaccountname.file.core.windows.net\myfileshare" 
-  ```
+   ```
+   cmd /c "net use S: \\mystorageaccountname.file.core.windows.net\myfileshare" 
+   ```
 
 ### <a name="c-example"></a>Exemplo de C#
 O exemplo de C# a seguir mostra como manter as credenciais em um pool do Windows usando uma tarefa inicial. O nome de serviço de arquivo de armazenamento e as credenciais de armazenamento são passados como constantes definidas. Aqui, a tarefa inicial executada em uma conta de usuário automática (não administrador) padrão com escopo no pool.

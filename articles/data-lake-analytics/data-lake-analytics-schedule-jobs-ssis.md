@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/17/2018
-ms.openlocfilehash: 7d5630c082c044ac936f555965aec5a2a00f3544
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 5393e202c7b5005552f164c9c6f55da92fc82572
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448713"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104430"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>Agendar trabalhos do U-SQL usando SSIS (SQL Server Integration Services)
 
@@ -93,16 +93,16 @@ No modo de exibição de design do pacote SSIS, adicione uma **Tarefa do Sistema
     
     Para criar essa conexão de arquivo:
 
-    1. Escolha **<New Connection...>** na configuração FileConnection.
-    2. Defina **Tipo de uso** para **Arquivo existente** e defina o **Arquivo** para o caminho de arquivo de qualquer arquivo existente.
+   1. Escolha **<New Connection...>** na configuração FileConnection.
+   2. Defina **Tipo de uso** para **Arquivo existente** e defina o **Arquivo** para o caminho de arquivo de qualquer arquivo existente.
 
-        ![Configurar o Contêiner do Loop Foreach](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
+       ![Configurar o Contêiner do Loop Foreach](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
 
-    3. Na exibição **Gerenciadores de Conexões**, clique com o botão direito do mouse na conexão de arquivo criada agora e escolha **Propriedades**.
+   3. Na exibição **Gerenciadores de Conexões**, clique com o botão direito do mouse na conexão de arquivo criada agora e escolha **Propriedades**.
 
-    4. Na janela **Propriedades**, expanda **Expressões** e defina **ConnectionString** para a variável definida no Contêiner do Loop Foreach, por exemplo, `@[User::FileName]`.
+   4. Na janela **Propriedades**, expanda **Expressões** e defina **ConnectionString** para a variável definida no Contêiner do Loop Foreach, por exemplo, `@[User::FileName]`.
 
-        ![Configurar o Contêiner do Loop Foreach](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-property-for-foreach-loop-container.png)
+       ![Configurar o Contêiner do Loop Foreach](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-property-for-foreach-loop-container.png)
 
 3. Defina **AzureDataLakeAnalyticsConnection** na conta do Azure Data Lake Analytics para a qual deseja enviar tarefas. Saiba mais sobre o [Gerenciador de Conexões do Azure Data Lake Analytics](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-analytics-connection-manager?view=sql-server-2017).
 

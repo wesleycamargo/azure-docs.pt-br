@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: bwren
-ms.openlocfilehash: f38d9b40143391be34ce5f72627720e2f5119dc6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: c3732dd2fa87b00eec38f88ab828605b33567235
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993768"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58123140"
 ---
 # <a name="automate-azure-monitor-log-processes-with-the-connector-for-microsoft-flow"></a>Automatizar processos de log do Azure Monitor com o conector para Microsoft Flow
 O [Microsoft Flow](https://ms.flow.microsoft.com) permite que você crie fluxos de trabalho automatizados usando centenas de ações para vários serviços. A saída de uma ação pode ser usada como entrada para outra, permitindo que você crie a integração entre serviços diferentes.  O conector do Azure Log Analytics para Microsoft Flow permite que você crie fluxos de trabalho que incluam dados recuperados pelas consultas de log de um workspace do Log Analytics no Azure Monitor.
@@ -48,13 +48,13 @@ O tutorial neste artigo mostra como criar um fluxo que envia automaticamente os 
 
 1. Especifique os detalhes de seu workspace incluindo a ID da Assinatura, o Grupo de Recursos e o Nome do Workspace.
 2. Adicione a consulta de logs a seguir à janela **Consultar**.  Isso é apenas um exemplo de consulta, e você pode substituir por qualquer outra que retorne dados.
-```
+   ```
     Event
     | where EventLevelName == "Error" 
     | where TimeGenerated > ago(1day)
     | summarize count() by Computer
     | sort by Computer
-```
+   ```
 
 2. Selecione **Tabela HTML** para o **Tipo de Gráfico**.<br><br>![Ação do Log Analytics](media/flow-tutorial/flow03.png)
 

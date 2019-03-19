@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 12/3/2018
 ms.author: pabouwer
-ms.openlocfilehash: f34d8c547738921374eaf5edcfcec4911423d9dc
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: d85b830b63e2d52f3eeb5df8645edccfccf43c76
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699204"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58138143"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Instalar e usar o Istio no AKS (Serviço de Kubernetes do Azure)
 
@@ -38,7 +38,7 @@ Este artigo separa as diretrizes de instalação do Istio em várias etapas disc
 
 ## <a name="download-istio"></a>Baixar o Istio
 
-Primeiro, baixe e extraia a última versão do Istio. As etapas são um pouco diferentes para um shell bash no MacOS, Linux ou Subsistema do Windows para Linux e um shell do PowerShell. Escolha uma das seguintes etapas de instalação para o seu ambiente preferencial:
+Primeiro, baixe e extraia a última versão do Istio. As etapas são um pouco diferentes para um shell bash no MacOS, Linux ou subsistema Windows para Linux e para um shell do PowerShell. Escolha uma das seguintes etapas de instalação para o seu ambiente preferencial:
 
 * [Bash ni MacOS, Linux ou Subsistema do Windows para Linux](#bash)
 * [PowerShell](#powershell)
@@ -82,7 +82,7 @@ Expand-Archive -Path "istio-$ISTIO_VERSION.zip" -DestinationPath .
 O binário de cliente `istioctl` executa no computador cliente e permite gerenciar políticas e regras de roteamento do Istio. Novamente, as etapas de instalação são um pouco diferentes entre os sistemas operacionais do cliente. Escolha uma das etapas de instalação a seguir para o seu ambiente preferencial.
 
 > [!IMPORTANT]
-> Execute todas as etapas restantes da pasta de nível superior da versão do Istio que você baixou e extraiu na seção anterior.
+> Certifique-se de que você execute as etapas nesta seção, da pasta de nível superior da versão Istio que você baixou e extraiu.
 
 ### <a name="macos"></a>MacOS
 
@@ -145,6 +145,12 @@ $PATH = [environment]::GetEnvironmentVariable("PATH", "User")
 ```
 
 ## <a name="install-the-istio-kubernetes-components"></a>Instalar os componentes de Kubernetes do Istio
+
+> [!IMPORTANT]
+> Certifique-se de que você execute as etapas nesta seção, da pasta de nível superior da versão Istio que você baixou e extraiu.
+
+> [!NOTE]
+> Versão `1.0.6` e mais recente do gráfico Istio Helm tem alterações significativas. Se você optar por instalar esta versão, agora você precisará criar manualmente um segredo para Kiali. Você também precisará criar manualmente um segredo para o Grafana, se você tiver definido `grafana.security.enabled=true`. Consulte o gráfico do Helm Istio [README.md](https://github.com/istio/istio/tree/master/install/kubernetes/helm/istio#installing-the-chart) para obter mais detalhes sobre como criar esses segredos.
 
 Para instalar os componentes do Istio no cluster do AKS, use o Helm. Instale os recursos do Istio no namespace `istio-system` e habilite as opções adicionais de segurança e monitoramento, conforme a seguir:
 

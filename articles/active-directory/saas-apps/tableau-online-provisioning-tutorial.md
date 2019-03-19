@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.author: v-wingf-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a81754b9b95c7cc6e257707aec188abf1dab58c3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6ed8bae32cb8d0680b1f9aa66f26407c3313ea06
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194862"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077812"
 ---
 # <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Tutorial: Configurar o Tableau Online para o provisionamento automático do usuário
 
@@ -106,13 +106,13 @@ Esta seção orienta você pelas etapas de configuração do serviço de provisi
 
 5. Na seção **Credenciais de Administrador**, insira o **Domínio**, o **Nome de Usuário Administrador**, a **Senha de Administrador** e a **URL de Conteúdo** de sua conta do Tableau Online:
 
-    *   No campo **Domínio**, preencha o subdomínio com base na Etapa 6.
+   * No campo **Domínio**, preencha o subdomínio com base na Etapa 6.
 
-    *   No campo **Nome de Usuário Administrador**, popule o nome de usuário da conta do administrador no Locatário do Clarizen. Exemplo: admin@contoso.com.
+   * No campo **Nome de Usuário Administrador**, popule o nome de usuário da conta do administrador no Locatário do Clarizen. Exemplo: admin@contoso.com.
 
-    *   No campo **Senha de Administrador**, preencha a senha da conta de administrador correspondente ao nome de usuário do administrador.
+   * No campo **Senha de Administrador**, preencha a senha da conta de administrador correspondente ao nome de usuário do administrador.
 
-    *   No campo **URL de Conteúdo**, popule o subdomínio com base na Etapa 6.
+   * No campo **URL de Conteúdo**, popule o subdomínio com base na Etapa 6.
 
 6. Depois que você fizer logon em sua conta administrativa do Tableau Online, os valores do **Domínio** e da **URL de Conteúdo** poderão ser extraídos da URL da página Administrador.
 

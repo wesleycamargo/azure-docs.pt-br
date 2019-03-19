@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: be0dd7147e3864befa90434ade86b4032cd45cc3
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: HT
+ms.openlocfilehash: 8534f30c17208e77adfa47ea41506a3a61d3548d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013178"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897292"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Quadro de segurança: Segurança de comunicações | Atenuações 
 | Produto/Serviço | Artigo |
 | --------------- | ------- |
 | **Hub de Eventos do Azure** | <ul><li>[Proteger comunicações para o Hub de Eventos usando SSL/TLS](#comm-ssltls)</li></ul> |
 | **Dynamics CRM** | <ul><li>[Verificar se os privilégios da conta do serviço e verificar se os serviços ou páginas ASP.NET personalizados respeitam a segurança do CRM](#priv-aspnet)</li></ul> |
-| **Azure Data Factory** | <ul><li>[Usar o Gateway de Gerenciamento de Dados durante a conexão local do SQL Server com o Azure Data Factory](#sqlserver-factory)</li></ul> |
+| **Azure Data Factory** | <ul><li>[Usar o gateway de gerenciamento de dados durante a conexão com o SQL Server no local ao Azure Data Factory](#sqlserver-factory)</li></ul> |
 | **Identity Server** | <ul><li>[Garantir que todo o tráfego para o servidor de identidade passe pela conexão HTTPS](#identity-https)</li></ul> |
 | **Aplicativo Web** | <ul><li>[Verificar os certificados x. 509 usados para autenticar conexões SSL, TLS e DTLS](#x509-ssltls)</li><li>[Configurar um certificado SSL para um domínio personalizado no Serviço de Aplicativo do Azure](#ssl-appservice)</li><li>[Forçar todo o tráfego para o Serviço de Aplicativo do Azure pela conexão HTTPS](#appservice-https)</li><li>[Habilitar HSTS (Segurança de Transporte Estrito HTTP)](#http-hsts)</li></ul> |
 | **Banco de dados** | <ul><li>[Garantir a validação de certificado e a criptografia da conexão do SQL Server](#sqlserver-validation)</li><li>[Forçar a comunicação criptografada para o SQL Server](#encrypted-sqlserver)</li></ul> |
@@ -60,15 +60,15 @@ ms.locfileid: "53013178"
 | **Referências**              | N/D  |
 | **Etapas** | Verifique se os privilégios da conta do serviço e verifique se os serviços ou páginas ASP.NET personalizados respeitam a segurança do CRM. |
 
-## <a id="sqlserver-factory"></a>Usar o Gateway de Gerenciamento de Dados durante a conexão local do SQL Server com o Azure Data Factory
+## <a id="sqlserver-factory"></a>Usar o gateway de gerenciamento de dados durante a conexão com o SQL Server no local ao Azure Data Factory
 
 | Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Fábrica de dados do Azure | 
 | **Fase do SDL**               | Implantação |  
 | **Tecnologias aplicáveis** | Genérico |
-| **Atributos**              | Tipos de serviços vinculados - no Azure e localmente |
-| **Referências**              |[Movendo dados entre o armazenamento local e o Azure Data Factory](https://azure.microsoft.com/documentation/articles/data-factory-move-data-between-onprem-and-cloud/#create-gateway), [Gateway de Gerenciamento de Dados](https://azure.microsoft.com/documentation/articles/data-factory-data-management-gateway/) |
+| **Atributos**              | Tipos de serviço vinculado - locais e do Azure |
+| **Referências**              |[Mover dados entre fontes locais e Azure Data Factory](https://azure.microsoft.com/documentation/articles/data-factory-move-data-between-onprem-and-cloud/#create-gateway), [gateway de gerenciamento de dados](https://azure.microsoft.com/documentation/articles/data-factory-data-management-gateway/) |
 | **Etapas** | <p>A ferramenta Gateway de Gerenciamento de Dados (DMG) é necessária para conectar fontes de dados protegidas por um firewall ou pela rede corporativa.</p><ol><li>Blindar a máquina isola a ferramenta DMG e evita que programas com defeito danifiquem ou espionem o computador da fonte de dados. Por exemplo, instalando das atualizações mais recentes, habilitando o mínimo necessário de portas, provisionando contas controladas, habilitando a auditoria, habilitando a criptografia de disco, etc.</li><li>A chave do Gateway de Dados precisa ser trocada em intervalos frequentes ou sempre que a senha da conta do serviço do DMG for renovada.</li><li>O tráfego de dados pelo serviço de vinculação deve ser criptografado.</li></ol> |
 
 ## <a id="identity-https"></a>Garantir que todo o tráfego para o servidor de identidade passe pela conexão HTTPS
@@ -146,7 +146,7 @@ Essa regra funciona retornando um código de status de protocolo HTTP 301 (redir
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
 | **Referências**              | [Folha de dados do OWASP sobre Segurança de Transporte Estrito HTTP](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet) |
-| **Etapas** | <p>A Segurança de Transporte Estrito HTTP (HSTS) é um aperfeiçoamento de segurança opcional, que é especificado por um aplicativo Web por meio de um cabeçalho de resposta especial. Depois que um navegador em conformidade recebe o cabeçalho, esse navegador impede que todas as comunicações sejam enviadas pelo HTTP para o domínio especificado e envia todas as comunicações pelo HTTPS. Ele também impede cliques via HTTPS em prompts de navegadores.</p><p>Para implementar a HSTS, o seguinte cabeçalho de resposta precisa ser configurado globalmente para um site, por meio de um código ou de um arquivo de configuração. A HSTS Strict-Transport-Security: max-age=300; includeSubDomains impede as seguintes ameaças:</p><ul><li>O usuário marca ou digita http://example.com manualmente e está sujeito a um invasor man-in-the-middle: HSTS redireciona automaticamente as solicitações HTTP para HTTPS para o domínio de destino</li><li>O aplicativo Web que se destina a ser puramente HTTPS acaba contendo links HTTP ou envia conteúdo por HTTP: HSTS redireciona automaticamente as solicitações HTTP para HTTPS para o domínio de destino</li><li>Um ataque man-in-the-middle tenta interceptar o tráfego de um usuário utilizando um certificado inválido e espera que o usuário aceite o certificado incorreto: a HSTS não permite que um usuário substitua a mensagem de certificado inválido</li></ul>|
+| **Etapas** | <p>A Segurança de Transporte Estrito HTTP (HSTS) é um aperfeiçoamento de segurança opcional, que é especificado por um aplicativo Web por meio de um cabeçalho de resposta especial. Depois que um navegador em conformidade recebe o cabeçalho, esse navegador impede que todas as comunicações sejam enviadas pelo HTTP para o domínio especificado e envia todas as comunicações pelo HTTPS. Ele também impede cliques via HTTPS em prompts de navegadores.</p><p>Para implementar a HSTS, o seguinte cabeçalho de resposta precisa ser configurado globalmente para um site, por meio de um código ou de um arquivo de configuração. A HSTS Strict-Transport-Security: max-age=300; includeSubDomains impede as seguintes ameaças:</p><ul><li>O usuário marca ou digita https://example.com manualmente e está sujeito a um invasor man-in-the-middle: HSTS redireciona automaticamente as solicitações HTTP para HTTPS para o domínio de destino</li><li>O aplicativo Web que se destina a ser puramente HTTPS acaba contendo links HTTP ou envia conteúdo por HTTP: HSTS redireciona automaticamente as solicitações HTTP para HTTPS para o domínio de destino</li><li>Um ataque man-in-the-middle tenta interceptar o tráfego de um usuário utilizando um certificado inválido e espera que o usuário aceite o certificado incorreto: a HSTS não permite que um usuário substitua a mensagem de certificado inválido</li></ul>|
 
 ## <a id="sqlserver-validation"></a>Garantir a validação de certificado e a criptografia da conexão do SQL Server
 
@@ -339,7 +339,7 @@ string GetData(int value);
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | MVC5, MVC6 |
 | **Atributos**              | N/D  |
-| **Referências**              | [Impondo o SSL em um controlador de API da Web](http://www.asp.net/web-api/overview/security/working-with-ssl-in-web-api) |
+| **Referências**              | [Impondo o SSL em um controlador de API da Web](https://www.asp.net/web-api/overview/security/working-with-ssl-in-web-api) |
 | **Etapas** | Se um aplicativo tiver uma associação HTTPS e HTTP, os clientes poderão usar o HTTP para acessar o site. Para impedir isso, use um filtro de ação para garantir que as solicitações para APIs protegidas serão sempre feitas via HTTPS.|
 
 ### <a name="example"></a>Exemplo 

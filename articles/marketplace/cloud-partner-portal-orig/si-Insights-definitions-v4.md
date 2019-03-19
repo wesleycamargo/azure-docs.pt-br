@@ -1,6 +1,6 @@
 ---
 title: Definições do Seller Insights | Microsoft Docs
-description: Fornece definições para muitos dos termos que você encontrará no Seller Insights...
+description: Fornece definições para muitos dos termos que você encontrará no Seller Insights
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
 author: v-miclar
@@ -14,118 +14,101 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: e97f963c7ca2362130ede5fe44b637a9a7ef57e2
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: cc90ee0506203433a61fe68d97055ea32f061f11
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48805047"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240636"
 ---
 <a name="seller-insights-definitions"></a>Definições do Seller Insights
 =======================
 
 A tabela a seguir fornece definições para muitos dos termos usados no Seller Insights.
 
-|  **Termo**                                        |  **Definição**                                                                                                                              |
+|  **Termo**                 |  **Definição**                                                                                                                              |
 |  --------------------------------------------    |  ---------------------------------------------------------------------------------------------------------------------------------           |
-| Tipo de licença do Azure                               | O tipo de contrato de licenciamento usado pelos clientes para comprar o Azure. Também conhecido como Canal.                                                  |
-| Tipo de licença do Azure: Provedor de Soluções de Nuvem      | O cliente final adquire o Azure e sua oferta do Marketplace por meio do Provedor de Soluções de Nuvem, que atua como revendedor.                 |
-| Tipo de licença do Azure: Enterprise                   | O cliente final adquire o Azure e sua oferta do Marketplace por meio de um Contrato Enterprise, assinado diretamente com a Microsoft.                  |
-| Tipo de licença do Azure: Enterprise por meio de Revendedor  | O cliente final adquire o Azure e sua oferta do Marketplace por meio de um Revendedor que facilita seu Contrato Enterprise com a Microsoft.     |
-| Tipo de licença do Azure: Pagamento Conforme o Uso                | O cliente final adquire o Azure e sua oferta do Marketplace por meio de um contrato de Pagamento Conforme o Uso, assinado diretamente com a Microsoft.                |
-| GUID de assinatura do Azure                          | O GUID (Identificador Global Exclusivo) da assinatura do Azure que o cliente usou para comprar sua oferta do Marketplace.                     |
-| Valor do custo (CC)                               | O valor cobrado do cliente, na CC (moeda de cobrança do cliente).                                                                 |
-| Valor do custo (PC)                               | O valor cobrado do cliente, na *PC (moeda de pagamento).*                                                                      |
-| Data do custo                                      | A data em que o custo do cliente foi calculado, normalmente imediatamente após o período de uso.                                             |
-| Nome da instância de nuvem                              | A Microsoft Cloud em que ocorreu uma implantação de VM. (Instância do Azure Gov – Microsoft Cloud para o Governo dos EUA; Azure China - instância da Microsoft Cloud dentro da China; Azure Alemanha - instância da Microsoft Cloud dentro da Alemanha; Azure Global - instâncias da Microsoft Cloud para todos os outros locais no mundo)                                                          |
-| Uso do medidor personalizado                               | Unidades medidas sendo consumidas em ofertas de medidor personalizado.                                                                                        |
-| Cliente                                         | Qualquer cliente do Azure ou usuário final que adquire, usa ou exibe uma oferta publicada no Marketplace. Os clientes podem ser identificados pelo *GUID da assinatura do Azure* exclusivo.                                                                                                                                                                        |
-| Cidade do cliente                                    | O nome da cidade fornecido pelo cliente final.                                                                                                  |
-| Idioma de comunicação do cliente                  | O idioma preferido pelo cliente para comunicação.                                                                                    |
-| Nome da empresa do cliente                            | O nome da empresa fornecido pelo cliente final.                                                                                               |
-| País/Região do cliente                                 | O nome do país/região fornecido pelo cliente final.                                                                                               |
-| CC (Moeda do cliente)                           | A moeda preferida pelo cliente para preço e cobrança.                                                                              |
-| Email do cliente                                   | O endereço de email fornecido pelo cliente final.                                                                                              |
-| Nome do cliente                              | O nome do cliente.                                                                                                              |
-| Sobrenome do cliente                               | O sobrenome do cliente.                                                                                                               |
-| Tipo de pagamento do cliente                            | O tipo de meio de pagamento usado pelo cliente.                                                                                         |
-| Código postal do cliente                             | O código postal fornecido pelo cliente final.                                                                                                |
-| Estado do cliente                                   | O estado fornecido pelo cliente final.                                                                                                      |
-| Data da aquisição                                    | A primeira data em que a assinatura do Azure comprou qualquer oferta publicada por você.                                                                  |
-| Data da perda                                        | A primeira data em que a assinatura do Azure cancelou todas as ofertas publicadas por você.                                                                     |
-| Custo estendido estimado (CC)                   | O custo estendido estimado pela quantidade de unidades de uso para determinada SKU (na moeda do cliente). Esse valor pode não ser exato devido a erros de arredondamento ou truncamento.                                                                                                                                                                                           |
-| Custo estendido estimado (PC)                   | O custo estendido estimado para a quantidade de unidades de uso para determinada SKU com base na conversão cambial na data em que o uso foi calculado (na moeda do editor). Esse valor pode não ser exato devido a erros de arredondamento ou truncamento.                                                                                                                |
-| Pagamento estimado (PC)                            | O pagamento estimado para a quantidade de unidades de uso para determinada SKU com base na conversão cambial na data em que o uso foi calculado (na moeda do editor). Esse valor pode não ser exato devido a erros de arredondamento ou truncamento.                                                                                                                |
-| Preço estimado (PC)                             | O pagamento estimado para uma unidade de uso para determinada SKU com base na conversão cambial na data em que o uso foi calculado (na moeda do editor). Esse valor pode não ser exato devido a erros de arredondamento ou truncamento.                                                                                                                                            |
-| Status da coleção final                          | Para um custo específico, o status mais recente do ciclo de vida de cobrança e coleção. Poderia ser: *coleção em andamento*, *coletado*, *pago*, *reembolso* ou *baixa*.                                                                                                                                                                                      |
-| Status da coleção final: coletado               | O custo foi coletado.                                                                                                                    |
-| Status da coleção final: coleção em andamento  | O custo ainda não foi coletado do cliente. A cobrança do Microsoft Azure ainda está cobrando ou coletando do cliente.             |
-| Status da coleção final: reembolso                  | O custo foi reembolsado (o custo total ou um valor parcial).                                                                      |
-| Status da coleção final: baixa               | O custo foi baixado como dívida inválida.                                                                                                      |
-| Cliente IsNew                                   | O cliente implantou esta *SKU* pela primeira vez no mês civil.                                                               |
-| Mercado                                           | O nome do país/região fornecido pelo cliente final.                                                                                               |
-| Tipo de licença do Marketplace                         | O método de cobrança da oferta do Marketplace.                                                                                                 |
-| Tipo de licença do Marketplace: cobrado por meio do Azure   | A Microsoft é seu agente para esta oferta do Marketplace e cobra os clientes em seu nome. (Cartão de crédito PAYG ou fatura Enterprise)       |
-| Tipo de licença do Marketplace: traga sua própria licença | A VM requer uma chave de licença fornecida pelo cliente para implantar. A Microsoft não cobra de clientes pelo uso destas ofertas do Marketplace. |
-| Tipo de licença do Marketplace: gratuito                   | A oferta do Marketplace está configurada para ser gratuita para todos os usuários. A Microsoft não cobra de clientes para o uso desta oferta do Marketplace.    |
-| Tipo de licença do Marketplace: Microsoft como revendedor  | A Microsoft é o revendedor para esta oferta do Marketplace.                                                                                       |
-| Pedido do Marketplace                                | Para VMs, um pedido do Marketplace representa a implantação de uma das muitas VMs vinculadas a uma única *SKU* em uma assinatura exclusiva do Azure. Um único pedido do Marketplace pode representar muitas implantações com tamanhos de núcleo variáveis. Para Aplicativos Gerenciados e Serviços de Desenvolvimento, um pedido do Marketplace representa uma única compra de *SKU* por um *GUID de assinatura do Azure*.           |
-| Valor da Microsoft (CC)                               | O valor da Microsoft na transação na moeda do cliente.                                                                                 |
-| Uso normalizado                                 | Horas de uso normalizadas para contabilizar o número de núcleos de VM envolvidos no uso: [número de núcleos de VM] x [horas de uso bruto]. As VMs designadas como "SHAREDCORE" usam 1/6 (ou 0,1666) como o multiplicador [número de núcleos de VM].                                                                                                                                       |
-| Nome da oferta                                       | O nome da oferta do Marketplace.                                                                                                           |
-| Tipo de Oferta                                       | O tipo de solução.                                                                                                                        |
-| Tipo de oferta: solução com medidor personalizado                | O cliente implantou sua solução com medidor personalizado do Marketplace.                                                                     |
-| Tipo de oferta: aplicativo gerenciado                  | O cliente comprou uma assinatura do seu aplicativo de serviço gerenciado.                                                                   |
-| Tipo de oferta: VM única                            | O cliente selecionou uma única VM para implantar uma imagem.                                                                                     |
-| Tipo de oferta: modelo de solução                    | O cliente implantou seu modelo de solução.                                                                                                |
-| Data de cancelamento do pedido                                | A data em que o pedido do Marketplace foi cancelado.                                                                                                 |
-| Contagem de pedidos                                      | O número de pedidos (ativos e cancelados) que este *GUID de assinatura do Azure* específico tem de qualquer uma das suas ofertas.                               |
-| Data de compra do pedido                              | A data em que o *pedido do Marketplace* foi criado. Para VMs, é a primeira data em que sua imagem foi implantada na assinatura do Azure do cliente. As implantações subsequentes da mesma imagem para a mesma assinatura do Azure são todas consideradas um único pedido.                                                                                                       |
-| Status do pedido                                     | O status de um pedido do Marketplace no momento em que os dados foram atualizados pela última vez.                                                                   |
-| Status do pedido: ativo                             | Para aplicativos gerenciados, o pedido está ativo. Para VMs, o cliente tem pelo menos uma implantação da imagem na sua assinatura do Azure.   |
-| Status do pedido: cancelado                          | Para aplicativos gerenciados, o pedido foi cancelado. Para VMs, o cliente excluiu todas as implantações da *SKU* de sua assinatura do Azure.        |
-| OrderID                                          | O identificador exclusivo do pedido. Para aplicativos gerenciados, o cliente adquiriu uma assinatura mensal do seu serviço. Para VMs, o cliente implantou sua imagem. As implantações subsequentes da mesma imagem para a mesma assinatura do Azure são todas consideradas um único pedido.                                                                       |
-| Tipo de pagamento: cartão                               | O cliente paga os custos do Marketplace com um cartão de crédito.                                                                          |
-| Tipo de pagamento: fatura                            | O cliente paga os custos do Marketplace por meio de fatura.                                                                                 |
-| Valor do pagamento (PC)                               | O valor pago para você, em sua *moeda de pagamento (PC)* preferencial.                                                                            |
-| PC (Moeda de pagamento)                             | A moeda utilizada para seus pagamentos.                                                                                                          |
-| Data de pagamento                                      | A data em que a solicitação de pagamento foi enviada da Microsoft ao seu banco.                                                                           |
-| Status do pagamento                                    | Indica onde a transação está no ciclo de vida de pagamento: *paga*, *pagamento futuro* ou *não está pronta para o pagamento*.                        |
-| Status do pagamento: não está pronta para o pagamento              | A transação não está pronta para o pagamento. (Confira *Status da coleção final* para obter mais detalhes)                                                    |
-| Status do pagamento: paga                          | A transação foi incluída em um cálculo de pagamento anterior. Os valores positivos são pagos; os valores negativos são somados ao valor total devido. |
-| Status do pagamento: pagamento futuro                   | A transação está pronta para o pagamento e será incluída no próximo cálculo de pagamento disponível.                                           |
-| SKU de versão prévia                                      | Você marcou a *SKU* como "versão prévia"; somente assinaturas do Azure que você colocou na lista de permissões podem implantar e usar essa imagem.                       |
-| Preço (CC)                                       | O preço de uma unidade de uso para determinada SKU (na moeda do cliente).                                                                  |
-| Aceitação de contato promocional                       | Indica se o cliente aceitou proativamente o contato promocional dos publicadores. Não estamos apresentando a opção aos clientes no momento; portanto, indicamos "Não" de forma generalizada. Após a implantação desse recurso, começaremos a atualizar de acordo.                                                                                          |
-| PC (Moeda do editor)                          | A moeda preferida pelo publicador para o pagamento.                                                                                          |
-| Uso bruto                                        | Horas de uso para sua oferta do Marketplace.                                                                                                      |
-| Email do revendedor                                   | O endereço de email do revendedor envolvido na venda para o cliente final.                                                                  |
-| Nome do revendedor                                    | O nome do revendedor da Microsoft que gerencia o cliente final.                                                                                |
-| URI de recurso                                     | Um identificador exclusivo para VMs individuais ou implantações de serviços ao desenvolvedor.                                                                    |
-| SKU                                              | Nome da *SKU* definido durante a publicação. Uma oferta pode ter muitas *SKUs*, mas uma *SKU* só pode estar associada a uma única oferta.              |
-| Tipo de cobrança da SKU                                 | O método de cobrança da *SKU*.                                                                                                             |
-| Tipo de cobrança da SKU: BYOL                           | A VM requer uma chave de licença fornecida pelo cliente para implantar. A Microsoft não cobra de clientes pelo uso destas ofertas do Marketplace.   |
-| Tipo de cobrança da SKU: gratuita                           | A *SKU* está configurada para ser gratuita para todos os usuários. A Microsoft não cobra de clientes pelo uso desta *SKU*.                            |
-| Tipo de cobrança da SKU: Microsoft como revendedor          | A Microsoft é sua revendedora para esta *SKU*.                                                                                                   |
-| Tipo de cobrança da SKU: paga                           | A Microsoft é seu agente para esta *SKU* e cobra os clientes em seu nome. (Cartão de crédito PAYG ou fatura Enterprise)                   |
-| Tipo de cobrança da SKU: avaliação gratuita                          | O cliente está no período de avaliação gratuita que será convertido em paga se ele não cancelar ou excluir.                                         |
-| Valor do tributo (CC)                                  | O valor do tributo aplicado na fatura do cliente, na *CC (moeda do cliente)*.                                                               |
-| Data da transação                                 | A data da transação registrada no seu relatório de pagamento.                                                                               |
-| Tipo de transação                                 | O tipo de transação que está sendo relatado.                                                                                              |
-| Tipo de transação: custo                         | A transação é um valor positivo que representa o valor cobrado do cliente.                                                         |
-| Tipo de transação: reembolso do cliente                | O custo do cliente foi reembolsado. Essa transação é um valor negativo equivalente ao valor do custo positivo do cliente. É possível identificar o valor positivo correspondente, que foi pago anteriormente, identificando a transação com a mesma *data de custo* e *tipo de transação* = "custo" e *status da coleção final* = "reembolso".                   |
-| Tipo de transação: ajuste do pagamento              | A transação representa um ajuste positivo ou negativo aplicado ao seu saldo pela Microsoft, criado para contabilizar um erro de cobrança ou pagamento anterior.                                                                                                                                                                                            |
-| Tipo de transação: baixa                      | O custo do cliente foi registrado como dívida inválida. Essa transação é um valor negativo equivalente ao valor do custo positivo do cliente. É possível identificar o valor positivo correspondente, que foi pago anteriormente, identificando a transação com a mesma *data de custo* e *tipo de transação* = "custo" e *status da coleção final* = "baixa". |
-| Tipo de transação: reversão de baixa             | A transação é um valor positivo que representa a reversão de uma transação com baixa anterior.                                         |
-| Data de término da avaliação gratuita                                   | A data em que o período de avaliação gratuita deste pedido terminará ou terminou.                                                                              |
-| Uso                                            | O uso da *SKU* pelo cliente relatado. Para imagens de VM, os registros de uso representam o uso no período relatado para esse tamanho da VM e *SKU*.   |
-| Data de término do uso                                   | A data de término do período de uso que está sendo relatado.                                                                                             |
-| Data de Uso                                       | A data em que o uso do cliente ocorreu.                                                                                                             |
-| Referência do uso                                  | O identificador para um ou mais dias de uso do cliente para determinada SKU associada a uma entrada no relatório de pagamento.                         |
-| Data de início do uso                                 | A data de início do período de uso que está sendo relatado.                                                                                           |
-| Tipo de uso                                       | Uma descrição do uso que está sendo medido. (*Uso normalizado* ou *uso bruto*)                                                               |
-| Unidades de uso                                      | A unidade de medida para o uso indicado. As VMs são sempre medidas com unidades de hora de medida.                                      |
-| Tamanho da VM                                          | Representa o tamanho do hardware da máquina virtual alinhado com a oferta do Azure. Os exemplos incluem `Basic_A0`, `Standard_A11`, `Standard_D12` e `Standard_G4`.   |
+| **Tipo de licença do Azure**                               | O tipo de contrato de licenciamento usado pelos clientes para comprar o Azure.  Também conhecido como Canal.                                                  |
+| **Tipo de licença do Azure: Provedor de soluções de nuvem**      | O cliente final adquire o Azure e sua oferta do Marketplace por meio do Provedor de Soluções de Nuvem, que atua como revendedor.                 |
+| **Tipo de licença do Azure: Enterprise**                   | O cliente final adquire o Azure e sua oferta do Marketplace por meio de um Contrato Enterprise, assinado diretamente com a Microsoft.                  |
+| **Tipo de licença do Azure: Enterprise por meio do revendedor**  | O cliente final procures do Azure e sua oferta do Marketplace por meio de um revendedor que facilita a seu Enterprise Agreement com a Microsoft.     |
+| **Tipo de licença do Azure: Pago conforme o uso**                | O cliente final procures do Azure e sua oferta do Marketplace por meio de um contrato "Pré-pago", conectado diretamente com a Microsoft.                |
+| **Quantidade de carga (CC)**                              | O valor cobrado para o cliente, o *moeda cliente* (CC) para cobrança.                                                                 |
+| **Quantidade de carga (PC)**                               | O valor cobrado para o cliente, o *moeda de pagamento* (PC).                                                                      |
+| **Data da cobrança**                                      | A data de que cobrança do cliente foi calculado (normalmente imediatamente após o período de uso).                                             |
+| **Nome da instância de nuvem**                              | A Microsoft Cloud em que ocorreu uma implantação de VM.                                   |
+| **Nome da instância de nuvem: Azure Global**                | A nuvem da Microsoft global pública.                           |
+| **Nome da instância de nuvem: Azure Government**        | Nuvens da Microsoft específica do governo para um dos governos a seguir: Estados Unidos da América, Alemanha ou China.                           |
+| **Status da coleta**  | Para uma cobrança específica, o status mais recente do ciclo de vida de cobrança e de coleção.  Por exemplo, o status poderia ser coleção em andamento, coletados, ou o reembolso.                  |
+| **Tamanho de núcleo**  | O número de núcleos virtuais apresentados pela máquina virtual que a oferta está em execução no.               |
+| **Cidade do cliente**  | O nome da cidade fornecido pelo cliente. Isso pode ser diferente da cidade na assinatura do Azure do cliente.  |
+| **Idioma de comunicação do cliente**        | O idioma preferido pelo cliente para comunicação.                                  |
+| **Nome da empresa do cliente**                  | O nome da empresa fornecido pelo cliente. Isso pode ser diferente da cidade na assinatura do Azure do cliente.                                  |
+| **País do cliente**                       | O nome de país fornecido pelo cliente.  Isso pode ser diferente de país na assinatura do Azure do cliente.                               |
+| **Moeda do cliente (CC)**                 | A moeda preferida pelo cliente para preço e cobrança.                            |
+| **Email do cliente**                         | O endereço de email fornecido pelo cliente final.  Isso pode ser diferente do endereço de email na assinatura do Azure do cliente.                   |
+| **Nome do cliente**                              | O nome fornecido pelo cliente.  Isso pode ser diferente do nome fornecido na assinatura do Azure do cliente.                    |
+| **Sobrenome do cliente**                               | O sobrenome fornecido pelo cliente.  Isso pode ser diferente do nome fornecido na assinatura do Azure do cliente.                    |
+| **ID do cliente**                               | O identificador exclusivo atribuído a um cliente.  Um cliente pode ter zero ou mais assinaturas do Marketplace do Azure.                    |
+| **Tipo de pagamento de cliente**                            | O tipo de meio de pagamento usado pelo cliente.  Por exemplo, isso poderia ser seleção eletrônica, fatura ou cartão.                             |
+| **Código Postal do cliente**                             | O CEP fornecido pelo cliente.  Isso pode ser diferente do que o CEP fornecido na assinatura do Azure do cliente.                                                                 |
+| **Estado do cliente**                                   | O estado (endereço) fornecido pelo cliente.  Isso pode ser diferente do último nome fornecido na assinatura do Azure do cliente.                                                                 |
+| **Data de aquisição**                                    | A primeira data, o cliente comprou qualquer oferta que foram publicada por você.                 |
+| **Data perdida**                                        | A data da última o cliente cancelou o último de todas as ofertas comprada anteriormente.                                                         |
+| **Custo estimado estendido (CC)**                   | O custo estendido estimado pela quantidade de unidades de uso para determinada SKU (na moeda do cliente). Esse valor pode não ser exato devido a erros de arredondamento ou truncamento.                            |
+| **Custo estimado estendido (PC)**                   | Estimado estendido de custo para a quantidade de unidades de uso para uma determinada SKU, com base em conversão de intercâmbio sobre o uso de data é calculado (na moeda do Editor). Esse valor pode não ser exato devido a erros de arredondamento ou truncamento.                  |
+| **Pagamento estimado (PC)**                            | O pagamento estimado para a quantidade de unidades de uso para uma determinada SKU, com base em conversão de intercâmbio na data em que o uso é calculado (na moeda do Editor). Esse valor pode não ser exato devido a erros de arredondamento ou truncamento.                        |
+| **Preço estimado (PC)**                             | O preço estimado para uma unidade de uso para uma determinada SKU, com base em conversão de intercâmbio sobre o uso de data é calculado (na moeda do Editor). Esse valor pode não ser exato devido a erros de arredondamento ou truncamento.                                             |
+| **É o novo cliente**                                  | O valor permitem que você sabe se é um novo cliente consumir ou comprar uma ou mais dos seu Marketplace oferece pela primeira vez (ou não).  O valor será "Sim", se for o mesmo mês do calendário para "Data adquirido".  O valor será "Não" se o cliente tiver comprado a qualquer uma das suas ofertas antes do mês do calendário relatados.                                                       |
+| **É a versão prévia SKU**                                  | O valor informará se você ter marcado a SKU como "visualização". O valor será "Sim" se o SKU foi marcado adequadamente, e o Azure somente assinaturas autorizadas por você podem implantar e usar essa imagem.  O valor será "Não" se o SKU não tiver sido identificado como "visualização".                                          |
+| **Contato promocional significa usar**                   | O valor informará se o cliente proativamente participar do contato promocional de Publicadores. Não estamos apresentando a opção aos clientes no momento; portanto, indicamos "Não" de forma generalizada. Após a implantação desse recurso, começaremos a atualizar de acordo.                                          |
+| **Tipo de licença do Marketplace**                         | O método de cobrança da oferta do Marketplace.                             |
+| **Tipo de licença do Marketplace: Cobrado por meio do Azure**   | A Microsoft é seu agente para esta oferta do Marketplace e cobra os clientes em seu nome. (Cartão de crédito PAYG ou fatura Enterprise)       |
+| **Tipo de licença do Marketplace: Traga sua própria licença** | A máquina virtual requer uma chave de licença fornecida pelo cliente para implantar. A Microsoft não cobra de clientes pelo uso destas ofertas do Marketplace. |
+| **Tipo de licença do Marketplace: livre**                   | A oferta do Marketplace está configurada para ser gratuita para todos os usuários. A Microsoft não cobra de clientes para o uso desta oferta do Marketplace.    |
+| **Tipo de licença do Marketplace: Microsoft as Reseller**  | A Microsoft é o revendedor para esta oferta do Marketplace.                               |
+| **Nome da empresa de assinatura do Marketplace**  | O nome da empresa fornecido pelo cliente em sua assinatura do Azure.                           |
+| **ID de assinatura do Marketplace**            | O identificador exclusivo associado à assinatura do Azure do cliente usado para comprar sua oferta do Marketplace.  Anteriormente era o GUID de assinatura do Azure.  Em alguns casos, como uma ordem SAAS, nenhuma assinatura é necessária.           |
+| **Taxa da Microsoft (CC)**                               | O valor da Microsoft na transação na moeda do cliente.                              |
+| **Nome da oferta**                                | O nome da oferta do Marketplace.                                                             |
+| **Tipo de oferta**                                | O tipo de oferta do Microsoft Marketplace.  Por exemplo, é possível aplicativo gerenciado, licenças de máquina virtual ou contêiner.                           |
+| **Data de cancelamento do pedido**                         | A data em que o pedido do Marketplace foi cancelado.                                                       |
+| **ID do pedido**                                  | O identificador exclusivo do pedido de cliente para o serviço do Marketplace.  Ofertas de máquina virtual baseada em uso não estão associadas um pedido.                 |
+| **Data de compra do pedido**                       | A data em que o pedido do Marketplace foi criado.                                                        |
+| **Quantidade de pedidos**                       | A quantidade de pedidos para a mesma SKU associado com uma assinatura do Azure.  Para pedidos SAAS, ele representa o número de estações associada à instância de um pedido.                                            |
+| **Status do pedido**                              | O status de um pedido do Marketplace no momento em que os dados foram atualizados pela última vez.  Por exemplo, a ordem pode ser ativo ou cancelado.             |
+| **Status do pedido: Active**                           | O cliente comprou um pedido e não tenha cancelado sua ordem.   |
+| **Status do pedido: Cancelado**                        | O cliente comprada anteriormente um pedido e subsequentemente cancelado sua ordem.        |
+| **Quantidade de pagamento (PC)**                             | O valor pago para você, em sua moeda de pagamento preferencial (PC).                                       |
+| **Moeda de pagamento (PC)**                           | A moeda utilizada para seus pagamentos.                                                                |
+| **Data de pagamento**                                    | A data a solicitação de pagamento foi enviada da Microsoft para sua instituição financeira escolhida.                                                                         |
+| **Status de pagamento**                                  | O status do pagamento no momento em que os dados foram atualizados pela última vez.                                   |
+| **Status do pagamento: Em andamento**               | A transação não está pronta para o pagamento. (Para obter mais informações, consulte o Status da coleta)                             |
+| **Status do pagamento: Pago**                          | A transação foi incluída em um cálculo de pagamento anterior. Os valores positivos são pagos; os valores negativos são somados ao valor total devido. |
+| **Status do pagamento: Pagamento futuro**                   | A transação está pronta para o pagamento e será incluída no próximo cálculo de pagamento disponível.                      |
+| **Preço (CC)**                                   | O preço de uma unidade de uso para determinada SKU (na moeda do cliente).                                                                  |
+| **Provedor Email**                                 | O endereço de email do provedor envolvido na relação entre a Microsoft e o cliente final. Se o cliente é uma empresa por meio do revendedor, ele será o revendedor.  Se um provedor de solução de nuvem (CSP) estiver envolvido, ele será o CSP.                                                                 |
+| **Nome do Provedor**                                 | O nome do provedor envolvido na relação entre o cliente da Microsoft e de término. Se o cliente é uma empresa por meio do revendedor, ele será o revendedor.  Se um provedor de solução de nuvem (CSP) estiver envolvido, ele será o CSP.                                                                 |
+| **URI de recurso**                                  | O caminho onde o artefato de implantação foi implantado.                                            |
+| **SKU**                                           | Nome da SKU conforme definido durante a publicação. Uma oferta pode ter várias SKUs, mas uma SKU só pode ser associada com uma única oferta.              |
+| **Tipo de cobrança do SKU**                                 | O método de cobrança do SKU.                                                                                                             |
+| **Tipo de cobrança do SKU: Traga sua própria licença**         | A VM ou serviço requer uma chave de licença fornecida pelo cliente para implantar. Microsoft não cobra de clientes para seu uso as ofertas do Marketplace.   |
+| **Tipo de cobrança do SKU: Microsoft As Reseller**          | A Microsoft é o seu revendedor para essa SKU.   |
+| **Tipo de cobrança do SKU: livre**                           | A SKU é configurada para ser livres para todos os usuários. Microsoft não cobra de clientes para seu uso deste SKU.                           |
+| **Tipo de cobrança do SKU: Pago**                           | A Microsoft é seu agente para este SKU e cobra os clientes em seu nome. (Cartão de crédito PAYG ou fatura Enterprise)                   |
+| **Tipo de cobrança do SKU: Versão de avaliação**                          | O cliente está no período de avaliação gratuita que será convertido em paga se ele não cancelar ou excluir.                                         |
+| **Valor do imposto (CC)**                                  | O valor do imposto aplicado à cobrança do cliente no cliente moeda (CC).                                                               |
+| **Data da transação**                                 | A data da transação registrada no seu relatório de pagamento.                                                                           |
+| **Tipo de transação**                               | O tipo de transação que está sendo relatado.  Por exemplo, isso poderia ser um encargo, reembolso ou ajuste de pagamento.                                                                                        |
+| **Data de término de avaliação**                                 | A data em que o período de avaliação gratuita deste pedido terminará ou terminou.                                                                           |
+| **Data de uso**                                       | A data em que o uso do cliente ocorreu.                                                                                                             |
+| **Quantidade de uso**                                       | O uso de relatados pelos clientes de SKU. Para imagens de VM, registros de uso representam o uso para o período relatado para essa SKU e o tamanho da VM.                                               |
+| **Referência de uso**                                       | O identificador para um ou mais dias de uso do cliente para determinada SKU associada a uma entrada no relatório de pagamento.                                               |
+| **Tipo de Uso**                                       | Uma descrição do uso que está sendo medido. (Uso normalizado ou uso bruto)                                                              |
+| **Tipo de uso: Uso normalizado**                | Horas de uso normalizadas para contabilizar o número de núcleos de VM envolvidos no uso: [número de núcleos de VM] x [horas de uso bruto]. As VMs designadas como "SHAREDCORE" usam 1/6 (ou 0,1666) como o multiplicador [número de núcleos de VM].                                        |
+| **Tipo de uso: Uso bruto**                        | Horas de uso para sua oferta do Marketplace.  Ela é apresentada em termos de horas de "Calendário".  É o número de máquinas virtuais de tempo estão sendo executados.                           |
+| **Unidades de uso**                                   | A unidade de medida para o uso indicado. As VMs são sempre medidas com unidades de hora de medida.                               |
+| **Tamanho da MV**                                       | Representa o tamanho do hardware da máquina virtual alinhado com a oferta do Azure. Os exemplos incluem `Basic_A0`, `Standard_A11`, `Standard_D12` e `Standard_G4`.   |
 |  |  |
 
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0d0e9c1c35236ce6449a9c9bf06ba291f46db472
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 03bafcdbf6890573d1d2855e2b47520d0111fe13
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53729775"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996783"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Solucionar problemas de um aplicativo no Serviço de Aplicativo do Azure usando o Visual Studio
 ## <a name="overview"></a>Visão geral
@@ -134,19 +134,19 @@ public ActionResult About()
 }
 ```
 
-4. [Defina um ponto de interrupção](https://docs.microsoft.com/visualstudio/debugger/) na linha `ViewBag.Message`.
+1. [Defina um ponto de interrupção](https://docs.microsoft.com/visualstudio/debugger/) na linha `ViewBag.Message`.
 
-5. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto e clique em **Publicar**.
+1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto e clique em **Publicar**.
 
-6. Na lista suspensa de **Perfil**, selecione o mesmo perfil que você usou em [Criar um aplicativo ASP.NET no Serviço de Aplicativo do Azure](app-service-web-get-started-dotnet-framework.md). Em seguida, clique em Configurações.
+1. Na lista suspensa de **Perfil**, selecione o mesmo perfil que você usou em [Criar um aplicativo ASP.NET no Serviço de Aplicativo do Azure](app-service-web-get-started-dotnet-framework.md). Em seguida, clique em Configurações.
 
-7. Na caixa de diálogo **Publicar**, clique em **Configurações** e altere **Configuração** para D**epuração** e, em seguida, clique em **Salvar**.
+1. Na caixa de diálogo **Publicar**, clique em **Configurações** e altere **Configuração** para D**epuração** e, em seguida, clique em **Salvar**.
 
     ![Publicar em modo de depuração](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-publishdebug.png)
 
-8. Clique em **Publicar**. Quando a implantação for concluída e o navegador abrir a URL do Azure do seu aplicativo, feche o navegador.
+1. Clique em **Publicar**. Quando a implantação for concluída e o navegador abrir a URL do Azure do seu aplicativo, feche o navegador.
 
-9. No **Gerenciador de Servidores**, clique com o botão direito do mouse no seu aplicativo e clique em **Anexar Depurador**.
+1. No **Gerenciador de Servidores**, clique com o botão direito do mouse no seu aplicativo e clique em **Anexar Depurador**.
 
     ![Anexar Depurador](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png)
 
@@ -156,19 +156,19 @@ public ActionResult About()
     > Se você tiver problemas para iniciar o depurador, tente fazer isso usando o **Cloud Explorer** em vez do **Gerenciador de Servidores**.
     >
 
-10. Clique em **Sobre** no menu.
+1. Clique em **Sobre** no menu.
 
-     O Visual Studio para no ponto de interrupção, e o código está em execução no Azure, e não no computador local.
+    O Visual Studio para no ponto de interrupção, e o código está em execução no Azure, e não no computador local.
 
-11. Focalize a variável `currentTime` para ver o valor da hora.
+1. Focalize a variável `currentTime` para ver o valor da hora.
 
-     ![Exibir variável no modo de depuração em execução no Azure](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugviewinwa.png)
+    ![Exibir variável no modo de depuração em execução no Azure](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugviewinwa.png)
 
-     A hora que você vê é a hora do servidor do Azure, que pode estar em um fuso horário diferente do computador local.
+    A hora que você vê é a hora do servidor do Azure, que pode estar em um fuso horário diferente do computador local.
 
-12. Insira um novo valor para a variável `currentTime` , como "Agora em execução no Azure".
+1. Insira um novo valor para a variável `currentTime` , como "Agora em execução no Azure".
 
-13. Pressione F5 para continuar a execução.
+1. Pressione F5 para continuar a execução.
 
      A página Sobre em execução no Azure exibe o novo valor que você inseriu na variável currentTime.
 
@@ -311,7 +311,7 @@ public ActionResult Contact()
 }        
 ```
 
-2. Adicione uma instrução `using System.Diagnostics;` ao todo do arquivo.
+1. Adicione uma instrução `using System.Diagnostics;` ao todo do arquivo.
 
 ### <a name="view-the-tracing-output-locally"></a>Exibir a saída do rastreamento localmente
 1. Pressione F5 para executar o aplicativo em modo de depuração.
@@ -339,15 +339,15 @@ public ActionResult Contact()
 ```
 
 O `WebPageTraceListener` permite exibir a saída do rastreamento navegando até `/trace.axd`.
-3. Adicione um <a href="https://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">elemento trace</a> em `<system.web>` no arquivo Web.config, como no seguinte exemplo:
+1. Adicione um <a href="https://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">elemento trace</a> em `<system.web>` no arquivo Web.config, como no seguinte exemplo:
 
 ``` xml
 <trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
 ```       
 
-4. Pressione CTRL+F5 para executar o aplicativo.
-5. Na barra de endereços da janela do navegador, adicione *trace.axd* à URL e pressione Enter (a URL é semelhante a http://localhost:53370/trace.axd).
-6. Na página de **Rastreamento do aplicativo**, clique em **Exibir detalhes** na primeira linha (não a linha BrowserLink).
+1. Pressione CTRL+F5 para executar o aplicativo.
+1. Na barra de endereços da janela do navegador, adicione *Trace. axd* para a URL e pressione Enter (a URL é semelhante ao `http://localhost:53370/trace.axd`).
+1. Na página de **Rastreamento do aplicativo**, clique em **Exibir detalhes** na primeira linha (não a linha BrowserLink).
 
     ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
 
@@ -477,7 +477,7 @@ Todos os logs que podem ser monitorados na janela **Saída** também podem ser b
    * Os logs de servidor Web estão em arquivos *.log* na pasta *LogFiles\http\RawLogs*. Você pode usar uma ferramenta como o [Analisador de log (a página pode estar em inglês)](https://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) para exibir e manipular esses arquivos.
    * Os logs de mensagens de erro detalhadas estão em arquivos *.html* na pasta *LogFiles\DetailedErrors*.
 
-    (A pasta *deployments* é para os arquivos criados pela publicação de controle do código-fonte; ela não tem nada relacionado à publicação do Visual Studio. A pasta *Git* é para rastreamentos relacionados à publicação de código-fonte e o serviço de streaming de arquivos de log.)  
+     (A pasta *deployments* é para os arquivos criados pela publicação de controle do código-fonte; ela não tem nada relacionado à publicação do Visual Studio. A pasta *Git* é para rastreamentos relacionados à publicação de código-fonte e o serviço de streaming de arquivos de log.)  
 
 <!-- ## <a name="storagelogs"></a>View storage logs
 Application tracing logs can also be sent to an Azure storage account, and you can view them in Visual Studio. To do that you'll create a storage account, enable storage logs in the Azure portal, and view them in the **Logs** tab of the **Azure Web App** window.
@@ -685,7 +685,7 @@ Para obter mais informações sobre como analisar logs de servidor web, consulte
 
 * [LogParser](https://www.microsoft.com/download/details.aspx?id=24659)<br/>
   Uma ferramenta para exibir dados em logs de servidor Web (arquivos *.log* ).
-* [Solução de problemas de desempenho do IIS ou erros de aplicativo usando o LogParser](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
+* [Solucionando problemas de desempenho do IIS ou erros de aplicativo usando o LogParser](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
    Uma introdução à ferramenta LogParser que pode ser usada para analisar logs de servidor web.
 * [Postagens no blog por Robert McMurray sobre como usar o LogParser](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
 * [O código de status HTTP no IIS 7.0, IIS 7.5 e IIS 8.0](https://support.microsoft.com/kb/943891)

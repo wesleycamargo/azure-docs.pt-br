@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: 3fa890b02c791f26f3f25bf2418b105d1116ca75
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
-ms.translationtype: HT
+ms.openlocfilehash: f66101d9847c57c5e078c3484a243e7b38823f53
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094419"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001795"
 ---
 # <a name="move-a-windows-vm-from-amazon-web-services-aws-to-an-azure-virtual-machine"></a>Mover uma VM Windows do Amazon AWS (Web Services) para uma máquina virtual do Azure
 
@@ -46,7 +46,7 @@ Você pode carregar VHDs generalizados e especializados no Azure. Cada tipo exig
 
 ## <a name="export-and-download-the-vhd"></a>Exportar e baixar o VHD 
 
-Exporte a instância do EC2 para um VHD em um bucket do Amazon S3. Execute as etapas no tópico do artigo de documentação da Amazon [Exportar uma instância como VM usando Importação/Exportação de VM](http://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html) e execute o comando [create-instance-export-task](http://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) para exportar a instância do EC2 para um arquivo VHD. 
+Exporte a instância do EC2 para um VHD em um bucket do Amazon S3. Execute as etapas no tópico do artigo de documentação da Amazon [Exportar uma instância como VM usando Importação/Exportação de VM](https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html) e execute o comando [create-instance-export-task](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) para exportar a instância do EC2 para um arquivo VHD. 
 
 O arquivo VHD exportado é salvo no bucket do Amazon S3 especificado. A sintaxe básica para exportar o VHD está abaixo, basta substituir o texto de espaço reservado em <brackets> por suas informações.
 
@@ -55,7 +55,7 @@ aws ec2 create-instance-export-task --instance-id <instanceID> --target-environm
   --export-to-s3-task DiskImageFormat=VHD,ContainerFormat=ova,S3Bucket=<bucket>,S3Prefix=<prefix>
 ```
 
-Após a exportação do VHD, siga as instruções em [Como baixar um objeto de um bucket S3?](http://docs.aws.amazon.com/AmazonS3/latest/user-guide/download-objects.html) para baixar o arquivo VHD do bucket S3. 
+Após a exportação do VHD, siga as instruções em [Como baixar um objeto de um bucket S3?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/download-objects.html) para baixar o arquivo VHD do bucket S3. 
 
 > [!IMPORTANT]
 > O AWS cobra encargos por transferência de dados para baixar o VHD. Confira [Preços do Amazon S3](https://aws.amazon.com/s3/pricing/) para saber mais.

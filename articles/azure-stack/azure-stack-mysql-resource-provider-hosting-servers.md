@@ -15,12 +15,12 @@ ms.date: 02/28/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: eb5d1ca55efed7e83739f21a432b61b6aad25f70
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 68e8bfa16c56b8c864ac99cdf6c19243bc7e881c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194003"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101866"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>Adicionar servidores de hospedagem para o provedor de recursos do MySQL
 
@@ -44,9 +44,9 @@ Verifique se que você tem as credenciais para uma conta com privilégios de adm
 4. Forneça os detalhes de conexão da sua instância do servidor MySQL.
 
    * Para **nome do servidor de hospedagem MySQL**, forneça o nome de domínio totalmente qualificado (FQDN) ou um endereço IPv4 válido. Não use o nome curto de VM.
-   - O administrador padrão **nome de usuário** é para o Bitnami MySQL imagens disponíveis no marketplace do Azure Stack *raiz*. 
-   - Se você não souber a raiz **senha**, consulte o [Bitnami documentação](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials) para saber como obtê-lo. 
-   - Uma instância do MySQL padrão não for fornecida, portanto, você precisa especificar o **tamanho de hospedagem de servidor em GB**. Insira um tamanho próximo a capacidade do servidor de banco de dados.
+   * O administrador padrão **nome de usuário** é para o Bitnami MySQL imagens disponíveis no marketplace do Azure Stack *raiz*. 
+   * Se você não souber a raiz **senha**, consulte o [Bitnami documentação](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials) para saber como obtê-lo. 
+   * Uma instância do MySQL padrão não for fornecida, portanto, você precisa especificar o **tamanho de hospedagem de servidor em GB**. Insira um tamanho próximo a capacidade do servidor de banco de dados.
    * Mantenha a configuração padrão para **assinatura**.
    * Para **grupo de recursos**, crie um novo ou usar um grupo existente.
 
@@ -60,8 +60,8 @@ Verifique se que você tem as credenciais para uma conta com privilégios de adm
    A SKU **nome** deve refletir as propriedades do SKU para que os usuários podem implantar seus bancos de dados para a SKU adequada.
 
 6. Selecione **Okey** para criar o SKU.
-> [!NOTE]
-> SKUs podem demorar até uma hora para ser visível no portal. Você não pode criar um banco de dados até que a SKU é implantado e em execução.
+   > [!NOTE]
+   > SKUs podem demorar até uma hora para ser visível no portal. Você não pode criar um banco de dados até que a SKU é implantado e em execução.
 
 7. Sob **adicionar um servidor de hospedagem MySQL**, selecione **criar**.
 

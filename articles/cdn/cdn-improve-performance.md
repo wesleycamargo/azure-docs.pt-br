@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 02/28/2018
 ms.author: magattus
-ms.openlocfilehash: 2468462170f970cd597dd1296417d5b93a88c2ec
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: afe959e80b339db5112fa97fd79d0528390e3954
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997260"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096445"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Melhorar o desempenho compactando os arquivos na CDN do Azure
 A compactação de arquivo é um método simples e eficiente para melhorar a velocidade de transferência de arquivos e aumentar o desempenho de carregamento de páginas, reduzindo o tamanho de arquivos antes de serem enviados do servidor. Ela pode reduzir os custos de largura de banda e oferece uma experiência mais responsiva para os seus usuários.
@@ -31,13 +31,11 @@ Há duas maneiras de habilitar a compactação de arquivo:
 
 > [!IMPORTANT]
 > As alterações na configuração da CDN do Azure podem demorar um pouco para serem propagadas pela rede: 
-- Para perfis da **CDN Standard do Azure da Microsoft**, a propagação geralmente é concluída em dez minutos. 
-- Para perfis da **CDN Standard do Azure da Akamai**, a propagação normalmente é concluída em um minuto. 
-- Para perfis da **CDN Standard do Azure da Verizon** e da **CDN Premium do Azure da Verizon**, a propagação geralmente é concluída em 10 minutos. 
->
+> - Para perfis da **CDN Standard do Azure da Microsoft**, a propagação geralmente é concluída em dez minutos. 
+> - Para perfis da **CDN Standard do Azure da Akamai**, a propagação normalmente é concluída em um minuto. 
+> - Para perfis da **CDN Standard do Azure da Verizon** e da **CDN Premium do Azure da Verizon**, a propagação geralmente é concluída em 10 minutos. 
+> 
 > Se estiver configurando a compactação pela primeira vez para o ponto de extremidade CDN, considere a possibilidade de aguardar de 1 a 2 horas antes de solucionar problemas para garantir que as configurações de compactação tenham sido propagadas para os POPs.
-> 
-> 
 
 ## <a name="enabling-compression"></a>Habilitando a compactação
 As camadas CDN Standard e Premium fornecem a mesma funcionalidade de compactação, mas a interface do usuário varia. Para saber mais sobre as diferenças entre as camadas CDN Standard e Premium, confira [Visão geral da CDN do Azure](cdn-overview.md).
@@ -49,28 +47,28 @@ As camadas CDN Standard e Premium fornecem a mesma funcionalidade de compactaç�
 > 
 
 1. Na página do perfil de CDN, selecione o ponto de extremidade da CDN que deseja gerenciar.
-   
+
     ![Pontos de extremidade de perfil CDN](./media/cdn-file-compression/cdn-endpoints.png)
-   
+
     A página do ponto de extremidade da CDN se abre.
 2. Selecione **Compactação**.
 
     ![Seleção de compactação da CDN](./media/cdn-file-compression/cdn-compress-select-std.png)
-   
+
     A página de compactação é aberta.
 3. Selecione **Ativar** para ativar a compactação.
-   
+
     ![Opções de compactação de arquivo da CDN](./media/cdn-file-compression/cdn-compress-standard.png)
 4. Use os tipos MIME padrão ou modifique a lista removendo ou adicionando tipos MIME.
-   
+
    > [!TIP]
    > Embora seja possível, não é recomendável aplicar a compactação a formatos compactados. Por exemplo, ZIP, MP3, MP4 ou JPG.
    > 
-   
+
    > [!NOTE]
    > Atualmente, a modificação da lista padrão dos tipos MIME não tem suporte na Rede de Distribuição de Conteúdo Standard do Microsoft Azure.
    > 
- 
+
 5. Depois de fazer suas alterações, selecione **Salvar**.
 
 ### <a name="premium-cdn-profiles"></a>Perfis CDN Premium
@@ -79,36 +77,38 @@ As camadas CDN Standard e Premium fornecem a mesma funcionalidade de compactaç�
 > 
 
 1. Na página de perfil da CDN, selecione **Gerenciar**.
-   
+
     ![Seleção de Gerenciar CDN](./media/cdn-file-compression/cdn-manage-btn.png)
-   
+
     O portal de gerenciamento da CDN é aberto.
 2. Passe o mouse sobre a guia **HTTP Grande**, em seguida, sobre o submenu **Configurações do Cache**. Selecione **Compactação**.
 
     ![Seleção de compactação da CDN](./media/cdn-file-compression/cdn-compress-select.png)
-   
+
     As opções de compactação são exibidas.
-   
+
     ![Opções de compactação de arquivo da CDN](./media/cdn-file-compression/cdn-compress-files.png)
 3. Habilite a compactação selecionando **Compactação Habilitada**. Insira os tipos MIME que você deseja compactar como uma lista delimitada por vírgula (sem espaços) na caixa **Tipos de Arquivo**.
-   
+
    > [!TIP]
    > Embora seja possível, não é recomendável aplicar a compactação a formatos compactados. Por exemplo, ZIP, MP3, MP4 ou JPG.
    > 
-    
+
 4. Depois de fazer suas alterações, selecione **Atualizar**.
 
 ## <a name="compression-rules"></a>Regras de compactação
 
 ### <a name="azure-cdn-standard-from-microsoft-profiles"></a>CDN Standard do Azure dos perfis da Microsoft
 
-Para o **Padrão CDN do Azure dos perfis da Microsoft**, somente arquivos elegíveis são compactados. Para ser elegível para compactação, um arquivo deve: -Seja um tipo MIME que tenha sido [configurado para compactação](#enabling-compression).
--Se maior que 1 KB -Be menor que 8 MB
+Para o **Padrão CDN do Azure dos perfis da Microsoft**, somente arquivos elegíveis são compactados. Para se qualificar para a compactação, um arquivo deve:
+- Ser um tipo MIME que foi [configurado para compactação](#enabling-compression).
+- Ser maior que 1 KB
+- Ser menor do que 8 MB
 
 Esses perfis dão suporte às seguintes codificações de compactação:
 - gzip (GNU zip)
 - brotli 
- 
+
 Se a solicitação dá suporte a mais de um tipo de compactação, a compactação brotli terá precedência.
 
 Quando uma solicitação de um ativo especificar a compactação gzip e is resultados da solicitação em um cache se perderem, a CDN do Azure realize compactação gzip do ativo diretamente no servidor POP. Depois disso, o arquivo compactado será servido do cache.
@@ -117,14 +117,14 @@ Quando uma solicitação de um ativo especificar a compactação gzip e is resul
 
 Para os perfis da **CDN Standard do Azure da Verizon** e  **CDN Premium do Azure da Verizon**, apenas arquivos qualificáveis são comprimidos. Para se qualificar para a compactação, um arquivo deve:
 - Ser maior que 128 bytes
-- Ser menor que 1 MB
- 
+- Ser menor do que 3 MB
+
 Esses perfis dão suporte às seguintes codificações de compactação:
 - gzip (GNU zip)
 - DEFLATE
 - bzip2
 - brotli 
- 
+
 Se a solicitação for compatível com mais de um tipo de compactação, esses tipos de compactação prevalecerão sobre a compactação brotli.
 
 Quando uma solicitação de um ativo especificar a compactação brotli (o cabeçalho HTTP é `Accept-Encoding: br`) e a solicitação gera uma perda no cache, a CDN do Azure executará a compactação brotli do ativo no servidor POP. Depois disso, o arquivo compactado será servido do cache.

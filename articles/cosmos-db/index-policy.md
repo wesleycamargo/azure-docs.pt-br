@@ -4,14 +4,14 @@ description: Entenda como funciona a indexação no Azure Cosmos DB. Saiba como 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/10/2018
+ms.date: 3/1/2019
 ms.author: mjbrown
-ms.openlocfilehash: 6c145b58a1f0eaaf93fb5797028e11ba8338d6be
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 0ba5cdd4f92390634d6d2bea8add8309cb1f4d3e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460226"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014513"
 ---
 # <a name="index-policy-in-azure-cosmos-db"></a>Indexar política no Azure Cosmos DB
 
@@ -23,9 +23,9 @@ Você pode substituir a política de indexação padrão em um contêiner do Azu
 
 * **Configurar modos de índice**: Usando a política de indexação em um contêiner, você pode configurar diferentes modos de indexação, como *Consistente* ou *Nenhum*.
 
-## <a name="indexing-modes"></a>Modos de indexação 
+## <a name="indexing-modes"></a>Modos de indexação
 
-O Azure Cosmos DB oferece suporte a dois modos de indexação que você pode configurar em um contêiner do Azure Cosmos. Você pode configurar os dois modos de indexação a seguir por meio da política de indexação: 
+O Azure Cosmos DB oferece suporte a dois modos de indexação que você pode configurar em um contêiner do Azure Cosmos. Você pode configurar os dois modos de indexação a seguir por meio da política de indexação:
 
 * **Consistentee**: Se uma política do contêiner do Azure Cosmos estiver definida como Consistente, as consultas em um contêiner específico seguirão o mesmo nível de consistência especificado para leituras de ponto (por exemplo, forte, desatualização limitada, sessão, ou eventual). 
 

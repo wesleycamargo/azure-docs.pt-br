@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 780853644125c8fa6d5edcef642cfad724516ef2
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 72fa9bf211139b971afa443af812d644c76062fc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188378"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123463"
 ---
 # <a name="deploy"></a>Implantar
 
@@ -49,15 +49,15 @@ Este artigo faz parte de um tutorial de modelagem tabular, que deve ser concluí
   
 #### <a name="to-deploy-the-adventure-works-internet-sales"></a>Para implantar as Vendas pela Internet da Adventure Works
   
-1.  No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto **Vendas pela Internet da AW** > **Compilar**.  
+1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto **Vendas pela Internet da AW** > **Compilar**.  
 
-2.  Clique com o botão direito do mouse no projeto **Vendas pela Internet da AW** > **Implantar**.
+2. Clique com o botão direito do mouse no projeto **Vendas pela Internet da AW** > **Implantar**.
 
-    Ao implantar para os Azure Analysis Services, pode ser solicitado que você insira sua conta. Insira sua conta e senha organizacionais, por exemplo, nancy@adventureworks.com. Esta conta deve constar na lista Admins no servidor.
+   Ao implantar para os Azure Analysis Services, pode ser solicitado que você insira sua conta. Insira sua conta e senha organizacionais, por exemplo, nancy@adventureworks.com. Esta conta deve constar na lista Admins no servidor.
   
-    A caixa de diálogo Implantar aparece e exibe o status da implantação dos metadados e cada tabela incluída no modelo.  
+   A caixa de diálogo Implantar aparece e exibe o status da implantação dos metadados e cada tabela incluída no modelo.  
     
-    ![aas-lesson13-deploy-status](../tutorials/media/aas-lesson13-deploy-status.png)
+   ![aas-lesson13-deploy-status](../tutorials/media/aas-lesson13-deploy-status.png)
   
 3. Quando a implantação for concluída com êxito, vá em frente e clique em **Fechar**.  
   
