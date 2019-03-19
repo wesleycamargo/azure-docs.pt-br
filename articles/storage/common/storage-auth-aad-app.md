@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/21/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 4c39f47169071ceb9430f419a144e11f425d65b0
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 6d283840116a5e1f996602fd792456d3b8e8d9a0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240719"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456084"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues-preview"></a>Autenticar com o Active Directory do Azure a partir de um aplicativo para acesso a blobs e filas (visualização)
 
@@ -39,7 +39,7 @@ Ao registrar o aplicativo, você fornece informações sobre ele ao Azure AD. O 
 
 Para registrar o aplicativo do Armazenamento do Microsoft Azure, siga as etapas na seção [Adicionar um aplicativo](../../active-directory/develop/quickstart-v1-add-azure-ad-app.md) em [Integração de aplicativos com o Azure Active Directory](../../active-directory/active-directory-integrating-applications.md). Se você registrar o aplicativo como um aplicativo nativo, poderá especificar qualquer URI válido para **URI de Redirecionamento**. O valor não precisa ser um ponto de extremidade real.
 
-![Captura de tela mostrando como registrar o aplicativo de armazenamento com Azure AD](./media/storage-auth-aad-app/app-registration.png)
+![Captura de tela mostrando como registrar seu aplicativo de armazenamento com o Azure AD](./media/storage-auth-aad-app/app-registration.png)
 
 Depois de registrar o aplicativo, você verá a ID do aplicativo (ou ID do cliente) em **Configurações** :
 
@@ -57,14 +57,14 @@ Em seguida, será necessário conceder permissões de aplicativo para chamar API
 4. No **permissões necessárias** folha, clique o **adicionar** botão.
 5. Em **Selecionar uma API**, pesquise "Armazenamento do Microsoft Azure" e selecione **Armazenamento do Microsoft Azure** da lista de resultados.
 
-    ![Captura de tela mostrando permissões para armazenamento](media/storage-auth-aad-app/registered-app-permissions-1.png)
+    ![Captura de tela mostrando permissões para o armazenamento](media/storage-auth-aad-app/registered-app-permissions-1.png)
 
 6. Em **Selecionar permissões**, marque a caixa ao lado de **Acessar Armazenamento do Microsoft Azure** e clique em **Selecionar**.
 7. Clique em **Concluído**.
 
 As janelas de **Permissões Necessárias** agora mostram que o aplicativo do Azure AD tem acesso ao Active Directory do Azure e ao Armazenamento do Microsoft Azure. As permissões são concedidas ao Azure AD automaticamente quando você registra o aplicativo no Azure AD pela primeira vez.
 
-![Captura de tela mostrando permissões de aplicativo de registro](media/storage-auth-aad-app/registered-app-permissions-2.png)
+![Captura de tela mostrando registrar as permissões de aplicativo](media/storage-auth-aad-app/registered-app-permissions-2.png)
 
 ## <a name="net-code-example-create-a-block-blob"></a>Exemplo de código do .NET: criar um blob de blocos
 
@@ -103,7 +103,7 @@ Para obter a ID de locatário, siga estas etapas:
 
 ![Captura de tela mostrando como copiar a ID do locatário](./media/storage-auth-aad-app/aad-tenant-id.png)
 
-### <a name="add-references-and-using-statements"></a>Adicione referências e usando instruções  
+### <a name="add-references-and-using-statements"></a>Adicionar referências e usar instruções  
 
 No Visual Studio, instale a versão prévia da biblioteca de clientes do Armazenamento do Microsoft Azure. No menu **Ferramentas**, selecione **Gerenciador de Pacotes do NuGet** e, em seguida, **Console do Gerenciador de Pacotes**. Digite o seguinte comando no console para instalar a versão mais recente da biblioteca de cliente para .NET:
 
