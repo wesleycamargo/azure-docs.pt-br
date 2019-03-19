@@ -11,16 +11,16 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/26/2018
 ms.author: glenga
-ms.openlocfilehash: 77b863bc32442261e220b5dd3f11c0bd33b4fa7a
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: cda977ba59070c3ddaac05784277d6c0b5109f0f
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804988"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727104"
 ---
 # <a name="manually-install-or-update-azure-functions-binding-extensions-from-the-portal"></a>Instalar ou atualizar manualmente as extensões de associação do Azure Functions no portal
 
-O tempo de execução do Azure Functions versão 2.x usa extensões de associação para implementar código a gatilhos e associações. As extensões de associação são fornecidas nos pacotes NuGet. Registrar uma extensão é basicamente instalar um pacote. Ao desenvolver funções, a maneira de instalar as extensões de associação depende do ambiente de desenvolvimento. Para obter mais informações, consulte [Registrar extensões de associação](functions-triggers-bindings.md#register-binding-extensions) no artigo de gatilhos e associações.
+O tempo de execução do Azure Functions versão 2.x usa extensões de associação para implementar código a gatilhos e associações. As extensões de associação são fornecidas nos pacotes NuGet. Registrar uma extensão é basicamente instalar um pacote. Ao desenvolver funções, a maneira de instalar as extensões de associação depende do ambiente de desenvolvimento. Para obter mais informações, consulte [Registrar extensões de associação](./functions-bindings-register.md) no artigo de gatilhos e associações.
 
 Às vezes, é necessário instalar ou atualizar manualmente as extensões de associação no portal do Azure. Por exemplo, talvez seja necessário atualizar uma associação registrada para uma versão mais recente. Também pode ser necessário registrar uma associação com suporte que não pode ser instalada na guia **Integrar** no portal.
 

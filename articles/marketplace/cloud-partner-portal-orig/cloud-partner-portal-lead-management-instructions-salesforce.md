@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 54f9e19ae6cb9afba0de621c36352c3b1038b100
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: 2f2a96e46b76ce41131b8e745075648bf0c68716
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48805150"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867330"
 ---
 # <a name="configure-lead-management-for-salesforce"></a>Configurar o gerenciamento de clientes potenciais para o Salesforce
 
@@ -38,4 +38,4 @@ Este artigo descreve como configurar o sistema Salesforce para lidar com cliente
 5. Em **Criar Formulário do Web-to-Lead**, selecione **Gerar** ![Geração do Salesforce](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce4.png)
 
 6. Copie o OID no exemplo e salve-o. Você aplicará o OID no campo **Identificador de Objeto** no Portal do Cloud Partner.
-![Obtenção de OID do Salesforce ](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce5.png)
+![SalesForce get OID](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce5.png)

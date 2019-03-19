@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2018
 ms.author: kumud
-ms.openlocfilehash: ec3fcc0301083e6cd5eff34c111586ef6463f8fd
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 3267d79387586f5ca8475d7ac0ed0f86d3f64f0d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821500"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876930"
 ---
 # <a name="outbound-connections-classic"></a>Conexões de saída (Clássico)
 
@@ -41,7 +41,7 @@ O Azure fornece três métodos diferentes para obter implantações Clássicas d
 | --- | --- | --- | --- | --- | --- |
 | [1. VM com um endereço IP em Nível de Instância](#ilpip) | SNAT, disfarce de porta não usado | TCP, UDP, ICMP, ESP | O Azure usa a máquina virtual atribuída ao IP público. A instância possui todas as portas efêmeras disponíveis. | Não  | Sim |
 | [2. ponto de extremidade público com balanceamento de carga](#publiclbendpoint) | SNAT com disfarce de porta (PAT) para o ponto de extremidade público | TCP, UDP | O Azure compartilha o ponto de extremidade público do endereço IP público com vários pontos de extremidade privados. O Azure usa portas efêmeras do ponto de extremidade público para PAT. | Sim | Sim |
-| [3. VM autônoma ](#defaultsnat) | SNAT com disfarce de porta (PAT) | TCP, UDP | O Azure designa automaticamente um endereço IP público para SNAT, compartilha esse endereço IP público com toda a implantação e usa portas efêmeras do endereço IP do ponto de extremidade público para PAT. Este é um cenário de fallback para os cenários anteriores. Não é recomendável se você precisar de visibilidade e controle. | Sim | Sim |
+| [3. VM autônoma](#defaultsnat) | SNAT com disfarce de porta (PAT) | TCP, UDP | O Azure designa automaticamente um endereço IP público para SNAT, compartilha esse endereço IP público com toda a implantação e usa portas efêmeras do endereço IP do ponto de extremidade público para PAT. Este é um cenário de fallback para os cenários anteriores. Não é recomendável se você precisar de visibilidade e controle. | Sim | Sim |
 
 Este é um subconjunto da funcionalidade de conexão de saída disponível para implantações do Gerenciador de Recursos no Azure.  
 

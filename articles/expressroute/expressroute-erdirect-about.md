@@ -1,21 +1,21 @@
 ---
 title: Sobre o ExpressRoute Direct – Azure | Microsoft Docs
-description: Esta página fornece uma visão geral do ExpressRoute Direct (versão prévia)
+description: Esta página fornece uma visão geral do ExpressRoute direta
 services: expressroute
-author: mialdrid
+author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 3124e98dd035080c2989849232b978c5d4a563ea
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: fb9dc5116ba23d57c7f2fe543e734759e8bbcc7b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100713"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881593"
 ---
-# <a name="about-expressroute-direct-preview"></a>Sobre o ExpressRoute Direct (versão prévia)
+# <a name="about-expressroute-direct"></a>Sobre o ExpressRoute Direct
 
 O ExpressRoute Direct fornece a capacidade de conectar-se diretamente à rede global da Microsoft em localizações de emparelhamento estrategicamente distribuídas no mundo todo. O ExpressRoute Direct oferece conectividade dupla de 100 Gbps, que suporta conectividade ativa / ativa em escala.
 
@@ -25,14 +25,9 @@ Os principais recursos que o ExpressRoute Direct fornece incluem, mas não estã
 * Isolamento físico para setores regulamentados e que requerem conectividade dedicada e isolada, como: bancos, governo e varejo
 * Controle granular de distribuição de circuito com base em unidade de negócios
 
-> [!IMPORTANT]
-> O ExpressRoute Direct está na versão prévia no momento.
->
-> Essa versão prévia pública é fornecida sem um contrato de nível de serviço e não deve ser usada para cargas de trabalho de produção. Determinados recursos podem não ter suporte, podem ter restrição ou podem não estar disponíveis em todos os locais do Azure. Veja os [Termos de Uso Adicionais para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter detalhes.
+## <a name="onboard-to-expressroute-direct"></a>Integrar ao diretos do ExpressRoute
 
-## <a name="enroll-in-the-preview"></a>Registrar-se na versão prévia
-
-Antes de usar o ExpressRoute Direct, você precisa registrar sua assinatura na versão prévia. Para se inscrever, envie um e-mail para <ExpressRouteDirect@microsoft.com> com seu ID de assinatura, incluindo os seguintes detalhes:
+Antes de usar diretos do ExpressRoute, você deve primeiro registrar sua assinatura. Para se inscrever, envie um e-mail para <ExpressRouteDirect@microsoft.com> com seu ID de assinatura, incluindo os seguintes detalhes:
 
 * Cenários que você pretende para realizar com o **ExpressRoute Direct**
 * Preferências de localização. Confira [Localizações de emparelhamento e parceiros do ExpressRoute](expressroute-locations-providers.md) para obter uma lista completa de todas as localizações
@@ -70,11 +65,11 @@ O ExpressRoute Direct dá suporte à marcação de VLAN QinQ e Dot1Q.
 
 ## <a name="workflow"></a>Fluxo de trabalho
 
-[ ![fluxo de trabalho](./media/expressroute-erdirect-about/workflow1.png)](./media/expressroute-erdirect-about/workflow1.png#lightbox)
+[![Fluxo de trabalho](./media/expressroute-erdirect-about/workflow1.png)](./media/expressroute-erdirect-about/workflow1.png#lightbox)
 
 ## <a name="sla"></a>Contrato de Nível de Serviço
 
-O ExpressRoute Direct fornece o mesmo SLA de nível empresarial com conexões redundantes ativas/ativas à rede global da Microsoft. A infraestrutura do ExpressRoute é redundante e a conectividade com a rede global da Microsoft é redundante, diversificada e pode ser dimensionada de acordo com os requisitos do cliente. Durante a versão prévia, não haverá nenhum SLA e o serviço deverá ser considerado apenas para cargas de trabalho que não sejam de produção.
+O ExpressRoute Direct fornece o mesmo SLA de nível empresarial com conexões redundantes ativas/ativas à rede global da Microsoft. A infraestrutura do ExpressRoute é redundante e a conectividade com a rede global da Microsoft é redundante, diversificada e pode ser dimensionada de acordo com os requisitos do cliente. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

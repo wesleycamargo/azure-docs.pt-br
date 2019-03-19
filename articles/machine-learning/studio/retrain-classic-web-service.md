@@ -5,17 +5,17 @@ description: Saiba como treinar novamente um modelo e atualizar um serviço Web 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: peterlu
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: 4f3ca01ae44900e4d0ce22b79db44d7bfa84e56d
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: fa4448c2a44a3c56548120bd04abf53df9a85ba0
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456547"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822012"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-web-service"></a>Treinar novamente e implantar um serviço Web clássico do Studio
 
@@ -23,7 +23,7 @@ Treinar novamente os modelos de machine learning é uma forma de fazer com que e
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O artigo pressupõe que você já tenha um teste de novo treinamento e um teste preditivo. As etapas são explicadas em [Treinar novamente e implantar um modelo de machine learning.](retrain-models-programmatically.md) No entanto, em vez de implantar seu modelo de machine learning como um novo serviço Web, você implantará o teste preditivo como um serviço Web clássico.
+O artigo pressupõe que você já tenha um teste de novo treinamento e um teste preditivo. As etapas são explicadas em [Treinar novamente e implantar um modelo de machine learning.](/azure/machine-learning/studio/retrain-machine-learning-model) No entanto, em vez de implantar seu modelo de machine learning como um novo serviço Web, você implantará o teste preditivo como um serviço Web clássico.
      
 ## <a name="add-a-new-endpoint"></a>Adicionar um novo ponto de extremidade
 
@@ -60,7 +60,7 @@ Para obter a URL DO PATCH correta programaticamente, siga estas etapas:
 1. Execute o código de exemplo [AddEndpoint](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs) .
 1. Na saída do AddEndpoint, encontre o valor *HelpLocation* e copie a URL.
 
-   ![HelpLocation na saída do exemplo addEndpoint.](./media/troubleshooting-retraining-a-model/addEndpoint-output.png)
+   ![HelpLocation na saída do exemplo addEndpoint.](./media/retrain-classic/addEndpoint-output.png)
 1. Cole a URL em um navegador para navegar até uma página que fornece links de ajuda para o serviço Web.
 1. Clique no link **Atualizar Recurso** para abrir a página de ajuda do patch.
 
@@ -81,7 +81,7 @@ Siga estas etapas para obter a URL DO PATCH correta usando o portal da Web:
 
 A página de ajuda do PATCH contém a URL do PATCH que você deve usar e fornece o código de exemplo que você pode usar para chamar.
 
-![URL de patch.](./media/troubleshooting-retraining-a-model/ml-help-page-patch-url.png)
+![URL de patch.](./media/retrain-classic/ml-help-page-patch-url.png)
 
 ### <a name="update-the-endpoint"></a>Atualizar o ponto de extremidade
 

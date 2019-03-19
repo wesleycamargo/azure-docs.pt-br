@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 02/13/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5ab50bd5a2b5b1b0e63060986d4336774be7875b
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 920d6ee9b584e908885cf661d32aa700e655c3f8
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245857"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816412"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Iniciar um runbook de Automação do Azure com um webhook
 
-O *webhook* permite que você inicie um runbook específico na Automação do Azure por meio de uma única solicitação HTTP. Isso permite que serviços externos, como o Azure DevOps Services, o GitHub, o Log Analytics do Azure ou aplicativos personalizados iniciem runbooks sem implementar uma solução completa usando a API de Automação do Azure.  
+O *webhook* permite que você inicie um runbook específico na Automação do Azure por meio de uma única solicitação HTTP. Isso permite que os serviços externos, como serviços de DevOps do Azure, GitHub, logs do Azure Monitor ou aplicativos personalizados iniciem runbooks sem implementar uma solução completa usando a API de automação do Azure.  
 ![WebhooksOverview](media/automation-webhooks/webhook-overview-image.png)
 
 Você pode comparar os webhooks a outros métodos para iniciar um runbook em [Como iniciar um Runbook na Automação do Azure](automation-starting-a-runbook.md)

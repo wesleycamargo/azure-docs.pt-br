@@ -6,20 +6,20 @@ author: trinadhk
 manager: shreeshd
 ms.service: backup
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 12/09/2018
 ms.author: trinadhk
-ms.openlocfilehash: de7c00717349a1c814c5a13508adb11879aa10a5
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
-ms.translationtype: HT
+ms.openlocfilehash: e86595ceb940ebcfa702823e9c9b8ad3ef50bb45
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51704640"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674626"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Use o Controle de Acesso baseado em função para gerenciar pontos de recuperação de Backup do Azure
 O RBAC (controle de acesso baseado em função) do Azure permite o gerenciamento de acesso refinado para o Azure. Com o RBAC, você pode separar as tarefas dentro de sua equipe e conceder somente a quantidade de acesso que os usuários precisam para realizar seus trabalhos.
 
 > [!IMPORTANT]
-> A funções fornecidas pelo Backup do Azure são limitadas a ações que podem ser executadas no Portal do Azure ou em cmdlets do PowerShell do cofre de Serviços de Recuperação. As ações executadas na interface de usuário do Cliente do Agente de backup do Azure, na interface de usuário do System Center Data Protection Manager ou no Servidor de Backup do Azure estão fora do controle dessas funções.
+> Funções fornecidas pelo Backup do Azure são limitadas a ações que podem ser executadas no portal do Azure ou por meio da API REST ou cmdlets do PowerShell ou CLI do Cofre de serviços de recuperação. As ações executadas na interface de usuário do Cliente do Agente de backup do Azure, na interface de usuário do System Center Data Protection Manager ou no Servidor de Backup do Azure estão fora do controle dessas funções.
 
 O Backup do Azure oferece 3 funções internas para controlar as operações de gerenciamento de backups. Saiba mais sobre as [funções internas do RBAC do Azure](../role-based-access-control/built-in-roles.md)
 
@@ -63,9 +63,9 @@ A tabela a seguir captura as ações de gerenciamento de backups e a função RB
 > Se você especificar o Colaborador de VM em um escopo de recurso da VM e clicar em Backup como parte das configurações da VM, ele abrirá a tela 'Habilitar Backup', mesmo que o backup da VM já tenha sido realizado, pois a chamada para verificar o status do backup funciona apenas no nível de assinatura. Para evitar isso, vá para o cofre e abra a exibição de item de backup da VM ou especifique a função de Colaborador de VM em um nível de assinatura. 
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Controle de Acesso com Base em Funções](../role-based-access-control/role-assignments-portal.md): introdução ao RBAC no portal do Azure.
+* [Controle de acesso baseado em função](../role-based-access-control/role-assignments-portal.md): Comece no RBAC no portal do Azure.
 * Saiba como gerenciar o acesso com:
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [CLI do Azure](../role-based-access-control/role-assignments-cli.md)
   * [API REST](../role-based-access-control/role-assignments-rest.md)
-* [Solução de problemas de Controle de Acesso Baseado em Função](../role-based-access-control/troubleshooting.md): obtenha sugestões para corrigir problemas comuns.
+* [Solução de problemas do Controle de Acesso Baseado em Função](../role-based-access-control/troubleshooting.md): Obtenha sugestões para corrigir problemas comuns.

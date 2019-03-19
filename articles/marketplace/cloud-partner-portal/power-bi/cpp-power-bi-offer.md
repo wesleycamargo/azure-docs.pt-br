@@ -1,6 +1,6 @@
 ---
-title: Oferta de Aplicativo do Power BI – Azure Marketplace | Microsoft Docs
-description: Explica como publicar um Aplicativo do Power BI no Microsoft AppSource Marketplace.
+title: Oferta de BI App Power - Azure Marketplace | Microsoft Docs
+description: Como publicar um aplicativo Power BI no Marketplace do Microsoft AppSource.
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
 documentationcenter: ''
 author: v-miclar
@@ -14,46 +14,46 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: pbutlerm
-ms.openlocfilehash: a8474f6dd276c592fce27c8bd90706fe5f126519
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 11bbd87eb283dca2c7da19e32833221c7320a79f
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55666187"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817789"
 ---
-# <a name="power-bi-application-offer"></a>Oferta de Aplicativo do Power BI
+# <a name="power-bi-app-offer"></a>Oferta do Power BI App
 
-|                  |                                |
-|------------------|--------------------------------|
-| Esta seção explica como publicar um Aplicativo do Power BI no Microsoft [AppSource Marketplace](https://appsource.microsoft.com/). Um Aplicativo do Power BI empacota o conteúdo do Power BI e usa fluxos de dados para conectar relatórios e dashboard aos dados no armazenamento de dados comum. O aplicativo pode ser implantado em outros locatários por meio do AppSource. | ![Ícone do Power BI](./media/powerbi-icon.png) |
+|              |                                |
+|-|--------------------------------|
+| Este artigo explica como publicar um aplicativo Power BI da Microsoft [AppSource marketplace](https://appsource.microsoft.com/). Um aplicativo do Power BI compacta o conteúdo do Power BI e usa fluxos de dados para se conectar a relatórios e painéis aos dados no armazenamento de dados comuns. Em seguida, você pode implantar o aplicativo a outros locatários por meio do AppSource. | ![Ícone do Power BI](./media/powerbi-icon.png) |
 
 
-Esta seção é dividida nessas partes principais:
+Este artigo está dividido em três partes principais:
 
--   [Pré-requisitos](./cpp-prerequisites.md): os requisitos técnicos e comerciais para criar ou publicar uma oferta de Aplicativo do Power BI
--   [Criar a oferta de Aplicativo do Power BI](./cpp-create-offer.md): as etapas necessárias para criar uma nova entrada de oferta de Aplicativo do Power BI usando o [Portal do Cloud Partner](https://cloudpartner.azure.com)
--   [Publicar oferta de Aplicativo do Power BI](./cpp-publish-offer.md): como enviar uma nova oferta para publicação para o AppSource e como atualizar uma oferta existente.
+-   [Pré-requisitos](./cpp-prerequisites.md). Os requisitos técnicos e comerciais para criar e publicar uma oferta de aplicativo do Power BI.
+-   [Criar uma oferta de aplicativo do Power BI](./cpp-create-offer.md). Como criar uma entrada de oferta de aplicativo do Power BI usando o [Portal do Cloud Partner](https://cloudpartner.azure.com).
+-   [Publicar uma oferta de aplicativo do Power BI](./cpp-publish-offer.md). Como enviar uma nova oferta no AppSource para publicação e como atualizar uma oferta existente.
 
 
 ## <a name="publishing-steps"></a>Etapas de publicação
 
-O diagrama a seguir ilustra as etapas de alto nível na publicação de uma oferta de Aplicativo do Power BI.
+Aqui estão as etapas de alto nível para publicar uma oferta de aplicativo do Power BI:
 
-![Etapas de publicação de Aplicativo do Power BI](media/publishing-steps.png)
+![Etapas de publicação de oferta do Power BI App](media/publishing-steps.png)
 
-Processo de publicação de Aplicativo do Power BI
+Aqui está a oferta de aplicativo do Power BI no processo de publicação:
 
-1. Crie um aplicativo de serviço no Power BI (o que resulta na criação da URL de instalação do pacote).  Essa URL representa os recursos técnicos da oferta.  Para obter mais informações, confira [O que é o Power BI](https://go.microsoft.com/fwlink/?linkid=2028636).
+1. Crie um aplicativo de serviço no Power BI. Essa ação gera uma URL de instalação do pacote, que representa os recursos técnicos para a oferta. Para obter mais informações, consulte [o que é o Power BI?](https://go.microsoft.com/fwlink/?linkid=2028636).
 2. Colete ou crie os ativos de negócios, incluindo:
-    - Materiais de marketing
-    - Documentos legais e de suporte
-3.  Criar a oferta: use o Portal do Cloud Partner para configurar os detalhes e informações sobre a oferta, incluindo a descrição da oferta, informações dos materiais, jurídicas e de suporte e especificações do ativo.
-4.  Certificar e publicar a oferta: esse envio inicia o processo de publicação.
+    - Materiais de marketing.
+    - Legal e dar suporte a documentos.
+3.  Crie a oferta. Use o Portal do Cloud Partner para configurar os detalhes da oferta, incluindo a descrição da oferta, materiais de marketing, informações legais, informações de suporte e especificações de ativos.
+4.  Certificar e publicar a oferta. Isso inicia o processo de publicação.
     - A equipe de integração do AppSource testa, valida e certifica que seu aplicativo. 
-    - Depois de certificado, você deve examiná-lo em seu ambiente de teste e lançá-lo.
+    - Depois que a oferta for certificada, revisá-lo em seu ambiente de teste e liberá-lo.
 
-Depois que todas essas etapas forem executadas, o aplicativo "entrará no ar" no AppSource.
+Depois de concluir essas etapas, seu aplicativo do Power BI oferta entra no ar no AppSource.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Antes de começar estas etapas, você deve cumprir os [requisitos](./cpp-prerequisites.md) para publicar um aplicativo do Power BI no AppSource.
+Antes de criar sua oferta de aplicativo do Power BI e publicá-lo no AppSource, você deve cumprir os [requisitos](./cpp-prerequisites.md) para publicar um aplicativo Power BI no AppSource.

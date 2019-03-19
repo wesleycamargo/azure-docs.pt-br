@@ -12,12 +12,12 @@ ms.devlang: fsharp
 ms.topic: reference
 ms.date: 10/09/2018
 ms.author: syclebsc
-ms.openlocfilehash: 112a986efc11822f6c847511a33be6206b1f00da
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: e7e4e898142d6f9d1a93e91c1f1476ff81fc7d3c
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53717477"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734652"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Referência do desenvolvedor em F# do Azure Functions
 
@@ -54,7 +54,7 @@ FunctionsProject
 
 Há um arquivo [host.json](functions-host-json.md) compartilhado que pode ser usado para configurar o aplicativo de funções. Cada função possui seu próprio arquivo de código (.fsx) e arquivo de configuração de associação (function.json).
 
-As extensões de associação necessárias na [versão 2.x](functions-versions.md) do tempo de execução do Functions são definidas no arquivo `extensions.csproj`, com os arquivos de biblioteca reais na pasta `bin`. Ao desenvolver localmente, você precisa [registrar as extensões de associação](functions-triggers-bindings.md#local-development-azure-functions-core-tools). Ao desenvolver funções no portal do Azure, esse registro é feito para você.
+As extensões de associação necessárias na [versão 2.x](functions-versions.md) do tempo de execução do Functions são definidas no arquivo `extensions.csproj`, com os arquivos de biblioteca reais na pasta `bin`. Ao desenvolver localmente, você precisa [registrar as extensões de associação](./functions-bindings-register.md#local-development-azure-functions-core-tools). Ao desenvolver funções no portal do Azure, esse registro é feito para você.
 
 ## <a name="binding-to-arguments"></a>Binding para argumentos
 Cada associação oferece suporte a um conjunto de argumentos, conforme detalhado na [Referências de gatilhos e de associações do Azure Functions para desenvolvedores](functions-triggers-bindings.md). Por exemplo, uma das associações de argumento com suporte de um gatilho de blob é um POCO, que pode ser expresso usando um registro em F#. Por exemplo: 

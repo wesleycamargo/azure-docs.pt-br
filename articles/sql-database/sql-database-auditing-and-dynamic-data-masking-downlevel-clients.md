@@ -11,13 +11,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/14/2019
-ms.openlocfilehash: 76fe764d828a7fa6e4ebb015f98b9af485d5df5f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.date: 02/25/2019
+ms.openlocfilehash: 2c95ec4d88e55af0becc73719bcc6126501267db
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567071"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56866820"
 ---
 # <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>Banco de Dados SQL – Suporte a clientes de versão anterior e alterações de ponto de extremidade IP para Auditoria de tabela
 
@@ -28,6 +28,7 @@ ms.locfileid: "55567071"
 A [Auditoria de Banco de Dados](sql-database-auditing.md) funciona automaticamente com clientes SQL que dão suporte ao redirecionamento de TDS. Observe que o redirecionamento não se aplica ao usar o método Auditoria de Blob.
 
 ## <a id="subheading-1"></a>Suporte a clientes de versão anterior
+
 Qualquer cliente que implemente o protocolo TDS 7.4 também deve dar suporte a redirecionamento. As exceções incluem o JDBC 4.0, no qual o recurso de redirecionamento não tem suporte completo, e o Tedious para Node.JS, no qual o redirecionamento não foi implementado.
 
 Para "clientes de versão anterior", ou seja, que oferecem suporte ao TDS versão 7.3 e inferior - o FQDN do servidor na cadeia de conexão deve ser modificado:
@@ -46,6 +47,7 @@ Uma lista parcial de "Clientes de versão anterior" inclui:
 **Comentário:** a modificação do FQDN do servidor acima pode ser útil também para aplicar uma política de Auditoria no Nível do SQL Server sem a necessidade de uma etapa de configuração em cada banco de dados (redução temporária).
 
 ## <a id="subheading-2"></a>Alterações de ponto de extremidade IP ao habilitar a Auditoria
+
 Observe que, quando você habilita a Auditoria de Tabela, o ponto de extremidade IP do seu banco de dados é alterado. Se você tiver configurações de firewall estritas, atualize as configurações de firewall adequadamente.
 
 O novo ponto de extremidade IP do banco de dados dependerá da região de banco de dados:
@@ -78,5 +80,4 @@ O novo ponto de extremidade IP do banco de dados dependerá da região de banco 
 | Centro-Oeste dos EUA |52.161.29.186, 52.161.27.213 |
 | Canadá Central |13.88.248.106, 13.88.248.110 |
 | Leste do Canadá |40.86.227.82, 40.86.225.194 |
-| Norte do Reino Unido |13.87.101.18, 13.87.100.232 |
-| Sul do Reino Unido 2 |13.87.32.202, 13.87.32.226 |
+| Sul do Reino Unido |13.87.32.202, 13.87.32.226 |

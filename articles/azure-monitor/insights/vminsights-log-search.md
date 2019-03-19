@@ -1,6 +1,6 @@
 ---
 title: Como consultar logs do Azure Monitor para VMs (versão prévia) | Microsoft Docs
-description: A solução do Azure Monitor para VMs encaminha métricas e dados de log para o Log Analytics, e este artigo descreve os registros e inclui exemplos de consulta.
+description: O Azure Monitor para solução de VMs coleta métricas e dados de log e este artigo descreve os registros e inclui exemplos de consultas.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 3ab70febbb41b26fd824f9ae6ef0d00358c7530f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: f33b87fa2c90eda7e4fa135e55565781e8491418
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864410"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983771"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Como consultar logs do Azure Monitor para VMs (versão prévia)
-O Azure Monitor para VMs coleta métricas de desempenho e conexão, dados de inventário do processo e do computador, informações de estado da integridade e os encaminha para o armazenamento de dados do Log Analytics no Azure Monitor.  Esses dados estão disponíveis para [pesquisa](../../azure-monitor/log-query/log-query-overview.md) no Log Analytics. Você pode aplicar esses dados a cenários que incluem planejamento de migração, análise de capacidade, descoberta e solução de problemas de desempenho sob demanda.
+O Azure Monitor para VMs coleta de desempenho e métricas de conexão, computador e dados de inventário do processo e informações de estado de integridade e a encaminha para o espaço de trabalho do Log Analytics no Azure Monitor.  Esses dados estão disponíveis para [consulta](../../azure-monitor/log-query/log-query-overview.md) no Azure Monitor. Você pode aplicar esses dados a cenários que incluem planejamento de migração, análise de capacidade, descoberta e solução de problemas de desempenho sob demanda.
 
 ## <a name="map-records"></a>Registros do mapa
 Um registro é gerado por hora para cada computador e processo exclusivo, além dos registros que são gerados quando um processo ou computador inicia ou é integrado ao Azure Monitor para o recurso de Mapeamento de VMs. Esses registros têm as propriedades descritas nas tabelas a seguir. Os campos e valores nos eventos ServiceMapComputer_CL mapeiam para campos do recurso do Computador na API do ServiceMap do Azure Resource Manager. Os campos e valores nos eventos ServiceMapProcess_CL mapeiam para os campos do recurso do Processo na API do ServiceMap do Azure Resource Manager. O campo ResourceName_s corresponde ao campo de nome no recurso do Gerenciador de Recursos correspondente. 
@@ -34,7 +34,7 @@ Há propriedades geradas internamente que você pode usar para identificar compu
 Como vários registros podem existir para um processo e computador específicos em um intervalo de tempo específico, as consultas podem retornar mais de um registro para o mesmo computador ou processo. Para incluir somente o registro mais recente, adicione "| dedup ResourceId" à consulta.
 
 ### <a name="connections"></a>conexões
-As métricas de conexão são gravadas em uma nova tabela no Log Analytics: VMConnection. Essa tabela fornece informações sobre as conexões de um computador (entrada e saída). As Métricas de Conexão também são expostas com APIs que fornecem meios para obter uma métrica específica durante um intervalo de tempo.  As conexões TCP resultantes de "*aceitan*-do em um soquete de escuta são de entrada, ao passo que as criadas *conectan*-do em determinada porta e IP são de saída. A direção de uma conexão é representada pela propriedade Direction, o que pode ser definida para **entrada** ou **saída**. 
+Métricas de Conexão são gravadas em uma nova tabela de logs do Azure Monitor - VMConnection. Essa tabela fornece informações sobre as conexões de um computador (entrada e saída). As Métricas de Conexão também são expostas com APIs que fornecem meios para obter uma métrica específica durante um intervalo de tempo.  As conexões TCP resultantes de "*aceitan*-do em um soquete de escuta são de entrada, ao passo que as criadas *conectan*-do em determinada porta e IP são de saída. A direção de uma conexão é representada pela propriedade Direction, o que pode ser definida para **entrada** ou **saída**. 
 
 Os registros nessas tabelas são gerados a partir dos dados relatados pelo agente de Dependência. Cada registro representa uma observação durante o intervalo de tempo de um minuto. A propriedade TimeGenerated indica o início do intervalo de tempo. Cada registro contém informações para identificar a respectiva entidade, ou seja, conexão ou porta, bem como as métricas associadas àquela entidade. Atualmente, apenas as atividades de rede que usam TCP via IPv4 são relatadas.
 
@@ -255,5 +255,5 @@ let remoteMachines = remote | summarize by RemoteMachine;
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-* Se você for inexperiente na escrita de consultas no Log Analytics, leia a [página Como usar o Log Analytics](../../azure-monitor/log-query/get-started-portal.md) no portal do Azure para escrever consultas do Log Analytics.
+* Se você for inexperiente na gravação de consultas de log no Azure Monitor, examine [como usar o Log Analytics](../../azure-monitor/log-query/get-started-portal.md) no portal do Azure para gravar consultas de log.
 * Saiba mais sobre [como escrever consultas de pesquisa](../../azure-monitor/log-query/search-queries.md).

@@ -2,21 +2,22 @@
 title: Hub IoT do Azure e a Grade de Eventos | Microsoft Docs
 description: Use a Grade de Eventos do Azure para acionar processos com base nas ações que ocorrem no Hub IoT.
 author: kgremban
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/14/2018
+ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: 14bdbb5d629cb5a3fccd6f874e30ded0648e0124
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
-ms.translationtype: HT
+ms.openlocfilehash: a2c49a6ba269321d1903565ace3ebaae3f3b917e
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249461"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673846"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reagir aos eventos do Hub IoT usando a Grade de Eventos para disparar ações
 
-O Hub IoT do Azure integra-se com a Grade de Eventos do Azure para que você possa enviar notificações de eventos para outros serviços e acionar processos de downstream. Configure seus aplicativos de negócios para escutar eventos do Hub IoT para que você possa reagir a eventos críticos de maneira segura, escalonável e confiável. Por exemplo, crie um aplicativo para executar várias ações, como atualizar um banco de dados, criando um tíquete e entregar uma notificação por email sempre que um novo dispositivo IoT está registrado para o hub IoT. 
+O Hub IoT do Azure integra-se com a Grade de Eventos do Azure para que você possa enviar notificações de eventos para outros serviços e acionar processos de downstream. Configure seus aplicativos de negócios para escutar eventos do Hub IoT para que você possa reagir a eventos críticos de maneira segura, escalonável e confiável. Por exemplo, crie um aplicativo que atualiza um banco de dados, cria um tíquete de trabalho e fornece uma notificação por email sempre que um novo dispositivo IoT está registrado para o hub IoT. 
 
 [Grade de Eventos do Azure](../event-grid/overview.md) é um serviço de roteamento de eventos totalmente gerenciado que usa um modelo de publicação/assinatura. Grade de eventos tem suporte interno para os serviços do Azure como [Azure Functions](../azure-functions/functions-overview.md) e [Aplicativos Lógicos do Azure](../logic-apps/logic-apps-what-are-logic-apps.md)e pode fornecer alertas de eventos para os serviços do Azure usando webhooks. Para obter uma lista completa dos manipuladores de eventos que dá suporte a Grade de Eventos, consulte [Uma introdução à Grade de Eventos do Azure](../event-grid/overview.md). 
 
@@ -118,7 +119,7 @@ O exemplo a seguir mostra o esquema de um evento criado de dispositivo:
 }]
 ```
 
-Para obter uma descrição detalhada de cada propriedade, consulte [Esquema de evento de Grade de Eventos do Azure para o Hub IoT](../event-grid/event-schema-iot-hub.md)
+Para obter uma descrição detalhada de cada propriedade, consulte [esquema de evento de grade de eventos do Azure para o IoT Hub](../event-grid/event-schema-iot-hub.md).
 
 ## <a name="filter-events"></a>Filtrar eventos
 
@@ -131,15 +132,15 @@ devices/{deviceId}
 ```
 ## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>Limitações para eventos de conexão e desconexão de dispositivo
 
-Para receber eventos de conexão e desconexão de dispositivo, você precisa abrir o link D2C ou o link C2D para o dispositivo. Se o dispositivo estiver usando o protocolo MQTT, o Hub IoT manterá o link C2D aberto. Para o AMQP, você pode abrir o link C2D chamando a [API Receive Async](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet). 
+Para receber eventos de conexão e desconexão de dispositivo, você precisa abrir o link D2C ou o link C2D para o dispositivo. Se o dispositivo estiver usando o protocolo MQTT, o Hub IoT manterá o link C2D aberto. Para AMQP, você pode abrir o link C2D chamando o [recebimento assíncrono API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet). 
 
-Se você está enviando telemetria, o link D2C está aberto. Se a conexão do dispositivo estiver cintilando, ou seja, se o dispositivo se conectar e desconectar com frequência, não enviaremos cada estado de conexão individual, mas publicaremos o estado de conexão for capturado como um instantâneo a cada minuto. Em caso de uma interrupção do Hub IoT, publicaremos o estado de conexão do dispositivo assim que a interrupção acabar. Se o dispositivo for desconectado durante essa interrupção, o evento de dispositivo desconectado será publicado em até dez minutos.
+Se você está enviando telemetria, o link D2C está aberto. Se a conexão do dispositivo é cintilação, que significa que o dispositivo se conecta e desconecta-se com frequência, nós não enviará todos os estados de conexão única, mas publicará o estado de conexão que é o instantâneo a cada minuto. Em caso de uma interrupção do Hub IoT, publicaremos o estado de conexão do dispositivo assim que a interrupção acabar. Se o dispositivo for desconectado durante essa interrupção, o evento de dispositivo desconectado será publicado em até dez minutos.
 
 ## <a name="tips-for-consuming-events"></a>Dicas para o consumo de eventos
 
 Aplicativos que tratam os eventos de Hub IoT devem seguir essas práticas sugeridas:
 
-* Várias assinaturas podem ser configuradas para eventos de rota para o manipulador de eventos, portanto, é importante não presumir que os eventos sejam de uma fonte específica. Sempre verifique o tópico de mensagem para certificar-se de que eles vêm do hub IoT que você espera. 
+* Várias assinaturas podem ser configuradas para eventos de rota para o mesmo manipulador de eventos, portanto, não presuma que os eventos são de uma fonte específica. Sempre verifique o tópico de mensagem para certificar-se de que eles vêm do hub IoT que você espera. 
 
 * Não presuma que todos os eventos que você recebe são os tipos que você espera. Sempre verifique o eventType antes de processar a mensagem.
 

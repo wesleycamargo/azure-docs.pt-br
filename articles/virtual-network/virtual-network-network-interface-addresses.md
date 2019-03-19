@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 4fae4486e6cf47892ba2133885ec864969f66001
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 89b311edbae6b5f6679908b5d07b22b402b5c55e
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663597"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888059"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Adicionar, alterar ou remover endereços IP para um adaptador de rede do Azure
 
@@ -30,11 +30,13 @@ Se você precisar criar, alterar ou excluir um adaptador de rede, leia o artigo 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Conclua as seguintes tarefas antes de concluir as etapas em qualquer seção deste artigo:
 
 - Caso ainda não tenha uma conta do Azure, inscreva-se para obter uma [conta de avaliação gratuita](https://azure.microsoft.com/free).
 - Se estiver usando o Portal, abra https://portal.azure.com e faça logon com sua conta do Azure.
-- Se usar os comandos do PowerShell para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/powershell) ou então executando o PowerShell do computador. O Azure Cloud Shell é um shell interativo grátis que pode ser usado para executar as etapas neste artigo. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. Este tutorial exige o módulo do Azure PowerShell versão 5.7.0 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Login-AzureRmAccount` para criar uma conexão com o Azure.
+- Se usar os comandos do PowerShell para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/powershell) ou então executando o PowerShell do computador. O Azure Cloud Shell é um shell interativo grátis que pode ser usado para executar as etapas neste artigo. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. Este tutorial requer o módulo Azure PowerShell versão 1.0.0 ou posterior. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.
 - Se usar os comandos da CLI (interface de linha de comando) do Azure para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/bash) ou então executando a CLI do computador. Este tutorial requer a CLI do Azure versão 2.0.31 ou posterior. Execute `az --version` para localizar a versão instalada. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se estiver executando a CLI do Azure localmente, você também precisará executar o `az login` para criar uma conexão com o Azure.
 
 A conta que você realizou o logon, ou conectou ao Azure, deve estar atribuída à função do [contribuidor de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que é atribuída a ações adequadas listadas em [Permissões de interface de rede](virtual-network-network-interface.md#permissions).
@@ -49,12 +51,12 @@ Você pode adicionar quantos endereços [IPv4](#ipv4) [privados](#private) e [p�
 4. Em **Configurações de IP**, selecione **+ Adicionar**.
 5. Especifique o seguinte, em seguida, selecione **OK**:
 
-    |Configuração|Obrigatório?|Detalhes|
-    |---|---|---|
-    |NOME|Sim|Deve ser exclusivo ao adaptador de rede|
-    |Type|Sim|Como você está adicionando uma configuração de IP a um adaptador de rede existente, e cada adaptador de rede deve ter uma configuração de IP [primária](#primary), sua única opção é **Secundária**.|
-    |Método de atribuição de endereço IP privado|Sim|[**Dinâmico**](#dynamic): o Azure atribui o próximo endereço disponível para o intervalo de endereços de sub-rede na qual o adaptador de rede está implantado. [**Estático**](#static): você atribui um endereço não usado ao intervalo de endereços de sub-rede na qual o adaptador de rede está implantado.|
-    |Endereço IP público|Não |**Desabilitado:** no momento, nenhum recurso de endereço IP público está associado à configuração de IP. **Habilitado:** selecione um endereço IP público IPv4 existente ou crie um novo. Para saber como criar um endereço IP público, leia o artigo [Endereços IP públicos](virtual-network-public-ip-address.md#create-a-public-ip-address).|
+   |Configuração|Obrigatório?|Detalhes|
+   |---|---|---|
+   |NOME|Sim|Deve ser exclusivo ao adaptador de rede|
+   |Type|Sim|Como você está adicionando uma configuração de IP a um adaptador de rede existente, e cada adaptador de rede deve ter uma configuração de IP [primária](#primary), sua única opção é **Secundária**.|
+   |Método de atribuição de endereço IP privado|Sim|[**Dinâmico**](#dynamic): o Azure atribui o próximo endereço disponível para o intervalo de endereços de sub-rede na qual o adaptador de rede está implantado. [**Estático**](#static): você atribui um endereço não usado ao intervalo de endereços de sub-rede na qual o adaptador de rede está implantado.|
+   |Endereço IP público|Não |**Desabilitado:** no momento, nenhum recurso de endereço IP público está associado à configuração de IP. **Habilitado:** selecione um endereço IP público IPv4 existente ou crie um novo. Para saber como criar um endereço IP público, leia o artigo [Endereços IP públicos](virtual-network-public-ip-address.md#create-a-public-ip-address).|
 6. Adicione manualmente endereços IP privados secundários ao sistema operacional da máquina virtual seguindo as instruções do artigo [Como atribuir vários endereços IP a sistemas operacionais de máquina virtual](virtual-network-multiple-ip-addresses-portal.md#os-config). Confira endereços IP [privados](#private) para ver considerações especiais antes de adicionar manualmente os endereços IP ao sistema operacional de uma máquina virtual. Não adicione endereços IP públicos ao sistema operacional da máquina virtual.
 
 **Comandos**
@@ -62,7 +64,7 @@ Você pode adicionar quantos endereços [IPv4](#ipv4) [privados](#private) e [p�
 |Ferramenta|Comando|
 |---|---|
 |CLI|[az network nic ip-config create](/cli/azure/network/nic/ip-config)|
-|PowerShell|[Add-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/add-azurermnetworkinterfaceipconfig)|
+|PowerShell|[Add-AzNetworkInterfaceIpConfig](/powershell/module/az.network/add-aznetworkinterfaceipconfig)|
 
 ## <a name="change-ip-address-settings"></a>Alterar configurações de endereço IP
 
@@ -83,7 +85,7 @@ Você pode precisar alterar o método de atribuição de endereço IPv4, alterar
 |Ferramenta|Comando|
 |---|---|
 |CLI|[az network nic ip-config update](/cli/azure/network/nic/ip-config)|
-|PowerShell|[Set-AzureRMNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig)|
+|PowerShell|[Set-AzNetworkInterfaceIpConfig](/powershell/module/az.network/set-aznetworkinterfaceipconfig)|
 
 ## <a name="remove-ip-addresses"></a>Remover endereços IP
 
@@ -99,7 +101,7 @@ Você pode remover endereços IP [privados](#private) e [públicos ](#public) de
 |Ferramenta|Comando|
 |---|---|
 |CLI|[az network nic ip-config delete](/cli/azure/network/nic/ip-config)|
-|PowerShell|[Remove-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/remove-azurermnetworkinterfaceipconfig)|
+|PowerShell|[Remove-AzNetworkInterfaceIpConfig](/powershell/module/az.network/remove-aznetworkinterfaceipconfig)|
 
 ## <a name="ip-configurations"></a>Configurações de IP
 
@@ -118,10 +120,10 @@ Além de uma configuração de IP primário, um adaptador de rede pode ter vári
 
 - Deve ter um endereço IPv4 ou IPv6 privado atribuído a ela. Se o endereço for IPv6, o adaptador de rede poderá ter apenas uma configuração de IP secundário. Se o endereço for IPv4, o adaptador de rede poderá ter várias configurações de IP secundário atribuídas a ele. Para saber mais sobre quantos endereços IPv4 públicos e privados podem ser atribuídos a um adaptador de rede, confira o artigo [Limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - Também pode ter um endereço IPv4 público atribuído a ela, se o endereço IP privado for IPv4. Se o endereço IP privado for IPv6, não será possível atribuir um endereço IPv4 ou IPv6 público para a configuração de IP. Atribuir vários endereços IP a um adaptador de rede é útil em cenários como:
-    - Hospede vários sites ou serviços com diferentes endereços IP e os certificados SSL em um único servidor.
-    - Uma máquina virtual usada como dispositivo de rede virtual, como um firewall ou balanceador de carga.
-    - A capacidade de adicionar qualquer um dos endereços IPv4 privados para qualquer um dos adaptadores de rede a um pool de back-ends do Azure Load Balancer. No passado, somente o endereço IPv4 primário para o adaptador de rede primário podia ser adicionado a um pool de back-end. Para saber mais sobre como balancear a carga de várias configurações de IPv4, confira o artigo [Balanceamento de carga de várias configurações de IP](../load-balancer/load-balancer-multiple-ip.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
-    - A capacidade de balancear a carga de um endereço IPv6 atribuído a um adaptador de rede. Para saber mais sobre como balancear a carga de um endereço IPv6, confira o artigo [Balancear a carga de endereços IPv6](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+  - Hospede vários sites ou serviços com diferentes endereços IP e os certificados SSL em um único servidor.
+  - Uma máquina virtual usada como dispositivo de rede virtual, como um firewall ou balanceador de carga.
+  - A capacidade de adicionar qualquer um dos endereços IPv4 privados para qualquer um dos adaptadores de rede a um pool de back-ends do Azure Load Balancer. No passado, somente o endereço IPv4 primário para o adaptador de rede primário podia ser adicionado a um pool de back-end. Para saber mais sobre como balancear a carga de várias configurações de IPv4, confira o artigo [Balanceamento de carga de várias configurações de IP](../load-balancer/load-balancer-multiple-ip.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+  - A capacidade de balancear a carga de um endereço IPv6 atribuído a um adaptador de rede. Para saber mais sobre como balancear a carga de um endereço IPv6, confira o artigo [Balancear a carga de endereços IPv6](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="address-types"></a>Tipos de endereço
 

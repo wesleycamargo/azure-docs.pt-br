@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: dfad3199ba3a9cd2f3bca55be50760ddde676e70
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: b11f11aa3966bc57caa5b8dd0379f4d5c59c8375
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558185"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672892"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>Atualize o daemon de segurança do IoT Edge e o tempo de execução
 
@@ -28,7 +28,7 @@ Dois componentes de um dispositivo IoT Edge precisam ser atualizados se você de
 >* Você não atualizou seu dispositivo para a compilação 17763 do Windows. A versão 1.0.5 do IoT Edge não oferece suporte a compilações Windows anteriores a 17763.
 >* Você executa os módulos Java ou Node.js no seu dispositivo do Windows. Ignore a versão 1.0.5 mesmo se você tiver atualizado seu dispositivo Windows para a compilação mais recente. 
 >
->Para obter mais informações sobre o IoT Edge versão 1.0.5, consulte [Notas de versão 1.0.5](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5). Para obter mais informações sobre como manter suas ferramentas de desenvolvimento de atualização para a versão mais recente, consulte [o blog de desenvolvedores de IoT](https://aka.ms/dev-win-iot-edge-module).
+>Para obter mais informações sobre o IoT Edge versão 1.0.5, consulte [Notas de versão 1.0.5](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5). Para obter mais informações sobre como manter suas ferramentas de desenvolvimento de atualização para a versão mais recente, consulte [o blog de desenvolvedores de IoT](https://devblogs.microsoft.com/iotdev/).
 
 
 Para localizar a versão mais recente do Azure IoT Edge, confira [Versões do Azure IoT Edge](https://github.com/Azure/azure-iotedge/releases).

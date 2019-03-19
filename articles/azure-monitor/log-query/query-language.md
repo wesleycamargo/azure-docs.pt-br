@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: bwren
-ms.openlocfilehash: 01d452f97134093e9b40b6ec32f1c9fed41564aa
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: ecbea91cef69c80975dd105c35f526b357033a6b
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343044"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749811"
 ---
 # <a name="azure-monitor-log-queries"></a>Consultas de log do Azure Monitor
 Os logs do Azure Monitor baseiam-se no Azure Data Explorer e as consultas de log do Azure Monitor usam uma versão da mesma linguagem de consulta do Kusto. A [Documentação da linguagem de consulta do Kusto](/azure/kusto/query) tem todos os detalhes da linguagem e deve ser seu principal recurso para escrever consultas de log do Azure Monitor. Esta página fornece links para outros recursos para saber mais sobre como escrever consultas e sobre diferenças na implementação da linguagem no Azure Monitor.
@@ -27,7 +27,7 @@ Os logs do Azure Monitor baseiam-se no Azure Data Explorer e as consultas de log
 
 ## <a name="getting-started"></a>Introdução
 
-- [Introdução à análise do log do Azure Monitor](get-started-portal.md) é uma lição sobre como escrever consultas e trabalhar com os resultados no portal do Azure.
+- [Introdução ao Log Analytics do Azure Monitor](get-started-portal.md) é uma lição para escrever consultas e trabalhar com os resultados no portal do Azure.
 - [Introdução às consultas de log do Azure Monitor](get-started-queries.md) é uma lição sobre como escrever consultas usando dados de log do Azure Monitor.
 
 ## <a name="concepts"></a>Conceitos
