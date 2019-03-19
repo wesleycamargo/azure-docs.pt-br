@@ -7,19 +7,19 @@ author: bwren
 manager: carmonm
 editor: tysonn
 ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c84aedbdb306bbd7432c3c0b611e6e58243624e2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 298bf10cf07467de897c7e38af9539fc71375eab
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999361"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776641"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Criar um arquivo de solução de gerenciamento no Azure (versão prévia)
 > [!NOTE]
@@ -85,12 +85,12 @@ A tabela a seguir lista os parâmetros padrão para todas as soluções de geren
 
 | Parâmetro | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |
-| accountName |string |Nome da conta de Automação do Azure. |
-| pricingTier |string |Tipo de preço do workspace do Log Analytics e da conta de Automação do Azure. |
-| regionId |string |Região da conta de Automação do Azure. |
-| solutionName |string |O nome da solução.  Se você estiver implantando a solução por meio de modelos de Início Rápido, defina solutionName como um parâmetro para que seja possível definir uma cadeia de caracteres, em vez de exigir que o usuário especifique um. |
-| workspaceName |string |O nome do workspace do Log Analytics. |
-| workspaceRegionId |string |A região do workspace do Log Analytics. |
+| accountName |cadeia de caracteres |Nome da conta de Automação do Azure. |
+| pricingTier |cadeia de caracteres |Tipo de preço do workspace do Log Analytics e da conta de Automação do Azure. |
+| regionId |cadeia de caracteres |Região da conta de Automação do Azure. |
+| solutionName |cadeia de caracteres |O nome da solução.  Se você estiver implantando a solução por meio de modelos de Início Rápido, defina solutionName como um parâmetro para que seja possível definir uma cadeia de caracteres, em vez de exigir que o usuário especifique um. |
+| workspaceName |cadeia de caracteres |O nome do workspace do Log Analytics. |
+| workspaceRegionId |cadeia de caracteres |A região do workspace do Log Analytics. |
 
 
 A seguir está a estrutura dos parâmetros padrão que você pode copiar e colar em seu arquivo de solução.  
@@ -229,13 +229,6 @@ A entidade **plano** do recurso da solução tem as propriedades na tabela a seg
 | product |Cadeia de caracteres exclusiva para identificar a solução. |
 | publicador |O publicador da solução. |
 
-
-
-## <a name="sample"></a>Amostra
-É possível exibir amostras de arquivos de solução com um recurso de solução nas localizações a seguir.
-
-- [Recursos de automação](solutions-resources-automation.md#sample)
-- [Recursos de pesquisa e alerta](solutions-resources-searches-alerts.md#sample)
 
 
 ## <a name="next-steps"></a>Próximas etapas

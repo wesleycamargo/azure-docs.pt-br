@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: troubleshooting
-ms.date: 10/06/2017
+ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: af592e47d443caac23a3ba51a8e4b37fec069bc9
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: a6d5d7b3ab83c8e405c6866562b4095434b9acff
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876480"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539013"
 ---
 # <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>FAQ (perguntas frequentes) sobre a API de Pesquisa de Imagem do Bing
 
@@ -65,4 +65,4 @@ A sua pergunta é sobre a falta de um recurso ou funcionalidade? Considere solic
 
 ## <a name="see-also"></a>Consulte também
 
- [Stack Overflow: Serviços Cognitivos](http://stackoverflow.com/questions/tagged/bing-api)
+ [Stack Overflow: Serviços Cognitivos](https://stackoverflow.com/questions/tagged/bing-api)

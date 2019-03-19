@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0a46a5707d1901c18d850ff9cfd8d4b09b72c646
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 7accb8f2d97f5e4b4dc19ba93ab9edc1a4e6ce8a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021264"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541326"
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Tutorial: Copiar dados do Armazenamento de Blobs para o Banco de Dados SQL usando o Data Factory
 > [!div class="op_single_selector"]
@@ -93,7 +93,7 @@ Agora, prepare seu armazenamento de blob do Azure e o banco de dados SQL do Azur
     John, Doe
     Jane, Doe
     ```
-2. Use ferramentas como o [Gerenciador de Armazenamento do Azure](http://storageexplorer.com/) para criar o contêiner **adftutorial** e carregar o arquivo **emp.txt** no contêiner.
+2. Use ferramentas como o [Gerenciador de Armazenamento do Azure](https://storageexplorer.com/) para criar o contêiner **adftutorial** e carregar o arquivo **emp.txt** no contêiner.
 
     ![Gerenciador de Armazenamento do Azure. Copiar dados do Armazenamento de Blobs para o Banco de Dados SQL usando o Data Factory](./media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/getstarted-storage-explorer.png)
 3. Use o script SQL a seguir para criar a tabela **emp** no seu Banco de Dados SQL do Azure.  

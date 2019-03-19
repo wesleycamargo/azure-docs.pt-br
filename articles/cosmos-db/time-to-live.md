@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 9b5054da56bdc6a88642ea7860702b280a76dbb1
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: f9dec5b3aeb951316985c965de70a372f55b8225
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461161"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549180"
 ---
 # <a name="time-to-live-in-azure-cosmos-db"></a>Vida útil no Azure Cosmos DB 
 
@@ -30,7 +30,7 @@ O valor de Vida Útil é definido em segundos e é interpretado como um delta a 
 
    - Se estiverem presentes e o valor estiver definido para algum número ("n") – os itens expirarão em "n" segundos após o último horário de modificação.
 
-2. **Vida Útil em um item** (definir usando `TimeToLive`):
+2. **Vida Útil em um item** (definir usando `ttl`):
 
    - Essa Propriedade será aplicável somente se `DefaultTimeToLive` estiver presente e não estiver definido como nulo para o contêiner pai.
 
@@ -48,6 +48,6 @@ A exclusão de itens com base na TTL é gratuita. Não haverá custos adicionais
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como configurar a Vida Útil, consultando os seguintes artigos:
+Saiba como configurar a vida útil nos seguintes artigos:
 
 * [Como configurar a Vida Útil](how-to-time-to-live.md)

@@ -17,12 +17,12 @@ ms.date: 11/21/2018
 ms.author: markvi
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a299c5cf59a3c5b7a994303c9d85783ecfbb424
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7b681915eb3ad9960f335d46508b857fa6ec2e20
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201883"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551765"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Como: Planejar sua implementação de ingresso no Azure AD
 
@@ -40,7 +40,7 @@ Este artigo presume que você esteja familiarizado com o [Introdução ao gerenc
 
 ## <a name="plan-your-implementation"></a>Planejar sua implementação
 
-Para planejar sua implementação híbrida do AD do Azure, você deve se familiarizar com:
+Para planejar sua implementação de junção do Azure AD, você deve se familiarizar com:
 
 |   |   |
 |---|---|

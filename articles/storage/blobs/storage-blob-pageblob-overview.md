@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: wielriac
 ms.subservice: blobs
-ms.openlocfilehash: a61e78ff54cdc2a3db6c166686c2c51a19856a9c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: b03da04c97475dcb9ce15f2ed69d7ca333d6f431
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252295"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456203"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Visão geral de blobs de páginas do Azure
 
@@ -29,7 +29,7 @@ Vamos discutir alguns casos de uso para blobs de página, começando com os disc
 
 Os serviços da Microsoft de primeira ordem, como o Azure Site Recovery, o Azure Backup, bem como muitos desenvolvedores de terceiros, implementaram inovações líderes do setor usando a interface REST do blob da página. Estes são alguns dos cenários exclusivos implementados no Azure: 
 * Gerenciamento de instantâneos incrementais direcionados ao aplicativo: os aplicativos podem aproveitar os instantâneos e as APIs REST do blob de páginas para salvar os pontos de verificação do aplicativo sem incorrer em custos elevados de duplicação de dados. O Armazenamento do Azure oferece suporte a instantâneos locais para blobs de páginas, que não exigem a cópia do blob inteiro. Essas APIs públicas de instantâneos também permitem o acesso e a cópia de deltas entre instantâneos.
-* Migração dinâmica de aplicativos e dados do local para a nuvem: copie os dados no local e use as APIs REST para gravá-los diretamente em um blob de páginas do Azure, enquanto a VM local continua sendo executada. Depois que o destino for atualizado, faça failover rapidamente para a VM do Azure usando esses dados. Dessa forma, é possível migrar das VMs e dos discos virtuais do local para a nuvem com tempo de inatividade mínimo, pois a migração de dados ocorre em segundo plano enquanto você continua usando a VM e o tempo de inatividade necessário para fazer failover que será curto (em minutos).
+* Migração dinâmica de aplicativos e dados do local para a nuvem: Copiar dados no local e usar APIs REST para gravar diretamente em um blob de páginas do Azure enquanto a VM continua em execução local. Depois que o destino for atualizado, faça failover rapidamente para a VM do Azure usando esses dados. Dessa forma, você pode migrar suas VMs e discos virtuais do local para a nuvem com tempo de inatividade mínimo, uma vez que a migração de dados ocorre em segundo plano enquanto você continua a usar a VM e o tempo de inatividade necessário para o failover será curtos (em minutos).
 * Acesso compartilhado [baseado em SAS](../common/storage-dotnet-shared-access-signature-part-1.md), que permite cenários como vários leitores e um único gravador com suporte para o controle de simultaneidade.
 
 ## <a name="page-blob-features"></a>Recursos do blob de páginas
