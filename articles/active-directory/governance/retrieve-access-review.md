@@ -1,6 +1,6 @@
 ---
-title: Recuperar resultados de revisão de acesso do Azure AD | Microsoft Docs
-description: Como recuperar os resultados das revisões de acesso do Azure Active Directory.
+title: Recuperar resultados da revisão de acesso para grupos ou aplicativos em revisões de acesso do AD do Azure | Microsoft Docs
+description: Saiba como recuperar os resultados da revisão de acesso para membros do grupo ou acesso a aplicativos em revisões de acesso do AD do Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,16 +16,16 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2dccacb82b34e7e257fcee9632045f12839b5425
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 2516e61b6b86c3d2cee164cfcb80a1f938922908
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210791"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839637"
 ---
-# <a name="retrieve-access-review-results"></a>Recuperar resultados de revisão do acesso
+# <a name="retrieve-access-review-results-for-groups-or-applications-in-azure-ad-access-reviews"></a>Recuperar resultados da revisão de acesso para grupos ou aplicativos em revisões de acesso do AD do Azure
 
-Os administradores podem usar o Azure Active Directory (Azure AD) para [criar uma análise de acesso](create-access-review.md) para membros do grupo ou os usuários atribuídos a um aplicativo.  Um usuário com a função de **Administrador Global**, **Administrador de Conta de Usuário** ou **Administrador de Segurança** ou **Leitor de Segurança** também pode ler os resultados de uma revisão de acesso.  Para atribuir usuários a uma dessas funções, um administrador com função com privilégios pode usar o PIM do Azure AD para tornar um usuário elegível para ativar a função ou um Administrador global pode [atribuir um usuário à função](../fundamentals/active-directory-users-assign-role-azure-portal.md) de forma permanente.
+Os administradores podem usar o Azure Active Directory (Azure AD) para [criar uma análise de acesso](create-access-review.md) para membros do grupo ou os usuários atribuídos a um aplicativo.  Um usuário que está na **Administrador Global**, **usuário administrador**, **Security administrator** ou **leitor de segurança** função também pode os resultados de uma revisão de acesso de leitura.  Para atribuir usuários a uma dessas funções, um administrador com privilégios de função pode usar o PIM do Azure AD para tornar um usuário elegível para ativar a função ou um Administrador Global pode permanentemente [atribuir um usuário à função](../fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
@@ -55,7 +55,7 @@ Por padrão, um usuário excluído permanecerá excluído no Azure AD por 30 dia
 - [Gerenciar o acesso do usuário com revisões de acesso ao Azure AD](manage-user-access-with-access-reviews.md)
 - [Gerenciar o acesso de convidado com revisões de acesso do Azure AD](manage-guest-access-with-access-reviews.md)
 - [Gerenciar os programas e os controles para análises de acesso do Azure AD](manage-programs-controls.md)
-- [Como criar uma revisão de acesso para os membros de um grupo ou para o acesso a um aplicativo](create-access-review.md)
+- [Criar uma revisão de acesso de grupos ou aplicativos](create-access-review.md)
 - [Criar uma revisão de acesso de usuários em uma função administrativa do Azure AD](../privileged-identity-management/pim-how-to-start-security-review.md)
 
 
