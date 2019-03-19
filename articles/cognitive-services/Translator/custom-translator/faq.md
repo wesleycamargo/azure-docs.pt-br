@@ -5,16 +5,16 @@ description: Fornece respostas a perguntas frequentes sobre o Custom Translator.
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.subservice: translator-text
+ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: reference
-ms.openlocfilehash: 4d63eb817f7dc1ff957223cb5e9181fbc441fe29
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: d3e3d12e572c939fb2ddd5bc671aede434ca7d8a
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227481"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760317"
 ---
 # <a name="frequently-asked-questions"></a>Perguntas frequentes
 
@@ -25,7 +25,6 @@ Este artigo contém respostas para perguntas frequentes sobre o [Tradutor person
 Existem restrições e limites em relação ao tamanho do arquivo, treinamento do modelo e implantação do modelo. Tenha estas restrições em mente ao configurar seu treinamento para criar um modelo no Tradutor Personalizado.
 
 - Arquivos enviado devem ser menor que 100 MB de tamanho.
-
 - Dados monolíngues não são suportados.
 
 ## <a name="when-should-i-request-deployment-for-a-translation-system-that-has-been-trained"></a>Quando devo solicitar a implantação de um sistema de tradução que foi treinado?

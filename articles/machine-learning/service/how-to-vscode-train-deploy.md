@@ -10,12 +10,12 @@ ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6d190e4c5d283b9f803cf7287445d7591b5465db
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 8d63d5f6281de022e8f7e5c9e0a208866fef3f4f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753105"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57889549"
 ---
 # <a name="use-visual-studio-code-to-train-and-deploy-machine-learning-models"></a>Usar o Visual Studio Code para treinar e implantar modelos de aprendizado de máquina
 
@@ -27,7 +27,7 @@ Além disso, é possível implantar esses modelos para suas necessidades de test
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-+ Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Teste hoje mesmo a [versão gratuita ou paga do Serviço do Azure Machine Learning](http://aka.ms/AMLFree).
++ Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Teste hoje mesmo a [versão gratuita ou paga do Serviço do Azure Machine Learning](https://aka.ms/AMLFree).
 
 + Tenha a extensão [Azure Machine Learning para VS Code](how-to-vscode-tools.md) configurada.
 

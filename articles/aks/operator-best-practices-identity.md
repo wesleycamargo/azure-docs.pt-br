@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 478034d1c9f99f40a4827515433357c76235e9ee
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.openlocfilehash: 7d846f28e78959b6962add51070f04857f6463d7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52430521"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852797"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para autenticação e autorização no Azure Kubernetes Service (AKS)
 
@@ -64,7 +64,7 @@ rules:
   verbs: ["*"]
 ```
 
-Em seguida, é criado um RoleBinding que vincula o usuário do Microsoft Azure Active Directory *developer1@contoso.com* ao RoleBinding, conforme mostrado no seguinte manifesto YAML:
+Um RoleBinding, em seguida, é criado que associa o usuário do Azure AD *developer1\@contoso.com* para RoleBinding, conforme mostrado no seguinte manifesto YAML:
 
 ```yaml
 ind: RoleBinding
@@ -82,7 +82,7 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
 ```
 
-Quando *developer1@contoso.com* é autenticado no cluster do AKS, eles têm permissões totais para recursos no namespace *finance-app*. Dessa forma, você separa e controla logicamente o acesso aos recursos. O Kubernetes RBAC deve ser usado em conjunto com a integração do Microsoft Azure Active Directory, conforme discutido na seção anterior.
+Quando *developer1\@contoso.com* é autenticado no cluster AKS, eles têm permissões completas para recursos no *aplicativo Finanças* namespace. Dessa forma, você separa e controla logicamente o acesso aos recursos. O Kubernetes RBAC deve ser usado em conjunto com a integração do Microsoft Azure Active Directory, conforme discutido na seção anterior.
 
 ## <a name="use-pod-identities"></a>Usar identidades de pod
 

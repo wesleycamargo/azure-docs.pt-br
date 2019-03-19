@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0b1e784d4ca92f0da0e37d4afc1efcf09282cb4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6cc9b2b38ae0ba97e5a29d58d1605e5452224e4b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162859"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445748"
 ---
 # <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Fluxo em nome de do OAuth 2.0 e Azure Active Directory v2.0
 
@@ -193,7 +193,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVG
 
 ## <a name="gaining-consent-for-the-middle-tier-application"></a>Obter consentimento para o aplicativo de camada intermediária
 
-Dependendo do público de seu aplicativo, você pode considerar estratégias diferentes para garantir que o fluxo OBO seja bem-sucedido. Em todos os casos, o objetivo final é garantir que o consentimento adequado seja fornecido. Como isso ocorre, no entanto, dependerá dos usuários aos quais seu aplicativo dá suporte. 
+Dependendo do público para seu aplicativo, você pode considerar estratégias diferentes para garantir que o fluxo OBO seja bem-sucedida. Em todos os casos, o objetivo final é garantir que o consentimento adequado seja fornecido. Como isso ocorre, no entanto, dependerá dos usuários aos quais seu aplicativo dá suporte. 
 
 ### <a name="consent-for-azure-ad-only-applications"></a>Consentimento para aplicativos somente do Azure AD
 

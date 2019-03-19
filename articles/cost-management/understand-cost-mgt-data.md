@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/07/2019
+ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 1d7f58780819202eb02e3a48b4b5e0ac108a0432
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 40c08f87a1711ae57ceb8b288851686d1e2ad391
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447456"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993955"
 ---
 # <a name="understand-cost-management-data"></a>Entender os dados de Gerenciamento de Custos
 
@@ -62,8 +62,9 @@ A tabela a seguir mostra ofertas sem suporte.
 | **Planos de suporte** | Suporte Pro-Direct do Azure Governamental | MS-AZR-USGOV-0042P |
 | **Planos de suporte** | Suporte Developer do Azure Governamental | MS-AZR-USGOV-0043P |
 
-Para clientes com categorias de oferta paga conforme o uso, do MSDN e do Visual Studio, os dados estão disponíveis no Gerenciamento de Custos a partir de 02/10/2018.
+Para clientes com categorias de oferta paga conforme o uso, do MSDN e do Visual Studio, os dados estão disponíveis no Gerenciamento de Custos a partir de 02/10/2018. Para acessar os dados para sua assinatura antes de 02/10/2018, você pode usar o [Centro de contas do Azure](https://account.azure.com/subscriptions) baixar o uso de detalhes em um arquivo CSV ou você pode usar o [API detalhes de uso](/rest/api/consumption/usagedetails).
 
+## <a name="determine-your-offer-type"></a>Determinar o tipo de oferta
 Se não vir os dados de uma assinatura e quiser determinar se sua assinatura se enquadra nas ofertas com suporte, você poderá validar se sua assinatura tem suporte. Para validar se uma assinatura do Azure tem suporte, entre no [portal do Azure](https://portal.azure.com). Em seguida, selecione **Todos os serviços** no menu do painel esquerdo. Na lista de serviços, selecione **Assinaturas**. No menu de lista de assinaturas, clique na assinatura que deseja verificar. Sua assinatura é mostrada na guia Visão Geral e você pode ver a **Oferta** e a **ID da Oferta**. A imagem a seguir mostra um exemplo.
 
 ![Exemplo da guia Visão Geral da Assinatura mostrando a Oferta e a ID da Oferta](./media/understand-cost-mgt-data/offer-and-offer-id.png)
@@ -94,7 +95,7 @@ As tabelas a seguir mostram os dados que estão incluídos ou não no Gerenciame
 
 ## <a name="rated-usage-data-refresh-schedule"></a>Agenda de atualização de dados de uso calculados
 
-Dados de uso e de custo estão disponíveis em Gerenciamento de Custos + Cobrança no portal do Azure e nas [APIs com suporte](https://aka.ms/costmgmt/docs). Ao avaliar os custos, tenha em mente os seguintes pontos:
+Dados de uso e de custo estão disponíveis em Gerenciamento de Custos + Cobrança no portal do Azure e nas [APIs com suporte](index.yml). Ao avaliar os custos, tenha em mente os seguintes pontos:
 
 - Os encargos estimados do período de cobrança atual são atualizados seis vezes por dia.
 - Os encargos estimados do período de cobrança atual podem ser alterados conforme você incorre em mais uso.

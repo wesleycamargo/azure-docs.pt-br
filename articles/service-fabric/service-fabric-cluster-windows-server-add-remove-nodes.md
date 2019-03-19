@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: 69680331bdad0faa36cb3df6117baf8b358da132
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: e9b87c19977fe35132d80729810c3a0547c486fe
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251012"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446105"
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Adicionar ou remover nós de um cluster do Service Fabric autônomo em execução no Windows Server
 Depois de ter [criado seu cluster autônomo do Service Fabric em computadores com Windows Server](service-fabric-cluster-creation-for-windows-server.md), suas necessidades (ou dos seus negócios) podem mudar e talvez seja preciso adicionar ou remover nós do cluster. Este artigo fornece as etapas detalhadas para fazer isso. Observe que não há suporte para a funcionalidade de adicionar/remover nó em clusters de desenvolvimento local.
@@ -38,7 +38,7 @@ Depois de ter [criado seu cluster autônomo do Service Fabric em computadores co
     ```
     Depois que o script terminar a execução, você pode verificar se o novo nó foi adicionado executando o cmdlet [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps).
 
-7. Para garantir a consistência em diferentes nós do cluster, você deve iniciar uma atualização de configuração. Execute [ServiceFabricClusterConfiguration Get](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) para obter o arquivo de configuração mais recente e adicionar o nó recém-adicionado à seção "Nós". Também é recomendável sempre ter a configuração de cluster mais recente disponível no caso de precisar reimplantar um cluster com a mesma configuração.
+7. Para garantir a consistência em diferentes nós do cluster, você deve iniciar uma atualização de configuração. Execute [ServiceFabricClusterConfiguration Get](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) para obter o arquivo de configuração mais recente e adicionar o nó recém-adicionado à seção "Nós". Também é recomendável sempre ter a configuração de cluster mais recente disponível no caso em que você precisará reimplantar um cluster com a mesma configuração.
 
     ```
         {

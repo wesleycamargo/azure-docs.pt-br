@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: rkarlin
-ms.openlocfilehash: 76239f80076cbe0f86d6e091a29b008a5a5d06c1
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 3282afb87672ba25294e65ea1474a9e06df03362
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116636"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57871055"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Obtenha visibilidade de todo o locatário para o Centro de Segurança do Azure
 Este artigo ajuda você a começar fazendo várias ações que maximizam os benefícios que o Centro de Segurança do Azure oferece. A execução dessas ações permite que você obtenha visibilidade de todas as assinaturas do Azure vinculadas ao locatário do Azure Active Directory e gerencie com eficiência a postura de segurança da organização em escala, aplicando políticas de segurança em várias assinaturas de maneira agregada.
@@ -38,7 +38,7 @@ Para obter mais informações sobre grupos de gerenciamento, consulte [Organizar
 Você organiza assinaturas em grupos de gerenciamento e aplica as políticas de governança aos grupos de gerenciamento. Todas as assinaturas dentro de um grupo de gerenciamento herdam automaticamente as políticas aplicadas ao grupo de gerenciamento. Embora os grupos de gerenciamento não precisem integrar a Central de Segurança, é altamente recomendável criar pelo menos um grupo de gerenciamento para que o grupo de gerenciamento raiz seja criado. Depois que o grupo é criado, todas as assinaturas sob o seu locatário Azure AD serão conectadas a ele. Para obter instruções sobre o PowerShell e mais informações, consulte [Criar grupos de gerenciamento para gerenciamento de recursos e organização](../azure-resource-manager/management-groups-create.md).
 
  
-1. Entre no [Portal do Azure](http://portal.azure.com).
+1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Selecione **Todos os serviços** > **Grupos de gerenciamento**.
 3. Na página principal, selecione **Novo grupo de gerenciamento.** 
 
@@ -51,7 +51,7 @@ Você organiza assinaturas em grupos de gerenciamento e aplica as políticas de 
 5.  Selecione **Salvar**
 
 ### <a name="view-management-groups-in-the-azure-portal"></a>Exibir grupos de gerenciamento no Portal do Azure
-1. Entre no [Portal do Azure](http://portal.azure.com).
+1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Para visualizar grupos de gerenciamento, selecione **Todos serviços** sob o menu principal do Azure.
 3. Sob **Geral**, selecione **Grupos de Gerenciamento**.
 
@@ -77,7 +77,7 @@ Um administrador de locatário do Azure Active Directory não tem acesso direto 
 
    - Quando você define a opção para Sim, recebe a função de Administrador do Acesso do Usuário no RBAC do Azure no escopo raiz (/). Isso concede a você permissão para atribuir funções a todas as assinaturas e grupos de gerenciamento do Azure associados a esse diretório do AD do Azure. Essa opção está disponível apenas para usuários com a função de administrador global no Azure AD.
 
-  - Quando você define a opção para Não, a função Administrador de Acesso do Usuário no RBAC do Azure é removida da sua conta de usuário. Você não pode mais atribuir funções a todas as assinaturas e grupos de gerenciamento do Azure associados a esse diretório do AD do Azure. Você pode exibir e gerenciar somente as assinaturas do Azure e os grupos de gerenciamento aos quais você recebeu acesso.
+   - Quando você define a opção para Não, a função Administrador de Acesso do Usuário no RBAC do Azure é removida da sua conta de usuário. Você não pode mais atribuir funções a todas as assinaturas e grupos de gerenciamento do Azure associados a esse diretório do AD do Azure. Você pode exibir e gerenciar somente as assinaturas do Azure e os grupos de gerenciamento aos quais você recebeu acesso.
 
 4. Clique em **Salvar**, para salvar suas configurações.
 
@@ -108,15 +108,15 @@ Para obter visibilidade de todas as assinaturas, os administradores de locatári
 
 
 #### <a name="assign-rbac-roles-to-users-with-powershell"></a>Atribuir funções RBAC a usuários com PowerShell: 
-1. Instale o [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+1. Instale o [Azure PowerShell](/powershell/azure/install-az-ps).
 2. Execute os seguintes comandos: 
 
     ```azurepowershell
-    # Install Management Groups Powershell module
-    Install-Module AzureRM.Resources
-    
     # Login to Azure as a Global Administrator user
-    Login-AzureRmAccount
+    Connect-AzAccount
     ```
 
 3. Quando solicitado, entre com suas credenciais. 
@@ -128,12 +128,12 @@ Para obter visibilidade de todas as assinaturas, os administradores de locatári
     ```azurepowershell
     # Add Reader role to the required user on the Root Management Group
     # Replace "user@domian.com” with the user to grant access to
-    New-AzureRmRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/"
+    New-AzRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/"
     ```
 5. Para remover a função, use o seguinte comando: 
 
     ```azurepowershell
-    Remove-AzureRmRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/" 
+    Remove-AzRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/" 
     ```
 
 ### <a name="open-or-refresh-security-center"></a>Abra ou atualize o Centro de Segurança
@@ -141,12 +141,17 @@ Após elevar o acesso, abra ou atualize a Central de Segurança do Azure para ve
 
 1. Entre no [Portal do Azure](https://portal.azure.com). 
 2. Certifique-se de selecionar todas as assinaturas no seletor de assinatura que você gostaria de exibir na Central de Segurança.
-    ![Captura de tela do seletor de assinatura](./media/security-center-management-groups/subscription-selector.png)
+
+    ![Captura de tela de seletor de assinatura](./media/security-center-management-groups/subscription-selector.png)
+
 1. Selecione **Todos serviços** sob o menu principal do Azure e então selecione **Centro de Segurança**.
-2. Na **Visão geral**, há um gráfico de cobertura de assinatura. 
-    ![Screenshot tabela de cobertura de assinatura](./media/security-center-management-groups/security-center-subscription-coverage.png)
+2. Na **Visão geral**, há um gráfico de cobertura de assinatura.
+
+    ![Captura de tela de gráfico de cobertura assinatura](./media/security-center-management-groups/security-center-subscription-coverage.png)
+
 3. Clique em **Cobertura** para ver a lista de assinaturas cobertas. 
-    ![Screenshot lista de cobertura de assinatura](./media/security-center-management-groups/security-center-coverage.png)
+
+    ![Captura de tela de lista de cobertura assinatura](./media/security-center-management-groups/security-center-coverage.png)
 
 ### <a name="remove-elevated-access"></a>Remover acesso elevado 
 Uma vez que as funções RBAC tenham sido designadas aos usuários, o administrador locatário deve se remover da função de administrador de acesso de usuário.
@@ -176,8 +181,8 @@ Você consegue adicionar assinaturas a um grupo de gerenciamento que você criou
 
 4. Repita etapas 1 a 3 até você ter adicionado todas as assinaturas no escopo.
 
- > [!NOTE]
- > Grupos de gerenciamento podem conter ambos assinaturas e grupos de gerenciamento criança. Quando você designa a um usuário uma função RBAC a um grupo de gerenciamento pai, o acesso é herdado pelas assinaturas de grupo de gerenciamento criança. Conjunto de políticas no grupo de gerenciamento pai são também herdadas pela criança. 
+   > [!NOTE]
+   > Grupos de gerenciamento podem conter ambos assinaturas e grupos de gerenciamento criança. Quando você designa a um usuário uma função RBAC a um grupo de gerenciamento pai, o acesso é herdado pelas assinaturas de grupo de gerenciamento criança. Conjunto de políticas no grupo de gerenciamento pai são também herdadas pela criança. 
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você aprendeu como ganhar visibilidade a nível locatário para Centro de Segurança do Azure. Para saber mais sobre a Central de Segurança, confira estes artigos:

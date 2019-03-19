@@ -1,6 +1,6 @@
 ---
-title: Criar um ponto de extremidade de fala personalizado com o Serviço de Fala no Azure | Microsoft Docs
-description: Saiba como criar um ponto de extremidade de conversão de fala em texto personalizado com o Serviço de Fala nos Serviços Cognitivos.
+title: Criar um ponto de extremidade de fala personalizado com os serviços de fala no Azure | Microsoft Docs
+description: Saiba como criar um ponto de extremidade de fala em texto personalizado usando os serviços de fala do Azure.
 services: cognitive-services
 author: PanosPeriorellis
 manager: onano
@@ -9,19 +9,19 @@ ms.subservice: custom-speech
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: panosper
-ms.openlocfilehash: 63d2c15c14340b0d7407b0144a8b8c75a2634e6a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 1f7a84d187ba6279caad4926d54bfc56254152af
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220223"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57862991"
 ---
 # <a name="create-a-custom-speech-to-text-endpoint"></a>Criar um ponto de extremidade de conversão de fala em texto personalizado 
 
-Depois de criar modelos de acústicos personalizados ou modelos de linguagem, você pode implantá-los em um ponto de extremidade de conversão de fala em texto personalizado. 
+Depois de criar modelos de acústicos personalizados ou modelos de linguagem, você pode implantá-los em um ponto de extremidade de conversão de fala em texto personalizado.
 
 ## <a name="create-an-endpoint"></a>Criar um ponto de extremidade
-Para criar um ponto de extremidade personalizado, selecione **Pontos de extremidade** no menu **Fala Personalizada** na parte superior da página. Essa ação leva você para a página **Pontos de extremidade**, que contém uma tabela de pontos de extremidade personalizados atuais. Se você ainda não tiver criado nenhum ponto de extremidade, a tabela está vazia. A localidade atual é refletida no título da tabela. 
+Para criar um ponto de extremidade personalizado, selecione **Pontos de extremidade** no menu **Fala Personalizada** na parte superior da página. Essa ação leva você para a página **Pontos de extremidade**, que contém uma tabela de pontos de extremidade personalizados atuais. Se você ainda não tiver criado nenhum ponto de extremidade, a tabela está vazia. A localidade atual é refletida no título da tabela.
 
 Para criar uma implantação de um idioma diferente, selecione **Alterar localidade**. Para obter mais informações sobre os idiomas com suporte.
 
@@ -44,6 +44,6 @@ Quando a implantação estiver pronta, o nome de ponto de extremidade se tornar�
 ## <a name="next-steps"></a>Próximas etapas
 
 Para ver mais tutoriais, consulte:
-- [Obtenha sua assinatura de avaliação do Serviço de Fala](https://azure.microsoft.com/try/cognitive-services/)
+- [Obter sua assinatura de avaliação de Serviços de Fala](https://azure.microsoft.com/try/cognitive-services/)
 - [Crie modelos acústicos personalizados](how-to-customize-acoustic-models.md)
 - [Crie modelos de linguagem personalizados](how-to-customize-language-model.md)

@@ -8,21 +8,18 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 02/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: 2a566312e70e0c1d5f85a540f30ecdf0adc0e7e7
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: bf29fd8d9b707636fb5965669ad800517a6cf58f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653706"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58075554"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Use o Apache Spark MLlib para criar um aplicativo de aprendizado de máquina e analisar um conjunto de dados
 
 Aprenda como usar o Apache Spark [MLlib](https://spark.apache.org/mllib/) para criar um aplicativo de aprendizado de máquina para fazer uma análise preditiva simples em um conjunto de dados aberto. Das bibliotecas aprendizado de máquina internas do Spark, este exemplo usa *classificação* por meio de regressão logística. 
-
-> [!TIP]  
-> Este exemplo também está disponível como um [Jupyter Notebook](https://jupyter.org/) em um cluster Spark (Linux) que você cria no HDInsight. A experiência de bloco de anotações permite executar os snippets de código Python no próprio bloco de anotações. Para acompanhar o tutorial de dentro de um bloco de anotações, crie um cluster Spark e inicie um bloco de anotações do Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`). Em seguida, execute o bloco de anotações **Machine Learning do Spark – análise preditiva nos dados de inspeção de alimentos usando MLlib.ipynb** na pasta **Python**.
 
 MLlib é uma biblioteca Spark principal que fornece vários utilitários úteis para tarefas de aprendizado de máquina, incluindo utilitários adequados para:
 
@@ -49,7 +46,7 @@ Nas etapas a seguir, você desenvolverá um modelo para ver o que é necessário
 
 1. Crie um bloco de notas do Jupyter usando o kernel PySpark. Para obter instruções, consulte [Criar um bloco de notas do Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
 
-2. Importe os tipos obrigatórios necessários para este aplicativo. Cole o código a seguir em uma célula vazia e pressione **SHIFT+ENTER**.
+2. Importe os tipos obrigatórios necessários para este aplicativo. Copie e cole o código a seguir em uma célula vazia e, em seguida, pressione **SHIFT + ENTER**.
 
     ```PySpark
     from pyspark.ml import Pipeline
@@ -173,7 +170,7 @@ Vamos começar a ter uma ideia do que o nosso conjunto de dados contém.
 
     ```PySpark
     %%sql -o countResultsdf
-    SELECT results, COUNT(results) AS cnt FROM CountResults GROUP BY results
+    SELECT COUNT(results) AS cnt, results FROM CountResults GROUP BY results
     ```
 
     A mágica do `%%sql` seguido pelo `-o countResultsdf` assegura que a saída da consulta seja mantida localmente no servidor Jupyter (normalmente o nó principal do cluster). A saída é mantida como uma estrutura de dados [Pandas](https://pandas.pydata.org/) com o nome especificado **countResultsdf**. Para obter mais informações sobre a mágica `%%sql` e outras magias disponíveis com o kernel do PySpark, consulte [Kernels disponíveis em notebooks Jupyter com clusters do Apache Spark HDInsight](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
@@ -201,26 +198,18 @@ Vamos começar a ter uma ideia do que o nosso conjunto de dados contém.
 
     ![Saída do aplicativo de aprendizado de máquina do Spark – gráfico de pizza com cinco conjuntos de resultados de inspeção distintos](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-1.png "Saída do resultado de aprendizado de máquina de Spark")
 
-    Há 5 resultados específicos que uma inspeção pode ter:
-
-    - Negócios não localizados
-    - Reprovado
-    - Aprovado
-    - Aprovado c/ condições
-    - Fora de negócio
-
     Para prever um resultado de inspeção de alimentos, você precisa desenvolver um modelo com base nas violações. Como a regressão logística é um método de classificação binária, é recomendável agrupar os dados do resultado em duas categorias: **Reprovado** e **Aprovado**:
 
-    - Aprovado
-        - Aprovado
-        - Aprovado c/ condições
-    - Reprovado
-        - Reprovado
-    - Descartar
-        - Negócios não localizados
-        - Fora de negócio
+   - Aprovado
+       - Aprovado
+       - Aprovado c/ condições
+   - Reprovado
+       - Reprovado
+   - Descartar
+       - Negócios não localizados
+       - Fora de negócio
 
-    Dados com os outros resultados ("Negócios não localizados" ou "Cessação de atividades") não são úteis, e eles formam uma porcentagem muito pequena dos resultados de qualquer forma.
+     Dados com os outros resultados ("Negócios não localizados" ou "Cessação de atividades") não são úteis, e eles formam uma porcentagem muito pequena dos resultados de qualquer forma.
 
 4. Execute o código a seguir para converter nosso dataframe existente (`df`) em um novo dataframe em que cada inspeção é representada como um par de violações de rótulo. Nesse caso, um rótulo de `0.0` representa uma falha, um rótulo de `1.0` representa um sucesso e um rótulo de `-1.0` representa alguns resultados diferentes desses dois. 
 
@@ -272,7 +261,7 @@ Você pode usar o modelo criado anteriormente para *prever* quais serão os resu
 1. Execute o código a seguir para criar um novo dataframe, **predictionsDf** que contém a previsão gerada pelo modelo. O snippet de código também cria uma tabela temporária **Previsões** com base no dataframe.
 
     ```PySpark
-    testData = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
+    testData = sc.textFile('wasbs:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
                 .map(csvParse) \
                 .map(lambda l: (int(l[0]), l[1], l[12], l[13]))
     testDf = spark.createDataFrame(testData, schema).where("results = 'Fail' OR results = 'Pass' OR results = 'Pass w/ Conditions'")
@@ -284,10 +273,6 @@ Você pode usar o modelo criado anteriormente para *prever* quais serão os resu
     Você verá algo semelhante ao mostrado a seguir:
 
     ```
-    # -----------------
-    # THIS IS AN OUTPUT
-    # -----------------
-
     ['id',
         'name',
         'results',
@@ -321,10 +306,6 @@ Você pode usar o modelo criado anteriormente para *prever* quais serão os resu
     A saída se parece com o seguinte:
 
     ```
-    # -----------------
-    # THIS IS AN OUTPUT
-    # -----------------
-
     There were 9315 inspections and there were 8087 successful predictions
     This is a 86.8169618894% success rate
     ```
@@ -377,7 +358,7 @@ Agora você pode construir uma visualização final para ajudar a justificar os 
     Neste gráfico, um resultado "positivo" refere-se a uma reprovação na inspeção de alimentos, enquanto um resultado negativo refere-se a uma aprovação na inspeção.
 
 ## <a name="shut-down-the-notebook"></a>Fechar o notebook
-Depois de concluir a execução do aplicativo, você deve encerrar o bloco de anotações para liberar os recursos. Para isso, no menu **Arquivo** do bloco de anotações, clique em **Fechar e Interromper**. Isso desliga e fecha o bloco de anotações.
+Depois de concluir a execução do aplicativo, você deve encerrar o bloco de anotações para liberar os recursos. Para fazer isso, no menu **Arquivo** do notebook, selecione **Fechar e Interromper**. Isso desliga e fecha o bloco de anotações.
 
 ## <a name="seealso"></a>Consulte também
 * [Visão geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)

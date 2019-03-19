@@ -4,7 +4,7 @@ description: Melhores práticas para planejamento e dimensionamento de clusters 
 services: service-fabric
 documentationcenter: .net
 author: peterpogorski
-manager: jeanpaul.connock
+manager: chackdan
 editor: ''
 ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 9de6cc224c82bb07fee4d62cd5de1d1964001bab
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 425154958e4c60902b56f320f714a011b9095830
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446810"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57997354"
 ---
 # <a name="capacity-planning-and-scaling"></a>Planejamento de capacidade e dimensionamento
 
@@ -40,7 +40,7 @@ Operações de dimensionamento devem ser executadas por meio de implantação de
 
 ## <a name="vertical-scaling-considerations"></a>Considerações de dimensionamento vertical
 
-[Dimensionamento vertical](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out#upgrade-the-size-and-operating-system-of-the-primary-node-type-vms) um tipo de nó no Azure Service Fabric requer várias etapas e considerações. Por exemplo: 
+[Dimensionamento vertical](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out) um tipo de nó no Azure Service Fabric requer várias etapas e considerações. Por exemplo: 
 * O cluster deve estar íntegro antes do dimensionamento. Caso contrário, você só desestabilizará o cluster ainda mais.
 * **Nível de durabilidade Prata ou superior** é necessário para todos os NodeTypes do Cluster do Service Fabric que hospedam serviços com estado.
 
@@ -159,6 +159,13 @@ var newCapacity = (int)Math.Max(MinimumNodeCount, scaleSet.Capacity - 1); // Che
 
 scaleSet.Update().WithCapacity(newCapacity).Apply();
 ```
+
+> [!NOTE]
+> Quando você escala um cluster para baixo, você verá a instância de nó/VM removida exibida em um estado não íntegro no Service Fabric Explorer. Para obter uma explicação desse comportamento, consulte [comportamentos que você pode observar no Service Fabric Explorer](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down#behaviors-you-may-observe-in-service-fabric-explorer).
+> 
+> Você pode:
+> * Chame [Remove-ServiceFabricNodeState cmd](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) com o nome de nó apropriado.
+> * Implante [aplicativo do service fabric AutoEscala auxiliar](https://github.com/Azure/service-fabric-autoscale-helper/) no seu cluster, que garante a escala nós inativos serão apagados do Service Fabric Explorer.
 
 ## <a name="reliability-levels"></a>Níveis de confiabilidade
 

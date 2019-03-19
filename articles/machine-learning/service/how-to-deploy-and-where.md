@@ -11,28 +11,26 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: c83342e5eb0e6c1f45daa54ea3c4f3c602ff7a39
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: f2d2ded849af5054935b6bec8f74e021078b7641
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878605"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860408"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implantar modelos com o serviço do Azure Machine Learning
 
-O serviço do Azure Machine Learning fornece várias maneiras de implantar o modelo treinado usando o SDK. Neste documento, saiba como implantar seu modelo como um serviço Web na nuvem do Azure ou em dispositivos do IoT Edge.
-
-> [!IMPORTANT]
-> O CORS (compartilhamento de recurso entre origens) atualmente não é compatível com a ação de implantar um modelo como um serviço Web.
+O SDK do Azure Machine Learning fornece várias maneiras que você pode implantar o modelo treinado. Neste documento, saiba como implantar seu modelo como um serviço Web na nuvem do Azure ou em dispositivos do IoT Edge.
 
 Você pode implantar modelos nos destinos de computação a seguir:
 
 | Destino de computação | Tipo de implantação | DESCRIÇÃO |
 | ----- | ----- | ----- |
-| [ACI (Instâncias de Contêiner do Azure)](#aci) | Serviço Web | Implantação rápida. Bom para teste ou desenvolvimento. |
-| [AKS (Serviço de Kubernetes do Azure)](#aks) | Serviço Web | Ideal para implantações de produção em grande escala. Fornece o dimensionamento automático e tempo de resposta rápido. |
-| [Azure IoT Edge](#iotedge) | Módulo do IoT | Implante modelos em dispositivos do IoT. A inferência acontece no dispositivo. |
-| [FPGA (matriz de porta programável no campo)](#fpga) | Serviço Web | Latência extremamente baixa para inferência em tempo real. |
+| [AKS (Serviço de Kubernetes do Azure)](#aks) | Inferência de tipos em tempo real | Ideal para implantações de produção em grande escala. Fornece o dimensionamento automático e tempo de resposta rápido. |
+| [Computação do ML do Azure](#azuremlcompute) | Inferência de tipos de lote | Execute a previsão em lotes em computação sem servidor. Dá suporte a VMs normais e de baixa prioridade. |
+| [ACI (Instâncias de Contêiner do Azure)](#aci) | Testando | Bom para teste ou desenvolvimento. **Não é adequado para cargas de trabalho de produção.** |
+| [Azure IoT Edge](#iotedge) | (Visualização) Módulo do IoT | Implante modelos em dispositivos do IoT. A inferência acontece no dispositivo. |
+| [FPGA (matriz de porta programável no campo)](#fpga) | (Visualização) Serviço Web | Latência extremamente baixa para inferência em tempo real. |
 
 O processo de implantação de um modelo é semelhante para todos os destinos de computação:
 
@@ -41,6 +39,8 @@ O processo de implantação de um modelo é semelhante para todos os destinos de
 1. Implante a imagem em um destino de computação.
 1. Teste a implantação
 
+O vídeo a seguir demonstra como implantar instâncias de contêiner do Azure:
+
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Kwk3]
 
 
@@ -48,32 +48,34 @@ Para obter mais informações sobre os conceitos envolvidos no fluxo de trabalho
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Teste hoje mesmo a [versão gratuita ou paga do Serviço do Azure Machine Learning](http://aka.ms/AMLFree).
+- Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Teste hoje mesmo a [versão gratuita ou paga do Serviço do Azure Machine Learning](https://aka.ms/AMLFree).
 
 - Um espaço de trabalho do serviço do Machine Learning do Azure e o SDK do Azure Machine Learning para Python instalados. Saiba como obter esses pré-requisitos usando a [Introdução ao início rápido do Azure Machine Learning](quickstart-get-started.md).
 
 - Um modelo treinado. Se você não tiver um modelo treinado, use as etapas no tutorial [Treinar modelos](tutorial-train-models-with-aml.md) para treinar e registrar um com o serviço do Azure Machine Learning.
 
     > [!NOTE]
-    > Enquanto o Serviço do Azure Machine Learning pode funcionar com qualquer modelo genérico que pode ser carregado em Python 3, os exemplos deste documento demonstram o uso de um modelo armazenado no formato do pickle.
+    > Enquanto o serviço de Azure Machine Learning pode funcionar com qualquer modelo genérico que pode ser carregado em Python 3, os exemplos deste documento demonstram usando um modelo armazenado no formato de pickle do Python.
     > 
     > Para obter mais informações sobre o uso de modelos ONNX, consulte o documento [ONNX e Azure Machine Learning](how-to-build-deploy-onnx.md).
 
 ## <a id="registermodel"></a> Registrar um modelo treinado
 
-O registro de modelo é uma maneira de armazenar e organizar modelos treinados na nuvem do Azure. Os modelos são registrados em seu workspace do Serviço do Azure Machine Learning. O modelo pode ser treinado usando o Azure Machine Learning ou outro serviço. Para registrar um modelo do arquivo, use o código a seguir:
+O registro de modelo é uma maneira de armazenar e organizar modelos treinados na nuvem do Azure. Os modelos são registrados em seu workspace do Serviço do Azure Machine Learning. O modelo pode ser treinado usando o Azure Machine Learning ou outro serviço. O código a seguir demonstra como registrar um modelo de arquivo, defina um nome, marcas e uma descrição:
 
 ```python
 from azureml.core.model import Model
 
-model = Model.register(model_path = "model.pkl",
-                       model_name = "Mymodel",
+model = Model.register(model_path = "outputs/sklearn_mnist_model.pkl",
+                       model_name = "sklearn_mnist",
                        tags = {"key": "0.1"},
                        description = "test",
                        workspace = ws)
 ```
 
 **Tempo estimado**: Cerca de 10 segundos.
+
+Para obter um exemplo de registro de um modelo, consulte [treinar um classificador de imagem](tutorial-train-models-with-aml.md).
 
 Para obter mais informações, consulte a documentação de referência da [classe do modelo](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 
@@ -91,9 +93,7 @@ from azureml.core.image import ContainerImage
 # Image configuration
 image_config = ContainerImage.image_configuration(execution_script = "score.py",
                                                  runtime = "python",
-                                                 conda_file = "myenv.yml",
-                                                 description = "Image with ridge regression model",
-                                                 tags = {"data": "diabetes", "type": "regression"}
+                                                 conda_file = "myenv.yml"}
                                                  )
 ```
 
@@ -107,15 +107,19 @@ Os parâmetros importantes usados neste exemplo são descritos na tabela a segui
 | `runtime` | Indica que a imagem usa o Python. A outra opção é `spark-py`, que usa o Python com o Apache Spark. |
 | `conda_file` | Usado para fornecer um arquivo de ambiente do Conda. Esse arquivo define o ambiente do Conda para o modelo implantado. Para obter mais informações sobre como criar esse arquivo, consulte [Criar um arquivo de ambiente (myenv.yml)](tutorial-deploy-models-with-aml.md#create-environment-file). |
 
+Para obter um exemplo de criação de uma configuração de imagem, consulte [implantar um classificador de imagem](tutorial-deploy-models-with-aml.md).
+
 Para obter mais informações, consulte a documentação de referência da [classe ContainerImage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py)
 
 ### <a id="script"></a> Script de execução
 
-O script de execução recebe os dados enviados para uma imagem implantada e passa-o para o modelo. Ele então envia de volta ao cliente a resposta retornada pelo modelo. O script é específico para seu modelo; ele deve compreender os dados que o modelo espera e retorna. O script geralmente contém duas funções que carregam e executam o modelo:
+O script de execução recebe os dados enviados para uma imagem implantada e passa-o para o modelo. Ele então envia de volta ao cliente a resposta retornada pelo modelo. **O script é específico para seu modelo**; ele deve compreender os dados que o modelo de espera e retorna. Para um script de exemplo que funciona com um modelo de classificação de imagem, consulte [implantar um classificador de imagem](tutorial-deploy-models-with-aml.md).
 
-* `init()`: Normalmente, essa função carrega o modelo em um objeto global. Essa função é executada apenas uma vez quando o contêiner do Docker é iniciado. 
+O script contém duas funções que carregam e executam o modelo:
 
-* `run(input_data)`: Essa função usa o modelo para prever um valor com base nos dados de entrada. Entradas e saídas para a execução normalmente usam JSON para serialização e desserialização. Você também pode trabalhar com os dados binários brutos. Você pode transformar os dados antes de enviá-los para o modelo ou antes de retorná-los ao cliente. 
+* `init()`: Normalmente, essa função carrega o modelo em um objeto global. Essa função é executada apenas uma vez quando o contêiner do Docker é iniciado.
+
+* `run(input_data)`: Essa função usa o modelo para prever um valor com base nos dados de entrada. Entradas e saídas para a execução normalmente usam JSON para serialização e desserialização. Você também pode trabalhar com os dados binários brutos. Você pode transformar os dados antes de enviá-los para o modelo ou antes de retorná-los ao cliente.
 
 #### <a name="working-with-json-data"></a>Trabalhando com dados JSON
 
@@ -209,23 +213,20 @@ Para obter mais informações, consulte a documentação de referência da [clas
 
 Ao obter a implantação, o processo será ligeiramente diferente dependendo do destino de computação da implantação. Use as informações nas seções a seguir para saber como implantar para:
 
-* [Instâncias de Contêiner do Azure](#aci)
-* [Serviço de Kubernetes do Azure](#aks)
-* [Projeto Brainwave (matrizes de portas programáveis no campo)](#fpga)
-* [Dispositivos do Azure IoT Edge](#iotedge)
+| Destino de computação | Tipo de implantação | DESCRIÇÃO |
+| ----- | ----- | ----- |
+| [AKS (Serviço de Kubernetes do Azure)](#aks) | Serviço Web (inferência de tipos em tempo real)| Ideal para implantações de produção em grande escala. Fornece o dimensionamento automático e tempo de resposta rápido. |
+| [Computação do ML do Azure](#azuremlcompute) | Serviço Web (inferência de tipos de lote)| Execute a previsão em lotes em computação sem servidor. Dá suporte a VMs normais e de baixa prioridade. |
+| [ACI (Instâncias de Contêiner do Azure)](#aci) | Serviço Web (desenvolvimento/teste)| Bom para teste ou desenvolvimento. **Não é adequado para cargas de trabalho de produção.** |
+| [Azure IoT Edge](#iotedge) | (Visualização) Módulo do IoT | Implante modelos em dispositivos do IoT. A inferência acontece no dispositivo. |
+| [FPGA (matriz de porta programável no campo)](#fpga) | (Visualização) Serviço Web | Latência extremamente baixa para inferência em tempo real. |
 
-> [!NOTE]
-> Ao **implantar como um serviço Web**, há três métodos de implantação que podem ser usados:
->
-> | Método | Observações |
-> | ----- | ----- |
-> | [deploy_from_image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none-) | Você precisa registrar o modelo e crie uma imagem antes de usar esse método. |
-> | [deploy](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) | Ao usar esse método, não será necessário registrar o modelo ou criar a imagem. No entanto, você não poderá controlar o nome do modelo ou da imagem, nem as marcas e descrições associadas. |
-> | [deploy_from_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-) | Ao usar esse método, não será necessário criar uma imagem. Mas você não terá controle sobre o nome da imagem criada. |
->
-> Os exemplos neste documento usam `deploy_from_image`.
+> [!IMPORTANT]
+> O CORS (compartilhamento de recurso entre origens) atualmente não é compatível com a ação de implantar um modelo como um serviço Web.
 
-### <a id="aci"></a> Implantar em Instâncias de Contêiner do Azure
+Os exemplos desta seção usam [deploy_from_image](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-), que requer que você registre o modelo e a imagem antes de fazer uma implantação. Para obter mais informações sobre outros métodos de implantação, consulte [implante](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) e [deploy_from_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-).
+
+### <a id="aci"></a> Implantar instâncias de contêiner do Azure (desenvolvimento/teste)
 
 Use as Instâncias de Contêiner do Azure para implantar os modelos como um serviço Web, se uma ou mais das seguintes condições forem verdadeiras:
 
@@ -234,7 +235,7 @@ Use as Instâncias de Contêiner do Azure para implantar os modelos como um serv
 
 Para implantar nas Instâncias de Contêiner do Azure, use as etapas a seguir:
 
-1. Defina a configuração de implantação. O exemplo a seguir define uma configuração que usa um núcleo da CPU e 1 GB de memória:
+1. Defina a configuração de implantação. Essa configuração depende dos requisitos do seu modelo. O exemplo a seguir define uma configuração que usa um núcleo da CPU e 1 GB de memória:
 
     [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=configAci)]
 
@@ -242,15 +243,18 @@ Para implantar nas Instâncias de Contêiner do Azure, use as etapas a seguir:
 
     [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=option3Deploy)]
 
-    **Tempo estimado**: Aproximadamente 3 minutos.
+    **Tempo estimado**: Aproximadamente 5 minutos.
 
 Para obter mais informações, consulte a documentação de referência para as classes [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) e [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py).
 
-### <a id="aks"></a> Implantar o Serviço de Kubernetes do Azure
+### <a id="aks"></a> Implantar o serviço de Kubernetes do Azure (produção)
 
 Para implantar o modelo como um serviço Web de produção em larga escala, use o AKS (Serviço de Kubernetes do Azure). Você pode usar um cluster AKS existente ou criar outro usando o SDK do Azure Machine Learning, a CLI ou o portal do Azure.
 
-A criação de um cluster AKS é um processo único em seu espaço de trabalho. Você pode reutilizar esse cluster para várias implantações. Se você excluir o cluster, será necessário criar outro cluster na próxima vez que precisar implantar.
+A criação de um cluster AKS é um processo único em seu espaço de trabalho. Você pode reutilizar esse cluster para várias implantações. 
+
+> [!IMPORTANT]
+> Se você excluir o cluster, será necessário criar outro cluster na próxima vez que precisar implantar.
 
 O Serviço de Kubernetes do Azure fornece os seguintes recursos:
 
@@ -258,6 +262,44 @@ O Serviço de Kubernetes do Azure fornece os seguintes recursos:
 * Registro em log
 * Coleta de dados de modelo
 * Tempo de resposta rápido para seus serviços Web
+* Encerramento de TLS
+* Authentication
+
+#### <a name="autoscaling"></a>Dimensionamento automático
+
+Dimensionamento automático pode ser controlado definindo `autoscale_target_utilization`, `autoscale_min_replicas`, e `autoscale_max_replicas` para o AKS, serviço da web. O exemplo a seguir demonstra como habilitar o dimensionamento automático:
+
+```python
+aks_config = AksWebservice.deploy_configuration(autoscale_enabled=True, 
+                                                autoscale_target_utilization=30,
+                                                autoscale_min_replicas=1,
+                                                autoscale_max_replicas=4)
+```
+
+Decisões para escalar verticalmente baseia-se a utilização das réplicas de contêiner atual. O número de réplicas que estão ocupados (uma solicitação de processamento) dividido pelo total de número de réplicas atuais é a utilização atual. Se esse número exceder a utilização de destino, mais réplicas são criadas. Se ele for menor, as réplicas são reduzidas. Por padrão, a utilização de destino é 70%.
+
+Decisões de adicionar réplicas são feitas e implementadas rapidamente (cerca de 1 segundo). Decisões para remover réplicas levar mais tempo (aproximadamente 1 minuto). Esse comportamento mantém ociosas réplicas em torno de um minuto no caso de novas solicitações forem recebidas que podem manipular.
+
+Você pode calcular as réplicas necessárias usando o código a seguir:
+
+```python
+from math import ceil
+# target requests per second
+targetRps = 20
+# time to process the request (in seconds)
+reqTime = 10
+# Maximum requests per container
+maxReqPerContainer = 1
+# target_utilization. 70% in this example
+targetUtilization = .7
+
+concurrentRequests = targetRps * reqTime / targetUtilization
+
+# Number of container replicas
+replicas = ceil(concurrentRequests / maxReqPerContainer)
+```
+
+Para obter mais informações sobre a configuração `autoscale_target_utilization`, `autoscale_max_replicas`, e `autoscale_min_replicas`, consulte o [AksWebservice.deploy_configuration](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none-) referência.
 
 #### <a name="create-a-new-cluster"></a>Crie um novo cluster
 
@@ -289,7 +331,7 @@ print(aks_target.provisioning_errors)
 
 #### <a name="use-an-existing-cluster"></a>Usar um cluster existente
 
-Se você já tiver o cluster do AKS na assinatura do Azure e a versão for 1.11.*, poderá usá-lo para implantar a imagem. O código a seguir demonstra como anexar um cluster existente ao workspace:
+Se você já tiver o cluster do AKS em sua assinatura do Azure, e é a versão 1.11. # # e tiver pelo menos 12 CPUs virtuais, você pode usá-lo para implantar sua imagem. O código a seguir demonstra como anexar um 1.11 existente do AKS. # # cluster ao espaço de trabalho:
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
@@ -307,6 +349,11 @@ aks_target.wait_for_completion(True)
 ```
 
 **Tempo estimado**: Aproximadamente 3 minutos.
+
+Para obter mais informações sobre como criar um cluster do AKS fora do SDK do Azure Machine Learning, consulte os seguintes artigos:
+
+* [Criar um cluster AKS](https://docs.microsoft.com/cli/azure/aks?toc=%2Fen-us%2Fazure%2Faks%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
+* [Criar um cluster do AKS (portal)](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest)
 
 #### <a name="deploy-the-image"></a>Implantar a imagem
 
@@ -333,6 +380,13 @@ print(service.state)
 
 Para obter mais informações, consulte a documentação de referência para as classes [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) e [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py).
 
+### <a id="azuremlcompute"></a> Inferência de computação do ML do Azure
+
+Destinos de computação do ML do Azure são criados e gerenciados pelo serviço de Azure Machine Learning. Eles podem ser usados para previsão de lote de Pipelines do ML do Azure.
+
+Para obter uma explicação de inferência de lote com a computação do ML do Azure, leia as [como executar previsões de lote](how-to-run-batch-predictions.md) documento.
+
+
 ### <a id="fpga"></a> Implantar para FPGA (matriz de porta programável no campo)
 
 O projeto Brainwave torna possível obter latência extremamente baixa para solicitações de inferência em tempo real. O Project Brainwave acelera as DNN (redes neurais profundas) implantadas em matrizes de portas programáveis em campo na nuvem do Azure. As DNNs mais usadas estão disponíveis como recursos para aprendizados de transferência ou personalizável com pesos treinados de seus próprios dados.
@@ -341,9 +395,14 @@ Para obter um passo a passo de implantação de um modelo usando o Projeto Brain
 
 ### <a id="iotedge"></a> Implantar para Azure IoT Edge
 
-Um dispositivo Azure IoT Edge é um dispositivo baseado em Linux ou Windows que executa o tempo de execução do Azure IoT Edge. Os modelos de aprendizado de máquina podem ser implantados nesses dispositivos como módulos IoT Edge. A implantação de um modelo em um dispositivo IoT Edge permite que o dispositivo use o modelo diretamente, em vez de precisar enviar dados para a nuvem para processamento. Você obtém tempos de resposta mais rápidos e menos transferência de dados.
+Um dispositivo Azure IoT Edge é um dispositivo baseado em Linux ou Windows que executa o tempo de execução do Azure IoT Edge. Usando o IoT Hub do Azure, você pode implantar modelos de aprendizado de máquina para esses dispositivos como módulos do IoT Edge. A implantação de um modelo em um dispositivo IoT Edge permite que o dispositivo use o modelo diretamente, em vez de precisar enviar dados para a nuvem para processamento. Você obtém tempos de resposta mais rápidos e menos transferência de dados.
 
 Os módulos do Azure IoT Edge são implantados no dispositivo a partir de um registro de contêiner. Ao criar uma imagem a partir do modelo, a imagem é armazenada no registro de contêiner do workspace.
+
+> [!IMPORTANT]
+> As informações nesta seção pressupõem que você já esteja familiarizado com módulos de IoT Hub do Azure e o Azure IoT Edge. Embora algumas das informações desta seção é específico ao serviço de Azure Machine Learning, a maior parte do processo de implantar em um dispositivo de borda acontece no serviço do IoT do Azure.
+>
+> Se você estiver familiarizado com o Azure IoT, consulte [conceitos básicos do Azure IoT](https://docs.microsoft.com/azure/iot-fundamentals/) e [do Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) para obter informações básicas. Em seguida, use os outros links nesta seção para saber mais sobre operações específicas.
 
 #### <a name="set-up-your-environment"></a>Configure seu ambiente
 
@@ -353,36 +412,11 @@ Os módulos do Azure IoT Edge são implantados no dispositivo a partir de um reg
 
 * Um modelo treinado. Para obter um exemplo de como treinar um modelo, consulte o documento [Treinar um modelo de classificação de imagem com o Azure Machine Learning](tutorial-train-models-with-aml.md). Um modelo pré-treinado está disponível no [AI Toolkit para o repositório GitHub do Azure IoT Edge](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial).
 
-#### <a name="prepare-the-iot-device"></a>Preparar o dispositivo IoT
-É necessário criar um hub IoT e registrar um dispositivo ou reutilizá-lo com [este script](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/createNregister).
+#### <a id="getcontainer"></a> Obter credenciais de registro de contêiner
 
-``` bash
-ssh <yourusername>@<yourdeviceip>
-sudo wget https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/createNregister
-sudo chmod +x createNregister
-sudo ./createNregister <The Azure subscriptionID you want to use> <Resourcegroup to use or create for the IoT hub> <Azure location to use e.g. eastus2> <the Hub ID you want to use or create> <the device ID you want to create>
-```
-
-Salve a cadeia de conexão resultante após "cs": "{copie esta cadeia de caracteres}".
-
-Inicialize o dispositivo baixando [este script](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/installIoTEdge) em um nó do IoT Edge do UbuntuX64 ou da DSVM para executar os seguintes comandos:
-
-```bash
-ssh <yourusername>@<yourdeviceip>
-sudo wget https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/installIoTEdge
-sudo chmod +x installIoTEdge
-sudo ./installIoTEdge
-```
-
-O nó do IoT Edge está pronto para receber a cadeia de conexão do Hub IoT. Procure a linha ```device_connection_string:``` e cole a cadeia de conexão acima entre as aspas.
-
-Saiba mais sobre como registrar o dispositivo e instalar o tempo de execução do IoT seguindo o [Início Rápido: Implante o primeiro módulo do IoT Edge em um documento do dispositivo Linux x64](../../iot-edge/quickstart-linux.md).
-
-
-#### <a name="get-the-container-registry-credentials"></a>Obter as credenciais do registro do contêiner
 Para implantar um módulo do IoT Edge no dispositivo, o Azure IoT precisa das credenciais de registro de contêiner, nas quais o serviço do Azure Machine Learning armazena imagens do docker.
 
-É possível recuperar facilmente as credenciais de registro de contêiner necessárias de duas maneiras:
+Você pode obter as credenciais de duas maneiras:
 
 + **No portal do Azure**:
 
@@ -423,24 +457,21 @@ Para implantar um módulo do IoT Edge no dispositivo, o Azure IoT precisa das cr
 
      Essas credenciais são necessárias para fornecer o acesso do dispositivo do IoT Edge às imagens no registro de contêiner particular.
 
+#### <a name="prepare-the-iot-device"></a>Preparar o dispositivo IoT
+
+Registrar seu dispositivo no IoT Hub do Azure e, em seguida, instale o tempo de execução do IoT Edge no dispositivo. Se você não estiver familiarizado com esse processo, consulte [guia de início rápido: Implantar seu primeiro módulo IoT Edge em um dispositivo de Linux x64](../../iot-edge/quickstart-linux.md).
+
+Outros métodos de registro de um dispositivo são:
+
+* [Portal do Azure](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal)
+* [CLI do Azure](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-cli)
+* [Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-vscode)
+
 #### <a name="deploy-the-model-to-the-device"></a>Implantar o modelo no dispositivo
 
-É possível implantar um modelo facilmente executando [este script](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/deploymodel) e fornecendo as seguintes informações das etapas acima: nome do registro de contêiner, nome de usuário, senha, URL do local da imagem, nome de implantação desejado, nome do Hub IoT e ID do dispositivo você criou. É possível fazer isso na VM, seguindo estas etapas: 
+Para implantar o modelo para o dispositivo, use as informações de registro coletadas a [obter credenciais de registro de contêiner](#getcontainer) etapas de seção com a implantação de módulo para módulos do IoT Edge. Por exemplo, quando [módulos de implantação do Azure IoT Edge do portal do Azure](../../iot-edge/how-to-deploy-modules-portal.md), você deve configurar o __configurações do registro__ para o dispositivo. Use o __servidor de logon__, __nome de usuário__, e __senha__ para seu registro de contêiner do espaço de trabalho.
 
-```bash 
-wget https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/deploymodel
-sudo chmod +x deploymodel
-sudo ./deploymodel <ContainerRegistryName> <username> <password> <imageLocationURL> <DeploymentID> <IoTHubname> <DeviceID>
-```
-
-Como alternativa, você pode seguir as etapas em [Implantar módulos do Azure IoT Edge no documento do portal do Azure](../../iot-edge/how-to-deploy-modules-portal.md) para implantar a imagem no dispositivo. Ao definir as __Configurações do Registro__ do dispositivo, use o __servidor de logon__, __nome de usuário__ e __senha__ do registro de contêiner do workspace.
-
-> [!NOTE]
-> Se você não estiver familiarizado com o Azure IoT, consulte os documentos a seguir para obter informações sobre como começar a usar o serviço:
->
-> * [Início rápido: Implantar o primeiro módulo do IoT Edge em um dispositivo Linux](../../iot-edge/quickstart-linux.md)
-> * [Início rápido: Implantar o primeiro módulo do IoT Edge em um dispositivo Windows](../../iot-edge/quickstart.md)
-
+Você também pode implantar usando [CLI do Azure](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) e [Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-vscode).
 
 ## <a name="testing-web-service-deployments"></a>Implantar o primeiro módulo do IoT Edge em implantações do serviço Web de teste
 

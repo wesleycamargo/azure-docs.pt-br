@@ -3,7 +3,7 @@ title: FCI do SQL Server - máquinas virtuais do Azure | Microsoft Docs
 description: Este artigo explica como criar a instância de Cluster de Failover do SQL Server em Máquinas Virtuais do Azure.
 services: virtual-machines
 documentationCenter: na
-authors: MikeRayMSFT
+author: MikeRayMSFT
 manager: craigg
 editor: monicar
 tags: azure-service-management
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 62b0f7adf0eb1dd3e3fd7493096c2261a1c1076d
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 19910782142bf78c10dda155f40a5c41bdd64958
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328545"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842746"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurar a instância de Cluster de Failover do SQL Server em máquinas virtuais do Azure
 
@@ -74,12 +74,12 @@ Você deve ter uma compreensão operacional das seguintes tecnologias:
 - [Tecnologias de cluster do Windows](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
 - [Instâncias de Cluster de Failover do SQL Server](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server).
 
-Uma diferença importante é que em um cluster de failover de convidado de uma VM de IaaS do Azure, recomendamos um único adaptador de rede por servidor (nó de cluster) e uma única sub-rede. A rede do Azure tem redundância física, o que torna desnecessários os adaptadores de rede e as sub-redes adicionais em um cluster de convidado de uma VM de IaaS do Azure. Embora o relatório de validação de cluster emita um aviso de que os nós só são acessíveis em uma única rede, esse aviso pode ser ignorado com segurança em clusters de failover de convidado de uma VM de IaaS do Azure. 
+Uma diferença importante é que, em um cluster de failover de convidado de VM IaaS do Azure, recomendamos uma única NIC por servidor (nó de cluster) e uma única sub-rede. A rede do Azure tem redundância física, o que torna desnecessários os adaptadores de rede e as sub-redes adicionais em um cluster de convidado de uma VM de IaaS do Azure. Embora o relatório de validação de cluster emita um aviso de que os nós só são acessíveis em uma única rede, esse aviso pode ser ignorado com segurança em clusters de failover de convidado de uma VM de IaaS do Azure. 
 
 Além disso, você deve ter uma compreensão geral das tecnologias a seguir:
 
 - [Solução hiperconvergida usando Espaços de Armazenamento Direto no Windows Server 2016](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
-- [Grupos de recursos do Azure](../../../azure-resource-manager/resource-group-portal.md)
+- [Grupos de recursos do Azure](../../../azure-resource-manager/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
 > Neste momento, a [extensão do SQL Server IaaS Agent](virtual-machines-windows-sql-server-agent-extension.md) não é compatível com a FCI do SQL Server no Azure. É recomendável que você desinstale a extensão de VMs que participam da FCI. Essa extensão dá suporte a recursos, como Backup Automatizado e Aplicação de Patch Automatizada, além de alguns recursos do portal para SQL. Esses recursos não funcionarão para VMs do SQL depois que o agente for desinstalado.
@@ -101,7 +101,7 @@ Com esses pré-requisitos em vigor, é possível continuar com a criação do cl
 
 ## <a name="step-1-create-virtual-machines"></a>Etapa 1: Criar máquinas virtuais
 
-1. Faça logon na [portal do Azure](http://portal.azure.com) com sua assinatura.
+1. Faça logon na [portal do Azure](https://portal.azure.com) com sua assinatura.
 
 1. [Criar um conjunto de disponibilidade do Azure](../tutorial-availability-sets.md).
 
@@ -239,14 +239,14 @@ Para validar o cluster com a interface do usuário, execute as etapas a seguir e
 
 1. Em **Gerenciador do Servidor**, clique em **Ferramentas** e clique em **Gerenciador de Cluster de Failover**.
 1. Em **Gerenciador de Cluster de Failover**, clique em **Ação** e clique em **Validar Configuração...**.
-1. Clique em **Próximo**.
+1. Clique em **Avançar**.
 1. Em **Selecionar Servidores ou um Cluster**, digite o nome de ambas as máquinas virtuais.
-1. Em **Opções de teste**, escolha **Executar apenas os testes selecionados**. Clique em **Próximo**.
+1. Em **Opções de teste**, escolha **Executar apenas os testes selecionados**. Clique em **Avançar**.
 1. Em **Testar seleção**, inclua todos os testes, exceto **Armazenamento**. Confira a seguinte figura:
 
    ![Validar Testes](./media/virtual-machines-windows-portal-sql-create-failover-cluster/10-validate-cluster-test.png)
 
-1. Clique em **Próximo**.
+1. Clique em **Avançar**.
 1. Em **Confirmação**, clique em **Avançar**.
 
 O **Assistente para Validar uma Configuração** executa os testes de validação.
