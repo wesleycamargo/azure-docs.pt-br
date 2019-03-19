@@ -1,22 +1,21 @@
 ---
-title: Continuidade dos negócios e recuperação de desastres no Azure Dev Spaces | Microsoft Docs
+title: Continuidade dos negócios e recuperação de desastres no Azure Dev Spaces
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 author: lisaguthrie
 ms.author: lcozzens
 ms.date: 01/28/2019
-ms.topic: article
+ms.topic: conceptual
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
-keywords: Docker, Kubernetes, Azure, AKS, Serviço do Kubernetes do Azure, contêineres
+keywords: 'Docker, Kubernetes, Azure, AKS, serviço Kubernetes do Azure, contêineres, Helm, malha de serviço, o roteamento de malha do serviço, kubectl, k8s '
 manager: jeconnoc
-ms.openlocfilehash: 877d49a49333d70ac7660900e49e7c588f52756c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 7b463be143ed3f89c1b10424dafc7a0e841ecbfc
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451553"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775630"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Continuidade dos negócios e recuperação de desastres no Azure Dev Spaces
 
@@ -93,7 +92,7 @@ Repita essas etapas para todos os outros projetos configurados para usar o clust
 
 ## <a name="access-a-service-on-a-backup-cluster"></a>Acessar um serviço em um cluster de backup
 
-Se você tiver configurado seu serviço para usar um nome DNS público, o serviço terá uma URL diferente se você executá-lo em um cluster de backup. Os nomes DNS públicos estão sempre no formato `<space name>.s.<service name>.<cluster GUID>.<region>.aksapp.io`. Se você alternar para um cluster diferente, o GUID do cluster e, possivelmente, a região serão alterados.
+Se você tiver configurado seu serviço para usar um nome DNS público, o serviço terá uma URL diferente se você executá-lo em um cluster de backup. Os nomes DNS públicos estão sempre no formato `<space name>.s.<root space name>.<service name>.<cluster GUID>.<region>.azds.io`. Se você alternar para um cluster diferente, o GUID do cluster e, possivelmente, a região serão alterados.
 
 O Dev Spaces sempre mostra a URL correta para o serviço ao executar `azds up` ou a janela de Saída no Visual Studio em **Azure Dev Spaces**.
 
@@ -102,7 +101,7 @@ Você também pode encontrar a URL executando o comando `azds list-uris`:
 $ azds list-uris
 Uri                                                     Status
 ------------------------------------------------------  ---------
-http://mywebapi.d05afe7e006a4fddb73c.eastus.aksapp.io/  Available
+http://default.mywebapi.d05afe7e006a4fddb73c.eus.azds.io/  Available
 ```
 
 Use essa URL ao acessar o serviço.
