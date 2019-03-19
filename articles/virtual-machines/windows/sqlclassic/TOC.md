@@ -1,7 +1,7 @@
 # Visão geral
 ## [VMs do Windows SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json) 
 ## [Preços](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
-## [PERGUNTAS FREQUENTES](../sql/virtual-machines-windows-sql-server-iaas-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
+## [Perguntas frequentes](../sql/virtual-machines-windows-sql-server-iaas-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 
 # Introdução
 ## [Provisionar uma VM no Portal do Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
@@ -43,8 +43,8 @@
 # Recursos
 ## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesforWindows&filter=alltypes&brandIgnore=True&sort=relevancedesc&searchTerm=SQL+Server)
 ## [Calculadora de preço](https://azure.microsoft.com/pricing/calculator/)
-## [SSDT - Ferramentas de Dados do SQL Server](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)
+## [SSDT (Ferramentas de Dados do SQL Server)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)
 ## [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 ## [Ferramentas do SQL Server](https://docs.microsoft.com/sql/tools/overview-sql-tools)
-## [Stack Overflow](http://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server)
+## [Stack Overflow](https://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server)
 

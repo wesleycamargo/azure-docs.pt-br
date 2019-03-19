@@ -4326,6 +4326,49 @@ Automatizar tarefas do Azure usando scripts com o PowerShell </a>
                         </ul>
                     </li>
                     <li>
+                        <a href="#mixed">Realidade Misturada</a>
+                        <ul id="mixed" class="cardsA">
+                            <li>
+                                <a href="/azure/digital-twins/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/digital_twin.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Gêmeos Digitais do Azure</h3>
+                                                    <p>Crie soluções de inteligência espacial de IoT da próxima geração</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/spatial-anchors/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/spatial_anchors.png" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Âncoras Espaciais do Azure</h3>
+                                                    <p>Crie experiências de realidade misturada multiusuário e com reconhecimento espacial</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
                         <a href="#integration">Integração</a>
                         <ul id="integration" class="cardsA">
                             <li>
@@ -5828,49 +5871,6 @@ Automatizar tarefas do Azure usando scripts com o PowerShell </a>
                                                 <div class="cardText">
                                                     <h3>Microsoft Azure na China 21Vianet</h3>
                                                     <p>Crie e hospede aplicativos em conformidade com as políticas e regulamentos de manipulação de dados estipulados pelo Governo na China</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#mixed">Realidade Misturada</a>
-                        <ul id="mixed" class="cardsA">
-                            <li>
-                                <a href="/azure/digital-twins/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/digital_twin.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Gêmeos Digitais do Azure</h3>
-                                                    <p>Crie soluções de inteligência espacial de IoT da próxima geração</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/spatial-anchors/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/spatial_anchors.png" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Âncoras Espaciais do Azure</h3>
-                                                    <p>Crie experiências de realidade misturada multiusuário e com reconhecimento espacial</p>
                                                 </div>
                                             </div>
                                         </div>

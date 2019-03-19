@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5d30bae699a69bed893e36e24b6f8370db4f8b1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 31a440570abbbbf484adc5332e1db7ca8ba2bee1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167092"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57839044"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intacct"></a>Tutorial: Integração do Active Directory do Azure ao Intacct
 
@@ -114,6 +114,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
     ![Configurar o logon único](./media/intacct-tutorial/tutorial_intacct_url.png)
 
     Na caixa de texto **URL de resposta** , digite uma URL no seguinte padrão:
+    
     | |
     |--|
     | `https://<companyname>.intacct.com/ia/acct/sso_response.phtml`|

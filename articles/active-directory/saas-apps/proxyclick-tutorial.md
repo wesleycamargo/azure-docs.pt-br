@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52d3e058c7e604a31493bf3b1972b39c9922fd90
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e5ce628716e9e8d0094f678c3d67dcfad9e24ada
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163507"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860526"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-proxyclick"></a>Tutorial: Integração do Azure Active Directory ao Proxyclick
 
@@ -214,7 +214,7 @@ Para permitir que os usuários do Azure AD façam logon no Proxyclick, eles deve
 
     ![Adicionar Funcionário](./media/proxyclick-tutorial/user3.png)
 
-     a. Na caixa de texto **Email**, digite o endereço de email do usuário, como **brittasimon@contoso.com**.
+     a. No **E-mail** caixa de texto, digite o endereço de email do usuário, como **brendafernandes\@contoso.com**.
 
     b. Na caixa de texto **Nome**, digite o nome do usuário, como Brenda.
 

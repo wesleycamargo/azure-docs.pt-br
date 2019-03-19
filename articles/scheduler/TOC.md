@@ -32,7 +32,7 @@
 ## [Roteiro do Agendador do Azure](https://azure.microsoft.com/updates/?product=scheduler)
 ## [Roteiro do Azure](https://azure.microsoft.com/updates/)
 ## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-scheduler)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-scheduler)
 ## [Preços](https://azure.microsoft.com/pricing/details/scheduler/)
 ## [Calculadora de preço](https://azure.microsoft.com/pricing/calculator/)
 ## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=scheduler)

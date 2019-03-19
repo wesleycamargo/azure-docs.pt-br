@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 09/04/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25711bd09adf17fa82f9177f4badad723e590b12
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6c8cd7a2cfc96af791e4b07ae4c6d35b645acba0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184186"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835791"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqualify-lms"></a>Tutorial: Integração do Azure Active Directory com o iQualify LMS
 
@@ -112,12 +112,14 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
     ![Informações de logon único de Domínio e URLs do iQualify LMS](./media/iqualify-tutorial/tutorial_iqualify_url.png)
 
      a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: 
+
     | |
     |--|--|
     | Ambiente de produção: `https://<yourorg>.iqualify.com/`|
     | Ambiente de teste: `https://<yourorg>.iqualify.io`|
     
     b. Na caixa de texto **URL de resposta** , digite uma URL no seguinte padrão: 
+
     | |
     |--|--|
     | Ambiente de produção: `https://<yourorg>.iqualify.com/auth/saml2/callback` |
@@ -128,6 +130,7 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
     ![Informações de logon único de Domínio e URLs do iQualify LMS](./media/iqualify-tutorial/tutorial_iqualify_url1.png)
 
     Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão:
+    
     | |
     |--|--|
     | Ambiente de produção: `https://<yourorg>.iqualify.com/login` |

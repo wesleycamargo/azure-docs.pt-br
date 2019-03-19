@@ -5,15 +5,15 @@ services: storage
 author: kuhussai
 ms.service: storage
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 03/06/2019
 ms.author: kuhussai
 ms.subservice: blobs
-ms.openlocfilehash: 3e89f5de247cf18abdb710577ce55c6e2cb5765e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: ec024f8f1cd411455a6cbb2a0b12e7b4751af5fe
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251887"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405327"
 ---
 # <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Armazenamento de Blobs do Azure: camadas de armazenamento Premium (versão prévia), Frequente, Esporádico e Arquivos
 
@@ -57,15 +57,7 @@ Está disponível em versão prévia uma camada de acesso Premium que disponibil
 
 Essa camada é ideal para cargas de trabalho que exigem tempos de resposta rápidos e consistentes. Os dados que envolvem usuários finais como edição de vídeo interativo, conteúdo da Web estático, transações online e a curtida são bons candidatos para a camada de acesso Premium. Essa camada é adaptada para cargas de trabalho que executam transações muito pequenas, como captura de dados de telemetria, mensagens e transformação de dados.
 
-Para usar essa camada, provisione uma nova conta de Armazenamento de Blobs de Blocos e comece a criar contêineres e blobs usando a [API REST do serviço Blob](/rest/api/storageservices/blob-service-rest-api), o [AzCopy](/azure/storage/common/storage-use-azcopy) ou o [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/).
-
-Durante a versão prévia, a camada de acesso Premium:
-
-- Está disponível como LRS (armazenamento com redundância local)
-- Está disponível nas seguintes regiões: Leste dos EUA 2, Centro dos EUA e Oeste dos EUA
-- Não oferece suporte para a camada automatizada ou camada no nível de objeto com gerenciamento de ciclo de vida de dados
-
-Para saber como se registrar para a versão prévia da camada de acesso Premium, confira [Introdução ao Armazenamento de Blobs Premium do Azure](https://aka.ms/premiumblob).
+Para obter mais informações sobre a versão prévia, consulte [visualização pública do armazenamento de BLOBs do Azure Premium](https://azure.microsoft.com/blog/azure-premium-blob-storage-public-preview/).
 
 ## <a name="hot-access-tier"></a>Camada de acesso quente
 

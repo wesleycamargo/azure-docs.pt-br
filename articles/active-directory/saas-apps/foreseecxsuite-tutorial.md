@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2364152cc897ac02c3fcdff68423c64737bb1a78
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 104caa001f773c48a708879f3f9b50b74190fc74
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187654"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449216"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-foresee-cx-suite"></a>Tutorial: Integração do Azure Active Directory com o ForeSee CX Suite
 
@@ -120,7 +120,7 @@ Nesta seção, você habilita o logon único do Microsoft Azure AD no Portal do 
 
     ![Informações de logon único de Domínio e URLs do ForeSee CX Suite](./media/foreseecxsuite-tutorial/urlupload.png)
 
-1. Se você não tiver o **arquivo de metadados do Provedor de Serviços**, execute as seguintes etapas:
+1. Se você não tiver **arquivo de metadados do provedor de serviços**, execute as seguintes etapas:
 
     ![Informações de logon único de Domínio e URLs do ForeSee CX Suite](./media/foreseecxsuite-tutorial/tutorial_foreseecxsuite_url.png)
 

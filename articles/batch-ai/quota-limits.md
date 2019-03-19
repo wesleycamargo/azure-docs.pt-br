@@ -12,12 +12,12 @@ ms.date: 08/08/2018
 ms.author: danlep
 ms.custom: mvc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 16032ec5ba1e613462f92b86281ce93153b70923
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: HT
+ms.openlocfilehash: 1f9bd8503c2e8f2aa3c54d41b8585c6fbf81c92b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409710"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542075"
 ---
 # <a name="batch-ai-service-quotas-and-limits"></a>Cotas e limites da IA do Lote
 
@@ -77,7 +77,7 @@ Siga estas etapas para solicitar uma um aumento de cota para sua assinatura da I
    
     d. **Plano de suporte** > Selecione seu plano de suporte.
 
-    Clique em **Próximo**.
+    Clique em **Avançar**.
 4. Em **Problema**:
    
      a. Selecione uma **Gravidade** de acordo com o [impacto nos negócios][support_sev].
@@ -86,7 +86,7 @@ Siga estas etapas para solicitar uma um aumento de cota para sua assinatura da I
 
     c. Opcional – faça upload dos arquivos relevantes com mais informações sobre o motivo do aumento.
    
-    Clique em **Próximo**.
+    Clique em **Avançar**.
 5. Em **Informações de contato**:
    
      a. Selecione um **método de contato preferencial**.
@@ -108,4 +108,4 @@ Depois de se familiarizar com os limites de cota, confira os seguintes artigos d
 > [Saiba mais sobre os recursos da IA do Lote](resource-concepts.md)
 
 [portal]: https://portal.azure.com
-[support_sev]: http://aka.ms/supportseverity
+[support_sev]: https://aka.ms/supportseverity

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/08/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61603ad5920b6242c3e36429173744125b9eb59e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 41c514706a671f755eb5b0efd5e3eefa5052c6e2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206729"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450015"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---aperture"></a>Tutorial: Integração do Microsoft Azure Active Directory à Palo Alto Networks – Aperture
 
@@ -149,7 +149,7 @@ Nesta seção, você habilitará o logon único do Azure Active Directory no Por
     
     ![Guia de autenticação](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_singlesignon.png)
 
-     a. Verifique **Habilitar Logon Único (Provedores SSP com suporte são Okta, Onelogin)** do campo **Logon Único**.
+     a. Verifique as **habilitar Single Sign-On(Supported SSP Providers are Okta, One login)** de **Single Sign-On** campo.
 
     b. Na caixa de texto **ID do Provedor de Identidade**, cole o valor da **ID da Identidade SAML**, que você copiou do Portal do Azure.
 

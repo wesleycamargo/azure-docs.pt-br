@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: a243ac45ce29ae824c8f38036d4387da3b1cff8f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 165df03ec06081fe9b2e1ab84ffe7579ac457758
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453205"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855479"
 ---
 # <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>Ferramentas de exploração e visualização de dados para a Máquina Virtual de Ciência de Dados
 
@@ -43,7 +43,7 @@ Uma etapa importante na ciência de dados é entender os dados. Ferramentas de v
 | Edições do DSVM com suporte     | Windows, Linux     |
 | Usos típicos      | Ferramenta de ML geral     |
 | Como usar/executar?      | No Windows, pesquise Weka no Menu Iniciar. No Linux, faça logon com X2Go e, em seguida, navegue até Aplicativos -> Desenvolvimento -> Weka. |
-| Links para exemplos      | [Exemplos de Weka](http://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
+| Links para exemplos      | [Exemplos de Weka](https://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
 | Ferramentas relacionadas ao DSVM      |LightGBM, Rattle, Xgboost   |
 
 ## <a name="rattle"></a>Rattle
