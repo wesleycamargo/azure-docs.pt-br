@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 75040cb8769b1d5d1dd6af758ed03be4a39d01e1
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: c9846f78e05d598844d12819cef3e948caf2704d
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731862"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889691"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Criar, alterar ou excluir uma tabela de rotas
 
@@ -25,11 +25,13 @@ O Azure roteia o tráfego automaticamente entre redes virtuais, redes locais e s
 
 ## <a name="before-you-begin"></a>Antes de começar
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Conclua as seguintes tarefas antes de concluir as etapas em qualquer seção deste artigo:
 
 - Caso ainda não tenha uma conta do Azure, inscreva-se para obter uma [conta de avaliação gratuita](https://azure.microsoft.com/free).
 - Se estiver usando o Portal, abra https://portal.azure.com e faça logon com sua conta do Azure.
-- Se usar os comandos do PowerShell para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/powershell) ou então executando o PowerShell do computador. O Azure Cloud Shell é um shell interativo grátis que pode ser usado para executar as etapas neste artigo. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. Este tutorial exige o módulo do Azure PowerShell versão 5.7.0 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzureRmAccount` para criar uma conexão com o Azure.
+- Se usar os comandos do PowerShell para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/powershell) ou então executando o PowerShell do computador. O Azure Cloud Shell é um shell interativo grátis que pode ser usado para executar as etapas neste artigo. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. Este tutorial requer o módulo Azure PowerShell versão 1.0.0 ou posterior. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.
 - Se usar os comandos da CLI (interface de linha de comando) do Azure para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/bash) ou então executando a CLI do computador. Este tutorial requer a CLI do Azure versão 2.0.31 ou posterior. Execute `az --version` para localizar a versão instalada. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se estiver executando a CLI do Azure localmente, você também precisará executar o `az login` para criar uma conexão com o Azure.
 
 A conta em que você realizou o logon, ou se conectou ao Azure, deve estar atribuída à função do [contribuidor de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que é atribuída a ações adequadas listadas em [Permissões](#permissions).
@@ -45,7 +47,7 @@ Há um limite para o número de tabelas de rotas que você pode criar por assina
 **Comandos**
 
 - CLI do Azure: [az network route-table create](/cli/azure/network/route-table/route)
-- PowerShell: [New-AzureRmRouteTable](/powershell/module/azurerm.network/new-azurermroutetable)
+- PowerShell: [New-AzRouteTable](/powershell/module/az.network/new-azroutetable)
 
 ## <a name="view-route-tables"></a>Exibir tabelas de rotas
 
@@ -54,7 +56,7 @@ Na caixa de pesquisa na parte superior do portal, digite *tabelas de rota* na ca
 **Comandos**
 
 - CLI do Azure: [az network route-table list](/cli/azure/network/route-table/route)
-- PowerShell: [Get-AzureRmRouteTable](/powershell/module/azurerm.network/get-azurermroutetable)
+- PowerShell: [Get-AzRouteTable](/powershell/module/az.network/get-azroutetable)
 
 ## <a name="view-details-of-a-route-table"></a>Exibir detalhes de uma tabela de rotas
 
@@ -65,12 +67,12 @@ Na caixa de pesquisa na parte superior do portal, digite *tabelas de rota* na ca
     *   [Controle de acesso (IAM)](../role-based-access-control/overview.md)
     *   [Marcas](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Bloqueios](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-    *   [Script de automação](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
+    *   [Script de automação](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates)
 
 **Comandos**
 
 - CLI do Azure: [az network route-table show](/cli/azure/network/route-table/route)
-- PowerShell: [Get-AzureRmRouteTable](/powershell/module/azurerm.network/get-azurermroutetable)
+- PowerShell: [Get-AzRouteTable](/powershell/module/az.network/get-azroutetable)
 
 ## <a name="change-a-route-table"></a>Alterar uma tabela de rotas
 
@@ -80,7 +82,7 @@ Na caixa de pesquisa na parte superior do portal, digite *tabelas de rota* na ca
 **Comandos**
 
 - CLI do Azure: [az network route-table update](/cli/azure/network/route-table/route)
-- PowerShell: [Set-AzureRmRouteTable](/powershell/module/azurerm.network/set-azurermroutetable)
+- PowerShell: [Set-AzRouteTable](/powershell/module/az.network/set-azroutetable)
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>Associar uma tabela de rotas a uma sub-rede
 
@@ -97,7 +99,7 @@ Se sua rede virtual está conectada a um gateway de VPN do Azure, não associe a
 **Comandos**
 
 - CLI do Azure: [az network vnet subnet update](/cli/azure/network/vnet/subnet?view=azure-cli-latest)
-- PowerShell: [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig)
+- PowerShell: [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig)
 
 ## <a name="dissociate-a-route-table-from-a-subnet"></a>Desassociar uma tabela de rotas de uma sub-rede
 
@@ -112,7 +114,7 @@ Quando você desassocia uma tabela de rota de uma sub-rede, o Azure roteia o tr�
 **Comandos**
 
 - CLI do Azure: [az network vnet subnet update](/cli/azure/network/vnet/subnet?view=azure-cli-latest)
-- PowerShell: [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig) 
+- PowerShell: [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig)
 
 ## <a name="delete-a-route-table"></a>Excluir uma tabela de rotas
 
@@ -125,7 +127,7 @@ Se uma tabela de rotas está associada a alguma sub-rede, ela não pode ser excl
 **Comandos**
 
 - CLI do Azure: [az network route-table delete](/cli/azure/network/route-table/route)
-- PowerShell: [Remove-AzureRmRouteTable](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermroutetable?view=azurermps-6.8.1) 
+- PowerShell: [Remove-AzRouteTable](/powershell/module/az.network/remove-azroutetable)
 
 ## <a name="create-a-route"></a>Criar uma rota
 
@@ -144,7 +146,7 @@ Há um limite para o número de rotas por tabela de rotas que você pode criar p
 **Comandos**
 
 - CLI do Azure: [az network route-table route create](/cli/azure/network/route-table/route?view=azure-cli-latest)
-- PowerShell: [New-AzureRmRouteConfig](/powershell/module/azurerm.network/new-azurermrouteconfig)
+- PowerShell: [New-AzRouteConfig](/powershell/module/az.network/new-azrouteconfig)
 
 ## <a name="view-routes"></a>Exibir rotas
 
@@ -157,7 +159,7 @@ Uma tabela de rotas contém zero ou várias rotas. Para saber mais sobre as info
 **Comandos**
 
 - CLI do Azure: [az network route-table route list](/cli/azure/network/route-table/route?view=azure-cli-latest)
-- PowerShell: [Get-AzureRmRouteConfig](/powershell/module/azurerm.network/get-azurermrouteconfig)
+- PowerShell: [Get-AzRouteConfig](/powershell/module/az.network/get-azrouteconfig)
 
 ## <a name="view-details-of-a-route"></a>Exibir detalhes de uma rota
 
@@ -169,7 +171,7 @@ Uma tabela de rotas contém zero ou várias rotas. Para saber mais sobre as info
 **Comandos**
 
 - CLI do Azure: [az network route-table route show](/cli/azure/network/route-table/route?view=azure-cli-latest)
-- PowerShell: [Get-AzureRmRouteConfig](/powershell/module/azurerm.network/get-azurermrouteconfig)
+- PowerShell: [Get-AzRouteConfig](/powershell/module/az.network/get-azrouteconfig)
 
 ## <a name="change-a-route"></a>Alterar uma rota
 
@@ -182,7 +184,7 @@ Uma tabela de rotas contém zero ou várias rotas. Para saber mais sobre as info
 **Comandos**
 
 - CLI do Azure: [az network route-table route update](/cli/azure/network/route-table/route?view=azure-cli-latest)
-- PowerShell: [Set-AzureRmRouteConfig](/powershell/module/azurerm.network/set-azurermrouteconfig)
+- PowerShell: [Set-AzRouteConfig](/powershell/module/az.network/set-azrouteconfig)
 
 ## <a name="delete-a-route"></a>Excluir uma rota
 
@@ -195,7 +197,7 @@ Uma tabela de rotas contém zero ou várias rotas. Para saber mais sobre as info
 **Comandos**
 
 - CLI do Azure: [az network route-table route delete](/cli/azure/network/route-table/route?view=azure-cli-latest)
-- PowerShell: [Remove-AzureRmRouteConfig](/powershell/module/azurerm.network/remove-azurermrouteconfig)
+- PowerShell: [Remove-AzRouteConfig](/powershell/module/az.network/remove-azrouteconfig)
 
 ## <a name="view-effective-routes"></a>Exibir rotas efetivas
 
@@ -210,7 +212,7 @@ As rotas efetivas para cada adaptador de rede anexado a uma máquina virtual sã
 **Comandos**
 
 - CLI do Azure: [az network nic show-effective-route-table](/cli/azure/network/nic?view=azure-cli-latest)
-- PowerShell: [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/get-azurermeffectiveroutetable) 
+- PowerShell: [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable)
 
 ## <a name="validate-routing-between-two-endpoints"></a>Validar o roteamento entre dois pontos de extremidade
 
@@ -227,7 +229,7 @@ Você pode determinar o tipo de próximo salto entre uma máquina virtual e o en
 **Comandos**
 
 - CLI do Azure: [az network watcher show-next-hop](/cli/azure/network/watcher?view=azure-cli-latest)
-- PowerShell: [Get-AzureRmNetworkWatcherNextHop](/powershell/module/azurerm.network/get-azurermnetworkwatchernexthop) 
+- PowerShell: [Get-AzNetworkWatcherNextHop](/powershell/module/az.network/get-aznetworkwatchernexthop)
 
 ## <a name="permissions"></a>Permissões
 

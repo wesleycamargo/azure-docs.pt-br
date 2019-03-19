@@ -4,17 +4,17 @@ description: Desenvolver módulos personalizados para o Azure IoT Edge que podem
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/05/2017
+ms.date: 02/25/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 3dd5005312e1c59fa53a0d917951c89033374192
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: ea2d1dbcf991ce858f07905bc1bb41809f9bcdd8
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200625"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882732"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>Desenvolva seus próprios módulos do IoT Edge
 
@@ -65,5 +65,9 @@ Crie uma instância ModuleClient para conectar o módulo ao Hub do IoT Edge em e
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de desenvolver um módulo, aprenda como [Implantar e monitorar os módulos do IoT Edge na escala](how-to-deploy-monitor.md).
+[Preparar o ambiente de desenvolvimento e teste para o IoT Edge](development-environment.md)
+
+[Usar o Visual Studio 2017 para desenvolver C# módulos do IoT Edge](how-to-visual-studio-develop-csharp-module.md)
+
+[Usar o Visual Studio Code para desenvolver módulos do IoT Edge](how-to-vs-code-develop-module.md)
 

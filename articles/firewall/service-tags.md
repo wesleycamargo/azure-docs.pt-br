@@ -5,23 +5,20 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 2/21/2019
+ms.date: 2/25/2019
 ms.author: victorh
-ms.openlocfilehash: 9ecc5d3779ac6632f4a5c05914cbb0e756c79e91
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 1d03d896de947fcc938619c52a3690962a0d2d6c
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56458213"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805613"
 ---
 # <a name="azure-firewall-service-tags"></a>Marcas de serviço do Firewall do Azure
 
 Uma marca de serviço representa um grupo de prefixos de endereço IP para ajudar a minimizar a complexidade da criação de regra de segurança. Você não pode criar sua própria marca de serviço ou especificar quais endereços IP estão incluídos em uma marca. A Microsoft gerencia os prefixos de endereço englobados pela marca de serviço e atualiza automaticamente a marca de serviço em caso de alteração de endereços.
 
 As marcas de serviço de Firewall do Azure podem ser usadas no campo de destino de regras de rede. Você pode usá-los no lugar de endereços IP específicos.
-
-> [!NOTE]
-> As marcas de serviço estão sendo adicionadas às regiões de forma incremental e estarão disponíveis em todas as regiões em breve.
 
 ## <a name="supported-service-tags"></a>Marcas de serviço com suporte
 

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: sngun
-ms.openlocfilehash: e6d16c31b8975036202fe77906e2d729391b5c59
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: c7b62f66830e17fd8f6607e0a629307a9ab6fc78
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038068"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983584"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Ajustando o desempenho de consulta com o Azure Cosmos DB
 
@@ -215,6 +215,8 @@ A seção sobre métricas de execução de consulta explica como recuperar o tem
 
 ### <a name="indexing-policy"></a>Política de indexação
 Consulte [Configurando a política de indexação](index-policy.md) para indexação de caminhos, tipos e os modos e como elas afetam a execução da consulta. Por padrão, a política de indexação usa a indexação de Hash para cadeias de caracteres, que é eficiente para consultas de igualdade, mas não para consultas de intervalo/ordem através de consultas. Se você precisar de consultas de intervalo para cadeias de caracteres, é recomendável especificar o tipo de índice de intervalo para todas as cadeias de caracteres. 
+
+Por padrão, o Azure Cosmos DB aplicará a indexação automática para todos os dados. Para alto desempenho inserir cenários, considere excluir os caminhos como isso reduzirá o custo de RU para cada operação de inserção. 
 
 ## <a name="query-execution-metrics"></a>Métricas de execução da consulta
 Você pode obter métricas detalhadas na execução da consulta, passando no cabeçalho `x-ms-documentdb-populatequerymetrics` opcional (`FeedOptions.PopulateQueryMetrics` no SDK do .NET). O valor retornado em `x-ms-documentdb-query-metrics` tem os seguintes pares chave-valor destinados para solução de problemas avançados de execução de consulta. 
