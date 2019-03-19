@@ -15,12 +15,12 @@ ms.date: 02/11/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 02/11/2019
-ms.openlocfilehash: f054cf101f24d7cc571e9f90943122e42beb9dc6
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 7e11da971e86b605e3e17b07ebcdab97eef5b957
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983482"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122936"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-active-directory-federated-services"></a>Implantar Kubernetes no Azure Stack usando o Active Directory Federated Services
 
@@ -55,105 +55,105 @@ Você precisará trabalhar com o administrador do Azure Stack para configurar a 
 
 1. O administrador do Azure Stack fornece um certificado e as informações para a entidade de serviço.
 
-    - As informações de entidade de serviço devem parecer com:
+   - As informações de entidade de serviço devem parecer com:
 
-    ```Text  
-        ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
-        ClientId              : 3c87e710-9f91-420b-b009-31fa9e430145
-        Thumbprint            : 30202C11BE6864437B64CE36C8D988442082A0F1
-        ApplicationName       : Azurestack-MyApp-c30febe7-1311-4fd8-9077-3d869db28342
-        PSComputerName        : azs-ercs01
-        RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
-    ```
+     ```Text  
+       ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
+       ClientId              : 3c87e710-9f91-420b-b009-31fa9e430145
+       Thumbprint            : 30202C11BE6864437B64CE36C8D988442082A0F1
+       ApplicationName       : Azurestack-MyApp-c30febe7-1311-4fd8-9077-3d869db28342
+       PSComputerName        : azs-ercs01
+       RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
+     ```
 
-    - O certificado será um arquivo com a extensão `.pfx`. Você armazenará o certificado como um segredo em um keyvault.
+   - O certificado será um arquivo com a extensão `.pfx`. Você armazenará o certificado como um segredo em um keyvault.
 
 2. Atribua uma função como um colaborador de sua nova entidade de serviço para sua assinatura. Para obter instruções, consulte [atribuir uma função](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals).
 
 3. Crie um cofre de chaves para armazenar o certificado para a implantação. Use os seguintes scripts do PowerShell, em vez do Portal.
 
-    - Você precisa que as seguintes partes de informações:
+   - Você precisa que as seguintes partes de informações:
 
-        | Valor | DESCRIÇÃO |
-        | ---   | ---         |
-        | Ponto de extremidade do Azure Resource Manager | O Gerenciador de recursos do Microsoft Azure é uma estrutura de gerenciamento que permite aos administradores implantar, gerenciar e monitorar recursos do Azure. O Azure Resource Manager pode lidar com essas tarefas, como um grupo, em vez de individualmente, em uma única operação.<br>O ponto de extremidade no Azure Stack desenvolvimento ASDK (Kit) é: `https://management.local.azurestack.external/`<br>É o ponto de extremidade em sistemas integrados: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` |
-        | Sua ID de assinatura | O [ID da assinatura](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) é como você pode acessar ofertas no Azure Stack. |
-        | Seu nome de usuário | Use apenas seu nome de usuário em vez de seu nome de domínio e nome de usuário, como `username` em vez de `azurestack\username`. |
-        | O nome do grupo de recursos  | O nome de um novo grupo de recursos ou selecione um grupo de recursos. O nome do recurso precisa ser alfanuméricos e minúsculos. |
-        | Nome do Keyvault | Nome do cofre.<br> Padrão de Regex: `^[a-zA-Z0-9-]{3,24}$` |
-        | Localização do grupo de recursos | O local do grupo de recursos. Essa é a região que você escolhe para sua instalação do Azure Stack. |
+       | Valor | DESCRIÇÃO |
+       | ---   | ---         |
+       | Ponto de extremidade do Azure Resource Manager | O Gerenciador de recursos do Microsoft Azure é uma estrutura de gerenciamento que permite aos administradores implantar, gerenciar e monitorar recursos do Azure. O Azure Resource Manager pode lidar com essas tarefas, como um grupo, em vez de individualmente, em uma única operação.<br>O ponto de extremidade no Azure Stack desenvolvimento ASDK (Kit) é: `https://management.local.azurestack.external/`<br>É o ponto de extremidade em sistemas integrados: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` |
+       | Sua ID de assinatura | O [ID da assinatura](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) é como você pode acessar ofertas no Azure Stack. |
+       | Seu nome de usuário | Use apenas seu nome de usuário em vez de seu nome de domínio e nome de usuário, como `username` em vez de `azurestack\username`. |
+       | O nome do grupo de recursos  | O nome de um novo grupo de recursos ou selecione um grupo de recursos. O nome do recurso precisa ser alfanuméricos e minúsculos. |
+       | Nome do Keyvault | Nome do cofre.<br> Padrão de Regex: `^[a-zA-Z0-9-]{3,24}$` |
+       | Localização do grupo de recursos | O local do grupo de recursos. Essa é a região que você escolhe para sua instalação do Azure Stack. |
 
-    - Abra o PowerShell com um prompt com privilégios elevados, e [conectar-se ao Azure Stack](azure-stack-powershell-configure-user.md#connect-with-ad-fs). Execute o script a seguir com os parâmetros atualizados para seus valores:
+   - Abra o PowerShell com um prompt com privilégios elevados, e [conectar-se ao Azure Stack](azure-stack-powershell-configure-user.md#connect-with-ad-fs). Execute o script a seguir com os parâmetros atualizados para seus valores:
 
-    ```PowerShell  
-        $armEndpoint="<Azure Resource Manager Endpoint>"
-        $subscriptionId="<Your Subscription ID>"
-        $username="<your user name >"
-        $resource_group_name = "<the resource group name >"
-        $key_vault_name = "<keyvault name>"
-        $resource_group_location="<resource group location>"
+     ```PowerShell  
+       $armEndpoint="<Azure Resource Manager Endpoint>"
+       $subscriptionId="<Your Subscription ID>"
+       $username="<your user name >"
+       $resource_group_name = "<the resource group name >"
+       $key_vault_name = "<keyvault name>"
+       $resource_group_location="<resource group location>"
         
-        # Login Azure Stack Environment
-        Add-AzureRmEnvironment -ARMEndpoint $armEndpoint -Name t
-        $mycreds = Get-Credential
-        Login-AzureRmAccount -Credential $mycreds -Environment t -Subscription $subscriptionId
+       # Login Azure Stack Environment
+       Add-AzureRmEnvironment -ARMEndpoint $armEndpoint -Name t
+       $mycreds = Get-Credential
+       Login-AzureRmAccount -Credential $mycreds -Environment t -Subscription $subscriptionId
         
-        # Create new Resource group and key vault
-        New-AzureRmResourceGroup -Name $resource_group_name -Location $resource_group_location -Force
+       # Create new Resource group and key vault
+       New-AzureRmResourceGroup -Name $resource_group_name -Location $resource_group_location -Force
         
-        # Note, Do not omit -EnabledForTemplateDeployment flag
-        New-AzureRmKeyVault -VaultName $key_vault_name -ResourceGroupName $resource_group_name -Location $resource_group_location -EnabledForTemplateDeployment
+       # Note, Do not omit -EnabledForTemplateDeployment flag
+       New-AzureRmKeyVault -VaultName $key_vault_name -ResourceGroupName $resource_group_name -Location $resource_group_location -EnabledForTemplateDeployment
         
-        # Obtain the security identifier(SID) of the active directory user
-        $adUser = Get-ADUser -Filter "Name -eq '$username'" -Credential $mycreds
-        $objectSID = $adUser.SID.Value
-        # Set the key vault access policy
-        Set-AzureRmKeyVaultAccessPolicy -VaultName $key_vault_name -ResourceGroupName $resource_group_name -ObjectId $objectSID -BypassObjectIdValidation -PermissionsToKeys all -PermissionsToSecrets all
-    ```
+       # Obtain the security identifier(SID) of the active directory user
+       $adUser = Get-ADUser -Filter "Name -eq '$username'" -Credential $mycreds
+       $objectSID = $adUser.SID.Value
+       # Set the key vault access policy
+       Set-AzureRmKeyVaultAccessPolicy -VaultName $key_vault_name -ResourceGroupName $resource_group_name -ObjectId $objectSID -BypassObjectIdValidation -PermissionsToKeys all -PermissionsToSecrets all
+     ```
 
 4. Carregue seu certificado ao Cofre de chaves.
 
-    - Você precisa que as seguintes partes de informações:
+   - Você precisa que as seguintes partes de informações:
 
-        | Valor | DESCRIÇÃO |
-        | ---   | ---         |
-        | Caminho do certificado | O caminho de arquivo ou FQDN para o certificado. |
-        | Senha de certificado | A senha do certificado. |
-        | Nome do segredo | O nome do segredo usado para referenciar o certificado armazenado no cofre. |
-        | Nome do Cofre de chaves | O nome do Cofre de chaves criado na etapa anterior. |
-        | Ponto de extremidade do Azure Resource Manager | O ponto de extremidade no Azure Stack desenvolvimento ASDK (Kit) é: `https://management.local.azurestack.external/`<br>É o ponto de extremidade em sistemas integrados: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` |
-        | Sua ID de assinatura | O [ID da assinatura](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) é como você pode acessar ofertas no Azure Stack. |
+       | Valor | DESCRIÇÃO |
+       | ---   | ---         |
+       | Caminho do certificado | O caminho de arquivo ou FQDN para o certificado. |
+       | Senha de certificado | A senha do certificado. |
+       | Nome do segredo | O nome do segredo usado para referenciar o certificado armazenado no cofre. |
+       | Nome do Cofre de chaves | O nome do Cofre de chaves criado na etapa anterior. |
+       | Ponto de extremidade do Azure Resource Manager | O ponto de extremidade no Azure Stack desenvolvimento ASDK (Kit) é: `https://management.local.azurestack.external/`<br>É o ponto de extremidade em sistemas integrados: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` |
+       | Sua ID de assinatura | O [ID da assinatura](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) é como você pode acessar ofertas no Azure Stack. |
 
-    - Abra o PowerShell com um prompt com privilégios elevados, e [conectar-se ao Azure Stack](azure-stack-powershell-configure-user.md#connect-with-ad-fs). Execute o script a seguir com os parâmetros atualizados para seus valores:
+   - Abra o PowerShell com um prompt com privilégios elevados, e [conectar-se ao Azure Stack](azure-stack-powershell-configure-user.md#connect-with-ad-fs). Execute o script a seguir com os parâmetros atualizados para seus valores:
 
-    ```PowerShell  
+     ```PowerShell  
         
-    # upload the pfx to key vault
-    $tempPFXFilePath = "<certificate path>"
-    $password = "<certificate password>"
-    $keyVaultSecretName = "<secret name>"
-    $keyVaultName = "<key vault name>"
-    $armEndpoint="<Azure Resource Manager Endpoint>"
-    $subscriptionId="<Your Subscription ID>"
-    # Login Azure Stack Environment
-    Add-AzureRmEnvironment -ARMEndpoint $armEndpoint -Name t
-    $mycreds = Get-Credential
-    Login-AzureRmAccount -Credential $mycreds -Environment t -Subscription $subscriptionId
+     # upload the pfx to key vault
+     $tempPFXFilePath = "<certificate path>"
+     $password = "<certificate password>"
+     $keyVaultSecretName = "<secret name>"
+     $keyVaultName = "<key vault name>"
+     $armEndpoint="<Azure Resource Manager Endpoint>"
+     $subscriptionId="<Your Subscription ID>"
+     # Login Azure Stack Environment
+     Add-AzureRmEnvironment -ARMEndpoint $armEndpoint -Name t
+     $mycreds = Get-Credential
+     Login-AzureRmAccount -Credential $mycreds -Environment t -Subscription $subscriptionId
     
-    $certContentInBytes = [io.file]::ReadAllBytes($tempPFXFilePath)
-    $pfxAsBase64EncodedString = [System.Convert]::ToBase64String($certContentInBytes)
-    $jsonObject = @"
-    {
-    "data": "$pfxAsBase64EncodedString",
-    "dataType" :"pfx",
-    "password": "$password"
-    }
-    "@
-    $jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
-    $jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
-    $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText -Force
-    $keyVaultSecret = Set-AzureKeyVaultSecret -VaultName $keyVaultName -Name $keyVaultSecretName -SecretValue $secret 
-    ```
+     $certContentInBytes = [io.file]::ReadAllBytes($tempPFXFilePath)
+     $pfxAsBase64EncodedString = [System.Convert]::ToBase64String($certContentInBytes)
+     $jsonObject = @"
+     {
+     "data": "$pfxAsBase64EncodedString",
+     "dataType" :"pfx",
+     "password": "$password"
+     }
+     "@
+     $jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
+     $jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
+     $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText -Force
+     $keyVaultSecret = Set-AzureKeyVaultSecret -VaultName $keyVaultName -Name $keyVaultSecretName -SecretValue $secret 
+     ```
 
 ## <a name="deploy-kubernetes"></a>Implantar Kubernetes
 

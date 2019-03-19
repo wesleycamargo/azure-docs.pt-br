@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 7b91f63057fa8b781fdfab17e0837a9f5547c1eb
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: d28d6836189bb9cca3eefb328310405550c4f94c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55988027"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120152"
 ---
 # <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>Codificação avançada com fluxo de trabalho do Media Encoder Premium
 > [!NOTE]
@@ -62,12 +62,12 @@ As seguintes etapas são executadas:
     Na maioria dos casos, a cadeia de caracteres de configuração para a tarefa está vazia (como no exemplo a seguir). Há alguns cenários avançados (que exigem que você defina propriedades de tempo de execução dinamicamente) em que você forneceria uma cadeia de caracteres XML para a tarefa de codificação. Exemplos desses cenários são: criação de uma sobreposição, união de mídia paralela ou sequencial, colocação de legenda.
 5. Adicionar dois ativos de entrada à tarefa.
 
-    1. 1º – o ativo de fluxo de trabalho.
-    2. 2º – o ativo de vídeo.
+   1. 1º – o ativo de fluxo de trabalho.
+   2. 2º – o ativo de vídeo.
 
-    >[!NOTE]
-    >O ativo de fluxo de trabalho deve ser adicionado à tarefa antes do ativo de mídia.
-   A cadeia de caracteres de configuração para essa tarefa deve estar vazia.
+      >[!NOTE]
+      >O ativo de fluxo de trabalho deve ser adicionado à tarefa antes do ativo de mídia.
+      A cadeia de caracteres de configuração para essa tarefa deve estar vazia.
    
 6. Envie o trabalho de codificação.
 

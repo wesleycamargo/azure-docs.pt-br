@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 50e1d3c894455f31513f7bcd1bff42a9329b329a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 8760cc505230cf128c9f1732cfcb5633be6487f8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992867"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57883348"
 ---
 # <a name="how-to-configure-on-premises-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>Como configurar os codificadores locais ao usar os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits
 Este tópico lista os codificadores ativos locais que podem ser usados para capturar os eventos ao vivo e enviar uma transmissão ao vivo de taxa de bits única para os canais do AMS (que são habilitados para a codificação ativa) para mais processamento. O tópico também contém links para os tutoriais que mostram como configurar os codificadores listados.
@@ -28,19 +28,19 @@ Este tópico lista os codificadores ativos locais que podem ser usados para capt
 > Ao transmitir via RTMP, verifique as configurações de firewall e/ou proxy para confirmar se as portas TCP de saída 1935 e 1936 estão abertas.
 
 ## <a name="flash-media-live-encoder"></a>Flash Media Live Encoder
-Para saber mais sobre como configurar o codificador FMLE ([Flash Media Encoder Live](http://www.adobe.com/products/flash-media-encoder.html)) para enviar uma transmissão ao vivo de taxa de bits única para um Canal do AMS, veja [Configurando o FMLE](media-services-configure-fmle-live-encoder.md).
+Para saber mais sobre como configurar o codificador FMLE ([Flash Media Encoder Live](https://www.adobe.com/products/flash-media-encoder.html)) para enviar uma transmissão ao vivo de taxa de bits única para um Canal do AMS, veja [Configurando o FMLE](media-services-configure-fmle-live-encoder.md).
 
 ## <a name="haivision-kb-encoder"></a>Codificador Haivision KB
 Para saber mais sobre como configurar o [Codificador Haivision KB](https://www.haivision.com/products/kb-series/) para enviar uma transmissão ao vivo de taxa de bits única para um Canal do AMS, veja [Configurando o Codificador Haivision KB](media-services-configure-kb-live-encoder.md).
 
 ## <a name="telestream-wirecast"></a>Telestream Wirecast
-Para obter informações sobre como configurar o codificador [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) para enviar uma transmissão ao vivo de taxa de bits única para um Canal do AMS, veja [Configurando o Wirecast](media-services-configure-wirecast-live-encoder.md).
+Para obter informações sobre como configurar o codificador [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) para enviar uma transmissão ao vivo de taxa de bits única para um Canal do AMS, veja [Configurando o Wirecast](media-services-configure-wirecast-live-encoder.md).
 
 ## <a name="newtek-tricaster"></a>NewTek TriCaster
 Para obter informações sobre como configurar o codificador [Tricaster](http://newtek.com/products/tricaster-40.html) para enviar uma transmissão ao vivo de taxa de bits única para um Canal do AMS, veja [Configurando o Tricaster](media-services-configure-tricaster-live-encoder.md).
 
 ## <a name="elemental-live"></a>Elemental Live
-Para obter mais informações, consulte [Elemental Live](http://www.elementaltechnologies.com/products/elemental-live).
+Para obter mais informações, consulte [Elemental Live](https://www.elementaltechnologies.com/products/elemental-live).
 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: 8fc3246c76d7d09ea4518b5c548d5dbe05cc7a84
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ff1b137fb6461c4ebd17451b89a180364d833d4e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164253"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116785"
 ---
 # <a name="tutorial-offer-highly-available-mysql-databases"></a>Tutorial: Oferecer bancos de dados MySQL altamente disponíveis
 
@@ -67,7 +67,7 @@ Use as etapas nesta seção para implantar o servidor MySQL cluster usando o [My
 - Três VMs do Linux para hospedar o cluster do MySQL
 
 1. 
-[!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
+   [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. Selecione **\+** **criar um recurso** > **computação**e então **MySQL com a replicação**.
 
@@ -168,7 +168,7 @@ Depois que o cluster do MySQL foi criado, configurado e adicionado como um servi
 > Execute estas etapas de portal do usuário do Azure Stack como um usuário de locatário com uma assinatura, fornecendo recursos de servidor MySQL (Microsoft.MySQLAdapter service).
 
 1. 
-[!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
+   [!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
 
 2. Selecione **\+** **criar um recurso** > **dados \+ armazenamento**e então **banco de dados MySQL** .<br><br>Forneça as informações de propriedade de banco de dados necessário incluindo nome, o agrupamento, a assinatura a ser usada e o local a ser usado para a implantação. 
 

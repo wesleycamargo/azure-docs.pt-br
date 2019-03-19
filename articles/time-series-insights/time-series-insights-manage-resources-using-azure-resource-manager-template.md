@@ -11,18 +11,19 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.custom: seodec18
-ms.openlocfilehash: 282a20beb11172aa3a1d2c7326dc38ce8a7acfcf
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
-ms.translationtype: HT
+ms.openlocfilehash: fe348daa4613e0b515244686e48ed63a41991d81
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54062648"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009377"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Criar recursos do Time Series Insights usando modelos do Azure Resource Manager
 
 Este artigo descreve como criar e implantar recursos do Time Series Insights usando modelos do Azure Resource Manager, o PowerShell e o provedor de recursos do Time Series Insights.
 
 O Time Series Insights oferece suporte aos seguintes recursos:
+
    | Recurso | DESCRIÇÃO |
    | --- | --- |
    | Ambiente | Um ambiente do Time Series Insights é um agrupamento lógico de eventos que são lidos de agentes de evento, armazenados e disponibilizados para consulta. Para obter mais informações, confira [Planejar um ambiente do Azure Time Series Insights](time-series-insights-environment-planning.md) |
@@ -65,7 +66,7 @@ Para criar um arquivo de parâmetros, copie o arquivo [201-timeseriesinsights-en
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "eventHubNamespaceName": {
@@ -116,7 +117,7 @@ Por exemplo, o arquivo de parâmetros a seguir deve ser usado para criar um ambi
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "eventHubNamespaceName": {
@@ -268,7 +269,7 @@ Outputs                 :
 A página inicial do modelo de início rápido no GitHub também inclui um botão **Implantar no Azure**. Clique nele para abrir uma página Implantação Personalizada no portal do Azure. Nessa página, você pode inserir ou selecionar valores para cada parâmetro nas tabelas de [parâmetros obrigatórios](time-series-insights-manage-resources-using-azure-resource-manager-template.md#required-parameters) ou [parâmetros opcionais](time-series-insights-manage-resources-using-azure-resource-manager-template.md#optional-parameters). Depois de preencher as configurações, clique no botão **Comprar** para iniciar a implantação de modelo.
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-timeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank">
-    <img src="http://azuredeploy.net/deploybutton.png"/>
+    <img src="https://azuredeploy.net/deploybutton.png"/>
 </a>
 
 ## <a name="next-steps"></a>Próximas etapas

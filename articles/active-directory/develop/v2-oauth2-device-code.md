@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36b717bfd05a71639c5d1f467af8e9238474160d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: f1f34796a98acb3ed4241edff57e506990479d1a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170187"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443259"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-device-code-flow"></a>Fluxo de código do dispositivo do Azure Active Directory v2.0 e do OAuth 2.0
 
@@ -32,7 +32,7 @@ ms.locfileid: "56170187"
 O Azure AD dá suporte à [concessão de código de dispositivo](https://tools.ietf.org/html/draft-ietf-oauth-device-flow-12), que permite que os usuários entrem em dispositivos com restrição de entrada como uma smart TV, um dispositivo IoT ou uma impressora.  Para habilitar esse fluxo, o dispositivo exige que o usuário visite uma página da Web no navegador em outro dispositivo para entrar.  Depois que o usuário entra, o dispositivo é capaz de acessar e atualizar tokens, conforme o necessário.  
 
 > [!Important] 
-> Neste momento, o ponto de extremidade v2.0 só dá suporte ao fluxo de dispositivo de locatários do Azure AD, mas não a contas pessoais.  Isso significa que você precisa usar um ponto de extremidade com locatários ou o ponto de extremidade da organização.  
+> Neste momento, o ponto de extremidade v2.0 só dá suporte ao fluxo de dispositivo de locatários do Azure AD, mas não a contas pessoais.  Isso significa que você deve usar um ponto de extremidade configurado como um locatário, ou organizações.  
 >
 > As contas pessoais que forem convidadas para um locatário do Azure AD poderão usar a concessão de fluxo do dispositivo, mas somente no contexto do locatário.
 

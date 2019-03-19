@@ -1,6 +1,6 @@
 ---
-title: Examinar seu acesso | Microsoft Docs
-description: Examinar seu acesso com o Azure Active Directory
+title: Examinar o acesso por conta própria a grupos ou aplicativos em revisões de acesso do AD do Azure | Microsoft Docs
+description: Aprenda a examinar seu próprio acesso a grupos ou aplicativos no Azure Active Directory as revisões de acesso.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -11,47 +11,74 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 07/16/2018
+ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3cc807a5693b363445f85d0b45a70681f58c5275
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 76f90a5aa3f201fa5d1578ac63526be26377aedf
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198621"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731201"
 ---
-# <a name="review-your-access"></a>Examinar seu acesso
+# <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Examinar o acesso por conta própria a grupos ou aplicativos em revisões de acesso do AD do Azure
 
-O Azure Active Directory (Azure AD) simplifica como as empresas gerenciam o acesso a aplicativos e membros de grupos no Azure AD e outros Serviços Online da Microsoft, com um recurso chamado revisões de acesso. Talvez você tenha recebido um email da Microsoft solicitando que você examine o acesso para membros de um grupo ou usuários com acesso a um aplicativo. 
+Azure Active Directory (Azure AD) simplifica como as empresas gerenciam o acesso a aplicativos ou grupos no Azure AD e outros serviços Online da Microsoft com um recurso chamado revisões de acesso do AD do Azure.
 
-## <a name="open-an-access-review"></a>Abrir uma análise de acesso
+Este artigo descreve como revisar seu próprio acesso a um grupo ou um aplicativo.
 
-Para ver as revisões de acesso pendentes, clique no link de acesso à revisão no email. A partir de agosto de 2018, as notificações por email para funções do Azure AD tem terão design atualizado. A seguir, é mostrado um exemplo de email enviado quando um usuário é convidado para ser um revisor.
+## <a name="open-the-access-review"></a>Abra a revisão de acesso
 
-![Email de acesso à revisão](./media/review-your-access/new-ar-email.png)
+É a primeira etapa para executar uma revisão de acesso localizar e abrir a revisão de acesso.
 
-Se você não tiver o email, será possível localizar as revisões de acesso fazendo o seguinte:
+1. Procure um email da Microsoft solicitando que você revisar o acesso. Aqui está um email de exemplo para examinar seu acesso a um grupo.
 
-1. Entre no [Painel de acesso do Azure AD](https://myapps.microsoft.com).
+    ![Email de acesso à revisão](./media/review-your-access/access-review-email.png)
 
-2. Selecione o símbolo de usuário no canto superior direito da página, que exibe seu nome e a organização padrão. Se houver mais de uma organização listada, selecione a organização que solicitou uma análise de acesso.
+1. Clique o **examinar acesso** link para abrir a revisão de acesso.
 
-3. Se houver um bloco rotulado **Revisões de acesso** do lado direito da página, selecione-o. Se o bloco não estiver visível, não haverá revisões de acesso para executar nessa organização e nenhuma ação será necessária no momento.
+Se você não tiver o email, você pode encontrar que seu acesso pendentes revisões seguindo estas etapas.
 
-## <a name="fill-out-an-access-review"></a>Preencher uma análise de acesso
+1. Entrar no portal do MyApps em [ https://myapps.microsoft.com ](https://myapps.microsoft.com).
 
-Ao selecionar uma análise de acesso na lista, você poderá ver seu acesso. Selecione a linha e escolha se deseja aprovar ou negar a necessidade de acesso contínuo.
+    ![Portal do MyApps](./media/review-your-access/myapps-access-panel.png)
 
-O revisor pode exigir que você forneça uma justificativa de aprovação de acesso contínuo.
+1. No canto superior direito da página, clique no símbolo de usuário, que exibe seu nome e a organização padrão. Se houver mais de uma organização listada, selecione a organização que solicitou uma análise de acesso.
+
+1. No lado direito da página, clique no **revisões de acesso** lado a lado para ver uma lista das revisões de acesso pendente.
+
+    Se o bloco não estiver visível, não haverá revisões de acesso para executar nessa organização e nenhuma ação será necessária no momento.
+
+    ![Lista de revisões de acesso](./media/review-your-access/access-reviews-list.png)
+
+1. Clique o **começar revisão** link para a revisão de acesso que você deseja executar.
+
+## <a name="perform-the-access-review"></a>Executar a análise de acesso
+
+Depois que você abriu a revisão de acesso, você poderá ver seu acesso.
+
+1. Examinar seu acesso e decida se você ainda precisa de acesso.
+
+    Se a solicitação é examinar o acesso para outras pessoas, a página terá uma aparência diferente. Para obter mais informações, consulte [revisar o acesso a grupos ou aplicativos](perform-access-review.md).
+
+    ![Executar análise de acesso](./media/review-your-access/perform-access-review.png)
+
+1. Clique em **Yes** para manter o seu acesso ou clique em **não** remova seu acesso.
+
+1. Se você clicar **Sim**, talvez seja necessário especificar uma justificativa na **motivo** caixa.
+
+    ![Executar análise de acesso](./media/review-your-access/perform-access-review-submit.png)
+
+1. Clique em **Enviar**.
+
+    Sua seleção é enviada e retornado para o portal do MyApps.
+
+    Se você quiser alterar sua resposta, abra novamente a página de revisões de acesso e atualizar sua resposta. Você pode alterar sua resposta a qualquer momento até que a revisão de acesso foi encerrada.
+
+    > [!NOTE]
+    > Se você indicou que você não precisa mais acesso, você não é removidos imediatamente. Você é removidos quando a análise foi concluída ou quando um administrador parar a revisão.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-O acesso negado não é removido imediatamente. Caso queira alterar a resposta e aprovar, redefina a resposta e selecione uma nova resposta. Você pode fazer essa etapa até que a análise de acesso seja concluída.
-
-
-
-
-
-
+- [Concluir uma revisão de acesso de aplicativos ou grupos](complete-access-review.md)

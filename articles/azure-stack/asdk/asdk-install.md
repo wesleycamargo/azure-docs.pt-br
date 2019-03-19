@@ -16,12 +16,12 @@ ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: a58f5a3794d352fa8671321f5a30d74d2598df75
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 509dafb02d456e3f612e1de8a5bc1cf4b010a05a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977721"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113849"
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>Instalar o Kit de desenvolvimento do Azure Stack ASDK)
 Após [preparar o computador de host ASDK](asdk-prepare-host.md), o ASDK pode ser implantado na imagem CloudBuilder.vhdx usando as etapas a seguir neste artigo.
@@ -44,8 +44,8 @@ As etapas neste artigo mostram como implantar o ASDK usando uma interface gráfi
   
    Se você escolher um provedor de identidade de assinatura do Azure, você precisa de uma conexão de internet, o nome completo do AD do Azure na forma de locatário do diretório *domainname*. onmicrosoft.com ou um Azure AD verificada global e nome de domínio personalizado credenciais de administrador para o diretório especificado.<br><br>Após a implantação, a permissão de administrador global do Azure Active Directory não é necessária. No entanto, algumas operações podem exigir a credencial de administrador global. Por exemplo, um script de instalador do provedor de recursos ou um novo recurso que exigem uma permissão para ser concedida. Você temporariamente pode designar novamente as permissões da conta administrador global ou usar uma conta de administrador global separado que é proprietário do *padrão de assinatura do provedor*.<br><br>Ao usar o AD FS como o provedor de identidade, o serviço de diretório do carimbo de data / padrão é usado. A conta padrão para entrar com é azurestackadmin@azurestack.local, e a senha para usar é fornecido como parte da instalação.
 
-  > [!NOTE]
-  > Para obter melhores resultados, mesmo se você quiser usar um ambiente desconectado do Azure Stack usando o AD FS como o provedor de identidade, é melhor instalar o ASDK enquanto estiver conectado à internet. Dessa forma, a versão de avaliação do Windows Server 2016 incluída com a instalação do kit de desenvolvimento pode ser ativada no momento da implantação.
+   > [!NOTE]
+   > Para obter melhores resultados, mesmo se você quiser usar um ambiente desconectado do Azure Stack usando o AD FS como o provedor de identidade, é melhor instalar o ASDK enquanto estiver conectado à internet. Dessa forma, a versão de avaliação do Windows Server 2016 incluída com a instalação do kit de desenvolvimento pode ser ativada no momento da implantação.
 
 4. Selecione um adaptador de rede a ser usado para o kit de desenvolvimento e, em seguida, clique em **próxima**.
 

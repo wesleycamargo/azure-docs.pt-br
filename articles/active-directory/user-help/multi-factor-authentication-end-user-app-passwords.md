@@ -1,6 +1,6 @@
 ---
-title: Como gerenciar senhas de aplicativos no Active Directory do Azure | Microsoft Docs
-description: Esta página ajudará os usuários a entenderem quais são as senhas do aplicativo e o que elas são usadas com relação à verificação em duas etapas.
+title: Como gerenciar senhas de aplicativo - Azure Active Directory | Microsoft Docs
+description: Saiba mais sobre senhas de aplicativo e o que são usados para em relação à verificação em duas etapas.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,13 +12,14 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
+ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fdcd078714d8311cf59471492187314183de28b2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 47128bce8dbbee1b28f6b0a3a5783e5ccee501bb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187297"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58177391"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Gerenciar senhas de aplicativos para verificação em duas etapas
 
@@ -88,7 +89,7 @@ Se você usa a verificação em duas etapas com sua conta do trabalho ou da esco
 
 1. Entre sua conta corporativa ou de estudante.
 
-2. Vá para https://portal.office.com, selecione o ícone **Configurações** no canto superior direito da página **Portal do Office 365** e expanda **Verificação de segurança adicional**.
+2. Vá para [ https://portal.office.com ](https://portal.office.com), selecione o **configurações** ícone no canto superior direito do **portal do Office 365** da página e, em seguida, expanda **segurança adicional verificação**.
 
     ![Do portal mostrando Office expandido a área de verificação de segurança adicional](media/security-info/security-info-o365password.png)
 
@@ -104,7 +105,7 @@ Se você usa a verificação em duas etapas com sua conta do trabalho ou da esco
 
 1. Entre sua conta corporativa ou de estudante.
 
-2. Vá para https://portal.office.com, selecione o ícone **Configurações** no canto superior direito da página **Portal do Office 365** e, em seguida, selecione **Verificação adicional de segurança**.
+2. Vá para [ https://portal.office.com ](https://portal.office.com), selecione o **configurações** ícone no canto superior direito do **portal do Office 365** da página e, em seguida, selecione **segurança adicional verificação**.
 
 3. Selecione o texto que diz: **Crie e gerencie senhas de aplicativos** para abrir a página **senhas de aplicativos**.
 

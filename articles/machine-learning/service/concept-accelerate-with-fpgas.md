@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: tedway
 author: tedway
 ms.reviewer: jmartens
-ms.date: 10/24/2018
+ms.date: 1/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: aaca3f346fafdc6ecde069676dbe0f089a26fca8
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 716de6d491be753c5c32c0a2774404140010f72c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242987"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823307"
 ---
 # <a name="what-are-fpgas-and-project-brainwave"></a>O que são FPGAs e o Project Brainwave?
 

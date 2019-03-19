@@ -1,5 +1,5 @@
 ---
-title: Aprenda usando um sandbox Apache Hadoop - emulador - Azure HDInsight
+title: Aprenda usando uma área restrita do Apache Hadoop – emulador – Azure HDInsight
 description: 'Para começar a aprender sobre o uso do ecossistema do Apache Hadoop, você pode configurar um sandbox do Hadoop a partir do Hortonworks em uma máquina virtual do Azure. '
 keywords: emulador do hadoop,área restrita do hadoop
 ms.reviewer: jasonh
@@ -10,14 +10,14 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: hrasheed
-ms.openlocfilehash: 074e2dd932cada5ae46ee0423dbc29fc8bc7495d
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: HT
+ms.openlocfilehash: 1da676787eeee1eb75095a5e3a6b3f40056567ad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016769"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005759"
 ---
-# <a name="get-started-with-a-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Comece com uma sandbox do Apache Hadoop, um emulador em uma máquina virtual
+# <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Comece com uma área restrita Apache Hadoop, um emulador em uma máquina virtual
 
 Aprenda a instalar o sandbox Apache Hadoop do Hortonworks em uma máquina virtual para aprender sobre o ecossistema do Hadoop. A área restrita fornece um ambiente de desenvolvimento local para saber mais sobre o Hadoop, o HDFS (Sistema de Arquivos Distribuído Hadoop) e o envio de trabalhos. Quando estiver familiarizado com o Hadoop, você poderá começar a usar o Hadoop no Azure, criando um cluster do HDInsight. Para saber mais sobre como começar, confira [Introdução ao Hadoop no HDInsight](apache-hadoop-linux-tutorial-get-started.md).
 
@@ -30,7 +30,7 @@ Aprenda a instalar o sandbox Apache Hadoop do Hortonworks em uma máquina virtua
 1. Navegue até os [downloads da Hortonworks](https://hortonworks.com/downloads/#sandbox).
 
 2. Clique em **BAIXAR PARA VIRTUALBOX** para baixar a Área Restrita da Hortonworks mais recente em uma VM. Será solicitado que você se registre na Hortonworks antes de iniciar o download. O download leva de uma a duas horas, dependendo da velocidade da sua rede.
-   
+
     ![Imagem de link para download da Hortonworks Sandbox para VirtualBox](./media/apache-hadoop-emulator-get-started/download-sandbox.png)
 3. Na mesma página da Web, clique no link **Import on Virtual Box** para baixar um PDF contendo instruções de instalação para a máquina virtual.
 
@@ -44,36 +44,35 @@ Para baixar uma área restrita da versão mais antiga do HDP, expanda o arquivam
 1. Abra o Oracle VM VirtualBox.
 2. No menu **Arquivo**, clique em **Importar Dispositivo** e especifique a imagem da Área Restrita da Hortonworks.
 1. Selecione a Área Restrita da Hortonworks, clique em **Iniciar** e em **Início Normal**. Quando a máquina virtual tiver terminado o processo de inicialização, ela exibirá instruções de logon.
-   
+
     ![Início Normal](./media/apache-hadoop-emulator-get-started/normal-start.png)
-2. Abra um navegador da web e acesse a URL exibida (geralmente http://127.0.0.1:8888).
+2. Abra um navegador da web e navegue até a URL exibida (geralmente `http://127.0.0.1:8888`).
 
 ## <a name="set-sandbox-passwords"></a>Definir senhas da Área Restrita
 
 1. Na etapa de **introdução** da página da Hortonworks Sandbox, selecione **Exibir Opções Avançadas**. Use as informações desta página para fazer logon na área restrita usando SSH. Use o nome e a senha fornecidos.
-   
+
    > [!NOTE]
    > Se você não tiver um cliente SSH instalado, use o SSH baseado na Web fornecido pela máquina virtual em **http://localhost:4200/**.
-   > 
-   
+
     Na primeira vez que você se conectar usando SSH, você receberá uma solicitação para alterar a senha da conta raiz. Insira uma nova senha, que você usa quando faz logon usando SSH.
 
 2. Depois de conectado, digite o seguinte comando:
-   
+
         ambari-admin-password-reset
-   
+
     Quando receber uma solicitação, forneça uma senha para a conta de administrador do Ambari. Isso é usado quando você acessa a interface do usuário da Web do Ambari.
 
 ## <a name="use-hive-commands"></a>Usar comandos do Hive
 
 1. De uma conexão SSH com a área restrita, use o seguinte comando para iniciar o shell do Hive:
-   
+
         hive
 2. Quando o shell for iniciado, use o seguinte para exibir as tabelas que são fornecidas com a área restrita:
-   
+
         show tables;
 3. Use o seguinte para recuperar 10 linhas da tabela `sample_07` :
-   
+
         select * from sample_07 limit 10;
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -7,14 +7,14 @@ manager: carmonm
 ms.service: application-insights
 ms.topic: conceptual
 ms.reviewer: mbullwin
-ms.date: 02/12/2019
+ms.date: 03/13/2019
 ms.author: harelbr
-ms.openlocfilehash: 4bcbed82a78caff62a9459ecb44c6513f367f6b7
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: f984a34be1c5d5fdd18a00812107318df8f5d9bf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56458193"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57889277"
 ---
 # <a name="smart-detection-e-mail-notification-change"></a>Alteração de notificações por email de detecção inteligente
 
@@ -34,7 +34,7 @@ Essa alteração afetará todas as regras de detecção inteligente, exceto as s
 
 ## <a name="how-to-prepare-for-this-change"></a>Como se preparar para essa alteração?
 
-Para garantir que as notificações por email de detecção inteligente sejam enviadas para os usuários relevantes, eles devem receber as funções de [leitor de monitoramento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) e [colaborador de monitoramento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor). A atribuição deve ser feita no nível da assinatura (afetando todos os recursos do Application Insights na assinatura) ou no nível do recurso do Application Insights (afetando apenas esse recurso específico).
+Para garantir que as notificações de email de detecção inteligente são enviadas aos usuários relevantes, os usuários devem ser atribuídos à [leitor de monitoramento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) ou [Colaborador de monitoramento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) funções da assinatura.
 
 Para atribuir aos usuários as funções de leitor de monitoramento ou colaborador de monitoramento pelo portal do Azure, siga as etapas descritas no artigo [Adicionar uma atribuição de função](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment). Certifique-se de selecionar _leitor de monitoramento_ ou _colaborador de monitoramento_ como a função atribuída aos usuários.
 

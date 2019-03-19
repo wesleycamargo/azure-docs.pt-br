@@ -16,12 +16,12 @@ ms.date: 12/11/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: d140b80ecb5fe2a7211245044b08f43fde4233a8
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 459398f5f40ae5fb28dfa4ac73b94aecca7304eb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240979"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099409"
 ---
 # <a name="azure-stack-capacity-planner"></a>Planejador de capacidade do Azure Stack
 O Planejador de capacidade do Azure Stack é uma planilha usada para planejamento de capacidade de recursos do Azure Stack. O Planejador de capacidade fornece a capacidade de criar várias alocações de recursos de computação e ver como eles seriam se através de uma seleção de ofertas de hardware. Instruções detalhadas para o uso da Calculadora do Azure Stack são fornecidas abaixo.
@@ -61,8 +61,8 @@ Para criar um modelo usando uma única coleção de vários tamanhos e as quanti
 2. Se você quiser modelar várias alocações de recursos VM em relação a uma configuração de hardware específico, localize a caixa de listagem azul pull diretamente abaixo do rótulo de "SKU atual" no canto superior direito da página. Puxe para baixo nessa caixa de listagem e selecione o SKU de hardware desejado.
 3. Agora você está pronto para começar a adicionar várias VMs de tamanhos para seu modelo. Para incluir um tipo específico de VM, digite um valor de quantidade para a caixa contornada azul à esquerda da entrada da VM.
 
-  > [!NOTE]
-  > Total de armazenamento de VM refere-se com a capacidade total do disco de dados da VM (número de discos com suporte * a capacidade máxima de um único disco (1 TB)). Com base nos indicadores de configuração do preenchemos a tabela de configurações de armazenamento disponíveis, para que você pode escolher o nível desejado de recurso de armazenamento para cada VM do Azure Stack. No entanto, é importante observar que você pode adicionar ou alterar a tabela de configurações de armazenamento disponíveis, conforme necessário.<br><br>Cada VM começa com um armazenamento temporário local de inicialmente atribuído. Para refletir o provisionamento dinâmico de armazenamento temporário o número de temp local pode ser alterado a qualquer coisa na lista suspensa menu incluindo o valor máximo permitido de armazenamento temporário.
+   > [!NOTE]
+   > Total de armazenamento de VM refere-se com a capacidade total do disco de dados da VM (número de discos com suporte * a capacidade máxima de um único disco (1 TB)). Com base nos indicadores de configuração do preenchemos a tabela de configurações de armazenamento disponíveis, para que você pode escolher o nível desejado de recurso de armazenamento para cada VM do Azure Stack. No entanto, é importante observar que você pode adicionar ou alterar a tabela de configurações de armazenamento disponíveis, conforme necessário.<br><br>Cada VM começa com um armazenamento temporário local de inicialmente atribuído. Para refletir o provisionamento dinâmico de armazenamento temporário o número de temp local pode ser alterado a qualquer coisa na lista suspensa menu incluindo o valor máximo permitido de armazenamento temporário.
 
 4. Conforme você adiciona máquinas virtuais, você verá os gráficos que mostram os recursos SKU disponíveis a alteração. Isso permite que você veja os efeitos de adição de vários tamanhos e as quantidades de VMs durante o processo de modelagem. Outra maneira de exibir o efeito das alterações é observar os números de consumida e ainda estão disponíveis listados diretamente abaixo da lista de VMs disponíveis. Esses números refletem os valores estimados com base no hardware SKU selecionado no momento.
 5. Depois de criar seu conjunto de VMs, você pode encontrar o SKU de hardware sugeridas, clicando no botão "SKU sugerido" encontrado no canto superior direito da página, diretamente abaixo do rótulo de "SKU atual". Com esse botão, em seguida, você pode modificar suas configurações de VM e ver qual hardware dá suporte a cada configuração.

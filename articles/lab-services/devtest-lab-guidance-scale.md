@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 781a897c99a28fbd1b695876f477b140521068e3
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 25a088686c739c53feadd6354baf75f3147bdc33
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244872"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431182"
 ---
 # <a name="scale-up-your-azure-devtest-labs-infrastructure"></a>Expanda sua infraestrutura do Azure DevTest Labs
 Antes de implementar o DevTest Labs em escala empresarial, há vários pontos de decisão essenciais. Conhecer a fundo esses pontos de decisão ajuda uma organização a tomar decisões de design no futuro. No entanto, esses pontos não devem impedir uma organização de iniciar uma prova de conceito. As três principais áreas para o planejamento inicial de expansão são:
@@ -46,7 +46,7 @@ Em seguida, podemos destacar os pontos positivos de cada abordagem.
 Geralmente, a abordagem de uma assinatura não é gerenciável em uma grande empresa. No entanto, limitar o número de assinaturas fornece os seguintes benefícios:
 
 - **Previsão** dos custos para a empresa.  Planejar o orçamento torna-se muito mais fácil em uma assinatura única, porque todos os recursos estão em um único pool. Essa abordagem permite tomada de decisões mais simples quanto a quando exercer medidas de controle de custos em qualquer determinado momento em um ciclo de cobrança.
-- O **gerenciamento** de VMs, artefatos, fórmulas, configuração de rede, permissões e políticas, etc. é mais fácil, pois todas as atualizações são necessárias apenas em uma assinatura, em vez de fazer atualizações em várias assinaturas.
+- **Capacidade de gerenciamento** de VMs, artefatos, fórmulas, configuração de rede, permissões e políticas, etc. é mais fácil, pois todas as atualizações são necessárias apenas em uma assinatura em vez de fazer atualizações em várias assinaturas.
 - O esforço referente à **rede** é bastante simplificado em uma assinatura única para empresas em que a conectividade local é um requisito. Conectar redes virtuais entre assinaturas (modelo hub-spoke) é necessário com assinaturas adicionais, o que requer configuração, espaços de endereço IP e gerenciamento adicionais, etc.
 - A **colaboração em equipe** é mais fácil quando todos estão trabalhando na mesma assinatura – por exemplo, é mais fácil reatribuir uma VM para um colega de trabalho, compartilhar recursos de equipe, etc.
 

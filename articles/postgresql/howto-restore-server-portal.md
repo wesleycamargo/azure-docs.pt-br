@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.openlocfilehash: 62a953467e212d0cb78686e9b0d98a7f1fcb5135
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 60489e3fc7fc6482a14a241e777066b3805a4d5e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699003"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095102"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>Como fazer backup e restaurar um servidor no Banco de Dados do Azure para PostgreSQL usando o Portal do Azure
 
@@ -57,11 +57,11 @@ As etapas a seguir restauram o exemplo de servidor para um ponto anterior:
 
 3. Preencha o formulário Restaurar com as informações necessárias:
 
-   ![Banco de Dados do Azure para PostgreSQL - Informações de restauração ](./media/howto-restore-server-portal/3-restore.png)
-  - **Ponto de restauração**: Selecione o ponto no tempo que você quer restaurar.
-  - **Servidor de destino**: Forneça um nome para o novo servidor.
-  - **Localização**: Não é possível selecionar a região. Por padrão, é o mesmo que o servidor de origem.
-  - **Camada de preços**: Não é possível alterar esses parâmetros ao fazer uma restauração pontual. Ele é igual ao servidor de origem. 
+   ![Banco de Dados do Azure para PostgreSQL - Informações de restauração](./media/howto-restore-server-portal/3-restore.png)
+   - **Ponto de restauração**: Selecione o ponto no tempo que você quer restaurar.
+   - **Servidor de destino**: Forneça um nome para o novo servidor.
+   - **Localização**: Não é possível selecionar a região. Por padrão, é o mesmo que o servidor de origem.
+   - **Camada de preços**: Não é possível alterar esses parâmetros ao fazer uma restauração pontual. Ele é igual ao servidor de origem. 
 
 4. Clique em **OK** para restaurar o servidor em um ponto anterior. 
 

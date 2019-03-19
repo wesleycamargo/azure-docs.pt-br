@@ -1,5 +1,5 @@
 ---
-title: Suporte a idiomas – API de Serviço de Fala
+title: Suporte a idiomas – serviços de fala
 titleSuffix: Azure Cognitive Services
 description: Os Serviços de Fala do Azure dão suporte a vários idiomas para conversão de fala em texto e de texto em fala, bem com a tradução de fala. Este artigo fornece uma lista abrangente de suporte ao idioma por serviço.
 services: cognitive-services
@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 22916a188c79d5894faf48dd71d6ab17a582cf8b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 927781c61a9ca2a1ef23db47294468dad7140dff
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878027"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57885344"
 ---
-# <a name="language-and-region-support-for-speech-service-api"></a>Suporte ao idioma e à região para a API do Serviço de Fala
+# <a name="language-and-region-support-for-the-speech-services"></a>Suporte de idioma e região para os serviços de fala
 
 Há suporte para diferentes idiomas para diferentes funções dos Serviços de Fala. As tabelas a seguir resumem o suporte ao idioma.
 
@@ -179,7 +179,7 @@ zh-TW | Chinês (Taiwan)|Feminino | “Voz da Conversão de Texto em Fala do Mic
 A personalização de voz está disponível para inglês dos EUA (en-US), chinês continental (zh-CN), francês (fr-FR), alemão (de-DE) e italiano (it-IT).
 
 > [!NOTE]
-> O treinamento de voz em francês, alemão e italiano começa com um conjunto de dados com mais de 2.000 enunciados. Os modelos bilíngues chinês-inglês também têm suporte com um conjunto de dados inicial de mais de 2 mil enunciados.
+> Francês, alemão e italiano treinamento de voz começa com um conjunto de dados de mais de 2.000 declarações. Os modelos bilíngues chinês-inglês também têm suporte com um conjunto de dados inicial de mais de 2 mil enunciados.
 
 ## <a name="speech-translation"></a>Tradução de fala
 
@@ -255,5 +255,5 @@ A API de **Tradução de Fala** é compatível com diferentes idiomas para conve
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Obtenha sua assinatura de avaliação de Fala](https://azure.microsoft.com/try/cognitive-services/)
+* [Obter sua assinatura de avaliação de Serviços de Fala](https://azure.microsoft.com/try/cognitive-services/)
 * [Veja como reconhecer fala em C#](quickstart-csharp-dotnet-windows.md)

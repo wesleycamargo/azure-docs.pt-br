@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: ergreenl
-ms.openlocfilehash: 758183efd6a6a2c2b8d172c52ad3bd5c5e12d969
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: f2c4f73af00e0093ce98f2de37e9c3a0ba381eda
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169121"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119897"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Habilitar o Azure Active Directory Domain Services usando PowerShell
 Este artigo mostra como habilitar o Azure Active Directory (AD) Domain Services usando o PowerShell.
@@ -141,8 +141,7 @@ New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$
 > **Não se esqueça das etapas de configuração adicionais depois de provisionar o domínio gerenciado.**
 > Após o provisionamento do domínio gerenciado, você ainda precisará concluir as seguintes tarefas:
 > * **[Atualizar as configurações de DNS](active-directory-ds-getting-started-dns.md)** para a rede virtual, de modo que as máquinas virtuais possam encontrar o domínio gerenciado para ingresso no domínio ou autenticação.
-* **[Habilite a sincronização de senha para o Azure AD Domain Services](active-directory-ds-getting-started-password-sync.md)** para que os usuários possam entrar no domínio gerenciado usando suas credenciais corporativas.
->
+> * **[Habilite a sincronização de senha para o Azure AD Domain Services](active-directory-ds-getting-started-password-sync.md)** para que os usuários possam entrar no domínio gerenciado usando suas credenciais corporativas.
 
 
 ## <a name="powershell-script"></a>Script do PowerShell
@@ -226,8 +225,7 @@ New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$
 > **Não se esqueça das etapas de configuração adicionais depois de provisionar o domínio gerenciado.**
 > Após o provisionamento do domínio gerenciado, você ainda precisará concluir as seguintes tarefas:
 > * Atualize as configurações de DNS da rede virtual, de modo que as máquinas virtuais possam encontrar o domínio gerenciado para ingresso no domínio ou autenticação.
-* Habilite a sincronização de senha para o Azure AD Domain Services para que os usuários possam entrar no domínio gerenciado usando suas credenciais corporativas.
->
+> * Habilite a sincronização de senha para o Azure AD Domain Services para que os usuários possam entrar no domínio gerenciado usando suas credenciais corporativas.
 
 ## <a name="next-steps"></a>Próximas etapas
 Após a criação do domínio gerenciado, execute as seguintes tarefas de configuração para que você possa usar o domínio gerenciado:

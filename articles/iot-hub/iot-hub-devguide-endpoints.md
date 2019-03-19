@@ -1,19 +1,19 @@
 ---
 title: Entender os pontos de extremidade do Hub IoT do Azure | Microsoft Docs
 description: Guia do desenvolvedor ‑ Informações de referência sobre pontos de extremidade do Hub IoT voltados para o dispositivo e para o serviço.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.author: dobett
-ms.openlocfilehash: 43e2101f413985974b964f2261d852692bcac61d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 28019163cfec1a9d2e3c12346a6aba2bd00b30b1
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251433"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539540"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referência - Pontos de extremidade do Hub IoT
 
@@ -53,7 +53,7 @@ A lista a seguir descreve os pontos de extremidade:
 
   * *Receber solicitações de métodos diretos*. Um dispositivo usa esse ponto de extremidade para escutar as solicitações do [método direto](iot-hub-devguide-direct-methods.md).
 
-    Esses pontos de extremidade são expostos usando os protocolos [MQTT v3.1.1](http://mqtt.org/), HTTPS 1.1 e [AMQP 1.0](https://www.amqp.org/). O AMQP também está disponível sobre [WebSockets](https://tools.ietf.org/html/rfc6455) na porta 443.
+    Esses pontos de extremidade são expostos usando os protocolos [MQTT v3.1.1](https://mqtt.org/), HTTPS 1.1 e [AMQP 1.0](https://www.amqp.org/). O AMQP também está disponível sobre [WebSockets](https://tools.ietf.org/html/rfc6455) na porta 443.
 
 * **Pontos de extremidade do serviço**. Cada Hub IoT expõe um conjunto de pontos de extremidade para que o seu back-end da sua solução se comunique com os seus dispositivos. Com uma exceção, esses pontos de extremidade só são expostos usando o protocolo [AMQP](https://www.amqp.org/). O ponto de extremidade de invocação de método é exposto através do protocolo HTTPS.
   
@@ -83,6 +83,15 @@ Atualmente, o Hub IoT é compatível com os seguintes serviços do Azure como po
 * Tópicos do Service Bus
 
 Para saber quais são os limites para o número de pontos de extremidade que você pode adicionar, confira [Cotas e limitação](iot-hub-devguide-quotas-throttling.md).
+
+Você pode usar a API REST [obter integridade do ponto de extremidade](https://docs.microsoft.com/de-de/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) ao obter o status de integridade dos pontos de extremidade. É recomendável usar o [métricas do IoT Hub](iot-hub-metrics.md) relacionados ao roteamento de latência de mensagem para identificar e depurar erros quando a integridade do ponto de extremidade está inativo ou não está íntegro.
+
+|Status de Integridade|DESCRIÇÃO|
+|---|---|
+|Healthy|O ponto de extremidade é aceitar mensagens conforme o esperado.|
+|Não íntegro|O ponto de extremidade não está aceitando mensagens conforme o esperado e o IoT Hub está tentando novamente para enviar dados para esse ponto de extremidade. O status de um ponto de extremidade não íntegro será ser atualizado para íntegro quando o IoT Hub estabeleceu um estado consistente de integridade.|
+|unknown|O IoT Hub não estabeleceu uma conexão com o ponto de extremidade. Não há mensagens foram entregues ao ou rejeitadas desse ponto de extremidade.|
+|mensagens mortas|O ponto de extremidade não está aceitando mensagens, depois que o IoT Hub repetida enviando mensagens para o período de retrial.|
 
 ## <a name="field-gateways"></a>Gateways de campo
 

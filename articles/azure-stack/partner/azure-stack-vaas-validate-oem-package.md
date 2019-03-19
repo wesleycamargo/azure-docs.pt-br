@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: c2b0343ff472fe380750152712ca88d9ebb404e2
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: aae3ec8ff713959c5cc2485951aba025a6f89a1e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782778"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113275"
 ---
 # <a name="validate-oem-packages"></a>Validar pacotes de OEM
 
@@ -185,30 +185,30 @@ Os testes a seguir são necessários para validação do pacote de OEM:
 
     Verificação do pacote de extensão de OEM é dividida em duas etapas manuais: Atualização da pilha do Azure e atualização de OEM.
 
-    1. **Selecione** "Run" na interface do usuário para executar o script nas pré-verificações. Isso é um teste automatizado que leva cerca de 5 minutos para ser concluído e não requer nenhuma ação.
+   1. **Selecione** "Run" na interface do usuário para executar o script nas pré-verificações. Isso é um teste automatizado que leva cerca de 5 minutos para ser concluído e não requer nenhuma ação.
 
-    1. Depois que o script nas pré-verificações for concluída, execute a etapa manual: **instalar** a atualização mais recente disponível do Azure Stack usando o portal do Azure Stack.
+   1. Depois que o script nas pré-verificações for concluída, execute a etapa manual: **instalar** a atualização mais recente disponível do Azure Stack usando o portal do Azure Stack.
 
-    1. **Executar** AzureStack de teste no carimbo. Se ocorrerem falhas, não continue com o teste e o contato [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com).
+   1. **Executar** AzureStack de teste no carimbo. Se ocorrerem falhas, não continue com o teste e o contato [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com).
 
-        Para obter informações sobre como executar o comando AzureStack de teste, consulte [estado de sistema validar o Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostic-test).
+       Para obter informações sobre como executar o comando AzureStack de teste, consulte [estado de sistema validar o Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostic-test).
 
-    1. **Selecione** "Avançar" para executar o script postcheck. Este é um teste automatizado e marca o fim do processo de atualização do Azure Stack.
+   1. **Selecione** "Avançar" para executar o script postcheck. Este é um teste automatizado e marca o fim do processo de atualização do Azure Stack.
 
-    1. **Selecione** "Executar" para executar o script nas pré-verificações para atualização de OEM.
+   1. **Selecione** "Executar" para executar o script nas pré-verificações para atualização de OEM.
 
-    1. Depois que o pré-verificação for concluída, execute a etapa manual: **instalar** o pacote de extensão de OEM por meio do portal.
+   1. Depois que o pré-verificação for concluída, execute a etapa manual: **instalar** o pacote de extensão de OEM por meio do portal.
 
-    1. **Executar** AzureStack de teste no carimbo.
+   1. **Executar** AzureStack de teste no carimbo.
 
-        > [!NOTE]
-        > Como antes, não continue com o teste e o contato [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com) se ele falhar. Esta etapa é essencial que salva uma reimplantação.
+      > [!NOTE]
+      > Como antes, não continue com o teste e o contato [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com) se ele falhar. Esta etapa é essencial que salva uma reimplantação.
 
-    1. **Selecione** "Avançar" para executar o script postcheck. Isso marca o fim da etapa de atualização de OEM.
+   1. **Selecione** "Avançar" para executar o script postcheck. Isso marca o fim da etapa de atualização de OEM.
 
-    1. Responder a perguntas restantes no final do teste e **selecionar** "Enviar".
+   1. Responder a perguntas restantes no final do teste e **selecionar** "Enviar".
 
-    1. Isso marca o final do teste interativa.
+   1. Isso marca o final do teste interativa.
 
 5. Examine o resultado de verificação do pacote de extensão de OEM. Depois que o teste tiver sido bem-sucedido, agende o mecanismo de simulação de nuvem para execução.
 

@@ -4,18 +4,18 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: e3059b5a76a6a9188f79b683bb997bbcf8185ced
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
-ms.translationtype: HT
+ms.openlocfilehash: 7f89dc33c105a82646c8f12422f88a06efdca18b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52279437"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553241"
 ---
-A Análise Data Lake simplifica a difícil missão de gerenciar infraestruturas distribuídas e códigos complexos. Ela fornece recursos de maneira dinâmica e permite realizar análises de exabytes de dados. Ao final do trabalho, o serviço deixa de usar os recursos automaticamente, e você paga apenas pela potência de processamento usada. À medida que o tamanho dos dados armazenados ou da quantidade de computação usada aumenta ou diminui, você não precisa reescrever os códigos. Entrando em contato com o suporte, é possível aumentar muitos dos limites padrão facilmente em sua assinatura. 
+Azure Data Lake Analytics simplifica a complexa tarefa de gerenciar infraestruturas distribuídas e códigos complexos. Ele dinamicamente provisiona recursos, e você pode usá-lo para realizar análises de exabytes de dados. Quando o trabalho for concluído, ele deixa de usar recursos automaticamente. Você paga apenas pela capacidade de processamento que foi usada. À medida que o tamanho dos dados armazenados ou da quantidade de computação usada aumenta ou diminui, você não precisa reescrever os códigos. Para aumentar os limites padrão para sua assinatura, contate o suporte.
 
 | **Recurso** | **Limite padrão** | **Comentários** |
 | --- | --- | --- |
 | Número máximo de trabalhos simultâneos |20 | |
-| Número máximo de AUs (Unidades de Análise) por conta |250 | Use qualquer combinação até o máximo de 250 AUs em 20 trabalhos.  Entre em contato com o suporte da Microsoft para aumentar esse limite. |
+| Número máximo de unidades de análise (AUs) por conta |250 | Use qualquer combinação até o máximo de 250 AUs em 20 trabalhos. Para aumentar esse limite, entre em contato com o Microsoft Support. |
 | Tamanho máximo de script para envio de trabalho | 3 MB | |
-| Número máximo de contas do ADLA por assinatura | 5 | Entre em contato com o suporte da Microsoft para aumentar esse limite. |
+| Número máximo de contas do Data Lake Analytics por região e assinatura | 5 | Para aumentar esse limite, entre em contato com o Microsoft Support. |
