@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 02/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: 6e57979e2c43cc47504495cce23947b93abb4020
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 54b89b74017b8d5d6e4bd1b52c6b3986d2802702
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56414920"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118792"
 ---
 # <a name="reset-a-vpn-gateway"></a>Redefinir um Gateway de VPN
 
@@ -47,7 +47,7 @@ Você pode redefinir um gateway de VPN do Resource Manager usando o Portal do Az
 1. Abra o [Portal do Azure](https://portal.azure.com) e navegue até o gateway de rede virtual do Gerenciador de Recursos que deseja redefinir.
 2. Na folha do gateway de rede virtual, clique em "Redefinir".
 
-  ![Folha Redefinir Gateway de VPN](./media/vpn-gateway-howto-reset-gateway/reset-vpn-gateway-portal.png)
+   ![Folha Redefinir Gateway de VPN](./media/vpn-gateway-howto-reset-gateway/reset-vpn-gateway-portal.png)
 3. Na folha Redefinir, clique no botão **Reiniciar**.
 
 ## <a name="ps"></a>PowerShell
@@ -56,7 +56,7 @@ Você pode redefinir um gateway de VPN do Resource Manager usando o Portal do Az
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-O cmdlet para redefinição de um gateway é **Reset-AzVirtualNetworkGateway**. Antes de realizar uma redefinição, certifique-se de possui a última versão dos [cmdlets do Resource Manager PowerShell ](https://docs.microsoft.com/powershell/azure/azurerm/install-Az-ps?view=azurermps-4.0.0). O exemplo a seguir redefine um gateway de rede virtual nomeado VNet1GW no grupo de recursos TestRG1:
+O cmdlet para redefinição de um gateway é **Reset-AzVirtualNetworkGateway**. Antes de executar uma redefinição, verifique se você tem a versão mais recente do [cmdlets do PowerShell Az](https://docs.microsoft.com/powershell/module/az.network). O exemplo a seguir redefine um gateway de rede virtual nomeado VNet1GW no grupo de recursos TestRG1:
 
 ```powershell
 $gw = Get-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1

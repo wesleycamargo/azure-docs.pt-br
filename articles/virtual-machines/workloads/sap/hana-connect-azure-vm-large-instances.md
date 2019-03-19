@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9116dd8a27b268b656f688083032a127177d2d51
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
-ms.translationtype: HT
+ms.openlocfilehash: 2628cafada47b2602b195c44d4b6f2e6b16012ef
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754553"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092762"
 ---
 # <a name="connecting-azure-vms-to-hana-large-instances"></a>Conectar máquinas virtuais do Azure a Grandes Instâncias do HANA
 
@@ -85,7 +85,7 @@ Já introduzimos alguns dos intervalos de endereços IP necessários para implan
 
 - **Espaço de endereço da rede virtual**: O **espaço de endereço da rede virtual** são os intervalos de endereços IP que você atribui ao parâmetro de espaço de endereço nas redes virtuais do Azure. Essas redes conectam-se ao ambiente do SAP HANA em Instâncias Grandes.
 
- É recomendável que esse parâmetro do espaço de endereço seja um valor de multilinha. Ele deve consistir no intervalo de sub-rede da VM do Azure e os intervalos de sub-rede do gateway do Azure. Esse intervalo de sub-rede foi mostrado nos gráficos anteriores. Ele NÃO deve sobrepor os intervalos de endereço ER-P2P ou pool de do servidor ou local. 
+  É recomendável que esse parâmetro do espaço de endereço seja um valor de multilinha. Ele deve consistir no intervalo de sub-rede da VM do Azure e os intervalos de sub-rede do gateway do Azure. Esse intervalo de sub-rede foi mostrado nos gráficos anteriores. Ele NÃO deve sobrepor os intervalos de endereço ER-P2P ou pool de do servidor ou local. 
  
 Como você pode obter esses intervalos de endereços IP? 
 
@@ -108,7 +108,7 @@ Sua equipe de rede corporativa ou provedor de serviços deve fornecer um interva
   
 - **Intervalo de endereços de pool de IP do servidor:** Esse intervalo de endereços IP é usado para atribuir o endereço IP individual aos servidores do HANA em grandes instâncias. O tamanho de sub-rede recomendado é um bloco / 24 CIDR. Se necessário, pode ser menor, com apenas 64 endereços IP. Nesse intervalo, os 30 primeiros endereços IP são reservados para uso pela Microsoft. Certifique-se de considerar esse fato quando você escolhe o tamanho do intervalo. Esse intervalo não deve sobrepor seu local ou outros intervalos de endereços IP do Azure. Como você obtém esse intervalo de endereços IP? Sua equipe de rede corporativa ou provedor de serviços deve fornecer um intervalo de endereços IP que não esteja sendo usado atualmente em sua rede. 
 
- **Esse intervalo é um intervalo de endereços IP que precisa ser enviado à Microsoft ao solicitar uma implantação inicial**.
+  **Esse intervalo é um intervalo de endereços IP que precisa ser enviado à Microsoft ao solicitar uma implantação inicial**.
  
 É necessário definir e planejar os intervalos de endereços IP que foram descritos anteriormente. No entanto, você não precisa transmitir todos eles para a Microsoft. Os intervalos de endereços IP que você deve nomear para a Microsoft são:
 

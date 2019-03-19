@@ -12,18 +12,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/16/2018
+ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 700295c94428021445f6cbbd84175046d57b9147
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 2eb395b4f3d922aa116e01c5de080a54d81e10ff
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054870"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118639"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Diagnosticar cenários comuns com o Service Fabric
 
-Este artigo ilustra os cenários comuns que os usuários encontraram na área de monitoramento e diagnóstico com o Service Fabric. Os cenários apresentados abrangem todas as 3 camadas do service fabric: Aplicativos, Cluster e infraestrutura. Cada solução usa o Application Insights, o Log Analytics e as ferramentas de monitoramento do Azure para concluir cada cenário. As etapas em cada solução dão aos usuários uma introdução sobre como usar o Application Insights e o Log Analytics no contexto do Service Fabric.
+Este artigo ilustra os cenários comuns que os usuários encontraram na área de monitoramento e diagnóstico com o Service Fabric. Os cenários apresentados abrangem todas as 3 camadas do service fabric: Aplicativos, Cluster e infraestrutura. Cada solução usa o Application Insights e logs do Azure Monitor, ferramentas de monitoramento do Azure para concluir cada cenário. As etapas em cada solução dar aos usuários uma introdução sobre como usar o Application Insights e Azure Monitor registra em log no contexto do Service Fabric.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites-and-recommendations"></a>Pré-requisitos e recomendações
 
@@ -63,19 +65,19 @@ As soluções neste artigo usará as ferramentas a seguir. Recomendamos que voc�
 1. Eventos de nó são controlados pelo cluster do Service Fabric. Navegue para o recurso da solução de Análise do Service Fabric chamado **ServiceFabric(NameofResourceGroup)**
 2. Clique no gráfico na parte inferior da folha intitulado "Resumo"
 
-    ![Solução do Log Analytics](media/service-fabric-diagnostics-common-scenarios/oms-solution-azure-portal.png)
+    ![Solução de logs do Azure Monitor](media/service-fabric-diagnostics-common-scenarios/oms-solution-azure-portal.png)
 
 3. Aqui, você tem muitos gráficos e blocos exibindo várias métricas. Clique em um dos gráficos, e ele o levará para a Pesquisa de Logs. Aqui, você pode consultar quaisquer eventos de cluster ou os contadores de desempenho.
 4. Insira a consulta a seguir. Essas IDs de evento são encontradas na [Referência de eventos de nó](service-fabric-diagnostics-event-generation-operational.md#application-events)
 
     ```kusto
     ServiceFabricOperationalEvent
-    | where EventId >= 25623 or EventId <= 25626
+    | where EventID >= 25622 and EventID <= 25626
     ```
 
 5. Clique em "Nova Regra de Alerta" na parte superior, e agora, sempre que um evento chegar com base nessa consulta, você receberá um alerta no seu método de comunicação escolhido.
 
-    ![Novo alerta do Log Analytics](media/service-fabric-diagnostics-common-scenarios/oms-create-alert.png)
+    ![O Azure Monitor registra em log novo alerta](media/service-fabric-diagnostics-common-scenarios/oms-create-alert.png)
 
 ## <a name="how-can-i-be-alerted-of-application-upgrade-rollbacks"></a>Como posso ser avisado de reversões de atualização de aplicativo?
 
@@ -83,7 +85,7 @@ As soluções neste artigo usará as ferramentas a seguir. Recomendamos que voc�
 
     ```kusto
     ServiceFabricOperationalEvent
-    | where EventId == 29623 or EventId == 29624
+    | where EventID == 29623 or EventID == 29624
     ```
 
 2. Clique em "Nova Regra de Alerta" na parte superior, e agora, sempre que um evento chegar com base nessa consulta, você receberá um alerta.
@@ -109,16 +111,15 @@ A mesma exibição com todos os gráficos, você verá alguns blocos para o dese
 
 3. Clique em Dados > Contadores de Desempenho do Windows (Dados > Contadores de Desempenho do Linux para Máquinas Linux) para começar a coletar contadores específicos de seus nós através do Agente do Log Analytics. Aqui estão exemplos de formato para os contadores a serem adicionados
 
-    * `.NET CLR Memory(<ProcessNameHere>)\\# Total committed Bytes`
-    * `Processor(_Total)\\% Processor Time`
-    * `Service Fabric Service(*)\\Average milliseconds per request`
+   * `.NET CLR Memory(<ProcessNameHere>)\\# Total committed Bytes`
+   * `Processor(_Total)\\% Processor Time`
 
-    No início rápido, VotingData e VotingWeb são os nomes de processo usados, portanto, como seria o acompanhamento desses contadores
+     No início rápido, VotingData e VotingWeb são os nomes de processo usados, portanto, como seria o acompanhamento desses contadores
 
-    * `.NET CLR Memory(VotingData)\\# Total committed Bytes`
-    * `.NET CLR Memory(VotingWeb)\\# Total committed Bytes`
+   * `.NET CLR Memory(VotingData)\\# Total committed Bytes`
+   * `.NET CLR Memory(VotingWeb)\\# Total committed Bytes`
 
-    ![Contadores de desempenho do Log Analytics](media/service-fabric-diagnostics-common-scenarios/omsperfcounters.png)
+     ![Contadores de desempenho do Log Analytics](media/service-fabric-diagnostics-common-scenarios/omsperfcounters.png)
 
 4. Isso permitirá que você veja como sua infraestrutura está manipulando as cargas de trabalho e definirá alertas relevantes com base na utilização de recursos. Por exemplo, talvez você queira definir um alerta se a utilização total do processador ficar acima de 90% ou abaixo de 5%. O nome do contador que você usaria para isso é "% do Tempo do Processador". Você poderá fazer isso criando uma regra de alerta para a consulta a seguir:
 
@@ -128,7 +129,10 @@ A mesma exibição com todos os gráficos, você verá alguns blocos para o dese
 
 ## <a name="how-do-i-track-performance-of-my-reliable-services-and-actors"></a>Como acompanhar o desempenho de meu Reliable Services e Atores?
 
-Para rastrear o desempenho de Reliable Services e Atores em seus aplicativos, você deverá adicionar o Ator do Service Fabric, o Método de Autor, Serviço e os contadores de Método de Serviço também. Você pode adicionar esses contadores de maneira semelhante, como no cenário acima, aqui estão exemplos de contadores de desempenho de serviço e ator confiáveis para adicionar no Log Analytics:
+Para acompanhar o desempenho de serviços confiáveis ou atores em seus aplicativos, você deve coletar contadores de ator do Service Fabric, o método de ator, serviço e método de serviço. Aqui estão exemplos de reliable service e o ator contadores de desempenho para coletar
+
+>[!NOTE]
+>Contadores de desempenho do Service Fabric não podem ser coletados pelo agente do Log Analytics no momento, mas podem ser coletados pelo [outras soluções de diagnóstico](service-fabric-diagnostics-partners.md)
 
 * `Service Fabric Service(*)\\Average milliseconds per request`
 * `Service Fabric Service Method(*)\\Invocations/Sec`
@@ -141,7 +145,7 @@ Verifique esses links para a lista completa de contadores de desempenho em Relia
 
 * [Configurar alertas no AI](../azure-monitor/app/alerts.md) para ser notificado sobre mudanças no desempenho ou uso
 * [Detecção Inteligente no Application Insights](../azure-monitor/app/proactive-diagnostics.md) realiza uma análise pró-ativa da telemetria enviada ao AI para avisá-lo sobre possíveis problemas de desempenho
-* Saiba mais sobre os alertas do [Log Analytics](../log-analytics/log-analytics-alerts.md) para auxiliar na detecção e no diagnóstico.
-* Para clusters locais, o Log Analytics oferece um gateway (Proxy de Encaminhamento HTTP) que pode ser usado para enviar dados ao Log Analytics. Leia mais sobre isso em [Conectar computadores sem acesso à Internet ao Log Analytics usando o gateway do Log Analytics](../azure-monitor/platform/gateway.md)
-* Familiarize-se com os recursos de [pesquisa e consulta de logs](../log-analytics/log-analytics-log-searches.md) oferecidos como parte do Log Analytics
-* Obtenha uma visão mais detalhada do Log Analytics e o que ele oferece, leia [O que é o Log Analytics?](../operations-management-suite/operations-management-suite-overview.md)
+* Saiba mais sobre os logs do Azure Monitor [alertas](../log-analytics/log-analytics-alerts.md) para auxiliar na detecção e diagnóstico.
+* Para clusters locais, os logs do Azure Monitor oferece um gateway (HTTP Forward Proxy) que pode ser usado para enviar dados para os logs do Azure Monitor. Leia mais sobre isso em [conectar computadores sem acesso à Internet para os logs do Azure Monitor usando o gateway do Log Analytics](../azure-monitor/platform/gateway.md)
+* Familiarize-se com o [pesquisa e consulta de log](../log-analytics/log-analytics-log-searches.md) recursos oferecidos como parte dos logs do Azure Monitor
+* Obtenha uma visão mais detalhada do logs do Azure Monitor e o que ele oferece, leia [What ' s logs do Azure Monitor?](../operations-management-suite/operations-management-suite-overview.md)

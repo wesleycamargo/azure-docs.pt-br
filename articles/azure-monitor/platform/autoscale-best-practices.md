@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 85a326c97ecf8476bdd802a718e082d0e5c7a89c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 3700fb90318da3787830f9b6c202436c0e45e2fe
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467343"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454095"
 ---
 # <a name="best-practices-for-autoscale"></a>Práticas recomendadas para Dimensionamento Automático
 O dimensionamento automático do Azure Monitor aplica-se somente aos [Conjuntos de Dimensionamento de Máquinas Virtuais](https://azure.microsoft.com/services/virtual-machine-scale-sets/), aos [Serviços de Nuvem](https://azure.microsoft.com/services/cloud-services/), ao [Serviço de Aplicativo – Aplicativos Web](https://azure.microsoft.com/services/app-service/web/) e aos [Serviços de Gerenciamento de API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
@@ -38,7 +38,7 @@ Se você tiver uma configuração que tenha no máximo = 2, mínimo = 2 e atual 
 Se você atualizar manualmente a contagem de instâncias para um valor acima ou abaixo do máximo, o mecanismo de dimensionamento automático dimensionará novamente para o mínimo (se estiver abaixo) ou máximo (se estiver acima) automaticamente. Por exemplo, você pode definir o intervalo entre 3 e 6. Se você tiver uma instância em execução, o mecanismo de dimensionamento automático dimensionará para três instâncias na sua próxima execução. Da mesma forma, se você definir manualmente a escala para oito instâncias, na próxima execução, o dimensionamento automático será dimensionado de volta para seis instâncias na sua próxima execução.  O dimensionamento manual é muito temporário, a menos que você também redefina as regras de dimensionamento automático.
 
 ### <a name="always-use-a-scale-out-and-scale-in-rule-combination-that-performs-an-increase-and-decrease"></a>Sempre use uma combinação de regras de escala e redução horizontal que executa um aumento e uma redução
-Se você usar apenas uma parte da combinação, o dimensionamento automático só terá ação em uma única direção (escala horizontal ou redução horizontal) até atingir o máximo ou mínimo de contagens de instâncias definidas no perfil. Isso não é ideal, o ideal é que você deseja que seu recurso escale verticalmente em momentos de alto uso para garantir a disponibilidade. Da mesma forma, em momentos de pouco uso, você deseja que seu recurso reduza verticalmente para economizar custos.
+Se você usar apenas uma parte da combinação, dimensionamento automático só terão ação em uma única direção (escala horizontal, ou) até atingir o máximo ou contagens de instâncias mínima de definido no perfil. Isso não é ideal, o ideal é que você deseja que seu recurso escale verticalmente em momentos de alto uso para garantir a disponibilidade. Da mesma forma, em momentos de pouco uso, você deseja que seu recurso reduza verticalmente para economizar custos.
 
 ### <a name="choose-the-appropriate-statistic-for-your-diagnostics-metric"></a>Escolher a estatística apropriada para sua métrica de diagnóstico
 Para métricas de diagnóstico, você pode escolher entre *Média*, *Mínimo*, *Máximo* e *Total* como uma métrica para expandir. A estatística mais comum é *Média*.

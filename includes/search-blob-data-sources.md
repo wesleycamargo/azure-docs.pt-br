@@ -2,17 +2,17 @@
 author: mgottein
 ms.service: search
 ms.topic: include
-ms.date: 11/25/2018
+ms.date: 03/01/2019
 ms.author: magottei
-ms.openlocfilehash: 0f11ea02afb1f59afda215c7d95a660df6155b62
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.openlocfilehash: 4a9ed5dcb32d0e53f933b7da9163a5c8c4b4aa43
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52439970"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57318420"
 ---
 * PDF
-* Formatos do Microsoft Office: DOCX/DOC, XLSX/XLS, PPT/PPTX, MSG (emails do Outlook)  
+* Formatos do Microsoft Office: DOCX/DOC, XLSX/XLS, ppt/PPTX, MSG (emails do Outlook)  
 * HTML
 * XML
 * ZIP
@@ -23,5 +23,5 @@ ms.locfileid: "52439970"
 * CSV (consulte a versão prévia do recurso [Indexando blobs CSV](../articles/search/search-howto-index-csv-blobs.md))
 
 > [!IMPORTANT]
-> No momento, o suporte para matrizes em CSV e JSON está na versão prévia. Esses formatos são disponíveis somente com a versão **2016-09-01-Preview** da API REST ou a versão 2.x-preview do SDK do .NET. Lembre-se de que as APIs de visualização servem para teste e avaliação, e não devem ser usadas em ambientes de produção.
+> No momento, o suporte para matrizes em CSV e JSON está na versão prévia. Esses formatos são disponíveis somente com a versão **2017-11-11-Preview** da API REST ou a versão 7. x-preview do SDK do .NET. Lembre-se de que as APIs de visualização servem para teste e avaliação, e não devem ser usadas em ambientes de produção.
 >

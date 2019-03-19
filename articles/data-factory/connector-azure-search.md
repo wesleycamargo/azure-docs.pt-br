@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: aa6c6a35a66569d5db182e1871012b9697c2802c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 1c8cbcd2e5f137b1e8381dcce164ae9a4b87e804
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023338"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852833"
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Copiar dados em um índice do Azure Search usando o Azure Data Factory
 
@@ -43,13 +43,13 @@ As propriedades a seguir têm suporte no serviço vinculado do Azure Search:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **AzureSearch** | SIM |
-| URL | URL para o serviço Azure Search. | SIM |
-| chave | Chave de administração para o serviço Azure Search. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | SIM |
+| Tipo | A propriedade type deve ser definida como: **AzureSearch** | Sim |
+| URL | URL para o serviço Azure Search. | Sim |
+| chave | Chave de administração para o serviço Azure Search. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime do Azure ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não  |
 
 > [!IMPORTANT]
-> Ao copiar dados de um armazenamento de dados de nuvem para o índice do Azure Search, você precisa referenciar um Integration Runtime do Azure no serviço vinculado do Azure Search com a região explícita no connactVia. Defina a região como a que seu Azure Search reside. Aprenda mais do [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime).
+> Ao copiar dados de um armazenamento de dados de nuvem no índice de Azure Search, no Azure Search, serviço vinculado, você precisa para se referir a um tempo de execução de integração do Azure com a região explícita no connactVia. Defina a região como a que seu Azure Search reside. Aprenda mais do [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime).
 
 **Exemplo:**
 
@@ -81,8 +81,8 @@ Para copiar dados no Azure Search, defina a propriedade type do conjunto de dado
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como: **AzureSearchIndex** | SIM |
-| indexName | Nome do índice do Azure Search. O Data Factory não cria o índice. O índice deve existir no Azure Search. | SIM |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como: **AzureSearchIndex** | Sim |
+| indexName | Nome do índice do Azure Search. O Data Factory não cria o índice. O índice deve existir no Azure Search. | Sim |
 
 **Exemplo:**
 
@@ -112,7 +112,7 @@ Para copiar no Azure Search, defina o tipo de fonte na atividade de cópia como 
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **AzureSearchIndexSink** | SIM |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **AzureSearchIndexSink** | Sim |
 | writeBehavior | Especifica se deve mesclar ou substituir quando já existe um documento no índice. Veja a [propriedade WriteBehavior](#writebehavior-property).<br/><br/>Valores permitidos são: **Mesclar** (padrão) e **Carregar**. | Não  |
 | writeBatchSize | Carrega dados para o índice do Azure Search quando o tamanho do buffer atinge writeBatchSize. Veja a [propriedade WriteBatchSize](#writebatchsize-property) para obter detalhes.<br/><br/>Os valores permitidos são: inteiros de 1 a 1.000; o valor padrão é 1.000. | Não  |
 
@@ -172,7 +172,7 @@ A tabela a seguir especifica se um tipo de dados do Azure Search tem suporte ou 
 | Cadeia de caracteres | S |
 | Int32 | S |
 | Int64 | S |
-| Duplo | S |
+| Double | S |
 | BOOLEAN | S |
 | DataTimeOffset | S |
 | Matriz de cadeia de caracteres | N |

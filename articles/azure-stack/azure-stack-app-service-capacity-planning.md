@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
-ms.author: jeffgilb
+ms.date: 03/13/2019
+ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 2c726675d799a8bb5f9ed1d1dd595aa7f4700036
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.lastreviewed: 03/13/2019
+ms.openlocfilehash: 06bafbcf3e668ba17b1245b9352e942e02569997
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774585"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852350"
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Planejamento de capacidade para funções de servidor do serviço de aplicativo do Azure no Azure Stack
 
@@ -93,9 +93,17 @@ Ao decidir sobre o número de funções de trabalho compartilhada na web para us
 
    Para obter informações sobre como adicionar mais instâncias de trabalho, consulte [adicionando mais funções de trabalho](azure-stack-app-service-add-worker-roles.md).
 
+### <a name="additional-considerations-for-dedicated-workers-during-upgrade-and-maintenance"></a>Considerações adicionais para trabalhadores dedicados durante a atualização e manutenção
+
+Durante a atualização e manutenção de trabalhadores, serviço de aplicativo do Azure no Azure Stack irá realizar a manutenção em 20% de cada camada de trabalho a qualquer momento.  Portanto, os administradores de nuvem sempre devem manter um pool de 20% dos trabalhadores não alocados por camada de trabalho para garantir que seus locatários tenham qualquer perda de serviço durante a atualização e manutenção.  Por exemplo, se você tiver 10 funcionários em uma camada de trabalho você deve garantir que 2 são não alocado para permitir a atualização e manutenção, se o total de 10 funcionários se tornam alocados você deve expandir a camada de trabalho para manter um pool de trabalhadores não alocados. Durante a atualização e manutenção de serviço de aplicativo do Azure será mover cargas de trabalho para trabalhadores não alocados para garantir que as cargas de trabalho continuará a operar no entanto se não houver nenhum trabalhador não alocado disponível durante a atualização, em seguida, há será o potencial para carga de trabalho de locatário tempo de inatividade.  Com relação a trabalhadores compartilhados, os clientes não precisará provisionar trabalhos adicionais, como o serviço alocará aplicativos de locatário em que os trabalhadores disponíveis automaticamente, para alta disponibilidade, no entanto, há um requisito mínimo para dois trabalhadores neste camada.
+
+Administradores de nuvem podem monitorar a alocação de camada de trabalho na área de administração do serviço de aplicativo no portal de administração do Azure Stack.  Navegue até o serviço de aplicativo e, em seguida, selecione as camadas de trabalhador no painel esquerdo.  A tabela de camadas de trabalho mostra o nome da camada de trabalho, o tamanho, o imagem usada, o número de trabalhadores disponíveis (não alocado), o número total de trabalhadores em cada camada e o estado geral do que a camada de trabalho.
+
+![Administração do serviço de aplicativo - camadas de trabalhador][1]
+
 ## <a name="file-server-role"></a>Função de servidor de arquivos
 
-Para a função de servidor de arquivos, você pode usar um servidor de arquivos autônomo para desenvolvimento e teste; Por exemplo, ao implantar o serviço de aplicativo do Azure sobre o Azure Stack desenvolvimento ASDK (Kit) você pode usar este modelo: https://aka.ms/appsvconmasdkfstemplate. Para fins de produção, você deve usar um servidor de arquivos do Windows pré-configurado ou um servidor de arquivos de não Windows pré-configurado.
+Para a função de servidor de arquivos, você pode usar um servidor de arquivos autônomo para desenvolvimento e teste; Por exemplo, ao implantar o serviço de aplicativo do Azure sobre o Azure Stack desenvolvimento ASDK (Kit) você pode usar isso [modelo](https://aka.ms/appsvconmasdkfstemplate).  Para fins de produção, você deve usar um servidor de arquivos do Windows pré-configurado ou um servidor de arquivos de não Windows pré-configurado.
 
 Em ambientes de produção, a função de servidor de arquivos apresenta e/s de disco intensiva. Como ela abriga todos os arquivos de conteúdo e de aplicativos para sites de usuário, você deve pré-configurar um dos seguintes recursos para esta função:
 
@@ -105,10 +113,13 @@ Em ambientes de produção, a função de servidor de arquivos apresenta e/s de 
 - Cluster de servidor de arquivos de não-Windows
 - Dispositivo NAS (Network Attached Storage)
 
-Para obter mais informações, consulte [provisionar um servidor de arquivos](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server).
+Consulte o seguinte artigo para obter mais informações, [provisionar um servidor de arquivos](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Consulte o seguinte artigo para obter mais informações:
 
 [Antes de começar com o serviço de aplicativo no Azure Stack](azure-stack-app-service-before-you-get-started.md)
+
+<!--Image references-->
+[1]: ./media/azure-stack-app-service-capacity-planning/worker-tier-allocation.png

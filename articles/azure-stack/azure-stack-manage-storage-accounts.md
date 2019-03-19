@@ -15,12 +15,12 @@ ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: bce00300e62b3ea04331530bbda2c16f0ddd2ab3
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 840445b2c1a28d294027c7fbfda9e6bf6e431f14
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57759365"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57990705"
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Gerenciar contas de armazenamento no Azure Stack
 
@@ -45,7 +45,7 @@ Se você estiver interessado em uma determinada conta de armazenamento – você
 **Para filtrar as contas:**
 
 1. Selecione **filtro** na parte superior do painel.
-2. O painel de filtro, ele permite que você especifique **nome da conta**, * * ID de assinatura, ou **status** para ajustar a lista de contas de armazenamento a ser exibido. Use-os conforme apropriado.
+2. O painel de filtro, ele permite que você especifique **nome da conta**, **ID da assinatura**, ou **status** para ajustar a lista de contas de armazenamento a ser exibido. Use-os conforme apropriado.
 3. Selecione **Atualização**. A lista deve ser atualizada adequadamente.
    
     ![](media/azure-stack-manage-storage-accounts/image5.png)

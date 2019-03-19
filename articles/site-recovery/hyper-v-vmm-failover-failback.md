@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: ef360fd56c3530a49c2f36846db34b29ca1cf444
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: 3890283f70bfd922d0c436f76b38d7f81d7b8c6f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788011"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107011"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Executar failover e failback em VMs do Hyper-V replicadas para o site local secundário
 
@@ -49,7 +49,7 @@ Você pode executar um failover planejado ou regular para VMs do Hyper-V.
 - Use um failover regular nas interrupções inesperadas. Quando você executa esse failover, o Site Recovery cria e liga uma VM no site secundário. Pode ocorrer perda de dados dependendo de dados pendentes que ainda não foram sincronizados.
 - Um failover planejado pode ser usado para manutenção ou durante uma interrupção esperada. Essa opção não causa perda de dados. Quando um failover planejado é disparado, as VMs de origem são desligadas. Os dados não sincronizados são sincronizados e o failover é disparado. 
 - 
-Este procedimento descreve como executar um failover regular.
+  Este procedimento descreve como executar um failover regular.
 
 
 1. Em **Configurações** > **Itens replicados** clique em VM > **Failover**.

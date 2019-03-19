@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: reference
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: 2051a14532f00f24be0c8cb0ca03a7b2b4078a45
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: d667dadeb2e7c9d0005ab8d1a565017973038aaa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56457006"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905147"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Guia para a linguagem de especificação de rede neural Net # para o Microsoft Azure Machine Learning Studio
 
@@ -216,17 +216,16 @@ Há dois conjuntos de propriedades que controlam o preenchimento, sendo as propr
 + **UpperPad** e **LowerPad**: (opcional) fornecem maior controle sobre a quantidade de preenchimento a ser usada. **Importante:** Esses atributos podem ser definidos se, e somente se, a propriedade **Padding** acima ***não*** estiver definida. Os valores devem ser tuplas de números inteiros com comprimentos igual à aridade do pacote. Quando esses atributos são especificados, nós "falsos" são adicionados às extremidades inferior e superior de cada dimensão da camada de entrada. O número de nós adicionados às extremidades inferior e superior em cada dimensão é determinado por **LowerPad**[i] e **UpperPad**[i], respectivamente.
 
     Para assegurar que os kernels correspondam somente a nós "reais" e não a nós "falsos", as condições a seguir precisam ser satisfeitas:
-      - Cada componente de **LowerPad** precisa ser estritamente menor que `KernelShape[d]/2`.
-      - Cada componente de **UpperPad** não pode ser maior que `KernelShape[d]/2`.
-      - O valor padrão desses atributos é uma tupla com todos os componentes iguais a 0.
+  - Cada componente de **LowerPad** precisa ser estritamente menor que `KernelShape[d]/2`.
+  - Cada componente de **UpperPad** não pode ser maior que `KernelShape[d]/2`.
+  - O valor padrão desses atributos é uma tupla com todos os componentes iguais a 0.
 
     A configuração **Padding** = true permite o preenchimento necessário para manter o "centro" do kernel dentro da entrada "real". Isso altera um pouco o cálculo para computar o tamanho da saída. Em geral, o tamanho da saída *D* é computado como `D = (I - K) / S + 1`, em que `I` é o tamanho da entrada, `K` é o tamanho do kernel, `S` é o stride e `/` é a divisão do número inteiro (aproximado para zero). Se você definir UpperPad = [1, 1], o tamanho da entrada `I` será efetivamente 29 e, portanto, `D = (29 - 5) / 2 + 1 = 13`. No entanto, quando **Padding** = true, essencialmente `I` e aumentado por `K - 1`; com isso, `D = ((28 + 4) - 5) / 2 + 1 = 27 / 2 + 1 = 13 + 1 = 14`. Ao especificar os valores para **UpperPad** e **LowerPad**, você obtém muito mais controle sobre o preenchimento do que se configurar apenas **Padding** = true.
 
 Para mais informações sobre redes convolucionais e seus aplicativos, consulte esses artigos:
 
-+ [http://deeplearning.net/tutorial/lenet.html ](http://deeplearning.net/tutorial/lenet.html)
-+ [http://research.microsoft.com/pubs/68920/icdar03.pdf](https://research.microsoft.com/pubs/68920/icdar03.pdf)
-+ [http://people.csail.mit.edu/jvb/papers/cnn_tutorial.pdf](http://people.csail.mit.edu/jvb/papers/cnn_tutorial.pdf)
++ [http://deeplearning.net/tutorial/lenet.html](http://deeplearning.net/tutorial/lenet.html)
++ [https://research.microsoft.com/pubs/68920/icdar03.pdf](https://research.microsoft.com/pubs/68920/icdar03.pdf)
 
 ## <a name="pooling-bundles"></a>Grupos de pooling
 
@@ -252,13 +251,13 @@ hidden P1 [5, 12, 12]
 
 Para mais informações sobre camadas de pooling, consulte esses artigos:
 
-+ [http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) (Seção 3.4)
-+ [http://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf](http://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf)
-+ [http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf](http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf)
++ [https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf](https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) (Seção 3.4)
++ [https://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf](https://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf)
++ [https://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf](https://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf)
 
 ## <a name="response-normalization-bundles"></a>Grupos de normalização de resposta
 
-A **normalização de resposta** é um esquema de normalização local introduzido por Geoffrey Hinton, com outros autores, no artigo [ImageNet Classification with Deep Convolutional Neural Networks](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) (Classificação ImageNet com redes neurais convolucionais profundas).
+A **normalização de resposta** é um esquema de normalização local introduzido por Geoffrey Hinton, com outros autores, no artigo [ImageNet Classification with Deep Convolutional Neural Networks](https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) (Classificação ImageNet com redes neurais convolucionais profundas).
 
 A normalização de resposta é usada para auxiliar na generalização de redes neurais. Quando um neurônio está disparando em um nível de ativação muito alto, uma camada de normalização de resposta local suprime o nível de ativação dos neurônios circundantes. Isso é feito usando três parâmetros (`α`, `β` e `k`) e uma estrutura convolucional (ou forma de zona próxima). Todo neurônio na camada de destino **y** corresponde a um neurônio **x** na camada de origem. O nível de ativação de **y** é fornecido pela fórmula a seguir, na qual `f` é o nível de ativação de um neurônio, e `Nx` é o kernel (ou o conjunto contendo os neurônios na zona próxima a **x**), conforme definido pela seguinte estrutura convolucional:
 
@@ -463,4 +462,4 @@ output Digit [10] from Hid3 all;
 
 ## <a name="acknowledgements"></a>Confirmações
 
-A linguagem Net# para personalizar a arquitetura das redes neurais foi desenvolvida na Microsoft por Shon Katzenberger (arquiteto, Machine Learning) e Alexey Kamenev (engenheiro de software, Microsoft Research). Ela é usada internamente para projetos de aprendizado de máquina e aplicativos que vão de detecção de imagem a análise de texto. Para obter mais informações, veja [Redes neurais no Azure Machine Learning Studio – Introdução ao Net#](http://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx)
+A linguagem Net# para personalizar a arquitetura das redes neurais foi desenvolvida na Microsoft por Shon Katzenberger (arquiteto, Machine Learning) e Alexey Kamenev (engenheiro de software, Microsoft Research). Ela é usada internamente para projetos de aprendizado de máquina e aplicativos que vão de detecção de imagem a análise de texto. Para obter mais informações, veja [Redes neurais no Azure Machine Learning Studio – Introdução ao Net#](https://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx)

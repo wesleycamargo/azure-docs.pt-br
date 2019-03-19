@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 5e56579a856f7b6259acddcbe34f2e5361505cb5
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 3ee582e2541e4eb55e5ea1424782df132ecf3575
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217604"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116547"
 ---
 # <a name="connect-to-other-cognitive-services"></a>Conectar-se a outros serviços cognitivos
 
@@ -33,27 +33,27 @@ O Content Moderator inclui esses conectores padrão:
 
 Antes de definir um fluxo de trabalho, verifique se você tem credenciais válidas para a API do conector que você deseja usar:
 
-1.  No painel da ferramenta de análise, selecione **Configurações** > **Conectores**.
+1. No painel da ferramenta de análise, selecione **Configurações** > **Conectores**.
 
-  ![No Content Moderator, selecione Conectores](images/connectors-2.png)
+   ![No Content Moderator, selecione Conectores](images/connectors-2.png)
 
-2.  Selecione o símbolo **Editar** ao lado do conector para o qual você deseja verificar as credenciais.
+2. Selecione o símbolo **Editar** ao lado do conector para o qual você deseja verificar as credenciais.
 
-  ![No Content Moderator, selecione o símbolo Editar](images/connectors-3.png)
+   ![No Content Moderator, selecione o símbolo Editar](images/connectors-3.png)
 
-3.  A chave de assinatura é exibida. Se você fizer qualquer edição, selecione **Salvar** quando tiver terminado.
+3. A chave de assinatura é exibida. Se você fizer qualquer edição, selecione **Salvar** quando tiver terminado.
 
-  ![Página Editar conectores do Content Moderator](images/connectors-4-1.png)
+   ![Página Editar conectores do Content Moderator](images/connectors-4-1.png)
  
 ## <a name="add-a-connector"></a>Adicionar um conexão
 
-1.  Antes de adicionar um conector, você precisa de uma chave de assinatura. No painel da ferramenta de análise, selecione **Configurações** > **Credenciais**. Selecione e copie o valor da caixa **Ocp-Admin-Subscription-Key**.
+1. Antes de adicionar um conector, você precisa de uma chave de assinatura. No painel da ferramenta de análise, selecione **Configurações** > **Credenciais**. Selecione e copie o valor da caixa **Ocp-Admin-Subscription-Key**.
 
-2.  Selecione **Conectores**. Selecione um dos conectores disponíveis que são exibidos no painel da ferramenta de análise. Em seguida, selecione **Conectar**. 
+2. Selecione **Conectores**. Selecione um dos conectores disponíveis que são exibidos no painel da ferramenta de análise. Em seguida, selecione **Conectar**. 
 
-  ![Página Adicionar conector do Content Moderator](images/connectors-5.png)
+   ![Página Adicionar conector do Content Moderator](images/connectors-5.png)
 
-3.  Na caixa **Ocp-Admin-Subscription-Key**, cole a chave que você copiou. Em seguida, selecione **Salvar**.
+3. Na caixa **Ocp-Admin-Subscription-Key**, cole a chave que você copiou. Em seguida, selecione **Salvar**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

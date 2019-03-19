@@ -17,12 +17,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: b52ac4ae2a02208e61aafebe883d33ed27309134
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 77942e24af847f7c8f9680ca793dacf8ba0be55f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194335"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112578"
 ---
 # <a name="redeploy-the-asdk"></a>Reimplantar o ASDK
 Neste artigo, você aprenderá como reimplantar o Azure Stack desenvolvimento ASDK (Kit) em um ambiente de não produção. Como atualizar o ASDK não tiver suporte, você precisará completamente reimplantá-lo para mover para uma versão mais recente. Também é possível reimplantar o ASDK a qualquer momento que você apenas deseja começar do zero.
@@ -39,24 +39,24 @@ Para remover o recurso de registro, use o **AzsRegistration remover** cmdlet par
 
 2. Execute os seguintes comandos do PowerShell para cancelar o registro de sua instalação ASDK e excluir os **azurestack** grupo de recursos da sua assinatura do Azure:
 
-  ```Powershell    
-  #Import the registration module that was downloaded with the GitHub tools
-  Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
+   ```Powershell    
+   #Import the registration module that was downloaded with the GitHub tools
+   Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
 
-  # Provide Azure subscription admin credentials
-  Add-AzureRmAccount
+   # Provide Azure subscription admin credentials
+   Add-AzureRmAccount
 
-  # Provide ASDK admin credentials
-  $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the cloud domain credentials to access the privileged endpoint"
+   # Provide ASDK admin credentials
+   $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the cloud domain credentials to access the privileged endpoint"
 
-  # Unregister Azure Stack
-  Remove-AzsRegistration `
+   # Unregister Azure Stack
+   Remove-AzsRegistration `
       -PrivilegedEndpointCredential $CloudAdminCred `
       -PrivilegedEndpoint AzS-ERCS01
 
-  # Remove the Azure Stack resource group
-  Remove-AzureRmResourceGroup -Name azurestack -Force
-  ```
+   # Remove the Azure Stack resource group
+   Remove-AzureRmResourceGroup -Name azurestack -Force
+   ```
 
 3. Você precisará entrar sua assinatura do Azure e a instalação local do ASDK quando o script é executado.
 4. Quando o script for concluído, você verá mensagens semelhantes aos exemplos a seguir:

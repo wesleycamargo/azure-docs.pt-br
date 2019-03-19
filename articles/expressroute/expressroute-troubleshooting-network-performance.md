@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/20/2017
 ms.author: jonor
 ms.custom: seodec18
-ms.openlocfilehash: dfd55ac12587cf99cc3fc3ff8eac4f4572229396
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 9ec310ffaa9d2bb297abde9341bf7b6c2dc763b4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753488"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995786"
 ---
 # <a name="troubleshooting-network-performance"></a>Solução de problemas de desempenho de rede
 ## <a name="overview"></a>Visão geral
@@ -180,25 +180,25 @@ Configuração do teste:
 | | | | | | |
 |-|-|-|-|-|-|
 |ExpressRoute<br/>Local padrão|Azure<br/>Região|Estimada (km)<br/>Distância|Latency|Sessão 1<br/>Largura de banda|Máximo<br/>Largura de banda|
-| Seattle | Oeste dos EUA 2        |    191 km |   5 ms | 262,0 Mbits/s |  3,74 Gbits/s | 21
-| Seattle | Oeste dos EUA          |  1.094 km |  18 ms |  82,3 Mbits/s |  3,70 Gbits/s | 20
-| Seattle | Centro dos EUA       |  2.357 km |  40 ms |  38,8 Mbits/s |  2,55 Gbits/s | 17
-| Seattle | Centro-Sul dos Estados Unidos |  2.877 km |  51 ms |  30,6 Mbits/s |  2,49 Gbits/s | 19
-| Seattle | Centro-Norte dos EUA |  2.792 km |  55 ms |  27,7 Mbits/s |  2,19 Gbits/s | 18
-| Seattle | Leste dos EUA 2        |  3.769 km |  73 ms |  21,3 Mbits/s |  1,79 Gbits/s | 16
-| Seattle | Leste dos EUA          |  3.699 km |  74 ms |  21,1 Mbits/s |  1,78 Gbits/s | 15
-| Seattle | Leste do Japão       |  7.705 km | 106 ms |  14,6 Mbits/s |  1,22 Gbits/s | 28
-| Seattle | Sul do Reino Unido         |  7.708 km | 146 ms |  10,6 Mbits/s |   896 Mbits/s | 24
-| Seattle | Europa Ocidental      |  7.834 km | 153 ms |  10,2 Mbits/s |   761 Mbits/s | 23
-| Seattle | Leste da Austrália   | 12.484 km | 165 ms |   9,4 Mbits/s |   794 Mbits/s | 26
-| Seattle | Sudeste Asiático   | 12.989 km | 170 ms |   9,2 Mbits/s |   756 Mbits/s | 25
-| Seattle | Sul do Brasil *   | 10.930 km | 189 ms |   8,2 Mbits/s |   699 Mbits/s | 22
-| Seattle | Sul da Índia      | 12.918 km | 202 ms |   7,7 Mbits/s |   634 Mbits/s | 27
+| Seattle | Oeste dos EUA 2        |    191 km |   5 ms | 262,0 Mbits/s |  3,74 Gbits/s |
+| Seattle | Oeste dos EUA          |  1.094 km |  18 ms |  82,3 Mbits/s |  3,70 Gbits/s |
+| Seattle | Centro dos EUA       |  2.357 km |  40 ms |  38,8 Mbits/s |  2,55 Gbits/s |
+| Seattle | Centro-Sul dos Estados Unidos |  2.877 km |  51 ms |  30,6 Mbits/s |  2,49 Gbits/s |
+| Seattle | Centro-Norte dos EUA |  2.792 km |  55 ms |  27,7 Mbits/s |  2,19 Gbits/s |
+| Seattle | Leste dos EUA 2        |  3.769 km |  73 ms |  21,3 Mbits/s |  1,79 Gbits/s |
+| Seattle | Leste dos EUA          |  3.699 km |  74 ms |  21,1 Mbits/s |  1,78 Gbits/s |
+| Seattle | Leste do Japão       |  7.705 km | 106 ms |  14,6 Mbits/s |  1,22 Gbits/s |
+| Seattle | Sul do Reino Unido         |  7.708 km | 146 ms |  10,6 Mbits/s |   896 Mbits/s |
+| Seattle | Europa Ocidental      |  7.834 km | 153 ms |  10,2 Mbits/s |   761 Mbits/s |
+| Seattle | Leste da Austrália   | 12.484 km | 165 ms |   9,4 Mbits/s |   794 Mbits/s |
+| Seattle | Sudeste Asiático   | 12.989 km | 170 ms |   9,2 Mbits/s |   756 Mbits/s |
+| Seattle | Sul do Brasil *   | 10.930 km | 189 ms |   8,2 Mbits/s |   699 Mbits/s |
+| Seattle | Sul da Índia      | 12.918 km | 202 ms |   7,7 Mbits/s |   634 Mbits/s |
 
 \* A latência até o Brasil é um bom exemplo em que a distância em linha reta difere significativamente da distância que a fibra percorre. Eu esperava que a latência seria de cerca de 160 ms, mas é de 189 ms na realidade. Essa diferença em relação a minha expectativa poderia indicar um problema de rede em algum lugar, mas é mais provável que o caminho da fibra não vá até o Brasil em uma linha reta e tenha cerca de 1.000 km a mais para chegar até o Brasil, partindo de Seattle.
 
 ## <a name="next-steps"></a>Próximas etapas
-1. Baixe o Kit de ferramentas de conectividade do Azure do GitHub em [http://aka.ms/AzCT][ACT]
+1. Baixe o Kit de ferramentas de conectividade do Azure do GitHub em [https://aka.ms/AzCT][ACT]
 2. Siga as instruções para [teste de desempenho de link][Performance Doc]
 
 <!--Image References-->
@@ -212,15 +212,4 @@ Configuração do teste:
 [Availability Doc]: https://github.com/Azure/NetworkMonitoring/blob/master/AzureCT/AvailabilityTesting.md
 [Network Docs]: https://docs.microsoft.com/azure/index
 [Ticket Link]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview
-[ACT]: http://aka.ms/AzCT
-
-
-
-
-
-
-
-
-
-
-
+[ACT]: https://aka.ms/AzCT

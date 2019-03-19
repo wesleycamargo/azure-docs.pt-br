@@ -5,8 +5,6 @@ services: traffic-manager
 documentationcenter: ''
 author: liumichelle
 manager: dkays
-editor: ''
-ms.assetid: f89be3be-a16f-4d47-bcae-db2ab72ade17
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -14,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
 ms.author: limichel
-ms.openlocfilehash: a6f7a690cac5718216636d3191f348c71bcfb5d6
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 906e1840f35ab14997c727551b893a0219eb78d8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734344"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099011"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Usando os serviços de balanceamento de carga no Azure
 
@@ -70,26 +68,26 @@ O diagrama a seguir mostra a arquitetura desse cenário:
 1. No portal do Azure, clique em **Criar um recurso** > **Rede** > **Perfil do Gerenciador de Tráfego** > **Criar**.
 2. Insira as seguintes informações básicas:
 
-  * **Nome**: Forneça um nome de prefixo DNS ao seu perfil do Gerenciador de Tráfego.
-  * **Método de roteamento**: Selecione a política do método de roteamento de tráfego. Para obter mais informações sobre os métodos, consulte [Sobre os métodos de roteamento de tráfego do Gerenciador de Tráfego](traffic-manager-routing-methods.md).
-  * **Assinatura**: Selecione a assinatura que contém o perfil.
-  * **Grupo de recursos**: Selecione o grupo de recursos que contém o perfil. Pode ser um grupo de recursos novo ou existente.
-  * **Localização do grupo de recursos**: O serviço Gerenciador de Tráfego é global e não está associado a uma localização. No entanto, você deve especificar uma região para o grupo onde residem os metadados associados com o perfil do Gerenciador de Tráfego. Essa localização não tem impacto sobre a disponibilidade de tempo de execução do perfil.
+   * **Nome**: Forneça um nome de prefixo DNS ao seu perfil do Gerenciador de Tráfego.
+   * **Método de roteamento**: Selecione a política do método de roteamento de tráfego. Para obter mais informações sobre os métodos, consulte [Sobre os métodos de roteamento de tráfego do Gerenciador de Tráfego](traffic-manager-routing-methods.md).
+   * **Assinatura**: Selecione a assinatura que contém o perfil.
+   * **Grupo de recursos**: Selecione o grupo de recursos que contém o perfil. Pode ser um grupo de recursos novo ou existente.
+   * **Localização do grupo de recursos**: O serviço Gerenciador de Tráfego é global e não está associado a uma localização. No entanto, você deve especificar uma região para o grupo onde residem os metadados associados com o perfil do Gerenciador de Tráfego. Essa localização não tem impacto sobre a disponibilidade de tempo de execução do perfil.
 
 3. Clique em **Criar** para gerar o perfil do Gerenciador de Tráfego.
 
-  ![Criar folha do Gerenciador de Tráfego](./media/traffic-manager-load-balancing-azure/s1-create-tm-blade.png)
+   ![Criar folha do Gerenciador de Tráfego](./media/traffic-manager-load-balancing-azure/s1-create-tm-blade.png)
 
 ### <a name="step-2-create-the-application-gateways"></a>Etapa 2: Criar os Gateways de Aplicativo
 
 1. No portal do Azure, no painel esquerdo, clique em **Criar um recurso** > **Rede** > **Gateway de Aplicativo**.
 2. Insira as seguintes informações básicas sobre o gateway de aplicativo:
 
-  * **Nome**: O nome do gateway de aplicativo.
-  * **Tamanho do SKU**: O tamanho do Gateway de Aplicativo, disponível como Pequeno, Médio ou Grande.
-  * **Contagem de instâncias**: O número de instâncias, um valor de 2 a 10.
-  * **Grupo de recursos**: O grupo de recursos que armazena o Gateway de Aplicativo. Pode ser um grupo de recursos existente ou um novo.
-  * **Localização**: A região do Gateway de Aplicativo, que é a mesma localização do grupo de recursos. O local é importante porque a rede virtual e o IP público devem estar na mesma localização do que o gateway.
+   * **Nome**: O nome do gateway de aplicativo.
+   * **Tamanho do SKU**: O tamanho do Gateway de Aplicativo, disponível como Pequeno, Médio ou Grande.
+   * **Contagem de instâncias**: O número de instâncias, um valor de 2 a 10.
+   * **Grupo de recursos**: O grupo de recursos que armazena o Gateway de Aplicativo. Pode ser um grupo de recursos existente ou um novo.
+   * **Localização**: A região do Gateway de Aplicativo, que é a mesma localização do grupo de recursos. O local é importante porque a rede virtual e o IP público devem estar na mesma localização do que o gateway.
 3. Clique em **OK**.
 4. Defina a rede virtual, a sub-rede, o IP de front-end e as configurações do ouvinte para o Gateway de Aplicativo. Nesse cenário, o endereço IP de front-end é **Público**, o que permite que ele seja adicionado, mais tarde, como um ponto de extremidade para o perfil do Gerenciador de Tráfego.
 5. Configure o ouvinte com uma das seguintes opções:
@@ -106,11 +104,11 @@ Quando você escolhe um pool de back-end, um Gateway de Aplicativo configurado c
 2. Em **Configurações**, selecione **Pools de back-end** e, em seguida, selecione **Adicionar** para adicionar as VMs que você desejar associar ao pool de back-end de camada da Web.
 3. Digite o nome do pool de back-end e todos os endereços IP dos computadores que residem no pool. Nesse cenário, estamos conectando dois pools de servidores de back-end de máquinas virtuais.
 
-  !["Adicionar pool de back-end" do Gateway de Aplicativo](./media/traffic-manager-load-balancing-azure/s2-appgw-add-bepool.png)
+   !["Adicionar pool de back-end" do Gateway de Aplicativo](./media/traffic-manager-load-balancing-azure/s2-appgw-add-bepool.png)
 
 4. Em **Configurações** de Gateway de Aplicativo, selecione **Regras** e, em seguida, clique no botão **Com base em caminho** para adicionar uma regra.
 
-  ![Botão de "Caminho com base em" de regras de Gateway de Aplicativo](./media/traffic-manager-load-balancing-azure/s2-appgw-add-pathrule.png)
+   ![Botão de "Caminho com base em" de regras de Gateway de Aplicativo](./media/traffic-manager-load-balancing-azure/s2-appgw-add-pathrule.png)
 
 5. Configure a regra fornecendo as informações a seguir.
 
@@ -140,13 +138,13 @@ Nesse cenário, o Gerenciador de Tráfego está conectado a instâncias do gatew
 1. Abra o seu perfil do Gerenciador de Tráfego. Para fazer isso, procure no seu grupo de recursos ou procure o nome do perfil do Gerenciador de Tráfego em **Todos os Recursos**.
 2. No painel esquerdo, selecione **Pontos de Extremidade**e, em seguida, clique em **Adicionar** para adicionar um ponto de extremidade.
 
-  ![Botão “Adicionar” de Pontos de extremidade do Gerenciador de Tráfego](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint.png)
+   ![Botão “Adicionar” de Pontos de extremidade do Gerenciador de Tráfego](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint.png)
 
 3. Crie um ponto de extremidade inserindo as seguintes informações:
 
-  * **Tipo**: Selecione o tipo de ponto de extremidade para o balanceamento de carga. Nesse cenário, selecione **ponto de extremidade do Azure**, já que estamos nos conectando com as instâncias de gateway de aplicativo que foram configuradas anteriormente.
-  * **Nome**: Insira o nome do ponto de extremidade.
-  * **Tipo de recurso de destino**: Selecione **Endereço IP público** e, em seguida, em **Recurso de destino**, selecione o IP público do Gateway de Aplicativo configurado anteriormente.
+   * **Tipo**: Selecione o tipo de ponto de extremidade para o balanceamento de carga. Nesse cenário, selecione **ponto de extremidade do Azure**, já que estamos nos conectando com as instâncias de gateway de aplicativo que foram configuradas anteriormente.
+   * **Nome**: Insira o nome do ponto de extremidade.
+   * **Tipo de recurso de destino**: Selecione **Endereço IP público** e, em seguida, em **Recurso de destino**, selecione o IP público do Gateway de Aplicativo configurado anteriormente.
 
    ![“Adicionar ponto de extremidade” do Gerenciador de Tráfego](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint-blade.png)
 
@@ -173,7 +171,7 @@ Para obter mais informações sobre como configurar um balanceador de carga inte
 1. A partir do grupo de recursos, encontre o balanceador de carga que foi criado nas etapas anteriores.
 2. Em **Configurações**, clique em **Pools de back-end** e clique em **Adicionar** para adicionar um pool de back-end.
 
-  !["Adicionar pool de back-end" do Load Balancer](./media/traffic-manager-load-balancing-azure/s4-ilb-add-bepool.png)
+   !["Adicionar pool de back-end" do Load Balancer](./media/traffic-manager-load-balancing-azure/s4-ilb-add-bepool.png)
 
 3. Digite o nome do pool de back-end.
 4. Adicione máquinas individuais ou uma conjunto de disponibilidade para o pool de back-end.
@@ -182,7 +180,7 @@ Para obter mais informações sobre como configurar um balanceador de carga inte
 
 1. No seu balanceador de carga, abaixo de **Configurações**, selecione **Investigações** e, em seguida, clique em **Adicionar** para adicionar uma investigação.
 
- !["Adicionar teste" do Load Balancer](./media/traffic-manager-load-balancing-azure/s4-ilb-add-probe.png)
+   !["Adicionar teste" do Load Balancer](./media/traffic-manager-load-balancing-azure/s4-ilb-add-probe.png)
 
 2. Digite o nome para a investigação.
 3. Selecione o **Protocolo** para a investigação. Para um banco de dados, é ideal utilizar uma investigação TCP em vez de uma investigação HTTP. Para saber mais sobre investigações de balanceador de carga, consulte [Entender investigações do balanceador de carga](../load-balancer/load-balancer-custom-probe-overview.md).

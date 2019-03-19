@@ -14,27 +14,27 @@ ms.tgt_pltfrm: Windows
 ms.workload: infrastructure-services
 ms.date: 05/09/2016
 ms.author: markscu
-ms.openlocfilehash: 695833fb12c0c7a130e98fe9b3bdfa502672ab29
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
-ms.translationtype: HT
+ms.openlocfilehash: fd5ae375dff80c8b1179d2fd73566d07c5861e4a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30914911"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000347"
 ---
 # <a name="create-matlab-distributed-computing-server-clusters-on-azure-vms"></a>Criar clusters de Servidor de Computação Distribuída MATLAB em VMs do Azure
 Use máquinas virtuais do Microsoft Azure para criar um ou mais clusters de Servidor de Computação Distribuída MATLAB para executar suas cargas de trabalho MATLAB paralelas de computação intensiva. Instale o software de Servidor de Computação Distribuída MATLAB em uma VM para usar como uma imagem de base e usar um modelo de início rápido do Azure ou um script do Azure PowerShell (disponível no [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster)) para implantar e gerenciar o cluster. Após a implantação, conecte-se ao cluster para executar as cargas de trabalho.
 
 ## <a name="about-matlab-and-matlab-distributed-computing-server"></a>Sobre a MATLAB e o Servidor de Computação Distribuída MATLAB
-A plataforma [MATLAB](http://www.mathworks.com/products/matlab/) é otimizada para solucionar problemas de engenharia e científicos. Os usuários da MATLAB com simulações em grande escala e tarefas de processamento de dados podem usar produtos de computação paralela da MathWorks para acelerar suas cargas de trabalho de computação intensiva, aproveitando os clusters de computadores e serviços de grade. [Caixa de Ferramentas de Computação Paralela](http://www.mathworks.com/products/parallel-computing/) permite que os usuários da MATLAB paralelizem aplicativos e aproveitem os processadores de vários núcleos, GPUs e clusters de cálculo. [Servidor de Computação Distribuída MATLAB](http://www.mathworks.com/products/distriben/) permite que os usuários da MATLAB utilizem diversos computadores em um cluster de cálculo.
+A plataforma [MATLAB](https://www.mathworks.com/products/matlab/) é otimizada para solucionar problemas de engenharia e científicos. Os usuários da MATLAB com simulações em grande escala e tarefas de processamento de dados podem usar produtos de computação paralela da MathWorks para acelerar suas cargas de trabalho de computação intensiva, aproveitando os clusters de computadores e serviços de grade. [Caixa de Ferramentas de Computação Paralela](https://www.mathworks.com/products/parallel-computing/) permite que os usuários da MATLAB paralelizem aplicativos e aproveitem os processadores de vários núcleos, GPUs e clusters de cálculo. [Servidor de Computação Distribuída MATLAB](https://www.mathworks.com/products/distriben/) permite que os usuários da MATLAB utilizem diversos computadores em um cluster de cálculo.
 
 Usando máquinas virtuais do Azure, você pode criar clusters de Servidor de Computação Distribuída MATLAB que têm os mesmos mecanismos disponíveis para enviar o trabalho paralelo como clusters locais, como trabalhos interativos, trabalhos em lote, tarefas independentes e tarefas de comunicação. O uso do Azure em conjunto com a plataforma MATLAB traz muitos benefícios em comparação ao provisionamento e o uso de hardware local tradicional: uma gama de tamanhos de máquinas virtuais, criação de clusters sob demanda para que você pague apenas pelos recursos de computação você usa e a capacidade de testar modelos em escala.  
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 * **Computador cliente** : você precisará de um computador cliente baseado no Windows para se comunicar com o Azure e o cluster de Servidor de Computação Distribuída MATLAB após a implantação.
 * **Azure PowerShell** : consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para instalá-lo no computador cliente.
 * **Assinatura do Azure** : se você não tiver uma assinatura, poderá criar uma [conta gratuita](https://azure.microsoft.com/free/) em apenas alguns minutos. Para clusters maiores, considere uma assinatura pré-paga ou outras opções de compra.
 * **Cota de vCPUs** – talvez seja necessário aumentar a cota de vCPUs para implantar um cluster grande ou mais de um cluster de Servidor de Computação Distribuída MATLAB. Para aumentar a cota, [abra uma solicitação de atendimento ao cliente online](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) gratuitamente.
-* **Licenças da MATLAB, Caixa de Ferramentas de Computação Paralela e Servidor de Computação Distribuída MATLAB** : os scripts assumem que o [Gerenciador de Licença Hospedada MathWorks](http://www.mathworks.com/products/parallel-computing/mathworks-hosted-license-manager/) é usado para todas as licenças.  
+* **Licenças da MATLAB, Caixa de Ferramentas de Computação Paralela e Servidor de Computação Distribuída MATLAB** : os scripts assumem que o [Gerenciador de Licença Hospedada MathWorks](https://www.mathworks.com/products/parallel-computing/mathworks-hosted-license-manager/) é usado para todas as licenças.  
 * **Software de Servidor de Computação Distribuída MATLAB** : será instalado em uma VM que será usada como a imagem de VM de base para as VMs do cluster.
 
 ## <a name="high-level-steps"></a>Etapas de alto nível
@@ -72,4 +72,4 @@ Como com outros tipos de clusters de Servidor de Computação Distribuída MATLA
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para obter instruções detalhadas implantar e gerenciar clusters de Servidor de Computação Distribuída MATLAB no Azure, consulte o repositório do [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster) que contém os modelos e scripts.
-* Acesse o site da [MathWorks](http://www.mathworks.com/) para obter a documentação detalhada para MATLAB e Servidor de Computação Distribuída MATLAB.
+* Acesse o site da [MathWorks](https://www.mathworks.com/) para obter a documentação detalhada para MATLAB e Servidor de Computação Distribuída MATLAB.

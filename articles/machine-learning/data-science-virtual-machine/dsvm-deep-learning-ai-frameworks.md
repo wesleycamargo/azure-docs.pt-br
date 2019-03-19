@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 610b140fd6049842b993c17fd53bebf799f83f5c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 59f88d54d3542738f1a500c8c476995eb1535ecf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453137"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58006487"
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Estruturas de Aprendizado Profundo e de AI
 A DSVM ([Máquina Virtual de Ciência de Dados](https://aka.ms/dsvm)) e a [VM de Aprendizado Profundo](https://aka.ms/dsvm/deeplearning) dão suporte a várias estruturas de aprendizado profundo para ajudar a criar aplicativos de AI (Inteligência Artificial) com funcionalidades cognitivas e análise preditiva como entendimento de imagem e linguagem.
@@ -218,8 +218,7 @@ O serviço demora aproximadamente um minuto para iniciar. Abra um navegador da W
 | Como é configurado/instalado no DSVM?  | O PyTorch é instalado em [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition).  |
 | Links para exemplos      | Exemplos de blocos de anotações do Jupyter estão incluídos e exemplos também podem ser encontrados em /dsvm/samples/pytorch.      |
 | Ferramentas relacionadas ao DSVM      | Torch      |
-| Como usá-lo/executá-lo? |
-* Em um terminal: ative o ambiente correto, em seguida, execute o Python. <br/> *Em Jupyter: conecte-se ao [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), em seguida, abra o diretório PyTorch para obter exemplos.  |
+| Como usá-lo/executá-lo? |* Em um terminal: ative o ambiente correto, em seguida, execute o Python. <br/> *Em Jupyter: conecte-se ao [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), em seguida, abra o diretório PyTorch para obter exemplos.  |
 
 ## <a name="mxnet-model-server"></a>Servidor de Modelo MXNet
 

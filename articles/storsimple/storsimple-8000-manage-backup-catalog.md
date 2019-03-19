@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: ac2577c6cd350d6d437d55e61ec73d954cb24893
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 07d9e03f1631ebce88a7a7c2e33be62f21dda522
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108374"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076778"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-backup-catalog"></a>Usar o serviço do Gerenciador de Dispositivos StorSimple para gerenciar o catálogo de backup
 ## <a name="overview"></a>Visão geral
@@ -27,7 +27,7 @@ A folha **Catálogo de backup** do serviço do Gerenciador de Dispositivos do St
 
 Este tutorial explica como listar, selecionar e excluir um conjunto de backup. Para saber como restaurar seu dispositivo de backup, vá para [Restaurar seu dispositivo por meio de um conjunto de backup](storsimple-8000-restore-from-backup-set-u2.md). Para saber como clonar um volume, vá para [Clonar um volume do StorSimple](storsimple-8000-clone-volume-u2.md).
 
-![Catálogo de Backup](./media/storsimple-8000-manage-backup-catalog/bucatalog.png) 
+![Catálogo de backup](./media/storsimple-8000-manage-backup-catalog/bucatalog.png) 
 
 A folha **Catálogo de Backup** fornece uma consulta para restringir sua seleção de conjunto de backup. Você pode filtrar os conjuntos de backup recuperados com base nos seguintes parâmetros:
 
@@ -86,7 +86,7 @@ Exclua um backup quando você não quiser mais manter os dados associados a ele.
 
 #### <a name="to-delete-a-backup-set"></a>Para excluir um conjunto de backups
  Acesse o serviço do Gerenciador de Dispositivos do StorSimple e clique em **Catálogo de backup**.
-2. Filtre as seleções da seguinte maneira:
+1. Filtre as seleções da seguinte maneira:
    
    1. Especifique o intervalo de tempo. 
    2. Selecione o dispositivo adequado. 
@@ -97,15 +97,15 @@ Exclua um backup quando você não quiser mais manter os dados associados a ele.
 
       ![Acesse o catálogo de backup](./media/storsimple-8000-manage-backup-catalog/bucatalog1.png)
 
-3. Selecione e expanda um conjunto de backups. Agora você pode ver os conjuntos de backup divididos pelos volumes que ele contém. As opções **Restaurar** e **Excluir** estão disponíveis por meio do menu de contexto (clique com o botão direito do mouse) para o conjunto de backup. Clique com botão direito do mouse no conjunto de backup selecionado e selecione **Excluir** no menu de contexto.
+1. Selecione e expanda um conjunto de backups. Agora você pode ver os conjuntos de backup divididos pelos volumes que ele contém. As opções **Restaurar** e **Excluir** estão disponíveis por meio do menu de contexto (clique com o botão direito do mouse) para o conjunto de backup. Clique com botão direito do mouse no conjunto de backup selecionado e selecione **Excluir** no menu de contexto.
 
     ![Acesse o catálogo de backup](./media/storsimple-8000-manage-backup-catalog/bucatalog3.png)
 
-4. Quando sua confirmação for solicitada, leia as informações exibidas e clique em **Excluir**. O backup selecionado será excluído permanentemente.
+1. Quando sua confirmação for solicitada, leia as informações exibidas e clique em **Excluir**. O backup selecionado será excluído permanentemente.
 
     ![Acesse o catálogo de backup](./media/storsimple-8000-manage-backup-catalog/bucatalog4.png)  
 
-5. Você será notificado quando a exclusão estiver em andamento e quando ela for concluída com êxito. Após a exclusão, atualize a consulta nesta página. O conjunto de backup excluído não aparecerá mais na lista de conjuntos de backup.
+1. Você será notificado quando a exclusão estiver em andamento e quando ela for concluída com êxito. Após a exclusão, atualize a consulta nesta página. O conjunto de backup excluído não aparecerá mais na lista de conjuntos de backup.
 
     ![Acesse o catálogo de backup](./media/storsimple-8000-manage-backup-catalog/bucatalog7.png)
 

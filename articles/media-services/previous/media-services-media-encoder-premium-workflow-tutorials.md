@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: christoc;xpouyat;juliako
-ms.openlocfilehash: e0f4506afee134f2f6453ea1b1298925ff00084c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: ee0a57ae1ece63964c7873a471ca7ee615c06978
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004575"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57898781"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Tutoriais avançados do fluxo de trabalho do Codificador de Mídia Premium
 ## <a name="overview"></a>Visão geral
@@ -297,7 +297,7 @@ Para o empacotamento dinâmico funcionar junto com os dois arquivos MP4 (e com o
 
 ```xml
     <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-    <smil xmlns="http://www.w3.org/2001/SMIL20/Language">
+    <smil xmlns="https://www.w3.org/2001/SMIL20/Language">
       <head>
         <meta name="formats" content="mp4" />
       </head>
@@ -947,7 +947,7 @@ Com a cláusula de proteção simples abaixo, podemos verificar se o corte é ne
 
 [Codecs e formatos de fluxo de trabalho do Media Encoder Premium](media-services-premium-workflow-encoder-formats.md)
 
-[Exemplos de arquivos de fluxo de trabalho](http://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)
+[Exemplos de arquivos de fluxo de trabalho](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)
 
 [Ferramenta do Explorador dos Serviços de Mídia do Azure](https://aka.ms/amse)
 

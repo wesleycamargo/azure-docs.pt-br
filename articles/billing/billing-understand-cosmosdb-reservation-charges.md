@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: banders
 ms.reviewer: sngun
-ms.openlocfilehash: f83499e52b6405ec5475795a80c5a4325043a441
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: f6549710f90c8d59ed443ab9ae1a302a2d8278d5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904481"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899512"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Entenda como o desconto de reserva é aplicado ao Azure Cosmos DB
 
@@ -111,11 +111,11 @@ Para saber mais sobre as reservas do Azure, consulte os seguintes artigos:
 * [Pagar antecipadamente por recursos do Azure Cosmos DB com capacidade reservada do Azure Cosmos DB](../cosmos-db/cosmos-db-reserved-capacity.md)  
 * [Pagar antecipadamente por recursos de computação de banco de dados SQL com capacidade reservada do Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)  
 * [Gerenciar reservas do Azure](../billing/billing-manage-reserved-vm-instance.md)  
-* [Entender o uso de reserva para a sua assinatura paga conforme o uso](../billing/billing-understand-reserved-instance-usage.md)  
+* [Entenda o uso de instâncias reservadas para sua assinatura de Pagamento Conforme o Uso](../billing/billing-understand-reserved-instance-usage.md)  
 * [Entenda o uso de reservas para o seu registro Enterprise](../billing/billing-understand-reserved-instance-usage-ea.md)  
 * [Entender o uso de reserva para assinaturas de CSP](https://docs.microsoft.com/partner-center/azure-reservations)
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
-Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Se você tiver dúvidas ou precisar de Ajuda, [criar uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 

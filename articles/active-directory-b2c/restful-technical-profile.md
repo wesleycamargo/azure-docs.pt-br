@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 9eb60f9581099813d96cecb9cb88155e64b7caa8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 7ff14af756a55ccc6bbf40dd39d49c5168f4af1f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55154313"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58076319"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico RESTful em uma política personalizada do Azure Active Directory B2C
 
@@ -85,8 +85,8 @@ O perfil técnico também retorna declarações que não são retornadas pelo pr
 
 | Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
-| ServiceUrl | SIM | A URL do ponto de extremidade da API REST. | 
-| AuthenticationType | SIM | O tipo de autenticação que está sendo executada pelo provedor de declarações RESTful. Valores possíveis: `None`, `Basic` ou `ClientCertificate`. O valor `None` indica que a API REST não é anônima. O valor `Basic` indica que a API REST está protegida com a autenticação Básica HTTP. Somente usuários verificados, incluindo Azure AD B2C, podem acessar a API. O valor `ClientCertificate` (recomendado) indica que a API REST restringe o acesso usando a autenticação de certificado do cliente. Somente os serviços que têm certificados adequados, como o Azure AD B2C, poderão acessar seu serviço. | 
+| ServiceUrl | Sim | A URL do ponto de extremidade da API REST. | 
+| AuthenticationType | Sim | O tipo de autenticação que está sendo executada pelo provedor de declarações RESTful. Valores possíveis: `None`, `Basic` ou `ClientCertificate`. O valor `None` indica que a API REST não é anônima. O valor `Basic` indica que a API REST está protegida com a autenticação Básica HTTP. Somente usuários verificados, incluindo Azure AD B2C, podem acessar a API. O valor `ClientCertificate` (recomendado) indica que a API REST restringe o acesso usando a autenticação de certificado do cliente. Somente os serviços que têm certificados adequados, como o Azure AD B2C, poderão acessar seu serviço. | 
 | SendClaimsIn | Não  | Especifica como as declarações de entrada são enviadas para o provedor de declarações RESTful. Valores possíveis: `Body` (padrão), `Form`, `Header` ou `QueryString`. O valor `Body` é a declaração de entrada enviada no corpo da solicitação no formato JSON. O valor `Form` é a declaração de entrada enviada no corpo da solicitação em um formato de valor de chave separado de e comercial '&'. O valor `Header` é a declaração de entrada enviada no cabeçalho da solicitação. O valor `QueryString` é a declaração de entrada enviada na cadeia de caracteres de consulta da solicitação. | 
 | ClaimsFormat | Não  | Especifica o formato para as declarações de saída. Valores possíveis: `Body` (padrão), `Form`, `Header` ou `QueryString`. O valor `Body` é a declaração de saída enviada no corpo da solicitação no formato JSON. O valor `Form` é a declaração de saída enviada no corpo da solicitação em um formato de valor de chave separado de e comercial '&'. O valor `Header` é a declaração de saída enviada no cabeçalho da solicitação. O valor `QueryString` é a declaração de saída enviada na cadeia de consulta de solicitação. | 
 | DebugMode | Não  | Executa o perfil técnico no modo de depuração. No modo de depuração, a API REST pode retornar mais informações. Veja a seção de mensagem de erro retornada. | 
@@ -111,8 +111,8 @@ Se o tipo de autenticação for definido como `Basic`, o elemento **Cryptographi
 
 | Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
-| BasicAuthenticationUsername | SIM | O nome de usuário usado para autenticar. | 
-| BasicAuthenticationPassword | SIM | A senha usada para autenticar. |
+| BasicAuthenticationUsername | Sim | O nome de usuário usado para autenticar. | 
+| BasicAuthenticationPassword | Sim | A senha usada para autenticar. |
 
 O exemplo a seguir mostra um perfil técnico com a autenticação Básica:
 
@@ -136,7 +136,7 @@ Se o tipo de autenticação for definido como `ClientCertificate`, o elemento **
 
 | Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
-| ClientCertificate | SIM | O certificado X509 (conjunto de chaves RSA) a ser usado para autenticar. | 
+| ClientCertificate | Sim | O certificado X509 (conjunto de chaves RSA) a ser usado para autenticar. | 
 
 ```XML
 <TechnicalProfile Id="REST-API-SignUp">
@@ -159,11 +159,11 @@ A API REST talvez precise retornar uma mensagem de erro, como "O usuário não f
 
 | Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
-| version | SIM | 1.0.0 | 
-| status | SIM | 409 | 
+| version | Sim | 1.0.0 | 
+| status | Sim | 409 | 
 | código | Não  | Um código de erro do provedor de ponto de extremidade RESTful, que é exibido quando `DebugMode` está habilitado. | 
 | requestId | Não  | Um identificador de solicitação do provedor de ponto de extremidade RESTful, que é exibido quando `DebugMode` está habilitado. | 
-| userMessage | SIM | Uma mensagem de erro que é mostrada ao usuário. | 
+| userMessage | Sim | Uma mensagem de erro que é mostrada ao usuário. | 
 | developerMessage | Não  | A descrição detalhada do problema e como corrigi-lo, o que é exibido quando `DebugMode` está habilitado. | 
 | moreInfo | Não  | Um URI que aponta para informações adicionais, que são exibidas quando `DebugMode` está habilitado. | 
 
@@ -171,13 +171,13 @@ O exemplo a seguir mostra uma API REST que retorna uma mensagem de erro formatad
 
 ```JSON
 {
-  "version": "1.0.0",
-  "status": 409,
-  "code": "API12345",
-  "requestId": "50f0bd91-2ff4-4b8f-828f-00f170519ddb",
-  "userMessage": "Message for the user", 
-  "developerMessage": "Verbose description of problem and how to fix it.", 
-  "moreInfo": "https://restapi/error/API12345/moreinfo" 
+  "version": "1.0.0",
+  "status": 409,
+  "code": "API12345",
+  "requestId": "50f0bd91-2ff4-4b8f-828f-00f170519ddb",
+  "userMessage": "Message for the user", 
+  "developerMessage": "Verbose description of problem and how to fix it.", 
+  "moreInfo": "https://restapi/error/API12345/moreinfo" 
 }
 ```
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 09/18/2018
 ms.author: anithaa
-ms.openlocfilehash: 06c034968b2577d6321ffe6f55f969547a35931f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: aaa07759ed8b10578d024d5838ac1d2658778695
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054428"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999883"
 ---
 # <a name="create-change-or-delete-service-endpoint-policy-using-the-azure-portal"></a>Criar, alterar ou excluir a política de ponto de extremidade de serviço usando o portal do Azure
 
@@ -35,7 +35,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure 
 
-Entre no Portal do Azure em http://portal.azure.com.
+Entre no Portal do Azure em https://portal.azure.com.
 
 ## <a name="create-a-service-endpoint-policy"></a>Criar uma política de ponto de extremidade de serviço
 

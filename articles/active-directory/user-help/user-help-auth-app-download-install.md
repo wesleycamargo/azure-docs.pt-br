@@ -13,14 +13,17 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e11092057af3a7a16c60e55837f31ac3004e42a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 67393e19a72777d105f1f35a16986c52f52133be
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184832"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079789"
 ---
 # <a name="download-and-install-the-microsoft-authenticator-app"></a>Baixar e instalar o aplicativo Microsoft Authenticator
+>[!Important]
+>Este conteúdo destina-se aos usuários. Se você for um administrador, é possível encontrar mais informações sobre como configurar e gerenciar seu ambiente do Azure Active Directory (Azure AD) na [Documentação do Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
+
 O aplicativo Microsoft Authenticator ajuda você a entrar em suas contas quando você usa a verificação de dois fatores. A verificação de dois fatores ajuda você a acessar suas contas com mais segurança, especialmente durante a exibição de informações confidenciais. Como as senhas podem ser esquecidas, roubadas ou comprometidas, a verificação de dois fatores é uma etapa adicional de segurança que ajuda a proteger sua conta, dificultando que ela seja invadida por outras pessoas.
 
 Você pode usar o aplicativo Microsoft Authenticator de várias maneiras, entre elas:
@@ -29,8 +32,15 @@ Você pode usar o aplicativo Microsoft Authenticator de várias maneiras, entre 
 
 - **Entrada com telefone.** Uma versão da verificação de dois fatores que permite a entrada sem exigir uma senha, usando seu nome de usuário e seu dispositivo móvel com a impressão digital, o rosto ou o PIN.
 
->[!NOTE]
->Caso esteja tendo problemas ao entrar em sua conta, confira [Quando você não consegue entrar em sua conta Microsoft](https://support.microsoft.com/help/12429) para obter ajuda.  Obtenha mais informações sobre o que fazer quando receber a mensagem [“Essa conta Microsoft não existe”](https://support.microsoft.com/help/13811) ao tentar entrar em sua conta Microsoft.
+- **Geração de código.** Como um gerador de código para outras contas que dão suporte a aplicativos de autenticador.
+
+> [!Important]
+> O aplicativo Microsoft Authenticator funciona com qualquer conta que usa a verificação de dois fatores e oferece suporte os padrões com base no tempo de uso único TOTP (senha).
+> 
+> Sua organização pode exigir que você use um aplicativo autenticador para entrar e acessar seus dados e documentos organizacionais. Embora seu nome de usuário possa ser exibido no aplicativo, a conta, na verdade, não está configurada para funcionar como um método de verificação até você concluir o processo de registro. Para obter mais informações, confira [Adicionar sua conta corporativa ou de estudante](user-help-auth-app-add-work-school-account.md).
+> 
+> [!NOTE]
+> Caso esteja tendo problemas ao entrar em sua conta, confira [Quando você não consegue entrar em sua conta Microsoft](https://support.microsoft.com/help/12429) para obter ajuda.  Obtenha mais informações sobre o que fazer quando receber a mensagem [“Essa conta Microsoft não existe”](https://support.microsoft.com/help/13811) ao tentar entrar em sua conta Microsoft.
 
 ## <a name="download-and-install-the-app"></a>Baixar e instalar o aplicativo
 Instale a última versão do aplicativo Microsoft Authenticator, com base no sistema operacional:
@@ -39,7 +49,8 @@ Instale a última versão do aplicativo Microsoft Authenticator, com base no sis
 
 - **Apple iOS.** Em seu dispositivo iOS da Apple, acesse a App Store para [baixar e instalar o aplicativo Microsoft Authenticator](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458).
 
-    >[Importante] Mesmo que você não esteja atualmente em seu dispositivo móvel, ainda pode obter o aplicativo Microsoft Authenticator enviando um link de download para você mesmo a partir da [página do Microsoft Authenticator](https://www.microsoft.com/en-us/account/authenticator).
+>[!Important]
+>Se você não estiver atualmente em seu dispositivo móvel, você ainda pode obter o aplicativo Microsoft Authenticator enviando para você mesmo um link de download a partir de [página do Microsoft Authenticator](https://www.microsoft.com/en-us/account/authenticator).
 
 ## <a name="next-steps"></a>Próximas etapas
 

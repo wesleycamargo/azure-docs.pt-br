@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 157d70b628ca3583cb8134ec1cccc185c6ff4c8d
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 567890f3beec1eff30effeec0ce23284c5fee141
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52991730"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109283"
 ---
 # <a name="deprecated-dcos-container-management-through-the-marathon-rest-api"></a>(PRETERIDO) Gerenciamento de contêiner de DC/sistema operacional por meio da API REST do Marathon
 
@@ -124,8 +124,6 @@ De sua conexão por túnel, execute o comando a seguir para escalar horizontalme
 
 > [!NOTE]
 > O URI é http://localhost/marathon/v2/apps/ seguido pela ID do aplicativo a ser dimensionado. Se você está usando o exemplo de Nginx que é fornecido aqui, o URI deve ser http://localhost/marathon/v2/apps/nginx.
-> 
-> 
 
 ```bash
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
@@ -183,14 +181,12 @@ Execute o comando a seguir para escalar horizontalmente o aplicativo:
 
 > [!NOTE]
 > O URI é http://localhost/marathon/v2/apps/ seguido pela ID do aplicativo a ser dimensionado. Se você está usando o exemplo de Nginx fornecido aqui, o URI deve ser http://localhost/marathon/v2/apps/nginx.
-> 
-> 
 
 ```powershell
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Leia mais sobre os pontos de extremidade HTTP Mesos](http://mesos.apache.org/documentation/latest/endpoints/)
+* [Leia mais sobre os pontos de extremidade HTTP Mesos](https://mesos.apache.org/documentation/latest/endpoints/)
 * [Leia mais sobre a API REST do Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html)
 

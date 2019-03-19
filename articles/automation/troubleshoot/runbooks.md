@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: cdcf7f466e65cffd36bdcc816a9808ecac2ae242
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: b34a1716d077aeead572c60d0c6b9bcad60a5b1e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991286"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005427"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Solucionar problemas de erros com runbooks
 
@@ -38,7 +38,7 @@ Esse erro ocorre se o nome do ativo da credencial é inválido. Esse erro també
 
 Para determinar o que está errado, siga os seguintes passos:  
 
-1. Não use caracteres especiais. Esses caracteres incluem a **@** no nome do ativo da credencial de Automação que você está usando para se conectar ao Azure.  
+1. Não use caracteres especiais. Esses caracteres incluem a **\@** no nome do ativo da credencial de Automação que você está usando para se conectar ao Azure.  
 2. Verifique se você pode usar o nome de usuário e a senha que estão armazenados na credencial da Automação do Azure no editor do ISE do PowerShell local. Você pode verificar se o nome de usuário e a senha estão corretos executando os seguintes cmdlets no PowerShell ISE:  
 
    ```powershell
@@ -133,7 +133,7 @@ Para usar um certificado com os cmdlets do modelo de implantação clássico do 
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Erros comuns ao trabalhar com runbooks
 
-###<a name="child-runbook-object"></a>O runbook filho retorna erro quando o fluxo de saída contém objetos em vez de tipos de dados simples
+### <a name="child-runbook-object"></a>O runbook filho retorna erro quando o fluxo de saída contém objetos em vez de tipos de dados simples
 
 #### <a name="issue"></a>Problema
 

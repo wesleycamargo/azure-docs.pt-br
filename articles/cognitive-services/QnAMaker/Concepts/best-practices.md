@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/13/2019
+ms.date: 02/26/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 038d41ae299076754a2f778ec67aac04e630d476
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 72a3bead4ba8670187c35856f9cd4e4f4b975a30
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270174"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311688"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Melhores práticas de uma base de dados de conhecimento do QnA Maker
 O [ciclo de vida de desenvolvimento da base de dados de conhecimento](../Concepts/development-lifecycle-knowledge-base.md) informa como gerenciar a base de dados de conhecimento de ponta a ponta. Use essas melhores práticas para melhorar a base de dados de conhecimento e fornecer melhores resultados aos usuários finais do aplicativo/chat.
@@ -78,7 +78,7 @@ A pontuação de confiança padrão usada como limite é 50, no entanto, você p
 |Há estacionamento disponível?|Vocês têm estacionamento?|estrutura da frase|
  |Oi|E aí<br>Olá!|estilo das expressões ou gírias|
 
-<a name="#use-metadata-filters"></a>
+<a name="use-metadata-filters"></a>
 
 ### <a name="use-metadata-tags-to-filter-questions-and-answers"></a>Use marcas de metadados para filtrar perguntas e respostas
 
@@ -108,7 +108,7 @@ O QnA Maker permite que os usuários [colaborem](../How-to/collaborate-knowledge
 
 ## <a name="active-learning"></a>Aprendizado ativo
 
-O [aprendizado ativo](../How-to/improve-knowledge-base.md) faz o melhor trabalho de sugerir perguntas alternativas quando ele tem diversas consultas baseadas no usuário de qualidade e quantidade variadas. É importante permitir que as consultas do usuário dos aplicativos cliente participem do loop de comentários do aprendizado ativo sem censura.
+O [aprendizado ativo](../How-to/improve-knowledge-base.md) faz o melhor trabalho de sugerir perguntas alternativas quando ele tem diversas consultas baseadas no usuário de qualidade e quantidade variadas. É importante permitir que as consultas do usuário dos aplicativos cliente participem do loop de comentários do aprendizado ativo sem censura. Depois que as perguntas são sugeridas no portal do QnA Maker, você precisa examinar e aceitar ou rejeitar essas sugestões. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

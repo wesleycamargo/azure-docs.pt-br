@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 2/13/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 99b981e6b5c9bc56c10b0491474c0c8773291b7e
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: cf3dc71e96dac96a6406c97a433398b31a370869
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309192"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57571160"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Compensações de consistência, disponibilidade e desempenho 
 
@@ -30,11 +30,11 @@ Cada modelo fornece compensações de desempenho e disponibilidade e é respalda
 
 ## <a name="consistency-levels-and-latency"></a>Níveis de coerência e latência
 
-- A latência de leitura para todos os níveis de coerência é sempre asseguradamente menor que 10 milissegundos no 99º percentil contando com suporte do SLA. A latência de leitura é garantida por SLA. A latência de leitura média, no 50º %, é normalmente 2 milissegundos ou menos. Contas do Cosmos do Azure que abrangem várias regiões e são configuradas com coerência forte são uma exceção a essa garantia.
+A latência de leitura para todos os níveis de coerência é sempre asseguradamente menor que 10 milissegundos no 99º percentil contando com suporte do SLA. A latência de leitura é garantida por SLA. A latência de leitura média, no 50º %, é normalmente 2 milissegundos ou menos. Contas do Cosmos do Azure que abrangem várias regiões e são configuradas com coerência forte são uma exceção a essa garantia.
 
-- A latência de leitura para os níveis de coerência restantes é sempre asseguradamente menor que 10 milissegundos no 99º percentil contando com suporte do SLA. A latência de gravação é garantida por SLA. A latência média de gravação, 50 º percentil, geralmente é 5 milissegundos ou menos.
+A latência de gravação para todos os níveis de consistência sempre é garantida para ser menor que 10 milissegundos no percentil 99. A latência de gravação é garantida por SLA. A latência média de gravação, 50 º percentil, geralmente é 5 milissegundos ou menos.
 
-Algumas contas do Azure Cosmos podem ter várias regiões configuradas com a forte consistência. Nesse caso, a latência de gravação é garantida que seja menor duas vezes que o tempo de ida e volta (RTT) além de 10 milissegundos no percentil 99. O RTT entre qualquer uma das duas regiões mais distantes associados com sua conta do Azure Cosmos. É igual ao RTT entre qualquer uma das duas regiões mais distantes associados com sua conta do Azure Cosmos. Esta opção está atualmente em versão prévia.
+Para contas do Azure Cosmos configuradas com consistência forte com mais de uma região, a latência de gravação é garantido que seja menor que duas vezes tempo ida e volta (RTT) entre qualquer uma das duas regiões mais distantes, além de 10 milissegundos no percentil 99. Esta opção está atualmente em versão prévia.
 
 A latência RTT é uma função de distância à velocidade da luz e a topologia de rede exata do Azure. A Rede do Azure não fornece nenhum SLA de latência para o RTT entre nenhum par de regiões do Azure. Para sua conta do Azure Cosmos, latências de replicação são exibidas no portal do Azure. Você pode usar o portal do Azure para monitorar as latências de replicação entre várias regiões que estão associadas à sua conta.
 
@@ -48,7 +48,7 @@ A latência RTT é uma função de distância à velocidade da luz e a topologia
 
 Em um ambiente de banco de dados distribuído globalmente, há uma relação direta entre a durabilidade dos dados e o nível de consistência no caso de uma interrupção em toda a região. À medida que você vai desenvolvendo o plano de continuidade dos negócios, precisará saber qual é o tempo máximo aceitável antes que o aplicativo se recupere completamente após um evento de interrupção. O tempo necessário para o aplicativo se recuperar totalmente é conhecido como RTO (objetivo de tempo de recuperação). Também é necessário saber o período máximo de atualizações de dados recentes que o aplicativo pode perder sem maiores problemas durante a recuperação após um evento de interrupção. O período de tempo de atualizações que você pode perder é conhecido como RPO (objetivo de ponto de recuperação).
 
-A tabela define a relação entre a durabilidade dos dados e o modelo de consistência no caso de uma interrupção em toda a região. É importante observar que em um sistema distribuído, mesmo com forte consistência, é impossível ter um banco de dados distribuído com e RPO e RTO zero, devido ao Teorema de CAP. Para saber mais e os motivos, confira [Níveis de consistência no Azure Cosmos DB](consistency-levels.md).
+A tabela define a relação entre a durabilidade de dados e o modelo de consistência na presença de interrupção ampla de região. É importante observar que em um sistema distribuído, mesmo com forte consistência, é impossível ter um banco de dados distribuído com e RPO e RTO zero, devido ao Teorema de CAP. Para saber mais e os motivos, confira [Níveis de consistência no Azure Cosmos DB](consistency-levels.md).
 
 |**Regiões**|**Modo de replicação**|**Nível de coerência**|**RPO**|**RTO**|
 |---------|---------|---------|---------|---------|
@@ -66,6 +66,6 @@ T = intervalo de tempo "T" desde a última atualização.
 
 Saiba mais sobre a distribuição global e compensações de consistência geral nos sistemas distribuídos. Confira os seguintes artigos:
 
-- [Consistency tradeoffs in modern distributed database systems design](https://www.computer.org/web/csdl/index/-/csdl/mags/co/2012/02/mco2012020037-abs.html) (Compensações de coerência no projeto de sistemas de bancos de dados modernos distribuídos)
+- [Consistency tradeoffs in modern distributed database systems design](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k) (Compensações de coerência no projeto de sistemas de bancos de dados modernos distribuídos)
 - [Alta disponibilidade](high-availability.md)
 - [SLA do Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

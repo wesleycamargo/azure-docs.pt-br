@@ -6,14 +6,14 @@ services: site-recovery
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: 68892faf707a767ba9c25ce7317f775708e61a90
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 98718709038d7fd753e5eb3d45c130085c5accd9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217978"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099045"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Instalar um servidor de destino mestre Linux para failback
 Após o failover de suas máquinas virtuais para o Azure, você poderá executar failback das máquinas virtuais para o site local. Para realizar failback, você precisa proteger novamente a máquina virtual do Azure para o site local. Para este processo, é necessário um servidor de destino mestre para receber o tráfego. 
@@ -62,7 +62,7 @@ Há suporte para os kernels do Ubuntu a seguir.
 
 Use as seguinte as etapas para instalar o sistema de operacional de 64 bits do Ubuntu 16.04.2.
 
-1.   Vá até o [link de download](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso) e escolha o espelho mais próximo para baixar um ISO do Ubuntu 16.04.2 Minimal de 64 bits.
+1.   Vá para o [baixar link](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso), escolha o espelho mais próximo e baixar um ISO do Ubuntu 16.04.2 Minimal 64-bit.
 Mantenha um ISO do Ubuntu 16.04.2 Minimal de 64 bits na unidade de DVD e inicie o sistema.
 
 1.  Selecione **Inglês** como o idioma de preferência e selecione **Enter**.
@@ -168,15 +168,15 @@ Para obter a ID de cada disco SCSI em uma máquina virtual Linux, o parâmetro *
 
 5. Verifique se já existe uma linha com **disk.EnableUUID**.
 
-    - Se o valor existe e está definido como **False**, altere o valor para **True**. (Os valores não diferenciam maiúsculas de minúsculas.)
+   - Se o valor existe e está definido como **False**, altere o valor para **True**. (Os valores não diferenciam maiúsculas de minúsculas.)
 
-    - Se o valor existir e se está definido como **True**, selecione **Cancelar**.
+   - Se o valor existir e se está definido como **True**, selecione **Cancelar**.
 
-    - Se o valor não existir, selecione **Adicionar Linha**.
+   - Se o valor não existir, selecione **Adicionar Linha**.
 
-    - Na coluna Nome, adicione **disk.EnableUUID**e defina o valor como **TRUE**.
+   - Na coluna Nome, adicione **disk.EnableUUID**e defina o valor como **TRUE**.
 
-    ![Verificação se disk.EnableUUID já existe](./media/vmware-azure-install-linux-master-target/image25.png)
+     ![Verificação se disk.EnableUUID já existe](./media/vmware-azure-install-linux-master-target/image25.png)
 
 #### <a name="disable-kernel-upgrades"></a>Desabilitar atualizações de kernel
 
@@ -287,7 +287,6 @@ Use as etapas a seguir para criar um disco de retenção:
 2. Anote o endereço IP do servidor de Configuração. Execute o comando a seguir para instalar o servidor de destino mestre e registrar o servidor no servidor de configuração.
 
     ```
-    ./install -q -d /usr/local/ASR -r MT -v VmWare
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
     ```
 

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: c9a772af79cba8b5bfb592eaf03efa37520d5e48
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 1c44d2e41d37a9236ee6d6936c349acf5ca5e44c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870598"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098756"
 ---
 # <a name="add-luis-results-to-application-insights-and-azure-functions"></a>Adicionar resultados do LUIS às funções do Application Insights e do Azure
 Este tutorial adiciona informações de solicitação e resposta do LUIS ao armazenamento de dados telemétricos do [Application Insights](https://azure.microsoft.com/services/application-insights/). Quando você tiver esses dados, poderá consultá-los com a linguagem de Kusto ou com o Power BI para analisar, agregar e relatar intenções e entidades do enunciado em tempo real. Esta análise ajuda a determinar se você deve adicionar ou editar as intenções e as entidades do seu aplicativo LUIS.
@@ -26,9 +26,9 @@ O bot é criado com o Bot Framework 3.x e o bot de aplicativo Web do Azure.
 Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
-* Adicionar a biblioteca do Application Insights a um bot de aplicativo Web
-* Capturar e enviar resultados da consulta LUIS para o Application Insights
-* Veja o Application Insights para as principais intenções, pontuações e declarações
+> * Adicionar a biblioteca do Application Insights a um bot de aplicativo Web
+> * Capturar e enviar resultados da consulta LUIS para o Application Insights
+> * Veja o Application Insights para as principais intenções, pontuações e declarações
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -51,11 +51,11 @@ Para capturar a solicitação e a resposta do LUIS, o bot do aplicativo Web prec
 
 1. No portal do Azure, no serviço de bot do aplicativo Web, selecione **Compilar** na seção **Gerenciamento de Bot**. 
 
-    ![No portal do Azure, no serviço de bot do aplicativo Web, selecione “Compilar” na seção “Gerenciamento de Bot”. ](./media/luis-tutorial-appinsights/build.png)
+    ![No portal do Azure, no serviço de bot do aplicativo Web, selecione “Compilar” na seção “Gerenciamento de Bot”.](./media/luis-tutorial-appinsights/build.png)
 
 2. Uma nova guia do navegador é aberta com o Editor de Serviço de Aplicativo. Selecione o nome do aplicativo na barra superior e selecione **Abrir o Console do Kudu**. 
 
-    ![Selecione o nome do aplicativo na barra superior e selecione “Abrir o Console do Kudu”. ](./media/luis-tutorial-appinsights/kudu-console.png)
+    ![Selecione o nome do aplicativo na barra superior e selecione “Abrir o Console do Kudu”.](./media/luis-tutorial-appinsights/kudu-console.png)
 
 3. No console, insira o seguinte comando para instalar o Application Insights e os pacotes Underscore:
 

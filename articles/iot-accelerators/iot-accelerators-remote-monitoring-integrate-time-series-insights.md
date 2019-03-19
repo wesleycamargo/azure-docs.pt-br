@@ -8,12 +8,12 @@ ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 655d65ebfbb0141acd829a64414d9ba20dd2c697
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: 850d8bbb525763e0e7d0c0441173180b7c469dd8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633724"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085143"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integrar o Azure Time Series Insights com o Monitoramento Remoto
 
@@ -96,7 +96,8 @@ Crie uma nova fonte de evento para se conectar ao hub IoT. Use o grupo de consum
     | Nome da política do hub IoT | **iothubowner** Confirme se a política utilizada é uma política de proprietário. |
     | Chave de política do hub IoT | Este campo é preenchido automaticamente. |
     | Grupo de consumidores do hub IoT | **timeseriesinsights** |
-    | Formato de serialização do evento | **JSON**     | Nome da propriedade timestamp | Deixar em branco |
+    | Formato de serialização do evento | **JSON**     | 
+    | Nome da propriedade timestamp | Deixar em branco |
 
     ![Criar Origem do Evento](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/time-series-insights-event-source-create.png)
 

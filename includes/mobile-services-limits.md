@@ -4,25 +4,25 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 4f0cb05214cf391d0ac2a75511473a3ddf9778dd
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
-ms.translationtype: HT
+ms.openlocfilehash: 5e58429b6a3e2f7c7c39c13dc65af48b064f9771
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52279418"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553227"
 ---
-| CAMADA: | GRATUITO | BASIC | STANDARD |
+| Camada | Grátis | Basic | Standard |
 | --- | --- | --- | --- |
-| Chamadas à API |500 K |1,5 M/unidade |15 M/unidade |
+| Chamadas à API |500.000 |1,5 milhão por unidade |15 milhões por unidade |
 | Dispositivos ativos |500 |Ilimitado |Ilimitado |
 | Escala |N/D |Até 6 unidades |Unidades ilimitadas |
-| Notificações por Push |Camada Gratuita de Hubs de Notificação incluída, até 1 M envios por push |Camada Basic de Hubs de Notificação incluída, até 10 M envios por push |Camada Standard de Hubs de Notificação incluída, até 10 M envios por push |
-| Mensagens em tempo real/<br/>Soquetes Web |Limitado |350/serviço móvel |Ilimitado |
+| Notificações por push |Camada gratuita de Hubs de notificação do Azure incluído, até 1 milhão de envios por push |Camada básica de Hubs de notificação incluída, até 10 milhões de envios por push |Camada Standard dos Hubs de notificação incluída, até 10 milhões de envios por push |
+| Mensagens em tempo real /<br/>Soquetes Web |Limitado |350 por serviço móvel |Ilimitado |
 | Sincronizações offline |Limitado |Incluso |Incluso |
 | Trabalhos agendados |Limitado |Incluso |Incluso |
-| Banco de Dados SQL (obrigatório)  <br/>Serão aplicadas taxas padrão para capacidade adicional |20 MB incluídos |20 MB incluídos |20 MB incluídos |
-| Capacidade de CPU |60 minutos/dia |Ilimitado |Ilimitado |
+| Banco de dados SQL do Azure (obrigatório) <br/>Serão aplicadas taxas padrão para capacidade adicional |20 MB incluídos |20 MB incluídos |20 MB incluídos |
+| Capacidade de CPU |60 minutos por dia |Ilimitado |Ilimitado |
 | Transferência de dados de saída |165 MB por dia (substituição diária) |Incluso |Incluso |
 
-Para obter detalhes adicionais sobre esses limites e informações sobre preços, consulte [Preços de Serviços Móveis](https://azure.microsoft.com/pricing/details/mobile-services/). 
+Para obter mais informações sobre preços e limites, consulte [preços do Azure Mobile Services](https://azure.microsoft.com/pricing/details/mobile-services/). 
 

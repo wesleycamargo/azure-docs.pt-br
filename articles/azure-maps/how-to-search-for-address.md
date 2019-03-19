@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: cd6927cccfa85c8409d612a40a4e708e81af746a
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: ba5ea7205a5d0e5fdbadc8a1ba955091ae95b569
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413542"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875779"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Encontrar um endereço usando o serviço de pesquisa do Azure Maps
 
@@ -37,7 +37,7 @@ A maioria das consultas de pesquisa é padronizada para `maxFuzzyLevel=1` para o
 
 2. Na guia Construtor, selecione o método HTTP **GET** e insira a URL de solicitação para o ponto de extremidade de API.
 
-    ![Pesquisa Difusa ](./media/how-to-search-for-address/fuzzy_search_url.png)
+    ![Pesquisa Difusa](./media/how-to-search-for-address/fuzzy_search_url.png)
 
     | Parâmetro | Valor sugerido |
     |---------------|------------------------------------------------|
@@ -49,7 +49,7 @@ A maioria das consultas de pesquisa é padronizada para `maxFuzzyLevel=1` para o
 
 3. Clique em **Params** e digite os seguinte pares Chave/Valor para uso como parâmetros de consulta ou de caminho na URL da solicitação:
 
-    ![Pesquisa Difusa ](./media/how-to-search-for-address/fuzzy_search_params.png)
+    ![Pesquisa Difusa](./media/how-to-search-for-address/fuzzy_search_params.png)
 
     | Chave | Valor |
     |------------------|-------------------------|
@@ -75,7 +75,7 @@ A maioria das consultas de pesquisa é padronizada para `maxFuzzyLevel=1` para o
   
 6. Em Params, insira os seguintes pares Chave/Valor e clique em **Enviar**:
 
-    ![Pesquisa Difusa ](./media/how-to-search-for-address/fuzzy_search_latlon.png)
+    ![Pesquisa Difusa](./media/how-to-search-for-address/fuzzy_search_latlon.png)
   
     | Chave | Valor |
     |-----|------------|
@@ -89,7 +89,7 @@ Você pode transmitir um endereço de rua completo ou parcial para a API de pesq
 1. No Postman, clique em **Nova Solicitação** | **Solicitação GET** e nomeie-a **Pesquisa de Endereço**.
 2. Na guia Criador, selecione o método HTTP **GET**, insira a URL de solicitação para o ponto de extremidade de API e selecione um protocolo de autorização, se houver.
 
-    ![Pesquisa de Endereço ](./media/how-to-search-for-address/address_search_url.png)
+    ![Pesquisa de Endereço](./media/how-to-search-for-address/address_search_url.png)
   
     | Parâmetro | Valor sugerido |
     |---------------|------------------------------------------------|
@@ -99,7 +99,7 @@ Você pode transmitir um endereço de rua completo ou parcial para a API de pesq
 
 3. Clique em **Params** e digite os seguinte pares Chave/Valor para uso como parâmetros de consulta ou de caminho na URL da solicitação:
   
-    ![Pesquisa de Endereço ](./media/how-to-search-for-address/address_search_params.png)
+    ![Pesquisa de Endereço](./media/how-to-search-for-address/address_search_params.png)
   
     | Chave | Valor |
     |------------------|-------------------------|
@@ -130,7 +130,7 @@ Você pode transmitir um endereço de rua completo ou parcial para a API de pesq
 
 2. Na guia Construtor, selecione o método HTTP **GET** e insira a URL de solicitação para o ponto de extremidade de API.
   
-    ![URL de Pesquisa Invertida de Endereço ](./media/how-to-search-for-address/reverse_address_search_url.png)
+    ![URL de Pesquisa Invertida de Endereço](./media/how-to-search-for-address/reverse_address_search_url.png)
   
     | Parâmetro | Valor sugerido |
     |---------------|------------------------------------------------|
@@ -140,7 +140,7 @@ Você pode transmitir um endereço de rua completo ou parcial para a API de pesq
   
 3. Clique em **Params** e digite os seguinte pares Chave/Valor para uso como parâmetros de consulta ou de caminho na URL da solicitação:
   
-    ![Parâmetros de Pesquisa Invertida de Endereço ](./media/how-to-search-for-address/reverse_address_search_params.png)
+    ![Parâmetros de Pesquisa Invertida de Endereço](./media/how-to-search-for-address/reverse_address_search_params.png)
   
     | Chave | Valor |
     |------------------|-------------------------|
@@ -190,7 +190,7 @@ Você pode transmitir um endereço de rua completo ou parcial para a API de pesq
 
 2. Na guia Construtor, selecione o método HTTP **GET** e insira a URL de solicitação para o ponto de extremidade de API.
   
-    ![Pesquisa Invertida de Endereço de Cruzamento ](./media/how-to-search-for-address/reverse_address_search_url.png)
+    ![Pesquisa Invertida de Endereço de Cruzamento](./media/how-to-search-for-address/reverse_address_search_url.png)
   
     | Parâmetro | Valor sugerido |
     |---------------|------------------------------------------------|

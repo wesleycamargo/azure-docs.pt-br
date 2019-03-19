@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: banders
-ms.openlocfilehash: 732ac5e1e82c67d2f4a0a3443b85c67712f4f651
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: d215e2ba5d650b532b9d7554ccca9ad5537cf4de
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101644"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842467"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Evite cobranças inesperadas com o gerenciamento de custo e a cobrança do Azure
 
-Ao se inscrever no Azure, há várias coisas que podem ser feitas para você ter uma ideia melhor de seus gastos. A [calculadora de preços](https://azure.microsoft.com/pricing/calculator/) pode fornecer uma estimativa de custos antes de você criar um recurso do Azure. O [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) fornece uma previsão e a análise de custos atual de sua assinatura. Se desejar agrupar e entender os custos de diferentes projetos ou equipes, examine a [marcação de recursos](../azure-resource-manager/resource-group-using-tags.md). Se sua organização tiver um sistema de relatórios que você prefira usar, confira as [APIs de cobrança](billing-usage-rate-card-overview.md).
+Quando você se inscreve para o Azure, há várias coisas que você pode fazer para obter uma ideia melhor de seus gastos. A [calculadora de preços](https://azure.microsoft.com/pricing/calculator/) pode fornecer uma estimativa de custos antes de você criar um recurso do Azure. O [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) fornece uma previsão e a análise de custos atual de sua assinatura. Se desejar agrupar e entender os custos de diferentes projetos ou equipes, examine a [marcação de recursos](../azure-resource-manager/resource-group-using-tags.md). Se sua organização tiver um sistema de relatórios que você prefira usar, confira as [APIs de cobrança](billing-usage-rate-card-overview.md).
 
 - Se sua assinatura for um EA (Contrato Enterprise), a visualização pública para visualização dos custos no portal do Azure agora estará disponível. Se sua assinatura for feita por meio do CSP (Provedor de Soluções na Nuvem) ou pelo Azure Sponsorship, alguns dos recursos a seguir poderão não se aplicar ao seu caso. Consulte [Recursos adicionais do EA, CSP e Sponsorship](#other-offers) para obter mais informações.
 
@@ -183,8 +183,28 @@ Para ver se você é o administrador da Conta, acesse [Assinaturas no portal do 
 
 Se você não for o Administrador da conta, alguém provavelmente lhe deu acesso parcial usando [RBAC (Controle de Acesso Baseado em Função) do Azure Active Directory](../role-based-access-control/role-assignments-portal.md). Para gerenciar assinaturas e alterar informações de cobrança, [localize o Administrador da Conta](billing-subscription-transfer.md#whoisaa). Peça ao Administrador da Conta para executar as tarefas ou [transferir a assinatura para você](billing-subscription-transfer.md).
 
-Se o administrador da sua conta não estiver mais na sua organização e você precisar gerenciar o faturamento, [entre em contato conosco](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Se o administrador da sua conta não estiver mais na sua organização e você precisar gerenciar o faturamento, [entre em contato conosco](https://go.microsoft.com/fwlink/?linkid=2083458).
+
+
+### <a name="how-to-request-a-service-level-agreement-credit-for-a-service-incident"></a>Como solicitar um crédito de contrato de nível de serviço para um incidente de serviço
+
+O SLA (contrato de nível de serviço) descreve os compromissos da Microsoft com relação ao tempo de atividade e à conectividade. Um incidente de serviço é relatado quando os serviços do Azure enfrentar um problema que o tempo de atividade de impactos ou conectividade, geralmente conhecida como uma "interrupção". Se não podemos alcançar e manter os níveis de serviço para cada serviço, conforme descrito no SLA, em seguida, você pode ser elegível para crédito para uma parte das suas taxas de serviço mensal.
+
+Para solicitar um crédito:
+
+1. Entre no [Portal do Azure](https://portal.azure.com/). Se você tiver várias contas, certifique-se de que você use um que foi afetada por tempo de inatividade do Azure. Isso ajuda a suporte automaticamente coletar as informações necessárias em segundo plano e resolver o caso mais rapidamente.
+2. Crie uma nova solicitação de suporte.
+3. Sob **tipo de problema**, selecione **cobrança**.
+4. Sob **tipo de problema**, selecione **solicitar reembolso**.
+5. Adicione detalhes para especificar que você está pedindo para uma crédito de SLA, mencione o data/hora/fuso horário, bem como os serviços afetados (máquinas virtuais, Sites da Web, etc.)
+6. Verifique os detalhes do contato e selecione o **criar** botão para enviar sua solicitação.
+
+Os limites de SLA variam de acordo com o serviço. Por exemplo, camada da Web de SQL tem um SLA de 99,9%, as VMs têm um SLA de 99,95% e camada Standard do SQL tem um SLA de 99,99%.
+
+Para alguns serviços, há pré-requisitos para o SLA aplicar. Por exemplo, máquinas virtuais deve ter dois ou mais instâncias implantadas no mesmo conjunto de disponibilidade.
+
+Para obter mais informações, consulte o [contratos de nível de serviço](https://azure.microsoft.com/en-us/support/legal/sla/) documentação e o [resumo SLA para serviços do Azure](https://azure.microsoft.com/en-us/support/legal/sla/summary/) documentação.
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
-Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Se você tiver dúvidas ou precisar de Ajuda, [criar uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).

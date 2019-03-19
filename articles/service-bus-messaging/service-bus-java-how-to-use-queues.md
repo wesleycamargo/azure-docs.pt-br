@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 09/13/2018
 ms.author: aschhab
-ms.openlocfilehash: 9a26a08e7b1fb313e25a7dc8d9f5e58e843fca76
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: f226b9b802bca47cc6fd7b9cdec550b23c7c88d6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849611"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890807"
 ---
 # <a name="how-to-use-service-bus-queues-with-java"></a>Como usar filas do Barramento de Serviço com Java
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -31,10 +31,8 @@ Este artigo descreve como usar as filas do Barramento de Serviço. As amostras s
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
-## <a name="create-a-service-bus-namespace"></a>Criar um namespace do Barramento de Serviço
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="create-a-service-bus-queue"></a>Criar uma fila do barramento de serviço
 [!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configurar seu aplicativo para usar o Barramento de serviço
@@ -187,7 +185,7 @@ Agora que você aprendeu as noções básicas sobre as filas do Barramento de Se
 
 Para obter mais informações, consulte o [Centro de desenvolvedores do Java](https://azure.microsoft.com/develop/java/).
 
-[Azure SDK for Java]: http://azure.microsoft.com/develop/java/
+[Azure SDK for Java]: https://azure.microsoft.com/develop/java/
 [Azure Toolkit for Eclipse]: https://msdn.microsoft.com/library/azure/hh694271.aspx
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage

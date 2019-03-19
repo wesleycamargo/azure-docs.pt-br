@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: bcb62b311426c7582202ced3714d01c429118ab5
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: d3aad8f1b032960786564bbb18f99c260fd72113
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268406"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092711"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlação de telemetria no Application Insights
 
@@ -212,7 +212,7 @@ Atualmente, a propagação automática de contexto entre tecnologias de mensagen
 ## <a name="next-steps"></a>Próximas etapas
 
 - Gravar a [telemetria personalizada](../../azure-monitor/app/api-custom-events-metrics.md).
-- Saiba mais sobre a [configuração cloud_RoleName](../../azure-monitor/app/app-map.md#set-cloudrolename) para outros SDKs.
+- Saiba mais sobre a [configuração cloud_RoleName](../../azure-monitor/app/app-map.md#set-cloud_rolename) para outros SDKs.
 - Integrar todos os componentes do seu microsserviço ao Application Insights. Consultar as [plataformas compatíveis](../../azure-monitor/app/platforms.md).
 - Consultar o [modelo de dados](../../azure-monitor/app/data-model.md) para os tipos do Application Insights.
 - Saiba como [estender e filtrar a telemetria](../../azure-monitor/app/api-filtering-sampling.md).

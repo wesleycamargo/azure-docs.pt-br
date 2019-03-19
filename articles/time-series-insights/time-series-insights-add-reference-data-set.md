@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.custom: seodec18
-ms.openlocfilehash: a14f568e2485e59cb3e567eb9ee5c5eb20b02afc
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: f5cc06ba1a326d262c1437a941306b4d4a648260
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198415"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101220"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Criar um conjunto de dados de referência para o seu ambiente Time Series Insights usando o Portal do Azure
 
@@ -82,19 +82,19 @@ Os dados de referência não estão unidos retroativamente. Isso significa que s
  
 13. Nomeie o conjunto de dados, preenchendo o campo **Nome do conjunto de dados** acima da grade de dados.
 
-   ![Nomeie o conjunto de dados.](media/add-reference-data-set/name_reference_dataset.png)
+    ![Nomeie o conjunto de dados.](media/add-reference-data-set/name_reference_dataset.png)
 
 14. Forneça a coluna de **chave primária** no conjunto de dados, selecionando na lista suspensa acima da grade de dados.
 
-   ![Selecione a(s) coluna(s) de chave.](media/add-reference-data-set/set_primary_key.png)
+    ![Selecione a(s) coluna(s) de chave.](media/add-reference-data-set/set_primary_key.png)
 
-   Opcionalmente, selecione o botão **+** para adicionar uma coluna de chave secundária, como uma chave primária composta. Se você precisar desfazer a seleção, escolha o valor vazio da lista suspensa para remover a chave secundária.
+    Opcionalmente, selecione o botão **+** para adicionar uma coluna de chave secundária, como uma chave primária composta. Se você precisar desfazer a seleção, escolha o valor vazio da lista suspensa para remover a chave secundária.
 
-15.  Para carregar os dados, selecione o botão **Carregar linhas**.
+15. Para carregar os dados, selecione o botão **Carregar linhas**.
 
-   ![Carregar](media/add-reference-data-set/upload_rows.png)
+    ![Carregar](media/add-reference-data-set/upload_rows.png)
 
-   A página confirma o carregamento concluído e exibe a mensagem **Conjunto de dados carregado com êxito**.
+    A página confirma o carregamento concluído e exibe a mensagem **Conjunto de dados carregado com êxito**.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Gerenciar dados de referência](time-series-insights-manage-reference-data-csharp.md) programaticamente.

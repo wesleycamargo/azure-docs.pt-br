@@ -10,17 +10,18 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: a1ebb1d818c0085a1741245ed236cf511b1db768
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 4db95bdc5e83badef0170bfb3b1c52bb8610c655
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55218046"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56669866"
 ---
 # <a name="bing-speech-client-samples"></a>Exemplos de cliente de Fala do Bing
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
- 
+
 A Fala do Bing fornece exemplos de ponta a ponta para demonstrar os diferentes casos de uso, por exemplo, reconhecimento de comando, reconhecimento contínuo e detecção de intenção. Todas as amostras estão disponíveis no GitHub e podem ser baixadas pelos seguintes links: O README.md em cada repositório, bem como a página [bibliotecas de clientes](GetStarted/GetStartedClientLibraries.md), fornecem detalhes sobre como compilar e executar as amostras.
 
 - [Exemplos de API REST](https://github.com/Azure-Samples/SpeechToText-REST)

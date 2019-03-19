@@ -1,8 +1,7 @@
 ---
 title: Conectar ao servidor MQ – Aplicativos Lógicos do Azure | Microsoft Docs
 description: Enviar e recuperar mensagens com um servidor MQ do Azure ou local e os Aplicativos Lógicos do Azure
-author: valthom
-manager: jeconnoc
+author: valrobb
 ms.author: valthom
 ms.date: 06/01/2017
 ms.topic: article
@@ -11,52 +10,52 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 6b34bd7b286ca3b206c611343217c90e0d57fbfb
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-ms.translationtype: HT
+ms.openlocfilehash: 9e6ae5cb0afd75a1e87fe4d4d0cf307abab5a02a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295903"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58167874"
 ---
-# <a name="connect-to-an-ibm-mq-server-from-logic-apps-using-the-mq-connector"></a>Conectar-se a um servidor do IBM MQ de aplicativos lógicos usando o conector MQ 
+# <a name="connect-to-an-ibm-mq-server-from-logic-apps-using-the-mq-connector"></a>Conectar-se a um servidor do IBM MQ de aplicativos lógicos usando o conector MQ
 
-O Conector Microsoft para MQ envia e recupera mensagens armazenadas em um servidor MQ local ou no Azure. Esse conector inclui um cliente Microsoft MQ para se comunicar com um servidor MQ IBM remoto em uma rede TCP/IP. Este documento é um guia introdutório para usar o conector MQ. É recomendável que você comece procurando uma única mensagem em uma fila e, em seguida, tente as outras ações.    
+O Conector Microsoft para MQ envia e recupera mensagens armazenadas em um servidor MQ local ou no Azure. Esse conector inclui um cliente Microsoft MQ para se comunicar com um servidor MQ IBM remoto em uma rede TCP/IP. Este documento é um guia introdutório para usar o conector MQ. É recomendável que você comece procurando uma única mensagem em uma fila e, em seguida, tente as outras ações.
 
 O Conector do MQ inclui as ações a seguir. Não há gatilhos.
 
--   Procurar uma única mensagem sem excluí-la do servidor IBM MQ
--   Procurar um lote de mensagens sem excluí-las do servidor IBM MQ
--   Receber uma única mensagem e excluí-la do servidor IBM MQ
--   Receber um lote de mensagens e excluí-las do servidor IBM MQ
--   Enviar uma única mensagem ao servidor IBM MQ 
+- Procurar uma única mensagem sem excluí-la do servidor IBM MQ
+- Procurar um lote de mensagens sem excluí-las do servidor IBM MQ
+- Receber uma única mensagem e excluí-la do servidor IBM MQ
+- Receber um lote de mensagens e excluí-las do servidor IBM MQ
+- Enviar uma única mensagem ao servidor IBM MQ
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Se você usar um servidor MQ local, [instale o gateway de dados local](../logic-apps/logic-apps-gateway-install.md) em um servidor dentro de sua rede. Se o servidor MQ está publicamente disponível ou disponível no Azure, o gateway de dados não é usado nem necessário.
 
     > [!NOTE]
-    > O servidor em que o gateway de dados local está instalado também deve ter o .NET Framework 4.6 instalado para que o conector MQ funcione.
+    > O servidor onde o Gateway de dados local está instalado também deve ter o .NET Framework 4.6 instalado para o conector MQ funcione.
 
 * Criar o recurso do Azure para o gateway de dados local – [configurar a conexão de gateway de dados](../logic-apps/logic-apps-gateway-connection.md).
 
 * Versões do IBM WebSphere MQ oficialmente com suporte:
-   * MQ 7.5
-   * MQ 8.0
+    * MQ 7.5
+    * MQ 8.0
 
 ## <a name="create-a-logic-app"></a>Criar um aplicativo lógico
 
-1. Na **tela inicial do Azure**, selecione **+** (sinal de mais), **Web + Móvel**, e então, **Aplicativo Lógico**. 
+1. Na **tela inicial do Azure**, selecione **+** (sinal de mais), **Web + Móvel**, e então, **Aplicativo Lógico**.
 2. Insira o **Nome**, tal como MQTestApp, **Assinatura**, **Grupo de recursos** e **Localização** (use a localização em que a conexão de gateway de dados local está configurada). Selecione **Fixar no painel** e selecione **Criar**.  
 ![Criar Aplicativo Lógico](media/connectors-create-api-mq/Create_Logic_App.png)
 
 ## <a name="add-a-trigger"></a>Adicionar um gatilho
 
 > [!NOTE]
-> O conector MQ não tem gatilhos. Portanto, use outro gatilho para iniciar seu aplicativo lógico, tal como o gatilho **Recorrência**. 
+> O conector MQ não tem gatilhos. Portanto, use outro gatilho para iniciar seu aplicativo lógico, tal como o gatilho **Recorrência**.
 
 1. O **Designer de Aplicativos Lógicos** é aberto, selecione **Recorrência** na lista de gatilhos comuns.
-2. Selecione **Editar** dentro do gatilho Recorrência. 
-3. Defina a **Frequência** para **Dia** e defina o **Intervalo** como **7**. 
+2. Selecione **Editar** dentro do gatilho Recorrência.
+3. Defina a **Frequência** para **Dia** e defina o **Intervalo** como **7**.
 
 ## <a name="browse-a-single-message"></a>Procurar uma única mensagem
 1. Selecione **+ Nova etapa** e selecione **Adicionar uma ação**.
@@ -66,9 +65,9 @@ O Conector do MQ inclui as ações a seguir. Não há gatilhos.
 3. Se não houver uma conexão MQ existente, crie a conexão:  
 
     1. Selecione **Conectar-se por meio do gateway de dados local** e insira as propriedades do servidor MQ.  
-    Para **Servidor**, você pode digitar o nome do servidor MQ ou digitar o endereço IP seguido por dois-pontos e o número da porta. 
+    Para **Servidor**, você pode digitar o nome do servidor MQ ou digitar o endereço IP seguido por dois-pontos e o número da porta.
     2. A lista suspensa **gateway** lista quaisquer conexões de gateway existentes que tenham sido configuradas. Selecione seu gateway.
-    3. Selecione **Criar** quando terminar. A conexão é semelhante ao seguinte:   
+    3. Selecione **Criar** quando terminar. A conexão é semelhante ao seguinte:  
     ![Propriedades da Conexão](media/connectors-create-api-mq/Connection_Properties.png)
 
 4. Nas propriedades da ação, você pode:  

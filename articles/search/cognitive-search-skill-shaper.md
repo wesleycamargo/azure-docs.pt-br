@@ -8,21 +8,19 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 01/17/2019
+ms.date: 02/22/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: a1f5a698ee76ebd0561bd19ff1a23d0f04be0771
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: c55783e9b209a1280a21edca34b75e72481f4cb6
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54410108"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806974"
 ---
 #   <a name="shaper-cognitive-skill"></a>Habilidades cognitivas do Shaper
 
-A habilidade **Shaper** cria um tipo complexo para dar suporte a campos compostos (também conhecido como campos de várias partes). Um campo de tipo complexo tem várias partes, mas é tratado como um único item em um índice do Azure Search. Exemplos de campos consolidados úteis nos cenários de pesquisa incluem combinar um nome e sobrenome em um campo único, cidade e estado em um campo único ou nome e data de nascimento em m um campo único para estabelecer a identidade exclusiva.
-
-A habilidade **Formatador** permite basicamente que você crie uma estrutura, defina o nome dos membros dessa estrutura e atribua valores a cada membro.
+O **Shaper** habilidade consolida várias entradas em um tipo complexo que pode ser referenciado posteriormente no pipeline enriquecimento. A habilidade **Formatador** permite basicamente que você crie uma estrutura, defina o nome dos membros dessa estrutura e atribua valores a cada membro. Campos consolidados útil em cenários de pesquisa com exemplos de combinação de um nome e sobrenome em uma única estrutura, cidade e estado em uma única estrutura, ou o nome e data de nascimento em uma única estrutura para estabelecer a identidade exclusiva.
 
 Por padrão, essa técnica oferece suporte a objetos que estão um nível de profundidade. Para objetos mais complexos, encadeie várias etapas do **Formatador**.
 
@@ -58,7 +56,7 @@ O exemplo a seguir fornece os nomes do membro como a entrada. A estrutura de sa�
   "outputs": [
     {
       "name": "output",
-      "targetName": analyzedText"
+      "targetName": "analyzedText"
     }
   ]
 }
@@ -125,8 +123,8 @@ A definição de habilidade Shaper para esse cenário pode parecer com o exemplo
     ],
     "outputs": [
         {
-            "output": "titlesAndChapters",
-            "targetName": "analyzedText"
+            "name": "output",
+            "targetName": "titlesAndChapters"
         }
     ]
 }

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 4ecc259d40cdcba93a484f27e27191e967f10ff1
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
-ms.translationtype: HT
+ms.openlocfilehash: e05813297707165d59d1b1ed969b54fb0f433277
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638807"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57848083"
 ---
 # <a name="virtual-machine-skus-tab"></a>Guia de SKUs de máquina virtual
 
@@ -63,7 +63,7 @@ A tabela a seguir descreve a finalidade, o conteúdo e a formatação desses cam
 | **Nome amigável de Sistema Operacional** | Nome do sistema operacional a ser exibido para os clientes.  |
 | **Tamanhos de VM recomendados** | Habilita a seleção de até seis tamanhos de VM recomendados de uma lista padronizada.  Embora essas recomendações sejam exibidas com destaque para clientes em potencial, são capazes de especificar qualquer tamanho de VM que é compatível com a imagem de solução. | 
 | **Abrir portas**| Portas para abrir e protocolo para dar suporte para a SKU.  Essas configurações devem corresponder a rede virtual que você configurou para a rede da VM de solução. Essas configurações entram em vigor durante a implantação de VM. No entanto, as configurações de porta podem ser modificadas depois de publicar uma SKU. Para obter mais informações, consulte [Como abrir portas em uma máquina virtual com o portal do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/nsg-quickstart-portal). <br/>Os seguintes mapeamentos de rede padrão são adicionados a todas as VMs. &emsp; Windows: 3389 -> 3389 TCP, 5986 -> 5986 TCP; &emsp; Linux: 22 -> 22, TCP (SSH). |
-| **Versão do disco**  | Solução associada a VM, especificada pelo número de versão do disco e URL do disco. A versão do disco deve estar no formato da [versão semântica](http://semver.org/): `<major>.<minor>.<patch>`.  A URL é a assinatura de acesso compartilhado criado para o VHD do sistema operacional.  No entanto, você pode adicionar até oito versões de disco por SKU, somente o maior disco número de versão para um SKU aparecerá no Azure Marketplace. As outras versões só estarão visíveis por meio de APIs.  <!--TD: Add more specific link to API --> <br/> A nova seção**Novo disco de dados** seção permite que você anexe até 15 discos de dados à sua VM.  Depois de publicar uma SKU com determinada versão de VM e discos de dados associado, essa configuração não pode ser modificada.  Se versões adicionais de VM forem adicionadas à SKU, também devem suportar o mesmo número de discos de dados. <br/> Se você não tiver criado suas imagens de VM com base no Azure, você pode adicionar a atualizar este campo mais tarde.  Para obter informações sobre como criar o recurso VM associado, consulte a seção [Criar ativos técnicos de VM](./cpp-create-technical-assets.md).  
+| **Versão do disco**  | Solução associada a VM, especificada pelo número de versão do disco e URL do disco. A versão do disco deve estar no formato da [versão semântica](https://semver.org/): `<major>.<minor>.<patch>`.  A URL é a assinatura de acesso compartilhado criado para o VHD do sistema operacional.  No entanto, você pode adicionar até oito versões de disco por SKU, somente o maior disco número de versão para um SKU aparecerá no Azure Marketplace. As outras versões só estarão visíveis por meio de APIs.  <!--TD: Add more specific link to API --> <br/> A nova seção**Novo disco de dados** seção permite que você anexe até 15 discos de dados à sua VM.  Depois de publicar uma SKU com determinada versão de VM e discos de dados associado, essa configuração não pode ser modificada.  Se versões adicionais de VM forem adicionadas à SKU, também devem suportar o mesmo número de discos de dados. <br/> Se você não tiver criado suas imagens de VM com base no Azure, você pode adicionar a atualizar este campo mais tarde.  Para obter informações sobre como criar o recurso VM associado, consulte a seção [Criar ativos técnicos de VM](./cpp-create-technical-assets.md).  
 |  |  |
 
 <!-- TD: The CPP UX warning msg indicates that underscores are also supported in these SKU IDs. I suspect this might be true for other identifiers. --> 

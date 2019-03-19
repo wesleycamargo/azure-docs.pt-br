@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 099576b1a4c5c28aab7672aaeb9274bc0beb96bf
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 037f0ff64b114ce9341702564147825099695aa0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842315"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105634"
 ---
 # <a name="set-up-a-process-server-in-azure-for-failback"></a>Configurar um servidor em processo no Azure para failback
 
@@ -33,7 +33,7 @@ Saiba mais sobre o processo de [nova proteção](vmware-azure-reprotect.md) e [f
 3. Na página **Adicionar servidor em processo**, selecione a opção para implantar o servidor em processo no Azure.
 4. Especifique as configurações do Azure, incluindo a assinatura usada para failover, um grupo de recursos, a região do Azure usada para failover e a rede virtual na qual as VMs do Azure estão localizadas. Se você usou várias redes do Azure, você precisa ter um servidor em processo em cada uma.
 
-  ![Adicionar item da galeria do servidor de processo](./media/vmware-azure-set-up-process-server-azure/add-ps-page-1.png)
+   ![Adicionar item da galeria do servidor de processo](./media/vmware-azure-set-up-process-server-azure/add-ps-page-1.png)
 
 4. Em **Nome do servidor**, **Nome de usuário** e **Senha**, especifique um nome para o servidor em processo e as credenciais que receberão permissões de Administrador no servidor.
 5. Especifique uma conta de armazenamento a ser usada para os discos de VM do servidor, a sub-rede na qual a VM do servidor em processo estará localizada e o endereço IP do servidor que será atribuído quando a VM for iniciada.

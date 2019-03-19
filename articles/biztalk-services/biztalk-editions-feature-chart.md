@@ -1,6 +1,6 @@
 ---
 title: Saiba mais sobre recursos das edições dos Serviços BizTalk | Microsoft Docs
-description: 'Compare os recursos das edições dos Serviços BizTalk: Free, Developer, Basic, Standard e Premium. MABS, WABS.'
+description: 'Compare os recursos das edições dos Serviços BizTalk: Gratuito, Developer, Basic, Standard e Premium. MABS, WABS.'
 services: biztalk-services
 documentationcenter: ''
 author: MandiOhlinger
@@ -11,17 +11,17 @@ ms.service: biztalk-services
 ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 8e25f98f1189f71943ece4a7877a86e29698689a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: d16bf73c1d9871e4de8940e4ab9bbd7ed0f39384
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240504"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765621"
 ---
-# <a name="biztalk-services-editions-chart"></a>Serviços BizTalk: gráfico de edições
+# <a name="biztalk-services-editions-chart"></a>Serviços BizTalk: Tabela de edições
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
@@ -34,7 +34,7 @@ Os Serviços BizTalk do Azure oferecem várias edições. Use este tópico para 
 
 **Desenvolvedores**
 
-Inclui Conexões Híbridas, processamento de mensagens EAI & EDI com um portal de gerenciamento de parceiro comercial fácil de usar e dá suporte a esquemas EDI comuns e a processamento sofisticado de EDI por x12 e AS2. Pode criar cenários EAI comuns conectando serviços na nuvem com qualquer protocolo HTTP/S, REST, FTP, WCF e SFTP para ler e escrever mensagens.  Utilize a conectividade com sistemas LOB locais com adaptadores SAP, Oracle eBusiness, Oracle DB, Siebel e SQL Server prontos para uso. Use um ambiente centralizado no desenvolvedor com ferramentas do Visual Studio para permitir desenvolvimento e implantação fáceis. Limitado para fins de desenvolvimento e teste apenas sem nenhum Contrato de Nível de Serviço (SLA).
+Inclui Conexões Híbridas, processamento de mensagens EAI & EDI com um portal de gerenciamento de parceiro comercial fácil de usar e dá suporte a esquemas EDI comuns e a processamento sofisticado de EDI por x12 e AS2. Pode criar cenários EAI comuns conectando serviços na nuvem com qualquer protocolo HTTP/S, REST, FTP, WCF e SFTP para ler e escrever mensagens.  Utilize a conectividade com sistemas LOB locais com adaptadores SAP, Oracle eBusiness, Oracle DB, Siebel e SQL Server prontos para uso. Use um ambiente centralizado no desenvolvedor com ferramentas do Visual Studio para desenvolvimento e implantação fáceis. Limitado para fins de desenvolvimento e teste apenas sem nenhum Contrato de Nível de Serviço (SLA).
 
 **Básico**
 
@@ -239,20 +239,20 @@ Você não poderá implantar uma ponte nova ou criar novos contratos. Para impla
 #### <a name="how-do-i-migrate-from-one-tier-of-biztalk-services-to-another"></a>Como faço para migrar de uma camada dos Serviços do BizTalk para outra?
 A edição gratuita não pode ser migrada ou 'expandida' para outra camada e não pode ser submetida a backup e restaurada para outra camada. Se você precisar de outra camada, crie um novo Serviço BizTalk usando a nova camada. Quaisquer artefatos criados usando a edição Gratuita, incluindo conexões híbridas, precisam ser recriados no novo Serviço BizTalk. 
 
-Para as edições restantes, use o backup e a restauração para migrar os artefatos de uma camada para outra. Por exemplo, faça backup dos artefatos na camada Standard e, em seguida, restaure-os para a camada Premium. [Serviços BizTalk: Backup e Restauração](biztalk-backup-restore.md) descreve os caminhos de migração com suporte e lista de quais artefatos é feito backup. Observe que não é feito backup das Conexões Híbridas. Depois de fazer backup e realizar a restauração em uma nova camada, recrie as conexões híbridas.  
+Para as edições restantes, use o backup e a restauração para migrar os artefatos de uma camada para outra. Por exemplo, faça backup dos artefatos na camada Standard e, em seguida, restaure-os para a camada Premium. [Serviços BizTalk: Backup e restauração](biztalk-backup-restore.md) descreve os caminhos de migração com suporte e lista quais artefatos é feito. Observe que não é feito backup das Conexões Híbridas. Depois de fazer backup e realizar a restauração em uma nova camada, recrie as conexões híbridas.  
 
 #### <a name="is-the-biztalk-adapter-service-included-in-the-service-how-do-i-receive-the-software"></a>O Serviço do Adaptador do BizTalk está incluído no serviço? Como recebo o software?
 Sim, o Serviço do Adaptador do BizTalk com o BizTalk Adapter Pack são incluídos com o SDK dos Serviços BizTalk do Azure [download](https://www.microsoft.com/download/details.aspx?id=39087).
 
 ## <a name="next-steps"></a>Próximas etapas
-Para criar os Serviços BizTalk do Azure no Portal de Gerenciamento do Azure, consulte [Serviços BizTalk: provisionamento com o Portal do Azure](biztalk-provision-services.md). Para começar a criar aplicativos, visite [Serviços BizTalk do Azure (a página pode estar em inglês)](https://go.microsoft.com/fwlink/p/?LinkID=235197).
+Para criar serviços BizTalk do Azure no portal do Azure, vá para [Serviços BizTalk: Provisionamento usando o portal do Azure](biztalk-provision-services.md). Para começar a criar aplicativos, visite [Serviços BizTalk do Azure (a página pode estar em inglês)](https://go.microsoft.com/fwlink/p/?LinkID=235197).
 
 ## <a name="additional-resources"></a>Recursos adicionais
-* [Serviços BizTalk: provisionamento com o Portal do Azure](biztalk-provision-services.md)<br/>
-* [Serviços BizTalk: gráfico do status do provisionamento](biztalk-service-state-chart.md)<br/>
-* [Serviços BizTalk: guias Painel, Monitor e Escala](biztalk-dashboard-monitor-scale-tabs.md)<br/>
-* [BizTalk Services: Backup and restore](biztalk-backup-restore.md)<br/>
-* [Serviços BizTalk: limitação](biztalk-throttling-thresholds.md)<br/>
-* [Serviços BizTalk: nome e chave do emissor](biztalk-issuer-name-issuer-key.md)<br/>
+* [Serviços BizTalk: Provisionamento usando o portal do Azure](biztalk-provision-services.md)<br/>
+* [Serviços BizTalk: Gráfico de Status de provisionamento](biztalk-service-state-chart.md)<br/>
+* [Serviços BizTalk: Guias painel, Monitor e escala](biztalk-dashboard-monitor-scale-tabs.md)<br/>
+* [Serviços BizTalk: Backup e restauração](biztalk-backup-restore.md)<br/>
+* [Serviços BizTalk: Throttling](biztalk-throttling-thresholds.md)<br/>
+* [Serviços BizTalk: Nome do emissor e chave do emissor](biztalk-issuer-name-issuer-key.md)<br/>
 * [Como começar a usar o SDK dos Serviços BizTalk do Azure](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 

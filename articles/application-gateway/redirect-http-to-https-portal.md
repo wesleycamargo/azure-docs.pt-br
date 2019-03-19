@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/7/2018
 ms.author: victorh
-ms.openlocfilehash: c27c31bc2f21cfae9036849973301a66a437de42
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 17eef2fc2608ca4ccbabff8179cd63798d275582
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54435224"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119625"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Criar um gateway de aplicativo com HTTP para redirecionamento HTTPS usando o portal do Azure
 
@@ -29,7 +29,9 @@ Neste artigo, você aprenderá a:
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-Este tutorial requer o módulo do Azure PowerShell versão 3.6 ou posterior para criar um certificado e instalar o IIS. Execute `Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Para executar os comandos neste tutorial, você também precisa executar `Login-AzureRmAccount` para criar uma conexão com o Azure.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Este tutorial requer o módulo Azure PowerShell versão 1.0.0 ou posterior para criar um certificado e instalar o IIS. Execute `Get-Module -ListAvailable Az` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Para executar os comandos neste tutorial, você também precisa executar `Login-AzAccount` para criar uma conexão com o Azure.
 
 ## <a name="create-a-self-signed-certificate"></a>Crie um certificado autoassinado
 
@@ -70,20 +72,20 @@ Uma rede virtual é necessária para a comunicação entre os recursos que você
 3. Selecione **Rede** e depois **Gateway de Aplicativo** na lista em destaque.
 4. Insira esses valores para o gateway de aplicativo:
 
-    - *myAppGateway* - para o nome do gateway de aplicativo.
-    - *myResourceGroupAG* - para o novo grupo de recursos.
+   - *myAppGateway* - para o nome do gateway de aplicativo.
+   - *myResourceGroupAG* - para o novo grupo de recursos.
 
-    ![Criar novo gateway de aplicativo](./media/create-url-route-portal/application-gateway-create.png)
+     ![Criar novo gateway de aplicativo](./media/create-url-route-portal/application-gateway-create.png)
 
 5. Aceite os valores padrão para as outras configurações e, em seguida, clique em **OK**.
 6. Clique em **Escolher uma rede virtual**, clique em **Criar novo** e insira esses valores para a rede virtual:
 
-    - *myVNet* – para o nome da rede virtual.
-    - *10.0.0.0/16* – para o espaço de endereço da rede virtual.
-    - *myAGSubnet* – para o nome da sub-rede.
-    - *10.0.1.0/24* - para o espaço de endereço da sub-rede.
+   - *myVNet* – para o nome da rede virtual.
+   - *10.0.0.0/16* – para o espaço de endereço da rede virtual.
+   - *myAGSubnet* – para o nome da sub-rede.
+   - *10.0.1.0/24* - para o espaço de endereço da sub-rede.
 
-    ![Criar rede virtual](./media/create-url-route-portal/application-gateway-vnet.png)
+     ![Criar rede virtual](./media/create-url-route-portal/application-gateway-vnet.png)
 
 7. Clique em **OK** para criar a rede virtual e a sub-rede.
 8. Em **Configuração de IP de Frontend**, selecione as opções **Tipo de endereço IP** **Público** e **Criar novo**. Insira *myAGPublicIPAddress* como o nome. Aceite os valores padrão para as outras configurações e, em seguida, clique em **OK**.
@@ -184,14 +186,14 @@ Cole o comando a seguir na janela do PowerShell e pressione Enter.
 ```azurepowershell
 $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1"); 
   "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
-$vmss = Get-AzureRmVmss -ResourceGroupName myResourceGroupAG -VMScaleSetName myvmss
-Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss `
+$vmss = Get-AzVmss -ResourceGroupName myResourceGroupAG -VMScaleSetName myvmss
+Add-AzVmssExtension -VirtualMachineScaleSet $vmss `
   -Name "customScript" `
   -Publisher "Microsoft.Compute" `
   -Type "CustomScriptExtension" `
   -TypeHandlerVersion 1.8 `
   -Setting $publicSettings
-Update-AzureRmVmss `
+Update-AzVmss `
   -ResourceGroupName myResourceGroupAG `
   -Name myvmss `
   -VirtualMachineScaleSet $vmss

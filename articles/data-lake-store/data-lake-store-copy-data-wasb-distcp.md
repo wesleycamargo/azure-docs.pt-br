@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 9740de34fe7cf7d06af1803cc6d77d7e89bbb73f
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
-ms.translationtype: HT
+ms.openlocfilehash: 5c3f393278d3d51dd3a53cd19335cd242c15c6d8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391514"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58168700"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen1"></a>Use o Distcp para copiar dados entre os Azure Storage Blobs e o Azure Data Lake Storage Gen1
 > [!div class="op_single_selector"]
@@ -33,9 +33,6 @@ Se você tiver um cluster HDInsight com acesso ao Azure Data Lake Storage Gen1, 
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Uma conta do Azure Data Lake Storage Gen1**. Para obter instruções sobre como criar uma, confira [Introdução ao Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * **Cluster Azure HDInsight** com acesso a uma conta do Azure Data Lake Storage Gen1. Veja [Criar um cluster HDInsight com Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Certifique-se de habilitar a área de trabalho remota para o cluster.
-
-## <a name="do-you-learn-fast-with-videos"></a>Você aprende rapidamente com vídeos?
-[Assista a este vídeo](https://mix.office.com/watch/1liuojvdx6sie) sobre como copiar dados entre os Azure Storage Blobs e o Data Lake Storage Gen1 usando o DistCp.
 
 ## <a name="use-distcp-from-an-hdinsight-linux-cluster"></a>Usar Distcp de um cluster HDInsight do Linux
 
@@ -79,9 +76,9 @@ Como a granularidade mais baixa do DistCp é um único arquivo, definir o númer
 
 Aqui estão algumas diretrizes que podem ser usadas.
 
-* **Etapa 1: Determinar a memória total de YARN** ‑ A primeira etapa é determinar a memória YARN disponível para o cluster em que você executa o trabalho DistCp. Essas informações estão disponíveis no portal do Ambari associado ao cluster. Navegue até YARN e exiba a guia Configurações para ver a memória YARN. Para obter a memória YARN total, multiplique a memória YARN por nó pelo número de nós que você tem no cluster.
+* **Etapa 1: Determinar a memória YARN total** -a primeira etapa é determinar a memória YARN disponível para o cluster onde você executa o trabalho DistCp. Essas informações estão disponíveis no portal do Ambari associado ao cluster. Navegue até YARN e exiba a guia Configurações para ver a memória YARN. Para obter a memória YARN total, multiplique a memória YARN por nó pelo número de nós que você tem no cluster.
 
-* **Etapa 2: Calcular o número de mapeadores** ‑ O valor de **m** é igual ao quociente de memória total de YARN dividida pelo tamanho do contêiner YARN. As informações de tamanho do contêiner YARN também estão disponíveis no portal do Ambari. Navegue até YARN e exiba a guia Configurações. O tamanho do contêiner YARN é exibido nessa janela. A equação para chegar até o número de mapeadores (**m**) é
+* **Etapa 2: Calcule o número de mapeadores** - O valor de **m** é igual ao quociente da memória total do YARN dividido pelo tamanho do contêiner do YARN. As informações de tamanho do contêiner YARN também estão disponíveis no portal do Ambari. Navegue até YARN e exiba a guia Configurações. O tamanho do contêiner YARN é exibido nessa janela. A equação para chegar até o número de mapeadores (**m**) é
 
         m = (number of nodes * YARN memory for each node) / YARN container size
 

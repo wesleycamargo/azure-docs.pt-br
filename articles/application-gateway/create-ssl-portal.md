@@ -10,12 +10,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 5/15/2018
 ms.author: victorh
-ms.openlocfilehash: 2ae8c14b40fa13a1aa8008588fb0efb1b1d2c3f6
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 92db27aa486936d53c2e2e1c92db7d728b7d99c5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159410"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091827"
 ---
 # <a name="configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Configurar um gateway de aplicativo com terminação SSL usando o portal do Azure
 
@@ -29,6 +29,8 @@ Neste artigo, você aprenderá a:
 > * Criar as máquinas virtuais usadas como servidores de back-end
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
@@ -76,12 +78,12 @@ Uma rede virtual é necessária para a comunicação entre os recursos que você
 4. Aceite os valores padrão para as outras configurações e, em seguida, clique em **OK**.
 5. Clique em **Escolher uma rede virtual**, clique em **Criar novo** e insira esses valores para a rede virtual:
 
-    - *myVNet* – para o nome da rede virtual.
-    - *10.0.0.0/16* – para o espaço de endereço da rede virtual.
-    - *myAGSubnet* – para o nome da sub-rede.
-    - *10.0.0.0/24* - para o espaço de endereço da sub-rede.
+   - *myVNet* – para o nome da rede virtual.
+   - *10.0.0.0/16* – para o espaço de endereço da rede virtual.
+   - *myAGSubnet* – para o nome da sub-rede.
+   - *10.0.0.0/24* - para o espaço de endereço da sub-rede.
 
-    ![Criar rede virtual](./media/create-ssl-portal/application-gateway-vnet.png)
+     ![Criar rede virtual](./media/create-ssl-portal/application-gateway-vnet.png)
 
 6. Clique em **OK** para criar a rede virtual e a sub-rede.
 7. Clique em **Escolher um endereço IP público**, clique em **Criar novo** e digite o nome do endereço IP público. Neste exemplo, o endereço IP público é denominado *myAGPublicIPAddress*. Aceite os valores padrão para as outras configurações e, em seguida, clique em **OK**.
@@ -132,7 +134,7 @@ Neste exemplo, você cria duas máquinas virtuais para serem usadas como servido
 2. Execute o comando a seguir para instalar o IIS na máquina virtual: 
 
     ```azurepowershell-interactive
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -ExtensionName IIS `
       -VMName myVM `
@@ -143,17 +145,17 @@ Neste exemplo, você cria duas máquinas virtuais para serem usadas como servido
       -Location EastUS
     ```
 
-3. Crie uma segunda máquina virtual e instale o IIS usando as etapas que você acabou de concluir. Insira *myVM2* para seu nome e para VMName em Set-AzureRmVMExtension.
+3. Crie uma segunda máquina virtual e instale o IIS usando as etapas que você acabou de concluir. Insira *myVM2* para seu nome e para VMName em Set-AzVMExtension.
 
 ### <a name="add-backend-servers"></a>Adicionar servidores de back-end
 
-3. Clique em **Todos os recursos** e clique em **myAppGateway**.
-4. Clique em **Pools de back-end**. Um pool padrão foi criado automaticamente com o gateway de aplicativo. Clique em **appGatewayBackendPool**.
-5. Clique em **Adicionar destino** para adicionar cada máquina virtual que você criou para o pool de back-end.
+1. Clique em **Todos os recursos** e clique em **myAppGateway**.
+1. Clique em **Pools de back-end**. Um pool padrão foi criado automaticamente com o gateway de aplicativo. Clique em **appGatewayBackendPool**.
+1. Clique em **Adicionar destino** para adicionar cada máquina virtual que você criou para o pool de back-end.
 
     ![Adicionar servidores de back-end](./media/create-ssl-portal/application-gateway-backend.png)
 
-6. Clique em **Salvar**.
+1. Clique em **Salvar**.
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicativo
 

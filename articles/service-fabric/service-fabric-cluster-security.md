@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/14/2018
 ms.author: aljo
-ms.openlocfilehash: 6a568fa724d0d403833e938ae8b01556fe96cf1f
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 9b36332382de1317e386af59695f993efb233e79
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428630"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108436"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Cenários de segurança do cluster do Service Fabric
 Um cluster do Azure Service Fabric é um recurso que pertence a você. É sua responsabilidade proteger os clusters para ajudar a impedir que usuários não autorizados se conectem a eles. Um cluster seguro é especialmente importante quando você está executando cargas de trabalho de produção no cluster. Embora seja possível criar um cluster não seguro, se ele expuser pontos de extremidade de gerenciamento na Internet pública, usuários anônimos poderão se conectar a ele. Clusters desprotegidos não são compatíveis com cargas de trabalho de produção. 
@@ -112,7 +112,7 @@ O certificado deve atender aos seguintes requisitos:
 
 Algumas outras coisas a considerar:
 
-* O campo **Entidade** pode ter vários valores. Cada valor é prefixado com uma inicialização para indicar o tipo de valor. Geralmente, a inicialização é **CN** (de *nome comum*), por exemplo, **CN = www.contoso.com**. 
+* O campo **Entidade** pode ter vários valores. Cada valor é prefixado com uma inicialização para indicar o tipo de valor. Geralmente, é a inicialização **CN** (para *nome comum*); por exemplo, **CN = www\.contoso.com**. 
 * O campo **Entidade** pode ficar em branco. 
 * Se o campo opcional **Nome Alternativo da Entidade** estiver populado, ele deverá conter o nome comum do certificado e também uma entrada por SAN. Eles são inseridos como valores de **Nome DNS**. Para saber como gerar certificados que têm SANs, consulte [Como adicionar um nome alternativo da entidade a um certificado LDAP seguro](https://support.microsoft.com/kb/931351).
 * O valor do campo **Finalidades Pretendidas** do certificado deve incluir um valor apropriado, como **Autenticação do Servidor** ou **Autenticação do Cliente**.

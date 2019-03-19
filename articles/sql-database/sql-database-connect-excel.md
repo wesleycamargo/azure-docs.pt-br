@@ -12,12 +12,12 @@ ms.author: craigg
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/12/2019
-ms.openlocfilehash: c456954c3bf68fd87e51162ea6aab1d0a54b86ad
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: e1cd0d8462c31c8b843f7962f923accc6b63ae00
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237003"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58103393"
 ---
 # <a name="connect-excel-to-a-single-database-in-azure-sql-database-and-create-a-report"></a>Conectar o Excel a um banco de dados individual no Banco de Dados SQL do Azure e criar um relatório
 
@@ -43,10 +43,10 @@ Você também precisará de uma cópia do Excel. Este artigo usa o [Microsoft Ex
 
 4. Na caixa de diálogo **Banco de Dados do SQL Server**, selecione **Banco de Dados** à esquerda e, em seguida, insira seu **nome de usuário** e **senha** para o servidor de Banco de Dados SQL ao qual você deseja se conectar. Selecione **Conectar** para abrir o **Navegador**. 
 
-  ![Digite as credenciais de logon e nome do servidor](./media/sql-database-connect-excel/connect-to-server.png)
+   ![Digite as credenciais de logon e nome do servidor](./media/sql-database-connect-excel/connect-to-server.png)
 
-  > [!TIP]
-  > Dependendo do seu ambiente de rede, você não poderá conectar ou poderá perder a conexão se o servidor do Banco de Dados SQL não permitir o tráfego a partir de seu endereço IP do cliente. Vá para o [portal do Azure](https://portal.azure.com/), clique em servidores SQL, clique no servidor, no firewall em configurações e adicione o endereço IP do cliente. Consulte [Como definir as configurações de firewall](sql-database-configure-firewall-settings.md) para obter mais detalhes.
+   > [!TIP]
+   > Dependendo do seu ambiente de rede, você não poderá conectar ou poderá perder a conexão se o servidor do Banco de Dados SQL não permitir o tráfego a partir de seu endereço IP do cliente. Vá para o [portal do Azure](https://portal.azure.com/), clique em servidores SQL, clique no servidor, no firewall em configurações e adicione o endereço IP do cliente. Consulte [Como definir as configurações de firewall](sql-database-configure-firewall-settings.md) para obter mais detalhes.
 
 5. No **Navegador**, selecione o banco de dados que você deseja trabalhar na lista, selecione as tabelas ou exibições com o qual você deseja trabalhar (escolhemos **vGetAllCategories**) e, em seguida, selecione **Carregar** para mover os dados do banco de dados para sua planilha do Excel.
 
@@ -75,17 +75,17 @@ Agora que a conexão foi estabelecida, você tem várias opções diferentes qua
 Para salvar os detalhes de conexão permanentemente, você pode criar um arquivo .odc e tornar essa conexão uma opção selecionável na caixa de diálogo **Conexões existentes**. 
 
 1. Na barra de menus na parte superior da página, selecione a guia **Dados** e, em seguida, selecione **Conexões existentes** para iniciar a caixa de diálogo **Conexões existentes**. 
-    1. Selecione **Procurar mais** para abrir a caixa de diálogo **Selecionar fonte de dados**.   
-    2. Selecione o arquivo **+NewSqlServerConnection.odc** e, em seguida, selecione **Abrir** para abrir o **Assistente para conexão de dados**.
+   1. Selecione **Procurar mais** para abrir a caixa de diálogo **Selecionar fonte de dados**.   
+   2. Selecione o arquivo **+NewSqlServerConnection.odc** e, em seguida, selecione **Abrir** para abrir o **Assistente para conexão de dados**.
 
-    ![Nova conexão](media/sql-database-connect-excel/new-connection.png)
+      ![Nova conexão](media/sql-database-connect-excel/new-connection.png)
 
 2. Em **Assistente para conexão de dados**, digite seu nome do servidor e suas credenciais do Banco de Dados SQL. Selecione **Avançar**. 
-    1. Selecione o banco de dados que contém os dados na lista suspensa. 
-    2. Selecione a tabela ou exibição que você está interessado. Escolhemos vGetAllCategories.
-    3. Selecione **Avançar**. 
+   1. Selecione o banco de dados que contém os dados na lista suspensa. 
+   2. Selecione a tabela ou exibição que você está interessado. Escolhemos vGetAllCategories.
+   3. Selecione **Avançar**. 
 
-    ![Assistente de conexão de dados](media/sql-database-connect-excel/data-connection-wizard.png) 
+      ![Assistente de conexão de dados](media/sql-database-connect-excel/data-connection-wizard.png) 
 
 3. Selecione o local do arquivo, o **Nome de arquivo**e o **Nome amigável** na próxima tela do Assistente de Conexão de dados. Também é possível salvar a senha no arquivo, embora isso pode expor seus dados para acesso não desejado. Selecione **Concluir** quando estiver pronto. 
 

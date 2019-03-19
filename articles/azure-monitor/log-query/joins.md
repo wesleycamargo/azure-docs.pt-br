@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 91ff85d8c32c0bcfa984cc690382d09765a068a2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 2ea5b4e3af6591e6e25a863998baa7cecb3e29e8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004616"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079104"
 ---
 # <a name="joins-in-azure-monitor-log-queries"></a>Junções nas consultas de log do Azure Monitor
 
 > [!NOTE]
-> Você deve concluir a [Introdução ao Log Analytics do Azure Monitor](get-started-portal.md) e a [Consultas de logs do Azure Monitor](get-started-queries.md) antes de concluir esta lição.
+> Você deve concluir [Introdução ao Log Analytics do Azure Monitor](get-started-portal.md) e [consultas de log do Azure Monitor](get-started-queries.md) antes de concluir esta lição.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -101,7 +101,7 @@ Considere os pontos a seguir para o desempenho ideal:
 
 - Use um filtro de tempo em cada tabela para reduzir os registros que devem ser avaliados para a junção.
 - Use `where` e `project` para reduzir o número de linhas e colunas nas tabelas de entrada antes da junção.
-* Se uma tabela sempre for menor do que a outra, use-a como o lado esquerdo da junção.
+- Se uma tabela sempre for menor do que a outra, use-a como o lado esquerdo da junção.
 
 
 ## <a name="next-steps"></a>Próximas etapas

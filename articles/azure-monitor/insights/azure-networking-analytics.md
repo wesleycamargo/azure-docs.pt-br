@@ -13,14 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: richrund
-ms.openlocfilehash: 66bac977d05276833a357521a3a040c59b2f28fa
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: b1bcaa3a6246a97f15cbd249040844602f03a7b1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54900282"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107552"
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Soluções de monitoramento de rede do Azure no Log Analytics
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 O Log Analytics oferece as seguintes soluções para monitorar suas redes:
 * Monitor de Desempenho de Rede (NPM) para
@@ -109,9 +111,9 @@ O script do PowerShell a seguir fornece um exemplo de como habilitar o registro 
 ```powershell
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 
-$gateway = Get-AzureRmApplicationGateway -Name 'ContosoGateway'
+$gateway = Get-AzApplicationGateway -Name 'ContosoGateway'
 
-Set-AzureRmDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $workspaceId -Enabled $true
+Set-AzDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $workspaceId -Enabled $true
 ```
 
 ### <a name="use-azure-application-gateway-analytics"></a>Usar a análise do Gateway de Aplicativo do Azure
@@ -179,9 +181,9 @@ O script do PowerShell a seguir fornece um exemplo de como habilitar o registro 
 ```powershell
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 
-$nsg = Get-AzureRmNetworkSecurityGroup -Name 'ContosoNSG'
+$nsg = Get-AzNetworkSecurityGroup -Name 'ContosoNSG'
 
-Set-AzureRmDiagnosticSetting -ResourceId $nsg.ResourceId  -WorkspaceId $workspaceId -Enabled $true
+Set-AzDiagnosticSetting -ResourceId $nsg.ResourceId  -WorkspaceId $workspaceId -Enabled $true
 ```
 
 ### <a name="use-azure-network-security-group-analytics"></a>Usar a análise de Grupo de Segurança de Rede do Azure
@@ -215,18 +217,18 @@ Para usar as soluções atualizadas:
 2. [Configure o diagnóstico a ser enviado diretamente para o Log Analytics de Grupo de Segurança de Rede do Azure](#enable-azure-network-security-group-diagnostics-in-the-portal)
 2. Habilite a solução *Análise do Gateway de Aplicativo do Azure* e a solução *Análise de Grupo de Segurança de Rede do Azure* usando o processo descrito em [Adicionar soluções do Log Analytics por meio da Galeria de Soluções](../../azure-monitor/insights/solutions.md)
 3. Atualizar todas as consultas salvas, painéis ou alertas para usar o novo tipo de dados
-  + Type é AzureDiagnostics. Você pode usar ResourceType para filtrar os registros de rede do Azure.
+   + Type é AzureDiagnostics. Você pode usar ResourceType para filtrar os registros de rede do Azure.
 
-    | Em vez de: | Use: |
-    | --- | --- |
-    | NetworkApplicationgateways &#124; onde OperationName=="ApplicationGatewayAccess" | AzureDiagnostics &#124; onde ResourceType="APPLICATIONGATEWAYS" e OperationName=="ApplicationGatewayAccess" |
-    | NetworkApplicationgateways &#124; onde OperationName=="ApplicationGatewayPerformance" | AzureDiagnostics &#124; onde ResourceType=="APPLICATIONGATEWAYS" e OperationName=ApplicationGatewayPerformance |
-    | NetworkSecurityGroups | AzureDiagnostics &#124; onde ResourceType=="NETWORKSECURITYGROUPS" |
+     | Em vez de: | Use: |
+     | --- | --- |
+     | NetworkApplicationgateways &#124; onde OperationName=="ApplicationGatewayAccess" | AzureDiagnostics &#124; onde ResourceType="APPLICATIONGATEWAYS" e OperationName=="ApplicationGatewayAccess" |
+     | NetworkApplicationgateways &#124; onde OperationName=="ApplicationGatewayPerformance" | AzureDiagnostics &#124; onde ResourceType=="APPLICATIONGATEWAYS" e OperationName=ApplicationGatewayPerformance |
+     | NetworkSecurityGroups | AzureDiagnostics &#124; onde ResourceType=="NETWORKSECURITYGROUPS" |
 
    + Para qualquer campo que tenha um sufixo de \_s, \_d ou \_g no nome, altere o primeiro caractere para minúsculo
    + Para qualquer campo que tenha um sufixo de \_o no nome, os dados são divididos em campos individuais com base nos nomes de campos aninhados.
 4. Remova a solução *Análise de Rede do Azure (preterida)*.
-  + Se você estiver usando o PowerShell, use `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "AzureNetwork" -Enabled $false`
+   + Se você estiver usando o PowerShell, use `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "AzureNetwork" -Enabled $false`
 
 Os dados coletados antes da alteração não estão visíveis na nova solução. Você pode continuar a consultar esses dados usando os nomes de campo e tipo antigos.
 

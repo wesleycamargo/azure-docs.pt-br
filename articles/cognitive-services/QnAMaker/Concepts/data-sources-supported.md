@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 03/04/2019
 ms.author: tulasim
-ms.openlocfilehash: 09e01f7705c61bdf110c0bc84cefa396f430f7f8
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 0e9e8456bb493ad4591c0f2a22d28bdf342f09e1
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884504"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433103"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Fontes de dados para conteúdo do QnA Maker
 
@@ -25,7 +25,7 @@ A tabela a seguir resume os tipos de conteúdo e formatos de arquivo com suporte
 
 |Tipo de Fonte|Tipo de conteúdo| Exemplos|
 |--|--|--|
-|URL|Perguntas frequentes<br> (simples, com seções ou com uma página inicial de tópicos)<br>Páginas de suporte <br> (artigos de instrução de uma página, artigos de solução de problemas etc.)|[Perguntas frequentes simples](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), <br>[Perguntas frequentes com links](https://www.microsoft.com/software-download/faq),<br> [Perguntas frequentes com home page de tópicos](https://support.microsoft.com/products/windows?os=windows-10)<br>[Artigo de suporte](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/best-practices)|
+|URL|Perguntas frequentes<br> (simples, com seções ou com uma página inicial de tópicos)<br>Páginas de suporte <br> (artigos de instrução de uma página, artigos de solução de problemas etc.)|[Perguntas frequentes simples](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), <br>[Perguntas frequentes com links](https://www.microsoft.com/software-download/faq),<br> [Perguntas frequentes com home page de tópicos](https://www.microsoft.com/Licensing/servicecenter/Help/Faq.aspx)<br>[Artigo de suporte](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/best-practices)|
 |PDF/DOC|Perguntas frequentes,<br> Manual do Produto,<br> Folhetos,<br> Papel,<br> Política de folheto,<br> Guia de suporte,<br> QnA estruturado,<br> etc.|[QnA.doc estruturado](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Exemplo produto Manual.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf),<br> [Exemplo semi-estruturado.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Exemplo papel em branco.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf)|
 |Excel|Arquivo QnA estruturado<br> (incluindo suporte RTF, HTML)|[Exemplo de QnA FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
 |TXT/TSV|Arquivo QnA estruturado|[Exemplo de chit-chat.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Scenario_Responses_Friendly.tsv)|
@@ -122,7 +122,7 @@ Abaixo está um exemplo de um documento do word de QnA estruturado:
 
 QnAs na forma de arquivos *.txt*, *.tsv* ou *.xls* estruturados também podem ser carregadas para o QnA Maker para criar ou ampliar uma base de conhecimento.  Podem ser texto sem formatação ou ter conteúdo em RTF ou HTML. 
 
-| Pergunta  | Resposta  | Metadados                |
+| Pergunta  | Resposta  | Metadados (1 tecla: valor de 1) |
 |-----------|---------|-------------------------|
 | Pergunta1 | Resposta1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | Pergunta2 | Resposta2 |      `Key:Value`           |
@@ -137,7 +137,7 @@ Abaixo está um exemplo de arquivo *.xls* de QnA estruturada, com conteúdo HTML
 
 Importar uma base de dados de conhecimento substitui o conteúdo da base de dados de conhecimento existente. A importação requer um arquivo .tsv estruturado que contenha informações de fonte de dados. Essas informações ajudam o QnA Maker a agrupar os pares de resposta de pergunta e atribuí-los a uma fonte de dados específico.
 
-| Pergunta  | Resposta  | Fonte| Metadados                |
+| Pergunta  | Resposta  | Fonte| Metadados (1 tecla: valor de 1) |          
 |-----------|---------|----|---------------------|
 | Pergunta1 | Resposta1 | Url1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | Pergunta2 | Resposta2 | Editorial|    `Key:Value`       |

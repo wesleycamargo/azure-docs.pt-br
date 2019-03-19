@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: prasantp
 author: prasanthpul
-ms.date: 09/24/2018
+ms.date: 12/3/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6deeabfe57f946a9c31548791c00ee70ecd9f2d6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 8c392e1df1b3a42256bc89cabcfa1506a4b4e83b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251241"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117788"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX e Azure Machine Learning: Criar e implantar modelos de AI interoperáveis
 
@@ -36,7 +36,7 @@ Também há um ecossistema de ferramentas para visualizar e acelerar modelos ONN
 
 Os [modelos ONNX podem ser implantados](#deploy) na nuvem usando o Azure Machine Learning e ONNX Runtime. Eles também podem ser implantados em dispositivos Windows 10 usando o [ML do Windows](https://docs.microsoft.com/windows/ai/). Podem até mesmo ser implantados em outras plataformas usando conversores disponíveis na comunidade ONNX. 
 
-[ ![Diagrama de fluxo do ONNX mostrando o treinamento, os conversores e a implantação](media/concept-onnx/onnx.png) ] (./media/concept-onnx/onnx.png#lightbox)
+[![Diagrama de fluxo ONNX mostrando o treinamento, conversores e implantação](media/concept-onnx/onnx.png) ](./media/concept-onnx/onnx.png#lightbox)
 
 ## <a name="get-onnx-models"></a>Obter modelos ONNX
 
@@ -69,7 +69,7 @@ Com o serviço do Azure Machine Learning, é possível implantar, gerenciar e mo
 
 ### <a name="install-and-configure-onnx-runtime"></a>Instalar e configurar o ONNX Runtime
 
-ONNX Runtime é um mecanismo de inferência de alto desempenho para modelos ONNX. Ele fornece aceleração de hardware tanto em CPU como em GPU, com APIs disponíveis para Python, C# e C. O ONNX Runtime dá suporte a modelos ONNX 1.2+ e executa no Linux, Windows e Mac. Pacotes do Python estão disponíveis em [PyPi.org](https://pypi.org) ([CPU](https://pypi.org/project/onnxruntime), [GPU](https://pypi.org/project/onnxruntime-gpu)) e o [pacote C#](https://www.nuget.org/packages/Microsoft.ML.OnnxRuntime/) está em [Nuget.org](https://www.nuget.org). Saiba mais sobre o projeto no [GitHub](https://github.com/Microsoft/onnxruntime). 
+ONNX Runtime é um mecanismo de inferência de alto desempenho para modelos ONNX. Ele fornece aceleração de hardware tanto em CPU como em GPU, com APIs disponíveis para Python, C# e C. O ONNX Runtime dá suporte a modelos ONNX 1.2+ e executa no Linux, Windows e Mac. Pacotes do Python estão disponíveis em [PyPi.org](https://pypi.org) ([CPU](https://pypi.org/project/onnxruntime), [GPU](https://pypi.org/project/onnxruntime-gpu)) e o [pacote C#](https://www.nuget.org/packages/Microsoft.ML.OnnxRuntime/) está em [Nuget.org](https://www.nuget.org). Saiba mais sobre o projeto no [GitHub](https://github.com/Microsoft/onnxruntime). Leia [requisitos de sistema](https://github.com/Microsoft/onnxruntime#system-requirements) antes da instalação.
 
 Para instalar o ONNX Runtime para Python, use:
 ```python
@@ -127,7 +127,7 @@ Confira um exemplo de como implantar um modelo ONNX:
 
    ```python
    from azureml.core.image import ContainerImage
-   
+
    image_config = ContainerImage.image_configuration(execution_script = "score.py",
                                                      runtime = "python",
                                                      conda_file = "myenv.yml",
@@ -161,10 +161,10 @@ Confira um exemplo de como implantar um modelo ONNX:
        try:
            data = json.loads(raw_data)['data']
            data = np.array(data)
-        
+
            sess = onnxruntime.InferenceSession(model_path)
            result = sess.run(["outY"], {"inX": data})
-        
+
            return json.dumps({"result": result.tolist()})
        except Exception as e:
            result = str(e)
@@ -189,9 +189,9 @@ Confira um exemplo de como implantar um modelo ONNX:
 
 
 ## <a name="examples"></a>Exemplos
- 
+
 Consulte [how-to-use-azureml/deployment/onnx](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx), por exemplo, notebooks que criam e implantam modelos ONNX.
- 
+
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## <a name="more-info"></a>Mais informações

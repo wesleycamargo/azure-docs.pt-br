@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 67083a8214724659765922047c1f0ccd6da87b9d
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: 520d417abe27887fad03257c52521c25602009eb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884921"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096003"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>Lista de verificação de planejamento e implantação de carga de trabalho SAP no Azure 
 
@@ -87,76 +87,76 @@ Nesta fase, uma migração da carga de trabalho SAP para a nuvem pública do Azu
  
 O piloto pode ser executado antes ou junto com o planejamento e a preparação do projeto. A fase também pode ser usada para testar abordagens e o design feito nas fases de planejamento e preparação. A fase piloto pode ser estendida para uma prova de conceitos real. É recomendável configurar e validar uma solução completa de HA/DR, bem como o design de segurança, durante uma implantação piloto. Em alguns casos de cliente, testes de escalabilidade também podem ser realizados nessa fase. Outros clientes usam a implantação de sistemas de área restrita do SAP como fase piloto. Portanto, vamos supor que você tenha identificado um sistema que você queira migrar para o Azure para executar um piloto.
 
-1.  Otimize a transferência de dados no Azure. Altamente dependente de casos do cliente, a transferência por meio do [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) do local era mais rápida quando o circuito do Express tinha a largura de banda suficiente. Com outros clientes, passar pela Internet se mostrou mais rápido
-2.  No caso de uma migração de plataformas heterogêneas da SAP, que envolve exportação e importação do banco de dados, teste e otimização das fases de exportação e importação. Para migrações grandes que envolvem o SQL Server como a plataforma de destino, as recomendações podem ser encontradas [aqui](https://blogs.msdn.microsoft.com/saponsqlserver/2017/05/08/sap-osdb-migration-to-sql-server-faq-v6-2-april-2017/). Você poderá usar a abordagem do Monitor de Migração/SWPM caso não precise de uma atualização de versão combinada ou processo [DMO SAP](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) quando combinar a migração com uma atualização de versão do SAP e atender a determinadas combinações de plataforma DBMS de origem e destino conforme documentado, por exemplo, em [DMO (Opção de Migração de Banco de Dados) de SUM 2.0 SP03](https://launchpad.support.sap.com/#/notes/2631152). 
-    1.  Exportar para a origem, Exportar upload de arquivo para o Azure e Desempenho de importação.  Maximizar a sobreposição entre exportação e importação
-    2.  Avaliar o volume do banco de dados entre a plataforma alvo e de destino para refletir o dimensionamento da infraestrutura    
-    3.  Validar e otimizar o tempo 
-3.  Validação técnica 
-    1.  Tipos de VM
-        1.  Valide os recursos nas notas de suporte SAP, no diretório de hardware do SAP HANA e no SAP PAM novamente para verificar se não houve alterações a VMs com suporte para o Azure, versões do sistema operacional com suporte nesses tipos de VMs e versões SAP e DBMS com suporte
-        2.  Valide novamente o dimensionamento do seu aplicativo e a infraestrutura que você implanta no Azure. No caso de mover aplicativos existentes, você geralmente pode derivar os SAPS necessários da infraestrutura que você usa e a [página da Web de parâmetro de comparação SAP](https://www.sap.com/dmc/exp/2018-benchmark-directory/#/sd) e compará-los com os números SAPS listados na nota suporte SAP [nº 1928533](https://launchpad.support.sap.com/#/notes/1928533). Também leve em conta [este artigo](https://blogs.msdn.microsoft.com/saponsqlserver/2018/11/04/saps-ratings-on-azure-vms-where-to-look-and-where-you-can-get-confused/)
-        3.  Avalie e teste o dimensionamento de suas VMs do Azure em relação à taxa de transferência máxima de armazenamento e à taxa de transferência de rede de diferentes tipos de VM que você escolheu na fase de planejamento. Os dados podem ser encontrados em:
-            1.  [Tamanhos das Máquinas Virtuais do Windows no Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). É importante considerar a **taxa de transferência máxima de disco sem cache** para dimensionamento
-            2.  [Tamanhos para Máquinas Virtuais do Linux no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) É importante considerar a **taxa de transferência máxima de disco sem cache** para dimensionamento
-    2.  Armazenamento
-        1.  Usar o Armazenamento Premium do Azure para VMs de banco de dados
-        2.  Usar [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/)
-        3.  Use o Acelerador de Gravação do Azure para unidades de log do DBMS com a série M. Esteja ciente dos limites e do uso do Acelerador de gravação conforme documentado em [Acelerador de Gravação](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator)
-        4.  Para os diferentes tipos DBMS, confira a [documentação genérica de DBMS relacionado a SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) e a documentação específica do DBMS
-        5.  Para o SAP HANA, mais detalhes estão documentados em [Configurações e operações de infraestrutura do SAP HANA no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)
-        6.  Nunca monte discos de dados do Azure em uma VM Linux do Azure usando a ID do dispositivo. Em vez disso, use o identificador universal exclusivo (UUID). Tenha cuidado ao usar, por exemplo, ferramentas gráficas para montar discos de dados do Azure. Verifique novamente as entradas em /etc/fstab para ver se os discos são montados usando o UUID
-            1.  Encontre mais detalhes [aqui](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal#connect-to-the-linux-vm-to-mount-the-new-disk)
-    3.  Rede
-        1.  Testar e avaliar sua infraestrutura de VNet e a distribuição de seus aplicativos SAP entre ou dentro das diferentes redes virtuais do Azure
-            1.  Avaliar a abordagem da arquitetura de rede virtual de hub e spoke ou microssegmentação em uma única rede virtual do Azure com base em
-                1.  Custos devido à troca de dados entre [VNETs do Azure emparelhadas](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). Para custos, confira [Preço de Rede Virtual](https://azure.microsoft.com/pricing/details/virtual-network/)
-                2.  A vantagem da desconexão rápida do emparelhamento entre redes virtuais do Azure em comparação à alteração de NSG para isolar uma sub-rede dentro de uma rede virtual para casos em que aplicativos ou VMs hospedadas em uma sub-rede da rede virtual tornam-se um risco de segurança
-                3.  Registro em log central e auditoria de tráfego de rede entre locais, o mundo exterior e o datacenter virtual criado no Azure
-            2.  Avalie e teste o caminho de dados entre a camada de aplicativo SAP e a camada do SAP DBMS. 
-                1.  Não há nenhum suporte para posicionamentos de [Dispositivos de Rede Virtual do Azure](https://azure.microsoft.com/solutions/network-appliances/) no caminho de comunicação entre o aplicativo SAP e a camada DBMS de um SAP NetWeaver, Hybris ou sistema SAP baseado em S/4HANA
-                2.  Não há suporte para colocar a camada de aplicativo SAP e o SAP DBMS em diferentes redes virtuais do Azure que não estejam emparelhadas
-                3.  Há suporte para [Regras do Azure ASG e NSG](https://docs.microsoft.com/azure/virtual-network/security-overview) para definir rotas entre a camada de aplicativo SAP e a camada do SAP DBMS
-            3.  Verifique se a [Rede Acelerada do Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) está habilitada nas VMs usadas na camada do aplicativo SAP e na camada do SAP DBMS. Lembre-se de que diferentes níveis de sistema operacional são necessários para dar suporte à Rede Acelerada no Azure:
-                1.  Windows Server 2012 R2 ou versões mais recentes
-                2.  SUSE Linux 12 SP3 ou versões mais recentes
-                3.  RHEL 7.4 ou versões mais recentes
-                4.  Oracle Linux 7.5. Usando o kernel RHCKL, a versão deve ser 3.10.0-862.13.1.el7. É necessário usar o kernel Oracle UEK versão 5
-            4.   Teste e avalie a latência de rede entre a VM da camada de aplicativo SAP e a VM do DBMS de acordo com a nota de suporte SAP [nº 500235](https://launchpad.support.sap.com/#/notes/500235) e a nota de suporte SAP [nº 1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Avalie os resultados em relação à orientação de latência de rede da observação de suporte SAP [nº 1100926](https://launchpad.support.sap.com/#/notes/1100926/E). A latência de rede deve estar no intervalo moderado e bom. Exceções aplicam-se a o tráfego entre VMs e unidades de Instância Grande do HANA conforme documentado [aqui](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture#networking-architecture-for-hana-large-instance)
-            5.   Verifique se as implantações de ILB são configuradas para usar o Retorno de Servidor Direto. Essa configuração reduzirá a latência em casos em que ILBs do Azure são usados para configurações de alta disponibilidade na camada de DBMS
-    4.   Implantações de alta disponibilidade e recuperação de desastre. 
-        1.   Se você implantar a camada de aplicativo SAP sem definir uma zona de disponibilidade específica do Azure, verifique se todas as VMs que estão executando a instância de diálogo SAP ou instâncias de middleware de um único sistema SAP estão implantadas em um [Conjunto de Disponibilidade](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability). 
-            1.   Caso você não precise de alta disponibilidade para o SAP Central Services e o DBMS, essas VMs poderão ser implantadas no mesmo conjunto de disponibilidade que a camada de aplicativo SAP
-        2.   Se você proteger o SAP Central Services e a camada DBMS para alta disponibilidade com réplicas passivas, tenha os dois nós para SAP Central Services em um Conjunto de Disponibilidade separado e os dois nós DBMS em outro Conjunto de Disponibilidade
-        3.   Se você implantar em Zonas de Disponibilidade do Azure, não poderá aproveitar os Conjuntos de Disponibilidade. No entanto, precisaria implantar os nós do Central Services ativo e passivo em duas Zonas de Disponibilidade diferentes, que mostram a menor latência entre zonas.
-            1.   Lembre-se de que você precisa usar o [Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) para o caso de estabelecer Clusters de Failover do Pacemaker ou do Windows para a camada do SAP Central Services e do DBMS entre zonas de disponibilidade. O [Basic Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) não pode ser usado para implantações zonais 
-    5.   Configurações de tempo limite
-        1.   Examine os rastreamentos de desenvolvedor do SAP NetWeaver das diferentes instâncias do SAP e verifique se nenhuma interrupção de conexão entre o servidor de enfileiramento e os processos de trabalho do SAP é observada. Essas interrupções de conexão podem ser evitadas definindo estes dois parâmetros de Registro:
-            1.   HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\KeepAliveTime = 120000 – veja também [este artigo](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-2000-server/cc957549(v=technet.10))
-            2.   HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\KeepAliveInterval = 120000 – veja também [este artigo](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-2000-server/cc957548(v=technet.10)) 
-        2.   Para evitar tempos limites de GUI entre interfaces da SAP GUI implantadas locais e camadas de aplicativo SAP implantadas no Azure, verifique se os parâmetros a seguir estão definidos no default.pfl ou no perfil da instância:
-            1.   rdisp/keepalive_timeout = 3600
-            2.   rdisp/keepalive = 20
-        3.   Se você usar uma configuração de Cluster de Failover do Windows, verifique se o tempo para reagir em nós não responsivos está definido corretamente para o Azure. O artigo da Microsoft [Ajustando limites de rede de cluster de failover](https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/) lista parâmetros e como eles afetam as sensibilidades de failover. Entre os parâmetros listados, esses dois parâmetros devem ser definidos com os valores:
-            1.   SameSubNetDelay = 2
-            2.   SameSubNetThreshold = 15
-4.   Testar seus procedimentos de alta disponibilidade e recuperação de desastre
-    1.   Simule situações de failover desligando VMs (SO convidado do Windows) ou colocando os sistemas operacionais no modo de pânico (SO convidado do Linux) para descobrir se suas configurações de failover funcionam como planejado. 
-    2.   Meça seu tempo necessário para executar um failover. Se os tempos forem excessivos, considere:
-        1.   Para o SUSE Linux, usar dispositivos SBD em vez do agente de isolamento do Azure para acelerar o failover
-        2.   Para o SAP HANA, se o recarregamento de dados levar muito tempo, considere provisionar mais largura de banda de armazenamento
-    3.   Testar a sequência de backup/restauração e ajustar se necessário. Assegure que não apenas os tempos de backup sejam suficientes. Teste também a restauração e anote o tempo em atividades de restauração. verifique se os tempos de restauração estão dentro de seus SLAs de RTO quando o RTO se baseia em um banco de dados ou processo de restauração de VM
-    4.   Testar a funcionalidade e a arquitetura de recuperação de desastres entre regiões
-5.  Verificações de segurança
-    1.  Teste a validade da arquitetura RBAC (acesso baseado em função) do Azure implementada. A meta é separar e limitar o acesso e as permissões de diferentes equipes. Por exemplo, membros da equipe SAP de Base devem poder implantar VMs e atribuir os discos do Armazenamento do Azure a uma determinada rede virtual do Azure. No entanto, a equipe SAP de Base não deve poder criar as próprias redes virtuais ou alterar as configurações de redes virtuais existentes. Por outro lado, os membros da equipe de rede não devem poder implantar VMs em redes virtuais nas quais VMs do DBMS e do aplicativo SAP estejam em execução. Os membros da equipe de rede também não devem poder alterar os atributos de VMs nem mesmo excluir VMs ou discos.  
-    2.  Verifique se as regras de [NSG e ASC](https://docs.microsoft.com/azure/virtual-network/security-overview) estão funcionando conforme o esperado e blindam os recursos protegidos
-    3.  Verifique se todos os recursos que precisam ser criptografados foram criptografados. Defina e execute processos para fazer backup de certificados, armazenar e acessar esses certificados e restaurar as entidades criptografadas. 
-    4.  Use a [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq) e/ou para discos do sistema operacional, quando possível, de um ponto de vista de suporte de sistema operacional
-    5.  Verifique se não foram usadas camadas de criptografia demais. Faz sentido limitado para usar o Azure Disk Encryption e então sobre um dos métodos de Transparent Database Encryption do DBMS
-6.  Teste de desempenho
-    1.  Em SAP baseado em rastreamento e medidas do SAP, compare os 10 principais relatórios online para a implementação atual, quando aplicável 
-    2.  Em SAP baseado em rastreamento e medidas do SAP, compare os 10 principais trabalho em lotes para a implementação atual, quando aplicável 
-    3.  Em SAP baseado em rastreamento e medidas do SAP, compare as transferências de dados por meio de interfaces para o sistema SAP. Concentre-se nas interfaces em que você sabe que a transferência agora ocorre entre diferentes locais, como do local para o Azure 
+1. Otimize a transferência de dados no Azure. Altamente dependente de casos do cliente, a transferência por meio do [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) do local era mais rápida quando o circuito do Express tinha a largura de banda suficiente. Com outros clientes, passar pela Internet se mostrou mais rápido
+2. No caso de uma migração de plataformas heterogêneas da SAP, que envolve exportação e importação do banco de dados, teste e otimização das fases de exportação e importação. Para migrações grandes que envolvem o SQL Server como a plataforma de destino, as recomendações podem ser encontradas [aqui](https://blogs.msdn.microsoft.com/saponsqlserver/2017/05/08/sap-osdb-migration-to-sql-server-faq-v6-2-april-2017/). Você poderá usar a abordagem do Monitor de Migração/SWPM caso não precise de uma atualização de versão combinada ou processo [DMO SAP](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) quando combinar a migração com uma atualização de versão do SAP e atender a determinadas combinações de plataforma DBMS de origem e destino conforme documentado, por exemplo, em [DMO (Opção de Migração de Banco de Dados) de SUM 2.0 SP03](https://launchpad.support.sap.com/#/notes/2631152). 
+   1.  Exportar para a origem, Exportar upload de arquivo para o Azure e Desempenho de importação.  Maximizar a sobreposição entre exportação e importação
+   2.  Avaliar o volume do banco de dados entre a plataforma alvo e de destino para refletir o dimensionamento da infraestrutura    
+   3.  Validar e otimizar o tempo 
+3. Validação técnica 
+   1. Tipos de VM
+      1.  Valide os recursos nas notas de suporte SAP, no diretório de hardware do SAP HANA e no SAP PAM novamente para verificar se não houve alterações a VMs com suporte para o Azure, versões do sistema operacional com suporte nesses tipos de VMs e versões SAP e DBMS com suporte
+      2.  Valide novamente o dimensionamento do seu aplicativo e a infraestrutura que você implanta no Azure. No caso de mover aplicativos existentes, você geralmente pode derivar os SAPS necessários da infraestrutura que você usa e a [página da Web de parâmetro de comparação SAP](https://www.sap.com/dmc/exp/2018-benchmark-directory/#/sd) e compará-los com os números SAPS listados na nota suporte SAP [nº 1928533](https://launchpad.support.sap.com/#/notes/1928533). Também leve em conta [este artigo](https://blogs.msdn.microsoft.com/saponsqlserver/2018/11/04/saps-ratings-on-azure-vms-where-to-look-and-where-you-can-get-confused/)
+      3.  Avalie e teste o dimensionamento de suas VMs do Azure em relação à taxa de transferência máxima de armazenamento e à taxa de transferência de rede de diferentes tipos de VM que você escolheu na fase de planejamento. Os dados podem ser encontrados em:
+          1.  [Tamanhos das Máquinas Virtuais do Windows no Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). É importante considerar a **taxa de transferência máxima de disco sem cache** para dimensionamento
+          2.  [Tamanhos para Máquinas Virtuais do Linux no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) É importante considerar a **taxa de transferência máxima de disco sem cache** para dimensionamento
+   2. Armazenamento
+      1.  Usar o Armazenamento Premium do Azure para VMs de banco de dados
+      2.  Usar [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/)
+      3.  Use o Acelerador de Gravação do Azure para unidades de log do DBMS com a série M. Esteja ciente dos limites e do uso do Acelerador de gravação conforme documentado em [Acelerador de Gravação](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator)
+      4.  Para os diferentes tipos DBMS, confira a [documentação genérica de DBMS relacionado a SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) e a documentação específica do DBMS
+      5.  Para o SAP HANA, mais detalhes estão documentados em [Configurações e operações de infraestrutura do SAP HANA no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)
+      6.  Nunca monte discos de dados do Azure em uma VM Linux do Azure usando a ID do dispositivo. Em vez disso, use o identificador universal exclusivo (UUID). Tenha cuidado ao usar, por exemplo, ferramentas gráficas para montar discos de dados do Azure. Verifique novamente as entradas em /etc/fstab para ver se os discos são montados usando o UUID
+          1.  Encontre mais detalhes [aqui](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal#connect-to-the-linux-vm-to-mount-the-new-disk)
+   3. Rede
+      1.  Testar e avaliar sua infraestrutura de VNet e a distribuição de seus aplicativos SAP entre ou dentro das diferentes redes virtuais do Azure
+          1.  Avaliar a abordagem da arquitetura de rede virtual de hub e spoke ou microssegmentação em uma única rede virtual do Azure com base em
+              1.  Custos devido à troca de dados entre [VNETs do Azure emparelhadas](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). Para custos, confira [Preço de Rede Virtual](https://azure.microsoft.com/pricing/details/virtual-network/)
+              2.  A vantagem da desconexão rápida do emparelhamento entre redes virtuais do Azure em comparação à alteração de NSG para isolar uma sub-rede dentro de uma rede virtual para casos em que aplicativos ou VMs hospedadas em uma sub-rede da rede virtual tornam-se um risco de segurança
+              3.  Registro em log central e auditoria de tráfego de rede entre locais, o mundo exterior e o datacenter virtual criado no Azure
+          2.  Avalie e teste o caminho de dados entre a camada de aplicativo SAP e a camada do SAP DBMS. 
+              1.  Não há nenhum suporte para posicionamentos de [Dispositivos de Rede Virtual do Azure](https://azure.microsoft.com/solutions/network-appliances/) no caminho de comunicação entre o aplicativo SAP e a camada DBMS de um SAP NetWeaver, Hybris ou sistema SAP baseado em S/4HANA
+              2.  Não há suporte para colocar a camada de aplicativo SAP e o SAP DBMS em diferentes redes virtuais do Azure que não estejam emparelhadas
+              3.  Há suporte para [Regras do Azure ASG e NSG](https://docs.microsoft.com/azure/virtual-network/security-overview) para definir rotas entre a camada de aplicativo SAP e a camada do SAP DBMS
+          3.  Verifique se a [Rede Acelerada do Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) está habilitada nas VMs usadas na camada do aplicativo SAP e na camada do SAP DBMS. Lembre-se de que diferentes níveis de sistema operacional são necessários para dar suporte à Rede Acelerada no Azure:
+              1.  Windows Server 2012 R2 ou versões mais recentes
+              2.  SUSE Linux 12 SP3 ou versões mais recentes
+              3.  RHEL 7.4 ou versões mais recentes
+              4.  Oracle Linux 7.5. Usando o kernel RHCKL, a versão deve ser 3.10.0-862.13.1.el7. É necessário usar o kernel Oracle UEK versão 5
+          4.   Teste e avalie a latência de rede entre a VM da camada de aplicativo SAP e a VM do DBMS de acordo com a nota de suporte SAP [nº 500235](https://launchpad.support.sap.com/#/notes/500235) e a nota de suporte SAP [nº 1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Avalie os resultados em relação à orientação de latência de rede da observação de suporte SAP [nº 1100926](https://launchpad.support.sap.com/#/notes/1100926/E). A latência de rede deve estar no intervalo moderado e bom. Exceções aplicam-se a o tráfego entre VMs e unidades de Instância Grande do HANA conforme documentado [aqui](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture#networking-architecture-for-hana-large-instance)
+          5.   Verifique se as implantações de ILB são configuradas para usar o Retorno de Servidor Direto. Essa configuração reduzirá a latência em casos em que ILBs do Azure são usados para configurações de alta disponibilidade na camada de DBMS
+   4. Implantações de alta disponibilidade e recuperação de desastre. 
+      1. Se você implantar a camada de aplicativo SAP sem definir uma zona de disponibilidade específica do Azure, verifique se todas as VMs que estão executando a instância de diálogo SAP ou instâncias de middleware de um único sistema SAP estão implantadas em um [Conjunto de Disponibilidade](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability). 
+         1.   Caso você não precise de alta disponibilidade para o SAP Central Services e o DBMS, essas VMs poderão ser implantadas no mesmo conjunto de disponibilidade que a camada de aplicativo SAP
+      2. Se você proteger o SAP Central Services e a camada DBMS para alta disponibilidade com réplicas passivas, tenha os dois nós para SAP Central Services em um Conjunto de Disponibilidade separado e os dois nós DBMS em outro Conjunto de Disponibilidade
+      3. Se você implantar em Zonas de Disponibilidade do Azure, não poderá aproveitar os Conjuntos de Disponibilidade. No entanto, precisaria implantar os nós do Central Services ativo e passivo em duas Zonas de Disponibilidade diferentes, que mostram a menor latência entre zonas.
+         1.   Lembre-se de que você precisa usar o [Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) para o caso de estabelecer Clusters de Failover do Pacemaker ou do Windows para a camada do SAP Central Services e do DBMS entre zonas de disponibilidade. O [Basic Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) não pode ser usado para implantações zonais 
+   5. Configurações de tempo limite
+      1. Examine os rastreamentos de desenvolvedor do SAP NetWeaver das diferentes instâncias do SAP e verifique se nenhuma interrupção de conexão entre o servidor de enfileiramento e os processos de trabalho do SAP é observada. Essas interrupções de conexão podem ser evitadas definindo estes dois parâmetros de Registro:
+         1.   HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\KeepAliveTime = 120000 – veja também [este artigo](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-2000-server/cc957549(v=technet.10))
+         2.   HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\KeepAliveInterval = 120000 – veja também [este artigo](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-2000-server/cc957548(v=technet.10)) 
+      2. Para evitar tempos limites de GUI entre interfaces da SAP GUI implantadas locais e camadas de aplicativo SAP implantadas no Azure, verifique se os parâmetros a seguir estão definidos no default.pfl ou no perfil da instância:
+         1.   rdisp/keepalive_timeout = 3600
+         2.   rdisp/keepalive = 20
+      3. Se você usar uma configuração de Cluster de Failover do Windows, verifique se o tempo para reagir em nós não responsivos está definido corretamente para o Azure. O artigo da Microsoft [Ajustando limites de rede de cluster de failover](https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/) lista parâmetros e como eles afetam as sensibilidades de failover. Entre os parâmetros listados, esses dois parâmetros devem ser definidos com os valores:
+         1.   SameSubNetDelay = 2
+         2.   SameSubNetThreshold = 15
+4. Testar seus procedimentos de alta disponibilidade e recuperação de desastre
+   1. Simule situações de failover desligando VMs (SO convidado do Windows) ou colocando os sistemas operacionais no modo de pânico (SO convidado do Linux) para descobrir se suas configurações de failover funcionam como planejado. 
+   2. Meça seu tempo necessário para executar um failover. Se os tempos forem excessivos, considere:
+      1.   Para o SUSE Linux, usar dispositivos SBD em vez do agente de isolamento do Azure para acelerar o failover
+      2.   Para o SAP HANA, se o recarregamento de dados levar muito tempo, considere provisionar mais largura de banda de armazenamento
+   3. Testar a sequência de backup/restauração e ajustar se necessário. Assegure que não apenas os tempos de backup sejam suficientes. Teste também a restauração e anote o tempo em atividades de restauração. verifique se os tempos de restauração estão dentro de seus SLAs de RTO quando o RTO se baseia em um banco de dados ou processo de restauração de VM
+   4. Testar a funcionalidade e a arquitetura de recuperação de desastres entre regiões
+5. Verificações de segurança
+   1.  Teste a validade da arquitetura RBAC (acesso baseado em função) do Azure implementada. A meta é separar e limitar o acesso e as permissões de diferentes equipes. Por exemplo, membros da equipe SAP de Base devem poder implantar VMs e atribuir os discos do Armazenamento do Azure a uma determinada rede virtual do Azure. No entanto, a equipe SAP de Base não deve poder criar as próprias redes virtuais ou alterar as configurações de redes virtuais existentes. Por outro lado, os membros da equipe de rede não devem poder implantar VMs em redes virtuais nas quais VMs do DBMS e do aplicativo SAP estejam em execução. Os membros da equipe de rede também não devem poder alterar os atributos de VMs nem mesmo excluir VMs ou discos.  
+   2.  Verifique se as regras de [NSG e ASC](https://docs.microsoft.com/azure/virtual-network/security-overview) estão funcionando conforme o esperado e blindam os recursos protegidos
+   3.  Verifique se todos os recursos que precisam ser criptografados foram criptografados. Defina e execute processos para fazer backup de certificados, armazenar e acessar esses certificados e restaurar as entidades criptografadas. 
+   4.  Use a [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq) e/ou para discos do sistema operacional, quando possível, de um ponto de vista de suporte de sistema operacional
+   5.  Verifique se não foram usadas camadas de criptografia demais. Faz sentido limitado para usar o Azure Disk Encryption e então sobre um dos métodos de Transparent Database Encryption do DBMS
+6. Teste de desempenho
+   1.  Em SAP baseado em rastreamento e medidas do SAP, compare os 10 principais relatórios online para a implementação atual, quando aplicável 
+   2.  Em SAP baseado em rastreamento e medidas do SAP, compare os 10 principais trabalho em lotes para a implementação atual, quando aplicável 
+   3.  Em SAP baseado em rastreamento e medidas do SAP, compare as transferências de dados por meio de interfaces para o sistema SAP. Concentre-se nas interfaces em que você sabe que a transferência agora ocorre entre diferentes locais, como do local para o Azure 
 
 
 ## <a name="non-production-phase"></a>Fase não de produção 

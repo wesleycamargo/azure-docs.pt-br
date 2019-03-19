@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 16b4031c0242d79b6d866d612a4d4f594dc608fa
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 4622809f0e261236d6753daf5bb2e00ff814c849
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821942"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087866"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrar o ExpressRoute do Azure à recuperação de desastres para VMs do Azure
 
@@ -91,11 +91,11 @@ Geralmente, as implantações corporativas têm cargas de trabalho divididas em 
     - **VNet2 de origem**: 10.2.0.0/24.
     - Cada rede virtual spoke é conectado ao **vNet do Hub**.
 - **VNet do hub**. Há uma vNet do hub **vNet do Hub de Origem**: 10.10.10.0/24.
-    - Este hub vNet atua como o gatekeeper.
-    - Todas as comunicações entre sub-redes passam por esse hub.
- - Hub vNet subredes * *. O hub vNet tem duas sub-redes:
-     - **Subrede NVA**: 10.10.10.0/25. Essa sub-rede contém uma NVA (10.10.10.10).
-     - **Gateway de sub-rede**: 10.10.10.128/25. Essa sub-rede contém um gateway da Rota Expressa conectado a uma conexão da Rota Expressa que direciona para o site local por meio de um domínio de roteamento de emparelhamento.
+  - Este hub vNet atua como o gatekeeper.
+  - Todas as comunicações entre sub-redes passam por esse hub.
+    - Hub vNet subredes * *. O hub vNet tem duas sub-redes:
+    - **Subrede NVA**: 10.10.10.0/25. Essa sub-rede contém uma NVA (10.10.10.10).
+    - **Gateway de sub-rede**: 10.10.10.128/25. Essa sub-rede contém um gateway da Rota Expressa conectado a uma conexão da Rota Expressa que direciona para o site local por meio de um domínio de roteamento de emparelhamento.
 - O datacenter local tem uma conexão de circuito de Rota Expressa por meio de uma borda de parceiro em Hong Kong.
 - Todo o roteamento é controlado por meio das tabelas de rota do Azure (UDR).
 - Todo o tráfego de saída entre o vNets ou o datacenter no local é roteado pelo NVA.

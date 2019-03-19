@@ -4,17 +4,17 @@ description: Descreve como a definição de diretiva de recurso é usada pela Po
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/19/2019
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 1c65ea47f7dd091ea326d9300a8ef09208a03951
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 35cb5c286b9c9657c37dcede7f51082b5c48ef99
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447779"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894420"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição da Política do Azure
 
@@ -80,7 +80,7 @@ O **modo** determina quais tipos de recursos serão avaliados para uma política
 
 É recomendável definir o **modo** como `all` na maioria dos casos. Todas as definições de políticas criadas através do portal usam o modo `all`. Se você usar a CLI do Azure ou PowerShell, será necessário especificar o modo **parâmetro** manualmente. Se a definição de política não incluir um valor **modo**, ela usará como padrão `all` no Azure PowerShell e `null` na CLI do Azure. Um modo `null` é o mesmo que usar `indexed` para dar suporte à compatibilidade com versões anteriores.
 
-`indexed` deve ser usado ao criar políticas que vão impor marcas ou locais. Embora não seja obrigatório, impedirá que recursos que não oferecem suporte a marcas nem locais apareçam como não compatíveis nos resultados de conformidade. A exceção são **grupos de recursos**. As políticas que impõem local ou marcas em um grupo de recursos devem definir **mode** como `all` e direcionar especificamente o tipo `Microsoft.Resources/subscriptions/resourceGroups`. Para obter um exemplo, consulte [Impor marcas do grupo de recursos](../samples/enforce-tag-rg.md).
+`indexed` deve ser usado ao criar políticas que vão impor marcas ou locais. Embora não seja obrigatório, impedirá que recursos que não oferecem suporte a marcas nem locais apareçam como não compatíveis nos resultados de conformidade. A exceção são **grupos de recursos**. As políticas que impõem local ou marcas em um grupo de recursos devem definir **mode** como `all` e direcionar especificamente o tipo `Microsoft.Resources/subscriptions/resourceGroups`. Para obter um exemplo, consulte [Impor marcas do grupo de recursos](../samples/enforce-tag-rg.md). Para obter uma lista de recursos que oferecem suporte a marcas, consulte [suporte para recursos do Azure de marcação](../../../azure-resource-manager/tag-support.md).
 
 ## <a name="parameters"></a>parâmetros
 
@@ -101,7 +101,7 @@ Um parâmetro tem as seguintes propriedades que são usadas na definição de po
   - `displayName`: O nome amigável exibido no portal para o parâmetro.
   - `strongType`: (opcional) usado ao atribuir a definição de política por meio do portal. Fornece uma lista de reconhecimento de contexto. Para obter mais informações, confira [strongType](#strongtype).
 - `defaultValue`: (opcional) define o valor do parâmetro em uma atribuição se não houver valor fornecido. Necessário ao atualizar uma definição de política existente que é atribuída.
-- `allowedValues`: (opcional) fornece a lista de valores que o parâmetro aceita durante a atribuição.
+- `allowedValues`: (Opcional) Fornece uma matriz de valores que o parâmetro aceita durante a atribuição.
 
 Por exemplo, você pode definir uma definição de política para limitar os locais em que os recursos podem ser implantados. Um parâmetro para essa definição de política pode ser **allowedLocations**. Esse parâmetro deve ser usado por cada atribuição da definição de política para limitar os valores aceitos. O uso de **strongType** fornece uma experiência aprimorada ao concluir a atribuição por meio do portal:
 
@@ -289,6 +289,9 @@ No exemplo a seguir, `concat` é usado para criar uma pesquisa de campo de marca
 As condições também podem ser formadas usando o **valor**. O **valor** verifica as condições em relação aos [parâmetros](#parameters), [funções de modelo com suporte](#policy-functions) ou literais.
 O **valor** é emparelhado a uma [condição](#conditions) com suporte.
 
+> [!WARNING]
+> Se o resultado de uma _função de modelo_ é um erro, falha de avaliação de política. Uma avaliação com falha é implícito **negar**. Para obter mais informações, consulte [evitar falhas de modelo](#avoiding-template-failures).
+
 #### <a name="value-examples"></a>Exemplos de valor
 
 Este exemplo de regra de política usa **valor** para comparar o resultado da função `resourceGroup()` e a propriedade **nome** retornada para uma condição **like** de `*netrg`. A regra nega qualquer recurso que não for do **tipo** `Microsoft.Network/*` em qualquer grupo de recursos cujo nome termine em `*netrg`.
@@ -328,6 +331,44 @@ Este exemplo de regra de política usa **valor** para verificar se o resultado d
     }
 }
 ```
+
+#### <a name="avoiding-template-failures"></a>Evitar falhas de modelo
+
+O uso de _funções de modelo_ na **valor** permite para muitas funções aninhadas complexas. Se o resultado de uma _função de modelo_ é um erro, falha de avaliação de política. Uma avaliação com falha é implícito **negar**. Um exemplo de uma **valor** que falhar em determinados cenários:
+
+```json
+{
+    "policyRule": {
+        "if": {
+            "value": "[substring(field('name'), 0, 3)]",
+            "equals": "abc"
+        },
+        "then": {
+            "effect": "audit"
+        }
+    }
+}
+```
+
+A regra de política de exemplo acima usa [substring ()](../../../azure-resource-manager/resource-group-template-functions-string.md#substring) para comparar os três primeiros caracteres de **nome** para **abc**. Se **nome** é menor do que três caracteres, o `substring()` função resulta em um erro. Esse erro faz com que a política para se tornar um **negar** efeito.
+
+Em vez disso, use o [surgirem](../../../azure-resource-manager/resource-group-template-functions-logical.md#if) função para verificar se os três primeiros caracteres de **nome** igual **abc** sem permitir uma **nome** menor que três caracteres para causar um erro:
+
+```json
+{
+    "policyRule": {
+        "if": {
+            "value": "[if(greaterOrEquals(length(field('name')), 3), substring(field('name'), 0, 3), 'not starting with abc')]",
+            "equals": "abc"
+        },
+        "then": {
+            "effect": "audit"
+        }
+    }
+}
+```
+
+Com a regra de política revisado `if()` verifica o comprimento do **nome** antes de tentar obter um `substring()` em um valor com menos de três caracteres. Se **nome** é muito curto, o valor "não começa com abc" é retornado em vez disso e em comparação com **abc**. Um recurso com um nome curto que não começa com **abc** ainda não obedece à regra de política, mas não causa um erro durante a avaliação.
 
 ### <a name="effect"></a>Efeito
 
@@ -443,70 +484,60 @@ Vários aliases disponíveis têm uma versão que é exibida como um nome "norma
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
 
-O primeiro exemplo é usado para avaliar toda a matriz, em que o alias **[\*]** avalia cada elemento dela.
-
-Vamos examinar uma regra de política como um exemplo. Essa política **Negará** uma conta de armazenamento que tiver ipRules configurado e se **nenhum** dos ipRules tiver um valor de "127.0.0.1".
+O alias 'normal' representa o campo como um único valor. Este campo é para cenários de comparação de correspondência exata quando todo o conjunto de valores deve ser exatamente conforme definido, nem mais, nem menos. Usando o **ipRules**, um exemplo seria ser Validando a existência de um conjunto exato de regras incluindo o número de regras e composição de cada regra. Essa regra de exemplo verifica exatamente tanto **192.168.1.1** e **10.0.4.1** com _ação_ de **permitir** em **ipRules** para aplicar a **effectType**:
 
 ```json
 "policyRule": {
     "if": {
-        "allOf": [{
+        "allOf": [
+            {
+                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
+                "exists": "true"
+            },
+            {
+                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
+                "Equals": [
+                    {
+                        "action": "Allow",
+                        "value": "192.168.1.1"
+                    },
+                    {
+                        "action": "Allow",
+                        "value": "10.0.4.1"
+                    }
+                ]
+            }
+        ]
+    },
+    "then": {
+        "effect": "[parameters('effectType')]"
+    }
+}
+```
+
+O **[\*]** alias torna possível a ser comparada com o valor de cada elemento da matriz e as propriedades específicas de cada elemento. Essa abordagem torna possível comparar as propriedades do elemento para 'se nenhum', 'se qualquer um dos', ou ' se todos os de ' cenários. Usando o **ipRules [\*]**, um exemplo seria possível validar que cada _ação_ é _negar_, mas não se preocupar sobre quantas regras existem ou o que o IP _valor_ é. Esta regra de exemplo verifica as correspondências de **ipRules [\*]. Value** ao **10.0.4.1** e aplica-se a **effectType** somente se não encontrar pelo menos uma correspondência:
+
+```json
+"policyRule": {
+    "if": {
+        "allOf": [
+            {
                 "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
                 "exists": "true"
             },
             {
                 "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
-                "notEquals": "127.0.0.1"
+                "notEquals": "10.0.4.1"
             }
         ]
     },
     "then": {
-        "effect": "deny",
+        "effect": "[parameters('effectType')]"
     }
 }
 ```
 
-A matriz **ipRules** é a seguinte para o exemplo:
-
-```json
-"ipRules": [{
-        "value": "127.0.0.1",
-        "action": "Allow"
-    },
-    {
-        "value": "192.168.1.1",
-        "action": "Allow"
-    }
-]
-```
-
-Veja como este exemplo é processado:
-
-- `networkAcls.ipRules` – Verifique se a matriz não é nula. Ela é avaliada como verdadeira para que a avaliação continue.
-
-  ```json
-  {
-    "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
-    "exists": "true"
-  }
-  ```
-
-- `networkAcls.ipRules[*].value` – Verifica cada propriedade _Valor_ na matriz **ipRules**.
-
-  ```json
-  {
-    "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
-    "notEquals": "127.0.0.1"
-  }
-  ```
-
-  - Como uma matriz, cada elemento será processado.
-
-    - "127.0.0.1" != "127.0.0.1" é avaliado como false.
-    - "127.0.0.1" != "192.168.1.1" é avaliado como true.
-    - Pelo menos uma propriedade _valor_ na matriz **ipRules** foi avaliada como false; portanto, a avaliação será interrompida.
-
-Como uma condição avaliada como false, o efeito **Negação** não é disparado.
+Para obter mais informações, consulte [avaliando o [\*] alias](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
 ## <a name="initiatives"></a>Iniciativas
 

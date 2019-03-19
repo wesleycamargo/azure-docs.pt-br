@@ -13,14 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 5e3ef7782f805e07e24783a987f2753e4e889946
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: dcd546b4b4d8e47395535cd37e1629166c8c2e7f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313026"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58002346"
 ---
 # <a name="log-analytics-faq"></a>Perguntas frequentes do Log Analytics
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Essas Perguntas frequentes da Microsoft são uma lista de perguntas frequentes sobre o Log Analytics no Microsoft Azure. Se você tiver alguma pergunta adicional sobre o Log Analytics, vá para o [fórum de discussão](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) e poste suas perguntas. Quando uma pergunta for frequente, ela será adicionada a este artigo para que possa ser encontrada com rapidez e facilidade.
 
 
@@ -69,7 +72,7 @@ R: Para acessar um workspace no Azure, você deve ter permissões do Azure atrib
 R: O Designer de Exibição só está disponível nos Logs para os usuários atribuídos com permissões de Colaborador ou superior.
 
 ### <a name="q-can-i-still-use-the-analytics-portal-outside-of-azure"></a>P. Ainda posso usar o portal da Análise fora do Azure?
-a. Sim, a página Logs no Azure e o portal do Advanced Analytics são baseados no mesmo código. O Log Analytics está sendo integrado como um recurso no Azure Monitor a fim de fornecer uma experiência de monitoramento mais unificada. Você ainda poderá acessar o portal de Análise usando a URL: https://portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}.
+a. Sim, a página Logs no Azure e o portal do Advanced Analytics são baseados no mesmo código. O Log Analytics está sendo integrado como um recurso no Azure Monitor a fim de fornecer uma experiência de monitoramento mais unificada. Você ainda poderá acessar o portal de análise usando a URL: https:\/\/portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}.
 
 
 
@@ -168,7 +171,7 @@ O tráfego para o Log Analytics usa o circuito de ExpressRoute de emparelhamento
 
 ### <a name="q-is-there-a-simple-and-easy-way-to-move-an-existing-log-analytics-workspace-to-another-log-analytics-workspaceazure-subscription"></a>P. Há alguma maneira simples e fácil de mover um workspace existente do Log Analytics para outra assinatura do Azure/workspace do Log Analytics?
 
-a. O cmdlet `Move-AzureRmResource` permite que você mova um workspace do Log Analytics, além de uma conta de automação de uma assinatura do Azure para outra. Para obter mais informações, consulte [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx).
+a. O cmdlet `Move-AzResource` permite que você mova um workspace do Log Analytics, além de uma conta de automação de uma assinatura do Azure para outra. Para obter mais informações, consulte [movimentação AzResource](https://msdn.microsoft.com/library/mt652516.aspx).
 
 Essa alteração também pode ser feita no portal do Azure.
 

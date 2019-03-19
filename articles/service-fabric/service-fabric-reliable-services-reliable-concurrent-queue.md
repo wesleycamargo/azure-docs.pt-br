@@ -3,7 +3,7 @@ title: ReliableConcurrentQueue no Azure Service Fabric
 description: ReliableConcurrentQueue é uma fila de alta taxa de transferência que permite enfileirar e remover da fila de modo paralelo.
 services: service-fabric
 documentationcenter: .net
-author: tylermsft
+author: aljo-microsoft
 manager: timlt
 editor: raja,tyadam,masnider,vturecek
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
-ms.author: twhitney
-ms.openlocfilehash: 61b53a23fdbb08b226878d9b702ec6bb2879f8bc
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.author: aljo
+ms.openlocfilehash: 6fefbd21a5c301111afdc27ec1d332d713c669ad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185028"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119642"
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Introdução a ReliableConcurrentQueue no Azure Service Fabric
 Fila Simultânea Confiável é uma fila assíncrona, transacional e replicada quais apresenta alta simultaneidade para operações de enfileirar e remover da fila. Ele é projetado para oferecer alta taxa de transferência e baixa latência flexibilizando a rígida ordenação de PEPS fornecida pela [Fila Confiável](https://msdn.microsoft.com/library/azure/dn971527.aspx) e, em vez disso, fornece uma ordenação de melhor esforço.
@@ -70,7 +70,7 @@ using (var txn = this.StateManager.CreateTransaction())
 Suponha que a tarefa tenha sido concluída com êxito e que não tenham ocorrido transações simultâneas que modificassem a fila. O usuário pode esperar que a fila contenha os itens em qualquer uma destas ordens:
 
 > 10, 20
-
+> 
 > 20, 10
 
 
@@ -165,7 +165,7 @@ Suponha que os itens foram removidos da fila na seguinte ordem:
 
 Quando anulamos a transação, os itens são adicionados de volta ao topo da fila em qualquer uma das ordens a seguir:
 > 10, 20
-
+> 
 > 20, 10
 
 O mesmo é verdadeiro para todos os casos em que a transação não foi *Confirmada* com sucesso.

@@ -2,7 +2,7 @@
 title: Gerenciamento dos ativos e entidades relacionadas com o .NET SDK dos Serviços de Mídia
 description: Saiba como gerenciar ativos e entidades relacionadas com o SDK dos serviços de mídia para .NET.
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 7cab21919eca9ba62fa57e1c6b2089c0b8e115dc
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: d2651bc47f262a45a05217585eb00cbc721c01a1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979965"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58165770"
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Gerenciamento dos ativos e entidades relacionadas com o .NET SDK dos Serviços de Mídia
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "55979965"
 > 
 > 
 
-Este tópico mostra como gerenciar as entidades dos Serviços de Mídia do Azure com o .NET (herança)
+Este tópico mostra como gerenciar as entidades dos Serviços de Mídia do Azure com .NET.
 
 >[!NOTE]
 > A partir de 1º de abril de 2017, qualquer registro de trabalho em sua conta com mais de 90 dias será excluído automaticamente, junto com seus registros de tarefas associados, mesmo que o número total de registros esteja abaixo da cota máxima. Por exemplo, no dia 1º de abril de 2017, qualquer registro de Trabalho em sua conta que seja mais antigo do que 31 de dezembro de 2016 será excluído automaticamente. Se você precisar arquivar as informações de trabalho/tarefa, poderá usar o código descrito neste tópico.
@@ -201,7 +201,7 @@ Para obter mais informações sobre as opções para a entrega de ativos, consul
 ```
 
 ## <a name="list-all-access-policies"></a>Listar todas as políticas de acesso
-Nos serviços de mídia, você pode definir uma política de acesso em um ativo ou seus arquivos. Uma política de acesso define as permissões para um arquivo ou um ativo (o tipo de acesso e a duração). Em seu código de serviços de mídia, você normalmente define uma política de acesso criando um objeto IAccessPolicy e associá-la a um ativo existente. Em seguida, você pode criar um objeto ILocator, que permite que o fornecimento de acesso direto aos ativos nos serviços de mídia. O projeto do Visual Studio que acompanha esta série de documentação contém vários exemplos de código que mostram como criar e atribuir políticas de acesso e localizadores a ativos.
+Nos serviços de mídia, você pode definir uma política de acesso em um ativo ou seus arquivos. Uma política de acesso define as permissões para um arquivo ou um ativo (o tipo de acesso e a duração). Em seu código de serviços de mídia, você normalmente define uma política de acesso criando um objeto IAccessPolicy e associá-la a um ativo existente. Em seguida, você pode criar um objeto ILocator, que permite que você forneça acesso direto aos ativos nos serviços de mídia. O projeto do Visual Studio que acompanha esta série de documentação contém vários exemplos de código que mostram como criar e atribuir políticas de acesso e localizadores a ativos.
 
 O exemplo de código a seguir mostra como listar todas as políticas de acesso no servidor e mostra o tipo de permissões associadas a cada um. Outra maneira útil para exibir as políticas de acesso é listar todos os objetos de ILocator no servidor e, em seguida, para cada localizador, você pode listar sua política de acesso associada usando sua propriedade AccessPolicy.
 

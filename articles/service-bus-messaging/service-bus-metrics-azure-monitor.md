@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 11/06/2018
 ms.author: aschhab
-ms.openlocfilehash: fda6ca26c39d49c0d16c9933cc0a14f0bfea90a9
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: e16b523a366cabd04a5f12441874aa60460d508f
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54857107"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213954"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Métricas do Barramento de Serviço do Azure no Azure Monitor (versão prévia)
 
@@ -28,7 +28,7 @@ O Azure Monitor fornece interfaces de usuário unificadas para monitoramento ent
 
 ## <a name="access-metrics"></a>Métricas de acesso
 
-O Azure Monitor fornece várias maneiras de acessar as métricas. Você pode acessar as métricas por meio do [Portal do Azure](https://portal.azure.com) ou usar as APIs do Azure Monitor (REST e .NET) e as soluções de análise como o Log Analytics e os Hubs de Eventos. Para mais informações, consulte [Monitoramento de dados coletados por Azure Monitor](../azure-monitor/platform/data-collection.md).
+O Azure Monitor fornece várias maneiras de acessar as métricas. Você pode acessar as métricas por meio de [portal do Azure](https://portal.azure.com), ou usar as APIs do Azure Monitor (REST e .NET) e soluções de análise como logs do Azure Monitor e Hubs de eventos. Para mais informações, consulte [Monitoramento de dados coletados por Azure Monitor](../azure-monitor/platform/data-collection.md).
 
 As métricas estão habilitadas por padrão e você pode acessar os dados dos últimos 30 dias. Se você precisar manter os dados por um período de tempo maior, você pode arquivar os dados de métrica em uma conta de Armazenamento do Azure. Esse valor pode ser configurado em [configurações de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) no Azure Monitor.
 
@@ -46,7 +46,7 @@ Para métricas com suporte para dimensões, você deve filtrar pelo valor da dim
 
 ## <a name="billing"></a>Cobrança
 
-O uso de métricas no Azure Monitor é grátis durante a versão prévia. No entanto, se você usar outras soluções que ingerem dados de métricas, você poderá ser cobrado por essas soluções. Por exemplo, você será cobrado pelo Armazenamento do Azure se você arquivar dados de métrica para uma conta de Armazenamento do Azure. Você também será cobrado pelo Log Analytics se você transmitir dados de métricas para o Log Analytics para análise avançada.
+O uso de métricas no Azure Monitor é grátis durante a versão prévia. No entanto, se você usar outras soluções que ingerem dados de métricas, você poderá ser cobrado por essas soluções. Por exemplo, você será cobrado pelo Armazenamento do Azure se você arquivar dados de métrica para uma conta de Armazenamento do Azure. Você também será cobrado pelos logs do Azure Monitor se você transmitir dados de métricas para os logs do Azure Monitor para análise avançada.
 
 As métricas a seguir oferecem uma visão geral da integridade do seu serviço. 
 

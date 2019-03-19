@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 145a1d24e877cc4083706310694005c01c8c8fbf
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: e275411f9fd9dfb672bb0815e83e37bcd5d1dda9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020142"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077013"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Carregar 1 TB no SQL Data Warehouse do Azure em menos de 15 minutos com o Data Factory
 > [!NOTE]
@@ -109,7 +109,7 @@ Este artigo fornece instruções passo a passo para mover dados no Azure SQL Dat
         CLUSTERED COLUMNSTORE INDEX
     )
     ```
-Com as etapas de pré-requisito concluídas, agora estamos prontos para configurar a atividade de cópia usando o Assistente de Cópia.
+  Com as etapas de pré-requisito concluídas, agora estamos prontos para configurar a atividade de cópia usando o Assistente de Cópia.
 
 ## <a name="launch-copy-wizard"></a>Iniciar o Assistente de cópia
 1. Faça logon no [Portal do Azure](https://portal.azure.com).
@@ -142,7 +142,7 @@ Na página **Propriedades** :
 
 1. Insira **CopyFromBlobToAzureSqlDataWarehouse** para o **Nome da tarefa**
 2. Selecione opção **Executar uma vez agora**.   
-3. Clique em **Próximo**.  
+3. Clique em **Avançar**.  
 
     ![Assistente de Cópia – página Propriedades](media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png)
 
@@ -184,7 +184,7 @@ Esta seção mostra como configurar o destino: tabela `lineitem` no banco de dad
 
 ## <a name="step-4-performance-settings"></a>Etapa 4: Configurações de desempenho
 
-A opção **Permitir polybase** é marcada por padrão.  Clique em **Próximo**.
+A opção **Permitir polybase** é marcada por padrão.  Clique em **Avançar**.
 
 ![Assistente de Cópia – página de mapeamento de esquema](media/data-factory-load-sql-data-warehouse/performance-settings-page.png)
 
@@ -199,7 +199,7 @@ A opção **Permitir polybase** é marcada por padrão.  Clique em **Próximo**.
 
     Você pode exibir os detalhes de execução da cópia no **Gerenciador de Janelas de Atividade** no painel direito, incluindo o volume de dados lidos de origem e gravado no destino, a duração e a taxa de transferência média da execução.
 
-    Como você pode ver na captura de tela a seguir, copiar 1 TB do Armazenamento de Blobs do Azure para o SQL Data Warehouse levou 14 minutos, atingindo efetivamente uma taxa de transferência de 1,22 GBps!
+    Como você pode ver na captura de tela a seguir, copiar 1 TB de armazenamento de BLOBs do Azure no SQL Data Warehouse levou 14 minutos, atingindo efetivamente a taxa de transferência de 1,22 GBps!
 
     ![Assistente de Cópia – caixa de diálogo de êxito](media/data-factory-load-sql-data-warehouse/succeeded-info.png)
 

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/27/2017
-ms.openlocfilehash: 85cb23d865133f2ee769874aa5150ab13e04cd69
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: 641254be37ac0019ee6a256fc99f96fc3bfb75a2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54410542"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122766"
 ---
 # <a name="continuously-integrate-and-develop-with-stream-analytics-tools"></a>Integrar e desenvolver continuamente com ferramentas do Stream Analytics
 Este artigo descreve como usar as ferramentas do Azure Stream Analytics para Visual Studio para configurar um processo de implantação e integração contínua.
@@ -21,8 +21,8 @@ Este artigo descreve como usar as ferramentas do Azure Stream Analytics para Vis
 Use a versão 2.3.0000.0 ou superior das [ferramentas de Stream Analytics para Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio) para obter suporte para MSBuild.
 
 Um pacote do NuGet está disponível: [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). Ele fornece as ferramentas de MSBuild, execução local e implantação que dão suporte ao processo de implantação e integração contínua de projetos do Stream Analytics para Visual Studio. 
-> [!NOTE] 
-O pacote NuGet só pode ser usado com a versão 2.3.0000.0 ou superior do Stream Analytics para Visual Studio. Se você tiver projetos criados em versões anteriores das ferramentas do Visual Studio, basta abri-los com o 2.3.0000.0 ou versão superior e salvar. Em seguida, os novos recursos são habilitados. 
+> [!NOTE]
+> O pacote NuGet só pode ser usado com a versão 2.3.0000.0 ou superior do Stream Analytics para Visual Studio. Se você tiver projetos criados em versões anteriores das ferramentas do Visual Studio, basta abri-los com o 2.3.0000.0 ou versão superior e salvar. Em seguida, os novos recursos são habilitados. 
 
 Para obter mais informações, veja [Ferramentas do Stream Analytics para Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
 
@@ -45,8 +45,8 @@ Após o build bem-sucedido de um projeto do Stream Analytics para Visual Studio,
 
 Os parâmetros padrão no arquivo parameters.json das configurações em seu projeto do Visual Studio. Se você deseja implantar em outro ambiente, apenas substitua os parâmetros adequadamente.
 
-> [!NOTE] 
-Para todas as credenciais, os valores padrão são definidos como nulo. Eles *precisam* ser definidos antes de serem implantados na nuvem.
+> [!NOTE]
+> Para todas as credenciais, os valores padrão são definidos como nulo. Eles *precisam* ser definidos antes de serem implantados na nuvem.
 
 ```json
 "Input_EntryStream_sharedAccessPolicyKey": {

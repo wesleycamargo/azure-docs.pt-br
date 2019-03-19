@@ -11,13 +11,13 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: b13becf8530f478a5e58b46a1b422593051c95cf
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.date: 03/06/2019
+ms.openlocfilehash: e872c29712c3fadca676ec87870bcc5c4eb58565
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478161"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727392"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Ajuste automático no Banco de Dados SQL do Microsoft Azure
 
@@ -66,11 +66,13 @@ Para uma visão geral de como o ajuste automático funciona em cenários de uso 
 
 As opções de ajuste automático disponíveis no Banco de Dados SQL do Azure são:
 
- 1. **CREATE INDEX** – identifica os índices que podem melhorar o desempenho da carga de trabalho, cria índices e verifica automaticamente se houve melhoria no desempenho de consultas.
- 2. **DROP INDEX** – identifica índices redundantes e duplicados, exceto por índices exclusivos, e índices que não foram usados por um longo período (mais de 90 dias). Observe que, neste momento, a opção não é compatível com aplicativos que usam alternância de partição e dicas de índice.
- 3. **FORCE LAST GOOD PLAN** – identifica as consultas SQL que usam um plano de execução mais lento do que o plano bom anterior e as consultas que usam o último plano bom conhecido, em vez do plano regredido.
+| Opção de ajuste automático | Suporte a banco de dados individual e banco de dados em pool | Suporte de banco de dados de instância |
+| :----------------------------- | ----- | ----- |
+| **CREATE INDEX** -identifica os índices que podem melhorar o desempenho da carga de trabalho, cria índices e verifica automaticamente se a melhoria do desempenho de consultas. | Sim | Não  | 
+| **DROP INDEX** -identifica os índices duplicados e redundantes diariamente, exceto para índices exclusivos e que não foram usados por um longo período (> 90 dias). Observe que, neste momento, a opção não é compatível com aplicativos que usam alternância de partição e dicas de índice. | Sim | Não  |
+| **FORCE LAST GOOD PLAN** - consultas de SQL identifica usando o plano de execução que é mais lento do que o plano bom anterior e consultas usando o último plano bom conhecido em vez do plano regredido. | Sim | Sim |
 
-O ajuste automático identifica recomendações de **CREATE INDEX**, **DROP INDEX** e **FORCE LAST GOOD PLAN** que podem otimizar o desempenho de seu banco de dados, as mostra no [Portal do Azure](sql-database-advisor-portal.md) e as expõe por meio de [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) e da [API REST](https://docs.microsoft.com/rest/api/sql/serverautomatictuning).
+O ajuste automático identifica recomendações de **CREATE INDEX**, **DROP INDEX** e **FORCE LAST GOOD PLAN** que podem otimizar o desempenho de seu banco de dados, as mostra no [Portal do Azure](sql-database-advisor-portal.md) e as expõe por meio de [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) e da [API REST](https://docs.microsoft.com/rest/api/sql/serverautomatictuning). 
 
 Você pode aplicar manualmente as recomendações de ajuste usando o portal ou pode permitir que o ajuste automático aplique de forma autônoma as recomendações de ajuste para você. Os benefícios de permitir que o sistema aplique recomendações de ajuste autonomamente para você é que ele valida automaticamente que existe um ganho positivo no desempenho da carga de trabalho e, se não houver nenhuma melhoria de desempenho significativa detectada, ele reverterá automaticamente a recomendação de ajuste. Observe que, no caso de consultas afetadas por recomendações de ajuste que não são executadas com frequência, a fase de validação pode levar até 72 horas por design. Caso você esteja aplicando manualmente as recomendações de ajuste, a validação de desempenho automática e os mecanismos de reversão não estarão disponíveis.
 

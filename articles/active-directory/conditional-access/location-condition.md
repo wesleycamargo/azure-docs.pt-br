@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/21/2019
+ms.date: 03/01/2019
 ms.author: markvi
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aeb991de113b13666eeaab3f283b9eccd75fbd39
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e59e00b0be7b7694d03961b19fadfa92c5db98b6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166022"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58171067"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Quais são as condições de localização no acesso condicional do Active Directory do Azure? 
 
@@ -59,7 +59,7 @@ A localização nomeada tem os seguintes componentes:
 
 - **Nome** – O nome de exibição de uma localização nomeada.
 
-- **Intervalos de IP**: um ou mais intervalos de endereço IPv4 no formato CIDR. Não há suporte para a especificação de um intervalo de endereços Ipv6.
+- **Intervalos de IP**: um ou mais intervalos de endereço IPv4 no formato CIDR. Não há suporte para a especificação de um intervalo de endereços IPv6.
 
 - **Marcar como local confiável** – Um sinalizador que você pode definir para uma localização nomeada indicar um local confiável. Normalmente, os locais confiáveis são áreas de rede controladas pelo departamento de TI. Além de acesso condicional, localizações nomeadas confiáveis também são usadas por relatórios de segurança de proteção de identidade do Azure e do Microsoft Azure AD para reduzir [falsos positivos](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
 
@@ -67,7 +67,7 @@ A localização nomeada tem os seguintes componentes:
 
 - **Incluir áreas desconhecidas** – Alguns endereços IP não são mapeados para um país específico. Esta opção permite que você escolha se esses endereços IP devem ser incluídos na localização nomeada. Use essa configuração quando a política usando a localização nomeada deve aplicar-se a localizações desconhecidas.
 
-O número de localizações que você pode configurar é restrito pelo tamanho do objeto relacionado no Azure AD. Você pode configurar:
+O número de localizações que você pode configurar é restrito pelo tamanho do objeto relacionado no Azure AD. Você pode configurar um dos seguintes:
 
 - Uma localização nomeada com até 1200 intervalos de IP.
 
@@ -142,7 +142,7 @@ Por padrão, o Microsoft Azure AD emite um token de hora em hora. Depois de remo
 
 ### <a name="user-ip-address"></a>Endereço IP do usuário
 
-O endereço IP que é usado na avaliação de política é o endereço IP público do usuário. Para dispositivos em uma rede privada, esse não é o IP do cliente do dispositivo do usuário na Intranet, é o endereço usado pela rede para se conectar à Internet pública. 
+O endereço IP que é usado na avaliação de política é o endereço IP público do usuário. Para dispositivos em uma rede privada, esse não é o IP do cliente do dispositivo do usuário na Intranet, é o endereço usado pela rede para se conectar à Internet pública. Se o dispositivo tiver apenas um endereço IPv6, a configurar a condição de localização não é suportado.
 
 ### <a name="bulk-uploading-and-downloading-of-named-locations"></a>Carregamento em massa e download de localizações nomeadas
 

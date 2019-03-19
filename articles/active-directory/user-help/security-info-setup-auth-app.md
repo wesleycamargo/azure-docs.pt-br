@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b797cc6e1c0ef0df61c4d1384d2beb12c37112ba
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: a4757be00a3633f56aed52dd7af22923e49b0b62
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456846"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102376"
 ---
 # <a name="set-up-security-info-preview-to-use-an-authenticator-app"></a>Configurar informações de segurança (versão prévia) para usar um aplicativo autenticador
 Siga estas instruções para adicionar os métodos de verificação em duas etapas e redefinição de senha. Depois da primeira configuração, você pode retornar para a página **Informações de segurança** para adicionar, atualizar ou excluir suas informações de segurança.
@@ -36,11 +36,11 @@ Dependendo das configurações da sua organização, você poderá usar um aplic
 
 1. Entre em sua conta corporativa ou de estudante e vá para a página https://myprofile.microsoft.com/.
 
-    ![Página Meu Perfil, com links para Informações de segurança em destaque](media/security-info/securityinfo-myprofile.png)
+    ![Página Meu Perfil, com links para Informações de segurança em destaque](media/security-info/securityinfo-myprofile-page.png)
 
-2. Selecione **Informações de segurança** no painel de navegação esquerdo ou pelo link no bloco **Informações de segurança**. Depois, selecione **Adicionar método** na página **Informações de segurança**.
+2. Escolha **Informações de segurança** no painel de navegação esquerdo ou pelo link no bloco **Informações de segurança**. Em seguida, escolha **Adicionar método** na página **Informações de segurança**.
 
-    ![Página Informações de segurança com a opção Adicionar método em destaque](media/security-info/securityinfo-myprofile-addmethod.png)
+    ![Página Informações de segurança com a opção Adicionar método em destaque](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
 3. Na página **Adicionar método**, selecione **Aplicativo autenticador** na lista suspensa e selecione **Adicionar**.
 
@@ -52,10 +52,10 @@ Dependendo das configurações da sua organização, você poderá usar um aplic
 
     ![Página Começar baixando o aplicativo](media/security-info/securityinfo-myprofile-getauthapp.png)
 
-    >[!Note]
-    >Se você não quiser usar o aplicativo Microsoft Authenticator, selecione no link **Desejo usar um aplicativo autenticador diferente**.
-    
-    >Se a organização permitir que você escolha um método diferente do aplicativo Authenticator, você poderá selecionar o link **Desejo configurar um método diferente**.
+   > [!Note]
+   > Se você não quiser usar o aplicativo Microsoft Authenticator, selecione no link **Desejo usar um aplicativo autenticador diferente**.
+   > 
+   > Se a organização permitir que você escolha um método diferente do aplicativo Authenticator, você poderá selecionar o link **Desejo configurar um método diferente**.
 
 5. Permaneça na página **Configurar sua conta** enquanto configura o aplicativo Microsoft Authenticator em seu dispositivo móvel.
 
@@ -81,9 +81,9 @@ Dependendo das configurações da sua organização, você poderá usar um aplic
 
 8. Aprove a notificação no aplicativo Microsoft Authenticator e selecione **Avançar**.
 
-    ![Notificação de êxito, conexão do aplicativo à conta](media/security-info/securityinfo-myprofile-successauthapp.png)
+     ![Notificação de êxito, conexão do aplicativo à conta](media/security-info/securityinfo-myprofile-successauthapp.png)
 
-    Por padrão, suas informações de segurança são atualizadas para usar o aplicativo Microsoft Authenticator a fim de verificar sua identidade ao usar a verificação em duas etapas ou a redefinição de senha.
+     Por padrão, suas informações de segurança são atualizadas para usar o aplicativo Microsoft Authenticator a fim de verificar sua identidade ao usar a verificação em duas etapas ou a redefinição de senha.
 
 ## <a name="delete-your-authenticator-app-from-your-security-info-methods"></a>Excluir seu aplicativo autenticador de seus métodos de informações de segurança
 Se você não deseja mais usar seu aplicativo autenticador como um método de informações de segurança, é possível excluí-lo pela página **Informações de segurança**. Isso funciona para todos os aplicativos autenticadores, não apenas para o aplicativo Microsoft Authenticator. Depois de excluir o aplicativo, você precisará entrar no aplicativo autenticador em seu dispositivo móvel e excluir a conta.

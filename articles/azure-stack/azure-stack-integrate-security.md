@@ -11,12 +11,12 @@ ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/28/2019
 keywords: ''
-ms.openlocfilehash: 7dff82538448b27f14dd81e2862cd63d4dd56a9b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: a47b38acc372e6c1d215c7440657486b5babf3bb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247095"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009486"
 ---
 # <a name="azure-stack-datacenter-integration---syslog-forwarding"></a>Integração do datacenter do Azure Stack - encaminhamento de syslog
 
@@ -72,6 +72,7 @@ Parâmetros para *SyslogServer conjunto* cmdlet:
 |*Remover*| Remover a configuração do servidor do cliente e interromper o encaminhamento de syslog| Sinalizador | não|
 
 Parâmetros para *SyslogClient conjunto* cmdlet:
+
 | Parâmetro | DESCRIÇÃO | Type |
 |---------|---------| ---------|
 | *pfxBinary* | arquivo PFX que contém o certificado a ser usado pelo cliente como a identidade para autenticar o servidor syslog  | Byte[] |
@@ -287,6 +288,7 @@ Tabela de eventos para o ponto de extremidade de recuperação:
 |RecoveryEndpointClosed |1016|RecoveryEndpointClosedEvent|5|
 
 Tabela de representante Severity:
+
 | Severity | Nível | Valor numérico |
 |----------|-------| ----------------|
 |0|Indefinido|Valor: 0. Indica os logs em todos os níveis|
@@ -306,6 +308,7 @@ Tabela de representante Severity:
 ```
 
 Tabela de gravidade para eventos do Windows:
+
 | Valor de severidade CEF | Nível de evento do Windows | Valor numérico |
 |--------------------|---------------------| ----------------|
 |0|Indefinido|Valor: 0. Indica os logs em todos os níveis|
@@ -316,6 +319,7 @@ Tabela de gravidade para eventos do Windows:
 |0|Detalhado|Valor: 5. Indica os logs em todos os níveis|
 
 Tabela de extensão personalizada para eventos do Windows no Azure Stack:
+
 | Nome de extensão personalizada | Exemplo de evento do Windows | 
 |-----------------------|---------|
 |MasChannel | Sistema|
@@ -352,6 +356,7 @@ Tabela de extensão personalizada para eventos do Windows no Azure Stack:
 ```
 
 Tabela de gravidade de alertas:
+
 | Severity | Nível |
 |----------|-------|
 |0|Indefinido|
@@ -359,6 +364,7 @@ Tabela de gravidade de alertas:
 |5|Aviso|
 
 Tabela de extensão personalizada para os alertas criados no Azure Stack:
+
 | Nome de extensão personalizada | Exemplo | 
 |-----------------------|---------|
 |MasEventDescription|DESCRIÇÃO: Uma conta de usuário \<TestUser\> foi criado para \<TestDomain\>. É um risco de segurança. – CORREÇÃO: Entre em contato com o suporte. Assistência ao cliente é necessária para resolver esse problema. Não tente resolver esse problema sem sua assistência. Antes de abrir uma solicitação de suporte, iniciar o processo de coleta de arquivo de log usando as diretrizes de https://aka.ms/azurestacklogfiles |

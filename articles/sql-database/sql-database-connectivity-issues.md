@@ -13,12 +13,12 @@ ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/14/2018
-ms.openlocfilehash: 8c19022f168577cf65180357f280afd5a0e03073
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
-ms.translationtype: HT
+ms.openlocfilehash: 7d07b0a098aad472b1b4f0b9810e5b63ac3c48a2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634151"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007470"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>Trabalhando com problemas de conexão do Banco de Dados SQL do Azure e erros transitórios
 
@@ -91,7 +91,7 @@ Para testar a lógica de repetição, você deve simular ou causar um erro que p
 Uma forma de testar sua lógica de repetição é desconectar seu computador cliente da rede enquanto o programa está em execução. O erro é:
 
 - **SqlException.Number** = 11001
-- Mensagem: "Este host não é conhecido"
+- Mensagem: "Nenhum host desse tipo é conhecido"
 
 Como parte da primeira tentativa de repetição, o programa pode corrigir a ortografia e tentar se conectar.
 
@@ -109,7 +109,7 @@ Para tornar esse teste prático, desconecte o computador da rede antes de inicia
 Seu programa pode errar intencionalmente o nome de usuário antes da primeira tentativa de conexão. O erro é:
 
 - **SqlException.Number** = 18456
-- Mensagem: "Falha de logon para o usuário 'WRONG_MyUserName'."
+- Mensagem: "Falha de logon do usuário 'WRONG_MyUserName'."
 
 Como parte da primeira tentativa de repetição, o programa pode corrigir a ortografia e tentar se conectar.
 
@@ -125,7 +125,7 @@ Para tornar esse teste prático, o programa reconhece um parâmetro de tempo de 
 
 ## <a name="net-sqlconnection-parameters-for-connection-retry"></a>Parâmetros SqlConnection .NET para repetição de conexão
 
-Se o programa cliente se conectar ao Banco de Dados SQL usando a classe **System.Data.SqlClient.SqlConnection** do .NET Framework, use o .NET 4.6.1 ou posterior (ou o .NET Core), de maneira que você possa usar o recurso de nova tentativa de conexão. Para obter mais informações sobre o recurso, consulte [esta página da Web](https://go.microsoft.com/fwlink/?linkid=393996).
+Se o programa cliente se conectar ao Banco de Dados SQL usando a classe **System.Data.SqlClient.SqlConnection** do .NET Framework, use o .NET 4.6.1 ou posterior (ou o .NET Core), de maneira que você possa usar o recurso de nova tentativa de conexão. Para obter mais informações sobre o recurso, consulte [esta página da Web](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection).
 
 <!--
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
@@ -137,9 +137,9 @@ Ao criar a [cadeia de conexão](https://msdn.microsoft.com/library/System.Data.S
 - **ConnectRetryInterval**:&nbsp;&nbsp;o padrão é 1 segundo. O intervalo vai de 1 a 60.
 - **Connection Timeout**:&nbsp;&nbsp;o padrão é 15 segundos. O intervalo vai de 0 a 2147483647.
 
-Especificamente, os valores escolhidos devem tornar a seguinte igualdade verdadeira: Tempo limite de conexão = ConnectRetryCount * ConnectionRetryInterval
+Especificamente, os valores escolhidos devem tornar verdadeira esta igualdade: Connection Timeout = ConnectRetryCount * ConnectionRetryInterval
 
-Por exemplo, se a contagem for igual a 3 e o intervalo for igual a 10 segundos, um tempo limite de apenas 29 segundos não dará tempo suficiente para a terceira e última tentativa de conexão: 29 < 3 * 10.
+Por exemplo, se a contagem for igual a 3 e o intervalo é igual a 10 segundos, um tempo limite de apenas 29 segundos não dará tempo suficiente para sua terceira e última tentativa para se conectar: 29 < 3 * 10.
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
@@ -162,7 +162,7 @@ Suponha que seu aplicativo tenha lógica de repetição personalizada robusta. E
 
 <a id="c-connection-string" name="c-connection-string"></a>
 
-### <a name="connection-connection-string"></a>Conexão: cadeia de conexão
+### <a name="connection-connection-string"></a>Conexão: Cadeia de conexão
 
 A cadeia de conexão necessária para se conectar ao Banco de Dados SQL é um pouco diferente da cadeia de caracteres usada para se conectar ao SQL Server. Você pode copiar a cadeia de conexão para o seu banco de dados no [Portal do Azure](https://portal.azure.com/).
 
@@ -170,7 +170,7 @@ A cadeia de conexão necessária para se conectar ao Banco de Dados SQL é um po
 
 <a id="b-connection-ip-address" name="b-connection-ip-address"></a>
 
-### <a name="connection-ip-address"></a>Conexão: endereço IP
+### <a name="connection-ip-address"></a>Conexão: Endereço IP
 
 Você deve configurar o servidor do Banco de Dados SQL para aceitar a comunicação do endereço IP do computador que hospeda o programa cliente. Para definir essa configuração, edite as configurações do firewall por meio do [Portal do Azure](https://portal.azure.com/).
 
@@ -181,7 +181,7 @@ Se você se esquecer de configurar o endereço IP, o programa falhará com uma m
 Para obter mais informações, consulte [Definir configurações de firewall no Banco de Dados SQL](sql-database-configure-firewall-settings.md).
 <a id="c-connection-ports" name="c-connection-ports"></a>
 
-### <a name="connection-ports"></a>Conexão: portas
+### <a name="connection-ports"></a>Conexão: Portas
 
 Geralmente, você só precisa garantir que a porta 1433 esteja aberta para comunicação de saída no computador que hospeda o programa cliente.
 
@@ -211,7 +211,7 @@ Se seu programa usa classes do ADO.NET como **System.Data.SqlClient.SqlConnectio
 
 Quando você usa um objeto de conexão de um pool de conexão, é recomendável que seu programa Feche temporariamente a conexão quando não for imediatamente em uso. Não é caro reabrir uma conexão, mas criar uma nova conexão é.
 
-Se você estiver usando o ADO.NET 4.0 ou anterior, recomendaremos fazer upgrade para o ADO.NET mais recente. A partir de agosto de 2018, você pode [baixar o ADO.NET 4.6.2](https://blogs.msdn.microsoft.com/dotnet/2018/04/30/announcing-the-net-framework-4-7-2/).
+Se você estiver usando o ADO.NET 4.0 ou anterior, recomendaremos fazer upgrade para o ADO.NET mais recente. A partir de agosto de 2018, você pode [baixar o ADO.NET 4.6.2](https://blogs.msdn.microsoft.com/dotnet/20../../announcing-the-net-framework-4-7-2/).
 
 <a id="e-diagnostics-test-utilities-connect" name="e-diagnostics-test-utilities-connect"></a>
 
@@ -219,7 +219,7 @@ Se você estiver usando o ADO.NET 4.0 ou anterior, recomendaremos fazer upgrade 
 
 <a id="d-test-whether-utilities-can-connect" name="d-test-whether-utilities-can-connect"></a>
 
-### <a name="diagnostics-test-whether-utilities-can-connect"></a>Diagnóstico: testar se os utilitários podem se conectar
+### <a name="diagnostics-test-whether-utilities-can-connect"></a>Diagnóstico: Testar se os utilitários podem se conectar
 
 Se o programa não se conectar ao Banco de Dados SQL, uma opção de diagnóstico será tentar se conectar usando um programa utilitário. O ideal é que o utilitário se conecte usando a mesma biblioteca que o programa.
 
@@ -232,14 +232,14 @@ Depois que o programa se conectar, teste se uma consulta SQL SELECT curta funcio
 
 <a id="f-diagnostics-check-open-ports" name="f-diagnostics-check-open-ports"></a>
 
-### <a name="diagnostics-check-the-open-ports"></a>Diagnóstico: verificar as portas abertas
+### <a name="diagnostics-check-the-open-ports"></a>Diagnóstico: Verificar as portas abertas
 
 Se suspeitar de uma falha na conexão por causa de problemas na porta, você poderá executar um utilitário no computador relatando as configurações de porta.
 
 No Linux, os seguintes utilitários podem ser úteis:
 
 - `netstat -nap`
-- `nmap -sS -O 127.0.0.1`: altere o valor de exemplo para ser o endereço IP.
+- `nmap -sS -O 127.0.0.1`: Altere o valor de exemplo para ser o endereço IP.
 
 No Windows, o utilitário [PortQry.exe](https://www.microsoft.com/download/details.aspx?id=17148) pode ser útil. Aqui está uma execução de exemplo que consultou a situação da porta em um servidor do Banco de Dados SQL e que foi executada em um computador laptop:
 
@@ -261,17 +261,17 @@ TCP port 1433 (ms-sql-s service): LISTENING
 
 <a id="g-diagnostics-log-your-errors" name="g-diagnostics-log-your-errors"></a>
 
-### <a name="diagnostics-log-your-errors"></a>Diagnóstico: registrar seus erros em log
+### <a name="diagnostics-log-your-errors"></a>Diagnóstico: Os erros de log
 
 Às vezes, um problema intermitente é mais bem diagnosticado pela detecção de um padrão geral ao longo de dias ou de semanas.
 
 O cliente pode auxiliar em um diagnóstico ao registrar em log todos os erros encontrados. Convém correlacionar as entradas de log com os dados do erro que o próprio Banco de Dados SQL registra em log internamente.
 
-O Enterprise Library 6 (EntLib60) oferece classes gerenciadas .NET para auxiliar no registro em log. Para obter mais informações, consulte [5 - Tão fácil quanto evitar um log: usar o bloqueio do aplicativo de registro em log](https://msdn.microsoft.com/library/dn440731.aspx).
+O Enterprise Library 6 (EntLib60) oferece classes gerenciadas .NET para auxiliar no registro em log. Para obter mais informações, consulte [5 - tão fácil quanto evitar um log: Use o Logging Application Block](https://msdn.microsoft.com/library/dn440731.aspx).
 
 <a id="h-diagnostics-examine-logs-errors" name="h-diagnostics-examine-logs-errors"></a>
 
-### <a name="diagnostics-examine-system-logs-for-errors"></a>Diagnóstico: examinar logs de erros do sistema
+### <a name="diagnostics-examine-system-logs-for-errors"></a>Diagnóstico: Examine os logs de erros do sistema
 
 Aqui estão algumas instruções SQL SELECT que consultam logs de erros e outras informações.
 
@@ -282,7 +282,7 @@ Aqui estão algumas instruções SQL SELECT que consultam logs de erros e outras
 
 <a id="d-search-for-problem-events-in-the-sql-database-log" name="d-search-for-problem-events-in-the-sql-database-log"></a>
 
-### <a name="diagnostics-search-for-problem-events-in-the-sql-database-log"></a>Diagnóstico: procurar eventos de problema no log do Banco de Dados SQL
+### <a name="diagnostics-search-for-problem-events-in-the-sql-database-log"></a>Diagnóstico: Pesquisar eventos de problema no log do banco de dados SQL
 
 Você pode procurar entradas sobre eventos de problemas no log do Banco de Dados SQL. Experimente a instrução SELECT Transact-SQL a seguir no banco de dados *mestre* :
 
@@ -327,7 +327,7 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 
 O Enterprise Library 6 (EntLib60) é uma estrutura de classes .NET que ajuda a implementar clientes robustos de serviços de nuvem, e um deles é o serviço Banco de Dados SQL. Para localizar tópicos dedicados a cada área nas quais o EntLib60 pode ajudar, consulte [Enterprise Library 6 - abril de 2013](https://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx).
 
-A lógica de repetição para tratar erros transitórios é uma área na qual EntLib60 pode auxiliar. Para obter mais informações, consulte [4 - Perseverança, segredo de todos os triunfos: usar o bloco de aplicativos de tratamento de falhas temporárias](https://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx).
+A lógica de repetição para tratar erros transitórios é uma área na qual EntLib60 pode auxiliar. Para obter mais informações, consulte [4 - Perseverança, segredo de todos os triunfos: Usar o Transient Fault Handling Application Block](https://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx).
 
 > [!NOTE]
 > O código-fonte de EntLib60 está disponível para fazer o download público no [Centro de Download](https://go.microsoft.com/fwlink/p/?LinkID=290898). A Microsoft não tem planos de fazer mais atualizações de manutenção ou de recursos no EntLib.
@@ -354,13 +354,13 @@ No namespace **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.Test
 
 Estes são alguns links para informações sobre o EntLib60:
 
-- Faça o download gratuito do livro: [Developer's Guide to Microsoft Enterprise Library, 2ª edição](https://www.microsoft.com/download/details.aspx?id=41145).
-- Práticas recomendadas: [Diretrizes gerais para tentativas de repetição](../best-practices-retry-general.md) tem uma excelente discussão detalhada sobre lógica de repetição.
-- Download do NuGet: [Enterprise Library - Transient Fault Handling Application Block 6.0](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/).
+- Download gratuito do livro: [Guia do desenvolvedor para o Microsoft Enterprise Library, 2ª edição](https://www.microsoft.com/download/details.aspx?id=41145).
+- Melhores práticas: [Diretrizes gerais de repetição](../best-practices-retry-general.md) tem uma excelente discussão detalhada sobre lógica de repetição.
+- Download do NuGet: [Enterprise Library – Transient Fault Handling Application Block 6.0](https://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/).
 
 <a id="entlib60-the-logging-block" name="entlib60-the-logging-block"></a>
 
-### <a name="entlib60-the-logging-block"></a>EntLib60: o bloqueio de log
+### <a name="entlib60-the-logging-block"></a>EntLib60: O bloqueio de log
 
 - O bloqueio de registro em log é uma solução altamente flexível e configurável que permite que você:
   - Crie e armazene mensagens de log em uma grande variedade de locais.
@@ -368,7 +368,7 @@ Estes são alguns links para informações sobre o EntLib60:
   - Colete informações contextuais que sejam úteis para depuração e rastreamento, bem como para requisitos de auditoria e de log geral.
 - O bloqueio de registro em log abstrai a funcionalidade de registro em log do destino de log, de maneira que o código do aplicativo seja consistente, independentemente do local e do tipo de armazenamento de log de destino.
 
-Para obter mais informações, consulte [5 - Tão fácil quanto evitar um log: usar o bloqueio do aplicativo de registro em log](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx).
+Para obter mais informações, consulte [5 - tão fácil quanto evitar um log: Use o Logging Application Block](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx).
 
 <a id="entlib60-istransient-method-source-code" name="entlib60-istransient-method-source-code"></a>
 

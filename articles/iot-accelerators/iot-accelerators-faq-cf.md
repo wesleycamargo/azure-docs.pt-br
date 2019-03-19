@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: ef55f25657d1decb09e438d443e7c289823f7d9d
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: ed429d923cad2c715621990c146d4cf3a23e7bca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605901"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57904738"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Perguntas frequentes sobre o acelerador de solução Connected Factory
 
@@ -148,7 +148,7 @@ Quando você implanta usando o `build.ps1`script no repositório do Connected Fa
 
 Você também pode adicionar uma chave de conta de mapas do Azure para o Acelerador de solução após a implantação. Navegue até o portal do Azure e acesse o recurso de serviço de aplicativo em sua implantação Connected Factory. Navegue até **configurações do aplicativo**, onde você pode encontrar uma seção **configurações do aplicativo**. Defina as **MapApiQueryKey** para o [chave da sua conta do Azure mapas](../azure-maps/how-to-manage-account-keys.md). Salvar as configurações e, em seguida, navegue até **Visão geral** e reinicie o serviço de aplicativo.
 
-### <a name="how-do-i-create-a-azure-maps-account"></a>Como faço para criar uma conta do Azure Maps?
+### <a name="how-do-i-create-an-azure-maps-account"></a>Como criar uma conta de mapas do Azure?
 
 Veja, [Como gerenciar sua conta e chaves do Azure Maps](../azure-maps/how-to-manage-account-keys.md).
 
@@ -174,15 +174,15 @@ Para enviar os dados telemétricos dos dispositivos não OPC UA à Connected Fac
 
     ```json
     [
-      {
-        "ApplicationUri": "<the_value_of_OpcUri_of_your_station",
-        "DisplayName": "<name_of_the_datapoint>",
-        "NodeId": "value_of_NodeId_of_your_datapoint_in_the_station",
-        "Value": {
-          "Value": <datapoint_value>,
-          "SourceTimestamp": "<timestamp>"
-        }
-      }
+      {
+        "ApplicationUri": "<the_value_of_OpcUri_of_your_station",
+        "DisplayName": "<name_of_the_datapoint>",
+        "NodeId": "value_of_NodeId_of_your_datapoint_in_the_station",
+        "Value": {
+          "Value": <datapoint_value>,
+          "SourceTimestamp": "<timestamp>"
+        }
+      }
     ]
     ```
 

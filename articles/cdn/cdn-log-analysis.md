@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: magattus
-ms.openlocfilehash: 45b3698dd77bda815218b43405d64819c3e4789f
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.openlocfilehash: ef713c954d6eab05259547a277db12a1e9036bcf
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091259"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650539"
 ---
 # <a name="analyze-azure-cdn-usage-patterns"></a>Analisar os padrões de uso da CDN do Azure
 
@@ -27,7 +27,7 @@ Após habilitar a CDN para seu aplicativo, será possível monitorar o uso da CD
 
 ## <a name="core-analytics-via-azure-diagnostic-logs"></a>Análise de núcleo por meio de logs de diagnósticos do Azure
 
-A análise de núcleo está disponível para pontos de extremidade CDN em todos os tipos de preço. Os logs de diagnósticos do Azure permitem que as análises principais sejam exportadas para o armazenamento do Azure, para os hubs de eventos ou para o Azure Log Analytics. O Azure Log Analytics oferece uma solução com grafos configuráveis pelo usuário e personalizáveis. Para obter mais informações sobre logs de diagnóstico do Azure, consulte [Logs de diagnóstico do Azure](cdn-azure-diagnostic-logs.md).
+A análise de núcleo está disponível para pontos de extremidade CDN em todos os tipos de preço. Logs de diagnóstico do Azure permitem que a análise de núcleo seja exportada para o armazenamento do Azure, hubs de eventos ou logs do Azure Monitor. Os logs do Azure Monitor oferece uma solução com gráficos que são personalizáveis e configuráveis pelo usuário. Para obter mais informações sobre logs de diagnóstico do Azure, consulte [Logs de diagnóstico do Azure](cdn-azure-diagnostic-logs.md).
 
 ## <a name="verizon-core-reports"></a>Relatórios de núcleo da Verizon
 

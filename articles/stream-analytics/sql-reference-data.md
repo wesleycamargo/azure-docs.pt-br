@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 79f0e58ea11d8bdb8c30ca1e50fae2635f719681
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 3368be291770133cdfa10158f6e30540e17b8223
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118013"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084303"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job-preview"></a>Usar dados de referência de um Banco de Dados SQL para um trabalho do Azure Stream Analytics (versão prévia)
 
@@ -134,21 +134,46 @@ Antes de implantar o trabalho no Azure, você poderá testar a lógica de consul
 
 Ao usar a consulta delta, são recomendadas [tabelas temporais no Banco de Dados SQL do Azure](../sql-database/sql-database-temporal-tables.md).
 
-1. Crie a consulta de instantâneo. 
+1. Crie uma tabela temporal no SQL Azure.
+   
+   ```SQL 
+      CREATE TABLE DeviceTemporal 
+      (  
+         [DeviceId] int NOT NULL PRIMARY KEY CLUSTERED 
+         , [GroupDeviceId] nvarchar(100) NOT NULL
+         , [Description] nvarchar(100) NOT NULL 
+         , [ValidFrom] datetime2 (0) GENERATED ALWAYS AS ROW START
+         , [ValidTo] datetime2 (0) GENERATED ALWAYS AS ROW END
+         , PERIOD FOR SYSTEM_TIME (ValidFrom, ValidTo)
+      )  
+      WITH (SYSTEM_VERSIONING = ON (HISTORY_TABLE = dbo.DeviceHistory));  -- DeviceHistory table will be used in Delta query
+   ```
+2. Crie a consulta de instantâneo. 
 
-   Use o parâmetro **@snapshotTime** para instruir o tempo de execução do Stream Analytics para obter o conjunto de dados de referência da tabela temporal válida do Banco de Dados SQL na hora do sistema. Se não fornecer esse parâmetro, você corre o risco de obter um conjunto impreciso de dados de referência de base devido à defasagem de horário. Veja a seguir um exemplo de uma consulta completa de instantâneo:
-
-   ![Consulta de instantâneo no Stream Analytics](./media/sql-reference-data/snapshot-query.png)
+   Use o  **\@snapshotTime** parâmetro para instruir o tempo de execução do Stream Analytics para obter o conjunto de dados de referência de tabela temporal de banco de dados SQL válida na hora do sistema. Se não fornecer esse parâmetro, você corre o risco de obter um conjunto impreciso de dados de referência de base devido à defasagem de horário. Veja a seguir um exemplo de uma consulta completa de instantâneo:
+   ```SQL
+      SELECT DeviceId, GroupDeviceId, [Description]
+      FROM dbo.DeviceTemporal
+      FOR SYSTEM_TIME AS OF @snapshotTime
+   ```
  
 2. Crie a consulta delta. 
    
-   Essa consulta recupera todas as linhas no Banco de Dados SQL que foram inseridas ou excluídas entre uma hora de início **@deltaStartTime** e uma hora de término **@deltaEndTime**. A consulta delta terá de retornar as mesmas colunas como a consulta de instantâneo, bem como a coluna **_operação_**. Essa coluna define se a linha é inserida ou excluída entre **@deltaStartTime** e **@deltaEndTime**. As linhas resultantes são sinalizadas como **1**, se os registros foram inseridos, ou **2** se excluídos. 
+   Essa consulta recupera todas as linhas no banco de dados SQL que foram inseridas ou excluídas dentro de uma hora de início  **\@deltaStartTime**e uma hora de término  **\@deltaEndTime**. A consulta delta terá de retornar as mesmas colunas como a consulta de instantâneo, bem como a coluna **_operação_**. Essa coluna define se a linha é inserida ou excluída entre  **\@deltaStartTime** e  **\@deltaEndTime**. As linhas resultantes são sinalizadas como **1**, se os registros foram inseridos, ou **2** se excluídos. 
 
    Quanto aos registros que foram atualizados, a tabela temporal faz a contabilidade, capturando uma operação de inserção e exclusão. O tempo de execução do Stream Analytics aplicará os resultados da consulta delta para o instantâneo anterior a fim de manter os dados de referência atualizados. Veja a seguir um exemplo de consulta delta:
 
-   ![Consulta delta do Stream Analytics](./media/sql-reference-data/delta-query.png)
+   ```SQL
+      SELECT DeviceId, GroupDeviceId, Description, 1 as _operation_
+      FROM dbo.DeviceTemporal
+      WHERE ValidFrom BETWEEN @deltaStartTime AND @deltaEndTime   -- records inserted
+      UNION
+      SELECT DeviceId, GroupDeviceId, Description, 2 as _operation_
+      FROM dbo.DeviceHistory   -- table we created in step 1
+      WHERE ValidTo BETWEEN @deltaStartTime AND @deltaEndTime     -- record deleted
+   ```
  
-  O tempo de execução do Stream Analytics pode executar periodicamente a consulta de instantâneo além da consulta delta para armazenar pontos de verificação.
+   O tempo de execução do Stream Analytics pode executar periodicamente a consulta de instantâneo além da consulta delta para armazenar pontos de verificação.
 
 ## <a name="faqs"></a>Perguntas frequentes
 
@@ -158,7 +183,7 @@ Não há [custos por unidade de streaming](https://azure.microsoft.com/pricing/d
 
 **Como saber se o instantâneo de dados de referência está sendo consultado pelo Banco de Dados SQL e está sendo usado no trabalho do Azure Stream Analytics?**
 
-Há duas métricas filtradas pelo Nome lógico (nas Métricas do Portal do Azure) que você pode usar para monitorar a integridade dos dados de referência do Banco de Dados SQL de entrada.
+Existem duas métricas filtradas pelo nome lógico (no Portal do Azure de métricas) que você pode usar para monitorar a integridade dos dados de referência de banco de dados SQL de entrada.
 
    * InputEvents: esta métrica mede o número de registros carregados do conjunto de dados de referência de Banco de Dados SQL.
    * InputEventBytes: esta métrica mede o tamanho do instantâneo de dados de referência carregado na memória do trabalho do Stream Analytics. 
