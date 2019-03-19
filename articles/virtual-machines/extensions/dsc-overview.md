@@ -16,20 +16,24 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: e5e134fa7dd08bad4220866dd4f5bd9b788e624e
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: ba5baa928e60729aa128ca5097646768cf5656e8
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980594"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441911"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introdução ao manipulador de extensão de Desired State Configuration do Azure
 
 O agente de VM do Azure e as extensões associadas são parte dos serviços de infraestrutura do Microsoft Azure. Extensões de VM são componentes de software que estendem a funcionalidade da VM e simplificam várias operações de gerenciamento de VM.
 
-Caso de uso primário para a extensão de Desired State Configuration (DSC) do Azure inicializar uma VM para o [serviço de DSC de Automação do Azure](../../automation/automation-dsc-overview.md). Inicializar uma VM fornece [benefícios](/powershell/dsc/metaconfig#pull-service) que incluem o gerenciamento contínuo da configuração da VM e a integração com outras ferramentas operacionais, como o Azure Monitor.
+Caso de uso primário para a extensão do Azure Desired State Configuration (DSC) é inicializar uma VM para o [serviço de configuração de estado na automação do Azure (DSC)](../../automation/automation-dsc-overview.md).
+O serviço oferece [benefícios](/powershell/dsc/metaconfig#pull-service) que incluem o gerenciamento contínuo da configuração da VM e integração com outras ferramentas operacionais, como o monitoramento do Azure.
+Usando a extensão para registrar da VM para o serviço fornece uma solução flexível que funciona até mesmo entre assinaturas do Azure.
 
-Você pode usar a extensão de DSC, independentemente do serviço de DSC de Automação. No entanto, isso envolve uma ação única que ocorre durante a implantação. Nenhum relatório contínuo ou gerenciamento de configuração está disponível, a não ser localmente na VM.
+Você pode usar a extensão de DSC, independentemente do serviço de DSC de Automação.
+No entanto, isso enviará apenas uma configuração para a VM.
+Nenhum relatório contínuo está disponível, diferente de localmente na VM.
 
 Este artigo fornece informações sobre cenários: usar a extensão DSC para integração da Automação e usar a extensão de DSC como uma ferramenta para atribuir configurações a VMs usando o SDK do Azure.
 
@@ -61,6 +65,25 @@ Instalar o WMF requer uma reinicialização. Após a reinicialização, a extens
 ### <a name="default-configuration-script"></a>Script de configuração padrão
 
 A extensão de DSC do Azure inclui um script de configuração padrão que é destinado a ser usado quando você carrega uma VM ao serviço de DSC de Automação do Azure. Os parâmetros do script estão alinhados com as propriedades configuráveis do [Gerenciador de Configurações Locais](/powershell/dsc/metaconfig). Para parâmetros de script, consulte [Script de configuração padrão](dsc-template.md#default-configuration-script) na [extensão de Desired State Configuration com modelos do Azure Resource Manager](dsc-template.md). Para o script completo, consulte o [modelo de início rápido do Azure no GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true).
+
+## <a name="information-for-registering-with-azure-automation-state-configuration-dsc-service"></a>Informações para registrar com o serviço de configuração de estado na automação do Azure (DSC)
+
+Ao usar a extensão de DSC para registrar um nó com o serviço de configuração de estado, três valores precisará ser fornecido.
+
+- RegistrationUrl - o endereço https da conta de automação do Azure
+- RegistrationKey - um segredo compartilhado usado para registrar os nós com o serviço
+- NodeConfigurationName - o nome do nó de configuração (MOF) para efetuar pull do serviço para configurar a função de servidor
+
+Essas informações podem ser vistas na [portal do Azure](../../automation/automation-dsc-onboarding.md#azure-portal) ou você pode usar o PowerShell.
+
+```PowerShell
+(Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).Endpoint
+(Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).PrimaryKey
+```
+
+Para o nome da configuração de nó, verifique se você estiver usando o nome da *configuração de nó* e não a configuração.
+Uma configuração é definida em um script que é usado [para compilar a configuração de nó (arquivo MOF)](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-compile).
+O nome sempre será a configuração seguida por um período `.` e `localhost` ou um nome de computador específico.
 
 ## <a name="dsc-extension-in-resource-manager-templates"></a>Extensão de DSC nos modelos do Resource Manager
 
@@ -120,6 +143,34 @@ $storageName = 'demostorage'
 Publish-AzVMDscConfiguration -ConfigurationPath .\iisInstall.ps1 -ResourceGroupName $resourceGroup -StorageAccountName $storageName -force
 #Set the VM to run the DSC configuration
 Set-AzVMDscExtension -Version '2.76' -ResourceGroupName $resourceGroup -VMName $vmName -ArchiveStorageAccountName $storageName -ArchiveBlobName 'iisInstall.ps1.zip' -AutoUpdate $true -ConfigurationName 'IISInstall'
+```
+
+## <a name="azure-cli-deployment"></a>Implantação da CLI do Azure
+
+A CLI do Azure pode ser usada para implantar a extensão de DSC em uma máquina virtual existente.
+
+Para uma máquina virtual executando Windows:
+
+```azurecli
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM \
+  --name Microsoft.Powershell.DSC \
+  --publisher Microsoft.Powershell \
+  --version 2.77 --protected-settings '{}' \
+  --settings '{}'
+```
+
+Para uma máquina virtual que executa o Linux:
+
+```azurecli
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM \
+  --name DSCForLinux \
+  --publisher Microsoft.OSTCExtensions \
+  --version 2.7 --protected-settings '{}' \
+  --settings '{}'
 ```
 
 ## <a name="azure-portal-functionality"></a>Funcionalidade do portal do Azure

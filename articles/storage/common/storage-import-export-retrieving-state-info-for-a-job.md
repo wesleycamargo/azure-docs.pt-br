@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: e40d8e7c05213e99fc2ef65f5dc05f17ba0d185e
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 1a878b5a9f0502ff9acd411359895d7431fb76f4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55890528"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437235"
 ---
 # <a name="retrieving-state-information-for-an-importexport-job"></a>Recuperação de informações de estado para um trabalho de Importação/Exportação
 Você pode chamar a operação [Get Job](/rest/api/storageimportexport/jobs) para recuperar informações sobre trabalhos de importação e de exportação. As informações retornadas incluem:
@@ -45,7 +45,7 @@ A tabela a seguir descreve cada estado pelos quais um trabalho pode passar.
 |`Completed`|Depois que todas as unidades forem enviadas para o cliente, se o trabalho for concluído sem erros, será definido com o estado `Completed`. O trabalho será excluído automaticamente após 90 dias no estado `Completed`.|
 |`Closed`|Depois que todas as unidades forem enviadas para o cliente, se houver erros durante o processamento do trabalho, será definido o estado `Closed`. O trabalho será excluído automaticamente após 90 dias no estado `Closed`.|
 
-Você pode cancelar um trabalho somente em determinados estados. Um trabalho cancelado ignora a etapa de cópia de dados, caso contrário, ele segue as mesmas transições de estado de um trabalho que não foi cancelado.
+Você pode cancelar um trabalho somente em determinados estados. Um trabalho cancelado ignora a etapa de cópia de dados, mas caso contrário, ele segue as mesmas transições de estado como um trabalho que não foi cancelada.
 
 A tabela a seguir descreve os erros que podem ocorrer para cada estado do trabalho, bem como o efeito sobre o trabalho quando ocorre um erro.
 

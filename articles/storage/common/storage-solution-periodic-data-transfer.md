@@ -4,16 +4,16 @@ description: Saiba como escolher uma solução do Azure para transferência de d
 services: storage
 author: alkohli
 ms.service: storage
-ms.subservice: blob
+ms.subservice: blobs
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: alkohli
-ms.openlocfilehash: 271be60bc26cf6bc9a64c459d030818d9e493a22
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: ba6d5e20f0d6a004fd85d7e9dc57584547d52ba3
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158441"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772850"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Soluções para transferência de dados periódica
  
@@ -58,9 +58,9 @@ A tabela a seguir resume as diferenças nas principais funcionalidades.
 | Hardware                                      | Seu hipervisor            | Fornecido pela Microsoft    | ND                                                            |
 | Esforço de configuração inicial                          | Baixo (< 30 min.)            | Moderado (~ acoplar horas) | Grande (~dias)                                                 |
 | Formato de Dados                                   | Blobs do Azure, Azure Files   | Blobs do Azure, Azure Files | [Dá suporte a mais de 70 conectores de dados para os formatos e armazenamentos de dados](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)|
-| Pré-processamento de dados                           | Não                          | Sim, via computação de borda    | SIM                                                           |
-| Cache local<br>(para armazenar dados locais)    | SIM                        | sim                      | Não                                                             |
-| Transferência de outras nuvens                    | Não                          | Não                        | SIM                                                           |
+| Pré-processamento de dados                           | Não                          | Sim, via computação de borda    | Sim                                                           |
+| Cache local<br>(para armazenar dados locais)    | Sim                        | sim                      | Não                                                             |
+| Transferência de outras nuvens                    | Não                          | Não                        | Sim                                                           |
 | Preços                                       | [Preços](https://azure.microsoft.com/pricing/details/storage/databox/gateway/)                    | [Preços](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                  | [Preços](https://azure.microsoft.com/pricing/details/data-factory/)                                                       |
 
 ## <a name="next-steps"></a>Próximas etapas

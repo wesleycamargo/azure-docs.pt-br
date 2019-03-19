@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: crdun
-ms.openlocfilehash: e0eeee05ebad2e8148752f988bbbc2f6a0d7c296
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: HT
+ms.openlocfilehash: 8c1c52790065015977add7e32a06063057b24dad
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27592687"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445901"
 ---
 # <a name="add-authentication-to-your-ios-app"></a>Adicione autenticação ao seu aplicativo do iOS
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -110,7 +110,7 @@ No Xcode, pressione **Executar** para iniciar o aplicativo. Uma exceção é cri
     }
     ```
 
-   Adicione o código diretamente antes da linha que tem `#pragma mark - Core Data stack`.  Substitua o _appname_ pelo valor de urlScheme que você usou na etapa 1.
+   Adicione o código diretamente antes da linha que tem `#pragma mark - Core Data stack`.  Substitua os _appname_ com o valor de urlScheme que você usou na etapa 1.
 
 5. Abra o arquivo `AppName-Info.plist` (substituindo AppName pelo nome de seu aplicativo) e adicione o seguinte código:
 
@@ -188,7 +188,7 @@ No Xcode, pressione **Executar** para iniciar o aplicativo. Uma exceção é cri
     }
     ```
 
-    Substitua o _appname_ pelo valor de urlScheme que você usou na etapa 1.
+    Substitua os _appname_ com o valor de urlScheme que você usou na etapa 1.
 
 4. Abra o arquivo `AppName-Info.plist` (substituindo AppName pelo nome de seu aplicativo) e adicione o seguinte código:
 
@@ -212,12 +212,12 @@ No Xcode, pressione **Executar** para iniciar o aplicativo. Uma exceção é cri
 
 5. Pressione *Executar* para iniciar o aplicativo e faça logon. Após ter feito o logon você poderá exibir a lista de Tarefas pendentes e fazer atualizações.
 
-A autenticação do Serviço de Aplicativo usa a comunicação interaplicativos da Apple.  Para obter mais detalhes sobre esse assunto, confira a [documentação da Apple][2]
+A autenticação do Serviço de Aplicativo usa a comunicação interaplicativos da Apple.  Para obter mais detalhes sobre esse assunto, consulte o [documentação da Apple][2]
 <!-- URLs. -->
 
 [1]: https://developers.facebook.com/docs/ios/ios9#whitelist
 [2]: https://developer.apple.com/library/content/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Inter-AppCommunication/Inter-AppCommunication.html
-[portal do Azure]: https://portal.azure.com
+[Portal do Azure]: https://portal.azure.com
 
 [início rápido do iOS]: app-service-mobile-ios-get-started.md
 
