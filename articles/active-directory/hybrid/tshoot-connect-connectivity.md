@@ -16,12 +16,12 @@ ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57f7d72be86a05b9785f7714380363d9c6ddb5c6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c0afc31bf08a5037d91885bc6a85c6aeaf858825
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205691"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436641"
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Solucionar problemas de conectividade com o Azure AD Connect
 Esse artigo explica como funciona a conectividade entre o Azure AD Connect e o AD do Azure e como solucionar problemas de conectividade. Esses problemas são mais prováveis de serem vistos em um ambiente com um servidor proxy.
@@ -76,7 +76,7 @@ Esse erro aparecerá se o ponto de extremidade **https://secure.aadcdn.microsoft
 
 ### <a name="the-password-cannot-be-verified"></a>A senha não pode ser verificada
 Se o assistente de instalação for bem-sucedido ao conectar-se ao AD do Azure, mas a senha não puder ser verificada, você verá este erro:  
-![badpassword](./media/tshoot-connect-connectivity/badpassword.png)
+![Senha incorreta.](./media/tshoot-connect-connectivity/badpassword.png)
 
 * A senha é uma senha temporária e deve ser alterada? É realmente a senha correta? Tente entrar em https://login.microsoftonline.com (em outro computador que não seja o servidor do Azure AD Connect) e verifique se a conta é utilizável.
 
@@ -165,8 +165,8 @@ Suas credenciais expiraram. Altere a sua senha.
 ### <a name="authorization-failure"></a>Falha de autorização
 Falha ao autorizar o usuário para executar a ação no Azure AD.
 
-### <a name="authentication-cancelled"></a>Autenticação cancelada
-O desafio da autenticação multifator (MFA) foi cancelado.
+### <a name="authentication-canceled"></a>Autenticação cancelada
+O desafio de autenticação multifator (MFA) foi cancelado.
 
 <div id="connect-msolservice-failed">
 <!--

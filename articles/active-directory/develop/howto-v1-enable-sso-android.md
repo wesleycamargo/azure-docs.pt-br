@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e27ecc73c19b92f8dcf77849c2f91a5eb57ac8e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e5085acad8a82394340892a3a67a3d1e5d85384b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168028"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442164"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Como: habilitar o SSO entre aplicativos no Android usando a ADAL
 
@@ -117,9 +117,9 @@ A capacidade de seu aplicativo de usar o agente é ativada quando você cria as 
 AuthenticationSettings.Instance.setUseBroker(true);
 ```
 
-#### <a name="step-2-establish-a-new-redirect-uri-with-your-url-scheme"></a>Etapa 2: Estabelecer um novo URI de redirecionamento com seu esquema de URL
+#### <a name="step-2-establish-a-new-redirect-uri-with-your-url-scheme"></a>Etapa 2: estabelecer um novo URI de redirecionamento com seu esquema de URL
 
-Para garantir que o aplicativo correto retorne os tokens de credencial, é preciso ter certeza de que seu aplicativo seja chamado, de forma que o sistema operacional Android possa verificar. O sistema operacional Android usa o hash do certificado no Google Play Store. Esse hash do certificado não pode ser falsificado por um aplicativo invasor. Juntamente com o URI do nosso aplicativo de agente, a Microsoft garante que os tokens sejam retornados para o aplicativo correto. É necessário que um URI de redirecionamento exclusivo seja registrado no aplicativo.
+Para garantir que o aplicativo certo recebe retornado a credencial de tokens, existe a necessidade de garantir a retorno de chamada para seu aplicativo de forma que o sistema operacional Android possa verificar. O sistema operacional Android usa o hash do certificado no Google Play Store. Esse hash do certificado não pode ser falsificado por um aplicativo invasor. Juntamente com o URI do nosso aplicativo de agente, a Microsoft garante que os tokens sejam retornados para o aplicativo correto. É necessário que um URI de redirecionamento exclusivo seja registrado no aplicativo.
 
 O URI de redirecionamento deve ser no formato correto de:
 

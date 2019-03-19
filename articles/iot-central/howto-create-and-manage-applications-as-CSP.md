@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 10/29/2018
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 73c3c57df215a66d914f5ea75475f74eff05a1f0
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: 22e9954e66c05bfb2e425a01ffa6f9e3b93b761e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200285"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313711"
 ---
 # <a name="as-a-csp-create-and-manage-an-azure-iot-central-application-on-behalf-of-your-customer"></a>Como um CSP, criar e gerenciar um aplicativo do Azure IoT Central em nome de seu cliente 
 
@@ -25,7 +25,7 @@ Para começar, entre em sua conta no Portal de parceiros da Microsoft e selecion
 
 ![Microsoft Partner Center, exibição do cliente](media/howto-create-application-asCSP/image1.png)
 
-O Azure IoT Central está listado como um serviço disponível para administrar. Clique no link do Azure IoT Central na página para criar novos aplicativos ou gerenciar os aplicativos existentes para esse cliente.
+O Azure IoT Central está listado como um serviço disponível para administrar. Selecione o link do Azure IoT Central da página para criar novos aplicativos ou gerenciar os aplicativos existentes para esse cliente.
 
 ![Azure IoT Central disponível para gerenciar](media/howto-create-application-asCSP/image2.png)
 
@@ -33,7 +33,7 @@ Você é direcionado para a página do Gerenciador de Aplicativos do Azure IoT C
 
 ![Gerenciador de Criação para CSPs](media/howto-create-application-asCSP/image3.png)
 
-Para criar um aplicativo do Azure IoT Central, clique no bloco **Novo Aplicativo**. Isso carregará a página de Criação de Aplicativos. Você precisa preencher todos os campos dessa página e, em seguida, escolher **Criar**. Você encontrará mais informações sobre cada um desses campos abaixo.
+Para criar um aplicativo do Azure IoT Central, selecione a **novo aplicativo** lado a lado. Isso carregará a página de Criação de Aplicativos. Você precisa preencher todos os campos dessa página e, em seguida, escolher **Criar**. Você encontrará mais informações sobre cada um desses campos abaixo.
 
 ![Página Criar Aplicativo para CSPs](media/howto-create-application-asCSP/image4.png)
 

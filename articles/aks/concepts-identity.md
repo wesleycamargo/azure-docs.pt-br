@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 0af3133a1f9a903874c25bf34af0fbf99da8af14
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
-ms.translationtype: HT
+ms.openlocfilehash: 64150438560d48575b4b65db4cdaf61aa0ada240
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49380491"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243815"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Acesso e opções de identidade para o Serviço de Kubernetes do Azure (AKS)
 
@@ -30,7 +30,7 @@ Este artigo apresenta os principais conceitos que ajudam você a se autenticar e
 
 Um dos tipos de usuário primário no Kubernetes é uma *conta de serviço*. Uma conta de serviço existe e é gerenciada pela API do Kubernetes. As credenciais para contas de serviço são armazenadas como segredos do Kubernetes, que permite que sejam utilizados pelo pods autorizados para se comunicar com o servidor de API. A maioria das solicitações de API fornecem um token de autenticação para uma conta de serviço ou uma conta de usuário normal.
 
-Contas de usuário normal permitem o acesso mais tradicional para administradores humanos ou desenvolvedores, não apenas serviços e processos. Kubernetes em si não oferecem uma solução de gerenciamento de identidade em que as contas de usuário regulares e as senhas são armazenadas. Em vez disso, as soluções de identidade externa podem ser integradas em Kubernetes. Para clusters AKS, essa solução integrada de identidade é o Microsoft Azure Active Directory.
+Contas de usuário normal permitem o acesso mais tradicional para administradores humanos ou desenvolvedores, não apenas serviços e processos. Kubernetes em si não fornece uma solução de gerenciamento de identidade em que as contas de usuário regular e as senhas são armazenadas. Em vez disso, as soluções de identidade externa podem ser integradas em Kubernetes. Para clusters AKS, essa solução integrada de identidade é o Microsoft Azure Active Directory.
 
 Para obter mais informações sobre as opções de identidade no Kubernetes, consulte [Autenticação de Kubernetes][kubernetes-authentication].
 
@@ -75,6 +75,8 @@ Um ClusterRole funciona da mesma forma para conceder permissões para recursos, 
 
 Para começar com o Microsoft Azure Active Directory e o RBAC do Kubernetes, consulte [Integrar o Azure Active Directory ao AKS][aks-aad].
 
+Para práticas recomendadas associadas, consulte [práticas recomendadas para autenticação e autorização no AKS][operator-best-practices-identity].
+
 Para obter informações adicionais sobre os principais conceitos do Kubernetes e do AKS, consulte os seguintes artigos:
 
 - [Kubernetes / clusters AKS e cargas de trabalho][aks-concepts-clusters-workloads]
@@ -98,3 +100,4 @@ Para obter informações adicionais sobre os principais conceitos do Kubernetes 
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
+[operator-best-practices-identity]: operator-best-practices-identity.md

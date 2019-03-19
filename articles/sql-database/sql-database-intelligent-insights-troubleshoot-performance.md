@@ -12,16 +12,16 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 1935c670b5c7622f45f8c96b8c2faf03da6282f3
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: fff4aa947f878974d2d0f18f373b8c0917ed7d70
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993619"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316040"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Solucionar problemas de desempenho do banco de dados SQL do Azure com Insights inteligentes
 
-Esta página fornece informações sobre problemas de desempenho do Banco de Dados SQL do Azure e da Instância Gerenciada por meio do log de diagnóstico de desempenho de banco de dados do recurso [Intelligent Insights](sql-database-intelligent-insights.md). A telemetria do log de diagnóstico pode ser transmitida para o [Azure Log Analytics](../azure-monitor/insights/azure-sql.md), os [Hubs de Eventos do Azure](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md), o [Armazenamento do Azure](sql-database-metrics-diag-logging.md#stream-into-storage) ou uma solução de terceiros para recursos personalizados de alertas e relatórios de DevOps.
+Esta página fornece informações sobre problemas de desempenho do Banco de Dados SQL do Azure e da Instância Gerenciada por meio do log de diagnóstico de desempenho de banco de dados do recurso [Intelligent Insights](sql-database-intelligent-insights.md). A telemetria do log de diagnóstico pode ser transmitida para [registra em log do Azure Monitor](../azure-monitor/insights/azure-sql.md), [Hubs de eventos](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md), [armazenamento do Azure](sql-database-metrics-diag-logging.md#stream-into-storage), ou uma solução de terceiros para alertas personalizados de DevOps e recursos de relatórios.
 
 > [!NOTE]
 > Para obter um guia rápido de solução de problemas de desempenho do Banco de Dados SQL usando o Intelligent Insights, confira o fluxograma [Fluxo recomendado para solução de problemas](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) neste documento.
@@ -73,7 +73,7 @@ O log de diagnóstico gera hashes de consulta das consultas que afetaram o desem
 
 Se você tiver atingido os limites de sessão disponíveis, poderá otimizar seus aplicativos reduzindo o número de logons feitos no banco de dados. Se não for possível reduzir o número de logons de seus aplicativos para o banco de dados, considere aumentar o tipo de preço do banco de dados. Ou você pode dividir e mover o banco de dados em vários bancos de dados para uma distribuição mais balanceada de carga de trabalho.
 
-Para mais sugestões sobre como resolver limites de sessão, consulte [Como lidar com os limites máximos de logons no Banco de Dados SQL](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Confira [Overview of resource limits on a SQL Database server](sql-database-resource-limits-database-server.md) (Visão geral dos limites de recursos em um servidor do Banco de Dados SQL) para obter informações sobre limites nos níveis de servidor e assinatura.
+Para mais sugestões sobre como resolver limites de sessão, consulte [Como lidar com os limites máximos de logons no Banco de Dados SQL](https://blogs.technet.microsoft.com/latam/20../../how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Confira [Overview of resource limits on a SQL Database server](sql-database-resource-limits-database-server.md) (Visão geral dos limites de recursos em um servidor do Banco de Dados SQL) para obter informações sobre limites nos níveis de servidor e assinatura.
 
 ## <a name="workload-increase"></a>Aumento da Carga de Trabalho
 
@@ -109,7 +109,7 @@ Você pode otimizar ou remover consultas relacionadas aos administradores com o 
 
 Você também pode reduzir a carga de trabalho otimizando-a ou distribuindo-a em vários bancos de dados. Ou você pode distribuir sua carga de trabalho entre vários bancos de dados. Se essas soluções não forem possíveis, considere aumentar o tipo de preço da sua assinatura do banco de dados SQL para aumentar a quantidade de recursos de memória disponíveis ao banco de dados.
 
-Para obter sugestões de solução de problemas adicionais, confira [Reflexão sobre concessões de memória: o misterioso consumidor de memória do SQL Server com vários nomes](https://blogs.msdn.microsoft.com/sqlmeditation/2013/01/01/memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/).
+Para obter sugestões de solução de problemas adicionais, confira [Reflexão sobre concessões de memória: o misterioso consumidor de memória do SQL Server com vários nomes](https://blogs.msdn.microsoft.com/sqlmeditation/20../../memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/).
 
 ## <a name="locking"></a>Bloqueio
 
@@ -259,7 +259,7 @@ Esse padrão de desempenho detectável combina três casos diferentes de regress
 
 A condição de regressão de novo plano refere-se a um estado no qual o Banco de dados SQL inicia a execução de um novo plano de execução de consulta que não é tão eficiente quanto o plano antigo. A condição de regressão do plano antigo refere-se a um estado em que o Banco de dados SQL troca o plano novo, mais eficiente, pelo plano antigo, que não é tão eficiente quanto o novo. A regressão de carga de trabalho alterada dos planos existentes refere-se ao estado em que os planos antigo e novo alternam-se continuamente, com o saldo indo mais para o plano de baixo desempenho.
 
-Para obter mais informações sobre regressões de plano, consulte [O que é regressão de plano no SQL Server?](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/06/09/what-is-plan-regression-in-sql-server/). 
+Para obter mais informações sobre regressões de plano, consulte [O que é regressão de plano no SQL Server?](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../what-is-plan-regression-in-sql-server/). 
 
 ### <a name="troubleshooting"></a>solução de problemas
 
@@ -267,7 +267,7 @@ O log de diagnóstico gera hashes de consulta, ID de plano bom, ID de plano ruim
 
 Você pode analisar o plano com melhor desempenho para suas consultas específicas e que você possa identificar com os hashes de consulta fornecidos. Depois de determinar o plano que funciona melhor para suas consultas, você pode forçá-lo manualmente. 
 
-Para obter mais informações, consulte [Saiba como o SQL Server impede regressões de plano](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/04/25/you-shall-not-regress-how-sql-server-2017-prevents-plan-regressions/).
+Para obter mais informações, consulte [Saiba como o SQL Server impede regressões de plano](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../you-shall-not-regress-how-sql-server-2017-prevents-plan-regressions/).
 
 > [!TIP]
 > Você sabia que a inteligência interna do Banco de Dados SQL pode gerenciar automaticamente os melhores planos de execução de consulta de desempenho para seus bancos de dados?

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 89161f3dad68c4b208f4badc548e2057c7ed58c1
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
-ms.translationtype: HT
+ms.openlocfilehash: 5ab967cbd630447132300b22da5c5deb31fd50e9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022042"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852348"
 ---
 # <a name="implement-service-level-features-in-your-actor-service"></a>Implementar recursos de nível de serviço em seu serviço de ator
 
@@ -160,13 +160,13 @@ A pilha de comunicação remota V2 (compatível com a interface, conhecida como 
 
 As seguintes alterações são necessárias para usar a pilha V2_1 de comunicação remota:
 
- 1. Adicione o seguinte atributo de assembly nas interfaces de ator.
+1. Adicione o seguinte atributo de assembly nas interfaces de ator.
   
    ```csharp
    [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
    ```
 
- 2. Compile e atualize os projetos de cliente e de serviço do ator para começar a usar a pilha V2.
+2. Compile e atualize os projetos de cliente e de serviço do ator para começar a usar a pilha V2.
 
 ### <a name="actor-service-upgrade-to-remoting-v2-interface-compatible-stack-without-affecting-service-availability"></a>Atualize o serviço de ator para a pilha de comunicação remota V2 (compatível com a interface) sem afetar a disponibilidade do serviço
 
@@ -174,12 +174,12 @@ Essa alteração é uma atualização em duas etapas. Siga as etapas deste tutor
 
 1. Adicione o seguinte atributo de assembly nas interfaces de ator. Esse atributo inicia dois ouvintes para o serviço de ator, os ouvintes V1 (existente) e V2_1. Atualize o serviço de ator com essa alteração.
 
-  ```csharp
-  [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
-  ```
+   ```csharp
+   [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
+   ```
 
 2. Atualize os clientes de ator depois de concluir a atualização anterior.
-Esta etapa garante que o proxy do ator use a pilha de comunicação remota V2_1.
+   Esta etapa garante que o proxy do ator use a pilha de comunicação remota V2_1.
 
 3. Esta etapa é opcional. Altere o atributo anterior para remover o ouvinte V1.
 
@@ -193,13 +193,13 @@ Com o pacote NuGet versão 2.8, os usuários agora podem usar a pilha de comunic
 
 As seguintes alterações são necessárias para usar a pilha de comunicação remota V2.
 
- 1. Adicione o seguinte atributo de assembly nas interfaces de ator.
+1. Adicione o seguinte atributo de assembly nas interfaces de ator.
 
    ```csharp
    [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
    ```
 
- 2. Compile e atualize os projetos de cliente e de serviço do ator para começar a usar a pilha V2.
+2. Compile e atualize os projetos de cliente e de serviço do ator para começar a usar a pilha V2.
 
 ### <a name="upgrade-the-actor-service-to-the-remoting-v2-stack-without-affecting-service-availability"></a>Atualize o serviço de ator para a pilha de comunicação remota V2 sem afetar a disponibilidade do serviço
 
@@ -207,12 +207,12 @@ Essa alteração é uma atualização em duas etapas. Siga as etapas deste tutor
 
 1. Adicione o seguinte atributo de assembly nas interfaces de ator. Esse atributo inicia dois ouvintes para o serviço de ator, os ouvintes V1 (existente) e V2. Atualize o serviço de ator com essa alteração.
 
-  ```csharp
-  [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
-  ```
+   ```csharp
+   [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
+   ```
 
 2. Atualize os clientes de ator depois de concluir a atualização anterior.
-Esta etapa garante que o proxy do ator use a pilha de comunicação remota V2.
+   Esta etapa garante que o proxy do ator use a pilha de comunicação remota V2.
 
 3. Esta etapa é opcional. Altere o atributo anterior para remover o ouvinte V1.
 
@@ -226,7 +226,7 @@ Esta etapa garante que o proxy do ator use a pilha de comunicação remota V2.
 * [Ciclo de vida do ator e coleta de lixo](service-fabric-reliable-actors-lifecycle.md)
 * [Documentação de referência da API dos Atores](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [Código de exemplo do .NET](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Código de exemplo de Java](http://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Código de exemplo de Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-platform/actor-service.png

@@ -7,14 +7,14 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 01/14/2019
+ms.date: 03/01/2019
 ms.author: erhopf
-ms.openlocfilehash: 2f9b477e076b038a6a695952ee3f770b30ad179b
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 90bc2bf4c207f3bb2727d76c2e6b4fd5597539b1
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429461"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240755"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Autenticar solicitações para os Serviços Cognitivos do Azure
 
@@ -28,6 +28,8 @@ Cada solicitação para um Serviço Cognitivo do Azure deve incluir um cabeçalh
 
 Antes de fazer uma solicitação, você precisará de uma conta do Azure e uma assinatura dos Serviços Cognitivos do Azure. Se você já tiver uma conta, pule para a próxima seção. Se você não tiver uma conta, temos um guia para ajudá-lo a configurá-la em minutos: [Criar uma conta dos Serviços Cognitivos para o Azure](cognitive-services-apis-create-account.md).
 
+Você pode obter sua chave de assinatura do [portal do Azure](cognitive-services-apis-create-account.md#access-your-resource) depois de criar sua conta, ou ativar um [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/my-apis).
+ 
 ## <a name="authentication-headers"></a>Cabeçalhos de autenticação
 
 Vamos analisar rapidamente os cabeçalhos de autenticação disponíveis para uso com os Serviços Cognitivos do Azure.
