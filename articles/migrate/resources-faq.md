@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: snehaa
-ms.openlocfilehash: 9d1820215dd2b81edb694d71a1b9496237876d05
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 20a3b790310153ac5bda23fb72baf2ae61e1da52
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416183"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003724"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Migrações para Azure - Perguntas frequentes (FAQ)
 
@@ -21,7 +21,7 @@ Este artigo contém perguntas frequentes sobre o Migrações para Azure. Se voc�
 
 ### <a name="does-azure-migrate-support-assessment-of-only-vmware-workloads"></a>As Migrações para Azure dão suporte apenas à avaliação de cargas de trabalho VMware?
 
-Sim, Migrações para Azure atualmente dão suporte apenas à avaliação de cargas de trabalho do VMware. O suporte para Hyper-V e servidores físicos será habilitado no futuro.
+Sim, Migrações para Azure atualmente dão suporte apenas à avaliação de cargas de trabalho do VMware. Suporte para Hyper-V está em visualização, inscreva-se [aqui](https://aka.ms/migratefuture) para obter acesso à visualização. Suporte para servidores físicos em um futuro será habilitado.
 
 ### <a name="does-azure-migrate-need-vcenter-server-to-discover-a-vmware-environment"></a>O Migrações para Azure precisa do vCenter Server para descobrir um ambiente VMware?
 
@@ -42,7 +42,7 @@ O Migrações para Azure é uma ferramenta de planejamento da migração e o Pla
 
 **Migração do VMware para o Azure**: se você pretende migrar suas cargas de trabalho locais para o Azure, use as Migrações para Azure para o planejamento da migração. O Migrações para Azure avalia as cargas de trabalho locais e fornece diretrizes, insights e mecanismos para ajudá-lo a migrar para o Azure. Após preparar o seu plano de migração, você pode usar serviços como o Azure Site Recovery e o Serviço de Migração de Banco de Dados do Azure para migrar as máquinas para o Azure.
 
-**Migração do Hyper-V para o Azure**: No momento, as Migrações para Azure permitem apenas a avaliação de máquinas virtuais do VMware para a migração para o Azure. O suporte para Hyper-V está em nossos planos para o Migrações para Azure. Enquanto isso, você pode usar o Planejador de Implantação da Recuperação de Site. Após habilitar o suporte para Hyper-V no Migrações para Azure, você pode usar o Migrações para Azure para planejar a migração das cargas de trabalho do Hyper-V.
+**Migração do Hyper-V para o Azure**: A versão disponível das migrações para Azure atualmente dá suporte a avaliação de máquinas virtuais VMware para migração para o Azure. Suporte para Hyper-V está atualmente em visualização com suporte de produção. Se você estiver interessado em experimentar a visualização, inscreva-se [aqui](https://aka.ms/migratefuture).
 
 **Recuperação de desastre do VMware/Hyper-V para o Azure**: se você pretende fazer a DR (recuperação de desastre) no Azure usando o Site Recovery (Azure Site Recovery), use o Planejador de Implantações do Site Recovery para o planejamento de DR. O Planejador de Implantações do Site Recovery faz uma avaliação detalhada específica para o ASR do seu ambiente local. Ele fornece recomendações requeridas pelo Site Recovery para operações de recuperação de desastre com êxito como, por exemplo, replicação e failover das suas máquinas virtuais.  
 
@@ -104,7 +104,7 @@ A descoberta de dispositivo coleta metadados sobre as VMs locais, a lista comple
   - Rede no
   - Limite de rede
 
-A descoberta de agente é uma opção disponível sobre a descoberta de dispositivo e ajuda os clientes a [visualizar dependências](how-to-create-group-machine-dependencies.md) das máquinas virtuais locais. Os agentes de dependência coletam detalhes como FQDN, SO, endereço IP, endereço MAC, processos em execução dentro da VM e as conexões TCP de entrada/saída da VM. A descoberta do agente é opcional e você pode optar por não instalar os agentes se não deseja visualizar as dependências das VMs.
+A descoberta baseada em agente é uma opção disponível sobre a descoberta baseada em dispositivo e ajuda os clientes [visualizar dependências](how-to-create-group-machine-dependencies.md) das VMs locais. Os agentes de dependência coletam detalhes como FQDN, SO, endereço IP, endereço MAC, processos em execução dentro da VM e as conexões TCP de entrada/saída da VM. A descoberta do agente é opcional e você pode optar por não instalar os agentes se não deseja visualizar as dependências das VMs.
 
 ### <a name="would-there-be-any-performance-impact-on-the-analyzed-esxi-host-environment"></a>Haveria qualquer impacto no desempenho no ambiente de host ESXi analisado?
 
@@ -120,7 +120,7 @@ Para a visualização de dependência, se você instalar agentes nas VMs, os dad
 
 ### <a name="what-is-the-volume-of-data-which-is-uploaded-by-azure-migrate-in-the-case-of-continuous-profiling"></a>Qual é o volume de dados carregado pelo Migrações para Azure no caso de criação de perfil contínua?
 
-O volume de dados que é enviado para o Migrações para Azure varia de acordo com vários parâmetros. Para fornecer um número indicativo, um projeto com dez máquinas (cada uma tendo um disco e uma NIC), enviaria cerca de 50 MB por dia. Esse é um valor aproximado e mudaria com base no número de pontos de dados para as NICs e discos (os dados enviados seriam não-lineares se aumentasse o número de máquinas, NICs ou discos). 
+O volume de dados que é enviado para o Migrações para Azure varia de acordo com vários parâmetros. Para fornecer um número indicativo, um projeto com dez máquinas (cada uma tendo um disco e uma NIC), enviaria cerca de 50 MB por dia. Esse é um valor aproximado e mudaria com base no número de pontos de dados para as NICs e discos (os dados enviados seriam não-lineares se aumentasse o número de máquinas, NICs ou discos).
 
 ### <a name="is-the-data-encrypted-at-rest-and-while-in-transit"></a>Os dados são criptografados em repouso e em trânsito?
 
@@ -176,7 +176,7 @@ Essas propriedades só são aplicáveis para o dimensionamento com base no desem
 
 ### <a name="what-is-dependency-visualization"></a>O que é a visualização de dependência?
 
-A visualização de dependência permite que você avalie grupos de máquinas virtuais para uma migração com maior confiança, verificando as dependências do computador antes de executar uma avaliação. A visualização de dependência ajuda você a garantir que nada seja deixado para trás, evitando interrupções inesperadas ao migrar para o Azure. As Migrações para Azure utilizam a solução Mapa do Serviço no Log Analytics para habilitar a visualização de dependências.
+A visualização de dependência permite que você avalie grupos de máquinas virtuais para uma migração com maior confiança, verificando as dependências do computador antes de executar uma avaliação. A visualização de dependência ajuda você a garantir que nada seja deixado para trás, evitando interrupções inesperadas ao migrar para o Azure. As migrações para Azure aproveita a solução Mapa do serviço nos logs do Azure Monitor para habilitar a visualização de dependência.
 
 ### <a name="do-i-need-to-pay-to-use-the-dependency-visualization-feature"></a>É necessário pagar para usar o recurso de visualização de dependência?
 
@@ -217,7 +217,7 @@ A lista de sistemas de operacionais Windows com suporte no Dependency Agent est�
 A lista de sistemas de operacionais Linux com suporte no agente de dependência está [aqui](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
 
 ### <a name="can-i-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>Posso visualizar dependências nas Migrações para Azure por um período de mais de uma hora?
-Não, as Migrações para Azure permitem que você visualize as dependências por até uma hora. As Migrações para Azure permitem que você volte para uma data específica no histórico de até um mês atrás, mas a duração máxima em que você pode visualizar as dependências é de até uma hora. Por exemplo, você pode usar a funcionalidade de duração de tempo no mapa de dependências para exibir as dependências de ontem, mas só pode exibi-las durante o período de uma hora. No entanto, você pode usar o Log Analytics para [consultar os dados de dependência](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) por um período mais longo.
+Não, as Migrações para Azure permitem que você visualize as dependências por até uma hora. As Migrações para Azure permitem que você volte para uma data específica no histórico de até um mês atrás, mas a duração máxima em que você pode visualizar as dependências é de até uma hora. Por exemplo, você pode usar a funcionalidade de duração de tempo no mapa de dependências para exibir as dependências de ontem, mas só pode exibi-las durante o período de uma hora. No entanto, você pode usar os logs do Azure Monitor [consultar os dados de dependência](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) em um período mais longo.
 
 ### <a name="is-dependency-visualization-supported-for-groups-with-more-than-10-vms"></a>A visualização de dependência tem suporte para grupos com mais de 10 VMs?
 Você pode [visualizar as dependências de grupos](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) com até 10 VMs. Caso o grupo tenha mais de 10 VMs, é recomendável dividi-lo em grupos menores e visualizar as dependências.

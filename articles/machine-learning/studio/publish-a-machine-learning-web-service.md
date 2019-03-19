@@ -5,17 +5,17 @@ description: Como converter um experimento de treinamento em um experimento pred
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 5990f47a7cc1517349d85654bf5f02f6240e9baa
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 2ffc9055f23b8221a6f711f741b6146545ff0821
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327588"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57895713"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-web-service"></a>Implantar um serviço da web do Azure Machine Learning Studio
 
@@ -93,23 +93,23 @@ A página de teste RRS exibe as entradas, as saídas e todos os parâmetros glob
 
 Para testar usando RRS, do modo de exibição de lista, insira os valores apropriados para as entradas e clique em **Teste de solicitação-resposta**. Os resultados de previsão serão exibidos na coluna de saída à esquerda.
 
-![Implantar o serviço Web](./media/publish-a-machine-learning-web-service/figure-5-test-request-response.png)
+![Insira os valores apropriados para testar seu serviço web](./media/publish-a-machine-learning-web-service/figure-5-test-request-response.png)
 
 Para testar o BES, clique em **Lote**. Na página de teste em lote, clique em Pesquisar na sua entrada e selecione um arquivo CSV que contém os valores de exemplo apropriados. Se você não tiver um arquivo CSV e tiver criado seu teste preditivo usando o Machine Learning Studio, você pode baixar o conjunto de dados para o seu teste preditivo e usá-lo.
 
 Para baixar o conjunto de dados, abra Machine Learning Studio. Abra seu teste preditivo e clique com o botão direito na entrada para o seu teste. No menu de contexto, selecione **conjunto de dados** e, em seguida, selecione **Baixar**.
 
-![Implantar o serviço Web](./media/publish-a-machine-learning-web-service/figure-7-mls-download.png)
+![Baixe o conjunto de dados da tela do Studio](./media/publish-a-machine-learning-web-service/figure-7-mls-download.png)
 
 Clique em **Testar**. O status de seu trabalho de execução de lote é exibido à direita em **Trabalhos em lote de teste**.
 
-![Implantar o serviço Web](./media/publish-a-machine-learning-web-service/figure-6-test-batch-execution.png)
+![Teste seu trabalho de execução em lotes com o portal de serviço da web](./media/publish-a-machine-learning-web-service/figure-6-test-batch-execution.png)
 
 <!--![Test the web service](./media/publish-a-machine-learning-web-service/figure-3.png)-->
 
 Na página **CONFIGURAÇÃO**, você pode alterar a descrição, o título, atualizar a chave da conta de armazenamento e habilitar dados de exemplo para o serviço Web.
 
-![Configurar o serviço Web](./media/publish-a-machine-learning-web-service/figure-8-arm-configure.png)
+![Configurar o serviço web](./media/publish-a-machine-learning-web-service/figure-8-arm-configure.png)
 
 ### <a name="access-your-new-web-service"></a>Acessar seu Novo serviço Web
 
@@ -161,7 +161,7 @@ Agora que o teste preditivo foi devidamente preparado, você pode implantá-lo c
 
 Para implantar o teste preditivo, clique em **Executar** na parte inferior da tela do teste e clique em **Implantar Serviço Web**. O serviço Web é configurado e colocado no painel de serviço Web.
 
-![Implantar o serviço Web](./media/publish-a-machine-learning-web-service/figure-2.png)
+![Implantar o serviço web do Studio](./media/publish-a-machine-learning-web-service/figure-2.png)
 
 ### <a name="test-your-classic-web-service"></a>Testar seu serviço Web Clássico
 
@@ -181,7 +181,7 @@ Você pode fornecer uma descrição dos dados de entrada, dados de saída e par�
 
 Você pode habilitar o log para diagnosticar quaisquer falhas que esteja vendo quando o serviço Web for acessado. Para saber mais, confira [Enable logging for Machine Learning Studio web services](web-services-logging.md) (Habilitar o registro em log dos serviços Web do Machine Learning Studio).
 
-![Configurar o serviço Web](./media/publish-a-machine-learning-web-service/figure-4.png)
+![Habilitar registro em log no portal de serviços da web](./media/publish-a-machine-learning-web-service/figure-4.png)
 
 Você também pode configurar os pontos de extremidade do serviço Web no portal de serviços Web do Azure Machine Learning da mesma forma que o procedimento mostrado anteriormente na seção Novo serviço Web. As opções são diferentes, você pode adicionar ou alterar a descrição do serviço, habilitar o registro em log e habilitar dados de exemplo para teste.
 
@@ -209,7 +209,7 @@ Como você já implantou esse teste antes, será solicitado se deseja substituir
 > [!NOTE]
 > Se você fez alterações na configuração do serviço Web original, por exemplo, inserindo um novo nome de exibição ou uma descrição, você precisará inserir esses valores novamente.
 
-Uma opção para atualizar seu serviço Web é treinar novamente o modelo de forma programática. Para saber mais, confira [Retrain Machine Learning Studio models programmatically](retrain-models-programmatically.md) (Treinar novamente os modelos de Machine Learning Studio de forma programática).
+Uma opção para atualizar seu serviço Web é treinar novamente o modelo de forma programática. Para saber mais, confira [Retrain Machine Learning Studio models programmatically](/azure/machine-learning/studio/retrain-machine-learning-model) (Treinar novamente os modelos de Machine Learning Studio de forma programática).
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -219,13 +219,12 @@ Uma opção para atualizar seu serviço Web é treinar novamente o modelo de for
 
 * Há várias maneiras para consumir a API REST e acessar o serviço Web. Confira [How to consume an Azure Machine Learning Studio web service](consume-web-services.md) (Como consumir um serviço Web do Azure Machine Learning Studio).
 
-
 <!-- internal links -->
 [Criar um teste de treinamento]: #create-a-training-experiment
 [Convertê-lo em um teste preditivo]: #convert-the-training-experiment-to-a-predictive-experiment
 [Novo Serviço Web]: #deploy-it-as-a-new-web-service
 [Serviço Web Clássico]: #deploy-it-as-a-classic-web-service
-[novo]: #deploy-the-predictive-experiment-as-a-new-web-service
+[novo]: #deploy-it-as-a-new-web-service
 [classic]: #deploy-the-predictive-experiment-as-a-classic-web-service
 [Access]: #access-the-Web-service
 [Manage]: #manage-the-Web-service-in-the-azure-management-portal

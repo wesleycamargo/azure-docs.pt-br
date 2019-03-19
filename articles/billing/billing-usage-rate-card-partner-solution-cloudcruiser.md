@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 10/09/2017
 ms.author: erikre
-ms.openlocfilehash: 79582e59d9ad9396acf29d6e35d640edcb20dca3
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
-ms.translationtype: HT
+ms.openlocfilehash: bae35f9e153227ddcca6e0d20ce862317b968eb1
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275948"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536004"
 ---
 # <a name="cloud-cruiser-and-microsoft-azure-billing-api-integration"></a>Integração da API de Cobrança do Microsoft Azure e Cloud Cruiser
 Este artigo descreve como as informações coletadas nas novas APIs de Cobrança Microsoft Azure podem ser usadas no Cloud Cruiser para análise e simulação de custo do fluxo de trabalho.
@@ -137,7 +137,7 @@ Com a nova API de Uso do Azure, o Cloud Cruiser pode efetuar pull das informaç�
 No lado da cobrança, o Cloud Cruiser automatiza o processo de Showback/estorno e pode usar as informações de marcas para relacionar o uso ao consumidor adequado (Departamento, Divisão, Projeto, etc.). Essa automação é um enorme aprimoramento e pode assegurar um processo de cobrança consistente e auditável.
 
 ### <a name="creating-a-resource-group-with-tags-on-microsoft-azure"></a>Criando um grupo de recursos com marcas no Microsoft Azure
-A primeira etapa neste tutorial é criar um Grupo de Recursos no portal do Azure, em seguida, criar novas marcações para associar aos recursos. Neste exemplo, criaremos as seguintes marcas: departamento, ambiente, proprietário, projeto.
+A primeira etapa neste tutorial é criar um Grupo de Recursos no portal do Azure, em seguida, criar novas marcações para associar aos recursos. Neste exemplo, criaremos as seguintes marcas: Departamento, ambiente, proprietário, projeto.
 
 A captura de tela abaixo mostra um exemplo de Grupo de recursos com as marcas associadas.
 
@@ -200,7 +200,7 @@ Agora, só precisamos adicionar uma etapa para publicar os dados de uso. Durante
 A melhor parte é que você só precisa passar por esse processo uma vez. Quando a pasta de trabalho é concluída, basta adicioná-la ao agendador e ela é executada por hora ou por dia, no horário agendado. Em seguida, é apenas uma questão de criar novos relatórios, ou personalizar os existentes, para analisar os dados a fim de obter informações significativas do uso da nuvem.
 
 ### <a name="next-steps"></a>Próximas etapas
-* Para obter instruções detalhadas sobre como criar relatórios e pastas de trabalho do Cloud Cruiser, consulte a [documentação](http://docs.cloudcruiser.com/) online do Cloud Cruiser (logon válido necessário).  Para obter mais informações sobre o Cloud Cruiser, entre em contato com [info@cloudcruiser.com](mailto:info@cloudcruiser.com).
+* Para obter instruções detalhadas sobre como criar relatórios e pastas de trabalho do Cloud Cruiser, consulte a [documentação](https://docs.cloudcruiser.com/) online do Cloud Cruiser (logon válido necessário).  Para obter mais informações sobre o Cloud Cruiser, entre em contato com [info@cloudcruiser.com](mailto:info@cloudcruiser.com).
 * Consulte [informações sobre o consumo de recursos do Microsoft Azure](billing-usage-rate-card-overview.md) para uma visão geral das APIs de Uso e RateCard do Azure.
 * Confira a [referência da API REST de Cobrança do Azure](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) para obter mais informações sobre as duas APIs, que fazem parte do conjunto de APIs fornecidas pelo Gerenciador de Recursos do Azure.
 * Se você gostaria de se aprofundar no exemplo de código, confira nossos exemplos de código da API de Cobrança do Microsoft Azure em [Exemplos de código do Azure](https://azure.microsoft.com/documentation/samples/?term=billing).

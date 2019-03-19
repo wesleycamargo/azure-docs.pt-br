@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e01b06b2031da20ee9349588bd4a7ee757fbc22c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e9cd97bc226ec69441b933a9f7bf3caec17f1478
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173293"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877115"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ringcentral"></a>Tutorial: Integração do Azure Active Directory com o RingCentral
 
@@ -127,6 +127,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
     ![image](./media/ringcentral-tutorial/b21-domains_and_urls.png)
 
     d. Na caixa de texto **URL de Logon**, digite uma URL:
+
     | |
     |--|
     | `https://service.ringcentral.com` |
@@ -137,9 +138,10 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
     > [!NOTE]
     > O **arquivo de metadados do provedor de serviços** será inserido na página de configuração de SSO do RingCentral, que é explicada posteriormente no tutorial.
 
-6. Se você não tiver o **arquivo de metadados do Provedor de Serviços**, execute as seguintes etapas:
+6. Se você não tiver **arquivo de metadados do provedor de serviços**, execute as seguintes etapas:
 
      a. Na caixa de texto **URL de Logon**, digite uma URL:
+
     | |
     |--|
     | `https://service.ringcentral.com` |
@@ -148,12 +150,14 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
     | `https://service.ringcentral.eu` |
 
     b. Na caixa de texto **Identificador**, digite uma URL:
+
     | |
     |--|
     |  `https://sso.ringcentral.com` |
     | `https://ssoeuro.ringcentral.com` |
 
     c. Na caixa de texto **URL de Resposta**, digite uma URL:
+    
     | |
     |--|
     | `https://sso.ringcentral.com/sp/ACS.saml2` |
@@ -191,7 +195,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     d. Clique em **Salvar**.
 
-    e. Na **Etapa 2** clique em **Baixar** para baixar o **arquivo de metadados do provedor de serviço** e faça upload dele na seção **Configuração Básica do SAML** para popular automaticamente os valores de **Identificador** e **URL de resposta** no portal do Azure.
+    e. Da **etapa 2** clique em **baixar** para baixar o **arquivo de metadados do provedor de serviço** e carregá-lo no **básicas de configuração de SAML** seção para preencher automaticamente a **identificador** e **URL de resposta** valores no portal do Azure.
 
     ![image](./media/ringcentral-tutorial/ringcentral6.png) 
 
@@ -223,7 +227,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
      a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
+    b. No **nome de usuário** tipo de campo **brendafernandes\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **Propriedades**, marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.

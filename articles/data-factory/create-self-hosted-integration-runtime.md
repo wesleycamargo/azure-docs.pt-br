@@ -3,20 +3,20 @@ title: Criar um tempo de execução da integração auto-hospedada no Azure Data
 description: Saiba como criar um tempo de execução da integração auto-hospedada no Azure Data Factory, que permite que os data factories acessem armazenamentos de dados em uma rede privada.
 services: data-factory
 documentationcenter: ''
-author: nabhishek
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/15/2019
+author: nabhishek
 ms.author: abnarain
-ms.openlocfilehash: 68878a68b5f0051c1ee9beda96293dd7cd00eaf1
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+manager: craigg
+ms.openlocfilehash: 37e3dbb5f69d7319e0b56a5d209e0487e0562e00
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493577"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838792"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Criar e configurar um tempo de execução da integração auto-hospedada
 O IR (Integration Runtime) é a infraestrutura de computação usada pelo Azure Data Factory para fornecer funcionalidades de integração de dados entre diferentes ambientes de rede. Para obter detalhes sobre o IR, confira [Visão geral do Integration Runtime](concepts-integration-runtime.md).
@@ -25,11 +25,13 @@ Um tempo de execução da integração auto-hospedada consegue executar as ativi
 
 Este documento descreve como você pode criar e configurar o IR auto-hospedado.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="high-level-steps-to-install-a-self-hosted-ir"></a>Etapas de alto nível para instalar um IR auto-hospedado
 1. Criar um tempo de execução de integração auto-hospedado. É possível usar a interface do usuário do Azure Data Factory para esta tarefa. Aqui está um exemplo do PowerShell:
 
     ```powershell
-    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
     ```
   
 2. [Faça o download](https://www.microsoft.com/download/details.aspx?id=39717) e instale o tempo de execução da integração auto-hospedada em um computador local.
@@ -37,7 +39,7 @@ Este documento descreve como você pode criar e configurar o IR auto-hospedado.
 3. Recupere a chave de autenticação e registre o tempo de execução da integração auto-hospedada com ela. Aqui está um exemplo do PowerShell:
 
     ```powershell
-    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
+    Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
     ```
 
 ## <a name="setting-up-a-self-hosted-ir-on-an-azure-vm-by-using-an-azure-resource-manager-template-automation"></a>Configurar um IR auto-hospedado em uma VM do Azure usando modelo do Azure Resource Manager (automação)
@@ -59,7 +61,7 @@ Aqui está o fluxo de dados de alto nível para e o resumo das etapas para a có
 ## <a name="considerations-for-using-a-self-hosted-ir"></a>Considerações para o uso de um IR auto-hospedado
 
 - Um único Integration Runtime auto-hospedado pode ser usado para várias fontes de dados locais. Um único tempo de execução da integração auto-hospedada pode ser compartilhado com outro data factory no mesmo locatário do Azure Active Directory. Para obter mais informações, confira [Compartilhando um tempo de execução da integração auto-hospedada](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories).
-- Você pode ter apenas uma instância do tempo de execução da integração auto-hospedada instalada em um único computador. Se tiver dois data factories que precisam acessar fontes de dados locais, você precisará instalar o tempo de execução da integração auto-hospedada em dois computadores locais. Em outras palavras, um tempo de execução da integração auto-hospedada é associado a um data factory específico.
+- Você pode ter apenas uma instância do tempo de execução da integração auto-hospedada instalada em um único computador. Se você tiver dois data factories que precisam acessar fontes de dados locais, você precisa instalar o integration runtime auto-hospedado em dois locais computadores cada das fábricas de dados ou usar o [dorecursodecompartilhamentodoIRauto-hospedado](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories)compartilhar um tempo de execução de integração auto-hospedado com outro Data Factory.  
 - O tempo de execução da integração auto-hospedada não precisa estar no mesmo computador que a fonte de dados. No entanto, ter o tempo de execução da integração auto-hospedada mais perto da fonte de dados reduz o tempo para o tempo de execução da integração auto-hospedada se conectar à fonte de dados. É recomendável instalar o Integration Runtime auto-hospedado em um computador que seja diferente daquele que hospeda a fonte de dados local. Quando a fonte de dados e o tempo de execução da integração auto-hospedada estão em computadores diferentes, o tempo de execução da integração auto-hospedada não compete por recursos com a fonte de dados.
 - Você pode ter vários tempos de execução da integração auto-hospedada em diferentes computadores conectados à mesma fonte de dados local. Por exemplo, pode ter dois tempos de execução da integração auto-hospedada servindo dois data factories, mas a mesma fonte de dados local é registrada com ambos os data factories.
 - Se você já tiver um gateway instalado no computador para atender um cenário do Power BI, instale um tempo de execução da integração auto-hospedada separado para o Azure Data Factory em outro computador.
@@ -96,7 +98,7 @@ Aqui está o fluxo de dados de alto nível para e o resumo das etapas para a có
 9. Obtenha a chave de autenticação usando o Azure PowerShell. Aqui há um exemplo do PowerShell para recuperar a chave de autenticação:
 
     ```powershell
-    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
+    Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
     ```
 11. Na página **Registrar Integration Runtime (auto-hospedado)** do Configuration Manager do Microsoft Integration Runtime em seu computador, realize as seguintes etapas:
 
@@ -112,7 +114,7 @@ Um tempo de execução da integração auto-hospedada pode ser associado a vári
 * Disponibilidade superior do tempo de execução da integração auto-hospedada para que ele não seja o único ponto de falha na sua solução de Big Data ou integração de dados de nuvem com o Azure Data Factory, garantindo a continuidade com até quatro nós.
 * Desempenho e taxa de transferência aprimorados durante a movimentação de dados entre os armazenamentos de dados de nuvem e locais. Obtenha mais informações sobre [comparações de desempenho](copy-activity-performance.md).
 
-Para associar vários nós, instale o software do tempo de execução da integração auto-hospedada no [Centro de Download](https://www.microsoft.com/download/details.aspx?id=39717). A seguir, registre-o usando uma das chaves de autenticação obtidas do cmdlet **New-AzureRmDataFactoryV2IntegrationRuntimeKey**, conforme descrito no [tutorial](tutorial-hybrid-copy-powershell.md).
+Para associar vários nós, instale o software do tempo de execução da integração auto-hospedada no [Centro de Download](https://www.microsoft.com/download/details.aspx?id=39717). Então, registê-lo usando qualquer uma das chaves de autenticação obtida a **New-AzDataFactoryV2IntegrationRuntimeKey** cmdlet, conforme descrito na [tutorial](tutorial-hybrid-copy-powershell.md).
 
 > [!NOTE]
 > Você não precisa criar um novo tempo de execução da integração auto-hospedada para associar cada nó. Você pode instalar o tempo de execução da integração auto-hospedada em outro computador e registrá-lo usando a mesma chave de autenticação. 
@@ -143,7 +145,7 @@ Aqui estão os requisitos para o certificado TLS/SSL usado para proteger as comu
 - Não há suporte a certificados que usam chaves CNG.  
 
 > [!NOTE]
-> Esse certificado é usado para criptografar as portas no nó do IR auto-hospedado, usado para **comunicação de nó para nó** (para sincronização de estado) e ao **usar o cmdlet do PowerShell para a configuração da credencial do serviço vinculado** dentro da rede local. Sugerimos usar este certificado se o seu ambiente de rede privada não é seguro ou se você gostaria de proteger a comunicação entre os nós na sua rede privada também. A movimentação de dados em trânsito do IR auto-hospedado para outros armazenamentos de dados sempre ocorre por meio de um canal criptografado, independentemente desse certificado estar definido ou não. 
+> Esse certificado é usado para criptografar as portas no nó do IR auto-hospedado, usado para **comunicação de nó para nó** (para sincronização de credenciais de sincronização de estado que inclui serviços vinculados entre nós) e while **usando o PowerShell cmdlet para o serviço vinculado de credencial configuração** de dentro da rede local. Sugerimos usar este certificado se o seu ambiente de rede privada não é seguro ou se você gostaria de proteger a comunicação entre os nós na sua rede privada também. A movimentação de dados em trânsito do IR auto-hospedado para outros armazenamentos de dados sempre ocorre por meio de um canal criptografado, independentemente desse certificado estar definido ou não. 
 
 ## <a name="sharing-the-self-hosted-integration-runtime-with-multiple-data-factories"></a>Compartilhar o tempo de execução da integração auto-hospedada com vários data factories
 
@@ -197,8 +199,6 @@ Para uma introdução de doze minutos e demonstração desse recurso, assista ao
 * O data factory em que um tempo de execução de integração vinculado será criado precisa ter um [MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview). Por padrão, os data factories criados no portal do Azure ou nos cmdlets do PowerShell têm uma MSI criada implicitamente. No entanto, quando um data factory é criado por meio de um modelo ou SDK do Azure Resource Manager, a propriedade **Identidade** deve ser definida explicitamente para garantir que o Azure Resource Manager crie um data factory que contenha uma MSI. 
 
 * O SDK do .NET do Azure Data Factory que dá suporte a esse recurso é a versão 1.1.0 ou posterior.
-
-* A versão do Azure PowerShell que dá suporte a esse recurso é a 6.6.0 ou posterior (AzureRM.DataFactoryV2, 0.5.7 ou posterior).
 
 * Para conceder permissão, o usuário precisa da função Proprietário ou da função Proprietário herdada na Data Factory em que o tempo de execução de integração compartilhado existe.
 
@@ -343,7 +343,7 @@ msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
 > [!NOTE]
 > O aplicativo Gerenciador de Credenciais ainda não está disponível para criptografar credenciais no Azure Data Factory V2.  
 
-Se optar por não abrir a porta 8060 no computador do tempo de execução da integração auto-hospedada, use mecanismos diferentes do aplicativo Definindo Credenciais para configurar as credenciais do armazenamento de dados. Por exemplo, você pode usar o cmdlet do PowerShell **New-AzureRmDataFactoryV2LinkedServiceEncryptCredential**.
+Se optar por não abrir a porta 8060 no computador do tempo de execução da integração auto-hospedada, use mecanismos diferentes do aplicativo Definindo Credenciais para configurar as credenciais do armazenamento de dados. Por exemplo, você pode usar o **New-AzDataFactoryV2LinkedServiceEncryptCredential** cmdlet do PowerShell.
 
 
 ## <a name="next-steps"></a>Próximas etapas

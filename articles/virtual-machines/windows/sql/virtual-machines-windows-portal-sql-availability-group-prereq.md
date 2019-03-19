@@ -3,7 +3,7 @@ title: Grupos de disponibilidade do SQL Server - Máquinas Virtuais do Azure - P
 description: Este tutorial mostra como configurar os pré-requisitos para a criação de um grupo de disponibilidade Always On do SQL Server nas VMs do Azure.
 services: virtual-machines
 documentationCenter: na
-authors: MikeRayMSFT
+author: MikeRayMSFT
 manager: craigg
 editor: monicar
 tags: azure-service-management
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: ff2031bd4c4fdc3d3ed8447a08ef29f0f89ea1d8
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 1d0f3bfa03eb4bafdd10222e28782c318848b7f7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818015"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995171"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Conclua os pré-requisitos para a criação de grupos de disponibilidade AlwaysOn em máquinas virtuais do Azure
 
@@ -42,7 +42,7 @@ Este tutorial supõe que você tem uma compreensão básica dos grupos de dispon
 Você precisa de uma conta do Azure. Você pode [abrir uma conta gratuita do Azure](https://signup.azure.com/signup?offer=ms-azr-0044p&appId=102&ref=azureplat-generic&redirectURL=https:%2F%2Fazure.microsoft.com%2Fget-started%2Fwelcome-to-azure%2F&correlationId=24f9d452-1909-40d7-b609-2245aa7351a6&l=en-US) ou [ativar os benefícios de assinante do Visual Studio](https://docs.microsoft.com/visualstudio/subscriptions/subscriber-benefits).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
-1. Entre no [Portal do Azure](http://portal.azure.com).
+1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Clique em **+** para criar um novo objeto no portal.
 
    ![Novo objeto](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-portalplus.png)
@@ -292,14 +292,14 @@ Após a reinicialização do controlador de domínio primário, você pode confi
 15. Clique no link **Mais** na barra de aviso amarela.
 16. Na coluna **Ação** da caixa de diálogo **Todos os Detalhes de Tarefa do Servidor**, clique em **Promover este servidor a um controlador de domínio**.
 17. Em **Configuração de Implantação**, selecione **Adicionar um controlador de domínio a um domínio existente**.
-   ![Configuração de Implantação](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/28-deploymentconfig.png)
+    ![Configuração de Implantação](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/28-deploymentconfig.png)
 18. Clique em **Selecionar**.
 19. Conecte-se usando a conta de administrador (**CORP.CONTOSO.COM\domainadmin**) e senha (**Contoso!0000**).
 20. Em **Selecione um domínio na floresta**, clique em seu domínio e, em seguida, clique em **OK**.
 21. Em **Opções do Controlador de Domínio**, use os valores padrão e defina uma senha de DSRM.
 
-   >[!NOTE]
-   >A página **Opções de DNS** poderá avisar que não foi possível criar uma delegação para este servidor DNS. Você pode ignorar esse aviso em ambientes que não são de produção.
+    >[!NOTE]
+    >A página **Opções de DNS** poderá avisar que não foi possível criar uma delegação para este servidor DNS. Você pode ignorar esse aviso em ambientes que não são de produção.
 22. Clique em **Avançar** até atingir a caixa de diálogo de **Pré-requisitos**. Em seguida, clique em **Instalar**.
 
 Depois que o servidor concluir as alterações de configuração, reinicie-o.
@@ -308,7 +308,7 @@ Depois que o servidor concluir as alterações de configuração, reinicie-o.
 
 No Portal do Azure, na rede virtual, altere o Servidor DNS para incluir o endereço IP do controlador de domínio secundário. Essa configuração permite a redundância de serviço DNS.
 
-### <a name=DomainAccounts></a> Configurar as contas de domínio
+### <a name="DomainAccounts"></a> Configurar as contas de domínio
 
 Nas próximas etapas, você configurará as contas do Active Directory. A tabela abaixo mostra as contas:
 
@@ -464,7 +464,7 @@ Para adicionar os Recursos de Clustering de Failover, realize as etapas a seguir
 Repita essas etapas na outra VM do SQL Server.
 
   >[!NOTE]
-  > Esta etapa, além de ingressar realmente as VMs do SQL Server ao cluster de failover, agora pode ser automatizada com um modelo de Início Rápido do Azure. Para obter mais informações, confira [Criar o WSFC, o ouvinte e configurar o ILB para um grupo de disponibilidade Always On em uma VM do SQL Server com os modelos de Início Rápido do Azure](virtual-machines-windows-sql-availability-group-quickstart-template.md).
+  > Nesta etapa, junto com, na verdade, ingressar em VMs do SQL Server ao cluster de failover, agora pode ser automatizada com [da CLI de VM do Azure SQL](virtual-machines-windows-sql-availability-group-cli.md) e [modelos de início rápido do Azure](virtual-machines-windows-sql-availability-group-quickstart-template.md).
 
 
 ## <a name="a-nameendpoint-firewall-configure-the-firewall-on-each-sql-server-vm"></a><a name="endpoint-firewall"> Configurar o firewall em cada VM do SQL Server
@@ -491,7 +491,7 @@ O método de abrir as portas depende da solução de firewall usada. A próxima 
 
    ![Firewall do SQL](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/35-tcpports.png)
 
-5. Clique em **Próximo**.
+5. Clique em **Avançar**.
 6. Na página **Ação**, mantenha selecionado **Permitir a conexão** e, em seguida, clique em **Avançar**.
 7. Na página **Perfil**, aceite as configurações padrão e, em seguida, clique em **Avançar**.
 8. Na página **Nome**, especifique um nome de regra, como **Investigação do Azure LB** na caixa de texto **Nome** e clique em **Concluir**.

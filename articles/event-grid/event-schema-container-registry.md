@@ -1,19 +1,19 @@
 ---
 title: Esquema de evento de Registro de Contêiner de Grade de Eventos do Azure
-description: Descreve as propriedades fornecidas para eventos de Registro de Contêiner com a Grade de Eventos do Azure
+description: Descreve as propriedades que são fornecidas para eventos de registro de contêiner com a grade de eventos do Azure
 services: event-grid
 author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/13/2019
+ms.date: 03/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 6f00d4f249543ece0eb8db4a8e040300d55b2de8
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: c5998ff428c4b6f4c1f7a4087c6ccb27d93773eb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54462837"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084320"
 ---
 # <a name="azure-event-grid-event-schema-for-container-registry"></a>Esquema de evento de Grade de Eventos do Azure para Registro de Contêiner
 
@@ -21,12 +21,14 @@ Este artigo apresenta as propriedades e o esquema para eventos de Registro de Co
 
 ## <a name="available-event-types"></a>Tipos de evento disponíveis
 
-Armazenamento de blob emite os seguintes tipos de evento:
+O registro de contêiner do Azure emite os seguintes tipos de evento:
 
 | Tipo de evento | DESCRIÇÃO |
 | ---------- | ----------- |
 | Microsoft.ContainerRegistry.ImagePushed | Gerado quando é efetuado o push de uma imagem. |
 | Microsoft.ContainerRegistry.ImageDeleted | Gerado quando uma imagem é excluída. |
+| Microsoft.ContainerRegistry.ChartPushed | Gerado quando um gráfico do Helm é enviada por push. |
+| Microsoft.ContainerRegistry.ChartDeleted | Gerado quando um gráfico do Helm é excluído. |
 
 ## <a name="example-event"></a>Exemplo de evento
 
@@ -93,51 +95,109 @@ O esquema para um evento de exclusão de imagem é semelhante:
 }]
 ```
 
+O esquema para um gráfico de enviada por push o evento é semelhante ao esquema para um evento enviado por push com imagens, mas ele não inclui um objeto de solicitação:
+
+```json
+[{
+  "id": "ea3a9c28-5b17-40f6-a500-3f02b6829277",
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<name>",
+  "subject": "mychart:1.0.0",
+  "eventType": "Microsoft.ContainerRegistry.ChartPushed",
+  "eventTime": "2019-03-12T22:16:31.5164086Z",
+  "data": {
+    "id":"ea3a9c28-5b17-40f6-a500-3f02b682927",
+    "timestamp":"2019-03-12T22:16:31.0087496+00:00",
+    "action":"chart_push",
+    "target":{
+      "mediaType":"application/vnd.acr.helm.chart",
+      "size":25265,
+      "digest":"sha256:7f060075264b5ba7c14c23672698152ae6a3ebac1c47916e4efe19cd624d5fab",
+      "repository":"repo",
+      "tag":"mychart-1.0.0.tgz",
+      "name":"mychart",
+      "version":"1.0.0"
+    }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+
+O esquema para um evento de gráfico excluído é semelhante ao esquema para um evento excluído com imagens, mas ele não inclui um objeto de solicitação:
+
+```json
+[{
+  "id": "39136b3a-1a7e-416f-a09e-5c85d5402fca",
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<name>",
+  "subject": "mychart:1.0.0",
+  "eventType": "Microsoft.ContainerRegistry.ChartDeleted",
+  "eventTime": "019-03-12T22:42:08.7034064Z",
+  "data": {
+    "id":"ea3a9c28-5b17-40f6-a500-3f02b682927",
+    "timestamp":"2019-03-12T22:42:08.3783775+00:00",
+    "action":"chart_delete",
+    "target":{
+      "mediaType":"application/vnd.acr.helm.chart",
+      "size":25265,
+      "digest":"sha256:7f060075264b5ba7c14c23672698152ae6a3ebac1c47916e4efe19cd624d5fab",
+      "repository":"repo",
+      "tag":"mychart-1.0.0.tgz",
+      "name":"mychart",
+      "version":"1.0.0"
+    }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+
 ## <a name="event-properties"></a>Propriedades do evento
 
 Um evento tem os seguintes dados de nível superior:
 
-| Propriedade | Tipo | DESCRIÇÃO |
+| Propriedade | Type | DESCRIÇÃO |
 | -------- | ---- | ----------- |
-| topic | string | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. Grade de Eventos fornece esse valor. |
-| subject | string | Caminho definido pelo fornecedor para o assunto do evento. |
-| eventType | string | Um dos tipos de evento registrados para a origem do evento. |
-| eventTime | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
-| ID | string | Identificador exclusivo do evento. |
+| topic | cadeia de caracteres | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. Grade de Eventos fornece esse valor. |
+| subject | cadeia de caracteres | Caminho definido pelo fornecedor para o assunto do evento. |
+| eventType | cadeia de caracteres | Um dos tipos de evento registrados para a origem do evento. |
+| eventTime | cadeia de caracteres | A hora em que o evento é gerado com base na hora UTC do provedor. |
+| ID | cadeia de caracteres | Identificador exclusivo do evento. |
 | data | objeto | Dados de eventos do armazenamento de blob. |
-| dataVersion | string | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
-| metadataVersion | string | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
+| dataVersion | cadeia de caracteres | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
+| metadataVersion | cadeia de caracteres | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Tipo | DESCRIÇÃO |
+| Propriedade | Type | DESCRIÇÃO |
 | -------- | ---- | ----------- |
-| ID | string | A ID do evento. |
-|  timestamp | string | A hora em que o evento ocorreu. |
-| ação | string | A ação que abrange o evento fornecido. |
+| ID | cadeia de caracteres | A ID do evento. |
+|  timestamp | cadeia de caracteres | A hora em que o evento ocorreu. |
+| ação | cadeia de caracteres | A ação que abrange o evento fornecido. |
 | destino | objeto | O destino do evento. |
 | solicitação | objeto | A solicitação que gerou o evento. |
 
 O objeto de destino tem as seguintes propriedades:
 
-| Propriedade | Tipo | DESCRIÇÃO |
+| Propriedade | Type | DESCRIÇÃO |
 | -------- | ---- | ----------- |
-| mediaType | string | O tipo MIME do objeto referenciado. |
+| mediaType | cadeia de caracteres | O tipo MIME do objeto referenciado. |
 | tamanho | inteiro | O número de bytes do conteúdo. Mesmo que o campo de Comprimento. |
-| digest | string | O resumo da mensagem, conforme definido pela Especificação API HTTP do Registry V2. |
+| digest | cadeia de caracteres | O resumo da mensagem, conforme definido pela Especificação API HTTP do Registry V2. |
 | length | inteiro | O número de bytes do conteúdo. O mesmo que o campo Tamanho. |
-| repository | string | Nome do repositório. |
-| marca | string | O nome da marca. |
+| repository | cadeia de caracteres | Nome do repositório. |
+| marca | cadeia de caracteres | O nome da marca. |
+| Nome | cadeia de caracteres | O nome do gráfico. |
+| version | cadeia de caracteres | A versão do gráfico. |
 
 O objeto solicitado tem as seguintes propriedades:
 
-| Propriedade | Tipo | DESCRIÇÃO |
+| Propriedade | Type | DESCRIÇÃO |
 | -------- | ---- | ----------- |
-| ID | string | A ID da solicitação que iniciou o evento. |
-| addr | string | O IP ou nome de host e, possivelmente, a porta da conexão do cliente que iniciou o evento. Esse valor é o RemoteAddr da solicitação http padrão. |
-| host | string | O nome de host acessível externamente da instância de registro, conforme especificado pelo cabeçalho do host http em solicitações de entrada. |
-| estático | string | O método de solicitação que gerou o evento. |
-| useragent | string | O cabeçalho do agente de usuário da solicitação. |
+| ID | cadeia de caracteres | A ID da solicitação que iniciou o evento. |
+| addr | cadeia de caracteres | O IP ou nome de host e, possivelmente, a porta da conexão do cliente que iniciou o evento. Esse valor é o RemoteAddr da solicitação http padrão. |
+| host | cadeia de caracteres | O nome de host acessível externamente da instância de registro, conforme especificado pelo cabeçalho do host http em solicitações de entrada. |
+| estático | cadeia de caracteres | O método de solicitação que gerou o evento. |
+| useragent | cadeia de caracteres | O cabeçalho do agente de usuário da solicitação. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

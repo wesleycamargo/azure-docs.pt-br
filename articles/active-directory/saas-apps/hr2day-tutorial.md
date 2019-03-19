@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/24/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e932fd59fb888d73fb2ad9aee3f440b4aca3e662
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 378aab82fac5298c3785f752478e3bfc3c6e325b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180566"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58103138"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>Tutorial: Integração do Azure Active Directory ao HR2day by Merces
 
@@ -132,8 +132,8 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
     ![Configurar o logon único](./media/hr2day-tutorial/tutorial_hr2day_00.png)
     
-    > [!NOTE] 
-    Antes de configurar a instrução de declaração SAML, você precisará entrar em contato com a [equipe de suporte do Cliente HR2day by Merces](mailto:servicedesk@merces.nl) e solicitar o valor do atributo de identificador exclusivo para seu locatário. Você precisa desse valor para concluir as etapas na próxima seção. 
+   > [!NOTE]
+   >  Antes de configurar a instrução de declaração SAML, você precisará entrar em contato com a [equipe de suporte do Cliente HR2day by Merces](mailto:servicedesk@merces.nl) e solicitar o valor do atributo de identificador exclusivo para seu locatário. Você precisa desse valor para concluir as etapas na próxima seção. 
 
 1. Na caixa de diálogo **Logon único**, na seção **Atributos do Usuário**, configure o atributo do token SAML como mostrado na imagem a seguir. Em seguida, execute as etapas a seguir.
     
@@ -174,7 +174,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
     > [!TIP]
     >É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar este aplicativo por meio da seção **Active Directory** > **Aplicativos Empresariais**, selecione a guia **Logon Único**. Em seguida, acesse a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida na [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
-> 
+   > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
