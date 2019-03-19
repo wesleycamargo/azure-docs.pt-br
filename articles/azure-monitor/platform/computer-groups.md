@@ -13,25 +13,25 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: bwren
-ms.openlocfilehash: 7e5d04f3ead4353c88a6b56ab530f41ff15022d1
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 0a29e453c723ecc9ac378ee337365525587aaef2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005372"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444116"
 ---
-# <a name="computer-groups-in-azure-monitor-log-quereies"></a>Grupos de computadores nas consultas de log do Azure Monitor
+# <a name="computer-groups-in-azure-monitor-log-queries"></a>Grupos de computadores em consultas de log do Azure Monitor
 Os grupos de computadores no Azure Monitor permitem que você analise as [consultas de log](../log-query/log-query-overview.md) de um determinado conjunto de computadores.  Cada grupo é preenchido com computadores usando uma consulta que você define ou importando grupos de fontes diferentes.  Quando o grupo é incluído em uma consulta de log, os resultados são limitados aos registros que correspondem aos computadores no grupo.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="creating-a-computer-group"></a>Criar um grupo de computadores
+## <a name="creating-a-computer-group"></a>Criando um grupo de computadores
 É possível criar um grupo de computadores no Azure Monitor usando qualquer um dos métodos da tabela a seguir.  Detalhes sobre cada método são fornecidos nas seções a seguir. 
 
 | Método | DESCRIÇÃO |
 |:--- |:--- |
 | Consulta de log |Crie uma consulta de log que retorne uma lista de computadores. |
-| API da Pesquisa de Logs |Use a API da Pesquisa de Logs para criar programaticamente um grupo de computadores com base nos resultados de uma consulta de log. |
+| API da Pesquisa de Log |Use a API da Pesquisa de Logs para criar programaticamente um grupo de computadores com base nos resultados de uma consulta de log. |
 | Active Directory |Examine automaticamente a associação de grupo de qualquer computador de agente que seja membro de um domínio do Active Directory e crie um grupo no Azure Monitor para cada grupo de segurança. (computadores Windows, somente)|
 | Gerenciador de Configurações | Importe coleções do System Center Configuration Manager e crie um grupo no Azure Monitor para cada uma. |
 | Windows Server Update Services |Examine automaticamente clientes ou servidores do WSUS para grupos de direcionamento e crie um grupo no Azure Monitor para cada um. |
@@ -95,7 +95,7 @@ Quando as coleções tiverem sido importadas, o menu listará o número de compu
 
 Clique no **x** na coluna **Remover** para excluir o grupo de computadores.  Clique no ícone **Exibir membros** para que um grupo execute a pesquisa de log do grupo que retorna seus membros.  Não é possível modificar um grupo de computadores, assim, em vez disso, você precisar excluir e recriar o grupo com as configurações modificadas.
 
-![Grupos de computadores salvos](media/computer-groups/configure-saved.png)
+![Grupos de computadores salvados](media/computer-groups/configure-saved.png)
 
 
 ## <a name="using-a-computer-group-in-a-log-query"></a>Usar um grupo de computadores em uma consulta de log

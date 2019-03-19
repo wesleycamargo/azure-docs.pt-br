@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 54e78496b98fffefd2932a2ce7625f8b325fb32a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: bda3df3ce869d7717f572f72c38472e7eae4a0ef
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812643"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437421"
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Mover dados de e para o Azure Cosmos DB usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -139,7 +139,7 @@ No caso da Atividade de cópia, quando a fonte é do tipo **DocumentDbCollection
 Usando esse conector do Cosmos DB, você pode facilmente
 
 * Importar documentos JSON de várias fontes para o Cosmos DB, incluindo Blobs do Azure, Azure Data Lake, Sistema de Arquivos local ou outros repositórios com base em arquivos com suporte pelo Azure Data Factory.
-* Exportar documentos JSON da coleção do Cosmos DB para vários repositórios com base em arquivo.
+* Exporte documentos JSON de coleção do Cosmos DB para vários repositórios baseados em arquivo.
 * Migrar dados entre duas coleções do Cosmos DB no estado em que se encontram.
 
 Para atingir essa cópia independente de esquema,
