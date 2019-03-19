@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67a8c4d4fe5476d00677c08bef9668066c4ec4f3
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: c6053313c6971f1bcf66bc447b4f4f5fe5817666
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56458293"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339735"
 ---
 # <a name="manage-your-organizations-from-the-my-profile-preview-portal"></a>Gerenciar suas organizações no portal Meu Perfil (versão prévia)
 Você pode gerenciar suas organizações na página **Organizações** do portal **Meu Perfil**.
@@ -35,7 +35,7 @@ Há dois tipos de organizações mostrados na página **Organizações**:
 
 2. Escolha **Organizações** no painel de navegação à esquerda ou escolha o link **Gerenciar organizações** no bloco **Organizações**.
 
-    ![Página Meu Perfil, com links para Organizações em destaque](media/myprofile-portal/myprofile-portal-organizations-links.png)
+    ![Página Meu Perfil, com links para Organizações em destaque](media/myprofile-portal/myprofile-portal-organizations.png)
 
 3. Examine as informações de sua **Organização inicial**. 
 
@@ -57,4 +57,4 @@ Você pode sair de qualquer organização que não seja a organização inicial.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Depois de visualizar a atividade de entrada recente, você pode escolher exibir ou gerenciar suas [informações de segurança](user-help-security-info-overview.md), sua [atividade de entrada recente](myprofile-portal-recent-activity-page.md), seus [dispositivos](myprofile-portal-devices-page.md) conectados ou exibir como a organização [usa seus dados](myprofile-portal-privacy-page.md).
+- Depois de visualizar suas organizações, você pode selecionar para exibir ou gerenciar seu [informações de segurança](user-help-security-info-overview.md)conectadas [dispositivos](myprofile-portal-devices-page.md), ou modo de exibição como sua organização [usa os dados](myprofile-portal-privacy-page.md).

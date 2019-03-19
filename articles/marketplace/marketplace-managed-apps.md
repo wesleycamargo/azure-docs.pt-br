@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/19/2018
 ms.author: ellacroi
-ms.openlocfilehash: ae50562a9354b9c1e5b2711e5bbeec7b1e0fbbb8
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 15c559bb8b357b7776c101f88db8316b05edb677
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078789"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213153"
 ---
 # <a name="azure-applications-managed-application-offer-publishing-guide"></a>Aplicativos Azure: Guia de publicação da oferta de aplicativo gerenciado
 
@@ -46,6 +46,8 @@ No caso do modelo traga sua própria licença, enquanto a Microsoft cobrará os 
 >[!NOTE]
 > Aplicativos gerenciados devem poder ser implantados por meio do Marketplace. Se a comunicação do cliente é relevante, você deve falar com clientes interessados depois de habilitar o compartilhamento de leads.  
 
+>[!Note]
+>Cloud Solution Providers (CSP) parceiro canal participar agora está disponível.  Consulte [Cloud Solution Providers](./cloud-solution-providers.md) para obter mais informações sobre sua oferta por meio do Microsoft CSP de marketing de parceiros canais.
 
 ## <a name="next-steps"></a>Próximas etapas
 Caso ainda não tenha feito isso, 

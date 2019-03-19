@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
+ms.date: 03/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 5b9aae979a25a1f175b3d5a5e24960d6f392b9b4
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 859add6c9310cf5f18ed7090c8e93d4896b59a0b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852925"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433375"
 ---
 # <a name="service-bus-pricing-and-billing"></a>Barramento de Serviço, preços e cobrança
 
@@ -74,7 +74,7 @@ A camada Standard remove o limite de conexão agenciada por namespace e conta o 
 <br />
 
 > [!NOTE]
-> A cobrança baseia-se no número máximo de conexões simultâneas e é rateada por hora com base em 744 horas por mês.
+> A cobrança baseia-se no número máximo de conexões simultâneas e é rateada por hora com base em 730 horas por mês.
 >
 >
 
@@ -91,12 +91,12 @@ Uma conexão orientada é definida como uma das conexões a seguir:
 1. Uma conexão AMQP de um cliente com uma fila ou tópico/assinatura do Barramento de Serviço.
 2. Uma chamada HTTP para receber uma mensagem de uma fila ou tópico do Barramento de Serviço que possua um valor de tempo limite de recebimento maior que zero.
 
-Encargos de Barramento de Serviço para o número máximo de conexões orientadas simultâneas orientadas que excedem a quantidade incluída (1.000 na camada Standard). Os picos são medidos por hora, rateados dividindo por 744 horas por mês e adicionados ao longo do período de faturamento mensal. A quantidade incluída (1.000 conexões orientadas por mês) é aplicada ao final do período de cobrança em relação à soma dos picos de hora em hora rateados.
+Encargos de Barramento de Serviço para o número máximo de conexões orientadas simultâneas orientadas que excedem a quantidade incluída (1.000 na camada Standard). Os picos são medidos por hora, rateados dividindo por 730 horas por mês e somados ao longo do período de cobrança mensal. A quantidade incluída (1.000 conexões orientadas por mês) é aplicada ao final do período de cobrança em relação à soma dos picos de hora em hora rateados.
 
 Por exemplo: 
 
-1. Cada um dos 10.000 dispositivos se conecta por meio de uma única conexão AMQP e recebe comandos de um tópico do Barramento de Serviço. Os dispositivos enviam eventos de telemetria para um Hub de eventos. Se todos os dispositivos ficarem conectados 12 horas por dia, serão aplicados os encargos de conexão a seguir (além de quaisquer outros encargos de tópico do Barramento de Serviço): 10.000 conexões * 12 horas * 31 dias / 744 = 5.000 conexões agenciadas. Após o limite mensal de 1.000 conexões orientadas, você seria cobrado por 4.000 conexões orientadas, a uma taxa de US $0,03 por conexão orientada, para um total de US $120.
-2. 10.000 dispositivos recebem mensagens de uma fila do Barramento de Serviço por meio de HTTP, especificando um tempo limite diferente de zero. Se todos os dispositivos ficam conectados por 12 horas todos os dias, você verá os seguintes encargos de conexão (além de quaisquer outros encargos do Barramento de Serviço): 10.000 conexões de recebimento HTTP * 12 horas por dia * 31 dias / 744 horas = 5.000 conexões agenciadas.
+1. Cada um dos 10.000 dispositivos se conecta por meio de uma única conexão AMQP e recebe comandos de um tópico do Barramento de Serviço. Os dispositivos enviam eventos de telemetria para um Hub de eventos. Se todos os dispositivos ficarem conectados 12 horas por dia, serão aplicados os encargos de conexão a seguir (além de quaisquer outros encargos de tópico do Barramento de Serviço): 10.000 conexões * 12 horas * 30 dias conexões agenciadas de 730 = 4,931. Após o limite mensal de 1.000 conexões orientadas, você seria cobrado por 4.000 conexões orientadas, a uma taxa de US $0,03 por conexão orientada, para um total de US $120.
+2. 10.000 dispositivos recebem mensagens de uma fila do Barramento de Serviço por meio de HTTP, especificando um tempo limite diferente de zero. Se todos os dispositivos ficam conectados por 12 horas todos os dias, você verá os seguintes encargos de conexão (além de quaisquer outros encargos do Barramento de Serviço): 10.000 conexões de recebimento de HTTP * 12 horas por dia * conexões agenciadas de 30 dias / 730 horas = 4,931.
 
 ### <a name="do-brokered-connection-charges-apply-to-queues-and-topicssubscriptions"></a>Os encargos de conexão gerenciada são aplicáveis a filas e tópicos/assinaturas?
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2018
 ms.author: kumud
-ms.openlocfilehash: fb8b3ac69797400af962ae40816943d6a32b8ec6
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
-ms.translationtype: HT
+ms.openlocfilehash: 913693e684ba8640a93f50d21dd3df6a6295e1c5
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245541"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450440"
 ---
 # <a name="load-balancer-health-probes"></a>Investigações de integridade do Load Balancer
 
@@ -212,9 +212,9 @@ Não habilite [carimbos de data/hora TCP](https://tools.ietf.org/html/rfc1323). 
 
 ## <a name="monitoring"></a>Monitoramento
 
-O [Standard Load Balancer](load-balancer-standard-overview.md) público e interno expõe o status da investigação de integridade por ponto de extremidade e por instância de back-end como métricas multidimensionais por meio do Azure Monitor. Essas métricas podem ser consumidas por outros serviços do Azure ou por aplicativos de terceiros. 
+O [Standard Load Balancer](load-balancer-standard-overview.md) público e interno expõe o status da investigação de integridade por ponto de extremidade e por instância de back-end como métricas multidimensionais por meio do Azure Monitor. Essas métricas podem ser consumidas por outros serviços ou aplicativos de parceiros. 
 
-O Basic Load Balancer público expõe o status da investigação de integridade por pool de back-end através do Log Analytics.  O Log Analytics não está disponível para Basic Load Balancers internos.  É possível usar a [log analytics](load-balancer-monitor-log.md) para verificar o status de integridade da investigação do balanceador de carga público e a contagem de investigação. O registro em log pode ser usado com o Power BI ou com o Azure Operational Insights para fornecer estatísticas sobre o status da integridade do balanceador de carga.
+Balanceador de carga público básico expõe o status de investigação de integridade resumidos por pool de back-end por meio dos logs do Azure Monitor.  Os logs do Azure Monitor não estão disponíveis para balanceadores de carga básico internos.  Você pode usar [registra em log do Azure Monitor](load-balancer-monitor-log.md) para verificar o status de integridade de investigação de Balanceador de carga público e contagem de investigação. O registro em log pode ser usado com o Power BI ou com o Azure Operational Insights para fornecer estatísticas sobre o status da integridade do balanceador de carga.
 
 ## <a name="limitations"></a>Limitações
 

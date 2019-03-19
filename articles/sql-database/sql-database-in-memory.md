@@ -12,22 +12,28 @@ ms.author: jodebrui
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 235d6174153e32b40885811350d967af5b98ecc4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: c873587a640bb36e9fa43e314bf789a207956ae0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478348"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57854833"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Otimizar o desempenho usando tecnologias In-Memory no Banco de Dados SQL
 
-As tecnologias In-Memory no Banco de Dados SQL do Azure permitem melhorar o desempenho do aplicativo e reduzir potencialmente o custo do banco de dados. Usar tecnologias In-Memory no Banco de Dados SQL do Azure possibilita obter melhorias de desempenho com várias cargas de trabalho:
+As tecnologias In-Memory no Banco de Dados SQL do Azure permitem melhorar o desempenho do aplicativo e reduzir potencialmente o custo do banco de dados. 
+
+## <a name="when-to-use-in-memory-technologies"></a>Quando usar tecnologias em memória
+
+Usar tecnologias In-Memory no Banco de Dados SQL do Azure possibilita obter melhorias de desempenho com várias cargas de trabalho:
 
 - **Transacional** (OLTP (processamento transacional online)) em que a maioria das solicitações lê ou atualiza o menor conjunto de dados (por exemplo, operações de CRUD).
 - **Analítica** (OLAP (processamento analítico online)) em que a maioria das consultas tem cálculos complexos para fins de relatório, com um determinado número de consultas que carregam e acrescentam dados a tabelas existentes (denominadas carregamento em massa) ou excluem os dados das tabelas. 
 - **Mista** (HTAP (processamento analítico/transacional híbrido)) em que as consultas OLTP e OLAP são executadas no mesmo conjunto de dados.
 
-Tecnologias In-Memory podem melhorar o desempenho dessas cargas de trabalho, mantendo os dados que devem ser processados na memória, usando a compilação nativa das consultas, ou processamento avançado, tal como processamento em lotes e instruções SIMD que estão disponíveis no hardware subjacente.
+Tecnologias In-Memory podem melhorar o desempenho dessas cargas de trabalho, mantendo os dados que devem ser processados na memória, usando a compilação nativa das consultas, ou processamento avançado, tal como processamento em lotes e instruções SIMD que estão disponíveis no hardware subjacente. 
+
+## <a name="overview"></a>Visão geral
 
 O Banco de Dados SQL do Azure conta com as seguintes tecnologias em memória:
 - *[OLTP In-Memory](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)* aumenta o número de transações por segundo o e reduz a latência para o processamento de transações. Os cenários que se beneficiam do OLTP In-Memory são: processamento de transações de alta taxa de transferência, como comércio e jogos, ingestão de dados de eventos ou dispositivos IoT, cache, carregamento de dados e cenários de variáveis de tabela e tabelas temporárias.
@@ -88,7 +94,7 @@ Uma rápida introdução sobre o OLTP In-Memory: [Início rápido 1: Tecnologias
 Vídeos detalhados sobre as tecnologias:
 
 - [OLTP In-Memory no Banco de Dados SQL do Azure](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB) (que contém uma demonstração dos benefícios de desempenho e as etapas para você mesmo reproduzir esses resultados)
-- [Vídeos sobre OLTP In-Memory: O que é e quando/como usá-lo](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/03/in-memory-oltp-video-what-it-is-and-whenhow-to-use-it/)
+- [Vídeos sobre OLTP In-Memory: O que é e quando/como usá-lo](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../in-memory-oltp-video-what-it-is-and-whenhow-to-use-it/)
 
 Há uma maneira programática de entender se determinado banco de dados dá suporte ao OLTP in-memory. Execute a seguinte consulta Transact-SQL:
 ```
@@ -150,7 +156,7 @@ Há dois tipos de modelos de columnstore que você pode usar para organizar seus
 
 Vídeo detalhado sobre a tecnologia:
 
-- [Índice columnstore: Vídeos sobre Análise In-Memory do Ignite 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/04/columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/)
+- [Índice columnstore: Vídeos sobre Análise In-Memory do Ignite 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/)
 
 ### <a name="data-size-and-storage-for-columnstore-indexes"></a>Tamanho dos dados e armazenamento para índices columnstore
 

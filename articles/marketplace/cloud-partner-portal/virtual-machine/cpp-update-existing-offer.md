@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 08/27/2018
 ms.author: Ankit.Sud
-ms.openlocfilehash: b48910b74d90072a360bad504e2b826402dceea5
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
-ms.translationtype: HT
+ms.openlocfilehash: 254215389d129874f7ac3fc855b26819d41a095c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638792"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852467"
 ---
 # <a name="update-an-existing-vm-offer-on-azure-marketplace"></a>Atualizar uma oferta de VM existente no Azure Marketplace
 
@@ -35,6 +35,8 @@ Existem várias razões comuns para você atualizar sua oferta, incluindo:
 
 Para ajudá-lo nessas modificações, o portal oferece os recursos **Comparar** e **Histórico**.  
 
+>[!Note]
+>Cloud Solution Providers (CSP) parceiro canal participar agora está disponível.  Consulte [Cloud Solution Providers](../../cloud-solution-providers.md) para obter mais informações sobre sua oferta por meio do Microsoft CSP de marketing de parceiros canais.
 
 ## <a name="unpermitted-changes-to-vm-offer-or-sku"></a>Alterações não permitidas na oferta de VM ou SKU
 
@@ -63,7 +65,7 @@ Embora haja uma grande variedade de características que você pode alterar em u
 
 4.  Em **Versão do Disco**, clique em **+ Nova Versão do Disco** para adicionar uma nova imagem de VM.
 
-5.  Forneça a **Versão do disco** das novas imagens de VM. A versão do disco precisa seguir o formato de [versão semântica](http://semver.org/). Versões devem ser no formato X.Y.Z, onde X, Y e Z são inteiros. Verifique se a nova versão que você fornece é maior que todas as versões anteriores; caso contrário, após a republicação, a nova versão não será exibida no portal nem no Azure Marketplace.
+5.  Forneça a **Versão do disco** das novas imagens de VM. A versão do disco precisa seguir o formato de [versão semântica](https://semver.org/). Versões devem ser no formato X.Y.Z, onde X, Y e Z são inteiros. Verifique se a nova versão que você fornece é maior que todas as versões anteriores; caso contrário, após a republicação, a nova versão não será exibida no portal nem no Azure Marketplace.
 
 6.  Para o **URL do VHD do SO**, insira o [URI de assinatura de acesso compartilhado (SAS)](./cpp-get-sas-uri.md) criado para o VHD do sistema operacional. 
 
@@ -147,14 +149,14 @@ Se eles já tiverem sido cobrados pelo ciclo durante o qual ocorreu uma reduçã
 <!-- TD: This has been implemented, need to change the SKU Tab topic to reflect and move this section there. -->
 ### <a name="simplified-currency-pricing"></a>Preços Simplificados da Moeda
 
-A partir de 1º de setembro de 2018, uma nova seção chamada **Precificação simplificada de moeda** será adicionada ao portal. A Microsoft está simplificando o negócio do Azure Marketplace, permitindo preços e coleções mais previsíveis de seus clientes em todo o mundo. Essa simplificação incluirá a redução do número de moedas nas quais faturamos seus clientes.
+A partir de 1º de setembro de 2018, uma nova seção chamada **Precificação simplificada de moeda** será adicionada ao portal. A Microsoft está simplificando os negócios do Azure Marketplace, permitindo preços e coleções mais previsíveis de seus clientes em todo o mundo. Essa simplificação incluirá a redução do número de moedas nas quais faturamos seus clientes.
 
-A nova seção terá preços nessas novas moedas. Depois que todos os clientes forem migrados para essas novas moedas de liquidação, a seção de preços original será desativada e somente a seção Preços simplificados de moeda permanecerá.
+A nova seção terá preços nessas novas moedas. Depois que todos os clientes forem migrados para essas novas moedas de liquidação, a seção de preços original será desativada e somente a seção Preços simplificados de moeda permanecerá.
 
 Você terá até 1º de novembro de 2018 para definir um novo preço para as regiões em que a moeda de liquidação está mudando. Você não poderá aumentar o preço para regiões em que a moeda de liquidação não está mudando.
 
 > [!NOTE] 
-> Se você usar APIs para publicar sua oferta, poderá ver uma nova seção no JSON da oferta. Isso seria anotado como `virtualMachinePricingV2` ou `monthlyPricingV2`, dependendo do tipo de oferta. 
+> Se você usar APIs para publicar sua oferta, poderá ver uma nova seção no JSON da oferta. Isso seria anotado como `virtualMachinePricingV2` ou `monthlyPricingV2`, dependendo do tipo de oferta. 
 
 Se você tiver alguma dúvida sobre essa alteração, entre em contato com o [Suporte do Azure Marketplace](../../support-azure-marketplace.md).
 

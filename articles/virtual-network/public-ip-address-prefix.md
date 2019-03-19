@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 95fb889da564d6e40e25dfb9ee64a8665a954652
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 5496be93a5241621cd4dc5e873e4386f8ed6c992
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700733"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195210"
 ---
 # <a name="public-ip-address-prefix"></a>Prefixo de endereço IP público
 
 Um prefixo de endereço IP público é um intervalo reservado de endereços IP para seus pontos de extremidade públicos no Azure. O Azure aloca um intervalo contíguo de endereços à sua assinatura com base na quantidade que você especifica. Se você não estiver familiarizado com endereços públicos, confira [Endereços IP públicos.](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)
 
-Os endereços IP públicos são atribuídos de um pool de endereços em cada região do Azure. Você pode [baixar](https://www.microsoft.com/download/details.aspx?id=41653) a lista de intervalos que o Azure usa para cada região. Por exemplo, 40.121.0.0/16 é um dos mais de 100 intervalos que usa o Azure na região Leste dos EUA. O intervalo inclui os endereços utilizáveis de 40.121.0.1 a 40.121.255.254.
+Os endereços IP públicos são atribuídos de um pool de endereços em cada região do Azure. Você pode [baixar](https://www.microsoft.com/download/details.aspx?id=56519) a lista de intervalos que o Azure usa para cada região. Por exemplo, 40.121.0.0/16 é um dos mais de 100 intervalos que usa o Azure na região Leste dos EUA. O intervalo inclui os endereços utilizáveis de 40.121.0.1 a 40.121.255.254.
 
 É possível criar um prefixo de endereço IP público em uma região e em uma assinatura do Azure especificando um nome e quantos endereços deseja que o prefixo inclua. Por exemplo, se você criar o prefixo de endereço IP público /28, Azure alocará 16 endereços de um dos seus intervalos para você. Somente depois de criar o intervalo você saberá qual intervalo o Azure atribuirá, mas os endereços são contíguos. Os prefixos de endereço IP públicos têm um valor. Para obter detalhes, confira [preços de endereço IP público](https://azure.microsoft.com/pricing/details/ip-addresses).
 

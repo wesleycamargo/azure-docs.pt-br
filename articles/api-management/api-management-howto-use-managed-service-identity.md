@@ -1,6 +1,6 @@
 ---
-title: Usar o Azure Managed Service Identity no Gerenciamento de API do Azure | Microsoft Docs
-description: Saiba como usar a Identidade de Serviço Gerenciado do Azure no Gerenciamento de API
+title: Usar identidades gerenciadas no gerenciamento de API do Azure | Microsoft Docs
+description: Saiba como usar identidades gerenciadas no gerenciamento de API
 services: api-management
 documentationcenter: ''
 author: miaojiang
@@ -11,27 +11,27 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
-ms.openlocfilehash: 54c4d58dc881ffc7c1f5ecc2242b64e5b61fa68f
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: ebded5d1d58baf501ee5106d622162edc62d46ec
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730740"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310549"
 ---
-# <a name="use-azure-managed-service-identity-in-azure-api-management"></a>Usar o Azure Managed Service Identity no Gerenciamento de API do Azure
+# <a name="use-managed-identities-in-azure-api-management"></a>Usar identidades gerenciadas no gerenciamento de API do Azure
 
-Este artigo mostra como criar uma identidade de serviço gerenciado para uma instância do serviço de Gerenciamento de API e como acessar outros recursos. Uma identidade do serviço gerenciada gerada pelo Azure AD (Azure Active Directory) permite que a instância de Gerenciamento de API acesse de maneira fácil e segura outros recursos protegidos pelo Azure AD, como o Azure Key Vault. A identidade de serviço gerenciado é gerenciada pelo Azure e não exige provisionamento ou giro de nenhum segredo. Para obter mais informações sobre o Azure Managed Service Identity, consulte [Managed Service Identity para recursos do Azure](../active-directory/msi-overview.md).
+Este artigo mostra como criar uma identidade gerenciada para uma instância de serviço de gerenciamento de API e como acessar outros recursos. Uma identidade gerenciada gerada pelo Azure Active Directory (Azure AD) permite que a instância de gerenciamento de API com facilidade e segurança acessar outros recursos do Azure protegidos pelo AD, como o Azure Key Vault. Essa identidade é gerenciada pelo Azure e não exige provisionamento ou giro de nenhum segredo. Para obter mais informações sobre identidades gerenciadas, consulte [What ' s identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="create-a-managed-service-identity-for-an-api-management-instance"></a>Criar uma identidade de serviço gerenciado para uma instância de Gerenciamento de API
+## <a name="create-a-managed-identity-for-an-api-management-instance"></a>Criar uma identidade gerenciada para uma instância de gerenciamento de API
 
 ### <a name="using-the-azure-portal"></a>Usando o portal do Azure
 
-Para configurar uma identidade de serviço gerenciado no portal, primeiro, crie uma instância de Gerenciamento de API como normal e, em seguida, habilite o recurso.
+Para configurar uma identidade gerenciada no portal, você primeiro cria uma instância de gerenciamento de API como normal e, em seguida, habilite o recurso.
 
 1. Crie uma instância de Gerenciamento de API no portal, como você faria normalmente. Navegue até ele no portal.
-2. Selecione **Managed Service Identity**.
+2. Selecione **identidades de serviço gerenciadas**.
 3. Defina Registrar com o Azure Active Directory como Ativado. Clique em Salvar.
 
 ![Habilitar MSI](./media/api-management-msi/enable-msi.png)
@@ -80,7 +80,7 @@ Por exemplo, um modelo completo do Azure Resource Manager pode ter a seguinte ap
 ## <a name="use-the-managed-service-identity-to-access-other-resources"></a>Usar a identidade de serviço gerenciado para acessar outros recursos
 
 > [!NOTE]
-> Atualmente, a identidade de serviço gerenciado pode ser usada para obter certificados de Azure Key Vault para nomes de domínio personalizado do Gerenciamento de API. Em breve, mais cenários receberão suporte.
+> Atualmente, as identidades gerenciadas podem ser usadas para obter certificados do Azure Key Vault para nomes de domínio personalizado de gerenciamento de API. Em breve, mais cenários receberão suporte.
 >
 >
 
@@ -110,7 +110,7 @@ Set-AzureKeyVaultSecret -VaultName KEY_VAULT_NAME -Name KEY_VAULT_SECRET_NAME -S
 
 O exemplo a seguir mostra um modelo do Azure Resource Manager que contém as seguintes etapas:
 
-1. Criar uma instância de Gerenciamento de API com uma identidade de serviço gerenciado
+1. Crie uma instância de gerenciamento de API com uma identidade gerenciada.
 2. Atualizar as políticas de acesso de uma instância do Azure Key Vault e permitir que a instância de Gerenciamento de API obtenha os segredos dele.
 3. Atualizar a instância de Gerenciamento de API configurando um nome de domínio personalizado por meio de um certificado da instância do Key Vault.
 
@@ -166,7 +166,7 @@ O exemplo a seguir mostra um modelo do Azure Resource Manager que contém as seg
         "keyVaultIdToCertificate": {
             "type": "string",
             "metadata": {
-                "description": "Reference to the KeyVault certificate."
+                "description": "Reference to the KeyVault certificate. https://contoso.vault.azure.net/secrets/contosogatewaycertificate."
             }
         }
     },
@@ -238,7 +238,7 @@ O exemplo a seguir mostra um modelo do Azure Resource Manager que contém as seg
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre o Azure Managed Service Identity:
+Saiba mais sobre identidades gerenciadas para recursos do Azure:
 
-* [Managed Service Identity para recursos do Azure](../active-directory/msi-overview.md)
+* [O que é gerenciadas identidades para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md)
 * [Modelos do Gerenciador de Recursos do Azure](https://github.com/Azure/azure-quickstart-templates)
