@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: maxluk
-ms.openlocfilehash: a22dd1114b6ad49695b1ce7cab2ff26f23b7e1be
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 8fa3cd79011ab31349ec44edf52b8fd9048d0d37
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447847"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077965"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Use o Azure Toolkit for IntelliJ para criar aplicativos do Apache Spark para um cluster do HDInsight
 
@@ -27,7 +27,7 @@ Use o plug-in do Azure Toolkit for IntelliJ para desenvolver [ aplicativos do Ap
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Um cluster do Apache Spark no HDInsight. Para obter instruções, consulte o artigo sobre como [Criar clusters do Apache Spark no Azure HDInsight](apache-spark-jupyter-spark-sql.md).
-* [Kit de desenvolvimento Oracle Java](https://www.azul.com/downloads/azure-only/zulu/).  Este tutorial usa o Java versão 8.0.202.
+* [Kit de desenvolvimento Oracle Java](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).  Este tutorial usa o Java versão 8.0.202.
 * IntelliJ IDEA. Este artigo usa o [IntelliJ IDEA Community ver.  2018.3.4](https://www.jetbrains.com/idea/download/).
 * Azure Toolkit for IntelliJ.  Confira [Installing the Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable) (Instalação do Azure Toolkit for IntelliJ).
 * WINUTILS.EXE.  Confira [problemas ao executar o Hadoop no Windows](https://wiki.apache.org/hadoop/WindowsProblems).
@@ -57,10 +57,10 @@ Siga estas etapas para instalar o plug-in Scala:
 3. Selecione **Projeto Spark (Scala)** na janela principal.
 
 4. Na lista suspensa **Ferramenta de build**, selecione uma das seguintes opções:
-      * **Maven** para obter suporte ao assistente de criação de projetos Scala.
-      * **SBT** para gerenciar as dependências e para criar no projeto Scala.
+   * **Maven** para obter suporte ao assistente de criação de projetos Scala.
+   * **SBT** para gerenciar as dependências e para criar no projeto Scala.
 
-    ![A caixa de diálogo Novo Projeto](./media/apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
+     ![A caixa de diálogo Novo Projeto](./media/apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
 
 5. Selecione **Avançar**.
 
@@ -209,7 +209,7 @@ Depois de criar um aplicativo Scala, você poderá enviá-lo ao cluster.
     |Clusters Spark (somente Linux)|Selecione o cluster HDInsight Spark no qual você deseja executar o aplicativo.|
     |Selecione um Artefato para enviar|Deixe a configuração padrão.|
     |Nome de classe principal|O valor padrão é a classe principal do arquivo selecionado. Você pode alterar a classe selecionando as reticências (**...** ) e escolhendo outra classe.|
-    |Configurações de trabalho|Você pode alterar os valores de e/ou as chaves padrão. Para obter mais informações, confira [API REST do Apache Livy](http://livy.incubator.apache.org./docs/latest/rest-api.html).|
+    |Configurações de trabalho|Você pode alterar os valores de e/ou as chaves padrão. Para obter mais informações, confira [API REST do Apache Livy](https://livy.incubator.apache.org./docs/latest/rest-api.html).|
     |Argumentos de linha de comando|Você pode inserir argumentos separados por espaço para a classe principal se necessário.|
     |Arquivos Referenciados e Jars Referenciados|Você pode inserir os caminhos para os Jars referenciados e arquivos, se houver. Para mais informações: [Configuração do Apache Spark](https://spark.apache.org/docs/latest/configuration.html#runtime-environment).  Confira também [Como carregar recursos para o cluster](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer).|
     |Armazenamento de Upload de Trabalho|Expanda para revelar opções adicionais.|

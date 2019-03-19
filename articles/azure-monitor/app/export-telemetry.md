@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/20/2018
+ms.date: 02/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: c2374bd0d67115bdc9fef2b6937f7b087bc581de
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 71e70962a8c55d397b6261571cfef4a126d3e8b4
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076766"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57307812"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportar telemetria do Application Insights
 Deseja manter a telemetria por mais tempo que o período de retenção padrão? Ou processá-la de alguma forma especializada? Exportação contínua é ideal para isso. Os eventos que você vê no portal do Application Insights podem ser exportados para armazenamento no Microsoft Azure no formato JSON. Ali, você pode baixar os dados e gravar qualquer código de que você precisa para processá-los.  
@@ -29,9 +29,19 @@ Antes de configurar a exportação contínua, há algumas alternativas que você
 * O [Analytics](../../azure-monitor/app/analytics.md) fornece uma linguagem de consulta eficiente para telemetria. Ele também pode exportar os resultados.
 * Se desejar [explorar seus dados no Power BI](../../azure-monitor/app/export-power-bi.md ), é possível fazer isso sem usar a Exportação Contínua.
 * A [API REST de acesso a dados](https://dev.applicationinsights.io/) permite que você acesse a telemetria programaticamente.
-* Você também pode acessar a configuração da [exportação contínua por meio do Powershell](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/new-azurermapplicationinsightscontinuousexport?view=azurermps-5.7.0).
+* Você também pode acessar a configuração da [exportação contínua por meio do Powershell](https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport).
 
 Depois que a exportação contínua copia os dados para o armazenamento (onde eles podem permanecer pelo tempo desejado), eles ainda ficam disponíveis no Application Insights pelo [período de retenção](../../azure-monitor/app/data-retention-privacy.md) normal.
+
+## <a name="continuous-export-advanced-storage-configuration"></a>Configuração de armazenamento avançado de exportação contínua
+
+A exportação contínua **não oferece suporte a** os seguintes recursos/configurações de armazenamento do Azure:
+
+* Uso de [firewalls do armazenamento do Azure/rede virtual](https://docs.microsoft.com/azure/storage/common/storage-network-security) em conjunto com o armazenamento de BLOBs do Azure.
+
+* [Armazenamento imutável](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) para o armazenamento de BLOBs do Azure.
+
+* [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).
 
 ## <a name="setup"></a> Criar uma Exportação Contínua
 1. No recurso Application Insights do seu aplicativo, abra Exportação Contínua e selecione **Adicionar**:
@@ -140,7 +150,7 @@ Em pequena escala, você pode escrever um código para extrair e separar seus da
 Para obter um exemplo de código maior, consulte [usando uma função de trabalho][exportasa].
 
 ## <a name="delete"></a>Excluir dados antigos
-Observe que você é responsável por gerenciar a capacidade de armazenamento e excluir dados antigos, se necessário.
+Você é responsável por gerenciar a capacidade de armazenamento e excluir dados antigos, se necessário.
 
 ## <a name="if-you-regenerate-your-storage-key"></a>Se você regenerar sua chave de armazenamento...
 Se você alterar a chave para seu armazenamento, a exportação contínua deixará de funcionar. Você verá uma notificação em sua conta do Azure.

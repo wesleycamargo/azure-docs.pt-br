@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli@microsoft.com
-ms.openlocfilehash: 449c65d0ed746664b75bf8775dda695f569b3eb0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: e6053ef9b5e1fc113e3bd3057d627347f285cd99
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228378"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003129"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Usar o Windows PowerShell para StorSimple para administrar o seu dispositivo
 
@@ -47,7 +47,7 @@ Neste artigo, você aprenderá a:
 
 ## <a name="connect-to-windows-powershell-for-storsimple-via-the-device-serial-console"></a>Conectar ao Windows PowerShell para StorSimple por meio do console serial
 
-Você pode [baixar o PuTTY](http://www.putty.org/) ou um software de emulação de terminal similar para se conectar ao Windows PowerShell para StorSimple. Você precisa configurar o PuTTY especificamente para acessar o dispositivo Microsoft Azure StorSimple. Os tópicos a seguir contêm as etapas detalhadas sobre como configurar o PuTTy e conectar-se ao dispositivo. Diversas opções de menu do console serial também são explicadas.
+Você pode [baixar o PuTTY](https://www.putty.org/) ou um software de emulação de terminal similar para se conectar ao Windows PowerShell para StorSimple. Você precisa configurar o PuTTY especificamente para acessar o dispositivo Microsoft Azure StorSimple. Os tópicos a seguir contêm as etapas detalhadas sobre como configurar o PuTTy e conectar-se ao dispositivo. Diversas opções de menu do console serial também são explicadas.
 
 ### <a name="putty-settings"></a>Configurações do PuTTY
 
@@ -110,8 +110,8 @@ A imagem a seguir mostra as várias opções de espaço de execução disponíve
    * Aplicar atualizações
    * Instale hotfixes
 
-    > [!NOTE]
-    > Essa é a opção preferencial se você tiver esquecido a senha de administrador do dispositivo e não puder se conectar por meio das opções 1 ou 2.
+     > [!NOTE]
+     > Essa é a opção preferencial se você tiver esquecido a senha de administrador do dispositivo e não puder se conectar por meio das opções 1 ou 2.
 
 4. **Alterar idioma** Essa opção permite que você altere o idioma de exibição na interface do Windows PowerShell. Os idiomas com suporte são inglês, japonês, russo, francês, sul coreano, espanhol, italiano, alemão, chinês e português brasileiro.
 
@@ -151,7 +151,7 @@ A tabela a seguir mostra um resumo de todas as tarefas comuns de gerenciamento e
 | Modificar as configurações de interface de rede DATA 0 em seu dispositivo StorSimple |[Modificar a interface de rede DATA 0 em seu dispositivo StorSimple](storsimple-8000-modify-data-0.md) |
 | Parar um controlador  </br> Reiniciar ou desligar um controlador </br> Desligar um dispositivo</br>Redefinir o dispositivo para as configurações padrões de fábrica |[Gerenciar os controladores do dispositivo](storsimple-8000-manage-device-controller.md) |
 | Instalar atualizações e hotfixes no modo de manutenção |[Atualizar seu dispositivo](storsimple-update-device.md) |
-| Entrar no modo de manutenção  </br>Sair do modo de manutenção |[Modos de dispositivo StorSimple](storsimple-8000-device-modes.md) |
+| Entrar no modo de manutenção  </br> Sair do modo de manutenção |[Modos de dispositivo StorSimple](storsimple-8000-device-modes.md) |
 | Criar um pacote de Suporte</br>Descriptografar e editar um pacote de suporte |[Criar e gerenciar pacotes de suporte](storsimple-8000-create-manage-support-package.md) |
 | Iniciar uma sessão de suporte</br> |[Iniciar uma sessão de suporte no Windows PowerShell para StorSimple](storsimple-8000-create-manage-support-package.md#create-a-support-package) |
 
@@ -159,7 +159,7 @@ A tabela a seguir mostra um resumo de todas as tarefas comuns de gerenciamento e
 
 No Windows PowerShell para StorSimple, a Ajuda de cmdlet está disponível. Uma versão atualizada online da Ajuda também está disponível, a qual pode ser usada para atualizar a Ajuda em seu sistema.
 
-O Obtendo Ajuda nesta interface é semelhante ao do Windows PowerShell e a maioria dos cmdlets relacionados à Ajuda funcionará. Você pode encontrar Ajuda para o Windows PowerShell online na Biblioteca TechNet: [Scripts com Windows PowerShell](https://go.microsoft.com/fwlink/?LinkID=108518).
+O Obtendo Ajuda nesta interface é semelhante ao do Windows PowerShell e a maioria dos cmdlets relacionados à Ajuda funcionará. Você pode encontrar ajuda para o Windows PowerShell online na biblioteca do TechNet: [Scripts com o Windows PowerShell](https://go.microsoft.com/fwlink/?LinkID=108518).
 
 A seguir é apresentada uma breve descrição dos tipos de Ajuda para essa interface do Windows PowerShell, incluindo como atualizar a Ajuda.
 

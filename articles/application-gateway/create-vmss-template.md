@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
-ms.openlocfilehash: f7050514d5f0de0cade09c6be672d7dfd3568da3
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 4cfe8b02697fe8234c29995a611cb99a89e2e54b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037405"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080974"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Criar um gateway de aplicativo usando o modelo do Gerenciador de Recursos do Azure
 
@@ -27,6 +27,8 @@ O Gateway de Aplicativo do Azure é um balanceador de carga de camada 7. Ele for
 Este artigo fornece orientações para você baixar e a modificar um [modelo existente do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) no GitHub e a implantar o modelo do GitHub, do PowerShell e da CLI do Azure.
 
 Se você estiver apenas implantando o modelo diretamente do GitHub, sem nenhuma alteração, prossiga para a seção que explica como implantar um modelo do GitHub.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="scenario"></a>Cenário
 
@@ -53,16 +55,16 @@ Você pode baixar o modelo existente do Gerenciador de Recursos do Azure para cr
 1. Abra o arquivo que você salvou e examine o conteúdo em **parâmetros** na linha
 1. Os parâmetros do modelo do Gerenciador de Recursos do Azure fornecem um espaço reservado para valores que podem ser preenchidos durante a implantação.
 
-  | Parâmetro | DESCRIÇÃO |
-  | --- | --- |
-  | **subnetPrefix** |Bloco CIDR para a sub-rede do Gateway de Aplicativo. |
-  | **applicationGatewaySize** | O tamanho do Gateway de Aplicativo.  O WAF permite apenas médio e grande. |
-  | **backendIpaddress1** |Endereço IP do primeiro servidor Web. |
-  | **backendIpaddress2** |Endereço IP do segundo servidor Web. |
-  | **wafEnabled** | Configuração para determinar se o WAF está habilitado.|
-  | **wafMode** | Modo do firewall do aplicativo Web.  As opções disponíveis são **prevenção** ou **detecção**.|
-  | **wafRuleSetType** | Tipo de conjunto de regras para WAF.  Atualmente, OWASP é a única opção com suporte. |
-  | **wafRuleSetVersion** |Versão de conjunto de regras. As opções com suporte atualmente são OWASP CRS 2.2.9 e 3.0. |
+   | Parâmetro | DESCRIÇÃO |
+   | --- | --- |
+   | **subnetPrefix** |Bloco CIDR para a sub-rede do Gateway de Aplicativo. |
+   | **applicationGatewaySize** | O tamanho do Gateway de Aplicativo.  O WAF permite apenas médio e grande. |
+   | **backendIpaddress1** |Endereço IP do primeiro servidor Web. |
+   | **backendIpaddress2** |Endereço IP do segundo servidor Web. |
+   | **wafEnabled** | Configuração para determinar se o WAF está habilitado.|
+   | **wafMode** | Modo do firewall do aplicativo Web.  As opções disponíveis são **prevenção** ou **detecção**.|
+   | **wafRuleSetType** | Tipo de conjunto de regras para WAF.  Atualmente, OWASP é a única opção com suporte. |
+   | **wafRuleSetVersion** |Versão de conjunto de regras. As opções com suporte atualmente são OWASP CRS 2.2.9 e 3.0. |
 
 1. Verifique o conteúdo em **recursos** e observe as seguintes propriedades:
 
@@ -75,44 +77,44 @@ Você pode baixar o modelo existente do Gerenciador de Recursos do Azure para cr
 1. Salve o arquivo em uma pasta local do computador.
 1. Abra o arquivo que você salvou e edite os valores dos parâmetros. Use os valores a seguir para implantar o gateway de aplicativo descrito em nosso cenário.
 
-    ```json
-    {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "addressPrefix": {
-            "value": "10.0.0.0/16"
-            },
-            "subnetPrefix": {
-            "value": "10.0.0.0/28"
-            },
-            "applicationGatewaySize": {
-            "value": "WAF_Medium"
-            },
-            "capacity": {
-            "value": 2
-            },
-            "backendIpAddress1": {
-            "value": "10.0.1.10"
-            },
-            "backendIpAddress2": {
-            "value": "10.0.1.11"
-            },
-            "wafEnabled": {
-            "value": true
-            },
-            "wafMode": {
-            "value": "Detection"
-            },
-            "wafRuleSetType": {
-            "value": "OWASP"
-            },
-            "wafRuleSetVersion": {
-            "value": "3.0"
-            }
-        }
-    }
-    ```
+     ```json
+     {
+         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+         "contentVersion": "1.0.0.0",
+         "parameters": {
+             "addressPrefix": {
+             "value": "10.0.0.0/16"
+             },
+             "subnetPrefix": {
+             "value": "10.0.0.0/28"
+             },
+             "applicationGatewaySize": {
+             "value": "WAF_Medium"
+             },
+             "capacity": {
+             "value": 2
+             },
+             "backendIpAddress1": {
+             "value": "10.0.1.10"
+             },
+             "backendIpAddress2": {
+             "value": "10.0.1.11"
+             },
+             "wafEnabled": {
+             "value": true
+             },
+             "wafMode": {
+             "value": "Detection"
+             },
+             "wafRuleSetType": {
+             "value": "OWASP"
+             },
+             "wafRuleSetVersion": {
+             "value": "3.0"
+             }
+         }
+     }
+     ```
 
 1. Salve o arquivo. Você pode testar o modelo JSON e o modelo de parâmetro usando ferramentas de validação de JSON online, como [JSlint.com](https://www.jslint.com/).
 
@@ -123,13 +125,13 @@ Se você nunca usou o Azure PowerShell, consulte: [Como instalar e configurar o 
 1. Fazer logon no PowerShell
 
     ```powershell
-    Login-AzureRmAccount
+    Login-AzAccount
     ```
 
 1. Verificar as assinaturas da conta.
 
     ```powershell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 
     Você deve se autenticar com suas credenciais.
@@ -137,19 +139,19 @@ Se você nunca usou o Azure PowerShell, consulte: [Como instalar e configurar o 
 1. Escolha quais das suas assinaturas do Azure deseja usar.
 
     ```powershell
-    Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+    Select-AzSubscription -Subscriptionid "GUID of subscription"
     ```
 
 1. Se necessário, crie um grupo de recursos usando o cmdlet **New-AzureResourceGroup** . No exemplo a seguir, você cria um grupo de recursos chamado AppgatewayRG no local do Leste dos EUA.
 
     ```powershell
-    New-AzureRmResourceGroup -Name AppgatewayRG -Location "West US"
+    New-AzResourceGroup -Name AppgatewayRG -Location "West US"
     ```
 
-1. Execute o cmdlet **New-AzureRmResourceGroupDeployment** para implantar a nova rede virtual usando os arquivos de modelo e parâmetro anteriores que você baixou e modificou.
+1. Execute o **New-AzResourceGroupDeployment** cmdlet para implantar a nova rede virtual usando o modelo e parâmetro anteriores arquivos que você baixou e modificou.
     
     ```powershell
-    New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
+    New-AzResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
     -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
     ```
 
@@ -215,7 +217,7 @@ Para excluir todos os recursos criados neste artigo, conclua uma das seguintes e
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-Remove-AzureRmResourceGroup -Name appgatewayRG
+Remove-AzResourceGroup -Name appgatewayRG
 ```
 
 ### <a name="azure-cli"></a>CLI do Azure
