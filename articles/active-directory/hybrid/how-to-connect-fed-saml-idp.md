@@ -14,12 +14,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09151dee2d458e2ff4fae8a8a3bc93fa466e4efc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8b5eb46b845bebbb81dce6aadb9d97af08955df3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167789"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096938"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Usar um IdP (provedor de identidade) SAML 2.0 para logon único
 
@@ -30,16 +30,16 @@ Este documento contém informações sobre como usar um provedor de identidade b
 
 A Microsoft dá suporte a esta experiência de logon como a integração de um serviço de nuvem da Microsoft, como o Office 365, com seu IdP baseado em um perfil SAML 2.0 configurado corretamente. Provedores de identidade SAML 2.0 são produtos de terceiros e, portanto, a Microsoft não dá suporte às melhores práticas de implantação, configuração e solução de problemas relacionadas a eles. Depois de configurada corretamente, a integração com o provedor de identidade SAML 2.0 pode ser testada quanto à configuração correta usando a Ferramenta Analisador de Conectividade da Microsoft, que é descrita em mais detalhes abaixo. Para obter mais informações sobre seu provedor de identidade baseado em um perfil de SP-Lite compatível com SAML 2.0, solicite essas informações à organização que o forneceu.
 
->[!IMPORTANT]
->Somente um conjunto limitado de clientes está disponível neste cenário de logon com provedores de identidade SAML 2.0, entre os quais:
-
->- Clientes baseados na Web, como o Outlook Web Access e o SharePoint Online
-- Clientes avançados de email que usam autenticação básica e um método de acesso ao Exchange com suporte, como IMAP, POP, Active Sync, MAPI etc. (o ponto de extremidade do Protocolo de Cliente Avançado precisa estar implantado), incluindo:
-    - Microsoft Outlook 2010/Outlook 2013/Outlook 2016, Apple iPhone (diversas versões do iOS)
-    - Diversos dispositivos Google Android
-    - Windows Phone 7, Windows Phone 7.8 e Windows Phone 8.0
-    - Cliente de email do Windows 8 e Cliente de email do Windows 8.1
-    - Cliente de email do Windows 10
+> [!IMPORTANT]
+> Somente um conjunto limitado de clientes está disponível neste cenário de logon com provedores de identidade SAML 2.0, entre os quais:
+> 
+> - Clientes baseados na Web, como o Outlook Web Access e o SharePoint Online
+> - Clientes avançados de email que usam autenticação básica e um método de acesso ao Exchange com suporte, como IMAP, POP, Active Sync, MAPI etc. (o ponto de extremidade do Protocolo de Cliente Avançado precisa estar implantado), incluindo:
+>     - Microsoft Outlook 2010/Outlook 2013/Outlook 2016, Apple iPhone (diversas versões do iOS)
+>     - Diversos dispositivos Google Android
+>     - Windows Phone 7, Windows Phone 7.8 e Windows Phone 8.0
+>     - Cliente de email do Windows 8 e Cliente de email do Windows 8.1
+>     - Cliente de email do Windows 10
 
 Todos os outros clientes estão indisponíveis neste cenário de logon com seu provedor de identidade SAML 2.0. Por exemplo, o cliente de desktop do Lync 2010 não pode fazer logon no serviço com seu provedor de identidade SAML 2.0 configurado para logon único.
 
@@ -194,9 +194,9 @@ O procedimento a seguir descreve a conversão de um domínio padrão existente e
 Para saber mais sobre "Set-MsolDomainAuthentication", consulte: [https://technet.microsoft.com/library/dn194112.aspx](https://technet.microsoft.com/library/dn194112.aspx).
 
 >[!NOTE]
->Você precisa executar "$ecpUrl = "https://WS2012R2-0.contoso.com/PAOS"" somente se configurar uma extensão ECP para seu provedor de identidade. Clientes do Exchange Online, exceto pelo aplicativo OWA (Outlook Web Application), dependem de ponto de extremidade ativa baseado em POST. Se o seu STS SAML 2.0 implementar um ponto de extremidade ativo semelhante à implementação de ECP do Shibboleth de um ponto de extremidade ativo, é possível que esses clientes avançados interajam com o serviço do Exchange Online.
+>Você precisa executar `$ecpUrl = "https://WS2012R2-0.contoso.com/PAOS"` somente se você configurar uma extensão ECP para seu provedor de identidade. Clientes do Exchange Online, exceto pelo aplicativo OWA (Outlook Web Application), dependem de ponto de extremidade ativa baseado em POST. Se o seu STS SAML 2.0 implementar um ponto de extremidade ativo semelhante à implementação de ECP do Shibboleth de um ponto de extremidade ativo, é possível que esses clientes avançados interajam com o serviço do Exchange Online.
 
-Quando a federação estiver federada, você poderá voltar para "não federado" (ou "gerenciado"). No entanto, essa alteração leva até duas horas para ser concluída e requer que novas senhas aleatórias para logon baseado em nuvem sejam atribuídas a cada usuário. Em alguns cenários, pode ser necessário voltar para a configuração "gerenciado" para redefinir um erro em suas configurações. Para saber mais sobre conversão de domínio, confira: [https://msdn.microsoft.com/library/windowsazure/dn194122.aspx](httpss://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
+Quando a federação estiver federada, você poderá voltar para "não federado" (ou "gerenciado"). No entanto, essa alteração leva até duas horas para ser concluída e requer que novas senhas aleatórias para logon baseado em nuvem sejam atribuídas a cada usuário. Em alguns cenários, pode ser necessário voltar para a configuração "gerenciado" para redefinir um erro em suas configurações. Para saber mais sobre conversão de domínio, confira: [https://msdn.microsoft.com/library/windowsazure/dn194122.aspx](https://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
 
 ## <a name="provision-user-principals-to-azure-ad--office-365"></a>Provisionar entidades de usuários para o Azure AD/Office 365
 Antes que possa autenticar seus usuários no Office 365, você precisa provisionar o Azure AD com entidades de usuários que correspondam à declaração SAML 2.0. Se essas entidades de usuário não foram conhecidas pelo Azure AD com antecedência, elas não poderão ser usadas para logon federado. Tanto o Azure AD Connect quanto o Windows PowerShell pode ser usado para provisionar as entidades de usuário.

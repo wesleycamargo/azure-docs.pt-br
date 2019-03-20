@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/29/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95465fdc17131c996fa242d028addbab4191628c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d1bb62c9a11971f72a6c96c4652b136c19812cb3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191105"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839314"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-everbridge"></a>Tutorial: Integração do Azure Active Directory ao EverBridge
 
@@ -127,22 +127,22 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
 5. Para configurar o aplicativo **EverBridge** como o **Portal de Membros do EverBridge**, na seção **Configuração Básica do SAML**, execute as seguintes etapas:
 
-    * Se você deseja configurar o aplicativo no **modo iniciado pelo IDP**:
+   * Se você deseja configurar o aplicativo no **modo iniciado pelo IDP**:
 
-        ![Informações de logon único do domínio e URLs do EverBridge](./media/everbridge-tutorial/tutorial_everbridge_url1.png)
+       ![Informações de logon único do domínio e URLs do EverBridge](./media/everbridge-tutorial/tutorial_everbridge_url1.png)
 
-        * Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://sso.everbridge.net/<API_Name>/<Organization_ID>`
+       * Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://sso.everbridge.net/<API_Name>/<Organization_ID>`
 
-        * Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://member.everbridge.net/saml/SSO/<API_Name>/<Organization_ID>/alias/defaultAlias`
+       * Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://member.everbridge.net/saml/SSO/<API_Name>/<Organization_ID>/alias/defaultAlias`
 
-    * Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
+   * Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
-        ![Informações de logon único do domínio e URLs do EverBridge](./media/everbridge-tutorial/tutorial_everbridge_url2.png)
+       ![Informações de logon único do domínio e URLs do EverBridge](./media/everbridge-tutorial/tutorial_everbridge_url2.png)
 
-        * Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://member.everbridge.net/saml/login/<API_Name>/<Organization_ID>/alias/defaultAlias?disco=true`
+       * Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://member.everbridge.net/saml/login/<API_Name>/<Organization_ID>/alias/defaultAlias?disco=true`
 
-    > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Entre em contato com a [equipe de suporte do EverBridge](mailto:support@everbridge.com) para obter esses valores.
+     > [!NOTE]
+     > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Entre em contato com a [equipe de suporte do EverBridge](mailto:support@everbridge.com) para obter esses valores.
 
 6. Na página **Certificado de Assinatura SAML**, na seção **Certificado de Assinatura SAML**, clique em **Download** para fazer o download do **XML de Metadados da Federação** e salve o arquivo de metadados no computador.
 
@@ -164,21 +164,21 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
 9. No menu na parte superior, clique na guia **Configurações** e selecione **Logon Único** em **Segurança**.
    
-    ![Configurar o logon único](./media/everbridge-tutorial/tutorial_everbridge_002.png)
+     ![Configurar o logon único](./media/everbridge-tutorial/tutorial_everbridge_002.png)
    
-     a. Na caixa de texto **Nome**, digite o nome do Provedor do Identificador (por exemplo: o nome de sua empresa).
+      a. Na caixa de texto **Nome**, digite o nome do Provedor do Identificador (por exemplo: o nome de sua empresa).
    
-    b. Na caixa de texto **Nome da API** , digite o nome da API.
+     b. Na caixa de texto **Nome da API** , digite o nome da API.
    
-    c. Clique no botão **Escolher Arquivo** para carregar o arquivo de metadados que você baixou do portal do Azure.
+     c. Clique no botão **Escolher Arquivo** para carregar o arquivo de metadados que você baixou do portal do Azure.
    
-    d. No Local de Identidade do SAML, selecione **A identidade está no elemento NameIdentifier da instrução Subject**.
+     d. No Local de Identidade do SAML, selecione **A identidade está no elemento NameIdentifier da instrução Subject**.
    
-    e. Na caixa de texto **URL de login do Provedor de identidade**, cole o valor de **URL de login** que você copiou do portal do Azure.
+     e. Na caixa de texto **URL de login do Provedor de identidade**, cole o valor de **URL de login** que você copiou do portal do Azure.
    
-    f. Na Associação de Solicitação Iniciada pelo Provedor de Serviço, selecione **Redirecionamento HTTP**.
+     f. Na Associação de Solicitação Iniciada pelo Provedor de Serviço, selecione **Redirecionamento HTTP**.
 
-    g. Clique em **Salvar**
+     g. Clique em **Salvar**
 
 10. Para configurar o single sign-on no **aplicativo EverBridge** como **EverBridge Member Portal**, você precisa enviar o **XML Metadata de Federação** para [equipe de suporte Everbridge](mailto:support@everbridge.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
@@ -200,7 +200,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No **nome de usuário** , digite **brittasimon@yourcompanydomain.extension**  
+    b. No **nome de usuário** , digite **brendafernandes\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **Propriedades**, marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.

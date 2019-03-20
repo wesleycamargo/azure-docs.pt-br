@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: d6121a0255b809deccb3c70d56585bab76935900
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 86d50092ccffd5ab958df5d54ea49cd56d815e2e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110346"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58082153"
 ---
 # <a name="protecting-azure-sql-service-and-data-in-azure-security-center"></a>Proteção dos dados e do serviço SQL do Azure na Central de Segurança do Azure
 A Central de Segurança do Azure analisa o estado de segurança de seus recursos do Azure. Quando a Central de Segurança identifica possíveis vulnerabilidades de segurança, ela cria recomendações que orientam você durante o processo de configuração dos controles necessários.  As recomendações se aplicam aos tipos de recurso do Azure: VMs (máquinas virtuais), rede, SQL e dados, e aplicativos.
@@ -65,7 +65,7 @@ Para habilitar a auditoria, selecione **ATIVADO** na opção **Auditoria**.
 |SQL|30|Corrigir vulnerabilidades em seus bancos de dados SQL|A avaliação de vulnerabilidade do SQL verifica a presença de eventuais vulnerabilidades de segurança em seu banco de dados e expõe quaisquer desvios das práticas recomendadas como configurações incorretas, permissões excessivas e dados confidenciais desprotegidos. Resolver as vulnerabilidades encontradas pode melhorar muito o desenvolvimento da segurança de seu banco de dados.|
 |SQL|20|Provisionar um administrador do Microsoft Azure Active Directory para o servidor SQL|Provisione um administrador do Microsoft Azure Active Directory para o servidor SQL para habilitar a autenticação do Microsoft Azure Active Directory. A autenticação do Microsoft Azure Active Directory permite o gerenciamento simplificado de permissões e o gerenciamento centralizado de identidades dos usuários de banco de dados e de outros serviços da Microsoft.|
 |Conta de armazenamento|15|Desabilitar o acesso de rede irrestrito à conta de armazenamento|Audite o acesso irrestrito à rede nas configurações de firewall da conta de armazenamento. Em vez disso, configure as regras de rede de forma que somente aplicativos das redes permitidas podem acessar a conta de armazenamento. Para permitir conexões de clientes específicos locais ou da internet, o acesso pode ser concedido para o tráfego de redes virtuais do Azure específicas ou para intervalos de endereços IP públicos da internet.|
-|Conta de armazenamento|1||Migrar contas de armazenamento aos novos recursos do AzureRM|Use o novo Azure Resource Manager v2 para que suas contas de armazenamento forneçam aprimoramentos de segurança, como: maior controle de acesso (RBCA), melhor auditoria, governança e implantação com base no Resource Manager, acesso a identidades gerenciadas, acesso ao cofre de chaves por segredos, autenticação baseada no Microsoft Azure Active Directory e suporte para marcas e grupos de recursos para facilitar o gerenciamento de segurança.|
+|Conta de armazenamento|1|Migrar contas de armazenamento aos novos recursos do AzureRM|Usar o novo v2 do Azure Resource Manager, para suas contas de armazenamento fornecer melhorias de segurança, como: mais forte controle de acesso (RBAC), auditoria melhor, com base no Gerenciador de recursos de implantação e governança, acesso a identidades gerenciadas, o acesso ao Cofre de chaves para segredos, a autenticação baseada no AD do Azure e suporte para marcas e os grupos de recursos para facilitar o gerenciamento de segurança.|
 
 
 

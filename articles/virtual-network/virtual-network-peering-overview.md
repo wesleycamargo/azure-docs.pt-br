@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: jdial
-ms.openlocfilehash: 5141cd083469d51a067bbc993f598393768fe99f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e32bc2f4697b5ac32993a5da66e5c38cb7add03f
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/19/2019
-ms.locfileid: "58000197"
+ms.locfileid: "58200575"
 ---
 # <a name="virtual-network-peering"></a>Emparelhamento de rede virtual
 
@@ -79,7 +79,7 @@ Você também pode experimentar a [Solução de problemas para problemas de empa
 ## <a name="requirements-and-constraints"></a>Requisitos e restrições
 
 As seguintes restrições se aplicam somente quando as redes virtuais são emparelhadas globalmente:
-- Recursos em uma rede virtual não podem se comunicar com o endereço IP de front-end de um balanceador interno de carga básico em uma rede virtual emparelhada globalmente. Só existe suporte para Load Balancer Basic dentro da mesma região. Existe suporte para o balanceador de carga padrão para o emparelhamento VNet Global.  -Recursos em uma rede virtual não podem se comunicar com o endereço IP de front-end de um balanceador interno de carga básico em uma rede virtual emparelhada globalmente. Só existe suporte para Load Balancer Basic dentro da mesma região. Existe suporte para o balanceador de carga padrão para tanto, emparelhamento de rede virtual e o emparelhamento VNet Global.
+- Recursos em uma rede virtual não podem se comunicar com o endereço IP de front-end de um balanceador interno de carga básico em uma rede virtual emparelhada globalmente. Só existe suporte para Load Balancer Basic dentro da mesma região. Existe suporte para o balanceador de carga padrão para o emparelhamento VNet Global.
 - Você pode usar gateways remotos ou permitir trânsito de gateway em redes virtuais emparelhadas globalmente na versão prévia. A visualização está disponível em todas as regiões do Azure, regiões de nuvem da China e regiões de nuvem do governo. Nenhuma lista de permissões é necessária. Você pode testar no modo de visualização por meio da CLI, PowerShell, modelos ou API. Não há suporte para o portal na visualização.
 
 Para saber mais sobre requisitos e restrições, confira [Restrições e requisitos de emparelhamento de redes virtuais](virtual-network-manage-peering.md#requirements-and-constraints). Para saber mais sobre os limites de número de emparelhamentos que você pode criar para uma rede virtual, confira [Limites de rede do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 

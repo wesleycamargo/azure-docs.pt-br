@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: bb5e263b0332f957b4e7f4a928ccd53f639bcd9c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 2952008ca788a620f2b558d5997aeebd59196b7a
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629398"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314561"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Resumo dos recursos de solicitação de dados do cliente
 
@@ -33,7 +33,7 @@ Quando você usa os serviços corporativos da Microsoft, a Microsoft gera alguma
 
 ## <a name="deleting-customer-data"></a>Excluindo os dados do cliente
 
-A capacidade de excluir os dados do usuário só é fornecida por meio da página de administração do IoT Central. Os administradores de aplicativos podem selecionar o usuário a ser excluído e clicar em **Excluir** no canto superior direito do aplicativo para excluir o registro. Os administradores de aplicativos também podem remover contas individuais que não estão mais associadas ao aplicativo em questão.
+A capacidade de excluir os dados do usuário só é fornecida por meio da página de administração do IoT Central. Os administradores de aplicativos podem selecionar o usuário a ser excluída e selecione **excluir** no canto superior direito do aplicativo para excluir o registro. Os administradores de aplicativos também podem remover contas individuais que não estão mais associadas ao aplicativo em questão.
 
 Depois que um usuário é excluído, nenhum alerta adicional é enviado por email a ele. No entanto, seu endereço de email precisa ser removido individualmente de cada alerta configurado.
 

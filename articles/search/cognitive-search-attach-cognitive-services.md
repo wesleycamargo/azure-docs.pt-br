@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 03/12/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: bfa9bbb9816148182b79a8231f2ddb3e46433804
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: d5fdae09055f922fe9783f6eb074457af12c60df
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413236"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880408"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Anexar um recurso dos Serviços Cognitivos a um conjunto de habilidades no Azure Search 
 
@@ -60,21 +60,7 @@ Você é cobrado apenas pelas habilidades que chamam a API de Serviços Cognitiv
 
 1. Para **Criar novo recurso de Serviços Cognitivos**, uma nova guia é aberta para que você possa criar o recurso. Dê um nome exclusivo ao recurso.
 
-1. Escolha o mesmo local que o Azure Search. Atualmente, há suporte para a indexação de habilidades cognitivas nestas regiões:
-
-  * Centro-Oeste dos EUA
-  * Centro-Sul dos Estados Unidos
-  * Leste dos EUA
-  * Leste dos EUA 2
-  * Oeste dos EUA 2
-  * Canadá Central
-  * Europa Ocidental
-  * Sul do Reino Unido
-  * Norte da Europa
-  * Sul do Brasil
-  * Sudeste Asiático
-  * Índia Central
-  * Leste da Austrália
+1. Se você criar um novo recurso de serviços Cognitivos **escolha a mesma região** como seu recurso de Azure Search.
 
 1. Escolha o tipo de preço Tudo-em-um, **S0**. Essa camada oferece os recursos de Visão e Idioma que apoiam as habilidades predefinidas na pesquisa cognitiva.
 

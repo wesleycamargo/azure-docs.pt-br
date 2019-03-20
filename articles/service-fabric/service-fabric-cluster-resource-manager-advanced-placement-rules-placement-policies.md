@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 5c2d19c6-dd40-4c4b-abd3-5c5ec0abed38
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 66c51b08884c9d7a4d522c94f7b81774ec7a8bda
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 985d41d3a00974e25c9abc4709c5bf5e662f7a50
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641995"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086030"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Políticas de posicionamento para serviços do Service Fabric
 As políticas de posicionamento são regras adicionais que podem ser usadas para administrar o posicionamento de serviço em alguns cenários específicos, menos comuns. Alguns exemplos desses cenários são:
@@ -44,6 +44,7 @@ A maioria dos controles a seguir pode ser configurada por meio das propriedades 
 A política de posicionamento **InvalidDomain** permite especificar que um determinado Domínio de Falha é inválido para um serviço específico. Essa política garante que um serviço específico nunca seja executado em uma determinada área, por exemplo, por motivos de política corporativa ou geopolíticos. Vários domínios inválidos podem ser especificados através de diferentes políticas.
 
 <center>
+
 ![Exemplo de domínio inválido][Image1]
 </center>
 
@@ -64,6 +65,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 A política de posicionamento de domínio necessário requer que o serviço esteja presente somente no domínio especificado. Vários domínios necessários podem ser especificados através de diferentes políticas.
 
 <center>
+
 ![Exemplo de domínio necessário][Image2]
 </center>
 
@@ -85,7 +87,8 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 O Domínio Primário Preferencial especifica o domínio de falha no qual colocar o primário. O primário é encerrado nesse domínio quando tudo está íntegro. Se o domínio ou a réplica primária falhar ou desligar, o primário move-se para algum outro local. De modo ideal, no mesmo domínio. Se essa nova localização não estiver no domínio preferencial, o Cluster Resource Manager vai movê-lo de volta ao domínio preferencial assim que possível. Obviamente, essa configuração só faz sentido para serviços com estado. Essa política é mais útil em clusters que estão distribuídos em regiões do Azure ou em vários datacenters, mas têm serviços que preferem o posicionamento em um determinado local. Manter os primários próximos aos seus usuários ou outros serviços ajudam a fornecer latência menor, especialmente para leituras, que são tratadas pelos primários por padrão.
 
 <center>
-![Domínios primários preferenciais e failover][Image3]
+
+![Domínios primários preferenciais e Failover][Image3]
 </center>
 
 ```csharp

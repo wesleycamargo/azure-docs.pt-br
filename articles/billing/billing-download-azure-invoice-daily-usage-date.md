@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 59d63efbf261813c8519b03d3e1630cf24d868d0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 52e227b933533bf60a474d0417c57e4b75c7978f
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835919"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224627"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Baixar ou exibir a fatura de cobrança e os dados de uso diário do Azure
 
@@ -56,7 +56,7 @@ Para saber mais sobre a fatura, confira [Entenda sua fatura do Microsoft Azure](
 
 ### <a name="download-invoices-for-a-microsoft-customer-agreement"></a>Download de faturas para um contrato de cliente da Microsoft
 
-As faturas são geradas para cada [perfil de cobrança](billing-mca-overview.md#understand-billing-profiles) no contrato do cliente Microsoft. Você deve ser um perfil de cobrança proprietário, colaborador, leitor, ou Gerenciador de download de faturas do portal do Azure de nota fiscal. 
+As faturas são geradas para cada [perfil de cobrança](billing-mca-overview.md#understand-billing-profiles) no contrato do cliente Microsoft. Você deve ser um perfil de cobrança proprietário, colaborador, leitor, ou Gerenciador de download de faturas do portal do Azure de nota fiscal.
 
 1. Pesquise **Gerenciamento de Custos do Azure + Cobrança**.
 2. Selecione um perfil de cobrança.
@@ -91,7 +91,7 @@ Você pode aceitar e configurar destinatários adicionais para receber sua fatur
 2. Clique em **Aceitar** e aceite os termos.
 
     ![Captura de tela que mostra a etapa 2 do fluxo de aceitação](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep2.PNG)
- 
+
 3. Depois de aceitar o contrato, você poderá configurar destinatários adicionais. Quando um destinatário é removido, o endereço de email não é armazenado. Se você mudar de ideia, você precisa adicioná-los novamente.
 
     ![Captura de tela que mostra a etapa 3 do fluxo de aceitação](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep3.PNG)
@@ -106,7 +106,7 @@ Você pode optar por não obter sua fatura por email, seguindo as etapas acima e
 
 ### <a name="get-your-microsoft-customer-agreement-invoices-in-email"></a>Obtenha suas faturas de contrato de cliente da Microsoft por email
 
-Se você tiver um contrato de cliente da Microsoft, você pode optar por obter sua fatura em um email. Todos os cobrança perfil proprietários, colaboradores, leitores e fatura gerenciadores receberá a fatura por email. Os leitores não é possível atualizar a preferência de nota fiscal de email. 
+Se você tiver um contrato de cliente da Microsoft, você pode optar por obter sua fatura em um email. Todos os cobrança perfil proprietários, colaboradores, leitores e fatura gerenciadores receberá a fatura por email. Os leitores não é possível atualizar a preferência de nota fiscal de email.
 
 1. Pesquise **Gerenciamento de Custos do Azure + Cobrança**.
 1. Selecione um perfil de cobrança.
@@ -121,7 +121,7 @@ Você pode optar por não obter sua fatura por email, seguindo as etapas acima e
 
 ## <a name="download-usage"></a>Fazer o download de uso
 
- Para a maioria das assinaturas, encontre seu arquivo de uso diário no [ Centro de Contas do Azure ](https://account.azure.com/Subscriptions). Se você for um cliente EA ou têm um contrato de cliente da Microsoft, você pode baixar o uso na [portal do Azure](https://portal.azure.com/). <!-pendente: atualizar experiência PayG para Ibiza depois que ele é fornecido >
+ Para a maioria das assinaturas, encontre seu arquivo de uso diário no [ Centro de Contas do Azure ](https://account.azure.com/Subscriptions). Se você for um cliente EA ou têm um contrato de cliente da Microsoft, você pode baixar o uso na [portal do Azure](https://portal.azure.com/). <!-- TO DO: update PayG experience to Ibiza once it ships-->
 
 ### <a name="download-usage-from-the-account-center-csv"></a>Baixar uso do Centro de Contas (.csv)
 

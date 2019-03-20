@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 91a72a4244e3cae081fe9a962bbb80d3ce19822d
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
-ms.translationtype: HT
+ms.openlocfilehash: 608965160f4abb57ccdfe8b8256fef971754b4d6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113215"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000314"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -39,7 +39,7 @@ ms.locfileid: "39113215"
 
 [deployment-guide]:deployment-guide.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 [ha-guide]:sap-high-availability-guide.md
@@ -185,7 +185,7 @@ ms.locfileid: "39113215"
 
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-cluster-shared-disk-in-azure"></a>Clusterize uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando um disco compartilhado de cluster no Azure
 
-> ![Windows][Logo_Windows] Windows
+> ![ Windows][Logo_Windows]  Windows
 >
 
 O Windows Server Failover Clustering é a base de uma instalação do SAP ASCS/SCS de alta disponibilidade e DBMS no Windows.
@@ -210,9 +210,9 @@ O serviço Azure Load Balancer fornece um *balanceador de carga interno* para o 
 
 Implante o balanceador de carga interno no grupo de recursos que contém os nós do cluster. Em seguida, configure todas as regras necessárias de encaminhamento de porta usando as portas de investigação do balanceador de carga interno. Os clientes podem se conectar por meio do nome de host virtual. O servidor DNS resolve o endereço IP do cluster e o balanceador de carga interno trata da porta que encaminha para o nó ativo do cluster.
 
-![Figura 1: Configuração do clustering de failover do Windows Server no Azure sem um disco compartilhado][sap-ha-guide-figure-1001]
+![Figura 1: Configuração no Azure sem um disco compartilhado de clustering de failover do Windows][sap-ha-guide-figure-1001]
 
-_**Figura 1:** Configuração do clustering de failover do Windows Server no Azure sem um disco compartilhado_
+_**Figura 1:** Configuração de clustering de failover do Windows Server no Azure sem um disco compartilhado_
 
 ### <a name="sap-ascsscs-ha-with-cluster-shared-disks"></a>Alta disponibilidade do SAP ASCS/SCS com discos compartilhados do cluster
 No Windows, uma instância do SAP ASCS/SCS contém os serviços centrais do SAP, o servidor de mensagens do SAP, os processos de servidor de enfileiramento e os arquivos de host global do SAP. Os arquivos de host global SAP armazenam arquivos centrais para todo o sistema SAP.
@@ -225,21 +225,21 @@ Uma instância do SAP ASCS/SCS tem os seguintes componentes:
 
 
 * Arquivos de host global do SAP:
-    * Estrutura de arquivos: S:\usr\sap\\&lt;SID&gt;\SYS\..
-    * O compartilhamento do arquivo sapmnt, que habilita o acesso a esses arquivos S:\usr\sap\\&lt;SID&gt;\SYS\.. globais usando o seguinte caminho UNC:
+  * Estrutura do arquivo: S:\usr\sap\\&lt;SID&gt;\SYS\...
+  * O compartilhamento do arquivo sapmnt, que habilita o acesso a esses arquivos S:\usr\sap\\&lt;SID&gt;\SYS\.. globais usando o seguinte caminho UNC:
 
-     \\\\<Nome do host virtual do ASCS/SCS>\sapmnt\\&lt;SID&gt;\SYS\..
+    \\\\<Nome do host virtual do ASCS/SCS>\sapmnt\\&lt;SID&gt;\SYS\..
 
 
-![Figura 2: Processos, estrutura de arquivos e compartilhamento de arquivos sapmnt de uma instância do SAP ASCS/SCS][sap-ha-guide-figure-8001]
+![Figura 2: Processos, estrutura de arquivos e compartilhamento de arquivos sapmnt host global de uma instância do SAP ASCS/SCS][sap-ha-guide-figure-8001]
 
-_**Figura 2:** Processos, estrutura de arquivos e compartilhamento de arquivos sapmnt do host GLOBAL de uma instância SAP ASCS/SCS_
+_**Figura 2:** Processos, estrutura de arquivos e compartilhamento de arquivos sapmnt host global de uma instância do SAP ASCS/SCS_
 
 Em uma configuração de alta disponibilidade, você clusteriza instâncias do SAP ASCS/SCS. Nós usamos os *discos compartilhados clusterizados* (unidade S, em nosso exemplo), para posicionarmos os arquivos de host global do SAP ASCS/SCS e do SAP.
 
-![Figura 3: Arquitetura de alta disponibilidade do SAP ASCS/SCS com disco compartilhado][sap-ha-guide-figure-8002]
+![Figura 3: Arquitetura HA do SAP ASCS/SCS com disco compartilhado][sap-ha-guide-figure-8002]
 
-_**Figura 3:** Arquitetura de alta disponibilidade do SAP ASCS/SCS com disco compartilhado_
+_**Figura 3:** Arquitetura HA do SAP ASCS/SCS com disco compartilhado_
 
 > [!IMPORTANT]
 > Estes dois componentes são executados sob a mesma instância SAP ASCS/SCS:
@@ -248,9 +248,9 @@ _**Figura 3:** Arquitetura de alta disponibilidade do SAP ASCS/SCS com disco com
 >
 
 
-![Figura 4: Arquitetura de alta disponibilidade do SAP ASCS/SCS com disco compartilhado][sap-ha-guide-figure-8003]
+![Figura 4: Arquitetura HA do SAP ASCS/SCS com disco compartilhado][sap-ha-guide-figure-8003]
 
-_**Figura 4:** Arquitetura de alta disponibilidade do SAP ASCS/SCS com disco compartilhado_
+_**Figura 4:** Arquitetura HA do SAP ASCS/SCS com disco compartilhado_
 
 ### <a name="shared-disks-in-azure-with-sios-datakeeper"></a>Discos compartilhados no Azure com SIOS DataKeeper
 
@@ -266,9 +266,9 @@ Para criar um recurso de disco compartilhado para um cluster:
 
 Saiba mais sobre [SIOS DataKeeper](http://us.sios.com/products/datakeeper-cluster/).
 
-![Figura 5: Configuração do clustering de failover do Windows Server no Azure com o SIOS DataKeeper][sap-ha-guide-figure-1002]
+![Figura 5: Configuração no Azure com SIOS DataKeeper de clustering de failover de Windows Server][sap-ha-guide-figure-1002]
 
-_**Figura 5:** Configuração do Clustering de Failover do Windows Server no Azure com o SIOS DataKeeper_
+_**Figura 5:** Configuração no Azure com SIOS DataKeeper de clustering de failover do Windows_
 
 > [!NOTE]
 > Você não precisa de discos compartilhados de alta disponibilidade com alguns produtos de DBMS, como o SQL Server. O AlwaysOn do SQL Server replica os arquivos de log e dados do DBMS do disco local de um nó do cluster para o disco local de outro nó do cluster. Nesse caso, a configuração de cluster do Windows não precisa de um disco compartilhado.

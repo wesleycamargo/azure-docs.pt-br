@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: yurid
-ms.openlocfilehash: 56d18b7ec44e979bee48c3598286a461199e1005
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 7de085766ae700b5c76d9eca49c1127aabdddb9b
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958194"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244633"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Roteiro de Preparação da Central de Segurança do Azure
 Este documento fornece um roteiro de preparação que ajudará você a começar a usar a Central de Segurança do Azure.
@@ -118,7 +118,7 @@ Artigos
 * [Práticas recomendadas de segurança da rede](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices)
 * [Recomendações de PaaS](https://docs.microsoft.com/azure/security/security-paas-deployments)
 * [Conformidade](https://www.microsoft.com/en-us/trustcenter/compliance/due-diligence-checklist)
-* [Os clientes do Log Analytics agora podem usar a Central de Segurança do Azure para proteger suas cargas de trabalho de nuvem híbrida](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
+* [Os clientes do log analytics agora podem usar a Central de segurança do Azure para proteger suas cargas de trabalho de nuvem híbrida](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
 
 ## <a name="community-resources"></a>Recursos da comunidade
 

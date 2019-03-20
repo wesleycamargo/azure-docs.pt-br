@@ -3,20 +3,20 @@ title: Artigo sobre as limitações de migração e os problemas conhecidos das 
 description: Saiba mais sobre as limitações de migração e os problemas conhecidos das migrações online para o Banco de Dados do Azure para MySQL.
 services: database-migration
 author: HJToland3
-ms.author: scphang
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/09/2018
-ms.openlocfilehash: ebe2af858aafaff62a7e3b629c0a8c84bbf49584
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: e2b82c8a7bcdc1982ed4489e9422a4a0efd64f3c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721641"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58175092"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-mysql"></a>Limitações de migração e problemas conhecidos das migrações online para o BD do Azure para MySQL
 
@@ -80,7 +80,7 @@ As colunas de LOB (Objeto Grande) são aquelas cujo tamanho pode aumentar muito.
     SELECT max(length(description)) as LEN from catalog;
     ```
 
-    **Solução alternativa**: Se houver um objeto LOB com mais de 32 KB, contate a equipe de engenharia em [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com). 
+    **Solução alternativa**: Se você tiver um objeto LOB que é maior do que 32 KB, entre em contato com a equipe de engenharia [fazer migrações de banco de dados do Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com). 
 
 ## <a name="other-limitations"></a>Outras limitações
 - Não há suporte para cadeia de caracteres de senha com colchetes {} de abertura e fechamento em seu início e final. Essa limitação aplica-se tanto à conexão com o MySQL de origem quanto com o Banco de Dados do Azure para MySQL de destino.

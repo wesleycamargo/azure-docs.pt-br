@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: 4518011fbeaefbb32403f5b37e434e7315beffa0
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
-ms.translationtype: HT
+ms.openlocfilehash: 1982f974acd1e9d5e8cae91201f6503eb2ae678a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734917"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898782"
 ---
 # <a name="use-a-u-sql-database-project-to-develop-a-u-sql-database-for-azure-data-lake"></a>Usar um projeto de banco de dados U-SQL para desenvolver o banco de dados U-SQL para o Azure Data Lake
 
@@ -100,8 +100,8 @@ O `PackageDeploymentTool.exe` oferece as interfaces de programação e de linha 
 
 Um projeto U-SQL pode fazer referência a um projeto de banco de dados U-SQL. A referência afeta duas cargas de trabalho:
 
-- *Compilação do projeto*: os ambientes do banco de dados referenciado antes de compilar os scripts U-SQL. 
-- *A execução local na conta (projeto Local)*: os ambientes de banco de dados referenciados são implantados na conta (projeto Local) antes da execução do script U-SQL. [Saiba mais sobre a execução local e a diferença entre a conta de (computador local) e (projeto local) aqui](data-lake-analytics-data-lake-tools-local-run.md).
+- *Compilação de projeto*: Configure os ambientes de banco de dados referenciado antes de compilar os scripts U-SQL. 
+- *Conta de execução contra (um local-projeto) local*: Os ambientes de banco de dados referenciado são implantados em (um local-projeto) a conta antes da execução do script U-SQL. [Saiba mais sobre a execução local e a diferença entre a conta de (computador local) e (projeto local) aqui](data-lake-analytics-data-lake-tools-local-run.md).
 
 ### <a name="how-to-add-a-u-sql-database-reference"></a>Como adicionar uma referência de banco de dados U-SQL
 

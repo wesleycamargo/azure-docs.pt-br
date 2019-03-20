@@ -2,7 +2,7 @@
 title: Perguntas frequentes - HSM Dedicado do Azure | Microsoft Docs
 description: Perguntas frequentes cobrindo diferentes tópicos sobre o HSM Dedicado do Azure
 services: dedicated-hsm
-author: barclayn
+author: johndaw
 manager: barbkess
 tags: azure-resource-manager
 ms.custom: mvc
@@ -10,15 +10,15 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: concepts
-ms.date: 12/11/2018
+ms.topic: conceptual
+ms.date: 3/11/2019
 ms.author: barclayn
-ms.openlocfilehash: 5ea98f96fe10337e905270cf5da4847d825d6eb4
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: cd3228b66dbbf19b574c390733340c0ea2fb5a78
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107796"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57846881"
 ---
 # <a name="frequently-asked-questions-faq"></a>Perguntas frequentes (FAQ)
 
@@ -164,19 +164,19 @@ Sim. Você pode enviar logs do dispositivo HSM para um servidor syslog
 
 ### <a name="q-is-it-possible-to-configure-high-availability-in-the-same-region-or-across-multiple-regions"></a>P: É possível configurar alta disponibilidade na mesma região ou em várias regiões?
 
-Sim. A configuração e a configuração de alta disponibilidade são realizadas no software cliente HSM fornecido pela Gemalto. HSMs da mesma VNET ou de outras VNETs na mesma região ou entre regiões, ou HSMs no local conectados a uma VNET usando VPN site a site ou ponto a ponto podem ser adicionados à mesma configuração de alta disponibilidade.
+Sim. A configuração e a configuração de alta disponibilidade são realizadas no software cliente HSM fornecido pela Gemalto. Os HSMs da mesma rede virtual ou outras redes virtuais na mesma região ou entre regiões ou no local HSMs conectados a uma rede virtual usando o site a site ou VPN ponto a ponto pode ser adicionado a mesma configuração de alta disponibilidade.
 
-### <a name="can-i-add-hsms-from-my-on-premises-network-to-a-high-availability-group-with-azure-dedicated-hsm"></a>Posso adicionar HSMs da minha rede local a um grupo de alta disponibilidade com o HSM Dedicado do Azure?
+### <a name="q-can-i-add-hsms-from-my-on-premises-network-to-a-high-availability-group-with-azure-dedicated-hsm"></a>P: Posso adicionar HSMs da minha rede local a um grupo de alta disponibilidade com o HSM Dedicado do Azure?
 
 Sim. Eles devem atender aos requisitos de alta disponibilidade para o SafeNet Luna Network HSM 7.
 
-### <a name="can-i-add-luna-56-hsms-from-on-premises-networks-to-a-high-availability-group-with-azure-dedicated-hsm"></a>Posso adicionar Luna 5/6 HSMs de redes locais a um grupo de alta disponibilidade com o HSM Dedicado do Azure?
+### <a name="q-can-i-add-luna-56-hsms-from-on-premises-networks-to-a-high-availability-group-with-azure-dedicated-hsm"></a>P: Posso adicionar Luna 5/6 HSMs de redes locais a um grupo de alta disponibilidade com o HSM Dedicado do Azure?
 
  Não.
 
 ### <a name="q-how-many-hsms-can-i-add-to-the-same-high-availability-configuration-from-one-single-application"></a>P: Quantos HSMs posso adicionar à mesma configuração de alta disponibilidade a partir de um único aplicativo?
 
-16.
+16\.
 
 ## <a name="support"></a>Suporte
 
@@ -246,7 +246,7 @@ Sim. Dispositivos de HSM dedicado provêm appliances SafeNet Network HSM 7 que u
 
 O serviço HSM Dedicado provisiona os dispositivos SafeNet Luna Network HSM 7. Esses dispositivos usam HSMs validados por FIPS 140-2 Nível 3. A configuração padrão implementada, o sistema operacional e o firmware também são validados pelo FIPS. Você não precisa executar nenhuma ação para conformidade com o FIPS 140-2 Nível 3.
 
-### <a name="how-does-a-customer-ensure-that-when-an-hsm-is-deprovisioned-all-the-key-material-is-wiped-out"></a>Como um cliente garante que, quando um HSM é desprovisionado, todo o material da chave seja eliminado?
+### <a name="q-how-does-a-customer-ensure-that-when-an-hsm-is-deprovisioned-all-the-key-material-is-wiped-out"></a>P: Como um cliente garante que, quando um HSM é desprovisionado, todo o material da chave seja eliminado?
 
 Antes de solicitar o desprovisionamento, um cliente deve ter zerado o HSM usando as ferramentas do cliente HSM da Gemalto.
 

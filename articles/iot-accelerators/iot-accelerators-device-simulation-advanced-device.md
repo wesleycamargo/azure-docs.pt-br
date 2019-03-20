@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 10/25/2018
 ms.author: troyhop
-ms.openlocfilehash: 7e680e3cd8a3d7056141814c5e7d4539b72073b4
-ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
-ms.translationtype: HT
+ms.openlocfilehash: a97afe64992db6b48558561ba958b513c8416494
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50756920"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56592818"
 ---
 # <a name="create-an-advanced-device-model"></a>Criar um modelo de dispositivo avançados
 
@@ -28,9 +28,9 @@ Para seguir as etapas deste guia prático, você precisa de uma instância impla
 
 Se você ainda não implantou o Device Simulation, deverá concluir o [Implantar e executar uma simulação de dispositivo IoT no início rápido do Azure](quickstart-device-simulation-deploy.md).
 
-### <a name="open-device-simulation"></a>Simulação de dispositivo aberto
+### <a name="open-device-simulation"></a>Abrir a Simulação de Dispositivo
 
-Para executar a Simulação de dispositivos em seu navegador, acesse primeiro [Aceleradores de solução de IoT do Microsoft Azure](https://www.azureiotsolutions.com).
+Para executar a Simulação de Dispositivo no navegador, primeiro navegue até [Aceleradores de Solução do Microsoft Azure IoT](https://www.azureiotsolutions.com).
 
 Você pode ser solicitado a entrar usando suas credenciais da assinatura do Azure.
 
@@ -164,8 +164,8 @@ Os campos listados no esquema podem ser dos tipos a seguir:
 * Texto
 * BOOLEAN
 * Número inteiro
-* Duplo
-* Datetime
+* Double
+* DateTime
 
 ### <a name="supported-methods"></a>Métodos com suporte
 
@@ -498,7 +498,7 @@ Selecione **Modelos de dispositivos** na barra de menus. A página **Modelos de 
 
 ![Modelos de dispositivo](media/iot-accelerators-device-simulation-advanced-device/devicemodelnav.png)
 
-Clique em **+ Adicionar modelos de dispositivo** no canto superior direito da página:
+Clique em **+ Adicionar Modelos de Dispositivo** no canto superior direito da página:
 
 ![Adicionar modelo de dispositivo](media/iot-accelerators-device-simulation-advanced-device/devicemodels.png)
 
@@ -516,4 +516,4 @@ Se seus arquivos passarem pela validação, clique em **Salvar** e seu modelo de
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste guia prático, você aprendeu sobre os arquivos de modelo de dispositivo usados na Simulação de dispositivos e como criar um modelo de dispositivo avançado. Em seguida, você pode explorar como [Usar as Estatísticas da Série Temporal para visualizar a telemetria enviada a partir do acelerador da solução Simulação de Dispositivo](about-iot-accelerators.md).
+Neste guia prático, você aprendeu sobre os arquivos de modelo de dispositivo usados na Simulação de dispositivos e como criar um modelo de dispositivo avançado. Em seguida, você pode explorar como [Usar as Estatísticas da Série Temporal para visualizar a telemetria enviada a partir do acelerador da solução Simulação de Dispositivo](https://docs.microsoft.com/azure/iot-accelerators/iot-accelerators-device-simulation-time-series-insights).

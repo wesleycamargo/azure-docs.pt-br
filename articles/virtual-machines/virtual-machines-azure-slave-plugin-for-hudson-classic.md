@@ -14,12 +14,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: c11b59f8ea432075b147a391de4b7bd3331e639e
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
-ms.translationtype: HT
+ms.openlocfilehash: ef24e356c9ac8424fc519a3b16af5d37a20e706f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2018
-ms.locfileid: "27704417"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57999779"
 ---
 # <a name="how-to-use-the-azure-slave-plug-in-with-hudson-continuous-integration"></a>Como usar o plug-in subordinado do Azure com a Integração contínua do Hudson
 O plug-in subordinado do Azure para Hudson permite provisionar nós subordinados no Azure ao executar compilações distribuídas.
@@ -188,7 +188,7 @@ Para obter mais informações sobre como usar o Azure com o Java, confira a [Cen
 <!-- URL List -->
 
 [Central de desenvolvimento Java do Azure]: https://azure.microsoft.com/develop/java/
-[perfil de assinatura]: http://go.microsoft.com/fwlink/?LinkID=396395
+[perfil de assinatura]: https://go.microsoft.com/fwlink/?LinkID=396395
 
 <!-- IMG List -->
 

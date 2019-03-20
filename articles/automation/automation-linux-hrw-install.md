@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3bdf642c37fe5f64b7d853da6a050ec8c2a7d44d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cc07aa9c1b2c540c33949a8c591bd98f91b04666
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834652"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225443"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Implantar o Hybrid Runbook Worker do Linux
 
@@ -84,6 +84,9 @@ Antes de prosseguir, observe o workspace do Log Analytics ao qual sua conta de A
    ```
 
 1. Depois que o comando for concluído, a página **Grupos do Hybrid Worker** no portal do Azure mostrará o novo grupo e o número de membros. Se este for um grupo existente, o número de membros será incrementado. Você pode selecionar o grupo da lista na página **Grupos do Hybrid Worker** e no bloco **Hybrid Workers**. Na página **Hybrid Workers**, você verá cada membro do grupo listado.
+
+> [!NOTE]
+> Se você estiver usando a extensão de máquina virtual do Azure Monitor para Linux para uma VM do Azure, recomendamos a configuração `autoUpgradeMinorVersion` como falso como auto atualização de versões pode causar problemas de Hybrid Runbook Worker. Para saber como atualizar a extensão manualmente, consulte [implantação da CLI do Azure ](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment).
 
 ## <a name="turning-off-signature-validation"></a>Desativar a validação de assinatura
 

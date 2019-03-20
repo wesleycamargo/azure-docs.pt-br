@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3cd34bf67b0d796af71036e7d14834a061803973
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: 2fecf300bb14132a2e02c81a8a0862adff6b46cc
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53628075"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202751"
 ---
 # <a name="run-apache-sqoop-jobs-by-using-net-sdk-for-apache-hadoop-in-hdinsight"></a>Executar trabalhos do Apache Sqoop usando .NET SDK para Apache Hadoop no HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -118,6 +118,5 @@ O HDInsight baseado em Linux tem as seguintes limitações:
 Você aprendeu como usar Sqoop. Para obter mais informações, consulte:
 
 * [Usar o Apache Oozie com o HDInsight](../hdinsight-use-oozie.md): Use a ação Sqoop em um fluxo de trabalho do Oozie.
-* [Analisar dados de atraso de voo usando HDInsight](../hdinsight-analyze-flight-delay-data.md): Use o Apache Hive para analisar dados de atraso de voo e, em seguida, use o Sqoop para exportar dados para um banco de dados SQL do Azure.
 * [Carregar dados para HDInsight](../hdinsight-upload-data.md): Encontre outros métodos para fazer upload de dados para HDInsight ou armazenamento de Blob do Azure.
 

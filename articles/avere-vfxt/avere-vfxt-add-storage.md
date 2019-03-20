@@ -3,15 +3,15 @@ title: Configurar o armazenamento do Avere vFXT – Azure
 description: Como adicionar um sistema de armazenamento de back-end ao seu Avere vFXT para o Azure
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: procedural
+ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: 13084ac21315d725df3f0913583fff3e64ee5c4a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 6d35d5cdeafb80a36f910d71393802a3affb4df8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813221"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078798"
 ---
 # <a name="configure-storage"></a>Configurar o armazenamento
 
@@ -72,7 +72,7 @@ Em seguida, vá para [Criar uma junção](#create-a-junction).
 Para usar o Armazenamento de Blobs do Azure como armazenamento de back-end do cluster do vFXT, você precisa de um contêiner vazio para ser adicionado como um arquivista central.
 
 > [!TIP] 
-> Se você optar por criar um contêiner de blob ao mesmo tempo em que cria o cluster do Avere vFXT, o modelo de implantação ou o script criará um contêiner de armazenamento, o definirá como um arquivista principal e criará a junção de namespace como parte da criação do cluster vFXT. 
+> Se você optar por criar um contêiner de blob ao mesmo tempo em que cria o cluster do Avere vFXT, o modelo de implantação ou o script criará um contêiner de armazenamento, o definirá como um arquivista principal e criará a junção de namespace como parte da criação do cluster vFXT. O modelo também cria um ponto de extremidade de serviço de armazenamento dentro da rede virtual do cluster. 
 
 Adicionar o Armazenamento de Blobs ao seu cluster requer estas tarefas:
 
@@ -144,12 +144,12 @@ Para adicionar o Armazenamento de Blobs depois de criar o cluster, siga estas et
    * Definir **Conteúdos do Bucket** como **Vazio**
    * Mude **Verificação de certificado** para **Desabilitada**
    * Mude **Modo de compactação** para **Nenhum**  
-   * Clique em **Próximo**.
+   * Clique em **Avançar**.
    * Na quarta página, digite o nome do contêiner em **Nome do Bucket** como *storage_account_name*/*container_name*.
    * Opcionalmente, defina **Tipo de Criptografia** como **Nenhum**.  O Armazenamento do Azure é criptografado por padrão.
    * Clique em **Adicionar Arquivista**.
 
-  Para obter informações mais detalhadas, leia [Como adicionar um novo arquivista central de nuvem](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html>) no guia de configuração de cluster do Avere. 
+   Para obter informações mais detalhadas, leia [Como adicionar um novo arquivista central de nuvem](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html>) no guia de configuração de cluster do Avere. 
 
 A página será atualizada ou você poderá atualizar a página para exibir seu novo arquivista central.
 
@@ -169,7 +169,7 @@ Siga estas etapas na interface de configurações do painel de controle do Avere
 * Forneça um caminho de namespace que comece com / (barra), como ``/avere/data``.
 * Escolha seu arquivista central.
 * Escolha a exportação do arquivista central.
-* Clique em **Próximo**.
+* Clique em **Avançar**.
 
   ![Captura de tela da página "Adicionar nova junção" com os campos preenchidos para junção, arquivista central e exportação](media/avere-vfxt-add-junction.png)
 

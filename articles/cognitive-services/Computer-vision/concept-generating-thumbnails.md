@@ -8,21 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 03/11/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 8881a0c5e809dc75d1b9f4b6f6bd3af7142333cb
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: cea8522a9f3eb8fa98821c1cb08d92a9524d5ce4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884623"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57876792"
 ---
 # <a name="generating-smart-cropped-thumbnails-with-computer-vision"></a>Gerar miniaturas de corte inteligente com Pesquisa Visual Computacional
 
 Uma miniatura é uma representação em tamanho reduzido de uma imagem. As miniaturas são usadas para representar as imagens e outros dados de uma maneira mais econômica e com um layout mais fácil. A API da Pesquisa Visual Computacional usa o corte inteligente, junto com o redimensionamento de imagem, para criar miniaturas intuitivas para uma determinada imagem.
 
 O algoritmo de geração de miniatura da Pesquisa Visual Computacional funciona da seguinte maneira:
+
 1. remova os elementos de distração da imagem e identifique as _área de interesse_&mdash;a área da imagem na qual o objeto principal é exibido.
 1. Corte a imagem com base na _área de interesse_ identificada.
 1. Altere a taxa de proporção para se ajustar às dimensões da miniatura de destino.

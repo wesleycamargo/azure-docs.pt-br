@@ -3,21 +3,20 @@ title: Monitorar tempo de execução de integração no Azure Data Factory | Mic
 description: Saiba como monitorar diferentes tipos de tempo de execução de integração no Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/25/2018
-ms.author: douglasl
-ms.openlocfilehash: 8c3883ae6dd2928fb6cc4f22510e7992daac7793
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+author: gauravmalhot
+ms.author: gamal
+manager: craigg
+ms.openlocfilehash: b62cbe75730da8c5764839d41887deb7e6cd0e90
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015297"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576320"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitorar um tempo de execução de integração no Azure Data Factory  
 O **tempo de execução de integração** é a infraestrutura de computação usada pelo Azure Data Factory para fornecer diversas funcionalidades de integração de dados entre diferentes ambientes de rede. São oferecidos três tipos de tempos de execução de integração pelo Data Factory:
@@ -26,16 +25,18 @@ O **tempo de execução de integração** é a infraestrutura de computação us
 - Tempo de execução de integração auto-hospedado
 - Tempo de execução de integração do Azure-SSIS
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Para obter o status de uma instância de tempo de execução de integração (IR), execute o seguinte comando do PowerShell: 
 
 ```powershell
-Get-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName MyDataFactory -ResourceGroupName MyResourceGroup -Name MyAzureIR -Status
+Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName MyDataFactory -ResourceGroupName MyResourceGroup -Name MyAzureIR -Status
 ``` 
 
 O cmdlet retorna diferentes informações para diferentes tipos de tempo de execução de integração. Este artigo explica as propriedades e os status para cada tipo de tempo de execução de integração.  
 
 ## <a name="azure-integration-runtime"></a>Integration Runtime do Azure
-O recurso de computação para um tempo de execução de integração do Azure é totalmente gerenciado com elasticidade no Azure. A tabela a seguir fornece descrições para propriedades retornadas pelo comando **Get-AzureRmDataFactoryV2IntegrationRuntime**:
+O recurso de computação para um tempo de execução de integração do Azure é totalmente gerenciado com elasticidade no Azure. A tabela a seguir fornece descrições para propriedades retornadas pelo **Get-AzDataFactoryV2IntegrationRuntime** comando:
 
 ### <a name="properties"></a>propriedades
 A tabela a seguir fornece descrições de propriedades retornadas pelo cmdlet para um tempo de execução de integração:
@@ -58,7 +59,7 @@ A tabela a seguir fornece os possíveis status de um tempo de execução de inte
 | Off-line | O tempo de execução de integração do Azure está offline devido a um erro interno. |
 
 ## <a name="self-hosted-integration-runtime"></a>Tempo de execução de integração auto-hospedado
-Esta seção fornece descrições para propriedades retornadas pelo cmdlet Get-AzureRmDataFactoryV2IntegrationRuntime. 
+Esta seção fornece descrições para propriedades retornadas pelo cmdlet Get-AzDataFactoryV2IntegrationRuntime. 
 
 > [!NOTE] 
 > As propriedades retornadas e o status contêm informações sobre o tempo de execução de integração auto-hospedado geral e cada nó no tempo de execução.  
@@ -86,7 +87,7 @@ O valor padrão do limite de trabalhos simultâneos é definido com base no tama
 
 Você escala horizontalmente aumentando o número de nós. Quando você aumenta o número de nós, o limite de trabalhos simultâneos é a soma dos valores de limite de trabalhos simultâneos de todos os nós disponíveis.  Por exemplo, se um nó permitir que você execute um máximo de 12 trabalhos simultâneos, adicionar mais três nós semelhantes permitirá que você execute um máximo de 48 trabalhos simultâneos (ou seja, 4 × 12). É recomendável aumentar o limite de trabalhos simultâneos apenas quando você observar um baixo uso de recursos com os valores padrão em cada nó.
 
-Você pode substituir o valor padrão calculado no portal do Azure. Selecione Autor > Conexões > Integration Runtimes > Editar > Nós > Modificar valor de trabalhos simultâneos por nó. Você também pode usar o comando [update-azurermdatafactoryv2integrationruntimenode](https://docs.microsoft.com/powershell/module/azurerm.datafactoryv2/update-azurermdatafactoryv2integrationruntimenode?view=azurermps-6.4.0#examples) do PowerShell.
+Você pode substituir o valor padrão calculado no portal do Azure. Selecione Autor > Conexões > Integration Runtimes > Editar > Nós > Modificar valor de trabalhos simultâneos por nó. Você também pode usar o PowerShell [Azdatafactoryv2integrationruntimenode atualização](https://docs.microsoft.com/powershell/module/az.datafactory/update-Azdatafactoryv2integrationruntimenode#examples) comando.
   
 ### <a name="status-per-node"></a>Status (por nó)
 A tabela a seguir fornece os possíveis status de um nó de tempo de execução de integração auto-hospedado:
@@ -111,10 +112,10 @@ A tabela a seguir fornece os possíveis status de um tempo de execução de inte
 | Off-line | Nenhum nó está online. |
 | Limitado | Nem todos os nós no tempo de execução integração auto-hospedado estão em um estado íntegro. Esse status é um aviso de que alguns nós podem estar inativos. Esse status pode ser devido a um problema de sincronização de credenciais no nó dispatcher/de trabalho. |
 
-Use o cmdlet **Get-AzureRmDataFactoryV2IntegrationRuntimeMetric** para buscar o conteúdo JSON que contenha as propriedades detalhadas do tempo de execução de integração auto-hospedado e seus valores de instantâneo durante a execução do cmdlet.
+Use o **Get-AzDataFactoryV2IntegrationRuntimeMetric** propriedades de tempo de execução de integração auto-hospedado do cmdlet para buscar o conteúdo JSON que contém a página detalhada e seus valores de instantâneo durante o tempo de execução do cmdlet.
 
 ```powershell
-Get-AzureRmDataFactoryV2IntegrationRuntimeMetric -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName  | | ConvertTo-Json 
+Get-AzDataFactoryV2IntegrationRuntimeMetric -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName  | | ConvertTo-Json 
 ```
 
 Exemplo de saída (supõe que há dois nós associados a esse tempo de execução de integração auto-hospedado):
@@ -174,7 +175,7 @@ O tempo de execução de integração do SSIS do Azure é um cluster totalmente 
 | VNetId | A ID de recursos da rede virtual para o tempo de execução de integração do Azure-SSIS ingressar. |
 | Sub-rede | O nome da sub-rede para o tempo de execução de integração do Azure-SSIS ingressar. |
 | ID | A ID de recursos do seu tempo de execução de integração do Azure-SSIS. |
-| Tipo | O tipo (Gerenciado/Auto-hospedado) de seu tempo de execução de integração do Azure-SSIS. |
+| Type | O tipo (Gerenciado/Auto-hospedado) de seu tempo de execução de integração do Azure-SSIS. |
 | ResourceGroupName | O nome do seu grupo de recursos do Azure, no qual seu data factory e o tempo de execução de integração do Azure-SSIS foram criados. |
 | DataFactoryName | O nome de seu data factory do Azure. |
 | NOME | O nome do seu tempo de execução de integração do Azure-SSIS. |
@@ -213,7 +214,7 @@ As capturas de tela a seguir mostram como selecionar o IR do Azure-SSIS a ser mo
 Usar um script como o exemplo a seguir para verificar o status do IR do Azure-SSIS.
 
 ```powershell
-Get-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Status
+Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Status
 ```
 
 ### <a name="more-info-about-the-azure-ssis-integration-runtime"></a>Mais informações sobre o tempo de execução de integração do Azure-SSIS

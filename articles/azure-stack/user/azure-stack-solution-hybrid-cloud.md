@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 5f142192571bdd15a33575a425d75baf3e5caea2
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 336a2a3fd98f7829694eb095ff2646d9d361afd3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243480"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097313"
 ---
 # <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>Tutorial: Implantar uma solução de nuvem híbrida com o Azure e o Azure Stack
 
@@ -65,7 +65,7 @@ Antes de iniciar este tutorial, certifique-se de que você pode atender aos segu
   - Uma imagem do Windows Server 2016
   - Um Windows Server 2016 com uma imagem do Microsoft SQL Server
   - Os planos apropriados e as ofertas
- - Um nome de domínio para seu aplicativo web. Se você não tiver um nome de domínio, você poderá comprar um de um provedor de domínio, como GoDaddy, Bluehost e InMotion.
+  - Um nome de domínio para seu aplicativo web. Se você não tiver um nome de domínio, você poderá comprar um de um provedor de domínio, como GoDaddy, Bluehost e InMotion.
 - Um certificado SSL para seu domínio de uma autoridade de certificação confiável como LetsEncrypt.
 - Um aplicativo web que se comunica com um banco de dados do SQL Server e dá suporte ao Application Insights. Você pode baixar o [dotnetcore-sqldb-tutorial](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial) aplicativo de exemplo do GitHub.
 - Uma rede híbrido entre uma rede virtual do Azure e a rede virtual do Azure Stack. Para obter instruções detalhadas, consulte [configurar a conectividade de nuvem híbrida com o Azure e o Azure Stack](azure-stack-solution-hybrid-connectivity.md).
@@ -94,19 +94,19 @@ Antes de iniciar este tutorial, certifique-se de que você pode atender aos segu
 
 7. Sob **Configurações > configurar recursos opcionais**, defina as seguintes configurações:
 
-    - **Conta de armazenamento**. Crie uma nova conta se você precisar de um.
-    - **Rede virtual**
+   - **Conta de armazenamento**. Crie uma nova conta se você precisar de um.
+   - **Rede virtual**
 
-      > [!Important]  
-      > Verifique se que sua VM do SQL Server é implantado na mesma rede virtual que os gateways de VPN.
+     > [!Important]  
+     > Verifique se que sua VM do SQL Server é implantado na mesma rede virtual que os gateways de VPN.
 
-    - **Endereço IP público**. Você pode usar as configurações padrão.
-    - **Grupo de segurança de rede** (NSG). Crie um novo NSG.
-    - **Extensões e monitoramento**. Mantenha as configurações padrão.
-    - **Conta de armazenamento de diagnóstico**. Crie uma nova conta se você precisar de um.
-    - Selecione **Okey** para salvar sua configuração.
+   - **Endereço IP público**. Você pode usar as configurações padrão.
+   - **Grupo de segurança de rede** (NSG). Crie um novo NSG.
+   - **Extensões e monitoramento**. Mantenha as configurações padrão.
+   - **Conta de armazenamento de diagnóstico**. Crie uma nova conta se você precisar de um.
+   - Selecione **Okey** para salvar sua configuração.
 
-    ![Configurar os recursos opcionais](media/azure-stack-solution-hybrid-cloud/image4.png)
+     ![Configurar os recursos opcionais](media/azure-stack-solution-hybrid-cloud/image4.png)
 
 1. Sob **configurações do SQL Server**, defina as seguintes configurações:
    - Para **conectividade SQL**, escolha **pública (Internet)**.
@@ -118,7 +118,7 @@ Antes de iniciar este tutorial, certifique-se de que você pode atender aos segu
 
    - Para o restante das configurações, mantenha os padrões. Selecione **OK**.
 
-    ![Definir as configurações do SQL Server](media/azure-stack-solution-hybrid-cloud/image5.png)
+     ![Definir as configurações do SQL Server](media/azure-stack-solution-hybrid-cloud/image5.png)
 
 9. Na **resumo**, examine a configuração de máquina virtual e, em seguida, selecione **Okey** para iniciar a implantação.
 
@@ -375,7 +375,7 @@ Quando o tráfego diminui, o aplicativo web do Azure automaticamente pode reduzi
 
 Você criará um perfil do Gerenciador de tráfego no Azure e, em seguida, configurar pontos de extremidade para habilitar o dimensionamento da nuvem.
 
-### <a name="create-traffic-manager-profile"></a>Criar perfil do Gerenciador de tráfego
+### <a name="create-traffic-manager-profile"></a>Criar perfil do Gerenciador de Tráfego
 
 1. Selecione **criar um recurso**
 2. Selecione **de rede**
@@ -389,9 +389,9 @@ Você criará um perfil do Gerenciador de tráfego no Azure e, em seguida, confi
 
 4. Selecione **Criar**.
 
-    ![Criar perfil do Gerenciador de tráfego](media/azure-stack-solution-hybrid-cloud/image19.png)
+    ![Criar perfil do Gerenciador de Tráfego](media/azure-stack-solution-hybrid-cloud/image19.png)
 
- Quando a implantação global do seu perfil do Gerenciador de tráfego for concluída, ela é mostrada na lista de recursos para o grupo de recursos que ele foi criado em.
+   Quando a implantação global do seu perfil do Gerenciador de tráfego for concluída, ela é mostrada na lista de recursos para o grupo de recursos que ele foi criado em.
 
 ### <a name="add-traffic-manager-endpoints"></a>Adicionar pontos de extremidade do Gerenciador de Tráfego
 

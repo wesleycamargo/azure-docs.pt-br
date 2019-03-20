@@ -9,11 +9,11 @@ ms.date: 08/14/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: da46687517dbfe189571286087d4ef29d50d1246
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906273"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "58115127"
 ---
 # <a name="standard-ssd-managed-disks-for-azure-virtual-machine-workloads"></a>Discos Gerenciados SSD Padrão para carga de trabalho da Máquina virtual
 
@@ -21,14 +21,14 @@ Os Discos Gerenciados SSD (Unidade de Estado Sólido) Padrão do Azure são uma 
 
 ## <a name="standard-ssd-features"></a>Recursos do SSD Padrão
 
-**Discos Gerenciados**: os SSDs Standard estão disponíveis somente como discos gerenciados. Não há suporte para Discos Não Gerenciados e Blobs de Páginas em SSD Padrão. Ao criar o Disco Gerenciado, somente é necessário especificar o tipo como Standard HDD e o tamanho do disco requerido; e o Azure cria e gerencia o disco para você.
+**Managed Disks**: SSDs Standard só estão disponível como discos gerenciados. Não há suporte para Discos Não Gerenciados e Blobs de Páginas em SSD Padrão. Ao criar o Disco Gerenciado, somente é necessário especificar o tipo como Standard HDD e o tamanho do disco requerido; e o Azure cria e gerencia o disco para você.
 Os SSDs padrão suportam todas as operações clássicas do modelo de implantação oferecidas pelos discos gerenciados. Por exemplo, você pode criar, copiar ou tirar instantâneo dos Discos Gerenciados SSD Padrão da mesma maneira que faria com o Managed Disks.
 
 **Máquinas Virtuais**: SSDs Standard podem ser usados com todas as VMs do Azure, incluindo tipos de VM que não dão suporte a Discos Premium. Por exemplo, se você estiver usando uma VM da série A, ou VM da série N ou série DS, ou quaisquer outras séries de VM do Azure, é possível usar SSDs Padrão com essa VM. Com a introdução do SSD Padrão, habilitamos uma ampla gama de cargas de trabalho que antes usavam discos com base em HD para fazer a transição para discos baseados em SSD e experimentamos um desempenho consistente, maior disponibilidade, melhor latência e uma melhor experiência geral que veio com os SSDs.
 
 **Altamente duráveis e disponíveis**: SSDs Standard são construídos na mesma plataforma de Discos do Azure, que proporciona consistentemente alta disponibilidade e durabilidade para discos. Os Discos do Azure foram projetados para oferecer uma disponibilidade de 99,999%. Como todos os Discos Gerenciados, os SSDs Padrão também oferecem LRS (armazenamento com redundância local). Com LRS, a plataforma mantém múltiplas réplicas dos dados para cada disco e proporciona durabilidade de nível empresarial de modo consistente para discos de IaaS, com uma Taxa de Falha Anualizada de 0%, líder do setor.
 
-**Instantâneos**: como todos os discos gerenciados, os SSDs Standard também dão suporte à criação de Instantâneos. O tipo de instantâneo pode ser Standard (HD) ou Premium (SSD). Para economia de custos, recomendamos o tipo de Instantâneo Standard (HD) para todos os tipos de disco do Azure. Isso porque ao criar um disco gerenciado a partir de um instantâneo, você sempre poderá escolher uma camada superior, como SSD Standard ou SSD Premium.
+**Instantâneos**: Como todos os discos gerenciados, o SSDs padrão também dá suporte a criação de instantâneos. O tipo de instantâneo pode ser Standard (HD) ou Premium (SSD). Para economia de custos, recomendamos o tipo de Instantâneo Standard (HD) para todos os tipos de disco do Azure. Isso porque ao criar um disco gerenciado a partir de um instantâneo, você sempre poderá escolher uma camada superior, como SSD Standard ou SSD Premium.
 
 ## <a name="scalability-and-performance-targets"></a>Escalabilidade e metas de desempenho
 
@@ -63,9 +63,9 @@ Ao usar o SSDs Padrão, as seguintes considerações de cobrança se aplicam:
 - Transferências de dados de saída
 - Transações
 
-**Tamanho do Disco Gerenciado**: os discos gerenciados são cobrados pelo tamanho provisionado. O Azure mapeia o tamanho provisionado (arredondado) para a opção de tamanho de disco mais próxima. Para obter detalhes sobre os tamanhos de disco oferecidos, consulte a tabela na seção de Escalabilidade e Metas de Desempenho acima. Cada disco é mapeado para um tamanho de disco provisionado com suporte e é cobrado de acordo. Por exemplo, se você provisionou uma SSD Padrão de 200 GiB, ela será mapeada para a oferta de tamanho de disco de E15 (256 GiB). A cobrança por qualquer disco provisionado é rateada por hora usando o preço mensal para a oferta de Armazenamento Premium. Por exemplo, se você provisionou um disco E10 e o excluiu após 20 horas, será cobrado pela a oferta E10 rateada em 20 horas. Isso é independente da quantidade de dados reais gravados no disco.
+**Tamanho do Disco Gerenciado**: Discos gerenciados são cobrados no tamanho provisionado. O Azure mapeia o tamanho provisionado (arredondado) para a opção de tamanho de disco mais próxima. Para obter detalhes sobre os tamanhos de disco oferecidos, consulte a tabela na seção de Escalabilidade e Metas de Desempenho acima. Cada disco é mapeado para um tamanho de disco provisionado com suporte e é cobrado de acordo. Por exemplo, se você provisionou uma SSD Padrão de 200 GiB, ela será mapeada para a oferta de tamanho de disco de E15 (256 GiB). A cobrança por qualquer disco provisionado é rateada por hora usando o preço mensal para a oferta de Armazenamento Premium. Por exemplo, se você provisionou um disco E10 e o excluiu após 20 horas, será cobrado pela a oferta E10 rateada em 20 horas. Isso é independente da quantidade de dados reais gravados no disco.
 
-**Instantâneos**: Os instantâneos dos discos gerenciados são cobrados pela capacidade usada pelos instantâneos, no destino e na origem, se houver. Para obter mais informações sobre instantâneos, consulte [Instantâneos de Disco Gerenciado](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#managed-disk-snapshots).
+**Instantâneos**: Instantâneos de discos gerenciados são cobrados pela capacidade usada pelos instantâneos, o destino e na origem, se houver. Para obter mais informações sobre instantâneos, consulte [Instantâneos de Disco Gerenciado](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#managed-disk-snapshots).
 
 **Transferências de dados de saída**: [Transferências de dados de saída](https://azure.microsoft.com/pricing/details/bandwidth/) (dados saindo dos data centers do Azure) acarretam a cobrança por uso de largura de banda.
 

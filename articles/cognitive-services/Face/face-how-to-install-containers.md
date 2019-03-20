@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: article
-ms.date: 02/11/2019
+ms.date: 03/18/2019
 ms.author: diberry
-ms.openlocfilehash: 7a41bfaada64528e90f43064b34c394f9a9b8f8f
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: a52c5bf1a52a4d598986664c41e80273e0b26788
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099081"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014096"
 ---
-# <a name="install-and-run-containers"></a>Instalar e executar contêineres
+# <a name="install-and-run-face-containers"></a>Instalar e executar os contêineres de detecção facial
 
 O Face fornece um contêiner Linux padronizado para o Docker, chamado Face, que detecta rostos humanos em imagens e identifica atributos, incluindo referências faciais (como narizes e olhos), sexo, idade e outros recursos faciais preditos pela máquina. Além da detecção, o Face pode verificar se duas faces na mesma imagem ou imagens diferentes são iguais usando uma pontuação de confiança ou comparar faces em relação a um banco de dados para ver se uma face semelhante ou idêntica já existe. Além disso, também pode organizar rostos semelhantes em grupos, usando traços visuais compartilhados.
 
@@ -110,11 +110,14 @@ Há outros [exemplos](./face-resource-container-config.md#example-docker-run-com
 > [!IMPORTANT]
 > As opções `Eula`, `Billing` e `ApiKey` devem ser especificadas para executar o contêiner; caso contrário, o contêiner não será iniciado.  Para mais informações, consulte [Faturamento](#billing).
 
+[!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
+
+
 ## <a name="query-the-containers-prediction-endpoint"></a>Consultar o ponto de extremidade de previsão do contêiner
 
 O contêiner fornece APIs de ponto de extremidade de previsão de consulta com base em REST. 
 
-Use o host, https://localhost:5000, para APIs de contêiner.
+Use o host, `https://localhost:5000`, para APIs de contêiner.
 
 ## <a name="stop-the-container"></a>Parar o contêiner
 

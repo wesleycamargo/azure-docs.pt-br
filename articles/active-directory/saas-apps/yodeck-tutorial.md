@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/20/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 071054e2ec5fead3ce6181925b3c5f4e99a26736
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7564710b282c7e2ac586980896a28c00bcb2fe80
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164219"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872595"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yodeck"></a>Tutorial: Integração do Azure Active Directory ao Yodeck
 
@@ -200,7 +200,7 @@ No caso do Yodeck, o provisionamento é uma tarefa manual.
 
     b. Na caixa de texto **Sobrenome**, digite o Sobrenome do usuário, como **Fernandes**.
 
-    c. Na caixa de texto **Email**, digite o endereço de email do usuário, como **brittasimon@contoso.com**.
+    c. No **E-mail** caixa de texto, digite o endereço de email do usuário, como **brendafernandes\@contoso.com**.
 
     d. Selecione a opção de **Permissões de conta** adequada de acordo com suas necessidades organizacionais.
     

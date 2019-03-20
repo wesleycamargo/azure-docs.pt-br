@@ -8,33 +8,92 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/19/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 48ce15a11c3e3282535420f3e1bb1915276d70f5
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 9bb574fcb9782aad41ea0fd276b8addee19caf01
+ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313170"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57588968"
 ---
-# <a name="recognizing-printed-and-handwritten-text"></a>Reconhecer texto impresso e manuscrito
+# <a name="recognize-printed-and-handwritten-text"></a>Reconhecer texto impresso e manuscrito
 
-A Pesquisa Visual Computacional pode detectar e extrair texto impresso e manuscrito das imagens de vários objetos com diferentes superfícies e fundos, como recibos, cartazes, cartões de visita, cartas e quadros de comunicações.
+Visão do computador fornece um número de serviços que detecte e extraia textos manuscritos ou impressos que aparece nas imagens. Isso é útil em uma variedade de cenários, como fazer anotações, registros médicos, segurança e transações bancárias. O seguintes três seções detalhes três diferentes reconhecimento de texto APIs, todos otimizados para diferentes casos de uso.
 
-O recurso de reconhecimento de texto é muito semelhante ao [reconhecimento óptico de caracteres (OCR)](concept-extracting-text-ocr.md), mas, ao contrário do OCR, ele é executado de forma assíncrona e usa modelos de reconhecimento atualizados.
+## <a name="read-api"></a>API de leitura
+
+A API de leitura detecta conteúdo de texto em uma imagem usando nossos modelos mais recentes de reconhecimento e converte o texto identificado em um fluxo de caracteres legível por máquina. Ele é otimizado para imagens com uso intenso de texto (como documentos que foram verificados digitalmente) e para imagens com muito ruído visual. Ele executa de forma assíncrona como documentos maiores podem levar vários minutos para retornar um resultado.
+
+A operação de leitura mantém os agrupamentos de linha original de palavras reconhecidas em sua saída. Cada linha é fornecido com as coordenadas da caixa de delimitação e cada palavra dentro da linha também tem seus próprio coordenadas. Se uma palavra foi reconhecida com confiança baixa, essas informações são transmitidas também. Consulte a [documentos de referência de API de leitura](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) para saber mais.
 
 > [!NOTE]
-> Essa tecnologia atualmente está em versão prévia e disponível somente para texto em inglês.
+> Esse recurso está atualmente em visualização e está disponível somente para texto em inglês.
 
-## <a name="text-recognition-requirements"></a>Requisitos de reconhecimento de texto
+### <a name="image-requirements"></a>Requisitos de imagem
 
-A Pesquisa Visual Computacional pode reconhecer texto impresso e manuscrito em imagens que atendem aos seguintes requisitos:
+A API de leitura funcionam com imagens que atendem aos seguintes requisitos:
 
-- A imagem deve ser apresentada em formato JPEG, PNG ou BMP
-- O tamanho do arquivo da imagem deve ser menor que 4 MB (megabytes)
-- As dimensões da imagem devem estar entre 50 x 50 e 4200 x 4200 pixels
+- A imagem deve ser apresentada no formato JPEG, PNG, BMP, PDF ou TIFF.
+- As dimensões da imagem devem estar entre 50 x 50 e 4200 x 4200 pixels. Páginas PDF devem ser 17 x 17 polegadas ou menos.
+- O tamanho do arquivo da imagem deve ser menor que 20 megabytes (MB).
+
+### <a name="limitations"></a>Limitações
+
+Se você estiver usando uma assinatura de camada gratuita, a API de leitura só processará as duas primeiras páginas de um documento PDF ou TIFF. Com uma assinatura paga, ele processa até 200 páginas. Observe também que a API detectará um máximo de 300 linhas por página.
+
+## <a name="ocr-optical-character-recognition-api"></a>OCR (reconhecimento óptico de caracteres) API
+
+API de reconhecimento óptico de caracteres (OCR da pesquisa Visual computacional) é semelhante à API de leitura, mas ele executa de forma síncrona e não é otimizado para documentos grandes. Ele usa um modelo de reconhecimento anterior, mas funciona com mais idiomas.
+
+O OCR dá suporte a 25 idiomas: árabe, chinês simplificado, chinês tradicional, tcheco, dinamarquês, holandês, inglês, finlandês, francês, alemão, grego, húngaro, italiano, japonês, coreano, norueguês, polonês, português, romeno, russo, sérvio (cirílico e latino) eslovaco, espanhol, sueco e turco. O OCR detecta automaticamente o idioma do texto detectado.
+
+Se necessário, o OCR corrige a rotação do texto reconhecido, retornando o deslocamento de rotação em graus do eixo horizontal da imagem. OCR também fornece as coordenadas de quadro de cada palavra, como mostrado na ilustração a seguir.
+
+![Um diagrama representando uma imagem sendo rotacionada e o texto sendo lido e delineado](./Images/vision-overview-ocr.png)
+
+Consulte a [documentos de referência de OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) para saber mais.
+
+### <a name="image-requirements"></a>Requisitos de imagem
+
+A API de OCR funciona nas imagens que atendem aos seguintes requisitos:
+
+* A imagem deve ser apresentada no formato JPEG, PNG, GIF ou BMP.
+* O tamanho da imagem de entrada deve estar entre 50 x 50 e 4200 x 4200 pixels.
+* O texto na imagem pode ser girado por um ângulo múltiplo de 90 graus mais um ângulo múltiplo de 40 graus.
+
+### <a name="limitations"></a>Limitações
+
+Em fotografias em que o texto é dominante, falsos positivos podem vir de palavras reconhecidas parcialmente. Em alguns fotografias, especialmente as fotos sem qualquer texto, a precisão pode variar dependendo do tipo de imagem.
+
+## <a name="recognize-text-api"></a>Reconhecer texto API
+
+> [!NOTE]
+> A API de texto reconhecer estão sendo substituída pela API de leitura. A API de leitura tem recursos semelhantes e é atualizada para lidar com arquivos de várias páginas, TIFF e PDF.
+
+A API de texto reconhecer é semelhante ao OCR, mas ele executa de forma assíncrona e usa modelos de reconhecimento atualizado. Consulte a [documentos de referência de API de texto reconhecer](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) para saber mais.
+
+### <a name="image-requirements"></a>Requisitos de imagem
+
+A API de texto reconhecer funciona com as imagens que atendem aos seguintes requisitos:
+
+- A imagem deve ser apresentada no formato JPEG, PNG ou BMP.
+- As dimensões da imagem devem estar entre 50 x 50 e 4200 x 4200 pixels.
+- O tamanho do arquivo da imagem deve ser menor que 4 megabytes (MB).
+
+## <a name="improve-results"></a>Melhorar resultados
+
+A precisão das operações de reconhecimento de texto depende a qualidade das imagens. Os seguintes fatores podem causar uma leitura imprecisa:
+
+* Imagens desfocadas.
+* Texto manuscrito ou cursivo.
+* Estilos de fonte artísticos.
+* Tamanho de texto pequeno.
+* Telas de fundo complexas, sombras, brilho sobre o texto ou distorção da perspectiva.
+* Letras maiusculas muito grandes ou estão ausentes no início das palavras.
+* Texto subscrito, sobrescrito ou tachado.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte a [Documentação de referência sobre reconhecimento de texto](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) para saber mais.
+Siga as [extrair texto impresso (OCR)](./quickstarts/csharp-print-text.md) guia de início rápido para implementar o reconhecimento de texto em um simples C# aplicativo.

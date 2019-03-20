@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: efaa9101fbe46e0db2f582fe5a208dd8b16f095f
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 2b480df0100690a7a5064044d435a34845516fa6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003577"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442096"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Usando o PowerShell para gerenciar o Gerenciador de Tráfego
 
@@ -208,7 +208,7 @@ New-AzTrafficManagerEndpoint -Name child-endpoint -ProfileName parent -ResourceG
 
 ## <a name="adding-endpoints-from-another-subscription"></a>Adicionar pontos de extremidade de outra assinatura
 
-O Gerenciador de Tráfego pode trabalhar com pontos de extremidade de assinaturas diferentes. É necessário alternar para a assinatura com o ponto de extremidade que você deseja adicionar para recuperar a entrada necessária para o Gerenciador de Tráfego. Em seguida, você precisa alternar para as assinaturas com o perfil do Gerenciador de Tráfego e adicione o ponto de extremidade a ele. O exemplo abaixo mostra como fazer isso com um endereço IP público.
+O Gerenciador de Tráfego pode trabalhar com pontos de extremidade de assinaturas diferentes. É necessário alternar para a assinatura com o ponto de extremidade que você deseja adicionar para recuperar a entrada necessária para o Gerenciador de Tráfego. Em seguida, você precisa alternar para as assinaturas com o perfil do Gerenciador de tráfego e adicionar o ponto de extremidade a ele. O exemplo abaixo mostra como fazer isso com um endereço IP público.
 
 ```powershell
 Set-AzContext -SubscriptionId $EndpointSubscription

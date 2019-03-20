@@ -1,5 +1,5 @@
 ---
-title: Solucionadores de Entidade em um Conversation Learner - Serviços Cognitivos da Microsoft | Microsoft Docs
+title: Resolvedores de entidade em um modelo de aprendiz de conversa - serviços Cognitivos da Microsoft | Microsoft Docs
 titleSuffix: Azure
 description: Saiba como usar os Solucionadores de Entidade no Conversation Learner.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: e6a671470a87f4509e466bcdfe7845b7bf7ec8dc
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: cca78e2536a922165f40bbcbabcae005021aa70b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55209138"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58167840"
 ---
 # <a name="entity-resolvers"></a>Solucionadores de entidade
 
@@ -26,7 +26,7 @@ Este tutorial mostra como usar os Solucionadores de Entidade no Conversation Lea
 [![Visualização de Tutorial de Solucionadores de Entidade](https://aka.ms/cl_Tutorial_v3_EntityResolvers_Preview)](https://aka.ms/cl_Tutorial_v3_EntityResolvers)
 
 ## <a name="requirements"></a>Requisitos
-Este tutorial exige que o bot de tutorial geral esteja em execução
+Este tutorial exige que Bot de tutorial esteja em execução
 
     npm run tutorial-general
 
@@ -37,39 +37,44 @@ Este tutorial exige que o bot de tutorial geral esteja em execução
 
 ## <a name="steps"></a>Etapas
 
-### <a name="create-a-new-model"></a>Criar um novo modelo
+Inicie na home page na interface de usuário da Web.
 
-1. Na UI de Web, clique no botão “Novo Modelo”.
-2. No campo "Nome", digite “Solucionadores de Entidade", pressione enter ou clique no botão "Criar".
+### <a name="create-the-model"></a>Criar o modelo
+
+1. Selecione **novo modelo**.
+2. Insira **resolvedores de entidade** para **nome**.
+3. Selecione **Criar**.
 
 ### <a name="create-a-pair-of-entities"></a>Criar um par de Entidades
 
-1. No painel esquerdo, clique em "Entidades" e, em seguida, clique no botão "Nova Entidade".
-2. No campo "Nome da Entidade", digite "saída".
-3. No menu "Tipo de solucionador" suspenso, selecione "datetimeV2".
-4. Clique no botão “Criar”.
-5. Clique no botão de "OK" depois de ler o pop-up de informações.
-6. Seguindo as mesmas etapas, crie outra entidade chamada "return" e que também tem um tipo de solucionador de "datetimeV2".
+1. Selecione **entidades** no painel esquerdo, em seguida, **nova entidade**.
+2. Insira **partidas** para **nome da entidade**.
+3. Selecione **datetimeV2** para **tipo de resolvedor**.
+4. Selecione **Criar**. Descartar o pop-up informativo, selecionando **Okey**.
+5. Repita as etapas 1 a 4 para criar uma segunda entidade nomeada **retornar** com **datetimeV2** tipo de resolvedor.
+
+![](../media/T09_entities.png)
 
 ### <a name="create-a-pair-of-actions"></a>Criar um par de Ações
 
-1. No painel esquerdo, clique em "Ações" e, em seguida, clique no botão "Nova ação".
-2. No tipo de campo "resposta do Bot", "você está saindo na $departure e retornando em $return".
-    - IMPORTANTE - ao digitar "$[entityName]" é necessário pressionar entre ou clicar na entidade na lista suspensa, caso contrário, o Conversation Learner irá considerar isso como o texto em vez de uma Entidade.
-    - Observe que o campo “Entidades Necessárias" também receberá essas entidades e não pode ser removido. Isso impede que essa ação se torne disponível até que ambas Entidades necessárias estejam presentes.
-3. Clique no botão “Criar”.
-4. Clique no botão "Nova ação" novamente para criar uma segunda ação.
-5. No campo"Resposta do Bot”, digite "Quando você está planejando viajar?".
-6. No campo “Entidades Desqualificadoras”, digite “saída” e também digite, “retornar”.
-    - Estes informam nosso Bot a NÃO executar esta ação se qualquer uma dessas entidades contiver um valor.
-7. Clique no botão “Criar”.
+1. Selecione **ações** no painel esquerdo, em seguida, **nova ação**.
+2. Insira **você está saindo na $departure e retornando em $return** para **de resposta do Bot...** .
+    - IMPORTANTE - ao digitar $[entityName] necessário pressionar Insira ou clique na entidade na lista suspensa caso contrário Aprendiz de conversa considerará esse seja o texto em vez de uma entidade.
+    - Observe que o **necessárias entidades** campo também receberão essas entidades e elas não podem ser removidas. Isso impede que essa ação se torne disponível até que ambas Entidades necessárias estejam presentes.
+3. Selecione **Criar**.
+4. Selecione **nova ação** para criar uma segunda ação.
+5. Insira **quando você estiver planejando viajar?** para **de resposta do Bot...** .
+6. Insira **partidas** e **retornar** para **desqualificação entidades**. Estes informam nosso Bot a NÃO executar esta ação se qualquer uma dessas entidades contiver um valor.
+7. Selecione **Criar**.
 
+![](../media/T09_actions.png)
 
 ### <a name="training"></a>Treinamento
 
-1. Assista "Treinamento: [Status]" na parte superior esquerda da página e aguarde até ser "Concluído".
+1. Assista a **treinamento: [Status]** no canto superior esquerdo para **concluído**.
     - Se isso levar muito tempo, você pode clicar no link de "Atualização".
     - O treinamento de status "Concluído" é necessário para que funcionem os Solucionadores da Entidade ao treinar o Modelo.
+
 2. No painel esquerdo, clique em "Treinar Diálogos" e, em seguida, clique no botão "Novo Diálogo de Treinamento".
 3. Digite na primeira declaração de usuário, "reserve-me um voo" de tipo. 
 4. Clique no botão "Ações de Pontuação".
@@ -80,9 +85,11 @@ Este tutorial exige que o bot de tutorial geral esteja em execução
 8. Também rotular o texto "Domingo da próxima semana" como "retorno"
 9. Clique no botão "Ações de Pontuação".
     - Observe como o painel "Memória" contém as datas de partida e retorno.
-    - Passe o mouse sobre cada uma e observe como as Entidades são objetos de dado que claramente capturam a data do calendário real em vez de “Domingo” ou “amanhã”.
+    - Passe o mouse sobre cada um deles e observe como as entidades são objetos de data que capturam claramente a data do Calendário real em vez de "Domingo" ou "amanhã".
 10. Selecione "Você está saindo em..." Resposta do Bot.
 11. Clique no botão "Salvar".
+
+![](../media/T09_training.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

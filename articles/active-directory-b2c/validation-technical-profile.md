@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 220a95f1bc95a8866a459eb878047e7f47920bd1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 3172354752e2c6a1a7368b297e3cc6e763cd2fcb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55175076"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900566"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico de validação em uma política personalizada do Azure Active Directory B2C
 
@@ -51,8 +51,8 @@ O elemento **ValidationTechnicalProfile** contém o seguinte atributo:
 
 | Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
-| ReferenceId | SIM | Um identificador de um perfil técnico já definido na política ou política pai. |
-|ContinueOnError|Não | Que indica se a validação de quaisquer perfis de técnicos validação subsequente deve continuar se esse perfil técnico de validação gerar um erro. Valores possíveis: `true` ou `false` (padrão, o processamento de perfis de validação adicional será interrompido e retornará um erro). |
+| ReferenceId | Sim | Um identificador de um perfil técnico já definido na política ou política pai. |
+|ContinueOnError|Não | Que indica se a validação de perfis de técnicos qualquer validação subsequente deve continuar se esse perfil técnico de validação gerará um erro. Valores possíveis: `true` ou `false` (padrão, o processamento de perfis de validação adicional será interrompido e retornará um erro). |
 |ContinueOnSuccess | Não  | Indica se a validação de qualquer perfil de validação subsequente deve continuar se esse perfil técnico de validação for bem-sucedio. Valores possíveis: `true` ou `false`. O padrão é `true`, significando que continuará o processamento dos perfis de validação adicional. |
 
 O elemento **ValidationTechnicalProfile** contém o seguinte elemento:
@@ -65,8 +65,8 @@ O elemento **Precondition** contém os seguinte atributo:
 
 | Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
-| Type | SIM | O tipo de verificação ou consulta ser executada para a pré-condição. Qualquer um dos `ClaimsExist` é especificado para garantir que as ações devem ser realizadas se as declarações especificadas existem no atual conjunto de declarações do usuário, ou `ClaimEquals` for especificado que as ações devem ser executadas se a declaração especificada existe e seu valor é igual ao valor especificado. |
-| ExecuteActionsIf | SIM | Indica se as ações na pré-condição devem ser executadas se o teste for verdadeiro ou falso. |
+| Type | Sim | O tipo de verificação ou consulta ser executada para a pré-condição. Qualquer um dos `ClaimsExist` é especificado para garantir que as ações devem ser realizadas se as declarações especificadas existem no atual conjunto de declarações do usuário, ou `ClaimEquals` for especificado que as ações devem ser executadas se a declaração especificada existe e seu valor é igual ao valor especificado. |
+| ExecuteActionsIf | Sim | Indica se as ações na pré-condição devem ser executadas se o teste for verdadeiro ou falso. |
 
 O elemento **Precondition** contém os seguintes elementos:
 

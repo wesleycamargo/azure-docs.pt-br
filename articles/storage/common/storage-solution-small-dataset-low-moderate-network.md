@@ -4,16 +4,16 @@ description: Saiba como escolher uma solução do Azure para transferência de d
 services: storage
 author: alkohli
 ms.service: storage
-ms.subservice: blob
+ms.subservice: blobs
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: alkohli
-ms.openlocfilehash: b9c19c4cd85b1ab2bc3ea010d029361957de3943
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
+ms.openlocfilehash: 3e6f4f3eb312f0d4d96a008c0944a9608d0bf4a7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263651"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124296"
 ---
 # <a name="data-transfer-for-small-datasets-with-low-to-moderate-network-bandwidth"></a>Transferência de dados para conjuntos de dados pequenos com largura de banda de rede baixa a moderada
  
@@ -49,16 +49,16 @@ As opções recomendadas nesse cenário são:
 
 A tabela a seguir resume as diferenças nas principais funcionalidades.
 
-| Recurso                                                            | Gerenciador de Armazenamento do Azure                    | Portal do Azure  | AzCopy<br>Azure PowerShell<br>CLI do Azure            | SDKs ou APIs REST do Armazenamento do Azure |
-|----------------------------------------------|-------------------------------------------|--------------------------------------|-------------------|---------------------------------------|
-| Disponibilidade                                                       | Fazer o download e instalar <br>Ferramenta autônoma | Ferramentas de exploração baseadas na Web no portal do Azure           | Ferramenta de linha de comando |Interfaces programáveis em .NET, Java, Python, JavaScript, C++, Go, Ruby e PHP                                                         |
-| Interface gráfica                                              | SIM                                       | sim                                                     | Não                | Não                                                       |
-| Plataformas com suporte                                              | Windows, Mac, Linux                       | Baseado na Web     |Windows, Mac, Linux     |Todas as plataformas                                                         |
-| Operações de Armazenamento de Blobs permitidas<br>para blobs e pastas            | Carregar<br>Baixar<br>Gerenciar    | Carregar<br>Baixar<br>Gerenciar  |Carregar<br>Baixar<br>Gerenciar             | Sim, personalizável                                                        |
-| Armazenamento do Data Lake Gen1 permitido<br>operações para arquivos e pastas  | Carregar<br>Baixar<br>Gerenciar                | Não  |Carregar<br>Baixar<br>Gerenciar                   |      Não                                                    |
-| Operações de armazenamento de Arquivo permitidas<br>para arquivos e diretórios        | Carregar<br>Baixar<br>Gerenciar       | Carregar<br>Baixar<br>Gerenciar   |Carregar<br>Baixar<br>Gerenciar |                                                         |Sim, personalizável
-| Operações de armazenamento de Tabela permitidas<br>para tabelas                      |Gerenciar                            | Não             |Suporte de tabela no AzCopy v7 |Sim, personalizável|
-| Armazenamento de Fila permitido                                              | Gerenciar                                    | Não   |Não  | Sim, é personalizável|
+| Recurso | Gerenciador de Armazenamento do Azure | Portal do Azure | AzCopy<br>Azure PowerShell<br>CLI do Azure | SDKs ou APIs REST do Armazenamento do Azure |
+|---------|------------------------|--------------|-----------------------------------------|---------------------------------|
+| Disponibilidade | Fazer o download e instalar <br>Ferramenta autônoma | Ferramentas de exploração baseadas na Web no portal do Azure | Ferramenta de linha de comando |Interfaces programáveis em .NET, Java, Python, JavaScript, C++, Go, Ruby e PHP |
+| Interface gráfica | Sim | sim | Não | Não  |
+| Plataformas com suporte | Windows, Mac, Linux | Baseado na Web |Windows, Mac, Linux |Todas as plataformas |
+| Operações de Armazenamento de Blobs permitidas<br>para blobs e pastas | Carregar<br>Baixar<br>Gerenciar | Carregar<br>Baixar<br>Gerenciar |Carregar<br>Baixar<br>Gerenciar | Sim, personalizável |
+| Armazenamento do Data Lake Gen1 permitido<br>operações para arquivos e pastas | Carregar<br>Baixar<br>Gerenciar | Não  |Carregar<br>Baixar<br>Gerenciar                   | Não  |
+| Operações de armazenamento de Arquivo permitidas<br>para arquivos e diretórios | Carregar<br>Baixar<br>Gerenciar | Carregar<br>Baixar<br>Gerenciar   |Carregar<br>Baixar<br>Gerenciar | Sim, personalizável |
+| Operações de armazenamento de Tabela permitidas<br>para tabelas |Gerenciar | Não  |Suporte de tabela no AzCopy v7 |Sim, personalizável|
+| Armazenamento de Fila permitido | Gerenciar | Não   |Não  | Sim, é personalizável|
 
 
 ## <a name="next-steps"></a>Próximas etapas

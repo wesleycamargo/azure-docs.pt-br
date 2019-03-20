@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: shlo
-ms.openlocfilehash: 6645463f2172a6f201f4d2f840e03d1797367752
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: e96e462709ab0c715c831bd10c628869d5c617fe
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55512328"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013304"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Monitorar e alertar data factories usando o Azure Monitor
 Os aplicativos em nuvem são complexos com muitas partes móveis. O monitoramento fornece dados para garantir que seu aplicativo permaneça ativo e em execução em um estado íntegro. Ele também ajuda a afastar os problemas potenciais ou solucionar problemas antigos. Além disso, você pode usar os dados de monitoramento para obter mais informações sobre seu aplicativo. Esse conhecimento pode ajudá-lo a melhorar o desempenho ou a capacidade de manutenção do aplicativo ou automatizar ações que normalmente exigiriam intervenção manual.
@@ -40,11 +40,11 @@ Você pode usar uma conta de armazenamento ou um namespace de hub de eventos que
 ### <a name="diagnostic-settings"></a>Configurações de Diagnóstico
 Os Logs de Diagnóstico para os recursos de não computação são configurados usando as configurações de diagnóstico. Configurações de diagnóstico para um controle de recursos:
 
-* Para onde os logs de diagnóstico são enviados (Conta de Armazenamento, Hubs de Eventos ou Log Analytics).
+* Onde os logs de diagnóstico são enviados (conta de armazenamento, Hubs de eventos ou logs do Azure Monitor).
 * Quais categorias de log são enviadas.
 * Quanto tempo cada categoria de log deve ser mantida em uma conta de armazenamento.
 * Uma retenção de zero dias significa que os registros serão mantidos indefinidamente. O valor pode ser qualquer quantidade de dias, entre 1 e 2147483647.
-* Se as políticas de retenção estiverem definidas, mas o armazenamento de logs em uma conta de armazenamento estiver desabilitado (por exemplo, apenas as opções Hubs de Eventos ou Log Analytics forem selecionadas), as políticas de retenção não terão efeito.
+* Se as políticas de retenção são definidas, mas armazenamento dos logs em uma conta de armazenamento está desabilitado (por exemplo, somente Hubs de eventos ou o Azure Monitor logs forem selecionadas), as políticas de retenção não terão efeito.
 * As políticas de retenção são aplicadas por dia, para que, ao final de um dia (UTC), os logs do dia após a política de retenção sejam excluídos. Por exemplo, se você tiver uma política de retenção de um dia, no início do dia de hoje, os logs de anteontem serão excluídos.
 
 ### <a name="enable-diagnostic-logs-via-rest-apis"></a>Habilitar os logs de diagnóstico usando APIs REST
@@ -59,7 +59,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 **Cabeçalhos**
 * Substitua `{api-version}` por `2016-09-01`.
-* Substitua `{resource-id}` pela ID de recurso do recurso para o qual você deseja editar as configurações de diagnóstico. Para obter mais informações, consulte [Usando os grupos de recursos para gerenciar seus recursos do Azure](../azure-resource-manager/resource-group-portal.md).
+* Substitua `{resource-id}` pela ID de recurso do recurso para o qual você deseja editar as configurações de diagnóstico. Para obter mais informações, consulte [Usando os grupos de recursos para gerenciar seus recursos do Azure](../azure-resource-manager/manage-resource-groups-portal.md).
 * Defina o cabeçalho `Content-Type` como `application/json`.
 * Defina o cabeçalho de autorização para um token Web JSON obtido do Azure Active Directory. Para mais informações, consulte [Autenticação de solicitações](../active-directory/develop/authentication-scenarios.md).
 
@@ -277,7 +277,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | --- | --- | --- | --- |
 | Nível |Cadeia de caracteres | Nível dos logs de diagnóstico. O nível 4 sempre é o caso para logs de execução de atividade. | `4`  |
 | correlationId |Cadeia de caracteres | ID exclusiva para acompanhar uma solicitação específica ponta a ponta | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| tempo real | Cadeia de caracteres | Hora do evento no período de tempo, formato UTC | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| tempo real | Cadeia de caracteres | Hora do evento no período de tempo, formato UTC `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |activityRunId| Cadeia de caracteres| ID da execução de atividade | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
 |pipelineRunId| Cadeia de caracteres| ID da execução de pipeline | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |ResourceId| Cadeia de caracteres | ID de recursos associado para o recurso de data factory | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
@@ -288,7 +288,6 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 |activityName| Cadeia de caracteres | Nome da atividade | `MyActivity` |
 |iniciar| Cadeia de caracteres | Início da execução de atividade no período de tempo, formato UTC | `2017-06-26T20:55:29.5007959Z`|
 |end| Cadeia de caracteres | Fim da execução de atividade no período de tempo, formato UTC. Se a atividade não foi finalizada ainda (log de diagnóstico para uma atividade que está sendo iniciada), um valor padrão de `1601-01-01T00:00:00Z` será definido.  | `2017-06-26T20:55:29.5007959Z` |
-
 
 ### <a name="pipeline-run-logs-attributes"></a>Atributos de logs de execução de pipeline
 
@@ -324,7 +323,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | --- | --- | --- | --- |
 | Nível |Cadeia de caracteres | Nível dos logs de diagnóstico. O nível 4 é o caso para logs de execução de atividade. | `4`  |
 | correlationId |Cadeia de caracteres | ID exclusiva para acompanhar uma solicitação específica ponta a ponta | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| tempo real | Cadeia de caracteres | Hora do evento no período de tempo, formato UTC | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| tempo real | Cadeia de caracteres | Hora do evento no período de tempo, formato UTC `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |runId| Cadeia de caracteres| ID da execução de pipeline | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |ResourceId| Cadeia de caracteres | ID de recursos associado para o recurso de data factory | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |categoria| Cadeia de caracteres | Categoria dos Logs de Diagnóstico. Defina essa propriedade para "PipelineRuns" | `PipelineRuns` |
@@ -334,7 +333,6 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 |iniciar| Cadeia de caracteres | Início da execução de atividade no período de tempo, formato UTC | `2017-06-26T20:55:29.5007959Z`|
 |end| Cadeia de caracteres | Fim das execuções de atividade no período de tempo, formato UTC. Se a atividade não foi finalizada ainda (log de diagnóstico para uma atividade que está sendo iniciada), um valor padrão de `1601-01-01T00:00:00Z` será definido.  | `2017-06-26T20:55:29.5007959Z` |
 |status| Cadeia de caracteres | Status final da execução do pipeline (Bem-sucedido ou Falha) | `Succeeded`|
-
 
 ### <a name="trigger-run-logs-attributes"></a>Atributos de logs de execução do gatilho
 
@@ -369,7 +367,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | --- | --- | --- | --- |
 | Nível |Cadeia de caracteres | Nível dos logs de diagnóstico. Defina o nível 4 para logs de execução da atividade. | `4`  |
 | correlationId |Cadeia de caracteres | ID exclusiva para acompanhar uma solicitação específica ponta a ponta | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| tempo real | Cadeia de caracteres | Hora do evento no período de tempo, formato UTC | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| tempo real | Cadeia de caracteres | Hora do evento no período de tempo, formato UTC `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |triggerId| Cadeia de caracteres| ID da execução do gatilho | `08587023010602533858661257311` |
 |ResourceId| Cadeia de caracteres | ID de recursos associado para o recurso de data factory | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |categoria| Cadeia de caracteres | Categoria dos Logs de Diagnóstico. Defina essa propriedade para "PipelineRuns" | `PipelineRuns` |

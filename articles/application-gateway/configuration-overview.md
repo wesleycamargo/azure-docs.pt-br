@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: absha
-ms.openlocfilehash: 515243cb043bac8e9f28a3c63808e4fbd9b8f525
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7bc3ea054056ac67cf0a116fb1538bc1483ab4d4
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57905021"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223522"
 ---
 # <a name="application-gateway-configuration-overview"></a>Visão geral da configuração de Gateway de aplicativo
 
@@ -85,8 +85,7 @@ Você pode escolher entre [ouvinte básico ou multissite](https://docs.microsoft
 
 - Se você estiver hospedando um único site por trás de um gateway de aplicativo, escolha o ouvinte básico. Saiba mais [como criar um gateway de aplicativo com o ouvinte básico](https://docs.microsoft.com/azure/application-gateway/quick-create-portal).
 
-- Se você estiver configurando mais de um aplicativo web ou vários subdomínios do mesmo domínio pai na mesma instância de gateway de aplicativo, em seguida, escolha o ouvinte multissite. Para o ouvinte multissite, além disso você precisará inserir um nome de host. Isso ocorre porque o Gateway de aplicativo depende de cabeçalhos de host HTTP 1.1 para hospedar mais de um site no mesmo endereço IP público e porta.![1551057450710](C:/Users/absha/AppData/Roaming/Typora/typora-user-images/1551057450710.png)
-
+- Se você estiver configurando mais de um aplicativo web ou vários subdomínios do mesmo domínio pai na mesma instância de gateway de aplicativo, em seguida, escolha o ouvinte multissite. Para o ouvinte multissite, além disso você precisará inserir um nome de host. Isso ocorre porque o Gateway de aplicativo depende de cabeçalhos de host HTTP 1.1 para hospedar mais de um site no mesmo endereço IP público e porta.
 
 > [!NOTE]
 > No caso de SKUs v1, os ouvintes são processados na ordem em que elas são mostradas. Por esse motivo, se um ouvinte básico corresponder a uma solicitação de entrada, ele a processará primeiro. Portanto, os ouvintes multissite devem ser configuradas antes de um ouvinte básico para garantir que o tráfego é roteado para o back-end correto.

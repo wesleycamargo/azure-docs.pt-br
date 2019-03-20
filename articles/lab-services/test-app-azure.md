@@ -12,15 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: spelluru
-ms.openlocfilehash: a58ebe14749add30deb229f1b7e30fbb6e9921d7
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 9ca1c4a1ed1841f82bc386cff48315dd15ef91bb
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814871"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730402"
 ---
 # <a name="test-your-app-in-azure"></a>Teste seu aplicativo no Azure 
 Este artigo apresenta as etapas para testar seu aplicativo no Azure usando o DevTest Labs. Primeiro, configure um compartilhamento de arquivo em um laboratório e monte-o como uma unidade em seu computador de desenvolvimento local e uma VM dentro de um laboratório. Em seguida, você usa o Visual Studio 2017 para implantar seu aplicativo no compartilhamento de arquivos para que possa executar o aplicativo na VM no laboratório.  
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 1. Escolha [Criar uma assinatura do Azure](https://azure.microsoft.com/free/) se você ainda não tiver uma e entre no [portal do Azure](https://portal.azure.com).
@@ -56,7 +58,7 @@ Este artigo apresenta as etapas para testar seu aplicativo no Azure usando o Dev
 
     ![Selecione a VM do laboratório](media/test-app-in-azure/select-lab-vm.png)
 2. Selecione **Conectar** na barra de ferramentas para conectar-se à VM. 
-3. [Instale o Azure PowerShell](https://azure.microsoft.com/downloads/) usando o link **Instalar Windows** na seção **Ferramentas de linha de comando**. Para outras maneiras de instalar o Azure PowerShell, veja [este artigo](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.8.1).
+3. [Instale o Azure PowerShell](/powershell/azure/install-az-ps).
 4. Siga as instruções na seção Montar o compartilhamento de arquivos. 
 
 ## <a name="publish-your-app-from-visual-studio"></a>Publique seu aplicativo do Visual Studio

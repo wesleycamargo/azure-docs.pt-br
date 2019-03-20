@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 03/18/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9d7e6f7505b8af76ff6c42c040918a274d89c3c
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 2a6896e2b9633b8de679e8d14a7957dc0e3229e7
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57407913"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226718"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Registro de informações de segurança Enable combinado (visualização)
 
@@ -44,6 +44,12 @@ Conclua as seguintes etapas para habilitar o registro combinado:
 
 > [!NOTE]
 > Uma vez você habilitar registro combinado, os usuários que registram ou confirme que seu número de telefone ou aplicativo móvel por meio da nova experiência pode usá-los para o MFA e o SSPR, se esses métodos estão habilitados nas políticas de MFA e o SSPR. Se você, em seguida, desabilite essa experiência, os usuários que vá para o registro SSPR anterior da página em `https:/aka.ms/ssprsetup` precisarão realizar a autenticação multifator, antes que possam acessar a página.
+
+Se você tiver configurado o site à lista de atribuição de zona do Internet Explorer, os sites a seguir devem ser na mesma zona:
+
+* [https://login.microsoftonline.com](https://login.microsoftonline.com)
+* [https://mysignins.microsoft.com](https://mysignins.microsoft.com)
+* [https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com)
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: ad3ea9b0cde16d5c9645e7eacee9ba7f9a08ed2d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 6cee0f55d1c7d53ad28eb5568b07e83ccab28afe
+ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859158"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57588900"
 ---
 # <a name="glossary"></a>Glossário
 
@@ -23,18 +23,15 @@ ms.locfileid: "55859158"
 
 #### <a name="attributes"></a>Atributos
 
-Atributos são opcionais nos resultados de detecção, como [idade](#Age-Attribute), [gênero](#Gender-Attribute), [pose da cabeça](#Head-Pose-Attribute), [pelos faciais](#Facial-Hair-Attribute), [sorriso](#Smile-Attribute).
-Eles podem ser obtidos pela API de detecção especificando os parâmetros de consulta: returnFaceAttributes. Os atributos fornecem informações adicionais sobre [faces](#Face) selecionadas; além de [ID de face](#Face-ID) e [retângulo](#Face-Rectangle).
+Atributos são recursos de face opcionais que podem ser detectados, tais como [idade](#Age-Attribute), [sexo](#Gender-Attribute), [pose principal](#Head-Pose-Attribute), [pelos faciais](#Facial-Hair-Attribute)e [Smiley](#Smile-Attribute). Eles podem ser obtidos a API de detecção, especificando o _returnFaceAttributes_ parâmetro de consulta.
 
-Para obter mais detalhes, consulte o guia [Face - Detectar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+Para obter uma lista completa dos atributos faciais, consulte a documentação de referência: [Enfrentam - detectar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 #### <a name="age-attribute"></a>Idade (atributo)
 
 A idade é um do [atributos](#Attributes) que descreve a idade de uma face específica. O atributo idade é opcional nos resultados de detecção e pode ser controlado com uma solicitação de detecção especificando o parâmetro returnFaceAttributes.
 
-Para obter mais detalhes, consulte o guia [Face - Detectar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
-
-## <a name="b"></a>b
+Para obter mais informações, consulte a documentação de referência: [Enfrentam - detectar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 ## <a name="c"></a>C
 
@@ -42,13 +39,13 @@ Para obter mais detalhes, consulte o guia [Face - Detectar](https://westus.dev.c
 
 Candidatos são essencialmente os resultados de [identificação](#Identification) (por exemplo, pessoas identificadas e nível de confiança nas detecções). Um candidato é representado pelo [PersonID](#Person-ID) e [confiança](#Confidence), indicando que a pessoa que é identificada com um alto nível de confiança.
 
-Para obter mais detalhes, consulte o guia [Face - Identificar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
+Para obter mais informações, consulte a documentação de referência: [Enfrentam – identificar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
 
 #### <a name="confidence"></a>Confiança
 
 Confiança é uma medida revelando a similaridade entre as [faces](#Face) ou [Pessoa](#Person) em valores numéricos – que é usado na [identificação](#Identification), e [ verificação](#Verification) para indicar as semelhanças dos resultados pesquisados, identificados e verificados.
 
-Para obter mais detalhes, veja os seguintes guias: [Rosto – Encontrar Semelhante](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [Rosto – Identificar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) e [Rosto – Verificar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
+Para obter mais informações, consulte a documentação de referência: [Rosto – Encontrar Semelhante](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [Rosto – Identificar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) e [Rosto – Verificar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
 
 ## <a name="d"></a>D
 
@@ -56,23 +53,29 @@ Para obter mais detalhes, veja os seguintes guias: [Rosto – Encontrar Semelhan
 
 A detecção facial é a ação de encontrar as faces em imagens. Os usuários podem carregar uma imagem ou especificar uma URL de imagem na solicitação. As faces detectadas são retornadas com [IDs de Face](#Face-ID)  indicando uma identidade exclusiva na API de Detecção Facial. Os retângulos indicam as localizações de face da imagem em pixels, bem como [atributos](#Attributes) opcionais para cada face como [idade](#Age-Attribute), [gênero](#Gender-Attribute), [pose da cabeça ](#Head-Pose-Attribute), [forma facial](#Facial-Hair-Attribute) e [sorriso](#Smile-Attribute).
 
-Para obter mais detalhes, consulte o guia [Face - Detectar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+Para obter mais informações, consulte a documentação de referência: [Enfrentam - detectar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 ## <a name="e"></a>E
+
+#### <a name="emotion-attribute"></a>Emoção (atributo)
+
+A emoção é um dos [atributos faciais](#Attributes). Quando consultado, ele retorna uma lista de emoções e sua confiança de detecção para a determinada face. Pontuações de confiança são normalizadas: adicionará as pontuações em todas as emoções até um. As emoções retornadas são felicidade, tristeza, neutral, raiva, desdém, aversão, surpresa e medo.
+
+Para obter mais informações, consulte a documentação de referência: [Enfrentam - detectar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 ## <a name="f"></a>F
 
 #### <a name="face"></a>Face
 
-Face é um termo unificado para os resultados derivados da API de Detecção Facial relacionados às faces detectadas. Por fim, o rosto é representado por uma identidade unificada ([ID de Rosto](#Face-ID)), uma região específica em imagens ([Retângulo de Rosto](#Face-Rectangle)) e atributos extra do rosto, como [idade](#Age-Attribute), [gênero](#Gender-Attribute), pontos de referência e [pose da cabeça](#Head-Pose-Attribute). Além disso, a detecção pode retornar rostos.
+Face é um termo unificado para os resultados derivados da API de Detecção Facial relacionados às faces detectadas. Por fim, face é representado por uma identidade unificados ([Face ID](#Face-ID)), uma região especificada em imagens ([retângulo facial](#Face-Rectangle)) e os atributos adicionais relacionadas à face, como [idade](#Age-Attribute), [gênero](#Gender-Attribute), pontos de referência e [pose principal](#Head-Pose-Attribute). Além disso, a detecção pode retornar rostos.
 
-Para obter mais detalhes, consulte o guia [Face - Detectar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+Para obter mais informações, consulte a documentação de referência: [Enfrentam - detectar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 #### <a name="face-api"></a>API de Detecção Facial
 
 A API de Detecção Facial é uma API baseada em nuvem que fornece os algoritmos mais avançados para reconhecimento e detecção de face. A funcionalidade principal da API de Detecção Facial pode ser dividida em duas categorias: detecção facial com atributos e [reconhecimento](#Recognition) facial.
 
-Para obter mais detalhes, veja os seguintes guias: [Visão geral da API de Detecção Facial](./Overview.md), [Rosto – Detectar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [Rosto – Encontrar Semelhante](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [Rosto – Agrupar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238), [Rosto – Identificar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) e [Rosto – Verificar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
+Para obter mais informações, consulte a documentação de referência: [Visão geral da API de Detecção Facial](./Overview.md), [Rosto – Detectar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [Rosto – Encontrar Semelhante](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [Rosto – Agrupar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238), [Rosto – Identificar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) e [Rosto – Verificar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
 
 #### <a name="face-attributesfacial-attributes"></a>Atributos de rosto/atributos faciais
 
@@ -82,13 +85,13 @@ Consulte [Atributos](#Attributes).
 
 A ID de Detecção Facial é derivada dos resultados de detecção, no qual uma cadeia de caracteres representa um [rosto](#Face) na [API de Detecção Facial](#Face-API).
 
-Para obter mais detalhes, consulte o guia [Face - Detectar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+Para obter mais informações, consulte a documentação de referência: [Enfrentam - detectar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 #### <a name="face-landmarksfacial-landmarks"></a>Pontos de referência faciais marcos/Facial
 
 Os pontos de referência são opcionais nos resultados de detecção, que são pontos faciais semânticos, como olhos, nariz e boca (ilustrados na figura a seguir). Os pontos de referência podem ser controlados com uma solicitação de detecção pelo número booliano de returnFaceLandmarks. Se o returnFaceLandmarks for definido como verdadeiro, as faces retornadas terão os atributos de ponto de referência.
 
-Para obter mais detalhes, consulte o guia [Face - Detectar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+Para obter mais informações, consulte a documentação de referência: [Enfrentam - detectar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 ![HowToDetectFace](./Images/landmarks.1.jpg)
 
@@ -96,31 +99,31 @@ Para obter mais detalhes, consulte o guia [Face - Detectar](https://westus.dev.c
 
 O retângulo de rosto é derivado dos resultados de detecção, que fazem um retângulo vertical (esquerda, superior, largura, altura) nas imagens em pixels. O canto superior esquerdo de uma [face](#Face) (esquerda e superior), além da largura e altura, indica os tamanhos nos eixos x e y, respectivamente.
 
-Para obter mais detalhes, consulte o guia [Face - Detectar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+Para obter mais informações, consulte a documentação de referência: [Enfrentam - detectar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 #### <a name="facial-hair-attribute"></a>Pelos faciais (atributo)
 
 O pelo facial é um dos [atributos](#Attributes) usados para descrever o comprimento do pelo facial das faces disponíveis. O atributo de pelo facial é opcional nos resultados de detecção e pode ser controlado com uma solicitação de detecção pelo returnFaceAttributes. Se returnFaceAttributes contiver “facialHair”, as faces retornadas terá os atributos de pelo facial.
 
-Para obter mais detalhes, consulte o guia [Face - Detectar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+Para obter mais informações, consulte a documentação de referência: [Enfrentam - detectar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 #### <a name="facelist"></a>FaceList
 
 A FaceList é uma coleção de [PersistedFace](#PersistedFace) e é a unidade de [Encontrar Semelhante](#Find-Similar). Uma FaceList vem com uma [ID de FaceList](#FaceList-ID), bem como outros atributos, como Nome e Dados de Usuário.
 
-Para obter mais detalhes, veja os seguintes guias: [FaceList – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b) e [FaceList – Obter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c).
+Para obter mais informações, consulte a documentação de referência: [FaceList – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b) e [FaceList – Obter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c).
 
 #### <a name="facelist-id"></a>ID de FaceList
 
 A ID de FaceList é uma cadeia de caracteres fornecida pelo usuário usada como um identificador de uma [FaceList](#FaceList). A ID de FaceList deve ser exclusiva dentro da assinatura.
 
-Para obter mais detalhes, veja os seguintes guias: [FaceList – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b) e [FaceList – Obter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c).
+Para obter mais informações, consulte a documentação de referência: [FaceList – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b) e [FaceList – Obter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c).
 
 #### <a name="find-similar"></a>Localizar semelhante
 
 Essa API é usada para pesquisar/consultar faces semelhantes com base em uma coleção de faces. As faces de consulta e coleções de face são representadas como [IDs de face](#Face-ID) ou [ID FceLis](#FaceList-ID)/[ID LargeFaceList](#LargeFaceList-ID) na solicitação. Os resultados retornados são rosto semelhantes pesquisadas, representadas por [IDs de rosto](#Face-ID) ou IDs de PersistedFace.
 
-Para obter mais detalhes, veja os seguintes guias: [Rosto – Encontrar Semelhante](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [LargeFaceList – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc) e [FaceList – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b).
+Para obter mais informações, consulte a documentação de referência: [Rosto – Encontrar Semelhante](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [LargeFaceList – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc) e [FaceList – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b).
 
 ## <a name="g"></a>G
 
@@ -128,19 +131,19 @@ Para obter mais detalhes, veja os seguintes guias: [Rosto – Encontrar Semelhan
 
 O gênero é um dos [atributos](#Attributes) usados para descrever os gêneros das faces disponíveis. O atributo de gênero é opcional nos resultados de detecção e pode ser controlado com uma solicitação de detecção pelo returnFaceAttributes. Se returnFaceAttributes contiver “gender”, as faces retornadas terá os atributos de gênero.
 
-Para obter mais detalhes, consulte o guia [Face - Detectar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+Para obter mais informações, consulte a documentação de referência: [Enfrentam - detectar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 #### <a name="grouping"></a>Agrupamento
 
 O agrupamento de face é o agrupamento de uma coleção de faces de acordo com as semelhanças faciais. As coleções de face são indicadas pelas coleções de ID de face na solicitação. Como resultado de agrupamento, faces semelhantes são agrupadas juntas como [grupos](#Groups), e as faces que não são semelhantes a qualquer outra face são mescladas em conjunto como um grupo confuso. No máximo, há um [grupo confuso](#Messy-Group) no resultado do agrupamento.
 
-Para obter mais detalhes, consulte o guia [Face - Agrupar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
+Para obter mais informações, consulte a documentação de referência: [Enfrentam - grupo](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
 
 #### <a name="groups"></a>Grupos
 
 Os grupos são provenientes de resultados de [agrupamento](#Grouping). Cada grupo contém uma coleção de faces semelhantes, em que as faces são indicadas por [IDs de face](#Face-ID).
 
-Para obter mais detalhes, consulte o guia [Face - Agrupar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
+Para obter mais informações, consulte a documentação de referência: [Enfrentam - grupo](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
 
 ## <a name="h"></a>H
 
@@ -148,7 +151,7 @@ Para obter mais detalhes, consulte o guia [Face - Agrupar](https://westus.dev.co
 
 A pose da cabeça é um dos [atributos](#Attributes) que representa a orientação de face no espaço em 3D de acordo com os ângulos de sobreposição, de passo e de guinada, conforme exibido na figura a seguir. Os intervalos de valores de passo e guinada são [-180, 180] e [-90, 90] em graus. Na versão atual, o valor de passo retornado de detecção é sempre 0. O atributo de pose da cabeça é opcional nos resultados de detecção e pode ser controlado com uma solicitação de detecção pelo parâmetro returnFaceAttributes. Se o parâmetro returnFaceAttributes contiver “headPose”, as faces retornadas terão os atributos de pose de cabeça.
 
-Para obter mais detalhes, consulte o guia [Face - Detectar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+Para obter mais informações, consulte a documentação de referência: [Enfrentam - detectar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 ![GlossaryHeadPose](./Images/headpose.1.jpg)
 
@@ -166,17 +169,13 @@ As várias faces na entrada são consideradas separadamente, e cada face terá s
 > O LargePersonGroup/PersonGroup deve ser treinado com êxito antes da identificação. Se o LargePersonGroup/PersonGroup não for treinado, ou de [status](#Status-Train) de treinamento não for exibido como "com êxito" (ou seja, “em execução”, “com falha” ou “tempo limite”), a resposta da solicitação é 400.
 > 
 
-Para obter mais detalhes, veja os seguintes guias: [Rosto – Identificar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [LargePersonGroup Person – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40), [LargePersonGroup – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d), [LargePersonGroup – Treinar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4), [PersonGroup Person – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c), [PersonGroup – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) e [PersonGroup – Treinar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249).
+Para obter mais informações, consulte a documentação de referência: [Rosto – Identificar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [LargePersonGroup Person – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40), [LargePersonGroup – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d), [LargePersonGroup – Treinar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4), [PersonGroup Person – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c), [PersonGroup – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) e [PersonGroup – Treinar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249).
 
 #### <a name="isidentical"></a>IsIdentical
 
 IsIdentical é um campo booliano de resultados de [verificação](#Verification) resultados que indica se duas faces pertencem à mesma pessoa.
 
-Para obter mais detalhes, consulte a guia [Face - Verificar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
-
-## <a name="j"></a>J
-
-## <a name="k"></a>K
+Para obter mais informações, consulte a documentação de referência: [Face: verificar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
 
 ## <a name="l"></a>L
 
@@ -188,25 +187,25 @@ Consulte os pontos de referência de rosto.
 
 A LargeFaceList é uma coleção de [PersistedFace](#PersistedFace) e é a unidade de [Encontrar Semelhante](#Find-Similar). Uma LargeFaceList vem com uma [ID de LargeFaceList](#LargeFaceList-ID), bem como outros atributos, como Nome e Dados de Usuário.
 
-Para obter mais detalhes, veja os seguintes guias: [LargeFaceList – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc), [LargeFaceList – Obter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a15827cd2de3616c086f2ce) e [LargeFaceList – Listar Rosto](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158db4d2de3616c086f2d6).
+Para obter mais informações, consulte a documentação de referência: [LargeFaceList – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc), [LargeFaceList – Obter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a15827cd2de3616c086f2ce) e [LargeFaceList – Listar Rosto](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158db4d2de3616c086f2d6).
 
 #### <a name="largefacelist-id"></a>LargeFaceList ID
 
 A ID de FaceList é uma cadeia de caracteres fornecida pelo usuário usada como um identificador de uma [LargeFaceList](#LargeFaceList). A ID de LargeFaceList deve ser exclusiva dentro da assinatura.
 
-Para obter mais detalhes, veja os seguintes guias: [LargeFaceList – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc) e [LargeFaceList – Obter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a15827cd2de3616c086f2ce).
+Para obter mais informações, consulte a documentação de referência: [LargeFaceList – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc) e [LargeFaceList – Obter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a15827cd2de3616c086f2ce).
 
 #### <a name="largepersongroup"></a>LargePersonGroup
 
 LargePersonGroup é uma coleção de [Pessoas](#Person) e é a unidade de [Identificação](#Identification). Um LargePersonGroup vem com uma [ID de LargePersonGroup](#LargePersonGroup-ID), bem como outros atributos, como Nome e Dados de Usuário.
 
-Para obter mais detalhes, veja os seguintes guias: [LargePersonGroup – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d), [LargePersonGroup – Obter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acebb6ac60f11b48b5a9e) e [LargePersonGroup Person – Listar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adda06ac60f11b48b5aa1).
+Para obter mais informações, consulte a documentação de referência: [LargePersonGroup – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d), [LargePersonGroup – Obter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acebb6ac60f11b48b5a9e) e [LargePersonGroup Person – Listar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adda06ac60f11b48b5aa1).
 
 #### <a name="largepersongroup-id"></a>LargePersonGroup ID
 
 A ID LargePersonGroup ID é uma cadeia de caracteres fornecida pelo usuário com identificadora de um [LargePersonGroup](#LargePersonGroup). A ID de LargePersonGroup deve ser exclusiva dentro da assinatura.
 
-Para obter mais detalhes, veja os seguintes guias: [LargePersonGroup – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d) e [LargePersonGroup – Obter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acebb6ac60f11b48b5a9e).
+Para obter mais informações, consulte a documentação de referência: [LargePersonGroup – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d) e [LargePersonGroup – Obter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acebb6ac60f11b48b5a9e).
 
 ## <a name="m"></a>M
 
@@ -214,23 +213,21 @@ Para obter mais detalhes, veja os seguintes guias: [LargePersonGroup – Criar](
 
 O grupo confuso é derivado dos resultados de [agrupamento](#Grouping) que contém as faces não semelhantes a qualquer outra face. Cada face em um grupo confuso é indicada pela [ID de face](#Face-ID).
 
-Para obter mais detalhes, consulte o guia [Face - Agrupar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
+Para obter mais informações, consulte a documentação de referência: [Enfrentam - grupo](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
 
 ## <a name="n"></a>N
 
 #### <a name="name-person"></a>Nome (pessoa)
 
-Nome é uma cadeia de caracteres descritiva amigável para [Pessoa](#Person). Ao contrário da [ID de pessoa](#Person-ID), o nome de pessoas pode ser duplicado em um grupo.
+Nome é uma cadeia de caracteres descritiva amigável para o [pessoa](#Person). Ao contrário da [ID de pessoa](#Person-ID), o nome de pessoas pode ser duplicado em um grupo.
 
-Para obter mais detalhes, veja os seguintes guias: [LargePersonGroup Person – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40), [LargePersonGroup Person – Obter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599add376ac60f11b48b5aa0), [PersonGroup Person – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) e [PersonGroup Person – Obter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523f).
+Para obter mais informações, consulte a documentação de referência: [LargePersonGroup Person – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40), [LargePersonGroup Person – Obter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599add376ac60f11b48b5aa0), [PersonGroup Person – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) e [PersonGroup Person – Obter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523f).
 
 #### <a name="name-largepersongrouppersongroup"></a>Nome (LargePersonGroup/PersonGroup)
 
-Nome também é uma cadeia de caracteres descritiva amigável para [LargePersonGroup](#LargePersonGroup)/[PersonGroup](#PersonGroup). Ao contrário da [ID LargePersonGroup](#LargePersonGroup-ID)/[ID PersonGroup](#PersonGroup-ID), o nome do LargePersonGroups/PersonGroups pode ser duplicado em uma assinatura.
+Nome também é uma cadeia de caracteres descritiva amigável para o [LargePersonGroup](#LargePersonGroup)/[PersonGroup](#PersonGroup). Ao contrário da [ID LargePersonGroup](#LargePersonGroup-ID)/[ID PersonGroup](#PersonGroup-ID), o nome do LargePersonGroups/PersonGroups pode ser duplicado em uma assinatura.
 
-Para obter mais detalhes, veja os seguintes guias: [LargePersonGroup – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d), [LargePersonGroup – Obter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acebb6ac60f11b48b5a9e), [PersonGroup – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) e [PersonGroup – Obter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246).
-
-## <a name="o"></a>O
+Para obter mais informações, consulte a documentação de referência: [LargePersonGroup – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d), [LargePersonGroup – Obter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acebb6ac60f11b48b5a9e), [PersonGroup – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) e [PersonGroup – Obter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246).
 
 ## <a name="p"></a>P
 
@@ -238,43 +235,41 @@ Para obter mais detalhes, veja os seguintes guias: [LargePersonGroup – Criar](
 
 PersistedFace é uma estrutura de dados na API detecção Facial. PersistedFace vem com uma ID PersistedFace, bem como outros atributos, como Nome e Dados do Usuário.
 
-Para obter mais detalhes, veja os seguintes guias: [LargeFaceList – Adicionar Rosto](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [FaceList – Adicionar Rosto](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargePersonGroup Person – Adicionar Rosto](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42) e [PersonGroup Person – Adicionar Rosto](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b).
+Para obter mais informações, consulte a documentação de referência: [LargeFaceList – Adicionar Rosto](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [FaceList – Adicionar Rosto](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargePersonGroup Person – Adicionar Rosto](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42) e [PersonGroup Person – Adicionar Rosto](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b).
 
 #### <a name="person-id"></a>ID da pessoa
 
 A ID da pessoa que é gerada quando uma [PersistedFace](#PersistedFace) é criada com êxito. Uma cadeia de caracteres é criada para representar esta Face na [API de Detecção Facial](#Face-API).
 
-Para obter mais detalhes, veja os seguintes guias: [LargeFaceList – Adicionar Rosto](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [FaceList – Adicionar Rosto](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargePersonGroup Person – Adicionar Rosto](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42) e [PersonGroup Person – Adicionar Rosto](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b).
+Para obter mais informações, consulte a documentação de referência: [LargeFaceList – Adicionar Rosto](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [FaceList – Adicionar Rosto](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargePersonGroup Person – Adicionar Rosto](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42) e [PersonGroup Person – Adicionar Rosto](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b).
 
 #### <a name="person"></a>Pessoa
 
 Pessoa é uma estrutura de dados gerenciada na API de Detecção Facial. Pessoa vem com uma [ID de Pessoa](#Person-ID), bem como outros atributos, como Nome, uma coleção de [PersistedFace](#PersistedFace) e Dados do Usuário.
 
-Para obter mais detalhes, veja os seguintes guias: [LargePersonGroup Person – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40), [LargePersonGroup Person – Obter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599add376ac60f11b48b5aa0), [PersonGroup Person – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) e [PersonGroup Person – Obter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523f).
+Para obter mais informações, consulte a documentação de referência: [LargePersonGroup Person – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40), [LargePersonGroup Person – Obter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599add376ac60f11b48b5aa0), [PersonGroup Person – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) e [PersonGroup Person – Obter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523f).
 
 #### <a name="person-id"></a>ID da pessoa
 
 A ID da Pessoa é gerada quando uma [Pessoa](#Person) é criada com êxito. Uma cadeia de caracteres é criada para representar esta pessoa na [API de Detecção Facial](#Face-API).
 
-Para obter mais detalhes, veja os seguintes guias: [LargePersonGroup Person – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40), [LargePersonGroup Person – Obter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599add376ac60f11b48b5aa0), [PersonGroup Person – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) e [PersonGroup Person – Obter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523f).
+Para obter mais informações, consulte a documentação de referência: [LargePersonGroup Person – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40), [LargePersonGroup Person – Obter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599add376ac60f11b48b5aa0), [PersonGroup Person – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) e [PersonGroup Person – Obter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523f).
 
 #### <a name="persongroup"></a>PersonGroup
 
 PersonGroup é uma coleção de [Pessoas](#Person) e é a unidade de [Identificação](#Identification). Um PersonGroup vem com uma [ID de PersonGroup](#PersonGroup-ID), bem como outros atributos, como Nome e Dados de Usuário.
 
-Para obter mais detalhes, veja os seguintes guias: [PersonGroup – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244), [PersonGroup – Obter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246) e [PersonGroup Person – Listar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395241).
+Para obter mais informações, consulte a documentação de referência: [PersonGroup – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244), [PersonGroup – Obter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246) e [PersonGroup Person – Listar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395241).
 
 #### <a name="persongroup-id"></a>ID de PersonGroup
 
 A ID PersonGroup ID é uma cadeia de caracteres fornecida pelo usuário com identificadora de um [PersonGroup](#PersonGroup). A ID de grupo deve ser exclusiva dentro da assinatura.
 
-Para obter mais detalhes, veja os seguintes guias: [PersonGroup – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) e [PersonGroup – Obter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246).
+Para obter mais informações, consulte a documentação de referência: [PersonGroup – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) e [PersonGroup – Obter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246).
 
 #### <a name="pose-attribute"></a>Pose (atributo)
 
 Consulte [Pose da Cabeça](#Head-Pose-Attribute).
-
-## <a name="q"></a>Q
 
 ## <a name="r"></a>R
 
@@ -282,7 +277,7 @@ Consulte [Pose da Cabeça](#Head-Pose-Attribute).
 
 Reconhecimento é uma área de aplicativos populares de tecnologias de face como [Encontrar Semelhante](#Find-Similar), [Agrupamento](#Grouping), [Identificar](#Identification),[verificar duas faces iguais ou não ](#Verification).
 
-Para obter mais detalhes, veja os seguintes guias: [Rosto – Encontrar Semelhante](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [Rosto – Agrupar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238), [Rosto – Identificar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) e [Rosto – Verificar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
+Para obter mais informações, consulte a documentação de referência: [Rosto – Encontrar Semelhante](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [Rosto – Agrupar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238), [Rosto – Identificar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) e [Rosto – Verificar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
 
 #### <a name="rectangle-face"></a>Retângulo (Face)
 
@@ -298,7 +293,7 @@ Consulte [Encontrar Semelhante](#Find-Similar).
 
 O sorriso é um dos [atributos](#Attributes) usados para descrever a expressão de sorriso das faces disponíveis. O atributo de sorriso é opcional nos resultados de detecção e pode ser controlado com uma solicitação de detecção pelo returnFaceAttributes. Se returnFaceAttributes contiver “sorriso”, as faces retornadas terá os atributos de sorriso.
 
-Para obter mais detalhes, consulte o guia [Face - Detectar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+Para obter mais informações, consulte a documentação de referência: [Enfrentam - detectar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 #### <a name="snapshot"></a>Instantâneo
 
@@ -310,7 +305,7 @@ Para obter mais detalhes, confira [Guia de migração de detecção facial](./fa
 
 Status é uma cadeia de caracteres usada para descrever o procedimento para Treinamento LargePersonGroups/LargeFaceList/PersonGroups, incluindo 'notstarted', 'running', 'succeeded', 'failed'.
 
-Para obter mais detalhes, consulte a guia [LargeFaceList - Treino](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158422d2de3616c086f2d1), [LargePersonGroup - Treinar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4), [PersonGroup - Treino](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249).
+Para obter mais informações, consulte a documentação de referência: [LargeFaceList - Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158422d2de3616c086f2d1), [LargePersonGroup - Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4), [PersonGroup - Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249).
 
 #### <a name="subscription-key"></a>Chave de assinatura
 
@@ -322,7 +317,7 @@ A chave de assinatura é uma cadeia de caracteres que é necessário especificar
 
 Essa API é usada para pré-processar a [LargeFaceList](#LargeFaceList)/[LargePersonGroup](#LargePersonGroup)/[PersonGroup](#PersonGroup) para garantir o desempenho de [Localizar Semelhante](#Find-Similar)/[Identificação](#Identification). Se não for operado o treinamento, ou o [Status do Treinamento](#Status-Train) não for exibido como bem-sucedido, a identificação para este PersonGroup resultará em falha.
 
-Para obter mais detalhes, veja os seguintes guias: [LargeFaceList – Treinar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158422d2de3616c086f2d1), [LargePersonGroup – Treinar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4), [PersonGroup – Treinar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249) e [Rosto – Identificar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
+Para obter mais informações, consulte a documentação de referência: [LargeFaceList – Treinar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158422d2de3616c086f2d1), [LargePersonGroup – Treinar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4), [PersonGroup – Treinar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249) e [Rosto – Identificar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
 
 ## <a name="u"></a>U
 
@@ -330,7 +325,7 @@ Para obter mais detalhes, veja os seguintes guias: [LargeFaceList – Treinar](h
 
 Os dados de usuário são informações adicionais associadas a [Pessoa](#Person) e [PersonGroup](#PersonGroup)/[LargePersonGroup](#LargePersonGroup). Os dados de usuário são definidos pelos usuários para tornar mais fáceis de usar, entender e lembrar dos dados.
 
-Para obter mais detalhes, veja os seguintes guias: [LargePersonGroup – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d), [LargePersonGroup – Atualizar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acfc83a7b9412a4d53f3f), [LargePersonGroup Person – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40), [LargePersonGroup Person – Atualizar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ade043a7b9412a4d53f41), [PersonGroup – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244), [PersonGroup – Atualizar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524a), [PersonGroup Person – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) e [PersonGroup Person – Atualizar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395242).
+Para obter mais informações, consulte a documentação de referência: [LargePersonGroup – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d), [LargePersonGroup – Atualizar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acfc83a7b9412a4d53f3f), [LargePersonGroup Person – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40), [LargePersonGroup Person – Atualizar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ade043a7b9412a4d53f41), [PersonGroup – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244), [PersonGroup – Atualizar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524a), [PersonGroup Person – Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) e [PersonGroup Person – Atualizar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395242).
 
 ## <a name="v"></a>V
 
@@ -338,12 +333,4 @@ Para obter mais detalhes, veja os seguintes guias: [LargePersonGroup – Criar](
 
 Essa API é usada para verificar se as duas faces são iguais ou não. Ambas as faces são representadas como IDs de face na solicitação. Os resultados verificados contêm um campo booliano (isIdentical) indicando se o mesmo é verdadeiro e campo de número ([confiança](#Confidence)) que indica o nível de confiança.
 
-Para obter mais detalhes, consulte a guia [Face - Verificar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
-
-## <a name="w"></a>W
-
-## <a name="x"></a>X
-
-## <a name="y"></a>S
-
-## <a name="z"></a>Z
+Para obter mais informações, consulte a documentação de referência: [Face: verificar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).

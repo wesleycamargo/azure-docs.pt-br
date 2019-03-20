@@ -17,12 +17,12 @@ ms.date: 02/07/2019
 ms.author: markvi
 ms.reviewer: raluthra
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9f759eb815e8d0d03d4cdd7fe4ed603ff39d34f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 1b578c0187f7b804b6261fec9d299f83d7dc1832
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197531"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58015145"
 ---
 # <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>Como: Configurar políticas de risco no Azure Active Directory Identity Protection (atualizado)
 
@@ -31,6 +31,8 @@ O Azure AD detecta eventos de risco que são indicadores para identidades potenc
 
 - Com a política de risco de entrada, você pode configurar uma resposta para eventos de risco em tempo real que foram detectados durante a entrada do usuário. 
 - Com a política de risco do usuário, você pode configurar uma resposta para todos os riscos de usuário ativos que foram detectados para um usuário ao longo do tempo.  
+
+> [!VIDEO https://www.youtube.com/embed/zEsbbik-BTE]
 
 
 ## <a name="what-is-the-sign-in-risk-policy"></a>O que é a política de risco de entrada?

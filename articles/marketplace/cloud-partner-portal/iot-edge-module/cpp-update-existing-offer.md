@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 071837aac9fce405fcc5ef92e044a0265e0e5969
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
-ms.translationtype: HT
+ms.openlocfilehash: ca7bed26d91c28304638e85d6da93708bfcfcada
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49432079"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170302"
 ---
 # <a name="update-an-existing-iot-edge-module-offer"></a>Atualizar uma oferta de módulo do IoT Edge existente
 
@@ -36,7 +36,7 @@ Para ajudá-lo nessas modificações, o portal oferece os recursos **Comparar** 
 
 ## <a name="unpermitted-changes-to-iot-edge-module-offer-or-sku"></a>Alterações não permitidas na oferta de módulo do IoT Edge ou SKU
 
-Há atributos de uma oferta de módulo do IoT Edge ou SKU que não podem ser alterados depois que a oferta estiver ativa no Azure Marketplace. Você não pode alterar as configurações a seguir:
+Há atributos de uma oferta de módulo do IoT Edge ou SKU que não pode ser alterado depois que a oferta estiver ativa no Azure Marketplace. Você não pode alterar as configurações a seguir:
 
 -  **ID da oferta** e **ID do Publicador** da oferta
 -  **ID da SKU** de SKUs existentes
@@ -49,7 +49,7 @@ As operações de inserção e atualização são comuns.
 
 ### <a name="update-the-iot-edge-module-image-version-for-a-sku"></a>Atualizar a versão de imagem do módulo do IoT Edge para uma SKU
 
-É comum que uma imagem do módulo do IoT Edge seja atualizada periodicamente com patches de segurança, recursos adicionais e assim por diante. Nesse cenário, você deseja atualizar a imagem de módulo do IoT Edge que faz referência a sua SKU usando as seguintes etapas:
+É comum para uma imagem de módulo do IoT Edge ser atualizado periodicamente com patches de segurança, recursos adicionais e assim por diante. Nesse cenário, você deseja atualizar a imagem de módulo do IoT Edge que faz referência a sua SKU usando as seguintes etapas:
 
 1.  Entrar no [Portal do Cloud Partner](https://cloudpartner.azure.com/).
 
@@ -73,7 +73,7 @@ Use as etapas a seguir para disponibilizar uma nova SKU para sua oferta existent
 
 3.  Na guia **SKUs**, selecione **Adicionar nova SKU** e forneça uma **ID DE SKU** na janela pop-up.
 
-4.  Republique o módulo do IoT Edge usando as etapas descritas em [Publicar um módulo do IoT Edge do Azure Marketplace](./cpp-publish-offer.md).
+4.  Republique o módulo do IoT Edge usando as etapas descritas em [publicar um módulo IoT Edge do Azure Marketplace](./cpp-publish-offer.md).
 
 5.  Selecione **Publicar** para iniciar o fluxo de trabalho para publicar a sua nova SKU.
 
@@ -86,7 +86,7 @@ Utilize os seguintes passos para atualizar os metadados do mercado associados à
 
 2.  Em **Todas as ofertas**, localize a oferta que você gostaria de atualizar.
 
-3.  Acesse a guia **Marketplace**. Use as instruções em [Publicar um módulo do IoT Edge ao artigo do Azure Marketplace](./cpp-publish-offer.md) para fazer alterações de metadados.
+3.  Acesse a guia **Marketplace**. Use as instruções na [publicar um módulo IoT Edge do Azure Marketplace](./cpp-publish-offer.md) artigo para fazer alterações de metadados.
 
 4.  Selecione **Publicar** para iniciar o fluxo de trabalho para publicar suas alterações.
 

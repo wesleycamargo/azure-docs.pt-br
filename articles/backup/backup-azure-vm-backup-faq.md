@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/16/2018
 ms.author: sogup
-ms.openlocfilehash: fe0b47bbf1ebb9cba328bfc444172249135270c5
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 10b49c5ebcd73010a52da1fada32ba55198b287a
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310267"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961526"
 ---
 # <a name="frequently-asked-questions-azure-backup"></a>Perguntas frequentes - Backup do Azure
 
@@ -21,10 +21,8 @@ Este artigo responde às perguntas comuns sobre o serviço de [Backup do Azure](
 
 ## <a name="general-questions"></a>Perguntas gerais
 
-
 ### <a name="what-azure-vms-can-you-back-up-using-azure-backup"></a>Quais VMs do Azure podem passar por backup usando o Backup do Azure?
 [Analise](backup-azure-arm-vms-prepare.md#before-you-start) os sistemas operacionais e limitações compatíveis.
-
 
 
 ## <a name="backup"></a>Backup
@@ -41,17 +39,16 @@ Sim, os backups funcionam perfeitamente. Não é necessário reconfigurar nada.
 ### <a name="why-cant-i-see-my-vm-in-the-configure-backup-wizard"></a>Por que não consigo ver minha VM no assistente de Backup de Configuração?
 O assistente lista apenas as VMs na mesma região do cofre e que ainda não estão sendo submetidas a backup.
 
-
 ### <a name="my-vm-is-shut-down-will-an-on-demand-or-a-scheduled-backup-work"></a>Minha VM está desligada. Será uma sob demanda ou um trabalho de backup agendado?
 Sim. Os backups são executados quando um computador é desligado. O ponto de recuperação é marcado como consistente com a falha.
 
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>Posso cancelar um trabalho de backup em andamento?
 Sim. Você poderá cancelar o trabalho de backup se ele estiver em um estado **Criar instantâneo**. Você não poderá cancelar um trabalho se a transferência de dados do instantâneo estiver em andamento.
 
-### <a name="i-enabled-resource-group-lock-on-my-backed-up-managed-disk-vms-will-my-backups-continue-to-work"></a>Eu habilitei o bloqueio de grupo de recursos nas minhas VMs de disco gerenciado de backup. Meus backups continuarão a funcionar?
-Se você bloquear o grupo de recursos, o serviço de Backup do Azure não conseguirá excluir os pontos de restauração mais antigos.
-- Os novos backups começarão a falhar, pois há um limite máximo de 18 pontos de restauração.
-- Se os backups falharem com um erro interno após o bloqueio, [siga estas etapas](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) para remover a coleção do ponto de restauração.
+### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie--azurebackuprggeonumber-will-my-backups-continue-to-work"></a>Eu habilitei o bloqueio no grupo de recursos criado pelo serviço de Backup do Azure (ou seja ` AzureBackupRG_<geo>_<number>`), meus backups continuarão a funcionar?
+Se você bloquear o grupo de recursos criado pelo serviço de Backup do Azure, o backups começarão a falhar pois não há um limite máximo de 18 pontos de restauração.
+
+Usuário precisa remover o bloqueio e limpar a coleção de pontos de restauração do grupo de recursos para tornar os futuros backups bem-sucedidos, [siga estas etapas](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) para remover a coleção de pontos de restauração.
 
 ### <a name="does-the-backup-policy-consider-daylight-saving-time-dst"></a>A política de backup leva em conta o horário de verão (DST)?
  Não. A data e hora no computador local é local com o atual horário de verão aplicado. O tempo definido para backups agendados pode ser diferente do horário local devido ao horário de verão.

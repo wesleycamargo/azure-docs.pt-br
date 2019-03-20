@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/30/2018
 ms.author: patricka
 ms.openlocfilehash: 78abb190dccd27c5bf70dfe12f978e1118601815
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
-ms.translationtype: HT
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52742362"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "58114694"
 ---
 Para habilitar a redefinição de senha refinada no aplicativo, você utiliza um fluxo de usuário de **redefinição de senha**. Observe que a opção de redefinição de senha de todos os locatários é especificada [aqui](../articles/active-directory-b2c/active-directory-b2c-reference-sspr.md). Este e fluxo de usuário descreve as experiências pelas quais os clientes passarão durante a redefinição de senha e o conteúdo dos tokens que o aplicativo receberá após a conclusão com êxito.
 

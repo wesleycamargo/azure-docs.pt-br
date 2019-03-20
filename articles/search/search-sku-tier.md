@@ -7,15 +7,15 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 03/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: cf2359834aa79b1d3fef8b65e4ef4191eb6ff867
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: d325a5dfd57bb6b69e6cf171487adfa8d374512f
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467434"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762918"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Escolher um tipo de preço para o Azure Search
 
@@ -32,30 +32,57 @@ Embora todos os níveis, incluindo a camada **Gratuita**, geralmente ofereçam p
 > A exceção à paridade de recursos são os [indexadores](search-indexer-overview.md), que não estão disponíveis no S3HD.
 >
 
-Dentro de um nível, você pode [ajustar os recursos de partição e de réplica](search-capacity-planning.md) para ajuste de desempenho. Você pode começar com dois ou três de cada e depois aumentar temporariamente seu poder computacional para uma carga de trabalho de indexação pesada. A capacidade de ajustar os níveis de recursos dentro de uma camada adiciona flexibilidade, mas também complica um pouco a análise. Talvez você precise experimentar para verificar se um nível mais baixo com maior de recursos/réplicas oferece melhor desempenho e valor do que um nível superior com menor alocação de recursos. Para saber mais sobre quando e por que você deve ajustar a capacidade, confira [Considerações sobre desempenho e otimização](search-performance-optimization.md).
+Dentro de uma camada, você pode [ajustar os recursos de partição e réplica](search-capacity-planning.md) para aumentar ou diminuir a escala. Você pode começar com uma ou duas de cada e, em seguida, aumentar temporariamente seu poder computacional uma pesada carga de trabalho de indexação. A capacidade de ajustar os níveis de recursos dentro de uma camada adiciona flexibilidade, mas também complica um pouco a análise. Talvez você precise experimentar para verificar se um nível mais baixo com maior de recursos/réplicas oferece melhor desempenho e valor do que um nível superior com menor alocação de recursos. Para saber mais sobre quando e por que você deve ajustar a capacidade, confira [Considerações sobre desempenho e otimização](search-performance-optimization.md).
 
-<!---
-The purpose of this article is to help you choose a tier. It supplements the [pricing page](https://azure.microsoft.com/pricing/details/search/) and [Service Limits](search-limits-quotas-capacity.md) page with a digest of billing concepts and consumption patterns associated with various tiers. It also recommends an iterative approach for understanding which tier best meets your needs. 
---->
+## <a name="tiers-for-azure-search"></a>Camadas para o Azure Search
+
+A tabela a seguir lista as camadas disponíveis. Incluem outras fontes de informações de camada a [página de preços](https://azure.microsoft.com/pricing/details/search/), [limites de serviço e dados](search-limits-quotas-capacity.md)e a página do portal quando um serviço de provisionamento.
+
+|Camada | Capacity |
+|-----|-------------|
+|Grátis | Compartilhado com outros assinantes. Não Evolutivo, limitado a 3 índices e 50 MB de armazenamento. |
+|Basic | Recursos de computação dedicados para cargas de trabalho de produção em uma escala menor. Uma partição de 2 GB e até três réplicas. |
+|1 Standard (S1) | De S1 em Inscrever computadores dedicados, com mais capacidade de armazenamento e processamento em cada nível. Tamanho da partição é 25 GB/partição (máximo de 300 GB de documentos por serviço) para S1. |
+|Standard 2 (S2) | Semelhante à S1, mas com 100 GB/partições (documentos de máximo de 1,2 TB por serviço) |
+|Standard 3 (S3) | 200 GB/partição (documentos de máximo de 2,4 TB por serviço). |
+|Padrão 3 alta densidade (S3-HD) | Alta densidade é uma *modo de hospedagem* S3. O hardware subjacente é otimizado para um grande número de índices menores, destinados a cenários de multilocação. S3 HD tem o mesmo encargo por unidade, mas o hardware de S3 é otimizado para leituras rápidas de arquivos em um grande número de índices menores.|
+
 
 ## <a name="how-billing-works"></a>Como funciona a cobrança
 
-No Azure Search, há quatro maneiras que você pode incorrer em custos quando você cria um recurso de pesquisa no portal:
+No Azure Search, há três maneiras de incorrer em custos no Azure Search, e há componentes fixas e variáveis. Esta seção examina cada componente de cobrança por vez.
 
-* Adicionando réplicas e partições usadas para tarefas regulares de indexação e de consulta. Você começa com uma de cada, mas pode aumentar uma ou ambas para adicionar capacidade, escolhendo níveis adicionais de alocação de recursos e pagando por eles. 
-* Encargos de saída de dados durante a indexação. Ao efetuar pull de dados de uma fonte de dados do Banco de Dados SQL do Azure ou do Cosmos DB, você verá cobranças pela transação na fatura para esses recursos.
-* Apenas para [pesquisa cognitiva](cognitive-search-concept-intro.md), a extração da imagem durante a decodificação de documentos é cobrada apenas com base no número de imagens extraídas dos documentos. A extração de texto atualmente é gratuita.
-* Apenas para [pesquisa cognitiva](cognitive-search-concept-intro.md), aprimoramentos com base em [habilidades cognitivas internas](cognitive-search-predefined-skills.md) são cobrados segundo um recurso dos Serviços Cognitivos. Aprimoramentos são cobrados com a mesma taxa usada se você executa a tarefa usando os Serviços Cognitivos diretamente.
+### <a name="1-core-service-costs-fixed-and-variable"></a>1. Custos de serviço principais (fixos e variável)
+
+Para o serviço em si, a taxa mínima é a primeira unidade de pesquisa (partição 1 réplica x 1), e esse valor é constante para o tempo de vida do serviço porque o serviço não pode ser executado em nada menos do que essa configuração. 
+
+Na seguinte captura de tela, por preço por unidade é indicado para gratuita, Basic e S1 (S2 e S3 não são mostrados). Se você criou um serviço básico ou um serviço padrão, seu custo mensal seria o valor que aparece para médio *preço-1* e *preço 2* , respectivamente. Custos unitários subir para cada camada porque a capacidade de armazenamento e energia computacional é maior em cada camadas consecutivos.
+
+![Por preço por unidade](./media/search-sku-tier/per-unit-pricing.png "por preço por unidade")
+
+As partições e réplicas adicionais são um complemento para o carregamento inicial. Um serviço de pesquisa requer uma réplica e uma partição, portanto, a configuração mínima é um de cada. Além do mínimo, você adicionar partições e réplicas de forma independente. Por exemplo, você pode adicionar somente réplicas ou apenas as partições. 
+
+Partições e réplicas adicionais são cobradas com base em um [fórmula](#search-units). Os custos não são lineares (duplicar capacidade mais do que o custo de duplicatas). Para obter um exemplo de como funciona a fórmula, consulte ["Como alocar partições e réplicas"](search-capacity-planning.md#how-to-allocate-replicas-and-partitions)
+
+### <a name="2-data-egress-charges-during-indexing"></a>2. Encargos de saída de dados durante a indexação
+
+Ao efetuar pull de dados de uma fonte de dados do Banco de Dados SQL do Azure ou do Cosmos DB, você verá cobranças pela transação na fatura para esses recursos. Esses encargos não são metros de Azure Search, mas eles são mencionados aqui, porque se você estiver usando indexadores para extrair dados do banco de dados SQL ou o Azure Cosmos DB, você verá esse custo em sua fatura.
+
+### <a name="3-ai-enriched-indexing-using-cognitive-services"></a>3. IA-indexação aprimorada usando os serviços Cognitivos
+
+Apenas para [pesquisa cognitiva](cognitive-search-concept-intro.md), a extração da imagem durante a decodificação de documentos é cobrada apenas com base no número de imagens extraídas dos documentos. A extração de texto atualmente é gratuita. Outros aprimoramentos de baseiam [habilidades cognitivas internos](cognitive-search-predefined-skills.md) são cobrados em relação a um recurso de serviços Cognitivos. Aprimoramentos são cobrados com a mesma taxa usada se você executa a tarefa usando os Serviços Cognitivos diretamente.
 
 Se você não estiver usando [pesquisa cognitiva](cognitive-search-concept-intro.md) nem [indexadores do Azure Search](search-indexer-overview.md), seus únicos custos serão relacionados às réplicas e partições em uso ativo, para cargas de trabalho de indexação e consulta regulares.
 
-### <a name="billing-for-general-purpose-indexing-and-queries"></a>Cobrança para indexação e consultas de uso geral
+<a name="search-units"></a>
+
+### <a name="billing-based-on-search-units"></a>Cobrança com base em unidades de pesquisa
 
 Em operações do Azure Search, o conceito de cobrança mais importante a ser entendido é o de UA (*unidade de pesquisa*). Já que Azure Search depende de réplicas e partições para indexação e consultas, não faz sentido cobrar de apenas uma maneira ou de outra. Em vez disso, a cobrança baseia-se em uma combinação de ambos. 
 
 UA é o produto da *réplica* e das *partições* usadas por um serviço: **`(R X P = SU)`**
 
-Cada serviço começa com uma UA (uma réplica multiplicada por uma partição) como o mínimo. O máximo para qualquer serviço é 36 SUs, o que pode ser obtido de várias maneiras: 6 partições x 6 ou réplicas ou 3 partições x 12 réplicas, para citar alguns. É comum usar menos do que a capacidade total. Por exemplo, um serviço de 3 réplicas e 3 partições cobrado como 9 UAs. 
+Cada serviço começa com uma UA (uma réplica multiplicada por uma partição) como o mínimo. O máximo para qualquer serviço é 36 SUs, o que pode ser obtido de várias maneiras: 6 partições x 6 ou réplicas ou 3 partições x 12 réplicas, para citar alguns. É comum usar menos do que a capacidade total. Por exemplo, um serviço de 3 réplicas e 3 partições cobrado como 9 UAs. Você pode revisar [este gráfico](search-capacity-planning.md#chart) para ver as combinações válidas em um relance.
 
 A taxa de cobrança é **por hora por UA**, e cada nível tem uma taxa maior progressivamente. Os níveis mais altos são fornecidos com partições maiores e mais rápidas, contribuindo para uma taxa horária geral maior para esse nível. As taxas de cada camada podem ser encontradas em [Detalhes de Preço](https://azure.microsoft.com/pricing/details/search/). 
 

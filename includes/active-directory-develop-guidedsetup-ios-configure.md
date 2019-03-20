@@ -3,8 +3,8 @@ title: Arquivo de inclusão
 description: Arquivo de inclusão
 services: active-directory
 documentationcenter: dev-center-name
-author: brandwe
-manager: mtillman
+author: danieldobalian
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
@@ -12,20 +12,20 @@ ms.topic: include
 ms.tgt_pltfrm: ios
 ms.workload: identity
 ms.date: 09/19/2018
-ms.author: brandwe
+ms.author: dadobali
 ms.custom: include file
-ms.openlocfilehash: 1604b7c9ee9888375e65aa679803c6e996e13b14
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: HT
+ms.openlocfilehash: 9782c6c2024c5cf490f207bb12a214c93a53b813
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988221"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203450"
 ---
 ## <a name="register-your-application"></a>Registre seu aplicativo
 
 Você pode registrar seu aplicativo de duas maneiras, conforme descrito nas duas seções a seguir.
 
-### <a name="option-1-express-mode"></a>Opção 1: modo Expresso
+### <a name="option-1-express-mode"></a>Opção 1: Modo expresso
 
 Agora você precisa registrar seu aplicativo no *Portal de Registro de Aplicativos da Microsoft*:
 
@@ -34,7 +34,7 @@ Agora você precisa registrar seu aplicativo no *Portal de Registro de Aplicativ
 3. Verifique se que a opção Instalação guiada está marcada.
 4. Siga as instruções para obter a ID do aplicativo e colá-la no código.
 
-### <a name="option-2-advanced-mode"></a>Opção 2: modo Avançado
+### <a name="option-2-advanced-mode"></a>Opção 2: Modo avançado
 
 1. Vá para [Portal de registro de aplicativos da Microsoft](https://apps.dev.microsoft.com/portal/register-app).
 2. Insira um nome para seu aplicativo.

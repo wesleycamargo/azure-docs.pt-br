@@ -10,21 +10,21 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 02/12/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7818d184cd74da43ceac008331b4436979152557
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 0cfc31705909710e6a60e0d2fd3963e74e9397ee
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233166"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201255"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>O que é inscrição por autoatendimento no Azure Active Directory?
 
-Este artigo explica a inscrição por autoatendimento e como dar suporte a ela no Azure AD (Azure Active Directory). Se você desejar assumir um nome de domínio de um locatário do Azure AD não gerenciado, consulte [Take over an unmanaged directory as administrator](domains-admin-takeover.md) (Assumir um diretório não gerenciado como administrador).
+Este artigo explica como usar a inscrição por autoatendimento para preencher uma organização no Azure Active Directory (Azure AD). Se você deseja assumir o controle de um nome de domínio do Azure não gerenciado organização do AD, consulte [assumir um diretório não gerenciado como administrador](domains-admin-takeover.md).
 
 ## <a name="why-use-self-service-signup"></a>Por que usar a inscrição por autoatendimento?
 * Leve aos clientes os serviços que eles desejam mais rápido
@@ -71,7 +71,7 @@ Esses dois parâmetros podem ser usados em conjunto para definir um controle mai
 
 O fluxograma a seguir explica as diferentes combinações desses parâmetros e as condições resultantes para o diretório e para a inscrição por autoatendimento.
 
-![controles de inscrição de autoatendimento](./media/directory-self-service-signup/SelfServiceSignUpControls.png)
+![Fluxograma de controles de inscrição de autoatendimento](./media/directory-self-service-signup/SelfServiceSignUpControls.png)
 
 Para obter mais informações e exemplos de como usar esses parâmetros, consulte [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
 

@@ -1,5 +1,5 @@
 ---
-title: Migrar usuários para o licenciamento baseado em grupo - Azure Active Directory | Microsoft Docs
+title: Migrar usuários individualmente licenciados para licenciamento baseado em grupo - Azure Active Directory | Microsoft Docs
 description: Como alternar licenças de usuário individuais para licenciamento baseado em grupo usando o Azure Active Directory
 services: active-directory
 keywords: Licenciamento do AD do Azure
@@ -11,21 +11,21 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 01/31/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: seohack1;it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fd800097ca5107f7df1e67c91ff4c96b9cfcd74
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b6fd2eb51c7178421b0656e3b1d0e0ea36176c16
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107739"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199965"
 ---
-# <a name="how-to-add-licensed-users-to-a-group-for-licensing-in-azure-active-directory"></a>Como adicionar usuários licenciados a um grupo para o licenciamento no Azure Active Directory
+# <a name="how-to-add-migrate-users-with-individual-licenses-to-groups-for-licensing"></a>Como adicionar migrar usuários com licenças individuais a grupos de licenciamento
 
-É possível implantar licenças existentes em usuários nas organizações por meio da “atribuição direta”; ou seja, usando scripts do PowerShell ou outras ferramentas para atribuir licenças de usuários individuais. Se você quiser começar a usar o licenciamento baseado em grupo para gerenciar as licenças da sua organização, precisará de um plano de migração para substituir de forma direta as soluções existentes com licenciamento baseado em grupo.
+É possível implantar licenças existentes em usuários nas organizações por meio da “atribuição direta”; ou seja, usando scripts do PowerShell ou outras ferramentas para atribuir licenças de usuários individuais. Antes de começar a usar o licenciamento baseado em grupo para gerenciar licenças em sua organização, você pode usar este plano de migração para substituir perfeitamente as soluções existentes com licenciamento baseado em grupo.
 
 A coisa mais importante para ter em mente é que você deve evitar uma situação onde a migração para o licenciamento baseado em grupo resultará em usuários temporariamente perdendo suas licenças atribuídas. Deve-se evitar qualquer processo que pode resultar na remoção de licenças, a fim de remover o risco de os usuários perderem o acesso aos serviços e a seus dados.
 
@@ -69,18 +69,17 @@ Veja como deve se parecer o processo de migração:
 
    - Este é o estado do usuário esperado durante a migração:
 
-      ![estado do usuário esperado](./media/licensing-groups-migrate-users/expected-user-state.png)
+      ![o estado do usuário esperado durante a migração](./media/licensing-groups-migrate-users/expected-user-state.png)
 
    Isso confirma que o usuário tem licenças diretas e herdadas. Podemos ver que **EMS** e **E3** estão atribuídas.
 
    - Selecione cada licença para mostrar os detalhes sobre os serviços habilitados. Isso pode ser usado para verificar se as licenças diretas e de grupo permitem exatamente os mesmos planos de serviço para o usuário.
 
-      ![planos do serviço de aplicativo](./media/licensing-groups-migrate-users/check-service-plans.png)
+      ![Verifique os planos de serviço para o usuário](./media/licensing-groups-migrate-users/check-service-plans.png)
 
 4. Depois de confirmar que as licenças direta e de grupo são equivalentes, você poderá começar a remover as licenças diretas dos usuários. É possível testar isso removendo-as para usuários individuais no portal e, em seguida, executar scripts de automação para removê-las em massa. Este é um exemplo do mesmo usuário com as licenças diretas removidas por meio do portal. Observe que o estado da licença permanece inalterado, mas não vemos mais as atribuições diretas.
 
-   ![licenças diretas removidas](./media/licensing-groups-migrate-users/direct-licenses-removed.png)
-
+   ![Confirme que as licenças diretas são removidas](./media/licensing-groups-migrate-users/direct-licenses-removed.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
