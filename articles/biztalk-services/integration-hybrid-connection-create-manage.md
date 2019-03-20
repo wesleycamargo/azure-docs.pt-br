@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.openlocfilehash: 1c05a50f82f5c235c76ff234efe183172e0863bf
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 584b9d67808e75222d832f045e5d3f93fbb326ae
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232973"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105083"
 ---
 # <a name="create-and-manage-hybrid-connections"></a>Criar e gerenciar Conexões Híbridas
 
 > [!IMPORTANT]
 > As Conexões Híbridas do BizTalk foram desativadas e substituídas pelas Conexões Híbridas do Serviço de Aplicativo. Para saber mais, incluindo como gerenciar as Conexões Híbridas do BizTalk existentes, veja [Conexões Híbridas do Serviço de Aplicativo do Azure](../app-service/app-service-hybrid-connections.md).
-
->[!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
+> 
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 ## <a name="overview-of-the-steps"></a>Visão geral das etapas
 1. Crie uma Conexão Híbrida inserindo o **host name** ou **FQDN** of the on-premises resource in your private netwouk.
@@ -42,7 +42,7 @@ Este tópico lista estas etapas.
 > Por exemplo (pseudocódigo), você define **10.4.5.6** como seu host local:
 > 
 > **O cenário a seguir funciona:**  
-> `Application code -> GetHostByName("10.4.5.6") -> Resolves to 127.0.0.3 -> Connect("127.0.0.3") -> Hybrid Connection -> on-prem host`
+> `Application code -> GetHostByName("10.4.5.6") -> Resolves to 127.0.0.3 -> Connect("127.0.0.3") -> Hybrid Connection -> on premises host`
 > 
 > **O cenário a seguir não funciona:**  
 > `Application code -> Connect("10.4.5.6") -> ?? -> No route to host`
@@ -55,8 +55,8 @@ Uma Conexão Híbrida pode ser criada nas [Conexões Híbridas do Serviço de Ap
 <!-- **To create Hybrid Connections using Web Apps**, see [Connect Azure Web Apps to an On-Premises Resource](../app-service-web/web-sites-hybrid-connection-get-started.md). You can also install the Hybrid Connection Manager (HCM) from your web app, which is the preferred method.  -->
 
 #### <a name="additional"></a>Adicional
-* Conexões Híbridas adicionais podem ser criadas. Consulte os [Serviços BizTalk: gráfico de edições](biztalk-editions-feature-chart.md) para obter o número de conexões permitidas. 
-* Cada Conexão Híbrida é criada com um par de cadeias de conexão: chaves de aplicativo que ENVIAM e chaves locais que ESCUTAM. Cada par possui uma chave primária e outra secundária. 
+* Conexões Híbridas adicionais podem ser criadas. Consulte o [Serviços BizTalk: Gráfico de edições](biztalk-editions-feature-chart.md) para o número de conexões permitidas. 
+* Cada Conexão híbrida é criada com um par de cadeias de caracteres de conexão: Chaves de aplicativo que ENVIAM e chaves que ESCUTAM locais. Cada par possui uma chave primária e outra secundária. 
 
 ## <a name="LinkWebSite"></a>Vincular seu Aplicativo Móvel ou aplicativo Web ou do Serviço de Aplicativo do Azure
 Para conectar um aplicativo Web ou Aplicativo Móvel no Serviço de Aplicativo do Azure a uma Conexão Híbrida existente, selecione **usar uma Conexão Híbrida existente** na folha Conexões Híbridas. 
@@ -117,11 +117,11 @@ Após tê-los copiado, você pode usar o Editor de políticas de grupo para muda
 ## <a name="next"></a>Avançar
 [Visão geral de Conexões Híbridas](integration-hybrid-connection-overview.md)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 [API REST para gerenciamento dos Serviços do BizTalk no Microsoft Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx)  
-[Serviços BizTalk: gráfico de edições](biztalk-editions-feature-chart.md)  
+[Serviços BizTalk: Gráfico de edições](biztalk-editions-feature-chart.md)  
 [Criar um Serviço BizTalk](biztalk-provision-services.md)  
-[Serviços BizTalk: guias Painel, Monitor e Escala](biztalk-dashboard-monitor-scale-tabs.md)
+[Serviços BizTalk: Guias painel, Monitor e escala](biztalk-dashboard-monitor-scale-tabs.md)
 
 [HybridConnectionTab]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionTab.png
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png

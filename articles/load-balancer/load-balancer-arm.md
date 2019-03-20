@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 9d11a34c499029550de12e8a47f7de0b1beac7b6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 596ac871067886ee3124c0f21beb35cb3b8fe1ae
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235030"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593804"
 ---
 # <a name="using-azure-resource-manager-support-with-azure-load-balancer"></a>Usando o suporte do Azure Resource Manager com o Azure Load Balancer
 
@@ -30,15 +30,15 @@ Com Resource Manager, o Azure Load Balancer contém os recursos filho a seguir:
 
 * Configuração de IP front-end – um balanceador de carga pode incluir um ou mais endereços IP front-end, também conhecidos como VIPs (IPs virtuais). Esses endereços IP servem como entrada para o tráfego.
 * Pool de endereços back-end – são endereços IP associados à placa de interface de rede (NIC) da máquina virtual para o qual a carga é distribuída.
-* Regras de balanceamento de carga – uma propriedade de regra mapeia determinada combinação de porta e IP de front-end para um conjunto de endereços IP de back-end e combinação de portas. Um balanceador de carga único pode ter várias regras de balanceamento de carga. Cada regra é uma combinação de um IP de front-end e porta e IP de back-end e porta associada a VMs.
+* As regras de balanceamento de carga – uma propriedade de regra mapeia um IP de determinado front-end e combinação de portas para um conjunto de endereços IP de back-end e combinação de porta. Um balanceador de carga único pode ter várias regras de balanceamento de carga. Cada regra é uma combinação de um IP de front-end e porta e back-end IP e porta associada a VMs.
 * Investigações – as investigações permitem que você controle a integridade das instâncias VM. Se um teste de integridade falhar, a instância VM será retirada automaticamente do rodízio.
-* Regras NAT de entrada – regras NAT definem o tráfego de entrada que flui pelo IP front-end e é distribuído para o IP de back-end.
+* Regras NAT de entrada – NAT regras que definem o tráfego de entrada que flui pelo IP front-end e distribuído para o IP de back-end.
 
 ![](./media/load-balancer-arm/load-balancer-arm.png)
 
 ## <a name="quickstart-templates"></a>Modelos de início rápido
 
-O Gerenciador de Recursos do Azure permite que você provisione seus aplicativos usando um modelo declarativo. Em um modelo único, você pode implantar vários serviços, juntamente com suas dependências. Use o mesmo modelo para implantar repetidamente seu aplicativo durante cada estágio do ciclo de vida do aplicativo.
+O Gerenciador de Recursos do Azure permite que você provisione seus aplicativos usando um modelo declarativo. Em um único modelo, você pode implantar diversos serviços junto com suas dependências. Use o mesmo modelo para implantar repetidamente seu aplicativo durante cada estágio do ciclo de vida do aplicativo.
 
 Modelos podem incluir definições para máquinas virtuais, redes virtuais, conjuntos de disponibilidade, NICs (Interfaces de Rede), contas de armazenamento, balanceadores de carga, grupos de segurança de rede e IPs públicos. Com os modelos, você pode criar tudo o que precisa para um aplicativo complexo. O arquivo de modelo pode ser inserido no sistema de gerenciamento de conteúdo para controle de versão e colaboração.
 
@@ -58,7 +58,7 @@ Exemplos de modelos:
 
 Introdução aos cmdlets do Azure Resource Manager, ferramentas de linha de comando e APIs REST
 
-* [Cmdlets de rede do Azure](https://docs.microsoft.com/powershell/module/azurerm.network#networking) podem ser usados para criar um balanceador de carga.
+* [Cmdlets de rede do Azure](https://docs.microsoft.com/powershell/module/az.network#networking) podem ser usados para criar um balanceador de carga.
 * [Como criar um balanceador de carga usando o gerenciador de recursos do Azure](load-balancer-get-started-ilb-arm-ps.md)
 * [Usando a CLI do Azure com o gerenciamento de recursos do Azure](../xplat-cli-azure-resource-manager.md)
 * [APIs REST do balanceador de carga](https://msdn.microsoft.com/library/azure/mt163651.aspx)

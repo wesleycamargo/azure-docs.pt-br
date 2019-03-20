@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 02/26/2019
 ms.author: kumud
-ms.openlocfilehash: 309c69862d475a0ef76ab0a24ed804b363ba33c0
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: c26117bf298d5fe7fd8a14e0aa2b14834e412328
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696788"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009936"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o Gerenciador de Tráfego
 
@@ -59,14 +59,7 @@ O método por Desempenho encaminha o tráfego para o ponto de extremidade mais p
 Conforme explicado em [Como funciona o Gerenciador de Tráfego](../traffic-manager/traffic-manager-how-it-works.md), o Gerenciador de Tráfego funciona no nível do DNS. Após a conclusão da pesquisa de DNS, os clientes se conectam diretamente ao ponto de extremidade do aplicativo, não pelo Gerenciador de Tráfego. Portanto, a conexão pode usar qualquer protocolo de aplicativo. Se você selecionar TCP como protocolo de monitoramento, o monitoramento de integridade do ponto de extremidade do Gerenciador de Tráfego poderá ser feito sem usar qualquer protocolo de aplicativo. Se você optar por ter a integridade verificada usando um protocolo de aplicativo, o ponto de extremidade precisará ser capaz de responder às solicitações HTTP ou HTTPS GET.
 
 ### <a name="can-i-use-traffic-manager-with-a-naked-domain-name"></a>Posso usar o Gerenciador de Tráfego com um nome de domínio raiz?
-
- Não. Os padrões de DNS não permitem que CNAMEs coexistam com outros registros DNS do mesmo nome. O apex (ou raiz) de uma zona DNS sempre contém dois registros DNS já existentes: a SOA e os registros NS autoritativos. Isso significa que um registro CNAME não pode ser criado no apex da zona sem violar os padrões do DNS.
-
-O Gerenciador de Tráfego exige um registro CNAME DNS para mapear o nome DNS intuitivo. Por exemplo, você mapeia `www.contoso.com` para o nome DNS de perfil do Gerenciador de Tráfego `contoso.trafficmanager.net`. Além disso, o perfil do Gerenciador de Tráfego retorna um segundo DNS CNAME para indicar a qual ponto de extremidade o cliente deve se conectar.
-
-Para solucionar esse problema, recomendamos o uso de um redirecionamento HTTP para direcionar o tráfego do nome de domínio raiz para uma URL diferente, que então poderá usar o Gerenciador de Tráfego. Por exemplo, o domínio raiz “contoso.com” pode redirecionar os usuários para o CNAME “www.contoso.com” que aponta para o nome DNS do Gerenciador de Tráfego.
-
-O suporte completo para domínios naked no Gerenciador de Tráfego é controlado em nossa lista de pendências de recurso. Você pode registrar seu suporte para essa solicitação de recurso [votando em nosso site de comentários da comunidade](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly).
+Sim. Para saber como criar um registro de alias para o apex de nome de domínio fazer referência a um perfil do Gerenciador de tráfego do Azure, consulte [configurar um registro de alias para dar suporte a nomes de domínio com o Gerenciador de tráfego do apex](../dns/tutorial-alias-tm.md).
 
 ### <a name="does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries"></a>O Gerenciador de Tráfego considera o endereço de sub-rede do cliente ao manipular consultas DNS? 
 Sim, além do endereço IP de origem da consulta DNS que ele recebe (que normalmente é o endereço IP do resolvedor de DNS), ao executar pesquisas para os métodos de roteamento de Sub-rede, Desempenho e Geográfico, o gerenciador de tráfego também considera o endereço de sub-rede do cliente se ele estiver incluído na consulta pelo resolvedor que faz a solicitação em nome do usuário final.  
@@ -347,22 +340,24 @@ Não, o Gerenciador de Tráfego não permite combinar tipos de endereçamento de
 Quando uma consulta é recebida em um perfil, o Gerenciador de Tráfego primeiro localiza o ponto de extremidade que precisa ser retornado conforme o método de roteamento especificado e o status de integridade dos pontos de extremidade. Em seguida, analisa o tipo de registro solicitado na consulta de entrada e o tipo de registro associado ao ponto de extremidade antes de retornar uma resposta com base na tabela abaixo.
 
 Para perfis com qualquer método de roteamento que não seja de Múltiplos Valores:
+
 |Solicitação de consulta de entrada|    Tipo de ponto de extremidade|  Resposta fornecida|
 |--|--|--|
 |QUALQUER |  A / AAAA / CNAME |  Ponto de extremidade de destino| 
-|O  |    A / CNAME | Ponto de extremidade de destino|
-|O  |    AAAA |  NODATA |
+|A |    A / CNAME | Ponto de extremidade de destino|
+|A |    AAAA |  NODATA |
 |AAAA | AAAA / CNAME |  Ponto de extremidade de destino|
-|AAAA | O  | NODATA |
+|AAAA | A | NODATA |
 |CNAME |    CNAME | Ponto de extremidade de destino|
 |CNAME  |A / AAAA | NODATA |
 |
+
 Para perfis com o método de roteamento definido como de Múltiplos Valores:
 
 |Solicitação de consulta de entrada|    Tipo de ponto de extremidade | Resposta fornecida|
 |--|--|--|
 |QUALQUER |  Combinação de A e AAAA | Pontos de extremidade de destino|
-|O  |    Combinação de A e AAAA | Somente pontos de extremidade de destino do tipo A|
+|A |    Combinação de A e AAAA | Somente pontos de extremidade de destino do tipo A|
 |AAAA   |Combinação de A e AAAA|     Somente pontos de extremidade de destino do tipo AAAA|
 |CNAME |    Combinação de A e AAAA | NODATA |
 
@@ -444,7 +439,7 @@ Para obter detalhes completos, consulte a [página de preços do Gerenciador de 
 
 ### <a name="is-there-a-performance-impact-for-nested-profiles"></a>Há impacto no desempenho para perfis aninhados?
 
- Não. Não há nenhum impacto no desempenho ao usar perfis aninhados.
+Nº. Não há nenhum impacto no desempenho ao usar perfis aninhados.
 
 Os servidores de nomes do Gerenciador de Tráfego atravessam a hierarquia de perfil internamente durante o processamento de cada consulta DNS. Uma consulta DNS a um perfil pai pode receber uma resposta DNS com um ponto de extremidade de um perfil filho. Um único registro CNAME é usado se você está usando um único perfil ou perfis aninhados. Não é necessário criar um registro CNAME para cada perfil na hierarquia.
 
@@ -454,7 +449,7 @@ O perfil pai não executa verificações de integridade no filho diretamente. Em
 
 A tabela a seguir descreve o comportamento das verificações de integridade do Gerenciador de Tráfego de um ponto de extremidade aninhado.
 
-| Status do Monitor de perfil filho | Status do monitor de ponto de extremidade pai | Observações |
+| Status do Monitor de perfil filho | Status do monitor de ponto de extremidade pai | Anotações |
 | --- | --- | --- |
 | Desabilitado. O perfil filho foi desabilitado. |Parado |O estado do ponto de extremidade pai é Parado, não Desabilitado. O estado Desabilitado é reservado para indicar que você desabilitou o ponto de extremidade no perfil pai. |
 | Degradado. Pelo menos um ponto de extremidade do perfil filho está no estado Degradado. |Online: o número de pontos de extremidade Online no perfil filho é pelo menos o valor de MinChildEndpoints.<BR>CheckingEndpoint: o número de pontos de extremidade Online mais CheckingEndpoint no perfil filho é pelo menos o valor de MinChildEndpoints.<BR>Degradado: caso contrário. |O tráfego é roteado para um ponto de extremidade do status CheckingEndpoint. Se MinChildEndpoints estiver definido com um valor muito alto, o ponto de extremidade estará sempre degradado. |

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/19/2019
 ms.author: sethm
 ms.lastreviewed: 01/19/2019
-ms.openlocfilehash: 96cb07ca4ede26e9bf0e5ceba28f1549061d0bf3
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 07e598d6fd4ed2937d86f31593a220c0c28ba328
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815669"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074651"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>Configurar a política de IPsec/IKE para conexões de VPN site a site
 
@@ -76,7 +76,7 @@ A tabela a seguir lista os algoritmos de criptografia compatíveis e restriçõe
 | Criptografia IPsec                                     | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, nenhum |
 | Integridade do IPsec                                      | GCMASE256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                       |
 | Grupo PFS                                            | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, nenhum                         |
-| Tempo de vida da QM SA                                       | (Opcional: valores padrão serão usados se não especificados)<br />                         Segundos (inteiro; mín., 300/padrão de 27000 segundos)<br />                         KBytes (inteiro; min. 1024/padrão de 102400000 KBytes) |                                                                          |
+| Tempo de vida da QM SA                                       | (Opcional: valores padrão serão usados se não especificados)<br />                         Segundos (inteiro; mín., 300/padrão de 27000 segundos)<br />                         KBytes (inteiro; min. 1024/padrão de 102400000 KBytes) |
 | Seletor de tráfego                                     | Não há suporte para seletores de tráfego com base em política no Azure Stack.         |
 
 - A configuração do dispositivo VPN local deve corresponder ou conter os seguintes algoritmos e parâmetros que você especifica na política de IPsec/IKE do Azure:

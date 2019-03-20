@@ -9,26 +9,26 @@ manager: twooley
 Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 3ec4b8fb9ebb7a03983ce5da3dad56e0fe9917e8
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
-ms.translationtype: HT
+ms.openlocfilehash: fe095b8f5a0080c0f28ec570303c9dc23962dfc8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56986321"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57869805"
 ---
-# <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>Início rápido: Criar um Load Balancer Básico usando o portal do Azure
+# <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>Início Rápido: Criar um Load Balancer Básico usando o portal do Azure
 
 O balanceamento de carga fornece um nível mais alto de disponibilidade e escala com a distribuição das solicitações recebidas entre VMs (máquinas virtuais). Você pode usar o portal do Azure para criar um balanceador de carga e usá-lo entre VMs. Este início rápido mostra como criar e configurar um balanceador de carga, servidores back-end e um recursos de rede no tipo de preço Básico.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
-Para realizar todas as tarefas deste início rápido, entre no [portal do Azure](http://portal.azure.com).
+Para realizar todas as tarefas deste início rápido, entre no [portal do Azure](https://portal.azure.com).
 
 ## <a name="create-a-basic-load-balancer"></a>Criar o Load Balancer Básico
 
@@ -41,13 +41,13 @@ Primeiro, crie um Load Balancer Básico usando o portal. O nome e o endereço IP
     | ---                     | ---                                                |
     | Assinatura               | Selecione sua assinatura.    |    
     | Grupo de recursos         | Selecione **Criar** e digite *MyResourceGroupLB* na caixa de texto.|
-    | NOME                   | *myLoadBalancer*                                   |
+    | Nome                   | *myLoadBalancer*                                   |
     | Região         | Selecione **Europa Ocidental**.                                        |
-    | Type          | Selecione **Público**.                                        |
+    | Digite          | Selecione **Público**.                                        |
     | SKU           | Selecione **Basic**.                          |
-    | Endereço IP público | Selecione **Criar novo**. |
+    | Endereço IP Público | Selecione **Criar novo**. |
     | Nome do endereço IP público              | *MyPublicIP*   |
-    | Atribuição| estático|
+    | Atribuição| Static|
 
 3. Na guia **Revisar + criar**, clique em **Criar**.   
 
@@ -207,7 +207,7 @@ A regra de balanceador de carga chamada **MyLoadBalancerRule** escuta a porta 80
    
 1. Selecione **OK**.
    
-  ![Adicionar uma regra do balanceador de carga](./media/load-balancer-get-started-internet-portal/5-load-balancing-rules.png)
+   ![Adicionar uma regra do balanceador de carga](./media/load-balancer-get-started-internet-portal/5-load-balancing-rules.png)
 
 ## <a name="test-the-load-balancer"></a>Testar o balanceador de carga
 
@@ -259,6 +259,7 @@ Abra um navegador e cole o endereço IP público do balanceador de carga na barr
 
 ![Servidor Web do IIS](./media/load-balancer-get-started-internet-portal/9-load-balancer-test.png)
 
+Para ver o balanceador de carga distribuir tráfego entre todas as três VMs que executam seu aplicativo, você poderá forçar a atualização de seu navegador da Web.
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 Para excluir o balanceador de carga e todos os recursos relacionados quando não precisar mais deles, abra o grupo de recursos **MyResourceGroupLB** e selecione **Excluir grupo de recursos**.

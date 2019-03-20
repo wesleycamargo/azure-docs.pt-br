@@ -10,18 +10,18 @@ ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 6e58fa83bfdce5e5363ef61d1e3deaa61397301a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: f8692bac271c2b0a51fef358d2fc73d6cfc8fe97
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461926"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004405"
 ---
 # <a name="sql-data-warehouse-data-management-partners"></a>Parceiros de gerenciamento de dados do SQL Data Warehouse
 Para criar sua solução de data warehouse, você pode escolher dentre uma ampla variedade de ferramentas líderes do setor. Este artigo destaca as empresas parceiras da Microsoft com ferramentas e soluções de gerenciamento de dados com suporte ao Azure SQL Data Warehouse.
 
 ## <a name="data-management-partners"></a>Parceiros de gerenciamento de dados
-| Parceiro | DESCRIÇÃO | Links | vídeos |
+| Parceiro | Descrição | Links | Vídeos |
 | --- | --- | --- | --- |
 | ![Coffing Data Warehousing][1] |**Coffing Data Warehousing**<br>A Coffing Data Warehousing fornece o Nexus Chameleon, uma ferramenta com 10 anos de design dedicados a sistemas de consulta. O Nexus está disponível como uma ferramenta de consulta para SQL Data Warehouse. Use o Nexus para consultar computadores internos e na nuvem e reúna dados entre diferentes plataformas. Aponte-clique-relate! |[Site][coffing_website]<br>[Informações à imprensa][coffing_press]<br>[Twitter][coffing_twitter]<br>[YouTube][coffing_youtube] |[![vídeo de coffing](./media/sql-data-warehouse-partner-data-management/coffing_video.jpg)](https://www.youtube.com/watch?v=N5GSxBEySFc) |
 | ![Inbrein][2] |**MicroERD**<br>O Inbrein MicroERD fornece as ferramentas necessárias para criar um modelo de dados preciso, reduzir a redundância de dados, aumentar a produtividade e observar padrões. Ao usar sua interface do usuário que foi desenvolvida com base em extensas experiências de usuário, um modelador pode trabalhar em modelos de DB com facilidade e conveniência. Você pode aproveitar continuamente funções novas e aprimoradas do MicroERD por meio de melhorias e atualizações funcionais e imediatas. |[Site][inbrein_website]<br>[Folha de dados][inbrein_datasheet]<br>[Twitter][inbrein_twitter]<br>[YouTube][inbrein_youtube] |[![vídeo de inbrein](./media/sql-data-warehouse-partner-data-management/inbrein_video.jpg)](https://www.youtube.com/watch?v=IGHSAk4bxdE) |
@@ -30,7 +30,7 @@ Para criar sua solução de data warehouse, você pode escolher dentre uma ampla
 | ![Redpoint Global][4] |**Gerenciamento de Dados RedPoint**<br>O RedPoint Data Management permite que os profissionais de marketing apliquem todos os seus dados para promover o engajamento do cliente entre os canais, executando ainda gerenciamento de dados estruturados e não estruturados. Aproveitando o Azure SQL Data Warehouse e o RedPoint, você pode maximizar o valor dos dados estruturados e desestruturados para fornecer as interações contextuais altamente personalizadas necessárias para envolver o cliente em todos os canais atuais. A interface do tipo arrastar e soltar facilita o planejamento e a execução dos processos de gerenciamento de dados. |[Marketplace][redpoint_dm_marketplace]<br>[Site][redpoint_dm_website]<br>[Informações à imprensa][redpoint_press]<br>[Folha de dados][redpoint_dm_datasheet]<br>[Twitter][redpoint_twitter]<br>[YouTube][redpoint_youtube] |[![vídeo de gd de redpoint](./media/sql-data-warehouse-partner-data-management/redpoint_dm_video.jpg)](https://www.youtube.com/watch?v=o3DtXRpiEg0) |
 | ![Sentry One][5] |**DW Sentry**<br>Com o painel de movimentação de dados inteligente e o calendário de eventos, você sempre sabe exatamente o que está afetando sua carga de trabalho. Desenvolvido para dar visibilidade às consultas e trabalhos em execução a fim de carregar, fazer backup ou restaurar os dados, nunca será necessário preocupar-se quanto a aproveitar ao máximo os recursos do Azure. |[Marketplace][sql_sentry_marketplace]<br>[Site][sql_sentry_website]<br>[Informações à imprensa][sql_sentry_press]<br>[Twitter][sql_sentry_twitter]<br>[YouTube][sql_sentry_youtube] | |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas Etapas
 Para saber mais sobre alguns dos outros parceiros, confira [Parceiros de Business Intelligence][bi_partners] e [Parceiros de Integração de Dados][di_partners].
 
 <!--Image references-->
@@ -49,7 +49,7 @@ Para saber mais sobre alguns dos outros parceiros, confira [Parceiros de Busines
 
 <!--Website links -->
 
-[coffing_website]:http://www.coffingdw.com/software/nexus/
+[coffing_website]:https://www.coffingdw.com/software/nexus/
 [inbrein_website]:http://microerd.com/
 [infolibrarian_website]:http://www.infolibcorp.com/metadata-management/software-tools
 [redpoint_it_website]:http://www.redpoint.net/products/customer-interaction-management/
@@ -84,7 +84,7 @@ Para saber mais sobre alguns dos outros parceiros, confira [Parceiros de Busines
 
 <!--Press links-->
 
-[coffing_press]:http://www.coffingdw.com/press-release-nexus-tuned-for-azure-sql-data-warehouse/
+[coffing_press]:https://www.coffingdw.com/press-release-nexus-tuned-for-azure-sql-data-warehouse/
 
 <!--[inbrein_press]:-->
 

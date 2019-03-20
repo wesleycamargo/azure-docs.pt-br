@@ -11,17 +11,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 03/18/2019
 ms.author: juliako;
-ms.openlocfilehash: 7fa1bec1b6f83b18684f6139bf6ac8db1ae9daec
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 1fe003ae13bc5f195932f4f140e17c4dc2791959
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004886"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188247"
 ---
-# <a name="redact-faces-with-azure-media-analytics-legacy"></a>Edição facial com o Azure Media Analytics (herança)
-## <a name="overview"></a>Visão geral
+# <a name="redact-faces-with-azure-media-analytics"></a>Edição facial com o Azure Media Analytics 
+## <a name="overview"></a>Visão Geral
 **Azure Media Redactor** é um MP (processador de mídia) do [Azure Media Analytics](media-services-analytics-overview.md) que oferece edição facial escalonável na nuvem. A edição facial permite que você modifique seu vídeo para desfocar rostos de pessoas selecionadas. Você pode querer usar o serviço de edição facial em cenários de segurança pública e de notícias veiculadas. Alguns minutos de vídeo com vários rostos podem levar horas para serem editados manualmente, mas, com esse serviço, o processo de edição facial exigirá apenas algumas etapas simples. Para saber mais, confira [este](https://azure.microsoft.com/blog/azure-media-redactor/)blog.
 
 Este artigo fornece detalhes sobre o **Azure Media Redactor** e mostra como usá-lo com o SDK dos Serviços de Mídia para .NET.
@@ -34,22 +34,22 @@ Além de um modo totalmente automatizado, há um fluxo de trabalho de duas etapa
 ### <a name="combined-mode"></a>Modo Combinado
 Esse procedimento produz um mp4 editado automaticamente sem qualquer entrada manual.
 
-| Estágio | Nome do Arquivo | Observações |
+| Estágio | Nome do Arquivo | Anotações |
 | --- | --- | --- |
 | Ativo de entrada |foo.bar |Vídeo em formato WMV, MOV ou MP4 |
 | Configuração de entrada |Predefinição de configuração de tarefa |{'version':'1.0', 'options': {'mode':'combined'}} |
 | Ativo de saída |foo_redacted.mp4 |Vídeo com desfoque aplicado |
 
 #### <a name="input-example"></a>Exemplo de entrada:
-[veja este vídeo](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fed99001d-72ee-4f91-9fc0-cd530d0adbbc%2FDancing.mp4)
+[veja este vídeo](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fed99001d-72ee-4f91-9fc0-cd530d0adbbc%2FDancing.mp4)
 
 #### <a name="output-example"></a>Exemplo de saída:
-[veja este vídeo](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc6608001-e5da-429b-9ec8-d69d8f3bfc79%2Fdance_redacted.mp4)
+[veja este vídeo](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc6608001-e5da-429b-9ec8-d69d8f3bfc79%2Fdance_redacted.mp4)
 
 ### <a name="analyze-mode"></a>Modo Analisar
 A etapa **Analisar** do fluxo de trabalho de duas etapas utiliza uma entrada de vídeo e produz um arquivo JSON com a localização dos rostos, e imagens jpg de cada rosto detectado.
 
-| Estágio | Nome do Arquivo | Observações |
+| Estágio | Nome do Arquivo | Anotações |
 | --- | --- | --- |
 | Ativo de entrada |foo.bar |Vídeo em formato WMV, MPV ou MP4 |
 | Configuração de entrada |Predefinição de configuração de tarefa |{'version':'1.0', 'options': {'mode':'analyze'}} |
@@ -114,7 +114,7 @@ Isso inclui uma lista de IDs a serem desfocados, o vídeo original e o JSON de a
 
 O resultado da etapa Analisar não inclui o vídeo original. O vídeo precisa ser carregado no ativo de entrada para a tarefa do modo Editar e selecionado como o arquivo primário.
 
-| Estágio | Nome do Arquivo | Observações |
+| Estágio | Nome do Arquivo | Anotações |
 | --- | --- | --- |
 | Ativo de entrada |foo.bar |Vídeo em formato WMV, MPV ou MP4. O mesmo vídeo da etapa 1. |
 | Ativo de entrada |foo_annotations.json |arquivo de metadados de anotações da fase 1, com modificações opcionais. |
@@ -125,7 +125,7 @@ O resultado da etapa Analisar não inclui o vídeo original. O vídeo precisa se
 #### <a name="example-output"></a>Saída de exemplo
 É a saída de uma IDList com uma ID selecionada.
 
-[veja este vídeo](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fad6e24a2-4f9c-46ee-9fa7-bf05e20d19ac%2Fdance_redacted1.mp4)
+[veja este vídeo](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fad6e24a2-4f9c-46ee-9fa7-bf05e20d19ac%2Fdance_redacted1.mp4)
 
 foo_IDList.txt de exemplo
  
@@ -147,7 +147,7 @@ Encontre exemplos dos tipos de desfoque abaixo.
 
 #### <a name="low"></a>Baixo
 
-![Baixo](./media/media-services-face-redaction/blur1.png)
+![Baixa](./media/media-services-face-redaction/blur1.png)
  
 #### <a name="med"></a>Med
 
@@ -157,9 +157,9 @@ Encontre exemplos dos tipos de desfoque abaixo.
 
 ![Alto](./media/media-services-face-redaction/blur3.png)
 
-#### <a name="box"></a>Box
+#### <a name="box"></a>Quadrado
 
-![Box](./media/media-services-face-redaction/blur4.png)
+![Quadrado](./media/media-services-face-redaction/blur4.png)
 
 #### <a name="black"></a>Preto
 
@@ -373,5 +373,5 @@ namespace FaceRedaction
 ## <a name="related-links"></a>Links relacionados
 [Visão geral do Azure Media Services Analytics](media-services-analytics-overview.md)
 
-[Demonstrações do Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Demonstrações do Azure Media Analytics](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

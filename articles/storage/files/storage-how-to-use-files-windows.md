@@ -4,16 +4,16 @@ description: Saiba como usar um compartilhamento de arquivos do Azure com Window
 services: storage
 author: RenaShahMSFT
 ms.service: storage
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: 4361ec72f5f9cff924900ddd712aa1aa029c5ef4
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: 93ba17c58dfcb5955bafbcc63655778903f60c18
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509007"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076336"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Usar um compartilhamento de arquivos do Azure com o Windows
 [Arquivos do Azure](storage-files-introduction.md) é o sistema de arquivos de nuvem fácil de usar da Microsoft. Os compartilhamentos de arquivos do Azure podem ser usados perfeitamente no Windows e no Windows Server. Este artigo aborda as considerações para usar um compartilhamento de arquivos do Azure com Windows e Windows Server.
@@ -31,8 +31,8 @@ Você pode usar compartilhamentos de arquivos do Azure em uma instalação do Wi
 | Windows 8.1            | SMB 3.0     | Sim                   | Sim                  |
 | Windows Server 2012 R2 | SMB 3.0     | Sim                   | Sim                  |
 | Windows Server 2012    | SMB 3.0     | Sim                   | Sim                  |
-| Windows 7              | SMB 2.1     | Sim                   | Não                    |
-| Windows Server 2008 R2 | SMB 2.1     | Sim                   | Não                    |
+| Windows 7              | SMB 2.1     | Sim                   | Não                   |
+| Windows Server 2008 R2 | SMB 2.1     | Sim                   | Não                   |
 
 <sup>1</sup>Windows 10, versões 1507, 1607, 1703, 1709, 1803 e 1809.  
 <sup>2</sup>Windows Server, versão 1709 e 1803.
@@ -45,7 +45,9 @@ Você pode usar compartilhamentos de arquivos do Azure em uma instalação do Wi
 
 * **Chave de conta de armazenamento**: Para montar um compartilhamento de arquivos do Azure, você precisará da chave de armazenamento primária (ou secundária). Atualmente, as chaves SAS não têm suporte para montagem.
 
-* **Verifique se a porta 445 está aberta**: O protocolo SMB requer a porta TCP 445 aberta; haverá falha de conexão se a porta 445 estiver bloqueada. Você pode verificar se o firewall está bloqueando a porta 445 com o cmdlet `Test-NetConnection`. O código do PowerShell a seguir pressupõe que você tem o módulo do PowerShell AzureRM instalado; consulte [Instalar o módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) para obter mais informações. Lembre-se de substituir `<your-storage-account-name>` e `<your-resource-group-name>` pelos nomes referentes a sua conta de armazenamento.
+* **Verifique se a porta 445 está aberta**: O protocolo SMB requer a porta TCP 445 aberta; haverá falha de conexão se a porta 445 estiver bloqueada. Você pode verificar se o firewall está bloqueando a porta 445 com o cmdlet `Test-NetConnection`. Você pode aprender sobre [várias maneiras para solucionar esse problema bloqueado a porta 445 aqui](https://docs.microsoft.com/en-us/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked).
+
+    O código do PowerShell a seguir pressupõe que você tem o módulo do PowerShell AzureRM instalado; consulte [Instalar o módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) para obter mais informações. Lembre-se de substituir `<your-storage-account-name>` e `<your-resource-group-name>` pelos nomes referentes a sua conta de armazenamento.
 
     ```PowerShell
     $resourceGroupName = "<your-resource-group-name>"
@@ -232,13 +234,13 @@ A tabela a seguir fornece informações detalhadas sobre o status do SMB 1 em ca
 | Windows Server 2019 (versão prévia)             | Desabilitado             | Remover com recurso do Windows |
 | Windows Server, versões 1709 e posteriores            | Desabilitado             | Remover com recurso do Windows |
 | Windows 10, versões 1709 ou posterior                | Desabilitado             | Remover com recurso do Windows |
-| Windows Server 2016                       | habilitado              | Remover com recurso do Windows |
-| Windows 10 versões 1507, 1607 e 1703 | habilitado              | Remover com recurso do Windows |
-| Windows Server 2012 R2                    | habilitado              | Remover com recurso do Windows | 
-| Windows 8.1                               | habilitado              | Remover com recurso do Windows | 
-| Windows Server 2012                       | habilitado              | Desabilitar no Registro       | 
-| Windows Server 2008 R2                    | habilitado              | Desabilitar no Registro       |
-| Windows 7                                 | habilitado              | Desabilitar no Registro       | 
+| Windows Server 2016                       | Ativado              | Remover com recurso do Windows |
+| Windows 10 versões 1507, 1607 e 1703 | Ativado              | Remover com recurso do Windows |
+| Windows Server 2012 R2                    | Ativado              | Remover com recurso do Windows | 
+| Windows 8.1                               | Ativado              | Remover com recurso do Windows | 
+| Windows Server 2012                       | Ativado              | Desabilitar no Registro       | 
+| Windows Server 2008 R2                    | Ativado              | Desabilitar no Registro       |
+| Windows 7                                 | Ativado              | Desabilitar no Registro       | 
 
 ### <a name="auditing-smb-1-usage"></a>Auditando o uso de protocolos SMB 1
 > Aplica-se a Windows Server 2019 (versão prévia), canal semestral do Windows Server (versões 1709 e 1803), Windows Server 2016, Windows 10 (versões 1507, 1607, 1703, 1709 e 1803), Windows Server 2012 R2 e Windows 8.1
@@ -301,5 +303,5 @@ Depois de criar essa chave do registro, você deverá reiniciar o servidor para 
 ## <a name="next-steps"></a>Próximas etapas
 Veja estes links para obter mais informações sobre o Arquivos do Azure:
 - [Planejando uma implantação de Arquivos do Azure](storage-files-planning.md)
-* [Perguntas frequentes](../storage-files-faq.md)
-* [Solução de problemas no Windows](storage-troubleshoot-windows-file-connection-problems.md)      
+- [Perguntas frequentes](../storage-files-faq.md)
+- [Solução de problemas no Windows](storage-troubleshoot-windows-file-connection-problems.md)      

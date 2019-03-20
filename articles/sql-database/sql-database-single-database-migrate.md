@@ -13,12 +13,12 @@ ms.author: carlrab
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/11/2019
-ms.openlocfilehash: f033a93c0e4fc2648e151572bee25db5463e32e3
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 2feece21644f8b79b4e5fc74331944cdddbdee4a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56101260"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57996427"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Migração do banco de dados do SQL Server para o Banco de Dados SQL do Azure
 
@@ -114,7 +114,7 @@ Há uma grande variedade de problemas de compatibilidade que você pode encontra
 - [Discontinued Database Engine Functionality in SQL Server 2008 R2](https://msdn.microsoft.com/library/ms144262%28v=sql.105%29)
 - [Discontinued Database Engine Functionality in SQL Server 2005](https://msdn.microsoft.com/library/ms144262%28v=sql.90%29)
 
-Além de pesquisar na Internet e usar esses recursos, use os [fóruns da comunidade do SQL Server no MSDN](https://social.msdn.microsoft.com/Forums/sqlserver/home?category=sqlserver) ou o [StackOverflow](http://stackoverflow.com/).
+Além de pesquisar na Internet e usar esses recursos, use os [fóruns da comunidade do SQL Server no MSDN](https://social.msdn.microsoft.com/Forums/sqlserver/home?category=sqlserver) ou o [StackOverflow](https://stackoverflow.com/).
 
 > [!IMPORTANT]
 > A Instância Gerenciada do Banco de Dados SQL permite que você migre uma instância existente do SQL Server e seus bancos de dados com o mínimo ou sem problemas de compatibilidade. Consulte [O que é uma Instância Gerenciada](sql-database-managed-instance.md).

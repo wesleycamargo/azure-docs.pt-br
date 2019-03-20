@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 6c57c8ad85ef83e8739bc2bf35b3bd0dc6d5a902
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: ba8d9fd54b8b29a3e58f170402a64f5899fec002
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004835"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880680"
 ---
 # <a name="develop-video-player-applications"></a>Desenvolver aplicativos de player de vídeo
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 Os Serviços de Mídia do Azure fornecem as ferramentas necessárias para criar aplicativos de player do cliente sofisticados e dinâmicos para a maioria das plataformas, incluindo: dispositivos iOS, dispositivos Android, Windows, Windows Phone, Xbox e decodificadores de sinais. Este tópico também fornece links para os SDKs e as Estruturas do Player que você pode usar para desenvolver seus próprios aplicativos de cliente que podem consumir a mídia de streaming dos Serviços de Mídia do Azure.
 
 >[!NOTE]
@@ -44,15 +44,15 @@ Para mais informações:
 ## <a name="other-tools-for-creating-player-applications"></a>Outras ferramentas para criar aplicativos de player
 Você também pode usar qualquer um dos seguintes SDKs:
 
-* [SDK do cliente de Smooth Streaming](http://www.iis.net/downloads/microsoft/smooth-streaming) 
+* [SDK do cliente de Smooth Streaming](https://www.iis.net/downloads/microsoft/smooth-streaming) 
 * [Aplicativo de Smooth Streaming da Windows Store](media-services-build-smooth-streaming-apps.md)
-* [Plataforma de Mídia da Microsoft: Estrutura de Player](http://playerframework.codeplex.com/) 
-* [Documentação da estrutura de player HTML5](http://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
+* [Plataforma de Mídia da Microsoft: Estrutura de Player](https://playerframework.codeplex.com/) 
+* [Documentação da estrutura de player HTML5](https://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
 * [Plug-in Microsoft Smooth Streaming para OSMF](https://www.microsoft.com/download/details.aspx?id=36057) 
 * [Licenciamento do kit de portabilidade de cliente do Microsoft® Smooth Streaming](https://aka.ms/sspk) 
 * [Desenvolvimento de aplicativos de vídeo do XBOX](https://xbox.create.msdn.com/) 
 
-## <a name="advertising"></a>Publicidade
+## <a name="advertising"></a>Anúncio
 Os Serviços de Mídia do Azure oferecem suporte à inserção de anúncios por meio da Plataforma de Mídia do Windows: Player Frameworks. As estruturas de player com suporte a anúncios estão disponíveis para dispositivos com Windows 8, Silverlight, Windows Phone 8 e iOS. Cada estrutura de player contém código de exemplo que mostra como implementar um aplicativo de player. Há três tipos diferentes de anúncios que você pode inserir em sua mídia:
 
 Lineares – anúncios em tela cheia que pausam o vídeo principal
@@ -71,7 +71,7 @@ Para obter informações sobre o suporte à legendagem oculta e a anúncios em v
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 [Inserindo um vídeo de streaming adaptável MPEG-DASH em um aplicativo HTML5 com DASH.js](media-services-embed-mpeg-dash-in-html5.md)
 
 [Repositório do dash.js do GitHub](https://github.com/Dash-Industry-Forum/dash.js)

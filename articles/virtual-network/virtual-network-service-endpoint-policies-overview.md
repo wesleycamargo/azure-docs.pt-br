@@ -6,17 +6,17 @@ documentationcenter: na
 author: sumeetmittal
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumeet.mittal
-ms.openlocfilehash: 6e5748f5a76ade9cc1bb91902eb0fddcec2a6daa
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 619b9b68a5c4e897642e1f84c25c2822d8291400
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812337"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104481"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Políticas de ponto de extremidade de serviço de rede virtual (versão prévia)
 
@@ -114,7 +114,7 @@ Políticas de ponto de extremidade de serviço de rede virtual fornecem os segui
      - Ambiente de Serviço de Aplicativo do Azure
      - Cache Redis do Azure
      - Gerenciamento de API do Azure
-     - Instância Gerenciada do Azure SQL
+     - Instância gerenciada do Azure SQL
      - Azure Active Directory Domain Services
      - Gateway de Aplicativo do Azure (Clássico)
      - Gateway de VPN do Azure (Clássico)
@@ -158,11 +158,11 @@ Nenhum registro em log centralizado está disponível para políticas de ponto d
 - O acesso é negado para contas listadas nas políticas de ponto de extremidade
   - Grupos de segurança de rede ou a filtragem de firewall podem estar bloqueando o acesso
   - Se remover/reaplicar a política resultar em perda de conectividade:
-   - Valide se o serviço do Azure está configurado para permitir o acesso da rede virtual, por pontos de extremidade, ou se a política padrão para o recurso está definida como *Permitir Tudo*.
+    - Valide se o serviço do Azure está configurado para permitir o acesso da rede virtual, por pontos de extremidade, ou se a política padrão para o recurso está definida como *Permitir Tudo*.
       > [!NOTE]      
       > Recursos de serviço não precisam ser protegidos para as redes virtuais obterem acesso por políticas de ponto de extremidade. No entanto, como uma melhor prática de segurança, é recomendável que os recursos de serviço sejam protegidos para redes confiáveis, como redes virtuais do Azure, por meio de pontos de extremidade de serviço e, localmente, por meio de um firewall de IP.
   
-   - Valide que o diagnóstico de serviço mostra o tráfego nos pontos de extremidade.
+    - Valide que o diagnóstico de serviço mostra o tráfego nos pontos de extremidade.
     - Verifique se os logs de fluxo do grupo de segurança de rede mostram o acesso e se os logs de armazenamento mostram o acesso, conforme esperado, pelos pontos de extremidade de serviço.
     - Contate o suporte do Azure.
 - O acesso é negado para contas não listadas nas políticas de ponto de extremidade de serviço
@@ -188,7 +188,7 @@ Os limites a seguir são impostos em políticas de ponto de extremidade de servi
  |ServiceEndpintPoliciesPerSubnet|100 |
  |ServiceResourcesPerServiceEndpointPolicyDefinition|200 |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas Etapas
 
 - Saiba como [configurar políticas de ponto de extremidade de serviço de rede virtual](virtual-network-service-endpoint-policies-portal.md)
 - Saiba mais sobre [Pontos de Extremidade de Serviço de rede virtual](virtual-network-service-endpoints-overview.md)

@@ -32,15 +32,17 @@ items:
 - name: Conceitos
   items:
   - name: Tipos de entrada para um trabalho
-    href: stream-analytics-add-inputs.md
     items:
+    - name: Visão geral das entradas
+      href: stream-analytics-add-inputs.md
     - name: Entradas de dados de streaming
       href: stream-analytics-define-inputs.md
     - name: Entradas de dados de referência
       href: stream-analytics-use-reference-data.md
   - name: Tipos de saída para um trabalho
-    href: stream-analytics-define-outputs.md
     items:
+    - name: Visão geral das saídas
+      href: stream-analytics-define-outputs.md
     - name: Saída para o Cosmos DB
       href: stream-analytics-documentdb-output.md
     - name: Saída para BD SQL do Azure
@@ -114,7 +116,7 @@ items:
       href: stream-analytics-monitoring.md
     - name: Monitorar trabalhos - PowerShell
       href: stream-analytics-monitor-and-manage-jobs-use-powershell.md
-    - name: Monitorar trabalhos - SDK do Azure para .NET
+    - name: Monitorar trabalhos – SDK do Azure para .NET
       href: stream-analytics-monitor-jobs.md
     - name: Monitorar trabalhos - Visual Studio
       href: stream-analytics-monitor-jobs-use-vs.md
@@ -122,9 +124,10 @@ items:
     items:
     - name: Expandir com unidades de streaming
       href: stream-analytics-streaming-unit-consumption.md
-    - name: Expandir com paralelização de consultas
-      href: stream-analytics-parallelization.md
+    - name: Expandir com paralelização
       items:
+      - name: Paralelização de consultas
+        href: stream-analytics-parallelization.md
       - name: Aumentar a taxa de transferência
         href: stream-analytics-scale-jobs.md
     - name: Expandir com funções de ML
@@ -428,16 +431,16 @@ items:
   - name: Atualizações de serviço
     href: https://azure.microsoft.com/updates/?product=stream-analytics
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-stream-analytics
+    href: https://stackoverflow.com/questions/tagged/azure-stream-analytics
   - name: vídeos
     href: https://azure.microsoft.com/resources/videos/index/?services=stream-analytics&sort=newest
   - name: Estudos de caso de cliente
     href: https://azure.microsoft.com/case-studies/?service=stream-analytics
   - name: Whitepaper – Processamento de eventos em tempo real
     href: stream-analytics-real-time-event-processing-reference-architecture.md
-ms.openlocfilehash: 24c475fcbe1bda825693ee04f9381922c46633ad
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 127d7aa2588a47084dd43eb7f22adf9f73f90dce
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539234"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852995"

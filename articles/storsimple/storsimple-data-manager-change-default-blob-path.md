@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: f73d9dcedee5165af752b9e10fb70de860e8e98b
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
-ms.translationtype: HT
+ms.openlocfilehash: cdaf991c25c23dee4f87b44142c1482bf892bcf2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2018
-ms.locfileid: "27862393"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011638"
 ---
 # <a name="change-a-blob-path-from-the-default-path"></a>Alterar o caminho de blob padrão
 
 Quando o serviço do Gerenciador de Dados do StorSimple transforma os dados, por padrão, ele coloca os blobs transformados em um contêiner de armazenamento, conforme especificado durante a criação do repositório de destino. Como os blobs chegam nesse local, você pode querer mover esses blobs para um local alternativo. Este artigo descreve como configurar uma função do Azure para renomear um caminho de arquivo de blob padrão e, assim, mover os blobs para um local diferente.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Certifique-se de que você tenha uma definição de trabalho configurada corretamente no seu serviço de Gerenciador de Dados do StorSimple.
 
@@ -33,7 +33,7 @@ Certifique-se de que você tenha uma definição de trabalho configurada correta
 
 Para criar uma função do Azure, realize as etapas a seguir:
 
-1. Vá para o [Portal do Azure](http://portal.azure.com/).
+1. Vá para o [Portal do Azure](https://portal.azure.com/).
 
 2. Clique em **+ Criar um recurso**. Na caixa **Pesquisa**, digite **Aplicativo de funções** e pressione **Enter**. Selecione e clique em **Aplicativo de Funções** na lista de aplicativos exibidos.
 

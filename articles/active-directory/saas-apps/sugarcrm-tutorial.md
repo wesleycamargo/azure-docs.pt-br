@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a00c9cb0ce1bd8a6f36070e81df1185ef23a307
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 450fcbcdfab8e90728fbbbd0068123768f3cef4a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201756"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993314"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sugar-crm"></a>Tutorial: Integração do Azure Active Directory ao Sugar CRM
 
@@ -70,7 +70,7 @@ Para configurar a integração do Sugar CRM ao Azure AD, você precisará adicio
     
 1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![APLICATIVOS][3]
+    ![Aplicativos][3]
 
 1. Na caixa de pesquisa, digite **SugarCRM**.
 
@@ -114,6 +114,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     ![Configurar o logon único](./media/sugarcrm-tutorial/tutorial_sugarcrm_url.png)
 
     Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão:
+    
     | |
     |--|
     | `https://<companyname>.sugarondemand.com` |
@@ -152,7 +153,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
    
     ![Autenticação SAML](./media/sugarcrm-tutorial/ic795891.png "Autenticação SAML")  
  
-     a. Na caixa de texto **URL de Logon**, cole o valor da **URL do Serviço de Logon Único SAML** copiado do portal do Azure.
+    a. Na caixa de texto **URL de Logon**, cole o valor da **URL do Serviço de Logon Único SAML** copiado do portal do Azure.
   
     b. Na caixa de texto **URL de SLO**, cole o valor da **URL de Saída** copiado do Portal do Azure.
   
@@ -221,7 +222,7 @@ No caso do SugarCRM, o provisionamento será uma tarefa manual.
    
     ![Novo Usuário](./media/sugarcrm-tutorial/ic795895.png "Novo Usuário")
 
-     a. Digite o **nome de usuário**, o **sobrenome** e o **endereço de email** de um usuário válido do Azure Active Directory nas caixas de texto relacionadas.
+    a. Digite o **nome de usuário**, o **sobrenome** e o **endereço de email** de um usuário válido do Azure Active Directory nas caixas de texto relacionadas.
   
 1. Para **Status**, selecione **Ativo**.
 
@@ -229,7 +230,7 @@ No caso do SugarCRM, o provisionamento será uma tarefa manual.
    
     ![Novo Usuário](./media/sugarcrm-tutorial/ic795896.png "Novo Usuário")
 
-     a. Digite a senha na caixa de texto relacionada.
+    a. Digite a senha na caixa de texto relacionada.
 
     b. Clique em **Salvar**.
 

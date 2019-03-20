@@ -10,17 +10,17 @@ tags: azure-resource-manager
 ms.assetid: 0683c664-9c03-40a4-b198-a6529bf1ce8b
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/25/2018
 ms.author: yushwang
-ms.openlocfilehash: 5f8f282db9468d84c3a1fa16c5cd481f2dd0970e
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 05b25a524894248152114ca9c756d4a0f8944ad8
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415911"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199623"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Configurar o tráfego do gateway de VPN para o emparelhamento de rede virtual
 
@@ -37,8 +37,8 @@ Há dois cenários descritos neste documento:
 1. Ambas as redes virtuais estão usando o modelo de implantação do Resource Manager
 2. A rede virtual de spoke é clássica e a rede virtual de hub com o gateway está no Resource Manager
 
-> [!IMPORTANT]
-> No momento, não há suporte para o tráfego de gateway no emparelhamento de rede virtual global.
+> [!IMPORTANT]  
+> No momento, há suporte para o trânsito de gateway com o emparelhamento de rede virtual global na visualização. A visualização está disponível em todas as regiões do Azure, regiões de nuvem da China e regiões de nuvem do governo, mas não entre nuvens. Nenhuma lista de permissões é necessária. Você pode testar no modo de visualização por meio da CLI, PowerShell, modelos ou API. Não há suporte para o portal na visualização. 
 
 ## <a name="requirements"></a>Requisitos
 
@@ -63,9 +63,9 @@ As contas usadas para criar um emparelhamento de rede virtual precisam ter as fu
     
 |Rede virtual|Modelo de implantação|Função|Permissões|
 |---|---|---|---|
-|Hub-RM|Gerenciador de Recursos|[Colaborador de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
-| |Clássico|[Colaborador de rede clássica](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|N/D|
-|Spoke-Classic|Gerenciador de Recursos|[Colaborador de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
+|Hub-RM|Resource Manager|[Colaborador de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
+| |Clássico|[Colaborador de rede clássica](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Não aplicável|
+|Spoke-Classic|Resource Manager|[Colaborador de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
 ||Clássico|[Colaborador de rede clássica](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
 
 Saiba mais sobre [funções internas](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) e como atribuir permissões específicas a [funções personalizadas](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (somente para o Resource Manager).
@@ -129,13 +129,13 @@ Add-AzVirtualNetworkPeering `
 As etapas são semelhantes ao exemplo do Resource Manager, exceto que as operações são aplicadas somente na rede virtual Hub-RM.
 
 1. Crie ou atualize o emparelhamento de rede virtual de Hub-RM para Spoke-RM no portal do Azure. Navegue para o recurso de rede virtual do Hub-RM, clique em "Emparelhamentos" e, em seguida, em "Adicionar":
-    - Definir a opção "Clássico" para o modelo de implantação de Rede virtual
-    - Selecione a rede virtual "Spoke-Classic" na assinatura correspondente
-    - Verifique se a opção "Permitir acesso à rede virtual" está "Habilitada"
-    - Definir a opção "**Permitir tráfego de gateway**"
-    - Clique em "OK"
+   - Definir a opção "Clássico" para o modelo de implantação de Rede virtual
+   - Selecione a rede virtual "Spoke-Classic" na assinatura correspondente
+   - Verifique se a opção "Permitir acesso à rede virtual" está "Habilitada"
+   - Definir a opção "**Permitir tráfego de gateway**"
+   - Clique em "OK"
 
-    ![hubrm-to-spokeclassic](./media/vpn-gateway-peering-gateway-transit/hubrm-spokeclassic-peering.png)
+     ![hubrm-to-spokeclassic](./media/vpn-gateway-peering-gateway-transit/hubrm-spokeclassic-peering.png)
 
 2. Se o emparelhamento já foi criado, navegue para o recurso de emparelhamento e, em seguida, habilite a opção "**Permitir tráfego de gateway**" semelhante à captura de tela mostrada na etapa (1)
 

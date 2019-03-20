@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 797ac714d3205a271fe6590a3a320e1b9e2a073e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 908ae768ae471ab6f49452c99323c31d34772d45
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194726"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201833"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Gerenciando nomes de domínio personalizados no Azure Active Directory
 
@@ -33,11 +33,11 @@ Quando o diretório é criado, o nome de domínio inicial, como 'contoso.onmicro
 2. Selecione **Azure Active Directory**.
 3. Selecione **Personalizar nomes de domínio**.
   
-   ![Abrir o gerenciamento de usuários](./media/domains-manage/add-custom-domain.png)
+   ![Abrindo a página de gerenciamento de usuário](./media/domains-manage/add-custom-domain.png)
 4. Selecione o nome do domínio que gostaria que fosse o domínio primário.
 5. Selecione o comando **Tornar primário**. Confirme sua escolha quando solicitado.
   
-   ![Tornar primário um nome de domínio](./media/domains-manage/make-primary-domain.png)
+   ![Verifique um domínio nome primário](./media/domains-manage/make-primary-domain.png)
 
 Você pode alterar o nome de domínio primário para o seu diretório para qualquer domínio personalizado verificado não federado. Alterar o domínio primário para o seu diretório não alterará o nome de usuário de nenhum usuário existente.
 
@@ -90,7 +90,7 @@ Um erro é retornado quando:
 **P: Por que a exclusão do domínio está falhando com um erro afirmando que eu tenho grupos controlados pelo Exchange nesse nome de domínio?** <br>
 **R:** Hoje em dia, determinados grupos como grupos de segurança habilitados por email e listas distribuídas são provisionados pelo Exchange e precisem ser limpos manualmente no [EAC (Centro de administração do Exchange)](https://outlook.office365.com/ecp/). Poderá haver ProxyAddresses remanescentes que dependam do nome de domínio personalizado e precisarão ser atualizados manualmente para outro nome de domínio. 
 
-**P: Eu estou conectado como admin@contoso.com, mas não consigo excluir o nome de domínio "contoso.com"?**<br>
+**P: Eu estou conectado como administrador\@contoso.com, mas eu não é possível excluir o nome de domínio "contoso.com"?**<br>
 **R:** Você não pode referenciar o nome de domínio personalizado que você está tentando excluir em seu nome de conta de usuário. Verifique se a conta de Administrador Global está usando o nome de domínio padrão inicial (.onmicrosoft.com), assim como admin@contoso.onmicrosoft.com. Entre com uma conta de Administrador Global diferente, tal como admin@contoso.onmicrosoft.com, ou com outro nome de domínio personalizado, tal como "fabrikam.com", em que a conta é admin@fabrikam.com.
 
 **P: Eu cliquei no botão Excluir domínio e vejo o status `In Progress` para a operação de exclusão. Quanto tempo demora? O que acontecerá se ela falhar?**<br>

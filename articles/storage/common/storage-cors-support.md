@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 2/22/2017
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: cf40fd45114659bf1a5da4dbaa6bfa928f34088c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: bb1f4861f3867c592ecab86e85d3a4dfbab6738e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473758"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002959"
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Suporte para o compartilhamento de recursos entre origens (CORS) para os serviços de armazenamento do Azure
-Os serviços de armazenamento do Azure, da versão 2013-08-15 em diante, dão suporte a CORS (compartilhamento de recursos entre origens) para os serviços de Blob, Tabela e Fila. O CORS é um recurso HTTP que permite que um aplicativo web em execução em um domínio acesse recursos em outro domínio. Navegadores da Web implementam uma restrição de segurança, conhecida como [política de mesma origem](http://www.w3.org/Security/wiki/Same_Origin_Policy), que impede uma página da Web de chamar APIs em um domínio diferente. O CORS fornece uma maneira segura para permitir que um domínio (o domínio de origem) chame APIs em outro domínio. Confira a [Especificação CORS](http://www.w3.org/TR/cors/) para obter detalhes sobre o CORS.
+Os serviços de armazenamento do Azure, da versão 2013-08-15 em diante, dão suporte a CORS (compartilhamento de recursos entre origens) para os serviços de Blob, Tabela e Fila. O CORS é um recurso HTTP que permite que um aplicativo web em execução em um domínio acesse recursos em outro domínio. Navegadores da Web implementam uma restrição de segurança, conhecida como [política de mesma origem](https://www.w3.org/Security/wiki/Same_Origin_Policy), que impede uma página da Web de chamar APIs em um domínio diferente. O CORS fornece uma maneira segura para permitir que um domínio (o domínio de origem) chame APIs em outro domínio. Confira a [Especificação CORS](https://www.w3.org/TR/cors/) para obter detalhes sobre o CORS.
 
 Você pode definir regras de CORS individualmente para cada um dos serviços de armazenamento, chamando [Definir propriedades do serviço Blob](https://msdn.microsoft.com/library/hh452235.aspx), [Definir propriedades do serviço Fila](https://msdn.microsoft.com/library/hh452232.aspx) e [Definir propriedades do serviço Tabela](https://msdn.microsoft.com/library/hh452240.aspx). Depois de definir as regras CORS para o serviço, uma solicitação autorizada corretamente feita no serviço de um domínio diferente será avaliada para determinar se é permitida de acordo com as regras que você especificou.
 
@@ -29,7 +29,7 @@ Você pode definir regras de CORS individualmente para cada um dos serviços de 
 ## <a name="understanding-cors-requests"></a>Noções básicas sobre solicitações CORS
 Uma solicitação CORS de um domínio de origem pode consistir em duas solicitações separadas:
 
-* Uma solicitação de simulação, que consulta as restrições de CORS impostas pelo serviço. A solicitação de simulação é necessária, a menos que o método de solicitação é um [método simples](http://www.w3.org/TR/cors/), significando GET, HEAD ou POST.
+* Uma solicitação de simulação, que consulta as restrições de CORS impostas pelo serviço. A solicitação de simulação é necessária, a menos que o método de solicitação é um [método simples](https://www.w3.org/TR/cors/), significando GET, HEAD ou POST.
 * A solicitação real, feita no recurso desejado.
 
 ### <a name="preflight-request"></a>Solicitação de simulação
@@ -146,7 +146,7 @@ A terceira solicitação corresponde à segunda regra em seu domínio de origem 
 > 
 
 ## <a name="understanding-how-the-vary-header-is-set"></a>Noções básicas sobre como o cabeçalho Vary é definido
-O cabeçalho *Vary* é um cabeçalho HTTP/1.1 padrão, que consiste em um conjunto de campos de cabeçalho de solicitação que fazem recomendações ao navegador ou ao agente do usuário sobre os critérios selecionados pelo servidor para processar a solicitação. O cabeçalho *Vary* é usado principalmente para armazenamento em cache por proxies, navegadores e CDNs, que utilizam-no para determinar como a resposta deve ser armazenada em cache. Para obter detalhes, consulte a especificação para o [cabeçalho Vary](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
+O cabeçalho *Vary* é um cabeçalho HTTP/1.1 padrão, que consiste em um conjunto de campos de cabeçalho de solicitação que fazem recomendações ao navegador ou ao agente do usuário sobre os critérios selecionados pelo servidor para processar a solicitação. O cabeçalho *Vary* é usado principalmente para armazenamento em cache por proxies, navegadores e CDNs, que utilizam-no para determinar como a resposta deve ser armazenada em cache. Para obter detalhes, consulte a especificação para o [cabeçalho Vary](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 
 Quando o navegador ou outro agente de usuário armazena em cache a resposta de uma solicitação CORS, o domínio de origem é armazenado em cache como a origem permitida. Quando um segundo domínio emite a mesma solicitação para um recurso de armazenamento enquanto o cache está ativo, o agente do usuário recupera o domínio de origem armazenado em cache. O segundo domínio corresponde ao domínio armazenado em cache, portanto, a solicitação falhará quando ele, por outro lado, tiver êxito. Em alguns casos, o armazenamento do Azure define o cabeçalho Vary como **Origin** para instruir o agente do usuário a enviar a solicitação subsequente de CORS para o serviço quando o domínio de solicitação difere da origem armazenada em cache.
 
@@ -162,15 +162,15 @@ Observe que para solicitações que usam métodos diferentes de GET/HEAD, os ser
 A tabela a seguir indica como o armazenamento do Azure responderá às solicitações GET/HEAD com base nos casos previamente mencionados:
 
 | Solicitação | Configuração da conta e o resultado da avaliação da regra |  |  | Resposta |  |  |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- |
 | **Cabeçalho da origem presente na solicitação** |**Regra(s) de CORS especificada(s) para este serviço** |**Existe uma regra de correspondência que permite todas as origens(*)** |**Regra de correspondência existe para correspondência exata da origem** |**Resposta inclui o cabeçalho Vary definido como origem** |**A resposta inclui Access-Control-Allowed-Origin: "*"** |**Resposta inclui Access-Control-Exposed-Headers** |
 | Não |Não |Não |Não |Não |Não |Não |
 | Não  |Sim |Não |Não  |Sim |Não |Não |
-| Não  |sim |sim |Não |Não  |sim |sim |
+| Não  |sim |sim |Não |Não  |sim |Sim |
 | sim |Não |Não |Não |Não |Não |Não  |
 | sim |sim |Não  |sim |sim |Não  |sim |
-| sim |sim |Não |Não  |Sim |Não |Não  |
-| sim |sim |sim |Não |Não  |sim |Sim |
+| Sim |sim |Não |Não  |Sim |Não |Não  |
+| sim |Sim |sim |Não |Não  |sim |Sim |
 
 ## <a name="billing-for-cors-requests"></a>Cobrança para solicitações CORS
 Solicitações de simulação com êxito são cobradas se você tiver CORS habilitado para qualquer um dos serviços de armazenamento para sua conta (chamando [Definir propriedades do serviço Blob](https://msdn.microsoft.com/library/hh452235.aspx), [Definir propriedades do serviço Fila](https://msdn.microsoft.com/library/hh452232.aspx) ou [Definir propriedades do serviço Tabela](https://msdn.microsoft.com/library/hh452240.aspx)). Para minimizar encargos, é recomendável configurar o elemento **MaxAgeInSeconds** em suas regras CORS para um valor grande para que o agente do usuário armazene a solicitação em cache.
@@ -184,5 +184,5 @@ Solicitações de simulação malsucedidas não serão cobradas.
 
 [Definir propriedades do serviço Tabela](https://msdn.microsoft.com/library/hh452240.aspx)
 
-[Especificação de compartilhamento de recursos entre origens W3C](http://www.w3.org/TR/cors/)
+[Especificação de compartilhamento de recursos entre origens W3C](https://www.w3.org/TR/cors/)
 

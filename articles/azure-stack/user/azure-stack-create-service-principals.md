@@ -14,12 +14,12 @@ ms.date: 12/12/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 9f0ccb85fa4b42ef3ca90c6d4ca2d80113b93a0c
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 3a6fa631fdf3436dc3a76817d2c0043b0407b2ce
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733692"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121546"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Fornecer aos aplicativos acesso aos recursos do Azure Stack, Criando entidades de serviço
 
@@ -56,10 +56,10 @@ As etapas para atribuir uma entidade de serviço a uma função o mesmo para o A
 
 Se a pilha do Azure usa o Azure AD como o repositório de identidades, você pode criar um serviço de entidade usando as mesmas etapas do Azure, usando o portal do Azure.
 
->[!NOTE]
-Verifique se você tem o [permissões do AD do Azure necessárias](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) antes de começar a criar uma entidade de serviço.
+> [!NOTE]
+> Verifique se você tem o [permissões do AD do Azure necessárias](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) antes de começar a criar uma entidade de serviço.
 
-### <a name="create-service-principal"></a>Criar uma entidade de serviço
+### <a name="create-service-principal"></a>Criar entidade de serviço
 
 Para criar uma entidade de serviço para seu aplicativo:
 
@@ -80,8 +80,8 @@ Ao fazer logon por meio de programação, use a ID para seu aplicativo e uma cha
 
 4. Forneça uma descrição da chave e uma duração para a chave. Ao terminar, escolha **Salvar**.
 
->[!IMPORTANT]
-Depois de salvar a chave, a chave **valor** é exibida. Anote esse valor, porque você não pode recuperar a chave mais tarde. Armazene o valor da chave onde seu aplicativo possa recuperá-lo.
+> [!IMPORTANT]
+> Depois de salvar a chave, a chave **valor** é exibida. Anote esse valor, porque você não pode recuperar a chave mais tarde. Armazene o valor da chave onde seu aplicativo possa recuperá-lo.
 
 ![Aviso de valor de chave para a chave salva.](./media/azure-stack-create-service-principals/image15.png)
 
@@ -101,8 +101,8 @@ Para obter detalhes sobre como criar a entidade de serviço, consulte [criar ent
 
 Para acessar recursos em sua assinatura, você deve atribuir o aplicativo a uma função. Decida qual função representa as permissões corretas para o aplicativo. Para saber mais sobre as funções disponíveis, consulte [RBAC: Funções internas](../../role-based-access-control/built-in-roles.md).
 
->[!NOTE]
-Você pode definir o escopo da função no nível de uma assinatura, um grupo de recursos ou um recurso. As permissão são herdadas para níveis inferiores do escopo. Por exemplo, um aplicativo com a função de leitor para um grupo de recursos significa que o aplicativo pode ler qualquer um dos recursos no grupo de recursos.
+> [!NOTE]
+> Você pode definir o escopo da função no nível de uma assinatura, um grupo de recursos ou um recurso. As permissão são herdadas para níveis inferiores do escopo. Por exemplo, um aplicativo com a função de leitor para um grupo de recursos significa que o aplicativo pode ler qualquer um dos recursos no grupo de recursos.
 
 Use as etapas a seguir como um guia para atribuir uma função a uma entidade de serviço.
 

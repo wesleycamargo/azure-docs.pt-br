@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: seodec18
-ms.openlocfilehash: f232ee89993998eb25ecce73e9c2ac8e08f3198b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 7ea7cbf4526528eb481b6125b006d0c29d86deb2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094093"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58001067"
 ---
 # <a name="view-key-cost-metrics-with-dashboards"></a>Exibir chave métricas com painéis de custo
 
@@ -156,7 +156,7 @@ Esse widget exibe as instâncias ativas por tipo, nos últimos 30 dias.
 Esse widget exibe os serviços de armazenamento usados por departamentos. Passe o mouse sobre o gráfico de pizza para ver seu consumo de armazenamento por departamento.
 - Clique o widget para abrir o painel do rastreador S3.
 
-## <a name="cost-controller-dashboard"></a>Painel do controlador de custo
+## <a name="cost-controller-dashboard"></a>Painel de controle de custos
 O painel do controlador de custo mostra realces de alocação de custo previamente configurado.  
 ![Painel do Controlador de Custo mostrando vários relatórios](./media/dashboards/cost-controller-dashboard.png)
 

@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 2/12/2019
+ms.date: 3/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 2bbac21b9ac3e07cbb41ea8aa4cf93dcbd636d15
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 063699f016c3e165dfb07d17c26e7f29a13c81f8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181772"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118605"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de versão para o agente de Sincronização de Arquivos do Azure
 A Sincronização de Arquivos do Azure permite que você centralize os compartilhamentos de arquivos da sua organização em Arquivos do Azure sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. As instalações do Windows Server são transformadas em um cache rápido do seu compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente (incluindo SMB, NFS e FTPS). Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -23,9 +23,10 @@ Este artigo fornece as notas de versão para versões com suporte do agente de S
 ## <a name="supported-versions"></a>Versões com suporte
 As seguintes versões têm suporte pela Sincronização de arquivos do Azure:
 
-| Marco | Número de versão do agente | Data do lançamento | Status |
+| Marco | Número de versão do agente | Data de lançamento | Status |
 |----|----------------------|--------------|------------------|
-| Versão V5 – [KB4459989](https://support.microsoft.com/help/4459989)| 5.0.2.0 | 12 de fevereiro de 2019 | Com suporte (versão recomendada) |
+| Março de 2019 cumulativo de atualizações - [KB4481060](https://support.microsoft.com/help/4481060)| 5.1.0.0 | 7 de março de 2019 | Com suporte (versão recomendada) |
+| Versão V5 – [KB4459989](https://support.microsoft.com/help/4459989)| 5.0.2.0 | 12 de fevereiro de 2019 | Com suporte |
 | Pacote cumulativo de atualizações de janeiro de 2019 – [KB4481059](https://support.microsoft.com/help/4481059)| 4.3.0.0 | 14 de janeiro de 2019 | Com suporte |
 | Pacote cumulativo de atualizações de dezembro de 2018 – [KB4459990](https://support.microsoft.com/help/4459990)| 4.2.0.0 | 10 de dezembro de 2018 | Com suporte |
 | Pacote cumulativo de atualizações de dezembro de 2018 | 4.1.0.0 | 4 de dezembro de 2018 | Com suporte |
@@ -33,10 +34,20 @@ As seguintes versões têm suporte pela Sincronização de arquivos do Azure:
 | Pacote cumulativo de atualizações de setembro de 2018 | 3.3.0.0 | 24 de setembro de 2018 | Compatível – A versão do agente expirará em 19 de julho de 2019 |
 | Pacote cumulativo de atualizações de agosto de 2018 | 3.2.0.0 | 15 de agosto de 2018 | Compatível – A versão do agente expirará em 19 de julho de 2019 |
 | Disponibilidade Geral | 3.1.0.0 | 19 de julho de 2018 | Compatível – A versão do agente expirará em 19 de julho de 2019 |
-| Agentes expirados | 1.1.0.0 – 3.0.13.0 | N/D | Sem suporte – versão de agente expiradas em 1 de outubro de 2018 |
+| Agentes expirados | 1.1.0.0 – 3.0.13.0 | Não aplicável | Sem suporte – versão de agente expiradas em 1 de outubro de 2018 |
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Política de atualização do agente de Sincronização de Arquivo do Azure
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-5100"></a>Versão do agente 5.1.0.0
+As notas de versão a seguir são para a versão 5.1.0.0 do agente de sincronização de arquivo do Azure lançada em 7 de março de 2019. Estas notas se complementam as notas de versão listadas para a versão 5.0.2.0.
+
+Lista dos problemas corrigidos nesta versão:  
+- Arquivos talvez não consiga sincronizar com o erro 0x80c8031d (ECS_E_CONCURRENCY_CHECK_FAILED) se a enumeração de alteração estiver falhando no servidor
+- Se um arquivo ou uma sessão de sincronização recebe um erro 0x80072f78 (WININET_E_INVALID_SERVER_RESPONSE), sincronização agora tentará repetir a operação
+- Arquivos talvez não consiga sincronizar com o erro 0x80c80203 (ECS_E_SYNC_INVALID_STAGED_FILE)
+- Alto uso de memória pode ocorrer ao recuperar arquivos
+- Melhorias de telemetria em camadas na nuvem 
 
 ## <a name="agent-version-5020"></a>Versão do agente 5.0.2.0
 As notas sobre a versão a seguir são para a versão 5.0.2.0 do agente de Sincronização de Arquivos do Azure (lançada em 12 de fevereiro de 2019).
@@ -44,7 +55,7 @@ As notas sobre a versão a seguir são para a versão 5.0.2.0 do agente de Sincr
 ### <a name="improvements-and-issues-that-are-fixed"></a>Problemas corrigidos e aprimoramentos
 
 - Suporte para a nuvem do Azure Governamental
-    - Adicionamos suporte à versão prévia para a nuvem do Azure Governamental. Isso exige uma assinatura inclusa na lista de permissão e download do agente especial da Microsoft. Para obter acesso à versão prévia, envie um email diretamente para [AzureFiles@microsoft.com](mailto:AzureFiles@microsoft.com).
+  - Adicionamos suporte à versão prévia para a nuvem do Azure Governamental. Isso exige uma assinatura inclusa na lista de permissão e download do agente especial da Microsoft. Para obter acesso à versão prévia, envie um email diretamente para [AzureFiles@microsoft.com](mailto:AzureFiles@microsoft.com).
 - Suporte para Eliminação de Duplicação de Dados
     - A Eliminação de Duplicação de Dados tem suporte completo com a camada de nuvem habilitada no Windows Server 2016 e no Windows Server 2019. Habilitar a eliminação de duplicação em um volume com camada de nuvem habilitada permite armazenar em cache mais arquivos localmente sem ter que provisionar mais armazenamento.
 - Suporte para transferência de dados offline (por exemplo, por meio do Data Box)

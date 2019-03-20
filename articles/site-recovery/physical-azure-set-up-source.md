@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 2e5b90f36a6dc5c88db3f6f449c911d22de680b1
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: HT
+ms.openlocfilehash: e9bf06ba058078fc5012410bdd75ef90ff6c93d4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976793"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899002"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Configurar o servidor de configuração para recuperação de desastre de servidores físicos no Azure
 
@@ -22,7 +22,7 @@ Este artigo descreve como configurar seu ambiente local para iniciar a replicaç
 ## <a name="prerequisites"></a>Pré-requisitos
 
 O artigo supõe que você já tenha:
-- Um cofre de Serviços de Recuperação no [Portal do Azure](http://portal.azure.com "Portal do Azure").
+- Um cofre de Serviços de Recuperação no [Portal do Azure](https://portal.azure.com "Portal do Azure").
 - Um computador físico no qual instalar o servidor de configuração.
 - Se você desabilitou o TLS 1.0 no computador no qual você instalando o servidor de configuração, verifique se o TLs 1.2 está habilitado e que o .NET Framework versão 4.6 ou posterior está instalado no computador (com criptografia forte desabilitada). [Saiba mais](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1).
 
@@ -47,10 +47,10 @@ A tabela a seguir lista os requisitos mínimos de hardware, software e rede para
 
 1. Em **Preparar origem**, se você não tiver um servidor de configuração, clique em **+Servidor de configuração** para adicionar um.
 
-  ![Configurar origem](./media/physical-azure-set-up-source/plus-config-srv.png)
+   ![Configurar origem](./media/physical-azure-set-up-source/plus-config-srv.png)
 2. Na folha **Adicionar Servidor**, verifique se o **Servidor de Configuração** é exibido no **Tipo de servidor**.
 4. Baixe o arquivo de instalação Configuração Unificada da Recuperação de Site.
-5. Baixe a chave do registro do cofre. Você precisa da chave de registro ao executar a Instalação Unificada. A chave é válida por cinco dias após ser gerada.
+5. Baixar a chave de registro do cofre. Você precisa da chave de registro ao executar a Instalação Unificada. A chave é válida por cinco dias após ser gerada.
 
     ![Configurar origem](./media/physical-azure-set-up-source/set-source2.png)
 6. No computador que você está usando como o servidor de configuração, execute a **Instalação Unificada do Azure Site Recovery** para instalar o servidor de configuração, o servidor de processo e o servidor de destino mestre.

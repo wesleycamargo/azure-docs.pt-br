@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: c7b3695e5cb43a9c8f659a3ac1baddab51526b2d
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: eeb3b2098cf477004ba7ad85a903f1a8e2267392
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893724"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117822"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Fontes de dados com suporte no Azure Analysis Services
 
@@ -25,12 +25,12 @@ Fontes de dados e conectores mostrados no Get Data ou no Assistente de Importaç
 |---------|---------|---------|
 |Banco de Dados SQL do Azure<sup>[2](#azsqlmanaged)</sup>     |   Sim      |    Sim      |
 |SQL Data Warehouse do Azure     |   Sim      |   Sim       |
-|Armazenamento de Blobs do Azure<sup>[1](#tab1400a)</sup>     |   Sim       |    Não       |
-|Armazenamento de tabelas do Azure<sup>[1](#tab1400a)</sup>    |   Sim       |    Não       |
-|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  Sim        |  Não         |
-|Azure Data Lake Store (Gen1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   Sim       |    Não       |
-|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     Sim     |   Não        |
-|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   Sim       |   Não        |
+|Armazenamento de Blobs do Azure<sup>[1](#tab1400a)</sup>     |   Sim       |    Não      |
+|Armazenamento de tabelas do Azure<sup>[1](#tab1400a)</sup>    |   Sim       |    Não      |
+|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  Sim        |  Não        |
+|Azure Data Lake Store (Gen1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   Sim       |    Não      |
+|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     Sim     |   Não       |
+|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   Sim       |   Não       |
 ||||
 
 <a name="tab1400a">1</a> - Tabular 1.400 e modelos superiores somente.   
@@ -52,17 +52,17 @@ Conectar a fontes de dados locais e ao servidor de AS do Azure requer um gateway
 |  --- | --- | --- |
 | SQL Server |SQL Server Native Client 11.0, Provedor Microsoft OLE DB para SQL Server, Provedor de Dados .NET Framework para SQL Server | Provedor de Dados .NET Framework para SQL Server |
 | SQL Server Data Warehouse |SQL Server Native Client 11.0, Provedor Microsoft OLE DB para SQL Server, Provedor de Dados .NET Framework para SQL Server | Provedor de Dados .NET Framework para SQL Server |
-| Oracle |Provedor Microsoft OLE DB para Oracle, Provedor de Dados Oracle para .NET |Provedor de Dados Oracle para .NET | |
-| Teradata |Provedor OLE DB para Teradata, Provedor de Dados Teradata para .NET |Provedor de Dados Teradata para .NET | |
+| Oracle |Provedor Microsoft OLE DB para Oracle, Provedor de Dados Oracle para .NET |Provedor de Dados Oracle para .NET |
+| Teradata |Provedor OLE DB para Teradata, Provedor de Dados Teradata para .NET |Provedor de Dados Teradata para .NET |
 | | | |
 
 ### <a name="in-memory-only"></a>Somente na memória
 
 |Fonte de dados  |  
-|---------|---------|
+|---------|
 |Banco de Dados do Access     |  
 |Active Directory<sup>[1](#tab1400b)</sup>     |  
-|Serviços de análise     |  
+|Analysis Services     |  
 |Analytics Platform System     |  
 |Dynamics CRM<sup>[1](#tab1400b)</sup>     |  
 |Pasta de trabalho do Excel     |  
@@ -81,9 +81,9 @@ Conectar a fontes de dados locais e ao servidor de AS do Azure requer um gateway
 |SAP HANA<sup>[1](#tab1400b)</sup>    |  
 |SAP Business Warehouse<sup>[1](#tab1400b)</sup>    |  
 |SharePoint<sup>[1](#tab1400b)</sup>     |   
-|Banco de dados Sybase     |  
+|Banco de Dados Sybase     |  
 |Tabela XML<sup>[1](#tab1400b)</sup>    |  
-|||
+||
  
 <a name="tab1400b">1</a> Tabular 1400 e modelos superiores somente.
 

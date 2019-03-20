@@ -11,35 +11,35 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2019
+ms.date: 03/13/2019
 ms.author: magoedte
-ms.openlocfilehash: 9a4c31df51f804d4738e3a2eb4ce904e793c3f1b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: f7a0300619d82f760c0e307601efbd3987eb6067
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004988"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004596"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>O que é o Azure Monitor para VMs (versão prévia)?
 
-O Azure Monitor para VMs monitora as VMs (máquinas virtuais) e os conjuntos de dimensionamento de máquinas virtuais do Azure em escala. O serviço analisa o desempenho e a integridade das VMs do Windows e do Linux, monitorando os processos e as dependências em outros recursos e processos externos. 
+O Azure Monitor para VMs monitora as VMs (máquinas virtuais) e os conjuntos de dimensionamento de máquinas virtuais do Azure em escala. Ele analisa o desempenho e a integridade de suas VMs do Linux e Windows e monitora seus processos e dependências de outros recursos e processos externos. 
 
 Como solução, o Azure Monitor para VMs inclui suporte para monitorar o desempenho e as dependências de aplicativos das VMs hospedadas localmente ou em outro provedor de nuvem. Três principais recursos fornecem insights detalhados:
 
 * **Componentes lógicos de VMs do Azure que executam o Windows e o Linux**: São medidos em relação aos critérios de integridade pré-configurados e alertam quando a condição avaliada é atendida.  
 
-* **Gráficos de desempenho de tendência predefinidos**: Exibem métricas básicas de desempenho no sistema operacional da VM convidada.
+* **Gráficos de desempenho mais populares predefinido**: Exibem métricas básicas de desempenho no sistema operacional da VM convidada.
 
 * **Mapa de dependências**: Exibe os componentes interconectados com a VM de vários grupos de recursos e assinaturas.  
 
 Os recursos são organizados em três perspectivas:
 
-* Integridade
+* Saúde
 * Desempenho
-* Mapa
+* Mapear
 
 >[!NOTE]
->Atualmente, o recurso Integridade é oferecido apenas para máquinas virtuais do Azure e conjuntos de dimensionamento de máquinas virtuais. Os recursos Desempenho e Mapa dão suporte a VMs do Azure e a máquinas virtuais hospedadas no ambiente ou em outro provedor de nuvem.
+>Atualmente, o recurso Integridade é oferecido apenas para máquinas virtuais do Azure e conjuntos de dimensionamento de máquinas virtuais. Desempenho e recursos de mapa de suportam a VMs do Azure e máquinas virtuais que são hospedadas em seu ambiente ou outro provedor de nuvem.
 
 A integração com os logs do Azure Monitor oferece uma agregação e uma filtragem eficientes, e pode analisar as tendências de dados ao longo do tempo. Esse monitoramento abrangente da carga de trabalho não pode ser obtido sozinho com o Azure Monitor ou o Mapa do Serviço.  
 
@@ -54,13 +54,14 @@ O Azure Monitor para VMs pode fornecer desempenho e disponibilidade previsíveis
 
 ## <a name="data-usage"></a>Uso de dados 
 
-Quando você implanta o Azure Monitor para VMs, os dados coletados pelas VMs são ingeridos e armazenados no Azure Monitor. Com base nos preços publicados na [página de preços do Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/), o Azure Monitor para VMs é cobrado pelo seguinte:
+Quando você implanta o Azure Monitor para VMs, os dados coletados pelas VMs são ingeridos e armazenados no Azure Monitor. As métricas de critérios de integridade são armazenadas no Azure Monitor em um banco de dados de série temporal, desempenho e dependência de dados coletados são armazenados em um espaço de trabalho do Log Analytics. Com base nos preços publicados na [página de preços do Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/), o Azure Monitor para VMs é cobrado pelo seguinte:
+
 * Os dados ingeridos e armazenados.
 * O número de séries temporais de métrica de critérios de integridade monitorados.
 * As regras de alerta criadas.
 * As notificações enviadas. 
 
-O tamanho do log varia de acordo com o tamanho das cadeias de caracteres de contadores e pode aumentar com o número de discos lógicos e de adaptadores de rede. Se você já tiver um workspace e estiver coletando esses contadores, nenhum encargo duplicado será aplicado. Se você já estiver usando o Mapa do Serviço, a única alteração que você verá serão os dados de conexão adicionais enviados ao Azure Monitor.
+Varia de acordo com o tamanho do log com os comprimentos de cadeia de caracteres de contadores de desempenho, e ele pode aumentar com o número de discos lógicos e adaptadores de rede alocados para a VM. Se você já tiver um workspace e estiver coletando esses contadores, nenhum encargo duplicado será aplicado. Se você já estiver usando o Mapa do Serviço, a única alteração que você verá serão os dados de conexão adicionais enviados ao Azure Monitor.
 
 ## <a name="next-steps"></a>Próximas etapas
 Para entender os requisitos e os métodos que ajudam você a monitorar suas máquinas virtuais, examine [Implantar o Azure Monitor para VMs](vminsights-onboard.md).

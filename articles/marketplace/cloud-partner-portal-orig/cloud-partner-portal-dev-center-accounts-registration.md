@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 6482eea23707f451e59d21e70f7583a0cd6680cc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: adfe0af646fae79bc9a954cd5d654626880915d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168236"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894080"
 ---
 <a name="create-a-microsoft-developer-account"></a>Criar uma conta de Desenvolvedor da Microsoft
 ====================================
@@ -77,7 +77,7 @@ O Centro de Desenvolvimento da Microsoft é usada para registrar as informaçõe
 >[!IMPORTANT]
 >Você deve completar os seguintes componentes de perfil do Desenvolvedor para prosseguir pelas diversas fases da criação e implantação da oferta.
 
-| Perfil do desenvolvedor     | Para iniciar o rascunho    | Staging       | Publicar modelo gratuito e de solução   | Publicar comercial   |
+| Perfil do desenvolvedor     | Para iniciar o rascunho    | Preparo       | Publicar modelo gratuito e de solução   | Publicar comercial   |
 |---------------------- |----------------   |-----------    |-------------------------------------  |---------------------  |
 | Registro da empresa  | Imprescindível         | Imprescindível     | Imprescindível                             | Imprescindível             |
 | ID do perfil fiscal        | Opcional          | Opcional      | Opcional                              | Imprescindível             |
@@ -90,7 +90,7 @@ O Centro de Desenvolvimento da Microsoft é usada para registrar as informaçõe
 
 1. Abra uma nova sessão de navegação do Internet Explorer InPrivate ou Chrome Incognito para garantir que você não tenha conectado a sessão em uma conta pessoal.
 
-2. Acesse o [Centro de Desenvolvimento do Windows](http://dev.windows.com/registration?accountprogram=azure) para se registrar como um vendedor. Leia a observação importante a seguir antes de continuar.
+2. Acesse o [Centro de Desenvolvimento do Windows](https://dev.windows.com/registration?accountprogram=azure) para se registrar como um vendedor. Leia a observação importante a seguir antes de continuar.
 
    ![Verificação de conta Microsoft](./media/cloud-partner-portal-create-dev-center-registration/seller-dashboard-verify.jpg)
 
@@ -157,7 +157,7 @@ Para publicar ofertas comerciais para compra, será preciso adicionar informaç�
 
 **Para fornecer informações bancárias**
 
-1.  Entre no [Centro de Desenvolvimento da Microsoft](http://dev.windows.com/registration?accountprogram=azure) com sua conta da Microsoft.
+1.  Entre no [Centro de Desenvolvimento da Microsoft](https://dev.windows.com/registration?accountprogram=azure) com sua conta da Microsoft.
 2.  Selecione **Conta de pagamento** no menu à esquerda, em **Escolher método de pagamento**, selecione **Conta bancária** ou **PayPal**.
 
     >[!NOTE]
@@ -173,7 +173,7 @@ Para publicar ofertas comerciais para compra, será preciso adicionar informaç�
 
 **Para fornecer informações fiscais**
 
-1.  Entre no [Centro de Desenvolvimento da Microsoft](http://dev.windows.com/registration?accountprogram=azure) com sua conta da Microsoft (se for necessário).
+1.  Entre no [Centro de Desenvolvimento da Microsoft](https://dev.windows.com/registration?accountprogram=azure) com sua conta da Microsoft (se for necessário).
 2.  No menu à esquerda, selecione **Perfil fiscal**.
 3.  Na página **Configurar seu formulário de impostos**:
     - Selecione o país ou a região em que você tem residência permanente.

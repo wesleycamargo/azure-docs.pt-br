@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 02/20/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79ab1f046e5ab6c5b777e9253dd21e47fa9d593a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c922e0ef005b0e0b22af32f52d8bf28aff0e9515
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187926"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57998706"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-the-azure-portal"></a>Configurar identidades gerenciadas para recursos do Azure em um conjunto de dimensionamento de máquinas virtuais usando o portal do Azure
 
@@ -59,7 +59,7 @@ Para habilitar a identidade gerenciada atribuída ao sistema em um conjunto de d
 
 3. Em **Sistema atribuído**, **Status**, selecione **Ativado** e, em seguida, clique em **Salvar**:
 
-   ![Captura de tela da página de configuração](./media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png)](./media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png#lightbox)  
+   ![Captura de tela da página de configuração](./media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png) 
 
 ### <a name="remove-system-assigned-managed-identity-from-a-virtual-machine-scale-set"></a>Remover identidade gerenciada atribuída ao sistema de um conjunto de dimensionamento de máquinas virtuais
 
@@ -73,7 +73,7 @@ Se você tiver um conjunto de dimensionamento de máquinas virtuais que não pre
 
    ![Captura de tela da página de configuração](./media/msi-qs-configure-portal-windows-vmss/disable-windows-vmss-portal-configuration-blade.png)
 
-## <a name="user-assigned-managed-identity"></a>Identidade gerenciada atribuída pelo usuário
+## <a name="user-assigned-managed-identity"></a>Identidade gerenciada atribuída ao usuário
 
 Nesta seção, você aprenderá como adicionar e remover uma identidade gerenciada atribuída ao usuário de um conjunto de dimensionamento de máquinas virtuais usando o portal do Azure.
 

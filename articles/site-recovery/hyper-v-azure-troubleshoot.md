@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: e79ffba90f0812d79bcb7ab808e2b6ba80e1c61b
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 14d763126cccadf8042da79b20d15e5c93a8ce62
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756658"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094170"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Solucionar problemas de Hyper-V para replicação e failover do Azure
 
@@ -28,9 +28,9 @@ Se você enfrentar problemas ao habilitar a proteção para VMs do Hyper-V, veri
 3. Verifique se o serviço de gerenciamento de máquina Virtual do Hyper-V está em execução em hosts Hyper-V.
 4. Verifique se há problemas que aparecem na entrada Hyper-V-Hyper-v-vmms\admin na VM. Esse log está localizado em **Logs de Aplicativos e Serviços** > **Microsoft** > **Windows**.
 5. Na VM convidada, verifique se o WMI está habilitado e acessível.
-  - [Saiba mais sobre](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/) teste básico de WMI.
-  - [Solucione problemas](https://aka.ms/WMiTshooting) de WMI.
-  - [Solucione problemas](https://technet.microsoft.com/library/ff406382.aspx#H22) com scripts de WMI e serviços de WMI.
+   - [Saiba mais sobre](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/) teste básico de WMI.
+   - [Solucione problemas](https://aka.ms/WMiTshooting) de WMI.
+   - [Solucionar problemas de](https://technet.microsoft.com/library/ff406382.aspx#H22) problemas com scripts do WMI e serviços.
 6. Na VM convidada, certifique-se de que a versão mais recente do Integration Services está em execução.
     - [Verifique](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) se você tem a versão mais recente.
     - [Mantenha](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) o Integration Services atualizado.
@@ -41,9 +41,9 @@ Solucione problemas com a replicação inicial e contínua da seguinte maneira:
 
 1. Verifique se você está executando a [versão mais recente](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx) do Site Recovery.
 2. Verifique se a replicação está em pausa:
-  - Verifique o status de integridade da VM no console do Gerenciador do Hyper-V.
-  - Se for crítico, clique com o botão direito na VM > **Replicação** > **Exibir integridade da replicação**.
-  - Se a replicação estiver em pausa, clique em **Retomar replicação**.
+   - Verifique o status de integridade da VM no console do Gerenciador do Hyper-V.
+   - Se for crítico, clique com o botão direito na VM > **Replicação** > **Exibir integridade da replicação**.
+   - Se a replicação estiver em pausa, clique em **Retomar replicação**.
 3. Verifique se todos os serviços necessários estão em execução. Se não estiverem, reinicie-os.
     - Se você estiver replicando o Hyper-V sem o VMM, verifique se esses serviços estão em execução no host Hyper-V:
         - Serviço Gerenciamento de máquinas virtuais
@@ -65,10 +65,10 @@ Limitações de largura de banda de rede podem afetar a replicação. Solucione 
 2. Execute o [criador de perfil Planejador de Implantações](hyper-v-deployment-planner-run.md).
 3. Depois de executar o criador de perfil, execute as recomendações de [largura de banda](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) e [armazenamento](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation).
 4. Verifique [limitações de rotatividade de dados](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits). Se você consultar dados de alta rotatividade em uma VM, faça o seguinte:
-  - Verifique se sua VM está marcada para ser sincronizada novamente.
-  - Execute [estas etapas](https://blogs.technet.microsoft.com/virtualization/2014/02/02/hyper-v-replica-debugging-why-are-very-large-log-files-generated/) para investigar a fonte de rotatividade.
-  - A rotatividade pode ocorrer quando os arquivos de log do HRL excedem 50% de espaço em disco disponível. Se esse for o problema, provisione mais espaço de armazenamento para todas as VMs em que o problema ocorre.
-  - Verifique se a replicação não está em pausa. Se estiver, ele continua a gravar as alterações no arquivo HRL, o que pode contribuir para o aumento de tamanho.
+   - Verifique se sua VM está marcada para ser sincronizada novamente.
+   - Execute [estas etapas](https://blogs.technet.microsoft.com/virtualization/2014/02/02/hyper-v-replica-debugging-why-are-very-large-log-files-generated/) para investigar a fonte de rotatividade.
+   - A rotatividade pode ocorrer quando os arquivos de log do HRL excedem 50% de espaço em disco disponível. Se esse for o problema, provisione mais espaço de armazenamento para todas as VMs em que o problema ocorre.
+   - Verifique se a replicação não está em pausa. Se estiver, ele continua a gravar as alterações no arquivo HRL, o que pode contribuir para o aumento de tamanho.
  
 
 ## <a name="critical-replication-state-issues"></a>Problemas de estado de replicação crítico
@@ -91,17 +91,17 @@ Um instantâneo consistente com o aplicativo é um instantâneo em um ponto no t
 
 1. Verifique se a versão mais recente do Integration Services está instalada e em execução.  Verifique se há uma atualização executando o seguinte comando em um prompt elevado do PowerShell no host Hyper-V: **get-vm  | select Name, State, IntegrationServicesState**.
 2. Verifique se os serviços VSS estão em execução e íntegros:
-    - Para verificar se os serviços, entrar VM convidada. Em seguida, abra um prompt de comando do administrador e execute os seguintes comandos para verificar se todos os gravadores VSS estão íntegros.
-        - **Vssadmin list writers**
-        - **Vssadmin list shadows**
-        - **Vssadmin list providers**
-    - Verifique a saída. Se os gravadores estiverem em um estado de falha, faça o seguinte:
-        - Verifique o log de eventos do aplicativo na VM para erros de operação do VSS.
-    - Tente reiniciar esses serviços associados com o gravador com falha:
-        - Cópia de Sombra de Volume
-         - Provedor de VSS do Azure Site Recovery
-    - Depois de fazer isso, aguarde algumas horas para verificar se os instantâneos consistentes com o aplicativo são gerados com êxito.
-    - Como último recurso, tente reinicializar a VM. Isso pode resolver os serviços que estão em estado não responsivo.
+   - Para verificar se os serviços, entrar VM convidada. Em seguida, abra um prompt de comando do administrador e execute os seguintes comandos para verificar se todos os gravadores VSS estão íntegros.
+       - **Vssadmin list writers**
+       - **Vssadmin list shadows**
+       - **Vssadmin list providers**
+   - Verifique a saída. Se os gravadores estiverem em um estado de falha, faça o seguinte:
+       - Verifique o log de eventos do aplicativo na VM para erros de operação do VSS.
+   - Tente reiniciar esses serviços associados com o gravador com falha:
+     - Cópia de Sombra de Volume
+       - Provedor de VSS do Azure Site Recovery
+   - Depois de fazer isso, aguarde algumas horas para verificar se os instantâneos consistentes com o aplicativo são gerados com êxito.
+   - Como último recurso, tente reinicializar a VM. Isso pode resolver os serviços que estão em estado não responsivo.
 3. Verifique se que você não tem discos dinâmicos na VM. Isso não tem suporte para instantâneos consistentes com o aplicativo. Você pode abrir o Disk Management (diskmgmt.msc).
 
     ![Dados dinâmicos](media/hyper-v-azure-troubleshoot/dynamic-disk.png)

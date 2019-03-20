@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 4ad9de80a77d054ef723d9ed5bd53e410c653baa
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 5fc027e52d838a85e7b880e3dd0daf4438e850dc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195074"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57851978"
 documentType: LandingData
 title: Espaços de Desenvolvimento do Azure
 metadata:
@@ -25,7 +25,7 @@ sections:
     text: >-
       > [!IMPORTANT]
 
-      > O Azure Dev Spaces está atualmente na versão prévia e só é compatível com os clusters do AKS nas regiões **Leste dos EUA**,**Leste dos EUA 2**, **Centro dos EUA**, **Oeste dos EUA 2**, **Europa Ocidental**, **Sudeste Asiático**, **Canadá Central** e **Leste do Canadá**. As versões prévias são disponibilizadas com a condição de que você concorde com os [termos de uso complementares](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alguns aspectos desse recurso podem alterar antes da GA (disponibilidade geral).
+      > O Azure Dev Spaces está atualmente na versão prévia e só é compatível com os clusters do AKS nas regiões **Leste dos EUA**, **Leste dos EUA 2**, **Centro dos EUA**, **Oeste dos EUA 2**, **Norte da Europa**, **Oeste da Europa**, **Sudeste Asiático**, **Canadá Central** e **Leste do Canadá**. As versões prévias são disponibilizadas com a condição de que você concorde com os [termos de uso complementares](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alguns aspectos desse recurso podem alterar antes da GA (disponibilidade geral).
 - title: Introdução ao Azure Dev Spaces
   items:
   - type: paragraph

@@ -5,17 +5,17 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 01/09/2018
+ms.date: 02/21/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 4d9f05ad1913646e7ca09690af965042817ef7ec
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: f446ec6bce138a072a214a9e9cd7880ad215ad3b
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193276"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57410614"
 ---
-Este artigo usa cmdlets do PowerShell. Para executar os cmdlets, você pode usar o Azure Cloud Shell, um shell interativo gratuito. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. Basta clicar em **Copiar** para copiar o código, colá-lo no Cloud Shell e depois pressione Enter para executá-lo. Há algumas maneiras de inicializar o Cloud Shell:
+Este artigo usa cmdlets do PowerShell. Para executar os cmdlets, você pode usar o Azure Cloud Shell. O Azure Cloud Shell é um shell interativo grátis que tem ferramentas comuns do Azure pré-instalada e está configurado para usar com sua conta. Basta clicar em **Copiar** para copiar o código, colá-lo no Cloud Shell e depois pressione Enter para executá-lo. Há algumas maneiras de inicializar o Cloud Shell:
 
 |  |   |
 |-----------------------------------------------|---|
@@ -24,6 +24,6 @@ Este artigo usa cmdlets do PowerShell. Para executar os cmdlets, você pode usar
 | Clique no botão **Cloud Shell** no menu no canto superior direito do portal do Azure. | [![Cloud Shell no portal](./media/vpn-gateway-cloud-shell-powershell/cloud-shell-menu.png)](https://portal.azure.com) |
 |  |  |
 
-Se você não quiser usar o Azure Cloud Shell, poderá instalar o PowerShell localmente em vez disso. Se você optar por instalar e usar o PowerShell localmente, instale a versão mais recente dos cmdlets do PowerShell do Azure Resource Manager. Os cmdlets do PowerShell são atualizados com frequência e você normalmente precisa atualizar seus cmdlets do PowerShell para obter a funcionalidade mais recente do recurso. Se você não atualizar seus cmdlets do PowerShell, os valores especificados poderão falhar. 
+**Executando o PowerShell localmente**
 
-Para encontrar a versão do PowerShell que você está executando localmente, use o cmdlet 'Get-Module -ListAvailable AzureRM'. Para atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Para obter mais informações, confira [Como instalar e configurar o Azure PowerShell](/powershell/azure/azurerm/overview).
+Você também pode instalar e executar os cmdlets do PowerShell do Azure localmente no seu computador. Cmdlets do PowerShell são atualizados com frequência. Se você não estiver executando a versão mais recente, os valores especificados nas instruções poderão falhar. Para localizar a versão do PowerShell que estão sendo executados localmente, use o `Get-Module -ListAvailable Az` cmdlet. Para instalar ou atualizar, consulte [instalar o módulo Azure PowerShell](/powershell/azure/install-az-ps).

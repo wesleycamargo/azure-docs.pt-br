@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: banders
-ms.openlocfilehash: 88518bee879d01966813fc89e8095d2237476a15
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: a143fc6d9dbd78ae365f943a00ac9f8492d5e51c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901302"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57897139"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Compreenda os termos nos encargos de uso detalhado do Microsoft Azure 
 
@@ -40,22 +40,22 @@ As seções a seguir descrevem os termos importantes mostrados na versão 2 do a
 
 A seção superior do arquivo CSV de uso detalhado mostra os serviços que você usou durante o período de cobrança do mês. A tabela a seguir lista os termos e as descrições mostradas nesta seção.
 
-| Termo | DESCRIÇÃO |
+| Termo | Descrição |
 | --- | --- |
-|Período de Cobrança |O período de cobrança quando os medidores foram usados |
-|Categoria de medidor |Identifica o serviço de nível superior para o uso |
-|Subcategoria de medidor |Define o tipo de serviço do Azure e pode afetar a tarifa |
-|Nome do medidor |Identifica a unidade de medida para o medidor sendo consumido |
+|Período de cobrança |O período de cobrança quando os medidores foram usados |
+|Medir Categoria |Identifica o serviço de nível superior para o uso |
+|Medir Subcategoria |Define o tipo de serviço do Azure e pode afetar a tarifa |
+|Medir Nome |Identifica a unidade de medida para o medidor sendo consumido |
 |Região do medidor |Identifica o local do datacenter para determinados serviços que são cobrados com base no local do datacenter |
 |SKU |Identifica o identificador de sistema exclusivo para cada medidor do Azure |
 |Unidade |Identifica a unidade em que o serviço é cobrado. Por exemplo, GB, horas, 10.000 s. |
-|Quantidade consumida |O valor do medidor usado durante o período de cobrança |
-|Quantidade incluída |O valor do medidor que está incluído gratuitamente em seu período de cobrança atual |
+|Quantidade Consumida |O valor do medidor usado durante o período de cobrança |
+|Quantidade Incluída |O valor do medidor que está incluído gratuitamente em seu período de cobrança atual |
 |Quantidade de excesso |Mostra a diferença entre a Quantidade Consumida e a Quantidade Incluída. A cobrança é feita com base nessa quantidade. Para ofertas pré-pagas sem quantidade incluída na oferta, esse total é igual à Quantidade Consumida. |
-|Dentro do Compromisso |Mostra os encargos do medidor que são subtraídos do valor de compromisso associado à sua oferta de seis ou 12 meses. Os encargos do medidor são subtraídos em ordem cronológica. |
-|Moeda |A moeda usada em seu período de cobrança atual |
+|Dentro do compromisso |Mostra os encargos do medidor que são subtraídos do valor de compromisso associado à sua oferta de seis ou 12 meses. Os encargos do medidor são subtraídos em ordem cronológica. |
+|Conversor de Moedas |A moeda usada em seu período de cobrança atual |
 |Excedente |Mostra os encargos de medidor que excedem o valor de compromisso associado à sua oferta de seis ou 12 meses |
-|Tarifa de Compromisso |Mostra a tarifa de compromisso com base no valor de compromisso total associado à sua oferta de seis ou 12 meses |
+|Tarifa de compromisso |Mostra a tarifa de compromisso com base no valor de compromisso total associado à sua oferta de seis ou 12 meses |
 |Tarifa |A tarifa cobrada por unidade faturável |
 |Valor |Mostra o resultado da multiplicação da coluna Quantidade Excedente pela coluna Tarifa. Se a Quantidade Consumida não exceder a Quantidade Incluída, nenhum encargo será exibido nessa coluna. |
 
@@ -63,24 +63,24 @@ A seção superior do arquivo CSV de uso detalhado mostra os serviços que você
 
 A seção de Uso diário do arquivo CSV mostra os detalhes de uso que afetam as taxas de cobrança. A tabela a seguir lista os termos e as descrições mostradas nesta seção.
 
-| Termo | DESCRIÇÃO |
+| Termo | Descrição |
 | --- | --- |
 |Data de Uso |A data na qual o medidor foi usado |
-|Categoria de medidor |Identifica o serviço de nível superior ao qual esse uso pertence |
-|ID de medidor |O identificador de medidor cobrado que é usado para uso de cobrança de preços |
-|Subcategoria de medidor |Define o tipo de serviço do Azure e pode afetar a tarifa |
+|Medir Categoria |Identifica o serviço de nível superior ao qual esse uso pertence |
+|ID de Medição |O identificador de medidor cobrado que é usado para uso de cobrança de preços |
+|Medir Subcategoria |Define o tipo de serviço do Azure e pode afetar a tarifa |
 |Nome do medidor |Identifica a unidade de medida para o medidor sendo consumido |
 |Região do medidor |Identifica o local do datacenter para determinados serviços que são cobrados com base no local do datacenter |
 |Unidade |Identifica a unidade em que o medidor é cobrado. Por exemplo, GB, horas, 10.000 s. |
-|Quantidade consumida |A quantidade do medidor que foi consumida naquele dia |
+|Quantidade Consumida |A quantidade do medidor que foi consumida naquele dia |
 |Local do recurso |Identifica o datacenter em que o medidor está sendo executado |
-|Serviço consumido |O serviço da plataforma do Azure que você usou |
-|Grupo de recursos |O grupo de recursos no qual o medidor implantado está sendo executado. <br/><br/>Para saber mais, consulte [Visão geral do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). |
-|ID da instância | O identificador do medidor. <br/><br/> O identificador contém o nome especificado para o medidor quando ele foi criado. É o nome do recurso ou a ID do Recurso totalmente qualificada. Para saber mais, confira [API do Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources). |
-|Marcas | Marcação atribuída ao medidor. Use marcas para agrupar registros de cobrança.<br/><br/>Por exemplo, você pode usar marcas para distribuir os custos entre os departamentos que usam o medidor. Os serviços que dão suporte à emissão de marcas são as máquinas virtuais, armazenamento e serviços de rede provisionados com a [API do Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources). Para saber mais, confira [Organizar os recursos do Azure com marcas](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/). |
+|Serviço Consumido |O serviço da plataforma do Azure que você usou |
+|Grupo de Recursos |O grupo de recursos no qual o medidor implantado está sendo executado. <br/><br/>Para saber mais, consulte [Visão geral do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). |
+|Identificação da Instância | O identificador do medidor. <br/><br/> O identificador contém o nome especificado para o medidor quando ele foi criado. É o nome do recurso ou a ID do Recurso totalmente qualificada. Para saber mais, confira [API do Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources). |
+|Rótulos  | Marcação atribuída ao medidor. Use marcas para agrupar registros de cobrança.<br/><br/>Por exemplo, você pode usar marcas para distribuir os custos entre os departamentos que usam o medidor. Os serviços que dão suporte à emissão de marcas são as máquinas virtuais, armazenamento e serviços de rede provisionados com a [API do Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources). Para saber mais, confira [Organizar os recursos do Azure com marcas](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/). |
 |Informações Adicionais |Metadados específicos ao serviço. Por exemplo, um tipo de imagem para uma máquina virtual. |
-|Informações do Serviço 1 |O nome do projeto ao qual o serviço pertence em sua assinatura |
-|Informações do Serviço 2 |Campo herdado que captura os metadados específicos do serviço opcional |
+|Informações do serviço 1 |O nome do projeto ao qual o serviço pertence em sua assinatura |
+|Informações do serviço 2 |Campo herdado que captura os metadados específicos do serviço opcional |
 
 ## <a name="how-do-i-make-sure-that-the-charges-in-my-detailed-usage-file-are-correct"></a>Como fazer para ter certeza de que os encargos em meu arquivo de uso detalhado estão corretos?
 Se há um encargo em seu arquivo de uso detalhado sobre o qual você deseja obter mais detalhes, consulte [Entenda sua fatura do Microsoft Azure.](./billing-understand-your-bill.md)
@@ -90,4 +90,4 @@ Serviços externos (também conhecidos como pedidos do Marketplace) são forneci
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
-Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Se você tiver dúvidas ou precisar de Ajuda, [criar uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).

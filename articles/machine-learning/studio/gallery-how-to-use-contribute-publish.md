@@ -5,21 +5,21 @@ description: Compartilhe e descubra soluções de análise e muito mais na Galer
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: 48bb9b24901cd07891f3d52bcd916f95bc2801f4
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 382d05869a56dc0920d60bca55d99be4b46e3f52
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244208"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57885412"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Compartilhar e descobrir recursos na Galeria de IA do Azure
 
-**[Galeria de AI do Azure](http://gallery.azure.ai)** é um site voltado para a comunidade para descobrir e compartilhar soluções criadas com o AI do Azure.
+**[Galeria de AI do Azure](https://gallery.azure.ai)** é um site voltado para a comunidade para descobrir e compartilhar soluções criadas com o AI do Azure.
 A Galeria tem vários recursos que você pode usar para desenvolver suas próprias soluções de análise.
 
 ## <a name="what-can-i-find-in-the-gallery"></a>O que posso encontrar na Galeria?
@@ -120,7 +120,7 @@ Você pode alterar qualquer uma das seguintes informações para o seu experimen
 
 * Nome do experimento
 * Resumo ou descrição
-* Marcas
+* Rótulos 
 * Imagem
 * Configuração de visibilidade (**Público** ou **Não listado**)
 
@@ -199,6 +199,6 @@ Depois de inserir uma marcação, pressione a tecla Tab para inserir outra marca
 
 Queremos que a Galeria seja orientada por nossos usuários e para nossos usuários. Use o smiley à direita para nos dizer o que você adora ou odeia na Galeria.  
 
-![Comentários](./media/gallery-how-to-use-contribute-publish/feedback.png)
+![Comentário](./media/gallery-how-to-use-contribute-publish/feedback.png)
 
-**[LEVE-ME À GALERIA >>](http://gallery.azure.ai)**
+**[LEVE-ME À GALERIA >>](https://gallery.azure.ai)**

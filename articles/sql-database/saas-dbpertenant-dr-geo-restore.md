@@ -12,12 +12,12 @@ ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/14/2019
-ms.openlocfilehash: 14c43fbc138d6d70b65f6afd1ef174488e066796
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: c96f2dc2b44ea2118d9f0dd6c988017efcba5800
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567733"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116768"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Usar a restauração geográfica para recuperar um aplicativo SaaS multilocatário de backups de banco de dados
 
@@ -32,13 +32,13 @@ A restauração geográfica é a solução de recuperação de desastre de menor
 
 Este tutorial explora os fluxos de trabalho de restauração e repatriação. Você aprenderá como:
 > [!div class="checklist"]
-
->* Sincronizar as informações de configuração de pool elástico e de banco de dados no catálogo de locatário.
->* Configurar um ambiente de imagem espelhada em uma região de recuperação que inclui aplicativo, servidores e pools.   
->* Recuperar bancos de dados de catálogo e de locatário usando a restauração geográfica.
->* Usar a replicação geográfica para repatriar o catálogo de locatário e os bancos de dados de locatário alterados depois que a interrupção for resolvida.
->* Atualizar o catálogo à medida que cada banco de dados é restaurado (ou repatriado) para controlar a localização atual da cópia ativa do banco de dados de cada locatário.
->* Garantir que o banco de dados de aplicativos e de locatário estejam sempre co-localizados na mesma região do Azure para reduzir a latência. 
+> 
+> * Sincronizar as informações de configuração de pool elástico e de banco de dados no catálogo de locatário.
+> * Configurar um ambiente de imagem espelhada em uma região de recuperação que inclui aplicativo, servidores e pools.   
+> * Recuperar bancos de dados de catálogo e de locatário usando a restauração geográfica.
+> * Usar a replicação geográfica para repatriar o catálogo de locatário e os bancos de dados de locatário alterados depois que a interrupção for resolvida.
+> * Atualizar o catálogo à medida que cada banco de dados é restaurado (ou repatriado) para controlar a localização atual da cópia ativa do banco de dados de cada locatário.
+> * Garantir que o banco de dados de aplicativos e de locatário estejam sempre co-localizados na mesma região do Azure para reduzir a latência. 
  
 
 Antes de iniciar este tutorial, conclua os seguintes pré-requisitos:
@@ -194,13 +194,13 @@ Enquanto o ponto de extremidade do aplicativo estiver desabilitado no Gerenciado
 
 * Depois que o banco de dados do catálogo tiver sido recuperado, mas antes de os locatários ficarem online novamente, atualize o hub de eventos da Wingtip Tickets no navegador da Web.
 
-    * No rodapé, observe que o nome do servidor de catálogo agora tem um sufixo -recovery e está localizado na região de recuperação.
+  * No rodapé, observe que o nome do servidor de catálogo agora tem um sufixo -recovery e está localizado na região de recuperação.
 
-    * Observe que os locatários que ainda não foram restaurados estão marcados como offline e não são selecionáveis.   
+  * Observe que os locatários que ainda não foram restaurados estão marcados como offline e não são selecionáveis.   
  
     ![Processo de recuperação](media/saas-dbpertenant-dr-geo-restore/events-hub-tenants-offline-in-recovery-region.png)    
 
-    * Se você abrir a página de eventos de um locatário diretamente enquanto o locatário estiver offline, a página exibirá uma notificação de locatário offline. Por exemplo, se Contoso Concert Hall estiver offline, tente abrir http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall.
+  * Se você abrir a página de eventos de um locatário diretamente enquanto o locatário estiver offline, a página exibirá uma notificação de locatário offline. Por exemplo, se Contoso Concert Hall estiver offline, tente abrir http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall.
 
     ![Processo de recuperação](media/saas-dbpertenant-dr-geo-restore/dr-in-progress-offline-contosoconcerthall.png)
 
@@ -245,13 +245,13 @@ Quando o processo de recuperação for concluído, o aplicativo e todos os locat
 
 4. Abra o grupo de recursos de recuperação e observe os seguintes itens:
 
-    * As versões de recuperação dos servidores de catálogo e tenants1 com o sufixo -recovery. Os bancos de dados restaurados de catálogo e de locatário nesses servidores têm os nomes usados na região original.
+   * As versões de recuperação dos servidores de catálogo e tenants1 com o sufixo -recovery. Os bancos de dados restaurados de catálogo e de locatário nesses servidores têm os nomes usados na região original.
 
-    * O servidor SQL tenants2-dpt-&lt;usuário&gt;-recovery. Este servidor é usado para provisionar novos locatários durante a interrupção.
+   * O servidor SQL tenants2-dpt-&lt;usuário&gt;-recovery. Este servidor é usado para provisionar novos locatários durante a interrupção.
 
-    * O Serviço de Aplicativo chamado events-wingtip-dpt-&lt;recoveryregion&gt;-&lt;user&gt;, que é a instância de recuperação do aplicativo de eventos.
+   * O Serviço de Aplicativo chamado events-wingtip-dpt-&lt;recoveryregion&gt;-&lt;user&gt;, que é a instância de recuperação do aplicativo de eventos.
 
-    ![Recursos da Contoso na região de recuperação](media/saas-dbpertenant-dr-geo-restore/resources-in-recovery-region.png) 
+     ![Recursos da Contoso na região de recuperação](media/saas-dbpertenant-dr-geo-restore/resources-in-recovery-region.png) 
     
 5. Abra o servidor SQL tenants2-dpt-&lt;usuário&gt;-recovery. Observe que ele contém o banco de dados hawthornhall e o pool elástico Pool1. O banco de dados hawthornhall está configurado como um banco de dados elástico no pool elástico Pool1.
 
@@ -367,12 +367,12 @@ Os bancos de dados de locatário podem ser distribuídos por regiões originais 
 
 Neste tutorial, você aprendeu como:
 > [!div class="checklist"]
-
->* Usar o catálogo de locatário para manter informações de configuração atualizadas periodicamente, que permite que um ambiente de recuperação de imagem espelhada seja criado em outra região.
->* Recuperar bancos de dados SQL do Azure para a região de recuperação usando a restauração geográfica.
->* Atualizar o catálogo de locatário para refletir os locais do banco de dados de locatário atualizados. 
->* Usar um alias DNS para permitir que um aplicativo se conecte ao catálogo de locatário sem reconfiguração.
->* Usar a replicação geográfica para repatriar os bancos de dados recuperados para a região original deles após a resolução de uma interrupção.
+> 
+> * Usar o catálogo de locatário para manter informações de configuração atualizadas periodicamente, que permite que um ambiente de recuperação de imagem espelhada seja criado em outra região.
+> * Recuperar bancos de dados SQL do Azure para a região de recuperação usando a restauração geográfica.
+> * Atualizar o catálogo de locatário para refletir os locais do banco de dados de locatário atualizados. 
+> * Usar um alias DNS para permitir que um aplicativo se conecte ao catálogo de locatário sem reconfiguração.
+> * Usar a replicação geográfica para repatriar os bancos de dados recuperados para a região original deles após a resolução de uma interrupção.
 
 Experimente a [Recuperação de desastre para um aplicativo SaaS multilocatário usando a replicação geográfica de banco de dados](saas-dbpertenant-dr-geo-replication.md) para saber como usar a replicação geográfica para reduzir drasticamente o tempo necessário para recuperar um aplicativo multilocatário em grande escala.
 

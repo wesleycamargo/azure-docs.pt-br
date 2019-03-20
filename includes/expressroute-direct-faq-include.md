@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: include
-ms.date: 02/19/2018
+ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: include file
-ms.openlocfilehash: 9e16c3bb4e4e5ba384bdc664e2c056acb0b70caf
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: eb807082443da495cd89e1dd624058c89d3ee65b
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56448221"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56825767"
 ---
 ### <a name="what-is-expressroute-direct"></a>O que é o ExpressRoute Direct?
 
@@ -23,9 +23,9 @@ O ExpressRoute Direct fornece aos clientes a capacidade de conectar-se diretamen
 
 Os clientes precisarão trabalhar com suas operadoras locais e fornecedores de colocalização para obter conectividade com os roteadores do ExpressRoute para usar o ExpressRoute Direct.
 
-### <a name="what-locations-will-the-100-gbps-expressroute-direct-be-available-for-public-preview"></a>Em quais locais o ExpressRoute Direct de 100 Gbps estará disponível como Versão Prévia Pública? 
+### <a name="what-locations-currently-support-expressroute-direct"></a>Locais que oferecem suporte atualmente diretos do ExpressRoute? 
 
-Um número seleto de locais de emparelhamento do ExpressRoute dará suporte a isso na versão prévia pública. As portas disponíveis serão dinâmicas e estarão disponíveis pelo PowerShell para exibir a capacidade. Os locais incluem e *estão sujeitos a alterações com base na disponibilidade*:
+As portas disponíveis serão dinâmicas e estarão disponíveis pelo PowerShell para exibir a capacidade. Os locais incluem e *estão sujeitos a alterações com base na disponibilidade*:
 
 * Amsterdã
 * Camberra
@@ -38,7 +38,7 @@ Um número seleto de locais de emparelhamento do ExpressRoute dará suporte a is
 * Paris
 * San Antonio
 * Vale do Silício
-* Singapura 
+* Cingapura 
 
 ### <a name="what-is-the-sla-for-expressroute-direct"></a>O que é o SLA para ExpressRoute Direct?
 

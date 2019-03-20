@@ -64,6 +64,12 @@ items:
       href: quickstart-scale-compute-powershell.md
     - name: T-SQL
       href: quickstart-scale-compute-tsql.md
+  - name: Gerenciamento da Carga de Trabalho
+    items:
+    - name: Criar um classificador de carga de trabalho (versão prévia)
+      items:
+      - name: T-SQL
+        href: quickstart-create-a-workload-classifier-tsql.md
   expanded: true
 - name: Conceitos
   items:
@@ -155,6 +161,10 @@ items:
     items:
     - name: Classes de recursos e gerenciamento de carga de trabalho
       href: resource-classes-for-workload-management.md
+    - name: Classificação de carga de trabalho (versão prévia)
+      href: sql-data-warehouse-workload-classification.md
+    - name: Importância da carga de trabalho (versão prévia)
+      href: sql-data-warehouse-workload-importance.md
     - name: Memória e limites de simultaneidade
       href: memory-and-concurrency-limits.md
   - name: Gerenciamento e monitoramento
@@ -169,8 +179,6 @@ items:
       href: backup-and-restore.md
     - name: Recomendações
       href: sql-data-warehouse-concept-recommendations.md
-    - name: Agenda de manutenção
-      href: service-maintenance.md
     - name: Solucionar problemas
       href: sql-data-warehouse-troubleshoot.md
   - name: Agendas de manutenção
@@ -311,9 +319,9 @@ items:
       href: sql-data-warehouse-partner-data-integration.md
     - name: Gerenciamento de dados
       href: sql-data-warehouse-partner-data-management.md
-ms.openlocfilehash: fb1b3751d398af947eb6dad1a40699104280bc21
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 70ad58128b088a44f2e95626e6883645a947e629
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730664"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884686"

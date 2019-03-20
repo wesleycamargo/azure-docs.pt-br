@@ -11,22 +11,22 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 19a0e7f3317a5c4a87b2622de170b0fc2cc137be
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: a1eb946d3f1b18aaa86735dedcfbaa1fd6a89621
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326816"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089974"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>Solucionar problemas de erros de exclusão de recursos de armazenamento
 
 Em determinados cenários, você pode encontrar um dos seguintes erros ocorre quando se tenta excluir uma conta de armazenamento do Azure, um contêiner ou um blob na implantação do Azure Resource Manager:
 
->**Falha ao excluir a conta de armazenamento 'StorageAccountName'. Erro: Não é possível excluir a conta de armazenamento porque seus artefatos estão em uso.**
-
->**Falha ao excluir # de # contêiner(es):<br>vhds: Atualmente, há uma concessão no contêiner e nenhuma ID de concessão foi especificada na solicitação.**
-
->**Falha ao excluir # de # blobs:<br>NomeDoBlob.vhd: Atualmente, há uma concessão no blob e nenhuma ID de concessão foi especificada na solicitação.**
+> **Falha ao excluir a conta de armazenamento 'StorageAccountName'. Erro: Não é possível excluir a conta de armazenamento porque seus artefatos estão em uso.**
+> 
+> **Falha ao excluir # de # contêiner(es):<br>vhds: Atualmente, há uma concessão no contêiner e nenhuma ID de concessão foi especificada na solicitação.**
+> 
+> **Falha ao excluir # de # blobs:<br>NomeDoBlob.vhd: Atualmente, há uma concessão no blob e nenhuma ID de concessão foi especificada na solicitação.**
 
 Os VHDs usados em VMs do Azure são arquivos .vhd armazenados como blobs de página em uma conta de armazenamento padrão ou premium no Azure. Para saber mais sobre os discos do Azure, confira [Introdução aos discos gerenciados](../linux/managed-disks-overview.md).
 

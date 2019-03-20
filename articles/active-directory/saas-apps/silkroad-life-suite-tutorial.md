@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 729287cfcc557e167a70d6f69a5b2b34909df836
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d7f047d784796b9e7c59d95863aa74b3f72da324
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180973"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995629"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silkroad-life-suite"></a>Tutorial: Integração do Azure Active Directory com SilkRoad Life Suite
 
@@ -111,15 +111,17 @@ Nesta seção, você habilita o logon único do Microsoft Azure AD no portal do 
 
     ![Informações de logon único de URLs e Domínio do SilkRoad Life Suite](./media/silkroad-life-suite-tutorial/tutorial_silkroadlifesuite_url1.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.silkroad-eng.com/Authentication/`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.silkroad-eng.com/Authentication/`
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: 
+
     | |
     |--|
     | `https://<subdomain>.silkroad-eng.com/Authentication/SP` |
     | `https://<subdomain>.silkroad.com/Authentication/SP` |
 
     c. Na caixa de texto **URL de resposta** , digite uma URL no seguinte padrão: 
+    
     | |
     |--|
     | `https://<subdomain>.silkroad-eng.com/Authentication/` |
@@ -165,7 +167,7 @@ Nesta seção, você habilita o logon único do Microsoft Azure AD no portal do 
    
     ![Logon Único do AD do Azure][14]
   
-     a. Em **Opção 2 – Arquivo de Metadados**, clique em **Procurar** para carregar o arquivo de metadados baixado a partir do portal do Azure.
+    a. Em **Opção 2 – Arquivo de Metadados**, clique em **Procurar** para carregar o arquivo de metadados baixado a partir do portal do Azure.
   
     b. Clique em **Criar Provedor de Identidade usando Dados de Arquivo**.
 
@@ -177,7 +179,7 @@ Nesta seção, você habilita o logon único do Microsoft Azure AD no portal do 
     
      ![Logon Único do AD do Azure][16] 
 
-     a. Para **Habilitado**, selecione **Sim**.
+    a. Para **Habilitado**, selecione **Sim**.
 
     b. Na caixa de texto **ID da Entidade**, cole o valor da **ID da Entidade do SAML** copiado no portal do Azure.
    

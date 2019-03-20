@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: f89e7e674efe3a823b7c969840772565650d8d07
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 97b0b6256b7aaf7b42565fe9453fb87a0c414569
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859463"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861563"
 ---
 # <a name="request-limits-for-translator-text"></a>Limites de solicitação para a Tradução de Texto
 
@@ -31,7 +31,7 @@ Não há limite no número de solicitações pendentes para a API de Tradução 
 
 Seu limite de caractere por hora baseia-se em sua camada de assinatura de Tradução de Texto. Se você atinge ou ultrapassar esses limites, você provavelmente receberá uma falta de resposta de cota:
 
-| Camada | Limite de caracteres |
+| Tipo | Limite de caracteres |
 |------|-----------------|
 | F0 | 2 milhões de caracteres por hora |
 | S1 | 40 milhões de caracteres por hora |
@@ -41,9 +41,9 @@ Seu limite de caractere por hora baseia-se em sua camada de assinatura de Tradu�
 
 Esses limites são restritos aos sistemas genéricos da Microsoft. Sistemas de conversão personalizada que usam o Hub do Microsoft Translator são limitados a caracteres 1.800 por segundo.
 
-## <a name="latency"></a>Latency
+## <a name="latency"></a>Latência
 
-Tradução de Texto tem uma latência máxima de 13 segundos. Nesse momento você vai ter recebido um resultado ou uma resposta de tempo limite. Normalmente, as respostas são retornadas em 150 milissegundos para 300 milissegundos. Os tempos de resposta variam de acordo com o tamanho ou a solicitação e o par de idiomas.
+A API de tradução de texto tem uma latência máxima de 15 segundos usando os modelos padrão. Usando modelos personalizados de tradução tem uma latência máxima de 25 segundos. Nesse momento você vai ter recebido um resultado ou uma resposta de tempo limite. Normalmente, as respostas são retornadas em 150 milissegundos para 300 milissegundos. Tempos de resposta variará com base no tamanho do par de solicitação e de idioma. Se você não receber uma tradução ou um [resposta de erro](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors) nesse período de tempo, você deve verificar sua conexão de rede e tente novamente.
 
 ## <a name="sentence-length-limits"></a>Limites de duração de sentença
 
@@ -58,7 +58,7 @@ Ao usar a função [BreakSentence](https://docs.microsoft.com/azure/cognitive-se
 | Português | pt | 290 |
 | Espanhol | es | 280 |
 | Italiano | it | 280 |
-| Tailandês | th | 258 |
+| Tailandês | º | 258 |
 
 > [!NOTE]
 > Esse limite não se aplica a traduções.

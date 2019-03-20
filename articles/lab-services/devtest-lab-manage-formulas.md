@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 60790f0f31915a50829df09d039a4f74860a47d7
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
-ms.translationtype: HT
+ms.openlocfilehash: d8f2ae64e2f8e694de5a7cf5aa9049e63998dca0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076427"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452650"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Gerenciar fórmulas do Azure DevTest Labs
 
@@ -69,7 +69,7 @@ As etapas a seguir o orientarão no processo de criação de uma fórmula usando
     - **Configuração de endereço IP** -especifique se você deseja os endereços de IP compartilhados, privados ou públicos. Para obter mais informações sobre endereços IP compartilhados, consulte [Noções básicas dos endereços IP compartilhados no Azure DevTest Labs](./devtest-lab-shared-ip.md).
     - **Data e hora de validade** – especifique a data e a hora de validade para a VM para que ela seja excluída automaticamente. 
     - **Tornar essa máquina reivindicável** - tornar uma máquina "reivindicável" significa que ela não será propriedade de ninguém no momento da criação. Em vez disso, os usuários do laboratório poderão assumir a propriedade ("reivindicar") a máquina na página do laboratório.     
-    - **Número de instâncias requisitáveis** -especifique quantas instâncias requisitáveis você deseja criar. 
+    - **Número de instâncias declaráveis** -especificar quantas instâncias declaráveis que você deseja criar. 
 8. Selecione **Enviar** para criar a fórmula.
 
 9. Após a criação da fórmula, ela é exibida na lista da página **Fórmulas**.

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
 ms.custom: seodec18
-ms.openlocfilehash: a12d3708cdb547cc036b249bebf901d2ec5121c3
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 4c2ed5fa65528a690d618e45c118d2433820ddc6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729312"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57871486"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Perguntas frequentes sobre o Serviço de Aplicativo do Azure no Linux
 
@@ -35,9 +35,17 @@ Se você tiver qualquer dúvida, comente este artigo.
 
 É possível encontrar todos os arquivos do Docker no [GitHub](https://github.com/azure-app-service). É possível encontrar todos os contêineres do Docker no [Hub do Docker](https://hub.docker.com/u/appsvc/).
 
+<a id="#startup-file"></a>
+
 **Quais são os valores esperados para a seção Arquivo de Inicialização quando configuro a pilha de tempo de execução?**
 
-Para o Node.js, é possível especificar o arquivo de configuração PM2 ou o arquivo de script. Para o .NET Core, especifique o nome da DLL compilada como `dotnet <myapp>.dll`. Para o Ruby, é possível especificar o script Ruby com o qual você deseja inicializar o aplicativo.
+| Pilha     | Valor Esperado                                                                |
+|-----------|-------------------------------------------------------------------------------|
+| Java SE   | um comando para iniciar seu `.jar` aplicativo                                    |
+| Tomcat    | o local de um script para executar qualquer configruations necessários para seu aplicativo |
+| Node.js   | o arquivo de configuração de PM2 ou o arquivo de script                                |          
+| .NET Core | o nome da DLL compilada como `dotnet <myapp>.dll`                                 |
+| Ruby      | o script Ruby que você deseja inicializar o aplicativo                     
 
 ## <a name="management"></a>Gerenciamento
 
@@ -57,7 +65,7 @@ Sim, você pode fazer isso por meio do site de gerenciamento do controle de orig
 
 Você deve definir o campo **reservado** do serviço de aplicativo para *true*.
 
-## <a name="continuous-integration-and-deployment"></a>Integração e implantação contínuas
+## <a name="continuous-integration-and-deployment"></a>Integração contínua e implantação
 
 **Meu aplicativo Web ainda usa uma imagem de contêiner antiga do Docker depois que atualizei a imagem no Hub do Docker. Há suporte para implantação/integração contínua de contêineres personalizados?**
 
@@ -75,7 +83,7 @@ Sim, você precisa definir uma configuração de aplicativo chamada `WEBSITE_WEB
 
 Se a implantação do Git falhar no aplicativo Web do Linux, escolha uma das opções a seguir para implantar o código do aplicativo:
 
-- Usar o recurso de Entrega Contínua (Versão Prévia): Você pode armazenar o código-fonte do seu aplicativo em um repositório Git do Azure DevOps ou em um repositório do GitHub para usar a Entrega Contínua do Azure. Para obter mais informações, consulte [Como configurar a Entrega Contínua para aplicativos Web do Linux](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
+- Usar o recurso de Entrega Contínua (Versão Prévia): Você pode armazenar o código-fonte do seu aplicativo em um repositório Git de DevOps do Azure ou o repositório do GitHub para usar a entrega contínua do Azure. Para obter mais informações, consulte [Como configurar a Entrega Contínua para aplicativos Web do Linux](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
 
 - Use a [API de implantação via arquivo ZIP](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): Para usar essa API, [adicione o SSH ao seu aplicativo Web](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support) e vá para a pasta onde você deseja implantar seu código. Execute o código a seguir:
 
@@ -85,14 +93,14 @@ Se a implantação do Git falhar no aplicativo Web do Linux, escolha uma das op�
 
    Se você receber uma mensagem de erro informando que o comando `curl` não foi encontrado, instale a ondulação usando `apt-get install curl` antes de executar o comando `curl` anterior.
 
-## <a name="language-support"></a>Suporte ao idioma
+## <a name="language-support"></a>Suporte de idioma
 
 **Eu quero usar websockets no aplicativo Node.js, há definições ou configurações especiais a serem definidas?**
 
 Sim, desabilite `perMessageDeflate` no código Node.js do servidor. Por exemplo, se estiver usando o socket.io, use o código a seguir:
 
 ```nodejs
-var io = require('socket.io')(server,{
+const io = require('socket.io')(server,{
   perMessageDeflate :false
 });
 ```
@@ -194,5 +202,5 @@ Você pode usar apenas letras (A-Z, a-z), números (0-9) e o caractere de sublin
 ## <a name="next-steps"></a>Próximas etapas
 
 - [O que é o Serviço de Aplicativo do Azure no Linux?](app-service-linux-intro.md)
-- [Configurar ambientes de preparo no Serviço de Aplicativo do Azure](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Configurar ambientes de preparo no serviço de aplicativo do Azure](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [Implantação Contínua com o Aplicativo Web para Contêineres](./app-service-linux-ci-cd.md)

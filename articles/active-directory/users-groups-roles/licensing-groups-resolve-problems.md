@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 01/31/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c40a25cd2baebaaeedc012e8e9faff91b297f57
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c92969015910cc5bd72e2d9339d5c15c1f7af48b
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082493"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201527"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificar e resolver problemas de atribuição de licenças para um grupo no Azure Active Directory
 
@@ -35,19 +35,19 @@ Quando você está usando o licenciamento com base em grupo, os mesmos erros pod
 
 1. Para localizar usuários em um estado de erro em um grupo específico, abra o painel do grupo. Em **Licenças**, uma notificação será exibida se houver usuários em um estado de erro.
 
-   ![Grupo, notificação de erro](./media/licensing-groups-resolve-problems/group-error-notification.png)
+   ![Grupo e notificações por mensagem de erro](./media/licensing-groups-resolve-problems/group-error-notification.png)
 
 2. Selecione a notificação para abrir uma lista de todos os usuários afetados. Você pode selecionar cada usuário individualmente para ver mais detalhes.
 
-   ![Grupo, lista de usuários em estado de erro](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
+   ![lista de usuários no grupo de estado de erro de licenciamento](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
 
 3. Para localizar todos os grupos que contêm pelo menos um erro, na folha **Azure Active Directory**, selecione **Licenças** e, em seguida, **Visão Geral**. Uma caixa de informações é exibida quando grupos exigem sua atenção.
 
-   ![Visão geral, informações sobre grupos em estado de erro](./media/licensing-groups-resolve-problems/group-errors-widget.png)
+   ![Visão geral e informações sobre os grupos em estado de erro](./media/licensing-groups-resolve-problems/group-errors-widget.png)
 
 4. Selecione a caixa para ver uma lista de todos os grupos com erros. Você pode selecionar cada grupo para obter mais detalhes.
 
-   ![Visão geral, lista de grupos com erros](./media/licensing-groups-resolve-problems/list-of-groups-with-errors.png)
+   ![Visão geral e lista de grupos com erros](./media/licensing-groups-resolve-problems/list-of-groups-with-errors.png)
 
 
 As seções a seguir dão uma descrição de cada possível problema e a maneira de resolvê-lo.
@@ -62,7 +62,7 @@ Para ver quais usuários e grupos estão consumindo licenças, selecione um prod
 
 **PowerShell:** Os cmdlets do PowerShell relatam esse erro como _CountViolation_.
 
-## <a name="conflicting-service-plans"></a>Planos de serviço conflitante
+## <a name="conflicting-service-plans"></a>Planos de serviço conflitantes
 
 **Problema:** Um dos produtos especificados no grupo contém um plano de serviço que está em conflito com outro plano de serviço já está atribuído ao usuário por meio de um produto diferente. Alguns planos de serviço são configurados de uma maneira que não possam ser atribuídos ao mesmo usuário que outro plano de serviço relacionado.
 

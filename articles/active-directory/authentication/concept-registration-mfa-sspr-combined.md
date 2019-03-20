@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/06/2019
+ms.date: 03/18/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa9872ef76264956430bb69856a197042c196dfd
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 6399f5b208bc4d7182622f29bd522cfc9a088e9d
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550183"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224542"
 ---
 # <a name="combined-security-information-registration-preview"></a>Registro de informações de segurança combinada (visualização)
 
@@ -42,17 +42,17 @@ As páginas de MyProfile são localizadas com base nas configurações de idioma
 
 Neste momento, registro combinado suporta os seguintes métodos e as ações para esses métodos:
 
-|   | Registrar  | Alterar | Excluir |
+|   | Registro | Alterar | Excluir |
 | --- | --- | --- | --- |
-| Microsoft Authenticator | Sim (máximo 5) | Não  | Sim |
-| Outro aplicativo autenticador | Sim (máximo 5) | Não  | Sim |
-| Token de hardware | Não  | Não  | Sim |
-| Telefone | Sim | sim | Sim |
-| Telefone alternativo | Sim | sim | Sim |
-| Telefone comercial | Não  | Não | Não  |
-| Email | Sim | sim | Sim |
+| Microsoft Authenticator | Sim (máximo 5) | Não | Sim |
+| Outro aplicativo autenticador | Sim (máximo 5) | Não | Sim |
+| Token de hardware | Não | Não  | Sim |
+| Telefone | Sim | Sim | Sim |
+| Telefone alternativo | Sim | Sim | Sim |
+| Telefone comercial | Não | Não | Não |
+| Email | Sim | Sim | Sim |
 | Perguntas de segurança | Sim | Não  | Sim |
-| Senhas de aplicativo | Sim | Não  | Sim |
+| Senhas do aplicativo | Sim | Não  | Sim |
 
 > [!NOTE]
 > As senhas de aplicativo só estão disponíveis para os usuários que têm sido impostos para MFA. As senhas de aplicativo não estão disponíveis para os usuários que estão habilitados para MFA por meio de uma política de acesso condicional.
@@ -61,18 +61,18 @@ Os usuários podem definir as opções a seguir como o método padrão para o MF
 
 - Microsoft Authenticator – notificação
 - Hardware ou aplicativo autenticador de token – o código
-- chamada telefônica
-- mensagem de texto
+- Telefonema
+- Mensagem de texto
 
 Conforme continuamos a adicionar mais métodos de autenticação tais ao Azure AD, esses métodos estarão disponíveis no registro combinado.
 
 ## <a name="combined-registration-modes"></a>Modos de registro combinado
 
-Há dois "modos" do registro combinado: interromper e gerenciar. 
+Há dois "modos" do registro combinado: interromper e gerenciar.
 
-Modo de interrupção, é uma experiência de assistente, mostrada para um usuário quando eles se registrar ou atualizar suas informações de segurança na entrada. 
+Modo de interrupção, é uma experiência de assistente, mostrada para um usuário quando eles se registrar ou atualizar suas informações de segurança na entrada.
 
-Gerenciar modo faz parte do perfil do usuário e permite que eles gerenciem suas informações de segurança. 
+Gerenciar modo faz parte do perfil do usuário e permite que eles gerenciem suas informações de segurança.
 
 Para ambos os modos, se um usuário tiver registrado anteriormente um método que pode ser usado para MFA, eles serão necessário executar a MFA antes que possam acessar suas informações de segurança.
 

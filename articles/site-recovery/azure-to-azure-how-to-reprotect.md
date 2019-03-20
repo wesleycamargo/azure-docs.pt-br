@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 0b5fe1b1df306bf0930715bc6cfb586e5445f85c
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: b1676f53125694eeff3a39adf51dc854c197d756
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839952"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110487"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Proteger novamente VMs do Azure que sofreram failover para a região primária
 
@@ -35,12 +35,12 @@ Quando você [faz failover](site-recovery-failover.md) de VMs do Azure de uma re
 
 1. Em **Cofre** > **Itens replicados**, clique com o botão direito do mouse na VM em que o failover foi executado e, em seguida, selecione **Proteger Novamente**. A direção de nova proteção deve mostrar da secundária para a primária.
 
-  ![Proteger novamente](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
+   ![Proteger novamente](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
 
 2. Examine o grupo de recursos, a rede, o armazenamento e os conjuntos de disponibilidade. Em seguida, clique em **OK**. Se houver algum recurso marcado como novo, ele será criado como parte do processo de nova proteção.
 3. O trabalho de nova proteção propaga os dados mais recentes para o site de destino. Depois que isso termina, ocorre a replicação delta. Em seguida, você pode fazer failover de volta para o site primário. Você pode selecionar a conta de armazenamento ou a rede que você deseja usar ao proteger novamente, usando a opção personalizar.
 
-  ![Opção de personalização](./media/site-recovery-how-to-reprotect-azure-to-azure/customize.png)
+   ![Opção de personalização](./media/site-recovery-how-to-reprotect-azure-to-azure/customize.png)
 
 ### <a name="customize-reprotect-settings"></a>Personalizar as configurações de nova proteção
 
@@ -48,7 +48,7 @@ Você pode personalizar as propriedades a seguir da VM de destino ao proteger no
 
 ![Personalizar](./media/site-recovery-how-to-reprotect-azure-to-azure/customizeblade.png)
 
-|Propriedade |Observações  |
+|Propriedade |Anotações  |
 |---------|---------|
 |Grupo de recursos de destino     | Modifique o grupo de recursos de destino no qual a VM é criada. Como parte da nova proteção, a VM de destino é excluída. Você pode escolher um novo grupo de recursos sob o qual criar a VM após o failover.        |
 |Rede virtual de destino     | A rede de destino não pode ser alterada durante o trabalho de nova proteção. Para alterar a rede, refaça o mapeamento de rede.         |

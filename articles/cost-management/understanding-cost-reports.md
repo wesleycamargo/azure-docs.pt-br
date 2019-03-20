@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 03/18/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 10a8d434df376749b76e2cf90212d872f705b209
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 92ce35e88cc73c16e3d3670e07ff8b996192b825
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103414"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109807"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Noções básicas dos relatórios de gerenciamento de custos do Cloudyn
 
@@ -41,7 +41,7 @@ Cada área numerada na imagem anterior é descrita detalhadamente nas seguintes 
       - Gerenciamento de Ativos
       - Otimização
 
-  Digite um nome de filtro e clique em **Salvar**.
+   Digite um nome de filtro e clique em **Salvar**.
 
 3. **Marcas**
 
@@ -66,60 +66,60 @@ Cada área numerada na imagem anterior é descrita detalhadamente nas seguintes 
     ![Segunda lista de exemplo de marcas que você pode agrupar por](./media/understanding-cost-reports/groups-tags02.png)
 
     Nos relatórios de Alocação de Custo, os grupos em categorias de grupo baseadas em marcas podem incluir:
-      - Marcas
+      - Rótulos 
       - marcas do grupo de recursos
       - Marcas de entidade de custo do Cloudyn
       - Categorias de marca de assinatura para fins de alocação de custo
 
-  Os exemplos podem incluir:
-     - Centro de custo
-     - department
-     - Aplicativo
-     - Ambiente
-     - Código de custo
+   Os exemplos podem incluir:
+   - Centro de custo
+   - Departamento
+   - Aplicativo
+   - Ambiente
+   - Código de custo
 
-    Esta é uma lista de grupos internos disponíveis nos relatórios:
+     Esta é uma lista de grupos internos disponíveis nos relatórios:
 
-    - **Tipo de Custo**
-      - Selecione um tipo de custo ou vários tipos de custo, ou selecione tudo. Os tipos de custo incluem:
-        - Valor Único
-        - Suporte
-        - Custo de Uso
-    - **Cliente**
-        - Selecione um cliente específico, vários clientes ou todos os clientes.
-    - **Nome da Conta**
-        - O nome da conta ou da assinatura. No Azure, é o nome da assinatura do Azure.
-    - **Nº da Conta**
-        - Selecione uma conta, várias contas ou todas as contas. No Azure, é o GUID da assinatura do Azure.
-    - **Conta Primária**
-        - Selecione a conta primária, várias contas ou selecione tudo.
-    - **Serviço**
-        - Selecione um serviço, vários serviços ou todos os serviços.
-    - **Provedor**
-        - O provedor de nuvem ao qual os ativos e as despesas estão associados.
-    - **Região**
-        - Região na qual o recurso está hospedado.
-    - **Zona de Disponibilidade**
-        - Locais isolados do AWS em uma região.
-    - **Tipo de recurso**
-        - O tipo de recurso em uso.
-    - **Subtipo**
-        - Selecione o subtipo.
-    - **Operação**
-        - Selecione a operação ou **Mostrar tudo**.
-    - **Modelo de Preço**
-        - Todos os Pagamentos Antecipados
-        - Sem Pagamentos Antecipados
-        - Pagamentos Parciais Antecipados
-        - Sob demanda
-        - Reserva
-        - À Vista
-    - **Tipo de Encargo**
-        - Selecione o tipo de encargo Negativo ou Positivo, ou ambos.
-    - **Locação**
-        - Indica se um computador está em execução como um computador dedicado.
-    -   **Tipo de Uso**
-          - O tipo de uso podem ser valores únicos ou recorrentes.
+     - **Tipo de Custo**
+     - Selecione um tipo de custo ou vários tipos de custo, ou selecione tudo. Os tipos de custo incluem:
+       - Valor Único
+       - Suporte
+       - Custo de Uso
+     - **Cliente**
+       - Selecione um cliente específico, vários clientes ou todos os clientes.
+     - **Nome da Conta**
+       - O nome da conta ou da assinatura. No Azure, é o nome da assinatura do Azure.
+     - **Nº da Conta**
+       - Selecione uma conta, várias contas ou todas as contas. No Azure, é o GUID da assinatura do Azure.
+     - **Conta Primária**
+       - Selecione a conta primária, várias contas ou selecione tudo.
+     - **Serviço**
+       - Selecione um serviço, vários serviços ou todos os serviços.
+     - **Provedor**
+       - O provedor de nuvem ao qual os ativos e as despesas estão associados.
+     - **Região**
+       - Região na qual o recurso está hospedado.
+     - **Zona de Disponibilidade**
+       - Locais isolados do AWS em uma região.
+     - **Tipo de recurso**
+       - O tipo de recurso em uso.
+     - **Subtipo**
+       - Selecione o subtipo.
+     - **Operação**
+       - Selecione a operação ou **Mostrar tudo**.
+     - **Modelo de Preço**
+       - Todos os Pagamentos Antecipados
+       - Sem Pagamentos Antecipados
+       - Pagamentos Parciais Antecipados
+       - Sob demanda
+       - Reserva
+       - À Vista
+     - **Tipo de Encargo**
+       - Selecione o tipo de encargo Negativo ou Positivo, ou ambos.
+     - **Locação**
+       - Indica se um computador está em execução como um computador dedicado.
+     - **Tipo de Uso**
+       - O tipo de uso podem ser valores únicos ou recorrentes.
 
 5. **Filtros**
 
@@ -139,15 +139,15 @@ Cada área numerada na imagem anterior é descrita detalhadamente nas seguintes 
     - Taxas de compra de instâncias reservadas
     - Alguns itens do Azure Marketplace.
 
-  Em Amortização, selecione **Custo amortizado** ou **Custo Real**.
+   Em Amortização, selecione **Custo amortizado** ou **Custo Real**.
 
 8. **Resolução**
 
     Use Resolução para selecionar a resolução de tempo dentro do intervalo de datas selecionado. Sua resolução de tempo determina como as unidades são exibidas no relatório, e pode ser:
-    - Diário
-    - Semanal
-    - Mensal
-    - Trimestral
+    - Diariamente
+    - Semanalmente
+    - Mensalmente
+    - Trimestralmente
     - Anual
 
 9. **Regras de alocação**
@@ -162,7 +162,7 @@ Cada área numerada na imagem anterior é descrita detalhadamente nas seguintes 
 
     A opção Mostrar/ocultar não tem qualquer efeito nos relatórios.
 
-12.   **Formatos de exibição**
+12. **Formatos de exibição**
 
     Use os Formatos de exibição para selecionar vários modos de exibição de tabela ou gráfico.
 

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: 91c069f845ef6291f867099e59e79fd059d8caf1
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.openlocfilehash: a99d8a265cdc72b6bd1dd45ab670f514d828f808
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320218"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58005692"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Introdução ao Azure Data Lake Store Gen1 usando o portal do Azure
 
@@ -76,9 +76,9 @@ Se você tiver usado as chaves de um Azure Key Vault para configurar a criptogra
 
 > [!NOTE]
 > Você também pode criar uma conta do Data Lake Storage Gen1 usando modelos do Azure Resource Manager. Esses modelos são acessíveis nos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/?term=data+lake+store):
-    - Sem criptografia de dados: [Implantar a conta do Azure Data Lake Storage Gen1 sem criptografia de dados](https://azure.microsoft.com/resources/templates/101-data-lake-store-no-encryption/).
-    - Com criptografia de dados usando o Data Lake Storage Gen1: [Implantar a conta do Data Lake Storage Gen1 com criptografia (Data Lake)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-adls/).
-    - Com criptografia de dados usando o Azure Key Vault: [Implantar a conta do Data Lake Storage Gen1 com criptografia (Key Vault)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-key-vault/).
+> - Sem criptografia de dados: [Implantar a conta do Azure Data Lake Storage Gen1 sem criptografia de dados](https://azure.microsoft.com/resources/templates/101-data-lake-store-no-encryption/).
+> - Com criptografia de dados usando o Data Lake Storage Gen1: [Implantar a conta do Data Lake Storage Gen1 com criptografia (Data Lake)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-adls/).
+> - Com criptografia de dados usando o Azure Key Vault: [Implantar a conta do Data Lake Storage Gen1 com criptografia (Key Vault)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-key-vault/).
 > 
 > 
 

@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 9a99e7133b24d37af5ce36c717d03bb0fdae7da5
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: c68bf4cf8bcc50069f3741ac0f1746363c1f82ac
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733564"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57861801"
 documentType: LandingData
 title: Documentação do Serviço de Fala
 metadata:
@@ -24,7 +24,7 @@ metadata:
   ms.author: erhopf
   ms.custom: seodec18
 abstract:
-  description: Saiba como usar o Serviço de Fala e o SDK de Fala para adicionar recursos habilitados para fala aos seus aplicativos. Você pode usar o SDK de Fala para adicionar funcionalidades de <i>conversão de fala em texto</i> (reconhecimento de fala/SR), <i>intenção</i>, <i>tradução</i> e <i>TTS</i> (conversão de texto em fala) aos seus aplicativos. O Serviço de Fala também tem uma API REST que funciona com qualquer linguagem de programação que pode fazer solicitações HTTP.
+  description: Saiba como usar o Serviço de Fala e o SDK de Fala para adicionar recursos habilitados para fala aos seus aplicativos. Você pode usar o SDK de Fala para adicionar funcionalidades de <i>conversão de fala em texto</i> (reconhecimento de fala/SR), <i>intenção</i>, <i>tradução</i> e <i>TTS</i> (conversão de texto em fala) aos seus aplicativos. Os Serviços de Fala também têm APIs REST que funcionam com qualquer linguagem de programação e podem fazer solicitações HTTP.
 sections:
 - items:
   - type: list

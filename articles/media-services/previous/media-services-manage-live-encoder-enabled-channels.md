@@ -12,26 +12,26 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: ecdb6d7a225d3a2f2c5bbf90a36b91367faf04b0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: c168182f0b34329ed3e72e90ce86456dfbe210ca
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003339"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189845"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Transmissão ao vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits
 
 > [!NOTE]
 > A partir de 12 de maio de 2018, os canais ao vivo não darão mais suporte ao protocolo de ingestão de fluxo de transporte RTP/MPEG-2. Faça a migração de RTP/MPEG-2 para protocolos de ingestão RTMP ou MP4 fragmentado (Smooth Streaming).
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 No AMS (Serviços de Mídia do Azure), um **Canal** representa um pipeline para o processamento de conteúdo de transmissão ao vivo. Um **Canal** recebe transmissões de entrada ao vivo de uma das duas maneiras a seguir:
 
 * Um codificador dinâmico local envia um fluxo de taxa de bits única para o Canal que está habilitado para executar a codificação ativa com os Serviços de Mídia em um dos seguintes formatos: RTMP ou Smooth Streaming (MP4 fragmentado). O Canal então realiza a codificação ao vivo do fluxo de entrada com taxa de bits única em um fluxo de vídeo (adaptável) de múltiplas taxas de bits. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
 * Um codificador ativo local envia múltiplas taxas de bits **RTMP** ou **Smooth Streaming** (MP4 fragmentado) para o Canal que não está habilitado para executar a codificação ativa com o AMS. Os fluxos ingeridos passam pelos **Canais**sem nenhum processamento adicional. Esse método é chamado **passagem**. Você pode usar os codificadores dinâmicos a seguir, que produzem Smooth Streaming com múltiplas taxas de bits: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco e Elemental. Os seguintes codificadores dinâmicos produzem RTMP: Adobe FMLE (Flash Media Live Encoder), Telestream Wirecast, Haivision, Teradek e Tricaster.  Um codificador ativo também pode enviar uma transmissão de taxa de bits única para um canal que não está habilitado para a codificação ativa, porém, isso não é recomendado. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
-  
+
   > [!NOTE]
   > O uso de um método de passagem é a maneira mais econômica de realizar uma transmissão ao vivo.
   > 
@@ -50,7 +50,7 @@ A partir da versão 2.10 dos Serviços de Mídia, quando você cria um canal, vo
 > 
 
 ## <a name="billing-implications"></a>Implicações de cobrança
-Um canal de codificação ativo começará a ser cobrado assim que seu estado mudar para "Em execução" por meio da API.   Você também pode exibir o estado no Portal do Azure ou na ferramenta Gerenciador de Serviços de Mídia do Azure (http://aka.ms/amse).
+Um canal de codificação ativo começará a ser cobrado assim que seu estado mudar para "Em execução" por meio da API.   Você também pode exibir o estado no Portal do Azure ou na ferramenta Gerenciador de Serviços de Mídia do Azure (https://aka.ms/amse).
 
 A tabela a seguir mostra como os estados de Canal são mapeados para os estados de cobrança na API e no Portal do Azure. Os estados são ligeiramente diferentes entre a API e o Portal UX. Assim que um canal estiver no estado "Em execução" por meio da API ou no estado "Pronto" ou "Streaming" no Portal do Azure, a cobrança estará ativa.
 Para parar a cobranças adicionais do Canal, você terá de Parar o Canal por meio da API ou no Portal do Azure.
@@ -67,12 +67,12 @@ O estado atual de um canal. Os valores possíveis incluem:
 
 A tabela a seguir mostra como os estados de canal são mapeados para o modo de cobrança. 
 
-| Estado de canal | Indicadores da interface do usuário do portal | Trata-se de cobrança? |
+| Estado do Canal | Indicadores da interface do usuário do portal | Trata-se de cobrança? |
 | --- | --- | --- |
 | Iniciando |Iniciando |Nenhum (estado transitório) |
-| Executando |Pronto (nenhum programa em execução)<br/>ou o<br/>Streaming (há pelo menos um programa em execução) |SIM |
+| Em execução |Pronto (nenhum programa em execução)<br/>ou<br/>Streaming (há pelo menos um programa em execução) |SIM |
 | Parando |Parando |Nenhum (estado transitório) |
-| Parado |Parado |Não  |
+| Parado |Parado |Não |
 
 ### <a name="automatic-shut-off-for-unused-channels"></a>Desligamento automático para canais não usados
 A partir de 25 de janeiro de 2016, os Serviços de Mídia distribuíram uma atualização que interrompe automaticamente um canal (com codificação ativa desabilitada) depois que ele tiver sido executado em um estado não utilizado por um longo período. Isso se aplica aos canais que não tem programas ativos e que não receberam um feed de contribuição de entrada por um período de tempo estendido.
@@ -89,29 +89,27 @@ A seguir, as etapas gerais envolvidas na criação de aplicativos comuns de stre
 
 > [!NOTE]
 > Atualmente, a duração máxima recomendada de um evento ao vivo é de 8 horas. Entre em contato com amslived@microsoft.com se precisar executar um Canal por períodos mais longos. Há um impacto de cobrança para codificação ativa e você deve se lembrar que deixar um canal de codificação ativo no estado "Em execução" incorrerá em cobranças por hora.  É recomendável parar imediatamente seus canais em execução após a conclusão do evento de streaming ativo para evitar cobranças por hora extra. 
-> 
-> 
 
 1. Conecte uma câmera de vídeo a um computador. Inicie e configure um codificador dinâmico local que possa produzir um fluxo de taxa de bits **única** em um dos seguintes protocolos: RTMP ou Smooth Streaming. 
-   
+
     Essa etapa também pode ser realizada após a criação do canal.
 2. Crie e inicie um Canal. 
 3. Recupere a URL de ingestão do canal. 
-   
+
     A URL de ingestão é usada pelo codificador ao vivo para enviar o fluxo para o canal.
 4. Recupere a URL de visualização do canal. 
-   
+
     Use essa URL para verificar se o canal está recebendo corretamente o fluxo ao vivo.
 5. Crie um programa. 
-   
+
     Ao usar o Portal do Azure, a criação de um programa também cria um ativo. 
-   
+
     Ao usar o SDK do .NET ou REST, você precisa criar um ativo e especificar o uso desse ativo durante a criação de um programa. 
 6. Publique o ativo associado ao programa.   
-   
+
     >[!NOTE]
     >Quando sua conta AMS é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta em estado **Parado**. O ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar no estado **Executando**. 
-    
+
 7. Inicie o programa quando estiver pronto para iniciar o streaming e o arquivamento.
 8. Opcionalmente, o codificador ao vivo pode ser sinalizado para iniciar um anúncio. O anúncio é inserido no fluxo de saída.
 9. Interrompa o programa sempre que você deseja parar o streaming e o arquivamento do evento.
@@ -217,6 +215,7 @@ Observe que, se você precisar de predefinições personalizadas deverá contata
 **Default720p** codificará o vídeo nas seis camadas a seguir.
 
 #### <a name="output-video-stream"></a>Fluxo de vídeo de saída
+
 | Taxa de bits | Largura | Altura | MáxFPS | Perfil | Nome do fluxo de saída |
 | --- | --- | --- | --- | --- | --- |
 | 3500 |1280 |720 |30 |Alto |Video_1280x720_3500kbps |
@@ -240,7 +239,7 @@ Quando o canal está com codificação ao vivo habilitada, você tem um componen
 
 A seguir estão as propriedades que você pode definir ao sinalizar anúncios. 
 
-### <a name="duration"></a>Duration
+### <a name="duration"></a>Duração
 A duração, em segundos, do intervalo comercial. Isso deve ser um valor positivo diferente de zero para iniciar o intervalo comercial. Quando um intervalo comercial está em andamento e a duração é definida como zero com o CueId correspondente ao intervalo comercial em curso, esse intervalo é cancelado.
 
 ### <a name="cueid"></a>CueId
@@ -256,7 +255,7 @@ O codificador ao vivo no canal pode ser sinalizado para alternar para uma imagem
 
 O codificador ao vivo pode ser configurado para alternar para uma imagem slate e ocultar o sinal de vídeo de entrada em determinadas situações – por exemplo, durante um intervalo comercial. Se um slate desse tipo não estiver configurado, o vídeo de entrada não é mascarado durante esse intervalo comercial.
 
-### <a name="duration"></a>Duration
+### <a name="duration"></a>Duração
 A duração do slate em segundos. Isso deve ser um valor positivo diferente de zero para iniciar o slate. Se houver um slate em andamento e uma duração de zero for especificada, esse slate será encerrado.
 
 ### <a name="insert-slate-on-ad-marker"></a>Inserir o slate no marcador de anúncio
@@ -304,19 +303,19 @@ Quando a codificação ao vivo está habilitada, agora você pode obter uma visu
 O estado atual de um canal. Os valores possíveis incluem:
 
 * **Parado**. Este é o estado inicial do canal após sua criação. Nesse estado, as propriedades do canal podem ser atualizadas, mas streaming não é permitido.
-* **Iniciando**. O canal está sendo iniciado. Nenhuma atualização ou streaming é permitido durante esse estado. Se ocorrer um erro, o canal retorna para o estado Parado.
+* **Iniciando**. O canal está sendo iniciado. Nenhuma atualização ou streaming é permitido durante este estado. Se ocorrer um erro, o canal retorna para o estado Parado.
 * **Executando**. O canal é capaz de processar transmissões ao vivo.
 * **Parando**. O canal está sendo parado. Nenhuma atualização ou streaming é permitido durante esse estado.
 * **Excluindo**. O canal está sendo excluído. Nenhuma atualização ou streaming é permitido durante esse estado.
 
 A tabela a seguir mostra como os estados de canal são mapeados para o modo de cobrança. 
 
-| Estado de canal | Indicadores da interface do usuário do portal | Cobrado? |
+| Estado do Canal | Indicadores de interface do usuário do portal | Cobrado? |
 | --- | --- | --- |
 | Iniciando |Iniciando |Nenhum (estado transitório) |
-| Executando |Pronto (nenhum programa em execução)<br/>ou o<br/>Streaming (há pelo menos um programa em execução) |SIM |
+| Em execução |Pronto (nenhum programa em execução)<br/>ou<br/>Streaming (há pelo menos um programa em execução) |SIM |
 | Parando |Parando |Nenhum (estado transitório) |
-| Parado |Parado |Não  |
+| Parado |Parado |Não |
 
 > [!NOTE]
 > Atualmente, a média de início de Canal é de cerca de 2 minutos, mas às vezes pode levar até 20 minutos ou mais. A redefinição de canal pode levar até 5 minutos.
@@ -357,7 +356,7 @@ Revise os roteiros de aprendizagem dos Serviços de Mídia.
 [Criar canais que realizam codificação dinâmica de um fluxo com taxa de bits única para fluxo com taxa de bits adaptável com o SDK do .NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 
 [Gerenciar canais com a API REST](https://docs.microsoft.com/rest/api/media/operations/channel)
- 
+
 [Conceitos de Serviços de Mídia](media-services-concepts.md)
 
 [Especificação de ingestão dinâmica de MP4 fragmentado dos Serviços de Mídia do Azure](media-services-fmp4-live-ingest-overview.md)

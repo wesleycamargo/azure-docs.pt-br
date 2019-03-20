@@ -14,36 +14,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: e762141e089b11dd0fb129f3bf758874d4ad4da8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: baee8c8e931a18c1d72b52c6141c29cba98f9c53
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227630"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096394"
 ---
 # <a name="administration-and-development-task-list-in-biztalk-services"></a>Lista de Tarefas de Desenvolvimento e Administração nos Serviços BizTalk   
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
-
+> 
 > [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 ## <a name="getting-started"></a>Introdução
 Ao trabalhar com Serviços BizTalk do Microsoft Azure, há vários componentes locais e baseados em nuvem a serem considerados. Para começar, considere o seguinte fluxo de processo:  
 
-| Etapa | Quem é responsável | Tarefa | Links relacionados |
+| Etapa | Quem é responsável | Tarefa | Links Relacionados |
 | --- | --- | --- | --- |
 | 1. |Administrador |Criar a Assinatura do Microsoft Azure usando uma conta da Microsoft ou uma conta institucional |[Portal do Azure](https://portal.azure.com) |
 | 2. |Administrador |Criar ou provisionar um Serviço BizTalk. |[Criar um Serviço BizTalk](https://msdn.microsoft.com/library/azure/dn232347.aspx) |
 | 3. |Administrador |Registrar você ou a implantação dos Serviços BizTalk da sua empresa |[Registro e Atualização de uma Implantação de Serviço BizTalk no portal dos Serviços BizTalk.](https://msdn.microsoft.com/library/azure/hh689837.aspx) |
-| 4. |Administrador |Aplica-se se o aplicativo usa o Serviço do Adaptador do BizTalk para conectar um sistema LOB (Linha de Negócios) local ou usa uma Fila ou Destino de Tópico.  Criar o Namespace do Barramento de Serviço do Azure Atribua valores a esse namespace, ao Nome do Emissor do Barramento de Serviço e à Chave do Emissor do Barramento de Serviço para o desenvolvedor. |[Como criar ou modificar um namespace do Barramento de Serviço](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md) e [Como obter os valores de Nome do Emissor e Chave do Emissor](biztalk-issuer-name-issuer-key.md) |
+| 4. |Administrador |Aplica-se se o aplicativo usa o Serviço do Adaptador do BizTalk para conectar um sistema LOB (Linha de Negócios) local ou usa uma Fila ou Destino de Tópico.  Criar o Namespace do Barramento de Serviço do Azure Atribua valores a esse namespace, ao Nome do Emissor do Barramento de Serviço e à Chave do Emissor do Barramento de Serviço para o desenvolvedor. |[Como: Criar ou modificar um Namespace de serviço de barramento de serviço](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md) e [valores de obter o nome do emissor e chave do emissor](biztalk-issuer-name-issuer-key.md) |
 | 5. |Desenvolvedores |Instalar o SDK e criar o projeto do Serviço BizTalk no Visual Studio. |[Instalar o SDK dos Serviços BizTalk do Azure](https://msdn.microsoft.com/library/azure/hh689760.aspx) e [Criar pontos de extremidade de mensagens avançadas no Azure](https://msdn.microsoft.com/library/azure/hh689766.aspx) |
-| 6. |Desenvolvedores |Implante o projeto de Serviço BizTalk  no seu Serviço BizTalk hospedado no Azure. |[Implantação e Atualização do Projeto de Serviços BizTalk](https://msdn.microsoft.com/library/azure/hh689881.aspx) |
+| 6. |Desenvolvedor |Implante o projeto de Serviço BizTalk  no seu Serviço BizTalk hospedado no Azure. |[Implantação e Atualização do Projeto de Serviços BizTalk](https://msdn.microsoft.com/library/azure/hh689881.aspx) |
 | 7. |Administrador |Aplica-se se estiver usando o Eclipse:  Você pode adicionar Parceiros e criar Acordos no Portal de Serviços BizTalk do Microsoft Azure. Quando você cria um Contrato, pode adicionar a ponte e/ou Transformações criadas pelo desenvolvedor às Configurações do Contrato. |[Configurando EDI, AS2 e EDIFACT no Portal de Serviços BizTalk](https://msdn.microsoft.com/library/azure/hh689853.aspx) |
-| 8. |Administrador |Usando [REST](https://msdn.microsoft.com/library/azure/dn232347.aspx), monitore a integridade do seu Serviço BizTalk, incluindo as métricas de desempenho. |[Serviços BizTalk: guias Painel, Monitor e Escala](https://go.microsoft.com/fwlink/p/?LinkID=302281) |
+| 8. |Administrador |Usando [REST](https://msdn.microsoft.com/library/azure/dn232347.aspx), monitore a integridade do seu Serviço BizTalk, incluindo as métricas de desempenho. |[Serviços BizTalk: Guias painel, Monitor e escala](https://go.microsoft.com/fwlink/p/?LinkID=302281) |
 | 9. |Administrador |Usando o Portal dos Serviços BizTalk do Microsoft Azure, gerencie os artefatos usados pelos Serviços BizTalk e acompanhe as mensagens enquanto são processadas pelos arquivos da ponte. |[Usando o Portal dos Serviços BizTalk](https://msdn.microsoft.com/library/azure/dn874043.aspx) |
 | 10. |Administrador |Crie um plano de backup para fazer backup do Serviço BizTalk. |[Continuidade de Negócios e Recuperação de Desastres nos Serviços BizTalk](https://msdn.microsoft.com/library/azure/dn509557.aspx) |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas Etapas
 [Tutoriais e Amostras](https://msdn.microsoft.com/library/azure/hh689895.aspx)
 
 [Criar um projeto no Visual Studio](https://msdn.microsoft.com/library/azure/hh689811.aspx)

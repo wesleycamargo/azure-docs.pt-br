@@ -14,12 +14,12 @@ ms.topic: article
 ms.author: mabvrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 5436b562b4f9054e0e00e3cc6abb1724797437db
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 6a5efce2f50a25902b33f2cb85d470a280000305
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729637"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002068"
 ---
 # <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Solucionar problemas de sua implantação do Kubernetes para o Azure Stack
 
@@ -105,16 +105,16 @@ Quando você implanta o cluster Kubernetes, você pode examinar o status da impl
 2. Selecione **grupos de recursos**e, em seguida, selecione o nome do grupo de recursos que você usou ao implantar o cluster Kubernetes.
 3. Selecione **implantações**e, em seguida, selecione o **nome da implantação**.
 
-    ![solução de problemas](media/azure-stack-solution-template-kubernetes-trouble/azure-stack-kub-trouble-report.png)
+    ![Solução de problemas](media/azure-stack-solution-template-kubernetes-trouble/azure-stack-kub-trouble-report.png)
 
 4.  Consulte a janela de solução de problemas. Cada recurso implantado fornece as seguintes informações:
     
-    | Propriedade | DESCRIÇÃO |
+    | Propriedade | Descrição |
     | ----     | ----        |
     | Recurso | O nome do recurso. |
-    | Type | O provedor de recursos e o tipo de recurso. |
+    | Digite | O provedor de recursos e o tipo de recurso. |
     | Status | O status do item. |
-    | TimeStamp | O carimbo de hora UTC do tempo. |
+    | Carimbo de Data/hora | O carimbo de hora UTC do tempo. |
     | Detalhes da operação | Os detalhes da operação, como o provedor de recursos que estavam envolvidos na operação, o ponto de extremidade de recursos e o nome do recurso. |
 
     Cada item tem um ícone de status de verde ou vermelho.
@@ -151,7 +151,8 @@ Para obter logs, execute as seguintes etapas:
     ```
 
 4. Revise os parâmetros e defina os valores com base em seu ambiente.
-    | Parâmetro           | DESCRIÇÃO                                                                                                      | Exemplo                                                                       |
+
+    | Parâmetro           | Descrição                                                                                                      | Exemplo                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
     | -d, --vmd-host       | O IP público ou o FQDN do DVM. O nome da VM começa com `vmd-`.                                                       | IP: 192.168.102.38<br><br>DNS: vmd-dnsk8-frog.local.cloudapp.azurestack.external |
     | -f, --force | Não avisar antes de carregar a chave privada. | |
@@ -174,7 +175,7 @@ Para obter logs, execute as seguintes etapas:
     ![Logs gerados](media/azure-stack-solution-template-kubernetes-trouble/azure-stack-generated-logs.png)
 
 
-4. Recupere os logs nas pastas que foram criados pelo comando. O comando cria novas pastas e de data / hora-los.
+1. Recupere os logs nas pastas que foram criados pelo comando. O comando cria novas pastas e de data / hora-los.
     - KubernetesLogs*YYYY-MM-DD-XX-XX-XX-XXX*
         - Dvmlogs
         - Acsengine-kubernetes-dvm.log

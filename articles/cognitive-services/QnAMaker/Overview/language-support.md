@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/04/2018
+ms.date: 02/04/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 3bdc3a91e87f1bbd06ef0181d0042ee618f519c9
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 4e1dbf408565e78547928047ae2ce2d37ad1a022
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861435"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105117"
 ---
 # <a name="language-and-region-support-for-qna-maker"></a>Suporte de idioma e região para o QnA Maker
 
@@ -25,7 +25,7 @@ O idioma de uma base de dados de conhecimento afeta a capacidade do QnA Maker de
 ## <a name="auto-extraction"></a>Extração automática
 O QnA Maker dá suporte à extração de perguntas/respostas em qualquer página de idioma, mas a eficácia da extração é muito maior nos idiomas a seguir, pois o QnA Maker usa palavras-chave para identificar perguntas.
 
-|Idiomas compatíveis| Local|
+|Idiomas compatíveis| Localidade|
 |-----|----|
 |Inglês|en-*|
 |Francês|fr-*|
@@ -47,9 +47,9 @@ O QnA Maker detecta automaticamente o idioma da base de dados de conhecimento du
 |Idiomas compatíveis|
 |-----|
 |Árabe|
-|Armênia|,
-Bengalês|
-|Basco|
+|Armênio|
+Bangla|
+|basco|
 |Búlgaro|
 |Catalão|
 |Chinês_Simplificado|

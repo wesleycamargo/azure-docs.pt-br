@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: b8995436677c195317b9ac304fe8c52cc2fcfc80
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: b9b4af353e5bbd36f1f8d7468c38542a0fabda85
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602062"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112170"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>Usar o Serviço de Kubernetes do Azure com Apache Kafka no HDInsight
 
@@ -81,17 +81,17 @@ Se você ainda não possui um cluster do AKS, use um dos documentos a seguir par
 
 5. Para configurar o emparelhamento entre a rede do HDInsight e a rede de cluster do AKS, selecione a rede virtual e selecione __Emparelhamentos__. Selecione __+ Adicionar__ e use os seguintes valores para preencher o formulário:
 
-    * __Nome__: Insira um nome exclusivo para essa configuração de emparelhamento.
-    * __Rede virtual__: Use esse campo para selecionar a rede virtual para o **cluster do AKS**.
+   * __Nome__: Insira um nome exclusivo para essa configuração de emparelhamento.
+   * __Rede virtual__: Use esse campo para selecionar a rede virtual para o **cluster do AKS**.
 
-    Deixe todos os outros campos no valor padrão, em seguida, selecione __OK__ para configurar o emparelhamento.
+     Deixe todos os outros campos no valor padrão, em seguida, selecione __OK__ para configurar o emparelhamento.
 
 6. Para configurar o emparelhamento entre a rede de cluster do AKS e a rede do HDInsight, selecione __rede virtual de cluster do AKS__ e, em seguida, selecione __Emparelhamentos__. Selecione __+ Adicionar__ e use os seguintes valores para preencher o formulário:
 
-    * __Nome__: Insira um nome exclusivo para essa configuração de emparelhamento.
-    * __Rede virtual__: Use esse campo para selecionar a rede virtual para o __cluster do HDInsight__.
+   * __Nome__: Insira um nome exclusivo para essa configuração de emparelhamento.
+   * __Rede virtual__: Use esse campo para selecionar a rede virtual para o __cluster do HDInsight__.
 
-    Deixe todos os outros campos no valor padrão, em seguida, selecione __OK__ para configurar o emparelhamento.
+     Deixe todos os outros campos no valor padrão, em seguida, selecione __OK__ para configurar o emparelhamento.
 
 ## <a name="install-apache-kafka-on-hdinsight"></a>Instalar o Apache Kafka no HDInsight
 

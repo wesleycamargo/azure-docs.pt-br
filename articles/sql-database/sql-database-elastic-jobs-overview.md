@@ -12,18 +12,18 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 396e8a487feb2f7a7cb45f3713e641b5ebc6abcd
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 8abb2e3ac4f62a3ea51cc686bbf23260fccc4077
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565234"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441365"
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>Gerenciando bancos de dados de nuvem com escalonamento horizontal
 
 [!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
 
-Os **trabalhos de Banco de Dados Elástico** são um serviço de nuvem do Azure hospedado pelo cliente, que permite a execução de tarefas administrativas ad hoc e agendadas, as quais são chamadas de **trabalhos**. Com os trabalhos, é possível gerenciar de maneira fácil e confiável grandes grupos de Bancos de Dados SQL do Azure executando scripts Transact-SQL para realizar operações administrativas.
+**Trabalhos de banco de dados Elástico** é um serviço de nuvem para Azure hospedado pelo cliente que permite a execução de tarefas administrativas ad hoc e agendadas, que são chamados **trabalhos**. Com os trabalhos, é possível gerenciar de maneira fácil e confiável grandes grupos de Bancos de Dados SQL do Azure executando scripts Transact-SQL para realizar operações administrativas.
 
 Para gerenciar bancos de dados fragmentados escalados horizontalmente, o recurso de **Trabalhos do Banco de Dados Elástico** (visualização) permite executar um script Transact-SQL (T-SQL) confiável em um grupo de bancos de dados, incluindo:
 
@@ -67,7 +67,7 @@ Definir grupos personalizados de bancos de dados SQL do Azure e agendar as execu
 > [!NOTE]
 > No portal do Azure, apenas um conjunto reduzido de funções limitadas aos pools elásticos do SQL Azure está disponível. Use as APIs do PowerShell para acessar o conjunto completo de funcionalidades atuais.
 
-## <a name="applications"></a>APLICATIVOS
+## <a name="applications"></a>Aplicativos
 
 - Realize tarefas administrativas, como a implantação de um novo esquema.
 - Atualize informações de dados de referência do produto comuns a todos os bancos de dados. Ou agende atualizações automáticas a cada dia da semana, após o expediente.
@@ -114,7 +114,7 @@ Os grupos personalizados, por outro lado, são definidos rigidamente. Você deve
 
 ## <a name="components-and-pricing"></a>Componentes e preços
 
-Os seguintes componentes trabalham juntos para criar um Serviço de Nuvem do Azure que permite a execução ad hoc de trabalhos administrativos. Os componentes são instalados e configurados automaticamente durante a configuração, em sua assinatura. Você pode identificar os serviços, uma vez que todos têm o mesmo nome gerado automaticamente. O nome é exclusivo e é formado pelo prefixo "edj" seguido por 21 caracteres gerados aleatoriamente.
+Os seguintes componentes trabalham juntos para criar um serviço de nuvem do Azure que permite a execução ad hoc de trabalhos administrativos. Os componentes são instalados e configurados automaticamente durante a configuração, em sua assinatura. Você pode identificar os serviços, uma vez que todos têm o mesmo nome gerado automaticamente. O nome é exclusivo e é formado pelo prefixo "edj" seguido por 21 caracteres gerados aleatoriamente.
 
 - Serviço de Nuvem do Azure
 

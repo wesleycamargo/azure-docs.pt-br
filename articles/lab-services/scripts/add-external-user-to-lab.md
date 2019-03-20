@@ -1,5 +1,5 @@
 ---
-title: 'Script do PowerShell: adicionar um usuário externo a um laboratório no Azure DevTest Labs | Microsoft Docs'
+title: 'Script do PowerShell: Adicionar um usuário externo a um laboratório no Azure DevTest Labs | Microsoft Docs'
 description: Este script do PowerShell adiciona um usuário externo a um laboratório no Azure DevTest Labs.
 services: lab-services
 author: spelluru
@@ -12,16 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 0acff1eb4cee441187205b11a7e07cc718072cbf
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
-ms.translationtype: HT
+ms.openlocfilehash: 042fa1e24ebadfb00a2d55cc97d742f198cb5662
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43248182"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56738344"
 ---
 # <a name="use-powershell-to-add-an-external-user-to-a-lab-in-azure-devtest-labs"></a>Use o PowerShell para adicionar um usuário externo a um laboratório no Azure DevTest Labs
 
 Este script de exemplo do PowerShell adiciona um usuário externo a um laboratório no Azure DevTest Labs. 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -36,10 +38,10 @@ Este script de exemplo do PowerShell adiciona um usuário externo a um laborató
 
 Este script usa os seguintes comandos: 
 
-| Comando | Observações |
+| Comando | Anotações |
 |---|---|
-| [Get-AzureRmADUser](/powershell/module/azurerm.resources/get-azurermaduser) | Repete o objeto de usuário do Azure Active Directory. |
-| [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) | Atribui a função especificada à entidade se segurança especificada no escopo especificado. |
+| [Get-AzADUser](/powershell/module/az.resources/get-azaduser) | Repete o objeto de usuário do Azure Active Directory. |
+| [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) | Atribui a função especificada à entidade se segurança especificada no escopo especificado. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 08/27/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 84e0d02f2608a6ee94ee409345e530357d394671
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 5643b7c80307cea36f60bcc116c82ea7b31171f9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233177"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096564"
 ---
 # <a name="create-an-azure-compatible-vhd"></a>Criar um VHD compatível com o Azure
 
@@ -48,25 +48,25 @@ Como alternativa, o Azure oferece uma variedade de distribuições aprovadas do 
 No portal do [Microsoft Azure](https://ms.portal.azure.com/), crie a imagem base usando as etapas a seguir.
 
 1. Entre no portal com a conta da Microsoft para a assinatura do Azure na qual você deseja publicar sua oferta de VM.
-2. Crie um novo grupo de recursos e forneça seu **Nome do grupo de recursos**, **Assinatura** e **Local do grupo de recursos**.  Para obter instruções, consulte [gerenciar grupos de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal#manage-resource-groups).
+2. Crie um novo grupo de recursos e forneça seu **Nome do grupo de recursos**, **Assinatura** e **Local do grupo de recursos**.  Para obter instruções, consulte [gerenciar grupos de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
 3. Clique em **Máquinas virtuais** na barra de menu à esquerda para exibir a página de detalhes de máquinas virtuais. 
 4. Nesta nova página, clique em **+ Adicionar** para exibir o blade **Compute**.  Se você não vir o tipo de VM na primeira tela, poderá procurar o nome da VM base, por exemplo:
 
     ![Lâmina de computação da nova VM](./media/publishvm_014.png)
 
 5. Depois de selecionar a imagem virtual adequada, forneça os seguintes valores:
-  * No blade **Basics**, insira um **Name** para a máquina virtual, entre 1-15 caracteres alfanuméricos. (Este exemplo usa `DemoVm009`.)
-  * Digite um **nome de usuário** e uma **senha** forte, que são usados para criar uma conta local na VM.  (Aqui `adminUser` é usado.)  A senha deve ter de 8 a 123 caracteres e atender três dos quatro requisitos de complexidade a seguir: um caractere minúsculo, um caractere maiúsculo, um número e um caractere especial. Para obter mais informações, consulte [Requisitos de nome de usuário e senha](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-faq#what-are-the-username-requirements-when-creating-a-vm).
-  * Selecione o grupo de recursos que você criou (aqui `DemoResourceGroup`).
-  * Selecione um **Local** do Azure Datacenter (aqui `West US`).
-  * Clique em **Okey** para salvar esses valores. 
+   * No blade **Basics**, insira um **Name** para a máquina virtual, entre 1-15 caracteres alfanuméricos. (Este exemplo usa `DemoVm009`.)
+   * Digite um **nome de usuário** e uma **senha** forte, que são usados para criar uma conta local na VM.  (Aqui `adminUser` é usado.)  A senha deve ter de 8 a 123 caracteres e atender três dos quatro requisitos de complexidade a seguir: um caractere minúsculo, um caractere maiúsculo, um número e um caractere especial. Para obter mais informações, consulte [Requisitos de nome de usuário e senha](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-faq#what-are-the-username-requirements-when-creating-a-vm).
+   * Selecione o grupo de recursos que você criou (aqui `DemoResourceGroup`).
+   * Selecione um **Local** do Azure Datacenter (aqui `West US`).
+   * Clique em **Okey** para salvar esses valores. 
 
-6.  Selecione o tamanho da VM para implantar usando as seguintes recomendações:
-  * Se você pretende desenvolver o VHD no local, o tamanho não importa. Considere o uso de uma das VMs menores.
-  * Se você pretende desenvolver a imagem no Azure, considere o uso de um dos tamanhos de VM recomendados para a imagem selecionada.
-  * Para informações de preços, consulte o seletor do **tipo de preço recomendado** exibido no portal. Ele exibirá os três tamanhos recomendados fornecidos pelo editor. (Aqui, o editor é Microsoft.)
+6. Selecione o tamanho da VM para implantar usando as seguintes recomendações:
+   * Se você pretende desenvolver o VHD no local, o tamanho não importa. Considere o uso de uma das VMs menores.
+   * Se você pretende desenvolver a imagem no Azure, considere o uso de um dos tamanhos de VM recomendados para a imagem selecionada.
+   * Para informações de preços, consulte o seletor do **tipo de preço recomendado** exibido no portal. Ele exibirá os três tamanhos recomendados fornecidos pelo editor. (Aqui, o editor é Microsoft.)
 
-    ![Lâmina de tamanho da nova VM](./media/publishvm_015.png)
+   ![Lâmina de tamanho da nova VM](./media/publishvm_015.png)
 
 7. Na folha **Configurações**, defina a opção  **Usar disco gerenciado** como **Não**.  Isso permite gerenciar manualmente o novo VHD. (O blade **Configurações** também permite que você altere outras alterações nas opções de armazenamento e rede, por exemplo, selecionando **Premium (SSD)** em **tipo de disco**.)  Clique em **OK** para continuar.
 

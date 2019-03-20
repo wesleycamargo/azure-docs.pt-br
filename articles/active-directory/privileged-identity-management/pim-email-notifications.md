@@ -16,12 +16,12 @@ ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f4eab44a55574f84f29488e78cd60522d7a52eb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6f2e5674413cb4057187b7573fde0bcd8899caab
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171189"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905164"
 ---
 # <a name="email-notifications-in-pim"></a>Notificações por email no PIM
 
@@ -31,10 +31,10 @@ O PIM (Azure AD Privileged Identity Management) permite saber quando eventos imp
 
 Os emails enviados do PIM para ambas as funções de recursos do Azure e Azure AD têm o seguinte endereço de email do remetente:
 
-- Endereço de email:  **azure-noreply@microsoft.com**
-- Nome de exibição: Microsoft Azure
+- Endereço de email: **noreply azure\@microsoft.com**
+- Nome para exibição: Microsoft Azure
 
-Esses emails incluem um prefixo **PIM** na linha de assunto. Aqui está um exemplo:
+Esses emails incluem um prefixo **PIM** na linha de assunto. Veja um exemplo:
 
 - PIM: Alain Charon foi atribuído permanentemente à função Leitor de Backup
 
@@ -50,9 +50,9 @@ Quem recebe esses emails para as funções do Azure AD depende da função, do e
 
 | Usuário | Ativação de função está pendente de aprovação | A solicitação de ativação de função está concluída | O PIM está habilitado |
 | --- | --- | --- | --- |
-| Administrador de função com privilégios</br>(Ativado/Qualificado) | Sim</br>(somente se nenhum aprovador explícito for especificado) | Sim* | Sim |
-| Administrador de segurança</br>(Ativado/Qualificado) | Não  | Sim* | Sim |
-| Administrador global</br>(Ativado/Qualificado) | Não  | Sim* | Sim |
+| Administrador da Função com Privilégios</br>(Ativado/Qualificado) | Sim</br>(somente se nenhum aprovador explícito for especificado) | Sim* | Sim |
+| Administrador de Segurança</br>(Ativado/Qualificado) | Não | Sim* | Sim |
+| Administrador Global</br>(Ativado/Qualificado) | Não | Sim* | Sim |
 
 \*Se as [**configurações de** Notificações](pim-how-to-change-default-settings.md#notifications) estiver definida como **Habilitar**.
 
@@ -68,7 +68,7 @@ Um email de resumo semanal do PIM para funções do Azure AD é enviado para Adm
 
 O email inclui quatro blocos:
 
-| Bloco | DESCRIÇÃO |
+| Lado a Lado | Descrição |
 | --- | --- |
 | **Usuários ativados** | Número de vezes que os usuários ativaram a função qualificada no locatário. |
 | **Usuários tornados permanentes** | Número de vezes que usuários com uma atribuição qualificada tornam-se permanentes. |

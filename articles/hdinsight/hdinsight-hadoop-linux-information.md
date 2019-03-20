@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/09/2018
-ms.openlocfilehash: fd1c130e9228f334889668f66927dece2425b39f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 43b672569b398f636b2e02172428cf072febb156
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090671"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202445"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informações sobre o uso do HDInsight no Linux
 
@@ -57,7 +57,7 @@ Esse comando retorna um documento JSON que descreve o serviço e, em seguida, o 
 
 * **Ambari (web)** - https://&lt;nomedocluster>.azurehdinsight.net
 
-    Autentique usando o usuário e a senha de administrador do cluster e faça logon no Ambari.
+    Autenticar usando o usuário do administrador de cluster e a senha e, em seguida, entre no Ambari.
 
     A autenticação é texto sem formatação - sempre usar HTTPS para ajudar a garantir que a conexão seja segura.
 
@@ -87,7 +87,7 @@ Esse comando retorna um documento JSON que descreve o serviço e, em seguida, o 
 
 Para obter mais informações, consulte o documento [Portas usadas pelos serviços do Apache Hadoop no HDInsight](hdinsight-hadoop-port-settings-for-services.md).
 
-## <a name="file-locations"></a>Locais de arquivos
+## <a name="file-locations"></a>Locais de arquivo
 
 Arquivos relacionados ao Hadoop encontram-se nos nós de cluster em `/usr/hdp`. O diretório raiz contém os seguintes subdiretórios:
 
@@ -249,7 +249,7 @@ Para obter informações específicas sobre como dimensionar o cluster HDInsight
 
 ## <a name="how-do-i-install-hue-or-other-hadoop-component"></a>Como instalo o Hue (ou outro componente do Hadoop)?
 
-O HDInsight é um serviço gerenciado. Se o Azure detectar um problema com o cluster, ele poderá excluir o nó com falha e criar um nó para substituí-lo. Se você instalar coisas no cluster manualmente, elas não persistirão durante a operação. Em vez disso, use as [Ações de Script HDInsight](hdinsight-hadoop-customize-cluster.md). Uma ação de script pode ser usada para fazer as seguintes alterações:
+O HDInsight é um serviço gerenciado. Se o Azure detectar um problema com o cluster, ele poderá excluir o nó com falha e criar um nó para substituí-lo. Se você instalar coisas no cluster manualmente, elas não persistirão durante a operação. Em vez disso, use as [Ações de Script HDInsight](hdinsight-hadoop-customize-cluster-linux.md). Uma ação de script pode ser usada para fazer as seguintes alterações:
 
 * Instale e configure um serviço ou um site da Web.
 * Instalar e configurar um componente que requer alterações de configuração em vários nós no cluster.
@@ -257,7 +257,6 @@ O HDInsight é um serviço gerenciado. Se o Azure detectar um problema com o clu
 Ações de script são scripts Bash. Os scripts são executados durante a criação do cluster e são usados para instalar e configurar componentes adicionais. São fornecidos scripts de exemplo para instalar os seguintes componentes:
 
 * [Apache Giraph](hdinsight-hadoop-giraph-install-linux.md)
-* [Apache Solr](hdinsight-hadoop-solr-install-linux.md)
 
 Para saber mais sobre como desenvolver suas próprias ações de script, consulte [Desenvolvimento de ação de script com o HDInsight](hdinsight-hadoop-script-actions-linux.md).
 

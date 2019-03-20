@@ -16,12 +16,12 @@ ms.date: 01/14/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: e548188f1fc44ec32b90d0eaaa4154602e3e51c4
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: 564c4b011b26f2bc6b034233d014542172a4a739
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57764074"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57885293"
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Visão geral da identidade para o Azure Stack
 
@@ -60,7 +60,7 @@ Como você pode cria e gerenciar usuários e grupos depende de você usar a solu
 
 No Azure Stack, contas de usuário:
 
-- São criados na *username@domain* formato. Embora o AD FS mapeia as contas de usuário a uma instância do Active Directory, AD FS não suporta o uso do  *\\ \<domínio >\\\<alias >* formato.
+- São criados na *nome de usuário\@domínio* formato. Embora o AD FS mapeia as contas de usuário a uma instância do Active Directory, AD FS não suporta o uso do  *\\ \<domínio >\\\<alias >* formato.
 - Pode ser configurado para usar a autenticação multifator.
 - São restritos para o diretório em que eles primeiro registram, que é o diretório da organização.
 - Podem ser importados de seus diretórios locais. Para obter mais informações, consulte [integrar seus diretórios locais ao Azure Active Directory](/azure/active-directory/connect/active-directory-aadconnect).
@@ -75,7 +75,7 @@ Para convidar usuários convidados, os operadores de nuvem e os usuários podem 
 
 Como um usuário convidado, você pode entrar no locatário do diretório da outra organização. Para fazer isso, você acrescentar o nome de diretório da organização ao portal do URL. Por exemplo, se você pertence à organização Contoso e deseja entrar no diretório da Fabrikam, usar https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.
 
-### <a name="applications"></a>APLICATIVOS
+### <a name="applications"></a>Aplicativos
 
 Você pode registrar aplicativos para o Azure AD ou AD FS e, em seguida, oferecer os aplicativos para usuários em sua organização.
 
@@ -147,7 +147,7 @@ Para usuários e aplicativos, a arquitetura do Azure Stack é descrita por quatr
 |---------|---------|
 |Ferramentas e clientes, como o portal de administração     | Para acessar ou modificar um recurso no Azure Stack, ferramentas e os clientes usam um [Token Web JSON](/azure/active-directory/develop/active-directory-token-and-claims) para fazer uma chamada para o Azure Resource Manager. <br>O Azure Resource Manager valida o JSON Web Token e espia a *declarações* no token emitido para estimar o nível de autorização esse usuário ou entidade de serviço tem no Azure Stack. |
 |O Azure Resource Manager e seus serviços de núcleo     |O Azure Resource Manager se comunica com os provedores de recursos para transferir a comunicação dos usuários. <br> Transferências de uso *imperativo direto* chamadas ou *declarativa* chama via [modelos do Azure Resource Manager](/azure/azure-stack/user/azure-stack-arm-templates).|
-|Provedores de recursos     |Chamadas que são passadas para provedores de recursos são protegidas com a autenticação baseada em certificado. <br>O Azure Resource Manager e o provedor de recursos, em seguida, permanecem na comunicação por meio de uma API. Para cada chamada que é recebida do Azure Resource Manager, o provedor de recursos valida a chamada com esse certificado.|
+|Provedores de recurso     |Chamadas que são passadas para provedores de recursos são protegidas com a autenticação baseada em certificado. <br>O Azure Resource Manager e o provedor de recursos, em seguida, permanecem na comunicação por meio de uma API. Para cada chamada que é recebida do Azure Resource Manager, o provedor de recursos valida a chamada com esse certificado.|
 |Lógica de negócios e infraestrutura     |Provedores de recursos se comunicar com a lógica de negócios e a infraestrutura usando um modo de autenticação de sua preferência. Os provedores de recursos padrão que vêm com o Azure Stack usam a autenticação do Windows para proteger essa comunicação.|
 
 ![Informações necessárias para autenticação](media/azure-stack-identity-overview/authentication.png)

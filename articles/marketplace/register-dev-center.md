@@ -14,17 +14,17 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 479278400aa056a7cebcefaa2eedee3d98bc9a15
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 682c9e209c4fa4a9f4971af5da901faf1ec58c22
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815227"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57889736"
 ---
 # <a name="register-in-dev-center"></a>Registrar no Centro de Desenvolvimento  
 Abra uma nova sessão de navegação InPrivate do Internet Explorer ou Anônima do Chrome para garantir que você não tenha se conectado em uma conta pessoal.  
 1.  Registre-se como um vendedor no Centro de Desenvolvimento.  
-    *   Para entrar e registrar-se como vendedor, visite a página do Centro de Desenvolvimento do Azure em [dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure).  
+    *   Para entrar e registrar-se como vendedor, visite a página do Centro de Desenvolvimento do Azure em [dev.windows.com/registration?accountprogram=azure](https://dev.windows.com/registration?accountprogram=azure).  
 2.  Conclua o assistente `Help us protect your account`, que verifica a sua identidade usando seu endereço de email ou número de telefone.  
 
     ![Caixas para informações de telefone no assistente Ajude-nos a proteger sua conta](./media/marketplace-publishers-guide/registerdevcenteremail.png)  
@@ -77,12 +77,12 @@ Abra uma nova sessão de navegação InPrivate do Internet Explorer ou Anônima 
 
     | Modelo de cobrança | Próximas etapas |  
     |:--- |:--- |  
-    | Grátis | Acesse o para Portal do Cloud Partner.<ul> <li>Para publicar no Azure Marketplace, visite a página Portal do Cloud Partner localizada em [cloudpartner.azure.com](https://cloudpartner.azure.com).</li> </ul> |  
+    | Gratuito | Acesse o para Portal do Cloud Partner.<ul> <li>Para publicar no Azure Marketplace, visite a página Portal do Cloud Partner localizada em [cloudpartner.azure.com](https://cloudpartner.azure.com).</li> </ul> |  
     | Comercial (transações) | Atualizar as informações da sua conta.<ul> <li>Para saber mais sobre como adicionar informações de conta, visite a seção [Como adicionar informações bancárias e fiscais](#add-bank-information).</li> </ul> |  
 
     *   Um exemplo de uma oferta comercial é uma oferta de VM com o modelo de cobrança por hora.  
 
----  
+---
 
 ## <a name="get-help-with-dev-center-registration"></a>Obter ajuda com o registro do Centro de Desenvolvimento  
 Se você tiver problemas com o registro no Centro de Desenvolvimento, execute estas etapas para enviar um tíquete de suporte.  
@@ -125,7 +125,7 @@ As informações bancárias e fiscais são necessárias para todas as ofertas co
 
 4.  Clique no botão Avançar. 
 
----   
+---
 
 ## <a name="add-tax-information"></a>Adicionar informações fiscais  
 1.  Entre no Centro de Desenvolvimento usando a ID da Microsoft.  
@@ -142,57 +142,57 @@ As informações bancárias e fiscais são necessárias para todas as ofertas co
 
 ## <a name="frequently-asked-questions"></a>Perguntas Frequentes: 
 
-*   **Quais publicadores exigem um registro de conta do Centro de Desenvolvimento?** 
-> O publicador que está publicando em tipo de listagem Transact: VM, aplicativos do Azure: modelos de solução e aplicativos gerenciados.  
+* **Quais publicadores exigem um registro de conta do Centro de Desenvolvimento?** 
+  > O publicador que está publicando em tipo de listagem Transact: VM, aplicativos do Azure: modelos de solução e aplicativos gerenciados.  
 
-*   **Por que a conta do Centro de Desenvolvimento é necessária?**
-> A conta do Centro de Desenvolvimento é necessária para permitir que a Microsoft cobre pelo tipo de listagem de Transact em nome do cliente. O registro da conta do Centro de Desenvolvimento permite que a Microsoft valide as informações jurídicas, fiscais e bancárias da sua empresa. Para saber mais, [clique aqui.](https://docs.microsoft.com/azure/marketplace/become-publisher)
+* **Por que a conta do Centro de Desenvolvimento é necessária?**
+  > A conta do Centro de Desenvolvimento é necessária para permitir que a Microsoft cobre pelo tipo de listagem de Transact em nome do cliente. O registro da conta do Centro de Desenvolvimento permite que a Microsoft valide as informações jurídicas, fiscais e bancárias da sua empresa. Para saber mais, [clique aqui.](https://docs.microsoft.com/azure/marketplace/become-publisher)
 
-*   **Como começar com o registro do Centro de Desenvolvimento?**
-> Para evitar duplicação, verifique se sua empresa já não tem uma conta do Centro de Desenvolvimento registrada. Você deve estar conectado com a conta da Microsoft que deseja associar à sua conta de desenvolvedor. Se ainda não tem uma conta da Microsoft, você pode criar uma nova [aqui.](https://signup.live.com/signup?contextid=AEB123C8F2B1DA7A&bk=1529968434&ru=https%3a%2f%2flogin.live.com%2flogin.srf%3fcontextid%3dAEB123C8F2B1DA7A%26mkt%3dEN-US%26lc%3d1033%26bk%3d1529968434&uiflavor=web&uaid=9987e727fedb459780d95c1b9e46c82c&mkt=EN-US&lc=1033&lic=1) (exemplo: contoso_marketplace@live.com) Para entrar e registrar, vá para https://dev.windows.com/en-us/registration?accountProgram=Azure
-<br>Para saber mais sobre o processo de registro, clique [aqui.](https://docs.microsoft.com/azure/marketplace/register-dev-center)</br>
+* **Como começar com o registro do Centro de Desenvolvimento?**
+  > Para evitar duplicação, verifique se sua empresa já não tem uma conta do Centro de Desenvolvimento registrada. Você deve estar conectado com a conta da Microsoft que deseja associar à sua conta de desenvolvedor. Se ainda não tem uma conta da Microsoft, você pode criar uma nova [aqui.](https://signup.live.com/signup?contextid=AEB123C8F2B1DA7A&bk=1529968434&ru=https%3a%2f%2flogin.live.com%2flogin.srf%3fcontextid%3dAEB123C8F2B1DA7A%26mkt%3dEN-US%26lc%3d1033%26bk%3d1529968434&uiflavor=web&uaid=9987e727fedb459780d95c1b9e46c82c&mkt=EN-US&lc=1033&lic=1) (exemplo: contoso_marketplace@live.com) Para entrar e registrar, vá para https://dev.windows.com/en-us/registration?accountProgram=Azure
+  > <br>Para saber mais sobre o processo de registro, clique [aqui.](https://docs.microsoft.com/azure/marketplace/register-dev-center)</br>
 
-*   **Devo escolher tipo de conta 'Individual' ou 'Empresa'?**
-> Para publicar uma oferta de transação no Marketplace, você precisa selecionar a conta Empresa ao se registrar na conta do Centro de Desenvolvimento.
+* **Devo escolher tipo de conta 'Individual' ou 'Empresa'?**
+  > Para publicar uma oferta de transação no Marketplace, você precisa selecionar a conta Empresa ao se registrar na conta do Centro de Desenvolvimento.
 
-*   **Posso alterar meu tipo de conta de 'Individual' para 'Empresa' após a criação da conta?**
-> Não, o tipo de conta não pode ser atualizado depois que a conta é criada.
+* **Posso alterar meu tipo de conta de 'Individual' para 'Empresa' após a criação da conta?**
+  > Não, o tipo de conta não pode ser atualizado depois que a conta é criada.
 
-*   **Por que recebo uma mensagem de erro 'A cidade é obrigatória' embora eu tenha inserido a cidade corretamente?**
-> Verifique se que o código postal também foi inserido corretamente. Há uma validação de cidade e código postal.
+* **Por que recebo uma mensagem de erro 'A cidade é obrigatória' embora eu tenha inserido a cidade corretamente?**
+  > Verifique se que o código postal também foi inserido corretamente. Há uma validação de cidade e código postal.
 
-*   **Como obter um código promocional?**
-> Complete o formulário de [Registro do Marketplace](https://azuremarketplace.microsoft.com/en-us/sell/signup) para receber um código promocional do Centro de Desenvolvimento.
+* **Como obter um código promocional?**
+  > Complete o formulário de [Registro do Marketplace](https://azuremarketplace.microsoft.com/en-us/sell/signup) para receber um código promocional do Centro de Desenvolvimento.
  
-*   **O que devo esperar após concluir o registro?**
-> Procure por um email de verify@microsoft.com com linha do assunto "Ação necessária: Verifique sua conta de email com a Microsoft" Clique no link de verificação sensível a tempo para concluir o registro. *Se você não tiver recebido um email dentro de 24 horas, verifique a pasta de spam.*
+* **O que devo esperar após concluir o registro?**
+  > Procure por um email de verify@microsoft.com com linha do assunto "Ação necessária: Verifique sua conta de email com a Microsoft" Clique no link de verificação sensível a tempo para concluir o registro. *Se você não tiver recebido um email dentro de 24 horas, verifique a pasta de spam.*
 
-*   **Quais são as próximas etapas após a verificação do Centro de Desenvolvimento?**
-> Vá para "Seus programas" https://developer.microsoft.com/dashboard/Account/Programs) e efetue logon na conta do Centro de Desenvolvimento. Caso não visualize o Azure como um programa registrado, consulte "Programas recomendados para você" e procure o Azure para selecionar "Introdução."
+* **Quais são as próximas etapas após a verificação do Centro de Desenvolvimento?**
+  > Vá para "Seus programas" https://developer.microsoft.com/dashboard/Account/Programs) e efetue logon na conta do Centro de Desenvolvimento. Caso não visualize o Azure como um programa registrado, consulte "Programas recomendados para você" e procure o Azure para selecionar "Introdução."
 
-*   **Como fazer para vincular minha conta do Centro de Desenvolvimento ao meu perfil de publicação do Portal do Cloud Partner?**
-> A etapa final antes da publicação estará vinculando a conta do Centro de Desenvolvimento ao seu [perfil](https://cloudpartner.azure.com/#profile) do Portal do Cloud Partner. Se a conta do Centro de Desenvolvimento for diferente da conta no [Portal do Cloud Partner](https://cloudpartner.azure.com/#alloffers), adicione sua conta do Centro de Desenvolvimento como um novo [usuário](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-manage-users) no Portal do Cloud Partner. Faça logon no [Portal do Cloud Partner](https://cloudpartner.azure.com/#alloffers) com sua conta do Centro de Desenvolvimento. Selecione Perfil de publicação no menu localizado no canto superior direito do navegador da Web. Selecione Vincular conta do Centro de Desenvolvimento.
+* **Como fazer para vincular minha conta do Centro de Desenvolvimento ao meu perfil de publicação do Portal do Cloud Partner?**
+  > A etapa final antes da publicação estará vinculando a conta do Centro de Desenvolvimento ao seu [perfil](https://cloudpartner.azure.com/#profile) do Portal do Cloud Partner. Se a conta do Centro de Desenvolvimento for diferente da conta no [Portal do Cloud Partner](https://cloudpartner.azure.com/#alloffers), adicione sua conta do Centro de Desenvolvimento como um novo [usuário](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-manage-users) no Portal do Cloud Partner. Faça logon no [Portal do Cloud Partner](https://cloudpartner.azure.com/#alloffers) com sua conta do Centro de Desenvolvimento. Selecione Perfil de publicação no menu localizado no canto superior direito do navegador da Web. Selecione Vincular conta do Centro de Desenvolvimento.
 
-*   **Por que meu aplicativo do Centro de Desenvolvimento é rejeitado?**
-> A empresa de verificação de terceiros (Duns & Bradstreet) não pôde entrar em contato com você pelo número de telefone fornecido. Entre em contato com o suporte em [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) para reiniciar o processo de verificação
+* **Por que meu aplicativo do Centro de Desenvolvimento é rejeitado?**
+  > A empresa de verificação de terceiros (Duns & Bradstreet) não pôde entrar em contato com você pelo número de telefone fornecido. Entre em contato com o suporte em [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) para reiniciar o processo de verificação
 
-> ou o
-
+> ou
+> 
 > O registro da conta foi rejeitado com base em problemas geográficos. As empresas com subsidiárias baseadas em locais diferentes da sede precisarão de apenas uma conta do Centro de Desenvolvimento.
  
-*   **O que devo fazer se o nome da empresa que eu quero usar já existir no Centro de Desenvolvimento?**
-> Atribua um nome de empresa temporário, entre em contato com o suporte em [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) e forneça a eles seus documentos de registro comercial.
+* **O que devo fazer se o nome da empresa que eu quero usar já existir no Centro de Desenvolvimento?**
+  > Atribua um nome de empresa temporário, entre em contato com o suporte em [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) e forneça a eles seus documentos de registro comercial.
 
-*   **Como adicionar minhas informações de impostos e pagamento?**
-> Você não poderá publicar ofertas de transação sem preencher as informações fiscais e bancárias em sua conta do Centro de Desenvolvimento.  Para saber mais sobre como adicionar informações de conta, visite [Como adicionar informações bancárias e fiscais](https://docs.microsoft.com/azure/marketplace/register-dev-center).
+* **Como adicionar minhas informações de impostos e pagamento?**
+  > Você não poderá publicar ofertas de transação sem preencher as informações fiscais e bancárias em sua conta do Centro de Desenvolvimento.  Para saber mais sobre como adicionar informações de conta, visite [Como adicionar informações bancárias e fiscais](https://docs.microsoft.com/azure/marketplace/register-dev-center).
 
-*   **Posso alterar a conta de logon da Microsoft do Centro de Desenvolvimento?**
->  Não. Depois de criar um Centro de Desenvolvimento, a conta do proprietário não pode ser alterada. Você teria que começar com uma conta totalmente nova do Centro de Desenvolvimento com a conta da Microsoft desejada.
+* **Posso alterar a conta de logon da Microsoft do Centro de Desenvolvimento?**
+  > Nº. Depois de criar um Centro de Desenvolvimento, a conta do proprietário não pode ser alterada. Você teria que começar com uma conta totalmente nova do Centro de Desenvolvimento com a conta da Microsoft desejada.
 
-*   **Onde devo contatar o suporte sobre problemas com relação ao registro do Centro de Desenvolvimento?**
-Para acessar o suporte, visite a página de suporte de desenvolvedor do Windows localizada em [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support). 
+* **Onde devo contatar o suporte sobre problemas com relação ao registro do Centro de Desenvolvimento?**
+  Para acessar o suporte, visite a página de suporte de desenvolvedor do Windows localizada em [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support). 
 
 ## <a name="next-steps"></a>Próximas etapas
 *   Visite a página [ do Azure Marketplace e do AppSource Publisher Guide ](./marketplace-publishers-guide.md).  
  
----  
+---

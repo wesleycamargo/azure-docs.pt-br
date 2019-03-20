@@ -8,19 +8,19 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 316ebb7774a0420087bf9ed5c099a91d78a96fb0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9aba12a2bca882b5f0e6e95d8e4f6014b318a12e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181211"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119710"
 ---
 # <a name="delegate-app-administrator-roles-in-azure-active-directory"></a>Delegar funções de administrador do aplicativo no Azure Active Directory
 
@@ -37,8 +37,8 @@ Para conceder a capacidade de gerenciar o acesso de aplicativo no portal do Azur
 1. Entre no [locatário do Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) com uma conta qualificada para a função de Administrador Global no locatário.
 2. Quando você tiver permissões suficientes, abra a [página Funções e administradores](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators).
 3. Abra uma das funções a seguir para ver as respectivas atribuições de membro:
-  * **Administrador de aplicativo**
-  * **Administrador de aplicativos de nuvem**
+   * **Administrador de aplicativo**
+   * **Administrador de aplicativos de nuvem**
 4. Na página **Membros** para a função, selecione **Adicionar membro**.
 5. Selecione um ou mais membros aos quais adicionar a função. <!--Members can be users or groups.-->
 
@@ -50,8 +50,8 @@ Por padrão, todos os usuários podem criar registros de aplicativo, mas é poss
 
 1. Entre no [locatário do Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) com uma conta qualificada para a função de Administrador Global no locatário.
 2. Quando você tiver obtido permissões suficientes, defina uma ou ambas das seguintes opções:
-  * Na página [Configurações do usuário para o seu locatário](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings), defina **Usuários podem registrar aplicativos** para Não.
-  * Em [Configurações do usuário para aplicativos empresariais](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/), defina **Usuários podem consentir que os aplicativos acessem dados da empresa em nome deles** como Não.
+   * Na página [Configurações do usuário para o seu locatário](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings), defina **Usuários podem registrar aplicativos** para Não.
+   * Em [Configurações do usuário para aplicativos empresariais](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/), defina **Usuários podem consentir que os aplicativos acessem dados da empresa em nome deles** como Não.
 3. Em seguida, atribua usuários que precisam dessa permissão para serem membros da função de desenvolvedor de aplicativo, conforme necessário.
 
 Quando um usuário registra um aplicativo, ele é automaticamente adicionado como o primeiro proprietário do aplicativo.
@@ -64,7 +64,7 @@ Um proprietário de aplicativo pode:
 
 * Alterar propriedades do aplicativo, tais como o nome e as permissões solicitadas pelo aplicativo
 * Gerenciar credenciais
-* Configurar o logon único
+* Configurar logon único
 * Atribuir acesso de usuário
 * Adicionar ou remover outros proprietários
 * Editar o manifesto do aplicativo

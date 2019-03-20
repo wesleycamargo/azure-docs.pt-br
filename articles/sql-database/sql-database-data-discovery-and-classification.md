@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 3c5f087ed44c252737e7f45fde12a4b509637499
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: ac52d8fa03c3c3ad1d618d014381fadfa752b7d7
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892874"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202972"
 ---
 # <a name="azure-sql-database-data-discovery--classification"></a>Descoberta e classificação de dados do Banco de Dados SQL do Azure
 
@@ -31,7 +31,7 @@ Descobrir e classificar seus dados mais confidenciais (negócios, financeiros, a
 A descoberta e classificação de dados fazem parte da oferta de [segurança de dados avançada](sql-database-advanced-data-security.md) (ADS), um pacote unificado de funcionalidades avançadas de segurança do SQL. A descoberta e classificação de dados pode ser acessada e gerenciada por meio do portal central de ADS do SQL.
 
 > [!NOTE]
-> Este documento está relacionado apenas ao Banco de Dados SQL do Azure. Para o SQL Server (no local), consulte [Descoberta e Classificação de Dados SQL](https://go.microsoft.com/fwlink/?linkid=866999).
+> Este documento está relacionado apenas ao Banco de Dados SQL do Azure. Para o SQL Server (local), consulte [descoberta de dados SQL e classificação](https://go.microsoft.com/fwlink/?linkid=866999).
 
 ## <a id="subheading-1"></a>O que é descoberta e classificação de dados
 
@@ -144,7 +144,14 @@ Também é possível usar APIs REST para gerenciar programaticamente as classifi
 - [Excluir](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete) - Exclui o rótulo de confidencialidade de uma determinada coluna
 - [Obter](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get)  - Obtém o rótulo de confidencialidade de uma determinada coluna
 - [Lista por Banco de Dados Atual](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) - obtém os rótulos atuais de confidencialidade de determinado banco de dados
-- [Listar por Banco de Dados Recomendado](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) - obtém os rótulos atuais de confidencialidade de determinado banco de dados
+- [Listar recomendado pelo banco de dados](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) -obtém os rótulos de confidencialidade recomendados de um determinado banco de dados
+
+## <a name="permissions"></a>Permissões
+As seguintes funções internas podem ler a classificação de dados de um banco de dados SQL do Azure: `Owner`, `Reader`, `Contributor`, `SQL Security Manager` e `User Access Administrator`.
+
+As seguintes funções internas podem modificar a classificação de dados de um banco de dados SQL do Azure: `Owner`, `Contributor`, `SQL Security Manager`.
+
+Saiba mais sobre [RBAC para recursos do Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 ## <a id="subheading-5"></a>Próximas etapas
 

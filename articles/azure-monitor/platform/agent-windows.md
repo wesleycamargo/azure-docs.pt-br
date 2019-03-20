@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/05/2019
+ms.date: 03/12/2019
 ms.author: magoedte
-ms.openlocfilehash: d4204d4937b8eca2dcb3f656659f185f30c8bddf
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: d433a480165424e47d4d84e67e7fd02648ebe2d1
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755009"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223420"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Conectar computadores Windows ao serviço do Log Analytics no Azure
 
@@ -32,6 +32,10 @@ O agente pode ser instalado usando um dos seguintes métodos. A maioria das inst
 * DSC (Desired State Configuration) na Automação do Azure. Usar o DSC na Automação do Azure com um script para computadores Windows já implantado em seu ambiente.  
 * Script do PowerShell.
 * Modelo do Resource Manager para máquinas virtuais executando o Windows local no Azure Stack.  
+
+>[!NOTE]
+>Central de segurança do Azure (ASC) depende do Microsoft Monitoring Agent (também conhecido como o agente do Windows do Log Analytics) e instalará e configurá-lo para relatar para um espaço de trabalho do Log Analytics como parte da sua implantação. ASC inclui uma opção de provisionamento automático que permite a instalação automática do agente do Windows do Log Analytics em todas as VMs em sua assinatura e o configura para relatar para um espaço de trabalho específico. Para obter mais informações sobre essa opção, consulte [habilitar o provisionamento automático de agente do Log Analytics](../../security-center/security-center-enable-data-collection.md#enable-automatic-provisioning-of-microsoft-monitoring-agent-).
+>
 
 Para entender a configuração com suporte, revise [suporte para sistemas operacionais Windows](log-analytics-agent.md#supported-windows-operating-systems) e [configuração de firewall de rede](log-analytics-agent.md#network-firewall-requirements).
 
@@ -89,7 +93,7 @@ O arquivo baixado para o agente é um pacote de instalação autossuficiente.  O
 
 A tabela a seguir destaca os parâmetros específicos com suporte pela configuração do agente, inclusive quando implantados usando o DSC de Automação.
 
-|Opções específicas do MMA                   |Observações         |
+|Opções específicas do MMA                   |Anotações         |
 |---------------------------------------|--------------|
 | NOAPM=1                               | Parâmetro opcional. Instala o agente sem Monitoramento de Desempenho de Aplicativos .NET.|   
 |ADD_OPINSIGHTS_WORKSPACE               | 1 = configurar o agente para reportar a um workspace                |

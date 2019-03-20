@@ -11,16 +11,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/18/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: 27e9a5b33170855455e8906b659e0f0c009e42d3
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: c862de2eec4e6c116218457a20b567dc02778685
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984096"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58190015"
 ---
-# <a name="media-encoder-standard-formats-and-codecs-legacy"></a>Formatos e codecs Media Encoder Standard (herdado)
+# <a name="media-encoder-standard-formats-and-codecs"></a>Codecs e formatos padrão do codificador de mídia
 
 > [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
 > * [Versão 2](media-services-media-encoder-standard-formats.md)
@@ -30,7 +30,7 @@ Este documento contém uma lista dos formatos de arquivo de importação e impor
 
 ## <a name="input-containerfile-formats"></a>Formatos de arquivo/contêiner de entrada
 | Formatos de arquivo (extensões de arquivo) | Com suporte |
-| --- | --- | --- | --- |
+| --- | --- |
 | FLV (com codecs H.264 e AAC) (.flv) |Sim |
 | MXF    (.mxf) |Sim |
 | GXF    (.gxf) |Sim |
@@ -53,13 +53,13 @@ O Padrão do Codificador de Mídia oferece suporte à execução dos seguintes f
 
 * Arquivos do MXF, GXF e QuickTime que têm faixas de áudio com exemplos em estéreo intercalado ou de 5.1
 
-ou o
+ou
 
 * Arquivos MXF, GXF e QuickTime onde o áudio é executado como faixas PCM separadas, mas o mapeamento de canal (para estéreo ou 5.1) pode ser deduzido dos metadados do arquivo
 
 ## <a name="input-video-codecs"></a>Codecs de vídeo de entrada
 | Codecs de vídeo de entrada | Com suporte |
-| --- | --- | --- | --- |
+| --- | --- |
 | AVC de 8 bits/10 bits até 4:2:2, incluindo AVCIntra |8 bits 4:2:0 e 4:2:2 |
 | DNxHD ávido (em MXF) |Sim |
 | DVCPro/DVCProHD (em MXF) |Sim |
@@ -68,7 +68,7 @@ ou o
 | MPEG-2 (até perfil e de alto nível 422; incluindo variantes como XDCAM, XDCAM HD, XDCAM IMX, CableLabs ® e D10) |Até perfil 422 |
 | MPEG-1 |Sim |
 | VC-1/WMV9 |Sim |
-| Canopus HQ/HQX |Não  |
+| Canopus HQ/HQX |Não |
 | MPEG-4, parte 2 |Sim |
 | [Theora](https://en.wikipedia.org/wiki/Theora) |Sim |
 | YUV420 descompactado, ou mezzanine |Sim |
@@ -82,7 +82,7 @@ ou o
 
 ## <a name="input-audio-codecs"></a>Codecs de áudio de entrada
 | Codecs de áudio de entrada | Com suporte |
-| --- | --- | --- | --- |
+| --- | --- |
 | AAC (AAC-LC, AAC-HE e AAC-HEv2; até 5.1) |Sim |
 | MPEG Layer 2 |Sim |
 | MP3 (MPEG-1 Audio Layer 3) |Sim |
@@ -92,10 +92,10 @@ ou o
 | [Opus](https://go.microsoft.com/fwlink/?LinkId=822667) |Sim |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Sim |
 | AMR (multitaxa adaptável) |Sim |
-| AES (SMPTE 331M e 302M, AES3-2003) |Não  |
-| Dolby® E |Não  |
-| Dolby® Digital (AC3) |Não  |
-| Dolby® Digital Plus (E-AC3) |Não  |
+| AES (SMPTE 331M e 302M, AES3-2003) |Não |
+| Dolby® E |Não |
+| Dolby® Digital (AC3) |Não |
+| Dolby® Digital Plus (E-AC3) |Não |
 
 ## <a name="output-formats-and-codecs"></a>Codecs e formatos de saída
 A tabela a seguir lista os codecs e formatos de arquivo com suporte para exportação.

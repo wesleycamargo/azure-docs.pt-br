@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: 9c82ad04b22a29f4a548b79b9b46a08d46de24ca
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
-ms.translationtype: HT
+ms.openlocfilehash: 789657e53f8575b4e001fd3ec2629aaefe1a2d8b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284295"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082000"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Entender e usar módulos gêmeos no Hub IoT
 
@@ -113,7 +113,7 @@ No exemplo anterior, o módulo gêmeo contém uma propriedade `batteryLevel` que
 
 ### <a name="desired-property-example"></a>Exemplo da propriedade desejada
 
-No exemplo anterior, as propriedades relatadas e desejadas do módulo gêmeo `telemetryConfig` são usadas pelo aplicativo do módulo e pelo back-end da solução para sincronizar a configuração de telemetria para o módulo em questão. Por exemplo: 
+No exemplo anterior, as propriedades relatadas e desejadas do módulo gêmeo `telemetryConfig` são usadas pelo aplicativo do módulo e pelo back-end da solução para sincronizar a configuração de telemetria para o módulo em questão. Por exemplo:
 
 1. O back-end da solução define a propriedade desejada com o valor de configuração desejado. Aqui está a parte do documento com o conjunto de propriedades desejado:
 
@@ -174,9 +174,9 @@ O back-end da solução funciona no módulo gêmeo usando as seguintes operaçõ
 
 * **Receba notificações gêmeas**. Esta operação permite que o back-end de solução seja notificado quando o gêmeo é modificado. Para fazer isso, sua solução de IoT precisa para criar uma rota e definir a Fonte de Dados como *twinChangeEvents*. Por padrão, nenhuma notificação gêmea é enviada, ou seja, nenhuma dessas rotas existe previamente. Se a taxa de alteração for alta demais ou então por outros motivos como falhas internas, o Hub IoT poderá enviar apenas uma notificação contendo todas as alterações. Portanto, se o aplicativo precisar de auditoria e registro em log confiável de todos os estados intermediários, será necessário usar mensagens de dispositivo para nuvem. A mensagem de notificação gêmea inclui propriedades e corpo.
 
-    - propriedades
+  - Propriedades
 
-    | NOME | Valor |
+    | Nome | Valor |
     | --- | --- |
     $content-type | aplicativo/json |
     $iothub-enqueuedtime |  Hora em que a notificação foi enviada |
@@ -191,26 +191,26 @@ O back-end da solução funciona no módulo gêmeo usando as seguintes operaçõ
 
     As propriedades do sistema de mensagens são fixadas previamente com o símbolo `$`.
 
-    - Corpo
+  - Corpo
         
     Esta seção inclui todas as alterações gêmeas em um formato JSON. Ele usa o mesmo formato que um patch, com as diferenças de que ele pode conter todas as seções gêmeas: marcas, properties.reported, properties.desired e também de que ele contém os elementos "$metadata". Por exemplo,
 
     ```json
     {
-        "properties": {
-            "desired": {
-                "$metadata": {
-                    "$lastUpdated": "2016-02-30T16:24:48.789Z"
-                },
-                "$version": 1
-            },
-            "reported": {
-                "$metadata": {
-                    "$lastUpdated": "2016-02-30T16:24:48.789Z"
-                },
-                "$version": 1
-            }
-        }
+      "properties": {
+          "desired": {
+              "$metadata": {
+                  "$lastUpdated": "2016-02-30T16:24:48.789Z"
+              },
+              "$version": 1
+          },
+          "reported": {
+              "$metadata": {
+                  "$lastUpdated": "2016-02-30T16:24:48.789Z"
+              },
+              "$version": 1
+          }
+      }
     }
     ```
 
@@ -275,7 +275,7 @@ O Hub IoT rejeita com erro todas as operações que podem aumentar o tamanho des
 ## <a name="module-twin-metadata"></a>Metadados do módulo gêmeo
 
 O Hub IoT mantém o carimbo de data e hora da última atualização de cada objeto JSON nas propriedades desejadas e reportadas do módulo gêmeo. Os carimbos de data e hora estão em UTC e são codificados no formato [ISO8601](https://en.wikipedia.org/wiki/ISO_8601)`YYYY-MM-DDTHH:MM:SS.mmmZ`.
-Por exemplo: 
+Por exemplo:
 
 ```json
 {

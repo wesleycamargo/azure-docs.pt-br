@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: bb2ebeedb1b34288a3d402ffdf4df80aa3be83cd
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 1102a8c80b0040c7044d64c674d956d339238623
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55154068"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086642"
 ---
 # <a name="join-a-red-hat-enterprise-linux-7-virtual-machine-to-a-managed-domain"></a>Ingressar uma máquina virtual do Red Hat Enterprise Linux 7 em um domínio gerenciado
 Este artigo mostra como ingressar em uma máquina virtual do RHEL (Red Hat Enterprise Linux) 7 em um domínio gerenciado dos Serviços de Domínio do Azure AD.
@@ -86,12 +86,11 @@ Agora que os pacotes necessários são instalados na máquina virtual do Linux, 
     sudo realm discover CONTOSO100.COM
     ```
 
-     > [!NOTE]
-     > **Solução de problemas:** Se *realm discover* não puder localizar o domínio gerenciado:
-     * Verifique se o domínio pode ser acessado da máquina virtual (tente executar o ping).
-     * Verifique se a máquina virtual, de fato, foi implantada na mesma rede virtual na qual o domínio gerenciado está disponível.
-     * Verifique se você atualizou as configurações do servidor DNS para a rede virtual para apontar para os controladores de domínio do domínio gerenciado.
-     >
+   > [!NOTE]
+   > **Solução de problemas:** Se *realm discover* não puder localizar o domínio gerenciado:
+   >   * Verifique se o domínio pode ser acessado da máquina virtual (tente executar o ping).
+   >   * Verifique se a máquina virtual, de fato, foi implantada na mesma rede virtual na qual o domínio gerenciado está disponível.
+   >   * Verifique se você atualizou as configurações do servidor DNS para a rede virtual para apontar para os controladores de domínio do domínio gerenciado.
 
 2. Inicialize o Kerberos. No terminal SSH, digite o seguinte comando:
 
