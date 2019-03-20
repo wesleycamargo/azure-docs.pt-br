@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 8abc6129e1179378ac90278fd2032737b2b828b2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 19d2dedc2ccf7015696504a94f5ef7c43a90d3be
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55889456"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58114273"
 ---
 #### <a name="to-download-hotfixes"></a>Para baixar os hotfixes
 
@@ -100,12 +100,12 @@ Siga as etapas abaixo para instalar e verificar os hotfixes do modo normal. Caso
     Você deverá ver as seguintes versões:
    
    * `FriendlySoftwareVersion: StorSimple 8000 Series Update 5.0`
-   *  `HcsSoftwareVersion: 6.3.9600.17845`
+   * `HcsSoftwareVersion: 6.3.9600.17845`
    
-    Se o número de versão não mudar após a aplicação da atualização, isso indica que houve falha na aplicação do hotfix. Caso isso aconteça, entre em contato com o [Suporte da Microsoft](../articles/storsimple/storsimple-8000-contact-microsoft-support.md) para obter mais ajuda.
+     Se o número de versão não mudar após a aplicação da atualização, isso indica que houve falha na aplicação do hotfix. Caso isso aconteça, entre em contato com o [Suporte da Microsoft](../articles/storsimple/storsimple-8000-contact-microsoft-support.md) para obter mais ajuda.
      
-    > [!IMPORTANT]
-    > Você deve reiniciar o controlador ativo via cmdlet `Restart-HcsController` antes de aplicar a próxima atualização.
+     > [!IMPORTANT]
+     > Você deve reiniciar o controlador ativo via cmdlet `Restart-HcsController` antes de aplicar a próxima atualização.
      
 8. Repita as etapas três a seis para instalar o agente _CisMDSAgentupdate.exe_ baixado em sua pasta _FirstOrderUpdate_.
 8. Repita as etapas três a seis para instalar as atualizações de segunda ordem. 

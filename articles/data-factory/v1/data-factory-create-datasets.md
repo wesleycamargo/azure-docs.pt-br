@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: af90a946f12e11602d45300a2796787f839dcf02
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 6b16b6c4de8c8d2d7a821dd476f07c8ab1135408
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811079"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433426"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Conjuntos de dados no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -238,7 +238,7 @@ A tabela a seguir descreve as propriedades que você pode usar na seção de dis
 | frequência |Especifica a unidade de tempo para a produção da fatia de conjunto de dados.<br/><br/><b>Frequência compatível</b>: Minuto, Hora, Dia, Semana, Mês |Sim |ND |
 | intervalo |Especifica um multiplicador para a frequência.<br/><br/>“Frequência x intervalo” determina a frequência com que a fatia é gerada. Por exemplo, se você precisa que o conjunto de dados seja dividido por hora, defina <b>frequência</b> como <b>Hora</b> e <b>intervalo</b> como <b>1</b>.<br/><br/>Observe que, caso você especifique a **frequência** como **Minuto**, deverá definir o intervalo como não inferior a 15. |Sim |ND |
 | estilo |Especifica se a fatia deve ser gerada no início ou término do intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Se a **frequência** for definida como **Mês** e o **estilo** como **EndOfInterval**, a fatia será gerada no último dia do mês. Se o **estilo** for definido como **StartOfInterval**, a fatia será gerada no primeiro dia do mês.<br/><br/>Se a **frequência** for definida como **Dia** e o **estilo** como **EndOfInterval**, a fatia será gerada na última hora do dia.<br/><br/>Se a **frequência** for definida como **Hora** e o **estilo** como **EndOfInterval**, a fatia será gerada ao final da hora. Por exemplo, para uma fatia do período 13h às 14h, a fatia é gerada às 14h. |Não  |EndOfInterval |
-| anchorDateTime |Define a posição absoluta no tempo usada pelo agendador para computar limites de fatia do conjunto de dados. <br/><br/>Observe que, se essa propriedade tiver partes de data que são mais granulares do que a frequência especificada, as partes mais granulares serão ignoradas. Por exemplo, se o **intervalo** for **por hora** (frequência: hora e intervalo: 1) e o **AnchorDateTime** contiver **minutos e segundos**, as partes de minutos e segundos de **anchorDateTime** serão ignoradas. |Não  |01/01/0001 |
+| anchorDateTime |Define a posição absoluta no tempo usada pelo agendador para computar limites de fatia do conjunto de dados. <br/><br/>Observe que, se essa propriedade tiver partes de datas que são mais granulares do que a frequência especificada, as partes mais granulares são ignoradas. Por exemplo, se o **intervalo** for **por hora** (frequência: hora e intervalo: 1) e o **AnchorDateTime** contiver **minutos e segundos**, as partes de minutos e segundos de **anchorDateTime** serão ignoradas. |Não  |01/01/0001 |
 | deslocamento |O período de tempo no qual o início e o término de todas as fatias de conjunto de dados são deslocados. <br/><br/>Observe que, se **anchorDateTime** e **offset** forem especificados, o resultado será um deslocamento combinado. |Não  |ND |
 
 ### <a name="offset-example"></a>exemplo de deslocamento

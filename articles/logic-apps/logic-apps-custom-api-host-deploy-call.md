@@ -10,18 +10,18 @@ ms.reviewer: klam, stepsic, LADocs
 ms.topic: article
 ms.assetid: f113005d-0ba6-496b-8230-c1eadbd6dbb9
 ms.date: 05/26/2017
-ms.openlocfilehash: e95b20a12fafa9d1dbcbd641ce1c9f2674314489
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: a9049ba1fbd7d3bdce061d277f6a7a02d9b1e4b7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606428"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880057"
 ---
 # <a name="deploy-and-call-custom-apis-from-workflows-in-azure-logic-apps"></a>Implantar e chamar APIs personalizadas de fluxos de trabalho nos Aplicativos Lógicos do Azure
 
 Depois de [criar APIs personalizadas](./logic-apps-create-api-app.md) para usar em fluxos de trabalho de aplicativos lógicos, você deve implantar suas APIs antes de chamá-las. Você pode implantar suas APIs como [aplicativos Web](../app-service/overview.md), mas considere implantar suas APIs como [aplicativos de API](../app-service/app-service-web-tutorial-rest-api.md), o que facilita o trabalho quando você criar, hospedar e consumir APIs locais e na nuvem. Você não precisa alterar o código em suas APIs; basta implantar seu código para um aplicativo de API. Você pode hospedar suas APIs no [Serviço de Aplicativo do Azure](../app-service/overview.md), uma oferta de PaaS (plataforma como serviço) que fornece uma hospedagem de API fácil e altamente escalonável.
 
-Embora você possa chamar qualquer API de um aplicativo lógico, para a melhor experiência, adicione [metadados do OpenAPI (antigo Swagger)](http://swagger.io/specification/) que descrevem as operações e os parâmetros de sua API. Este arquivo OpenAPI ajuda sua API a funcionar mais bem e se integrar aos aplicativos lógicos mais facilmente.
+Embora você possa chamar qualquer API de um aplicativo lógico, para a melhor experiência, adicione [metadados do OpenAPI (antigo Swagger)](https://swagger.io/specification/) que descrevem as operações e os parâmetros de sua API. Este arquivo OpenAPI ajuda sua API a funcionar mais bem e se integrar aos aplicativos lógicos mais facilmente.
 
 ## <a name="deploy-your-api-as-a-web-app-or-api-app"></a>Implantar sua API como um aplicativo Web ou aplicativo de API
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: cdaa151f0603cddc9ca1bf17b0ff304f646cfdde
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: e826c7a3fc12e819fd6f145d42b7381087d5970c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462827"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000232"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Usar o serviço de importação/exportação do Microsoft Azure para importar dados do Armazenamento de Blobs
 
@@ -29,7 +29,7 @@ Antes de criar um trabalho de importação para transferir dados ao Armazenament
     - Para obter informações sobre o contêiner de armazenamento, acesse [Criar um contêiner de armazenamento](../blobs/storage-quickstart-blobs-portal.md#create-a-container).
 - Ter o número adequado de discos de [tipos com suporte](storage-import-export-requirements.md#supported-disks). 
 - Ter um sistema Windows executando uma [versão do sistema operacional com suporte](storage-import-export-requirements.md#supported-operating-systems). 
-- Habilite o BitLocker no sistema Windows. Consulte [Como habilitar o BitLocker](http://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
+- Habilite o BitLocker no sistema Windows. Consulte [Como habilitar o BitLocker](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
 - [Baixe o WAImportExport versão 1](https://aka.ms/waiev1) no sistema Windows. Descompacte para a pasta padrão `waimportexportv1`. Por exemplo, `C:\WaImportExportV1`.
 - Ter uma conta FedEx/DHL.  
     - A conta deve ser válida, deve ter saldo e ter recursos de devolução.
@@ -47,7 +47,7 @@ Execute as etapas a seguir para preparar as unidades.
 
 1.  Conecte as unidades de disco ao sistema Windows via conectores SATA.
 1.  Crie um único volume NTFS em cada unidade. Atribua uma letra da unidade ao volume. Não use pontos de montagem.
-2.  Habilite a criptografia BitLocker no volume NTFS. Se estiver usando um Windows Server System, use as instruções em [Como habilitar o BitLocker no Windows Server 2012 R2](http://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
+2.  Habilite a criptografia BitLocker no volume NTFS. Se estiver usando um Windows Server System, use as instruções em [Como habilitar o BitLocker no Windows Server 2012 R2](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
 3.  Copie os dados para o volume criptografado. Use arrastar e soltar, Robocopy ou qualquer outra ferramenta de cópia.
 4.  Abra um PowerShell ou janela de linha de comando com privilégios administrativos. Para alterar o diretório para a pasta descompactada, execute o comando a seguir:
     
@@ -94,14 +94,14 @@ Execute as etapas a seguir para criar um trabalho de importação no portal do A
 
 4. Em **Noções básicas**:
 
-    - Selecione **Importar para o Azure**.
-    - Digite um nome descritivo para o trabalho de importação. Use o nome para acompanhar o andamento dos trabalhos.
-        - O nome pode conter apenas letras minúsculas, números e hifens.
-        - O nome deve começar com uma letra e não pode conter espaços.
-    - Selecione uma assinatura.
-    - Insira ou selecione um grupo de recursos.  
+   - Selecione **Importar para o Azure**.
+   - Digite um nome descritivo para o trabalho de importação. Use o nome para acompanhar o andamento dos trabalhos.
+       - O nome pode conter apenas letras minúsculas, números e hifens.
+       - O nome deve começar com uma letra e não pode conter espaços.
+   - Selecione uma assinatura.
+   - Insira ou selecione um grupo de recursos.  
 
-    ![Criar trabalho de importação - Etapa 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
+     ![Criar trabalho de importação - Etapa 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
 
 3. Em **Detalhes do trabalho**:
 
@@ -113,21 +113,21 @@ Execute as etapas a seguir para criar um trabalho de importação no portal do A
 
 4. Em **Informações sobre a remessa de devolução**:
 
-    - Selecione a operadora na lista suspensa.
-    - Insira um número válido de conta de operadora que você criou com essa operadora. A Microsoft usará essa conta para enviar de volta as unidades para você após a conclusão do seu trabalho de importação. Caso não tenha um número de conta, crie uma conta da operadora [FedEx](http://www.fedex.com/us/oadr/) ou [DHL](http://www.dhl.com/).
-    - Forneça um nome de contato completo e válido, telefone, email, endereço, cidade, CEP, estado/município e país/região. 
+   - Selecione a operadora na lista suspensa.
+   - Insira um número válido de conta de operadora que você criou com essa operadora. A Microsoft usará essa conta para enviar de volta as unidades para você após a conclusão do seu trabalho de importação. Caso não tenha um número de conta, crie uma conta da operadora [FedEx](https://www.fedex.com/us/oadr/) ou [DHL](http://www.dhl.com/).
+   - Forneça um nome de contato completo e válido, telefone, email, endereço, cidade, CEP, estado/município e país/região. 
         
-        > [!TIP] 
-        > Em vez de especificar um endereço de email para um usuário único, forneça um email de grupo. Isso garante que você receba notificações mesmo que um administrador saia.
+       > [!TIP] 
+       > Em vez de especificar um endereço de email para um usuário único, forneça um email de grupo. Isso garante que você receba notificações mesmo que um administrador saia.
 
-    ![Criar o trabalho de importação - Etapa 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
+     ![Criar o trabalho de importação - Etapa 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
    
 5. No **Resumo**:
 
-    - Revise as informações do trabalho fornecidas no resumo. Anote o nome do trabalho e o endereço de remessa do datacenter do Azure para enviar os discos de volta ao Azure. Essas informações serão utilizadas posteriormente na etiqueta de remessa.
-    - Clique em **OK** para criar o trabalho de importação.
+   - Revise as informações do trabalho fornecidas no resumo. Anote o nome do trabalho e o endereço de remessa do datacenter do Azure para enviar os discos de volta ao Azure. Essas informações serão utilizadas posteriormente na etiqueta de remessa.
+   - Clique em **OK** para criar o trabalho de importação.
 
-    ![Criar o trabalho de importação - Etapa 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
+     ![Criar o trabalho de importação - Etapa 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
 
 ## <a name="step-3-ship-the-drives"></a>Etapa 3: Enviar as unidades 
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8316e571e97fce65b3f8308709d3300bc585663f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: edc38296374538fd708a74f575d5b0c77770c005
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434862"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901535"
 ---
 # <a name="source-control-integration-in-azure-automation---legacy"></a>Integração do controle do código-fonte à Automação do Azure – Herdado
 
@@ -66,22 +66,22 @@ Se você já tiver uma conta do GitHub e um repositório que deseja vincular à 
      | **Parâmetro** | **Valor** |
      |:--- |:--- |
      | NOME |Microsoft.Azure.Automation.SourceControl.Connection |
-     | Tipo |Cadeia de caracteres |
+     | Type |Cadeia de caracteres |
      | Valor |{"Branch":\<*Nome da sua ramificação*>,"RunbookFolderPath":\<*Caminho da pasta do runbook*>,"ProviderType":\<*tem um valor 1 para o GitHub*>,"Repository":\<*Nome do seu repositório*>,"Username":\<*O nome do seu usuário no GitHub*>} |
 
-    * A variável **Microsoft.Azure.Automation.SourceControl.OAuthToken**contém o valor criptografado seguro do OAuthToken.  
+     * A variável **Microsoft.Azure.Automation.SourceControl.OAuthToken**contém o valor criptografado seguro do OAuthToken.  
 
-    |**Parâmetro**            |**Valor** |
-    |:---|:---|
-    | NOME  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
-    | Tipo | Unknown(Encrypted) |
-    | Valor | <*OAuthToken Criptografado*> |  
+     |**Parâmetro**            |**Valor** |
+     |:---|:---|
+     | NOME  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
+     | Type | Unknown(Encrypted) |
+     | Valor | <*OAuthToken Criptografado*> |  
 
-    ![variáveis](media/automation-source-control-integration-legacy/automation_04_Variables.png)  
+     ![variáveis](media/automation-source-control-integration-legacy/automation_04_Variables.png)  
 
-    * **Controle de Origem de Automação** é adicionado como um aplicativo autorizado à sua conta do GitHub. Para exibir o aplicativo: na página inicial do GitHub, navegue até o seu **perfil** > **Configurações** > **Aplicativos**. Esse aplicativo permite que a Automação do Azure sincronize seu repositório do GitHub para uma conta da Automação.  
+     * **Controle de Origem de Automação** é adicionado como um aplicativo autorizado à sua conta do GitHub. Para exibir o aplicativo: na página inicial do GitHub, navegue até o seu **perfil** > **Configurações** > **Aplicativos**. Esse aplicativo permite que a Automação do Azure sincronize seu repositório do GitHub para uma conta da Automação.  
 
-    ![Aplicativo do Git](media/automation-source-control-integration-legacy/automation_05_GitApplication.png)
+     ![Aplicativo do Git](media/automation-source-control-integration-legacy/automation_05_GitApplication.png)
 
 
 ## <a name="using-source-control-in-automation"></a>Usando o controle de origem na Automação
@@ -124,10 +124,6 @@ O botão de sincronização na página Sincronização do Repositório permite e
 
     > [!NOTE] 
     > Uma sincronização do controle de origem substitui a versão de rascunho dos runbooks que existem atualmente em sua conta da Automação para **TODOS** os runbooks atualmente no controle de origem. A instrução de linha de comando equivalente do Git para sincronizar é **git pull**
-
-
-## <a name="troubleshooting-source-control-problems"></a>Solucionando problemas do controle de origem
-Se houver erros com um trabalho de check-in ou de sincronização, o status do trabalho deverá ser suspenso e você poderá exibir mais detalhes sobre o erro na página do trabalho.  A parte **Todos os Logs** mostra todos os fluxos do PowerShell associados ao trabalho. Isso fornece os detalhes necessários para ajudar com a correção de quaisquer problemas com seu check-in ou sincronização. Também é mostrada a sequência de ações que ocorreram durante a sincronização ou verificação em um runbook.  
 
 ![Imagem AllLogs](media/automation-source-control-integration-legacy/automation_13_AllLogs.png)
 

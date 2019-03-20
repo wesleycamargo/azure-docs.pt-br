@@ -12,20 +12,22 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: 6f23b103f1715d567792e162d62d69f13fc08968
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 6220aebdef6970f3d5f7017e4ae48f6f409ae0ce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243868"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111456"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Implantar o Bocal do Azure Log Analytics para Monitoramento do Sistema do Cloud Foundry
 
-[Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/) é um serviço no Azure. Ele ajuda a coletar e analisar dados gerados em ambientes locais e em nuvem.
+[O Azure Monitor](https://azure.microsoft.com/services/log-analytics/) é um serviço no Azure. Ele ajuda a coletar e analisar dados gerados em ambientes locais e em nuvem.
 
-O Bocal do Log Analytics (o Bocal) é um componente do CF (Cloud Foundry), que encaminha métricas do firehose do [agregador de logs do Cloud Foundry](https://docs.cloudfoundry.org/loggregator/architecture.html) para o Log Analytics. Com o Bocal, é possível coletar, exibir e analisar a integridade do sistema e as métricas de desempenho do CF em várias implantações.
+O bocal do Log Analytics (o bocal) é um componente do CF (Cloud Foundry), que encaminha métricas dos [agregador de logs do Cloud Foundry](https://docs.cloudfoundry.org/loggregator/architecture.html) firehose aos logs do Azure Monitor. Com o Bocal, é possível coletar, exibir e analisar a integridade do sistema e as métricas de desempenho do CF em várias implantações.
 
-Neste documento, você aprenderá como implantar o Bocal no ambiente do CF e acessar os dados do console do Azure Log Analytics.
+Neste documento, você aprenderá como implantar o bocal no ambiente do CF e acessar os dados do console de logs do Azure Monitor.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -49,15 +51,15 @@ O Bocal também precisa de permissão de acesso para o firehose do agregador de 
 
 * [Instalar o cliente da linha de comando do UAA do Cloud Foundry](https://github.com/cloudfoundry/cf-uaac/blob/master/README.md)
 
-Antes de configurar o cliente da linha de comando do UAA, certifique-se de que o Rubygems está instalado.
+Antes de configurar o cliente de linha de comando do UAA, certifique-se de que o RubyGems está instalada.
 
 ### <a name="3-create-a-log-analytics-workspace-in-azure"></a>3. Criar um workspace do Log Analytics
 
-É possível criar o workspace do Log Analytics manualmente ou usando um modelo. O modelo será implantado uma configuração de exibições de KPI e alertas para o console do Log Analytics. 
+É possível criar o workspace do Log Analytics manualmente ou usando um modelo. O modelo implantará uma configuração de alertas para o console de logs do Azure Monitor e as exibições pré-configurados do KPI. 
 
 #### <a name="to-create-the-workspace-manually"></a>Para criar o workspace manualmente:
 
-1. No Portal do Azure, pesquise a lista de serviços no Azure Marketplace e, em seguida, selecione Log Analytics.
+1. No portal do Azure, pesquise a lista de serviços no Azure Marketplace e, em seguida, selecione os espaços de trabalho do Log Analytics.
 2. Selecione **Criar** e, em seguida, selecione opções para os seguintes itens:
 
    * **Workspace do Log Analytics**: digite um nome para o workspace.
@@ -66,15 +68,15 @@ Antes de configurar o cliente da linha de comando do UAA, certifique-se de que o
    * **Localização**: insira o local.
    * **Tipo de preço**: Selecione **OK** para concluir.
 
-Para saber mais, confira [Introdução ao Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
+Para obter mais informações, consulte [começar com os logs do Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
 
 #### <a name="to-create-the-log-analytics-workspace-through-the-monitoring-template-from-azure-market-place"></a>Para criar o workspace do Log Analytics por meio do modelo de monitoramento do Azure Marketplace:
 
 1. Abra o portal do Azure.
-2. Clique no sinal "+" ou em "Criar um recurso" no canto superior esquerdo.
-3. Digite "Cloud Foundry" na janela de pesquisa, selecione "Solução de Monitoramento Cloud Foundry".
-4. A página inicial do modelo da solução de monitoramento Cloud Foundry é carregada, clique em “Criar” para iniciar a folha do modelo.
-5. Insira os parâmetros necessários:
+1. Clique no sinal "+" ou em "Criar um recurso" no canto superior esquerdo.
+1. Digite "Cloud Foundry" na janela de pesquisa, selecione "Solução de Monitoramento Cloud Foundry".
+1. A página inicial do modelo da solução de monitoramento Cloud Foundry é carregada, clique em “Criar” para iniciar a folha do modelo.
+1. Insira os parâmetros necessários:
     * **Assinatura**: selecione uma assinatura do Azure para o workspace do Log Analytics, normalmente a mesma da implantação do Cloud Foundry.
     * **Grupo de recursos**: selecione um grupo de recursos existente ou crie um novo para o workspace do Log Analytics.
     * **Localização do grupo de recursos**: Selecione o local do grupo de recursos.
@@ -82,7 +84,7 @@ Para saber mais, confira [Introdução ao Log Analytics](https://docs.microsoft.
     * **OMS_Workspace_Region**: selecione o local para o workspace.
     * **OMS_Workspace_Pricing_Tier**: selecione a SKU do workspace do Log Analytics. Confira as [diretrizes de preços](https://azure.microsoft.com/pricing/details/log-analytics/) para referência.
     * **Termos legais**: clique em Termos legais e clique em “Criar” para aceitar o termo legal.
-- Depois que todos os parâmetros forem especificados, clique em "Criar" para implantar o modelo. Quando a implantação for concluída, o status será exibido na guia de notificação.
+1. Depois que todos os parâmetros forem especificados, clique em "Criar" para implantar o modelo. Quando a implantação for concluída, o status será exibido na guia de notificação.
 
 
 ## <a name="deploy-the-nozzle"></a>Implantar o Bocal
@@ -91,7 +93,7 @@ Há algumas maneiras diferentes para implantar o Bocal: como um bloco PCF ou com
 
 ### <a name="deploy-the-nozzle-as-a-pcf-ops-manager-tile"></a>Implantar o Bocal como um bloco Ops Manager do PCF
 
-Siga as etapas para [instalar e configurar o Bocal do Azure Log Analytics para PCF](http://docs.pivotal.io/partners/azure-log-analytics-nozzle/installing.html). Essa é a abordagem simplificada, o bloco PCF Ops manager configurará e efetuará o push do bocal automaticamente. 
+Siga as etapas para [instalar e configurar o Bocal do Azure Log Analytics para PCF](https://docs.pivotal.io/partners/azure-log-analytics-nozzle/installing.html). Essa é a abordagem simplificada, o bloco PCF Ops manager configurará e efetuará o push do bocal automaticamente. 
 
 ### <a name="deploy-the-nozzle-manually-as-a-cf-application"></a>Implantar o Bocal manualmente como um aplicativo CF
 
@@ -136,9 +138,9 @@ Agora é possível definir variáveis de ambiente no arquivo manifest.yml em seu
 ```
 OMS_WORKSPACE             : Log Analytics workspace ID: Open your Log Analytics workspace in the Azure portal, select **Advanced settings**, select **Connected Sources**, and select **Windows Servers**.
 OMS_KEY                   : OMS key: Open your Log Analytics workspace in the Azure portal, select **Advanced settings**, select **Connected Sources**, and select **Windows Servers**.
-OMS_POST_TIMEOUT          : HTTP post timeout for sending events to Log Analytics. The default is 10 seconds.
-OMS_BATCH_TIME            : Interval for posting a batch to Log Analytics. The default is 10 seconds.
-OMS_MAX_MSG_NUM_PER_BATCH : The maximum number of messages in a batch to Log Analytics. The default is 1000.
+OMS_POST_TIMEOUT          : HTTP post timeout for sending events to Azure Monitor logs. The default is 10 seconds.
+OMS_BATCH_TIME            : Interval for posting a batch to Azure Monitor logs. The default is 10 seconds.
+OMS_MAX_MSG_NUM_PER_BATCH : The maximum number of messages in a batch to Azure Monitor logs. The default is 1000.
 API_ADDR                  : The API URL of the CF environment. For more information, see the preceding section, "Sign in to your CF deployment as an admin through CF CLI."
 DOPPLER_ADDR              : Loggregator's traffic controller URL. For more information, see the preceding section, "Sign in to your CF deployment as an admin through CF CLI."
 FIREHOSE_USER             : CF user you created in the preceding section, "Create a CF user and grant required privileges." This user has firehose and Cloud Controller admin access.
@@ -148,8 +150,8 @@ SKIP_SSL_VALIDATION       : If true, allows insecure connections to the UAA and 
 CF_ENVIRONMENT            : Enter any string value for identifying logs and metrics from different CF environments.
 IDLE_TIMEOUT              : The Keep Alive duration for the firehose consumer. The default is 60 seconds.
 LOG_LEVEL                 : The logging level of the Nozzle. Valid levels are DEBUG, INFO, and ERROR.
-LOG_EVENT_COUNT           : If true, the total count of events that the Nozzle has received and sent are logged to Log Analytics as CounterEvents.
-LOG_EVENT_COUNT_INTERVAL  : The time interval of the logging event count to Log Analytics. The default is 60 seconds.
+LOG_EVENT_COUNT           : If true, the total count of events that the Nozzle has received and sent are logged to Azure Monitor logs as CounterEvents.
+LOG_EVENT_COUNT_INTERVAL  : The time interval of the logging event count to Azure Monitor logs. The default is 60 seconds.
 ```
 
 ### <a name="push-the-application-from-your-development-computer"></a>Efetuar push do aplicativo no seu computador de desenvolvimento
@@ -176,7 +178,7 @@ Verifique se o aplicativo do Bocal do OMS está em execução.
 
 ## <a name="view-the-data-in-the-azure-portal"></a>Exibir os dados no Portal do Azure
 
-Se você tiver implantado a solução de monitoramento por meio do modelo do Marketplace, acesse o Portal do Azure e encontre a solução. Você pode encontrar a solução no grupo de recursos especificado no modelo. Clique na solução, navegue até o "Console do Log Analytics", as exibições pré-configuradas são listadas, com os principais KPIs de sistema do Cloud Foundry, dados de aplicativos, alertas e métricas de integridade da VM. 
+Se você tiver implantado a solução de monitoramento por meio do modelo do Marketplace, acesse o Portal do Azure e encontre a solução. Você pode encontrar a solução no grupo de recursos especificado no modelo. Clique na solução, navegue para o "console de análise de log," as exibições pré-configurados são listadas, com superior KPIs de sistema do Cloud Foundry, dados de aplicativos, alertas e métricas de integridade da VM. 
 
 Se você tiver criado o workspace do Log Analytics manualmente, siga as etapas abaixo para criar exibições e alertas:
 
@@ -200,7 +202,7 @@ O *"Cloud Foundry.omsview"* é uma versão prévia do modelo de exibição do OM
 | Type=CF_ValueMetric_CL Origin_s=route_emitter Name_s=ConsulDownMode Value_d>0 | Número de resultados > 0   | Consul emite o status de integridade periodicamente. 0 significa que o sistema é íntegro e 1 significa que emissor de rota detectou que o Consul está inoperante. |
 | Type=CF_CounterEvent_CL Origin_s=DopplerServer (Name_s="TruncatingBuffer.DroppedMessages" or Name_s="doppler.shedEnvelopes") Delta_d>0 | Número de resultados > 0 | O número delta de mensagens intencionalmente removidas pelo Doppler em razão da pressão de retorno. |
 | Type=CF_LogMessage_CL SourceType_s=LGR MessageType_s=ERR                      | Número de resultados > 0   | O Agregador de Logs emite **LGR** para indicar problemas com o processo de registro. Um exemplo desse problema ocorre quando a saída de mensagem de log é muito alta. |
-| Type=CF_ValueMetric_CL Name_s=slowConsumerAlert                               | Número de resultados > 0   | Quando o Bocal recebe o alerta de consumidor lento do agregador de logs, ele envia o ValueMetric **slowConsumerAlert** ao Log Analytics. |
+| Type=CF_ValueMetric_CL Name_s=slowConsumerAlert                               | Número de resultados > 0   | Quando o bocal recebe o alerta de consumidor lento do agregador de logs, ele envia o **slowConsumerAlert** ValueMetric para o Azure Monitor registra em log. |
 | Type=CF_CounterEvent_CL Job_s=nozzle Name_s=eventsLost Delta_d>0              | Número de resultados > 0   | Se o número delta de eventos perdidos atingir um limite, isso significará que o bocal terá problemas de execução. |
 
 ## <a name="scale"></a>Escala
@@ -235,7 +237,7 @@ Na janela da CLI do CF, digite:
 cf delete <App Name> -r
 ```
 
-Se você remover o Bocal, os dados no Portal do OMS não serão removidos automaticamente. Eles expiram com base na sua configuração de retenção do Log Analytics.
+Se você remover o Bocal, os dados no Portal do OMS não serão removidos automaticamente. Eles expiram com base em sua configuração de retenção de logs do Azure Monitor.
 
 ## <a name="support-and-feedback"></a>Suporte e comentários
 
@@ -243,6 +245,6 @@ O Bocal do Azure Log Analytics é de software livre. Envie suas dúvidas e comen
 
 ## <a name="next-step"></a>Próxima etapa
 
-Do PCF2.0, as métricas de desempenho da VM são transferidas para bocal do Azure Log Analytics pelo Encaminhador de Métricas do Sistema e integradas ao workspace do Log Analytics. Você não precisa mais do agente do Log Analytics para as métricas de desempenho da VM. No entanto ainda pode usar o agente do Log Analytics para coletar informações de Syslog. O agente do Log Analytics é instalado como um complemento Bosh nas VMs do seu CF. 
+De PCF2.0, métricas de desempenho de VM são transferidas para o bocal do Log Analytics do Azure pelo encaminhador de métricas do sistema e integradas ao espaço de trabalho do Log Analytics. Você não precisa mais do agente do Log Analytics para as métricas de desempenho da VM. No entanto ainda pode usar o agente do Log Analytics para coletar informações de Syslog. O agente do Log Analytics é instalado como um complemento Bosh nas VMs do seu CF. 
 
 Para saber mais, consulte [Implantar o agente do Log Analytics na implantação do Cloud Foundry](https://github.com/Azure/oms-agent-for-linux-boshrelease).

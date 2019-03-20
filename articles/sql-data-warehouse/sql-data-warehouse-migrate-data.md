@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 77e4500b20be844dfad31db284a9c77ad7ec6bb7
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 6a2acf602252ee4319f9a5eccef53a25d8e2dd7f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118115"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014275"
 ---
 # <a name="migrate-your-data"></a>Migrar seus dados
 Os dados podem ser movidos de diferentes origens no SQL Data Warehouse com uma variedade de ferramentas.  A cópia do ADF, o SSIS e o bcp podem ser usados para cumprir essa meta. No entanto, à medida que o volume de dados aumenta, uma boa prática é dividir em etapas o processo de migração de dados. Isso possibilita a otimização de cada etapa quanto ao desempenho e à resiliência para garantir uma migração de dados tranquila.
@@ -191,11 +191,11 @@ Para obter mais dicas de desenvolvimento, confira [visão geral de desenvolvimen
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Azure Data Factory]: http://azure.microsoft.com/services/data-factory/
-[ExpressRoute]: http://azure.microsoft.com/services/expressroute/
-[ExpressRoute documentation]: http://azure.microsoft.com/documentation/services/expressroute/
+[Azure Data Factory]: https://azure.microsoft.com/services/data-factory/
+[ExpressRoute]: https://azure.microsoft.com/services/expressroute/
+[ExpressRoute documentation]: https://azure.microsoft.com/documentation/services/expressroute/
 
-[production version]: http://aka.ms/downloadazcopy/
-[preview version]: http://aka.ms/downloadazcopypr/
+[production version]: https://aka.ms/downloadazcopy/
+[preview version]: https://aka.ms/downloadazcopypr/
 [ADO.NET destination adapter]: https://msdn.microsoft.com/library/bb934041.aspx
 [SSIS documentation]: https://msdn.microsoft.com/library/ms141026.aspx

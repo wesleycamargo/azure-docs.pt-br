@@ -11,13 +11,13 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: b960e0f670b66ea1759da441e7b1cf53151de7f6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.date: 02/25/2019
+ms.openlocfilehash: 7a8556edd793cbde47c14d2b79792dbe42f8e44b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993589"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894284"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Camadas de serviço no modelo de compra baseado em DTU
 
@@ -33,7 +33,7 @@ As camadas de serviço no modelo de compra baseado em DTU são diferenciadas por
 Escolher uma camada de serviço depende principalmente da continuidade dos negócios, armazenamento e requisitos de desempenho.
 
 ||Basic|Standard|Premium|
-| :-- | --: |--:| --:| --:|
+| :-- | --: |--:| --:|
 |Carga de trabalho de destino|Desenvolvimento e produção|Desenvolvimento e produção|Desenvolvimento e produção|
 |SLA de tempo de atividade|99,99%|99,99%|99,99%|
 |Retenção de backup|7 dias|35 dias|35 dias|
@@ -45,17 +45,17 @@ Escolher uma camada de serviço depende principalmente da continuidade dos negó
 |||||
 
 > [!NOTE]
-> Você pode obter um banco de dados SQL do Azure gratuito na camada de serviço Básico em conjunto com uma conta gratuita do Azure para explorar o Azure. Para obter informações, consulte [Crie um banco de dados de nuvem gerenciado com sua conta gratuita do Azure](https://azure.microsoft.com/free/services/sql-database/).
+> Você pode obter um banco de dados SQL do Azure gratuito na camada de serviço básico em conjunto com uma conta gratuita do Azure para explorar o Azure. Para obter informações, consulte [Crie um banco de dados de nuvem gerenciado com sua conta gratuita do Azure](https://azure.microsoft.com/free/services/sql-database/).
 
 ## <a name="single-database-dtu-and-storage-limits"></a>DTU de banco de dados único e limite de armazenamento
 
 Os tamanhos de computação são expressos em termos de DTUs (unidades de transação de banco de dados) para bancos de dados individuais e de eDTUs (unidades de transação do banco de dados elástico) para pools elásticos. Para saber mais sobre DTUs e eDTUs, confira [modelo de compra com base em DTU](sql-database-purchase-models.md#dtu-based-purchasing-model)?
 
 ||Basic|Standard|Premium|
-| :-- | --: | --: | --: | --: |
+| :-- | --: | --: | --: |
 | Tamanho máximo de armazenamento | 2 GB | 1 TB | 4 TB  |
 | Máximo de DTUs | 5 | 3000 | 4000 | 
-||||||
+|||||
 
 > [!IMPORTANT]
 > Em algumas circunstâncias, talvez seja necessário reduzir um banco de dados para recuperar o espaço não utilizado. Para obter mais informações, consulte [gerenciar o espaço de arquivo no banco de dados SQL](sql-database-file-space-management.md).
@@ -63,16 +63,16 @@ Os tamanhos de computação são expressos em termos de DTUs (unidades de transa
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>EDTU de pool elástico, armazenamento e limites de banco de dados em pool
 
 | | **Básico** | **Standard** | **Premium** |
-| :-- | --: | --: | --: | --: |
+| :-- | --: | --: | --: |
 | Tamanho máximo de armazenamento por banco de dados  | 2 GB | 1 TB | 1 TB |
 | Tamanho máximo de armazenamento por pool | 156 GB | 4 TB | 4 TB |
 | Máximo de eDTUs por banco de dados | 5 | 3000 | 4000 |
 | Máximo de eDTUs por pool | 1600 | 3000 | 4000 |
 | Número máximo de bancos de dados por pool | 500  | 500 | 100 |
-||||||
+|||||
 
 > [!IMPORTANT]
-> Atualmente, mais de 1 TB de armazenamento na camada Premium está disponível em todas as regiões, exceto pelas seguintes: Centro-oeste dos EUA, Leste da China, USDoD Central, Alemanha Central, Leste do USDoD, Sudoeste do US Gov, US Gov Iowa, Nordeste da Alemanha e Norte da China. Em outras regiões, o armazenamento máximo na camada Premium é limitado a 1 TB. Consulte [Limitações atuais de P11-P15](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> Mais de 1 TB de armazenamento na camada Premium está atualmente disponível em todas as regiões, exceto: Leste da China, Norte da China, Alemanha Central, Nordeste da Alemanha, Centro-oeste dos EUA, regiões US DoD e US Government Central. Nessas regiões, o armazenamento máximo na camada Premium é limitado a 1 TB.  Para obter mais informações, confira [Limitações atuais de P11-P15](sql-database-single-database-scale.md#dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 > [!IMPORTANT]
 > Em algumas circunstâncias, talvez seja necessário reduzir um banco de dados para recuperar o espaço não utilizado. Para obter mais informações, confira [Gerenciar espaço para arquivo no Banco de Dados SQL do Azure](sql-database-file-space-management.md).
 

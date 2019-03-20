@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 3/14/2019
 ms.author: mayg
-ms.openlocfilehash: 7504d23cbaf8a497e6ea86b5a383413474c0d034
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: cd486fa504ac819684d8c547e7a0f740b3eed4e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329960"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109620"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analise o relatório do Azure Site Recovery Deployment Planner para recuperação de desastre do VMware no Azure
 
@@ -41,6 +41,9 @@ A planilha Resumo local fornece uma visão geral do ambiente VMware analisado.
 **Registro de dados típicos observado por dia (GB)**: A variação de dados média observada na criação de perfil todos os dias. Esse número é usado como uma das entradas para decidir o número de servidores de configuração e servidores de processo adicionais a serem usados na implantação.
 
 ## <a name="recommendations"></a>Recomendações
+
+>[!Note]
+>Ao replicar diretamente para discos gerenciados, ignore a recomendação para o número de contas de armazenamento.
 
 A planilha de recomendações do relatório do VMware para o Azure apresenta os seguintes detalhes de acordo com o RPO selecionado:
 
@@ -155,6 +158,9 @@ Pode haver uma situação em que você saiba que não é possível definir uma l
 ![O RPO possível para a largura de banda de 500 Mbps](media/site-recovery-vmware-deployment-planner-analyze-report/achievable-rpo-v2a.png)
 
 ## <a name="vm-storage-placement"></a>Posicionamento de VM-Storage
+
+>[!Note]
+>Ao replicar diretamente para discos gerenciados, você precisa se preocupar sobre o número de contas de armazenamento. Para armazenamento, use apenas a recomendação no tipo de armazenamento (Standard ou Premium). O mesmo tipo é aplicável para discos gerenciados.
 
 ![Posicionamento de VM-Storage](media/site-recovery-vmware-deployment-planner-analyze-report/vm-storage-placement-v2a.png)
 

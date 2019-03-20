@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 20a8d9f5b575fca5471916af0183257f2a43d5cb
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 9584f0ee4264724787c5913c0d6baa4c2769fa82
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328276"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085670"
 ---
 # <a name="add-language-analyzers-to-an-azure-search-index"></a>Adicionar analisadores de idioma a um índice do Azure Search
 
@@ -46,8 +46,8 @@ O analisador padrão é Lucene Standard, que funciona bem para o inglês, mas ta
 
 + O analisador de inglês da Microsoft executa a derivação em vez da lematização. Isso significa que ele pode tratar muito melhor as formas irregulares e inflexivas de palavras, o que gera resultados da pesquisa mais relevantes 
 
- > [!Tip]
- > A [demonstração do analisador de pesquisa](https://alice.unearth.ai/) fornece uma comparação lado a lado dos resultados produzidos pelo analisador Lucene padrão, do analisador de idioma inglês do Lucene e do processador de idioma inglês natural da Microsoft. Para cada entrada de pesquisa fornecida por você, resultados de cada analisador são exibidos nos painéis adjacentes.
+  > [!Tip]
+  > A [demonstração do analisador de pesquisa](https://alice.unearth.ai/) fornece uma comparação lado a lado dos resultados produzidos pelo analisador Lucene padrão, do analisador de idioma inglês do Lucene e do processador de idioma inglês natural da Microsoft. Para cada entrada de pesquisa fornecida por você, resultados de cada analisador são exibidos nos painéis adjacentes.
 
 ## <a name="configuring-analyzers"></a>Configurar analisadores
 

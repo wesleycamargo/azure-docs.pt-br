@@ -3,17 +3,17 @@ title: Conectar um aplicativo cliente Node.js genérico ao Azure IoT Central | M
 description: Como um desenvolvedor de dispositivos, saiba como conectar um dispositivo Node.js genérico ao aplicativo Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/26/2018
+ms.date: 02/04/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: cc6857750534dad2ded29178eb3f140fc25cce0d
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: 4d2701f078a26c22f52aebd0ef562dd60eaca923
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54410482"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097967"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Conectar um aplicativo cliente genérico ao aplicativo Azure IoT Central (Node.js)
 
@@ -41,7 +41,7 @@ Adicione a telemetria a seguir na página **Medidas**:
 | Pressão     | pressão    | kPa   | 80  | 110 | 0              |
 
 > [!NOTE]
-  O tipo de dados da medição de telemetria é um número de ponto flutuante.
+>   O tipo de dados da medição de telemetria é um número de ponto flutuante.
 
 Insira os nomes dos campos exatamente como mostrado na tabela no modelo de dispositivo. Se os nomes dos campos não corresponderem aos nomes das propriedades no código de dispositivo correspondente, a telemetria não poderá ser exibida no aplicativo.
 
@@ -54,7 +54,7 @@ Adicione o estado a seguir na página **Medidas**:
 | Modo ventilação     | fanmode     | 1       | Executando      | 0       | Parado      |
 
 > [!NOTE]
-  O tipo de dados da medida State é string.
+>   O tipo de dados da medida State é string.
 
 Insira os nomes dos campos exatamente como mostrado na tabela no modelo de dispositivo. Se os nomes dos campos não corresponderem aos nomes das propriedades no código de dispositivo correspondente, o estado não poderá ser exibido no aplicativo.
 
@@ -67,7 +67,7 @@ Adicione o evento a seguir na página **Medidas**:
 | Superaquecimento  | overheat    | Erro    |
 
 > [!NOTE]
-  O tipo de dados da medida de evento é cadeia de caracteres.
+>   O tipo de dados da medida de evento é cadeia de caracteres.
 
 ### <a name="device-properties"></a>Propriedades do dispositivo
 
@@ -93,7 +93,7 @@ Insira o nome de campo exatamente conforme mostrado na tabela no modelo de dispo
 
 ## <a name="add-a-real-device"></a>Adicionar um dispositivo real
 
-No aplicativo Azure IoT Central, adicione um dispositivo real ao modelo de dispositivo criado e anote a cadeia de conexão do dispositivo. Para obter instruções passo a passo sobre como conectar um aplicativo Node.js ao IoT Central, consulte [Gerar cadeia de conexão para dispositivo real a partir do aplicativo](tutorial-add-device.md#generate-connection-string-for-real-device-from-application) e [Preparar o código do cliente](tutorial-add-device.md#prepare-the-client-code) em Tutoriais> Adicionar um dispositivo.
+No aplicativo Azure IoT Central, adicione um dispositivo real ao modelo de dispositivo criado e anote a cadeia de conexão do dispositivo. Para obter instruções passo a passo sobre como conectar um aplicativo Node.js ao IoT Central, consulte [Gerar cadeia de conexão para dispositivo real a partir do aplicativo](tutorial-add-device.md#generate-connection-string) e [Preparar o código do cliente](tutorial-add-device.md#prepare-the-client-code) em Tutoriais> Adicionar um dispositivo.
 
 ### <a name="create-a-nodejs-application"></a>Criar um aplicativo do Node.js
 
@@ -129,11 +129,10 @@ As etapas a seguir mostram como criar um aplicativo cliente que implementa o dis
     var client = clientFromConnectionString(connectionString);
     ```
 
-  > [!NOTE]
-  > O Azure IoT Central fez a transição para o uso do DPS (Serviço de Provisionamento de Dispositivos no Hub IoT) para todas as conexões de dispositivos, siga estas instruções para [obter a sequência de conexão de dispositivo](concepts-connectivity.md#getting-device-connection-string) e continue com o restante do tutorial. Para obter mais ajuda, você também pode encontrar um conjunto detalhado de instruções [preparar o código do cliente](tutorial-add-device.md#prepare-the-client-code) nos tutoriais > Adicionar um dispositivo.
+    > [!NOTE]
+    > Azure IoT Central fez a transição para usar o serviço de provisionamento de dispositivos do Azure IoT Hub (DPS) para todas as conexões de dispositivo, siga estas instruções para [obter a cadeia de caracteres de conexão do dispositivo](concepts-connectivity.md#get-a-connection-string) e continue com o restante do tutorial. Para obter mais ajuda, você também pode encontrar um conjunto detalhado de instruções [preparar o código do cliente](tutorial-add-device.md#prepare-the-client-code) nos tutoriais > Adicionar um dispositivo.
 
-
-  Atualizar o espaço reservado `{your device connection string}` com a cadeia de caracteres de conexão do dispositivo. Neste exemplo, inicializamos `targetTemperature` em zero e, opcionalmente, é possível fazer a leitura atual do dispositivo ou valor do dispositivo gêmeo. 
+    Atualizar o espaço reservado `{your device connection string}` com a cadeia de caracteres de conexão do dispositivo. Neste exemplo, inicializamos `targetTemperature` em zero e, opcionalmente, é possível fazer a leitura atual do dispositivo ou valor do dispositivo gêmeo. 
 
 1. Para enviar medidas de telemetria, estado e evento ao aplicativo Azure IoT Central, adicione a função a seguir ao arquivo:
 
@@ -269,11 +268,11 @@ Como um operador no aplicativo Azure IoT Central, para o dispositivo real, é po
 
     ![Exibir telemetria](media/howto-connect-nodejs/viewtelemetry.png)
 
-* Exibir os valores da propriedade de dispositivo enviados pelo dispositivo na página **Propriedades**. Os blocos de propriedades do dispositivo serão atualizados se a conexão for bem-sucedida. 
+* Exibir os valores da propriedade de dispositivo enviados pelo dispositivo na página **Propriedades**. A dispositivo propriedades blocos atualização se a conexão for bem-sucedida.
 
     ![Exibir propriedades do dispositivo](media/howto-connect-nodejs/viewproperties.png)
 
-* Configure a velocidade da ventoinha e a temperatura de destino na página **Configurações**. Os valores das configurações serão sincronizados se a conexão for bem-sucedida. 
+* Configure a velocidade da ventoinha e a temperatura de destino na página **Configurações**. Os valores das configurações de sincronização se a conexão for bem-sucedida.
 
     ![Configurar velocidade da ventoinha](media/howto-connect-nodejs/setfanspeed.png)
 

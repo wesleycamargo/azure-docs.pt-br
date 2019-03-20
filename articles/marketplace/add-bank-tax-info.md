@@ -6,6 +6,7 @@ documentationcenter: ''
 author: jm-aditi-ms
 manager: pabutler
 editor: ''
+ms.service: marketplace
 ms.assetid: ''
 ms.workload: ''
 ms.tgt_pltfrm: ''
@@ -13,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 2ff5b9e5bbae15b37726ea066474120d9417feba
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
-ms.translationtype: HT
+ms.openlocfilehash: f194b02e5b92ca2de5b58a033c38d4f2e35f93f6
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825732"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790909"
 ---
 # <a name="add-bank-and-tax-information"></a>Adicionar informações de banco e imposto  
 As informações bancárias e fiscais são necessárias para todas as ofertas comerciais usando o tipo de listagem de transação.  
@@ -42,7 +43,7 @@ As informações bancárias e fiscais são necessárias para todas as ofertas co
 
 4.  Clique no botão Avançar. 
 
----   
+---
 
 ## <a name="add-tax-information"></a>Adicionar informações fiscais  
 1.  Entre no Centro de Desenvolvimento usando a ID da Microsoft.  
@@ -57,6 +58,6 @@ As informações bancárias e fiscais são necessárias para todas as ofertas co
 5.  Clique no botão Avançar.  
 
 ## <a name="next-steps"></a>Próximas etapas
-*   Visite a página [Guia do editor do Azure Marketplace e AppSource](./marketplace-publishers-guide.md).  
+*   Visite a página [ do Azure Marketplace e do AppSource Publisher Guide ](./marketplace-publishers-guide.md).  
  
----  
+---

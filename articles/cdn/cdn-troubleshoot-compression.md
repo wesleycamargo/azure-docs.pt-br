@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 14d50cb7cac77af75dd4b7293812154d1f24e47c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 2a41316eadb43145628d6c625935c751bfbc6ad6
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33765517"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531516"
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>Solucionando problemas de compactação de arquivo CDN
 Este artigo ajuda você a solucionar problemas com a [compactação de arquivo CDN](cdn-improve-performance.md).
@@ -30,7 +30,7 @@ Se você precisar de mais ajuda em qualquer momento neste artigo, você pode con
 A compactação do ponto de extremidade está habilitada, mas os arquivos estão sendo retornados descompactados.
 
 > [!TIP]
-> Para verificar se os arquivos estão sendo retornados compactados, você precisará usar uma ferramenta como [Fiddler](http://www.telerik.com/fiddler) ou as [ferramentas de desenvolvedor](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) do seu navegador.  Verifique os cabeçalhos de resposta HTTP retornados com o conteúdo CDN armazenado em cache.  Se houver um cabeçalho chamado `Content-Encoding` com um valor **gzip**, **bzip2** ou **deflate**, seu conteúdo será compactado.
+> Para verificar se os arquivos estão sendo retornados compactados, você precisará usar uma ferramenta como [Fiddler](https://www.telerik.com/fiddler) ou as [ferramentas de desenvolvedor](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) do seu navegador.  Verifique os cabeçalhos de resposta HTTP retornados com o conteúdo CDN armazenado em cache.  Se houver um cabeçalho chamado `Content-Encoding` com um valor **gzip**, **bzip2** ou **deflate**, seu conteúdo será compactado.
 > 
 > ![Cabeçalho Content-Encoding](./media/cdn-troubleshoot-compression/cdn-content-header.png)
 > 
@@ -116,6 +116,6 @@ Para ser elegível para compactação, um arquivo deve atender aos seguintes req
 ### <a name="check-the-request-at-the-origin-server-for-a-via-header"></a>Verifique a solicitação no servidor de origem por um cabeçalho **Via**
 O cabeçalho HTTP **Via** indica ao servidor Web que a solicitação está sendo passada por um servidor proxy.  Por padrão, os servidores Web do Microsoft IIS não compactam as respostas quando a solicitação contém um cabeçalho **Via** .  Para substituir esse comportamento, execute o seguinte procedimento:
 
-* **IIS 6**: [Defina HcNoCompressionForProxies="FALSE" nas propriedades do IIS Metabase](https://msdn.microsoft.com/library/ms525390.aspx)
-* **IIS 7 e superior**: [defina **noCompressionForHttp10** e **noCompressionForProxies** como False na configuração do servidor](http://www.iis.net/configreference/system.webserver/httpcompression)
+* **IIS 6**: [Defina HcNoCompressionForProxies = "FALSE" nas propriedades de Metabase do IIS](https://msdn.microsoft.com/library/ms525390.aspx)
+* **IIS 7 e superior**: [Defina as **noCompressionForHttp10** e **noCompressionForProxies** como False na configuração do servidor](http://www.iis.net/configreference/system.webserver/httpcompression)
 
