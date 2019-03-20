@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 2/5/2019
+ms.date: 3/12/2019
 ms.author: raiye
-ms.openlocfilehash: 76009115f855a840c81e79d0c864187c8410aa23
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: c5fdee4e5b1b9d2a283ef55ce99dffab0cb25873
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751507"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57840833"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Matriz de compatibilidade de versões de SOs Convidados e do SDK do Azure
 Fornece a você informações atualizadas sobre as versões mais recentes do SO convidado do Azure para serviços de nuvem. Essas informações ajudam a planejar seu caminho de atualização antes que um SO convidado seja desabilitado. Se você configurar suas funções para usar atualizações *automáticas* de SO convidado, conforme descrito em [Configurações de atualização de SO convidado do Azure][Azure Guest OS Update Settings], não é essencial ler esta página.
@@ -43,6 +43,9 @@ Você não tem certeza de como atualizar o SO convidado? Confira [isto][cloud up
 
 ## <a name="news-updates"></a>Notícias atualizadas
 
+###### <a name="march-12-2019"></a>**12 de março de 2019**
+O SO convidado de fevereiro foi lançado.
+
 ###### <a name="february-5-2019"></a>**5 de fevereiro de 2019**
 O SO convidado de janeiro foi lançado.
 
@@ -64,9 +67,6 @@ O SO convidado de setembro foi lançado.
 ###### <a name="september-12-2018"></a>**12 de setembro de 2018**
 O sistema operacional convidado de agosto foi lançado.
 
-###### <a name="august-3-2018"></a>**3 de agosto de 2018**
-O SO convidado de julho foi lançado.
-
 ## <a name="releases"></a>Lançamentos
 
 ## <a name="family-6-releases"></a>Lançamentos do Family 6
@@ -77,11 +77,21 @@ O SO convidado de julho foi lançado.
 > [!NOTE]
 > O SDK do Microsoft Azure para .NET 3.0 pode ser baixado [aqui][Windows Azure SDK].
 >
+>Etapas de instalação:
+>1. Desinstale as versões mais antigas do MicrosoftAzureAuthoringTools*.msi
+>2. Instalar o [SDK do Azure para .NET - 3.0][Windows Azure SDK]
+>3. Reinicie seu computador
+>4. Criar um novo projeto de serviço de nuvem e adicione uma única função de trabalho
+>5. Alterar a família do SO para 6 e compilar um pacote
+>6. Implantar o pacote no Azure usando o portal do Azure ou o Visual Studio
+>
+
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação |
 | --- | --- | --- |
+| WA-GUEST-OS-6.4_201902-01 |12 de março de 2019 |POST 6.6 |
 | WA-GUEST-OS-6.3_201901-01 |5 de fevereiro de 2019 |Post 6.5 |
-| WA-GUEST-OS-6.2_201812-01 |24 de janeiro de 2019 |Post 6.4 |
+|~~WA-GUEST-OS-6.2_201812-01~~|24 de janeiro de 2019 |12 de março de 2019 |
 |~~WA-GUEST-OS-6.1_201811-01~~ |24 de janeiro de 2019 |5 de fevereiro de 2019 |
 
 ## <a name="family-5-releases"></a>Versões da Família 5
@@ -93,15 +103,16 @@ O SO convidado de julho foi lançado.
 > A senha de RDP para a família do sistema operacional 5 deverá ter um mínimo de 10 caracteres.
 >
 
+
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação |
 | --- | --- | --- |
+| WA-GUEST-OS-5.28_201902-01 |12 de março de 2019 |Post 5.30 |
 | WA-GUEST-OS-5.27_201901-01 |5 de fevereiro de 2019 |Post 5.29 |
-| WA-GUEST-OS-5.26_201812-01 |7 de janeiro de 2019 |Post 5.28 |
+|~~WA-GUEST-OS-5.26_201812-01~~|7 de janeiro de 2019 |12 de março de 2019 |
 |~~WA-GUEST-OS-5.25_201811-01~~ |14 de dezembro de 2018 |5 de fevereiro de 2019 |
 |~~WA-GUEST-OS-5.24_201810-01~~ |8 de novembro de 2018 |7 de janeiro de 2019 |
 |~~WA-GUEST-OS-5.23_201809-01~~ |12 de outubro de 2018 |14 de dezembro de 2018 |
 |~~WA-GUEST-OS-5.22_201808-01~~ |12 de setembro de 2018 |8 de novembro de 2018 |
-|~~WA-GUEST-OS-5.21_201807-02~~ |3 de agosto de 2018 |12 de outubro de 2018 |
 
 ## <a name="family-4-releases"></a>Versões da Família 4
 **Windows Server 2012 R2**
@@ -110,13 +121,13 @@ O SO convidado de julho foi lançado.
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação |
 | --- | --- | --- |
+| WA-GUEST-OS-4.63_201902-01 |12 de março de 2019 |POST 4,65 |
 | WA-GUEST-OS-4.62_201901-01 |5 de fevereiro de 2019 |Post 4.64 |
-| WA-GUEST-OS-4.61_201812-01 |7 de janeiro de 2019 |Post 4.63 |
+|~~WA-GUEST-OS-4.61_201812-01~~|7 de janeiro de 2019 |12 de março de 2019 |
 |~~WA-GUEST-OS-4.60_201811-01~~ |14 de dezembro de 2018 |5 de fevereiro de 2019 |
 |~~WA-GUEST-OS-4.59_201810-01~~ |8 de novembro de 2018 |7 de janeiro de 2019 |
 |~~WA-GUEST-OS-4.58_201809-01~~ |12 de outubro de 2018 |14 de dezembro de 2018 |
 |~~WA-GUEST-OS-4.57_201808-01~~ |12 de setembro de 2018 |8 de novembro de 2018 |
-|~~WA-GUEST-OS-4.56_201807-02~~ |3 de agosto de 2018 |12 de outubro de 2018 |
 
 ## <a name="family-3-releases"></a>Versões da Família 3
 **Windows Server 2012**
@@ -125,13 +136,13 @@ O SO convidado de julho foi lançado.
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação |
 | --- | --- | --- |
+| WA-GUEST-OS-3.70_201902-01 |12 de março de 2019 |Post 3.72 |
 | WA-GUEST-OS-3.69_201901-01 |5 de fevereiro de 2019 |Post 3.71 |
-| WA-GUEST-OS-3.68_201812-01 |7 de janeiro de 2019 |Post 3.70 |
+|~~WA-GUEST-OS-3.68_201812-01~~|7 de janeiro de 2019 |12 de março de 2019 |
 |~~WA-GUEST-OS-3.67_201811-01~~ |14 de dezembro de 2018 |5 de fevereiro de 2019 |
 |~~WA-GUEST-OS-3.66_201810-01~~ |8 de novembro de 2018 |7 de janeiro de 2019 |
 |~~WA-GUEST-OS-3.65_201809-01~~ |12 de outubro de 2018 |14 de dezembro de 2018 |
 |~~WA-GUEST-OS-3.64_201808-01~~ |12 de setembro de 2018 |8 de novembro de 2018 |
-|~~WA-GUEST-OS-3.63_201807-02~~ |3 de agosto de 2018 |12 de outubro de 2018 |
 
 ## <a name="family-2-releases"></a>Versões da Família 2
 **Windows Server 2008 R2 SP1**
@@ -140,14 +151,13 @@ O SO convidado de julho foi lançado.
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação |
 | --- | --- | --- |
+| WA-GUEST-OS-2.83_201902-01 |12 de março de 2019 |Post 2.85 |
 | WA-GUEST-OS-2.82_201901-01 |5 de fevereiro de 2019 |Post 2.84 |
-| WA-GUEST-OS-2.81_201812-01 |7 de janeiro de 2019 |Post 2.83 |
+|~~WA-GUEST-OS-2.81_201812-01~~ |7 de janeiro de 2019 |12 de março de 2019 |
 |~~WA-GUEST-OS-2.80_201811-01~~ |14 de dezembro de 2018 |5 de fevereiro de 2019 |
 |~~WA-GUEST-OS-2.79_201810-01~~ |8 de novembro de 2018 |7 de janeiro de 2019 |
 |~~WA-GUEST-OS-2.78_201809-01~~ |12 de outubro de 2018 |14 de dezembro de 2018 |
 |~~WA-GUEST-OS-2.77_201808-01~~ |12 de setembro de 2018 |8 de novembro de 2018 |
-|~~WA-GUEST-OS-2.76_201807-02~~ |3 de agosto de 2018 |12 de outubro de 2018 |
-|~~WA-GUEST-OS-2.75_201806-01~~ |3 de julho de 2018 |12 de setembro de 2018 |
 
 ## <a name="msrc-patch-updates"></a>Atualizações de patch do MSRC
 A lista de patches incluídos em cada lançamento mensal de SO convidado está disponível [aqui][patches].
@@ -209,19 +219,19 @@ A política de suporte e desativação do SO convidado é explicada [aqui][retir
 [Feed RSS de atualização do SO convidado]: https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/master/GuestOS/GuestOSFeed.xml
 [Install .NET on a Cloud Service Role]: https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Azure Guest OS Update Settings]: cloud-services-how-to-configure-portal.md
-[ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
+[ssl3 announcement]: https://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
 [Microsoft Security Advisory 3009008]: https://technet.microsoft.com/library/security/3009008.aspx
-[ssl3-fixit]: http://go.microsoft.com/?linkid=9863266
+[ssl3-fixit]: https://go.microsoft.com/?linkid=9863266
 [MS14-066]: https://technet.microsoft.com/library/security/ms14-066.aspx
 [MS14-046]: https://technet.microsoft.com/library/security/ms14-046.aspx
 [retire policy sdk]: https://msdn.microsoft.com/library/dn479282.aspx
 [server and gos]: https://msdn.microsoft.com/library/dn775043.aspx
-[azuresupport]: http://azure.microsoft.com/support/options/
-[net install pkg]: http://www.microsoft.com/download/details.aspx?id=42643
+[azuresupport]: https://azure.microsoft.com/support/options/
+[net install pkg]: https://www.microsoft.com/download/details.aspx?id=42643
 [msrc]: https://technet.microsoft.com/security/dn440717.aspx
 [update guest os portal]: https://msdn.microsoft.com/library/gg433101.aspx
 [update guest os svc]: https://msdn.microsoft.com/library/gg456324.aspx
-[restarts]: http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx
+[restarts]: https://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx
 [patches]: cloud-services-guestos-msrc-releases.md
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md

@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: 90f9a13882e370d6d0c67826750b3edd27603ede
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 50ae4de8c9c1d10b0b17a9744ffa2340059fc298
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862285"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120509"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Usar feed de alterações do Azure Cosmos DB para visualizar análise de dados em tempo real
 
@@ -105,7 +105,7 @@ Agora, você criará uma coleção para realizar eventos do site de comércio el
 
 3. Em seguida, crie outra coleção nomeada **concessões** para o processamento de feed de alterações. A coleção de concessões coordena o processamento do feed de alterações em vários trabalhos. Uma coleção separada é usada para armazenar as concessões com uma concessão por partição.  
 
-4.  Retorne ao painel **Data Explorer** e selecione **Nova Coleção** e preencha o formulário com os seguintes detalhes:
+4. Retorne ao painel **Data Explorer** e selecione **Nova Coleção** e preencha o formulário com os seguintes detalhes:
 
    * Para o campo **ID do Banco de Dados**, selecione **Usar existente** e, em seguida, insira **changefeedlabdatabase**.  
    * Para o campo **ID da Coleção**, insira **concessões**.  

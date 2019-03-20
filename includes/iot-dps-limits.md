@@ -4,33 +4,33 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 62f5c1a1f6184feddad7f2b57bcfc1c4bb5bc339
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
-ms.translationtype: HT
+ms.openlocfilehash: 1ae6c6ee59b66e6c61714c0ece9f306f1a885096
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52279419"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553212"
 ---
-A tabela a seguir lista os limites que se aplicam aos recursos do Serviço de Provisionamento de Dispositivos do Hub IoT:
+A tabela a seguir lista os limites que se aplicam aos recursos do serviço de provisionamento de dispositivo Hub IoT do Azure.
 
 | Recurso | Limite |
 | --- | --- |
-| Máximo de Serviços de Provisionamento de Dispositivos por assinatura do Azure | 10 |
+| Provisionamento de serviços por assinatura do Azure máxima do dispositivo | 10 |
 | Número máximo de cadastros | 500.000 |
 | Número máximo de registros | 500.000 |
 | Número máximo de grupos de cadastro | 100 |
 | Número máximo de CAs | 25 |
 
 > [!NOTE]
-> Você pode contatar o [Suporte da Microsoft](https://azure.microsoft.com/support/options/) para aumentar o número de instâncias em sua assinatura.
+> Para aumentar o número de instâncias em sua assinatura, entre em contato com [Microsoft Support](https://azure.microsoft.com/support/options/).
 
 > [!NOTE]
-> Você pode contatar [Microsoft Support](https://azure.microsoft.com/support/options/) para aumentar o número de registros e registros em seu serviço de provisionamento.
+> Para aumentar o número de registros e registros em seu serviço de provisionamento, entre em contato com [Microsoft Support](https://azure.microsoft.com/support/options/).
 
-O serviço de Provisionamento de Dispositivo restringe as solicitações quando as seguintes cotas são excedidas:
+O serviço de provisionamento de dispositivo restringe as solicitações quando as seguintes cotas são excedidas.
 
 | Restrição | Valor por unidade |
 | --- | --- |
 | Operações | 200/min/serviço |
 | Registros de dispositivo | 200/min/serviço |
-| Operação de sondagem de dispositivo | 5/10s/dispositivo |
+| Operação de sondagem de dispositivo | 5 a 10 s/dispositivo |

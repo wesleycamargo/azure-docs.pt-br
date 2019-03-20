@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cab9750620d6d7c34de1d6e3404b4ea721f330ed
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 3de8422efdbb7802e0532503e2733518e8050f6d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203906"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842525"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-riskware"></a>Tutorial: Integração do Azure Active Directory ao Riskware
 
@@ -110,6 +110,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
     ![Informações de logon único de Domínio e URLs do Riskware](./media/riskware-tutorial/tutorial_riskware_url.png)
 
      a. Na caixa de texto **URL de Entrada**, digite uma URL usando o padrão a seguir:
+
     | Ambiente| Padrão de URL|
     |--|--|
     | UAT|  `https://riskcloud.net/uat?ccode=<COMPANYCODE>` |
@@ -118,6 +119,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
     |||
 
     b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL:
+    
     | Ambiente| Padrão de URL|
     |--|--|
     | UAT| `https://riskcloud.net/uat` |
@@ -247,7 +249,7 @@ Para permitir que os usuários do Microsoft Azure Active Directory entre no Risk
 
      a. Na seção **Autenticação**, selecione o modo **Autenticação**, que você configurou como Configuração do AZURE para SSO.
 
-    b. Na seção **Detalhes do Logon**, na caixa de texto **ID de Usuário**, insira o email do usuário como **brittasimon@contoso.com**.
+    b. Sob **detalhes de Logon** seção, o **ID de usuário** caixa de texto, insira o email do usuário, como **brendafernandes\@contoso.com**.
 
     c. Na caixa de texto **Senha**, insira a senha do usuário.
 

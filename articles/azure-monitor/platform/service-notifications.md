@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 4/12/2018
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: 9bd5ec3471fc3447d1e29d875c154793daf8e9e5
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: ab4aa2f37d5a883c83b8ee09b5de6551ebf13d2e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474023"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995146"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Exibir as notificações de integridade do serviço usando o Portal do Azure
 
@@ -60,24 +60,24 @@ Properties.communicationId | A comunicação à qual esse evento está associado
 ### <a name="details-on-service-health-level-information"></a>Detalhes sobre informações de nível de integridade de serviço
 
 **Ação Necessária** (properties.incidentType == ActionRequired)
-    - Informativo – ação do administrador necessária para impedir o impacto nos serviços existentes
+- Informativo – ação do administrador necessária para impedir o impacto nos serviços existentes
     
 **Manutenção** (properties.incidentType == Maintenance)
-    - Aviso – manutenção de emergência
-    - Informativo – manutenção planejada padrão
+- Aviso – manutenção de emergência
+- Informativo – manutenção planejada padrão
 
 **Informações** (properties.incidentType == Information)
-    - Informativo – o administrador pode precisar impedir o impacto aos serviços existentes
+- Informativo – o administrador pode precisar impedir o impacto aos serviços existentes
 
 **Segurança** (properties.incidentType == Security)
-    - Erro – problemas amplamente difundidos ao acessar vários serviços em várias regiões estão impactando um amplo conjunto de clientes.
-    - Aviso – problemas ao acessar serviços específicos e/ou regiões específicas estão impactando um subconjunto de clientes.
-    - Informativo – problemas que afetam as operações de gerenciamento e/ou latência, não impactando a disponibilidade do serviço.
+- Erro – problemas amplamente difundidos ao acessar vários serviços em várias regiões estão impactando um amplo conjunto de clientes.
+- Aviso – problemas ao acessar serviços específicos e/ou regiões específicas estão impactando um subconjunto de clientes.
+- Informativo – problemas que afetam as operações de gerenciamento e/ou latência, não impactando a disponibilidade do serviço.
 
 **Problemas de Serviço** (properties.incidentType == Incident)
-    - Erro – problemas amplamente difundidos ao acessar vários serviços em várias regiões estão impactando um amplo conjunto de clientes.
-    - Aviso – problemas ao acessar serviços específicos e/ou regiões específicas estão impactando um subconjunto de clientes.
-    - Informativo – problemas que afetam as operações de gerenciamento e/ou latência, não impactando a disponibilidade do serviço.
+- Erro – problemas amplamente difundidos ao acessar vários serviços em várias regiões estão impactando um amplo conjunto de clientes.
+- Aviso – problemas ao acessar serviços específicos e/ou regiões específicas estão impactando um subconjunto de clientes.
+- Informativo – problemas que afetam as operações de gerenciamento e/ou latência, não impactando a disponibilidade do serviço.
 
 
 ## <a name="view-your-service-health-notifications-in-the-azure-portal"></a>Exibindo as notificações de integridade do serviço no Portal do Azure

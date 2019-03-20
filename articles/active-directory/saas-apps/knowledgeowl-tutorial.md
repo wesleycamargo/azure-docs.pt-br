@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32f53742de3242fb3b60a15d436ec6cd842aa429
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c8c86ad6e4b11f21c648083fac35e15eec7658c1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183973"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995506"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-knowledgeowl"></a>Tutorial: Integração do Azure Active Directory ao KnowledgeOwl
 
@@ -110,6 +110,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     ![Informações de logon único no Domínio e nas URLs do KnowledgeOwl](./media/knowledgeowl-tutorial/tutorial_knowledgeowl_url.png)
 
      a. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão:
+
     |||
     |-|-|
     | `https://app.knowledgeowl.com/sp`|
@@ -117,6 +118,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     |||
 
     b. Na caixa de texto **URL de resposta** , digite uma URL no seguinte padrão:
+
     |||
     |-|-|
     | `https://subdomain.knowledgeowl.com/help/saml-login`|
@@ -132,6 +134,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     ![Informações de logon único no Domínio e nas URLs do KnowledgeOwl](./media/knowledgeowl-tutorial/tutorial_knowledgeowl_url1.png)
 
     Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão:
+    
     |||
     |-|-|
     | `https://subdomain.knowledgeowl.com/help/saml-login`|
@@ -185,29 +188,29 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
 1. Clique em **Configurações** e, em seguida, selecione **Segurança**.
 
-    ![Configuração do KnowledgeOwl](./media/knowledgeowl-tutorial/configure1.png)
+     ![Configuração do KnowledgeOwl](./media/knowledgeowl-tutorial/configure1.png)
 
 1. Role até a **Integração de SSO do SAML** e execute as seguintes etapas:
     
-    ![Configuração do KnowledgeOwl](./media/knowledgeowl-tutorial/configure2.png)
+     ![Configuração do KnowledgeOwl](./media/knowledgeowl-tutorial/configure2.png)
 
-     a. Selecione **Habilitar SSO do SAML**.
+      a. Selecione **Habilitar SSO do SAML**.
 
-    b. Copie o valor da **ID da Entidade SP** e cole-o no **Identificador (ID da Entidade)**, que está na seção **Domínio e URLs do KnowledgeOwl** no portal do Azure.
+     b. Copie o valor da **ID da Entidade SP** e cole-o no **Identificador (ID da Entidade)**, que está na seção **Domínio e URLs do KnowledgeOwl** no portal do Azure.
 
-    c. Copie o valor da **URL do Logon SP** e cole-o na **URL de entrada e URL de resposta**, que está nas caixas de texto na seção **Domínio e URLs do KnowledgeOwl** no portal do Azure.
+     c. Copie o valor da **URL do Logon SP** e cole-o na **URL de entrada e URL de resposta**, que está nas caixas de texto na seção **Domínio e URLs do KnowledgeOwl** no portal do Azure.
 
-    d. Na caixa de texto **IdP entityID**, cole o valor da **ID da Entidade SAML** copiado do portal do Azure.
+     d. Na caixa de texto **IdP entityID**, cole o valor da **ID da Entidade SAML** copiado do portal do Azure.
 
-    e. Na caixa de texto **URL de Logon do IdP**, cole o valor da **URL do Serviço de Logon Único SAML** copiado do portal do Azure.
+     e. Na caixa de texto **URL de Logon do IdP**, cole o valor da **URL do Serviço de Logon Único SAML** copiado do portal do Azure.
 
-    f. Na caixa de texto **URL de Logoff do IdP**, cole o valor da **URL de Saída** copiado do portal do Azure
+     f. Na caixa de texto **URL de Logoff do IdP**, cole o valor da **URL de Saída** copiado do portal do Azure
 
-    g. Carregue o formulário de certificado baixado do portal do Azure clicando em **Carregar certificado de IdP**.
+     g. Carregue o formulário de certificado baixado do portal do Azure clicando em **Carregar certificado de IdP**.
 
-    h. Clique em **Mapa de atributos SAML** para mapear atributos e executar as seguintes etapas:
+     h. Clique em **Mapa de atributos SAML** para mapear atributos e executar as seguintes etapas:
     
-    ![Configuração do KnowledgeOwl](./media/knowledgeowl-tutorial/configure3.png)
+     ![Configuração do KnowledgeOwl](./media/knowledgeowl-tutorial/configure3.png)
 
     * Digite `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/ssoid` na caixa de texto **ID do SSO**
     * Digite `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` na caixa de texto **Email/Nome de usuário**.
@@ -215,9 +218,9 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     * Digite `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` na caixa de texto **Sobrenome**.
     * Clique em **Salvar**
 
-    i. Na parte inferior da página, clique em **Salvar** .
+      i. Na parte inferior da página, clique em **Salvar** .
 
-    ![Configuração do KnowledgeOwl](./media/knowledgeowl-tutorial/configure4.png)
+      ![Configuração do KnowledgeOwl](./media/knowledgeowl-tutorial/configure4.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 

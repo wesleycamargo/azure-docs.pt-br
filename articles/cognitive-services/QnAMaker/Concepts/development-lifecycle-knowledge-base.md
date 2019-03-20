@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 02/21/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: f0b2e1afdc42d8aaa0ab8d3af76f51fb6ded24e0
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: bacfb5fed4d72a7be2239ba97a68f15766b3ff59
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857759"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650438"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>Ciclo de vida da base de dados de conhecimento no QnA Maker
 O QnA Maker aprende melhor em um ciclo iterativo de alterações de modelo, exemplos de expressão, publicação e coleta de dados de consultas de ponto de extremidade. 
@@ -27,9 +27,15 @@ O QnA Maker aprende melhor em um ciclo iterativo de alterações de modelo, exem
 O ponto de extremidade de KB (base de dados de conhecimento) do QnA Maker fornece uma resposta de melhor correspondência a uma consulta do usuário com base no conteúdo da base de dados de conhecimento. Criar uma base de dados de conhecimento é uma ação única para configurar um repositório de conteúdo de perguntas, respostas e metadados associados. Uma base de dados de conhecimento pode ser criada, rastreando conteúdo pré-existente como páginas de perguntas frequentes, manuais de produtos ou pares P-R estruturados. Saiba como [criar uma base de dados de conhecimento](../How-To/create-knowledge-base.md).
 
 ## <a name="testing-and-updating-the-knowledge-base"></a>Testar e atualizar a base de dados de conhecimento
-A base de dados de conhecimento está pronta para testes, uma vez que é preenchida com conteúdo, seja editorialmente ou através de extração automática. O teste pode ser feito através do painel de **Teste**, inserindo consultas comuns de usuários e verificando se as respostas retornadas são as esperadas e com pontuação de confiança suficiente. É possível adicionar perguntas alternativas para corrigir as pontuações de confiança baixas. Além disso, é possível adicionar novas respostas quando uma consulta retorna a resposta padrão "nenhuma correspondência encontrada na base de dados de conhecimento". Este loop estreito de atualização de teste continuará até que você esteja satisfeito com os resultados. Saiba como [testar a base de dados de conhecimento](../How-To/test-knowledge-base.md).
 
-Para KBs grandes, o teste pode ser automatizado por meio de APIs do generateAnswer. 
+A base de dados de conhecimento está pronta para testes, uma vez que é preenchida com conteúdo, seja editorialmente ou através de extração automática. Teste interativo pode ser feito no portal do QnA Maker por meio de **teste** painel inserindo consultas comuns de usuário e verificar que as respostas retornem com a resposta correta e a pontuação de confiança suficiente. 
+
+* **Para corrigir as pontuações de confiança baixa**: Adicionar perguntas alternativas. 
+* **Quando uma consulta retorna incorretamente a [resposta padrão](confidence-score.md#change-default-answer)**: adicionar novas respostas para a pergunta correta. 
+
+Este loop estreito de atualização de teste continuará até que você esteja satisfeito com os resultados. Saiba como [testar a base de dados de conhecimento](../How-To/test-knowledge-base.md).
+
+Para grandes KBs, use testes automatizados com o [generateAnswer API](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) e o `isTest=true` quais consultas de parâmetro de cadeia de caracteres de consulta o `test` da base de Conhecimento, em vez de base de Conhecimento publicada. 
 
 ## <a name="publish-the-knowledge-base"></a>Publicar a base de dados de conhecimento
 Quando terminar de testar a base de dados de conhecimento, você poderá publicá-la. Publicar efetua push da última versão da base de dados de conhecimento testada para um índice do Azure Search dedicado que representa a base de dados de conhecimento **publicada**. Isso também cria um ponto de extremidade que pode ser chamado no aplicativo ou chat bot.
