@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 030b1465-6616-4c0b-8bc7-24ed47d054c0
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 5d2f195c50750a5c7685f62c909f77b2960613e6
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 9a124bd9a52e22c359fb771e4d4c8714bd1dbe2c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213139"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123225"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Balanceamento do cluster do Service Fabric
 O Gerenciador de Recursos de Cluster do Service Fabric oferece suporte a alterações de carga dinâmico, reagindo a inclusões ou remoções de nós ou serviços. Ele também corrige automaticamente as violações de restrição e, proativamente, balanceia novamente o cluster. Mas com que frequência essas ações são executadas, e o que as dispara?
@@ -85,7 +85,7 @@ Atualmente o Resource Manager de Cluster executa apenas uma dessas ações ao me
 
 Por exemplo, quando os nós falham, eles podem fazer com um domínio de falha inteiro por vez. Todas essas falhas são capturadas durante a próxima atualização de estado após o *PLBRefreshGap*. As correções são determinadas durante as seguintes execuções de posicionamento, verificação de restrição e balanceamento. Por padrão o Resource Manager de Cluster não é uma varredura horas de alterações no cluster e tentando resolver todas as alterações ao mesmo tempo. Isso levaria a picos de variação.
 
-O Resource Manager de Cluster também precisa de algumas informações adicionais para determinar se o cluster desequilibrado. Para isso, temos duas outras configurações: *Limites de Balanceamento* e *Limites de Atividade*.
+O Resource Manager de Cluster também precisa de algumas informações adicionais para determinar se o cluster desequilibrado. Para fazer isso, temos duas outras partes da configuração: *Limites de balanceamento* e *limites de atividade*.
 
 ## <a name="balancing-thresholds"></a>Limites de balanceamento
 Um Limite de Balanceamento é o controle principal que dispara o rebalanceamento. O Limite de Balanceamento para uma métrica é uma _razão_. Se a carga de uma métrica no nó mais carregado dividido pela quantidade de carga no nó menos carregado excede o *Limite de Balanceamento* dessa métrica, o cluster é desequilibrado. Como resultado de balanceamento é disparada na próxima vez que o Resource Manager de Cluster verifica. O temporizador *MinLoadBalancingInterval* define a frequência com que o Gerenciador de Recursos de Cluster deve verificar se o rebalanceamento é necessário. A verificação não significa que nada acontece. 
@@ -122,7 +122,8 @@ via ClusterConfig.json para implantações Autônomas ou Template.json para clus
 ```
 
 <center>
-![Exemplo de Limite de Balanceamento][Image1]
+
+![Exemplo de limite de balanceamento][Image1]
 </center>
 
 Neste exemplo, cada serviço está consumindo uma unidade de alguma métrica. No exemplo superior, a carga máxima em um nó é cinco e o mínimo é dois. Digamos que o limite de balanceamento para esta métrica seja três. Como a proporção do cluster é 5/2 = 2,5 e é menor do que o especificado balanceamento de limite de três, o cluster é equilibrado. Nenhum balanceamento é disparada quando verifica se o Resource Manager de Cluster.
@@ -130,7 +131,8 @@ Neste exemplo, cada serviço está consumindo uma unidade de alguma métrica. No
 No exemplo inferior, a carga máxima em um nó é dez, enquanto o mínimo é dois, resultando em uma taxa de cinco. Cinco é maior que o limite de balanceamento designado de três para métrica. Como resultado, uma execução de rebalanceamento será agendada na próxima vez em que o temporizador de balanceamento for acionado. Em uma situação como essa, alguma carga normalmente é distribuída para Node3. Como o Gerenciador de Recursos de Cluster do Service Fabric não usa uma abordagem egoísta, alguma carga também pode ser distribuída para Node2. 
 
 <center>
-![Ações de exemplo de Limite de Balanceamento][Image2]
+
+![Ações de exemplo de limite de balanceamento][Image2]
 </center>
 
 > [!NOTE]
@@ -145,6 +147,7 @@ Obtendo abaixo do limite de balanceamento não é um objetivo explícito. Limite
 Vamos supor que podemos manter nosso Limite de Balanceamento de três para essa métrica. Vamos supor também que temos um Limite de Atividade de 1536. No primeiro caso, embora o cluster esteja desequilibrado pelo Limite de Balanceamento, nenhum nó atende ao Limite de Atividade e, portanto, nada acontece. No exemplo inferior, Node1 está acima do limite de atividade. Como o Limite de Balanceamento e o Limite de Atividade para a métrica foram ultrapassados, o balanceamento é agendado. Por exemplo, vamos examinar o diagrama a seguir: 
 
 <center>
+
 ![Exemplo de limite de atividade][Image3]
 </center>
 
@@ -191,10 +194,11 @@ Ocasionalmente, no entanto, um serviço que não estava desequilibrado é movido
 - O Service3 relata as métricas Metric3 e Metric4.
 - O Service4 relata a métrica Metric99. 
 
-Certamente, você consegue ver onde queremos chegar: há uma cadeia! Realmente, não há quatro serviços independentes. Temos três serviços relacionados e um que está por conta própria.
+Certamente, você pode ver onde queremos chegar: Há uma cadeia! Realmente, não há quatro serviços independentes. Temos três serviços relacionados e um que está por conta própria.
 
 <center>
-![Balanceamento dos serviços em conjunto][Image4]
+
+![Balanceamento dos serviços juntos][Image4]
 </center>
 
 Devido a essa cadeia, é possível que um desequilíbrio nas métricas 1 a 4 possa mover as réplicas ou instâncias pertencentes aos serviços 1 a 3. Também sabemos que um desequilíbrio nas métricas de 1, 2 ou 3 não pode causar movimentos no Service4. Não haveria nenhum ponto desde movendo as réplicas ou instâncias pertencentes a Serviço4 ao redor podem fazer absolutamente nada para afetar o saldo das métricas de 1 a 3.
@@ -202,7 +206,8 @@ Devido a essa cadeia, é possível que um desequilíbrio nas métricas 1 a 4 pos
 O Gerenciador de Recursos de Cluster descobre automaticamente quais serviços estão relacionados. A adição, remoção ou alteração das métrica para esses serviços pode afetar suas relações. Por exemplo, entre duas execuções de balanceamento, o Service2 pode ter sido atualizado para remover Metric2. Isso interromperá a cadeia entre Service1 e Service2. Agora, em vez de dois grupos de serviços relacionados, há três:
 
 <center>
-![Balanceamento dos serviços em conjunto][Image5]
+
+![Balanceamento dos serviços juntos][Image5]
 </center>
 
 ## <a name="next-steps"></a>Próximas etapas

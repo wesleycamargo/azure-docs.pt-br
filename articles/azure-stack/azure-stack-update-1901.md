@@ -16,12 +16,12 @@ ms.date: 02/28/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 02/09/2019
-ms.openlocfilehash: 0bbf76e16334ae4847ec6f7fbf3aa88fb508e84d
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 682ff9b139d7315604da70fbba47b5e81a290921
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731133"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57886350"
 ---
 # <a name="azure-stack-1901-update"></a>Atualização da pilha 1901 do Azure
 
@@ -63,7 +63,7 @@ Os hotfixes de pilha do Azure são aplicáveis apenas aos sistemas integrados do
 ## <a name="prerequisites"></a>Pré-requisitos
 
 > [!IMPORTANT]
-- Instalar o [hotfix mais recente do Azure Stack](#azure-stack-hotfixes) para 1811 (se houver) antes de atualizar para 1901.
+> - Instalar o [hotfix mais recente do Azure Stack](#azure-stack-hotfixes) para 1811 (se houver) antes de atualizar para 1901.
 
 - Antes de iniciar a instalação dessa atualização, execute [AzureStack teste](azure-stack-diagnostic-test.md) com os seguintes parâmetros para validar o status do Azure Stack e resolva os problemas operacionais encontrados, incluindo todos os avisos e falhas. Também examine os alertas ativos e resolver todos os que exigem ação:
 
@@ -89,7 +89,7 @@ Esta atualização inclui os seguintes novos recursos e melhorias para o Azure S
    * **AzureRm.Storage**  
          Módulo do AzureRm pacote cumulativo de atualizações agora inclui a versão já publicada 5.0.4 com suporte a **2017-10-01 de versão de api**.  
    * **AzureRm.Compute**  
-         Adicionado o parâmetro simple define `New-AzureRMVM` e `NewAzureRMVMSS`, `-ImageName` parâmetro dá suporte à especificação de imagens de usuário.  
+         Adicionado o parâmetro simple define `New-AzureRmVM` e `New-AzureRmVmss`, `-Image` parâmetro dá suporte à especificação de imagens de usuário.  
    * **AzureRm.Insights**  
          Módulo do AzureRm pacote cumulativo de atualizações agora inclui a versão já publicada 5.1.5 com suporte a **api-version 2018-01-01** para métricas, tipos de recursos de definições de métrica.
 
@@ -115,7 +115,8 @@ Para examinar a referência para os módulos atualizados, consulte [referência 
 <!-- 16523695 – IS, ASDK -->
 - Corrigido um problema em que, depois de atualizar as configurações de DNS para sua rede Virtual do **usar o DNS do Azure Stack** à **DNS personalizado**, as instâncias não foram atualizadas com a nova configuração.
 
-- <!-- 3235634 – IS, ASDK --> Corrigido um problema no quais implantar VMs com tamanhos que contém um **v2** sufixo; por exemplo, **Standard_A2_v2**, é obrigatório especificar o sufixo como **Standard_A2_v2** ( v minúsculo). Como com o Azure global, agora você pode usar **Standard_A2_V2** (V maiusculo).
+- <!-- 3235634 – IS, ASDK -->
+  Corrigido um problema no quais implantar VMs com tamanhos que contém um **v2** sufixo; por exemplo, **Standard_A2_v2**, é obrigatório especificar o sufixo como **Standard_A2_v2** ( v minúsculo). Como com o Azure global, agora você pode usar **Standard_A2_V2** (V maiusculo).
 
 <!-- 2869209 – IS, ASDK --> 
 - Corrigido um problema ao usar o [cmdlet Add-AzsPlatformImage](/powershell/module/azs.compute.admin/add-azsplatformimage), em que você tinha que usar o **- OsUri** parâmetro como a conta de armazenamento em que o disco é carregado do URI. Agora você pode usar também o caminho local para o disco.
@@ -291,9 +292,9 @@ A seguir estão os problemas conhecidos de pós-instalação para esta versão d
 <!-- 3632798 - IS, ASDK -->
 - No portal, se você adicionar uma regra de segurança de entrada e selecione **marca de serviço** como a origem, várias opções são exibidas na **marca de origem** lista que não estão disponíveis para o Azure Stack. As únicas opções que são válidas no Azure Stack são da seguinte maneira:
 
-    - **Internet**
-    - **VirtualNetwork**
-    - **AzureLoadBalancer**
+  - **Internet**
+  - **VirtualNetwork**
+  - **AzureLoadBalancer**
   
     Não há suporte para as outras opções como marcas de origem no Azure Stack. Da mesma forma, se você adicionar uma regra de segurança de saída e selecione **marca de serviço** como o destino, a mesma lista de opções para **marca de origem** é exibida. As únicas opções válidas são os mesmos para **marca de origem**, conforme descrito na lista anterior.
 

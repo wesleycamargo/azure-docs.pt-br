@@ -1,5 +1,5 @@
 ---
-title: Os elementos do email de convite para colaboração B2B – Azure Active Directory | Microsoft Docs
+title: Elementos do email de convite B2B – Azure Active Directory | Microsoft Docs
 description: Modelo de email de convite para colaboração B2B do Azure Active Directory
 services: active-directory
 ms.service: active-directory
@@ -9,14 +9,15 @@ ms.date: 02/06/2019
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6eaab50360269ac1231db2696ba095b6d8841f74
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 43fa8148fff1389982d967b2e69f4a9425841c91
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162993"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014908"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Os elementos do email de convite para colaboração B2B – Azure Active Directory
 
@@ -31,7 +32,7 @@ Vamos examinar alguns elementos do email para que você conheça a melhor maneir
 O assunto do email segue o seguinte padrão: Você foi convidado para a organização &lt;tenantname&gt;
 
 ### <a name="from-address"></a>Do endereço
-Usamos um padrão parecido com o do LinkedIn para o endereço De.  Você deve deixar claro quem é o emissor do convite e de qual empresa, e também esclarecer que o email é proveniente de um endereço de email da Microsoft. O formato é: &lt;Nome de exibição do emissor do convite&gt; de &lt;tenantname&gt; (via Microsoft) <invites@microsoft.com>
+Usamos um padrão parecido com o do LinkedIn para o endereço De.  Você deve deixar claro quem é o emissor do convite e de qual empresa, e também esclarecer que o email é proveniente de um endereço de email da Microsoft. O formato é: Microsoft Invitations <invites@microsoft.com> ou &lt;nome de exibição do emissor do convite&gt; partir &lt;tenantname&gt; (via Microsoft) <invites@microsoft.com>.
 
 ### <a name="reply-to"></a>Responder Para
 O email para resposta é definido como o email do emissor do convite, quando houver um disponível, para que a resposta envie um email ao emissor do convite.
@@ -55,8 +56,12 @@ Se você ainda não tiver configurado uma imagem de perfil, um ícone com as ini
 ### <a name="body"></a>Corpo
 O corpo contém a mensagem que o emissor do convite compõe ao [convidar um usuário convidado para o diretório, grupo ou aplicativo](add-users-administrator.md) ou [usando a API de convite](customize-invitation-api.md). Como é uma área de texto, ela não processa marcas HTML por motivos de segurança.
 
+  ![imagem do corpo do email](media/invitation-email-elements/invitation-email-body.png)
+
 ### <a name="footer-section"></a>Seção de rodapé
-O rodapé contém a marca da empresa Microsoft e informará ao destinatário se o email foi enviado de um alias não monitorado. Casos especiais:
+O rodapé contém a marca da empresa Microsoft e informará ao destinatário se o email foi enviado de um alias não monitorado. 
+
+Casos especiais:
 
 - O emissor do convite não tem um endereço de email no locatário que está convidando
 

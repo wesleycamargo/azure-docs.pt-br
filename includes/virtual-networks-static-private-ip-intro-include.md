@@ -2,16 +2,14 @@
 author: genlin
 ms.service: virtual-network
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 02/27/2019
 ms.author: genli
-ms.openlocfilehash: 5c1caf87f32ddd827b85263ee634d3e15d821124
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
-ms.translationtype: HT
+ms.openlocfilehash: 63853ee34d99516b139b0356f609f41637ac2b39
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52268694"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56963345"
 ---
-Suas máquinas virtuais (VMs) de IaaS e instâncias de função de PaaS em uma rede virtual recebem automaticamente um endereço IP privado de um intervalo especificado por você, com base na sub-rede a qual elas estão conectadas. Esse endereço é mantido pelas VMs e instâncias de função, até que elas sejam desativadas. Você pode desativar uma VM ou instância de função interrompendo-a no PowerShell, na CLI do Azure ou no portal do Azure. Nesses casos, depois que a instância de função ou a VM for iniciada novamente, ela receberá um endereço IP disponível da infraestrutura do Azure, que pode não ser o mesmo que ela tinha anteriormente. Se você desligar a VM ou instância de função do sistema operacional convidado, ela manterá o endereço IP que tinha.  
-
-Em alguns casos, convém que uma VM ou instância de função tenha um endereço IP estático; por exemplo, se a sua VM executar DNS ou for um controlador de domínio. Você pode fazer isso definindo um endereço IP privado estático.
+Uma máquina virtual (VM) recebe automaticamente um endereço IP privado de um intervalo que você especificar, com base nele é implantado na sub-rede. O endereço é mantido por uma VM até que a VM é excluída. Azure atribui dinamicamente o próximo endereço IP privado disponível da sub-rede que você crie uma VM na. Atribua um endereço IP estático se desejar que um endereço IP específico da sub-rede atribuída à VM.
 

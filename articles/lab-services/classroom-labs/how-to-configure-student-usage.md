@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2019
+ms.date: 03/18/2019
 ms.author: spelluru
-ms.openlocfilehash: 834674eb63af75088434db0f614b11c7a36e7adf
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: eadbaacd4bb860cd09997775b8d77cbcf0ff17f2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55964807"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181615"
 ---
 # <a name="configure-usage-settings-and-policies"></a>Configurar políticas e configurações de uso
 Este artigo descreve como adicionar usuários ao laboratório, registrá-los no laboratório, controlar o número de horas que eles podem usar a VM, entre outros. 
@@ -38,9 +38,22 @@ Se você tiver o **Restringir acesso** habilitado, adicione usuários (endereço
 
     ![Lista de usuários](../media/how-to-configure-student-usage/users-list-new.png)
 
-## <a name="send-registration-link-to-students"></a>Enviar link de registro para estudantes
-O procedimento a seguir contém etapas para enviar um link de registro para os usuários. Se a opção **Restringir o acesso** estiver habilitada para o laboratório, somente os usuários na lista de usuários poderão usar o link de registro para se registrar no laboratório. 
+## <a name="share-registration-link-with-students"></a>Compartilhar o link de registro com os alunos
+Para enviar o link de registro para os alunos, use um dos métodos a seguir. O primeiro método mostra como enviar emails para os alunos com o link de registro e uma mensagem opcional. O segundo método mostra como obter o link de registro que você pode compartilhar com outras pessoas como desejar. 
 
+Se a opção **Restringir o acesso** estiver habilitada para o laboratório, somente os usuários na lista de usuários poderão usar o link de registro para se registrar no laboratório. Essa opção é habilitada por padrão. 
+
+### <a name="send-email-to-users"></a>Enviar email para usuários
+1. Alterne para a exibição de **Usuários** se ainda não estiver na página. 
+2. Selecione específico ou todos os usuários na lista. Para selecionar usuários específicos, selecione as caixas de seleção na primeira coluna da lista. Para selecionar todos os usuários, marque a caixa de seleção na frente o título da primeira coluna (**nome**) ou marque todas as caixas de seleção para todos os usuários na lista.
+3. Selecione **Enviar convite** na barra de ferramentas. Também pode passar o mouse sobre um nome do aluno na lista e enviar o ícone de email. 
+
+    ![Enviar link de registro por email](../media/tutorial-setup-classroom-lab/send-email.png)
+4. Sobre o **link de registro de envio por email** página, siga estas etapas: 
+    1. Tipo de um **mensagem opcional** que você deseja enviar aos alunos. O email inclui automaticamente o link de registro. 
+    2. Sobre o **link de registro de envio por email** página, selecione **enviar**. 
+
+## <a name="get-registration-link"></a>Obter link de registro
 1. Alterne para a exibição **Usuários** selecionando **usuários** no menu à esquerda. 
 2. Selecione o bloco **Obter link de registro**.
 
@@ -49,11 +62,7 @@ O procedimento a seguir contém etapas para enviar um link de registro para os u
 
     ![Link de registro do aluno](../media/tutorial-setup-classroom-lab/registration-link.png)
 2. Na caixa de diálogo **Registro de usuário**, selecione **Fechar**. 
-4. Compartilhe o link de registro com um aluno para que ele possa se registrar para a aula. Caso a configuração **Restringir opção** esteja habilitada e você tenha uma lista de usuários na lista, faça as seguintes ações:
-    1. Selecione o **endereço de email** do usuário na lista. 
-    2. Você vê uma janela do seu programa de email padrão com o endereço do campo **PARA** preenchido. 
-    3. Cole a **URL de registro** que você copiou anteriormente. 
-    4. Envie o **email**. 
+4. Compartilhamento de **link de registro** com um aluno para que o aluno pode se registrar para a classe. 
 
 ## <a name="view-users-registered-with-the-lab"></a>Exibir usuários registrados no laboratório
 

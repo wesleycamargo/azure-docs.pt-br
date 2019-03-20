@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 5cddf69f700c971d22384dadb00d3becc4a8385f
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: a197be06d9c6f4b70b8ffc06712ef315547b4140
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300867"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58136505"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>Como compor uma consulta no Azure Search
 
@@ -38,15 +38,15 @@ A tabela a seguir lista as APIs e as abordagens baseadas em ferramentas para env
 Exemplos são úteis para introduzir novos conceitos. Como uma consulta representativa construído na [API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents), esse exemplo tem como alvo o [índice de demonstração de imóveis](search-get-started-portal.md) e inclui os parâmetros comuns.
 
 ```
-{  
+{
     "queryType": "simple" 
-    "search": "seattle townhouse* +\"lake\"", 
-    "searchFields": "description, city",  
-    "count": "true", 
+    "search": "seattle townhouse* +\"lake\"",
+    "searchFields": "description, city",
+    "count": "true",
     "select": "listingId, street, status, daysOnMarket, description",
     "top": "10",
     "orderby": "daysOnMarket"
- } 
+}
 ```
 
 + **`queryType`** Define o analisador, que, no Azure Search pode ser o [padrão do analisador de consulta simples](search-query-simple-examples.md) (ideais para a pesquisa de texto completo), ou o [completa o analisador de consulta Lucene](search-query-lucene-examples.md) usado para compilações de consulta avançada, como expressões regulares , pesquisa por proximidade, difusa e pesquisa de curinga, para citar alguns.
@@ -118,7 +118,7 @@ O Azure Search dá suporte a uma ampla gama de tipos de consulta.
 
 | Tipo de consulta | Uso | Obter mais informações e exemplos |
 |------------|--------|-------------------------------|
-| Pesquisa de texto de forma livre | Parâmetro de pesquisa e o analisador| A pesquisa de texto completo procura um ou mais termos em todos os *campos pesquisáveis* do seu índice e funciona da maneira esperada para um mecanismo de pesquisa como o Google ou o Bing. O exemplo na introdução é a pesquisa de texto completo.<br/><br/>A pesquisa de texto completo é submetida à análise de texto usando o analisador padrão Lucene (por padrão) para diminuir todos os termos, remover palavras parciais como "o". Você pode substituir o padrão por [analisadores que não estão em inglês](index-add-language-analyzers.md#language-analyzer-list) ou [analisadores especializados independentes de linguagem](index-add-custom-analyzers.md#AnalyzerTable) que modificam a análise de texto. Um exemplo é [palavra-chave](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) que trata todo o conteúdo de um campo como um único token. Isso é útil para dados como códigos postais, IDs e alguns nomes de produtos. | 
+| Pesquisa de texto de forma livre | Parâmetro de pesquisa e o analisador| A pesquisa de texto completo procura um ou mais termos em todos os *campos pesquisáveis* do seu índice e funciona da maneira esperada para um mecanismo de pesquisa como o Google ou o Bing. O exemplo na introdução é a pesquisa de texto completo.<br/><br/>A pesquisa de texto completo é submetida à análise de texto usando o analisador padrão Lucene (por padrão) para diminuir todos os termos, remover palavras parciais como "o". Você pode substituir o padrão por [analisadores que não estão em inglês](index-add-language-analyzers.md#language-analyzer-list) ou [analisadores especializados independentes de linguagem](index-add-custom-analyzers.md#AnalyzerTable) que modificam a análise de texto. Um exemplo é [palavra-chave](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) que trata todo o conteúdo de um campo como um único token. É útil para dados como códigos postais, IDs e alguns nomes de produtos. | 
 | Pesquisa filtrados | [Expressão de filtro OData](query-odata-filter-orderby-syntax.md) e qualquer analisador | As consultas de filtro avaliam uma expressão booleana em todos os campos *filtráveis* em um índice. Ao contrário de pesquisa, uma consulta de filtro corresponde o conteúdo exato de um campo, incluindo diferenciação de maiúsculas e minúsculas em campos de cadeia de caracteres. Outra diferença é que as consultas de filtro são expressas na sintaxe OData. <br/>[Exemplo de expressão de filtro](search-query-simple-examples.md#example-3-filter-queries) |
 | Pesquisa geográfica | [Tipo de EDM. geographypoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) no campo expressão de filtro e qualquer analisador | As coordenadas armazenadas em um campo com um Edm.GeographyPoint são usadas para controles de pesquisa "localizar perto de mim" ou baseados em mapa. <br/>[Exemplo de pesquisa geográfica](search-query-simple-examples.md#example-5-geo-search)|
 | Pesquisa de intervalo | expressão de filtro e analisador simples | Na Pesquisa do Azure, as consultas de intervalo são criadas usando o parâmetro de filtro. <br/>[Exemplo de filtro de intervalo](search-query-simple-examples.md#example-4-range-filters) | 
@@ -146,7 +146,7 @@ Ocasionalmente, a substância e não a estrutura dos resultados são inesperadas
 
 + Altere **`searchMode=any`** (padrão) para **`searchMode=all`** para exigir correspondências em todos os critérios, em vez de em qualquer um dos critérios. Isso é especialmente verdadeiro quando os operadores boolianos estão incluídos na consulta.
 
-+ Altere a técnica de consulta se o texto ou a análise lexical for necessária, mas o tipo de consulta impede o processamento linguístico. Na pesquisa de texto completo, o texto ou a análise lexical corrige automaticamente erros ortográficos, formas de palavras no plural e singular e até mesmo verbos ou substantivos irregulares. Para algumas consultas, como pesquisa difusa ou com curinga, a análise de texto não faz parte do pipeline de análise de consulta. Para alguns cenários, expressões regulares foram usadas como um solução alternativa. 
++ Altere a técnica de consulta se o texto ou a análise lexical for necessária, mas o tipo de consulta impede o processamento linguístico. Na pesquisa de texto completo, texto ou análise lexical autocorrects para erros de ortografia, formulários de plural a única palavra e até mesmo irregulares verbos ou substantivos. Para algumas consultas, como pesquisa difusa ou com curinga, a análise de texto não faz parte do pipeline de análise de consulta. Para alguns cenários, expressões regulares foram usadas como um solução alternativa. 
 
 ### <a name="paging-results"></a>Resultados da paginação
 O Azure Search facilita implementar a paginação dos resultados da pesquisa. Ao usar os parâmetros **`top`** e **`skip`**, você pode emitir solicitações de pesquisa que permitem que você receba o conjunto total de resultados de pesquisa em subconjuntos organizáveis e ordenados que facilitam facilmente uma boa pesquisar práticas de interface do usuário. Ao receber esses subconjuntos menores de resultados, você também pode receber a contagem de documentos no conjunto total de resultados da pesquisa.
@@ -167,4 +167,4 @@ Na Pesquisa do Azure, enfatizar a parte exata dos resultados de pesquisa que cor
 + [Como a pesquisa de texto completo funciona na Pesquisa do Azure (arquitetura de análise de consulta)](search-lucene-query-architecture.md)
 + [Gerenciador de pesquisa](search-explorer.md)
 + [Como consultar em .NET](search-query-dotnet.md)
-+ [Como consultar em REST](search-query-rest-api.md)
++ [Como consultar em REST](search-create-index-rest-api.md)

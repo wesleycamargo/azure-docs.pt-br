@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: e7f8eef2c3422084846462e2f6159a8b8be7167f
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: 76944d98d6a5fe7c3f83ce12bb2fdf1a34d5e234
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301818"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57839093"
 ---
 # <a name="azure-security-technical-capabilities"></a>Funcionalidades técnicas de segurança do Azure
 
@@ -75,7 +75,7 @@ Os benefícios de segurança do Microsoft Azure AD (Azure Active Directory) incl
 
 - Provisionar o acesso remoto seguro a aplicativos Web locais por meio do Proxy de Aplicativo Azure AD.
 
-O [Portal do Azure Active Directory](http://aad.portal.azure.com/) está disponível como parte do Portal do Azure. Neste painel, você pode ter uma visão geral do estado de sua organização e pode aprofundar-se facilmente para gerenciar o diretório, os usuários ou o acesso a aplicativos.
+O [Portal do Azure Active Directory](https://aad.portal.azure.com/) está disponível como parte do Portal do Azure. Neste painel, você pode ter uma visão geral do estado de sua organização e pode aprofundar-se facilmente para gerenciar o diretório, os usuários ou o acesso a aplicativos.
 
 ![Azure Active Directory](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig2.png)
 
@@ -113,7 +113,7 @@ A [MFA (Autenticação Multifator) do Azure](https://docs.microsoft.com/azure/mu
 
 Monitoramento e alertas de segurança e relatórios baseados no aprendizado de máquina que identificam padrões de acesso inconsistentes podem ajudá-lo a proteger seus negócios. Você pode usar os relatórios de uso e de acesso do Active Directory do Azure para obter visibilidade quanto à integridade e a segurança do diretório da sua organização. Com essas informações, um administrador de diretório pode determinar melhor onde possíveis riscos de segurança podem estar, de modo que pode fazer planos adequados para mitigar esses riscos.
 
-No Portal do Azure ou através do [Portal do Azure Active Directory](http://aad.portal.azure.com/), os [relatórios](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) são categorizados das seguintes maneiras:
+No Portal do Azure ou através do [Portal do Azure Active Directory](https://aad.portal.azure.com/), os [relatórios](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) são categorizados das seguintes maneiras:
 
 - Relatórios de anomalias: contêm eventos de entrada que nós identificamos como anômalos. Nossa meta é que você fique ciente dessas atividades e possa decidir se um evento é suspeito ou não.
 
@@ -169,7 +169,7 @@ As assinaturas também têm uma associação com um diretório. O diretório def
 
 As empresas direcionadas a segurança devem focar em fornecer aos funcionários as permissões exatas necessárias. Muitas permissões podem expor uma conta a ataques. Permissões insuficientes fazem com que os funcionários não consigam trabalhar com eficiência. O [RBAC (controle de acesso baseado em função) do Azure](https://docs.microsoft.com/azure/role-based-access-control/overview) ajuda a resolver esse problema oferecendo gerenciamento de acesso refinado para o Azure.
 
-![Acesso a recursos protegidos ](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig4.png)
+![Acesso a recursos protegidos](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig4.png)
 
 Com o RBAC, você pode separar as tarefas dentro de sua equipe e conceder somente a quantidade de acesso que os usuários precisam para realizar seus trabalhos. Em vez de apresentar todos irrestrito permissões em sua assinatura do Azure ou recursos, você pode permitir apenas determinadas ações. Por exemplo, use o RBAC para permitir que um funcionário gerencie máquinas virtuais em uma assinatura, enquanto outro pode gerenciar bancos de dados SQL dentro da mesma assinatura.
 
@@ -192,7 +192,7 @@ Dá suporte a pelo menos um dos modelos de criptografia recomendados detalhados 
 | Modelos de criptografia |  |  |  |
 | ----------------  | ----------------- | ----------------- | --------------- |
 | Criptografia de servidor | Criptografia de servidor | Criptografia de servidor | Criptografia de cliente
-| Criptografia do lado do servidor usando chaves de serviço gerenciadas | Criptografia do lado do servidor usando chaves gerenciadas pelo cliente no Azure Key Vault | Criptografia do lado do servidor usando chaves gerenciadas pelo cliente no local |
+| Criptografia do lado do servidor usando chaves de serviço gerenciadas | Criptografia do lado do servidor usando chaves gerenciadas pelo cliente no Azure Key Vault | Chaves de criptografia do lado do servidor usando o cliente local gerenciadas |
 | • Provedores de recursos do Azure executam as operações de criptografia e descriptografia <br> • A Microsoft gerencia as chaves <br>• Funcionalidade completa na nuvem | • Provedores de recursos do Azure executam as operações de criptografia e descriptografia<br>• O cliente controla as chaves por meio do Azure Key Vault<br>• Funcionalidade completa na nuvem | • Provedores de recursos do Azure executam as operações de criptografia e descriptografia <br>• O cliente controla as chaves no local <br> • Funcionalidade completa na nuvem| • Os serviços do Azure não podem ver dados descriptografados <br>• Os clientes mantêm as chaves localmente (ou em outros repositórios seguros). As chaves não estão disponíveis para os serviços do Azure <br>• Funcionalidade reduzida na nuvem|
 
 ### <a name="enabling-encryption-at-rest"></a>Habilitando a criptografia em repouso
@@ -274,7 +274,7 @@ Você pode aprender mais sobre a opção de VPN do Azure lendo o artigo [Planeja
 
 O [Azure RMS](https://technet.microsoft.com/library/jj585026.aspx) usa políticas de criptografia, identidade e autorização para ajudar a proteger seus arquivos e emails. O Azure RMS funciona em vários dispositivos, como telefones, tablets e PCs, protegendo-os dentro e fora da sua organização. Esse recurso é possível porque o Azure RMS adiciona um nível de proteção que permanece com os dados, mesmo quando eles saem dos limites da organização.
 
-Quando você usa o Azure RMS para proteger seus arquivos, está usando criptografia padrão do setor com suporte total de [FIPS 140-2](http://csrc.nist.gov/groups/STM/cmvp/standards.html). Ao utilizar o Azure RMS para proteção de dados, você tem a garantia de que a proteção permanece com o arquivo, mesmo quando ele é copiado para um armazenamento que não está sob o controle do departamento de TI, como um serviço de armazenamento de nuvem. O mesmo ocorre com arquivos compartilhados por email: o arquivo é protegido como um anexo a uma mensagem de email, com instruções de como abrir o anexo protegido.
+Quando você usa o Azure RMS para proteger seus arquivos, está usando criptografia padrão do setor com suporte total de [FIPS 140-2](https://csrc.nist.gov/groups/STM/cmvp/standards.html). Ao utilizar o Azure RMS para proteção de dados, você tem a garantia de que a proteção permanece com o arquivo, mesmo quando ele é copiado para um armazenamento que não está sob o controle do departamento de TI, como um serviço de armazenamento de nuvem. O mesmo ocorre com arquivos compartilhados por email: o arquivo é protegido como um anexo a uma mensagem de email, com instruções de como abrir o anexo protegido.
 Ao planejar a adoção do Azure RMS, recomendamos o seguinte:
 
 - Instale o [aplicativo RMS sharing](https://technet.microsoft.com/library/dn339006.aspx). Esse aplicativo se integra a aplicativos do Office, instalando um suplemento do Office para que os usuários possam proteger seus arquivos de forma direta e fácil.
@@ -398,19 +398,19 @@ A [Segurança Operacional do Azure](https://docs.microsoft.com/azure/security/az
 
 A Segurança Operacional do Azure baseia-se em uma estrutura que incorpora o conhecimento adquirido por meio de várias funcionalidades que são exclusivas à Microsoft, incluindo o Microsoft Security Development Lifecycle (SDL), o programa Microsoft Security Response Center e uma conscientização profunda quanto ao cenário de ameaças à segurança cibernética.
 
-### <a name="microsoft-azure-log-analytics"></a>Log Analytics do Microsoft Azure
+### <a name="microsoft-azure-monitor"></a>Microsoft Azure Monitor
 
-[Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) é a solução de gerenciamento de TI para a nuvem híbrida. Usado sozinho ou para estender sua implantação existente do System Center, o Log Analytics oferece a máxima flexibilidade e controle para o gerenciamento baseado em nuvem de sua infraestrutura.
+[O Azure Monitor](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) é a solução de gerenciamento de TI para a nuvem híbrida. Usado sozinho ou para estender sua implantação existente do System Center, os logs do Azure Monitor fornece a máxima flexibilidade e controle para o gerenciamento baseado em nuvem da sua infra-estrutura.
 
-![Log Analytics](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig8.png)
+![Azure Monitor](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig8.png)
 
-Com o Log Analytics, você pode gerenciar qualquer instância em qualquer nuvem, incluindo o Azure, o AWS, o Windows Server, o Linux, o VMware e o OpenStack, a um custo menor do que as soluções concorrentes. Criado para o mundo em nuvem, o Log Analytics oferece uma nova abordagem para o gerenciamento de sua empresa, a maneira mais rápida e econômica de atender a novos desafios de negócios e acomodar novas cargas de trabalho, aplicativos e ambientes de nuvem.
+Com o Azure Monitor, você pode gerenciar qualquer instância em qualquer nuvem, incluindo local, Azure, AWS, Windows Server, Linux, VMware e OpenStack, a um custo menor do que as soluções competitivas. Compilado para o mundo de nuvem em primeiro lugar, o Azure Monitor oferece uma nova abordagem para gerenciar sua empresa que é a maneira mais rápida e mais econômica de atender aos novos desafios de negócios e acomodar novas cargas de trabalho, aplicativos e ambientes de nuvem.
 
-### <a name="log-analytics"></a>Log Analytics
+### <a name="azure-monitor-logs"></a>Logs do Azure Monitor
 
-[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics) fornece serviços de monitoramento, coletando dados de recursos gerenciados em um repositório central. Esses dados podem incluir eventos, dados de desempenho ou dados personalizados fornecidos pela API. Depois de coletados, os dados ficam disponíveis para alertas, análise e exportação.
+[Os logs do Azure Monitor](https://azure.microsoft.com/documentation/services/log-analytics) fornece serviços de monitoramento, coletando dados de recursos gerenciados em um repositório central. Esses dados podem incluir eventos, dados de desempenho ou dados personalizados fornecidos pela API. Depois de coletados, os dados ficam disponíveis para alertas, análise e exportação.
 
-![Log Analytics](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig9.png)
+![Logs do Azure Monitor](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig9.png)
 
 Esse método permite consolidar dados de várias fontes para que você possa combinar dados de serviços do Azure com o ambiente local existente. Ele também separa a coleta dos dados da ação executada neles para que todas as ações fiquem disponíveis para todos os tipos de dados.
 

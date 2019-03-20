@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 0ffb9b9105ee455d35d080bb45063c158cadce1e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: c17cb13bff0ea9eb3b0bb2caf5bb527fa3958428
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463388"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852603"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-may-2018"></a>O que há de novo no SQL Data Warehouse do Azure? Maio de 2018 
 O SQL Data Warehouse do Azure recebe melhorias continuamente. Este artigo descreve os novos recursos e alterações que foram introduzidas em maio de 2018. 
@@ -26,7 +26,7 @@ O SQL Data Warehouse do Azure recebe melhorias continuamente. Este artigo descre
 Consulte o comunicado de blog [Acelere análise de nuvem com o SQL Data Warehouse do Azure](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/) Rohan Kumar, vice-presidente corporativo, Dados do Azure.
 
 ## <a name="auto-statistics"></a>Estatísticas automáticas
-As estatísticas são essenciais para otimizar a geração do plano de consulta em otimizadores modernos baseados em custo, tais como o mecanismo no SQL Data Warehouse. Quando todas as consultas são conhecidas com antecedência, determinar quais objetos de estatísticas precisam ser criados é uma tarefa viável. No entanto, quando o sistema está enfrentando consultas aleatórias e ad hoc, que é comum para as cargas de trabalho de armazenamento de dados, os administradores do sistema podem ter dificuldade para prever quais estatísticas precisam ser criadas levando a planos de execução de consulta de qualidade potencialmente inferior e aumentar os tempos de resposta das consultas. Uma forma de atenuar esse problema é criar objetos de estatísticas em todas as colunas de tabela com antecedência. No entanto, esse processo vem com uma penalidade como objetos de estatísticas que precisam ser mantidas durante o processo de carregamento da tabela, causando tempos de carregamento mais longos.
+As estatísticas são essenciais para otimizar a geração do plano de consulta em otimizadores modernos baseados em custo, tais como o mecanismo no SQL Data Warehouse. Quando todas as consultas são conhecidas com antecedência, determinar quais objetos de estatísticas precisam ser criados é uma tarefa viável. No entanto, quando o sistema enfrenta ad-hoc e consultas aleatórias que é típico para o data warehouse cargas de trabalho, os administradores do sistema podem apresentar dificuldades para prever quais estatísticas precisam ser criadas mais à esquerda para planos de execução de consulta potencialmente com qualidade inferior e tempos de resposta de consulta. Uma forma de atenuar esse problema é criar objetos de estatísticas em todas as colunas de tabela com antecedência. No entanto, esse processo vem com uma penalidade como objetos de estatísticas que precisam ser mantidas durante o processo de carregamento da tabela, causando tempos de carregamento mais longos.
 
 O SQL Data Warehouse agora dá suporte a criação automática de objetos de estatísticas, fornecendo maior flexibilidade, produtividade e facilidade de uso para os administradores de sistema e desenvolvedores, garantindo que o sistema continue a oferecer planos de execução de qualidade e melhores tempos de resposta.
 
@@ -44,7 +44,7 @@ Como melhor prática e diretrizes, é recomendável definir a opção `AUTO_CREA
 Consulte o artigo [opções ALTER DATABASE SET](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options) para obter detalhes adicionais.
 
 ## <a name="rejected-row-support"></a>Suporte de linha de rejeitadas
-Os clientes usam frequentemente [PolyBase (tabelas externas) para carregar dados](design-elt-data-loading.md) no SQL Data Warehouse, devido a natureza paralela de alto desempenho de carregamento de dados. PolyBase é o modelo de carregamento padrão ao carregar dados por meio de [do Azure Data Factory](http://azure.com/adf) também. 
+Os clientes usam frequentemente [PolyBase (tabelas externas) para carregar dados](design-elt-data-loading.md) no SQL Data Warehouse, devido a natureza paralela de alto desempenho de carregamento de dados. PolyBase é o modelo de carregamento padrão ao carregar dados por meio de [do Azure Data Factory](https://azure.com/adf) também. 
 
 O SQL Data Warehouse adiciona a capacidade de definir um local de linha rejeitada por meio do parâmetro `REJECTED_ROW_LOCATION` com a instrução [CRIAR TABELA EXTERNA](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql). Após a execução de um [CRIAR TABELA CONFORME SELECIONADO (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) da tabela externa, todas as linhas que não puderam ser carregadas serão armazenadas em um arquivo próximo à fonte para investigação futura. 
 
@@ -144,7 +144,7 @@ Agora que você conhece um pouco do SQL Data Warehouse, aprenda como [criar um S
 [Blogs da Equipe Consultoria para Clientes]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Histórias de sucesso de clientes]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
 [Solicitações de recursos]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Fórum Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Fórum Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Vídeos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 [create a SQL Data Warehouse]: ./create-data-warehouse-portal.md

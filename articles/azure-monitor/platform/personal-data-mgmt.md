@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 6254a32349a0f7c743c3fb4993080ca3437c8276
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
-ms.translationtype: HT
+ms.openlocfilehash: 9112d50384aba288038343ff9a14ed55542fb722
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810263"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58121342"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Diretrizes para dados pessoais armazenados no Log Analytics e no Application Insights
 
@@ -53,7 +53,7 @@ O Log Analytics é um armazenamento flexível que, enquanto prescreve um esquema
     ```
     search "[username goes here]"
     ```
-Lembre-se de procurar não apenas nomes de usuários legíveis, mas também GUIDs que podem ser rastreados diretamente para um usuário em particular!
+  Lembre-se de procurar não apenas nomes de usuários legíveis, mas também GUIDs que podem ser rastreados diretamente para um usuário em particular!
 * *IDs de dispositivo*: Como as IDs de usuário, as IDs de dispositivo às vezes são consideradas "particulares". Use a mesma abordagem listada acima para IDs de usuário para identificar tabelas nas quais isso possa ser uma preocupação. 
 * *Dados personalizados*: O Log Analytics permite a coleta em uma variedade de métodos: logs personalizados e campos personalizados, a [API do Coletor de Dados HTTP](../../azure-monitor/platform/data-collector-api.md) e dados personalizados coletados como parte dos logs de eventos do sistema. Todos são suscetíveis a conter dados privados e devem ser examinados para verificar se esses dados existem.
 * *Dados capturados pela solução*: Como o mecanismo da solução é aberto, recomendamos examinar todas as tabelas geradas pelas soluções para garantir a conformidade.

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: a8d29e7cae20c37adfeccaef01e1625b6ab3e0d0
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 52475a3976ef8897ffed07c499eb06e7476c0156
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852670"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58136286"
 ---
 # <a name="use-firewall-rules"></a>Usar regras de Firewall
 
@@ -60,7 +60,7 @@ As regras de filtro IP são aplicadas na ordem e a primeira regra que correspond
 ### <a name="creating-a-virtual-network-and-firewall-rule-with-azure-resource-manager-templates"></a>Criar uma regra de rede virtual e firewall com modelos do Azure Resource Manager
 
 > [!IMPORTANT]
-> As Redes Virtuais têm suporte apenas no na camada **premium** do Barramento de Serviço.
+> Firewalls e redes virtuais têm suporte apenas na **premium** camada do barramento de serviço.
 
 O modelo do Resource Manager a seguir permite incluir uma regra de rede virtual em um namespace de Barramento de Serviço existente.
 

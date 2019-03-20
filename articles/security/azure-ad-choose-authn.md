@@ -9,18 +9,18 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: a05874e28c08087b6f82c3aa5a02e83d2629ffe5
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: efe4f1542d255232258329f26526bfc997cf6b50
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694679"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189743"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Escolha o método de autenticação certo para sua solução de identidade híbrida do Azure Active Directory 
 
 Este artigo é o primeiro de uma série de artigos que ajudam as organizações a implementar uma solução de identidade híbrida completa do Azure AD (Azure Active Directory). Esta solução foi descrita como a [Estrutura de Transformação Digital de Identidade Híbrida](https://aka.ms/aadframework). Ela aborda as metas e os resultados dos negócios nos quais as organizações podem se concentrar para implementar uma solução de identidade híbrida robusta e segura. 
 
-O primeiro resultado comercial da estrutura explica os requisitos para as organizações protegerem o processo de autenticação quando os usuários acessam aplicativos de nuvem. A primeira meta nos resultados dos negócios protegidos por autenticação é a capacidade de os usuários entrarem em aplicativos de nuvem usando seus nomes de usuário e senhas locais. Esse processo de entrada e a maneira como os usuários se autenticam tornam tudo que está na nuvem possível.
+O primeiro resultado comercial da estrutura explica os requisitos para as organizações protegerem o processo de autenticação quando os usuários acessam aplicativos de nuvem. A primeira meta nos resultados dos negócios protegidos por autenticação é a capacidade de os usuários entrarem em aplicativos de nuvem usando seus nomes de usuário e senhas locais. Esse processo de logon e autenticação possibilita tudo na nuvem.
 
 Escolher o método de autenticação correto é a principal preocupação para organizações que desejam migrar seus aplicativos para a nuvem. Não subestime essa decisão pelos seguintes motivos:
 
@@ -135,10 +135,10 @@ Consulte a [implementação da autenticação de passagem](https://docs.microsof
 
 * **Cenários avançados**. Uma solução de autenticação federada costuma ser necessária quando os clientes têm um requisito de autenticação ao qual o Azure AD não dá suporte nativamente. Veja informações detalhadas para ajudá-lo a [escolher a opção ideal de entrada](https://blogs.msdn.microsoft.com/samueld/2017/06/13/choosing-the-right-sign-in-option-to-connect-to-azure-ad-office-365/). Considere os seguintes requisitos comuns:
 
-    * Autenticação que exige certificados ou cartões inteligentes.
-    * Servidores MFA locais ou provedores de autenticação multifator de terceiros.
-    * Autenticação usando soluções de autenticação de terceiros. Consulte a [lista de compatibilidade de federação do Azure AD](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-compatibility).
-    * Entrada que exige um sAMAccountName, por exemplo, DOMAIN\nome de usuário, em vez de um nome UPN, por exemplo, user@domain.com.
+  * Autenticação que exige certificados ou cartões inteligentes.
+  * Servidores MFA locais ou provedores de autenticação multifator de terceiros.
+  * Autenticação usando soluções de autenticação de terceiros. Consulte a [lista de compatibilidade de federação do Azure AD](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-compatibility).
+  * Entrada que exige um sAMAccountName, por exemplo, DOMAIN\nome de usuário, em vez de um nome UPN, por exemplo, user@domain.com.
 
 * **Continuidade dos negócios**. Normalmente, os sistemas federados exigem uma matriz com balanceamento de carga de servidores, conhecida como um farm. Esse farm é configurado em uma rede interna e topologia de rede de perímetro para garantir a alta disponibilidade para as solicitações de autenticação.
 
@@ -161,7 +161,7 @@ Os diagramas a seguir descrevem os componentes da arquitetura de alto nível nec
 
     ![Identidade híbrida do Azure AD com Sincronização de hash de senha](media/azure-ad/azure-ad-authn-image2.png)
 
-* Requisitos de autenticação de passagem do agente:
+* Requisitos do agente de autenticação de passagem, usando dois agentes para redundância:
 
     ![Identidade híbrida do Azure AD com Autenticação de passagem](media/azure-ad/azure-ad-authn-image3.png)
 
@@ -180,7 +180,7 @@ Os diagramas a seguir descrevem os componentes da arquitetura de alto nível nec
 |Há alguma solução de monitoramento de integridade?|Não requerido|Status do agente fornecido pelo [Centro de administração do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-pass-through-authentication)|[Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-adfs)|
 |Usuários podem obter o logon único para recursos de nuvem de dispositivos que ingressaram no domínio dentro da rede da empresa?|Sim, com [SSO Contínuo](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)|Sim, com [SSO Contínuo](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)|sim|
 |Há suporte para quais tipos de entrada?|Nome Principal do Usuário + senha<br><br>Autenticação Integrada do Windows usando [SSO Contínuo](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)<br><br>[ID de logon alternativa](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-custom)|Nome Principal do Usuário + senha<br><br>Autenticação Integrada do Windows usando [SSO Contínuo](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)<br><br>[ID de logon alternativa](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq)|Nome Principal do Usuário + senha<br><br>sAMAccountName + senha<br><br>Autenticação Integrada do Windows<br><br>[Autenticação de certificado e cartão inteligente](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[ID de logon alternativa](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|
-|Há suporte para o Windows Hello for Business?|[Modelo de confiança de chave](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Modelo de confiança de certificado com o Intune](https://blogs.technet.microsoft.com/microscott/setting-up-windows-hello-for-business-with-intune/)|[Modelo de confiança de chave](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Modelo de confiança de certificado com o Intune](https://blogs.technet.microsoft.com/microscott/setting-up-windows-hello-for-business-with-intune/)<br>*Requer nível funcional do domínio do Windows Server 2016*|[Modelo de confiança de chave](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Modelo de confiança de certificado](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-key-trust-adfs)|
+|Há suporte para o Windows Hello for Business?|[Modelo de confiança de chave](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Modelo de confiança de certificado com o Intune](https://microscott.azurewebsites.net/2017/12/16/setting-up-windows-hello-for-business-with-intune/)|[Modelo de confiança de chave](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Modelo de confiança de certificado com o Intune](https://microscott.azurewebsites.net/2017/12/16/setting-up-windows-hello-for-business-with-intune/)<br>*Requer nível funcional do domínio do Windows Server 2016*|[Modelo de confiança de chave](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Modelo de confiança de certificado](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-key-trust-adfs)|
 |Quais são as opções de autenticação multifator?|[MFA do Azure](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Controles personalizados com acesso condicional*](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)|[MFA do Azure](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Controles personalizados com acesso condicional*](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)|[MFA do Azure](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Servidor MFA do Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-deploy)<br><br>[MFA de Terceiros](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)<br><br>[Controles personalizados com acesso condicional*](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)|
 |Há suporte para quais estados de conta de usuário?|Contas desabilitadas<br>(até 30 minutos de atraso)|Contas desabilitadas<br><br>Conta bloqueada<br><br>Conta expirada<br><br>Senha expirada<br><br>Horários de entrada|Contas desabilitadas<br><br>Conta bloqueada<br><br>Conta expirada<br><br>Senha expirada<br><br>Horários de entrada|
 |Quais são as opções de acesso condicional?|[Acesso condicional do Azure AD, com o Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)|[Acesso condicional do Azure AD, com o Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)|[Acesso condicional do Azure AD, com o Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)<br><br>[Regras de declaração do AD FS](https://adfshelp.microsoft.com/AadTrustClaims/ClaimsGenerator)|
@@ -204,7 +204,7 @@ Use ou habilite a sincronização de hash de senha para o método de autenticaç
 
    * As organizações que anteriormente ativaram a sincronização de hash de senha alteraram seu método de autenticação para usar a sincronização de hash de senha. Elas voltaram a ficar online em questão de horas. Usando o acesso ao email por meio do Office 365, elas trabalharam para resolver os problemas e acessar outras cargas de trabalho baseadas em nuvem.
 
-   * As organizações que anteriormente não habilitaram a sincronização de hash de senha precisaram recorrer a sistemas de email de consumidor externo não confiáveis para comunicação e resolução dos problemas. Nesses casos, elas demoraram semanas ou mais para voltar à operação.
+   * As organizações que anteriormente não habilitaram a sincronização de hash de senha precisavam recorrer a sistemas de email de consumidor externo não confiáveis para comunicações resolver problemas. Nesses casos, ele levava semanas-los para restaurar sua infraestrutura de identidade local, antes dos usuários eram capazes de entrar em aplicativos baseados em nuvem novamente.
 
 3. **Proteção de identidade**. Uma das melhores maneiras de proteger os usuários na nuvem é o Azure AD Identity Protection com o Azure AD Premium P2. A Microsoft examina a Internet continuamente para ver se há listas de usuários e de senhas comercializadas e disponibilizadas por atores mal-intencionados na dark Web. O Azure AD poderá usar essas informações para verificar se os nomes de usuário e senhas em sua organização estiverem comprometidos. Portanto, é fundamental habilitar a sincronização de hash de senha, independentemente do método de autenticação usado, seja a autenticação federada, seja a de passagem. As credenciais vazadas são apresentadas como um relatório. Use essas informações para bloquear ou forçar os usuários a alterar suas senhas quando tentarem entrar com senhas vazadas.
 

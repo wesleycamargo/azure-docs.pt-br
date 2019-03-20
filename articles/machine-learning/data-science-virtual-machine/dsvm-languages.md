@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: bc7a183220219b14cb793f8115284d38d544b0e0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 883e1c11e3485c0bf3441a67a3a191563ea3aed4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453171"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57990793"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>Linguagens com suporte na Máquina Virtual de Ciência de Dados 
 
@@ -222,7 +222,7 @@ O local Julia padrão é um ambiente global legível por todos os usuários. Por
 Abra terminal e simplesmente execute `julia`. 
 * Como usar em um IDE
 
-Use o IDE Julia `Juno` instalado no DSVM e disponível como um atalho no menu do Aplicativo.
+Use `Juno` o IDE Julia instalado no DSVM e disponível como um atalho de menu do aplicativo.
 
 * Como usar no Jupyter
 

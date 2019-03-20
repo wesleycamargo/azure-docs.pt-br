@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: b3fbd91ddf06d4515ee55d24ba9330d0af6dc124
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 84f9472618322111ad2f669ebb172258837620fd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540183"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106059"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>Início rápido: criar uma máquina virtual do servidor Linux usando a CLI do Azure no Azure Stack
 
@@ -46,8 +46,8 @@ Você pode criar uma máquina virtual do Ubuntu Server 16.04 LTS, usando a CLI d
 
 Um grupo de recursos é um contêiner lógico no qual você pode implantar e gerenciar recursos do Azure Stack. Do seu kit de desenvolvimento ou o Azure Stack integrada ao sistema, execute as [criar grupo de az](/cli/azure/group#az-group-create) comando para criar um grupo de recursos.
 
->[!NOTE]
- Valores são atribuídos a todas as variáveis nos exemplos de código. No entanto, você pode atribuir novos valores se você quiser.
+> [!NOTE]
+>  Valores são atribuídos a todas as variáveis nos exemplos de código. No entanto, você pode atribuir novos valores se você quiser.
 
 O exemplo a seguir cria um grupo de recursos chamado myResourceGroup no local de local.
 

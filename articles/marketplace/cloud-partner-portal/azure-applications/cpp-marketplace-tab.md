@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 74b21a9dd8faa8eb35aa8a2ef738bd6303e4cdd7
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 1203f33458c83bbde7a263022b78563bad183143
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53195210"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870730"
 ---
 # <a name="azure-application-marketplace-tab"></a>Guia Marketplace de aplicativo do Azure
 
@@ -66,7 +66,7 @@ A tabela a seguir descreve os artefatos de marketing.
 
 A próxima captura de tela mostra um exemplo de um resultado de pesquisa do Marketplace.
 
-![Resultado da pesquisa de ofertas do Marketplace ](./media/azureapp-marketplace-example-browse.png)
+![Resultado da pesquisa de ofertas do Marketplace](./media/azureapp-marketplace-example-browse.png)
 
 A imagem a seguir mostra como a oferta é exibida no Marketplace depois que um cliente clica no bloco da oferta no resultado da pesquisa.
 

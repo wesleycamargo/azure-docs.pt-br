@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: cb763327eb292feb9d58fb21b1ca808a3f2909aa
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
-ms.translationtype: HT
+ms.openlocfilehash: e4a86585fbf1e00512e9e8e111a9a259663f8a26
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42144145"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536771"
 ---
 # <a name="tpm-attestation"></a>Atestado de TPM
 
 O Serviço de Provisionamento de Dispositivos no Hub IoT é um serviço auxiliar do Hub IoT que você usa para configurar o provisionamento de dispositivo sem interação para um Hub IoT especificado. Com o Serviço de Provisionamento de Dispositivos, é possível provisionar milhões de dispositivos de maneira segura.
 
-Este artigo descreve um processo de atestado de identidade ao usar um [TPM](./concepts-device.md). TPM significa Trusted Platform Module e é um tipo de HSM (módulo de segurança de hardware). Este artigo pressupõe que você está usando um TPM discreto, de firmware ou integrado. Os TPMs emulados para software são adequados para fazer protótipos ou teste, mas não oferecem o mesmo nível de segurança que os TPMs discretos, de firmware ou integrados oferecem. Não recomendamos usar TPMs de software em produção. Para obter mais informações sobre os tipos de TPMs, consulte [Uma breve introdução ao TPM](http://trustedcomputinggroup.org/wp-content/uploads/TPM-2.0-A-Brief-Introduction.pdf).
+Este artigo descreve um processo de atestado de identidade ao usar um [TPM](./concepts-device.md). TPM significa Trusted Platform Module e é um tipo de HSM (módulo de segurança de hardware). Este artigo pressupõe que você está usando um TPM discreto, de firmware ou integrado. Os TPMs emulados para software são adequados para fazer protótipos ou teste, mas não oferecem o mesmo nível de segurança que os TPMs discretos, de firmware ou integrados oferecem. Não recomendamos usar TPMs de software em produção. Para obter mais informações sobre os tipos de TPMs, consulte [Uma breve introdução ao TPM](https://trustedcomputinggroup.org/wp-content/uploads/TPM-2.0-A-Brief-Introduction.pdf).
 
 Este artigo só é relevante para dispositivos que usam o TPM 2.0 com suporte à chave HMAC e suas chaves de endosso. Não é para dispositivos que usam certificados X.509 para autenticação. O TPM é um padrão ISO de todo o setor do Trusted Computing Group, e é possível ler mais sobre ele na [especificação do TPM 2.0 completa](https://trustedcomputinggroup.org/tpm-library-specification/) ou na [especificação ISO/IEC 11889](https://www.iso.org/standard/66510.html). Este artigo também pressupõe que você conhece os pares de chaves públicas e privadas e como elas são usadas para criptografia.
 
@@ -35,7 +35,7 @@ Depois que um dispositivo for configurado e estiver pronto para uso, ele terá u
 
 ![Assumindo a propriedade de um TPM](./media/concepts-tpm-attestation/tpm-ownership.png)
 
-Uma observação sobre assumir a propriedade do TPM: assumir a propriedade de um TPM depende de muitas coisas, incluindo fabricante do TPM, o conjunto de ferramentas do TPM que está sendo usado e o SO do dispositivo. Siga as instruções relevantes para seu sistema para assumir a propriedade.
+Uma observação sobre a propriedade do TPM: Apropriar-se de um TPM depende de muitos fatores, incluindo o fabricante do TPM, o conjunto de ferramentas do TPM que está sendo usado e o sistema operacional do dispositivo. Siga as instruções relevantes para seu sistema para assumir a propriedade.
 
 O Serviço de Provisionamento de Dispositivos usa a parte pública da EK (EK_pub) para identificar e registrar dispositivos. O fornecedor do dispositivo poderá ler o EK_pub durante a fabricação ou testagem final e carregar o EK_pub para o serviço de provisionamento para que o dispositivo seja reconhecido quando se conectar para provisionar. O Serviço de Provisionamento de Dispositivos não verifica a SRK ou o proprietário. Portanto, "limpar" o TPM apagará os dados do cliente, mas a EK (e os outros dados do fornecedor) será preservada e o dispositivo ainda será reconhecido pelo Serviço de Provisionamento de Dispositivos quando ele se conectar para provisionar.
 

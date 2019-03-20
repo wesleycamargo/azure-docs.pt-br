@@ -7,20 +7,23 @@ author: bwren
 manager: carmonm
 editor: ''
 ms.assetid: a831fd90-3f55-423b-8b20-ccbaaac2ca75
-ms.service: monitoring
+ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: 75ed69d749e23f39c03afb09f70a18cc1aed600b
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 67378a5911e5bd83888342aa3773f7f5ed4ccf29
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078568"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102577"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Coletar dados no Log Analytics com um runbook na Automação do Azure
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Você pode coletar uma quantidade significativa de dados no Log Analytics de uma variedade de fontes, inclusive [fontes de dados](../../azure-monitor/platform/agent-data-sources.md) nos agentes e também os [dados coletados do Azure](../../azure-monitor/platform/collect-azure-metrics-logs.md). Porém, há cenários em que você precisa coletar dados que não estão acessíveis por meio dessas fontes padrão. Nesses casos, você pode usar a [API do Coletor de Dados HTTP](../../azure-monitor/platform/data-collector-api.md) para gravar dados ao Log Analytics de qualquer cliente de API REST. Um método comum para realizar essa coleta de dados é usar um runbook na Automação do Azure.
 
 Este tutorial explica o processo para criar e agendar um runbook na Automação do Azure para gravar os dados no Log Analytics.
@@ -63,9 +66,9 @@ As [variáveis de Automação](../../automation/automation-variables.md) contêm
 | Propriedade | Valor da ID do Workspace | Valor da Chave do Workspace |
 |:--|:--|:--|
 | NOME | WorkspaceId | WorkspaceKey |
-| Tipo | Cadeia de caracteres | Cadeia de caracteres |
+| Type | Cadeia de caracteres | Cadeia de caracteres |
 | Valor | Cole a ID do workspace do seu workspace do Log Analytics. | Cole com a chave primária ou secundária do seu workspace do Log Analytics. |
-| Criptografado | Não  | SIM |
+| Criptografado | Não  | Sim |
 
 ## <a name="3-create-runbook"></a>3. Criar runbook
 
@@ -92,7 +95,7 @@ A Automação do Azure tem um editor no portal onde você pode editar e testar s
     # Code copied from the runbook AzureAutomationTutorial.
     $connectionName = "AzureRunAsConnection"
     $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName
-    Connect-AzureRmAccount `
+    Connect-AzAccount `
         -ServicePrincipal `
         -TenantId $servicePrincipalConnection.TenantId `
         -ApplicationId $servicePrincipalConnection.ApplicationId `
@@ -109,7 +112,7 @@ A Automação do Azure tem um editor no portal onde você pode editar e testar s
     $logType = "AutomationJob"
     
     # Get the jobs from the past hour.
-    $jobs = Get-AzureRmAutomationJob -ResourceGroupName $resourceGroupName -AutomationAccountName $automationAccountName -StartTime (Get-Date).AddHours(-1)
+    $jobs = Get-AzAutomationJob -ResourceGroupName $resourceGroupName -AutomationAccountName $automationAccountName -StartTime (Get-Date).AddHours(-1)
     
     if ($jobs -ne $null) {
         # Convert the job data to json
@@ -128,13 +131,13 @@ A Automação do Azure inclui um ambiente de [testar seu runbook](../../automati
 
 ![Runbook de teste](media/runbook-datacollect/test-runbook.png)
 
-6. Clique em **Salvar** para salvar o runbook.
+1. Clique em **Salvar** para salvar o runbook.
 1. Clique em **Painel de teste** para abrir o runbook no ambiente de teste.
-3. Como o runbook tem parâmetros, você será solicitado a inserir valores para eles. Insira o nome do grupo de recursos e a conta de automação da qual você coletará informações do trabalho.
-4. Clique em **Iniciar** para iniciar o runbook.
-3. O runbook iniciará com um status de **Em fila** antes da transferência para **Executando**.
-3. O runbook deve exibir a saída detalhada com os trabalhos coletados no formato json. Se nenhum trabalho estiver listado, isso significará que talvez nenhum trabalho tenha sido criado na conta de automação na última hora. Tente iniciar qualquer runbook na conta de automação e execute o teste novamente.
-4. Verifique se a saída não mostra todos os erros no comando post para o Log Analytics. Você deve ver uma página semelhante a esta.
+1. Como o runbook tem parâmetros, você será solicitado a inserir valores para eles. Insira o nome do grupo de recursos e a conta de automação da qual você coletará informações do trabalho.
+1. Clique em **Iniciar** para iniciar o runbook.
+1. O runbook iniciará com um status de **Em fila** antes da transferência para **Executando**.
+1. O runbook deve exibir a saída detalhada com os trabalhos coletados no formato json. Se nenhum trabalho estiver listado, isso significará que talvez nenhum trabalho tenha sido criado na conta de automação na última hora. Tente iniciar qualquer runbook na conta de automação e execute o teste novamente.
+1. Verifique se a saída não mostra todos os erros no comando post para o Log Analytics. Você deve ver uma página semelhante a esta.
 
     ![Saída de postagem](media/runbook-datacollect/post-output.png)
 
@@ -186,9 +189,9 @@ A maneira mais comum para iniciar um runbook que coleta dados de monitoramento �
 
 Depois de criar a agenda, você precisará definir os valores de parâmetro que serão usados sempre que essa agenda iniciar o runbook.
 
-6. Clique em **Configurar parâmetros e configurações de execução**.
-7. Preencha os valores para **ResourceGroupName** e **AutomationAccountName**.
-8. Clique em **OK**.
+1. Clique em **Configurar parâmetros e configurações de execução**.
+1. Preencha os valores para **ResourceGroupName** e **AutomationAccountName**.
+1. Clique em **OK**.
 
 ## <a name="9-verify-runbook-starts-on-schedule"></a>9. Verificar se o runbook é iniciado no agendamento
 Toda vez que um runbook é iniciado, [um trabalho é criado](../../automation/automation-runbook-execution.md) e qualquer saída é registrada. Na verdade, esses são os mesmos trabalhos que o runbook está coletando. Você pode verificar se o runbook é iniciado conforme o esperado, verificando os trabalhos para o runbook após a hora de início da agenda.

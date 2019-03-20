@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/27/2019
+ms.date: 2/25/2019
 ms.author: monhaber
-ms.openlocfilehash: 8dcaa9b98292e66d81daf3d115159b0c0c1124af
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: dd7dad51f29b4b5034c72085cd789077747faa0b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106709"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106552"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Protegendo suas máquinas e aplicativos na Central de Segurança do Azure
 A Central de Segurança do Azure analisa o estado de segurança de seus recursos do Azure. Quando a Central de Segurança identifica possíveis vulnerabilidades de segurança, ela cria recomendações que orientam você durante o processo de configuração dos controles necessários. As recomendações aplicam-se aos tipos de recursos do Azure: VMs (máquinas virtuais) e computadores, aplicativos, rede, SQL e a identidade e acesso.
@@ -144,21 +144,39 @@ Há três tipos de ícones representados nesta lista:
 
 1. Selecione um aplicativo Web. Abre uma exibição de resumo com três guias:
 
-  - **Recomendações**: com base nas avaliações realizadas pela Central de segurança que falhou.
-  - **Avaliações aprovadas**: lista de avaliações realizadas pela Central de Segurança que foram aprovadas.
-  - **Avaliações não disponíveis**: lista de avaliações que falharam devido a um erro ou a recomendação não é relevante para o Serviço de Aplicativo específico
+   - **Recomendações**: com base nas avaliações realizadas pela Central de segurança que falhou.
+   - **Avaliações aprovadas**: lista de avaliações realizadas pela Central de Segurança que foram aprovadas.
+   - **Avaliações não disponíveis**: lista de avaliações que falharam devido a um erro ou a recomendação não é relevante para o Serviço de Aplicativo específico
 
-  Em **Recomendações** há uma lista das recomendações para o aplicativo Web selecionado e a gravidade de cada recomendação.
+   Em **Recomendações** há uma lista das recomendações para o aplicativo Web selecionado e a gravidade de cada recomendação.
 
-  ![Recomendações dos Serviços de Aplicativos](./media/security-center-virtual-machine-recommendations/app-services-rec.png)
+   ![Recomendações dos Serviços de Aplicativos](./media/security-center-virtual-machine-recommendations/app-services-rec.png)
 
 2. Selecione uma recomendação para ver uma descrição da recomendação e uma lista de recursos não íntegros, recursos íntegros e recursos não examinados.
 
- - Na coluna **Avaliações aprovadas** há uma lista de avaliações aprovadas.  Gravidade dessas avaliações sempre é verde.
+   - Na coluna **Avaliações aprovadas** há uma lista de avaliações aprovadas.  Gravidade dessas avaliações sempre é verde.
 
- -  Selecione uma avaliação passada na lista para obter uma descrição da avaliação, uma lista de recursos íntegros e não íntegros e uma lista de recursos não examinados. Há uma guia para os recursos não íntegros, mas essa lista está sempre vazia, pois a avaliação foi aprovada.
+   - Selecione uma avaliação passada na lista para obter uma descrição da avaliação, uma lista de recursos íntegros e não íntegros e uma lista de recursos não examinados. Há uma guia para os recursos não íntegros, mas essa lista está sempre vazia, pois a avaliação foi aprovada.
 
-    ![Correção do Serviço de Aplicativo](./media/security-center-virtual-machine-recommendations/app-service-remediation.png)
+     ![Correção do Serviço de Aplicativo](./media/security-center-virtual-machine-recommendations/app-service-remediation.png)
+
+## <a name="virtual-machine-scale-sets"></a>conjuntos de escala de máquina virtual
+A Central de Segurança descobre automaticamente se há conjuntos de dimensionamento e recomenda a instalação do Microsoft Monitoring Agent nesses conjuntos de dimensionamento. 
+
+Para instalar o Microsoft Monitoring Agent: 
+
+1. Selecione a recomendação **Instalar o agente de monitoramento no conjunto de dimensionamento de máquinas virtuais**. Uma lista de conjuntos de dimensionamento não monitorados é exibida.
+2. Selecione um conjunto de dimensionamento não íntegro. Siga as instruções para instalar o agente de monitoramento usando um workspace preenchido existente ou crie um novo. Certifique-se de definir o [tipo de preço](security-center-pricing.md) do workspace, se ainda não estiver definido.
+
+   ![Instalar o MMS](./media/security-center-virtual-machine-recommendations/install-mms.png)
+
+Se você quiser definir novos conjuntos de dimensionamento para instalar automaticamente o Microsoft Monitoring Agent:
+1. Vá para Azure Policy e clique em **Definições**.
+2. Procure a política **Implantar o agente do Log Analytics para conjuntos de dimensionamento de VMs do Windows** e clique nela.
+3. Clique em **Atribuir**.
+4. Defina o **Escopo** e o **workspace do Log Analytics** e clique em **Atribuir**.
+
+Se você quiser definir todos os conjuntos de dimensionamento existentes para instalar o Microsoft Monitoring Agent, no Azure Policy, vá para **Correção** e aplique a política existente aos conjuntos de dimensionamento existentes.
 
 
 ## <a name="compute-and-app-recommendations"></a>Recomendações de computação e aplicativo
@@ -208,7 +226,11 @@ Há três tipos de ícones representados nesta lista:
 |Computador|30|Instalar uma solução de avaliação de vulnerabilidades em suas máquinas virtuais|Instalar uma solução de avaliação de vulnerabilidades em suas máquinas virtuais|
 |Computador|1|Migrar máquinas virtuais para novos recursos do Azure Resource Manager|Use o Azure Resource Manager para suas máquinas virtuais para fornecer melhorias de segurança como: controle de acesso mais rígido (RBAC), melhor auditoria, implantação e governança baseadas no Resource Manager, acesso a identidades gerenciadas, acesso ao cofre de chaves para segredos, autenticação baseada no Azure AD e suporte a marcas e grupos de recursos para facilitar o gerenciamento de segurança. |
 |Computador|30|Corrigir vulnerabilidades usando uma solução de avaliação de vulnerabilidades|As máquinas virtuais para as quais uma solução de terceiros de avaliação de vulnerabilidade é implantada estão sendo continuamente avaliadas em relação às vulnerabilidades do aplicativo e do sistema operacional. Sempre que essas vulnerabilidades forem encontradas, elas estarão disponíveis para mais informações como parte da recomendação.|
-
+|Conjunto de escala de máquina virtual |4|Habilitar logs de diagnóstico em Conjuntos de Dimensionamento de Máquinas Virtuais|Habilite os logs e retenha-os por até um ano. Isso permite recriar trilhas de atividades para fins de investigação. Além disso, será útil quando ocorrer um incidente de segurança ou sua rede estiver comprometida.|
+|Conjunto de escala de máquina virtual|35|Corrigir vulnerabilidades na configuração de segurança nos conjuntos de dimensionamento de máquinas virtuais|Corrija as vulnerabilidades na configuração de segurança nos conjuntos de dimensionamento de máquinas virtuais para protegê-los contra ataques. |
+|Conjunto de escala de máquina virtual|5|Corrigir falhas de integridade da proteção do ponto de extremidade nos conjuntos de dimensionamento de máquinas virtuais|Corrija as falhas de integridade da proteção do ponto de extremidade nos conjuntos de dimensionamento de máquinas virtuais para protegê-los contra ameaças e vulnerabilidades. |
+|Conjunto de escala de máquina virtual|10|Instalar solução de proteção do ponto de extremidade nos conjuntos de dimensionamento de máquinas virtuais|Instale uma solução de proteção do ponto de extremidade nos conjuntos de dimensionamento de máquinas virtuais para protegê-los contra ameaças e vulnerabilidades. |
+|Conjunto de escala de máquina virtual|40|Instalar atualizações do sistema nos conjuntos de dimensionamento de máquinas virtuais|Instale a segurança do sistema ausente e as atualizações críticas para proteger os conjuntos de dimensionamento de máquinas virtuais do Windows e Linux. |
  
 
 

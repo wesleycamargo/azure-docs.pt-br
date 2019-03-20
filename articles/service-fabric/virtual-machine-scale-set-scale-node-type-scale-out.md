@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/13/2019
 ms.author: aljo
-ms.openlocfilehash: 01d4af8349d3f5a0f58c4c3fa56b489d739c7b42
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: d732c26fd503f65bbd82bff076873ea5de4edb39
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301699"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455591"
 ---
 # <a name="scale-a-service-fabric-cluster-out-by-adding-a-virtual-machine-scale-set"></a>Dimensione um cluster do Service Fabric adicionando um conjunto de dimensionamento de máquinas virtuais
 Este artigo descreve como dimensionar um cluster do Azure Service Fabric adicionando um novo tipo de nó a um cluster existente. Um cluster do Service Fabric é um conjunto de computadores físicos ou virtuais conectados via rede, nos quais os microsserviços são implantados e gerenciados. Uma máquina ou VM que faz parte de um cluster é chamada de nó. Conjuntos de dimensionamento de máquinas virtuais são um recurso de computação do Azure que você usa para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó definido em um cluster do Azure é [configurado como um conjunto de dimensionamento separado](service-fabric-cluster-nodetypes.md). Então, cada tipo de nó pode ser gerenciado separadamente. Depois de criar um cluster do Service Fabric, você pode dimensionar um cluster horizontalmente adicionando um novo tipo de nó (conjunto de dimensionamento de máquinas virtuais) a um cluster existente.  É possível dimensionar o cluster a qualquer momento, mesmo quando as cargas de trabalho estiverem em execução no cluster.  Na medida em que o cluster for dimensionado, os aplicativos também serão dimensionados automaticamente.
 
 ## <a name="add-an-additional-scale-set-to-an-existing-cluster"></a>Adicionar mais um conjunto de dimensionamento a um cluster existente
-Adicionar um novo tipo de nó (suportado por um conjunto de dimensionamento de máquinas virtuais) a um cluster existente é semelhante à [atualização do tipo de nó primário](service-fabric-scale-up-node-type.md), só que você não usará o mesmo NodeTypeRef; obviamente não desabilitará nenhum conjunto de dimensionamento de máquinas virtuais usado ativamente e não perderá a disponibilidade do cluster se não atualizar o tipo de nó primário. 
+Adicionar um novo tipo de nó (que é apoiado por um conjunto de dimensionamento de máquinas virtuais) em um cluster existente é semelhante à [atualização do tipo de nó primário](service-fabric-scale-up-node-type.md), exceto que você não usará o mesmo NodeTypeRef; obviamente não desabilitar qualquer ativamente usadas conjuntos de dimensionamento de máquinas virtuais, e você não perderá a disponibilidade do cluster se você não atualizar o tipo de nó primário. 
 
 A propriedade NodeTypeRef é declarada dentro das propriedades de extensão do Service Fabric de conjunto de dimensionamento de máqunas virtuais:
 ```json

@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/17/2019
+ms.date: 03/05/2019
 ms.author: juliako
-ms.openlocfilehash: 4127b6b2b2601b640a6fda4ccb60960d1762ee81
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: e7f39b6298dd950147fea7ac21969c53e1b58e2e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56414737"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877863"
 ---
 # <a name="upload-and-index-your-videos"></a>Carregar e indexar seus vídeos  
 
@@ -26,15 +26,17 @@ Ao carregar vídeos com a API do Video Indexer, você tem as seguintes opções 
 
 O artigo mostra como usar a API [Fazer upload de vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) para fazer upload e indexar seus vídeos com base em um URL. O exemplo de código no artigo inclui o código comentado que mostra como carregar a matriz de bytes. <br/>O artigo também discute alguns dos parâmetros que você pode definir na API para alterar o processo e a saída da API.
 
-Depois que o vídeo tiver sido carregado, o Video Indexer codificará opcionalmente o vídeo (discutido no artigo). Ao criar uma conta do Video Indexer, você pode escolher uma conta de avaliação gratuita (em que você obtém um determinado número de minutos de indexação gratuitos) ou uma opção paga (onde você não está limitado pela cota). Com o teste gratuito, o Video Indexer fornece até 600 minutos de indexação gratuita para usuários do site e até 2400 minutos de indexação gratuita para usuários da API. Com a opção paga, você cria uma conta do Indexador de Vídeo que está [conectada à sua assinatura do Azure e a uma conta dos Serviços de Mídia do Azure](connect-to-azure.md). Você paga por minutos indexados, bem como os encargos relacionados à conta de mídia. 
+Depois que o vídeo tiver sido carregado, o Video Indexer codificará opcionalmente o vídeo (discutido no artigo). Ao criar uma conta do Video Indexer, você pode escolher uma conta de avaliação gratuita (em que você obtém um determinado número de minutos de indexação gratuitos) ou uma opção paga (onde você não está limitado pela cota). Com o teste gratuito, o Video Indexer fornece até 600 minutos de indexação gratuita para usuários do site e até 2400 minutos de indexação gratuita para usuários da API. Com a opção paga, você criar uma conta de indexador de vídeo que está [conectado à sua assinatura do Azure e uma conta de serviços de mídia do Azure](connect-to-azure.md). Você paga por minutos indexados, bem como os encargos relacionados à conta de mídia. 
 
 ## <a name="uploading-considerations"></a>Carregando considerações
 
 - Ao fazer o upload do seu vídeo com base no URL (preferencial), o endpoint deve ser protegido com o TLS 1.2 (ou superior)
-- O tamanho de carregamento com a opção de URL está limitado a 25 GB
+- O tamanho de carregamento com a opção de URL é limitado a 30GB
+- Na maioria dos navegadores, o comprimento da URL é limitado a 2.000 caracteres
 - O tamanho de upload com a opção de matriz de bytes é limitado a 2 GB
 - A opção de matriz de bytes atinge o tempo limite após 30 min
 - A URL fornecida no `videoURL` param precisa ser codificado
+- Indexação de ativos de serviços de mídia tem a mesma limitação como a indexação de URL
 
 > [!Tip]
 > É recomendável usar o .NET Framework versão 4.6.2. ou superior porque versões mais antigas do .NET Framework não usam TLS 1.2 por padrão.
@@ -62,16 +64,16 @@ Uma URL usada para notificar o cliente (usando uma solicitação POST) sobre os 
         |state|O estado do vídeo|  
     - Exemplo: https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
 - Pessoa identificada no vídeo:
-    - propriedades
+  - propriedades
     
-        |NOME|DESCRIÇÃO|
-        |---|---|
-        |ID| A id de vídeo|
-        |faceId|A identificação de face que aparece no índice de vídeo|
-        |knownPersonId|A ID da pessoa que é exclusiva dentro de um modelo de detecção facial|
-        |personName|O nome da pessoa|
+      |NOME|DESCRIÇÃO|
+      |---|---|
+      |ID| A id de vídeo|
+      |faceId|A identificação de face que aparece no índice de vídeo|
+      |knownPersonId|A ID da pessoa que é exclusiva dentro de um modelo de detecção facial|
+      |personName|O nome da pessoa|
         
-     - Exemplo: https://test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
+    - Exemplo: https://test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
 
 #### <a name="notes"></a>Observações
 

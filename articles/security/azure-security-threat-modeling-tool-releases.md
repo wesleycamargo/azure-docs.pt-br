@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2019
 ms.author: jegeib
-ms.openlocfilehash: c8a852e4e69ccfed0e8210bf6872c891b017a046
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 06fd659df1ec12bd6d5a7b8fb2ee94ca27d6a87c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496628"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834363"
 ---
 # <a name="threat-modeling-tool-releases"></a>Versões da Threat Modeling Tool
 
@@ -30,7 +30,7 @@ A Microsoft Threat Modeling Tool está liberada no momento como um aplicativo gr
 - Sistemas operacionais com suporte
   - Atualização de Aniversário do Microsoft Windows 10 ou posterior
 - Versão necessária do .NET
-  - .Net 4.7.1 ou posterior
+  - O .NET 4.7.1 ou posterior
 - Requisitos adicionais
   - Uma conexão com a Internet é necessária para receber as atualizações da ferramenta e os modelos.
 

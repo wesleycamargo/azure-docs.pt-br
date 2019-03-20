@@ -6,14 +6,14 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 08/06/2018
+ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: 56fbb5d45e55e63ae887d915367cfc649e531095
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
-ms.translationtype: HT
+ms.openlocfilehash: 9accb41cdb4d780bf137d6872cca022226f902e6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820215"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58180748"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Configure os controles de acesso baseados em função no acelerador da solução de Monitoramento Remoto
 
@@ -21,26 +21,26 @@ Este artigo fornece informações sobre como configurar os controles de acesso b
 
 ## <a name="default-settings"></a>Configurações padrão
 
-Quando você implantar a solução de monitoramento remoto, há duas funções: **Admin** e **Somente Leitura**.
+Quando você implantar a solução de monitoramento remoto, há duas funções: **Admin** e **somente leitura**.
 
 Qualquer usuário na função **Admin** tem acesso total à solução, incluindo as seguintes permissões abaixo. Um usuário na função **Somente leitura** só terá acesso para visualizar a solução.
 
 | Permissão            | Administrador | Somente leitura |
 |----------------       |-------|-----------|
-| Solução de modo de exibição         | SIM   | SIM       |
-| Atualizar alarmes         | SIM   | Não         |
-| Excluir alarmes         | SIM   | Não         |
-| Criar dispositivos        | SIM   | Não         |
-| Atualizar dispositivos        | SIM   | Não         |
-| Excluir dispositivos        | SIM   | Não         |
-| Criar grupos de dispositivos  | SIM   | Não         |
-| Atualizar grupos de dispositivos  | SIM   | Não         |
-| Excluir grupos de dispositivos  | SIM   | Não         |
-| Criar regras          | SIM   | Não         |
-| Atualizar regras          | SIM   | Não         |
-| Excluir regras          | SIM   | Não         |
-| Criar trabalhos           | SIM   | Não         |
-| Atualizar gerenciamento de SIM | SIM   | Não         |
+| Solução de modo de exibição         | Sim   | Sim       |
+| Atualizar alarmes         | Sim   | Não         |
+| Excluir alarmes         | Sim   | Não         |
+| Criar dispositivos        | Sim   | Não         |
+| Atualizar dispositivos        | Sim   | Não         |
+| Excluir dispositivos        | Sim   | Não         |
+| Criar grupos de dispositivos  | Sim   | Não         |
+| Atualizar grupos de dispositivos  | Sim   | Não         |
+| Excluir grupos de dispositivos  | Sim   | Não         |
+| Criar regras          | Sim   | Não         |
+| Atualizar regras          | Sim   | Não         |
+| Excluir regras          | Sim   | Não         |
+| Criar trabalhos           | Sim   | Não         |
+| Atualizar gerenciamento de SIM | Sim   | Não         |
 
 Por padrão, o usuário que implantou a solução recebe automaticamente a função **Admin** e é um proprietário do aplicativo Active Directory Domain Services. Como proprietário de um aplicativo, você pode atribuir funções a outros usuários por meio do portal do Azure. Se desejar que outro usuário atribua s funções na solução, também devem ser definido como um proprietário de aplicativo no portal do Azure.
 

@@ -3,7 +3,7 @@ title: Solucionar problemas de erros de inicialização do BitLocker em uma VM d
 description: Aprenda a solucionar problemas de erros de inicialização do BitLocker em uma VM do Azure
 services: virtual-machines-windows
 documentationCenter: ''
-authors: genli
+author: genlin
 manager: cshepard
 editor: v-jesits
 ms.service: virtual-machines-windows
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/31/2018
 ms.author: genli
-ms.openlocfilehash: 3a615beeec45871aab1e98ad338ffa053ddbec92
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: a7bd812d3aadfd3c358c8d0aeccf0e92ed474a05
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984759"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993198"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Erros de inicialização do BitLocker em uma VM do Azure
 
@@ -26,13 +26,13 @@ ms.locfileid: "55984759"
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
- ## <a name="symptom"></a>Sintoma
+## <a name="symptom"></a>Sintoma
 
  Uma VM do Windows não inicia. Ao verificar as capturas de tela na janela [Diagnóstico de inicialização ](../windows/boot-diagnostics.md), você verá uma das seguintes mensagens de erro:
 
 - Conectar driver USB que tem a chave do BitLocker
 
-- Você está bloqueado! Insira a chave de recuperação para começar novamente (Layout de Teclado: As informações de entrada incorretas foram inseridas muitas vezes, portanto, o computador foi bloqueado para proteger sua privacidade. Para recuperar a chave de recuperação, vá para http://windows.microsoft.com/recoverykeyfaq em outro PC ou dispositivo móvel. Caso seja necessária, a ID da chave é XXXXXXX. Ou, você pode reiniciar o computador.
+- Você está bloqueado! Insira a chave de recuperação para começar novamente (Layout de Teclado: As informações de entrada incorretas foram inseridas muitas vezes, portanto, o computador foi bloqueado para proteger sua privacidade. Para recuperar a chave de recuperação, vá para https://windows.microsoft.com/recoverykeyfaq em outro PC ou dispositivo móvel. Caso seja necessária, a ID da chave é XXXXXXX. Ou, você pode reiniciar o computador.
 
 - Insira a senha para desbloquear esta unidade [ ] Pressione a tecla Insert para ver a senha enquanto você digita.
 - Insira a chave de recuperação para Carregar a chave de recuperação de um dispositivo USB.

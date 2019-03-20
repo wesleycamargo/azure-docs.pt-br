@@ -1,5 +1,5 @@
 ---
-title: Adicionar usuários de colaboração B2B ao Azure Active Directory sem um convite | Microsoft Docs
+title: Adicionar usuários de colaboração B2B sem um link de convite ou um email - Azure Active Directory | Microsoft Docs
 description: É possível permitir que um usuário convidado adicione outros usuários convidados ao Azure AD sem resgatar um convite na colaboração B2B do Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -12,14 +12,14 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90e156f1d1d7bbbb6c4f65a4762977d28a5a0b89
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8c33d9a3755f2fb5397dd013c88ab542e727e125
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182588"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337661"
 ---
-# <a name="add-b2b-collaboration-guest-users-without-an-invitation"></a>Adicionar usuários convidados da colaboração B2B sem um convite
+# <a name="add-b2b-collaboration-guest-users-without-an-invitation-link-or-email"></a>Adicionar os usuários convidados de colaboração B2B sem um link de convite ou um email
 
 Agora é possível convidar um usuário enviando um link direto para um aplicativo compartilhado. Com esse método, usuários convidados não precisam mais usar o email de convite, exceto em alguns casos especiais. Um usuário convidado clica no link do aplicativo, analisa e aceita os termos de privacidade e, em seguida, acessa diretamente o aplicativo. Para obter mais informações, consulte [Resgate do convite de colaboração B2B](redemption-experience.md).   
 

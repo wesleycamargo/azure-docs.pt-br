@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 797838b077993ddcb4120bcf48b026063abbe1ab
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.openlocfilehash: ef75ec40df50931f5a49c06184c61d2f78608dcf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105314"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58015002"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Arquitetura de recuperação de desastre do Azure para o Azure
 
@@ -102,9 +102,10 @@ A tabela a seguir explica os diferentes tipos de consistência.
 Um instantâneo consistente com falha captura os dados que estavam no disco quando o instantâneo foi tirado. Ele não inclui nada na memória.<br/><br/> Ele contém o equivalente dos dados em disco que estariam presentes se a VM falhasse ou se o cabo de alimentação fosse puxado do servidor no instante em que o instantâneo foi tirado.<br/><br/> Um ponto de recuperação consistente com falhas não garante a consistência dos dados para o sistema operacional nem para os aplicativos na VM. | O Site Recovery cria pontos de recuperação consistentes com falhas a cada cinco minutos por padrão. Essa configuração não pode ser modificada.<br/><br/>  | Hoje, a maioria dos aplicativos pode se recuperar bem de pontos consistentes com falhas.<br/><br/> Os pontos de recuperação consistentes com falhas geralmente são suficientes para a replicação de sistemas operacionais e aplicativos, como servidores DHCP e servidores de impressão.
 
 ### <a name="app-consistent"></a>Consistente com aplicativo
+
 **Descrição** | **Detalhes** | **Recomendações**
 --- | --- | ---
-Os pontos de recuperação consistentes com aplicativo são criados com base nos instantâneos consistentes com aplicativo.<br/><br/> Um instantâneo consistente com aplicativo contêm todas as informações em um instantâneo consistente com falhas, além de todos os dados na memória e as transações em andamento. | Os instantâneos consistentes com aplicativo usam o VSS (Serviço de Cópias de Sombra de Volume):<br/><br/>   1) Quando um instantâneo é iniciado, o VSS executa uma operação COW (cópia em gravação) no volume.<br/><br/>   2) Antes de executar o COW, o VSS informa todos os aplicativos do computador de que precisa liberar seus dados residentes na memória para o disco.<br/><br/>   3) Em seguida, o VSS permite que o aplicativo de backup/recuperação de desastre (nesse caso, o Site Recovery) leia os dados de instantâneo e continue. | Os instantâneos consistentes com aplicativo são tirados de acordo com a frequência especificada. Essa frequência sempre deve ser inferior àquela definida para a retenção de pontos de recuperação. Por exemplo, se você retém os pontos de recuperação usando a configuração padrão de 24 horas, defina a frequência como inferior a 24 horas.<br/><br/>Eles são mais complexos e levam mais tempo para serem concluídos do que os instantâneos consistentes com falhas.<br/><br/> Elas afetam o desempenho de aplicativos executados em uma VM habilitada para replicação. | <br/><br/>Pontos de recuperação de aplicativo consistente são recomendados para aplicativos e sistemas operacionais de banco de dados, como SQL.<br/><br/> Só há suporte para instantâneos consistentes com aplicativo em VMs que executam o Windows.
+Os pontos de recuperação consistentes com aplicativo são criados com base nos instantâneos consistentes com aplicativo.<br/><br/> Um instantâneo consistente com aplicativo contêm todas as informações em um instantâneo consistente com falhas, além de todos os dados na memória e as transações em andamento. | Os instantâneos consistentes com aplicativo usam o VSS (Serviço de Cópias de Sombra de Volume):<br/><br/>   1) Quando um instantâneo é iniciado, o VSS executa uma operação COW (cópia em gravação) no volume.<br/><br/>   2) Antes de executar o COW, o VSS informa todos os aplicativos do computador de que precisa liberar seus dados residentes na memória para o disco.<br/><br/>   3) Em seguida, o VSS permite que o aplicativo de backup/recuperação de desastre (nesse caso, o Site Recovery) leia os dados de instantâneo e continue. | Os instantâneos consistentes com aplicativo são tirados de acordo com a frequência especificada. Essa frequência sempre deve ser inferior àquela definida para a retenção de pontos de recuperação. Por exemplo, se você retém os pontos de recuperação usando a configuração padrão de 24 horas, defina a frequência como inferior a 24 horas.<br/><br/>Eles são mais complexos e levam mais tempo para serem concluídos do que os instantâneos consistentes com falhas.<br/><br/> Elas afetam o desempenho de aplicativos executados em uma VM habilitada para replicação. 
 
 ## <a name="replication-process"></a>Processo de replicação
 
@@ -116,8 +117,7 @@ Quando você habilita a replicação para uma VM do Azure, ocorre o seguinte:
 4. O Site Recovery processa os dados no cache e envia-os para a conta de armazenamento de destino ou para os discos gerenciados de réplica.
 5. Depois que os dados são processados, os pontos de recuperação consistentes com falhas são gerados a cada cinco minutos. Os pontos de recuperação consistentes com aplicativo são gerados de acordo com a configuração especificada na política de replicação.
 
-
-   ![Habilitar o processo de replicação, etapa 2](./media/concepts-azure-to-azure-architecture/enable-replication-step-2.png)
+![Habilitar o processo de replicação, etapa 2](./media/concepts-azure-to-azure-architecture/enable-replication-step-2.png)
 
 **Processo de replicação**
 

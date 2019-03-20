@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: jingwang
-ms.openlocfilehash: ed861aa914da999bdb2922bc309f05d1234ef416
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: eeab0311519d7e3410ddb625c1801101ad63ad18
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54018476"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550409"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>Copiar dados de uma fonte OData usando o Azure Data Factory
 
@@ -48,9 +48,9 @@ As propriedades a seguir são compatíveis com o serviço vinculado do OData:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade **type** precisa ser definida como **OData**. |SIM |
-| url | A URL raiz do serviço OData. |SIM |
-| authenticationType | O tipo de autenticação usado para se conectar à fonte OData. Os valores permitidos são **Anonymous**, **Basic**, **Windows**, **AadServicePrincipal** e **ManagedServiceIdentity**. OAuth baseado no usuário não é compatível. | SIM |
+| Tipo | A propriedade **type** precisa ser definida como **OData**. |Sim |
+| url | A URL raiz do serviço OData. |Sim |
+| authenticationType | O tipo de autenticação usado para se conectar à fonte OData. Os valores permitidos são **Anonymous**, **Basic**, **Windows**, **AadServicePrincipal** e **ManagedServiceIdentity**. OAuth baseado no usuário não é compatível. | Sim |
 | userName | Especifique o **userName** se estiver usando a autenticação Básica ou do Windows. | Não  |
 | Senha | Especifique a **senha** da conta de usuário que você especificou para **userName**. Marque esse campo como um tipo **SecureString** para armazená-lo com segurança no Data Factory. Você também pode [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não  |
 | servicePrincipalId | Especifique a ID do cliente do aplicativo do Azure Active Directory. | Não  |
@@ -70,7 +70,7 @@ As propriedades a seguir são compatíveis com o serviço vinculado do OData:
     "properties": {
         "type": "OData",
         "typeProperties": {
-            "url": "http://services.odata.org/OData/OData.svc",
+            "url": "https://services.odata.org/OData/OData.svc",
             "authenticationType": "Anonymous"
         },
         "connectVia": {
@@ -197,8 +197,8 @@ Para copiar dados do OData, defina a propriedade **type** do conjunto de dados c
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade **type** do conjunto de dados precisa ser definida como **ODataResource**. | SIM |
-| caminho | O caminho para o recurso OData. | SIM |
+| Tipo | A propriedade **type** do conjunto de dados precisa ser definida como **ODataResource**. | Sim |
+| caminho | O caminho para o recurso OData. | Sim |
 
 **Exemplo**
 
@@ -232,8 +232,8 @@ Para copiar dados do OData, defina o tipo de **origem** na Atividade de Cópia c
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade **type** da fonte da Atividade de Cópia precisa ser definida como **RelationalSource**. | SIM |
-| query | Opções de consulta OData para filtrar dados. Exemplo: `"?$select=Name,Description&$top=5"`.<br/><br/>**Observação**: o conector do OData copia os dados da URL combinada: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Para saber mais, confira as [Componentes da URL do OData](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Não  |
+| Tipo | A propriedade **type** da fonte da Atividade de Cópia precisa ser definida como **RelationalSource**. | Sim |
+| query | Opções de consulta OData para filtrar dados. Exemplo: `"?$select=Name,Description&$top=5"`.<br/><br/>**Observação**: o conector do OData copia os dados da URL combinada: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Para saber mais, confira as [Componentes da URL do OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Não  |
 
 **Exemplo**
 

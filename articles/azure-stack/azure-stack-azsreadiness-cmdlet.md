@@ -16,12 +16,12 @@ ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/04/2018
-ms.openlocfilehash: 63de39fa97850c1df72bdcd964ed670e4e8b0608
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 0b75085754a66fabf07076282c977acd7f10a556
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767185"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992328"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Referência de cmdlet Start-AzsReadinessChecker
 
@@ -299,6 +299,7 @@ Neste exemplo, a equipe de suporte ou implantação recebe o relatório de pront
 > -RegionName
 
 Especifica o nome da região da implantação do Azure Stack.
+
 |  |  |
 |----------------------------|--------------|
 |Digite:                       |Cadeia de caracteres        |
@@ -310,6 +311,7 @@ Especifica o nome da região da implantação do Azure Stack.
 > -FQDN
 
 Especifica o FQDN externo da implantação do Azure Stack, também tem um alias como ExternalFQDN e ExternalDomainName.
+
 |  |  |
 |----------------------------|--------------|
 |Digite:                       |Cadeia de caracteres        |
@@ -321,6 +323,7 @@ Especifica o FQDN externo da implantação do Azure Stack, também tem um alias 
 > -IdentitySystem
 
 Especifica os valores válidos da implantação do Azure Stack sistema de identidade, AAD ou ADFS, para o Azure Active Directory e Active Directory Federated Services respectivamente.
+
 |  |  |
 |----------------------------|--------------|
 |Digite:                       |Cadeia de caracteres        |
@@ -333,6 +336,7 @@ Especifica os valores válidos da implantação do Azure Stack sistema de identi
 > -PfxPassword
 
 Especifica a senha associada a arquivos de certificado PFX.
+
 |  |  |
 |----------------------------|---------|
 |Digite:                       |SecureString |
@@ -344,6 +348,7 @@ Especifica a senha associada a arquivos de certificado PFX.
 > -PaaSCertificates
 
 Especifica a tabela de hash que contêm caminhos e as senhas para certificados de PaaS.
+
 |  |  |
 |----------------------------|---------|
 |Digite:                       |Tabela de hash |
@@ -355,6 +360,7 @@ Especifica a tabela de hash que contêm caminhos e as senhas para certificados d
 > -DeploymentDataJSONPath
 
 Especifica o arquivo de configuração do Azure Stack implantação dados JSON. Esse arquivo é gerado para a implantação.
+
 |  |  |
 |----------------------------|---------|
 |Digite:                       |Cadeia de caracteres   |
@@ -366,6 +372,7 @@ Especifica o arquivo de configuração do Azure Stack implantação dados JSON. 
 > -PfxPath
 
 Especifica o caminho para um certificado de um problema que exige a rotina de importação/exportação para corrigir, conforme indicado pela validação do certificado nessa ferramenta.
+
 |  |  |
 |----------------------------|---------|
 |Digite:                       |Cadeia de caracteres   |
@@ -377,6 +384,7 @@ Especifica o caminho para um certificado de um problema que exige a rotina de im
 > -ExportPFXPath  
 
 Especifica o caminho de destino para o arquivo PFX resultante da rotina de importação/exportação.  
+
 |  |  |
 |----------------------------|---------|
 |Digite:                       |Cadeia de caracteres   |
@@ -388,6 +396,7 @@ Especifica o caminho de destino para o arquivo PFX resultante da rotina de impor
 > -Assunto
 
 Especifica um dicionário ordenado do assunto para a geração de solicitação de certificado.
+
 |  |  |
 |----------------------------|---------|
 |Digite:                       |OrderedDictionary   |
@@ -415,6 +424,7 @@ Especifica o tipo de SAN da solicitação de certificado. Valid values MultipleC
 > -OutputRequestPath
 
 Especifica o caminho de destino para arquivos de solicitação de certificado, o diretório já deve existir.
+
 |  |  |
 |----------------------------|---------|
 |Digite:                       |Cadeia de caracteres   |
@@ -426,6 +436,7 @@ Especifica o caminho de destino para arquivos de solicitação de certificado, o
 > -AADServiceAdministrator
 
 Especifica o administrador do serviço de diretório do Azure Active Directory a ser usado para implantação do Azure Stack.
+
 |  |  |
 |----------------------------|---------|
 |Digite:                       |PSCredential   |
@@ -437,6 +448,7 @@ Especifica o administrador do serviço de diretório do Azure Active Directory a
 > -AADDirectoryTenantName
 
 Especifica o nome do Active Directory do Azure a ser usado para implantação do Azure Stack.
+
 |  |  |
 |----------------------------|---------|
 |Digite:                       |Cadeia de caracteres   |
@@ -448,6 +460,7 @@ Especifica o nome do Active Directory do Azure a ser usado para implantação do
 > -AzureEnvironment
 
 Especifica a instância dos serviços do Azure que contém as contas, diretórios e assinaturas a ser usado para registro e implantação do Azure Stack.
+
 |  |  |
 |----------------------------|---------|
 |Digite:                       |Cadeia de caracteres   |
@@ -460,6 +473,7 @@ Especifica a instância dos serviços do Azure que contém as contas, diretório
 > -RegistrationAccount
 
 Especifica a conta de registro a ser usado para registro do Azure Stack.
+
 |  |  |
 |----------------------------|---------|
 |Digite:                       |Cadeia de caracteres   |
@@ -471,6 +485,7 @@ Especifica a conta de registro a ser usado para registro do Azure Stack.
 > -RegistrationSubscriptionID
 
 Especifica a ID de assinatura de registro a ser usado para registro do Azure Stack.
+
 |  |  |
 |----------------------------|---------|
 |Digite:                       |Guid     |
@@ -482,6 +497,7 @@ Especifica a ID de assinatura de registro a ser usado para registro do Azure Sta
 > -ReportPath
 
 Especifica o caminho para o relatório de preparação, o padrão é nome de relatório padrão e o diretório atual.
+
 |  |  |
 |----------------------------|---------|
 |Digite:                       |Cadeia de caracteres   |
@@ -527,6 +543,7 @@ Especifica se os serviços de PaaS/nomes de host deve ser adicionado para as sol
 > -ReportSections
 
 Especifica se Mostrar relatório de resumo, apenas omite detalhes.
+
 |  |  |
 |----------------------------|---------|
 |Digite:                       |Cadeia de caracteres   |
@@ -539,6 +556,7 @@ Especifica se Mostrar relatório de resumo, apenas omite detalhes.
 > -Resumo
 
 Especifica se Mostrar relatório de resumo, apenas omite detalhes.
+
 |  |  |
 |----------------------------|------------------|
 |Digite:                       |SwitchParameter   |
@@ -550,6 +568,7 @@ Especifica se Mostrar relatório de resumo, apenas omite detalhes.
 > -CleanReport
 
 Remove o histórico de execução e validação anterior e grava as validações em um novo relatório.
+
 |  |  |
 |----------------------------|------------------|
 |Digite:                       |SwitchParameter   |
@@ -574,6 +593,7 @@ Especifica o caminho personalizado para salvar o relatório de prontidão para J
 > -Confirm
 
 Solicita sua confirmação antes de executar o cmdlet.
+
 |  |  |
 |----------------------------|------------------|
 |Digite:                       |SwitchParameter   |
@@ -586,6 +606,7 @@ Solicita sua confirmação antes de executar o cmdlet.
 > -WhatIf
 
 Mostra o que aconteceria se o cmdlet fosse executado. O cmdlet não é executado.
+
 |  |  |
 |----------------------------|------------------|
 |Digite:                       |SwitchParameter   |
@@ -594,3 +615,4 @@ Mostra o que aconteceria se o cmdlet fosse executado. O cmdlet não é executado
 |Valor padrão:              |Falso             |
 |Aceite entrada de pipeline:      |Falso             |
 |Aceite caracteres curinga: |Falso             |
+
