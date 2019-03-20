@@ -1,6 +1,6 @@
 ---
-title: Criar exibições para analisar dados no Log Analytics do Azure | Microsoft Docs
-description: Ao usar Designer de Exibição no Log Analytics, é possível criar exibições personalizadas que são exibidas no Portal do Azure e conter uma variedade de visualizações de dados no workspace do Log Analytics. Este artigo contém uma visão geral do Designer de Exibição e apresenta procedimentos para criar e editar exibições personalizadas.
+title: Criar exibições para analisar dados de log no Azure Monitor | Microsoft Docs
+description: Usando o Designer de exibição no Azure Monitor, você pode criar exibições personalizadas que são exibidas no portal do Azure e contenham uma variedade de visualizações de dados no espaço de trabalho do Log Analytics. Este artigo contém uma visão geral do Designer de Exibição e apresenta procedimentos para criar e editar exibições personalizadas.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,15 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: ec56e21a989fb0e8db7b8bafb1357c6ed64eae75
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1996befa78409e572798a9043f7e6ee3b6f647bc
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192236"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887890"
 ---
-# <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Criar exibições personalizadas usando o Designer de Exibição no Log Analytics
-Ao usar o Designer de Exibição no [Azure Log Analytics](../../azure-monitor/log-query/log-query-overview.md), é possível criar uma variedade de exibições personalizadas no Portal do Azure que podem ajudá-lo a visualizar dados no workspace do Log Analytics. Este artigo apresenta uma visão geral do Designer de Exibição e procedimentos para criar e editar exibições personalizadas.
+# <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Criar exibições personalizadas usando o Designer de exibição no Azure Monitor
+Usando o Designer de exibição no Azure Monitor, você pode criar uma variedade de modos de exibição personalizados no portal do Azure que pode ajudar você a visualizar os dados em seu espaço de trabalho do Log Analytics. Este artigo apresenta uma visão geral do Designer de Exibição e procedimentos para criar e editar exibições personalizadas.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 Para obter mais informações sobre o Designer de Exibição, consulte:
 
@@ -30,7 +32,7 @@ Para obter mais informações sobre o Designer de Exibição, consulte:
 
 
 ## <a name="concepts"></a>Conceitos
-Modos de exibição são exibidos na página **Visão geral** do seu workspace do Log Analytics no portal do Azure. Os blocos em cada exibição personalizada são exibidos em ordem alfabética e os blocos para as soluções são instalados no mesmo workspace.
+Modos de exibição são exibidos no Azure Monitor **visão geral** página no portal do Azure. Abra essa página do **Azure Monitor** menu clicando em **Mais** na seção **Insights**. Os blocos em cada exibição personalizada são exibidos em ordem alfabética e os blocos para as soluções de monitoramento são instalados mesmo espaço de trabalho.
 
 ![Página de visão geral](media/view-designer/overview-page.png)
 
@@ -38,9 +40,9 @@ As exibições criadas com o Designer de Exibição contêm os elementos descrit
 
 | Parte | DESCRIÇÃO |
 |:--- |:--- |
-| Blocos | São exibidos na página **Visão Geral** do workspace do Log Analytics. Cada bloco exibe um resumo visual da exibição personalizada que representa. Cada tipo de bloco fornece uma visualização diferente de seus registros. Você seleciona um bloco para exibir uma exibição personalizada. |
+| Blocos | São exibidas no Azure Monitor **visão geral** página. Cada bloco exibe um resumo visual da exibição personalizada que representa. Cada tipo de bloco fornece uma visualização diferente de seus registros. Você seleciona um bloco para exibir uma exibição personalizada. |
 | Exibição personalizada | Exibida quando você seleciona um bloco. Cada exibição contém uma ou mais partes de visualização. |
-| Partes de visualização | Apresenta uma visualização de dados no workspace do Log Analytics com base em uma ou mais [pesquisas de logs](../../azure-monitor/log-query/log-query-overview.md). A maioria das partes inclui um cabeçalho, que fornece uma visualização de alto nível e uma lista que exibe os melhores resultados. Cada tipo de parte fornece uma visualização diferente dos registros no workspace do Log Analytics. Você seleciona elementos na parte para executar uma pesquisa de log que fornece registros detalhados. |
+| Partes de visualização | Apresenta uma visualização de dados no espaço de trabalho do Log Analytics com base em um ou mais [registrar consultas](../log-query/log-query-overview.md). A maioria das partes inclui um cabeçalho, que fornece uma visualização de alto nível e uma lista que exibe os melhores resultados. Cada tipo de parte fornece uma visualização diferente dos registros no workspace do Log Analytics. Você pode selecionar elementos na parte para executar uma consulta de log que fornece registros detalhados. |
 
 
 ## <a name="work-with-an-existing-view"></a>Trabalhar com um modo de exibição existente
@@ -53,7 +55,7 @@ As opções estão descritas na tabela a seguir:
 | Opção | DESCRIÇÃO |
 |:--|:--|
 | Atualizar   | Atualiza a exibição com os dados mais recentes. | 
-| Análise | Abre o [portal do Advanced Analytics](../../azure-monitor/log-query/portals.md) para analisar dados com consultas de log. |
+| Logs      | Abre o [do Log Analytics](../log-query/portals.md) para analisar dados com consultas de log. |
 | Editar       | Abre a exibição no Designer de Exibição para editar o conteúdo e a configuração.  |
 | Clone      | Cria uma nova exibição e abre no Designer de Exibição. O nome da nova exibição é o mesmo que o nome original, mas com *Copiar* acrescentado a ele. |
 | Intervalo de datas | Define um filtro de data e tempo para os dados incluídos na exibição. Este intervalo de datas é aplicado antes de quaisquer intervalos de datas definidos nas consultas na exibição.  |

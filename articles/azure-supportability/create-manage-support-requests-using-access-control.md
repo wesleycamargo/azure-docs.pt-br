@@ -1,18 +1,18 @@
 ---
 title: O Controle de Acesso Baseado em Função (RBAC) do Azure para controlar os direitos de acesso para criação e gerenciamento de solicitações de suporte | Microsoft Docs
-description: O Controle de Acesso Baseado em Função (RBAC) do Azure para controlar os direitos de acesso para criação e gerenciamento de solicitações de suporte.
+description: O Controle de Acesso Baseado em Função (RBAC) do Azure para controlar os direitos de acesso para criação e gerenciamento de solicitações de suporte
 author: ganganarayanan
 ms.author: gangan
 ms.date: 1/31/2017
 ms.topic: article
-ms.service: microsoft-docs
+ms.service: azure
 ms.assetid: 58a0ca9d-86d2-469a-9714-3b8320c33cf5
-ms.openlocfilehash: c3557d54b9fb3fd0173eec1e327050ac7cc80fc2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: HT
+ms.openlocfilehash: d98d0637c6d520193b11f4267c59016772ef063a
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31392894"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792473"
 ---
 # <a name="azure-role-based-access-control-rbac-to-control-access-rights-to-create-and-manage-support-requests"></a>O Controle de Acesso Baseado em Função (RBAC) do Azure para controlar os direitos de acesso para criação e gerenciamento de solicitações de suporte
 
@@ -20,7 +20,7 @@ O [RBAC (Controle de Acesso Baseado em Função)](https://docs.microsoft.com/azu
 A criação de solicitação de suporte no portal do Azure [portal.azure.com](https://portal.azure.com) usa o modelo RBAC do Azure para definir quem pode criar e gerenciar solicitações de suporte.
 O acesso é concedido ao atribuir a função RBAC apropriada a usuários, grupos e aplicativos em determinado escopo, que pode ser uma assinatura, um recurso ou um grupo de recursos.
 
-Vejamos um exemplo: como proprietário de um grupo de recursos com permissões de leitura no escopo de assinatura, você pode gerenciar todos os recursos do grupo de recursos, tais como sites, máquinas virtuais e sub-redes.
+Vejamos um exemplo: Como um proprietário do grupo de recursos com permissões de leitura no escopo da assinatura, você pode gerenciar todos os recursos no grupo de recursos, como sites, máquinas virtuais e sub-redes.
 No entanto, se tentar criar uma solicitação de suporte relativa ao recurso de máquina virtual, você vai encontrar o seguinte erro
 
 ![Erro de assinatura](./media/create-manage-support-requests-using-access-control/subscription-error.png)

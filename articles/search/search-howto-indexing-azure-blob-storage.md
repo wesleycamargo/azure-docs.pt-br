@@ -1,7 +1,7 @@
 ---
 title: Indexar o conteúdo do Armazenamento de Blobs do Azure para pesquisa de texto completo – Azure Search
 description: Saiba como indexar o Armazenamento de Blobs do Azure e extrair texto de documentos com o Azure Search.
-ms.date: 10/17/2018
+ms.date: 03/01/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 2a282b76805ab91215d6b34ea30a7008d8c8244b
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 87dc1dab0670f69ff8c418be476986baec2821fb
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467955"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310872"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indexação de documentos no Armazenamento de Blobs do Azure com o Azure Search
 Este artigo mostra como usar o Azure Search para indexar documentos (como PDFs, documentos do Microsoft Office e vários outros formatos comuns) armazenados no armazenamento de blobs do Azure. Primeiro, ele explica as noções básicas de configuração de um indexador de blob. Em seguida, ele explora mais profundamente os comportamentos e cenários que você pode encontrar.
@@ -68,7 +68,7 @@ Para obter mais informações sobre Criar a API da Fonte de Dados, consulte [Cri
 
 Você pode fornecer as credenciais para o contêiner de blobs de uma das seguintes maneiras:
 
-- **Cadeia de conexão da conta de armazenamento de acesso total**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`. É possível obter a cadeia de conexão no portal do Azure navegando para a folha da conta de armazenamento > Configurações > Chaves (para contas de armazenamento Clássicas) ou Configurações > Chaves de acesso (para contas de armazenamento do Azure Resource Manager).
+- **Cadeia de conexão da conta de armazenamento com acesso completo**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` Você pode obter a cadeia de conexão do portal do Azure, navegando até a folha da conta de armazenamento > Configurações > chaves (para contas de armazenamento clássicas) ou configurações > chaves de acesso (para contas de armazenamento do Azure Resource Manager).
 - Cadeia de conexão da SAS **(assinatura de acesso compartilhado) de conta de armazenamento**: `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` As SAS devem ter as permissões de lista e leitura nos contêineres e objetos (blobs neste caso).
 -  **Assinatura de Acesso Compartilhado do contêiner**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` As SAS devem ter a lista e permissões de leitura no contêiner.
 
@@ -333,7 +333,7 @@ A indexação de blobs pode ser um processo demorado. Nos casos em que você tem
 
 Talvez você queira "montar" documentos de várias fontes em seu índice. Por exemplo, convém mesclar texto de blobs com outros metadados armazenados no Cosmos DB. Você pode até usar a API de indexação por push junto a vários indexadores para criar documentos de pesquisa de várias partes. 
 
-Para que isso funcione, todos os indexadores e outros componentes precisam concordar com a chave de documento. Para obter um passo a passo detalhado, confira este artigo externo: [Combinar documentos com outros dados no Azure Search ](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
+Para que isso funcione, todos os indexadores e outros componentes precisam concordar com a chave de documento. Para obter um passo a passo detalhado, confira este artigo externo: [Combinar documentos com outros dados no Azure Search](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
 
 <a name="IndexingPlainText"></a>
 ## <a name="indexing-plain-text"></a>Indexação de texto sem formatação 

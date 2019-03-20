@@ -2,19 +2,19 @@
 title: Introdução aos dispositivos gêmeos do Hub IoT do Azure (Python) | Microsoft Docs
 description: Como usar dispositivos gêmeos do Hub IoT do Azure para adicionar marcas e usar uma consulta do Hub IoT. Use os SDKs do IoT do Azure para Python para implementar o aplicativo de dispositivo simulado e um aplicativo de serviço que adiciona as marcações e executa a consulta do Hub IoT.
 author: kgremban
-manager: timlt
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 12/04/2017
+ms.date: 02/21/2019
 ms.author: kgremban
-ms.openlocfilehash: 5086c831f45fd9c8e411fb02b21d03795d747c8a
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
-ms.translationtype: HT
+ms.openlocfilehash: edf6fa98224613ba31eeed871cbb0eaf4e614600
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514172"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535290"
 ---
 # <a name="get-started-with-device-twins-python"></a>Introdução aos dispositivos gêmeos (Python)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
@@ -25,18 +25,16 @@ Ao final deste tutorial, você terá dois aplicativos de console do Python:
 * **ReportConnectivity.py**, um aplicativo do Python, que simula um dispositivo que se conecta ao hub IoT com a identidade do dispositivo criada anteriormente e relata sua condição de conectividade.
 
 > [!NOTE]
-> O artigo [SDKs do IoT do Azure][lnk-hub-sdks] fornece informações sobre os SDKs do IoT do Azure que você pode usar para compilar dispositivos e aplicativos back-end.
-> 
-> 
+> O artigo [SDKs de IoT do Azure](iot-hub-devguide-sdks.md) apresenta informações sobre os SDKs de IoT do Azure que você pode usar para criar dispositivos e aplicativos de back-end.
 
 Para concluir este tutorial, você precisará do seguinte:
 
-* [Python 2.x or 3.x][lnk-python-download]. Certifique-se de usar a instalação de 32 bits ou 64 bits conforme exigido pelo seu programa de instalação. Quando solicitado durante a instalação, certifique-se de adicionar Python à variável de ambiente específica da plataforma. Se você estiver usando o Python 2. x, talvez seja necessário [instalar ou atualizar o *pip*, o sistema de gerenciamento de pacotes do Python][lnk-install-pip].
-* Se você estiver usando o sistema operacional Windows, então o [Pacote redistribuível do Visual C++][lnk-visual-c-redist] permite o uso de DLLs nativas do Python.
-* Uma conta ativa do Azure. (Se você não tem uma conta, pode criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.)
+* [Python 2.x ou 3.x](https://www.python.org/downloads/). Certifique-se de usar a instalação de 32 bits ou 64 bits conforme exigido pelo seu programa de instalação. Quando solicitado durante a instalação, certifique-se de adicionar Python à variável de ambiente específica da plataforma. Se você estiver usando o Python 2.x, talvez seja necessário [instalar ou atualizar o *pip*, o sistema de gerenciamento de pacotes do Python](https://pip.pypa.io/en/stable/installing/).
+* Se você está usando o sistema operacional Windows, o [Pacote redistribuível do Visual C++](https://www.microsoft.com/download/confirmation.aspx?id=48145) permite o uso de DLLs nativas do Python.
+* Uma conta ativa do Azure. (Se você não tiver uma conta, poderá criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.)
 
 > [!NOTE]
-> Os pacotes *pip* para `azure-iothub-service-client` e `azure-iothub-device-client` atualmente estão disponíveis apenas para o sistema operacional Windows. Para Linux/Mac OS, confira as seções do Linux e Mac OS específicas na publicação [Preparação do seu ambiente de desenvolvimento para o Python][lnk-python-devbox].
+> Os pacotes *pip* para `azure-iothub-service-client` e `azure-iothub-device-client` atualmente estão disponíveis apenas para o sistema operacional Windows. Para Linux/Mac OS, consulte as seções do Linux e Mac OS específicas sobre o [preparar o ambiente de desenvolvimento para Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) lançar.
 > 
 
 ## <a name="create-an-iot-hub"></a>Crie um hub IoT
@@ -52,7 +50,7 @@ Para concluir este tutorial, você precisará do seguinte:
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## <a name="create-the-service-app"></a>Criar o aplicativo do serviço
-Nesta seção, você cria um aplicativo de console do Python que adiciona metadados de local ao dispositivo gêmeo associado à **{Device Id}**. Em seguida, ele consulta os dispositivos gêmeos armazenados no hub IoT selecionando os dispositivos localizados em Redmond e, depois, aqueles que relatam uma conexão celular.
+Nesta seção, você criará um aplicativo de console Python que adiciona metadados de local para o dispositivo gêmeo associado com seu **{Device ID}**. Em seguida, ele consulta os dispositivos gêmeos armazenados no hub IoT selecionando os dispositivos localizados em Redmond e, depois, aqueles que relatam uma conexão celular.
 
 1. Abra um prompt de comando e instale o **SDK de Serviço do Azure IoT Hub para Python**. Feche o prompt de comando depois de instalar o SDK.
 
@@ -70,7 +68,7 @@ Nesta seção, você cria um aplicativo de console do Python que adiciona metada
     from iothub_service_client import IoTHubRegistryManager, IoTHubRegistryManagerAuthMethod
     from iothub_service_client import IoTHubDeviceTwin, IoTHubError
     ```
-2. Adicione o código a seguir, substituindo o espaço reservado de `[IoTHub Connection String]` e `[Device Id]` pela cadeia de conexão do hub IoT e da ID do dispositivo criado nas seções anteriores.
+2. Adicione o código a seguir, substituindo o espaço reservado para `[IoTHub Connection String]` e `[Device Id]` com a cadeia de conexão para o hub IoT e a ID do dispositivo criado nas seções anteriores.
    
     ```python
     CONNECTION_STRING = "[IoTHub Connection String]"
@@ -152,7 +150,7 @@ Nesta seção, você cria um aplicativo de console do Python que adiciona metada
 Na seção seguinte, você cria um aplicativo de dispositivo que reporta as informações de conectividade e altera o resultado da consulta na seção anterior.
 
 ## <a name="create-the-device-app"></a>Criar o aplicativo do dispositivo
-Nesta seção, você cria um aplicativo de console do Python que se conecta ao seu hub como **{Device Id}** e, em seguida, atualiza as propriedades relatadas de seu dispositivo gêmeo para que elas contenham as informações indicando que ele está conectado usando uma rede de celular.
+Nesta seção, você criará um aplicativo de console Python que se conecta ao seu hub como seu **{Device ID}** e depois atualiza seu dispositivo gêmeo as propriedades reportadas para conter as informações que ele está conectado usando uma rede de celular.
 
 1. Abra um prompt de comando e instale o **SDK de Serviço do Azure IoT Hub para Python**. Feche o prompt de comando depois de instalar o SDK.
 
@@ -259,7 +257,7 @@ Nesta seção, você cria um aplicativo de console do Python que se conecta ao s
     python AddTagsAndQuery.py
     ```
    
-    Desta vez, **{Device Id}** deve aparecer em ambos os resultados da consulta.
+    Desta vez seu **{Device ID}** deve aparecer em ambos os resultados da consulta.
    
     ![segunda consulta][3]
 
@@ -268,37 +266,11 @@ Neste tutorial, você configurou um novo hub IoT no portal do Azure e depois cri
 
 Veja os recursos a seguir para saber como:
 
-* Enviar telemetria de dispositivos com o tutorial [Introdução ao Hub IoT][lnk-iothub-getstarted].
-* Configurar dispositivos usando as propriedades desejadas do dispositivo gêmeo com o tutorial [Usar as propriedades desejadas para configurar dispositivos][lnk-twin-how-to-configure].
-* Controlar dispositivos interativamente (como ativar uma ventoinha de um aplicativo controlado pelo usuário) com o tutorial [Usar métodos diretos][lnk-methods-tutorial].
+* Enviar telemetria de dispositivos com o [Introdução ao IoT Hub](quickstart-send-telemetry-python.md) tutorial,
+* Configurar dispositivos usando as propriedades desejadas do dispositivo gêmeo com o [usar propriedades desejadas para configurar dispositivos](tutorial-device-twins.md) tutorial,
+* Controlar dispositivos interativamente (como ativar uma ventoinha de um aplicativo controlado pelo usuário), com o [usar métodos diretos](quickstart-control-device-python.md) tutorial.
 
 <!-- images -->
 [1]: media/iot-hub-python-twin-getstarted/1.png
 [2]: media/iot-hub-python-twin-getstarted/2.png
 [3]: media/iot-hub-python-twin-getstarted/3.png
-
-<!-- links -->
-[lnk-hub-sdks]: iot-hub-devguide-sdks.md
-[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-
-[lnk-python-download]: https://www.python.org/downloads/
-[lnk-visual-c-redist]: http://www.microsoft.com/download/confirmation.aspx?id=48145
-[lnk-install-pip]: https://pip.pypa.io/en/stable/installing/
-[lnk-python-devbox]: https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md
-
-[lnk-d2c]: iot-hub-devguide-messaging.md#device-to-cloud-messages
-[lnk-methods]: iot-hub-devguide-direct-methods.md
-[lnk-twins]: iot-hub-devguide-device-twins.md
-[lnk-query]: iot-hub-devguide-query-language.md
-[lnk-identity]: iot-hub-devguide-identity-registry.md
-
-[lnk-iothub-getstarted]: quickstart-send-telemetry-python.md
-[lnk-device-management]: iot-hub-node-node-device-management-get-started.md
-[lnk-iot-edge]: ../iot-edge/quickstart-linux.md
-[lnk-connect-device]: https://azure.microsoft.com/develop/iot/
-
-[lnk-twin-how-to-configure]: tutorial-device-twins.md
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
-
-[lnk-methods-tutorial]: quickstart-control-device-node.md
-[lnk-devguide-mqtt]: iot-hub-mqtt-support.md

@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 4da387abe24318a29472c11dffa7aac67192408c
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
-ms.translationtype: HT
+ms.openlocfilehash: a310851819f70d138a4980b1ab61891fb0b2c311
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297410"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959605"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Segurança no Azure Data Lake Storage Gen1
 Muitas empresas estão tirando vantagem da análise de big data para ter ideias de negócios e ajudá-los a tomar decisões inteligentes. Uma organização pode ter um ambiente regulamentado e complexo, com um número crescente de usuários diferentes. É fundamental para uma empresa ter certeza de que os dados essenciais aos negócios são armazenados com mais segurança, com o nível correto de acesso concedido a usuários individuais. O Azure Data Lake Storage Gen1 foi criado para ajudar a atender a esses requisitos de segurança. Neste artigo, saiba mais sobre os recursos de segurança do Azure Data Lake Storage Gen1, incluindo:
 
-* Autenticação
+* Authentication
 * Autorização
 * Isolamento da rede
 * Proteção de dados
@@ -98,7 +98,7 @@ Para trilhas de auditoria de gerenciamento de conta, exiba e escolha as colunas 
 Para obter mais informações sobre como trabalhar com os logs, consulte [Exibir logs de atividades para auditar ações em recursos](../azure-resource-manager/resource-group-audit.md).
 
 ### <a name="diagnostics-logs"></a>Logs de diagnóstico
-Você pode habilitar a auditoria de acesso a dados e o log de diagnóstico no Portal do Azure e enviar os logs para a conta de armazenamento do Azure Blob, um hub de evento ou Log Analytics.
+Você pode habilitar a auditoria de acesso a dados e log de diagnóstico no portal do Azure e enviar os logs para uma conta de armazenamento de BLOBs do Azure, um hub de eventos ou logs do Azure Monitor.
 
 ![Logs de diagnóstico](./media/data-lake-store-security-overview/diagnostic-logs.png "Logs de diagnóstico")
 

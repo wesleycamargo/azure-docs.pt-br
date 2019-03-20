@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: 226fea2df2b4a5d6dd428c1d28d8c09f47bca7de
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8beac9d4a84fdee4e8fa7689d60cb51c20acd671
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162281"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241826"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Então você deseja saber mais sobre o Service Fabric?
 O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, implantação e gerenciamento de microsserviços escalonáveis e confiáveis.  No entanto, o Service Fabric tem uma área de superfície grande, e há muito a aprender.  Este artigo fornece um resumo do Service Fabric e descreve os principais conceitos, modelos de programação, ciclo de vida do aplicativo, teste, clusters e monitoramento de integridade. Leia a [Visão geral](service-fabric-overview.md) e [O que são microsserviços?](service-fabric-overview-microservices.md) para obter uma introdução e saber como o Service Fabric pode ser usado para criar microsserviços. Este artigo não contém uma lista abrangente de conteúdo, mas vincula a visão geral e os artigos de introdução de cada área do Service Fabric. 
@@ -65,7 +65,7 @@ Dentro de uma partição, serviços nomeados sem estado têm instâncias, enquan
 ## <a name="stateless-and-stateful-microservices-for-service-fabric"></a>Microsserviços com e sem estado para o Service Fabric
 O Service Fabric permite compilar aplicativos que consistam em microsserviços ou contêineres. Os microsserviços sem estado (como gateways de protocolo e proxies Web) não mantêm um estado mutável fora de uma solicitação e sua resposta do serviço. As funções de trabalho dos Serviços de Nuvem do Azure são um exemplo de serviço sem estado. Os microsserviços com estado (como contas de usuário, bancos de dados, dispositivos, carrinhos de compra e filas) mantêm um estado mutável e autoritativo além da solicitação e sua resposta. Os aplicativos em escala da Internet de hoje consistem em uma combinação de microsserviços com e sem estado. 
 
-Uma diferença importante com o Service Fabric é seu foco na criação de serviços com estado, com os [modelos de programação internos ](service-fabric-choose-framework.md) ou com serviços com estado em contêineres. Os [cenários de aplicativo](service-fabric-application-scenarios.md) descrevem os cenários em que os serviços com monitoração de estado são usados.
+Uma diferença importante com o Service Fabric é seu foco forte na criação de serviços com monitoração de estado, com o [modelos de programação internas](service-fabric-choose-framework.md) ou com serviços com monitoração de estado em contêineres. Os [cenários de aplicativo](service-fabric-application-scenarios.md) descrevem os cenários em que os serviços com monitoração de estado são usados.
 
 Por que ter microsserviços com estado junto microsserviços sem estado? Os dois motivos principais são:
 
@@ -119,7 +119,7 @@ Um [cluster do Service Fabric](service-fabric-deploy-anywhere.md) é um conjunto
 Os clusters do Service Fabric podem ser criados em máquinas virtuais ou computadores físicos que executam o Windows Server ou Linux. Você pode implantar e executar aplicativos do Service Fabric em qualquer ambiente em que tenha um conjunto de computadores do Windows Server ou do Linux interconectados: locais, no Microsoft Azure ou em qualquer provedor de nuvem.
 
 ### <a name="clusters-on-azure"></a>Clusters no Azure
-A execução de clusters do Service Fabric no Azure proporciona integração a outros recursos e serviços do Azure, o que facilita e torna as operações e o gerenciamento do cluster mais confiável. Um cluster é um recurso do Azure Resource Manager, portanto você pode modelar clusters da mesma maneira que qualquer outro recurso no Azure. O Resource Manager também proporciona o gerenciamento fácil de todos os recursos usados pelo cluster como uma única unidade. Os clusters no Azure são integrados com o diagnóstico do Azure e o Log Analytics. Os tipos de nó de cluster são [conjuntos de dimensionamento de máquinas virtuais](/azure/virtual-machine-scale-sets/index) e, portanto, a funcionalidade de dimensionamento automático é interna.
+A execução de clusters do Service Fabric no Azure proporciona integração a outros recursos e serviços do Azure, o que facilita e torna as operações e o gerenciamento do cluster mais confiável. Um cluster é um recurso do Azure Resource Manager, portanto você pode modelar clusters da mesma maneira que qualquer outro recurso no Azure. O Resource Manager também proporciona o gerenciamento fácil de todos os recursos usados pelo cluster como uma única unidade. Clusters no Azure são integrados com o diagnóstico do Azure e logs do Azure Monitor. Os tipos de nó de cluster são [conjuntos de dimensionamento de máquinas virtuais](/azure/virtual-machine-scale-sets/index) e, portanto, a funcionalidade de dimensionamento automático é interna.
 
 Você pode criar um cluster no Azure por meio do [Portal do Azure](service-fabric-cluster-creation-via-portal.md), de um [modelo](service-fabric-cluster-creation-via-arm.md) ou do [Visual Studio](service-fabric-cluster-creation-via-visual-studio.md).
 

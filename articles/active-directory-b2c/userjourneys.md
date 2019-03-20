@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5c63a838d6cffce5ca45dbf0dde50bb9bd01892c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 8cda538cade4750e03ecb91dfb2c478df730e556
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55171636"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961288"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -37,7 +37,7 @@ O elemento **UserJourney** contém o seguinte atributo:
 
 | Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
-| ID | SIM | Um identificador de um percurso do usuário que pode ser usado para referenciá-lo de outros elementos na política. O elemento **DefaultUserJourney** da [política de terceira parte confiável](relyingparty.md) aponta para esse atributo. |
+| ID | Sim | Um identificador de um percurso do usuário que pode ser usado para referenciá-lo de outros elementos na política. O elemento **DefaultUserJourney** da [política de terceira parte confiável](relyingparty.md) aponta para esse atributo. |
 
 O elemento **UserJourney** contém os seguintes elementos:
 
@@ -49,7 +49,7 @@ O elemento **UserJourney** contém os seguintes elementos:
 
 Um percurso do usuário é representado como uma sequência de orquestração que deve ser seguida para ter uma transação bem-sucedida. Se alguma delas falhar, a transação falhará. Essas etapas de orquestração fazem referência aos blocos de construção e aos provedores de declarações permitidos no arquivo de política. Qualquer etapa de orquestração responsável por mostrar ou renderizar uma experiência do usuário também tem uma referência ao identificador de definição do conteúdo correspondente.
 
-As etapas de orquestração podem ser executadas condicionalmente com base nas condições prévias definidas no elemento da etapa de orquestração. Por exemplo, você pode optar por executar uma etapa de orquestração somente se houver uma declaração específica ou se uma declaração for igual ou não ao valor especificado. 
+Etapas de orquestração podem ser condicionalmente executadas, com base em pré-condições definidas no elemento de etapa de orquestração. Por exemplo, você pode verificar para executar uma etapa de orquestração somente se não houver um declarações específicas, ou se uma declaração for igual ou não ao valor especificado. 
 
 Para especificar a lista ordenada de etapas de orquestração, um elemento **OrchestrationSteps** é adicionado como parte da política. Este elemento é obrigatório.
 
@@ -63,8 +63,8 @@ O elemento **OrchestrationStep** contém os seguintes atributos:
 
 | Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
-| Classificar | SIM | A ordem das etapas de orquestração. | 
-| Type | SIM | O tipo da etapa de orquestração. Valores possíveis: <ul><li>**ClaimsProviderSelection** – indica que a etapa de orquestração apresenta vários provedores de declarações para o usuário selecionar um.</li><li>**CombinedSignInAndSignUp** – indica que a etapa de orquestração apresenta uma conexão de provedor social combinada e uma página de entrada de conta local.</li><li>**ClaimsExchange** – indica que a etapa de orquestração troca declarações com um provedor de declarações.</li><li>**SendClaims** – indica que a etapa de orquestração envia as declarações à terceira parte confiável com um token emitido por um emissor de declarações.</li></ul> | 
+| Classificar | Sim | A ordem das etapas de orquestração. | 
+| Type | Sim | O tipo da etapa de orquestração. Valores possíveis: <ul><li>**ClaimsProviderSelection** – indica que a etapa de orquestração apresenta vários provedores de declarações para o usuário selecionar um.</li><li>**CombinedSignInAndSignUp** – indica que a etapa de orquestração apresenta uma conexão de provedor social combinada e uma página de entrada de conta local.</li><li>**ClaimsExchange** – indica que a etapa de orquestração troca declarações com um provedor de declarações.</li><li>**SendClaims** – indica que a etapa de orquestração envia as declarações à terceira parte confiável com um token emitido por um emissor de declarações.</li></ul> | 
 | ContentDefinitionReferenceId | Não  | O identificador da [definição de conteúdo](contentdefinitions.md) associada com esta etapa de orquestração. Geralmente, o identificador de referência da definição de conteúdo é definido no perfil técnico autodeclarado. No entanto, há alguns casos em que o Azure AD B2C precisa exibir algo sem um perfil técnico. Haverá dois exemplos, se o tipo da etapa de orquestração for um dos seguintes: `ClaimsProviderSelection` ou `CombinedSignInAndSignUp`. O Azure AD B2C precisa exibir a seleção do provedor de identidade sem a necessidade de ter um perfil técnico. | 
 | CpimIssuerTechnicalProfileReferenceId | Não  | O tipo da etapa de orquestração é `SendClaims`. Esta propriedade define o identificador do perfil técnico do provedor de declarações que emite o token para a terceira parte confiável.  Se ausente, nenhum token de terceira parte confiável será criado. |
 
@@ -77,7 +77,7 @@ O elemento **OrchestrationStep** pode conter um dos seguintes elementos:
 | ClaimsProviderSelections | 0:n | Uma lista de seleções do provedor de declarações para a etapa de orquestração. | 
 | ClaimsExchanges | 0:n | Uma lista de trocas de declarações para a etapa de orquestração. | 
 
-#### <a name="preconditions"></a>Pré-condições
+### <a name="preconditions"></a>Pré-condições
 
 O elemento **Preconditions** contém o seguinte elemento:
 
@@ -86,14 +86,14 @@ O elemento **Preconditions** contém o seguinte elemento:
 | Pré-condição | 0:n | Dependendo do perfil técnico usado, redireciona o cliente de acordo com a seleção do provedor de declarações ou faz uma chamada de servidor para trocar declarações. | 
 
 
-##### <a name="precondition"></a>Pré-condição
+#### <a name="precondition"></a>Pré-condição
 
 O elemento **Precondition** contém os seguinte atributo:
 
 | Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
-| Type | SIM | O tipo de verificação ou consulta ser executada para essa pré-condição. O valor poderá ser **ClaimsExist**, que especifica que as ações deverão ser executadas se as declarações especificadas existirem no conjunto de declarações do usuário atual, ou **ClaimEquals**, que especifica que as ações deverão ser executadas se a declaração especificada existir e seu valor for igual ao valor especificado. |
-| ExecuteActionsIf | SIM | Use um teste de verdadeiro ou falso para decidir se as ações na pré-condição devem ser executadas. | 
+| Type | Sim | O tipo de verificação ou consulta ser executada para essa pré-condição. O valor poderá ser **ClaimsExist**, que especifica que as ações deverão ser executadas se as declarações especificadas existirem no conjunto de declarações do usuário atual, ou **ClaimEquals**, que especifica que as ações deverão ser executadas se a declaração especificada existir e seu valor for igual ao valor especificado. |
+| ExecuteActionsIf | Sim | Use um teste de verdadeiro ou falso para decidir se as ações na pré-condição devem ser executadas. | 
 
 O elemento **Precondition** contém os seguintes elementos:
 
@@ -102,7 +102,7 @@ O elemento **Precondition** contém os seguintes elementos:
 | Valor | 1:n | Um ClaimTypeReferenceId a ser consultado. Outro elemento de valor contém o valor a ser verificado.</li></ul>|
 | Ação | 1:1 | A ação que deverá ser executada se a verificação de pré-condição dentro de uma etapa de orquestração for verdadeira. Se o valor de `Action` estiver definido como `SkipThisOrchestrationStep`, o `OrchestrationStep` associado não deverá ser executado. | 
 
-### <a name="preconditions-examples"></a>Exemplos de pré-condições
+#### <a name="preconditions-examples"></a>Exemplos de pré-condições
 
 As pré-condições a seguir verificam se o objectId do usuário existe. No percurso do usuário, o usuário optou por entrar usando a conta local. Se a objectId existir, ignore esta etapa de orquestração.
 
@@ -224,22 +224,5 @@ O elemento **ClaimsExchange** contém os seguintes atributos:
 
 | Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
-| ID | SIM | Um identificador da etapa de troca de declarações. O identificador é usado para referenciar a troca de declarações para uma etapa da seleção do provedor de declarações na política. | 
-| TechnicalProfileReferenceId | SIM | O identificador do perfil técnico que deve ser executado. |
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+| ID | Sim | Um identificador da etapa de troca de declarações. O identificador é usado para referenciar a troca de declarações para uma etapa da seleção do provedor de declarações na política. | 
+| TechnicalProfileReferenceId | Sim | O identificador do perfil técnico que deve ser executado. |

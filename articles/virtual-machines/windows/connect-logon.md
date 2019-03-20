@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 14bbb77678a70b51c7f640b501827c5618cce606
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: c14b6e16a16f325681722203eaa05a435b141208
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978913"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57990622"
 ---
 # <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>Como se conectar e entrar em uma máquina virtual do Azure executando o Windows
 Você usará o botão **Conectar** no portal do Azure para iniciar uma sessão da Área de Trabalho Remota (RDP) a partir de uma área de trabalho do Windows. Primeiramente, conecte-se à máquina virtual então faça logon.
@@ -32,7 +32,7 @@ Para conectar-se a uma VM do Windows por meio de um Mac, será necessário insta
 2. No menu à esquerda, selecione **Máquinas Virtuais**.
 3. Selecione a máquina virtual na lista.
 4. Na parte superior da página da máquina virtual, selecione **Conectar**.
-2. Na página **Conectar-se à máquina virtual**, selecione o endereço IP e a porta apropriados. Na maioria dos casos, o endereço IP e a porta padrão devem ser usados. Selecione **Baixar arquivo RDP**Baixar arquivo RDP**. Se a VM tiver uma política Just-In-Time definida, você primeiro precisará selecionar o botão **Solicitar acesso** para solicitar acesso antes de baixar o arquivo RDP. Para obter mais informações sobre a política Just-In-Time, confira [Gerenciar o acesso à máquina virtual usando a política Just-In-Time](../../security-center/security-center-just-in-time.md).
+2. Na página **Conectar-se à máquina virtual**, selecione o endereço IP e a porta apropriados. Na maioria dos casos, o endereço IP e a porta padrão devem ser usados. Selecione **Baixar Arquivo RDP**. Se a VM tiver uma política Just-In-Time definida, você primeiro precisará selecionar o botão **Solicitar acesso** para solicitar acesso antes de baixar o arquivo RDP. Para obter mais informações sobre a política Just-In-Time, confira [Gerenciar o acesso à máquina virtual usando a política Just-In-Time](../../security-center/security-center-just-in-time.md).
 2. Abra o arquivo RDP baixado e selecione **Conectar** quando solicitado. 
 2. Você receberá um aviso de que o arquivo `.rdp` é proveniente de um editor desconhecido. Isso é esperado. Na janela **Conexão de Área de Trabalho Remota**, selecione **Conectar** para continuar.
    

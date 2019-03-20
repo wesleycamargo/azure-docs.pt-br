@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 403e126795a877be018cf4f4eb42581dee080e9c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 59524a9a08b16100598b7713cb0507646245d90b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163153"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445816"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
 
@@ -33,12 +33,12 @@ Para incluir a lista de funções de transformação de declarações que podem 
 </ClaimsTransformations>
 ```
 
-O elemento **ClaimsTransformation** contém os seguintes atributos:
+O **ClaimsTransformation** elemento contém os seguintes atributos:
 
 | Atributo |Obrigatório | DESCRIÇÃO |
 | --------- |-------- | ----------- |
-| ID |SIM | Um identificador que é usado para identificar exclusivamente a transformação de declaração. O identificador é referenciado de outros elementos XML na política. |
-| TransformationMethod | SIM | O método de transformação a ser usado na transformação de declarações. Cada transformação de declaração tem seus próprios valores. Confira a [Referência de transformação de declarações](#Claims-transformations-reference) para obter uma lista completa dos valores disponíveis. |
+| ID |Sim | Um identificador que é usado para identificar exclusivamente a transformação de declaração. O identificador é referenciado de outros elementos XML na política. |
+| TransformationMethod | Sim | O método de transformação a ser usado na transformação de declarações. Cada transformação de declaração tem seus próprios valores. Confira a [Referência de transformação de declarações](#Claims-transformations-reference) para obter uma lista completa dos valores disponíveis. |
 
 ## <a name="claimstransformation"></a>ClaimsTransformation
 
@@ -79,8 +79,8 @@ O elemento **InputClaim** contém os seguintes atributos:
 
 | Atributo |Obrigatório | DESCRIÇÃO |
 | --------- | ----------- | ----------- |
-| ClaimTypeReferenceId |SIM | Uma referência a um ClaimType já definido na seção ClaimsSchema na política. |
-| TransformationClaimType |SIM | Um identificador para fazer referência a um tipo de declaração de transformação. Cada transformação de declaração tem seus próprios valores. Confira a [Referência de transformação de declarações](#Claims-transformations-reference) para obter uma lista completa dos valores disponíveis. |
+| ClaimTypeReferenceId |Sim | Uma referência a um ClaimType já definido na seção ClaimsSchema na política. |
+| TransformationClaimType |Sim | Um identificador para fazer referência a um tipo de declaração de transformação. Cada transformação de declaração tem seus próprios valores. Confira a [Referência de transformação de declarações](#Claims-transformations-reference) para obter uma lista completa dos valores disponíveis. |
 
 ### <a name="inputparameters"></a>InputParameters
 
@@ -94,9 +94,9 @@ O elemento **InputParameters** contém o seguinte elemento:
 
 | Atributo | Obrigatório |DESCRIÇÃO |
 | --------- | ----------- |----------- |
-| ID | SIM | Um identificador que é uma referência a um parâmetro do método de transformação de declarações. Cada método de transformação de declarações tem seus próprios valores. Confira a tabela de transformação de declarações para obter uma lista completa dos valores disponíveis. |
-| Tipo de dados | SIM | O tipo de dados do parâmetro, como String, Boolean, Int ou DateTime, de acordo com a enumeração DataType no esquema XML da política personalizada. Esse tipo é usado para executar operações aritméticas corretamente. Cada transformação de declaração tem seus próprios valores. Confira a [Referência de transformação de declarações](#Claims-transformations-reference) para obter uma lista completa dos valores disponíveis. |
-| Valor | SIM | Um valor que é passado de forma textual para a transformação. Alguns dos valores são arbitrários e alguns deles você seleciona no método de transformação de declarações. |
+| ID | Sim | Um identificador que é uma referência a um parâmetro do método de transformação de declarações. Cada método de transformação de declarações tem seus próprios valores. Confira a tabela de transformação de declarações para obter uma lista completa dos valores disponíveis. |
+| Tipo de dados | Sim | O tipo de dados do parâmetro, como String, Boolean, Int ou DateTime, de acordo com a enumeração DataType no esquema XML da política personalizada. Esse tipo é usado para executar operações aritméticas corretamente. Cada transformação de declaração tem seus próprios valores. Confira a [Referência de transformação de declarações](#Claims-transformations-reference) para obter uma lista completa dos valores disponíveis. |
+| Valor | Sim | Um valor que é passado de forma textual para a transformação. Alguns dos valores são arbitrários e alguns deles você seleciona no método de transformação de declarações. |
 
 ### <a name="outputclaims"></a>OutputClaims
 
@@ -112,8 +112,8 @@ O elemento **OutputClaim** contém os seguintes atributos:
 
 | Atributo |Obrigatório | DESCRIÇÃO |
 | --------- | ----------- |----------- |
-| ClaimTypeReferenceId | SIM | Uma referência a um ClaimType já definido na seção ClaimsSchema na política.
-| TransformationClaimType | SIM | Um identificador para fazer referência a um tipo de declaração de transformação. Cada transformação de declaração tem seus próprios valores. Confira a [Referência de transformação de declarações](#Claims-transformations-reference) para obter uma lista completa dos valores disponíveis. |
+| ClaimTypeReferenceId | Sim | Uma referência a um ClaimType já definido na seção ClaimsSchema na política.
+| TransformationClaimType | Sim | Um identificador para fazer referência a um tipo de declaração de transformação. Cada transformação de declaração tem seus próprios valores. Confira a [Referência de transformação de declarações](#Claims-transformations-reference) para obter uma lista completa dos valores disponíveis. |
  
 Se a declaração de saída e a declaração de entrada forem do mesmo tipo (String ou Boolean), você poderá usar a mesma declaração de entrada que a declaração de saída. Nesse caso, a transformação de declarações altera a declaração de entrada com o valor de saída.
 

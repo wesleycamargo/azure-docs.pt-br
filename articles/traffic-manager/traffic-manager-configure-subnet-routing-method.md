@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kumud
-ms.openlocfilehash: 3ce385149de58b185f296191bbed0f16b5331c1f
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: b3eb7995dac1adf3053d28b40cf322e78c69c55f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469807"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58001321"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Tráfego direto para pontos de extremidade específicos com base na sub-rede do usuário usando o Gerenciador de Tráfego
 
@@ -58,6 +58,7 @@ Nesta seção, você cria duas VMs *myEndpointVMEastUS* e *myEndpointVMWEurope* 
     |Grupo de recursos| Selecione **Novo**e digite *myResourceGroupTM1*.|
     |Local padrão| Selecione **Leste dos EUA**.|
     |||
+
 4. Selecione um tamanho da VM em **Escolher um tamanho**.
 5. Selecione os seguintes valores para **Configurações** e selecione **OK**:
     
@@ -67,6 +68,7 @@ Nesta seção, você cria duas VMs *myEndpointVMEastUS* e *myEndpointVMWEurope* 
     |Grupo de Segurança de Rede|Selecione **Básico**, e na lista **Selecionar as portas de entrada públicas**, selecione **HTTP** e **RDP** |
     |Diagnóstico de inicialização|Selecione **Desabilitado**.|
     |||
+
 6. Em **Criar** no **Resumo**, selecione **Criar** para iniciar a implantação da VM.
 
 7. Conclua as etapas 1 a 6 novamente, com as seguintes alterações:
@@ -78,6 +80,7 @@ Nesta seção, você cria duas VMs *myEndpointVMEastUS* e *myEndpointVMWEurope* 
     |Nome da VM | myIISVMWEurope|
     |Rede virtual | Selecione **Rede Virtual**, em **Criar rede virtual**, para **Nome**, insira *myVNet2*, para a sub-rede, insira *mySubnet*.|
     |||
+
 8. As VMs podem levar alguns minutos para serem criadas. Não continue com as etapas restantes até que ambas as VMs sejam criadas.
 
    ![Criar uma máquina virtual](./media/tutorial-traffic-manager-improve-website-response/createVM.png)
@@ -143,6 +146,7 @@ Nesta seção, você pode criar uma VM (*mVMEastUS* e *myVMWestEurope*) em cada 
 
 4. Selecione um tamanho da VM em **Escolher um tamanho**.
 5. Selecione os seguintes valores para **Configurações** e selecione **OK**:
+
     |Configuração|Valor|
     |---|---|
     |Rede virtual| Selecione **Rede virtual**, em **Criar rede virtual**, para **Nome**, insira *myVNet3*, para sub-rede, insira *mySubnet3*.|
@@ -168,6 +172,7 @@ Crie um perfil de Gerenciador de Tráfego que permite que você retorne pontos d
 
 1. No canto superior esquerdo da tela, selecione **Criar um recurso** > **Rede** > **Perfil do Gerenciador de Tráfego**  >  **Criar**.
 2. No **perfil Criar Gerenciador de Tráfego**, insira ou selecione as informações a seguir, aceite os padrões para as configurações restantes e selecione **Criar**:
+
     | Configuração                 | Valor                                              |
     | ---                     | ---                                                |
     | NOME                   | Esse nome deve ser exclusivo na zona trafficmanager.net e resulta no nome DNS, trafficmanager.net, que é usado para acessar o seu perfil do Gerenciador de Tráfego.                                   |
@@ -189,7 +194,7 @@ Adicione as duas VMs executando o IIS servidores - *myIISVMEastUS* & *myIISVMWEu
 
     | Configuração                 | Valor                                              |
     | ---                     | ---                                                |
-    | Tipo                    | Ponto de extremidade do Azure                                   |
+    | Type                    | Ponto de extremidade do Azure                                   |
     | NOME           | myTestWebSiteEndpoint                                        |
     | Tipo de recurso de destino           | Endereço IP público                          |
     | Recurso de destino          | **Escolha um endereço IP Público** para mostrar a lista de recursos com endereços IP públicos na mesma assinatura. Em **Recursos**, selecione o endereço IP público denominado *myIISVMEastUS-ip*. Isso é o endereço IP público do servidor IIS VM no Leste dos EUA.|

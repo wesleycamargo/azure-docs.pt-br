@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 2255f14d026d406dc41802c321d0a673ee2f2f23
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 8471ae8ed0b391df11d81569b5660a2b098f5793
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766853"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58000924"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Tutorial: Otimizar os custos usando recomendações
 
@@ -29,7 +29,7 @@ Neste tutorial, você aprenderá como:
 > * Verifique a ação para garantir que a máquina virtual foi redimensionada com êxito
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Há recomendações disponíveis a uma variedade de tipos de conta do Azure, incluindo clientes do [EA (Contrato Enterprise)](https://azure.microsoft.com/pricing/enterprise-agreement/). Para exibir a lista completa dos tipos de conta compatíveis, confira [Entender os dados do Gerenciamento de Custos](understand-cost-mgt-data.md). Você precisa ter acesso de leitura a pelo menos um ou mais dos seguintes escopos para exibir os dados de custo.
+As recomendações estão disponíveis para uma variedade de escopos e tipos de conta do Azure, incluindo [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) os clientes. Para exibir a lista completa dos tipos de contas compatíveis, confira [Entender os dados do Gerenciamento de Custos](understand-cost-mgt-data.md). Você precisa ter acesso de leitura a pelo menos um ou mais dos seguintes escopos para exibir os dados de custo. Para obter mais informações sobre escopos, consulte [entender e trabalhar com escopos](understand-work-scopes.md).
 
 - Assinatura
 - Grupo de recursos
@@ -41,7 +41,9 @@ Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com/
 
 ## <a name="view-cost-optimization-recommendations"></a>Exibir recomendações de otimização de custo
 
-No portal do Azure, clique em **Gerenciamento de Custo + Cobrança** na lista de serviços. Em seguida, na lista sob **Gerenciamento de Custos**, selecione **Recomendações do Assistente**. As recomendações de Custo do Assistente são mostradas.
+Para exibir as recomendações de otimização de custo para uma assinatura, abra o escopo desejado no portal do Azure e selecione **as recomendações do assistente**.
+
+Para exibir as recomendações para um grupo de gerenciamento, abra o escopo desejado no portal do Azure e selecione **análise de custo** no menu. Use o **escopo** com conteúdo malicioso para alternar para um escopo diferente, como um grupo de gerenciamento. Selecione **as recomendações do Advisor** no menu. Para obter mais informações sobre escopos, consulte [entender e trabalhar com escopos](understand-work-scopes.md).
 
 ![Recomendações do Consultor de Gerenciamento Custos mostradas no portal do Azure](./media/tutorial-acm-opt-recommendations/advisor-recommendations.png)
 

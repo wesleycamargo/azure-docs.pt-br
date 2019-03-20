@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 2289fc143abfde0aaaf2bcb079a6d24b74d57975
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 41eed6bc878bff4c9d847f9a449ca693274bf234
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564435"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195499"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Solucionar problemas de Arquivos do Azure no Windows
 
@@ -75,12 +75,11 @@ Para usar o cmdlet `Test-NetConnection`, o módulo do PowerShell AzureRM deve se
     # $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as sovereign clouds
     # or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
     Test-NetConnection -ComputerName ([System.Uri]::new($storageAccount.Context.FileEndPoint).Host) -Port 445
-  
     
 Se a conexão foi bem-sucedida, você verá a seguinte saída:
     
   
-    ComputerName     : <storage-account-host-name>
+    ComputerName     : <your-storage-account-name>
     RemoteAddress    : <storage-account-ip-address>
     RemotePort       : 445
     InterfaceAlias   : <your-network-interface>
@@ -93,7 +92,19 @@ Se a conexão foi bem-sucedida, você verá a seguinte saída:
 
 ### <a name="solution-for-cause-1"></a>Solução para a causa 1
 
-Trabalhar com o seu departamento de TI para abrir a porta 445 com saída para [intervalos de IP do Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+#### <a name="solution-1---use-azure-file-sync"></a>Solução 1: usar a sincronização de arquivos do Azure
+A sincronização de arquivos do Azure pode transforma seu servidor do Windows no local em um cache rápido do seu compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. A sincronização de arquivos do Azure funciona pela porta 443 e, portanto, pode ser usada como uma solução alternativa para acessar arquivos do Azure dos clientes que têm a porta 445 bloqueado. [Saiba como configurar a sincronização de arquivos do Azure a](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-extend-servers).
+
+#### <a name="solution-2---use-vpn"></a>Solução 2: uso VPN
+Ao configurar uma VPN para sua conta de armazenamento específico, o tráfego passará por meio de um túnel seguro e não pela internet. Siga as [instruções para configurar VPN](https://github.com/Azure-Samples/azure-files-samples/tree/master/point-to-site-vpn-azure-files
+) para acessar os arquivos do Azure do Windows.
+
+#### <a name="solution-3---unblock-port-445-with-help-of-your-ispit-admin"></a>Solução 3: desbloquear a porta 445 com a Ajuda de seu ISP / administrador de TI
+Trabalhar com seu departamento de TI ou ISP para abrir a porta 445 com saída para [intervalos de IP do Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+
+#### <a name="solution-4---use-rest-api-based-tools-like-storage-explorerpowershell"></a>Solução 4 – usar a API REST com base em ferramentas como o Gerenciador de armazenamento/Powershell
+Os arquivos do Azure também dá suporte a REST, além de SMB. O acesso REST funciona pela porta 443 (tcp padrão). Há várias ferramentas que são escritas usando a API REST que permitem a rica experiência de interface do usuário. [O Gerenciador de armazenamento](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) é um deles. [Baixar e instalar o Gerenciador de armazenamento](https://azure.microsoft.com/en-us/features/storage-explorer/) e conecte-se ao compartilhamento de arquivo com suporte pelos arquivos do Azure. Você também pode usar [PowerShell](https://docs.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-powershell) que também usuário API REST.
+
 
 ### <a name="cause-2-ntlmv1-is-enabled"></a>Causa 2: NTLMv1 está habilitado
 

@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7f3c50a272ef5cc0d4980cb4a623ac043d764dd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0f1ce786b748fedd1ec4c722b28bc11c28672c2f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190901"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443395"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Códigos de erro do relatório de atividade de login 
 
@@ -79,7 +79,7 @@ Você também pode acessar programaticamente os dados de login usando a [API de 
 |50027|Token JWT inválido pelos seguintes motivos:<ul><li>não contém declaração nonce, subdeclaração</li><li>incompatibilidade do identificador do assunto</li><li>declaração duplicada nas declarações de idToken</li><li>emissor inesperado</li><li>audiência inesperada</li><li>não está dentro de seu intervalo de tempo válido </li><li>o formato do token não é apropriado</li><li>falha na verificação de assinatura do token de ID externa do emissor.</li></ul>Entre em contato com o proprietário do aplicativo|
 |50029|URI inválida – o nome de domínio contém caracteres inválidos. Entre em contato com o administrador do inquilino.|
 |50034|O usuário não existe no diretório. Entre em contato com o administrador do locatário.|
-|50042|O sal necessário para gerar um identificador de par está ausente na entidade de segurança. Entre em contato com o administrador do inquilino.|
+|50042|O salt requerido para gerar um identificador de paridade está ausente no princípio. Entre em contato com o administrador do inquilino.|
 |50048|O assunto não é compatível com o emissor de declaração na declaração do cliente. Entre em contato com o administrador do inquilino.|
 |50050|A solicitação está malformada. Entre em contato com o proprietário do aplicativo.|
 |50053|A conta está bloqueada porque o usuário tentou entrar muitas vezes com uma ID de usuário ou senha incorreta.|
@@ -129,7 +129,7 @@ Você também pode acessar programaticamente os dados de login usando a [API de 
 |50180|Necessária a autenticação integrada do Windows. Habilite o locatário para um SSO contínuo.|
 |51001|Dica de Domínio não está presente com o Identificador de Segurança Local - UPN Local.|
 |51004|A conta de usuário não existe no diretório.|
-|51006|Necessária a autenticação integrada do Windows. Usuário conectado usando o token de sessão com ausência da declaração wia. Solicite ao usuário que refaça o logon.|
+|51006|Necessária a autenticação integrada do Windows. Usuário conectado usando o token de sessão que está ausente por meio da declaração. Solicite ao usuário que refaça o logon.|
 |52004|Usuário não forneceu autorização para acessar os recursos do LinkedIn. |
 |53000|Política de acesso condicional requer um dispositivo compatível, e o dispositivo não é compatível. Solicite que o usuário registre seu dispositivo com um provedor de MDM aprovado, como o Intune.|
 |53001|A política de acesso condicional requer um dispositivo com ingresso no domínio, e o dispositivo não o é. O usuário use um domínio tenha ingressado no dispositivo.|
@@ -138,7 +138,7 @@ Você também pode acessar programaticamente os dados de login usando a [API de 
 |53004|O usuário precisa concluir o processo de registro de autenticação multifator antes de acessar este conteúdo. O usuário deve se registrar para a autenticação multifator.|
 |65001|O aplicativo X não tem permissão para acessar o aplicativo Y ou a permissão foi revogada. Outra possibilidade: o usuário ou administrador não aceitou usar o aplicativo com a ID X. Envie uma solicitação de autorização interativa para esse usuário e recurso. Outra possibilidade: o usuário ou administrador não aceitou usar o aplicativo com a ID X. Envie uma solicitação de autorização ao administrador do seu locatário para atuar em nome do Aplicativo: Y para o Recurso: Z.|
 |65004|O usuário se recusou a consentir para acessar o aplicativo. Peça que o usuário tente entrar novamente e dê consentimento ao aplicativo|
-|65005|A lista de acesso a recursos exigida pelo aplicativo não contém aplicativos detectáveis pelo recurso ou O aplicativo cliente solicitou acesso a recursos, os quais não foram especificados na lista de acesso a recursos exigida ou O serviço Graph retornou uma solicitação inválida ou o recurso não foi encontrado. Se o aplicativo tem suporte para SAML, pode ser que você o tenha configurado com o identificador incorreto (entidade). Experimente a resolução listada para SAML usando o link abaixo: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list)|
+|65005|A lista de acesso a recursos exigida pelo aplicativo não contém aplicativos detectáveis pelo recurso ou O aplicativo cliente solicitou acesso a recursos, os quais não foram especificados na lista de acesso a recursos exigida ou O serviço Graph retornou uma solicitação inválida ou o recurso não foi encontrado. Se o aplicativo tem suporte para SAML, pode ser que você o tenha configurado com o identificador incorreto (entidade). Experimente a resolução listada para SAML usando o link abaixo: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)|
 |70000|Concessão inválida pelos seguintes motivos:<ul><li>A asserção do SAML 2.0 solicitada tem método de confirmação de entidade inválido</li><li>Não há suporte para o fluxo de aplicativo OnBehalfOf na V2</li><li>O token de atualização primário não está assinado com a chave da sessão</li><li>Token de atualização externo inválido</li><li>A concessão do acesso foi obtida para um locatário diferente.</li></ul>|
 |70001|O aplicativo de nome X não foi encontrado no locatário de nome Y. Isso pode acontecer se o aplicativo com identificador X não foi instalado pelo administrador do locatário ou aceito por algum usuário no locatário. Você pode ter configurado incorretamente o valor do Identificador para o aplicativo ou enviou sua solicitação de autenticação para o inquilino incorreto.|
 |70002|O aplicativo retornou credenciais de cliente inválidas. Entre em contato com o proprietário do aplicativo.|

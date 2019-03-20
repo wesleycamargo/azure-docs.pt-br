@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 641218e6a9a366d8c3b0d269223a98c08b860bdb
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: aeaf8fb5112fe9f6d8f2ca77ed9c1fd244fd9603
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001146"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877064"
 ---
 # <a name="azure-media-services-community"></a>Comunidade dos Serviços de Mídia do Azure  
 
@@ -48,10 +48,10 @@ Atualmente, o MSDN é o principal fórum da comunidade da equipe dos Serviços d
 [![MSDN](./media/media-services-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices) 
 
 A equipe também monitora perguntas marcadas com 'azure-media-services' no Stack Overflow.
-[![StackOverflow](./media/media-services-community/stack-overflow.png)](http://stackoverflow.com/questions/tagged/azure-media-services) 
+[![StackOverflow](./media/media-services-community/stack-overflow.png)](https://stackoverflow.com/questions/tagged/azure-media-services) 
 
 ## <a name="contact-the-team"></a>Entre em contato com a equipe
-O email de suporte principal dos Serviços de Mídia do Azure é: **amshelp@microsoft.com**.
+Os serviços de mídia do Azure é o email de suporte primário: **amshelp\@microsoft.com**.
 
 A tabela a seguir lista email das subequipes de recursos:
 

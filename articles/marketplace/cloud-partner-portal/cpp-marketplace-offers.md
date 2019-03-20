@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: pbutlerm
-ms.openlocfilehash: f13d49fde7f0e40f6dcb026fcb20cb11c028c64b
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: fd51a9f70d60219a9429ff66d6f1d404391f6fb0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100861"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446702"
 ---
 # <a name="azure-and-appsource-marketplace-offers"></a>Ofertas dos Marketplaces do Azure e do AppSource
 
@@ -41,7 +41,7 @@ O processo de criação de uma nova oferta difere significativamente em todos os
 
 ## <a name="test-drive"></a>Test drive
 
-*O Test Drive* é um recurso do Marketplace que fornece aos clientes uma opção de demonstração para "experimentar antes de comprar" para cada oferta habilitada para isso.  A capacidade de Test Drive é limitada ao seguinte subconjunto de tipos de oferta: [Aplicativos do Azure](./azure-applications/cpp-azure-app-offer.md), [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md), [Dynamics 365 for Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md), [Dynamics 365 for Finance and Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md), [Aplicativos SaaS](./saas-app/cpp-saas-offer.md) e [máquinas virtuais](./virtual-machine/cpp-virtual-machine-offer.md).  Essa funcionalidade requer que o editor crie um modelo de Test Drive personalizado para sua oferta.  Para obter mais informações, confira a seção [Test Drive](../cloud-partner-portal-orig/what-is-test-drive.md).
+*O Test Drive* é um recurso do Marketplace que fornece aos clientes uma opção de demonstração para "experimentar antes de comprar" para cada oferta habilitada para isso.  A capacidade de Test Drive é limitada ao seguinte subconjunto de tipos de oferta: [Aplicativos do Azure](./azure-applications/cpp-azure-app-offer.md), [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md), [Dynamics 365 for Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md), [Dynamics 365 for Finance and Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md), [Aplicativos SaaS](./saas-app/cpp-saas-offer.md) e [máquinas virtuais](./virtual-machine/cpp-virtual-machine-offer.md).  Essa funcionalidade requer que o editor crie um modelo de Test Drive personalizado para sua oferta.  Para obter mais informações, confira a seção [Test Drive](./test-drive/what-is-test-drive.md).
 
 Você pode procurar as ofertas do Marketplace existentes com demonstrações de Test Drive aplicando o [filtro test drive](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=test-drive). 
 

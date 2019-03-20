@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 3664e231ad8aabe37fe350ac1eb7be2d27bbcbaa
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: e58d534811fc6d6ed2bb24486c149f217a7a28a3
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734667"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189896"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Referência de funções para a linguagem de definição de fluxo de trabalho em aplicativos lógicos do Azure
 
@@ -2938,7 +2938,7 @@ range(<startIndex>, <count>)
 
 | Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 | --------- | -------- | ---- | ----------- |
-| <*startIndex*> | Sim | Número inteiro | O valor inteiro que inicia a matriz como o primeiro item |
+| <*startIndex*> | Sim | Número inteiro | Um valor inteiro que inicia a matriz como o primeiro item |
 | <*count*> | Sim | Número inteiro | O número de inteiros na matriz |
 |||||
 
@@ -3085,7 +3085,7 @@ E retorna essa matriz com os itens restantes: `[1,2,3]`
 
 ### <a name="split"></a>split
 
-Retorna uma matriz que contendo subcadeias de caracteres separadas por vírgulas, com base no caractere delimitador especificado na cadeia de caracteres original.
+Retorna uma matriz que contém as subcadeias de caracteres, separadas por vírgulas, com base em caractere delimitador especificado na cadeia de caracteres original.
 
 ```
 split('<text>', '<delimiter>')
@@ -3250,7 +3250,7 @@ E retorna este resultado: `false`
 
 <a name="string"></a>
 
-### <a name="string"></a>string
+### <a name="string"></a>cadeia de caracteres
 
 Retornar a versão de cadeia de caracteres para um valor.
 
@@ -3333,7 +3333,7 @@ substring('<text>', <startIndex>, <length>)
 | Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 | --------- | -------- | ---- | ----------- |
 | <*text*> | Sim | Cadeia de caracteres | A cadeia de caracteres cujos caracteres você deseja |
-| <*startIndex*> | Sim | Número inteiro | Um número positivo para a posição inicial ou valor de índice |
+| <*startIndex*> | Sim | Número inteiro | Um número positivo igual ou maior que 0 que você deseja usar como o valor de índice ou a posição inicial |
 | <*length*> | Sim | Número inteiro | Um número positivo de caracteres que você deseja na subcadeia de caracteres |
 |||||
 

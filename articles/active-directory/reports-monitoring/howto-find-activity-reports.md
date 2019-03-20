@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ff5b998222f9a7320384edea1ed69e7a65e9139
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 46fc0a49ebae86a715685e1073b4eb7cc10e6032
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171291"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533401"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Localizar relatórios de atividade no Portal do Azure
 
@@ -48,15 +48,46 @@ O relatório de logs de auditoria consolida os seguintes relatórios:
 
 ### <a name="filtering-on-audit-logs"></a>Filtragem em logs de auditoria
 
-É possível usar a filtragem avançada no relatório de auditoria para acessar uma categoria específica de dados de auditoria, especificando-a no filtro **Categoria de atividade**. Por exemplo, para exibir todas as atividades relacionadas à redefinição de senha de autoatendimento, selecione a categoria **Gerenciamento de senha de autoatendimento**. 
+Você pode usar a filtragem avançada no relatório de auditoria para acessar uma categoria específica de dados de auditoria, especificando-na **categoria** filtro. Por exemplo, para exibir todas as atividades relacionadas aos usuários, selecione a **UserManagement** categoria. 
 
-As categorias de atividades incluem:
+As categorias incluem:
 
+- Todos
+- AdministrativeUnit
+- ApplicationManagement
+- Authentication
+- Autorização
+- Contato
+- Dispositivo
+- DeviceConfiguration
+- DirectoryManagement
+- EntitlementManagement
+- GroupManagement
+- Outros
+- Política
+- ResourceManagement
+- RoleManagement
+- UserManagement
+
+Você também pode filtrar em um serviço específico usando o **serviço** filtro de lista suspensa. Por exemplo, para obter todos os eventos de auditoria relacionados ao gerenciamento de senha de autoatendimento, selecione a **gerenciamento de senha de autoatendimento** filtro.
+
+Os serviços incluem:
+
+- Todos
+- Revisões de acesso
+- Provisionamento de conta de usuário 
+- Aplicativo de SSO
+- Métodos de autenticação
+- B2C
+- Acesso Condicional
 - Diretório principal
-- Gerenciamento de senhas de auto-atendimento
+- Gerenciamento de Direitos
+- Identity Protection
+- Usuários Convidados
+- PIM
 - Gerenciamento de grupos de autoatendimento
-- Provisionamento de conta de usuário
-
+- Gerenciamento de autoatendimento Passord
+- Termos de Uso
 
 ## <a name="sign-ins-report"></a>Relatório de entradas 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: feb9d0a01cbba75fc9868f5a603d494c5c09ae2e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
-ms.translationtype: HT
+ms.openlocfilehash: e41647140373fcf637cad55af62764bd87826a62
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386290"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57849339"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Gerenciar aplicativos e serviços como recursos do Azure Resource Manager
 
@@ -28,8 +28,8 @@ ms.locfileid: "49386290"
 Essa é a maneira recomendada para implantar qualquer configuração, governança ou aplicativos de gerenciamento de cluster exigidos em seu cluster. Isso inclui o [Aplicativo de orquestração de patches](service-fabric-patch-orchestration-application.md), Watchdogs ou aplicativos que precisam estar em execução em seu cluster antes que outros aplicativos ou serviços sejam implantados. 
 
 Quando aplicável, gerencie seus aplicativos, como recursos do Resource Manager para melhorar:
-* A trilha de auditoria: o Resource Manager audita toda operação e mantém um *Log de atividades* que pode ajudar a rastrear alterações feitas nesses aplicativos e no seu cluster.
-* O RBAC (Controle de Acesso Baseado em Função): gerenciar acesso aos clusters assim como aplicativos implantados no cluster pode ser feito por meio do mesmo modelo do Resource Manager.
+* Trilha de auditoria: Resource Manager audita toda operação e mantém um *Log de atividades* que pode ajudá-lo a rastrear alterações feitas a esses aplicativos e o cluster.
+* Controle de acesso baseado em função (RBAC): Gerenciar o acesso aos clusters, bem como os aplicativos implantados no cluster pode ser feito por meio do mesmo modelo do Resource Manager.
 * O Azure Resource Manager (por meio do Portal do Azure) se torna uma loja única para gerenciar o cluster e as implantações de aplicativos críticos.
 
 O snippet a seguir mostra os diferentes tipos de recursos que podem ser gerenciados por meio de um modelo:
@@ -69,9 +69,9 @@ O snippet a seguir mostra os diferentes tipos de recursos que podem ser gerencia
 3. Depois que você descobriu quais aplicativos você deseja que sejam implantados dessa forma, os aplicativos precisam ser empacotados, compactados e colocados em um compartilhamento de arquivos. O compartilhamento precisa ser acessado por meio de um ponto de extremidade REST para que o Azure Resource Manager consuma durante a implantação.
 4. Em seu modelo do Resource Manager, embaixo da declaração do seu cluster, descreva as propriedades de cada aplicativo. Essas propriedades incluem a contagem de instâncias e de réplicas e quaisquer cadeias de dependência entre recursos (outros aplicativos ou serviços). Para obter uma lista de propriedades abrangentes, consulte a [REST API Swagger Spec](https://aka.ms/sfrpswaggerspec) (Especificação do Swagger da API REST). Observe que isso não substitui os manifestos do aplicativo nem do serviço, mas descreve algumas coisas que estão neles como parte do modelo do Resource Manager do cluster. Veja um exemplo de modelo que inclui a implantação de um serviço sem estado *Service1* e um serviço com estado *Service2* como parte do *Application1*:
 
-  ```json
-  {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+   ```json
+   {
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
     "contentVersion": "1.0.0.0",
     "parameters": {
       "clusterName": {
@@ -251,11 +251,11 @@ O snippet a seguir mostra os diferentes tipos de recursos que podem ser gerencia
         }
       }
     ]
-  }
-  ```
+   }
+   ```
 
-  > [!NOTE] 
-  > A *apiVersion* deve ser definida como `"2017-07-01-preview"`. Esse modelo também pode ser implantado independentemente do cluster, desde que o cluster já tenha sido implantado.
+   > [!NOTE] 
+   > A *apiVersion* deve ser definida como `"2017-07-01-preview"`. Esse modelo também pode ser implantado independentemente do cluster, desde que o cluster já tenha sido implantado.
 
 5. Implante! 
 
@@ -264,7 +264,7 @@ O snippet a seguir mostra os diferentes tipos de recursos que podem ser gerencia
 Se seu cluster já estiver operante e alguns aplicativos que você gostaria de gerenciar como recursos do Resource Manager já estiverem implantados nele, em vez de remover os aplicativos e implantá-los novamente, será possível usar uma chamada PUT usando as mesmas APIs para que os aplicativos sejam confirmados como recursos do Resource Manager. 
 
 > [!NOTE]
-> Para permitir que uma atualização de cluster ignore aplicativos não íntegros, o cliente pode especificar “maxPercentUnhealthyApplications: 100” na seção “upgradeDescription/healthPolicy”; descrições detalhadas para todas as configurações estão na [Documentação da política de atualização de cluster da API REST do Service Fabric](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
+> Para permitir que uma atualização de cluster para aplicativos não íntegros de ignorar o cliente pode especificar "maxPercentUnhealthyApplications: 100", na seção" upgradeDescription/healthPolicy"; descrições detalhadas para todas as configurações estão na [documentação da política de atualização serviço malhas REST API Cluster](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
 
 ## <a name="next-steps"></a>Próximas etapas
 

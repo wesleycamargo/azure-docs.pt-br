@@ -6,17 +6,17 @@ ms.author: zhongc
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/05/2018
-ms.openlocfilehash: 4accff7410d17e76a000b7cef957b75c65a16960
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.date: 03/05/2018
+ms.openlocfilehash: 2a59a81b0894cbf58c5d3ab5a5569f4749b64b00
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007664"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543280"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Noções básicas sobre a manipulação de horas no Azure Stream Analytics
 
-Neste artigo, abordaremos como você pode fazer escolhas de design para resolver problemas de manipulação de horas práticas no serviço do Azure Stream Analytics. As decisões de design para manipulação de horas estão estritamente relacionadas aos fatores de ordenação de eventos. Para saber mais, veja este artigo relacionado: [Considerações sobre a ordem dos eventos do Azure Stream Analytics](stream-analytics-out-of-order-and-late-events.md).
+Neste artigo, abordaremos como você pode fazer escolhas de design para resolver problemas de manipulação de horas práticas no serviço do Azure Stream Analytics. As decisões de design para manipulação de horas estão estritamente relacionadas aos fatores de ordenação de eventos.
 
 ## <a name="background-time-concepts"></a>Conceitos de tempo em segundo plano
 
@@ -163,7 +163,7 @@ O Azure Stream Analytics usa o progresso de marca-d'água como o gatilho somente
 
 Ao usar [agregações em janela](stream-analytics-window-functions.md), o serviço produz apenas saídas no final das janelas. Em alguns casos, os usuários talvez queiram ver agregações parciais geradas das janelas. As agregações parciais atualmente não têm suporte no Azure Stream Analytics.
 
-Em outras soluções de streaming, os eventos de saída podem ser materializados em vários pontos de gatilho, dependendo das circunstâncias externas. Em algumas soluções, é possível que os eventos de saída para um determinado par de janelas de tempo sejam gerados várias vezes. Como os valores de entrada são refinados, os resultados agregados se tornam mais precisos. Os eventos poderiam ser especulados primeiro e revisados ao longo do tempo. Por exemplo, quando um determinado dispositivo estivesse offline da rede, um valor estimado poderia ser usado por um sistema. Mais tarde, o mesmo dispositivo ficaria online para a rede. Assim, os dados reais do evento poderiam ser incluídos no fluxo de entrada. Os resultados de processar essa janela de tempo produz uma saída mais precisa.
+Em outras soluções de streaming, os eventos de saída podem ser materializados em vários pontos de gatilho, dependendo das circunstâncias externas. É possível em algumas soluções que os eventos de saída para determinado período de tempo podem ser gerados várias vezes. Como os valores de entrada são refinados, os resultados agregados se tornam mais precisos. Os eventos poderiam ser especulados primeiro e revisados ao longo do tempo. Por exemplo, quando um determinado dispositivo estivesse offline da rede, um valor estimado poderia ser usado por um sistema. Mais tarde, o mesmo dispositivo ficaria online para a rede. Assim, os dados reais do evento poderiam ser incluídos no fluxo de entrada. Os resultados de processar essa janela de tempo produz uma saída mais precisa.
 
 ## <a name="illustrated-example-of-watermarks"></a>Exemplo ilustrado de marcas-d'água
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: michaelhauss
 ms.subservice: blobs
-ms.openlocfilehash: 65ecaaea09c28c31d76f31dc447108273b379f9e
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 1ab799ef7eb9d7c591e76ab9180d4e3f4ba6ba59
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811657"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007268"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Como usar o armazenamento de Blob no iOS
 
@@ -124,7 +124,7 @@ Todos os blobs no Armazenamento do Azure devem residir em um contêiner. O exemp
 }
 ```
 
-Você pode confirmar que isso funciona observando o [Gerenciador de Armazenamento do Microsoft Azure](http://storageexplorer.com) e verificando se *newcontainer* está na lista de contêineres para sua conta de armazenamento.
+Você pode confirmar que isso funciona observando o [Gerenciador de Armazenamento do Microsoft Azure](https://storageexplorer.com) e verificando se *newcontainer* está na lista de contêineres para sua conta de armazenamento.
 
 ## <a name="set-container-permissions"></a>Definir permissões de contêiner
 As permissões do contêiner são configuradas para acesso **privado** por padrão. No entanto, os contêineres fornecem algumas opções diferentes para acesso ao contêiner:
@@ -203,7 +203,7 @@ O exemplo a seguir mostra como carregar um blob de bloco de um NSString. Se um b
 }
 ```
 
-Você pode confirmar que isso funciona observando o [Gerenciador de Armazenamento do Microsoft Azure](http://storageexplorer.com) e verificando se o contêiner *containerpublic*, contém o blob *sampleblob*. Neste exemplo, usamos um contêiner público, de modo que você também pode verificar se esse aplicativo funcionou indo para o URI de blobs:
+Você pode confirmar que isso funciona observando o [Gerenciador de Armazenamento do Microsoft Azure](https://storageexplorer.com) e verificando se o contêiner *containerpublic*, contém o blob *sampleblob*. Neste exemplo, usamos um contêiner público, de modo que você também pode verificar se esse aplicativo funcionou indo para o URI de blobs:
 
     https://nameofyourstorageaccount.blob.core.windows.net/containerpublic/sampleblob
 
@@ -378,10 +378,10 @@ O exemplo a seguir mostra como excluir um contêiner.
 Agora que você aprendeu como usar o Armazenamento de Blobs do iOS, siga esses links para saber mais sobre a biblioteca do iOS e o serviço de armazenamento.
 
 * [Biblioteca de Cliente do Armazenamento do Azure para iOS](https://github.com/azure/azure-storage-ios)
-* [Documentação de referência do iOS do Armazenamento do Azure](http://azure.github.io/azure-storage-ios/)
+* [Documentação de referência do iOS do Armazenamento do Azure](https://azure.github.io/azure-storage-ios/)
 * [API REST de serviços de armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Blog da equipe de Armazenamento do Azure](https://blogs.msdn.com/b/windowsazurestorage)
 
-Se você tiver dúvidas sobre a biblioteca, fique à vontade para postar em nosso [Fórum do Azure do MSDN](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) ou no [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
+Se você tiver dúvidas sobre a biblioteca, fique à vontade para postar em nosso [Fórum do Azure do MSDN](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) ou no [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
 Se você tiver sugestões de recursos para o Armazenamento do Azure, poste nos [Comentários do Armazenamento do Azure](https://feedback.azure.com/forums/217298-storage/).
 

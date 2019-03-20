@@ -16,12 +16,12 @@ ms.date: 02/27/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: af3e7528e2312cef1832dc104e83384a91acf263
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: b6950e3445f2320f2e3a45f55726befd7077119a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991335"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835902"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Adicionar um provedor de recursos do serviço de aplicativo para um ambiente desconectado do Azure Stack protegido pelo AD FS
 
@@ -82,28 +82,28 @@ Para implantar o serviço de aplicativo em um ambiente desconectado, você deve 
     ![Instalador do serviço de aplicativo][3]
 
 7. Na próxima página:
-    1. Clique o **Connect** lado a **assinaturas do Azure Stack** caixa.
-        - Fornece sua conta de administrador. Por exemplo, cloudadmin@azurestack.local. Insira sua senha e clique em **Sign In**.
-    2. No **assinaturas do Azure Stack** caixa, selecione a **assinatura do provedor padrão**.
+   1. Clique o **Connect** lado a **assinaturas do Azure Stack** caixa.
+      - Fornece sua conta de administrador. Por exemplo, cloudadmin@azurestack.local. Insira sua senha e clique em **Sign In**.
+   2. No **assinaturas do Azure Stack** caixa, selecione a **assinatura do provedor padrão**.
     
-    > [!NOTE]
-    > O serviço de aplicativo só pode ser implantado na **assinatura do provedor padrão**.
-    >
+      > [!NOTE]
+      > O serviço de aplicativo só pode ser implantado na **assinatura do provedor padrão**.
+      >
     
-    3. No **locais da pilha do Azure** , selecione o local que corresponde à região em que você está implantando. Por exemplo, selecione **local** se sua implantação para o Kit de desenvolvimento do Azure Stack.
-    4. Clique em **Avançar**.
+   3. No **locais da pilha do Azure** , selecione o local que corresponde à região em que você está implantando. Por exemplo, selecione **local** se sua implantação para o Kit de desenvolvimento do Azure Stack.
+   4. Clique em **Avançar**.
 
-    ![Instalador do serviço de aplicativo][4]
+      ![Instalador do serviço de aplicativo][4]
 
 8. Agora você tem a opção de implantar em uma rede Virtual existente, conforme configurado pelas etapas [aqui](azure-stack-app-service-before-you-get-started.md#virtual-network), ou permitir que o instalador do serviço de aplicativo criar uma rede Virtual e sub-redes associadas.
-    1. Selecione **criar VNet com as configurações padrão**, aceite os padrões e, em seguida, clique em **próxima**, ou;
-    2. Selecione **usar a rede virtual existente e sub-redes**.
-        1. Selecione o **grupo de recursos** que contém sua rede Virtual.
-        2. Escolher o correto **rede Virtual** nome você deseja implantar em;
-        3. Selecione a correta **sub-rede** valores para cada uma das sub-redes função necessários;
-        4. Clique em **Avançar**
+   1. Selecione **criar VNet com as configurações padrão**, aceite os padrões e, em seguida, clique em **próxima**, ou;
+   2. Selecione **usar a rede virtual existente e sub-redes**.
+       1. Selecione o **grupo de recursos** que contém sua rede Virtual.
+       2. Escolher o correto **rede Virtual** nome você deseja implantar em;
+       3. Selecione a correta **sub-rede** valores para cada uma das sub-redes função necessários;
+       4. Clique em **Avançar**
 
-    ![Instalador do serviço de aplicativo][5]
+      ![Instalador do serviço de aplicativo][5]
 
 9. Insira as informações para o compartilhamento de arquivos e, em seguida, clique em **próxima**. O endereço do compartilhamento de arquivos deve usar o nome de domínio totalmente qualificado ou endereço IP do servidor de arquivos. Por exemplo, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, ou \\\10.0.0.1\websites.  Se você estiver usando um servidor de arquivos que está ingressado no domínio, você deve fornecer o nome de usuário completo, incluindo o domínio, por exemplo, myfileserverdomain\FileShareOwner.
 
@@ -152,7 +152,7 @@ Para implantar o serviço de aplicativo em um ambiente desconectado, você deve 
     > ```
     > Consulte a [notas de versão do serviço de aplicativo do Azure no Azure Stack 1.3](azure-stack-app-service-release-notes-update-three.md) para obter mais detalhes.
    
-   ![Instalador do serviço de aplicativo][12]
+    ![Instalador do serviço de aplicativo][12]
 
 13. Examine as opções de SKU e a instância de função. Os padrões são preenchidos com o número mínimo de instâncias e o SKU mínimo para cada função em uma implantação ASDK. Um resumo dos requisitos de memória e vCPU é fornecido para ajudar a planejar sua implantação. Depois de fazer suas seleções, clique em **próxima**.
 
@@ -253,7 +253,7 @@ Depois de implantar e registrar o provedor de recursos do serviço de aplicativo
 
 1. No portal de locatário do Azure Stack, clique em **+**, vá para o Azure Marketplace, implante um site Django e aguardar a conclusão bem-sucedida. A plataforma de web do Django usa um banco de dados com base no sistema do arquivo. Ele não requer quaisquer provedores de recursos adicionais, como SQL ou MySQL.
 
-2. Se você também implantou um provedor de recursos do MySQL, você pode implantar um site do WordPress no Marketplace. Quando você for solicitado para parâmetros de banco de dados, insira o nome de usuário *User1@Server1*com o nome de usuário e o nome do servidor de sua escolha.
+2. Se você também implantou um provedor de recursos do MySQL, você pode implantar um site do WordPress no Marketplace. Quando você for solicitado para parâmetros de banco de dados, insira o nome de usuário *User1\@Server1*com o nome de usuário e o nome do servidor de sua escolha.
 
 3. Se você também implantou um provedor de recursos do SQL Server, você pode implantar um site do DNN do Marketplace. Quando você for solicitado para parâmetros de banco de dados, escolha um banco de dados no computador executando o SQL Server que está conectado ao seu provedor de recursos.
 

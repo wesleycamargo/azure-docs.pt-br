@@ -10,12 +10,13 @@ ms.subservice: translator-speech
 ms.topic: reference
 ms.date: 05/18/2018
 ms.author: v-jansko
-ms.openlocfilehash: c68d9c3d40ffa3d4a5a5ae635fbc0ea0a010239c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 3493f6d25461836d8f6e48ce4213b0f5b78b6372
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874729"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56675102"
 ---
 # <a name="translator-speech-api"></a>API de Tradução de Fala
 
@@ -90,7 +91,7 @@ Observe que o tamanho total do arquivo (bytes 4 a 7) e o tamanho dos "dados" (by
 Após enviar o cabeçalho WAV RIFF (), o cliente envia partes dos dados de áudio. O cliente normalmente transmitirá por streaming partes de tamanho fixo representando uma duração fixa (por exemplo, fluxo de 100 ms de áudio por vez).
 
 ### <a name="signal-the-end-of-the-utterance"></a>Sinalizar o final da declaração
-A API de Tradução de Fala retorna a transcrição e a tradução do fluxo de áudio conforme você envia o áudio. A transcrição final, a tradução final e o áudio traduzido serão retornados para você apenas após o final da declaração. Em alguns casos, talvez você queira forçar o final da declaração. Envie 2,5 segundos de silêncio para forçar o final da declaração. 
+A API de Tradução de Fala retorna a transcrição e a tradução do fluxo de áudio conforme você envia o áudio. A transcrição final, a tradução final e o áudio traduzido serão retornados para você apenas após o final da declaração. Em alguns casos, talvez você queira forçar o final da declaração. Envie 2,5 segundos de silêncio para forçar o final da declaração.
 
 ### <a name="final-result"></a>Resultado final
 Um resultado de reconhecimento de fala final é gerado ao fim de um enunciado. Um resultado é transmitido do serviço para o cliente usando uma mensagem do WebSocket do tipo Texto. O conteúdo da mensagem é a serialização JSON de um objeto com as seguintes propriedades:
@@ -112,7 +113,7 @@ A seguir está uma amostra de resultado final:
 {
   type: "final"
   id: "23",
-  recognition: "what was said", 
+  recognition: "what was said",
   translation: "translation of what was said",
   audioStreamPosition: 319680,
   audioSizeBytes: 35840,
@@ -143,7 +144,7 @@ A seguir está uma amostra de resultado final:
 {
   type: "partial"
   id: "23.2",
-  recognition: "what was", 
+  recognition: "what was",
   translation: "translation of what was",
   audioStreamPosition: 319680,
   audioSizeBytes: 25840,
@@ -167,72 +168,29 @@ Quando um aplicativo cliente tiver terminado de transmitir por streaming um áud
 
 |Parâmetro|Valor|DESCRIÇÃO|Tipo de Parâmetro|Tipo de Dados|
 |:---|:---|:---|:---|:---|
-|api-version|1.0|Versão da API solicitada pelo cliente. Os valores permitidos são: `1.0`.|query   |string|
-|de|(vazio)   |Especifica o idioma da fala recebida. O valor é um dos identificadores de idioma do escopo de `speech` na resposta da API de idiomas.|query|string|
-|para|(vazio)|Especifica o idioma para o qual traduzir o texto transcrito. O valor é um dos identificadores de idioma do escopo de `text` na resposta da API de idiomas.|query|string|
-|recursos|(vazio)   |Conjunto separado por vírgulas de recursos selecionados pelo cliente. Os recursos disponíveis incluem:<ul><li>`TextToSpeech`: especifica que o serviço deve retornar o áudio traduzido da frase traduzida final.</li><li>`Partial`: especifica que o serviço deve retornar resultados intermediários de reconhecimento enquanto o áudio está transmitindo por streaming para o serviço.</li><li>`TimingInfo`: especifica que o serviço deve retornar informações de tempo associadas a cada reconhecimento.</li></ul>Por exemplo, um cliente especificaria `features=partial,texttospeech` para receber resultados parciais e texto em fala, mas não informações de tempo. Observe que os resultados finais sempre são transmitidos por streaming para o cliente.|query|string|
-|voice|(vazio)|Identifica que voz usar para renderização de texto em fala do texto traduzido. O valor é um dos identificadores de voz do escopo de tts na resposta da API de idiomas. Se uma voz não for especificada, o sistema escolherá uma automaticamente quando o recurso de texto em fala for habilitado.|query|string|
-|formato|(vazio)|Especifica o formato de texto no fluxo de áudio de texto em fala retornado pelo serviço. As opções disponíveis são:<ul><li>`audio/wav`: fluxo de áudio de forma de onda. O cliente deve usar o cabeçalho WAV para interpretar corretamente o formato de áudio. Áudio WAV para texto em fala é PCM de canal único de 16 bits com uma taxa de amostragem de 24 kHz ou 16 kHz.</li><li>`audio/mp3`: fluxo de áudio em MP3.</li></ul>O padrão é `audio/wav`.|query|string|
-|ProfanityAction    |(vazio)    |Especifica como o serviço deve tratar linguagens vulgares reconhecidas na fala. As ações válidas são:<ul><li>`NoAction`: linguagens vulgares são deixadas como estão.</li><li>`Marked`: linguagens vulgares são substituídas por um marcador. Veja o parâmetro `ProfanityMarker`.</li><li>`Deleted`: linguagens vulgares são excluídas. Por exemplo, se a palavra `"jackass"` for tratado como uma linguagem vulgar, a frase `"He is a jackass."` se tornará `"He is a .".`</li></ul>O padrão é Marcado.|query|string|
-|ProfanityMarker|(vazio)    |Especifica como linguagens vulgares detectadas são tratadas quando `ProfanityAction` é definido como `Marked`. As opções válidas são:<ul><li>`Asterisk`: linguagens vulgares são substituídas pela cadeia de caracteres `***`. Por exemplo, se a palavra `"jackass"` for tratado como uma linguagem vulgar, a frase `"He is a jackass."` se tornará `"He is a ***.".`</li><li>`Tag`: linguagem vulgar fica entre uma marca XML de linguagem vulgar. Por exemplo, se a palavra `"jackass"` for tratado como uma linguagem vulgar, a frase `"He is a jackass."` se tornará `"He is a <profanity>jackass</profanity>."`.</li></ul>O padrão é `Asterisk`.|query|string|
-|Autorização|(vazio)  |Especifica o valor do token de portador do cliente. Use o prefixo `Bearer` seguido pelo valor referente ao valor `access_token` retornado pelo serviço de token de autenticação.|cabeçalho   |string|
-|Ocp-Apim-Subscription-Key|(vazio)|Obrigatório se o cabeçalho `Authorization` não for especificado.|cabeçalho|string|
-|access_token|(vazio)   |Maneira alternativa de passar um token de acesso OAuth válido. O token de portador geralmente é fornecido com o cabeçalho `Authorization`. Algumas bibliotecas de websocket não permitem que o código do cliente defina cabeçalhos. Nesse caso, o cliente pode usar o parâmetro de consulta `access_token` para passar um token válido. Ao usar um token de acesso para autenticação, se o cabeçalho `Authorization` não estiver definido, `access_token` deverá ser definido. Se o cabeçalho e o parâmetro de consulta estiverem ambos definidos, o parâmetro de consulta será ignorado. Os clientes só devem usar um método para passar o token.|query|string|
-|subscription-key|(vazio)   |Maneira alternativa de passar a chave de assinatura. Algumas bibliotecas de websocket não permitem que o código do cliente defina cabeçalhos. Nesse caso, o cliente pode usar o parâmetro de consulta `subscription-key` para passar uma chave de assinatura válida. Ao usar uma chave de assinatura para autenticação, se o cabeçalho `Ocp-Apim-Subscription-Key` não estiver definido, a chave de assinatura deverá ser definida. Se o cabeçalho e o parâmetro de consulta estiverem ambos definidos, o parâmetro de consulta será ignorado. Os clientes só devem usar um método para passar o `subscription key`.|query|string|
-|X-ClientTraceId    |(vazio)    |Um GUID gerado pelo cliente usado para rastrear uma solicitação. Para solução de problemas apropriada, os clientes devem fornecer um novo valor com cada solicitação e registrá-lo em log.<br/>Em vez de usar um cabeçalho, esse valor pode ser passado com o parâmetro de consulta `X-ClientTraceId`. Se o cabeçalho e o parâmetro de consulta estiverem ambos definidos, o parâmetro de consulta será ignorado.|cabeçalho|string|
-|X-CorrelationId|(vazio)    |Um identificador gerado pelo cliente usado para correlacionar vários canais em uma conversa. Várias sessões de tradução de fala podem ser criadas para permitir conversas entre os usuários. Nesse cenário, todas as sessões de tradução de fala usam a mesma ID de correlação para associar os canais entre si. Isso facilita o rastreamento e o diagnóstico. O identificador deve estar em conformidade com: `^[a-zA-Z0-9-_.]{1,64}$`<br/>Em vez de usar um cabeçalho, esse valor pode ser passado com o parâmetro de consulta `X-CorrelationId`. Se o cabeçalho e o parâmetro de consulta estiverem ambos definidos, o parâmetro de consulta será ignorado.|cabeçalho|string|
-|X-ClientVersion|(vazio)    |Identifica a versão do aplicativo cliente. Exemplo: "2.1.0.123".<br/>Em vez de usar um cabeçalho, esse valor pode ser passado com o parâmetro de consulta `X-ClientVersion`. Se o cabeçalho e o parâmetro de consulta estiverem ambos definidos, o parâmetro de consulta será ignorado.|cabeçalho|string|
-|X-OsPlatform|(vazio)   |Identifica o nome e a versão do sistema operacional em que o aplicativo cliente está sendo executado. Exemplos: "Android 5.0", "iOS 8.1.3", "Windows 8.1".<br/>Em vez de usar um cabeçalho, esse valor pode ser passado com o parâmetro de consulta `X-OsPlatform`. Se o cabeçalho e o parâmetro de consulta estiverem ambos definidos, o parâmetro de consulta será ignorado.|cabeçalho|string|
+|api-version|1.0|Versão da API solicitada pelo cliente. Os valores permitidos são: `1.0`.|query   |cadeia de caracteres|
+|de|(vazio)   |Especifica o idioma da fala recebida. O valor é um dos identificadores de idioma do escopo de `speech` na resposta da API de idiomas.|query|cadeia de caracteres|
+|para|(vazio)|Especifica o idioma para o qual traduzir o texto transcrito. O valor é um dos identificadores de idioma do escopo de `text` na resposta da API de idiomas.|query|cadeia de caracteres|
+|recursos|(vazio)   |Conjunto separado por vírgulas de recursos selecionados pelo cliente. Os recursos disponíveis incluem:<ul><li>`TextToSpeech`: especifica que o serviço deve retornar o áudio traduzido da frase traduzida final.</li><li>`Partial`: especifica que o serviço deve retornar resultados intermediários de reconhecimento enquanto o áudio está transmitindo por streaming para o serviço.</li><li>`TimingInfo`: especifica que o serviço deve retornar informações de tempo associadas a cada reconhecimento.</li></ul>Por exemplo, um cliente especificaria `features=partial,texttospeech` para receber resultados parciais e texto em fala, mas não informações de tempo. Observe que os resultados finais sempre são transmitidos por streaming para o cliente.|query|cadeia de caracteres|
+|voice|(vazio)|Identifica que voz usar para renderização de texto em fala do texto traduzido. O valor é um dos identificadores de voz do escopo de tts na resposta da API de idiomas. Se uma voz não for especificada, o sistema escolherá uma automaticamente quando o recurso de texto em fala for habilitado.|query|cadeia de caracteres|
+|formato|(vazio)|Especifica o formato de texto no fluxo de áudio de texto em fala retornado pelo serviço. As opções disponíveis são:<ul><li>`audio/wav`: fluxo de áudio de forma de onda. O cliente deve usar o cabeçalho WAV para interpretar corretamente o formato de áudio. Áudio WAV para texto em fala é PCM de canal único de 16 bits com uma taxa de amostragem de 24 kHz ou 16 kHz.</li><li>`audio/mp3`: fluxo de áudio em MP3.</li></ul>O padrão é `audio/wav`.|query|cadeia de caracteres|
+|ProfanityAction    |(vazio)    |Especifica como o serviço deve tratar linguagens vulgares reconhecidas na fala. As ações válidas são:<ul><li>`NoAction`: linguagens vulgares são deixadas como estão.</li><li>`Marked`: linguagens vulgares são substituídas por um marcador. Veja o parâmetro `ProfanityMarker`.</li><li>`Deleted`: linguagens vulgares são excluídas. Por exemplo, se a palavra `"jackass"` for tratado como uma linguagem vulgar, a frase `"He is a jackass."` se tornará `"He is a .".`</li></ul>O padrão é Marcado.|query|cadeia de caracteres|
+|ProfanityMarker|(vazio)    |Especifica como linguagens vulgares detectadas são tratadas quando `ProfanityAction` é definido como `Marked`. As opções válidas são:<ul><li>`Asterisk`: linguagens vulgares são substituídas pela cadeia de caracteres `***`. Por exemplo, se a palavra `"jackass"` for tratado como uma linguagem vulgar, a frase `"He is a jackass."` se tornará `"He is a ***.".`</li><li>`Tag`: linguagem vulgar fica entre uma marca XML de linguagem vulgar. Por exemplo, se a palavra `"jackass"` for tratado como uma linguagem vulgar, a frase `"He is a jackass."` se tornará `"He is a <profanity>jackass</profanity>."`.</li></ul>O padrão é `Asterisk`.|query|cadeia de caracteres|
+|Autorização|(vazio)  |Especifica o valor do token de portador do cliente. Use o prefixo `Bearer` seguido pelo valor referente ao valor `access_token` retornado pelo serviço de token de autenticação.|cabeçalho   |cadeia de caracteres|
+|Ocp-Apim-Subscription-Key|(vazio)|Obrigatório se o cabeçalho `Authorization` não for especificado.|cabeçalho|cadeia de caracteres|
+|access_token|(vazio)   |Maneira alternativa de passar um token de acesso OAuth válido. O token de portador geralmente é fornecido com o cabeçalho `Authorization`. Algumas bibliotecas de websocket não permitem que o código do cliente defina cabeçalhos. Nesse caso, o cliente pode usar o parâmetro de consulta `access_token` para passar um token válido. Ao usar um token de acesso para autenticação, se o cabeçalho `Authorization` não estiver definido, `access_token` deverá ser definido. Se o cabeçalho e o parâmetro de consulta estiverem ambos definidos, o parâmetro de consulta será ignorado. Os clientes só devem usar um método para passar o token.|query|cadeia de caracteres|
+|subscription-key|(vazio)   |Maneira alternativa de passar a chave de assinatura. Algumas bibliotecas de websocket não permitem que o código do cliente defina cabeçalhos. Nesse caso, o cliente pode usar o parâmetro de consulta `subscription-key` para passar uma chave de assinatura válida. Ao usar uma chave de assinatura para autenticação, se o cabeçalho `Ocp-Apim-Subscription-Key` não estiver definido, a chave de assinatura deverá ser definida. Se o cabeçalho e o parâmetro de consulta estiverem ambos definidos, o parâmetro de consulta será ignorado. Os clientes só devem usar um método para passar o `subscription key`.|query|cadeia de caracteres|
+|X-ClientTraceId    |(vazio)    |Um GUID gerado pelo cliente usado para rastrear uma solicitação. Para solução de problemas apropriada, os clientes devem fornecer um novo valor com cada solicitação e registrá-lo em log.<br/>Em vez de usar um cabeçalho, esse valor pode ser passado com o parâmetro de consulta `X-ClientTraceId`. Se o cabeçalho e o parâmetro de consulta estiverem ambos definidos, o parâmetro de consulta será ignorado.|cabeçalho|cadeia de caracteres|
+|X-CorrelationId|(vazio)    |Um identificador gerado pelo cliente usado para correlacionar vários canais em uma conversa. Várias sessões de tradução de fala podem ser criadas para permitir conversas entre os usuários. Nesse cenário, todas as sessões de tradução de fala usam a mesma ID de correlação para associar os canais entre si. Isso facilita o rastreamento e o diagnóstico. O identificador deve estar em conformidade com: `^[a-zA-Z0-9-_.]{1,64}$`<br/>Em vez de usar um cabeçalho, esse valor pode ser passado com o parâmetro de consulta `X-CorrelationId`. Se o cabeçalho e o parâmetro de consulta estiverem ambos definidos, o parâmetro de consulta será ignorado.|cabeçalho|cadeia de caracteres|
+|X-ClientVersion|(vazio)    |Identifica a versão do aplicativo cliente. Exemplo: "2.1.0.123".<br/>Em vez de usar um cabeçalho, esse valor pode ser passado com o parâmetro de consulta `X-ClientVersion`. Se o cabeçalho e o parâmetro de consulta estiverem ambos definidos, o parâmetro de consulta será ignorado.|cabeçalho|cadeia de caracteres|
+|X-OsPlatform|(vazio)   |Identifica o nome e a versão do sistema operacional em que o aplicativo cliente está sendo executado. Exemplos: "Android 5.0", "iOS 8.1.3", "Windows 8.1".<br/>Em vez de usar um cabeçalho, esse valor pode ser passado com o parâmetro de consulta `X-OsPlatform`. Se o cabeçalho e o parâmetro de consulta estiverem ambos definidos, o parâmetro de consulta será ignorado.|cabeçalho|cadeia de caracteres|
 
 ### <a name="response-messages"></a>Mensagens de resposta
 
 |Código de status HTTP|Motivo|Modelo de Resposta|Cabeçalhos|
 |:--|:--|:--|:--|
-|101    |Atualização de WebSocket.|Valor de Exemplo de Modelo <br/> Objeto {}|X-RequestId<br/>Um valor que identifica a solicitação para fins de solução de problemas.<br/>string|
+|101    |Atualização de WebSocket.|Valor de Exemplo de Modelo <br/> Objeto {}|X-RequestId<br/>Um valor que identifica a solicitação para fins de solução de problemas.<br/>cadeia de caracteres|
 |400    |Solicitação inválida. Verifique os parâmetros de entrada para garantir que sejam válidos. O objeto de resposta inclui uma descrição mais detalhada do erro.|||
 |401    |Não autorizado. Verifique se as credenciais estão definidas, se são válidas e se sua assinatura do Azure Data Market está em situação regular com um saldo disponível.|||
 |500    |Ocorreu um erro. Se o erro persistir, relate-o com o identificador de rastreamento do cliente (X-ClientTraceId) ou com o identificador de solicitação (X-RequestId).|||
 |503    |Servidor temporariamente não disponível. Tente novamente a solicitação. Se o erro persistir, relate-o com o identificador de rastreamento do cliente (X-ClientTraceId) ou com o identificador de solicitação (X-RequestId).|||
-
-    
-
-
-    
-
-
-
-
-
-    
-    
-
-
-
-
-    
-
-
-
-
-    
-
-
-
-
-    
-
-            
-
-
-
-
-        
-
-
-
-
-
-
-
-
-

@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 68f3fe0dbd16d3d71dc66af05de6f90156d67dfa
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: fb4b5dde63d8c7c75419d3202d9848cd6fde8b8a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246354"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547632"
 ---
-# <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Perguntas frequentes sobre problemas de aplicativo e disponibilidade de serviço para Serviços de Nuvem do Azure
+# <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Aplicativo e problemas de disponibilidade de serviço para serviços de nuvem do Azure: Perguntas frequentes (FAQs)
 
 Este artigo inclui as perguntas frequentes sobre problemas de aplicativo e disponibilidade do serviço para [Serviços de Nuvem do Microsoft Azure](https://azure.microsoft.com/services/cloud-services). Você também pode consultar a [página de tamanho de VM de Serviços de Nuvem](cloud-services-sizes-specs.md) para obter informações de tamanho.
 
@@ -41,8 +41,8 @@ Quando o Servidor Web recebe a primeira solicitação, ele primeiro recompila o 
 Os pools de aplicativos IIS (Serviços de Informações da Internet) podem ser reciclados periodicamente para evitar estados instáveis que possam levar o aplicativo a falhar, parar de responder ou sofrer perdas de memória.
 
 Os documentos a seguir ajudarão você a entender e atenuar esse problema:
-* [Como corrigir carregamento inicial lento para IIS](http://stackoverflow.com/questions/13386471/fixing-slow-initial-load-for-iis)
-* [A primeira solicitação do aplicativo Web IIS 7.5 após reciclagem do pool de aplicativos é muito lenta](http://stackoverflow.com/questions/13917205/iis-7-5-web-application-first-request-after-app-pool-recycle-very-slow)
+* [Como corrigir carregamento inicial lento para IIS](https://stackoverflow.com/questions/13386471/fixing-slow-initial-load-for-iis)
+* [A primeira solicitação do aplicativo Web IIS 7.5 após reciclagem do pool de aplicativos é muito lenta](https://stackoverflow.com/questions/13917205/iis-7-5-web-application-first-request-after-app-pool-recycle-very-slow)
 
 Se você quiser alterar o comportamento padrão do IIS, precisará usar as tarefas de inicialização, porque se você aplicar as alterações manualmente às instâncias de Função Web, as alterações acabarão sendo perdidas.
 

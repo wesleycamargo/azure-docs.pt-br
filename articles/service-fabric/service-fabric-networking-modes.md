@@ -3,7 +3,7 @@ title: Configurar os modos de rede para serviços de contêiner do Azure Service
 description: Saiba como configurar os diferentes modos de rede suportados pelo Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: twhitney, subramar
-ms.openlocfilehash: 62812dd8f92bcace8f764a21aba608157815cec3
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.author: aljo, subramar
+ms.openlocfilehash: 01b1cfafab75acef918b001752837a4dc44ca909
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55093132"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57899036"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modos de rede de contêiner do Service Fabric
 
@@ -30,7 +30,7 @@ Se você tiver um serviço de contêiner com um ponto de extremidade estático e
 Quando um serviço de contêiner é reiniciado ou movido para outro nó no cluster, o endereço IP é alterado. Por esse motivo, não é recomendável usar o endereço IP atribuído dinamicamente para descobrir os serviços de contêiner. Use somente o Serviço de Nomenclatura do Service Fabric ou o Serviço DNS para a descoberta de serviço. 
 
 >[!WARNING]
->O Azure permite um total de 4.096 IPs por rede virtual. Portanto, a soma do número de nós e o número de instâncias do serviço de contêiner (que usam o modo Aberto) não pode exceder 4.096 IPs dentro de uma rede virtual. Para cenários de alta densidade, recomendamos o modo de rede nat.
+>O Azure permite um total de 65,356 IPs por rede virtual. A soma do número de nós e o número de instâncias de serviço de contêiner (que usam o modo aberto) não pode exceder 65,356 IPs dentro de uma rede virtual. Para cenários de alta densidade, recomendamos o modo de rede nat. Além disso, outras dependências, como o balanceador de carga terá outra [limitações](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits) a considerar. Atualmente, até 50 IPs por nó foram testadas e comprovadas estável. 
 >
 
 ## <a name="set-up-open-networking-mode"></a>Configurar o modo de rede Aberto
@@ -55,15 +55,6 @@ Quando um serviço de contêiner é reiniciado ou movido para outro nó no clust
                             "name": "IPProviderEnabled",
                             "value": "true"
                       }
-                    ]
-                },
-                {
-                    "name":  "Trace/Etw", 
-                    "parameters": [
-                    {
-                            "name": "Level",
-                            "value": "5"
-                    }
                     ]
                 },
                 {
@@ -223,7 +214,7 @@ Quando um serviço de contêiner é reiniciado ou movido para outro nó no clust
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
-    <ApplicationManifest ApplicationTypeName="NodeJsApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ApplicationManifest ApplicationTypeName="NodeJsApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
       <Description>Calculator Application</Description>
       <Parameters>
         <Parameter Name="ServiceInstanceCount" DefaultValue="3"></Parameter>

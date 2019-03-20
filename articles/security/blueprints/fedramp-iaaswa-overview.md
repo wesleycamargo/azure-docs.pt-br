@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 6dd413a6b6550e18551db1105d306f8a0bdaf9c2
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 1ba5b813843ce2f5d31f337ab4d3d94e521b0e0c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106742"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864466"
 ---
 # <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-fedramp"></a>Blueprint de Segurança e Conformidade do Azure: Aplicativo Web de IaaS para FedRAMP
 
@@ -72,8 +72,7 @@ A solução usa os serviços do Azure a seguir. Os detalhes da arquitetura de im
 - Cofre da Chave do Azure
 - Active Directory do Azure (Azure AD)
 - Azure Resource Manager
-- Log Analytics
-- Azure Monitor
+- O Azure Monitor (logs)
 
 ## <a name="deployment-architecture"></a>Arquitetura de implantação
 
@@ -148,11 +147,11 @@ As tecnologias a seguir fornecem funcionalidades de gerenciamento de identidades
 
 ### <a name="logging-and-auditing"></a>Registro em log e auditoria
 
-O Log Analytics fornece registro extensivo de atividades do sistema e do usuário, bem como integridade do sistema. A solução [Log Analytics](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) coleta e analisa dados gerados por recursos no Azure e em ambientes locais.
+Os logs do Azure Monitor fornece registro em log extensivo de atividade do sistema e usuário, bem como a integridade do sistema. O [registra em log do Azure Monitor](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) solução coleta e analisa os dados gerados pelos recursos no Azure e ambientes locais.
 
 - **Logs de atividade:**  Os [logs de atividades](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fornecem insights sobre as operações executadas em recursos em uma assinatura. Os logs de atividade podem ajudar a determinar o iniciador, o horário da ocorrência e o status de uma operação.
 - **Logs de diagnóstico:**  Os [Logs de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) são todos os logs emitidos por todos os recursos. Esses logs são logs de eventos do sistema Windows, logs de armazenamento do Azure, logs de auditoria do Key Vault e logs de acesso e firewall do Gateway de Aplicativo.
-- **Arquivamento em log**:  Todos os logs de diagnóstico são gravados em uma conta de armazenamento do Azure centralizada e criptografada para arquivamento. A retenção é configurável pelo usuário, de até 730 dias, para atender aos requisitos de retenção específicos da organização. Esses logs são conectados ao Azure Log Analytics para processamento, armazenamento e criação de relatórios de painéis.
+- **Arquivamento em log**:  Todos os logs de diagnóstico são gravados em uma conta de armazenamento do Azure centralizada e criptografada para arquivamento. A retenção é configurável pelo usuário, de até 730 dias, para atender aos requisitos de retenção específicos da organização. Esses logs conectem-se aos logs do Azure Monitor para processar, armazenar e relatórios de painel.
 
 Além disso, as seguintes soluções de monitoramento são instaladas como parte dessa arquitetura. Observe que é responsabilidade do cliente configurar essas soluções para se alinhar aos controles de segurança do FedRAMP:
 -   [Avaliação do AD](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): A solução de Verificação de Integridade do Active Directory avalia o risco e a integridade dos ambientes de servidor em intervalos regulares e fornece uma lista priorizada de recomendações específicas para a infraestrutura de servidor implantada.
@@ -192,7 +191,7 @@ Esta Automação de Segurança e Conformidade do Azure Blueprint é composta de 
 
 3. Clique no botão abaixo, entre no portal do Azure, insira os parâmetros de modelo do ARM necessários e clique em **Comprar**.
 
-    [![Implantar no Azure](http://azuredeploy.net/AzureGov.png)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Ffedramp-iaas-webapp%2Fmaster%2Fazuredeploy.json)
+    [![Implantar no Azure](https://azuredeploy.net/AzureGov.png)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Ffedramp-iaas-webapp%2Fmaster%2Fazuredeploy.json)
 
 ## <a name="guidance-and-recommendations"></a>Diretrizes e recomendações
 ### <a name="vpn-and-expressroute"></a>VPN e ExpressRoute

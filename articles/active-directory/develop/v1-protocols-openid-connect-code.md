@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 03/4/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30bdadc3e135111f8c4f40116875f0c61e4064ce
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 281e1109964ac64853b8b82525579b7ff4de0d2f
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211488"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57406398"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Autorizar o acesso aos aplicativos Web usando o OpenID Connect e o Azure Active Directory
 
@@ -93,9 +93,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | locatário |obrigatório |O valor `{tenant}` no caminho da solicitação pode ser usado para controlar quem pode entrar no aplicativo. Os valores permitidos são identificadores de locatário, por exemplo, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` ou `contoso.onmicrosoft.com` ou `common` para tokens independentes de locatário |
 | client_id |obrigatório |A ID de aplicativo atribuída ao seu aplicativo quando você o registra no Azure AD. Você pode encontrá-la no Portal do Azure. Clique em **Azure Active Directory**, clique em **Registros do Aplicativo**, escolha o aplicativo e localize a ID do Aplicativo na página do aplicativo. |
 | response_type |obrigatório |Deve incluir `id_token` para conexão do OpenID Connect. Também pode incluir outros response_types, como `code` ou `token`. |
-| scope |obrigatório |Uma lista de escopos separados por espaços. Para o OpenID Connect, é necessário incluir o escopo `openid`, que é traduzido para a permissão "Fazer seu logon" na interface do usuário de consentimento. Você também pode incluir outros escopos nesta solicitação para solicitar o consentimento. |
+| scope | recomendável | A especificação do OpenID Connect requer o escopo `openid`, que é convertido para a permissão "Sign in" no consentimento da interface do usuário. Isso e outros escopos OIDC são ignorados no ponto de extremidade v1.0, mas ainda é uma prática recomendada para clientes compatíveis com os padrões. |
 | nonce |obrigatório |Um valor incluído na solicitação, gerado pelo aplicativo, que é incluído no `id_token` resultante como uma declaração. O aplicativo pode verificar esse valor para reduzir os ataques de reprodução de token. Normalmente, o valor é uma cadeia de caracteres aleatória e exclusiva ou um GUID que pode ser usado para identificar a origem da solicitação. |
-| redirect_uri |recomendável |O redirect_uri do seu aplicativo, onde as respostas de autenticação podem ser enviadas e recebidas pelo aplicativo. Ele deve corresponder exatamente a um dos redirect_uris que você registrou no portal, com exceção de que ele deve ser codificado por url. |
+| redirect_uri | recomendável |O redirect_uri do seu aplicativo, onde as respostas de autenticação podem ser enviadas e recebidas pelo aplicativo. Ele deve corresponder exatamente a um dos redirect_uris que você registrou no portal, com exceção de que ele deve ser codificado por url. Se estiverem ausentes, o agente do usuário será enviado para um dos URIs de redirecionamento registrados para o aplicativo, aleatoriamente. |
 | response_mode |opcional |Especifica o método que deve ser usado para enviar o authorization_code resultante de volta ao aplicativo. Os valores suportados são `form_post` para *post do formulário HTTP* e `fragment` para o *fragmento de URL*. Em aplicativos Web, é recomendável usar `response_mode=form_post` a fim de garantir a transferência mais segura de tokens para seu aplicativo. O padrão para qualquer fluxo, incluindo um id_token é `fragment`.|
 | state |recomendável |Um valor incluído na solicitação que retorna na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. Um valor exclusivo gerado aleatoriamente normalmente é usado para [impedir ataques de solicitação intersite forjada](https://tools.ietf.org/html/rfc6749#section-10.12). O estado também é usado para codificar as informações sobre o estado do usuário no aplicativo antes da solicitação de autenticação ocorrida, como a página ou exibição em que ele estava. |
 | prompt |opcional |Indica o tipo de interação do usuário que é necessário. Atualmente, os únicos valores válidos são "login", "none" e "consent". `prompt=login` força o usuário a inserir suas credenciais na solicitação, negando o logon único. `prompt=none` é o oposto — ele garante que nenhum prompt interativo seja apresentado ao usuário. Se a solicitação não puder ser concluída silenciosamente por meio de logon único, o ponto de extremidade retornará um erro. `prompt=consent` dispara a caixa de diálogo de consentimento do OAuth depois que o usuário se conecta, solicitando que ele conceda permissões ao aplicativo. |
@@ -155,12 +155,12 @@ A tabela a seguir descreve os vários códigos de erro que podem ser retornados 
 
 Apenas receber um `id_token` não é suficiente para autenticar o usuário. Você deve validar a assinatura e verificar as declarações no `id_token`, de acordo com os requisitos do aplicativo. O ponto de extremidade do Azure AD usa JWTs (Tokens Web JSON) e criptografia de chave pública para assinar tokens e verificar se eles são válidos.
 
-Você pode escolher validar o `id_token` no código do cliente, mas uma prática comum é enviar o `id_token` para um servidor de back-end e executar a validação nele. Após a validação da assinatura do `id_token`, haverá algumas declarações que você precisará verificar.
+Você pode escolher validar o `id_token` no código do cliente, mas uma prática comum é enviar o `id_token` para um servidor de back-end e executar a validação nele. 
 
 Talvez você também queira validar declarações adicionais, dependendo do cenário. Algumas validações comuns incluem:
 
 * Garantir que o usuário/organização tenha assinado para usar o aplicativo.
-* Garantir que o usuário tenha autorização/privilégios adequados.
+* Garantir que o usuário tenha autorização/privilégios adequados usando o `wids` ou `roles` declarações. 
 * Garantir que uma determinada intensidade de autenticação tenha ocorrido, como autenticação multifator.
 
 Depois de ter validado o `id_token`, você poderá iniciar uma sessão com o usuário e usar declarações no `id_token` para obter informações sobre o usuário no seu aplicativo. Essas informações podem ser usadas para exibição, registros, personalização etc. Para obter mais informações sobre `id_tokens` e declarações, leia [AAD id_tokens](id-tokens.md).

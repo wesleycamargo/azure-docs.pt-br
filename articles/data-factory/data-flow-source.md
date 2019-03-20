@@ -7,25 +7,25 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 38a01b4f81b76ba90a5fda4909d0e65e6307057e
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
-ms.translationtype: HT
+ms.openlocfilehash: 20491981cb02e428ff4114b9456d74b0de651be8
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408707"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569018"
 ---
 # <a name="mapping-data-flow-source-transformation"></a>Transformação de Fonte de Fluxo de Dados de mapeamento
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-A Transformação de Fonte configura uma fonte de dados que você deseja usar para trazer dados para seu fluxo de dados. Você pode ter mais de uma Transformação de Fonte em um único Fluxo de Dados. Sempre comece criando seus fluxos de dados com uma fonte.
+A Transformação de Fonte configura uma fonte de dados que você deseja usar para trazer dados para seu fluxo de dados. Você pode ter mais de uma Transformação de Fonte em um único Fluxo de Dados. Sempre começar a criar seus fluxos de dados com uma transformação de origem.
 
 > [!NOTE]
-> Cada Fluxo de Dados requer pelo menos uma Transformação de Fonte. Adicione quantas fontes adicionais forem necessárias para concluir suas transformações de dados. Você pode associar essas fontes com uma transformação de Junção ou União.
+> Cada Fluxo de Dados requer pelo menos uma Transformação de Fonte. Adicione quantas fontes adicionais forem necessárias para concluir suas transformações de dados. Você pode associar essas fontes com uma transformação de Junção ou União. Quando você depura seu fluxo de dados em sessões de depuração, os dados serão lidos da origem usando a configuração de amostragem ou limites de origem de depuração. No entanto, nenhum dado será gravado em um coletor até que você execute seu fluxo de dados de uma atividade de fluxo de dados do pipeline. 
 
 ![Opções de Transformação de Fonte](media/data-flow/source.png "fonte")
 
-Cada transformação de Fonte de Fluxo de Dados deve ser associada a exatamente um Conjunto de Dados do Data Factory, que define o forma e a localização dos seus dados para gravar ou ler. Você pode usar listas de arquivo e curingas na sua fonte para trabalhar com mais de um arquivo por vez.
+Cada transformação de fluxo de dados de origem deve ser associada a exatamente um conjunto de dados do Data Factory. O conjunto de dados define a forma e o local dos dados para gravar ou ler. Você pode usar listas de curingas e arquivos em sua fonte para trabalhar com mais de um arquivo por vez ao usar fontes de arquivo.
 
 ## <a name="data-flow-staging-areas"></a>Áreas de preparo de Fluxo de Dados
 
@@ -43,7 +43,7 @@ Selecione Permitir o descompasso de esquema se as colunas de origem forem ser al
 Se a versão de entrada dos dados de origem não corresponder ao esquema definido, a execução do fluxo de dados falhará.
 
 ### <a name="sampling"></a>amostragem
-Use a amostragem para limitar o número de linhas de sua fonte.  Isso é útil quando você precisa de apenas uma amostra dos dados de origem para fins de depuração e teste.
+Use a amostragem para limitar o número de linhas de sua fonte.  Isso é útil ao testar ou amostragem de dados do seu código-fonte para fins de depuração.
 
 ## <a name="define-schema"></a>Definir esquema
 
@@ -53,7 +53,7 @@ Para tipos de arquivo de origem que não são fortemente tipados (isto é, arqui
 
 ![Transformação de Fonte](media/data-flow/source003.png "tipos de dados")
 
-Para fontes de fortemente tipadas, você pode modificar o 
+Para fontes de fortemente tipado, você pode modificar os tipos de dados em uma transformação de Select subsequente. 
 
 ### <a name="optimize"></a>Otimizar
 
@@ -74,7 +74,7 @@ Você pode optar por particionar as conexões com base em uma consulta. Para ess
 ## <a name="source-file-management"></a>Gerenciamento de arquivos de origem
 ![Novas configurações de fonte](media/data-flow/source2.png "Novas configurações")
 
-* Caminho de caractere curinga para escolher uma série de arquivos da sua pasta de origem que corresponde a um padrão. Isso substituirá qualquer arquivo que você definiu na sua definição de conjunto de dados.
+* Caminho de caractere curinga para escolher uma série de arquivos da sua pasta de origem que corresponde a um padrão. Isso substituirá qualquer arquivo que você definiu em sua definição de conjunto de dados.
 * Lista de Arquivos. Mesmo que um conjunto de arquivos. Aponte para um arquivo de texto que você cria com uma lista de arquivos do caminho relativo para processar.
 * A coluna para armazenar o nome do arquivo armazenará o nome do arquivo da fonte em uma coluna em seus dados. Insira um novo nome para armazenar a cadeia de caracteres de nome de arquivo.
 * Após a conclusão (você pode optar por não fazer nada com o arquivo de origem após a execução de fluxo de dados, excluir os arquivos de origem ou mover os arquivos de origem). Os caminhos para movimentação são caminhos relativos.

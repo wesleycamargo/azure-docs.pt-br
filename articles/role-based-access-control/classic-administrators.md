@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 02/19/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f4838f688210f9017d691bd6a463217a75fc90d4
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: a19153677e691d2681c131df67100a43ef9532a0
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447507"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889317"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administradores da assinatura clássica do Azure
 
@@ -91,7 +91,7 @@ Há duas maneiras de alterar o Administrador de Serviços. É possível alterar 
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-1. Certifique-se de que há suporte para o cenário, verificando as [limitações para alteração dos Administradores de Serviços](#limits).
+1. Verifique se há suporte para o seu cenário, verificando as limitações para alterar os administradores de serviço.
 
 1. Entre no [Portal do Azure](https://portal.azure.com) como Administrador da Conta.
 
@@ -109,7 +109,7 @@ Há duas maneiras de alterar o Administrador de Serviços. É possível alterar 
 
 ### <a name="account-center"></a>Centro de Contas
 
-1. Certifique-se de que há suporte para o cenário, verificando as [limitações para alterar os Administradores de Serviços](#limits).
+1. Verifique se há suporte para o seu cenário, verificando as limitações para alterar os administradores de serviço.
 
 1. Entre no [Centro de Contas](https://account.windowsazure.com/subscriptions) como o Administrador da Conta.
 
@@ -156,3 +156,4 @@ Siga estas etapas para exibir o Administrador da Conta.
 
 * [Entender as diferentes funções no Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
 * [Gerenciar o acesso aos recursos do Azure usando o RBAC e o portal do Azure](../role-based-access-control/role-assignments-portal.md)
+* [Adicionar ou alterar administradores de assinatura do Azure](../billing/billing-add-change-azure-subscription-administrator.md)

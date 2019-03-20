@@ -1,21 +1,20 @@
 ---
-title: Solução de problemas | Microsoft Docs
+title: solução de problemas
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: 09/11/2018
-ms.topic: article
+ms.topic: conceptual
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
-keywords: Docker, Kubernetes, Azure, AKS, Serviço do Kubernetes do Azure, contêineres
-ms.openlocfilehash: 5be6f99067f1209fcd131dfc33c46995b2a537f8
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+keywords: 'Docker, Kubernetes, Azure, AKS, serviço Kubernetes do Azure, contêineres, Helm, malha de serviço, o roteamento de malha do serviço, kubectl, k8s '
+ms.openlocfilehash: 1ccb96bc8682ad505bc4b21e90951ea25c4c9954
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55498294"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57898075"
 ---
 # <a name="troubleshooting-guide"></a>Guia de Solução de Problemas
 
@@ -146,8 +145,8 @@ Esse erro será exibido no Visual Studio Code se você tiver uma versão mais re
 
 Baixe e instale a última versão da CLI do Azure Dev Spaces:
 
-* [Windows](http://aka.ms/get-azds-windows)
-* [Mac](http://aka.ms/get-azds-mac)
+* [Windows](https://aka.ms/get-azds-windows)
+* [Mac](https://aka.ms/get-azds-mac)
 * [Linux](https://aka.ms/get-azds-linux)
 
 ## <a name="error-azds-is-not-recognized-as-an-internal-or-external-command-operable-program-or-batch-file"></a>O erro "azds" não é reconhecido como um comando interno ou externo, programa operável ou arquivo em lote
@@ -210,7 +209,7 @@ Iniciar o depurador de VS Code pode, às vezes, resultar nesse erro.
 Executar o depurador de VS Code relata o erro: `Failed to find debugger extension for type:coreclr.`
 
 ### <a name="reason"></a>Motivo
-Não é necessário ter a extensão do VS Code para C# instalada no computador de desenvolvimento. A extensão do C# inclui o suporte à depuração para .Net Core (CoreCLR).
+Não é necessário ter a extensão do VS Code para C# instalada no computador de desenvolvimento. O C# extensão inclui suporte para o .NET Core (CoreCLR) de depuração.
 
 ### <a name="try"></a>Experimente:
 Instalar a [extensão do VS Code para C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).

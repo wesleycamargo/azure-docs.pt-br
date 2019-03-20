@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: erikre
-ms.openlocfilehash: a4e5307a151439dde5ac41cb5b1bbb80f43ad71c
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 15725989ef786f94421eddf647f101e3e73633fb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112743"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890756"
 ---
 # <a name="review-subscription-billing-using-rest-apis"></a>Revise o faturamento de assinatura usando APIs REST
 
-As APIs de relatórios do Azure ajudam você a revisar e gerenciar seus custos do Azure.  
+As APIs de relatórios do Azure ajudam você a revisar e gerenciar seus custos do Azure.
 
 Os filtros ajudam a personalizar os resultados para atender às suas necessidades.
 
@@ -31,26 +31,26 @@ Aqui, você aprende a usar uma API REST para retornar detalhes de faturamento da
 
 ``` http
 GET https://management.azure.com/subscriptions/${subscriptionID}/providers/Microsoft.Billing/billingPeriods/${billingPeriod}/providers/Microsoft.Consumption/usageDetails?$filter=properties/usageEnd ge '${startDate}' AND properties/usageEnd le '${endDate}'
-Content-Type: application/json   
+Content-Type: application/json
 Authorization: Bearer
 ```
 
-## <a name="build-the-request"></a>Criar a solicitação  
+## <a name="build-the-request"></a>Criar a solicitação
 
 O parâmetro `{subscriptionID}` é obrigatório e identifica a assinatura de destino.
 
 O parâmetro `{billingPeriod}` é obrigatório e especifica um período de faturamento [atual](https://docs.microsoft.com/rest/api/billing/billingperiods/get#billingperiod).
 
-Os parâmetros `${startDate}` e `${endDate}` são obrigatórios para este exemplo, mas opcionais para o terminal.  Eles especificam o intervalo de datas como sequências na forma de AAAA-MM-DD (exemplos: `'20180501'` e `'20180615'`). 
+Os parâmetros `${startDate}` e `${endDate}` são obrigatórios para este exemplo, mas opcionais para o terminal. Eles especificam o intervalo de datas como sequências na forma de AAAA-MM-DD (exemplos: `'20180501'` e `'20180615'`).
 
-Os cabeçalhos a seguir são necessários: 
+Os cabeçalhos a seguir são necessários:
 
-|Cabeçalho da solicitação|DESCRIÇÃO|  
-|--------------------|-----------------|  
-|*Tipo de Conteúdo:*|Obrigatório. Defina como `application/json`.|  
-|*Autorização:*|Obrigatório. Defina como um `Bearer` [token de acesso](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) válido. |  
+|Cabeçalho da solicitação|DESCRIÇÃO|
+|--------------------|-----------------|
+|*Tipo de Conteúdo:*|Obrigatório. Defina como `application/json`.|
+|*Autorização:*|Obrigatório. Defina como um `Bearer` [token de acesso](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) válido. |
 
-## <a name="response"></a>Response  
+## <a name="response"></a>Response
 
 O código de status 200 (OK) é retornado para uma resposta bem-sucedida, que contém uma lista de custos detalhados para sua conta.
 
@@ -67,47 +67,47 @@ O código de status 200 (OK) é retornado para uma resposta bem-sucedida, que co
         "usageStart": "${startDate}}",
         "usageEnd": "${endDate}",
         "currency": "USD",
-        "usageQuantity": ${usageQuantity},
-        "billableQuantity": ${billableQuantity},
-        "pretaxCost": ${cost},
+        "usageQuantity": "${usageQuantity}",
+        "billableQuantity": "${billableQuantity}",
+        "pretaxCost": "${cost}",
         "meterId": "${meterID}",
-        "meterDetails": ${meterDetails}
+        "meterDetails": "${meterDetails}"
       }
     }
-    ],
-    "nextLink": "${nextLinkURL}"
-} 
-```  
+  ],
+  "nextLink": "${nextLinkURL}"
+}
+```
 
 Cada item no **valor** representa detalhes sobre o uso de um serviço:
 
 |Propriedade de resposta|DESCRIÇÃO|
 |----------------|----------|
-|**subscriptionGuid** | ID exclusivo global da assinatura. | 
+|**subscriptionGuid** | ID exclusivo global da assinatura. |
 |**startDate** | Data em que o uso foi iniciado. |
 |**endDate** | Data em que o uso foi encerrado. |
-|**useageQuantity** | Quantidade utilizada. | 
+|**useageQuantity** | Quantidade utilizada. |
 |**billableQuantity** | Quantidade faturada de fato. |
-|**pretaxCost** | Custo faturado, antes dos impostos aplicáveis. | 
+|**pretaxCost** | Custo faturado, antes dos impostos aplicáveis. |
 |**meterDetails** | Informações detalhadas sobre o uso. |
-|**nextLink**| Quando definido, especifica um URL para a próxima "página" de detalhes. Em branco quando a página é a última. |  
-||
-  
-Este exemplo é abreviado; consulte [Listar detalhes de uso](https://docs.microsoft.com/rest/api/consumption/usagedetails/listbybillingperiod#usagedetailslistresult) para obter uma descrição completa de cada campo de resposta. 
+|**nextLink**| Quando definido, especifica um URL para a próxima "página" de detalhes. Em branco quando a página é a última. |
+
+Este exemplo é abreviado; consulte [Listar detalhes de uso](https://docs.microsoft.com/rest/api/consumption/usagedetails/list#usagedetailslistforbillingperiod) para obter uma descrição completa de cada campo de resposta.
 
 Outros códigos de status indicam condições de erro. Nestes casos, o objeto de resposta explica por que a solicitação falhou.
 
 ``` json
-{  
-  "error": [  
-    { "code": "Error type." 
-      "message": "Error response describing why the operation failed."  
-    }  
-  ]  
-}  
-```  
+{
+  "error": [
+    {
+      "code": "Error type.",
+      "message": "Error response describing why the operation failed."
+    }
+  ]
+}
+```
 
-## <a name="next-steps"></a>Próximas etapas 
+## <a name="next-steps"></a>Próximas etapas
 - Revise a [visão geral de relatórios corporativos](https://docs.microsoft.com/azure/billing/billing-enterprise-api)
-- Investigue [API REST do Enterprise Billing](https://docs.microsoft.com/rest/api/billing/)   
-- [Iniciar com a API REST do Azure](https://docs.microsoft.com/rest/api/azure/)   
+- Investigue [API REST do Enterprise Billing](https://docs.microsoft.com/rest/api/billing/)
+- [Iniciar com a API REST do Azure](https://docs.microsoft.com/rest/api/azure/)

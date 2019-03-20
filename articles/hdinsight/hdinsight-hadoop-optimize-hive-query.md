@@ -9,18 +9,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 57e23c55342ee397ecb8590dd6da639ba766f351
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
-ms.translationtype: HT
+ms.openlocfilehash: 1c863bc3b0ded0558e052ee3d98586ad815a0cfd
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385424"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202734"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Otimizar as consultas do Apache Hive no Azure HDInsight
 
 No Azure HDInsight, há vários tipos de cluster e tecnologias que podem executar consultas do Apache Hive. Ao criar o cluster do HDInsight, escolha o tipo de cluster apropriado para ajudar a otimizar o desempenho de suas necessidades de carga de trabalho. 
 
-Por exemplo, escolha o tipo de cluster **Consulta Interativa** para otimizar para consultas ad-hoc interativas. Escolha o tipo de cluster Apache **Hadoop** para otimizar para consultas do Hive usadas como um processo em lote. Os tipos de cluster **Spark** e **HBase** também podem executar consultas Hive. Para saber mais sobre como executar consultas Hive em vários tipos de cluster do HDInsight, confira [O que é o Apache Hive e HiveQL no Azure HDInsight?](hadoop/hdinsight-use-hive.md).
+Por exemplo, escolha **consulta interativa** tipo otimizar para consultas ad hoc e interativas de cluster. Escolha o tipo de cluster Apache **Hadoop** para otimizar para consultas do Hive usadas como um processo em lote. Os tipos de cluster **Spark** e **HBase** também podem executar consultas Hive. Para saber mais sobre como executar consultas Hive em vários tipos de cluster do HDInsight, confira [O que é o Apache Hive e HiveQL no Azure HDInsight?](hadoop/hdinsight-use-hive.md).
 
 Os clusters HDInsight do tipo de cluster Hadoop não são otimizados para desempenho, por padrão. Este artigo descreve alguns dos métodos de otimização de desempenho do Hive mais comuns que você pode aplicar às suas consultas.
 
@@ -196,10 +196,8 @@ Há mais métodos de otimização que você pode considerar, por exemplo:
 Neste artigo, você aprendeu a vários métodos comuns de otimização de consultas do Hive. Para saber mais, consulte os seguintes artigos:
 
 * [Usar o Apache Hive no HDInsight](hadoop/hdinsight-use-hive.md)
-* [Analisar dados de atraso de voo usando o Apache Hive no HDInsight](hdinsight-analyze-flight-delay-data.md)
-* [Analise os dados do Twitter usando o Apache Hive no HDInsight](hdinsight-analyze-twitter-data.md)
-* [Analisar os dados do sensor usando o Console de Consulta do Apache Hive no Apache Hadoop no HDInsight](hadoop/apache-hive-analyze-sensor-data.md)
-* [Usar o Apache Hive com HDInsight para analisar logs de sites](hadoop/apache-hive-analyze-website-log.md)
+* [Analisar dados de atraso de voo usando o Apache Hive no HDInsight](hdinsight-analyze-flight-delay-data-linux.md)
+* [Analise os dados do Twitter usando o Apache Hive no HDInsight](hdinsight-analyze-twitter-data-linux.md)
 
 [image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png
 [image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png
