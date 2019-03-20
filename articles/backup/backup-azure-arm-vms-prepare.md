@@ -6,18 +6,18 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/17/2019
+ms.date: 03/13/2019
 ms.author: raynew
-ms.openlocfilehash: e782afb971f95a654119d9817edeef02642bee9e
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 2cc5384fe039e757b33802075d0e550b369477f3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447558"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57874959"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Fazer backup de máquinas virtuais do Azure em um cofre dos Serviços de Recuperação
 
-Este artigo descreve como fazer backup de VM do Azure usando um [Backup do Azure](backup-overview.md) implantando e habilitando o backup em um cofre dos Serviços de Recuperação. 
+Este artigo descreve como fazer backup de VM do Azure usando um [Backup do Azure](backup-overview.md) implantando e habilitando o backup em um cofre dos Serviços de Recuperação.
 
 Neste artigo, você aprenderá a:
 
@@ -33,7 +33,7 @@ Neste artigo, você aprenderá a:
 > [!NOTE]
    > Este artigo descreve como fazer backup de VMs do Azure ao configurar um cofre e escolher as VMs para fazer backup. Isso é útil se você quiser fazer backup de várias VMs. Você também pode fazer [backup de uma VM do Azure](backup-azure-vms-first-look-arm.md) diretamente nas configurações da VM.
 
-## <a name="before-you-start"></a>Antes de começar
+## <a name="before-you-start"></a>Antes de iniciar
 
 O Backup do Azure faz backup de VMs do Azure instalando uma extensão para o agente de VM do Azure em execução no computador.
 
@@ -47,13 +47,13 @@ O Backup do Azure faz backup de VMs do Azure instalando uma extensão para o age
 
 Instale o agente da VM, se necessário, e verifique se o acesso de saída de VMs.
 
-### <a name="install-the-vm-agent"></a>Instalar o agente de VM 
+### <a name="install-the-vm-agent"></a>Instalar o agente de VM
 Se necessário, instale o agente da seguinte maneira.
 
 **VM** | **Detalhes**
 --- | ---
 **VMs do Windows** | [Baixe e instale](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) o arquivo MSI do agente. Instale com permissões de administrador no computador.<br/><br/> Para verificar a instalação, em *C:\WindowsAzure\Packages* na VM, clique com o botão direito do mouse em WaAppAgent.exe > **Propriedades**, > guia **Detalhes**. **A versão do produto** deve ser 2.6.1198.718 ou superior.<br/><br/> Se você estiver atualizando o agente, verifique se nenhuma operação de backup está em execução e [reinstale o agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
-**VMs do Linux** | Instalação usando um RPM ou um pacote DEB do repositório de pacotes da distribuição é o método preferencial para instalar e atualizar o Azure do Agente Linux do Azure. Todos os [provedores de distribuição aprovados](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integram o pacote do agente Linux do Azure em suas imagens e repositórios. O agente está disponível no [GitHub](https://github.com/Azure/WALinuxAgent), mas não recomendamos instalá-lo a partir daí.<br/><br/> Se você estiver atualizando o agente, verifique se nenhuma operação de backup está em execução e atualize os binários. 
+**VMs do Linux** | Instalação usando um RPM ou um pacote DEB do repositório de pacotes da distribuição é o método preferencial para instalar e atualizar o Azure do Agente Linux do Azure. Todos os [provedores de distribuição aprovados](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integram o pacote do agente Linux do Azure em suas imagens e repositórios. O agente está disponível no [GitHub](https://github.com/Azure/WALinuxAgent), mas não recomendamos instalá-lo a partir daí.<br/><br/> Se você estiver atualizando o agente, verifique se nenhuma operação de backup está em execução e atualize os binários.
 
 
 ### <a name="establish-network-connectivity"></a>Estabelecer conectividade de rede
@@ -63,10 +63,10 @@ A extensão de backup em execução na VM deve ter acesso de saída aos endereç
 - Não é necessário acesso de rede de saída explícito para a VM do Azure para se comunicar com o Serviço de Backup do Azure.
 - No entanto, determinadas máquinas virtuais mais antigas podem enfrentar problemas e falhar com o erro **ExtensionSnapshotFailedNoNetwork** ao tentarem se conectar. Neste caso, use uma das opções a seguir para que a extensão de backup possa se comunicar com os endereços IP públicos do Azure para o tráfego de backup.
 
-   **Opção** | **Ação** ** | **Vantagens** | **Desvantagens**
+   **Opção** | **Ação** | **Vantagens** | **Desvantagens**
    --- | --- | --- | ---
    **Configurar regras de NSG** | Permitir os [intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653).<br/><br/>  Você pode adicionar uma regra que permita acesso ao serviço de Backup do Azure usando [uma tag de serviço](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure) em vez de permitir e gerenciar individualmente cada intervalo de endereços. [Saiba mais](../virtual-network/security-overview.md#service-tags) sobre marcas de serviço. | Sem custo adicional. Simples de gerenciar com marcas de serviço
-   **Implantar um proxy** | Implante um servidor de proxy HTTP para rotear o tráfego. | Fornece acesso ao Azure por completo, não somente ao armazenamento. É permitido o controle granular em relação às URLs de armazenamento.<br/><br/> Único ponto de acesso à Internet para VMs.<br/><br/> Custos adicionais para o proxy.<br/><br/> 
+   **Implantar um proxy** | Implante um servidor de proxy HTTP para rotear o tráfego. | Fornece acesso ao Azure por completo, não somente ao armazenamento. É permitido o controle granular em relação às URLs de armazenamento.<br/><br/> Único ponto de acesso à Internet para VMs.<br/><br/> Custos adicionais para o proxy.<br/><br/>
    **Configurar o Firewall do Azure** | permite o tráfego por meio do Firewall do Azure na VM, usando uma marca de FQDN para o serviço de Backup do Azure.|  Simples de usar se você tiver o Firewall do Azure configurado em uma sub-rede da VNet | Não é possível criar suas próprias marcas de FQDN ou modificar os FQDNs em uma marca.<br/><br/> Se você usa o Managed Disks do Azure, pode ser necessário abrir outra porta (porta 8443) nos firewalls.
 
 #### <a name="set-up-an-nsg-rule-to-allow-outbound-access-to-azure"></a>Configurar uma regra NSG para permitir o acesso de saída ao Azure
@@ -110,22 +110,22 @@ Se você não tiver um proxy de conta do sistema, configure um da seguinte manei
 2. Execute **PsExec.exe -i -s cmd.exe** para executar o prompt de comando em uma conta do sistema.
 3. Execute o navegador no contexto do sistema. Por exemplo: **PROGRAMFILES%\Internet Explorer\iexplore.exe** para o Internet Explorer.  
 4. Defina as configurações de proxy.
-    - Em máquinas do Linux:
-        - Adicione esta linha ao arquivo **/etc/environment**:
-            - endereço IP **proxy_http=http://proxy:porta do proxy**
-        - Adicione estas linhas ao arquivo **/etc/waagent.conf**:
-            - **Endereço IP HttpProxy.Host=proxy**
-            - **Porta HttpProxy.Port=proxy**
-    - Em computadores Windows, nas configurações do navegador, especifique que um proxy deverá ser usado. Se estiver usando um proxy em uma conta de usuário, você poderá usar esse script para aplicar a configuração no nível de conta do sistema.
-        ```powershell
-       $obj = Get-ItemProperty -Path Registry::”HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections"
-       Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" -Name DefaultConnectionSettings -Value $obj.DefaultConnectionSettings
-       Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" -Name SavedLegacySettings -Value $obj.SavedLegacySettings
-       $obj = Get-ItemProperty -Path Registry::”HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings"
-       Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -Name ProxyEnable -Value $obj.ProxyEnable
-       Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -Name Proxyserver -Value $obj.Proxyserver
+   - Em máquinas do Linux:
+     - Adicione esta linha ao arquivo **/etc/environment**:
+       - endereço IP **proxy_http=<http://proxy>:porta do proxy**
+     - Adicione estas linhas ao arquivo **/etc/waagent.conf**:
+         - **Endereço IP HttpProxy.Host=proxy**
+         - **Porta HttpProxy.Port=proxy**
+   - Em computadores Windows, nas configurações do navegador, especifique que um proxy deverá ser usado. Se estiver usando um proxy em uma conta de usuário, você poderá usar esse script para aplicar a configuração no nível de conta do sistema.
+       ```powershell
+      $obj = Get-ItemProperty -Path Registry::”HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections"
+      Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" -Name DefaultConnectionSettings -Value $obj.DefaultConnectionSettings
+      Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" -Name SavedLegacySettings -Value $obj.SavedLegacySettings
+      $obj = Get-ItemProperty -Path Registry::”HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings"
+      Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -Name ProxyEnable -Value $obj.ProxyEnable
+      Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -Name Proxyserver -Value $obj.Proxyserver
 
-        ```
+       ```
 
 ##### <a name="allow-incoming-connections-on-the-proxy"></a>Permitir conexões de entrada no proxy
 
@@ -157,45 +157,19 @@ Você pode configurar o Firewall do Azure para permitir o acesso de saída para 
 - [Saiba como](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal) implantar o Firewall do Azure.
 - [Leia sobre](https://docs.microsoft.com/azure/firewall/fqdn-tags) as marcas de FQDN.
 
-## <a name="create-a-vault"></a>Criar um cofre
-
-Um cofre armazena backups e pontos de recuperação criados ao longo do tempo e armazena as políticas de backup associadas às máquinas submetidas a backup. Crie um cofre da seguinte maneira:
-
-1. Entre no [Portal do Azure](https://portal.azure.com/).
-2. No menu **Hub**, escolha **Procurar** e digite **Serviços de Recuperação**. Selecione **Cofres de Serviços de Recuperação**.
-
-    ![Digitando na caixa e selecionando "Cofres de Serviços de Recuperação" nos resultados](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/>
-
-3. No menu **Cofres de Serviços de Recuperação**, selecione **Adicionar**.
-
-    ![Criar Cofre de Serviços de Recuperação - etapa 2](./media/backup-azure-arm-vms-prepare/rs-vault-menu.png)
-
-    ![Painel "Cofres de Serviços de Recuperação"](./media/backup-azure-arm-vms-prepare/rs-vault-attributes.png)
-4. Em **cofres dos Serviços de Recuperação** >  **Nome**, insira um nome amigável para identificar o cofre.
-    - O nome deve ser exclusivo para a assinatura do Azure.
-    - Ele pode conter caracteres de 2 a 50.
-    - Ele deve começar com uma letra e pode conter apenas letras, números e hifens.
-5. Selecione **Assinatura** para ver a lista de assinaturas disponíveis. Se você não tiver certeza sobre qual assinatura usar, utilize a assinatura padrão (ou a sugerida). Só haverá múltiplas opções se sua conta corporativa ou de estudante estiver associada a várias assinaturas do Azure.
-6. Clique em **Grupo de recursos** para ver a lista disponível de grupos de recursos ou em **Novo** para criar um grupo de recursos. [Saiba mais](../azure-resource-manager/resource-group-overview.md) sobre grupos de recursos.
-7. Clique em **Localização** para selecionar a região geográfica do cofre. O cofre *deve* estar na mesma região que as máquinas virtuais que você deseja fazer backup.
-8. Selecione **Criar**.
-    - Pode levar algum tempo para que o cofre seja criado.
-    - Monitore as notificações de status na área superior direita do portal.
-    ![Lista de cofres de backup](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
-
-Depois que o cofre é criado, ele aparece na lista de cofres de Serviços de Recuperação. Se você não encontrar seu cofre, selecione **Atualizar**.
-
 ## <a name="set-up-storage-replication"></a>Configurar a replicação de armazenamento
 
 Por padrão, seu cofre tem [armazenamento com redundância geográfica (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs). É recomendável usar o GRS no backup principal, mas você pode usar o [armazenamento localmente redundante](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) como uma opção mais barata.
 
+O Backup do Azure controla automaticamente o armazenamento para o cofre. Você precisa especificar como esse armazenamento é replicado.
 Modifique a replicação de armazenamento da seguinte maneira:
 
-1. No cofre > **Infraestrutura de Backup**, clique em **configuração de Backup**
+1. Na folha **Cofres dos Serviços de Recuperação**, clique no novo cofre. Sob o **as configurações** seção, clique em **propriedades**.
+2. Na **propriedades**, em **configuração de Backup**, clique em **atualização**.
 
-   ![Lista de cofres de backup](./media/backup-azure-arm-vms-prepare/full-blade.png)
+3. Selecione o tipo de replicação de armazenamento e, em seguida, clique em **salvar**.
 
-2. Em **Configuração de Backup**, modifique o método de redundância de armazenamento conforme necessário e escolha **Salvar**.
+      ![Definir a configuração de armazenamento para o novo cofre](./media/backup-try-azure-backup-in-10-mins/full-blade.png)
 
 
 ## <a name="configure-a-backup-policy"></a>Configurar uma política de backup
@@ -217,23 +191,22 @@ Descubra as VMs na assinatura e configure o backup.
 3. Na **Política de Backup**, escolha a política que você deseja associar ao cofre. Em seguida, clique em **OK**.
     - Os detalhes da política padrão estão listados no menu suspenso.
     - Clique em **Criar Nova** para criar uma política. [Saiba mais](backup-azure-arm-vms-prepare.md#configure-a-backup-policy) sobre como definir uma política.
-    
 
-    ![Painéis "Backup" e "Política de backup"](./media/backup-azure-arm-vms-prepare/select-backup-goal-2.png)
+      ![Painéis "Backup" e "Política de backup"](./media/backup-azure-arm-vms-prepare/select-backup-goal-2.png)
 
 4. No painel **Escolher máquinas virtuais**, escolha as VMs que usarão a política de backup especificada > **OK**.
 
-    - A máquina virtual selecionada é validada.
-    - Você só pode escolher máquinas virtuais na mesma região que o cofre. O backup das VMs só pode ser feito em um único cofre.
+   - A máquina virtual selecionada é validada.
+   - Você só pode escolher máquinas virtuais na mesma região que o cofre. O backup das VMs só pode ser feito em um único cofre.
 
-   ![Painel "Selecionar máquinas virtuais"](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
+     ![Painel "Selecionar máquinas virtuais"](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
 5. Em **Backup**, escolha **Habilitar backup**.
 
    - Isso implantará a política no cofre e nas VMs e instalará a extensão de backup no agente da VM em execução na VM do Azure.
    - Essa etapa não cria o ponto de recuperação inicial para a VM.
 
-   ![Botão "Habilitar backup"](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
+     ![Botão "Habilitar backup"](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
 
 Depois de habilitar o backup:
 
@@ -242,8 +215,8 @@ Depois de habilitar o backup:
     - Uma VM em execução oferece uma maior chance de obter um ponto de recuperação consistente com o aplicativo.
     -  No entanto, o backup da VM é feito mesmo se ela esteja desativada e a extensão não poderá ser instalada. Isso é conhecido como *VM offline*. Nesse caso, o ponto de recuperação será *consistente com a falha*.
     Observe que o Backup do Azure não oferece suporte ao ajuste automático do relógio para alterações de horário de verão para backups de VMs do Azure. Modifique as políticas de backup manualmente, conforme necessário.
-  
- ## <a name="run-the-initial-backup"></a>Executar o backup inicial
+
+## <a name="run-the-initial-backup"></a>Executar o backup inicial
 
 O backup inicial será executado de acordo com a agenda, a menos que você o execute manualmente de modo imediato. Execute-o manualmente da seguinte maneira:
 

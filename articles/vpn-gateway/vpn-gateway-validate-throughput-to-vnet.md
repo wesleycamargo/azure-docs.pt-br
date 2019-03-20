@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: radwiv;chadmat;genli
-ms.openlocfilehash: 7e6b3e7496c4a063156ff3b8feae1f5096efe55f
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
-ms.translationtype: HT
+ms.openlocfilehash: 819415712d8e605825957aa602fc99dcf6902d82
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035611"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821654"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Como validar a taxa de transferência VPN para uma rede virtual
 
@@ -33,7 +33,7 @@ Este artigo mostra como validar a taxa de transferência de rede dos recursos lo
 >
 >
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 A conexão de gateway de VPN envolve os seguintes componentes:
 
@@ -49,7 +49,7 @@ O diagrama a seguir mostra a conectividade lógica de uma rede local para uma re
 ## <a name="calculate-the-maximum-expected-ingressegress"></a>Calcule a entrada/saída máxima esperada
 
 1.  Determine os requisitos da taxa de transferência de linha de base do aplicativo.
-2.  Determine os limites de taxa de transferência de gateway de VPN do Azure. Para obter ajuda, consulte a seção "Agregar taxa de transferência por tipo de VPN e SKU" do [Planejamento e design para Gateway de VPN](vpn-gateway-plan-design.md).
+2.  Determine os limites de taxa de transferência de gateway de VPN do Azure. Para obter ajuda, consulte a seção "SKUs de Gateway" [sobre o Gateway de VPN](vpn-gateway-about-vpngateways.md#gwsku).
 3.  Determine as [Diretrizes de taxa de transferência para a VM do Azure](../virtual-machines/virtual-machines-windows-sizes.md) para seu tamanho de VM.
 4.  Determine a largura de banda do Provedor de Serviços de Internet (ISP).
 5.  Calcule sua taxa de transferência esperada - Menor largura de banda de (VM, Gateway, ISP) * 0,8.
@@ -77,7 +77,7 @@ Baixar [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Para 
 
 2. Em ambos os nós, habilite uma exceção de firewall para a porta 5001.
 
-    **Windows:** Execute o seguinte comando como um administrador:
+    **Windows:** Execute o seguinte comando como administrador:
 
     ```CMD
     netsh advfirewall firewall add rule name="Open Port 5001" dir=in action=allow protocol=TCP localport=5001
@@ -89,7 +89,7 @@ Baixar [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Para 
     netsh advfirewall firewall delete rule name="Open Port 5001" protocol=TCP localport=5001
     ```
      
-    **Linux do Azure:** as imagens do Linux do Azure têm firewalls permissivos. Se houver um aplicativo escutando em uma porta, o tráfego será permitido. Imagens personalizadas que são protegidas podem precisar de portas abertas explicitamente. Os firewalls da camada de OS do Linux comuns incluem `iptables`, `ufw`, ou `firewalld`.
+    **Azure Linux:**  Imagens do Linux do Azure possuem firewalls permissivos. Se houver um aplicativo escutando em uma porta, o tráfego será permitido. Imagens personalizadas que são protegidas podem precisar de portas abertas explicitamente. Os firewalls da camada de OS do Linux comuns incluem `iptables`, `ufw`, ou `firewalld`.
 
 3. No nó de servidor, altere para o diretório onde o iperf3.exe é extraído. Em seguida, execute o iPerf no modo de servidor e configure-o para escutar na porta 5001, de acordo com os seguintes comandos:
 

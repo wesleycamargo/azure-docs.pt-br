@@ -5,21 +5,28 @@ description: Documentos paralelos são pares de documentos em que um é a tradu�
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.subservice: translator-text
+ms.date: 02/21/2019
 ms.author: v-rada
-ms.topic: article
-ms.openlocfilehash: d7f479bbacef7270807d9292e7b91fe835485647
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: fa3abb9fc7b899fa5c74d6f1cd73ebbbb72b6047
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217366"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776624"
 ---
 # <a name="what-are-parallel-documents"></a>O que são documentos paralelos?
 
 Documentos paralelos são pares de documentos em que um é a tradução do outro. Um documento no par contém sentenças no idioma de origem e o outro documento contém essas frases traduzidas no idioma de destino.
 Não importa qual idioma está marcado como "source" e qual idioma está marcado como "target" - um documento paralelo pode ser usado para treinar um sistema de tradução em qualquer direção.
+
+## <a name="requirements"></a>Requisitos
+
+Será necessário um mínimo de 10.000 sentenças paralelas exclusivos para treinar um sistema. Como prática recomendada, você pode adicionar continuamente mais conteúdo paralelo e reciclagem, para melhorar a qualidade do seu sistema de tradução.
+
+A Microsoft exige que os documentos carregados para o conversor personalizado não violem as propriedades de direitos autorais ou intelectual de terceiros. Para mais informações, consulte os [Termos de Uso](https://azure.microsoft.com/support/legal/cognitive-services-terms/).
+O upload de um documento usando o portal não altera a propriedade da propriedade intelectual no próprio documento.
 
 ## <a name="use-of-parallel-documents"></a>Uso de documentos paralelos
 
@@ -31,16 +38,11 @@ Documentos paralelos são usados pelo sistema:
 
 Como prática recomendada, verifique se há uma correspondência de sentença 1:1 entre as versões de idioma de origem e de destino dos documentos.
 
-Os documentos enviados são privados para cada área de trabalho e podem ser usados em quantos projetos ou treinamentos você desejar. Frases extraídas de seus documentos são armazenadas separadamente em seu repositório como arquivos de texto Unicode simples e estão disponíveis para exclusão. Não use o Custom Translator como repositório de documentos, você não poderá fazer o download dos documentos que você enviou no formato que você enviou.
-
-## <a name="recommendations"></a>Recomendações
-
 Se o seu projeto é específico de domínio (categoria), seus documentos devem ser consistentes na terminologia dentro dessa categoria. A qualidade do sistema de tradução resultante depende do número de sentenças no conjunto de documentos e da qualidade das sentenças. Quanto mais exemplos seus documentos contiverem usos diversos para uma palavra específica da sua categoria, o melhor trabalho que o sistema pode fazer durante a tradução.
 
-Você precisará de um mínimo de 10.000 sentenças paralelas para treinar um sistema. Como prática recomendada, você pode adicionar continuamente mais conteúdo paralelo e reciclagem, para melhorar a qualidade do seu sistema de tradução.
+Os documentos enviados são privados para cada área de trabalho e podem ser usados em quantos projetos ou treinamentos você desejar. Frases extraídas de seus documentos são armazenadas separadamente em seu repositório como arquivos de texto Unicode simples e estão disponíveis para exclusão. Não use o Custom Translator como repositório de documentos, você não poderá fazer o download dos documentos que você enviou no formato que você enviou.
 
-A Microsoft exige que os documentos carregados para o conversor personalizado não violem as propriedades de direitos autorais ou intelectual de terceiros. Para mais informações, consulte os [Termos de Uso](https://azure.microsoft.com/support/legal/cognitive-services-terms/).
-O upload de um documento usando o portal não altera a propriedade da propriedade intelectual no próprio documento.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

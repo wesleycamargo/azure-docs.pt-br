@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/04/2019
 ms.author: rogarana
-ms.openlocfilehash: 3bf82f37752009a488512d720093bc9c595dff8e
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: c9aaa22a656d1164ad4e9f9c1ed7539a93dd0457
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753207"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999938"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-java-v7"></a>Como carregar, baixar e listar blobs usando a biblioteca de clientes para Java v7
 
@@ -34,7 +34,7 @@ Certifique-se de ter os seguintes pré-requisitos:
 
 * Ou instale e configure o Maven para trabalhar da linha de comando.
 
-Este tutorial usa [Eclipse](http://www.eclipse.org/downloads/) com a configuração "Eclipse IDE para desenvolvedores de Java".
+Este tutorial usa [Eclipse](https://www.eclipse.org/downloads/) com a configuração "Eclipse IDE para desenvolvedores de Java".
 
 ## <a name="download-the-sample-application"></a>Baixar o aplicativo de exemplo
 
@@ -87,7 +87,7 @@ Deleting the source, and downloaded files
 Antes de continuar, procure o arquivo de exemplo no diretório padrão (*C:\Usuários\<usuário>\AppData\Local\Temp*, para usuários do Windows). Copie a URL para o blob fora da janela do console e cole-a em um navegador para exibir o conteúdo do arquivo no Armazenamento de Blobs. Se você comparar o arquivo de exemplo no diretório com o conteúdo armazenado no armazenamento de blobs, verá que eles são os mesmos. 
 
   >[!NOTE]
-  >Você também pode usar uma ferramenta como o [Gerenciador de Armazenamento do Azure](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para exibir os arquivos no Armazenamento de Blobs. O Gerenciador de Armazenamento do Azure é uma ferramenta gratuita de multiplataforma que permite que você acesse as informações da sua conta de armazenamento.
+  >Você também pode usar uma ferramenta como o [Gerenciador de Armazenamento do Azure](https://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para exibir os arquivos no Armazenamento de Blobs. O Gerenciador de Armazenamento do Azure é uma ferramenta gratuita de multiplataforma que permite que você acesse as informações da sua conta de armazenamento.
 
 Depois de verificar os arquivos, pressione a tecla **Enter** para concluir a demonstração e excluir os arquivos de teste. Agora que você sabe o que o exemplo faz, abra o arquivo **AzureApp.java** para examinar o código. 
 

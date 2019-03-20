@@ -1,5 +1,5 @@
 ---
-title: O que é o portal MyApps no Active Directory do Azure? | Microsoft Docs
+title: O que é o portal do MyApps - Azure Active Directory? | Microsoft Docs
 description: Aprenda a usar variações do portal MyApps (navegador da Web, aplicativo Android, iPhone e iPad) para acessar aplicativos SaaS.
 services: active-directory
 author: eross-msft
@@ -12,13 +12,14 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.reviewer: asteen
+ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9682611467311f06d60f6f393ebd7788f95f7f12
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 47c624a9f1d3989e9146f7c32745ca892f6467e0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177862"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58115448"
 ---
 # <a name="what-is-the-myapps-portal"></a>O que é o portal do MyApps?
 
@@ -81,11 +82,11 @@ Para entrar com logon único baseado em senha, você deve usar a extensão. Depo
 
 > [!NOTE]
 > Recursos adicionais estão disponíveis apenas para Microsoft Edge, Chrome e Firefox.
->
-Você pode baixar a extensão diretamente dos seguintes sites:
-- [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
-- [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
-- [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
+> 
+> Você pode baixar a extensão diretamente dos seguintes sites:
+> - [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
+> - [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
+> - [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 Caso esteja usando uma URL dos Meus Aplicativos diferente de `https://myapps.microsoft.com`, configure sua URL padrão fazendo o seguinte:
 1. Enquanto você *não* estiver conectado à extensão, clique com o botão direito do mouse no ícone de extensão.

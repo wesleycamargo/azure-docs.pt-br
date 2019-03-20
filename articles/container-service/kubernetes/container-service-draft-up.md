@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 36e765d439d616ec165a2b53d2044586e73cde76
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 48afb867a5455ffea10f8a74b1fff2c2b7f361ab
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55809207"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57849747"
 ---
 # <a name="deprecated-use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>(PRETERIDO) Usar o rascunho com o Serviço de Contêiner do Azure e o Registro de Contêiner do Azure para compilar e implantar um aplicativo no Kubernetes
 
@@ -106,11 +106,11 @@ Agora que você tem um cluster, pode importar as credenciais usando o comando [a
 1. Baixe o draft para seu ambiente no https://github.com/Azure/draft/releases e instale em seu caminho de forma que o comando possa ser usado.
 2. Baixe o helm para seu ambiente no https://github.com/kubernetes/helm/releases e [instale-o em seu caminho de forma que o comando possa ser usado](https://github.com/kubernetes/helm/blob/master/docs/install.md#installing-the-helm-client).
 3. Configure o Rascunho para usar seu registro e crie subdomínios para cada gráfico do Helm criado. Para configurar o Rascunho, você precisará:
-  - do nome do Registro de Contêiner do Azure (neste exemplo, `draftacsdemo`)
-  - da chave do registro, ou senha, de `az acr credential show -n <registry name> --output tsv --query "passwords[0].value"`.
+   - do nome do Registro de Contêiner do Azure (neste exemplo, `draftacsdemo`)
+   - da chave do registro, ou senha, de `az acr credential show -n <registry name> --output tsv --query "passwords[0].value"`.
 
-  Chame `draft init` e o processo de configuração solicita os valores acima. Observe que o formato da URL para a URL do Registro é o nome do Registro (nesse exemplo, `draftacsdemo`) mais `.azurecr.io`. Seu nome de usuário é o nome do Registro sozinho. O processo ficará mais ou menos assim na primeira vez que você executá-lo.
- ```bash
+   Chame `draft init` e o processo de configuração solicita os valores acima. Observe que o formato da URL para a URL do Registro é o nome do Registro (nesse exemplo, `draftacsdemo`) mais `.azurecr.io`. Seu nome de usuário é o nome do Registro sozinho. O processo ficará mais ou menos assim na primeira vez que você executá-lo.
+   ```bash
     $ draft init
     Creating /home/ralph/.draft 
     Creating /home/ralph/.draft/plugins 
@@ -132,7 +132,7 @@ Agora que você tem um cluster, pode importar as credenciais usando o comando [a
     3. Enter your password: 
     Draft has been installed into your Kubernetes Cluster.
     Happy Sailing!
-```
+   ```
 
 Agora você está pronto para implantar um aplicativo.
 
@@ -169,7 +169,7 @@ Connecting to your app...SUCCESS...Connect to your app on localhost:46143
 Starting log streaming...
 SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 SLF4J: Defaulting to no-operation (NOP) logger implementation
-SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+SLF4J: See https://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
 == Spark has ignited ...
 >> Listening on 0.0.0.0:4567
 ```
@@ -224,7 +224,7 @@ Seu próprio provedor de domínio tem sua própria maneira de atribuir servidore
     ```
 
 2. Crie uma zona DNS para seu domínio.
-Use o comando [az network dns zone create](/cli/azure/network/dns/zone#az-network-dns-zone-create) para obter os nameservers e delegar o controle DNS para o DNS do Azure em relação ao seu domínio.
+   Use o comando [az network dns zone create](/cli/azure/network/dns/zone#az-network-dns-zone-create) para obter os nameservers e delegar o controle DNS para o DNS do Azure em relação ao seu domínio.
     ```azurecli
     az network dns zone create --resource-group squillace.io --name squillace.io
     {
@@ -247,12 +247,12 @@ Use o comando [az network dns zone create](/cli/azure/network/dns/zone#az-networ
     ```
 3. Adicione os servidores DNS recebidos ao provedor de domínio do seu domínio de implantação, o que permite que você use o DNS do Azure para realinhar seu domínio da maneira desejada. A maneira de fazer isso varia de acordo com o provedor de domínio, [delegar nameservers para seu domínio DNS do Azure](../../dns/dns-delegate-domain-azure-dns.md) contém alguns dos detalhes que você deve saber. 
 4. Após o domínio ter sido delegado para o DNS do Azure, crie uma entrada de conjunto de registros A para o mapeamento do domínio de implantação para o IP `ingress` da etapa 2 da seção anterior.
-  ```azurecli
-  az network dns record-set a add-record --ipv4-address 13.64.108.240 --record-set-name '*.draft' -g squillace.io -z squillace.io
-  ```
-A saída se parece com:
-  ```json
-  {
+   ```azurecli
+   az network dns record-set a add-record --ipv4-address 13.64.108.240 --record-set-name '*.draft' -g squillace.io -z squillace.io
+   ```
+   A saída se parece com:
+   ```json
+   {
     "arecords": [
       {
         "ipv4Address": "13.64.108.240"
@@ -265,23 +265,23 @@ A saída se parece com:
     "resourceGroup": "squillace.io",
     "ttl": 3600,
     "type": "Microsoft.Network/dnszones/A"
-  }
-  ```
+   }
+   ```
 5. Reinstale o **draft**
 
    1. Remova o **draftd** do cluster digitando `helm delete --purge draft`. 
    2. Reinstale o **draft** usando o mesmo comando `draft-init`, mas com a opção `--ingress-enabled`:
-    ```bash
-    draft init --ingress-enabled
-    ```
-   Responda às solicitações de como você fez na primeira vez acima. No entanto, você tem mais uma pergunta para responder, usando o caminho de domínio completo configurado com o DNS do Azure.
+      ```bash
+      draft init --ingress-enabled
+      ```
+      Responda às solicitações de como você fez na primeira vez acima. No entanto, você tem mais uma pergunta para responder, usando o caminho de domínio completo configurado com o DNS do Azure.
 
 6. Insira seu domínio de nível superior para entrada (por exemplo, draft.example.com): draft.squillace.io
 7. Quando você chamar `draft up` desta vez, poderá ver seu aplicativo (ou realizar o `curl` nele) na URL do formato `<appname>.draft.<domain>.<top-level-domain>`. No caso desse exemplo, `http://handy-labradoodle.draft.squillace.io`. 
-```bash
-curl -s http://handy-labradoodle.draft.squillace.io
-Hello World, I'm Java!
-```
+   ```bash
+   curl -s http://handy-labradoodle.draft.squillace.io
+   Hello World, I'm Java!
+   ```
 
 
 ## <a name="next-steps"></a>Próximas etapas

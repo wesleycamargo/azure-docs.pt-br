@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: ''
-ms.openlocfilehash: f6bf672905fe7752a6c3d07492861f43af43e1f5
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 57212da1a8da7ee6c57faf2413b88a413df04817
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893962"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315122"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-data-store-for-a-windows-virtual-machine-classic"></a>Enviar métricas do sistema operacional convidado para o armazenamento de dados do Monitor do Azure para uma máquina virtual do Windows (clássica)
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 A extensão de diagnóstico do [Monitor do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) (conhecida como "WAD" ou "Diagnóstico") permite coletar métricas e registros do sistema operacional convidado (sistema operacional convidado) em execução como parte de uma máquina virtual, serviço em nuvem ou Cluster do Service Fabric. A extensão pode enviar telemetria para [muitos locais diferentes.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
 
@@ -29,9 +31,9 @@ O processo descrito neste artigo funciona somente em máquinas virtuais clássic
 
 - Você deve ser um [administrador ou co-administrador de serviços](../../billing/billing-add-change-azure-subscription-administrator.md) em sua assinatura do Azure. 
 
-- Sua inscrição deve ser registrada com [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
+- Sua assinatura precisará ser registrada com [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
-- Você precisa ter o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) ou o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) instalados.
+- Você precisará ter o [Azure PowerShell](/powershell/azure) ou o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) instalado.
 
 ## <a name="create-a-classic-virtual-machine-and-storage-account"></a>Criar uma conta clássica de máquina virtual e armazenamento
 
@@ -145,7 +147,7 @@ Conceda a este aplicativo as permissões “Monitoring Metrics Publisher” para
 1. Inicie o PowerShell e entre.
 
     ```powershell
-    Login-AzureRmAccount
+    Login-AzAccount
     ```
 
 1. Comece definindo o contexto para sua VM clássica.
@@ -157,7 +159,7 @@ Conceda a este aplicativo as permissões “Monitoring Metrics Publisher” para
 1. Defina o contexto da conta de armazenamento clássico criada com a VM.
 
     ```powershell
-    $StorageContext = New-AzureStorageContext -StorageAccountName <name of your storage account from earlier steps> -storageaccountkey "<storage account key from earlier steps>"
+    $StorageContext = New-AzStorageContext -StorageAccountName <name of your storage account from earlier steps> -storageaccountkey "<storage account key from earlier steps>"
     ```
 
 1.  Defina o caminho do arquivo Diagnostics para uma variável usando o seguinte comando:

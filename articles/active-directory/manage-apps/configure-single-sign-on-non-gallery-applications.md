@@ -12,12 +12,12 @@ ms.date: 01/08/2019
 ms.author: celested
 ms.reviewer: asmalser,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2804ebdbeb72bd35c7e63553184157066f9cfd32
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7dfef0e27dd3e38e5a965f47a47619671a3127b0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177284"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117652"
 ---
 # <a name="configure-single-sign-on-to-non-gallery-applications-in-azure-active-directory"></a>Configurar o logon único para aplicativos não da galeria no Azure Active Directory
 
@@ -29,8 +29,8 @@ Essas funcionalidades também estão disponíveis, de acordo com seu contrato de
 
 - Integração de autoatendimento de qualquer aplicativo com suporte a provedores de identidade SAML 2.0 (iniciado por SP ou IdP)
 - Integração de autoatendimento de qualquer aplicativo Web que tenha uma página de entrada baseada em HTML usando o [SSO baseado em senha](what-is-single-sign-on.md#password-based-sso)
-* Conexão de autoatendimento de aplicativos que usam o protocolo SCIM para provisionamento de usuários ([descrito aqui](use-scim-to-provision-users-and-groups.md))
-* Capacidade de adicionar links aos aplicativos no [inicializador de aplicativos do Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) ou no [Painel de acesso do Azure AD](what-is-single-sign-on.md#linked-sso)
+- Conexão de autoatendimento de aplicativos que usam o protocolo SCIM para provisionamento de usuários ([descrito aqui](use-scim-to-provision-users-and-groups.md))
+- Capacidade de adicionar links aos aplicativos no [inicializador de aplicativos do Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) ou no [Painel de acesso do Azure AD](what-is-single-sign-on.md#linked-sso)
 
 Isso pode incluir não apenas aplicativos SaaS usados por você que ainda não foram integrados à galeria de aplicativos do AD do Azure, mas também aplicativos Web de terceiros que sua organização implantou em servidores sob seu controle, seja na nuvem ou locais.
 
@@ -45,7 +45,7 @@ Na galeria do aplicativo, você pode adicionar um aplicativo não listado, selec
 
 **Dicas rápida**:  Como uma prática recomendada, use a função de pesquisa para verificar se o aplicativo já existe na galeria de aplicativos. Se o aplicativo for localizado e a descrição mencionar "logon único", o aplicativo já terá suporte para logon único federado.
 
-  ![Search](./media/configure-single-sign-on-non-gallery-applications/customapp2.png)
+  ![Pesquisar](./media/configure-single-sign-on-non-gallery-applications/customapp2.png)
 
 Adicionar um aplicativo dessa maneira fornece uma experiência semelhante à disponível para aplicativos pré-integrados. Para começar, selecione **Configurar Logon Único** ou clique em **Logon único** no menu de navegação à esquerda do aplicativo. A próxima tela apresenta as opções para configurar o logon único. As opções são descritas nas próximas seções deste artigo.
   
@@ -60,7 +60,7 @@ Para configurar o AD do Azure, insira a configuração básica do SAML. Pode ins
 
   ![Domínio e URLs Litware](./media/configure-single-sign-on-non-gallery-applications/customapp4.png)
 
-- **URL de logon (somente iniciado por SP)** – onde o usuário vai para entrar nesse aplicativo. Se o aplicativo estiver configurado para executar logon único iniciado pelo provedor de serviços, quando um usuário navegar para essa URL, o provedor de serviços fará o redirecionamento necessário para o Azure Active Directory autenticar e conectar o usuário. Se esse campo estiver preenchido, o Azure AD usará essa URL para iniciar o aplicativo do Office 365 e o painel de acesso do Azure AD. Se esse campo for omitido, o Azure Active Directory executará, em vez disso, o logon iniciado pelo provedor de identidade quando o aplicativo for iniciado do Office 365, do painel de acesso do Azure Active Directory ou da URL de logon único do Azure Active Directory (copiável a partir da guia Painel).
+- **URL de logon (somente iniciado por SP)** – onde o usuário vai para entrar nesse aplicativo. Se o aplicativo estiver configurado para executar logon único iniciado pelo provedor de serviços, quando um usuário navegar para essa URL, o provedor de serviços fará o redirecionamento necessário para o Azure Active Directory autenticar e conectar o usuário. Se esse campo estiver preenchido, o Azure AD usará essa URL para iniciar o aplicativo do Office 365 e o painel de acesso do Azure AD. Se esse campo for omitido, o Azure AD executará em vez disso, o provedor de identidade-iniciado pelo logon quando o aplicativo é iniciado a partir do Office 365, o painel de acesso do AD do Azure, ou o AD do Azure única URL de entrada (pode ser copiado da guia Painel).
 - **Identificador** - deve identificar exclusivamente o aplicativo para o qual o logon único está sendo configurado. Você pode encontrar esse valor como o elemento Emissor no AuthRequest (solicitação SAML) enviado pelo aplicativo. Esse valor também aparece como a **ID da entidade** em todos os metadados SAML fornecidos pelo aplicativo. Verifique a documentação SAML do aplicativo para obter detalhes sobre o que é a ID da Entidade ou o valor Audiência. 
 
     Veja a seguir um exemplo de como o Identificador ou Emissor aparece na solicitação SAML enviada pelo aplicativo ao Azure AD:

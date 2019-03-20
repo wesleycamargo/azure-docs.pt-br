@@ -16,12 +16,12 @@ ms.workload: data-services
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: c32662b446df10649617570c63ce534071ed7d27
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: c8f2dba8ff30ceae4085d96640623a01b6784b1e
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540300"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56957514"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurar logs de diagnóstico para um hub de eventos do Azure
 
@@ -48,7 +48,7 @@ Os logs de diagnóstico estão desabilitados por padrão. Para habilitar logs de
 
     ![Alterar o status dos logs de diagnóstico](./media/event-hubs-diagnostic-logs/image3.png)
 
-5.  Defina o destino de arquivamento desejado, por exemplo, uma conta de armazenamento, um hub de eventos ou o Log Analytics do Azure.
+5.  Definir o destino de arquivamento desejado; Por exemplo, uma conta de armazenamento, um hub de eventos ou do Azure Monitor registra em log.
 
 6.  Salve as novas configurações de diagnóstico.
 

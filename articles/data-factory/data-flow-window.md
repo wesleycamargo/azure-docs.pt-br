@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 329125d39c0da403ff078182af2eee74bcd9c84d
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 6f3f06ff54fc76416ba63f4f09835897d546f8dc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270837"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57861903"
 ---
-# <a name="azure-data-factory-mapping-data-flow-window-transformation"></a>Transformação da janela Fluxo de Dados de Mapeamento do Azure Data Factory
+# <a name="azure-data-factory-window-transformation"></a>Transformação de janela do Azure Data Factory
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -46,3 +46,6 @@ Por fim, use o Construtor de Expressões para definir as agregações que você 
 
 A lista completa de funções analíticas e de agregação disponível para você usar na Linguagem de Expressão do Fluxo de Dados do ADF por meio do Construtor de Expressões está listada aqui: https://aka.ms/dataflowexpressions.
 
+## <a name="next-steps"></a>Próximas etapas
+
+Se você estiver procurando por uma agregação group-by simples, use o [transformação agregação](data-flow-aggregate.md)

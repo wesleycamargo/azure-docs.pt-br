@@ -16,12 +16,12 @@ ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cec018eec6e298e27329c03964dccf5809c1791
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 79549c1b8ed578319e43fc1c4354c7cd76f71589
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190629"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004235"
 ---
 # <a name="extend-or-renew-azure-resource-role-assignments-in-pim"></a>Estender ou renovar atribuições de função de recurso do Azure no PIM
 
@@ -49,7 +49,7 @@ Os membros de uma atribuição de função podem estender atribuições de funç
 
 Quando a data e a hora de término da atribuição estiverem dentro de 14 dias, o botão para **Estender** se tornará um link ativo na interface do usuário. No exemplo a seguir, suponha que a data atual seja 27 de março.
 
-![O botão "Estender"](media/azure-pim-resource-rbac/aadpim_rbac_extend_within_14.png)
+![Estender o botão](media/azure-pim-resource-rbac/aadpim_rbac_extend_within_14.png)
 
 Para solicitar uma extensão dessa atribuição de função, selecione **Estender** para abrir o formulário de solicitação.
 
@@ -64,11 +64,11 @@ Para visualizar informações sobre a atribuição original, expanda **Detalhes 
 
 Em questão de momentos, os administradores de recursos recebem uma notificação por e-mail solicitando que eles revisem a solicitação de extensão. Se uma solicitação para estender já tiver sido enviada, uma notificação de notificação será exibida na parte superior do portal do Azure, explicando o erro.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_extend_failed_existing_request.png)
+![Explicando o erro de notificação](media/azure-pim-resource-rbac/aadpim_rbac_extend_failed_existing_request.png)
 
 Vá até a guia **Solicitações pendentes** no painel esquerdo para ver o status da sua solicitação ou para cancelá-la.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_extend_cancel_request.png)
+![Solicitações pendentes](media/azure-pim-resource-rbac/aadpim_rbac_extend_cancel_request.png)
 
 ### <a name="admin-approve"></a>Aprovação pelo administrador
 
@@ -80,7 +80,7 @@ Além de usar o seguinte link do email, os administradores podem aprovar ou nega
 
 Quando um Administrador seleciona **Aprovar** ou **Negar**, os detalhes da solicitação são exibidos, junto com um campo para fornecer justificativa para os registros de auditoria.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_extend_admin_approve_blade.png)
+![Aprovar solicitação de atribuição de função](media/azure-pim-resource-rbac/aadpim_rbac_extend_admin_approve_blade.png)
 
 Ao aprovar uma solicitação para estender a atribuição de função, os administradores de recursos podem escolher uma nova data de início, uma data de término e um tipo de atribuição. Alterar o tipo de atribuição pode ser necessário se o administrador quiser fornecer acesso limitado para concluir uma tarefa específica (um dia, por exemplo). Neste exemplo, o administrador pode alterar a atribuição de **Qualificado** para **Ativo**. Isso significa que eles podem fornecer acesso ao solicitante sem precisar que eles sejam ativados.
 
@@ -100,7 +100,7 @@ Embora seja conceitualmente semelhante ao processo para solicitar uma extensão,
 
 Membros que não podem mais acessar recursos podem acessar até 30 dias do histórico de atribuições expiradas. Para fazer isso, navegue até **funções Meus** no painel esquerdo e, em seguida, selecione o **expirado funções** guia na seção de funções de recurso do Azure.
 
-![A guia "Funções expiradas"](media/azure-pim-resource-rbac/aadpim_rbac_renew_from_myroles.png)
+![Guia de funções expiradas](media/azure-pim-resource-rbac/aadpim_rbac_renew_from_myroles.png)
 
 A lista de papéis mostrada é padronizada para **Funções elegíveis**. Use o menu suspenso para alternar entre as funções atribuídas Elegíveis e Ativas.
 

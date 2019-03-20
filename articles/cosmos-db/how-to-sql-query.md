@@ -1,17 +1,17 @@
 ---
 title: Consultas SQL para o Azure Cosmos DB
-description: Saiba mais sobre a sintaxe SQL, os conceitos sobre banco de dados e as consultas SQL do Azure Cosmos DB. O SQL pode ser usado como uma linguagem de consulta JSON no Azure Cosmos DB.
+description: Saiba mais sobre a sintaxe SQL, os conceitos sobre banco de dados e as consultas SQL do Azure Cosmos DB. SQL pode ser usado como uma linguagem de consulta JSON no Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 185ff9c7f50fa08ba952f1519bf406d9017982e0
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 822c4631c08da27ef7b92af2df5e5e0d04f063b0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455952"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013885"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Exemplos de consulta SQL para o Azure Cosmos DB
 
@@ -160,7 +160,7 @@ A seguir estão alguns aspectos da linguagem de consulta do Cosmos DB por meio d
 
 * A linguagem de consulta estruturada trabalha com dados com menos esquema. Portanto, o sistema de tipos precisa estar vinculado dinamicamente. A mesma expressão pode obter tipos diferentes em itens diferentes. O resultado de uma consulta é um valor JSON válido, mas não há garantia de que seja de um esquema fixo.  
 
-* O Azure Cosmos DB dá suporte somente a itens JSON estritos. Isto significa que as expressões e sistema de tipos são restritos para lidar somente com tipos JSON. Consulte a [especificação JSON](http://www.json.org/) para obter mais detalhes.  
+* O Azure Cosmos DB dá suporte somente a itens JSON estritos. Isto significa que as expressões e sistema de tipos são restritos para lidar somente com tipos JSON. Consulte a [especificação JSON](https://www.json.org/) para obter mais detalhes.  
 
 * Um contêiner do Cosmos DB é uma coleção de itens JSON sem esquema. As relações nas entidades de dados nos itens e entre itens em um contêiner são capturadas implicitamente por confinamento e não por chaves primárias e relações de chave estrangeira. Esse é um importante aspecto que vale a pena destacar por causa das junções dentro de itens abordadas mais adiante neste artigo.
 
@@ -2113,9 +2113,9 @@ O segundo exemplo mostra uma consulta mais complexa que retorna múltiplos resul
 
 Se os resultados de uma consulta não couberem em uma página de resultados, a API REST retornará um token de continuação por meio do cabeçalho de resposta `x-ms-continuation-token` . Os clientes podem paginar os resultados incluindo o cabeçalho nos resultados subsequentes. O número de resultados por página também pode ser controlado por meio do cabeçalho de número `x-ms-max-item-count` . Se a consulta especificada tiver uma função de agregação como `COUNT`, a página de consulta poderá retornar um valor parcialmente agregado na página de resultados. Os clientes devem executar uma segunda agregação nesses resultados para produzir os resultados finais. Por exemplo, a soma das contagens retornadas nas páginas individuais para retornar a contagem total.
 
-Para gerenciar a política de consistência de dados para consultas, use o cabeçalho `x-ms-consistency-level` como todas as solicitações da API REST. Para que haja consistência da sessão, é necessário também ecoar o cabeçalho de cookie `x-ms-session-token` mais recente na solicitação de consulta. A política de indexação do contêiner consultado também pode influenciar a consistência dos resultados da consulta. Com as configurações de política de indexação padrão, para contêineres, o índice é sempre atualizado com o conteúdo do item e os resultados da consulta correspondem à consistência escolhida para os dados. Se a política de indexação for relaxada para Lenta, as consultas poderão retornar resultados obsoletos. Para obter mais informações, consulte [Níveis de consistência no Azure Cosmos DB][consistency-levels].
+Para gerenciar a política de consistência de dados para consultas, use o cabeçalho `x-ms-consistency-level` como todas as solicitações da API REST. Para que haja consistência da sessão, é necessário também ecoar o cabeçalho de cookie `x-ms-session-token` mais recente na solicitação de consulta. A política de indexação do contêiner consultado também pode influenciar a consistência dos resultados da consulta. Com as configurações de política de indexação padrão, para contêineres, o índice é sempre atualizado com o conteúdo do item e os resultados da consulta correspondem à consistência escolhida para os dados. Para obter mais informações, consulte [Níveis de consistência no Azure Cosmos DB][consistency-levels].
 
-Se a política de indexação configurada no contêiner não puder dar suporte à consulta especificada, o servidor do Azure Cosmos DB retornará 400 “Solicitação Inválida”. Essa mensagem de erro é retornada para consultas de intervalo em caminhos configurados para pesquisas hash (igualdade) e para caminhos excluídos explicitamente da indexação. O cabeçalho `x-ms-documentdb-query-enable-scan` pode ser especificado para permitir que a consulta faça uma verificação quando um índice estiver indisponível.
+Se a política de indexação configurada no contêiner não puder dar suporte à consulta especificada, o servidor do Azure Cosmos DB retornará 400 “Solicitação Inválida”. Essa mensagem de erro é retornada para consultas com caminhos excluídos explicitamente da indexação. O cabeçalho `x-ms-documentdb-query-enable-scan` pode ser especificado para permitir que a consulta faça uma verificação quando um índice estiver indisponível.
 
 Você pode obter métricas detalhadas na execução da consulta configurando o cabeçalho `x-ms-documentdb-populatequerymetrics` como `True`. Para obter mais informações, consulte [Métricas de consulta SQL para o Azure Cosmos DB](sql-api-query-metrics.md).
 

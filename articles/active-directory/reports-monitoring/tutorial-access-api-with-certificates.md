@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7b6fcdb117033e69db82d8f9bb083891794ed72
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8706414b27969efd6aa26085370f8a0b1f891d69
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187076"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095187"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Tutorial: Obter dados usando a API de Relatório do Azure AD com certificados
 
@@ -87,15 +87,15 @@ Neste tutorial, você aprende como usar um certificado de teste para acessar a A
   
 7. Agora, você pode obter um token de acesso para a API Graph usando este certificado. Use o cmdlet **Get-MSCloudIdMSGraphAccessTokenFromCert** do módulo MSCloudIdUtils PowerShell, passando a ID do aplicativo e a impressão digital obtida na etapa anterior. 
 
- ![Portal do Azure](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
+   ![Portal do Azure](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
 
 8. Use o token de acesso em seu script Powershell para consultar a API do Graph. Use o cmdlet **Invoke-MSCloudIdMSGraphQuery** do MSCloudIDUtils para enumerar o ponto de extremidade de directoryAudits e signins. Esse cmdlet manipula resultados com várias páginas e envia esses resultados para o pipeline do PowerShell.
 
 9. Consulte o ponto de extremidade directoryAudits para recuperar os logs de auditoria. 
- ![Portal do Azure](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
+   ![Portal do Azure](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
 
 10. Consulte o ponto de extremidade signins para recuperar os logs de entrada.
- ![Portal do Azure](./media/tutorial-access-api-with-certificates/query-signins.png)
+    ![Portal do Azure](./media/tutorial-access-api-with-certificates/query-signins.png)
 
 11. Agora, você pode optar por exportar esses dados para um CSV e salvá-lo em um sistema SIEM. Você pode também encapsular o script em uma tarefa agendada para obter dados do Azure AD do seu locatário periodicamente sem a necessidade de armazenar as chaves de aplicativo no código-fonte. 
 

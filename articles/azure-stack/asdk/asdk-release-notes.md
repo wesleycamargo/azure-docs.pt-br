@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2019
+ms.date: 03/18/2019
 ms.author: sethm
 ms.reviewer: misainat
-ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: bb9e5ba960251f728e14106ab1c586e1d3ef373f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.lastreviewed: 03/18/2019
+ms.openlocfilehash: 33f1ccf3f1c7bc657cc66efe7c5025356c954ad6
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538639"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58187754"
 ---
 # <a name="asdk-release-notes"></a>Notas de versão ASDK
 
@@ -30,9 +30,11 @@ Mantenha-se atualizado com o que há de novo no ASDK assinando o [ ![RSS](./medi
 
 ## <a name="build-11902069"></a>Compilação 1.1902.0.69
 
-### <a name="changes"></a>Alterações
+### <a name="new-features"></a>Novos recursos
 
 - A compilação de 1902 introduz uma nova interface de usuário no portal do administrador de pilha do Azure para a criação de planos, ofertas, cotas e planos de complemento. Para obter mais informações, incluindo capturas de tela, consulte [criar planos, ofertas e cotas](../azure-stack-create-plan.md).
+
+- Para obter uma lista das outras alterações e aprimoramentos nesta versão, consulte [esta seção](../azure-stack-update-1902.md#improvements) notas de versão no Azure Stack.
 
 <!-- ### New features
 
@@ -42,6 +44,20 @@ Mantenha-se atualizado com o que há de novo no ASDK assinando o [ ![RSS](./medi
 
 - For a list of issues fixed in this release, see [this section](../azure-stack-update-1902.md#fixed-issues) of the Azure Stack release notes. For a list of known issues, see [this section](../azure-stack-update-1902.md#known-issues-post-installation).
 - Note that [available Azure Stack hotfixes](../azure-stack-update-1902.md#azure-stack-hotfixes) are not applicable to the Azure Stack ASDK. -->
+
+### <a name="known-issues"></a>Problemas conhecidos
+
+- Foi identificado um problema no qual os pacotes mais 1450 bytes para um balanceador de carga interno (ILB) são descartados. O problema é devido à configuração de MTU no host que está sendo muito baixas para acomodar os pacotes VXLAN encapsulada que atravessam a função, que foi movida para o host a partir de 1901. Há pelo menos dois cenários que você pode encontrar em que vimos esse problema se manifestar:
+
+  - Consultas SQL para SQL AlwaysOn que está por trás de um balanceador de carga interno (ILB) e são mais de 660 bytes.
+  - Implantações de Kubernetes falhar se você tentar habilitar vários mestres.  
+
+  O problema ocorre quando você tem a comunicação entre uma máquina virtual e um ILB na mesma rede virtual, mas em sub-redes diferentes. Você pode contornar esse problema, executando os seguintes comandos no prompt de comandos com privilégios elevados no host ASDK:
+
+  ```shell
+  netsh interface ipv4 set sub "hostnic" mtu=1660
+  netsh interface ipv4 set sub "management" mtu=1660
+  ```
 
 ## <a name="build-11901095"></a>Compilação 1.1901.0.95
 

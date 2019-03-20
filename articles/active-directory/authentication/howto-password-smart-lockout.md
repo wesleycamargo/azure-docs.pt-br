@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e44b6a8232bcd0bc72c4faa0f7116d42cec79111
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 67f2af94f32d5439585ad4d727fd2b1bd80fc41b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172409"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431693"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory Sync smart lockout
 
@@ -72,9 +72,9 @@ Para verificar ou modificar os valores de bloqueio inteligente para a sua organi
 
 ![Personalize a política de bloqueio inteligente do Azure AD no portal do Azure](./media/howto-password-smart-lockout/azure-active-directory-custom-smart-lockout-policy.png)
 
-## <a name="how-to-determine-if-the-smartlockout-feature-is-working-or-not"></a>Como determinar se o recurso Smartlockout está funcionando
+## <a name="how-to-determine-if-the-smart-lockout-feature-is-working-or-not"></a>Como determinar se o recurso de bloqueio inteligente está funcionando ou não
 
-Quando o limite do Smartlockout for atingido, você receberá a seguinte mensagem enquanto a conta é bloqueada:
+Quando o limite de bloqueio inteligente é disparado, você receberá a seguinte mensagem enquanto a conta seja bloqueada:
 
 **Sua conta está temporariamente bloqueada para impedir o uso não autorizado. Tente novamente depois e, se ainda tiver problemas, entre em contato com seu administrador.**
 

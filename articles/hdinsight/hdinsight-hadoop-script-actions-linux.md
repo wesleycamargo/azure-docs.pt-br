@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 6702bfabd27b56ce473fe8eb14aadc9dc6e8e7c9
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 4bef785a08d7482468630bc690d6c19b05bdf770
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338862"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202955"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Desenvolvimento de ação de script com o HDInsight
 
@@ -151,13 +151,13 @@ HDInsight registra em log a saída do script que é gravada para STDOUT e STDERR
 > [!NOTE]  
 > O Apache Ambari só estará disponível se o cluster for criado com êxito. Se você usar uma ação de script durante a criação do cluster e a criação falhar, confira a seção de solução de problemas [Personalizar clusters HDInsight usando a ação de script](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) para conhecer outras maneiras de acessar informações registradas em log.
 
-A maioria dos pacotes de instalação e utilitários já grava informações para STDOUT e STDERR; no entanto, talvez você queira adicionar registro em log adicional. Para enviar texto para STDOUT, use `echo`. Por exemplo: 
+A maioria dos pacotes de instalação e utilitários já grava informações para STDOUT e STDERR; no entanto, talvez você queira adicionar registro em log adicional. Para enviar texto para STDOUT, use `echo`. Por exemplo:
 
 ```bash
 echo "Getting ready to install Foo"
 ```
 
-Por padrão, `echo` envia a cadeia de caracteres para STDOUT. Para direcioná-lo para STDERR, adicione `>&2` antes de `echo`. Por exemplo: 
+Por padrão, `echo` envia a cadeia de caracteres para STDOUT. Para direcioná-lo para STDERR, adicione `>&2` antes de `echo`. Por exemplo:
 
 ```bash
 >&2 echo "An error occurred installing Foo"
@@ -225,7 +225,7 @@ wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.win
 
 Os auxiliares a seguir, disponíveis para uso em seu script:
 
-| Uso do auxiliar | DESCRIÇÃO |
+| Uso do auxiliar | Descrição |
 | --- | --- |
 | `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` |Baixa um arquivo da URI de origem para o caminho de arquivo especificado. Por padrão, ele não substitui um arquivo existente. |
 | `untar_file TARFILE DESTDIR` |Extrai um arquivo tar (usando `-xf`) para o diretório de destino. |
@@ -332,11 +332,10 @@ Para obter mais informações sobre como usar cada método, consulte [Como usar 
 A Microsoft fornece scripts de exemplo para instalar componentes em um cluster HDInsight. Consulte os links a seguir para obter mais ações de script de exemplo.
 
 * [Instalar e usar o Hue em clusters HDInsight](hdinsight-hadoop-hue-linux.md)
-* [Instalar e usar o Apache Solr em clusters do HDInsight](hdinsight-hadoop-solr-install-linux.md)
 * [Instalar e usar o Apache Giraph em clusters do HDInsight](hdinsight-hadoop-giraph-install-linux.md)
 * [Instalar ou atualizar o Mono em clusters HDInsight](hdinsight-hadoop-install-mono.md)
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 Estes são erros que você pode encontrar ao usar scripts desenvolvidos por você:
 
@@ -351,7 +350,7 @@ Esse problema ocorre geralmente quando o script é criado em um ambiente Windows
 > [!NOTE]  
 > Os comandos a seguir são a grosso modo equivalentes, no sentido que ambos devem alterar as terminações de linha CRLF para LF. Selecione um deles com base nos utilitários disponíveis no sistema.
 
-| Comando | Observações |
+| Comando | Notes |
 | --- | --- |
 | `unix2dos -b INFILE` |O backup do arquivo original é feito com uma extensão .BAK |
 | `tr -d '\r' < INFILE > OUTFILE` |OUTFILE contém uma versão apenas com terminações LF |

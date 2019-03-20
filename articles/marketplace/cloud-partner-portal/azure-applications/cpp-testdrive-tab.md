@@ -14,18 +14,18 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: de4c8aecefce334889c3fa6790c0ba42673896c7
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: d51c7330acd37d8a861c136ea85a2ff456eb264e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53195211"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446479"
 ---
 # <a name="azure-applications-test-drive-tab"></a>Guia Test Drive de aplicativos do Azure
 
 Use a guia Test Drive para fornecer uma experiência de avaliação a seus clientes.
 
-## <a name="test-drive-benefits"></a>Benefícios do test drive
+## <a name="test-drive-benefits"></a>Benefícios do Test Drive
 
 Criar uma experiência de avaliação gratuita para seus clientes é uma melhor prática para garantir que eles possam comprar com confiança. Dentre as opções de avaliação gratuita disponíveis, o Test Drive é a mais eficiente para gerar clientes potenciais de alta qualidade e aumentar a conversão deles.
 
@@ -33,7 +33,7 @@ Fornece aos clientes uma avaliação gratuita prática e autoguiada dos principa
 
 ## <a name="how-a-test-drive-works"></a>Como funciona um test drive
 
-Um cliente potencial pesquisa e descobre seu aplicativo no Marketplace. O cliente entra e concorde com os termos de uso. Neste ponto, o cliente recebe o ambiente pré-configurado para testar durante um número fixo de horas, enquanto você recebe um cliente potencial altamente qualificado para acompanhar. Para obter mais informações, confira [O que é um test drive?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/what-is-test-drive)
+Um cliente potencial pesquisa e descobre seu aplicativo no Marketplace. O cliente entra e concorde com os termos de uso. Neste ponto, o cliente recebe o ambiente pré-configurado para testar durante um número fixo de horas, enquanto você recebe um cliente potencial altamente qualificado para acompanhar. Para obter mais informações, confira [O que é um test drive?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
 
 ## <a name="setting-up-a-test-drive"></a>Configurando um test drive
 
@@ -62,12 +62,12 @@ A tabela a seguir descreve os campos necessários para configurar o test drive p
 
 |    **Campo**       |  **Descrição**  |
 |  ---------------   |  ---------------  |
-|      DESCRIÇÃO              |   Descreva o que pode ser feito em seu test drive. Você pode usar marcas HTML básicas para formatar essa descrição. Por exemplo, &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt; e títulos.                |
+|      Descrição              |   Descreva o que pode ser feito em seu test drive. Você pode usar marcas HTML básicas para formatar essa descrição. Por exemplo, &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt; e títulos.                |
 |    Manual do usuário                |     Faça upload de um manual do usuário que seus clientes podem usar para percorrer a experiência do test drive. Esse documento deve ser um arquivo .pdf.              |
-|         Vídeo de demonstração do test drive (opcional)           |       Você pode fornecer um vídeo com um passo a passo do test drive. Um cliente pode assistir a esse vídeo antes fazer o test drive. Forneça uma URL para o vídeo no YouTube ou Vimeo. Se selecionar **+ Adicionar Vídeo**, você será solicitado a fornecer as seguintes informações:<ul><li>NOME</li><li>URL</li><li>Miniatura (formato PNG, 533 x 324 pixels)</li></ul>            |
-|       Instâncias             |        Configure a quantidade de instâncias que deseja, em quais regiões e em que velocidade seus clientes podem obter o test drive. Para obter mais informações, confira [Como publicar um test drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/azure-resource-manager-test-drive#how-to-publish-a-test-drive).           |
+|         Vídeo de demonstração do test drive (opcional)           |       Você pode fornecer um vídeo com um passo a passo do test drive. Um cliente pode assistir a esse vídeo antes fazer o test drive. Forneça uma URL para o vídeo no YouTube ou Vimeo. Se selecionar **+ Adicionar Vídeo**, você será solicitado a fornecer as seguintes informações:<ul><li>Nome</li><li>URL</li><li>Miniatura (formato PNG, 533 x 324 pixels)</li></ul>            |
+|       Instâncias             |        Configure a quantidade de instâncias que deseja, em quais regiões e em que velocidade seus clientes podem obter o test drive. Para obter mais informações, confira [Como publicar um test drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive#how-to-publish-a-test-drive).           |
 |       Duração do Test Drive (horas)             |       Insira um número inteiro para o número de horas. O intervalo permitido é de 1 a 999.            |
-|        Modelo ARM de test drive            |        Carregue um arquivo compactado (.zip) que tem os modelos do Azure Resource Manager para seu aplicativo. Para obter mais informações, confira [Test drive do Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/azure-resource-manager-test-drive).            |
+|        Modelo ARM de test drive            |        Carregue um arquivo compactado (.zip) que tem os modelos do Azure Resource Manager para seu aplicativo. Para obter mais informações, confira [Test drive do Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive).            |
 |        Informações de acesso            |         Fornece informações de acesso depois que o cliente obtiver o test drive. Por exemplo, uma URL para acessar o test drive e informações de logon. . Você pode usar marcas HTML básicas para formatar essa descrição. Por exemplo, &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt; e títulos.          |
 |       Acesso a uma ID de assinatura             |       Concede acesso aos serviços do Azure e ao portal do Azure. A assinatura é onde o uso de recursos é relatado e os serviços são cobrados. Caso ainda não tenha uma Assinatura do Azure separada apenas para test drives, crie uma.             |
 |          ID do locatário do Azure AD          |        Forneça um locatário existente no Azure Active Directory ou crie um novo para esse test drive.           |

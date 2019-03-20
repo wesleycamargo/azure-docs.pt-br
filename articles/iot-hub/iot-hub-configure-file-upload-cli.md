@@ -1,18 +1,19 @@
 ---
 title: Configurar upload de arquivo para Hub IoT usando CLI do Azure | Microsoft Docs
 description: Como configurar uploads de arquivos para Hub IoT usando CLI do Azure de plataforma cruzada.
-author: dominicbetts
+author: robinsh
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.author: dobett
-ms.openlocfilehash: 6cd0b657c8d0352c41e0da538396b166d633306a
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
-ms.translationtype: HT
+ms.author: robin.shahan
+ms.openlocfilehash: a77635b6c022527203d1df752723aac3ce2c296c
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42140594"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010779"
 ---
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>Configurar uploads de arquivo do Hub IoT usando a CLI do Azure
 
@@ -82,21 +83,21 @@ Anote o valor da **connectionString**. Ele é necessário nas etapas a seguir.
       --connection-string "{your storage account connection string}"
     ```
 
-## <a name="file-upload"></a>Upload de arquivos
+## <a name="file-upload"></a>Upload de arquivo
 
 Agora é possível configurar o Hub IoT para permitir [upload de arquivos para o Hub IoT](iot-hub-devguide-file-upload.md) usando os detalhes da conta de armazenamento.
 
 A configuração requer os seguintes valores:
 
-* **Contêiner de armazenamento**: um contêiner de blob em uma conta de armazenamento do Azure na assinatura atual do Azure para associar ao Hub IoT. Você recuperou as informações da conta de armazenamento necessárias na seção anterior. O Hub IoT gera automaticamente os URIs de SAS com permissões de gravação para esse contêiner de blob para dispositivos a serem usados ao carregar arquivos.
+* **Contêiner de armazenamento**: Um contêiner de blobs em uma conta de armazenamento do Azure em sua assinatura atual do Azure a ser associado ao hub IoT. Você recuperou as informações da conta de armazenamento necessárias na seção anterior. O Hub IoT gera automaticamente os URIs de SAS com permissões de gravação para esse contêiner de blob para dispositivos a serem usados ao carregar arquivos.
 
-* **Receber notificações para os arquivos carregados**: habilitar ou desabilitar notificações de upload de arquivo.
+* **Receber notificações para arquivos carregados**: Habilite ou desabilite notificações de upload de arquivo.
 
-* **TTL de SAS**: essa configuração é o tempo de vida dos URIs de SAS retornados para o dispositivo pelo Hub IoT. Defina como uma hora por padrão.
+* **TTL de SAS**: Essa configuração é a vida útil dos URIs de SAS retornados para o dispositivo pelo Hub IoT. Defina como uma hora por padrão.
 
-* **TTL de configurações de notificação de arquivo padrão**: o tempo de vida de uma notificação de upload de arquivo antes de sua expiração. Defina como um dia por padrão.
+* **TTL padrão das configurações de notificação de arquivo**: A vida útil de uma notificação de upload de arquivo antes de sua expiração. Defina como um dia por padrão.
 
-* **Contagem de entrega máxima de notificação de arquivo**: o número de vezes que o Hub IoT tenta entregar uma notificação de carregamento de arquivo. Defina como 10 por padrão.
+* **Contagem de entrega máxima de notificação de arquivo**: O número de vezes que o Hub IoT tenta entregar uma notificação de upload de arquivo. Defina como 10 por padrão.
 
 Use os seguintes comandos da CLI do Azure para definir as configurações de upload de arquivo no seu hub IoT:
 
@@ -137,11 +138,11 @@ Para obter mais informações sobre os recursos de upload de arquivos do Hub IoT
 Para saber mais sobre o gerenciamento do Hub IoT do Azure, siga estes links:
 
 * [Gerenciamento em massa de dispositivos IoT](iot-hub-bulk-identity-mgmt.md)
-* [Métricas do Hub IoT](iot-hub-metrics.md)
+* [Métricas do IoT Hub](iot-hub-metrics.md)
 * [Monitoramento de operações](iot-hub-operations-monitoring.md)
 
 Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
 * [Guia do desenvolvedor do Hub IoT](iot-hub-devguide.md)
-* [Implantar IA em dispositivos de borda com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Implantando o AI em dispositivos de borda com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
 * [Proteger sua solução de IoT desde o início](../iot-fundamentals/iot-security-ground-up.md)

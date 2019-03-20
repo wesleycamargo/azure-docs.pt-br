@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 89b18d71e864c198b7efafcff09777da21930b6c
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 8a2ea64d32194ff06378e3227b260c4f10d53175
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733630"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116666"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Descobrir e avaliar um grande ambiente VMware
 
@@ -38,7 +38,7 @@ As Migrações para Azure precisam de acesso aos servidores VMware para descobri
 
 Se você estiver implantando em um ambiente de locatário, está é uma maneira de configurar isso:
 
-1.  Crie um usuário por locatário e, usando [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), atribua permissões somente leitura a todas as VMs que pertencem a um locatário específico. Em seguida, use essas credenciais para a descoberta. O RBAC garante que o usuário correspondente do vCenter tenha acesso apenas às VMs específicas ao locatário.
+1. Crie um usuário por locatário e, usando [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), atribua permissões somente leitura a todas as VMs que pertencem a um locatário específico. Em seguida, use essas credenciais para a descoberta. O RBAC garante que o usuário correspondente do vCenter tenha acesso apenas às VMs específicas ao locatário.
 2. Você pode configurar o RBAC para usuários de locatários diferentes, conforme descrito no exemplo a seguir para o Usuário 1 e o Usuário 2:
 
     - Em **Nome de usuário** e **Senha**, especifique as credenciais de conta somente leitura que o coletor usará para descobrir VMs
@@ -64,7 +64,7 @@ Planeje suas descobertas e avaliações com base nos limites a seguir:
 
 | **Entidade** | **Limite de máquinas** |
 | ---------- | ----------------- |
-| Project    | 1.500             |
+| Projeto    | 1.500             |
 | Descoberta  | 1.500             |
 | Avaliação | 1.500             |
 
@@ -244,7 +244,7 @@ Para cada descoberta que você precisa executar, execute o coletor para descobri
 3.  Na área de trabalho, selecione o atalho **Executar coletor**.
 4.  No Coletor de Migrações para Azure, abra **Configurar pré-requisitos** e:
 
-     a. Aceite os termos de licença e leia as informações de terceiros.
+    a. Aceite os termos de licença e leia as informações de terceiros.
 
     O coletor verifica se a VM tem acesso à Internet.
 

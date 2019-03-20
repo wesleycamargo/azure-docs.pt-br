@@ -1,31 +1,28 @@
 ---
-title: Gerenciar serviços da Web do Machine Learning Studio usando o Gerenciamento de API
+title: Gerenciar serviços web usando o gerenciamento de API
 titleSuffix: Azure Machine Learning Studio
 description: Um guia mostrando como gerenciar os serviços Web do AzureML usando o Gerenciamento de API. Gerencie seus pontos de extremidade da API REST definindo o acesso do usuário, a limitação de uso e o monitoramento por painel.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: 915b972774fb418a454d8a3acd2a61f25af7a6aa
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 0d79bc167ea0416218a4d4822bcd6221699643ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488502"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852875"
 ---
 # <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>Gerenciar serviços da web do Azure Machine Learning Studio usando o Gerenciamento de API
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 Este guia mostra como começar rapidamente a usar o Gerenciamento de API para gerenciar os serviços da Web do Azure Machine Learning Studio.
 
 ## <a name="what-is-azure-api-management"></a>O que é o Gerenciamento de API do Azure?
-O Gerenciamento de API do Azure é um serviço do Azure que permite que você gerencie seus pontos de extremidade da API REST, definindo o acesso do usuário, a limitação de uso e o monitoramento por painel. Clique em [aqui](https://azure.microsoft.com/services/api-management/) para obter detalhes sobre o Gerenciamento de API do Azure. Clique em [aqui](../../api-management/api-management-get-started.md) para obter um guia sobre como começar a usar o Gerenciamento de API do Azure. Essa outra guia, na qual este guia se baseia, aborda mais tópicos, incluindo configurações de notificação, faixa de preços, manipulação de resposta, autenticação do usuário, criação de produtos, assinaturas de desenvolvedor e dashboarding de uso.
-
-## <a name="what-is-azureml"></a>O que é o AzureML?
-O AzureML é um serviço do Azure para aprendizado de máquina que permite facilmente criar, implantar e compartilhar soluções de análise avançadas. Clique em [aqui](https://azure.microsoft.com/services/machine-learning/) para obter detalhes sobre AzureML.
+O Gerenciamento de API do Azure é um serviço do Azure que permite que você gerencie seus pontos de extremidade da API REST, definindo o acesso do usuário, a limitação de uso e o monitoramento por painel. Clique em [aqui](https://azure.microsoft.com/services/api-management/) para obter detalhes sobre o Gerenciamento de API do Azure. Clique em [aqui](/azure/api-management/import-and-publish) para obter um guia sobre como começar a usar o Gerenciamento de API do Azure. Essa outra guia, na qual este guia se baseia, aborda mais tópicos, incluindo configurações de notificação, faixa de preços, manipulação de resposta, autenticação do usuário, criação de produtos, assinaturas de desenvolvedor e dashboarding de uso.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este guia, você precisa:
@@ -169,7 +166,7 @@ Após invocar uma operação, o portal do desenvolvedor exibe a **URL solicitada
 
 ## <a name="appendix-a---creating-and-testing-a-simple-azureml-web-service"></a>Apêndice A - criando e testando um serviço Web do AzureML simples
 ### <a name="creating-the-experiment"></a>Criando o teste
-Veja abaixo as etapas para criar um teste simples do AzureML e implantá-lo como um serviço Web. O serviço Web assume como entrada uma coluna de texto arbitrário e retorna um conjunto de recursos representados como números inteiros. Por exemplo: 
+Veja abaixo as etapas para criar um teste simples do AzureML e implantá-lo como um serviço Web. O serviço Web assume como entrada uma coluna de texto arbitrário e retorna um conjunto de recursos representados como números inteiros. Por exemplo:
 
 | Texto | Texto marcado com sustenido |
 | --- | --- |
@@ -185,11 +182,11 @@ Renomeie-o para **SimpleFeatureHashingExperiment**. Expanda **Conjuntos de dados
 
 Expanda **Transformação de Dados** e **Manipulação** e arraste **Selecionar Colunas do Conjunto de Dados** para o teste. Conecte **Resenhas de livros da Amazon** a **Selecionar Colunas do Conjunto de Dados**.
 
-![select-columns](./media/manage-web-service-endpoints-using-api-management/project-columns.png)
+![Conectar o módulo de conjunto de dados de revisões do livro a um módulo de colunas do projeto](./media/manage-web-service-endpoints-using-api-management/project-columns.png)
 
 Clique em **Selecionar Colunas do Conjunto de Dados** e em **Iniciar seletor de colunas** e selecione **Col2**. Clique na marca de seleção para aplicar essas alterações.
 
-![select-columns](./media/manage-web-service-endpoints-using-api-management/select-columns.png)
+![Selecione as colunas usando nomes de coluna](./media/manage-web-service-endpoints-using-api-management/select-columns.png)
 
 Expanda **Análise de texto** e arraste **Hash de recurso** para o teste. Conecte **Selecionar Colunas no Conjunto de Dados** para **Hash de Funcionalidade**.
 
@@ -231,7 +228,7 @@ Você pode encontrar a **api_key** clicando no teste no painel de serviço Web.
 ##### <a name="test-button"></a>Botão de teste
 Uma maneira fácil de testar o ponto de extremidade RRS é clicar em **Testar** no painel de serviço Web.
 
-![test](./media/manage-web-service-endpoints-using-api-management/test.png)
+![teste](./media/manage-web-service-endpoints-using-api-management/test.png)
 
 Digite **Este é um bom dia** para **col2**. Clique na marca de seleção.
 

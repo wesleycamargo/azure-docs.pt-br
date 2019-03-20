@@ -2,21 +2,21 @@
 title: Artigo sobre as limitações de migração e os problemas conhecidos das migrações online para o Banco de Dados SQL do Azure | Microsoft Docs
 description: Saiba mais sobre as limitações de migração e os problemas conhecidos das migrações online para o Banco de Dados SQL do Azure.
 services: database-migration
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 01/11/2019
-ms.openlocfilehash: b066c7f6c32b6e9fe1c1f63b5db88b4deaa2edae
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.date: 03/05/2019
+ms.openlocfilehash: 38a59a3a390977c5a3fd22b185542f5f2ec33d79
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231811"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091487"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-db"></a>Limitações de migração e problemas conhecidos das migrações online para o BD SQL do Azure
 
@@ -62,9 +62,9 @@ Você poderá ver uma exceção do SQL sugerindo que "ntext é incompatível com
       select object_name(object_id) 'Table name' from sys.columns where system_type_id =240 and object_id in (select object_id from sys.objects where type='U')
       ``` 
 
- 2. Exclua estas tabelas da folha **Definir configurações de migração**, em que você especifica tabelas para migração.
+   1. Exclua estas tabelas da folha **Definir configurações de migração**, em que você especifica tabelas para migração.
 
- 3. Execute a atividade de migração novamente.
+   1. Execute a atividade de migração novamente.
 
 ### <a name="migration-failures-with-various-integrity-violations-with-active-triggers-in-the-schema-during-full-data-load-or-incremental-data-sync"></a>Falhas de migração com várias violações de integridade com gatilhos ativos no esquema durante o "Carregamento de dados completo" ou a "Sincronização de dados incremental"
 
@@ -89,7 +89,7 @@ SELECT max(DATALENGTH(ColumnName)) as LEN from TableName
 
 **Solução alternativa**
 
-Se houver uma coluna de LOB com mais de 32 KB, contate a equipe de engenharia em [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com).
+Se você tiver uma coluna de LOB é maior do que 32 KB, entre em contato com a equipe de engenharia no [fazer migrações de banco de dados do Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
 ### <a name="issues-with-timestamp-columns"></a>Problemas com colunas de carimbo de data/hora
 
@@ -99,7 +99,7 @@ O DMS não migra o valor do carimbo de data/hora da fonte, em vez disso, o DMS g
 
 **Solução alternativa**
 
-Se você precisar que o DMS migre o valor de carimbo de data/hora exato armazenado na tabela de origem, contate a equipe de engenharia em [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com).
+Se você precisar DMS para migrar o valor de carimbo de hora exata armazenado na tabela de origem, entre em contato com a equipe de engenharia no [fazer migrações de banco de dados do Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
 ### <a name="data-migration-errors-do-not-provide-additional-details-on-the-database-detailed-status-blade"></a>Os erros de migração de dados não fornecem detalhes adicionais sobre a folha de status detalhada do banco de dados.
 

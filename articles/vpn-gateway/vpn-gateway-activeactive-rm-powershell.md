@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: yushwang, cherylmc
-ms.openlocfilehash: d1c5ea0ae60894e810d2f4eb0edff2126171a220
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 4c5a7a138a2b491867c5c4ba7234415036c8ba0e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417101"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100829"
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Configurar conexões VPN S2S ativa-ativa com Gateways de VPN
 
@@ -36,10 +36,8 @@ Você pode combiná-los para criar uma topologia de rede mais complexa e altamen
 
 > [!IMPORTANT]
 > O modo ativo-ativo usa somente os seguintes SKUs: 
-  * VpnGw1, VpnGw2, VpnGw3
-  * HighPerformance (para SKUs herdados antigos)
-> 
-> 
+>   * VpnGw1, VpnGw2, VpnGw3
+>   * HighPerformance (para SKUs herdados antigos)
 
 ## <a name ="aagateway"></a>Parte 1 – Criar e configurar os gateways de VPN ativo-ativo
 As etapas a seguir configurarão seu gateway de VPN do Azure nos modos ativo-ativo. As principais diferenças entre os gateways ativo-ativo e ativo-em espera:

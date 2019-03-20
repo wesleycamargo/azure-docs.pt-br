@@ -17,18 +17,18 @@ ms.date: 10/03/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8667db4ed4777614a8c99c823b833ff673c1e98
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ed2164fc122621a4ba2aeb4bb0797db02b10a4bf
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211760"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449131"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Como: Migrar do Serviço de Controle de Acesso do Azure
 
 O ACS (Serviço de Controle de Acesso) do Microsoft Azure, um serviço do Azure AD (Microsoft Azure Active Directory), será desativado em 7 de novembro de 2018. Os aplicativos e serviços que atualmente utilizam o Controle de Acesso devem ser totalmente migrados para um mecanismo de autenticação diferente até esta data. Este artigo descreve recomendações para os clientes atuais, uma vez que você pretende substituir o uso do Controle de Acesso. Se você não estiver usando o Controle de Acesso, não precisa realizar nenhuma ação.
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 O Controle de Acesso é um serviço de autenticação de nuvem que oferece uma maneira fácil de autenticar e autorizar usuários para acesso a seus aplicativos web e serviços. Ele permite que muitos recursos de autenticação e autorização sejam fatorados fora do seu código. O Controle de Acesso é usado principalmente por desenvolvedores e arquitetos de clientes .NET da Microsoft, aplicativos web ASP.NET e serviços web do Windows Communication Foundation (WCF).
 
@@ -135,9 +135,9 @@ Cada um dos serviços em nuvem da Microsoft que aceitam tokens emitidos pelo Con
 | Retransmissão do Barramento de Serviço do Azure | [Migrar para Assinaturas de Acesso Compartilhado](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
 | Cache Gerenciado do Azure | [Migrar para o Cache do Azure para Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-faq#which-azure-cache-offering-is-right-for-me) |
 | DataMarket do Azure | [Migrar para as APIs de Serviços Cognitivos](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
-| Serviços do BizTalk | [Migrar para o recurso de Aplicativos Lógicos do Serviço de Aplicativo do Azure](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
+| Serviços BizTalk | [Migrar para o recurso de Aplicativos Lógicos do Serviço de Aplicativo do Azure](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
 | Serviços de Mídia do Azure | [Migrar para a Autenticação do Azure AD](https://azure.microsoft.com/blog/azure-media-service-aad-auth-and-acs-deprecation/) |
-| Serviço de Backup do Azure | [Atualizar o Agente de Backup do Azure](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq) |
+| Backup do Azure | [Atualizar o Agente de Backup do Azure](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq) |
 
 <!-- Dynamics CRM: Migrate to new SDK, Dynamics team handling privately -->
 <!-- Azure RemoteApp deprecated in favor of Citrix: https://www.zdnet.com/article/microsoft-to-drop-azure-remoteapp-in-favor-of-citrix-remoting-technologies/ -->
@@ -148,12 +148,12 @@ Cada um dos serviços em nuvem da Microsoft que aceitam tokens emitidos pelo Con
 
 ### <a name="sharepoint-customers"></a>Clientes do SharePoint
 
-Os clientes do SharePoint 2013, 2016 e do SharePoint Online há muito tempo usam o ACS para fins de autenticação em cenários de nuvem, locais e híbridos. Alguns recursos do SharePoint e casos de uso serão afetados pela desativação do ACS, enquanto outros não. A tabela abaixo resume as orientações de migração para alguns dos recursos mais populares do SharePoint que utilizam o ACS:
+SharePoint 2013, 2016 e SharePoint Online clientes usaram ACS para fins de autenticação na nuvem, no local e os cenários híbridos. Alguns recursos do SharePoint e casos de uso serão afetados pela desativação do ACS, enquanto outros não. A tabela abaixo resume as orientações de migração para alguns dos recursos mais populares do SharePoint que utilizam o ACS:
 
 | Recurso | Diretrizes |
 | ------- | -------- |
 | Autenticar usuários do Microsoft Azure AD | Anteriormente, o Microsoft Azure AD não fornecia suporte a tokens SAML 1.1 exigidos pelo SharePoint para autenticação e o ACS era usado como um intermediário que tornava o SharePoint compatível com os formatos de token do Microsoft Azure AD. Agora, é possível [conectar o SharePoint diretamente ao Azure AD usando aplicativo local do SharePoint da Galeria de Aplicativos do Azure AD](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial). |
-| [Autenticação do aplicativo e autenticação de servidor para servidor no SharePoint local](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | Não afetado pela desativação do ACS; nenhuma mudança necessária. | 
+| [Autenticação do aplicativo e autenticação de servidor para servidor no SharePoint no local](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | Não afetado pela desativação do ACS; nenhuma mudança necessária. | 
 | [Baixa autorização de confiança para suplementos do SharePoint (provedor hospedado e SharePoint hospedado)](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | Não afetado pela desativação do ACS; nenhuma mudança necessária. |
 | [Pesquisa híbrida de nuvem do SharePoint](https://blogs.msdn.microsoft.com/spses/2015/09/15/cloud-hybrid-search-service-application/) | Não afetado pela desativação do ACS; nenhuma mudança necessária. |
 
@@ -189,7 +189,7 @@ A tabela a seguir compara os recursos do Controle de Acesso que são relevantes 
 
 Em um alto nível, o *Azure Active Directory provavelmente é a melhor opção para a sua migração se você permitir que os usuários entrem somente com suas contas corporativas ou de estudante da Microsoft*.
 
-| Recurso | Suporte do Controle de Acesso | Suporte do Azure AD |
+| Funcionalidade | Suporte do Controle de Acesso | Suporte do Azure AD |
 | ---------- | ----------- | ---------------- |
 | **Tipos de contas** | | |
 | Contas corporativas ou de estudante da Microsoft | Com suporte | Com suporte |
@@ -201,14 +201,14 @@ Em um alto nível, o *Azure Active Directory provavelmente é a melhor opção p
 | WIF | Com suporte | Com suporte, mas instruções limitadas estão disponíveis |
 | O certificado do provedor de identidade do Web Services Federation | Com suporte | Com suporte |
 | OAuth 2.0 | Suporte para Draft 13 | Suporte para RFC 6749, a especificação mais moderna |
-| WS-Trust | Com suporte | Sem suporte |
+| WS-Trust | Com suporte | Não é compatível |
 | **Formatos de Token** | | |
 | JWT | Com suporte em versão beta | Com suporte |
-| SAML 1.1 | Com suporte | Visualização |
+| SAML 1.1 | Com suporte | Visualizar |
 | SAML 2.0 | Com suporte | Com suporte |
-| SWT | Com suporte | Sem suporte |
+| SWT | Com suporte | Não é compatível |
 | **Personalizações** | | |
-| Interface de usuário de seleção de conta/descoberta de realm de início personalizável | Código disponível para download que pode ser incorporado a aplicativos | Sem suporte |
+| Interface de usuário de seleção de conta/descoberta de realm de início personalizável | Código disponível para download que pode ser incorporado a aplicativos | Não é compatível |
 | Carregar certificados de autenticação de tokens personalizados | Com suporte | Com suporte |
 | Personalizar declarações em gráficos |- Declarações de entrada de passagem de provedores de identidade<br />- Obter token de acesso do provedor de identidade como uma declaração<br />- Emitir declarações de saída com base nos valores de declarações de entrada<br />- Emitir declarações de saída com valores constantes |- Não é possível passar declarações de provedores de identidade federados<br />- Não pode obter um token de acesso do provedor de identidade como uma declaração<br />- Não pode emitir declarações de saída com base nos valores de declarações de entrada<br />- Pode emitir declarações de saída com valores constantes<br />- Pode emitir declarações de saída com base nas propriedades de usuários sincronizadas ao Azure AD |
 | **Automação** | | |
@@ -240,7 +240,7 @@ No entanto, o Azure AD B2C não oferece suporte para a variedade de protocolos d
 
 A tabela a seguir compara os recursos do Controle de Acesso que são relevantes para aplicativos web aos que estão disponíveis no Azure AD B2C. Em um nível elevado, o *Azure AD B2C é provavelmente a escolha certa para a sua migração se seu aplicativo for voltado a clientes, ou se ele oferecer suporte a muitos tipos de contas.*
 
-| Recurso | Suporte do Controle de Acesso | Suporte do Azure AD B2C |
+| Funcionalidade | Suporte do Controle de Acesso | Suporte do Azure AD B2C |
 | ---------- | ----------- | ---------------- |
 | **Tipos de contas** | | |
 | Contas corporativas ou de estudante da Microsoft | Com suporte | Com suporte via políticas personalizadas  |
@@ -249,15 +249,15 @@ A tabela a seguir compara os recursos do Controle de Acesso que são relevantes 
 | Contas da Microsoft para uso pessoal | Com suporte | Com suporte | 
 | Contas do Facebook, Google, Yahoo | Com suporte | Suporte nativo ao Facebook e Google, suporte para Yahoo por meio da federação do OpenID Connect usando políticas personalizadas |
 | **Protocolos e compatibilidade do SDK** | | |
-| Windows Identity Foundation (WIF) | Com suporte | Sem suporte |
-| O certificado do provedor de identidade do Web Services Federation | Com suporte | Sem suporte |
+| Windows Identity Foundation (WIF) | Com suporte | Não é compatível |
+| O certificado do provedor de identidade do Web Services Federation | Com suporte | Não é compatível |
 | OAuth 2.0 | Suporte para Draft 13 | Suporte para RFC 6749, a especificação mais moderna |
-| WS-Trust | Com suporte | Sem suporte |
+| WS-Trust | Com suporte | Não é compatível |
 | **Formatos de Token** | | |
 | JWT | Com suporte em versão beta | Com suporte |
-| SAML 1.1 | Com suporte | Sem suporte |
-| SAML 2.0 | Com suporte | Sem suporte |
-| SWT | Com suporte | Sem suporte |
+| SAML 1.1 | Com suporte | Não é compatível |
+| SAML 2.0 | Com suporte | Não é compatível |
+| SWT | Com suporte | Não é compatível |
 | **Personalizações** | | |
 | Interface de usuário de seleção de conta/descoberta de realm de início personalizável | Código disponível para download que pode ser incorporado a aplicativos | Interface do usuário totalmente personalizável via CSS personalizado |
 | Carregar certificados de autenticação de tokens personalizados | Com suporte | Chaves de autenticação personalizadas, não certificados, com suporte via políticas personalizadas |
@@ -286,7 +286,7 @@ Nesses casos, convém migrar seu aplicativo web para outro serviço de autentica
 |     |     | 
 | --- | --- |
 | ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) é um serviço de identidade de nuvem flexível que criou [orientação de migração de alto nível para os clientes de Controle de Acesso](https://auth0.com/acs)e oferece suporte a quase todos os recursos oferecidos pelo ACS. |
-| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Identidade de ping](https://www.pingidentity.com) oferece duas soluções semelhantes ao ACS. PingOne é um serviço de identidade de nuvem que oferece suporte a muitos dos mesmos recursos que o ACS e o PingFederate é um produto de identidade local semelhante que oferece mais flexibilidade. Consulte [Orientação de desativação do Ping ACS](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) para obter mais detalhes sobre como usar esses produtos. |
+| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Identidade de ping](https://www.pingidentity.com) oferece duas soluções semelhantes ao ACS. PingOne é um serviço de identidade de nuvem que oferece suporte a muitos dos mesmos recursos que o ACS e o PingFederate é semelhante no produto de identidade local que oferece mais flexibilidade. Consulte [Orientação de desativação do Ping ACS](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) para obter mais detalhes sobre como usar esses produtos. |
 
 Nosso objetivo ao trabalhar com a identidade de Ping e Auth0 é garantir que todos os clientes de Controle de Acesso tem um caminho de migração para seus aplicativos e serviços que minimiza a quantidade de trabalho necessária para mover de Controle de Acesso.
 
@@ -319,7 +319,7 @@ Nossa recomendação para este tipo de fluxo de autenticação é migrar para o 
 
 Você também usar o Azure AB para a autenticação de servidor para servidor usando a implementação do Azure AD da concessão de credenciais de cliente do OAuth. A tabela a seguir compara os recursos do Controle de Acesso na autenticação de servidor para servidor com aquelas que estão disponíveis no Azure AD.
 
-| Recurso | Suporte do Controle de Acesso | Suporte do Azure AD |
+| Funcionalidade | Suporte do Controle de Acesso | Suporte do Azure AD |
 | ---------- | ----------- | ---------------- |
 | Como registrar um serviço Web | Crie uma terceira parte confiável no portal de gerenciamento do Controle de Acesso | Crie um aplicativo web do Azure AD no portal do Azure |
 | Como registrar um cliente | Crie uma terceira parte confiável no portal de gerenciamento do Controle de Acesso | Crie outro aplicativo web do Azure AD no portal do Azure |
@@ -348,7 +348,7 @@ Nesses casos, convém migrar seu aplicativo web para outro serviço de autentica
 |     |     | 
 | --- | --- |
 | ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) é um serviço de identidade de nuvem flexível que criou [orientação de migração de alto nível para os clientes de Controle de Acesso](https://auth0.com/acs)e oferece suporte a quase todos os recursos oferecidos pelo ACS. |
-| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Identidade de ping](https://www.pingidentity.com) oferece duas soluções semelhantes ao ACS. PingOne é um serviço de identidade de nuvem que oferece suporte a muitos dos mesmos recursos que o ACS e o PingFederate é um produto de identidade local semelhante que oferece mais flexibilidade. Consulte [Orientação de desativação do Ping ACS](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) para obter mais detalhes sobre como usar esses produtos. |
+| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Identidade de ping](https://www.pingidentity.com) oferece duas soluções semelhantes ao ACS. PingOne é um serviço de identidade de nuvem que oferece suporte a muitos dos mesmos recursos que o ACS e o PingFederate é semelhante no produto de identidade local que oferece mais flexibilidade. Consulte [Orientação de desativação do Ping ACS](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) para obter mais detalhes sobre como usar esses produtos. |
 
 Nosso objetivo ao trabalhar com a identidade de Ping e Auth0 é garantir que todos os clientes de Controle de Acesso tem um caminho de migração para seus aplicativos e serviços que minimiza a quantidade de trabalho necessária para mover de Controle de Acesso.
 

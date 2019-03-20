@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2c547eba931e23b6ffc7cae176e19959d43bcf5e
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: b879036dcd79901cb634fa197932e833cb22d12a
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602487"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405013"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Implantação do Git local para o Serviço de Aplicativo do Azure
 
@@ -44,7 +44,7 @@ git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="deploy-from-local-git-with-kudu-builds"></a>Implantar do Git local com builds Kudu
+## <a name="deploy-with-kudu-builds"></a>Implantar com compilações do Kudu
 
 A maneira mais fácil de habilitar a implantação do Git local no seu aplicativo com o servidor de build do Kudu é usar o Cloud Shell.
 
@@ -102,7 +102,7 @@ Você pode ver a automação específica do tempo de execução na saída, como 
 
 Navegue até seu aplicativo para verificar se o conteúdo foi implantado.
 
-## <a name="deploy-from-local-git-with-azure-devops-services-builds"></a>Implantar do Git local com builds do Azure DevOps Services
+## <a name="deploy-with-azure-devops-builds"></a>Implantar com compilações de DevOps do Azure
 
 > [!NOTE]
 > Para o Serviço de Aplicativo criar os Azure Pipelines necessários em sua organização do Azure DevOps Services, sua conta do Azure deve ter a função de **Proprietário** em sua assinatura do Azure.
@@ -110,20 +110,18 @@ Navegue até seu aplicativo para verificar se o conteúdo foi implantado.
 
 Para habilitar a implantação do Git local no seu aplicativo com o servidor de build do Kudu, navegue até o aplicativo no [portal do Azure](https://portal.azure.com).
 
-No painel de navegação esquerdo da página do aplicativo, clique em **Centro de Implantação** > **Git Local** > **Continuar**. 
+No painel de navegação esquerdo da página do aplicativo, clique em **Centro de Implantação** > **Git Local** > **Continuar**.
 
 ![](media/app-service-deploy-local-git/portal-enable.png)
 
-Clique em **Entrega Contínua do Azure DevOps Services** > **Continuar**.
+Clique em **Pipelines do Azure (versão prévia)** > **continuar**.
 
-![](media/app-service-deploy-local-git/vsts-build-server.png)
+![](media/app-service-deploy-local-git/pipeline-builds.png)
 
-Na página **Configurar**, configure uma nova organização do Azure DevOps Services ou especifique uma organização existente. Ao terminar, clique em **Continuar**.
+No **configurar** página, configure uma nova organização do DevOps do Azure ou especificar uma organização existente. Ao terminar, clique em **Continuar**.
 
 > [!NOTE]
-> Se você quiser usar uma organização do Azure DevOps Services existente que não está listada, você precisará [vincular a organização do Azure DevOps Services à sua assinatura do Azure](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
-
-Na página **Teste**, escolha se deseja habilitar testes de carga. Em seguida, clique em **Continuar**.
+> Se você quiser usar uma organização existente do DevOps do Azure que não esteja listada, você precisará [vincular a organização de serviços de DevOps do Azure à sua assinatura do Azure](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
 Dependendo do [tipo de preço](https://azure.microsoft.com/pricing/details/app-service/plans/) do seu plano do Serviço de Aplicativo, talvez você possa ver uma página **Implantar no preparo**. Escolha se deseja habilitar slots de implantação e clique em **Continuar**.
 
@@ -174,7 +172,7 @@ Estes são erros ou problemas comuns ao usar o Git para publicar em um aplicativ
 
 **Causa**: esse erro poderá ocorrer se você não especificar um branch durante `git push` ou se você não tiver configurado o valor `push.default` em `.gitconfig`.
 
-**Resolução**: Execute `git push` novamente, especificando o branch mestre. Por exemplo: 
+**Resolução**: Execute `git push` novamente, especificando o branch mestre. Por exemplo:
 
 ```bash
 git push azure master
@@ -185,7 +183,7 @@ git push azure master
 
 **Causa**: esse erro poderá ocorrer se você tentar efetuar push para um branch que não seja o mestre no remote (remoto) 'azure'.
 
-**Resolução**: Execute `git push` novamente, especificando o branch mestre. Por exemplo: 
+**Resolução**: Execute `git push` novamente, especificando o branch mestre. Por exemplo:
 
 ```bash
 git push azure master
@@ -217,7 +215,7 @@ git config --global http.postBuffer 524288000
       OU
   * `npm ERR! [modulename@version] preinstall: \make || gmake\`
 
-## <a name="additional-resources"></a>Recursos adicionais
+## <a name="additional-resources"></a>Recursos Adicionais
 
 * [Documentação do projeto Kudu](https://github.com/projectkudu/kudu/wiki)
 * [Implantação contínua no Serviço de Aplicativo do Azure](deploy-continuous-deployment.md)

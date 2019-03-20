@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 12/04/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: 81096eeb1edcd6681bdc887d267ee477d78a8578
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 6a27f23b5a0eba04ea3fa73a2f59364f9101c069
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472075"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852159"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-october-2018"></a>O que há de novo no SQL Data Warehouse do Azure? Outubro de 2018
 O SQL Data Warehouse do Azure recebe melhorias continuamente. Este artigo descreve os novos recursos e alterações que foram introduzidos em outubro de 2018.
@@ -57,7 +57,7 @@ O SQL Data Warehouse do Azure (SQL DW) agora tem integração nativa com o Azure
 
 ## <a name="bug-fixes"></a>Correções de bug
 
-| Title | DESCRIÇÃO |
+| Título | Descrição |
 |:---|:---|
 | **CETAS para falhas de Parquet em classes de recursos pequenos em data warehouses de DW2000 e mais** | Essa correção identifica corretamente uma referência nula no caminho de código Criar tabela externa como para o Parquete. |
 |**Valor da coluna de identidade pode perder em alguma operação do CTAS** | O valor de uma coluna de identificação pode não ser preservado quando CTASed para outra tabela. Relatado em um blog: [https://blog.westmonroepartners.com/azure-sql-dw-identity-column-bugs/](https://blog.westmonroepartners.com/azure-sql-dw-identity-column-bugs/). |
@@ -81,7 +81,7 @@ Agora que você conhece um pouco do SQL Data Warehouse, aprenda como [criar um S
 [Blogs da Equipe Consultoria para Clientes]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Histórias de sucesso de clientes]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
 [Solicitações de recursos]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Fórum Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Fórum Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Vídeos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 [create a SQL Data Warehouse]: ./create-data-warehouse-portal.md

@@ -9,12 +9,12 @@ ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 9a5e75b762c2ab0591212ce0bc3d7fac42132f8a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 3cffd09a54b09a425f3b7f3519b4ceb7a04a6d08
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116908"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855343"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Habilitar o gerenciamento de atualizações, o controle de alterações e as soluções de inventário em várias VMs
 
@@ -28,7 +28,7 @@ Fazer logon no Azure em https://portal.azure.com
 
 No portal do Azure, navegue até **máquinas virtuais**.
 
-Usando as caixas de seleção, selecione as máquinas virtuais que você deseja integrar com o controle de alterações e inventário ou de gerenciamento de atualização. A integração está disponível para até três grupos de recursos diferente cada vez.
+Usando as caixas de seleção, selecione as máquinas virtuais que você deseja integrar com o controle de alterações e inventário ou de gerenciamento de atualização. A integração está disponível para até três grupos de recursos diferente cada vez. As VMs do Azure podem existir em qualquer região não importa o local de sua conta de automação.
 
 ![Lista de VMs](media/automation-onboard-solutions-from-browse/vmlist.png)
 > [!TIP]
@@ -51,7 +51,7 @@ Use os controles de filtro para selecionar máquinas virtuais em assinaturas dif
 
 ![Solução integrada de gerenciamento de atualização](media/automation-onboard-solutions-from-browse/onboardsolutions.png)
 
-Revise as opções para o workspace de análise de Log e a conta de automação. Um workspace existente e a conta de Automação são selecionados por padrão. Se desejar usar um workspace do Log Analytics diferente e a Conta de Automação, clique em **PERSONALIZAR** para selecioná-los na página **Configuração personalizada**. Quando você escolhe um workspace do Log Analytics, é feita uma verificação para determinar se ele está vinculado a uma Conta de Automação. Se uma Conta de Automação vinculada for encontrada, você verá a tela a seguir. Quando terminar, clique em **OK**.
+Revise as opções para o espaço de trabalho do Log Analytics e a conta de automação. Um workspace existente e a conta de Automação são selecionados por padrão. Se desejar usar um workspace do Log Analytics diferente e a Conta de Automação, clique em **PERSONALIZAR** para selecioná-los na página **Configuração personalizada**. Quando você escolhe um workspace do Log Analytics, é feita uma verificação para determinar se ele está vinculado a uma Conta de Automação. Se uma Conta de Automação vinculada for encontrada, você verá a tela a seguir. Quando terminar, clique em **OK**.
 
 ![Selecione workspace e conta](media/automation-onboard-solutions-from-browse/selectworkspaceandaccount.png)
 
@@ -59,7 +59,7 @@ Se o workspace selecionado não estiver vinculado a uma Conta de Automação, vo
 
 ![Nenhum workspace](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
-Ao habilitar soluções, somente determinadas regiões têm suporte para vincular um Workspace do Log Analytics e uma Conta de Automação.
+Ao habilitar soluções, somente determinadas regiões têm suporte para vincular um espaço de trabalho do Log Analytics e uma conta de automação.
 
 A tabela abaixo mostra os mapeamentos com suporte:
 
@@ -68,14 +68,19 @@ A tabela abaixo mostra os mapeamentos com suporte:
 |AustraliaSoutheast|AustraliaSoutheast|
 |Canadá Central|Canadá Central|
 |CentralIndia|CentralIndia|
-|EastUS|EastUS2|
+|EastUS<sup>1</sup>|EastUS2|
 |JapanEast|JapanEast|
 |SoutheastAsia|SoutheastAsia|
 |WestCentralUS|WestCentralUS|
 |WestEurope|WestEurope|
 |UKSouth|UKSouth|
 |USGovVirginia|USGovVirginia|
-|LesteEUA2EUAP|CentroEUAEUAP|
+|EastUS2EUAP<sup>1</sup>|CentroEUAEUAP|
+
+<sup>1</sup> mapeamentos EastUS2EUAP e EastUS para espaços de trabalho do Log Analytics para contas de automação não são um mapeamento de região para região exato, mas é o mapeamento correto.
+
+> [!NOTE]
+> Devido à demanda, uma região pode não estar disponível ao criar seu espaço de trabalho de conta de automação ou o Log Analytics.  Se esse for o caso, verifique se que você estiver usando uma região em que você pode criar recursos na tabela anterior.
 
 Desmarque a caixa de seleção ao lado de qualquer máquina virtual que você não deseja habilitar. Máquinas virtuais que não podem ser habilitadas já estão desmarcadas.
 
@@ -89,7 +94,7 @@ As seguintes soluções são dependentes de um workspace do Log Analytics:
 * [Controle de alterações](automation-change-tracking.md)
 * [Iniciar/parar VMs durante os horários fora de pico](automation-solution-vm-management.md)
 
-Caso decida que não quer mais integrar sua conta de Automação ao Log Analytics, você poderá desvincular a conta diretamente no Portal do Azure. Antes de prosseguir, você precisa remover as soluções mencionadas anteriormente, caso contrário, esse processo será impedido de continuar. Examine o artigo sobre a solução específica que você importou para entender as etapas necessárias para removê-la.
+Se você decidir que você não deseja mais integrar sua conta de automação com um espaço de trabalho do Log Analytics, você pode desvincular sua conta diretamente do portal do Azure. Antes de prosseguir, você precisa remover as soluções mencionadas anteriormente, caso contrário, esse processo será impedido de continuar. Examine o artigo sobre a solução específica que você importou para entender as etapas necessárias para removê-la.
 
 Depois de remover essas soluções, você poderá executar as etapas a seguir para desvincular sua conta de Automação.
 
@@ -116,9 +121,9 @@ Se você tiver usado a solução Iniciar/parar VMs durante os horários fora de 
 
 * Iniciar e parar agendas de runbook da VM
 * Iniciar e parar runbooks da VM
-* variáveis
+* Variáveis
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 Ao integrar várias máquinas, pode haver máquinas que mostrem como **Não é possível ativar**. Há diferentes razões que algumas máquinas não podem ser ativadas. As seções a seguir mostram possíveis razões para o estado **Impossível ativar** em uma VM ao tentar integrar.
 

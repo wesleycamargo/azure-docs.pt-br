@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: 0524bd224e3da3e6a9b18a4225c88e9c43d07606
 ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/20/2019
 ms.locfileid: "58223403"

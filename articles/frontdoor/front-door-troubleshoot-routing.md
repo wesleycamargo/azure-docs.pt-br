@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2018
 ms.author: sharadag
-ms.openlocfilehash: 78370b004d18f70ae4d485f3ad7cfd910e6dd70a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: HT
+ms.openlocfilehash: 7a261d65a7bd3eea150dd764c65b94ddd47466b3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47045534"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100302"
 ---
 # <a name="troubleshooting-common-routing-issues"></a>Solução de problemas comuns de roteamentos
 Este artigo descreve como solucionar alguns dos problemas comuns de roteamento que você pode enfrentar para a sua configuração do Azure Front Door Service. 
@@ -28,7 +28,7 @@ Este artigo descreve como solucionar alguns dos problemas comuns de roteamento q
 ### <a name="symptom"></a>Sintoma
 - Você criou um Front Door, mas uma solicitação ao host de Front-end está retornando um código de status HTTP 400.
 
- - Você criou um mapeamento DNS de um domínio personalizado para o host de front-end configurado. No entanto, enviar uma solicitação para o nome de host do domínio personalizado retorna um código de status HTTP 400 e não aparece rotear para os back-ends que você configurou.
+  - Você criou um mapeamento DNS de um domínio personalizado para o host de front-end configurado. No entanto, enviar uma solicitação para o nome de host do domínio personalizado retorna um código de status HTTP 400 e não aparece rotear para os back-ends que você configurou.
 
 ### <a name="cause"></a>Causa
 - Esse sintoma poderá acontecer se você não tiver configurado uma regra de roteamento para o domínio personalizado que você adicionou como um host de front-end. Uma regra de roteamento deve ser adicionada explicitamente àquele host de front-end, mesmo que já tenha sido configurada uma para o host de front-end no subdomínio do Front Door (*.azurefd.net) para o qual o seu domínio personalizado tem um mapeamento de DNS.
@@ -54,11 +54,11 @@ Há várias causas possíveis para esse sintoma:
     - Verifique se você já esperou cerca de 10 minutos para a configuração ser implantada.
 
 2. Verificar as configurações de back-end
-     - Navegue até o pool de back-end para o qual a solicitação deve estar roteando (depende de como você configurou a regra de roteamento) e verifique se que o _tipo de host de back-end_ e o nome de host de back-end estão corretos. Se o back-end for um host personalizado, verifique se você o escreveu corretamente. 
+   - Navegue até o pool de back-end para o qual a solicitação deve estar roteando (depende de como você configurou a regra de roteamento) e verifique se que o _tipo de host de back-end_ e o nome de host de back-end estão corretos. Se o back-end for um host personalizado, verifique se você o escreveu corretamente. 
 
-     - Verifique suas portas HTTP e HTTPS. Na maioria dos casos, 80 e 443 (respectivamente) estão corretas e nenhuma alteração é necessária. No entanto, há uma chance de que o back-end não esteja configurado assim e esteja escutando uma porta diferente.
+   - Verifique suas portas HTTP e HTTPS. Na maioria dos casos, 80 e 443 (respectivamente) estão corretas e nenhuma alteração é necessária. No entanto, há uma chance de que o back-end não esteja configurado assim e esteja escutando uma porta diferente.
 
-    - Verifique o _Cabeçalho de host de back-end_ configurado para os back-ends para o qual o host de Front-end deve ser roteamento. Na maioria dos casos, esse cabeçalho deve ser igual a _Nome de host de back-end_. No entanto, um valor incorreto poderá causar vários códigos de status HTTP 4xx se o back-end esperar algo diferente. Se você inserir o endereço IP do seu back-end, poderá precisar definir o _Cabeçalho de host de back-end_ para o nome do host de back-end.
+     - Verifique o _Cabeçalho de host de back-end_ configurado para os back-ends para o qual o host de Front-end deve ser roteamento. Na maioria dos casos, esse cabeçalho deve ser igual a _Nome de host de back-end_. No entanto, um valor incorreto poderá causar vários códigos de status HTTP 4xx se o back-end esperar algo diferente. Se você inserir o endereço IP do seu back-end, poderá precisar definir o _Cabeçalho de host de back-end_ para o nome do host de back-end.
 
 
 3. Verificar as configurações de regra de roteamento

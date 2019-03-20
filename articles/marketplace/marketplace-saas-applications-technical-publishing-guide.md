@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: keithcharlie
-ms.openlocfilehash: bd6c592f0d3d073ec2a05c8f4636086df01ddb06
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: b653b0276cedea1e3b45adf7a9dc390b24f0d03f
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450738"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213612"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Guia de Publicação da Oferta de Aplicativos SaaS
 
@@ -32,16 +32,16 @@ Aplicativos SaaS estão disponíveis em ambas as vitrines do Azure A tabela a se
 | Opção de vitrine | Listagem | Avaliação/Transação |  
 | --- | --- | --- |  
 | AppSource | Sim (Entrar em contato comigo) | Sim (PowerBI/Dynamics) |
-| Azure Marketplace | Não  | Sim (Aplicativos SaaS) |   
+| Azure Marketplace | Não | Sim (Aplicativos SaaS) |   
 
 **Lista:**  a opção de publicação em lista é uma oferta do tipo "Entre em contato" usada quando a participação no nível Avaliação ou Transação não é viável. O benefício dessa abordagem é permitir que os editores com uma solução no mercado comecem imediatamente a receber clientes potenciais que possam ser convertidos em ofertas para impulsionar seu negócio.  
 **Avaliação/Transação:**  o cliente tem a opção de comprar diretamente ou solicitar uma avaliação de sua solução. Fornecer uma experiência de avaliação aumenta o nível de engajamento oferecido aos clientes e permite explorar a solução antes da compra. Com uma experiência de avaliação, você terá melhores oportunidades de promoção nas vitrines e pode esperar mais clientes potenciais mais valiosos com base no engajamento dos clientes. As Avaliações devem incluir suporte gratuito pelo menos durante o período de avaliação.  
 
 | Oferta de aplicativos SaaS | Requisitos de negócios | Requisitos técnicos |  
 | --- | --- | --- |  
-| **Fale conosco** | SIM | Não  |  
-| **Power BI/Dynamics** | SIM | Sim (Integração com o Azure AD) |  
-| **Aplicativos SaaS**| SIM | Sim (Integração com o Azure AD) |     
+| **Fale conosco** | Sim | Não |  
+| **Power BI/Dynamics** | Sim | Sim (Integração com o Azure AD) |  
+| **Aplicativos SaaS**| Sim | Sim (Integração com o Azure AD) |     
 
 ## <a name="saas-list"></a>Lista de SaaS
 
@@ -143,6 +143,9 @@ A Microsoft hospeda a transação comercial. A Microsoft cobra o cliente em seu 
 |Cancelamento | Sua oferta é cancelável pelo cliente a qualquer momento. |  
 |Página de destino da transação | Você hospeda uma página inicial da transação de associação de marcas do Azure na qual os usuários podem criar e gerenciar suas contas de serviço de SaaS. |   
 | API de assinatura | Você expõe um serviço que pode interagir com a Assinatura de SaaS para criar, atualizar e excluir um plano de serviço e uma conta de usuário. As alterações críticas na API devem ter suporte em até 24 horas. As alterações não críticas de API serão lançadas periodicamente. |  
+
+>[!Note]
+>Cloud Solution Providers (CSP) parceiro canal participar agora está disponível.  Consulte [Cloud Solution Providers](./cloud-solution-providers.md) para obter mais informações sobre sua oferta por meio do Microsoft CSP de marketing de parceiros canais.
 
 ## <a name="next-steps"></a>Próximas etapas
 Caso ainda não tenha feito isso,

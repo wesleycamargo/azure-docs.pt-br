@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: fea950e2c13d9b5ce0c3619990961e611edd6626
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 78dc759632c4fc3116a59ea1e5bc0b93200bca45
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207367"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58168180"
 ---
 # <a name="how-to-use-negatable-entities-with-a-conversation-learner-model"></a>Como usar Entidades Negáveis com um Modelo do Conversation Learner
 
@@ -26,74 +26,73 @@ Este tutorial demonstra a propriedade "Negável" das Entidades.
 [![Versão prévia de tutorial de Entidades Negáveis](https://aka.ms/cl_Tutorial_v3_NegatableEntities_Preview)](https://aka.ms/cl_Tutorial_v3_NegatableEntities)
 
 ## <a name="requirements"></a>Requisitos
-Este tutorial exige que o bot de tutorial geral esteja em execução
+Este tutorial exige que Bot de tutorial esteja em execução
 
     npm run tutorial-general
 
 ## <a name="details"></a>Detalhes
-A propriedade "Negável" de uma Entidade permite que você rotule as instâncias normal (positiva) e negativa da Entidade, ensine com base em modelos positivos e negativos e limpe o valor de uma Entidade existente. Entidades com o conjunto de propriedades "Negáveis" são chamadas de Entidades Negáveis no Conversation Leaner.
+A propriedade "Negatable" de uma entidade permite rotular os dois normal (positivo) e números negativos são instâncias da entidade, ensinar com base em modelos positivos e negativos e limpar o valor de uma entidade existente. Entidades com o conjunto de propriedades "Negáveis" são chamadas de Entidades Negáveis no Conversation Leaner.
 
 ## <a name="steps"></a>Etapas
 
+Inicie na home page na interface de usuário da Web.
+
 ### <a name="create-the-model"></a>Criar o modelo
 
-1. Na interface do usuário da Web, clique em "Novo Modelo."
-2. No campo "Nome", digite "NegatableEntity" e pressione enter.
-3. Clique no botão "Criar".
+1. Selecione **novo modelo**.
+2. Insira **NegatableEntity** para **nome**.
+3. Selecione **Criar**.
 
 ### <a name="entity-creation"></a>Criação da entidade
 
-1. No painel esquerdo, clique em "Entidades" e, em seguida, no botão "Nova Entidade".
-2. Selecione "Personalizado" para o "Tipo de Entidade."
-3. Digite "nome" para o "Nome da Entidade."
-4. Marque a caixa de seleção "Negável".
-    - Marcar essa propriedade permite que o usuário forneça um valor de entidade, ou dizer que algo *não* é um valor de entidade. No último caso, o resultado é a exclusão do valor da entidade correspondente.
-5. Clique no botão "Criar".
+1. Selecione **entidades** no painel esquerdo, em seguida, **nova entidade**.
+2. Selecione **personalizado treinado** para **tipo de entidade**.
+3. Insira **nome** para **nome da entidade**.
+4. Verifique **Negatable** permitir que os usuários fornecer um valor de entidade ou dizer algo *não* valor de uma entidade, assim, excluindo o valor de entidade correspondente.
+5. Selecione **Criar**.
 
-![](../media/tutorial5_entities.PNG)
+![](../media/T06_entity_create.png)
 
 ### <a name="create-the-first-action"></a>Criar a primeira ação
 
-1. No painel esquerdo, clique em "Ações" e, em seguida, no botão "Nova Ação".
-2. No campo "Resposta do Bot...", digite "Eu não sei seu nome."
-3. No campo "Entidades Desqualificadas", digite "nome."
-4. Clique no botão "Criar".
+1. Selecione **ações** no painel esquerdo, em seguida, **nova ação**.
+2. Insira **não sei seu nome.** para **de resposta do Bot...** .
+3. Insira **nome** para **desqualificação qualifica**.
+4. Selecione **Criar**.
+
+![](../media/T06_action_create_1.png)
 
 ### <a name="create-the-second-action"></a>Criar a segunda ação
 
-1. No painel esquerdo, clique em "Ações" e, em seguida, no botão "Nova Ação".
-2. No campo "Resposta do Bot...", digite "Eu sei seu nome. Ele é $name."
-3. Clique no botão "Criar".
+1. Selecione **ações** no painel esquerdo, em seguida, **nova ação**.
+2. Insira **sei seu nome. Ele é $name.** para **de resposta do Bot...** .
+3. Selecione **Criar**.
 
 > [!NOTE]
-> Entidade "nome" foi automaticamente adicionada como "Entidades Necessárias" por referência na resposta.
+> O **nome** entidade foi adicionada automaticamente como um **necessárias entidades** por referência na declaração de resposta.
 
 Agora você tem duas ações.
 
-![](../media/tutorial5_actions.PNG)
+![](../media/T06_action_create_2.png)
 
-### <a name="train-the-model"></a>Treinar o Modelo
+### <a name="train-the-model"></a>Treinar o modelo
 
-1. No painel esquerdo, clique em "Diálogos de Treinamento" e, em seguida, no botão "Novo Diálogo de Treinamento".
-2. No painel de chat, onde diz "Digite sua mensagem...", digite "olá."
-3. Clique no botão "Pontuar Ações".
-4. Selecione a resposta "Eu não sei seu nome."
-    - O percentual é 100%, como a única Ação válida com base nas restrições.
-5. No painel de chat, onde diz "Digite sua mensagem...", digite "Meu nome é Pedro"
-6. Selecione "Pedro" e escolha o marcador "+nome"
-    - Há duas instâncias para a entidade "nome": "+nome" e "-nome".  (+) Mais, adiciona ou substitui o valor. (-) Menos, remove o valor.
-7. Clique no botão "Pontuar Ações".
-    - A Entidade "nome" agora está definida como "Pedro" na memória do Modelo, portanto, a Ação "Eu sei seu nome. Ele é $name" está disponível.
-8. Selecione a resposta "Eu sei seu nome. Ele é $name."
-9. No painel de chat, onde diz "Digite sua mensagem...", digite "Meu nome não é Pedro."
-10. Selecione "Pedro" e escolha o rótulo "-nome"
-    - Nós estamos selecionando "-nome" para limpar o valor atual da Entidade.
-11. Clique no botão "Pontuar Ações".
-12. Selecione a resposta "Eu não sei seu nome."
-13. No painel de chato, onde diz "Digite sua mensagem...", digite "Meu nome é Susana."
-14. Selecione "Susana" e escolha o rótulo "+nome"
+1. Selecione **Train Dialogs** no painel esquerdo, em seguida, **caixa de diálogo do novo treinamento**.
+2. Insira **hello** para a declaração do usuário no painel à esquerda de bate-papo.
+3. Selecione **pontuar ações**.
+4. Selecione **não sei seu nome.** na lista de ações. O percentual é 100%, como a ação só é válida com base em restrições.
+5. Insira **meu nome é o Frank** para a declaração do usuário no painel à esquerda de bate-papo.
+6. Realçar **Frank** , em seguida, selecione **+ nome**. Entidades negável tem duas instâncias: (+) e adiciona ou substitui o valor; (-) menos remove o valor.
+7. Selecione **pontuar ações**. O **nome** entidade agora está definida como **Frank** na memória do modelo, portanto, o **sei seu nome. Ele é $name** ação está disponível.
+8. Selecione **sei seu nome. Ele é $name.** na lista de ações.
+9. Insira **meu nome não é Frank.** para a declaração do usuário no painel à esquerda de bate-papo.
+10. Realçar **Frank** , em seguida, selecione **-nome** para limpar o valor da **nome** entidade.
+11. Selecione **pontuar ações**.
+12. Selecione **não sei seu nome.** na lista de ações.
+13. Insira **Susan, meu nome é.** para a expressão de terceiro do usuário no painel à esquerda de bate-papo.
+14. Realçar **Susan** , em seguida, **+ nome** 
 
-![](../media/tutorial5_dialogs.PNG)
+![](../media/T06_training.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

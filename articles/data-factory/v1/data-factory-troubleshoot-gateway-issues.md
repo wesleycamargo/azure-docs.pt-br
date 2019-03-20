@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: dcbf011d6e5f035a1934b69f94cf95b2318491f0
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 0559d89bd691323a95713d518df05e58283cef39
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813833"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119336"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Solucionar problemas usando o Gateway de Gerenciamento de Dados
 Este artigo fornece informações sobre como solucionar problemas com o uso do Gateway de Gerenciamento de Dados.
@@ -169,8 +169,8 @@ O gateway não pode se conectar ao serviço de nuvem por meio do Barramento de S
 Siga estas etapas para colocar o gateway novamente online:
 
 1. Permita as regras de saída do endereço IP no computador do gateway e no firewall corporativo. Você pode encontrar endereços IP no Log de Eventos do Windows (ID == 401): Houve uma tentativa de acessar um soquete de uma maneira proibida pelas permissões de acesso XX.XX.XX.XX:9350.
-* Defina as configurações de proxy no gateway. Confira a seção Considerações sobre servidor proxy para saber mais.
-* Habilite as portas de saída 5671 e 9350 a 9354 no Firewall do Windows, no computador do gateway e no firewall corporativo. Confira a seção Portas e firewall para saber mais. Esta etapa é opcional, mas recomendada devido a considerações sobre desempenho.
+1. Defina as configurações de proxy no gateway. Confira a seção Considerações sobre servidor proxy para saber mais.
+1. Habilite as portas de saída 5671 e 9350 a 9354 no Firewall do Windows, no computador do gateway e no firewall corporativo. Confira a seção Portas e firewall para saber mais. Esta etapa é opcional, mas recomendada devido a considerações sobre desempenho.
 
 ### <a name="3-problem"></a>3. Problema
 Você obtém o erro a seguir.
@@ -184,7 +184,7 @@ Um erro transitório na conectividade de rede.
 Siga estas etapas para colocar o gateway novamente online:
 
 1. Aguarde alguns minutos e a conectividade será recuperada automaticamente quando o erro for eliminado.
-* Se o erro persistir, reinicie o serviço do gateway.
+1. Se o erro persistir, reinicie o serviço do gateway.
 
 ## <a name="failed-to-author-linked-service"></a>Falha ao criar serviço vinculado
 ### <a name="problem"></a>Problema
@@ -282,6 +282,6 @@ Você pode encontrar informações detalhadas sobre os logs de gateway nos logs 
 1. Inicie o **Visualizador de eventos** do Windows.
 2. Localize os logs na pasta **Logs de aplicativos e serviços** > **Gateway de Gerenciamento de Dados**.
 
- Ao solucionar problemas relacionados ao gateway, procure eventos no nível de erro no visualizador.
+   Ao solucionar problemas relacionados ao gateway, procure eventos no nível de erro no visualizador.
 
 ![Gateway de Gerenciamento de Dados – Logs no visualizador de eventos](media/data-factory-troubleshoot-gateway-issues/gateway-logs-event-viewer.png)

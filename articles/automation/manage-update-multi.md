@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/10/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ac2d1c1fb59988c8b95fda6b92bb9ae0332fc0e0
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 65ea01047743c5894ac2ae8b38a197b57cb6971c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427416"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531312"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gerenciar atualizações de vários computadores
 
@@ -70,9 +70,9 @@ Quando a integração é concluída, o Gerenciamento de Atualizações é habili
 
 ## <a name="enable-update-management-for-non-azure-virtual-machines-and-computers"></a>Habilitar o Gerenciamento de Atualizações para computadores e máquinas virtuais que não são Azure
 
-Para saber como habilitar o Gerenciamento de Atualizações para computadores e máquinas virtuais do Windows que não são Azure, consulte [Conectar computadores Windows ao serviço Log Analytics no Azure](../log-analytics/log-analytics-windows-agent.md).
+Para saber como habilitar o gerenciamento de atualizações para computadores e máquinas de virtuais do Windows não - Azure, consulte [computadores Windows de se conectar ao serviço do Azure Monitor no Azure](../log-analytics/log-analytics-windows-agent.md).
 
-Para saber como habilitar o Gerenciamento de Atualizações para máquinas virtuais e computadores Linux que não são Azure, consulte [Conectar computadores Linux ao Log Analytics](../log-analytics/log-analytics-agent-linux.md).
+Para saber como habilitar o gerenciamento de atualizações para computadores e máquinas virtuais do Linux não - Azure, consulte [conectar computadores Linux ao Azure Monitor logs](../log-analytics/log-analytics-agent-linux.md).
 
 ## <a name="view-computers-attached-to-your-automation-account"></a>Exibir computadores conectados à sua conta de Automação
 
@@ -106,14 +106,14 @@ A tabela a seguir descreve as fontes conectadas às quais essa solução dá sup
 
 | Fonte conectada | Suportado | Descrição |
 | --- | --- | --- |
-| Agentes do Windows |SIM |O Gerenciamento de Atualizações coleta informações sobre atualizações do sistema de agentes do Windows e, em seguida, inicia a instalação das atualizações necessárias. |
-| Agentes do Linux |SIM |O Gerenciamento de Atualizações coleta informações sobre atualizações do sistema de agentes para Linux e, em seguida, inicia a instalação das atualizações necessárias nas distribuições com suporte. |
-| Grupo de gerenciamento do Operations Manager |SIM |O Gerenciamento de Atualizações coleta informações sobre atualizações do sistema de agentes em um grupo de gerenciamento conectado. |
-| Conta de Armazenamento do Azure |Não  |O Armazenamento do Microsoft Azure não inclui informações sobre atualizações do sistema. |
+| Agentes do Windows |Sim |O Gerenciamento de Atualizações coleta informações sobre atualizações do sistema de agentes do Windows e, em seguida, inicia a instalação das atualizações necessárias. |
+| Agentes do Linux |Sim |O Gerenciamento de Atualizações coleta informações sobre atualizações do sistema de agentes para Linux e, em seguida, inicia a instalação das atualizações necessárias nas distribuições com suporte. |
+| Grupo de gerenciamento do Operations Manager |Sim |O Gerenciamento de Atualizações coleta informações sobre atualizações do sistema de agentes em um grupo de gerenciamento conectado. |
+| Conta de Armazenamento do Azure |Não |O Armazenamento do Microsoft Azure não inclui informações sobre atualizações do sistema. |
 
 ### <a name="collection-frequency"></a>Frequência de coleta
 
-Depois que um computador conclui uma verificação de conformidade com a atualização, o agente encaminha as informações em massa para o Log do Azure Analytics. Em um computador Windows, a verificação de conformidade é executada a cada 12 horas por padrão.
+Após um computador de uma verificação de conformidade da atualização, o agente encaminha as informações em massa para logs do Azure Monitor. Em um computador Windows, a verificação de conformidade é executada a cada 12 horas por padrão.
 
 Além do agendamento da verificação, a verificação de conformidade de atualizações será iniciada em 15 minutos se o MMA estiver sendo reiniciado antes da instalação da atualização e após a instalação da atualização.
 
@@ -132,7 +132,7 @@ No painel **Nova implantação de atualização**, especifique as seguintes info
 - **Nome**: Insira um nome exclusivo para identificar a implantação de atualizações.
 - **Sistema operacional**: Selecione **Windows** ou **Linux**.
 - **Grupos para atualizar (versão prévia)**: Defina uma consulta com base em uma combinação de assinatura, grupos de recursos, locais e tags para criar um grupo dinâmico de VMs do Azure para incluir em sua implantação. Para saber mais, consulte [Grupos dinâmicos](automation-update-management.md#using-dynamic-groups)
-- **Computadores para atualizar**: Selecione uma pesquisa salva, um grupo importado ou selecione Máquinas, para escolher as máquinas que você deseja atualizar. Se você escolher **Machines**, a prontidão da máquina é mostrada na coluna **UPDATE AGENT READINESS**. É possível ver o estado de integridade do computador antes de agendar a implantação de atualização. Para saber mais sobre os diferentes métodos de criação de grupos de computadores no Log Analytics, consulte [grupos de computadores no Log Analytics](../azure-monitor/platform/computer-groups.md)
+- **Computadores para atualizar**: Selecione uma pesquisa salva, um grupo importado ou selecione Máquinas, para escolher as máquinas que você deseja atualizar. Se você escolher **Machines**, a prontidão da máquina é mostrada na coluna **UPDATE AGENT READINESS**. É possível ver o estado de integridade do computador antes de agendar a implantação de atualização. Para saber mais sobre os diferentes métodos de criação de grupos de computadores nos logs do Azure Monitor, veja [Grupos de computadores nos logs do Azure Monitor](../azure-monitor/platform/computer-groups.md)
 
   ![Painel da nova implantação de atualizações](./media/manage-update-multi/update-select-computers.png)
 
@@ -142,7 +142,7 @@ No painel **Nova implantação de atualização**, especifique as seguintes info
   - Pacotes cumulativos de atualização
   - Feature packs
   - Service packs
-  - Atualizações de definição
+  - Atualizações de definições
   - Ferramentas
   - Atualizações
 
@@ -159,7 +159,7 @@ No painel **Nova implantação de atualização**, especifique as seguintes info
 
 - **Reinicialize o controle** -essa configuração determina como as reinicializações são tratadas para a implantação de atualização.
 
-   |Opção|DESCRIÇÃO|
+   |Opção|Descrição|
    |---|---|
    |Reinicialização, se necessário| **(Padrão)** Se necessário, uma reinicialização será iniciada se a janela de manutenção permitir.|
    |Sempre reinicializar|Uma reinicialização for iniciada, independentemente se é necessário. |

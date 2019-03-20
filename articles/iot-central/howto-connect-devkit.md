@@ -3,17 +3,17 @@ title: Conectar um dispositivo DevKit ao aplicativo Azure IoT Central | Microsof
 description: Como um desenvolvedor de dispositivos, saiba como conectar um dispositivo MXChip IoT DevKit ao aplicativo Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/16/2018
+ms.date: 02/05/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 6d2cb95efbff223aecf1f0525dbb93698639d41a
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: 44af0ccab45f1335d9dfec06287303a34391eded
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198721"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113190"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Conectar um dispositivo MXChip IoT DevKit ao aplicativo Azure IoT Central
 
@@ -26,48 +26,42 @@ Para concluir as etapas neste artigo, você precisa do seguinte:
 1. Um aplicativo Azure IoT Central criado a partir do modelo de aplicativo de **Devkits de Exemplo**. Para obter mais informações, consulte o [Criar um início rápido de aplicativo](quick-deploy-iot-central.md).
 1. Um dispositivo DevKit. Para adquirir um dispositivo DevKit, visite [MXChip IoT DevKit](http://mxchip.com/az3166).
 
+## <a name="sample-devkits-application"></a>Aplicativo Devkits de exemplo
 
-## <a name="sample-devkits-application"></a>Aplicativo **Devkits de exemplo**
+Um aplicativo criado a partir do modelo de aplicativo de **Devkits de Exemplo** inclui um modelo de dispositivo **MXChip** com as características a seguir:
 
-Um aplicativo criado a partir do modelo de aplicativo de **Devkits de Exemplo** inclui um modelo de dispositivo **MXChip** com as características a seguir: 
-
-- Telemetria que contém as medidas para o dispositivo **Umidade**, **Temperatura**, **Pressão**, **Magnômetro** (medido ao longo dos eixos X, Y e Z), **Acelerômetro** (medido ao longo dos eixos X, Y e Z) e **Giroscópio** (medido ao longo dos eixos X, Y, Z).
+- Telemetria que contém as medidas para o dispositivo **Umidade**, **Temperatura**, **Pressão**, **Magnetômetro** (medido ao longo dos eixos X, Y e Z), **Acelerômetro** (medido ao longo dos eixos X, Y e Z) e **Giroscópio** (medido ao longo dos eixos X, Y, Z).
 - Estado que contém uma medida de exemplo para **Estado do Dispositivo**.
 - Medição de evento com um evento de **Botão B Pressionado**. 
 - Configurações mostrando **Tensão**, **Corrente**, **Velocidade do Ventilador** e uma alternância de **IV**.
 - As propriedades contendo a propriedade de dispositivo **número de dado** e **local do dispositivo**, que é uma propriedade local, bem como em uma propriedade de nuvem **Fabricados em**. 
 
-
-Para obter detalhes completos sobre a configuração, veja [Detalhes do modelo de Dispositivo MXChip](howto-connect-devkit.md#mxchip-device-template-details)
+Para obter detalhes completos sobre a configuração, veja [Detalhes do modelo de Dispositivo MXChip](#mxchip-device-template-details)
 
 
 ## <a name="add-a-real-device"></a>Adicionar um dispositivo real
 
 No aplicativo Azure IoT Central, adicione um dispositivo real do modelo de dispositivo **MXChip** e anote os detalhes da conexão do dispositivo (**ID do escopo, ID do dispositivo e Chave Primária**).
 
-1. Adicione um **dispositivo real** do Device Explorer, clique em **+Novo > Real** para adicionar um dispositivo real.
-    * Insira a ID do Dispositivo **<span style="color:Red">(deve estar em minúsculas)</span>** ou use a ID do Dispositivo sugerida.
-    * Insira o nome do dispositivo ou use o nome sugerido
-    
-    ![Adicionar dispositivo](media/concepts-connectivity/add-device.png)
+1. Adicionar um **dispositivo real** no Device Explorer, selecione **+ Novo > Real** para adicionar um dispositivo real.
 
+   * Insira a ID do Dispositivo **<span style="color:Red">(deve estar em minúsculas)</span>** ou use a ID do Dispositivo sugerida.
+   * Insira o nome do dispositivo ou use o nome sugerido
 
-1. Obtenha detalhes da conexão como a **ID do escopo, ID do dispositivo e Chave Primária** do dispositivo adicionado, clicando em **Conectar** na página do dispositivo.
- 
-    ![Detalhes da conexão](media/concepts-connectivity/device-connect.PNG)
+     ![Adicionar dispositivo](media/howto-connect-devkit/add-device.png)
 
-3. Certifique-se de salvar esses detalhes, pois a Internet será desconectada temporariamente enquanto você prepara o dispositivo DevKit. 
+1. Obter os detalhes de conexão, como **chave primária, ID do dispositivo e ID do escopo** para o dispositivo adicionado selecionando **Connect** na página do dispositivo.
 
+    ![Detalhes da conexão](media/howto-connect-devkit/device-connect.png)
+
+1. Salvar esses detalhes, pois a Internet será desconectada temporariamente enquanto você prepara o dispositivo DevKit.
 
 ### <a name="prepare-the-devkit-device"></a>Preparar o dispositivo DevKit
 
 > [!NOTE]
 > Se você já tiver usado o dispositivo antes, tiver credenciais de WiFi armazenadas e quiser reconfigurar o dispositivo para usar uma rede WiFi, uma cadeia de conexão ou uma medida de telemetria diferente, pressione os botões **A** e **B** no painel simultaneamente. Se isso não funcionar, pressione o botão **reiniciar** e tente novamente.
 
-
-
-#### <a name="to-prepare-the-devkit-device"></a>Para preparar o dispositivo DevKit:
-
+#### <a name="to-prepare-the-devkit-device"></a>Para preparar o dispositivo DevKit
 
 1. Baixe o último firmware do Azure IoT Central pré-criado para o MXChip na página [versões](https://aka.ms/iotcentral-docs-MXChip-releases) no GitHub.
 1. Conecte o dispositivo DevKit ao computador de desenvolvimento usando um cabo USB. No Windows, uma janela do explorador de arquivos abre em uma unidade mapeada para o armazenamento no dispositivo DevKit. Por exemplo, a unidade pode ser chamada **AZ3166 (D:)**.
@@ -78,12 +72,12 @@ No aplicativo Azure IoT Central, adicione um dispositivo real do modelo de dispo
     ```
     Connect HotSpot:
     AZ3166_??????
-    go-> 192.168.0.1 
+    go-> 192.168.0.1
     PIN CODE xxxxx
     ```
 
     > [!NOTE]
-    > Se a tela exibir qualquer outra diferente dessa, redefina o dispositivo e pressione os botões  **A** e **B** no dispositivo ao mesmo tempo para reinicializar o dispositivo. 
+    > Se a tela exibir qualquer outra diferente dessa, redefina o dispositivo e pressione os botões  **A** e **B** no dispositivo ao mesmo tempo para reinicializar o dispositivo.
 
 1. O dispositivo agora está no modo de AP (Ponto de Acesso). É possível conectar esse ponto de acesso WiFi a partir do computador ou dispositivo móvel.
 
@@ -178,7 +172,7 @@ O código no arquivo de origem **iotHubClient.cpp** usa funções de [ SDKs do M
 
 Para obter informações sobre como modificar, compilar e carregar o código de exemplo no dispositivo, consulte o arquivo **readme.md** na pasta `AZ3166`.
 
-## <a name="mxchip-device-template-details"></a>Detalhes do modelo de Dispositivo de MXChip 
+## <a name="mxchip-device-template-details"></a>Detalhes do modelo de Dispositivo de MXChip
 
 Um aplicativo criado com base no modelo de aplicativo de Devkits de Exemplo inclui um modelo de dispositivo MXChip com as características a seguir:
 
@@ -230,7 +224,7 @@ Configurações de alternância
 
 ### <a name="properties"></a>propriedades
 
-| Tipo            | Nome de exibição | Nome do campo | Tipo de dados |
+| Type            | Nome de exibição | Nome do campo | Tipo de dados |
 | --------------- | ------------ | ---------- | --------- |
 | Propriedade de dispositivo | Número impresso   | dieNumber  | número    |
 | Propriedade de dispositivo | Localização do dispositivo   | location  | location    |

@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/04/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 000f8de4d40fda39f183b0824bea6a09605e6e9d
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: a47a30995f651204782325a9f984086fdf382a03
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977602"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202190"
 ---
 # <a name="use-time-based-apache-oozie-coordinator-with-apache-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>Usar o coordenador do Apache Oozie baseado em tempo com o Apache Hadoop no HDInsight para definir fluxos de trabalho e coordenar trabalhos
 Saiba como definir fluxos de trabalho e coordenadores e como disparar os trabalhos do coordenador baseado em tempo. É útil consultar [Usar Apache Oozie com HDInsight t][hdinsight-use-oozie] antes de ler este artigo. Além do Oozie, você também pode agendar trabalhos usando o Azure Data Factory. Para saber mais sobre o Azure Data Factory, consulte [Usar o Apache Pig e Apache Hive com Data Factory](../data-factory/transform-data.md).
@@ -32,7 +32,7 @@ A imagem a seguir mostra o fluxo de trabalho que você irá implementar:
 
 O fluxo de trabalho contém duas ações:
 
-1. Uma ação do Hive executa um script do HiveQL para contar as ocorrências de cada tipo de nível de log em um arquivo de log do Apache log4j. Cada log log4j consiste em uma linha de campos que contém um campo [LOG LEVEL] para mostrar o tipo e a gravidade, por exemplo:
+1. Uma ação do Hive executa um script do HiveQL para contar as ocorrências de cada tipo de nível de log em um Apache log4j arquivo de log. Cada log log4j consiste em uma linha de campos que contém um campo [LOG LEVEL] para mostrar o tipo e a gravidade, por exemplo:
 
         2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851
         2012-02-03 18:35:34 SampleClass4 [FATAL] system problem at id 1991281254
@@ -87,7 +87,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
     |Nome do banco de dados SQL|$sqlDatabaseName||O banco de dados SQL do Azure para o qual o Sqoop exportará dados. |
 
   > [!NOTE]   
-  > Por padrão, um banco de dados SQL do Azure permite conexões de serviços do Azure, como o Azure HDInsight. Se essa configuração de firewall estiver desabilitada, você deverá habilitá-la no Portal do Azure. Para saber mais sobre como criar um Banco de Dados SQL e configurar regras de firewall, confira [Criar e configurar o Banco de Dados SQL][sqldatabase-get-started].
+  > Por padrão, um banco de dados SQL do Azure permite conexões de serviços do Azure, como o Azure HDInsight. Se essa configuração de firewall estiver desabilitada, você deve habilitá-lo do portal do Azure. Para saber mais sobre como criar um Banco de Dados SQL e configurar regras de firewall, confira [Criar e configurar o Banco de Dados SQL][sqldatabase-get-started].
 
 > [!NOTE]  
 > Preencha os valores nas tabelas. Isso poderá ser útil para percorrer este tutorial.
@@ -192,7 +192,7 @@ A ação do Hive no fluxo de trabalho chama um arquivo de script HiveQL. Esse ar
     |Variáveis de fluxo de trabalho|DESCRIÇÃO|
     |---|---|
     |${jobTracker}|Especifique a URL do controlador do trabalho do Hadoop. Use **jobtrackerhost:9010** no cluster HDInsight versões 3.0 e 2.0.|
-    |${nameNode}|Especifique a URL do name node do Hadoop. Use o endereço wasb:// padrão do sistema de arquivos, por exemplo, *wasb://&lt;containerName&gt;@&lt;storageAccountName&gt;.blob.core.windows.net*.|
+    |${nameNode}|Especifique a URL do name node do Hadoop. Use o endereço wasb:// padrão do sistema de arquivos, por exemplo, *wasb://&lt;containerName&gt;\@&lt;storageAccountName&gt;.blob.core.windows.net*.|
     |${queueName}|Especifica o nome da fila para a qual o trabalho será enviado. Use **padrão**.|
 
     Variáveis de ação do Hive
@@ -655,15 +655,15 @@ Atualmente, o PowerShell do Azure não fornece nenhum cmdlet para definir trabal
 
 Remova os sinais # se desejar executar as funções adicionais.
 
-9. Se seu cluster HDinsight for versão 2.1, substitua "https://$clusterName.azurehdinsight.net:443/oozie/v2/" por "https://$clusterName.azurehdinsight.net:443/oozie/v1/". A versão 2.1 do cluster HDInsight não oferece suporte à versão 2 dos serviços web.
-10. Clique em **Executar Script** ou pressione **F5** para executar o script. A saída será semelhante a:
+1. Se seu cluster HDInsight for versão 2.1, substitua "https://$clusterName.azurehdinsight.net:443/oozie/v2/" por "https://$clusterName.azurehdinsight.net:443/oozie/v1/". A versão 2.1 do cluster HDInsight não oferece suporte à versão 2 dos serviços web.
+1. Clique em **Executar Script** ou pressione **F5** para executar o script. A saída será semelhante a:
 
-     ![Saída do fluxo de trabalho da execução do tutorial][img-runworkflow-output]
-11. Conecte-se ao Banco de Dados SQL para ver os dados exportados.
+    ![Saída do fluxo de trabalho da execução do tutorial][img-runworkflow-output]
+1. Conecte-se ao Banco de Dados SQL para ver os dados exportados.
 
 **Para verificar o log de erros do trabalho**
 
-Para solucionar problemas de um fluxo de trabalho, o arquivo de log Oozie pode ser encontrado em C:\apps\dist\oozie-3.3.2.1.3.2.0-05\oozie-win-distro\logs\Oozie.log do headnode do cluster. Para saber mais sobre o RDP, veja [Administração de clusters HDInsight usando o portal do Azure][hdinsight-admin-portal].
+Para solucionar problemas de um fluxo de trabalho, o arquivo de log Oozie pode ser encontrado em C:\apps\dist\oozie-3.3.2.1.3.2.0-05\oozie-win-distro\logs\Oozie.log do headnode do cluster. Para obter informações sobre o RDP, consulte [gerenciar Apache clusters Hadoop no HDInsight usando o portal do Azure](hdinsight-administer-use-portal-linux.md).
 
 **Para executar o tutorial novamente**
 
@@ -719,7 +719,6 @@ Neste tutorial, você aprendeu como definir um fluxo de trabalho do Oozie, um co
 [hdinsight-versions]:  hdinsight-component-versioning.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
-[hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 
 [hdinsight-use-sqoop]:hadoop/hdinsight-use-sqoop.md
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
