@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 1c3a98e6c1aebb497514c074eb66f8cf30e91228
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 4aa6fe901a49f4618b4844f9f5d2a94903d49cbd
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819562"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652358"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>Criar um emparelhamento de rede virtual – modelos de implantação diferentes e na mesma assinatura
 
@@ -50,7 +50,7 @@ Você pode usar o portal do Azure, a CLI ([interface de linha de comando](#cli))
     - **Nome da sub-rede**: *padrão*
     - **Intervalo de endereços da sub-rede**: *10.0.0.0/24*
     - **Assinatura**: Selecione sua assinatura
-    - **Grupo de recursos**: Selecione **Criar novo** e insira *myResourceGroup*
+    - **Grupo de recursos**: Selecione Criar novo e insira *myResourceGroup*
     - **Localização**: *Leste dos EUA*
 4. Clique em **+ Novo**. No campo **Pesquisar no Marketplace**, digite *Rede virtual*. Clique em **Rede virtual** quando essa opção aparecer entre os resultados da pesquisa.
 5. Na folha **Rede virtual**, selecione **Clássico** na caixa **Selecionar um modelo de implantação** e clique em **Criar**.
@@ -144,7 +144,7 @@ Conclua as etapas a seguir usando a CLI Clássica do Azure e a CLI do Azure. Voc
 
 ## <a name="powershell"></a>Criar emparelhamento – PowerShell
 
-1. Instale a última versão dos módulos [Azure](https://www.powershellgallery.com/packages/Azure) e [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) do PowerShell. Se você for novo no Azure PowerShell, consulte [Visão geral do Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
+1. Instalar a versão mais recente do PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) e [Az](https://www.powershellgallery.com/packages/Az/) módulos. Se você for novo no Azure PowerShell, consulte [Visão geral do Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Inicie uma sessão do PowerShell.
 3. No PowerShell, faça logon no Azure inserindo o comando `Add-AzureAccount`. A conta com a qual você entra deve ter as permissões necessárias para criar um emparelhamento de rede virtual. Para obter uma lista de permissões, consulte [Permissões de emparelhamento de rede virtual](virtual-network-manage-peering.md#requirements-and-constraints).
 4. Para criar uma rede virtual (clássico) com o PowerShell, você deve criar um arquivo de configuração de rede novo ou modificar um existente. Saiba como [exportar, atualizar e importar arquivos de configuração de rede](virtual-networks-using-network-configuration-file.md). O arquivo deve incluir o elemento **VirtualNetworkSite** a seguir para a rede virtual usada neste tutorial:
@@ -164,26 +164,26 @@ Conclua as etapas a seguir usando a CLI Clássica do Azure e a CLI do Azure. Voc
 
     > [!WARNING]
     > Importar um arquivo de configuração de rede alterado pode causar alterações em redes virtuais existentes (clássico) na sua assinatura. Verifique se você adicionou apenas a rede virtual anterior e se você não alterou nem removeu nenhuma rede virtual existente da sua assinatura.
-5. Faça logon no Azure para criar a rede virtual (Resource Manager), inserindo o comando `Connect-AzureRmAccount`. A conta com a qual você entra deve ter as permissões necessárias para criar um emparelhamento de rede virtual. Para obter uma lista de permissões, consulte [Permissões de emparelhamento de rede virtual](virtual-network-manage-peering.md#requirements-and-constraints).
+5. Faça logon no Azure para criar a rede virtual (Resource Manager), inserindo o comando `Connect-AzAccount`. A conta com a qual você entra deve ter as permissões necessárias para criar um emparelhamento de rede virtual. Para obter uma lista de permissões, consulte [Permissões de emparelhamento de rede virtual](virtual-network-manage-peering.md#requirements-and-constraints).
 6. Crie um grupo de recursos e uma rede virtual (Resource Manager). Copie o script, cole-o no PowerShell e pressione `Enter`.
 
     ```powershell
     # Create a resource group.
-      New-AzureRmResourceGroup -Name myResourceGroup -Location eastus
+      New-AzResourceGroup -Name myResourceGroup -Location eastus
 
     # Create the virtual network (Resource Manager).
-      $vnet1 = New-AzureRmVirtualNetwork `
+      $vnet1 = New-AzVirtualNetwork `
       -ResourceGroupName myResourceGroup `
       -Name 'myVnet1' `
       -AddressPrefix '10.0.0.0/16' `
       -Location eastus
     ```
 
-7. Crie um emparelhamento de rede virtual entre as duas redes virtuais criadas por meio dos modelos de implantação diferentes. Copie o script a seguir em um editor de texto em seu computador. Substitua `<subscription id>` por sua ID da assinatura. Se você não souber a ID da assinatura, insira o comando `Get-AzureRmSubscription` para exibi-la. O valor da **ID** na saída retornada é sua ID da assinatura. Para executar o script, copie o script modificado do seu editor de texto e, em seguida, clique com o botão direito do mouse em sua sessão do PowerShell e pressione `Enter`.
+7. Crie um emparelhamento de rede virtual entre as duas redes virtuais criadas por meio dos modelos de implantação diferentes. Copie o script a seguir em um editor de texto em seu computador. Substitua `<subscription id>` por sua ID da assinatura. Se você não souber a ID da assinatura, insira o comando `Get-AzSubscription` para exibi-la. O valor da **ID** na saída retornada é sua ID da assinatura. Para executar o script, copie o script modificado do seu editor de texto e, em seguida, clique com o botão direito do mouse em sua sessão do PowerShell e pressione `Enter`.
 
     ```powershell
     # Peer VNet1 to VNet2.
-    Add-AzureRmVirtualNetworkPeering `
+    Add-AzVirtualNetworkPeering `
       -Name myVnet1ToMyVnet2 `
       -VirtualNetwork $vnet1 `
       -RemoteVirtualNetworkId /subscriptions/<subscription Id>/resourceGroups/Default-Networking/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnet2
@@ -192,7 +192,7 @@ Conclua as etapas a seguir usando a CLI Clássica do Azure e a CLI do Azure. Voc
 8. Após a execução do script, examine o emparelhamento da rede virtual (Resource Manager). Copie o comando a seguir, cole-o na sua sessão do PowerShell e, em seguida, pressione `Enter`:
 
     ```powershell
-    Get-AzureRmVirtualNetworkPeering `
+    Get-AzVirtualNetworkPeering `
       -ResourceGroupName myResourceGroup `
       -VirtualNetworkName myVnet1 `
       | Format-Table VirtualNetworkName, PeeringState
@@ -236,7 +236,7 @@ Ao concluir este tutorial, talvez você deseje excluir os recursos criados no tu
 1. Digite o seguinte comando para excluir a rede virtual (Resource Manager):
 
     ```powershell
-    Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+    Remove-AzResourceGroup -Name myResourceGroup -Force
     ```
 
 2. Para excluir a rede virtual (clássico) com o PowerShell, você deve modificar um arquivo de configuração de rede existente. Saiba como [exportar, atualizar e importar arquivos de configuração de rede](virtual-networks-using-network-configuration-file.md). Remova o elemento VirtualNetworkSite a seguir para a rede virtual usada neste tutorial:

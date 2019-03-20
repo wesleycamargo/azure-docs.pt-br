@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: 6787f347661db61806180edde5c091a865051748
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 92b7714e9f6635cf0b44a98a16ddb4616643ba81
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103065"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544555"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Projeto de Segurança e Conformidade do Azure: dados de integridade de HIPAA/HITRUST e IA
 
@@ -48,7 +48,7 @@ Esse projeto destina-se a servir de base modular para que os clientes ajustem ao
 
 -   **Diagrama de arquitetura.** O diagrama mostra a arquitetura de referência utilizada para o modelo e o exemplo do cenário de caso de uso.
 
--   [Extensão IaaS](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md)   Essa solução demonstrará como migrar uma solução baseada em SQL local para o Azure e implementar uma Estação de Trabalho de Acesso Privilegiado para gerenciar com segurança serviços e soluções baseados em nuvem. 
+-   [Extensão IaaS](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md) essa solução demonstra como migrar uma solução do SQL com base no local para o Azure e como implementar uma estação de trabalho de acesso privilegiado para gerenciar com segurança a serviços baseados em nuvem e soluções. 
 
 ## <a name="solution-components"></a>Componentes da solução
 
@@ -93,7 +93,7 @@ Eles não têm acesso aos registros de pacientes.
 
 -   Escopo: ResourceGroup
 
- ### <a name="data-scientist"></a>Cientista de dados
+### <a name="data-scientist"></a>Cientista de dados
 
 
 O cientista de dados opera o Azure Machine Learning Studio. Eles podem importar, exportar e gerenciar dados e executar relatórios. O cientista de dados tem acesso aos dados do paciente, mas não tem privilégios administrativos.
@@ -272,7 +272,7 @@ Ao usar o script de demonstração. .\\HealthcareDemo.ps1 com a opção **BulkPa
 
 **2. Key Vault** solicitado por um segredo associado ao token solicitado.
 
-**3. As funções do Azure validam a solicitação, e autorizam a solicitação de acesso ao Key Vault.
+**3. As funções do Azure** validará a solicitação e autorizar a solicitação de acesso para o Cofre de chaves.
 
 **4. Key Vault** retorna o segredo, nesse caso, a cadeia de conexão SQL DB.
 
@@ -361,8 +361,8 @@ A solução dá suporte para a Grade de Eventos do Azure, um único serviço par
 ### <a name="azure-alerts"></a>Alertas do Azure
 - [Os alertas oferecem um método de monitoramento de serviços do Azure e permitem configurar as condições sobre dados. Os alertas também fornecem notificações quando uma condição de alerta corresponder aos dados de monitoramento.
 
-### <a name="log-analytics"></a>Log Analytics
-[Log Analytics](/azure/operations-management-suite/operations-management-suite-overview) é uma coleção de serviços de gerenciamento.
+### <a name="azure-monitor-logs"></a>Logs do Azure Monitor
+[Os logs do Azure Monitor](/azure/operations-management-suite/operations-management-suite-overview) é uma coleção de serviços de gerenciamento.
 
 -   O workspace está habilitado para a Central de Segurança
 

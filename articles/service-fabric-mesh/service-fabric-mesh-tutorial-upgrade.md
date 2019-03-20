@@ -3,8 +3,8 @@ title: Tutorial- Atualizar um aplicativo de Malha de malha de serviço do Azure 
 description: Aprenda como atualizar um aplicativo do Service Fabric usando o Visual Studio
 services: service-fabric-mesh
 documentationcenter: .net
-author: tylerMSFT
-manager: jeconnoc
+author: dkkapur
+manager: chakdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric-mesh
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/29/2018
-ms.author: twhitney
+ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 0f6ede488ae118f8df00febda3c53eabb73f2030
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: 23809abd06d626eb87e5d5d15d265f1769b97b66
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890221"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806719"
 ---
 # <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>Tutorial: Aprenda como atualizar um aplicativo do Service Fabric usando o Visual Studio
 
@@ -70,7 +70,7 @@ Vamos atualizar o parâmetro `WebFrontEnd_cpu` para atualizar os recursos de CPU
 > Por padrão, o arquivo de parâmetros que é um par do arquivo profile.yaml será usado para fornecer os valores para esse arquivo profile.yaml.
 > Por exemplo, Ambientes > Nuvem > parameters.yaml fornece os valores do parâmetro para Ambientes > Nuvem > profile.yaml.
 >
-> É possível substituir isso adicionando o seguinte ao arquivo profile.yaml:`parametersFilePath=”relative or full path to the parameters file”` Por exemplo, `parametersFilePath=”C:\MeshParms\CustomParameters.yaml”` ou `parametersFilePath=”..\CommonParameters.yaml”`
+> É possível substituir isso adicionando o seguinte ao arquivo profile.yaml:`parametersFilePath=”relative or full path to the parameters file”` Por exemplo,  ou `parametersFilePath=”..\CommonParameters.yaml”`
 
 ## <a name="modify-the-model"></a>Modificar o modelo
 

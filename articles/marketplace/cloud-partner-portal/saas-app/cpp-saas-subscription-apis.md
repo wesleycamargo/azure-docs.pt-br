@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: e56169d74d1669c3bb7adda06590145d2ca31b72
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 432120c324aa81107946fc30548e6e49acce6575
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893333"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58002326"
 ---
 # <a name="saas-sell-through-azure---apis"></a>Venda de SaaS por meio do Azure – APIs
 
@@ -53,26 +53,26 @@ Para que você possa usar os recursos do AD do Azure em qualquer aplicativo dese
 
 Para registrar um novo aplicativo usando o portal do Azure, realize as seguintes etapas:
 
-1.  Entre no [Portal do Azure](https://portal.azure.com/).
-2.  Se a sua conta der acesso a mais de um, clique em sua conta no canto superior direito e defina a sessão do portal para o desejado de locatário do Azure AD.
-3.  No painel de navegação esquerdo, clique no serviço **Azure Active Directory**, clique em **Registros do aplicativo** e clique em **Novo registro de aplicativo**.
+1. Entre no [Portal do Azure](https://portal.azure.com/).
+2. Se a sua conta der acesso a mais de um, clique em sua conta no canto superior direito e defina a sessão do portal para o desejado de locatário do Azure AD.
+3. No painel de navegação esquerdo, clique no serviço **Azure Active Directory**, clique em **Registros do aplicativo** e clique em **Novo registro de aplicativo**.
 
-    ![Registros de Aplicativo do AD SaaS](./media/saas-offer-app-registration.png)
+   ![Registros de Aplicativo do AD SaaS](./media/saas-offer-app-registration.png)
 
-4.  Na página Criar, insira as informações de registro do aplicativo:
-    -   **Nome**: insira um nome significativo de aplicativo
-    -   **Tipo de aplicativo**: 
-        - Selecione **Nativo** para [aplicativos cliente](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) que são instalados localmente em um dispositivo. Essa configuração é usada para [clientes nativos](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client) públicos OAuth.
-        - Selecione **Aplicativo Web/API** para [aplicativos cliente](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) e [recurso/aplicativos de API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) que estão instalados em um servidor seguro. Essa configuração é usada para [clientes Web](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) confidenciais OAuth e [clientes baseados em agente de usuário](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client) públicos.
-        O mesmo aplicativo também pode expor um cliente e o recurso/API.
-    -   **URL de logon**: para aplicativos e API da Web, informe a URL base do aplicativo. Por exemplo, **http://localhost:31544** pode ser uma URL para um aplicativo Web em execução no seu computador local. Os usuários usariam então essa URL para entrar em um aplicativo cliente Web.
-    -   **URI de redirecionamento**: para aplicativos públicos, informe o URI usado pelo Microsoft Azure Active Directory para retornar respostas de token. Insira um valor específico para o aplicativo, por exemplo, **http://MyFirstAADApp**.
+4. Na página Criar, insira as informações de registro do aplicativo:
+   - **Nome**: insira um nome significativo de aplicativo
+   - **Tipo de aplicativo**: 
+     - Selecione **Nativo** para [aplicativos cliente](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) que são instalados localmente em um dispositivo. Essa configuração é usada para [clientes nativos](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client) públicos OAuth.
+     - Selecione **Aplicativo Web/API** para [aplicativos cliente](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) e [recurso/aplicativos de API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) que estão instalados em um servidor seguro. Essa configuração é usada para [clientes Web](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) confidenciais OAuth e [clientes baseados em agente de usuário](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client) públicos.
+     O mesmo aplicativo também pode expor um cliente e o recurso/API.
+   - **URL de logon**: para aplicativos e API da Web, informe a URL base do aplicativo. Por exemplo, **http://localhost:31544** pode ser uma URL para um aplicativo Web em execução no seu computador local. Os usuários usariam então essa URL para entrar em um aplicativo cliente Web.
+   - **URI de redirecionamento**: para aplicativos públicos, informe o URI usado pelo Microsoft Azure Active Directory para retornar respostas de token. Insira um valor específico para o aplicativo, por exemplo, **http://MyFirstAADApp**.
 
-        ![Registros de Aplicativo do AD de SaaS](./media/saas-offer-app-registration-2.png) Para obter exemplos específicos de aplicativos Web ou aplicativos nativos, confira as configurações de início rápido guiado que estão disponíveis na seção de Introdução do [Guia de desenvolvedores do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
+     ![Registros de Aplicativo do AD de SaaS](./media/saas-offer-app-registration-2.png) Para obter exemplos específicos de aplicativos Web ou aplicativos nativos, confira as configurações de início rápido guiado que estão disponíveis na seção de Introdução do [Guia de desenvolvedores do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
 
-5.  Ao terminar, clique em **Criar**. Uma ID do aplicativo exclusiva é atribuída pelo Azure AD ao aplicativo e você é levado à página de registro principal do aplicativo. Dependendo de se o seu aplicativo é Web ou nativo, diferentes opções serão fornecidas para adicionar mais recursos ao aplicativo.
+5. Ao terminar, clique em **Criar**. Uma ID do aplicativo exclusiva é atribuída pelo Azure AD ao aplicativo e você é levado à página de registro principal do aplicativo. Dependendo de se o seu aplicativo é Web ou nativo, diferentes opções serão fornecidas para adicionar mais recursos ao aplicativo.
 
-    **Observação:** por padrão, o aplicativo recém-registrado é configurado para permitir que somente usuários do mesmo locatário entrem no aplicativo.
+   **Observação:** por padrão, o aplicativo recém-registrado é configurado para permitir que somente usuários do mesmo locatário entrem no aplicativo.
 
 <a name="api-methods-and-endpoints"></a>Métodos de API e pontos de extremidade
 -------------------------
@@ -502,6 +502,7 @@ A ação Get no ponto de extremidade da assinatura permite que um usuário recup
     "lastModified": ""
 }
 ```
+
 | **Nome do parâmetro**     | **Tipo de dados** | **Descrição**                               |
 |------------------------|---------------|-----------------------------------------------|
 | ID                     | Cadeia de caracteres        | ID do recurso de assinatura de SaaS no Azure.    |

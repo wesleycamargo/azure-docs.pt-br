@@ -8,20 +8,20 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 5a0d02768b0fbd23e33d13c5e5c3fe84a41cdc52
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 4ae17249903f317e7a75a3e6bc7c03292021c96a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243647"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534626"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorar a Sincronização de Arquivos do Azure
 
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
 
-Este artigo descreve como monitorar sua implantação da Sincronização de Arquivos do Azure usando o portal do Azure e o Windows Server.
+Este artigo descreve como monitorar a implantação da sincronização de arquivos do Azure usando o portal do Azure e o Windows Server.
 
-As opções de monitoramento a seguir estão disponíveis atualmente:
+As seguintes opções de monitoramento estão disponíveis no momento.
 
 ## <a name="azure-portal"></a>Portal do Azure
 
@@ -29,20 +29,23 @@ No portal do Azure, você pode exibir a integridade do servidor registrado, a in
 
 ### <a name="storage-sync-service"></a>Serviço de Sincronização de Armazenamento
 
-Para exibir a integridade do servidor registrado, a integridade e as métricas do ponto de extremidade de servidor, vá para o Serviço de Sincronização de Armazenamento no portal do Azure. A integridade do servidor registrado pode ser vista na folha Servidores registrados. A integridade do ponto de extremidade de servidor pode ser vista na folha de grupos de sincronização.
+Para exibir a integridade de servidor registrado, integridade do ponto de extremidade de servidor e métricas, vá para o serviço de sincronização de armazenamento no portal do Azure. Você pode exibir a integridade do servidor registrado na **servidores registrados** folha e o servidor de integridade do ponto de extremidade na **grupos de sincronização** folha.
 
-Integridade do servidor registrado
-- Se o estado do servidor registrado é Online, o servidor está se comunicando com sucesso com o serviço.
-- Se o estado do servidor registrado é Aparece Offline, verifique se o processo do Monitor de Sincronização de Armazenamento (AzureStorageSyncMonitor.exe) no servidor está em execução. Se o servidor está atrás de um firewall ou proxy, configure o firewall e o proxy segundo a [documentação](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy).
+Integridade do servidor registrado:
 
-Integridade do ponto de extremidade do servidor
-- A integridade do ponto de extremidade do servidor no portal baseia-se nos eventos de sincronização registrados no log de eventos de telemetria no servidor (ID 9102 e 9302). Se uma sessão de sincronização falhar devido a um erro transitório (por exemplo, erro cancelado), a sincronização ainda poderá se mostrar íntegra no portal desde que a sessão de sincronização atual esteja progredindo (a ID do Evento 9302 é usada para determinar se os arquivos estão sendo aplicados). Para saber mais, confira a seguinte documentação: [Integridade da Sincronização](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) & [Progresso da Sincronização](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
-- Se o portal mostra um erro de sincronização devido à ausência de progresso na sincronização, verifique a [Documentação de solução de problemas](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) para obter diretrizes.
+- Se o **servidor registrado** o estado é **Online**, o servidor está se comunicando com o serviço.
+- Se o **servidor registrado** o estado é **aparece Offline**, verifique se o processo de Monitor de sincronização de armazenamento (AzureStorageSyncMonitor.exe) no servidor está em execução. Se o servidor estiver atrás de um firewall ou proxy, consulte [deste artigo](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy) para configurar o firewall e proxy.
 
-Métricas
+Integridade do ponto de extremidade do servidor:
+
+- A integridade do ponto de extremidade do servidor no portal baseia-se nos eventos de sincronização registrados no log de eventos de telemetria no servidor (ID 9102 e 9302). Se uma sessão de sincronização falhar devido a um erro transitório, como erro cancelada, sincronização ainda poderá aparecer íntegra no portal enquanto a sessão de sincronização atual está progredindo. ID do evento 9302 é usado para determinar se os arquivos estão sendo aplicados. Para obter mais informações, consulte [integridade de sincronização](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) e [sincronizar progresso](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
+- Se o portal mostra um erro de sincronização porque a sincronização não está progredindo, consulte o [documentação de solução de problemas](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) para obter orientação.
+
+Métricas:
+
 - As métricas a seguir estão visíveis no portal do Serviço de Sincronização de Armazenamento:
 
-  | Nome da métrica | DESCRIÇÃO | Folha(s) do portal | 
+  | Nome da métrica | DESCRIÇÃO | Nome da folha |
   |-|-|-|
   | Bytes sincronizados | Tamanho dos dados transferidos (upload e download) | Grupo de sincronização, ponto de extremidade do servidor |
   | Recall da camada de nuvem | Tamanho dos dados em recall | Servidores registrados |
@@ -50,17 +53,16 @@ Métricas
   | Arquivos sincronizados | Contagem dos arquivos transferidos (upload e download) | Grupo de sincronização, ponto de extremidade do servidor |
   | Status Online do Servidor | Contagem de pulsações recebidas do servidor | Servidores registrados |
 
-- Para saber mais, confira a seção [Azure Monitor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-monitoring#azure-monitor). 
+- Para obter mais informações, consulte [do Azure Monitor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-monitoring#azure-monitor).
 
   > [!Note]  
   > Os gráficos no portal do Serviço de Sincronização de Armazenamento possuem um intervalo de tempo de 24 horas. Para exibir os diferentes intervalos de tempo ou dimensões, use o Azure Monitor.
-
 
 ### <a name="azure-monitor"></a>Azure Monitor
 
 Use o [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) para monitorar a sincronização, as camadas de nuvem e conectividade do servidor. As métricas para a Sincronização de Arquivos do Azure são habilitadas por padrão e são enviadas para o Azure Monitor a cada 15 minutos.
 
-Para exibir as métricas da Sincronização de Arquivos do Azure no Azure Monitor, selecione o tipo de recurso dos Serviços de Sincronização de Armazenamento.
+Para exibir as métricas de sincronização de arquivos do Azure no Azure Monitor, selecione a **serviços de sincronização de armazenamento** tipo de recurso.
 
 As métricas a seguir para a Sincronização de Arquivos do Azure estão disponíveis no Azure Monitor:
 
@@ -75,42 +77,45 @@ As métricas a seguir para a Sincronização de Arquivos do Azure estão dispon�
 
 ## <a name="windows-server"></a>Windows Server
 
-No Windows Server, você pode exibir a integridade das camadas de nuvem, do servidor registrado e da sincronização.
+No Windows Server, você pode exibir as camadas, de nuvem servidor registrado e integridade de sincronização.
 
 ### <a name="event-logs"></a>Logs de eventos
 
-Use o log de eventos de telemetria no servidor para monitorar a integridade do servidor registrado, da sincronização e das camadas de nuvem. No Visualizador de Eventos, o log do evento de Telemetria está localizado em Aplicativos e Serviços\Microsoft\FileSync\Agent.
+Use o log de eventos de telemetria no servidor para monitorar a integridade do servidor registrado, da sincronização e das camadas de nuvem. O log de eventos de telemetria está localizado no Visualizador de eventos sob *aplicativos e services\microsoft\filesync\agent.*.
 
-Integridade de Sincronização
-- A ID do evento 9102 é registrada quando uma sessão de sincronização é concluída. Esse evento deve ser usado para determinar se as sessões de sincronização estão sendo concluídas com êxito (HResult = 0) e se há erros de sincronização por item. Para saber mais, confira a seguinte documentação: [Integridade da Sincronização](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) & [Erros por Item](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
+Integridade de sincronização:
+
+- ID do evento 9102 é registrado após a conclusão de uma sessão de sincronização. Use esse evento para determinar se as sessões de sincronização são bem-sucedidas (**HResult = 0**) erros de sincronização e se há por item. Para obter mais informações, consulte o [integridade de sincronização](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) e [erros por item](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing) documentação.
 
   > [!Note]  
-  > Às vezes, as sessões de sincronização falham no geral ou possuem um PerItemErrorCount diferente de zero, mas ainda fazem avançar o progresso, com alguns arquivos sendo sincronizados com êxito. Isso pode ser visto nos campos Applied (AppliedFileCount, AppliedDirCount, AppliedTombstoneCount e AppliedSizeBytes), que informam quanto da sessão está sendo bem-sucedida. Se você vir várias sessões de sincronização em uma fila que estão falhando, mas com uma contagem Applied crescente, forneça o tempo de sincronização para tentar novamente antes de abrir um tíquete de suporte.
+  > Às vezes, as sessões de sincronização falharem em geral ou tem um PerItemErrorCount diferente de zero. No entanto, eles ainda progridam e alguns arquivos de sincronização com êxito. Você pode ver isso nos campos, como AppliedFileCount, AppliedDirCount, AppliedTombstoneCount e AppliedSizeBytes aplicados. Esses campos informam quanto da sessão foi bem-sucedida. Se você ver várias sessões de sincronização falhar em uma linha, e eles têm uma contagem aplicada a cada vez maior, ao tempo de sincronização para tentar novamente antes de abrir um tíquete de suporte.
 
-- A ID do evento 9302 é registrada a cada 5 a 10 minutos, se há uma sessão de sincronização ativa. Esse evento deve ser usado para determinar se a sessão de sincronização atual está progredindo (AppliedItemCount > 0). Se a sincronização não estiver progredindo, a sessão de sincronização deverá eventualmente falhar e uma ID do evento 9102 será registrada com o erro. Para saber mais, confira a seguinte documentação: [Progresso da Sincronização](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session)
+- A ID do evento 9302 é registrada a cada 5 a 10 minutos, se há uma sessão de sincronização ativa. Use esse evento para determinar se a sessão de sincronização atual está progredindo (**AppliedItemCount > 0**). Se a sincronização não está progredindo, a sessão de sincronização deve falhar, eventualmente, e um 9102 de ID de evento será registrado com o erro. Para obter mais informações, consulte o [documentação do progresso de sincronização](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
 
-Integridade do servidor registrado
-- A ID do evento 9301 é registrada a cada 30 segundos quando um servidor consulta o serviço em busca de trabalhos. Se GetNextJob é concluído com status = 0, o servidor é capaz de se comunicar com o serviço. Se GetNextJob é concluído com um erro, verifique a [Documentação de solução de problemas](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) para obter diretrizes.
+Integridade do servidor registrado:
 
-Integridade das Camadas de Nuvem
-- Para monitorar a atividade em camadas em um servidor, use as IDs do evento 9003, 9016 e 9029 no log de eventos da Telemetria (localizado no Visualizador de Eventos, em Aplicativos e Serviços\Microsoft\FileSync\Agent).
+- A ID do evento 9301 é registrada a cada 30 segundos quando um servidor consulta o serviço em busca de trabalhos. Se GetNextJob termina com **status = 0**, o servidor é capaz de se comunicar com o serviço. Verifique se GetNextJob termina com um erro, o [documentação de solução de problemas](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) para obter orientação.
 
-  - A identificação de evento 9003 fornece distribuição de erro para um terminal do servidor. Por exemplo, Contagem total de erros, ErrorCode, etc. Observe que um evento é registrado por código de erro.
-  - A identificação de evento 9016 fornece resultados de fantasma para um volume. Por exemplo, o percentual de espaço livre é, Número de arquivos fantasmados na sessão, Número de arquivos que falharam no fantasma etc.
-  - A ID do evento 9029 fornece informações de sessão de conversão em fantasma para um ponto de extremidade de servidor. Por exemplo, Número de arquivos tentados na sessão, Número de arquivos em camadas na sessão, Número de arquivos já em camadas, etc.
+Integridade de camadas de nuvem:
+
+- Para monitorar atividade em camadas em um servidor, use o evento ID 9003, 9016 e 9029 no log de eventos de telemetria, que está localizado no Visualizador de eventos em *aplicativos e services\microsoft\filesync\agent.*.
+
+  - A identificação de evento 9003 fornece distribuição de erro para um terminal do servidor. Por exemplo:  Contagem total de erros e o código de erro. Um evento é registrado por código de erro.
+  - A identificação de evento 9016 fornece resultados de fantasma para um volume. Por exemplo:  Porcentagem de espaço livre é, número de arquivos fantasma na sessão, e o número de arquivos não puderam ser fantasmas.
+  - A ID do evento 9029 fornece informações de sessão de conversão em fantasma para um ponto de extremidade de servidor. Por exemplo:  Número de arquivos tentada na sessão, o número de arquivos em camadas na sessão e o número de arquivos já em camadas.
   
-- Para monitorar a atividade de rechamada em um servidor, use as IDs do evento 9005, 9006, 9009 e 9059 no log de eventos da Telemetria (localizado no Visualizador de Eventos, em Aplicativos e Serviços\Microsoft\FileSync\Agent).
+- Para monitorar a atividade de recuperação em um servidor, use o evento ID 9005, 9006, 9009 e 9059 no log de eventos de telemetria, que está localizado no Visualizador de eventos em *aplicativos e services\microsoft\filesync\agent.*.
 
-  - A ID de evento 9005 fornece confiabilidade de recall para um ponto de extremidade do servidor. Por exemplo, Total de arquivos exclusivos acessados, Total de arquivos exclusivos com acesso com falha, etc.
-  - ID do evento 9006 fornece Lembre-se a distribuição de erro para um ponto de extremidade do servidor. Por exemplo, Total de solicitações com falha, ErrorCode etc. Observe que um evento é registrado por código de erro.
-  - A ID do evento 9009 fornece informações de sessão de recall para um ponto de extremidade de servidor. Por exemplo, DurationSeconds, CountFilesRecallSucceeded, CountFilesRecallFailed, etc.
-  - A ID do evento 9059 fornece distribuição de recall do aplicativo para um ponto de extremidade de servidor. Por exemplo, ShareId, Nome do Aplicativo e TotalEgressNetworkBytes.
+  - A ID de evento 9005 fornece confiabilidade de recall para um ponto de extremidade do servidor. Por exemplo:  Total de arquivos exclusivos acessados e Total de arquivos exclusivos com falhas de acesso.
+  - ID do evento 9006 fornece Lembre-se a distribuição de erro para um ponto de extremidade do servidor. Por exemplo:  Total de solicitações com falha e o código de erro. Um evento é registrado por código de erro.
+  - A ID do evento 9009 fornece informações de sessão de recall para um ponto de extremidade de servidor. Por exemplo:  DurationSeconds, CountFilesRecallSucceeded e CountFilesRecallFailed.
+  - A ID do evento 9059 fornece distribuição de recall do aplicativo para um ponto de extremidade de servidor. Por exemplo:  ShareId, nome do aplicativo e TotalEgressNetworkBytes.
 
 ### <a name="performance-counters"></a>contadores de desempenho
 
 Use os contadores de desempenho da Sincronização de Arquivos do Azure no servidor para monitorar a atividade de sincronização.
 
-Para exibir os contadores de desempenho da Sincronização de Arquivos do Azure no servidor, inicie o Monitor de Desempenho (Perfmon.exe). Os contadores podem ser encontrados nos objetos Bytes da AFS Transferidos e Operações de Sincronização da AFS.
+Para exibir os contadores de desempenho de sincronização de arquivos do Azure no servidor, abra o Monitor de desempenho (Perfmon.exe). Você pode encontrar os contadores na **AFS Bytes transferidos** e **operações de sincronização AFS** objetos.
 
 Os seguintes contadores de desempenho para a Sincronização de Arquivos do Azure estão disponíveis no Monitor de Desempenho:
 
