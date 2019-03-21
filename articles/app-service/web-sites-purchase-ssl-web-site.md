@@ -4,7 +4,7 @@ description: Saiba como comprar um certificado de Serviço de Aplicativo e assoc
 services: app-service
 documentationcenter: .net
 author: cephalin
-manager: cfowler
+manager: jpconnoc
 tags: buy-ssl-certificates
 ms.assetid: cdb9719a-c8eb-47e5-817f-e15eaea1f5f8
 ms.service: app-service
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 29e6215358eaf544f32f585744ed36f30822d134
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 3e113639dbe4220b943d49dc610ee22b6416e12a
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446742"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216570"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Comprar e configurar um certificado SSL para o Serviço de Aplicativo do Azure
 
@@ -54,7 +54,7 @@ Use a tabela a seguir para ajudá-lo a configurar o certificado. Ao terminar, cl
 | Assinatura | O datacenter onde o aplicativo Web está hospedado. |
 | Grupo de recursos | O grupo de recursos que contém o certificado. Você pode usar um novo grupo de recursos ou selecionar o mesmo grupo de recursos que seu aplicativo de Serviço de Aplicativo, por exemplo. |
 | Certificado SKU | Determina o tipo de certificado para criar, se um certificado padrão ou uma [certificado curinga](https://wikipedia.org/wiki/Wildcard_certificate). |
-| Termos legais | Clique para confirmar que você concorda com os termos legais. |
+| Termos legais | Clique para confirmar que você concorda com os termos legais. Os certificados são obtidos do GoDaddy. |
 
 ## <a name="store-in-azure-key-vault"></a>Armazenar no Azure Key Vault
 
@@ -121,28 +121,35 @@ Use a tabela a seguir para ajudá-lo a configurar a associação na caixa de di�
 
 Visite seu aplicativo usando `HTTPS://<domain_name>`, em vez de `HTTP://<domain_name>`, para verificar se o certificado foi configurado corretamente.
 
-## <a name="rekey-and-sync-certificate"></a>Rechaveamento e sincronização de certificado
+## <a name="rekey-certificate"></a>Certificado de rechaveamento
 
-Se você precisar rechavear seu certificado, selecione o certificado na página [Certificados do Serviço de Aplicativo](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) e, em seguida, selecione **Rechaveamento e Sincronização** na navegação à esquerda.
+Se você achar que seu certificado 's privado chave estiver comprometida, você pode fazer o rechaveamento da seu certificado. Selecione o certificado na [certificados do serviço de aplicativo](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) página e, em seguida, selecione **rechaveamento e sincronização** na navegação à esquerda.
 
-Clique no botão **Rechaveamento** para iniciar o processo. Esse processo pode demorar de um a 10 minutos para ser concluído.
+Clique em **rechaveamento** para iniciar o processo. Esse processo pode demorar de um a 10 minutos para ser concluído.
 
 ![inserir imagem de Rechaveamento SSL](./media/app-service-web-purchase-ssl-web-site/Rekey.png)
 
 A criação de uma nova chave para o certificado causará a emissão de um novo certificado pela autoridade de certificação.
 
+Depois que a operação de rechaveamento for concluída, clique em **sincronização**. A operação de sincronização atualiza automaticamente as associações de nome de host para o certificado no serviço de aplicativo sem causar nenhum tempo de inatividade para seus aplicativos.
+
+> [!NOTE]
+> Se você não clicar **sincronização**, serviço de aplicativo sincroniza automaticamente seu certificado dentro de 48 horas.
+
 ## <a name="renew-certificate"></a>Renovar certificado
 
-Para ativar a renovação automática do seu certificado a qualquer momento, selecione o certificado na página [Certificados do Serviço de Aplicativo](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) e clique em **Configurações de Renovação Automática** no painel de navegação à esquerda. 
+Para ativar a renovação automática do seu certificado a qualquer momento, selecione o certificado na página [Certificados do Serviço de Aplicativo](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) e clique em **Configurações de Renovação Automática** no painel de navegação à esquerda.
 
 Selecione **Ativado** e clique em **Salvar**. Os certificados poderão iniciar automaticamente renovação 60 dias antes do término se você tiver ativado a renovação automática.
 
-![](./media/app-service-web-purchase-ssl-web-site/auto-renew.png)
+![renovar o certificado automaticamente](./media/app-service-web-purchase-ssl-web-site/auto-renew.png)
 
 Para renovar manualmente o certificado, clique em **Renovação Manual**. Você pode solicitar renovar manualmente o certificado de 60 dias antes da expiração.
 
+Depois que a operação de renovação for concluída, clique em **sincronização**. A operação de sincronização atualiza automaticamente as associações de nome de host para o certificado no serviço de aplicativo sem causar nenhum tempo de inatividade para seus aplicativos.
+
 > [!NOTE]
-> O certificado renovado não é associado automaticamente ao seu aplicativo, não importa se a renovação for manual ou automática. Para associá-lo ao seu aplicativo, veja [Renovar certificados](./app-service-web-tutorial-custom-ssl.md#renew-certificates). 
+> Se você não clicar **sincronização**, serviço de aplicativo sincroniza automaticamente seu certificado dentro de 48 horas.
 
 ## <a name="automate-with-scripts"></a>Automatizar com scripts
 

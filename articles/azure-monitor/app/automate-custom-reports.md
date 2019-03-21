@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/25/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 74fdfed23d30dbf88b2faa6028039159010d9afc
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
-ms.translationtype: HT
+ms.openlocfilehash: 37de2de18656f0f8ba85495b3fd72315e0bd885b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53755800"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113071"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatizar relatórios personalizados com dados do Azure Application Insights
 
@@ -110,12 +110,12 @@ availabilityResults
     
     (Os valores AI_ podem ser encontrados em acesso de API para o recurso do Application Insights que deseja relatar. Se você não tiver uma Chave API de Application Insights, há a opção **Criar Chave API**.)
     
-    * AI_APP_ID = Application ID
-    * AI_APP_KEY = API Key
-    * SendGridAPI =SendGrid API Key
+   * AI_APP_ID = Application ID
+   * AI_APP_KEY = API Key
+   * SendGridAPI =SendGrid API Key
 
-    > [!NOTE]
-    > Se não tiver uma conta SendGrip, você poderá criar uma. Documentação SendGrip para Funções do Azure está [aqui](https://docs.microsoft.com/azure/azure-functions/functions-bindings-sendgrid). Se você quiser uma explicação mínima sobre como configurar SendGrip e gerar uma chave API, ela será fornecida no final deste artigo. 
+     > [!NOTE]
+     > Se não tiver uma conta SendGrip, você poderá criar uma. Documentação SendGrip para Funções do Azure está [aqui](https://docs.microsoft.com/azure/azure-functions/functions-bindings-sendgrid). Se você quiser uma explicação mínima sobre como configurar SendGrip e gerar uma chave API, ela será fornecida no final deste artigo. 
 
 9. Selecionar **Integrar** e sob Saídas clique **SendGrip ($retorno)**.
 

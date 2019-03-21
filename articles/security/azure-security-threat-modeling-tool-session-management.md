@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 182a0232b5317b1a375a20bdd4c6467578dc775b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 18dfc6badf640afb418e661e6c464442fbb41945
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232735"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57875162"
 ---
-# <a name="security-frame-session-management"></a>Quadro de segurança: Gerenciamento de sessão
+# <a name="security-frame-session-management"></a>Quadro de segurança: Gerenciamento da sessão
 | Produto/Serviço | Artigo |
 | --------------- | ------- |
 | **Azure AD**    | <ul><li>[Implementar o logoff apropriado usando métodos ADAL ao usar o Azure AD](#logout-adal)</li></ul> |
@@ -270,7 +270,7 @@ A configuração a seguir mostra a configuração correta:
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | MVC5, MVC6 |
 | **Atributos**              | N/D  |
-| **Referências**              | [Prevenção de XSRF/CSRF no ASP.NET MVC e páginas Web](http://www.asp.net/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) |
+| **Referências**              | [Prevenção de XSRF/CSRF no ASP.NET MVC e páginas Web](https://www.asp.net/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) |
 | **Etapas** | Formulários MVC Anti-CSRF e do ASP.NET – Use o método auxiliar `AntiForgeryToken` em Exibições; coloque um `Html.AntiForgeryToken()` no formulário, por exemplo,|
 
 ### <a name="example"></a>Exemplo
@@ -304,7 +304,7 @@ Filtro de autorização que verifica se:
 * O cookie e o valor `Request.Form` são correspondentes. Supondo que tudo esteja certo, a solicitação passará normalmente. Mas, se não estiver, uma falha de autorização com a mensagem "Um token antifalsificação necessário não foi fornecido ou era inválido". 
 
 ### <a name="example"></a>Exemplo
-Anti-CSRF e AJAX: O token do formulário pode ser um problema para solicitações AJAX, pois uma solicitação AJAX pode enviar dados JSON, não dados de formulário HTML. Uma solução é enviar os tokens em um cabeçalho HTTP personalizado. O código a seguir usa a sintaxe Razor para gerar os tokens e adiciona os tokens a uma solicitação AJAX. 
+Anti-CSRF e AJAX: O token de formulário pode ser um problema para solicitações AJAX, pois uma solicitação AJAX pode enviar dados JSON, não os dados de formulário HTML. Uma solução é enviar os tokens em um cabeçalho HTTP personalizado. O código a seguir usa a sintaxe Razor para gerar os tokens e adiciona os tokens a uma solicitação AJAX. 
 ```csharp
 <script>
     @functions{
@@ -377,7 +377,7 @@ void Page_Init (object sender, EventArgs e) {
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
 | **Referências**              | [Propriedade HttpSessionState.Timeout](https://msdn.microsoft.com/library/system.web.sessionstate.httpsessionstate.timeout(v=vs.110).aspx) |
-| **Etapas** | O tempo limite de sessão representa o evento que ocorre quando um usuário não realiza qualquer ação em um site durante um intervalo (definido pelo servidor Web). O evento, no lado do servidor, altera o status da sessão do usuário para "inválida" (por exemplo, "não mais utilizada") e instrui o servidor Web a destruí-la (excluindo todos os dados contidos nela). O exemplo de código a seguir define o atributo de tempo limite de sessão como 15 minutos no arquivo Web.config.|
+| **Etapas** | Tempo limite da sessão representa o evento que ocorre quando um usuário não realiza qualquer ação em um site da web durante um intervalo (definido pelo servidor web). O evento, no lado do servidor, altera o status da sessão do usuário para "inválida" (por exemplo, "não mais utilizada") e instrui o servidor Web a destruí-la (excluindo todos os dados contidos nela). O exemplo de código a seguir define o atributo de tempo limite de sessão como 15 minutos no arquivo Web.config.|
 
 ### <a name="example"></a>Exemplo
 ```XML 
@@ -467,8 +467,8 @@ Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProvider
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | MVC5, MVC6 |
 | **Atributos**              | N/D  |
-| **Referências**              | [Impedir ataques CSRF (solicitação intersite forjada) em APIs da Web ASP.NET](http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks) |
-| **Etapas** | Anti-CSRF e AJAX: O token do formulário pode ser um problema para solicitações AJAX, pois uma solicitação AJAX pode enviar dados JSON, não dados de formulário HTML. Uma solução é enviar os tokens em um cabeçalho HTTP personalizado. O código a seguir usa a sintaxe Razor para gerar os tokens e adiciona os tokens a uma solicitação AJAX. |
+| **Referências**              | [Impedir ataques CSRF (solicitação intersite forjada) em APIs da Web ASP.NET](https://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks) |
+| **Etapas** | Anti-CSRF e AJAX: O token de formulário pode ser um problema para solicitações AJAX, pois uma solicitação AJAX pode enviar dados JSON, não os dados de formulário HTML. Uma solução é enviar os tokens em um cabeçalho HTTP personalizado. O código a seguir usa a sintaxe Razor para gerar os tokens e adiciona os tokens a uma solicitação AJAX. |
 
 ### <a name="example"></a>Exemplo
 ```Javascript
@@ -554,7 +554,7 @@ Filtro de autorização que verifica se:
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | MVC5, MVC6 |
 | **Atributos**              | Provedor de Identidade - ADFS, Provedor de Identidade - Azure AD |
-| **Referências**              | [Proteger uma API Web com contas individuais e logon local na ASP.NET Web API 2.2](http://www.asp.net/web-api/overview/security/individual-accounts-in-web-api) |
+| **Referências**              | [Proteger uma API Web com contas individuais e logon local na ASP.NET Web API 2.2](https://www.asp.net/web-api/overview/security/individual-accounts-in-web-api) |
 | **Etapas** | Se a API Web for protegida usando OAuth 2.0, ela esperará um token de portador no cabeçalho de solicitação de Autorização e a concederá o acesso à solicitação somente se o token for válido. Diferentemente da autenticação baseada em cookie, os navegadores não anexam os tokens de portador às solicitações. O cliente solicitante deve anexar explicitamente o token de portador no cabeçalho da solicitação. Portanto, para APIs Web ASP.NET protegidas usando o OAuth 2.0, os tokens de portador são considerados uma defesa contra ataques de CSRF. Observe que, se a parte MVC do aplicativo usar a autenticação de formulários (ou seja, cookies), será necessário usar tokens antifalsificação pelo aplicativo Web do MVC. |
 
 ### <a name="example"></a>Exemplo

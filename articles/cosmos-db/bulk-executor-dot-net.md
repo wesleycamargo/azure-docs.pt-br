@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 969821c8b83b8ef554c67f99e3a16e827b53e647
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ba6a352d965f3f90a122f5277ad23ec5f92907eb
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57845113"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258455"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Use a biblioteca .NET bulk executor para executar operações em massa no Azure Cosmos DB
 
@@ -30,7 +30,7 @@ Atualmente, a biblioteca do executor em massa é suportada apenas pelas contas d
 
 * Você pode [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma assinatura do Azure, gratuitamente e sem compromisso. Ou você pode usar o [Emulador do Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/local-emulator) com o ponto de extremidade de `https://localhost:8081`. A Chave Primária é fornecida nas [Solicitações de autenticação](local-emulator.md#authenticating-requests).
 
-* Crie uma conta de API SQL do Azure Cosmos DB usando as etapas descritas na seção [criar conta de banco de dados](create-sql-api-dotnet.md#create-a-database-account) do artigo de início rápido do .NET. 
+* Crie uma conta de API SQL do Azure Cosmos DB usando as etapas descritas na seção [criar conta de banco de dados](create-sql-api-dotnet.md#create-account) do artigo de início rápido do .NET. 
 
 ## <a name="clone-the-sample-application"></a>Clonar o aplicativo de exemplo
 
@@ -72,7 +72,7 @@ O aplicativo "BulkImportSample" gera documentos aleatórios e importa-os em mass
    connectionPolicy)
    ```
 
-4. O objeto BulkExecutor é inicializado com valores de repetição alta para solicitações de tempo de espera e limitadas. E, em seguida, eles são definidos como 0 para passar o controle de congestionamento para BulkExecutor por toda a sua vida útil.  
+4. O objeto BulkExecutor é inicializado com um valor de repetição alta para tempo de espera e solicitações limitadas. E, em seguida, eles são definidos como 0 para passar o controle de congestionamento para BulkExecutor por toda a sua vida útil.  
 
    ```csharp
    // Set retry options high during initialization (default values).
@@ -102,7 +102,7 @@ O aplicativo "BulkImportSample" gera documentos aleatórios e importa-os em mass
    
    |**Parâmetro**  |**Descrição** |
    |---------|---------|
-   |enableUpsert    |   Um sinalizador para habilitar o upsert de documentos. Se um documento com a ID fornecida já existir, ele será atualizado. Por padrão, está definido como false.      |
+   |enableUpsert    |   Um sinalizador para permitir upserts de documentos. Se um documento com a ID fornecida já existir, ele será atualizado. Por padrão, está definido como false.      |
    |disableAutomaticIdGeneration    |    Um sinalizador para desabilitar a geração automática de ID. Por padrão, está definido como true.     |
    |maxConcurrencyPerPartitionKeyRange    | O grau máximo de simultaneidade por intervalo de chave de partição, a configuração como null fará com que a biblioteca use um valor padrão de 20. |
    |maxInMemorySortingBatchSize     |  O número máximo de documentos extraídos do enumerador de documentos que é passado para a chamada de API em cada estágio.  Para a fase de classificação de pré-processamento na memória antes da importação em massa, a configuração como null fará com que a biblioteca use o valor padrão de min(documents.count, 1000000).       |
@@ -173,7 +173,7 @@ Considere os seguintes pontos para melhor desempenho ao usar a biblioteca bulk e
 
 * É recomendado criar uma instância de um único objeto BulkExecutor para todo o aplicativo dentro de uma única máquina virtual correspondente a um contêiner do Cosmos DB específico.  
 
-* Como uma execução de API de operação em massa única consome uma grande parte de ES de CPU e de rede do computador cliente. Isso acontece por geração de várias tarefas internamente, evite a geração de várias tarefas simultâneas no processo de aplicativo executando chamadas de API de operação em massa. Se uma única chamada à API de operação em massa em execução em uma única máquina virtual não puder consumir a produtividade inteira do contêiner (se a produtividade do contêiner for de mais de 1 milhão de RU/s), prefira criar máquinas virtuais separadas para executar as chamadas à API de operação em massa simultaneamente.  
+* Como uma execução de API de operação em massa única consome uma grande parte de ES de CPU e de rede do computador cliente. Isso acontece por geração de várias tarefas internamente, evite a geração de várias tarefas simultâneas no processo de aplicativo executando chamadas de API de operação em massa. Se uma chamada de API de operação em massa único que está em execução em uma única máquina virtual não consegue consumir a taxa de transferência do contêiner inteira (Se taxa de transferência > 1 da seu contêiner milhão RU/s), é preferível para criar máquinas virtuais separadas a serem executados simultaneamente chamadas de API de operação em massa.  
 
 * Verifique se InitializeAsync() é invocado depois de instanciar um objeto BulkExecutor para buscar o mapa de partições de contêiner do Cosmos DB de destino.  
 

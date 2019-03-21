@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/14/2019
+ms.date: 03/18/2019
 ms.author: markvi
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e871c241c92fbdac00223df94dde203745b8edae
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7e15dd12da2fbd03d342b4eb2a32f34db958b6ed
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58166093"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259458"
 ---
 # <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>Quais são as dependências de serviço no acesso condicional do Azure Active Directory? 
 
@@ -60,7 +60,7 @@ A tabela a seguir lista as dependências de serviço adicionais, onde os aplicat
 | :--                 | :--                                         | ---         | 
 | Azure Data Lake     | Gerenciamento do Microsoft Azure (portal e API) | Early bound |
 | Microsoft Classroom | Exchange                                    | Early bound |
-|                     | SharePoint                                  | Associação tardia  |
+|                     | SharePoint                                  | Early bound  |
 | Equipes da Microsoft     | Exchange                                    | Early bound |
 |                     | Planejador de MS                                  | Associação tardia  |
 |                     | SharePoint                                  | Early bound |

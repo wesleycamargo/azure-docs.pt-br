@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 2c3da9470668fa2987195c26e98eee51f14027f7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7d95ae1f750c59c121e998c6f51f9439b1b0339a
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58136337"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287087"
 ---
 # <a name="data-import-overview---azure-search"></a>Visão geral – de importação de dados do Azure Search
 
@@ -40,18 +40,25 @@ Para obter uma introdução a cada metodologia, consulte [guia de início rápid
 
 <a name="indexing-actions"></a>
 
-### <a name="indexing-actions-upload-merge-uploadormerge-delete"></a>Ações de indexação: carregar, mesclar, uploadOrMerge, excluir
+### <a name="indexing-actions-upload-merge-mergeorupload-delete"></a>Ações de indexação: carregar, mesclar, mergeOrUpload, excluir
 
-Ao usar a API REST, você emitirá solicitações HTTP POST com corpos de solicitação JSON para a URL de ponto de extremidade do índice de Azure Search. O objeto JSON no corpo da solicitação HTTP conterá uma única matriz JSON chamada "value", que contém objetos JSON que representam documentos que você deseja adicionar ao índice, atualizar ou excluir.
+Você pode controlar o tipo de ação de indexação em uma base por documento, especificando se o documento deve ser carregado no total, mesclado com o conteúdo do documento existente ou excluído.
 
-Cada objeto JSON da matriz "value" representa um documento a ser indexado. Cada um desses objetos contém a chave do documento e especifica a ação de indexação desejada (carregar, mesclar, excluir). Dependendo de qual das ações abaixo você escolher, apenas determinados campos deverão ser incluídos em cada documento:
+Na API REST, emita solicitações HTTP POST com corpos de solicitação JSON para a URL de ponto de extremidade do índice de Azure Search. Cada objeto JSON na matriz "value" contém a chave do documento e especifica uma ação de indexação adições, atualizações, ou exclui o conteúdo do documento. Para obter um exemplo de código, consulte [carregar documentos](search-create-index-rest-api.md#load-documents).
+
+No SDK do .NET, empacotar seus dados em um `IndexBatch` objeto. Uma `IndexBatch` encapsula uma coleção de `IndexAction` objetos, cada um deles contém um documento e uma propriedade que informam ao Azure Search qual ação executar nesse documento. Para obter um exemplo de código, consulte [IndexBatch construir](search-import-data-dotnet.md#construct-indexbatch).
+
 
 | @search.action | DESCRIÇÃO | Campos necessários para cada documento | Observações |
 | -------------- | ----------- | ---------------------------------- | ----- |
 | `upload` |Uma ação `upload` é semelhante a um "upsert", em que o documento será inserido se for novo e atualizado/substituído se existir. |chave, além de quaisquer outros campos que você quiser definir |Ao atualizar/substituir um documento existente, qualquer campo não especificado na solicitação terá seu campo definido para `null`. Isso ocorre mesmo quando o campo tiver sido definido anteriormente como um valor não nulo. |
-| `merge` |Atualiza um documento existente com os campos especificados. Se o documento não existir no índice, a mesclagem falhará. |chave, além de quaisquer outros campos que você quiser definir |Qualquer campo que você especificar em uma mesclagem substituirá o campo existente no documento. Isso inclui campos do tipo `Collection(Edm.String)`. Por exemplo, se o documento contiver um campo `tags` com o valor `["budget"]` e você executar uma mesclagem com o valor `["economy", "pool"]` para `tags`, o valor final do campo `tags` será `["economy", "pool"]`. Ele não será `["budget", "economy", "pool"]`. |
+| `merge` |Atualiza um documento existente com os campos especificados. Se o documento não existir no índice, a mesclagem falhará. |chave, além de quaisquer outros campos que você quiser definir |Qualquer campo que você especificar em uma mesclagem substituirá o campo existente no documento. No SDK do .NET, isso inclui campos do tipo `DataType.Collection(DataType.String)`. Na API REST, isso inclui campos do tipo `Collection(Edm.String)`. Por exemplo, se o documento contiver um campo `tags` com o valor `["budget"]` e você executar uma mesclagem com o valor `["economy", "pool"]` para `tags`, o valor final do campo `tags` será `["economy", "pool"]`. Ele não será `["budget", "economy", "pool"]`. |
 | `mergeOrUpload` |Essa ação se comportará como `merge` se já existir um documento com a chave especificada no índice. Se o documento não existir, ele se comportará como `upload` com um novo documento. |chave, além de quaisquer outros campos que você quiser definir |- |
 | `delete` |Remove o documento especificado do índice. |somente chave |Todos os campos que você especificar, exceto o campo de chave, serão ignorados. Se você quiser remover um campo individual de um documento, use `merge` e apenas defina o campo explicitamente para null. |
+
+## <a name="decide-which-indexing-action-to-use"></a>Decidir qual ação de indexação será usada
+Para importar dados usando o SDK do .NET, (carregar, mesclar, delete e mergeOrUpload). Dependendo de qual das ações abaixo você escolher, apenas determinados campos deverão ser incluídos em cada documento:
+
 
 ### <a name="formulate-your-query"></a>Formular sua consulta
 Há duas maneiras de [pesquisar o índice usando a API REST](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). Uma delas consiste em emitir uma solicitação HTTP POST em que os parâmetros de consulta são definidos em um objeto JSON no corpo da solicitação. A outra maneira consiste em emitir uma solicitação HTTP GET em que os parâmetros de consulta são definidos na URL da solicitação. POST tem [limites mais flexíveis](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) quanto ao tamanho dos parâmetros de consulta do que GET. Por esse motivo, é recomendável usar POST, a menos que haja circunstâncias especiais em que o uso de GET seja mais conveniente.

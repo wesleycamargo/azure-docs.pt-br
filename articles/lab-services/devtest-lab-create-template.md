@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 9d009847856936d14a182b234910fb717c084d11
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 853c138c8cf73b41b0cebb6c1d349865e18eab6a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248054"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550098"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>Criar uma imagem personalizada de um arquivo VHD
 
@@ -60,9 +60,9 @@ As seguintes etapas orientam você durante a criação de uma imagem personaliza
 
 1. Você também poderá inserir um nome do plano, oferta do plano e um editor do plano, se a imagem utilizada para criar a imagem personalizada não for uma imagem licenciada (publicada pela Microsoft).
 
-   - **Nome do plano:** insira o nome da imagem do Marketplace (SKU) a partir da qual essa imagem personalizada será criada 
-   - **Oferta do plano:** insira o produto (oferta) da imagem do Marketplace a partir da qual essa imagem personalizada é criada 
-   - **Oferta do plano:** insira o produto (oferta) da imagem do Marketplace a partir da qual essa imagem personalizada é criada
+   - **Nome do plano:** Digite o nome da imagem do Marketplace (SKU) do qual essa imagem personalizada é criada 
+   - **Plano de oferta:** Insira o produto (oferta) da imagem do Marketplace da qual essa imagem personalizada é criada. 
+   - **Editor do plano:** Insira o editor da imagem do Marketplace da qual essa imagem personalizada é criada.
 
    > [!NOTE]
    > Se a imagem que você estiver utilizando para criar uma imagem personalizada **não** for uma imagem licenciada, esses campos estarão vazios e poderão ser preenchidos, caso você escolha. Se a imagem **for** uma imagem licenciada, os campos serão preenchidos automaticamente com as informações do plano. Se você tentar alterá-los nesse caso, uma mensagem de aviso será exibida.
@@ -81,7 +81,7 @@ Depois de alguns minutos, a imagem personalizada é criada e é armazenada dentr
 ## <a name="related-blog-posts"></a>Postagens de blogs relacionadas
 
 - [Imagens personalizadas ou fórmulas?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
-- [Copiar imagens personalizadas entre Azure DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
+- [Copiar imagens personalizadas entre Azure DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
 ## <a name="next-steps"></a>Próximas etapas
 

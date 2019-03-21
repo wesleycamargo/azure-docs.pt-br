@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 2083390c3d228e57151db8b165b876054d6c12cd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: c96710d6dcca9f5ef99b3a02a0bc875d433f814d
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57876554"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58257424"
 ---
 # <a name="playing-your-content-with-existing-players"></a>Reprodução de seu conteúdo com players existentes
 Os serviços de mídia do Microsoft Azure suporta muitos formatos populares de streaming, como Smooth Streaming, HTTP Live Streaming e MPEG-Dash. Este tópico aponta para players existentes que você pode usar para testar os fluxos.
@@ -57,7 +57,7 @@ Use o [Player de Mídia do Azure](https://amsplayer.azurewebsites.net/azuremedia
 
 [https://dashif.org](https://dashif.org)
 
-### <a name="other"></a>Outro
+### <a name="other"></a>Outros
 Para testar as URLs de HLS, você também pode usar:
 
 * **Safari** em um dispositivo iOS ou

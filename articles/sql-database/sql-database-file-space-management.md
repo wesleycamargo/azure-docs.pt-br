@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 manager: craigg
-ms.date: 02/11/2019
-ms.openlocfilehash: 32cfb108964d67f865b1d03ffa745eb468feeea7
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 043ceb6c46155ed169c080d08f37688b47e3e4b9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110142"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57881156"
 ---
 # <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>Gerenciar o espaço de arquivo para bancos de dados individuais e em pool no Banco de Dados SQL do Azure
 
@@ -27,6 +27,10 @@ Este artigo descreve os diferentes tipos de espaço de armazenamento para bancos
 > Este artigo faz não se aplica à opção de implantação de instância gerenciada no Banco de Dados SQL do Azure.
 
 ## <a name="overview"></a>Visão geral
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> O módulo do PowerShell do Azure Resource Manager ainda é compatível com o banco de dados SQL, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para esses cmdlets, consulte [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
 
 Com bancos de dados individuais e em pool no Banco de Dados SQL do Azure, há padrões de carga de trabalho nos quais a alocação de arquivos de dados subjacentes para bancos de dados pode se tornar maior do que a quantidade de páginas de dados usadas. Essa condição pode ocorrer quando o espaço usado aumenta e os dados são excluídos posteriormente. O motivo é porque o espaço no arquivo alocado não é recuperado automaticamente quando os dados são excluídos.
 
@@ -40,7 +44,7 @@ O monitoramento do uso do espaço no arquivo e a redução dos arquivos de dados
 
 A maioria das métricas de espaço de armazenamento exibido no portal do Azure e as seguintes APIs apenas medir o tamanho das páginas de dados usados:
 
-- APIs de métricas baseadas no Azure Resource Manager, incluindo [get-metrics](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermmetric) do PowerShell
+- APIs de métricas baseadas no Azure Resource Manager, incluindo [get-metrics](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetric) do PowerShell
 - T-SQL: [sys.DM db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 
 No entanto, as seguintes APIs também medem o tamanho do espaço alocado para os bancos de dados Elástico e de pools:
@@ -162,7 +166,7 @@ $userName = "name"
 $password = "password"
 
 # Get list of databases in elastic pool
-$databasesInPool = Get-AzureRmSqlElasticPoolDatabase `
+$databasesInPool = Get-AzSqlElasticPoolDatabase `
     -ResourceGroupName $resourceGroupName `
     -ServerName $serverName `
     -ElasticPoolName $poolName
@@ -237,7 +241,7 @@ Para ativar a redução automática, modifique o nome do banco de dados no coman
 ALTER DATABASE [db1] SET AUTO_SHRINK ON
 ```
 
-Para obter mais informações sobre esse comando, consulte [banco de dados definido](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017) opções. 
+Para obter mais informações sobre esse comando, consulte [banco de dados definido](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) opções. 
 
 ### <a name="rebuild-indexes"></a>Recriar índices
 

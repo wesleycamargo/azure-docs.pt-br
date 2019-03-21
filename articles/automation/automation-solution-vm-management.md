@@ -1,24 +1,24 @@
 ---
 title: Iniciar/Parar VMs durante a solução de fora do horário comercial
-description: Essa solução de gerenciamento de VM inicia e para suas máquinas virtuais do Azure Resource Manager de acordo com um agendamento, e faz o monitoramento delas proativamente no Log Analytics.
+description: Essa solução de gerenciamento de VM inicia e para máquinas virtuais do Azure Resource Manager em um agendamento e monitora proativamente dos logs do Azure Monitor.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/08/2019
+ms.date: 02/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d6e083c4a7595bb70e77bca860c756abc2eaa18e
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 6b5ef0f165433e2dd0685aa0e4f64bd04bf5c823
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979642"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57902239"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Solução Iniciar/Parar VMs fora do horário comercial na Automação do Azure
 
-A solução Iniciar/Parar VMs fora do horário comercial inicia e para as máquinas virtuais do Azure de acordo com agendamentos definidos pelo usuário, fornece insights por meio do Log Analytics do Azure e envia emails opcionais usando [grupos de ações](../azure-monitor/platform/action-groups.md). A solução dá suporte ao Azure Resource Manager e VMs clássicas na maioria dos cenários.
+Iniciar/Parar VMs durante os horários de solução inicia e interrompe as máquinas virtuais do Azure em agendamentos definidos pelo usuário, fornece informações por meio de logs do Azure Monitor e envia emails opcionais utilizando [grupos de ação](../azure-monitor/platform/action-groups.md). A solução dá suporte ao Azure Resource Manager e VMs clássicas na maioria dos cenários.
 
 Essa solução fornece uma opção de automação de baixo custo descentralizada para usuários que desejam otimizar seus custos de VM. Com essa solução, você pode:
 
@@ -36,9 +36,13 @@ A seguir, são limitações para a solução atual:
 >
 > As assinaturas do Azure CSP (Provedor de Soluções na Nuvem do Azure) dão suporte apenas ao modelo do Azure Resource Manager, serviços que não são do Azure Resource Manager não estão disponíveis no programa. Quando a solução Iniciar/Parar é executada, você pode receber erros, pois ele tem cmdlets para gerenciar os recursos clássicos. Para saber mais sobre CSP, confira [Serviços disponíveis em assinaturas do CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments). Se usar uma assinatura do CSP, você deverá modificar a variável [**External_EnableClassicVMs**](#variables) para **False** após a implantação.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Os runbooks para esta solução funcionam com uma conta do [Azure Run As](automation-create-runas-account.md). A conta Executar como é o método de autenticação preferido, pois ela usa a autenticação de certificado em vez de uma senha que poderá expirar ou ser alterada com frequência.
+
+É recomendável usar uma conta de automação separada para a solução iniciar/parar VM. Isso ocorre porque as versões do módulo do Azure são atualizadas com frequência, e seus parâmetros pode ser alterado. A solução iniciar/parar VM não será atualizada na mesma cadência, portanto, ele pode não funcionar com as versões mais recentes dos cmdlets que ele usa. É recomendável testar atualizações do módulo em uma conta de automação de teste antes de importá-los em sua conta de automação de produção.
 
 ## <a name="deploy-the-solution"></a>Implantar a solução
 
@@ -58,18 +62,18 @@ Execute as seguintes etapas para adicionar a solução Iniciar/Parar VMs fora do
 
    ![Página Adicionar Solução de Gerenciamento de VM](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
 
-4. Na página **Adicionar Solução**, selecione **Workspace**. Selecione um workspace do Log Analytics que esteja vinculada à mesma assinatura do Azure na qual a conta de Automação está. Se você não tiver um workspace, selecione **Criar Novo Workspace**. No **Workspace do Log Analytics**, execute as seguintes etapas:
-   - Especifique um nome para o novo **Espaço de trabalho do Log Analytics**, como "ContosoLAWorkspace".
+4. Na página **Adicionar Solução**, selecione **Workspace**. Selecione um workspace do Log Analytics que esteja vinculada à mesma assinatura do Azure na qual a conta de Automação está. Se você não tiver um workspace, selecione **Criar Novo Workspace**. Sobre o **espaço de trabalho do Log Analytics** , execute as seguintes etapas:
+   - Especifique um nome para o novo **espaço de trabalho do Log Analytics**, como "ContosoLAWorkspace".
    - Selecione uma **Assinatura** à qual se vincular, escolhendo na lista suspensa, caso a assinatura selecionada por padrão não seja adequada.
    - Em **Grupo de Recursos**, você pode criar um novo grupo de recursos ou selecionar um existente.
    - Selecione um **Local**. No momento, os únicos locais disponíveis são: **Sudeste da Austrália**, **Canadá Central**, **Índia Central**, **Leste dos EUA**, **Leste do Japão**, **Sudeste da Ásia**, **Sul do Reino Unido**, **Europa Ocidental** e **Oeste dos EUA 2**.
-   - Selecione um **tipo de preço**. Escolha a opção **Por GB (autônomo)**. O Log Analytics atualizou o [preço](https://azure.microsoft.com/pricing/details/log-analytics/) e a camada Por GB é a única opção.
+   - Selecione um **tipo de preço**. Escolha a opção **Por GB (autônomo)**. Os logs do Azure Monitor atualizou [preços](https://azure.microsoft.com/pricing/details/log-analytics/) e a camada por GB é a única opção.
 
 5. Depois de fornecer as informações necessárias na página **Workspace do Log Analytics**, clique em **Criar**. Você pode acompanhar o progresso em **Notificações** no menu, que retornará a página **Adicionar Solução** ao terminar.
 6. Na página **Adicionar Solução**, selecione **Conta de automação**. Se você estiver criando um novo workspace do Log Analytics, poderá criar uma nova Conta de automação para associá-la ou selecionar uma conta de automação existente que ainda não esteja vinculada a um workspace do Log Analytics. Selecione uma conta de automação existente ou clique em **Criar uma conta de automação** e, na página **Adicionar automação da conta**, forneça as seguintes informações:
    - No campo **Nome**, digite o nome da conta de Automação.
 
-    Todas as outras opções são preenchidas automaticamente com base no workspace do Log Analytics selecionado. Essas opções não podem ser modificadas. Uma conta Executar como do Azure é o método de autenticação padrão para os runbooks incluídos nesta solução. Depois de clicar em **OK**, as opções de configuração serão validadas e a conta de Automação será criada. Você pode acompanhar o progresso em **Notificações** no menu.
+     Todas as outras opções são preenchidas automaticamente com base no workspace do Log Analytics selecionado. Essas opções não podem ser modificadas. Uma conta Executar como do Azure é o método de autenticação padrão para os runbooks incluídos nesta solução. Depois de clicar em **OK**, as opções de configuração serão validadas e a conta de Automação será criada. Você pode acompanhar o progresso em **Notificações** no menu.
 
 7. Por fim, na página **Adicionar Solução**, selecione **Configuração**. A página **Parâmetros** é exibida.
 
@@ -91,7 +95,7 @@ Execute as seguintes etapas para adicionar a solução Iniciar/Parar VMs fora do
 8. Depois de configurar as definições iniciais necessárias para a solução, clique em **OK** para fechar a página **Parâmetros** e selecione **Criar**. Depois que todas as configurações forem validadas, a solução será implantada em sua assinatura. Esse processo pode levar vários segundos para ser finalizado e você pode acompanhar o progresso em **Notificações** no menu.
 
 > [!NOTE]
-> Se você tiver uma assinatura do provedor de soluções de nuvem do Azure (Azure CSP), após a implantação ser concluída, em sua conta de automação, vá para **Variáveis** sob **Recursos Compartilhados** e defina a variável [**External_EnableClassicVMs**](#variables) para **False**. Isso faz com que a solução pare de procurar recursos de VM clássica.
+> Se você tiver uma assinatura do provedor de soluções de nuvem do Azure (Azure CSP), após a implantação for concluída, sua conta de automação, vá para **variáveis** sob **recursos compartilhados** e defina o [ **External_EnableClassicVMs** ](#variables) variável à **False**. Isso faz com que a solução pare de procurar recursos de VM clássica.
 
 ## <a name="scenarios"></a>Cenários
 
@@ -174,7 +178,7 @@ Agora que você tem um agendamento para parar VMs com base na utilização da CP
 
 ## <a name="solution-components"></a>Componentes da solução
 
-A solução inclui runbooks pré-configurados, agendamentos e integração com Log Analytics para que você possa personalizar a inicialização e o desligamento das máquinas virtuais para atender às suas necessidades de negócios.
+Essa solução inclui runbooks pré-configurados, agendamentos e integração com os logs do Azure Monitor, portanto, você pode personalizar a inicialização e desligamento de máquinas virtuais para atender às suas necessidades de negócios.
 
 ### <a name="runbooks"></a>Runbooks
 
@@ -209,7 +213,7 @@ A tabela a seguir lista as variáveis criadas na sua conta da Automação. Modif
 |External_AutoStop_TimeAggregationOperator | O operador de agregação de tempo que é aplicado ao tamanho de janela selecionado para avaliar a condição. Os valores aceitáveis são **Médio**, **Mínimo**, **Máximo**, **Total** e **Último**.|
 |External_AutoStop_TimeWindow | O tamanho da janela durante o qual o Azure analisa a métrica selecionada para disparar um alerta. Esse parâmetro aceita a entrada no formato Intervalo de tempo. Os valores possíveis são de 5 minutos até 6 horas.|
 |External_EnableClassicVMs| Especifica se a solução destina-se a VMs clássicas. O valor padrão é True. Isso deve ser definido como False para assinaturas CSP.|
-|External_ExcludeVMNames | Insira os nomes das VMs a serem excluídas, separando-os por vírgula, sem espaços. Isso é limitado a 140 VMs. Se você adicionar mais de 140 VMs qualquer VM adicionada que deveria ser excluída pode ser iniciada ou desligada inadvertidamente|
+|External_ExcludeVMNames | Insira os nomes das VMs a serem excluídas, separando-os por vírgula, sem espaços. Isso é limitado a 140 VMs. Se você adicionar mais de 140 VMs a essa lista separada por vírgulas, as VMs que são definidas para serem excluídos podem ser inadvertidamente iniciadas ou interrompidas.|
 |External_Start_ResourceGroupNames | Especifica um ou mais grupos de recursos, separando os valores por vírgula, direcionados a ações de iniciar.|
 |External_Stop_ResourceGroupNames | Especifica um ou mais grupos de recursos, separando os valores por vírgula, direcionados a ações de parar.|
 |Internal_AutomationAccountName | Especifica o nome da conta de Automação.|
@@ -233,7 +237,7 @@ Você não deve habilitar todas os agendamentos, porque isso poderá criar açõ
 |Sequenced-StopVM | 1h (UTC), toda sexta-feira | Executa o runbook Scheduled_Parent com um parâmetro de _Parar_ toda sexta-feira no horário especificado. Para sequencialmente (em ordem crescente) todas as VMs com uma marca de **SequenceStop** definida pelas variáveis adequadas. Para ver mais informações sobre os valores de tag e variáveis de ativos, confira a seção de Runbooks. Habilite o agendamento relacionado, **Sequenced-StartVM**.|
 |Sequenced-StartVM | 13h (UTC), toda segunda-feira | Executa o runbook Scheduled_Parent com um parâmetro de _Parar_ toda segunda-feira no horário determinado. Inicia sequencialmente (em ordem decrescente) todas as VMs com uma marca de **SequenceStart** definida pelas variáveis adequadas. Para ver mais informações sobre os valores de tag e variáveis de ativos, confira a seção de Runbooks. Habilite o agendamento relacionado, **Sequenced-StopVM**.|
 
-## <a name="log-analytics-records"></a>Registros do Log Analytics
+## <a name="azure-monitor-logs-records"></a>Registros de logs do Azure Monitor
 
 A Automação cria dois tipos de registros no workspace do Log Analytics: logs de trabalho e fluxos de trabalho.
 
@@ -285,18 +289,18 @@ A tabela a seguir fornece pesquisas de log de exemplo para os registros de alert
 
 |Consultar | DESCRIÇÃO|
 |----------|----------|
-|Localizar trabalhos para o runbook ScheduledStartStop_Parent que foram finalizados com êxito | ```search Category == "JobLogs" | where ( RunbookName_s == "ScheduledStartStop_Parent" ) | where ( ResultType == "Completed" )  | summarize |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | sort by TimeGenerated desc```|
-|Localizar trabalhos para o runbook SequencedStartStop_Parent que foram finalizados com êxito | ```search Category == "JobLogs" | where ( RunbookName_s == "SequencedStartStop_Parent" ) | where ( ResultType == "Completed" ) | summarize |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | sort by TimeGenerated desc```|
+|Localizar trabalhos para o runbook ScheduledStartStop_Parent que foram finalizados com êxito | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "ScheduledStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" )  <br>&#124;  summarize <br>&#124; AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
+|Localizar trabalhos para o runbook SequencedStartStop_Parent que foram finalizados com êxito | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "SequencedStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" ) <br>&#124;  summarize <br>&#124; AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc```|
 
 ## <a name="viewing-the-solution"></a>Exibindo a solução
 
-Para acessar a solução, navegue até sua conta de automação, selecione **Workspace** em **RECURSOS RELACIONADOS**. Na página do Log Analytics, selecione **Soluções** em **GERAL**. Na página **Soluções**, selecione a solução **Start-Stop-VM[workspace]** na lista.
+Para acessar a solução, navegue até sua conta de automação, selecione **Workspace** em **RECURSOS RELACIONADOS**. Na página do log analytics, selecione **soluções** sob **geral**. Na página **Soluções**, selecione a solução **Start-Stop-VM[workspace]** na lista.
 
 A seleção da solução exibe a página de soluções **Start-Stop-VM [workspace]**. Aqui você pode analisar detalhes importantes, como o bloco **StartStopVM**. Como no seu workspace do Log Analytics, esse bloco exibe uma contagem e uma representação gráfica dos trabalhos de runbook da solução que foi iniciada e encerrada com êxito.
 
 ![Página da solução Gerenciamento de Atualizações de Automação](media/automation-solution-vm-management/azure-portal-vmupdate-solution-01.png)
 
-Daqui, você pode executar outras análises dos registros de trabalho clicando no bloco de rosca. O painel da solução mostra o histórico de trabalhos e as consultas de pesquisa de logs pré-definidas. Acesse o Portal avançado do Log Analytics para pesquisar com base em suas consultas de pesquisa.
+Daqui, você pode executar outras análises dos registros de trabalho clicando no bloco de rosca. O painel da solução mostra o histórico de trabalhos e as consultas de pesquisa de logs pré-definidas. Alternar para o portal avançado do log analytics para pesquisar com base em suas consultas de pesquisa.
 
 ## <a name="configure-email-notifications"></a>Configurar notificações por email
 
@@ -364,14 +368,14 @@ Para excluir a solução, execute as etapas a seguir:
 
 A conta de Automação e o workspace do Log Analytics não serão excluídos como parte desse processo. Se você não deseja manter o workspace do Log Analytics, é necessário excluí-lo manualmente. Isso pode ser feito no portal do Azure:
 
-1. Na tela inicial do Portal do Azure, selecione **Log Analytics**.
-1. Na página **Log Analytics**, selecione o workspace.
+1. Na tela inicial portal do Azure, selecione **espaços de trabalho do Log Analytics**.
+1. Sobre o **espaços de trabalho do Log Analytics** , selecione o espaço de trabalho.
 1. Selecione **Excluir** no menu da página de configurações do workspace.
 
 Se você não deseja manter os componentes de conta de automação do Azure, você poderá excluir cada um manualmente. Para obter a lista de runbooks, variáveis e agendamentos criados pela solução, consulte a [componentes da solução](#solution-components).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para saber mais sobre como construir consultas de pesquisa diferentes e examinar os logs de trabalho de Automação com o Log Analytics, confira [Efetuar pesquisas no Log Analytics](../log-analytics/log-analytics-log-searches.md).
+- Para saber mais sobre como construir consultas de pesquisa diferentes e examinar os logs de trabalho de automação com logs do Azure Monitor, consulte [pesquisas de Log nos logs do Azure Monitor](../log-analytics/log-analytics-log-searches.md).
 - Para saber mais sobre a execução de runbooks, como monitorar trabalhos de runbook e outros detalhes técnicos, confira [Acompanhar um trabalho de runbook](automation-runbook-execution.md).
-- Para saber mais sobre o Log Analytics e fontes de coleta de dados, confira [Coletar dados do Armazenamento do Azure na visão geral do Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md).
+- Para saber mais sobre os logs do Azure Monitor e fontes de coleta de dados, consulte [visão geral dos logs de dados de armazenamento do Azure coletando no Azure Monitor](../azure-monitor/platform/collect-azure-metrics-logs.md).

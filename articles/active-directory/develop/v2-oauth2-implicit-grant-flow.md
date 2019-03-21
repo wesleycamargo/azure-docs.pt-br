@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec47e6d52a3aef8533a3d16f0f81693b8f01f3cf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: cd0ce02a92c0a2e803866b6f070dba113c566f5d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205045"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112204"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>Protocolos v2.0 - SPAs que usam o fluxo implícito
 
@@ -134,7 +134,7 @@ error=access_denied
 
 Apenas receber o id_token não é suficiente para autenticar o usuário; você deve também validar a assinatura do id_token e verificar as declarações no token com base nos requisitos do aplicativo. O ponto de extremidade v2.0 usa [JWTs (Tokens Web JSON)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) e criptografia de chave pública para assinar tokens e verificar se eles são válidos.
 
-Você pode escolher validar o `id_token` no código do cliente, mas uma prática comum é enviar o `id_token` para um servidor de back-end e executar a validação nele. Após a validação da assinatura do id_token, será necessário verificar algumas declarações: Consulte a [referência do `id_token`](id-tokens.md) para obter mais informações, incluindo [validação de tokens](id-tokens.md#validating-an-idtoken) e [informações importantes sobre substituição de chave de assinatura](active-directory-signing-key-rollover.md). Há, pelo menos, uma disponível para a maioria das linguagens e plataformas.
+Você pode escolher validar o `id_token` no código do cliente, mas uma prática comum é enviar o `id_token` para um servidor de back-end e executar a validação nele. Após a validação da assinatura do id_token, será necessário verificar algumas declarações: Consulte a [referência do `id_token`](id-tokens.md) para obter mais informações, incluindo [validação de tokens](id-tokens.md#validating-an-id_token) e [informações importantes sobre substituição de chave de assinatura](active-directory-signing-key-rollover.md). Há, pelo menos, uma disponível para a maioria das linguagens e plataformas.
 
 Talvez você também queira validar declarações adicionais, dependendo do cenário. Algumas validações comuns incluem:
 
@@ -157,7 +157,8 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &response_type=token
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
-&scope=https%3A%2F%2Fgraph.microsoft.com%2Fuser.read&response_mode=fragment
+&scope=https%3A%2F%2Fgraph.microsoft.com%2Fuser.read 
+&response_mode=fragment
 &state=12345&nonce=678910
 &prompt=none
 &domain_hint=organizations

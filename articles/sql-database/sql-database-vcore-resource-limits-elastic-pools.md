@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/15/2019
-ms.openlocfilehash: b0bd5c0ba8641bd287951168485be715a0b46224
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.date: 03/15/2019
+ms.openlocfilehash: c11f52d2bbc55187a16227cf9553cc7ba6013e1e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328666"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853112"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>Limites de recursos para pools elásticos usando os limites do modelo de compras baseado no vCore
 
@@ -30,6 +30,8 @@ Para limites de modelo de compra baseados em DTU, veja [Limites de recursos base
 
 Você pode definir a camada de serviço, o tamanho de computação e a quantidade de armazenamento usando o [portal do Azure](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), o [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), a [CLI do Azure](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases) ou a [API REST](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
 
+> [!IMPORTANT]
+> Para dimensionar as diretrizes e considerações, consulte [dimensionar um pool Elástico](sql-database-elastic-pool-scale.md)
 > [!NOTE]
 > Os limites de recursos de bancos de dados individuais em pools elásticos geralmente são os mesmos dos bancos de dados individuais fora dos pools com o mesmo tamanho de computação. Por exemplo, o máximo de trabalhos simultâneos para um banco de dados GP_Gen4_1 é 200. Assim, o máximo de trabalhos simultâneos para um banco de dados em um pool de GP_Gen4_1 também é 200. Observe que o número total de trabalhos simultâneos no pool de GP_Gen4_1 é 210.
 
@@ -50,7 +52,9 @@ Você pode definir a camada de serviço, o tamanho de computação e a quantidad
 |Tipo de armazenamento|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
 |IOPS de destino (64 KB)|500|1000|1500|2000|2500|3000|
+|Limites de taxa de log (MBps)|2.5|5|7.5|10|12.5|15|
 |Máximo de trabalhos simultâneos por pool (solicitações)* |210|420|630|840|1.050|1260|
+|Máximo de logons simultâneos por pool * |210|420|630|840|1.050|1260|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|
 |Número máximo de BDs por pool|100|200|300|500|500|500|
 |Opções mínimas/máximas de vCore do pool elástico por banco de dados|0, 0,25, 0,5, 1|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1…3|0, 0,25, 0,5, 1…4|0, 0,25, 0,5, 1…5|0, 0,25, 0,5, 1…6|
@@ -76,7 +80,9 @@ Você pode definir a camada de serviço, o tamanho de computação e a quantidad
 |Tipo de armazenamento|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
 |IOPS de destino (64 KB)|3500|4000|4500|5.000|7000|7000|
+|Limites de taxa de log (MBps)|17.5|20|20|20|20|20|
 |Máximo de trabalhos simultâneos por pool (solicitações)*|1.470|1680|1.890|2.100|3360|5040|
+|Máximo do pool de logons simultâneos (solicitações) *|1.470|1680|1.890|2.100|3360|5040|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|
 |Número máximo de BDs por pool|200|500|500|500|500|500|
 |Opções mínimas/máximas de vCore do pool elástico por banco de dados|0, 0,25, 0,5, 1…7|0, 0,25, 0,5, 1…8|0, 0,25, 0,5, 1…9|0, 0,25, 0,5, 1…10|0, 0,25, 0,5, 1…10, 16|0, 0,25, 0,5, 1…10, 16, 24|
@@ -90,7 +96,7 @@ Você pode definir a camada de serviço, o tamanho de computação e a quantidad
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-1"></a>Camada de serviço de Uso Geral: Plataforma de computação de geração 5 (parte 1)
 
 |Tamanho de computação|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
-|:--- | --: |--: |--: |--: |---: | --: |--: |--: |
+|:--- | --: |--: |--: |--: |---: | --: |--: |
 |Geração de hardware|5|5|5|5|5|5|5|
 |vCores|2|4|6|8|10|12|14|
 |Memória (GB)|10.2|20,4|30,6|40,8|51|61,2|71,4|
@@ -102,7 +108,9 @@ Você pode definir a camada de serviço, o tamanho de computação e a quantidad
 |Tipo de armazenamento|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
 |IOPS de destino (64 KB)|500|1000|1500|2000|2500|3000|3500|
+|Limites de taxa de log (MBps)|2.5|5.6|7.5|10|12.5|15|17.5|
 |Máximo de trabalhos simultâneos por pool (solicitações)*|210|420|630|840|1.050|1260|1.470|
+|Máximo de logons simultâneos por pool (solicitações) *|210|420|630|840|1.050|1260|1.470|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|30000|
 |Número máximo de BDs por pool|200|500|500|500|500|500|500|
 |Opções mínimas/máximas de vCore do pool elástico por banco de dados|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1…4|0, 0,25, 0,5, 1…6|0, 0,25, 0,5, 1…8|0, 0,25, 0,5, 1…10|0, 0,25, 0,5, 1…12|0, 0,25, 0,5, 1…14|
@@ -116,7 +124,7 @@ Você pode definir a camada de serviço, o tamanho de computação e a quantidad
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-2"></a>Camada de serviço de Uso Geral: Plataforma de computação de geração 5 (parte 2)
 
 |Tamanho de computação|GP_Gen5_16|GP_Gen5_18|GP_Gen5_20|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
-|:--- | --: |--: |--: |--: |---: | --: |--: |--: |
+|:--- | --: |--: |--: |--: |---: | --: |--: |
 |Geração de hardware|5|5|5|5|5|5|5|
 |vCores|16|18|20|24|32|40|80|
 |Memória (GB)|81,6|91,8|102|122,4|163,2|204|408|
@@ -128,7 +136,9 @@ Você pode definir a camada de serviço, o tamanho de computação e a quantidad
 |Tipo de armazenamento|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
 |IOPS de destino (64 KB)|4000|4500|5.000|6000|7000|7000|7000|
+|Limites de taxa de log (MBps)|20|20|20|20|20|20|20|
 |Máximo de trabalhos simultâneos por pool (solicitações)*|1680|1.890|2.100|2520|33.600|4200|8400|
+|Máximo de logons simultâneos por pool (solicitações) *|1680|1.890|2.100|2520|33.600|4200|8400|
 |Número máximo de BDs por pool|500|500|500|500|500|500|500|
 |Opções mínimas/máximas de vCore do pool elástico por banco de dados|0, 0,25, 0,5, 1…16|0, 0,25, 0,5, 1…18|0, 0,25, 0,5, 1…20|0, 0,25, 0,5, 1…20, 24|0, 0,25, 0,5, 1…20, 24, 32|0, 0,25, 0,5, 1…16, 24, 32, 40|0, 0.25, 0,5, 1…16, 24, 32, 40, 80|
 |Número de réplicas|1|1|1|1|1|1|1|
@@ -146,16 +156,18 @@ Você pode definir a camada de serviço, o tamanho de computação e a quantidad
 |:--- | --: |--: |--: |--: |--: |--: |
 |Geração de hardware|4|4|4|4|4|4|
 |vCores|1|2|3|4|5|6|
-|Memória (GB)|10.2|20,4|30,6|40,8|51|61,2|71,4|
-|Suporte de columnstore|N/D|N/D|N/D|N/D|N/D|N/D|
+|Memória (GB)|7|14|21|28|35|42|
+|Suporte de columnstore|Sim|sim|sim|sim|sim|Sim|
 |Armazenamento OLTP na memória (GB)|1|2|3|4|5|6|
 |Tipo de armazenamento|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|
-|Tamanho máximo de dados (GB)|1024|1024|1024|1024|1024|1024|
-|Tamanho máximo de log (GB)|307|307|307|307|307|307|
+|Tamanho máximo de dados (GB)|650|650|650|650|650|650|
+|Tamanho máximo de log (GB)|195|195|195|195|195|195|
 |Tamanho de TempDB (GB)|32|64|96|128|160|192|
 |Latência de E/S (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|
 |IOPS de destino (64 KB)|5.000|10000|15000|20000|25000|30000|
+|Limites de taxa de log (MBps)|7.5|15|22,5|30|37.5|45|
 |Máximo de trabalhos simultâneos por pool (solicitações)*|210|420|630|840|1.050|1260|
+|Máximo de logons simultâneos por pool (solicitações) *|210|420|630|840|1.050|1260|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|
 |Número máximo de BDs por pool|Somente bancos de dados individuais têm suporte nesse tamanho de computação|50|100|100|100|100|
 |Opções mínimas/máximas de vCore do pool elástico por banco de dados|N/D|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1…3|0, 0,25, 0,5, 1…4|0, 0,25, 0,5, 1…5|0, 0,25, 0,5, 1…6|
@@ -172,16 +184,18 @@ Você pode definir a camada de serviço, o tamanho de computação e a quantidad
 |:--- | --: |--: |--: |--: |--: |--: |
 |Geração de hardware|4|4|4|4|4|4|
 |vCores|7|8|9|10|16|24|
-|Memória (GB)|81,6|91,8|102|122,4|163,2|204|408|
+|Memória (GB)|81,6|91,8|102|122,4|163,2|204|
 |Suporte de columnstore|N/D|N/D|N/D|N/D|N/D|N/D|
 |Armazenamento OLTP na memória (GB)|7|8|9,5|11|20|36|
 |Tipo de armazenamento|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|
-|Tamanho máximo de dados (GB)|1024|1024|1024|1024|1024|1024|
-|Tamanho máximo de log (GB)|307|307|307|307|307|307|
+|Tamanho máximo de dados (GB)|650|650|650|650|1024|1024|
+|Tamanho máximo de log (GB)|195|195|195|195|307|307|
 |Tamanho de TempDB (GB)|224|256|288|320|384|384|
 |Latência de E/S (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|
 |IOPS de destino (64 KB)|35.000|40000|45000|50000|80000|120000|
+|Limites de taxa de log (MBps)|52.5|60|67.5|75|80|80|
 |Máximo de trabalhos simultâneos por pool (solicitações)*|1.470|1680|1.890|2.100|3360|5040|
+|Máximo de logons simultâneos por pool (solicitações) *|1.470|1680|1.890|2.100|3360|5040|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|
 |Número máximo de BDs por pool|100|100|100|100|100|100|
 |Opções mínimas/máximas de vCore do pool elástico por banco de dados|0, 0,25, 0,5, 1…7|0, 0,25, 0,5, 1…8|0, 0,25, 0,5, 1…9|0, 0,25, 0,5, 1…10|0, 0,25, 0,5, 1…10, 16|0, 0,25, 0,5, 1…10, 16, 24|
@@ -195,19 +209,21 @@ Você pode definir a camada de serviço, o tamanho de computação e a quantidad
 #### <a name="business-critical-service-tier-generation-5-compute-platform-part-1"></a>Camada de serviço Comercialmente Crítico: Plataforma de computação de geração 5 (parte 1)
 
 |Tamanho de computação|BC_Gen5_2|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
-|:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |
+|:--- | --: |--: |--: |--: |---: | --: |--: |
 |Geração de hardware|5|5|5|5|5|5|5|
 |vCores|2|4|6|8|10|12|14|
 |Memória (GB)|10.2|20,4|30,6|40,8|51|61,2|71,4|
 |Suporte de columnstore|Sim|sim|sim|sim|sim|sim|Sim|
 |Armazenamento OLTP na memória (GB)|1. 571|3.142|4,713|6.284|8,655|11,026|13,397|
-|Tamanho máximo de dados (GB)|1024|1024|1024|1536|1536|1536|1536|
-|Tamanho máximo de log (GB)|307|307|307|461|461|461|461|
+|Tamanho máximo de dados (GB)|1024|1024|1536|1536|1536|3072|3072|
+|Tamanho máximo de log (GB)|307|307|307|461|461|922|922|
 |Tamanho de TempDB (GB)|64|128|192|256|320|384|384|
 |Tipo de armazenamento|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|
 |Latência de E/S (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|
 |IOPS de destino (64 KB)|5.000|10000|15000|20000|25000|30000|35.000|
+|Limites de taxa de log (MBps)|7.5|15|22,5|30|37.5|45|52.5|
 |Máximo de trabalhos simultâneos por pool (solicitações)*|210|420|630|840|1.050|1260|1.470|
+|Máximo de logons simultâneos por pool (solicitações) *|210|420|630|840|1.050|1260|1.470|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|30000|
 |Número máximo de BDs por pool|Somente bancos de dados individuais têm suporte nesse tamanho de computação|50|100|100|100|100|100|
 |Opções mínimas/máximas de vCore do pool elástico por banco de dados|N/D|0, 0,25, 0,5, 1…4|0, 0,25, 0,5, 1…6|0, 0,25, 0,5, 1…8|0, 0,25, 0,5, 1…10|0, 0,25, 0,5, 1…12|0, 0,25, 0,5, 1…14|
@@ -221,7 +237,7 @@ Você pode definir a camada de serviço, o tamanho de computação e a quantidad
 #### <a name="business-critical-service-tier-generation-5-compute-platform-part-2"></a>Camada de serviço Comercialmente Crítico: Plataforma de computação de geração 5 (parte 2)
 
 |Tamanho de computação|BC_Gen5_16|BC_Gen5_18|BC_Gen5_20|BC_Gen5_24|BC_Gen5_32|GP_Gen5_40|BC_Gen5_80|
-|:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |
+|:--- | --: |--: |--: |--: |---: | --: |--: |
 |Geração de hardware|5|5|5|5|5|5|5|
 |vCores|16|18|20|24|32|40|80|
 |Memória (GB)|81,6|91,8|102|122,4|163,2|204|408|
@@ -233,12 +249,14 @@ Você pode definir a camada de serviço, o tamanho de computação e a quantidad
 |Tipo de armazenamento|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|
 |Latência de E/S (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|
 |IOPS de destino (64 KB)|40000|45000|50000|60000|80000|100000|200000|
+|Limites de taxa de log (MBps)|60|67.5|75|90|120|120|120|
 |Máximo de trabalhos simultâneos por pool (solicitações)*|1680|1.890|2.100|2520|3360|4200|8400|
+|Máximo de logons simultâneos por pool (solicitações) *|1680|1.890|2.100|2520|3360|4200|8400|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|30000|
 |Número máximo de BDs por pool|100|100|100|100|100|100|100|
 |Opções mínimas/máximas de vCore do pool elástico por banco de dados|0, 0,25, 0,5, 1…16|0, 0,25, 0,5, 1…18|0, 0,25, 0,5, 1…20|0, 0,25, 0,5, 1…20, 24|0, 0,25, 0,5, 1…20, 24, 32|0, 0,25, 0,5, 1…20, 24, 32, 40|0, 0,25, 0,5, 1…20, 24, 32, 40, 80|
 |Número de réplicas|4|4|4|4|4|4|4|
-|Multi-AZ|Sim|sim|sim|sim|sim|Sim|
+|Multi-AZ|Sim|sim|sim|sim|sim|sim|Sim|
 |Escala de leitura|Sim|sim|sim|sim|sim|sim|Sim|
 |Armazenamento de backup incluído|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|
 

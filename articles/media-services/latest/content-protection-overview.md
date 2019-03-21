@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 3ce24100a0780f313a00b80129601f4e8f344bde
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 4d1a9ae622de103b459d256cb48c5823f5866a3b
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189760"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294069"
 ---
 # <a name="content-protection-with-dynamic-encryption"></a>Proteção de conteúdo com criptografia dinâmica
 
@@ -199,6 +199,13 @@ Para proteger os Ativos em repouso, os ativos devem ser criptografados pela crip
 |[Criptografia do cliente de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Criptografia do cliente oferecida pelo armazenamento do Azure, chave gerenciada pelo cliente no Key Vault|Sem suporte|
 
 <sup>1</sup> Nos Serviços de Mídia v3, a criptografia de armazenamento (criptografia AES-256) somente terá suporte para compatibilidade com versões anteriores quando os Ativos tiverem sido criados com os Serviços de Mídia v2. Isso significa que o v3 funciona com recursos criptografados de armazenamento existentes, mas não permite a criação de novos recursos.
+
+## <a name="troubleshoot"></a>Solucionar problemas
+
+Se você receber o `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` erro, verifique se você especificar a política de Streaming apropriada.
+
+Se você obtiver erros que terminam com `_NOT_SPECIFIED_IN_URL`, certifique-se de que você especifica o formato de criptografia na URL. Por exemplo, .../manifest (format = m3u8-cmaf criptografia cbcs-aapl). Ver [tipos de criptografia e protocolos de Streaming](#streaming-protocols-and-encryption types).
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

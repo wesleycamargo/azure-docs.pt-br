@@ -10,18 +10,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/202018
+ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: b092509c1029bbff028da6bf94b9f7dbd1068b16
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 87505081f16008dff7da1f567c1265c695f3f0ab
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020023"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670836"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Copiar dados de um ponto de extremidade HTTP usando o Azure Data Factory
 
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](v1/data-factory-http-connector.md)
 > * [Versão atual](connector-http.md)
 
@@ -58,10 +58,10 @@ As seguintes propriedades são suportadas para o serviço vinculado HTTP:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | O **tipo** propriedade deve ser definida como **HttpServer**. | SIM |
-| url | A URL base para o servidor web. | SIM |
+| Tipo | O **tipo** propriedade deve ser definida como **HttpServer**. | Sim |
+| url | A URL base para o servidor web. | Sim |
 | enableServerCertificateValidation | Especifique se deseja ativar a validação do certificado SSL do servidor ao se conectar a um terminal HTTP. Se seu servidor HTTPS usa um certificado autoassinado, defina essa propriedade como **falsos**. | Não <br /> (o padrão é **verdadeiro**) |
-| authenticationType | Especifica o tipo de autenticação. Os valores permitidos são **Anonymous**, **Basic**, **Digest**, **Windows** e **ClientCertificate**. <br><br> Veja as seções que seguem esta tabela para mais propriedades e amostras JSON para esses tipos de autenticação. | SIM |
+| authenticationType | Especifica o tipo de autenticação. Os valores permitidos são **Anonymous**, **Basic**, **Digest**, **Windows** e **ClientCertificate**. <br><br> Veja as seções que seguem esta tabela para mais propriedades e amostras JSON para esses tipos de autenticação. | Sim |
 | connectVia | O [Tempo de Integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Tempo de Execução de Integração do Azure ou um Tempo de Execução de Integração auto-hospedado (se o seu armazenamento de dados estiver localizado em uma rede privada). Se não especificado, essa propriedade usará o tempo de execução de integração do Azure padrão. |Não  |
 
 ### <a name="using-basic-digest-or-windows-authentication"></a>Usando a autenticação Básica, Digest ou Windows
@@ -70,8 +70,8 @@ Defina a **authenticationType** propriedade **Básico**, **Digest**, ou **Window
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| userName | O nome de usuário a ser usada para acessar o ponto de extremidade HTTP. | SIM |
-| Senha | A senha do usuário (o **nome de usuário** valor). Marque esse campo como um tipo **SecureString** para armazená-lo com segurança no Data Factory. Você também pode [referenciar um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | SIM |
+| userName | O nome de usuário a ser usada para acessar o ponto de extremidade HTTP. | Sim |
+| Senha | A senha do usuário (o **nome de usuário** valor). Marque esse campo como um tipo **SecureString** para armazená-lo com segurança no Data Factory. Você também pode [referenciar um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | Sim |
 
 **Exemplo**
 
@@ -168,7 +168,7 @@ Para copiar dados do HTTP, defina a propriedade **tipo** do conjunto de dados pa
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | O **tipo** propriedade do conjunto de dados deve ser definida como **HttpFile**. | SIM |
+| Tipo | O **tipo** propriedade do conjunto de dados deve ser definida como **HttpFile**. | Sim |
 | relativeUrl | Uma URL relativa para o recurso que contém os dados. Quando essa propriedade não é especificada, somente o URL especificado na definição de serviço vinculada é usado. | Não  |
 | requestMethod | O método HTTP. Valores permitidos são **Obtenha** (padrão) e **Post**. | Não  |
 | additionalHeaders | Cabeçalhos de solicitação HTTP adicionais. | Não  |
@@ -230,7 +230,7 @@ Para copiar dados de HTTP, defina **tipo de fonte** na atividade de cópia como 
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade **tipo** da origem da atividade de cópia deve ser configurada para **HttpSource**. | SIM |
+| Tipo | A propriedade **tipo** da origem da atividade de cópia deve ser configurada para **HttpSource**. | Sim |
 | httpRequestTimeout | O tempo limite (o valor **TimeSpan**) para a solicitação HTTP para obter uma resposta. Esse valor é o tempo limite para obter uma resposta, não o tempo limite para ler os dados da resposta. O valor padrão é **01:00:40**.  | Não  |
 
 **Exemplo**

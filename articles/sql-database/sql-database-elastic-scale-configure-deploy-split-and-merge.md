@@ -12,19 +12,19 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 7939de5cf45535dc911c25ae8fa8c914a214fa3c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 5aff7e93dcfaa5320be0d6f7d427abcdc88c69e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458050"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995832"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Implantar um serviço de mesclagem dividida para mover dados entre bancos de dados compartilhados
 
 A ferramenta de divisão e mesclagem permite mover dados entre bancos de dados fragmentados. Veja [Mover dados entre bancos de dados na nuvem escalados horizontalmente](sql-database-elastic-scale-overview-split-and-merge.md)
 
 ## <a name="download-the-split-merge-packages"></a>Baixe os pacotes de Divisão-Mesclagem
-1. Baixe a versão mais recente do NuGet de [NuGet](http://docs.nuget.org/docs/start-here/installing-nuget).
+1. Baixe a versão mais recente do NuGet de [NuGet](https://docs.nuget.org/docs/start-here/installing-nuget).
 2. Abra um prompt de comando e navegue até o diretório onde baixou o nuget.exe. O download inclui comandos do PowerShell.
 3. Baixe o pacote de mesclagem divisão mais recente no diretório atual com o comando abaixo:
    ```

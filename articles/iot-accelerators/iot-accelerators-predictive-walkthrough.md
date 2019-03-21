@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 02/08/2019
+ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: bdb9b48549d24565fdafb9ac1c3215029445793c
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 3387996dc0e1953eaafee9c4c61eb8faa865b654
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100475"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58172828"
 ---
 # <a name="predictive-maintenance-solution-accelerator-overview"></a>Visão geral do acelerador de solução de Manutenção Preditiva
 
@@ -27,7 +27,7 @@ O seguinte diagrama descreve os componentes lógicos do acelerador de solução:
 
 ![Arquitetura lógica][img-architecture]
 
-Os itens azuis são serviços do Azure provisionados na região em que você implantou o acelerador de solução. Exibe a lista de regiões em que você pode implantar o acelerador de solução no [página provisionamento][lnk-azureiotsuite].
+Os itens azuis são serviços do Azure provisionados na região em que você implantou o acelerador de solução. Exibe a lista de regiões em que você pode implantar o acelerador de solução no [página provisionamento][lnk-azureiotsolutions].
 
 O item em verde é um mecanismo de aeronave simulada. Você pode aprender mais sobre esses dispositivos simulados na seção [Dispositivos simulados](#simulated-devices).
 
@@ -39,7 +39,7 @@ No portal do Azure, navegue até o grupo de recursos com o nome da solução esc
 
 ![Recursos do acelerador][img-resource-group]
 
-Quando você provisiona o acelerador da solução, recebe um email com um link para o workspace de Machine Learning. Você também pode navegar até o espaço de trabalho Aprendizado de Máquina da página [Aceleradores de Solução IoT do Microsoft Azure][lnk-azureiotsuite]. Um bloco fica disponível nessa página quando a solução entra no estado **pronto**.
+Quando você provisiona o acelerador da solução, recebe um email com um link para o workspace de Machine Learning. Você também pode navegar até o espaço de trabalho Aprendizado de Máquina da página [Aceleradores de Solução IoT do Microsoft Azure][lnk-azureiotsolutions]. Um bloco fica disponível nessa página quando a solução entra no estado **pronto**.
 
 ![Modelo de Machine Learning][img-machine-learning]
 
@@ -71,7 +71,7 @@ O Hub IoT fornece reconhecimento de comando do dispositivo.
 O **host do processador de eventos** é executado em um trabalho de Web do Azure. O **processador de eventos** obtém os valores do sensor médios para um ciclo completo. Em seguida, ele passa esses valores para um modelo treinado que calcula o RUL para um mecanismo. Uma API fornece acesso ao modelo em um espaço de trabalho de Aprendizado de Máquina que faz parte da solução.
 
 ## <a name="machine-learning"></a>Machine Learning
-O componente de Machine Learning usa um modelo derivado dos dados coletados de mecanismos de aeronave real. Você pode navegar até o workspace do Machine Learning do bloco da sua solução na página [azureiotsuite.com][lnk-azureiotsuite]. O bloco fica disponível quando a solução fica no estado **Pronto**.
+O componente de Machine Learning usa um modelo derivado dos dados coletados de mecanismos de aeronave real. Você pode navegar até o espaço de trabalho do Machine Learning do bloco da sua solução na [azureiotsolutions.com] [ lnk-azureiotsolutions] página. O bloco fica disponível quando a solução fica no estado **Pronto**.
 
 O modelo Aprendizado de Máquina está disponível como um modelo que mostra como trabalhar com a telemetria coletada por meio dos serviços aceleradores de solução de IoT. A Microsoft criou um [modelo de regressão][lnk_regression_model] de um mecanismo de aeronave baseado em dados<sup>\[1\]</sup> disponíveis ao público e diretrizes passo a passo sobre como usar o modelo.
 
@@ -93,7 +93,7 @@ Você também pode explorar alguns dos outros recursos de aceleradores de soluç
 
 [lnk-remote-monitoring]: quickstart-predictive-maintenance-deploy.md
 [lnk-cortana-analytics]: https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3
-[lnk-azureiotsuite]: https://www.azureiotsolutions.com/
+[lnk-azureiotsolutions]: https://www.azureiotsolutions.com/
 [lnk-faq]: iot-accelerators-faq.md
 [lnk-security-groundup]:/azure/iot-fundamentals/iot-security-ground-up
 [lnk-machine-learning]: https://azure.microsoft.com/services/machine-learning/

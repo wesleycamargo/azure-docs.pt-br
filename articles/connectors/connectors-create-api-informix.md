@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: d0008c19ed96f731f7b57c5d8aa41cd9f128bc20
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-ms.translationtype: HT
+ms.openlocfilehash: 6004c02f190bbfcf374b3b5d2a5c478f0e52c961
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296029"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58165893"
 ---
 # <a name="get-started-with-the-informix-connector"></a>Introdução ao conector do Informix
 O Microsoft Connector para Informix conecta os Aplicativos Lógicos aos recursos armazenados em um banco de dados IBM Informix. O conector Informix inclui um cliente Microsoft para se comunicar com computadores de servidores Informix remotos em uma rede TCP/IP. Isso inclui bancos de dados de nuvem, como o IBM Informix para Windows em execução na virtualização do Azure e bancos de dados locais usando o gateway de dados local. Veja a [lista](connectors-create-api-informix.md#supported-informix-platforms-and-versions) de plataformas e versões do IBM Informix com suporte (neste tópico).
@@ -47,7 +47,7 @@ Este conector dá suporte às seguintes ações do aplicativo lógico:
 ## <a name="list-tables"></a>Listar tabelas
 A criação de um aplicativo lógico para qualquer operação é composta de várias etapas executadas por meio do portal do Microsoft Azure.
 
-No aplicativo lógico, você pode adicionar uma ação para listar tabelas em um banco de dados Informix. A ação instrui o conector a processar uma instrução de esquema do Informix, como `CALL SYSIBM.SQLTABLES`.
+No aplicativo lógico, você pode adicionar uma ação para listar tabelas em um banco de dados Informix. Essa ação instrui o conector a processar uma instrução de esquema do Informix, como `CALL SYSIBM.SQLTABLES`.
 
 ### <a name="create-a-logic-app"></a>Criar um aplicativo lógico
 1. Na **tela inicial do Azure**, selecione **+** (sinal de mais), **Web + Móvel**, e então, **Aplicativo Lógico**.
@@ -154,7 +154,7 @@ Você pode criar uma ação de aplicativo lógico para buscar todas as linhas na
     ![](./media/connectors-create-api-informix/InformixconnectorGetRowsOutputs.png)
 
 ## <a name="add-one-row-using-insert"></a>Adicionar uma linha usando INSERT
-Você pode criar uma ação de aplicativo lógico para adicionar uma linha a uma tabela do Informix. Essa ação instrui o conector a processar uma instrução INSERT do Informix, como `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`.
+Você pode criar uma ação de aplicativo lógico para adicionar uma linha em uma tabela do Informix. Essa ação instrui o conector a processar uma instrução INSERT do Informix, como `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`.
 
 ### <a name="create-a-logic-app"></a>Criar um aplicativo lógico
 1. Na **tela inicial do Azure**, selecione **+** (sinal de mais), **Web + Móvel**, e então, **Aplicativo Lógico**.
@@ -181,7 +181,7 @@ Você pode criar uma ação de aplicativo lógico para adicionar uma linha a uma
     ![](./media/connectors-create-api-informix/InformixconnectorInsertRowOutputs.png)
 
 ## <a name="fetch-one-row-using-select"></a>Buscar uma linha usando SELECT
-Você pode criar uma ação de aplicativo lógico para buscar uma linha em uma tabela do Informix. Essa ação instrui o conector para processar uma instrução SELECT WHERE do Informix, como `SELECT FROM AREA WHERE AREAID = '99999'`.
+Você pode criar uma ação de aplicativo lógico para buscar uma linha em uma tabela do Informix. Essa ação instrui o conector a processar uma instrução SELECT WHERE do Informix, como `SELECT FROM AREA WHERE AREAID = '99999'`.
 
 ### <a name="create-a-logic-app"></a>Criar um aplicativo lógico
 1. Na **tela inicial do Azure**, selecione **+** (sinal de mais), **Web + Móvel**, e então, **Aplicativo Lógico**.
@@ -236,7 +236,7 @@ Você pode criar uma ação de aplicativo lógico para alterar uma linha em uma 
     ![](./media/connectors-create-api-informix/InformixconnectorUpdateRowOutputs.png)
 
 ## <a name="remove-one-row-using-delete"></a>Remover uma linha usando DELETE
-Você pode criar uma ação de aplicativo lógico para remover uma linha de uma tabela do Informix. Essa ação instrui o conector a processar uma instrução DELETE do Informix, como `DELETE FROM AREA WHERE AREAID = '99999'`.
+Você pode criar uma ação de aplicativo lógico para remover uma linha em uma tabela do Informix. Essa ação instrui o conector a processar uma instrução DELETE do Informix, como `DELETE FROM AREA WHERE AREAID = '99999'`.
 
 ### <a name="create-a-logic-app"></a>Criar um aplicativo lógico
 1. Na **tela inicial do Azure**, selecione **+** (sinal de mais), **Web + Móvel**, e então, **Aplicativo Lógico**.

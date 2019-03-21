@@ -15,12 +15,12 @@ ms.date: 03/07/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: 243fb01a5c8112afaf310f616b93c2667ac6f19d
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 76af6d6585d52eee99548f69c92bd414068fa28d
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729863"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259203"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack"></a>Acessar o painel do Kubernetes no Azure Stack 
 
@@ -114,11 +114,11 @@ Você pode recuperar a URL para o painel de nó mestre no cluster.
 
 ## <a name="open-the-kubernetes-dashboard"></a>Abra o painel do Kubernetes 
 
-1.  Desabilite o Bloqueador de pop-up no navegador da Web.
+1. Desabilite o Bloqueador de pop-up no navegador da Web.
 
-2.  Ponto de seu navegador para a URL observado quando você executou o comando `kubectl cluster-info`. Por exemplo: https://azurestackdomainnamefork8sdashboard/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy 
-3.  Selecione o certificado do cliente.
-4.  Insira o token. 
+2. Ponto de seu navegador para a URL observado quando você executou o comando `kubectl cluster-info`. Por exemplo: https:\//azurestackdomainnamefork8sdashboard/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard: / proxy 
+3. Selecione o certificado do cliente.
+4. Insira o token. 
 5. Reconecte-se à linha de comando do bash no nó mestre e conceder permissões para `kubernetes-dashboard`. Execute o comando a seguir:
 
     ```Bash  

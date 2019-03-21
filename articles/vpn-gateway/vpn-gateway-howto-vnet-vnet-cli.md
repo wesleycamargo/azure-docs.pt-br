@@ -10,17 +10,17 @@ tags: azure-resource-manager
 ms.assetid: 0683c664-9c03-40a4-b198-a6529bf1ce8b
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: e26ae189b6b0bdcbfdcf225772cb3fd0361abca2
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 24e12184070909943c5660d94d8e19ce9df1de30
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698982"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111116"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configurar uma conexão gateway de VPN de Vnet pra VNet usando a CLI do Azure
 
@@ -132,74 +132,74 @@ Usamos os seguintes valores nos exemplos:
 
 1. Crie um grupos de recursos.
 
-  ```azurecli
-  az group create -n TestRG1  -l eastus
-  ```
+   ```azurecli
+   az group create -n TestRG1  -l eastus
+   ```
 2. Crie TestVNet1 e as sub-redes de TestVNet1. O exemplo a seguir cria uma rede virtual chamada TestVNet1 e uma sub-rede chamada FrontEnd.
 
-  ```azurecli
-  az network vnet create -n TestVNet1 -g TestRG1 --address-prefix 10.11.0.0/16 -l eastus --subnet-name FrontEnd --subnet-prefix 10.11.0.0/24
-  ```
+   ```azurecli
+   az network vnet create -n TestVNet1 -g TestRG1 --address-prefix 10.11.0.0/16 -l eastus --subnet-name FrontEnd --subnet-prefix 10.11.0.0/24
+   ```
 3. Crie outro espaço de endereço para a sub-rede de back-end. Observe que nesta etapa, especificamos o espaço de endereço criado anteriormente e outro espaço de endereço que desejamos adicionar. Isso ocorre porque o comando [az network vnet update](https://docs.microsoft.com/cli/azure/network/vnet) substitui as configurações anteriores. Não deixe de especificar todos os prefixos de endereço ao usar o comando.
 
-  ```azurecli
-  az network vnet update -n TestVNet1 --address-prefixes 10.11.0.0/16 10.12.0.0/16 -g TestRG1
-  ```
+   ```azurecli
+   az network vnet update -n TestVNet1 --address-prefixes 10.11.0.0/16 10.12.0.0/16 -g TestRG1
+   ```
 4. Crie a sub-rede de back-end.
   
-  ```azurecli
-  az network vnet subnet create --vnet-name TestVNet1 -n BackEnd -g TestRG1 --address-prefix 10.12.0.0/24 
-  ```
+   ```azurecli
+   az network vnet subnet create --vnet-name TestVNet1 -n BackEnd -g TestRG1 --address-prefix 10.12.0.0/24 
+   ```
 5. Crie a sub-rede de gateway. Verifique se a sub-rede de gateway se chama 'GatewaySubnet'. Esse nome é obrigatório. Neste exemplo, a sub-rede de gateway está usando um /27. Embora seja possível criar uma sub-rede de gateway tão pequena quanto /29, recomendamos que você crie uma sub-rede maior que inclua mais endereços selecionando pelo menos /28 ou /27. Isso permitirá endereços suficientes a fim de acomodar as possíveis configurações adicionais que você possa querer no futuro.
 
-  ```azurecli 
-  az network vnet subnet create --vnet-name TestVNet1 -n GatewaySubnet -g TestRG1 --address-prefix 10.12.255.0/27
-  ```
+   ```azurecli 
+   az network vnet subnet create --vnet-name TestVNet1 -n GatewaySubnet -g TestRG1 --address-prefix 10.12.255.0/27
+   ```
 6. Solicite um endereço IP público para ser alocado ao gateway que você criará para sua VNet. Observe que o AllocationMethod é dinâmico. Você não pode especificar o endereço IP que deseja usar. Ele é alocado dinamicamente ao gateway.
 
-  ```azurecli
-  az network public-ip create -n VNet1GWIP -g TestRG1 --allocation-method Dynamic
-  ```
+   ```azurecli
+   az network public-ip create -n VNet1GWIP -g TestRG1 --allocation-method Dynamic
+   ```
 7. Crie o gateway de rede virtual para TestVNet1. As configurações de rede virtual com rede virtual exigem um VpnType RouteBased. Se você executar esse comando usando o parâmetro '--no-wait', você não receberá nenhum feedback ou saída. O parâmetro '--no-wait' permite que o gateway seja criado em segundo plano. Isso não significa que a criação do gateway de VPN é concluída imediatamente. Criar um gateway pode levar 45 minutos ou mais, dependendo do SKU de gateway utilizado.
 
-  ```azurecli
-  az network vnet-gateway create -n VNet1GW -l eastus --public-ip-address VNet1GWIP -g TestRG1 --vnet TestVNet1 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
-  ```
+   ```azurecli
+   az network vnet-gateway create -n VNet1GW -l eastus --public-ip-address VNet1GWIP -g TestRG1 --vnet TestVNet1 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
+   ```
 
 ### <a name="TestVNet4"></a>Etapa 3: criar e configurar TestVNet4
 
 1. Crie um grupos de recursos.
 
-  ```azurecli
-  az group create -n TestRG4  -l westus
-  ```
+   ```azurecli
+   az group create -n TestRG4  -l westus
+   ```
 2. Crie a TestVNet4.
 
-  ```azurecli
-  az network vnet create -n TestVNet4 -g TestRG4 --address-prefix 10.41.0.0/16 -l westus --subnet-name FrontEnd --subnet-prefix 10.41.0.0/24
-  ```
+   ```azurecli
+   az network vnet create -n TestVNet4 -g TestRG4 --address-prefix 10.41.0.0/16 -l westus --subnet-name FrontEnd --subnet-prefix 10.41.0.0/24
+   ```
 
 3. Crie sub-redes adicionais para TestVNet4.
 
-  ```azurecli
-  az network vnet update -n TestVNet4 --address-prefixes 10.41.0.0/16 10.42.0.0/16 -g TestRG4 
-  az network vnet subnet create --vnet-name TestVNet4 -n BackEnd -g TestRG4 --address-prefix 10.42.0.0/24 
-  ```
+   ```azurecli
+   az network vnet update -n TestVNet4 --address-prefixes 10.41.0.0/16 10.42.0.0/16 -g TestRG4 
+   az network vnet subnet create --vnet-name TestVNet4 -n BackEnd -g TestRG4 --address-prefix 10.42.0.0/24 
+   ```
 4. Crie a sub-rede de gateway.
 
-  ```azurecli
-   az network vnet subnet create --vnet-name TestVNet4 -n GatewaySubnet -g TestRG4 --address-prefix 10.42.255.0/27
-  ```
+   ```azurecli
+   az network vnet subnet create --vnet-name TestVNet4 -n GatewaySubnet -g TestRG4 --address-prefix 10.42.255.0/27
+   ```
 5. Solicite um endereço IP público.
 
-  ```azurecli
-  az network public-ip create -n VNet4GWIP -g TestRG4 --allocation-method Dynamic
-  ```
+   ```azurecli
+   az network public-ip create -n VNet4GWIP -g TestRG4 --allocation-method Dynamic
+   ```
 6. Crie o gateway de rede virtual TestVNet4.
 
-  ```azurecli
-  az network vnet-gateway create -n VNet4GW -l westus --public-ip-address VNet4GWIP -g TestRG4 --vnet TestVNet4 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
-  ```
+   ```azurecli
+   az network vnet-gateway create -n VNet4GW -l westus --public-ip-address VNet4GWIP -g TestRG4 --vnet TestVNet4 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
+   ```
 
 ### <a name="createconnect"></a>Etapa 4: criar as conexões
 
@@ -209,65 +209,65 @@ Agora, você tem duas redes virtuais com gateways de VPN. A próxima etapa é cr
 
 1. Obtenha a ID de recurso de VNet1GW na saída do seguinte comando:
 
-  ```azurecli
-  az network vnet-gateway show -n VNet1GW -g TestRG1
-  ```
+   ```azurecli
+   az network vnet-gateway show -n VNet1GW -g TestRG1
+   ```
 
-  Na saída, localize a linha "id:". Os valores entre aspas são necessários para criar a conexão na próxima seção. Copie esses valores para um editor de texto, como o bloco de notas, para que você possa colá-los facilmente quando criar sua conexão.
+   Na saída, localize a linha "id:". Os valores entre aspas são necessários para criar a conexão na próxima seção. Copie esses valores para um editor de texto, como o bloco de notas, para que você possa colá-los facilmente quando criar sua conexão.
 
-  Saída de exemplo:
+   Saída de exemplo:
 
-  ```
-  "activeActive": false, 
-  "bgpSettings": { 
-    "asn": 65515, 
-    "bgpPeeringAddress": "10.12.255.30", 
-    "peerWeight": 0 
-   }, 
-  "enableBgp": false, 
-  "etag": "W/\"ecb42bc5-c176-44e1-802f-b0ce2962ac04\"", 
-  "gatewayDefaultSite": null, 
-  "gatewayType": "Vpn", 
-  "id": "/subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW", 
-  "ipConfigurations":
-  ```
+   ```
+   "activeActive": false, 
+   "bgpSettings": { 
+    "asn": 65515, 
+    "bgpPeeringAddress": "10.12.255.30", 
+    "peerWeight": 0 
+   }, 
+   "enableBgp": false, 
+   "etag": "W/\"ecb42bc5-c176-44e1-802f-b0ce2962ac04\"", 
+   "gatewayDefaultSite": null, 
+   "gatewayType": "Vpn", 
+   "id": "/subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW", 
+   "ipConfigurations":
+   ```
 
-  Copie os valores após **"id":** entre aspas.
+   Copie os valores após **"id":** entre aspas.
 
-  ```
-  "id": "/subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW"
- ```
+   ```
+   "id": "/subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW"
+   ```
 
 2. Obtenha a ID de recurso de VNet4GW e copie os valores em um editor de texto.
 
-  ```azurecli
-  az network vnet-gateway show -n VNet4GW -g TestRG4
-  ```
+   ```azurecli
+   az network vnet-gateway show -n VNet4GW -g TestRG4
+   ```
 
 3. Crie a conexão de TestVNet1 a TestVNet4. Nesta etapa, você criará a conexão de TestVNet1 para TestVNet4. Existe uma chave compartilhada referenciada nos exemplos. Você pode usar seus próprios valores para a chave compartilhada. O importante é que a chave compartilhada deve corresponder em ambas as conexões. A criação de uma conexão leva alguns minutos para ser concluída.
 
-  ```azurecli
-  az network vpn-connection create -n VNet1ToVNet4 -g TestRG1 --vnet-gateway1 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW -l eastus --shared-key "aabbcc" --vnet-gateway2 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG4/providers/Microsoft.Network/virtualNetworkGateways/VNet4GW 
-  ```
+   ```azurecli
+   az network vpn-connection create -n VNet1ToVNet4 -g TestRG1 --vnet-gateway1 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW -l eastus --shared-key "aabbcc" --vnet-gateway2 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG4/providers/Microsoft.Network/virtualNetworkGateways/VNet4GW 
+   ```
 4. Crie a conexão de TestVNet4 a TestVNet1. Esta etapa é semelhante à etapa mostrada acima, exceto que você está criando a conexão de TestVNet4 para TestVNet1. Verifique se que as chaves compartilhadas correspondem. A conexão leva alguns minutos para ser estabelecida.
 
-  ```azurecli
-  az network vpn-connection create -n VNet4ToVNet1 -g TestRG4 --vnet-gateway1 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG4/providers/Microsoft.Network/virtualNetworkGateways/VNet4GW -l westus --shared-key "aabbcc" --vnet-gateway2 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1G
-  ```
+   ```azurecli
+   az network vpn-connection create -n VNet4ToVNet1 -g TestRG4 --vnet-gateway1 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG4/providers/Microsoft.Network/virtualNetworkGateways/VNet4GW -l westus --shared-key "aabbcc" --vnet-gateway2 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1G
+   ```
 5. Verifique as conexões. Confira [Verificar a conexão](#verify).
 
 ### <a name="samerg"></a>Para conectar redes virtuais que residem no mesmo grupo de recursos
 
 1. Crie a conexão de TestVNet1 a TestVNet4. Nesta etapa, você criará a conexão de TestVNet1 para TestVNet4. Observe que os grupos de recursos são os mesmos nos exemplos. Você também verá uma chave compartilhada referenciada nos exemplos. Você pode usar seus próprios valores para a chave compartilhada. No entanto, a chave compartilhada deve corresponder às duas conexões. A criação de uma conexão leva alguns minutos para ser concluída.
 
-  ```azurecli
-  az network vpn-connection create -n VNet1ToVNet4 -g TestRG1 --vnet-gateway1 VNet1GW -l eastus --shared-key "eeffgg" --vnet-gateway2 VNet4GW
-  ```
+   ```azurecli
+   az network vpn-connection create -n VNet1ToVNet4 -g TestRG1 --vnet-gateway1 VNet1GW -l eastus --shared-key "eeffgg" --vnet-gateway2 VNet4GW
+   ```
 2. Crie a conexão de TestVNet4 a TestVNet1. Esta etapa é semelhante à etapa mostrada acima, exceto que você está criando a conexão de TestVNet4 para TestVNet1. Verifique se que as chaves compartilhadas correspondem. A conexão leva alguns minutos para ser estabelecida.
 
-  ```azurecli
-  az network vpn-connection create -n VNet4ToVNet1 -g TestRG1 --vnet-gateway1 VNet4GW -l eastus --shared-key "eeffgg" --vnet-gateway2 VNet1GW
-  ```
+   ```azurecli
+   az network vpn-connection create -n VNet4ToVNet1 -g TestRG1 --vnet-gateway1 VNet4GW -l eastus --shared-key "eeffgg" --vnet-gateway2 VNet1GW
+   ```
 3. Verifique as conexões. Confira [Verificar a conexão](#verify).
 
 ## <a name="difsub"></a>Conectar as VNets que estão em assinaturas diferentes
@@ -303,38 +303,38 @@ Esta etapa deve ser feita no contexto da nova assinatura, Assinatura 5. Esta par
 
 1. Verifique se você está conectado à Assinatura 5 e crie um grupo de recursos.
 
-  ```azurecli
-  az group create -n TestRG5  -l japaneast
-  ```
+   ```azurecli
+   az group create -n TestRG5  -l japaneast
+   ```
 2. Crie a TestVNet5.
 
-  ```azurecli
-  az network vnet create -n TestVNet5 -g TestRG5 --address-prefix 10.51.0.0/16 -l japaneast --subnet-name FrontEnd --subnet-prefix 10.51.0.0/24
-  ```
+   ```azurecli
+   az network vnet create -n TestVNet5 -g TestRG5 --address-prefix 10.51.0.0/16 -l japaneast --subnet-name FrontEnd --subnet-prefix 10.51.0.0/24
+   ```
 
 3. Adicione sub-redes.
 
-  ```azurecli
-  az network vnet update -n TestVNet5 --address-prefixes 10.51.0.0/16 10.52.0.0/16 -g TestRG5
-  az network vnet subnet create --vnet-name TestVNet5 -n BackEnd -g TestRG5 --address-prefix 10.52.0.0/24
-  ```
+   ```azurecli
+   az network vnet update -n TestVNet5 --address-prefixes 10.51.0.0/16 10.52.0.0/16 -g TestRG5
+   az network vnet subnet create --vnet-name TestVNet5 -n BackEnd -g TestRG5 --address-prefix 10.52.0.0/24
+   ```
 
 4. Adicione a sub-rede de gateway.
 
-  ```azurecli
-  az network vnet subnet create --vnet-name TestVNet5 -n GatewaySubnet -g TestRG5 --address-prefix 10.52.255.0/27
-  ```
+   ```azurecli
+   az network vnet subnet create --vnet-name TestVNet5 -n GatewaySubnet -g TestRG5 --address-prefix 10.52.255.0/27
+   ```
 
 5. Solicite um endereço IP público.
 
-  ```azurecli
-  az network public-ip create -n VNet5GWIP -g TestRG5 --allocation-method Dynamic
-  ```
+   ```azurecli
+   az network public-ip create -n VNet5GWIP -g TestRG5 --allocation-method Dynamic
+   ```
 6. Criar o gateway TestVNet5
 
-  ```azurecli
-  az network vnet-gateway create -n VNet5GW -l japaneast --public-ip-address VNet5GWIP -g TestRG5 --vnet TestVNet5 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
-  ```
+   ```azurecli
+   az network vnet-gateway create -n VNet5GW -l japaneast --public-ip-address VNet5GWIP -g TestRG5 --vnet TestVNet5 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
+   ```
 
 ### <a name="connections5"></a>Etapa 8: criar as conexões
 
@@ -342,37 +342,37 @@ Esta etapa é dividida em duas sessões da CLI marcadas como **[Assinatura 1]** 
 
 1. **[Assinatura 1]**  Faça login e conecte-se à Assinatura 1. Execute o seguinte comando para obter o nome e a ID do Gateway da saída:
 
-  ```azurecli
-  az network vnet-gateway show -n VNet1GW -g TestRG1
-  ```
+   ```azurecli
+   az network vnet-gateway show -n VNet1GW -g TestRG1
+   ```
 
-  Copie a saída para "id:". Envie a ID e o nome do gateway de rede virtual (VNet1GW) para o administrador da Assinatura 5 por email ou outro método.
+   Copie a saída para "id:". Envie a ID e o nome do gateway de rede virtual (VNet1GW) para o administrador da Assinatura 5 por email ou outro método.
 
-  Saída de exemplo:
+   Saída de exemplo:
 
-  ```
-  "id": "/subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW"
-  ```
+   ```
+   "id": "/subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW"
+   ```
 
 2. **[Assinatura 5]**  Faça login e conecte-se à Assinatura 5. Execute o seguinte comando para obter o nome e a ID do Gateway da saída:
 
-  ```azurecli
-  az network vnet-gateway show -n VNet5GW -g TestRG5
-  ```
+   ```azurecli
+   az network vnet-gateway show -n VNet5GW -g TestRG5
+   ```
 
-  Copie a saída para "id:". Envie a ID e o nome do gateway de rede virtual (VNet5GW) para o administrador da Assinatura 1 por email ou outro método.
+   Copie a saída para "id:". Envie a ID e o nome do gateway de rede virtual (VNet5GW) para o administrador da Assinatura 1 por email ou outro método.
 
 3. **[Assinatura 1]** Nesta etapa, você criará a conexão de TestVNet1 para TestVNet5. Você pode usar seus próprios valores para a chave compartilhada. No entanto, a chave compartilhada deve corresponder às duas conexões. Criar uma conexão pode levar alguns minutos para ser concluída. Conecte-se à Assinatura 1.
 
-  ```azurecli
-  az network vpn-connection create -n VNet1ToVNet5 -g TestRG1 --vnet-gateway1 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW -l eastus --shared-key "eeffgg" --vnet-gateway2 /subscriptions/e7e33b39-fe28-4822-b65c-a4db8bbff7cb/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW
-  ```
+   ```azurecli
+   az network vpn-connection create -n VNet1ToVNet5 -g TestRG1 --vnet-gateway1 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW -l eastus --shared-key "eeffgg" --vnet-gateway2 /subscriptions/e7e33b39-fe28-4822-b65c-a4db8bbff7cb/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW
+   ```
 
 4. **[Assinatura 5]** Esta etapa é semelhante à etapa mostrada acima, exceto que você está criando a conexão de TestVNet5 para TestVNet1. Verifique se as chaves compartilhadas correspondem e se você se conectou à Assinatura 5.
 
-  ```azurecli
-  az network vpn-connection create -n VNet5ToVNet1 -g TestRG5 --vnet-gateway1 /subscriptions/e7e33b39-fe28-4822-b65c-a4db8bbff7cb/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW -l japaneast --shared-key "eeffgg" --vnet-gateway2 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW
-  ```
+   ```azurecli
+   az network vpn-connection create -n VNet5ToVNet1 -g TestRG5 --vnet-gateway1 /subscriptions/e7e33b39-fe28-4822-b65c-a4db8bbff7cb/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW -l japaneast --shared-key "eeffgg" --vnet-gateway2 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW
+   ```
 
 ## <a name="verify"></a>Verificar as conexões
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]

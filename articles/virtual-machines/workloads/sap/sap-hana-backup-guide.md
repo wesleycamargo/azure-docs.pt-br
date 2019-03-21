@@ -13,12 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: 9d72bc885bdaaed521042df236dd722b80533186
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
-ms.translationtype: HT
+ms.openlocfilehash: 89896fab7b1c359007ed23d4f9d9771e366ca68a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866994"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013354"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Guia de backup para SAP HANA em Máquinas Virtuais do Azure
 
@@ -63,8 +63,8 @@ _Não, atualmente podem ser usados backups de dados e log no lado primário. Se 
 
 - [Introdução à Administração do SAP HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.00/en-US)
 - [Planejando sua estratégia de backup e recuperação](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ef/085cd5949c40b788bba8fd3c65743e/content.htm)
-- [Agendar Backup HANA usando ABAP DBACOCKPIT](http://www.hanatutorials.com/p/schedule-hana-backup-using-abap.html)
-- [Agendar Backups de Dados (Ferramenta Cockpit do SAP HANA)](http://help.sap.com/saphelp_hanaplatform/helpdata/en/6d/385fa14ef64a6bab2c97a3d3e40292/frameset.htm)
+- [Agendar Backup HANA usando ABAP DBACOCKPIT](https://www.hanatutorials.com/p/schedule-hana-backup-using-abap.html)
+- [Agendar Backups de Dados (Ferramenta Cockpit do SAP HANA)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/6d/385fa14ef64a6bab2c97a3d3e40292/frameset.htm)
 - Perguntas frequentes sobre o backup do SAP HANA em [Observação 1642148 do SAP](https://launchpad.support.sap.com/#/notes/1642148)
 - Perguntas frequentes sobre instantâneos de banco de dados e armazenamento do SAP HANA em [Observação 2039883 do SAP](https://launchpad.support.sap.com/#/notes/2039883)
 - Sistemas de arquivos de rede inadequados para backup e recuperação em [Observação 1820529 do SAP](https://launchpad.support.sap.com/#/notes/1820529)
@@ -80,7 +80,7 @@ Ao usar instantâneos de armazenamento, recomenda-se executar uma restauração 
 
 Tenha em mente que fazer uma restauração simples e verificar se o HANA está ativo e em execução não são o suficiente. O ideal é executar uma verificação de consistência de tabela para certificar-se de que está tudo bem com o banco de dados restaurado. O SAP HANA oferece vários tipos de verificações de consistência descritos [Observação 1977584 do SAP](https://launchpad.support.sap.com/#/notes/1977584).
 
-Informações sobre a verificação de consistência da tabela também podem ser encontradas no site do SAP em [Verificações de consistência da tabela e do catálogo](http://help.sap.com/saphelp_hanaplatform/helpdata/en/25/84ec2e324d44529edc8221956359ea/content.htm#loio9357bf52c7324bee9567dca417ad9f8b).
+Informações sobre a verificação de consistência da tabela também podem ser encontradas no site do SAP em [Verificações de consistência da tabela e do catálogo](https://help.sap.com/saphelp_hanaplatform/helpdata/en/25/84ec2e324d44529edc8221956359ea/content.htm#loio9357bf52c7324bee9567dca417ad9f8b).
 
 Para backups de arquivos padrões, um teste de restauração não é necessário. Há duas ferramentas do SAP HANA que ajudam a verificar qual backup pode ser usados para restauração: hdbbackupdiag e hdbbackupcheck. Consulte [Verificar manualmente se uma recuperação é possível](https://help.sap.com/saphelp_hanaplatform/helpdata/en/77/522ef1e3cb4d799bab33e0aeb9c93b/content.htm) para obter mais informações sobre essas ferramentas.
 
@@ -90,7 +90,7 @@ O SAP não dá preferência para fazer backup do HANA ou instantâneo de armazen
 
 No Azure, lembre-se do fato de que o recurso de instantâneo do blob do Azure não garante a consistência do sistema de arquivos (consulte [Usando instantâneos de blob com o PowerShell](https://blogs.msdn.microsoft.com/cie/2016/05/17/using-blob-snapshots-with-powershell/)). A próxima seção, _Consistência de dados do SAP HANA ao fazer instantâneos de armazenamento_, aborda algumas considerações sobre esse recurso.
 
-Além disso, é preciso entender as implicações de cobranças ao trabalhar com instantâneos de blob com frequência conforme descrito neste artigo: [Noções básicas sobre como instantâneos acumulam cobranças](/rest/api/storageservices/understanding-how-snapshots-accrue-charges)— não é tão óbvio quanto usar discos virtuais do Azure.
+Além disso, é preciso entender as implicações de cobranças ao trabalhar com frequência com instantâneos de blob, conforme descrito neste artigo: [Noções básicas sobre como instantâneos acumulam cobranças](/rest/api/storageservices/understanding-how-snapshots-accrue-charges)— ele não é&#39;tão óbvio quanto usar discos virtuais do Azure.
 
 ### <a name="sap-hana-data-consistency-when-taking-storage-snapshots"></a>Consistência de dados do SAP HANA ao realizar instantâneos de armazenamento
 
@@ -137,7 +137,7 @@ O guia de administração do HANA fornece uma lista de exemplo. Ele sugere que �
 Em relação a um agendamento exato sobre quando e com que frequência um tipo específico de backup deve ocorrer, não é possível fornecer uma orientação geral, isso é algo muito específico para cada cliente e depende de quantas alterações de dados ocorrem no sistema. Uma recomendação básica do lado do SAP, que pode ser vista como orientação geral, é criar um backup do HANA completo uma vez por semana.
 Em relação aos backups de log, consulte a documentação do SAP HANA [Backups de Log](https://help.sap.com/saphelp_hanaplatform/helpdata/en/c3/bb7e33bb571014a03eeabba4e37541/content.htm).
 
-O SAP também recomenda a limpeza do catálogo de backup para impedir que ele cresça infinitamente (consulte [Manutenção para o catálogo de backup e armazenamento de backup](http://help.sap.com/saphelp_hanaplatform/helpdata/en/ca/c903c28b0e4301b39814ef41dbf568/content.htm)).
+O SAP também recomenda a limpeza do catálogo de backup para impedir que ele cresça infinitamente (consulte [Manutenção para o catálogo de backup e armazenamento de backup](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ca/c903c28b0e4301b39814ef41dbf568/content.htm)).
 
 ### <a name="sap-hana-configuration-files"></a>Arquivos de configuração do SAP HANA
 

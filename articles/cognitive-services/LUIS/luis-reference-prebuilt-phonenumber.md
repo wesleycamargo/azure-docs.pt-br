@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 03/04/2019
 ms.author: diberry
-ms.openlocfilehash: fa2163b37bda5beba7c36bfdff0778c4062c5546
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 2a3e84de6d956e4b45945c77c11f789d4455bfe2
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863397"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338783"
 ---
 # <a name="phonenumber-prebuilt-entity-for-a-luis-app"></a>Entidade de número telefônico predefinida para um aplicativo LUIS
 A entidade `phonenumber` extrai uma variedade de números de telefone, incluindo o código do país. Uma vez que essa entidade já está treinada, não é necessário adicionar enunciados de exemplo ao aplicativo. A entidade `phonenumber` é compatível somente com a cultura `en-us`. 

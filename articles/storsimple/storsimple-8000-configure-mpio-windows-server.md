@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 4f2b094604f486d283574f4669fcad6f72bd4431
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
-ms.translationtype: HT
+ms.openlocfilehash: eda134257edb851eea076459b44e02fc59028f46
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30245730"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078135"
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>Configurar o MPIO (Multipath I/O) para seu dispositivo StorSimple
 
@@ -35,14 +35,14 @@ O MPIO é um recurso opcional no Windows Server e não é instalado por padrão.
 
 Siga estas etapas para configurar o MPIO em seu dispositivo StorSimple:
 
-* Etapa 1: instalar o MPIO no host do Windows Server
-* Etapa 2: configurar o MPIO para os volumes StorSimple
-* Etapa 3: montar os volumes StorSimple no host
-* Etapa 4: configurar o MPIO para ter alta disponibilidade e balanceamento de carga
+* Etapa 1: Instalar o MPIO no host do Windows Server
+* Etapa 2: Configurar o MPIO para volumes do StorSimple
+* Etapa 3: Montar volumes do StorSimple no host
+* Etapa 4: Configurar o MPIO para alta disponibilidade e balanceamento de carga
 
 Cada uma das etapas acima é analisada nas seções a seguir.
 
-## <a name="step-1-install-mpio-on-the-windows-server-host"></a>Etapa 1: instalar o MPIO no host do Windows Server
+## <a name="step-1-install-mpio-on-the-windows-server-host"></a>Etapa 1: Instalar o MPIO no host do Windows Server
 
 Para instalar esse recurso no host do Windows Server, conclua o procedimento a seguir.
 
@@ -58,10 +58,10 @@ Para instalar esse recurso no host do Windows Server, conclua o procedimento a s
 3. No assistente **Adicionar Funções e Recursos**, execute as seguintes etapas:
    
    1. Na página **Antes de Começar**, clique em **Avançar**.
-   2. Na página **Selecionar tipo de instalação**, aceite a configuração padrão da instalação **Baseada em função ou recurso**. Clique em **Próximo**.
+   2. Na página **Selecionar tipo de instalação**, aceite a configuração padrão da instalação **Baseada em função ou recurso**. Clique em **Avançar**.
    
        ![Adicionar Assistente de Funções e Recursos 2](./media/storsimple-configure-mpio-windows-server/IC740999.png)
-   3. Na página **Selecionar servidor de destino**, escolha **Selecionar um servidor no pool de servidores**. O servidor host deve ser descoberto automaticamente. Clique em **Próximo**.
+   3. Na página **Selecionar servidor de destino**, escolha **Selecionar um servidor no pool de servidores**. O servidor host deve ser descoberto automaticamente. Clique em **Avançar**.
    4. Na página **Selecionar funções do servidor**, clique em **Avançar**.
    5. Na página **Selecionar recursos**, selecione **Multipath I/O** e clique em **Avançar**.
    
@@ -73,7 +73,7 @@ Para instalar esse recurso no host do Windows Server, conclua o procedimento a s
    
        ![Adicionar Assistente de Funções e Recursos 9](./media/storsimple-configure-mpio-windows-server/IC741002.png)
 
-## <a name="step-2-configure-mpio-for-storsimple-volumes"></a>Etapa 2: configurar o MPIO para os volumes StorSimple
+## <a name="step-2-configure-mpio-for-storsimple-volumes"></a>Etapa 2: Configurar o MPIO para volumes do StorSimple
 
 O MPIO deve ser configurado para identificar os volumes StorSimple. Para configurar o MPIO para reconhecer os volumes StorSimple, execute as etapas a seguir.
 
@@ -91,7 +91,7 @@ O MPIO deve ser configurado para identificar os volumes StorSimple. Para configu
     ![Adicionar Suporte do MPIO](./media/storsimple-configure-mpio-windows-server/IC741005.png)
 7. Reinicialize o servidor quando solicitado.
 
-## <a name="step-3-mount-storsimple-volumes-on-the-host"></a>Etapa 3: montar os volumes StorSimple no host
+## <a name="step-3-mount-storsimple-volumes-on-the-host"></a>Etapa 3: Montar volumes do StorSimple no host
 
 Depois do MPIO ser configurado no Windows Server, o(s) volume(s) criado(s) no dispositivo StorSimple poderá(ão) ser montado(s), em seguida, poderá(ão) aproveitar o MPIO para a redundância. Execute as seguintes etapas para montar um volume.
 
@@ -104,8 +104,8 @@ Depois do MPIO ser configurado no Windows Server, o(s) volume(s) criado(s) no di
    1. Digite o endereço IP da porta DADOS do seu dispositivo StorSimple (por exemplo, digite DADOS 0).
    2. Clique em **OK** para voltar para a caixa de diálogo **Propriedades do Iniciador iSCSI**.
      
-     > [!IMPORTANT]
-     > **Se você estiver usando uma rede privada para as conexões iSCSI, digite o endereço IP da porta DADOS que está conectada à rede privada.**
+      > [!IMPORTANT]
+      > **Se você estiver usando uma rede privada para as conexões iSCSI, digite o endereço IP da porta DADOS que está conectada à rede privada.**
     
 4. Repita as etapas de 2 a 3 para uma segunda interface de rede (por exemplo, DADOS 1) em seu dispositivo. Lembre-se que essas interfaces devem ser habilitadas para o iSCSI. Para obter mais informações, consulte [Modificar interfaces de rede](storsimple-8000-modify-device-config.md#modify-network-interfaces).
 5. Selecione a guia **Destinos** na caixa de diálogo **Propriedades do Iniciador iSCSI**. Você deverá ver o destino do dispositivo StorSimple IQN em **Destinos Descobertos**.
@@ -148,7 +148,7 @@ Depois do MPIO ser configurado no Windows Server, o(s) volume(s) criado(s) no di
 > **Não modifique os parâmetros padrão.**
 
 
-## <a name="step-4-configure-mpio-for-high-availability-and-load-balancing"></a>Etapa 4: configurar o MPIO para ter alta disponibilidade e balanceamento de carga
+## <a name="step-4-configure-mpio-for-high-availability-and-load-balancing"></a>Etapa 4: Configurar o MPIO para alta disponibilidade e balanceamento de carga
 
 Para a alta disponibilidade e o balanceamento de carga baseados em vários caminhos, várias sessões devem ser adicionadas manualmente para declarar os diversos caminhos disponíveis. Por exemplo, se o host tiver duas interfaces conectadas à iSCSI e o dispositivo tiver duas interfaces conectadas à iSCSI, você precisará de quatro sessões configuradas com permutações de caminho apropriadas (somente duas sessões serão necessárias se cada interface de DADOS e a interface de host estiverem em uma sub-rede de IP diferente e não forem roteáveis).
 

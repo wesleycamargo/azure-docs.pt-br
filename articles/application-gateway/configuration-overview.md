@@ -5,14 +5,14 @@ services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/20/2019
 ms.author: absha
-ms.openlocfilehash: 7bc3ea054056ac67cf0a116fb1538bc1483ab4d4
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.openlocfilehash: 61b3a9e066a3ee20effa97f1c6c7a0bd1ae90ac0
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223522"
+ms.locfileid: "58285831"
 ---
 # <a name="application-gateway-configuration-overview"></a>Visão geral da configuração de Gateway de aplicativo
 
@@ -33,7 +33,9 @@ Gateway de aplicativo é uma implementação dedicada em sua rede virtual. Em su
 
 #### <a name="size-of-the-subnet"></a>Tamanho da sub-rede
 
-No caso de SKU do v1, Gateway de aplicativo consome um endereço IP privado por instância, além de outro endereço IP privado se uma configuração de IP privado de front-end está configurada. Além disso, o Azure reservará os quatro primeiros e o último endereço IP em cada sub-rede para uso interno. Por exemplo, se o Gateway de Aplicativo for definido como três instâncias e nenhum IP de front-end privado, o tamanho de sub-rede /29 ou maior será necessário. Nesse caso, o Gateway de Aplicativo usará três endereços IP. Se você tiver três instâncias e um endereço IP para a configuração de IP de front-end privado, um tamanho de sub-rede /28 ou maior será necessário, visto que quatro endereços IP são necessários.
+O Gateway de Aplicativo consome um endereço IP privado por instância, além de outro endereço IP privado se uma configuração de IP de front-end privado for configurada. Além disso, o Azure reservará os quatro primeiros e o último endereço IP em cada sub-rede para uso interno. Por exemplo, se um gateway de aplicativo é definido como três instâncias e nenhum IP privado de front-end, pelo menos oito endereços IP serão necessária na sub-rede - cinco endereços IP para uso interno e três endereços IP para as três instâncias do gateway de aplicativo. Portanto, nesse caso, uma/29 sub-rede tamanho ou maior for necessária. Se você tiver três instâncias e um endereço IP para a configuração de IP privado de front-end, nove endereços IP, será necessários - três endereços IP para as três instâncias do gateway de aplicativo, um endereço IP para IP privado de front-end e IP cinco endereços para uso interno. Portanto, nesse caso, uma de/28 é necessária a sub-rede de tamanho ou maior.
+
+Como prática recomendada, use pelo menos uma de/28 tamanho da sub-rede. Isso lhe dá 11 endereços utilizáveis. Se sua carga de aplicativo exigir mais de 10 instâncias, você deve considerar um/27 ou/26 tamanho da sub-rede.
 
 #### <a name="network-security-groups-supported-on-the-application-gateway-subnet"></a>Grupos de segurança de rede com suporte na sub-rede do Gateway de aplicativo
 
@@ -41,7 +43,7 @@ Grupos de segurança de rede (NSGs) têm suporte para a sub-rede de Gateway de a
 
 - Exceções devem ser feitas para o tráfego de entrada nas portas 65503-65534 para o Application Gateway v1 SKU e portas 65200 - 65535 para o v2 SKU. Esse intervalo de porta é necessário para a comunicação da infraestrutura do Azure. Elas são protegidas (bloqueadas) por certificados do Azure. Sem os certificados apropriados, as entidades externas, incluindo os clientes desses gateways, não podem iniciar nenhuma alteração nesses pontos de extremidade.
 
-- A conectividade de internet de saída não pode ser bloqueada.
+- A conectividade de internet de saída não pode ser bloqueada. Regras de saída padrão no NSG já permitem que a conectividade com a internet. É recomendável que você não remova as regras de saída padrão e que você não criar outras regras de saída que negam a conectividade de internet de saída.
 
 - Tráfego de marca AzureLoadBalancer deve ser permitido.
 
@@ -57,11 +59,12 @@ Esse cenário pode ser realizado usando os NSGs na sub-rede do Gateway de Aplica
 
 #### <a name="user-defined-routes-supported-on-the-application-gateway-subnet"></a>Rotas definidas pelo usuário com suporte na sub-rede do Gateway de aplicativo
 
-No caso de SKU do v1, rotas definidas pelo usuário (UDRs) têm suporte na sub-rede do gateway de aplicativo, desde que elas não alteram a comunicação de solicitação/resposta de ponta a ponta.
-
-Por exemplo, é possível configurar uma UDR na sub-rede do gateway de aplicativo para apontar a um dispositivo de firewall para inspeção de pacote, mas é necessário garantir que o pacote possa alcançar a pós-inspeção de destino pretendida. Não fazer isso poderá resultar em uma investigação de integridade ou um comportamento de roteamento de tráfego incorreto. Isso inclui rotas aprendidas ou rotas 0.0.0.0/0 padrão propagadas por ExpressRoute ou Gateways de VPN na rede virtual.
+No caso de SKU do v1, rotas definidas pelo usuário (UDRs) têm suporte na sub-rede do gateway de aplicativo, desde que elas não alteram a comunicação de solicitação/resposta de ponta a ponta. Por exemplo, é possível configurar uma UDR na sub-rede do gateway de aplicativo para apontar a um dispositivo de firewall para inspeção de pacote, mas é necessário garantir que o pacote possa alcançar a pós-inspeção de destino pretendida. Não fazer isso poderá resultar em uma investigação de integridade ou um comportamento de roteamento de tráfego incorreto. Isso inclui rotas aprendidas ou rotas 0.0.0.0/0 padrão propagadas por ExpressRoute ou Gateways de VPN na rede virtual.
 
 No caso de v2 SKU, UDRs na sub-rede do gateway de aplicativo não têm suporte. Para obter mais informações, confira [Dimensionamento automático e o Gateway de Aplicativo com redundância de zona (versão prévia pública)](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#known-issues-and-limitations).
+
+> [!NOTE]
+> Usar UDRs na sub-rede do gateway de aplicativo fará com que o status de integridade na [exibição de integridade do back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) sejam mostrados como **desconhecido** e também resultará em failue da geração de logs do gateway de aplicativo e métricas. É recomendável que você não usar UDRs na sub-rede de gateway de aplicativo para ser capaz de exibir a integridade do back-end, logs e métricas.
 
 ## <a name="frontend-ip"></a>IP de front-end
 
@@ -87,10 +90,11 @@ Você pode escolher entre [ouvinte básico ou multissite](https://docs.microsoft
 
 - Se você estiver configurando mais de um aplicativo web ou vários subdomínios do mesmo domínio pai na mesma instância de gateway de aplicativo, em seguida, escolha o ouvinte multissite. Para o ouvinte multissite, além disso você precisará inserir um nome de host. Isso ocorre porque o Gateway de aplicativo depende de cabeçalhos de host HTTP 1.1 para hospedar mais de um site no mesmo endereço IP público e porta.
 
-> [!NOTE]
-> No caso de SKUs v1, os ouvintes são processados na ordem em que elas são mostradas. Por esse motivo, se um ouvinte básico corresponder a uma solicitação de entrada, ele a processará primeiro. Portanto, os ouvintes multissite devem ser configuradas antes de um ouvinte básico para garantir que o tráfego é roteado para o back-end correto.
->
-> No caso de SKUs v2, ouvintes multissite são processadas antes dos ouvintes básicos.
+#### <a name="order-of-processing-listeners"></a>Ordem de processamento de ouvintes
+
+No caso de SKUs v1, os ouvintes são processados na ordem em que elas são mostradas. Por esse motivo, se um ouvinte básico corresponder a uma solicitação de entrada, ele a processará primeiro. Portanto, os ouvintes multissite devem ser configuradas antes de um ouvinte básico para garantir que o tráfego é roteado para o back-end correto.
+
+No caso de SKUs v2, ouvintes multissite são processadas antes dos ouvintes básicos.
 
 ### <a name="frontend-ip"></a>IP de front-end
 
@@ -110,9 +114,9 @@ Você precisa escolher entre o protocolo HTTP e HTTPS.
 
   Para configurar a criptografia SSL de ponta a ponta e o término de Secure Sockets Layer (SSL), é necessário um certificado a ser adicionado ao ouvinte de modo a habilitar o Gateway de aplicativo para derivar uma chave simétrica de acordo com a especificação do protocolo SSL. A chave simétrica, em seguida, é usada para criptografar e descriptografar o tráfego enviado para o gateway. O certificado do gateway precisa estar no formato PFX (Troca de Informações Pessoais). Esse formato de arquivo permite exportar a chave privada que é exigida pelo gateway de aplicativo para realizar a criptografia e descriptografia do tráfego. 
 
-#### <a name="supported-certs"></a>Certificados com suporte
+#### <a name="supported-certificates"></a>Certificados compatíveis
 
-Há suporte a certificados autoassinados, certificados de autoridade de certificação, certificados curinga e certificados EV.
+Ver [certificados com suporte para a terminação SSL](https://docs.microsoft.com/azure/application-gateway/ssl-overview#certificates-supported-for-ssl-termination).
 
 ### <a name="additional-protocol-support"></a>Suporte a protocolos adicionais
 
@@ -160,11 +164,11 @@ Você pode escolher entre [regra básica ou baseada em caminho](https://docs.mic
 - Escolha o ouvinte baseado em caminho se você quiser rotear solicitações com o caminho da URL específica para pools de back-end específico. O padrão de caminho é aplicado somente para o caminho da URL, não para seus parâmetros de consulta.
 
 
-> [!NOTE]
->
-> No caso de SKUs v1, correspondência de padrão de solicitação de entrada é processada na ordem em que os caminhos são listados no mapa de caminho de URL da regra com base no caminho. Por esse motivo, se uma solicitação corresponde ao padrão em dois ou mais caminhos no mapa de caminho de URL, em seguida, o caminho que é listado primeiro será correspondido e a solicitação será encaminhada para o back-end associado a esse caminho.
->
-> No caso de SKUs v2, uma correspondência exata mantém a maior prioridade sobre a ordem na qual os caminhos são listados no mapa de caminho de URL. Para que o motivo, se uma solicitação corresponde ao padrão em dois ou mais caminhos, em seguida, a solicitação será encaminhada para o back-end associada com esse caminho que corresponda exatamente com a solicitação. Se o caminho na solicitação de entrada corresponder exatamente a qualquer caminho no mapa de caminho de URL, em seguida, correspondência de padrão de solicitação de entrada é processada na ordem em que os caminhos são listados no mapa de caminho de URL da regra com base no caminho.
+#### <a name="order-of-processing-rules"></a>Ordem das regras de processamento
+
+No caso de SKUs v1, correspondência de padrão de solicitação de entrada é processada na ordem em que os caminhos são listados no mapa de caminho de URL da regra com base no caminho. Por esse motivo, se uma solicitação corresponde ao padrão em dois ou mais caminhos no mapa de caminho de URL, em seguida, o caminho que é listado primeiro será correspondido e a solicitação será encaminhada para o back-end associado a esse caminho.
+
+No caso de SKUs v2, uma correspondência exata mantém a maior prioridade sobre a ordem na qual os caminhos são listados no mapa de caminho de URL. Para que o motivo, se uma solicitação corresponde ao padrão em dois ou mais caminhos, em seguida, a solicitação será encaminhada para o back-end associada com esse caminho que corresponda exatamente com a solicitação. Se o caminho na solicitação de entrada corresponder exatamente a qualquer caminho no mapa de caminho de URL, em seguida, correspondência de padrão de solicitação de entrada é processada na ordem em que os caminhos são listados no mapa de caminho de URL da regra com base no caminho.
 
 ### <a name="associated-listener"></a>Ouvinte associado
 
@@ -176,7 +180,7 @@ Associe o pool de back-end que contém os destinos de back-end que atenderá às
 
 ### <a name="associated-backend-http-setting"></a>Configuração de HTTP de back-end associado
 
-Adicione uma configuração de HTTP de back-end para cada regra. As solicitações serão roteadas de Gateway de aplicativo para os destinos de back-end usando o número da porta, protocolo e outras configurações especificadas nesta configuração. No caso de uma regra básica, apenas uma configuração de HTTP de back-end é permitida, pois todas as solicitações no ouvinte associado serão encaminhadas para os destinos de back-end correspondente usando essa configuração de HTTP. No caso de uma regra com base em caminho, adicione várias configurações de HTTP de back-end correspondente a cada caminho de URL. As solicitações que correspondam ao caminho de URL inserido aqui, será encaminhado para os destinos correspondentes do back-end usando as configurações de HTTP correspondente para cada caminho de URL. Além disso, adicione uma configurações de HTTP padrão, pois as solicitações que não correspondem a qualquer caminho de URL inserido nesta regra serão encaminhadas para o pool de back-end padrão usando as configurações de HTTP padrão.
+Adicione uma configuração de HTTP de back-end para cada regra. As solicitações serão roteadas de Gateway de aplicativo para os destinos de back-end usando o número da porta, protocolo e outras configurações especificadas nesta configuração. No caso de uma regra básica, apenas uma configuração de HTTP de back-end é permitida, pois todas as solicitações no ouvinte associado serão encaminhadas para os destinos de back-end correspondente usando essa configuração de HTTP. No caso de uma regra com base em caminho, adicione várias configurações de HTTP de back-end correspondente a cada caminho de URL. As solicitações que correspondam ao caminho de URL inserido aqui, será encaminhado para os destinos correspondentes do back-end usando as configurações de HTTP correspondente para cada caminho de URL. Além disso, adicione uma configuração de HTTP padrão, pois as solicitações que não correspondem a qualquer caminho de URL inserido nesta regra serão encaminhadas para o pool de back-end padrão usando a configuração de HTTP padrão.
 
 ### <a name="redirection-setting"></a>Configuração de redirecionamento
 
@@ -186,7 +190,7 @@ Para obter informações sobre a funcionalidade de redirecionamento, consulte [v
 
 - #### <a name="redirection-type"></a>Tipo de redirecionamento
 
-  Escolha o tipo de redirecionamento necessário do: Permanentes, temporário, encontrado ou ver outros.
+  Escolha o tipo de redirecionamento necessário do: Other(303) Permanent(301), Temporary(307), Found(302) ou consulte.
 
 - #### <a name="redirection-target"></a>Destino de redirecionamento
 
@@ -236,14 +240,14 @@ O número de segundos que o gateway de aplicativo espera receber a resposta do p
 
 Essa configuração permite que você configure um caminho de encaminhamento personalizado opcional a ser usado quando a solicitação é encaminhada para o back-end. Isso irá copiar qualquer parte do caminho de entrada que corresponde ao caminho personalizado especificado na **substituir o caminho de back-end** campo para o caminho encaminhado. Consulte a tabela a seguir para entender como funciona o recurso.
 
-- Quando as configurações de HTTP é anexado a uma regra de roteamento de solicitação básico:
+- Quando a configuração de HTTP é anexada a uma regra de roteamento de solicitação básico:
 
   | Solicitação original  | Substituir caminho de back-end | Solicitação encaminhada ao back-end |
   | ----------------- | --------------------- | ---------------------------- |
   | /Home/            | /override/            | / Substituir/home /              |
   | / home/secondhome / | /override/            | substituição/home/secondhome /   |
 
-- Quando as configurações de HTTP é anexado a uma regra de roteamento de solicitação com base em caminho:
+- Quando a configuração de HTTP é anexada a uma regra de roteamento de solicitação com base em caminho:
 
   | Solicitação original           | Regra de caminho       | Substituir caminho de back-end | Solicitação encaminhada ao back-end |
   | -------------------------- | --------------- | --------------------- | ---------------------------- |

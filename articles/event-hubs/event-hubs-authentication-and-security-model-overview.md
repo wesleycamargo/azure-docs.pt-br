@@ -15,12 +15,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 6f4abd9f826864914abee0b5d513d5b1c530d416
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 19b347423c28b4c615f90f325ead462b9d3e8e9e
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104145"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990027"
 ---
 # <a name="azure-event-hubs---authentication-and-security-model"></a>Hubs de Eventos do Azure - Modelo de autenticação e segurança
 
@@ -68,13 +68,13 @@ nm.CreateEventHub(ed);
 
 ### <a name="generate-tokens"></a>Gerar tokens
 
-Você pode gerar tokens usando a chave SAS. Você deve criar somente um token por cliente. Tokens podem ser criados usando o seguinte método. Todos os tokens são gerados usando a chave **EventHubSendKey** . A cada token é atribuído um URI exclusivo.
+Você pode gerar tokens usando a chave SAS. Você deve criar somente um token por cliente. Tokens podem ser criados usando o seguinte método. Todos os tokens são gerados usando a chave **EventHubSendKey** . A cada token é atribuído um URI exclusivo. O parâmetro 'resource' corresponde ao ponto de extremidade URI do serviço (hub de eventos neste caso).
 
 ```csharp
 public static string SharedAccessSignatureTokenProvider.GetSharedAccessSignature(string keyName, string sharedAccessKey, string resource, TimeSpan tokenTimeToLive)
 ```
 
-Ao chamar esse método, o URI deve ser especificado como `//<NAMESPACE>.servicebus.windows.net/<EVENT_HUB_NAME>/publishers/<PUBLISHER_NAME>`. Para todos os tokens, o URI é idêntico, com exceção de `PUBLISHER_NAME`, que deve ser diferente para cada token. O ideal é que `PUBLISHER_NAME` represente a ID do cliente que recebe esse token.
+Ao chamar esse método, o URI deve ser especificado como `https://<NAMESPACE>.servicebus.windows.net/<EVENT_HUB_NAME>/publishers/<PUBLISHER_NAME>`. Para todos os tokens, o URI é idêntico, com exceção de `PUBLISHER_NAME`, que deve ser diferente para cada token. O ideal é que `PUBLISHER_NAME` represente a ID do cliente que recebe esse token.
 
 Esse método gera um token com a seguinte estrutura:
 

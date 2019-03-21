@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: 3948b0e1445aef5b9030e5e40f4bd4ec7ea1bf51
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: fe9ec05b3d8f084f58d5836f1a077e952966ecef
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55175750"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119319"
 ---
 # <a name="join-a-coreos-linux-virtual-machine-to-a-managed-domain"></a>Ingressar uma máquina virtual do CoreOS Linux em um domínio gerenciado
 Este artigo mostra como ingressar uma máquina virtual CoreOS Linux a um domínio gerenciado do Azure AD Domain Services.
@@ -113,10 +113,9 @@ sudo adcli join -D CONTOSO100.COM -U bob@CONTOSO100.COM -K /etc/krb5.keytab -H c
 
 > [!NOTE]
 > **Solução de problemas:** Se *adcli* não puder localizar o domínio gerenciado:
-  * Verifique se o domínio pode ser acessado da máquina virtual (tente executar o ping).
-  * Verifique se a máquina virtual, de fato, foi implantada na mesma rede virtual na qual o domínio gerenciado está disponível.
-  * Verifique se você atualizou as configurações do servidor DNS para a rede virtual para apontar para os controladores de domínio do domínio gerenciado.
->
+>   * Verifique se o domínio pode ser acessado da máquina virtual (tente executar o ping).
+>   * Verifique se a máquina virtual, de fato, foi implantada na mesma rede virtual na qual o domínio gerenciado está disponível.
+>   * Verifique se você atualizou as configurações do servidor DNS para a rede virtual para apontar para os controladores de domínio do domínio gerenciado.
 
 Inicie o serviço SSSD. No terminal SSH, digite o seguinte comando:
   ```

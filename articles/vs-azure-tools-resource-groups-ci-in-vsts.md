@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: a3dfca48b52af39e7a536b3012a3f4cdac4e9a94
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
-ms.translationtype: HT
+ms.openlocfilehash: d7859572b090913db13fe9bb7f3ed67619fe5521
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955149"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456339"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Integração contínua no Azure DevOps Services usando projetos de implantação do Grupo de Recursos do Azure
-Para implantar um modelo do Azure, você precisa executar tarefas de vários estágios: Compilar, Testar, Copiar para o Azure (também chamado de "Preparo") e Implantar Modelo. Há duas maneiras diferentes de implantar modelos no Azure DevOps Services. Os dois métodos oferecem os mesmos resultados, então escolha aquele que melhor se adapta ao seu fluxo de trabalho.
+Para implantar um modelo do Azure, você pode executar tarefas em vários estágios: Compilar, testar, copiar para o Azure (também chamado de "Preparo") e implantar o modelo. Há duas maneiras diferentes de implantar modelos no Azure DevOps Services. Os dois métodos oferecem os mesmos resultados, então escolha aquele que melhor se adapta ao seu fluxo de trabalho.
 
 1. Adicione uma única etapa ao seu pipeline de build que executa o script do PowerShell incluído no projeto de implantação do Grupo de Recursos do Azure (Deploy-AzureResourceGroup.ps1). O script copia artefatos e implanta o modelo.
 2. Adicione várias etapas de build do Azure DevOps Services, cada uma executando uma tarefa do estágio.

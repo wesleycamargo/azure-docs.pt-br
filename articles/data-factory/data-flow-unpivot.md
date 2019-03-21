@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 14326714fc8258e184024edb83666d3ed0c3eee7
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 160ff8bbcb8ce5a4f1f32245cc366281640c5919
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270826"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57854238"
 ---
-# <a name="azure-data-factory-mapping-data-flow-unpivot-transformation"></a>Transformação não dinâmica do Fluxo de Dados de Mapeamento do Azure Data Factory
+# <a name="azure-data-factory-unpivot-transformation"></a>Transformação não dinâmica do Azure Data Factory
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -32,7 +32,7 @@ Primeiro, defina as colunas pelas quais você deseja agrupar para sua agregaçã
 
 ![Transformação não dinâmica](media/data-flow/unpivot6.png "Opções não dinâmicas 3")
 
-A chave de dinamização é a coluna que o ADF dinamizará de linha para coluna. Por padrão, cada valor único no conjunto de dados para este campo dinamizará para uma coluna. No entanto, é possível inserir, opcionalmente, os valores do conjunto de dados que você deseja dinamizar para valores de coluna.
+A chave de dinamização é a coluna que o ADF dinamizará de linha para coluna. Por padrão, cada valor único no conjunto de dados para o campo será dinamizado para uma coluna. No entanto, é possível inserir, opcionalmente, os valores do conjunto de dados que você deseja dinamizar para valores de coluna.
 
 ## <a name="unpivoted-columns"></a>Colunas não dinâmicas
 
@@ -51,3 +51,7 @@ Definir a Disposição de Colunas como “Normal” agrupará todas as colunas d
 ![Transformação não dinâmica](media/data-flow//unpivot7.png "Opções não dinâmicas 5")
 
 O conjunto final de resultados de dados não dinâmicos mostra os totais de colunas agora transformadas em valores de linha separados.
+
+## <a name="next-steps"></a>Próximas etapas
+
+Use o [transformação dinâmica](data-flow-pivot.md) para pivot linhas para as colunas.

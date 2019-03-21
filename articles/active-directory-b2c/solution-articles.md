@@ -7,13 +7,13 @@ ms.author: davidmu
 ms.date: 11/05/2018
 ms.topic: conceptual
 ms.service: active-directory
-ms.subservice: b2c
-ms.openlocfilehash: 5f771e51a0114c321d1dfcbaf305dd9923040032
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.subservice: B2C
+ms.openlocfilehash: 08a5e288d58d86cdad18561cb8a08a31f44ae498
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55149028"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009733"
 ---
 # <a name="solutions-and-training-for-azure-active-directory-b2c"></a>Soluções e treinamento para o Azure Active Directory B2C
 
@@ -28,3 +28,4 @@ O Azure Active Directory B2C permite que as organizações implementem soluçõe
 | [Migrando autenticação de aplicativo para o Azure Active Directory B2C em um ambiente híbrido](https://aka.ms/MigratetoAADB2C) | Nas organizações modernas de hoje, a transformação digital e mover para a nuvem ocorre em estágios, que exigem que a maioria das organizações, pelo menos temporariamente, opere em um ambiente de identidade híbrida.<br><br>Este guia se concentra em criar o plano de migração para mover seu primeiro aplicativo do Azure Active Directory B2C e aborda as considerações para fazer isso enquanto estiver em um ambiente de identidade híbrida. |
 | [Considerações sobre o Regulamento Geral sobre a Proteção de Dados dos Aplicativos Voltados para o Cliente](https://aka.ms/AADB2CandGDPR) | Para quaisquer aplicativos voltados ao cliente, RGPD deve ser levado em consideração por todas as organizações que embarcarem em projetos que contêm dados pessoais e servem cidadãos da UE.<br><br>Este guia de solução se concentra em como o Azure Active Directory B2C pode ser usado como um componente flexível de sua abordagem geral de conformidade de RGPD, incluindo como do Azure AD B2C componentes oferecem suporte a cada um dos direitos RGPD de chave para pessoas físicas. |
 | Trabalhando com políticas personalizadas:<br><ul><li>[Introdução de políticas personalizadas](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Introduction.pdf)</li><li>[Aproveitar as políticas personalizadas em seu locatário](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Leveraging%20Custom%20Policies%20for%20your%20Tenant.pdf)</li><li>[Estrutura de políticas e gerenciar chaves](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Structuring%20Policies%20and%20Managing%20Keys.pdf)</li><li>[Traga sua própria identidade e migrar usuários](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Bring-your-own-identity%20and%20Migrating%20Users.pdf)</li><li>[Solucionar problemas de políticas e auditoria de acesso](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Troubleshooting%20Policies%20and%20Auditing.pdf)</li><li>[Análise aprofundada sobre o esquema de política personalizada](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Deep%20Dive%20on%20Custom%20Policy%20Schema.pdf)</li><br>| Esta série de documentos fornece uma jornada de ponta a ponta com as políticas personalizadas no Azure AD B2C, apresentando em profundidade os cenários de identidade avançados mais comuns.<br><br> Ele inclui como implementar e gerenciar políticas personalizadas para esses cenários e como diagnosticá-las com as ferramentas disponíveis. Ele também fornece um reconhecimento detalhada de como as políticas personalizadas funcionam e detalha como ajustá-las para acomodar seus próprios requisitos específicos. |
+

@@ -8,18 +8,18 @@ ms.service: security
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: jomolesk
-ms.openlocfilehash: 64a51e63422082a81ca3628f42e7df6623638770
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 5f7f9641e8fc7cd4c0e8dd153b350b9dd876b004
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099927"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58168683"
 ---
 # <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-uk-nhs"></a>Blueprint de Segurança e Conformidade do Azure: Aplicativo Web IaaS para o NHS do Reino Unido
 
 ## <a name="overview"></a>Visão geral
 
-Este Blueprint de Conformidade e Segurança do Azure fornece uma arquitetura e diretrizes de referência para um aplicativo Web de infraestrutura como serviço (IaaS) adequado para coleta, armazenamento e recuperação de dados de serviços de saúde. Essa solução demonstra maneiras em que os clientes podem estar em conformidade com as diretrizes fornecidas no [Guia de Boas Práticas de Segurança na Nuvem](https://digital.nhs.uk/data-and-information/looking-after-information/data-security-and-information-governance/nhs-and-social-care-data-off-shoring-and-the-use-of-public-cloud-services/health-and-social-care-cloud-security-good-practice-guide) publicado pela [NHS Digital](https://digital.nhs.uk/), um parceiro do Ministério da Saúde e Assistência Social (DHSC) do Reino Unido (RU). A Guia de Boas Práticas de Segurança na Nuvem se baseia nos 14 [Princípios de Segurança na Nuvem](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) publicados Pelo Centro de Segurança Cibernética Nacional do RU (NCSC).
+Este projeto de conformidade e segurança do Azure fornece uma arquitetura de referência e diretrizes para uma infraestrutura como um aplicativo web de serviço (IaaS) adequado para a coleta, armazenamento e recuperação de dados da área de saúde. Essa solução demonstra maneiras em que os clientes podem estar em conformidade com as diretrizes fornecidas no [Guia de Boas Práticas de Segurança na Nuvem](https://digital.nhs.uk/data-and-information/looking-after-information/data-security-and-information-governance/nhs-and-social-care-data-off-shoring-and-the-use-of-public-cloud-services/health-and-social-care-cloud-security-good-practice-guide) publicado pela [NHS Digital](https://digital.nhs.uk/), um parceiro do Ministério da Saúde e Assistência Social (DHSC) do Reino Unido (RU). A Guia de Boas Práticas de Segurança na Nuvem se baseia nos 14 [Princípios de Segurança na Nuvem](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) publicados Pelo Centro de Segurança Cibernética Nacional do RU (NCSC).
 
 Essa arquitetura de referência, o guia de implementação e os modelos de ameaça são destinados a servir como uma base que os clientes podem ajustar a seus requisitos específicos e não devem ser usados no estado em que se encontra em um ambiente de produção sem configuração adicional. Os clientes são responsáveis por realizar as devidas avaliações de segurança e conformidade de qualquer solução criada usando essa arquitetura, uma vez que os requisitos podem variar com base nas particularidades da implementação de cada cliente.
 
@@ -177,9 +177,9 @@ Os serviços do Azure registram em log de forma extensiva as atividades do siste
 - **Logs de atividades**: Os [logs de atividades](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fornecem insights sobre as operações executadas em recursos em uma assinatura. Os logs de atividade podem ajudar a determinar o iniciador, o horário da ocorrência e o status de uma operação.
 - **Logs de diagnóstico**: Os [Logs de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) incluem todos os registros emitidos por todos os recursos. Esses logs são logs do sistema de eventos do Windows, logs de Armazenamento do Azure, logs de auditoria do Key Vault e logs de acesso e firewall do Gateway de Aplicativo. Todos os logs de diagnóstico são gravados em uma conta de armazenamento do Azure centralizada e criptografada para arquivamento. A retenção é configurável pelo usuário, de até 730 dias, para atender aos requisitos de retenção específicos da organização.
 
-**Log Analytics**: Esses logs são consolidados no [Log Analytics](https://azure.microsoft.com/services/log-analytics/) para processamento, armazenamento e relatórios de painel. Depois de coletados, os dados são organizados em tabelas separadas para cada tipo de dados, o que permite que todos os dados sejam analisados em conjunto, independentemente de sua fonte. Além disso, a Central de Segurança do Azure é integrada ao Log Analytics, o que possibilita aos clientes usar consultas do Log Analytics para acessar seus dados de eventos de segurança e combiná-los com dados de outros serviços.
+**Logs do Azure Monitor**: Esses logs são consolidados [registra em log do Azure Monitor](https://azure.microsoft.com/services/log-analytics/) para processamento, armazenamento e emissão de relatórios do painel. Depois de coletados, os dados são organizados em tabelas separadas para cada tipo de dados, o que permite que todos os dados sejam analisados em conjunto, independentemente de sua fonte. Além disso, a Central de segurança do Azure integra-se com os logs do Azure Monitor permitindo que os clientes usem Kusto consultas para acessar seus dados de evento de segurança e combiná-lo com dados de outros serviços.
 
-As seguintes [soluções de gerenciamento](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) do Log Analytics são incluídas como parte desta arquitetura:
+O Azure a seguir [soluções de monitoramento](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) são incluídos como parte dessa arquitetura:
 -   [Avaliação do Active Directory](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): A solução de Verificação de Integridade do Active Directory avalia o risco e a integridade dos ambientes de servidor em intervalos regulares e fornece uma lista priorizada de recomendações específicas para a infraestrutura de servidor implantada.
 - [Avaliação do SQL](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): A solução de Verificação de Integridade do SQL avalia o risco e a integridade dos ambientes do servidor em intervalos regulares e fornece aos clientes uma lista priorizada de recomendações específicas para a infraestrutura de servidor implantada.
 - [Integridade do Agente](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): A solução de Integridade do Agente informa quantos agentes são implantados e sua distribuição geográfica, além de quantos agentes sem resposta e o número de agentes que estão enviando dados operacionais.

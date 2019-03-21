@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 4f1ce84dba4e9f35e7884ebd9058781eb30c3ec4
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: d4c3ab7e33d3d4bd8d5d5ee15c8264d1d41c858e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815839"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081059"
 ---
 # <a name="traffic-analytics"></a>Análise de Tráfego
 
@@ -41,8 +41,8 @@ As redes virtuais do Azure têm logs de fluxo do NSG, que fornecem informações
 
 - **NSG (Grupo de Segurança de Rede)**: Contém uma lista de regras de segurança que permitem ou negam o tráfego de rede a recursos conectados a uma Rede Virtual do Azure. Os NSGs podem ser associados a sub-redes, VMs individuais (clássicas) ou interfaces de rede individuais (NIC) anexadas a VMs (Resource Manager). Para obter mais informações, confira [Visão geral do Grupo de Segurança de Rede](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Logs de fluxo do NSG (Grupo de Segurança de Rede)**: Permitem que você exiba informações sobre o tráfego IP de entrada e saída por meio de um grupo de segurança de rede. Os logs de fluxo do NSG são gravados no formato json e mostram os fluxos de entrada e de saída por regra, a NIC à qual o fluxo se aplica, as informações de cinco tuplas sobre o fluxo (IP de origem/destino, porta de origem/destino, e protocolo) e se o tráfego foi permitido ou negado. Para obter mais informações sobre os logs de fluxo do NSG, consulte [logs de fluxo do NSG](network-watcher-nsg-flow-logging-overview.md).
-- **Log Analytics**: Um serviço do Azure que coleta dados de monitoramento e armazena os dados em um repositório central. Esses dados podem incluir eventos, dados de desempenho ou dados personalizados fornecidos pela API do Azure. Depois de coletados, os dados ficam disponíveis para alertas, análise e exportação. Aplicativos de monitoramento, como o Monitor de Desempenho de Rede e Análise de Tráfego são criados usando o Log Analytics como base. Para obter mais informações, consulte [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Workspace do Log Analytics**: Uma instância do Log Analytics, em que os dados pertencentes a uma conta do Azure são armazenados. Para obter mais informações sobre workspaces do Log Analytics, consulte [Criar um workspace do Log Analytics](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Log Analytics**: Um serviço do Azure que coleta dados de monitoramento e armazena os dados em um repositório central. Esses dados podem incluir eventos, dados de desempenho ou dados personalizados fornecidos pela API do Azure. Depois de coletados, os dados ficam disponíveis para alertas, análise e exportação. Monitoramento de aplicativos, como análise de tráfego e o monitor de desempenho de rede é criado usando os logs do Azure Monitor como base. Para obter mais informações, consulte [registra em log do Azure Monitor](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Workspace do Log Analytics**: Uma instância de logs do Azure Monitor, onde os dados que pertencem a uma conta do Azure, é armazenado. Para obter mais informações sobre espaços de trabalho do Log Analytics, consulte [criar um espaço de trabalho do Log Analytics](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Observador de Rede**: Um serviço regional que permite monitorar e diagnosticar condições em um nível de cenário de rede no Azure. Você pode ativar e desativar os logs de fluxo do NSG com o Observador de Rede. Para obter mais informações, consulte [Observador de Rede](network-watcher-monitoring-overview.md).
 
 ## <a name="how-traffic-analytics-works"></a>Como funciona a Análise de Tráfego
@@ -75,6 +75,7 @@ Você pode usar a análise de tráfego para NSGs em qualquer uma das seguintes r
 * Índia Central
 * Sul da Índia
 * Leste do Japão 
+* Gov. dos EUA – Virgínia
 
 O espaço de trabalho do Log Analytics deve existir nas seguintes regiões:
 * Canadá Central
@@ -86,6 +87,7 @@ O espaço de trabalho do Log Analytics deve existir nas seguintes regiões:
 * Sudeste Asiático
 * Índia Central
 * Leste do Japão
+* Gov. dos EUA – Virgínia
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -164,9 +166,9 @@ Selecione as opções a seguir, conforme mostrado na imagem:
 2. Selecione uma conta de armazenamento existente na qual armazenar os logs de fluxo. Se você deseja armazenar os dados indefinidamente, defina o valor como *0*. Incorrem em taxas de armazenamento do Azure para a conta de armazenamento.
 3. Defina a **Retenção** para o número de dias que você deseja armazenar os dados.
 4. Selecione *Ativado* para **Status de Análise de Tráfego**.
-5. Selecione um workspace do Log Analytics existente ou selecione **Criar novo workspace** para criar um novo. Um workspace do Log Analytics é usado pela Análise de Tráfego para armazenar os dados agregados e indexados que são usados para gerar a análise. Se você selecionar um workspace existente, ele deve existir em uma das regiões com suporte e ter sido atualizado para a nova linguagem de consulta. Se você não desejar atualizar um workspace existente ou não tem um workspace em uma região com suporte, crie um novo. Para obter mais informações sobre linguagens de consulta, consulte [Atualização do Azure Log Analytics para a nova pesquisa de logs ](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+5. Selecione um espaço de trabalho do Log Analytics existente ou selecione **criar novo espaço de trabalho** para criar um novo. Um workspace do Log Analytics é usado pela Análise de Tráfego para armazenar os dados agregados e indexados que são usados para gerar a análise. Se você selecionar um workspace existente, ele deve existir em uma das regiões com suporte e ter sido atualizado para a nova linguagem de consulta. Se você não desejar atualizar um workspace existente ou não tem um workspace em uma região com suporte, crie um novo. Para obter mais informações sobre linguagens de consulta, consulte [do Azure Monitor registra a atualização para uma nova pesquisa de log](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
-    O workspace do log analytics que hospeda a solução de Análise de Tráfego e os NSGs não precisa estar na mesma região. Por exemplo, você pode ter Análise de Tráfego em um workspace na região Europa Ocidental e ter os NSGs no Leste dos EUA e Oeste dos EUA. Podem ser configurados vários NSGs no mesmo workspace.
+    O espaço de trabalho do Log Analytics que hospeda a solução de análise de tráfego e os NSGs não precisa estar na mesma região. Por exemplo, você pode ter Análise de Tráfego em um workspace na região Europa Ocidental e ter os NSGs no Leste dos EUA e Oeste dos EUA. Podem ser configurados vários NSGs no mesmo workspace.
 6. Clique em **Salvar**.
 
     ![Seleção de conta de armazenamento, workspace do Log Analytics e habilitação da Análise de Tráfego](./media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement.png)
@@ -199,7 +201,7 @@ Algumas das informações que talvez você pode querer obter depois que a Análi
 - Estatísticas do tráfego bloqueado.
     - Por que um host está bloqueando um volume significativo de tráfego benigno? Esse comportamento requer investigação adicional e provavelmente otimização da configuração
 - Estatísticas de tráfego mal-intencionado permitido/bloqueado
-    - Por que um host está recebendo tráfego mal-intencionado e por que fluxos de origem mal-intencionada são permitidos? Esse comportamento requer investigação adicional e provavelmente otimização da configuração.
+  - Por que um host está recebendo tráfego mal-intencionado e por que fluxos de origem mal-intencionada são permitidos? Esse comportamento requer investigação adicional e provavelmente otimização da configuração.
 
     Selecione **Ver todos**, em **Host**, conforme mostrado na figura a seguir:
 
@@ -258,8 +260,8 @@ Algumas das informações que talvez você pode querer obter depois que a Análi
 **Procurar**
 
 - Distribuição de tráfego por data center como principais fontes de tráfego para um data center, principais redes não autorizadas que conversam com o data center e principais protocolos de aplicativo que conversam.
-    - Se você observar mais carga em um data center, você pode planejar para a distribuição de tráfego eficiente.
-    - Se redes não autorizadas estiverem conversando no data center, corrija as regras NSG para bloqueá-las.
+  - Se você observar mais carga em um data center, você pode planejar para a distribuição de tráfego eficiente.
+  - Se redes não autorizadas estiverem conversando no data center, corrija as regras NSG para bloqueá-las.
 
     Selecione **Exibir mapa** em **Seu ambiente**, conforme mostrado na figura a seguir:
 
@@ -280,8 +282,8 @@ Algumas das informações que talvez você pode querer obter depois que a Análi
 **Procurar**
 
 - Distribuição de tráfego por rede virtual, topologia, principais fontes de tráfego na rede virtual, principais redes não autorizadas que conversam com a rede virtual e principais protocolos de aplicativo que conversam.
-    - Saber qual rede virtual está conversando com qual rede virtual. Se a conversa não é esperada, ela pode ser corrigido.
-    - Se redes não autorizadas estão conversando com uma rede virtual, você pode corrigir as regras NSG para bloquear as redes não autorizadas.
+  - Saber qual rede virtual está conversando com qual rede virtual. Se a conversa não é esperada, ela pode ser corrigido.
+  - Se redes não autorizadas estão conversando com uma rede virtual, você pode corrigir as regras NSG para bloquear as redes não autorizadas.
  
     Selecione **Exibir VNets** em **Seu ambiente**, conforme mostrado na figura a seguir:
 
@@ -321,7 +323,7 @@ Distribuição de tráfego por gateway de Aplicativo e Load Balancer, topologia,
 **Procurar**
 
 - Quais portas abertas estão conversando pela internet?
-    - Se portas inesperadas encontram-se abertas, você poderá corrigir sua configuração:
+  - Se portas inesperadas encontram-se abertas, você poderá corrigir sua configuração:
 
     ![Painel mostrando portas que recebem e enviam tráfego para a internet](./media/traffic-analytics/dashboard-showcasing-ports-receiving-and-sending-traffic-to-the-internet.png)
 
@@ -345,9 +347,9 @@ Você tem o tráfego mal-intencionado no seu ambiente? Onde ele é originado? Pa
 
 - As imagens a seguir mostram tendências de tempo para acessos de regras NSG e detalhes de fluxo de origem-destino para um grupo de segurança de rede:
 
-    - Detecte rapidamente quais regras NSGs e NSG estão percorrendo fluxos mal-intencionados e quais são os principais endereços IP mal-intencionados que acessam o ambiente de nuvem
-    - Identificar quais regras NSG/NSG estão permitindo/bloqueando tráfego de rede significativo
-    - Selecione os filtros principais para inspeção granular de regras NSG ou NSG
+  - Detecte rapidamente quais regras NSGs e NSG estão percorrendo fluxos mal-intencionados e quais são os principais endereços IP mal-intencionados que acessam o ambiente de nuvem
+  - Identificar quais regras NSG/NSG estão permitindo/bloqueando tráfego de rede significativo
+  - Selecione os filtros principais para inspeção granular de regras NSG ou NSG
 
     ![Apresentação de tendências de tempo para acessos de regras NSG e as principais regras NSG](./media/traffic-analytics/showcasing-time-trending-for-nsg-rule-hits-and-top-nsg-rules.png)
 

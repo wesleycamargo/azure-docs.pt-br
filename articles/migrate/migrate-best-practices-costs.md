@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: 974ea5803b6e31ad8f940265071f41440d5355da
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 6f6440e12840538614b4092b173ab25ae37a68a6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700631"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110266"
 ---
 # <a name="best-practices-for-costing-and-sizing-workloads-migrated-to-azure"></a>Melhores práticas para estimar os custos e dimensionar as cargas de trabalho migradas para o Azure
 
@@ -40,17 +40,18 @@ Para fazer uma previsão de sua fatura mensal para as cargas de trabalho migrada
 
 - **Calculadora de Preços do Azure**: Selecione os produtos que deseja estimar, por exemplo, VMs e armazenamento. Insira os custos na calculadora de preços para gerar uma estimativa.
 
- ![Calculadora de Preços do Azure](./media/migrate-best-practices-costs/pricing.png) *Calculadora de Preços do Azure*
+  ![Calculadora de Preços do Azure](./media/migrate-best-practices-costs/pricing.png) *Calculadora de Preços do Azure*
 
 - **Migrações para Azure**: Para estimar os custos, você precisa examinar e levar em conta todos os recursos necessários para executar suas cargas de trabalho no Azure. Para obter esses dados, crie um inventário de seus ativos, incluindo servidores, VMs, bancos de dados e armazenamento. Use as Migrações para Azure para coletar essas informações.
 
- - As Migrações para Azure descobrem e avaliam seu ambiente local para fornecer um inventário.
- - As Migrações para Azure podem mapear e mostrar as dependências entre as VMs para que você tenha um panorama completo.
- - Uma avaliação das Migrações para Azure contém o custo estimado.
+  - As Migrações para Azure descobrem e avaliam seu ambiente local para fornecer um inventário.
+  - As Migrações para Azure podem mapear e mostrar as dependências entre as VMs para que você tenha um panorama completo.
+  - Uma avaliação das Migrações para Azure contém o custo estimado.
     - Custos de computação: Usando o tamanho recomendado de VM do Azure quando você cria uma avaliação, as Migrações para Azure usam a API de Cobrança para calcular os custos mensais estimados de VM. A estimativa considera o sistema operacional, o Software Assurance, as instâncias reservadas, o tempo de atividade da VM, a localização e as configurações de moeda. Ela agrega o custo em todas as VMs na avaliação e calcula um custo mensal total de computação.
     - Custo de armazenamento: As Migrações para Azure calculam os custos totais de armazenamento mensal agregando os custos de armazenamento de todas as VMs em uma avaliação. Você pode calcular o custo mensal de armazenamento para um computador específico agregando o custo mensal de todos os discos anexados a ele. 
 
-    ![Migrações para Azure](./media/migrate-best-practices-costs/assess.png) *Avaliação das Migrações para Azure*
+    ![As migrações para Azure](./media/migrate-best-practices-costs/assess.png)
+    *avaliação de migrações para Azure*
 
 **Saiba mais:**
 - [Use](https://azure.microsoft.com/pricing/calculator/) a Calculadora de Preços do Azure.
@@ -92,13 +93,13 @@ O ajuste e a manutenção do armazenamento local (SAN ou NAS), e as redes usadas
 
 O Azure fornece diferentes tipos de dados de armazenamento.
 
-**Tipo de dados** | **Detalhes** | **Uso** 
---- | --- |  ---
-**Blobs** | Otimizado para armazenar grandes quantidades de objetos não estruturados, como dados de texto ou binários<br/><br/> | Acesse os dados em qualquer lugar via HTTP/HTTPS. | Use para cenários de streaming e acesso aleatório. Por exemplo, para fornecer imagens e documentos diretamente para um navegador, transmitir áudio e vídeo e armazenar dados de backup e recuperação de desastre.
-**Arquivos** | Compartilhamentos de arquivos gerenciados acessados via SMB 3.0 | Use ao migrar compartilhamentos de arquivos locais e para fornecer várias conexões/acesso aos dados de arquivo.
-**Discos** | Com base nos blobs de páginas.<br/><br/> Tipo de disco (velocidade): Standard (HD ou SSD) ou Premium (SSD).<br/><br/>Gerenciamento de disco: Não gerenciado (você gerencia as configurações de disco e armazenamento) ou Gerenciado (você seleciona o tipo de disco e o Azure gerencia o disco para você). | Use discos Premium para VMs. Use discos gerenciados para gerenciamento e dimensionamento simples.
-**Filas** | Armazene e recupere grandes quantidades de mensagens acessadas por meio de chamadas autenticadas (HTTP ou HTTPS) | Conecte componentes de aplicativo com o enfileiramento de mensagens assíncronas.
-**Tabelas** | Armazene tabelas. | Agora parte da API de Tabela do Azure Cosmos DB.
+| **Tipo de dados** | **Detalhes** | **Uso** |
+|--- | --- |  --- |
+|**Blobs** | Otimizado para armazenar grandes quantidades de objetos não estruturados, como dados de texto ou binários<br/>Acesse os dados em qualquer lugar via HTTP/HTTPS. | Use para cenários de streaming e acesso aleatório. Por exemplo, para fornecer imagens e documentos diretamente para um navegador, transmitir áudio e vídeo e armazenar dados de backup e recuperação de desastre.|
+|**Arquivos** | Compartilhamentos de arquivos gerenciados acessados via SMB 3.0 | Use ao migrar compartilhamentos de arquivos locais e para fornecer várias conexões/acesso aos dados de arquivo.|
+|**Discos** | Com base nos blobs de páginas.<br/><br/> Tipo de disco (velocidade): Standard (HD ou SSD) ou Premium (SSD).<br/><br/>Gerenciamento de disco: Não gerenciado (você gerencia as configurações de disco e armazenamento) ou Gerenciado (você seleciona o tipo de disco e o Azure gerencia o disco para você). | Use discos Premium para VMs. Use discos gerenciados para gerenciamento e dimensionamento simples.|
+|**Filas** | Armazene e recupere grandes quantidades de mensagens acessadas por meio de chamadas autenticadas (HTTP ou HTTPS) | Conecte componentes de aplicativo com o enfileiramento de mensagens assíncronas.|
+|**Tabelas** | Armazene tabelas. | Agora parte da API de Tabela do Azure Cosmos DB.|
 
 
 
@@ -211,19 +212,21 @@ No Gerenciamento de Custos, você pode:
 
 
 - **Criar um orçamento**: Crie um orçamento para responsabilidade financeira.
-    - Você pode considerar os serviços consumidos ou assinar por um período específico (mensal, trimestral, anualmente) e um escopo (assinaturas/grupos de recursos). Por exemplo, você pode criar um orçamento de assinatura do Azure para um período mensal, trimestral ou anual.
-    - Depois que você criar um orçamento, ele será mostrado na análise de custo. A exibição de seu orçamento em relação ao gasto atual é uma das primeiras etapas necessárias ao analisar os custos e os gastos.
-    - Notificações por email podem ser enviadas quando os limites de orçamento são atingidos.
-    - Você pode exportar os dados de gerenciamento de custos para o Armazenamento do Azure para análise.
+  - Você pode considerar os serviços consumidos ou assinar por um período específico (mensal, trimestral, anualmente) e um escopo (assinaturas/grupos de recursos). Por exemplo, você pode criar um orçamento de assinatura do Azure para um período mensal, trimestral ou anual.
+  - Depois que você criar um orçamento, ele será mostrado na análise de custo. A exibição de seu orçamento em relação ao gasto atual é uma das primeiras etapas necessárias ao analisar os custos e os gastos.
+  - Notificações por email podem ser enviadas quando os limites de orçamento são atingidos.
+  - Você pode exportar os dados de gerenciamento de custos para o Armazenamento do Azure para análise.
 
-    ![Orçamento de Gerenciamento de Custos](./media/migrate-best-practices-costs/budget.png) *Orçamento de Gerenciamento de Custos do Azure*
+    ![Orçamento de gerenciamento de custo](./media/migrate-best-practices-costs/budget.png)
+    *orçamento de gerenciamento de custos do Azure*
 
 - **Fazer uma análise de custo**: Obtenha uma análise de custo para explorar e analisar os custos organizacionais, a fim de ajudá-lo a entender como os custos são acumulados e identificar as tendências de gastos.
-    - A análise de custo está disponível para usuários do EA.
-    - Exiba dados de análise de custo para vários escopos, incluindo por departamento, conta, assinatura ou grupo de recursos.
-    - Obtenha uma análise de custo que mostra os custos totais para o mês atual e os custos diários acumulados. 
+  - A análise de custo está disponível para usuários do EA.
+  - Exiba dados de análise de custo para vários escopos, incluindo por departamento, conta, assinatura ou grupo de recursos.
+  - Obtenha uma análise de custo que mostra os custos totais para o mês atual e os custos diários acumulados. 
 
-    ![Análise de Gerenciamento de Custo](./media/migrate-best-practices-costs/analysis.png) *Análise de Gerenciamento de Custos do Azure*
+    ![Gerenciamento de análise de custo](./media/migrate-best-practices-costs/analysis.png)
+    *análise de gerenciamento de custos do Azure*
 - **Obter recomendações**: Obtenha recomendações do Assistente que mostram como você pode otimizar e melhorar a eficiência.
 
 

@@ -4,16 +4,16 @@ description: Enviar métricas personalizadas de um recurso do Azure para o repos
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: ed810726a0709c80034412eba437c05e76f65758
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: c7ec3ba960929250f2d23d09b9a5ab06e3f6cd38
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54460372"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095408"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>Enviar métricas personalizadas de um recurso do Azure para o repositório de métricas do Azure Monitor usando uma API REST
 
@@ -78,13 +78,13 @@ Salve o token de acesso da resposta.
     ``` 
 
 1. Na janela do prompt de comando, poste os dados de métrica: 
-    - **azureRegion**. Deve corresponder à região de implantação do recurso do qual você está emitindo métricas. 
-    - **resourceID**.  ID do recurso do Azure cuja métrica você está acompanhando.  
-    - **AccessToken**. Cole o token adquirido anteriormente.
+   - **azureRegion**. Deve corresponder à região de implantação do recurso do qual você está emitindo métricas. 
+   - **resourceID**.  ID do recurso do Azure cuja métrica você está acompanhando.  
+   - **AccessToken**. Cole o token adquirido anteriormente.
 
-    ```Shell 
-    curl -X POST curl -X POST https://<azureRegion>.monitoring.azure.com/<resourceId>/metrics -H "Content-Type: application/json" -H "Authorization: Bearer <AccessToken>" -d @custommetric.json 
-    ```
+     ```Shell 
+     curl -X POST https://<azureRegion>.monitoring.azure.com/<resourceId>/metrics -H "Content-Type: application/json" -H "Authorization: Bearer <AccessToken>" -d @custommetric.json 
+     ```
 1. Altere o carimbo de data/hora e os valores no arquivo JSON. 
 1. Repita as duas etapas anteriores algumas vezes, para que você tenha dados por vários minutos.
 

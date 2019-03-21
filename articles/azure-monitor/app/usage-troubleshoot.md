@@ -13,12 +13,12 @@ ms.date: 07/11/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 7c903390af54d1771bce1b6aff96e9bb54397189
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: eabc47c2acb33d8c6ee03477b5e8c7783edebbb7
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044988"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258762"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Solucionar problemas de ferramentas de análise de comportamento do usuário no Application Insights
 Solucionar problemas de ferramentas de análise de comportamento do [usuário no Application Insights](usage-overview.md): [Usuários, Sessões, Eventos](usage-segmentation.md), [Funis](usage-funnels.md), [Fluxos dos Usuários](usage-flows.md), [Retenção](usage-retention.md), ou Coortes? Aqui estão algumas respostas.
@@ -39,7 +39,7 @@ Atualmente, as ferramentas de análise de comportamento do usuário não são co
 ## <a name="naming-events"></a>Nomeando Eventos
 **Meu aplicativo tem milhares de exibições de página e nomes de evento personalizado diferentes. É difícil distingui-los, e as ferramentas de análise de comportamento do usuário normalmente não respondem. Como corrigir esses problemas de nomenclatura?**
 
-A exibição de página e os nomes de eventos personalizados são usados nas ferramentas de análise de comportamento do usuário. Nomear bem os eventos é essencial para obter valor dessas ferramentas. A meta é um equilíbrio entre ter poucos nomes excessivamente genéricos ("Botão clicado") e ter muitos nomes excessivamente específicos ("Editar botão clicado http://www.contoso.com/index").
+A exibição de página e os nomes de eventos personalizados são usados nas ferramentas de análise de comportamento do usuário. Nomear bem os eventos é essencial para obter valor dessas ferramentas. A meta é um equilíbrio entre ter poucos nomes extremamente genéricos ("botão clicado") e ter muitos nomes extremamente específicos ("Editar botão clicado em http:\//www.contoso.com/index").
 
 Para fazer alterações no modo de exibição de página e nos nomes de evento personalizado que seu aplicativo está enviando, você precisa alterar o código-fonte e a reimplantação do seu aplicativo. **Todos os dados de telemetria no Application Insights são armazenados por 90 dias e não podem ser excluídos**; portanto, as alterações feitas aos nomes de evento levarão 90 dias para se manifestarem completamente. A 90 dias depois de fazer as alterações no nome, ambos os nomes de evento antigo e novo serão mostrados em sua telemetria, então ajuste as consultas e se comunique com suas equipes adequadamente.
 

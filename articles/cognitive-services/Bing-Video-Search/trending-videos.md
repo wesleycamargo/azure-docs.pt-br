@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: 2aa3c0cd9112f2de9ccda818e74b0b2c377133bf
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 486cf2e3bcf851f23011bb2fb8d91691d6190698
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869357"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120832"
 ---
 # <a name="get-trending-videos-with-the-bing-video-search-api"></a>Obter vídeos populares com a API de Pesquisa de Vídeo do Bing 
 
@@ -124,4 +124,4 @@ O exemplo a seguir mostra uma resposta de API que contém os vídeos populares, 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-[Obter insights para vídeos](video-insights.md)
+> [Obter insights para vídeos](video-insights.md)

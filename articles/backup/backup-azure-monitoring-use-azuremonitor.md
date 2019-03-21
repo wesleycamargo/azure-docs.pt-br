@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 7daf76605d40495d6c9cb5076f0403a78819adfc
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: aa97e60fe296190f3478d29bc80c70ea487e8955
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439156"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258574"
 ---
 # <a name="monitoring-at-scale-using-azure-monitor"></a>Monitoramento em escala usando o Azure Monitor
 
@@ -29,7 +29,7 @@ O [internos de monitoramento e alerta artigo](backup-azure-monitoring-built-in-m
 ## <a name="using-log-analytics-workspace"></a>Usando o espaço de trabalho do Log Analytics
 
 > [!NOTE]
-> Dados de backups de VM do Azure, o agente MAB, System Center DPM (SC DPM) estão sendo sejam enviados ao espaço de trabalho do Log Analytics por meio de configurações de diagnóstico. Suporte para backups do SQL em VMs do Azure, backups de compartilhamento de arquivos do Azure, servidor de Backup do Microsoft Azure (MABS) está disponível em breve.
+> Dados de backups de VM do Azure, o agente MAB, System Center DPM (SC DPM), backups do SQL em VMs do Azure estão sendo sejam enviados ao espaço de trabalho do Log Analytics por meio de configurações de diagnóstico. Suporte para backups de compartilhamento de arquivos do Azure, servidor de Backup do Microsoft Azure (MABS) está disponível em breve.
 
 Estamos aproveitando os recursos de dois serviços do Azure - **configurações de diagnóstico** (para enviar dados de vários recursos do Azure Resource Manager para outro recurso) e **Log Analytics** (LA - gerar onde é possível definir outros canais de notificação usando grupos de ações de alertas personalizados) para monitorar em escala. A seções a seguir detalham como usá-la para monitorar o Backup do Azure em grande escala.
 

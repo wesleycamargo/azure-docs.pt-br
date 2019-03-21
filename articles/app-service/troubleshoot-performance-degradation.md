@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 9c66a937ffd9155569820c47c99946d186c55cce
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 2d17991854f13f889c4e8c3a8c6f18e933655546
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052148"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884215"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Solucionar problemas de desempenho de aplicativo lento no Serviço de Aplicativo do Azure
 Este artigo ajuda você a solucionar problemas de desempenho de aplicativo lento no [Serviço de Aplicativo do Azure](https://go.microsoft.com/fwlink/?LinkId=529714).
@@ -162,7 +162,7 @@ Além disso, você pode optar por executar o aplicativo em mais de uma instânci
 Você pode definir a escala para ser Manual ou Automática.
 
 #### <a name="use-autoheal"></a>Usar AutoHeal
-O AutoHeal recicla o processo de trabalho para seu aplicativo com base nas configurações que você escolher (como alterações de configuração, solicitações, limites baseados na memória ou o tempo necessário para executar uma solicitação). Na maioria das vezes, reciclar o processo é a maneira mais rápida de resolver um problema. Embora você possa sempre reiniciar o aplicativo diretamente no portal do Azure, o AutoHeal faz isso automaticamente. Tudo que você precisa fazer é adicionar alguns gatilhos na raiz web.config do seu aplicativo. Essas configurações devem funcionar da mesma forma ainda que seu aplicativo não seja um .Net.
+O AutoHeal recicla o processo de trabalho para seu aplicativo com base nas configurações que você escolher (como alterações de configuração, solicitações, limites baseados na memória ou o tempo necessário para executar uma solicitação). Na maioria das vezes, reciclar o processo é a maneira mais rápida de resolver um problema. Embora você possa sempre reiniciar o aplicativo diretamente no portal do Azure, o AutoHeal faz isso automaticamente. Tudo que você precisa fazer é adicionar alguns gatilhos na raiz web.config do seu aplicativo. Essas configurações devem funcionar da mesma forma, mesmo se seu aplicativo não é um aplicativo .NET.
 
 Para saber mais, consulte [AutoHeal em sites do Azure](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/).
 

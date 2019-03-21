@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b8844e6ca9effe78f8d98571af2ce59b4e0abee8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 01da5f0798316517869fcc94eed2a7428fffba7b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465309"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850693"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronizar dados entre vários bancos de dados locais e de nuvem com a Sincronização de Dados SQL
 
@@ -40,7 +40,7 @@ A Sincronização de Dados não é a solução preferencial para os cenários a 
 |----------|----------------------------|
 | Recuperação de desastre | [Backups com redundância geográfica do Azure](sql-database-automated-backups.md) |
 | Escala de Leitura | [Usar réplicas somente leitura para balancear a carga de cargas de trabalho de consulta somente leitura (versão prévia)](sql-database-read-scale-out.md) |
-| ETL (OLTP para OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) ou [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services?view=sql-server-2017) |
+| ETL (OLTP para OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) ou [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) |
 | Migração do SQL Server local para um Banco de Dados SQL do Azure | [Serviço de Migração de Banco de Dados do Azure](https://azure.microsoft.com/services/database-migration/) |
 |||
 
@@ -228,7 +228,7 @@ Você precisa atualizar o esquema de um banco de dados em um grupo de sincroniza
 
 A Sincronização de Dados SQL está funcionando conforme o esperado? Para monitorar a atividade e solucionar problemas, consulte os seguintes artigos:
 
-- [Monitorar a Sincronização de Dados SQL do Azure com o Log Analytics](sql-database-sync-monitor-oms.md)
+- [Monitorar a sincronização de dados SQL do Azure com logs do Azure Monitor](sql-database-sync-monitor-oms.md)
 - [Solucionar problemas com a Sincronização de Dados SQL do Azure](sql-database-troubleshoot-data-sync.md)
 
 ### <a name="learn-more-about-azure-sql-database"></a>Saiba mais sobre o Banco de Dados SQL do Azure

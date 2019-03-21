@@ -11,13 +11,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 7ca54117b014cb093b63e265864b0b0efa787865
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.date: 03/04/2019
+ms.openlocfilehash: 2be1f7bb6417834196da03b7cba22387744f8c19
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461212"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57876537"
 ---
 # <a name="sql-database-dynamic-data-masking"></a>Máscara de dados dinâmicos do Banco de Dados SQL
 
@@ -55,10 +55,10 @@ A Máscara de Dados Dinâmicos pode ser configurada por meio do administrador do
 
 O mecanismo de recomendações DDM sinaliza determinados campos do banco de dados como potencialmente confidenciais, que podem ser bons candidatos para mascaramento. Na folha Mascaramento de Dados Dinâmicos no portal, você verá as colunas recomendadas para seu banco de dados. Basta clicar em **Adicionar Máscara** para uma ou mais colunas e em **Salvar** para aplicar uma máscara a esses campos.
 
-## <a name="set-up-dynamic-data-masking-for-your-database-using-powershell-cmdlets"></a>Configurar a máscara de dados dinâmica para o banco de dados usando cmdlets do Powershell
+## <a name="set-up-dynamic-data-masking-for-your-database-using-powershell-cmdlets"></a>Configurar dados dinâmicos de mascaramento do banco de dados usando cmdlets do PowerShell
 
-Confira [Cmdlets do Banco de Dados SQL do Azure](https://docs.microsoft.com/powershell/module/azurerm.sql).
+Confira [Cmdlets do Banco de Dados SQL do Azure](https://docs.microsoft.com/powershell/module/az.sql).
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-rest-api"></a>Configurar a máscara de dados dinâmica para o banco de dados usando a API REST
 
-Confira [Operações para o Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/dn505719.aspx).
+Confira [Operações para o Banco de Dados SQL do Azure](https://docs.microsoft.com/rest/api/sql/).

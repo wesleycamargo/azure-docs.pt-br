@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: raynew
-ms.openlocfilehash: 2cc5384fe039e757b33802075d0e550b369477f3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: c6d6e380cded18a089f624f90d998477a89293be
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57874959"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259034"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Fazer backup de máquinas virtuais do Azure em um cofre dos Serviços de Recuperação
 
@@ -33,7 +33,7 @@ Neste artigo, você aprenderá a:
 > [!NOTE]
    > Este artigo descreve como fazer backup de VMs do Azure ao configurar um cofre e escolher as VMs para fazer backup. Isso é útil se você quiser fazer backup de várias VMs. Você também pode fazer [backup de uma VM do Azure](backup-azure-vms-first-look-arm.md) diretamente nas configurações da VM.
 
-## <a name="before-you-start"></a>Antes de iniciar
+## <a name="before-you-start"></a>Antes de começar
 
 O Backup do Azure faz backup de VMs do Azure instalando uma extensão para o agente de VM do Azure em execução no computador.
 
@@ -112,7 +112,7 @@ Se você não tiver um proxy de conta do sistema, configure um da seguinte manei
 4. Defina as configurações de proxy.
    - Em máquinas do Linux:
      - Adicione esta linha ao arquivo **/etc/environment**:
-       - endereço IP **proxy_http=<http://proxy>:porta do proxy**
+       - **http_proxy=http:\//proxy IP address:proxy port**
      - Adicione estas linhas ao arquivo **/etc/waagent.conf**:
          - **Endereço IP HttpProxy.Host=proxy**
          - **Porta HttpProxy.Port=proxy**

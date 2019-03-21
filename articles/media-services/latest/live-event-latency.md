@@ -13,18 +13,18 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: db6646c2066be940b2c058653fe8f2ceb9bff3a2
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 30cd77799837f9b1ef08a9c609e518fd679b9b15
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169690"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57871415"
 ---
 # <a name="live-event-latency-in-media-services"></a>Latência do Evento ao Vivo nos Serviços de Mídia
 
 Este artigo mostra como definir baixa latência em um [Evento ao Vivo](https://docs.microsoft.com/rest/api/media/liveevents). Esta seção também discute os resultados comuns que você vê ao usar as configurações de baixa latência e de vários players. Os resultados variam com base na latência de rede e da CDN.
 
-Para usar o novo recurso **LowLatency**, você pode definir as **StreamOptionsFlag** à **LowLatency** sobre o **LiveEvent**. Ao criar [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) para reprodução HLS, defina [LiveOutput.Hls.fragmentsPerTsSegment](https://docs.microsoft.com/rest/api/media/liveoutputs/create#hls) como 1. Depois que o fluxo está em execução, você pode usar o [Player de Mídia do Azure](http://ampdemo.azureedge.net/) (AMP- página de demonstração) e defina as opções de reprodução para usar a baixa latência heurística "perfil".
+Para usar o novo recurso **LowLatency**, você pode definir as **StreamOptionsFlag** à **LowLatency** sobre o **LiveEvent**. Ao criar [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) para reprodução HLS, defina [LiveOutput.Hls.fragmentsPerTsSegment](https://docs.microsoft.com/rest/api/media/liveoutputs/create#hls) como 1. Depois que o fluxo está em execução, você pode usar o [Player de Mídia do Azure](https://ampdemo.azureedge.net/) (AMP- página de demonstração) e defina as opções de reprodução para usar a baixa latência heurística "perfil".
 
 > [!NOTE]
 > Atualmente, o LowLatency HeuristicProfile no Player de Mídia do Azure foi projetado para reproduzir fluxos no protocolo DASH ou HLS com CMAF. Se você estiver direcionando os dispositivos iOS ou MacOS por meio do HLS com o TS (por exemplo, `format=m3u8-aapl` ou `format=m3u8-aapl-v3`), não use essa configuração, pois AMP usa diretamente o player original fornecido pelo sistema operacional para esse caso.

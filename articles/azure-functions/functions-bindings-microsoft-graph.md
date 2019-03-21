@@ -9,12 +9,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: eb05d1b28b80cb7bf48bc1160c251936423763e6
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: f112bdf9eacf51852659ab49a5673b0c8bfb0e46
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100768"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997557"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Associações do Microsoft Graph do Azure Functions
 
@@ -360,6 +360,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 ### <a name="excel-input---usage"></a>Entrada do Excel - uso
 
 Esta associação exige as seguintes permissões do Azure AD:
+
 |Recurso|Permissão|
 |--------|--------|
 |Microsoft Graph|Ler arquivos de usuário|
@@ -522,6 +523,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 ### <a name="excel-output---usage"></a>Saída do Excel - uso
 
 Esta associação exige as seguintes permissões do Azure AD:
+
 |Recurso|Permissão|
 |--------|--------|
 |Microsoft Graph|Ter acesso completo aos arquivos do usuário|
@@ -664,6 +666,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 ### <a name="file-input---usage"></a>Entrada do arquivo - uso
 
 Esta associação exige as seguintes permissões do Azure AD:
+
 |Recurso|Permissão|
 |--------|--------|
 |Microsoft Graph|Ler arquivos de usuário|
@@ -671,7 +674,7 @@ Esta associação exige as seguintes permissões do Azure AD:
 A associação expõe os seguintes tipos a funções .NET:
 - byte[]
 - Fluxo
-- string
+- cadeia de caracteres
 - Microsoft.Graph.DriveItem
 
 
@@ -811,6 +814,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 #### <a name="file-output---usage"></a>Saída do arquivo - uso
 
 Esta associação exige as seguintes permissões do Azure AD:
+
 |Recurso|Permissão|
 |--------|--------|
 |Microsoft Graph|Ter acesso completo aos arquivos do usuário|
@@ -818,7 +822,7 @@ Esta associação exige as seguintes permissões do Azure AD:
 A associação expõe os seguintes tipos a funções .NET:
 - byte[]
 - Fluxo
-- string
+- cadeia de caracteres
 - Microsoft.Graph.DriveItem
 
 
@@ -960,6 +964,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 ### <a name="outlook-output---usage"></a>Saída de Outlook - uso
 
 Esta associação exige as seguintes permissões do Azure AD:
+
 |Recurso|Permissão|
 |--------|--------|
 |Microsoft Graph|Enviar email como usuário|
@@ -967,7 +972,7 @@ Esta associação exige as seguintes permissões do Azure AD:
 A associação expõe os seguintes tipos a funções .NET:
 - Microsoft.Graph.Message
 - Newtonsoft.Json.Linq.JObject
-- string
+- cadeia de caracteres
 - Tipos de objetos personalizados (usando o model binding estrutural)
 
 
@@ -1397,7 +1402,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 ### <a name="webhook-output---usage"></a>Saída de webhook - uso
 
 A associação expõe os seguintes tipos a funções .NET:
-- string
+- cadeia de caracteres
 - Microsoft.Graph.Subscription
 
 

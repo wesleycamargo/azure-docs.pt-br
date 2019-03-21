@@ -11,16 +11,16 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: e5528cdfc2efa2d5c257732c8b6b6df117421839
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: a5ddc17f6200ba2d43d67fcd2e4bcc35c224e6cb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250020"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004065"
 ---
 # <a name="train-pytorch-models-with-azure-machine-learning-service"></a>Treinar modelos PyTorch com o Serviço do Azure Machine Learning
 
-Para treinamento de DNN (rede neural profunda) usando o PyTorch, o Azure Machine Learning oferece uma aula `PyTorch` personalizada do `Estimator`. O Estimador do `PyTorch` do SDK do Azure permite enviar facilmente trabalhos de treinamento do PyTorch para execuções distribuídas e de nó único na computação do Azure.
+Para obter treinamento de rede neural profunda (DNN) usando o PyTorch, o Azure Machine Learning fornece um personalizado [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py) classe do `Estimator`. O Estimador do `PyTorch` do SDK do Azure permite enviar facilmente trabalhos de treinamento do PyTorch para execuções distribuídas e de nó único na computação do Azure.
 
 ## <a name="single-node-training"></a>Treinamento de nó único
 O treinamento com o Estimador do `PyTorch` é semelhante a usar a [base `Estimator`](how-to-train-ml-models.md), por isso, leia primeiro o artigo de instruções e verifique se você entendeu os conceitos apresentados nele.
@@ -42,6 +42,7 @@ pt_est = PyTorch(source_directory='./my-pytorch-proj',
 ```
 
 Agora, especificamos os seguintes parâmetros para o construtor do PyTorch:
+
 Parâmetro | DESCRIÇÃO
 --|--
 `source_directory` |  O diretório local que contém todo o código necessário para o trabalho de treinamento. Essa pasta é copiada em seu computador local para a computação remota
@@ -82,6 +83,7 @@ pt_est = PyTorch(source_directory='./my-pytorch-project',
 ```
 
 Este código expõe os seguintes parâmetros novos para o construtor do PyTorch:
+
 Parâmetro | DESCRIÇÃO | Padrão
 --|--|--
 `node_count` |  O número de nós a serem usados no seu trabalho de treinamento. | `1`

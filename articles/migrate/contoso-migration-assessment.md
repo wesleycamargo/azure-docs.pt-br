@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: raynew
-ms.openlocfilehash: e948ee943db646ca83d39510485849b3c9956e90
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 4739308d301291bf88e8ae547ba85f9648339c4e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697442"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118452"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migração para Contoso: avalie as cargas de trabalho locais para migração para o Azure
 
@@ -90,7 +90,7 @@ Tecnologia | DESCRIÇÃO | Custo
 --- | --- | ---
 [Assistente de migração de dados](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | A Contoso usa o Assistente de Migração de Dados para avaliar e detectar problemas de compatibilidade que possam afetar a funcionalidade de banco de dados no Azure. O Assistente de Migração de Dados avalia a paridade de recursos entre origens e destinos de SQL. O assistente recomenda melhorias de desempenho e confiabilidade. | O Assistente de Migração de Dados é uma ferramenta gratuita que pode ser baixada.
 [Migrações para Azure](https://docs.microsoft.com/azure/migrate/migrate-overview) | A Contoso usa o serviço de Migrações para Azure para avaliar as VMs do VMware. As Migrações para Azure avaliam a adequação de migração das máquinas. Também fornecem estimativas de custos e dimensionamento para execução no Azure.  | A partir de maio de 2018, as Migrações para Azure serão um serviço gratuito.
-[Mapa do Serviço](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) | As Migrações para Azure usam Mapa do Serviço para mostrar dependências entre os computadores que a empresa deseja migrar. | O Mapa do Serviço é parte do Azure Log Analytics. Atualmente, a Contoso pode usar Mapa do Serviço por 180 dias sem incorrer em encargos.
+[Mapa do Serviço](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) | As Migrações para Azure usam Mapa do Serviço para mostrar dependências entre os computadores que a empresa deseja migrar. | Mapa do serviço é parte dos logs do Azure Monitor. Atualmente, a Contoso pode usar Mapa do Serviço por 180 dias sem incorrer em encargos.
 
 Nesse cenário, a Contoso baixa e executa o Assistente de Migração de Dados para avaliar o banco de dados do SQL Server local para o aplicativo de viagem. A Contoso usa as Migrações para Azure com o mapeamento de dependência para avaliar as VMs do aplicativo antes da migração para Azure.
 
@@ -159,15 +159,15 @@ Agora, a Contoso pode executar uma avaliação para analisar o banco de dados do
 
     ![Assistente de Migração de Dados - Selecionar fonte](./media/contoso-migration-assessment/dma-assessment-1.png)
 
-    > [!NOTE]
-      Atualmente, o Assistente de Migração de Dados não dá suporte à avaliação para migrar para uma Instância Gerenciada do Banco de Dados SQL do Azure. Como solução alternativa, a Contoso usa o SQL Server em uma VM do Azure como o suposto destino da avaliação.
+   > [!NOTE]
+   >    Atualmente, o Assistente de Migração de Dados não dá suporte à avaliação para migrar para uma Instância Gerenciada do Banco de Dados SQL do Azure. Como solução alternativa, a Contoso usa o SQL Server em uma VM do Azure como o suposto destino da avaliação.
 
 3. Em **Selecionar versão de destino**, a Contoso seleciona o SQL Server 2017 como a versão de destino. A Contoso precisa selecionar essa versão porque é a versão usada pela Instância Gerenciada do Banco de Dados SQL.
 4. A Contoso seleciona relatórios para ajudá-lo a descobrir informações sobre compatibilidade e novos recursos:
-    - Os **Problemas de Compatibilidade** observam alterações que podem interromper a migração ou que exigem um ajuste menor antes da migração. Este relatório mantém a Contoso informada sobre quaisquer recursos atualmente em uso que estejam preteridos. Os problemas são organizados por nível de compatibilidade.
-    - **Recomendação de novos recursos** notas novos recursos na plataforma do SQL Server de destino que pode ser usado para o banco de dados após a migração. As novas recomendações de recursos estão organizadas sob os títulos **Desempenho**, **Segurança** e **Armazenamento**.
+   - Os **Problemas de Compatibilidade** observam alterações que podem interromper a migração ou que exigem um ajuste menor antes da migração. Este relatório mantém a Contoso informada sobre quaisquer recursos atualmente em uso que estejam preteridos. Os problemas são organizados por nível de compatibilidade.
+   - **Recomendação de novos recursos** notas novos recursos na plataforma do SQL Server de destino que pode ser usado para o banco de dados após a migração. As novas recomendações de recursos estão organizadas sob os títulos **Desempenho**, **Segurança** e **Armazenamento**.
 
-    ![Assistente de Migração de Dados - Problemas de compatibilidade e novos recursos](./media/contoso-migration-assessment/dma-assessment-2.png)
+     ![Assistente de Migração de Dados - Problemas de compatibilidade e novos recursos](./media/contoso-migration-assessment/dma-assessment-2.png)
 
 2. Em **Conectar um servidor**, a Contoso insere o nome da VM que está executando o banco de dados e as credenciais para acessá-lo. A Contoso seleciona **Certificado do Servidor Confiável** para garantir que a VM possa acessar o SQL Server. Em seguida, a Contoso seleciona **Conectar**.
 
@@ -186,13 +186,13 @@ Resultados são exibidos como elas estão disponíveis. Se a Contoso corrigir pr
 
 1. No relatório **Problemas de compatibilidade** a Contoso verifica se há algum problema em cada nível de compatibilidade. Os níveis de compatibilidade mapeiam para as versões do SQL Server da seguinte forma:
 
-    - 100: SQL Server 2008/Banco de Dados SQL do Azure
-    - 110: SQL Server 2012/Banco de Dados SQL do Azure
-    - 120: SQL Server 2014/Banco de Dados SQL do Azure
-    - 130: SQL Server 2016/Banco de Dados SQL do Azure
-    - 140: SQL Server 2017/Banco de Dados SQL do Azure
+   - 100: SQL Server 2008/Banco de Dados SQL do Azure
+   - 110: SQL Server 2012/Banco de Dados SQL do Azure
+   - 120: SQL Server 2014/Banco de Dados SQL do Azure
+   - 130: SQL Server 2016/Banco de Dados SQL do Azure
+   - 140: SQL Server 2017/Banco de Dados SQL do Azure
 
-    ![Assistente de Migração de Dados - Relatório de problemas de compatibilidade](./media/contoso-migration-assessment/dma-assessment-5.png)
+     ![Assistente de Migração de Dados - Relatório de problemas de compatibilidade](./media/contoso-migration-assessment/dma-assessment-5.png)
 
 2. No relatório **Recomendações de recurso**, a Contoso exibe recursos de desempenho, segurança e armazenamento que a avaliação recomenda após a migração. É recomendável uma variedade de recursos, incluindo OLTP in-memory, índices columnstore, Stretch Database, Always Encrypted, Máscara de Dados Dinâmicos e criptografia de dados transparente.
 
@@ -403,14 +403,14 @@ A Contoso executa a instalação em cada VM.
 
     `sudo -i`
 3. Contoso instala o MMA:
-    - A Contoso insere a ID do workspace e digita o comando.
-    - Os comandos são para a versão de 64 bits.
-    - A ID do espaço de trabalho e a chave primária está localizada no espaço de trabalho do Log Analytics no portal do Azure. Selecione **Configurações** e, em seguida, selecione a guia **Fontes Conectadas**.
-    - Execute os comandos a seguir para fazer o download do agente do Log Analytics, validar a soma de verificação e instalar e integrar o agente:
+   - A Contoso insere a ID do workspace e digita o comando.
+   - Os comandos são para a versão de 64 bits.
+   - A ID do espaço de trabalho e a chave primária está localizada no espaço de trabalho do Log Analytics no portal do Azure. Selecione **Configurações** e, em seguida, selecione a guia **Fontes Conectadas**.
+   - Execute os comandos a seguir para fazer o download do agente do Log Analytics, validar a soma de verificação e instalar e integrar o agente:
 
-    ```
-    wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w 6b7fcaff-7efb-4356-ae06-516cacf5e25d -s k7gAMAw5Bk8pFVUTZKmk2lG4eUciswzWfYLDTxGcD8pcyc4oT8c6ZRgsMy3MmsQSHuSOcmBUsCjoRiG2x9A8Mg==
-    ```
+     ```
+     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w 6b7fcaff-7efb-4356-ae06-516cacf5e25d -s k7gAMAw5Bk8pFVUTZKmk2lG4eUciswzWfYLDTxGcD8pcyc4oT8c6ZRgsMy3MmsQSHuSOcmBUsCjoRiG2x9A8Mg==
+     ```
 
 #### <a name="install-the-dependency-agent-on-linux-vms"></a>Instalar o Dependency Agent em VMs do Linux
 

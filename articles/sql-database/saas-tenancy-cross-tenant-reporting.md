@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewers: billgib,ayolubek
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: ccf6ff75cb041c7d9998f67d579d1b392f83cee9
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 9562d0cd1ad97a459c3630456a6070ac2b6e63f3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476240"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096020"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>Relatório entre locatários usando consultas distribuídas
 
@@ -27,7 +27,7 @@ Neste tutorial, você executa consultas distribuídas em todo o conjunto de banc
 Neste tutorial, você aprende:
 
 > [!div class="checklist"]
-
+> 
 > * Como implantar um banco de dados de relatórios
 > * Como executar consultas distribuídas entre todos os bancos de dados de locatário
 > * Como as exibições globais em cada banco de dados podem permitir a consulta eficiente entre locatários
@@ -61,7 +61,7 @@ Para executar consultas em um conjunto de dados mais interessante, crie dados de
 
 1. No *ISE do PowerShell*, abra o script ...\\Módulos de Aprendizado\\Operational Analytics\\Adhoc Reporting\\ *Demo-AdhocReporting.ps1* e defina os seguinte valor:
    * **$DemoScenario** = 1, **Comprar ingressos de eventos em todos os locais**.
-2. Pressione **F5** para executar o script e gerar vendas de ingresso. Enquanto o script é executado, continue as etapas neste tutorial. Os dados de ingresso são consultados na seção *Executar consultas distribuídas ad hoc*, portanto, aguarde o gerador de ingressos ser concluído.
+2. Pressione **F5** para executar o script e gerar vendas de ingresso. Enquanto o script é executado, continue as etapas neste tutorial. Os dados de ingresso são consultados na seção *Executar consultas ad hoc distribuídas*; portanto, aguarde a conclusão do gerador de ingressos.
 
 ## <a name="explore-the-global-views"></a>Explore as exibições globais
 
@@ -106,7 +106,7 @@ Este exercício implanta o banco de dados _adhocreporting_. Esse é o banco de d
 
 1. No *ISE do PowerShell*, abra ...\\Módulos de Aprendizado\\Análise Operacional\\Relatórios Ad hoc\\*Demo-AdhocReporting.ps1*. 
 
-1. Defina **$DemoScenario = 2**, _Implantar banco de dados de relatório ad hoc_.
+1. Definir **$DemoScenario = 2**, _improvisadas implantar banco de dados relatórios_.
 
 1. Pressione **F5** para executar o script e criar o banco de dados *adhocreporting*.
 
@@ -148,7 +148,7 @@ Agora que o banco de dados *adhocreporting* está configurado, siga em frente e 
 
 Ao inspecionar o plano de execução, passe o mouse sobre os ícones de plano para obter detalhes. 
 
-É importante observar que configurar **DISTRIBUTION = SHARDED(VenueId)**, quando definida a fonte de dados externa, melhora o desempenho em muitos cenários. Como cada *VenueId* mapeia para um banco de dados individual, a filtragem é facilmente feita de forma remota, retornando apenas os dados necessários.
+É importante observar que configurar **DISTRIBUTION = SHARDED(VenueId)**, quando definida a fonte de dados externa, melhora o desempenho em muitos cenários. Como cada *VenueId* é mapeado para um banco de dados individual, a filtragem é facilmente feita remotamente, retornando somente os dados necessários.
 
 1. Abra ...\\Módulos de Aprendizado\\Análise Operacional\\Relatórios Ad hoc\\*Demo-AdhocReportingQueries.sql* no SSMS.
 2. Verifique se você está conectado ao banco de dados **adhocreporting**.
@@ -181,7 +181,7 @@ Ao inspecionar o plano de execução, passe o mouse sobre os ícones de plano pa
 Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
-
+> 
 > * Executar consultas distribuídas entre todos os bancos de dados de locatário
 > * Implante um banco de dados de relatório e defina o esquema necessário para executar consultas distribuídas.
 

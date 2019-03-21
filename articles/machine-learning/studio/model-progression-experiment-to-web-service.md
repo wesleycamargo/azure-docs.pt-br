@@ -1,23 +1,23 @@
 ---
-title: Como um modelo de machine learning se torna um serviço Web
+title: Como um modelo torna-se um serviço web
 titleSuffix: Azure Machine Learning Studio
-description: Uma visão geral da mecânica de como seu modelo do Azure Machine Learning Studio evolui de um teste de desenvolvimento para um serviço Web operacionalizado.
+description: Uma visão geral da mecânica de como o seu modelo evolui de Azure Machine Learning Studio de um desenvolvimento de teste para um serviço Web.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: 776f33e3e550ad9a711a90732c6c4526e647aa89
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 28bb96099acb800d9095325b8c7b46a6b5124b4e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456785"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835111"
 ---
-# <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Como um modelo do Machine Learning Studio progride de uma experiência para um serviço da Web operacionalizado
+# <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-a-web-service"></a>Como um modelo de estúdio de Machine Learning evolui de um experimento para um serviço Web
 O Azure Machine Learning Studio fornece uma tela interativa que permite a você desenvolver, executar, testar e iterar um ***teste*** representando um modelo de análise preditiva. Há uma grande variedade de módulos disponíveis que podem:
 
 * Inserir dados em seu teste
@@ -32,7 +32,7 @@ Quando estiver satisfeito com seu teste, você poderá implantá-lo como um ***s
 Neste artigo, ofereceremos uma visão geral sobre a mecânica de como seu modelo de Machine Learning evolui de um experimento de desenvolvimento para um serviço Web operacional.
 
 > [!NOTE]
-> Há outras maneiras de desenvolver e implantar modelos de aprendizado de máquina, mas este artigo se concentra em como usar o Machine Learning Studio. Por exemplo, para ler uma descrição de como criar um serviço Web preditivo clássico com R, confira a postagem no blog [Build & Deploy Predictive Web Apps Using RStudio and Azure Machine Learning studio](http://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx) (Compilar e implantar aplicativos Web preditivos usando o RStudio e o Azure Machine Learning Studio).
+> Há outras maneiras de desenvolver e implantar modelos de aprendizado de máquina, mas este artigo se concentra em como usar o Machine Learning Studio. Por exemplo, para ler uma descrição de como criar um serviço Web preditivo clássico com R, confira a postagem no blog [Build & Deploy Predictive Web Apps Using RStudio and Azure Machine Learning studio](https://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx) (Compilar e implantar aplicativos Web preditivos usando o RStudio e o Azure Machine Learning Studio).
 >
 >
 
@@ -95,7 +95,7 @@ Aqui está um exemplo: suponha que seu experimento preditivo retorne toda a linh
 
 Se você desejar manter a modelo de aprendizado de máquina, mas se quiser treiná-lo novamente com novos dados, terá duas opções:
 
-1. **Treinar novamente o modelo enquanto o serviço Web está em execução** – se você quiser treinar novamente seu modelo enquanto o serviço Web preditivo estiver em execução, faça isso por meio de algumas modificações no teste de treinamento para transformá-lo em um ***teste de novo treinamento***, para poder implantá-lo como um ***serviço* Web de novo treinamento**. Para obter instruções sobre como fazer isso, veja [Treinar novamente os modelos do Machine Learning de forma programática](retrain-models-programmatically.md).
+1. **Treinar novamente o modelo enquanto o serviço Web está em execução** – se você quiser treinar novamente seu modelo enquanto o serviço Web preditivo estiver em execução, faça isso por meio de algumas modificações no teste de treinamento para transformá-lo em um ***teste de novo treinamento***, para poder implantá-lo como um ***serviço* Web de novo treinamento**. Para obter instruções sobre como fazer isso, veja [Treinar novamente os modelos do Machine Learning de forma programática](/azure/machine-learning/studio/retrain-machine-learning-model).
 2. **Volte para o teste de treinamento original e use dados de treinamento diferentes para desenvolver seu modelo** – seu teste preditivo está vinculado ao serviço Web, mas o teste de treinamento não é diretamente vinculado dessa maneira. Se você modificar o teste de treinamento original e clicar em **Configurar Serviço Web**, será criado um *novo* teste preditivo que, quando implantado, criará um *novo* serviço Web. Isso não atualiza simplesmente o serviço Web original.
 
    Se você precisar modificar o teste de treinamento, abra-o e clique em **Salvar como** para fazer uma cópia. Isso deixará intacto o teste de treinamento original, o teste preditivo e o serviço Web. Agora você pode criar um novo serviço Web com suas alterações. Depois de implantar o novo serviço Web, você poderá decidir se deseja interromper o serviço Web anterior ou mantê-lo em execução juntamente com o novo.
@@ -109,7 +109,7 @@ Para obter mais detalhes sobre o processo de desenvolvimento e teste, veja os se
 
 * converter o experimento – [Como preparar seu modelo para implantação no Azure Machine Learning Studio](convert-training-experiment-to-scoring-experiment.md)
 * implantando o serviço Web – [Implantar um serviço Web do Azure Machine Learning](publish-a-machine-learning-web-service.md)
-* treinando novamente o modelo - [Treinar novamente os modelos do Machine Learning de forma programática](retrain-models-programmatically.md)
+* treinando novamente o modelo - [Treinar novamente os modelos do Machine Learning de forma programática](/azure/machine-learning/studio/retrain-machine-learning-model)
 
 Para obter exemplos do processo inteiro, consulte:
 

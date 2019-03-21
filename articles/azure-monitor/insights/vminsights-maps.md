@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 73c94b79bb315c317d39ade704e2ee70a241a348
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 0bf7c335f552fee103118e57239bcd872e880edb
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187738"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984842"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Usar o Mapa do Azure Monitor para VMs (versão prévia) para entender os componentes do aplicativo
 Exibindo os componentes de aplicativos descobertos em máquinas virtuais Windows e Linux em execução no Azure, seu ambiente pode ser observado de duas maneiras com o Monitor do Azure para VMs, a partir de uma máquina virtual diretamente ou entre grupos de VMs do Monitor do Azure. 
@@ -39,7 +39,7 @@ Quando você clica na máquina virtual, o painel **Propriedades** é expandido n
 
 ![Propriedades do sistema do computador](./media/vminsights-maps/properties-pane-01.png)
 
-No lado direito do painel, clique no ícone **Eventos de Log** para alternar o foco do painel para mostrar uma lista de tabelas cujos dados coletados da VM foram enviados ao Log Analytics e estão disponíveis para consulta.  Ao clicar em um dos tipos de registro listados, a página **Logs** será aberta para exibir os resultados desse tipo com uma consulta pré-configurada filtrada na máquina virtual específica.  
+No lado direito do painel, clique no **eventos de Log** ícone para alternar o foco do painel para mostrar uma lista de tabelas que dados são coletados da VM enviou para o Azure Monitor e está disponível para consulta.  Ao clicar em um dos tipos de registro listados, a página **Logs** será aberta para exibir os resultados desse tipo com uma consulta pré-configurada filtrada na máquina virtual específica.  
 
 ![Lista de pesquisa de logs no painel Propriedades](./media/vminsights-maps/properties-pane-logs-01.png)
 

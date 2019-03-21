@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: apimpm
-ms.openlocfilehash: 829d6bc6cb3f8e78d065d7aaca4937634e7349c8
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
-ms.translationtype: HT
+ms.openlocfilehash: f7c52b7ab8aaad917eb03455800df6d8ba4cbc88
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437058"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58082697"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Como usar Valores Nomeados nas políticas de Gerenciamento de API do Azure
 As políticas de gerenciamento de API são um recurso poderoso do sistema que permitem que o portal do Azure altere o comportamento da API por meio da configuração. As políticas são um conjunto de instruções executadas em sequência, na solicitação ou na resposta de uma API. É possível construir declarações de política usando valores de texto literais, expressões de política e valores nomeados. 
 
 Cada instância de serviço do Gerenciamento de API tem uma coleção de propriedades de pares de chave/valor, chamada Valores Nomeados, que são globais à instância do serviço. Esses Valores Nomeados podem ser usados para gerenciar valores de cadeia de caracteres constantes em todas as configurações e as políticas de API. Cada propriedade pode ter os seguintes atributos:
 
-| Atributo | type | DESCRIÇÃO |
+| Atributo | Type | DESCRIÇÃO |
 | --- | --- | --- |
-| Nome de exibição |string |Cadeia de caracteres alfanuméricos usada para referenciar a propriedade nas políticas. |
-| Valor |string |O valor da propriedade. Ele não pode ficar vazio ou conter apenas espaços em branco. |
+| Nome de exibição |cadeia de caracteres |Cadeia de caracteres alfanuméricos usada para referenciar a propriedade nas políticas. |
+| Valor |cadeia de caracteres |O valor da propriedade. Ele não pode ficar vazio ou conter apenas espaços em branco. |
 |Segredo|booleano|Determina se o valor é um segredo e se deve ser criptografado ou não.|
 | Marcas |matriz de cadeias de caracteres |Marcas opcionais que, quando fornecidas, podem ser usadas para filtrar a lista de propriedades. |
 
@@ -50,7 +50,7 @@ Os valores de propriedade podem conter cadeias de caracteres literais e [express
 2. Selecione **Valores nomeados**.
 3. Pressione **+Adicionar**.
 
-  Nome e Valor são valores obrigatórios. Se o valor dessa propriedade for confidencial, marque a caixa de seleção Valor confidencial. Insira uma ou mais marcas opcionais para ajudar a organizar seus valores nomeados e, em seguida, clique em Salvar.
+   Nome e Valor são valores obrigatórios. Se o valor dessa propriedade for confidencial, marque a caixa de seleção Valor confidencial. Insira uma ou mais marcas opcionais para ajudar a organizar seus valores nomeados e, em seguida, clique em Salvar.
 4. Clique em **Criar**.
 
 Quando a propriedade é criada, você pode editá-la clicando na propriedade. Se você alterar o nome da propriedade, todas as políticas que fizerem referência a essa propriedade serão automaticamente atualizadas para usar o novo nome.

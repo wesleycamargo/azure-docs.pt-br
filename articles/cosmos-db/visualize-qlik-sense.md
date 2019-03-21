@@ -7,12 +7,12 @@ ms.author: sngun
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 4b37b6cd35526d6a76625dd03d1325f1688e698e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 4532962b6fd9f40fad625ab000116e5a617682e5
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044460"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258761"
 ---
 # <a name="connect-qlik-sense-to-azure-cosmos-db-and-visualize-your-data"></a>Conectar o Qlik Sense ao Azure Cosmos DB e visualizar seus dados
 
@@ -42,9 +42,9 @@ Antes de seguir as instruções deste artigo, verifique se você tem os seguinte
 
 * Faça o download dos [dados de videogame](https://www.kaggle.com/gregorut/videogamesales), esses dados de exemplo estão no formato CSV. Você armazenará esses dados em uma conta do Cosmos DB e os visualizará no Qlik Sense.
 
-* Crie uma conta de API SQL do Azure Cosmos DB usando as etapas descritas na seção [criar uma conta](create-sql-api-dotnet.md#create-a-database-account) do artigo de início rápido.
+* Crie uma conta de API SQL do Azure Cosmos DB usando as etapas descritas na seção [criar uma conta](create-sql-api-dotnet.md#create-account) do artigo de início rápido.
 
-* [Criar um banco de dados e uma coleção](create-sql-api-dotnet.md#add-a-collection) – Você pode usar o valor de taxa de transferência da coleção para 1000 RU/s. 
+* [Criar um banco de dados e uma coleção](create-sql-api-dotnet.md#create-collection-database) – Você pode usar o valor de taxa de transferência da coleção para 1000 RU/s. 
 
 * Carregue os exemplos de dados de vendas de videogame em sua conta do Cosmos DB. Você pode importar os dados usando a ferramenta de migração de dados do Azure Cosmos DB, com uma [importação sequencial](import-data.md#SQLSeqTarget) ou [em massa](import-data.md#SQLBulkTarget) dos dados. A importação dos dados para a conta do Cosmos DB demora cerca de 3 a 5 minutos.
 

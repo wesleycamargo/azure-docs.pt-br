@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 73b13dcea84ba322072217c3feacebdefb3bf1e6
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.openlocfilehash: 6650eed6bf2559e9fb76b573189179a7f5df81ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43052032"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896697"
 ---
 # <a name="what-are-power-bi-workspace-collections"></a>O que são Coleções de Workspaces do Power BI?
 
@@ -40,11 +40,11 @@ Como qualquer outro serviço no Azure, os recursos para o Coleções de Workspac
 
 ## <a name="workspace-collection"></a>Coleção de workspaces
 
-Uma **Coleção de Workspaces** é o contêiner do Azure de nível mais elevado para recursos que contém 0 ou mais **Workspaces**.  Uma **Coleção** de **Espaços de Trabalho** tem todas as propriedades padrão do Azure, bem como o seguinte:
+Uma **Coleção de Workspaces** é o contêiner do Azure de nível mais elevado para recursos que contém 0 ou mais **Workspaces**.  Uma **Coleção** de **Workspaces** tem todas as propriedades padrão do Azure, bem como o seguinte:
 
 * **Chaves de Acesso** – chaves usadas ao chamar com segurança as APIs do Power BI (descritas em uma seção posterior).
-* **Usuários** – Os usuários do AAD (Azure Active Directory) que têm direitos de administrador para gerenciar a Coleção de Espaços de Trabalho do Power BI por meio do portal do Azure ou da API do Azure Resource Manager.
-* **Região** – como parte do provisionamento de uma **Coleção de Espaços de Trabalho**, você pode selecionar uma região na qual ela será provisionada. Para obter mais informações, consulte [Regiões do Azure](https://azure.microsoft.com/regions/).
+* **Usuários** – os usuários do AAD (Azure Active Directory) que têm direitos de administrador para gerenciar a Coleção de Workspaces do Power BI por meio do portal do Azure ou da API do Azure Resource Manager.
+* **Região** – como parte do provisionamento de uma **Coleção de Workspaces**, você pode selecionar uma região na qual ela será provisionada. Para obter mais informações, consulte [Regiões do Azure](https://azure.microsoft.com/regions/).
 
 ## <a name="workspace"></a>Workspace
 
@@ -52,7 +52,7 @@ Um **Workspace** é um contêiner de conteúdo do Power BI, que pode incluir con
 
 ## <a name="using-workspace-collections-and-workspaces"></a>Usando workspaces e coleções de workspaces
 
-**Coleções de Espaços de Trabalho** e **Espaços de Trabalho** são contêineres de conteúdo que são usados e organizados da forma que melhor se encaixar no design do aplicativo que você está criando. Haverá muitas maneiras diferentes em que você poderia organizar o conteúdo deles. Você pode optar por colocar todo o conteúdo dentro de um workspace e, depois, usar tokens de aplicativo para subdividir ainda mais o conteúdo entre seus clientes. Você também pode optar por colocar todos os seus clientes em workspaces separados, para que haja alguma separação entre eles. Ou, você pode optar por organizar os usuários por região em vez de organizá-los por cliente. Esse design flexível permite que você escolha a melhor maneira de organizar o conteúdo.
+**Coleções de Workspaces** e **Workspaces** são contêineres de conteúdo que são usados e organizados da forma que melhor se encaixar no design do aplicativo que você está criando. Haverá muitas maneiras diferentes em que você poderia organizar o conteúdo deles. Você pode optar por colocar todo o conteúdo dentro de um workspace e, depois, usar tokens de aplicativo para subdividir ainda mais o conteúdo entre seus clientes. Você também pode optar por colocar todos os seus clientes em workspaces separados, para que haja alguma separação entre eles. Ou, você pode optar por organizar os usuários por região em vez de organizá-los por cliente. Esse design flexível permite que você escolha a melhor maneira de organizar o conteúdo.
 
 ## <a name="cached-datasets"></a>Conjuntos de dados em cache
 
@@ -60,11 +60,11 @@ Conjuntos de dados em cache podem ser usados.  No entanto, você não pode atual
 
 ## <a name="authentication-and-authorization-with-app-tokens"></a>Autenticação e autorização com tokens de aplicativo
 
-As **Coleções de Espaços de Trabalho do Microsoft Power BI** transferem para o seu aplicativo para executar toda a autorização e autenticação de usuário necessárias. Não há nenhum requisito explícito de que os usuários finais sejam os clientes do Azure Active Directory (Azure AD).  Em vez disso, o aplicativo dá às **Coleções de Workspaces do Microsoft Power BI** autorização expressa para renderizar um relatório do Microsoft Power BI pelo uso de **Tokens de Autenticação de Aplicativo (Tokens de Aplicativo)**.  Esses **Tokens de Aplicativo** são criados conforme necessário, quando seu aplicativo deseja renderizar um relatório.
+As **Coleções de Workspaces do Microsoft Power BI** transferem para o seu aplicativo para executar toda a autorização e autenticação de usuário necessárias. Não há nenhum requisito explícito de que os usuários finais sejam os clientes do Azure Active Directory (Azure AD).  Em vez disso, o aplicativo dá às **Coleções de Workspaces do Microsoft Power BI** autorização expressa para renderizar um relatório do Microsoft Power BI pelo uso de **Tokens de Autenticação de Aplicativo (Tokens de Aplicativo)**.  Esses **Tokens de Aplicativo** são criados conforme necessário, quando seu aplicativo deseja renderizar um relatório.
 
 ![Diagrama de uso do token do aplicativo](media/what-are-power-bi-workspace-collections/app-tokens.png)
 
-**Tokens de Autenticação de Aplicativo (Tokens de Aplicativo)** são usados para autenticação nas **Coleções de Espaços de Trabalho do Microsoft Power BI**.  Há três tipos de **Tokens de Aplicativo**:
+**Tokens de Autenticação de Aplicativo (Tokens de Aplicativo)** são usados para autenticação nas **Coleções de Workspaces do Microsoft Power BI**.  Há três tipos de **Tokens de Aplicativo**:
 
 1. Tokens de Provisionamento – usados ao provisionar um novo **Workspaces** em uma **Coleção de Workspaces**
 2. Tokens de Desenvolvimento – Usados ao fazer chamadas diretamente para as **APIs REST do Power BI**
@@ -78,13 +78,13 @@ Você agora pode editar relatórios existentes ou criar novos relatórios direta
 
 ## <a name="see-also"></a>Consulte também
 
-[Cenários comuns das Coleções de Espaços de Trabalho do Microsoft Power BI](scenarios.md)  
-[Introdução às Coleções de Espaços de Trabalho do Microsoft Power BI](get-started.md)  
+[Cenários comuns das Coleções de Workspaces do Microsoft Power BI](scenarios.md)  
+[Introdução às Coleções de Workspaces do Microsoft Power BI](get-started.md)  
 [Introdução a exemplos](get-started-sample.md)  
 [Inserir um relatório](embed-report.md)  
-[Autenticando e autorizando em Coleções de Espaços de Trabalho do Power BI](app-token-flow.md)  
+[Autenticando e autorizando em Coleções de Workspaces do Power BI](app-token-flow.md)  
 [Amostra de inserção de JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 [Repositório de Git PowerBI-CSharp](https://github.com/Microsoft/PowerBI-CSharp)  
 [Repositório de Git PowerBI-Node](https://github.com/Microsoft/PowerBI-Node)  
 
-Mais perguntas? [Experimentar a comunidade do Power BI](http://community.powerbi.com/)
+Mais perguntas? [Experimentar a comunidade do Power BI](https://community.powerbi.com/)

@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: c14b6e16a16f325681722203eaa05a435b141208
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 07a8195969df7ad7afd2bfe2e9124b07144d48cb
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57990622"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58284775"
 ---
 # <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>Como se conectar e entrar em uma máquina virtual do Azure executando o Windows
 Você usará o botão **Conectar** no portal do Azure para iniciar uma sessão da Área de Trabalho Remota (RDP) a partir de uma área de trabalho do Windows. Primeiramente, conecte-se à máquina virtual então faça logon.
 
-Para conectar-se a uma VM do Windows por meio de um Mac, será necessário instalar um cliente do RDP para Mac, como a [Área de Trabalho Remota da Microsoft](https://itunes.apple.com/app/microsoft-remote-desktop/id715768417).
+Para conectar-se a uma VM do Windows por meio de um Mac, será necessário instalar um cliente do RDP para Mac, como a [Área de Trabalho Remota da Microsoft](https://aka.ms/rdmac).
 
 ## <a name="connect-to-the-virtual-machine"></a>Conectar-se à máquina virtual
 1. Se ainda não tiver feito isso, entre no [portal do Azure](https://portal.azure.com/).
