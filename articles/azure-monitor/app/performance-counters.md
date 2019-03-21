@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: mbullwin
-ms.openlocfilehash: d5c7e1815fe27d9b851407a8e6f17d04d7bc1cad
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
-ms.translationtype: HT
+ms.openlocfilehash: d38a575af54f044d64efc67b5483a67ffcd2fcd6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54004152"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837602"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Contadores de desempenho do sistema no Application Insights
 
@@ -122,8 +122,8 @@ Como outras telemetrias, o **performanceCounters** também tem uma coluna `cloud
 
 * *Exceções* é uma contagem dos relatórios TrackException recebida pelo portal no intervalo de amostragem do gráfico. Ele inclui apenas as exceções tratadas em que você tenha gravado chamadas TrackException em seu código e não inclui todas as [exceções sem tratamento](../../azure-monitor/app/asp-net-exceptions.md). 
 
-## <a name="performance-counters-in-aspnet-core-applications"></a>Contadores de desempenho em aplicativos do ASP.Net Core
-Os contadores de desempenho são suportados apenas se o aplicativo tiver como destino o .NET Framework completo. Não é possível coletar os contadores de desempenho para os aplicativos .net Core.
+## <a name="performance-counters-in-aspnet-core-applications"></a>Contadores de desempenho em aplicativos ASP.NET Core
+Os contadores de desempenho são suportados apenas se o aplicativo tiver como destino o .NET Framework completo. Não há nenhuma capacidade para coletar contadores de desempenho para aplicativos .NET Core.
 
 ## <a name="alerts"></a>Alertas
 Assim como ocorre com outras métricas, você pode [definir um alerta](../../azure-monitor/app/alerts.md) para avisar se um contador de desempenho fica fora de um limite especificado. Abra o painel Alertas e clique em Adicionar Alerta.

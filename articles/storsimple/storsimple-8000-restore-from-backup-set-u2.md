@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/23/2017
 ms.author: alkohli
-ms.openlocfilehash: 57290971185d1fd64b3b5ca6ac37535070ddab9e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 6a2e022697ced90d968075b7a4abe4163be7a539
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496475"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082799"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Restaurar um volume do StorSimple de um conjunto de backup
 
@@ -110,9 +110,9 @@ Os conjuntos de backup filtrados são então tabulados com base nos seguintes at
    3. Na lista suspensa, escolha o volume ou a política de backup para o backup que você deseja selecionar.
    4. Clique em **Aplicar** para executar esta consulta.
 
-    Os backups associados ao volume ou à política de backup selecionada devem aparecer na lista de conjuntos de backup.
+      Os backups associados ao volume ou à política de backup selecionada devem aparecer na lista de conjuntos de backup.
    
-    ![Lista de conjunto de backup](./media/storsimple-8000-restore-from-backup-set-u2/bucatalog.png)     
+      ![Lista de conjunto de backup](./media/storsimple-8000-restore-from-backup-set-u2/bucatalog.png)     
      
 3. Expanda o conjunto de backups para exibir os volumes associados. Esses volumes devem ficar offline no host e no dispositivo antes que você possa restaurá-los. Acesse os volumes na folha **Volumes** do seu dispositivo e siga as etapas em [Colocar um volume offline](storsimple-8000-manage-volumes-u2.md#take-a-volume-offline) para colocá-los offline.
    
@@ -127,9 +127,9 @@ Os conjuntos de backup filtrados são então tabulados com base nos seguintes at
    
     ![Página de confirmação](./media/storsimple-8000-restore-from-backup-set-u2/restorebu2.png)
 
-7.  Clique em **Restaurar**. Isso iniciará um trabalho de restauração que poderá ser exibido acessando a página **Trabalhos**.
+7. Clique em **Restaurar**. Isso iniciará um trabalho de restauração que poderá ser exibido acessando a página **Trabalhos**.
 
-    ![Página de confirmação](./media/storsimple-8000-restore-from-backup-set-u2/restorebu5.png)
+   ![Página de confirmação](./media/storsimple-8000-restore-from-backup-set-u2/restorebu5.png)
 
 8. Após a conclusão da restauração, verifique se o conteúdo de seus volumes foi substituído pelos volumes do backup.
 

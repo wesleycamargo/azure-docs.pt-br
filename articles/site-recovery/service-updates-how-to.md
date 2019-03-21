@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/05/2019
 ms.author: rajanaki
-ms.openlocfilehash: 67fe5da86b4736daa43a85a7a1a077c329732b60
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 36d0a976b73fe5b6f89755ce790b919468744179
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55890444"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091640"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Atualizações de serviço no Azure Site Recovery
 Como uma organização, você precisa descobrir como pretende manter seus dados seguros e os aplicativos/as cargas de trabalho em execução durante interrupções planejadas e não planejadas. O Azure Site Recovery contribui para sua estratégia de BCDR mantendo seus aplicativos em execução nas VMs e nos servidores físicos disponíveis caso um site fique inativo. O Site Recovery replica as cargas de trabalho em execução em VMs e servidores físicos para que eles permaneçam disponíveis em um local secundário se o site primário não estiver disponível. Ele recupera as cargas de trabalho para o site primário quando ele está ativo e em execução novamente.
@@ -108,7 +108,7 @@ Antes de prosseguir com as atualizações, consulte [Instrução de suporte do S
 Uma reinicialização é recomendada após cada atualização do agente de Mobilidade para garantir que todas as últimas alterações sejam carregadas no computador de origem. No entanto, ela **não é obrigatória**. Se a diferença entre a versão do agente durante a última reinicialização e a versão atual for maior que 4, uma reinicialização será obrigatória. Consulte a tabela a seguir para obter uma explicação detalhada.
 
 |**Versão do agente durante a última reinicialização** | **Atualizando para** | **A reinicialização é obrigatória?**|
-|---------|---------|---------|--------|
+|---------|---------|---------|
 |9.16 |  9.18 | Não obrigatório|
 |9.16 | 9.19 | Não obrigatório|
 | 9.16 | 9.20 | Não obrigatório
@@ -124,7 +124,7 @@ Uma reinicialização é recomendada após cada atualização do agente de Mobil
 |[Pacote cumulativo de atualizações 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)     |     5.1.3700.0      |   9.20.5051.1      |     5.1.3700.0    |2.0.9144.0
 |[Pacote cumulativo de atualizações 30](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30)     |    5.1.3650.0   |   9.19.5007.1    |     5.1.3650.0    |2.0.9139.0
 |[Pacote cumulativo de atualizações 29](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery)     |   5.1.3650.0      |   9.19.4973.1     |     5.1.3700.0    |2.0.9131.0
-|[Pacote cumulativo de atualizações 28 ](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery)     |  5.1.3600.0      |    9.19.4973.1     |  5.1.3600.0       |2.0.9131.0
+|[Pacote cumulativo de atualizações 28](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery)     |  5.1.3600.0      |    9.19.4973.1     |  5.1.3600.0       |2.0.9131.0
 | [Pacote cumulativo de atualizações 27](https://support.microsoft.com/help/4055712/update-rollup-27-for-azure-site-recovery)       |   5.1.3550.0      |    9.18.4946.1     | 5.1.3550.0         |2.0.9125.0
 
 

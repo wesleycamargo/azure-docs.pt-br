@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.custom: seodec18
-ms.openlocfilehash: 099c7a456e67eae981b2e68e73e2bed7557c7372
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: 3c6b5094613ee482b0fd3f63e3d9d69dfe4d40f4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632392"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094847"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-preview"></a>Provisionar e gerenciar a Versão Prévia do Azure Time Series Insights
 
@@ -67,7 +67,7 @@ As etapas a seguir descrevem como criar um ambiente de Versão Prévia do Azure 
      > [!TIP]
      > O tempo de enfileiramento de mensagens pode não ser a melhor configuração definida para usar em cenários de eventos em lotes ou de upload de dados históricos. Verifique sua decisão de usar ou não uma propriedade de Carimbo de Data/Hora nesses casos.
 
-    ![Guia Origem do Evento][2]
+     ![Guia Origem do Evento][2]
 
 1. Confirme que seu ambiente foi provisionado com as configurações desejadas.
 
