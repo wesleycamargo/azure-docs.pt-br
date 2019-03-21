@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 01/30/2019
 ms.author: spelluru
 ms.custom: seodec18
-ms.openlocfilehash: 0a71b88f6ad85cbd76f9bc789e87ad5b032418c9
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: d2daa23a22fae6ba420a146599c0c0ba659a94f2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297099"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540798"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Escolha entre os três serviços de mensagens do Azure – Grade de Eventos, Hubs de Eventos e Barramento de Serviço
 
@@ -34,7 +34,7 @@ Há uma distinção importante a observar entre serviços que entregam um evento
 
 Um evento é uma notificação leve de uma condição ou de uma alteração de estado. O editor do evento não tem expectativa sobre como o evento é manipulado. O consumidor do evento decide o que fazer com a notificação. Os eventos podem ser unidades discretas ou parte de uma série.
 
-Eventos discretos relatam alterações de estado e são acionáveis. Para dar continuidade, o consumidor apenas precisa saber o que ocorreu. Os dados do evento têm informações sobre o que aconteceu, mas não têm os dados que dispararam o evento. Por exemplo, um evento notifica os consumidores que um arquivo foi criado. Ele pode ter informações gerais sobre o arquivo, mas não contém o próprio arquivo. Eventos discretos são ideais para soluções [sem servidor](http://azure.com/serverless) que precisam ser dimensionadas.
+Eventos discretos relatam alterações de estado e são acionáveis. Para dar continuidade, o consumidor apenas precisa saber o que ocorreu. Os dados do evento têm informações sobre o que aconteceu, mas não têm os dados que dispararam o evento. Por exemplo, um evento notifica os consumidores que um arquivo foi criado. Ele pode ter informações gerais sobre o arquivo, mas não contém o próprio arquivo. Eventos discretos são ideais para soluções [sem servidor](https://azure.com/serverless) que precisam ser dimensionadas.
 
 Eventos de série relatam uma condição e são analisáveis. Os eventos são ordenados por tempo e inter-relacionados. O consumidor precisa da série sequenciada de eventos para analisar o que ocorreu.
 

@@ -8,12 +8,12 @@ ms.service: traffic-manager
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: kumud
-ms.openlocfilehash: f4c29526f675cab461153b4749c4f6edc237dada
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 50790e50602fbc8d302a67ea9963a4e492ce2f0b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467325"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58009766"
 ---
 # <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>Tutorial: Controlar o roteamento de tráfego com pontos de extremidade ponderados usando o Gerenciador de Tráfego
 
@@ -60,6 +60,7 @@ Nesta seção, você criará duas VMs (*myIISVMEastUS* e *myIISVMWEurope*) nas r
     |Grupo de recursos| Selecione **Novo**e insira **myResourceGroupTM1**.|
     |Local padrão| Selecione **Leste dos EUA**.|
     |||
+
 4. Selecione um tamanho da VM em **Escolher um tamanho**.
 5. Selecione os seguintes valores para **Configurações** e selecione **OK**:
     
@@ -69,6 +70,7 @@ Nesta seção, você criará duas VMs (*myIISVMEastUS* e *myIISVMWEurope*) nas r
     |Grupo de Segurança de Rede|Selecione **Basic**. Na lista suspensa **Selecionar portas de entrada públicas**, selecione **HTTP** e **RDP**. |
     |Diagnóstico de inicialização|Selecione **Desabilitado**.|
     |||
+
 6. Em **Criar**, em **Resumo**, selecione **Criar** para iniciar a implantação da VM.
 
 7. Conclua as etapas 1 a 6 novamente, com as seguintes alterações:
@@ -80,6 +82,7 @@ Nesta seção, você criará duas VMs (*myIISVMEastUS* e *myIISVMWEurope*) nas r
     |Nome da VM | Insira **myIISVMWEurope**.|
     |Rede virtual | Selecione **Rede virtual**. Em **Criar rede virtual**, como **Nome**, insira **myVNet2**. Em **Sub-rede**, insira **mySubnet**.|
     |||
+
 8. As VMs podem levar alguns minutos para serem criadas. Não continue com outras etapas até que ambas as VMs tenham sido criadas.
 
 ![Criar uma máquina virtual](./media/tutorial-traffic-manager-improve-website-response/createVM.png)
@@ -137,6 +140,7 @@ Nesta seção, você cria a VM *mVMEastUS*. Você usará essa VM para testar com
 
 4. Selecione um tamanho da VM em **Escolher um tamanho**.
 5. Selecione os seguintes valores para **Configurações** e selecione **OK**:
+
     |Configuração|Valor|
     |---|---|
     |Rede virtual| Selecione **Rede virtual**. Em **Criar rede virtual**, como **Nome**, insira **myVNet3**. Em Sub-rede, insira **mySubnet**.|
@@ -173,7 +177,7 @@ Adicione as duas VMs que estão executando os servidores IIS, myIISVMEastUS e my
 
     | Configuração                 | Valor                                              |
     | ---                     | ---                                                |
-    | Tipo                    | Insira o ponto de extremidade do Azure.                                   |
+    | Type                    | Insira o ponto de extremidade do Azure.                                   |
     | NOME           | Insira **myEastUSEndpoint**.                                        |
     | Tipo de recurso de destino           | Selecione **Endereço IP público**.                          |
     | Recurso de destino          | Escolha um endereço IP Público para mostrar a lista de recursos com endereços IP públicos na mesma assinatura. Em **Recursos**, selecione o endereço IP público denominado **myIISVMEastUS-ip**. Isso é o endereço IP público do servidor IIS VM no Leste dos EUA.|

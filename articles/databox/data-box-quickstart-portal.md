@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: quickstart
-ms.date: 01/09/2019
+ms.date: 03/12/2019
 ms.author: alkohli
-ms.openlocfilehash: ae6ab0eb4c966ef57c7859098217b5b6b560614b
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: bd591ff30755fd68bb2dc673899d0ac993215e68
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188548"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57834705"
 ---
-# <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>Início rápido: Implantar o Azure Data Box usando o portal do Azure
+# <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>Início Rápido: Implantar o Azure Data Box usando o portal do Azure
 
 Este início rápido descreve como implantar o Azure Data Box usando o portal do Azure. As etapas incluem como cabear, configurar e copiar dados para o Data Box, de modo que eles sejam carregados no Azure. O início rápido é executado no portal do Azure e na interface do usuário da Web local do dispositivo.
 
@@ -43,7 +43,7 @@ Antes de começar:
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Entre no Portal do Azure em [http://portal.azure.com](http://portal.azure.com).
+Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="order"></a>Classificar
 
@@ -74,7 +74,7 @@ Quando você receber o Data Box, execute as etapas a seguir para cabear, conecta
     
 4. Cabeie o dispositivo, conforme mostrado abaixo.  
 
-    ![Data Box cabeado](media/data-box-quickstart-portal/data-box-cabled-dhcp.png)  
+    ![Backplane do dispositivo Data Box cabeado](media/data-box-deploy-set-up/data-box-cabled-dhcp.png)  
 
     1. Conecte o cabo de alimentação ao dispositivo.
     2. Use o cabo de rede RJ-45 CAT 6 para conectar o computador host à porta de gerenciamento (MGMT) no dispositivo. 
@@ -86,7 +86,7 @@ Quando você receber o Data Box, execute as etapas a seguir para cabear, conecta
 
 Essa etapa demora cerca de 5 a 7 minutos para ser concluída.
 
-1. Para obter a senha do dispositivo, acesse **Geral > Detalhes do dispositivo** no [portal do Azure](http://portal.azure.com).
+1. Para obter a senha do dispositivo, acesse **Geral > Detalhes do dispositivo** no [portal do Azure](https://portal.azure.com).
 2. Atribua um endereço IP estático igual a 192.168.100.5 e a sub-rede 255.255.255.0 ao adaptador Ethernet no computador que você está usando para se conectar ao Data Box. Acesse a interface do usuário da Web local do dispositivo em `https://192.168.100.10`. A conexão poderá levar até 5 minutos após a ativação do dispositivo. 
 3. Entre usando a senha do portal do Azure. Você verá um erro indicando um problema com o certificado de segurança do site. Siga as instruções específicas do navegador para continuar para a página da Web.
 4. Por padrão, as configurações de rede para o adaptador de dados de 10 Gbps (ou 1 Gbps) são definidas como DHCP. Se necessário, configure essa interface como estática e forneça um endereço IP. 

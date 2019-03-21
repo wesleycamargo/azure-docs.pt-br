@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/03/2019
-ms.openlocfilehash: 3b98214da259e9e429c938f8ca7963c9f525e862
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 74d322c9e7d45a26f9e095bd7ae9f2bbe506ba49
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55560814"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57306928"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database"></a>Amostras da CLI do Azure para o Banco de Dados SQL do Azure
 
@@ -51,9 +51,9 @@ A tabela a seguir inclui links para exemplos de scripts da CLI do Azure para o B
 
 | |  |
 |---|---|
-| [Criar uma Instância Gerenciada](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/create-azure-sql-managed-instance-using-azure-cli/) | Esse script de CLI mostra como criar uma Instância Gerenciada. |
-| [Atualizar uma Instância Gerenciada](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/modify-azure-sql-database-managed-instance-using-azure-cli/) | Esse script de CLI mostra como atualizar uma Instância Gerenciada. |
-| [Mover um banco de dados para outra instância gerenciada](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/07/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/) | Esse script de CLI mostra como restaurar um backup de um banco de dados de uma instância para outra. |
+| [Criar uma Instância Gerenciada](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../create-azure-sql-managed-instance-using-azure-cli/) | Esse script de CLI mostra como criar uma Instância Gerenciada. |
+| [Atualizar uma Instância Gerenciada](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../modify-azure-sql-database-managed-instance-using-azure-cli/) | Esse script de CLI mostra como atualizar uma Instância Gerenciada. |
+| [Mover um banco de dados para outra instância gerenciada](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/) | Esse script de CLI mostra como restaurar um backup de um banco de dados de uma instância para outra. |
 |||
 
 Saiba mais sobre o a [API da CLI do Azure de Instância Gerenciada](sql-database-managed-instance-create-manage.md#azure-cli-create-and-manage-managed-instances) e localize [exemplos adicionais aqui](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44).

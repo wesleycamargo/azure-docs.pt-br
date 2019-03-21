@@ -8,12 +8,12 @@ ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 0b92d36287646038d9195f7ba39352d8ced9a3b6
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: a8be44201a2181ab252dfba501469719dd675ffa
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270259"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57410155"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Resolução de problemas com o Gerenciamento de Atualizações
 
@@ -44,7 +44,7 @@ Esse erro pode ser causado pelos seguintes motivos:
 
 1. Visite [Planejamento de rede](../automation-hybrid-runbook-worker.md#network-planning) para saber mais sobre quais endereços e portas devem ter permissão para que Gerenciamento de Atualizações funcione.
 2. Se estiver usando uma imagem clonada:
-   1. No espaço de trabalho do Log Analytics, remova a VM da pesquisa salva para a Configuração de Escopo `MicrosoftDefaultScopeConfig-Updates`. As pesquisas salvas podem ser encontradas em **Geral** no espaço de trabalho.
+   1. No espaço de trabalho do Log Analytics, remova a VM da pesquisa salva para a configuração de escopo `MicrosoftDefaultScopeConfig-Updates` se ele for exibido. As pesquisas salvas podem ser encontradas em **Geral** no espaço de trabalho.
    2. Execute o `Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force`
    3. Execute `Restart-Service HealthService` para reiniciar o `HealthService`. Isso recriará a chave e gerará um novo UUID.
    4. Se não funcionar, primeiro faça sysprep da imagem e instale o agente MMA em seguida.
@@ -78,11 +78,11 @@ $s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccount
 New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
 
-### <a name="nologs"></a>Cenário: Os dados do Gerenciamento de Atualizações não são mostrados no Log Analytics para um computador
+### <a name="nologs"></a>Cenário: Dados de gerenciamento de atualização não visível nos logs do Azure Monitor para uma máquina
 
 #### <a name="issue"></a>Problema
 
-Você tiver máquinas que mostram como **não avaliado** sob **conformidade**, mas você verá os dados de pulsação no Log Analytics para o Hybrid Runbook Worker, mas não o gerenciamento de atualizações.
+Você tiver máquinas que mostram como **não avaliado** sob **conformidade**, mas você verá os dados de pulsação nos logs do Azure Monitor para o Hybrid Runbook Worker, mas não o gerenciamento de atualizações.
 
 #### <a name="cause"></a>Causa
 

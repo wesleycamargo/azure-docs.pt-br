@@ -12,14 +12,14 @@ ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/25/2019
-ms.openlocfilehash: 64d16073062c0fd7f0b97a64950ceab9efc0eacf
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 5aeb84e5086fb0cf5c30e175ad419ee70bed55ad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984876"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58075178"
 ---
-# <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal"></a>Início Rápido: Criar um banco de dados individual no Banco de Dados SQL do Azure usando o portal do Azure
+# <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal"></a>Início rápido: Criar um banco de dados individual no Banco de Dados SQL do Azure usando o portal do Azure
 
 A criação de um [banco de dados individual](sql-database-single-database.md) é a opção de implantação mais rápida e simples para criação de um Banco de Dados SQL do Azure. Este Início Rápido mostra como criar e, em seguida, consultar um banco de dados individual usando o portal do Azure.
 
@@ -42,8 +42,8 @@ Para criar um banco de dados individual que contém os dados de exemplo Adventur
    - **Grupo de recursos**: Selecione **Criar**, digite *myResourceGroup* e selecione **OK**.
    - **Selecionar fonte**: Selecione a lista suspensa e escolha **Amostra (AdventureWorksLT)**.
 
-    > [!IMPORTANT]
-    > Selecione os dados da **Amostra (AdventureWorksLT)** para seguir com facilidade este e outros Guias de Início Rápido do Banco de Dados SQL do Azure que usam esses dados.
+     > [!IMPORTANT]
+     > Selecione os dados da **Amostra (AdventureWorksLT)** para seguir com facilidade este e outros Guias de Início Rápido do Banco de Dados SQL do Azure que usam esses dados.
   
    ![Criar banco de dados individual](./media/sql-database-get-started-portal/create-database-1.png)
 
@@ -67,7 +67,7 @@ Para criar um banco de dados individual que contém os dados de exemplo Adventur
    > [!NOTE]
    > Este início rápido usa o [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md), mas o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) também está disponível.
    > [!IMPORTANT]
-   > Mais de 1 TB de armazenamento na camada Premium está atualmente disponível em todas as regiões, exceto: Leste da China, Norte da China, Alemanha Central, Nordeste da Alemanha, Centro-oeste dos EUA, regiões US DoD e US Government Central. Nessas regiões, o armazenamento máximo na camada Premium é limitado a 1 TB.  Para obter mais informações, confira [Limitações atuais de P11-P15](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   > Mais de 1 TB de armazenamento na camada Premium está atualmente disponível em todas as regiões, exceto: Leste da China, Norte da China, Alemanha Central, Nordeste da Alemanha, Centro-oeste dos EUA, regiões US DoD e US Government Central. Nessas regiões, o armazenamento máximo na camada Premium é limitado a 1 TB.  Para obter mais informações, confira [Limitações atuais de P11-P15](sql-database-single-database-scale.md#dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 8. Para este início rápido, selecione a camada de serviço **Standard** e, em seguida, use o controle deslizante para selecionar **10 DTUs (S0)** e **1** GB de armazenamento.
 9. Escolha **Aplicar**.  
@@ -76,9 +76,9 @@ Para criar um banco de dados individual que contém os dados de exemplo Adventur
 
 10. No formulário **Banco de Dados SQL**, selecione **Criar** para implantar e provisionar o grupo de recursos, o servidor e o banco de dados.
 
-   A implantação leva alguns minutos. Você pode selecionar **Notificações** na barra de ferramentas para monitorar o progresso da implantação.
+    A implantação leva alguns minutos. Você pode selecionar **Notificações** na barra de ferramentas para monitorar o progresso da implantação.
 
-   ![Notificação](./media/sql-database-get-started-portal/notification.png)
+    ![Notificação](./media/sql-database-get-started-portal/notification.png)
 
 ## <a name="query-the-database"></a>Consultar o banco de dados
 

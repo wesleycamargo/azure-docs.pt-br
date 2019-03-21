@@ -13,14 +13,14 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: fcef143f48bc9e7864fe69900e3c9002fd597fb5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 264a1200ce78d85181650de716f9898033834bc0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001861"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549826"
 ---
-# <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Início Rápido: Criar um data factory e pipeline usando o Python
+# <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Início rápido: Criar um data factory e pipeline usando o Python
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -45,7 +45,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
     John|Doe
     Jane|Doe
     ```
-2.  Use ferramentas como o [Gerenciador de Armazenamento do Azure](http://storageexplorer.com/) para criar o contêiner **adfv2tutorial** e a pasta **input** no contêiner. Em seguida, carregue o arquivo **input.txt** na pasta **input**.
+2.  Use ferramentas como o [Gerenciador de Armazenamento do Azure](https://storageexplorer.com/) para criar o contêiner **adfv2tutorial** e a pasta **input** no contêiner. Em seguida, carregue o arquivo **input.txt** na pasta **input**.
 
 ## <a name="install-the-python-package"></a>Instalar o pacote do Python
 

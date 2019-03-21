@@ -9,12 +9,12 @@ ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: a73568fd1dd7ed6b6cd3a7938768db4982725658
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 99f5b09d0b5dfc144dca7f19efff3f0656a82b35
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497869"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093238"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Use o portal do Azure para fazer backup de várias máquinas virtuais
 
@@ -77,16 +77,16 @@ Após criar o Cofre dos Serviços de Recuperação, a próxima etapa é configur
     ![Selecionar carga de trabalho](./media/tutorial-backup-vm-at-scale/create-new-policy.png)
 
 5. No menu **Política de backup**, para **Nome da política**, digite *Finanças*. Insira as seguintes alterações na Política de Backup:
-    - Para a **Frequência de backup**, defina o fuso horário para *Hora Central*. Como o complexo esportivo está localizado no Texas, o proprietário deseja que o horário definido seja o local. Deixe a frequência de backup definida como Diariamente às 03h30.
-    - Para a **Retenção do ponto de backup diário**, defina o período para 90 dias.
-    - Para a **Retenção do ponto de backup semanal**, use o ponto de restauração *Segunda-feira* e mantenha-o por 52 semanas.
-    - Para a **Retenção do ponto de backup mensal**, use o ponto de restauração do Primeiro Domingo do mês e mantenha-o por 36 meses.
-    - Desmarque a opção **Retenção do ponto de backup anual**. O líder de finanças não deseja manter dados por mais de 36 meses.
-    - Clique em **OK** para criar a política de backup.
+   - Para a **Frequência de backup**, defina o fuso horário para *Hora Central*. Como o complexo esportivo está localizado no Texas, o proprietário deseja que o horário definido seja o local. Deixe a frequência de backup definida como Diariamente às 03h30.
+   - Para a **Retenção do ponto de backup diário**, defina o período para 90 dias.
+   - Para a **Retenção do ponto de backup semanal**, use o ponto de restauração *Segunda-feira* e mantenha-o por 52 semanas.
+   - Para a **Retenção do ponto de backup mensal**, use o ponto de restauração do Primeiro Domingo do mês e mantenha-o por 36 meses.
+   - Desmarque a opção **Retenção do ponto de backup anual**. O líder de finanças não deseja manter dados por mais de 36 meses.
+   - Clique em **OK** para criar a política de backup.
 
-    ![Selecionar carga de trabalho](./media/tutorial-backup-vm-at-scale/set-new-policy.png)
+     ![Selecionar carga de trabalho](./media/tutorial-backup-vm-at-scale/set-new-policy.png)
 
-    Depois de criar a política de backup, associe-a às máquinas virtuais.
+     Depois de criar a política de backup, associe-a às máquinas virtuais.
 
 6. Na caixa de diálogo **Selecionar máquinas virtuais**, selecione *myVM* e clique em **OK** para implantar a política de backup nas máquinas virtuais.
 

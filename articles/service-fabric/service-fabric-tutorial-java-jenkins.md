@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 08/27/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: a4b8d930a2176c16bb9d1cbcd3b67e6f919575ed
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 0a0f7cc8e3810a28fdbec914a9f37808c33ab878
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53162215"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880578"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>Tutorial: Configurar um ambiente Jenkins para habilitar a CI/CD para um aplicativo Java no Service Fabric
 
@@ -72,15 +72,15 @@ Você pode configurar o Jenkins dentro ou fora de um cluster do Service Fabric. 
     * Depois de entrar pela primeira vez, é possível criar sua própria conta de usuário ou usar a conta de administrador.
 
 1. Configurar o GitHub para trabalhar com o Jenkins usando as etapas mencionadas em [Gerando uma nova chave SSH e adicionando-a ao agente SSH](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/). Como os comandos são executados do contêiner Docker, siga as instruções do ambiente do Linux.
-    * Use as instruções fornecidas pelo GitHub para gerar a chave SSH. Em seguida, adicione a chave SSH para a conta do GitHub que está hospedando o repositório.
-    * Execute os comandos mencionados no link anterior no shell Jenkins Docker (e não no host).
-    * Para fazer logon no shell Jenkins do host, use os seguintes comandos:
+   * Use as instruções fornecidas pelo GitHub para gerar a chave SSH. Em seguida, adicione a chave SSH para a conta do GitHub que está hospedando o repositório.
+   * Execute os comandos mencionados no link anterior no shell Jenkins Docker (e não no host).
+   * Para fazer logon no shell Jenkins do host, use os seguintes comandos:
 
-    ```sh
-    docker exec -t -i [first-four-digits-of-container-ID] /bin/bash
-    ```
+     ```sh
+     docker exec -t -i [first-four-digits-of-container-ID] /bin/bash
+     ```
 
-    Verifique se o cluster ou a máquina em que a imagem de contêiner Jenkins está hospedada tem um IP público. Ter um IP voltado para o público permite que a instância do Jenkins receba notificações do GitHub.
+     Verifique se o cluster ou a máquina em que a imagem de contêiner Jenkins está hospedada tem um IP público. Ter um IP voltado para o público permite que a instância do Jenkins receba notificações do GitHub.
 
 ## <a name="create-and-configure-a-jenkins-job"></a>Criar e configurar um trabalho do Jenkins
 
@@ -146,7 +146,7 @@ Você pode configurar o Jenkins dentro ou fora de um cluster do Service Fabric. 
 
     ```xml
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
-    <ApplicationManifest xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingApplicationType" ApplicationTypeVersion="2.0.0">
+    <ApplicationManifest xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingApplicationType" ApplicationTypeVersion="2.0.0">
       <Description>Voting Application</Description>
       <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="VotingWebPkg" ServiceManifestVersion="2.0.0"/>

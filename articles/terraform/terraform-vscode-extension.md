@@ -2,19 +2,19 @@
 title: Instalar e usar a extensão Visual Studio Code do Azure Terraform
 description: Saiba como instalar e usar a extensão do Terraform do Azure no Visual Studio Code.
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, azure, devops, visual studio code, extensão
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/31/2018
-ms.openlocfilehash: 137a57638207a05f797692b25a5d5a31bd66ce3d
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: b1102649e48af8cb36a64f1142c078bf9ebc0d99
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074573"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58006195"
 ---
 # <a name="install-and-use-the-azure-terraform-visual-studio-code-extension"></a>Instalar e usar a extensão Visual Studio Code do Azure Terraform
 
@@ -59,7 +59,7 @@ Para usar o Terraform no Cloud Shell, você precisará [instalar o Node.js](http
 
 ### <a name="install-graphviz"></a>Instalar GraphViz
 
-Para usar a função visualizar do Terraform, será necessário [instalar o GraphViz](http://graphviz.org/).
+Para usar a função visualizar do Terraform, será necessário [instalar o GraphViz](https://graphviz.org/).
 
 >[!NOTE]
 >Para verificar se o GraphViz está instalado, abra uma janela do terminal e insira `dot -V`.
@@ -128,7 +128,7 @@ Neste exercício, você cria e executa um arquivo de configuração básico do T
     ![Salvar como main.tf](media/terraform-vscode-extension/tf-save-as-main.png)
 
 1. Clique em **Salvar**.
-- Na barra de menus, selecione **Arquivo > Abrir Pasta**. Navegue e selecione a nova pasta que você criou.
+1. Na barra de menus, selecione **Arquivo > Abrir Pasta**. Navegue e selecione a nova pasta que você criou.
 
 ### <a name="run-terraform-init-command"></a>Executar o comando *init* do Terraform
 

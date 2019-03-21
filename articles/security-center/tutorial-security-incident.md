@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: rkarlin
-ms.openlocfilehash: d3154e137aec8dcedcb066e2c9aab046b5a7b6e0
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: d726006d3ecce69f129b1576c7c6d12833582873
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108816"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58081983"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>Tutorial: Responder a incidentes de segurança
 A Central de Segurança analisa continuamente as cargas de trabalho de nuvem híbrida usando a análise avançada e a inteligência contra ameaças para lhe avisar a existência de atividades mal-intencionadas. Além disso, você pode integrar à Central de Segurança alertas de outros produtos e serviços de segurança, bem como criar alertas personalizados com base em indicadores próprios ou fontes de inteligência. Após a geração de um alerta, é necessária uma ação rápida para investigação e correção da questão. Neste tutorial, você aprenderá a:
@@ -45,28 +45,28 @@ A Central de Segurança fornece uma visualização unificada de todos os alertas
 
 1. No menu principal da Central de Segurança, em **DETECÇÃO**, selecione **Alertas de segurança**:
 
-  ![Alertas de segurança](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)  
+   ![Alertas de segurança](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)  
 
 2. Na lista de alertas, clique em um incidente de segurança, que é uma coleção de alertas, para saber mais sobre o incidente. A tela **Incidente de segurança detectado** abre.
 
-  ![Incidente de segurança](./media/tutorial-security-incident/tutorial-security-incident-fig2.png)
+   ![Incidente de segurança](./media/tutorial-security-incident/tutorial-security-incident-fig2.png)
 
 3. Nessa tela, você tem a descrição do incidente de segurança na parte superior e a lista de alertas que fazem parte do incidente. Clique no alerta que você deseja continuar investigando para obter mais informações.
 
-  ![Incidente de segurança](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
+   ![Incidente de segurança](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
 
-  O tipo de alerta pode variar, leia [Noções básicas sobre os alertas de segurança na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) para obter mais detalhes sobre o tipo de alerta e as etapas de correção possíveis. Para os alertas que podem ser ignorados com segurança, clique com o botão direito no alerta e selecione a opção **Ignorar**:
+   O tipo de alerta pode variar, leia [Noções básicas sobre os alertas de segurança na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) para obter mais detalhes sobre o tipo de alerta e as etapas de correção possíveis. Para os alertas que podem ser ignorados com segurança, clique com o botão direito no alerta e selecione a opção **Ignorar**:
 
-  ![Alerta](./media/tutorial-security-incident/tutorial-security-incident-fig4.png)
+   ![Alerta](./media/tutorial-security-incident/tutorial-security-incident-fig4.png)
 
 4. Se a causa raiz e o escopo da atividade mal-intencionada forem desconhecidos, vá para a próxima etapa para continuar investigando.
 
 ## <a name="investigate-an-alert-or-incident"></a>Investigar um alerta ou incidente
 1. Na página **Alerta de segurança**, clique no botão **Iniciar a investigação** (se você já tiver iniciado, o nome será alterado para **Continuar investigação**).
 
-  ![Investigação](./media/tutorial-security-incident/tutorial-security-incident-fig5.png)
+   ![Investigação](./media/tutorial-security-incident/tutorial-security-incident-fig5.png)
 
-  O mapa de investigação é uma representação gráfica das entidades conectadas a esse alerta de segurança ou um incidente. Ao clicar em uma entidade no mapa, as informações sobre a entidade mostrarão novas entidades, e o mapa expandirá. As propriedades da entidade selecionada no mapa são realçadas no painel à direita da página. As informações disponíveis em cada guia variam de acordo com a entidade selecionada. Durante o processo de investigação, examine todas as informações relevantes para entender melhor o movimento do invasor.
+   O mapa de investigação é uma representação gráfica das entidades conectadas a esse alerta de segurança ou um incidente. Ao clicar em uma entidade no mapa, as informações sobre a entidade mostrarão novas entidades, e o mapa expandirá. As propriedades da entidade selecionada no mapa são realçadas no painel à direita da página. As informações disponíveis em cada guia variam de acordo com a entidade selecionada. Durante o processo de investigação, examine todas as informações relevantes para entender melhor o movimento do invasor.
 
 2. Se você precisar de mais evidências ou tiver de investigar mais as entidades encontradas durante a investigação, vá para a próxima etapa.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Pesquisar vídeos usando a API de Pesquisa de Vídeo do Bing e PHP'
+title: 'Início Rápido: Pesquisar vídeos usando a API de Pesquisa de Vídeo do Bing e PHP'
 titlesuffix: Azure Cognitive Services
 description: Use este início rápido para enviar solicitações de pesquisa de vídeo para a API REST de Pesquisa de Vídeo do Bing usando PHP
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: aahi
-ms.openlocfilehash: 3f96bb829bb32e0fa706349684ca3796a7c5379d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 50c39594aeb014860d25b2f2cc791ebfec14b572
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863968"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535188"
 ---
-# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-php"></a>Início rápido: Pesquisar vídeos usando a API de Pesquisa de Vídeo do Bing e PHP
+# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-php"></a>Início Rápido: Pesquisar vídeos usando a API de Pesquisa de Vídeo do Bing e PHP
 
 Use este início rápido para fazer sua primeira chamada à API de Pesquisa de Vídeo do Bing e exibir um resultado de pesquisa da resposta JSON. Este aplicativo JavaScript simples envia uma consulta de pesquisa de vídeo HTTP para a API e exibe a resposta. Embora o aplicativo seja escrito em JavaScript e use Node.js, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 O código de exemplo foi gravado para funcionar no PHP 5.6.
@@ -64,7 +64,7 @@ $term = 'kittens';
 function BingVideoSearch ($url, $key, $query) {
     // Prepare HTTP request
     // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-    // http://php.net/manual/en/function.stream-context-create.php
+    // https://php.net/manual/en/function.stream-context-create.php
     $headers = "Ocp-Apim-Subscription-Key: $key\r\n";
     $options = array ('http' => array (
             'header' => $headers,

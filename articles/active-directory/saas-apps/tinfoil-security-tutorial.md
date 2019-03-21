@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ed0912e8d4705b6cbefa9eb8f7a712a37d8b0be
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8d2001e221ef9c02ee2ab80b647a9bafe6490432
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183168"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882137"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tinfoil-security"></a>Tutorial: integração do Azure Active Directory com o TINFOIL SECURITY
 
@@ -71,7 +71,7 @@ Para configurar a integração do TINFOIL SECURITY com o Azure AD, é necessári
     
 1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![APLICATIVOS][3]
+    ![Aplicativos][3]
 
 1. Na caixa de pesquisa, digite **TINFOIL SECURITY**, selecione **TINFOIL SECURITY** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
 
@@ -119,11 +119,11 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     
     ![Atributos](./media/tinfoil-security-tutorial/tutorial_tinfoil-security_attribute1.png "Atributos")
     
-    | Nome do atributo    |   Valor do atributo |
+    | Nome do Atributo    |   Valor do Atributo |
     | ------------------- | -------------------- |
     | accountid | UXXXXXXXXXXXXX |
     
-     a. Clique em **adicionar atributo de usuário**.
+    a. Clique em **adicionar atributo de usuário**.
     
     ![ADICIONAR atributo](./media/tinfoil-security-tutorial/tutorial_tinfoil-security_attribute.png "Atributos")
     
@@ -157,7 +157,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
    
     ![Logon Único](./media/tinfoil-security-tutorial/ic798973.png "Logon Único")
    
-     a. Selecione **Habilitar SAML**.
+    a. Selecione **Habilitar SAML**.
    
     b. Clique em **Configuração Manual**.
    
@@ -186,7 +186,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 1. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
     
-    ![Usuários e grupos -> Todos os usuários ](./media/tinfoil-security-tutorial/create_aaduser_02.png) 
+    ![Usuários e grupos -> Todos os usuários](./media/tinfoil-security-tutorial/create_aaduser_02.png) 
 
 1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
  

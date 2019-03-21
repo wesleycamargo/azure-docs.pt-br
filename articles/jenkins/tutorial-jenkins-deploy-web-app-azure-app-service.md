@@ -8,16 +8,16 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.openlocfilehash: b0f909bb7f4b59e083f0ef1c8a19c11d5d9fb312
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 90f89f9ffb1d55e7621c87f168375251c78d9730
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821296"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533486"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>Tutorial: Implantar do GitHub para o Serviço de Aplicativo do Azure com implantação e integração contínua do Jenkins
 
-Este tutorial implanta um aplicativo Web Java de exemplo do GitHub no [Serviço de Aplicativo do Azure no Linux](/azure/app-service/containers/app-service-linux-intro) configurando a CI (integração contínua) e a CD (implantação contínua) no Jenkins. Ao atualizar o aplicativo efetuando push das atualizações para o GitHub, o Jenkins criará e republicará seu aplicativo automaticamente no Serviço de Aplicativo do Azure. O aplicativo de exemplo neste tutorial foi desenvolvido usando a estrutura [Spring Boot](http://projects.spring.io/spring-boot/). 
+Este tutorial implanta um aplicativo Web Java de exemplo do GitHub no [Serviço de Aplicativo do Azure no Linux](/azure/app-service/containers/app-service-linux-intro) configurando a CI (integração contínua) e a CD (implantação contínua) no Jenkins. Ao atualizar o aplicativo efetuando push das atualizações para o GitHub, o Jenkins criará e republicará seu aplicativo automaticamente no Serviço de Aplicativo do Azure. O aplicativo de exemplo neste tutorial foi desenvolvido usando a estrutura [Spring Boot](https://projects.spring.io/spring-boot/). 
 
 ![Visão geral](media/tutorial-jenkins-deploy-web-app-azure-app-service/overview.png)
 
@@ -193,7 +193,7 @@ No Jenkins, crie o trabalho de pipeline para criar e implantar seu aplicativo.
 
    1. Na caixa **Conteúdo das Propriedades** exibida, adicione essas variáveis de ambiente e seus valores. 
 
-      ```text
+      ```ini
       AZURE_CRED_ID=yourAzureServicePrincipalName
       RES_GROUP=yourWebAppAzureResourceGroupName
       WEB_APP=yourWebAppName
@@ -212,7 +212,7 @@ Agora, crie os arquivos que usam o Jenkins para criar e implantar seu aplicativo
 1. Na pasta `src/main/resources/` de seu fork no GitHub, crie esse arquivo de configuração de aplicativo denominado `web.config`, que contém o XML, mas substitua `$(JAR_FILE_NAME)` por `gs-spring-boot-0.1.0.jar`:
 
    ```xml
-   <?xml version="1.0" encoding="UTF-8">
+   <?xml version="1.0" encoding="UTF-8"?>
    <configuration>
       <system.webServer>
          <handlers>
@@ -225,7 +225,7 @@ Agora, crie os arquivos que usam o Jenkins para criar e implantar seu aplicativo
 
 1. Na pasta raiz de seu fork no GitHub, crie esse script de compilação e implantação denominado `Jenkinsfile`, que contém o texto ([fonte no GitHub aqui](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/doc/resources/jenkins/Jenkinsfile-webapp-se)):
 
-   ```text  
+   ```groovy
    node {
       stage('init') {
          checkout scm

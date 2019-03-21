@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
 ms.custom: seodec18
-ms.openlocfilehash: a6e6dfb70182d8b4924a184dcebd1d06695911a5
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: a4bf2ef252b5a948f2e3614e3e7cf64a4cb19277
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746993"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772051"
 ---
 # <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>Tutorial: Compilar um aplicativo Web Java EE e um aplicativo Web Postgres no Azure
 
@@ -200,4 +200,4 @@ az group delete --name <your_resource_group>
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você tem um aplicativo Java EE implantado no Serviço de Aplicativo, confira o [Guia do desenvolvedor do Java Enterprise](https://aka.ms/wildfly-quickstart) para saber mais sobre como configurar serviços, solucionar problemas e dimensionar seu aplicativo.
+Agora que você tem um aplicativo Java EE implantado no Serviço de Aplicativo, confira o [Guia do desenvolvedor do Java Enterprise](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-java) para saber mais sobre como configurar serviços, solucionar problemas e dimensionar seu aplicativo.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 3cc6cdb84b2c77b15b79c7d6a04cc7c6ae0721e5
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: bee4618ff08c89bbdab7413ca7f7f74a266d96dd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115848"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077897"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Início rápido: Integrar computadores Windows à Central de Segurança do Azure
 Depois de integrar suas assinaturas do Azure, é possível habilitar a Central de Segurança para recursos sendo executados fora do Azure, por exemplo, no local ou em outras nuvens, por meio do provisionamento do Microsoft Monitoring Agent.
@@ -37,7 +37,7 @@ Você deverá estar no tipo de preço Standard da Central de Segurança antes de
 1. Faça logon no [Portal do Azure](https://azure.microsoft.com/features/azure-portal/).
 2. No menu **Microsoft Azure**, selecione **Central de Segurança**. **Central de Segurança - Visão geral** é aberto.
 
- ![Visão geral da Central de Segurança][2]
+   ![Visão geral da Central de Segurança][2]
 
 3. No menu principal da Central de Segurança, selecione **Introdução**.
 4. Selecione a guia **Introdução**.
@@ -48,13 +48,13 @@ Você deverá estar no tipo de preço Standard da Central de Segurança antes de
 
     ![Adicionar computador não Azure](./media/quick-onboard-windows-computer/non-azure.png)
 
-  A folha **Agente Direto** abre com um link para baixar um agente do Windows e as chaves da sua ID do workspace para ser usada na configuração do agente.
+   A folha **Agente Direto** abre com um link para baixar um agente do Windows e as chaves da sua ID do workspace para ser usada na configuração do agente.
 
-6.  Selecione o link **Baixar Agente do Windows** aplicável a seu tipo de processador do computador para baixar o arquivo de configuração.
+6. Selecione o link **Baixar Agente do Windows** aplicável a seu tipo de processador do computador para baixar o arquivo de configuração.
 
-7.  À direita da **ID do Workspace**, selecione o ícone copiar e cole a ID no Bloco de Notas.
+7. À direita da **ID do Workspace**, selecione o ícone copiar e cole a ID no Bloco de Notas.
 
-8.  À direita da **Chave Primária**, clique no ícone copiar e cole a chave no Bloco de Notas.
+8. À direita da **Chave Primária**, clique no ícone copiar e cole a chave no Bloco de Notas.
 
 ## <a name="install-the-agent"></a>Instalar o agente
 Agora você deve instalar o arquivo baixado no computador de destino.
@@ -68,7 +68,7 @@ Agora você deve instalar o arquivo baixado no computador de destino.
 7. Caso o computador deva se reportar a um workspace do Log Analytics na nuvem do Azure Governamental, selecione o formulário **Azure US Government** na lista suspensa do **Azure Cloud**.  Caso o computador precise se comunicar por meio de um servidor proxy ao serviço Log Analytics, selecione **Avançado** e forneça a URL e o número da porta do servidor proxy.
 8. Selecione **Avançar** depois de ter terminado de fornecer as configurações necessárias.
 
-  ![Instalar o agente][5]
+   ![Instalar o agente][5]
 
 9. Na página **Pronto para Instalar**, examine suas escolhas e selecione **Instalar**.
 10. Na página **Configuração concluída com êxito**, selecione **Concluir**

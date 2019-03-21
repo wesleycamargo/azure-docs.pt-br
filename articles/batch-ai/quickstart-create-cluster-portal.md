@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.date: 08/15/2018
 ms.author: danlep
 ROBOTS: NOINDEX
-ms.openlocfilehash: 78c743448a7f7439875d3598d6ba5d4eb6dc12fc
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 49e78f1774a2998de7070453f7c098aef1761242
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408928"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093221"
 ---
 # <a name="quickstart-create-a-cluster-for-batch-ai-training-jobs-using-the-azure-portal"></a>Início Rápido: Criar um cluster para trabalhos de treinamento da IA do Lote usando o portal do Azure
 
@@ -59,7 +59,7 @@ Comece criando um espaço de trabalho da IA do Lote para organizar os recursos d
 
 3. Insira valores de **Nome do espaço de trabalho** e **Grupo de recursos**. Se desejar, selecione opções diferentes de **Assinatura** e **Local** no espaço de trabalho. Selecione **Criar Espaço de Trabalho**.
 
-  ![Criar um workspace da IA do Lote](./media/quickstart-create-cluster-portal/create-workspace.png)
+   ![Criar um workspace da IA do Lote](./media/quickstart-create-cluster-portal/create-workspace.png)
 
 Quando a mensagem **Implantação bem-sucedida** for exibida, acesse o recurso criado e selecione o espaço de trabalho.
 
@@ -73,7 +73,7 @@ Um servidor de arquivos da IA do Lote é um NFS de nó único que pode ser monta
 
 3. Insira um **Nome de usuário de administrador** e copie o conteúdo do arquivo de chave pública SSH em **Chave SSH**. Aceite os padrões para os demais valores e selecione **Criar servidor de arquivos**.
 
-  ![Criar servidor de arquivos da IA do Lote](./media/quickstart-create-cluster-portal/create-file-server.png)
+   ![Criar servidor de arquivos da IA do Lote](./media/quickstart-create-cluster-portal/create-file-server.png)
 
 O servidor de arquivos leva alguns minutos para ser implantado.
 

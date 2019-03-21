@@ -2,19 +2,19 @@
 title: Use o Terraform para criar um conjunto de dimensionamento de máquinas virtuais do Azure com base em uma imagem personalizada Packer
 description: Use o Terraform para configurar e controlar a versão de um conjunto de dimensionamento de máquinas virtuais do Azure com base em uma imagem personalizada gerada pelo Packer (completo com uma rede virtual e discos gerenciados anexados).
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, conjunto de dimensionamento, máquina virtual, rede, armazenamento, módulos, imagens personalizadas, packer
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/29/2017
-ms.openlocfilehash: 12c6ebc9b29c356ad169dbd921e71c7aa0c273b7
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 5aff45b4a6b5da62569e0a39c13239a726e6b80b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077497"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58001998"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image"></a>Use o Terraform para criar um conjunto de dimensionamento de máquinas virtuais do Azure com base em uma imagem personalizada Packer
 
@@ -180,7 +180,7 @@ Nesta etapa, você criará os seguintes recursos na rede implantada anteriorment
 - Um pool de endereços de back-end do Azure e atribua-o ao balanceador de carga 
 - Uma porta de investigação de integridade usada pelo aplicativo e configurada no balanceador de carga 
 - Um conjunto de dimensionamento de máquinas virtuais localizado por trás do balanceador de carga e em execução na vnet implantada anteriormente
-- [Nginx](http://nginx.org/) nos nós de dimensionamento de máquina virtual instalado usando uma imagem personalizada
+- [Nginx](https://nginx.org/) nos nós de dimensionamento de máquina virtual instalado usando uma imagem personalizada
 
 
 Adicione o seguinte código ao final do arquivo `vmss.tf`.

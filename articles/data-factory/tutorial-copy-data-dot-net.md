@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 3cbfb29542f2c71f4308b63319e77b37093529d4
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 630b17a3467f372190004172b31b481dcb5af3ce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445893"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863127"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Copiar dados do Blob do Azure para o Banco de Dados SQL do Azure usando o Azure Data Factory
 Neste tutorial, você cria um pipeline de Data Factory que copia dados do Armazenamento de Blobs do Azure para o Banco de Dados SQL do Azure. O padrão de configuração neste tutorial aplica-se a cópia de um armazenamento de dados baseado em arquivo para um armazenamento de dados relacional. Para obter uma lista de armazenamentos de dados com suporte como origens e coletores, consulte a tabela [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -57,7 +57,7 @@ Agora, prepare seu Blob do Azure e Banco de Dados SQL do Azure para o tutorial, 
     Jane|Doe
     ```
 
-2. Use ferramentas como o [Gerenciador de Armazenamento do Azure](http://storageexplorer.com/) para criar o contêiner **adfv2tutorial** e carregar o arquivo **inputEmp.txt** no contêiner.
+2. Use ferramentas como o [Gerenciador de Armazenamento do Azure](https://storageexplorer.com/) para criar o contêiner **adfv2tutorial** e carregar o arquivo **inputEmp.txt** no contêiner.
 
 #### <a name="create-a-sink-sql-table"></a>Criar uma tabela do SQL de coletor
 
@@ -236,7 +236,7 @@ Você define um conjunto de dados que representa os dados de origem no Blob do A
 - A estrutura de dados, incluindo tipos de dados e nomes de coluna que, nesse caso, mapeiam para a tabela SQL de coletor.
 
 ```csharp
-// Create a Azure Blob dataset
+// Create an Azure Blob dataset
 Console.WriteLine("Creating dataset " + blobDatasetName + "...");
 DatasetResource blobDataset = new DatasetResource(
     new AzureBlobDataset
@@ -274,7 +274,7 @@ Adicione o código a seguir, que cria um **conjunto de dados do Banco de Dados S
 Você define um conjunto de dados que representa os dados de coletor no Banco de Dados SQL do Azure. Esse conjunto de dados refere-se ao serviço vinculado do Banco de Dados SQL do Azure que você criou na etapa anterior. Ela também especifica a tabela SQL que contém os dados copiados. 
 
 ```csharp
-// Create a Azure SQL Database dataset
+// Create an Azure SQL Database dataset
 Console.WriteLine("Creating dataset " + sqlDatasetName + "...");
 DatasetResource sqlDataset = new DatasetResource(
     new AzureSqlTableDataset

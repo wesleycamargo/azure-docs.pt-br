@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Usar o SDK de Pesquisa na Web do Bing para Node.js'
+title: 'Início Rápido: Usar o SDK de Pesquisa na Web do Bing para Node.js'
 titleSuffix: Azure Cognitive Services
 description: O SDK de Pesquisa na Web do Bing torna fácil integrar a Pesquisa na Web do Bing ao seu aplicativo Node.js. Neste início rápido, você aprenderá a criar uma instância de um cliente, enviar uma solicitação e imprimir a resposta.
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 08/16/2018
+ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: 94bc7d2ddca84b01dd799552fe7a331c9bb958a1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 96848e30c13d226978a6be1a1786e9ed2b4ab7c2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55856880"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57892856"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-nodejs"></a>Início Rápido: Usar o SDK de Pesquisa na Web do Bing para Node.js
 
@@ -43,14 +43,14 @@ Vamos começar configurando o ambiente de desenvolvimento para nosso projeto em 
     mkdir YOUR_PROJECT
     ```
 
-2. Criar um novo arquivo de pacote:
+1. Criar um novo arquivo de pacote:
 
     ```console
     cd YOUR_PROJECT
     npm init
     ```
 
-3. Agora, vamos instalar alguns módulos do Azure e adicioná-los ao `package.json`:
+1. Agora, vamos instalar alguns módulos do Azure e adicioná-los ao `package.json`:
 
     ```console
     npm install --save azure-cognitiveservices-websearch
