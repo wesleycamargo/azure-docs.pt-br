@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 13156b3419d961850c8e4e408a9cf565a5f957ad
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a57393918992019844e2ff4ccc13d671f0b90ed5
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58086387"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58260046"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Alimentar o Power BI do Application Insights
 O [Power BI](https://www.powerbi.com/) é um conjunto de ferramentas de negócios que ajudam a analisar dados e a compartilhar informações. Painéis avançados estão disponíveis em cada dispositivo. Você pode combinar dados de várias fontes, incluindo consultas do Analytics do [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
@@ -105,8 +105,8 @@ Se reduzir o conjunto de dados da consulta de análise não atender às suas nec
 
 1. Criar uma [chave de API](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 2. Atualize o script M do Power BI que você exportou do Analytics, substituindo a URL do Azure Resource Manager com a API do Application Insights.
-   * Substitua **https://management.azure.com/subscriptions/...**
-   * com, **https://api.applicationinsights.io/beta/apps/...**
+   * Substitua **https:\//management.azure.com/subscriptions/...**
+   * com, **https:\//api.applicationinsights.io/beta/apps/...**
 3. Por fim, atualize as credenciais para as básicas e use sua chave de API.
 
 **Script existente**

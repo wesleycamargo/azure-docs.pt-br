@@ -4,7 +4,7 @@ description: Saiba como ler e entender o uso e a fatura da sua assinatura do Azu
 services: ''
 documentationcenter: ''
 author: tonguyen10
-manager: alherz
+manager: jureid
 editor: ''
 tags: billing
 ms.assetid: 32eea268-161c-4b93-8774-bc435d78a8c9
@@ -13,19 +13,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: fdf346348be11a9f592fa3eff40e2f56e94ba656
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: 9ba52951565c910138a5a49ecc97ad5748411e6d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904311"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842304"
 ---
-# <a name="understand-your-bill-for-microsoft-azure"></a>Entenda sua fatura do Microsoft Azure
+# <a name="understand-your-microsoft-azure-bill"></a>Entenda sua fatura do Microsoft Azure
 Para entender sua fatura do Azure, compare sua fatura com o arquivo de uso diário detalhado e os relatórios de gerenciamento de custo no Portal do Azure.
 
-Este artigo não se aplica aos clientes do Azure com um Contrato Enterprise (clientes da EA). Se você é um cliente da EA, consulte [Entenda sua fatura para clientes do Azure com um Contrato Enterprise](billing-understand-your-bill-ea.md).  
+Este artigo não se aplica aos clientes do Azure com um Contrato Enterprise (clientes da EA). Se você for um cliente EA, consulte [entenda sua fatura para clientes do Azure com um Enterprise Agreement](billing-understand-your-bill-ea.md).
+
+Este artigo não se aplica aos clientes do Azure com um contrato de cliente da Microsoft. Se você tiver uma conta de cobrança para um contrato de cliente da Microsoft, consulte [entender os encargos do Azure na sua fatura do contrato do cliente Microsoft](billing-mca-understand-your-bill.md).
 
 Para obter uma explicação sobre como o faturamento funciona no programa Provedor de Soluções de Nuvem do Azure (Azure CSP), incluindo o ciclo de cobrança, o preço e o uso, confira [Visão geral da cobrança do Azure CSP](/azure/cloud-solution-provider/billing/azure-csp-billing-overview/).
 
@@ -60,7 +62,7 @@ O mesmo encargo é mostrado na seção **Instrução** de seu CSV de uso detalha
 
 ![Encargos de uso de CSV](./media/billing-understand-your-bill/2.png)
 
-Para ver uma análise diária dessa cobrança, acesse a seção **Uso diário** do CSV. Filtre por "Agendador" em *Categoria do Medidor*. Você pode ver em quais dias o medidor foi usado e quanto foi consumido. As informações *Recurso* e *Grupo de Recursos* também são listadas para comparação. A soma dos valores de *Consumido* devem equivaler ao que é mostrado na fatura.
+Para ver uma análise diária dessa cobrança, acesse a seção **Uso diário** do CSV. Filtrar por *Agendador* sob *categoria do medidor*. Você pode ver em quais dias o medidor foi usado e quanto foi consumido. As informações *Recurso* e *Grupo de Recursos* também são listadas para comparação. A soma dos valores de *Consumido* devem equivaler ao que é mostrado na fatura.
 
 ![Seção Uso Diário no CSV](./media/billing-understand-your-bill/3.png)
 
@@ -71,12 +73,12 @@ Para obter mais informações, consulte:
 - [Entenda sua fatura do Azure](billing-understand-your-invoice.md)
 - [Entenda o uso detalhado do Azure](billing-understand-your-invoice.md)
 
-### <a name="option-2-compare-the-usage-and-costs-with-the-azure-portal"></a>Opção 2: Comparar o uso e os custos com o portal do Azure
+### <a name="option-2-compare-the-usage-and-costs-in-the-azure-portal"></a>Opção 2: Compare o uso e custos no portal do Azure
 
 O portal do Azure também pode lhe ajudar a verificar seus encargos. Para obter uma visão geral rápida do uso e das cobranças faturadas, consulte os gráficos de gerenciamento de custos.
 
 1. No portal do Azure, vá para [Assinaturas](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1. Selecione sua assinatura> **Análise de custo**. 
+1. Selecione sua assinatura> **Análise de custo**.
 1. Filtrar por **Timespan**.
 1. Para continuar o exemplo anterior, você vê uma taxa de uso para o serviço Agendador do Azure.
 
@@ -96,9 +98,9 @@ As taxas de serviço externas são cobradas separadamente. Os encargos não apar
 
 ## <a name="resources-billed-by-usage-meters"></a>Recursos cobrados por medidores de uso
 
-O Azure não fatura diretamente com base no custo do recurso. Os encargos de um recurso são calculados usando um ou mais medidores. Esses medidores são usados para rastrear o uso de um recurso durante toda a sua vida útil. Esses medidores são usados para calcular a conta.
+O Azure não fatura diretamente com base no custo do recurso. Os encargos de um recurso são calculados usando um ou mais medidores. Medidores são usados para controlar o uso de um recurso em todo seu ciclo de vida. Esses medidores são usados para calcular a conta.
 
-Por exemplo, quando você cria um único recurso do Azure, como uma máquina virtual, ele tem uma ou mais instâncias de medidor criadas. Esses medidores são usados para rastrear o uso do recurso ao longo do tempo. Cada medidor emite registros de uso usados pelo Azure para calcular a fatura.
+Por exemplo, quando você cria um único recurso do Azure, como uma máquina virtual, ele tem uma ou mais instâncias de medidor criadas. Medidores são usados para acompanhar o uso do recurso ao longo do tempo. Cada medidor emite registros de uso usados pelo Azure para calcular a fatura.
 
 Por exemplo, uma única máquina virtual (VM) criada no Azure pode ter os seguintes medidores criados para rastrear seu uso:
 
@@ -113,7 +115,7 @@ Por exemplo, uma única máquina virtual (VM) criada no Azure pode ter os seguin
 - Escrita de Blob Padrão de Bloqueio de E/S
 - Bloqueio de blobs padrão IO-Block
 
-Quando a VM é criada, cada um desses medidores começa a emitir registros de uso. Esse uso e o preço do medidor são rastreados no sistema de medição do Azure.
+Quando a VM é criada, a cada medidor começa a emitir registros de uso. Esse uso e o preço do medidor são rastreados no sistema de medição do Azure.
 
 ## <a name="payment"></a>Pagar sua fatura
 
@@ -123,7 +125,7 @@ Para alterar o cartão de crédito ou débito cobrado, consulte [Adicionar, atua
 
 Se você [pagar pela fatura](billing-how-to-pay-by-invoice.md), envie seu pagamento para o local listado na parte inferior da fatura.
 
-Para verificar o status do seu pagamento, [crie um ticket de suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Para verificar o status do pagamento, [criar um tíquete de suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 
 ## <a name="tips-for-cost-management"></a>Dicas para gerenciamento de custos
@@ -134,6 +136,10 @@ Para verificar o status do seu pagamento, [crie um ticket de suporte](https://po
   - [Obter informações para cada serviço de preço](https://azure.microsoft.com/pricing/)
 - [Examine o uso e os custos regularmente no Portal do Azure](billing-getting-started.md#costs).
 
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
+
+Se você tiver dúvidas ou precisar de Ajuda, [criar uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
+
 ## <a name="learn-more"></a>Saiba mais
 
 - [Obter sua fatura de cobrança do Azure e os dados de uso diário](billing-download-azure-invoice-daily-usage-date.md)
@@ -141,7 +147,3 @@ Para verificar o status do seu pagamento, [crie um ticket de suporte](https://po
 - [Compreender os termos em uso detalhado do Microsoft Azure](billing-understand-your-usage.md)
 - [Gerenciamento de custos do portal do Azure](https://docs.microsoft.com/azure/billing/billing-getting-started)
 - [Evitar custos inesperados com o gerenciamento de custos e cobrança do Azure](billing-getting-started.md#costs)
-
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
-
-Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

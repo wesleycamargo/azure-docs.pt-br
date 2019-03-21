@@ -7,14 +7,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
-ms.date: 02/27/2018
+ms.date: 03/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 92221e5aaebbaebb2af17ea211e38a3665a2b04f
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: f6a9d688169f0f8fdd6f0be7b664dbe9ebd71941
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652466"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295225"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Usar funções definidas pelo usuário (UDF) do Python com o Apache Hive e o Apache Pig no HDInsight
 
@@ -26,13 +26,27 @@ O Python 2.7 é instalado por padrão no HDInsight 3.0 e posteriores. O Apache H
 
 O HDInsight também inclui o Jython, que é uma implementação do Python gravada em Java. Jython é executado diretamente na Máquina Virtual Java e não usa streaming. Jython é o interpretador do Python recomendado ao usar Python com Pig.
 
+## <a name="prerequisites"></a>Pré-requisitos
+
+* **Um cluster Hadoop no HDInsight**. Ver [Introdução ao HDInsight no Linux](apache-hadoop-linux-tutorial-get-started.md).
+* **Um cliente SSH**. Para saber mais, confira [Conectar-se ao HDInsight (Apache Hadoop) usando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* O [esquema de URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) para seu armazenamento primário de clusters. Isso seria wasb: / / para o armazenamento do Azure, abfs: / / para o armazenamento do Azure Data Lake Gen2 ou adl: / / para o Azure Data Lake armazenamento Gen1. Se a transferência segura é habilitada para o armazenamento do Azure ou Data Lake armazenamento Gen2, o URI seria wasbs: / / ou abfss: / /, respectivamente, consulte também [transferência segura](../../storage/common/storage-require-secure-transfer.md).
+* **Possível alteração à configuração de armazenamento.**  Ver [configuração de armazenamento](#storage-configuration) se usando o tipo de conta de armazenamento `BlobStorage`.
+* Opcional.  Se você planeja usar o PowerShell, será necessário o [módulo AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) instalado.
+
+> [!NOTE]  
+> A conta de armazenamento usada neste artigo foi o armazenamento do Azure com [transferência segura](/../storage/common/storage-require-secure-transfer.md) habilitado e, portanto, `wasbs` é usado em todo o artigo.
+
+## <a name="storage-configuration"></a>Configuração de armazenamento
+Nenhuma ação é necessária se a conta de armazenamento usada é do tipo `Storage (general purpose v1)` ou `StorageV2 (general purpose v2)`.  O processo neste artigo produzirá saída pelo menos `/tezstaging`.  Uma configuração de hadoop padrão conterá `/tezstaging` no `fs.azure.page.blob.dir` variável de configuração no `core-site.xml` para o serviço `HDFS`.  Essa configuração fará com que a saída para o diretório a ser blobs de página, não há suporte para o tipo de conta de armazenamento `BlobStorage`.  Para usar `BlobStorage` neste artigo, remova `/tezstaging` do `fs.azure.page.blob.dir` variável de configuração.  A configuração pode ser acessada do [Ambari UI](../hdinsight-hadoop-manage-ambari.md).  Caso contrário, você receberá a mensagem de erro: `Page blob is not supported for this account type.`
+
 > [!WARNING]  
-> As etapas neste documento fazem as seguintes suposições: 
+> As etapas neste documento fazem as seguintes suposições:  
 >
 > * Você cria scripts Python em seu ambiente de desenvolvimento local.
-> * Você carregar os scripts para o HDInsight usando o comando `scp` de uma sessão de Bash local ou o script do PowerShell fornecido.
+> * Carregar os scripts para HDInsight usando o `scp` comando ou o script do PowerShell fornecido.
 >
-> Se você quiser usar a versão prévia do [Azure Cloud Shell (bash)](https://docs.microsoft.com/azure/cloud-shell/overview) para trabalhar com o HDInsight, você deverá:
+> Se você quiser usar o [Azure Cloud Shell (bash)](https://docs.microsoft.com/azure/cloud-shell/overview) para trabalhar com o HDInsight, em seguida, você deve:
 >
 > * Criar os scripts de dentro do ambiente do Cloud Shell.
 > * Usar `scp` para carregar os arquivos do Cloud Shell para o HDInsight.
@@ -42,10 +56,8 @@ O HDInsight também inclui o Jython, que é uma implementação do Python gravad
 
 O Python pode ser utilizado como um UDF do Hive por meio da instrução HiveQL `TRANSFORM`. Por exemplo, o seguinte HiveQL invoca o arquivo `hiveudf.py` armazenado na conta de Armazenamento do Azure padrão para o cluster.
 
-**HDInsight baseado em Linux**
-
 ```hiveql
-add file wasb:///hiveudf.py;
+add file wasbs:///hiveudf.py;
 
 SELECT TRANSFORM (clientid, devicemake, devicemodel)
     USING 'python hiveudf.py' AS
@@ -53,21 +65,6 @@ SELECT TRANSFORM (clientid, devicemake, devicemodel)
 FROM hivesampletable
 ORDER BY clientid LIMIT 50;
 ```
-
-**HDInsight baseado em Windows**
-
-```hiveql
-add file wasb:///hiveudf.py;
-
-SELECT TRANSFORM (clientid, devicemake, devicemodel)
-    USING 'D:\Python27\python.exe hiveudf.py' AS
-    (clientid string, phoneLabel string, phoneHash string)
-FROM hivesampletable
-ORDER BY clientid LIMIT 50;
-```
-
-> [!NOTE]  
-> Em clusters de HDInsight baseados no Windows, a cláusula `USING` deve especificar o caminho completo para python.exe.
 
 Aqui está o que este exemplo faz:
 
@@ -77,8 +74,7 @@ Aqui está o que este exemplo faz:
 
 <a name="streamingpy"></a>
 
-### <a name="create-the-hiveudfpy-file"></a>Criar o arquivo hiveudf.py
-
+### <a name="create-file"></a>Criar arquivo
 
 Em seu ambiente de desenvolvimento, crie um arquivo de texto chamado `hiveudf.py`. Use o código a seguir como o conteúdo do arquivo:
 
@@ -101,7 +97,7 @@ while True:
 
 O script executa as ações a seguir:
 
-1. Ler uma linha de dados do STDIN.
+1. Lê uma linha de dados do STDIN.
 2. O caractere de nova linha é removido usando `string.strip(line, "\n ")`.
 3. Ao realizar processamento de fluxo, uma única linha contém todos os valores com um caractere de tabulação entre cada par de valores. Assim, `string.split(line, "\t")` pode ser usado para dividir a entrada em cada guia, retornando somente os campos.
 4. Quando o processamento está concluído, a saída precisa ser gravada em STDOUT como uma linha única, com uma tabulação entre cada par de campos. Por exemplo, `print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])`.
@@ -109,7 +105,186 @@ O script executa as ações a seguir:
 
 A saída do script é uma concatenação dos valores de entrada para `devicemake` e `devicemodel`, e um hash do valor concatenado.
 
-Consulte [Executando os exemplos](#running) para saber como executar este exemplo em seu cluster HDInsight.
+### <a name="upload-file-shell"></a>Carregar arquivo (shell)
+Os comandos a seguir, substitua `sshuser` com o nome de usuário real se elas forem diferentes.  Substitua `mycluster` com o nome real do cluster.  Certifique-se de que sua pasta de trabalho é onde o arquivo está localizado.
+
+1. Use `scp` para copiar os arquivos para seu cluster HDInsight. Edite e execute o comando a seguir:
+
+    ```cmd
+    scp hiveudf.py sshuser@mycluster-ssh.azurehdinsight.net:
+    ```
+
+2. Use SSH para conectar-se ao cluster.  Edite e execute o comando a seguir:
+
+    ```cmd
+    ssh sshuser@mycluster-ssh.azurehdinsight.net
+    ```
+
+3. Na sessão do SSH, adicione os arquivos de python carregados anteriormente para o armazenamento do cluster.
+
+    ```bash
+    hdfs dfs -put hiveudf.py /hiveudf.py
+    ```
+
+### <a name="use-hive-udf-shell"></a>Usar UDF do Hive (shell)
+
+1. Para se conectar ao Hive, use o seguinte comando na sua sessão SSH aberta:
+
+    ```bash
+    beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
+    ```
+
+    Esse comando inicia o cliente Beeline.
+
+2. Insira a seguinte consulta no prompt `0: jdbc:hive2://headnodehost:10001/>`:
+
+   ```hive
+   add file wasbs:///hiveudf.py;
+   SELECT TRANSFORM (clientid, devicemake, devicemodel)
+       USING 'python hiveudf.py' AS
+       (clientid string, phoneLabel string, phoneHash string)
+   FROM hivesampletable
+   ORDER BY clientid LIMIT 50;
+   ```
+
+3. Depois de inserir a última linha, o trabalho deve ser iniciado. Quando o trabalho for concluído, ele retornará uma saída semelhante ao exemplo a seguir:
+
+        100041    RIM 9650    d476f3687700442549a83fac4560c51c
+        100041    RIM 9650    d476f3687700442549a83fac4560c51c
+        100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
+        100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
+        100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
+
+4. Para sair do Beeline, digite o seguinte comando:
+
+    ```hive
+    !q
+    ```
+
+### <a name="upload-file-powershell"></a>Carregar arquivo (PowerShell)
+
+> [!IMPORTANT]  
+> Esses scripts do PowerShell não funcionará se [transferência segura](../../storage/common/storage-require-secure-transfer.md) está habilitado.  Use os comandos do shell ou desativar a transferência segura.
+
+O PowerShell também pode ser usado para executar remotamente consultas do Hive. Certifique-se de seu diretório de trabalho é onde `hiveudf.py` está localizado.  Use o seguinte script do PowerShell para executar uma consulta de Hive que usa o `hiveudf.py` script:
+
+```PowerShell
+# Login to your Azure subscription
+# Is there an active Azure subscription?
+$sub = Get-AzSubscription -ErrorAction SilentlyContinue
+if(-not($sub))
+{
+    Connect-AzAccount
+}
+
+# Revise file path as needed
+$pathToStreamingFile = ".\hiveudf.py"
+
+# Get cluster info
+$clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
+$clusterInfo = Get-AzHDInsightCluster -ClusterName $clusterName
+$resourceGroup = $clusterInfo.ResourceGroup
+$storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
+$container=$clusterInfo.DefaultStorageContainer
+$storageAccountKey=(Get-AzStorageAccountKey `
+   -ResourceGroupName $resourceGroup `
+   -Name $storageAccountName)[0].Value
+
+# Create an Azure Storage context
+$context = New-AzStorageContext `
+    -StorageAccountName $storageAccountName `
+    -StorageAccountKey $storageAccountKey
+
+# Upload local files to an Azure Storage blob
+Set-AzStorageBlobContent `
+    -File $pathToStreamingFile `
+    -Blob "hiveudf.py" `
+    -Container $container `
+    -Context $context
+```
+
+> [!NOTE]  
+> Para obter mais informações sobre como carregar arquivos, consulte o documento [Carregar dados para trabalhos do Apache Hadoop no HDInsight](../hdinsight-upload-data.md).
+
+
+#### <a name="use-hive-udf"></a>Use Hive UDF
+
+
+```PowerShell
+# Script should stop on failures
+$ErrorActionPreference = "Stop"
+
+# Login to your Azure subscription
+# Is there an active Azure subscription?
+$sub = Get-AzSubscription -ErrorAction SilentlyContinue
+if(-not($sub))
+{
+    Connect-AzAccount
+}
+
+# Get cluster info
+$clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
+$creds=Get-Credential -UserName "admin" -Message "Enter the login for the cluster"
+
+$HiveQuery = "add file wasbs:///hiveudf.py;" +
+                "SELECT TRANSFORM (clientid, devicemake, devicemodel) " +
+                "USING 'python hiveudf.py' AS " +
+                "(clientid string, phoneLabel string, phoneHash string) " +
+                "FROM hivesampletable " +
+                "ORDER BY clientid LIMIT 50;"
+
+# Create Hive job object
+$jobDefinition = New-AzHDInsightHiveJobDefinition `
+    -Query $HiveQuery
+
+# For status bar updates
+$activity="Hive query"
+
+# Progress bar (optional)
+Write-Progress -Activity $activity -Status "Starting query..."
+
+# Start defined Azure HDInsight job on specified cluster.
+$job = Start-AzHDInsightJob `
+    -ClusterName $clusterName `
+    -JobDefinition $jobDefinition `
+    -HttpCredential $creds
+
+# Progress bar (optional)
+Write-Progress -Activity $activity -Status "Waiting on query to complete..."
+
+# Wait for completion or failure of specified job
+Wait-AzHDInsightJob `
+    -JobId $job.JobId `
+    -ClusterName $clusterName `
+    -HttpCredential $creds
+
+# Uncomment the following to see stderr output
+<#
+Get-AzHDInsightJobOutput `
+   -Clustername $clusterName `
+   -JobId $job.JobId `
+   -HttpCredential $creds `
+   -DisplayOutputType StandardError
+#>
+
+# Progress bar (optional)
+Write-Progress -Activity $activity -Status "Retrieving output..."
+
+# Gets the log output
+Get-AzHDInsightJobOutput `
+    -Clustername $clusterName `
+    -JobId $job.JobId `
+    -HttpCredential $creds
+```
+
+A saída para o trabalho do **Hive** deve ser semelhante ao exemplo a seguir:
+
+    100041    RIM 9650    d476f3687700442549a83fac4560c51c
+    100041    RIM 9650    d476f3687700442549a83fac4560c51c
+    100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
+    100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
+    100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
+
 
 ## <a name="pigpython"></a>UDF do Apache Pig
 
@@ -124,12 +299,12 @@ Para especificar o interpretador do Python, use `register` ao referenciar o scri
 * **Para usar o Python C**: `register '/path/to/pigudf.py' using streaming_python as myfuncs;`
 
 > [!IMPORTANT]  
-> Ao usar o Jython, o caminho para o arquivo pig_jython pode ser um caminho local ou um caminho WASB://. No entanto, ao usar o Python C, você deve fazer referência a um arquivo no sistema de arquivos local do nó que está usando para enviar o trabalho de Pig.
+> Ao usar o Jython, o caminho para o arquivo pig_jython pode ser um caminho local ou um WASBS: / / caminho. No entanto, ao usar o Python C, você deve fazer referência a um arquivo no sistema de arquivos local do nó que está usando para enviar o trabalho de Pig.
 
 Depois do registro, o Pig Latin para o exemplo é o mesmo para ambos:
 
 ```pig
-LOGS = LOAD 'wasb:///example/data/sample.log' as (LINE:chararray);
+LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
 LOG = FILTER LOGS by LINE is not null;
 DETAILS = FOREACH LOG GENERATE myfuncs.create_structure(LINE);
 DUMP DETAILS;
@@ -142,7 +317,7 @@ Aqui está o que este exemplo faz:
 3. Em seguida, itera nos registros em `LOG` e usa `GENERATE` para invocar o método `create_structure` contido no script de Python/Jython carregado como `myfuncs`. `LINE` é usado para passar o registro atual para a função.
 4. Por fim, as saídas são despejadas em STDOUT usando o comando `DUMP`. Esse comando exibe os resultados após a conclusão da operação.
 
-### <a name="create-the-pigudfpy-file"></a>Criar o arquivo pigudf.py
+### <a name="create-file"></a>Criar arquivo
 
 Em seu ambiente de desenvolvimento, crie um arquivo de texto chamado `pigudf.py`. Use o código a seguir como o conteúdo do arquivo:
 
@@ -180,76 +355,34 @@ No exemplo Pig Latin, a entrada `LINE` é definida como uma matriz de caracteres
 
 Quando os dados são devolvidos ao Pig, eles têm um esquema consistente conforme definido na instrução `@outputSchema`.
 
-## <a name="running"></a>Carregar e executar os exemplos
 
-> [!IMPORTANT]  
-> As etapas de **SSH** funcionam apenas com um cluster do HDInsight baseado em Linux. As etapas do **PowerShell** funcionam com um cluster do HDInsight baseado em Windows ou Linux, mas requer um cliente Windows.
 
-### <a name="ssh"></a>SSH
+### <a name="upload-file-shell"></a>Carregar arquivo (shell)
 
-Para saber mais sobre como usar SSH, confira [Usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+Os comandos a seguir, substitua `sshuser` com o nome de usuário real se elas forem diferentes.  Substitua `mycluster` com o nome real do cluster.  Certifique-se de que sua pasta de trabalho é onde o arquivo está localizado.
 
-1. Use `scp` para copiar os arquivos para seu cluster HDInsight. Por exemplo, o comando a seguir copia os arquivos para um cluster chamado **mycluster**.
+1. Use `scp` para copiar os arquivos para seu cluster HDInsight. Edite e execute o comando a seguir:
 
-    ```bash
-    scp hiveudf.py pigudf.py myuser@mycluster-ssh.azurehdinsight.net:
+    ```cmd
+    scp pigudf.py sshuser@mycluster-ssh.azurehdinsight.net:
     ```
 
-2. Use SSH para conectar-se ao cluster.
+2. Use SSH para conectar-se ao cluster.  Edite e execute o comando a seguir:
 
-    ```bash
-    ssh myuser@mycluster-ssh.azurehdinsight.net
+    ```cmd
+    ssh sshuser@mycluster-ssh.azurehdinsight.net
     ```
 
-    Para saber mais, consulte o documento [Usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
-
-3. Na sessão de SSH, adicione ao cluster os arquivos de python carregados no armazenamento WASB anteriormente.
+3. Na sessão do SSH, adicione os arquivos de python carregados anteriormente para o armazenamento do cluster.
 
     ```bash
-    hdfs dfs -put hiveudf.py /hiveudf.py
     hdfs dfs -put pigudf.py /pigudf.py
     ```
 
-Após carregar os arquivos, use as etapas a seguir para executar os trabalhos de Hive e Pig.
 
-#### <a name="use-the-hive-udf"></a>Usar UDF do Hive
+### <a name="use-pig-udf-shell"></a>Usar UDF do Pig (shell)
 
-1. Para se conectar ao Hive, use o seguinte comando:
-
-    ```bash
-    beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
-    ```
-
-    Esse comando inicia o cliente Beeline.
-
-2. Insira a seguinte consulta no prompt `0: jdbc:hive2://headnodehost:10001/>`:
-
-   ```hive
-   add file wasb:///hiveudf.py;
-   SELECT TRANSFORM (clientid, devicemake, devicemodel)
-       USING 'python hiveudf.py' AS
-       (clientid string, phoneLabel string, phoneHash string)
-   FROM hivesampletable
-   ORDER BY clientid LIMIT 50;
-   ```
-
-3. Depois de inserir a última linha, o trabalho deve ser iniciado. Quando o trabalho for concluído, ele retornará uma saída semelhante ao exemplo a seguir:
-
-        100041    RIM 9650    d476f3687700442549a83fac4560c51c
-        100041    RIM 9650    d476f3687700442549a83fac4560c51c
-        100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
-        100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
-        100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
-
-4. Para sair do Beeline, use o seguinte comando:
-
-    ```hive
-    !q
-    ```
-
-#### <a name="use-the-pig-udf"></a>Usar UDF do Pig
-
-1. Para se conectar ao pig, use o seguinte comando:
+1. Para se conectar ao pig, use o seguinte comando na sua sessão SSH aberta:
 
     ```bash
     pig
@@ -258,7 +391,7 @@ Após carregar os arquivos, use as etapas a seguir para executar os trabalhos de
 2. No prompt `grunt>`, insira as seguintes instruções:
 
    ```pig
-   Register wasb:///pigudf.py using jython as myfuncs;
+   Register wasbs:///pigudf.py using jython as myfuncs;
    LOGS = LOAD 'wasb:///example/data/sample.log' as (LINE:chararray);
    LOG = FILTER LOGS by LINE is not null;
    DETAILS = foreach LOG generate myfuncs.create_structure(LINE);
@@ -291,7 +424,7 @@ Após carregar os arquivos, use as etapas a seguir para executar os trabalhos de
 
    ```pig
    Register 'pigudf.py' using streaming_python as myfuncs;
-   LOGS = LOAD 'wasb:///example/data/sample.log' as (LINE:chararray);
+   LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
    LOG = FILTER LOGS by LINE is not null;
    DETAILS = foreach LOG generate myfuncs.create_structure(LINE);
    DUMP DETAILS;
@@ -299,48 +432,122 @@ Após carregar os arquivos, use as etapas a seguir para executar os trabalhos de
 
     Quando o trabalho for concluído, você verá a mesma saída de quando executou o script usando Jython.
 
-### <a name="powershell-upload-the-files"></a>PowerShell: Carregar os arquivos
 
-Você pode usar o PowerShell para carregar os arquivos para o servidor do HDInsight. Use o script a seguir para carregar os arquivos do Python:
-
-> [!IMPORTANT]   
-> As etapas nesta seção usam o Azure PowerShell. Para obter mais informações sobre como usar o Azure PowerShell, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
-
-[!code-powershell[main](../../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=5-41)]
-
-> [!IMPORTANT]
-> Alterar o valor `C:\path\to` para o caminho para os arquivos no seu ambiente de desenvolvimento.
-
-Este script obtém informações a partir de seu cluster HDInsight, então, extrai a conta e a chave para a conta de armazenamento padrão, além de carregar os arquivos para a raiz do contêiner.
-
-> [!NOTE]  
-> Para obter mais informações sobre como carregar arquivos, consulte o documento [Carregar dados para trabalhos do Apache Hadoop no HDInsight](../hdinsight-upload-data.md).
-
-#### <a name="powershell-use-the-hive-udf"></a>PowerShell: Usar UDF do Hive
-
-O PowerShell também pode ser usado para executar remotamente consultas do Hive. Use o seguinte script do PowerShell para executar uma consulta do Hive que use o script **hiveudf.py**:
+### <a name="upload-file-powershell"></a>Carregar arquivo (PowerShell)
 
 > [!IMPORTANT]  
-> Antes da execução, o script o solicita a fornecer as informações de HTTPs/conta do administrador do seu cluster do HDInsight.
+> Esses scripts do PowerShell não funcionará se [transferência segura](../../storage/common/storage-require-secure-transfer.md) está habilitado.  Use os comandos do shell ou desativar a transferência segura.
 
-[!code-powershell[main](../../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=45-94)]
+O PowerShell também pode ser usado para executar remotamente consultas do Hive. Certifique-se de seu diretório de trabalho é onde `pigudf.py` está localizado.  Use o seguinte script do PowerShell para executar uma consulta de Hive que usa o `pigudf.py` script:
 
-A saída para o trabalho do **Hive** deve ser semelhante ao exemplo a seguir:
+```PowerShell
+# Login to your Azure subscription
+# Is there an active Azure subscription?
+$sub = Get-AzSubscription -ErrorAction SilentlyContinue
+if(-not($sub))
+{
+    Connect-AzAccount
+}
 
-    100041    RIM 9650    d476f3687700442549a83fac4560c51c
-    100041    RIM 9650    d476f3687700442549a83fac4560c51c
-    100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
-    100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
-    100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
+# Revise file path as needed
+$pathToJythonFile = ".\pigudf.py"
 
-#### <a name="pig-jython"></a>Pig (Jython)
 
-O PowerShell também pode ser usado para executar trabalhos do Pig Latin. Para executar um trabalho do Pig Latin que use o script **pigudf.py**, utilize o seguinte script do PowerShell:
+# Get cluster info
+$clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
+$clusterInfo = Get-AzHDInsightCluster -ClusterName $clusterName
+$resourceGroup = $clusterInfo.ResourceGroup
+$storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
+$container=$clusterInfo.DefaultStorageContainer
+$storageAccountKey=(Get-AzStorageAccountKey `
+   -ResourceGroupName $resourceGroup `
+   -Name $storageAccountName)[0].Value
+
+# Create an Azure Storage context
+$context = New-AzStorageContext `
+    -StorageAccountName $storageAccountName `
+    -StorageAccountKey $storageAccountKey
+
+# Upload local files to an Azure Storage blob
+Set-AzStorageBlobContent `
+    -File $pathToJythonFile `
+    -Blob "pigudf.py" `
+    -Container $container `
+    -Context $context
+```
+
+### <a name="use-pig-udf-powershell"></a>Usar o Pig UDF (PowerShell)
 
 > [!NOTE]  
 > Ao enviar um trabalho remotamente usando o PowerShell, não é possível usar o Python C como interpretador.
 
-[!code-powershell[main](../../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=98-144)]
+O PowerShell também pode ser usado para executar trabalhos do Pig Latin. Para executar um trabalho de Pig Latin que usa o `pigudf.py` script, use o seguinte script do PowerShell:
+
+```PowerShell
+# Script should stop on failures
+$ErrorActionPreference = "Stop"
+
+# Login to your Azure subscription
+# Is there an active Azure subscription?
+$sub = Get-AzSubscription -ErrorAction SilentlyContinue
+if(-not($sub))
+{
+    Connect-AzAccount
+}
+
+# Get cluster info
+$clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
+$creds=Get-Credential -UserName "admin" -Message "Enter the login for the cluster"
+
+
+$PigQuery = "Register wasbs:///pigudf.py using jython as myfuncs;" +
+            "LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);" +
+            "LOG = FILTER LOGS by LINE is not null;" +
+            "DETAILS = foreach LOG generate myfuncs.create_structure(LINE);" +
+            "DUMP DETAILS;"
+
+# Create Pig job object
+$jobDefinition = New-AzHDInsightPigJobDefinition -Query $PigQuery
+
+# For status bar updates
+$activity="Pig job"
+
+# Progress bar (optional)
+Write-Progress -Activity $activity -Status "Starting job..."
+
+# Start defined Azure HDInsight job on specified cluster.
+$job = Start-AzHDInsightJob `
+    -ClusterName $clusterName `
+    -JobDefinition $jobDefinition `
+    -HttpCredential $creds
+
+# Progress bar (optional)
+Write-Progress -Activity $activity -Status "Waiting for the Pig job to complete..."
+
+# Wait for completion or failure of specified job
+Wait-AzHDInsightJob `
+    -Job $job.JobId `
+    -ClusterName $clusterName `
+    -HttpCredential $creds
+
+# Uncomment the following to see stderr output
+<#
+Get-AzHDInsightJobOutput `
+    -Clustername $clusterName `
+    -JobId $job.JobId `
+    -HttpCredential $creds `
+    -DisplayOutputType StandardError
+#>
+
+# Progress bar (optional)
+Write-Progress -Activity $activity "Retrieving output..."
+
+# Gets the log output
+Get-AzHDInsightJobOutput `
+    -Clustername $clusterName `
+    -JobId $job.JobId `
+    -HttpCredential $creds
+```
 
 A saída para o trabalho **Pig** deve ser parecida com os seguintes dados:
 

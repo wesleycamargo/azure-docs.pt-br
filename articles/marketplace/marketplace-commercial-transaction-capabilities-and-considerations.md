@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: 867af6de05d1d9ab54cf8a4bf02221acc43a2b28
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: dba2582b29d1fc81a39387f5297852245233b708
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075627"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731082"
 ---
 # <a name="azure-marketplace-commercial-transaction-capabilities-and-considerations"></a>Recursos e considerações sobre transações comerciais do Azure Marketplace
 
@@ -186,9 +186,9 @@ Se o cliente comprar usando um Enterprise Agreement:
 |Data de cobrança | 15 de outubro de 2018 |
 |Efetue a caução de período (cartões de crédito, 30 dias) | n/d |
 |Início do período de coleta | 15 de outubro de 2018 |
-|Término do período de coleta (máximo, 90 dias) | 15 de janeiro de 2018 |
+|Término do período de coleta (máximo, 90 dias) | 15 de janeiro de 2019 |
 |Data de pagamento do cliente | 30 de dezembro de 2018 |
-|Data de cálculo de pagamento (mensalmente no dia 15) | 15 de janeiro de 2018 |
+|Data de cálculo de pagamento (mensalmente no dia 15) | 15 de janeiro de 2019 |
 |Data de pagamento | 15 de fevereiro de 2019 |
 
 **Créditos gratuitos e compromisso monetário** 
@@ -226,7 +226,7 @@ Os requisitos de transação para diferentes tipos de oferta são abordados nest
 
 * Tanto um Centro de Desenvolvimento quanto uma conta da Microsoft são necessários para a opção de publicação de transações, independentemente do modelo de preços da oferta.
 * A conta do Centro de Desenvolvimento contém todos os detalhes financeiros relevantes necessários para que a Microsoft colete valores do cliente em nome do editor e pague o editor.
-* Embora você possa usar os mesmos detalhes de login na organização ou na Microsoft nas duas contas, o Dev Center é uma conta separada da conta do Cloud Publisher Portal. Para usar a opção de publicação transacionar, o editor deve concluir o processo de inscrição na conta do Centro de Desenvolvimento, além de se inscrever para acessar o Portal do Cloud Partner.
+* Embora você possa usar a mesma organizacional ou detalhes de entrada da Microsoft em ambas as contas, o Centro de desenvolvimento é uma conta separada da conta do Portal do Cloud Partner. Para usar a opção de publicação transacionar, o editor deve concluir o processo de inscrição na conta do Centro de Desenvolvimento, além de se inscrever para acessar o Portal do Cloud Partner.
 
 *Para obter mais informações sobre como configurar essas contas, consulte [Torne-se um editor do Cloud Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher).* 
 

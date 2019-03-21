@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 2e281896d45ada8010f24a1f18265a8cdd523d31
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 799e496fd9dd8a405e5fc356e13cf6c05883e1ae
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696976"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855394"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Entenda o bloqueio de recursos nos Blueprints do Azure
 
-A criação de ambientes consistentes em escala só é realmente valiosa se houver um mecanismo para manter essa consistência. Este artigo explica como o bloqueio de recursos funciona em Blueprints do Azure.
+A criação de ambientes consistentes em escala só é realmente valiosa se houver um mecanismo para manter essa consistência. Este artigo explica como o bloqueio de recursos funciona em Blueprints do Azure. Para ver um exemplo de recurso de bloqueio e o aplicativo de _negar atribuições_, consulte o [protegendo recursos novos](../tutorials/protect-new-resources.md) tutorial.
 
 ## <a name="locking-modes-and-states"></a>Estados e modos de bloqueio
 
@@ -58,8 +58,9 @@ Uma ação de negação [negar atribuições](../../../role-based-access-control
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Aprenda sobre o [ciclo de vida do blueprint](lifecycle.md)
-- Entenda como usar [parâmetros estáticos e dinâmicos](parameters.md)
-- Aprenda a personalizar o [especificações técnicas de ordem de sequenciamento](sequencing-order.md)
-- Saiba como [atualizar atribuições existentes](../how-to/update-existing-assignments.md)
-- Resolver problemas durante a atribuição de blueprint com [solução de problemas gerais](../troubleshoot/general.md)
+- Siga as [proteger novos recursos](../tutorials/protect-new-resources.md) tutorial.
+- Saiba mais sobre o [ciclo de vida do blueprint](lifecycle.md).
+- Saiba como usar [parâmetros estáticos e dinâmicos](parameters.md).
+- Saiba como personalizar a [ordem de sequenciamento de blueprint](sequencing-order.md).
+- Saiba como [atualizar atribuições existentes](../how-to/update-existing-assignments.md).
+- Resolver problemas durante a atribuição de blueprint com [solução de problemas gerais](../troubleshoot/general.md).

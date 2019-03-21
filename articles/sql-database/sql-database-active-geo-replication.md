@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 21b036763a1e8a7480d11fef4c36599f92fc3657
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cb83f0c38f6860340444c15b6c5eef0b990d0ad0
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57853181"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295242"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Criando e usando a replicação geográfica ativa
 
@@ -115,6 +115,12 @@ Você pode atualizar ou fazer downgrade de um banco de dados primário para um t
 
 > [!NOTE]
 > Se você tiver criado um banco de dados secundário como parte da configuração do grupo de failover não é recomendável fazer o downgrade do banco de dados secundário. Isso é para garantir que sua camada de dados tenha capacidade suficiente para processar sua carga de trabalho normal após o failover ser ativado.
+
+> [!IMPORTANT]
+> O banco de dados primário em um grupo de failover não pode dimensionar para uma camada superior, a menos que o banco de dados secundário primeiro é dimensionado para o nível superior. Se você tentar expandir o banco de dados primário antes do banco de dados secundário é dimensionado, você poderá receber o seguinte erro:
+>
+> `Error message: The source database 'Primaryserver.DBName' cannot have higher edition than the target database 'Secondaryserver.DBName'. Upgrade the edition on the target before upgrading the source.`
+>
 
 ## <a name="preventing-the-loss-of-critical-data"></a>Evitando a perda de dados críticos
 

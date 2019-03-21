@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/20/2019
 ms.author: johndeu;
-ms.openlocfilehash: ae1e586abaaf3aee147228765e091814d4c3e4dc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b26252ddda7997bebd730bb4c1007f76b3e645a4
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57885463"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294698"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Aditamento do Protocolo Smooth Streaming para HEVC 
 
@@ -161,7 +161,7 @@ O ProtectionElement DEVERÁ estar presente quando a Criptografia Comum (CENC) fo
 > 
 >   * PPSField contém o PPS (Conjunto de Parâmetros de Fatia).
 > 
->   Note: o VPS (Conjunto de Parâmetros de Vídeo) não está contido no CodecPrivateData, mas deve ser contido no cabeçalho do arquivo dos arquivos armazenados na caixa 'hvcC'. Os sistemas que utilizam o Protocolo Smooth Streaming devem sinalizar parâmetros de decodificação adicionais (por exemplo, Camada HEVC) utilizando os "codecs" de Atributo Personalizado.
+>   Observação: o VPS (Conjunto de Parâmetros de Vídeo) não está contido no CodecPrivateData, mas deve ser contido no cabeçalho do arquivo dos arquivos armazenados na caixa 'hvcC'. Os sistemas que utilizam o Protocolo Smooth Streaming devem sinalizar parâmetros de decodificação adicionais (por exemplo, Camada HEVC) utilizando os "codecs" de Atributo Personalizado.
 
 ##### <a name="22251-customattributeselement"></a>2.2.2.5.1 CustomAttributesElement 
 
@@ -211,7 +211,7 @@ O ProtectionElement DEVERÁ estar presente quando a Criptografia Comum (CENC) fo
 > 
 >   conforme definido em [[ISO/IEC-14496-12].](https://go.microsoft.com/fwlink/?LinkId=183695)
 > 
->   Note: isso evita um erro de sincronização de vídeo causado por áudio de atraso de vídeo igual ao maior atraso de remoção de buffer de imagem decodificada e mantém o tempo de apresentação entre fragmentos alternativos que podem ter atrasos de remoção diferentes.
+>   Observação: isso evita um erro de sincronização de vídeo causado por áudio de atraso de vídeo igual ao maior atraso de remoção de buffer de imagem decodificada e mantém o tempo de apresentação entre fragmentos alternativos que podem ter atrasos de remoção diferentes.
 > 
 >   A sintaxe dos campos definidos nesta seção, especificada em ABNF [[RFC5234],](https://go.microsoft.com/fwlink/?LinkId=123096) permanece a mesma, exceto a seguinte:
 > 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: 164ec0898e2f7ad461ab63ce0fcaf47a87998797
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: ab239d0546508d74874c6b6be03f6afc06b08fa7
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997839"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286288"
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Backup e restauração para o SQL Server em Máquinas Virtuais do Azure
 
@@ -33,7 +33,7 @@ A primeira parte deste artigo fornece uma visão geral das opções de restaura�
 A tabela a seguir fornece informações sobre várias opções de backup e restauração do SQL Server em execução em máquinas virtuais do Azure:
 
 | Estratégia | Versões do SQL | DESCRIÇÃO |
-|---|---|---|---|
+|---|---|---|
 | [Backup Automatizado](#automated) | 2014<br/> 2016<br/> 2017 | O Backup Automatizado permite que você agende backups regulares de todos os bancos de dados em uma VM do SQL Server. Os backups são armazenados no armazenamento do Azure por até 30 dias. A partir do SQL Server 2016, o Backup Automatizado v2 oferece opções adicionais, como a configuração de agendamento manual e a frequência de backups de log e completos. |
 | [Backup do Azure para VMs do SQL](#azbackup) | 2012<br/> 2014<br/> 2016<br/> 2017 | O Backup do Azure fornece um recurso de backup de classe empresarial para SQL Server em execução em VMs do Azure. Com esse serviço, você pode gerenciar centralmente os backups para vários servidores e milhares de bancos de dados. Os bancos de dados podem ser restaurados para um ponto específico no tempo no portal. Ele oferece uma política de retenção personalizável que pode manter backups por anos. Esse recurso está atualmente em visualização pública. |
 | [Backup manual](#manual) | Todos | Dependendo de sua versão do SQL Server, há várias técnicas para fazer backup e restauração manuais do SQL Server em execução em uma VM do Azure. Neste cenário, você é responsável pela forma como o backup dos bancos de dados é feito e o local de armazenamento e gerenciamento desses backups. |
@@ -56,10 +56,10 @@ Para restaurar um banco de dados, você deve localizar os arquivos de backup nec
 
 Para saber mais sobre como configurar o Backup Automatizado para VMs do SQL, veja um dos seguintes artigos:
 
-- **SQL Server 2016/2017**: [Backup Automatizado v2 para Máquinas Virtuais do Azure ](virtual-machines-windows-sql-automated-backup-v2.md)
+- **SQL Server 2016/2017**: [Backup automatizado v2 para máquinas virtuais do Azure](virtual-machines-windows-sql-automated-backup-v2.md)
 - **SQL Server 2014**: [Backup Automatizado para Máquinas Virtuais do SQL Server 2014](virtual-machines-windows-sql-automated-backup.md)
 
-## <a id="azbackup"></a> Backup do Azure para VMs do SQL (Visualização Pública)
+## <a id="azbackup"></a> Backup do Azure para VMs do SQL
 
 O [Backup do Azure](/azure/backup/) fornece um recurso de backup de classe empresarial para SQL Server em execução em VMs do Azure. Todos os backups são armazenados e gerenciados em um cofre de Serviços de Recuperação. Esta solução fornece diversas vantagens, especialmente para empresas:
 
@@ -76,9 +76,9 @@ O [Backup do Azure](/azure/backup/) fornece um recurso de backup de classe empre
 
 Para obter uma visão geral rápida de como isso funciona junto com uma demonstração, assista ao vídeo a seguir:
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2dNbw]
+> [!VIDEO https://www.youtube.com/embed/wmbANpHos_E]
 
-Essa solução de Backup do Azure para VMs do SQL está atualmente em visualização pública. Para saber mais, veja [Fazer backup de banco de dados do SQL Server para o Azure](../../../backup/backup-azure-sql-database.md).
+Essa solução de Backup do Azure para VMs do SQL está disponível. Para saber mais, veja [Fazer backup de banco de dados do SQL Server para o Azure](../../../backup/backup-azure-sql-database.md).
 
 ## <a id="manual"></a> Backup manual
 
@@ -130,23 +130,23 @@ A tabela a seguir resume os recursos de cada opção de backup e restauração d
 
 || **Backup Automatizado** | **Backup do Azure para SQL** | **Backup manual** |
 |---|---|---|---|
-| Requer serviço adicional do Azure |   | ![SIM](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Configurar a política de backup no Portal do Azure | ![SIM](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![SIM](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Restaurar bancos de dados no Portal do Azure |   | ![SIM](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Gerenciar vários servidores em um painel |   | ![SIM](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Restauração pontual | ![SIM](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![sim](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![SIM](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
-| RPO (Objetivo de Ponto de Recuperação) de 15 minutos | ![SIM](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![sim](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![SIM](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
-| Política de retenção de backup de curto prazo (dias) | ![SIM](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![SIM](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Política de retenção de backup de longo prazo (meses, anos) |   | ![SIM](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Suporte interno para o SQL Server Always On |   | ![SIM](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Backup das contas do Armazenamento do Azure | ![SIM](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(automático) | ![SIM](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(automático) | ![SIM](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(gerenciado pelo cliente) |
-| Gerenciamento de arquivos de backup e armazenamento | | ![SIM](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |  |
-| Backup em discos anexados na VM |   |   | ![SIM](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
-| Relatórios de backup personalizáveis centrais |   | ![SIM](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Alertas de email consolidado para falhas |   | ![SIM](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Personalizar monitoramento com base em Log Analytics |   | ![SIM](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Monitorar trabalhos de backup com scripts SSMS ou Transact-SQL | ![SIM](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![sim](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![SIM](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
-| Restaurar bancos de dados com scripts SSMS ou Transact-SQL | ![SIM](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   | ![Sim](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
+| Requer serviço adicional do Azure |   | ![Sim](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Configurar a política de backup no Portal do Azure | ![Sim](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Sim](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Restaurar bancos de dados no Portal do Azure |   | ![Sim](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Gerenciar vários servidores em um painel |   | ![Sim](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Restauração pontual | ![Sim](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![sim](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Sim](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
+| RPO (Objetivo de Ponto de Recuperação) de 15 minutos | ![Sim](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![sim](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Sim](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
+| Política de retenção de backup de curto prazo (dias) | ![Sim](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Sim](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Política de retenção de backup de longo prazo (meses, anos) |   | ![Sim](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Suporte interno para o SQL Server Always On |   | ![Sim](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Backup das contas do Armazenamento do Azure | ![Sim](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(automático) | ![Sim](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(automático) | ![Sim](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(gerenciado pelo cliente) |
+| Gerenciamento de arquivos de backup e armazenamento | | ![Sim](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |  |
+| Backup em discos anexados na VM |   |   | ![Sim](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
+| Relatórios de backup personalizáveis centrais |   | ![Sim](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Alertas de email consolidado para falhas |   | ![Sim](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Personalizar o monitoramento com base nos logs do Azure Monitor |   | ![Sim](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Monitorar trabalhos de backup com scripts SSMS ou Transact-SQL | ![Sim](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![sim](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Sim](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
+| Restaurar bancos de dados com scripts SSMS ou Transact-SQL | ![Sim](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   | ![Sim](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
 
 ## <a name="next-steps"></a>Próximas etapas
 

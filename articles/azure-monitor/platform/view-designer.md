@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: 1996befa78409e572798a9043f7e6ee3b6f647bc
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: HT
+ms.openlocfilehash: f07fc2f03ad72e7ee0fd408782b8fe845c88e780
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887890"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286560"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Criar exibições personalizadas usando o Designer de exibição no Azure Monitor
 Usando o Designer de exibição no Azure Monitor, você pode criar uma variedade de modos de exibição personalizados no portal do Azure que pode ajudar você a visualizar os dados em seu espaço de trabalho do Log Analytics. Este artigo apresenta uma visão geral do Designer de Exibição e procedimentos para criar e editar exibições personalizadas.
@@ -43,6 +43,9 @@ As exibições criadas com o Designer de Exibição contêm os elementos descrit
 | Blocos | São exibidas no Azure Monitor **visão geral** página. Cada bloco exibe um resumo visual da exibição personalizada que representa. Cada tipo de bloco fornece uma visualização diferente de seus registros. Você seleciona um bloco para exibir uma exibição personalizada. |
 | Exibição personalizada | Exibida quando você seleciona um bloco. Cada exibição contém uma ou mais partes de visualização. |
 | Partes de visualização | Apresenta uma visualização de dados no espaço de trabalho do Log Analytics com base em um ou mais [registrar consultas](../log-query/log-query-overview.md). A maioria das partes inclui um cabeçalho, que fornece uma visualização de alto nível e uma lista que exibe os melhores resultados. Cada tipo de parte fornece uma visualização diferente dos registros no workspace do Log Analytics. Você pode selecionar elementos na parte para executar uma consulta de log que fornece registros detalhados. |
+
+## <a name="required-permissions"></a>Permissões necessárias
+Você precisa de pelo menos [permissões em nível de Colaborador](manage-access.md#manage-accounts-and-users) no espaço de trabalho do Log Analytics para criar ou modificar os modos de exibição. Se você não tiver essa permissão, a opção de Designer de exibição não será exibida no menu.
 
 
 ## <a name="work-with-an-existing-view"></a>Trabalhar com um modo de exibição existente
