@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 0f8234424d5f684577833f34d89ac3da9d4d16fa
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
-ms.translationtype: HT
+ms.openlocfilehash: 5521602331b50c70ab31e6ea2f5eec8f6a3911ad
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825731"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56736510"
 ---
 # <a name="publishing-checklist-for-appsource"></a>Lista de verificação para publicação para AppSource  
 Examine os componentes necessários antes de iniciar o processo de publicação.  
@@ -33,6 +33,6 @@ Os seguintes artefatos são necessários para publicar seu aplicativo no AppSour
 | Listar | Serviço de consultoria | <table> <tr><th>Detalhes da vitrine</th></tr> <tr><td>Nome da oferta (200 caracteres)</td></tr> <tr><td>Descrição (2.000 caracteres)</td></tr> <tr><td>ID MPN</td></tr> <tr><td>Disponibilidade por país/região</td></tr> <tr><td>Setores aplicáveis, categorias e palavras-chave de pesquisa</td></tr> <tr><td>Capturas de tela (1.280 x 720, máximo 5)</td></tr> <tr><td>Documentos de marketing (máximo 3)</td></tr> <tr><td>Destino do cliente potencial</td></tr> <tr><td>Logotipos da empresa (48x48, 216x216)</td></tr> <tr><td>Competências</td></tr> <tr><td>Vídeo de visão geral do produto (opcional)</td></tr> </table> |  
 
 ## <a name="next-steps"></a>Próximas etapas
-*   Visite a página [Guia do editor do Azure Marketplace e AppSource](./marketplace-publishers-guide.md).  
+*   Visite a página [ do Azure Marketplace e do AppSource Publisher Guide ](./marketplace-publishers-guide.md).  
 
----  
+---

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 88dcc7110acaf42243d0ebb3c1ae25aa6d0bca46
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
+ms.openlocfilehash: 8df587db7655e2aafd876d80581f3296c8c99fbf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257957"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004102"
 ---
 # <a name="dependency-visualization"></a>Visualização de dependência
 
@@ -26,7 +26,7 @@ A visualização de dependência nas Migrações para Azure permite criar grupos
 
 ## <a name="how-does-it-work"></a>Como ele funciona?
 
-As Migrações para Azure usam a solução [Mapa do Serviço](../operations-management-suite/operations-management-suite-service-map.md) no [Log Analytics](../log-analytics/log-analytics-overview.md) para visualização de dependência.
+O Azure usa as migrações a [mapa do serviço](../operations-management-suite/operations-management-suite-service-map.md) solução em [registra em log do Azure Monitor](../log-analytics/log-analytics-overview.md) para visualização de dependência.
 - Para aproveitar a visualização de dependência, você precisa associar um workspace novo ou existente do Log Analytics a um projeto das Migrações para Azure.
 - Você só pode criar ou anexar um workspace na mesma assinatura em que o projeto de migração é criado.
 - Para anexar a um workspace do Log Analytics a um projeto, acesse a seção **Essentials** da página **Visão geral** do projeto e clique em **Requer configuração**
@@ -34,8 +34,8 @@ As Migrações para Azure usam a solução [Mapa do Serviço](../operations-mana
     ![Associar o workspace do Log Analytics](./media/concepts-dependency-visualization/associate-workspace.png)
 
 - Durante a associação de um workspace, haverá a opção de criar um workspace ou anexar um existente:
-      - Ao criar um workspace, você precisará especificar um nome para ele. O workspace será criado em uma região na mesma [Geografia do Azure](https://azure.microsoft.com/global-infrastructure/geographies/) que o projeto de migração.
-      - Ao anexar um workspace, você pode escolher entre todos os workspaces disponíveis na mesma assinatura que o projeto de migração. Observe que são listados somente os workspaces que foram criados em uma região [com suporte para o Mapa do Serviço](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions). É necessário ser capaz de anexar a um workspace, verifique se você tem acesso de 'Leitura' no workspace.
+  - Ao criar um workspace, você precisará especificar um nome para ele. O workspace será criado em uma região na mesma [Geografia do Azure](https://azure.microsoft.com/global-infrastructure/geographies/) que o projeto de migração.
+  - Ao anexar um workspace, você pode escolher entre todos os workspaces disponíveis na mesma assinatura que o projeto de migração. Observe que são listados somente os workspaces que foram criados em uma região [com suporte para o Mapa do Serviço](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions). É necessário ser capaz de anexar a um workspace, verifique se você tem acesso de 'Leitura' no workspace.
 
   > [!NOTE]
   > Depois de anexar um workspace a um projeto, você não poderá mais alterá-lo.

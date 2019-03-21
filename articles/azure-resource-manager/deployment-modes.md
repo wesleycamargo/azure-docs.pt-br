@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/13/2019
+ms.date: 02/27/2019
 ms.author: tomfitz
-ms.openlocfilehash: bc28349e1bfc935ac8298f991575c1e0cb42d38c
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: 5213affe953636c46486614ee2a020d7727e1478
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56299220"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407499"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modos de implantação do Azure Resource Manager
 
@@ -26,7 +26,7 @@ Para ambos os modos, o Resource Manager tenta criar todos os recursos especifica
 
 ## <a name="complete-mode"></a>Modo completo
 
-No modo completo, o Gerenciador de recursos **exclui** recursos existentes no grupo de recursos, mas que não são especificados no modelo. Os recursos que estão especificados no modelo, mas que não foram implantados porque uma [condição](resource-manager-templates-resources.md#condition) foi avaliada como falsa, não são excluídos.
+No modo completo, o Gerenciador de recursos **exclui** recursos existentes no grupo de recursos, mas que não são especificados no modelo. Os recursos que estão especificados no modelo, mas que não foram implantados porque uma [condição](resource-group-authoring-templates.md#condition) foi avaliada como falsa, não são excluídos.
 
 Há algumas diferenças em como os tipos de recurso lidam com exclusões de modo completo. Os recursos pai serão excluídos automaticamente quando não estiverem em um modelo que é implantado no modo completo. Alguns recursos filho não são excluídos automaticamente quando não estão no modelo. No entanto, esses recursos filho serão excluídos se o recurso pai for excluído. 
 
@@ -36,6 +36,10 @@ Para obter uma lista de como os tipos de recursos tratam a exclusão, confira [E
 
 > [!NOTE]
 > Somente modelos de nível raiz suporte ao modo de implantação completa. Para ver os [modelos vinculados ou aninhados](resource-group-linked-templates.md), você deve usar o modo incremental. 
+>
+> [Implantações de nível de assinatura](deploy-to-subscription.md) não oferecem suporte para o modo completo.
+>
+> Atualmente, o portal não oferece suporte a modo completo.
 >
 
 ## <a name="incremental-mode"></a>Modo incremental

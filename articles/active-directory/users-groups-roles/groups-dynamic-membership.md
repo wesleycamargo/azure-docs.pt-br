@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8d5ecd33f0bc67b6e0ec2e559a8475da490369e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 10a78df5169741371c122971afa47cb53ecc5a64
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210655"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450661"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Associação dinâmica do Azure Active Directory para grupos
 
@@ -60,7 +60,7 @@ Parênteses são opcionais para uma única expressão. O comprimento total do co
 
 Há três tipos de propriedades que podem ser usadas para construir uma regra de associação.
 
-* BOOLEAN
+* Booleano
 * Cadeia de caracteres
 * Coleção de Cadeias de Caracteres
 
@@ -68,14 +68,14 @@ Estas são todas as propriedades do usuário que você pode usar para criar uma 
 
 ### <a name="properties-of-type-boolean"></a>Propriedades de tipo booliano
 
-| propriedades | Valores permitidos | Uso |
+| Propriedades | Valores Permitidos | Uso |
 | --- | --- | --- |
 | accountEnabled |verdadeiro, falso |user.accountEnabled -eq true |
 | dirSyncEnabled |verdadeiro, falso |user.dirSyncEnabled -eq true |
 
 ### <a name="properties-of-type-string"></a>Propriedades do tipo cadeia de caracteres
 
-| propriedades | Valores permitidos | Uso |
+| Propriedades | Valores Permitidos | Uso |
 | --- | --- | --- |
 | city |Qualquer valor de cadeia de caracteres ou *null* |(user.city -eq "valor") |
 | country |Qualquer valor de cadeia de caracteres ou *null* |(user.country -eq "valor") |
@@ -89,14 +89,14 @@ Estas são todas as propriedades do usuário que você pode usar para criar uma 
 | mail |Qualquer valor de cadeia de caracteres ou *null* (endereço SMTP do usuário) |(user.mail - eq "valor") |
 | mailNickName |Qualquer valor de cadeia de caracteres (alias de email do usuário) |(user.mailNickName - eq "valor") |
 | Serviço Móvel |Qualquer valor de cadeia de caracteres ou *null* |(user.mobile -eq "valor") |
-| ID do objeto |GUID do objeto de usuário |(user.objectId -eq "11111111-1111-1111-1111-111111111111") |
+| objectId |GUID do objeto de usuário |(user.objectId -eq "11111111-1111-1111-1111-111111111111") |
 | onPremisesSecurityIdentifier | SID (ID de segurança) local para usuários que foram sincronizados do local para a nuvem. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
 | passwordPolicies |None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
 | physicalDeliveryOfficeName |Qualquer valor de cadeia de caracteres ou *null* |(user.physicalDeliveryOfficeName -eq "valor") |
 | postalCode |Qualquer valor de cadeia de caracteres ou *null* |(user.postalCode - eq "valor") |
 | preferredLanguage |ISO 639-1 code |(user.preferredLanguage - eq "en-US") |
 | sipProxyAddress |Qualquer valor de cadeia de caracteres ou *null* |(user.sipProxyAddress -eq "valor") |
-| state |Qualquer valor de cadeia de caracteres ou *null* |(user.state -eq "valor") |
+| estado |Qualquer valor de cadeia de caracteres ou *null* |(user.state -eq "valor") |
 | streetAddress |Qualquer valor de cadeia de caracteres ou *null* |(user.streetAddress -eq "valor") |
 | sobrenome |Qualquer valor de cadeia de caracteres ou *null* |(user.surname -eq "valor") |
 | telephoneNumber |Qualquer valor de cadeia de caracteres ou *null* |(user.telephoneNumber -eq "valor") |
@@ -106,7 +106,7 @@ Estas são todas as propriedades do usuário que você pode usar para criar uma 
 
 ### <a name="properties-of-type-string-collection"></a>Propriedades de coleção de cadeias de caracteres de tipo
 
-| propriedades | Valores permitidos | Uso |
+| Propriedades | Valores Permitidos | Uso |
 | --- | --- | --- |
 | otherMails |Um valor de cadeia de caracteres. |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP:alias@domainsmtp:alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
@@ -120,14 +120,14 @@ A tabela a seguir lista os operadores com suporte e sua sintaxe para uma única 
 | Operador | Sintaxe |
 | --- | --- |
 | Não é igual a |-ne |
-| É igual a |-eq |
+| Igual a |-eq |
 | Não começa com |-notStartsWith |
 | Começa com |-startsWith |
 | Não contém |-notContains |
-| Contém: |-contains |
+| Contém |-contains |
 | Não corresponde |-notMatch |
 | Corresponde |-match |
-| No | -in |
+| Em | -in |
 | Não está em | -notIn |
 
 ### <a name="using-the--in-and--notin-operators"></a>Usando os operadores -in e -notIn
@@ -137,7 +137,7 @@ Se quiser comparar o valor de um atributo de usuário com um número de valores 
  No exemplo a seguir, a expressão avalia como verdadeira se o valor de user.department for igual a um dos valores na lista:
 
 ```
-   user.department -in ["50001","50002","50003",“50005”,“50006”,“50007”,“50008”,“50016”,“50020”,“50024”,“50038”,“50039”,“51100”]
+   user.department -in ["50001","50002","50003","50005","50006","50007","50008","50016","50020","50024","50038","50039","51100"]
 ```
 
 
@@ -231,7 +231,7 @@ Uma regra de associação pode consistir em expressões complexas, onde as propr
 
 As propriedades de vários valores são coleções de objetos do mesmo tipo. Eles podem ser usados para criar regras de associação usando a opção - any e - todos os operadores lógicos.
 
-| propriedades | Valores | Uso |
+| Propriedades | Valores | Uso |
 | --- | --- | --- |
 | assignedPlans | Cada objeto na coleção expõe as seguintes propriedades de cadeia de caracteres: capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
 | proxyAddresses| SMTP:alias@domainsmtp:alias@domain | (user.proxyAddresses -qualquer (\_ -contém "contoso")) |
@@ -283,7 +283,7 @@ Os relatórios diretos são construídos usando a sintaxe a seguir:
 Direct Reports for "{objectID_of_manager}"
 ```
 
-Aqui está um exemplo de regra válida onde “62e19b97-8b3d-4d4a-a106-4ce66896a863” é a objectID do gerente:
+Aqui está um exemplo de uma regra válida em que "62e19b97-8b3d-4d4a-a106-4ce66896a863" é o objectID do gerente:
 
 ```
 Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
@@ -310,7 +310,7 @@ user.objectid -ne null
 
 Você pode criar um grupo contendo todos os usuários dentro de um locatário usando uma regra de associação. Quando os dispositivos são adicionados ou removidos do locatário no futuro, a associação do grupo é ajustada automaticamente.
 
-A regra de "Todos os usuários" é construída usando a única expressão usando o operador - ne e o valor nulo:
+A regra de "Todos os dispositivos" é construída usando a única expressão usando o operador - ne e o valor nulo:
 
 ```
 device.objectid -ne null
@@ -318,7 +318,7 @@ device.objectid -ne null
 
 ## <a name="extension-properties-and-custom-extension-properties"></a>As propriedades de extensão e as propriedades de extensão personalizado
 
-Os atributos de extensão e as propriedades de extensão personalizada têm suporte como propriedades de cadeia de caracteres nas regras de associação dinâmica. Os atributos de extensão são sincronizados no AD do Windows Server local e têm o formato "ExtensionAttributeX", em que X é igual a 1 a 15. Um exemplo de uma regra que usa um atributo de extensão como propriedade:
+Atributos de extensão e as propriedades de extensão personalizados têm suporte como propriedades de cadeia de caracteres nas regras de associação dinâmica. Os atributos de extensão são sincronizados no AD do Windows Server local e têm o formato "ExtensionAttributeX", em que X é igual a 1 a 15. Um exemplo de uma regra que usa um atributo de extensão como propriedade:
 
 ```
 (user.extensionAttribute15 -eq "Marketing")
@@ -358,8 +358,8 @@ Os seguintes atributos de dispositivo podem ser usados.
  isRooted | verdadeiro, falso | (device.isRooted -eq true)
  managementType | MDM (para dispositivos móveis)<br>PC (para computadores gerenciados pelo agente de PC do Intune) | (device.managementType -eq "MDM")
  deviceId | uma ID de dispositivo do Azure AD válida | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
- ID do objeto | uma ID de objeto do Azure AD válida |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
- systemLabels | qualquer cadeia de caracteres correspondente à propriedade de dispositivo do Intune para marcação de dispositivos de Local de Trabalho Moderno | (device.systemLabels -contains “M365Managed”)
+ objectId | uma ID de objeto do Azure AD válida |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
+ systemLabels | qualquer cadeia de caracteres correspondente à propriedade de dispositivo do Intune para marcação de dispositivos de Local de Trabalho Moderno | (device.systemLabels -contains "M365Managed")
 
 > [!Note]  
 > Para o deviceOwnership ao criar grupos dinâmicos para dispositivos, é necessário definir o valor igual a "Company". No Intune, a propriedade do dispositivo é representada como Corporate. Consulte [OwnerTypes](https://docs.microsoft.com/intune/reports-ref-devices#ownertypes) para obter mais detalhes. 

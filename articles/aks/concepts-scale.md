@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 7cd6af1dc6b947abd91c9d25a4b102e52da9d24d
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 20f9655e1c3e7cce652802957f5eef1f333870e9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456717"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176490"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opções dimensionamento para aplicativos no AKS (Serviço de Kubernetes do Azure)
 
@@ -51,7 +51,7 @@ Talvez você precise ajustar esses valores de resfriamento. Os valores de resfri
 
 ## <a name="cluster-autoscaler"></a>Dimensionador automático do cluster
 
-Para responder a mudanças nas demandas de pod, o Kubernetes tem um dimensionador automático de cluster que ajusta o número de nós de acordo com os recursos de computação solicitados no pool de nós. Por padrão, o dimensionador automático de cluster verifica o servidor de API a cada 10 segundos quanto a alterações necessárias na contagem de nós. Se o dimensionamento automático de cluster determinar que uma alteração é necessária, o número de nós no cluster do AKS aumentará ou diminuirá de acordo. O dimensionador automático de cluster funciona com clusters AKS habilitados para RBAC que executam o Kubernetes 1.10.x ou superior.
+Para responder às mudanças nas demandas dos pod, Kubernetes tem um autoscaler de cluster (atualmente em visualização no AKS) que ajusta o número de nós de acordo com os recursos de computação solicitada no pool de nó. Por padrão, o dimensionador automático de cluster verifica o servidor de API a cada 10 segundos quanto a alterações necessárias na contagem de nós. Se o dimensionamento automático de cluster determinar que uma alteração é necessária, o número de nós no cluster do AKS aumentará ou diminuirá de acordo. O dimensionador automático de cluster funciona com clusters AKS habilitados para RBAC que executam o Kubernetes 1.10.x ou superior.
 
 ![Dimensionador automático de cluster do Kubernetes](media/concepts-scale/cluster-autoscaler.png)
 
@@ -81,7 +81,7 @@ Para dimensionar rapidamente o cluster do AKS, você pode integrar com ACI (Inst
 
 ![Intermitência de Kubernetes com dimensionamento para ACI](media/concepts-scale/burst-scaling.png)
 
-ACI permite implantar rapidamente instâncias de contêiner sem sobrecarga adicional à infraestrutura. Quando você se conecta com o AKS, ACI torna-se uma extensão segura e lógica do seu cluster do AKS. O componente Kubelet Virtual é instalado em seu cluster AKS que apresenta ACI como um nó virtual do Kubernetes. O Kubernetes então pode agendar pods que são executados como instâncias ACI por meio de nós virtuais, não como pods em nós de VM diretamente no cluster do AKS.
+ACI permite implantar rapidamente instâncias de contêiner sem sobrecarga adicional à infraestrutura. Quando você se conecta com o AKS, ACI torna-se uma extensão segura e lógica do seu cluster do AKS. O componente Kubelet Virtual é instalado em seu cluster AKS que apresenta ACI como um nó virtual do Kubernetes. O Kubernetes então pode agendar pods que são executados como instâncias ACI por meio de nós virtuais, não como pods em nós de VM diretamente no cluster do AKS. Nós virtuais estão atualmente em visualização no AKS.
 
 Seu aplicativo não requer modificação para usar os nós virtuais. As implantações podem ser dimensionadas para AKS e ACI e sem atraso, uma vez que o dimensionador automático de cluster implanta novos nós no cluster do AKS.
 
