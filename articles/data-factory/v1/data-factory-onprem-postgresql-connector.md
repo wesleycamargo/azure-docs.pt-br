@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0e86180a643b27056edc9901d590760cedcbf259
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: bd39b0aae5b76f37e2153f8e4c4502be994fa5b5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331870"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58081824"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Mover dados do PostgreSQL usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,12 +50,12 @@ Você pode criar um pipeline com atividade de cópia que mova dados de um reposi
 
 - A maneira mais fácil de criar um pipeline é usar o **Assistente de Cópia**. Consulte [Tutorial: criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados.
 - Você também pode usar as ferramentas abaixo para criar um pipeline:
-    - Portal do Azure
-    - Visual Studio
-    - Azure PowerShell
-    - Modelo do Azure Resource Manager
-    - API do .NET
-    - API REST
+  - Portal do Azure
+  - Visual Studio
+  - Azure PowerShell
+  - Modelo do Azure Resource Manager
+  - API do .NET
+  - API REST
 
     Confira o [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia.
 
@@ -74,14 +74,14 @@ A tabela a seguir fornece a descrição para elementos JSON específicas para o 
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| Tipo |A propriedade type deve ser definida como: **OnPremisesPostgreSql** |SIM |
-| Servidor |Nome do servidor PostgreSQL. |SIM |
-| Banco de Dados |Nome do banco de dados PostgreSQL. |SIM |
+| Tipo |A propriedade type deve ser definida como: **OnPremisesPostgreSql** |Sim |
+| Servidor |Nome do servidor PostgreSQL. |Sim |
+| Banco de Dados |Nome do banco de dados PostgreSQL. |Sim |
 | schema |Nome do esquema no banco de dados. O nome do esquema diferencia maiúsculas de minúsculas. |Não  |
-| authenticationType |Tipo de autenticação usado para se conectar ao banco de dados PostgreSQL. Os valores possíveis são: Anônima, Básica e Windows. |SIM |
+| authenticationType |Tipo de autenticação usado para se conectar ao banco de dados PostgreSQL. Os valores possíveis são: Anônima, Básica e Windows. |Sim |
 | Nome de Usuário |Especifique o nome de usuário se você estiver usando a autenticação Basic ou Windows. |Não  |
 | Senha |Especifique a senha da conta de usuário que você especificou para o nome de usuário. |Não  |
-| gatewayName |O nome do gateway que o serviço Data Factory deve usar para se conectar ao banco de dados PostgreSQL local. |SIM |
+| gatewayName |O nome do gateway que o serviço Data Factory deve usar para se conectar ao banco de dados PostgreSQL local. |Sim |
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, confira o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). As seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados.
@@ -306,46 +306,46 @@ Ao mover os dados para o PostgreSQL os seguintes mapeamentos são usados do tipo
 
 | Tipo de banco de dados PostgreSQL | Aliases de PostgresSQL | Tipo .NET Framework |
 | --- | --- | --- |
-| abstime | |DateTime | &nbsp;
+| abstime | |DateTime |
 | bigint |int8 |Int64 |
 | bigserial |serial8 |Int64 |
-| bit [(n)] | |Byte[], String | &nbsp;
+| bit [(n)] | |Byte[], String |
 | bit varying [ (n) ] |varbit |Byte[], String |
 | booleano |bool |BOOLEAN |
-| box | |Byte[], String |&nbsp;
-| bytea | |Byte[], String |&nbsp;
+| box | |Byte[], String |
+| bytea | |Byte[], String |
 | character [(n)] |char [(n)] |Cadeia de caracteres |
 | character varying [(n)] |varchar [(n)] |Cadeia de caracteres |
-| cid | |Cadeia de caracteres |&nbsp;
-| cidr | |Cadeia de caracteres |&nbsp;
-| circle | |Byte[], String |&nbsp;
-| data | |DateTime |&nbsp;
-| daterange | |Cadeia de caracteres |&nbsp;
-| double precision |float8 |Duplo |
-| inet | |Byte[], String |&nbsp;
-| intarry | |Cadeia de caracteres |&nbsp;
-| int4range | |Cadeia de caracteres |&nbsp;
-| int8range | |Cadeia de caracteres |&nbsp;
+| cid | |Cadeia de caracteres |
+| cidr | |Cadeia de caracteres |
+| circle | |Byte[], String |
+| data | |DateTime |
+| daterange | |Cadeia de caracteres |
+| double precision |float8 |Double |
+| inet | |Byte[], String |
+| intarry | |Cadeia de caracteres |
+| int4range | |Cadeia de caracteres |
+| int8range | |Cadeia de caracteres |
 | inteiro |int, int4 |Int32 |
-| interval [fields] [(p)] | |Timespan |&nbsp;
-| json | |Cadeia de caracteres |&nbsp;
-| jsonb | |Byte[] |&nbsp;
-| line | |Byte[], String |&nbsp;
-| lseg | |Byte[], String |&nbsp;
-| macaddr | |Byte[], String |&nbsp;
-| money | |Decimal |&nbsp;
+| interval [fields] [(p)] | |Timespan |
+| json | |Cadeia de caracteres |
+| jsonb | |Byte[] |
+| line | |Byte[], String |
+| lseg | |Byte[], String |
+| macaddr | |Byte[], String |
+| money | |Decimal |
 | numeric [(p, s)] |decimal [(p, s)] |Decimal |
-| numrange | |Cadeia de caracteres |&nbsp;
-| oid | |Int32 |&nbsp;
-| caminho | |Byte[], String |&nbsp;
-| pg_lsn | |Int64 |&nbsp;
-| point | |Byte[], String |&nbsp;
-| polygon | |Byte[], String |&nbsp;
+| numrange | |Cadeia de caracteres |
+| oid | |Int32 |
+| caminho | |Byte[], String |
+| pg_lsn | |Int64 |
+| point | |Byte[], String |
+| polygon | |Byte[], String |
 | real |float4 |Single |
 | smallint |int2 |Int16 |
 | smallserial |serial2 |Int16 |
 | serial |serial4 |Int32 |
-| text | |Cadeia de caracteres |&nbsp;
+| text | |Cadeia de caracteres |
 
 ## <a name="map-source-to-sink-columns"></a>Mapear origem para colunas de coletor
 Para saber mais sobre mapeamento de colunas no conjunto de dados de origem para colunas no conjunto de dados de coletor, confira [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md) (Mapeamento de colunas de conjunto de dados no Azure Data Factory).

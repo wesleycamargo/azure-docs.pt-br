@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 4fa8e28d9ccc16482ca937a220eae83e282da7e9
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 2b801df6036566840dd96bde0801ab018d0614b5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210022"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103087"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matriz de suporte para recuperação de desastres de VMs do Hyper-V para um site secundário
 
@@ -55,15 +55,15 @@ Somente computadores Linux com o armazenamento a seguir podem ser replicados:
 
 **Configuração** | **Com suporte**  
 --- | --- 
-Host - Agrupamento NIC | SIM 
-Host - VLAN | SIM 
-Host - IPv4 | SIM 
-Host - IPv6 | Não  
-VM Convidada - Agrupamento NIC | Não 
-VM Convidada - IPv4 | SIM
-VM Convidada - IPv6 | Não 
-VM convidada – Windows/Linux – Endereço IP estático | SIM
-VM Convidada - Multi-NIC | SIM
+Host - Agrupamento NIC | Sim 
+Host - VLAN | Sim 
+Host - IPv4 | Sim 
+Host - IPv6 | Não 
+VM Convidada - Agrupamento NIC | Não
+VM Convidada - IPv4 | Sim
+VM Convidada - IPv6 | Não
+VM convidada – Windows/Linux – Endereço IP estático | Sim
+VM Convidada - Multi-NIC | Sim
 
 
 ## <a name="storage"></a>Armazenamento
@@ -73,9 +73,9 @@ VM Convidada - Multi-NIC | SIM
 **Armazenamento (host)** | **Com suporte**
 --- | --- 
 NFS | N/D
-SMB 3.0 |  SIM
-SAN (ISCSI) | SIM
-Múltiplos caminhos (MPIO) | SIM
+SMB 3.0 |  Sim
+SAN (ISCSI) | Sim
+Múltiplos caminhos (MPIO) | Sim
 
 ### <a name="guest-or-physical-server-storage"></a>Armazenamento do servidor físico ou convidado
 
@@ -83,33 +83,33 @@ Múltiplos caminhos (MPIO) | SIM
 --- | --- | 
 VMDK |  N/D
 VHD/VHDX | Sim (até 16 discos)
-VM ger 2 | SIM
-Disco de cluster compartilhado | Não 
-Disco criptografado | Não 
+VM ger 2 | Sim
+Disco de cluster compartilhado | Não
+Disco criptografado | Não
 UEFI| N/D
-NFS | Não 
-SMB 3.0 | Não 
+NFS | Não
+SMB 3.0 | Não
 RDM | N/D
-Disco > 1 TB | SIM
-Volume com discos distribuídos > 1 TB<br/><br/> LVM | SIM
-Espaços de Armazenamento | SIM
-Adição/remoção de disco a quente | Não 
-Exclusão de disco | SIM
-Múltiplos caminhos (MPIO) | SIM
+Disco > 1 TB | Sim
+Volume com discos distribuídos > 1 TB<br/><br/> LVM | Sim
+Espaços de Armazenamento | Sim
+Adição/remoção de disco a quente | Não
+Exclusão de disco | Sim
+Múltiplos caminhos (MPIO) | Sim
 
 ## <a name="vaults"></a>Cofres
 
 **Ação** | **Com suporte**
 --- | --- 
-Mover cofres entre grupos de recursos (dentro de uma assinatura ou entre assinaturas) |  Não 
-Mover armazenamento, rede, VMs do Azure entre grupos de recursos (dentro de uma assinatura ou entre assinaturas) | Não 
+Mover cofres entre grupos de recursos (dentro de uma assinatura ou entre assinaturas) |  Não
+Mover armazenamento, rede, VMs do Azure entre grupos de recursos (dentro de uma assinatura ou entre assinaturas) | Não
 
 ## <a name="azure-site-recovery-provider"></a>Provedor do Azure Site Recovery
 
 O Provedor coordena as comunicações entre os servidores VMM. 
 
 **Mais recente** | **Atualizações**
---- | --- | --- | --- | ---
+--- | --- 
 5.1.19 ([(disponível no portal](https://aka.ms/downloaddra)) | [Recursos e correções mais recentes](https://support.microsoft.com/kb/3155002)
 
 

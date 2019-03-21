@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/28/2018
 ms.author: v-wingf-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d620701bc8590bee746be35f69b0da890c359601
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b51f8d9329bc86320501183d7dba7735fb369fa5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205351"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092371"
 ---
 # <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>Tutorial: Configurar o Samanage para provisionamento automático do usuário
 
@@ -108,9 +108,9 @@ Esta seção orienta você pelas etapas de configuração do serviço de provisi
 
 5. Na seção **Credenciais de Administrador**, insira o **Nome de Usuário do Administrador**, e **Senha do Administrador** da conta do Samanage. Exemplos desses valores são:
 
-    *   No campo **Nome de Usuário do Administrador**, preencha o nome de usuário da conta do administrador no locatário do Samanage. Exemplo: admin@contoso.com.
+   * No campo **Nome de Usuário do Administrador**, preencha o nome de usuário da conta do administrador no locatário do Samanage. Exemplo: admin@contoso.com.
 
-    *   No campo **Senha de Administrador**, preencha a senha da conta de administrador correspondente ao nome de usuário do administrador.
+   * No campo **Senha de Administrador**, preencha a senha da conta de administrador correspondente ao nome de usuário do administrador.
 
 6. Depois de preencher os campos mostrados na Etapa 5, clique em **Testar Conectividade** para garantir que o Azure AD possa se conectar ao Samanage. Se a conexão falhar, verifique se sua conta do Samanage tem permissões de Administrador e tente novamente.
 

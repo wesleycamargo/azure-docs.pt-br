@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: ad97381d983446dfcc32dd1ba82af587a500b9da
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 55c9120547472bb9a9a74533fe532d346844e89c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762136"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081756"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Tutorial: Configurar recursos para a validação como um serviço
 
@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 > * Prepare-se de usar VaaS, definindo-se o Azure Active Directory (AD).
-> * Criar uma conta de armazenamento.
+> * Crie uma conta de armazenamento.
 
 ## <a name="configure-an-azure-ad-tenant"></a>Configurar um locatário do AD do Azure
 
@@ -48,7 +48,7 @@ Crie um locatário que sua organização irá usar para acessar os serviços de 
 
     Autorize os usuários em seu locatário para executar as ações na VaaS atribuindo uma das seguintes funções:
 
-    | Nome da função | DESCRIÇÃO |
+    | Nome da Função | Descrição |
     |---------------------|------------------------------------------|
     | Proprietário | Tem acesso total a todos os recursos. |
     | Leitor | Pode exibir todos os recursos, mas não criar ou gerenciar. |
@@ -56,13 +56,13 @@ Crie um locatário que sua organização irá usar para acessar os serviços de 
 
     Para atribuir funções na **serviço do Azure Stack validação** aplicativo:
 
-    1. Entre no [Portal do Azure](https://portal.azure.com).
-    2. Selecione **todos os serviços** > **do Azure Active Directory** sob o **identidade** seção.
-    3. Selecione **aplicativos empresariais** > **serviço do Azure Stack validação** aplicativo.
-    4. Selecione **Usuários e grupos**. O **serviço do Azure Stack validação - usuários e grupos** folha lista os usuários com permissão para usar o aplicativo.
-    5. Selecione **+ adicionar usuário** para adicionar um usuário do seu locatário e atribuir uma função.
+   1. Entre no [Portal do Azure](https://portal.azure.com).
+   2. Selecione **todos os serviços** > **do Azure Active Directory** sob o **identidade** seção.
+   3. Selecione **aplicativos empresariais** > **serviço do Azure Stack validação** aplicativo.
+   4. Selecione **Usuários e grupos**. O **serviço do Azure Stack validação - usuários e grupos** folha lista os usuários com permissão para usar o aplicativo.
+   5. Selecione **+ adicionar usuário** para adicionar um usuário do seu locatário e atribuir uma função.
 
-    Se você quiser isolar recursos de VaaS e ações entre diferentes grupos dentro de uma organização, você pode criar vários diretórios de locatário do AD do Azure.
+      Se você quiser isolar recursos de VaaS e ações entre diferentes grupos dentro de uma organização, você pode criar vários diretórios de locatário do AD do Azure.
 
 ### <a name="register-your-tenant"></a>Registrar seu locatário
 
@@ -70,7 +70,7 @@ Esse processo autoriza seu locatário com o **serviço do Azure Stack validaçã
 
 1. Enviar as informações a seguir sobre o locatário para a Microsoft em [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com).
 
-    | Dados | DESCRIÇÃO |
+    | Dados | Descrição |
     |--------------------------------|---------------------------------------------------------------------------------------------|
     | Nome da Organização | O nome da organização oficial. |
     | Nome do diretório de locatário do Azure AD | O nome do diretório de locatário do Azure AD que está sendo registrado. |

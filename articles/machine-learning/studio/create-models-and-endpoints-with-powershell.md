@@ -1,21 +1,21 @@
 ---
-title: Criar vários modelos de um experimento do Studio
+title: Criar vários pontos de extremidade para um modelo
 titleSuffix: Azure Machine Learning Studio
 description: Use o PowerShell para criar vários modelos do Machine Learning e pontos de extremidade de serviço Web com o mesmo algoritmo, mas com conjuntos de dados de treinamento diferentes.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 40cb4b7969ec2272936d1361be8183db84f944d8
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: a191a7adc2c43337b663fc44a8ef40df9d8ffef4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455051"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848908"
 ---
 # <a name="use-powershell-to-create-studio-models-and-web-service-endpoints-from-one-experiment"></a>Usar o PowerShell para criar modelos do Studio e pontos de extremidade de serviço Web por meio de um teste
 
@@ -27,7 +27,7 @@ Você poderia treinar seu modelo uma vez usando uma versão mesclada de todos os
 
 Essa poderia ser a melhor abordagem, mas não convém criar 1.000 testes de treinamento no Azure Machine Learning Studio com cada um deles representando um local exclusivo. Além de ser uma tarefa avassaladora, ela também parece ineficiente, já que cada experimento teria todos os mesmos componentes, exceto o conjunto de dados de treinamento.
 
-A boa notícia é que você pode fazer isso usando a [API de readaptação do Azure Machine Learning Studio](retrain-models-programmatically.md) e automatizar a tarefa com o [PowerShell do Azure Machine Learning Studio](powershell-module.md).
+A boa notícia é que você pode fazer isso usando a [API de readaptação do Azure Machine Learning Studio](/azure/machine-learning/studio/retrain-machine-learning-model) e automatizar a tarefa com o [PowerShell do Azure Machine Learning Studio](powershell-module.md).
 
 > [!NOTE]
 > Para fazer com que sua amostra seja executada mais rapidamente, reduza o número de locais de 1.000 para 10. No entanto, os mesmos princípios e procedimentos se aplicam aos 1.000 locais. No entanto, se você quiser treinar com 1.000 conjuntos de dados, convém executar seguintes scripts do PowerShell em paralelo. A forma como isso será feito está além do escopo deste artigo, mas é possível encontrar exemplos de multi-thread do PowerShell na Internet.  
@@ -35,7 +35,7 @@ A boa notícia é que você pode fazer isso usando a [API de readaptação do Az
 > 
 
 ## <a name="set-up-the-training-experiment"></a>Configurar o teste de treinamento
-Use o exemplo [teste de treinamento](https://gallery.azure.ai/Experiment/Bike-Rental-Training-Experiment-1) na [Cortana Intelligence Gallery](http://gallery.azure.ai). Abra esse teste em seu workspace do [Azure Machine Learning Studio](https://studio.azureml.net).
+Use o exemplo [teste de treinamento](https://gallery.azure.ai/Experiment/Bike-Rental-Training-Experiment-1) na [Cortana Intelligence Gallery](https://gallery.azure.ai). Abra esse teste em seu workspace do [Azure Machine Learning Studio](https://studio.azureml.net).
 
 > [!NOTE]
 > Para acompanhar este exemplo, talvez você queira usar um workspace padrão em vez de um workspace gratuito. Você cria um ponto de extremidade para cada cliente, para um total de 10 pontos de extremidade, e isso exige um workspace padrão, pois um workspace gratuito é limitado a três pontos de extremidade. Se você tiver apenas um workspace gratuito, basta modificar os scripts para permitir apenas x locais.
@@ -44,7 +44,7 @@ Use o exemplo [teste de treinamento](https://gallery.azure.ai/Experiment/Bike-Re
 
 O teste usa um módulo **Importar Dados** para importar o conjunto de dados de treinamento *customer001.csv* de uma conta de armazenamento do Azure. Vamos supor que você coletou conjuntos de dados de treinamento de todos os locais de aluguel de bicicletas, e os armazenou no mesmo local que o armazenamento de blobs com nomes de arquivo que vão de *rentalloc001.csv* a *rentalloc10.csv*.
 
-![image](./media/create-models-and-endpoints-with-powershell/reader-module.png)
+![Módulo de leitor importa dados de um blob do Azure](./media/create-models-and-endpoints-with-powershell/reader-module.png)
 
 Observe que um módulo **Saída do Serviço Web** foi adicionado ao módulo **Treinar Modelo**.
 Quando esse teste for implantado como um serviço Web, o ponto de extremidade associado a essa saída retornará o modelo treinado no formato de um arquivo .ilearner.
@@ -52,7 +52,7 @@ Quando esse teste for implantado como um serviço Web, o ponto de extremidade as
 Observe também que você configurou um parâmetro de serviço Web que define a URL usada pelo módulo **Importar Dados**. Isso permite que você use o parâmetro para especificar conjuntos de dados de treinamento individuais para treinar o modelo para cada local.
 Há outras maneiras de fazer isso. Você pode usar uma consulta SQL com um parâmetro de serviço Web para obter dados de um Banco de Dados SQL do Azure. Ou você pode usar um módulo de **Entrada de Serviço Web** para transmitir um conjunto de dados para o serviço Web.
 
-![image](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
+![Saídas de um módulo de modelo treinado para o módulo de saída do serviço Web](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
 
 Agora, vamos executar esse teste de treinamento usando o valor padrão *rental001.csv* como o conjunto de dados de treinamento. Se você exibir a saída do módulo **Avaliar** (clique na saída e selecione **Visualizar**), verá que obteve um desempenho razoável de *AUC* = 0,91. Neste ponto, você está pronto para implantar um serviço Web com base nesse teste de treinamento.
 
@@ -89,7 +89,7 @@ Em seguida, executamos o seguinte comando do PowerShell:
 
 Agora você já criou 10 pontos de extremidade e todos eles contêm o mesmo modelo treinado em *customer001.csv*. Consulte-os no Portal do Azure.
 
-![image](./media/create-models-and-endpoints-with-powershell/created-endpoints.png)
+![Exibir a lista de modelos treinados no portal](./media/create-models-and-endpoints-with-powershell/created-endpoints.png)
 
 ## <a name="update-the-endpoints-to-use-separate-training-datasets-using-powershell"></a>Atualizar os pontos de extremidade para usar conjuntos de dados de treinamento separados usando o PowerShell
 A próxima etapa é atualizar os pontos de extremidade com modelos treinados exclusivamente nos dados individuais de cada cliente. Mas, primeiro, você precisa produzir esses modelos com base no serviço Web **Treinamento do Aluguel de Bicicletas**. Vamos voltar ao serviço Web **Treinamento do Aluguel de Bicicletas** . Você precisa chamar seu ponto de extremidade BES 10 vezes com 10 conjuntos de dados de treinamento diferentes para produzir 10 modelos diferentes. Use o cmdlet **InovkeAmlWebServiceBESEndpoint** do PowerShell para fazer isso.

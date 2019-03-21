@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
 ms.author: rkarlin
-ms.openlocfilehash: f1a3268fcacd4083b767a3fe89d6ab9b41b6cceb
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 01f6da4f5ad6b618c444949fce8d2b7aa3367e17
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114052"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075758"
 ---
 # <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>Monitoramento e processamento de eventos de segurança na Central de Segurança do Azure
 O painel Eventos fornece uma visão geral do número de eventos de segurança coletado ao longo do tempo, além de uma lista de eventos notáveis que possam demandar sua atenção.  
@@ -28,6 +28,8 @@ O painel Eventos fornece uma visão geral do número de eventos de segurança co
 > Para usar esse recurso, seu workspace deve estar executando a versão 2 do Log Analytics e estar na camada Standard da Central de Segurança. Consulte a [página de preços](security-center-pricing.md) da Central de Segurança para obter mais informações sobre a camada Standard.
 >
 >
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="what-is-a-security-event"></a>O que é um evento de segurança?
 A Central de Segurança usa o Microsoft Monitoring Agent para coletar diversas configurações e eventos relacionados a segurança em seus computadores e armazena esses eventos em seu workspace. Exemplos desses dados são: logs do sistema operacional (logs de eventos do Windows), processos em execução e eventos de soluções de segurança integrados com a Central de Segurança. O Microsoft Monitoring Agent também copia os arquivos de despejo de falha para seus workspaces.
@@ -55,30 +57,30 @@ O **painel Eventos** fornece uma visão geral do número de eventos processados 
 1. No menu principal da **Central de Segurança**, selecione **Eventos**.
 2. O seletor de workspace do **Painel de eventos** pode ser aberto. Se você tiver apenas um workspace, esse seletor de workspace não aparecerá. Se você tiver mais de um workspace, você precisará selecionar um workspace para exibir os respectivos detalhes de eventos processados. Selecione um workspace na lista, se você tiver mais de um workspace.
 
-  ![Lista de workspace][3]
+   ![Lista de workspace][3]
 
 3. O **Painel de eventos** é aberto, mostrando detalhes de eventos do workspace selecionado. Você pode exibir os eventos notáveis e todos os eventos por tipo.  Neste exemplo, selecionamos **Eventos notáveis**.
 
-  ![Eventos notáveis][4]
+   ![Eventos notáveis][4]
 
 4. Você pode consultar mais dados no workspace, selecionando um tipo de evento. Neste exemplo, selecionamos **SecurityEvent**.
 
-  ![Selecionando um tipo de evento][5]
+   ![Selecionando um tipo de evento][5]
 
 5. A **pesquisa de logs** abre-se, com detalhes adicionais sobre o tipo de evento.
 
-  ![Pesquisa de log][6]
+   ![Pesquisa de log][6]
 
 ## <a name="add-a-notable-event"></a>Adicionar um evento notável
-A Central de Segurança fornece eventos notáveis prontos para uso. Você pode adicionar eventos notáveis com base em sua própria consulta usando a [linguagem de consulta do Log Analytics](../log-analytics/log-analytics-search-reference.md). Retornaremos ao **Painel de eventos** para adicionar um evento notável.
+A Central de Segurança fornece eventos notáveis prontos para uso. Você pode adicionar eventos notáveis com base em sua própria consulta usando o [linguagem de consulta Kusto](../log-analytics/log-analytics-search-reference.md). Retornaremos ao **Painel de eventos** para adicionar um evento notável.
 
 1. Selecione **Adicionar Evento Notável**.
 
-  ![Adicionar um evento notável][7]
+   ![Adicionar um evento notável][7]
 
 2. A janela **Adicionar eventos notáveis personalizados** é aberta.  Em **Nome de Exibição**, insira um nome para o evento notável. Em **Consulta de Pesquisa**, insira a consulta para o evento.
 
-  ![Inserir sua consulta][8]
+   ![Inserir sua consulta][8]
 
 4. Selecione **OK**.
 
@@ -94,7 +96,7 @@ Se a linha do workspace:
 - Está em branco – seu workspace atende aos requisitos e, ao selecionar um workspace, você será levado ao painel
 
 > [!NOTE]
-> No **Painel de eventos**, a coluna **EVENTOS** indica a quantidade de eventos em cada workspace.  Essa coluna aparece em branco para alguns workspaces porque a camada Gratuita da Central de Segurança está aplicada a esse workspace. Na camada Gratuita, a Central de Segurança coletará eventos, mas os eventos não serão salvos no Log Analytics e não estarão disponíveis no painel.
+> No **Painel de eventos**, a coluna **EVENTOS** indica a quantidade de eventos em cada workspace.  Essa coluna aparece em branco para alguns workspaces porque a camada Gratuita da Central de Segurança está aplicada a esse workspace. Na camada gratuita, a Central de segurança coletará eventos, mas os eventos não são salvas nos logs do Azure Monitor e não estão disponíveis no painel de controle.
 >
 >
 
@@ -102,26 +104,26 @@ Se a linha do workspace:
 1. Selecione um workspace que **REQUER ATUALIZAÇÃO**.
 2. A **Pesquisar Atualização** é aberta. Selecione **Atualizar Agora**.
 
-  ![Atualizar agora][10]
+   ![Atualizar agora][10]
 
 ## <a name="upgrade-to-security-centers-standard-tier"></a>Atualizar para a camada Standard da Central de Segurança
 1. Selecione um workspace com **ATUALIZAR PLANO**.
 2. O **Painel de eventos** é aberto. Selecione **Testar o Painel de eventos**.
 
-  ![Experimentar o painel][11]
+   ![Experimentar o painel][11]
 
 3. Em **Integração à segurança avançada**, selecione o workspace que você está atualizando.
 4. Em **Preços**, selecione **Standard**.
 5. Clique em **Salvar**.
 
-  ![Atualizar para a camada Standard][12]
+   ![Atualizar para a camada Standard][12]
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você aprendeu a usar o Painel de eventos da Central de Segurança. Para saber mais sobre como funciona o painel e escrever suas próprias consultas de evento, consulte:
 
-- [O que é o Log Analytics?](../log-analytics/log-analytics-overview.md) – Visão geral sobre o Log Analytics
-- [Compreender as pesquisas de logs no Log Analytics](../log-analytics/log-analytics-log-search-new.md) – Descreve como as pesquisas de logs são utilizadas no Log Analytics e fornece conceitos que deverão ser compreendidos antes de criar uma pesquisa de logs
-- [Referência de pesquisa do Log Analytics](../log-analytics/log-analytics-search-reference.md) – Saiba como escrever suas próprias consultas de eventos usando a linguagem de consulta no Log
+- [O que é o Azure Monitor logs?](../log-analytics/log-analytics-overview.md) – Visão geral sobre os logs do Azure Monitor
+- [Entender pesquisas de log em Kusto](../log-analytics/log-analytics-log-search-new.md) – descreve como as pesquisas de log são usadas nos logs do Azure Monitor e fornece conceitos que devem ser compreendidos antes de criar uma pesquisa de logs
+- [Referência de pesquisa do Kusto](../log-analytics/log-analytics-search-reference.md) – Saiba como escrever suas próprias consultas de evento usando a linguagem de consulta no Log
 
 Para saber mais sobre a Central de Segurança, confira:
 

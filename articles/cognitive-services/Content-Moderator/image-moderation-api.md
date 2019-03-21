@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 1dba848be0c24ef26dcefd23d4fc3f7201420449
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 17e4d576d4c524321fd19c589868a323f97c48a1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873505"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079701"
 ---
 # <a name="learn-image-moderation-concepts"></a>Aprender os conceitos de moderação de imagem
 
@@ -35,12 +35,11 @@ A operação **Avaliar** retorna uma pontuação de confiança entre 0 e 1. Ela 
       ],
 
 > [!NOTE]
-
+> 
 > - `isImageAdultClassified` representa a presença potencial de imagens que podem ser consideradas sexualmente explícitas ou de conteúdo para adulto em determinadas situações.
 > - `isImageRacyClassified` representa a presença potencial de imagens que podem ser consideradas sexualmente sugestivas ou de conteúdo para adulto em determinadas situações.
 > - As pontuações estão entre 0 e 1. Quanto maior a pontuação, maior o modelo estará prevendo que a categoria pode ser aplicável. Essa visualização se baseia em um modelo estatístico, em vez dos resultados codificados manualmente. É recomendável testar com o seu próprio conteúdo para determinar como cada categoria se alinha aos seus requisitos.
 > - Os valores boolianos são true ou false dependendo dos limites da pontuação interna. Os clientes devem avaliar se desejam usar esse valor ou escolher limites personalizados com base nas políticas de conteúdo.
->
 
 ## <a name="detecting-text-with-optical-character-recognition-ocr"></a>Detectando texto com OCR (Reconhecimento Óptico de Caracteres)
 

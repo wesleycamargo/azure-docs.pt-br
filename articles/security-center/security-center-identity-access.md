@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 845227ea5e32d10eaed555cee80c8fc520a1771a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 6f8fadc42d1c725002f2552a3fc1fc98e8564437
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105545"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58098761"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Monitore a identidade e o acesso na Central de Segurança do Azure (Visualizar)
 Este artigo ajuda você a usar a Central de Segurança do Azure para monitorar a identidade e a atividade de acesso do usuário.
@@ -68,11 +68,11 @@ Sob **visão geral**, há uma lista de recomendações. A primeira coluna lista 
 
 1. Selecione uma recomendação. A janela da recomendação é aberta e exibe:
 
-  - Descrição da recomendação
-  - Lista de assinaturas insalubres e saudáveis
-  - Lista de recursos que não são verificados devido a uma avaliação com falha ou o recurso está sob uma assinatura em execução no nível Gratuito e não é avaliado
+   - Descrição da recomendação
+   - Lista de assinaturas insalubres e saudáveis
+   - Lista de recursos que não são verificados devido a uma avaliação com falha ou o recurso está sob uma assinatura em execução no nível Gratuito e não é avaliado
 
-  ![Janela da recomendação][3]
+   ![Janela da recomendação][3]
 
 1. Selecione uma assinatura na lista para obter mais detalhes.
 
@@ -81,27 +81,27 @@ Em **Assinaturas**, há uma lista de assinaturas. A primeira coluna lista as ass
 
 ![Guia da assinatura][4]
 
-1.  Selecione uma assinatura. Abre uma exibição de resumo com três guias:
+1. Selecione uma assinatura. Abre uma exibição de resumo com três guias:
 
-  - **Recomendações**: com base nas avaliações realizadas pela Central de segurança que falhou.
-  - **Avaliações aprovadas**: lista de avaliações realizadas pela Central de Segurança que foram aprovadas.
-  - **Avaliações indisponíveis**: lista de avaliações que falharam devido a um erro ou porque a assinatura tiver mais de 600 contas.
+   - **Recomendações**: com base nas avaliações realizadas pela Central de segurança que falhou.
+   - **Avaliações aprovadas**: lista de avaliações realizadas pela Central de Segurança que foram aprovadas.
+   - **Avaliações indisponíveis**: lista de avaliações que falharam devido a um erro ou porque a assinatura tiver mais de 600 contas.
 
-  Sob **recomendações** é uma lista das recomendações para a assinatura selecionada e a gravidade de cada recomendação.
+   Sob **recomendações** é uma lista das recomendações para a assinatura selecionada e a gravidade de cada recomendação.
 
-  ![Recomendações para selecionar a assinatura][5]
+   ![Recomendações para selecionar a assinatura][5]
 
 1. Selecione uma recomendação para obter uma descrição da recomendação, uma lista de assinaturas não íntegras e saudáveis e uma lista de recursos não verificados.
 
-  ![Descrição da recomendação][6]
+   ![Descrição da recomendação][6]
 
-  Em **Avaliações aprovadas**, há uma lista de avaliações aprovadas.  Gravidade dessas avaliações sempre é verde.
+   Em **Avaliações aprovadas**, há uma lista de avaliações aprovadas.  Gravidade dessas avaliações sempre é verde.
 
-  ![Avaliações aprovadas][7]
+   ![Avaliações aprovadas][7]
 
 1. Selecione uma avaliação aprovada da lista para uma descrição da avaliação e uma lista de assinaturas saudáveis. Existe um separador para subscrições não íntegras que lista todas as subscrições que falharam.
 
-  ![Avaliações aprovadas][8]
+   ![Avaliações aprovadas][8]
 
 ## <a name="recommendations"></a>Recomendações
 Use a tabela abaixo como referência para ajudá-lo a entender as recomendações de identidade e acesso disponíveis e o que cada uma delas se você aplicá-lo.

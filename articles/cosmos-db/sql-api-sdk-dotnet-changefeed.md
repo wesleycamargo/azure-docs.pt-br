@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: 0f6fff5047bc72fa1171e06bb2f160196ecef807
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: a878ab1937b06f06a27b18f793fc1bfa190969ed
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300601"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090331"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK do Processador do Feed de Alterações do .NET: download e notas sobre a versão
 > [!div class="op_single_selector"]
@@ -44,8 +44,8 @@ ms.locfileid: "55300601"
 ### <a name="a-name226226"></a><a name="2.2.6"/>2.2.6
 * Melhoria no tratamento de exceções de Observador.
 * Informações mais detalhadas sobre erros do Observador:
- * Quando um Observador for fechado devido a uma exceção gerada por ProcessChangesAsync do Observador, o CloseAsync receberá o parâmetro de motivo definido como ChangeFeedObserverCloseReason.ObserverError.
- * Rastreamentos adicionados para identificar erros no código do usuário em um Observador.
+  * Quando um Observador for fechado devido a uma exceção gerada por ProcessChangesAsync do Observador, o CloseAsync receberá o parâmetro de motivo definido como ChangeFeedObserverCloseReason.ObserverError.
+  * Rastreamentos adicionados para identificar erros no código do usuário em um Observador.
 
 ### <a name="a-name225225"></a><a name="2.2.5"/>2.2.5
 * Suporte adicionado para manipular a divisão em coleções que usam taxa de transferência de banco de dados compartilhado.
@@ -130,7 +130,7 @@ ms.locfileid: "55300601"
 
 ### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
 * Aprimoramentos de estabilidade.
-  * Correção para lidar com problemas de tarefas canceladas que podem levar a observadores parados em algumas partições.
+  * Correção para tratar o problema de tarefas canceladas que pode levar a observadores parados em algumas partições.
 * Suporte para o ponto de verificação manual.
 * Compatível com o [SDK do .NET para SQL](sql-api-sdk-dotnet.md) versões 1.21 e superiores.
 

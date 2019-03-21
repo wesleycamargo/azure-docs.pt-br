@@ -1,19 +1,19 @@
 ---
 title: Tutorial para segurança do X.509 no Hub IoT do Azure | Microsoft Docs
 description: Introdução à segurança com base em X.509 em seu Hub IoT do Azure em um ambiente simulado.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/10/2017
-ms.author: dobett
-ms.openlocfilehash: b190390840a765953a2125348c3c9188f6bf7d37
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 80d3d3cf5f386c5f21e1e8fed1071a12c10235cd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452014"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091606"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Configurar a segurança de X.509 em seu Hub IoT do Azure
 
@@ -47,7 +47,7 @@ Estas etapas mostram como adicionar uma nova Autoridade de certificação ao Hub
 3. Insira um nome de exibição fácil para o certificado. Selecione o arquivo de certificado raiz chamado *RootCA.cer* criado na seção anterior, em seu computador. Clique em **Carregar**.
 4. Após receber uma notificação de que o certificado foi carregado com êxito, clique em **Salvar**.
 
-    ![Carregar um certificado](./media/iot-hub-security-x509-get-started/add-new-cert.png)  
+    ![Carregar certificado](./media/iot-hub-security-x509-get-started/add-new-cert.png)  
 
    Isso exibirá o certificado na lista **Gerenciador de Certificados**. Observe que o **STATUS** desse certificado é *Não verificado*.
 
@@ -65,7 +65,7 @@ Estas etapas mostram como adicionar uma nova Autoridade de certificação ao Hub
 
 10. Depois que o certificado for carregado com êxito, clique em **Verificar**. O **STATUS** de seu certificado muda para **_Verificado_** na folha **Certificados**. Clique em **Atualizar** se ele não for atualizado automaticamente.
 
-   ![Carregar verificação de certificado](./media/iot-hub-security-x509-get-started/upload-cert-verification.png)  
+    ![Carregar verificação de certificado](./media/iot-hub-security-x509-get-started/upload-cert-verification.png)  
 
 
 <a id="createdevice"></a>

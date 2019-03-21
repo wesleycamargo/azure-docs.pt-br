@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: b24d32afed5acfd846f9a8e8316339665524ad2e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: bd1d3c71660ae584b0aa57c7cc765fdc519f4b1b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849752"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863586"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Estrutura de segurança: gerenciamento de configurações | Atenuações 
 | Produto/Serviço | Artigo |
@@ -42,7 +42,7 @@ ms.locfileid: "52849752"
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
-| **Referências**              | [Uma introdução à Política de Segurança de Conteúdo](http://www.html5rocks.com/en/tutorials/security/content-security-policy/), [Referência da Política de Segurança de Conteúdo](http://content-security-policy.com/), [Recursos de segurança](https://developer.microsoft.com/microsoft-edge/platform/documentation/dev-guide/security/), [Introdução à Política de Segurança de Conteúdo](https://github.com/webplatform/webplatform.github.io/tree/master/docs/tutorials/content-security-policy), [Posso usar a CSP?](http://caniuse.com/#feat=contentsecuritypolicy) |
+| **Referências**              | [Uma introdução à Política de Segurança de Conteúdo](https://www.html5rocks.com/en/tutorials/security/content-security-policy/), [Referência da Política de Segurança de Conteúdo](https://content-security-policy.com/), [Recursos de segurança](https://developer.microsoft.com/microsoft-edge/platform/documentation/dev-guide/security/), [Introdução à Política de Segurança de Conteúdo](https://github.com/webplatform/webplatform.github.io/tree/master/docs/tutorials/content-security-policy), [Posso usar a CSP?](https://caniuse.com/#feat=contentsecuritypolicy) |
 | **Etapas** | <p>A CSP (Política de Segurança de Conteúdo) é um mecanismo de defesa aprofundado, um padrão de W3C, que permite aos proprietários do aplicativo Web ter controle sobre os conteúdos inseridos em seus sites. A CSP é adicionada como um cabeçalho de resposta HTTP no servidor Web e é aplicada pelos navegadores do cliente. Ela é uma política baseada na lista de permissões; um site pode informar um conjunto de domínios confiáveis, dos quais conteúdos ativos, como JavaScript, podem ser carregados.</p><p>A CSP oferece os seguintes benefícios de segurança:</p><ul><li>**Proteção contra XSS:** se uma página for vulnerável a XSS, um invasor poderá explorá-la de duas maneiras:<ul><li>Injetar `<script>malicious code</script>`: essa exploração não funcionará devido à primeira restrição básica da CSP.</li><li>Injetar `<script src=”http://attacker.com/maliciousCode.js”/>`: essa exploração não funcionará, porque o domínio controlado pelo invasor não estará na lista de domínios permitidos da CSP.</li></ul></li><li>**Controle sobre o vazamento de dados:** se algum conteúdo mal-intencionado em uma página da Web tentar se conectar a um site externo e roubar dados, a conexão será anulada pelo CSP. Isso acontece porque o domínio de destino não estará na lista de permissões da CSP.</li><li>**Defesa contra furto de clique:** o furto de clique é uma técnica de ataque na qual um invasor adultera um site genuíno e faz com que os usuários cliquem nos elementos de sua interface do usuário. Para se proteger contra o furto de clique atualmente, basta configurar um cabeçalho de resposta X-Frame-Options. Nem todos os navegadores respeitam esse cabeçalho, por isso a CSP será a melhor maneira de se defender contra o furto de clique</li><li>**Relatórios de ataque em tempo real:** se houver um ataque de injeção em um site com o CSP habilitado, os navegadores disparam automaticamente uma notificação para um ponto de extremidade configurado no servidor Web. Dessa forma, a CSP atua como um sistema de aviso em tempo real.</li></ul> |
 
 ### <a name="example"></a>Exemplo
@@ -85,7 +85,7 @@ Example: var str="alert(1)"; eval(str);
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
-| **Referências**              | [Visão geral sobre depuração do ASP.NET](http://msdn2.microsoft.com/library/ms227556.aspx), [Visão geral sobre rastreamento do ASP.NET](http://msdn2.microsoft.com/library/bb386420.aspx), [Como: habilitar o rastreamento de um aplicativo ASP.NET](http://msdn2.microsoft.com/library/0x5wc973.aspx), [Como: habilitar a depuração de aplicativos do ASP.NET](http://msdn2.microsoft.com/library/e8z01xdh(VS.80).aspx) |
+| **Referências**              | [Visão geral sobre depuração do ASP.NET](https://msdn2.microsoft.com/library/ms227556.aspx), [Visão geral sobre rastreamento do ASP.NET](https://msdn2.microsoft.com/library/bb386420.aspx), [Como: habilitar o rastreamento de um aplicativo ASP.NET](https://msdn2.microsoft.com/library/0x5wc973.aspx), [Como: habilitar a depuração de aplicativos do ASP.NET](https://msdn2.microsoft.com/library/e8z01xdh(VS.80).aspx) |
 | **Etapas** | Quando o rastreamento estiver habilitado para a página, todos os navegadores que a solicitarem também obterão as informações de rastreamento que contêm dados do fluxo de trabalho e do estado interno do servidor. Elas podem ser informações confidenciais de segurança. Quando a depuração estiver habilitada para a página, os erros ocorridos no servidor serão apresentados ao navegador como uma pilha de dados de rastreamento. Esses dados podem conter informações confidenciais de segurança sobre fluxo de trabalho do servidor. |
 
 ## <a id="js-trusted"></a>Acessar JavaScripts de terceiros somente de fontes confiáveis
@@ -152,7 +152,7 @@ Se o acesso ao arquivo Web.config estiver disponível, o CORS poderá ser adicio
     <httpProtocol>
       <customHeaders>
         <clear />
-        <add name="Access-Control-Allow-Origin" value="http://example.com" />
+        <add name="Access-Control-Allow-Origin" value="https://example.com" />
       </customHeaders>
     </httpProtocol>
 ```
@@ -160,7 +160,7 @@ Se o acesso ao arquivo Web.config estiver disponível, o CORS poderá ser adicio
 ### <a name="example"></a>Exemplo
 Se o acesso ao arquivo web.config não estiver disponível, o CORS pode ser adicionado no seguinte código CSharp: 
 ```csharp
-HttpContext.Response.AppendHeader("Access-Control-Allow-Origin", "http://example.com")
+HttpContext.Response.AppendHeader("Access-Control-Allow-Origin", "https://example.com")
 ```
 
 Observe que é essencial garantir que a lista de origens no atributo "Access-Control-Allow-Origin" esteja definida como um conjunto finito e confiável de origens. Se isso não for configurado corretamente (por exemplo, definindo o valor como '*'), sites mal-intencionados poderão disparar solicitações entre origens para o aplicativo da Web sem restrições, tornando o aplicativo vulnerável a ataques de CSRF. 
@@ -173,7 +173,7 @@ Observe que é essencial garantir que a lista de origens no atributo "Access-Con
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Web Forms, MVC5 |
 | **Atributos**              | N/D  |
-| **Referências**              | [Solicitar validação - evitando ataques de script](http://www.asp.net/whitepapers/request-validation) |
+| **Referências**              | [Solicitar validação - evitando ataques de script](https://www.asp.net/whitepapers/request-validation) |
 | **Etapas** | <p>A validação de solicitação, um recurso do ASP.NET oferecido desde a versão 1.1, impede que o servidor aceite conteúdo sem HTML codificado. Esse recurso foi criado para evitar alguns ataques de injeção de script, em que o código de script ou HTML do cliente pode ser enviado inadvertidamente para um servidor, armazenado e, em seguida, apresentado a outros usuários. Ainda recomendamos que você valide todos os dados de entrada e os codifique com HTML quando for apropriado.</p><p>A validação de solicitação é executada pela comparação de todos os dados de entrada com uma lista de valores potencialmente perigosos. Se uma correspondência for encontrada, o ASP.NET gera uma `HttpRequestValidationException`. Por padrão, o recurso de validação de solicitação está habilitado.</p>|
 
 ### <a name="example"></a>Exemplo
@@ -210,7 +210,7 @@ Observe que o recurso de validação de solicitação não tem suporte no pipeli
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
-| **Referências**              | [Segurança do IE8 parte V: proteção abrangente](https://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx), [Tipo de MIME](http://en.wikipedia.org/wiki/Mime_type) |
+| **Referências**              | [Segurança do IE8 parte V: proteção abrangente](https://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx), [Tipo de MIME](https://en.wikipedia.org/wiki/Mime_type) |
 | **Etapas** | O cabeçalho X-Content-Type-Options é um cabeçalho HTTP que permite aos desenvolvedores especificar que seus conteúdos não devem ter o MIME detectado. Esse cabeçalho foi criado para reduzir os ataques de detecção de MIME. Para cada página que pode incluir conteúdo controlável pelo usuário, você deve usar o cabeçalho HTTP X-Content-Type-Options:nosniff. Para habilitar globalmente o cabeçalho necessário para todas as páginas do aplicativo, você tem as seguintes opções:|
 
 ### <a name="example"></a>Exemplo
@@ -297,7 +297,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | MVC 5 |
 | **Atributos**              | N/D  |
-| **Referências**              | [Permitindo solicitações entre origens na ASP.NET Web API 2](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api), [ASP.NET Web API - suporte ao CORS na ASP.NET Web API 2](https://msdn.microsoft.com/magazine/dn532203.aspx) |
+| **Referências**              | [Permitindo solicitações entre origens na ASP.NET Web API 2](https://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api), [ASP.NET Web API - suporte ao CORS na ASP.NET Web API 2](https://msdn.microsoft.com/magazine/dn532203.aspx) |
 | **Etapas** | <p>A segurança do navegador impede que uma página da Web envie solicitações do AJAX para outro domínio. Essa restrição se chama política da mesma origem e impede que um site mal-intencional leia dados confidenciais de outro site. No entanto, às vezes pode ser necessário expor APIs de forma segura para que os outros sites possam utilizá-las. O CORS (Compartilhamento de Recursos entre Origens) é um padrão W3C que permite ao servidor relaxar a política de mesma origem.</p><p>Usando o CORS, um servidor pode explicitamente permitir algumas solicitações entre origens e rejeitar outras. O CORS é mais seguro e flexível do que técnicas anteriores, como o JSONP.</p>|
 
 ### <a name="example"></a>Exemplo
@@ -367,7 +367,7 @@ Observe que é essencial garantir que a lista de origens no atributo EnableCors 
 ### <a name="example"></a>Exemplo
 Para desabilitar o CORS em um determinado método de uma classe, use o atributo DisableCors conforme mostrado abaixo: 
 ```csharp
-[EnableCors("http://example.com", "Accept, Origin, Content-Type", "POST")]
+[EnableCors("https://example.com", "Accept, Origin, Content-Type", "POST")]
 public class ResourcesController : ApiController
 {
   public HttpResponseMessage Put(Resource data)
@@ -404,7 +404,7 @@ A primeira é chamar UseCors com um lambda. O lambda utiliza um objeto CorsPolic
 public void Configure(IApplicationBuilder app)
 {
     app.UseCors(builder =>
-        builder.WithOrigins("http://example.com")
+        builder.WithOrigins("https://example.com")
         .WithMethods("GET", "POST", "HEAD")
         .WithHeaders("accept", "content-type", "origin", "x-custom-header"));
 }
@@ -418,7 +418,7 @@ public void ConfigureServices(IServiceCollection services)
     services.AddCors(options =>
     {
         options.AddPolicy("AllowSpecificOrigin",
-            builder => builder.WithOrigins("http://example.com"));
+            builder => builder.WithOrigins("https://example.com"));
     });
 }
 public void Configure(IApplicationBuilder app)
@@ -485,7 +485,7 @@ Para desabilitar o CORS para um controlador ou uma ação, use o atributo [Disab
 | **Fase do SDL**               | Implantação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
-| **Referências**              | [Como: criptografar seções de configuração no ASP.NET 2.0 usando DPAPI](https://msdn.microsoft.com/library/ff647398.aspx), [Especificar um provedor de configuração protegido](https://msdn.microsoft.com/library/68ze1hb2.aspx), [Como usar o Azure Key Vault para proteger os segredos do aplicativo](https://azure.microsoft.com/documentation/articles/guidance-multitenant-identity-keyvault/) |
+| **Referências**              | [Como: Criptografar seções de configuração no ASP.NET 2.0 usando DPAPI](https://msdn.microsoft.com/library/ff647398.aspx), [Especificar um provedor de configuração protegido](https://msdn.microsoft.com/library/68ze1hb2.aspx), [Como usar o Azure Key Vault para proteger os segredos do aplicativo](https://azure.microsoft.com/documentation/articles/guidance-multitenant-identity-keyvault/) |
 | **Etapas** | Arquivos de configuração, tais como Web. config e appsettings.json geralmente são usados para armazenar informações confidenciais, incluindo nomes de usuários, senhas, cadeias de conexão de banco de dados e chaves de criptografia. Se você não proteger essas informações, o aplicativo ficará vulnerável a usuários mal-intencionados, que podem obter informações sigilosas, como nomes usuários e senhas de contas, nomes de bancos de dados e nomes de servidores. Com base no tipo de implantação (no Azure ou local), criptografe as seções confidenciais dos arquivos de configuração usando a DPAPI ou serviços, como o Azure Key Vault. |
 
 ## <a id="admin-strong"></a>Garantir que todas as interfaces de administrador sejam protegidas com credenciais fortes

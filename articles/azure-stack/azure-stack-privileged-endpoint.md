@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: ff7513f197b3035b88748e2e73c38789d9010d9c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9eb2e8ddde13783eabf3d82173e6a2fa75ec2b06
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251309"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082663"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Usando o ponto de extremidade privilegiado no Azure Stack
 
@@ -60,56 +60,56 @@ Antes de iniciar este procedimento para um sistema integrado, certifique-se de q
 
 2. Na máquina virtual protegida em execução no host de ciclo de vida do hardware ou a estação de trabalho de acesso privilegiado, abra uma sessão do Windows PowerShell. Execute os seguintes comandos para estabelecer uma sessão remota na máquina virtual que hospeda o PEP:
  
-    - Em um sistema integrado:
-      ```PowerShell
-        $cred = Get-Credential
+   - Em um sistema integrado:
+     ```PowerShell
+       $cred = Get-Credential
 
-        Enter-PSSession -ComputerName <IP_address_of_ERCS> `
-          -ConfigurationName PrivilegedEndpoint -Credential $cred
-      ```
-      O `ComputerName` parâmetro pode ser o endereço IP ou o nome DNS de uma das máquinas virtuais que hospeda o PEP. 
-    - Se você estiver executando o ASDK:
+       Enter-PSSession -ComputerName <IP_address_of_ERCS> `
+         -ConfigurationName PrivilegedEndpoint -Credential $cred
+     ```
+     O `ComputerName` parâmetro pode ser o endereço IP ou o nome DNS de uma das máquinas virtuais que hospeda o PEP. 
+   - Se você estiver executando o ASDK:
      
-      ```PowerShell
-        $cred = Get-Credential
+     ```PowerShell
+       $cred = Get-Credential
 
-        Enter-PSSession -ComputerName azs-ercs01 `
-          -ConfigurationName PrivilegedEndpoint -Credential $cred
-      ``` 
-   Quando solicitado, use as seguintes credenciais:
+       Enter-PSSession -ComputerName azs-ercs01 `
+         -ConfigurationName PrivilegedEndpoint -Credential $cred
+     ``` 
+     Quando solicitado, use as seguintes credenciais:
 
-      - **Nome de usuário**: Especifique a conta CloudAdmin, no formato  **&lt; *domínio do Azure Stack*&gt;\cloudadmin**. (Para ASDK, é o nome de usuário **azurestack\cloudadmin**.)
-      - **Senha**: Insira a mesma senha que foi fornecida durante a instalação para a conta de administrador de domínio AzureStackAdmin.
+     - **Nome de usuário**: Especifique a conta CloudAdmin, no formato  **&lt; *domínio do Azure Stack*&gt;\cloudadmin**. (Para ASDK, é o nome de usuário **azurestack\cloudadmin**.)
+     - **Senha**: Insira a mesma senha que foi fornecida durante a instalação para a conta de administrador de domínio AzureStackAdmin.
 
-    > [!NOTE]
-    > Se você não conseguir se conectar ao ponto de extremidade ERCS, tente as etapas um e dois novamente com o endereço IP de uma VM ERCS aos quais você já ainda não tentou se conectar.
+     > [!NOTE]
+     > Se você não conseguir se conectar ao ponto de extremidade ERCS, tente as etapas um e dois novamente com o endereço IP de uma VM ERCS aos quais você já ainda não tentou se conectar.
 
-3.  Depois de se conectar, o prompt será alterado para **[*endereço IP ou VM ERCS nome*]: PS >** ou a **[azs-ercs01]: PS >**, dependendo do ambiente. A partir daqui, execute `Get-Command` para exibir a lista de cmdlets disponíveis.
+3. Depois de se conectar, o prompt será alterado para **[*endereço IP ou VM ERCS nome*]: PS >** ou a **[azs-ercs01]: PS >**, dependendo do ambiente. A partir daqui, execute `Get-Command` para exibir a lista de cmdlets disponíveis.
 
-    Muitos desses cmdlets destinados apenas para ambientes com sistemas integrados (por exemplo, os cmdlets relacionados à integração do datacenter). No ASDK, os seguintes cmdlets foram validados:
+   Muitos desses cmdlets destinados apenas para ambientes com sistemas integrados (por exemplo, os cmdlets relacionados à integração do datacenter). No ASDK, os seguintes cmdlets foram validados:
 
-    - Clear-Host
-    - Close-PrivilegedEndpoint
-    - Exit-PSSession
-    - Get-AzureStackLog
-    - Get-AzureStackStampInformation
-    - Get-Command
-    - Get-FormatData
-    - Get-Help
-    - Get-ThirdPartyNotices
-    - Measure-Object
-    - New-CloudAdminUser
-    - Out-Default
-    - Remove-CloudAdminUser
-    - Select-Object
-    - Set-CloudAdminUserPassword
-    - Test-AzureStack
-    - Stop-AzureStack
-    - Get-ClusterLog
+   - Clear-Host
+   - Close-PrivilegedEndpoint
+   - Exit-PSSession
+   - Get-AzureStackLog
+   - Get-AzureStackStampInformation
+   - Get-Command
+   - Get-FormatData
+   - Get-Help
+   - Get-ThirdPartyNotices
+   - Measure-Object
+   - New-CloudAdminUser
+   - Out-Default
+   - Remove-CloudAdminUser
+   - Select-Object
+   - Set-CloudAdminUserPassword
+   - Test-AzureStack
+   - Stop-AzureStack
+   - Get-ClusterLog
 
 ## <a name="tips-for-using-the-privileged-endpoint"></a>Dicas para usar o ponto de extremidade com privilégios 
 
-Conforme mencionado acima, o PEP é um [JEA PowerShell](https://docs.microsoft.com/powershell/jea/overview) ponto de extremidade. Além de fornecer uma camada de segurança forte, um ponto de extremidade JEA reduz alguns dos recursos básicos do PowerShell, como o preenchimento com tab ou scripts. Se você tentar qualquer tipo de operação de script, a operação falhará com o erro **ScriptsNotAllowed**. Este comportamento é esperado.
+Conforme mencionado acima, o PEP é um [JEA PowerShell](https://docs.microsoft.com/powershell/jea/overview) ponto de extremidade. Além de fornecer uma camada de segurança forte, um ponto de extremidade JEA reduz alguns dos recursos básicos do PowerShell, como o preenchimento com tab ou scripts. Se você tentar qualquer tipo de operação de script, a operação falhará com o erro **ScriptsNotAllowed**. Esse comportamento é esperado.
 
 Portanto, por exemplo, para obter a lista de parâmetros para um cmdlet, você execute o seguinte comando:
 
@@ -132,26 +132,26 @@ Para importar a sessão PEP em seu computador local, execute as seguintes etapas
 
 2. Na máquina virtual protegida em execução no host de ciclo de vida do hardware ou a estação de trabalho de acesso privilegiado, abra uma sessão do Windows PowerShell. Execute os seguintes comandos para estabelecer uma sessão remota na máquina virtual que hospeda o PEP:
  
-    - Em um sistema integrado:
-      ```PowerShell
-        $cred = Get-Credential
-
-        $session = New-PSSession -ComputerName <IP_address_of_ERCS> `
-          -ConfigurationName PrivilegedEndpoint -Credential $cred
-      ```
-      O `ComputerName` parâmetro pode ser o endereço IP ou o nome DNS de uma das máquinas virtuais que hospeda o PEP. 
-    - Se você estiver executando o ASDK:
-     
-      ```PowerShell
+   - Em um sistema integrado:
+     ```PowerShell
        $cred = Get-Credential
 
-       $session = New-PSSession -ComputerName azs-ercs01 `
-          -ConfigurationName PrivilegedEndpoint -Credential $cred
-      ``` 
-   Quando solicitado, use as seguintes credenciais:
+       $session = New-PSSession -ComputerName <IP_address_of_ERCS> `
+         -ConfigurationName PrivilegedEndpoint -Credential $cred
+     ```
+     O `ComputerName` parâmetro pode ser o endereço IP ou o nome DNS de uma das máquinas virtuais que hospeda o PEP. 
+   - Se você estiver executando o ASDK:
+     
+     ```PowerShell
+      $cred = Get-Credential
 
-      - **Nome de usuário**: Especifique a conta CloudAdmin, no formato  **&lt; *domínio do Azure Stack*&gt;\cloudadmin**. (Para ASDK, é o nome de usuário **azurestack\cloudadmin**.)
-      - **Senha**: Insira a mesma senha que foi fornecida durante a instalação para a conta de administrador de domínio AzureStackAdmin.
+      $session = New-PSSession -ComputerName azs-ercs01 `
+         -ConfigurationName PrivilegedEndpoint -Credential $cred
+     ``` 
+     Quando solicitado, use as seguintes credenciais:
+
+     - **Nome de usuário**: Especifique a conta CloudAdmin, no formato  **&lt; *domínio do Azure Stack*&gt;\cloudadmin**. (Para ASDK, é o nome de usuário **azurestack\cloudadmin**.)
+     - **Senha**: Insira a mesma senha que foi fornecida durante a instalação para a conta de administrador de domínio AzureStackAdmin.
 
 3. Importar sessão PEP para seu computador local
     ```PowerShell 
