@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 4c9f92f80275d04cd1bab408213fd02abf5c9139
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 5e0ef8287b7ce257cd551a1ace043ccbed72b50b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279391"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087084"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Criar uma função que se integra aos Aplicativos Lógicos do Azure
 
@@ -242,7 +242,7 @@ A última parte do fluxo de trabalho é disparar um email quando o sentimento fo
 | **Assunto** | Sentimento de tweet negativo detectado  | A linha de assunto do email de notificação.  |
 | **Corpo** | Texto do Tweet, local | Clique nos parâmetros **Texto do tweet** e **Local**. |
 
-5.  Clique em **Salvar**.
+1. Clique em **Salvar**.
 
 Agora que o fluxo de trabalho foi concluído, você poderá habilitar o aplicativo lógico e consultar a função em operação.
 

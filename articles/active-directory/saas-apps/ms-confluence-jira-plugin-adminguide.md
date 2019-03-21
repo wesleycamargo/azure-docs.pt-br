@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b81129ada4710eff58d50bf998802e8ac1b2788
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 1a674748e9e95828436df25222f6daad881e0487
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191054"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109130"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Guia de administração do Atlassian Jira e Confluence para Azure Active Directory
 
@@ -110,33 +110,33 @@ A imagem a seguir mostra a tela de configuração no JIRA e no Confluence:
 
 ![Tela de configuração de plug-in](./media/ms-confluence-jira-plugin-adminguide/jira.png)
 
-*   **URL de metadados**: a URL para obter metadados de federação do Microsoft Azure AD.
+* **URL de metadados**: a URL para obter metadados de federação do Microsoft Azure AD.
 
-*   **Identificadores**: a URL utilizada pelo Azure AD para validar a origem da solicitação. Ela mapeia para o elemento **Identificador** no Microsoft Azure AD. O plug-in deriva automaticamente esta URL como https://*<domínio:porta>*/.
+* **Identificadores**: a URL utilizada pelo Azure AD para validar a origem da solicitação. Ela mapeia para o elemento **Identificador** no Microsoft Azure AD. O plug-in deriva automaticamente esta URL como https://*<domínio:porta>*/.
 
-*   **URL de Resposta**: a URL de resposta no seu IdP (provedor de identidade) que inicia a entrada SAML. Ela mapeia para o elemento **URL de Resposta** no Microsoft Azure AD. O plug-in deriva automaticamente esta URL como https://*<domínio:porta>*/plugins/servlet/saml/auth.
+* **URL de Resposta**: a URL de resposta no seu IdP (provedor de identidade) que inicia a entrada SAML. Ela mapeia para o elemento **URL de Resposta** no Microsoft Azure AD. O plug-in deriva automaticamente esta URL como https://*<domínio:porta>*/plugins/servlet/saml/auth.
 
-*   **URL de logon**: a URL de logon no IdP que inicia a entrada SAML. Ela mapeia para o elemento **Logon** no Microsoft Azure AD. O plug-in deriva automaticamente esta URL como https://*<domínio:porta>*/plugins/servlet/saml/auth.
+* **URL de logon**: a URL de logon no IdP que inicia a entrada SAML. Ela mapeia para o elemento **Logon** no Microsoft Azure AD. O plug-in deriva automaticamente esta URL como https://*<domínio:porta>*/plugins/servlet/saml/auth.
 
-*   **ID da entidade do IdP**: a ID da entidade que o IdP usa. Essa caixa é preenchida quando a URL de metadados é resolvida.
+* **ID da entidade do IdP**: a ID da entidade que o IdP usa. Essa caixa é preenchida quando a URL de metadados é resolvida.
 
-*   **URL de logon**: a URL de entrada do IdP. Essa caixa é preenchida no Microsoft Azure AD quando a URL de metadados é resolvida.
+* **URL de logon**: a URL de entrada do IdP. Essa caixa é preenchida no Microsoft Azure AD quando a URL de metadados é resolvida.
 
-*   **URL de logoff**: a URL de logoff do IdP. Essa caixa é preenchida no Microsoft Azure AD quando a URL de metadados é resolvida.
+* **URL de logoff**: a URL de logoff do IdP. Essa caixa é preenchida no Microsoft Azure AD quando a URL de metadados é resolvida.
 
-*   **Certificado X.509**: certificado X.509 do IdP. Essa caixa é preenchida no Microsoft Azure AD quando a URL de metadados é resolvida.
+* **Certificado X.509**: certificado X.509 do IdP. Essa caixa é preenchida no Microsoft Azure AD quando a URL de metadados é resolvida.
 
-*   **Nome do botão Logon**: o nome do botão de entrada que sua organização deseja que os usuários vejam na página de entrada.
+* **Nome do botão Logon**: o nome do botão de entrada que sua organização deseja que os usuários vejam na página de entrada.
 
-*   **Locais da ID de usuário SAML**: o local onde a ID de usuário Jira ou Confluence é esperada na resposta SAML. Ele pode estar em **NameID** ou em um nome de atributo personalizado.
+* **Locais da ID de usuário SAML**: o local onde a ID de usuário Jira ou Confluence é esperada na resposta SAML. Ele pode estar em **NameID** ou em um nome de atributo personalizado.
 
-*   **Nome do atributo**: nome do atributo em que a ID de usuário é esperada.
+* **Nome do atributo**: nome do atributo em que a ID de usuário é esperada.
 
-*   **Habilitar a descoberta de realm inicial**: a seleção a ser feita caso a empresa esteja usando entrada com base no AD FS (Serviços de Federação do Active Directory).
+* **Habilitar a descoberta de realm inicial**: a seleção a ser feita caso a empresa esteja usando entrada com base no AD FS (Serviços de Federação do Active Directory).
 
-*   **Nome de Domínio**: o nome de domínio se a entrada for baseada em AD FS.
+* **Nome de Domínio**: o nome de domínio se a entrada for baseada em AD FS.
 
-*   **Habilitar Saída Única**: a seleção a ser feita caso você deseje sair do Azure AD quando um usuário sair do Jira ou do Confluence.
+* **Habilitar Saída Única**: a seleção a ser feita caso você deseje sair do Azure AD quando um usuário sair do Jira ou do Confluence.
 
 ## <a name="troubleshooting"></a>solução de problemas
 

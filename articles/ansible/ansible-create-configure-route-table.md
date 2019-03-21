@@ -1,19 +1,19 @@
 ---
 title: Criar, alterar ou excluir uma tabela de rotas do Azure usando o Ansible
 description: Aprender a usar o Ansible para criar, alterar ou excluir uma tabela de rotas
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, bash, playbook, networking, route, route table
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/17/2018
-ms.openlocfilehash: 29672a75408e42fb9239e5d826784b46e7280805
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 025a8182d32a7d0d00a48795c848d356eb1c3d4e
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332261"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792439"
 ---
 # <a name="create-change-or-delete-an-azure-route-table-using-ansible"></a>Criar, alterar ou excluir uma tabela de rotas do Azure usando o Ansible
 O Azure roteia o tráfego automaticamente entre redes virtuais, redes locais e sub-redes do Azure. Se você desejar alterar qualquer roteamento padrão no Azure, poderá criar uma [tabela de rotas](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) para fazer isso.

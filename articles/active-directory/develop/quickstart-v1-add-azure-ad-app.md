@@ -17,12 +17,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc60f3ac785bede0f3a2e4d83cc98980b46868e2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 15e77767e16ce6ae02c6f1f93891d5acf4bfcb6f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167058"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119591"
 ---
 # <a name="quickstart-register-an-app-with-the-azure-active-directory-v10-endpoint"></a>Início rápido: Registrar um aplicativo com o ponto de extremidade v1.0 do Azure Active Directory
 
@@ -52,16 +52,16 @@ Para começar, tenha um locatário do Azure AD que você pode usar para registra
 
 1. Quando a página **Criar** for exibida, insira as informações de registro do aplicativo: 
 
-    - **Nome:** insira um nome significativo de aplicativo
-    - **Tipo de Aplicativo:**
-      - Selecione **Nativo** para [aplicativos cliente](developer-glossary.md#client-application) que são instalados localmente em um dispositivo. Essa configuração é usada para [clientes nativos](developer-glossary.md#native-client) públicos OAuth.
-      - Selecione **aplicativo Web/API** para [aplicativos cliente](developer-glossary.md#client-application) e [aplicativos de API/recursos](developer-glossary.md#resource-server) que estão instalados em um servidor seguro. Essa configuração é usada para [clientes Web](developer-glossary.md#web-client) confidenciais OAuth e [clientes baseados em agente de usuário](developer-glossary.md#user-agent-based-client) públicos. O mesmo aplicativo também pode expor um cliente e o recurso/API.
-    - **URL de Logon**: para aplicativos "API/aplicativo Web", informe a URL base do aplicativo. Por exemplo, `http://localhost:31544` pode ser uma URL para um aplicativo Web em execução no seu computador local. Os usuários usariam essa URL para entrar em um aplicativo cliente Web. 
-    - **URI de redirecionamento:** para aplicativos "Nativos", informe o URI usado pelo Microsoft Azure AD para retornar respostas de token. Insira um valor específico para seu aplicativo, por exemplo, `http://MyFirstAADApp`
+   - **Nome:** insira um nome significativo de aplicativo
+   - **Tipo de Aplicativo:**
+     - Selecione **Nativo** para [aplicativos cliente](developer-glossary.md#client-application) que são instalados localmente em um dispositivo. Essa configuração é usada para [clientes nativos](developer-glossary.md#native-client) públicos OAuth.
+     - Selecione **aplicativo Web/API** para [aplicativos cliente](developer-glossary.md#client-application) e [aplicativos de API/recursos](developer-glossary.md#resource-server) que estão instalados em um servidor seguro. Essa configuração é usada para [clientes Web](developer-glossary.md#web-client) confidenciais OAuth e [clientes baseados em agente de usuário](developer-glossary.md#user-agent-based-client) públicos. O mesmo aplicativo também pode expor um cliente e o recurso/API.
+   - **URL de Logon**: para aplicativos "API/aplicativo Web", informe a URL base do aplicativo. Por exemplo, `http://localhost:31544` pode ser uma URL para um aplicativo Web em execução no seu computador local. Os usuários usariam essa URL para entrar em um aplicativo cliente Web. 
+   - **URI de redirecionamento:** para aplicativos "Nativos", informe o URI usado pelo Microsoft Azure AD para retornar respostas de token. Insira um valor específico para seu aplicativo, por exemplo, `http://MyFirstAADApp`
 
-      ![Registrar um novo aplicativo – criar](./media/quickstart-v1-integrate-apps-with-azure-ad/add-app-registration-create.png)
+     ![Registrar um novo aplicativo – criar](./media/quickstart-v1-integrate-apps-with-azure-ad/add-app-registration-create.png)
 
-    Se você desejar exemplos específicos para aplicativos Web ou aplicativos nativos, confira os **Inícios rápidos** na nossa documentação.
+     Se você desejar exemplos específicos para aplicativos Web ou aplicativos nativos, confira os **Inícios rápidos** na nossa documentação.
 
 1. Ao terminar, selecione **Criar**.
 

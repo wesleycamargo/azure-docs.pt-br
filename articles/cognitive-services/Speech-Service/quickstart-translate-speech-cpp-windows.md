@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Traduzir fala, C++ (Windows) – Serviços de Fala'
+title: 'Início Rápido: Traduzir fala, C++ (Windows) – Serviços de Fala'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você criará um aplicativo simples do C++ para capturar a fala do usuário, traduzi-la para outro idioma e produzir o texto para a linha de comando. Este guia foi projetado para usuários do Windows.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/13/2018
+ms.date: 03/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 8d6f7c36745f8c1a6fdbf8d4a0058e297fef0409
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: a4710e2afc1688d83ff1c6da3ba36693584f16d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110584"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57871791"
 ---
-# <a name="quickstart-translate-speech-with-the-speech-sdk-for-c"></a>Início rápido: Traduzir fala com o Speech SDK para C++
+# <a name="quickstart-translate-speech-with-the-speech-sdk-for-c"></a>Início Rápido: Traduzir fala com o Speech SDK para C++
 
 Neste início rápido, você criará um aplicativo C++ simples que captura a fala do usuário do microfone do seu computador, converte a fala e transcreve o texto traduzido para a linha de comando em tempo real. Este aplicativo foi projetado para ser executado no Windows de 64 bits e é criado com o [pacote NuGet do Speech SDK](https://aka.ms/csspeech/nuget) e o Microsoft Visual Studio 2017.
 

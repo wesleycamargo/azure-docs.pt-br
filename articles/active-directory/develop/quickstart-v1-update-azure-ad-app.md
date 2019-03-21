@@ -17,12 +17,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e705bbbd08882f56020192a3b42c311e05bfa399
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: bee16ed8205453546702946628c98c73b0f34b15
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191717"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58103801"
 ---
 # <a name="quickstart-update-an-application-in-azure-active-directory"></a>Início Rápido: atualizar um aplicativo no Azure Active Directory
 
@@ -60,24 +60,24 @@ Para que um cliente possa acessar uma API Web exposta por um aplicativo de recur
    ![Atualizar o registro de um aplicativo](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration.png)
 
 4. Você será levado à página principal de registro do aplicativo, que contém a página **Configurações** do aplicativo. Para adicionar uma credencial ao seu aplicativo Web:
-  1. Selecione a seção **Chaves** na página **Configurações**.
-  2. Para adicionar um certificado:
-    - Selecione **Carregar chave pública**.
-    - Selecione o arquivo que você gostaria de carregar. Ele deve ser um dos seguintes tipos de arquivo: .cer, .pem, .crt.
-  - Para adicionar uma senha:
-    - Adicione uma descrição para a sua chave.
-    - Selecione uma duração.
-    - Clique em **Salvar**. A coluna mais à direita conterá o valor da chave, depois que você salvar as alterações de configuração. **Copie a chave** para uso no código do aplicativo cliente, já que ela não estará acessível depois que sair desta página.
+   1. Selecione a seção **Chaves** na página **Configurações**.
+   1. Para adicionar um certificado:
+      - Selecione **Carregar chave pública**.
+      - Selecione o arquivo que você gostaria de carregar. Ele deve ser um dos seguintes tipos de arquivo: .cer, .pem, .crt.
+   1. Para adicionar uma senha:
+      - Adicione uma descrição para a sua chave.
+      - Selecione uma duração.
+      - Clique em **Salvar**. A coluna mais à direita conterá o valor da chave, depois que você salvar as alterações de configuração. **Copie a chave** para uso no código do aplicativo cliente, já que ela não estará acessível depois que sair desta página.
 
 5. Para adicionar permissões para acessar as APIs do recurso do seu cliente
-  1. Selecione a seção **Permissões necessárias** na página **Configurações** e, em seguida, selecione **Adicionar**.
-  1. Selecione **Selecionar uma API** para escolher o tipo de recursos que você deseja.
-  1. Percorra a lista de APIs disponíveis ou usar a caixa Pesquisar para selecionar os aplicativos de recursos disponíveis em seu diretório que expõem uma API da web. Escolha o recurso em que você está interessado e clique em **Selecionar**.
-  1. Na página **Habilitar acesso**, selecione as permissões do aplicativo e/ou as permissões delegadas de que seu aplicativo precisa para acessar a API.
+   1. Selecione a seção **Permissões necessárias** na página **Configurações** e, em seguida, selecione **Adicionar**.
+   1. Selecione **Selecionar uma API** para escolher o tipo de recursos que você deseja.
+   1. Percorra a lista de APIs disponíveis ou usar a caixa Pesquisar para selecionar os aplicativos de recursos disponíveis em seu diretório que expõem uma API da web. Escolha o recurso em que você está interessado e clique em **Selecionar**.
+   1. Na página **Habilitar acesso**, selecione as permissões do aplicativo e/ou as permissões delegadas de que seu aplicativo precisa para acessar a API.
    
-  ![Atualizar um registro de aplicativo – api de permissão](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-api.png)
+   ![Atualizar um registro de aplicativo – api de permissão](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-api.png)
 
-  ![Atualizar um registro de aplicativo – perms de permissão](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms.png)
+   ![Atualizar um registro de aplicativo – perms de permissão](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms.png)
 
 6. Quando terminar, clique no botão **Selecionar** na página **Habilitar Acesso** e, em seguida, no botão **Concluído** na página **Adicionar acesso à API**. Você é levado de volta à página **Permissões Necessárias**, em que o novo recurso é adicionado à lista de APIs.
 
@@ -98,8 +98,8 @@ A seção a seguir mostra como expor escopos de acesso modificando o manifesto d
 4. Você será direcionado à página de registro principal do aplicativo, que abre a página **Configurações** para o aplicativo. Mude para a página **Editar manifesto** clicando em **Manifesto** na página de registro do aplicativo. Abre um editor de manifesto baseado na Web, permitindo a você **Editar** o manifesto dentro do portal. Opcionalmente, você pode clicar em **Baixar** e editar localmente, então usar **Carregar** para reaplicar ao seu aplicativo.
 5. Neste exemplo, vamos expor um novo escopo chamado `Employees.Read.All` em nossa API/recursos adicionando o seguinte elemento JSON à coleção `oauth2Permissions`. O escopo `user_impersonation` existente é fornecido por padrão durante o registro. `user_impersonation` permite que um aplicativo cliente solicite permissão para acessar o recurso sob a identidade do usuário conectado. Adicione a vírgula após o elemento de escopo `user_impersonation` existente e mude os valores de propriedade para atender às necessidades do seu recurso. 
 
-  ```json
-  {
+   ```json
+   {
     "adminConsentDescription": "Allow the application to have read-only access to all Employee data.",
     "adminConsentDisplayName": "Read-only access to Employee records",
     "id": "2b351394-d7a7-4a84-841e-08a6a17e4cb8",
@@ -108,17 +108,17 @@ A seção a seguir mostra como expor escopos de acesso modificando o manifesto d
     "userConsentDescription": "Allow the application to have read-only access to your Employee data.",
     "userConsentDisplayName": "Read-only access to your Employee records",
     "value": "Employees.Read.All"
-  }
-  ```
+   }
+   ```
 
-  > [!NOTE]
-  > O valor `id` precisa ser gerado de modo programático ou usando uma ferramenta de geração de GUID como [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx). O `id` representa um identificador exclusivo para o escopo exposto pela API Web. Depois que um cliente está configurado adequadamente com permissões para acessar a sua API Web, o Azure AD emite um token de acesso OAuth2.0. Quando o cliente chama a API Web, ele apresenta o token de acesso que tem a declaração de escopo (scp) definida para as permissões solicitadas no seu registro de aplicativo.
-  >
-  > É possível expor escopos adicionais posteriormente conforme a necessidade. Lembre-se de que a API Web pode expor vários escopos associados a uma variedade de funções diferentes. O recurso pode controlar o acesso à API Web em tempo de execução, avaliando declarações de escopo (`scp`) no token de acesso OAuth 2.0 recebido.
+   > [!NOTE]
+   > O valor `id` precisa ser gerado de modo programático ou usando uma ferramenta de geração de GUID como [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx). O `id` representa um identificador exclusivo para o escopo exposto pela API Web. Depois que um cliente está configurado adequadamente com permissões para acessar a sua API Web, o Azure AD emite um token de acesso OAuth2.0. Quando o cliente chama a API Web, ele apresenta o token de acesso que tem a declaração de escopo (scp) definida para as permissões solicitadas no seu registro de aplicativo.
+   >
+   > É possível expor escopos adicionais posteriormente conforme a necessidade. Lembre-se de que a API Web pode expor vários escopos associados a uma variedade de funções diferentes. O recurso pode controlar o acesso à API Web em tempo de execução, avaliando declarações de escopo (`scp`) no token de acesso OAuth 2.0 recebido.
 
 6. Ao terminar, clique em **Salvar**. Agora sua API Web está configurada para ser usada por outros aplicativos do seu diretório.
 
-  ![Atualizar o registro de um aplicativo](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-manifest.png)
+   ![Atualizar o registro de um aplicativo](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-manifest.png)
 
 ### <a name="verify-the-web-api-is-exposed-to-other-applications-in-your-tenant"></a>Verificar se a API Web está exposta a outros aplicativos em seu locatário
 
@@ -130,7 +130,7 @@ A seção a seguir mostra como expor escopos de acesso modificando o manifesto d
 
 3. Na página **Habilitar Acesso**, você deve ver o novo escopo, disponível para solicitações de permissão do cliente.
 
-  ![Novas permissões são mostradas](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms-newscopes.png)
+   ![Novas permissões são mostradas](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms-newscopes.png)
 
 ### <a name="more-on-the-application-manifest"></a>Mais sobre o manifesto do aplicativo
 
@@ -211,9 +211,9 @@ Por padrão, a Concessão Implícita do OAuth 2.0 está desabilitada para aplica
 3. No painel de navegação esquerdo, clique no serviço **Azure Active Directory**, clique em **Registros do aplicativo** então localize/clique no aplicativo que você deseja configurar. Você será direcionado à página de registro principal do aplicativo, que abre a página **Configurações** para o aplicativo.
 4. Mude para a página **Editar manifesto** clicando em **Manifesto** da página de registro do aplicativo. Abre um editor de manifesto baseado na Web, permitindo a você **Editar** o manifesto dentro do portal. Localize e defina o valor de "oauth2AllowImplicitFlow" como "true". Por padrão, é definido como "false".
    
-  ```json
-  "oauth2AllowImplicitFlow": true,
-  ```
+   ```json
+   "oauth2AllowImplicitFlow": true,
+   ```
 5. Salve o manifesto atualizado. Uma vez salva, a API Web agora está configurada para usar a Concessão Implícita do OAuth 2.0 para autenticar usuários.
 
 ## <a name="next-steps"></a>Próximas etapas

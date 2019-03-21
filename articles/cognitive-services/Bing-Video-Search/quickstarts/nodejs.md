@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Pesquisar vídeos usando a API de Pesquisa de Vídeo do Bing e Node.js'
+title: 'Início rápido: Pesquisar vídeos usando a API de Pesquisa de Vídeo do Bing e Node.js'
 titlesuffix: Azure Cognitive Services
 description: Use este início rápido para enviar solicitações de pesquisa de vídeo para a API REST de Pesquisa de Vídeo do Bing usando JavaScript.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: aahi
-ms.openlocfilehash: 6a5c2df6859a0020160ae0de9b6e498f63dc253b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a4e3d37b2eb32fa0384986e37781f21b906bed42
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871975"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077302"
 ---
-# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-nodejs"></a>Início rápido: Pesquisar vídeos usando a API de Pesquisa de Vídeo do Bing e Node.js
+# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-nodejs"></a>Início Rápido: Pesquisar vídeos usando a API de Pesquisa de Vídeo do Bing e Node.js
 
 Use este início rápido para fazer sua primeira chamada à API de Pesquisa de Vídeo do Bing e exibir um resultado de pesquisa da resposta JSON. Este aplicativo JavaScript simples envia uma consulta de pesquisa de vídeo HTTP para a API e exibe a resposta. Embora o aplicativo seja escrito em JavaScript e use Node.js, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte para esse exemplo está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingVideoSearchv7.js) com anotações de código e tratamentos de erro adicionais.
 
@@ -61,19 +61,19 @@ Use este início rápido para fazer sua primeira chamada à API de Pesquisa de V
     };
     ```
     
-    2. Quando `end` é sinalizado, use `response.on()` para armazenar os cabeçalhos relacionados ao Bing (iniciados por `bingapis` ou `x-msedge-`). Em seguida, analise o JSON usando `JSON.parse()`, converta-o em uma cadeia de caracteres com `JSON.stringify()` e imprima-o.
+   1. Quando `end` é sinalizado, use `response.on()` para armazenar os cabeçalhos relacionados ao Bing (iniciados por `bingapis` ou `x-msedge-`). Em seguida, analise o JSON usando `JSON.parse()`, converta-o em uma cadeia de caracteres com `JSON.stringify()` e imprima-o.
 
-        ```javascript
-        response.on('end', function () {
-            for (var header in response.headers)
-                // header keys are lower-cased by Node.js
-                if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
-                     console.log(header + ": " + response.headers[header]);
-            body = JSON.stringify(JSON.parse(body), null, '  ');
-            //JSON Response body
-            console.log(body);
-        });
-        ```
+       ```javascript
+       response.on('end', function () {
+           for (var header in response.headers)
+               // header keys are lower-cased by Node.js
+               if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
+                    console.log(header + ": " + response.headers[header]);
+           body = JSON.stringify(JSON.parse(body), null, '  ');
+           //JSON Response body
+           console.log(body);
+       });
+       ```
 
 # <a name="create-and-send-the-search-request"></a>Criar e enviar a solicitação de pesquisa
 

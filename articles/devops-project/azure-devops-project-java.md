@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Criar um pipeline de CI/CD para Java com o Azure DevOps Projects'
+title: 'Início rápido: Criar um pipeline de CI/CD para Java com o Azure DevOps Projects'
 description: O DevOps Projects facilita o uso inicial do Azure. Ele ajuda você a iniciar um aplicativo em um serviço do Azure de sua escolha em algumas etapas rápidas.
 ms.prod: devops
 ms.technology: devops-cicd
@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 4f3f82f329e3ac8774978f6116629a4928c142ad
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 38be92a006ae6dbb7a550d2d91d886df820fb883
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261319"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093558"
 ---
 # <a name="create-a-cicd-pipeline-for-java-with-azure-devops-projects"></a>Criar um pipeline de CI/CD para Java com o Azure DevOps Projects
 
@@ -65,7 +65,7 @@ Os exemplos do Java incluem uma opção de várias estruturas de aplicativo.
 
     ![Exibição Painel](_img/azure-devops-project-java/dashboardnopreview.png) 
     
- O DevOps Projects configura automaticamente um build de CI e gatilho de liberação.  Agora você está pronto para colaborar com uma equipe em um aplicativo Java com um processo de CI/CD que implanta automaticamente o trabalho mais recente em seu site da Web.
+   O DevOps Projects configura automaticamente um build de CI e gatilho de liberação.  Agora você está pronto para colaborar com uma equipe em um aplicativo Java com um processo de CI/CD que implanta automaticamente o trabalho mais recente em seu site da Web.
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Confirmar as alterações de código e executar CI/CD
 

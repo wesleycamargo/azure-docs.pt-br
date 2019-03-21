@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/01/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 243697c20f10a019a73326c3bd79e23fc3342640
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: ddcaca46a2b8f9501337b3591d6ed666876e1de9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113593"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093762"
 ---
 # <a name="tutorial-install-azure-data-box-edge-preview"></a>Tutorial: Instalar o Azure Data Box Edge (versão prévia)
 
@@ -94,15 +94,15 @@ O dispositivo precisa ser instalado em um rack padrão de 19 polegadas. Use o pr
     ![Instalar o trilhas de montagem em rack](./media/data-box-edge-deploy-install/rack-mount-rail-1.png)
 
 2. Instale os trilhos externos nos componentes verticais do gabinete de rack. Para ajudar com a orientação, os trilhos deslizantes estão marcados com **Frente** e essa extremidade está afixada apontando para a parte dianteira do compartimento.    
-    1. Localize os pinos do trilho na parte frontal e traseira do módulo do trilho. Estenda o trilho para que ele se encaixe entre as colunas do rack. Anexe o trilho externo na parte traseira do rack primeiro. Ajuste o suporte de montagem traseiro para posicioná-lo dentro dos orifícios de montagem do rack traseiro.   
+   1. Localize os pinos do trilho na parte frontal e traseira do módulo do trilho. Estenda o trilho para que ele se encaixe entre as colunas do rack. Anexe o trilho externo na parte traseira do rack primeiro. Ajuste o suporte de montagem traseiro para posicioná-lo dentro dos orifícios de montagem do rack traseiro.   
 
-    2. Empurre e segure o gatilho no suporte traseiro para expor os ganchos de metal. Alinhe o suporte traseiro e insira-o nos orifícios de montagem e, em seguida, libere o gatilho.
+   2. Empurre e segure o gatilho no suporte traseiro para expor os ganchos de metal. Alinhe o suporte traseiro e insira-o nos orifícios de montagem e, em seguida, libere o gatilho.
 
-    3. Alinhe o colchete dianteiro com o orifício de montagem.
+   3. Alinhe o colchete dianteiro com o orifício de montagem.
 
-    4. O suporte dianteiro agora deverá estar fixado no rack. Opcionalmente, parafusos M5 x 10L podem ser usados para prender os trilhos nas colunas, se necessário. 
+   4. O suporte dianteiro agora deverá estar fixado no rack. Opcionalmente, parafusos M5 x 10L podem ser usados para prender os trilhos nas colunas, se necessário. 
 
-    ![Instalar o trilhas de montagem em rack](./media/data-box-edge-deploy-install/rack-mount-rail-2.png)
+      ![Instalar o trilhas de montagem em rack](./media/data-box-edge-deploy-install/rack-mount-rail-2.png)
 
 3. Para anexar o trilho interno no chassi, verifique se as aberturas do buraco de fechadura no trilho interno estão alinhadas com os pinos de localização na lateral do chassi. As cabeças dos pinos de localização do chassi devem estar ressaltadas pelas aberturas de buraco de fechadura no trilho interno. Puxe o trilho em direção à parte frontal do chassi até que o trilho trave no lugar com clique audível. Repita com o outro trilho interno. Empurre o chassi com o trilho interno na corrediça para concluir a instalação do rack.
 

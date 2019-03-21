@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 445d9f220a215eb17436d52f637b57bd3492aaae
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 8ce890500c31c1966254e5bca9d23c8fcdd7bb67
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864767"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258285"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Criar um contêiner do Azure Cosmos
 
@@ -23,7 +23,7 @@ Este artigo explica as diferentes maneiras de criar um contêiner (coleção, ta
 
 1. Entre no [Portal do Azure](https://portal.azure.com/).
 
-1. [Crie uma conta do Azure Cosmos DB](create-sql-api-dotnet.md#create-a-database-account) ou selecione uma conta existente.
+1. [Crie uma conta do Azure Cosmos DB](create-sql-api-dotnet.md#create-account) ou selecione uma conta existente.
 
 1. Abra o painel **Data Explorer** e selecione **Nova Coleção**. Em seguida, forneça os seguintes detalhes:
 
@@ -198,7 +198,7 @@ db.runCommand( { shardCollection: "myDatabase.myCollection", key: { myShardKey: 
 ```
 
 > [!Note]
-O protocolo de transmissão do MongoDB não solicita unidades. Para criar uma nova coleção com taxa de transferência, use o Portal do Azure ou a API de SQL.
+> O protocolo de transmissão do MongoDB não solicita unidades. Para criar uma nova coleção com taxa de transferência, use o Portal do Azure ou a API de SQL.
 
 ### <a id="dotnet-cassandra"></a>API do Cassandra
 

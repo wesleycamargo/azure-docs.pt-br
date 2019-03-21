@@ -8,12 +8,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
-ms.openlocfilehash: df89f8fd4dd5c7690d858009e250a474f702f1a8
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
-ms.translationtype: HT
+ms.openlocfilehash: a009f212bd8baaa353d602dc6090aeeccddd4936
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125027"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58098127"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Criptografia de dados no Azure Data Lake Storage Gen1
 
@@ -21,8 +21,8 @@ A criptografia no Azure Data Lake Storage Gen1 ajuda a proteger os dados, implem
 
 O Data Lake Storage Gen1 dá suporte a criptografia de dados em repouso e em trânsito. Para dados em repouso, o Data Lake Storage Gen1 dá suporte a criptografia transparente "ativada por padrão". Aqui está o que esses termos significam um pouco mais detalhadamente:
 
-* **Ativada por padrão**: quando você cria uma nova conta do Data Lake Storage Gen1, a configuração padrão habilita a criptografia. Posteriormente, os dados armazenados no Data Lake Storage Gen1 são sempre criptografados antes de serem armazenados em mídia persistente. Esse é o comportamento para todos os dados e não pode ser alterado depois que uma conta é criada.
-* **Transparente**: o Data Lake Storage Gen1 criptografa automaticamente os dados antes de persistir e descriptografa os dados antes de recuperá-los. A criptografia é configurada e gerenciada no nível de conta do Data Lake Storage Gen1 por um administrador. Nenhuma alteração é feita para APIs de acesso a dados. Portanto, nenhuma alteração é necessária em aplicativos e serviços que interagem com o Data Lake Storage Gen1 devido à criptografia.
+* **Em por padrão**: Quando você cria uma nova conta do Data Lake armazenamento Gen1, a configuração padrão permite a criptografia. Posteriormente, os dados armazenados no Data Lake Storage Gen1 são sempre criptografados antes de serem armazenados em mídia persistente. Esse é o comportamento para todos os dados e não pode ser alterado depois que uma conta é criada.
+* **Transparente**: Data Lake armazenamento Gen1 automaticamente criptografa os dados antes da persistência e descriptografa os dados antes da recuperação. A criptografia é configurada e gerenciada no nível de conta do Data Lake Storage Gen1 por um administrador. Nenhuma alteração é feita para APIs de acesso a dados. Portanto, nenhuma alteração é necessária em aplicativos e serviços que interagem com o Data Lake Storage Gen1 devido à criptografia.
 
 Os dados em trânsito (também conhecidos como dados em movimento) também são sempre criptografados no Data Lake Storage Gen1. Além de criptografar os dados antes de armazenar em mídia persistente, os dados são sempre protegidos em trânsito usando HTTPS. HTTPS é o único protocolo com suporte para as interfaces REST do Data Lake Storage Gen1. O diagrama a seguir mostra como os dados são criptografados no Data Lake Storage Gen1:
 
@@ -57,7 +57,7 @@ Aqui está uma breve comparação dos recursos fornecidos por dois modos de gere
 |Como os dados são armazenados?|Sempre criptografados antes de serem armazenados.|Sempre criptografados antes de serem armazenados.|
 |Qual é a Chave de Criptografia Mestra armazenada?|Key Vault|Key Vault|
 |Qualquer chave de criptografia é armazenada de modo transparente fora do Key Vault? |Não |Não |
-|A MEK pode recuperada pelo Key Vault?|Não. Após a MEK ser armazenada no Key Vault, ela só pode ser usada para criptografia e descriptografia.|Não. Após a MEK ser armazenada no Key Vault, ela só pode ser usada para criptografia e descriptografia.|
+|A MEK pode recuperada pelo Key Vault?| Não. Após a MEK ser armazenada no Key Vault, ela só pode ser usada para criptografia e descriptografia.| Não. Após a MEK ser armazenada no Key Vault, ela só pode ser usada para criptografia e descriptografia.|
 |Quem possui a instância e a MEK do Key Vault?|O serviço Azure Data Lake Storage Gen1|Você é o proprietário da instância do Key Vault, que pertence à sua própria assinatura do Azure. A MEK no Key Vault pode ser gerenciada pelo software ou hardware.|
 |É possível revogar o acesso ao MEK para o serviço Data Lake Storage Gen1?|Não |Sim. É possível gerenciar listas de controle de acesso no Key Vault e remover entradas de controle de acesso à identidade de serviço do serviço Data Lake Storage Gen1.|
 |Você pode excluir permanentemente a MEK?|Não |Sim. Se você excluir a MEK do Key Vault, os dados da conta Data Lake Storage Gen1 não poderão ser descriptografados por ninguém, incluindo o serviço Data Lake Storage Gen1. <br><br> Se você fez explicitamente um backup da MEK antes da exclui-la do Key Vault, a MEK pode ser restaurada e os dados podem ser recuperados. No entanto, se você não tiver feito o backup da MEK antes de excluí-la do Key Vault, os dados da conta Data Lake Storage Gen1 nunca poderão ser descriptografados depois disso.|
@@ -74,7 +74,7 @@ Além dessa diferença de quem gerencia a MEK e a instância do Key Vault no qua
 
 Há três tipos de chaves que são usadas no design de criptografia de dados. A tabela a seguir fornece um resumo:
 
-| Chave                   | Abreviação | Associado a | Local de armazenamento                             | Tipo       | Observações                                                                                                   |
+| Chave                   | Abreviação | Associado a | Local de armazenamento                             | Type       | Observações                                                                                                   |
 |-----------------------|--------------|-----------------|----------------------------------------------|------------|---------------------------------------------------------------------------------------------------------|
 | Chave de criptografia mestra | MEK          | Uma conta do Data Lake Storage Gen1 | Key Vault                              | Assimétrica | Pode ser gerenciado pelo Data Lake Storage Gen1 ou por você.                                                              |
 | Chave de criptografia de dados   | DEK          | Uma conta do Data Lake Storage Gen1 | Armazenamento persistente, gerenciado pelo serviço Data Lake Storage Gen1 | Simétrica  | A DEK é criptografada pela MEK. A DEK criptografada é a que está armazenada em mídia persistente. |
@@ -115,22 +115,22 @@ Observe que, se você usar as opções padrão para criptografia, seus dados ser
 
 ### <a name="how-to-rotate-the-mek-in-data-lake-storage-gen1"></a>Como girar a MEK no Data Lake Storage Gen1
 
-1. Entre no [portal do Azure](https://portal.azure.com/).
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 2. Navegue até a instância do Key Vault que armazena suas chaves associadas à sua conta do Data Lake Storage Gen1. Selecione **Chaves**.
 
     ![Captura de tela do Key Vault](./media/data-lake-store-encryption/keyvault.png)
 
-3.  Selecione a chave associada à sua conta do Data Lake Storage Gen1 e crie uma nova versão dessa chave. Observe que atualmente o Data Lake Storage Gen1 dá suporte apenas para rotação de chave para uma nova versão de uma chave. Ele não oferece suporte a alteração para uma chave diferente.
+3. Selecione a chave associada à sua conta do Data Lake Storage Gen1 e crie uma nova versão dessa chave. Observe que atualmente o Data Lake Storage Gen1 dá suporte apenas para rotação de chave para uma nova versão de uma chave. Ele não oferece suporte a alteração para uma chave diferente.
 
    ![Captura de tela da janela de Chaves, com a Nova versão realçada](./media/data-lake-store-encryption/keynewversion.png)
 
-4.  Navegue até a conta do Data Lake Storage Gen1 e selecione **Criptografia**.
+4. Navegue até a conta do Data Lake Storage Gen1 e selecione **Criptografia**.
 
-    ![Captura de tela da janela da conta do Data Lake Storage Gen1, com Criptografia destacada](./media/data-lake-store-encryption/select-encryption.png)
+   ![Captura de tela da janela da conta do Data Lake Storage Gen1, com Criptografia destacada](./media/data-lake-store-encryption/select-encryption.png)
 
-5.  Uma mensagem notifica você que uma nova versão de chave da chave está disponível. Clique em **Alterar chave** para atualizar a chave para a nova versão.
+5. Uma mensagem notifica você que uma nova versão de chave da chave está disponível. Clique em **Alterar chave** para atualizar a chave para a nova versão.
 
-    ![Captura de tela da janela do Data Lake Storage Gen1 com mensagem e Chave de Rotação destacada](./media/data-lake-store-encryption/rotatekey.png)
+   ![Captura de tela da janela do Data Lake Storage Gen1 com mensagem e Chave de Rotação destacada](./media/data-lake-store-encryption/rotatekey.png)
 
 Esta operação deve levar menos de dois minutos e não há nenhum tempo de inatividade esperado devido à alteração de chaves. Após a operação ser concluída, a nova versão da chave estará em uso.
 

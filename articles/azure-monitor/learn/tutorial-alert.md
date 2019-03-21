@@ -9,12 +9,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 300f0ddc8b738b5fd8578ed0b33cc15000c1098a
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 70a11867dded3b7156f6b212ceb4756ee7c287f6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54101778"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079155"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>Monitorar e alertar sobre a integridade do aplicativo com o Azure Application Insights
 
@@ -69,18 +69,18 @@ Testes de disponibilidade no Application Insights permitem testar automaticament
 ## <a name="create-an-alert-from-metrics"></a>Crie um alerta de métricas
 Além de enviar alertas de um teste de disponibilidade, você pode criar um alerta de qualquer métrica de desempenho que esteja sendo coletada para o seu aplicativo.
 
-2. Selecione **Alertas** no menu **Configurar**.  Isso abre o painel de Alertas do Azure.  Pode haver outras regras de alerta configuradas aqui para outros serviços.
-3. Clique em **Adicionar alerta da métrica**.  Isso abre o painel para criar uma nova regra de alerta.
+1. Selecione **Alertas** no menu **Configurar**.  Isso abre o painel de Alertas do Azure.  Pode haver outras regras de alerta configuradas aqui para outros serviços.
+1. Clique em **Adicionar alerta da métrica**.  Isso abre o painel para criar uma nova regra de alerta.
 
     ![Adicionar alerta da métrica](media/tutorial-alert/add-metric-alert.png)
 
-4. Digite um **Nome** para a regra de alerta e selecione seu aplicativo no menu suspenso para **Recurso**.
-5. Selecione uma **Métrica** a amostrar.  Um grafo é exibido para indicar que o valor dessa solicitação nas últimas 24 horas.  Isso ajuda a configurar a condição para a métrica.
+1. Digite um **Nome** para a regra de alerta e selecione seu aplicativo no menu suspenso para **Recurso**.
+1. Selecione uma **Métrica** a amostrar.  Um grafo é exibido para indicar que o valor dessa solicitação nas últimas 24 horas.  Isso ajuda a configurar a condição para a métrica.
 
     ![Adicionar regra de alerta](media/tutorial-alert/add-alert-01.png)
 
-6. Especifique uma **Condição** e um valor de **Limite**. Este é o número de vezes que a métrica deve ser excedida para um alerta ser criado. 
-6. Em **Notificar via**, marque a caixa **Proprietários, contribuidores e leitores de email** para enviar um email para esses usuários quando a condição de alerta for atendida e adicionar o endereço de email de quaisquer destinatários adicionais.  Você também pode especificar um webhook ou um aplicativo lógico aqui que seja executado quando a condição for atendida.  Isso pode ser usado para tentar reduzir o problema detectado ou 
+1. Especifique uma **Condição** e um valor de **Limite**. Este é o número de vezes que a métrica deve ser excedida para um alerta ser criado. 
+1. Em **Notificar via**, marque a caixa **Proprietários, contribuidores e leitores de email** para enviar um email para esses usuários quando a condição de alerta for atendida e adicionar o endereço de email de quaisquer destinatários adicionais.  Você também pode especificar um webhook ou um aplicativo lógico aqui que seja executado quando a condição for atendida.  Isso pode ser usado para tentar reduzir o problema detectado ou 
 
     ![Adicionar regra de alerta](media/tutorial-alert/add-alert-02.png)
 

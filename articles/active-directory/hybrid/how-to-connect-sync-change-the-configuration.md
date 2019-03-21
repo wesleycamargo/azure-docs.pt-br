@@ -16,12 +16,12 @@ ms.date: 08/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17f832947e289933fb7cde9513bc6e091aec30ae
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 31fe3877fd6098b18686b9d99a012cbfbef7c300
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206371"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122970"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Sincronização do Azure AD Connect: Fazer uma alteração na configuração padrão
 O objetivo deste artigo é orientá-lo sobre como fazer alterações na configuração padrão na sincronização do Azure Active Directory (Azure AD) Connect. Ele fornece etapas para alguns cenários comuns. Com esse conhecimento, você deve ser capaz de fazer alterações simples em sua própria configuração com base em suas próprias regras de negócios.
@@ -268,8 +268,8 @@ A regra de sincronização de entrada permite que o valor do atributo flua do at
 
     | Atributo | Valor | Detalhes |
     | --- | --- | --- |
-    | NOME | *Fornecer um nome* | Por exemplo, *Entrada do AD – UserType Usuário* |
-    | DESCRIÇÃO | *Fornecer uma descrição* |  |
+    | Nome | *Fornecer um nome* | Por exemplo, *Entrada do AD – UserType Usuário* |
+    | Descrição | *Fornecer uma descrição* |  |
     | Sistema Conectado | *Selecionar o AD connector local* |  |
     | Tipo de Objeto do Sistema Conectado | **Usuário** |  |
     | Tipo de Objeto de Metaverso | **Pessoa** |  |
@@ -288,13 +288,13 @@ A regra de sincronização de entrada permite que o valor do atributo flua do at
 
     | Tipo de fluxo | Atributo de destino | Fonte | Aplicar uma vez | Tipo de mesclagem |
     | --- | --- | --- | --- | --- |
-    | Direta | UserType | extensionAttribute1 | Desmarcado | Atualizar |
+    | Direto | UserType | extensionAttribute1 | Desmarcado | Atualizar |
 
     Em outro exemplo, você deseja derivar o valor do atributo UserType de outras propriedades. Por exemplo, você deseja sincronizar todos os usuários como Convidados, caso seu respectivo atributo UserPrincipalName local do AD termine com a parte do domínio <em>@partners.fabrikam123.org</em>. Você pode implementar uma expressão como esta:
 
     | Tipo de fluxo | Atributo de destino | Fonte | Aplicar uma vez | Tipo de mesclagem |
     | --- | --- | --- | --- | --- |
-    | Direta | UserType | IIF(IsPresent([userPrincipalName]),IIF(CBool(InStr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0),"Member","Guest"),Error("UserPrincipalName não está presente para determinar UserType")) | Desmarcado | Atualizar |
+    | Expressão | UserType | IIF(IsPresent([userPrincipalName]),IIF(CBool(InStr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0),"Member","Guest"),Error("UserPrincipalName não está presente para determinar UserType")) | Desmarcado | Atualizar |
 
 7. Clique em **Adicionar** para criar a regra de entrada.
 
@@ -310,8 +310,8 @@ A regra de sincronização de saída permite que o valor do atributo flua do met
 
     | Atributo | Valor | Detalhes |
     | ----- | ------ | --- |
-    | NOME | *Fornecer um nome* | Por exemplo, *Saída para AAD – UserType Usuário* |
-    | DESCRIÇÃO | *Fornecer uma descrição* ||
+    | Nome | *Fornecer um nome* | Por exemplo, *Saída para AAD – UserType Usuário* |
+    | Descrição | *Fornecer uma descrição* ||
     | Sistema Conectado | *Selecione o AAD connector* ||
     | Tipo de Objeto do Sistema Conectado | **Usuário** ||
     | Tipo de Objeto de Metaverso | **Pessoa** ||
@@ -323,7 +323,7 @@ A regra de sincronização de saída permite que o valor do atributo flua do met
     | Atributo | Operador | Valor |
     | --- | --- | --- |
     | sourceObjectType | EQUAL | Usuário |
-    | cloudMastered | NOTEQUAL | True |
+    | cloudMastered | NOTEQUAL | Verdadeiro |
 
     O filtro de escopo determina a quais objetos do Azure AD essa regra de sincronização de saída é aplicada. Neste exemplo, usamos o mesmo filtro de escopo da regra de sincronização pronta para uso de *Saída para AD – identidade do usuário*. Impede que a regra de sincronização seja aplicada aos objetos de Usuário que não estão sincronizados do Active Directory local. Talvez seja necessário ajustar o filtro de escopo de acordo com sua implantação do Azure AD Connect.
 
@@ -331,7 +331,7 @@ A regra de sincronização de saída permite que o valor do atributo flua do met
 
     | Tipo de fluxo | Atributo de destino | Fonte | Aplicar uma vez | Tipo de mesclagem |
     | --- | --- | --- | --- | --- |
-    | Direta | UserType | UserType | Desmarcado | Atualizar |
+    | Direto | UserType | UserType | Desmarcado | Atualizar |
 
 7. Clique em **Adicionar** para criar a regra de saída.
 
@@ -349,8 +349,8 @@ Você pode usar as etapas a seguir para verificar as alterações enquanto execu
    3. Na caixa de diálogo pop-up, selecione **Importação Completa** e clique em **OK**.
    4. Aguarde até operação terminar.
 
-    > [!NOTE]
-    > Você poderá ignorar uma Importação completa no AD Connector local se o atributo de origem já estiver incluído na lista de atributos importados. Em outras palavras, você não precisou fazer nenhuma alteração durante a [Etapa 2: Adicionar o atributo de origem ao esquema local do AD Connector](#step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema).
+      > [!NOTE]
+      > Você poderá ignorar uma Importação completa no AD Connector local se o atributo de origem já estiver incluído na lista de atributos importados. Em outras palavras, você não precisou fazer nenhuma alteração durante a [Etapa 2: Adicionar o atributo de origem ao esquema local do AD Connector](#step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema).
 
 2. Execute uma **Importação completa** no **Azure AD Connector**:
 

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 03/18/2019
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: e240cbadbee87938107c4a9bf034c47db42acf92
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: bb5a4b3a3019007948a9996ed6715e755f284f9e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098639"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58175160"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -97,14 +97,14 @@ Os alertas permitem que você notifique automaticamente outros stakeholders sobr
 
 Este exemplo usa o relatório **Custo real ao longo do tempo** para enviar uma notificação quando os gastos em uma VM do Azure se aproximarem do seu orçamento total. Nesse cenário, você tem um orçamento total de US$ 20.000 e deseja receber uma notificação quando os custos estiverem se aproximando da metade de seu orçamento, US$ 9.000, e um alerta adicional quando os custos atingirem US$ 10.000.
 
-1. No menu na parte superior do portal do Cloudyn, selecione **Custos** > **Análise de custo** > **Custo real ao longo do tempo**. 
-2. Defina **Grupos** para **Serviço** e defina **Filtrar no serviço** para **Azure/VM**. 
+1. No menu na parte superior do portal do Cloudyn, selecione **Custos** > **Análise de custo** > **Custo real ao longo do tempo**.
+2. Defina **Grupos** para **Serviço** e defina **Filtrar no serviço** para **Azure/VM**.
 3. Na parte superior direita do relatório, selecione **Ações** e selecione **Agendar relatório**.
-4. Para enviar um email a si mesmo com o relatório a intervalos programados, selecione a guia **Agendamento** no diálogo **Salvar ou Agendar este relatório**. Selecione **Enviar por email**. As marcas, o agrupamento e a filtragem que você usar serão incluídos no relatório por email. 
-5. Selecione a guia **Limite** e selecione **Custo real versus Limite**. 
-   1. Na caixa de limite **Alerta vermelho**, insira 10000. 
-   2. Na caixa de limite **Alerta amarela**, insira 9000. 
-   3. Na caixa **Número de alertas consecutivos**, digite o número de alertas consecutivos a receber. Quando você receber o número total de alertas especificado, não será enviado mais nenhum alerta. 
+4. Para enviar um email a si mesmo com o relatório a intervalos programados, selecione a guia **Agendamento** no diálogo **Salvar ou Agendar este relatório**. Selecione **Enviar por email**. As marcas, o agrupamento e a filtragem que você usar serão incluídos no relatório por email.
+5. Selecione a guia **Limite** e selecione **Custo real versus Limite**.
+   1. Na caixa de limite **Alerta vermelho**, insira 10000.
+   2. Na caixa de limite **Alerta amarela**, insira 9000.
+   3. Na caixa **Número de alertas consecutivos**, digite o número de alertas consecutivos a receber. Quando você receber o número total de alertas especificado, não será enviado mais nenhum alerta.
 6. Clique em **Salvar**.
 
 ![Exemplo mostrando alertas amarelos e vermelhos com base nos limites de gastos](./media/tutorial-review-usage/schedule-alert01.png)

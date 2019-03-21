@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: 320a23e425ecb11e36af3efe988b25e598948132
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 3b302c60aefec1c4cd37a7dde82a2f11a9eeed33
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118506"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57862855"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Proteger o acesso a um cofre de chaves
 
@@ -28,7 +28,7 @@ O Azure Key Vault é um serviço de nuvem que protege segredos e chaves de cript
 
 ## <a name="access-model-overview"></a>Visão geral do modelo de acesso
 
-O acesso a um cofre de chaves é controlado por meio de duas interfaces: o *plano de gerenciamento* e o *plano de dados*. É no plano de gerenciamento que você administra o cofre de chaves em si. As operações nesse plano incluem criar e excluir cofres de chaves, recuperando propriedades do Key Vault e atualizando as políticas de acesso. No plano de dados você trabalha com os dados armazenados em um cofre de chaves. Você pode adicionar, excluir e alterar chaves, segredos e certificados.
+O acesso a um cofre de chaves é controlado por meio de duas interfaces: o **plano de gerenciamento** e o **plano de dados**. É no plano de gerenciamento que você administra o cofre de chaves em si. As operações nesse plano incluem criar e excluir cofres de chaves, recuperando propriedades do Key Vault e atualizando as políticas de acesso. No plano de dados você trabalha com os dados armazenados em um cofre de chaves. Você pode adicionar, excluir e alterar chaves, segredos e certificados.
 
 Para acessar um cofre de chaves em qualquer dos planos, todos os chamadores (usuários ou aplicativos) devem ter a autenticação e a autorização adequadas. A autenticação estabelece a identidade do chamador. A autorização determina quais operações o chamador pode executar. 
 
@@ -62,7 +62,7 @@ A tabela a seguir mostra os pontos de extremidade para os planos de gerenciament
 
 ## <a name="management-plane-and-rbac"></a>RBAC e o plano de gerenciamento
 
-No plano de gerenciamento, você pode usar o RBAC para autorizar as operações que um chamador pode executar. No modelo de RBAC, cada assinatura do Azure tem uma instância do Azure Active Directory. Você pode conceder acesso a usuários, grupos e aplicativos desse diretório. O acesso é concedido para gerenciar recursos na assinatura do Azure que usa o modelo de implantação do Azure Resource Manager. Para conceder acesso, use o [Portal do Azure](https://portal.azure.com/), a [CLI do Azure](../cli-install-nodejs.md), o [Azure PowerShell](/powershell/azureps-cmdlets-docs) ou as [APIs REST do Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn906885.aspx).
+No plano de gerenciamento, você pode usar o RBAC (controle de acesso baseado em função) para autorizar as operações que um chamador pode executar. No modelo de RBAC, cada assinatura do Azure tem uma instância do Azure Active Directory. Você pode conceder acesso a usuários, grupos e aplicativos desse diretório. O acesso é concedido para gerenciar recursos na assinatura do Azure que usa o modelo de implantação do Azure Resource Manager. Para conceder acesso, use o [Portal do Azure](https://portal.azure.com/), a [CLI do Azure](../cli-install-nodejs.md), o [Azure PowerShell](/powershell/azureps-cmdlets-docs) ou as [APIs REST do Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn906885.aspx).
 
 Crie um cofre de chaves em um grupo de recursos e gerencie o acesso usando o Azure Active Directory. Conceda a usuários ou grupos a capacidade de gerenciar os cofres de chaves em um grupo de recursos. Conceda o acesso em um nível de escopo específico ao atribuir funções RBAC apropriadas. Para conceder acesso a um usuário para gerenciar os cofres de chaves, atribua uma função `key vault Contributor` predefinida ao usuário em um escopo específico. Os seguintes níveis de escopos podem ser atribuídos a uma função RBAC:
 

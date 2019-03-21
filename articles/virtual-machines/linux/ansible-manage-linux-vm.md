@@ -1,19 +1,19 @@
 ---
 title: Usar o Ansible para gerenciar uma máquina virtual do Linux no Azure
 description: Saiba como usar o Ansible para gerenciar uma máquina virtual do Linux no Azure
-ms.service: ansible
+ms.service: virtual-machines-linux
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 09/27/2018
-ms.openlocfilehash: ef19043465cb67401786cddec4972f67231995bb
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 8f97cf8a4231e9a2144f27c0540de96574e13795
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077803"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57789870"
 ---
 # <a name="use-ansible-to-manage-a-linux-virtual-machine-in-azure"></a>Usar o Ansible para gerenciar uma máquina virtual do Linux no Azure
 O Ansible permite que você automatize a implantação e a configuração de recursos em seu ambiente. Você pode usar o Ansible para gerenciar suas máquinas virtuais do Azure, da mesma forma que faria com qualquer outro recurso. Este artigo mostra como usar um guia estratégico do Ansible para iniciar e parar uma máquina virtual do Linux. 

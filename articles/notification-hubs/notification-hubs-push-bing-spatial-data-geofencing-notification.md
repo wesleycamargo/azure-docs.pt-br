@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 7b01ee726d8417e34645e743497a02455fbe709c
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 9baeb1c21252f8b7f7b24debde48108532d9865c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54453147"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118299"
 ---
 # <a name="tutorial-push-location-based-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>Tutorial: Enviar notificações por push baseadas na localização com os Hubs de Notificação do Azure e o Bing Spatial Data
 
@@ -63,12 +63,12 @@ Neste tutorial, você deve executar as seguintes etapas:
 
     ![](./media/notification-hubs-geofence/bing-maps-geofence.png)
 5. Na página **Carregar uma fonte de dados**, execute as seguintes ações:
-    1. Selecione **pipe** para **Formato de dados**.
-    2. Procure e selecione o arquivo `NotificationHubGeofence.pipe` que você criou na etapa anterior.
-    3. Selecione o botão **Carregar**.
+   1. Selecione **pipe** para **Formato de dados**.
+   2. Procure e selecione o arquivo `NotificationHubGeofence.pipe` que você criou na etapa anterior.
+   3. Selecione o botão **Carregar**.
 
-    > [!NOTE]
-    > Poderá ser solicitada uma nova chave para a **Chave Mestra**, que é diferente da **Chave de Consulta**. Basta criar uma nova chave por meio do painel e atualizar a página de carregamento da fonte de dados.
+      > [!NOTE]
+      > Poderá ser solicitada uma nova chave para a **Chave Mestra**, que é diferente da **Chave de Consulta**. Basta criar uma nova chave por meio do painel e atualizar a página de carregamento da fonte de dados.
 6. Depois que você carregar o arquivo de dados, você deve certificar-se de que publicou a fonte de dados. Selecione **Fontes de dados** -> **Gerenciar Fontes de Dados** como você fez antes.
 7. Selecione a fonte de dados na lista e escolha **Publicar** na coluna **Ações**.
 
@@ -112,11 +112,11 @@ Neste tutorial, você deve executar as seguintes etapas:
     ```
     Especifique os parâmetros a seguir para fazer isso funcionar:
 
-    * **ID da Fonte de Dados** e **Nome da Fonte de Dados** – na API do Bing Mapas, as fontes de dados contêm diversos metadados classificados, como locais e horas comerciais de operação.  
-    * **Nome da Entidade** – a entidade que você deseja usar como um ponto de referência para a notificação.
-    * **Chave de API do Bing Mapas** – a chave que você obteve anteriormente quando criou a conta do Centro de Desenvolvimento do Bing.
+   * **ID da Fonte de Dados** e **Nome da Fonte de Dados** – na API do Bing Mapas, as fontes de dados contêm diversos metadados classificados, como locais e horas comerciais de operação.  
+   * **Nome da Entidade** – a entidade que você deseja usar como um ponto de referência para a notificação.
+   * **Chave de API do Bing Mapas** – a chave que você obteve anteriormente quando criou a conta do Centro de Desenvolvimento do Bing.
 
-    Agora que a fonte de dados está pronta, você pode começar a trabalhar no aplicativo UWP.
+     Agora que a fonte de dados está pronta, você pode começar a trabalhar no aplicativo UWP.
 2. Habilite serviços de localização para o seu aplicativo. Abra o arquivo `Package.appxmanifest` no **Gerenciador de Soluções**.
 
     ![](./media/notification-hubs-geofence/vs-package-manifest.png)

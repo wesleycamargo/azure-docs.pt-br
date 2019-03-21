@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 23a94f7b2054692feedb3b7755dad1e840809be7
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 5417c1c008b5abaada158530c7c29c67e0dc1ca0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734111"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119659"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>Tutorial: Obter dados de correspondência de texto exata de uma expressão
 
@@ -134,7 +134,7 @@ O nome primário _canônico_ para cada item é o nome do departamento. Exemplos 
 
 1. Vá até o final da URL no endereço e insira `shift Joe Smith to IT`. O último parâmetro de querystring é `q`, o enunciado **q**uery. Esse enunciado não é igual a nenhum dos enunciados rotulados, portanto, é um bom teste e deve retornar a intenção `TransferEmployeeToDepartment` com `Department` extraído.
 
-  ```json
+   ```json
     {
       "query": "shift Joe Smith to IT",
       "topScoringIntent": {
@@ -165,7 +165,7 @@ O nome primário _canônico_ para cada item é o nome do departamento. Exemplos 
         }
       ]
     }
-  ```
+   ```
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

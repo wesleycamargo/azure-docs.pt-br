@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: b099d1765f0ed56d6768501086bf8b9f83d5a86a
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: f5ac1c53a97fc2a3749582c5f48b967e3ce0c2c4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112262"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104260"
 ---
 # <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>Tutorial: Demonstrar o failover e o dimensionamento de serviços de contêiner com o Service Fabric
 
@@ -63,8 +63,8 @@ Para dimensionar o front-end da Web, siga estas etapas:
 
 Agora é possível optar por dimensionar o número de instâncias do front-end da Web.
 
-3. Altere o número para **2** e clique em **Dimensionar Serviço**.
-4. Clique no nó **fabric:/TestContainer/azurevotefront** no modo de exibição de árvore e expanda o nó de partição (representado por um GUID).
+1. Altere o número para **2** e clique em **Dimensionar Serviço**.
+1. Clique no nó **fabric:/TestContainer/azurevotefront** no modo de exibição de árvore e expanda o nó de partição (representado por um GUID).
 
 ![sfxscaledone][sfxscaledone]
 

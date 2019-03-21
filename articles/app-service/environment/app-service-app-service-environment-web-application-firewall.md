@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: naziml
 ms.custom: seodec18
-ms.openlocfilehash: 4681dad55807705a2ce8e9908cbd3ee53fb3c32e
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: c1930777f44266755f20400d063ec938ee631adb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631491"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089311"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Configurando um WAF (Firewall do Aplicativo Web) para Ambiente do Serviço de Aplicativo
 ## <a name="overview"></a>Visão geral
@@ -66,7 +66,7 @@ Adicione o ponto de extremidade de gerenciamento, conforme mostrado na imagem a 
 
 ![Adicionar ponto de extremidade de gerenciamento][AddManagementEndpoint]
 
-Use um navegador para navegar até o ponto de extremidade de gerenciamento no Serviço de Nuvem. Se seu Serviço de Nuvem se chamar test.cloudapp.net, você poderá acessar esse ponto de extremidade navegando até http://test.cloudapp.net:8000. Você deve ver uma página de logon conforme a imagem a seguir em que poderá fazer logon usando as credenciais que você especificou na fase de configuração da VM do WAF.
+Use um navegador para navegar até o ponto de extremidade de gerenciamento no Serviço de Nuvem. Se seu Serviço de Nuvem se chamar test.cloudapp.net, você poderá acessar esse ponto de extremidade navegando até `http://test.cloudapp.net:8000`. Você deve ver uma página de logon conforme a imagem a seguir em que poderá fazer logon usando as credenciais que você especificou na fase de configuração da VM do WAF.
 
 ![Página de logon de gerenciamento][ManagementLoginPage]
 

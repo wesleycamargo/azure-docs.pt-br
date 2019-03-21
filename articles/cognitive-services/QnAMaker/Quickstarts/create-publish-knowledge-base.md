@@ -4,17 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: É possível criar uma KB (base de dados de conhecimento) do QnA Maker com base no seu próprio conteúdo, como perguntas frequentes ou manuais de produto. Neste exemplo, a KB do QnA Maker é criada com base em uma página da Web simples de perguntas frequentes, a fim de solucionar dúvidas sobre a recuperação da chave do BitLocker.
 author: diberry
 manager: nitinme
+services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: 2ac6e6fcd73abddcee668b8f73184b923aeab5d3
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3f7b24af3d48075150ae7c192ccf421b928a7aa3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876990"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113692"
 ---
 # <a name="create-train-and-publish-your-qna-maker-knowledge-base"></a>Criar, treinar e publicar sua base de dados de conhecimento do QnA Maker
 
@@ -53,7 +54,7 @@ ms.locfileid: "55876990"
 
 10. No canto superior direito, selecione **Adicionar par de QnA** para adicionar uma nova linha à seção **Editorial** da KB. Em **Pergunta**, insira **Oi.** Em **Resposta**, insira **Olá. Faça perguntas sobre o BitLocker.**
 
-   ![Adicionar um par de QnA](../media/qnamaker-quickstart-kb/add-qna-pair.png)
+    ![Adicionar um par de QnA](../media/qnamaker-quickstart-kb/add-qna-pair.png)
 
 11. Na parte superior direito, selecione **Salvar e treinar** para salvar suas edições e treinar o modelo do QnA Maker. As edições não serão mantidas se não forem salvas.
 
@@ -61,7 +62,7 @@ ms.locfileid: "55876990"
 
 13. Selecione **Inspecionar** para examinar a resposta mais detalhadamente. A janela de teste é usada para testar as alterações na KB antes que elas sejam publicadas.
 
-   ![Painel de teste](../media/qnamaker-quickstart-kb/inspect-panel.png)
+    ![Painel de teste](../media/qnamaker-quickstart-kb/inspect-panel.png)
 
 14. Selecione **Testar** novamente para fechar o item pop-up **Testar**.
 
@@ -69,7 +70,7 @@ ms.locfileid: "55876990"
 
 16. O serviço do QnA Maker foi publicado com êxito. É possível usar o ponto de extremidade no aplicativo ou código de bot.
 
-   ![Publicar](../media/qnamaker-quickstart-kb/publish-sucess.png)
+    ![Publicar](../media/qnamaker-quickstart-kb/publish-sucess.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

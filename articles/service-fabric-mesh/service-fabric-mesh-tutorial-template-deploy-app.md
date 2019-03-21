@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/11/2019
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 906efa00243cc622c374d442a7982d87d106079b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 773a466f9619f162fe3f7cbeeab0b766d3ca32ae
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158835"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864857"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Tutorial: Implantar um aplicativo na Malha do Service Fabric usando um modelo
 
@@ -211,7 +211,7 @@ A seção de parâmetros é definida na parte superior do seu modelo de implanta
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
     "contentVersion": "1.0.0.0",
     "parameters": {
       ...
@@ -229,7 +229,7 @@ Os serviços são especificados no modelo como propriedades do recurso de aplica
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+  "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     ...
@@ -344,6 +344,7 @@ Consulte o arquivo [modelo de implantação mesh_rp.windows.json](https://github
 Crie o aplicativo e os recursos relacionados usando o comando a seguir e forneça as credenciais da etapa anterior [Recuperar credenciais para o registro](#retrieve-credentials-for-the-registry).
 
 No arquivo de parâmetros, atualize os valores de parâmetros a seguir:
+
 |Parâmetro|Valor|
 |---|---|
 |location|A região para implantar o aplicativo.  Por exemplo, "eastus".|

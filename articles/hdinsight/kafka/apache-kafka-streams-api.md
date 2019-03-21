@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 11/06/2018
-ms.openlocfilehash: cb959bd74322534573f83c2b3258ff28d4c324ff
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 3c40e00d55af49b1b040d3fe706f08af719b2238
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584149"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58112782"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>Tutorial: API de streams do Apache Kafka
 
@@ -199,13 +199,13 @@ Para criar e implantar o projeto para o Kafka no Cluster HDInsight, utilize as s
 
     Os tópicos são usados para as seguintes finalidades:
 
-    * `test`: É neste tópico que os registros são recebidos. O aplicativo de streaming faz a leitura daqui.
-    * `wordcounts`: É neste tópico que o aplicativo de transmissão armazena sua saída.
-    * `RekeyedIntermediateTopic`: Este tópico é usado para reparticionar dados conforme a contagem é atualizada pelo operador `countByKey`.
-    * `wordcount-example-Counts-changelog`: Este tópico é um armazenamento de estado usado pela operação `countByKey`
+   * `test`: É neste tópico que os registros são recebidos. O aplicativo de streaming faz a leitura daqui.
+   * `wordcounts`: É neste tópico que o aplicativo de transmissão armazena sua saída.
+   * `RekeyedIntermediateTopic`: Este tópico é usado para reparticionar dados conforme a contagem é atualizada pelo operador `countByKey`.
+   * `wordcount-example-Counts-changelog`: Este tópico é um armazenamento de estado usado pela operação `countByKey`
 
-    > [!IMPORTANT]  
-    > O Kafka no HDInsight também pode ser configurado para criar tópicos automaticamente. Para obter mais informações, consulte o documento [Configurar a criação automática de tópicos](apache-kafka-auto-create-topics.md).
+     > [!IMPORTANT]  
+     > O Kafka no HDInsight também pode ser configurado para criar tópicos automaticamente. Para obter mais informações, consulte o documento [Configurar a criação automática de tópicos](apache-kafka-auto-create-topics.md).
 
 ## <a name="run-the-code"></a>Executar o código
 

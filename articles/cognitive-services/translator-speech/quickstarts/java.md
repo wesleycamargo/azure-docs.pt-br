@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: b56e4715e77129f228967ef595e506d26d33fc66
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: b9cf9a5e60ff5f66a3956170b4f5fb41d4b6d66c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674116"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551034"
 ---
-# <a name="quickstart-translator-speech-api-with-java"></a>Início rápido: API de Tradução de Fala com Java
+# <a name="quickstart-translator-speech-api-with-java"></a>Início Rápido: API de Tradução de Fala com Java
 <a name="HOLTop"></a>
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
@@ -104,7 +104,7 @@ import org.eclipse.jetty.websocket.common.scopes.*;
     https://docs.oracle.com/javaee/7/api/javax/websocket/Session.html
     https://docs.oracle.com/javaee/7/api/javax/websocket/RemoteEndpoint.Basic.html
     https://docs.oracle.com/javaee/7/api/javax/websocket/OnMessage.html
-    http://www.oracle.com/technetwork/articles/java/jsr356-1937161.html
+    https://www.oracle.com/technetwork/articles/java/jsr356-1937161.html
 */
 
 @ClientEndpoint(configurator = Config.class)

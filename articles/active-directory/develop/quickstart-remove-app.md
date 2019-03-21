@@ -17,14 +17,14 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d71489194422a785ee98ec70a07c765c3d686808
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 20d7218b9b1d53b3cfb72a12ee34a77956327ce2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182605"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093187"
 ---
-# <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform-preview"></a>Início rápido: Remover um aplicativo registrado na plataforma de identidade da Microsoft (Versão Prévia)
+# <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform-preview"></a>Início Rápido: Remover um aplicativo registrado na plataforma de identidade da Microsoft (Versão Prévia)
 
 Os desenvolvedores corporativos e provedores de SaaS (software como serviço) que registraram aplicativos na Microsoft Identity Platform podem precisar remover o registro do aplicativo.
 
@@ -52,8 +52,8 @@ Os aplicativos que você ou sua organização registraram são representados por
 4. Na página **Visão Geral**, selecione **Excluir**.
 5. Selecione **Sim** para confirmar que você deseja excluir o aplicativo.
 
-  > [!NOTE]
-  > Para excluir um aplicativo, você precisa estar listado como proprietário do aplicativo ou ter privilégios de administrador.
+   > [!NOTE]
+   > Para excluir um aplicativo, você precisa estar listado como proprietário do aplicativo ou ter privilégios de administrador.
 
 ## <a name="remove-an-application-authored-by-another-organization"></a>Remover um aplicativo criado por outra organização
 

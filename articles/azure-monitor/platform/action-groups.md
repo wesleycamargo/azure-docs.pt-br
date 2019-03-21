@@ -8,31 +8,31 @@ ms.topic: conceptual
 ms.date: 1/29/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 5717074d53e267018b7697aeed21ea00d246592e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 29db8c8b51082016d413c66c6abfdb1c518c9329
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252210"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117958"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerenciar grupos de ações no portal do Azure
 ## <a name="overview"></a>Visão geral ##
 Um grupo de ações é uma coleção de preferências de notificação definidas pelo proprietário de uma assinatura do Azure. Alertas do Azure Monitor e da Integridade do Serviço usam grupos de ações para notificar usuários de que um alerta foi disparado. Vários alertas podem usar o mesmo grupo de ação ou grupos de ações diferentes dependendo dos requisitos do usuário. Você pode configurar até 2 mil grupos de ação em uma assinatura.
 
-Quando uma ação for configurada para notificar uma pessoa por email ou SMS, a pessoa receberá uma confirmação indicando que ela foi adicionada ao grupo de ações.
+Você configurar uma ação para notificar que uma pessoa por email ou SMS, eles recebem uma confirmação indicando que eles foram adicionados ao grupo de ação.
 
 Este artigo mostra como criar e gerenciar grupos de ação no Portal do Azure.
 
 Cada ação é composta das seguintes propriedades:
 
 * **Nome**: um identificador exclusivo dentro do grupo de ações.  
-* **Tipo de ação**: a ação a ser executada. Exemplos incluem o envio de um email de chamada, SMS, voz; ou disparando vários tipos de ações automatizadas. Veja os tipos mais adiante neste artigo. 
-* **Detalhes**: os detalhes correspondentes que variam de acordo com *tipo de ação*. 
+* **Tipo de ação**: A ação executada. Exemplos incluem o envio de um email de chamada, SMS, voz; ou disparando vários tipos de ações automatizadas. Veja os tipos mais adiante neste artigo. 
+* **Detalhes**: Os detalhes correspondentes que variam de acordo com *tipo de ação*. 
 
 Para saber mais sobre como usar modelos do Azure Resource Manager para configurar grupos de ação, veja [Modelos do Resource Manager de grupos de ações](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
 ## <a name="create-an-action-group-by-using-the-azure-portal"></a>Como criar um grupo de ações usando o portal do Azure ##
-1. No [portal](https://portal.azure.com), selecione **Monitor**. A folha **Monitor** consolida todas as suas configurações e dados em uma exibição de monitoramento.
+1. No [portal](https://portal.azure.com), selecione **Monitor**. O **Monitor** painel consolida todas as suas configurações e dados em uma exibição monitoramento.
 
     ![O serviço “Monitor”](./media/action-groups/home-monitor.png)
 1. Selecione **Alertas**, em seguida, selecione **Gerenciar grupos de ação**.
@@ -49,7 +49,7 @@ Para saber mais sobre como usar modelos do Azure Resource Manager para configura
 
 1. Selecione o **Grupo de recursos** no qual o grupo de ações é salvo.
 
-1. Defina uma lista de ações fornecendo estas ações:
+1. Defina uma lista de ações. Forneça o seguinte para cada ação:
 
      a. **Nome**: insira um identificador exclusivo para esta ação.
 
@@ -60,51 +60,53 @@ Para saber mais sobre como usar modelos do Azure Resource Manager para configura
 1. Selecione **OK** para criar o grupo de ações.
 
 ## <a name="manage-your-action-groups"></a>Gerenciar seus grupos de ação ##
-Depois de criar um grupo, ele ficará visível na seção **Grupos de ações** da folha **Monitor**. Selecione o grupo de ações que você deseja gerenciar:
+Depois de criar um grupo de ação, ele ficará visível na **grupos de ação** seção o **Monitor** painel. Selecione o grupo de ações que você deseja gerenciar:
 
 * Adicionar, editar ou remover ações.
 * Excluir o grupo de ação.
 
 ## <a name="action-specific-information"></a>Informações específicas da ação
-**Push do aplicativo do Azure**: você pode ter até 10 ações do aplicativo do Azure em um grupo de ação. No momento, a ação do aplicativo do Azure dá suporte apenas aos alertas do ServiceHealth. Qualquer outra hora do alerta será ignorada. Consulte [configurar alertas sempre que uma notificação de integridade do serviço for postada](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+> [!NOTE]
+> Ver [limites de serviço de subscrição para monitoramento](https://docs.microsoft.com/azure/azure-subscription-service-limits#monitor-limits) para limites numéricos em cada um dos itens abaixo.  
+
+**Aplicativo do Azure por Push** -você pode ter um número limitado de ações de aplicativo do Azure em um grupo de ações. Neste momento, a ação de aplicativo do Azure dá suporte apenas aos alertas do ServiceHealth. Qualquer outro tipo de alerta será ignorado. Consulte [configurar alertas sempre que uma notificação de integridade do serviço for postada](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 
 **E-mail**: os e-mails serão enviados dos seguintes endereços de e-mail. Certifique-se de que a filtragem de email esteja configurada adequadamente
-   - azure-noreply@microsoft.com
-   - azureemail-noreply@microsoft.com
-   - alerts-noreply@mail.windowsazure.com
+- azure-noreply@microsoft.com
+- azureemail-noreply@microsoft.com
+- alerts-noreply@mail.windowsazure.com
 
-Você pode ter até 1000 ações de e-mail em um grupo de ação. Consulte o artigo [informações de limitação da taxa](./../../azure-monitor/platform/alerts-rate-limiting.md)
+Você pode ter um número limitado de ações de email em um grupo de ação. Consulte o artigo [informações de limitação da taxa](./../../azure-monitor/platform/alerts-rate-limiting.md)
 
-**ITSM** - você pode ter até 10 ações de ITSM em uma ação de ITSM do grupo de ação que requer uma conexão de ITSM. Saiba como criar uma [Conexão de ITSM](../../azure-monitor/platform/itsmc-overview.md).
+**ITSM** -você pode ter um número limitado de número limitado de ações de ITSM em um grupo de ação. Ação de ITSM exige uma Conexão de ITSM. Saiba como criar uma [Conexão de ITSM](../../azure-monitor/platform/itsmc-overview.md).
 
-**Aplicativo Lógico**: você pode ter até 10 ações do Aplicativo Lógico em um Grupo de Ação
+**Aplicativo lógico** -você pode ter um número limitado de ações do aplicativo lógico em um grupo de ação.
 
-**Aplicativo de funções** -as teclas de função para o Aplicativo de funções configurado como ações são lidos por meio da API de funções, que atualmente requer os aplicativos de função do v2 para configurar a configuração "AzureWebJobsSecretStorageType" para "arquivos" do aplicativo, consulte [Altera para o gerenciamento de chaves no Functions V2]( https://aka.ms/funcsecrets) para obter mais informações.
+**Função de aplicativo** -a função essas chaves para aplicativos de função configurado como ações são lidos por meio da API de funções, que atualmente requer que os aplicativos de função do v2 para configurar o aplicativo de configuração "AzureWebJobsSecretStorageType" para "arquivos". Para obter mais informações, consulte [muda para o gerenciamento de chaves no Functions V2]( https://aka.ms/funcsecrets).
 
-**Runbook** - Você pode ter até 10 ações do Runbook em um Grupo de Ação Consulte os [limites do serviço de assinatura do Azure](../../azure-subscription-service-limits.md) para obter limites para cargas úteis do Runbook
+**Runbook** -você pode ter um número limitado de ações de Runbook em um grupo de ação. Consulte a [limites de serviço de assinatura do Azure](../../azure-subscription-service-limits.md) para limites de cargas de Runbook.
 
-**SMS** - Você pode ter até 10 ações de SMS em um grupo de ação Consulte o [artigo sobre informações limitadoras de taxa](./../../azure-monitor/platform/alerts-rate-limiting.md) Veja o [comportamento de alerta por SMS](../../azure-monitor/platform/alerts-sms-behavior.md)
+**SMS** -você pode ter um número limitado de ações de SMS em um grupo de ação. Consulte também o [informações de limitação de taxa](./../../azure-monitor/platform/alerts-rate-limiting.md) e [comportamento de alertas por SMS](../../azure-monitor/platform/alerts-sms-behavior.md) para obter informações adicionais importantes. 
 
-**Voz** -você pode ter até 10 ações de voz em um grupo de ação</dd>
-Consulte o artigo [informações de limitação da taxa](./../../azure-monitor/platform/alerts-rate-limiting.md)</dd>
+**Voz** -você pode ter um número limitado de ações de voz em um grupo de ação. Consulte a [informações de limitação de taxa](./../../azure-monitor/platform/alerts-rate-limiting.md) artigo.
 
-**Webhook** - Você pode ter até 10 ações do Webhook em um Grupo de Ação.
-Lógica de repetição - o período de tempo limite para uma resposta é 10 segundos. A chamada de webhook será repetida no máximo 2 vezes quando os seguintes códigos de status HTTP forem retornados: 408, 429, 503, 504 ou quando o ponto de extremidade HTTP não responder. A primeira nova tentativa ocorre após 10 segundos. A segunda tentativa ocorre após 100 segundos. Após duas falhas, o ponto de extremidade não será chamado por 30 minutos de nenhum grupo de ações.
+**Webhook** -você pode ter um número limitado de ações de Webhook em um grupo de ação. Webhooks são repetidos usando as regras a seguir. A chamada webhook será repetida um máximo de 2 vezes quando os seguintes códigos de status HTTP forem retornados: 408, 429, 503, 504 ou quando o ponto de extremidade HTTP não responder. A primeira nova tentativa ocorre após 10 segundos. A segunda tentativa ocorre após 100 segundos. Após duas falhas, nenhum grupo de ação chamará o ponto de extremidade por 30 minutos. 
 
 Intervalos de endereços IP de fonte
-    - 13.72.19.232
-    - 13.106.57.181
-    - 13.106.54.3
-    - 13.106.54.19
-    - 13.106.38.142
-    - 13.106.38.148
-    - 13.106.57.196
-    - 52.244.68.117
+ - 13.72.19.232
+ - 13.106.57.181
+ - 13.106.54.3
+ - 13.106.54.19
+ - 13.106.38.142
+ - 13.106.38.148
+ - 13.106.57.196
+ - 52.244.68.117
 
-Para receber atualizações sobre as alterações para esses endereços IP, é recomendável que você configure um [alerta de Integridade do Serviço do Azure](./../../azure-monitor/platform/service-notifications.md) que monitora notificações informativas sobre o serviço de grupos de ação.
+Para receber atualizações sobre as alterações para esses endereços IP, recomendamos que você configure um [serviço Alerta de integridade, que monitora para notificações informativas sobre o serviço de grupos de ação.
 
 
 ## <a name="next-steps"></a>Próximas etapas ##
+
 * Saiba mais sobre o [comportamento de alertas por SMS](../../azure-monitor/platform/alerts-sms-behavior.md).  
 * Tenha uma [compreensão do esquema de webhook de alerta do log de atividades](../../azure-monitor/platform/activity-log-alerts-webhook.md).  
 * Saiba mais sobre o [Conector de ITSM](../../azure-monitor/platform/itsmc-overview.md)

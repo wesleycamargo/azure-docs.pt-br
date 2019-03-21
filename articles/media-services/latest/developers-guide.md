@@ -16,12 +16,12 @@ ms.workload: media
 ms.date: 02/22/2019
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 97123ec795353073b912bd83e0abb45e23549a75
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: b9c89b6cb6dbc6cb217be671eb0e52c0416811ed
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749793"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57889838"
 ---
 # <a name="start-developing-with-media-services-v3-api-using-sdkstools"></a>Iniciar o desenvolvimento com a API dos Serviços de Mídia v3 usando SDKs/ferramentas
 
@@ -95,7 +95,7 @@ Explore a documentação de [referência do .NET](https://aka.ms/ams-v3-dotnet-r
 - [Usar a criptografia dinâmica DRM e o serviço de entrega de licenças – .NET](protect-with-drm.md)
 - [Obter uma chave de assinatura da política existente – .NET](get-content-key-policy-dotnet-howto.md)
 - [Criar filtros com os Serviços de Mídia – .NET](filters-dynamic-manifest-dotnet-howto.md)
-- [Exemplos de vídeos sob demanda avançados do Azure Functions v2 com Serviços de Mídia v3](http://aka.ms/ams3functions)
+- [Exemplos de vídeos sob demanda avançados do Azure Functions v2 com Serviços de Mídia v3](https://aka.ms/ams3functions)
 
 ## <a name="java"></a>Java
 

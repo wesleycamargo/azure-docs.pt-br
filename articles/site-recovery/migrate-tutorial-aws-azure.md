@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ce48e9a17ab6b63c7fb8caa752258e218ca51ba3
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 74329624b6e0f1b105349d87a6d166efad520076
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226376"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58010910"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrar das VMs do AWS (Amazon Web Services) para o Azure
 
@@ -33,12 +33,12 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 - Assegure-se de que as VMs que você quer migrar estejam executando uma versão do sistema operacional com suporte. Versões com suporte incluem: 
-      - Windows Server 2016 
-      - Windows Server 2012 R2
-      - Windows Server 2012 
-      - Versão de 64 bits do Windows Server 2008 R2 SP1 ou posterior
-      - Red Hat Enterprise Linux 6.4 a 6.10, 7.1 a 7.6 (somente instâncias virtualizadas de HVM) *(não há suporte para instâncias que executam drivers RedHat PV.)*
-      - CentOS 6.4 a 6.10, 7.1 a 7.6 (somente instâncias virtualizadas de HVM)
+  - Windows Server 2016 
+  - Windows Server 2012 R2
+  - Windows Server 2012 
+  - Versão de 64 bits do Windows Server 2008 R2 SP1 ou posterior
+  - Red Hat Enterprise Linux 6.4 a 6.10, 7.1 a 7.6 (somente instâncias virtualizadas de HVM) *(não há suporte para instâncias que executam drivers RedHat PV.)*
+  - CentOS 6.4 a 6.10, 7.1 a 7.6 (somente instâncias virtualizadas de HVM)
  
 - O serviço de mobilidade deve ser instalado em cada VM que você quer replicar. 
 
@@ -172,39 +172,39 @@ Habilite a replicação para cada VM que você quer migrar. Quando a replicaçã
 1. Vá para o [Portal do Azure](https://portal.azure.com).
 1. Na página do cofre, em **Introdução**, selecione **Site Recovery**.
 2. Em **Para computadores locais e VMs do Azure**, selecione **Etapa 1: Replicar aplicativo**. Complete as páginas do assistente com as informações a seguir. Selecione **OK** em cada página quando terminar:
-    - 1: Configurar fonte
+   - 1: Configurar fonte
 
-    |  |  |
-    |-----|-----|
-    | Origem: | Selecione **Local**.|
-    | Local de origem:| Insira o nome da instância de EC2 do servidor de configuração.|
-    |Tipo de computador: | Selecione **Computadores físicos**.|
-    | Servidor de processo: | Selecione o servidor de configuração na lista suspensa.|
+     |  |  |
+     |-----|-----|
+     | Origem: | Selecione **Local**.|
+     | Local de origem:| Insira o nome da instância de EC2 do servidor de configuração.|
+     |Tipo de computador: | Selecione **Computadores físicos**.|
+     | Servidor de processo: | Selecione o servidor de configuração na lista suspensa.|
 
-    - 2: Configurar destino
+   - 2: Configurar destino
 
-    |  |  |
-    |-----|-----|
-    | Destino: | Deixar o padrão.|
-    | Assinatura: | Selecione a assinatura que você está usando.|
-    | Grupo de recursos do failover de postagem:| Use o grupo de recursos que você criou em [Preparar recursos do Azure](#prepare-azure-resources).|
-    | Modelo de implantação pós-failover: | Selecione **Gerenciador de Recursos**.|
-    | Conta de armazenamento: | Selecione a conta de armazenamento que você criou em [Preparar recursos do Azure](#prepare-azure-resources).|
-    | Rede do Azure: | Selecione **Configurar agora para os computadores selecionados**.|
-    | Rede do Azure pós-failover: | Escolha a rede criada em [Preparar recursos do Azure](#prepare-azure-resources).|
-    | Sub-rede: | Selecione o **padrão** na lista suspensa.|
+     |  |  |
+     |-----|-----|
+     | Destino: | Deixar o padrão.|
+     | Assinatura: | Selecione a assinatura que você está usando.|
+     | Grupo de recursos do failover de postagem:| Use o grupo de recursos que você criou em [Preparar recursos do Azure](#prepare-azure-resources).|
+     | Modelo de implantação pós-failover: | Selecione **Gerenciador de Recursos**.|
+     | Conta de armazenamento: | Selecione a conta de armazenamento que você criou em [Preparar recursos do Azure](#prepare-azure-resources).|
+     | Rede do Azure: | Selecione **Configurar agora para os computadores selecionados**.|
+     | Rede do Azure pós-failover: | Escolha a rede criada em [Preparar recursos do Azure](#prepare-azure-resources).|
+     | Sub-rede: | Selecione o **padrão** na lista suspensa.|
 
-    - 3: Selecionar computadores físicos
+   - 3: Selecionar computadores físicos
 
-      Selecione **Computador físico** e, em seguida, insira os valores para**Nome**, **Endereço IP** e **Tipo do SO** da instância de EC2 que você quer migrar. Selecione **OK**.
+     Selecione **Computador físico** e, em seguida, insira os valores para**Nome**, **Endereço IP** e **Tipo do SO** da instância de EC2 que você quer migrar. Selecione **OK**.
 
-    - 4: Configurar propriedades
+   - 4: Configurar propriedades
 
-      Selecione a conta que você criou no servidor de configuração e, em seguida, selecione **OK**.
+     Selecione a conta que você criou no servidor de configuração e, em seguida, selecione **OK**.
 
-    - 5: Definir configurações de replicação
+   - 5: Definir configurações de replicação
 
-      Certifique-se de que a política de replicação selecionada na lista suspensa é **myReplicationPolicy** e, em seguida, selecione**OK**.
+     Certifique-se de que a política de replicação selecionada na lista suspensa é **myReplicationPolicy** e, em seguida, selecione**OK**.
 
 3. Quando o assistente terminar, selecione**Habilitar replicação**.
 
@@ -245,10 +245,10 @@ Execute um failover real para as instâncias de EC2 para migrá-las para as VMs 
 1. Verifique se a VM aparece em **Itens Replicados**.
 2. Clique com o botão direito do mouse em cada VM e selecione **Concluir Migração**. Isso faz o seguinte:
 
-    - Isso conclui o processo de migração, interrompe a replicação da VM do AWS e interrompe a cobrança do Site Recovery para a VM.
-    - Esta etapa limpa os dados de replicação. Ela não exclui as VMs migradas. 
+   - Isso conclui o processo de migração, interrompe a replicação da VM do AWS e interrompe a cobrança do Site Recovery para a VM.
+   - Esta etapa limpa os dados de replicação. Ela não exclui as VMs migradas. 
 
-    ![Migração completa](./media/migrate-tutorial-aws-azure/complete-migration.png)
+     ![Migração completa](./media/migrate-tutorial-aws-azure/complete-migration.png)
 
 > [!WARNING]
 > *Não cancele um failover em andamento*. Antes de iniciar o failover, a replicação de VM será interrompida. Se você cancelar um failover em andamento, o failover será interrompido, mas a VM não será replicada novamente.  

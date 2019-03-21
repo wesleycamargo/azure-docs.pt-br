@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 8225f5a093724c00dcc336d5dc2195f4addc998b
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: f0972e840fab3c624616ba8aa70bae74be5b1dc2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237817"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58090467"
 ---
 # <a name="quickstart-create-an-aspnet-web-app"></a>Início Rápido: Criar um aplicativo Web ASP .NET 
 
@@ -74,9 +74,9 @@ Em seguida, crie o cache para o aplicativo.
 
 #### <a name="to-edit-the-cachesecretsconfig-file"></a>Para editar o arquivo *CacheSecrets.config*
 
-3. Crie um arquivo em seu computador denominado *CacheSecrets.config*. Coloque-o em um local em que ele não será verificado com o código-fonte do aplicativo de exemplo. Para este início rápido, o arquivo *CacheSecrets.config* está localizado em *C:\AppSecrets\CacheSecrets.config*.
+1. Crie um arquivo em seu computador denominado *CacheSecrets.config*. Coloque-o em um local em que ele não será verificado com o código-fonte do aplicativo de exemplo. Para este início rápido, o arquivo *CacheSecrets.config* está localizado em *C:\AppSecrets\CacheSecrets.config*.
 
-4. Editar o arquivo *CacheSecrets.config*. Depois adicione o seguinte conteúdo:
+1. Editar o arquivo *CacheSecrets.config*. Depois adicione o seguinte conteúdo:
 
     ```xml
     <appSettings>
@@ -84,14 +84,14 @@ Em seguida, crie o cache para o aplicativo.
     </appSettings>
     ```
 
-5. Substitua `<cache-name>` pelo nome do host do cache.
+1. Substitua `<cache-name>` pelo nome do host do cache.
 
-6. Substitua `<access-key>` pela chave primária do cache.
+1. Substitua `<access-key>` pela chave primária do cache.
 
     > [!TIP]
     > É possível usar a chave de acesso secundária durante a rotação de chave como uma chave alternativa enquanto você regenera a chave de acesso primária.
->
-7. Salve o arquivo.
+   >
+1. Salve o arquivo.
 
 ## <a name="update-the-mvc-application"></a>Atualizar o aplicativo MVC
 

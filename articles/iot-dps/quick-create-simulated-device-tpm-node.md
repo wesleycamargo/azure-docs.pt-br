@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: f6ae69c04d83e1ce1540267fb7932b80cca1013c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ef0a3d251679d7dd6760f1f928cbf0f0daf3db01
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087195"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099130"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Criar e provisionar um dispositivo TPM simulado usando o Node.js do SDK do dispositivo Python para o Serviço de Provisionamento de Dispositivos no Hub IoT
 
@@ -72,25 +72,25 @@ Este artigo irá demonstrar registros individuais.
 
 1. Instale os pacotes a seguir que contêm os componentes usados durante o registro:
 
-    - um cliente de segurança que funciona com TPM: `azure-iot-security-tpm`
-    - um transporte para o dispositivo para se conectar ao Serviço de provisionamento do dispositivo: `azure-iot-provisioning-device-http` ou `azure-iot-provisioning-device-amqp`
-    - um cliente para usar o cliente de transporte e segurança: `azure-iot-provisioning-device`
+   - um cliente de segurança que funciona com TPM: `azure-iot-security-tpm`
+   - um transporte para o dispositivo para se conectar ao Serviço de provisionamento do dispositivo: `azure-iot-provisioning-device-http` ou `azure-iot-provisioning-device-amqp`
+   - um cliente para usar o cliente de transporte e segurança: `azure-iot-provisioning-device`
 
-    Assim que o dispositivo estiver registrado, é possível usar os pacotes usuais de cliente do dispositivo Hub IoT para conectar o dispositivo usando as credenciais fornecidas durante o registro. Serão necessários:
+     Assim que o dispositivo estiver registrado, é possível usar os pacotes usuais de cliente do dispositivo Hub IoT para conectar o dispositivo usando as credenciais fornecidas durante o registro. Serão necessários:
 
-    - o cliente do dispositivo: `azure-iot-device`
-    - um transporte: qualquer um entre `azure-iot-device-amqp`, `azure-iot-device-mqtt` ou `azure-iot-device-http`
-    - o cliente de segurança já instalado por você: `azure-iot-security-tpm`
+   - o cliente do dispositivo: `azure-iot-device`
+   - um transporte: qualquer um entre `azure-iot-device-amqp`, `azure-iot-device-mqtt` ou `azure-iot-device-http`
+   - o cliente de segurança já instalado por você: `azure-iot-security-tpm`
 
-    > [!NOTE]
-    > Os exemplos a seguir usam os transportes `azure-iot-provisioning-device-http` e `azure-iot-device-mqtt`.
-    > 
+     > [!NOTE]
+     > Os exemplos a seguir usam os transportes `azure-iot-provisioning-device-http` e `azure-iot-device-mqtt`.
+     > 
 
-    Você pode instalar todos esses pacotes simultaneamente executando o seguinte comando no prompt de comando na pasta **registerdevice**:
+     Você pode instalar todos esses pacotes simultaneamente executando o seguinte comando no prompt de comando na pasta **registerdevice**:
 
-        ```cmd/sh
-        npm install --save azure-iot-device azure-iot-device-mqtt azure-iot-security-tpm azure-iot-provisioning-device-http azure-iot-provisioning-device
-        ```
+       ```cmd/sh
+       npm install --save azure-iot-device azure-iot-device-mqtt azure-iot-security-tpm azure-iot-provisioning-device-http azure-iot-provisioning-device
+       ```
 
 1. Usando um editor de texto, crie um novo arquivo **ExtractDevice.js** na pasta **registerdevice**.
 
@@ -141,15 +141,15 @@ Este artigo irá demonstrar registros individuais.
 1. Na folha de resumo do Serviço de Provisionamento de Dispositivos, selecione **Gerenciar registros**. Selecione a guia **Registros Individuais** e clique no botão **Adicionar registro individual** na parte superior. 
 
 1. No painel **Adicionar Registro**, insira as seguintes informações:
-    - Selecione **TPM** como o atestado de identidade *Mecanismo*.
-    - Insira a *ID de Registro* e *Chave de Endosso* para seu dispositivo do TPM.
-    - Opcionalmente, você pode fornecer as seguintes informações:
-        - Selecione um hub IoT vinculado com o serviço de provisionamento.
-        - Insira uma ID de dispositivo exclusiva. Evite dados confidenciais ao nomear seu dispositivo.
-        - Atualize o **Estado inicial do dispositivo gêmeo** com a configuração inicial desejada para o dispositivo.
-    - Uma vez concluído, clique no botão **Salvar**. 
+   - Selecione **TPM** como o atestado de identidade *Mecanismo*.
+   - Insira a *ID de Registro* e *Chave de Endosso* para seu dispositivo do TPM.
+   - Opcionalmente, você pode fornecer as seguintes informações:
+       - Selecione um hub IoT vinculado com o serviço de provisionamento.
+       - Insira uma ID de dispositivo exclusiva. Evite dados confidenciais ao nomear seu dispositivo.
+       - Atualize o **Estado inicial do dispositivo gêmeo** com a configuração inicial desejada para o dispositivo.
+   - Uma vez concluído, clique no botão **Salvar**. 
 
-    ![Inserir informações de registro de dispositivo na folha do portal](./media/quick-create-simulated-device/enter-device-enrollment.png)  
+     ![Inserir informações de registro de dispositivo na folha do portal](./media/quick-create-simulated-device/enter-device-enrollment.png)  
 
    Em caso de registro bem-sucedido, a *ID de Registro* do seu dispositivo é exibida na lista na guia *Registros Individuais*. 
 

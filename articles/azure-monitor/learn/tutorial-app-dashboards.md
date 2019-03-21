@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 5ce99e06ea1a8e72a8767367ddfd7bbb845c8400
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 3abe0511200bf5828b485b15a4b8a512731c4ffa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54318416"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58082119"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Criar painéis de KPI personalizados usando o Azure Application Insights
 
@@ -42,18 +42,18 @@ Faça logon no Portal do Azure em [https://portal.azure.com](https://portal.azur
 ## <a name="create-a-new-dashboard"></a>Crie um novo painel
 Um único painel pode conter recursos de vários aplicativos, grupos de recursos e assinaturas.  Inicie o tutorial criando um novo painel para seu aplicativo.  
 
-2.  No painel, selecione **Novo painel**.
+1. No painel, selecione **Novo painel**.
 
-    ![Novo painel](media/tutorial-app-dashboards/1newdashboard.png)
+   ![Novo painel](media/tutorial-app-dashboards/1newdashboard.png)
 
-3. Digite um nome para o painel.
-4. Examine a **Galeria de blocos** para uma variedade de blocos que você pode adicionar ao seu painel.  Além de adicionar blocos da galeria, você pode fixar gráficos e outros modos de exibição diretamente do Application Insights ao painel.
-5. Localize o bloco **Markdown** e arraste-o para seu painel.  Esse bloco permite que você adicione texto formatado em markdown, o que é ideal para adicionar texto descritivo ao seu painel.
-6. Adicione texto às propriedades do bloco e redimensione-o na tela do painel.
+1. Digite um nome para o painel.
+1. Examine a **Galeria de blocos** para uma variedade de blocos que você pode adicionar ao seu painel.  Além de adicionar blocos da galeria, você pode fixar gráficos e outros modos de exibição diretamente do Application Insights ao painel.
+1. Localize o bloco **Markdown** e arraste-o para seu painel.  Esse bloco permite que você adicione texto formatado em markdown, o que é ideal para adicionar texto descritivo ao seu painel.
+1. Adicione texto às propriedades do bloco e redimensione-o na tela do painel.
     
     ![Editar bloco de markdown](media/tutorial-app-dashboards/2dashboard-text.png)
 
-6. Clique em **Personalização concluída** na parte superior da tela para sair do modo de personalização de bloco.
+1. Clique em **Personalização concluída** na parte superior da tela para sair do modo de personalização de bloco.
 
 ## <a name="add-health-overview"></a>Adicionar a visão geral da integridade
 Um painel com texto estático apenas não é muito interessante, então agora adicione um bloco do Application Insights para mostrar informações sobre o seu aplicativo.  Você pode adicionar blocos do Application Insights da Galeria de blocos ou você pode fixá-los diretamente das telas do Application Insights.  Isso permite que você configure gráficos e exibições com os quais você já está familiarizado antes de fixá-los ao seu painel.  Comece adicionando a visão geral de integridade padrão para seu aplicativo.  Isso não requer nenhuma configuração e permite personalização mínima no painel.

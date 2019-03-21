@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: overview
 ms.date: 10/09/2018
 ms.author: alkohli
-ms.openlocfilehash: e4bc5de9345bcb65f82ca7ac0095b3e0fd3907e9
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: aefbe4265cb97a003b908c5631e1f9ed4e0192cc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165991"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58102089"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-data-box-gateway"></a>Use o portal do Azure para gerenciar agendas de largura de banda em seu Azure Data Box Gateway  
 
@@ -43,13 +43,13 @@ Para adicionar um usuário, siga estas etapas no portal do Azure.
 
 3. Em **Adicionar agendamento**: 
 
-    1. Informe o **Dia de início**, o **Dia de término**, a **Hora de início** e a **Hora de término** da agenda. 
-    2. Se essa agenda é executada o dia inteiro, você pode marcar a opção **O dia inteiro**. 
-    3. **Taxa de largura de banda** é a largura de banda em Megabits por segundo (Mbps) usada pelo dispositivo em operações que envolvem a nuvem (uploads e downloads). Forneça um número entre 1 e 1.000 para esse campo. 
-    4. Marque a opção de largura de banda **Ilimitada** se você não quiser restringir o download e o upload de dados. 
-    5. Clique em **Adicionar**.
+   1. Informe o **Dia de início**, o **Dia de término**, a **Hora de início** e a **Hora de término** da agenda. 
+   2. Se essa agenda é executada o dia inteiro, você pode marcar a opção **O dia inteiro**. 
+   3. **Taxa de largura de banda** é a largura de banda em Megabits por segundo (Mbps) usada pelo dispositivo em operações que envolvem a nuvem (uploads e downloads). Forneça um número entre 1 e 1.000 para esse campo. 
+   4. Marque a opção de largura de banda **Ilimitada** se você não quiser restringir o download e o upload de dados. 
+   5. Clique em **Adicionar**.
 
-    ![Clique em adicionar usuário](media/data-box-gateway-manage-bandwidth-schedules/add-schedule-2.png)
+      ![Clique em adicionar usuário](media/data-box-gateway-manage-bandwidth-schedules/add-schedule-2.png)
 
 3. É criada uma agenda com os parâmetros especificados. Em seguida, essa agenda é exibida na lista de agendas de largura de banda no portal.
 
