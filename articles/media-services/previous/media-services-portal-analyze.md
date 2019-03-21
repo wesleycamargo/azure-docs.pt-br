@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 02b972c0591bb05f72887e3e1c3d057d373ff48c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: fa48713034de5660218d2d568be6673a7d39a7e3
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004858"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245279"
 ---
-# <a name="analyze-your-media-using-the-azure-portal-legacy"></a>Analisar sua mídia usando o Portal do Azure (herdado)
+# <a name="analyze-your-media-using-the-azure-portal"></a>Analisar sua mídia usando o Portal do Azure 
 > [!NOTE]
 > Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). 
 > 

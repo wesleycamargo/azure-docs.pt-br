@@ -14,18 +14,18 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/25/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 664a2c6bfc4a73b7d792b71c4b81df54b05fcd74
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 373312b4c7f05fe41c9ca8165b8ff6f1b0e56f1b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54081500"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454962"
 ---
 # <a name="dynamics-365-for-customer-engagement-application-test-drive-tab"></a>Guia Test Drive do aplicativo do Dynamics 365 for Customer Engagement
 
-Use a guia **Test Drive** para criar uma experiência de avaliação para seus clientes.  Ela fornece aos clientes uma avaliação prática e autoguiada dos principais recursos e benefícios de sua oferta, demonstrados em um cenário de implementação do mundo real.  Dentre as opções de avaliação gratuita disponíveis, o Test Drive é a mais eficiente para gerar clientes potenciais de alta qualidade e aumentar a conversão deles.  Para saber mais, consulte [O que é um test drive?](../../cloud-partner-portal-orig/what-is-test-drive.md)
+Use a guia **Test Drive** para criar uma experiência de avaliação para seus clientes.  Ela fornece aos clientes uma avaliação prática e autoguiada dos principais recursos e benefícios de sua oferta, demonstrados em um cenário de implementação do mundo real.  Dentre as opções de avaliação gratuita disponíveis, o Test Drive é a mais eficiente para gerar clientes potenciais de alta qualidade e aumentar a conversão deles.  Para saber mais, consulte [O que é um test drive?](../test-drive/what-is-test-drive.md)
 
-A experiência de Test Drive para aplicativos do Dynamics 365 é executada automaticamente como uma solução hospedada pela Microsoft.  Para obter mais informações, confira [Test drive hospedado](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/hosted-test-drive).
+A experiência de Test Drive para aplicativos do Dynamics 365 é executada automaticamente como uma solução hospedada pela Microsoft.  Para obter mais informações, confira [Test drive hospedado](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/hosted-test-drive).
 
 A guia Test Drive tem três seções potenciais: **Test Drive**, **Detalhes** e **Configuração Técnica**.  As duas últimas seções serão exibidas somente depois que você habilitar a funcionalidade de Test Drive.  Um asterisco (*) anexado ao nome do campo indica que é obrigatório. 
 

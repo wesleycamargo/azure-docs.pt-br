@@ -16,12 +16,12 @@ ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/04/2018
-ms.openlocfilehash: 9dc2facbcae5ced1328d5488e533239a6a5627cf
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a4f41f5cf4e2775e3c300a2e83794e35d7328965
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776471"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104226"
 ---
 # <a name="validate-azure-registration"></a>Validar o registro do Azure
  
@@ -67,8 +67,8 @@ Os seguintes pré-requisitos devem estar em vigor:
    ```powershell
    $registrationCredential = Get-Credential subscriptionowner@contoso.onmicrosoft.com -Message "Enter Credentials for Subscription Owner"
    ```
-> [!NOTE]
-  > Como um CSP, ao usar uma assinatura de serviços compartilhados ou IUR, você precisará fornecer as credenciais de um usuário do AAD que respectivo. Normalmente, isso será semelhante a `subscriptionowner@iurcontoso.onmicrosoft.com`. Esse usuário precisa ter as credenciais apropriadas, conforme descrito acima.
+   > [!NOTE]
+   > Como um CSP, ao usar uma assinatura de serviços compartilhados ou IUR, você precisará fornecer as credenciais de um usuário do AAD que respectivo. Normalmente, isso será semelhante a `subscriptionowner@iurcontoso.onmicrosoft.com`. Esse usuário precisa ter as credenciais apropriadas, conforme descrito acima.
 
 3. No prompt do PowerShell, execute o seguinte para definir `$subscriptionID` como a assinatura do Azure que você usará. Substitua `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` pela sua ID de assinatura:
    ```powershell
@@ -174,7 +174,7 @@ Invoke-AzsRegistrationValidation Completed
 Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas Etapas
 
 - [Validar a identidade do Azure](azure-stack-validate-identity.md)
 - [Exibir o relatório de preparação](azure-stack-validation-report.md)

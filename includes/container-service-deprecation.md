@@ -4,12 +4,12 @@ ms.service: container-service
 ms.topic: include
 ms.date: 11/27/2018
 ms.author: iainfou
-ms.openlocfilehash: bb42891d3ca636dcb2415b2be8ce69e19575c408
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: c7a34256bff46247ed6c97bc2931942f631bbf09
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002227"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56589459"
 ---
 > [!WARNING]
 >  **O ACS (Serviço de Contêiner do Azure) está sendo preterido. Não estão sendo adicionados novos recursos ou funcionalidades ao ACS. Todas as APIs, a experiência do portal, os comandos da CLI e a documentação estão marcados como preteridos.**
@@ -18,10 +18,6 @@ ms.locfileid: "53002227"
 >
 > É recomendável que você implante uma das seguintes soluções do Azure Marketplace:
 >
-> * Docker EE for Azure
->   * [Edição Standard/Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/docker.dockerdatacenter?tab=Overview)
->   * [Edição Basic](https://azuremarketplace.microsoft.com/marketplace/apps/docker.docker4azure-st?tab=Overview)
->  
 > * Mesosphere DC/OS
 >   * [Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/mesosphere.enterprise-dcos?tab=Overview)
 >   * [Edição Open Source](https://azuremarketplace.microsoft.com/marketplace/apps/mesosphere.dcos?tab=overview)

@@ -16,12 +16,12 @@ ms.date: 07/17/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e0942f028752b1e3db89802ee889eac7157815d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 194f422c1567103e41f3b39f8510931b1f4762b5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205606"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105175"
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: Como se recuperar de um limite de 10 GB do LocalDB
 O Azure AD Connect requer um banco de dados do SQL Server para armazenar dados de identidade. Você pode usar o padrão que do SQL Server 2012 Express LocalDB instalado com o Azure AD Connect ou usar seu próprio SQL completo. O SQL Server Express impõe um limite de tamanho de 10 GB. Ao usar o LocalDB e esse limite for atingido, o serviço de sincronização do Azure do AD Connect não pode iniciar ou sincronizar corretamente. Este artigo fornece as etapas de recuperação.
@@ -81,13 +81,13 @@ O nome do banco de dados criado para o Azure AD Connect é **ADSync**. Para exec
 ### <a name="delete-run-history-data"></a>Excluir dados de histórico de execução
 Por padrão, Azure AD Connect retém a dias sete de dados de histórico de execução. Nesta etapa, podemos excluir os dados de histórico de execução para recuperar espaço de banco de dados para que o serviço de sincronização do Azure do AD Connect pode começar a sincronizar novamente.
 
-1.  Inicie o **Gerenciador de Serviço de Sincronização** indo para INICIAR → Serviço de Sincronização.
+1. Inicie o **Gerenciador de Serviço de Sincronização** indo para INICIAR → Serviço de Sincronização.
 
-2.  Vá para a guia **Operações**.
+2. Vá para a guia **Operações**.
 
-3.  Em **Ações**, selecione **Limpar Execuções**…
+3. Em **Ações**, selecione **Limpar Execuções**…
 
-4.  Você pode escolher a opção **Limpar todas as execuções** ou **Limpar execuções antes de... <date>**. É recomendável que você comece desmarcando os dados de histórico de execução com mais de dois dias. Se você continuar a executar o problema de tamanho do banco de dados, escolha o **limpar todas as execuções** opção.
+4. Você pode escolher a opção **Limpar todas as execuções** ou **Limpar execuções antes de... <date>**. É recomendável que você comece desmarcando os dados de histórico de execução com mais de dois dias. Se você continuar a executar o problema de tamanho do banco de dados, escolha o **limpar todas as execuções** opção.
 
 ### <a name="shorten-retention-period-for-run-history-data"></a>Reduzir o período de retenção de dados de histórico de execução
 Esta etapa é reduzir a probabilidade de executando o problema de limite de 10 GB após vários ciclos de sincronização.

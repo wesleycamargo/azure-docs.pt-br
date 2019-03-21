@@ -12,58 +12,58 @@ ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 851a8705b3cfa9c88e369af7b961a653dee8fd7a
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 846472e00bc048de906ee8e14f6de38e366f3571
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959843"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225222"
 ---
 # <a name="import-or-export-configuration-data"></a>Importar ou exportar dados de configuração
 
-Configuração de aplicativo dá suporte a dados do Azure operações importação e exportação. Elas permitem que você trabalhe com dados de configuração em massa, bem como trocar dados entre sua configuração de aplicativo, armazenar e projeto de código. Por exemplo, você pode configurar repositório de configuração de um aplicativo para teste e outro para produção e copiar configurações de aplicativo entre eles por meio de um arquivo para que você não precise inserir os dados duas vezes.
+Configuração de aplicativo dá suporte a dados do Azure operações importação e exportação. Usar essas operações para trabalhar com dados de configuração nos dados em massa e o exchange entre o repositório de configurações do aplicativo e código de projeto. Por exemplo, você pode configurar repositório de configuração de um aplicativo para teste e outro para produção. Em seguida, você pode copiar entre eles por meio de um arquivo de configurações do aplicativo para que você não precise inserir dados duas vezes.
 
 Este artigo fornece um guia para importar e exportar dados com a configuração de aplicativo.
 
 ## <a name="import-data"></a>Importar dados
 
-Importação traz a configuração de armazenamento de dados na configuração de aplicativo de uma fonte existente, em vez de inserir manualmente-los. Você pode usar a função de importação para migrar dados para um repositório de configurações do aplicativo ou agregar dados de várias fontes. Configuração de aplicativo suporte à importação de um arquivo JSON, YAML ou propriedades.
+Importação traz a configuração de armazenamento de dados em uma configuração de aplicativo de uma fonte existente, em vez de inserir manualmente-lo. Use a função de importação para migrar dados para um repositório de configurações do aplicativo ou agregar dados de várias fontes. Configuração de aplicativo dá suporte à importação de um arquivo JSON, YAML ou propriedades.
 
-Você pode importar dados usando o [portal do Azure](https://aka.ms/azconfig/portal) ou [CLI do Azure](./scripts/cli-import.md). No portal do Azure, siga estas etapas:
+Importar dados usando o [portal do Azure](https://aka.ms/azconfig/portal) ou o [CLI do Azure](./scripts/cli-import.md). No portal do Azure, siga estas etapas:
 
-1. Navegue até seu repositório de configurações do aplicativo e clique em **importação/exportação**.
+1. Navegue até seu repositório de configurações do aplicativo e selecione **importação/exportação**.
 
-2. No **importação** guia, escolha **serviço de fonte** e **arquivo de configuração**.
+2. Sobre o **importação** guia, selecione **serviço de origem** > **arquivo de configuração**.
 
-3. Escolher **do idioma** e **tipo de arquivo**.
+3. Selecione **do idioma** > **tipo de arquivo**.
 
-4. Clique no **pasta** ícone e navegue até o arquivo para importar.
+4. Selecione o **pasta** ícone e navegue até o arquivo para importar.
 
     ![Arquivo de importação](./media/import-file.png)
 
-5. Escolha uma **separador** e, opcionalmente, insira um **prefixo** a ser usado para nomes de chave importados.
+5. Selecione uma **separador**e, opcionalmente, insira um **prefixo** a ser usado para nomes de chave importados.
 
 6. Opcionalmente, selecione uma **rótulo**.
 
-7. Clique em **aplicar** para concluir a importação.
+7. Selecione **aplicar** para concluir a importação.
 
-    ![Arquivo de importação concluída](./media/import-file-complete.png)
+    ![Arquivo de importação concluído](./media/import-file-complete.png)
 
 ## <a name="export-data"></a>Exportar dados
 
-Exportação grava os dados de configuração armazenados na configuração de aplicativo para outro destino. Você pode usar a função de exportação, por exemplo, para salvar dados em um repositório de configuração de aplicativo para um arquivo que será inserido com o código do aplicativo durante a implantação.
+Exportação grava os dados de configuração armazenados na configuração de aplicativo para outro destino. Use a função de exportação, por exemplo, para salvar dados em um repositório de configuração de aplicativo para um arquivo que é inserido com o código do aplicativo durante a implantação.
 
-Você pode exportar dados usando o [portal do Azure](https://aka.ms/azconfig/portal) ou [CLI do Azure](./scripts/cli-export.md). No portal do Azure, siga estas etapas:
+Exportar dados usando o [portal do Azure](https://aka.ms/azconfig/portal) ou o [CLI do Azure](./scripts/cli-export.md). No portal do Azure, siga estas etapas:
 
-1. Navegue até seu repositório de configurações do aplicativo e clique em **importação/exportação**.
+1. Navegue até seu repositório de configurações do aplicativo e selecione **importação/exportação**.
 
-2. No **exportar** guia, escolha **serviço de destino** e **arquivo de configuração**.
+2. Sobre o **exportar** guia, selecione **serviço de destino** > **arquivo de configuração**.
 
-3. Opcionalmente, insira um **prefixar** e escolha um **rótulo** e um point-in-time para chaves a serem exportados.
+3. Opcionalmente, insira um **prefixar** e selecione um **rótulo** e um point-in-time para chaves a serem exportados.
 
-4. Escolha uma **tipo de arquivo** e **separador**.
+4. Selecione uma **tipo de arquivo** > **separador**.
 
-5. Clique em **aplicar** para concluir a exportação.
+5. Selecione **aplicar** para concluir a exportação.
 
     ![Arquivo de exportação concluída](./media/export-file-complete.png)
 

@@ -18,12 +18,12 @@ ms.author: markvi
 ms.reviewer: nigu
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36a2fc9d1ab364d44bd5dd6e7930e5d8ae3fb78d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 70584415d3e0d40219c9a208b7afd73170efc8cc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204739"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120561"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Introdução ao Azure Active Directory Identity Protection e ao Microsoft Graph
 
@@ -80,7 +80,7 @@ Antes de começar, será necessário:
    
     ![Criação de um aplicativo](./media/graph-get-started/44.png)
 
-     a. Na caixa de texto **Nome**, digite um nome para o aplicativo (por exemplo: Aplicativo de API do Evento de Risco AADIP).
+    a. Na caixa de texto **Nome**, digite um nome para o aplicativo (por exemplo: Aplicativo de API do Evento de Risco AADIP).
    
     b. Como **Tipo**, selecione **Aplicativo Web E/Ou API Web**.
    
@@ -139,7 +139,7 @@ Antes de começar, será necessário:
    
     ![Criação de um aplicativo](./media/graph-get-started/24.png)
 
-     a. Na caixa de texto **Descrição da chave**, digite uma descrição (por exemplo, *AADIP Risk Event*).
+    a. Na caixa de texto **Descrição da chave**, digite uma descrição (por exemplo, *AADIP Risk Event*).
     
     b. Como **Duração**, selecione **Em um ano**.
 
@@ -166,7 +166,7 @@ Para autenticar, envie uma solicitação post para `https://login.microsoft.com`
 
 - grant_type: “**client_credentials**”
 
--  resource: “**https://graph.microsoft.com**”
+-  resource: `https://graph.microsoft.com`
 
 - client_id: \<a ID do cliente\>
 

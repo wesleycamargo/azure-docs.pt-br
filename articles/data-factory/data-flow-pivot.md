@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 86404f4eb2eb2de4243c6bb725f4292e7b560d18
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 5548a62218aaac2e4da3853e8e5d43a584922bc0
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270905"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569885"
 ---
 # <a name="azure-data-factory-mapping-data-flow-pivot-transformation"></a>Transformação dinâmica do Fluxo de Dados de Mapeamento do Azure Data Factory
 
@@ -42,7 +42,7 @@ Por fim, você escolherá a agregação que deseja usar para os valores dinamiza
 
 (Opcional) É possível definir um padrão de nomenclatura com um prefixo, um intermediário e um sufixo a serem adicionados a cada novo nome de coluna com base nos valores de linha.
 
-Por exemplo, dinamizar “Vendas” por “Região” resultaria em novos valores de coluna de cada valor de vendas, ou seja, "25", "50", "1000", etc. No entanto, se você definir um valor de prefixo de "Vendas" 
+Por exemplo, dinamizar “Vendas” por “Região” resultaria em novos valores de coluna de cada valor de vendas, ou seja, "25", "50", "1000", etc. No entanto, se você definir um valor de prefixo de vendas "-", cada valor de coluna adicionaria "vendas-" para o início do valor.
 
 ![Opções de dinamização](media/data-flow/pivot5.png "dinamização 5")
 
@@ -56,4 +56,8 @@ Use a Linguagem de Expressão do Fluxo de Dados do ADF para descrever as transfo
 
 ### <a name="how-to-rejoin-original-fields"></a>Como reingressar nos campos originais
 > [!NOTE]
-> A transformação dinâmica só projetará as colunas usadas nas ações de agregação, agrupamento e dinamização. Se você quiser incluir outras colunas da etapa anterior em seu fluxo, use um Novo Branch da etapa anterior e use o padrão de autojunção para conectar o fluxo aos metadados originais
+> A transformação dinâmica só projetará as colunas usadas nas ações de agregação, agrupamento e dinamização. Se você quiser incluir outras colunas da etapa anterior em seu fluxo, use um novo Branch da etapa anterior e usar o padrão de associação a mesmo para conectar o fluxo com os metadados originais.
+
+## <a name="next-steps"></a>Próximas etapas
+
+Experimente o [transformação não dinâmica](data-flow-unpivot.md) para transformar os valores de coluna em valores de linha. 

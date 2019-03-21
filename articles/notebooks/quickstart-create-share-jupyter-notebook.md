@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 5add60ad-0b4b-4fd5-adf5-eb50ce072d00
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 96eb6a823299521a071edc87b5bce95409405ffb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 3f03202d0f4416b3bf08a33e5d997d7149eda9f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096266"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104396"
 ---
 # <a name="quickstart-create-and-share-a-notebook"></a>Início Rápido: Criar e compartilhar um notebook
 
@@ -28,18 +28,18 @@ ms.locfileid: "53096266"
 
     ![Link Meus Projetos na parte superior da janela do navegador](media/quickstarts/my-projects-link.png)
 
-1. Na página **Meus Projetos**, selecione **+ Novo Projeto**(atalho de teclado: n), o botão poderá aparecer apenas como **+**, se a janela do navegador for estreita:
+1. Na página **Meus Projetos**, selecione **+ Novo Projeto**(atalho de teclado: n); o botão poderá aparecer apenas como **+**, se a janela do navegador for estreita:
 
-    ![Novo comando de Projeto na página Meus Projetos](media/quickstarts/new-project-command.png)
+    ![Comando Novo Projeto na página Meus Projetos](media/quickstarts/new-project-command.png)
 
-1. No pop-up **Criar novo projeto** exibido, insira ou defina os seguintes detalhes e, em seguida, selecione **Criar**:
+1. No pop-up **Criar Novo Projeto** exibido, insira ou defina os seguintes detalhes e selecione **Criar**:
 
-    - **Nome do projeto**: Olá, Mundo em Python
-    - **ID do Projeto**: hello-world-python
-    - **Projeto público**: (desmarcado)
-    - **Criar um README.md**: (desmarcado)
+   - **Nome do projeto**: Olá, Mundo em Python
+   - **ID do Projeto**: hello-world-python
+   - **Projeto público**: (desmarcado)
+   - **Criar um README.md**: (desmarcado)
 
-    ![Pop-up Novo Projeto com detalhes preenchidos](media/quickstarts/new-project-popup.png)
+     ![Pop-up Novo Projeto com detalhes preenchidos](media/quickstarts/new-project-popup.png)
 
 1. Após alguns instantes, o Azure Notebooks o direcionará para o novo projeto. Adicione um notebook ao projeto, selecionando o menu suspenso **+ Novo** (que pode aparecer somente como **+**) e, em seguida, selecionando **Notebook**:
 
@@ -93,7 +93,7 @@ ms.locfileid: "53096266"
 
     ![Ícone Salvar na barra de ferramentas do Jupyter Notebook](media/quickstarts/hello-results-save-icon.png)
 
-1. Selecione o **Arquivo** > **Parar e fechar**, que é comando de menu para parar o servidor e fechar a janela do navegador.
+1. Selecione o **arquivo** > **fechar e interromper** comando de menu para parar o servidor e fechar a janela do navegador.
 
 ## <a name="share-the-notebook"></a>Compartilhar o notebook
 

@@ -14,19 +14,19 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: vibhork;dominic.may@sendgrid.com;elmer.thomas@sendgrid.com
-ms.openlocfilehash: c2f2a6e5f2dd551cfb300d333081874fef2f405c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.openlocfilehash: fecc3b411211ceb8aa6db5a0e0c0c6b07f19a63f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52421940"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442454"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java-in-an-azure-deployment"></a>Como enviar email usando o SendGrid do Java em uma implantação do Azure
-O exemplo a seguir mostra como você pode usar o SendGrid para enviar emails de uma página da web hospedada no Azure. O aplicativo resultante solicitará os valores de email ao usuário, conforme mostrado na captura de tela a seguir.
+O exemplo a seguir mostra como você pode usar o SendGrid para enviar emails de uma página da web hospedada no Azure. O aplicativo resultante solicitará que o usuário para valores de email, conforme mostrado na seguinte captura de tela.
 
 ![Formulário de email][emailform]
 
-O email resultante será semelhante à captura de tela a seguir.
+O email resultante será semelhante à seguinte captura de tela.
 
 ![Mensagem de email][emailsent]
 
@@ -204,7 +204,7 @@ O código a seguir, que é chamado quando você preenche o formulário em emailf
     </body>
     </html>
 
-Além de enviar o email, o emailform.jsp fornece um resultado para o usuário; um exemplo é a captura de tela a seguir:
+Além de enviar o email, o emailform. jsp fornece um resultado para o usuário; um exemplo é a seguinte captura de tela:
 
 ![Resultado de envio de email][emailresult]
 

@@ -11,16 +11,16 @@ manager: carmonm
 ms.topic: article
 ms.assetid: 90f5cfc4-46b2-4ef7-8ac4-486bb0e3f289
 ms.date: 02/06/2019
-ms.openlocfilehash: da5b099a5574d34c3676819c930f3e89610cf4ad
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: f6d778ddbce16c223945d4683bd7a950bd2a0cb0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767428"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455795"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>Transformar XML com mapas nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 
-Para transferir dados XML entre formatos para cenários de integração corporativa nos Aplicativos Lógicos do Azure, seu aplicativo lógico pode usar mapas ou, mais especificamente, mapas XSLT (linguagem XSL Transformations). Um mapa é um documento XML que descreve como converter dados de um documento XML para outro formato. 
+Para transferir dados XML entre formatos para cenários de integração corporativa no aplicativo lógico do Azure, seu aplicativo lógico pode usar mapas ou mais especificamente, extensível folha de estilos XSLT (linguagem) é mapeado. Um mapa é um documento XML que descreve como converter dados de um documento XML para outro formato. 
 
 Por exemplo, suponha que você recebe regularmente pedidos ou faturas B2B de clientes que usam o formato de data AAAAMMDD. No entanto, sua organização usa o formato de data MMDDAAAA. Você pode usar um mapa para transformar o formato de data AAAAMMDD em MMDDAAAA antes de armazenar os detalhes do pedido ou da fatura no banco de dados de atividade do cliente.
 
@@ -39,7 +39,7 @@ Para obter os limites relacionados aos artefatos e às contas de integração co
   * Para assemblies, você precisa de um contêiner de blob do Azure no qual possa carregar o assembly e o local desse contêiner. Dessa forma, é possível fornecer esse local mais tarde ao adicionar o assembly à sua conta de integração. 
   Para essa tarefa, são necessários estes itens:
 
-    | item | DESCRIÇÃO |
+    | Item | Descrição |
     |------|-------------|
     | [Conta de armazenamento do Azure](../storage/common/storage-account-overview.md) | Nessa conta, crie um contêiner de blob do Azure para o assembly. Saiba [como criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md). |
     | Contêiner de blob | Nesse contêiner, você pode carregar seu assembly. Você também precisa da localização desse contêiner ao adicionar o assembly à sua conta de integração. Saiba como [criar um contêiner de blob](../storage/blobs/storage-quickstart-blobs-portal.md). |

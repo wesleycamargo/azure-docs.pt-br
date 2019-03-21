@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 01/22/2019
+ms.date: 03/19/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 5e6a44018cde84067a4c16c9d3d62227733f6658
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 617696c842ab90fc36c68e74831ffd1d79d14bc4
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58075571"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225698"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Gerenciar a capacidade de armazenamento para o Azure Stack 
 
@@ -89,7 +89,7 @@ Como um operador de nuvem, você pode monitorar a capacidade de armazenamento de
 Como um operador de nuvem, você pode usar o portal de administração para exibir a capacidade de armazenamento de todos os compartilhamentos.
 
 1. Entrar para o [portal de administração](https://adminportal.local.azurestack.external).
-2. Selecione **todos os serviços** > **armazenamento** para abrir a lista de compartilhamento de arquivo onde você pode exibir as informações de uso. 
+2. Selecione **todos os serviços** > **armazenamento** > **compartilhamentos de arquivos** para abrir a lista de compartilhamento de arquivo onde você pode exibir as informações de uso. 
 
     ![Exemplo: Compartilhamentos de arquivos de armazenamento](media/azure-stack-manage-storage-shares/storage-file-shares.png)
 
@@ -170,20 +170,20 @@ Migração consolida todas as um blob de contêineres para o novo compartilhamen
 
    ![Exemplo: $destination compartilhamentos](media/azure-stack-manage-storage-shares/examine-destinationshares.png)
 
-4. Inicie a migração para um contêiner. A migração é assíncrona. Se você iniciar a migração de contêineres adicionais antes da primeira migração ser concluída, use a id do trabalho para acompanhar o status de cada um.
+4. Inicie a migração para um contêiner. A migração é assíncrona. Se você iniciar a migração de contêineres adicionais antes da primeira migração ser concluída, use a ID do trabalho para acompanhar o status de cada um.
 
    ```PowerShell
    $job_id = Start-AzsStorageContainerMigration -StorageAccountName $containers[0].Accountname -ContainerName $containers[0].Containername -ShareName $containers[0].Sharename -DestinationShareUncPath $destinationshares[0].UncPath -FarmName $farm_name
    ```
 
-   Em seguida, examine $jobId. No exemplo a seguir, substitua *d62f8f7a-8b46-4f59-a8aa-5db96db4ebb0* com a id de trabalho que você deseja examinar:
+   Em seguida, examine $jobId. No exemplo a seguir, substitua *d62f8f7a-8b46-4f59-a8aa-5db96db4ebb0* com a ID de trabalho que você deseja examinar:
 
    ```PowerShell
    $jobId
    d62f8f7a-8b46-4f59-a8aa-5db96db4ebb0
    ```
 
-5. Use a id do trabalho para verificar o status do trabalho de migração. Quando a migração do contêiner for concluída, **MigrationStatus** é definido como **concluir**.
+5. Use a ID do trabalho para verificar o status do trabalho de migração. Quando a migração do contêiner for concluída, **MigrationStatus** é definido como **concluir**.
 
    ```PowerShell 
    Get-AzsStorageContainerMigrationStatus -JobId $job_id -FarmName $farm_name

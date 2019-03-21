@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: ''
 ms.custom: include file
-ms.openlocfilehash: f9005a5f0d327fd59a1b665cb8e714716908ea81
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 301ea649f127be1650b0d2236421d9110f19b50e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38755483"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553268"
 ---
 | Recurso | Limite padrão |
 | --- | --- |
-| Perfis por assinatura |200 <sup>1</sup> |
+| Perfis por assinatura |200<sup>1</sup> |
 | Pontos de extremidade por perfil |200 |
 
-<sup>1</sup>Contate o suporte caso precise aumentar esses limites.
+<sup>1</sup>caso você precise aumentar esses limites, entre em contato com o suporte do Azure.
 

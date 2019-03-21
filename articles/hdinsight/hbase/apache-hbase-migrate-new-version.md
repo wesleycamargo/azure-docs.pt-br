@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 1e62495de35c8df4f446d371a0bbbcdc80c7118d
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: 3b27fe0bec4ec23739e3cff02d6aed667f1d3e1d
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53650096"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226820"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Migrar um cluster Apache HBase para uma nova versão
 
@@ -199,15 +199,21 @@ O cenário a seguir é para atualização do HDInsight 3.4 para 3.6 (ambos forne
 
     ![Em Ambari, altere o nome do contêiner.](./media/apache-hbase-migrate-new-version/change-container-name.png)
 
-8. Salve suas alterações.
-9. Reinicie todos os serviços necessários conforme indicado pelo Ambari.
-10. Aponte seu aplicativo para o novo cluster.
+8. **Se você não estiver usando clusters do HBase com o recurso avançado grava, ignore esta etapa. Ela é necessária somente para clusters do HBase com recurso aprimorado grava.**
+   
+   Altere o caminho hbase.rootdir para apontar para o contêiner do cluster original.
+
+    ![Em Ambari, altere o nome do contêiner para rootdir hbase](./media/apache-hbase-migrate-new-version/change-container-name-for-hbase-rootdir.png)
+    
+9. Salve suas alterações.
+10. Reinicie todos os serviços necessários conforme indicado pelo Ambari.
+11. Aponte seu aplicativo para o novo cluster.
 
     > [!NOTE]  
     > O DNS estático para que as alterações de aplicativo durante a atualização. Em vez de fazer hard-coding deste DNS, você pode configurar um CNAME nas configurações de DNS do nome de domínio que aponta para o nome do cluster. Outra opção é usar um arquivo de configuração para o aplicativo que você pode atualizar sem reimplantação.
 
-11. Inicie a ingestão para verificar se tudo está funcionando conforme o esperado.
-12. Se o novo cluster for satisfatório, exclua o cluster original.
+12. Inicie a ingestão para verificar se tudo está funcionando conforme o esperado.
+13. Se o novo cluster for satisfatório, exclua o cluster original.
 
 ## <a name="next-steps"></a>Próximas etapas
 
