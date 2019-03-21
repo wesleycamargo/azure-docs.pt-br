@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 19e1721a638dfc750938e09e1626c4e291367723
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 234d59f9d625af6d0309b2995cc734fad6028b1e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432438"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767032"
 ---
 # <a name="getting-started-with-azure-automation-state-configuration"></a>Introdução à Configuração de Estado da Automação do Azure
 
@@ -157,7 +157,6 @@ A conclusão com êxito de um trabalho de compilação cria uma ou mais novas co
    ![Captura de tela da folha Registro](./media/automation-dsc-getting-started/RegisterVM.png)
 
    A configuração do nó especificada é aplicada à VM em intervalos especificados pela **Frequência do Modo de Configuração** e a VM verifica se há atualizações para a configuração do nó em intervalos especificados pela **Frequência de Atualização**. Para obter mais informações sobre como esses valores são usados, consulte [Configurando o Gerenciador de Configuração Local](https://msdn.microsoft.com/PowerShell/DSC/metaConfig).
-1. Na folha **Adicionar VMs do Azure**, clique em **Criar**.
 
 O Azure inicia o processo de integração da VM. Quando estiver concluída, a VM aparecerá na guia **Nós** da página **Configuração de estado (DSC)** na conta de Automação.
 

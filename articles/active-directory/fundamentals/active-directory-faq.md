@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e1f96ce6114b46d9523e29fe3000b7e9c612ea9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: f602b5f9809e5bbe0b1efb52cfa66877a31a2170
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186532"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58183332"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Perguntas frequentes sobre o Azure Active Directory
 O Azure AD (Azure Active Directory) é uma solução abrangente de IDaaS (identidade como um serviço) que inclui todos os aspectos de identidade, gerenciamento de acesso e segurança.
@@ -59,7 +59,7 @@ Além disso, os serviços pagos do Azure AD, como Enterprise Mobility + Security
 - - -
 **P: Existe um relatório que mostra quando minhas licenças de usuário do Microsoft Azure Active Directory irão expirar?**
 
-**R:**  Não.  Isso não está disponível atualmente.
+**R:** Nenhum.  Isso não está disponível atualmente.
 
 - - -
 
@@ -88,7 +88,7 @@ Para saber mais, veja [Integrando identidades locais ao Azure Active Directory](
 - - -
 **P: O Microsoft Azure Active Directory oferece um portal de autoatendimento para usuários em minha organização?**
 
-**R:** Sim, o Microsoft Azure Active Directory oferece o [Painel de Acesso do Azure AD](https://myapps.microsoft.com) para o autoatendimento de usuários e o acesso ao aplicativo. Se é cliente do Office 365, você pode encontrar muitos dos mesmos recursos no portal do Office 365.
+**R:** Sim, o Microsoft Azure Active Directory oferece o [Painel de Acesso do Azure AD](https://myapps.microsoft.com) para o autoatendimento de usuários e o acesso ao aplicativo. Se você for um cliente do Office 365, você pode encontrar muitos dos mesmos recursos na [portal do Office 365](https://portal.office.com).
 
 Para saber mais, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
@@ -210,4 +210,4 @@ Para saber mais, confira [Automatizar o provisionamento e o desprovisionamento d
 - - -
 **P:  Posso configurar uma conexão LDAP segura com o Microsoft Azure Active Directory?**
 
-**R:**   Não. O Azure AD não dá suporte ao protocolo LDAP. No entanto, é possível configurar LDAP seguro com Azure Active Directory Domain Services.
+**R:**  Nenhum. O Azure AD não dá suporte ao protocolo LDAP. No entanto, é possível configurar LDAP seguro com Azure Active Directory Domain Services.

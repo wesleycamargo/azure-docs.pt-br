@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: banders
-ms.openlocfilehash: 8a6993f19f32e1bdb0bd10013f8f7e3dde844edd
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: 2468f61c187d9b10ed9fe55ccf76e5d2561d0505
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903920"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57889804"
 ---
 # <a name="understand-free-service-to-meter-mapping"></a>Entender o serviço gratuito para mapeamento de medidor
 
@@ -55,4 +55,4 @@ Cada serviço do Azure emite a utilização em relação a medidores, utilizados
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
-Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Se você tiver dúvidas ou precisar de Ajuda, [criar uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).

@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: ''
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/27/2018
 ms.author: labattul
-ms.openlocfilehash: 34647c218bd5fd2eec775599a4d2f10373dbd2fd
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
-ms.translationtype: HT
+ms.openlocfilehash: c5cb840035c5d0d5694982324c7237c58001e689
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268269"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993861"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>Configurar o DPDK em uma máquina virtual Linux
 
@@ -33,14 +33,14 @@ O DPDK pode ser executado em máquinas virtuais do Azure, com suporte a várias 
 
 ## <a name="benefit"></a>Benefício
 
-**Pacotes superiores por segundo (PPS)**: Ignorando o kernel e controlando os pacotes no espaço do usuário reduz a contagem de ciclos eliminando a alternância de contexto. Ele também melhora a taxa de pacotes que são processados por segundo nas máquinas virtuais do Azure Linux.
+**Maior pacotes por segundo (PPS)**: Ignorar o kernel e ter o controle de pacotes no espaço do usuário reduz a contagem de ciclo, eliminando alternâncias de contexto. Ele também melhora a taxa de pacotes que são processados por segundo nas máquinas virtuais do Azure Linux.
 
 
 ## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
 
 As seguintes distribuições da Galeria do Azure são suportadas:
 
-| Sistema operacional Linux     | Versão do kernel        |
+| SO Linux     | Versão do kernel        |
 |--------------|----------------       |
 | Ubuntu 16.04 | 4.15.0-1015-azure     |
 | Ubuntu 18.04 | 4.15.0-1015-azure     |
@@ -126,14 +126,14 @@ Depois de reiniciar, execute os comandos a seguir, uma vez:
      /sys/devices/system/node/node*/hugepages/hugepages-2048kB/nr_hugepages
      ```
 
-   *  Crie um diretório para montagem com `mkdir /mnt/huge`.
-   *  Monte as hugepages com `mount -t hugetlbfs nodev /mnt/huge`.
-   *  Verifique se hugepages estão reservados com `grep Huge /proc/meminfo`.
+   * Crie um diretório para montagem com `mkdir /mnt/huge`.
+   * Monte as hugepages com `mount -t hugetlbfs nodev /mnt/huge`.
+   * Verifique se hugepages estão reservados com `grep Huge /proc/meminfo`.
 
      > [!NOTE]
-     > Existe uma maneira de modificar o arquivo grub para que as páginas grandes sejam reservadas na inicialização seguindo as [instruções](http://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) para o DPDK. As instruções estão na parte inferior da página. Ao usar uma máquina virtual do Azure Linux, modifique os arquivos em **/etc/config/grub.d** para reservar páginas amplas nas reinicializações.
+     > Existe uma maneira de modificar o arquivo grub para que as páginas grandes sejam reservadas na inicialização seguindo as [instruções](https://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) para o DPDK. As instruções estão na parte inferior da página. Ao usar uma máquina virtual do Azure Linux, modifique os arquivos em **/etc/config/grub.d** para reservar páginas amplas nas reinicializações.
 
-2. Endereços MAC e IP: use `ifconfig –a` para visualizar o endereço MAC e IP das interfaces de rede. A interface de rede *VF* e a interface de rede *NETVSC* têm o mesmo endereço MAC, mas apenas a interface de rede *NETVSC* tem um endereço IP. Interfaces de FV estão em execução como interfaces subordinadas de interfaces NETVSC.
+2. Endereços IP e MAC: Use `ifconfig –a` para exibir o endereço MAC e IP das interfaces de rede. A interface de rede *VF* e a interface de rede *NETVSC* têm o mesmo endereço MAC, mas apenas a interface de rede *NETVSC* tem um endereço IP. Interfaces de FV estão em execução como interfaces subordinadas de interfaces NETVSC.
 
 3. Endereços PCI
 
@@ -146,13 +146,13 @@ Depois de reiniciar, execute os comandos a seguir, uma vez:
 
 Os aplicativos DPDK devem ser executados sobre o PMD à prova de falhas exposto no Azure. Se o aplicativo for executado diretamente sobre o PMD de VF, ele não receberá **todos** os pacotes destinados à VM, pois alguns pacotes aparecem na interface sintética. 
 
-Se você executar um aplicativo DPDK sobre o PMD à prova de falhas, ele garantirá que o aplicativo receba todos os pacotes destinados a ele. Ele também garante que o aplicativo continue em execução no modo DPDK, mesmo que o FV seja revogado quando o host estiver em manutenção. Confira mais informações sobre PMD à prova de falhas em [Biblioteca de drivers do modo de sondagem à prova de falhas](http://doc.dpdk.org/guides/nics/fail_safe.html).
+Se você executar um aplicativo DPDK sobre o PMD à prova de falhas, ele garantirá que o aplicativo receba todos os pacotes destinados a ele. Ele também garante que o aplicativo continue em execução no modo DPDK, mesmo que o FV seja revogado quando o host estiver em manutenção. Confira mais informações sobre PMD à prova de falhas em [Biblioteca de drivers do modo de sondagem à prova de falhas](https://doc.dpdk.org/guides/nics/fail_safe.html).
 
 ## <a name="run-testpmd"></a>Executar testpmd
 
 Para executar testpmd no modo de raiz, use `sudo` antes do comando *testpmd*.
 
-### <a name="basic-sanity-check-failsafe-adapter-initialization"></a>Basic: Verificação de integridade, a inicialização do adaptador à prova de falhas
+### <a name="basic-sanity-check-failsafe-adapter-initialization"></a>Básico: Verificação de integridade de inicialização do adaptador à prova de falhas
 
 1. Execute os seguintes comandos para iniciar um aplicativo testpmd de porta única:
 
@@ -180,7 +180,7 @@ Para executar testpmd no modo de raiz, use `sudo` antes do comando *testpmd*.
 
 Os comandos anteriores iniciam *testpmd* no modo interativo, o que é recomendado, para testar alguns comandos testpmd.
 
-### <a name="basic-single-sendersingle-receiver"></a>Básico: Receptor de único remetente/única
+### <a name="basic-single-sendersingle-receiver"></a>Básico: Receptor único remetente/único
 
 Os seguintes comandos periodicamente imprimem as estatísticas de pacotes por segundo:
 

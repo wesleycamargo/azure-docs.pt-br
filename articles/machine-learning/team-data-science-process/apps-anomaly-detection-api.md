@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 06/05/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
-ms.openlocfilehash: e407aee98bef9917a99e3305e2c99dbdd0c182e0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: e5f428062155ea732dce785955ac76011f3e4678
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469814"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899342"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>API de detecção de anomalias do Machine Learning
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 A [API de detecção de anomalias](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2) é um exemplo criado com o Azure Machine Learning que detecta anomalias nos dados de série temporal com valores numéricos que são espaçados uniformemente no tempo.
 
 Esta API pode detectar os seguintes tipos de padrão anômalo nos dados de série temporal:
@@ -32,7 +32,7 @@ Esses detectores de aprendizado da máquina rastreiam as alterações nos valore
 
 A oferta da Detecção de Anomalias vem com ferramentas úteis para você começar.
 
-* O [aplicativo Web](http://anomalydetection-aml.azurewebsites.net/) ajuda a avaliar e visualizar os resultados das APIs de detecção de anomalias em seus dados.
+* O [aplicativo Web](https://anomalydetection-aml.azurewebsites.net/) ajuda a avaliar e visualizar os resultados das APIs de detecção de anomalias em seus dados.
 
 > [!NOTE]
 > Tente a **solução IT Anomaly Insights** fornecida por [essa API](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2)
@@ -107,22 +107,22 @@ A figura abaixo mostra um exemplo de anomalias que a API de Pontuação pode det
 ### <a name="detectors"></a>Detectores
 A API de detecção de anomalias suporta detectores em três categorias amplas. Os detalhes sobre determinados parâmetros de entrada e saídas para cada detector podem ser encontrados na tabela a seguir.
 
-| Categoria do Detector | Detector | DESCRIÇÃO | Parâmetros de Entrada | outputs |
+| Categoria do Detector | Detector | Descrição | Parâmetros de Entrada | Saídas |
 | --- | --- | --- | --- | --- |
 | Detectores de Pico |Detector TSpike |Detectar picos e quedas com base na distância dos valores em relação ao primeiro e terceiro quartis |*tspikedetector.sensitivity:* usa o valor inteiro no intervalo de 1 a 10, padrão: 3. Valores mais altos capturam valores mais extremos, tornando-o menos sensível |TSpike: valores binários – '1' se um pico/queda for detectado, '0' do contrário |
-| Detectores de Pico | Detector ZSpike |Detecta picos e quedas com base na distância dos pontos de dados em relação à média |*zspikedetector.sensitivity:* usa o valor inteiro no intervalo de 1 a 10, padrão: 3. Valores mais altos capturam valores mais extremos, tornando-o menos sensível |ZSpike: valores binários – '1' se um pico/queda for detectado, '0' do contrário | |
+| Detectores de Pico | Detector ZSpike |Detecta picos e quedas com base na distância dos pontos de dados em relação à média |*zspikedetector.sensitivity:* usa o valor inteiro no intervalo de 1 a 10, padrão: 3. Valores mais altos capturam valores mais extremos, tornando-o menos sensível |ZSpike: valores binários – '1' se um pico/queda for detectado, '0' do contrário |
 | Detector de Tendências Lentas |Detector de Tendências Lentas |Detectar uma tendência positiva lenta de acordo com a sensibilidade definida |*trenddetector.sensitivity:* limite na pontuação do detector (padrão: 3,25; 3,25 – 5 é um intervalo razoável para selecionar. Quanto maior, menos sensível) |tscore: número flutuante que representa a pontuação de anomalias na tendência |
-| Detectores de Alteração no Nível | Detector de Alteração no Nível Bidirecional |Detectar uma alteração de aumento e diminuição no nível de acordo com a sensibilidade definida |*bileveldetector.sensitivity:* limite na pontuação do detector (padrão: 3,25; 3,25 – 5 é um intervalo razoável para selecionar. Quanto maior, menos sensível) |rpscore: número flutuante que representa a pontuação de anomalias na alteração de aumento e diminuição no nível | |
+| Detectores de Alteração no Nível | Detector de Alteração no Nível Bidirecional |Detectar uma alteração de aumento e diminuição no nível de acordo com a sensibilidade definida |*bileveldetector.sensitivity:* limite na pontuação do detector (padrão: 3,25; 3,25 – 5 é um intervalo razoável para selecionar. Quanto maior, menos sensível) |rpscore: número flutuante que representa a pontuação de anomalias na alteração de aumento e diminuição no nível |
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 Informações mais detalhadas sobre esses parâmetros de entrada são listadas na tabela a seguir:
 
-| Parâmetros de Entrada | DESCRIÇÃO | Configuração Padrão | Type | Intervalo Válido | Intervalo Sugerido |
+| Parâmetros de Entrada | Descrição | Configuração Padrão | Tipo | Intervalo Válido | Intervalo Sugerido |
 | --- | --- | --- | --- | --- | --- |
 | detectors.historywindow |Histórico (no número de pontos de dados) usado para o cálculo da pontuação de anomalias |500 |inteiro |10-2.000 |Dependente da série temporal |
 | detectors.spikesdips | Se apenas picos, apenas quedas, ou ambos devem ser detectados |Ambos |enumeração |Ambos, Picos, Quedas |Ambos |
-| bileveldetector.sensitivity |Sensibilidade para o detector de alteração no nível bidirecional. |3.25 |double |Nenhum |3.25-5 (valores mais baixos significam mais sensibilidade) |
-| trenddetector.sensitivity |Sensibilidade para o detector de tendência positiva. |3.25 |double |Nenhum |3.25-5 (valores mais baixos significam mais sensibilidade) |
+| bileveldetector.sensitivity |Sensibilidade para o detector de alteração no nível bidirecional. |3.25 |duplo |Nenhum |3.25-5 (valores mais baixos significam mais sensibilidade) |
+| trenddetector.sensitivity |Sensibilidade para o detector de tendência positiva. |3.25 |duplo |Nenhum |3.25-5 (valores mais baixos significam mais sensibilidade) |
 | tspikedetector.sensitivity |Sensibilidade para o Detector TSpike |3 |inteiro |1-10 |3-5 (valores mais baixos significam mais sensibilidade) |
 | zspikedetector.sensitivity |Sensibilidade para o Detector ZSpike |3 |inteiro |1-10 |3-5 (valores mais baixos significam mais sensibilidade) |
 | postprocess.tailRows |Número de pontos de dados mais recentes a serem mantidos nos resultados da saída |0 |inteiro |0 (manter todos os pontos de dados) ou especificar o número de pontos de nos resultados |N/D |
@@ -130,7 +130,7 @@ Informações mais detalhadas sobre esses parâmetros de entrada são listadas n
 ### <a name="output"></a>Saída
 A API executa esses detectores em seus dados da série temporal e retorna as pontuações de anomalias e os indicadores de picos binários para cada ponto no tempo. A tabela abaixo lista as saídas da API.
 
-| outputs | DESCRIÇÃO |
+| Saídas | Descrição |
 | --- | --- |
 | Hora |Carimbos de data/hora dos dados brutos ou dos dados atribuídos (e/ou) agregados se a atribuição dos dados ausentes (e/ou) de agregação for aplicada |
 | Dados |Valores dos dados brutos ou dos dados atribuídos (e/ou) agregados se a atribuição dos dados ausentes (e/ou) de agregação for aplicada |
@@ -149,23 +149,23 @@ A figura a seguir mostra um exemplo de anomalias detectadas em uma série tempor
 ### <a name="detectors"></a>Detectores
 Os detectores no ponto de extremidade de sazonalidade são semelhantes aos do ponto de extremidade de não sazonalidade, mas com nomes de parâmetro ligeiramente diferentes (listados abaixo).
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
 Informações mais detalhadas sobre esses parâmetros de entrada são listadas na tabela a seguir:
 
-| Parâmetros de Entrada | DESCRIÇÃO | Configuração Padrão | Type | Intervalo Válido | Intervalo Sugerido |
+| Parâmetros de Entrada | Descrição | Configuração Padrão | Tipo | Intervalo Válido | Intervalo Sugerido |
 | --- | --- | --- | --- | --- | --- |
 | preprocess.aggregationInterval |Intervalo de agregação em segundos para agregar a série temporal de entrada |0 (nenhuma agregação é realizada) |inteiro |0: ignorar a agregação, > 0 do contrário |5 minutos para 1 dia, dependente da série temporal |
 | preprocess.aggregationFunc |Função usada para agregar dados para o AggregationInterval especificado |média |enumeração |média, soma, comprimento |N/D |
 | preprocess.replaceMissing |Valores usados para atribuir os dados ausentes |lkv (último valor conhecido) |enumeração |zero, lkv, média |N/D |
 | detectors.historywindow |Histórico (no número de pontos de dados) usado para o cálculo da pontuação de anomalias |500 |inteiro |10-2.000 |Dependente da série temporal |
 | detectors.spikesdips | Se apenas picos, apenas quedas, ou ambos devem ser detectados |Ambos |enumeração |Ambos, Picos, Quedas |Ambos |
-| bileveldetector.sensitivity |Sensibilidade para o detector de alteração no nível bidirecional. |3.25 |double |Nenhum |3.25-5 (valores mais baixos significam mais sensibilidade) |
-| postrenddetector.sensitivity |Sensibilidade para o detector de tendência positiva. |3.25 |double |Nenhum |3.25-5 (valores mais baixos significam mais sensibilidade) |
-| negtrenddetector.sensitivity |Sensibilidade para o detector de tendência negativa. |3.25 |double |Nenhum |3.25-5 (valores mais baixos significam mais sensibilidade) |
+| bileveldetector.sensitivity |Sensibilidade para o detector de alteração no nível bidirecional. |3.25 |duplo |Nenhum |3.25-5 (valores mais baixos significam mais sensibilidade) |
+| postrenddetector.sensitivity |Sensibilidade para o detector de tendência positiva. |3.25 |duplo |Nenhum |3.25-5 (valores mais baixos significam mais sensibilidade) |
+| negtrenddetector.sensitivity |Sensibilidade para o detector de tendência negativa. |3.25 |duplo |Nenhum |3.25-5 (valores mais baixos significam mais sensibilidade) |
 | tspikedetector.sensitivity |Sensibilidade para o Detector TSpike |3 |inteiro |1-10 |3-5 (valores mais baixos significam mais sensibilidade) |
 | zspikedetector.sensitivity |Sensibilidade para o Detector ZSpike |3 |inteiro |1-10 |3-5 (valores mais baixos significam mais sensibilidade) |
-| seasonality.enable |Caso a análise da sazonalidade precise ser executada |verdadeiro |booleano |verdadeiro, falso |Dependente da série temporal |
+| seasonality.enable |Caso a análise da sazonalidade precise ser executada |verdadeiro |booliano |verdadeiro, falso |Dependente da série temporal |
 | seasonality.numSeasonality |Número máximo de ciclos periódicos a serem detectados |1 |inteiro |1, 2 |1-2 |
 | seasonality.transform |Caso os componentes sazonais (e) de tendência devam ser removidos antes de aplicar a detecção de anomalias |sem sazonalidade |enumeração |nenhum, sem sazonalidade, sem sazonalidade e tendência |N/D |
 | postprocess.tailRows |Número de pontos de dados mais recentes a serem mantidos nos resultados da saída |0 |inteiro |0 (manter todos os pontos de dados) ou especificar o número de pontos de nos resultados |N/D |
@@ -173,7 +173,7 @@ Informações mais detalhadas sobre esses parâmetros de entrada são listadas n
 ### <a name="output"></a>Saída
 A API executa esses detectores em seus dados da série temporal e retorna as pontuações de anomalias e os indicadores de picos binários para cada ponto no tempo. A tabela abaixo lista as saídas da API.
 
-| outputs | DESCRIÇÃO |
+| Saídas | Descrição |
 | --- | --- |
 | Hora |Carimbos de data/hora dos dados brutos ou dos dados atribuídos (e/ou) agregados se a atribuição dos dados ausentes (e/ou) de agregação for aplicada |
 | OriginalData |Valores dos dados brutos ou dos dados atribuídos (e/ou) agregados se a atribuição dos dados ausentes (e/ou) de agregação for aplicada |

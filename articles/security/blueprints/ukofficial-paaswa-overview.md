@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 222957bb79a88ec7b4c6e9afd6d86fe2776dbfd3
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: 7ac210d9b30a05fd5dbfd46c41c3e62a1d610357
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301784"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57891096"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Blueprint de Segurança e Conformidade do Azure: Hospedagem de Aplicativo Web de PaaS para carga de trabalho OFICIAL DO REINO UNIDO
 
@@ -57,9 +57,8 @@ A solução usa os serviços do Azure a seguir. Há detalhes da arquitetura de i
 - Aplicativo de API
 - DNS do Azure
 - Key Vault
-- Azure Monitor
+- O Azure Monitor (logs)
 - Application Insights
-- Log Analytics
 - Azure Resource Manager
 - Central de Segurança do Azure
 - Banco de Dados SQL do Azure
@@ -169,11 +168,11 @@ Informações detalhadas sobre como proteger o Armazenamento do Microsoft Azure 
 
 ### <a name="monitoring-logging-and-audit"></a>Monitoramento, registro em log e auditoria
 
-#### <a name="log-analytics"></a>Log Analytics
+#### <a name="azure-monitor-logs"></a>Logs do Azure Monitor
 
-O [Log Analytics](https://azure.microsoft.com/services/log-analytics/) é um serviço no Azure que ajuda a coletar e analisar dados gerados por recursos nos ambientes locais e de nuvem.
+[Os logs do Azure Monitor](https://azure.microsoft.com/services/log-analytics/) é um serviço no Azure que ajuda a coletar e analisar dados gerados pelos recursos em sua nuvem e ambientes locais.
 
-#### <a name="log-analytics-in-this-blueprint"></a>Log Analytics neste blueprint
+#### <a name="azure-monitor-logs-in-this-blueprint"></a>O Azure Monitor registra esse plano gráfico
 
 - Avaliação do SQL
 - Diagnóstico do Cofre de Chaves
@@ -220,7 +219,7 @@ Além disso, a CSA (Cloud Security Alliance) publicou a Matriz de Controle de Nu
 
 Esta especificação técnica foi revisada pela UK NCSC National Cyber Security Centre (NCSC) e se alinha com os princípios de segurança de nuvem do NCSC 14
 
-Os modelos de automação foram testados pela equipe de Arquiteto de Solução de Nuvem do Azure de Unidade de Sucesso do Cliente do Reino Unido e por nosso parceiro da Microsoft, [Ampliphae](http://www.ampliphae.com/).
+Os modelos de automação foram testados pela equipe de Arquiteto de Solução de Nuvem do Azure de Unidade de Sucesso do Cliente do Reino Unido e por nosso parceiro da Microsoft, [Ampliphae](https://www.ampliphae.com/).
 
 
 ## <a name="deploy-the-solution"></a>Implantar a solução

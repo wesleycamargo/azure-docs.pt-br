@@ -6,16 +6,18 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 1/11/2019
+ms.date: 3/13/2019
 ms.author: victorh
-ms.openlocfilehash: 040aeda10410cc164c3f68b6615ebfb12d45541e
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 96bd9e679e1766e87a0bb807204df744bb3cca95
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453472"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897700"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Perguntas frequentes sobre o Gateway de Aplicativo
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="general"></a>Geral
 
@@ -41,10 +43,10 @@ O suporte ao protocolo HTTP/2 está disponível para os clientes que se conectam
 
 Por padrão, o suporte HTTP/2 está desabilitado. O snippet de código do Azure PowerShell a seguir mostra como é possível habilitá-lo:
 
-```powershell
-$gw = Get-AzureRmApplicationGateway -Name test -ResourceGroupName hm
+```azurepowershell
+$gw = Get-AzApplicationGateway -Name test -ResourceGroupName hm
 $gw.EnableHttp2 = $true
-Set-AzureRmApplicationGateway -ApplicationGateway $gw
+Set-AzApplicationGateway -ApplicationGateway $gw
 ```
 
 ### <a name="what-resources-are-supported-today-as-part-of-backend-pool"></a>Quais recursos têm suporte atualmente como parte do pool de back-end?
@@ -71,6 +73,10 @@ Os ouvintes são processados na ordem em que eles são mostrados. Por esse motiv
 
 Ao usar um endereço IP público como um ponto de extremidade, encontre essas informações no recurso do endereço IP público ou na página Visão geral do Gateway de Aplicativo no portal. Para endereços IP internos, isso pode ser encontrado na página Visão geral.
 
+### <a name="what-is-keep-alive-timeout-and-tcp-idle-timeout-setting-on-application-gateway"></a>O que é o tempo limite de Keep-Alive e configuração de tempo limite de ociosidade de TCP no Gateway de aplicativo?
+
+Tempo limite Keep-Alive no SKU v1 é 120 s Keep-Alive timeout no SKU v2 é 75 SEC. tempo limite de ociosidade de TCP é o padrão de 4 minutos em que o VIP do Gateway de aplicativo de front-end.
+
 ### <a name="does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"></a>O nome IP ou DNS muda durante a vida útil do Gateway de Aplicativo?
 
 O VIP poderá ser alterado se o Gateway de Aplicativo for interrompido e iniciado. O nome DNS associado ao Gateway de Aplicativo não é alterado ao longo do ciclo de vida do gateway. Por esse motivo, é recomendado usar um alias do CNAME e apontá-lo para o endereço DNS do Gateway de Aplicativo.
@@ -87,6 +93,8 @@ Há suporte apenas para um único endereço IP público em um Gateway de Aplicat
 
 O Gateway de Aplicativo consome um endereço IP privado por instância, além de outro endereço IP privado se uma configuração de IP de front-end privado for configurada. Além disso, o Azure reservará os quatro primeiros e o último endereço IP em cada sub-rede para uso interno.
 Por exemplo, se o Gateway de Aplicativo for definido como três instâncias e nenhum IP de front-end privado, o tamanho de sub-rede /29 ou maior será necessário. Nesse caso, o Gateway de Aplicativo usará três endereços IP. Se você tiver três instâncias e um endereço IP para a configuração de IP de front-end privado, um tamanho de sub-rede /28 ou maior será necessário, visto que quatro endereços IP são necessários.
+
+Como prática recomendada, use pelo menos uma de/28 tamanho da sub-rede. Isso lhe dá 11 endereços utilizáveis. Se sua carga de aplicativo exigir mais de 10 instâncias, você deve considerar um/27 ou/26 tamanho da sub-rede.
 
 ### <a name="q-can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>P. Posso implantar mais de um recurso de Gateway de Aplicativo em uma única sub-rede?
 
@@ -126,7 +134,7 @@ Os Network Security Groups (NSGs) são suportados na sub-rede do gateway de apli
 
 * Exceções devem ser feitas para o tráfego de entrada nas portas 65503-65534 para o Application Gateway v1 SKU e portas 65200 - 65535 para o v2 SKU. Esse intervalo de porta é necessário para a comunicação da infraestrutura do Azure. Elas são protegidas (bloqueadas) por certificados do Azure. Sem os certificados apropriados, as entidades externas, incluindo os clientes desses gateways, não podem iniciar nenhuma alteração nesses pontos de extremidade.
 
-* A conectividade de internet de saída não pode ser bloqueada.
+* A conectividade de internet de saída não pode ser bloqueada. Regras de saída padrão no NSG já permitem que a conectividade com a internet. É recomendável que você não remova as regras de saída padrão e que você não criar outras regras de saída que negam a conectividade de internet de saída.
 
 * Tráfego de marca AzureLoadBalancer deve ser permitido.
 
@@ -220,7 +228,7 @@ Sim, o Azure distribui essas instâncias entre domínios de atualização e de f
 
 ### <a name="what-certificates-are-supported-on-application-gateway"></a>Quais certificados são suportados no Application Gateway?
 
-Há suporte para certificados autoassinados, certificados de AC e certificados curingas. Não há suporte para certificados EV.
+Há suporte para certificados autoassinados, certificados de autoridade de certificação, certificados EV e certificados curinga.
 
 ### <a name="what-are-the-current-cipher-suites-supported-by-application-gateway"></a>Quais são os conjuntos de criptografia atuais suportados pelo Application Gateway?
 
@@ -342,7 +350,7 @@ Há três logs disponíveis para o Gateway de Aplicativo. Para saber mais sobre 
 
 ### <a name="how-do-i-know-if-my-backend-pool-members-are-healthy"></a>Como sei se meus membros do pool de back-end são saudáveis?
 
-Use o cmdlet do PowerShell `Get-AzureRmApplicationGatewayBackendHealth` ou verifique a integridade por meio do portal visitando [Diagnóstico do Gateway de Aplicativo](application-gateway-diagnostics.md)
+Use o cmdlet do PowerShell `Get-AzApplicationGatewayBackendHealth` ou verifique a integridade por meio do portal visitando [Diagnóstico do Gateway de Aplicativo](application-gateway-diagnostics.md)
 
 ### <a name="what-is-the-retention-policy-on-the-diagnostics-logs"></a>O que é a política de retenção nos logs de diagnóstico?
 
@@ -350,7 +358,7 @@ Os logs de diagnóstico fluem para a conta de armazenamento de clientes, e os cl
 
 ### <a name="how-do-i-get-audit-logs-for-application-gateway"></a>Como posso obter os logs de auditoria para o Gateway de aplicativo?
 
-Os logs de auditoria estão disponíveis para o Gateway de Aplicativo. No portal, clique em **Log de Atividades** na folha do menu de um Gateway de Aplicativo para acessar o log de auditoria. 
+Os logs de auditoria estão disponíveis para o Gateway de Aplicativo. No portal, clique em **Log de atividades** na folha do menu de um gateway de aplicativo para acessar o log de auditoria. 
 
 ### <a name="can-i-set-alerts-with-application-gateway"></a>Configurar alertas com o Gateway de aplicativo?
 
@@ -366,6 +374,6 @@ Publicamos também um modelo do Resource Manager que instala e executa o popular
 
 O motivo mais comum é quando o acesso ao back-end está bloqueado por um NSG ou por um DNS personalizado. Confira [Integridade do back-end, registro em log de diagnóstico e métricas do Gateway de Aplicativo](application-gateway-diagnostics.md) para saber mais.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas Etapas
 
 Para saber mais sobre o Gateway de Aplicativo, confira [O que é o Gateway de Aplicativo do Azure?](overview.md)

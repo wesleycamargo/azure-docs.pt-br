@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: eaf18cf7d7a5f150d3400e133bf0703bb03e7b8f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: cba9a334ae014351b1156f34325e9f134b1592a9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845970"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439190"
 ---
 # <a name="set-up-public-ip-addresses-after-failover"></a>Configurar endereços IP públicos após o failover
 
@@ -25,7 +25,7 @@ No Azure Resource Manager, um endereço IP público é um recurso com as própri
 
 * Interfaces de rede de máquina virtual
 * Balanceadores de carga para Internet
-* Gateways VPN
+* Gateways de VPN
 * Application gateways
 
 Este artigo descreve como é possível usar endereços IP públicos com o Site Recovery.
@@ -44,7 +44,7 @@ A configuração é a seguinte:
 O Gerenciador de Tráfego do Azure permite que o roteamento de nível de DNS entre pontos de extremidade e pode auxiliar [a reduzir seus RTOs](../site-recovery/concepts-traffic-manager-with-site-recovery.md#recovery-time-objective-rto-considerations) para um cenário de recuperação de desastre. 
 
 Leia mais sobre cenários de failover com o Gerenciador de Tráfego:
-1. [Failover local para Azure](../site-recovery/concepts-traffic-manager-with-site-recovery.md#on-premises-to-azure-failover) com o Gerenciador de Tráfego 
+1. [Local para o failover do Azure](../site-recovery/concepts-traffic-manager-with-site-recovery.md#on-premises-to-azure-failover) com o Gerenciador de tráfego 
 2. [Failover do Azure para Azure](../site-recovery/concepts-traffic-manager-with-site-recovery.md#azure-to-azure-failover) com o Gerenciador de Tráfego 
 
 A configuração é a seguinte:

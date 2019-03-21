@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: victorh
-ms.openlocfilehash: 2d576a0d51eb723efdd1652898c2c019ee7475a8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: cb2f04c692d4b5f385a89ba6a3071c20ef1bdf21
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999208"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118248"
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>Hospedar zonas de pesquisa de DNS reverso no DNS do Azure
 
@@ -131,7 +131,7 @@ O exemplo a seguir explica o processo de criação de um registro PTR em uma zon
 1. Para **NOME DE DOMÍNIO**, insira o nome de domínio totalmente qualificado (FQDN) do recurso usando o IP.
 1. Selecione **OK** na parte inferior do painel para criar o registro DNS.
 
- ![Painel “Adicionar conjunto de registros”, com caixas preenchidas](./media/dns-reverse-dns-hosting/figure5.png)
+   ![Painel “Adicionar conjunto de registros”, com caixas preenchidas](./media/dns-reverse-dns-hosting/figure5.png)
 
 Os exemplos a seguir mostram como concluir essa tarefa usando o Azure PowerShell ou a CLI do Azure.
 
@@ -245,7 +245,7 @@ Get-AzDnsRecordSet -ZoneName 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa -ResourceG
     azure network dns record-set list -g MyResourceGroup -z 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa
 ```
 
-## <a name="faq"></a>Perguntas frequentes
+## <a name="faq"></a>Perguntas Frequentes
 
 ### <a name="can-i-host-reverse-dns-lookup-zones-for-my-isp-assigned-ip-blocks-on-azure-dns"></a>Posso hospedar zonas de pesquisa inversa de DNS para meus blocos IP atribuídos pelo ISP no DNS do Azure?
 
@@ -269,6 +269,6 @@ Para saber mais, veja [Importar e exportar um arquivo de zona DNS usando a CLI d
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre DNS reverso, confira [Pesquisa de DNS reverso na Wikipédia](http://en.wikipedia.org/wiki/Reverse_DNS_lookup).
+Para saber mais sobre DNS reverso, confira [Pesquisa de DNS reverso na Wikipédia](https://en.wikipedia.org/wiki/Reverse_DNS_lookup).
 <br>
 Saiba como [gerenciar registros DNS reversos para seus serviços do Azure](dns-reverse-dns-for-azure-services.md).

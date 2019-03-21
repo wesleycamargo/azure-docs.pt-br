@@ -1,18 +1,18 @@
 ---
 title: Proteger novamente as VMs do Azure para um site local durante a recuperação de desastre de VMs e servidores físicos do VMware | Microsoft Docs
 description: Após o failover para o Azure durante a recuperação de desastre de VMs e servidores físicos do VMware, saiba como fazer o failback do Azure para o site local.
-author: rajani-janaki-ram
-manager: gauravd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/17/2018
-ms.author: rajanaki
-ms.openlocfilehash: 06337e205c472d26024289222dc8876d23b4184f
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.date: 3/12/2019
+ms.author: mayg
+ms.openlocfilehash: 4202d95b540efb98b526f8a8abd17da22a908ebe
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791862"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57771798"
 ---
 # <a name="reprotect-and-fail-back-machines-to-an-on-premises-site-after-failover-to-azure"></a>Proteja novamente e execute o failback de computadores em um site local após o failover no Azure
 
@@ -114,7 +114,6 @@ Observe as seguintes informações:
 
 ## <a name="common-issues"></a>Problemas comuns
 
-- No momento, a recuperação de Site oferece suporte a com falha novamente apenas para um repositório de dados VMFS ou vSAN. Não há suporte para um repositório de dados do NFS. Devido a essa limitação, a entrada de seleção de repositório de dados na tela de nova proteção está vazia para NFS armazenamentos de dados, ou ele mostra o armazenamento de dados vSAN mas falha durante o trabalho. Se você pretende realizar failback, é possível criar um repositório de dados VMFS local e realizar failback nele. Este failback faz com que o download completo do VMDK.
 - Se você executar a descoberta de vCenter de Usuário somente leitura e proteger as máquinas virtuais, a proteção terá êxito e o failover funcionará. Durante a nova proteção, o failover falhar porque os armazenamentos de dados não podem ser descobertos. Um sintoma é que os repositórios de dados não estão listados durante a nova proteção. Para resolver esse problema, você pode atualizar as credenciais do vCenter com uma conta apropriada que tenha permissões e, em seguida, repita o trabalho. 
 - Ao executar failback de uma máquina virtual Linux e executá-la localmente, você verá que o pacote do Gerenciador de Rede foi desinstalado do computador. Essa desinstalação ocorre porque o pacote do Gerenciador de rede é removido quando a máquina virtual será recuperada no Azure.
 - Quando uma máquina virtual Linux é configurada com um endereço IP estático e o failover é feito para o Azure, o endereço IP é obtido do DHCP. Quando você executa o failover localmente, a máquina virtual continua a usar o DHCP para obter o endereço IP. Entrar manualmente para a máquina e, em seguida, defina o endereço IP para um endereço estático, se necessário. Uma máquina virtual do Windows podem obter seu endereço IP novamente.
