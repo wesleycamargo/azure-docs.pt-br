@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: diberry
-ms.openlocfilehash: b363f68b625a6f0987e58609477f51c7098423bf
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 9da79e5b744f8ba70c0e265f0d1f0126b37eba49
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874067"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870645"
 ---
 # <a name="understand-how-and-when-to-use-a-luis-version"></a>Reconhecer como e quando usar uma versão do LUIS
 
@@ -35,7 +35,7 @@ A versão inicial (0.1) é a versão ativa padrão.
 
 O nome da versão ativa no momento é exibido no painel superior esquerdo depois do nome do aplicativo. 
 
-[ ![Alterar versão ativa](./media/luis-concept-version/version-in-nav-bar-inline.png) ](./media/luis-concept-version/version-in-nav-bar-expanded.png#lightbox)
+[![Versão ativa de alteração](./media/luis-concept-version/version-in-nav-bar-inline.png)](./media/luis-concept-version/version-in-nav-bar-expanded.png#lightbox)
 
 ## <a name="versions-and-publishing-slots"></a>Versões e slots de publicação
 Você publica em slots de estágio e de produto. Cada slot pode ter uma versão diferente ou a mesma versão. Isso é útil para verificar as alterações entre as versões do modelo por meio do ponto de extremidade, disponível para bots ou outros aplicativos de chamada do LUIS. 

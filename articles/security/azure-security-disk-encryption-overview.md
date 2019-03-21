@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 03/12/2019
+ms.date: 03/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: a7dd061d84167b172aff52e8a62ed6d43fddc108
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 66d788aec83e3e57a49b063f2ca80484360f639d
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57862005"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295276"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms"></a>Azure Disk Encryption para VMs IaaS
 
@@ -81,6 +81,7 @@ A solução não dá suporte aos seguintes cenários, recursos e tecnologia:
 * VMs IaaS da camada Básica.
 * Desabilite a criptografia em uma unidade do sistema operacional para VMs IaaS do Linux.
 * Desabilite criptografia em uma unidade de dados quando a unidade do SO estiver criptografada para VMs de IaaS do Linux.
+* Define a criptografia de unidade do sistema operacional para o dimensionamento de máquinas virtuais do Linux.
 * VMs de IaaS que são criadas usando o método de criação de VM clássico.
 * Habilite a criptografia em imagens personalizadas do cliente em VMs IaaS do Linux.
 * Integração com o sistema de gerenciamento de chaves no local.

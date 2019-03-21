@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: b15dcd9ae5f2f1668db3925b659625497eca491f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 20c916275acd6bb79675c592711b17b277c9fc78
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58079751"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294086"
 ---
 # <a name="repeatable-copy-in-azure-data-factory"></a>Cópia repetida no Azure Data Factory
 
@@ -114,7 +114,7 @@ Essa coluna é usada pelo Azure Data Factory para fins de capacidade de repetiç
 1. Defina uma coluna do tipo **binário (32)** na tabela SQL de destino. Não deve haver nenhuma restrição nessa coluna. Vamos nomear esta coluna como AdfSliceIdentifier para este exemplo.
 
 
-Tabela de origem:
+    Tabela de origem:
 
     ```sql
     CREATE TABLE [dbo].[Student](
@@ -123,7 +123,7 @@ Tabela de origem:
     )
     ```
 
-Tabela de destino: 
+    Tabela de destino: 
 
     ```sql
     CREATE TABLE [dbo].[Student](

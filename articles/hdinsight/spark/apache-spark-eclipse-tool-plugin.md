@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.author: hrasheed
-ms.openlocfilehash: 4370cc5e39b7d1b9a50e8fc8af9f7bfc58f6356a
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: 05df154db27dcf1b07506c6bf9c2a681408de61e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602742"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091810"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Use o Azure Toolkit for Eclipse para criar aplicativos do Apache Spark para um cluster do HDInsight
 
@@ -141,12 +141,12 @@ Você pode vincular um cluster normal usando o nome de usuário gerenciado do Am
     a. No Explorador de Pacotes, clique com o botão direito do mouse no nome do projeto e escolha **Enviar Aplicativo Spark para HDInsight**.        
    b. Na caixa de diálogo **Envio do Spark**, forneça os valores a seguir e selecione **Enviar**:
       
-      * Para **Nome do Cluster**, selecione o cluster HDInsight Spark no qual você deseja executar o aplicativo.
-      * Selecione um artefato do projeto Eclipse ou selecionar uma opção do disco rígido. O valor padrão depende do item no qual você clica com o botão direito do mouse por meio do Gerenciador de Pacotes.
-      * Na lista suspensa **Nome de classe principal**, o assistente de envio exibe todos os nomes de objeto do projeto. Selecione ou insira um que você deseja executar. Se tiver selecionado um artefato de um disco rígido, você deverá inserir o nome de classe principal manualmente. 
-      * Como o código do aplicativo neste exemplo não exige argumentos de linha de comando ou JARs ou arquivos de referência, você pode deixar as caixas de texto restantes vazias.
+   * Para **Nome do Cluster**, selecione o cluster HDInsight Spark no qual você deseja executar o aplicativo.
+   * Selecione um artefato do projeto Eclipse ou selecionar uma opção do disco rígido. O valor padrão depende do item no qual você clica com o botão direito do mouse por meio do Gerenciador de Pacotes.
+   * Na lista suspensa **Nome de classe principal**, o assistente de envio exibe todos os nomes de objeto do projeto. Selecione ou insira um que você deseja executar. Se tiver selecionado um artefato de um disco rígido, você deverá inserir o nome de classe principal manualmente. 
+   * Como o código do aplicativo neste exemplo não exige argumentos de linha de comando ou JARs ou arquivos de referência, você pode deixar as caixas de texto restantes vazias.
         
-      ![Caixa de diálogo Envio do Spark](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-3.png)
+     ![Caixa de diálogo Envio do Spark](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-3.png)
 1. A guia **Envio de Spark** deve começar a exibir o progresso. Você pode interromper o aplicativo selecionando o botão vermelho na janela **Envio do Spark**. Você também pode exibir os logs para essa execução de aplicativo específica selecionando o ícone de globo (indicado pela caixa azul na imagem).
       
    ![Janela Envio do Spark](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-4.png)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: c30ec060eca2bc0c2f5a85565ec6ed23bce6be4e
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: e6423f2ce3659fd3dd738dcc8a990261bc7bf60c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464741"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088376"
 ---
 # <a name="get-started-with-auto-scale-by-custom-metric-in-azure"></a>Introdução ao dimensionamento automático usando métricas personalizadas no Azure
 Este artigo descreve como dimensionar seu recurso usando métricas personalizadas no portal do Azure.
@@ -28,7 +28,7 @@ Este artigo pressupõe que você tenha um aplicativo Web com o Application Insig
   ![Inicie o Azure Monitor][3]
 - Clique na configuração do dimensionamento automático para exibir todos os recursos a que ele se aplica, bem como o status de dimensionamento automático atual ![Descobrir o dimensionamento automático no Azure Monitor][4]
 - Abra a folha “Dimensionamento Automático” no Azure Monitor e selecione um recurso que deseja dimensionar
-> Observação: as etapas a seguir usam um plano do serviço de aplicativo associado a um aplicativo Web que tem o Application Insights configurado.
+  > Observação: as etapas a seguir usam um plano do serviço de aplicativo associado a um aplicativo Web que tem o Application Insights configurado.
 - Na folha de configuração de dimensionamento para o recurso, observe que a contagem de instâncias atual é 1. Clique em “Habilitar dimensionamento automático”.
   ![Configuração de dimensionamento para um novo aplicativo Web][5]
 - Forneça um nome para a configuração de dimensionamento e clique em "Adicionar uma regra". Observe as opções de regra de dimensionamento que são abertas como um painel de contexto no lado direito. Por padrão, ele define a opção de dimensionar sua contagem de instâncias em 1 se o percentual de CPU do recurso ultrapassar 70%. Altere a origem da métrica na parte superior para "Application Insights", selecione o recurso do Application Insights na lista suspensa “Recurso” e, em seguida, selecione a métrica personalizada com base na qual você deseja fazer o dimensionamento.
@@ -36,7 +36,7 @@ Este artigo pressupõe que você tenha um aplicativo Web com o Application Insig
 - De forma semelhante à etapa anterior, adicione uma regra de dimensionamento que reduzirá horizontalmente e diminuirá a contagem de escala em 1 se a métrica personalizada estiver abaixo do limite.
   ![Dimensionamento com base na CPU][7]
 - Defina os limites de sua instância. Por exemplo, se quiser dimensionar entre 2 e 5 instâncias, dependendo das flutuações da métrica personalizada, defina “mínimo” como “2”, “máximo” como “5” e “padrão” como “2”
-> Observação: caso haja algum problema ao ler as métricas do recurso e a capacidade atual esteja abaixo da capacidade padrão, a fim de garantir a disponibilidade do recurso o dimensionamento automático aumentará para o valor padrão. Se a capacidade atual já for maior que a capacidade padrão, o dimensionamento automático não reduzirá horizontalmente.
+  > Observação: caso haja algum problema ao ler as métricas do recurso e a capacidade atual esteja abaixo da capacidade padrão, a fim de garantir a disponibilidade do recurso o dimensionamento automático aumentará para o valor padrão. Se a capacidade atual já for maior que a capacidade padrão, o dimensionamento automático não reduzirá horizontalmente.
 - Clique em "Salvar"
 
 Parabéns. Agora você criou com êxito a configuração de dimensionamento para dimensionar automaticamente o aplicativo Web com base em uma métrica personalizada.

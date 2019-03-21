@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: pbutlerm
-ms.openlocfilehash: cafda8a48f9160c80edb02c3452035f912958bc7
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: fdca47877d4cb2192eef0a26448cd21e8afe4b77
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56098214"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217930"
 ---
 # <a name="publish-azure-application-offer"></a>Publicar oferta de aplicativo do Azure
 
@@ -52,6 +52,8 @@ Você pode monitorar o processo de publicação na guia **Status** para sua ofer
 
 Depois de concluir o processo de publicação, a oferta será listada na [categoria de aplicativo do Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/).
 
+>[!Note]
+>Cloud Solution Providers (CSP) parceiro canal participar agora está disponível.  Consulte [Cloud Solution Providers](../../cloud-solution-providers.md) para obter mais informações sobre sua oferta por meio do Microsoft CSP de marketing de parceiros canais.
 
 ## <a name="errors-and-review-feedback"></a>Erros e comentários de revisão
 

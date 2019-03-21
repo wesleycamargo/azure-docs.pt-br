@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46fc0a49ebae86a715685e1073b4eb7cc10e6032
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 65e803ca373fb9853fc23d17f1a27ecadc6a209c
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533401"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295208"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Localizar relatórios de atividade no Portal do Azure
 
@@ -86,7 +86,7 @@ Os serviços incluem:
 - Usuários Convidados
 - PIM
 - Gerenciamento de grupos de autoatendimento
-- Gerenciamento de autoatendimento Passord
+- Gerenciamento de senhas de auto-atendimento
 - Termos de Uso
 
 ## <a name="sign-ins-report"></a>Relatório de entradas 
@@ -153,11 +153,11 @@ Baixei os logs de atividade (auditoria ou entradas) e não vejo todos os registr
  
 #### <a name="cause"></a>Causa
 
-Ao baixar logs de atividades no portal do Azure, limitamos a escala a 5000 registros, classificados primeiro pelos mais recentes. 
+Quando você baixar os logs de atividade no portal do Azure, limitamos a escala para 250000 registros, classificados pelos mais recentes primeiro. 
 
 #### <a name="resolution"></a>Resolução
 
-Você pode aproveitar as [APIs de relatórios do Azure AD](concept-reporting-api.md) para buscar até um milhões de registros em qualquer momento determinado. Nossa abordagem recomendada é [executar um script com base em agendamento](tutorial-signin-logs-download-script.md) que chame as APIs de relatórios para buscar registros de maneira incremental durante um período de tempo (por exemplo, diariamente ou semanalmente). 
+Você pode aproveitar as [APIs de relatórios do Azure AD](concept-reporting-api.md) para buscar até um milhões de registros em qualquer momento determinado.
 
 ### <a name="missing-audit-data-for-recent-actions-in-the-azure-portal"></a>Dados de auditoria ausentes para ações recentes no portal do Azure
 

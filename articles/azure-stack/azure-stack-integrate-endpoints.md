@@ -10,12 +10,12 @@ ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: c3b27291fc413310393cd0270ec750de14a4985b
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 0bfd280e2a0a63c8fb41d0813a0ac44784e7a055
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270055"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259170"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack integration data center – publicar pontos de extremidade
 
@@ -73,12 +73,12 @@ O Azure Stack oferece suporte a apenas os servidores de proxy transparente. Em u
 
 |Finalidade|Destination URL|Protocolo|Portas|Rede de Origem|
 |---------|---------|---------|---------|---------|
-|Identidade|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https://secure.aadcdn.microsoftonline-p.com<br>office.com|HTTP<br>HTTPS|80<br>443|VIP - /27 públicos<br>Infraestrutura de rede pública|
-|Sindicalização do Marketplace|https://management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|VIP - /27 públicos|
+|Identidade|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>office.com|HTTP<br>HTTPS|80<br>443|VIP - /27 públicos<br>Infraestrutura de rede pública|
+|Sindicalização do Marketplace|https:\//management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|VIP - /27 públicos|
 |Patch e atualização|https://&#42;.azureedge.net|HTTPS|443|VIP - /27 públicos|
-|Registro|https://management.azure.com|HTTPS|443|VIP - /27 públicos|
+|Registro|https:\//management.azure.com|HTTPS|443|VIP - /27 públicos|
 |Uso|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.net |HTTPS|443|VIP - /27 públicos|
-|Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*.updates.microsoft.com<br>*.download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>`https://www.microsoft.com/pkiops/crl`<br>`https://www.microsoft.com/pkiops/certs`<br>`https://crl.microsoft.com/pki/crl/products`<br>`https://www.microsoft.com/pki/certs`<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|VIP - /27 públicos<br>Infraestrutura de rede pública|
+|Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*.updates.microsoft.com<br>*.download.microsoft.com<br>https:\//msdl.microsoft.com/download/symbols<br>https:\//www.microsoft.com/pkiops/crl<br>https:\//www.microsoft.com/pkiops/certs<br>https:\//crl.microsoft.com/pki/crl/products<br>https:\//www.microsoft.com/pki/certs<br>https:\//secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|VIP - /27 públicos<br>Infraestrutura de rede pública|
 |NTP|(Fornecido para a implantação de servidor IP de NTP)|UDP|123|VIP - /27 públicos|
 |DNS|(Servidor de DNS do IP fornecido para implantação)|TCP<br>UDP|53|VIP - /27 públicos|
 |CRL|(Em pontos de distribuição de CRL no certificado de URL)|HTTP|80|VIP - /27 públicos|

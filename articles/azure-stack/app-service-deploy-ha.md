@@ -16,12 +16,12 @@ ms.date: 03/13/2019
 ms.author: jeffgilb
 ms.reviewer: anwestg
 ms.lastreviewed: 03/13/2019
-ms.openlocfilehash: 50e5272d92ad333e70f65173cf024d165dc7501c
-ms.sourcegitcommit: f596d88d776a3699f8c8cf98415eb874187e2a48
+ms.openlocfilehash: db95be94028fcf16871a9dcfee5f0d87eb5d2cdc
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2019
-ms.locfileid: "58102036"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285659"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>Implantar o serviço de aplicativo em uma configuração altamente disponível
 
@@ -207,7 +207,7 @@ Para implantar o provedor de recursos do serviço de aplicativo, siga estas etap
     ![Valores de instância de função de infraestrutura](media/app-service-deploy-ha/12.png)
 
     > [!NOTE]
-    > A alteração dos valores padão àquelas recomendadas nesse tutoral aumenta os requisitos de hardware para instalar o serviço de aplicativo. Um total de núcleos de 26 e 46,592 MB de RAM é necessária para dar suporte as 21 VMs recomendadas em vez de padão 18 núcleos e 32.256 MB de RAM para 15 VMs.
+    > Alterando os valores padrão para aquelas recomendadas nesse tutoral aumenta os requisitos de hardware para instalar o serviço de aplicativo. Um total de núcleos de 26 e 46,592 MB de RAM é necessária para dar suporte as 21 VMs recomendadas em vez de núcleos de 18 padrão e 32.256 MB de RAM para 15 VMs.
 
 14. Selecione a imagem da plataforma a ser usado para instalar a infraestrutura de serviço de aplicativo, máquinas virtuais e clique em **próxima**:
 

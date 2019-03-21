@@ -1,17 +1,17 @@
 ---
-title: Compatibilidade de drivers MySQL e de ferramentas de gerenciamento
+title: Compatibilidade das ferramentas de banco de dados do Azure para drivers MySQL e gerenciamento
 description: Esse artigo descreve os drivers MySQL e as ferramentas de gerenciamento compatíveis com o Banco de Dados do Azure para MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/21/2018
-ms.openlocfilehash: 46f2ac9114ac1191ea85b428711cb25d8557a61a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 03/19/2019
+ms.openlocfilehash: 05f48145973777052590f8d10e1a2ce1fd22ec7a
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57837568"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258096"
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>Drivers MySQL e as ferramentas de gerenciamento compatíveis com o Banco de Dados do Azure para MySQL
 Esse artigo descreve os drivers e as ferramentas de gerenciamento compatíveis com o Banco de Dados do Azure para MySQL.
@@ -25,7 +25,7 @@ O Banco de Dados do Azure para MySQL usa a edição de comunidade mais popular d
 | .NET | [MySqlConnector no GitHub](https://github.com/mysql-net/MySqlConnector) <br> [Pacote de instalação do Nuget](https://www.nuget.org/packages/MySqlConnector/) | 0.27 e posterior | 0.26.5 e anterior | |
 | Conector MySQL/NET | [Conector MySQL/NET](https://github.com/mysql/mysql-connector-net) | 8.0, 7.0, 6.10 |  | Um bug de codificação pode causar falha em alguns sistemas não - UTF8 Windows nas conexões. |
 | Nodejs |  [MySQLjs no GitHub](https://github.com/mysqljs/mysql/) <br> Pacote de instalação do NPM:<br> Executar `npm install mysql` do NPM | 2.15 | 2.14.1 e anterior | |
-| GO | https://github.com/go-sql-driver/mysql/releases | 1,3 | 1.2 e anterior | Use allowNativePasswords=true na cadeia de conexão |
+| GO | https://github.com/go-sql-driver/mysql/releases | 1.3, 1.4 | 1.2 e anterior | Use `allowNativePasswords=true` na cadeia de conexão para a versão 1.3. Versão 1.4 contém uma correção e `allowNativePasswords=true` não é mais necessário. |
 | Python | https://pypi.python.org/pypi/mysql-connector-python | 1.2.3, 2.0, 2.1, 2.2 | 1.2.2 e anterior | |
 | Java | https://downloads.mariadb.org/connector-java/ | 2.1, 2.0, 1.6 | 1.5.5 e anterior | |
 
@@ -42,3 +42,7 @@ A vantagem de compatibilidade se estende para as ferramentas de gerenciamento de
 | Backup e restauração |  | X |  |
 | Exibir parâmetros do servidor | X | X | X |
 | Exibir conexões de cliente | X | X | X |
+
+## <a name="next-steps"></a>Próximas etapas
+
+- [Solucionar problemas de conexão no Banco de Dados do Azure para MySQL](howto-troubleshoot-common-connection-issues.md)

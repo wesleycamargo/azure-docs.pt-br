@@ -4,7 +4,7 @@ description: Descreve como adicionar novos certificados, sobrepor certificados e
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chakdan
 editor: ''
 ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74
 ms.service: service-fabric
@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2018
-ms.author: aljo-microsoft
-ms.openlocfilehash: aa5096b84f9bfe97784d6f80e4c203a1d8384404
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
-ms.translationtype: HT
+ms.author: aljo
+ms.openlocfilehash: 534335b15d61d1e411ec2e7fb96123eb4701878e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687411"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315258"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Adicionar ou remover certificados para um cluster do Service Fabric no Azure
 É recomendável que você se familiarize com o modo como o Service Fabric usa certificados X.509 e com os [Cenários de segurança do cluster do cluster](service-fabric-cluster-security.md). Você deve entender o que é um certificado de cluster e qual sua finalidade, antes de continuar.
 
-O comportamento de carregamento do certificado padrão do SDK do Azure Service Fabrics, é implantar e usar um certificado definido com uma data de expiração mais distante no futuro; independentemente de sua definição de configuração primária ou secundária. Voltar para o comportamento clássico é uma ação avançada não recomendada e exige a definição do valor do parâmetro de configuração "UseSecondaryIfNever" como false na sua configuração Fabric.Code.
+O comportamento de carregamento do certificado padrão do SDK do Azure Service Fabrics, é implantar e usar um certificado definido com uma data de expiração mais distante no futuro; independentemente de sua definição de configuração primária ou secundária. Voltando para o comportamento clássico é não avançada ação recomendada e exige a definir o valor do parâmetro de configuração "UseSecondaryIfNewer" como false na sua configuração Fabric.Code.
 
 O Service Fabric permite especificar dois certificados de cluster, um primário e um secundário, quando você configura a segurança do certificado durante a criação do cluster, além de certificados de cliente. Veja a [criação de um cluster do Service Fabric por meio do portal](service-fabric-cluster-creation-via-portal.md) ou a [criação de um cluster do azure por meio do Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) para obter detalhes sobre a configuração deles no tempo de criação. Se você especificar apenas um certificado de cluster no momento da criação, em seguida, que é usado como o certificado principal. Após a criação do cluster, é possível adicionar um novo certificado como um secundário.
 
@@ -114,7 +114,7 @@ Para facilitar o acompanhamento, o exemplo 5-VM-1-NodeTypes-Secure_Step2.JSON co
          }
     ``` 
 
-4. Faça alterações em **todas** as definições do recurso **Microsoft.Compute/virtualMachineScaleSets** - localize a definição do recurso Microsoft.Compute/virtualMachineScaleSets. Role até "publisher": "Microsoft.Azure.ServiceFabric", em "virtualMachineProfile".
+4. Faça alterações em **todas** as definições do recurso **Microsoft.Compute/virtualMachineScaleSets** - localize a definição do recurso Microsoft.Compute/virtualMachineScaleSets. Role até "publisher": "Microsoft", em "virtualMachineProfile".
 
     Nas configurações de editor do Service Fabric, você verá algo assim.
     
@@ -259,7 +259,7 @@ Para referência rápida, este é o comando para obter a integridade do cluster
 Get-ServiceFabricClusterHealth 
 ```
 
-## <a name="deploying-application-certificates-to-the-cluster"></a>Implantar certificados de aplicativo para o cluster.
+## <a name="deploying-client-certificates-to-the-cluster"></a>Implantar certificados de cliente para o cluster.
 
 Você pode usar as mesmas etapas conforme descrito nas Etapas 5 anteriores para que os certificados implantados de um Key Vault para os nós. É necessário apenas definir e usar parâmetros diferentes.
 

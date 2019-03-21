@@ -16,12 +16,12 @@ ms.date: 03/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: e39904378edd9583cd7802d0a75f2f365a35d2b6
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 58be7b6dc9eeeadd69fe82f1dc03d959aa94f9c8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791946"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58088427"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Antes de começar com o serviço de aplicativo no Azure Stack
 
@@ -304,10 +304,10 @@ Para fins de alta disponibilidade e de produção, você deve usar uma versão c
 
 Instância do SQL Server para o serviço de aplicativo do Azure no Azure Stack deve ser acessível de todas as funções de serviço de aplicativo. Você pode implantar o SQL Server na assinatura do provedor padrão no Azure Stack. Ou você pode fazer usar da infra-estrutura existente dentro da sua organização (desde que haja conectividade com o Azure Stack). Se você estiver usando uma imagem do Marketplace do Azure, lembre-se de configurar o firewall adequadamente.
 
->[!NOTE]
+> [!NOTE]
 > Um número de imagens de máquina virtual de IaaS do SQL está disponível por meio do recurso de gerenciamento do Marketplace. Verifique se você sempre baixar a versão mais recente da extensão SQL IaaS antes de implantar uma VM usando um item do Marketplace. As imagens do SQL são o mesmo que as VMs do SQL que estão disponíveis no Azure. Para VMs criadas a partir dessas imagens, a extensão IaaS e correspondente aprimoramentos do portal do SQL fornecem recursos como recursos de backup e aplicação de patch automática.
->
-Para qualquer uma das funções do SQL Server, você pode usar uma instância padrão ou uma instância nomeada. Se você usar uma instância nomeada, certifique-se de iniciar o serviço navegador do SQL Server e abra a porta 1434 manualmente.
+> 
+> Para qualquer uma das funções do SQL Server, você pode usar uma instância padrão ou uma instância nomeada. Se você usar uma instância nomeada, certifique-se de iniciar o serviço navegador do SQL Server e abra a porta 1434 manualmente.
 
 O instalador do serviço de aplicativo verificará para garantir que o SQL Server tem de contenção do banco de dados habilitada. Para habilitar a contenção do banco de dados no SQL Server que hospedará os bancos de dados do serviço de aplicativo, execute estes comandos do SQL:
 

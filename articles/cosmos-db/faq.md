@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 7e1c6d771e2452e99b47c256c99e25e281b9a3aa
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c344e8c2d0ad62b394792201ab52bb37413012f8
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849220"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259900"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Perguntas frequentes sobre diferentes APIs no Azure Cosmos DB
 
@@ -127,7 +127,7 @@ O provisionamento de produtividade no nível do contêiner e no nível do banco 
 
 Sim, o Azure CosmosDB dá suporte à análise de série temporal; veja um exemplo do [padrão de série temporal](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/samples/Patterns). O exemplo mostra como usar o feed de alterações para criar exibições agregadas nos dados de série temporal. Você pode estender essa abordagem usando o streaming do spark ou outro processador de dados de streaming.
 
-## <a name="sql-api"></a>API SQL
+## <a name="sql-api"></a>API do SQL
 
 ### <a name="how-do-i-start-developing-against-the-sql-api"></a>Como fazer para começar a desenvolver com a API do SQL?
 
@@ -159,7 +159,7 @@ Os contêineres também são as entidades de cobrança do Azure Cosmos DB. Cada 
 
 ### <a name="how-do-i-create-a-database"></a>Como crio um banco de dados?
 
-Você pode criar bancos de dados usando o [Portal do Azure](https://portal.azure.com), conforme descrito em [Adicionar uma coleção](create-sql-api-dotnet.md#create-collection), um dos [SDKs do Azure Cosmos DB](sql-api-sdk-dotnet.md) ou as [APIs REST](/rest/api/cosmos-db/).
+Você pode criar bancos de dados usando o [Portal do Azure](https://portal.azure.com), conforme descrito em [Adicionar uma coleção](create-sql-api-dotnet.md#create-collection-database), um dos [SDKs do Azure Cosmos DB](sql-api-sdk-dotnet.md) ou as [APIs REST](/rest/api/cosmos-db/).
 
 ### <a name="how-do-i-set-up-users-and-permissions"></a>Como configuro usuários e permissões?
 
@@ -225,7 +225,7 @@ Há outros códigos de erro adicionais com os quais eu preciso lidar enquanto es
 
 Junto com os códigos de erro do MongoDB comuns, a API do Azure Cosmos DB para MongoDB tem seus próprios códigos de erro específicos:
 
-| Erro               | Codificar  | Descrição  | Solução  |
+| Erro               | Código  | DESCRIÇÃO  | Solução  |
 |---------------------|-------|--------------|-----------|
 | TooManyRequests     | 16500 | O número total de unidades de solicitação consumidas é mais do que a taxa de unidades de solicitação provisionada para a coleção e foi limitado. | Considere a possibilidade de dimensionar a taxa de transferência atribuída a um contêiner ou um conjunto de contêineres do portal do Azure ou tentar novamente. |
 | ExceededMemoryLimit | 16501 | Como um serviço multilocatário, a operação excedeu a alocação de memória do cliente. | Reduza o escopo da operação por meio de um critério de consulta mais restritivo ou entre em contato com o suporte no [Portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Example: <em>&nbsp;&nbsp;&nbsp;&nbsp;db.getCollection('users').aggregate([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {nome: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])</em>) |
@@ -257,7 +257,7 @@ Há algumas diferenças de comportamento de que os usuários provenientes do arm
 * Não há suporte para CORS no momento
 * Nomes de tabela no armazenamento de tabelas do Azure não diferencia maiusculas de minúsculas, mas estão na API de tabela do Azure Cosmos DB
 * Alguns dos formatos internos do Azure Cosmos DB para a codificação de informações, como campos binários, atualmente não são tão eficientes quanto se desejaria. Portanto, isso pode causar limitações inesperadas no tamanho dos dados. Por exemplo, no momento você não poderia usar todo o 1 MB de uma entidade de tabela para armazenar dados binários, pois a codificação aumenta o tamanho dos dados.
-* “Id” do nome da propriedade de entidade sem suporte no momento
+* Nome da propriedade de entidade 'ID' atualmente não tem suportada
 * TableQuery TakeCount não está limitado a 1000
 
 Em termos da API REST, há várias opções de pontos de extremidade/consulta que não são suportados pela API de Tabela do Azure Cosmos DB:
@@ -312,7 +312,7 @@ Algumas configurações são tratadas no método CreateCloudTableClient e outras
 
 ### <a name="are-there-any-changes-for-customers-who-are-using-the-existing-azure-table-storage-sdks"></a>Há alterações para clientes que estão usando SDKs de armazenamento existentes da Tabela do Azure?
 
-Nenhum. Não há nenhuma alteração para clientes novos ou existentes que estejam usando os SDKs de armazenamento de Tabela do Azure existentes.
+Nenhuma. Não há nenhuma alteração para clientes novos ou existentes que estejam usando os SDKs de armazenamento de Tabela do Azure existentes.
 
 ### <a name="how-do-i-view-table-data-thats-stored-in-azure-cosmos-db-for-use-with-the-table-api"></a>Como fazer para exibir dados de tabela que são armazenados no Azure Cosmos DB para uso com a API de Tabela?
 
@@ -354,7 +354,7 @@ Você pode usar o avaliador de capacidade para calcular o TableThroughput necess
 
 ### <a name="can-i-use-the-table-api-sdk-locally-with-the-emulator"></a>Posso usar o SDK da API de Tabela localmente com o emulador?
 
-No momento, não.
+Não no momento.
 
 ### <a name="can-my-existing-application-work-with-the-table-api"></a>Um aplicativo que já tenho pode trabalhar com a API de Tabela?
 
@@ -473,7 +473,7 @@ Sim, se você não substituir a TableThroughput por meio do app.config e não us
 
 ### <a name="is-there-any-change-of-pricing-for-existing-customers-of-the-azure-table-storage-service"></a>Há alguma alteração de preço para clientes atuais do serviço de armazenamento de Tabela do Azure?
 
-Nenhum. Não há nenhuma alteração no preço para clientes de armazenamento de Tabela do Azure existentes.
+Nenhuma. Não há nenhuma alteração no preço para clientes de armazenamento de Tabela do Azure existentes.
 
 ### <a name="how-is-the-price-calculated-for-the-table-api"></a>Como o preço é calculado para a API de Tabela?
 

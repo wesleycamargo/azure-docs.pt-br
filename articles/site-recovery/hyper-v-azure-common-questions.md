@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.date: 12/27/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 11e29aa8d85ed7e3cf5ce7b4a8360e4b5eb628f9
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 9ce236748c1ca4f5e166fe1d7574f6a635d6204b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319210"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855879"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Perguntas comuns - Recuperação de desastre do Hyper-V para o Azure
 
@@ -65,10 +65,9 @@ Sim, tanto criptografia em trânsito como [criptografia no Azure](https://docs.m
 ### <a name="what-do-i-need-on-premises"></a>O que é necessário no local?
 
 Você precisa de uma ou mais VMs em execução em um ou mais hosts Hyper-V independentes ou em cluster. Você também pode replicar as VMs em execução nos hosts gerenciados pelo System Center Virtual Machine Manager (VMM).
-    - Se você não estiver executando o VMM, durante a implantação do Site Recovery, você reunirá os hosts e clusters do Hyper-V nos sites do Hyper-V. Você instala os agentes do Site Recovery (provedor do Azure Site Recovery e do Recovery Services) em cada host do Hyper-V.
-    - Se os hosts do Hyper-V estiverem localizados em uma nuvem do VMM, você orquestra a replicação no VMM. Você instala o Provedor de Recuperação do Site no servidor do VMM e o agente dos Serviços de Recuperação em cada host do Hyper-V. Mapear entre redes lógicas/VM do VMM e redes virtuais do Azure.
-    - 
-[Saiba mais](hyper-v-azure-architecture.md) sobre o Hyper-V para arquitetura do Azure.
+- Se você não estiver executando o VMM, durante a implantação do Site Recovery, você reunirá os hosts e clusters do Hyper-V nos sites do Hyper-V. Você instala os agentes do Site Recovery (provedor do Azure Site Recovery e do Recovery Services) em cada host do Hyper-V.
+- Se os hosts do Hyper-V estiverem localizados em uma nuvem do VMM, você orquestra a replicação no VMM. Você instala o Provedor de Recuperação do Site no servidor do VMM e o agente dos Serviços de Recuperação em cada host do Hyper-V. Mapear entre redes lógicas/VM do VMM e redes virtuais do Azure.
+- [Saiba mais](hyper-v-azure-architecture.md) sobre o Hyper-V para arquitetura do Azure.
 
 ### <a name="can-i-replicate-vms-located-on-a-hyper-v-cluster"></a>É possível replicar as VMs localizadas em um cluster do Hyper-V?
 
@@ -139,11 +138,11 @@ Para replicação, uma VM do Hyper-V deve estar executando um sistema operaciona
 
 VMs Hyper-V podem ser replicadas a cada 30 segundos (exceto para o armazenamento premium), 5 minutos ou 15 minutos.
 
-###<a name="can-i-extend-replication"></a>É possível estender replicação?
-Esse tipo de replicação estendida ou encadeada não tem suporte. Solicite esse recurso no [fórum de comentários](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
+### <a name="can-i-extend-replication"></a>É possível estender replicação?
+Esse tipo de replicação estendida ou encadeada não tem suporte. Solicite esse recurso no [fórum de comentários](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
 
 ### <a name="can-i-do-an-offline-initial-replication"></a>É possível fazer uma replicação inicial offline?
-Não há suporte para isso. Solicite esse recurso no [fórum de comentários](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
+Não há suporte para isso. Solicite esse recurso no [fórum de comentários](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
 
 ### <a name="can-i-exclude-disks"></a>É possível excluir discos?
 Sim, é possível excluir discos da replicação. 
@@ -189,7 +188,7 @@ Após o failover, você poderá acessar as VMs do Azure por meio de uma conexão
 O Azure foi desenvolvido para resiliência. O Site Recovery foi projetado para failover em um datacenter do Azure secundário, de acordo com o SLA do Azure. Quando ocorre um failover, garantimos que seus metadados e cofres permaneçam na mesma região geográfica escolhida para o cofre.
 
 ### <a name="is-failover-automatic"></a>O failover é automático?
-[Failover](site-recovery-failover.md) não é automático. É possível iniciar failovers com um único clique no portal, ou utilizar o [ PowerShell](/powershell/module/azurerm.siterecovery) para disparar um failover.
+[Failover](site-recovery-failover.md) não é automático. Iniciar failovers com um único clique no portal, ou você pode usar [PowerShell](/powershell/module/azurerm.siterecovery) para disparar um failover.
 
 ### <a name="how-do-i-fail-back"></a>Como posso realizar o failback?
 

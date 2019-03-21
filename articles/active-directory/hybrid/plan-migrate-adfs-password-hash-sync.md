@@ -12,12 +12,12 @@ ms.date: 12/13/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2effd6c067a1378d9f774f282f6cea69a50596c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d522b0740b144c39da81a9838f9d6e259fe62d22
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204433"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532772"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migrar da federação para a sincronização de hash de senha do Azure Active Directory
 
@@ -139,9 +139,9 @@ Antes de converter de identidade federada em identidade gerenciada, analise aten
 |-|-|
 | Você planeja continuar usando o AD FS com outros aplicativos (que não o Azure AD e o Office 365). | Depois de converter seus domínios, você usará tanto o AD FS quanto o Azure AD. Considere a experiência do usuário. Em alguns cenários, os usuários podem precisar realizar a autenticação duas vezes: uma vez para o Azure AD (em que um usuário obtém acesso SSO a outros aplicativos, como o Office 365) e novamente para todos os aplicativos que ainda estão associados ao AD FS como um objeto de confiança de terceira parte confiável. |
 | Sua instância do AD FS é muito personalizada e depende das configurações de personalização específicas no arquivo onload.js (por exemplo, se você tiver alterado a experiência de conexão para que os usuários usem apenas um formato **SamAccountName** para o nome de usuário, em vez de um nome UPN, ou sua organização tiver aplicado fortemente a identidade de marca à experiência de conexão). O arquivo onload.js não pode ser duplicado no Azure AD. | Antes de continuar, verifique se que o Azure AD pode atender aos seus atuais requisitos de personalização. Para obter mais informações e diretrizes, veja as seções sobre identidade visual do AD FS e personalização do AD FS.|
-| Você usa o AD FS para bloquear versões anteriores de clientes de autenticação.| Considere substituir os controles do AD FS que bloqueiam a versões anteriores de clientes de autenticação usando uma combinação de [controles de acesso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) e [Regras de Acesso do Cliente do Exchange Online](http://aka.ms/EXOCAR). |
+| Você usa o AD FS para bloquear versões anteriores de clientes de autenticação.| Considere substituir os controles do AD FS que bloqueiam a versões anteriores de clientes de autenticação usando uma combinação de [controles de acesso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) e [Regras de Acesso do Cliente do Exchange Online](https://aka.ms/EXOCAR). |
 | Você exige que os usuários realizem a autenticação multifator em relação a uma solução de servidor de autenticação multifator local quando os usuários se autenticam para o AD FS.| Em um domínio de identidade gerenciada, você não pode injetar um desafio de autenticação multifator por meio da solução de autenticação multifator local no fluxo de autenticação. No entanto, você pode usar o serviço de Autenticação Multifator do Azure para a autenticação multifator depois da conversão do domínio.<br /><br /> Se os usuários no momento não usam Autenticação Multifator do Azure, é necessária uma etapa de registro de usuário realizada uma única vez. Você deve preparar e comunicar o registro planejado a seus usuários. |
-| No momento, você usa políticas de controle de acesso (regras AuthZ) no AD FS para controlar o acesso ao Office 365.| Considere substituir as políticas com as [políticas de acesso condicional](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) e as [Regras de Acesso do Cliente do Exchange Online](http://aka.ms/EXOCAR) equivalentes do Azure AD.|
+| No momento, você usa políticas de controle de acesso (regras AuthZ) no AD FS para controlar o acesso ao Office 365.| Considere substituir as políticas com as [políticas de acesso condicional](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) e as [Regras de Acesso do Cliente do Exchange Online](https://aka.ms/EXOCAR) equivalentes do Azure AD.|
 
 ### <a name="common-ad-fs-customizations"></a>Personalizações de comuns do AD FS
 
@@ -319,7 +319,7 @@ Primeiro, altere o método de entrada:
    * **Logon único contínuo** está definido como **Habilitado**.
    * **Sincronização de Senha** está definida como **Habilitada**.<br /> 
 
-   ![Captura de tela que mostra as configurações na seção de Entrada do usuário ](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image11.png)<br />
+   ![Captura de tela que mostra as configurações na seção de Entrada do usuário](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image11.png)<br />
 
 Vá para [Testes e próximas etapas](#testing-and-next-steps).
 
@@ -337,7 +337,7 @@ Use esta opção se você não tiver configurado inicialmente seus domínios fed
 
    Antes de habilitar a sincronização de hash de senha: ![Captura de tela que mostra a opção Não configurar na página de Entrada do usuário](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image12.png)<br />
 
-   Após habilitar a sincronização de hash de senha: ![Captura de tela que mostra as novas opções na página de Entrada do usuário ](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image13.png)<br />
+   Após habilitar a sincronização de hash de senha: ![Captura de tela que mostra as novas opções na página de entrada do usuário](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image13.png)<br />
    
    > [!NOTE]
    > Do Azure AD Connect versão 1.1.880.0 em diante, a caixa de seleção **Logon único contínuo está selecionada por padrão**.
@@ -400,7 +400,7 @@ Quando seu locatário usava identidade federada, os usuários eram redirecionado
 Para testar a sincronização de hash de senha:
 
 1. Abra o Internet Explorer no modo InPrivate para que o SSO contínuo não o conecte automaticamente.
-2. Vá para a página de entrada do Office 365 ([http://portal.office.com](http://portal.office.com/)).
+2. Vá para a página de entrada do Office 365 ([https://portal.office.com](https://portal.office.com/)).
 3. Insira um nome UPN do usuário e, em seguida, selecione **Avançar**. Insira o nome UPN de um usuário híbrido que foi sincronizado da instância do Active Directory local e que anteriormente usava autenticação federada. Será exibida uma página na qual você insere o nome de usuário e a senha:
 
    ![Captura de tela que mostra a página de entrada em que você insere um nome de usuário](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image18.png)

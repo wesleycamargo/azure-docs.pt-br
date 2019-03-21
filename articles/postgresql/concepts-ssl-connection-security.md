@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 13a1ed626e7741c90cf902c9ed01911985ca8424
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 5a0fc99052b18dc1fa837147aa914a473d27d832
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453436"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730018"
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>Configurar a conectividade SSL no Banco de Dados do Azure para PostgreSQL
 O Banco de dados do Azure para PostgreSQL prefere conectar-se seus aplicativos cliente ao serviço PostgreSQL usando o protocolo SSL. Impor conexões SSL entre seu servidor de banco de dados e os aplicativos cliente ajuda a proteger contra ataques de "intermediários" criptografando o fluxo de dados entre o servidor e seu aplicativo.
@@ -50,65 +50,21 @@ Em alguns casos, os aplicativos exigem um arquivo de certificado local gerado de
 ### <a name="download-the-certificate-file-from-the-certificate-authority-ca"></a>Baixar o arquivo de certificado da Autoridade de Certificação (CA) 
 O certificado necessário para se comunicar por SSL com o servidor de Banco de Dados do Azure para PostgreSQL está [aqui](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt). Baixar o arquivo de certificado localmente.
 
-### <a name="download-and-install-openssl-on-your-machine"></a>Baixar e instalar o OpenSSL em seu computador 
-Para decodificar o arquivo de certificado exigido para conectar seu aplicativo com segurança ao servidor de banco de dados, instale o OpenSSL em seu computador local.
+### <a name="install-a-cert-decoder-on-your-machine"></a>Instalar um decodificador de certificado em seu computador 
+Você pode usar [OpenSSL](https://github.com/openssl/openssl) para decodificar o arquivo de certificado necessário para seu aplicativo para se conectar com segurança ao seu servidor de banco de dados. Para saber como instalar o OpenSSL, consulte o [instruções de instalação do OpenSSL](https://github.com/openssl/openssl/blob/master/INSTALL). 
 
-#### <a name="for-linux-os-x-or-unix"></a>Para Linux, OS X ou Unix
-As bibliotecas OpenSSL são fornecidas diretamente no código-fonte a partir da [OpenSSL Software Foundation](https://www.openssl.org). As instruções a seguir orientarão você pelas etapas necessárias de instalação do OpenSSL no computador com Linux. Este artigo usa comandos comprovadamente funcionais no Ubuntu 12.04 e superior.
-
-Abra uma sessão de terminal e baixe o OpenSSL.
-```bash
-wget http://www.openssl.org/source/openssl-1.1.0e.tar.gz
-``` 
-Extraia os arquivos do pacote baixado.
-```bash
-tar -xvzf openssl-1.1.0e.tar.gz
-```
-Entre no diretório onde os arquivos foram extraídos. Por padrão, deve ser da seguinte maneira.
-
-```bash
-cd openssl-1.1.0e
-```
-Configure o OpenSSL executando o comando a seguir. Se você quiser os arquivos em uma pasta diferente de /usr/local/openssl, altere o seguinte conforme for apropriado.
-
-```bash
-./config --prefix=/usr/local/openssl --openssldir=/usr/local/openssl
-```
-Agora que o OpenSSL está configurado corretamente, você precisa compilá-lo para converter seu certificado. Para compilar, execute o seguinte comando:
-
-```bash
-make
-```
-Após a conclusão da compilação, você estará pronto para instalar o OpenSSL como um executável, executando o seguinte comando:
-```bash
-make install
-```
-Para confirmar a instalação bem-sucedida do OpenSSL em seu sistema, execute o comando a seguir e verifique se você obtém o mesmo resultado.
-
-```bash
-/usr/local/openssl/bin/openssl version
-```
-Se for bem-sucedida, você verá a seguinte mensagem.
-```bash
-OpenSSL 1.1.0e 7 Apr 2014
-```
-
-#### <a name="for-windows"></a>Para Windows
-A instalação do OpenSSL em um PC com Windows pode ser feita destas maneiras:
-1. **(Recomendado)** Usando a funcionalidade interna Bash para Windows no Windows 10 e superior, o OpenSSL é instalado por padrão. As instruções sobre como habilitar a funcionalidade Bash para Windows no Windows 10 podem ser encontradas [aqui](https://msdn.microsoft.com/commandline/wsl/install_guide).
-2. Por meio do download de um aplicativo Win32/64 fornecido pela comunidade. Embora a OpenSSL Software Foundation não forneça, nem endosse, qualquer instalador específico do Windows, ela fornece uma lista dos instaladores disponíveis [aqui](https://wiki.openssl.org/index.php/Binaries).
 
 ### <a name="decode-your-certificate-file"></a>Decodificar o arquivo de certificado
 O arquivo de CA Raiz baixado está em formato criptografado. Use o OpenSSL para decodificar o arquivo de certificado. Para fazer isso, execute este comando OpenSSL:
 
-```dos
+```
 openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
 ```
 
 ### <a name="connecting-to-azure-database-for-postgresql-with-ssl-certificate-authentication"></a>Conectar-se ao Banco de Dados do Azure para PostgreSQL com autenticação de certificado SSL
-Agora que você decodificou o certificado, pode conectar-se ao seu servidor de banco de dados com segurança por SSL. Para permitir a verificação do certificado do servidor, o certificado deve ser colocado no arquivo ~/.postgresql/root.crt, no diretório base do usuário. (No Microsoft Windows, o arquivo é chamado % APPDATA%\postgresql\root.crt.). Veja a seguir instruções para se conectar ao Banco de Dados do Azure para PostgreSQL.
+Agora que você decodificou o certificado, pode conectar-se ao seu servidor de banco de dados com segurança por SSL. Para permitir a verificação do certificado do servidor, o certificado deve ser colocado no arquivo ~/.postgresql/root.crt, no diretório base do usuário. (No Microsoft Windows, o arquivo é chamado % APPDATA%\postgresql\root.crt.). 
 
-#### <a name="using-psql-command-line-utility"></a>Usar o utilitário de linha de comando psql
+#### <a name="connect-using-psql"></a>Conectar-se usando psql
 O exemplo a seguir mostra como conectar-se ao servidor PostgreSQL usando o utilitário de linha de comando psql. Use o arquivo `root.crt` criado e a opção `sslmode=verify-ca` ou `sslmode=verify-full`.
 
 Usando a interface de linha de comando do PostgreSQL, execute o seguinte comando:
@@ -127,11 +83,6 @@ Type "help" for help.
 
 postgres=>
 ```
-
-#### <a name="using-pgadmin-gui-tool"></a>Usando a ferramenta GUI de pgAdmin
-A configuração de pgAdmin 4 para se conectar com segurança via SSL exige que você defina `SSL mode = Verify-CA` ou `SSL mode = Verify-Full` da seguinte maneira:
-
-![Captura de tela de pgAdmin - conexão - modo SSL Require](./media/concepts-ssl-connection-security/2-pgadmin-ssl.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 Analise as várias opções de conectividade do aplicativo em [Bibliotecas de conexão para o Banco de Dados do Azure para PostgreSQL](concepts-connection-libraries.md).

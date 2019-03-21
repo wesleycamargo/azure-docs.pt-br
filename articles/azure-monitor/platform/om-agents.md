@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/23/2018
 ms.author: magoedte
-ms.openlocfilehash: 722712d1e38efa3e1accc41abca5c9d88b3c1229
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 21294f61c77f0267601c5d0fc1fc9dcf213008e7
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58095918"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258812"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Conectar o Operations Manager ao Log Analytics
 Para manter seu investimento existente no [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/key-concepts?view=sc-om-1807) e usar recursos estendidos com o Log Analytics, você pode integrar o Operations Manager à sua área de trabalho do Log Analytics. Isso permite aproveitar as oportunidades do Log Analytics e continuar a usar o Operations Manager para:
@@ -132,7 +132,7 @@ Execute as etapas a seguir, se um servidor proxy interno estiver entre o grupo d
 1. Abra o console do Operations Manager e selecione o workspace **Administração**.
 1. Expanda Operations Management Suite e clique em **Conexões**.
 1. Na exibição Conexão do OMS, clique em **Configurar Servidor Proxy**.
-1. Na página **Assistente do Operations Management Suite: servidor proxy**, selecione **Usar um servidor proxy para acessar o Operations Management Suite**, digite a URL com o número da porta, por exemplo, <http://corpproxy:80> e, em seguida, clique em **Concluir**.
+1. Na página **Assistente do Operations Management Suite: Servidor proxy** página, selecione **usar um servidor proxy para acessar o Operations Management Suite**, e, em seguida, digite a URL com o número da porta, por exemplo, http:\//corpproxy:80 e depois clique em  **Concluir**.
 
 Se o servidor proxy exigir autenticação, execute as etapas a seguir para configurar as credenciais e as configurações que precisam ser propagadas para os computadores gerenciados que relatam para o Log Analytics no grupo de gerenciamento.
 

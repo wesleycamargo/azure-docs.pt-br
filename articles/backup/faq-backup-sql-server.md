@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: f9020cd6d35c59e9293e6e8a96b09319f9f8bb00
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 48a0400a471e06f65c1d548b7c1c419a1cb198bd
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225665"
+ms.locfileid: "58284571"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Perguntas Frequentes sobre bancos de dados do SQL Server que estão em execução em um backup de VM do Azure
 
@@ -54,19 +54,19 @@ Sim. Você pode limitar a taxa com que a política de backup é executada para m
 De acordo com as limitações do SQL, você pode executar copiar somente backup completo na réplica secundária; No entanto, não é permitido o backup completo.
 
 ## <a name="can-i-protect-availability-groups-on-premises"></a>Posso proteger grupos de disponibilidade no local?
-Nº. O Backup do Azure protege os bancos de dados do SQL Server em execução no Azure. Se um grupo de disponibilidade (AG) é distribuído entre computadores locais e do Azure, o grupo de disponibilidade pode ser protegido somente se a réplica primária está em execução no Azure. Além disso, o Azure Backup protege apenas os nós que são executados na mesma região do Azure que o Cofre de serviços de recuperação.
+ Não. O Backup do Azure protege os bancos de dados do SQL Server em execução no Azure. Se um grupo de disponibilidade (AG) é distribuído entre computadores locais e do Azure, o grupo de disponibilidade pode ser protegido somente se a réplica primária está em execução no Azure. Além disso, o Azure Backup protege apenas os nós que são executados na mesma região do Azure que o Cofre de serviços de recuperação.
 
 ## <a name="can-i-protect-availability-groups-across-regions"></a>Pode proteger grupos de disponibilidade entre regiões?
 O cofre dos serviços de recuperação de Backup do Azure pode detectar e proteger todos os nós que estão na mesma região que o cofre. Se seu grupo de disponibilidade Always On do SQL Server se estender por várias regiões do Azure, configure o backup da região que tem o nó primário. O Backup do Azure pode detectar e proteger todos os bancos de dados no grupo de disponibilidade de acordo com sua preferência de backup. Quando sua preferência de backup não for atendida, os backups falharão e você receber o alerta de falha.
 
 ## <a name="do-successful-backup-jobs-create-alerts"></a>Trabalhos de backup bem-sucedidos criam alertas?
-Nº. Trabalhos de backup bem-sucedidos não geram alertas. Os alertas são enviados somente para trabalhos de backup com falha. Comportamento detalhado para alertas do portal está documentado [aqui](backup-azure-monitoring-built-in-monitor.md). No entanto, caso você esteja interessado têm alertas mesmo para trabalhos com êxito, você pode usar [monitoramento usando o Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
+ Não. Trabalhos de backup bem-sucedidos não geram alertas. Os alertas são enviados somente para trabalhos de backup com falha. Comportamento detalhado para alertas do portal está documentado [aqui](backup-azure-monitoring-built-in-monitor.md). No entanto, caso você esteja interessado têm alertas mesmo para trabalhos com êxito, você pode usar [monitoramento usando o Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
 
 ## <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>Posso ver os trabalhos de backup agendados no menu trabalhos de Backup?
 O **trabalho de Backup** menu mostrará apenas ad-hoc trabalhos de backup. Para o trabalho agendado, use [monitoramento usando o Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
 
 ## <a name="are-future-databases-automatically-added-for-backup"></a>Bancos de dados futuros são adicionados automaticamente ao backup?
-Sim, você pode obter essa funcionalidade com [proteção automática](backup-azure-sql-database.md#enable-auto-protection).  
+Sim, você pode obter essa funcionalidade com [proteção automática](backup-sql-server-database-azure-vms.md#enable-auto-protection).  
 
 ## <a name="if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups"></a>Se eu excluir um banco de dados de uma instância de autoprotected, o que acontecerá com os backups?
 Se um banco de dados é descartado de uma instância de autoprotected, os backups de banco de dados ainda serão tentados. Isso implica que o banco de dados excluído começa sejam exibidos como não íntegro sob **itens de Backup** e ainda está protegido.
@@ -84,7 +84,7 @@ Um banco de dados nomeado novamente é tratado como um novo banco de dados. Port
 Você pode selecionar o banco de dados, que agora está renomeado e configurar a proteção. No caso da proteção automática está habilitada na instância, o banco de dados renomeado serão automaticamente detectado e protegido.
 
 ##  <a name="why-cant-i-see-an-added-database-for-an-autoprotected-instance"></a>Por que não consigo ver um banco de dados para uma instância de autoprotected adicionado?
-Um banco de dados que você [adicionar a uma instância de autoprotected](backup-azure-sql-database.md#enable-auto-protection) não pode aparecer imediatamente em itens protegidos. Isso ocorre porque a descoberta normalmente é executada a cada 8 horas. No entanto, você pode descobrir e proteger os novos bancos de dados imediatamente se você executar manualmente uma descoberta, selecionando **recuperar bancos de dados**, conforme mostrado na imagem a seguir.
+Um banco de dados que você [adicionar a uma instância de autoprotected](backup-sql-server-database-azure-vms.md#enable-auto-protection) não pode aparecer imediatamente em itens protegidos. Isso ocorre porque a descoberta normalmente é executada a cada 8 horas. No entanto, você pode descobrir e proteger os novos bancos de dados imediatamente se você executar manualmente uma descoberta, selecionando **recuperar bancos de dados**, conforme mostrado na imagem a seguir.
 
   ![Descobrir manualmente um banco de dados adicionado recentemente](./media/backup-azure-sql-database/view-newly-added-database.png)
 

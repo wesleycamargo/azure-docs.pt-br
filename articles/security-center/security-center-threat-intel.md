@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 07592c6852a7fce057381cb9086baedc9d2b1bd6
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: f1e238890b777e2816648ec407e2581f636d1c12
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111740"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57239820"
 ---
 # <a name="security-alerts-map-and-threat-intelligence"></a>Inteligência contra ameaças e mapa de alertas de segurança
 Este artigo ajuda você a usar o mapa de alertas da Central de Segurança do Azure e o mapa de inteligência de ameaças baseada em eventos de segurança para solucionar problemas relacionados à segurança.
@@ -62,7 +62,7 @@ Para exibir o mapa de inteligência contra ameaças com base em eventos de segur
 4. Na parte superior do mapa, selecione **Exibir a inteligência contra ameaças clássica**. O painel **Inteligência contra ameaças** é aberto.
 
    > [!NOTE]
-   > Se a coluna à direita mostra **ATUALIZAR PLANO**, esse workspace está usando a assinatura gratuita. Atualize para Standard a fim de usar esse recurso. Se a coluna à direita mostra **REQUER ATUALIZAÇÃO**, atualize o [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) para usar esse recurso. Para saber mais sobre o plano de preço, leia Preços da Central de Segurança do Azure.
+   > Se a coluna à direita mostra **ATUALIZAR PLANO**, esse workspace está usando a assinatura gratuita. Atualize para Standard a fim de usar esse recurso. Se a coluna direita mostra **requer atualização**, atualize [registra em log do Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) para usar esse recurso. Para saber mais sobre o plano de preço, leia Preços da Central de Segurança do Azure.
    >
 5. Se você tem mais de um workspace para investigar, priorize a investigação de acordo com a coluna **IP Mal-intencionado**. Ela mostra o número atual de IPs mal-intencionadas no workspace. Selecione o workspace que você deseja usar e o painel **Inteligência contra ameaças** será exibido.
 

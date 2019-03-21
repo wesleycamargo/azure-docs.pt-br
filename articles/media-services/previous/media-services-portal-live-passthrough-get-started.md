@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/10/2019
+ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: c960ae10fc892a5f4bd044fff80a44a0628ea38e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: d86151b436ec3cc5ea3d4b687f5c8692b2ca4efa
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875899"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258693"
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-the-azure-portal"></a>Como executar uma transmissão ao vivo com codificadores locais usando o portal do Azure
 > [!div class="op_single_selector"]
@@ -125,7 +125,7 @@ Para obter mais detalhes sobre os canais de passagem, veja [Transmissão ao vivo
 ## <a name="get-ingest-urls"></a>Obter URLs de ingestão
 Depois que o canal é criado, você pode obter URLs de ingestão que você fornecerá ao codificador ao vivo. O codificador usa essas URLs para gerar entrada de um fluxo ao vivo.
 
-![Criado em](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
+![Criado](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
 
 ## <a name="watch-the-event"></a>Assistir ao evento
 Para assistir o evento, clique em **Assistir** no portal do Azure ou copie a URL de transmissão e use um player de sua escolha. 

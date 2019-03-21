@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 03/05/2019
 ms.author: alkohli
-ms.openlocfilehash: 887c1d554cd5bd2b935178a77a2de19e687ca3f2
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 26b560434e6305689781b8c39c7cf814af9bf8aa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450397"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112289"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway-preview"></a>Tutorial: Conectar, configurar, ativar o Azure Data Box Gateway (Versão Prévia) 
 
@@ -43,7 +43,6 @@ Antes de configurar e configurar seu Data Box Gateway, verifique se:
 * Você provisionou um dispositivo virtual e obteve uma URL conectada a ele, conforme detalhado em [Provisionar um Data Box Gateway no Hyper-V](data-box-gateway-deploy-provision-hyperv.md) ou [Provisionar um Data Box Gateway no VMware](data-box-gateway-deploy-provision-vmware.md).
 * Você tem a chave de ativação do serviço Data Box Gateway que você criou para gerenciar dispositivos Data Box Gateway. Para saber mais, acesse [Preparar para implantar o Azure Data Box Gateway](data-box-gateway-deploy-prep.md).
 
-<!--* If this is the second or subsequent virtual device that you are registering with an existing StorSimple Device Manager service, you should have the service data encryption key. This key was generated when the first device was successfully registered with this service. If you have lost this key, see [Get the service data encryption key](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) for your Data Box Gateway.-->
 
 ## <a name="connect-to-the-local-web-ui-setup"></a>Conectar-se para a configuração de interface do usuário da web local 
 
@@ -53,15 +52,15 @@ Antes de configurar e configurar seu Data Box Gateway, verifique se:
    
    Use a URL de conexão observada no tutorial anterior. Você verá um erro indicando que há um problema com o certificado de segurança do site. Clique em **Continuar para essa página da Web**. (Essas etapas podem ser diferentes com base no navegador usado.)
    
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image2.png)
+    ![Erro durante a conexão](./media/data-box-gateway-deploy-connect-setup-activate/image2.png)
 
 2. Entrar para o interface do usuário do seu dispositivo virtual da web. A senha padrão é *Senha1*. 
    
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image3.png)
+    ![Entrar interface do usuário da web local](./media/data-box-gateway-deploy-connect-setup-activate/image3.png)
 
 3. Você será solicitado a alterar a senha do administrador do dispositivo. Digite uma nova senha que contenha entre 8 e 16 caracteres. A senha deve conter 3 dos seguintes: caracteres maiúsculos, minúsculos, numéricos e especiais.
 
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image4.png)
+    ![Alterar senha de administrador do dispositivo](./media/data-box-gateway-deploy-connect-setup-activate/image4.png)
 
 Agora você está no **Dashboard** do seu dispositivo.
 
@@ -69,28 +68,28 @@ Agora você está no **Dashboard** do seu dispositivo.
  
 1. No painel, você pode acessar várias configurações necessárias para configurar e registrar o dispositivo virtual com o serviço Data Box Gateway. As **Configurações de rede**, as **Configurações de proxy Web** e as **Configurações de hora** são opcionais. São as únicas configurações obrigatórias **nome do dispositivo** e **configurações de nuvem**.
    
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image5.png)
+    ![Web local da interface do usuário "Painel" página](./media/data-box-gateway-deploy-connect-setup-activate/image5.png)
 
 2. Na página **Nome do dispositivo**, configure um nome amigável para o seu dispositivo. O nome amigável pode ter de 1 a 15 caracteres e pode conter letras, números e hífens.
 
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image6.png)
+    ![Página de "Nome do dispositivo" de interface do usuário da web local](./media/data-box-gateway-deploy-connect-setup-activate/image6.png)
 
 3. (Opcionalmente) configure suas **configurações de rede**. Você vê pelo menos uma interface de rede e mais, dependendo de quantos você configurou na máquina virtual subjacente. A página **Configurações de rede** para um dispositivo virtual com uma interface de rede ativada é mostrada abaixo.
     
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image7.png)
+    ![Página de "Configurações de rede" de interface do usuário da web local](./media/data-box-gateway-deploy-connect-setup-activate/image7.png)
    
     Ao definir as configurações de rede, lembre-se do seguinte:
 
-    - Se o DHCP estiver ativado em seu ambiente, as interfaces de rede serão configuradas automaticamente. Portanto, um endereço IP, sub-rede, gateway e DNS são atribuídos automaticamente.
-    - Se o DHCP não estiver ativado, você poderá atribuir IPs estáticos, se necessário.
-    - Você pode configurar sua interface de rede como IPv4.
+   - Se o DHCP estiver ativado em seu ambiente, as interfaces de rede serão configuradas automaticamente. Portanto, um endereço IP, sub-rede, gateway e DNS são atribuídos automaticamente.
+   - Se o DHCP não estiver ativado, você poderá atribuir IPs estáticos, se necessário.
+   - Você pode configurar sua interface de rede como IPv4.
 
-    >[!NOTE] 
-    > É recomendável que você não alterne o endereço IP local do adaptador de rede de estático para DHCP, a menos que tenha outro endereço IP para se conectar ao dispositivo. Se estiver usando um adaptador de rede e alternar para DHCP, não haverá como determinar o endereço DHCP. Se você quiser alterar para um endereço DHCP, espere até o dispositivo ser registrado com o serviço e então altere. Posteriormente, você pode visualizar os IPs de todos os adaptadores em **Propriedades do dispositivo** no portal do Azure para seu serviço.
+     >[!NOTE] 
+     > É recomendável que você não alterne o endereço IP local do adaptador de rede de estático para DHCP, a menos que tenha outro endereço IP para se conectar ao dispositivo. Se estiver usando um adaptador de rede e alternar para DHCP, não haverá como determinar o endereço DHCP. Se você quiser alterar para um endereço DHCP, espere até o dispositivo ser registrado com o serviço e então altere. Posteriormente, você pode visualizar os IPs de todos os adaptadores em **Propriedades do dispositivo** no portal do Azure para seu serviço.
 
 4. Opcionalmente, configure seu servidor proxy da Web. Embora a configuração do proxy da Web seja opcional, saiba que se você usar um proxy da Web, só poderá configurá-lo aqui.
    
-   ![](./media/data-box-gateway-deploy-connect-setup-activate/image8.png)
+   ![Página de "Configurações de proxy da Web" de interface do usuário da web local](./media/data-box-gateway-deploy-connect-setup-activate/image8.png)
    
    Na página **Proxy Web** :
    
@@ -101,7 +100,7 @@ Agora você está no **Dashboard** do seu dispositivo.
 
 5. Opcionalmente, defina as configurações de hora para seu dispositivo, como o fuso horário e os servidores NTP primários e secundários. Os servidores NTP são necessários, pois seu dispositivo deve sincronizar a hora para que ele possa se autenticar com seus provedores de serviço de nuvem.
     
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image9.png)
+    ![Página de "Configurações de tempo" de interface do usuário da web local](./media/data-box-gateway-deploy-connect-setup-activate/image9.png)
     
     Na página **Configurações de hora** :
     
@@ -116,10 +115,17 @@ Agora você está no **Dashboard** do seu dispositivo.
 
     2. Clique em **Ativar**. 
        
-         ![](./media/data-box-gateway-deploy-connect-setup-activate/image10.png)
+         ![Página de "Configurações de nuvem" da interface do usuário da web local](./media/data-box-gateway-deploy-connect-setup-activate/image10a.png)
     
-    3. Talvez você precise aguardar um minuto antes do dispositivo ser ativado com êxito. Após a ativação, a página será atualizada para indicar que o dispositivo foi ativado com êxito.
+    3. Primeiro o dispositivo será ativado. O dispositivo é então verificado para todas as atualizações críticas e se estiver disponível, as atualizações são aplicadas automaticamente. Você verá uma notificação para esse efeito. 
 
+        A caixa de diálogo também tem uma chave de recuperação que você deve copiar e salve-o em um local seguro. Essa chave é usada para recuperar os dados no caso do dispositivo não é inicializado.
+
+        ![Página de "Configurações de nuvem" da interface do usuário da web local](./media/data-box-gateway-deploy-connect-setup-activate/image12.png)    
+
+    4. Talvez você precise aguardar vários minutos após a atualização for concluída com êxito. A página é atualizada para indicar que o dispositivo é ativado com êxito.
+
+        ![Página de "Configurações de nuvem" de interface do usuário da web local atualizada](./media/data-box-gateway-deploy-connect-setup-activate/image13.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

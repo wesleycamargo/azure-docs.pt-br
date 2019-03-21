@@ -17,12 +17,12 @@ ms.date: 01/24/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7401a77e79ec42930c411856defd48a0ba3c3bf7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d145407331ed652f21510483b51a4617bf28e2fa
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170222"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56879111"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Contas e permissões
 
@@ -249,7 +249,7 @@ Se você não leu a documentação em [Integrando suas identidades locais com o 
 |Instalar usando as Configurações expressas | [Instalação expressa do Azure AD Connect](how-to-connect-install-express.md)|
 |Instalar usando Configurações personalizadas | [Instalação personalizada do Azure AD Connect](./how-to-connect-install-custom.md)|
 |Atualizar do DirSync | [Atualizar a partir da ferramenta de sincronização do AD do Azure (DirSync)](how-to-dirsync-upgrade-get-started.md)|
-|Após a instalação | [Verifique a instalação e atribua licenças ](how-to-connect-post-installation.md)|
+|Após a instalação | [Verificar a instalação e atribuir licenças](how-to-connect-post-installation.md)|
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](whatis-hybrid-identity.md).

@@ -8,18 +8,18 @@ ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 14b51f109ca76661ac10c99d42002dda45bc0500
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: 700e8e9fe0dac182d71df8ca66800fa03cf25a2e
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53318364"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295786"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>Exportar dados no Azure IoT Central
 
 *Este tópico aplica-se aos administradores.*
 
-Este artigo descreve com mais detalhes como usar o recurso de exportação contínua de dados no Azure IoT Central para exportar seus dados para suas próprias instâncias dos **Hubs de Eventos do Azure** e do **Barramento de Serviço do Azure**. Exporte **medidas**, **dispositivos** e **modelos de dispositivo** para seu próprio destino para obter insights e análises de caminhos frequentes. Isso inclui disparar regras personalizadas no Azure Stream Analytics, disparar fluxos de trabalho personalizados nos Aplicativos Lógicos do Azure ou transformar os dados e passá-los pelo Azure Functions. 
+Este artigo descreve como usar o recurso de exportação contínua de dados no Azure IoT Central para exportar dados para seus próprios **Hubs de eventos**, e **do barramento de serviço do Azure** instâncias. Exporte **medidas**, **dispositivos** e **modelos de dispositivo** para seu próprio destino para obter insights e análises de caminhos frequentes. Isso inclui disparar regras personalizadas no Azure Stream Analytics, disparar fluxos de trabalho personalizados nos Aplicativos Lógicos do Azure ou transformar os dados e passá-los pelo Azure Functions. 
 
 > [!Note]
 > Mais uma vez, ao ativar a exportação contínua de dados, você obtém apenas os dados desse momento em diante. Atualmente, não é possível recuperar dados por um tempo quando a exportação contínua de dados for desativada. Para reter dados mais históricos, ative a exportação contínua de dados no início.
@@ -28,6 +28,77 @@ Este artigo descreve com mais detalhes como usar o recurso de exportação cont�
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Você precisa ser um administrador do aplicativo IoT Central
+
+## <a name="set-up-export-destination"></a>Configurar o destino de exportação
+
+Se você não tiver um barramento de serviço/Hubs de eventos existente para exportar para o, siga estas etapas:
+
+## <a name="create-event-hubs-namespace"></a>Criar um namespace dos Hubs de Eventos
+
+1. Crie um [namespace dos Hubs de Eventos no portal do Azure](https://ms.portal.azure.com/#create/Microsoft.EventHub). Saiba mais na [documentação dos Hubs de Eventos do Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
+2. Escolha uma assinatura. 
+
+    > [!Note] 
+    > Agora você pode exportar dados para outras assinaturas que **não são a mesma** usada para o aplicativo IoT Central pago conforme o uso. Você se conectará usando uma cadeia de conexão, nesse caso.
+3. Crie um hub de eventos em seu namespace dos Hubs de Eventos. Acesse o namespace e selecione **+ Hub de Eventos** na parte superior para criar uma instância de hub de eventos.
+
+## <a name="create-service-bus-namespace"></a>Criar um namespace do Barramento de Serviço
+
+1. Crie um [namespace do Barramento de Serviço no portal do Azure](https://ms.portal.azure.com/#create/Microsoft.ServiceBus.1.0.5). Saiba mais na [documentação do Barramento de Serviço do Azure](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-create-namespace-portal).
+2. Escolha uma assinatura. 
+
+    > [!Note] 
+    > Agora você pode exportar dados para outras assinaturas que **não são a mesma** usada para o aplicativo IoT Central pago conforme o uso. Você se conectará usando uma cadeia de conexão, nesse caso.
+
+3. Acesse o namespace do Barramento de Serviço e selecione **+ Fila** ou **+ Tópico** na parte superior para criar uma fila ou um tópico para o qual exportar.
+
+
+## <a name="set-up-continuous-data-export"></a>Configuração da exportação contínua de dados
+
+Agora que você tem um destino de barramento de serviço/Hubs de eventos para exportar dados para, siga estas etapas para configurar a exportação contínua de dados. 
+
+1. Entre no aplicativo IoT Central.
+
+2. No menu à esquerda, selecione **exportação contínua de dados**.
+
+    > [!Note]
+    > Se a Exportação Contínua de Dados não for exibida no menu à esquerda, isso indicará que você não é um administrador no aplicativo. Contate o administrador para configurar a exportação de dados.
+
+    ![Criar novo Hub de Eventos cde](media/howto-export-data/export_menu.PNG)
+
+3. Selecione o **+ novo** botão no canto superior direito. Escolha uma das **Hubs de eventos** ou **do barramento de serviço do Azure** como o destino de exportação. 
+
+    > [!NOTE] 
+    > O número máximo de exportações por aplicativo é cinco. 
+
+    ![Criar exportação contínua de dados](media/howto-export-data/export_new.PNG)
+
+4. Na caixa de listagem suspensa, selecione suas **namespace do barramento de serviço/namespace de Hubs de eventos**. Você também pode escolher a última opção da lista, **Inserir uma cadeia de conexão**. 
+
+    > [!NOTE] 
+    > Você verá apenas as Contas de Armazenamento/os namespace dos Hubs de Eventos/namespaces do Barramento de Serviço na **mesma assinatura do aplicativo IoT Central**. Caso deseje exportar para um destino fora dessa assinatura, escolha **Inserir uma cadeia de conexão** e veja a etapa 5.
+
+    > [!NOTE] 
+    > Para aplicativos de avaliação de 7 dias, a única maneira de configurar a exportação contínua de dados é por meio de uma cadeia de conexão. Isso ocorre porque os aplicativos de avaliação de 7 dias não têm uma assinatura do Azure associada.
+
+    ![Criar novo Hub de Eventos cde](media/howto-export-data/export_create.PNG)
+
+5. (Opcional) Se você escolher **Inserir uma cadeia de conexão**, uma nova caixa será exibida para que você cole a cadeia de conexão. Para obter a cadeia de conexão para:
+    - Os Hubs de eventos ou barramento de serviço, vá para o namespace no portal do Azure.
+        - Sob **as configurações**, selecione **políticas de acesso compartilhado**
+        - Escolha a **RootManageSharedAccessKey** padrão ou crie uma
+        - Copie a cadeia de conexão primária ou secundária
+ 
+6. Na caixa de listagem suspensa, escolha um hub de eventos/fila ou tópico.
+
+7. Em **Dados a serem exportados**, especifique cada tipo de dados a serem exportados, definindo o tipo para **Ativar**.
+
+6. Para ativar a exportação contínua de dados, verifique se a opção **Exportação de dados** está **Ativada**. Clique em **Salvar**.
+
+  ![Configure a exportação contínua de dados](media/howto-export-data/export_list.PNG)
+
+7. Após alguns minutos, seus dados serão exibidos no destino escolhido.
+
 
 ## <a name="export-to-azure-event-hubs-and-azure-service-bus"></a>Exportar para os Hubs de Eventos do Azure e o Barramento de Serviço do Azure
 

@@ -1,6 +1,6 @@
 ---
-title: Solução de problemas na versão prévia da proteção de senha do Azure AD
-description: Entender a solução de problemas comuns da versão prévia da proteção de senha do Azure AD
+title: Solução de problemas na proteção de senha do AD do Azure
+description: Entender o Azure AD senha proteção comuns de solução de problemas
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,19 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 760ad30daabee61300768b7c67824f39437ac87f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 7ac97d7bda56a871e0b8f6de6d5d7262f3f44667
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58006959"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285693"
 ---
-# <a name="preview-azure-ad-password-protection-troubleshooting"></a>Visualização: Solução de problemas de Proteção de Senha do Azure AD
-
-|     |
-| --- |
-| A Proteção de Senha do Azure AD é uma versão prévia pública do recurso do Azure Active Directory. Para obter mais informações sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+# <a name="azure-ad-password-protection-troubleshooting"></a>Solução de problemas de Proteção de Senha do Azure AD
 
 Após a implantação da Proteção de Senha do Azure AD, a solução de problemas pode ser necessária. Este artigo apresenta detalhes para ajudá-lo a entender algumas etapas de solução de problemas comuns.
 
@@ -101,7 +96,7 @@ Depois que o rebaixamento tiver ocorrido com êxito e o controlador de domínio 
 
 ## <a name="removal"></a>Remoção
 
-Se for decidido desinstalar o software de visualização pública e limpar todo o estado relacionado do(s) domínio(s) e floresta, essa tarefa poderá ser executada usando as seguintes etapas:
+Se você optar por desinstalar o software de proteção de senha do AD do Azure e a limpeza do estado todas relacionado na floresta e domínio (s), essa tarefa pode ser realizada usando as seguintes etapas:
 
 > [!IMPORTANT]
 > É importante executar essas etapas na ordem. Se qualquer instância do serviço Proxy for deixada em execução, ele recriará periodicamente seu objeto serviceConnectionPoint. Se qualquer instância do serviço do agente DC for deixada em execução, ele recriará periodicamente seu objeto serviceConnectionPoint e o estado sysvol.
@@ -120,7 +115,7 @@ Se for decidido desinstalar o software de visualização pública e limpar todo 
 
    O (s) objeto (s) resultante (s) encontrado (s) através do comando `Get-ADObject` pode então ser canalizado para `Remove-ADObject`, ou deletado manualmente.
 
-4. Remova manualmente todos os pontos de conexão do agente DC em cada contexto de nomeação de domínios. Pode haver um desses objetos por controlador de domínio na floresta, dependendo de como o software de visualização pública foi implantado. O local desse objeto pode ser descoberto com o seguinte comando do PowerShell do Active Directory:
+4. Remova manualmente todos os pontos de conexão do agente DC em cada contexto de nomeação de domínios. Pode haver um desses objetos por controlador de domínio na floresta, dependendo de quão amplamente o software foi implantado. O local desse objeto pode ser descoberto com o seguinte comando do PowerShell do Active Directory:
 
    ```PowerShell
    $scp = "serviceConnectionPoint"

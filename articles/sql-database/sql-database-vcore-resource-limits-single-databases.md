@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 990e6b4d869df030bfddfeb2d60f0ca0e23ea8ca
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 03/19/2019
+ms.openlocfilehash: b1467550ac84c57eaad9178d32fdcfaf14d84ae8
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57902256"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58260223"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Limites do modelo de compra com base em vCore do Banco de Dados SQL do Azure para um banco de dados individual
 
@@ -149,7 +149,7 @@ Para limites do modelo de compra com base em DTU para bancos de dados individuai
 |Máximo de logons simultâneos|200|400|600|800|1000|1.200|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|4|4|4|4|4|4|
-|Multi-AZ|N/D|N/D|N/D|N/D|N/D|N/D|
+|Multi-AZ|Sim|sim|sim|sim|sim|Sim|
 |Escala de leitura|Sim|sim|sim|sim|sim|Sim|
 |Armazenamento de backup incluído|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|
 
@@ -173,7 +173,7 @@ Para limites do modelo de compra com base em DTU para bancos de dados individuai
 |Máximo de logons simultâneos (solicitações)|1.400|1600|1800|2000|3200|4800|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|4|4|4|4|4|4|
-|Multi-AZ|N/D|N/D|N/D|N/D|N/D|N/D|
+|Multi-AZ|Sim|sim|sim|sim|sim|Sim|
 |Escala de leitura|Sim|sim|sim|sim|sim|Sim|
 |Armazenamento de backup incluído|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|
 
@@ -198,7 +198,7 @@ Para limites do modelo de compra com base em DTU para bancos de dados individuai
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|4|4|4|4|4|4|4|
 |Multi-AZ|Sim|sim|sim|sim|sim|sim|Sim|
-|Escala de leitura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
+|Escala de leitura|Sim|sim|sim|sim|sim|sim|Sim|
 |Armazenamento de backup incluído|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|
 
 ### <a name="business-critical-service-tier-generation-5-compute-platform-part-2"></a>Camada de serviço Comercialmente Crítico: Plataforma de computação de geração 5 (parte 2)
@@ -222,7 +222,7 @@ Para limites do modelo de compra com base em DTU para bancos de dados individuai
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|4|4|4|4|4|4|4|
 |Multi-AZ|Sim|sim|sim|sim|sim|sim|Sim|
-|Escala de leitura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
+|Escala de leitura|Sim|sim|sim|sim|sim|sim|Sim|
 |Armazenamento de backup incluído|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|
 
 ## <a name="hyperscale-service-tier-preview"></a>Camada de serviço de hiperescala (versão prévia)

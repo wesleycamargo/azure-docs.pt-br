@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 03/20/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b55a7016ec0068234dfc6110d9d4afc04119ccdd
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: bbfc325d1a33db45afecf30bfa21244e3336961d
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194054"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295480"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Instalação personalizada do Azure AD Connect
 As **Configurações personalizadas** do Azure AD Connect são usadas quando você deseja mais opções para a instalação. Essa opção é usada se você tem várias florestas ou se quer configurar recursos opcionais não incluídos na instalação expressa. Ela é usada em todos os casos em que a opção de [**instalação expressa**](how-to-connect-install-express.md) não satisfaz à sua implantação ou a topologia.
@@ -221,7 +221,7 @@ Para cada floresta que tenha sido adicionada por meio do AD Connect do Azure, vo
 >Você poderá optar por ignorar uma determinada floresta se não desejar usar o Logon Único com essa floresta.
 
 #### <a name="configure-the-intranet-zone-for-client-machines"></a>Configurar a Área da Intranet para computadores cliente
-Para garantir que o cliente entre automaticamente na Área da Intranet, você precisa ter certeza de que as duas URLs fazem parte da Área da Intranet. Isso garante que o computador que ingressou no domínio envia automaticamente um tíquete Kerberos ao Azure AD quando ele estiver conectado à rede corporativa.
+Para garantir que o cliente entradas automaticamente na zona da intranet, você precisa garantir que a URL é parte da zona da intranet. Isso garante que o computador que ingressou no domínio envia automaticamente um tíquete Kerberos ao Azure AD quando ele estiver conectado à rede corporativa.
 Em um computador que tem as ferramentas de Gerenciamento de Política de Grupo.
 
 1.  Abrir as ferramentas de Gerenciamento de Política de Grupo

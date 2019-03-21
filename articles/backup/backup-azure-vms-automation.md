@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: b50dcfc21ce6b8d4fc1becd178bf8469870740b6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a3fd89ee67b495d3ca1173faa9381ceba117ef63
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839671"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259305"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Fazer backup e restaurar VMs do Azure com o PowerShell
 
@@ -299,7 +299,7 @@ O gráfico a seguir mostra a hierarquia de objetos do RecoveryServicesVault até
 
 ![Hierarquia de objetos dos Serviços de Recuperação mostrando BackupContainer](./media/backup-azure-vms-arm-automation/backuprecoverypoint-only.png)
 
-Para restaurar dados de backup, identifique o item de backup e o ponto de recuperação que mantém os dados pontuais. Use [restauração AzRecoveryServicesBackupItem](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) para restaurar dados do cofre para sua conta.
+Para restaurar dados de backup, identifique o item de backup e o ponto de recuperação que mantém os dados pontuais. Use [restauração AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) para restaurar dados do cofre para sua conta.
 
 As etapas básicas para restaurar uma VM do Azure são:
 
@@ -348,7 +348,7 @@ BackupManagementType        : AzureVM
 
 ### <a name="restore-the-disks"></a>Restaure os discos
 
-Use o * *[AzRecoveryServicesBackupItem restauração](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) cmdlet para restaurar dados e a configuração de um item de backup para um ponto de recuperação. Depois de identificar um ponto de recuperação, use-o como o valor para o parâmetro **-RecoveryPoint**. No exemplo acima, **$rp[0]** foi o ponto de recuperação a ser usado. No código de exemplo abaixo, **$rp [0]** é o ponto de recuperação a ser usado para a restauração do disco.
+Use o [AzRecoveryServicesBackupItem restauração](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) cmdlet para restaurar dados e a configuração de um item de backup para um ponto de recuperação. Depois de identificar um ponto de recuperação, use-o como o valor para o parâmetro **-RecoveryPoint**. No exemplo acima, **$rp[0]** foi o ponto de recuperação a ser usado. No código de exemplo abaixo, **$rp [0]** é o ponto de recuperação a ser usado para a restauração do disco.
 
 Para restaurar as informações de discos e de configuração:
 

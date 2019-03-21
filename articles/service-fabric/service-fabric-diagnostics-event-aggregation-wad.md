@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: 89cd8e85c9902bb1caeedd80240811f59ebec409
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: afc833775894a01e8061401fe7601267f09edded
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187429"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243237"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Coleta e agregação de eventos utilizando o Diagnóstico do Windows Azure
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "55187429"
 
 Quando você estiver executando um cluster de Service Fabric do Azure, é uma boa ideia coletar os logs de todos os nós em um local central. Ter os logs em um local central ajuda a analisar e solucionar problemas no cluster ou nos aplicativos e serviços em execução nesse cluster.
 
-Uma maneira de fazer upload e coletar logs é utilizar a extensão WAD (Diagnóstico do Windows Azure) que faz upload dos logs no Armazenamento do Azure e, além disso, possui a opção de enviar os logs para o Azure Application Insights ou Hubs de Evento. Também é possível utilizar um processo externo para ler os eventos do armazenamento e colocá-los em um produto da plataforma de análise, como [Log Analytics](../log-analytics/log-analytics-service-fabric.md) ou outra solução de análise de logs.
+Uma maneira de fazer upload e coletar logs é utilizar a extensão WAD (Diagnóstico do Windows Azure) que faz upload dos logs no Armazenamento do Azure e, além disso, possui a opção de enviar os logs para o Azure Application Insights ou Hubs de Evento. Você também pode usar um processo externo para ler os eventos do armazenamento e colocá-los em um produto de plataforma de análise, como [registra em log do Azure Monitor](../log-analytics/log-analytics-service-fabric.md) ou outra solução de análise de log.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 As ferramentas a seguir são usadas neste artigo:
@@ -57,10 +57,12 @@ Ao criar o cluster, na etapa de configuração do cluster, expanda as configura�
 
 ![Modelo de cluster](media/service-fabric-diagnostics-event-aggregation-wad/download-cluster-template.png)
 
-Agora que você está agregando eventos no Armazenamento do Azure, [configure o Log Analytics](service-fabric-diagnostics-oms-setup.md) para obter insights e consultá-los no Portal do Log Analytics
+Agora que você está agregando eventos no armazenamento do Azure, [configurar logs do Azure Monitor](service-fabric-diagnostics-oms-setup.md) para obter insights e consultá-los no Azure Monitor registra o portal
 
 >[!NOTE]
 >Atualmente, não há como filtrar ou preparar os eventos que são enviados para as tabelas. Se você não implementar um processo para remover eventos da tabela, a tabela continuará crescendo (o limite padrão é 50 GB). Instruções sobre como mudar isso estão descritas [mais adiante neste artigo](service-fabric-diagnostics-event-aggregation-wad.md#update-storage-quota). Além disso, há um exemplo de um serviço de limpeza de dados em execução no [exemplo Watchdog](https://github.com/Azure-Samples/service-fabric-watchdog-service), e é recomendável que você grave um para você mesmo, a menos que haja uma boa razão para armazenar logs além de um período de 30 ou 90 dias.
+
+
 
 ## <a name="deploy-the-diagnostics-extension-through-azure-resource-manager"></a>Implantar a extensão de Diagnóstico por meio do Azure Resource Manager
 
@@ -292,15 +294,57 @@ Se você estiver usando um coletor do Application Insights, conforme descrito na
 
 ## <a name="send-logs-to-application-insights"></a>Enviar logs para o Application Insights
 
-Enviar dados de monitoramento e diagnóstico para o Application Insights (AI) pode ser feito como parte da configuração do WAD. Se você decidir usar o AI para análise de eventos e visualização, leia [como configurar um coletor de AI](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-application-insights-sink-to-the-resource-manager-template) como parte do "WadCfg".
+### <a name="configuring-application-insights-with-wad"></a>Configurar o Application Insights com WAD
+
+>[!NOTE]
+>No momento, isso só é aplicável a clusters do Windows.
+
+Há duas maneiras principais de enviar dados do WAD para o Azure Application Insights, que é obtida com a adição de um coletor do Application Insights para a configuração WAD, por meio do portal do Azure ou por meio de um modelo do Azure Resource Manager.
+
+#### <a name="add-an-application-insights-instrumentation-key-when-creating-a-cluster-in-azure-portal"></a>Adicionar uma chave de instrumentação do Application Insights ao criar um cluster no portal do Azure
+
+![Adicionar uma AIKey](media/service-fabric-diagnostics-event-analysis-appinsights/azure-enable-diagnostics.png)
+
+Ao criar um cluster, se o Diagnóstico estiver ativado em "On", um campo opcional para inserir uma chave de Instrumentação do Application Insights será exibido. Se você colar sua chave do Application Insights aqui, o coletor do Application Insights será configurado automaticamente no modelo do Resource Manager usado para implantar o cluster.
+
+#### <a name="add-the-application-insights-sink-to-the-resource-manager-template"></a>Adicionar o coletor do Application Insights para o modelo do Resource Manager
+
+No "WadCfg" do modelo do Resource Manager, adicione um "Coletor", incluindo as duas alterações a seguir:
+
+1. Adicione a configuração do coletor diretamente após a conclusão da declaração de `DiagnosticMonitorConfiguration`:
+
+    ```json
+    "SinksConfig": {
+        "Sink": [
+            {
+                "name": "applicationInsights",
+                "ApplicationInsights": "***ADD INSTRUMENTATION KEY HERE***"
+            }
+        ]
+    }
+
+    ```
+
+2. Inclua o Coletor no `DiagnosticMonitorConfiguration` ao adicionar a linha a seguir no `DiagnosticMonitorConfiguration` do `WadCfg` (antes da declaração de `EtwProviders`):
+
+    ```json
+    "sinks": "applicationInsights"
+    ```
+
+Nos dois snippets de código anteriores, o nome "applicationInsights" era usado para descrever o coletor. Isso não é um requisito e, enquanto o nome do coletor estiver incluído em "coletores", você poderá definir o nome para qualquer cadeia de caracteres.
+
+Atualmente, os logs do cluster aparecem como **rastreios** no visualizador de log do Application Insights. Como a maioria dos rastreamentos provenientes da plataforma é de nível "Informativo", você também pode considerar alterar a configuração do coletor para enviar somente logs do tipo "Aviso" ou "Erro". Isso pode ser feito adicionando "Canais" ao seu coletor, conforme demonstrado [neste artigo](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
+
+>[!NOTE]
+>Se você usar uma chave do Application Insights incorreta no portal ou no modelo do Resource Manager, será necessário alterar manualmente a chave e atualizá-la / reimplementá-la.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de configurar corretamente o diagnóstico do Azure, você verá os dados nas Tabelas de armazenamento dos logs do ETW e EventSource. Se você optar por usar o Log Analytics, Kibana ou qualquer outra plataforma de análise e visualização de dados que não foi configurada diretamente no modelo do Resource Manager, certifique-se de configurar a plataforma de sua escolha para ler os dados dessas tabelas de armazenamento. Fazer isso para Log Analytics é relativamente simples e é explicado em [Análise de eventos e logs](service-fabric-diagnostics-event-analysis-oms.md). O Application Insights é um pouco diferente nesse sentido, pois ele pode ser configurado como parte da configuração da extensão de diagnóstico, então consulte o [artigo apropriado](service-fabric-diagnostics-event-analysis-appinsights.md) se optar por usar o AI.
+Depois de configurar corretamente o diagnóstico do Azure, você verá os dados nas Tabelas de armazenamento dos logs do ETW e EventSource. Se você optar por usar os logs do Azure Monitor, Kibana ou qualquer outra análise e visualização de plataforma de dados que não foi configurada diretamente no modelo do Resource Manager, certifique-se de configurar a plataforma de sua escolha para ler os dados dessas tabelas de armazenamento. Fazer isso para logs do Azure Monitor é relativamente simples e é explicado [análise de log e evento](service-fabric-diagnostics-event-analysis-oms.md). O Application Insights é um pouco diferente nesse sentido, pois ele pode ser configurado como parte da configuração da extensão de diagnóstico, então consulte o [artigo apropriado](service-fabric-diagnostics-event-analysis-appinsights.md) se optar por usar o AI.
 
 >[!NOTE]
 >Atualmente, não há nenhuma maneira de filtrar ou limpar os eventos que são enviados para a tabela. Se você não implantar um processo para remover eventos da tabela, a tabela continuará crescendo. Atualmente, há um exemplo de um serviço de limpeza de dados em execução no [exemplo Watchdog](https://github.com/Azure-Samples/service-fabric-watchdog-service), e é recomendável que você grave um para você mesmo, a menos que haja uma boa razão para armazenar logs além de um período de 30 ou 90 dias.
 
 * [Aprenda a coletar contadores de desempenho ou logs usando a extensão de Diagnóstico](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Visualização e Análise de Eventos com o Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-* [Visualização e Análise de Eventos com o Log Analytics](service-fabric-diagnostics-event-analysis-oms.md)
+* [Visualização e análise de eventos com os logs do Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md)

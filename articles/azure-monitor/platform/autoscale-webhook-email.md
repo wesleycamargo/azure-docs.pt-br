@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 248167eca532beb957c723f5074fc1546982efc8
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 25ef2541dfa0b4cbd6e11d64381da645acfe653a
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463296"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259288"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Use ações de dimensionamento automático para enviar notificações de alerta por email e webhook no Azure Monitor
 Este artigo mostra como configurar gatilhos para que você possa chamar URLs da web específicas ou enviar emails com base em ações de escala automática no Azure.  
@@ -59,6 +59,7 @@ Ao usar o modelo da API REST ou do Gerenciador de Recursos, inclua o elemento de
       }
     ]
 ```
+
 | Campo | Obrigatório? | DESCRIÇÃO |
 | --- | --- | --- |
 | operation |Sim |o valor deve ser "Scale" |
@@ -70,7 +71,7 @@ Ao usar o modelo da API REST ou do Gerenciador de Recursos, inclua o elemento de
 | propriedades |Sim |o valor deve ser vazio {} ou pode conter pares chave-valor |
 
 ## <a name="authentication-in-webhooks"></a>Autenticação em webhooks
-O webhook pode autenticar usando autenticação baseada em token, em que você salva o URI do webhook com uma ID de token como um parâmetro de consulta. Por exemplo, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
+O webhook pode autenticar usando autenticação baseada em token, em que você salva o URI do webhook com uma ID de token como um parâmetro de consulta. Por exemplo, https: \/ /mysamplealert/webcallback? tokenid = sometokenid & someparameter = algumvalor
 
 ## <a name="autoscale-notification-webhook-payload-schema"></a>Escala automática do esquema de carga útil do webhook de notificação
 Quando a notificação de escala automática é gerada, os metadados a seguir são incluídos na carga útil do webhook:
@@ -108,16 +109,16 @@ Quando a notificação de escala automática é gerada, os metadados a seguir s�
 | operation |Sim |Para um aumento de instâncias, será "Escalar Horizontalmente" e para uma diminuição de instâncias, será "Reduzir Horizontalmente" |
 | context |Sim |O contexto de ação de escala automática |
 |  timestamp |Sim |Carimbo de data/hora de quando a ação de escala automática foi disparada |
-| ID |SIM |ID do Gerenciador de Recursos da configuração de autoescala |
-| Nome |SIM |O nome da configuração de escala automática |
-| detalhes |SIM |Explicação da ação que o serviço de escala automática realizada a alteração na contagem da instância |
-| subscriptionId |SIM |ID da assinatura do recurso de destino que está sendo escalado |
-| resourceGroupName |SIM |Nome do Grupo de Recursos do recurso de destino que está sendo escalado |
-| resourceName |SIM |Nome do recurso de destino que está sendo escalado |
-| resourceType |SIM |Os três valores com suporte: "microsoft.classiccompute/domainnames/slots/roles" - funções de Serviço de Nuvem, "microsoft.compute/virtualmachinescalesets" - Conjuntos de Escala de Máquina Virtual e "Microsoft.Web/serverfarms" - Aplicativo Web |
-| ResourceId |SIM |ID do Gerenciador de Recursos do recurso de destino que está sendo dimensionado |
-| portalLink |SIM |Link do portal do Azure para a página de resumo do recurso de destino |
-| oldCapacity |SIM |A atual (antiga) contagem de instância quando Escala Automática adotou uma ação de escala |
-| newCapacity |SIM |A nova contagem de instância para a qual a Escala Automática escalou o recurso |
+| ID |Sim |ID do Gerenciador de Recursos da configuração de autoescala |
+| Nome |Sim |O nome da configuração de escala automática |
+| detalhes |Sim |Explicação da ação que o serviço de escala automática realizada a alteração na contagem da instância |
+| subscriptionId |Sim |ID da assinatura do recurso de destino que está sendo escalado |
+| resourceGroupName |Sim |Nome do Grupo de Recursos do recurso de destino que está sendo escalado |
+| resourceName |Sim |Nome do recurso de destino que está sendo escalado |
+| resourceType |Sim |Os três valores com suporte: "microsoft.classiccompute/domainnames/slots/roles" - funções de Serviço de Nuvem, "microsoft.compute/virtualmachinescalesets" - Conjuntos de Escala de Máquina Virtual e "Microsoft.Web/serverfarms" - Aplicativo Web |
+| ResourceId |Sim |ID do Gerenciador de Recursos do recurso de destino que está sendo dimensionado |
+| portalLink |Sim |Link do portal do Azure para a página de resumo do recurso de destino |
+| oldCapacity |Sim |A atual (antiga) contagem de instância quando Escala Automática adotou uma ação de escala |
+| newCapacity |Sim |A nova contagem de instância para a qual a Escala Automática escalou o recurso |
 | propriedades |Não  |Opcional. Conjunto de pares de <Chave, Valor> (por exemplo, Dicionário <Cadeia de caracteres, Cadeia de caracteres>). O campo de propriedades é opcional. Em uma interface do usuário personalizada ou fluxo de trabalho de aplicativo Lógico, você pode inserir as chaves e valores que podem ser passados usando a carga útil. Uma maneira alternativa de passar as propriedades personalizadas de volta para a chamada de saída do webhook é usar o URI do webhook em si (como parâmetros de consulta) |
 

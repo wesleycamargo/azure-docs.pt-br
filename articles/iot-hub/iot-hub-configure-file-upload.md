@@ -1,19 +1,19 @@
 ---
 title: Usar o portal do Azure para configurar o carregamento do arquivo | Microsoft Docs
 description: Como usar o Portal do Azure para configurar o Hub IoT a fim de habilitar transferências de arquivos de dispositivos conectados. Inclui informações sobre como configurar a conta de armazenamento do Azure de destino.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/03/2017
-ms.author: dobett
-ms.openlocfilehash: a9f9eeaed2716c5d492099568fd6f90080471af2
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
-ms.translationtype: HT
+ms.author: robin.shahan
+ms.openlocfilehash: 04f3f05c8c18a3356c282144cda62d1f980362fe
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42139787"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008434"
 ---
 # <a name="configure-iot-hub-file-uploads-using-the-azure-portal"></a>Configurar uploads de arquivo do Hub IoT usando o Portal do Azure
 
@@ -25,17 +25,17 @@ Para usar a funcionalidade de upload de arquivos no [Hub IoT](iot-hub-devguide-f
 
 ![Exibir configurações de upload de arquivo do Hub IoT no portal](./media/iot-hub-configure-file-upload/file-upload-settings.png)
 
-* **Contêiner de armazenamento**: use o Portal do Azure para selecionar um contêiner de blobs em uma conta de Armazenamento do Azure na assinatura atual do Azure para associar ao Hub IoT. Se for necessário, você pode criar uma conta de Armazenamento do Azure na folha **Contas de armazenamento** e um contêiner de blob na folha **Contêineres**. O Hub IoT gera automaticamente os URIs de SAS com permissões de gravação para esse contêiner de blob para dispositivos a serem usados ao carregar arquivos.
+* **Contêiner de armazenamento**: Use o portal do Azure para selecionar um contêiner de blob em uma conta de armazenamento do Azure na sua assinatura do Azure para associar ao IoT Hub. Se for necessário, você pode criar uma conta de Armazenamento do Azure na folha **Contas de armazenamento** e um contêiner de blob na folha **Contêineres**. O Hub IoT gera automaticamente os URIs de SAS com permissões de gravação para esse contêiner de blob para dispositivos a serem usados ao carregar arquivos.
 
    ![Exibir contêineres de armazenamento para upload de arquivos no portal](./media/iot-hub-configure-file-upload/file-upload-container-selection.png)
 
-* **Receber notificações para os arquivos carregados**: habilitar ou desabilitar notificações de upload de arquivo por meio de um botão de opção.
+* **Receber notificações para arquivos carregados**: Habilitar ou desabilitar notificações de upload de arquivo por meio de alternância.
 
-* **TTL de SAS**: essa configuração é a vida útil dos URIs de SAS retornados para o dispositivo pelo Hub IoT. Definido para uma hora por padrão, mas pode ser personalizado para outros valores usando o controle deslizante.
+* **TTL de SAS**: Essa configuração é a vida útil dos URIs de SAS retornados para o dispositivo pelo Hub IoT. Definido para uma hora por padrão, mas pode ser personalizado para outros valores usando o controle deslizante.
 
-* **TTL de configurações de notificação de arquivo padrão**: a vida útil de uma notificação de upload de arquivo antes de sua expiração. Definido para um dia por padrão, mas pode ser personalizado para outros valores usando o controle deslizante.
+* **TTL padrão das configurações de notificação de arquivo**: A vida útil de uma notificação de upload de arquivo antes de sua expiração. Definido para um dia por padrão, mas pode ser personalizado para outros valores usando o controle deslizante.
 
-* **Contagem de entrega máxima de notificação de arquivo**: o número de vezes que o Hub IoT tenta entregar uma notificação de carregamento de arquivo. Definido como 10 por padrão, mas pode ser personalizado para outros valores usando o controle deslizante.
+* **Contagem de entrega máxima de notificação de arquivo**: O número de vezes que o Hub IoT tenta entregar uma notificação de upload de arquivo. Definido como 10 por padrão, mas pode ser personalizado para outros valores usando o controle deslizante.
 
    ![Configurar o upload de arquivos do Hub IoT no portal](./media/iot-hub-configure-file-upload/file-upload-selected-container.png)
 
@@ -52,5 +52,5 @@ Para saber mais sobre o gerenciamento do Hub IoT do Azure, siga estes links:
 Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
 * [Guia do desenvolvedor do Hub IoT](iot-hub-devguide.md)
-* [Implantar IA em dispositivos de borda com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Implantando o AI em dispositivos de borda com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
 * [Proteger sua solução de IoT desde o início](../iot-fundamentals/iot-security-ground-up.md)

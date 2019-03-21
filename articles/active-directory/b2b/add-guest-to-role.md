@@ -9,14 +9,15 @@ ms.date: 05/08/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c51a0f1f8eb1999ced02bf3cf14ee81e4fca08e8
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 5ffebd117d1ea69a81395c1517b6f75505b83ac0
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56675187"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294630"
 ---
 # <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Conceder permissões a usuários de organizações parceiras em seu locatário do Azure Active Directory
 
@@ -24,15 +25,15 @@ Os usuários da colaboração B2B do Azure AD (Azure Active Directory) são adic
 
 ## <a name="default-role"></a>Função padrão
 
-![função padrão](./media/add-guest-to-role/default-role.png)
+![Captura de tela mostrando a função de diretório padrão](./media/add-guest-to-role/default-role.png)
 
 ## <a name="global-administrator-role"></a>Função Administrador Global
 
-![função administrador global](./media/add-guest-to-role/global-admin-role.png)
+![Captura de tela mostrando a função de administrador global](./media/add-guest-to-role/global-admin-role.png)
 
 ## <a name="limited-administrator-role"></a>Função Administrador Limitado
 
-![função administrador limitado](./media/add-guest-to-role/limited-admin-role.png)
+![Captura de tela mostrando a função de administrador limitado](./media/add-guest-to-role/limited-admin-role.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

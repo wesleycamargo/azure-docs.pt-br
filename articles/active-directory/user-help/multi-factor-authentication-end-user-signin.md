@@ -1,5 +1,5 @@
 ---
-title: Experiência de entrada no Azure MFA com a verificação em duas etapas | Microsoft Docs
+title: Azure MFA entrar com a verificação em duas etapas – Azure Active Directory | Microsoft Docs
 description: Esta página fornecerá orientações sobre onde você deve procurar os vários métodos de conexão disponíveis com o MFA do Azure.
 keywords: autenticação do usuário, experiência de conexão, conectar com telefone celular, conectar com telefone do escritório
 services: active-directory
@@ -13,13 +13,14 @@ ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: lizross
 ms.reviewer: librown
+ms.custom: end-user, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2545e85ff466ed7455161eb725b824da465457bd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 1350b2d86e18f213d99f1c27d64e371451f5f9b7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177286"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57840861"
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>A experiência de conexão com a Autenticação Multifator do Microsoft Azure
 > [!NOTE]
@@ -32,7 +33,7 @@ Sua experiência de conexão varia, dependendo do que você escolhe usar como o 
 | --- |
 | [Com uma chamada telefônica para meu telefone celular ou comercial](#signing-in-with-a-phone-call) |
 | [Com um texto para meu telefone celular](#signing-in-with-a-text-message)
-| Com notificações do aplicativo Microsoft Authenticator |
+| [Com notificações do aplicativo Microsoft Authenticator](#to-sign-in-with-a-notification-from-the-microsoft-authenticator-app) |
 | Com códigos de verificação do aplicativo Microsoft Authenticator |
 | [Com um método alternativo, porque não consigo usar meu método preferido agora](#signing-in-with-an-alternate-method) |
 
@@ -57,7 +58,7 @@ As informações a seguir descrevem a experiência do uso do aplicativo Microsof
 1. Entre em um aplicativo ou serviço, como o Office 365, usando seu nome de usuário e senha.
 2. A Microsoft envia uma notificação ao aplicativo Microsoft Authenticator no seu dispositivo.
 
-  ![A Microsoft envia notificação](./media/multi-factor-authentication-end-user-signin/notify.png)
+   ![A Microsoft envia notificação](./media/multi-factor-authentication-end-user-signin/notify.png)
 
 3. Abra a notificação no seu telefone e selecione a opção **Verificar**. Se sua empresa exigir um PIN, digite-o aqui.
 4. Agora você deve estar conectado.
@@ -69,7 +70,7 @@ Se você usar o aplicativo Microsoft Authenticator para obter códigos de verifi
 1. Entre em um aplicativo ou serviço, como o Office 365, usando seu nome de usuário e senha.
 2. A Microsoft solicita que você insira um código de verificação.
 
-  ![Inserir código de verificação](./media/multi-factor-authentication-end-user-signin/verify3.png)
+   ![Inserir código de verificação](./media/multi-factor-authentication-end-user-signin/verify3.png)
 
 3. Abra o aplicativo Microsoft Authenticator em seu telefone e digite o código na caixa de conexão.
 
@@ -80,12 +81,11 @@ Se você usar o aplicativo Microsoft Authenticator para obter códigos de verifi
 2. Selecione **Usar uma opção de verificação diferente**. Você verá opções de verificação diferentes, de acordo com a quantidade configurada.
 3. Escolha um método alternativo e conecte-se.
 
-  ![Usar método alternativo](./media/multi-factor-authentication-end-user-signin/alt.png)
+   ![Usar método alternativo](./media/multi-factor-authentication-end-user-signin/alt.png)
 
 ## <a name="next-steps"></a>Próximas etapas
+- Se você tiver problemas para entrar usando a verificação em duas etapas, consulte [Problemas com a Autenticação Multifator do Microsoft Azure](multi-factor-authentication-end-user-troubleshoot.md) para obter mais informações.
 
-Se você tiver problemas para entrar usando a verificação em duas etapas, consulte [Problemas com a Autenticação Multifator do Microsoft Azure](multi-factor-authentication-end-user-troubleshoot.md) para obter mais informações.
+- Aprenda a [Gerenciar suas configurações de verificação em duas etapas](multi-factor-authentication-end-user-manage-settings.md).
 
-Aprenda a [Gerenciar suas configurações de verificação em duas etapas](multi-factor-authentication-end-user-manage-settings.md).
-
-Descubra como [Começar a usar o aplicativo Microsoft Authenticator](user-help-auth-app-download-install.md) para poder entrar usando notificações, em vez de textos e chamadas telefônicas.
+- Descubra como [Começar a usar o aplicativo Microsoft Authenticator](user-help-auth-app-download-install.md) para poder entrar usando notificações, em vez de textos e chamadas telefônicas.

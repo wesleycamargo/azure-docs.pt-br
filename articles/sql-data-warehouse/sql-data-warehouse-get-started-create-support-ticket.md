@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 4761a50905f28c215a47d579b931ab5db9d7e424
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: b3ffc9794967f44708d8330d4dc5d5de11b794d6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468063"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079172"
 ---
 # <a name="how-to-create-a-support-ticket-for-sql-data-warehouse"></a>Como criar um tíquete de suporte para o SQL Data Warehouse
 Caso você tenha problemas com o SQL Data Warehouse, crie um tíquete de suporte para que nossa equipe de suporte de engenharia possa ajudar você.
@@ -35,8 +35,8 @@ Caso você tenha problemas com o SQL Data Warehouse, crie um tíquete de suporte
      
      Se tiver um plano de suporte Premier, você também poderá relatar problemas relacionados ao SQL Data Warehouse no [portal online Microsoft Premier][Microsoft Premier online portal].  Consulte os [planos de suporte do Azure][Azure support plan] para saber mais sobre os vários planos de suporte, incluindo o escopo, tempos de resposta, preços etc.  Para ver as perguntas frequentes sobre o suporte do Azure, consulte [Perguntas frequentes do suporte do Azure][Azure support FAQs].  
         
-    ![Folha de Noções básicas](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_1.PNG)
-    ![Folha1 Noções básicas](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_2.PNG)
+     ![Folha de Noções básicas](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_1.PNG)
+     ![Folha1 Noções básicas](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_2.PNG)
 4. Preencha a folha **Problema**.
     ![Problem_blade](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_3.PNG)
    
@@ -46,7 +46,7 @@ Caso você tenha problemas com o SQL Data Warehouse, crie um tíquete de suporte
    > 
    
 5. Preencha suas **informações de contato**.
-![Contact_information](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_4.PNG)
+   ![Contact_information](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_4.PNG)
 
     
 6. Clique em **Criar** para enviar a solicitação de suporte.

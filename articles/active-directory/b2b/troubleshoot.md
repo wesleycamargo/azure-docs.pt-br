@@ -1,5 +1,5 @@
 ---
-title: Solução de problemas de colaboração B2B do Azure Active Directory | Microsoft Docs
+title: Solução de problemas de colaboração B2B – Azure Active Directory | Microsoft Docs
 description: Correções para problemas comuns com a colaboração B2B do Azure Active Directory
 services: active-directory
 ms.service: active-directory
@@ -10,13 +10,14 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f69bad355bf5644988416958c4b4f32ed66714d9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: af106650f6e1d139ec7af2c8d243dc50f2e963fc
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186396"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293951"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Solução de problemas de colaboração B2B do Azure Active Directory
 
@@ -28,7 +29,7 @@ Confira aqui algumas correções para problemas comuns da colaboração B2B do A
 Para casos nos quais os usuários externos não são preenchidos na lista, o objeto pode demorar alguns minutos para replicar.
 
 ## <a name="a-b2b-guest-user-is-not-showing-up-in-sharepoint-onlineonedrive-people-picker"></a>Um usuário convidado de B2B não está aparecendo no seletor de pessoas do SharePoint Online/OneDrive 
- 
+ 
 A capacidade de pesquisar por usuários convidados existentes no seletor de pessoas do SharePoint Online (SPO) está desativado por padrão para coincidir com o comportamento herdado.
 
 Esse recurso pode ser habilitado usando a configuração 'ShowPeoplePickerSuggestionsForGuestUsers' na coleta do site e do locatário. Defina esse recurso usando os cmdlets Set-SPOTenant e SPOSite, que permitem aos membros pesquisar todos os usuários convidados existentes no diretório. Alterações no escopo de locatário não afetam sites SPO já provisionados.
@@ -37,7 +38,7 @@ Esse recurso pode ser habilitado usando a configuração 'ShowPeoplePickerSugges
 
 Se você receber uma notificação indicando que você não tem permissões para convidar usuários, verifique se a sua conta de usuário tem autorização para convidar usuários externos em Configurações do Usuário:
 
-![](media/troubleshoot/external-user-settings.png)
+![Captura de tela mostrando as configurações de usuários externos](media/troubleshoot/external-user-settings.png)
 
 Se você tiver modificado essas configurações recentemente ou se tiver atribuído a função Emissor de convite convidado a um usuário, talvez ocorra um atraso de 15 a 60 minutos até que as alterações tenham efeito.
 
@@ -49,7 +50,7 @@ Os erros comuns incluem:
 
 Ao convidar usuários cuja organização está usando o Azure Active Directory onde a conta do usuário específico não existe (por exemplo, o usuário não existe no Azure AD contoso.com). O administrador de contoso.com pode ter uma política em vigor para impedir a criação de usuários. O usuário deve verificar com o administrador para determinar se os usuários externos são permitidos. A administração de usuário externo pode ter que permitir usuários verificados por email em seu domínio (consulte este [artigo](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) sobre como permitir Usuários de Email Verificados).
 
-![](media/troubleshoot/allow-email-verified-users.png)
+![Usuários verificados de erro informando que o locatário não permite que o email](media/troubleshoot/allow-email-verified-users.png)
 
 ### <a name="external-user-does-not-exist-already-in-a-federated-domain"></a>O usuário externo ainda não existe em um domínio federado
 

@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: pullabhk
-ms.openlocfilehash: 489de7b2fe87d1bb218e3fce39f269d866d66dd7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 83fe8d17699c19d442fd734d71d828eb9fd9d6ed
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57845164"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258353"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>Fazer backup e restaurar arquivos do Azure com o PowerShell
 
@@ -29,7 +29,7 @@ Este tutorial explica como:
 > * Monitorar o backup e restaurar trabalhos.
 
 
-## <a name="before-you-start"></a>Antes de iniciar
+## <a name="before-you-start"></a>Antes de começar
 
 - [Saiba mais](backup-azure-recovery-services-vault-overview.md) sobre cofres dos serviços de recuperação.
 - Leia sobre os recursos de visualização para [fazendo backup de compartilhamentos de arquivos do Azure](backup-azure-files.md).
@@ -240,9 +240,9 @@ testAzureFS       ConfigureBackup      Completed            11/12/2018 2:15:26 P
 
 Use [AzRecoveryServicesBackupItem Backup](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem?view=azps-1.4.0) para executar um backup sob demanda para um compartilhamento de arquivos do Azure protegidos.
 
-1. Recuperar a conta de armazenamento e compartilhamento de arquivos do contêiner no cofre que contém os dados de backup com [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices.backup/get-Azrecoveryservicesbackupcontainer).
-2. Para iniciar um trabalho de backup, você obter informações sobre a VM com [Get-AzRecoveryServicesBackupItem](/powershell/module/Az.RecoveryServices.Backup/Get-AzRecoveryServicesBackupItem).
-3. Executar um backup sob demanda com[AzRecoveryServicesBackupItem Backup](/powershell/module/az.recoveryservices.backup/backup-Azrecoveryservicesbackupitem).
+1. Recuperar a conta de armazenamento e compartilhamento de arquivos do contêiner no cofre que contém os dados de backup com [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-Azrecoveryservicesbackupcontainer).
+2. Para iniciar um trabalho de backup, você obter informações sobre a VM com [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem).
+3. Executar um backup sob demanda com[AzRecoveryServicesBackupItem Backup](/powershell/module/az.recoveryservices/backup-Azrecoveryservicesbackupitem).
 
 Execute o backup sob demanda da seguinte maneira:
     

@@ -1,6 +1,6 @@
 ---
-title: Implantar a visualização da proteção de senha do Azure AD
-description: Implantar a versão prévia de proteção de senha do Azure AD para proibir senhas incorretas no local
+title: Implantar proteção de senha do Azure AD
+description: Implantar a proteção de senha do AD do Azure para proibir senhas incorretas no local
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,19 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 832f29d16e5976493da56b304c3de0288b83c9b6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 54d2d600771316b0a88ea0a2486c0dedd0f84594
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57848738"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286526"
 ---
-# <a name="preview-deploy-azure-ad-password-protection"></a>Visualização: Implantar proteção de senha do Azure AD
-
-|     |
-| --- |
-| Proteção por senha do Azure Active Directory (Azure AD) é um recurso de visualização pública do Azure AD. Para obter mais informações sobre visualizações, consulte [termos complementares de uso para visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+# <a name="deploy-azure-ad-password-protection"></a>Implantar proteção de senha do Azure AD
 
 Agora que você entende [como impor a proteção por senha do Azure AD para Windows Server Active Directory](concept-password-ban-bad-on-premises.md), a próxima etapa é planejar e executar sua implantação.
 

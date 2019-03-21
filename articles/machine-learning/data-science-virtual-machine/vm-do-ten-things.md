@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
-ms.openlocfilehash: e08b38fcea152489455eb4b4f66e56bc609a09db
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 81646c979748b7a23762a25538ced447e382f72a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251717"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878424"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Dez coisas que você pode fazer na Máquina Virtual de Ciência de Dados do Windows
 
@@ -233,7 +233,7 @@ New-AzureRmStorageAccount -Name <mydatadisk> -ResourceGroupName <dsvmdatarg> -Lo
 # Set your current working storage account
 Set-AzureRmCurrentStorageAccount –ResourceGroupName "<dsvmdatarg>" –StorageAccountName <mydatadisk>
 
-# Create a Azure File Service Share
+# Create an Azure File Service Share
 $s = New-AzureStorageShare <<teamsharename>>
 # Create a directory under the FIle share. You can give it any name
 New-AzureStorageDirectory -Share $s -Path <directory name>
@@ -262,7 +262,7 @@ Para baixar o código de um repositório GitHub, você usa o comando ```git clon
 
     git clone https://github.com/Azure/DataScienceVM.git
 
-No Visual Studio, você pode fazer a mesma operação de clonagem. A captura de tela a seguir mostra como acessar as ferramentas Git e GitHub no Visual Studio.
+No Visual Studio, você pode fazer a mesma operação de clonagem. Captura de tela a seguir mostra como acessar as ferramentas Git e GitHub no Visual Studio.
 
 ![Captura de tela do Visual Studio com a conexão do GitHub exibida](./media/vm-do-ten-things/VSGit.PNG)
 
@@ -279,7 +279,7 @@ O blob do Azure é um armazenamento em nuvem confiável e econômico para pequen
 ![Captura de tela do processo de criação de conta de armazenamento no portal do Azure](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
 
 * Confirme se a ferramenta de linha de comando pré-instalada AzCopy encontra-se em ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```. O diretório que contém o azcopy.exe já está na sua variável de ambiente PATH para evitar ter que digitar o caminho completo do comando ao executar essa ferramenta. Para saber mais sobre a ferramenta AzCopy, veja a [documentação do AzCopy](../../storage/common/storage-use-azcopy.md)
-* Inicie o Gerenciador de Armazenamento do Azure. Ele pode ser baixado em [Gerenciador de Armazenamento do Microsoft Azure](http://storageexplorer.com/). 
+* Inicie o Gerenciador de Armazenamento do Azure. Ele pode ser baixado em [Gerenciador de Armazenamento do Microsoft Azure](https://storageexplorer.com/). 
 
 ![Captura de tela do Gerenciador de Armazenamento do Microsoft Azure acessando uma Conta de Armazenamento](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
 
@@ -296,7 +296,7 @@ Substitua **C:\minhapasta** pelo caminho em que seu arquivo está armazenado, **
 Execute o comando AzCopy no PowerShell ou em um prompt de comando. Veja um exemplo de uso do comando AzCopy:
 
 ```powershell
-# Copy *.sql from local machine to a Azure Blob
+# Copy *.sql from local machine to an Azure Blob
 "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:"c:\Aaqs\Data Science Scripts" /Dest:https://[ENTER STORAGE ACCOUNT].blob.core.windows.net/[ENTER CONTAINER] /DestKey:[ENTER STORAGE KEY] /S /Pattern:*.sql
 
 # Copy back all files from Azure Blob container to Local machine

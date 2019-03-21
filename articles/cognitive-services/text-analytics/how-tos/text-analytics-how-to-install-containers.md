@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 6ad48bb6e7d9c2fd0365b26999b67ad8c62fc42c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5f757218d29317f82339967a327f34438c62ab96
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58000251"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294137"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Instalar e executar contêineres da Análise de Texto
 
@@ -26,7 +26,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para executar qualquer um dos contêineres de Análise de Texto, os seguintes pré-requisitos são necessários:
+Para executar qualquer um dos contêineres de análise de texto, você deve ter os ambientes de computador e o contêiner de host.
 
 ## <a name="preparation"></a>Preparação
 
@@ -46,13 +46,16 @@ Você deve cumprir os seguintes pré-requisitos antes de usar os contêineres de
 
 A tabela a seguir descreve os núcleos de CPU mínimos e recomendados, pelo menos 2,6 gigahertz (GHz) ou mais rápidos, bem como a memória, em gigabytes (GB), para alocar para cada contêiner de Análise de Texto.
 
-| Contêiner | Mínimo | Recomendadas |
-|-----------|---------|-------------|
-|Extração de Frases-Chave | 1 núcleo, 2 GB de memória | 1 núcleo, 4 GB de memória |
-|Detecção de Idioma | 1 núcleo, 2 GB de memória | 1 núcleo, 4 GB de memória |
-|Análise de Sentimento | 1 núcleo, 2 GB de memória | 1 núcleo, 4 GB de memória |
+| Contêiner | Mínimo | Recomendadas | TPS<br>(No mínimo, máximo)|
+|-----------|---------|-------------|--|
+|Extração de Frases-Chave | 1 núcleo, 2 GB de memória | 1 núcleo, 4 GB de memória |15, 30|
+|Detecção de Idioma | 1 núcleo, 2 GB de memória | 1 núcleo, 4 GB de memória |15, 30|
+|Análise de Sentimento | 1 núcleo, 2 GB de memória | 1 núcleo, 4 GB de memória |15, 30|
 
-Memória e núcleo correspondem às configurações `--cpus` e `--memory` que são usadas como parte do comando `docker run`.
+* Cada núcleo precisa ser de pelo menos 2,6 GHz (gigahertz) ou mais rápido.
+* TPS - transações por segundo
+
+Memória e núcleo correspondem às configurações `--cpus` e `--memory`, que são usadas como parte do comando `docker run`.
 
 ## <a name="get-the-container-image-with-docker-pull"></a>Obter a imagem de contêiner com `docker pull`
 
@@ -64,7 +67,7 @@ Imagens de contêiner para Análise de Texto estão disponíveis no Registro de 
 |Detecção de Idioma | `mcr.microsoft.com/azure-cognitive-services/language` |
 |Análise de Sentimento | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
 
-Use o comando [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) para baixar uma imagem de contêiner do Registro de Contêiner do Azure.
+Use o [ `docker pull` ](https://docs.docker.com/engine/reference/commandline/pull/) comando para baixar uma imagem de contêiner do registro de contêiner do Microsoft.
 
 Para obter uma descrição completa de marcas disponíveis para os contêineres de Análise de Texto, confira o seguintes contêineres no Hub do Docker:
 
@@ -125,7 +128,7 @@ ApiKey={BILLING_KEY}
 Esse comando:
 
 * Executa um contêiner de frases-chave da imagem de contêiner
-* Aloca um núcleo de CPU e 4 GB (gigabytes) de memória
+* Aloca um núcleo de CPU e 4 gigabytes (GB) de memória
 * Expõe a porta TCP 5000 e aloca um pseudo-TTY para o contêiner
 * Remove automaticamente o contêiner depois que ele sai. A imagem de contêiner ainda fica disponível no computador host. 
 

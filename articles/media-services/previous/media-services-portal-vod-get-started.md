@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 958d860252c7bfdb79d7ea59b8a3d230c839d296
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 5ad846a3d8a304e01425407cb2bf5297c36615e7
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57845232"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58257945"
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Introdução ao fornecimento de conteúdo sob demanda usando o portal do Azure
 
@@ -95,7 +95,7 @@ Para codificar o conteúdo usando o Media Encoder Standard no portal do Azure:
 ### <a name="monitor-encoding-job-progress"></a>Monitorar o andamento do trabalho de codificação
 Para monitorar o andamento do trabalho de codificação, selecione **Configurações** e selecione **Trabalhos**.
 
-![Tarefas (Jobs)](./media/media-services-portal-vod-get-started/media-services-jobs.png)
+![Trabalhos](./media/media-services-portal-vod-get-started/media-services-jobs.png)
 
 ## <a name="publish-content"></a>Publicar conteúdo
 Para fornecer a seus usuários uma URL que eles podem usar para transmitir ou baixar seu conteúdo, primeiro você deve publicar o ativo criando um localizador. Os localizadores fornecem acesso aos arquivos que estão no ativo. Os Serviços de Mídia dão suporte a dois tipos de localizadores: 

@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b958a8d7aa8566c62d5fdaf6b5b51064e4e5123
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 32720669ae9d8941abce4429471c13608a18cbc5
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183740"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294885"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividades de entrada no portal do Azure Active Directory
 
@@ -149,7 +149,7 @@ Se você adicionar outros campos ao modo de exibição de entradas, esses campos
 
 ## <a name="download-sign-in-activities"></a>Baixar atividades de entrada
 
-Você poderá [baixar os dados de entradas](quickstart-download-sign-in-report.md), caso queira trabalhar com esses dados fora do portal do Azure. Clicando em **baixar** lhe dá a opção de criar um arquivo CSV ou JSCON dos registros de 250.000 mais recentes.  
+Você poderá [baixar os dados de entradas](quickstart-download-sign-in-report.md), caso queira trabalhar com esses dados fora do portal do Azure. Clicando em **baixar** lhe dá a opção de criar um arquivo CSV ou JSON dos registros de 250.000 mais recentes.  
 
 ![Baixar](./media/concept-sign-ins/71.png "Baixar")
 
@@ -168,7 +168,7 @@ Além do Azure AD, o portal do Azure fornece pontos de entrada adicionais aos da
 
 ### <a name="users-sign-ins-data-in-identity-security-protection"></a>Dados de entradas de usuário na proteção de segurança de identidade
 
-O grafo de entrada de usuário na página de visão geral da **proteção de segurança de identidade** mostra agregações semanais de entradas de todos os usuários em um determinado período de tempo. O padrão para o período é de 30 dias.
+O gráfico de entrada do usuário na **proteção de segurança de identidade** página Visão geral mostra agregações semanais de entradas para todos os usuários em um determinado período de tempo. O padrão para o período é de 30 dias.
 
 ![Atividade de entrada](./media/concept-sign-ins/06.png "Atividade de entrada")
 
@@ -214,7 +214,7 @@ Seu ponto de entrada para esses dados é composto pelos três principais aplicat
 
 ![Atividade de entrada](./media/concept-sign-ins/10.png "Atividade de entrada")
 
-As agregações semanais ao grafo de uso do aplicativo de entradas para seus três principais aplicativos em um determinado período de tempo. O padrão para o período é de 30 dias.
+As aplicativo uso agregações semanais ao grafo de entradas para seus aplicativos de 3 principais em um determinado período de tempo. O padrão para o período é de 30 dias.
 
 ![Atividade de entrada](./media/concept-sign-ins/47.png "Atividade de entrada")
 

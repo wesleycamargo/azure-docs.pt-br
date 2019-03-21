@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 40d0250101e4653cd5ab2a3610473d9c577d8998
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: df5b6268a2ecd7062969aac9d663ee751eeab130
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114103"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535197"
 ---
 # <a name="getting-compliance-data"></a>Obtendo dados de conformidade
 
@@ -28,7 +28,7 @@ Há várias maneiras de acessar as informações de conformidade geradas por sua
 Antes de examinar os métodos de relatório de conformidade, vamos ver quando as informações de conformidade são atualizadas, além da frequência e dos eventos que disparam um ciclo de avaliação.
 
 > [!WARNING]
-> Se o estado de conformidade estiver sendo relatado como **Não registrado**, verifique se o **Provedor de Recursos Microsoft.PolicyInsights** está registrado e se o usuário tem as permissões apropriadas de controle de acesso baseado em função (RBAC) descritas [aqui](../overview.md#rbac-permissions-in-azure-policy).
+> Se o estado de conformidade que está sendo relatado como **não registrado**, verifique se que o **policyinsights** provedor de recursos é registrado e que o usuário tem o acesso apropriado com base em função (de controle Permissões de RBAC), conforme descrito em [RBAC no Azure Policy](../overview.md#rbac-permissions-in-azure-policy).
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
@@ -142,25 +142,11 @@ Clique com o botão direito na linha do evento para obter mais detalhes e seleci
 
 ![Log de atividades de conformidade de política](../media/getting-compliance-data/compliance-activitylog.png)
 
-### <a name="change-history-preview"></a>Alterar histórico (Versão prévia)
+### <a name="understand-non-compliance"></a>Entender a não conformidade
 
-Como parte de uma nova **versão prévia pública**, os últimos quatorze dias do histórico de alterações ficarão disponíveis para um recurso não compatível. O histórico de alterações fornece detalhes sobre quando uma alteração foi detectada e uma _comparação visual_ para cada alteração. A detecção de alteração é disparada quando as propriedades do Resource Manager de um recurso fora de conformidade são adicionadas, removidas ou alteradas.
+<a name="change-history-preview"></a>
 
-1. Inicie o serviço de Azure Policy no portal do Azure clicando em**Todos os serviços**, em seguida pesquisando e selecionando **Política**.
-
-1. Na página **Visão Geral** ou **Conformidade**, escolha uma política que seja _Não compatível_.
-
-1. Na guia **Conformidade do recurso** da página **Conformidade com a política**, escolha um recurso que seja _Não compatível_.
-
-1. Escolha a guia **Histórico de Alterações (versão prévia)** na página **Conformidade do Recurso**. Se houver uma lista de alterações detectadas, ela será exibida.
-
-   ![Histórico de alterações de política - Guia](../media/getting-compliance-data/change-history-tab.png)
-
-1. Escolha uma das alterações detectadas. A _comparação visual_ para o recurso não compatível é apresentada na página **Histórico de alterações**.
-
-   ![Histórico de alterações de política - Comparação visual](../media/getting-compliance-data/change-history-visual-diff.png)
-
-A _comparação visual_ ajuda a identificar alterações em um recurso. As alterações detectadas podem não estar relacionadas com o que causou a não conformidade do recurso em relação à política escolhida.
+Quando um recurso é determinada para estar **fora de conformidade**, há muitas razões possíveis. Para determinar o motivo é um recurso **fora de conformidade** ou para localizar a alteração responsável, consulte [determinar não-conformidade](./determine-non-compliance.md).
 
 ## <a name="command-line"></a>Linha de comando
 
@@ -430,7 +416,7 @@ Trent Baker
 
 ## <a name="azure-monitor-logs"></a>Logs do Azure Monitor
 
-Se você tiver um [espaço de trabalho do Log Analytics](../../../log-analytics/log-analytics-overview.md) com a solução `AzureActivity` associada à assinatura, também poderá exibir resultados sem conformidade a partir do ciclo de avaliação usando consultas simples do Azure Data Explorer e a tabela `AzureActivity`. Com os detalhes nos logs do Azure Monitor, os alertas poderão ser configurados para inspecionar a não conformidade.
+Se você tiver um [espaço de trabalho do Log Analytics](../../../log-analytics/log-analytics-overview.md) com `AzureActivity` da [solução de análise de Log de atividade](../../../azure-monitor/platform/collect-activity-logs.md) ligado à sua assinatura, você também pode exibir os resultados de não conformidade do ciclo de avaliação usando consultas simples do Kusto e o `AzureActivity` tabela. Com os detalhes nos logs do Azure Monitor, os alertas poderão ser configurados para inspecionar a não conformidade.
 
 ![Conformidade com a Política usando os logs do Azure Monitor](../media/getting-compliance-data/compliance-loganalytics.png)
 
