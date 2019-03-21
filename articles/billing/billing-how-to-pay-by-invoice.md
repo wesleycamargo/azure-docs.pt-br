@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: banders
-ms.openlocfilehash: 4cac603b0d575a4cf70cf4c5df6924be19bdfa2e
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 1fb5ad056c1b8a331034cab12fa3420ba310bb95
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100271"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852331"
 ---
 # <a name="submit-a-request-to-pay-azure-subscription-by-invoice"></a>Enviar uma solicitação para pagar uma assinatura do Azure por fatura
 
@@ -52,4 +52,4 @@ Se for necessário executar uma verificação de crédito devido à quantidade d
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
-Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Se você tiver dúvidas ou precisar de Ajuda, [criar uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).

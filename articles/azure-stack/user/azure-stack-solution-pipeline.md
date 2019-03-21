@@ -15,12 +15,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 11/07/2018
-ms.openlocfilehash: 13c5d194ca5e6a606b319a42fdba7a597a8d4852
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 9c7e6640bdb17e9f996545c2c3315c0c1ade42d1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781197"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57902205"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Tutorial: Implantar aplicativos no Azure Stack e no Azure
 
@@ -78,17 +78,17 @@ Este tutorial pressupõe que você tenha algum conhecimento básico do Azure e o
 ### <a name="azure-stack-requirements"></a>Requisitos de pilha do Azure
 
 * Usar um sistema integrado do Azure Stack ou implantar o Azure Stack desenvolvimento ASDK (Kit). Para implantar o ASDK:
-    * O [Tutorial: implantar o ASDK usando o instalador](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-deploy) fornece instruções detalhadas de implantação.
-    * Use o [ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 ) script do PowerShell para automatizar as etapas de pós-implantação ASDK.
+  * O [Tutorial: implantar o ASDK usando o instalador](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-deploy) fornece instruções detalhadas de implantação.
+  * Use o [ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 ) script do PowerShell para automatizar as etapas de pós-implantação ASDK.
 
     > [!Note]
     > A instalação ASDK leva cerca de sete horas para concluir, portanto, planeje adequadamente.
 
- * Implante [serviço de aplicativo](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) os serviços de PaaS para o Azure Stack.
- * Crie [plano/ofertas](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) no Azure Stack.
- * Criar uma [assinatura de locatário](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) no Azure Stack.
- * Crie um aplicativo Web na assinatura do locatário. Anote a nova URL do aplicativo Web para usar mais tarde.
- * Implante uma máquina de Virtual do Windows Server 2012 na assinatura do locatário. Você usará esse servidor como seu servidor de compilação e para executar os serviços de DevOps do Azure.
+  * Implante [serviço de aplicativo](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) os serviços de PaaS para o Azure Stack.
+  * Crie [plano/ofertas](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) no Azure Stack.
+  * Criar uma [assinatura de locatário](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) no Azure Stack.
+  * Crie um aplicativo Web na assinatura do locatário. Anote a nova URL do aplicativo Web para usar mais tarde.
+  * Implante uma máquina de Virtual do Windows Server 2012 na assinatura do locatário. Você usará esse servidor como seu servidor de compilação e para executar os serviços de DevOps do Azure.
 * Forneça uma imagem do Windows Server 2016 com o .NET 3.5 para uma máquina virtual (VM). Essa VM será criada no Azure Stack como um agente de compilação particular.
 
 ### <a name="developer-tool-requirements"></a>Requisitos da ferramenta de desenvolvedor
@@ -97,8 +97,8 @@ Este tutorial pressupõe que você tenha algum conhecimento básico do Azure e o
 * [Instalar o Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) e [entrar nos serviços do Azure DevOps](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
 * Conectar-se ao seu projeto e [cloná-lo localmente](https://www.visualstudio.com/docs/git/gitquickstart).
 
- > [!Note]
- > Seu ambiente do Azure Stack precisa as imagens corretas seja distribuídas para executar o Windows Server e SQL Server. Ela também deve ter implantado o serviço de aplicativo.
+  > [!Note]
+  > Seu ambiente do Azure Stack precisa as imagens corretas seja distribuídas para executar o Windows Server e SQL Server. Ela também deve ter implantado o serviço de aplicativo.
 
 ## <a name="prepare-the-private-azure-pipelines-agent-for-azure-devops-services-integration"></a>Preparar o agente de Pipelines do Azure privado para a integração de serviços de DevOps do Azure
 
@@ -118,7 +118,7 @@ As etapas a seguir descrevem o que é necessário para configurar a autenticaç�
 Consulte a [criação da entidade de serviço](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) instruções para criar uma entidade de serviço. Escolher **aplicativo Web/API** para o tipo de aplicativo ou [use o script do PowerShell](https://github.com/Microsoft/vsts-rm-extensions/blob/master/TaskModules/powershell/Azure/SPNCreation.ps1#L5) conforme explicado no artigo [criar uma conexão de serviço do Azure Resource Manager com um serviço existente entidade ](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal).
 
  > [!Note]  
- > Se você usar o script para criar um ponto de extremidade de pilha do Azure Resource Manager, você precisará passar o **- azureStackManagementURL** parâmetro e **- environmentName** parâmetro. Por exemplo:   
+ > Se você usar o script para criar um ponto de extremidade de pilha do Azure Resource Manager, você precisará passar o **- azureStackManagementURL** parâmetro e **- environmentName** parâmetro. Por exemplo:  
 > `-azureStackManagementURL https://management.local.azurestack.external -environmentName AzureStack`
 
 ### <a name="create-an-access-key"></a>Criar uma chave de acesso
@@ -131,7 +131,7 @@ Uma entidade de serviço requer uma chave para autenticação. Use as etapas a s
 
 2. Anote o valor de **ID do aplicativo**. Ao configurar o ponto de extremidade de serviço nos serviços de DevOps do Azure, você usará esse valor.
 
-    ![ID do aplicativo](media/azure-stack-solution-hybrid-pipeline/000_02.png)
+    ![ID do Aplicativo](media/azure-stack-solution-hybrid-pipeline/000_02.png)
 
 3. Para gerar uma chave de autenticação, selecione **Configurações**.
 
@@ -163,7 +163,7 @@ Como parte da configuração do ponto de extremidade de serviço, serviços de D
 
 3. Copie a **ID de diretório**. Esse valor é a ID do locatário.
 
-    ![ID do Diretório](media/azure-stack-solution-hybrid-pipeline/000_09.png)
+    ![ID do diretório](media/azure-stack-solution-hybrid-pipeline/000_09.png)
 
 ### <a name="grant-the-service-principal-rights-to-deploy-resources-in-the-azure-stack-subscription"></a>Conceder os direitos de entidade de serviço para implantar recursos na assinatura do Azure Stack
 
@@ -281,17 +281,17 @@ Você pode seguir as instruções em [criar entidade de uma conexão de serviço
 
 Você pode criar uma conexão de serviço usando o seguinte mapeamento:
 
-| NOME | Exemplo | DESCRIÇÃO |
+| Nome | Exemplo | Descrição |
 | --- | --- | --- |
 | Nome da conexão | Pilha do Azure AD do Azure | O nome da conexão. |
 | Ambiente | AzureStack | O nome do seu ambiente. |
 | URL de ambiente | `https://management.local.azurestack.external` | O ponto de extremidade de gerenciamento. |
 | Nível de escopo | Assinatura | O escopo do que a conexão. |
 | ID da assinatura | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | ID de assinatura de usuário do Azure Stack |
-| Nome da assinatura | name@contoso.com | Nome da assinatura de usuário do Azure Stack. |
+| Nome de assinatura | name@contoso.com | Nome da assinatura de usuário do Azure Stack. |
 | ID do cliente de entidade de serviço | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | A ID da entidade de [isso](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) seção neste artigo. |
 | Chave da entidade de serviço | THESCRETGOESHERE= | A chave do mesmo artigo (ou a senha, se você usou o script). |
-| ID do locatário | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | A ID do locatário recuperar seguindo as instruções em [obter a ID do locatário](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id).  |
+| ID de Locatário | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | A ID do locatário recuperar seguindo as instruções em [obter a ID do locatário](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id).  |
 | Conexão: | Não verificado | Valide suas configurações de conexão para a entidade de serviço. |
 
 Agora que o ponto de extremidade é criado, o DevOps para conexão do Azure Stack está pronto para uso. O agente de compilação no Azure Stack obtém as instruções do DevOps e, em seguida, o agente transmite informações de ponto de extremidade para comunicação com o Azure Stack.
@@ -306,17 +306,17 @@ A atualização mais recente para DevOps do Azure permite criar uma conexão de 
 
 Você pode criar uma conexão de serviço usando o seguinte mapeamento:
 
-| NOME | Exemplo | DESCRIÇÃO |
+| Nome | Exemplo | Descrição |
 | --- | --- | --- |
 | Nome da conexão | Azure Stack ADFS | O nome da conexão. |
 | Ambiente | AzureStack | O nome do seu ambiente. |
 | URL de ambiente | `https://management.local.azurestack.external` | O ponto de extremidade de gerenciamento. |
 | Nível de escopo | Assinatura | O escopo do que a conexão. |
 | ID da assinatura | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | ID de assinatura de usuário do Azure Stack |
-| Nome da assinatura | name@contoso.com | Nome da assinatura de usuário do Azure Stack. |
+| Nome de assinatura | name@contoso.com | Nome da assinatura de usuário do Azure Stack. |
 | ID do cliente de entidade de serviço | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | A ID do cliente da entidade de serviço que você criou para o AD FS. |
 | Certificado | `<certificate>` |  Converta o arquivo de certificado de PFX para PEM. Cole o conteúdo do arquivo do certificado PEM neste campo. <br> Convertendo de PFX para PEM:<br>`openssl pkcs12 -in file.pfx -out file.pem -nodes -password pass:<password_here>` |
-| ID do locatário | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | A ID do locatário recuperar seguindo as instruções em [obter a ID do locatário](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id). |
+| ID de Locatário | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | A ID do locatário recuperar seguindo as instruções em [obter a ID do locatário](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id). |
 | Conexão: | Não verificado | Valide suas configurações de conexão para a entidade de serviço. |
 
 Agora que o ponto de extremidade é criado, o DevOps do Azure para conexão do Azure Stack está pronto para uso. O agente de compilação no Azure Stack obtém as instruções do DevOps do Azure e, em seguida, o agente transmite informações de ponto de extremidade para comunicação com o Azure Stack.
@@ -363,7 +363,7 @@ CI/CD híbrido pode aplicar ao código do aplicativo e o código de infraestrutu
 
 2. Navegue até a **compilar o aplicativo de Web** página para o projeto.
 
-3. Na **argumentos**, adicione **- r win10-x64** código. Isso é necessário para disparar uma implantação autocontida com.Net Core.
+3. Na **argumentos**, adicione **- r win10-x64** código. Isso é necessário para disparar uma implantação autocontida com o .NET Core.
 
     ![Adicionar o pipeline de build do argumento](media/azure-stack-solution-hybrid-pipeline/020_publish_additions.png)
 

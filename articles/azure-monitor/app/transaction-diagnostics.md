@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: b7ad21bd3185e5e6ba4774cdc5780b0594033f14
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: ba72f273724bb45418b104b1245648419ababbf0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026882"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903616"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Diagnóstico de transação entre componentes unificado
 
@@ -50,7 +50,7 @@ Esse gráfico fornece uma linha do tempo com barras horizontais para a duração
 * Selecione qualquer linha para ver os [detalhes à direita](#details-of-the-selected-telemetry). 
 
 > [!NOTE]
-As chamadas para outros componentes têm duas linhas: uma linha representa a chamada de saída (dependência) do componente do chamador e a outra linha corresponde à solicitação de entrada no componente chamado. O ícone principal e o estilo distinto das barras de duração ajudam a diferenciá-las.
+> As chamadas para outros componentes têm duas linhas: uma linha representa a chamada de saída (dependência) do componente do chamador e a outra linha corresponde à solicitação de entrada no componente chamado. O ícone principal e o estilo distinto das barras de duração ajudam a diferenciá-las.
 
 ## <a name="all-telemetry-with-this-operation-id"></a>Toda a telemetria com esta ID de operação
 
@@ -74,9 +74,9 @@ Esse painel recolhível mostra os outros resultados que atendem aos critérios d
 
 O [Application Insights Profiler](../../azure-monitor/app/profiler.md) ou o [depurador de instantâneos](snapshot-debugger.md) ajuda com diagnósticos de nível de código de problemas de falha e desempenho. Com essa experiência, você pode ver Rastreamentos do Profiler ou instantâneos de qualquer componente com um único clique.
 
-Se você não conseguiu colocar o Profiler em funcionamento, entre em contato com**serviceprofilerhelp@microsoft.com**
+Se você não foi possível obter o Profiler trabalhando, entre em contato **serviceprofilerhelp\@microsoft.com**
 
-Se você não conseguiu colocar o Depurador de Instantâneos em funcionamento, entre em contato com**snapshothelp@microsoft.com**
+Se você não foi possível obter o funcionamento do depurador de instantâneos, entre em contato **snapshothelp\@microsoft.com**
 
 ![Integração do Profiler](media/transaction-diagnostics/profilerTraces.png)
 
