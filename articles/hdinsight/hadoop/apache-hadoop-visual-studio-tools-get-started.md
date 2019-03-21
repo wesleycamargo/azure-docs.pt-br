@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.openlocfilehash: aa9d03e40880dbc856045840499dba43b9d1aba9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: bb7c46548726b00c68c8e952a8e2956ad0511763
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105328"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201765"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>Use Data Lake Tools para Visual Studio para se conectar ao Azure HDInsight e executar consultas do Apache Hive
 
@@ -93,7 +93,7 @@ Conectar-se ao portal do Azure pelo Visual Studio:
 
 1. No Server Explorer, navegue até **Azure** > **HDInsight** e selecione seu cluster.
 
-2. Um cluster HDInsight com o botão direito e selecione **gerenciar Cluster no Portal do Azure**.
+2. Um cluster HDInsight com o botão direito e selecione **gerenciar Cluster no portal do Azure**.
 
 Para fazer perguntas e/ou fornecer comentários do Visual Studio:
 
@@ -275,5 +275,5 @@ Neste artigo, você aprendeu a usar o pacote Ferramentas do Data Lake para Visua
 * [Usar o Hive do Hadoop no HDInsight](hdinsight-use-hive.md)
 * [Introdução ao uso do Apache Hadoop no HDInsight](apache-hadoop-linux-tutorial-get-started.md)
 * [Enviar trabalhos do Apache Hadoop no HDInsight](submit-apache-hadoop-jobs-programmatically.md)
-* [Analisar dados do Twitter com Apache Hadoop no HDInsight](../hdinsight-analyze-twitter-data.md)
+* [Analisar dados do Twitter com Apache Hadoop no HDInsight](../hdinsight-analyze-twitter-data-linux.md)
 
