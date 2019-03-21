@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee936d174aa3e221bbeb0823ba1503c7cb64a9d6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: f5a0700a63d21d089573f757716e08fb03665b28
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185155"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58164987"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqnavigator-vms"></a>Tutorial: Integração do Azure Active Directory ao IQNavigator VMS
 
@@ -39,7 +39,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 Para configurar a integração do Azure AD ao IQNavigator VMS, você precisa dos seguintes itens:
 
 - Uma assinatura do Azure AD
-- Uma assinatura habilitada para logon único do IQNavigator VMS
+- Assinatura habilitada para um IQNavigator VMS o logon único
 
 > [!NOTE]
 > Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
@@ -91,7 +91,7 @@ Para configurar e testar o logon único do Azure AD com o IQNavigator VMS, você
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
 1. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
-1. **[Criando um usuário de teste do IQNavigator VMS](#creating-a-iqnavigator-vms-test-user)** – para ter um equivalente de Brenda Fernandes no IQNavigator VMS que esteja vinculado à representação de usuário do Azure AD.
+1. **[Criando um usuário de teste do IQNavigator VMS](#creating-a-iqnavigator-vms-test-user)**  – para ter um equivalente de Britta Simon no IQNavigator VMS que esteja vinculado à representação de usuário do AD do Azure.
 1. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
 1. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
@@ -175,7 +175,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     d. Clique em **Criar**.
 
-### <a name="creating-a-iqnavigator-vms-test-user"></a>Criando um usuário de teste do IQNavigator VMS
+### <a name="creating-an-iqnavigator-vms-test-user"></a>Criando um usuário de teste do IQNavigator VMS
 
 O objetivo desta seção é criar um usuário chamado Brenda Fernandes no IQNavigator VMS. Trabalhe com a [equipe de suporte do IQNavigator VMS](https://www.beeline.com/iqn-product-support/) para adicionar os usuários à conta do IQNavigator VMS.
 

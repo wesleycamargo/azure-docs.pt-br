@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/20/2017
 ms.author: genli
-ms.openlocfilehash: 816ad6c0079e9272286cdc072ff71bf15313eb8e
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
-ms.translationtype: HT
+ms.openlocfilehash: 535e7604915555f32a7636b739c49f72cb0220c8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34069092"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541563"
 ---
 # <a name="azure-dns-troubleshooting-guide"></a>Guia de solução de problemas do DNS do Azure
 
@@ -69,11 +69,11 @@ A resolução de nome DNS é um processo de várias etapas que pode falhar por v
 
 1.  Confirme se os registros DNS foram configurados corretamente no DNS do Azure. Examine os registros DNS no Portal do Azure, verificando se o nome da zona, o nome do registro e o tipo de registro estão corretos.
 2.  Confirme se os registros DNS são resolvidos corretamente nos servidores de nomes DNS do Azure.
-    - Se você faz consultas DNS do seu computador local, podem aparecer resultados em cache que não refletem o estado atual dos servidores de nomes.  Além disso, as redes corporativas geralmente usam servidores proxy DNS que impedem que as consultas DNS sejam direcionadas a servidores de nomes específicos.  Para evitar esses problemas, use um serviço de resolução de nome baseado na Web, como [digwebinterface](http://digwebinterface.com).
+    - Se você faz consultas DNS do seu computador local, podem aparecer resultados em cache que não refletem o estado atual dos servidores de nomes.  Além disso, as redes corporativas geralmente usam servidores proxy DNS que impedem que as consultas DNS sejam direcionadas a servidores de nomes específicos.  Para evitar esses problemas, use um serviço de resolução de nome baseado na Web, como [digwebinterface](https://digwebinterface.com).
     - Especifique os servidores de nomes corretos para sua zona DNS, conforme exibido no Portal do Azure.
     - Verifique se o nome DNS está correto (será necessário especificar o nome totalmente qualificado, incluindo o nome da zona) e se o tipo de registro está correto
 3.  Confirme se o nome de domínio DNS foi [delegado corretamente aos servidores de nomes DNS do Azure](dns-domain-delegation.md). Há [vários sites da Web de terceiros que oferecem validação de delegação DNS](https://www.bing.com/search?q=dns+check+tool). Esse é um teste de delegação de *zona*, portanto você deve inserir apenas o nome da zona DNS e não o nome totalmente qualificado do registro.
-4.  Após a conclusão da ação acima, o registro DNS deverá ser resolvido corretamente. Para verificar, você pode usar [digwebinterface](http://digwebinterface.com) novamente, desta vez, usando as configurações de servidor de nomes padrão.
+4.  Após a conclusão da ação acima, o registro DNS deverá ser resolvido corretamente. Para verificar, você pode usar [digwebinterface](https://digwebinterface.com) novamente, desta vez, usando as configurações de servidor de nomes padrão.
 
 
 ### <a name="recommended-documents"></a>**Documentos recomendados**
