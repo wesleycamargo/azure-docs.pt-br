@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 08/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: bb00ef0f76b71d0a4748a319c9f2a5d64dffa251
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: 2bec33a4a8540f9599cf1d479f1f59c4cde39bd2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233303"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861580"
 ---
 # <a name="add-and-run-custom-code-snippets-in-azure-logic-apps-with-azure-functions"></a>Adicionar e executar snippets de código personalizados nos Aplicativos Lógicos do Azure com as Azure Functions
 
@@ -44,7 +44,7 @@ Para seguir este artigo, você precisa destes itens:
     Esse modelo de gatilho HTTP pode aceitar o conteúdo que tenha o tipo `application/json` do seu aplicativo lógico. 
     Quando você adiciona uma função do Azure ao seu aplicativo lógico, o Designer do Aplicativo Lógico mostra funções personalizadas criadas com base neste modelo dentro de sua assinatura do Azure. 
 
-  * Sua função não usa rotas personalizadas, a menos que você tenha definido uma [definição de OpenAPI](../azure-functions/functions-openapi-definition.md), anteriormente conhecida como um [arquivo do Swagger](http://swagger.io/). 
+  * Sua função não usa rotas personalizadas, a menos que você tenha definido uma [definição de OpenAPI](../azure-functions/functions-openapi-definition.md), anteriormente conhecida como um [arquivo do Swagger](https://swagger.io/). 
   
   * Se você tiver definido uma definição de OpenAPI para sua função, o Designer dos Aplicativos Lógicos fornece uma experiência mais rica para trabalhar com parâmetros de função. Antes de seu aplicativo lógico pode localizar e acessar funções que têm definições de OpenAPI, [configurar seu aplicativo de função seguindo estas etapas](#function-swagger).
 
@@ -52,7 +52,7 @@ Para seguir este artigo, você precisa destes itens:
 
   Antes de adicionar ações que podem executar funções, seu aplicativo lógico deve começar com um gatilho.
 
-  Se você não estiver familiarizado com os Aplicativos Lógicos, examine [O que são Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) e [Início rápido: crie seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+  Se ainda não estiver familiarizado com aplicativo lógicos, consulte [O que são os Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) e [Início Rápido: criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="create-function-external"></a>
 
@@ -67,7 +67,7 @@ Se você for novo em realizar criações no Azure Functions, saiba como [criar s
 
 <a name="function-swagger"></a>
 
-* Opcionalmente, se você [gerar uma definição de API](../azure-functions/functions-openapi-definition.md), anteriormente conhecida como [arquivo Swagger](http://swagger.io/), para sua função, poderá obter uma experiência mais rica ao trabalhar com parâmetros de função no Logic Apps Designer. Para configurar seu aplicativo de função, para que seu aplicativo lógico possa encontrar e usar funções com descrições de Swagger, siga estas etapas:
+* Opcionalmente, se você [gerar uma definição de API](../azure-functions/functions-openapi-definition.md), anteriormente conhecida como [arquivo Swagger](https://swagger.io/), para sua função, poderá obter uma experiência mais rica ao trabalhar com parâmetros de função no Logic Apps Designer. Para configurar seu aplicativo de função, para que seu aplicativo lógico possa encontrar e usar funções com descrições de Swagger, siga estas etapas:
 
   1. Verifique se que seu aplicativo de função está sendo executado ativamente.
 
@@ -125,11 +125,11 @@ Antes de poder criar uma função do Azure a partir de dentro de seu aplicativo 
    * Entre as etapas existentes no fluxo de trabalho do aplicativo lógico, mova o mouse sobre a seta, escolha o sinal de adição (+) e, em seguida, selecione **Adicionar uma ação**.
 
 3. Na caixa de pesquisa, insira "funções azure" como seu filtro.
-Na lista de ações, selecione esta ação: **Escolha uma função do Azure - Funções do Azure** 
+Na lista de ações, selecione esta ação: **Escolher uma função do Azure – Azure Functions** 
 
    ![Localizar "Funções do Azure"](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 
-4. Na lista de aplicativos de função, selecione seu aplicativo de função. Depois que as ações de listam é aberta, selecione esta ação: **funções do Azure – criar nova função**
+4. Na lista de aplicativos de função, selecione seu aplicativo de função. Depois de abre a lista de ações, selecione esta ação: **Funções do Azure – criar nova função**
 
    ![Selecione seu aplicativo de funções](./media/logic-apps-azure-functions/select-function-app-create-function.png)
 
@@ -181,7 +181,7 @@ Para chamar funções existentes do Azure de seus aplicativos lógicos, você po
 2. Na etapa em que você deseja adicionar a função, escolha **Nova etapa** > **Adicione uma ação**. 
 
 3. Na caixa de pesquisa, insira "funções azure" como seu filtro.
-Na lista de ações, selecione esta ação: **Escolha uma função do Azure - Funções do Azure** 
+Na lista de ações, selecione esta ação: **Escolher uma função do Azure – Azure Functions** 
 
    ![Localizar "Funções do Azure"](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 
@@ -211,7 +211,7 @@ Na lista de ações, selecione esta ação: **Escolha uma função do Azure - Fu
 
 Quando você quiser acionar um aplicativo lógico de dentro de uma função do Azure, esse aplicativo lógico deverá ser iniciado com um gatilho que fornece um ponto de extremidade que pode ser chamado. Por exemplo, você pode iniciar o aplicativo lógico com o acionador **HTTP**, **Solicitação**, **Filas do Azure** ou **Grade de Eventos**. Dentro de sua função, envie uma solicitação HTTP POST para a URL do gatilho e inclua o conteúdo que você deseja que esse aplicativo lógico processe. Para obter mais informações, consulte [Chamar, acionar ou aninhar aplicativos lógicos](../logic-apps/logic-apps-http-endpoint.md). 
 
-## <a name="get-support"></a>Obtenha suporte
+## <a name="get-support"></a>Obter suporte
 
 * Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](https://aka.ms/logicapps-wish).

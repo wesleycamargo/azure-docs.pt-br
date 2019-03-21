@@ -7,19 +7,19 @@ author: sumukhs
 manager: timlt
 editor: ''
 ms.assetid: 79b48ffa-2474-4f1c-a857-3471f9590ded
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
-ms.openlocfilehash: 13cf9c148e36201bd8ee81d4072d8b8cd8660bd1
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ms.openlocfilehash: 224899e92684d83d33fbd61408e67d4ec11ec0a3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053141"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898730"
 ---
 # <a name="configuring-reliable-actors--reliabledictionaryactorstateprovider"></a>Configurando Reliable Actors--ReliableDictionaryActorStateProvider
 A configuração padrão do ReliableDictionaryActorStateProvider pode ser alterada modificando-se o arquivo settings.xml gerado na raiz pacote do Visual Studio dentro da pasta Config para o ator especificado.
@@ -100,7 +100,7 @@ A configuração padrão é gerada pelo modelo do Visual Studio e deve ser sufic
 ## <a name="sample-configuration-file"></a>Arquivo de exemplo de configuração
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
    <Section Name="MyActorServiceReplicatorConfig">
       <Parameter Name="ReplicatorEndpoint" Value="MyActorServiceReplicatorEndpoint" />
       <Parameter Name="BatchAcknowledgementInterval" Value="0.05"/>

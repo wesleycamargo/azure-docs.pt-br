@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: e773986d11a11c6cc84df367aa48ac1b01a9183e
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: fa897b4b77f7f5869eab2ba2e7db9afbd84febfa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157115"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121495"
 ---
 # <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>Gerenciar o serviço do Gerenciador de Dados do StorSimple no portal do Azure
 
@@ -46,19 +46,19 @@ Execute as etapas a seguir para criar um serviço Gerenciador de Dados do StorSi
 
 3. Para o novo serviço, especifique o seguinte:
 
-    1. Fornecer um **nome de serviço** único para o seu Gerenciador de Dados do StorSimple. Este é um nome amigável que pode ser usado para identificar o serviço. O nome pode ter entre 3 e 24 caracteres que podem ser letras, números e hífens. O nome deve começar e terminar com uma letra ou um número.
+   1. Fornecer um **nome de serviço** único para o seu Gerenciador de Dados do StorSimple. Este é um nome amigável que pode ser usado para identificar o serviço. O nome pode ter entre 3 e 24 caracteres que podem ser letras, números e hífens. O nome deve começar e terminar com uma letra ou um número.
 
-    2. Escolha uma **Assinatura** na lista suspensa. A assinatura está vinculada à sua conta de cobrança. Este campo é preenchido automaticamente (e não é selecionável) se você tiver apenas uma assinatura.
+   2. Escolha uma **Assinatura** na lista suspensa. A assinatura está vinculada à sua conta de cobrança. Este campo é preenchido automaticamente (e não é selecionável) se você tiver apenas uma assinatura.
 
-    3. Escolha um grupo de recursos existente ou crie um novo grupo. Para obter mais informações, veja [Grupos de recursos do Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/).
+   3. Escolha um grupo de recursos existente ou crie um novo grupo. Para obter mais informações, veja [Grupos de recursos do Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/).
 
-    4. Especifique o **Local** para o serviço que hospeda as contas de armazenamento e o seu serviço do Gerenciador de Dados do StorSimple. O seu serviço do Gerenciador de Dispositivos do StorSimple, serviço do Gerenciador de Dados, e a conta de armazenamento associada devem ficar nas regiões com suporte.
+   4. Especifique o **Local** para o serviço que hospeda as contas de armazenamento e o seu serviço do Gerenciador de Dados do StorSimple. O seu serviço do Gerenciador de Dispositivos do StorSimple, serviço do Gerenciador de Dados, e a conta de armazenamento associada devem ficar nas regiões com suporte.
     
-    5. Para obter um link para esse serviço no seu painel, selecione **Fixar no painel**.
+   5. Para obter um link para esse serviço no seu painel, selecione **Fixar no painel**.
     
-    6. Clique em **Criar**.
+   6. Clique em **Criar**.
 
-    ![Criar um serviço Gerenciador de Dados do StorSimple 3](./media/storsimple-data-manager-ui/create-service-4.png)
+      ![Criar um serviço Gerenciador de Dados do StorSimple 3](./media/storsimple-data-manager-ui/create-service-4.png)
 
 A criação do serviço leva alguns minutos. Você vê uma notificação depois que o serviço é criado com êxito e o novo serviço é exibido.
 
@@ -88,33 +88,33 @@ Execute as etapas a seguir para criar uma definição de trabalho.
 
     ![Adicionar novo repositório de dados](./media/storsimple-data-manager-ui/create-job-definition-3.png)
   
-    1. Escolha o **Gerenciador do StorSimple série 8000** como o tipo de repositório de dados.
+   1. Escolha o **Gerenciador do StorSimple série 8000** como o tipo de repositório de dados.
     
-    2. Insira um nome amigável para o seu repositório de dados de origem.
+   2. Insira um nome amigável para o seu repositório de dados de origem.
     
-    3. Na lista suspensa, escolha uma assinatura associada ao seu serviço de Gerenciador de Dispositivos do StorSimple.
+   3. Na lista suspensa, escolha uma assinatura associada ao seu serviço de Gerenciador de Dispositivos do StorSimple.
     
-    4. Forneça o nome do Gerenciador de Dispositivos do StorSimple para o **Recurso**.
+   4. Forneça o nome do Gerenciador de Dispositivos do StorSimple para o **Recurso**.
 
-    5. Insira a chave de **Criptografia dos dados de serviço** para o serviço do Gerenciador de Dispositivos do StorSimple. 
+   5. Insira a chave de **Criptografia dos dados de serviço** para o serviço do Gerenciador de Dispositivos do StorSimple. 
 
-    ![Configurar repositório dos dados de origem 1](./media/storsimple-data-manager-ui/create-job-definition-4.png)
+      ![Configurar repositório dos dados de origem 1](./media/storsimple-data-manager-ui/create-job-definition-4.png)
 
-    Toque em **OK** quando terminar. Isso economiza seu repositório de dados. Reutilize esse Gerenciador de Dispositivos do StorSimple em outras definições de trabalho sem digitar esses parâmetros novamente. Levará alguns segundos depois de clicar em **Ok** para o repositório de dados de origem recém-criado aparecer no menu suspenso.
+      Toque em **OK** quando terminar. Isso economiza seu repositório de dados. Reutilize esse Gerenciador de Dispositivos do StorSimple em outras definições de trabalho sem digitar esses parâmetros novamente. Levará alguns segundos depois de clicar em **Ok** para o repositório de dados de origem recém-criado aparecer no menu suspenso.
 
 7. Na lista suspensa para **Repositório de dados**, selecione o repositório de dados que você criou. 
 
-    1. Digite o nome do dispositivo StorSimple 8000 series que contém os dados de interesse.
+   1. Digite o nome do dispositivo StorSimple 8000 series que contém os dados de interesse.
 
-    2. Especifique o nome do volume que reside no dispositivo do StorSimple com seus dados de interesse.
+   2. Especifique o nome do volume que reside no dispositivo do StorSimple com seus dados de interesse.
 
-    3. Na subseção do **Filtro**, insira o diretório raiz que contém os dados de interesse no formato _\MyRootDirectory\Data_. Letras de unidade como _\C:\Data_ não têm suporte. Você também pode adicionar qualquer filtro de arquivo aqui.
+   3. Na subseção do **Filtro**, insira o diretório raiz que contém os dados de interesse no formato _\MyRootDirectory\Data_. Letras de unidade como _\C:\Data_ não têm suporte. Você também pode adicionar qualquer filtro de arquivo aqui.
 
-    4. O serviço de transformação de dados funciona nos dados que são passados para o Azure por meio de instantâneos. Ao executar esse trabalho, você pode optar por fazer um backup sempre que esse trabalho for executado (para trabalhar em dados mais recentes) ou usar o último backup existente na nuvem (se você estiver trabalhando em alguns dados arquivados).
+   4. O serviço de transformação de dados funciona nos dados que são passados para o Azure por meio de instantâneos. Ao executar esse trabalho, você pode optar por fazer um backup sempre que esse trabalho for executado (para trabalhar em dados mais recentes) ou usar o último backup existente na nuvem (se você estiver trabalhando em alguns dados arquivados).
 
-    5. Clique em **OK**.
+   5. Clique em **OK**.
 
-    ![Configurar repositório dos dados de origem 2](./media/storsimple-data-manager-ui/create-job-definition-8.png)
+      ![Configurar repositório dos dados de origem 2](./media/storsimple-data-manager-ui/create-job-definition-8.png)
 
 8. Em seguida, o repositório de dados de destino precisa ser configurado. Escolha contas de armazenamento para colocar arquivos em blobs na conta. No menu suspenso, selecione **Adicionar novo** e **Definir configurações**.
 

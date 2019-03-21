@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 72c0db44e1f56cab190f343a87c6b453625a7f70
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 8ab1ae5d1f6db563caef5b6c27ccd4fcbbd2e255
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996026"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57777627"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Associação de saída dos Hubs de Notificação para Azure Functions
 
@@ -153,7 +153,7 @@ Este exemplo envia uma notificação para um [registro de modelo](../notificatio
 module.exports = function (context, myTimer) {
     var timeStamp = new Date().toISOString();
 
-    if(myTimer.isPastDue)
+    if (myTimer.IsPastDue)
     {
         context.log('Node.js is running late!');
     }
@@ -281,11 +281,11 @@ Os parâmetros e as propriedades do construtor do atributo são descritos na se�
 
 A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `NotificationHub`:
 
-|Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
+|Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** |n/d| Deve ser definido como "notificationHub". |
-|**direction** |n/d| Deve ser definido como "out". | 
-|**name** |n/d| Nome da variável usada no código de função para a mensagem do hub de notificação. |
+|**tipo** |n/a| Deve ser definido como "notificationHub". |
+|**direction** |n/a| Deve ser definido como "out". | 
+|**name** |n/a| Nome da variável usada no código de função para a mensagem do hub de notificação. |
 |**tagExpression** |**TagExpression** | As expressões de marca permitem que você especifique que as notificações sejam entregues a um conjunto de dispositivos registrados para receber notificações que correspondem à expressão de marca.  Para saber mais, veja [Expressões de marca e de roteamento](../notification-hubs/notification-hubs-tags-segment-push-message.md). |
 |**hubName** | **HubName** | Nome do recurso de hub de notificação no portal do Azure. |
 |**conexão** | **ConnectionStringSetting** | O nome de uma configuração de aplicativo que contém uma cadeia de conexão de Hubs de Notificação.  A cadeia de caracteres de conexão deve ser definida como o valor *DefaultFullSharedAccessSignature* para o hub de notificação. Veja [Configuração da cadeia de conexão](#connection-string-setup) posteriormente neste artigo.|
@@ -332,7 +332,7 @@ O nome dessa configuração de aplicativo é o que está na configuração de co
 
 | Associação | Referência |
 |---|---|
-| Hub de notificação | [Guia de Operações](https://docs.microsoft.com/rest/api/notificationhubs/) |
+| Hub de Notificação | [Guia de Operações](https://docs.microsoft.com/rest/api/notificationhubs/) |
 
 ## <a name="next-steps"></a>Próximas etapas
 

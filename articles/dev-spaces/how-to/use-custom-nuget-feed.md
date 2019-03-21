@@ -1,22 +1,21 @@
 ---
-title: Como usar um feed NuGet personalizado no Azure Dev Spaces | Microsoft Docs
+title: Como usar um personalizado do NuGet do feed em espaços de desenvolvimento do Azure
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 author: johnsta
 ms.author: johnsta
 ms.date: 05/11/2018
-ms.topic: article
+ms.topic: conceptual
 description: Use um feed NuGet personalizado para acessar e usar os pacotes NuGet em um Azure Dev Space.
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Contêiner do Azure, contêineres
 manager: ghogen
-ms.openlocfilehash: 21a70100fe186e176dfe8eb7c247d83a5d4705bd
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 1a000e378a9b8ecfb09d778fd6444e3f24b3df7b
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466397"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772459"
 ---
 #  <a name="use-a-custom-nuget-feed-in-an-azure-dev-space"></a>Use um feed NuGet personalizado em um Azure Dev Space
 

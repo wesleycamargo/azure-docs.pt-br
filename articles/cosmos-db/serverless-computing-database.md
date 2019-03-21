@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: ff202c85f20adce173a375987a5f2250fda565b2
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 4d259523d3f7fe7165d0ef4c8a5aac12bd7cd823
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041179"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123769"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Computação de banco de dados sem servidor usando o Azure Cosmos DB e o Azure Functions
 
@@ -19,7 +19,7 @@ A computação sem servidor trata da capacidade de se concentrar em partes indiv
 
 Com a integração nativa entre o [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) e o Azure Functions, você pode criar gatilhos de banco de dados, associações de entrada e associações de saída diretamente em sua conta do Azure Cosmos DB. Usando o Azure Functions e o Azure Cosmos DB, você pode criar e implantar os aplicativos sem servidor controlados por evento com acesso de baixa latência a dados avançados para uma base de usuários global.
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 O Azure Cosmos DB e o Azure Functions permitem integrar bancos de dados e aplicativos sem servidor das seguintes maneiras:
 
@@ -97,11 +97,11 @@ Em implementações de varejo, quando um usuário adiciona um item à sua cesta 
 
 1. É possível criar vários Azure Functions adicionando de gatilhos do Azure Cosmos DB a cada um – todos eles escutam o mesmo feed de alterações de dados de um carrinho de compras. Observe que, quando várias funções escutam o mesmo feed de alterações, uma nova coleção de concessão é necessária para cada função. Para obter mais informações sobre coleções de concessão, consulte [Noções básicas sobre a biblioteca de processador do Feed de alterações](change-feed-processor.md).
 2. Sempre que um novo item é adicionado ao carrinho de compras de um usuário, cada função é invocada de forma independente pelo feed de alterações do contêiner de carrinho de compras.
-    * Uma função pode usar o conteúdo da cesta atual para alterar a exibição de outros itens nos quais o usuário pode estar interessado.
-    * Outra função pode atualizar os totais de inventário.
-    * Outra função pode enviar informações do cliente sobre determinados produtos ao departamento de marketing, que envia um mensageiro promocional. 
+   * Uma função pode usar o conteúdo da cesta atual para alterar a exibição de outros itens nos quais o usuário pode estar interessado.
+   * Outra função pode atualizar os totais de inventário.
+   * Outra função pode enviar informações do cliente sobre determinados produtos ao departamento de marketing, que envia um mensageiro promocional. 
 
-    Qualquer departamento pode criar um gatilho do Azure Cosmos DB ouvindo o feed de alterações e garantir que ele não atrase eventos críticos de processamento de pedido no processo.
+     Qualquer departamento pode criar um gatilho do Azure Cosmos DB ouvindo o feed de alterações e garantir que ele não atrase eventos críticos de processamento de pedido no processo.
 
 Em todos esses casos de uso, como a função desacoplou o próprio aplicativo, você não precisa criar novas instâncias de aplicativo o tempo todo. Em vez disso, o Azure Functions cria funções individuais para concluir processos discretos, conforme necessário.
 

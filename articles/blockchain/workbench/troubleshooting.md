@@ -1,6 +1,6 @@
 ---
 title: Solução de problemas do Azure Blockchain Workbench
-description: Como solucionar problemas do Azure Blockchain Workbench.
+description: Como solucionar problemas de um aplicativo do Azure Blockchain Workbench.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 9f0f32bc1fb6b88dc85f09e13aebc60ff74ec723
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: b55c84773d99c325689fbc5182e75c7cb108d00a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329715"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890008"
 ---
 # <a name="azure-blockchain-workbench-troubleshooting"></a>Solução de problemas do Azure Blockchain Workbench
 
@@ -24,7 +24,7 @@ Um script do PowerShell está disponível para auxiliar na depuração de desenv
 * Rede de Blockchain, como Ethereum
 * Microservices Blockchain Workbench
 * Application Insights
-* Monitoramento do Azure (Log Analytics)
+* Monitoramento do Azure (logs do Azure Monitor)
 
 Você pode usar as informações para determinar as próximas etapas e determinar a causa raiz de problemas.
 
@@ -48,13 +48,13 @@ Este script aceita os seguintes parâmetros:
 
 | Parâmetro  | DESCRIÇÃO | Obrigatório |
 |---------|---------|----|
-| SubscriptionID | SubscriptionID para criar ou localizar todos os recursos. | SIM |
-| ResourceGroupName | Nome do grupo de recursos do Azure onde o Blockchain Workbench foi implantado. | SIM |
+| SubscriptionID | SubscriptionID para criar ou localizar todos os recursos. | Sim |
+| ResourceGroupName | Nome do grupo de recursos do Azure onde o Blockchain Workbench foi implantado. | Sim |
 | OutputDirectory | Caminho para criar a saída do arquivo ZIP. Se não for especificado, o diretório atual é o padrão. | Não  |
 | LookbackHours | Número de horas a utilizar ao efetuar pull de telemetria. O valor padrão é de 24 horas. O valor máximo é de 90 horas | Não  |
-| OmsSubscriptionId | A ID de assinatura em que o Log Analytics está implantado. Passe esse parâmetro apenas se o Log Analytics da rede blockchain for implantado fora do grupo de recursos do Blockchain Workbench.| Não  |
-| OmsResourceGroup |O grupo de recursos em que o Log Analytics é implantado. Passe esse parâmetro apenas se o Log Analytics da rede blockchain for implantado fora do grupo de recursos do Blockchain Workbench.| Não  |
-| OmsWorkspaceName | O nome do workspace do Log Analytics. Passe esse parâmetro apenas se o Log Analytics da rede blockchain for implantado fora do grupo de recursos do Blockchain Workbench | Não  |
+| OmsSubscriptionId | A ID da assinatura em que o Azure Monitor registra é implantada. Apenas passe esse parâmetro se os logs do Azure Monitor para a rede de blockchain é implantado fora do grupo de recursos do Blockchain Workbench.| Não  |
+| OmsResourceGroup |O grupo de recursos em que o Azure Monitor registra é implantado. Apenas passe esse parâmetro se os logs do Azure Monitor para a rede de blockchain é implantado fora do grupo de recursos do Blockchain Workbench.| Não  |
+| OmsWorkspaceName | O nome do workspace do Log Analytics. Passar esse parâmetro somente se os logs do Azure Monitor para a rede de blockchain é implantado fora do grupo de recursos do Blockchain Workbench | Não  |
 
 ## <a name="what-is-collected"></a>O que é coletado?
 

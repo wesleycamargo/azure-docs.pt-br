@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: jdial
-ms.openlocfilehash: 8b494e3f289d7b3a850a77f7f388cee542c088ed
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: fecab4dc3a0674b0b64638676f4538af145b52ac
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821857"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652638"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnosticar um problema de filtro de tráfego de rede de máquina virtual
 
@@ -77,13 +77,15 @@ Embora as regras de segurança eficazes tenham sido visualizadas na VM, também 
 
 ## <a name="diagnose-using-powershell"></a>Diagnosticar usando o PowerShell
 
-É possível executar os comandos a seguir no [Azure Cloud Shell](https://shell.azure.com/powershell) ou executando o PowerShell no computador. O Azure Cloud Shell é um shell interativo gratuito. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. Se você executar o PowerShell no computador, precisará do módulo do PowerShell do *AzureRM* versão 6.0.1 ou posterior. Execute `Get-Module -ListAvailable AzureRM` no computador para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Se estiver executando o PowerShell localmente, também precisará executar `Login-AzureRmAccount` para fazer logon no Azure com uma conta que tenha as [permissões necessárias](virtual-network-network-interface.md#permissions).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Obter as regras de segurança efetiva para uma interface de rede com [Get-AzureRmEffectiveNetworkSecurityGroup](/powershell/module/azurerm.network/get-azurermeffectivenetworksecuritygroup). O exemplo a seguir obtém as regras de segurança efetivas para uma interface de rede denominada *myVMVMNic*, que está em um grupo de recursos denominado *myResourceGroup*:
+É possível executar os comandos a seguir no [Azure Cloud Shell](https://shell.azure.com/powershell) ou executando o PowerShell no computador. O Azure Cloud Shell é um shell interativo gratuito. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. Se você executar o PowerShell no seu computador, você precisa do módulo Azure PowerShell, versão 1.0.0 ou posterior. Execute `Get-Module -ListAvailable Az` no computador para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se estiver executando o PowerShell localmente, também precisará executar `Connect-AzAccount` para fazer logon no Azure com uma conta que tenha as [permissões necessárias](virtual-network-network-interface.md#permissions).
+
+Obter as regras de segurança em vigor para um adaptador de rede com [Get-AzEffectiveNetworkSecurityGroup](/powershell/module/az.network/get-azeffectivenetworksecuritygroup). O exemplo a seguir obtém as regras de segurança efetivas para uma interface de rede denominada *myVMVMNic*, que está em um grupo de recursos denominado *myResourceGroup*:
 
 ```azurepowershell-interactive
-Get-AzureRmEffectiveNetworkSecurityGroup `
-  -NetworkInterfaceName myVMVMNic interface `
+Get-AzEffectiveNetworkSecurityGroup `
+  -NetworkInterfaceName myVMVMNic `
   -ResourceGroupName myResourceGroup
 ```
 
@@ -95,7 +97,7 @@ Se você ainda estiver com problemas de conectividade, veja [ considerações ad
 Se você não souber o nome de um adaptador de rede, mas souber o nome da VM à qual o adaptador de rede está conectado, os comandos a seguir retornarão as IDs de todos os adaptadores de rede conectados a uma VM:
 
 ```azurepowershell-interactive
-$VM = Get-AzureRmVM -Name myVM -ResourceGroupName myResourceGroup
+$VM = Get-AzVM -Name myVM -ResourceGroupName myResourceGroup
 $VM.NetworkProfile
 ```
 

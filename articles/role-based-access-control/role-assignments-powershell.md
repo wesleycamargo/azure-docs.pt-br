@@ -1,6 +1,6 @@
 ---
 title: Gerenciar o acesso aos recursos do Azure usando o RBAC e o Azure PowerShell | Microsoft Docs
-description: Saiba como gerenciar acesso de usuários, grupos e aplicativos usando do Azure usando o controle de acesso baseado em função (RBAC) e o Azure PowerShell. Isso inclui como listar o acesso, conceder o acesso e remover o acesso.
+description: Saiba como gerenciar o acesso aos recursos do Azure para usuários, grupos e aplicativos que usam o controle de acesso baseado em função (RBAC) e o Azure PowerShell. Isso inclui como listar o acesso, conceder o acesso e remover o acesso.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/02/2019
+ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 84fd4262d3b64b369d6307a6a875e8a459324aaa
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: ace70dea5277b4e9d8c8b0e6e0cdc49da0b674e0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343767"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432219"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Gerenciar o acesso aos recursos do Azure usando o RBAC e o Azure PowerShell
 
@@ -81,9 +81,11 @@ NotDataActions   : {}
 AssignableScopes : {/}
 ```
 
-### <a name="list-a-specific-role-in-json-format"></a>Listar uma função específica em formato JSON
+## <a name="list-a-role-definition"></a>Listar uma definição de função
 
-Para listar uma função específica em formato JSON, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
+### <a name="list-a-role-definition-in-json-format"></a>Listar uma definição de função no formato JSON
+
+Para listar uma definição de função no formato JSON, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
 
 ```azurepowershell
 Get-AzRoleDefinition <role name> | ConvertTo-Json
@@ -213,7 +215,7 @@ Para listar atribuições de função para o administrador e para os coadministr
 Get-AzRoleAssignment -IncludeClassicAdministrators
 ```
 
-## <a name="grant-access"></a>Conceder acesso
+## <a name="grant-access"></a>Permitir acesso
 
 No RBAC, para conceder acesso, você cria uma atribuição de função.
 
@@ -328,4 +330,4 @@ PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionNam
 
 - [Tutorial: Permitir acesso a um grupo aos recursos do Azure usando o RBAC e o Azure PowerShell](tutorial-role-assignments-group-powershell.md)
 - [Tutorial: Criar uma função personalizada para recursos do Azure usando o Azure PowerShell](tutorial-custom-role-powershell.md)
-- [Gerenciar recursos com o Azure PowerShell](../azure-resource-manager/powershell-azure-resource-manager.md)
+- [Gerenciar recursos com o Azure PowerShell](../azure-resource-manager/manage-resources-powershell.md)

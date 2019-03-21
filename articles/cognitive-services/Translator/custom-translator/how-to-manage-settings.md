@@ -5,16 +5,16 @@ description: Como gerenciar configurações, criar espaço de trabalho, comparti
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.subservice: translator-text
+ms.date: 02/21/2019
 ms.author: v-rada
-ms.topic: article
-ms.openlocfilehash: 6fabbb57538f5e10e6cd91ebc109707045e54033
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: 6e8406cdd265063622bc5dcebbb9f22549b3633a
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227073"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766794"
 ---
 # <a name="how-to-manage-settings"></a>Como gerenciar configurações
 
@@ -45,7 +45,7 @@ Se você não tem uma assinatura, siga as etapas abaixo:
     ![Como adicionar chave de assinatura](media/how-to/how-to-add-subscription-key.png)
 
 3. Na caixa de diálogo, insira a chave da assinatura do seu tradutor e clique no botão "Adicionar".
- 
+
     ![Como adicionar chave de assinatura](media/how-to/how-to-add-subscription-key-dialog.png)
 4.  Depois de adicionar uma chave, você pode modificar ou excluir a chave a qualquer momento.
 
@@ -53,29 +53,29 @@ Se você não tem uma assinatura, siga as etapas abaixo:
 
 ## <a name="manage-your-workspace"></a>Gerenciar seu espaço de trabalho
 
-Um espaço de trabalho é uma área de trabalho para compor e construir seu sistema de tradução personalizado. Um espaço de trabalho pode conter vários projetos, modelos e documentos. 
+Um espaço de trabalho é uma área de trabalho para compor e construir seu sistema de tradução personalizado. Um espaço de trabalho pode conter vários projetos, modelos e documentos.
 
-Se uma parte diferente do seu trabalho precisar ser compartilhada com pessoas diferentes, a criação de vários espaços de trabalho poderá ser útil. 
+Se uma parte diferente do seu trabalho precisar ser compartilhada com pessoas diferentes, a criação de vários espaços de trabalho poderá ser útil.
 
 ## <a name="create-a-new-workspace"></a>Criar um novo workspace
 
 1.  Navegue até a página "Configurações" do espaço de trabalho.
 2.  Clique no botão “Novo Espaço de trabalho” na seção “Criar Novo Espaço de trabalho”.
-    
+
     ![Criar novo espaço de trabalho](media/how-to/create-new-workspace.png)
 
 4.  Na caixa de diálogo, insira o nome da nova área de trabalho.
 5.  Clique em "Criar".
-    
+
     ![Criar caixa de diálogo do novo espaço de trabalho](media/how-to/create-new-workspace-dialog.png)
 
 ## <a name="share-your-workspace"></a>Compartilhe seu espaço de trabalho
 
-No tradutor Personalizado você pode compartilhar seu espaço de trabalho com outras pessoas, se diferentes partes do seu trabalho precisarem ser compartilhadas com pessoas diferentes. 
+No tradutor Personalizado você pode compartilhar seu espaço de trabalho com outras pessoas, se diferentes partes do seu trabalho precisarem ser compartilhadas com pessoas diferentes.
 
 1.  Navegue até a página "Configurações" do espaço de trabalho.
 2.  Clique no botão "Compartilhar" na seção "Configurações de compartilhamento".
-    
+
     ![Compartilhar o espaço de trabalho](media/how-to/share-workspace.png)
 
 3.  Na caixa de diálogo, insira uma lista separada por vírgulas de endereços de e-mail com os quais você deseja compartilhar essa área de trabalho. Não se esqueça de compartilhar com o endereço de e-mail que a pessoa usa para fazer login no Custom Translator com. Em seguida, selecione o nível apropriado de permissão de compartilhamento.
@@ -85,7 +85,7 @@ No tradutor Personalizado você pode compartilhar seu espaço de trabalho com ou
 
 ## <a name="sharing-permissions"></a>Permissões de compartilhamento
 
-1.  **Leitor:** um leitor no workspace poderá exibir todas as informações no workspace. 
+1.  **Leitor:** um leitor no workspace poderá exibir todas as informações no workspace.
 
 2.  **Editor:** um editor no workspace poderá adicionar documentos, treinar modelos e excluir documentos e projetos. Eles podem adicionar uma chave de assinatura, mas não podem modificar com quem a área de trabalho é compartilhada, excluir a área de trabalho ou alterar o nome da área de trabalho.
 
