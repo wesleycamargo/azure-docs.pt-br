@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: TBD
 ms.date: 05/09/2018
 ms.author: alkohli
-ms.openlocfilehash: c1a558769ffaa52ed2e996a2b537a5ea409101bd
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
-ms.translationtype: HT
+ms.openlocfilehash: efc116c278bfe72419800603a3b365f461fe0a28
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012651"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095153"
 ---
 # <a name="configure-chap-for-your-storsimple-device"></a>Configure o CHAP para seu dispositivo StorSimple
 
@@ -53,8 +53,8 @@ Na autenticação unidirecional, o destino autentica o iniciador. Essa autentica
    1. Forneça um nome de usuário para o iniciador CHAP.
    2. Forneça uma senha para o iniciador CHAP.
       
-    > [!IMPORTANT]
-    > O nome de usuário do CHAP deve conter menos de 233 caracteres. A senha do CHAP deve conter entre 12 e 16 caracteres. Um nome de usuário ou senha mais longo resultará em uma falha de autenticação no host do Windows.
+      > [!IMPORTANT]
+      > O nome de usuário do CHAP deve conter menos de 233 caracteres. A senha do CHAP deve conter entre 12 e 16 caracteres. Um nome de usuário ou senha mais longo resultará em uma falha de autenticação no host do Windows.
    
    3. Confirme a senha.
 

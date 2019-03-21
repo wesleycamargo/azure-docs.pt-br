@@ -13,15 +13,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: adsolank;juliako;
-ms.openlocfilehash: dd09e8949c2d71e550d02cd79611a7424d8113fc
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 12d188b39375bce88d3adc244d217854c75f436d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000908"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861274"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Indexando arquivos de mídia com a Preview do Azure Media Indexer 2
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 O MP (processador de mídia) da **Preview do Indexador de Mídia do Azure 2** permite tornar conteúdo e arquivos de mídia pesquisáveis, bem como gerar faixas de legendagem oculta. Comparada à versão anterior do [Indexador de Mídia do Azure](media-services-index-content.md), a **Preview do Indexador de Mídia do Azure 2** executa uma indexação mais rápida e oferece maior suporte a idiomas. Os idiomas com suporte incluem o inglês, espanhol, francês, alemão, italiano, chinês (mandarim, simplificado), português, árabe, russo e japonês.
 
 No momento, o MP da **Preview do Indexador de Mídia do Azure 2** está em Preview.
@@ -301,5 +301,5 @@ namespace IndexContent
 ## <a name="related-links"></a>Links relacionados
 [Visão geral do Azure Media Services Analytics](media-services-analytics-overview.md)
 
-[Demonstrações do Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Demonstrações do Azure Media Analytics](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

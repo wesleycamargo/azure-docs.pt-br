@@ -11,22 +11,22 @@ ms.service: biztalk-services
 ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: fe56b84b881b2afce9da9a7f7dfe4637c3494aa8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 05327c05594d38caf5e3d54f8a13eaaaac3588ec
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261954"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097433"
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>Criar Serviços BizTalk usando o Portal do Azure
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
-
+> 
 > [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
-
+> 
 > [!TIP]
 > Para entrar no Portal do Azure, você precisa de uma conta e de uma assinatura do Azure. Se você não tiver uma conta, será possível criar uma conta de avaliação gratuita em questão de minutos. Consulte [Avaliação gratuita do Azure](https://go.microsoft.com/fwlink/p/?LinkID=239738).
 
@@ -143,8 +143,8 @@ Quando um Serviço do BizTalk do Azure for criado, uma URL HTTPS que inclui o no
 <br/>
 
 <ul>
-<li><strong>Uso avançado de chave</strong>: no mínimo, os Serviços BizTalk do Azure exigem a Autenticação de Servidor.</li>
-<li><strong>Nome comum</strong>: insira o nome de domínio totalmente qualificado (FQDN) da sua URL de Serviço do BizTalk do Azure. Veja <a HREF="#CreateService">Criar um Serviço BizTalk</a> neste artigo.</li>
+<li><strong>Uso avançado de chave</strong>: No mínimo, os Serviços BizTalk do Azure requer autenticação de servidor.</li>
+<li><strong>Nome comum</strong>: Insira o nome de domínio totalmente qualificado (FQDN) da sua URL de serviço do BizTalk do Azure. Veja <a HREF="#CreateService">Criar um Serviço BizTalk</a> neste artigo.</li>
 </ul>
 <br/>
 Um certificado novo ou diferente pode ser adicionado após o Serviço BizTalk ser criado.
@@ -165,14 +165,14 @@ As Conexões Híbridas são usadas para conectar um site do Azure ou um serviço
  Consulte [Conexões híbridas](integration-hybrid-connection-overview.md) para saber mais, incluindo a criação e gerenciamento de Conexões híbridos.
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que o Serviço BizTalk foi criado, familiarize-se com os diferentes [Serviços BizTalk: guias Painel, Monitor e Escala](biztalk-dashboard-monitor-scale-tabs.md). Seu Serviço BizTalk está pronto para os seus aplicativos. Para começar a criar aplicativos, visite [Serviços BizTalk do Azure (a página pode estar em inglês)](https://go.microsoft.com/fwlink/p/?LinkID=235197).
+Agora que um BizTalk Service foi criado, você se familiarizar com os diferentes [Serviços BizTalk: Guias painel, Monitor e escala](biztalk-dashboard-monitor-scale-tabs.md). Seu Serviço BizTalk está pronto para os seus aplicativos. Para começar a criar aplicativos, visite [Serviços BizTalk do Azure (a página pode estar em inglês)](https://go.microsoft.com/fwlink/p/?LinkID=235197).
 
 ## <a name="see-also"></a>Consulte também
-* [Serviços BizTalk: gráfico de edições](biztalk-editions-feature-chart.md)<br/>
-* [Serviços BizTalk: gráfico de estado](biztalk-service-state-chart.md)<br/>
-* [Serviços BizTalk: backup e restauração](biztalk-backup-restore.md)<br/>
-* [Serviços BizTalk: limitação](biztalk-throttling-thresholds.md)<br/>
-* [Serviços BizTalk: nome e chave do emissor](biztalk-issuer-name-issuer-key.md)<br/>
+* [Serviços BizTalk: Gráfico de edições](biztalk-editions-feature-chart.md)<br/>
+* [Serviços BizTalk: Gráfico de estado](biztalk-service-state-chart.md)<br/>
+* [Serviços BizTalk: Backup e restauração](biztalk-backup-restore.md)<br/>
+* [Serviços BizTalk: Throttling](biztalk-throttling-thresholds.md)<br/>
+* [Serviços BizTalk: Nome do emissor e chave do emissor](biztalk-issuer-name-issuer-key.md)<br/>
 * [Como começar a usar o SDK dos Serviços BizTalk do Azure](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 * [Conexões híbridas](integration-hybrid-connection-overview.md)
 

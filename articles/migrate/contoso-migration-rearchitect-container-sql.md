@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 243b19d19fbce11d77f60bc2eccc4d1c58c85b80
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: cb984bcbe79b69c0614579d66a3b853cd38a7e12
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892177"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099079"
 ---
 # <a name="contoso-migration-rearchitect-an-on-premises-app-to-an-azure-container-and-azure-sql-database"></a>Migração para Contoso: recriar a arquitetura de um aplicativo local para um contêiner do Azure e o Banco de Dados SQL do Azure
 
@@ -402,10 +402,10 @@ Os administradores da Contoso converterão o aplicativo em um contêiner que usa
 4. Eles repetem o processo para o aplicativo SmartHotel.Registration.WCF.
 5. Agora, eles verifican como a solução foi alterada.
 
-    - O novo aplicativo é **SmartHotel.RegistrationApplication/**
-    - Ele contém dois serviços: **SmartHotel.Registration.WCF** e **SmartHotel.Registration.Web**.
+   - O novo aplicativo é **SmartHotel.RegistrationApplication/**
+   - Ele contém dois serviços: **SmartHotel.Registration.WCF** e **SmartHotel.Registration.Web**.
 
-    ![Contêiner](./media/contoso-migration-rearchitect-container-sql/container4.png)
+     ![Contêiner](./media/contoso-migration-rearchitect-container-sql/container4.png)
 
 6. O Visual Studio criou o arquivo do Docker e baixou as imagens necessárias localmente para o computador de desenvolvedor.
 
@@ -488,7 +488,7 @@ Agora, os administradores da Contoso configuram o Azure DevOps Services para rea
 
 16. Além disso, observe que o gatilho de implantação contínua está habilitado.
 
-   ![Implantação contínua habilitada](./media/contoso-migration-rearchitect-container-sql/pipeline14.png) 
+    ![Implantação contínua habilitada](./media/contoso-migration-rearchitect-container-sql/pipeline14.png) 
 
 17. Eles clicam em **Salvar** > **Criar um lançamento**.
 

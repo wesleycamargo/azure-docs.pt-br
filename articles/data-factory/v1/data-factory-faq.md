@@ -13,16 +13,18 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 81c7c98f29c2e507e165a3943395e36a453cbf06
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: d9d26ced30f718f06d6d0ba9eb7c2a78682305ad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024035"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58102359"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory - Perguntas frequentes
 > [!NOTE]
 > Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [perguntas frequentes - Data Factory](../frequently-asked-questions.md).
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="general-questions"></a>Perguntas gerais
 ### <a name="what-is-azure-data-factory"></a>O que é o Data Factory do Azure?
@@ -57,7 +59,7 @@ Você pode criar fábricas de dados usando um dos SDKs/ferramentas a seguir:
 * **Modelo do Azure Resource Manager** Para obter detalhes, veja [Tutorial: Criar a sua primeira Azure Data Factory usando o modelo do Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md).
 
 ### <a name="can-i-rename-a-data-factory"></a>Posso renomear um Data Factory?
- Não. Como outros recursos do Azure, o nome de uma Data Factory do Azure não pode ser alterado.
+Nenhum. Como outros recursos do Azure, o nome de uma Data Factory do Azure não pode ser alterado.
 
 ### <a name="can-i-move-a-data-factory-from-one-azure-subscription-to-another"></a>Posso mover uma fábrica de dados de uma assinatura do Azure para outra?
 Sim. Use o botão **Mover** na folha do data factory, conforme mostrado no diagrama a seguir:
@@ -76,7 +78,7 @@ A tabela a seguir fornece uma lista dos ambientes de computação com suporte do
 | [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure SQL Data Warehouse](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Procedimento armazenado](data-factory-stored-proc-activity.md) |
 
 ### <a name="how-does-azure-data-factory-compare-with-sql-server-integration-services-ssis"></a>Como o Azure Data Factory se compara com o SSIS (SQL Server Integration Services)? 
-Veja a apresentação [Azure Data Factory vs. SSIS](http://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) de um dos nossos MVPs (Most Valued Professionals): Reza Rad. Algumas das alterações recentes no Data Factory podem não estar listadas no conjunto de slides. Estamos continuamente adicionando mais recursos ao Azure Data Factory. Estamos continuamente adicionando mais recursos ao Azure Data Factory. Nós incorporaremos essas atualizações à comparação das tecnologias de integração de dados da Microsoft, mais tarde neste ano.   
+Veja a apresentação [Azure Data Factory vs. SSIS](https://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) de um dos nossos MVPs (Most Valued Professionals): Reza Rad. Algumas das alterações recentes no Data Factory podem não estar listadas no conjunto de slides. Estamos continuamente adicionando mais recursos ao Azure Data Factory. Estamos continuamente adicionando mais recursos ao Azure Data Factory. Nós incorporaremos essas atualizações à comparação das tecnologias de integração de dados da Microsoft, mais tarde neste ano.   
 
 ## <a name="activities---faq"></a>Atividades - Perguntas frequentes
 ### <a name="what-are-the-different-types-of-activities-you-can-use-in-a-data-factory-pipeline"></a>Quais são os tipos diferentes de atividades que você pode usar em um pipeline do Azure Data Factory?
@@ -171,12 +173,12 @@ Você pode executar novamente uma fatia de uma das seguintes maneiras:
 
 * Use o Aplicativo Monitorar e Gerenciar para executar uma janela de atividade ou fatia novamente. Veja [Executar novamente as janelas de atividades selecionadas](data-factory-monitor-manage-app.md#perform-batch-actions) para obter instruções.   
 * Clique em **Executar** na barra de comando na folha **FATIA DE DADOS** para a fatia no portal do Azure.
-* Execute o cmdlet **Set-AzureRmDataFactorySliceStatus** com Status definido como **Aguardando** para a fatia.   
+* Execute **AzDataFactorySliceStatus conjunto** cmdlet com o Status definido como **aguardando** da fatia.   
 
     ```PowerShell
-    Set-AzureRmDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00"
+    Set-AzDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00"
     ```
-Confira [Set-AzureRmDataFactorySliceStatus][set-azure-datafactory-slice-status] para obter detalhes sobre o cmdlet.
+  Ver [Set-AzDataFactorySliceStatus] [ set-azure-datafactory-slice-status] para obter detalhes sobre o cmdlet.
 
 ### <a name="how-long-did-it-take-to-process-a-slice"></a>Quanto tempo levou para processar uma fatia?
 Use o Gerenciador de Janela de Atividade no Aplicativo Monitorar e Gerenciar para saber quanto tempo foi necessário para processar uma fatia de dados. Confira [Gerenciador de Janelas de Atividades](data-factory-monitor-manage-app.md#activity-window-explorer) para obter detalhes.
@@ -191,7 +193,7 @@ Você também pode fazer o seguinte no portal do Azure:
 6. Você deve ver o campo **DURAÇÃO** com um valor. Esse valor é o tempo necessário para processar a fatia.   
 
 ### <a name="how-to-stop-a-running-slice"></a>Como parar uma fatia em execução?
-Se você precisar interromper a execução do pipeline, poderá usar o cmdlet [Suspend-AzureRmDataFactoryPipeline](/powershell/module/azurerm.datafactories/suspend-azurermdatafactorypipeline) . Atualmente, suspender o pipeline não interrompe as execuções de fatia que estão em andamento. Depois de concluir as execuções em andamento, nenhuma fatia extra é coletada.
+Se você precisar interromper o execução do pipeline, você pode usar [AzDataFactoryPipeline Suspend](/powershell/module/az.datafactory/suspend-azdatafactorypipeline) cmdlet. Atualmente, suspender o pipeline não interrompe as execuções de fatia que estão em andamento. Depois de concluir as execuções em andamento, nenhuma fatia extra é coletada.
 
 Se você realmente desejar parar todas as execuções imediatamente, a única maneira seria excluir o pipeline e criá-lo novamente. Se você optar por excluir o pipeline, não é necessário excluir tabelas e serviços vinculados usados pelo pipeline.
 
@@ -199,11 +201,11 @@ Se você realmente desejar parar todas as execuções imediatamente, a única ma
 [msdn-class-library-reference]: /dotnet/api/microsoft.azure.management.datafactories.models
 [msdn-rest-api-reference]: /rest/api/datafactory/
 
-[adf-powershell-reference]: /powershell/module/azurerm.datafactories/
-[azure-portal]: http://portal.azure.com
-[set-azure-datafactory-slice-status]: /powershell/module/azurerm.datafactories/set-azurermdatafactoryslicestatus
+[adf-powershell-reference]: /powershell/module/az.datafactory/
+[azure-portal]: https://portal.azure.com
+[set-azure-datafactory-slice-status]: /powershell/module/az.datafactory/set-Azdatafactoryslicestatus
 
-[adf-pricing-details]: http://go.microsoft.com/fwlink/?LinkId=517777
-[hdinsight-supported-regions]: http://azure.microsoft.com/pricing/details/hdinsight/
-[hdinsight-alternate-storage]: http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx
-[hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
+[adf-pricing-details]: https://go.microsoft.com/fwlink/?LinkId=517777
+[hdinsight-supported-regions]: https://azure.microsoft.com/pricing/details/hdinsight/
+[hdinsight-alternate-storage]: https://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx
+[hdinsight-alternate-storage-2]: https://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx

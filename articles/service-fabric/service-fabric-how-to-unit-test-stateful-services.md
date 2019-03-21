@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/04/2018
 ms.author: ryanwi
-ms.openlocfilehash: a030860bcef41d7276e1356553b984f55e27ae1e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 65fccada665743cf293b4ee4bb8f786a4c01c58a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164146"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093898"
 ---
 # <a name="create-unit-tests-for-stateful-services"></a>Criar testes de unidade para serviços com estado
 Testes de unidade Os serviços com informações de estado do Service Fabric descobrem erros comuns que não necessariamente seriam detectados pelo aplicativo convencional ou pelo teste de unidade específica do domínio. Ao desenvolver testes de unidade para serviços com estado, há algumas considerações especiais que devem ser mantidas em mente.
@@ -42,13 +42,13 @@ A partir da versão 3.3.0, [ServiceFabric.Mocks](https://www.nuget.org/packages/
 Como parte da parte de organização de um teste, um conjunto de réplicas simuladas e um gerenciador de estado serão criados. O conjunto de réplicas será proprietário da criação de uma instância do serviço testado para cada réplica. Ele também possui eventos de ciclo de vida em execução, como `OnChangeRole` e `RunAsync`. O gerente de estado simulado assegurará que quaisquer operações executadas contra o gerente de estado sejam executadas e mantidas como o gerente de estado real faria.
 
 1. Crie um delegado de fábrica de serviços que instancie o serviço que está sendo testado. Isso deve ser semelhante ou mesmo como o retorno de chamada de fábrica de serviço geralmente se encontram na `Program.cs` para um ator ou serviço do Service Fabric. Isso deve seguir a seguinte assinatura:
-```csharp
-MyStatefulService CreateMyStatefulService(StatefulServiceContext context, IReliableStateManagerReplica2 stateManager)
-```
+   ```csharp
+   MyStatefulService CreateMyStatefulService(StatefulServiceContext context, IReliableStateManagerReplica2 stateManager)
+   ```
 2. Criar uma instância de `MockReliableStateManager` classe. Isso vai zombar de todas as interações com o gerente de estado.
 3. Crie uma instância de `MockStatefulServiceReplicaSet<TStatefulService>`, em que `TStatefulService` é o tipo do serviço que está sendo testado. Isso exigirá que o delegado criado na etapa #1 e o gerenciador de estado instanciado na etapa #2
 4. Adicionar réplicas ao conjunto de réplicas. Especifique a função (como Primária, ActiveSecondary, IdleSecondary) e o ID da réplica
-> Segure nos IDs da réplica! Eles provavelmente serão usados durante o ato e declararão partes de um teste de unidade.
+   > Segure nos IDs da réplica! Eles provavelmente serão usados durante o ato e declararão partes de um teste de unidade.
 
 ```csharp
 //service factory to instruct how to create the service instance

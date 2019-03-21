@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9c6b1e77b6fce8bedb8f035fcb18acb8c56ad5a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: dda84d30124eca1526f227ffec134f48451c9cb0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200710"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58102560"
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Tutorial: Configurar Cerner Central para provisionamento automático de usuários
 
@@ -60,7 +60,7 @@ Antes de configurar e habilitar o serviço de provisionamento, você precisa dec
 Esta seção ensina como conectar o seu Azure AD à Lista do Usuário do Cerner Central à API de provisionamento de conta de usuário do SCIM do Cerner Central e também pela configuração do serviço de provisionamento, a fim de criar, atualizar e desabilitar contas de usuário atribuídas no Cerner Central com base na atribuição de usuário e de grupo do Azure AD.
 
 > [!TIP]
-> Você também pode optar por habilitar o logon único baseado em SAML para o Cerner Central, seguindo as instruções fornecidas no [Portal do Azure (https://portal.azure.com). O logon único pode ser configurado independentemente do provisionamento automático, embora esses dois recursos sejam complementares. Para obter mais informações, consulte o [Tutorial de logon único do Cerner Central](cernercentral-tutorial.md).
+> Você também pode optar por habilitar baseado em SAML Single Sign-On para o Cerner Central, seguindo as instruções fornecidas no [portal do Azure](https://portal.azure.com). O logon único pode ser configurado independentemente do provisionamento automático, embora esses dois recursos sejam complementares. Para obter mais informações, consulte o [Tutorial de logon único do Cerner Central](cernercentral-tutorial.md).
 
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-cerner-central-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para o Cerner Central no Azure AD:
@@ -68,13 +68,13 @@ Esta seção ensina como conectar o seu Azure AD à Lista do Usuário do Cerner 
 
 Para provisionar contas de usuário no Cerner Central, você precisará solicitar uma conta de sistema do Cerner Central do Cerner e gerar um token de portador OAuth que o Azure AD pode usar para se conectar ao ponto de extremidade SCIM do Cerner. Também recomendamos que a integração seja executada em um ambiente de área restrita do Cerner antes da implantação em produção.
 
-1.  A primeira etapa é garantir que as pessoas que gerenciam a integração do Cerner e do Azure AD tenham uma conta no CernerCare, que é exigida para acessar a documentação necessária para concluir as instruções. Se for necessário, use as URLs abaixo para criar contas do CernerCare em cada ambiente aplicável.
+1. A primeira etapa é garantir que as pessoas que gerenciam a integração do Cerner e do Azure AD tenham uma conta no CernerCare, que é exigida para acessar a documentação necessária para concluir as instruções. Se for necessário, use as URLs abaixo para criar contas do CernerCare em cada ambiente aplicável.
 
    * Área restrita:  https://sandboxcernercare.com/accounts/create
 
    * Produção:  https://cernercare.com/accounts/create  
 
-2.  Em seguida, será necessário criar uma conta do sistema para o Azure AD. Use as instruções a seguir para solicitar uma Conta do Sistema para seus ambientes de produção e de área restrita.
+2. Em seguida, será necessário criar uma conta do sistema para o Azure AD. Use as instruções a seguir para solicitar uma Conta do Sistema para seus ambientes de produção e de área restrita.
 
    * Instruções:  https://wiki.ucern.com/display/CernerCentral/Requesting+A+System+Account
 
@@ -82,7 +82,7 @@ Para provisionar contas de usuário no Cerner Central, você precisará solicita
 
    * Produção:  https://cernercentral.com/system-accounts/
 
-3.  Em seguida, gere um token de portador OAuth para cada uma de suas contas do sistema. Para fazer isso, siga as instruções abaixo.
+3. Em seguida, gere um token de portador OAuth para cada uma de suas contas do sistema. Para fazer isso, siga as instruções abaixo.
 
    * Instruções:  https://wiki.ucern.com/display/public/reference/Accessing+Cerner%27s+Web+Services+Using+A+System+Account+Bearer+Token
 
@@ -96,33 +96,33 @@ Para provisionar contas de usuário no Cerner Central, você precisará solicita
 
 6. Se você já tiver configurado o Cerner Central para logon único, procure sua instância do Cerner Central usando o campo de pesquisa. Caso contrário, selecione **Adicionar** e procure **Cerner Central** na galeria de aplicativos. Selecione o Cerner Central nos resultados da pesquisa e adicione-o à lista de aplicativos.
 
-7.  Selecione sua instância do Cerner Central e selecione a guia **Provisionamento**.
+7. Selecione sua instância do Cerner Central e selecione a guia **Provisionamento**.
 
-8.  Defina o **Modo de Provisionamento** como **Automático**.
+8. Defina o **Modo de Provisionamento** como **Automático**.
 
    ![Provisionamento do Cerner Central](./media/cernercentral-provisioning-tutorial/Cerner.PNG)
 
-9.  Preencha os campos a seguir em **Credenciais de Administrador**:
+9. Preencha os campos a seguir em **Credenciais de Administrador**:
 
    * No campo **URL do Locatário**, insira uma URL no formato abaixo, substituindo "User-Roster-Realm-ID" pela ID do realm que você adquiriu na etapa 4.
 
 > Área restrita: https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
-
+> 
 > Produção: https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
    * No campo **Segredo do Token**, insira o token de portador OAuth gerado na etapa 3 e clique em **Testar Conexão**.
 
    * Você verá uma notificação de êxito no lado do superior direito do seu Portal.
 
-10. Insira o endereço de email de uma pessoa ou grupo que deve receber notificações de erro de provisionamento no campo **Email de Notificação** e marque a caixa de seleção abaixo.
+1. Insira o endereço de email de uma pessoa ou grupo que deve receber notificações de erro de provisionamento no campo **Email de Notificação** e marque a caixa de seleção abaixo.
 
-11. Clique em **Salvar**. 
+1. Clique em **Salvar**. 
 
-12. Na seção **Mapeamentos de Atributo**, examine os atributos de usuário e grupo que serão sincronizados do Azure AD para o Cerner Central. Os atributos selecionados como propriedades **Correspondentes** são usados para corresponder as contas de usuário e grupos no Cerner Central para operações de atualização. Selecione o botão Salvar para confirmar as alterações.
+1. Na seção **Mapeamentos de Atributo**, examine os atributos de usuário e grupo que serão sincronizados do Azure AD para o Cerner Central. Os atributos selecionados como propriedades **Correspondentes** são usados para corresponder as contas de usuário e grupos no Cerner Central para operações de atualização. Selecione o botão Salvar para confirmar as alterações.
 
-13. Para habilitar o serviço de provisionamento do Azure AD para o Cerner Central, altere o **Status de Provisionamento** para **Ativado** na seção **Configurações**
+1. Para habilitar o serviço de provisionamento do Azure AD para o Cerner Central, altere o **Status de Provisionamento** para **Ativado** na seção **Configurações**
 
-14. Clique em **Salvar**. 
+1. Clique em **Salvar**. 
 
 Isso inicia a sincronização inicial de todos os usuários e/ou grupos atribuídos ao Cerner Central na seção Usuários e Grupos. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Microsoft Azure Active Directory esteja em execução. Use a seção **Detalhes de Sincronização** para monitorar o progresso e siga os links para os logs de atividade de provisionamento, que descrevem todas as ações executadas pelo serviço de provisionamento em seu aplicativo Cerner Central.
 

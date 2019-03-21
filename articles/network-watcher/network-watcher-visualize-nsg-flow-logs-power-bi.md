@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: 6b3f3217f90c2c5a72ba9576b5e0cc89e6133cd8
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.openlocfilehash: 6df49f9cd308f4bb9b1fef6e5860872526ce8bb7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913287"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079019"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Visualização de logs de fluxo do grupo de segurança de rede com o Power BI
 
@@ -44,7 +44,7 @@ Ao usar os visuais fornecidos no modelo, você pode examinar:
 
 O modelo fornecido é editável para que possa modificá-lo e adicionar elementos visuais ou dados novos ou editar consultas para atender às suas necessidades.
 
-## <a name="setup"></a>Configuração
+## <a name="setup"></a>Instalar
 
 Antes de começar, você deve habilitar o registro em log de fluxo do grupo de segurança de rede em um ou mais grupos de segurança de rede em sua conta. Para obter instruções sobre como habilitar os logs de fluxo de Segurança de Rede, consulte o seguinte artigo: [Introdução ao log de fluxo dos Grupos de Segurança de Rede](network-watcher-nsg-flow-logging-overview.md).
 
@@ -56,10 +56,10 @@ Você também deve ter o cliente de desktop do Power BI instalado no seu computa
 
 1. Baixe e abra o seguinte modelo do Power BI no aplicativo de área de trabalho do Power BI: [modelo de logs de fluxo do Power BI do observador de rede](https://aka.ms/networkwatcherpowerbiflowlogstemplate)
 1. Insira os parâmetros de consulta necessários
-    1. **StorageAccountName** – Especifica o nome da conta de armazenamento que contém os logs de fluxo NSG que você gostaria de carregar e visualizar.
-    1. **NumberOfLogFiles** – Especifica o número de arquivos de log que você gostaria de baixar e visualizar no Power BI. Por exemplo: se especificar 50, serão baixados e disponibilizados para visualização os 50 arquivos de log mais recentes. Se temos dois NSGs habilitados e configurados para enviar logs de fluxo de NSG para esta conta, é possível exibir as últimas 25 horas de logs.
+   1. **StorageAccountName** – Especifica o nome da conta de armazenamento que contém os logs de fluxo NSG que você gostaria de carregar e visualizar.
+   1. **NumberOfLogFiles** – Especifica o número de arquivos de log que você gostaria de baixar e visualizar no Power BI. Por exemplo: se especificar 50, serão baixados e disponibilizados para visualização os 50 arquivos de log mais recentes. Se temos dois NSGs habilitados e configurados para enviar logs de fluxo de NSG para esta conta, é possível exibir as últimas 25 horas de logs.
 
-    ![principal do Power BI][2]
+      ![principal do Power BI][2]
 
 1. Insira a chave de acesso da sua conta de armazenamento. Para encontrar as chaves de acesso válidas, acesse a sua conta de armazenamento no portal do Azure e selecione: **Chaves de Acesso** no menu Configurações. Clique em **Conectar** e, em seguida, aplique as alterações.
 
@@ -67,7 +67,7 @@ Você também deve ter o cliente de desktop do Power BI instalado no seu computa
 
     ![chave de acesso 2][4]
 
-4.  Depois de baixar e analisar os logs, você pode utilizar os visuais criados previamente.
+4. Depois de baixar e analisar os logs, você pode utilizar os visuais criados previamente.
 
 ## <a name="understanding-the-visuals"></a>Noções básicas sobre os elementos visuais
 
@@ -111,7 +111,7 @@ Mostramos neste cenário que somos capazes de visualizar e compreender o tráfeg
 
 Fique à vontade para personalizar esse modelo para adequá-lo às suas necessidades. Há várias maneiras de usar o Power BI com logs de fluxo do grupo de segurança de rede. 
 
-## <a name="notes"></a>Observações
+## <a name="notes"></a>Notes
 
 * Os logs, por padrão, são armazenados em `https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/`
 
@@ -121,7 +121,7 @@ Fique à vontade para personalizar esse modelo para adequá-lo às suas necessid
 
 * Se você tiver uma quantidade grande de logs, recomendamos que estude uma solução que use outro tipo de armazenamento de dados, como o Data Lake ou o SQL server.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas Etapas
 
 Saiba como visualizar os logs de fluxo NSG com a pilha elástica visitando [Visualizar registros de fluxo de NSG do Observador de Rede do Azure usando ferramentas de software livre](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 

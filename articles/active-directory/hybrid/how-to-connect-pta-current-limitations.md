@@ -16,12 +16,12 @@ ms.date: 09/04/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de42312c580b6bd5b4a5148fd877d55aa00e8804
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 97dc67d46b08bf5765c59806b45edd82f38720cd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204586"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011978"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Autenticação de passagem do Azure Active Directory: Limitações atuais
 
@@ -34,7 +34,7 @@ Há suporte para os cenários a seguir:
 
 - Entradas de usuário em aplicativos com base em navegador da Web.
 - Entradas do usuário para clientes do Outlook usando protocolos herdados, como Exchange ActiveSync, EAS, SMTP, POP e IMAP.
-- Credenciais de usuário para aplicativos cliente herdados do Office e aplicativos do Office compatíveis com [autenticação moderna](https://aka.ms/modernauthga): versões do Office 2010, 2013 e 2016.
+- Credenciais de usuário para aplicativos cliente herdados do Office e aplicativos do Office compatíveis com [autenticação moderna](https://www.microsoft.com/en-us/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview): Office 2013 e versões de 2016.
 - Entradas de usuário para aplicativos de protocolo herdados, como o PowerShell versão 1.0 e outros.
 - Ingressos do Azure AD para dispositivos Windows 10.
 - Senhas de aplicativo para Autenticação Multifator.
@@ -47,11 +47,11 @@ Os cenários a seguir _não_ têm suporte:
 - Azure AD Domain Services precisa de sincronização de Hash de senha para ser habilitado no locatário. Portanto, os locatários que _somente_ usam a autenticação de passagem não funcionam para cenários que precisam de Azure AD Domain Services.
 - A Autenticação de passagem não está integrada com [Azure AD Connect Health](whatis-hybrid-identity-health.md).
 
->[!IMPORTANT]
->Como uma solução alternativa para cenários sem suporte _apenas_ (exceto integração do Azure AD Connect Health), habilite a Sincronização de Hash de Senha na página [Recursos Opcionais](how-to-connect-install-custom.md#optional-features) no assistente do Azure AD Connect.
-
->[!NOTE]
-Habilitar a Sincronização de Hash de Senha dará a opção de fazer failover da autenticação se a sua infraestrutura local sofrer uma interrupção. Esse failover da Autenticação de Passagem para a Sincronização de Hash de Senha não é automático. Você precisará alterar manualmente o método de entrada usando o Azure AD Connect. Se o servidor que está executando o Azure AD Connect ficar inativo, será preciso a ajuda do Suporte da Microsoft para desativar a Autenticação de passagem.
+> [!IMPORTANT]
+> Como uma solução alternativa para cenários sem suporte _apenas_ (exceto integração do Azure AD Connect Health), habilite a Sincronização de Hash de Senha na página [Recursos Opcionais](how-to-connect-install-custom.md#optional-features) no assistente do Azure AD Connect.
+> 
+> [!NOTE]
+> Habilitar a Sincronização de Hash de Senha dará a opção de fazer failover da autenticação se a sua infraestrutura local sofrer uma interrupção. Esse failover da Autenticação de Passagem para a Sincronização de Hash de Senha não é automático. Você precisará alterar manualmente o método de entrada usando o Azure AD Connect. Se o servidor que está executando o Azure AD Connect ficar inativo, será preciso a ajuda do Suporte da Microsoft para desativar a Autenticação de passagem.
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Início rápido](how-to-connect-pta-quick-start.md): Instale e execute a Autenticação de Passagem do Azure Active Directory.

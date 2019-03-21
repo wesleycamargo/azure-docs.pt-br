@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 6e62e923b6e983dfff8eb72c9526708a3b360930
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: b837aab871827c468295a365727a282f6c8a1a4b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55494741"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086013"
 ---
 # <a name="use-azure-automation-to-trigger-a-job"></a>Usar a Automação do Azure para disparar um trabalho
 
@@ -53,20 +53,20 @@ Antes de começar, verifique se você tem:
 
 3. Em **Adicionar Automação**:
 
-    1. Forneça o **Nome** da sua Conta de Automação.
-    2. Selecione a **Assinatura** vinculada ao seu serviço de Gerenciador de Dados StorSimple.
-    3. Crie um novo grupo de recursos ou selecione um existente.
-    4. Selecione um **Local**.
-    5. Deixe a opção **Criar Conta Executar Como** padrão selecionada.
-    6. Para obter um link de acesso rápido no painel, verifique **Fixar no painel**. Clique em **Criar**.
+   1. Forneça o **Nome** da sua Conta de Automação.
+   2. Selecione a **Assinatura** vinculada ao seu serviço de Gerenciador de Dados StorSimple.
+   3. Crie um novo grupo de recursos ou selecione um existente.
+   4. Selecione um **Local**.
+   5. Deixe a opção **Criar Conta Executar Como** padrão selecionada.
+   6. Para obter um link de acesso rápido no painel, verifique **Fixar no painel**. Clique em **Criar**.
 
-    ![Criar a conta de Automação Executar como](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
+      ![Criar a conta de Automação Executar como](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
     
-    Depois de a conta de automação ser criada com sucesso, você será notificado.
+      Depois de a conta de automação ser criada com sucesso, você será notificado.
     
-    ![Notificação para implantação da conta de Automação](./media/storsimple-data-manager-job-using-automation/deployment-automation-account-notification1.png)
+      ![Notificação para implantação da conta de Automação](./media/storsimple-data-manager-job-using-automation/deployment-automation-account-notification1.png)
 
-    Para obter mais informações, acesse [Criar uma conta Executar como](../automation/automation-create-runas-account.md).
+      Para obter mais informações, acesse [Criar uma conta Executar como](../automation/automation-create-runas-account.md).
 
 3. Na conta recém-criada, vá para **Recursos Compartilhados > Módulos** e clique em **+ Adicionar módulo**.
 

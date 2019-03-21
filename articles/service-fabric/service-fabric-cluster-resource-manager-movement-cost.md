@@ -1,5 +1,5 @@
 ---
-title: 'Gerenciador de Recursos de Cluster do Service Fabric: custo de movimento | Microsoft Docs'
+title: 'Gerenciador de recursos de Cluster do Service Fabric: O custo de movimento | Microsoft Docs'
 description: Visão geral do custo dos movimentos de serviços do Service Fabric
 services: service-fabric
 documentationcenter: .net
@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: f022f258-7bc0-4db4-aa85-8c6c8344da32
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 74b61967a796fca22ab86918235f1def27a22f91
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: a4431f1d2e9a63ee7797100cc1092244d9a8b880
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34204916"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101509"
 ---
 # <a name="service-movement-cost"></a>Custo do movimentação de serviços
 Um fator que o Gerenciador de Recursos de Cluster do Service Fabric considera ao tentar determinar quais alterações fazer em um cluster é o custo dessas alterações. A noção de "custo" é avaliada considerando quanto o cluster pode ser melhorado. O custo é considerado ao mover serviços para balanceamento, desfragmentação e outros requisitos. A meta é atender aos requisitos da maneira menos perturbadora ou cara. 
@@ -67,7 +67,7 @@ await fabricClient.ServiceManager.UpdateServiceAsync(new Uri("fabric:/AppName/Se
 
 ## <a name="dynamically-specifying-move-cost-on-a-per-replica-basis"></a>Especificando dinamicamente o custo de movimentação por réplica
 
-Os trechos de código anteriores são todos voltados a especificar MoveCost para um serviço inteiro de uma vez, de fora do próprio serviço. No entanto, o custo de movimentação é mais útil quando muda ao longo do tempo de vida de um objeto de serviço específico. Como os próprios serviços provavelmente sabem melhor qual é o custo de sua movimentação em um determinado momento, há uma API para os serviços relatarem seu próprio custo de movimentação individual durante o tempo de execução. 
+Os snippets de código anteriores são todos voltados a especificar MoveCost para um serviço inteiro de uma vez, de fora do próprio serviço. No entanto, o custo de movimentação é mais útil quando muda ao longo do tempo de vida de um objeto de serviço específico. Como os próprios serviços provavelmente sabem melhor qual é o custo de sua movimentação em um determinado momento, há uma API para os serviços relatarem seu próprio custo de movimentação individual durante o tempo de execução. 
 
 C#:
 
@@ -76,10 +76,11 @@ this.Partition.ReportMoveCost(MoveCost.Medium);
 ```
 
 ## <a name="impact-of-move-cost"></a>Impacto do custo de movimentação
-O MoveCost tem quatro níveis: Zero, Baixo, Médio e Alto. Os Custos de Movimentação têm relação uns com os outros, exceto Zero. O custo de movimentação Zero significa que a movimentação é gratuita e não deve contar na pontuação da solução. Configurar o custo de movimentação para Alto *não* garante que a réplica permaneça em um só lugar.
+MoveCost tem quatro níveis: Zero, baixa, média e alta. Os Custos de Movimentação têm relação uns com os outros, exceto Zero. O custo de movimentação Zero significa que a movimentação é gratuita e não deve contar na pontuação da solução. Configurar o custo de movimentação para Alto *não* garante que a réplica permaneça em um só lugar.
 
 <center>
-![O custo de movimentação como um fator na seleção de réplicas para movimentação][Image1]
+
+![Custo de movimentação como um fator na seleção de réplicas para movimento][Image1]
 </center>
 
 O MoveCost ajuda a encontrar as soluções que causam, em geral, o mínimo de interrupções e que sejam mais fáceis de conseguir enquanto ainda alcançam o equilíbrio equivalente. A noção de custo de um serviço pode ser relativa a muitas coisas. Os fatores mais comuns ao calcular o custo do movimento são:

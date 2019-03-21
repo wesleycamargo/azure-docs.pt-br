@@ -6,16 +6,16 @@ keywords: ''
 author: bandersmsft
 manager: vitavor
 ms.author: banders
-ms.date: 12/06/2018
+ms.date: 03/14/2018
 ms.topic: conceptual
 ms.service: cost-management
 ms.custom: seodec18
-ms.openlocfilehash: 9bb8d74b012b25ca959cdb87b8a3d5e4284b6497
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: c7b5472c6a10e7a184d6db9d4c889b8fd37a9186
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097209"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000776"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Adicionar métricas estendidas para máquinas virtuais do Azure
 
@@ -31,7 +31,7 @@ Depois que você habilita a coleta de métricas, você pode:
 Por exemplo, convém monitorar o percentual de CPU e memória das suas VMs do Azure. As métricas de máquina virtual do Azure correspondem às _porcentagem de CPU [Host]_ e _porcentagem de memória [convidado]_.
 
 > [!NOTE]
-> A coleta de dados de métrica estendida só é compatível com o monitoramento no nível do convidado do Azure. O Cloudyn não é compatível com a extensão de VM do Log Analytics.
+> A coleta de dados de métrica estendida só é compatível com o monitoramento no nível do convidado do Azure. O Cloudyn não é compatível com a extensão VM de logs do Azure Monitor.
 
 ## <a name="determine-whether-extended-metrics-are-enabled"></a>Determinar se as métricas estendidas estão habilitadas
 
