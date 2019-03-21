@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 08/10/2018
+ms.date: 03/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 23a0c731eea22a772d7423bc3047af1183d55b7f
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 2cba3744180a257638aca202d44fa433a5e1a2bc
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312882"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453398"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Como usar a API do Serviço de Mensagem Java (JMS) com Barramento de Serviço e AMQP 1.0
 O AMQP 1.0 é um protocolo de mensagens eficiente, confiável e conectado que pode ser usado para criar aplicativos de mensagens robustos em plataformas cruzadas.
@@ -341,6 +341,16 @@ MODIFIED_FAILED = 4; -> Abandon() which increases delivery count
 MODIFIED_FAILED_UNDELIVERABLE = 5; -> Defer()
 ```
 
+## <a name="jms-topics-vs-service-bus-topics"></a>Tópicos JMS vs. Tópicos do Service Bus
+Usar tópicos do barramento de serviço do Azure e assinaturas por meio do Java Message Service (JMS) API fornece básica enviar e receber recursos. É uma opção conveniente quando a portabilidade de aplicativos de outros agentes de mensagens com as APIs do JMS em conformidade, mesmo que os tópicos do barramento de serviço são diferentes de tópicos do JMS e exigem alguns ajustes. 
+
+Tópicos de barramento de serviço do Azure rotear mensagens para assinaturas duráveis, nomeadas compartilhadas que são gerenciadas por meio da interface de gerenciamento de recursos do Azure, as ferramentas de linha de comando do Azure, ou por meio do portal do Azure. Cada assinatura permite até 2000 regras de seleção, cada um dos quais podem ter uma condição de filtro e, para filtros SQL, também uma ação de transformação de metadados. Cada correspondência da condição de filtro seleciona a mensagem de entrada a ser copiado para a assinatura de tehj.  
+
+Recebendo mensagens de assinaturas é idêntico de recebimento de mensagens de filas. Cada assinatura tem uma fila de inatividade associada, bem como a capacidade de encaminhar automaticamente mensagens para outra fila ou tópicos. 
+
+Tópicos JMS permitem que os clientes criem dinamicamente, assinantes não duráveis e duráveis que, opcionalmente, permitem a filtragem de mensagens com seletores de mensagem. Não há suporte para essas entidades não compartilhadas pelo barramento de serviço. É a sintaxe de regra de filtro SQL para o barramento de serviço, no entanto, muito semelhante à sintaxe do seletor de mensagem JMS com suporte. 
+
+Lado do tópico JMS Editor é compatível com o barramento de serviço, conforme mostrado neste exemplo, mas os assinantes dinâmicos não são. Não há suporte para as seguintes APIs do JMS relacionadas à topologia com o barramento de serviço. 
 
 ## <a name="unsupported-features-and-restrictions"></a>Restrições e recursos não suportados
 As restrições a seguir ocorrem durante o uso do JMS sobre o AMQP 1.0 com o Service Bus, ou seja:

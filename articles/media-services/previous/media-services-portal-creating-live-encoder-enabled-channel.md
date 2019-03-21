@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/09/2019
+ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: b09c80e08689768ab3e9646b7d6f60f72c33f764
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 1482569e415971fba98de8a586cc2868cc574198
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58077778"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258081"
 ---
 # <a name="how-to-perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>Como executar uma transmissão ao vivo usando os serviços de mídia para criar fluxos de múltiplas taxas de bits com o portal do Azure  
 > [!div class="op_single_selector"]
@@ -123,7 +123,7 @@ Depois que o canal é criado, você pode obter URLs de ingestão que você forne
 ![ingesturls](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
 
 ## <a name="create-and-manage-events"></a>Criar e gerenciar eventos
-### <a name="overview"></a>Visão Geral
+### <a name="overview"></a>Visão geral
 Um canal é associado a eventos/programas que permitem que você controle a publicação e o armazenamento de segmentos em um fluxo ao vivo. Os canais gerenciam os eventos/programas. A relação entre canal e programa é muito semelhante à mídia tradicional, onde um canal tem um fluxo constante de conteúdo e um programa tem como escopo algum evento programado naquele canal.
 
 Você pode especificar o número de horas pelo qual você deseja manter o conteúdo gravado para o evento, definindo a duração da **Janela de Arquivo** . Esse valor pode ser definido entre um mínimo de 5 minutos e um máximo de 25 horas. A duração da janela de arquivo também determina que a quantidade máxima de tempo que os clientes podem pesquisar na posição atual em tempo real. Os eventos podem ser executados no período de tempo especificado, mas o conteúdo que ficar para trás no comprimento da janela será continuamente descartado. Esse valor desta propriedade também determina por quanto tempo os manifestos do cliente podem crescer.
@@ -172,7 +172,7 @@ Se você clicar em **Fora do ar**, todos os eventos ativos serão interrompidos.
 ## <a name="watch-the-event"></a>Assistir ao evento
 Para assistir o evento, clique em **Assistir** no portal do Azure ou copie a URL de transmissão e use um player de sua escolha. 
 
-![Criado em](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-play-event.png)
+![Criado](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-play-event.png)
 
 O evento ativo é convertido automaticamente em conteúdo sob demanda quando é interrompido.
 

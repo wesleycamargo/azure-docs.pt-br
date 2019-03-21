@@ -11,22 +11,22 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 66137f01672820584f97273ddca26a66ada781ba
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 92859667e1dc53b9c6ca9e46a2db1c6dc335ae37
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312509"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339004"
 ---
 # <a name="detect-domain-specific-content"></a>Detectar conteúdo específico de um domínio
 
-Além de marcação e categorização de alto nível, a Pesquisa Visual Computacional também suporta uma análise específica de domínio mais detalhada usando modelos treinados em dados especializados. 
+Além de marcação e categorização de alto nível, a Pesquisa Visual Computacional também suporta uma análise específica de domínio mais detalhada usando modelos treinados em dados especializados.
 
 Há duas maneiras de usar os modelos de domínio específico: por si só (análise com escopo) ou como um aprimoramento do recurso de categorização.
 
 ### <a name="scoped-analysis"></a>Análise de escopo
 
-Você pode analisar uma imagem usando apenas o modelo de domínio específico escolhido, chamando a API [Modelos/\<modelo\>/Analisar](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200). 
+Você pode analisar uma imagem usando apenas o modelo de domínio específico escolhido, chamando a API [Modelos/\<modelo\>/Analisar](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200).
 
 A seguir está um exemplo de resposta JSON retornada pela API **modelos/celebridades/analisar** para determinada imagem:
 
@@ -55,28 +55,28 @@ A seguir está um exemplo de resposta JSON retornada pela API **modelos/celebrid
 }
 ```
 
-### <a name="enhanced-categorization-analysis"></a>Análise aprimorada de categorização  
+### <a name="enhanced-categorization-analysis"></a>Análise aprimorada de categorização
 
-Você também pode usar modelos de domínio específico para complementar a análise de imagem geral. Isso é feito como parte da [categorização de alto nível](concept-categorizing-images.md) através da especificação de modelos de domínio específico no parâmetro *details* da chamada à API [Analisar](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa). 
+Você também pode usar modelos de domínio específico para complementar a análise de imagem geral. Isso é feito como parte da [categorização de alto nível](concept-categorizing-images.md) através da especificação de modelos de domínio específico no parâmetro *details* da chamada à API [Analisar](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa).
 
-Neste caso, o classificador da taxonomia de 86 categorias é chamado primeiro. Se qualquer uma das categorias detectadas tiver um modelo de domínio específico correspondente, a imagem é passada por meio deste modelo também e os resultados são adicionados. 
+Neste caso, o classificador da taxonomia de 86 categorias é chamado primeiro. Se qualquer uma das categorias detectadas tiver um modelo de domínio específico correspondente, a imagem é passada por meio deste modelo também e os resultados são adicionados.
 
 A resposta JSON a seguir mostra como a análise de domínio específico pode ser incluída como o nó `detail` em uma análise mais abrangente de categorização.
 
 ```json
-"categories":[  
-  {  
+"categories":[
+  {
     "name":"abstract_",
     "score":0.00390625
   },
-  {  
+  {
     "name":"people_",
     "score":0.83984375,
-    "detail":{  
-      "celebrities":[  
-        {  
+    "detail":{
+      "celebrities":[
+        {
           "name":"Satya Nadella",
-          "faceRectangle":{  
+          "faceRectangle":{
             "left":597,
             "top":162,
             "width":248,
@@ -85,8 +85,8 @@ A resposta JSON a seguir mostra como a análise de domínio específico pode ser
           "confidence":0.999028444
         }
       ],
-      "landmarks":[  
-        {  
+      "landmarks":[
+        {
           "name":"Forbidden City",
           "confidence":0.9978346
         }
@@ -108,20 +108,20 @@ Atualmente, a Pesquisa Visual Computacional suporta os seguintes modelos de dom�
 Chamar a API [Modelos](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fd) retornará essa informação junto com as categorias para as quais cada modelo é aplicável:
 
 ```json
-{  
-  "models":[  
-    {  
+{
+  "models":[
+    {
       "name":"celebrities",
-      "categories":[  
+      "categories":[
         "people_",
         "人_",
         "pessoas_",
         "gente_"
       ]
     },
-    {  
+    {
       "name":"landmarks",
-      "categories":[  
+      "categories":[
         "outdoor_",
         "户外_",
         "屋外_",

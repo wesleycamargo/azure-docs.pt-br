@@ -5,17 +5,17 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 11/06/2018
+ms.date: 03/20/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 9ae3a17c9756a38414ee25fd24f7d12d6179e95f
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: b1a9d93d9fccf02ba1517e429625150736e539e9
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285793"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58305255"
 ---
-Ao criar um gateway de rede virtual, você precisa especificar o SKU do gateway que você deseja usar. Selecione as SKUs que atendem às suas necessidades com base nos tipos de cargas de trabalho, taxas de transferência, recursos e SLAs.
+Ao criar um gateway de rede virtual, você precisa especificar o SKU do gateway que você deseja usar. Selecione as SKUs que atendem às suas necessidades com base nos tipos de cargas de trabalho, taxas de transferência, recursos e SLAs. Para SKUs em zonas de disponibilidade do Azure de gateway de rede virtual, consulte [SKUs de Gateway de zonas de disponibilidade do Azure](../articles/vpn-gateway/about-zone-redundant-vnet-gateways.md).
 
 ###  <a name="benchmark"></a>SKUs de gateway pelo túnel, a conexão e a taxa de transferência
 
@@ -29,7 +29,7 @@ As novas SKUs do gateway VPN simplificam os conjuntos de recursos oferecidos nos
 
 | **SKU**| **Recursos**|
 | ---    | ---         |
-|**Básico** (\*\*)   | **VPN baseada em rota**: 10 túneis para conexões/S2S; nenhuma autenticação RADIUS para P2S; sem IKEv2 para P2S<br>**VPN baseada em política**: (IKEv1): 1 túnel de conexão/S2S; sem P2S|
+|**Básico** (\*\*)   | **VPN baseada em rota**: 10 túneis S2S/conexões; Nenhuma autenticação RADIUS para P2S; Nenhum IKEv2 para P2S<br>**VPN baseada em política**: (IKEv1): 1 túnel S2S/conexão; sem P2S|
 | **VpnGw1, VpnGw2 e VpnGw3** | **VPN baseada em roteamento**: até 30 túneis ( * ), P2S, BGP, ativo-ativo, política IPsec/IKE personalizada, coexistência ExpressRoute/VPN |
 |        |             |
 
