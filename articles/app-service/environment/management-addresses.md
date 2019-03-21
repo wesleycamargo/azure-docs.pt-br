@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 39ab31cd06707dbd488914da248941ab6d174c29
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
-ms.translationtype: HT
+ms.openlocfilehash: 632fa14bd96eaee2ca58b59dd855584c1fd961e8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388768"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010099"
 ---
 # <a name="app-service-environment-management-addresses"></a>Endereços de gerenciamento de Ambiente de Serviço de Aplicativo
 
@@ -40,7 +40,7 @@ Os endereços indicados abaixo podem ser configurados em uma tabela de rotas. Is
 
 ## <a name="configuring-a-network-security-group"></a>Configurando um Grupo de Segurança de Rede
 
-Com Grupos de Segurança de Rede, você não precisa se preocupar com os endereços individuais nem em manter sua própria configuração. Há uma marca de serviço IP chamada AppServiceManagement que é mantida atualizada com todos os endereços. Para usar essa marca de serviço IP em seu NSG, acesse o portal, abra a interface do usuário dos Grupos de Segurança de Rede e selecione Regras de segurança de entrada. Caso tenha uma regra pré-existente para o tráfego de gerenciamento de entrada, edite-a. Se esse NSG não foi criado com o ASE ou se ele é novo, selecione **Adicionar**. No menu suspenso Origem, selecione **Marca de Serviço**.  Na marca de serviço Origem, selecione ** AppServiceManagement**. Defina os intervalos da porta de origem como \*, Destino como **Qualquer**, os intervalos da porta de destino como **454-455**, Protocolo como **TCP** e Ação como **Permitir**. Se você estiver criando a regra, precisará definir a Prioridade. 
+Com Grupos de Segurança de Rede, você não precisa se preocupar com os endereços individuais nem em manter sua própria configuração. Há uma marca de serviço IP chamada AppServiceManagement que é mantida atualizada com todos os endereços. Para usar essa marca de serviço IP em seu NSG, acesse o portal, abra a interface do usuário dos Grupos de Segurança de Rede e selecione Regras de segurança de entrada. Caso tenha uma regra pré-existente para o tráfego de gerenciamento de entrada, edite-a. Se esse NSG não foi criado com o ASE ou se ele é novo, selecione **Adicionar**. No menu suspenso Origem, selecione **Marca de Serviço**.  Sob a marca de serviço do código-fonte, selecione **AppServiceManagement**. Defina os intervalos da porta de origem como \*, Destino como **Qualquer**, os intervalos da porta de destino como **454-455**, Protocolo como **TCP** e Ação como **Permitir**. Se você estiver criando a regra, precisará definir a Prioridade. 
 
 ![criando um NSG com a marca de serviço][1]
 

@@ -3,7 +3,7 @@ title: Métodos de criação de certificado
 description: Maneiras de criar um certificado no Key Vault.
 services: key-vault
 documentationcenter: ''
-author: bryanla
+author: msmbaldwin
 manager: barbkess
 tags: azure-resource-manager
 ms.assetid: e17b4c9b-4ff3-472f-8c9d-d130eb443968
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.author: bryanla
-ms.openlocfilehash: 3258683b950b537dd106323fe95105289034f727
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.author: mbaldwin
+ms.openlocfilehash: 53b4d03ac8f5d22595d3a4e840a04583f7ec963d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114851"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995532"
 ---
 # <a name="certificate-creation-methods"></a>Métodos de criação de certificado
 
@@ -35,7 +35,7 @@ As descrições a seguir correspondem às etapas indicadas em verde no diagrama 
 1. No diagrama acima, o aplicativo está criando um certificado que internamente começa com a criação de uma chave em seu cofre de chaves.
 2. O Key Vault devolve ao seu aplicativo uma Solicitação de Assinatura de Certificado (CSR)
 3. O aplicativo passa a CSR à sua autoridade de certificação escolhida.
-4. A autoridade de certificação escolhida responde com um certificado X509.
+4. Escolhida para sua autoridade de certificação responde com um X509 certificado.
 5. Seu aplicativo conclui a criação do novo certificado com uma fusão do Certificado X509 da autoridade de certificação.
 
 -   **Criar um certificado com um provedor de emissor conhecido:** esse método requer uma única tarefa de criação de um objeto de emissor. Depois que um objeto de emissor é criado no cofre de chaves, seu nome pode ser referenciado na política do certificado do KV. Uma solicitação para criar um certificado do KV criará um par de chaves no cofre e se comunicará com o serviço do provedor de emissor usando as informações no objeto de emissor referenciado para obter um certificado x509. O certificado x509 é recuperado do serviço de emissor e é mesclado com o par de chaves para concluir a criação do certificado do KV.  
@@ -94,6 +94,6 @@ Observe que quando um pedido é feito com o provedor do emissor, ele pode aceita
 
  Autorização: requer a permissão certificates/create.
 
- ## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Veja também
  - [Sobre chaves, segredos e certificados](about-keys-secrets-and-certificates.md)
  - [Monitorar e gerenciar a criação de certificados](create-certificate-scenarios.md)

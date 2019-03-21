@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 12/17/2018
+ms.date: 03/14/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: f2bd1d863a7900b50712eb23c1088c6b271befa3
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 777bf38fbc8a90335af79bbd0fb2ce74310bd991
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755881"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58006806"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mapa do Aplicativo: Triagem dos Aplicativos Distribuídos
 
@@ -42,13 +42,13 @@ Ao clicar em "Atualizar componentes do mapa", o mapa será atualizado com todos 
 
 Se todos os componentes são funções em um único recurso do Application Insights, essa etapa de descoberta não é necessária. A carga inicial para esse tipo de aplicativo terá todos os respectivos componentes.
 
-![Captura de tela do mapa do aplicativo](media/app-map/001.png)
+![Captura de tela do mapa do aplicativo](media/app-map/app-map-001.png)
 
 Um dos principais objetivos com essa experiência é ser capaz de visualizar topologias complexas com centenas de componentes.
 
 Clique em qualquer componente para ver as respectivas informações e acesse a experiência de triagem de desempenho e falha desse componente.
 
-![Submenu](media/app-map/application-map-001.png)
+![Submenu](media/app-map/application-map-002.png)
 
 ### <a name="investigate-failures"></a>Investigar falhas
 
