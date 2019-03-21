@@ -16,12 +16,12 @@ ms.author: celested
 ms.custom: it-pro
 ms.reviewer: harshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e433eded9ffccde0eccb3b807c8eb8e3219771f5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 295422e0f456c4dfd4166911ef8150e8a896ba1a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162095"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111099"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicar a Área de Trabalho Remota com o Proxy de Aplicativo do Azure AD
 
@@ -86,7 +86,7 @@ Conecte-se à implantação do RDS como administrador e altere o nome do servido
 6. Na guia Gateway de Área de Trabalho Remota, altere o campo **Nome do servidor** para a URL externa que você definiu para o ponto de extremidade do host de Área de Trabalho Remota no Proxy de Aplicativo.
 7. Altere o campo **Método de logon** para **Autenticação de Senha**.
 
-  ![Tela Propriedades de Implantação no RDS](./media/application-proxy-integrate-with-remote-desktop-services/rds-deployment-properties.png)
+   ![Tela Propriedades de Implantação no RDS](./media/application-proxy-integrate-with-remote-desktop-services/rds-deployment-properties.png)
 
 8. Execute este comando para cada coleção. Substitua *\<yourcollectionname\>* e *\<proxyfrontendurl\>* por suas próprias informações. Este comando habilita o logon único entre a Web da Área de Trabalho Remota e Gateway de Área de Trabalho Remota e otimiza o desempenho:
 
@@ -98,8 +98,8 @@ Conecte-se à implantação do RDS como administrador e altere o nome do servido
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "QuickSessionCollection" -CustomRdpProperty "pre-authentication server address:s:https://remotedesktoptest-aadapdemo.msappproxy.net/`nrequire pre-authentication:i:1"
    ```
->[!NOTE]
->O comando acima usa um acento grave no "'nrequire".
+   >[!NOTE]
+   >O comando acima usa um acento grave no "'nrequire".
 
 9. Para verificar se a modificação das propriedades personalizadas do RDP, bem como para exibir o conteúdo do arquivo do RDP que será baixado do RDWeb para essa coleção, execute o seguinte comando:
     ```

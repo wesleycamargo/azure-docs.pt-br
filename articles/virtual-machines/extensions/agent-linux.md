@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0c19d32f6c6f491a91ba6c2219be9fd016b5ec34
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 1defa08b0eb9ede2adec3b7ac12c873522dd6c37
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243872"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011602"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Noções básicas e uso do Agente Linux do Azure
 
@@ -73,7 +73,7 @@ O fluxo de informações da plataforma para o agente ocorre por meio de dois can
 Os sistemas a seguir foram testados e funcionam com o agente Linux do Azure:
 
 > [!NOTE]
-> Essa lista pode diferir da lista oficial de sistemas com suporte na Plataforma Microsoft Azure, conforme descrito aqui: [http://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)
+> Essa lista pode diferir da lista oficial de sistemas com suporte na Plataforma Microsoft Azure, conforme descrito aqui: [https://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)
 > 
 > 
 
@@ -108,12 +108,12 @@ Consulte a documentação do [repositório do agente Linux do Azure no GitHub](h
 
 ## <a name="command-line-options"></a>Opções de Linha de Comando
 ### <a name="flags"></a>Sinalizadores
-* verbose: aumentar o nível de detalhes do comando especificado
-* forçar: Ignorar confirmação interativa para alguns comandos
+* verbose: Aumentar o nível de detalhes do comando especificado
+* força: Ignorar confirmação interativa para alguns comandos
 
 ### <a name="commands"></a>Comandos
-* Ajuda: lista os comandos com suporte e sinalizadores.
-* deprovisionar: tentativa de limpar o sistema e torná-lo adequado para reprovisionamento. A operação a seguir deleta:
+* help: Lista os comandos com suporte e sinalizadores.
+* Cancelar o provisionamento: Tentativa de limpar o sistema e torná-lo adequado para reprovisionamento. A operação a seguir deleta:
   
   * Todas as chaves de host SSH (se Provisioning.RegenerateSshHostKeyPair for 'y' no arquivo de configuração)
   * Configuração de servidor de nomes em /etc/resolv.conf
@@ -126,11 +126,11 @@ Consulte a documentação do [repositório do agente Linux do Azure no GitHub](h
 > 
 > 
 
-* deprovisionar + usuário: executa tudo em - deprovisiona (acima) e também exclui a última conta de usuário provisionado (obtida em /var/lib/waagent) e dados associados. Este parâmetro é quando a desconfiguração de uma imagem que foi anteriormente provisionamento no Azure para podem ser capturada e usada novamente.
-* versão: exibe a versão do waagent
-* serialconsole: configura GRUB para marcar ttyS0 (a primeira porta serial) como o console de inicialização. Isso garante que os logs de inicialização do kernel são enviados para a porta serial e disponibilizados para depuração.
-* daemon: executar waagent como um daemon para gerenciar a interação com a plataforma. Esse argumento é especificado para waagent no script de inicialização de waagent.
-* Iniciar: executar waagent como um processo em segundo plano
+* deprovision + user: Executa tudo em - deprovision (acima) e também exclui a última conta de usuário provisionado (obtida em /var/lib/waagent) e dados associados. Este parâmetro é quando a desconfiguração de uma imagem que foi anteriormente provisionamento no Azure para podem ser capturada e usada novamente.
+* Versão: Exibe a versão do waagent
+* serialconsole: Configura GRUB para marcar ttyS0 (a primeira porta serial) como o console de inicialização. Isso garante que os logs de inicialização do kernel são enviados para a porta serial e disponibilizados para depuração.
+* daemon: Execute waagent como um daemon para gerenciar a interação com a plataforma. Esse argumento é especificado para waagent no script de inicialização de waagent.
+* Início: Executar waagent como um processo em segundo plano
 
 ## <a name="configuration"></a>Configuração
 Um arquivo de configuração (/ etc/waagent.conf) controla as ações de waagent. A seguir mostra um arquivo de configuração de exemplo:
@@ -344,6 +344,6 @@ As Imagens de Nuvem do Ubuntu utilizam [cloud-init](https://launchpad.net/ubuntu
 
 * Para mais informações, consulte os seguintes recursos para configurar o ponto de montagem do disco de recurso e o espaço de troca nas Imagens de Nuvem do Ubuntu durante o provisionamento:
   
-  * [Wiki do Ubuntu: configurar partições de troca](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
+  * [Ubuntu Wiki: Configurar partições de troca](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
   * [Injetando dados personalizados em uma Máquina Virtual do Azure](../windows/classic/inject-custom-data.md)
 

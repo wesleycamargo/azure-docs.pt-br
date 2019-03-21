@@ -14,17 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: c228821383a1bfedf380f97e3411fdacc322a6f9
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ms.openlocfilehash: fead1cf639a379fc288122e39629909786aa3f14
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054471"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57844793"
 ---
 # <a name="actor-events"></a>Eventos de ator
 Os eventos de ator são uma forma de enviar notificações de melhor esforço do ator para os clientes. Os eventos de ator foram desenvolvidos para comunicação entre ator e cliente e não devem ser usados para comunicação entre ator e ator.
 
-Os trechos de código a seguir mostram como usar os eventos de ator em seu aplicativo.
+Os snippets de código a seguir mostram como usar os eventos de ator em seu aplicativo.
 
 Defina uma interface que descreva os eventos publicados pelo ator. Essa interface deve ser derivada da interface `IActorEvents` . Os argumentos dos métodos devem ser [contrato de dados serializável](service-fabric-reliable-actors-notes-on-actor-type-serialization.md). Os métodos devem retornar valor nulo, pois as notificações de evento são o melhor esforço e unidirecionais.
 
@@ -114,4 +114,4 @@ event.gameScoreUpdated(Id.getUUIDId(), score);
 * [Documentação de referência da API do Ator](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [Código de exemplo C#](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Código de exemplo em c# .NET Core](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started)
-* [Código de exemplo Java](http://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Código de exemplo Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)

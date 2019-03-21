@@ -3,7 +3,7 @@ title: Sobre chaves, segredos e certificados - Azure Key Vault
 description: Visão geral dos detalhes de interface e desenvolvedor de REST do Azure Key Vault para chaves, segredos e certificados.
 services: key-vault
 documentationcenter: ''
-author: BryanLa
+author: msmbaldwin
 manager: barbkess
 tags: azure-resource-manager
 ms.assetid: abd1b743-1d58-413f-afc1-d08ebf93828a
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.author: bryanla
-ms.openlocfilehash: 49879d36937a0f0d7ccf1a82cf8b6ca09453894d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.author: mbaldwin
+ms.openlocfilehash: 01d9f763983da2415aba0f9bae81414017bc2f02
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106954"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842559"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Sobre Chaves, Segredos e Certificados
 
@@ -39,10 +39,10 @@ As seções a seguir oferecem informações gerais aplicável durante a implemen
 
 O JavaScript Object Notation (JSON) e especificações de criptografia e autenticação do objeto de JavaScript (JOSE) são informações importantes.  
 
--   [Chave da Web JSON (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
+-   [Chave da Web JSON (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
 -   [Criptografia de Web JSON (JWE)](http://tools.ietf.org/html/draft-ietf-jose-json-web-encryption)  
 -   [Algoritmos da Web JSON (JWA)](http://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms)  
--   [Assinatura da Web JSON (JWS)](http://tools.ietf.org/html/draft-ietf-jose-json-web-signature)  
+-   [Assinatura da Web JSON (JWS)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature)  
 
 ### <a name="data-types"></a>Tipos de dados
 
@@ -112,7 +112,7 @@ Os módulos de criptografia usados pelo Key Vault, seja HSM ou software, são va
 #### <a name="curve-types"></a>Tipos de curva
 
 -   **P-256** - A curva NIST P-256, definida em [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
--   **P-256_K** -curva a SEC SECP256K1, definida em [s 2: Parâmetros de Domínio de Curva Elíptica Recomendados](http://www.secg.org/sec2-v2.pdf).
+-   **P-256_K** -curva a SEC SECP256K1, definida em [s 2: Parâmetros de Domínio de Curva Elíptica Recomendados](https://www.secg.org/sec2-v2.pdf).
 -   **P-384** - A curva NIST P-384, definida em [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
 -   **P-521** - A curva NIST P-521, definida em [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
 
@@ -166,7 +166,7 @@ O Key Vault não dá suporte a operações de exportação. Quando uma chave é 
 
 Os usuários podem restringir qualquer uma das operações de criptografia que o Key Vault suporta, por chave, usando a propriedade key_ops do objeto JWK.  
 
-Para obter mais informações sobre objetos JWK, consulte [Chave de Web JSON (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key).  
+Para obter mais informações sobre objetos JWK, consulte [Chave de Web JSON (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key).  
 
 ###  <a name="key-attributes"></a>Atributos de chave
 
@@ -189,7 +189,7 @@ Chaves expiradas e ainda não válidas, fora da janela *nbf* / *exp*, funcionar�
 
 Para obter mais informações sobre tipos de dados, consulte [Tipos de dados](#data-types).
 
-Para obter mais informações sobre outros atributos possíveis, consulte a [Chave de Web JSON (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key).
+Para obter mais informações sobre outros atributos possíveis, consulte a [Chave de Web JSON (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key).
 
 ### <a name="key-tags"></a>Marcas de chave
 
@@ -409,10 +409,10 @@ Contatos de certificado contêm informações de contato para enviar notificaç�
 
 Se uma política de certificado for definida como renovação automática, uma notificação é enviada nos eventos a seguir.  
 
--   Antes da renovação de certificado
--   Após a renovação do certificado, indicar se o certificado foi renovado com êxito ou se houve um erro, exigindo a renovação manual do certificado.  
+- Antes da renovação de certificado
+- Após a renovação do certificado, indicar se o certificado foi renovado com êxito ou se houve um erro, exigindo a renovação manual do certificado.  
 
- Quando uma política de certificado for definida para ser renovada manualmente (somente por e-mail), uma notificação é enviada quando for o momento de renovar o certificado.  
+  Quando uma política de certificado for definida para ser renovada manualmente (somente por e-mail), uma notificação é enviada quando for o momento de renovar o certificado.  
 
 ### <a name="certificate-access-control"></a>Controle de acesso de certificado
 

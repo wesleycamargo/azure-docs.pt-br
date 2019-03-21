@@ -14,12 +14,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 3cda9d487d9548251c68d61db51bf2fb826b6f79
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 96325d7c21ccf7d93deaafbad974009004030157
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775281"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091980"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Notas de versão para a validação como um serviço
 
@@ -42,10 +42,10 @@ Este artigo apresenta as notas de versão para a validação de pilha do Azure c
 
 Se você estiver executando o fluxo de trabalho do Azure Stack mensal atualizar verificação e a versão para o seu pacote de atualização do OEM não é 1810 ou superior, você receberá um erro quando você chegar à etapa de atualização de OEM. Este é um bug. Uma correção está sendo desenvolvida. As etapas de mitigação são da seguinte maneira:
 
-1.  Execute a atualização de OEM como de costume.
-2.  Executar teste AzureStack após a aplicação bem-sucedida do pacote e salvar a saída.
-3.  Cancele o teste.
-4.  Enviar a saída salva VaaSHelp@microsoft.com para receber os resultados de passar para a execução.
+1. Execute a atualização de OEM como de costume.
+2. Executar teste AzureStack após a aplicação bem-sucedida do pacote e salvar a saída.
+3. Cancele o teste.
+4. Enviar a saída salva VaaSHelp@microsoft.com para receber os resultados de passar para a execução.
 
 ## <a name="version-402"></a>Versão 4.0.2
 

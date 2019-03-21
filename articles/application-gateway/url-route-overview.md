@@ -7,17 +7,17 @@ author: vhorne
 manager: jpconnock
 ms.service: application-gateway
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/23/2018
 ms.author: victorh
-ms.openlocfilehash: cf3e051e4833c6b654e5ff89cd084911521b3d67
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ms.openlocfilehash: ee0267146140d095487b293331a7de493ba151c6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049226"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895576"
 ---
 # <a name="azure-application-gateway-url-path-based-routing-overview"></a>Visão geral do roteamento baseado do caminho da URL de Gateway de Aplicativo do Azure
 
@@ -29,14 +29,14 @@ No exemplo a seguir, o Gateway de Aplicativo está fornecendo tráfego para cont
 
 ![imageURLroute](./media/url-route-overview/figure1.png)
 
-As solicitações de http://contoso.com/video/* são encaminhadas para VideoServerPool, e as de http://contoso.com/images/* são encaminhadas para ImageServerPool. O DefaultServerPool será selecionado se nenhum dos padrões de caminho forem compatíveis.
+As solicitações para <http://contoso.com/video/*> são roteadas para VideoServerPool, e <http://contoso.com/images/*> são roteadas para ImageServerPool. O DefaultServerPool será selecionado se nenhum dos padrões de caminho forem compatíveis.
 
 > [!IMPORTANT]
 > As regras são processadas na ordem em que elas são listadas no portal. É altamente recomendável configurar primeiro os ouvintes de vários locais para configurar um ouvinte básico.  Isso garante que o tráfego seja roteado para o back-end correto. Se um ouvinte básico for listado primeiro e corresponder a uma solicitação de entrada, ele é processado por esse ouvinte.
 
 ## <a name="urlpathmap-configuration-element"></a>Elemento de configuração UrlPathMap
 
-O elemento urlPathMap é usado para especificar padrões de Caminho para mapeamentos de pool do servidor de back-end. O seguinte é o trecho do elemento urlPathMap do arquivo de modelo.
+O elemento urlPathMap é usado para especificar padrões de Caminho para mapeamentos de pool do servidor de back-end. O seguinte é o snippet do elemento urlPathMap do arquivo de modelo.
 
 ```json
 "urlPathMaps": [{
@@ -68,14 +68,14 @@ O elemento urlPathMap é usado para especificar padrões de Caminho para mapeame
 ```
 
 > [!NOTE]
-> PathPattern: essa configuração é uma lista de padrões de caminho para correspondência. Cada um deve começar com / e o único lugar onde um "*" é permitido é no final após um "/". A cadeia de caracteres inserida no correspondente de caminho não inclui nenhum texto após o primeiro ? ou #, e esses caracteres não são permitidos aqui.
+> PathPattern: Essa configuração é uma lista de padrões de caminho para correspondência. Cada um deve começar com / e o único lugar onde um "*" é permitido é no final após um "/". A cadeia de caracteres inserida no correspondente de caminho não inclui nenhum texto após o primeiro ? ou #, e esses caracteres não são permitidos aqui.
 
 Você pode conferir um [modelo do Resource Manager usando o roteamento baseado em URL](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) para obter mais informações.
 
 ## <a name="pathbasedrouting-rule"></a>Regra de PathBasedRouting
 
 RequestRoutingRule do tipo PathBasedRouting é usada para associar um ouvinte a um urlPathMap. Todas as solicitações recebidas por este ouvinte são roteadas com base na política especificada no urlPathMap.
-Trecho de código da regra de PathBasedRouting:
+snippet de código da regra de PathBasedRouting:
 
 ```json
 "requestRoutingRules": [
