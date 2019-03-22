@@ -8,23 +8,23 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 79440cf69f921e5933ed410e276cdf304e94fa4f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 64cfac0d689df88c4d432e772bcd0a0cc7ab4ade
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817267"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317673"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Monitorar uma conta de armazenamento no portal do Azure
 
-[Análise de Armazenamento do Azure](../storage-analytics.md) fornece métricas para todos os serviços de armazenamento e logs para blobs, filas e tabelas. Você pode usar o [portal do Azure](https://portal.azure.com) de configurar quais métricas e logs são registrados para sua conta e configurar gráficos que fornecem representações visuais dos dados de métricas.
+[Análise de Armazenamento do Azure](storage-analytics.md) fornece métricas para todos os serviços de armazenamento e logs para blobs, filas e tabelas. Você pode usar o [portal do Azure](https://portal.azure.com) de configurar quais métricas e logs são registrados para sua conta e configurar gráficos que fornecem representações visuais dos dados de métricas.
 
 > [!NOTE]
-> Há custos associados ao exame de dados de monitoramento no portal do Azure. Para obter mais informações, consulte [Análise de armazenamento e cobrança](/rest/api/storageservices/Storage-Analytics-and-Billing).
+> Há custos associados ao exame de dados de monitoramento no portal do Azure. Para obter mais informações, consulte [Análise de Armazenamento](storage-analytics.md).
 >
 > O Arquivos do Azure atualmente dá suporte às métricas de Análise de Armazenamento, mas ainda não dá suporte ao registro em log.
-> 
-> Para um guia aprofundado sobre como usar a Análise de Armazenamento e outras ferramentas para identificar, diagnosticar e solucionar problemas relacionados ao Armazenamento do Azure, consulte [Monitorar, diagnosticar e solucionar problemas do Armazenamento do Microsoft Azure](../storage-monitoring-diagnosing-troubleshooting.md).
+>
+> Para um guia aprofundado sobre como usar a Análise de Armazenamento e outras ferramentas para identificar, diagnosticar e solucionar problemas relacionados ao Armazenamento do Azure, consulte [Monitorar, diagnosticar e solucionar problemas do Armazenamento do Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md).
 >
 
 ## <a name="configure-monitoring-for-a-storage-account"></a>Configurar o monitoramento para uma conta de armazenamento
@@ -41,7 +41,7 @@ ms.locfileid: "55817267"
    Para definir a política de retenção de dados, mova o controle deslizante **Retenção (dias)** ou insira o número de dias de dados devem ser retidos, de 1 a 365. O padrão para novas contas de armazenamento é de sete dias. Se não desejar definir uma política de retenção, digite zero. Se não houver nenhuma política de retenção, cabe a você excluir os dados de monitoramento.
 
    > [!WARNING]
-   > Você é cobrado quando exclui manualmente dados de métricas. Dados de análise obsoletos (dados anteriores à política de retenção) são excluídos pelo sistema sem custo. É recomendável configurar uma política de retenção com base no tempo pelo qual você deseja manter os dados de análise de armazenamento para sua conta. Confira [Quais são os encargos quando você habilita as métricas de armazenamento?](../common/storage-enable-and-view-metrics.md#what-charges-do-you-incur-when-you-enable-storage-metrics) para obter mais informações.
+   > Você é cobrado quando exclui manualmente dados de métricas. Dados de análise obsoletos (dados anteriores à política de retenção) são excluídos pelo sistema sem custo. É recomendável configurar uma política de retenção com base no tempo pelo qual você deseja manter os dados de análise de armazenamento para sua conta. Ver [as métricas de armazenamento de cobrança](storage-analytics-metrics.md#billing-on-storage-metrics) para obter mais informações.
    >
 
 1. Ao concluir a configuração de monitoramento, selecione **Salvar**.
@@ -51,12 +51,12 @@ Um conjunto de métricas padrão é exibido em gráficos na folha da conta de ar
 Você pode desabilitar a coleta de métricas e o registro em log definindo **Status** como **Desativado**.
 
 > [!NOTE]
-> O Armazenamento do Azure usa o [armazenamento de tabelas](../common/storage-introduction.md#table-storage) para armazenar as métricas para sua conta de armazenamento e armazena as métricas em tabelas em sua conta. Para obter mais informações, confira: [Como as métricas são armazenadas](../common/storage-analytics.md#how-metrics-are-stored).
+> O Armazenamento do Azure usa o [armazenamento de tabelas](storage-introduction.md#table-storage) para armazenar as métricas para sua conta de armazenamento e armazena as métricas em tabelas em sua conta. Para obter mais informações, confira: [Como as métricas são armazenadas](storage-analytics-metrics.md#how-metrics-are-stored).
 >
 
 ## <a name="customize-metrics-charts"></a>Personalizar gráficos de métricas
 
-Use o procedimento a seguir para escolher quais métricas de armazenamento devem ser exibidas em um gráfico de métricas. 
+Use o procedimento a seguir para escolher quais métricas de armazenamento devem ser exibidas em um gráfico de métricas.
 
 1. Comece exibindo um gráfico de métricas de armazenamento no portal do Azure. Você pode encontrar gráficos na **folha da conta de armazenamento** e na folha **Métricas** de um serviço individual (blob, fila, tabela, arquivo).
 
@@ -130,17 +130,16 @@ Você pode instruir o Armazenamento do Azure a salvar logs de diagnóstico para 
 1. Selecione **Diagnóstico** na seção **MONITORAMENTO** da folha de menu.
 
     ![Item do menu de diagnóstico em MONITORAMENTO no portal do Azure.](./media/storage-monitor-storage-account/storage-enable-metrics-00.png)
-    
+
 1. Verifique se **Status** está definido como **Ativado**e selecione os **Serviços** para os quais deseja habilitar os logs.
 
     ![Configure os logs no portal do Azure.](./media/storage-monitor-storage-account/enable-diagnostics.png)
 1. Clique em **Salvar**.
 
-Os logs de diagnóstico são salvos em um contêiner de blob denominado *$logs* em sua conta de armazenamento. Você pode exibir os dados de log usando um gerenciador de armazenamento como o [Gerenciador de Armazenamento da Microsoft](http://storageexplorer.com) ou de forma programática, usando a biblioteca de cliente de armazenamento ou o PowerShell.
+Os logs de diagnóstico são salvos em um contêiner de blob denominado *$logs* em sua conta de armazenamento. Você pode exibir os dados de log usando um gerenciador de armazenamento como o [Gerenciador de Armazenamento da Microsoft](https://storageexplorer.com) ou de forma programática, usando a biblioteca de cliente de armazenamento ou o PowerShell.
 
-Para obter informações sobre como acessar o contêiner $logs, confira [Habilitando o log de armazenamento e acessando dados de log](/rest/api/storageservices/enabling-storage-logging-and-accessing-log-data).
+Para obter informações sobre como acessar o contêiner $logs, consulte [log do Storage analytics](storage-analytics-logging.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Encontre mais detalhes sobre [métricas, logs e cobrança](../storage-analytics.md) para Análise de Armazenamento.
-* [Habilitar métricas do Armazenamento do Azure e exibir dados de métricas](../storage-enable-and-view-metrics.md) usando o PowerShell e de forma programática com C#.
+* Encontre mais detalhes sobre [métricas, logs e cobrança](storage-analytics.md) para Análise de Armazenamento.

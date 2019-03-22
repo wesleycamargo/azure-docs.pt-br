@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: d194a5929e648c09eb204860c528e48bc55259ee
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: 5f6708a9c22939395f992c2ac58a7e510b35f763
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635385"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317265"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Implantar e gerenciar topologias Apache Storm no Microsoft Azure HDInsight 
 
@@ -60,7 +60,7 @@ As Ferramentas do HDInsight podem ser usadas para enviar topologias C# ou híbri
 
 3. Na caixa de diálogo **Novo Projeto**, expanda **Instalados** > **Modelos** e selecione **HDInsight**. Na lista de modelos, selecione **Amostra do Storm**. Na parte inferior da caixa de diálogo, digite um nome para o aplicativo.
 
-    ![image](./media/apache-storm-deploy-monitor-topology-linux/sample.png)
+    ![Imagem](./media/apache-storm-deploy-monitor-topology-linux/sample.png)
 
 4. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto e selecione **Enviar para o Storm no HDInsight**.
 
@@ -107,7 +107,7 @@ Escolha a forma dos spouts ou bolts para exibir informações sobre esses compon
 
 A desativação de uma topologia pausa até que seja interrompido ou reativado. Para executar essas operações, use os botões __Desativar__ e __Reativar__ na parte superior do __Resumo da Topologia__.
 
-### <a name="rebalance"></a>Rebalanceamento
+### <a name="rebalance"></a>Redistribuir
 
 Rebalancear uma topologia permite que o sistema revise o paralelismo da topologia. Por exemplo, se você tiver redimensionado o cluster para adicionar mais anotações, o rebalanceamento permitirá que uma topologia veja os novos nós.
 
@@ -215,13 +215,13 @@ Para obter mais informações, veja [API REST da interface do usuário do Apache
 
 ### <a name="base-uri"></a>URI de base
 
-O URI de base para a API REST em clusters HDInsight baseados em Linux está disponível no nó de cabeçalho em **https://HEADNODEFQDN:8744/api/v1/**. O nome de domínio do nó de cabeçalho é gerado durante a criação do cluster e não é estático.
+O URI de base para a API REST em clusters HDInsight baseados em Linux está disponível no nó principal em **https:\//HEADNODEFQDN:8744/api/v1/**. O nome de domínio do nó de cabeçalho é gerado durante a criação do cluster e não é estático.
 
 Você pode encontrar o FQDN (Nome de Domínio Totalmente Qualificado) para o nó de cabeçalho do cluster de várias maneiras diferentes:
 
 * **De uma sessão SSH**: Use o comando `headnode -f` de uma sessão SSH para o cluster.
 * **Do Ambari Web**: Selecione **Serviços** na parte superior da página e, em seguida, selecione **Storm**. Na guia **Resumo** selecione **Servidor de IU do Storm**. O FQDN do nó que hospeda a interface do usuário do Storm e a API REST são exibidos na parte superior da página.
-* **Da API REST do Ambari**: Use o comando `curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` para recuperar informações sobre o nó em que a interface do usuário do Storm e a API REST estão em execução. Substitua **CLUSTERNAME** pelo nome do cluster. Quando solicitado, insira a senha para a conta de logon (administrador). Na resposta, a entrada "host_name" contém o FQDN do nó.
+* **Da API REST do Ambari**: Use o comando `curl -u admin -G "https:\//CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` para recuperar informações sobre o nó em que a interface do usuário do Storm e a API REST estão em execução. Substitua **CLUSTERNAME** pelo nome do cluster. Quando solicitado, insira a senha para a conta de logon (administrador). Na resposta, a entrada "host_name" contém o FQDN do nó.
 
 ### <a name="authentication"></a>Autenticação
 
@@ -234,7 +234,7 @@ As solicitações para a API REST devem usar a **autenticação básica**e, port
 
 As informações retornadas pela API REST só podem ser usadas dentro do cluster. Por exemplo, o FQDN (nome de domínio totalmente qualificado) retornado para servidores [Apache ZooKeeper](https://zookeeper.apache.org/) não é acessível pela Internet.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas Etapas
 
 A seguir, aprenda a [Desenvolver topologias baseadas em Java usando o Apache Maven](apache-storm-develop-java-topology.md).
 

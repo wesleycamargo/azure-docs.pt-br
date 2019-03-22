@@ -10,12 +10,12 @@ ms.subservice: workload management
 ms.date: 03/13/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7b5ca738ef71e25dfe5e71a1983d701bb8868fe5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 434cbb18a109308844dbc7ff219d40948678e86e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57896799"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310720"
 ---
 # <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>Analisar sua carga de trabalho no Azure SQL Data Warehouse
 
@@ -67,7 +67,7 @@ O SQL Data Warehouse tem os seguintes tipos de espera:
 * **LocalQueriesConcurrencyResourceType**: Consultas que ficam fora da estrutura de slot de simultaneidade. Consultas DMV e funções de sistema, como `SELECT @@VERSION` , são exemplos de consultas de locais.
 * **UserConcurrencyResourceType**: Consultas que ficam dentro da estrutura de slot de simultaneidade. Consultas em tabelas do usuário final representam exemplos que usariam esse tipo de recurso.
 * **DmsConcurrencyResourceType**: Esperas resultantes de operações de movimentação de dados.
-* **BackupConcurrencyResourceType**: Essa espera indica que o backup de um banco de dados está sendo realizado. O valor máximo para esse tipo de recurso é 1. Se vários backups forem solicitados ao mesmo tempo, os outros serão colocados em fila.
+* **BackupConcurrencyResourceType**: Essa espera indica que o backup de um banco de dados está sendo realizado. O valor máximo para esse tipo de recurso é 1. Se vários backups forem solicitados ao mesmo tempo, os outros serão colocados em fila. Em geral, é recomendável um tempo mínimo entre instantâneos consecutivos de 10 minutos. 
 
 O DMV `sys.dm_pdw_waits` pode ser usado para ver quais recursos uma solicitação está aguardando.
 

@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 0ca3cee0c818bf9d5dda4a7ea8a1f356ed017973
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6e8883870cc0f035df5122e91449f04203836218
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57891079"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319458"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Ciência de dados com uma Máquina Virtual da Ciência de Dados do Linux no Azure
 Este passo a passo mostra como executar várias tarefas comuns da ciência de dados com a VM da Ciência de Dados do Linux. A Máquina Virtual da Ciência de Dados do Linux (DSVM) é uma imagem da máquina virtual disponível no Azure pré-instalada com uma coleção de ferramentas usadas comumente para a análise de dados e o aprendizado de máquina. Os principais componentes do software são detalhados no tópico [Provisionar a Máquina Virtual da Ciência de Dados do Linux](linux-dsvm-intro.md) . A imagem da VM facilita começar a fazer a ciência de dados em minutos, sem precisar instalar e configurar cada uma das ferramentas individualmente. Você pode dimensionar facilmente a VM, se necessário, e parar quando não estiver em uso. Portanto, esse recurso é elástico e econômico.
@@ -423,7 +423,7 @@ Um dos recursos interessantes do Rattle é sua capacidade de executar vários m�
 Após terminar de compilar os modelos, selecione a guia **Log** para exibir o código do R executado pelo Rattle durante a sessão. Você pode selecionar o botão **Exportar** para salvá-lo.
 
 > [!NOTE]
-> Há um bug na versão atual do Rattle. Para modificar o script ou usá-lo para repetir as etapas posteriormente, você deve inserir um caractere # na frente de *Exportar este log... * no texto do log.
+> Há um bug na versão atual do Rattle. Para modificar o script ou usá-lo para repetir as etapas posteriormente, você deve inserir um caractere # na frente do *exportar este log...*  no texto do log.
 >
 >
 

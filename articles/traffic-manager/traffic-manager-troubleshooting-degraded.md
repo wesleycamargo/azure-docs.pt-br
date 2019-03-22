@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: genli
-ms.openlocfilehash: 2cb70c67bc4719eb43c4fcb70edf574c57362f26
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 6f539cb905c0ed401816c7f223918a1416f95d6c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013276"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312267"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Solucionando problemas de status degradado do Gerenciador de Tráfego do Azure
 
@@ -37,7 +37,7 @@ Se a integridade do seu Gerenciador de Tráfego exibe um status **Inativo**, amb
 * Uma prática recomendada é definir o caminho de Investigação como algo que tenha lógica suficiente para determinar se o site está ativo ou inativo. No exemplo anterior, ao configurar o caminho como “/favicon.ico”, você está apenas testando se w3wp.exe está respondendo. Essa investigação pode não indicar que o aplicativo Web está íntegro. Uma opção melhor seria definir um caminho para algo como “/Probe.aspx”, que tem lógica para determinar a integridade do site. Por exemplo, você poderá usar contadores de desempenho para a utilização da CPU ou medir o número de solicitações com falha. Se preferir, você poderá tentar acessar os recursos de banco de dados ou o estado de sessão para verificar se o aplicativo Web está funcionando.
 * Se todos os pontos de extremidade em um perfil estiverem degradados, o Gerenciador de Tráfego tratará todos os pontos de extremidade como íntegros e encaminhará o tráfego para todos eles. Esse comportamento garante que os problemas com o mecanismo de investigação não resultam em uma interrupção completa do serviço.
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 Para solucionar uma falha de investigação, você precisa de uma ferramenta que mostra o retorno de código de status HTTP da URL de investigação. Há várias ferramentas disponíveis que mostram a resposta HTTP bruta.
 
@@ -47,7 +47,7 @@ Para solucionar uma falha de investigação, você precisa de uma ferramenta que
 
 Além disso, você pode usar a guia Rede das Ferramentas de Depuração F12 no Internet Explorer para exibir as respostas HTTP.
 
-Neste exemplo, queremos ver a resposta de nossa URL de investigação: http://watestsdp2008r2.cloudapp.net:80/Probe. O exemplo do PowerShell a seguir ilustra o problema.
+Neste exemplo, queremos ver a resposta da nossa URL de investigação: http:\//watestsdp2008r2.cloudapp.net:80/Probe. O exemplo do PowerShell a seguir ilustra o problema.
 
 ```powershell
 Invoke-WebRequest 'http://watestsdp2008r2.cloudapp.net/Probe' -MaximumRedirection 0 -ErrorAction SilentlyContinue | Select-Object StatusCode,StatusDescription
@@ -78,7 +78,7 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 [System.Net.ServicePointManager]::CertificatePolicy = New-Object TrustAllCertsPolicy
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas Etapas
 
 [Sobre os métodos de roteamento de tráfego do Gerenciador de Tráfego](traffic-manager-routing-methods.md)
 

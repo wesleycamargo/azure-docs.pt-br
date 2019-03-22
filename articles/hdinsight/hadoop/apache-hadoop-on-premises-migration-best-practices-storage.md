@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3e1d5ed05b7acc8f7e0fcc772a4124984c6cba45
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: ae435c379a55ee2b3246cb3e757b79295c57988e
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884521"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338285"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---storage-best-practices"></a>Migrar clusters do Apache Hadoop local para o Azure HDInsight – melhores práticas de armazenamento
 
@@ -34,7 +34,7 @@ O armazenamento do Azure pode ser replicado geograficamente. Embora a replicaç�
 
 Um dos formatos a seguir pode ser usado para acessar dados armazenados no Armazenamento do Azure:
 
-|Formato de Acesso a Dados |DESCRIÇÃO |
+|Formato de Acesso a Dados |Descrição |
 |---|---|
 |`wasb:///`|Acessar o armazenamento padrão usando comunicação não criptografada.|
 |`wasbs:///`|Acessar o armazenamento padrão usando comunicação criptografada.|
@@ -156,7 +156,7 @@ Por padrão, o HDInsight tem acesso completo aos dados nas contas de Armazenamen
 
 1. Abra o arquivo [SASToken.py](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature/blob/master/Python/SASToken.py) e altere os valores a seguir:
 
-    |Propriedade Token|DESCRIÇÃO|
+    |Propriedade Token|Descrição|
     |---|---|
     |policy_name|O nome a ser usado para a política armazenada que será criada.|
     |storage_account_name|O nome da sua conta de armazenamento.|
@@ -221,7 +221,6 @@ A conta de armazenamento extra pode ser adicionada das seguintes maneiras:
 
 Para obter mais informações, consulte os seguintes artigos:
 - [Adicionar outras contas de armazenamento ao HDInsight](../hdinsight-hadoop-add-storage.md)
-- [Anexar contas de Armazenamento do Azure adicionais ao cluster](https://blogs.msdn.microsoft.com/ashish/2016/08/25/hdinsight-attach-additional-azure-storage-accounts/)
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -6,13 +6,13 @@ ms.topic: conceptual
 author: msmbaldwin
 ms.author: mbaldwin
 manager: barbkess
-ms.date: 09/25/2017
-ms.openlocfilehash: 526b0b135c8d5c1741ddf5f3fe6fb32f259a3e2c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 03/19/2019
+ms.openlocfilehash: f222b37e8ca6efcfe28146ee948511d887f547a4
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58092983"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339135"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Visão geral de exclusão reversível do Azure Key Vault
 
@@ -23,9 +23,7 @@ O recurso de exclusão reversível do Azure Key Vault permite a recuperação de
 
 ## <a name="supporting-interfaces"></a>Interfaces de suporte
 
-O recurso de exclusão reversível está inicialmente disponível por meio das interfaces da REST, do .NET/C#, do PowerShell e do CLI.
-
-Consulte as referências para obter esses e mais detalhes, [Referência do Azure Key Vault](https://docs.microsoft.com/azure/key-vault/).
+O recurso de exclusão reversível está inicialmente disponível por meio de [restante](/rest/api/keyvault/), [CLI](key-vault-soft-delete-cli.md), [PowerShell](key-vault-soft-delete-powershell.md) e [.NET /C# ](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet) interfaces.
 
 ## <a name="scenarios"></a>Cenários
 
@@ -39,26 +37,21 @@ Os Azure Key Vaults são recursos controlados, gerenciados pelo Azure Resource M
 
 Com esse recurso, a operação DELETE em um cofre de chaves ou objeto do cofre de chaves é uma exclusão reversível, efetivamente mantendo os recursos por um período de retenção especificado (90 dias), ao mesmo tempo aparentando ter excluído o objeto. Além disso, o serviço fornece um mecanismo para recuperar o objeto excluído, basicamente, desfazendo a exclusão. 
 
-A exclusão reversível é um comportamento opcional do Key Vault e **não está habilitado por padrão** nesta versão. 
+A exclusão reversível é um comportamento opcional do Key Vault e **não está habilitado por padrão** nesta versão. Ele pode ser ativado por meio [CLI](key-vault-soft-delete-cli.md) ou [Powershell](key-vault-soft-delete-powershell.md).
 
-### <a name="purge-protection--flag"></a>Sinalizador de proteção de limpeza
-O sinalizador de proteção de limpeza (**--enable-purge-protection** na CLI do Azure) está desativado por padrão. Quando esse sinalizador está ativado, um cofre ou um objeto no estado excluído não pode ser limpo até que tenha passado o período de retenção de 90 dias. Ainda é possível recuperar tal cofre ou objeto. Esse sinalizador fornece uma garantia extra aos clientes de que um cofre ou objeto não pode ser excluído permanentemente até que tenha passado o período de retenção. Você poderá ativar o sinalizador de proteção de limpeza somente se o sinalizador de exclusão reversível estiver ativado ou se, na criação do cofre, ativar a exclusão reversível e a proteção de limpeza.
+### <a name="purge-protection"></a>Limpar a proteção 
 
-> [!NOTE]
->    O pré-requisito para ativar a proteção de limpeza é estar com a exclusão reversível ativada.
-> O comando para fazer isso na CLI do Azure 2 é
+Quando limpar proteção está em um cofre ou não é possível limpar um objeto no estado excluído até que o período de retenção de 90 dias. Esses cofres e objetos ainda podem ser recuperados, garantindo que os clientes que a política de retenção é seguida. 
 
-```
-az keyvault create --name "VaultName" --resource-group "ResourceGroupName" --location westus --enable-soft-delete true --enable-purge-protection true
-```
+Limpar a proteção é um comportamento opcional do Key Vault e é **não é habilitado por padrão**. Ele pode ser ativado por meio [CLI](key-vault-soft-delete-cli.md#enabling-purge-protection) ou [Powershell](key-vault-soft-delete-powershell.md#enabling-purge-protection).
 
 ### <a name="permitted-purge"></a>Limpeza permitida
 
 A exclusão permanente, limpeza, de um cofre de chaves é possível por meio de uma operação POST no recurso de proxy e exige privilégios especiais. Geralmente, apenas o proprietário da assinatura poderá limpar um cofre de chaves. A operação POST dispara a exclusão imediata e irrecuperável desse cofre. 
 
-Uma exceção a isso é
-- quando a assinatura do Azure foi marcada como *não excluível*. Neste caso, apenas o serviço pode executar a exclusão real e ele o fará como um processo agendado. 
-- Quando o sinalizador --enable-purge-protection está habilitado no próprio cofre. Nesse caso, o Key Vault aguardará 90 dias desde quando o objeto secreto original foi marcado para exclusão para então excluí-lo permanentemente.
+As exceções são:
+- Quando a assinatura do Azure foi marcada como *não excluível*. Neste caso, apenas o serviço pode executar a exclusão real e ele o fará como um processo agendado. 
+- Quando--enable--proteção de limpeza sinalizador estiver habilitado no cofre em si. Nesse caso, o Key Vault aguardará 90 dias desde quando o objeto secreto original foi marcado para exclusão para então excluí-lo permanentemente.
 
 ### <a name="key-vault-recovery"></a>Recuperação do cofre de chaves
 
@@ -66,7 +59,7 @@ Ao excluir um cofre de chaves, o serviço cria um recurso de proxy na assinatura
 
 ### <a name="key-vault-object-recovery"></a>Recuperação de objetos do cofre de chaves
 
-Depois de excluir um objeto do cofre de chaves, como uma chave, o serviço colocará o objeto em um estado excluído, tornando-o inacessível para todas as operações de recuperação. Nesse estado, o objeto do cofre de chaves só poderá ser listado, recuperado ou excluído permanentemente/de maneira forçada. 
+Depois de excluir um objeto de Cofre de chaves, como uma chave, o serviço colocará o objeto em um estado excluído, tornando-o inacessível para quaisquer operações de recuperação. Nesse estado, o objeto do cofre de chaves só poderá ser listado, recuperado ou excluído permanentemente/de maneira forçada. 
 
 Ao mesmo tempo, o Key Vault agendará a exclusão dos dados subjacentes correspondentes ao cofre de chaves ou objeto do cofre de chaves excluído para execução após um intervalo de retenção predeterminado. O registro DNS correspondente ao cofre também é mantido durante o intervalo de retenção.
 

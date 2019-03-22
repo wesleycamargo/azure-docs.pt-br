@@ -1,5 +1,5 @@
 ---
-title: Autoatendimento de redefinição de senha do Azure AD no Windows 7 e 8.1
+title: Windows 7 e 8.1 - Azure Active Directory de redefinição de senha de autoatendimento do Azure AD
 description: Como habilitar o autoatendimento de redefinição de senha usando o "Esqueci a senha" na tela de logon do Windows 7 ou 8.1
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 933ac9b8f7d381db0111ee50385f11e8a22d92f1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7a7752fac54f9dfb2f8fb0aecd3b6249c52c3bcf
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217812"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316347"
 ---
 # <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>Como: habilitar a redefinição de senha do Windows 7, 8 e 8.1
 
@@ -61,7 +61,7 @@ Ao contrário dos computadores com Windows 10, os com Windows 7, 8 e 8.1 não t�
 
 Usar o aplicativo do Microsoft Authenticator para notificações e códigos para redefinir senhas não funciona nesta versão inicial. Os usuários precisam ter métodos alternativos registrados que cumpram os requisitos da sua política.
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 Os eventos serão registrados no computador e no Azure AD.
 

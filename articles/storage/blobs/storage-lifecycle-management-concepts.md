@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/04/2018
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: 93c19bc39f64df21dfa9db2490ab2103aba8191d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1428c2925ab57642899732bd4504b2d5b38781a8
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58086098"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315140"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Gerenciando o ciclo de vida do Armazenamento de Blobs do Azure (Versão Prévia)
 
@@ -190,7 +190,7 @@ Durante a versão prévia, os filtros válidos incluem:
 | Nome do filtro | Tipo de filtro | Anotações | É Necessário |
 |-------------|-------------|-------|-------------|
 | blobTypes   | Uma matriz de valores de enumeração predefinidos. | A versão prévia só dá suporte a `blockBlob`. | Sim |
-| prefixMatch | Uma matriz de cadeias de caracteres para prefixos a serem correspondidos. Uma cadeia de caracteres de prefixo deve começar com um nome de contêiner. Por exemplo, se você deseja correspondência com todos os blobs no "<https://myaccount.blob.core.windows.net/container1/foo/>..." uma regra, o prefixMatch é `container1/foo`. | Se você não definir o prefixMatch, as regras serão aplicadas a todos os blobs da conta. | Não |
+| prefixMatch | Uma matriz de cadeias de caracteres para prefixos a serem correspondidos. Uma cadeia de caracteres de prefixo deve começar com um nome de contêiner. Por exemplo, se você deseja correspondência com todos os blobs em "https:\//myaccount.blob.core.windows.net/container1/foo/..." uma regra, o prefixMatch é `container1/foo`. | Se você não definir o prefixMatch, as regras serão aplicadas a todos os blobs da conta. | Não |
 
 ### <a name="rule-actions"></a>Ações de regra
 

@@ -1,5 +1,5 @@
 ---
-title: Integração de write-back de senha local com a SSPR do Azure AD
+title: Integração de write-back de senha local com o Azure AD SSPR - Azure Active Directory
 description: Obter write-back de senhas da nuvem para infraestrutura do AD local
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3772f42b1216cfb26d66b1d68fcb9e59fd8652d8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 2fcf2ef10cbc8f6f54a65e596ea003a98f410a7b
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58107535"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313287"
 ---
 # <a name="what-is-password-writeback"></a>O que é write-back de senha?
 

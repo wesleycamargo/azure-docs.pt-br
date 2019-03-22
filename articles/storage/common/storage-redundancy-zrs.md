@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/24/2018
 ms.author: jeking
 ms.subservice: common
-ms.openlocfilehash: 11891153f1ffce438597dc4f2799a9f25d76c2f5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 8928e59b97143038e0850132196f1ce9a1da131d
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992595"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337877"
 ---
 # <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>Armazenamento com redundância de zona (ZRS): Aplicativos de Armazenamento do Microsoft Azure altamente disponíveis
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
@@ -28,7 +28,7 @@ ZRS está geralmente disponível nas seguintes regiões:
 - Sudeste da Ásia
 - Europa Ocidental
 - Norte da Europa
-- França Central
+- Centro da França
 - Leste do Japão
 - Sul do Reino Unido
 - Leste dos EUA
@@ -64,7 +64,7 @@ Para executar uma migração manual, você tem opções:
 
 Uma migração manual pode resultar em tempo de inatividade do aplicativo. Se o seu aplicativo exigir alta disponibilidade, a Microsoft também oferece uma opção de migração ao vivo. Uma migração ao vivo é uma migração no local. 
 
-Durante uma migração ao vivo, você pode usar sua conta de armazenamento enquanto seus dados são migrados entre os carimbos de armazenamento de origem e de destino. Durante o processo de migração, você tem o mesmo nível de SLA de durabilidade e disponibilidade que você faz normalmente.
+Durante uma migração ao vivo, você pode usar sua conta de armazenamento enquanto seus dados são migrados entre os carimbos de armazenamento de origem e de destino. Durante o processo de migração, você tem o mesmo nível de durabilidade e disponibilidade de SLA que você normalmente.
 
 Tenha em mente as seguintes restrições sobre a migração ao vivo:
 
@@ -88,7 +88,33 @@ Você pode solicitar a migração ao vivo por meio do [Portal de Suporte do Azur
 6. Verifique se as informações de contato estão corretas na **informações de contato** folha.
 7. Selecione **Criar**.
 
-Uma pessoa de suporte entrará em contato com você e fornecerá toda a assistência necessária. 
+Uma pessoa de suporte entrará em contato com você e fornecerá toda a assistência necessária.
+
+## <a name="live-migration-to-zrs-faq"></a>Migração ao vivo para perguntas frequentes sobre o ZRS
+
+**Deve planejar para qualquer tempo de inatividade durante a migração?**
+
+Não há nenhum tempo de inatividade causado pela migração. Durante uma migração ao vivo, você pode continuar a sua conta de armazenamento, enquanto os dados são migrados entre carimbos de armazenamento de origem e de destino. Durante o processo de migração, você tem o mesmo nível de durabilidade e disponibilidade de SLA que você normalmente.
+
+**Há perda de dados associada com a migração?**
+
+Não há nenhuma perda de dados associada com a migração. Durante o processo de migração, você tem o mesmo nível de durabilidade e disponibilidade de SLA que você normalmente.
+
+**Depois que a migração for concluída, são todas as atualizações necessárias para os aplicativos?**
+
+Depois que a migração estiver concluída o tipo de replicação da conta (s) será alterado para "armazenamento com redundância de zona (ZRS)". Pontos de extremidade de serviço, acessar chaves de SAS e outras opções de configuração de conta permanecem intactos e inalterados.
+
+**Posso solicitar uma migração dinâmica de minha conta de uso geral v1 (s) para o ZRS?**
+
+ZRS suporta apenas contas de uso geral v2, portanto, antes de enviar uma solicitação para uma migração ao vivo para o ZRS Certifique-se de atualizar sua conta (s) para uso geral v2. Ver [visão geral da conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview) e [atualizar para uma conta de armazenamento de uso geral v2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) para obter mais detalhes.
+
+**Posso solicitar uma migração ao vivo das minhas contas de armazenamento com redundância geográfica de acesso de leitura (RA-GRS) para o ZRS?**
+
+Antes de enviar uma solicitação para uma migração ao vivo para o ZRS Verifique se seu aplicativo (s) ou cargas de trabalho não precisam de acesso para o ponto de extremidade de somente leitura secundário e alterar o tipo de replicação de suas contas de armazenamento para o armazenamento com redundância geográfica (GRS). Ver [alterar estratégia de replicação](https://docs.microsoft.com/azure/storage/common/storage-redundancy#changing-replication-strategy) para obter mais detalhes.
+
+**Posso solicitar uma migração ao vivo das minhas contas de armazenamento para o ZRS para outra região?**
+
+Se você quiser migrar os dados para uma conta do ZRS localizada em uma região diferente da região da conta de origem, você deve executar uma migração manual.
 
 ## <a name="zrs-classic-a-legacy-option-for-block-blobs-redundancy"></a>ZR Clássico: Opção herdada para redundância de blob de blocos
 > [!NOTE]
@@ -101,6 +127,8 @@ O ZRS Clássico replica os dados de forma assíncrona em datacenters em uma ou d
 As contas do ZRS Clássico estão disponíveis somente para **blobs de blocos** em contas de armazenamento V1 (GPv1) de uso geral. Para saber mais sobre as contas de armazenamento, confira [Visão geral da conta de armazenamento do Azure](storage-account-overview.md).
 
 Para migrar manualmente os dados da conta do ZRS para ou de uma conta do LRS, ZRS Classic, GRS ou RA-GRS, use uma das seguintes ferramentas: AzCopy, Azure Storage Explorer, Azure PowerShell ou CLI do Azure. Você também pode criar sua própria solução de migração com uma das bibliotecas de cliente do Armazenamento do Microsoft Azure.
+
+Você também pode atualizar suas contas do ZRS clássico para o ZRS no Portal ou usando o Azure PowerShell ou CLI do Azure.
 
 ## <a name="see-also"></a>Consulte também
 - [Replicação de Armazenamento do Azure](storage-redundancy.md)

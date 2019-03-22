@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: f9cf5e723484196125548b9e6d3956e909e9c9b0
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 0acb844b8b10ff210985dfcd8c96f15da6669356
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874933"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337469"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Criar um aplicativo LUIS no portal do LUIS
 Há algumas maneiras de criar um aplicativo do LUIS. Você pode criar um aplicativo do LUIS no portal do [LUIS](https://www.luis.ai) ou por meio das [APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) de criação do LUIS.
@@ -56,6 +56,16 @@ Você pode criar um aplicativo com as APIs de criação de várias maneiras:
     > [!NOTE]
     > A cultura não poderá ser alterada depois que o aplicativo for criado. 
 
+## <a name="import-an-app-from-file"></a>Importar um aplicativo de arquivo
+
+1. Na página **Meus Aplicativos**, selecione **Importar novo aplicativo**.
+1. Na caixa de diálogo pop-up, selecione um arquivo JSON de aplicativo válido e, em seguida, selecione **feito**.
+
+### <a name="import-errors"></a>Erros de importação
+
+Possíveis erros são: 
+
+* Um aplicativo com esse nome já existe. Reimporte o aplicativo e defina as **nome opcional** para um novo nome. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,5 +1,5 @@
 ---
-title: Configurar a Autenticação Multifator do Azure
+title: Configurar autenticação multifator do Azure - Active Directory do Azure
 description: Este artigo descreve como definir as configurações de Autenticação Multifator do Azure no portal do Azure
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9809993d47141b70484892103e318a6f55381a2e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f622be53297a9d091a62a1239f022bbd4fb71347
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57856253"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311757"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurar a Autenticação Multifator do Azure
 
@@ -30,7 +30,7 @@ Você pode acessar as configurações relacionadas à Autenticação Multifator 
 
 Algumas dessas configurações se aplicam ao servidor MFA, Azure MFA ou ambos.
 
-| Recurso | DESCRIÇÃO |
+| Recurso | Descrição |
 | ------- | ----------- |
 | Bloqueio de conta | Bloqueie contas temporariamente no serviço de autenticação multifator se houver muitas tentativas de autenticação negadas seguidas. Este recurso se aplica somente a usuários que inserem um PIN para autenticar. (Servidor MFA) |
 | [Bloquear/desbloquear usuários](#block-and-unblock-users) | Usado para impedir que usuários específicos no servidor de MFA (local) de serem capazes de receber solicitações de Autenticação Multifator. Qualquer tentativa de autenticação de usuários bloqueados é negada automaticamente. Os usuários permanecem bloqueados por 90 dias a contar do momento em que são bloqueados. |
@@ -44,7 +44,7 @@ Algumas dessas configurações se aplicam ao servidor MFA, Azure MFA ou ambos.
 
 As configurações nesta seção são apenas para o servidor MFA.
 
-| Recurso | DESCRIÇÃO |
+| Recurso | Descrição |
 | ------- | ----------- |
 | Configurações do servidor | Faça o download do Servidor MFA e gere credenciais de ativação para inicializar seu ambiente |
 | [Desvio único](#one-time-bypass) | Permita que um usuário se autentique sem executar a verificação em duas etapas por um período limitado. |
@@ -75,7 +75,7 @@ Use o recurso _bloquear e desbloquear usuários_ para impedir que os usuários r
 4. Insira um comentário no campo **Motivo do desbloqueio**.
 5. Selecione **Desbloquear** para concluir o desbloqueio do usuário.
 
-## <a name="fraud-alert"></a>Alerta de fraude
+## <a name="fraud-alert"></a>Alertas de Fraude
 
 Configure o recurso de _alerta de fraude_ para que os usuários possam relatar tentativas fraudulentas de acessar seus recursos. Os usuários podem relatar tentativas de fraude usando o aplicativo móvel ou pelo telefone. Esse recurso é específico para o servidor MFA (local).
 
@@ -100,7 +100,7 @@ Configure o recurso de _alerta de fraude_ para que os usuários possam relatar t
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Selecione **Azure Active Directory** > **Entradas**. O relatório de fraudes agora faz parte do relatório de entradas padrão do Azure AD.
 
-## <a name="phone-call-settings"></a>Configurações de chamada telefônica
+## <a name="phone-call-settings"></a>Configurações de ligação telefônica
 
 ### <a name="caller-id"></a>ID do chamador
 
@@ -144,7 +144,7 @@ Por exemplo, se houver apenas uma mensagem personalizada, com um idioma alemão:
 1. Selecione um arquivo de som .mp3 ou .wav para carregar.
 1. Selecione **Adicionar**.
 
-## <a name="one-time-bypass"></a>Desvio único
+## <a name="one-time-bypass"></a>Bypass avulso
 
 O recurso _bypass avulso_ permite que um usuário se autentique uma única vez sem executar a verificação em duas etapas. O bypass é temporário e expira após um número de segundos especificado. Quando o aplicativo móvel ou o telefone não estiver recebendo notificações ou chamadas telefônicas, você poderá permitir um bypass avulso para que o usuário possa acessar o recurso desejado.
 
@@ -184,7 +184,7 @@ As configurações para senhas de aplicativo, IPs, opções de verificação, co
 
 ![Configurações de Serviço de Autenticação Multifator do Azure](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-service-settings.png)
 
-## <a name="app-passwords"></a>Senhas de aplicativo
+## <a name="app-passwords"></a>Senhas do aplicativo
 
 Alguns aplicativos, como o Office 2010 ou anterior e o Apple Mail antes do iOS 11, não são compatíveis com a verificação em duas etapas. Os aplicativos não estão configurados para aceitar uma segunda verificação. Para usar esses aplicativos, use o recurso _senhas de aplicativo_. Você pode usar uma senha de aplicativo em vez da sua senha tradicional para permitir que um aplicativo ignore a verificação em duas etapas e continue funcionando.
 
@@ -265,7 +265,7 @@ Se sua organização implantar a extensão NPS para fornecer MFA a aplicativos l
 
 | Tipo de locatário do Azure AD | Opções do recurso IPs Confiáveis |
 |:--- |:--- |
-| Gerenciada |**Intervalo específico de endereços IP**: os administradores especificam um intervalo de endereços IP que tem permissão para ignorar a verificação em duas etapas de usuários que se conectam pela intranet da empresa.|
+| Gerenciado |**Intervalo específico de endereços IP**: os administradores especificam um intervalo de endereços IP que tem permissão para ignorar a verificação em duas etapas de usuários que se conectam pela intranet da empresa.|
 | Federado |**Todos os usuários federados**: todos os usuários federados que se conectam de dentro da organização tem permissão para ignorar a verificação em duas etapas. Os usuários ignoram a verificação usando uma declaração que é emitida pelos Serviços de Federação do Active Directory (AD FS).<br/>**Intervalo específico de endereços IP**: os administradores especificam um intervalo de endereços IP que tem permissão para ignorar a verificação em duas etapas de usuários que se conectam pela intranet da empresa. |
 
 O bypass dos IPs Confiáveis funciona somente dentro da intranet da empresa. Se você selecionar a opção **Todos os usuários federados** e um usuário se conectar de fora da intranet da empresa, ele deverá se autenticar usando a verificação em duas etapas. O processo será o mesmo, ainda que o usuário apresente uma declaração do AD FS. 
@@ -333,9 +333,9 @@ Você pode escolher os métodos de verificação que estarão disponíveis para 
 
 Quando os usuários registram suas contas na Autenticação Multifator do Azure, eles escolhem o método de verificação preferido nas opções que você habilitou. As diretrizes para o processo de registro são fornecidas em [Configurar minha conta para verificação em duas etapas](../user-help/multi-factor-authentication-end-user-first-time.md).
 
-| Método | DESCRIÇÃO |
+| Método | Descrição |
 |:--- |:--- |
-| Ligue para o telefone |Faz uma chamada de voz automatizada para o usuário. O usuário atende à chamada e pressiona # no teclado do telefone para autenticar. O número de telefone não é sincronizado com o Active Directory local. |
+| Ligar para o telefone |Faz uma chamada de voz automatizada para o usuário. O usuário atende à chamada e pressiona # no teclado do telefone para autenticar. O número de telefone não é sincronizado com o Active Directory local. |
 | Mensagem de texto para telefone |Envia para o usuário uma mensagem de texto que contém um código de verificação. É solicitado que o usuário digite o código de verificação na interface de acesso. Esse processo é chamado de SMS unidirecional. SMS bidirecional significa que o usuário deve retornar um determinado código por SMS. O SMS bidirecional foi preterido e não terá compatibilidade depois de 14 de novembro de 2018. Os usuários configurados para o SMS bidirecional serão mudados automaticamente para verificação _Ligar para o telefone_ nessa oportunidade.|
 | Notificação pelo aplicativo móvel |Envia uma notificação por push para o telefone ou o dispositivo registrado. O usuário vê a notificação e seleciona **Verificar** para concluir a verificação. O aplicativo Microsoft Authenticator está disponível para [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071), [Android](https://go.microsoft.com/fwlink/?Linkid=825072) e [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
 | O código de verificação do aplicativo móvel ou token de hardware |O aplicativo Microsoft Authenticator gera um novo código de verificação OATH a cada 30 segundos. O usuário digita o código de verificação na interface de entrada. O aplicativo Microsoft Authenticator está disponível para [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071), [Android](https://go.microsoft.com/fwlink/?Linkid=825072) e [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
@@ -351,7 +351,7 @@ Quando os usuários registram suas contas na Autenticação Multifator do Azure,
 
 Detalhes adicionais sobre o uso de métodos de autenticação podem ser encontrados no artigo [O que são os métodos de autenticação](concept-authentication-methods.md).
 
-## <a name="remember-multi-factor-authentication"></a>Lembre-se da Autenticação Multifator
+## <a name="remember-multi-factor-authentication"></a>Lembrar a Autenticação Multifator
 
 O recurso _Lembrar a Autenticação Multifator_ para dispositivos e navegadores que são confiáveis para o usuário é um recurso gratuito para todos os usuários da Autenticação Multifator. Os usuários podem ignorar as verificações subsequentes durante um número especificado de dias, depois de se conectarem com êxito a um dispositivo usando a Autenticação Multifator. O recurso melhora a usabilidade, minimizando o número de vezes que um usuário tem que realizar a verificação em duas etapas no mesmo dispositivo.
 

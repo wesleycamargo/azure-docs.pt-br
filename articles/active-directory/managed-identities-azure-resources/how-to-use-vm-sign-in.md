@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/01/2017
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2dfbb618bafd9ae3cbb0c691e63a243ab2c2c31e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 645fb4e939e308eecdd2b6933197493919c2dd1d
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57996545"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338574"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Como usar identidades gerenciadas para recursos do Azure em uma VM do Azure para entrar 
 
@@ -39,7 +39,7 @@ Se você planeja usar os exemplos do Azure PowerShell ou da CLI do Azure neste a
 > - Todos os exemplos de script neste artigo presumem que o cliente de linha de comando está sendo executado em uma VM com identidades gerenciadas para recursos do Azure habilitados. Use o recurso "Conectar" da VM no Portal do Azure para conectar-se remotamente à sua VM. Para obter detalhes sobre como habilitar identidades gerenciadas para recursos do Azure em uma VM, consulte [Configurar identidades gerenciadas para recursos do Azure em uma VM usando o portal do Azure](qs-configure-portal-windows-vm.md) ou um dos artigos variantes (usando PowerShell, CLI, um modelo ou um SDK do Azure). 
 > - Para evitar erros durante o acesso a recursos, a identidade gerenciada da VM deve receber pelo menos o acesso "Reader" no escopo apropriado (a VM ou superior) para permitir operações do Azure Resource Manager na VM. Consulte [Atribuir identidades gerenciadas para acesso de recursos do Azure a um recurso usando o portal do Azure](howto-assign-access-portal.md) para obter detalhes.
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 Identidades gerenciadas para recursos do Azure fornecem um [objeto principal de serviço](../develop/developer-glossary.md#service-principal-object), que é [criado ao habilitar identidades gerenciadas para recursos do Azure](overview.md#how-does-it-work) na VM. A entidade de serviço pode receber acesso aos recursos do Azure e pode ser usada como uma identidade pelos clientes de script/linha de comando para entrada e acesso aos recursos. Tradicionalmente, para acessar recursos protegidos em sua própria identidade, um cliente de script precisa:  
 
@@ -80,7 +80,7 @@ O script a seguir demonstra como:
 
 ## <a name="resource-ids-for-azure-services"></a>IDs de recurso para serviços do Azure
 
-Consulte [Serviços do Azure que dão suporte à autenticação do Azure AD](services-support-msi.md#azure-services-that-support-azure-ad-authentication) para obter uma lista de recursos que dão suporte ao Azure AS e foram testados com identidades gerenciadas para recursos do Azure e as respectivas IDs do recurso.
+Consulte [Serviços do Azure que dão suporte à autenticação do Azure AD](services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) para obter uma lista de recursos que dão suporte ao Azure AS e foram testados com identidades gerenciadas para recursos do Azure e as respectivas IDs do recurso.
 
 ## <a name="error-handling-guidance"></a>Diretrizes sobre tratamento de erro 
 

@@ -1,5 +1,5 @@
 ---
-title: Perguntas frequentes sobre a Autenticação Multifator do Azure | Microsoft Docs
+title: Perguntas Frequentes – Azure Active Directory a autenticação multifator do Azure
 description: Perguntas frequentes e respostas relacionadas à Autenticação Multifator do Azure.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc7b935833a6b212bb008be86b26c613d8817133
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 707e0aecdaf2a579d086e012519182078c1a6303
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182601"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313219"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Perguntas frequentes sobre a Autenticação Multifator do Azure
 
@@ -200,7 +200,7 @@ Há vários motivos que os usuários podem ser solicitados para registrar as inf
 - A organização criou e ativado uma diretiva de registro de MFA que foi aplicada ao usuário.
 - O usuário registrado para MFA anteriormente, mas escolher um método de verificação que um administrador como desabilitado. O usuário, portanto, deve passar pelo registro MFA novamente para selecionar um novo método de verificação padrão.
 
-## <a name="errors"></a>Errors
+## <a name="errors"></a>Erros
 
 **P: O que os usuários deverão fazer se receberem uma mensagem de erro "A solicitação de autenticação não é para uma conta ativada" ao usar notificações de aplicativo móvel?**
 

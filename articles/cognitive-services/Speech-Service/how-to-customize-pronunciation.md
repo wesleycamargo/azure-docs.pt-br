@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 0a3dfce10fc8ea76bc8f99e2459295bc637017dc
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 139c5d47fe6ea82148e2d5e1cf2f5fcb72d4020e
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878401"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339390"
 ---
 # <a name="enable-custom-pronunciation"></a>Habilitar pronúncia personalizada
 
-Usando a pronúncia personalizada, você pode definir o formulário fonético e a exibição de uma palavra ou termo. É útil para lidar com termos personalizados, como nomes de produtos ou acrônimos. Tudo o que você precisa para começar é de um arquivo de pronúncia (um arquivo .txt simples).
+Usando a pronúncia personalizada, você pode definir o formulário fonético e a exibição de uma palavra ou o termo (sigla). É útil para lidar com termos personalizados, como nomes de produtos ou acrônimos. Tudo o que você precisa para começar é de um arquivo de pronúncia (um arquivo .txt simples).
 
 Veja como ele funciona. Em um arquivo. txt único, você pode inserir várias entradas de pronúncia personalizada. A estrutura é a seguinte:
 
@@ -32,11 +32,12 @@ A tabela a seguir mostra vários exemplos:
 
 | Formulário de exibição | Forma falada |
 |----------|-------|
-| C3PO | see three pea o |
+| 3CPO | see three pea o |
 | L8R | late are |
-| CNTK | see n tea k|
+| CNTK | k c t n|
 
 ## <a name="requirements-for-the-spoken-form"></a>Requisitos para a forma falada
+
 A forma falada deve estar em minúsculas, que você pode ser forçar durante a importação. Você também precisa fornecer verificações no importador de dados. Não é permitida nenhuma guia na forma de exibição ou na forma falada. No entanto, pode haver mais caracteres proibidos na forma de exibição (por exemplo, ~ e ^).
 
 Cada arquivo .txt pode ter várias entradas, conforme mostrado na imagem a seguir:
@@ -46,18 +47,20 @@ Cada arquivo .txt pode ter várias entradas, conforme mostrado na imagem a segui
 A forma falada é a sequência fonética da forma de exibição. Ela é composta por letras, palavras ou sílabas. No momento, não há mais nenhuma orientação ou conjunto de padrões para ajudá-lo a formular a forma falada.
 
 ## <a name="supported-pronunciation-characters"></a>Caracteres de pronúncia com suporte
+
 Atualmente, há suporte para a pronúncia personalizada nos idiomas inglês (en-US) e alemão (de-DE). O conjunto de caracteres que pode ser usado para expressar a forma falada de um termo (no arquivo de pronúncia personalizada) é mostrado na tabela a seguir:
 
-| Linguagem | Caracteres |
+| Linguagem | Personagens |
 |---------- |----------|
-| Inglês (en-us) | a, b, c, d, e, f, g, h, i, j, k, l, o, p, q, r, s, t, u, v, w, x, y, z |
-| Alemão (de-DE) | ä, ö, ü, ?, a, b, c, d, e, f, g, h, i, j, k, l, o, p, q, r, s, t, u, v, w, x, y, z |
+| Inglês (en-us) | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
+| Alemão (de-DE) | ä, ö, ü, ?, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
 
 > [!NOTE]
 > O formulário de exibição de um termo (em um arquivo de pronúncia) deve ser gravado da mesma maneira em um conjunto de dados de adaptação de idioma.
 
 ## <a name="requirements-for-the-display-form"></a>Requisitos para a forma de exibição
-Uma forma de exibição só pode ser uma palavra personalizada, um termo, um acrônimo ou palavras compostas que combinem palavras existentes. Você também pode inserir pronúncias alternativas de palavras comuns.
+
+Um formulário de exibição pode ser apenas uma palavra personalizada, um acrônimo ou palavras compostas que combinam palavras existentes.
 
 >[!NOTE]
 >Não recomendamos o uso desse recurso para reformular palavras comuns ou para modificar a forma falada. É melhor executar o decodificador para ver se algumas palavras incomuns (como abreviações, palavras técnicas e palavras estrangeiras) são decodificadas incorretamente. Se elas forem, adicione-as ao arquivo de pronúncia personalizada. No modelo de idioma, você deve sempre e somente usar a forma de exibição de uma palavra.

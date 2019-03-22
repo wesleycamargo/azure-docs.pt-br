@@ -1,5 +1,5 @@
 ---
-title: Mergulho Profundo com Senhas de Autoatendimento do Active Directory do Azure
+title: Mergulho profundo – Azure Active Directory de redefinição de senha de autoatendimento
 description: Como a redefinição de senha de autoatendimento funciona
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76af36de833bc496df7c24ddb1cbfd75c91c7976
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 65c64e420bd22498fa2d778095def96cce218055
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214742"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313950"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Como funciona: Redefinição de senha self-service do Azure AD
 
@@ -61,8 +61,8 @@ Leia as etapas abaixo para saber mais sobre a lógica por trás da página de re
 
 Se a SSPR estiver habilitada, você deve selecionar pelo menos uma das seguintes opções para os métodos de autenticação. Às vezes, essas opções referidas como "portões." É altamente recomendável que você **escolha dois ou mais métodos de autenticação** para que seus usuários tenham mais flexibilidade caso não consigam acessar um quando precisarem. Detalhes adicionais sobre os métodos listados abaixo podem ser encontrados no artigo [quais são os métodos de autenticação?](concept-authentication-methods.md).
 
-* Notificação de aplicativos para dispositivos móveis (visualização)
-* Código de aplicativo móvel (visualização)
+* Notificação do aplicativo móvel (visualização)
+* Código do aplicativo móvel (visualização)
 * Email
 * Telefone celular
 * Telefone comercial
@@ -93,7 +93,7 @@ Ao usar um aplicativo móvel, como o aplicativo Microsoft Authenticator, como um
 * Quando os administradores exigem que um método seja usado para redefinir uma senha, o código de verificação é a única opção disponível.
 * Quando os administradores exigem dois métodos a ser usado para redefinir uma senha, os usuários são capazes de usar **um** notificação **ou** habilitado de código de verificação além de quaisquer outros métodos.
 
-| Número de métodos necessários para redefinir | Um | Dois |
+| Número de métodos necessários para a redefinição | Um | Dois |
 | :---: | :---: | :---: |
 | Recursos de aplicativos para dispositivos móveis disponíveis | Código | Código ou notificação |
 
@@ -106,7 +106,7 @@ Usuários não têm a opção de registrar seu aplicativo móvel ao se registrar
 
 Se você iniciar com uma política que tenha apenas um método de autenticação requerido para reiniciar ou desbloquear registrado e você alterar esse número para dois métodos, o que acontece?
 
-| Número de métodos registrados | Número de métodos necessários | Result |
+| Número de métodos registrados | Número de métodos necessários | Resultado |
 | :---: | :---: | :---: |
 | 1 ou mais | 1 | **Capaz** de redefinir ou desbloquear |
 | 1 | 2 | **Incapaz** de redefinir ou desbloquear |
@@ -178,7 +178,7 @@ Este controle determina se o write-back de senha está habilitado para este dire
 * Se a opção estiver definida para **Sim**, o write-back será habilitado e os usuários federados, com autenticação de passagem ou sincronizados com hash de senha poderão redefinir suas senhas.
 * Se a opção estiver definida para **Não**, o write-back será habilitado e os usuários federados, com autenticação de passagem ou sincronizados com hash de senha não poderão redefinir suas senhas.
 
-### <a name="allow-users-to-unlock-accounts-without-resetting-their-password"></a>Permitir aos usuários desbloquear contas sem redefinir a senha
+### <a name="allow-users-to-unlock-accounts-without-resetting-their-password"></a>Permitir que os usuários desbloqueiem as contas sem redefinir sua senha
 
 Esse controle designa se os usuários que visitam o portal de redefinição de senha devem ter a opção de desbloquear suas contas no Active Directory no local sem ter que redefinir sua senha. Por padrão, o Azure Active Directory desbloqueia contas quando ele executa uma redefinição de senha. Use essa configuração para separar essas duas operações. 
 

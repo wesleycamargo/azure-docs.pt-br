@@ -1,29 +1,29 @@
 ---
 title: Melhorar a base de dados de conhecimento – QnA Maker
 titleSuffix: Azure Cognitive Services
-description: ''
+description: O aprendizado ativo permite melhorar a qualidade da sua base de dados de Conhecimento, sugerindo perguntas alternativas, com base em envios de usuário, para o par de pergunta e resposta. Você examina essas sugestões, adicionando-as às perguntas existentes ou rejeitando-as. Sua base de dados de conhecimento não é alterada automaticamente. Você deve aceitar as sugestões para qualquer alteração tenha efeito. Essas sugestões adicionam perguntas, mas não alteram nem removem perguntas existentes.
 author: diberry
 manager: nitinme
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 03/21/2019
 ms.author: diberry
-ms.openlocfilehash: 76005b153d7a7feabdc1b335a23c6aa1f1fa99f3
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 739ae64c6b32958271260bcbd01b339c1b108f11
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537891"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337418"
 ---
-# <a name="use-active-learning-to-improve-knowledge-base"></a>Usar o aprendizado ativo para melhorar a base de conhecimento
+# <a name="use-active-learning-to-improve-your-knowledge-base"></a>Use o aprendizado ativo para melhorar a sua base de dados de Conhecimento
 
 O aprendizado ativo permite melhorar a qualidade da sua base de dados de Conhecimento, sugerindo perguntas alternativas, com base em envios de usuário, para o par de pergunta e resposta. Você examina essas sugestões, adicionando-as às perguntas existentes ou rejeitando-as. 
 
 Sua base de dados de conhecimento não é alterada automaticamente. Você precisa aceitar as sugestões para que qualquer alteração entre em vigor. Essas sugestões adicionam perguntas, mas não alteram nem removem perguntas existentes.
 
-## <a name="active-learning"></a>Aprendizado ativo
+## <a name="what-is-active-learning"></a>O que é aprendizado ativo?
 
 O QnA Maker aprende novas variações de pergunta com comentários implícitos e explícitos.
  
@@ -42,7 +42,7 @@ Quando as consultas de 5 ou mais semelhantes estão agrupadas, a cada 30 minutos
 
 Depois que as perguntas são sugeridas no portal do QnA Maker, você precisa examinar e aceitar ou rejeitar essas sugestões. 
 
-## <a name="upgrade-version-to-use-active-learning"></a>Atualizar a versão para usar o aprendizado ativo
+## <a name="upgrade-your-version-to-use-active-learning"></a>Atualizar sua versão para usar o aprendizado ativo
 
 O aprendizado ativo é compatível com a versão de tempo de execução 4.4.0 e superior. Se sua base de dados de conhecimento foi criada em uma versão anterior, [atualize seu tempo de execução](troubleshooting-runtime.md#how-to-get-latest-qnamaker-runtime-updates) para usar esse recurso. 
 
@@ -64,12 +64,12 @@ O aprendizado ativo está desativado por padrão. Ative-o para ver sugestões de
 
 1. Para desativar o aprendizado ativo, clique em seu **Nome** e vá para [**Configurações de Serviço**](https://www.qnamaker.ai/UserSettings) no portal do QnA Maker no canto superior direito.  
 
-    ![Na página de configurações de serviço, ativar o aprendizado ativo](../media/improve-knowledge-base/Endpoint-Keys.png)
+    ![Ative o aprendizado ativo sugerido alternativas de pergunta da página de configurações de serviço. Selecione seu nome de usuário no menu superior direito e selecione configurações de serviço.](../media/improve-knowledge-base/Endpoint-Keys.png)
 
 
 1. Localize o serviço QnA Maker e, em seguida, ative o **aprendizado ativo**. 
 
-    [![Na página de configurações de serviço, ativar o aprendizado ativo](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png)](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png#lightbox)
+    [![Na página de configurações de serviço, ativar/desativar o recurso de aprendizado ativo. Se você não conseguir ativar/desativar o recurso, você precisa atualizar seu serviço.](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png)](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png#lightbox)
 
     Uma vez que o **aprendizado ativo** for habilitado, o conhecimento sugere novas perguntas em intervalos regulares, com base em perguntas enviadas por usuários. Você pode desabilitar o **aprendizado ativo** desativando a configuração novamente.
 
@@ -77,15 +77,15 @@ O aprendizado ativo está desativado por padrão. Ative-o para ver sugestões de
 
 1. Para ver as sugestões de perguntas, na página **Editar** da base de dados de conhecimento, selecione **Mostrar sugestões**. 
 
-    [![Na página de configurações de serviço, ativar/desativar o botão Mostrar Sugestões](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
+    [![Na seção de edição do portal, selecione Mostrar sugestões para ver novas alternativas de pergunta do aprendizado ativo.](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
 
 1. Filtrar a base de dados de conhecimento com pares de pergunta e resposta para mostrar apenas sugestões, selecionando **filtrar por sugestões**.
 
-    [![Na página de configurações do serviço, filtrar por sugestões para ver apenas esses pares de pergunta/resposta](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
+    [![Use o filtro por alternância de sugestões para exibir apenas as alternativas do aprendizado ativo pergunta sugeridas.](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
 
 1.  Cada seção de pergunta com sugestões mostra as novas perguntas com uma marca de seleção, `✔`, para aceitar a pergunta, ou então um `x` para rejeitar as sugestões. Selecione a marca de seleção para adicionar a pergunta. 
 
-    [![Na página de configurações de serviço, ativar o aprendizado ativo](../media/improve-knowledge-base/accept-active-learning-suggestions.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
+    [![Selecione ou rejeitar alternativas de pergunta sugerida do aprendizado ativo, selecionando a marca de seleção verde ou marca de exclusão vermelho.](../media/improve-knowledge-base/accept-active-learning-suggestions.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
 
     Você pode adicionar ou excluir _todas as sugestões_ selecionando **Adicionar todas** ou **Rejeitar todas**.
 
@@ -154,7 +154,13 @@ Quando o aplicativo cliente (por exemplo, um chat bot) recebe a resposta, as tr�
 
 O aplicativo cliente exibe todas as perguntas com uma opção para o usuário selecionar a pergunta que melhor representa suas intenções. 
 
-Após o usuário selecionar uma das perguntas existentes. Os comentários do usuário são enviados para a API [Train](https://www.aka.ms/activelearningsamplebot) do QnA Maker continuar o loop de comentários de aprendizado ativo. 
+Depois que o usuário seleciona uma das perguntas existentes, o aplicativo cliente envia a escolha do usuário como comentários usando a API de treinamento do QnA Maker. Esses comentários conclui a ativa loop de comentários de aprendizado. 
+
+Use o [Bot do Azure C# exemplo](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-activelearning-bot) para ver o aprendizado ativo em um cenário de ponta a ponta.
+
+## <a name="train-api"></a>API de treinamento
+
+Comentários de aprendizado ativo é enviado para o QnA Maker com a solicitação de POSTAGEM da API de treinamento. A assinatura de API é:
 
 ```http
 POST https://<QnA-Maker-resource-name>.azurewebsites.net/qnamaker/knowledgebases/<knowledge-base-ID>/train
@@ -163,9 +169,42 @@ Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
 ```
 
-Saiba mais sobre como usar o aprendizado ativo com um [exemplo em C# de bot do Azure](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-activelearning-bot)
+|Propriedade de solicitação HTTP|Nome|Digite|Finalidade|
+|--|--|--|--|
+|Parâmetro de rota de URL|ID da base de dados de Conhecimento|cadeia de caracteres|o GUID da base de dados de conhecimento.|
+|Host subdomain|Nome do recurso QnAMaker|cadeia de caracteres|O nome do host para o QnA Maker em sua assinatura do Azure. Isso está disponível na página de configurações depois de publicar a base de Conhecimento. |
+|Cabeçalho|Tipo de Conteúdo|cadeia de caracteres|o tipo de mídia do corpo enviado para a API. Valor padrão é: `application/json`|
+|Cabeçalho|Autorização|cadeia de caracteres|sua chave de ponto de extremidade (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
+|Corpo do POST|Objeto JSON|JSON|Os comentários de treinamento|
 
-## <a name="active-learning-is-saved-in-the-exported-apps-tsv-file"></a>Aprendizado ativo é salvo no arquivo de tsv exportado do aplicativo
+O corpo JSON tem várias configurações:
+
+|Propriedade de corpo JSON|Digite|Finalidade|
+|--|--|--|--|
+|`feedbackRecords`|matriz|Lista de comentários.|
+|`userId`|cadeia de caracteres|A ID de usuário da pessoa que está aceitando as sugestões de perguntas. O formato de ID de usuário cabe a você. Por exemplo, um endereço de email pode ser uma ID de usuário válido em sua arquitetura. Opcional.|
+|`userQuestion`|cadeia de caracteres|Texto exato da pergunta. Obrigatória.|
+|`qnaID`|número|ID da pergunta, encontrada na [GenerateAnswer resposta](metadata-generateanswer-usage.md#generateanswer-response-properties). |
+
+Um exemplo de corpo JSON é semelhante a:
+
+```json
+{
+    "feedbackRecords": [
+        {
+            "userId": "1",
+            "userQuestion": "<question-text>",
+            "qnaId": 1
+        }
+    ]
+}
+```
+
+Uma resposta bem-sucedida retorna um status de 204 e nenhum corpo de resposta JSON. 
+
+<a name="active-learning-is-saved-in-the-exported-apps-tsv-file"></a>
+
+## <a name="active-learning-is-saved-in-the-exported-knowledge-base"></a>Aprendizado ativo é salvo na base de Conhecimento exportado
 
 Quando seu aplicativo tenha habilitado de aprendizado ativo, e você exporta o aplicativo, o `SuggestedQuestions` coluna no arquivo tsv retém os dados de aprendizado ativo. 
 
@@ -193,4 +232,4 @@ Quando você reimportar esse aplicativo, o aprendizado ativo continua a coletar 
 ## <a name="next-steps"></a>Próximas etapas
  
 > [!div class="nextstepaction"]
-> [Usar a API de QnA Maker](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [Usar metadados com a API de GenerateAnswer](metadata-generateanswer-usage.md)

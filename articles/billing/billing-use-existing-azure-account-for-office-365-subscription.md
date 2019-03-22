@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: banders
-ms.openlocfilehash: 5ac05991bc79dcfd24a527a13084b3a9383b4839
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: b67f3c590be290515329af390b4d3d79a9746112
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903973"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339220"
 ---
 # <a name="sign-up-for-an-office-365-subscription-with-your-azure-account"></a>Inscreva-se para obter uma assinatura do Office 365 com sua conta do Azure
 Se você for assinante do Azure, você poderá usar sua conta do Azure para se inscrever para obter uma assinatura do Office 365. Se você fizer parte de uma organização que tem uma assinatura do Azure, será possível criar uma assinatura do Office 365 para usuários em seu Azure AD (Azure Active Directory) existente. Inscreva-se no Office 365 usando uma conta com permissões de Administrador Global ou de Administrador de Cobrança no seu locatário do Azure Active Directory. Para obter mais informações, consulte [Check my account permissions in Azure AD (Verificar minhas permissões de conta no Azure AD)](#RoleInAzureAD) e [Atribuindo funções de administrador no Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
@@ -43,12 +43,13 @@ Se você já tiver uma conta do Office 365 e uma assinatura do Azure, você pode
 
     ![Captura de tela do recibo do pedido do Office 365](./media/billing-use-existing-azure-account-office-365-subscription/15-office-365-order-receipt.png)
 
-Está tudo pronto para você. Se você criou a assinatura do Office 365 para sua organização, siga as etapas abaixo para verificar se os usuários do Azure AD agora estão no Office 365.
+Está tudo pronto para você.
+Se você criou a assinatura do Office 365 para sua organização, siga as etapas abaixo para verificar se os usuários do Azure AD agora estão no Office 365.
 
-1. Abra o centro de administração do Office 365.
+1. Abra o Centro de administração do Microsoft 365.
 2. Expanda **USUÁRIOS** e clique em **Usuários Ativos**.
 
-    ![Captura de tela de usuários do centro de administração do Office 365](./media/billing-use-existing-azure-account-office-365-subscription/16-office-365-admin-center-users.png)
+    ![Captura de tela de usuários do Centro de administração do Microsoft 365](./media/billing-use-existing-azure-account-office-365-subscription/16-microsoft-365-admin-center-users.png)
 
 Depois de se inscrever, a assinatura do Office 365 é adicionada à mesma instância do Azure Active Directory à qual sua assinatura do Azure pertence. Para obter mais informações, consulte [More about Azure and Office 365 subscriptions (Mais sobre as assinaturas do Azure e do Office 365)](billing-use-existing-office-365-account-azure-subscription.md#more-about-subs) e [Como as assinaturas do Azure são associadas ao Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
@@ -58,12 +59,12 @@ Depois de se inscrever, a assinatura do Office 365 é adicionada à mesma instâ
 
     ![Captura de tela do Active Directory no portal do Azure](./media/billing-use-existing-azure-account-office-365-subscription/billing-more-services-active-directory.png)
 3. Clique em **Usuários e grupos** > **Todos os usuários**.
-4. Selecione o nome de usuário. 
+4. Selecione o nome de usuário.
 
     ![Captura de tela que mostra os usuários do Azure Active Directory](./media/billing-use-existing-azure-account-office-365-subscription/billing-users-groups.png)
 
 5. Clique em **Função do diretório**.
-  
+
     ![Captura de tela que mostra a função do diretório do portal do Azure](./media/billing-use-existing-azure-account-office-365-subscription/billing-user-directory-role.png)
 6.  A função **Administrador Global** ou **Administrador limitado** > **Administrador de cobrança** é necessária para criar uma assinatura do Office 365 para usuários no Azure Active Directory existente.
 
@@ -71,4 +72,4 @@ Depois de se inscrever, a assinatura do Office 365 é adicionada à mesma instâ
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
-Se você tiver dúvidas ou precisar de Ajuda, [criar uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458). 
+Se você tiver dúvidas ou precisar de Ajuda, [criar uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).

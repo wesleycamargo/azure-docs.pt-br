@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: a85fb65ad971bfc70bdab0689e99921e616b56ac
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 07fdaa22532f48cc39b6c524d85fdfe625f8b80c
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56308852"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337112"
 ---
 # <a name="categorize-images"></a>Categorizar imagens
 
@@ -24,7 +24,7 @@ Além das marcas e da descrição, a Pesquisa Visual Computacional retorna as ca
 
 ## <a name="the-86-category-concept"></a>O conceito de 86 categorias
 
-A Pesquisa Visual Computacional pode categorizar uma imagem em larga escala ou especificamente, usando a lista de 86 categorias no diagrama a seguir. Para obter a taxonomia completa em formato de texto, confira [Taxonomia de categoria](category-taxonomy.md).
+Pesquisa Visual computacional pode categorizar uma imagem em larga escala ou especificamente, usando a lista de 86 categorias no diagrama a seguir. Para obter a taxonomia completa em formato de texto, confira [Taxonomia de categoria](category-taxonomy.md).
 
 ![Listas agrupadas de todas as categorias na categoria taxonomia](./Images/analyze_categories-v2.png)
 

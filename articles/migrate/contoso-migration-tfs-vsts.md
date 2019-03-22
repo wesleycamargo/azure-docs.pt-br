@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 8098196abc415dedba392737fc17a4de5739339d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 21396a10543d388b6ac360f426272f1841b2f510
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58100233"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314103"
 ---
 # <a name="contoso-migration--refactor-a-team-foundation-server-deployment-to-azure-devops-services"></a>Migração para Contoso:  Refatorar uma implantação do Team Foundation Server para o Azure DevOps Services
 
@@ -46,7 +46,7 @@ A equipe de liderança de TI trabalhou em conjunto com parceiros de negócios pa
 - **Eficiência**: a Contoso precisa simplificar o processo e remover os procedimentos desnecessários para desenvolvedores e usuários. Isso permitirá que a empresa cumpra os requisitos do cliente com mais eficiência. Os negócios precisam que a TI seja rápida, sem perda de tempo ou de dinheiro.
 - **Agilidade**:  a Contoso precisa que a TI responda às necessidades de negócios e reaja mais rapidamente do que o marketplace para permitir o sucesso em uma economia global. A TI não deve ser um bloqueador para os negócios.
 
-## <a name="migration-goals"></a>Metas de migração
+## <a name="migration-goals"></a>Objetivos da migração
 
 A equipe de nuvem da Contoso fixou metas para a migração para o Azure DevOps Services:
 
@@ -156,7 +156,7 @@ Os administradores da Contoso executam a Ferramenta de Migração do TFS no banc
 
 2. Eles executam a ferramenta para realizar a validação especificando a URL da coleção de projetos:
 
-        **TfsMigrator validate /collection:http://contosotfs:8080/tfs/ContosoDev**
+   **Tfsmigrator que validar /collection:http:\//contosotfs:8080/tfs/ContosoDev**
 
 
 3. A ferramenta mostrará um erro.
@@ -175,7 +175,7 @@ Os administradores da Contoso executam a Ferramenta de Migração do TFS no banc
 
      ![TFS](./media/contoso-migration-tfs-vsts/collection5.png)
 
-6. Eles executam novamente o comando de validação e incluem esse valor, junto com seu nome do Azure AD: **TfsMigrator validate /collection:http://contosotfs:8080/tfs/ContosoDev /tenantDomainName:contosomigration.onmicrosoft.com**.
+6. Eles executam novamente o comando de validação e incluem esse valor, junto com seu nome do Azure AD: **Tfsmigrator que validar /collection:http:\//contosotfs:8080/tfs/ContosoDev /tenantDomainName:contosomigration.onmicrosoft.com**.
 
     ![TFS](./media/contoso-migration-tfs-vsts/collection7.png)
 
@@ -195,7 +195,7 @@ Com a validação completa, os administradores da Contoso podem usar a Ferrament
 
 1. Eles executarem a etapa de preparação na ferramenta.
 
-    **TfsMigrator prepare /collection:http://contosotfs:8080/tfs/ContosoDev /tenantDomainName:contosomigration.onmicrosoft.com /accountRegion:cus**
+    **Tfsmigrator que preparar /collection:http:\//contosotfs:8080/tfs/ContosoDev /tenantDomainName:contosomigration.onmicrosoft.com /accountRegion:cus**
 
      ![Preparar](./media/contoso-migration-tfs-vsts/prep1.png)
 
@@ -311,27 +311,27 @@ Depois que o DACPAC é criado, a Contoso o carrega no Armazenamento do Azure.
 
 1. Eles [baixam e instalam](https://azure.microsoft.com/features/storage-explorer/) o Gerenciador de Armazenamento do Azure.
 
-    ![Carregar](./media/contoso-migration-tfs-vsts/backup5.png)
+    ![Upload](./media/contoso-migration-tfs-vsts/backup5.png)
 
 4. Eles se conectam à sua assinatura e localizam a conta de armazenamento que criaram para a migração (**contosodevmigration**). Eles criam um novo contêiner de blobs, **azuredevopsmigration**.
 
-    ![Carregar](./media/contoso-migration-tfs-vsts/backup6.png)
+    ![Upload](./media/contoso-migration-tfs-vsts/backup6.png)
 
 5. Eles especificam o arquivo DACPAC para upload como um blob de blocos.
 
-    ![Carregar](./media/contoso-migration-tfs-vsts/backup7.png)
+    ![Upload](./media/contoso-migration-tfs-vsts/backup7.png)
     
 7. Depois que o arquivo é carregado, eles clicam no nome do arquivo > **Gerar SAS**. Eles expandem os contêineres de blobs sob a conta de armazenamento, selecionam o contêiner com os arquivos de importação e clicam em **Obter Assinatura de Acesso Compartilhado**.
 
-    ![Carregar](./media/contoso-migration-tfs-vsts/backup8.png)
+    ![Upload](./media/contoso-migration-tfs-vsts/backup8.png)
 
 8. Eles aceitam os padrões e clicam em **Criar**. Isso habilita o acesso por 24 horas.
 
-    ![Carregar](./media/contoso-migration-tfs-vsts/backup9.png)
+    ![Upload](./media/contoso-migration-tfs-vsts/backup9.png)
 
 9. Eles copiam a URL da Assinatura de Acesso Compartilhado para que ela possa ser usada pela Ferramenta de Migração do TFS.
 
-    ![Carregar](./media/contoso-migration-tfs-vsts/backup10.png)
+    ![Upload](./media/contoso-migration-tfs-vsts/backup10.png)
 
 > [!NOTE]
 > A migração deve ocorrer antes dentro da janela de tempo permitida ou as permissões expirarão.

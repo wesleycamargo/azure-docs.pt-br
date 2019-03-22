@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/25/2019
 ms.author: aljo
-ms.openlocfilehash: 4133379ff7c1c0a64bd2d9aefdafdd5cdb530491
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 91b694070147cb0591bcc1763905f471161bf07b
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875061"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336755"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Como criar seu primeiro aplicativo de contêiner do Service Fabric no Windows
 
@@ -115,7 +115,7 @@ if __name__ == "__main__":
 
 <a id="Build-Containers"></a>
 ## <a name="build-the-image"></a>Criar a imagem
-Execute o comando `docker build` para criar a imagem que executa o seu aplicativo web. Abra uma janela do PowerShell e acesse o diretório que contém o Dockerfile. Execute o comando a seguir:
+Execute o comando `docker build` para criar a imagem que executa o seu aplicativo web. Abra uma janela do PowerShell e acesse o diretório que contém o Dockerfile. Execute o seguinte comando:
 
 ```
 docker build -t helloworldapp .
@@ -153,7 +153,7 @@ Se esse comando não retorna nada, execute o seguinte comando e inspecione o ele
 docker inspect my-web-site
 ```
 
-Conectar-se ao contêiner em execução. Abra um navegador da Web apontando para o endereço IP retornado, por exemplo “<http://172.31.194.61>”. Você deve ver o cabeçalho "Olá, Mundo!" ser exibido no navegador.
+Conectar-se ao contêiner em execução. Abra um navegador da web apontando para o endereço IP retornado, por exemplo "http:\//172.31.194.61". Você deve ver o cabeçalho "Olá, Mundo!" ser exibido no navegador.
 
 Para interromper o contêiner, execute:
 
@@ -360,10 +360,12 @@ O Service Fabric, em seguida, usa as credenciais do repositório padrão que voc
 * IsDefaultContainerRepositoryPasswordEncrypted (booliano)
 * DefaultContainerRepositoryPasswordType (cadeia de caracteres) – com suporte a partir do tempo de execução 6.4
 
-Veja um exemplo do que você pode adicionar dentro da seção `Hosting` no arquivo ClusterManifestTemplate.json. Para obter mais informações, consulte [Alterar configurações de cluster do Azure Service Fabric](service-fabric-cluster-fabric-settings.md) e [Gerenciar segredos de aplicativo do Azure Service Fabric](service-fabric-application-secret-management.md)
+Veja um exemplo do que você pode adicionar dentro da seção `Hosting` no arquivo ClusterManifestTemplate.json. O `Hosting` seção pode ser adicionada no momento da criação do cluster ou posterior em uma atualização de configuração. Para obter mais informações, consulte [Alterar configurações de cluster do Azure Service Fabric](service-fabric-cluster-fabric-settings.md) e [Gerenciar segredos de aplicativo do Azure Service Fabric](service-fabric-application-secret-management.md)
 
 ```json
-      {
+"fabricSettings": [
+    ...,
+    {
         "name": "Hosting",
         "parameters": [
           {
@@ -388,6 +390,7 @@ Veja um exemplo do que você pode adicionar dentro da seção `Hosting` no arqui
           }
         ]
       },
+]
 ```
 
 ## <a name="configure-isolation-mode"></a>Configurar o modo de isolamento
@@ -465,7 +468,7 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 
 ## <a name="windows-server-container-os-and-host-os-compatibility"></a>Compatibilidade do sistema operacional do contêiner e do sistema operacional do host do Windows Server
 
-Os contêineres do Windows Server não são compatíveis em todas as versões de um sistema operacional do host. Por exemplo: 
+Os contêineres do Windows Server não são compatíveis em todas as versões de um sistema operacional do host. Por exemplo:
  
 - Os contêineres do Windows Server criados usando o Windows Server versão 1709 não funcionam em um host executando o Windows Server versão 2016. 
 - Os contêineres do Windows Server criados usando o Windows Server 2016 no modo de isolamento hiperv somente em um host executando o Windows Server versão 1709. 
@@ -473,7 +476,7 @@ Os contêineres do Windows Server não são compatíveis em todas as versões de
  
 Para obter mais informações, consulte [Compatibilidade de versão de contêiner do Windows](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
-Considere a compatibilidade do sistema operacional do host e do sistema operacional do contêiner ao compilar e implantar contêineres para o cluster do Service Fabric. Por exemplo: 
+Considere a compatibilidade do sistema operacional do host e do sistema operacional do contêiner ao compilar e implantar contêineres para o cluster do Service Fabric. Por exemplo:
 
 - Verifique se que você implanta os contêineres com um sistema operacional compatível com o sistema operacional nos nós do cluster.
 - Certifique-se de que o modo de isolamento especificado para o aplicativo de contêiner é consistente com o suporte para o sistema operacional do contêiner no nó onde ele está sendo implantado.
@@ -618,10 +621,12 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 
 ## <a name="configure-time-interval-before-container-is-force-terminated"></a>Configurar o intervalo de tempo antes do contêiner ser forçado a terminar
 
-Você pode configurar um intervalo de tempo para a execução aguardar antes do contêiner ser removido após a exclusão do serviço (ou um movimento para outro nó) ter iniciado. Configurar o intervalo de tempo envia o comando `docker stop <time in seconds>` para o contêiner.  Para obter mais detalhes, consulte [parar docker](https://docs.docker.com/engine/reference/commandline/stop/). O intervalo de tempo de espera é especificado na seção `Hosting`. O snippet de manifesto do cluster a seguir mostra como definir o intervalo de espera:
+Você pode configurar um intervalo de tempo para a execução aguardar antes do contêiner ser removido após a exclusão do serviço (ou um movimento para outro nó) ter iniciado. Configurar o intervalo de tempo envia o comando `docker stop <time in seconds>` para o contêiner.  Para obter mais detalhes, consulte [parar docker](https://docs.docker.com/engine/reference/commandline/stop/). O intervalo de tempo de espera é especificado na seção `Hosting`. O `Hosting` seção pode ser adicionada no momento da criação do cluster ou posterior em uma atualização de configuração. O snippet de manifesto do cluster a seguir mostra como definir o intervalo de espera:
 
 ```json
-{
+"fabricSettings": [
+    ...,
+    {
         "name": "Hosting",
         "parameters": [
           {
@@ -630,7 +635,8 @@ Você pode configurar um intervalo de tempo para a execução aguardar antes do 
           },
           ...
         ]
-}
+    }
+]
 ```
 O intervalo de tempo padrão é definido para 10 segundos. Como essa configuração é dinâmica, uma configuração somente atualiza no cluster que atualiza no tempo limite. 
 
@@ -641,7 +647,9 @@ Você pode configurar o cluster do Service Fabric para remover as imagens de con
 
 
 ```json
-{
+"fabricSettings": [
+    ...,
+    {
         "name": "Hosting",
         "parameters": [
           {
@@ -655,7 +663,8 @@ Você pode configurar o cluster do Service Fabric para remover as imagens de con
           ...
           }
         ]
-} 
+    } 
+]
 ```
 
 Para as imagens que não devem ser excluídas, você pode especificá-las no parâmetro `ContainerImagesToSkip`.  
@@ -666,7 +675,9 @@ Para as imagens que não devem ser excluídas, você pode especificá-las no par
 O tempo de execução do Service Fabric aloca 20 minutos para baixar e extrair as imagens de contêiner, o que funciona para a maioria das imagens de contêiner. Para imagens grandes, ou quando a conexão de rede estiver lenta, talvez seja necessário aumentar o tempo de espera antes de cancelar o download e a extração da imagem. Esse tempo limite é definido usando o atributo **ContainerImageDownloadTimeout** na seção **Hospedagem** do manifesto do cluster, conforme mostrado no snippet de código a seguir:
 
 ```json
-{
+"fabricSettings": [
+    ...,
+    {
         "name": "Hosting",
         "parameters": [
           {
@@ -674,7 +685,8 @@ O tempo de execução do Service Fabric aloca 20 minutos para baixar e extrair a
               "value": "1200"
           }
         ]
-}
+    }
+]
 ```
 
 
@@ -694,7 +706,9 @@ Com a versão 6.2, e superiores, do tempo de execução do Service Fabric, você
  
 
 ```json
-{ 
+"fabricSettings": [
+    ...,
+    { 
         "name": "Hosting", 
         "parameters": [ 
           { 
@@ -702,8 +716,8 @@ Com a versão 6.2, e superiores, do tempo de execução do Service Fabric, você
             "value": "-H localhost:1234 -H unix:///var/run/docker.sock" 
           } 
         ] 
-} 
-
+    } 
+]
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: c28bf3ac85709fb996cfb067b83530645fdccba1
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 30f853bd65c83b922faf008fbb5279c28f197f68
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57008898"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338999"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor-public-preview"></a>Alertas de Métrica com Limites Dinâmicos no Azure Monitor (Versão Prévia Pública)
 
@@ -61,7 +61,7 @@ Você pode escolher o alerta a ser disparado em uma das três condições a segu
 
 ## <a name="what-do-the-advanced-settings-in-dynamic-thresholds-mean"></a>O que as configurações avançadas em Limites Dinâmicos significam?
 
-**Períodos de Falha** – Limites Dinâmicos também permitem que você configure o "Número de violações para disparar o alerta", um número mínimo de desvios necessários em uma determinada janela de tempo para o sistema gerar um alerta (a janela de tempo padrão é de quatro desvios em 20 minutos). O usuário pode configurar períodos de falha e escolher sobre o que ser alertado alterando os períodos de falha e a janela de tempo. Esse recurso reduz o ruído de alerta gerado por picos transitórios. Por exemplo: 
+**Períodos de Falha** – Limites Dinâmicos também permitem que você configure o "Número de violações para disparar o alerta", um número mínimo de desvios necessários em uma determinada janela de tempo para o sistema gerar um alerta (a janela de tempo padrão é de quatro desvios em 20 minutos). O usuário pode configurar períodos de falha e escolher sobre o que ser alertado alterando os períodos de falha e a janela de tempo. Esse recurso reduz o ruído de alerta gerado por picos transitórios. Por exemplo:
 
 Para disparar um alerta quando o problema for contínuo por 20 minutos, 4 vezes consecutivas em um determinado período de agrupamento de 5 minutos, use as seguintes configurações:
 
@@ -83,7 +83,7 @@ Os limites que aparecem no gráfico, antes de uma regra de alerta é criada na m
 
 ## <a name="how-much-data-is-needed-to-trigger-an-alert"></a>A quantidade de dados é necessário para disparar um alerta?
 
-Limites dinâmicos requer pelo menos três dias de dados para garantir que os limites precisos antes de disparar alertas.
+Se você tiver um novo recurso ou os dados de métrica ausentes, limites dinâmicos não disparam alertas antes de três dias de dados estão disponíveis para garantir que os limites de precisos.
 
 ## <a name="dynamic-thresholds-best-practices"></a>Melhores práticas para Limites Dinâmicos
 

@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: ac166161624840aae39e84aa4b149fe58a6c978e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 72cbf71077a8df2b81b366d9f29ae006100da471
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780857"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310533"
 ---
 # <a name="virtual-network-service-endpoints"></a>Pontos de extremidade de serviço de rede virtual
 
@@ -42,6 +42,7 @@ Este recurso está disponível para os seguintes serviços e regiões do Azure:
 **Versão prévia pública**
 
 - **[Banco de Dados do Azure para MariaDB](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)**: Versão prévia disponível em todas as regiões do Azure nas quais o Banco de Dados do Azure para MariaDB está disponível.
+- **[Registro de contêiner do Azure](../container-registry/container-registry-vnet.md)**: Visualização disponível em todas as regiões do Azure em que o registro de contêiner do Azure está disponível.
 
 Para obter as notificações mais recentes, verifique a página [Atualizações de rede virtual do Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 

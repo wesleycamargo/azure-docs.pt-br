@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: e1187867fc9da9a89f92d7b321c8703ee7a8a407
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: HT
+ms.openlocfilehash: 2ca2fdc2627245a8b7676ed0d6d5877788eb7930
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889249"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336775"
 ---
 # <a name="query-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Logs de consulta do Azure Monitor para monitorar clusters do HDInsight
 
@@ -78,7 +78,7 @@ Saiba como procurar mensagens de erro durante uma janela de tempo específica. E
     ![Pesquisar a saída de todos os erros](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-errors-output.png "Pesquisar a saída de todos os erros")
 
 4. No painel esquerdo, na categoria **Tipo**, selecione um tipo de erro que você deseja ver de maneira aprofundada e então clique selecionar **Aplicar**.  Observe que os resultados são refinados para mostrar apenas o erro do tipo selecionado.
-5. É possível obter mais detalhes sobre essa lista de erros específica usando as opções disponíveis no painel esquerdo. Por exemplo: 
+5. É possível obter mais detalhes sobre essa lista de erros específica usando as opções disponíveis no painel esquerdo. Por exemplo:
 
     - Para ver mensagens de erro de um nó de trabalho específico:
 
@@ -125,5 +125,5 @@ Para obter mais informações, confira [Criar, exibir e gerenciar alertas de mé
 
 ## <a name="see-also"></a>Consulte também
 
-* [Log Analytics do OMS: Designer de exibição](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
+* [Criar exibições personalizadas usando o Designer de exibição no Azure Monitor](../azure-monitor/platform/view-designer.md)
 * [Criar, exibir e gerenciar alertas de métrica usando o Azure Monitor](../azure-monitor/platform/alerts-metric.md)

@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/20/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 5b49db8d7e8360837dc209e98123eeccd5542769
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e543f6e69632da67900e3b49a9c77e125df5f852
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57837738"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316908"
 ---
 # <a name="azure-media-services-v3-frequently-asked-questions"></a>Perguntas frequentes sobre os serviços de mídia do Azure v3
 
@@ -46,7 +46,7 @@ A codificação ativa dos Serviços de Mídia v3 ainda não dá suporte à inser
 
 Você pode usar um [codificador ativo local](recommended-on-premises-live-encoders.md) para alternar para o vídeo de origem. Muitos aplicativos fornecem a capacidade de alternar fontes, incluindo o Telestream Wirecast, o Switcher Studio (no iOS), o OBS Studio (aplicativo gratuito) e muito mais.
 
-## <a name="content-protection"></a>Proteção do conteúdo
+## <a name="content-protection"></a>Proteção de conteúdo
 
 ### <a name="how-and-where-to-get-jwt-token-before-using-it-to-request-license-or-key"></a>Como e onde obter o token do JWT antes de usá-lo para a licença de solicitação ou a chave?
 
@@ -73,7 +73,7 @@ Para obter mais informações, consulte:
 
 ### <a name="can-i-use-the-azure-portal-to-manage-v3-resources"></a>Eu posso usar o portal do Azure para gerenciar recursos da v3?
 
-Ainda não. Você pode usar um dos SDKs com suporte. Consulte os tutoriais e exemplos neste conjunto de documentos.
+Atualmente, você não pode usar o portal do Azure para gerenciar recursos da v3. Use o [API REST](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), ou um com suporte [SDKs](developers-guide.md).
 
 ### <a name="is-there-an-assetfile-concept-in-v3"></a>Existe um conceito de AssetFile no v3?
 

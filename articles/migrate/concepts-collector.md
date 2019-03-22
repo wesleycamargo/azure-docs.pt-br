@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 228d7b6994c67f9e14424624d264061634d80f27
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 78ef88d0710e8a82d30fa26b60073aa75e363c15
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58080058"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315293"
 ---
 # <a name="about-the-collector-appliance"></a>Sobre o dispositivo Coletor
 
@@ -82,7 +82,7 @@ O Coletor precisa passar por algumas verificações de pré-requisitos para conf
 ### <a name="connect-to-the-internet-via-a-proxy"></a>Conectar-se à Internet por meio de um proxy
 
 - Se o servidor proxy exigir autenticação, você poderá especificar o nome de usuário e a senha ao configurar o Coletor.
-- O endereço IP/FQDN do servidor proxy deve ser especificado como *http://IPaddress* ou *http://FQDN*.
+- O endereço IP/FQDN do servidor Proxy deve ser especificado como *http:\//IPaddress* ou *http:\//FQDN*.
 - Há suporte apenas para o proxy HTTP. Os servidores proxy baseados em HTTPS não têm suporte do Coletor.
 - Se o servidor proxy for um proxy de interceptação, importe o certificado de proxy para a VM do Coletor.
   1. Na VM do coletor, acesse **Menu Iniciar** > **Gerenciar certificados do computador**.
@@ -146,7 +146,7 @@ O Coletor comunica-se de acordo com o resumo no diagrama e na tabela a seguir.
 **O Coletor comunica-se com** | **Porta** | **Detalhes**
 --- | --- | ---
 Serviço Migrações para Azure | TCP 443 | O Coletor comunica-se com o serviço de Migrações para Azure por SSL 443.
-vCenter Server | TCP 443 | O Coletor precisa ser capaz de comunicar-se com o vCenter Server.<br/><br/> Por padrão, ele se conecta ao vCenter na 443.<br/><br/> Se o vCenter Server escuta em uma porta diferente, essa porta precisa estar disponível como a porta de saída no Coletor.
+Servidor vCenter | TCP 443 | O Coletor precisa ser capaz de comunicar-se com o vCenter Server.<br/><br/> Por padrão, ele se conecta ao vCenter na 443.<br/><br/> Se o vCenter Server escuta em uma porta diferente, essa porta precisa estar disponível como a porta de saída no Coletor.
 RDP | TCP 3389 |
 
 ## <a name="collected-metadata"></a>Metadados coletados
@@ -162,7 +162,7 @@ O dispositivo Coletor descobre os seguintes de metadados de configuração para 
 - Tamanho da memória, tamanhos de disco
 - Contadores de desempenho da VM, do disco e da rede.
 
-### <a name="performance-counters"></a>contadores de desempenho
+### <a name="performance-counters"></a>Contadores de desempenho
 
  O dispositivo coletor coleta os seguintes contadores de desempenho para cada VM do host ESXi em um intervalo de 20 segundos. Esses contadores são contadores do vCenter e, embora a terminologia diga média, as amostras de 20 segundos são contadores de tempo real. Os dados de desempenho para as VMs começam a ficar disponíveis no portal duas horas depois de você ter iniciado a descoberta. É altamente recomendável aguardar pelo menos um dia antes de criar avaliações com base no desempenho para obter recomendações precisas de dimensionamento correto. Se você estiver procurando instantâneos, poderá criar avaliações com critérios de dimensionamento como *local*, que não considerará os dados de desempenho para o dimensionamento correto.
 
@@ -211,7 +211,7 @@ Detalhes do adaptador de rede (por NIC) | Endereços IPv4 | vm.Guest.Net
 Detalhes do adaptador de rede (por NIC) | Endereços IPv6 | vm.Guest.Net
 Detalhes do adaptador de rede (por NIC) | Taxa de transferência de leitura em megabytes por segundo | net.received.average
 Detalhes do adaptador de rede (por NIC) | Taxa de transferência de gravação em megabytes por segundo | net.transmitted.average
-Detalhes do caminho de inventário | NOME | container.GetType().Name
+Detalhes do caminho de inventário | Nome | container.GetType().Name
 Detalhes do caminho de inventário | Tipo de objeto filho | container.ChildType
 Detalhes do caminho de inventário | Detalhes de referência | container.MoRef
 Detalhes do caminho de inventário | Caminho de inventário completo | container.Name com caminho completo

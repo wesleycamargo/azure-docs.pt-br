@@ -1,5 +1,5 @@
 ---
-title: Usar servidores NPS existentes para fornecer recursos ao Azure MFA
+title: Usar servidores NPS existentes para fornecer recursos de MFA do Azure - Active Directory do Azure
 description: Adicionar funcionalidades de verificação de duas etapas baseada em nuvem à infraestrutura de autenticação existente
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 108b188b0bbb63a4c9faea936360cf2fa3edc806
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b36b6e513e382e25f7d7038f49e7467a21686a0f
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211607"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311723"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrar sua infraestrutura do NPS existente à Autenticação Multifator do Azure
 
@@ -64,7 +64,7 @@ Essas bibliotecas são instaladas automaticamente com a extensão.
 
 O Módulo Microsoft Azure Active Directory para Windows PowerShell é instalado, se ainda não estiver presente, por meio de um script de configuração que é executado como parte do processo de instalação. Não é necessário instalar este módulo antecipadamente, se ele ainda não estiver instalado.
 
-### <a name="azure-active-directory"></a>Azure Active Directory
+### <a name="azure-active-directory"></a>Active Directory do Azure
 
 Todos que usam a extensão do NPS devem estar sincronizados com o Azure Active Directory usando o Azure AD Connect e devem estar registrados para MFA.
 
@@ -201,7 +201,7 @@ A finalidade dessa configuração é determinar o que fazer quando um usuário n
 
 Você pode optar por criar essa chave e defini-la como FALSE, e os usuários estão carregando e ainda não podem se inscrever no Azure MFA. Porém, como definir a chave permite que os usuários que não são registrados na MFA se conectem, você deve remover essa chave antes de ir para a produção.
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 ### <a name="how-do-i-verify-that-the-client-cert-is-installed-as-expected"></a>Como verificar se o certificado do cliente está instalado conforme o esperado?
 

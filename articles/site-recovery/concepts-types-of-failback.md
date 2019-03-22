@@ -6,16 +6,16 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 01/17/2019
+ms.date: 03/18/2019
 ms.author: raynew
-ms.openlocfilehash: 16233c9013e97a7db7ef799b79526abac4741612
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.openlocfilehash: 6f178ef1a0aec7f742bce4c2570962b995876026
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54318433"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316262"
 ---
-# <a name="overview-of-failback"></a>Visão geral do failback
+# <a name="failback-after-disaster-recovery-of-vmware-vms"></a>Failback após a recuperação de desastre de VMs VMware
 
 Depois de fazer o failover para o Azure como parte de seu processo de recuperação de falhas, você poderá fazer failback em seu site local. Há dois tipos diferentes de failback que são possíveis com o Azure Site Recovery: 
 
@@ -25,7 +25,7 @@ Depois de fazer o failover para o Azure como parte de seu processo de recuperaç
 Se você fez failover de uma máquina virtual VMware, você pode executar failback para a mesma máquina de virtual do local de origem se ele ainda existe. Nessa situação, apenas as alterações passarão por failback. Esse cenário é conhecido como **recuperação no local original**. Se não houver máquina virtual local, o cenário será uma **recuperação de local alternativo**.
 
 > [!NOTE]
-> Somente será possível executar failback para o servidor de Configuração e vCentre original. Você não poderá implantar um novo servidor de Configuração e usá-lo em failback. Além disso, não será possível adicionar um novo vCenter ao servidor de Configuração existente e o failback no novo vCenter.
+> Você só pode executar failback para o servidor de configuração e Vcentre original. Você não poderá implantar um novo servidor de Configuração e usá-lo em failback. Além disso, não será possível adicionar um novo vCenter ao servidor de Configuração existente e o failback no novo vCenter.
 
 ## <a name="original-location-recovery-olr"></a>OLR (Recuperação no Local Original)
 Se você optar por executar failback para a máquina virtual original, as condições a seguir deverão ser atendidas:

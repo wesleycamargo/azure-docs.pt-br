@@ -16,12 +16,12 @@ ms.date: 11/14/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8de47aab231c66f3539c2d2f0f0e4c535a04038a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4822de6f6470547b47ecaa3874bed0df4ad20cf6
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58085364"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309581"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Logon Único Contínuo do Azure Active Directory: Perguntas frequentes
 
@@ -45,16 +45,16 @@ Veja abaixo uma lista parcial de aplicativos que enviam esses parâmetros para o
 
 | Nome do aplicativo | URL do aplicativo a ser usada |
 | -- | -- |
-| Painel de acesso | https://myapps.microsoft.com/contoso.com |
-| Outlook na Web | https://outlook.office365.com/contoso.com |
-| Portais do Office 365 | <https://portal.office.com?domain_hint=contoso.com>, <https://www.office.com?domain_hint=contoso.com> |
+| Painel de acesso | https:\//myapps.microsoft.com/contoso.com |
+| Outlook na Web | https:\//outlook.office365.com/contoso.com |
+| Portais do Office 365 | https:\//portal.office.com?domain_hint=contoso.com, https:\//www.office.com?domain_hint=contoso.com |
 
-Além disso, os usuários obtêm uma experiência de logon silenciosa se um aplicativo envia solicitações de entrada para pontos de extremidade do Azure AD configurado como locatários – ou seja, https://login.microsoftonline.com/contoso.com/<..> ou https://login.microsoftonline.com/<tenant_ID>/<..> - em vez ponto de extremidade comum do Azure AD - ou seja, https://login.microsoftonline.com/common/<...>. Abaixo está uma lista parcial de aplicativos que fazem esses tipos de solicitações de entrada.
+Além disso, os usuários obtêm uma experiência de logon silenciosa se um aplicativo envia solicitações de entrada para pontos de extremidade do Azure AD configurado como locatários – ou seja, https:\//login.microsoftonline.com/contoso.com/ <... > ou https:\//login.microsoftonline.com/ < tenant_ID > / <... > - em vez do ponto de extremidade de comum do Azure AD - ou seja, https:\//login.microsoftonline.com/common/ <... >. Abaixo está uma lista parcial de aplicativos que fazem esses tipos de solicitações de entrada.
 
 | Nome do aplicativo | URL do aplicativo a ser usada |
 | -- | -- |
-| SharePoint Online | https://contoso.sharepoint.com |
-| Portal do Azure | https://portal.azure.com/contoso.com |
+| SharePoint Online | https:\//contoso.sharepoint.com |
+| Portal do Azure | https:\//portal.azure.com/contoso.com |
 
 Nas tabelas acima, substitua "contoso.com" por seu nome de domínio para obter as URLs do aplicativo certo para o seu locatário.
 

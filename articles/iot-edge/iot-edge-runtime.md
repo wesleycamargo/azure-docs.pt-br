@@ -4,17 +4,17 @@ description: Saiba como os módulos, segurança, comunicação e emissão de rel
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 08/13/2018
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a2412a286015cb403fe9a2af7754c7e5346fe98c
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.openlocfilehash: bb2df9c32d5adc8160da82148e4a66a4ab68d182
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230417"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311592"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Reconhecer o tempo de execução do Azure IoT Edge e sua arquitetura
 
@@ -24,15 +24,15 @@ O tempo de execução do IoT Edge executa as seguintes funções em dispositivos
 
 * Instala e atualiza as cargas de trabalho no dispositivo.
 * Mantém os padrões de segurança do Azure IoT Edge no dispositivo.
-* Garante que os [módulos do IoT Edge](iot-edge-modules.md) sempre estejam em execução.
-* Fornece um relatório sobre a integridade do módulo para a nuvem para o monitoramento remoto.
-* Facilita a comunicação entre os dispositivos de folha de downstream e os dispositivos IoT Edge.
-* Facilita a comunicação entre os módulos e o dispositivo IoT Edge.
-* Facilita a comunicação entre o dispositivo IoT Edge e a nuvem.
+* Certifique-se de que [módulos do IoT Edge](iot-edge-modules.md) estejam sempre em execução.
+* Relata a integridade do módulo à nuvem para monitoramento remoto.
+* Facilitar a comunicação entre os dispositivos de folha de downstream e dispositivos IoT Edge.
+* Facilitar a comunicação entre os módulos no dispositivo IoT Edge.
+* Facilitar a comunicação entre o dispositivo IoT Edge e a nuvem.
 
 ![O tempo de execução comunica insights e integridade de módulo para o Hub IoT](./media/iot-edge-runtime/Pipeline.png)
 
-As responsabilidades do tempo de execução do IoT Edge se enquadram em duas categorias: gerenciamento de comunicação e de módulo. Essas duas funções são executadas por dois componentes que representam o tempo de execução do IoT Edge. O hub do IoT Edge é responsável pela comunicação, enquanto o agente do IoT Edge gerencia a implantação e o monitoramento de módulos. 
+As responsabilidades do tempo de execução do IoT Edge se enquadram em duas categorias: gerenciamento de comunicação e de módulo. Essas duas funções são executadas por dois componentes que representam o tempo de execução do IoT Edge. O *hub do IoT Edge* é responsável pela comunicação, enquanto o *agente do IoT Edge* implanta e monitora os módulos. 
 
 Tanto o hub do IoT Edge quanto o agente do IoT Edge são módulos, assim como qualquer outro módulo em execução em um dispositivo IoT Edge. 
 
@@ -52,11 +52,11 @@ Para reduzir a largura de banda que a solução IoT Edge usa, o hub do IoT Edge 
 
 ![O hub do IoT Edge é um gateway entre os dispositivos físicos e o Hub IoT](./media/iot-edge-runtime/Gateway.png)
 
- O hub do IoT Edge pode determinar se ele está conectado ao Hub IoT. Se a conexão for perdida, o hub do IoT Edge salvará mensagens ou as atualizações duplicadas localmente. Depois que uma conexão é restabelecida, ela sincroniza todos os dados. A localização usada para esse cache temporário é determinado por uma propriedade do gêmeo do módulo do hub do IoT Edge. O tamanho do cache não tem limite e aumentará até atingir toda a capacidade de armazenamento do dispositivo. 
+O hub do IoT Edge pode determinar se ele está conectado ao Hub IoT. Se a conexão for perdida, o hub do IoT Edge salvará mensagens ou as atualizações duplicadas localmente. Depois que uma conexão é restabelecida, ela sincroniza todos os dados. A localização usada para esse cache temporário é determinado por uma propriedade do gêmeo do módulo do hub do IoT Edge. O tamanho do cache não tem limite e aumentará até atingir toda a capacidade de armazenamento do dispositivo. 
 
 ### <a name="module-communication"></a>Comunicação do módulo
 
- O hub do IoT Edge facilita a comunicação de módulo para módulo. O uso do hub do IoT Edge como um agente de mensagem mantém os módulos independentes uns dos outros. Os módulos precisam apenas especificar as entradas nas quais eles aceitam mensagens e as saídas nas quais eles gravam mensagens. Um desenvolvedor de soluções junta essas entradas e saídas para que os módulos processem os dados na ordem específica para essa solução. 
+O hub do IoT Edge facilita a comunicação de módulo para módulo. O uso do hub do IoT Edge como um agente de mensagem mantém os módulos independentes uns dos outros. Os módulos precisam apenas especificar as entradas nas quais eles aceitam mensagens e as saídas nas quais eles gravam mensagens. Um desenvolvedor de soluções junta essas entradas e saídas para que os módulos processem os dados na ordem específica para essa solução. 
 
 ![O hub do IoT Edge facilita a comunicação de módulo para módulo](./media/iot-edge-runtime/module-endpoints.png)
 
@@ -94,9 +94,9 @@ Cada item no manifesto de implantação contém informações específicas sobre
 * **settings.createOptions**: uma cadeia de caracteres que é passada diretamente para o daemon do Docker ao iniciar o contêiner do módulo. A adição de opções de Docker a esta propriedade permite opções avançadas, como encaminhamento de porta ou montagem de volumes no contêiner do módulo.  
 * **status** – o estado no qual o agente do IoT Edge coloca o módulo. Geralmente, esse valor é definido como *executando*, já que a maioria das pessoas deseja que o agente do IoT Edge inicie imediatamente todos os módulos no dispositivo. No entanto, você pode especificar o estado inicial de um módulo para ser interrompido e aguardar para mandar o agente do IoT Edge iniciar um módulo. O agente do IoT Edge relata o status de cada módulo para a nuvem nas propriedades relatadas. Uma diferença entre a propriedade desejada e a propriedade relatada é um indicador de um dispositivo com comportamento inadequado. Os status com suporte são:
    * Baixando
-   * Executando
+   * Em execução
    * Não Íntegro
-   * Com falha
+   * Falhou
    * Parado
 * **restartPolicy** – como o agente do IoT Edge reinicia um módulo. Os valores possíveis incluem:
    * Nunca – o agente do IoT Edge nunca reinicia o módulo.

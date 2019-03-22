@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/10/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: f62e2d482ca6258821cb800d2650a5f0c6a27e7c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: HT
+ms.openlocfilehash: 3576a50cd1510a4da562981ff9ae98e12a357fc9
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762513"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316976"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Cenários e disponibilidade de recursos dos Serviços de Mídia em datacenters
 
@@ -28,7 +28,7 @@ O AMS opera em vários datacenters no mundo inteiro. Esses datacenters estão ag
 
 Este tópico mostra os cenários comuns de entrega de conteúdo [ao vivo](#live_scenarios) ou sob demanda. O tópico também fornece detalhes sobre a disponibilidade dos recursos de mídia e serviços nos datacenters.
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
@@ -174,10 +174,10 @@ Os clientes dos Serviços de Mídia podem escolher um ponto de extremidade de st
 
 #### <a name="availability"></a>Disponibilidade
 
-|NOME|Status|Datacenters
+|Nome|Status|Datacenters
 |---|---|---|
-|Standard|GA|Todos|
-|Premium|GA|Todos|
+|Padrão|GA|Todas|
+|Premium|GA|Todas|
 
 ### <a name="live-encoding"></a>Codificação ativa
 
@@ -193,8 +193,8 @@ A AMS oferece dois codificadores de sob demanda **Media Encoder Standard** e **F
 
 |Nome do processador de mídia|Status|Datacenters
 |---|---|---|
-|Media Encoder Standard|GA|Todos|
-|Fluxo de trabalho do Media Encoder Premium|GA|Todos, exceto China|
+|Codificador de Mídia Padrão|GA|Todas|
+|Media Encoder Premium Workflow|GA|Todos, exceto China|
 
 ### <a name="analytics-media-processors"></a>Processadores de mídia da Análise
 
@@ -204,15 +204,15 @@ A Análise de Mídia é uma coleção de componentes de fala e pesquisa visual q
 
 |Nome do processador de mídia|Status|Datacenters
 |---|---|---|
-|Detector de Rostos em Mídias do Azure|Visualização|Todos|
-|Azure Media Hyperlapse|Visualização|Todos|
-|Indexador de Mídia do Azure|GA|Todos|
-|Detector de Movimento em Mídias do Azure|Visualização|Todos|
-|OCR de Mídia do Azure|Visualização|Todos|
-|Azure Media Redactor|Visualização|Todos|
-|Azure Media Stabilizer|Visualização|Todos|
-|Miniaturas de Vídeo de Mídia do Azure|Visualização|Todos|
-|Azure Media Indexer 2|Visualização|Todos, exceto regiões da China e do Governo Federal|
+|Detector de Rostos em Mídias do Azure|Visualizar|Todas|
+|Azure Media Hyperlapse|Visualizar|Todas|
+|Indexador de Mídia do Azure|GA|Todas|
+|Detector de Movimento em Mídias do Azure|Visualizar|Todas|
+|OCR de Mídia do Azure|Visualizar|Todas|
+|Azure Media Redactor|Visualizar|Todas|
+|Azure Media Stabilizer|Visualizar|Todas|
+|Miniaturas de Vídeo de Mídia do Azure|Visualizar|Todas|
+|Azure Media Indexer 2|Visualizar|Todos, exceto regiões da China e do Governo Federal|
 
 ### <a name="protection"></a>Proteção
 
@@ -222,10 +222,10 @@ Os Serviços de Mídia do Microsoft Azure permitem proteger a mídia desde o mom
 
 |Criptografia|Status|Datacenters|
 |---|---|---| 
-|Armazenamento|GA|Todos|
-|Chaves AES-128|GA|Todos|
-|FairPlay|GA|Todos|
-|PlayReady|GA|Todos|
+|Armazenamento|GA|Todas|
+|Chaves AES-128|GA|Todas|
+|FairPlay|GA|Todas|
+|PlayReady|GA|Todas|
 |Widevine|GA|Todos, exceto Alemanha, Governo Federal e China.
 
 ### <a name="reserved-units-rus"></a>Unidades Reservadas (URs)
@@ -248,7 +248,7 @@ Para obter mais informações, consulte a seção sobre [dimensionamento](#scali
 
 |Nome do tipo de UR|Status|Datacenters
 |---|---|---|
-|S1|GA|Todos|
+|S1|GA|Todas|
 |S2|GA|Todos, exceto sul do Brasil e Índia Ocidental|
 |S3|GA|Todos, exceto Índia Ocidental|
 

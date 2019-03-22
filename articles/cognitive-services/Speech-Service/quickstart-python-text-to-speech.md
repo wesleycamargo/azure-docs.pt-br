@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 534473ccde52af69b6dad1e84ef77da326d29d5c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 087440b60e1d5fecc668849bc1350d66988b16b9
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57872546"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339068"
 ---
 # <a name="quickstart-convert-text-to-speech-using-python"></a>Início Rápido: converter texto em fala usando o Python
 
@@ -93,7 +93,7 @@ def get_token(self):
 
 Aqui você vai criar a solicitação e salvar a resposta de fala. Primeiro, você precisa definir `base_url` e `path`. Este exemplo supõe que você esteja usando o endpoint do West US. Se o seu recurso estiver registrado em uma região diferente, atualize o `base_url`. Para obter mais informações, consulte [regiões de serviços de fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
-Em seguida, você precisa adicionar cabeçalhos obrigatórios para a solicitação. Certifique-se de atualizar `User-Agent` com o nome do seu recurso (localizado no portal do Azure) e defina `X-Microsoft-OutputFormat` como sua saída de áudio preferida. Para obter uma lista completa dos formatos de saída, consulte [Saídas de áudio](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#audio-outputs).
+Em seguida, você precisa adicionar cabeçalhos obrigatórios para a solicitação. Certifique-se de atualizar `User-Agent` com o nome do seu recurso (localizado no portal do Azure) e defina `X-Microsoft-OutputFormat` como sua saída de áudio preferida. Para obter uma lista completa dos formatos de saída, consulte [Saídas de áudio](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
 Em seguida, construa o corpo da solicitação usando a Linguagem de marcação de síntese de Fala (SSML). Esta amostra define a estrutura e usa a entrada `tts` criada anteriormente.
 
@@ -166,6 +166,6 @@ Remova todas as informações confidenciais do código-fonte do seu aplicativo d
 
 ## <a name="see-also"></a>Consulte também
 
-* [Referência de API de texto em fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api)
+* [Referência de API de texto em fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
 * [Criar fontes de voz personalizada](how-to-customize-voice-font.md)
 * [Grave amostras de voz para criar uma voz personalizada](record-custom-voice-samples.md)

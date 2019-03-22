@@ -1,5 +1,5 @@
 ---
-title: Autenticação baseada em certificado do Azure Active Directory no iOS
+title: Autenticação baseada em certificado no iOS - Azure Active Directory
 description: Saiba mais sobre os cenários com suporte e os requisitos para configuração de autenticação baseada em certificado em soluções com dispositivos iOS
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 717eef0857d6db53462ef1b5eb4786962550d44b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: f7243249e7aabf588115ef74f838be8ca67a94c7
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188062"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309479"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Autenticação baseada em certificado do Azure Active Directory no iOS
 
@@ -35,16 +35,16 @@ Esse recurso está disponível na visualização em planos do governo federal e 
 
 | Aplicativos | Suporte |
 | --- | --- |
-| Aplicativo de Proteção de Informações do Azure |![Verificação][1] |
-| Portal da Empresa do Intune |![Verificação][1] |
-| Equipes da Microsoft |![Verificação][1] |
-| OneNote |![Verificação][1] |
-| OneDrive |![Verificação][1] |
-| Outlook |![Verificação][1] |
-| Power BI |![Verificação][1] |
-| Skype for Business |![Verificação][1] |
-| Word/Excel/PowerPoint |![Verificação][1] |
-| Yammer |![Verificação][1] |
+| Aplicativo de Proteção de Informações do Azure |![Verificar][1] |
+| Portal da Empresa do Intune |![Verificar][1] |
+| Microsoft Teams |![Verificar][1] |
+| OneNote |![Verificar][1] |
+| OneDrive |![Verificar][1] |
+| Outlook |![Verificar][1] |
+| Power BI |![Verificar][1] |
+| Skype for Business |![Verificar][1] |
+| Word/Excel/PowerPoint |![Verificar][1] |
+| Yammer |![Verificar][1] |
 
 ## <a name="requirements"></a>Requisitos
 

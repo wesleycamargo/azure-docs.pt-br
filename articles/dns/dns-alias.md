@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 2/20/2019
+ms.date: 3/21/2019
 ms.author: victorh
-ms.openlocfilehash: 1f6d6b2ae5fd3a0c08d37b93c73656ac6bb71d67
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 87ca7cae8e9170c8c437d0961cb1acb2e0dd0eb1
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295633"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337639"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Visão geral dos registros de alias do DNS do Azure
 
@@ -20,19 +20,19 @@ Os registros de alias do DNS do Azure são qualificações em um conjunto de reg
 
 Um conjunto de registros de alias é suportado para os seguintes tipos de registro em uma zona DNS do Azure: 
 
-- O  
-- AAAA 
-- CNAME 
+- A
+- AAAA
+- CNAME
 
 > [!NOTE]
 > Se você pretende usar um registro de alias para os tipos de registros A ou AAAA para apontar para um [perfil do Gerenciador de Tráfego do Azure](../traffic-manager/quickstart-create-traffic-manager-profile.md), verifique se o perfil do Gerenciador de Tráfego tem apenas [pontos de extremidade externos](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints). Você deve fornecer o endereço IPv4 ou IPv6 para pontos de extremidade externos no Gerenciador de Tráfego. O ideal é usar endereços IP estáticos.
 
-## <a name="capabilities"></a>Funcionalidades
+## <a name="capabilities"></a>Recursos
 
 - **Aponte para um recurso IP público de um conjunto de registros DNS A / AAAA.** Você pode criar um conjunto de registros A / AAAA e torná-lo um conjunto de registros de alias para apontar para um recurso IP público. O conjunto de registros de DNS é automático se o endereço IP público é alterado ou é excluído. Registros DNS pendentes que apontem para endereços IP incorretos são evitados.
 
 - **Aponte para um perfil do Gerenciador de Tráfego de um conjunto de registros DNS A / AAAA / CNAME.** Você pode criar um conjunto de registros CNAME ou A/AAAA e usar registros de alias para apontar para um perfil do Gerenciador de Tráfego. É especialmente útil quando você precisa rotear o tráfego no ápice da zona, uma vez que registros CNAME tradicionais não têm suporte para um ápice da zona. Por exemplo, digamos que seu perfil do Gerenciador de Tráfego seja myprofile.trafficmanager.net e sua zona DNS empresarial seja contoso.com. Você poderá criar um conjunto de registros de alias do tipo um/AAAA para contoso.com (apex da zona) e apontar para myprofile.trafficmanager.net.
-
+- **Aponte para um ponto de extremidade do Azure Content Delivery Network (CDN)**. Isso é útil quando você cria sites estático usando o armazenamento do Azure e CDN do Azure.
 - **Apontar para outro conjunto de registros DNS dentro da mesma zona.** Registros de alias podem referenciar outros conjuntos de registros do mesmo tipo. Por exemplo, um conjunto de registros DNS CNAME pode ser um alias para outro conjunto de registros CNAME. Essa organização é útil se você quiser que alguns conjuntos de registros sejam aliases e alguns não-aliases.
 
 ## <a name="scenarios"></a>Cenários
@@ -61,6 +61,7 @@ Esse problema pode ser resolvido usando os registros de alias. Ao contrário de 
 Por exemplo, contoso.com e www\.contoso.com pode apontar para o mesmo perfil do Gerenciador de tráfego. Para saber mais sobre como usar os registros de alias com perfis do Gerenciador de Tráfego do Azure, confira a seção Próximas etapas.
 
 ### <a name="point-zone-apex-to-azure-cdn-endpoints"></a>Aponte o apex de zona para pontos de extremidade da CDN do Azure
+
 Assim como um perfil do Gerenciador de tráfego, você também pode usar os registros de alias para apontar o ápice da zona DNS para pontos de extremidade da CDN do Azure. Isso é útil quando você cria sites estático usando o armazenamento do Azure e CDN do Azure. Em seguida, você pode acessar o site sem prefixação "www" para seu nome DNS.
 
 Por exemplo, se seu site estático chamado www.contoso.com, seus usuários podem acessar seu site usando contoso.com sem a necessidade de prefixar www ao nome DNS.

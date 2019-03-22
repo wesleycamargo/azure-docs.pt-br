@@ -12,12 +12,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 04/13/2018
 ms.author: cjiang
-ms.openlocfilehash: 1298e7d7ed9c3760ff5022b5b97e8444eb1bcad1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 72fbdbcfcd94dd41a67bb81314802dd7314ae463
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58007053"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316619"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Solução de problemas de falha de alocação quando você cria, reinicia ou redimensiona VMs no Azure
 
@@ -25,7 +25,7 @@ Quando você cria uma VM (máquina virtual), reinicia VMs paradas (desalocadas) 
 
 **Erro de código**: AllocationFailed ou ZonalAllocationFailed
 
-**Mensagem de erro**: “Falha na alocação. Não temos capacidade suficiente para o tamanho de VM solicitado nesta região. Leia mais sobre como melhorar a probabilidade de sucesso de alocação em `https://aka.ms/allocation-guidance`"
+**Mensagem de erro**: “Falha na alocação. Não temos capacidade suficiente para o tamanho de VM solicitado nesta região. Leia mais sobre a aumentar a probabilidade de êxito na alocação em https:\//aka.ms/allocation-guidance "
 
 Este artigo explica as causas de algumas das falhas de alocação mais comuns e sugere possíveis correções.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 197010271518347025157968012be31c71b3b667
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: c31f3ec503f22ab0d272ff96b85cf0f76a837d11
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121019"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316041"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Microsoft Azure Service Fabric para Visual Studio Code
 
@@ -59,7 +59,7 @@ Os pré-requisitos a seguir devem ser instalados para o desenvolvimento .NET Cor
 * [.NET Core](https://www.microsoft.com/net/learn/get-started) versão 2.0.0 ou posterior
 * [C# para extensão do Visual Studio Code (fornecido por OmniSharp) VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) necessários para depurar serviços de linguagem C#. Você pode instalar clicando no ícone de extensões na **Barra de Atividade** no Visual Studio Code e pesquisa para a extensão ou do Marketplace do Visual Studio Code.
 
-## <a name="setup"></a>Configuração
+## <a name="setup"></a>Instalação
 
 1. Abra o VS Code.
 2. Clique no ícone Extensões na **Barra de Atividades** no lado do Visual Studio Code. Pesquisar “Service Fabric”. Clique em **Instalar** para a extensão do Service Fabric Reliable Services.
@@ -67,14 +67,14 @@ Os pré-requisitos a seguir devem ser instalados para o desenvolvimento .NET Cor
 ## <a name="commands"></a>Comandos
 A extensão de serviços confiáveis do Service Fabric para VS Code fornece muitos comandos para ajudar os desenvolvedores a criar e implantar projetos do Service Fabric. Você pode chamar comandos da **paleta de comandos** pressionando `(Ctrl + Shift + p)`, digitando o nome do comando na barra de entrada e selecionando o comando desejado da lista de avisos. 
 
-* O Service Fabric: Criar um aplicativo 
+* O Service Fabric: Criar Aplicativo 
 * O Service Fabric: Publicar aplicativo 
 * O Service Fabric: Implantar aplicativo 
 * O Service Fabric: Remover Aplicativo  
 * O Service Fabric: Criar aplicativo 
 * O Service Fabric: Limpar aplicativo 
 
-### <a name="service-fabric-create-application"></a>O Service Fabric: Criar um aplicativo
+### <a name="service-fabric-create-application"></a>O Service Fabric: Criar Aplicativo
 
 O **do Service Fabric: Criar aplicativo** comando cria um novo aplicativo do Service Fabric no espaço de trabalho atual. Dependendo de quais geradores yeoman estão instalados no computador de desenvolvimento, você pode criar vários tipos de aplicativo do Microsoft Azure Service Fabric, incluindo projetos Java, C#, contêiner e convidado. 
 
@@ -107,7 +107,7 @@ O **do Service Fabric: Publicar aplicativo** comando implanta o aplicativo do Se
 O **do Service Fabric: Implantar aplicativo** comando implanta o aplicativo do Service Fabric no cluster local. Verifique se que o cluster local está em execução antes de usar o comando. 
 
 1. Selecione o **do Service Fabric: Implantar aplicativo** comando
-2. Exiba o cluster local com o Service Fabric Explorer (http://localhost:19080/Explorer) confirmar que o aplicativo foi instalado. Isso pode levar algum tempo, portanto seja paciente.
+2. Exibir o cluster local com o Service Fabric Explorer (http:\//localhost:19080 / Explorer) para confirmar que o aplicativo foi instalado. Isso pode levar algum tempo, portanto seja paciente.
 3. Você também pode usar **do Service Fabric: Publicar aplicativo** comando sem parâmetros definido no arquivo de Cloud para implantar um cluster local.
 
 > [!NOTE]

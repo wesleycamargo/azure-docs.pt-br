@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: d67d8462c177d19dfa3cebbd0b4b000fbe3f41b8
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.openlocfilehash: d687665a7f9b18d42dcd45953c15d2fbc6d71d2f
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57894934"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58335820"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST conversão de texto em fala
 
@@ -34,16 +34,22 @@ Antes de usar essa API, compreenda:
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
+## <a name="regions-and-endpoints"></a>Regiões e endpoints
+
+Essas regiões são suportadas para transcrição de fala para texto usando a API REST. Certifique-se de selecionar o terminal que corresponde à sua região de assinatura.
+
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
+
 ## <a name="request-headers"></a>Cabeçalhos de solicitação
 
 Esta tabela lista cabeçalhos obrigatórios e opcionais para solicitações de fala para texto.
 
 | Cabeçalho | Descrição | Obrigatório/Opcional |
 |--------|-------------|---------------------|
-| `Authorization` | Um token de autorização precedido pela palavra `Bearer`. Para obter mais informações, consulte [Autenticação](#authentication). | Obrigatório |
-| `Content-Type` | Especifica o tipo de conteúdo para o texto fornecido. Aceita o valor: `application/ssml+xml`. | Obrigatório |
-| `X-Microsoft-OutputFormat` | Especifica o formato de saída de áudio. Para obter uma lista completa dos valores aceitos, consulte [saídas de áudio](#audio-outputs). | Obrigatório |
-| `User-Agent` | O nome do aplicativo. O valor fornecido deve ser menor que 255 caracteres. | Obrigatório |
+| `Authorization` | Um token de autorização precedido pela palavra `Bearer`. Para obter mais informações, consulte [Autenticação](#authentication). | Necessário |
+| `Content-Type` | Especifica o tipo de conteúdo para o texto fornecido. Aceita o valor: `application/ssml+xml`. | Necessário |
+| `X-Microsoft-OutputFormat` | Especifica o formato de saída de áudio. Para obter uma lista completa dos valores aceitos, consulte [saídas de áudio](#audio-outputs). | Necessário |
+| `User-Agent` | O nome do aplicativo. O valor fornecido deve ser menor que 255 caracteres. | Necessário |
 
 ## <a name="audio-outputs"></a>Saídas de áudio
 
@@ -102,7 +108,7 @@ O código de status HTTP para cada resposta indica sucesso ou erros comuns.
 |------------------|-------------|-----------------|
 | 200 | OK | A solicitação foi bem-sucedida. O corpo da resposta é um arquivo de áudio. |
 | 400 | Solicitação Inválida | Um parâmetro obrigatório está ausente, vazio ou nulo. Ou então, o valor passado como um parâmetro obrigatório ou opcional é inválido. Um problema comum é um cabeçalho que é muito longo. |
-| 401 | Não autorizado | A solicitação não foi autorizada. Verifique se a chave de assinatura ou o token são válidos e se estão na região correta. |
+| 401 | Não Autorizado | A solicitação não foi autorizada. Verifique se a chave de assinatura ou o token são válidos e se estão na região correta. |
 | 413 | Entidade de solicitação muito grande | A entrada de SSML tem mais de 1024 caracteres. |
 | 429 | Muitas Solicitações | Você excedeu a cota ou a taxa de solicitações permitidas para a sua assinatura. |
 | 502 | Gateway Incorreto | Problema de rede ou do servidor. Também pode indicar cabeçalhos inválidos. |

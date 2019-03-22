@@ -1,5 +1,5 @@
 ---
-title: Versões e planos de consumo do Azure MFA | Microsoft Docs
+title: Versões MFA do Azure e planos de consumo - Azure Active Directory
 description: Informações sobre o cliente de autenticação multifator e os diferentes métodos e as versões disponíveis.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e68175471b24c48f23cc48cff9d0b47c937f588a
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
-ms.translationtype: HT
+ms.openlocfilehash: 765b9aff898cbea763d66a20db91b3390cc48bb4
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217182"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309993"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Como obter a Autenticação Multifator do Azure
 
@@ -30,7 +30,7 @@ Quando se trata de proteger suas contas, verificação em duas etapas deve ser p
 
 A tabela a seguir descreve as diferenças entre as três versões de autenticação multifator:
 
-| Versão | DESCRIÇÃO |
+| Versão | Descrição |
 | --- | --- |
 | Autenticação Multifator para Office 365 <br> Microsoft 365 Business |Esta versão funciona exclusivamente com os aplicativos do Office 365 e é gerenciada do portal do Office 365 ou do Microsoft 365. Os administradores podem [proteger recursos do Office 365 com a verificação de duas etapas](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). Essa versão é parte de uma assinatura do Office 365 ou do Microsoft 365 Business. |
 | Autenticação Multifator para Administradores do Azure AD | Os usuários atribuídos à função Administrador global do Azure AD nos locatários do Azure AD podem habilitar a verificação em duas etapas sem custo adicional.|
@@ -57,7 +57,7 @@ A tabela a seguir fornece uma lista dos recursos que estão disponíveis em vár
 | Controle do administrador sobre métodos de verificação |● |● |● |
 | Proteger contas que não são de administrador com MFA |● (Somente para aplicativos do Office 365) | |● |
 | Modo PIN | | |● |
-| Alerta de fraude | | |● |
+| Alertas de Fraude | | |● |
 | Relatórios de MFA | | |● |
 | Desvio único | | |● |
 | Saudações personalizadas para chamadas telefônicas | | |● |

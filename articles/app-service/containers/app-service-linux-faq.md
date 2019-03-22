@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
 ms.custom: seodec18
-ms.openlocfilehash: 4c2ed5fa65528a690d618e45c118d2433820ddc6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 223486ec2dc184e6bbe02e1f6862b9d79d773a2c
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57871486"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339527"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Perguntas frequentes sobre o Serviço de Aplicativo do Azure no Linux
 
@@ -42,10 +42,10 @@ Se você tiver qualquer dúvida, comente este artigo.
 | Pilha     | Valor Esperado                                                                |
 |-----------|-------------------------------------------------------------------------------|
 | Java SE   | um comando para iniciar seu `.jar` aplicativo                                    |
-| Tomcat    | o local de um script para executar qualquer configruations necessários para seu aplicativo |
-| Node.js   | o arquivo de configuração de PM2 ou o arquivo de script                                |          
+| Tomcat    | o local de um script para executar todas as configurações para seu aplicativo          |
+| Node.js   | o arquivo de configuração de PM2 ou o arquivo de script                                |
 | .NET Core | o nome da DLL compilada como `dotnet <myapp>.dll`                                 |
-| Ruby      | o script Ruby que você deseja inicializar o aplicativo                     
+| Ruby      | o script Ruby que você deseja inicializar o aplicativo                     |
 
 ## <a name="management"></a>Gerenciamento
 

@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, LADocs
 ms.topic: article
 ms.date: 01/13/2019
-ms.openlocfilehash: c5128e904e540deeb3293fb687da4e8cafcfa1e0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a933824e9553ee7f638da495b46ebed19e04169d
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57870987"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316959"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Conectar a sistemas de arquivos locais com os Aplicativos Lógicos do Azure
 
@@ -48,7 +48,7 @@ Para seguir o exemplo, você precisa destes itens:
 
 1. Entre no [portal do Azure](https://portal.azure.com) e abra seu aplicativo lógico no Designer de Aplicativo Lógico, se ele ainda não estiver aberto.
 
-1. Na caixa de pesquisa, insira "dropbox" como o seu filtro. Na lista de gatilhos, selecione este gatilho: **Quando um arquivo é criado** 
+1. Na caixa de pesquisa, insira "dropbox" como o seu filtro. Na lista de gatilhos, selecione este gatilho: **Quando um arquivo é criado**
 
    ![Selecionar o gatilho do Dropbox](media/logic-apps-using-file-connector/select-dropbox-trigger.png)
 
@@ -68,17 +68,17 @@ Para seguir o exemplo, você precisa destes itens:
 
    ![Criar conexão](media/logic-apps-using-file-connector/file-system-connection.png)
 
-   | Propriedade | Obrigatório | Value | DESCRIÇÃO | 
+   | Propriedade | Necessário | Value | Descrição | 
    | -------- | -------- | ----- | ----------- | 
    | **Nome da Conexão** | Sim | <*connection-name*> | O nome desejado para a conexão | 
    | **Pasta raiz** | Sim | <*root-folder-name*> | A pasta raiz do sistema de arquivos, por exemplo, se você tiver instalado seu gateway de dados local, como uma pasta local no computador em que o gateway de dados local está instalado ou a pasta de um compartilhamento de rede que o computador pode acessar. <p>Por exemplo: `\\PublicShare\\DropboxFiles` <p>A pasta raiz é a pasta pai principal, que é usada para caminhos relativos de todas as ações relacionadas ao arquivo. | 
-   | **Tipo de autenticação** | Não  | <*auth-type*> | O tipo de autenticação usado pelo seu sistema de arquivos, por exemplo, **Windows** | 
+   | **Tipo de autenticação** | Não | <*auth-type*> | O tipo de autenticação usado pelo seu sistema de arquivos, por exemplo, **Windows** | 
    | **Nome de Usuário** | Sim | <*domain*>\\<*username*> | O nome de usuário do computador no qual você tem seu sistema de arquivos | 
    | **Senha** | Sim | <*your-password*> | A senha do computador no qual você tem seu sistema de arquivos | 
    | **gateway** | Sim | <*installed-gateway-name*> | O nome do seu gateway instalado anteriormente | 
    ||| 
 
-1. Quando terminar, escolha **Criar**. 
+1. Quando terminar, escolha **Criar**.
 
    Os Aplicativos Lógicos configuram e testam a conexão, garantindo seu funcionamento correto. 
    Se a conexão estiver configurada de forma correta, você verá opções para a ação selecionada anteriormente. 
@@ -99,7 +99,7 @@ Para seguir o exemplo, você precisa destes itens:
 
 Para obter detalhes técnicos sobre gatilhos, ações e limites, que são explicados na descrição da OpenAPI do conector (anteriormente conhecido como Swagger), veja a [página de referência](/connectors/fileconnector/) do conector.
 
-## <a name="get-support"></a>Obtenha suporte
+## <a name="get-support"></a>Obter suporte
 
 * Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 

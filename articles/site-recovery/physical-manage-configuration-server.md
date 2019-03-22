@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
-ms.openlocfilehash: 11b1b46e29ac9a4147c4dc319753edd0fadce8bc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 338c4a97bced7d9e524f96fcd82f19e5230ff143
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58088903"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317333"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gerenciar servidor de configuração para recuperação de desastres do servidor físico
 
@@ -36,7 +36,7 @@ A tabela resume os pré-requisitos para implantação do computador do servidor 
 | Políticas de grupo| Não habilite estas políticas de grupo: <br> - Impedir o acesso ao prompt de comando <br> - Impedir o acesso às ferramentas de edição do registro <br> - Lógica de confiança para anexos de arquivo <br> - Ativar a execução do script <br> [Saiba mais](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
 | IIS | – Nenhum site da Web padrão já existente <br> - Habilitar [Autenticação anônima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Habilitar configuração [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)  <br> – Nenhum aplicativo/site da Web pré-existente escutando na porta 443<br>|
 | Tipo de NIC | VMXNET3 (quando implantado como uma VM VMware) |
-| Tipo de endereço IP | estático |
+| Tipo de endereço IP | Static |
 | Acesso à Internet | O servidor precisa de acesso a estas URLs: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://management.azure.com <br> - *.services.visualstudio.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi (não obrigatório para servidores de processo de expansão) <br> - time.nist.gov <br> - time.windows.com |
 | Portas | 443 (orquestração do canal de controle)<br>9443 (transporte de dados)|
 
@@ -58,7 +58,7 @@ A versão mais recente do arquivo de instalação do servidor de configuração 
 1. Execute o arquivo de instalação de Configuração Unificada.
 2. Em **Antes de começar**, selecione **Instalar o servidor de configuração e o servidor em processo**.
 
-    ![Antes de começar](./media/physical-manage-configuration-server/combined-wiz1.png)
+    ![Antes de iniciar](./media/physical-manage-configuration-server/combined-wiz1.png)
 
 3. Em **Licença de Software de Terceiros**, clique em **Aceito** para baixar e instalar o MySQL.
 4. Em **Configurações da Internet**, especifique como o Provedor em execução no servidor de configuração se conecta ao Azure Site Recovery pela Internet. Verifique se você permitiu as URLs necessárias.
@@ -104,23 +104,23 @@ Execute o arquivo de instalação da seguinte maneira:
   ```
 
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
-|Nome do Parâmetro| Type | DESCRIÇÃO| Valores|
+|Nome do Parâmetro| Digite | Descrição| Valores|
 |-|-|-|-|
-| /ServerMode|Obrigatório|Especifica se os servidores de configuração e de processo devem ser instalados ou somente o servidor de processo|CS<br>PS|
-|/InstallLocation|Obrigatório|A pasta na qual os componentes estão instalados| Qualquer pasta no computador|
-|/MySQLCredsFilePath|Obrigatório|O caminho do arquivo no qual as credenciais do servidor MySQL são armazenadas|O arquivo deve ser do formato especificado abaixo|
-|/VaultCredsFilePath|Obrigatório|O caminho do arquivo de credenciais do cofre|Caminho de arquivo válido|
-|/EnvType|Obrigatório|Tipo de ambiente que você deseja proteger |VMware<br>NonVMware|
-|/PSIP|Obrigatório|Endereço IP da NIC a ser usada para transferência de dados de replicação| Qualquer endereço IP válido|
-|/CSIP|Obrigatório|O endereço IP da NIC na qual o servidor de configuração está escutando| Qualquer endereço IP válido|
-|/PassphraseFilePath|Obrigatório|O caminho completo para o local do arquivo de senha|Caminho de arquivo válido|
+| /ServerMode|Necessário|Especifica se os servidores de configuração e de processo devem ser instalados ou somente o servidor de processo|CS<br>PS|
+|/InstallLocation|Necessário|A pasta na qual os componentes estão instalados| Qualquer pasta no computador|
+|/MySQLCredsFilePath|Necessário|O caminho do arquivo no qual as credenciais do servidor MySQL são armazenadas|O arquivo deve ser do formato especificado abaixo|
+|/VaultCredsFilePath|Necessário|O caminho do arquivo de credenciais do cofre|Caminho de arquivo válido|
+|/EnvType|Necessário|Tipo de ambiente que você deseja proteger |VMware<br>NonVMware|
+|/PSIP|Necessário|Endereço IP da NIC a ser usada para transferência de dados de replicação| Qualquer endereço IP válido|
+|/CSIP|Necessário|O endereço IP da NIC na qual o servidor de configuração está escutando| Qualquer endereço IP válido|
+|/PassphraseFilePath|Necessário|O caminho completo para o local do arquivo de senha|Caminho de arquivo válido|
 |/BypassProxy|Opcional|Especifica se o servidor de gerenciamento se conecta ao Azure sem um proxy|Para obter esse valor de Venu|
 |/ProxySettingsFilePath|Opcional|Configurações de proxy (o proxy padrão exige autenticação ou um proxy personalizado)|O arquivo deve estar no formato especificado abaixo|
 |DataTransferSecurePort|Opcional|O número da porta no PSIP a ser usada para dados de replicação| Número da porta válido (o valor padrão é 9433)|
 |/SkipSpaceCheck|Opcional|Ignorar verificação de espaço do disco de cache| |
-|/AcceptThirdpartyEULA|Obrigatório|Sinalizar implica na aceitação do EULA de terceiros| |
+|/AcceptThirdpartyEULA|Necessário|Sinalizar implica na aceitação do EULA de terceiros| |
 |/ShowThirdpartyEULA|Opcional|Exibe o EULA de terceiros. Se fornecido como entrada, todos os outros parâmetros serão ignorados| |
 
 
@@ -149,14 +149,14 @@ ProxyPassword="Password"
 Você pode modificar as configurações de proxy para o computador do servidor de configuração da seguinte maneira:
 
 1. Faça logon no servidor de configuração.
-2. Inicie o cspsconfigtool.exe usando o atalho.
+2. Inicie o cspsconfigtool.exe usando o atalho na sua área de trabalho.
 3. Clique na guia **Registro do Cofre**.
 4. Faça o download de um novo arquivo de registro do cofre no portal e forneça-o como entrada para a ferramenta.
 
    ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
 5. Forneça os detalhes do novo proxy e clique no botão **Registrar**.
 6. Abra uma janela de comando do PowerShell do Administrador.
-7. Execute o comando a seguir:
+7. Execute o seguinte comando:
 
    ```PowerShell
    $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
@@ -176,7 +176,7 @@ Você pode modificar as configurações de proxy para o computador do servidor d
       ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
 5. Forneça os detalhes do servidor Proxy e clique no **registrar** botão.  
 6. Abra uma janela de comando do PowerShell do Administrador.
-7. Execute o comando a seguir
+7. Executar o comando a seguir
 
     ```PowerShell
     $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
@@ -205,7 +205,7 @@ Você pode modificar as configurações de proxy para o computador do servidor d
 5. Faça o download de um novo arquivo de registro no portal e forneça-o como entrada para a ferramenta.
 6. Forneça os detalhes do servidor Proxy e clique no **registrar** botão.  
 7. Abra uma janela de comando do PowerShell do Administrador.
-8. Execute o comando a seguir
+8. Executar o comando a seguir
     ```powershell
     $pwd = ConvertTo-SecureString -String MyProxyUserPassword
     Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $pwd
@@ -215,7 +215,7 @@ Você pode modificar as configurações de proxy para o computador do servidor d
 
 ## <a name="upgrade-a-configuration-server"></a>Atualizar um servidor de configuração
 
-Você executa pacotes cumulativos de atualização para atualizar o servidor de configuração. As atualizações podem ser aplicadas até versões N-4. Por exemplo: 
+Você executa pacotes cumulativos de atualização para atualizar o servidor de configuração. As atualizações podem ser aplicadas até versões N-4. Por exemplo:
 
 - Se estiver executando 9.7, 9.8, 9.9 ou 9.10, você poderá atualizar diretamente para 9.11.
 - Se você estiver executando 9.6 ou anterior e você quiser atualizar para 9.11, você deverá primeiramente atualizar para a versão 9.7. antes de 9.11.

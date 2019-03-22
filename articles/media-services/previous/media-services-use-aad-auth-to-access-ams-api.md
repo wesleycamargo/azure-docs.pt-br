@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: fa13ffe450b60bd8c896636911268a98b49bbc0f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b6071bef4e4bbd9aaca3f587e5dfa584831d082e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104124"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316867"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Acessar a API dos Serviços de Mídia do Azure com a autenticação do Azure AD  
  
@@ -106,7 +106,7 @@ Para usar esse método, crie um aplicativo e uma entidade de serviço do Azure A
 
 Depois de criar o aplicativo do Azure AD, você obtém valores para as configurações a seguir. Você precisa destes valores para autenticação:
 
-- ID do cliente 
+- ID do Cliente 
 - Segredo do cliente 
 
 Na figura anterior, os números representam o fluxo das solicitações em ordem cronológica:
@@ -136,7 +136,7 @@ Para obter mais informações sobre como usar a autenticação do Azure AD para 
 
 Se você não estiver usando o SDK de cliente do .NET dos Serviços de Mídia, deverá criar manualmente uma solicitação de token do Azure AD usando os parâmetros descritos na etapa 1. Para obter mais informações, consulte [Como usar a Biblioteca de Autenticação do Azure AD para obter o token do Azure AD](../../active-directory/develop/active-directory-authentication-libraries.md).
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 Exceção: “O servidor remoto retornou um erro: (401) Não autorizado.”
 

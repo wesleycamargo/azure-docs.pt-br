@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 03/18/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 66490085e00318ed38730bef8c52b6f20af43ce5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5b664285ae7d8b5af6e64c2b7ba3d4c6bdadd656
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089209"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312658"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>Configurar a recuperação de desastre de VMs locais do Hyper-V em nuvens do VMM para o Azure
 
@@ -57,10 +57,10 @@ Ao configurar o ambiente de origem, você instala o provedor do Azure Site Recov
 1. Em **Preparar a infraestrutura**, clique em **Origem**.
 2. Em **Preparar origem**, clique em **+ VMM** para adicionar um servidor VMM. Em **Adicionar Servidor**, verifique se o **Servidor do System Center VMM** aparece em **Tipo de servidor**.
 3. Baixe o instalador do Provedor do Microsoft Azure Site Recovery.
-4. Baixe a chave do registro do cofre. Você precisará dela quando executar a instalação do Provedor. A chave é válida por cinco dias após ser gerada.
+4. Baixar a chave de registro do cofre. Você precisará dela quando executar a instalação do Provedor. A chave é válida por cinco dias após ser gerada.
 5. Baixe o agente dos Serviços de Recuperação.
 
-    ![Baixar](./media/hyper-v-vmm-azure-tutorial/download-vmm.png)
+    ![Download](./media/hyper-v-vmm-azure-tutorial/download-vmm.png)
 
 ### <a name="install-the-provider-on-the-vmm-server"></a>Instalar o Provedor no servidor VMM
 
@@ -117,7 +117,7 @@ A Recuperação de Site verifica se você tem uma ou mais contas de armazenament
     - **Criptografar dados armazenados no Azure** – a configuração padrão **Desativado** indica que dados em repouso no Azure não são criptografados.
 4. Depois que a política for criada, clique em **OK**. Quando você cria uma nova política, ela é automaticamente associada à nuvem do VMM.
 
-## <a name="enable-replication"></a>Habilitar a replicação
+## <a name="enable-replication"></a>Habilitar replicação
 
 1. Em **Replicar aplicativo**, clique em **Origem**. 
 2. Em **Origem**, selecione a nuvem do VMM. Em seguida, clique em **OK**.

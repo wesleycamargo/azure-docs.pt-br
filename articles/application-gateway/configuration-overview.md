@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: absha
-ms.openlocfilehash: 61b3a9e066a3ee20effa97f1c6c7a0bd1ae90ac0
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: HT
+ms.openlocfilehash: 18013050546cc5e204d9cc07a2f499388596164c
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285831"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319441"
 ---
 # <a name="application-gateway-configuration-overview"></a>Visão geral da configuração de Gateway de aplicativo
 
@@ -33,9 +33,9 @@ Gateway de aplicativo é uma implementação dedicada em sua rede virtual. Em su
 
 #### <a name="size-of-the-subnet"></a>Tamanho da sub-rede
 
-O Gateway de Aplicativo consome um endereço IP privado por instância, além de outro endereço IP privado se uma configuração de IP de front-end privado for configurada. Além disso, o Azure reservará os quatro primeiros e o último endereço IP em cada sub-rede para uso interno. Por exemplo, se um gateway de aplicativo é definido como três instâncias e nenhum IP privado de front-end, pelo menos oito endereços IP serão necessária na sub-rede - cinco endereços IP para uso interno e três endereços IP para as três instâncias do gateway de aplicativo. Portanto, nesse caso, uma/29 sub-rede tamanho ou maior for necessária. Se você tiver três instâncias e um endereço IP para a configuração de IP privado de front-end, nove endereços IP, será necessários - três endereços IP para as três instâncias do gateway de aplicativo, um endereço IP para IP privado de front-end e IP cinco endereços para uso interno. Portanto, nesse caso, uma de/28 é necessária a sub-rede de tamanho ou maior.
+O Gateway de Aplicativo consome um endereço IP privado por instância, além de outro endereço IP privado se uma configuração de IP de front-end privado for configurada. Além disso, o Azure reserva cinco endereços IP - os quatro primeiros e últimos endereços IP – em cada sub-rede para uso interno. Por exemplo, se um gateway de aplicativo é definido como 15 instâncias e nenhum IP privado de front-end, pelo menos 20 endereços IP serão necessária na sub-rede - cinco endereços IP para uso interno e 15 endereços IP para as 15 instâncias do gateway de aplicativo. Portanto, nesse caso, um/27 sub-rede tamanho ou maior for necessária. Se você tiver 27 instâncias e um endereço IP de front-end privado configuração de IP, endereços IP 33 será necessários - 27 endereços IP para as instâncias de 27 de gateway de aplicativo, um endereço IP para IP privado de front-end e IP cinco endereços para uso interno. Portanto, nesse caso, um /26 sub-rede tamanho ou maior for necessária.
 
-Como prática recomendada, use pelo menos uma de/28 tamanho da sub-rede. Isso lhe dá 11 endereços utilizáveis. Se sua carga de aplicativo exigir mais de 10 instâncias, você deve considerar um/27 ou/26 tamanho da sub-rede.
+É recomendável usar pelo menos uma de/28 tamanho da sub-rede. Isso lhe dá 11 endereços utilizáveis. Se sua carga de aplicativo exigir mais de 10 instâncias, você deve considerar um/27 ou/26 tamanho da sub-rede.
 
 #### <a name="network-security-groups-supported-on-the-application-gateway-subnet"></a>Grupos de segurança de rede com suporte na sub-rede do Gateway de aplicativo
 
@@ -220,7 +220,7 @@ O gateway de aplicativo roteia o tráfego para os servidores de back-end usando 
 
 Esse recurso é útil quando você deseja manter uma sessão de usuário no mesmo servidor. Usando cookies gerenciados pelo gateway, o gateway de aplicativo pode direcionar o tráfego seguinte de uma sessão de usuário para o mesmo servidor para processamento. Isso é importante em casos em que o estado de sessão é salvo localmente no servidor para uma sessão de usuário. Se o aplicativo não pode lidar com a afinidade de baseada em cookies, em seguida, você não poderá usar esse recurso. Para usar a afinidade de sessão baseada em cookies, você deve garantir que os clientes devem oferecer suporte a cookies. 
 
-### <a name="connection-draining"></a>Descarregamento de conexão
+### <a name="connection-draining"></a>Descarga de conexão
 
 O descarregamento de conexão ajuda você a efetuar a remoção normal de membros do pool de back-end durante atualizações de serviço planejadas. Essa configuração pode ser aplicada a todos os membros de um pool de back-end durante a criação da regra. Uma vez habilitada, o gateway de aplicativo garante que todas as instâncias de cancelar o registro de um pool de back-end não recebe novas solicitações, permitindo que solicitações existentes ser concluída dentro de um limite de tempo configurado. Isso se aplica a instâncias de back-end removidas explicitamente do pool de back-end por uma chamada à API e a instâncias de back-end relatadas como não íntegras, conforme determinado por investigações de integridade.
 
@@ -232,7 +232,7 @@ O gateway de aplicativo dá suporte a protocolos HTTP e HTTPS para rotear solici
 
 Essa é a porta que os servidores de back-end estão escutando o tráfego proveniente do Gateway de aplicativo. Você pode configurar as portas que variam de 1 a 65535.
 
-### <a name="request-timeout"></a>Tempo limite da solicitação
+### <a name="request-timeout"></a>Solicitar tempo limite
 
 O número de segundos que o gateway de aplicativo espera receber a resposta do pool de back-end antes de retornar um erro de "Conexão atingiu o tempo limite".
 

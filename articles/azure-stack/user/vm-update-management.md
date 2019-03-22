@@ -1,6 +1,6 @@
 ---
 title: VM atualização e gerenciamento com o Azure Stack | Microsoft Docs
-description: Saiba como usar as soluções de gerenciamento de atualizações, controle de alterações e inventário na automação do Azure para gerenciar o Windows e VMs do Linux que são implantados no Azure Stack.
+description: Saiba como usar o Azure Monitor para máquinas virtuais, gerenciamento de atualizações, controle de alterações e soluções de inventário na automação do Azure para gerenciar o Windows e VMs do Linux que são implantados no Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/20/2019
 ms.author: jeffgilb
 ms.reviewer: rtiberiu
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 4683b6f63af9fe0081911db9914f04b1c90f9d23
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.lastreviewed: 03/20/2019
+ms.openlocfilehash: cb8258c0f837d0e70ba87a26246f055b0efe5c00
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819438"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316136"
 ---
 # <a name="azure-stack-vm-update-and-management"></a>Atualização de VM de pilha e gerenciamento do Azure
 Você pode usar os seguintes recursos de solução de automação do Azure para gerenciar o Windows e VMs do Linux que são implantados usando o Azure Stack:
@@ -30,16 +30,18 @@ Você pode usar os seguintes recursos de solução de automação do Azure para 
 
 - **[O controle de alterações](https://docs.microsoft.com/azure/automation/automation-change-tracking)**. As alterações ao software instalado, serviços do Windows, do registro do Windows e arquivos e daemons do Linux nos servidores monitorados são enviadas para o serviço do Azure Monitor na nuvem para processamento. A lógica é aplicada aos dados recebidos e o serviço de nuvem registra os dados. Usando as informações no painel Controle de Alterações, você pode ver facilmente as alterações feitas à sua infraestrutura de servidor.
 
-- **[Estoque](https://docs.microsoft.com/azure/automation/automation-vm-inventory)**. O acompanhamento de inventário para uma máquina de virtual do Azure Stack fornece uma interface de usuário baseada em navegador para instalar e configurar a coleta de inventário. 
+- **[Estoque](https://docs.microsoft.com/azure/automation/automation-vm-inventory)**. O acompanhamento de inventário para uma máquina de virtual do Azure Stack fornece uma interface de usuário baseada em navegador para instalar e configurar a coleta de inventário.
+
+- **[O Azure Monitor para VMs](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview)**. O Azure Monitor para VMs monitora suas máquinas virtuais do Azure e o Azure Stack (VM) e conjuntos de dimensionamento de máquina virtual em grande escala. Ele analisa o desempenho e a integridade de suas VMs do Linux e Windows e monitora seus processos e dependências de outros recursos e processos externos. 
 
 > [!IMPORTANT]
-> Essas soluções são as mesmas que aquelas usadas para gerenciar VMs do Azure. Azure e máquinas virtuais do Azure Stack são gerenciados da mesma forma, usando a mesma interface, usando as mesmas ferramentas. As VMs do Azure Stack são também tem o mesmo preço VMs do Azure ao usar o gerenciamento de atualizações, controle de alterações e soluções de estoque com o Azure Stack.
+> Essas soluções são as mesmas que aquelas usadas para gerenciar VMs do Azure. Azure e máquinas virtuais do Azure Stack são gerenciados da mesma forma, usando a mesma interface, usando as mesmas ferramentas. As VMs do Azure Stack são também tem o mesmo preço VMs do Azure ao usar as soluções de gerenciamento de atualizações, controle de alterações, inventário e máquinas virtuais do Azure Monitor com o Azure Stack.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Vários pré-requisitos devem ser atendidos antes de usar esses recursos para atualizar e gerenciar VMs do Azure Stack. Isso inclui as etapas que devem ser executadas no portal do Azure, bem como o portal de administração do Azure Stack.
 
 ### <a name="in-the-azure-portal"></a>No portal do Azure
-Para usar o inventário, o controle de alterações e os recursos de automação do Azure de gerenciamento de atualização para VMs do Azure Stack, primeiro você precisa habilitar essas soluções no Azure.
+Para usar o Azure Monitor para máquinas virtuais, inventário, controle de alterações e recursos de automação do Azure de gerenciamento de atualização para VMs do Azure Stack, primeiro você precisa habilitar essas soluções no Azure.
 
 > [!TIP]
 > Se você já tiver esses recursos habilitados para VMs do Azure, você pode usar suas credenciais do espaço de trabalho LogAnalytics já existentes. Se você já tiver um LogAnalytics WorkspaceID e a chave primária que você deseja usar, pule para [a próxima seção](./vm-update-management.md#in-the-azure-stack-administration-portal). Caso contrário, prossiga nesta seção para criar uma nova conta de automação e espaço de trabalho LogAnalytics.
@@ -60,10 +62,28 @@ Em seguida, você deve [criar uma conta de automação](https://docs.microsoft.c
 
    [![](media/vm-update-management/1-sm.PNG "Habilitar recursos de conta de automação")](media/vm-update-management/1-lg.PNG#lightbox)
 
-### <a name="in-the-azure-stack-administration-portal"></a>No Portal de administração do Azure Stack
-Depois de habilitar as soluções de automação do Azure no portal do Azure, em seguida você precisa entrar no portal de administração do Azure Stack como um administrador de nuvem e baixe o **atualização do Azure e o gerenciamento de configuração** e o  **Atualização e gerenciamento de configuração para Linux do Azure** itens do marketplace extensão do Azure Stack. 
+### <a name="enable-azure-monitor-for-vms"></a>Habilitar o Azure Monitor para VMs
 
-   ![Azure atualização e configuração de gerenciamento extensão item do marketplace](media/vm-update-management/2.PNG) 
+O Azure Monitor para VMs monitora as VMs (máquinas virtuais) e os conjuntos de dimensionamento de máquinas virtuais do Azure em escala. Ele analisa o desempenho e a integridade de suas VMs do Linux e Windows e monitora seus processos e dependências de outros recursos e processos externos.
+
+Como solução, o Azure Monitor para VMs inclui suporte para monitorar o desempenho e as dependências de aplicativos das VMs hospedadas localmente ou em outro provedor de nuvem. Três principais recursos fornecem insights detalhados:
+
+1. Componentes lógicos de VMs do Azure que executam o Windows e Linux: São medidos em relação aos critérios de integridade pré-configurados e alertam quando a condição avaliada é atendida. 
+
+2. Gráficos de desempenho mais populares predefinidos: Exibem métricas básicas de desempenho no sistema operacional da VM convidada.
+
+3. Mapa de dependências: Exibe os componentes interconectados com a VM de vários grupos de recursos e assinaturas.
+
+Depois que o espaço de trabalho do Log Analytics é criado, você precisará habilitar os contadores de desempenho no espaço de trabalho para a coleção em VMs do Linux e Windows, bem como instalar e habilitar a solução do ServiceMap e InfrastructureInsights no espaço de trabalho. O processo é descrito na [implantar o Azure Monitor para VMs](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-onboard#deploy-azure-monitor-for-vms) guia.
+
+### <a name="in-the-azure-stack-administration-portal"></a>No Portal de administração do Azure Stack
+Depois de habilitar as soluções de automação do Azure no portal do Azure, em seguida você precisa entrar no portal de administração do Azure Stack como um administrador de nuvem e baixe o **Azure Monitor, atualização e gerenciamento de configuração** e o **Azure Monitor, atualização e gerenciamento de configuração para o Linux** itens do marketplace extensão do Azure Stack. 
+
+   ![Azure Monitor, atualização e configuração de gerenciamento extensão item do marketplace](media/vm-update-management/2.PNG) 
+
+Para habilitar o Azure Monitor para a solução do mapa de VMs e obtenha percepções sobre as dependências de rede, você precisará também baixar o **agente de dependência do Azure Monitor**:
+
+   ![Azure Monitor Dependency Agent](media/vm-update-management/2-dependency.PNG) 
 
 ## <a name="enable-update-management-for-azure-stack-virtual-machines"></a>Habilitar o gerenciamento de atualizações para máquinas virtuais do Azure Stack
 Siga estas etapas para habilitar o gerenciamento de atualizações para VMs do Azure Stack.
@@ -96,8 +116,28 @@ Depois que as VMs são verificadas, eles aparecerão na conta de automação do 
 
 As VMs do Azure Stack agora podem ser incluídas em implantações de atualização agendada junto com VMs do Azure.
 
+## <a name="enable-azure-monitor-for-vms-running-on-azure-stack"></a>Habilitar o Azure Monitor para VMs em execução no Azure Stack
+Depois que a VM tem o **Azure Monitor, atualização e gerenciamento de configuração** e o **agente de dependência do Azure Monitor** extensões instaladas, ele começará a reportar dados no [Azure Monitor para VMs](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview) solução. 
+
+> [!TIP]
+> O **agente de dependência do Azure Monitor** extensão não requer nenhum parâmetro. O Dependency Agent de Mapa do Azure Monitor para VMs não transmite dados por conta própria e não exige alterações em firewalls ou portas. Os dados do Mapa sempre são transmitidos pelo agente do Log Analytics para o serviço Azure Monitor, diretamente ou por meio do [Gateway do OMS](https://docs.microsoft.com/azure/azure-monitor/platform/gateway), caso as políticas de segurança de TI não permitam que os computadores na rede se conectem à Internet.
+
+O Monitor do Azure para VMs inclui um conjunto de gráficos de desempenho que segmentam vários KPIs (principais indicadores de desempenho) para ajudá-lo a determinar o desempenho de uma máquina virtual. Os gráficos mostram a utilização de recursos durante um período de tempo para que você possa identificar afunilamentos, anomalias ou alternar para uma perspectiva listando cada máquina para exibir a utilização de recursos com base na métrica selecionada. Embora haja vários elementos a serem considerados ao lidar com o desempenho, Monitor do Azure para VMs indicadores de desempenho de chave do sistema operacional de monitores relacionados ao processador, memória, adaptador de rede e utilização de disco. O desempenho complementa o recurso de monitoramento de integridade e ajuda a expor problemas que indicam uma possível falha do componente do sistema, suporte ao ajuste e otimização para obter eficiência ou suportar o planejamento da capacidade.
+
+   ![Guia do Monitor de desempenho do Azure](https://docs.microsoft.com/azure/azure-monitor/insights/media/vminsights-performance/vminsights-performance-aggview-01.png)
+
+Exibir os componentes de aplicativos descobertos em máquinas virtuais Windows e Linux, em execução no Azure Stack pode ser observado de duas maneiras com o Azure Monitor para VMs, de uma máquina virtual diretamente ou entre os grupos de VMs do Azure Monitor.
+O [usando o Azure Monitor para máquinas virtuais (versão prévia) são mapeados para entender os componentes do aplicativo](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-maps) artigo o ajudará a entender a experiência entre duas perspectivas e como usar o recurso de mapa.
+
+   ![Guia do Monitor de desempenho do Azure](https://docs.microsoft.com/azure/azure-monitor/insights/media/vminsights-maps/map-multivm-azure-monitor-01.png)
+
+
 ## <a name="enable-update-management-using-a-resource-manager-template"></a>Habilitar o gerenciamento de atualização usando um modelo do Resource Manager
 Se você tiver um grande número de VMs do Azure Stack, você pode usar [este modelo do Azure Resource Manager](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) para implantar mais facilmente a solução em máquinas virtuais. O modelo implanta a extensão Microsoft Monitoring Agent em uma VM de pilha do Azure existente e adiciona-o para um espaço de trabalho existente do Azure LogAnalytics.
  
 ## <a name="next-steps"></a>Próximas etapas
 [Otimizar o desempenho de VM do SQL Server](azure-stack-sql-server-vm-considerations.md)
+
+
+
+

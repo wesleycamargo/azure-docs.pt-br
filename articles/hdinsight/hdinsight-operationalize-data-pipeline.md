@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 175fdcc1bf8d28c0eeb6eeccaa54c996c837ef81
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
-ms.translationtype: HT
+ms.openlocfilehash: b5e7864eae56a6f066590191373d35cb57693f37
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744438"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311672"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Operacionalize um pipeline de análise de dados
 
@@ -150,7 +150,7 @@ Para usar o Console da Web do Oozie a fim de exibir o status de suas instâncias
 
 2. Verifique se o túnel está funcionando navegando até o Ambari em seu nó principal procurando:
 
-    http://headnodehost:8080
+    http:\//headnodehost:8080
 
 3. Para acessar o **Console da Web do Oozie** no Ambari, selecione **Oozie**, **Links Rápidos** e selecione **Console da Web do Oozie**.
 
@@ -176,7 +176,7 @@ Copie o arquivo usando o SCP em sua sessão de shell `bash`.
 
 Os dados de exemplo agora disponíveis. No entanto, o pipeline exige duas tabelas do Hive para o processamento, uma para os dados de entrada (`rawFlights`) e outra para os dados resumidos (`flights`). Crie essas tabelas no Ambari da seguinte maneira.
 
-1. Faça logon no Ambari navegando para [http://headnodehost:8080](http://headnodehost:8080).
+1. Faça logon no Ambari navegando para http:\//headnodehost:8080.
 2. Na lista de serviços, selecione **Hive**.
 
     ![Seleção de Hive no Ambari](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive.png)
@@ -426,7 +426,7 @@ A tabela a seguir resume cada uma das propriedades e indica onde você pode enco
 | hiveDataFolder | O caminho no Armazenamento do Azure até os dados contidos na tabela de preparo. |
 | sqlDatabaseConnectionString | A cadeia de conexão da sintaxe JDBC para o seu Banco de Dados SQL do Azure. |
 | sqlDatabaseTableName | O nome da tabela no Banco de Dados SQL do Azure na qual os resumos de linha são inseridos. Deixe como `dailyflights`. |
-| year | O componente ano do dia para o qual os resumos de voo são computados. Deixe como está. |
+| ano | O componente ano do dia para o qual os resumos de voo são computados. Deixe como está. |
 | month | O componente mês do dia para o qual os resumos de voo são computados. Deixe como está. |
 | dia | O componente dia do mês do dia para o qual os resumos de voo são computados. Deixe como está. |
 

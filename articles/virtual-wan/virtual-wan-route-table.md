@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
-ms.openlocfilehash: ac1384827ceede0f66fd08c6c08fa8e934b1ae42
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fc8dd6770efa1c057a56374ddc0094c2d88d2eb5
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58076149"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58335720"
 ---
 # <a name="create-a-virtual-hub-route-table-to-steer-traffic-to-a-network-virtual-appliance"></a>Criar uma tabela de rotas do Hub Virtual para conduzir o tráfego para uma solução de virtualização de rede
 
@@ -36,7 +36,7 @@ Neste artigo, você aprenderá a:
 
 Verifique se você atende aos seguintes critérios:
 
-1. Você tem uma NVA (Solução de Virtualização de Rede), que é um software de terceiros de sua escolha, que normalmente é provisionado no Azure Marketplace (Link) em uma rede virtual.
+1. Você tem um dispositivo Virtual de rede (NVA). Isso é um software de terceiros de sua escolha que normalmente é provisionado no Azure Marketplace em uma rede virtual.
 2. Você tem um IP privado atribuído ao adaptador de rede da NVA. 
 3. A NVA não pode ser implantada no hub virtual. Ela deve ser implantada em uma VNet separada. Neste artigo, a VNet NVA é chamada de 'VNet DMZ'.
 4. A “VNet DMZ” pode ter uma ou várias redes virtuais conectadas a ela. Neste artigo, essa VNet é chamada de “VNet de spoke indireto”. Essas VNets podem ser conectadas à rede VNets DMZ usando o emparelhamento VNet.
@@ -65,7 +65,7 @@ Certifique-se de instalar a versão mais recente dos cmdlets do PowerShell do Re
 
 ## <a name="rg"></a>2. Criar recursos
 
-1. Crie um grupos de recursos.
+1. Crie um grupo de recursos.
 
    ```powershell
    New-AzResourceGroup -Location "West US" -Name "testRG"
@@ -117,14 +117,6 @@ Confirme as alterações no hub virtual.
 
 ```powershell
 Update-AzVirtualHub -VirtualWanId $virtualWan.Id -ResourceGroupName "testRG" -Name "westushub" -RouteTable $routeTable
-```
-
-## <a name="cleanup"></a>Limpar recursos
-
-Quando você não precisa mais desses recursos, você pode usar [AzResourceGroup remover](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos que ele contém. Substitua "myResourceGroup" pelo nome do grupo de recursos e execute o seguinte comando do PowerShell:
-
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

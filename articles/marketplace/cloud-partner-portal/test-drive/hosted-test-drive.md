@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 1ab9fcd50ad7081f8047d62e545287fa75db75e4
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: HT
+ms.openlocfilehash: 5057c0c781cb9ec60ecde7dd3f4bf96089b902df
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57457581"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312675"
 ---
 # <a name="hosted-test-drive"></a>Test drive hospedado
 
@@ -48,12 +48,12 @@ Forneça os seguintes campos na seção \'Configurações Técnicas\':
 - **Tipo de teste de unidade**: Escolha \'Microsoft Hosted (exemplo do Dynamics 365 for Customer Engagement)' opção. Isso indica que a Microsoft hospedará e manterá o serviço que executa o provisionamento e o desprovisionamento de usuários do test drive.
 - **Simultânea máxima Test Drives**: Defina esse campo como o número de usuários simultâneos que podem ter uma unidade de teste ativa em qualquer determinado momento. Cada usuário consumirá uma licença do Dynamics enquanto seu test drive estiver ativo, portanto, verifique se você tem pelo menos esse número de licenças do Dynamics disponíveis para usuários do test drive. O valor recomendado é de 3 a 5.
 - **Teste de unidade de duração (horas)**: Defina esse campo como o número de horas que os usuários do para que Test Drive ficará ativo. Depois desse número de horas, o usuário será desprovisionado do locatário. O valor recomendado é de 2 a 24 horas, dependendo da complexidade do aplicativo. O usuário sempre poderá solicitar outro test drive quando atingir o tempo limite e desejar acessar o test drive novamente.
-- **URL da instância**: Forneça uma URL que o usuário de teste de unidade será inicialmente para onde navegar quando os usuários iniciarem o Test Drive. Normalmente, essa é a URL da instância do Dynamics 365 que contém o aplicativo e os dados de exemplo instalados. Valor de exemplo:https://testdrive.crm.dynamics.com
+- **URL da instância**: Forneça uma URL que o usuário de teste de unidade será inicialmente para onde navegar quando os usuários iniciarem o Test Drive. Normalmente, essa é a URL da instância do Dynamics 365 que contém o aplicativo e os dados de exemplo instalados. Valor de exemplo: https:\//testdrive.crm.dynamics.com
 - **ID de locatário do Azure AD**: Forneça a ID do locatário do Azure para sua instância do Dynamics 365. Para recuperar esse valor, faça logon no portal do Azure e navegue até o \'Azure Active Directory\' -\> Selecione Propriedades na folha de menu −\> Copiar a ID do Diretório. Valor de exemplo: 72f988bf-86f1-41af-91ab-2d7cd0111234
 - **A ID de aplicativo do Azure AD**: ID do aplicativo do Azure AD criado na etapa 7. \ valor de exemplo: 53852862-a2ae-4e43-9461-faa49650a096
 - **Chave de aplicativo do Azure AD**: Secreta para o aplicativo do AD do Azure criado na etapa 7. \ valor de exemplo: IJUgaIOfq9b9LbUjeQmzNBW4VGn6grr1l/n3aMrnfdk=
 - **Nome do locatário do Azure AD**: Forneça o nome do locatário do Azure para sua instância do Dynamics 365. Use o formato \<tenantname.\>onmicrosoft.com. Valor de exemplo: testdrive.onmicrosoft.com
-- **URL da API da Web da instância**: Forneça a URL da API da Web para sua instância do Dynamics 365. Você pode recuperar esse valor ao fazer logon na instância do Microsoft Dynamics 365 e navegar para Configuração –\> Personalização –\> Recursos para Desenvolvedores –\> API Web da Instância (copie esta URL). Valor de exemplo: https://testdrive.crm.dynamics.com/api/data/v9.0 
+- **URL da API da Web da instância**: Forneça a URL da API da Web para sua instância do Dynamics 365. Você pode recuperar esse valor ao fazer logon na instância do Microsoft Dynamics 365 e navegar para Configuração –\> Personalização –\> Recursos para Desenvolvedores –\> API Web da Instância (copie esta URL). Valor de exemplo: https:\//testdrive.crm.dynamics.com/api/data/v9.0 
 - **Nome da função**: Forneça o nome da função de segurança de Dynamics 365 personalizado criado para o teste de unidade. Essa é a função que será atribuída aos usuários durante o test drive. Valor de exemplo: testdriverole
 
 ## <a name="next-steps"></a>Próximas etapas

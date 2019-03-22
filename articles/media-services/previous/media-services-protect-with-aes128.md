@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 9b8ae86a5c13573fbe80c8f06d5ce97c72d8e341
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
-ms.translationtype: HT
+ms.openlocfilehash: 7ff2e89c116ee74665c0e3a74505476972af5d9c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58257663"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317146"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Use a criptografia dinâmica AES-128 e o serviço de distrbuição de chaves
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.locfileid: "58257663"
 > Para obter a versão mais recente do SDK do Java e começar a desenvolver com Java, confira [Introdução ao SDK de cliente Java para os Serviços de Mídia do Azure](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
 > Para baixar o SDK mais recente do PHP para os Serviços de Mídia, procure a versão 0.5.7 do pacote do Microsoft/WindowsAzure no [Repositório do Packagist](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 > [!NOTE]
 > Para obter informações sobre como criptografar conteúdo com a criptografia AES para entrega para o Safari no macOS, consulte [esta postagem no blog](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
 > Para ter uma visão geral de como proteger seu conteúdo de mídia com a criptografia AES, consulte [este vídeo](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-Protecting-your-Media-Content-with-AES-Encryption).
@@ -164,7 +164,7 @@ O cliente precisa extrair o valor da URL (que também contém a ID da chave de c
 
 No caso de HLS, o manifesto raiz é dividido em arquivos de segmento. 
 
-Por exemplo, o manifesto de raiz é: http://test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/manifest(format=m3u8-aapl). Ele contém uma lista de nomes de arquivo de segmento.
+Por exemplo, o manifesto raiz é: http:\//test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/manifest(format=m3u8-aapl). Ele contém uma lista de nomes de arquivo de segmento.
 
     . . . 
     #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=630133,RESOLUTION=424x240,CODECS="avc1.4d4015,mp4a.40.2",AUDIO="audio"
@@ -173,7 +173,7 @@ Por exemplo, o manifesto de raiz é: http://test001.origin.mediaservices.windows
     QualityLevels(842459)/Manifest(video,format=m3u8-aapl)
     …
 
-Se você abrir um dos arquivos de segmento em um editor de texto (por exemplo, http://test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/QualityLevels(514369)/Manifest(video,format=m3u8-aapl), ele contém #EXT-X-KEY, que indica que o arquivo está criptografado.
+Se você abre um dos arquivos de segmento em um editor de texto (por exemplo, http:\//test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/QualityLevels(514369)/Manifest(video,format=m3u8-aapl), ele contém #EXT-X-KEY, que indica que o arquivo está criptografado.
 
     #EXTM3U
     #EXT-X-VERSION:4

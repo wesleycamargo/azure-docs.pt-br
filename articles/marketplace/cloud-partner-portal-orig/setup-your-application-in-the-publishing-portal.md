@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 58be8a222f649abe4be6de272a1ef2b686336262
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8ac0fbb1c62e4162e1c4ad040365a16d055e4552
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57847120"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310010"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>Configurar seu aplicativo no Portal de Publicação
 
@@ -53,13 +53,13 @@ O formulário de configurações da oferta é um formulário básico para especi
 
 Esse é um identificador exclusivo para a oferta em um perfil de fornecedor. Essa ID estará visível em URLs do produto. Ele só pode ser composto de caracteres alfanuméricos minúsculos ou traços (-). A ID não pode terminar com um traço e pode ter um máximo de 50 caracteres. Esse campo é bloqueado quando uma oferta é ativada.
 
-Por exemplo, se um editor **"contoso"** criar uma oferta com a ID de oferta **"sample-WebApp"**, ela será exibida no AppSource como "https://appsource.microsoft.com/marketplace/apps/contoso.sample-WebApp?tab=Overview"
+Por exemplo, se um publicador **"contoso"** Publicadores cria uma oferta com a ID de oferta **"exemplo de WebApp"**, ele será exibido no AppSource como "https:\//appsource.microsoft.com/marketplace/apps/contoso.sample-WebApp?tab=Overview"
 
 ### <a name="publisher-id"></a>ID do fornecedor
 
 Este menu suspenso permite que você escolha o perfil de fornecedor em que deseja publicar essa oferta. Esse campo é bloqueado quando uma oferta é ativada.
 
-### <a name="name"></a>NOME
+### <a name="name"></a>Nome
 
 Nome de exibição da oferta. Esse é o nome que será exibido no [AppSource](https://appsource.microsoft.com/). Ele pode ter um máximo de 50 caracteres.
 
@@ -90,7 +90,7 @@ Aqui está uma explicação para esses campos:
 
 Nesta seção, selecione para quais regiões do CRM seu pacote será disponibilizado. Para obter informações sobre quais regiões atendem quais países, confira o link: [https://o365datacentermap.azurewebsites.net/](https://o365datacentermap.azurewebsites.net/)
 
-Observação: implantar para "Soberana e nuvem US Gov" da Alemanha REQUER PERMISSÃO ESPECIAL e VALIDAÇÃO DURANTE A CERTIFICAÇÃO
+Note: implantar para "Soberana e nuvem US Gov" da Alemanha REQUER PERMISSÃO ESPECIAL e VALIDAÇÃO DURANTE A CERTIFICAÇÃO
 
 ## <a name="storefront-details"></a>Detalhes da vitrine
 
@@ -102,7 +102,7 @@ Este é um resumo da proposta de valor da sua oferta. Ele será exibido na pági
 
 Esta é a descrição que será exibida na página de detalhes de seu aplicativo. Máximo permitido é de 1300 caracteres
 
-### <a name="industries"></a>Indústrias
+### <a name="industries"></a>Setores
 
 Selecione o setor ao qual seu aplicativo está mais alinhado. Se o aplicativo for relacionado a vários setores, você poderá deixar isso em branco.
 
@@ -156,7 +156,7 @@ Isso será exibido na página de pesquisa do aplicativo. **Somente o formato .pn
 
 Isso será exibido na página de detalhes do aplicativo. **Somente o formato .png é permitido.** Carregar uma imagem png com resolução de 216PX\*216PX
 
-### <a name="videos"></a>vídeos
+### <a name="videos"></a>Vídeos
 
 Você pode carregar no máximo quatro vídeos. Para cada vídeo que você deseja fazer upload, você precisa preencher o nome do vídeo, a URL (somente YouTube ou Vimeo) e a miniatura para associar ao vídeo. A miniatura deve estar no formato png e deve ter tamanho de 1.280 \* 720 px. Para adicionar novos vídeos, clique no sinal de mais. Miniaturas de vídeo aparecerão na página de detalhes do aplicativo.
 
@@ -193,4 +193,4 @@ Selecione um sistema CRM onde você lidera será armazenado. Selecione "Tabela d
 
 ## <a name="storefront-details"></a>Detalhes da vitrine
 
-Os detalhes de contato são usados apenas para comunicação interna entre o parceiro e Microsoft. Observação: nesses campos, é importante usar um endereço de email monitorado. Usaremos esse email para comunicarmos a você seu progresso na publicação no AppSource. Somente a URL de suporte estará disponível para os clientes.
+Os detalhes de contato são usados apenas para comunicação interna entre o parceiro e Microsoft. Note: nesses campos, é importante usar um endereço de email monitorado. Usaremos esse email para comunicarmos a você seu progresso na publicação no AppSource. Somente a URL de suporte estará disponível para os clientes.

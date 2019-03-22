@@ -1,5 +1,5 @@
 ---
-title: Autenticação baseada em certificado do Azure Active Directory no Android
+title: Autenticação baseada em certificado no Android - Azure Active Directory
 description: Saiba mais sobre os cenários com suporte e os requisitos para configuração de autenticação baseada em certificado em soluções com dispositivos Android
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2492fe3074b72df5f9ecbaab0496fee1f54ca0e2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b0f4a648227e62642bb071a76cbd1f3a50bf78ae
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211556"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314495"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Autenticação baseada em certificado do Azure Active Directory no Android
 
@@ -35,16 +35,16 @@ Esse recurso está disponível na visualização em planos do governo federal e 
 
 | Aplicativos | Suporte |
 | --- | --- |
-| Aplicativo de Proteção de Informações do Azure |![Verificação][1] |
-| Portal da Empresa do Intune |![Verificação][1] |
-| Equipes da Microsoft |![Verificação][1] |
-| OneNote |![Verificação][1] |
-| OneDrive |![Verificação][1] |
-| Outlook |![Verificação][1] |
-| Power BI |![Verificação][1] |
-| Skype for Business |![Verificação][1] |
-| Word/Excel/PowerPoint |![Verificação][1] |
-| Yammer |![Verificação][1] |
+| Aplicativo de Proteção de Informações do Azure |![Verificar][1] |
+| Portal da Empresa do Intune |![Verificar][1] |
+| Microsoft Teams |![Verificar][1] |
+| OneNote |![Verificar][1] |
+| OneDrive |![Verificar][1] |
+| Outlook |![Verificar][1] |
+| Power BI |![Verificar][1] |
+| Skype for Business |![Verificar][1] |
+| Word/Excel/PowerPoint |![Verificar][1] |
+| Yammer |![Verificar][1] |
 
 ### <a name="implementation-requirements"></a>Requisitos de implementação
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 51d0c7ade46143ecbf6fe46bc54e5d383d50b382
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3314ad4558fdd55429a5a68326dd46b5920d7daa
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58173069"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316228"
 ---
 # <a name="deliver-content-to-customers"></a>Distribuir conteúdo aos clientes
 Quando você estiver distribuindo conteúdo de streaming ou vídeo sob demanda aos clientes, sua meta será distribuir vídeo de alta qualidade a vários dispositivos sob diferentes condições de rede.
@@ -92,22 +92,22 @@ Você só poderá transmitir por SSL se o ponto de extremidade de streaming do q
 ### <a name="mpeg-dash-format"></a>Formato MPEG-DASH
 {nome do ponto de extremidade de streaming - nome de conta dos serviços de mídia}.streaming.mediaservices.windows.net/{ID do localizador}/{nome do arquivo}.ism/Manifest(format=mpd-time-csf)
 
-http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf)
+http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf)
 
 ### <a name="apple-http-live-streaming-hls-v4-format"></a>Formato Apple HTTP Live Streaming (HLS) V4
 {nome do ponto de extremidade de streaming - nome de conta dos serviços de mídia}.streaming.mediaservices.windows.net/{ID do localizador}/{nome do arquivo}.ism/Manifest(format=m3u8-aapl)
 
-http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl)
+http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl)
 
 ### <a name="apple-http-live-streaming-hls-v3-format"></a>Formato Apple HTTP Live Streaming (HLS) V3
 {nome do ponto de extremidade de streaming - nome de conta dos serviços de mídia}.streaming.mediaservices.windows.net/{ID do localizador}/{nome do arquivo}.ism/Manifest(format=m3u8-aapl-v3)
 
-http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
+http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
 
 ### <a name="apple-http-live-streaming-hls-format-with-audio-only-filter"></a>Formato HLS (Apple HTTP Live Streaming) com filtro somente áudio
 Por padrão, faixas somente áudio são incluídas no manifesto do HLS. Isso é necessário na certificação da Apple Store para redes de celular. Nesse caso, se um cliente não tiver largura de banda suficiente ou estiver conectado por uma conexão 2G, a reprodução será alternada para somente áudio. Isso ajuda a manter o streaming do conteúdo sem buffer, mas sem vídeo. Em alguns cenários, o buffer do player pode ser preferível a somente áudio. Se desejar remover a faixa somente áudio, adicione **audio-only=false** à URL.
 
-http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,audio-only=false)
+http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,audio-only=false)
 
 Para saber mais, confira [Dynamic Manifest Composition support and HLS output additional features (Suporte à Composição de Manifesto Dinâmico e recursos adicionais da saída de HLS)](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 
@@ -116,14 +116,14 @@ Para saber mais, confira [Dynamic Manifest Composition support and HLS output ad
 
 Exemplo:
 
-http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest
+http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest
 
 ### <a id="fmp4_v20"></a>Manifesto do Smooth Streaming 2.0 (manifesto herdado)
 Por padrão, o formato de manifesto do Smooth Streaming contém a marca de repetição (r-tag). No entanto, alguns jogadores não dão suporte à r-tag. Os clientes com esses players podem usar um formato que desabilita a r-tag:
 
 {nome do ponto de extremidade de streaming - nome de conta dos serviços de mídia}.streaming.mediaservices.windows.net/{ID do localizador}/{nome do arquivo}.ism/Manifest(format=fmp4-v20)
 
-    http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=fmp4-v20)
+    http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=fmp4-v20)
 
 ## <a name="progressive-download"></a>Download progressivo
 Com o download progressivo, é possível iniciar a reprodução da mídia antes de o arquivo inteiro ter sido baixado. Você não pode baixar progressivamente arquivos .ism* (ismv, isma, ismt ou ismc).
@@ -134,7 +134,7 @@ Para baixar conteúdo progressivamente, use o tipo de localizador OnDemandOrigin
 
 É necessário descriptografar qualquer ativo criptografado por armazenamento que você queira transmitir do serviço de origem para download progressivo.
 
-## <a name="download"></a>Baixar
+## <a name="download"></a>Download
 Para baixar o conteúdo em um dispositivo de cliente, você deve criar um localizador SAS. O localizador SAS dá acesso ao contêiner do Armazenamento do Azure em que o arquivo está localizado. Para criar a URL de download, você deve inserir o nome do arquivo entre o host e a assinatura SAS.
 
 O seguinte exemplo mostra a URL que se baseia no localizador SAS:
@@ -155,7 +155,7 @@ Um ponto de extremidade de streaming representa um serviço de streaming que pod
 
 ## <a name="known-issues"></a>Problemas conhecidos
 ### <a name="changes-to-smooth-streaming-manifest-version"></a>Alterações na versão do manifesto do Smooth Streaming
-Antes da liberação do serviço em julho de 2016 — quando ativos produzidos pelo Codificador de Mídia Padrão, Fluxo de Trabalho Premium de Codificação de Mídia ou o antigo Codificador de Mídia do Azure eram transmitidos usando o empacotamento dinâmico — o manifesto Smooth Streaming retornado seria conforme à versão 2.0. Na versão 2.0, as durações de fragmento não usam as chamadas marcações de repetição ('r'). Por exemplo: 
+Antes da liberação do serviço em julho de 2016 — quando ativos produzidos pelo Codificador de Mídia Padrão, Fluxo de Trabalho Premium de Codificação de Mídia ou o antigo Codificador de Mídia do Azure eram transmitidos usando o empacotamento dinâmico — o manifesto Smooth Streaming retornado seria conforme à versão 2.0. Na versão 2.0, as durações de fragmento não usam as chamadas marcações de repetição ('r'). Por exemplo:
 
 <?xml version="1.0" encoding="UTF-8"?>
     <SmoothStreamingMedia MajorVersion="2" MinorVersion="0" Duration="8000" TimeScale="1000">
@@ -168,7 +168,7 @@ Antes da liberação do serviço em julho de 2016 — quando ativos produzidos p
         </StreamIndex>
     </SmoothStreamingMedia>
 
-Na liberação do serviço de julho de 2016, o manifesto do Smooth Streaming gerado está em conformidade com a versão 2.2, com durações de fragmentos que usam marcações de repetição. Por exemplo: 
+Na liberação do serviço de julho de 2016, o manifesto do Smooth Streaming gerado está em conformidade com a versão 2.2, com durações de fragmentos que usam marcações de repetição. Por exemplo:
 
     <?xml version="1.0" encoding="UTF-8"?>
     <SmoothStreamingMedia MajorVersion="2" MinorVersion="2" Duration="8000" TimeScale="1000">

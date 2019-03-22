@@ -1,5 +1,5 @@
 ---
-title: Introdução ao Servidor de Autenticação Multifator do Azure | Microsoft Docs
+title: Introdução ao servidor de autenticação multifator do Azure - Active Directory do Azure
 description: Introdução passo a passo do servidor Azure MFA no local
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1cf1d5bb87eea8054d2797634756d1b6c38464d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 260da2d58ab6e3342fe372bd51e4877d83b26bfd
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58075962"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313049"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Introdução ao Servidor de Autenticação Multifator do Azure
 
@@ -48,7 +48,7 @@ Quando um servidor MFA do Azure mestre fica offline, os servidores subordinados 
 
 Verifique se o servidor que você está usando para a Autenticação Multifator do Azure atende aos seguintes requisitos:
 
-| Requisitos do Servidor de Autenticação Multifator do Azure | DESCRIÇÃO |
+| Requisitos do Servidor de Autenticação Multifator do Azure | Descrição |
 |:--- |:--- |
 | Hardware |<li>200 MB de espaço em disco rígido</li><li>processador compatível com x32 ou x64</li><li>1 GB ou mais de RAM</li> |
 | Software |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008 R2</li><li>Windows Server 2008 SP1, SP2</li><li>Windows Server 2003 R2</li><li>Windows Server 2003 SP1, SP2</li><li>Windows 10</li><li>Windows 8.1, todas as edições</li><li>Windows 8, todas as edições</li><li>Windows 7, todas as edições</li><li>Windows Vista, todas as edições, SP1, SP2</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 ou superior se estiver instalando o portal do usuário ou o SDK do serviço Web</li> |
@@ -74,7 +74,7 @@ Cada servidor MFA deve ser capaz de se comunicar na porta 443 de saída para os 
 
 Se os firewalls de saída forem restritos na porta 443, abra os seguintes intervalos de endereços IP:
 
-| Subrede de IP | Máscara de rede | Intervalo IP |
+| Subrede de IP | Máscara de rede | Intervalo de IPs |
 |:---: |:---: |:---: |
 | 134.170.116.0/25 |255.255.255.128 |134.170.116.1 – 134.170.116.126 |
 | 134.170.165.0/25 |255.255.255.128 |134.170.165.1 – 134.170.165.126 |
@@ -97,7 +97,7 @@ Siga estas etapas para baixar o Servidor de Autenticação Multifator do Azure d
 3. Selecione **Configurações do servidor**.
 4. Selecione **Baixar** e siga as instruções na página de downloads para salvar o instalador. 
 
-   ![Baixar o Servidor MFA](./media/howto-mfaserver-deploy/downloadportal.png)
+   ![Baixar Servidor do MFA](./media/howto-mfaserver-deploy/downloadportal.png)
 
 5. Mantenha essa página aberta, pois vamos referenciá-la depois de executar o instalador.
 

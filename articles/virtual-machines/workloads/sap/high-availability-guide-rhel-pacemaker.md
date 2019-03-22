@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: 791c63b7b7fed55f95905ba7131d6a1d4bb414ff
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1a8e5fd82b44577aa1915d59fc7c29900a1f14ea
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58010497"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319509"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Configurando o Pacemaker no Red Hat Enterprise Linux no Azure
 
@@ -85,6 +85,8 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    sudo subscription-manager attach --pool=&lt;pool id&gt;
    </code></pre>
 
+   Observe que ao anexar a um pool a uma imagem do Azure Marketplace PAYG RHEL, você será efetivamente cobrado duplo para o uso do RHEL: uma vez para a imagem PAYG e uma vez para a qualificação do RHEL no pool que você anexar. Para atenuar isso, o Azure fornece agora BYOS RHEL a imagens. Mais informações estão disponíveis [aqui](https://aka.ms/rhel-byos).
+
 1. **[A]**  RHEL habilitar para os repositórios do SAP
 
    Para instalar os pacotes necessários, habilite os seguintes repositórios.
@@ -144,10 +146,10 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    <pre><code>sudo pcs cluster auth <b>prod-cl1-0</b> <b>prod-cl1-1</b> -u hacluster
    sudo pcs cluster setup --name <b>nw1-azr</b> <b>prod-cl1-0</b> <b>prod-cl1-1</b> --token 30000
    sudo pcs cluster start --all
-   
+
    # Run the following command until the status of both nodes is online
    sudo pcs status
-   
+
    # Cluster name: nw1-azr
    # WARNING: no stonith devices and stonith-enabled is not false
    # Stack: corosync
@@ -179,11 +181,10 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
 O dispositivo STONITH usa uma Entidade de Serviço para autorização no Microsoft Azure. Siga estas etapas para criar uma Entidade de Serviço.
 
 1. Acesse <https://portal.azure.com>
-1. Abra a folha Azure Active Directory  
-   Vá para Propriedades e anote a ID do Diretório. Essa é a **ID de locatário**.
+1. Abra a folha Azure Active Directory ir para propriedades e anote a ID de diretório. Essa é a **ID de locatário**.
 1. Clique em Registros do Aplicativo
 1. Clique em Adicionar
-1. Insira um nome, selecione o tipo de aplicativo "Aplicativo Web/API", insira uma URL de logon (por exemplo `http://localhost`) e clique em criar
+1. Insira um nome, selecione o tipo de aplicativo "Aplicativo Web/API", insira uma URL de logon (por exemplo, http:\//localhost) e clique em criar
 1. A URL de logon não é usada e pode ser qualquer URL válida
 1. Selecione o novo Aplicativo e clique em Chaves na guia Configurações
 1. Insira uma descrição para uma nova chave, selecione "Nunca expira" e clique em Salvar

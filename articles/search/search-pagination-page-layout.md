@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ef29dafe32c3c5988cd33f59c8436eeef4b45886
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7a4423449931b74afa15ca238c611f54b071402f
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849271"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339288"
 ---
 # <a name="how-to-work-with-search-results-in-azure-search"></a>Como trabalhar com os resultados da pesquisa no Azure Search
 Este artigo fornece orientação sobre como implementar elementos padrão da página de resultados da pesquisa, por exemplo, contagem total, recuperação de documentos, ordens de classificação e navegação. As opções relacionadas à página que colaboram com dados ou informações para os resultados da pesquisa são especificadas por meio de solicitações de [Documento de Pesquisa](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) enviadas ao Serviço de Azure Search. 
@@ -25,8 +25,8 @@ Na API REST, as solicitações incluem um comando GET, um caminho e os parâmetr
 Vários exemplos de código incluem uma interface de front-end da Web, que podem ser encontrados aqui: [Aplicativo de demonstração de trabalhos da cidade de Nova York](https://azjobsdemo.azurewebsites.net/) e [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
 
 > [!NOTE]
-> Uma solicitação válida inclui diversos elementos, como uma URL de serviço e o caminho, o verbo HTTP, `api-version` etc. Para resumir, recortamos os exemplos para destacar apenas a sintaxe relevante para a paginação. Para obter mais informações sobre a sintaxe de solicitação, consulte [API de REST do serviço Azure Search](https://docs.microsoft.com/rest/api/searchservice). > 
-> 
+> Uma solicitação válida inclui diversos elementos, como uma URL de serviço e o caminho, o verbo HTTP, `api-version` etc. Para resumir, recortamos os exemplos para destacar apenas a sintaxe relevante para a paginação. Para obter mais informações sobre a sintaxe de solicitação, consulte [do Azure Search Service REST](https://docs.microsoft.com/rest/api/searchservice).
+>
 
 ## <a name="total-hits-and-page-counts"></a>Total de ocorrências e contagens de página
 Mostrar o número total de resultados retornados por uma consulta e, em seguida, retornar esses resultados em pedaços menores, é fundamental para praticamente todas as páginas de pesquisa.
@@ -100,7 +100,7 @@ Você pode enviar um filtro com ou sem uma expressão de pesquisa. Por exemplo, 
 
 Confira [Pesquisar Documentos (API de Azure Search)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) para saber mais sobre expressões `$filter`.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 * [API REST do Serviço de Azure Search](https://docs.microsoft.com/rest/api/searchservice)
 * [Operações de índice](https://docs.microsoft.com/rest/api/searchservice/Index-operations)
 * [Operações de documento.](https://docs.microsoft.com/rest/api/searchservice/Document-operations)

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 2/22/2017
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: bb1f4861f3867c592ecab86e85d3a4dfbab6738e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5e65965678ed042081e4a406d3a207fb7ede299f
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002959"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313644"
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Suporte para o compartilhamento de recursos entre origens (CORS) para os serviços de armazenamento do Azure
 Os serviços de armazenamento do Azure, da versão 2013-08-15 em diante, dão suporte a CORS (compartilhamento de recursos entre origens) para os serviços de Blob, Tabela e Fila. O CORS é um recurso HTTP que permite que um aplicativo web em execução em um domínio acesse recursos em outro domínio. Navegadores da Web implementam uma restrição de segurança, conhecida como [política de mesma origem](https://www.w3.org/Security/wiki/Same_Origin_Policy), que impede uma página da Web de chamar APIs em um domínio diferente. O CORS fornece uma maneira segura para permitir que um domínio (o domínio de origem) chame APIs em outro domínio. Confira a [Especificação CORS](https://www.w3.org/TR/cors/) para obter detalhes sobre o CORS.
@@ -67,7 +67,7 @@ Aqui está um exemplo de uma única regra CORS, especificada por meio de uma ope
 
 Cada elemento incluído na regra de CORS é descrito abaixo:
 
-* **AllowedOrigins**: Os domínios de origem que têm permissão para fazer uma solicitação no serviço de armazenamento por meio de CORS. O domínio de origem é o domínio do qual se origina a solicitação. Observe que a origem deve ser uma correspondência exata de maiúsculas e minúsculas com a origem que a idade do usuário envia para o serviço. Você também pode usar o caractere curinga '\*' para permitir que todos os domínios de origem façam solicitações por CORS. No exemplo acima, os domínios [http://www.contoso.com](http://www.contoso.com) e [http://www.fabrikam.com](http://www.fabrikam.com) podem fazer solicitações no serviço usando o CORS.
+* **AllowedOrigins**: Os domínios de origem que têm permissão para fazer uma solicitação no serviço de armazenamento por meio de CORS. O domínio de origem é o domínio do qual se origina a solicitação. Observe que a origem deve ser uma correspondência exata de maiúsculas e minúsculas com a origem que a idade do usuário envia para o serviço. Você também pode usar o caractere curinga '\*' para permitir que todos os domínios de origem façam solicitações por CORS. No exemplo acima, o domínios de http:\//www.contoso.com e http: \/ /www.fabrikam.com podem fazer solicitações no serviço usando CORS.
 * **AllowedMethods**: Os métodos (verbos de solicitação HTTP) que podem usar o domínio de origem para uma solicitação CORS. No exemplo acima, somente as solicitações PUT e GET são permitidas.
 * **AllowedHeaders**: Os cabeçalhos de solicitação que o domínio de origem pode especificar na solicitação de CORS. No exemplo acima, todos os cabeçalhos de metadados, começando com x-ms-meta-datas, x-ms-meta-target e x-ms-meta-abc são permitidos. Observe que o caractere curinga '\*' indica que todos os cabeçalhos que começam com o prefixo especificado são permitidos.
 * **ExposedHeaders**: Os cabeçalhos de resposta que podem ser enviados em resposta à solicitação de CORS e expostos pelo navegador para o emissor da solicitação. No exemplo acima, o navegador é instruído para expor quaisquer cabeçalhos que começam com x-ms-meta.
@@ -130,9 +130,9 @@ Em seguida, considere as seguintes solicitações CORS:
 | Solicitação |  |  | Resposta |  |
 | --- | --- | --- | --- | --- |
 | **Método** |**Origem** |**Cabeçalhos da solicitação** |**Correspondência de regra** |**Resultado** |
-| **PUT** |http://www.contoso.com |x-ms-blob-content-type |Primeira regra |Sucesso |
-| **GET** |http://www.contoso.com |x-ms-blob-content-type |Segunda regra |Sucesso |
-| **GET** |http://www.contoso.com |x-ms-client-request-id |Segunda regra |Failure |
+| **PUT** |http:\//www.contoso.com |x-ms-blob-content-type |Primeira regra |Sucesso |
+| **GET** |http:\//www.contoso.com |x-ms-blob-content-type |Segunda regra |Sucesso |
+| **GET** |http:\//www.contoso.com |x-ms-client-request-id |Segunda regra |Failure |
 
 A primeira solicitação corresponde à primeira regra – o domínio de origem corresponde às origens permitidas, o método corresponde aos métodos permitidos e o cabeçalho corresponde aos cabeçalhos permitidos – e então tem êxito.
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/20/2019
 ms.author: victorh
-ms.openlocfilehash: ae55f2abf9815174e7258c2ace949078794c380d
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: HT
+ms.openlocfilehash: f549f9c612797c1c956d6921fe4898a5f8bee9e6
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286186"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319407"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Perguntas frequentes sobre o Gateway de Aplicativo
 
@@ -59,7 +59,7 @@ Há suporte para redirecionamento. Confira [Visão geral do redirecionamento do 
 
 ### <a name="in-what-order-are-listeners-processed"></a>Em que ordem os ouvintes são processados?
 
-Os ouvintes são processados na ordem em que eles são mostrados. Por esse motivo, se um ouvinte básico corresponder a uma solicitação de entrada, ele a processará primeiro.  Ouvintes multissite devem ser configurados antes de um ouvinte básico para assegurar que o tráfego seja roteado para o back-end correto.
+Ver [ordem de processamento de ouvintes de](https://docs.microsoft.com/azure/application-gateway/configuration-overview#order-of-processing-listeners).
 
 ### <a name="where-do-i-find-application-gateways-ip-and-dns"></a>Onde encontro o IP e o DNS do Application Gateway?
 
@@ -83,16 +83,13 @@ Há suporte apenas para um único endereço IP público em um Gateway de Aplicat
 
 ### <a name="how-large-should-i-make-my-subnet-for-application-gateway"></a>Quão grande devo criar minha sub-rede para o Application Gateway?
 
-O Gateway de Aplicativo consome um endereço IP privado por instância, além de outro endereço IP privado se uma configuração de IP de front-end privado for configurada. Além disso, o Azure reservará os quatro primeiros e o último endereço IP em cada sub-rede para uso interno.
-Por exemplo, se o Gateway de Aplicativo for definido como três instâncias e nenhum IP de front-end privado, o tamanho de sub-rede /29 ou maior será necessário. Nesse caso, o Gateway de Aplicativo usará três endereços IP. Se você tiver três instâncias e um endereço IP para a configuração de IP de front-end privado, um tamanho de sub-rede /28 ou maior será necessário, visto que quatro endereços IP são necessários.
-
-Como prática recomendada, use pelo menos uma de/28 tamanho da sub-rede. Isso lhe dá 11 endereços utilizáveis. Se sua carga de aplicativo exigir mais de 10 instâncias, você deve considerar um/27 ou/26 tamanho da sub-rede.
+Ver [considerações de tamanho de sub-rede de Gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/configuration-overview#size-of-the-subnet) para entender o tamanho de sub-rede necessário para sua implantação.
 
 ### <a name="q-can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>P. Posso implantar mais de um recurso de Gateway de Aplicativo em uma única sub-rede?
 
 Sim, além de ter várias instâncias de uma determinada implantação do Application Gateway, você pode provisionar outro recurso exclusivo do Application Gateway para uma sub-rede existente que contém um recurso diferente do Application Gateway.
 
-Combinar Standard_v2 e o Gateway de Aplicativo Standard na mesma sub-rede não tem suporte. Além disso, se o dimensionamento automático estiver habilitado, uma sub-rede pode ter apenas um gateway de aplicativo.
+Combinar Standard_v2 e o Gateway de Aplicativo Standard na mesma sub-rede não tem suporte.
 
 ### <a name="does-application-gateway-support-x-forwarded-for-headers"></a>O Gateway de aplicativo dá suporte a cabeçalhos x-forwarded-for?
 
@@ -152,13 +149,7 @@ Não, mas você pode implantar outros gateways de aplicativo na sub-rede.
 
 ### <a name="are-network-security-groups-supported-on-the-application-gateway-subnet"></a>Os grupos de segurança de rede são suportados na sub-rede do gateway de aplicativos?
 
-Os Network Security Groups (NSGs) são suportados na sub-rede do gateway de aplicativo com as seguintes restrições:
-
-* Exceções devem ser feitas para o tráfego de entrada nas portas 65503-65534 para o Application Gateway v1 SKU e portas 65200 - 65535 para o v2 SKU. Esse intervalo de porta é necessário para a comunicação da infraestrutura do Azure. Elas são protegidas (bloqueadas) por certificados do Azure. Sem os certificados apropriados, as entidades externas, incluindo os clientes desses gateways, não podem iniciar nenhuma alteração nesses pontos de extremidade.
-
-* A conectividade de internet de saída não pode ser bloqueada. Regras de saída padrão no NSG já permitem que a conectividade com a internet. É recomendável que você não remova as regras de saída padrão e que você não criar outras regras de saída que negam a conectividade de internet de saída.
-
-* Tráfego de marca AzureLoadBalancer deve ser permitido.
+Ver [restrições de grupos de segurança de rede na sub-rede do Gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/configuration-overview#network-security-groups-supported-on-the-application-gateway-subnet) Saiba mais sobre os grupos de segurança de rede com suporte na sub-rede do gateway de aplicativo.
 
 ### <a name="are-user-defined-routes-supported-on-the-application-gateway-subnet"></a>As rotas definidas pelo usuário são suportadas na sub-rede do gateway de aplicativo?
 
@@ -190,7 +181,7 @@ As investigações personalizadas não têm suporte para curingas/regex nos dado
 
 ### <a name="how-are-rules-processed"></a>Como as regras são processadas?
 
-As regras são processadas na ordem em que elas são configuradas. É recomendável que as regras multissites sejam configuradas antes de regras básicas para reduzir a chance de que o tráfego seja roteado para o back-end inadequado, já que a regra básica corresponderia ao tráfego com base na porta antes da regra multissite que está sendo avaliada.
+Ver [ordem das regras de processamento](https://docs.microsoft.com/azure/application-gateway/configuration-overview#order-of-processing-rules) para entender como regras de roteamento são processos no Gateway de aplicativo.
 
 ### <a name="what-does-the-host-field-for-custom-probes-signify"></a>O que significa o campo Host para investigações personalizadas?
 
@@ -356,8 +347,8 @@ Publicamos também um modelo do Resource Manager que instala e executa o popular
 
 ### <a name="backend-health-returns-unknown-status-what-could-be-causing-this-status"></a>A integridade do back-end retorna status desconhecido, o que pode estar causando esse status?
 
-O motivo mais comum é quando o acesso ao back-end está bloqueado por um NSG ou por um DNS personalizado. Confira [Integridade do back-end, registro em log de diagnóstico e métricas do Gateway de Aplicativo](application-gateway-diagnostics.md) para saber mais.
+O motivo mais comum é o acesso para o back-end está bloqueado por um NSG, o DNS personalizado, ou você tem uma UDR na sub-rede do gateway de aplicativo. Confira [Integridade do back-end, registro em log de diagnóstico e métricas do Gateway de Aplicativo](application-gateway-diagnostics.md) para saber mais.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas Etapas
 
 Para saber mais sobre o Gateway de Aplicativo, confira [O que é o Gateway de Aplicativo do Azure?](overview.md)

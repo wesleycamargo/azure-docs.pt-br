@@ -1,5 +1,5 @@
 ---
-title: Proteger recursos de nuvem com o Azure MFA e o AD FS | Microsoft Docs
+title: Proteger recursos de nuvem com o Azure MFA e AD FS - Azure Active Directory
 description: Esta é a página do Azure Multi-Factor Authentication que descreve como começar a usar o Azure MFA e o AD FS na nuvem.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89559c1c42255bf1050cbb96f38e6d7394c21103
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7f508475166346c56b3bd0c8607c27beb7aba66c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191395"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316466"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Protegendo os recursos de nuvem usando a Autenticação Multifator do Azure e o AD FS
 
@@ -64,7 +64,7 @@ A primeira coisa que precisamos fazer é configurar as declarações do AD FS. C
    ![Nuvem](./media/howto-mfa-adfs/trustedip2.png)
 5. No Assistente Adicionar Regra de Declaração de Transformação, selecione **Passar ou filtrar uma Declaração de Entrada** na lista e clique em **Avançar**.
    ![Nuvem](./media/howto-mfa-adfs/trustedip3.png)
-6. Na caixa ao lado do nome da regra de declaração, nomeie a regra. Por exemplo:  InsideCorpNet.
+6. Na caixa ao lado do nome da regra de declaração, nomeie a regra. Por exemplo: InsideCorpNet.
 7. Na lista suspensa, ao lado do tipo de declaração de entrada, selecione **Dentro da rede corporativa**.
    ![Nuvem](./media/howto-mfa-adfs/trustedip4.png)
 8. Clique em **Concluir**.

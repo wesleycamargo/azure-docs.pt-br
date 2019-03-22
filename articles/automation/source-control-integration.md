@@ -6,21 +6,21 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/20/2019
+ms.date: 03/21/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5b8ec726c81dfab710d30c37d6fb1aac97c12265
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: c689a8fe35133456c476106e96336420640ebf66
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293968"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58335973"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integração de controle de origem na Automação do Azure
 
 Controle de origem permite que você mantenha seus runbooks em sua automação de conta são atualizados com seus scripts em seu repositório de controle de origem do GitHub ou repositórios do Azure. O controle de origem permite que você colabore com facilidade com sua equipe, controle alterações e reverta para versões anteriores de seus runbooks. Por exemplo, o controle do código-fonte permite sincronizar diferentes branches no controle do código-fonte com suas contas de Automação de desenvolvimento, teste ou produção. Isso facilita a promoção de código que foi testado em seu ambiente de desenvolvimento para sua conta de Automação de produção. Integração de controle do código-fonte com a automação dá suporte à sincronização de direção única do seu repositório de controle do código-fonte.
 
-A Automação do Azure é compatível com três tipos de controle do código-fonte:
+A automação do Azure dá suporte a três tipos de controle de origem:
 
 * GitHub
 * Repositórios do Azure (Git)
@@ -30,6 +30,7 @@ A Automação do Azure é compatível com três tipos de controle do código-fon
 
 * Um repositório de controle do código-fonte (GitHub ou repositórios do Azure)
 * Um [conta executar como](manage-runas-account.md)
+* Verifique se você tem o [módulos do Azure mais recente](automation-update-azure-modules.md) em sua conta de automação
 
 > [!NOTE]
 > Trabalhos de sincronização de controle do código-fonte são executados na Conta de Automação do usuário e são cobrados conforme a mesma taxa que outros trabalhos de Automação.
@@ -44,16 +45,16 @@ Escolha **Tipo de controle do código-fonte** e clique em **Autenticar**. Uma ja
 
 Na página **Resumo de controle do código-fonte**, preencha as informações e clique em **Salvar**. A tabela a seguir fornece uma descrição dos campos disponíveis.
 
-|Propriedade  |DESCRIÇÃO  |
+|Propriedade  |Descrição  |
 |---------|---------|
 |Nome do controle do código-fonte     | Um nome amigável para o controle do código-fonte        |
 |Tipo de controle do código-fonte     | O tipo de origem do controle do código-fonte. As opções disponíveis são:</br> GitHub</br>Repositórios do Azure (Git)</br> Azure Repos (TFVC)        |
 |Repositório     | O nome do repositório ou projeto. Os repositórios de 200 primeiros são retornados. Para procurar por um repositório, digite o nome no campo e clique em **pesquisa no GitHub**.|
-|Branch     | O branch do qual o pull dos arquivos de origem é efetuado. O direcionamento de branch não está disponível para o tipo de controle do código-fonte TFVC.          |
-|Caminho da pasta     | A pasta que contém os runbooks a serem sincronizados. Exemplo: /Runbooks </br>*Somente runbooks na pasta especificada são sincronizados. Não há suporte para a recursão.*        |
+|Filial     | O branch do qual o pull dos arquivos de origem é efetuado. Direcionamento de ramificação não está disponível para o tipo de controle de origem TFVC.          |
+|Caminho da pasta     | A pasta que contém os runbooks a serem sincronizados. Exemplo: /Runbooks </br>*Somente runbooks na pasta especificada são sincronizados. Não há suporte para recursão.*        |
 |Sincronização automática     | Ativa ou desativa a sincronização automática quando uma confirmação é feita no repositório de controle do código-fonte         |
-|Publicar runbook     | Se definido como **Ativado**, os runbooks serão automaticamente publicados após serem sincronizados com o controle do código-fonte.         |
-|DESCRIÇÃO     | Um campo de texto para fornecer detalhes adicionais        |
+|Publicar runbook     | Se definido como **em**, depois de runbooks são sincronizados do controle de origem que serão publicados automaticamente.         |
+|Descrição     | Um campo de texto para fornecer detalhes adicionais        |
 
 ![Resumo do controle do código-fonte](./media/source-control-integration/source-control-summary.png)
 
@@ -62,7 +63,7 @@ Na página **Resumo de controle do código-fonte**, preencha as informações e 
 
 ## <a name="configure-source-control---powershell"></a>Configurar o controle do código-fonte - PowerShell
 
-Você também pode usar o PowerShell para configurar o controle de origem na automação do Azure. Para configurar o controle do código-fonte com os cmdlets do PowerShell, um [token de acesso pessoal (PAT)](#personal-access-token) é necessária. Você usa o [New-AzureRmAutomationSourceControl](/powershell/module/AzureRM.Automation/New-AzureRmAutomationSourceControl) para criar a conexão de controle do código-fonte. O cmdlet requer uma cadeia de caracteres de Token de acesso pessoal, para aprender a criar uma cadeia de caracteres segura, consulte [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6).
+Você também pode usar o PowerShell para configurar o controle de origem na automação do Azure. Para configurar o controle de origem com os cmdlets do PowerShell, um token de acesso pessoal (PAT) é necessária. Você usa o [New-AzureRmAutomationSourceControl](/powershell/module/AzureRM.Automation/New-AzureRmAutomationSourceControl) para criar a conexão de controle do código-fonte. O cmdlet requer uma cadeia de caracteres de Token de acesso pessoal, para aprender a criar uma cadeia de caracteres segura, consulte [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6).
 
 ### <a name="azure-repos-git"></a>Repositórios do Azure (Git)
 
@@ -90,7 +91,7 @@ O controle do código-fonte requer algumas permissões mínimas para tokens de a
 
 Para obter mais informações sobre como criar um token de acesso pessoal no GitHub, visite [criar um token de acesso pessoal para a linha de comando](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).
 
-|Escopo  |DESCRIÇÃO  |
+|Escopo  |Descrição  |
 |---------|---------|
 |**repositório**     |         |
 |repo:status     | Acessar status de confirmação         |
@@ -113,9 +114,9 @@ Para obter mais informações sobre como criar um token de acesso pessoal em rep
 |Itens de trabalho (leitura)    |
 |Conexões de serviço (ler, consultar e gerenciar)<sup>1</sup>    |
 
-<sup>1</sup>permissão a conexões de serviço só é necessária se você tiver habilitado a sincronização automática.
+<sup>1</sup> permissão a conexões de serviço só é necessária se você tiver habilitado a sincronização automática.
 
-## <a name="syncing"></a>Sincronização
+## <a name="syncing"></a>Sincronizando
 
 Selecione a origem da tabela sobre o **controle de fonte de** página. Clique em **Iniciar sincronização** para iniciar o processo de sincronização.
 
@@ -168,7 +169,7 @@ Selecione o controle do código-fonte que você deseja remover. Na página **Res
 
 ## <a name="encoding"></a>Codificação
 
-Se várias pessoas estão editando runbooks em seu repositório de controle do código-fonte com diferentes editores há oportunidade de se deparar com problemas de codificação. Isso pode inserir caracteres incorretos no runbook. Para saber mais sobre isso, consulte [causas comuns de problemas de codificação](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
+Se várias pessoas estão editando runbooks em seu repositório de controle do código-fonte com diferentes editores, há uma chance de ser executado em problemas de codificação. Essa situação pode levar a caracteres incorretos no seu runbook. Para saber mais sobre isso, consulte [causas comuns de problemas de codificação](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
 
 ## <a name="next-steps"></a>Próximas etapas
 

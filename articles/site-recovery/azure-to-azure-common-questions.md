@@ -4,30 +4,19 @@ description: Este artigo resume as perguntas comuns ao configurar a recuperaçã
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.date: 12/12/2018
+ms.date: 03/18/2019
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: bf7a8ea00fe94e6896c097b8e27c22c0831f71da
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2c1890570f153de68d187c37dc0a7bca156c2d47
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58008660"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312046"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>Perguntas comuns: Replicação de Azure para Azure
 
 Este artigo fornece respostas a perguntas comuns sobre como implantar a DR (recuperação de desastres) de VMs do Azure para outra região do Azure usando o Azure Site Recovery. Se você tiver dúvidas após a leitura deste artigo, publique-as no [fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
-
-
-## <a name="in-this-article"></a>Neste artigo 
-1.  **[Perguntas gerais sobre o Azure para o Azure](#general)** 
-1.  **[Replicação](#replication)** 
-1.  **[Política de replicação](#replication-policy)** 
-1.  **[Consistência de várias VMs](#multi-vm-consistency)** 
-1.  **[Plano de recuperação](#recovery-plan)** 
-1.  **[Nova proteção e failback](#reprotection-and-failback)** 
-2.  **[capacidade](#capacity)**
-1.  **[Segurança](#security)** 
 
 
 ## <a name="general"></a>Geral
@@ -186,7 +175,7 @@ A opção **Últimos processados** executa failover de todas as VMs no plano par
 ### <a name="what-is-a-rto-of-a-virtual-machine-failover-"></a>O que é um RTO de um failover de máquina virtual?
 O Site Recovery tem um [SLA de RTO de 2 horas](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). No entanto, a maioria das vezes, o Site Recovery faz failover de máquinas virtuais em minutos. É possível calcular o RTO acessando os trabalhos de failover, que mostram o tempo necessário para criar a VM. Para a RTO do plano de recuperação, veja a seção abaixo. 
 
-## <a name="recovery-plan"></a>Plano de recuperação
+## <a name="recovery-plans"></a>Planos de recuperação
 
 ### <a name="what-is-a-recovery-plan"></a>O que é um plano de recuperação?
 Um plano de recuperação no Site Recovery orquestra a recuperação de failover de VMs. Os planos de recuperação também ajudam a tornar a recuperação precisa, repetível e automatizada de forma consistente. Um plano de recuperação atende às seguintes necessidades do usuário:
@@ -213,7 +202,7 @@ Sim, é possível integrar runbooks de Automação do Azure ao plano de recupera
 ## <a name="reprotection-and-failback"></a>Nova proteção e failback 
 
 ### <a name="after-a-failover-from-the-primary-region-to-a-disaster-recovery-region-are-vms-in-a-dr-region-protected-automatically"></a>Após um failover da região primária para uma região de recuperação de desastre, as VMs em uma região de DR são protegidas automaticamente?
- Não. Ao fazer [failover](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback) das VMs do Azure de uma região para outra, as VMs iniciam na região de DR em um estado desprotegido. Para fazer failback das VMs na região primária, é necessário [proteger novamente](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect) as VMs na região secundária.
+Nº. Ao fazer [failover](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback) das VMs do Azure de uma região para outra, as VMs iniciam na região de DR em um estado desprotegido. Para fazer failback das VMs na região primária, é necessário [proteger novamente](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect) as VMs na região secundária.
 
 ### <a name="at-the-time-of-reprotection-does-site-recovery-replicate-complete-data-from-the-secondary-region-to-the-primary-region"></a>No momento da nova proteção, o Site Recovery replica dados completos da região secundária para a região primária?
 Depende da situação. Por exemplo, se a região de origem da VM existir, apenas as alterações entre o disco de origem e o disco de destino serão sincronizadas. O Site Recovery calcula os diferenciais comparando os discos e, em seguida, transfere os dados. Esse processo normalmente leva algumas horas. Para obter mais informações sobre o que acontece durante a nova proteção, veja [Nova proteção de VMs do Azure com fazer failover para a região primária]( https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection).
@@ -221,7 +210,7 @@ Depende da situação. Por exemplo, se a região de origem da VM existir, apenas
 ### <a name="how-much-time-does-it-take-to-fail-back"></a>Quanto tempo demora para fazer failback?
 Após a nova proteção, o tempo para failback geralmente é similar ao tempo para failover da região primária para uma região secundária. 
 
-## <a name="capacity"></a>capacidade
+## <a name="capacity"></a>Capacidade
 ### <a name="does-site-recovery-work-with-reserved-instance"></a>Recuperação de Site funciona com a instância reservada?
 Sim, você pode comprar [reservar instâncias](https://azure.microsoft.com/pricing/reserved-vm-instances/) a recuperação de Desastre região e operações de failover do ASR usará-los. </br> Nenhuma configuração adicional é necessária dos clientes.
 

@@ -1,5 +1,5 @@
 ---
-title: Como proibir senhas no Azure AD
+title: Como proibir o uso de senhas no AD do Azure – Azure Active Directory
 description: Proibir senhas fracas do seu ambiente com senhas proibidas dinamicamente pelo Azure AD
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef8f66cda7e80ffdafefbbac5de24d45f01401af
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: HT
+ms.openlocfilehash: a7f6dbc869db4a0a444d09a2dc234e171758c706
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286923"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316483"
 ---
 # <a name="configuring-the-custom-banned-password-list"></a>Configurar a lista de senhas proibidas personalizada
 
@@ -41,7 +41,7 @@ A configuração da lista de senhas proibidas personalizada exige uma licença d
 
 ![Modificar a lista de senhas proibidas personalizada em Métodos de Autenticação no portal do Azure](./media/howto-password-ban-bad/authentication-methods-password-protection.png)
 
-## <a name="how-it-works"></a>Como ele funciona
+## <a name="how-it-works"></a>Como funciona
 
 Cada vez que um usuário ou administrador redefinir ou alterar uma senha do Azure AD, ela passará pelas listas de senhas proibidas para confirmar se não está em uma lista. Essa verificação está incluída em todas as senhas definidas ou alteradas usando o Azure AD.
 

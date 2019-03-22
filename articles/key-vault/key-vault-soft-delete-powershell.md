@@ -5,14 +5,14 @@ author: msmbaldwin
 manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
-ms.date: 02/01/2018
+ms.date: 03/19/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3da4662885b2b09c6474a1a6ceafd627e71cf236
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: d34ef1bb5bea6f5f099f7fa2a24ddec2362b44ea
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081025"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336177"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Como usar a exclusão reversível do Key Vault com o PowerShell
 
@@ -38,9 +38,9 @@ Para obter informações de referência específicas do Key Vault para o PowerSh
 
 As operações de Key Vault são gerenciadas separadamente por meio de permissões de RBAC (controle de acesso baseado em função) da seguinte maneira:
 
-| Operação | DESCRIÇÃO | Permissão de usuário |
+| Operação | Descrição | Permissão de usuário |
 |:--|:--|:--|
-|Listar|Lista os cofres de chaves excluídos.|Microsoft.KeyVault/deletedVaults/read|
+|Lista|Lista os cofres de chaves excluídos.|Microsoft.KeyVault/deletedVaults/read|
 |Recuperar|Recupera o cofre de chaves excluído.|Microsoft.KeyVault/vaults/write|
 |Limpar|Remove permanentemente um cofre de chaves excluído e todo o seu conteúdo.|Microsoft.KeyVault/locations/deletedVaults/purge/action|
 
@@ -101,10 +101,10 @@ Com a exclusão reversível habilitada:
 Você pode exibir cofres de chave no estado excluído, associados à sua assinatura, usando o seguinte comando:
 
 ```powershell
-PS C:\> Get-AzKeyVault -InRemovedState 
+Get-AzKeyVault -InRemovedState 
 ```
 
-- *ID* pode ser usado para identificar o recurso durante a recuperação ou limpeza. 
+- *ID* pode ser usado para identificar o recurso de recuperação ou limpeza. 
 - *ID do recurso* é a ID do recurso original desse cofre. Como este cofre de chaves está em um estado excluído, não há um recurso com essa ID de recurso. 
 - *Data de eliminação agendada* é quando o cofre será eliminado permanentemente, se nenhuma ação for realizada. O período de retenção padrão, usado para calcular a *Data de Limpeza Agendada*, é de 90 dias.
 
@@ -142,7 +142,7 @@ Quando você exclui uma chave em um cofre de chaves com exclusão reversível ha
 
 Assim como os cofres das chaves, uma chave, segredo ou certificado excluído permanecem no estado excluído por até 90 dias, a menos que você os recupere ou purga. 
 
-#### <a name="keys"></a>simétricas
+#### <a name="keys"></a>Chaves
 
 Para recuperar uma chave excluída:
 
@@ -233,8 +233,27 @@ A listagem de objetos de cofre de chaves excluídos também mostra quando eles e
 >[!IMPORTANT]
 >Um objeto de cofre limpo, disparado pelo campo *Data de Limpeza Agendada*, será excluído permanentemente. Não é recuperável!
 
+## <a name="enabling-purge-protection"></a>Habilitar a proteção de limpeza
+
+Quando a proteção de limpeza é ativada em um cofre ou em um objeto excluída não é possível limpar estado até que o período de retenção de 90 dias. Ainda é possível recuperar tal cofre ou objeto. Esse recurso oferece garantia extra que um cofre ou um objeto nunca pode ser permanentemente excluído até que o período de retenção tenha passado.
+
+Você pode habilitar a proteção de limpeza somente se a exclusão reversível também está habilitada. 
+
+Para ativar ambos os exclusão reversível e limpar a proteção durante a criação de um cofre, use o [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault?view=azps-1.5.0) cmdlet:
+
+```powershell
+New-AzKeyVault -Name ContosoVault -ResourceGroupName ContosoRG -Location westus -EnableSoftDelete -EnablePurgeProtection
+```
+
+Para adicionar a proteção de limpeza para um cofre existente (que já tem exclusão reversível habilitada), use o [Get-AzKeyVault](/powershell/module/az.keyvault/Get-AzKeyVault?view=azps-1.5.0), [Get-AzResource](/powershell/module/az.resources/get-azresource?view=azps-1.5.0), e [conjunto AzResource](/powershell/module/az.resources/set-azresource?view=azps-1.5.0) cmdlets:
+
+```
+($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "ContosoVault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enablePurgeProtection" -Value "true"
+
+Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
+```
+
 ## <a name="other-resources"></a>Outros recursos
 
 - Para obter uma visão geral do recurso de exclusão reversível do Key Vault, veja [Visão geral da exclusão reversível do Azure Key Vault](key-vault-ovw-soft-delete.md).
-- Para ter uma visão geral do uso do Azure Key Vault, confira [O que é Azure Key Vault?](key-vault-overview.md).
-
+- Para obter uma visão geral de uso do Azure Key Vault, consulte [o que é o Azure Key Vault?](key-vault-overview.md). ate = êxito}

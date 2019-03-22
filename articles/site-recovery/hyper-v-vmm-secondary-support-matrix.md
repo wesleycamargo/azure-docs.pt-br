@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 03/18/2018
 ms.author: raynew
-ms.openlocfilehash: 2b801df6036566840dd96bde0801ab018d0614b5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 419974138d6f556a2f774e8c1a355729c824fddc
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103087"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310601"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matriz de suporte para recuperação de desastres de VMs do Hyper-V para um site secundário
 
@@ -72,7 +72,7 @@ VM Convidada - Multi-NIC | Sim
 
 **Armazenamento (host)** | **Com suporte**
 --- | --- 
-NFS | N/D
+NFS | Não aplicável
 SMB 3.0 |  Sim
 SAN (ISCSI) | Sim
 Múltiplos caminhos (MPIO) | Sim
@@ -81,15 +81,15 @@ Múltiplos caminhos (MPIO) | Sim
 
 **Configuração** | **Com suporte**
 --- | --- | 
-VMDK |  N/D
+VMDK |  Não aplicável
 VHD/VHDX | Sim (até 16 discos)
 VM ger 2 | Sim
 Disco de cluster compartilhado | Não
 Disco criptografado | Não
-UEFI| N/D
+UEFI| Não aplicável
 NFS | Não
 SMB 3.0 | Não
-RDM | N/D
+RDM | Não aplicável
 Disco > 1 TB | Sim
 Volume com discos distribuídos > 1 TB<br/><br/> LVM | Sim
 Espaços de Armazenamento | Sim

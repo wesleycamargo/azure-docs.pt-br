@@ -1,5 +1,5 @@
 ---
-title: Requisitos de dados SSPR do Azure AD | Microsoft Docs
+title: Requisitos de dados do Azure AD SSPR - Azure Active Directory
 description: Requisitos de dados para autoatendimento de redefinição de senha do Azure AD e como atendê-los
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ccf665147c8fea0e2ce44161ef0b5df085649a0b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 580c9080bb2b019e120ea57e5fe4444a71c24e76
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56179032"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314783"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Implantar redefinição de senha sem exigir registro do usuário final
 
@@ -35,7 +35,7 @@ Para funcionarem adequadamente, os números de telefone devem estar no formato *
 
 Se você usar as configurações padrão no Azure AD Connect, serão realizados os seguintes mapeamentos:
 
-| Active Directory local | AD do Azure |
+| Active Directory local | Azure AD |
 | --- | --- |
 | telephoneNumber | Telefone comercial |
 | Serviço Móvel | Telefone celular |

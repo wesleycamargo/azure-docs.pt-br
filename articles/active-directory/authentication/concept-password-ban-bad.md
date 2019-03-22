@@ -1,5 +1,5 @@
 ---
-title: Senhas proibidas dinamicamente no Azure AD
+title: Senhas - Azure Active Directory banidas dinamicamente
 description: Proibir senhas fracas do seu ambiente com senhas proibidas dinamicamente pelo Azure AD
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7dcac665dadef7f3f192e7f0e359b6b7c244bde
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: HT
+ms.openlocfilehash: 645dd7fe35ba3e7d83a3ee374d7ab566ad193cc2
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287019"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314120"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Eliminar senhas incorretas na organização
 
@@ -26,7 +26,7 @@ Os líderes do setor orientam que você não utilize a mesma senha em vários lu
 
 A Microsoft está sempre trabalhando para se manter um passo à frente dos cibercriminosos. Portanto, a equipe do Azure AD Identity Protection procura continuamente por senhas comumente usadas e comprometidas. Em seguida, bloqueiam as senhas consideradas muito comuns na lista de senhas proibidas globalmente. Os criminosos cibernéticos também usam estratégias semelhantes em seus ataques, portanto, a Microsoft não publica o conteúdo dessa lista publicamente. Essas senhas vulneráveis são bloqueadas antes de tornarem-se uma ameaça real aos clientes da Microsoft. Para obter mais informações sobre os esforços atuais de segurança, consulte o [Relatório de inteligência de segurança da Microsoft](https://www.microsoft.com/security/operations/security-intelligence-report).
 
-## <a name="custom-banned-password-list"></a>Lista personalizada de senhas banidas
+## <a name="custom-banned-password-list"></a>Lista de senhas proibidas personalizadas
 
 Algumas organizações podem querer levar a segurança um passo adiante, adicionando suas próprias personalizações no topo da lista de senhas proibidas, em que a Microsoft chama de lista de senhas proibidas personalizada. Os clientes empresariais, como a Contoso, podem optar por bloquear variantes de nomes de marca, termos específicos da empresa ou outros itens.
 
@@ -106,7 +106,7 @@ Após a normalização, essa senha se torna “contosoblankf9!”. O processo de
 
 |   | Proteção por senha do AD do Azure com a lista de senhas banidas global | Proteção por senha do AD do Azure com a lista de senhas banidas personalizado|
 | --- | --- | --- |
-| Usuários somente na nuvem | AD do Azure Gratuito | AD Basic do Azure |
+| Usuários somente na nuvem | Azure AD Gratuito | Azure AD Básico |
 | Os usuários sincronizados no local Windows Server Active Directory | O Azure AD Premium P1 ou P2 | O Azure AD Premium P1 ou P2 |
 
 Informações adicionais sobre licenciamento, incluindo custos, podem ser encontradas no [site de preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).

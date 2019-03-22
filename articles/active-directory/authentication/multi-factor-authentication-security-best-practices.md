@@ -1,5 +1,5 @@
 ---
-title: Diretrizes de segurança para a Autenticação Multifator do Azure
+title: Diretrizes de segurança para a autenticação multifator Azure - Active Directory do Azure
 description: Este documento fornece as diretrizes sobre o uso do Azure MFA com contas do Azure
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bccaa7e1f2e0752ac1cde52a446cb942c80aa838
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 4441bf945b14a275f5b19ffe39f5ffd419e74e58
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166004"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310652"
 ---
 # <a name="security-guidance-for-using-azure-multi-factor-authentication-with-azure-ad-accounts"></a>Diretrizes de segurança para o uso da Autenticação Multifator do Azure com contas do Microsoft Azure Active Directory
 
@@ -80,7 +80,7 @@ O portal do usuário permite funcionalidades de autoatendimento e fornece um con
 * Instalar e registrar o ASP.NET v2.0.507207
 * Garanta que esse servidor possa ser implantado em uma rede de perímetro
 
-### <a name="app-passwords"></a>Senhas de aplicativo
+### <a name="app-passwords"></a>Senhas de Aplicativo
 Se sua organização for federada para o SSO com o Azure AD e você pretender usar o MFA do Azure, esteja ciente dos seguintes detalhes:
 
 * A senha de aplicativo é verificada pelo Azure AD e, portanto, ignora a federação. A federação é usada apenas durante a configuração de senhas de aplicativo.

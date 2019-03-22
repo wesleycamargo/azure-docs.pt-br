@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ee6c05b2da4347ed034ae6e7318d6f5d90ea7884
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5f777ab238ed0774c4ad6afd862da1584cb06b94
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58099637"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317367"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Como provisionar uma máquina virtual do Windows SQL Server no portal do Azure
 
@@ -247,7 +247,7 @@ A tabela a seguir lista os parâmetros necessários para configurar a integraç�
 
 | PARÂMETRO | DESCRIÇÃO | EXEMPLO |
 | --- | --- | --- |
-| **URL do cofre da chave** |O local do cofre da chave. |<https://contosokeyvault.vault.azure.net/> |
+| **URL do cofre da chave** |O local do cofre da chave. |https:\//contosokeyvault.vault.azure.net/ |
 | **Nome de entidade** |Nome de entidade de serviço do Active Directory do Azure Ele também é chamado de ID do Cliente. |fde2b411-33d5-4e11-af04eb07b669ccf2 |
 | **Segredo da entidade** |Segredo da entidade de serviço do Azure Active Directory. O segredo também é chamado de Segredo do Cliente. |9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM= |
 | **Nome da credencial** |**Nome da credencial**: A Integração AKV cria uma credencial no SQL Server, permitindo que a VM tenha acesso ao cofre da chave. Escolha um nome para essa credencial. |mycred1 |

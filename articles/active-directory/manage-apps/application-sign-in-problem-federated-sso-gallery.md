@@ -16,12 +16,12 @@ ms.date: 02/18/2019
 ms.author: celested
 ms.reviewer: luleon, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 225676b144d042c51a97fe14a20a5a78f0a77244
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 623d684f701df8b1a7c4b84a2bd3840f039ad174
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58013085"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312692"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problemas ao entrar em um aplicativo na galeria configurado para logon único federado
 
@@ -33,7 +33,7 @@ Para solucionar os problemas de conexão abaixo, é recomendável que você siga
 
 ## <a name="application-not-found-in-directory"></a>Aplicativo não encontrado no diretório
 
-*Erro AADSTS70001: o aplicativo com identificador ‘https://contoso.com’ não foi localizado no diretório*.
+*Erro AADSTS70001: Aplicativo com identificador ' https:\//contoso.com' não foi encontrado no diretório*.
 
 **Possível causa**
 
@@ -63,7 +63,7 @@ Certifique-se de que o `Issuer` atributo na solicitação SAML corresponde ao va
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>O endereço de resposta não coincide com os endereços de resposta configurados para o aplicativo
 
-*Erro AADSTS50011: o endereço de resposta ‘https://contoso.com’ não corresponde aos endereços de resposta configurados para o aplicativo*
+*Erro AADSTS50011: O endereço de resposta ' https:\//contoso.com' não coincide com os endereços de resposta configurados para o aplicativo*
 
 **Possível causa**
 

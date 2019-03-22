@@ -1,5 +1,5 @@
 ---
-title: Políticas de redefinição de senha de autoatendimento do Azure AD
+title: Políticas - Azure Active Directory de redefinição de senha de autoatendimento do AD do Azure
 description: Configurar as opções da política de redefinição de senha de autoatendimento do Azure AD
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6888a8787856ef23c459c7ffc18f8e2b4de17f6f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 36959582a3866426f8dc0e9969210e29e751ea60
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901127"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311893"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Políticas e restrições de senha do Active Directory do Azure
 
@@ -34,8 +34,8 @@ A política de duas portas requer dois tipos de dados de autenticação, como um
   * Administrador de assistência técnica
   * Administrador de suporte a serviço
   * Administrador de cobrança
-  * Suporte de camada 1 do parceiro
-  * Suporte de camada 2 do parceiro
+  * Suporte de Camada1 a Parceiros
+  * Suporte de Camada2 a Parceiros
   * Administrador do Exchange
   * Administrador do Skype for Business
   * Administrador de usuários
@@ -43,9 +43,9 @@ A política de duas portas requer dois tipos de dados de autenticação, como um
   * Administrador global ou administrador da empresa
   * Administrador do SharePoint
   * Administrador de conformidade
-  * Administrador de aplicativos
+  * Administrador de aplicativo
   * Administrador de segurança
-  * Administrador de função com privilégios
+  * Administrador de função privilegiado
   * Administrador do Intune
   * Administrador de serviços de Proxy do aplicativo
   * Administrador do Dynamics 365

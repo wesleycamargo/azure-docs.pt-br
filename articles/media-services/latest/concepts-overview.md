@@ -9,19 +9,22 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/13/2019
+ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: d3cea9f3bc5645aeaefc5bb376557d365681df56
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e4a79d7528f2e814e6370a5ead7d77a19057ebbb
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57994102"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311264"
 ---
 # <a name="media-services-concepts"></a>Conceitos de serviços de mídia
 
 Este tópico fornece uma visão geral dos conceitos de serviços de mídia do Azure e fornece links para artigos com a explicação detalhada sobre os serviços de mídia v3 conceitos e funcionalidade. Os conceitos fundamentais descritos nestes tópicos devem ser examinados antes do início do desenvolvimento.
+
+> [!NOTE]
+> Atualmente, você não pode usar o portal do Azure para gerenciar recursos da v3. Use o [API REST](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), ou um com suporte [SDKs](developers-guide.md).
 
 ## <a name="cloud-upload-and-storage"></a>Upload e armazenamento na nuvem
 
@@ -41,7 +44,7 @@ Para codificar com os serviços de mídia v3, você precisará criar **transform
 - [Transformações e Trabalhos](transforms-jobs-concept.md)
 - [Codificação com os serviços de mídia](encoding-concept.md)
 
-## <a name="media-analytics"></a>Análise de mídia
+## <a name="media-analytics"></a>Análise de Mídia
 
 Para analisar seus arquivos de áudio e vídeos, você também precisará criar **transforma** e **trabalhos**.
 
@@ -91,9 +94,9 @@ A imagem a seguir ilustra o fluxo de trabalho do tipo de passagem:
 - [Visão geral da transmissão ao vivo](live-streaming-overview.md)
 - [Eventos ao Vivo e Saídas Dinâmicas](live-events-outputs-concept.md)
 
-## <a name="monitoring"></a>Monitoramento
+## <a name="monitoring"></a>Monitorando
 
-### <a name="event-grid"></a>Grade de Eventos
+### <a name="event-grid"></a>Grade do Evento
 
 Para ver o andamento do trabalho, você deve usar **grade de eventos**. Os serviços de mídia também emite os tipos de evento ao vivo. Com a Grade de Eventos, seus aplicativos podem escutar e reagir a eventos de praticamente todos os serviços do Azure, bem como de origens personalizadas. 
 

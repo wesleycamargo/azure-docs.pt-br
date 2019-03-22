@@ -10,22 +10,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 03/22/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 3f23f62554ce7f4b90b4116fdd6085027e71650d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 0ebd17eca363d7fc02daeb851bb24b8d1d307efc
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770150"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339594"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Conectar-se a pilha do Azure para o Azure usando o Azure ExpressRoute
 
 *Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-Este artigo mostra como conectar uma rede virtual do Azure Stack para uma rede virtual do Azure usando um [o Microsoft Azure ExpressRoute](/azure/expressroute/) direcionar a conexão.
+Este artigo descreve como conectar uma rede virtual do Azure Stack para uma rede virtual do Azure usando um [o Microsoft Azure ExpressRoute](/azure/expressroute/) direcionar a conexão.
 
 Você pode usar este artigo como um tutorial e usar os exemplos para configurar o mesmo ambiente de teste. Ou, você pode usar o artigo como um passo a passo que orienta você pela configuração de seu próprio ambiente de ExpressRoute.
 
@@ -108,10 +108,10 @@ Use os procedimentos a seguir para criar os recursos de rede necessária no Azur
 
    |Campo  |Valor  |
    |---------|---------|
-   |NOME     |Tenant1VNet1         |
+   |Nome     |Tenant1VNet1         |
    |Espaço de endereço     |10.1.0.0/16|
    |Nome da sub-rede     |Tenant1-Sub1|
-   |Intervalo de endereços da sub-rede     |10.1.1.0/24|
+   |Intervalo de endereço de sub-rede     |10.1.1.0/24|
 
 6. Você deverá ver a assinatura que você criou anteriormente populada na **assinatura** campo. Para os campos restantes:
 
@@ -144,13 +144,13 @@ Use os procedimentos a seguir para criar os recursos de rede necessária no Azur
 
 #### <a name="create-the-local-network-gateway"></a>Criar o gateway de rede local
 
-O recurso de gateway de rede local identifica o gateway remoto na outra extremidade da conexão de VPN. Neste exemplo, a extremidade remota da conexão é a subinterface LAN do roteador de ExpressRoute. Para o locatário 1, mostrada na Figura 2, o endereço remoto é 10.60.3.255.
+O recurso de gateway de rede local identifica o gateway remoto na outra extremidade da conexão de VPN. Neste exemplo, a extremidade remota da conexão é sub interface LAN do roteador de ExpressRoute. Para o locatário 1, mostrada na Figura 2, o endereço remoto é 10.60.3.255.
 
 1. Entre no portal do usuário do Azure Stack com sua conta de usuário e selecione **+ criar um recurso**.
 1. Sob **do Azure Marketplace**, selecione **Networking**.
 1. Selecione **gateway de rede local** na lista de recursos.
 1. No **nome** , digite **ER-roteador-GW**.
-1. Para o **endereço IP** campo, consulte a Figura 2. O endereço IP do subinterface de LAN do roteador de ExpressRoute para o locatário 1 é 10.60.3.255. Para o seu próprio ambiente, insira o endereço IP da interface de correspondente do seu roteador.
+1. Para o **endereço IP** campo, consulte a Figura 2. O endereço IP da interface ExpressRoute roteador LAN subpropriedades para locatário 1 é 10.60.3.255. Para o seu próprio ambiente, insira o endereço IP da interface de correspondente do seu roteador.
 1. No **espaço de endereço** , insira o espaço de endereço das redes virtuais que você deseja se conectar no Azure. As sub-redes de locatário 1 em *Figura 2* são da seguinte maneira:
 
    * 192.168.2.0/24 é o hub de rede virtual no Azure.
@@ -159,7 +159,7 @@ O recurso de gateway de rede local identifica o gateway remoto na outra extremid
    > [!IMPORTANT]
    > Este exemplo pressupõe que você está usando rotas estáticas para a conexão VPN Site a Site entre o gateway do Azure Stack e o roteador de ExpressRoute.
 
-1. Verifique sua **assinatura**, **grupo de recursos**, e **local** estão corretos. Em seguida, clique em **Criar**.
+1. Verifique sua **assinatura**, **grupo de recursos**, e **local** estão corretos. Em seguida, selecione **Criar**.
 
 #### <a name="create-the-connection"></a>Criar a conexão
 
@@ -174,9 +174,9 @@ O recurso de gateway de rede local identifica o gateway remoto na outra extremid
 1. No **chave compartilhada (PSK)** , insira **abc123** e, em seguida, selecione **Okey**.
 1. Sob **resumo**, selecione **Okey**.
 
-#### <a name="get-the-virtual-network-gateway-public-ip-address"></a>Obter o endereço IP público Virtual network gateway
+#### <a name="get-the-virtual-network-gateway-public-ip-address"></a>Obter o endereço IP público do gateway de rede virtual
 
-Depois de criar o gateway de rede virtual, você pode obter o endereço IP público do gateway. Anote esse endereço, no caso de você precisará dela mais tarde para sua implantação. Dependendo da sua implantação, esse endereço é usado como o **endereço IP interno**.
+Depois de criar o gateway de rede virtual, você pode obter o endereço IP público do gateway. Anote esse endereço no caso de você precisará dela mais tarde para sua implantação. Dependendo da sua implantação, esse endereço é usado como o **endereço IP interno**.
 
 1. No portal do usuário do Azure Stack, selecione **todos os recursos**.
 1. Sob **todos os recursos**, selecione o gateway de rede virtual, que é **GW1** no exemplo.
@@ -223,14 +223,14 @@ Se você estiver usando o locatário 2 como um exemplo, lembre-se de alterar os 
 > [!IMPORTANT]
 > Esta seção destina-se somente para implantações do Azure Stack desenvolvimento ASDK (Kit). O NAT não é necessária para implantações de vários nós.
 
-O Kit de desenvolvimento do Azure Stack é independente e isolada da rede em que o host físico é implantado. Que os gateways estão conectados à rede VIP não é externa, ele está oculto por trás de um roteador que está realizando a conversão de endereço de rede (NAT).
+O Kit de desenvolvimento do Azure Stack é independente e isolada da rede em que o host físico é implantado. Que os gateways estão conectados à rede VIP não é externa; ele está oculto por trás de um roteador de realizar a conversão de endereço de rede (NAT).
 
 O roteador é uma máquina virtual do Windows Server (AzS-BGPNAT01) que executa a função de roteamento e os serviços de acesso remoto (RRAS). Você deve configurar NAT na máquina virtual AzS-BGPNAT01 para permitir a conexão de VPN site a site conectar-se em ambas as extremidades.
 
 #### <a name="configure-the-nat"></a>Configurar o NAT
 
 1. Entrar no computador host Azure Stack com sua conta de administrador.
-1. Copie e edite o seguinte script do PowerShell. Substitua `"your administrator password"` com sua senha de administrador e, em seguida, execute o script em um PowerShell ISE elevado. Esse script retorna sua **endereço externo BGPNAT**.
+1. Copie e edite o seguinte script do PowerShell. Substitua `your administrator password` com sua senha de administrador e, em seguida, execute o script em um PowerShell ISE elevado. Esse script retorna sua **endereço externo BGPNAT**.
 
    ```PowerShell
    cd \AzureStack-Tools-master\connect
@@ -243,7 +243,7 @@ O roteador é uma máquina virtual do Windows Server (AzS-BGPNAT01) que executa 
     -Password $Password
    ```
 
-1. Para configurar o NAT, copie e edite o seguinte script do PowerShell. Edite o script para substituir a `'External BGPNAT address'` e `'Internal IP address'` com os valores de exemplo a seguir:
+1. Para configurar o NAT, copie e edite o seguinte script do PowerShell. Edite o script para substituir a `External BGPNAT address` e `Internal IP address` com os valores de exemplo a seguir:
 
    * Para *endereço externo BGPNAT* usar 10.10.0.62
    * Para *endereço IP interno* usar 192.168.102.1
@@ -289,18 +289,17 @@ O roteador é uma máquina virtual do Windows Server (AzS-BGPNAT01) que executa 
       -InternalIPAddress $Using:IntBgpNat `
       -ExternalPort 4500 `
       -InternalPort 4500}
-
    ```
 
 ## <a name="configure-azure"></a>Configurar o Azure
 
-Depois de concluir a configuração do Azure Stack, você pode implantar os recursos do Azure. A figura a seguir mostra um exemplo de uma rede virtual do locatário no Azure. Você pode usar qualquer nome e o esquema de endereçamento para sua rede virtual no Azure. No entanto, o intervalo de endereços das redes virtuais no Azure e o Azure Stack deve ser exclusivo e não deve se sobrepor.
+Depois de concluir a configuração do Azure Stack, você pode implantar os recursos do Azure. A figura a seguir mostra um exemplo de uma rede virtual do locatário no Azure. Você pode usar qualquer nome e o esquema de endereçamento para sua rede virtual no Azure. No entanto, o intervalo de endereços das redes virtuais no Azure e o Azure Stack deve ser exclusivo e não deve se sobrepor:
 
 *Figura 3. Azure VNets*
 
 ![Redes virtuais do Azure](media/azure-stack-connect-expressroute/AzureArchitecture.png)
 
-Os recursos que você implanta no Azure são semelhantes aos recursos implantados no Azure Stack. Você implantará os seguintes componentes:
+Os recursos que você implanta no Azure são semelhantes aos recursos implantados no Azure Stack. Implantar os seguintes componentes:
 
 * Redes virtuais e sub-redes
 * Uma sub-rede de gateway
@@ -310,7 +309,7 @@ Os recursos que você implanta no Azure são semelhantes aos recursos implantado
 
 A infraestrutura de rede do Azure de exemplo está configurada da seguinte maneira:
 
-* Um hub padrão (192.168.2.0/24) e o modelo de rede virtual spoke (10.100.0.0./16). Para obter mais informações sobre uma topologia de rede hub-spoke, consulte [implementar uma topologia de rede hub-spoke no Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
+* Um hub padrão (192.168.2.0/24) e o modelo de rede virtual spoke (10.100.0.0./16). Para obter mais informações sobre a topologia de rede hub-spoke, consulte [implementar uma topologia de rede hub-spoke no Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
 * As cargas de trabalho são implantadas na rede virtual spoke e o circuito do ExpressRoute está conectado à VNet do hub.
 * As duas redes virtuais são conectadas usando o emparelhamento VNet.
 
@@ -367,7 +366,7 @@ Você pode usar qualquer roteador que dá suporte a IKEv2 VPN e BGP para encerra
 
 O seguinte exemplo de configuração do roteador de serviços de agregação de série Cisco ASR 1000 dá suporte a infraestrutura de rede mostrada a *configuração do roteador de ExpressRoute* diagrama.
 
-```
+```shell
 ip vrf Tenant 1
  description Routing Domain for PRIVATE peering to Azure for Tenant 1
  rd 1:1
@@ -628,7 +627,7 @@ Se você quiser saber a quantidade de tráfego está passando por meio de sua co
 1. Entre no portal do usuário do Azure Stack usando sua conta de locatário e selecione **todos os recursos**.
 1. Navegue até o grupo de recursos para seu Gateway de VPN e selecione o **Conexão** tipo de objeto.
 1. Selecione o **ConnectToAzure** conexão na lista.
-1. Sob **conexões**>**visão geral**, você pode ver as estatísticas de **dados no** e **dados de saída**. Você deve ver alguns valores diferentes de zero.
+1. Sob **conexões** > **visão geral**, você pode ver as estatísticas de **dados no** e **dados de saída**. Você deve ver alguns valores diferentes de zero.
 
    ![Dados e dados de saída](media/azure-stack-connect-expressroute/DataInDataOut.png)
 

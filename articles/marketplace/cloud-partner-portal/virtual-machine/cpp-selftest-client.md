@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: pbutlerm
-ms.openlocfilehash: aa46fbce9d11a8fd380a5ee1990c0e7924079a9b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8dc0a003a12eb0aca28c6a3238e2119dc449d661
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58078679"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309411"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Criar um cliente de autoteste para validar previamente uma imagem de máquina virtual do Azure
 
@@ -54,7 +54,7 @@ O diagrama a seguir mostra como funciona a autorização para chamadas de servi�
 A API de autoteste contém um ponto de extremidade individual que dá suporte apenas ao método POST.  Ela tem a seguinte estrutura.
 
 ```
-Uri:             https://isvapp.azurewebsites.net/selftest-vm
+Uri:             https:\//isvapp.azurewebsites.net/selftest-vm
 Method:          Post
 Request Header:  Content-Type: “application/json”
 Authorization:   “Bearer xxxx-xxxx-xxxx-xxxxx”
@@ -73,7 +73,7 @@ Request body:    The Request body parameters should use the following JSON forma
 A tabela a seguir descreve os campos da API.
 
 
-|      Campo         |    DESCRIÇÃO    |
+|      Campo         |    Descrição    |
 |  ---------------   |  ---------------  |
 |  Autorização     |  A cadeia de caracteres “Portador xxxx-xxxx-xxxx-xxxxx” contém o token de cliente do Azure AD (Active Directory), que pode ser criado usando o PowerShell.          |
 |  DNSName           |  Nome DNS da VM a ser testada    |
@@ -260,7 +260,7 @@ Use as etapas a seguir para registrar o aplicativo cliente.
 
    - **Nome** – insira um nome amigável para o aplicativo. Por exemplo, “SelfTestClient”.
    - **Tipo de aplicativo** – selecione **API/Aplicativo Web**
-   - **URL de Logon** – digite "https://isvapp.azurewebsites.net/selftest-vm"
+   - **URL de logon** – tipo de "https:\//isvapp.azurewebsites.net/selftest-vm"
 
 4. Selecione **Criar**.
 5. Em **Registros de aplicativo** ou em **Aplicativo registrado**, copie a **ID do Aplicativo**.
@@ -306,7 +306,7 @@ Use as etapas a seguir para registrar o aplicativo cliente.
 
 Use um dos seguintes programas para criar e obter um token usando a API REST OAuth:
 
-- postman
+- Postman
 - cURL no Linux
 - C&#35;
 - PowerShell

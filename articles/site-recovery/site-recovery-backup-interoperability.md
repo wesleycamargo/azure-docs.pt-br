@@ -1,46 +1,29 @@
 ---
-title: Recuperação de Site do Azure - Backup interoperabilidade | Microsoft Docs
+title: Suporte para o Azure Site Recovery com o Backup do Azure | Microsoft Docs
 description: Fornece uma visão geral de como do Azure Site Recovery e Backup do Azure podem ser usados juntos.
 services: site-recovery
 author: sideeksh
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/18/2019
 ms.author: sideeksh
-ms.openlocfilehash: 6658ab8c967c70ac1deaeba3d1dfeac602515591
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: e902f70225ec0eb0caa98f7e19a16c87220cb6f9
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731874"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312879"
 ---
-# <a name="about-site-recovery-and-backup-interoperability"></a>Sobre interoperabilidade de Backup e recuperação de Site
+# <a name="support-for-using-site-recovery-with-azure-backup"></a>Suporte para usar o Site Recovery com o Backup do Azure
 
-Este artigo fornece diretrizes para usar com êxito a recuperação de desastres de VM do Azure e o Azure IaaS VM Backup.
+Este artigo resume o suporte para usar o [serviço Site Recovery](site-recovery-overview.md) junto com o [serviço de Backup do Azure](https://docs.microsoft.com/azure/backup/backup-overview).
 
-## <a name="azure-backup"></a>Backup do Azure
-
-O Backup do Azure ajuda a proteger os dados para servidores locais, máquinas virtuais, cargas de trabalho virtualizadas, SQL servers, servidores do SharePoint e muito mais. O Azure Site Recovery orquestra e gerencia a recuperação de desastre para VMs do Azure, VMs locais e servidores físicos.
-
-## <a name="azure-site-recovery"></a> do Azure Site Recovery 
-
-É possível configurar o Backup do Azure e o Azure Site Recovery em uma VM ou um grupo de VMs. Ambos os produtos são interoperáveis. Alguns cenários onde a interoperabilidade entre o Backup e recuperação de Site do Azure se torna importante serão o seguinte:
-
-### <a name="file-backuprestore"></a>Backup/restauração de arquivo
-
-Se o Backup e replicação são ambos habilitados e um backup é feito, não há nenhum problema com a restauração de qualquer arquivo (s) na VM do lado do código-fonte ou o grupo de VMs. Replicação como de costume continuará sem alterações na integridade da replicação.
-
-### <a name="disk-backuprestore"></a>Backup/restauração de disco
-
-Se você restaurar o disco de backup, em seguida, a proteção da máquina virtual deve ser habilitado novamente.
-
-### <a name="vm-backuprestore"></a>Backup/restauração de VM
-
-Não há suporte para backup e restauração de uma VM ou um grupo de VMs. Para que isso funcione, a proteção precisa ser habilitado novamente.
-
-**Cenário** | **Suporte do Azure Site Recovery?** | **Solução alternativa, se houver**  
+**Ação** | **Suporte à recuperação de site** | **Detalhes**
 --- | --- | ---
-Backup de arquivo/pasta | Sim | Não Aplicável
-Backup em disco | Não atualmente | Desabilitar e habilitar a proteção
-Backup de VM | Não | Desabilitar e habilitar a proteção
+**Implantar os serviços juntos** | Com suporte | Os serviços são interoperáveis e podem ser configurados juntos.
+**Backup/restauração de arquivo** | Com suporte | Quando o backup e replicação estiverem habilitadas para uma VM e os backups são realizados, há nenhum problema de restauração de arquivos no lado do código-fonte VMs ou grupo de VMs. Como de costume, a replicação continuará sem alterações na integridade da replicação.
+**Backup/restauração de disco** | Não há suporte atual | Se você restaurar um backup de disco, você precisará desabilitar e reabilitar a replicação para a VM novamente.
+**Backup/restauração de VM** | Não há suporte atual | Se você fazer backup ou restaurar uma VM ou um grupo de VMs, você precisará desabilitar e reabilitar a replicação para a VM.  
+
+

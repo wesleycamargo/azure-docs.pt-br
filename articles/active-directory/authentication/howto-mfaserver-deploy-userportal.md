@@ -1,5 +1,5 @@
 ---
-title: Portal do usuário para o servidor Azure MFA | Microsoft Docs
+title: Portal do usuário para o servidor MFA do Azure - Active Directory do Azure
 description: Introdução ao Azure MFA e ao portal do usuário.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ddf84ea9fa2367c6bdf7b258611eca526dd2abd9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: bbee5316b78838bedc62454e8c1954eb5f9205ff
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175193"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317112"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Portal do usuário para o Servidor de Autenticação Multifator do Azure
 
@@ -126,20 +126,20 @@ Configuração opcional:
 
 O servidor de Autenticação Multifator do Azure fornece várias opções para o portal do usuário. A tabela a seguir fornece uma lista dessas opções e uma explicação de como elas são usadas.
 
-| Configurações do Portal de Usuário | DESCRIÇÃO |
+| Configurações do Portal de Usuário | Descrição |
 |:--- |:--- |
 | URL do portal do usuário | Insira a URL de onde o portal está sendo hospedado. |
 | Autenticação primária | Especifique o tipo de autenticação a ser usado ao entrar no portal. Autenticação do Windows, Radius ou LDAP. |
 | Permitir que os usuários façam logon | Permita que os usuários insiram um nome de usuário e uma senha na página de entrada para o portal do usuário. Se essa opção não estiver selecionada, as caixas ficarão esmaecidas. |
 | Permitir registro de usuário | Permita que o usuário se registre na Autenticação Multifator levando-os para uma tela de instalação que solicita informações adicionais, como número de telefone. O prompt de telefone de backup permite que os usuários especifiquem um número de telefone secundário. O prompt de token OATH permite que os usuários especifiquem um token OATH de terceiros. |
-| Permitir que os usuários iniciem Desvio Único | Permitir que os usuários iniciem um desvio único. Se um usuário definir essa opção, ela terá efeito na próxima vez em que ele entrar. O prompt de ignorar segundos fornece ao usuário uma caixa para que ele possa alterar o padrão de 300 segundos. Caso contrário, o desvio único é válido somente por 300 segundos. |
-| Permitir que os usuários selecionem o método | Permita aos usuários especificar o método de contato principal. Esse método pode ser uma chamada telefônica, uma mensagem de texto, um aplicativo móvel ou token OATH. |
-| Permitir que os usuários selecionem o idioma | Permita que os usuários alterem o idioma usado para chamada telefônica, mensagem de texto, aplicativo móvel ou token OATH. |
+| Permitir que usuários iniciem o Bypass Avulso | Permitir que os usuários iniciem um desvio único. Se um usuário definir essa opção, ela terá efeito na próxima vez em que ele entrar. O prompt de ignorar segundos fornece ao usuário uma caixa para que ele possa alterar o padrão de 300 segundos. Caso contrário, o desvio único é válido somente por 300 segundos. |
+| Permitir que usuários selecionem o método | Permita aos usuários especificar o método de contato principal. Esse método pode ser uma chamada telefônica, uma mensagem de texto, um aplicativo móvel ou token OATH. |
+| Permitir que usuários selecionem o idioma | Permita que os usuários alterem o idioma usado para chamada telefônica, mensagem de texto, aplicativo móvel ou token OATH. |
 | Permitir que os usuários ativem aplicativos móveis | Permita que os usuários gerem um código de ativação para concluir o processo de ativação de aplicativo móvel que seja usado com o servidor.  Você também pode definir o número de dispositivos em que eles podem ativar o aplicativo, entre 1 e 10. |
 | Usar perguntas de segurança para fallback | Permita perguntas de segurança caso a verificação em duas etapas falhe. Você pode especificar o número de perguntas de segurança que devem ser respondidas com sucesso. |
 | Permitir que os usuários associem token OATH de terceiros | Permita que os usuários especifiquem um token OATH de terceiros. |
 | Usar token OATH para fallback | Permita o uso de um token OATH caso a verificação em duas etapas não seja bem-sucedida. Você também pode especificar o tempo limite da sessão em minutos. |
-| Habilitar o registro em log | Habilite o registro em log no portal do usuário. Os arquivos de log estão localizados em: C:\Program Files\Multi-Factor Authentication Server\Logs. |
+| Habilitar registro em log | Habilite o registro em log no portal do usuário. Os arquivos de log estão localizados em: C:\Program Files\Multi-Factor Authentication Server\Logs. |
 
 Essas configurações se tornarão visíveis para o usuário no portal quando forem habilitadas e ele se conectar ao portal do usuário.
 

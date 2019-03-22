@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/14/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: bef2e5da1a151fd6178298f3b993337fd07bd294
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 780f87924bcd25f0485bfed1b9640915b7d8e1d3
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313324"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309462"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Implantar um cluster do Service Fabric do Linux em uma rede virtual do Azure
 
@@ -52,7 +52,7 @@ No recurso **Microsoft.ServiceFabric/clusters**, um cluster do Linux é implanta
 
 * três tipos de nó
 * cinco nós no tipo de nó primário (configurável nos parâmetros de modelo), um nó em cada um dos outros tipos de nó
-* sistema operacional: Ubuntu 16.04 LTS (configurável nos parâmetros de modelo)
+* SO: Ubuntu 16.04 LTS (configurável nos parâmetros de modelo)
 * certificado protegidos (configurável nos parâmetros de modelo)
 * [Serviço DNS](service-fabric-dnsservice.md) está habilitado
 * [Nível de durabilidade](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) de Bronze (configurável nos parâmetros de modelo)
@@ -89,7 +89,7 @@ O arquivo de parâmetros [AzureDeploy.Parameters][parameters] declara muitos val
 |clusterName|mysfcluster123| Nome do cluster. |
 |location|southcentralus| Localização do cluster. |
 |certificateThumbprint|| <p>O valor deve estar vazio se for criado um certificado auto-assinado ou for fornecido um arquivo de certificado.</p><p>Para usar um certificado existente que já foi carregado em um cofre de chaves, preencha o valor da impressão digital SHA1 do certificado. Por exemplo, "6190390162C988701DB5676EB81083EA608DCCF3". </p>|
-|certificateUrlValue|| <p>O valor deve estar vazio se for criado um certificado auto-assinado ou for fornecido um arquivo de certificado.</p><p>Para usar um certificado existente que foi previamente carregado para um cofre de chaves, preencha a URL do certificado. Por exemplo, "https://mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
+|certificateUrlValue|| <p>O valor deve estar vazio se for criado um certificado auto-assinado ou for fornecido um arquivo de certificado.</p><p>Para usar um certificado existente que foi previamente carregado para um cofre de chaves, preencha a URL do certificado. Por exemplo, "https:\//mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
 |sourceVaultValue||<p>O valor deve estar vazio se for criado um certificado auto-assinado ou for fornecido um arquivo de certificado.</p><p>Para usar um certificado existente que foi previamente carregado para um cofre de chaves, preencha o valor do cofre de origem. For example, "/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT".</p>|
 
 <a id="createvaultandcert" name="createvaultandcert_anchor"></a>

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: d944a51f7e0ee24d5a3768ba28d7a8294c30b99b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 4ca42e34dcf215fe45d1f25adb9509034c6144d2
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118758"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58335837"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Guia do desenvolvedor Java para o Serviço de Aplicativo no Linux
 
@@ -163,7 +163,7 @@ Essas instruções se aplicam a todas as conexões de banco de dados. Você prec
 
 | Banco de dados   | Nome de Classe do Driver                             | Driver JDBC                                                                      |
 |------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
-| PostgreSQL | `org.postgresql.Drvier`                        | [Baixar](https://jdbc.postgresql.org/download.html)                                    |
+| PostgreSQL | `org.postgresql.Driver`                        | [Baixar](https://jdbc.postgresql.org/download.html)                                    |
 | MySQL      | `com.mysql.jdbc.Driver`                        | [Baixar](https://dev.mysql.com/downloads/connector/j/) (Selecione "Independente de Plataforma") |
 | SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Baixar](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#available-downloads-of-jdbc-driver-for-sql-server)                                                           |
 

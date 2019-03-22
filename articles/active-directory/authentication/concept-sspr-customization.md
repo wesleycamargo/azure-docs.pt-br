@@ -1,5 +1,5 @@
 ---
-title: Personalizar a redefinição de senha de autoatendimento do Azure AD
+title: De redefinição de senha de autoatendimento de AD do Azure personalizando - Azure Active Directory
 description: Opções de personalização para redefinição de senha por autoatendimento do Azure AD
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78e15de18e57e949b2e7b7146269204469e61797
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a77c6ce205c40b5814f9b26f9099d868d434d3ce
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58106943"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316435"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Personalizar a funcionalidade de Autoatendimento de Redefinição de Senha do Azure AD
 

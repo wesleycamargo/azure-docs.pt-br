@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/03/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: be66dcf8115258b6f593ec913e75785a3f8dbe1f
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 51aa33e4ff387a1030dac42bce8d12cf72343b35
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55743473"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317469"
 ---
 # <a name="streaming-locators"></a>Localizadores de Streaming
 
@@ -32,9 +32,13 @@ Se você quiser especificar opções de criptografia em seu fluxo, crie a [Polí
 > * As propriedades de **Localizadores de Streaming** que são do tipo Datetime estão sempre no formato UTC.
 > * Você deve criar um conjunto limitado de políticas para sua conta de serviço de mídia e reutilizá-los para os Localizadores de Streaming sempre que as mesmas opções forem necessárias. 
 
-## <a name="filtering-ordering-paging"></a>Filtragem, classificação, paginação
+## <a name="associate-filters-with-streaming-locators"></a>Associar filtros localizadores de Streaming
 
-Veja [Filtragem, classificação, paginação de entidades dos Serviços de Mídia](entities-overview.md).
+Você pode especificar uma lista de [filtros de ativo ou a conta](filters-concept.md), que se aplica a seu [localizador de Streaming](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). O [empacotador dinâmico](dynamic-packaging-overview.md) se aplica a esta lista de filtros junto com aqueles seu cliente especifica a URL. Essa combinação gera uma [manifesto dinâmica](filters-dynamic-manifest-overview.md), que se baseia nos filtros na URL + filtros que você especificar no localizador de Streaming. É recomendável que você use esse recurso se você deseja aplicar filtros, mas não quiser expor os nomes de filtro na URL.
+
+## <a name="filter-order-page-streaming-locator-entities"></a>Filtrar, ordem, entidades de localizador de Streaming de página
+
+Confira [Filtragem, classificação, paginação de entidades dos Serviços de Mídia](entities-overview.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

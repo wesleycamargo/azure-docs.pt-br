@@ -1,5 +1,5 @@
 ---
-title: Proteção de senha do Azure AD
+title: Proteção por senha do AD do Azure - Active Directory do Azure
 description: Senhas fracas de vetar no Active Directory local por meio da proteção de senha do AD do Azure
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1b3660d256e4beda948f723035aa75ca8a9ed2e
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: HT
+ms.openlocfilehash: e0a25dd3a2228f0b1b3ab33db0c9c689d7b2899d
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58284861"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310550"
 ---
 # <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Impor a proteção por senha do Azure AD para o Active Directory do Windows Server
 
@@ -87,7 +87,7 @@ A proteção por senha do Azure AD para o Windows Server Active Directory requer
 
 Para obter informações adicionais de licenciamento, consulte [preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
-## <a name="download"></a>Baixar
+## <a name="download"></a>Download
 
 Dois instaladores de agente necessário para a proteção de senha do AD do Azure estão disponíveis na [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57071).
 

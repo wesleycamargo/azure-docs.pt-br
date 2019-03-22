@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 7d877f467f06768c31679752d9deff1ca19d0003
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 023d12764e3dcfcf2f5471cb431528a14fbc1fed
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882868"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339628"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Habilitar log de diagnósticos para aplicativos no Serviço de Aplicativo do Azure
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 O Azure fornece diagnósticos internos para auxiliar na depuração de um [aplicativo de Serviço de Aplicativo](https://go.microsoft.com/fwlink/?LinkId=529714). Neste artigo, você saberá como habilitar o registro em log de diagnóstico e adicionar instrumentação ao seu aplicativo, bem como acessar as informações registradas pelo Azure.
 
 Este artigo usa o [portal do Azure](https://portal.azure.com) e a CLI do Azure para trabalhar com logs de diagnóstico. Para saber mais sobre como trabalhar com logs de diagnóstico usando o Visual Studio, confira [Solucionando problemas do Azure no Visual Studio](troubleshoot-dotnet-visual-studio.md).
@@ -38,8 +38,8 @@ Você pode habilitar ou desabilitar os seguintes tipos de logs:
 * **Falha no Rastreamento de Solicitação** - informações detalhadas sobre solicitações com falha, incluindo um rastreamento dos componentes IIS usados para processar a solicitação e o tempo levado em cada componente. Isso é útil se você quiser melhorar o desempenho do site ou isolar um erro HTTP específico. Uma pasta é gerada para cada erro no sistema de arquivos do aplicativo. Políticas de retenção de arquivo são o mesmo que o erro detalhado log acima.
 * **Registro em Log de Servidor Web** - informações sobre transações HTTP usando o [formato de arquivo de log estendido W3C](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). É útil para determinar as métricas gerais do site, como o número de solicitações manipuladas e quantas solicitações existem vindas de um endereço IP específico.
 
-### <a name="application-diagnostics"></a>Diagnóstico de aplicativo
-O diagnóstico de aplicativo permite que você capture informações produzidas por um aplicativo da Web. Os aplicativos ASP.NET podem usar a classe [Rastreamento.de.Diagnóstico.de.Sistema](https://msdn.microsoft.com/library/36hhw2t6.aspx) para registrar informações no log de diagnóstico do aplicativo. Por exemplo: 
+### <a name="application-diagnostics"></a>Diagnóstico de aplicativos
+O diagnóstico de aplicativo permite que você capture informações produzidas por um aplicativo da Web. Os aplicativos ASP.NET podem usar a classe [Rastreamento.de.Diagnóstico.de.Sistema](https://msdn.microsoft.com/library/36hhw2t6.aspx) para registrar informações no log de diagnóstico do aplicativo. Por exemplo:
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
@@ -57,7 +57,7 @@ Ao habilitar o **diagnóstico de aplicativos**, você também escolhe o **Nível
 
 | Nível| Categorias de log incluídas |
 |-|-|
-|**Desabilitado** | Nenhum |
+|**Desabilitado** | Nenhuma |
 |**Erro** | Erro, Crítico |
 |**Aviso** | Aviso, Erro, Crítico|
 |**Informações** | Informações, Aviso, Erro, Crítico|
@@ -93,7 +93,7 @@ Enquanto ambos os locais de armazenamento fornecem as mesmas informações bási
 > As informações armazenadas no **armazenamento de blobs** só podem ser acessadas usando um cliente de armazenamento ou um aplicativo que possa trabalhar diretamente com esses sistemas de armazenamento. Por exemplo, o Visual Studio 2013 contém um Gerenciador de Armazenamento que pode ser usado para explorar o armazenamento de blobs, e o HDInsight pode acessar os dados armazenados no armazenamento de blobs. Você também pode gravar um aplicativo que acesse o Armazenamento do Azure usando um dos [SDKs do Azure](https://azure.microsoft.com/downloads/).
 >
 
-## <a name="download"></a> Como baixar logs
+## <a name="download"></a> Como Logs de downloads
 Informações de diagnóstico armazenadas no sistema de arquivos do aplicativo podem ser diretamente acessadas usando FTP. Além disso, pode ser baixado como um arquivo Zip usando a CLI do Azure.
 
 A estrutura de diretórios onde os logs estão armazenados é a seguinte:
@@ -115,7 +115,7 @@ Para baixar os arquivos de log usando a Interface da Linha de Comando do Azure, 
 
     az webapp log download --resource-group resourcegroupname --name appname
 
-Esse comando salva os logs do aplicativo nomeado 'appname' em um arquivo nomeado **diagnostics.zip** no diretório atual.
+Este comando salva os logs para o aplicativo chamado 'appname' em um arquivo chamado **webapp_logs.zip** no diretório atual.
 
 > [!NOTE]
 > Se você não instalou a CLI do Azure ou não a configurou para usar sua Assinatura do Azure, consulte [Como usar a CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
@@ -152,11 +152,11 @@ Para transmitir informações de log, abra uma nova sessão de prompt de comando
 
 Esse comando conecta o aplicativo nomeado 'appname' e começa a transmitir informações para a janela à medida que os eventos de log ocorrem no aplicativo. Qualquer informação escrita para os arquivos com terminação .txt ou .htm que sejam armazenadas no diretório /LogFiles (d:/home/LogFiles) será transmitida à console local.
 
-Para filtrar eventos específicos como erros, use o parâmetro **-Filtro** . Por exemplo: 
+Para filtrar eventos específicos como erros, use o parâmetro **-Filtro** . Por exemplo:
 
     az webapp log tail --name appname --resource-group myResourceGroup --filter Error
 
-Para filtrar tipos específicos de log como HTTP, use o parâmetro **-Caminho** . Por exemplo: 
+Para filtrar tipos específicos de log como HTTP, use o parâmetro **-Caminho** . Por exemplo:
 
     az webapp log tail --name appname --resource-group myResourceGroup --path http
 
@@ -192,7 +192,7 @@ Ao registrar o log no armazenamento de blob, os dados serão armazenados em um f
 | Data |A data e hora em que o evento ocorreu |
 | Nível |Nível de evento (por exemplo, erro, aviso, informação) |
 | ApplicationName |O nome do aplicativo |
-| InstanceId |Instância do aplicativo em que o evento ocorreu |
+| Id da Instância |Instância do aplicativo em que o evento ocorreu |
 | EventTickCount |A data e hora em que o evento ocorreu, em formato de escala (maior precisão) |
 | EventId |A ID deste evento<p><p>terá como padrão 0 caso nenhuma seja especificada |
 | Pid |ID do Processo |

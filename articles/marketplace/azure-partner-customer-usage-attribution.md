@@ -2,24 +2,19 @@
 title: Atribuição de uso de parceiros e clientes do Microsoft Azure
 description: Visão geral de como acompanhar o uso do cliente para soluções do Microsoft Azure Marketplace
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: yijenj
 manager: nunoc
-editor: ''
 ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: ae31aa19e5905ccafcd0161ea362cc68234f8295
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
-ms.translationtype: HT
+ms.openlocfilehash: f1a1a77e173998e434cc75c0d23e061949993e70
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294733"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317554"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Atribuição de uso do cliente do parceiro do Azure
 
@@ -105,7 +100,7 @@ Para habilitar o uso do cliente a atribuição, quando você projeta suas chamad
 
 #### <a name="example-the-python-sdk"></a>Exemplo: O SDK do Python
 
-Para o Python, use o **config** atributo. Você só pode adicionar o atributo a um UserAgent. Aqui está um exemplo:
+Para o Python, use o **config** atributo. Você só pode adicionar o atributo a um UserAgent. Veja um exemplo:
 
 ![Adicione o atributo para um agente do usuário](media/marketplace-publishers-guide/python-for-lu.PNG)
 
@@ -269,7 +264,7 @@ Quando você implanta esse modelo, a Microsoft consegue identificar a instalaç�
 
 Quando você implanta o software \<PARTNER>, a Microsoft pode identificar a instalação do software \< PARTNER> com os recursos do Azure implantados. Microsoft é capaz de correlacionar os recursos do Azure que são usados para dar suporte ao software. A Microsoft coleta essas informações para fornecer as melhores experiências com seus produtos e operar seus negócios. Os dados são coletados e regidos pelas políticas de privacidade da Microsoft, que podem ser encontradas em https://www.microsoft.com/trustcenter.
 
-## <a name="get-support"></a>Obtenha suporte
+## <a name="get-support"></a>Obter suporte
 
 Se você precisar de assistência para integração do Marketplace e/ou atribuição de uso do cliente, siga estas etapas.
 
@@ -316,7 +311,7 @@ Exibir instruções passo a passo com capturas de tela em [ https://aka.ms/TechC
 
 Você será contatado por um consultor técnico do parceiro Microsoft para configurar uma chamada para definir o escopo de suas necessidades.
 
-## <a name="faq"></a>Perguntas frequentes
+## <a name="faq"></a>Perguntas Frequentes
 
 **Qual é o benefício de adicionar o GUIA ao modelo?**
 

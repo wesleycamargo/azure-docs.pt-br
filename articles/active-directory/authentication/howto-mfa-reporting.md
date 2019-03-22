@@ -1,5 +1,5 @@
 ---
-title: Relatórios de acesso e uso para o MFA do Azure | Microsoft Docs
+title: Relatórios de acesso e uso para o Azure MFA - Azure Active Directory
 description: Descreve como usar o recurso de relatórios da Autenticação Multifator do Azure.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,23 +11,23 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e901f0e5fb1dc2840196bd6a739ff763b54ce8e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7dd26bbb06310439aae065349c14c6df1c1c12e6
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58119217"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316925"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Relatórios na Autenticação Multifator do Azure
 
 A Autenticação Multifator do Azure fornece vários relatórios que podem ser usados por você e sua organização, acessíveis através do portal do Azure. A tabela a seguir lista os relatórios possíveis:
 
-| Relatório | Local padrão | DESCRIÇÃO |
+| Relatório | Localizaçãoização | Descrição |
 |:--- |:--- |:--- |
-| Histórico de usuário bloqueado | Microsoft Azure AD > Servidor MFA > Bloquear/desbloquear usuários | Mostra o histórico de solicitações para bloquear ou desbloquear usuários. |
+| Histórico de Usuários Bloqueados | Microsoft Azure AD > Servidor MFA > Bloquear/desbloquear usuários | Mostra o histórico de solicitações para bloquear ou desbloquear usuários. |
 | Alertas de fraudes e uso | Microsoft Azure AD > Entradas | Fornece informações sobre o uso geral, resumo do usuário e detalhes do usuário, assim como um histórico de alertas de fraude enviados durante o intervalo de datas especificado. |
 | Uso para componentes locais | Microsoft Azure AD > Servidor MFA > Relatórios de Atividade | Fornece informações sobre o uso geral do MFA por meio da extensão do NPS, ADFS e do servidor MFA. |
-| Histórico de usuário desviado | Microsoft Azure AD > Servidor MFA > Bypass avulso | Fornece um histórico de solicitações para ignorar a Autenticação Multifator para um usuário. |
+| Histórico de Usuários Ignorados | Microsoft Azure AD > Servidor MFA > Bypass avulso | Fornece um histórico de solicitações para ignorar a Autenticação Multifator para um usuário. |
 | Status do servidor | Microsoft Azure AD > Servidor MFA > Status do Servidor | Exibe o status dos Servidores de Autenticação Multifator associado à sua conta. |
 
 ## <a name="view-mfa-reports"></a>Exibir relatórios de MFA
@@ -108,8 +108,8 @@ Os relatórios de atividade de entrada para MFA fornecem acesso às seguintes in
 
 **Método de autenticação do MFA:** O método de autenticação utilizado pelo usuário para concluir o MFA. Os valores possíveis incluem:
 
-- mensagem de texto
-- Notificação de aplicativo móvel
+- Mensagem de texto
+- Notificação do aplicativo móvel
 - Chamada telefônica (telefone de autenticação)
 - Código de verificação do aplicativo móvel
 - Chamada telefônica (telefone comercial)
@@ -122,7 +122,7 @@ Os relatórios de atividade de entrada para MFA fornecem acesso às seguintes in
 - Nome da política
 - Controles de concessão
 - Controles de sessão
-- Result
+- Resultado
 
 ## <a name="powershell-reporting"></a>Relatórios do PowerShell
 

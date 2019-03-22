@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/4/2019
 ms.author: aljo
-ms.openlocfilehash: 78bf30c01bc240d4fc7439ab14868bf7be90b17e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c27938ad28abc62f42024faae7931196704b9b1b
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57895814"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314477"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Criar seu primeiro aplicativo de contêiner do Service Fabric no Linux
 > [!div class="op_single_selector"]
@@ -94,7 +94,7 @@ if __name__ == "__main__":
 ```
 
 ## <a name="build-the-image"></a>Criar a imagem
-Execute o comando `docker build` para criar a imagem que executa o seu aplicativo web. Abra uma janela do PowerShell e navegue até *c:\temp\helloworldapp*. Execute o comando a seguir:
+Execute o comando `docker build` para criar a imagem que executa o seu aplicativo web. Abra uma janela do PowerShell e navegue até *c:\temp\helloworldapp*. Execute o seguinte comando:
 
 ```bash
 docker build -t helloworldapp .
@@ -122,7 +122,7 @@ docker run -d -p 4000:80 --name my-web-site helloworldapp
 
 *name* fornece um nome para o contêiner em execução (em vez da ID do contêiner).
 
-Conectar-se ao contêiner em execução. Abra um navegador da Web apontando para o endereço IP retornado na porta 4000, por exemplo "http://localhost:4000". Você deve ver o cabeçalho "Olá, Mundo!" ser exibido no navegador.
+Conectar-se ao contêiner em execução. Abra um navegador da web apontando para o endereço IP retornado na porta 4000, por exemplo "http:\//localhost:4000". Você deve ver o cabeçalho "Olá, Mundo!" ser exibido no navegador.
 
 ![Olá, Mundo!][hello-world]
 
@@ -271,9 +271,9 @@ Use o script de instalação fornecido nos modelos em https://github.com/Azure-S
 ./install.sh
 ```
 
-Abra um navegador e navegue até o Service Fabric Explorer em http://localhost:19080/Explorer(substitua localhost pelo IP privado da VM se estiver usando Vagrant no Mac OS X). Expanda o nó Aplicativos e observe que agora há uma entrada para o seu tipo de aplicativo e outra para a primeira instância desse tipo.
+Abra um navegador e navegue até o Service Fabric Explorer em http:\//localhost:19080 / Explorer (substitua localhost pelo IP privado da VM se estiver usando Vagrant no Mac OS X). Expanda o nó Aplicativos e observe que agora há uma entrada para o seu tipo de aplicativo e outra para a primeira instância desse tipo.
 
-Conectar-se ao contêiner em execução. Abra um navegador da Web apontando para o endereço IP retornado na porta 4000, por exemplo "http://localhost:4000". Você deve ver o cabeçalho "Olá, Mundo!" ser exibido no navegador.
+Conectar-se ao contêiner em execução. Abra um navegador da web apontando para o endereço IP retornado na porta 4000, por exemplo "http:\//localhost:4000". Você deve ver o cabeçalho "Olá, Mundo!" ser exibido no navegador.
 
 ![Olá, Mundo!][hello-world]
 
@@ -385,7 +385,7 @@ Aqui estão os manifestos de aplicativo e serviço completos usados neste artigo
 Para adicionar outro serviço de contêiner a um aplicativo já criado usando o yeoman, execute as seguintes etapas:
 
 1. Altere o diretório para a raiz do aplicativo existente. Por exemplo, `cd ~/YeomanSamples/MyApplication`, se `MyApplication` é o aplicativo criado pelo Yeoman.
-2. Execute o `yo azuresfcontainer:AddService`
+2. Execute `yo azuresfcontainer:AddService`
 
 <a id="manually"></a>
 

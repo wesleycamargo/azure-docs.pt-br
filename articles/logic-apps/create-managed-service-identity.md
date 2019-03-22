@@ -9,12 +9,12 @@ ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
 ms.date: 01/22/2019
-ms.openlocfilehash: a22512a960426cc21f4f012e06b9df4fa86e637e
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: 046aed64d3551d5c0b6ddae44b925452c01c297a
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54807262"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337564"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Autenticar e acessar os recursos com identidades gerenciadas em Aplicativos Lógicos do Azure
 
@@ -57,7 +57,7 @@ Para habilitar uma identidade gerenciada atribuída pelo sistema para o seu apli
 
    ![GUIDs para ID de objeto](./media/create-managed-service-identity/object-id.png)
 
-   | Propriedade | Valor | DESCRIÇÃO | 
+   | Propriedade | Valor | Descrição | 
    |----------|-------|-------------| 
    | **ID do objeto** | <*identity-resource-ID*> | Um GUID (Identificador Global Exclusivo) que representa a identidade gerenciada atribuída pelo sistema para o seu aplicativo lógico em um locatário do Azure Active Directory | 
    ||| 
@@ -74,7 +74,7 @@ Se você desejar automatizar a criação e a implantação de recursos do Azure,
 }
 ```
 
-Por exemplo: 
+Por exemplo:
 
 ```json
 {
@@ -109,7 +109,7 @@ Quando o Azure cria o aplicativo lógico, a definição de fluxo de trabalho do 
 }
 ```
 
-| Propriedade | Valor | DESCRIÇÃO | 
+| Propriedade | Valor | Descrição | 
 |----------|-------|-------------|
 | **principalId** | <*principal-ID*> | Um GUID (Identificador Global Exclusivo) que representa o aplicativo lógico no locatário do Azure Active Directory e, às vezes, aparece como "ID de objeto" ou `objectID` | 
 | **tenantId** | <*Azure-AD-tenant-ID*> | Um GUID (identificador global exclusivo) que representa o locatário do Azure AD do qual o aplicativo lógico agora é membro. Dentro do locatário do Azure AD, a entidade de serviço tem o mesmo nome que a instância do aplicativo lógico. | 
@@ -152,7 +152,7 @@ Depois de configurar o aplicativo lógico com uma identidade gerenciada atribuí
 
 1. Forneça os detalhes necessários sobre essa ação, como o local do **Método** e do **URI** da solicitação ao recurso que você deseja chamar.
 
-   Por exemplo, suponha que você está usando a autenticação do AAD (Azure Active Directory) com [um desses serviços do Azure que oferecem suporte ao Azure Active Directory](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication). 
+   Por exemplo, suponha que você está usando a autenticação do AAD (Azure Active Directory) com [um desses serviços do Azure que oferecem suporte ao Azure Active Directory](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). 
    Na caixa **URI**, digite a URL do ponto de extremidade para o serviço do Azure. 
    Assim, se você está usando o Azure Resource Manager, insira esse valor na propriedade **URI**:
 
@@ -167,7 +167,7 @@ Depois de configurar o aplicativo lógico com uma identidade gerenciada atribuí
    > [!IMPORTANT]
    > 
    > Na propriedade **Público-alvo**, o valor da ID do recurso deve corresponder exatamente ao que o Azure Active Directory espera, incluindo todas as barras à direita necessárias. 
-   > Você pode encontrar esses valores de ID do recurso nesta [tabela que descreve os serviços do Azure que oferecem suporte ao Azure Active Directory](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication). 
+   > Você pode encontrar esses valores de ID do recurso nesta [tabela que descreve os serviços do Azure que oferecem suporte ao Azure Active Directory](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). 
    > Por exemplo, se você estiver usando a ID de recurso do Azure Resource Manager, o URI deverá ter uma barra à direita.
 
 1. Continue criando o aplicativo lógico da maneira desejada.
@@ -202,7 +202,7 @@ Se você criou a identidade gerenciada atribuída pelo sistema do aplicativo ló
 }
 ```
 
-## <a name="get-support"></a>Obtenha suporte
+## <a name="get-support"></a>Obter suporte
 
 * Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](https://aka.ms/logicapps-wish).

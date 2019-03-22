@@ -2,19 +2,19 @@
 title: Saída do Azure Stream Analytics para Banco de Dados SQL do Azure
 description: Saiba mais sobre realizar a saída de dados para o SQL Azure do Azure Stream Analytics e alcançar maiores taxas de transferência de gravação.
 services: stream-analytics
-author: chetang
-ms.author: chetang
-manager: katicad
+author: chetanmsft
+ms.author: chetanmsft
+manager: katiiceva
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/21/2018
-ms.openlocfilehash: 794e2f3db44c29707400f96970159578d9e83f2d
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
-ms.translationtype: HT
+ms.date: 3/18/2019
+ms.openlocfilehash: d259fd5fc8c60837c6b6110eb751360227d70836
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54303268"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338421"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Saída do Azure Stream Analytics para Banco de Dados SQL do Azure
 
@@ -33,7 +33,7 @@ Aqui estão algumas configurações dentro de cada serviço que podem ajudar a m
 
 - **Tamanho do Lote** – a configuração de saída do SQL permite que você especifique o tamanho do lote máximo em uma saída do SQL do Azure Stream Analytics com base na natureza de sua tabela de destino/carga de trabalho. O tamanho do lote é o número máximo de registros enviados com cada transação de inserção em massa. Em índices columnstore clusterizados, tamanhos de lote próximos de [100 mil](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance) permitem mais paralelização, mínimo registro em log e otimizações de bloqueio. Em tabelas baseadas em disco, 10 mil (padrão) ou inferior pode ser ideal para sua solução, uma vez que tamanhos de lote maiores podem disparar escalonamento de bloqueio durante inserções em massa.
 
-- **Ajuste de Mensagem de Entrada** – se você tiver otimizado usando particionamento de herança e tamanho de lote, aumentar o número de eventos de entrada por mensagem por partição ajudará a incrementar ainda mais sua taxa de transferência de gravação. O ajuste de mensagem de entrada permite que os tamanhos de lote do Azure Stream Analytics tenham até o tamanho de lote especificado, melhorando a taxa de transferência. Isso pode ser obtido por meio de [compactação](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-inputs) ou tamanhos de mensagem maiores disponíveis na SKU do Hub de Eventos Premium.
+- **Ajuste de Mensagem de Entrada** – se você tiver otimizado usando particionamento de herança e tamanho de lote, aumentar o número de eventos de entrada por mensagem por partição ajudará a incrementar ainda mais sua taxa de transferência de gravação. O ajuste de mensagem de entrada permite que os tamanhos de lote do Azure Stream Analytics tenham até o tamanho de lote especificado, melhorando a taxa de transferência. Isso pode ser obtido por meio [compactação](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-inputs) ou aumentando os tamanhos de mensagem de entrada no hub de eventos ou Blob.
 
 ## <a name="sql-azure"></a>SQL Azure
 
@@ -43,7 +43,16 @@ Aqui estão algumas configurações dentro de cada serviço que podem ajudar a m
 
 ## <a name="azure-data-factory-and-in-memory-tables"></a>Azure Data Factory e tabelas na memória
 
-- **Tabela Na Memória como tabela temporária** – [Tabelas na memória](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) permitem carregamentos de dados em velocidade muito alta, mas os dados precisam caber na memória. Parâmetros de comparação mostram que o carregamento em massa de uma tabela na memória para uma tabela baseada em disco é cerca de 10 vezes mais rápido do que inserir diretamente em massa usando um único gravador na tabela baseada em disco com uma coluna de identidade e um índice clusterizado. Para aproveitar esse desempenho de inserção em massa, configure um [trabalho de cópia usando o Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database) que copia dados da tabela na memória para a tabela baseada em disco.
+- **A tabela na memória como tabela temporária** – [tabelas na memória](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) permitir para carregamentos de dados de alta velocidade, mas os dados precisam caber na memória. Parâmetros de comparação mostram que o carregamento em massa de uma tabela na memória para uma tabela baseada em disco é cerca de 10 vezes mais rápido do que inserir diretamente em massa usando um único gravador na tabela baseada em disco com uma coluna de identidade e um índice clusterizado. Para aproveitar esse desempenho de inserção em massa, configure um [trabalho de cópia usando o Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database) que copia dados da tabela na memória para a tabela baseada em disco.
+
+## <a name="avoiding-performance-pitfalls"></a>Como evitar armadilhas de desempenho
+Inserindo dados em massa é muito mais rápida do que o carregamento de dados com inserções únicas porque o repetidas é evitada a sobrecarga de transferência de dados, analisar a instrução insert, que executa a instrução e emitir um registro de transação. Em vez disso, um caminho mais eficiente é usado para o mecanismo de armazenamento, transmitir os dados. O custo de instalação desse caminho é porém muito maior do que uma única instrução insert em uma tabela baseada em disco. O ponto de neutralização de custo é normalmente cerca de 100 linhas, além do que em massa Carregando quase sempre é mais eficiente. 
+
+Se a taxa de eventos de entrada for baixa, ele pode criar facilmente tamanhos de lote menor do que 100 linhas, o que torna a inserção em massa ineficiente e usa muito espaço em disco. Para contornar essa limitação, você pode fazer uma destas ações:
+* Criar um INSTEAD OF [disparador](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-trigger-transact-sql) usar insert simple para cada linha.
+* Use uma tabela temporária de na memória, conforme descrito na seção anterior.
+
+Outro cenário ocorre ao escrever em um índice columnstore não clusterizado (NCCI), em que as inserções de menor em massa podem criar muitos segmentos, que podem causar falha no índice. Nesse caso, a recomendação é usar um índice Columnstore clusterizado em vez disso.
 
 ## <a name="summary"></a>Resumo
 

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 78cc200a7bbaa2673cf6fea71d9be123fc96a75f
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: d1f4c72ec0a67baa6f523c1ab632903b0580f3a7
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258064"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339373"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Como usar o Reconhecimento de Entidade Nomeada na Análise de Texto (versão prévia)
 
@@ -35,33 +35,33 @@ O NER (reconhecimento de entidade nomeada) é a capacidade de identificar difere
 
 No Text Analytics [Versão 2.1-Preview](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634), tanto o link da entidade quanto o reconhecimento da entidade nomeada (NER) estão disponíveis.
 
-### <a name="language-support"></a>Suporte ao idioma
+### <a name="language-support"></a>Suporte de idioma
 
 O uso da vinculação de entidade em vários idiomas exige o uso de uma base de conhecimento correspondente em cada idioma. Para vinculação de entidade na Análise de Texto, isso significa que cada idioma com suporte do ponto de extremidade `entities` será vinculado ao corpus da Wikipédia correspondente nesse idioma. Como o tamanho do corpora varia entre as linguagens, espera-se que a funcionalidade de vinculação de entidade também variará.
 
 ## <a name="supported-types-for-named-entity-recognition"></a>Tipos com Suporte para Reconhecimento de Entidade Nomeada
 
-| Type  | SubType | Exemplo |
+| Digite  | SubType | Exemplo |
 |:-----------   |:------------- |:---------|
 | Pessoa        | N/D\*         | "João", "Bill Gates"     |
-| Local padrão      | N/D\*         | "Redmond, Washington", "Paris"  |
+| Localizaçãoização      | N/D\*         | "Redmond, Washington", "Paris"  |
 | Organização  | N/D\*         | "Microsoft"   |
 | Quantidade      | Número        | "6", "seis"     | 
-| Quantidade      | Percentual    | "50%", "cinquenta por cento"| 
+| Quantidade      | Porcentagem    | "50%", "cinquenta por cento"| 
 | Quantidade      | Ordinal       | "2º", "segundo"     | 
 | Quantidade      | NumberRange   | "4 a 8"     | 
 | Quantidade      | Idade           | "90 dias", "30 anos"    | 
-| Quantidade      | Moeda      | "US$ 10,99"     | 
+| Quantidade      | Conversor de Moedas      | "US$ 10,99"     | 
 | Quantidade      | Dimensão     | "10 milhas", "40 cm"     | 
 | Quantidade      | Temperatura   | "32 graus"    |
 | DateTime      | N/D\*         | "18h30 em 4 de fevereiro de 2012"      | 
 | DateTime      | Data          | "2 de maio de 2017", "02/05/2017"   | 
-| Data/Hora     | Hora          | "8h", "8:00"  | 
+| Data e Hora     | Tempo          | "8h", "8:00"  | 
 | DateTime      | DateRange     | "2 de maio a 5 de maio"    | 
 | DateTime      | TimeRange     | "18h às 19h"     | 
-| DateTime      | Duration      | "1 minuto e 45 segundos"   | 
-| DateTime      | Definir           | "toda terça-feira"     | 
-| DateTime      | timeZone      |    | 
+| DateTime      | Duração      | "1 minuto e 45 segundos"   | 
+| DateTime      | Conjunto           | "toda terça-feira"     | 
+| DateTime      | TimeZone      |    | 
 | URL           | N/D\*         | "https:\//www.bing.com"    |
 | Email         | N/D\*         | "support@contoso.com" |
 
@@ -107,7 +107,7 @@ Detalhes sobre a definição de solicitação podem ser encontrados em [Como cha
 
 ## <a name="step-2-post-the-request"></a>Etapa 2: Postar a solicitação
 
-A análise é executada após o recebimento da solicitação. O serviço aceita até 100 solicitações por minuto. Cada solicitação pode ter um máximo de 1 MB.
+A análise é executada após o recebimento da solicitação. O serviço aceita até 100 solicitações por segunda e 1000 solicitações por minuto. Cada solicitação pode ter um máximo de 1 MB.
 
 Lembre-se de que o serviço é sem estado. Nenhum dado é armazenado em sua conta. Os resultados são retornados imediatamente na resposta.
 
