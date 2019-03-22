@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 57007674e11271e6a3d5bdf660531d01b1eff82c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2da4ee5d60290485d87af86885dda0d72a625fef
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57861427"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314800"
 ---
 # <a name="dynamic-manifests"></a>Manifestos dinâmicos
 
@@ -64,7 +64,7 @@ Com o Dynamic Manifest, você pode criar perfis de dispositivos como celular, co
 
 ![Exemplo de filtragem de representação][renditions2]
 
-No exemplo a seguir, o codificador foi usado para codificar um ativo mezzanine em sete representações de vídeo ISO MP4s (de 180p para 1080p). O recurso codificado pode ser empacotado dinamicamente em qualquer um dos seguintes protocolos de streaming: HLS, MPEG DASH e Smooth.  Na parte superior do diagrama, é mostrado o manifesto HLS para o ativo sem filtros (ele contém todas as sete representações).  Na parte inferior esquerda, é mostrado o manifesto HLS ao qual foi aplicado um filtro chamado "ott". O filtro "ott" especifica a remoção de todas as taxas de bits abaixo de 1 Mbps, o que resultou na remoção dos dois níveis de qualidade inferiores na resposta. Na parte inferior direita, é mostrado o manifesto HLS, ao qual foi aplicado um filtro chamado "mobile". O filtro "mobile" especifica a remoção de representações em que a resolução é maior do que 720p, resultando na remoção de duas representações de 1080p.
+No exemplo a seguir, o codificador foi usado para codificar um ativo mezzanine em sete representações de vídeo ISO MP4s (de 180p para 1080p). O ativo codificado pode ser [dinamicamente empacotado](dynamic-packaging-overview.md) em qualquer um dos seguintes protocolos de streaming: HLS, MPEG DASH e Smooth.  Na parte superior do diagrama, é mostrado o manifesto HLS para o ativo sem filtros (ele contém todas as sete representações).  Na parte inferior esquerda, é mostrado o manifesto HLS ao qual foi aplicado um filtro chamado "ott". O filtro "ott" especifica a remoção de todas as taxas de bits abaixo de 1 Mbps, o que resultou na remoção dos dois níveis de qualidade inferiores na resposta. Na parte inferior direita, é mostrado o manifesto HLS, ao qual foi aplicado um filtro chamado "mobile". O filtro "mobile" especifica a remoção de representações em que a resolução é maior do que 720p, resultando na remoção de duas representações de 1080p.
 
 ![Filtragem de representação][renditions1]
 
@@ -122,12 +122,16 @@ Você pode combinar até três filtros.
 
 Para saber mais, confira [este](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) blog.
 
+## <a name="associate-filters-with-streaming-locator"></a>Associar filtros de localizador de Streaming
+
+Você pode especificar uma lista de filtros de ativo ou conta, que se aplica a localizador de Streaming. O [empacotador dinâmico](dynamic-packaging-overview.md) se aplica a esta lista de filtros junto com aqueles seu cliente especifica a URL. Essa combinação gera uma [manifesto dinâmica](filters-dynamic-manifest-overview.md), que se baseia nos filtros na URL + filtros que você especificar no localizador de Streaming. É recomendável que você use esse recurso se você deseja aplicar filtros, mas não quiser expor os nomes de filtro na URL.
+
 ## <a name="considerations-and-limitations"></a>Considerações e limitações
 
 - Os valores para **forceEndTimestestamp**, **presentationWindowDuration** e **liveBackoffDuration** não devem ser definidos para um filtro VoD. Eles são usados apenas para cenários de filtro em tempo real. 
 - Manifesto dinâmico opera nos limites do GOP (quadros chave) e, como consequência, o corte tem precisão de GOP. 
 - Você pode usar o mesmo nome de filtro para filtros de conta e de recurso. Os filtros de recursos têm precedência mais alta e substituem os filtros de conta.
-- Ao atualizar um filtro, talvez sejam necessários até 2 minutos para que o ponto de extremidade do streaming atualize as regras. Se o conteúdo foi distribuído usando alguns filtros (e armazenado em cache nos proxies e caches CDN), atualizar esses filtros pode resultar em falhas do player. É recomendável limpar o cache depois de atualizar o filtro. Se essa opção não for possível, considere usar um filtro diferente.
+- Se você atualizar um filtro, ele pode levar até 2 minutos para o ponto de extremidade do Streaming atualize as regras. Se o conteúdo foi distribuído usando alguns filtros (e armazenado em cache nos proxies e caches CDN), atualizar esses filtros pode resultar em falhas do player. É recomendável limpar o cache depois de atualizar o filtro. Se essa opção não for possível, considere usar um filtro diferente.
 - Os clientes precisam fazer o download manual do manifesto e analisar a exata startTimestamp e a escala de tempo.
     
     - Para determinar as propriedades das faixas em um Ativo, [obtenha e examine o arquivo de manifesto](#get-and-examine-manifest-files).

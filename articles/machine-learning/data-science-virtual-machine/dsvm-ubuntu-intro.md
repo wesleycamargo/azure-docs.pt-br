@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: 92f9fcc8a10f90c0886667f33f3c7d4dec09bc8e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9d48f47f66bea0bb8c5e3c982f983f3673bcb157
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57884669"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316978"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Provisionar a Máquina Virtual de Ciência de Dados para Linux (Ubuntu)
 
@@ -144,9 +144,9 @@ Após o logon na VM usando o cliente SSH ou a área de trabalho gráfica XFCE po
 
 ### <a name="jupyterhub-and-jupyterlab"></a>JupyterHub e JupyterLab
 
-A DSVM do Ubuntu executa o [JupyterHub](https://github.com/jupyterhub/jupyterhub), um servidor Jupyter multiusuário. Para se conectar, navegue até https://your-vm-ip:8000 em seu computador desktop ou laptop, insira o nome de usuário e a senha usados para criar a VM e faça logon. Muitos notebooks de exemplo estão disponíveis para você procurar e experimentar.
+A DSVM do Ubuntu executa o [JupyterHub](https://github.com/jupyterhub/jupyterhub), um servidor Jupyter multiusuário. Para se conectar, navegue até https:\// seu-vm-ip:8000 em seu laptop ou desktop, insira o nome de usuário e senha que você usou para criar a VM e faça logon. Muitos notebooks de exemplo estão disponíveis para você procurar e experimentar.
 
-O JupyterLab, a próxima geração de notebooks Jupyter e JupyterHub, também está disponível. Para acessá-lo, faça logon no JupyterHub e navegue até a URL https://your-vm-ip:8000/user/your-username/lab. É possível definir o JupyterLab como o servidor de Notebook padrão adicionando esta linha a /etc/jupyterhub/jupyterhub_config.py:
+O JupyterLab, a próxima geração de notebooks Jupyter e JupyterHub, também está disponível. Para acessá-lo, faça logon no JupyterHub e, em seguida, navegue até a URL https:\// seu-vm-ip:8000/usuário/your-nome de usuário/laboratório. É possível definir o JupyterLab como o servidor de Notebook padrão adicionando esta linha a /etc/jupyterhub/jupyterhub_config.py:
 
     c.Spawner.default_url = '/lab'
 

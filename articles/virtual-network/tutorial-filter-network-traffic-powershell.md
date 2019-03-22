@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 023662f0293debb1b40fc8ea10bb725eab7be4d8
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 22090bf89e469f7e8defcd50b311c555949b9bde
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649927"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317707"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-powershell"></a>Filtrar tráfego com um grupo de segurança de rede utilizando o PowerShell
 
@@ -277,7 +277,7 @@ Use o comando a seguir para instalar os Serviços de Informações da Internet d
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-Após a conclusão da instalação dos Serviços de Informações da Internet, desconecte-se da VM *myVmWeb*, que direciona para a conexão da área de trabalho remota da VM *myVmMgmt*. Para exibir a tela de boas-vindas dos Serviços de Informações da Internet, abra um navegador da Internet e navegue até http://myVmWeb.
+Após a conclusão da instalação dos Serviços de Informações da Internet, desconecte-se da VM *myVmWeb*, que direciona para a conexão da área de trabalho remota da VM *myVmMgmt*. Para exibir a tela de boas-vinda do IIS, abra um navegador da internet e navegue para http:\//myVmWeb.
 
 Desconecte a VM *myVmMgmt*.
 

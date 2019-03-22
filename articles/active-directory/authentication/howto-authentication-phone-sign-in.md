@@ -1,5 +1,5 @@
 ---
-title: Entrada sem senha no Azure AD com o aplicativo Microsoft Authenticator (versão prévia)
+title: Sem senha entrar com o aplicativo Microsoft Authenticator (visualização) – Azure Active Directory
 description: Entrar no Azure AD usando o aplicativo Microsoft Authenticator sem usar sua senha (versão prévia pública)
 services: active-directory
 ms.service: active-directory
@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: librown
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 247e772873cf467b371b4aea45f8ceb43bce16e3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 26dd1bd6717fe0216545d6b3aa729ac2cb19dc9d
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180515"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313321"
 ---
 # <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Entrada sem senha pelo telefone com o aplicativo Microsoft Authenticator (visualização pública)
 
@@ -33,7 +33,7 @@ Para versão prévia pública, um administrador deve primeiro adicionar uma pol�
 
 ### <a name="tenant-prerequisites"></a>Pré-requisitos do locatário
 
-* Azure Active Directory
+* Active Directory do Azure
 * Usuários finais habilitados para Autenticação Multifator do Azure
 * Os usuários podem registrar seus dispositivos
 

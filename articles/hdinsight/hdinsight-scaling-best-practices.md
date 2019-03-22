@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: ashish
-ms.openlocfilehash: e8a85401c0c7282d64ebcbe2f9180f25f36f7289
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cae0c97cb3084b0578f277852d646c199d1e2313
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58108147"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316245"
 ---
 # <a name="scale-hdinsight-clusters"></a>Dimensionar clusters HDInsight
 
@@ -26,7 +26,7 @@ Por exemplo, se você tem algum processamento em lotes que ocorre uma vez por di
 
 A Microsoft fornece os seguintes utilitários para dimensionar clusters:
 
-|Utilitário | DESCRIÇÃO|
+|Utilitário | Descrição|
 |---|---|
 |[PowerShell Az](https://docs.microsoft.com/powershell/azure/new-azureps-module-az)|[Conjunto AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) - ClusterName \<nome do Cluster > - TargetInstanceCount \<NewSize >|
 |[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm/overview) |[Conjunto AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) - ClusterName \<nome do Cluster > - TargetInstanceCount \<NewSize >|
@@ -34,7 +34,7 @@ A Microsoft fornece os seguintes utilitários para dimensionar clusters:
 |[CLI clássica do Azure](hdinsight-administer-use-command-line.md)|redimensionamento do cluster hdinsight do Azure \<clusterName > \<contagem de instâncias de destino >|
 |[Portal do Azure](https://portal.azure.com)|Abra o painel do cluster HDInsight, selecione **tamanho do Cluster** no menu à esquerda, em seguida, no painel de tamanho do Cluster, digite o número de nós de trabalho e selecione Salvar.|  
 
-![Dimensionar Cluster](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
+![Dimensionar cluster](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
 
 Usando qualquer um desses métodos, você pode aumentar ou reduzir verticalmente seu cluster HDInsight em apenas alguns minutos.
 
@@ -72,7 +72,7 @@ Para eliminar manualmente o aplicativo que está em execução, execute o seguin
 yarn application -kill <application_id>
 ```
 
-Por exemplo: 
+Por exemplo:
 
 ```bash
 yarn application -kill "application_1499348398273_0003"
@@ -120,7 +120,7 @@ Depois de sair do modo de segurança, você pode remover manualmente os arquivos
 
 * H100 Não é possível enviar a instrução mostrar bancos de dados: org.apache.thrift.transport.TTransportException: org.apache.http.conn.HttpHostConnectException: A conexão a hn0-clustername.servername.internal.cloudapp.net:10001 [hn0-clustername.servername. internal.cloudapp.net/1.1.1.1] falhou: **Conexão recusada**
 
-* H020 Não foi possível estabelecer uma conexão com hn0-hdisrv.servername.bx.internal.cloudapp.net:10001: org.apache.thrift.transport.TTransportException: Não foi possível criar a conexão http com http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: A conexão com hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] falhou: Conexão recusada: org.apache.thrift.transport.TTransportException: Não foi possível criar a conexão http com http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: A conexão com hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] falhou: **Conexão recusada**
+* H020 Não foi possível estabelecer uma conexão com hn0-hdisrv.servername.bx.internal.cloudapp.net:10001: org.apache.thrift.transport.TTransportException: Não foi possível criar a conexão http para http:\//hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: A conexão com hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] falhou: Conexão recusada: org.apache.thrift.transport.TTransportException: Não foi possível criar a conexão http para http:\//hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: A conexão com hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] falhou: **Conexão recusada**
 
 * Dos logs do Hive: WARN [main]: server.HiveServer2 (HiveServer2.java:startHiveServer2(442)) – Erro ao iniciar HiveServer2 na 21ª tentativa, nova tentativa em 60 segundos java.lang.RuntimeException: Erro ao aplicar política de autorização à configuração do hive: org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **Não é possível criar o diretório** /tmp/hive/hive/70a42b8a-9437-466e-acbe-da90b1614374. **Nó de nome está em modo de segurança**.
     Os blocos relatados 0 precisam de 9 blocos adicionais para alcançar o limite 0.9900 de 9 blocos no total.

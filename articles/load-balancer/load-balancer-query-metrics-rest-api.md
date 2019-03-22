@@ -11,12 +11,12 @@ ms.custom: REST, seodec18
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: KumudD
-ms.openlocfilehash: 0d8ac22679bc4e789c22396c21c51dacee201302
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 9f5206ef5348ee8fd7b3fe981a9cfe4afc1367fb
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433834"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337037"
 ---
 # <a name="get-load-balancer-utilization-metrics-using-the-rest-api"></a>Obter as métricas de utilização do Load Balancer usando a API REST
 
@@ -26,24 +26,24 @@ A documentação de referência completa e os exemplos adicionais da API REST es
 
 ## <a name="build-the-request"></a>Criar a solicitação
 
-Use a seguinte solicitação GET para coletar a [métrica ByteCount](/azure/load-balancer/load-balancer-standard-diagnostics#a-name--multidimensionalmetricsamulti-dimensional-metrics) de um Standard Load Balancer. 
+Use a seguinte solicitação GET para coletar a [métrica ByteCount](/azure/load-balancer/load-balancer-standard-diagnostics#multi-dimensional-metrics) de um Standard Load Balancer. 
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/providers/microsoft.insights/metrics?api-version=2018-01-01&metricnames=ByteCount&timespan=2018-06-05T03:00:00Z/2018-06-07T03:00:00Z
 ```
 
-### <a name="request-headers"></a>Cabeçalhos da solicitação
+### <a name="request-headers"></a>Cabeçalhos de solicitação
 
 Os cabeçalhos a seguir são necessários: 
 
-|Cabeçalho da solicitação|DESCRIÇÃO|  
+|Cabeçalho da solicitação|Descrição|  
 |--------------------|-----------------|  
-|*Tipo de Conteúdo:*|Obrigatório. Defina como `application/json`.|  
-|*Autorização:*|Obrigatório. Defina como um `Bearer` [token de acesso](/rest/api/azure/#authorization-code-grant-interactive-clients) válido. |  
+|*Tipo de Conteúdo:*|Obrigatória. Defina como `application/json`.|  
+|*Autorização:*|Obrigatória. Defina como um `Bearer` [token de acesso](/rest/api/azure/#authorization-code-grant-interactive-clients) válido. |  
 
 ### <a name="uri-parameters"></a>Parâmetros de URI
 
-| NOME | DESCRIÇÃO |
+| Nome | Descrição |
 | :--- | :---------- |
 | subscriptionId | A ID de assinatura que identifica uma assinatura do Azure. Se você tiver várias assinaturas, consulte [Trabalhando com várias assinaturas](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
 | resourceGroupName | O nome do grupo de recursos que contém o recurso. Você pode obter esse valor por meio da API do Azure Resource Manager, da CLI ou do portal. |
@@ -53,7 +53,7 @@ Os cabeçalhos a seguir são necessários:
 | TimeSpan | O período de tempo da consulta. É uma cadeia de caracteres com o seguinte formato `startDateTime_ISO/endDateTime_ISO`. Este parâmetro opcional está configurado para retornar dados de um dia no exemplo. |
 | &nbsp; | &nbsp; |
 
-### <a name="request-body"></a>Corpo da solicitação
+### <a name="request-body"></a>Solicitar corpo
 
 Nenhum corpo de solicitação é necessário para esta operação.
 

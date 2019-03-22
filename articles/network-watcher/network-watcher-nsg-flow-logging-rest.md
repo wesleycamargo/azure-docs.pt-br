@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 565b5bcce114ab5ebd2169ece11a958013cf2ee5
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: eadff8e2db6e5b8ea19b041614e0d1f3908da8a2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338896"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57876870"
 ---
 # <a name="configuring-network-security-group-flow-logs-using-rest-api"></a>Configurar logs de fluxo do Grupo de segurança de rede usando a API REST
 
@@ -209,7 +209,7 @@ Veja a exemplo um exemplo de resposta retornada:
 
 ## <a name="download-a-flow-log"></a>Baixar um log de fluxo
 
-O local de armazenamento de um log de fluxo é definido no momento da criação. Uma ferramenta conveniente para acessar esses logs de fluxo salvos em uma conta de armazenamento é o Gerenciador de Armazenamento do Microsoft Azure, que pode ser baixado aqui: http://storageexplorer.com/
+O local de armazenamento de um log de fluxo é definido no momento da criação. Uma ferramenta conveniente para acessar esses logs de fluxo salvos em uma conta de armazenamento é o Gerenciador de Armazenamento do Microsoft Azure, que pode ser baixado aqui: https://storageexplorer.com/
 
 Se uma conta de armazenamento for especificada, os arquivos de captura de pacote serão salvos em uma conta de armazenamento no seguinte local:
 

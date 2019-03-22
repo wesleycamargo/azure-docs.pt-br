@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 4311d71775ef877e0090abca9c6caabab503ef08
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: aa9b89b9afec069e97236b7652e0f1d37644f5cf
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58097603"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336058"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Como usar a exclusão reversível do Key Vault com a CLI
 
@@ -31,9 +31,9 @@ Para obter informações de referência específicas do Key Vault para CLI, conf
 
 As operações de Key Vault são gerenciadas separadamente por meio de permissões de RBAC (controle de acesso baseado em função) da seguinte maneira:
 
-| Operação | DESCRIÇÃO | Permissão de usuário |
+| Operação | Descrição | Permissão de usuário |
 |:--|:--|:--|
-|Listar|Lista os cofres de chaves excluídos.|Microsoft.KeyVault/deletedVaults/read|
+|Lista|Lista os cofres de chaves excluídos.|Microsoft.KeyVault/deletedVaults/read|
 |Recuperar|Recupera o cofre de chaves excluído.|Microsoft.KeyVault/vaults/write|
 |Limpar|Remove permanentemente um cofre de chaves excluído e todo o seu conteúdo.|Microsoft.KeyVault/locations/deletedVaults/purge/action|
 
@@ -94,7 +94,7 @@ Você pode exibir cofres de chave no estado excluído, associados à sua assinat
 ```azurecli
 az keyvault list-deleted
 ```
-- *ID* pode ser usado para identificar o recurso durante a recuperação ou limpeza. 
+- *ID* pode ser usado para identificar o recurso de recuperação ou limpeza. 
 - *ID do recurso* é a ID do recurso original desse cofre. Como este cofre de chaves está em um estado excluído, não há um recurso com essa ID de recurso. 
 - *Data de eliminação agendada* é quando o cofre será eliminado permanentemente, se nenhuma ação for realizada. O período de retenção padrão, usado para calcular a *Data de Limpeza Agendada*, é de 90 dias.
 
@@ -132,7 +132,7 @@ Quando você exclui uma chave em um cofre de chaves com exclusão reversível ha
 
 Assim como os cofres das chaves, uma chave, segredo ou certificado excluído permanecem no estado excluído por até 90 dias, a menos que você os recupere ou purga.
 
-#### <a name="keys"></a>simétricas
+#### <a name="keys"></a>Chaves
 
 Para recuperar uma chave excluída:
 
@@ -222,6 +222,24 @@ A listagem de objetos de cofre de chaves excluídos também mostra quando eles e
 
 >[!IMPORTANT]
 >Um objeto de cofre limpo, disparado pelo campo *Data de Limpeza Agendada*, será excluído permanentemente. Não é recuperável!
+
+## <a name="enabling-purge-protection"></a>Habilitar a proteção de limpeza
+
+Quando a proteção de limpeza é ativada em um cofre ou em um objeto excluída não é possível limpar estado até que o período de retenção de 90 dias. Ainda é possível recuperar tal cofre ou objeto. Esse recurso oferece garantia extra que um cofre ou um objeto nunca pode ser permanentemente excluído até que o período de retenção tenha passado.
+
+Você pode habilitar a proteção de limpeza somente se a exclusão reversível também está habilitada. 
+
+Para ativar ambos os exclusão reversível e limpar a proteção durante a criação de um cofre, use o [az creata](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) comando:
+
+```
+az keyvault create --name ContosoVault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
+```
+
+Para adicionar a proteção de limpeza para um cofre existente (que já tem exclusão reversível habilitada), use o [atualização de keyvault az](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update) comando:
+
+```
+az keyvault update --name ContosoVault --resource-group ContosoRG --enable-purge-protection true
+```
 
 ## <a name="other-resources"></a>Outros recursos
 

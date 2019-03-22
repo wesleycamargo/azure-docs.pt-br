@@ -1,19 +1,19 @@
 ---
-title: Usar o portal do Azure para gerenciar direitos de acesso do AD do Azure para contêineres e filas com o RBAC (visualização) – armazenamento do Azure | Microsoft Docs
+title: Usar o portal do Azure para gerenciar direitos de acesso do AD do Azure para contêineres e filas com o RBAC (visualização) – armazenamento do Azure
 description: Use o controle de acesso baseado em função (RBAC) do portal do Azure para atribuir acesso aos contêineres e filas para entidades de segurança. O armazenamento do Azure dá suporte a funções RBAC internas e personalizadas para a autenticação por meio do Azure AD.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 03/19/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 8050027bac3d2f13ac457edcdad9275c040305da
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a38cce7d15b4796bb66803d06f3589569985cb37
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431849"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319492"
 ---
 # <a name="grant-access-to-azure-containers-and-queues-with-rbac-in-the-azure-portal-preview"></a>Conceder acesso a contêineres do Azure e filas com o RBAC no portal do Azure (visualização)
 
@@ -101,14 +101,6 @@ Siga estas etapas para atribuir a **leitor** função para que um usuário possa
 
 > [!NOTE]
 > Atribuir a função de leitor é necessário apenas para usuários que precisam acessar os blobs ou filas usando o portal do Azure. 
-
-## <a name="use-azure-ad-credentials-with-the-portal"></a>Usar credenciais do Azure AD com o portal
-
-Para acessar blobs ou filas no portal do Azure usando suas credenciais do Azure AD, use os links de visualização, mostrados na imagem a seguir:
-
-![Acessar blobs ou filas com credenciais do Azure AD no portal](media/storage-auth-aad-rbac/access-data-azure-ad.png)
-
-Se você acessar dados blob ou fila usando os links de produção em vez dos links de visualização, o portal do Azure usa sua chave de conta para autorizar o acesso, em vez de usar o Azure AD.
 
 ## <a name="next-steps"></a>Próximas etapas
 

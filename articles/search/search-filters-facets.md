@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 94a0d3f19e595ac040d908ea47d6332ceae0943c
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: 8793f6f4d135d6099541d24aa5f5cfc0b6c21b30
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314798"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339424"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>Como criar um filtro de faceta no Azure Search 
 
@@ -84,7 +84,7 @@ Na API do .NET, os atributos de filtragem precisam ser definidos explicitamente.
 
 ## <a name="build-and-load-an-index"></a>Criar e carregar um índice
 
-Uma etapa intermediária (e talvez óbvia) é que você precisa [criar e preencher o índice](https://docs.microsoft.com/azure/search/search-create-index-dotnet#create-the-index) antes de formular uma consulta. Mencionamos essa etapa aqui para fins de integridade. Uma maneira de determinar se o índice está disponível é verificando a lista de índices no [portal](https://portal.azure.com).
+Uma etapa intermediária (e talvez óbvia) é que você precisa [criar e preencher o índice](https://docs.microsoft.com/azure/search/search-create-index-dotnet#3---construct-index) antes de formular uma consulta. Mencionamos essa etapa aqui para fins de integridade. Uma maneira de determinar se o índice está disponível é verificando a lista de índices no [portal](https://portal.azure.com).
 
 ## <a name="add-facet-filters-to-a-query"></a>Adicionar filtros de faceta a uma consulta
 
@@ -128,4 +128,3 @@ Embora esse seja um caso de uso comum, não é algo que a estrutura de navegaç�
 + [Filtros no Azure Search](search-filters.md)
 + [Criar API REST do índice](https://docs.microsoft.com/rest/api/searchservice/create-index)
 + [API REST para pesquisar documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents)
-

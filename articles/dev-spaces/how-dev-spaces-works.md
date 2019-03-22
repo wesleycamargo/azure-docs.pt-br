@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: Descreve os processos que espaços de desenvolvimento do Azure power e como eles são configurados no arquivo de configuração azds.yaml
 keywords: azds.yaml, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: 4d0b2d24335b03fb1afc729e4cb8f7fc07f8a77e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: HT
+ms.openlocfilehash: 8d17be31acc6868399e8f785255d28fa2314d48c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57457331"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316109"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Como os espaços de desenvolvimento do Azure funciona e é configurado
 
@@ -59,7 +59,7 @@ As ferramentas do lado do cliente permite que o usuário:
 
 Enquanto seu aplicativo é executado, o cliente de ferramentas também:
 * Recebe e exibe o stdout e stderr a partir de seu aplicativo em execução no AKS.
-* Usa [encaminhamento de porta](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/) para permitir o acesso via web a seu aplicativo usando http://locahost.
+* Usa [encaminhamento de porta](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/) para permitir o acesso via web a seu aplicativo usando http:\//localhost.
 * Anexa um depurador ao seu aplicativo em execução no AKS.
 * As sincronizações código-fonte em seu espaço de desenvolvimento quando uma mudança for detectada para builds incrementais, permitindo iteração rápida.
 
@@ -412,7 +412,7 @@ Você também pode criar um novo espaço de desenvolvimento é derivado de outro
 
 O espaço de desenvolvimento derivada também inteligentemente irá rotear solicitações entre seus próprios aplicativos e os aplicativos compartilhados a partir de seu pai. O roteamento funciona a tentativa de solicitação de rota para um aplicativo no espaço de desenvolvimento derivada e voltando para o aplicativo compartilhado do espaço de desenvolvimento do pai. O roteamento fará o fallback para o aplicativo compartilhado no espaço de avô se o aplicativo não está no espaço do pai.
 
-Por exemplo: 
+Por exemplo:
 * O espaço de desenvolvimento *padrão* tem aplicativos *serviceA* e *serviceB* .
 * O espaço de desenvolvimento *azureuser* é derivado de *padrão*.
 * Uma versão atualizada do *serviceA* é implantado *azureuser*.

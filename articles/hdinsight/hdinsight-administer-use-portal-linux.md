@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/26/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8fccf82371225acd5839537f7629ffe7df138d43
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 3258f4d36d80c2a501e4ceba3b428128fc3f781b
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888144"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201000"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gerenciar clusters do Apache Hadoop no HDInsight usando o portal do Azure
 
@@ -56,7 +56,7 @@ Selecione o nome do cluster da página [ **Clusters HDInsight**](#showClusters).
     - **Ferramentas**: Informações de ajuda para ferramentas relacionadas ao HDInsight.
 
 - **Menu Configurações**  
-  - **Tamanho do cluster**: Verifique, aumente e diminua o número de nós do trabalhador do cluster. Ver [Dimensionar clusters](hdinsight-administer-use-management-portal.md#scale-clusters).
+  - **Tamanho do cluster**: Verifique, aumente e diminua o número de nós do trabalhador do cluster. Ver [Dimensionar clusters](hdinsight-administer-use-portal-linux.md#scale-clusters).
   - **Limites de cota**: Exibe os núcleos usados e disponíveis para sua assinatura.
   - **SSH + logon do Cluster**: Mostra as instruções para se conectar ao cluster usando uma conexão Secure Shell (SSH). Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
   - **Data Lake Storage Gen1**: Configura o acesso ao Data Lake Storage Gen1.  Confira [Início Rápido: Configura clusters no HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
@@ -186,7 +186,7 @@ Você também é cobrado por um cluster HDInsight, mesmo quando ele não está e
 Há várias maneiras de programar o processo:
 
 * Use o Azure Data Factory. Consulte [Criar clusters Apache Hadoop baseados em Linux sob demanda no HDInsight usando o Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) para criar serviços vinculados HDInsight sob demanda.
-* Use o Azure PowerShell.  Consulte [Analisar dados de atraso de voo](hdinsight-analyze-flight-delay-data.md).
+* Use o Azure PowerShell.  Consulte [Analisar dados de atraso de voo](hdinsight-analyze-flight-delay-data-linux.md).
 * Use a CLI Clássica do Azure. Consulte [Gerenciar clusters HDInsight usando a CLI Clássica do Azure](hdinsight-administer-use-command-line.md).
 * Use o SDK .NET do HDInsight. Ver [trabalhos de envio do Apache Hadoop](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 

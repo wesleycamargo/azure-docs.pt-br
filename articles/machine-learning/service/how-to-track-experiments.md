@@ -1,7 +1,7 @@
 ---
-title: Acompanhar experimentos e métricas de treinamento
+title: Métricas de log durante execuções de treinamento
 titleSuffix: Azure Machine Learning service
-description: Com o serviço do Azure Machine Learning, você pode acompanhar suas experiências e monitorar as métricas para aprimorar o processo de criação de modelo. Saiba como adicionar log ao seu script de treinamento, como enviar o experimento, como verificar o progresso de um trabalho em execução e como exibir os resultados de uma execução.
+description: Você pode acompanhar suas experiências e monitorar as métricas para aprimorar o processo de criação de modelo. Saiba como adicionar log ao seu script de treinamento, como enviar o experimento, como verificar o progresso de um trabalho em execução e como exibir os resultados de uma execução.
 services: machine-learning
 author: heatherbshapiro
 ms.author: hshapiro
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 79247c4c1f26fadcd5f0291b55c9dd8d4d9aa2af
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 835d1f41ffe940422554a8ca59d0a91ac8e98607
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58008824"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336586"
 ---
-# <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Acompanhe métricas de treinamento e experimentos no Azure Machine Learning
+# <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Métricas de log durante o treinamento é executado no Azure Machine Learning
 
 No serviço do Azure Machine Learning, você pode acompanhar suas experiências e monitorar as métricas para aprimorar o processo de criação de modelo. Neste artigo, saiba como adicionar o registro em log para o seu script de treinamento, enviar uma execução de teste, monitorar a execução e exibir os resultados de uma execução.
 
@@ -26,7 +26,7 @@ No serviço do Azure Machine Learning, você pode acompanhar suas experiências 
 
 As métricas a seguir podem ser adicionadas a uma execução durante o treinamento de um experimento. Para exibir uma lista mais detalhada do que pode ser acompanhado em uma execução, veja a [Documentação de referência de classe de execução](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py).
 
-|Type| Função do Python | Observações|
+|Digite| Função do Python | Anotações|
 |----|:----|:----|
 |Valores escalares |Função:<br>`run.log(name, value, description='')`<br><br>Exemplo:<br>run.log("accuracy", 0.95) |Registre um valor numérico ou de string para a execução com o nome dado. Registrar uma métrica em log para uma execução faz essa métrica ser armazenada no registro de execução no experimento.  Você pode registrar em log a mesma métrica várias vezes dentro de uma execução, sendo o resultado considerado um vetor dessa métrica.|
 |Listas|Função:<br>`run.log_list(name, value, description='')`<br><br>Exemplo:<br>run.log_list("accuracies", [0.6, 0.7, 0.87]) | Faça uma lista de valores para a execução com o nome fornecido.|
@@ -218,7 +218,7 @@ Este exemplo expande o modelo básico do sklearn Ridge acima. Ele faz uma limpez
    ```
 
 ## <a name="cancel-a-run"></a>Cancelar uma execução
-Após uma execução ser enviada, você poderá cancelá-la mesmo que você tenha perdido a referência de objeto, desde que você conheça o nome do experimento e id de execução. 
+Depois que uma execução é enviada, cancelar, mesmo se você tiver perdido a referência de objeto, desde que você conhece o nome do teste e id de execução. 
 
 ```python
 from azureml.core import Experiment
@@ -344,7 +344,7 @@ Saiba mais sobre:
 
 
 
-### <a name="classification"></a>classificação
+### <a name="classification"></a>Classificação
 
 Para cada modelo de classificação compilado usando os recursos automatizados de aprendizado de máquina do Azure Machine Learning, é possível obter os gráficos a seguir: 
 + [Matriz de confusão](#confusion-matrix)
@@ -420,7 +420,7 @@ Para cada modelo de regressão compilado usando os recursos automatizados de apr
 
 <a name="pvt"></a>
 
-#### <a name="predicted-vs-true"></a>Previsto vs. True
+#### <a name="predicted-vs-true"></a>Previsto vs. Verdadeiro
 
 Previsto vs. “Real” mostra a relação entre um valor previsto e seu valor real de correlação para um problema de regressão. Esse gráfico pode ser usado para medir o desempenho de um modelo que, quanto mais próximos à linha y=x linha estiverem seus valores previstos, melhor será a precisão de um modelo de previsão.
 

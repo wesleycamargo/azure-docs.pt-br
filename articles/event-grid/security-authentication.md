@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: ea41f09269e3ad46db1f254965fd7d7df25232be
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d66db88dd1e962acc63c960270bb5685218aa391
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58095595"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316042"
 ---
 # <a name="event-grid-security-and-authentication"></a>Segurança e autenticação da Grade de Eventos 
 
@@ -88,7 +88,7 @@ Para obter um exemplo de lidar com o handshake de validação de assinatura, con
 
 ### <a name="checklist"></a>Lista de verificação
 
-Durante a criação da assinatura de evento, caso você veja uma mensagem de erro como "A tentativa de validar o ponto de extremidade fornecido https://your-endpoint-here falhou. Para obter mais detalhes, visite https://aka.ms/esvalidation", ele indica que há uma falha no handshake de validação. Para resolver esse erro, verifique os seguintes aspectos:
+Durante a criação de assinatura de evento, se você estiver vendo uma mensagem de erro como "ao tentar validar o ponto de extremidade fornecido https:\//your-endpoint-here falhou. Para obter mais detalhes, visite https:\//aka.ms/esvalidation ", ele indica que há uma falha no handshake de validação. Para resolver esse erro, verifique os seguintes aspectos:
 
 * Você tem o controle do código do aplicativo no ponto de extremidade de destino? Por exemplo, se você está escrevendo um Azure Function com base em gatilho HTTP, você tem acesso ao código do aplicativo para fazer alterações nele?
 * Se você tiver acesso ao código do aplicativo, implemente o mecanismo de handshake com base em ValidationCode como mostrado no exemplo acima.

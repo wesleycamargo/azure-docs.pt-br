@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 01/16/2019
 ms.author: danlep
-ms.openlocfilehash: fdba8969ad326565834625fe1ca7ece5e089a904
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: b09348e98a0dee85338cc9f20289d83b658eb719
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984198"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338455"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Use uma identidade gerenciada do Azure para autenticar para um registro de contêiner do Azure 
 
@@ -31,7 +31,7 @@ Para configurar um registro de contêiner e enviar por push uma imagem de contê
 
 ## <a name="why-use-a-managed-identity"></a>Por que usar uma identidade gerenciada?
 
-Uma identidade gerenciada dos recursos do Azure fornece serviços do Azure com uma identidade gerenciada automaticamente no Azure Active Directory (Azure AD). Você pode configurar [alguns recursos do Azure](../active-directory/managed-identities-azure-resources/services-support-msi.md), incluindo máquinas virtuais, com uma identidade gerenciada. Em seguida, use a identidade para acessar outros recursos do Azure, sem passar credenciais no código ou scripts.
+Uma identidade gerenciada dos recursos do Azure fornece serviços do Azure com uma identidade gerenciada automaticamente no Azure Active Directory (Azure AD). Você pode configurar [alguns recursos do Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md), incluindo máquinas virtuais, com uma identidade gerenciada. Em seguida, use a identidade para acessar outros recursos do Azure, sem passar credenciais no código ou scripts.
 
 Identidades gerenciadas são de dois tipos:
 
@@ -41,7 +41,7 @@ Identidades gerenciadas são de dois tipos:
 
 Após configurar um recurso do Azure com uma identidade gerenciada, conceda a identidade e o acesso desejado a outro recurso, assim como é feito com qualquer entidade de segurança. Por exemplo, atribua uma identidade gerenciada a uma função com pull, push e pull ou outras permissões para um registro privado no Azure. (Para obter uma lista completa de funções de registro, confira [Funções e permissões do Registro de Contêiner do Azure](container-registry-roles.md).) Você pode conceder à identidade acesso a um ou mais recursos.
 
-Em seguida, use essa identidade para se autenticar em qualquer [serviço que dê suporte à autenticação do Azure AD](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication) sem ter as credenciais no código. Para usar a identidade para acessar um registro de contêiner do Azure a partir de uma máquina virtual, você pode se autenticar com o Azure Resource Manager. Escolha como se autenticar usando a identidade gerenciada, dependendo do cenário:
+Em seguida, use essa identidade para se autenticar em qualquer [serviço que dê suporte à autenticação do Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) sem ter as credenciais no código. Para usar a identidade para acessar um registro de contêiner do Azure a partir de uma máquina virtual, você pode se autenticar com o Azure Resource Manager. Escolha como se autenticar usando a identidade gerenciada, dependendo do cenário:
 
 * [Adquira um token de acesso do Azure AD](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) programaticamente usando chamadas HTTP ou REST
 
@@ -126,7 +126,7 @@ userID=$(az identity show --resource-group myResourceGroup --name myACRId --quer
 spID=$(az identity show --resource-group myResourceGroup --name myACRId --query principalId --output tsv)
 ```
 
-Como você precisa da ID da identidade em uma etapa posterior ao fazer logon na CLI da sua máquina virtual, mostre o valor:
+Como você precisa ID da identidade em uma etapa posterior, quando você entra para a CLI de sua máquina virtual, mostre o valor:
 
 ```bash
 echo $userID
@@ -164,13 +164,13 @@ az role assignment create --assignee $spID --scope $resourceID --role acrpull
 
 SSH para a máquina virtual do Docker que está configurada com a identidade. Execute os seguintes comandos da CLI do Azure, usando a CLI do Azure instalada na VM.
 
-Primeiro, entre na CLI do Azure com [az login][az-login], usando a identidade configurada na VM. Para <userID>, substitua a ID da identidade que você recuperou em uma etapa anterior. 
+Primeiro, autenticar para a CLI do Azure com [logon az][az-login], usando a identidade configurada na VM. Para <userID>, substitua a ID da identidade que você recuperou em uma etapa anterior. 
 
 ```azurecli
 az login --identity --username <userID>
 ```
 
-Em seguida, faça logon no registro com [az acr login][az-acr-login]. Quando você usa esse comando, a CLI usa o token do Active Directory criado quando você executou `az login` para autenticar sua sessão com o registro de contêiner. (Dependendo da configuração da sua VM, você talvez precise executar esse comando e os comandos do docker com `sudo`.)
+Em seguida, se autenticar no registro com [logon de acr az][az-acr-login]. Quando você usa esse comando, a CLI usa o token do Active Directory criado quando você executou `az login` para autenticar sua sessão com o registro de contêiner. (Dependendo da configuração da sua VM, você talvez precise executar esse comando e os comandos do docker com `sudo`.)
 
 ```azurecli
 az acr login --name myContainerRegistry
@@ -216,13 +216,13 @@ az role assignment create --assignee $spID --scope $resourceID --role acrpull
 
 SSH para a máquina virtual do Docker que está configurada com a identidade. Execute os seguintes comandos da CLI do Azure, usando a CLI do Azure instalada na VM.
 
-Primeiro, entre na CLI do Azure com [az login][az-login], usando a identidade atribuída pelo sistema na VM.
+Autenticar em primeiro lugar, a CLI do Azure com [logon az][az-login], usando a identidade atribuída pelo sistema na VM.
 
 ```azurecli
 az login --identity
 ```
 
-Em seguida, faça logon no registro com [az acr login][az-acr-login]. Quando você usa esse comando, a CLI usa o token do Active Directory criado quando você executou `az login` para autenticar sua sessão com o registro de contêiner. (Dependendo da configuração da sua VM, você talvez precise executar esse comando e os comandos do docker com `sudo`.)
+Em seguida, se autenticar no registro com [logon de acr az][az-acr-login]. Quando você usa esse comando, a CLI usa o token do Active Directory criado quando você executou `az login` para autenticar sua sessão com o registro de contêiner. (Dependendo da configuração da sua VM, você talvez precise executar esse comando e os comandos do docker com `sudo`.)
 
 ```azurecli
 az acr login --name myContainerRegistry

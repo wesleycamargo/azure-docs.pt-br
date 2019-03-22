@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/17/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3711277ca11346cf73ff37c37ef4185d8bfdf6b9
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: e20e2a094e1fd88dfc2a25b586dc6c894f92b418
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329864"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312437"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Configurar a Integração do Azure Key Vault para SQL Server em Máquinas Virtuais do Azure (Clássicas)
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "54329864"
 > 
 > 
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 Há vários recursos de criptografia do SQL Server, como [TDE (Transparent Data Encryption)](https://msdn.microsoft.com/library/bb934049.aspx), [CLE (criptografia de nível de coluna)](https://msdn.microsoft.com/library/ms173744.aspx) e [criptografia de backup](https://msdn.microsoft.com/library/dn449489.aspx). Essas formas de criptografia exigem o gerenciamento e armazenamento de chaves criptográficas usadas para a criptografia. O serviço Cofre da Chave do Azure (AKV) foi criado para melhorar a segurança e o gerenciamento dessas chaves em um local seguro e altamente disponível. O [SQL Server Connector](https://www.microsoft.com/download/details.aspx?id=45344) permite que o SQL Server use essas chaves do Cofre da Chave do Azure.
 
 > [!IMPORTANT] 
@@ -51,9 +51,9 @@ Primeiro, [instale a extensão IaaS do SQL Server](../classic/sql-server-agent-e
 ### <a name="understand-the-input-parameters"></a>Compreender os parâmetros de entrada
 A tabela a seguir lista os parâmetros necessários para executar o script do PowerShell na próxima seção.
 
-| Parâmetro | DESCRIÇÃO | Exemplo |
+| Parâmetro | Descrição | Exemplo |
 | --- | --- | --- |
-| **$akvURL** |**A URL do cofre da chave** |"https://contosokeyvault.vault.azure.net/" |
+| **$akvURL** |**A URL do cofre da chave** |"https:\//contosokeyvault.vault.azure.net/" |
 | **$spName** |**Nome da Entidade de Serviço** |"fde2b411-33d5-4e11-af04eb07b669ccf2" |
 | **$spSecret** |**Segredo da Entidade de Serviço** |"9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=" |
 | **$credName** |**Nome da credencial**: A Integração AKV cria uma credencial no SQL Server, permitindo que a VM tenha acesso ao cofre da chave. Escolha um nome para essa credencial. |"mycred1" |
@@ -65,7 +65,7 @@ O cmdlet **New-AzureVMSqlServerKeyVaultCredentialConfig** cria um objeto de conf
 
 1. No Azure PowerShell, primeiro configure os parâmetros de entrada com valores específicos conforme descrito nas seções anteriores deste tópico. Veja a seguir um exemplo de script.
    
-        $akvURL = "https://contosokeyvault.vault.azure.net/"
+        $akvURL = "https:\//contosokeyvault.vault.azure.net/"
         $spName = "fde2b411-33d5-4e11-af04eb07b669ccf2"
         $spSecret = "9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM="
         $credName = "mycred1"

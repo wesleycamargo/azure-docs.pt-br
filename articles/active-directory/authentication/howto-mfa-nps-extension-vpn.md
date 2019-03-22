@@ -1,5 +1,5 @@
 ---
-title: Integrar VPN à MFA do Azure usando a extensão Servidor de Políticas de Rede | Microsoft Docs
+title: Integrar VPN à MFA do Azure usando a extensão do servidor de políticas de rede - Azure Active Directory
 description: Integre a infraestrutura VPN com Azure MFA usando a extensão do Servidor de Políticas de Rede para o Microsoft Azure.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c22b035b325582cf4a12ff10a9abbedb8837229b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4d9984da8fe3648179df7bbc24d5518816a1f4db
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58117873"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316313"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrar sua infraestrutura VPN com a MFA do Azure usando a extensão Servidor de Políticas de Rede para o Azure
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 A extensão NPS (Servidor de Políticas de Rede) para o Azure permite que as organizações protejam a autenticação do cliente do serviço RADIUS usando a [MFA (Autenticação Multifator do Azure)](howto-mfaserver-nps-rdg.md) baseada em nuvem, que fornece a verificação em duas etapas.
 
@@ -237,13 +237,13 @@ Nesta seção, você configura o servidor VPN para usar a autenticação RADIUS.
 
 5. Na guia **Segurança**, em **Provedor de Autenticação**, clique em **Autenticação do RADIUS** e, em seguida, selecione **Configurar**.
 
-    ![Autenticação Radius](./media/howto-mfa-nps-extension-vpn/image15.png)
+    ![Autenticação RADIUS](./media/howto-mfa-nps-extension-vpn/image15.png)
  
 6. Na janela **Autenticação do RADIUS**, selecione **Adicionar**.
 
 7. Na janela **Adicionar servidor do RADIUS**, faça o seguinte:
 
-     a. Na caixa **Nome do servidor**, digite o nome ou o endereço IP do servidor RADIUS que você configurou na seção anterior.
+    a. Na caixa **Nome do servidor**, digite o nome ou o endereço IP do servidor RADIUS que você configurou na seção anterior.
 
     b. Para o **Segredo compartilhado**, selecione **Alterar** e, em seguida, insira a senha de segredo compartilhado que você criou e registrou anteriormente.
 
@@ -386,7 +386,7 @@ Para usar o script, forneça a extensão com suas credenciais de administrador d
  
 5. No prompt de comando, cole a ID de locatário copiada anteriormente e, em seguida, selecione Enter. 
 
-    ![ID do locatário](./media/howto-mfa-nps-extension-vpn/image40.png)
+    ![ID do Locatário](./media/howto-mfa-nps-extension-vpn/image40.png)
 
     O script cria um certificado autoassinado e executa outras alterações de configuração. A saída é parecida com a imagem a seguir:
 
@@ -394,7 +394,7 @@ Para usar o script, forneça a extensão com suas credenciais de administrador d
 
 6. Reinicialize o servidor.
 
-### <a name="verify-the-configuration"></a>Verificar a configuração
+### <a name="verify-the-configuration"></a>Verifique a configuração
 Para verificar a configuração, estabeleça uma nova conexão VPN com o servidor VPN. Depois de inserir corretamente suas credenciais para autenticação primária, a conexão VPN aguarda que a autenticação secundária seja bem-sucedida antes que a conexão seja estabelecida, conforme mostrado abaixo. 
 
 ![A janela VPN de Configurações do Windows](./media/howto-mfa-nps-extension-vpn/image42.png)

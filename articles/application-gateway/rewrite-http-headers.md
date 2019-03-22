@@ -7,27 +7,29 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 2babb6ff7b93ad9cf7c93565cadce9453a3b96ca
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: aedd81af8b5821b1f8032faad1896790804df2a0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103421"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119285"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Reescreva os cabeçalhos HTTP com o Gateway de Aplicativo (visualização pública)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Os cabeçalhos HTTP permitem que o cliente e o servidor passem informações adicionais com a solicitação ou a resposta. A reescrita desses cabeçalhos HTTP ajuda você a realizar vários cenários importantes, como a adição de campos de cabeçalho relacionados à Segurança, como HSTS/X-XSS-Protection, ou a remoção de campos de cabeçalho que podem revelar informações confidenciais, como o nome do servidor back-end.
 
 O Gateway de Aplicativo agora dá suporte à capacidade de rescrever cabeçalhos das solicitações HTTP de entrada, bem como das respostas HTTP de saída. Você poderá adicionar, remover ou atualizar os cabeçalhos de solicitação e resposta HTTP, enquanto os pacotes de solicitação/resposta são transferidos entre os pools de back-end e do cliente. Você pode reescrever campos de cabeçalho padrão, bem como não padrão.
 
-> [!NOTE] 
->
+> [!NOTE]
+> 
 > O suporte à reescrita de cabeçalho HTTP só está disponível para [nova SKU [Standard_V2\]](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
 
 Ofertas de suporte de reescrita de cabeçalho do Gateway de Aplicativo:
 
 - **reescrita do cabeçalho global**: Você pode reescrever cabeçalhos específicos para todas as solicitações e respostas que pertencem ao site.
-- **Cabeçalho com base no caminho de reescrita**: esse tipo de reescrita permite a reescrita de cabeçalho para somente essas solicitações e respostas que pertencem a apenas uma área específica do site, por exemplo uma área de carrinho de compras que é denotada por /cart/*.
+- **Cabeçalho com base no caminho de regravação**: esse tipo de regravação permite que a reconfiguração de cabeçalho para somente essas solicitações e respostas que pertencem a apenas em uma área específica do site, por exemplo uma área de carrinho de compras é denotada por /cart/\*.
 
 Com essa alteração, você precisa:
 
@@ -48,7 +50,7 @@ Você pode reescrever o valor nos cabeçalhos para:
   *Exemplo:* 
 
   ```azurepowershell-interactive
-  $responseHeaderConfiguration = New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Strict-Transport-Security" -  HeaderValue "max-age=31536000")
+  $responseHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Strict-Transport-Security" -  HeaderValue "max-age=31536000")
   ```
 
 - Valor de outro cabeçalho. 
@@ -56,7 +58,7 @@ Você pode reescrever o valor nos cabeçalhos para:
   *Exemplo 1:* 
 
   ```azurepowershell-interactive
-  $requestHeaderConfiguration= New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-RequestHeader" -HeaderValue {http_req_oldHeader}
+  $requestHeaderConfiguration= New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-RequestHeader" -HeaderValue {http_req_oldHeader}
   ```
 
   > [!Note] 
@@ -65,7 +67,7 @@ Você pode reescrever o valor nos cabeçalhos para:
   *Exemplo 2*:
 
   ```azurepowershell-interactive
-  $responseHeaderConfiguration= New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-ResponseHeader" -HeaderValue {http_resp_oldHeader}
+  $responseHeaderConfiguration= New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-ResponseHeader" -HeaderValue {http_resp_oldHeader}
   ```
 
   > [!Note] 
@@ -76,7 +78,7 @@ Você pode reescrever o valor nos cabeçalhos para:
   *Exemplo:* 
 
   ```azurepowershell-interactive
-  $requestHeaderConfiguration = New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Ciphers-Used" -HeaderValue "{var_ciphers_used}"
+  $requestHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Ciphers-Used" -HeaderValue "{var_ciphers_used}"
   ```
 
   > [!Note] 

@@ -1,5 +1,5 @@
 ---
-title: Criar uma estratégia de gerenciamento de controle de acesso resiliente com o Azure Active Directory
+title: Criar uma estratégia de gerenciamento de controle de acesso flexível - Azure Active Directory
 description: Este documento fornece diretrizes sobre as estratégias que uma organização deve adotar para fornecer resiliência, visando reduzir o risco de bloqueio durante interrupções imprevistas
 services: active-directory
 author: martincoetzer
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b006a4fbb8d1059f5096f5c1585853953b69042f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3c7a61d8c1b9ec15327836f7d31e9e299c57cb21
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082136"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316330"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Criar uma estratégia de gerenciamento de controle de acesso resiliente com o Azure Active Directory
 
@@ -81,7 +81,7 @@ Este conjunto de políticas de exemplo concederá aos usuários selecionados no 
   * Usuários e Grupos: Incluir todos os usuários. Excluir AppUsers, CoreAdmins, e EmergencyAccess
   * Aplicativos de Nuvem: Incluir todos os aplicativos
   * Condições: (Nenhuma)
-  * Controles de Concessão: Bloco
+  * Controles de Concessão: Bloquear
 * Política 2: Conceder acesso a AppUsers exigindo MFA ou dispositivo confiável.
   * Usuários e Grupos: Incluir AppUsers. Excluir CoreAdmins e EmergencyAccess
   * Aplicativos de Nuvem: Incluir todos os aplicativos
@@ -117,13 +117,13 @@ Uma política de acesso condicional de contingência é uma **política desabili
 * Configure um conjunto de políticas de fallback se uma interrupção em um mecanismo de controle de acesso ou um tipo de credencial afete o acesso aos seus aplicativos. Configure uma política em um estado desabilitado que requer ingresso no domínio como um controle, como um backup para uma política ativa que requer um provedor MFA de terceiros.
 * Reduza o risco de atores maliciosos detectarem senhas, quando a MFA não é necessária, seguindo as práticas no white paper [diretrizes de senha](https://aka.ms/passwordguidance).
 * Implante [SSPR (Redefinição de Senha de Autoatendimento do Azure AD)](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr) e [Proteção por Senha do Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-deploy) para certificar-se de que os usuários não usem uma senha comum e os termos que você quer vetar.
-* Use as políticas que restringem o acesso dentro dos aplicativos se um determinado nível de autenticação não for atingido, em vez de simplesmente fazer fallback para acesso completo. Por exemplo: 
+* Use as políticas que restringem o acesso dentro dos aplicativos se um determinado nível de autenticação não for atingido, em vez de simplesmente fazer fallback para acesso completo. Por exemplo:
   * Configure uma política de backup que envia a declaração de sessão restrita para Exchange e SharePoint.
   * Se sua organização usa o Microsoft Cloud App Security, considere fazer fallback para uma política que envolve o MCAS e, então, o MCAS permite acesso somente leitura, mas não uploads.
 * Dê um nome às suas políticas para garantir que seja fácil encontrá-las durante uma interrupção. Inclua os seguintes elementos no nome da política:
   * Um *número de rótulo* para a política.
-  * Texto a ser exibido, essa política é somente para emergências. Por exemplo:  **HABILITAR EM EMERGÊNCIA**
-  * A *interrupção* à qual ela se aplica. Por exemplo:  **Durante Interrupção da MFA**
+  * Texto a ser exibido, essa política é somente para emergências. Por exemplo: **HABILITAR EM EMERGÊNCIA**
+  * A *interrupção* à qual ela se aplica. Por exemplo: **Durante Interrupção da MFA**
   * Um *número de sequência* para mostrar a ordem em que você deve ativar as políticas.
   * Os *aplicativos* aos quais ela se aplica.
   * Os *controles* aos quais ela se aplica.
@@ -151,21 +151,21 @@ O exemplo a seguir: **Exemplo A - política de CA de contingência para restaura
   * Usuários e Grupos: Incluir todos os usuários. Excluir CoreAdmins e EmergencyAccess
   * Aplicativos de Nuvem: Exchange Online e SharePoint Online
   * Condições: Plataforma de dispositivo inclui todas as plataformas, excluir Windows
-  * Controles de Concessão: Bloco
+  * Controles de Concessão: Bloquear
   * Estado: Desabilitado
 * Política 3: Bloquear redes que não sejam CorpNetwork
   * Nome: EM003 – HABILITAR EM EMERGÊNCIA: Interrupção de MFA [3/4] – Exchange SharePoint – Bloquear acesso, exceto da rede corporativa
   * Usuários e Grupos: Incluir todos os usuários. Excluir CoreAdmins e EmergencyAccess
   * Aplicativos de Nuvem: Exchange Online e SharePoint Online
   * Condições: Locais incluem qualquer local, excluir CorpNetwork
-  * Controles de Concessão: Bloco
+  * Controles de Concessão: Bloquear
   * Estado: Desabilitado
 * Política 4: Bloquear EAS explicitamente
   * Nome: EM004 – HABILITAR EM EMERGÊNCIA: Interrupção de MFA [4/4] – Exchange – Bloquear EAS para todos os usuários
   * Usuários e Grupos: Incluir todos os usuários
   * Aplicativos de Nuvem: Incluir Exchange Online
   * Condições: Aplicativos do cliente: Exchange Active Sync
-  * Controles de Concessão: Bloco
+  * Controles de Concessão: Bloquear
   * Estado: Desabilitado
 
 Ordem de ativação:
@@ -185,15 +185,15 @@ Neste exemplo, **Exemplo B - políticas de CA de contingência para permitir o a
   * Nome: EM001 – HABILITAR EM EMERGÊNCIA: Interrupção de Conformidade do Dispositivo [1/2] – Salesforce – Bloquear todos os usuários, exceto SalesforceContingency
   * Usuários e Grupos: Incluir todos os usuários. Excluir SalesAdmins e SalesforceContingency
   * Aplicativos de Nuvem: Salesforce.
-  * Condições: Nenhum
-  * Controles de Concessão: Bloco
+  * Condições: Nenhuma
+  * Controles de Concessão: Bloquear
   * Estado: Desabilitado
 * Política 2: Bloquear a equipe de vendas de qualquer plataforma que não seja móvel (para reduzir a área da superfície do ataque)
   * Nome: EM002 – HABILITAR EM EMERGÊNCIA: Interrupção de Conformidade do Dispositivo [2/2] – Salesforce – Bloquear todas as plataformas, exceto iOS e Android
   * Usuários e Grupos: Incluir SalesforceContingency. Excluir SalesAdmins
   * Aplicativos de Nuvem: Salesforce
   * Condições: Plataforma de dispositivo inclui todas as plataformas, excluir iOS e Android
-  * Controles de Concessão: Bloco
+  * Controles de Concessão: Bloquear
   * Estado: Desabilitado
 
 Ordem de ativação:

@@ -1,5 +1,5 @@
 ---
-title: Azure MFA Server ou Serviço, no Local ou na nuvem?
+title: Azure MFA Server ou Serviço, no Local ou na nuvem? - Azure Active Directory
 description: Como Administrador do Azure AD, eu preciso entender qual versão da MFA devo implantar?
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: edfc26355933db549b735c4baf9744744f46734c
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: dbbcb46c3449750b6ea9ccdbd9a5103be715d8f7
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870458"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312063"
 ---
 # <a name="which-version-of-azure-mfa-is-right-for-my-organization"></a>Qual versão do Azure MFA é ideal para minha organização?
 
@@ -46,7 +46,7 @@ Em seguida, determine onde estão localizados os usuários da sua organização 
 
 | Local do usuário | MFA na nuvem | Servidor MFA |
 | --- |:---:|:---:|
-| Azure Active Directory |● | |
+| Active Directory do Azure |● | |
 | Azure AD e AD local usando federação com AD FS |● |● |
 | Azure AD e AD local usando o DirSync, o Azure AD Connect - sem sincronização de hash de senha ou autenticação de passagem |● |● |
 | Azure AD e AD local usando o Azure AD Connect - sem sincronização de hash de senha ou autenticação de passagem |● | |
@@ -66,7 +66,7 @@ A tabela a seguir compara os recursos disponíveis com a Autenticação Multifat
 | Senhas de aplicativos para clientes do Office 365 que não oferecem suporte a MFA | ● | |
 | Controle do administrador sobre métodos de autenticação | ● | ● |
 | Modo PIN | | ● |
-| Alerta de fraude | ● | ● |
+| Alertas de Fraude | ● | ● |
 | Relatórios de MFA | ● | ● |
 | Desvio único | | ● |
 | Saudações personalizadas para chamadas telefônicas | ● | ● |

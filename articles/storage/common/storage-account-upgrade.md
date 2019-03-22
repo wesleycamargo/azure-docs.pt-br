@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: tamram
-ms.openlocfilehash: d57023063fe23db9f57d52ab9cdf99e0687c1fdf
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: df9bc1680f20fe6264da0109cd52db1072fd9fc5
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217284"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311128"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Atualizar para uma conta de armazenamento de uso geral v2
 
@@ -29,14 +29,14 @@ A atualização para uma conta de armazenamento de uso geral v2 das suas contas 
 2. Navegue até sua conta de armazenamento.
 3. Na seção **Configurações**, clique em **Configuração**.
 4. Em **Tipo de conta**, clique em **Upgrade**.
-5. Em **Confirmar upgrade**, digite o nome da sua conta. 
+5. Em **Confirmar upgrade**, digite o nome da sua conta.
 6. Clique em **Atualizar** na parte inferior da folha.
 
 ## <a name="upgrade-with-powershell"></a>Atualização com o PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Para atualizar uma conta de uso geral v1 para uma conta de uso geral v2 usando PowerShell, primeiro atualize o PowerShell para usar a última versão do módulo **Az.Storage**. Acesse [Como instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) para obter informações sobre como instalar o PowerShell. 
+Para atualizar uma conta de uso geral v1 para uma conta de uso geral v2 usando PowerShell, primeiro atualize o PowerShell para usar a última versão do módulo **Az.Storage**. Acesse [Como instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) para obter informações sobre como instalar o PowerShell.
 
 Em seguida, chame o comando a seguir para atualizar a conta, substituindo o nome do seu grupo de recursos e a conta de armazenamento:
 
@@ -46,17 +46,17 @@ Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-a
 
 ## <a name="upgrade-with-azure-cli"></a>Atualização com a CLI do Azure
 
-Para atualizar uma conta de uso geral v1 para uma conta de uso geral v2 usando a CLI do Azure, primeiro instale a versão mais recente da CLI do Azure. Para obter informações sobre como instalar a CLI 2.0 do Azure, veja [Como instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). 
+Para atualizar uma conta de uso geral v1 para uma conta de uso geral v2 usando a CLI do Azure, primeiro instale a versão mais recente da CLI do Azure. Para obter informações sobre como instalar a CLI 2.0 do Azure, veja [Como instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 Em seguida, chame o comando a seguir para atualizar a conta, substituindo o nome do seu grupo de recursos e a conta de armazenamento:
 
 ```cli
 az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2
-``` 
+```
 
 ## <a name="specify-an-access-tier-for-blob-data"></a>Especificar uma camada de acesso para dados de blob
 
-Contas de uso geral v2 dão suporte a todos os objetos de dados e serviços de Armazenamento do Azure, mas as camadas de acesso estão disponíveis apenas para blobs de blocos no armazenamento de blobs. Quando você atualiza para uma conta de armazenamento de uso geral v2, pode especificar uma camada de acesso para seus dados de blob. 
+Contas de uso geral v2 dão suporte a todos os objetos de dados e serviços de Armazenamento do Azure, mas as camadas de acesso estão disponíveis apenas para blobs de blocos no armazenamento de blobs. Quando você atualiza para uma conta de armazenamento de uso geral v2, pode especificar uma camada de acesso para seus dados de blob.
 
 As camadas de acesso permitem que você escolha o armazenamento mais econômico com base nos seus padrões de uso previstos. Blobs de blocos podem ser armazenados em uma camada frequente, esporádica ou de arquivos. Para obter mais informações sobre camadas de acesso, consulte [Armazenamento de Blobs do Azure: Camadas de armazenamento de Arquivos, Frequente, Esporádico](../blobs/storage-blob-storage-tiers.md).
 
@@ -96,7 +96,7 @@ Para estimar o custo de armazenar e acessar dados de blob em uma conta de armaze
     - Quantos dados estão sendo armazenados na conta de armazenamento?
     - Como o volume de dados é alterado mensalmente; os dados novos substituem constantemente os dados antigos?
 * O padrão de acesso primário para seus dados de armazenamento de Blobs, incluindo:
-    - Qual é quantidade de dados que está sendo lida e gravada para a conta de armazenamento? 
+    - Qual é quantidade de dados que está sendo lida e gravada para a conta de armazenamento?
     - Quantas operações de leitura versus operações de gravação ocorrem nos dados na conta de armazenamento?
 
 Para decidir a melhor camada de acesso para suas necessidades, pode ser útil determinar a capacidade de dados de blob e como esses dados estão sendo usados. Isso pode ser feito melhor examinando as métricas de monitoramento para sua conta.
@@ -108,7 +108,7 @@ Para monitorar suas contas de armazenamento existentes e reunir esses dados, voc
 Para obter mais detalhes, acesse [Sobre métricas de análise de armazenamento](https://msdn.microsoft.com/library/azure/hh343258.aspx) e [Esquema de tabela de métricas da análise de armazenamento](https://msdn.microsoft.com/library/azure/hh343264.aspx)
 
 > [!NOTE]
-> As contas de Armazenamento de Blobs expõem o ponto de extremidade de serviço de tabela apenas para armazenar e acessar dados de métricas dessa conta. 
+> As contas de Armazenamento de Blobs expõem o ponto de extremidade de serviço de tabela apenas para armazenar e acessar dados de métricas dessa conta.
 
 Para monitorar o consumo do Armazenamento de Blobs, você precisa habilitar as métricas de capacidade.
 Com esse recurso habilitado, os dados de capacidade são gravados diariamente para o serviço Blob de uma conta de armazenamento e registrados como uma entrada de tabela gravada na tabela *$MetricsCapacityBlob* dentro da mesma conta de armazenamento.
@@ -120,7 +120,7 @@ Para monitorar os padrões de acesso a dados para o armazenamento de Blobs, voc�
 
 Para obter uma boa aproximação do consumo de dados e do padrão de acesso, recomendamos escolher um período de retenção para as métricas que representam seu uso regular e extrapolar. Uma opção é manter os dados de métricas por sete dias e coletar os dados de cada semana, para analisá-las no final do mês. Outra opção é manter os dados de métricas dos últimos 30 dias e coletar e analisar os dados ao fim do período de 30 dias.
 
-Para obter detalhes sobre como habilitar, coletar e exibir dados de métricas, consulte [Habilitando métricas do Armazenamento do Azure e exibindo dados de métricas](../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Para obter detalhes sobre como habilitar, coletar e exibir dados de métricas, consulte [métricas do Storage analytics](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 > [!NOTE]
 > O armazenamento, acesso e download de dados de análise também serão cobrados, assim como os dados de usuário comuns.

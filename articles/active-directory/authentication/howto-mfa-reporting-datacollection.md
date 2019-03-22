@@ -1,5 +1,5 @@
 ---
-title: Coleta de dados de usuário da Autenticação Multifator do Microsoft Azure
+title: Azure autenticação multifator usuário coleta de dados - Azure Active Directory
 description: Quais informações são usadas para ajudar a autenticar usuários pela Autenticação Multifator do Microsoft Azure?
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a42a25afc03b07393234014d7237c5419095b2b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b0c22d4421aa984a9862f83b9be1095d548e5841
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201492"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314461"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Coleta de dados de usuário da Autenticação Multifator do Microsoft Azure
 
@@ -30,11 +30,11 @@ O Servidor MFA, a Extensão NPS e o Adaptador AD FS do Azure MFA do Windows Serv
 
 Tentativas de autenticação (usadas para relatórios e solução de problemas):
 
-- Timestamp
-- Nome de Usuário
+- Carimbo de data/hora
+- Nome de usuário
 - Nome
 - Sobrenome
-- Endereço de Email
+- Endereço de email
 - Grupo de usuários
 - Método de autenticação (chamada telefônica, mensagem de texto, aplicativo móvel, Token OATH)
 - Modo de chamada telefônica (Standard, PIN)
@@ -42,8 +42,8 @@ Tentativas de autenticação (usadas para relatórios e solução de problemas):
 - Modo de mensagem de texto (OTP, OTP + PIN)
 - Modo de aplicativo móvel (Standard, PIN)
 - Modo de Token OATH (Standard, PIN)
-- Tipo de autenticação
-- Nome do Aplicativo
+- Tipo de Autenticação
+- Nome do aplicativo
 - Código do país da chamada primária
 - Número do telefone da chamada primária
 - Extensão da chamada primária
@@ -57,21 +57,21 @@ Tentativas de autenticação (usadas para relatórios e solução de problemas):
 - Geral autenticado
 - Resultado geral
 - Resultados
-- Autenticada
-- Result
+- Autenticado
+- Resultado
 - Iniciar endereço IP
 - Dispositivos
 - Token de dispositivo
 - Tipo de dispositivo
 - Versão do aplicativo móvel
 - Versão do SO
-- Result
+- Resultado
 - Verificar notificação usada
 
 Ativações (tentativas de ativar uma conta no aplicativo móvel Microsoft Authenticator):
-- Nome de Usuário
-- Nome da conta
-- Timestamp
+- Nome de usuário
+- Nome da Conta
+- Carimbo de data/hora
 - Obter resultado do código de ativação
 - Ativar êxito
 - Ativar erro
@@ -85,18 +85,18 @@ Blocos (usados para determinar o estado bloqueado e para relatório):
 
 - Bloquear carimbo de data/hora
 - Bloquear por nome de usuário
-- Nome de Usuário
+- Nome de usuário
 - Código do país
 - Número do telefone
 - Número de telefone formatado
-- Extensão
+- Ramal
 - Limpar extensão
 - Bloqueado
-- Motivo para bloquear
+- Motivo do bloqueio
 - Conclusão do carimbo de data/hora
 - Motivo da conclusão
-- Bloqueio de conta
-- Alerta de fraude
+- Bloqueio de Conta
+- Alertas de Fraude
 - Alerta de fraude não bloqueado
 - Linguagem
 
@@ -105,11 +105,11 @@ Bypass (usado para relatórios):
 - Carimbo de data/hora de bypass
 - Segundos do bypass
 - Bypass por nome de usuário
-- Nome de Usuário
+- Nome de usuário
 - Código do país
 - Número do telefone
 - Número de telefone formatado
-- Extensão
+- Ramal
 - Limpar extensão
 - Motivo do bypass
 - Conclusão do carimbo de data/hora
@@ -119,8 +119,8 @@ Bypass (usado para relatórios):
 Alterações (usadas para sincronizar as alterações do usuário para Servidor MFA ou AAD):
 
 - Alterar carimbo de data/hora
-- Nome de Usuário
-- Novo código do país
+- Nome de usuário
+- Novo Código do País
 - Novo número do telefone
 - Nova extensão
 - Novo código do país de backup

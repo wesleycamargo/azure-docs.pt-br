@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/1/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9c37c5339dedb3db68ed9bd23cd28e16a195bbde
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7cc908695a2d7263339003e5419f82da9cc313ab
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58005791"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317758"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implantação do DBMS de Máquinas Virtuais do SAP ASE Azure para carga de trabalho do SAP
 
@@ -380,9 +380,9 @@ Como com sistemas locais, são necessárias várias etapas para habilitar toda a
 
 e os links gerados no DBACockpit da transação são semelhantes a este:
 
-> https://`<fullyqualifiedhostname`>:44300/sap/bc/webdynpro/sap/dba_cockpit
+> https:\//\<fullyqualifiedhostname>:44300/sap/bc/webdynpro/sap/dba_cockpit
 > 
-> http://`<fullyqualifiedhostname`>:8000/sap/bc/webdynpro/sap/dba_cockpit
+> http:\//\<fullyqualifiedhostname>:8000/sap/bc/webdynpro/sap/dba_cockpit
 > 
 > 
 
@@ -398,9 +398,9 @@ Se você implantou a VM em um cenário de somente na nuvem sem conectividade ent
 
 Definindo o parâmetro de perfil do SAP icm/host_name_full para o nome DNS da VM do Azure, o link pode ser semelhante a:
 
-> https://mydomainlabel.westeurope.cloudapp.net:44300/sap/bc/webdynpro/sap/dba_cockpit
+> https:\//mydomainlabel.westeurope.cloudapp.net:44300/sap/bc/webdynpro/sap/dba_cockpit
 > 
-> http://mydomainlabel.westeurope.cloudapp.net:8000/sap/bc/webdynpro/sap/dba_cockpit
+> http:\//mydomainlabel.westeurope.cloudapp.net:8000/sap/bc/webdynpro/sap/dba_cockpit
 
 Nesse caso, você precisa se certificar de:
 
@@ -533,9 +533,9 @@ Como com sistemas locais, são necessárias várias etapas para habilitar toda a
 
 e os links gerados no DBACockpit da transação serão semelhantes a este:
 
-> https://`<fullyqualifiedhostname`>:44300/sap/bc/webdynpro/sap/dba_cockpit
+> https:\//\<fullyqualifiedhostname>:44300/sap/bc/webdynpro/sap/dba_cockpit
 > 
-> http://`<fullyqualifiedhostname`>:8000/sap/bc/webdynpro/sap/dba_cockpit
+> http:\//\<fullyqualifiedhostname>:8000/sap/bc/webdynpro/sap/dba_cockpit
 > 
 > 
 
@@ -551,9 +551,9 @@ Se você implantou a VM em um cenário de somente na nuvem sem conectividade ent
 
 Definindo o parâmetro de perfil do SAP icm/host_name_full para o nome DNS da VM do Azure, o link pode ser semelhante a:
 
-> https://mydomainlabel.westeurope.cloudapp.net:44300/sap/bc/webdynpro/sap/dba_cockpit
+> https:\//mydomainlabel.westeurope.cloudapp.net:44300/sap/bc/webdynpro/sap/dba_cockpit
 > 
-> http://mydomainlabel.westeurope.cloudapp.net:8000/sap/bc/webdynpro/sap/dba_cockpit
+> http:\//mydomainlabel.westeurope.cloudapp.net:8000/sap/bc/webdynpro/sap/dba_cockpit
 
 Nesse caso, você precisa se certificar de:
 

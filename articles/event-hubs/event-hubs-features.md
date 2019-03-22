@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: a1b60bdf27e1a5f5cb6b9cfba72d78f8afa068eb
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: e7f292db06d4da9206aabd14a68e6acde867f92d
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768589"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336993"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Recursos e terminologia em Hubs de Eventos do Azure
 
@@ -33,7 +33,7 @@ Um namespace de Hubs de Eventos fornece um contêiner de escopo exclusivo, refer
 
 [Esse recurso](event-hubs-for-kafka-ecosystem-overview.md) fornece um ponto de extremidade que permite aos clientes se comunicarem com Hubs de Eventos usando o protocolo Kafka. Essa integração oferece aos clientes um ponto de extremidade do Kafka. Isso permite que os clientes configurem seus aplicativos Kafka existentes para se comunicar com Hubs de Eventos, fornecendo uma alternativa para executar seus próprios clusters do Kafka. Os Hubs de Eventos do Apache Kafka dá suporte ao protocolo Kafka 1.0 e posterior. 
 
-Com essa integração, você não precisa executar clusters Kafka ou gerenciá-los com o Zookeeper. Isso também permite que você trabalhe com alguns dos recursos mais exigentes de Hubs de Eventos, como Capturar, Inflação Automática e Recuperação de Desastre Geográfico.
+Com essa integração, você não precisa executar clusters de Kafka ou gerenciá-los com o Zookeeper. Isso também permite que você trabalhe com alguns dos recursos mais exigentes de Hubs de Eventos, como Capturar, Inflação Automática e Recuperação de Desastre Geográfico.
 
 Essa integração também permite que aplicativos como o Mirror Maker ou estruturas como o Kafka Connect para trabalhar sem clusters somente com alterações de configuração. 
 
@@ -43,7 +43,7 @@ Qualquer entidade que envie dados para um hub de eventos é um produtor de event
 
 ### <a name="publishing-an-event"></a>Publicar um evento
 
-Você pode publicar um evento por meio do AMQP 1.0, Kafka 1.0 (e posterior) ou HTTPS. Hubs de Eventos fornecem [classes e bibliotecas de cliente](event-hubs-dotnet-framework-api-overview.md) para a publicação de eventos em um hub de eventos de clientes .NET. Para outras plataformas e tempos de execução, você pode usar qualquer cliente AMQP 1.0, como o [Apache Qpid](http://qpid.apache.org/). Você pode publicar eventos individualmente ou em lotes. Uma única publicação (instância de dados do evento) tem um limite de 1 MB, independentemente de ser um único evento ou um lote. Publicar eventos maiores que esse limite resulta em erro. Uma prática recomendada para editores é não conhecer as partições no hub de eventos e especificar apenas uma *chave de partição* (abordada na próxima seção), ou sua identidade por meio de seu token SAS.
+Você pode publicar um evento por meio do AMQP 1.0, Kafka 1.0 (e posterior) ou HTTPS. Hubs de Eventos fornecem [classes e bibliotecas de cliente](event-hubs-dotnet-framework-api-overview.md) para a publicação de eventos em um hub de eventos de clientes .NET. Para outras plataformas e tempos de execução, você pode usar qualquer cliente AMQP 1.0, como o [Apache Qpid](https://qpid.apache.org/). Você pode publicar eventos individualmente ou em lotes. Uma única publicação (instância de dados do evento) tem um limite de 1 MB, independentemente de ser um único evento ou um lote. Publicar eventos maiores que esse limite resulta em erro. Uma prática recomendada para editores é não conhecer as partições no hub de eventos e especificar apenas uma *chave de partição* (abordada na próxima seção), ou sua identidade por meio de seu token SAS.
 
 A opção de usar AMQP ou HTTPS é específica para o cenário de uso. O AMQP requer o estabelecimento de um soquete bidirecional persistente, além do TLS (segurança de nível de transporte) ou SSL/TLS. O AMQP tem custos mais altos de rede ao inicializar a sessão, mas o HTTPS requer SSL adicional de sobrecarga para cada solicitação. O AMQP tem um melhor desempenho para editores frequentes.
 
@@ -61,7 +61,7 @@ Os Hubs de Eventos permitem um controle granular sobre os editores de eventos po
 
 Você não precisa criar nomes de editor com antecedência, mas eles devem coincidir com o token SAS usado ao publicar um evento, para garantir identidades de editores independentes. Ao usar políticas de editor, o valor **PartitionKey** é definido como o nome do editor. Para funcionar adequadamente, esses valores devem corresponder.
 
-## <a name="capture"></a>Captura
+## <a name="capture"></a>Capturar
 
 A [Captura dos Hubs de Eventos](event-hubs-capture-overview.md) permite que você capture automaticamente os dados de streaming em Hubs de Eventos e salve-os em uma conta de armazenamento de blobs ou em uma conta de serviço do Azure Data Lake de sua escolha. Você pode habilitar a Captura do Portal do Azure e especificar um tamanho mínimo e a janela de tempo para executar a captura. A Captura de Hubs de Eventos permite que você especifique sua própria conta de Armazenamento de Blobs do Azure e o contêiner, ou conta de serviço do Azure Data Lake, uma das quais será usada para armazenar os dados capturados. Os dados capturados são gravados no formato Apache Avro.
 
@@ -79,7 +79,7 @@ Os Hubs de Eventos mantêm os dados por um período de retenção configurado qu
 
 O número de partições é especificado na criação do Hub de Eventos e deve estar entre 2 e 32. A contagem de partições não é mutável, portanto você deve considerar a escala de longo prazo ao definir a contagem de partições. As partições são um mecanismo de organização de dados relacionados ao paralelismo de downstream necessário no consumo de aplicativos. O número de partições em um hub de eventos está diretamente relacionado ao número de leitores simultâneos que você espera ter. Você pode aumentar o número de partições para mais de 32 entrando em contato com a equipe de Hubs de Eventos.
 
-Embora as partições possam ser identificadas e seja possível enviar diretamente a elas, não é recomendável enviar diretamente a uma partição. Em vez disso, você pode usar construções de nível superior abordadas nas seções [Editor de eventos](#event-publishers) e [Capacidade](#capacity). 
+Embora as partições possam ser identificadas e seja possível enviar diretamente a elas, não é recomendável enviar diretamente a uma partição. Em vez disso, você pode usar construções de nível superior abordadas na [publicador do evento](#event-publishers) e seções de capacidade. 
 
 As partições são preenchidas com uma sequência de dados de evento que contêm o corpo do evento, um recipiente de propriedades definidas pelo usuário e metadados como seu deslocamento na partição e seu número na sequência de fluxo.
 
@@ -152,13 +152,15 @@ Dados de evento:
 
 Ele é responsável por gerenciar o deslocamento.
 
-## <a name="capacity"></a>Capacity
+## <a name="scaling-with-event-hubs"></a>Dimensionamento com os Hubs de eventos
 
-Os Hubs de Eventos têm uma arquitetura paralela altamente dimensionável e há vários fatores importantes a serem considerados durante o dimensionamento.
+Há dois fatores que influenciam o dimensionamento com os Hubs de eventos.
+*   Unidades de produtividade
+*   Partições
 
-### <a name="throughput-units"></a>Unidades de transferência
+### <a name="throughput-units"></a>Unidades de produtividade
 
-A capacidade de transferência dos Hubs de Eventos é controlada pelas *unidades de transferência*. As unidades de taxa de transferência são unidades de capacidade pré-adquiridas. Uma única unidade de transferência inclui a seguinte capacidade:
+A capacidade de transferência dos Hubs de Eventos é controlada pelas *unidades de transferência*. As unidades de taxa de transferência são unidades de capacidade pré-adquiridas. Uma única taxa de transferência permite que você:
 
 * Entrada: Até 1 MB por segundo ou 1000 eventos por segundo (o que ocorrer primeiro).
 * Saída: Até 2 MB por segundo ou 4096 eventos por segundo.
@@ -167,9 +169,13 @@ Além da capacidade de unidades de transferência adquiridas, a entrada está li
 
 As unidades de taxa de transferência são pré-adquiridas e cobradas por hora. Depois de adquiridas, as unidades de taxa de transferência são cobradas por um mínimo de uma hora. Até 20 unidades de produtividade podem ser adquiridas para um namespace de Hubs de Eventos e elas são compartilhadas entre todos os Hubs de Eventos no namespace.
 
-Você poderá adquirir mais unidades de produtividade, em blocos de 20 até 100 unidades de produtividade, entrando em contato com o suporte do Azure. Além desse limite, você pode comprar blocos de 100 unidades de produtividade.
+### <a name="partitions"></a>Partições
 
-É recomendável balancear partições e unidades de produtividade para obter uma escala ideal. Uma única partição tem uma escala mínima de uma unidade de produtividade. O número de unidades de taxa de transferência deve ser menor ou igual ao número de partições em um hub de eventos.
+As partições permitem que você escala para o processamento de downstream. Por causa do modelo de consumidor particionado Hubs de eventos oferece com partições, você pode expandir ao processar seus eventos simultaneamente. Um Hub de eventos pode ter até 32 partições.
+
+É recomendável balancear partições e unidades de taxa de transferência de 1:1 para obter uma escala ideal. Uma única partição tem uma entrada e saída de até uma unidade de taxa de transferência garantida. Embora você possa ser capaz de alcançar maior taxa de transferência em uma partição, o desempenho não é garantido. É por isso é altamente recomendável que o número de partições em um hub de eventos seja maior que ou igual ao número de unidades de taxa de transferência.
+
+Dada a taxa de transferência total que você planeja necessidade, você sabe o número de unidades de taxa de transferência, que você precisa e o número mínimo de partições, mas quantas partições você deve ter? Escolha o número de partições com base em paralelismo de downstream que você quer atingir, bem como suas necessidades futuras de taxa de transferência. Não há nenhum custo para o número de partições que você tem em um Hub de eventos.
 
 Para obter informações detalhadas sobre o preço de Hubs de Eventos, consulte [Preço de Hubs de Eventos](https://azure.microsoft.com/pricing/details/event-hubs/).
 

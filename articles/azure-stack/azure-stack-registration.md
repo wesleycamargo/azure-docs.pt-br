@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 03/21/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 1f6edd871d6815dab93bf9e8d582b0cb1ba6c78f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: ab5679f374753d6620b6a0eccca12ac9f162f199
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109232"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337918"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registre-se a pilha do Azure com o Azure
 
@@ -62,6 +62,9 @@ Após o registro, a permissão de administrador global do Azure Active Directory
 O usuário que registra o Azure Stack é o proprietário do serviço principal no Azure Active Directory. Somente o usuário que registrou o Azure Stack pode modificar o registro do Azure Stack. Se um usuário não administrador que não é um proprietário da entidade de serviço de registro tentar se registrar ou registrar novamente o Azure Stack, eles podem encontrar uma resposta 403. Uma resposta 403 indica que o usuário não tem permissões suficientes para concluir a operação.
 
 Se você não tiver uma assinatura do Azure que atende a esses requisitos, você poderá [criar uma conta gratuita do Azure aqui](https://azure.microsoft.com/free/?b=17.06). Registrar o Azure Stack incorre em sua assinatura do Azure sem custo.
+
+> [!NOTE]
+> Se você tiver mais de uma pilha do Azure, uma prática recomendada é registrar cada Azure Stack para sua própria assinatura. Isso tornará mais fácil para que você possa acompanhar o uso.
 
 ### <a name="powershell-language-mode"></a>Modo de linguagem do PowerShell
 
@@ -128,7 +131,7 @@ Ambientes conectados podem acessar a internet e o Azure. Para esses ambientes, v
    Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
 
-   | Parâmetro | DESCRIÇÃO |  
+   | Parâmetro | Descrição |  
    |-----|-----|
    | EnvironmentName | O nome de ambiente de assinatura de nuvem do Azure. Nomes de ambiente com suporte são **AzureCloud**, **AzureUSGovernment**, ou se usando uma assinatura do Azure na China, **AzureChinaCloud**.  |
 
@@ -156,7 +159,7 @@ Ambientes conectados podem acessar a internet e o Azure. Para esses ambientes, v
    Connect-AzureRmAccount -Environment "<environment name>"
    ```
 
-   | Parâmetro | DESCRIÇÃO |  
+   | Parâmetro | Descrição |  
    |-----|-----|
    | EnvironmentName | O nome de ambiente de assinatura de nuvem do Azure. Nomes de ambiente com suporte são **AzureCloud**, **AzureUSGovernment**, ou se usando uma assinatura do Azure na China, **AzureChinaCloud**.  |
 
@@ -192,7 +195,7 @@ Ambientes conectados podem acessar a internet e o Azure. Para esses ambientes, v
    Connect-AzureRmAccount -Environment "<environment name>"
    ```
 
-   | Parâmetro | DESCRIÇÃO |  
+   | Parâmetro | Descrição |  
    |-----|-----|
    | EnvironmentName | O nome de ambiente de assinatura de nuvem do Azure. Nomes de ambiente com suporte são **AzureCloud**, **AzureUSGovernment**, ou se usando uma assinatura do Azure na China, **AzureChinaCloud**.  |
 
@@ -240,7 +243,7 @@ Se você estiver registrando o Azure Stack em um ambiente desconectado (sem cone
 2. Para obter o token de registro, execute os seguintes cmdlets do PowerShell:  
 
    ```Powershell
-   $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
+   $FilePathForRegistrationToken = "$env:SystemDrive\RegistrationToken.txt"
    $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential $YourCloudAdminCredential -UsageReportingEnabled:$False -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
    ```
    Para obter mais informações sobre o cmdlet Get-AzsRegistrationToken, consulte [referência de registro](#registration-reference).
@@ -447,18 +450,18 @@ Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedE
     <String>] [<CommonParameters>]
 ```
 
-| Parâmetro | Type | DESCRIÇÃO |
+| Parâmetro | Digite | Descrição |
 |-------------------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | PrivilegedEndpointCredential | PSCredential | As credenciais usadas para [acessar o ponto de extremidade com privilégios](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). O nome de usuário está no formato **AzureStackDomain\CloudAdmin**. |
-| PrivilegedEndpoint | Cadeia de caracteres | Um pré-configurados console remoto do PowerShell que fornece recursos como coleta de logs e outro post tarefas de implantação. Para obter mais informações, consulte o [usando o ponto de extremidade com privilégios](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) artigo. |
+| PrivilegedEndpoint | Cadeia | Um pré-configurados console remoto do PowerShell que fornece recursos como coleta de logs e outro post tarefas de implantação. Para obter mais informações, consulte o [usando o ponto de extremidade com privilégios](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) artigo. |
 | AzureContext | PSObject |  |
-| ResourceGroupName | Cadeia de caracteres |  |
-| ResourceGroupLocation | Cadeia de caracteres |  |
-| BillingModel | Cadeia de caracteres | O modelo de cobrança que usa sua assinatura. Os valores permitidos para esse parâmetro são: Capacidade, PayAsYouUse e desenvolvimento. |
+| ResourceGroupName | Cadeia |  |
+| ResourceGroupLocation | Cadeia |  |
+| BillingModel | Cadeia | O modelo de cobrança que usa sua assinatura. Os valores permitidos para esse parâmetro são: Capacidade, PayAsYouUse e desenvolvimento. |
 | MarketplaceSyndicationEnabled | Verdadeiro/Falso | Determina se o recurso de gerenciamento do marketplace está disponível no portal. Defina como verdadeiro se registrar com conectividade com a internet. Defina como false se o registro em ambientes desconectados. Para registros desconectados, o [ferramenta de sindicalização offline](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) pode ser usado para baixar itens do marketplace. |
 | UsageReportingEnabled | Verdadeiro/Falso | O Azure Stack relata as métricas de uso por padrão. Os operadores com usos de capacidade ou dar suporte a um ambiente desconectado precisa desativar o relatório de uso. Os valores permitidos para esse parâmetro são: True, False. |
-| AgreementNumber | Cadeia de caracteres |  |
-| RegistrationName | Cadeia de caracteres | Defina um nome exclusivo para o registro, se você estiver executando o script de registro em mais de uma instância do Azure Stack usando a assinatura do Azure mesmo ID. O parâmetro tem um valor padrão de **AzureStackRegistration**. No entanto, se você usar o mesmo nome em mais de uma instância do Azure Stack, o script falhará. |
+| AgreementNumber | Cadeia |  |
+| RegistrationName | Cadeia | Defina um nome exclusivo para o registro, se você estiver executando o script de registro em mais de uma instância do Azure Stack usando a assinatura do Azure mesmo ID. O parâmetro tem um valor padrão de **AzureStackRegistration**. No entanto, se você usar o mesmo nome em mais de uma instância do Azure Stack, o script falhará. |
 
 ### <a name="get-azsregistrationtoken"></a>Get-AzsRegistrationToken
 
@@ -469,17 +472,17 @@ Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-Privil
     [-BillingModel] <String> [[-TokenOutputFilePath] <String>] [-UsageReportingEnabled] [[-AgreementNumber] <String>]
     [<CommonParameters>]
 ```
-| Parâmetro | Type | DESCRIÇÃO |
+| Parâmetro | Digite | Descrição |
 |-------------------------------|--------------|-------------|
 | PrivilegedEndpointCredential | PSCredential | As credenciais usadas para [acessar o ponto de extremidade com privilégios](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). O nome de usuário está no formato **AzureStackDomain\CloudAdmin**. |
-| PrivilegedEndpoint | Cadeia de caracteres |  Um pré-configurados console remoto do PowerShell que fornece recursos como coleta de logs e outro post tarefas de implantação. Para obter mais informações, consulte o [usando o ponto de extremidade com privilégios](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) artigo. |
+| PrivilegedEndpoint | Cadeia |  Um pré-configurados console remoto do PowerShell que fornece recursos como coleta de logs e outro post tarefas de implantação. Para obter mais informações, consulte o [usando o ponto de extremidade com privilégios](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) artigo. |
 | AzureContext | PSObject |  |
-| ResourceGroupName | Cadeia de caracteres |  |
-| ResourceGroupLocation | Cadeia de caracteres |  |
-| BillingModel | Cadeia de caracteres | O modelo de cobrança que usa sua assinatura. Os valores permitidos para esse parâmetro são: Capacidade, PayAsYouUse e desenvolvimento. |
+| ResourceGroupName | Cadeia |  |
+| ResourceGroupLocation | Cadeia |  |
+| BillingModel | Cadeia | O modelo de cobrança que usa sua assinatura. Os valores permitidos para esse parâmetro são: Capacidade, PayAsYouUse e desenvolvimento. |
 | MarketplaceSyndicationEnabled | Verdadeiro/Falso |  |
 | UsageReportingEnabled | Verdadeiro/Falso | O Azure Stack relata as métricas de uso por padrão. Os operadores com usos de capacidade ou dar suporte a um ambiente desconectado precisa desativar o relatório de uso. Os valores permitidos para esse parâmetro são: True, False. |
-| AgreementNumber | Cadeia de caracteres |  |
+| AgreementNumber | Cadeia |  |
 
 ## <a name="registration-failures"></a>Falhas de registro
 

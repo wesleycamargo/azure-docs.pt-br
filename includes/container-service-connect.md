@@ -1,3 +1,16 @@
+---
+author: dlepow
+ms.service: container-service
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: danlep
+ms.openlocfilehash: 48deeec7a2c8767ab5dbb81b622e6d40483ed455
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58115888"
+---
 # <a name="make-a-remote-connection-to-a-kubernetes-dcos-or-docker-swarm-cluster"></a>Fazer uma conexão remota com um cluster Kubernetes, DC/OS ou Docker Swarm
 Depois de criar um cluster do serviço de contêiner do Azure, você precisa se conectar ao cluster para implantar e gerenciar cargas de trabalho. Este artigo descreve como conectar-se à VM mestre do cluster de um computador remoto. 
 
@@ -19,7 +32,7 @@ Siga estas etapas para instalar e configurar `kubectl` no computador.
 > 
 
 ### <a name="install-kubectl"></a>Instalar kubectl
-Uma maneira de instalar essa ferramenta é usar o comando `az acs kubernetes install-cli` da CLI do Azure 2.0. Para executar esse comando, verifique se você [instalou](/cli/azure/install-az-cli2) a CLI do Azure 2.0 mais recente e conectou-se a uma conta do Azure (`az login`).
+Uma maneira de instalar essa ferramenta é usar o `az acs kubernetes install-cli` comando CLI do Azure. Para executar esse comando, verifique se você [instalados](/cli/azure/install-az-cli2) a versão mais recente da CLI do Azure e se está conectado a uma conta do Azure (`az login`).
 
 ```azurecli
 # Linux or macOS
@@ -40,7 +53,7 @@ az acs kubernetes get-credentials --resource-group=<cluster-resource-group> --na
 
 Esse comando baixa as credenciais do cluster para `$HOME/.kube/config`, em que `kubectl` espera que estejam.
 
-Como alternativa, você pode usar `scp` para copiar o arquivo de forma segura de `$HOME/.kube/config` para a VM mestre em seu computador local. Por exemplo:
+Como alternativa, você pode usar `scp` para copiar o arquivo de forma segura de `$HOME/.kube/config` para a VM mestre em seu computador local. Por exemplo: 
 
 ```bash
 mkdir $HOME/.kube
@@ -100,11 +113,11 @@ A primeira coisa que você faz quando cria um túnel SSH no Linux ou no macOS é
     ssh -fNL LOCAL_PORT:localhost:REMOTE_PORT -p 2200 [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com
     ```
   
-  > [!NOTE]
-  > A porta de conexão SSH é 2200, e não a porta 22 padrão. Em um cluster com mais de uma VM mestre, essa é a porta de conexão para a primeira VM mestre.
-  > 
+   > [!NOTE]
+   > A porta de conexão SSH é 2200, e não a porta 22 padrão. Em um cluster com mais de uma VM mestre, essa é a porta de conexão para a primeira VM mestre.
+   > 
 
-  O comando retorna sem saída.
+   O comando retorna sem saída.
 
 Confira os exemplos de DC/SO e nuvem nas seções a seguir.    
 
@@ -145,7 +158,7 @@ Defina sua variável de ambiente DOCKER_HOST para a porta local configurada para
 export DOCKER_HOST=:2375
 ```
 
-Execute os comandos do Docker que fazem o túnel para o cluster Docker Swarm. Por exemplo:
+Execute os comandos do Docker que fazem o túnel para o cluster Docker Swarm. Por exemplo: 
 
 ```bash
 docker info
@@ -168,16 +181,16 @@ Há várias opções para a criação de túneis SSH no Windows. Se você estive
 
 5. Selecione **SSH > Túnel** e configure as seguintes portas encaminhadas:
 
-    * **Porta de Origem:** use 80 para DC/SO ou 2375 para nuvem.
-    * **Destino:** use localhost:80 para o DC/OS ou localhost:2375 para o Swarm.
+   * **Porta de origem:** Use 80 para DC/SO ou 2375 para o Swarm.
+   * **Destino:** Use localhost:80 para DC/OS ou localhost:2375 para o Swarm.
 
-    O exemplo a seguir é configurado para o DC/OS, mas seria semelhante para o Docker Swarm.
+     O exemplo a seguir é configurado para o DC/OS, mas seria semelhante para o Docker Swarm.
 
-    > [!NOTE]
-    > A porta 80 não deve estar em uso quando você criar esse túnel.
-    > 
+     > [!NOTE]
+     > A porta 80 não deve estar em uso quando você criar esse túnel.
+     > 
 
-    ![Configuração do PuTTY 3](./media/container-service-connect/putty3.png)
+     ![Configuração do PuTTY 3](./media/container-service-connect/putty3.png)
 
 6. Quando terminar, clique em **Sessão > Salvar** para salvar a configuração de conexão.
 

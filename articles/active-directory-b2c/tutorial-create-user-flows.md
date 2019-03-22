@@ -4,17 +4,18 @@ description: Saiba como criar fluxos dos usuários para seus aplicativos no Azur
 services: active-directory-b2c
 author: davidmu1
 manager: daveba
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 02/01/2019
 ms.author: davidmu
-ms.openlocfilehash: 7f017583a6eeb61b11df86a908d573dba9bd5929
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.subservice: B2C
+ms.openlocfilehash: b76d56b17973c04992a8855917c814ced649bd0f
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750283"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338251"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Tutorial: Criar fluxos dos usuários no Azure Active Directory B2C
 

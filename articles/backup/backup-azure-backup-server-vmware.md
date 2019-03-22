@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: raynew
-ms.openlocfilehash: b323836ff804d9e4af3765a2d4ea713a34bcf284
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: HT
+ms.openlocfilehash: 6fb95d43bff79ca91988549114daa91e5d41f358
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226514"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319356"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Faça backup de VMs VMware com o Servidor de Backup do Azure
 
@@ -27,7 +27,7 @@ Este artigo explica como:
 - Adicione o servidor ESXi ou vCenter ao Servidor de Backup do Azure.
 - Configure um grupo de proteção que contenha as VMs do VMware de que você deseja fazer backup, especifique as configurações de backup e agende o backup.
 
-## <a name="before-you-start"></a>Antes de começar
+## <a name="before-you-start"></a>Antes de iniciar
 - Verifique se você está executando uma versão do vCenter/ESXi com suporte para backup – versões 5.5, 6.0 e 6.5.
 - Verifique se que você configurou o Servidor de Backup do Azure. Caso contrário, [faça isso](backup-azure-microsoft-azure-backup.md) antes de começar. Você deve estar executando o Servidor de Backup do Azure com as atualizações mais recentes.
 
@@ -37,7 +37,7 @@ Este artigo explica como:
 Por padrão, o Servidor de Backup do Azure se comunica com servidores VMware via HTTPS. Para configurar a conexão HTTPS, baixe o certificado de AC (autoridade de certificação) do VMware e importe-o para o Servidor de Backup do Azure.
 
 
-### <a name="before-you-start"></a>Antes de começar
+### <a name="before-you-start"></a>Antes de iniciar
 
 - Se você não quiser usar HTTPS, poderá [desabilitar a configuração padrão](backup-azure-backup-server-vmware.md).
 - Você normalmente se conecta de um navegador no computador do Servidor de Backup do Azure para o servidor vCenter/ESXi usando o cliente Web vSphere. Na primeira vez em que você fizer isso, a conexão não será segura e mostrará o seguinte.
@@ -140,7 +140,7 @@ O Servidor de Backup do Azure precisa de uma conta de usuário com permissões p
 
      ![Hierarquia de privilégios pai-filho](./media/backup-azure-backup-server-vmware/cert-add-privilege-expand.png)
 
-### <a name="role-permissions"></a>Permissões de função
+### <a name="role-permissions"></a>Permissões da função
 **6.5/6.0** | **5.5**
 --- | ---
 Datastore.AllocateSpace | Datastore.AllocateSpace
@@ -171,7 +171,7 @@ VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot
 
     ![Opção de Usuários e Grupos](./media/backup-azure-backup-server-vmware/vmware-userandgroup-panel.png)
 
-    O painel **Usuários e Grupos do vCenter** é exibido.
+    O **vCenter usuários e grupos** o painel exibido.
 
 
 2. No painel **Usuários e Grupos do vCenter**, selecione a guia **Usuários** e, depois, clique no ícone Adicionar usuários (o símbolo +).
@@ -365,13 +365,13 @@ Para fazer backup vSphere 6.7 o seguinte:
 
   Editor do registro do Windows versão 5,00
 
-  [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft.NETFramework\v2.0.50727] "SystemDefaultTlsVersions"=dword:00000001 "SchUseStrongCrypto"=dword:00000001
+  [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\\.NETFramework\v2.0.50727] "SystemDefaultTlsVersions"=dword:00000001 "SchUseStrongCrypto"=dword:00000001
 
-  [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft.NETFramework\v4.0.30319] "SystemDefaultTlsVersions"=dword:00000001 "SchUseStrongCrypto"=dword:00000001
+  [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\\.NETFramework\v4.0.30319] "SystemDefaultTlsVersions"=dword:00000001 "SchUseStrongCrypto"=dword:00000001
 
-  [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft.NETFramework\v2.0.50727] "SystemDefaultTlsVersions"=dword:00000001 "SchUseStrongCrypto"=dword:00000001
+  [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\\.NETFramework\v2.0.50727] "SystemDefaultTlsVersions"=dword:00000001 "SchUseStrongCrypto"=dword:00000001
 
-  [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft.NETFramework\v4.0.30319] "SystemDefaultTlsVersions"=dword:00000001 s"SchUseStrongCrypto"=dword:00000001
+  [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\\.NETFramework\v4.0.30319] "SystemDefaultTlsVersions"=dword:00000001 s"SchUseStrongCrypto"=dword:00000001
 
 
 ## <a name="next-steps"></a>Próximas etapas

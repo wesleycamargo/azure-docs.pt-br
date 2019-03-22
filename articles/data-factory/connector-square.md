@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 68ac03a8aba4042a842b5e740d67ab4198236275
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: f22311af277f860c1501287b5be0f5dc149880b9
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54013155"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317708"
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-preview"></a>Copiar dados do Square utilizando Azure Data Factory (versão prévia)
 
@@ -42,16 +42,16 @@ As seções que a seguir fornecem detalhes sobre as propriedades usadas para def
 
 As propriedades a seguir têm suporte para o serviço vinculado do Square:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **Square** | SIM |
-| host | A URL da instância Square. (ou seja, mystore.mysquare.com)  | SIM |
-| clientId | A ID de cliente associada ao seu aplicativo Square.  | SIM |
-| clientSecret | O segredo do cliente associada ao seu aplicativo Square. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | SIM |
-| redirectUri | A URL de redirecionamento atribuída no painel do aplicativo Square. (ou seja http://localhost:2500)  | SIM |
-| useEncryptedEndpoints | Especifica se os endpoints de fonte de dados são criptografados usando HTTPS. O valor padrão é true.  | Não  |
-| useHostVerification | Especifica se é necessário o nome do host no certificado do servidor para corresponder ao nome de host do servidor ao se conectar via SSL. O valor padrão é true.  | Não  |
-| usePeerVerification | Especifica se deve verificar a identidade do servidor quando se conecta por meio de SSL. O valor padrão é true.  | Não  |
+| tipo | A propriedade type deve ser definida como: **Square** | Sim |
+| host | A URL da instância Square. (ou seja, mystore.mysquare.com)  | Sim |
+| clientId | A ID de cliente associada ao seu aplicativo Square.  | Sim |
+| clientSecret | O segredo do cliente associada ao seu aplicativo Square. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| redirectUri | A URL de redirecionamento atribuída no painel do aplicativo Square. (ou seja, http:\//localhost:2500)  | Sim |
+| useEncryptedEndpoints | Especifica se os endpoints de fonte de dados são criptografados usando HTTPS. O valor padrão é true.  | Não |
+| useHostVerification | Especifica se é necessário o nome do host no certificado do servidor para corresponder ao nome de host do servidor ao se conectar via SSL. O valor padrão é true.  | Não |
+| usePeerVerification | Especifica se deve verificar a identidade do servidor quando se conecta por meio de SSL. O valor padrão é true.  | Não |
 
 **Exemplo:**
 
@@ -79,9 +79,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do Square, defina a propriedade type do conjunto de dados como **SquareObject**. Há suporte para as seguintes propriedades:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como: **SquareObject** | SIM |
+| tipo | A propriedade type do conjunto de dados deve ser definida como: **SquareObject** | Sim |
 | tableName | Nome da tabela. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo**
@@ -108,10 +108,10 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do Square, defina o tipo de origem na atividade de cópia como **SquareSource**. As propriedades a seguir têm suporte na seção **source** da atividade de cópia:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **SquareSource** | SIM |
-| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Business"`. | Não (se "tableName" no conjunto de dados for especificado) |
+| tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **SquareSource** | Sim |
+| consultar | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Business"`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**
 
