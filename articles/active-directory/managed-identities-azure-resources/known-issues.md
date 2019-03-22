@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 12/12/2017
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbd8ff1e8574b9465d4acc366bf0b64bbfd11e20
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9cfff565dec0d6f9d2bbea8edf39f180d4b63fd9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56179715"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993164"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Perguntas frequentes e problemas conhecidos com identidades gerenciadas para recursos do Azure
 
@@ -38,7 +38,7 @@ Não, não há planos para suportar identidades gerenciadas para recursos do Azu
 
 ### <a name="does-managed-identities-for-azure-resources-work-with-the-active-directory-authentication-library-adal-or-the-microsoft-authentication-library-msal"></a>As identidades gerenciadas dos recursos do Azure funcionam com a ADAL (Biblioteca de Autenticação do Active Directory) ou com a MSAL (Microsoft Authentication Library)?
 
-Não, as identidades gerenciadas dos recursos do Azure ainda não estão integradas com o ADAL ou o MSAL. Para obter detalhes sobre como adquirir um token para identidades gerenciadas para recursos do Azure usando o endpoint REST, consulte [Como usar identidades gerenciadas para recursos do Azure em uma VM do Azure para adquirir um token de acesso](how-to-use-vm-token.md).
+Não, as identidades gerenciadas dos recursos do Azure ainda não estão integradas com o ADAL ou o MSAL. Para obter detalhes sobre a aquisição de um token para identidades gerenciadas para recursos do Azure usando o ponto de extremidade REST, consulte [como usar identidades gerenciadas para recursos do Azure em uma VM do Azure para adquirir um token de acesso](how-to-use-vm-token.md).
 
 ### <a name="what-is-the-security-boundary-of-managed-identities-for-azure-resources"></a>O que é o limite de segurança de identidades gerenciadas para recursos do Azure?
 
@@ -50,42 +50,37 @@ O limite de segurança da identidade é o recurso ao qual ele está anexado. Por
 - Se a identidade gerenciada atribuída do sistema não e nenhum existir identidade gerenciada atribuída ao usuário, o IMDS padrão será a identidade gerenciada atribuída ao usuário único. 
 - Se a identidade gerenciada atribuída ao sistema não estiver habilitada e vários de usuário atribuídos a identidades gerenciadas existirem, é necessário, em seguida, especificar uma identidade gerenciada na solicitação.
 
-### <a name="should-i-use-the-managed-identities-for-azure-resources-vm-imds-endpoint-or-the-vm-extension-endpoint"></a>Devo usar as identidades gerenciadas para o ponto de extremidade do VM IMDS de recursos do Azure ou o ponto de extremidade de extensão de VM?
+### <a name="should-i-use-the-managed-identities-for-azure-resources-imds-endpoint-or-the-vm-extension-endpoint"></a>Deve usar as identidades de gerenciado para o ponto de extremidade IMDS de recursos do Azure ou o ponto de extremidade de extensão VM?
 
-Ao usar identidades gerenciadas para recursos do Azure com VMs, incentivamos o uso das identidades gerenciadas do ponto de extremidade IMDS de recursos do Azure. O serviço de metadados de instância do Azure é um ponto de extremidade REST disponível para todas as VMs de IaaS criadas por meio do Azure Resource Manager. Alguns dos benefícios do uso de identidades gerenciadas para recursos do Azure sobre o IMDS são:
-    - Todos os sistemas operacionais compatíveis com o Azure IaaS podem usar identidades gerenciadas para recursos do Azure por meio do IMDS.
-    - Não é mais necessário instalar uma extensão em sua VM para ativar identidades gerenciadas para recursos do Azure. 
-    - Os certificados usados por identidades gerenciadas para recursos do Azure não estão mais presentes na VM.
-    - O ponto de extremidade IMDS é um endereço IP não roteável bastante conhecido, disponível somente de dentro da VM.
+Ao usar identidades gerenciadas para recursos do Azure com VMs, recomendamos que você usar o ponto de extremidade IMDS. O serviço de metadados de instância do Azure é um ponto de extremidade REST disponível para todas as VMs de IaaS criadas por meio do Azure Resource Manager. 
 
-As identidades gerenciadas da extensão de VM dos recursos do Azure ainda estão disponíveis para serem usadas hoje; no entanto, seguindo em frente, usaremos o endpoint do IMDS como padrão. As identidades gerenciadas da extensão de VM dos recursos do Azure serão preteridas em janeiro de 2019. 
+Alguns dos benefícios do uso de identidades gerenciadas para recursos do Azure sobre o IMDS são:
+- Todos os sistemas operacionais compatíveis com o Azure IaaS podem usar identidades gerenciadas para recursos do Azure por meio do IMDS.
+- Não é mais necessário instalar uma extensão em sua VM para ativar identidades gerenciadas para recursos do Azure. 
+- Os certificados usados por identidades gerenciadas para recursos do Azure não estão mais presentes na VM.
+- O ponto de extremidade IMDS é um endereço IP não roteável bastante conhecido, disponível somente de dentro da VM.
+- identidades gerenciados de 1000 atribuída pelo usuário podem ser atribuídas a uma única VM. 
+
+As identidades de gerenciado para a extensão VM de recursos do Azure ainda está disponível; No entanto, não estamos desenvolvendo novas funcionalidades nele. É recomendável alternar para usar o ponto de extremidade IMDS. 
+
+Algumas das limitações de usar o ponto de extremidade de extensão VM são:
+- Suporte limitado para distribuições do Linux: CoreOS Stable, CentOS 7.1, Red Hat 7.2, Ubuntu 15.04, Ubuntu 16.04
+- Apenas 32 identidades gerenciadas atribuída pelo usuário podem ser atribuídas à VM.
+
+
+Observação: As identidades de gerenciado para a extensão VM de recursos do Azure será sem suporte em janeiro de 2019. 
 
 Para obter mais informações sobre o Azure Instance Metadata Service, consulte [documentação do IMDS](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
 
 ### <a name="will-managed-identities-be-recreated-automatically-if-i-move-a-subscription-to-another-directory"></a>Identidades gerenciadas serão recriadas automaticamente se eu mover uma assinatura para outro diretório?
 
  Não. Se você mover uma assinatura para outro diretório, precisará recriá-los manualmente para conceder as atribuições de função de RBAC do Azure novamente.
-    - Para sistema atribuído a identidades gerenciadas: desabilite e habilite novamente.
-    - Para identidades gerenciadas atribuídas ao usuário: exclua, recrie e anexe-os novamente para os recursos necessários (por exemplo, máquinas virtuais)
+- Para sistema atribuído a identidades gerenciadas: desabilite e habilite novamente. 
+- Para identidades gerenciadas atribuídas ao usuário: exclua, recrie e anexe-os novamente para os recursos necessários (por exemplo, máquinas virtuais)
 
 ### <a name="can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant"></a>Posso usar uma identidade gerenciada para acessar um recurso em um diretório/locatário diferente?
 
  Não. Identidades gerenciadas não têm suporte a cenários entre diretórios. 
-
-### <a name="what-are-the-supported-linux-distributions"></a>Quais são as distribuições Linux com suporte?
-
-Todas as distribuições de Linux suportadas pelo IaaS do Azure podem ser usadas com identidades gerenciadas para recursos do Azure por meio do ponto de extremidade IMDS. 
-
-Observação: As identidades gerenciadas para recursos do Azure extensão de VM (que deverão ser preteridas em janeiro de 2019) dá suporte apenas a seguintes distribuições Linux:
-- CoreOS Estável
-- CentOS 7.1
-- Red Hat 7.2
-- Ubuntu 15.04
-- Ubuntu 16.04
-
-Outras distribuições do Linux não possuem suporte atualmente e a extensão poderá falhar em distribuições sem suporte.
-
-A extensão funciona em CentOS 6.9. No entanto, devido à falta de suporte do sistema em 6.9, a extensão não reinicializará automaticamente se falhar ou for interrompida. Ela é reiniciado quando a VM é reiniciada. Para reiniciar a extensão manualmente, consulte [Como você reinicia as identidades gerenciadas da extensão de recursos do Azure?](#how-do-you-restart-the-managed-identities-for-Azure-resources-extension)
 
 ### <a name="how-do-you-restart-the-managed-identities-for-azure-resources-extension"></a>Como você reinicia as identidades gerenciadas para a extensão de recursos do Azure?
 No Windows e em determinadas versões do Linux, se a extensão for interrompida, o cmdlet a seguir poderá ser usado para reiniciá-lo:
@@ -109,14 +104,6 @@ Quando as identidades gerenciadas dos recursos do Azure são habilitadas em uma 
 As identidades gerenciadas da extensão de VM dos recursos do Azure (que deverão ser preteridas em janeiro de 2019) não dão suporte atualmente à capacidade de exportar seu esquema para um modelo de grupo de recursos. Como resultado, o modelo gerado não mostra parâmetros de configuração para habilitar identidades gerenciadas para recursos do Azure no recurso. Essas seções podem ser adicionadas manualmente seguindo os exemplos em [Configurar identidades gerenciadas para recursos do Azure em uma VM do Azure usando modelos](qs-configure-template-windows-vm.md).
 
 Quando a funcionalidade de exportação de esquema se torna disponível para as identidades gerenciadas da extensão de VM dos recursos do Azure (que deverão ser preteridas em janeiro de 2019), ela será listada em [Exportando grupos de recursos que contêm extensões de VM](../../virtual-machines/extensions/export-templates.md#supported-virtual-machine-extensions).
-
-### <a name="configuration-blade-does-not-appear-in-the-azure-portal"></a>A folha Configuração não aparece no portal do Azure
-
-Se a folha de configuração da VM não aparecer na sua VM, as identidades gerenciadas dos recursos do Azure ainda não foram ativadas no portal da sua região.  Verifique novamente mais tarde.  Você também pode habilitar identidades gerenciadas para recursos do Azure para sua VM usando [PowerShell](qs-configure-powershell-windows-vm.md) ou [CLI do Azure](qs-configure-cli-windows-vm.md).
-
-### <a name="cannot-assign-access-to-virtual-machines-in-the-access-control-iam-blade"></a>Não é possível atribuir o acesso às máquinas virtuais na folha Controle de Acesso (IAM)
-
-Se **Máquina virtual** não aparecer no portal do Azure como opção para **Atribuir acesso a** em **Controle de acesso (IAM)** > **Adicione atribuição de função**, em seguida, as identidades gerenciadas para os recursos do Azure ainda não foram ativadas no portal em sua região. Verifique novamente mais tarde.  Ainda é possível selecionar a identidade da VM para a atribuição de função, pesquisando as identidades gerenciadas para o Principal de serviço dos recursos do Azure.  Insira o nome da VM no campo **Selecionar** e a Entidade de Serviço aparece no resultado da pesquisa.
 
 ### <a name="vm-fails-to-start-after-being-moved-from-resource-group-or-subscription"></a>A VM falha ao iniciar depois de ser movida do grupo de recursos ou assinatura
 
@@ -151,12 +138,11 @@ Provisionamento da extensão VM pode falhar devido a falhas de pesquisa de DNS. 
 
 Identidades gerenciadas não são atualizadas quando uma assinatura for movida/transferida para outro diretório. Como resultado, quaisquer identidades gerenciadas atribuídas pelo sistema ou designadas pelo usuário serão quebradas. 
 
-Como uma solução alternativa depois que a assinatura tiver sido movida, você pode desabilitar atribuído pelo sistema de identidades gerenciadas e reabilitá-los. Da mesma forma, você pode excluir e recriar qualquer identidade gerenciada atribuída pelo usuário. 
+Solução alternativa para identidades gerenciadas em uma assinatura que foi movido para outro diretório:
 
-## <a name="known-issues-with-user-assigned-managed-identities"></a>Problemas conhecidos com identidades gerenciadas atribuída pelo usuário
+ - Para sistema atribuído a identidades gerenciadas: desabilite e habilite novamente. 
+ - Para identidades gerenciadas atribuídas ao usuário: exclua, recrie e anexe-os novamente para os recursos necessários (por exemplo, máquinas virtuais)
 
-- Os nomes de identidades atribuídas pelo usuário são restritos a um mínimo de 3 e um máximo de 128 caracteres. Se o nome tiver mais de 128 caracteres, a identidade não será atribuída a um recurso (ou seja, a máquina virtual).
-- Os nomes de identidades atribuídas pelo usuário podem conter os seguintes caracteres: a-z A-Z, -, \_, 0 a 9. Não há suporte para a criação de uma identidade gerenciada atribuída pelo usuário com o nome apresentando caracteres especiais diferentes dos presentes nesse conjunto de caracteres (ou seja, asterisco).
-- Se estiver usando a extensão da máquina virtual de identidade gerenciada (com planejamento de ser preterida em janeiro de 2019), o limite com suporte será 32 identidades gerenciadas atribuídas pelo usuário. Sem a extensão da máquina virtual de identidade gerenciada, o limite permitido é de 512.  
-- Movendo uma identidade gerenciada atribuída pelo usuário para outro grupo de recursos fará com que a identidade dividir. Como resultado, não será capaz de solicitar tokens para essa identidade. 
-- Transferindo uma assinatura para outro diretório interromperá identidades gerenciadas atribuída pelo usuário existentes. 
+### <a name="moving-a-user-assigned-managed-identity-to-a-different-resource-groupsubscription"></a>Movendo uma identidade atribuída pelo usuário gerenciada para uma assinatura/grupo de recursos diferente
+
+Movendo uma identidade gerenciada atribuída pelo usuário para outro grupo de recursos fará com que a identidade dividir. Como resultado, recursos (por exemplo, VM) usando essa identidade não poderá para solicitar tokens para ele. 

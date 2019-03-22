@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a52b78b62395f571e448a73b8c34847ef16b2613
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 6d6e453819ad749972de89658fa695d803d8e222
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429529"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898815"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Instalação do Agente do Azure AD Connect Health
 Este documento explica como instalar e configurar os Agentes do Azure AD Connect Health. Você pode baixar os agentes [daqui](how-to-connect-install-roadmap.md#download-and-install-azure-ad-connect-health-agent).
@@ -119,7 +119,7 @@ Para que o recurso de Análise de Uso colete e analise dados, o agente do Azure 
 1. Clique em **Iniciar**, aponte para **Programas**, aponte para **Ferramentas Administrativas** e clique em **Política de Segurança Local**.
 2. Navegue até a pasta **Configurações de Segurança\Políticas Locais\Atribuição de Direitos de Usuário** e clique duas vezes em **Gerar auditorias de segurança**.
 3. Na guia **Configuração de Segurança Local** , verifique se a conta de serviço do AD FS 2.0 está listada. Se ela não estiver presente, clique em **Adicionar Usuário ou Grupo** e adicione-a à lista e clique em **OK**.
-4. Para habilitar a auditoria, abra um prompt de comando com privilégios elevados e execute o seguinte comando: <code>auditpol.exe /set /subcategory:"0CCE9222-69AE-11D9-BED3-505054503030" /failure:enable /success:enable</code>
+4. Para habilitar a auditoria, abra um prompt de comando com privilégios elevados e execute o seguinte comando: <code>auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable</code>
 5. Feche a **Política de Segurança Local**.
 <br />   -- **As seguintes etapas são exigidas apenas para servidores de AD FS primários.** -- <br />
 6. Abra o snap-in **Gerenciamento do AD FS**. Para abrir o snap-in Gerenciamento do AD FS, clique em **Iniciar**, aponte para **Programas**, aponte para **Ferramentas Administrativas** e clique em **Gerenciamento do AD FS 2.0**.
@@ -132,7 +132,7 @@ Para que o recurso de Análise de Uso colete e analise dados, o agente do Azure 
 1. Abra **Política de Segurança Local** abrindo o **Gerenciador do Servidor** na tela Iniciar ou o Gerenciador do Servidor na barra de tarefas na área de trabalho e, em seguida, clique em **Ferramentas/Política de Segurança Local**.
 2. Navegue até a pasta **Configurações de Segurança\Políticas Locais\Atribuição de Direitos de Usuário** e clique duas vezes em **Gerar auditorias de segurança**.
 3. Na guia **Configuração de Segurança Local** , verifique se a conta de serviço do AD FS está listada. Se ela não estiver presente, clique em **Adicionar Usuário ou Grupo** e adicione-a à lista e clique em **OK**.
-4. Para habilitar a auditoria, abra um prompt de comando com privilégios elevados e execute o seguinte comando: ```auditpol.exe /set /subcategory:"0CCE9222-69AE-11D9-BED3-505054503030" /failure:enable /success:enable```.
+4. Para habilitar a auditoria, abra um prompt de comando com privilégios elevados e execute o seguinte comando: ```auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable```.
 5. Feche a **Política de Segurança Local**.
 <br />   -- **As seguintes etapas são exigidas apenas para servidores de AD FS primários.** -- <br />
 6. Abra o snap-in **Gerenciamento do AD FS** (no Gerenciador do Servidor, clique em Ferramentas e selecione Gerenciamento do AD FS).
@@ -144,7 +144,7 @@ Para que o recurso de Análise de Uso colete e analise dados, o agente do Azure 
 1. Abra **Política de Segurança Local** abrindo o **Gerenciador do Servidor** na tela Iniciar ou o Gerenciador do Servidor na barra de tarefas na área de trabalho e, em seguida, clique em **Ferramentas/Política de Segurança Local**.
 2. Navegue até a pasta **Configurações de Segurança\Políticas Locais\Atribuição de Direitos de Usuário** e clique duas vezes em **Gerar auditorias de segurança**.
 3. Na guia **Configuração de Segurança Local** , verifique se a conta de serviço do AD FS está listada. Se ela não estiver presente, clique em **Adicionar Usuário ou Grupo** e adicione a conta de serviço do AD FS à lista e clique em **OK**.
-4. Para habilitar a auditoria, abra um prompt de comando com privilégios elevados e execute o seguinte comando: <code>auditpol.exe /set /subcategory:"0CCE9222-69AE-11D9-BED3-505054503030" /failure:enable /success:enable.</code>
+4. Para habilitar a auditoria, abra um prompt de comando com privilégios elevados e execute o seguinte comando: <code>auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable.</code>
 5. Feche a **Política de Segurança Local**.
 <br />   -- **As seguintes etapas são exigidas apenas para servidores de AD FS primários.** -- <br />
 6. Abra o snap-in **Gerenciamento do AD FS** (no Gerenciador do Servidor, clique em Ferramentas e selecione Gerenciamento do AD FS).
@@ -235,6 +235,28 @@ Se você tiver concluído a configuração, esses serviços já deverão estar e
 
 ![Verifique o Azure AD Connect Health](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install5.png)
 
+### <a name="quick-agent-installation-in-multiple-servers"></a>Instalação do agente rápida em vários servidores
+1. Crie uma conta de usuário no Azure AD com uma senha.
+2. Atribuir a **proprietário** função para a conta local do AAD no Azure AD Connect Health no portal. Siga as etapas [aqui](how-to-connect-health-operations.md#manage-access-with-role-based-access-control). Atribua a função para todas as instâncias de serviço. 
+3. Baixe o arquivo MSI .exe no controlador de domínio local para instalação.
+4. Execute o seguinte script para o registro. Substitua os parâmetros com a nova conta de usuário criada e sua senha. 
+
+```
+AdHealthAddsAgentSetup.exe /quiet
+sleep 30
+$userName = "NEWUSER@DOMAIN"
+$secpasswd = ConvertTo-SecureString "PASSWORD" -AsPlainText -Force
+$myCreds = New-Object System.Management.Automation.PSCredential ($userName, $secpasswd)
+import-module "C:\Program Files\Azure Ad Connect Health Adds Agent\PowerShell\AdHealthAdds"
+ 
+Register-AzureADConnectHealthADDSAgent -UserPrincipalName $USERNAME -Credential $password
+
+```
+1. Quando terminar, você poderá remover o acesso para a conta local seguindo um ou mais destes procedimentos: 
+    * Remover a atribuição de função para a conta local para o AAD Connect Health
+    * Circule a senha para a conta local. 
+    * Desabilitar a conta local do AAD
+    * Excluir a conta local do AAD  
 
 ## <a name="agent-registration-using-powershell"></a>Registro de agente usando o PowerShell
 Depois de instalar o agente apropriado com setup.exe, você poderá executar a etapa de registro de agente usando os comandos do PowerShell a seguir, dependendo da função. Abra uma janela do PowerShell e execute o comando apropriado:

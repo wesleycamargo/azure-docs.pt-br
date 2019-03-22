@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
-ms.openlocfilehash: 93046fa8225d8c85172d113d3c7f9e979c336770
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: f28ea3dd2837a241c538057bd118409d4f5b858a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331428"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096258"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>(PRETERIDO) Pipeline de CI/CD completo para implantar um aplicativo com vários contêineres no Serviço de Contêiner do Azure com Docker Swarm usando Azure DevOps Services
 
@@ -204,14 +204,14 @@ A versão do fluxo de trabalho é composta de duas tarefas que você adiciona.
 
     O comando executado no mestre usa a CLI do Docker e a CLI do Docker Compose para realizar as seguintes tarefas:
 
-    - Logon no registro de contêiner do Azure (usa três variáveis de compilação definidas na guia **Variáveis**)
-    - Definir a variável **DOCKER_HOST** para trabalhar com o ponto de extremidade Swarm (:2375)
-    - Navegue até a pasta de *implantação* criada pela tarefa da cópia de segurança anterior e que contém o arquivo docker-compose.yml 
-    - Execute os comandos `docker-compose` que recebem as novas imagens, interrompem e removem os serviços, e criam os contêineres.
+   - Logon no registro de contêiner do Azure (usa três variáveis de compilação definidas na guia **Variáveis**)
+   - Definir a variável **DOCKER_HOST** para trabalhar com o ponto de extremidade Swarm (:2375)
+   - Navegue até a pasta de *implantação* criada pela tarefa da cópia de segurança anterior e que contém o arquivo docker-compose.yml 
+   - Execute os comandos `docker-compose` que recebem as novas imagens, interrompem e removem os serviços, e criam os contêineres.
 
-    >[!IMPORTANT]
-    > Como mostrado na tela anterior, deixe a caixa de seleção **Falha no STDERR** desmarcada. Esta é uma configuração importante, porque `docker-compose` imprime várias mensagens de diagnóstico, como os contêineres estão parando ou sendo excluídos, na saída de erro padrão. Se você marcar a caixa de seleção, o Azure DevOps Services informará que ocorreram erros durante a versão, mesmo que tudo tenha corrido bem.
-    >
+     >[!IMPORTANT]
+     > Como mostrado na tela anterior, deixe a caixa de seleção **Falha no STDERR** desmarcada. Esta é uma configuração importante, porque `docker-compose` imprime várias mensagens de diagnóstico, como os contêineres estão parando ou sendo excluídos, na saída de erro padrão. Se você marcar a caixa de seleção, o Azure DevOps Services informará que ocorreram erros durante a versão, mesmo que tudo tenha corrido bem.
+     >
 1. Salve o novo pipeline de lançamento.
 
 

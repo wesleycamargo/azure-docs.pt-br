@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62927e78b8f1a771de74c0f9215a7bd946a46672
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d6c82d6a8cf2281ebd77c9880903f8f20505f52c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199588"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901131"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Tutorial: Integração do Azure Active Directory com o Bonusly
 
@@ -219,7 +219,7 @@ Para permitir que os usuários do Azure AD façam logon no Bonusly, eles devem e
 
     b. Na caixa de texto **Sobrenome**, digite o sobrenome do usuário como **Fernandes**.
  
-    c. Na caixa de texto **Email**, insira o email do usuário, como **brittasimon@contoso.com**.
+    c. No **E-mail** caixa de texto, insira o email do usuário, como **brendafernandes\@contoso.com**.
 
     d. Clique em **Salvar**.
    

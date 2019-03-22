@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: a3b719f4b2a19f4ea399d6a0858719a1709adc93
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 26e4b921b4050efa5217e3b599b9dc942a003090
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109481"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58173916"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight-preview"></a>Bring Your Own Key do Apache Kafka no Azure HDInsight (versão prévia)
 
@@ -31,7 +31,7 @@ Você pode usar o portal do Azure ou a CLI do Azure para gorar as chaves com seg
 
 1. Crie identidades gerenciadas para os recursos do Azure.
 
-   Para autenticar para o Key Vault, crie uma identidade gerenciada atribuída pelo usuário usando o [portal do Azure](../../active-directory/managed-service-identity/how-to-manage-ua-identity-portal.md), o [Azure PowerShell](../../active-directory/managed-service-identity/how-to-manage-ua-identity-powershell.md), o [Azure Resource Manager](../../active-directory/managed-service-identity/how-to-manage-ua-identity-arm.md) ou a [CLI do Azure](../../active-directory/managed-service-identity/how-to-manage-ua-identity-cli.md). Embora o Azure Active Directory seja necessário para as identidades gerenciadas e o BYOK para Kafka, o ESP (Enterprise Security Package) não é um requisito. Certifique-se de salvar a ID do recurso de identidade gerenciada para quando você a adicionar à política de acesso do Key Vault.
+   Para autenticar para o Cofre de chaves, criar uma identidade atribuída pelo usuário gerenciada usando o [portal do Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md), [do Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md), [do Azure Resource Manager](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md), ou [ CLI do Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md). Para obter mais informações sobre o trabalho de identidades como gerenciado no Azure HDInsight, consulte [gerenciados identidades no Azure HDInsight](../hdinsight-managed-identities.md). Embora o Azure Active Directory seja necessário para as identidades gerenciadas e o BYOK para Kafka, o ESP (Enterprise Security Package) não é um requisito. Certifique-se de salvar a ID do recurso de identidade gerenciada para quando você a adicionar à política de acesso do Key Vault.
 
    ![Criar uma identidade gerenciada atribuída pelo usuário no portal do Azure](./media/apache-kafka-byok/user-managed-identity-portal.png)
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: d97ac99cae963ddb9df4de06736c64d5d8ceafb5
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 045339ec0a725359593797bda172a2e93f7c2890
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58187652"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339016"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Entender a Configuração de Convidado do Azure Policy
 
@@ -57,7 +57,7 @@ Na máquina virtual, o cliente de Configuração de Convidado usa ferramentas lo
 
 A tabela a seguir mostra uma lista das ferramentas locais usadas em cada sistema operacional com suporte:
 
-|Sistema operacional|Ferramenta de validação|Observações|
+|Sistema operacional|Ferramenta de validação|Anotações|
 |-|-|-|
 | Windows|[Microsoft Desired State Configuration](/powershell/dsc) v2| |
 |Linux|[Chef InSpec](https://www.chef.io/inspec/)| O Ruby e o Python são instalados pela extensão de Configuração de Convidado. |
@@ -70,7 +70,7 @@ O cliente de Configuração Convidado verifica o novo conteúdo a cada 5 minutos
 
 A tabela a seguir mostra uma lista de sistemas operacionais com suporte em imagens do Azure:
 
-|Publicador|NOME|Versões|
+|Editor|Nome|Versões|
 |-|-|-|
 |Canônico|Ubuntu Server|14.04, 16.04, 18.04|
 |Credativ|Debian|8, 9|
@@ -125,9 +125,11 @@ Todas as políticas internas da Configuração de Convidado são incluídas em u
 
 A extensão de configuração de convidado grava arquivos de log para os seguintes locais:
 
-Windows: `C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\1.10.0.0\dsc\logs\dsc.log`
+Windows: `C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\<version>\dsc\logs\dsc.log`
 
-Linux: `/var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-1.8.0/GCAgent/logs/dsc.log`
+Linux: `/var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-<version>/GCAgent/logs/dsc.log`
+
+Onde `<version>` refere-se ao número de versão atual.
 
 ## <a name="guest-configuration-samples"></a>Exemplos de configuração de convidado
 

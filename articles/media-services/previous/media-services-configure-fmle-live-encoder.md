@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: 02adb36bec574719f3f6d7f1c1b66124f96ccae1
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 01bb628a6520488dcebf49a1e868213b955abc31
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309226"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895594"
 ---
-# <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream-legacy"></a>Usar o codificador FMLE para enviar uma transmissão ao vivo de taxa de bits única (herança)
+# <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream"></a>Usar o codificador FMLE para enviar uma transmissão ao vivo de taxa de bits única 
 > [!div class="op_single_selector"]
 > * [FMLE](media-services-configure-fmle-live-encoder.md)
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
@@ -29,11 +29,11 @@ ms.locfileid: "56309226"
 >
 >
 
-Este artigo mostra como configurar o codificador [Flash Media Live Encoder](http://www.adobe.com/products/flash-media-encoder.html) (FLME) para enviar uma transmissão de taxa de bits única para os canais do AMS que são habilitados para codificação ativa. Para obter mais informações, consulte [trabalhando com canais habilitados a executar codificação ativa com os Serviços de Mídia do Azure](media-services-manage-live-encoder-enabled-channels.md).
+Este artigo mostra como configurar o codificador [Flash Media Live Encoder](https://www.adobe.com/products/flash-media-encoder.html) (FLME) para enviar uma transmissão de taxa de bits única para os canais do AMS que são habilitados para codificação ativa. Para obter mais informações, consulte [trabalhando com canais habilitados a executar codificação ativa com os Serviços de Mídia do Azure](media-services-manage-live-encoder-enabled-channels.md).
 
 Este tutorial mostra como gerenciar o AMS (Serviços de Mídia do Azure) com a ferramenta AMSE (Gerenciador de Serviços de Mídia da Azure). Essa ferramenta é executada apenas em PCs com Windows. Se você estiver no Mac ou Linux, use o portal do Azure para criar [canais](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) e [programas](media-services-portal-creating-live-encoder-enabled-channel.md).
 
-Este tutorial descreve como usar o AAC. No entanto, por padrão, o FMLE dá suporte ao AAC. Você precisaria comprar um plug-in para a codificação do AAC, como do MainConcept: [plug-in do AAC](http://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
+Este tutorial descreve como usar o AAC. No entanto, por padrão, o FMLE dá suporte ao AAC. Você precisaria comprar um plug-in para a codificação do AAC, como do MainConcept: [plug-in do AAC](https://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * [Criar uma conta dos Serviços de Mídia do Azure](media-services-portal-create-account.md)

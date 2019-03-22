@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53eb0c4ad5c0a21f46985062ef8202a87dc0d5e6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e0ada3055a3347cb42179fddbba671f2f03f502d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189354"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57885060"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Tutorial: Integração do Azure Active Directory ao Infinite Campus
 
@@ -40,7 +40,7 @@ Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com
 Para configurar a integração do Microsoft Azure Active Directory ao Infinite Campus, você precisa dos seguintes itens:
 
 - Uma assinatura do Azure AD
-- Uma assinatura habilitada para logon único no Infinite Campus
+- Assinatura habilitada para um Campus infinito logon único
 
 > [!NOTE]
 > Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
-- No mínimo, você precisa ser um administrador do Azure Active Directory para concluir a configuração.
+- No mínimo, você precisa ser um administrador do Active Directory do Azure e ter uma função de segurança de produto do Campus de "aluno informações de sistema (SIS)" para concluir a configuração.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -90,7 +90,7 @@ Para configurar e testar o logon único do Microsoft Azure Active Directory com 
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
 2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
-3. **[Criação de um usuário de teste do Campus Infinito](#creating-a-infinite-campus-test-user)** - para ter um equivalente de Britta Simon no Campus Infinito vinculado à representação de usuário do Microsoft Azure Active Directory.
+3. **[Criando um usuário de teste do Campus infinito](#creating-a-infinite-campus-test-user)**  – para ter um equivalente de Britta Simon no Campus infinita que esteja vinculado à representação de usuário do AD do Azure.
 4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
 5. **[Teste do logon único](#testing-single-sign-on)** – para verificar se a configuração funciona.
 
@@ -112,7 +112,7 @@ Nesta seção, você habilitará o logon único do Microsoft Azure Active Direct
 
     ![Configurar o logon único](common/editconfigure.png)
 
-4. Na seção **Configuração básica do SAML**, se você tiver um **arquivo de metadados do provedor de serviços**, complete as etapas 4.a até 4.d e depois pule para a etapa 11.c. Se você não tiver um arquivo de metadados do provedor de serviços, vá para a etapa 5.
+4. No **básicas de configuração de SAML** seção, se você tiver um **arquivo de metadados do provedor de serviços** exportados do Campus infinito, concluir etapas 4.a por meio de 4.d e, em seguida, pule para a etapa 11.c. Se você não tiver um arquivo de metadados do provedor de serviços, vá para a etapa 5.
 
      a. Clique em **Carregar arquivo de metadados**.
 
@@ -168,13 +168,15 @@ Nesta seção, você habilitará o logon único do Microsoft Azure Active Direct
 
     a. Selecione **habilitar logon único do SAML**.
     
-    b. Na seção **Selecionar uma opção para recuperar os dados do servidor de Provedor de Identidade (IDP)**, selecione o **URL de metadados**, cole o **URL de Metadados da Federação do Aplicativo** na caixa de texto e clique em **Sincronizar**.
+    b. Editar o **nome do atributo opcional** conter **nome**
+    
+    c. No **selecione uma opção para recuperar dados do servidor de provedor de identidade (IDP)** , selecione **URL de metadados**, cole o **Url de metadados de Federação do aplicativo** (da etapa 6 acima) em a caixa e clique **sincronização**.
 
-    c. Clique no link **Metadados do Provedor de Serviços** para salvar o **arquivo de metadados do Provedor de Serviços** no seu computador e carregue-o na seção **Configuração básica do SAML** para preencher automaticamente os valores de **Identificador** e **URL de resposta** no portal do Azure (consulte a etapa 4 para carregamento e preenchimento automático dos valores ou a etapa 5 para entrada manual).
+    d. Clique no link **Metadados do Provedor de Serviços** para salvar o **arquivo de metadados do Provedor de Serviços** no seu computador e carregue-o na seção **Configuração básica do SAML** para preencher automaticamente os valores de **Identificador** e **URL de resposta** no portal do Azure (consulte a etapa 4 para carregamento e preenchimento automático dos valores ou a etapa 5 para entrada manual).
 
-    d. Depois de clicar em **Sincronizar**, os valores são preenchidos automaticamente na página **Configuração do Provedor de Serviços de SSO**.
+    e. Depois de clicar em **Sincronizar**, os valores são preenchidos automaticamente na página **Configuração do Provedor de Serviços de SSO**.
 
-    e. Clique em **Salvar**.
+    f. Clique em **Salvar**.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
 
@@ -194,14 +196,14 @@ O objetivo desta seção é criar uma _único_ usuário de teste no portal do Az
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No **nome de usuário** , digite **brittasimon@yourcompanydomain.extension**  
+    b. No **nome de usuário** , digite **brendafernandes\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **Propriedades**, marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
     d. Selecione **Criar**.
 
-### <a name="creating-a-infinite-campus-test-user"></a>Criando um usuário de teste do Infinite Campus
+### <a name="creating-an-infinite-campus-test-user"></a>Criando um usuário de teste do Campus infinito
 
 Infinite Campus tem uma arquitetura demográfica centrada. Entre em contato com a equipe de suporte do [Infinite Campus](mailto:sales@infinitecampus.com) para adicionar os usuários à plataforma Infinite Campus.
 
@@ -233,7 +235,7 @@ Nesta seção, você permite que Britta Simon use o logon único do Azure, conce
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Quando você clicar na peça Infinite Campus no Painel de Acesso, deverá fazer logon automaticamente no aplicativo Infinite Campus. Se você estiver efetuando login no aplicativo Infinite Campus no mesmo navegador em que estiver administrando o Azure AD, verifique se está conectado ao Azure AD como o usuário de teste. Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Quando você clicar na peça Infinite Campus no Painel de Acesso, deverá fazer logon automaticamente no aplicativo Infinite Campus. Se você está fazendo logon no aplicativo Campus infinito no mesmo navegador que você está administrando o Azure AD, certifique-se de que você está conectado ao Azure AD como o usuário de teste. Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

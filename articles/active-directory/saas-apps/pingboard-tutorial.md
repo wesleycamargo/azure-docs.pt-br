@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/15/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 084a921123badb786503ce6696eb4ace14dd59b8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: a26418a5159781eab96cf7730d669ccb65742d86
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170475"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861478"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Tutorial: Integração do Azure Active Directory ao Pingboard
 
@@ -202,7 +202,7 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Pingbo
 
      a. Na caixa de texto **Nome Completo Name**, digite o nome completo do usuário, como **Brenda Fernandes**.
 
-    b. Na caixa de texto **Email**, digite o endereço de email do usuário, como **brittasimon@contoso.com**.
+    b. No **E-mail** caixa de texto, digite o endereço de email do usuário, como **brendafernandes\@contoso.com**.
 
     c. Na caixa de texto **Cargo**, digite o cargo de Brenda Fernandes.
 

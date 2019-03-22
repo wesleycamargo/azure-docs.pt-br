@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/21/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e39bdcde896bca094b60b87308127a6ea01f1dd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 4aecb2850f80f0991c7466b388147ab4b21c4780
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169728"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170693"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iriusrisk"></a>Tutorial: Integração do Azure Active Directory ao IriusRisk
 
@@ -40,7 +40,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 Para configurar a integração do Azure AD com o IriusRisk, você precisa dos seguintes itens:
 
 - Uma assinatura do Azure AD
-- Uma assinatura do IriusRisk habilitada para logon único
+- Assinatura habilitada para um IriusRisk o logon único
 
 > [!NOTE]
 > Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
@@ -89,7 +89,7 @@ Para configurar e testar o logon único do Azure AD com o IriusRisk, você preci
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
 1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-1. **[Criar um usuário de teste do IriusRisk](#create-a-iriusrisk-test-user)** – para ter um equivalente de Brenda Fernandes no IriusRisk vinculado à representação do usuário no Azure AD.
+1. **[Criar um usuário de teste do IriusRisk](#create-a-iriusrisk-test-user)**  – para ter um equivalente de Britta Simon no IriusRisk vinculado à representação de usuário do AD do Azure.
 1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
 1. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
@@ -164,7 +164,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     d. Clique em **Criar**.
  
-### <a name="create-a-iriusrisk-test-user"></a>Criar um usuário de teste do IriusRisk
+### <a name="create-an-iriusrisk-test-user"></a>Criar um usuário de teste do IriusRisk
 
 O objetivo desta seção é criar um usuário chamado Brenda Fernandes no IriusRisk. O IriusRisk é compatível com o provisionamento Just-In-Time, que é habilitado por padrão. Não há itens de ação para você nesta seção. Um novo usuário será criado durante uma tentativa de acessar o IriusRisk, caso ele ainda não exista.
 

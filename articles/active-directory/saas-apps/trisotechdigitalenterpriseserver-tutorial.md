@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4ed44bff002ed8422f199c24a566fe6ff606af8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 3a1a334c6c7852923da94403352bb7318b241629
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190646"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56735837"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trisotech-digital-enterprise-server"></a>Tutorial: Integração do Azure Active Directory ao Trisotech Digital Enterprise Server
 
@@ -150,7 +150,7 @@ Nesta seção, você habilita o logon único do Microsoft Azure AD no Portal do 
 
     f. Clique em **Salvar**
 
- ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 

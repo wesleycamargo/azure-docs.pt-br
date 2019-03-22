@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: 04653dcdf0fb64e8b935cda18c01198ec91c548d
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
-ms.translationtype: HT
+ms.openlocfilehash: ed91425ca56278eccf21c10db6360b4f770b0660
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807466"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226531"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia do desenvolvedor de JavaScript do Azure Functions
 
@@ -554,6 +554,16 @@ module.exports = myObj;
 ```
 
 Neste exemplo, é importante observar que, embora um objeto está sendo exportado, não há nenhuma garantia para preservar o estado entre as execuções.
+
+## <a name="local-debugging"></a>Depuração local
+
+Quando iniciado com o `--inspect` parâmetro, um processo do Node. js escuta para um cliente de depuração na porta especificada. No Azure Functions 2.x, você pode especificar argumentos para passar para o processo do Node. js que executa o código adicionando a variável de ambiente ou configuração de aplicativo `languageWorkers:node:arguments = <args>`. 
+
+Para depurar localmente, adicione `"languageWorkers:node:arguments": "--inspect=5858"` sob `Values` no seu [Settings](https://docs.microsoft.com/azure/azure-functions/functions-run-local#local-settings-file) de arquivo e anexar um depurador para a porta 5858.
+
+Durante a depuração usando o VS Code, o `--inspect` parâmetro é adicionado automaticamente usando o `port` valor no arquivo Launch JSON do projeto.
+
+Na versão 1. x, definindo `languageWorkers:node:arguments` não funcionará. A porta de depuração pode ser selecionada com o [ `--nodeDebugPort` ](https://docs.microsoft.com/azure/azure-functions/functions-run-local#start) parâmetro sobre as ferramentas básicas do Azure Functions.
 
 ## <a name="typescript"></a>TypeScript
 

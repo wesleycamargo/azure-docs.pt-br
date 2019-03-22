@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 7ac210d9b30a05fd5dbfd46c41c3e62a1d610357
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b30ef7d0b373f0d9a440b6649f819e429e28328c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57891096"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314919"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Blueprint de Segurança e Conformidade do Azure: Hospedagem de Aplicativo Web de PaaS para carga de trabalho OFICIAL DO REINO UNIDO
 
@@ -21,7 +21,7 @@ ms.locfileid: "57891096"
 
 Especificações técnicas do Azure consistem em documentos de diretrizes e modelos de automação que implantam arquiteturas baseado em nuvem para oferecer soluções para cenários que têm requisitos de conformidade ou de capacitação. Especificações técnicas do Azure são coleções de modelo de automação e diretrizes que permitem que os clientes do Microsoft Azure aceleram a entrega de suas metas de negócios por meio de uma arquitetura de base que pode ser estendida para atender a quaisquer requisitos adicionais de provisionamento.
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 Este projeto de conformidade e segurança do Azure fornece scripts de automação e diretrizes para entregar uma plataforma do Microsoft Azure [plataforma como serviço (PaaS)](https://azure.microsoft.com/overview/what-is-paas/) hospedado, arquitetura do aplicativo web apropriada para lidar com cargas de trabalho classificadas como [OFICIAL REINO UNIDO](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/715778/May-2018_Government-Security-Classifications-2.pdf). Essa classificação de segurança abrange a maioria das informações criada ou processada pelo setor público. Isso inclui operações de rotina de negócios e serviços, que, se perdidas, roubadas ou publicadas na mídia, podem ter consequências graves. O perfil de ameaça típico para a classificação OFICIAL é muito semelhante a uma empresa privada que fornece serviços e informações valiosas. O OFICIAL DO REINO UNIDO prevê a necessidade de se defender contra ameaças ou o comprometimento por invasores, com os serviços ou a dados do governo do Reino Unido limitados, como funções e recursos (mas não está limitado a) hacktivistas, grupos de pressão de edição única, jornalistas investigativos, hackers individuais competentes e a maioria dos indivíduos e grupos criminosos.
 
@@ -51,8 +51,8 @@ Como parte da arquitetura de implantação, provisionar armazenamento seguro, mo
 
 A solução usa os serviços do Azure a seguir. Há detalhes da arquitetura de implantação na seção [arquitetura de implantação](#deployment-architecture).
 
-- Azure Active Directory
-- Serviço de Aplicativo
+- Active Directory do Azure
+- Serviço de aplicativo
 - Aplicativo Web
 - Aplicativo de API
 - DNS do Azure
@@ -99,7 +99,7 @@ O [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-securi
 
 ### <a name="paas-services-in-this-blueprint"></a>Serviços de PaaS neste blueprint
 
-#### <a name="azure-app-service"></a>Serviço de aplicativo do Azure
+#### <a name="azure-app-service"></a>Serviço de Aplicativo do Azure
 
 O Serviço de Aplicativo do Azure fornece um ambiente para o aplicativo da web desenvolvido em Java, PHP, Node.js Python, HTML e C# sem a necessidade de gerenciar a infraestrutura de hospedagem da web totalmente gerenciada. Ele oferece dimensionamento automático e alta disponibilidade, compatível com Windows e Linux e permite implantações automatizadas do [Azure DevOps](https://azure.microsoft.com/services/visual-studio-team-services/) ou qualquer repositório baseado em Git.
 
@@ -119,7 +119,7 @@ Esse modelo implanta os seguintes recursos do Serviço de Aplicativo do Azure:
 
 #### <a name="azure-sql-database"></a>Banco de Dados SQL do Azure
 
-O Banco de Dados SQL é um serviço gerenciado de banco de dados relacional de uso geral no Microsoft Azure que dá suporte a estruturas como XML, JSON, espacial e dados relacionais. O Banco de Dados SQL oferece bancos de dados SQL únicos gerenciados, bancos de dados SQL gerenciados em um [pool elástico](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool) e [Instâncias Gerenciadas](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) do SQL (em versão prévia pública). Ele oferece [desempenho dinamicamente escalonável])https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers) e fornece opções como [índices columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) para análise extrema e geração de relatórios, além de[OLTP in-memory](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory) para processamento transacional extremo. A Microsoft trata todos os patches e a atualização da base de código SQL sem interrupções e abstrai todo o gerenciamento da infraestrutura subjacente.
+O Banco de Dados SQL é um serviço gerenciado de banco de dados relacional de uso geral no Microsoft Azure que dá suporte a estruturas como XML, JSON, espacial e dados relacionais. O Banco de Dados SQL oferece bancos de dados SQL únicos gerenciados, bancos de dados SQL gerenciados em um [pool elástico](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool) e [Instâncias Gerenciadas](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) do SQL (em versão prévia pública). Ele oferece [desempenho dinamicamente escalonável](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers) e fornece opções como [índices columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) para análise extrema e geração de relatórios, além de [OLTP in-memory](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory) para processamento transacional extremo. A Microsoft trata todos os patches e a atualização da base de código SQL sem interrupções e abstrai todo o gerenciamento da infraestrutura subjacente.
 
 Banco de dados SQL do Azure neste projeto
 
@@ -156,7 +156,7 @@ Informações detalhadas sobre como proteger o Armazenamento do Microsoft Azure 
 
 ### <a name="secrets-management"></a>Gerenciamento de segredos
 
-#### <a name="azure-key-vault"></a>Cofre da Chave do Azure
+#### <a name="azure-key-vault"></a>Cofre de Chaves Azure
 
 [Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) é usado para proteger as chaves de aplicativo e segredos para garantir que eles não estejam acessíveis por terceiros. O Key Vault não deve ser usado como um repositório de senhas de usuário. O Key Vault permite que você crie vários contêineres seguros, chamado cofres. Esses cofres contam com HSMs (Módulos de Segurança de Hardware). Os cofres ajudam a reduzir a possibilidade de perda acidental de informações de segurança pela centralização do armazenamento de segredos do aplicativo. Os Key Vaults também controlam e registram o acesso a todas as coisas armazenadas neles. O Azure Key Vault pode tratar da solicitação e da renovação de certificados TLS, fornecendo os recursos necessários para uma solução de gerenciamento de ciclo de vida de certificados robusta.
 
@@ -235,7 +235,7 @@ Três abordagens foram fornecidas para a implantação; Uma simples "expressa" [
 
 ## <a name="guidance-and-recommendations"></a>Diretrizes e recomendações
 
-### <a name="api-management"></a>Gerenciamento de API
+### <a name="api-management"></a> Gerenciamento de API
 
 [Gerenciamento de API do Azure](https://azure.microsoft.com/services/api-management/) poderia ser usado na frente do Serviço de Aplicativo da API e para fornecer camadas adicionais de segurança, limitação e controles para expor o proxy e proteger APIs.
 
@@ -243,7 +243,7 @@ Três abordagens foram fornecidas para a implantação; Uma simples "expressa" [
 
 O [Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) pode ser implementado como um controle para permitir que os usuários se registrem, criem uma identidade e habilitem a autorização e o controle de acesso para o aplicativo web público.
 
-## <a name="disclaimer"></a>Isenção de responsabilidade
+## <a name="disclaimer"></a>Aviso de isenção de responsabilidade
 
 - Este documento serve apenas para fins informativos. A MICROSOFT NÃO FORNECE NENHUMA GARANTIA, EXPRESSA, IMPLÍCITA OU REGULAMENTAR, QUANTO ÀS INFORMAÇÕES PRESENTES NESTE DOCUMENTO. Este documento é fornecido "no estado em que se encontra". As informações e opiniões expressadas neste documento, incluindo URLs e outras referências a sites da Internet, podem ser alteradas sem aviso prévio. Os clientes que estão lendo este documento arcarão com o risco de usá-lo.
 - Este documento não fornece aos clientes nenhum direito legal a qualquer propriedade intelectual de qualquer produto ou solução da Microsoft.

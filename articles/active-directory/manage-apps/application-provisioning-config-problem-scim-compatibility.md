@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a1e5643c9d5f6fc2492dd52ccd07606a47d21b2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8fc326c1ba529bc394a5ce5a059e3fe91baa7a9a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190510"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124058"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Problemas conhecidos e as resoluções em conformidade com o protocolo SCIM 2.0 do serviço de Provisionamento de Usuário do Microsoft Azure Active Directory
 
@@ -59,36 +59,36 @@ Sim. Se você já estiver usando essa instância de aplicativo para logon único
  
 1. Entre no portal do Azure em: https://portal.azure.com.
 2. Na seção **Azure Active Directory > Aplicativos Enterprise** do portal do Azure, localize e selecione o seu aplicativo de SCIM.
-3.  Na seção **Propriedades** do seu aplicativo existente do SCIM, copie a **ID de objeto**.
-4.  Em uma nova janela do navegador da web, vá para https://developer.microsoft.com/graph/graph-explorer e entre como o administrador de locatário do Microsoft Azure Active Directory onde seu aplicativo é adicionado.
+3. Na seção **Propriedades** do seu aplicativo existente do SCIM, copie a **ID de objeto**.
+4. Em uma nova janela do navegador da web, vá para https://developer.microsoft.com/graph/graph-explorer e entre como o administrador de locatário do Microsoft Azure Active Directory onde seu aplicativo é adicionado.
 5. No Explorador do Graph, execute o comando a seguir para localizar a ID do seu trabalho de provisionamento. Substitua "[object-id]" pelo serviço de ID da entidade (ID de objeto) copiado da terceira etapa.
  
- `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs` 
+   `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs` 
 
- ![Obter trabalhos](./media/application-provisioning-config-problem-scim-compatibility/get-jobs.PNG "Obter trabalhos") 
+   ![Obter trabalhos](./media/application-provisioning-config-problem-scim-compatibility/get-jobs.PNG "Obter trabalhos") 
 
 
 6. Nos resultados, copie a cadeia de caracteres completa de "ID" que começa com "customappsso" ou "scim".
 7. Execute o comando a seguir para recuperar a configuração de mapeamento de atributo, para que você possa fazer um backup. Use o mesmo [object-id] como antes e substitua [job-id] pela ID de trabalho de provisionamento copiada da última etapa.
  
- `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]/schema`
+   `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]/schema`
  
- ![Obter o esquema](./media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "Obter o esquema") 
+   ![Obter o esquema](./media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "Obter o esquema") 
 
 8. Copie a saída JSON da última etapa e salve-a em um arquivo de texto. Isso contém qualquer mapeamento de atributo personalizado que você adicionou para o seu aplicativo antigo e deve ser aproximadamente algumas milhares de linhas de JSON.
 9. Execute o comando a seguir para excluir o trabalho de provisionamento:
  
- `DELETE https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]`
+   `DELETE https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]`
 
 10. Execute o comando a seguir para criar um novo trabalho de provisionamento que tenha as correções mais recentes do serviço.
 
- `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs `
- `{   templateId: "scim"   } `
+    `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs `
+    `{   templateId: "scim"   } `
    
 11. Nos resultados da última etapa, copie a cadeia de caracteres completa de "ID" que começa com "scim". Opcionalmente, aplique novamente seus mapeamentos de atributos antigos, executando o comando abaixo, substituindo [new-job-id] com a nova ID de trabalho que você acabou de copiar e inserir que o JSON de saída da etapa 7 como o corpo da solicitação.
 
- `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[new-job-id]/schema `
- `{   <your-schema-json-here>   }`
+    `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[new-job-id]/schema `
+    `{   <your-schema-json-here>   }`
 
 12. Volte para a primeira janela do navegador da web e selecione a guia **Provisionamento** para o seu aplicativo.
 13. Verifique a configuração e, em seguida, inicie o trabalho de provisionamento. 
@@ -97,15 +97,15 @@ Sim. Se você já estiver usando essa instância de aplicativo para logon único
 
 Sim. Se você tivesse codificado um aplicativo para o comportamento antigo que existia antes das correções e precisar implantar uma nova instância dele, siga o procedimento a seguir. Este procedimento descreve como usar a API do Microsoft Graph e o Gerenciador de API do Microsoft Graph para criar um trabalho de provisionamento de SCIM que exiba o comportamento antigo.
  
-1.  Entre no portal do Azure em: https://portal.azure.com.
+1. Entre no portal do Azure em: https://portal.azure.com.
 2. a seção **Azure Active Directory > aplicativos empresariais > Criar aplicativo** do portal do Azure, crie um novo aplicativo **inexistente na galeria**.
-3.  Na seção **propriedades** do seu novo aplicativo personalizado, copie a **ID de objeto**.
-4.  Em uma nova janela do navegador da web, vá para https://developer.microsoft.com/graph/graph-explorer e entre como o administrador de locatário do Microsoft Azure Active Directory onde seu aplicativo é adicionado.
+3. Na seção **propriedades** do seu novo aplicativo personalizado, copie a **ID de objeto**.
+4. Em uma nova janela do navegador da web, vá para https://developer.microsoft.com/graph/graph-explorer e entre como o administrador de locatário do Microsoft Azure Active Directory onde seu aplicativo é adicionado.
 5. No Graph Explorer, execute o comando a seguir para inicializar a configuração de provisionamento para seu aplicativo.
-Substitua "[object-id]" pelo serviço de ID da entidade (ID de objeto) copiado da terceira etapa.
+   Substitua "[object-id]" pelo serviço de ID da entidade (ID de objeto) copiado da terceira etapa.
 
- `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs`
- `{   templateId: "customappsso"   }`
+   `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs`
+   `{   templateId: "customappsso"   }`
  
 6. Volte para a primeira janela do navegador da web e selecione a guia **Provisionamento** para o seu aplicativo.
 7. Conclua o configuração de provisionamento de usuário conforme faria normalmente.

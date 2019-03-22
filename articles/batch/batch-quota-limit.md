@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2018
+ms.date: 03/20/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 5194fa73d246cee039e113207bbde277b06d7130
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
-ms.translationtype: HT
+ms.openlocfilehash: 51be74d0adbd5ce75234be2a5b7c99fcd36ca91c
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753192"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295259"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Cotas e limites de serviço do Lote
 
@@ -65,6 +65,7 @@ Se você tiver criado uma conta de Lote com modo de alocação de pool definido 
 | [Tarefas simultâneas](batch-parallel-node-tasks.md) por nó de computação | 4 vezes o número de núcleos de nó |
 | [Aplicativos](batch-application-packages.md) por conta do Lote | 20 |
 | Pacotes de aplicativos por aplicativo | 40 |
+| Pacotes de aplicativos por pool | 10 |
 | Tempo de vida máximo da tarefa | 180 dias<sup>1</sup> |
 
 <sup>1</sup> O tempo de vida máximo de uma tarefa, desde quando é adicionada ao trabalho até ser concluída, é de 180 dias. As tarefas concluídas persistem por 7 dias. Os dados das tarefas não concluídas dentro do tempo de vida máximo não podem ser acessados.
@@ -99,14 +100,14 @@ Siga estas etapas para solicitar uma cota aumentam para sua conta de lote ou sua
    
     d. **Plano de suporte** > **Suporte da cota - Incluído**
    
-    Clique em **Próximo**.
+    Clique em **Avançar**.
 1. Em **Problema**:
    
      a. Selecione uma **Gravidade** de acordo com o [impacto nos negócios][support_sev].
    
     b. Em **Detalhes**, especifique cada cota que você deseja alterar, o nome da conta do Lote e o novo limite.
    
-    Clique em **Próximo**.
+    Clique em **Avançar**.
 1. Em **Informações de contato**:
    
      a. Selecione um **método de contato preferencial**.
@@ -135,6 +136,6 @@ Esses recursos são alocados na assinatura que contém a rede virtual fornecida 
 
 [portal]: https://portal.azure.com
 [portal_classic_increase]: https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/
-[support_sev]: http://aka.ms/supportseverity
+[support_sev]: https://aka.ms/supportseverity
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.png

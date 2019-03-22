@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: raynew
 ms.openlocfilehash: ffc9b09c72ef1bf5180a0d626908d09b6fdd41ca
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164395"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "58115983"
 ---
 ### <a name="prepare-for-a-push-installation-on-a-windows-computer"></a>Preparação para uma instalação por push em um computador Windows
 
@@ -17,7 +17,7 @@ ms.locfileid: "50164395"
 1. Crie uma conta que o servidor de processo possa usar para acessar o computador. A conta deve ter direitos de administrador, seja local ou do domínio. Use essa conta somente para a instalação por push e atualizações de agentes.
 
    > [!NOTE]
-   > Se você não usar uma conta de domínio, desabilite o controle de Acesso de Usuário Remoto no computador local. Para desabilitar o controle de Acesso de Usuário Remoto, na chave do Registro HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System, adicione um novo DWORD: **LocalAccountTokenFilterPolicy**. Defina o valor como **1**. Para fazer essa tarefa no prompt de comando, execute o seguinte comando:  
+   > Se você não usar uma conta de domínio, desabilite o controle de Acesso de Usuário Remoto no computador local. Para desabilitar o controle de acesso de usuário remoto, na chave do registro HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System, adicione um novo DWORD: **LocalAccountTokenFilterPolicy**. Defina o valor como **1**. Para fazer essa tarefa no prompt de comando, execute o seguinte comando:  
    `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`
    >
    >
@@ -27,7 +27,7 @@ ms.locfileid: "50164395"
 
 1. Adicione a conta criada em CSPSConfigtool. Siga estas etapas:
 
-    a. Conecte-se ao servidor de configuração.
+     a. Conecte-se ao servidor de configuração.
 
     b. Abra **cspsconfigtool.exe**. Ele está disponível como atalho na área de trabalho e na pasta %ProgramData%\home\svsystems\bin.
 

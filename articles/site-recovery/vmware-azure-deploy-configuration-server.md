@@ -2,25 +2,25 @@
 title: Implantar o servidor de configuração para a recuperação após desastres do VMware com o Azure Site Recovery | Microsoft Docs
 description: Este artigo descreve como implantar um servidor de configuração para a recuperação após desastres do VMware com o Azure Site Recovery
 services: site-recovery
-author: Rajeswari-Mamilla
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/05/2018
+ms.date: 03/06/2019
 ms.author: ramamill
-ms.openlocfilehash: b7454226b96ff2f6a76285d708a7ce2ad1c3a6de
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: ef0e29217e03b3c5d1b2880a6ce755c6cc02ceba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235879"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004445"
 ---
 # <a name="deploy-a-configuration-server"></a>Implante um servidor de configuração
 
 Você implanta um servidor de configuração local quando você usa o [Azure Site Recovery](site-recovery-overview.md) para recuperação de desastre de VMs VMware e servidores físicos para o Azure. O servidor de configuração coordena a comunicação entre o ambiente de VMware local e o Azure. Ele também gerencia a replicação de dados. Este artigo orienta você pelas etapas necessárias para implantar o servidor de configuração quando você estiver replicando VMs do VMware no Azure. [Siga este artigo](physical-azure-set-up-source.md) se você precisa configurar um servidor de configuração para replicação de servidor físico.
 
->[!TIP]
-Você pode saber mais sobre a função de Servidor de configuração como parte da arquitetura do Azure Site Recovery [aqui](vmware-azure-architecture.md).
+> [!TIP]
+> Você pode saber mais sobre a função de Servidor de configuração como parte da arquitetura do Azure Site Recovery [aqui](vmware-azure-architecture.md).
 
 ## <a name="deployment-of-configuration-server-through-ova-template"></a>Implantação de servidor de configuração por meio do modelo OVA
 
@@ -31,6 +31,25 @@ O servidor de configuração deve ser configurado como uma VM VMware altamente d
 Os requisitos mínimos de hardware para um servidor de configuração estão resumidos na tabela a seguir.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
+
+## <a name="azure-active-directory-permission-requirements"></a>Requisitos de permissão do Active Directory do Azure
+
+Você precisar de um usuário com **um dos seguintes** conjunto de permissões no AAD (Azure Active Directory) para registrar o servidor de configuração com os serviços do Azure Site Recovery.
+
+1. Usuário deve ter a função de "Desenvolvedor do aplicativo" para criar o aplicativo.
+   1. Para verificar, entrar no portal do Azure</br>
+   1. Navegue para o Azure Active Directory > funções e os administradores</br>
+   1. Verifique se a função de "Desenvolvedor do aplicativo" é atribuída ao usuário. Se não, use um usuário com essa permissão, ou vá para [administrador para habilitar a permissão](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal#assign-roles).
+    
+1. Se não puder ser atribuída a função "Desenvolvedor de aplicativos", certifique-se de que o sinalizador de "Usuário pode registrar o aplicativo" é definido como true para o usuário criar a identidade. Para habilitar acima permissões,
+   1. Entre no portal do Azure
+   1. Navegue para o Azure Active Directory > configurações do usuário
+   1. Em * * registros do aplicativo ","Os usuários podem registrar aplicativos"deve ser escolhido como"Sim".
+
+      ![AAD_application_permission](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
+
+> [!NOTE]
+> É Services(ADFS) de Federação do Active Directory **não tem suporte**. Use uma conta gerenciada por meio [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis).
 
 ## <a name="capacity-planning"></a>planejamento de capacidade
 
@@ -51,11 +70,11 @@ Se você estiver replicando mais de uma VM do VMware, leia as [considerações d
 3. Em **Adicionar Servidor**, verifique se o **Servidor de configuração para VMware** aparece em **Tipo de servidor**.
 4. Baixe o modelo OVA (Aplicativo de Virtualização Aberta) para o servidor de configuração.
 
-  > [!TIP]
->Também é possível baixar a versão mais recente do modelo de servidor de configuração diretamente do [Centro de Download da Microsoft](https://aka.ms/asrconfigurationserver).
+   > [!TIP]
+   >Também é possível baixar a versão mais recente do modelo de servidor de configuração diretamente do [Centro de Download da Microsoft](https://aka.ms/asrconfigurationserver).
 
->[!NOTE]
-A licença fornecida com o modelo OVA é uma licença de avaliação válida por 180 dias. Após esse período, o cliente precisa ativar o Windows com uma licença adquirida.
+> [!NOTE]
+> A licença fornecida com o modelo OVA é uma licença de avaliação válida por 180 dias. Após esse período, cliente precisa ativar o windows com uma licença adquirida.
 
 ## <a name="import-the-template-in-vmware"></a>Importar o modelo para a VMware
 
@@ -94,31 +113,36 @@ Se você deseja adicionar mais uma NIC ao servidor de configuração, adicione-o
 3. Após a conclusão da instalação, entre na VM como administrador.
 4. Na primeira vez que você entrar, em alguns segundos, a Ferramenta de Configuração do Azure Site Recovery será iniciada.
 5. Insira um nome que seja usado para registrar o servidor de configuração com o Site Recovery. Em seguida, selecione **Avançar**.
-6. A ferramenta verifica se a VM pode se conectar ao Azure. Depois que a conexão for estabelecida, selecione **Entrar** para fazer logon na sua assinatura do Azure. As credenciais devem ter acesso ao cofre no qual você deseja registrar o servidor de configuração.
+6. A ferramenta verifica se a VM pode se conectar ao Azure. Depois que a conexão for estabelecida, selecione **Entrar** para fazer logon na sua assinatura do Azure.</br>
+     a. As credenciais devem ter acesso ao cofre no qual você deseja registrar o servidor de configuração.</br>
+    b. Certifique-se de que a conta de usuário escolhido tem permissões para criar um aplicativo no Azure. Para habilitar as permissões necessárias, siga as diretrizes fornecidas [aqui](#azure-active-directory-permission-requirements).
 7. A ferramenta executa algumas tarefas de configuração e, em seguida, é reinicializada.
 8. Entre novamente no computador. O assistente de gerenciamento do servidor de configuração será iniciado **automaticamente** em alguns segundos.
 
 ### <a name="configure-settings"></a>Configurar definições
 
-1. No assistente de gerenciamento do servidor de configuração, selecione **Configurar conectividade** e, em seguida, selecione a NIC que será usada pelo servidor de processo para receber o tráfego de replicação das VMs. Em seguida, selecione **Salvar**. Não é possível alterar essa configuração depois de ela ter sido definida. É altamente recomendável não alterar o endereço IP de um servidor de configuração. Certifique-se de que o IP atribuído ao servidor de configuração é o IP estático e não o IP DHCP.
-2. Em **Selecionar cofre de Serviços de Recuperação**, entre no Microsoft Azure, selecione sua assinatura do Azure e o grupo de recursos e o cofre relevantes.
+1. No assistente de gerenciamento do servidor de configuração, selecione **Configurar conectividade**. Nas listas suspensas, primeiro selecione a NIC usada pelo servidor de processo integrado para a instalação de descoberta e por push do serviço de mobilidade em máquinas de origem e, em seguida, selecione a NIC que usa o servidor de configuração para a conectividade com o Azure. Em seguida, selecione **Salvar**. Depois de configurado, você não pode alterar essa configuração. É altamente recomendável não alterar o endereço IP de um servidor de configuração. Certifique-se de que o IP atribuído ao servidor de configuração é o IP estático e não o IP DHCP.
+2. Na **selecionar serviços de recuperação do cofre**, entrar no Microsoft Azure com as credenciais usadas na **etapa 6** de "[registrar o servidor de configuração com os serviços do Azure Site Recovery](#register-the-configuration-server-with-azure-site-recovery-services)" .
+3. Depois de entrar, selecione sua assinatura do Azure e o grupo de recursos relevantes e o cofre.
 
     > [!NOTE]
     > Uma vez registrado, não há flexibilidade para alterar o cofre de serviços de recuperação.
+    > Cofre dos serviços de recuperação alteração exigiria desassociação de servidor de configuração do cofre atual e a replicação de todas as máquinas virtuais protegidas no servidor de configuração é interrompida. Saiba [mais](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault).
 
-3. Em **Instalar software de terceiros**,
+4. Em **Instalar software de terceiros**,
 
     |Cenário   |Etapas a serem executadas  |
     |---------|---------|
     |Posso baixar e instalar o MySQL manualmente?     |  Sim. Baixe o aplicativo MySQL e coloque-o na pasta **C:\Temp\ASRSetup** e instale-o manualmente. Agora, quando você aceitar os termos > clicar em **Baixar e instalar**, o portal dirá *Já instalado*. Você pode prosseguir para a próxima etapa.       |
     |Posso evitar o download do MySQL online?     |   Sim. Coloque o aplicativo instalador do MySQL na pasta **C:\Temp\ASRSetup**. Aceite os termos e clique em  **Baixar e instalar**. O portal usará o instalador adicionado por você e instalará o aplicativo. Você pode prosseguir para a próxima etapa após a instalação.    |
     |Desejo baixar e instalar o MySQL por meio do Azure Site Recovery     |  Aceite o contrato de licença e clique em **Baixar e Instalar**. Em seguida, você pode prosseguir para a próxima etapa após a instalação.       |
-4. Em **Validar configuração de dispositivo**, os pré-requisitos serão verificados antes de continuar.
-5. Em **Configurar vCenter Server/servidor vSphere ESXi**, insira o FQDN ou endereço IP do vCenter Server ou o host vSphere, onde as VMs que deseja replicar estão localizadas. Insira a porta na qual o servidor está escutando. Insira um nome amigável a ser usado para o servidor VMware no cofre.
-6. Insira as credenciais a serem usadas pelo servidor de configuração para se conectar ao servidor VMware. O Site Recovery usa essas credenciais para descobrir automaticamente as VMs do VMware que estão disponíveis para replicação. Selecione **Adicionar** e **Continuar**. As credenciais digitadas aqui são salvas localmente.
-7. Em **Configurar credenciais de máquina virtual**, insira o nome de usuário e a senha de máquinas virtuais para instalar automaticamente o Serviço de Mobilidade durante a replicação. Para computadores **Windows**, a conta precisa de privilégios de administrador local nos computadores que você deseja replicar. Para o **Linux**, forneça detalhes para a conta raiz.
-8. Selecione **Finalizar configuração** para concluir o registro.
-9. Após o término do registro, abra o portal do Azure, verifique se o servidor de configuração e o servidor VMware estão listados em **Cofre dos Serviços de Recuperação** > **Gerenciar** > **Infraestrutura de Recuperação do Site** > **Servidores de Configuração**.
+
+5. Em **Validar configuração de dispositivo**, os pré-requisitos serão verificados antes de continuar.
+6. Em **Configurar vCenter Server/servidor vSphere ESXi**, insira o FQDN ou endereço IP do vCenter Server ou o host vSphere, onde as VMs que deseja replicar estão localizadas. Insira a porta na qual o servidor está escutando. Insira um nome amigável a ser usado para o servidor VMware no cofre.
+7. Insira as credenciais a serem usadas pelo servidor de configuração para se conectar ao servidor VMware. O Site Recovery usa essas credenciais para descobrir automaticamente as VMs do VMware que estão disponíveis para replicação. Selecione **Adicionar** e **Continuar**. As credenciais digitadas aqui são salvas localmente.
+8. Em **Configurar credenciais de máquina virtual**, insira o nome de usuário e a senha de máquinas virtuais para instalar automaticamente o Serviço de Mobilidade durante a replicação. Para computadores **Windows**, a conta precisa de privilégios de administrador local nos computadores que você deseja replicar. Para o **Linux**, forneça detalhes para a conta raiz.
+9. Selecione **Finalizar configuração** para concluir o registro.
+10. Após o término do registro, abra o portal do Azure, verifique se o servidor de configuração e o servidor VMware estão listados em **Cofre dos Serviços de Recuperação** > **Gerenciar** > **Infraestrutura de Recuperação do Site** > **Servidores de Configuração**.
 
 ## <a name="upgrade-the-configuration-server"></a>Atualizar o servidor de configuração
 

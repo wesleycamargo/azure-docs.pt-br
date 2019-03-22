@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e940d7593b6760a81a781fd72c0bb45347b00c2a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 4494996ed54b25be71367dd3e3043023d0958074
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168130"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224032"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-statuspage"></a>Tutorial: Integração do Azure Active Directory ao StatusPage
 
@@ -114,23 +114,25 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     ![Configurar o logon único](./media/statuspage-tutorial/tutorial_statuspage_url.png)
 
      a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
+
     | |
     |--|
     | `https://<subdomain>.statuspagestaging.com/` |
     | `https://<subdomain>.statuspage.io/` |
 
     b. Na caixa de texto **URL de resposta** , digite uma URL no seguinte padrão: 
+    
     | |
     |--|
     | `https://<subdomain>.statuspagestaging.com/sso/saml/consume` |
     | `https://<subdomain>.statuspage.io/sso/saml/consume` |
 
-    > [!NOTE]
-    > Entre em contato com a equipe de suporte do StatusPage em [SupportTeam@statuspage.io](mailto:SupportTeam@statuspage.io)para solicitar os metadados necessários para a configuração do logon único. 
-    >
-    > a. Nos metadados, copie o valor de Issuer e cole-o na caixa de texto **Identificador** .
-    >
-    >b. Nos metadados, copie o valor a URL de Resposta e cole-a na caixa de texto **URL de Resposta** .
+   > [!NOTE]
+   > Entre em contato com a equipe de suporte do StatusPage em [SupportTeam@statuspage.io](mailto:SupportTeam@statuspage.io)para solicitar os metadados necessários para a configuração do logon único. 
+   > 
+   >  a. Nos metadados, copie o valor de Issuer e cole-o na caixa de texto **Identificador** .
+   > 
+   > b. Nos metadados, copie o valor a URL de Resposta e cole-a na caixa de texto **URL de Resposta** .
 
 1. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
 
@@ -156,15 +158,15 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 1. Na página Instalação do SSO, execute as seguintes etapas:
    
-    ![Configurar o logon único](./media/statuspage-tutorial/tutorial_statuspage_08.png) 
+      ![Configurar o logon único](./media/statuspage-tutorial/tutorial_statuspage_08.png) 
 
-    ![Configurar o logon único](./media/statuspage-tutorial/tutorial_statuspage_09.png) 
+      ![Configurar o logon único](./media/statuspage-tutorial/tutorial_statuspage_09.png) 
  
-     a. Na caixa de texto **URL de Destino do SSO**, cole o valor da **URL do Serviço de Logon Único SAML** copiado do portal do Azure.
+       a. Na caixa de texto **URL de Destino do SSO**, cole o valor da **URL do Serviço de Logon Único SAML** copiado do portal do Azure.
 
-    b. Abra seu certificado baixado no Bloco de Notas, copie o conteúdo e cole-o na caixa de texto **Certificado** . 
+      b. Abra seu certificado baixado no Bloco de Notas, copie o conteúdo e cole-o na caixa de texto **Certificado** . 
 
-    c. Clique em **SALVAR CONFIGURAÇÃO**.
+      c. Clique em **SALVAR CONFIGURAÇÃO**.
 
 > [!TIP]
 > É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)

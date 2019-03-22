@@ -1,85 +1,98 @@
 ---
 title: Habilitar o backup de VM do Azure durante a criação
-description: Veja as etapas para habilitar o backup de máquina virtual do Azure durante o processo de criação.
+description: Como habilitar o backup de máquina virtual do Azure durante o processo de criação.
 services: backup, virtual-machines
 author: rayne-wiselman
 manager: carmonm
 tags: azure-resource-manager, virtual-machine-backup
-ms.service: backup, virtual-machines
+ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2018
 ms.author: trinadhk
-ms.openlocfilehash: 518d171c96b9c4f9bf3e195a7130f4c022b7ad07
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: fd2beaa39f03d4f2342c94bf1cd8b8aea7440e62
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879869"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57780436"
 ---
-# <a name="enable-backup-during-azure-virtual-machine-creation"></a>Habilitar o backup durante a criação da máquina virtual do Azure 
+# <a name="enable-backup-when-you-create-an-azure-virtual-machine"></a>Habilitar o backup quando você cria uma máquina virtual do Azure
 
-O serviço de Backup do Azure fornece uma interface para criar e configurar backups para a nuvem. Proteja seus dados fazendo backups, chamados de pontos de recuperação, em intervalos regulares. O Backup do Azure cria pontos de recuperação que são armazenados em cofres de recuperação com redundância geográfica. Este artigo fornece detalhes sobre como habilitar o backup durante a criação de uma VM (máquina virtual) no portal do Azure.  
+Use o serviço de Backup do Azure para fazer backup de máquinas virtuais (VMs). As VMs são backup de acordo com um agendamento especificado em uma política de backup e pontos de recuperação são criados a partir de backups. Pontos de recuperação são armazenados em cofres dos serviços de recuperação.
 
-## <a name="log-in-to-azure"></a>Fazer logon no Azure 
+Este artigo fornece detalhes sobre como habilitar o backup enquanto você estiver criando uma máquina virtual (VM) no portal do Azure.  
 
-Se você não ainda tiver entrado em sua conta, entre no [portal do Azure](http://portal.azure.com).
+## <a name="sign-in-to-azure"></a>Entrar no Azure
+
+Se você não tiver entrado sua conta, entrar para o [portal do Azure](https://portal.azure.com).
  
-## <a name="create-virtual-machine-with-backup-configured"></a>Criar uma máquina virtual com o backup configurado 
+## <a name="create-a-vm-with-backup-configured"></a>Criar uma VM com Backup configurado 
 
-1. No canto superior esquerdo do Portal do Azure, clique em **Novo**. 
+1. No canto superior esquerdo do portal do Azure, selecione **New**.
 
-2. Selecione **Computação** e, depois, selecione uma imagem de máquina virtual.   
+1. Selecione **computação**e, em seguida, selecione uma imagem da VM.
 
-3. Insira as informações da máquina virtual. O nome do usuário e a senha fornecidos são usados para fazer logon na máquina virtual. Ao concluir, clique em **OK**. 
+1. Insira as informações para a VM. O nome de usuário e senha que você fornecer serão ser usados para entrar na VM. Quando tiver terminado, selecione **Okey**. 
 
-4. Selecione um tamanho para a VM.  
+1. Selecione um tamanho para a VM.  
 
-5. Em **Configurações > Backup**, clique em **Habilitado** para exibir as definições de configuração do backup. Você pode aceitar os valores padrão e clicar em **OK** na página de configurações para prosseguir até a página Resumo e criar a VM. Se você quiser alterar os valores, execute as etapas a seguir.  
+1. Sob **as configurações** > **Backup**, selecione **habilitado** para abrir as configurações de configuração de backup.
 
-6. Crie ou selecione um cofre dos Serviços de Recuperação, o qual armazenará os backups da máquina virtual. Se você estiver criando um cofre dos serviços de recuperação, escolha um grupo de recursos para o cofre.  
+   - Para aceitar os valores padrão, selecione **Okey** sobre o **configurações** página. Em seguida, vou até a **resumo** página para criar a VM. Ignore as etapas 6 a 8.
+   - Para alterar os valores de configuração de backup, siga as próximas etapas.  
 
-    ![Configuração do backup na página de criação da vm](./media/backup-during-vm-creation/create-vm-backup-config.png) 
+1. Crie ou selecione um cofre de serviços de recuperação para armazenar os backups da VM. Se você estiver criando um cofre dos serviços de recuperação, você pode escolher um grupo de recursos para o cofre.  
+
+    ![Definições de configuração de backup na página de criação de VM](./media/backup-during-vm-creation/create-vm-backup-config.png) 
 
     > [!NOTE] 
-    > O grupo de recursos do cofre dos Serviços de Recuperação pode ser diferente do grupo de recursos da máquina virtual.  
-    > 
-    > 
+    > O grupo de recursos para o Cofre de serviços de recuperação pode ser diferente do grupo de recursos para a VM.  
 
-7. Por padrão, uma política de backup está selecionada para proteger rapidamente a VM. Uma política de backup especifica a frequência de instantâneos de backup e por quanto tempo manter as cópias de backup. Você pode aceitar a política padrão, ou pode criar ou selecionar uma política de backup diferente. Para editar a política de backup, selecione **Política de Backup** e altere os valores da política.  
+1. Por padrão, uma política de backup é selecionada para que você possa proteger a VM. Uma política de backup Especifica a frequência de instantâneos de backup e por quanto tempo manter as cópias de backup. 
 
-8. Quando estiver satisfeito com os valores de configuração de backup, na página Configuração, clique em **OK**.  
+   - Você pode aceitar a política padrão, ou pode criar ou selecionar uma política de backup diferente. 
+   - Para editar a política de backup, selecione **política de Backup** e altere os valores.  
 
-9. Na página de resumo, após a aprovação na validação, clique em **Criar** para criar uma máquina virtual que usa as configurações de backup definidas. 
+1. Quando você terminar de definir os valores de configuração de backup, selecione **Okey** sobre o **configurações** página.  
 
-## <a name="initiate-a-backup-after-creating-the-vm"></a>Iniciar um backup após a criação da VM 
+1. Sobre o **resumo** página, depois de passar na validação, selecione **criar** para criar uma VM que usa as configurações de backup configuradas. 
 
-Embora a política de Backup tenha sido criada, é recomendável criar um backup inicial. Para exibir os detalhes do backup da máquina virtual após a conclusão do modelo de criação de VM, nas configurações de **Operações** no menu esquerdo, clique em **Backup**. Use isso para disparar um backup sob demanda, restaurar uma VM inteira ou todos os discos, restaurar arquivos do backup da VM ou alterar a política de backup associada à máquina virtual.  
+## <a name="start-a-backup-after-creating-the-vm"></a>Iniciar um backup após a criação da VM 
 
-## <a name="using-a-resource-manager-template-to-deploy-a-protected-vm"></a>Usando um modelo do Resource Manager para implantar uma VM protegida
+Mesmo que você configurou uma política de Backup para sua VM, é uma boa prática para criar um backup inicial. 
 
-As etapas anteriores explicam como usar o Portal do Azure para criar uma máquina virtual e protegê-la em um cofre dos Serviços de Recuperação. Se você deseja implantar rapidamente uma ou mais máquinas virtuais e protegê-las em uma área segura dos Serviços de Recuperação, consulte o modelo [Implantar uma VM do Windows e habilitar o backup](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/).
+Depois que o modelo de criação da VM for concluído, vá para **operações** no menu à esquerda e selecione **Backup** para exibir os detalhes de backup para a máquina virtual. Você pode usar esta página para:
+
+- Dispare um backup sob demanda.
+- Restaure uma VM inteira ou todos os seus discos.
+- Restaure arquivos de um backup de VM.
+- Altere a política de backup associada à VM.  
+
+## <a name="use-a-resource-manager-template-to-deploy-a-protected-vm"></a>Usar um modelo do Resource Manager para implantar uma VM protegida
+
+As etapas anteriores explicam como usar o portal do Azure para criar uma máquina virtual e protegê-lo em um cofre de serviços de recuperação. Para implantar uma ou mais máquinas virtuais e protegê-los em um cofre de serviços de recuperação rapidamente, consulte o modelo [implantar uma VM do Windows e habilitar o backup](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/).
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes 
 
-### <a name="which-vm-images-enable-backup-at-the-time-of-vm-creation"></a>Quais imagens de VM permitem o backup no momento da criação da VM? 
+### <a name="which-vm-images-support-backup-configuration-during-vm-creation"></a>Quais imagens VM dá suporte a configuração de backup durante a criação da VM?
 
-A lista a seguir de imagens de núcleo publicadas pela Microsoft tem suporte para a habilitação do backup durante a criação da VM. Para outras VMs, você pode habilitar o backup após a criação da VM. Saiba mais em [Habilitar o backup após a criação da VM](quick-backup-vm-portal.md) 
+As seguintes imagens de núcleo publicadas pela Microsoft há suporte para habilitar o backup durante a criação da VM. Para outras VMs, você pode habilitar o backup após a criação da VM. Para obter mais informações, consulte [habilitar o backup após a criação da VM](quick-backup-vm-portal.md).
 
-- **Windows** – Windows Server 2016 Data Center, Windows Server 2016 Data Center Core, Windows Server 2012 DataCenter, o Windows Server 2012 R2 DataCenter, Windows Server 2008 R2 SP1 
-- **Ubuntu** – Ubuntu Server 1710, Ubuntu Server 1704, UUbuntu Server 1604(LTS), Ubuntu Server 1404(LTS) 
+- **Windows** -Windows Server 2016 Datacenter, Windows Server 2016 Datacenter Core, Windows Server 2012 Datacenter, Windows Server 2012 R2 Datacenter, Windows Server 2008 R2 SP1 
+- **Ubuntu** -Server-Ubuntu 17.10, servidor do Ubuntu 17.04, Ubuntu Server 16.04 LTS (), Ubuntu Server 14.04 (LTS) 
 - **Red Hat** - RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4 
 - **SUSE** – SUSE Linux Enterprise Server 11 SP4, 12 SP2, 12 SP3 
 - **Debian** – Debian 8, Debian 9 
 - **CentOS** – CentOS 6.9, CentOS 7.3 
 - **Oracle Linux** – Oracle Linux 6.7, 6.8, 6.9, 7.2, 7.3 
  
-### <a name="is-backup-cost-included-in-the-vm-cost"></a>O custo do backup está incluído no custo da VM? 
+### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>É o custo de backup incluído no custo da VM? 
 
-Não, os custos de backup são separados, ou diferentes, dos custos de máquinas virtuais. Para saber mais sobre os preços de backup, veja o [site de Preços de Backup](https://azure.microsoft.com/pricing/details/backup/).
+ Não. Custos de backup são separados dos custos da VM. Para obter mais informações sobre preços de backup, consulte [preços de Backup do Azure](https://azure.microsoft.com/pricing/details/backup/).
  
 ### <a name="which-permissions-are-required-to-enable-backup-on-a-vm"></a>Quais permissões são necessárias para habilitar o backup em uma VM? 
 
-Se você for um colaborador de máquina virtual, poderá habilitar o backup na VM. Se você estiver usando uma função personalizada, precisará das seguintes permissões para habilitar o backup na VM com êxito. 
+Se você for um colaborador VM, você pode habilitar o backup na VM. Se você estiver usando uma função personalizada, você precisará das seguintes permissões para habilitar o backup na VM: 
 
 - Microsoft.RecoveryServices/Vaults/write 
 - Microsoft.RecoveryServices/Vaults/read 
@@ -91,11 +104,11 @@ Se você for um colaborador de máquina virtual, poderá habilitar o backup na V
 - Microsoft.RecoveryServices/Vaults/backupPolicies/read 
 - Microsoft.RecoveryServices/Vaults/backupPolicies/write 
  
-Se o seu cofre dos Serviços de Recuperação e a máquina virtual tiverem grupos de recursos diferentes, verifique se você tem permissões de gravação no grupo de recursos do cofre dos serviços de recuperação.  
+Se seu Cofre de serviços de recuperação e a VM tiverem grupos de recursos diferentes, certifique-se de que ter permissões de gravação no grupo de recursos para o Cofre de serviços de recuperação.  
 
 ## <a name="next-steps"></a>Próximas etapas 
 
-Agora que você protegeu sua VM, consulte os seguintes artigos para aprender sobre tarefas de gerenciamento de VM e a restauração de VMs. 
+Agora que você protegeu sua VM, consulte os seguintes artigos para aprender a gerenciar e restaurar máquinas virtuais:
 
 - [Gerenciar e monitorar suas máquinas virtuais](backup-azure-manage-vms.md) 
 - [Restaurar máquinas virtuais](backup-azure-arm-restore-vms.md) 

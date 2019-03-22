@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8f682e0795f8f732805e817e4498cc486bbb2c6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6376a479d2e6969505310de0e8e73e74738a04c0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178457"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57881310"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scc-lifecycle"></a>Tutorial: integração do Azure Active Directory com o SCC LifeCycle
 
@@ -117,6 +117,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<sub-domain>.scc.com/ic7/welcome/customer/PICTtest.aspx`
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
+    
     | |
     |--|--|
     | `https://bs1.scc.com/<entity>`|
@@ -135,8 +136,8 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 1. Para configurar o logon único no lado do **SCC LifeCycle**, é necessário enviar o **XML de Metadados** baixado para a [equipe de suporte do SCC LifeCycle](mailto:lifecycle.support@scc.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
-  >[!NOTE]
-  >O logon único deve ser habilitado pela equipe de suporte do SCC LifeCycle.
+   >[!NOTE]
+   >O logon único deve ser habilitado pela equipe de suporte do SCC LifeCycle.
 
 > [!TIP]
 > É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)

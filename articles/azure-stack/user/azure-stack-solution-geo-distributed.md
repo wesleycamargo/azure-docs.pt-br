@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 857aa71a4812534030ca638fd8bab11f60535ea0
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 3df5bd177dfd88e74a8dbc72dd1966a18a61d0f8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57536939"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57860577"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Tutorial: Criar uma solução de aplicativo distribuído geograficamente com o Azure e o Azure Stack
 
@@ -135,7 +135,7 @@ Configure híbrido CI/CD para implantar aplicativo Web no Azure e o Azure Stack 
 
 1. **Faça logon no Azure Pipelines** para confirmar a capacidade de criar definições de compilação.
 
-2. Adicione **- r win10-x64** código. Isso é necessário para disparar uma implantação autocontida com.Net Core.
+2. Adicione **- r win10-x64** código. Isso é necessário para disparar uma implantação autocontida com o .NET Core.
 
     ![Alt text](media/azure-stack-solution-geo-distributed/image4.png)
 
@@ -154,9 +154,9 @@ DevOps e o servidor do Azure DevOps do Azure fornecem um pipeline totalmente con
 
 ![Alt text](media/azure-stack-solution-geo-distributed/image5.png)
 
-1.  Selecione o **plus** botão para adicionar uma nova versão sob o **guia Releases** na página de Build e versão do Visual Studio Online (VSO).
+1. Selecione o **plus** botão para adicionar uma nova versão sob o **guia Releases** na página de Build e versão do Visual Studio Online (VSO).
 
-    ![Alt text](media/azure-stack-solution-geo-distributed/image6.png)
+   ![Alt text](media/azure-stack-solution-geo-distributed/image6.png)
 
 2. Aplicar a **implantação de serviço de aplicativo do Azure** modelo.
 
@@ -210,7 +210,7 @@ DevOps e o servidor do Azure DevOps do Azure fornecem um pipeline totalmente con
 
 14. Selecione o **assinatura** para o ponto de extremidade do Azure Stack.
 
-  ![Alt text](media/azure-stack-solution-geo-distributed/image20.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image20.png)
 
 15. Defina o nome do aplicativo web do Azure Stack como o **nome do serviço de aplicativo**.
 
@@ -299,11 +299,11 @@ A captura de tela a seguir é um exemplo de uma página de registros DNS:
 
 ![Exemplo de página de registros DNS](media/azure-stack-solution-geo-distributed/image28.png)
 
-1.  No registrador de nome de domínio, selecione **adicionar ou criar** para criar um registro. Alguns provedores têm links diferentes para adicionar tipos de registro diferentes. Consulte a documentação do provedor.
+1. No registrador de nome de domínio, selecione **adicionar ou criar** para criar um registro. Alguns provedores têm links diferentes para adicionar tipos de registro diferentes. Consulte a documentação do provedor.
 
-2.  Adicione um registro CNAME para mapear um subdomínio para o nome de host do aplicativo padrão.
+2. Adicione um registro CNAME para mapear um subdomínio para o nome de host do aplicativo padrão.
 
-  Por exemplo, domínio www.northwindcloud.com, adicione um registro CNAME que mapeia o nome para < aplicativo\_nome >. azurewebsites.
+   Por exemplo, domínio www.northwindcloud.com, adicione um registro CNAME que mapeia o nome para < aplicativo\_nome >. azurewebsites.
 
 Depois de adicionar o CNAME, a página de registros DNS se parece com o exemplo a seguir:
 
@@ -311,47 +311,47 @@ Depois de adicionar o CNAME, a página de registros DNS se parece com o exemplo 
 
 ### <a name="enable-the-cname-record-mapping-in-azure"></a>Habilitar o mapeamento de registro CNAME no Azure
 
-1.  Em uma nova guia, entrar no portal do Azure,
+1. Em uma nova guia, entrar no portal do Azure,
 
-2.  Navegue até os serviços de aplicativo.
+2. Navegue até os serviços de aplicativo.
 
-3.  Selecione o aplicativo web.
+3. Selecione o aplicativo web.
 
-4.  No painel de navegação à esquerda da página do aplicativo no portal do Azure, selecione **Domínios personalizados**.
+4. No painel de navegação à esquerda da página do aplicativo no portal do Azure, selecione **Domínios personalizados**.
 
-5.  Selecione o ícone **+** ao lado de **Adicionar nome do host**.
+5. Selecione o ícone **+** ao lado de **Adicionar nome do host**.
 
-1.  Digite o nome de domínio totalmente qualificado, como `www.northwindcloud.com`.
+1. Digite o nome de domínio totalmente qualificado, como `www.northwindcloud.com`.
 
-2.  Selecione **Validar**.
+2. Selecione **Validar**.
 
-3.  Se indicado, adicionar registros adicionais de outros tipos (`A` ou `TXT`) para os registros DNS de registradores de nome de domínio. Azure fornecerá os valores e tipos desses registros:
+3. Se indicado, adicionar registros adicionais de outros tipos (`A` ou `TXT`) para os registros DNS de registradores de nome de domínio. Azure fornecerá os valores e tipos desses registros:
 
-     a.  Um registro **A** a ser mapeado para o endereço IP do aplicativo.
+    a.  Um registro **A** a ser mapeado para o endereço IP do aplicativo.
 
-    b.  Um **TXT** registro para mapear para o nome do host do aplicativo padrão < nome_do_aplicativo >. azurewebsites. O serviço de aplicativo usa esse registro somente em tempo de configuração, para verificar a propriedade de domínio personalizado. Após a verificação, exclua o registro TXT.
+   b.  Um **TXT** registro para mapear para o nome do host do aplicativo padrão < nome_do_aplicativo >. azurewebsites. O serviço de aplicativo usa esse registro somente em tempo de configuração, para verificar a propriedade de domínio personalizado. Após a verificação, exclua o registro TXT.
 
-4.  Concluir essa tarefa na guia do registrador de domínio e revalide até que o **Adicionar nome do host** botão for ativado.
+4. Concluir essa tarefa na guia do registrador de domínio e revalide até que o **Adicionar nome do host** botão for ativado.
 
-5.  Certifique-se de que * * tipo de registro de nome de host é definido como **CNAME (www.example.com ou qualquer subdomínio)**.
+5. Certifique-se de que * * tipo de registro de nome de host é definido como **CNAME (www.example.com ou qualquer subdomínio)**.
 
-6.  Selecione **Adicionar nome do host**.
+6. Selecione **Adicionar nome do host**.
 
-7.  Digite o nome de domínio totalmente qualificado, como `northwindcloud.com`.
+7. Digite o nome de domínio totalmente qualificado, como `northwindcloud.com`.
 
-8.  Selecione **Validar**.
+8. Selecione **Validar**.
 
-9.  O **adicionar** está ativado.
+9. O **adicionar** está ativado.
 
 10. Certifique-se de que * * tipo de registro de nome de host é definido como **um registro a (example.com)**.
 
 11. **Adicionar nome de host**.
 
-  Pode levar algum tempo para que os novos nomes de host sejam refletidas no aplicativo do **domínios personalizados** página. Tente atualizar o navegador para atualizar os dados.
+    Pode levar algum tempo para que os novos nomes de host sejam refletidas no aplicativo do **domínios personalizados** página. Tente atualizar o navegador para atualizar os dados.
   
-  ![Alt text](media/azure-stack-solution-geo-distributed/image31.png) 
+    ![Alt text](media/azure-stack-solution-geo-distributed/image31.png) 
   
-  No caso de um erro, uma notificação de erro de verificação aparecerá na parte inferior da página. ![Erro de verificação](media/azure-stack-solution-geo-distributed/image32.png)
+    No caso de um erro, uma notificação de erro de verificação aparecerá na parte inferior da página. ![Erro de verificação](media/azure-stack-solution-geo-distributed/image32.png)
 
 > [!Note]  
 >  As etapas acima podem ser repetidas para mapear um domínio curinga (\*. northwindcloud.com)... Isso permite a adição de todos os subdomínios adicionais para esse serviço de aplicativo sem precisar criar um registro CNAME separado para cada uma delas. Siga as instruções de registrador para definir essa configuração.
@@ -482,15 +482,15 @@ Quando o IIS ou **Certreq.exe** são usados para gerar a solicitação de certif
 
 #### <a name="upload-the-ssl-certificate"></a>Carregar o certificado SSL
 
-1.  Selecione **configurações de SSL** no painel de navegação à esquerda do aplicativo web.
+1. Selecione **configurações de SSL** no painel de navegação à esquerda do aplicativo web.
 
-2.  Selecione **carregar certificado**.
+2. Selecione **carregar certificado**.
 
-3.  Na **arquivo de certificado PFX**, selecione arquivo PFX.
+3. Na **arquivo de certificado PFX**, selecione arquivo PFX.
 
-4.  4. Na **senha do certificado**, digite a senha que criou ao exportar o arquivo PFX.
+4. 1. Na **senha do certificado**, digite a senha que criou ao exportar o arquivo PFX.
 
-5.  Escolha **Carregar**.
+5. Escolha **Carregar**.
 
 ![Carregar um certificado](media/azure-stack-solution-geo-distributed/image38.png)
 
@@ -588,23 +588,23 @@ O aplicativo permite [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 
 
 ### <a name="add-traffic-manager-endpoints"></a>Adicionar pontos de extremidade do Gerenciador de Tráfego
 
-1.  Na barra de pesquisa de portais, pesquise o * * perfil do Traffic Manager * * nome criado na seção anterior e selecione o perfil do Gerenciador de tráfego nos resultados que exibidos.
+1. Na barra de pesquisa de portais, pesquise o * * perfil do Traffic Manager * * nome criado na seção anterior e selecione o perfil do Gerenciador de tráfego nos resultados que exibidos.
 
-2.  Na **perfil do Gerenciador de tráfego**, no **configurações** seção, selecione **pontos de extremidade**.
+2. Na **perfil do Gerenciador de tráfego**, no **configurações** seção, selecione **pontos de extremidade**.
 
-3.  Selecione **Adicionar**.
+3. Selecione **Adicionar**.
 
-4.  Adicionando o ponto de extremidade do Azure Stack.
+4. Adicionando o ponto de extremidade do Azure Stack.
 
-5.  Para **tipo**, selecione **ponto de extremidade externo**.
+5. Para **tipo**, selecione **ponto de extremidade externo**.
 
-6.  Fornecer um **nome** para esse ponto de extremidade, o ideal é que o nome do Azure Stack.
+6. Fornecer um **nome** para esse ponto de extremidade, o ideal é que o nome do Azure Stack.
 
-7.  Para nome de domínio totalmente qualificado (**FQDN**), a URL externa de uso para o aplicativo de Web do Azure Stack.
+7. Para nome de domínio totalmente qualificado (**FQDN**), a URL externa de uso para o aplicativo de Web do Azure Stack.
 
-8.  Em mapeamento geográfico, selecione um região/continente onde o recurso está localizado, por exemplo, **na Europa.**
+8. Em mapeamento geográfico, selecione um região/continente onde o recurso está localizado, por exemplo, **na Europa.**
 
-9.  Sob a país/região lista suspensa que aparece, selecione o país em que se aplicam a esse ponto de extremidade, por exemplo, **Alemanha**.
+9. Sob a país/região lista suspensa que aparece, selecione o país em que se aplicam a esse ponto de extremidade, por exemplo, **Alemanha**.
 
 10. Mantenha a opção **Adicionar como desabilitado** desmarcada.
 
@@ -628,12 +628,12 @@ O aplicativo permite [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 
 
 16. Selecione **OK**
 
-  > [!Note]  
-  >  Crie pelo menos um ponto de extremidade com um escopo geográfico de todos os (mundo) para servir como ponto de extremidade padrão para o recurso.
+    > [!Note]  
+    >  Crie pelo menos um ponto de extremidade com um escopo geográfico de todos os (mundo) para servir como ponto de extremidade padrão para o recurso.
 
-1.  Quando a adição de ambos os pontos de extremidade estiver concluída, eles serão exibidos em **Perfil do Gerenciador de Tráfego** com seu status de monitoramento como **Online**.
+1. Quando a adição de ambos os pontos de extremidade estiver concluída, eles serão exibidos em **Perfil do Gerenciador de Tráfego** com seu status de monitoramento como **Online**.
 
-  ![Alt text](media/azure-stack-solution-geo-distributed/image46.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image46.png)
 
 **Empresa global depende dos recursos do Azure a distribuição geográfica**
 

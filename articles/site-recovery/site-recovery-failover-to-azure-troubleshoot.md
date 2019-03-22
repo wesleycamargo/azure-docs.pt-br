@@ -7,14 +7,14 @@ ms.service: site-recovery
 services: site-recovery
 ms.topic: article
 ms.workload: storage-backup-recovery
-ms.date: 1/29/2019
+ms.date: 03/04/2019
 ms.author: mayg
-ms.openlocfilehash: 62b69364f0b3d3e14d0b2d877604cecfcc346dce
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 75c97a7feb63a100d322610b7e6d2e5c57bebda2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207489"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57889685"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Solucionar erros ao fazer failover de VM VMWare ou de computador físico para o Azure
 
@@ -24,7 +24,7 @@ Você poderá receber um dos erros a seguir ao fazer failover de uma máquina vi
 
 O Site Recovery não pôde criar uma máquina virtual com failover no Azure. Isso pode ocorrer devido a um dos seguintes motivos:
 
-* Não há cota suficiente disponível para criar a máquina virtual: Verifique a cota disponível acessando Assinatura -> Uso + cotas. Abra uma [nova solicitação de suporte](http://aka.ms/getazuresupport) para aumentar a cota.
+* Não há cota suficiente disponível para criar a máquina virtual: Verifique a cota disponível acessando Assinatura -> Uso + cotas. Abra uma [nova solicitação de suporte](https://aka.ms/getazuresupport) para aumentar a cota.
 
 * Você está tentando fazer failover em máquinas virtuais de famílias de tamanho diferentes no mesmo conjunto de disponibilidade. Escolha a mesma família de tamanho para todas as máquinas virtuais no mesmo conjunto de disponibilidade. Altere o tamanho acessando as configurações Computação e Rede da máquina virtual e, em seguida, repita o failover.
 
@@ -32,7 +32,7 @@ O Site Recovery não pôde criar uma máquina virtual com failover no Azure. Iss
 
 ## <a name="failover-failed-with-error-id-28092"></a>Falha no failover com a ID de Erro 28092
 
-O Site Recovery não pôde criar um adaptador de rede para a máquina virtual com failover. Verifique se você tem uma cota suficiente disponível para criar adaptadores de rede na assinatura. Verifique a cota disponível acessando Assinatura -> Uso + cotas. Abra uma [nova solicitação de suporte](http://aka.ms/getazuresupport) para aumentar a cota. Se você tem uma cota suficiente, isso pode ser um problema intermitente. Repita a operação. Se o problema persistir mesmo após várias tentativas, deixe um comentário ao final deste documento.  
+O Site Recovery não pôde criar um adaptador de rede para a máquina virtual com failover. Verifique se você tem uma cota suficiente disponível para criar adaptadores de rede na assinatura. Verifique a cota disponível acessando Assinatura -> Uso + cotas. Abra uma [nova solicitação de suporte](https://aka.ms/getazuresupport) para aumentar a cota. Se você tem uma cota suficiente, isso pode ser um problema intermitente. Repita a operação. Se o problema persistir mesmo após várias tentativas, deixe um comentário ao final deste documento.  
 
 ## <a name="failover-failed-with-error-id-70038"></a>Falha no failover com a ID de Erro 70038
 
@@ -48,7 +48,7 @@ Para exibir qualquer computador no Azure, o ambiente do Azure requer que alguns 
 
 Para alterar manualmente o tipo de inicialização de drivers para o **sistema operacional convidado do Windows**, siga as etapas abaixo:
 
-1. [Baixar](http://download.microsoft.com/download/5/D/6/5D60E67C-2B4F-4C51-B291-A97732F92369/Script-no-hydration.ps1) o script sem hidratação e executar conforme a seguir. Esse script verifica se a VM requer hidratação.
+1. [Baixar](https://download.microsoft.com/download/5/D/6/5D60E67C-2B4F-4C51-B291-A97732F92369/Script-no-hydration.ps1) o script sem hidratação e executar conforme a seguir. Esse script verifica se a VM requer hidratação.
 
     `.\Script-no-hydration.ps1`
 
@@ -110,7 +110,50 @@ Se o botão **Conectar** da VM com failover no Azure estiver disponível (não e
 
 Ao inicializar uma VM do Windows após o failover, se você receber uma mensagem de desligamento inesperada na VM recuperada, ela indicará que um estado de desligamento da VM não foi capturado no ponto de recuperação usado para failover. Isso acontece quando você recupera para um ponto em que a VM não havia sido completamente desligada.
 
-Normalmente, isso não é motivo de preocupação e geralmente pode ser ignorado para failovers não planejados. No caso de um failover planejado, certifique-se de que a VM seja desligada corretamente antes do failover e forneça tempo suficiente para que os dados da replicação pendente localmente sejam enviados para o Azure. Em seguida, use a opção **Mais recente** na [Tela de failover](site-recovery-failover.md#run-a-failover) para que todos os dados pendentes no Azure sejam processados em um ponto de recuperação, que é usado para failover da VM.
+Normalmente, isso não é motivo de preocupação e geralmente pode ser ignorado para failovers não planejados. Se o failover é planejado, certifique-se de que a VM corretamente é desligada antes do failover e fornecer tempo suficiente para pendentes de replicação de dados no local a ser enviado para o Azure. Em seguida, use a opção **Mais recente** na [Tela de failover](site-recovery-failover.md#run-a-failover) para que todos os dados pendentes no Azure sejam processados em um ponto de recuperação, que é usado para failover da VM.
+
+## <a name="unable-to-select-the-datastore"></a>Não é possível selecionar o repositório de dados
+
+Esse problema é indicado quando você não conseguir ver o portal de armazenamento de dados no Azure ao tentar proteger novamente a máquina virtual que sofreu um failover. Isso ocorre porque o mestre de destino não é reconhecido como uma máquina virtual sob vCenters adicionados ao Azure Site Recovery.
+
+Para obter mais informações sobre como proteger novamente uma máquina virtual, consulte [Proteja novamente e execute o failback de máquinas em um site local após o failover para o Azure](vmware-azure-reprotect.md).
+
+Como resolver o problema:
+
+Criar manualmente o mestre de destino no vCenter que gerencia a sua máquina de origem. O repositório de dados estará disponível após os próximo vCenter descoberta e a atualização do fabric operações.
+
+> [!Note]
+> 
+> As operações de malha Descoberta e a atualização podem levar até 30 minutos para ser concluída. 
+
+## <a name="linux-master-target-registration-with-cs-fails-with-an-ssl-error-35"></a>Registro de destino mestre do Linux com o CS falhará com um erro SSL 35 
+
+O registro do destino de mestre de recuperação de Site do Azure com o servidor de configuração falha devido a Proxy autenticado que está sendo habilitado no destino mestre. 
+ 
+Esse erro é indicado pelo seguintes cadeias de caracteres no log de instalação: 
+
+RegisterHostStaticInfo encontrou a exceção config/talwrapper.cpp(107) [post] CurlWrapper Post falhou: servidor: 10.38.229.221, porta: 443, phpUrl: request_handler.php, seguro: ignoreCurlPartialError for true,: falso com o erro: [no curlwrapperlib/curlwrapper.cpp:processCurlResponse:231] Falha ao postar solicitação: (35) - erro de conexão SSL. 
+ 
+Como resolver o problema:
+ 
+1. No servidor de configuração VM, abra um prompt de comando e verifique se as configurações de proxy usando os seguintes comandos:
+
+    cat /etc/environment  echo $http_proxy  echo $https_proxy 
+
+2. Se a saída dos comandos anteriores mostra que o http_proxy ou https_proxy configurações são definidas, use um dos seguintes métodos para desbloquear as comunicações de destino mestre com o servidor de configuração:
+   
+   - Baixe o [ferramenta PsExec](https://aka.ms/PsExec).
+   - Use a ferramenta para acessar o contexto de usuário do sistema e determinar se o endereço de proxy está configurado. 
+   - Se o proxy estiver configurado, abra o Internet Explorer em um contexto de usuário do sistema usando a ferramenta PsExec.
+  
+     **psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"**
+
+   - Para garantir que o servidor de destino mestre pode se comunicar com o servidor de configuração:
+  
+     - Modifica as configurações de proxy no Internet Explorer a ignorar o endereço IP do servidor de destino mestre por meio do proxy.   
+     Ou
+     - Desabilite o proxy no servidor de destino mestre. 
+
 
 ## <a name="next-steps"></a>Próximas etapas
 - Solucionar problemas da [conexão de RDP para a VM Windows](../virtual-machines/windows/troubleshoot-rdp-connection.md)

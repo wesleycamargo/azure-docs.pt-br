@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa0885a469877d0ea9f52f6191b4cd894ddbbce5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 92cb4f1093d8450bb2c32d99f4ccedd0a5688253
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162014"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58165910"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insideview"></a>Tutorial: Integração do Azure Active Directory com o InsideView
 
@@ -39,7 +39,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 Para configurar a integração do Azure AD ao InsideView, você precisará dos seguintes itens:
 
 - Uma assinatura do Azure AD
-- Uma assinatura habilitada para logon único do InsideView
+- Assinatura habilitada para um InsideView o logon único
 
 > [!NOTE]
 > Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
@@ -91,7 +91,7 @@ Para configurar e testar o logon único do Azure AD com o InsideView, você prec
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
 1. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
-1. **[Criação de um usuário de teste do InsideView](#creating-a-insideview-test-user)**: para ter um equivalente de Brenda Fernandes no InsideView que esteja vinculado à representação do usuário no Azure AD.
+1. **[Criando um usuário de teste do InsideView](#creating-a-insideview-test-user)**  – para ter um equivalente de Britta Simon no InsideView que esteja vinculado à representação de usuário do AD do Azure.
 1. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
 1. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
@@ -116,7 +116,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://my.insideview.com/iv/<STS Name>/login.iv`
 
     > [!NOTE] 
-    > Esse valor não é real. Atualize esse valor com a URL de Resposta real. Entre em contato com a [equipe de suporte do InsideView ](mailto:support@insideview.com) para obter este valor.
+    > Esse valor não é real. Atualize esse valor com a URL de Resposta real. Entre em contato com [equipe de suporte do InsideView](mailto:support@insideview.com) para obter esse valor.
  
 1. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Bruto)** e, em seguida, salve o arquivo do certificado em seu computador.
 
@@ -191,7 +191,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     d. Clique em **Criar**.
  
-### <a name="creating-a-insideview-test-user"></a>Criação de um usuário de teste do InsideView
+### <a name="creating-an-insideview-test-user"></a>Criando um usuário de teste do InsideView
 
 Para permitir que os usuários do Azure AD façam logon no InsideView, eles devem ser provisionados no InsideView. No caso do InsideView, o provisionamento é uma tarefa manual.
 

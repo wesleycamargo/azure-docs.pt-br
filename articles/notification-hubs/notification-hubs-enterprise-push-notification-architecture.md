@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: c8e204aef8bea26394c7180a72eb8ed8f62bbdc4
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 369f3ebca0ca2f5862d8300934dee57a73d8bada
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447251"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57903395"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Orientação arquitetural do push corporativo
 
@@ -284,9 +284,9 @@ O código de exemplo completo está disponível em [Exemplos do Hub de Notifica�
 
 <!-- Links -->
 [Exemplos do Hub de Notificação]: https://github.com/Azure/azure-notificationhubs-samples
-[Serviço Móvel do Azure]: http://azure.microsoft.com/documentation/services/mobile-services/
-[Barramento de Serviço do Azure]: http://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/
-[Programação do Barramento de Serviço Pub/Sub]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
+[Serviço Móvel do Azure]: https://azure.microsoft.com/documentation/services/mobile-services/
+[Barramento de Serviço do Azure]: https://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/
+[Programação do Barramento de Serviço Pub/Sub]: https://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
 [Trabalho Web do Azure]: ../app-service/webjobs-create.md
-[Hubs de Notificação - tutorial universal do Windows]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[Hubs de Notificação - tutorial universal do Windows]: https://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [Portal do Azure]: https://portal.azure.com/

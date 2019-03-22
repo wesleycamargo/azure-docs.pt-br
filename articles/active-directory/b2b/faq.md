@@ -9,14 +9,15 @@ ms.date: 10/29/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa6f0aeaa39114efbf3bd5587eac5744db386672
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 860a059f57578965045ff8e7f404c3b072df03a1
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58105226"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293814"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Perguntas frequentes sobre a colaboração B2B do Azure Active Directory
 
@@ -56,12 +57,12 @@ Com certeza. Para obter mais informações, consulte [Adicionando usuários conv
 A menos que um usuário seja atribuído a função de administrador limitado ou global, os usuários de colaboração B2B não precisarão de acesso ao Portal do Azure. No entanto, os usuários de colaboração B2B que são atribuídos à função de administrador limitado ou global podem acessar o portal. Além disso, se um usuário convidado que não tenha uma dessas funções administrativas acessa o portal, o usuário poderá acessar determinadas partes da experiência. A função de usuário convidado tem algumas permissões no diretório.
 
 ### <a name="can-i-block-access-to-the-azure-portal-for-guest-users"></a>Posso bloquear o acesso ao Portal do Azure para usuários convidados?
-Sim! Ao configurar essa política, tenha cuidado para evitar o bloqueio acidental do acesso a membros e administradores.
+ Sim! Ao configurar essa política, tenha cuidado para evitar o bloqueio acidental do acesso a membros e administradores.
 Para bloquear o acesso de um usuário convidado ao [Portal do Azure](https://portal.azure.com), use uma política de acesso condicional na API do modelo de implantação clássico do Windows Azure:
 1. Modifique o grupo **Todos os Usuários** para que ele contenha somente os membros.
-   ![captura de tela de Modificar o grupo](media/faq/modify-all-users-group.png)
+   ![Captura de tela mostrando que o grupo todos os usuários em que o UserType não é igual convidado ](media/faq/modify-all-users-group.png)
 2. Crie um grupo dinâmico que contém usuários convidados.
-   ![captura de tela de Criar grupo](media/faq/group-with-guest-users.png)
+   ![Captura de tela mostrando um novo grupo de todos os usuários convidados](media/faq/group-with-guest-users.png)
 3. Configure uma política de acesso condicional para impedir que os usuários convidados acessem o portal, conforme mostrado no seguinte vídeo:
   
    > [!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user/Player] 

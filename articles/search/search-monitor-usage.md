@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: e76c8ae671333bcbf50995c4bd9345f8434fbea2
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 14f1a92f701eaedd98b825316ebf213f7c144920
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745955"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959452"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Monitorar a atividade de consulta e o consumo de recursos no Azure Search
 
@@ -61,11 +61,11 @@ A tabela a seguir compara as opções para armazenar logs, adicionar monitoramen
 | Recurso | Usado para |
 |----------|----------|
 | [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | Eventos registrados em log e métricas de consulta, com base nos esquemas abaixo, correlacionados com eventos do usuário em seu aplicativo. Essa é a única solução que considera as ações ou os sinais do usuário, os eventos de mapeamento de pesquisas iniciadas pelo usuário, ao invés das solicitações de filtro enviadas pelo código do aplicativo. Para usar essa abordagem, copie e cole o código de instrumentação em seus arquivos de origem para direcionar as informações de solicitação para o Application Insights. Para saber mais, confira [Análise de tráfego de pesquisa](search-traffic-analytics.md). |
-| [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Eventos registrados em log e métricas de consulta, com base em um dos esquemas abaixo. Os eventos são registrados em um espaço de trabalho no Log Analytics. É possível executar as consultas em um espaço de trabalho para retornar informações detalhadas do log. Para obter mais informações, consulte [Introdução ao Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
+| [Logs do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Eventos registrados em log e métricas de consulta, com base em um dos esquemas abaixo. Eventos são registrados para um espaço de trabalho do Log Analytics. É possível executar as consultas em um espaço de trabalho para retornar informações detalhadas do log. Para obter mais informações, consulte [começar com os logs do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
 | [Armazenamento de Blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Eventos registrados em log e métricas de consulta, com base em um dos esquemas abaixo. Os eventos são registrados em um contêiner de blob e armazenados em arquivos JSON. Use um editor de JSON para exibir o conteúdo do arquivo.|
 | [Hub de Evento](https://docs.microsoft.com/azure/event-hubs/) | Eventos registrados em log e métricas de consulta, com base nos esquemas documentados neste artigo. Escolha esta opção como um serviço de coleta de dados alternativo para logs muito grandes. |
 
-O Log Analytics e o armazenamento de blobs estão disponíveis como um serviço gratuito compartilhado para que você possa experimentar sem custo durante o tempo de vida da assinatura do Azure. O Application Insights é gratuito para se inscrever e usar, desde que o tamanho de dados do aplicativo esteja abaixo de certos limites (confira a [página de preços](https://azure.microsoft.com/pricing/details/monitor/) para saber mais).
+Logs do Azure Monitor e o armazenamento de BLOBs estão disponíveis como um serviço gratuito compartilhado para que você pode experimentar sem custo para o tempo de vida da assinatura do Azure. O Application Insights é gratuito para se inscrever e usar, desde que o tamanho de dados do aplicativo esteja abaixo de certos limites (confira a [página de preços](https://azure.microsoft.com/pricing/details/monitor/) para saber mais).
 
 A próxima seção o orienta sobre as etapas de ativação e uso do armazenamento de blobs do Azure para coletar e acessar dados de log criados por operações do Azure Search.
 
@@ -81,7 +81,7 @@ Nesta seção, você aprenderá como usar o armazenamento de blob para armazenar
 
    ![Habilitar o monitoramento](./media/search-monitor-usage/enable-monitoring.png "Habilitar monitoramento")
 
-3. Escolha os dados que deseja exportar: Logs, Métricas ou ambos. Você pode copiá-los para uma conta de armazenamento, enviá-los para um hub de eventos ou exportá-los para o Log Analytics.
+3. Escolha os dados que deseja exportar: Logs, Métricas ou ambos. Você pode copiá-lo para uma conta de armazenamento, enviá-lo para um hub de eventos ou exportá-lo para os logs do Azure Monitor.
 
    Para arquivamento no armazenamento de blobs, só deve existir a conta de armazenamento. Contêineres e blobs são criados quando os dados de log são exportados.
 
@@ -112,11 +112,11 @@ Os blobs que contêm os logs de tráfego do serviço de pesquisa são estruturad
 | NOME | Type | Exemplo | Observações |
 | --- | --- | --- | --- |
 | tempo real |Datetime |"2018-12-07T00:00:43.6872559Z" |Carimbo de data/hora da operação |
-| ResourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |Seu ResourceId |
-| operationName |string |"Query.Search" |O nome da operação |
-| operationVersion |string |"2017-11-11" |A api-version usada |
-| categoria |string |"OperationLogs" |constante |
-| resultType |string |"Success" |Valores possíveis: Êxito ou Falha |
+| ResourceId |cadeia de caracteres |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |Seu ResourceId |
+| operationName |cadeia de caracteres |"Query.Search" |O nome da operação |
+| operationVersion |cadeia de caracteres |"2017-11-11" |A api-version usada |
+| categoria |cadeia de caracteres |"OperationLogs" |constante |
+| resultType |cadeia de caracteres |"Success" |Valores possíveis: Êxito ou Falha |
 | resultSignature |int |200 |Código do resultado HTTP |
 | durationMS |int |50 |Duração da operação em milissegundos |
 | propriedades |objeto |confira a seguinte tabela |Objeto que contém os dados específicos da operação |
@@ -125,10 +125,10 @@ Os blobs que contêm os logs de tráfego do serviço de pesquisa são estruturad
 
 | NOME | Type | Exemplo | Observações |
 | --- | --- | --- | --- |
-| DESCRIÇÃO |string |"GET /indexes('content')/docs" |Ponto de extremidade da operação |
-| Consultar |string |"?search=AzureSearch&$count=true&api-version=2017-11-11" |Parâmetros da consulta |
+| DESCRIÇÃO |cadeia de caracteres |"GET /indexes('content')/docs" |Ponto de extremidade da operação |
+| Consultar |cadeia de caracteres |"?search=AzureSearch&$count=true&api-version=2017-11-11" |Parâmetros da consulta |
 | Documentos |int |42 |Número de documentos processados |
-| IndexName |string |"testindex" |Nome do índice associado à operação |
+| IndexName |cadeia de caracteres |"testindex" |Nome do índice associado à operação |
 
 ## <a name="metrics-schema"></a>Esquema de métricas
 
@@ -136,15 +136,15 @@ As métricas são capturadas para solicitações de consulta.
 
 | NOME | Type | Exemplo | Observações |
 | --- | --- | --- | --- |
-| ResourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |id do recurso |
-| metricName |string |"Latency" |o nome da métrica |
+| ResourceId |cadeia de caracteres |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |id do recurso |
+| metricName |cadeia de caracteres |"Latency" |o nome da métrica |
 | tempo real |Datetime |"2018-12-07T00:00:43.6872559Z" |carimbo de data/hora da operação |
 | média |int |64 |O valor médio das amostras brutas no intervalo de agregação da métrica |
 | mínimo |int |37 |O valor mínimo das amostras brutas no intervalo de agregação da métrica |
 | máximo |int |78 |O valor máximo das amostras brutas no intervalo de agregação da métrica |
 | total |int |258 |O valor total das amostras brutas no intervalo de agregação da métrica |
 | count |int |4 |O número de amostras brutas usadas para gerar a métrica |
-| intervalo de tempo |string |"PT1M" |O intervalo de agregação da métrica no ISO 8601 |
+| intervalo de tempo |cadeia de caracteres |"PT1M" |O intervalo de agregação da métrica no ISO 8601 |
 
 Todas as métricas são reportadas em intervalos de um minuto. Cada métrica expõe valores mínimo, máximo e médios por minuto.
 

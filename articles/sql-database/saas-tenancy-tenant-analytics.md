@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: f7c482a0308d3c2b2583d99cf4079040065b80c0
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 9f88314bbf507dc3b4e282532acfa079c2a63cce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561359"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890535"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Análise entre locatários usando dados extraídos – Aplicativo de locatário único
  
@@ -93,7 +93,7 @@ Nas etapas a seguir, você implanta o armazenamento da análise, que é chamado 
     - Para usar o banco de dados SQL com o repositório de colunas, defina **$DemoScenario** = **3**  
 3. Pressione **F5** para executar o script de demonstração (que chama o script *Deploy-TenantAnalytics<XX>.ps1*) que cria o repositório de análise de locatário. 
 
-Agora que você implantou o aplicativo e o preencheu com dados de locatário interessantes, use o [SSMS (SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) para conectar servidores **tenants1-dpt-&lt;User&gt;** e **catalog-dpt-&lt;User&gt;** usando Login = *developer*, Password = *P@ssword1*. Veja o [tutorial introdutório](saas-dbpertenant-wingtip-app-overview.md) para obter instruções.
+Agora que você implantou o aplicativo e preenchido com dados de locatário interessantes, use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) conectem **tenants1-dpt -&lt;usuário&gt;**  e **catálogo-dpt -&lt;usuário&gt;**  servidores usando logon = *developer*, senha = *P\@ssword1*. Veja o [tutorial introdutório](saas-dbpertenant-wingtip-app-overview.md) para obter instruções.
 
 ![architectureOverView](media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
 
@@ -175,7 +175,7 @@ Use as seguintes etapas para se conectar ao Power BI e importar os modos de exib
 
     ![signinpowerbi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. Selecione **Banco de dados** no painel esquerdo, insira o nome de usuário = *developer*e digite a senha = *P@ssword1*. Clique em **Conectar**.  
+5. Selecione **banco de dados** no painel esquerdo, em seguida, insira o nome de usuário = *desenvolvedor*e insira a senha = *P\@ssword1*. Clique em **Conectar**.  
 
     ![databasesignin](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 

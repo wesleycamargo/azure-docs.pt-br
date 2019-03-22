@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: include
-ms.date: 01/29/2019
+ms.date: 03/19/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 81b2db2da7c1efe0d09c065270c3493f297e49ad
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 551b1d4924c354eb6fd501c1b82ed306a7ea4822
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55235952"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58305119"
 ---
 ### <a name="what-is-expressroute-global-reach"></a>O que é o Alcance Global do ExpressRoute?
 
@@ -49,7 +49,7 @@ Sim, você pode, desde que os circuitos estejam em países que dão suporte a el
 
 ### <a name="what-is-the-network-throughput-i-can-expect-between-my-on-premises-networks-after-i-enable-expressroute-global-reach"></a>Qual é a taxa de transferência de rede que posso esperar entre minhas redes locais depois de habilitar o Alcance Global do ExpressRoute?
 
-A taxa de transferência de rede entre as redes locais, habilitadas pelo Alcance Global do ExpressRoute, é limitada pelo menor dos dois circuitos do ExpressRoute.
+A taxa de transferência de rede entre as redes locais, habilitadas pelo Alcance Global do ExpressRoute, é limitada pelo menor dos dois circuitos do ExpressRoute. Tráfego local para o Azure e-local para compartilham o mesmo circuito e estão sujeitos ao limite de largura de banda da mesma. 
 
 ### <a name="with-expressroute-global-reach-what-are-the-limits-on-the-number-of-routes-i-can-advertise-and-the-number-of-routes-i-will-receive"></a>Com o alcance Global do ExpressRoute, quais são os limites no número de rotas que posso anunciar e o número de rotas que vou receber?
 

@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 8ee900554371644f374e4aeed51f1eeb0c18569e
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
+ms.openlocfilehash: f7bfb4f403104bb91fb1a9ba4b70cb164e0738b4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408860"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113292"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatíveis com o Azure Monitor
 O Azure Monitor fornece várias maneiras de interagir com as métricas, incluindo a criação de gráficos para os mesmos no portal, acessá-las por meio da API REST ou consultá-las usando o PowerShell ou a CLI. Abaixo está uma lista completa de todas as métricas atualmente disponíveis do pipeline de métrica do Azure Monitor. Outras métricas podem estar disponíveis no portal ou usando as APIs herdadas. Essa lista abaixo inclui apenas as métricas disponíveis usando o pipeline de métrica consolidado do Azure Monitor. Para consultar e acessar essas métricas, use [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -676,13 +676,13 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 | AvailableStorage| Armazenamento disponível   |Bytes| Total|  Armazenamento disponível total relatado na granularidade de 5 minutos por região|   DatabaseName, CollectionName, Region|   5 M| Armazenamento disponível|   Usada para monitorar a capacidade de armazenamento disponível (aplicável apenas para coleções de armazenamento fixas). A granularidade mínima deve ser de 5 minutos.| 
 | DataUsage |Uso de dados |Bytes| Total   |Uso de dados total relatado na granularidade de 5 minutos por região|    DatabaseName, CollectionName, Region|   5 M  |Tamanho dos dados  | Usada para monitorar o uso total de dados na coleção e na região, a granularidade mínima deve ser 5 minutos.|
 | IndexUsage|   Uso do índice|    Bytes|  Total   |Uso do índice total relatado na granularidade de 5 minutos por região|    DatabaseName, CollectionName, Region|   5 M| Tamanho do Índice| Usada para monitorar o uso total de dados na coleção e na região, a granularidade mínima deve ser 5 minutos. |
-| DocumentQuota|    Cota de documento| Bytes|  Total|  Cota de armazenamento total relatado na granularidade de 5 minutos por região. Aplicável a f| DatabaseName, CollectionName, Region|   5 M  |Capacidade de Armazenamento|  Usada para monitorar a cota total na coleção e na região, a granularidade mínima deve ser 5 minutos.|
+| DocumentQuota|    Cota de documento| Bytes|  Total|  Cota de armazenamento total relatado na granularidade de 5 minutos por região. Aplicável para coleções de armazenamento fixa| DatabaseName, CollectionName, Region|   5 M  |Capacidade de Armazenamento|  Usada para monitorar a cota total na coleção e na região, a granularidade mínima deve ser 5 minutos.|
 | DocumentCount|    Contagem de documentos| Contagem   |Total  |Contagem de Totaldocument relatado na granularidade de 5 minutos por região|  DatabaseName, CollectionName, Region|   5 M  |Contagem de documentos|Usada para monitorar a contagem de documentos e na região, a granularidade mínima deve ser 5 minutos.|
 
 ### <a name="latency-metrics"></a>Métricas de latência
 
 |Métrica|Nome de exibição da métrica|Unidade|Tipo de agregação|DESCRIÇÃO|Dimensões| Granularidades de tempo| Uso |
-|---|---|---|---|---|---| ---| ---| ---|
+|---|---|---|---|---|---| ---| ---|
 | ReplicationLatency    | Latência de replicação|  MilliSeconds|   Mínimo, Máximo, Média | Latência de replicação P99 nas regiões de origem e de destino para conta habilitada geograficamente| SourceRegion, TargetRegion| Todos | Usada para monitorar a latência de replicação P99 entre quaisquer duas regiões para uma conta com replicação geográfica. |
 
 ### <a name="availability-metrics"></a>Métricas de disponibilidade
@@ -694,7 +694,7 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 ### <a name="cassandra-api-metrics"></a>Métricas da API do Cassandra
 
 |Métrica|Nome de exibição da métrica|Unidade|Tipo de agregação|DESCRIÇÃO|Dimensões| Granularidades de tempo| Uso |
-|---|---|---|---|---|---| ---| ---| ---|
+|---|---|---|---|---|---| ---| ---|
 | CassandraRequests | Solicitações do Cassandra |  Contagem|  Contagem|  Número de solicitações da API do Cassandra feitas|  DatabaseName, CollectionName, ErrorCode, Region, OperationType, ResourceType|   Todos| Usada para monitorar solicitações do Cassandra em uma granularidade de minuto. Para obter a média de solicitações por segundo, use a agregação de contagem no minuto e divida por 60.|
 | CassandraRequestCharges|  Encargos de Solicitação do Cassandra| Contagem|   Soma, Mínimo, Máximo, Média| Unidades de solicitação consumidas pelas solicitações de API do Cassandra|   DatabaseName, CollectionName, Region, OperationType, ResourceType|  Todos| Usada para monitorar as RUs usadas por minuto por uma conta de API do Cassandra.|
 | CassandraConnectionClosures   | Fechamentos de Conexão do Cassandra |Contagem| Contagem   |Número de conexões do Cassandra fechadas|    ClosureReason, Region|  Todos | Usada para monitorar a conectividade entre os clientes e a API do Cassandra do Azure Cosmos DB.|

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6bdc9f2214f8a23ffd1a126905faf00f2fc4264
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8287a9847632d078d3c724d06c3d581b7bed510c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199622"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834822"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-glassfrog"></a>Tutorial: Integração do Azure Active Directory com o GlassFrog
 
@@ -141,7 +141,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
      a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
+    b. No **nome de usuário** tipo de campo **brendafernandes\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **Propriedades**, marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.

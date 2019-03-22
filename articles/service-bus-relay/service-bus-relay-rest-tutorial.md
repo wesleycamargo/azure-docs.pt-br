@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2018
 ms.author: spelluru
-ms.openlocfilehash: e0f85e11b2be8a615f949e0d37325dbd748f728a
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 4ed45e1ed18ad630831772997b1fc150882731bd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103268"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57847959"
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Tutorial do REST de Retransmissão de WCF do Azure
 Este tutorial descreve como compilar um aplicativo host simples da Retransmissão do Azure que expõe uma interface baseada em REST. O REST permite que um cliente da Web, como, por exemplo, um navegador da Web, acesse as APIs de Barramento de Serviço por meio de solicitações HTTP.
@@ -40,7 +40,7 @@ Neste tutorial, execute as seguintes etapas:
 Para concluir este tutorial, você precisará dos seguintes pré-requisitos:
 
 - Uma assinatura do Azure. Se você não tiver [uma conta gratuita](https://azure.microsoft.com/free/), crie uma antes de começar.
-- [Visual Studio 2015 ou posterior](http://www.visualstudio.com). Os exemplos neste tutorial usam o Visual Studio 2017.
+- [Visual Studio 2015 ou posterior](https://www.visualstudio.com). Os exemplos neste tutorial usam o Visual Studio 2017.
 - SDK do Azure para .NET. Instale-o a partir da [página de downloads do SDK](https://azure.microsoft.com/downloads/).
 
 ## <a name="create-a-relay-namespace"></a>Criar um namespace de Retransmissão
@@ -81,10 +81,10 @@ A principal diferença entre um contrato do WCF e um contrato no estilo REST é 
     {
         ...
     ```
-8. Imediatamente após a chave de abertura da declaração do namespace, defina uma nova interface chamada **IImageContract** e aplique o atributo **ServiceContractAttribute** à interface com um valor de `http://samples.microsoft.com/ServiceModel/Relay/`. O valor do namespace é diferente do namespace que você usa em todo o escopo do seu código. O valor do namespace é usado como um identificador exclusivo para este contrato e deve ter informações sobre a versão. Para saber mais, veja [Controle de Versão do Serviço](https://go.microsoft.com/fwlink/?LinkID=180498). Especificar o namespace de forma explícita impede a adição do valor de namespace padrão ao nome do contrato.
+8. Imediatamente após a chave de abertura da declaração do namespace, defina uma nova interface chamada **IImageContract** e aplique o atributo **ServiceContractAttribute** à interface com um valor de `https://samples.microsoft.com/ServiceModel/Relay/`. O valor do namespace é diferente do namespace que você usa em todo o escopo do seu código. O valor do namespace é usado como um identificador exclusivo para este contrato e deve ter informações sobre a versão. Para saber mais, veja [Controle de Versão do Serviço](https://go.microsoft.com/fwlink/?LinkID=180498). Especificar o namespace de forma explícita impede a adição do valor de namespace padrão ao nome do contrato.
    
     ```csharp
-    [ServiceContract(Name = "ImageContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/RESTTutorial1")]
+    [ServiceContract(Name = "ImageContract", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/RESTTutorial1")]
     public interface IImageContract
     {
     }
@@ -134,7 +134,7 @@ using System.IO;
 namespace Microsoft.ServiceBus.Samples
 {
 
-    [ServiceContract(Name = "IImageContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+    [ServiceContract(Name = "IImageContract", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
     public interface IImageContract
     {
         [OperationContract, WebGet]
@@ -169,7 +169,7 @@ Assim como nas etapas anteriores, há pouca diferença entre a implementação d
 2. Aplique o atributo [ServiceBehaviorAttribute](/dotnet/api/system.servicemodel.servicebehaviorattribute) à classe **IImageService** para indicar que a classe é uma implementação de um contrato do WCF.
    
     ```csharp
-    [ServiceBehavior(Name = "ImageService", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+    [ServiceBehavior(Name = "ImageService", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
     class ImageService : IImageContract
     {
     }
@@ -311,7 +311,7 @@ namespace Microsoft.ServiceBus.Samples
 {
 
 
-    [ServiceContract(Name = "ImageContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+    [ServiceContract(Name = "ImageContract", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
     public interface IImageContract
     {
         [OperationContract, WebGet]
@@ -320,7 +320,7 @@ namespace Microsoft.ServiceBus.Samples
 
     public interface IImageChannel : IImageContract, IClientChannel { }
 
-    [ServiceBehavior(Name = "ImageService", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+    [ServiceBehavior(Name = "ImageService", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
     class ImageService : IImageContract
     {
         const string imageFileName = "image.jpg";
@@ -512,7 +512,7 @@ using Microsoft.ServiceBus.Web;
 namespace Microsoft.ServiceBus.Samples
 {
 
-    [ServiceContract(Name = "ImageContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+    [ServiceContract(Name = "ImageContract", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
     public interface IImageContract
     {
         [OperationContract, WebGet]
@@ -521,7 +521,7 @@ namespace Microsoft.ServiceBus.Samples
 
     public interface IImageChannel : IImageContract, IClientChannel { }
 
-    [ServiceBehavior(Name = "ImageService", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+    [ServiceBehavior(Name = "ImageService", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
     class ImageService : IImageContract
     {
         const string imageFileName = "image.jpg";

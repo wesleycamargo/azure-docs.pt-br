@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e947b71fe6bb9e6bd884b8b2dd0397a63bea2a95
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8b5ec711f0e43d9d29d962d43ed8b1d86338db87
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203634"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57881207"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xmatters-ondemand"></a>Tutorial: Integração do Azure Active Directory com o xMatters OnDemand
 
@@ -114,6 +114,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     ![Configurar o logon único](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_url.png)
     
      a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
+
     | |
     |--|
     | `https://<companyname>.au1.xmatters.com.au/`|
@@ -123,6 +124,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     | `https://<companyname>.xmatters.com.au/`|
 
     b. Na caixa de texto **URL de resposta** , digite uma URL no seguinte padrão:
+    
     | |
     |--|
     | `https://<companyname>.au1.xmatters.com.au`|
@@ -209,9 +211,9 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no xMatte
 
 1. Faça logon em seu locatário do **XMatters OnDemand** .
 
-1.  Clique na guia **Usuários** e, em seguida, **Adicionar Usuário**.
+1. Clique na guia **Usuários** e, em seguida, **Adicionar Usuário**.
 
-    ![Usuários](./media/xmatters-ondemand-tutorial/IC781048.png "Usuários")
+   ![Usuários](./media/xmatters-ondemand-tutorial/IC781048.png "Usuários")
 
 1. Na seção **Adicionar um Usuário** , realize as seguintes etapas:
 

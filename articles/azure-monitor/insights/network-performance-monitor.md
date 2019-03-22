@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: cff96ecb4f4b20e7e3542f6ae6e3e7740b750235
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: d35918659acb899e43f76e94168abcba080aa006
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729788"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452123"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solução do Monitor de Desempenho de Rede no Azure
 
@@ -119,19 +119,13 @@ O Monitor de Desempenho de Rede usa transações sintéticas para monitorar o de
 
    **Monitor do ExpressRoute**: Selecione **Descobrir Agora** para descobrir todos os emparelhamentos privados do ExpressRoute que estão conectados às redes virtuais na assinatura do Azure vinculada a este workspace do Log Analytics. 
 
-   >[!NOTE] 
-   > A solução atualmente descobre apenas emparelhamentos privados do ExpressRoute. 
-
-   >[!NOTE] 
-   > Somente os emparelhamentos privados que estão conectados às redes associadas à assinatura vinculada a este workspace do Log Analytics são descobertos. Se o ExpressRoute for conectado às redes virtuais fora da assinatura vinculada a este workspace, crie um workspace do Log Analytics nessas assinaturas. Use o Monitor de Desempenho de Rede para monitorar os emparelhamentos.
-
    ![Exibição do Monitor ExpressRoute](media/network-performance-monitor/npm-express-route.png)
 
-   Quando a descoberta estiver concluída, os emparelhamentos privados descobertos serão listados em uma tabela. 
+   Depois que a descoberta estiver concluída, o descobertos circuitos e emparelhamentos estão listados em uma tabela. 
 
    ![Configuração do Monitor de Desempenho de Rede](media/network-performance-monitor/npm-private-peerings.png)
     
-O monitoramento para esses emparelhamentos está inicialmente no estado desabilitado. Selecione cada emparelhamento que você deseja monitorar e configurar o monitoramento para eles a partir da exibição de detalhes à direita. Selecione **Salvar** para salvar a configuração. Para saber mais, consulte o artigo “Configurar monitoramento do ExpressRoute”. 
+O monitoramento para esses circuitos e emparelhamentos está inicialmente em um estado desabilitado. Selecione cada recurso que você deseja monitorar e configurar o monitoramento da exibição de detalhes à direita. Selecione **Salvar** para salvar a configuração. Para saber mais, consulte o artigo “Configurar monitoramento do ExpressRoute”. 
 
 Quando a instalação estiver concluída, demora entre 30 minutos e uma hora para que os dados sejam preenchidos. Enquanto a solução agrega os dados de sua rede, você verá a mensagem *A solução requer configuração adicional* no bloco de **visão geral** do Monitor de Desempenho de Rede. Depois que os dados são coletados e indexados, o bloco de **Visão geral** muda e informa o resumo da integridade de sua rede. Em seguida, você pode editar o monitoramento dos nós nos quais os agentes do Log Analytics estão instalados, bem como as sub-redes descobertas em seu ambiente.
 

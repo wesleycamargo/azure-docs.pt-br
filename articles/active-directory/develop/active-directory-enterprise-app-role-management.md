@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2019
+ms.date: 02/21/2019
 ms.author: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b7604fbe306e606e56c9dd0a2b09b4641257dbc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: a354fdf8ea75d9446c2a5e5ee6a70489cf9dbfb5
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203347"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990503"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Como: configurar a declaração de função emitida no token SAML para aplicativos empresariais
 
@@ -157,6 +157,9 @@ Se o aplicativo esperar que as funções personalizadas sejam passadas em uma re
     | Nome do atributo | Valor do atributo |
     | -------------- | ----------------|
     | Nome da função  | user.assignedroles |
+
+    >[!NOTE]
+    >Se o valor da declaração de função for nulo, em seguida, Azure AD não enviará esse valor no token e esse é o padrão de acordo com o design.
 
      a. Clique no botão **Editar** para abrir a caixa de diálogo **Atributos de usuário**.
 

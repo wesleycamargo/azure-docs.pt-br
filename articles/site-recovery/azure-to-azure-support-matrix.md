@@ -1,5 +1,5 @@
 ---
-title: Matriz de suporte do Azure Site Recovery para recuperação de desastre de VMs IaaS do Azure entre regiões do Azure com o Azure Site Recovery | Microsoft Docs
+title: Matriz de suporte para recuperação de desastre de VMs do Azure entre regiões do Azure com o Azure Site Recovery | Microsoft Docs
 description: Resume os sistemas operacionais com suporte e as configurações de replicação do Azure Site Recovery de VMs (máquinas virtuais) do Azure de uma região para outra, de acordo com as necessidades de DR (recuperação de desastre).
 services: site-recovery
 author: rayne-wiselman
@@ -8,37 +8,37 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: raynew
-ms.openlocfilehash: 0dac046c359bb8affd69145c73a66cf4ac079012
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: HT
+ms.openlocfilehash: b0fb84131f33d216e099978a7c9ba5481c1691d1
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287189"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312811"
 ---
-# <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matriz de suporte para replicação de uma região do Azure para outra
+# <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Matriz de suporte para replicar VMs do Azure de uma região para outra
 
 Este artigo resume as configurações e os componentes com suporte quando você implanta a recuperação de desastres com replicação, failover e recuperação de VMs do Azure de uma região do Azure para outra, usando o serviço do [Azure Site Recovery](site-recovery-overview.md).
 
 
 ## <a name="deployment-method-support"></a>Suporte ao método de implantação
 
-**Método de implantação** |  **Com suporte/Sem suporte**
+**Implantação** |  **Suporte**
 --- | ---
-**Portal do Azure** | Com suporte
-**PowerShell** | [Replicação do Azure para o Azure com o PowerShell](azure-to-azure-powershell.md)
-**API REST** | Com suporte
+**Portal do Azure** |  Com suporte.
+**PowerShell** |  Com suporte. [Saiba mais](azure-to-azure-powershell.md)
+**API REST** |  Com suporte.
 **CLI** | Sem suporte no momento
 
 
 ## <a name="resource-support"></a>Suporte de recurso
 
 **Ação de recurso** | **Detalhes**
---- | --- 
-**Mover cofre entre grupos de recursos** | Sem suporte
-**Mover recursos de computação/armazenamento/rede entre os grupos de recursos** | Sem suporte.<br/><br/> Se você mover uma VM ou componentes associados, como armazenamento / rede, depois que a VM estiver replicando, será necessário desabilitar e reativar a replicação para a VM.
+--- | --- | ---
+**Mover cofres entre grupos de recursos** | Sem suporte
+**Mover recursos de computação/armazenamento/rede entre os grupos de recursos** | Não compatível.<br/><br/> Se você mover uma VM ou componentes associados, como armazenamento / rede, depois que a VM estiver replicando, será necessário desabilitar e reativar a replicação para a VM.
 **Replicar VMs do Azure de uma assinatura para outra para recuperação de desastres** | Com suporte no mesmo locatário do Azure Active Directory.
 **Migre as VMs pelas regiões dos clusters geográficos suportados (dentro e entre assinaturas)** | Com suporte no mesmo locatário do Azure Active Directory.
-**Migrar máquinas virtuais na mesma região** | Sem suporte.
+**Migrar máquinas virtuais na mesma região** | Não compatível.
 
 ## <a name="region-support"></a>Suporte de regiões
 
@@ -51,18 +51,18 @@ América | Leste do Canadá, Canadá Central, Centro-Sul dos EUA, Centro-Oeste d
 Europa | Oeste do Reino Unido, Sul do Reino Unido, Norte da Europa, Europa Ocidental, França Central, Sul da França
 Ásia | Sul da Índia, Índia Central, Sudeste Asiático, Ásia Oriental, Leste do Japão, Oeste do Japão, Coreia Central, Sul da Coreia
 Austrália   | Leste da Austrália, Sudeste da Austrália, Austrália Central, Austrália Central 2
-Azure Government    | US Gov Virginia, US Gov Iowa, US Gov – Arizona, US Gov – Texas, US DoD Leste, US DoD Central
+Azure Governamental    | US Gov Virginia, US Gov Iowa, US Gov – Arizona, US Gov – Texas, US DoD Leste, US DoD Central
 Alemanha | Centro da Alemanha, Nordeste da Alemanha
 China | Leste da China, Norte da China, Norte da China2, Leste da China2
 
 >[!NOTE]
 >
-> - Para a região **Sul do Brasil**, você pode replicar e fazer failover para um dos seguintes: Centro-Sul dos EUA, Centro-oeste dos EUA, Leste dos EUA, Leste dos EUA 2, Oeste dos EUA, Oeste dos EUA 2 e regiões do Centro-Norte dos EUA. Deve-se observar que o Site Recovery habilitou apenas Sul do Brasil para ser usado como uma região de origem da qual as VMs podem ser protegidas. Ela **não pode ser usada como uma região de recuperação de desastre de destino** para nenhuma das regiões do Azure, como o Centro-Sul dos EUA. O motivo é a latência observada devido à distância geográfica, sendo recomendável selecionar qualquer outra região da América que não seja o Sul do Brasil.
->
-> - Se você **não conseguir ver uma região** na qual deseja **criar um cofre**, verifique se sua assinatura tem acesso para criar recursos nessa região. Por exemplo:  Se você não puder criar o cofre no Sul da França, sua assinatura não terá acesso à região Sul da França. Registre um tíquete de suporte com o Tipo de questão "gerenciamento de assinatura", o tipo de problema "outras questões gerais" e o assunto "colocar assinatura na lista de permissões para a região XXX do Azure"
->
-> - Caso **não possa ver uma região** em um cluster Geográfico **durante a habilitação da replicação**, verifique se a assinatura tem acesso para criar a máquina virtual nessa região. Por exemplo:  Se você estiver tentando proteger máquinas virtuais da França Central no Sul da França e não vir Sul da França na lista suspensa de regiões, sua assinatura não terá acesso para implantar a VM nessa região. Registre um tíquete de suporte com o Tipo de questão "gerenciamento de assinatura", o tipo de problema "outras questões gerais" e o assunto "colocar assinatura na lista de permissões para a região XXX do Azure"
-> - Você não pode selecionar regiões nos clusters geográficos mencionados acima.
+> - Para **Sul do Brasil**, você pode replicar e fazer failover para essas regiões: Centro-Sul dos EUA, oeste dos EUA, Leste dos EUA, Leste dos EUA 2, oeste dos EUA, oeste dos EUA 2 e Centro-Norte dos EUA.
+> - Sul do Brasil só pode ser usado como uma região de origem do qual as VMs podem replicar usando o Site Recovery. Ele não pode atuar como uma região de destino. Isso é devido a problemas de latência devido a distâncias geográficas. 
+> - Você pode trabalhar dentro de regiões em que você tenha acesso apropriado.
+> - Se não mostrar a região na qual você deseja criar um cofre, verifique se que sua assinatura tem acesso para criar recursos nessa região. 
+> - Se você não conseguir ver uma região dentro de um cluster geográfico quando você habilita a replicação, verifique se que sua assinatura tem permissões para criar VMs nessa região. 
+
 
 
 ## <a name="cache-storage"></a>Armazenamento em cache
@@ -71,7 +71,7 @@ Esta tabela resume o suporte para a conta de armazenamento em cache usada pelo S
 
 **Configuração** | **Suporte** | **Detalhes**
 --- | --- | ---
-Contas de armazenamento do uso geral V2 (quente e a camada fria) | Sem suporte. | A limitação existe para o armazenamento em cache porque os custos de transação para V2 são substancialmente maiores que as contas de armazenamento V1.
+Contas de armazenamento do uso geral V2 (quente e a camada fria) | Não compatível. | A limitação existe para o armazenamento em cache porque os custos de transação para V2 são substancialmente maiores que as contas de armazenamento V1.
 Firewalls de Armazenamento do Azure para redes virtuais  | Com suporte | Caso esteja usando a conta de armazenamento de destino ou a conta de armazenamento de cache habilitada para firewall, escolha ['Permitir serviços confiáveis da Microsoft'](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 
@@ -166,7 +166,7 @@ VMs migradas com o Site Recovery | Com suporte | Se uma VM VMware ou uma máquin
 **Ação** | **Detalhes**
 -- | ---
 Redimensionar o disco na VM replicada | Com suporte
-Adicionar um disco a uma VM replicada | Sem suporte.<br/><br/> Você precisa desabilitar a replicação para a VM, adicione o disco e, em seguida, habilite a replicação novamente.
+Adicionar um disco a uma VM replicada | Não compatível.<br/><br/> Você precisa desabilitar a replicação para a VM, adicione o disco e, em seguida, habilite a replicação novamente.
 
 ## <a name="replicated-machines---storage"></a>Máquinas replicadas - armazenamento
 
@@ -195,7 +195,7 @@ Criptografia em repouso (SSE) | Com suporte | SSE é a configuração padrão em
 Habilitar o ADE (Azure Disk Encryption) para o sistema operacional Windows | As VMs habilitadas para [criptografia com o aplicativo do Azure AD](https://aka.ms/ade-aad-app) são compatíveis |
 ADE (Azure Disk Encryption) para sistema operacional Linux | Sem suporte |
 Adição/remoção de disco a quente | Sem suporte | Se você adicionar ou remover um disco de dados da VM, precisará desabilitar a replicação e habilitá-la novamente na VM.
-Exclusão de disco | [compatível pelo powershell](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#replicate-azure-virtual-machine) |   O disco temporário é excluído por padrão.
+Exclusão de disco | suporte. Você deve usar [Powershell](azure-to-azure-exclude-disks.md) para configurar. |  Por padrão, os discos temporários são excluídos.
 Espaços de armazenamento Diretos  | Com suporte para pontos de recuperação de falha consistentes. Sem suporte para pontos de recuperação de aplicativo consistentes. |
 Servidor de Arquivos de Expansão  | Com suporte para pontos de recuperação de falha consistentes. Sem suporte para pontos de recuperação de aplicativo consistentes. |
 LRS | Com suporte |
@@ -203,17 +203,22 @@ GRS | Com suporte |
 RA-GRS | Com suporte |
 ZRS | Sem suporte |
 Armazenamento Frio e Quente | Sem suporte | Não há suporte para discos de máquina virtual no armazenamento frio e quente
-Firewalls de armazenamento do Azure para redes virtuais  | Com suporte | Se você está restringindo o acesso da rede virtual para contas de armazenamento, verifique se ['Permite serviços da Microsoft confiáveis'](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
-Contas de armazenamento V2 de uso geral (camadas Hot e Cool) | Não  | Os custos das transações aumentam substancialmente em comparação com as contas de armazenamento V1 de uso geral
+Firewalls de Armazenamento do Azure para redes virtuais  | Com suporte | Se restringir o acesso à rede virtual para contas de armazenamento, habilite [permitir que os serviços Microsoft confiáveis](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+Contas de armazenamento V2 de uso geral (camadas Hot e Cool) | Não | Os custos das transações aumentam substancialmente em comparação com as contas de armazenamento V1 de uso geral
 
 >[!IMPORTANT]
-> Certifique-se de que observou os destinos de desempenho e escalabilidade de disco de VM para máquinas virtuais [Linux](../virtual-machines/linux/disk-scalability-targets.md) ou [Windows](../virtual-machines/windows/disk-scalability-targets.md) para evitar qualquer problema de desempenho. Se você seguir as configurações padrão, o Site Recovery criará os discos e as contas de armazenamento necessários com base na configuração de origem. Se você personalizar e selecionar suas próprias configurações, certifique-se de que seguiu os destinos de escalabilidade e desempenho para discos de máquina virtual de origem.
+> Para evitar problemas de desempenho, certifique-se de que você siga as metas de escalabilidade e desempenho de disco VM para [Linux](../virtual-machines/linux/disk-scalability-targets.md) ou [Windows](../virtual-machines/windows/disk-scalability-targets.md) VMs. Se você usar as configurações padrão, o Site Recovery cria os discos necessários e a contas de armazenamento, com base na configuração de origem. Se você personaliza e selecionar suas próprias configurações, siga as metas de escalabilidade e desempenho de disco para VMs de origem.
 
-## <a name="azure-site-recovery-limits-to-replicate-data-change-rates"></a>Limites do Azure Site Recovery para replicar taxas de alteração de dados
-A tabela a seguir fornece os limites do Azure Site Recovery. Esses limites são baseados em nossos testes, mas eles não podem abranger todas as combinações possíveis de E/S de aplicativos. Os resultados reais podem variar dependendo da combinação de E/S do aplicativo. Também devemos observar que há dois limites a considerar, a rotatividade de dados por disco e a rotatividade de dados da máquina virtual.
-Por exemplo, se olhamos para o disco Premium P20 na tabela abaixo, o Site Recovery pode manipular 5 MB/s de rotatividade por disco com um máximo de cinco desses discos por VM, devido ao limite de 25 MB/s de rotatividade total por VM.
+## <a name="limits-and-data-change-rates"></a>Taxas de alteração de dados e limites
 
-**Destino de armazenamento de replicação** | **Tamanho de E/S de disco de origem médio** |**Variação nos dados média do disco de origem** | **Total de variação de dados de disco de origem por dia**
+A tabela a seguir resume os limites do Site Recovery.
+
+- Esses limites são baseados em nossos testes, mas, obviamente, não abrangem todas as combinações possíveis de aplicativos e/s.
+- Os resultados reais podem variar dependendo da combinação do aplicativo e/s.
+- Há dois limites a considerar, por disco de dados de variação e por dados da máquina virtual de variação.
+- Por exemplo, se usarmos um disco Premium P20, conforme descrito na tabela a seguir, Site Recovery pode manipular a 5 MB de variação por disco, no máximo de cinco esses discos por VM, devido ao limite de variação total de 25 MB/s por VM.
+
+**Destino de armazenamento** | **E/s de disco de origem médio** |**Variação nos dados média do disco de origem** | **Total de variação de dados de disco de origem por dia**
 ---|---|---|---
 Armazenamento Standard | 8 KB | 2 MB/s | 168 GB por disco
 Disco Premium P10 ou P15 | 8 KB  | 2 MB/s | 168 GB por disco
@@ -227,7 +232,7 @@ Disco Premium P20 ou P30 ou P40 ou P50 | 16 KB ou maior |20 MB/s | 1684 GB por d
 NIC | Número máximo suportado para um tamanho específico de VM do Azure | As NICs são criadas quando a VM é criada durante o failover.<br/><br/> O número de NICs na VM de failover depende do número de NICs na VM de origem quando a replicação foi ativada. Se você adicionar ou remover uma NIC depois de habilitar a replicação, isso não afetará o número de NICs na VM replicada após o failover.
 Balanceador de Carga de Internet | Com suporte | Associe o balanceador de carga pré-configurado usando um script de automação do Azure em um plano de recuperação.
 Balanceador de carga interno | Com suporte | Associe o balanceador de carga pré-configurado usando um script de automação do Azure em um plano de recuperação.
-Endereço IP público | Com suporte | Associe um endereço IP público existente à NIC. Ou crie um endereço IP público e associe-o à NIC usando um script de automação do Azure em um plano de recuperação.
+Endereço IP Público | Com suporte | Associe um endereço IP público existente à NIC. Ou crie um endereço IP público e associe-o à NIC usando um script de automação do Azure em um plano de recuperação.
 NSG em NIC | Com suporte | Associe o NSG à NIC usando um script de automação do Azure em um plano de recuperação.
 NSG na sub-rede | Com suporte | Associe o NSG à sub-rede usando um script de automação do Azure em um plano de recuperação.
 Endereço IP reservado (estático) | Com suporte | Se a NIC na VM de origem tiver um endereço IP estático e a sub-rede de destino tiver o mesmo endereço IP disponível, ela será atribuída à VM com falha.<br/><br/> Se a sub-rede de destino não tiver o mesmo endereço IP disponível, um dos endereços IP disponíveis na sub-rede será reservado para a VM.<br/><br/> Você também pode especificar um endereço IP fixo e uma sub-rede na **itens replicados** > **configurações** > **de computação e rede**  >  **Interfaces de rede**.
@@ -235,15 +240,15 @@ Endereço IP dinâmico | Com suporte | Se a NIC de origem tiver o endereçamento
 Gerenciador de Tráfego     | Com suporte | Você pode pré-configurar o Traffic Manager para que o tráfego seja roteado para o terminal na região de origem regularmente e para o terminal na região de destino em caso de failover.
 DNS do Azure | Com suporte |
 DNS Personalizado  | Com suporte |
-Proxy não autenticado | Com suporte | Consulte o [documento de diretrizes de rede.](site-recovery-azure-to-azure-networking-guidance.md)    
+Proxy não autenticado | Com suporte | [Saiba mais]. (site-recovery-azure-to-azure-networking-guidance.md)   
 Proxy autenticado | Sem suporte | Se a VM estiver usando um proxy autenticado para a conectividade de saída, ela não poderá ser replicada com o Azure Site Recovery.    
-VPN Site a Site com local (com ou sem o ExpressRoute)| Com suporte | Verifique se as UDRs e os NSGs são configurados de tal forma que o tráfego do Site Recovery não seja encaminhado para o local. Consulte o [documento de diretrizes de rede.](site-recovery-azure-to-azure-networking-guidance.md)  
-Conexão VNET a VNET | Com suporte | Consulte o [documento de diretrizes de rede.](site-recovery-azure-to-azure-networking-guidance.md)  
+Conexão do VPN site a site no local<br/><br/>(com ou sem o ExpressRoute)| Com suporte | Verifique se as UDRs e os NSGs são configurados de tal forma que o tráfego do Site Recovery não seja encaminhado para o local. [Saiba mais](site-recovery-azure-to-azure-networking-guidance.md)    
+Conexão VNET a VNET | Com suporte | [Saiba mais](site-recovery-azure-to-azure-networking-guidance.md)  
 Pontos de extremidade de serviço de rede virtual | Com suporte | Se você estiver restringindo o acesso à rede virtual para contas de armazenamento, certifique-se de que os serviços Microsoft confiáveis tenham a permissão para acessar a conta de armazenamento.
-Rede Acelerada | Com suporte | A Rede Acelerada deve ser habilitada em uma VM de origem. [Saiba mais](azure-vm-disaster-recovery-with-accelerated-networking.md).
+Rede acelerada | Com suporte | A rede acelerada deve estar ativada na VM de origem. [Saiba mais](azure-vm-disaster-recovery-with-accelerated-networking.md).
 
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- Leia [orientação de rede para replicar as VMs do Azure](site-recovery-azure-to-azure-networking-guidance.md).
+- Leia [diretrizes de rede](site-recovery-azure-to-azure-networking-guidance.md) para replicar VMs do Azure.
 - Implante a recuperação de desastres [replicando as VMs do Azure](site-recovery-azure-to-azure.md).

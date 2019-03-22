@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 4a9ffdd9f81a7d46d3476f3395a4456dea6c0341
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: ef874e5d773e87963b6de8371986ac2196fc38f3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156724"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901382"
 ---
 # <a name="create-a-new-azure-api-management-service-instance"></a>Criar uma nova instância do serviço de Gerenciamento de API do Azure
 
@@ -52,7 +52,7 @@ Faça logon no Portal do Azure em https://portal.azure.com.
 | **Grupo de recursos**      | *apimResourceGroup*                           | Você pode selecionar um recurso novo ou existente. Um grupo de recursos é uma coleção de recursos que compartilham o ciclo de vida, as permissões e as políticas. Saiba mais [aqui](../azure-resource-manager/resource-group-overview.md#resource-groups).                                                                                                  |
 | **Localidade**            | *Oeste dos EUA*                                    | Selecione a região geográfica perto de você. Somente as regiões de serviço de Gerenciamento de API disponíveis aparecem na caixa de listagem suspensa.                                                                                                                                                                                                          |
 | **Nome da organização**   | O nome da sua organização                 | Esse nome é usado em vários locais, incluindo o título do portal do desenvolvedor e o remetente de emails de notificação.                                                                                                                                                                                                             |
-| **Email do administrador** | *admin@org.com*                               | Defina o endereço de email ao qual todas as notificações de **Gerenciamento de API** serão enviadas.                                                                                                                                                                                                                                              |
+| **Email do administrador** | *admin\@org.com*                               | Defina o endereço de email ao qual todas as notificações de **Gerenciamento de API** serão enviadas.                                                                                                                                                                                                                                              |
 | **Tipo de preços**        | *Desenvolvedores*                                   | Defina a camada **Desenvolvedor** para avaliar o serviço. Essa camada não é para uso em produção. Para obter mais informações sobre a colocação em escala das camadas de Gerenciamento de API, confira [atualizar e dimensionar](upgrade-and-scale.md).                                                                                                                                    |
 
 3. Escolha **Criar**.

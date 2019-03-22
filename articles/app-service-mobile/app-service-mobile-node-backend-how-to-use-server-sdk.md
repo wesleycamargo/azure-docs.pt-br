@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 4e478c2559ac534f595393fdc36b95ad8e9c989a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 831f6b4bdc99e63859b390f8a9bb88d74301284e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725024"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997538"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Como usar o SDK do Node.js para Aplicativos Móveis
 
@@ -135,7 +135,7 @@ O Visual Studio 2015 exige uma extensão para desenvolver aplicativos Node.js no
 
     Salve o arquivo.
 
-1. Execute o aplicativo localmente (a API é fornecida em http://localhost:3000)) ou publique no Azure.
+1. Execute o aplicativo localmente (a API é fornecida em `http://localhost:3000`) ou publique no Azure.
 
 ### <a name="create-node-backend-portal"></a>Criar um back-end do Node.js usando o Portal do Azure
 
@@ -372,7 +372,7 @@ A maioria das configurações no arquivo azureMobile.js tem uma Configuração d
 
 | Configurações de aplicativo | Configuração azureMobile.js | DESCRIÇÃO | Valores válidos |
 |:--- |:--- |:--- |:--- |
-| **MS_MobileAppName** |Nome |Nome do aplicativo |string |
+| **MS_MobileAppName** |Nome |Nome do aplicativo |cadeia de caracteres |
 | **MS_MobileLoggingLevel** |logging.level |Nível de log mínimo das mensagens a serem registradas |erro, aviso, informações, detalhado, depuração, simples |
 | **MS_DebugMode** |depurar |Habilita ou desabilita o modo de depuração |verdadeiro, falso |
 | **MS_TableSchema** |data.schema |Nome do esquema padrão para tabelas SQL |cadeia de caracteres (padrão: dbo) |

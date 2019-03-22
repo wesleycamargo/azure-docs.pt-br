@@ -16,18 +16,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 663da31985759f47fff77dc5ad0f985d44559385
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: dd60c5d0210ffba373839fd0f194496c5dbcc20d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451573"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999412"
 ---
 # <a name="development-tools-on-the-data-science-virtual-machine"></a>Ferramentas de desenvolvimento na Máquina Virtual de Ciência de Dados
 
 A DSVM (Máquina Virtual de Ciência de Dados) oferece um ambiente produtivo para seu desenvolvimento agrupando várias ferramentas populares e IDE. Aqui estão algumas ferramentas oferecidas na DSVM. 
 
 ## <a name="visual-studio-2017"></a>Visual Studio 2017  
+
 |    |           |
 | ------------- | ------------- |
 | O que é?   | IDE de Propósito Geral      |
@@ -38,6 +39,7 @@ A DSVM (Máquina Virtual de Ciência de Dados) oferece um ambiente produtivo par
 | Ferramentas relacionadas ao DSVM      |     Visual Studio Code, RStudio, Juno  |
 
 ## <a name="visual-studio-code"></a>Visual Studio Code 
+
 |    |           |
 | ------------- | ------------- |
 | O que é?   | IDE de Propósito Geral      |
@@ -47,6 +49,7 @@ A DSVM (Máquina Virtual de Ciência de Dados) oferece um ambiente produtivo par
 | Ferramentas relacionadas ao DSVM      |     Visual Studio 2017, RStudio, Juno  |
 
 ## <a name="rstudio--desktop"></a>Área de trabalho do RStudio 
+
 |    |           |
 | ------------- | ------------- |
 | O que é?   | Cliente IDE para R    |
@@ -56,6 +59,7 @@ A DSVM (Máquina Virtual de Ciência de Dados) oferece um ambiente produtivo par
 | Ferramentas relacionadas ao DSVM      |   Visual Studio 2017, Visual Studio Code, Juno      |
 
 ## <a name="rstudio--server"></a>RStudio Server 
+
 |    |           |
 | ------------- | ------------- |
 | O que é?   | IDE baseado na Web para R    |
@@ -65,6 +69,7 @@ A DSVM (Máquina Virtual de Ciência de Dados) oferece um ambiente produtivo par
 | Ferramentas relacionadas ao DSVM      |   Visual Studio 2017, Visual Studio Code, RStudio Desktop      |
 
 ## <a name="juno"></a>Juno 
+
 |    |           |
 | ------------- | ------------- |
 | O que é?   | IDE do cliente para a linguagem Julia   |
@@ -74,6 +79,7 @@ A DSVM (Máquina Virtual de Ciência de Dados) oferece um ambiente produtivo par
 | Ferramentas relacionadas ao DSVM      |   Visual Studio 2017, Visual Studio Code, RStudio      |
 
 ## <a name="pycharm"></a>Pycharm
+
 |    |           |
 | ------------- | ------------- |
 | O que é?   | IDE do cliente para a linguagem Python    |
@@ -85,6 +91,7 @@ A DSVM (Máquina Virtual de Ciência de Dados) oferece um ambiente produtivo par
 
 
 ## <a name="powerbi-desktop"></a>PowerBI Desktop 
+
 |    |           |
 | ------------- | ------------- |
 | O que é?   | Visualização de Dados Interativa e Ferramenta de BI    |

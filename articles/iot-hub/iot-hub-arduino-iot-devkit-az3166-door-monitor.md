@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: 293c2325f57f04c3a77b0b2b8ec2ef30e8c912b8
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: a620b592a33f9de11de53d623d257f203da2157b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156231"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547694"
 ---
 # <a name="door-monitor"></a>Monitor de porta          
 
@@ -66,7 +66,7 @@ Agora você verá o formulário de inscrição do SendGrid.
 
 Preencha o formulário de inscrição:
 
-   * **Grupo de recursos**: crie um grupo de recursos para hospedar serviço SendGrid ou usar um existente. Veja [Uso dos grupos de recursos para gerenciar seus recursos do Azure](../azure-resource-manager/resource-group-portal.md).
+   * **Grupo de recursos**: crie um grupo de recursos para hospedar serviço SendGrid ou usar um existente. Veja [Uso dos grupos de recursos para gerenciar seus recursos do Azure](../azure-resource-manager/manage-resource-groups-portal.md).
 
    * **Nome**: o nome do serviço SendGrid. Escolha um nome exclusivo, diferente de outros serviços que você possa ter.
 
@@ -106,7 +106,7 @@ O formulário de inscrição aparece.
 
 Preencha os campos no formulário de inscrição.
 
-   * **Grupo de recursos**: crie um grupo de recursos para hospedar serviço SendGrid ou usar um existente. Veja [Uso dos grupos de recursos para gerenciar seus recursos do Azure](../azure-resource-manager/resource-group-portal.md).
+   * **Grupo de recursos**: crie um grupo de recursos para hospedar serviço SendGrid ou usar um existente. Veja [Uso dos grupos de recursos para gerenciar seus recursos do Azure](../azure-resource-manager/manage-resource-groups-portal.md).
 
    * **Nome do Hub IoT**: o nome para seu hub IoT. Escolha um nome exclusivo, diferente de outros serviços que você possa ter.
 
@@ -193,7 +193,7 @@ Após a inicialização, `Door closed` é exibido na tela. Quando há uma altera
 
 Se você encontrar problemas, consulte [as perguntas frequentes do Kit de Desenvolvedores de IoT](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) ou entre em contato conosco usando os seguintes canais:
 
-* [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
+* [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>Próximas etapas

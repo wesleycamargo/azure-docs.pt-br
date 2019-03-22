@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/13/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d72f4ac39ac992d0386b3971cd4d3bc6616f0a28
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 36e1c8d6cae79147c5cd4b5a46f5e1c330811ab8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186447"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57877642"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>Tutorial: Integração do Azure Active Directory com o Procore SSO
 
@@ -179,7 +179,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No **nome de usuário** , digite **brittasimon@yourcompanydomain.extension**  
+    b. No **nome de usuário** , digite **brendafernandes\@yourcompanydomain.extension**  
        Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **Propriedades**, marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -204,7 +204,7 @@ Por favor, siga os passos abaixo para criar um usuário de teste Procore no lado
 
     b. Na caixa de texto **Sobrenome**, digite o sobrenome do usuário como **Fernandes**.
 
-    c. Na caixa de texto **Endereço de email**, digite o endereço de email do usuário como **BrittaSimon@contoso.com**.
+    c. No **endereço de Email** caixa de texto, como o endereço de email do usuário do tipo **Brendafernandes\@contoso.com**.
 
     d. Selecione **Modelo de permissão** como **Aplicar o modelo de permissão mais tarde**.
 
@@ -214,7 +214,7 @@ Por favor, siga os passos abaixo para criar um usuário de teste Procore no lado
 
     ![Configurar o logon único](./media/procoresso-tutorial/Procore_user_check.png)
 
-5. Clique em **Salvar e enviar convite** (se for necessário enviar um convite por email) ou **Salvar** (Salvar diretamente) para concluir o registro do usuário.
+5. Clique em **salvar e enviar convite** (se um convite por email é necessário) ou **salvar** (Salvar diretamente) para concluir o registro de usuário.
     
     ![Configurar o logon único](./media/procoresso-tutorial/Procore_user_save.png)
 

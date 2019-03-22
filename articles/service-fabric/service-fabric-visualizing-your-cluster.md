@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: b97f2d3a015ebfd5f9c8771d3fc3edc1c074c839
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ba6a9a09945f0e822dfe02a74f2cdb8e21a1691c
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203702"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674660"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualizando o cluster com o Service Fabric Explorer
 
@@ -56,7 +56,7 @@ Para a instalação da estação de trabalho de desenvolvedor, você pode inicia
 >
 
 ## <a name="connect-to-a-service-fabric-cluster"></a>Conectar a um cluster do Service Fabric
-Para se conectar a um cluster do Service Fabric, você precisará do ponto de extremidade de gerenciamento de clusters (IP/FQDN) e a porta do ponto de extremidade de gerenciamento de HTTP (19080 por padrão). Por exemplo, https://mysfcluster.westus.cloudapp.azure.com:19080. Use a caixa de seleção "Conectar ao localhost" para se conectar a um cluster local em sua estação de trabalho.
+Para se conectar a um cluster do Service Fabric, você precisará do ponto de extremidade de gerenciamento de clusters (IP/FQDN) e a porta do ponto de extremidade de gerenciamento de HTTP (19080 por padrão). Por exemplo, https\:/ / mysfcluster.westus.cloudapp.azure.com:19080. Use a caixa de seleção "Conectar ao localhost" para se conectar a um cluster local em sua estação de trabalho.
 
 ### <a name="connect-to-a-secure-cluster"></a>Conectar a um cluster seguro
 Você pode controlar o acesso do cliente ao cluster do Service Fabric com certificados ou usando o AAD (Azure Active Directory).

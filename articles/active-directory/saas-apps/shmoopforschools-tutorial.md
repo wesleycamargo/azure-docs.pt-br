@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 095aff293b23f4589dce9f71890b5e9bfd8636d4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 4091b20e97ca76629260a7420beecb77412b0d39
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201849"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453007"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shmoop-for-schools"></a>Tutorial: Integração do Azure Active Directory com o Shmoop For Schools
 
@@ -47,7 +47,7 @@ Para configurar a integração do Azure AD ao Shmoop for Schools, você precisa 
 
 Para testar as etapas neste tutorial, é recomendável:
 
-- Usar seu ambiente de produção apenas se for necessário.
+- Usando o ambiente de produção apenas se for necessário.
 - Se ainda não tiver um ambiente de avaliação do Azure AD, você poderá [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
@@ -131,7 +131,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
      a. Para abrir a caixa de diálogo **Adicionar Atributo**, selecione **Adicionar Atributo**.
     
-    ![Configurar o logon único ](./media/shmoopforschools-tutorial/tutorial_attribute_04.png)
+    ![Configurar o logon único](./media/shmoopforschools-tutorial/tutorial_attribute_04.png)
     
     ![Configurar o logon único](./media/shmoopforschools-tutorial/tutorial_attribute_05.png)
     

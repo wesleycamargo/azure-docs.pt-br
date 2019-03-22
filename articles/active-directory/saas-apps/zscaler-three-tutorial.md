@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5739c878812c09a8f2646320df4b1069dfa8810e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: eced1b92aba24c8083cbdc2ece099fab95567db7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189031"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877948"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-three"></a>Tutorial: Integração do Azure Active Directory com Zscaler Three
 
@@ -159,43 +159,43 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
 ### <a name="configure-zscaler-three-single-sign-on"></a>Configurar Logon Único do Zscaler Three
 
-9. Em uma janela diferente do navegador da Web, faça logon no site da sua empresa Zscaler Three como administrador.
+1. Em uma janela diferente do navegador da Web, faça logon no site da sua empresa Zscaler Three como administrador.
 
-10. Vá até **Administração > Autenticação > Configurações de Autenticação** e execute as seguintes etapas:
+1. Vá até **Administração > Autenticação > Configurações de Autenticação** e execute as seguintes etapas:
    
-    ![Administração](./media/zscaler-three-tutorial/ic800206.png "Administração")
+   ![Administração](./media/zscaler-three-tutorial/ic800206.png "Administração")
 
-     a. Em Tipo de Autenticação, escolha **SAML**.
+    a. Em Tipo de Autenticação, escolha **SAML**.
 
-    b. Clique em **Configurar SAML**.
+   b. Clique em **Configurar SAML**.
 
-11. Na janela **Editar SAML**, execute as seguintes etapas: e clique em Salvar.  
+1. Na janela **Editar SAML**, execute as seguintes etapas: e clique em Salvar.  
             
-    ![Gerenciar usuários e autenticação](./media/zscaler-three-tutorial/ic800208.png "Gerenciar usuários e autenticação")
+   ![Gerenciar usuários e autenticação](./media/zscaler-three-tutorial/ic800208.png "Gerenciar usuários e autenticação")
     
-     a. Na caixa de texto **URL do Portal SAML**, cole o a **URL de Logon** copiada do portal do Azure.
+    a. Na caixa de texto **URL do Portal SAML**, cole o a **URL de Logon** copiada do portal do Azure.
 
-    b. Na caixa de texto **Atributo de Nome de Logon**, insira **NameID**.
+   b. Na caixa de texto **Atributo de Nome de Logon**, insira **NameID**.
 
-    c. Clique em **Upload** para fazer upload do certificado de assinatura SAML do Azure que você baixou do portal do Azure para o **Certificado SSL Público**.
+   c. Clique em **Upload** para fazer upload do certificado de assinatura SAML do Azure que você baixou do portal do Azure para o **Certificado SSL Público**.
 
-    d. Acione **Habilitar Provisionamento Automático do SAML**.
+   d. Acione **Habilitar Provisionamento Automático do SAML**.
 
-    e. Na caixa de texto **Atributo de Nome de Exibição do Usuário**, insira **displayName** se você quiser habilitar o provisionamento automático do SAML para atributos de displayName.
+   e. Na caixa de texto **Atributo de Nome de Exibição do Usuário**, insira **displayName** se você quiser habilitar o provisionamento automático do SAML para atributos de displayName.
 
-    f. Na caixa de texto **Atributo de Nome do Grupo**, insira **memberOf** se você quiser habilitar o provisionamento automático do SAML para atributos de memberOf.
+   f. Na caixa de texto **Atributo de Nome do Grupo**, insira **memberOf** se você quiser habilitar o provisionamento automático do SAML para atributos de memberOf.
 
-    g. Em **Atributo de Nome do Departamento**, insira **departamento** se você quiser habilitar o provisionamento automático do SAML para atributos de departamento.
+   g. Em **Atributo de Nome do Departamento**, insira **departamento** se você quiser habilitar o provisionamento automático do SAML para atributos de departamento.
 
-    i. Clique em **Salvar**.
+   i. Clique em **Salvar**.
 
-12. Na página de caixa de diálogo **Configurar Autenticação de Usuário** , execute as seguintes etapas:
+1. Na página de caixa de diálogo **Configurar Autenticação de Usuário** , execute as seguintes etapas:
 
-    ![Administração](./media/zscaler-three-tutorial/ic800207.png)
+   ![Administração](./media/zscaler-three-tutorial/ic800207.png)
 
-     a. Passe o mouse sobre o menu **Ativação** na parte inferior esquerda.
+    a. Passe o mouse sobre o menu **Ativação** na parte inferior esquerda.
 
-    b. Clique em **Ativar**.
+   b. Clique em **Ativar**.
 
 ## <a name="configuring-proxy-settings"></a>Definindo as configurações de proxy
 ### <a name="to-configure-the-proxy-settings-in-internet-explorer"></a>Para definir as configurações de proxy no Internet Explorer
@@ -246,7 +246,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No **nome de usuário** , digite **brittasimon@yourcompanydomain.extension**  
+    b. No **nome de usuário** , digite **brendafernandes\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **Propriedades**, marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.

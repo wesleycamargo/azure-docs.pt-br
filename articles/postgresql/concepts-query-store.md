@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/01/2019
-ms.openlocfilehash: a6b31933f7170006046846c458e21efd8c54034c
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: db62c1ec03ae9005f33a09010486b04ac6976742
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660716"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005902"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Monitorar o desempenho com o Repositório de Consultas
 
@@ -32,12 +32,18 @@ O Repositório de Consultas é um recurso que requer aceitação, portanto, ele 
 ### <a name="enable-query-store-using-the-azure-portal"></a>Habilitar o Repositório de Consultas usando o portal do Azure
 1. Entre no portal do Azure e selecione seu servidor do Banco de Dados do Azure para PostgreSQL.
 2. Selecione **Parâmetros de Servidor** na seção **Configurações** do menu.
-3. Pesquise o parâmetro **pg_qs.query_capture_mode**.
-4. Atualize o valor de NONE para TOP e salve.
+3. Pesquise o parâmetro `pg_qs.query_capture_mode`.
+4. Defina o valor como `TOP` e **salvar**.
 
-Como alternativa, você pode definir esse parâmetro usando a CLI do Azure.
+Para habilitar as estatísticas de espera em sua consulta Store: 
+1. Pesquise o parâmetro `pgms_wait_sampling.query_capture_mode`.
+1. Defina o valor como `ALL` e **salvar**.
+
+
+Como alternativa, você pode definir esses parâmetros usando a CLI do Azure.
 ```azurecli-interactive
 az postgres server configuration set --name pg_qs.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value TOP
+az postgres server configuration set --name pgms_wait_sampling.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value ALL
 ```
 
 Permita que o primeiro lote de dados persista no banco de dados azure_sys por até 20 minutos.
@@ -81,6 +87,7 @@ Aqui estão alguns exemplos de como você pode obter mais insights sobre sua car
 Quando o Repositório de Consultas está habilitado, ele salva dados em janelas de agregação de 15 minutos, até 500 consultas distintas por janela. 
 
 As opções a seguir estão disponíveis para configurar os parâmetros do Repositório de Consultas.
+
 | **Parâmetro** | **Descrição** | **Padrão** | **Range**|
 |---|---|---|---|
 | pg_qs.query_capture_mode | Define quais instruções são rastreadas. | Nenhum | none, top, all |
@@ -89,6 +96,7 @@ As opções a seguir estão disponíveis para configurar os parâmetros do Repos
 | pg_qs.track_utility | Define se os comandos do utilitário são rastreados | em | on, off |
 
 As opções a seguir se aplicam especificamente às estatísticas de espera.
+
 | **Parâmetro** | **Descrição** | **Padrão** | **Range**|
 |---|---|---|---|
 | pgms_wait_sampling.query_capture_mode | Define quais instruções são rastreadas para as estatísticas de espera. | Nenhum | none, all|

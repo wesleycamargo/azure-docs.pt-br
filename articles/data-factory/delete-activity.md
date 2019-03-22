@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2019
-ms.openlocfilehash: 407bb2e39e92390576da9c23868f5af9c444bed4
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.date: 02/25/2019
+ms.openlocfilehash: 64829cad24d7f436b8539659dc1f0c6ef6ed4da4
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341521"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404758"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Atividade Excluir no Azure Data Factory
 
@@ -37,21 +37,20 @@ Veja a seguir algumas recomendações para usar a atividade Excluir:
 
 -   Verifique se você não está excluindo arquivos que estejam sendo gravados ao mesmo tempo. 
 
--   Se você quiser excluir arquivos ou pastas de um sistema local, verifique se está usando um tempo de execução da integração auto-hospedada com uma versão superior a 3.13.
+-   Se você quiser excluir arquivos ou pastas de um sistema local, verifique se que você estiver usando um tempo de execução de integração auto-hospedado com uma versão maior que 3.14.
 
 ## <a name="supported-data-stores"></a>Armazenamento de dados com suporte
 
-### <a name="azure-data-stores"></a>Armazenamento de dados do Azure
-
 -   [Armazenamento de Blobs do Azure](connector-azure-blob-storage.md)
 -   [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
--   [Azure Data Lake Storage Gen2 (versão prévia)](connector-azure-data-lake-storage.md)
+-   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
 
 ### <a name="file-system-data-stores"></a>Armazenamentos de dados do sistema de arquivos
 
 -   [Sistema de Arquivos](connector-file-system.md)
 -   [FTP](connector-ftp.md)
--   [HDFS](connector-hdfs.md)
+-   [SFTP](connector-sftp.md)
+-   [Amazon S3](connector-amazon-simple-storage-service.md)
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -61,7 +60,7 @@ Veja a seguir algumas recomendações para usar a atividade Excluir:
     "type": "Delete",
     "typeProperties": {
         "dataset": {
-            "referenceName": "<dataset name to be deleted>",
+            "referenceName": "<dataset name>",
             "type": "DatasetReference"
         },
         "recursive": true/false,
@@ -87,7 +86,7 @@ Veja a seguir algumas recomendações para usar a atividade Excluir:
 | maxConcurrentConnections | O número das conexões para se conectar ao repositório de armazenamento simultaneamente para exclusão de arquivos ou pasta.   |   Não. O padrão é `1`. |
 | enablelogging | Indica se é necessário registrar os nomes de arquivo ou pasta que foram excluídos. Em caso afirmativo, você precisa fornecer uma conta de armazenamento para salvar o arquivo de log, de modo que seja possível rastrear os comportamentos da atividade Excluir lendo o arquivo de log. | Não  |
 | logStorageSettings | Aplicável somente quando enablelogging = true.<br/><br/>Um grupo de propriedades de armazenamento que pode ser especificado onde você quer salvar o arquivo de log contendo os nomes de pasta ou arquivo que foram excluídos pela atividade Excluir. | Não  |
-| linkedServiceName | Aplicável somente quando enablelogging = true.<br/><br/>O serviço vinculado do [Armazenamento do Microsoft Azure](connector-azure-blob-storage.md#linked-service-properties) ou [Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties) para armazenar o arquivo de log que contém os nomes de arquivo ou pasta que foram excluídos pela atividade Excluir. | Não  |
+| linkedServiceName | Aplicável somente quando enablelogging = true.<br/><br/>O serviço vinculado do [armazenamento do Azure](connector-azure-blob-storage.md#linked-service-properties), [Gen1 de armazenamento do Azure Data Lake](connector-azure-data-lake-store.md#linked-service-properties), ou [Gen2 de armazenamento do Azure Data Lake](connector-azure-data-lake-storage.md#linked-service-properties) para armazenar o arquivo de log que contém a pasta ou nomes de arquivo ter sido excluído pela atividade de exclusão. | Não  |
 | caminho | Aplicável somente quando enablelogging = true.<br/><br/>O caminho para salvar o arquivo de log em sua conta de armazenamento. Se você não fornecer um caminho, o serviço criará um contêiner para você. | Não  |
 
 ## <a name="monitoring"></a>Monitoramento
@@ -100,13 +99,15 @@ Há dois locais em que você pode ver e monitorar os resultados da atividade Exc
 
 ```json
 { 
-  "isWildcardUsed": false, 
-  "wildcard": null,
-  "type": "AzureBlobStorage",
+  "datasetName": "AmazonS3",
+  "type": "AmazonS3Object",
+  "prefix": "test",
+  "bucketName": "adf",
   "recursive": true,
-  "maxConcurrentConnections": 10,
-  "filesDeleted": 1,
-  "logPath": "https://sample.blob.core.windows.net/mycontainer/5c698705-a6e2-40bf-911e-e0a927de3f07/5c698705-a6e2-40bf-911e-e0a927de3f07.json",
+  "isWildcardUsed": false,
+  "maxConcurrentConnections": 2,  
+  "filesDeleted": 4,
+  "logPath": "https://sample.blob.core.windows.net/mycontainer/5c698705-a6e2-40bf-911e-e0a927de3f07",
   "effectiveIntegrationRuntime": "MyAzureIR (West Central US)",
   "executionDuration": 650
 }
@@ -114,22 +115,12 @@ Há dois locais em que você pode ver e monitorar os resultados da atividade Exc
 
 ### <a name="sample-log-file-of-the-delete-activity"></a>Amostra de arquivo de log da atividade Excluir
 
-```json
-{
-  "customerInput": {
-    "type": "AzureBlob",
-    "fileName": "",
-    "folderPath": "folder/filename_to_be_deleted",
-    "recursive": false,
-    "enableFileFilter": false
-  },
-  "deletedFileList": [
-    "folder/filename_to_be_deleted"
-  ],
-  "deletedFolderList": null,
-  "error":"the reason why files are failed to be deleted"
-}
-```
+| NOME | Categoria | Status | Erro |
+|:--- |:--- |:--- |:--- |
+| test1/yyy.json | Arquivo | Deleted |  |
+| test2/hello789.txt | Arquivo | Deleted |  |
+| test2/test3/hello000.txt | Arquivo | Deleted |  |
+| test2/test3/zzz.json | Arquivo | Deleted |  |
 
 ## <a name="examples-of-using-the-delete-activity"></a>Exemplos de como usar a atividade Excluir
 
@@ -322,7 +313,7 @@ Você pode criar um pipeline para limpar os arquivos antigos ou expirados aprove
         },
         "type": "AzureBlob",
         "typeProperties": {
-            "fileName": "",
+            "fileName": "*",
             "folderPath": "mycontainer",
             "modifiedDatetimeEnd": "2018-01-01T00:00:00.000Z"
         }
@@ -572,12 +563,14 @@ O conjunto de dados do destino de dados usado pela atividade Copiar.
     }
 }
 ```
+## <a name="known-limitation"></a>Limitações conhecidas
+
+-   Excluir atividade não oferece suporte a lista de exclusão de pastas descrito pelo curinga.
+
+-   Ao usar o filtro de atributo de arquivo: modifiedDatetimeStart e modifiedDatetimeEnd para selecionar arquivos a serem excluídos, certifique-se de definir "fileName": "*" no conjunto de dados.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre como copiar arquivos no Azure Data Factory.
-
--   [Atividade Copiar no Azure Data Factory](copy-activity-overview.md)
+Saiba mais sobre como mover os arquivos no Azure Data Factory.
 
 -   [Ferramenta Copiar Dados no Azure Data Factory](copy-data-tool.md)
-- 

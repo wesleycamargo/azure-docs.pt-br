@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
 ms.author: v-jamebr
-ms.openlocfilehash: d2e890110194b1fbe0528191fa645628cc3a1345
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 9da735f10063649222a38498af17e0404137a706
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161352"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315344"
 ---
 # <a name="develop-c-service-fabric-applications-with-visual-studio-code"></a>Desenvolver aplicativos C# do Microsoft Azure Service Fabric com o Visual Studio Code
 
@@ -70,11 +70,11 @@ Após a compilação do aplicativo, você pode implantá-lo no cluster local.
 
    ![Implantar o comando de aplicativo no Visual Studio Code](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-deploy-application.png)
 
-4. Quando a implantação for concluída, inicie um navegador e abra o Service Fabric Explorer: http://localhost:19080/Explorer. Você deve ver que o aplicativo está em execução. Isso pode levar algum tempo, portanto seja paciente. 
+4. Quando a implantação for concluída, inicie um navegador e abra o Service Fabric Explorer: http:\//localhost:19080 / Explorer. Você deve ver que o aplicativo está em execução. Isso pode levar algum tempo, portanto seja paciente. 
 
    ![Aplicativo de serviço de contador no Service Fabric Explorer](./media/service-fabric-develop-csharp-applications-with-vs-code/sfx-verify-deploy.png)
 
-4. Depois de verificar se o aplicativo está em execução, inicie um navegador e abra esta página: http://localhost:31002. Esta é a web front-end do aplicativo. Atualize a página para ver o valor atual do contador conforme ele é incrementado.
+4. Depois de verificar o aplicativo está em execução, inicie um navegador e abra esta página: http:\//localhost:31002. Esta é a web front-end do aplicativo. Atualize a página para ver o valor atual do contador conforme ele é incrementado.
 
    ![Aplicativo de serviço de contador no navegador](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-running.png)
 
@@ -91,7 +91,7 @@ Para definir um ponto de interrupção, conclua as seguintes etapas:
 
    ![Depurar o ícone no workspace de código VS](./media/service-fabric-develop-csharp-applications-with-vs-code/debug-start.png)
 
-3. Abrir o Service Fabric Explorer em um navegador: http://localhost:19080/Explorer. Clique em **Aplicativos** e faça uma busca detalhada para determinar o nó primário que o CounterService está executando. Na imagem abaixo, o nó primário para o CounterService é o nó 0.
+3. Abra o Explorador do Service Fabric em um navegador: http:\//localhost:19080 / Explorer. Clique em **Aplicativos** e faça uma busca detalhada para determinar o nó primário que o CounterService está executando. Na imagem abaixo, o nó primário para o CounterService é o nó 0.
 
    ![Nó principal para CounterService](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-primary-node.png)
 

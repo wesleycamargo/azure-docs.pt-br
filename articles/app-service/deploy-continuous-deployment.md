@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/03/2018
 ms.author: cephalin;dariagrigoriu
 ms.custom: seodec18
-ms.openlocfilehash: 1313616818686c7a03269fc1cc837958665732d8
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: fcb2c270b36d5efbe7b799787cf2a123b51bea5c
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725228"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337537"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Implantação contínua no Serviço de Aplicativo do Azure
 Este artigo mostra como configurar a implantação contínua para o [Serviço de Aplicativo do Azure](overview.md). O Serviço de Aplicativo habilita a implantação contínua do BitBucket, do GitHub e do [Azure DevOps Services](https://www.visualstudio.com/team-services/) extraindo as atualizações mais recentes do seu repositório existente em um desses serviços.
@@ -47,6 +47,16 @@ Na página **Provedor de build**, escolha o provedor de build e clique em > **Co
 ### <a name="option-1-use-app-service-kudu-build-server"></a>Opção 1: usar o servidor de build Kudu do Serviço de Aplicativo
 
 Na página **Configurar**, selecione a organização, o repositório e o branch dos quais você deseja implantar continuamente. Ao terminar, clique em **Continuar**.
+
+Para implantar de um repositório em uma organização do GitHub, navegue para o GitHub e vá para **as configurações** > **aplicativos** > **autorizado a aplicativos de OAuth**. Em seguida, clique em "Serviço de aplicativo do Azure".
+
+![Configurações > aplicativos > aplicativos de OAuth autorizados > serviço de aplicativo do Azure](media/app-service-continuous-deployment/github-settings-navigation.png)
+
+Na próxima página, conceda acesso de serviço de aplicativo aos repositórios da sua organização ao clicar no botão de "Concessão" no lado direito.
+
+![Clique em "Concessão" para conceder acesso de serviço de aplicativo para os repositórios da organização](media/app-service-continuous-deployment/grant-access.png)
+
+Sua organização agora deve mostrar, na lista de "Organização" na **configurar** página do Centro de implantação.
 
 ### <a name="option-2-use-azure-pipelines-preview"></a>Opção 2: usar o Azure Pipelines (versão prévia)
 
@@ -138,7 +148,7 @@ No menu esquerdo, clique em **Centro de Implantação** > **GitHub** ou **Azure 
 
 [!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
 
-## <a name="additional-resources"></a>Recursos adicionais
+## <a name="additional-resources"></a>Recursos Adicionais
 
 * [Como investigar problemas comuns com implantação contínua](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment)
 * [Como usar o PowerShell para o Azure]

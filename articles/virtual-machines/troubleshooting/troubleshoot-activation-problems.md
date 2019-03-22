@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: 16876a7831ab374637e28165c44d47e0ab059712
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: HT
+ms.openlocfilehash: 0f700b9e24399768977a1fa221322fa4c1c6708d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976351"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095136"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Solucionar problemas de ativação de máquina virtual do Windows Azure
 
@@ -82,27 +82,27 @@ Esta etapa não é aplicável ao Windows 2012 ou Windows 2008 R2. Ela usa o recu
 2. Vá para Iniciar, pesquise no Windows PowerShell, clique com o botão direito no Windows PowerShell e, em seguida, selecione Executar como administrador.
 
 3. Certifique-se de que a VM está configurada para usar o servidor correto do KMS do Azure. Para fazer isso, execute o seguinte comando:
-  
+  
     ```
     iex "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.windows.net:1688"
     ```
     O comando deve retornar: Nome da máquina do Serviço de Gerenciamento de Chaves definido como kms.core.windows.net:1688 com sucesso.
 
 4. Verifique usando Psping que você tem conectividade ao servidor KMS. Alterne para a pasta onde você extraiu o download de Pstools.zip e, em seguida, execute o seguinte:
-  
+  
     ```
     \psping.exe kms.core.windows.net:1688
     ```
-  
-  Na penúltima linha da saída, certifique-se de que você vê: Sent = 4, Received = 4, Lost = 0 (0% loss).
+  
+   Na penúltima linha da saída, certifique-se de que você vê: Sent = 4, Received = 4, Lost = 0 (0% loss).
 
-  Se Lost for maior que 0 (zero), a VM não tem conectividade com o servidor KMS. Nessa situação, se a VM estiver em uma rede virtual e tiver um servidor DNS especificado, certifique-se de que o servidor DNS é capaz de resolver kms.core.windows.net. Ou então, altere o servidor DNS para um que resolva kms.core.windows.net.
+   Se Lost for maior que 0 (zero), a VM não tem conectividade com o servidor KMS. Nessa situação, se a VM estiver em uma rede virtual e tiver um servidor DNS especificado, certifique-se de que o servidor DNS é capaz de resolver kms.core.windows.net. Ou então, altere o servidor DNS para um que resolva kms.core.windows.net.
 
-  Observe que, se você remover todos os servidores DNS de uma rede virtual, as VMs usam o serviço DNS interno do Azure. Esse serviço pode resolver kms.core.windows.net.
+   Observe que, se você remover todos os servidores DNS de uma rede virtual, as VMs usam o serviço DNS interno do Azure. Esse serviço pode resolver kms.core.windows.net.
   
 Também verifique se o firewall do convidado não foi configurado de forma que impediria as tentativas de ativação.
 
-5. Depois de verificar a conectividade com sucesso para kms.core.windows.net, execute o seguinte comando no prompt do Windows PowerShell com privilégios elevados. Esse comando tenta a ativação várias vezes.
+1. Depois de verificar a conectividade com sucesso para kms.core.windows.net, execute o seguinte comando no prompt do Windows PowerShell com privilégios elevados. Esse comando tenta a ativação várias vezes.
 
     ```
     1..12 | % { iex “$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /ato” ; start-sleep 5 }

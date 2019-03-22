@@ -9,14 +9,15 @@ ms.date: 05/23/2017
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03652329acaeb737cb7cb4010ef48938caa17acc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c7a652ab4283321c5934b32fdc5478bb5d79e4a7
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096904"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293123"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>Configurar aplicativos SaaS para colaboração B2B
 
@@ -53,7 +54,7 @@ Para permitir que os usuários façam logon usando suas contas da organização,
 
 5. Entre no Dropbox com a URL de logon na página **Logon único**.
 
-   ![Página de entrada do Dropbox](media/configure-saas-apps/sign-in-to-dropbox.png)
+   ![Captura de tela mostrando a página de entrada do Dropbox](media/configure-saas-apps/sign-in-to-dropbox.png)
 
 6. No menu, selecione **Console Admin**.
 
@@ -78,7 +79,7 @@ Você pode permitir que os usuários autentiquem os usuários convidados do Box 
 
 2. Configure o logon único na seguinte ordem:
 
-   ![Configurar logon único do Box](media/configure-saas-apps/configure-box-sso.png)
+   ![Captura de tela que mostra as definições de configuração de logon único](media/configure-saas-apps/configure-box-sso.png)
 
     a. Na caixa **URL de Logon**, verifique se a URL de Logon está definida corretamente para o Box no portal do Azure. Essa é a URL do seu locatário Box.com. Ela deve seguir a convenção de nomenclatura *https://.box.com*.  
    O **Identificador** não se aplica a esse aplicativo, mas ainda aparece como um campo obrigatório.

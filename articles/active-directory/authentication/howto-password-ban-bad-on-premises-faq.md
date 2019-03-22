@@ -11,25 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d3b0f7cdacfb781ba7925be8146c10919c5269b
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 63bdbeb08872988fb043413f8233281d22423731
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455527"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58284741"
 ---
-# <a name="preview-azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Visualização: Proteção por senha do Azure AD local – perguntas frequentes
-
-|     |
-| --- |
-| A proteção de senha do Azure AD é uma versão prévia pública do recurso do Azure Active Directory. Para obter mais informações sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+# <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Proteção por senha do Azure AD local – perguntas frequentes
 
 ## <a name="general-questions"></a>Perguntas gerais
-
-**P: Quando a proteção por senha do Azure AD alcançará a Disponibilidade Geral (GA)?**
-
-A GA está planejada para o primeiro trimestre do ano de 2019 (antes do final de março de 2019). Obrigado a todos que forneceram comentários sobre o recurso até agora. Nós agradecemos!
 
 **P: Que diretrizes os usuários devem receber sobre como selecionar uma senha segura?**
 
@@ -44,6 +35,14 @@ Não, locais de proteção por senha do Azure AD têm suporte apenas na nuvem p�
 **P: Como posso aplicar os benefícios da proteção por senha do Azure AD a um subconjunto dos usuários locais?**
 
 Sem suporte. Depois de implantada e habilitada, a proteção por senha do Azure AD não discrimina, todos os usuários recebem benefícios de segurança iguais.
+
+**P: Qual é a diferença entre uma alteração de senha e um conjunto de senhas (ou redefinição)?**
+
+Uma alteração de senha é quando um usuário escolhe uma nova senha depois de comprovar que eles têm conhecimento da senha antiga. Por exemplo, isso é o que acontece quando um usuário faz logon no Windows e, em seguida, é solicitado a escolher uma nova senha.
+
+Um conjunto de senha (às vezes chamado de uma redefinição de senha) é quando um administrador substitui a senha em uma conta com uma nova senha, por exemplo, usando a ferramenta de gerenciamento de computadores e usuários do Active Directory. Esta operação requer um alto nível de privilégio (normalmente, o administrador de domínio) e a pessoa que realiza a operação geralmente não tem conhecimento da senha antiga. Cenários de assistência técnica faz isso com frequência, por exemplo quando ajudar um usuário que esqueceu a senha. Você também verá senha definir eventos quando uma nova conta de usuário está sendo criada pela primeira vez com uma senha.
+
+A política de validação de senha se comporta da mesma, independentemente se estiver sendo feito uma alteração de senha ou um conjunto. O serviço do agente de controlador de domínio de proteção de senha do Azure AD registrar eventos diferentes para informá-lo se uma alteração de senha ou a operação set foi feita.  Ver [proteção de senha do Azure AD, monitoramento e registro em log](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
 
 **P: Há suporte para instalação da proteção por senha do Azure AD lado a lado com outros produtos baseados em filtro de senha?**
 
@@ -82,6 +81,10 @@ Esse requisito é causado pelo comportamento principal do Windows.
 **P: Não tem problema implantar o serviço de Proxy de Proteção de Senha do Azure AD lado a lado com outros serviços, como o Azure AD Connect?**
 
 Sim. O serviço de Proxy de Proteção de Senha do Azure AD e o Azure AD Connect nunca devem entrar em conflito diretamente entre si.
+
+**P: Em qual ordem devem os agentes de controlador de domínio e os proxies seja instalados e registrados?**
+
+Há suporte para qualquer ordenação de instalação do agente de Proxy, instalação do agente de controlador de domínio, o registro de floresta e registro do Proxy.
 
 **P: Devo me preocupar com o impacto ao desempenho de meus controladores de domínio ao implantar esse recurso?**
 

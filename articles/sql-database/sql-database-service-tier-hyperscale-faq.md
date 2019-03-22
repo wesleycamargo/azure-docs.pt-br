@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/06/2019
-ms.openlocfilehash: 16d536ff5bd1f7d9a3427877a93036d9f711564e
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 36b2f3817c7e96a35c1e8f3aba22db201224ceba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099762"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075928"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Perguntas frequentes sobre bancos de dados do Azure SQL Hyperscale
 
@@ -45,7 +45,7 @@ As camadas de serviço baseadas no vCore são primeiramente diferenciadas com ba
 - A camada de serviço Business Critical é apropriada para cargas de trabalho de negócios em que a latência de I/O é uma prioridade.
 
 | | Tipo de recurso | Uso geral |  Hiperescala | Comercialmente Crítico |
-|:---|:---:|:---:|:---:|:---:|:---:|
+|:---|:---:|:---:|:---:|:---:|
 | **Mais adequado para** |Todos|  A maioria das cargas de trabalho comerciais. Oferece opções equilibradas de computação e armazenamento orientadas ao orçamento. | Aplicativos de dados com grandes requisitos de capacidade de dados e a capacidade de dimensionar e armazenar em escala automática os recursos de computação. | Aplicativos OLTP com alta taxa de transação e menor I/O de latência. Oferece maior resiliência a falhas usando várias réplicas isoladas.|
 |  **Tipo de recurso** ||Banco de dados único / Elástico pool / instância gerenciada | Banco de dados individual | Banco de dados único / Elástico pool / instância gerenciada |
 | **Tamanho de computação**|Banco de dados único / Elástico pool * | 1 a 80 vCores | 1 a 80 vCores * | 1 a 80 vCores |
@@ -73,7 +73,7 @@ A camada de serviço Hyperscale destina-se principalmente a clientes que possuem
 
 ### <a name="what-regions-currently-support-hyperscale"></a>Quais regiões atualmente dão suporte em hiper escala
 
-A hiperescala está atualmente disponível para bancos de dados individuais nas seguintes regiões:  Oeste dos EUA 1, Oeste dos EUA 2, Leste dos EUA 1, Centro dos EUA, Europa Ocidental, Norte da Europa, Oeste do Reino Unido, Sudeste Asiático, Leste do Japão, Coreia Central, Sudeste da Austrália e Leste da Austrália.
+A hiperescala está atualmente disponível para bancos de dados individuais nas seguintes regiões:  US1 Ocidental, oeste dos EUA 2, Leste US1, centro dos EUA, Europa Ocidental, Norte da Europa, Sudeste Asiático, Leste do Japão, Coreia Central, Austrália Sudeste e Leste da Austrália.
 
 ### <a name="can-i-create-multiple-hyperscale-databases-per-sql-database-server"></a>Posso criar vários bancos de dados de hiperescala por servidor de Banco de Dados SQL?
 
