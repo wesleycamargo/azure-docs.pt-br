@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79104895e91dc2143a0f4a592878ecc5e2df61d7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d3d21ff9b56a7fcb33fbdb6bbb82c64ef97abf71
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172817"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085772"
 ---
 # <a name="integrate-radius-authentication-with-azure-multi-factor-authentication-server"></a>Integrar a autenticação RADIUS com o Servidor de Autenticação Multifator do Azure
 
@@ -39,9 +39,9 @@ Para configurar a autenticação RADIUS, instale o Servidor de Autenticação Mu
 4. Clique em **Adicionar**.
 5. Insira o endereço IP do dispositivo/servidor que fará a autenticação no Servidor de Autenticação Multifator do Azure, um nome de aplicativo (opcional) e um segredo compartilhado.
 
-  O nome do aplicativo aparece nos relatórios e pode ser exibido nas mensagens de autenticação por SMS ou aplicativo móvel.
+   O nome do aplicativo aparece nos relatórios e pode ser exibido nas mensagens de autenticação por SMS ou aplicativo móvel.
 
-  O segredo compartilhado deve ser o mesmo tanto no Servidor de Autenticação Multifator do Azure quanto no dispositivo/servidor.
+   O segredo compartilhado deve ser o mesmo tanto no Servidor de Autenticação Multifator do Azure quanto no dispositivo/servidor.
 
 6. Marque a caixa **Exigir correspondência do usuário da Autenticação Multifator** se todos os usuários foram importados para o Servidor e estiverem sujeitos à autenticação multifator. Se um número significativo de usuários ainda não tiver sido importado para o Servidor ou for isentado da verificação em duas etapas, deixe a caixa desmarcada.
 7. Marque a caixa **Habilitar token OATH de fallback** se deseja usar senhas OATH de aplicativos móveis de verificação como um método de backup.

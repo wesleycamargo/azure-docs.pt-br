@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: article
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 6ebf1abe6f3b115a254201184f47e6aad2febb2a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 2f70a180afcc8eda5d43356c3f4f96b25292c6d5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208161"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088920"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matriz de suporte para recuperação de desastre de VMs VMware e servidores físicos para um site secundário
 
@@ -57,15 +57,15 @@ Somente computadores Linux com o armazenamento a seguir podem ser replicados:
 
 **Configuração** | **Com suporte**  
 --- | --- 
-Host - Agrupamento NIC | SIM 
-Host - VLAN | SIM 
-Host - IPv4 | SIM 
+Host - Agrupamento NIC | Sim 
+Host - VLAN | Sim 
+Host - IPv4 | Sim 
 Host - IPv6 | Não  
 VM Convidada - Agrupamento NIC | Não 
-VM Convidada - IPv4 | SIM
+VM Convidada - IPv4 | Sim
 VM Convidada - IPv6 | Não 
-VM convidada – Windows/Linux – Endereço IP estático | SIM
-VM Convidada - Multi-NIC | SIM
+VM convidada – Windows/Linux – Endereço IP estático | Sim
+VM Convidada - Multi-NIC | Sim
 
 
 ## <a name="storage"></a>Armazenamento
@@ -74,29 +74,29 @@ VM Convidada - Multi-NIC | SIM
 
 **Armazenamento (host)** | **Com suporte** 
 --- | --- 
-NFS | SIM 
+NFS | Sim 
 SMB 3.0 | N/D 
-SAN (ISCSI) | SIM 
-Múltiplos caminhos (MPIO) | SIM 
+SAN (ISCSI) | Sim 
+Múltiplos caminhos (MPIO) | Sim 
 
 ### <a name="guest-or-physical-server-storage"></a>Armazenamento do servidor físico ou convidado
 
 **Configuração** | **Com suporte** 
 --- | --- 
-VMDK | SIM 
+VMDK | Sim 
 VHD/VHDX | N/D 
 VM ger 2 | N/D 
-Disco de cluster compartilhado | SIM 
+Disco de cluster compartilhado | Sim 
 Disco criptografado | Não  
-UEFI| SIM 
+UEFI| Sim 
 NFS | Não  
 SMB 3.0 | Não  
-RDM | SIM 
-Disco > 1 TB | SIM 
-Volume com discos distribuídos > 1 TB<br/><br/> LVM | SIM 
+RDM | Sim 
+Disco > 1 TB | Sim 
+Volume com discos distribuídos > 1 TB<br/><br/> LVM | Sim 
 Espaços de Armazenamento | Não  
-Adição/remoção de disco a quente | SIM 
-Exclusão de disco | SIM 
+Adição/remoção de disco a quente | Sim 
+Exclusão de disco | Sim 
 Múltiplos caminhos (MPIO) | N/D 
 
 ## <a name="vaults"></a>Cofres
@@ -110,10 +110,10 @@ Mover armazenamento, rede, VMs do Azure entre grupos de recursos (dentro de uma 
 
 O serviço de Mobilidade coordena a replicação entre servidores VMware locais ou servidores físicos e o site secundário. Ao configurar a replicação, certifique-se de que possui a última versão do serviço de mobilidade e de outros componentes.
 
-**Atualização** | **Detalhes** 
---- | --- 
-Atualizações do Scout | [Saiba mais e baixe](vmware-physical-secondary-disaster-recovery.md#updates) as últimas atualizações do Scout | As atualizações do Scout são cumulativas.
-Atualizações de componentes | As atualizações do Scout incluem atualizações para todos os componentes, incluindo o servidor RX, servidor de configuração, servidores de destino mestre e processo, servidores vContinuum e servidores de origem que deseja proteger.<br/><br/> [Saiba mais](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).
+| **Atualização** | **Detalhes** |
+| --- | --- |
+|Atualizações do Scout | As atualizações do Scout são cumulativas. <br/><br/> [Saiba mais e baixe](vmware-physical-secondary-disaster-recovery.md#updates) as últimas atualizações do Scout |
+|Atualizações de componentes | As atualizações do Scout incluem atualizações para todos os componentes, incluindo o servidor RX, servidor de configuração, servidores de destino mestre e processo, servidores vContinuum e servidores de origem que deseja proteger.<br/><br/> [Saiba mais](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).|
 
 
 ## <a name="next-steps"></a>Próximas etapas

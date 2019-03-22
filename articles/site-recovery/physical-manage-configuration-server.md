@@ -2,17 +2,17 @@
 title: Gerenciar o servidor de configuração para a recuperação de desastre dos servidores físicos locais no Azure com o Azure Site Recovery | Microsoft Docs
 description: Este artigo descreve como gerenciar o servidor de configuração do Azure Site Recovery para recuperação de desastres do servidor físico no Azure.
 services: site-recovery
-author: Rajeswari-Mamilla
+author: mayurigupta13
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
-ms.author: ramamill
-ms.openlocfilehash: d5ce80e44ee1a3a48443b190ea9259fe2dea0dcb
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.date: 02/28/2019
+ms.author: mayg
+ms.openlocfilehash: 11b1b46e29ac9a4147c4dc319753edd0fadce8bc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983212"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088903"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gerenciar servidor de configuração para recuperação de desastres do servidor físico
 
@@ -50,7 +50,7 @@ A versão mais recente do arquivo de instalação do servidor de configuração 
 4. Na página **Adicionar Servidor**, clique no botão Baixar para baixar a chave de Registro. Você precisa dessa chave durante a instalação do servidor de configuração para registrá-lo no serviço Azure Site Recovery.
 5. Clique no link **Baixar a instalação do Microsoft Azure Site Recovery Unified** para baixar a versão mais recente do Servidor de Configuração.
 
-  ![Página Download](./media/physical-manage-configuration-server/downloadcs.png)
+   ![Página Download](./media/physical-manage-configuration-server/downloadcs.png)
 
 
 ## <a name="install-and-register-the-server"></a>Instalar e registrar o servidor
@@ -77,7 +77,7 @@ A versão mais recente do arquivo de instalação do servidor de configuração 
 9. Em **Localização de Instalação**, selecione a localização em que você deseja instalar os binários e armazenar o cache. A unidade selecionado deve ter ao menos 5 GB de espaço em disco disponível, mas é recomendável uma unidade de cache com ao menos 600 GB de espaço livre.
 
     ![Local de instalação](./media/physical-manage-configuration-server/combined-wiz8.png)
-10. Em **Seleção da Rede**, especifique o ouvinte (adaptador de rede e porta SSL) no qual o servidor de configuração envia e recebe os dados de replicação. A porta 9443 é a porta padrão usada para enviar e receber o tráfego de replicação, mas você pode modificar esse número de porta para atender aos requisitos do seu ambiente. Além da porta 9443, também podemos abrir a porta 443, usada por um servidor Web para coordenar operações de replicação. Não use a porta 443 para enviar ou receber tráfego de replicação.
+10. Na **seleção de rede**, primeiro selecione a NIC usada pelo servidor de processo integrado para a instalação de descoberta e por push do serviço de mobilidade em máquinas de origem e, em seguida, selecione a NIC que usa o servidor de configuração para conectividade com o Azure. A porta 9443 é a porta padrão usada para enviar e receber o tráfego de replicação, mas você pode modificar esse número de porta para atender aos requisitos do seu ambiente. Além da porta 9443, também podemos abrir a porta 443, usada por um servidor Web para coordenar operações de replicação. Não use a porta 443 para enviar ou receber tráfego de replicação.
 
     ![Seleção da Rede](./media/physical-manage-configuration-server/combined-wiz9.png)
 
@@ -153,40 +153,40 @@ Você pode modificar as configurações de proxy para o computador do servidor d
 3. Clique na guia **Registro do Cofre**.
 4. Faça o download de um novo arquivo de registro do cofre no portal e forneça-o como entrada para a ferramenta.
 
-  ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
+   ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
 5. Forneça os detalhes do novo proxy e clique no botão **Registrar**.
 6. Abra uma janela de comando do PowerShell do Administrador.
 7. Execute o comando a seguir:
 
-  ```PowerShell
-  $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
-  Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
-  net stop obengine
-  net start obengine
-  ```
+   ```PowerShell
+   $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
+   Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
+   net stop obengine
+   net start obengine
+   ```
 
-  >[!WARNING]
-  Se você tiver servidores de processo adicionais anexados a este servidor de configuração, você precisará [corrigir as configurações de proxy em todos os servidores de processo de expansão](vmware-azure-manage-process-server.md#modify-proxy-settings-for-an-on-premises-process-server) em sua implantação.
+   > [!WARNING]
+   > Se você tiver servidores de processo adicionais anexados a este servidor de configuração, você precisará [corrigir as configurações de proxy em todos os servidores de processo de expansão](vmware-azure-manage-process-server.md#modify-proxy-settings-for-an-on-premises-process-server) em sua implantação.
 
 ## <a name="reregister-a-configuration-server-with-the-same-vault"></a>Registrar um servidor de configuração com o mesmo cofre
-  1. Faça logon no Servidor de Configuração.
-  2. Inicie o cspsconfigtool.exe usando o atalho na sua área de trabalho.
-  3. Clique na guia **Registro do Cofre**.
-  4. Faça o download de um novo arquivo de registro no portal e forneça-o como entrada para a ferramenta.
-        ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
-  5. Forneça os detalhes do servidor Proxy e clique no **registrar** botão.  
-  6. Abra uma janela de comando do PowerShell do Administrador.
-  7. Execute o comando a seguir
+1. Faça logon no Servidor de Configuração.
+2. Inicie o cspsconfigtool.exe usando o atalho na sua área de trabalho.
+3. Clique na guia **Registro do Cofre**.
+4. Faça o download de um novo arquivo de registro no portal e forneça-o como entrada para a ferramenta.
+      ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
+5. Forneça os detalhes do servidor Proxy e clique no **registrar** botão.  
+6. Abra uma janela de comando do PowerShell do Administrador.
+7. Execute o comando a seguir
 
-      ```PowerShell
-      $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
-      Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
-      net stop obengine
-      net start obengine
-      ```
+    ```PowerShell
+    $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
+    Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
+    net stop obengine
+    net start obengine
+    ```
 
-  >[!WARNING]
-  Se você tiver vários servidores de processo, você precisará [registrá-los novamente](vmware-azure-manage-process-server.md#reregister-a-process-server).
+   > [!WARNING]
+   > Se você tiver vários servidores de processo, você precisará [registrá-los novamente](vmware-azure-manage-process-server.md#reregister-a-process-server).
 
 ## <a name="register-a-configuration-server-with-a-different-vault"></a>Registrar um servidor de configuração com um cofre diferente
 
@@ -246,22 +246,22 @@ Atualize o servidor da seguinte maneira:
 4. Clique em **Sim** para confirmar a exclusão do servidor.
 
 ### <a name="uninstall-the-configuration-server-and-its-dependencies"></a>Desinstalar o servidor de configuração e suas dependências
-  > [!TIP]
-  Se você planejar reutilizar o servidor de configuração com o Azure Site Recovery novamente, poderá ignorar a etapa 4 diretamente
+> [!TIP]
+>   Se você planejar reutilizar o servidor de configuração com o Azure Site Recovery novamente, poderá ignorar a etapa 4 diretamente
 
 1. Faça logon no Servidor de Configuração como um Administrador.
 2. Abra o painel de controle > programa > desinstalar programas
 3. Desinstale os programas na sequência a seguir:
-  * Agente de Serviços de Recuperação do Microsoft Azure
-  * Servidor de destino do Microsoft Azure Site Recovery mobilidade mestra do serviço
-  * Provedor do Microsoft Azure Site Recovery
-  * Servidor de processo/servidor de configuração do Microsoft Azure Site Recovery
-  * Dependências de servidor de configuração do Microsoft Azure Site Recovery
-  * MySQL Server 5.5
+   * Agente de Serviços de Recuperação do Microsoft Azure
+   * Servidor de destino do Microsoft Azure Site Recovery mobilidade mestra do serviço
+   * Provedor do Microsoft Azure Site Recovery
+   * Servidor de processo/servidor de configuração do Microsoft Azure Site Recovery
+   * Dependências de servidor de configuração do Microsoft Azure Site Recovery
+   * MySQL Server 5.5
 4. Execute o seguinte comando de um prompt de comando de administrador.
-  ```
-  reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
-  ```
+   ```
+   reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
+   ```
 
 ## <a name="delete-or-unregister-a-configuration-server-powershell"></a>Excluir ou cancelar o servidor de configuração (PowerShell)
 

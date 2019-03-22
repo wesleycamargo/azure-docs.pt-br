@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 46791468e094ffb17a6dc9993b2cf8623a72b9b3
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: HT
+ms.openlocfilehash: 474048bc9f31e4630110ea099f3e0b375ad74e51
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53968801"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087577"
 ---
 # <a name="get-started-with-ml-services-on-azure-hdinsight"></a>Introdução ML Services no Azure HDInsight
 
@@ -79,16 +79,16 @@ Se optou por instalar o RStudio Server Community Edition como parte do seu clust
         https://CLUSTERNAME.azurehdinsight.net/rstudio/
 
 * **Opção 2** - Usar o portal do Azure.
-Do portal:
+  Do portal:
   1. Selecione **Todos os serviços** no menu esquerdo.
   2. Em **ANÁLISES**, selecione **Clusters do HDInsight**.
   3. Selecione o nome do cluster da página **Clusters HDInsight**.
   4. Partir **painéis de controle de serviços do ML**, selecione **R Studio server**. 
 
-    ![Definir as configurações de conta de armazenamento do HDInsight](./media/r-server-get-started/r-studio-server-dashboard.png)
+     ![Definir as configurações de conta de armazenamento do HDInsight](./media/r-server-get-started/r-studio-server-dashboard.png)
 
-   > [!IMPORTANT]  
-   > Não importa o método usado: na primeira vez em que você fizer logon, precisará autenticar duas vezes.  No primeiro prompt de autenticação, forneça o *userid de administrador do cluster* e a *senha*. No segundo prompt de autenticação, forneça a *ID de usuário do SSH* e a *senha*. Os logons subsequentes exigirão apenas as credenciais do SSH.
+     > [!IMPORTANT]  
+     > Não importa o método usado: na primeira vez em que você fizer logon, precisará autenticar duas vezes.  No primeiro prompt de autenticação, forneça o *userid de administrador do cluster* e a *senha*. No segundo prompt de autenticação, forneça a *ID de usuário do SSH* e a *senha*. Logons subsequentes exigem somente as credenciais de SSH.
 
 Quando você estiver conectado, sua tela deve ser semelhante à captura de tela a seguir:
 

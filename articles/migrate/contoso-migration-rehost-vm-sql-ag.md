@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 84a2ef60c9f6aa4270c3fc4f83327070b298b8b2
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 535ba0049e91e09de3d1dcf05fc8ede80ef403ef
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697180"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58088053"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-azure-vms-and-sql-server-alwayson-availability-group"></a>Migração para Contoso: Hospedar novamente um aplicativo local em VMs do Azure e o Grupo de Disponibilidade AlwaysOn do SQL Server
 
@@ -704,10 +704,10 @@ A equipe de segurança da Contoso analisa as VMs do Azure WEBVM, SQLAOG1 e SQLAO
 ## <a name="bcdr"></a>BCDR
 
  Para a BCDR (continuidade dos negócios e recuperação de desastres), a Contoso executa as seguintes ações:
- - Manter dados seguros: A Contoso faz backup dos dados nas VMs do WEBVM, SQLAOG1 e SQLAOG2 usando o serviço do Backup do Azure. [Saiba mais].
-(https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-- A Contoso também aprenderá como usar o Armazenamento do Azure para fazer backup do SQL Server diretamente no armazenamento de blobs. [Saiba mais](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-use-storage-sql-server-backup-restore).
-- Manter os aplicativos e executar: A Contoso replica as VMs do aplicativo no Azure para uma região secundária usando o Site Recovery. [Saiba mais](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart).
+- Manter dados seguros: A Contoso faz backup dos dados nas VMs do WEBVM, SQLAOG1 e SQLAOG2 usando o serviço do Backup do Azure. [Saiba mais].
+  (https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+  - A Contoso também aprenderá como usar o Armazenamento do Azure para fazer backup do SQL Server diretamente no armazenamento de blobs. [Saiba mais](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-use-storage-sql-server-backup-restore).
+  - Manter os aplicativos e executar: A Contoso replica as VMs do aplicativo no Azure para uma região secundária usando o Site Recovery. [Saiba mais](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart).
 
 
 ### <a name="licensing-and-cost-optimization"></a>Licenciamento e otimização de custo

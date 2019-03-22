@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: site-recovery
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: c353c40cc838dc4082d3d4b843a48a5fedb6e1f5
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: a84cbba968baf50563a2c2b0e2843d64f17bb34a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039462"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002375"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicar VMs do Azure Stack para Azure
 
@@ -190,7 +190,7 @@ Agora instale o servidor de configuração:
 
 > [!NOTE]
 > O servidor de configuração também pode ser instalado a partir da linha de comando. [Saiba mais](physical-manage-configuration-server.md#install-from-the-command-line).
-
+> 
 > Pode levar 15 minutos ou mais para que o nome da conta apareça no portal. Para atualizar imediatamente, selecione **Servidores de Configuração** > ***nome do servidor*** > **Atualizar Servidor**.
 
 ## <a name="step-4-set-up-the-target-environment"></a>Etapa 4: Configurar o ambiente de origem
@@ -214,7 +214,7 @@ Selecione e verifique os recursos de destino.
 4. Em **Retenção de ponto de recuperação**, especifique quanto tempo cada ponto de recuperação é mantido. VMs replicadas podem ser recuperadas em qualquer ponto na janela de tempo especificada.
 5. Em **Frequência de instantâneos consistente com o aplicativo**, especifique com que frequência os instantâneos consistentes com o aplicativo são criados.
 
-    - Um instantâneo consistente com o aplicativo é um instantâneo pontual dos dados do aplicativo dentro da VM.
+    - Um instantâneo consistente do aplicativo é um instantâneo point-in-time de dados do aplicativo dentro da VM.
     - O VSS (Serviço de Cópias de Sombra de Volume) garante que os aplicativos na VM estejam em um estado consistente quando o instantâneo for criado.
 6. Selecione **OK** para criar a política.
 
@@ -249,9 +249,9 @@ Certifique-se de ter concluído todas as tarefas na [Etapa 1: Preparar o computa
 
 > [!NOTE]
 > O Site Recovery instala o Serviço de Mobilidade quando a replicação é habilitada para uma VM.
-
+> 
 > Pode levar 15 minutos ou mais para que as alterações entrem em vigor e apareçam no portal.
-
+> 
 > Para monitorar as VMs adicionadas, verifique o horário da última descoberta de VMs em **Servidores de Configuração** > **Último Contato Às**. Para adicionar VMs sem esperar pela descoberta agendada, realce o servidor de configuração (não o selecione) e selecione **Atualizar**.
 
 

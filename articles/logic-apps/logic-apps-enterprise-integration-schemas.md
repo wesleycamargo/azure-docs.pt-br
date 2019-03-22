@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 56c5846c-5d8c-4ad4-9652-60b07aa8fc3b
 ms.date: 02/06/2019
-ms.openlocfilehash: 03ac2e0f42ff05165aa2313d823710a71c7dffec
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 3cca995b353b88cc481cbda68df4211a724f7f09
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768270"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727307"
 ---
 # <a name="validate-xml-with-schemas-in-azure-logic-apps-with-enterprise-integration-pack"></a>Validar XML com esquemas nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 
@@ -89,7 +89,7 @@ Com base no tamanho do arquivo de esquema (.xsd), siga as etapas para carregar u
 
 ### <a name="add-schemas-more-than-2-mb"></a>Adicionar esquemas com mais de 2 MB
 
-Para adicionar esquemas maiores, você pode carregar seu esquema em um contêiner de blob do Azure na conta de armazenamento do Azure. As etapas para adicionar mapas diferem dependendo do seu contêiner de blob ter acesso de leitura público. Primeiro, verifique se seu contêiner de blob tem ou não acesso de leitura público seguindo estas etapas: [Definir o nível de acesso público para contêiner de blob](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
+Para adicionar esquemas maiores, você pode carregar seu esquema em um contêiner de blob do Azure na conta de armazenamento do Azure. As etapas para adicionar esquemas diferem com base se o seu contêiner de blob tem acesso de leitura público. Primeiro, verifique se seu contêiner de blob tem ou não acesso de leitura público seguindo estas etapas: [Definir o nível de acesso público para contêiner de blob](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
 
 #### <a name="check-container-access-level"></a>Verificar o nível de acesso do contêiner
 

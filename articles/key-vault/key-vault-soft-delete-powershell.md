@@ -1,18 +1,18 @@
 ---
 title: Azure Key Vault – Como usar a exclusão reversível com PowerShell
 description: Usar exemplos de caso de exclusão reversível com trechos de código do PowerShell
-author: bryanla
+author: msmbaldwin
 manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/01/2018
-ms.author: bryanla
-ms.openlocfilehash: 70437403d3b78b7f8b9eef921c933a68793450da
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.author: mbaldwin
+ms.openlocfilehash: 3da4662885b2b09c6474a1a6ceafd627e71cf236
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113576"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081025"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Como usar a exclusão reversível do Key Vault com o PowerShell
 
@@ -177,19 +177,19 @@ Set-AzKeyVaultAccessPolicy -VaultName ContosoVault -UserPrincipalName user@conto
 Como as chaves, segredos sejam gerenciados com seus próprios comandos:
 
 - Excluir um segredo chamado SQLPassword: 
-```powershell
-Remove-AzKeyVaultSecret -VaultName ContosoVault -name SQLPassword
-```
+  ```powershell
+  Remove-AzKeyVaultSecret -VaultName ContosoVault -name SQLPassword
+  ```
 
 - Listar todos os segredos excluídos em um cofre de chaves: 
-```powershell
-Get-AzKeyVaultSecret -VaultName ContosoVault -InRemovedState
-```
+  ```powershell
+  Get-AzKeyVaultSecret -VaultName ContosoVault -InRemovedState
+  ```
 
 - Recuperar um segredo no estado excluído: 
-```powershell
-Undo-AzKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
-```
+  ```powershell
+  Undo-AzKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
+  ```
 
 - Limpar um segredo no estado excluído: 
 
@@ -205,7 +205,7 @@ Undo-AzKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
 > [!IMPORTANT]
 > Limpar um cofre de chaves ou um de seus objetos contidos o excluirá permanentemente, ou seja, ele não poderá ser recuperado!
 
-A função de limpeza é usada para excluir permanentemente um objeto do cofre de chaves que tenha sofrido uma exclusão reversível, ou todo ele. Conforme demonstrado na seção anterior, os objetos armazenados em um cofre de chaves com o recurso de exclusão reversível habilitado podem passar por vários estados:
+A função de limpeza é usada para excluir permanentemente um objeto de Cofre de chaves ou um cofre de chaves inteiro, que foi anteriormente excluídos. Conforme demonstrado na seção anterior, os objetos armazenados em um cofre de chaves com o recurso de exclusão reversível habilitado podem passar por vários estados:
 - **Ativo**: antes da exclusão.
 - **Exclusão reversível**: após a exclusão, ele pode ser listado e retornado ao estado ativo.
 - **Excluído permanentemente**: após a limpeza, ele não pode ser recuperado.

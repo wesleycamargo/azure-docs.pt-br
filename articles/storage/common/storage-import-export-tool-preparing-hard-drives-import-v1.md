@@ -8,25 +8,25 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 185e243838d2ccdc920fa5b5714995801567a24f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 7db50e8bd1de609256bad58b293af8b7b1ea5dbb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454667"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086710"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Preparando discos rígidos para um trabalho de importação
 Para preparar um ou mais discos rígidos para um trabalho de importação, execute estas etapas:
 
--   Identificar os dados para importar no serviço Blob
+- Identificar os dados para importar no serviço Blob
 
--   Identificar os diretórios virtuais de destino e blobs no serviço Blob
+- Identificar os diretórios virtuais de destino e blobs no serviço Blob
 
--   Determinar quantas unidades você precisará
+- Determinar quantas unidades você precisará
 
--   Copiar os dados para cada um de seus discos rígidos
+- Copiar os dados para cada um de seus discos rígidos
 
- Para obter um exemplo de fluxo de trabalho, confira [Exemplo de fluxo de trabalho para preparar discos rígidos para um trabalho de importação](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md).
+  Para obter um exemplo de fluxo de trabalho, confira [Exemplo de fluxo de trabalho para preparar discos rígidos para um trabalho de importação](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md).
 
 ## <a name="identify-the-data-to-be-imported"></a>Identificar os dados a serem importados
  A primeira etapa para criar um trabalho de importação é determinar quais diretórios e arquivos você pretende importar. Isso pode ser uma lista de diretórios, uma lista de arquivos exclusivos ou uma combinação dos dois. Quando um diretório é incluído, todos os arquivos no diretório e seus subdiretórios farão parte do trabalho de importação.
@@ -51,11 +51,11 @@ Para preparar um ou mais discos rígidos para um trabalho de importação, execu
 ## <a name="determine-how-many-drives-are-needed"></a>Determinar quantas unidades serão necessárias
  Em seguida, será necessário determinar:
 
--   O número de discos rígidos necessários para armazenar os dados.
+- O número de discos rígidos necessários para armazenar os dados.
 
--   Os diretórios e/ou os arquivos independentes que serão copiados em cada disco rígido.
+- Os diretórios e/ou os arquivos independentes que serão copiados em cada disco rígido.
 
- Verifique se você tem o número de discos rígidos necessários para armazenar os dados que você está transferindo.
+  Verifique se você tem o número de discos rígidos necessários para armazenar os dados que você está transferindo.
 
 ## <a name="copy-data-to-your-hard-drive"></a>Copiar dados para o disco rígido
  Esta seção descreve como chamar a Ferramenta de Importação/Exportação do Azure para copiar seus dados em um ou mais discos rígidos. Sempre que você chama a Ferramenta de Importação/Exportação do Azure, uma nova *sessão de cópia* é criada. Crie pelo menos uma sessão de cópia para cada unidade na qual você copia dados; em alguns casos, talvez seja necessário mais de uma sessão de cópia para copiar todos os dados em uma única unidade. Veja alguns motivos pelos quais talvez você precise de várias sessões de cópia:
@@ -108,7 +108,7 @@ Para preparar um ou mais discos rígidos para um trabalho de importação, execu
 |**/csas:**<ContainerSas\>|`Optional`. O SAS do contêiner a ser usado para importar dados na conta de armazenamento. Você deve incluir **/sk:**<StorageAccountKey\> ou **/csas:**<ContainerSas\> no comando.<br /><br /> O valor desse parâmetro deve começar com o nome do contêiner, seguido por um ponto de interrogação (?) e o token SAS. Por exemplo: <br /><br /> `mycontainer?sv=2014-02-14&sr=c&si=abcde&sig=LiqEmV%2Fs1LF4loC%2FJs9ZM91%2FkqfqHKhnz0JM6bqIqN0%3D&se=2014-11-20T23%3A54%3A14Z&sp=rwdl`<br /><br /> As permissões, especificadas na URL ou em uma política de acesso armazenada, devem incluir Leitura, Gravação e Exclusão para trabalhos de importação, e Leitura, Gravação e Lista para trabalhos de exportação.<br /><br /> Quando este parâmetro for especificado, todos os blobs a serem importados ou exportados deverão estar dentro do contêiner especificado na assinatura de acesso compartilhado.|
 |**/t:**<TargetDriveLetter\>|`Required.` A letra da unidade do disco rígido de destino para a sessão de cópia atual, sem os dois-pontos no final.|
 |**/format**|`Optional.` Especifique esse parâmetro quando for necessário formatar a unidade; caso contrário, omita-o. Antes de a ferramenta formatar a unidade, ela solicitará uma confirmação no console. Para suprimir a confirmação, especifique o parâmetro /silentmode.|
-|**/silentmode**|`Optional.` Especifique esse parâmetro para suprimir a confirmação de formatação da unidade de destino.|
+|**/silentmode**|`Optional.` Especifique esse parâmetro para suprimir a confirmação para formatar a unidade de destino.|
 |**/encrypt**|`Optional.` Especifique esse parâmetro quando a unidade ainda não tiver sido criptografada com o BitLocker e precisar ser criptografada pela ferramenta. Se a unidade já tiver sido criptografada com o BitLocker, omita esse parâmetro e especifique o parâmetro `/bk`, fornecendo a chave do BitLocker existente.<br /><br /> Se você especificar o parâmetro `/format`, também deverá especificar o parâmetro `/encrypt`.|
 |**/bk:**<BitLockerKey\>|`Optional.` Se `/encrypt` for especificado, omita este parâmetro. Se `/encrypt` for omitido, você já precisa ter criptografado a unidade com o BitLocker. Use esse parâmetro para especificar a chave do BitLocker. A criptografia do BitLocker é exigida em todos os discos rígidos para trabalhos de importação.|
 |**/logdir:**<LogDirectory\>|`Optional.` O diretório de log especifica um diretório a ser usado para armazenar logs detalhados, bem como arquivos de manifesto temporários. Se nenhum for especificado, o diretório atual será usado como o diretório de log.|

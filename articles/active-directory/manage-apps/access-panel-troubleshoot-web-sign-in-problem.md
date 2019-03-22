@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.reviwer: japere,asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f10a1f38b2c793bffb6061c6eefdccef7ac5c57b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7f7418c16d5d5312d2a9a7913da49941ef0a7870
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204518"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090450"
 ---
 # <a name="problem-signing-in-to-the-access-panel-website"></a>Problema ao entrar no site do painel de acesso
 
@@ -168,23 +168,23 @@ Para habilitar a redefinição de senha por autoatendimento, siga estas etapas d
 
 Para verificar o status da Autenticação Multifator de um usuário, siga estas etapas:
 
-1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global.**
+1. Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global.**
 
-2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
+2. Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
-3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
+3. Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  Clique em **Usuários e grupos** no menu de navegação.
+4. Clique em **Usuários e grupos** no menu de navegação.
 
-5.  Clique em **Todos os usuários**.
+5. Clique em **Todos os usuários**.
 
-6.  Clique no botão **Autenticação Multifator** na parte inferior do painel.
+6. Clique no botão **Autenticação Multifator** na parte inferior do painel.
 
-7.  Após o carregamento do **Portal de Administração da Autenticação Multifator**, verifique se você está na guia **Usuários**.
+7. Após o carregamento do **Portal de Administração da Autenticação Multifator**, verifique se você está na guia **Usuários**.
 
-8.  Encontre o usuário na lista de usuários pesquisando, filtrando ou classificando.
+8. Encontre o usuário na lista de usuários pesquisando, filtrando ou classificando.
 
-9.  Selecione o usuário na lista de usuários e **Habilite**, **Desabilite** ou **Imponha** a autenticação multifator conforme o desejado.
+9. Selecione o usuário na lista de usuários e **Habilite**, **Desabilite** ou **Imponha** a autenticação multifator conforme o desejado.
 
    >[!NOTE]
    >Se um usuário estiver em um estado **Imposto**, defina-o temporariamente como **Desabilitado** para deixá-lo entrar novamente na conta. Quando ele puder entrar novamente, altere novamente o estado para **Habilitado** para exigir o novo registro de suas informações de contato durante a próxima entrada. Como alternativa, execute as etapas em [Verificar as informações de contato de autenticação do usuário](#check-a-users-authentication-contact-info) para verificar ou definir esses dados para eles.

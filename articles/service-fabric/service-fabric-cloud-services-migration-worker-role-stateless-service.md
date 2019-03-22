@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 4eed3825d52fe52025077980e21f3763cc5751ac
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ms.openlocfilehash: f23f29d15c4c8f05551b20d42b92dda5632cde08
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049942"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078730"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guia de conversão de funções de trabalho e Web em serviços sem estado do Service Fabric
 Este artigo descreve como migrar suas funções de trabalho e Web dos Serviços de Nuvem para serviços sem estado do Service Fabric. Esse é o caminho mais simples de migração dos Serviços de Nuvem para o Service Fabric, no caso de aplicativos cuja arquitetura geral permanecerá basicamente igual.
@@ -44,7 +44,7 @@ Semelhante à função de trabalho, uma função Web também representa uma carg
 | Web Forms do ASP.NET |Não  |Converter em MVC do ASP.NET Core 1 |
 | ASP.NET MVC |Com migração |Atualizar para o ASP.NET Core 1 MVC |
 | ASP.NET Web API |Com migração |Usar o servidor auto-hospedado ou o ASP.NET Core 1 |
-| ASP.NET Core 1 |SIM |N/D |
+| ASP.NET Core 1 |Sim |N/D |
 
 ## <a name="entry-point-api-and-lifecycle"></a>API de ponto de entrada e ciclo de vida
 As APIs de função de trabalho e do Service Fabric oferecem pontos de entrada semelhantes: 
@@ -110,8 +110,8 @@ Ambos têm uma substituição de "Executar" principal para começar o processame
 
 Há várias diferenças importantes entre o ciclo de vida e a vida útil das funções de trabalho e do Service Fabric:
 
-* **Ciclo de vida:** a maior diferença é que uma função de trabalho é uma máquina virtual e, portanto, o ciclo de vida está ligado à VM, o que inclui eventos quando a VM inicia e para. Um serviço do Service Fabric tem um ciclo de vida que é separado do ciclo de vida da VM; portanto, ele não inclui eventos quando a VM ou computador host inicia e para, pois eles não estão relacionados.
-* **Tempo de vida:** uma instância de função de trabalho será reciclada se o método `Run` sair. O método `RunAsync` em um serviço do Service Fabric, no entanto, pode executar até a conclusão, e a instância do serviço permanecerá ativa. 
+* **Ciclo de vida:** A maior diferença é que uma função de trabalho é uma VM e então, seu ciclo de vida está ligado à VM, que inclui eventos quando a VM inicia e para. Um serviço do Service Fabric tem um ciclo de vida que é separado do ciclo de vida da VM; portanto, ele não inclui eventos quando a VM ou computador host inicia e para, pois eles não estão relacionados.
+* **Tempo de vida:** Uma instância de função de trabalho será reciclada se o `Run` sai do método. O método `RunAsync` em um serviço do Service Fabric, no entanto, pode executar até a conclusão, e a instância do serviço permanecerá ativa. 
 
 O Service Fabric fornece um ponto de entrada de configuração opcional de comunicação para serviços que escutam solicitações de cliente. O RunAsync e o ponto de entrada de comunicação são substituições opcionais nos serviços do Service Fabric. Seu serviço pode optar por escutar somente as solicitações do cliente ou somente executar um loop de processamento, ou ambos, motivo pelo qual o método RunAsync pode sair sem reiniciar a instância do serviço, pois ele pode continuar a escutar solicitações de cliente.
 
@@ -209,7 +209,7 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
 As tarefas de inicialização são ações executadas antes de um aplicativo ser iniciado. Uma tarefa de inicialização normalmente é usada para executar scripts de instalação usando privilégios elevados. Os Serviços de Nuvem e o Service Fabric dão suporte a tarefas de inicialização. A principal diferença é que nos Serviços de Nuvem, uma tarefa de inicialização está vinculada a uma VM porque faz parte de uma instância de função, enquanto que no Service Fabric uma tarefa de inicialização está associada a um serviço, que não está vinculado a nenhuma máquina virtual específica.
 
 | Service Fabric | Serviços de Nuvem |
-| --- | --- | --- |
+| --- | --- |
 | Configuração local |ServiceDefinition.csdef |
 | Privilégios |"limitados" ou "elevados" |
 | Sequenciamento |"simples", "em segundo plano", "primeiro plano" |

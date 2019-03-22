@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: apimpm
-ms.openlocfilehash: f613995dbdd787d0a031cb2c24d67c682b2d7cec
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
-ms.translationtype: HT
+ms.openlocfilehash: a771b437258046f937b97a9e37ffedbe0a17c1c1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446358"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079775"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurar um nome de domínio personalizado 
 
@@ -42,22 +42,26 @@ Para executar as etapas descritas neste artigo, você precisa ter:
 ## <a name="use-the-azure-portal-to-set-a-custom-domain-name"></a>Usar o portal do Azure para definir um nome de domínio personalizado
 
 1. Navegue para sua instância do APIM no [Portal do Azure](https://portal.azure.com/).
-2. Clique em **Domínios personalizados e SSL**.
+1. Clique em **Domínios personalizados e SSL**.
     
-    Há vários pontos de extremidade aos quais você pode atribuir um nome de domínio personalizado. No momento, os seguintes pontos de extremidade estão disponíveis: 
-    + **Proxy** (o padrão é: `<apim-service-name>.azure-api.net`), 
-    + **Portal** (o padrão é: `<apim-service-name>.portal.azure-api.net`),     
-    + **Gerenciamento** (o padrão é: `<apim-service-name>.management.azure-api.net`), 
-    + **SCM** (o padrão é: `<apim-service-name>.scm.azure-api.net`).
+    Há vários pontos de extremidade ao qual você pode atribuir um nome de domínio personalizado. No momento, os seguintes pontos de extremidade estão disponíveis: 
+   + **Proxy** (o padrão é: `<apim-service-name>.azure-api.net`), 
+   + **Portal** (o padrão é: `<apim-service-name>.portal.azure-api.net`),     
+   + **Gerenciamento** (o padrão é: `<apim-service-name>.management.azure-api.net`), 
+   + **SCM** (o padrão é: `<apim-service-name>.scm.azure-api.net`).
 
-    >[!NOTE]
-    > Você pode atualizar todos os pontos de extremidade ou alguns deles. Normalmente, os clientes atualizam **Proxy** (essa URL é usada para chamar a API exposta por meio do Gerenciamento de API) e **Portal** (URL do portal do desenvolvedor). Os pontos de extremidade **Gerenciamento** e **SCM** são usados internamente pelos clientes do APIM e, portanto, recebem com menos frequência um nome de domínio personalizado.
-3. Selecione o ponto de extremidade que você deseja atualizar. 
-4. Na janela à direita, clique em **Personalizado**.
+     >[!NOTE]
+     > Você pode atualizar todos os pontos de extremidade ou alguns deles. Normalmente, os clientes atualizam **Proxy** (essa URL é usada para chamar a API exposta por meio do Gerenciamento de API) e **Portal** (URL do portal do desenvolvedor). Os pontos de extremidade **Gerenciamento** e **SCM** são usados internamente pelos clientes do APIM e, portanto, recebem com menos frequência um nome de domínio personalizado.
 
-    + Em **Nome de domínio personalizado**, especifique o nome que você deseja usar. Por exemplo, `api.contoso.com`. <br/>Nomes de domínio curinga (por exemplo, *.domain.com) também têm suporte.
-    + No **Certificado**, especifique um arquivo .PFX válido que você deseje carregar. 
-    + Se o certificado tiver uma senha, insira-a no campo **Senha**.
+1. Selecione o ponto de extremidade que você deseja atualizar. 
+1. Na janela à direita, clique em **Personalizado**.
+
+   + Em **Nome de domínio personalizado**, especifique o nome que você deseja usar. Por exemplo, `api.contoso.com`. Nomes de domínio curinga (por exemplo, *.domain.com) também têm suporte.
+   + No **certificado**, selecione um certificado do Cofre de chaves. Você também pode carregar um válido. PFX do arquivo e forneça sua **senha**, se o certificado é protegido com uma senha.
+
+     > [!TIP]
+     > Se você usar o Azure Key Vault para gerenciar o certificado SSL de domínio personalizado, verifique se o certificado é inserido no cofre de chaves [como um *certificado*](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate), e não um *segredo*. Se o certificado for definido como autorotate, gerenciamento de API selecionará a versão mais recente automaticamente.
+
 1. Clique em Aplicar.
 
     >[!NOTE]

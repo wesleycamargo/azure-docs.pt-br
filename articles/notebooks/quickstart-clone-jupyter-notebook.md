@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: d7122b78-6daa-4bea-883b-ff832cfecef3
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 6f36879828f5927cbb5477b32cdb6b4832010d4c
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
-ms.translationtype: HT
+ms.openlocfilehash: cfce5765cda1e3a1dfb7eb073719191b13b0696e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413125"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089192"
 ---
 # <a name="quickstart-clone-a-notebook"></a>Início Rápido: Clonar um notebook
 
@@ -28,7 +28,7 @@ A clonagem cria uma cópia de um notebook do GitHub em sua conta do Azure Notebo
 
 ## <a name="clone-azure-cognitive-services-notebooks"></a>Clonar notebooks dos Serviços Cognitivos do Azure
 
-1. Acesse [Azure Notebooks](https://notebooks.azure.com) e entre nele. (Para obter detalhes, confira [Início Rápido – Entrar no Azure Notebooks](quickstart-sign-in-azure-notebooks.md)).
+1. Acesse [Azure Notebooks](https://notebooks.azure.com) e entre nele. (Para obter mais detalhes, consulte [Início Rápido – Entrar no Azure Notebooks](quickstart-sign-in-azure-notebooks.md)).
 
 1. Em sua página de perfil público, selecione **Meus Projetos** na parte superior da página:
 
@@ -40,13 +40,13 @@ A clonagem cria uma cópia de um notebook do GitHub em sua conta do Azure Notebo
 
 1. No comando **Carregar Repositório GitHub** exibido, insira ou defina os seguintes detalhes e selecione **Importar**:
 
-    - **Repositório GitHub**: Microsoft/cognitive-services-notebooks (esse nome clona os Jupyter notebooks para os Serviços Cognitivos do Azure em [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks)).
-    - **Clonar recursivamente**: (desmarcado)
-    - **Nome do projeto**: Clone dos Serviços Cognitivos
-    - **ID do Projeto**: cognitive-services-clone
-    - **Público**: (desmarcado)
+   - **Repositório GitHub**: Microsoft/cognitive-services-notebooks (esse nome clona os Jupyter notebooks para os Serviços Cognitivos do Azure em [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks)).
+   - **Clonar recursivamente**: (desmarcado)
+   - **Nome do projeto**: Clone dos Serviços Cognitivos
+   - **ID do Projeto**: cognitive-services-clone
+   - **Público**: (desmarcado)
 
-    ![Pop-up de Carregar Repositório GitHub para coletar informações sobre o repositório](media/quickstarts/upload-github-repo-popup.png)
+     ![Pop-up de Carregar Repositório GitHub para coletar informações sobre o repositório](media/quickstarts/upload-github-repo-popup.png)
 
 1. Seja paciente enquanto o processo for concluído; a clonagem de um repositório pode levar alguns minutos.
 
@@ -77,4 +77,4 @@ A clonagem cria uma cópia de um notebook do GitHub em sua conta do Azure Notebo
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Tutorial: criar e executar um Jupyter notebook para fazer uma regressão linear](tutorial-create-run-jupyter-notebook.md)
+> [Tutorial: criar e executar um Jupyter Notebook para fazer uma regressão linear](tutorial-create-run-jupyter-notebook.md)

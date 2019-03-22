@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: aaec8fd245c507e83967aa76f3e2f9d72b052cb1
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: d4d837bb49e4ce80340d59f8a01334f3c80ff413
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849729"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435517"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Aplicativo multicamadas .NET usando filas do Barramento de Serviço do Azure
 
@@ -33,7 +33,7 @@ Você aprenderá o seguinte:
 
 Neste tutorial você compilará e executará o aplicativo de multicamadas em um serviço de nuvem do Microsoft Azure. O front-end é uma função Web MVC do ASP.NET e o back-end é uma função de trabalho que usa uma fila do Barramento de Serviço. Você pode criar o mesmo aplicativo multicamadas com o front-end que o de um projeto Web, que é implantado em um site do Azure em vez de em um serviço de nuvem. Você também pode experimentar o tutorial [Aplicativo .NET híbrido local/na nuvem](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md).
 
-A captura de tela a seguir mostra o aplicativo concluído.
+Captura de tela a seguir mostra o aplicativo concluído.
 
 ![][0]
 

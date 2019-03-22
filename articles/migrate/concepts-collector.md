@@ -4,15 +4,15 @@ description: Fornece informações sobre o dispositivo Coletor nas Migrações p
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 02/04/2019
+ms.date: 03/04/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 0568df92db2114c57a0aa027ade369e4b256af84
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 228d7b6994c67f9e14424624d264061634d80f27
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813323"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080058"
 ---
 # <a name="about-the-collector-appliance"></a>Sobre o dispositivo Coletor
 
@@ -85,22 +85,22 @@ O Coletor precisa passar por algumas verificações de pré-requisitos para conf
 - O endereço IP/FQDN do servidor proxy deve ser especificado como *http://IPaddress* ou *http://FQDN*.
 - Há suporte apenas para o proxy HTTP. Os servidores proxy baseados em HTTPS não têm suporte do Coletor.
 - Se o servidor proxy for um proxy de interceptação, importe o certificado de proxy para a VM do Coletor.
-    1. Na VM do coletor, acesse **Menu Iniciar** > **Gerenciar certificados do computador**.
-    2. Na ferramenta Certificados, em **Certificados – Computador Local**, localize **Editores Confiáveis** > **Certificados**.
+  1. Na VM do coletor, acesse **Menu Iniciar** > **Gerenciar certificados do computador**.
+  2. Na ferramenta Certificados, em **Certificados – Computador Local**, localize **Editores Confiáveis** > **Certificados**.
 
-        ![Ferramenta de Certificados](./media/concepts-intercepting-proxy/certificates-tool.png)
+      ![Ferramenta de Certificados](./media/concepts-intercepting-proxy/certificates-tool.png)
 
-    3. Copie o certificado de proxy para a VM do Coletor. Você precisará obtê-lo do seu administrador de rede.
-    4. Clique duas vezes para abrir o certificado e, em seguida, clique em **Instalar Certificado**.
-    5. No Assistente para Importação de Certificados > Localização do Repositório, escolha **Computador Local**.
+  3. Copie o certificado de proxy para a VM do Coletor. Você precisará obtê-lo do seu administrador de rede.
+  4. Clique duas vezes para abrir o certificado e, em seguida, clique em **Instalar Certificado**.
+  5. No Assistente para Importação de Certificados > Localização do Repositório, escolha **Computador Local**.
 
-    ![Local do repositório de certificados](./media/concepts-intercepting-proxy/certificate-store-location.png)
+     ![Local do repositório de certificados](./media/concepts-intercepting-proxy/certificate-store-location.png)
 
-    6. Selecione **Colocar todos os certificados no repositório a seguir** > **Procurar** > **Editores Confiáveis**. Clique em **Concluir** para importar o certificado.
+  6. Selecione **Colocar todos os certificados no repositório a seguir** > **Procurar** > **Editores Confiáveis**. Clique em **Concluir** para importar o certificado.
 
-    ![Repositório de certificados](./media/concepts-intercepting-proxy/certificate-store.png)
+     ![Repositório de certificados](./media/concepts-intercepting-proxy/certificate-store.png)
 
-    7. Verifique se o certificado foi importado conforme o esperado e se a verificação de pré-requisitos de conectividade com a Internet funciona conforme o esperado.
+  7. Verifique se o certificado foi importado conforme o esperado e se a verificação de pré-requisitos de conectividade com a Internet funciona conforme o esperado.
 
 
 ### <a name="urls-for-connectivity"></a>URLs para conectividade
@@ -111,7 +111,7 @@ A verificação de conectividade é validada conectando-se a uma lista de URLs.
 --- | --- | ---
 *. portal.azure.com | Aplicável para o Azure Global. Verifica a conectividade com o serviço do Azure e sincronização de horário. | Acesso à URL necessário.<br/><br/> A verificação de pré-requisitos falhará se não houver nenhuma conectividade.
 *.portal.azure.us | Aplicável somente ao Microsoft Azure Governamental. Verifica a conectividade com o serviço do Azure e sincronização de horário. | Acesso à URL necessário.<br/><br/> A verificação de pré-requisitos falhará se não houver nenhuma conectividade.
-*.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| Usado para baixar o módulo do PowerShell vCenter PowerCLI. | Acesso a URLs opcionais.<br/><br/> A verificação de pré-requisitos não falhará.<br/><br/> A instalação automática do módulo na VM do Coletor falhará. Você precisará instalar o módulo manualmente.
+*.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| Usado para baixar o módulo do PowerShell vCenter PowerCLI. | Acesso a URLs é necessário.<br/><br/> A verificação de pré-requisitos não falhará.<br/><br/> A instalação automática do módulo na VM do Coletor falhará. Você precisará instalar o módulo manualmente em uma máquina que tenha conectividade com a internet e, em seguida, copie os módulos para o dispositivo. [Saiba mais, vá para a etapa 4 deste guia de solução de problemas](https://docs.microsoft.com/azure/migrate/troubleshooting-general#error-unhandledexception-internal-error-occurred-systemiofilenotfoundexception).
 
 
 ### <a name="install-vmware-powercli-module-manually"></a>Instalar manualmente o módulo VMware PowerCLI

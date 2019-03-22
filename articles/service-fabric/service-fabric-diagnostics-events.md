@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 936a47593b9db6e4989c30b2df37dfd82c286c59
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
-ms.translationtype: HT
+ms.openlocfilehash: c4ce8e01b1dc819453610f68d044cc268e27eed7
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52290511"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242744"
 ---
 # <a name="service-fabric-events"></a>Eventos do Service Fabric 
 
@@ -40,12 +40,12 @@ Aqui estão alguns exemplos de cenários para os quais você deve ver eventos em
 * Exclusão do Aplicativo/Implantação de serviço: não há eventos para cada aplicativo, serviço e contêiner, sendo criado ou excluído e útil ao escalar dentro ou fora, por exemplo, aumentar o número de réplicas
 * Movimentos de partição (reconfiguração): sempre que uma partição com estado passa por uma reconfiguração (uma alteração no conjunto de réplicas), um evento é registrado. Isso é útil se você estiver tentando entender com que frequência seu conjunto de réplicas de partição está sendo alterado ou fazer failover, ou rastrear qual nó estava executando sua réplica primária a qualquer ponto no tempo.
 * Eventos de caos: ao usar o serviço [Caos](service-fabric-controlled-chaos.md) do Service Fabric, você verá eventos toda vez que o serviço for iniciado ou interrompido, ou quando ele injetar uma falha no sistema.
-* Eventos de integridade: o Service Fabric expõe eventos de integridade sempre que um aviso ou um relatório de integridade de erro é criado, ou uma entidade volta para um estado de integridade OK ou um relatório de integridade expira. Esses eventos são muito úteis para rastrear as estatísticas de integridade históricas para uma entidade. 
+* Eventos de integridade: O Service Fabric expõe eventos de integridade sempre que um aviso ou um relatório de integridade de erro é criado, ou uma entidade volta para um estado de integridade Okey ou um relatório de integridade expire. Esses eventos são muito úteis para rastrear as estatísticas de integridade históricas para uma entidade. 
 
 ## <a name="how-to-access-events"></a>Como acessar os eventos
 
 Há algumas maneiras diferentes pelas quais os eventos do Service Fabric podem ser acessados:
-* Os eventos são registrados por meio de canais padrão como logs de eventos ETW/Windows e podem ser visualizados por qualquer ferramenta de monitoramento que dá suporte a estes como Log Analytics. Por padrão, os clusters criados no portal do têm o diagnóstico ativado e tem o agente de diagnóstico do Windows Azure enviando eventos no armazenamento de tabelas do Azure, mas você ainda precisará integrá-lo a recurso do Log Analytics. Leia mais sobre como configurar o [agente do Diagnóstico do Azure](service-fabric-diagnostics-event-aggregation-wad.md) para modificar a configuração de diagnóstico do cluster, a fim de obter mais logs ou contadores de desempenho e a integração do [Log Analytics](service-fabric-diagnostics-event-analysis-oms.md)
+* Os eventos são registrados por meio de canais padrão como logs de eventos ETW/Windows e podem ser visualizados por qualquer ferramenta de monitoramento que dá suporte a estes como logs do Azure Monitor. Por padrão, clusters criados no portal do têm o diagnóstico ativado e tem o agente de diagnóstico do Windows Azure enviando eventos no armazenamento de tabelas do Azure, mas você ainda precisará integrá-lo a recurso do log analytics. Leia mais sobre como configurar o [agente de diagnóstico do Azure](service-fabric-diagnostics-event-aggregation-wad.md) para modificar a configuração de diagnóstico do cluster para pegar mais logs ou contadores de desempenho e a [integração de logs do Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md)
 * APIs de Rest do serviço EventStore que permitem que você consulte o cluster diretamente ou por meio da biblioteca de clientes do Service Fabric. Consulte [Consultar APIs do EventStore para eventos de cluster](service-fabric-diagnostics-eventstore-query.md).
 
 ## <a name="next-steps"></a>Próximas etapas
