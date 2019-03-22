@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: a896c949e1f05a5d9ee179fa475150ad8da34283
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: 8fd737bb784938f7cbff243837678f41d5ac55c9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792774"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076795"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Use o Apache Spark History Server estendido para depurar e diagnosticar aplicativos do Apache Spark
 
@@ -106,11 +106,11 @@ Selecione o ID do trabalho e clique em **dados** no menu de ferramenta para obte
 
 + Reproduzir o trabalho clicando no botão **reprodução** e parar a qualquer momento clicando no botão Parar. A exibição de tarefas na cor para mostrar o status diferentes quando a reprodução:
 
-    + Verde para bem-sucedido: O trabalho foi concluído com sucesso.
-    + Laranja para repetida: Instâncias de tarefas que falharam, mas não afetam o resultado final do trabalho. Essas tarefas tinham duplicar ou repita instâncias que podem ter êxito posteriormente.
-    + Azul para execução: A tarefa está em execução.
-    + Branco para aguardando ou ignorado: A tarefa está aguardando para ser executada ou o estágio foi ignorado.
-    + Vermelho para falha: Falha da tarefa.
+  + Verde para bem-sucedido: O trabalho foi concluído com sucesso.
+  + Laranja para repetida: Instâncias de tarefas que falharam, mas não afetam o resultado final do trabalho. Essas tarefas tinham duplicar ou repita instâncias que podem ter êxito posteriormente.
+  + Azul para execução: A tarefa está em execução.
+  + Branco para aguardando ou ignorado: A tarefa está aguardando para ser executada ou o estágio foi ignorado.
+  + Vermelho para falha: Falha da tarefa.
 
     ![amostra de cor do gráfico, em execução](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
  
@@ -132,20 +132,20 @@ Selecione o ID do trabalho e clique em **dados** no menu de ferramenta para obte
     ![Dica de ferramenta do gráfico](./media/apache-azure-spark-history-server/sparkui-graph-tooltip.png)
 
 + Na guia de gráfico de trabalho, estágios terão dicas de ferramenta e um ícone pequeno exibidos se tiverem tarefas que atendam às condições abaixo:
-    + Distorção de dados: tamanho de dados lidos > tamanho médio de dados lidos de todas as tarefas dentro deste estágio * 2 e tamanho de dados lidos > 10 MB.
-    + Distorção de tempo: tempo de execução > tempo médio de execução de todas as tarefas dentro deste estágio * 2 e tempo de execução > 2 min.
+  + Distorção de dados: tamanho de dados lidos > tamanho médio de dados lidos de todas as tarefas dentro deste estágio * 2 e tamanho de dados lidos > 10 MB.
+  + Distorção de tempo: tempo de execução > tempo médio de execução de todas as tarefas dentro deste estágio * 2 e tempo de execução > 2 min.
 
     ![ícone de distorção do gráfico](./media/apache-azure-spark-history-server/sparkui-graph-skew-icon.png)
 
 + O nó de gráfico do trabalho exibirá as informações a seguir de cada estágio:
-    + ID.
-    + Nome ou descrição.
-    + Número total de tarefas.
-    + Dados lidos: tamanho de leitura a soma do tamanho de entrada e em ordem aleatória.
-    + Gravação de dados: a soma do tamanho de saída e em ordem aleatória de tamanho de gravação.
-    + Tempo de execução: o tempo entre a hora de início da primeira tentativa e tempo de conclusão da última tentativa.
-    + Contagem de linhas: a soma dos registros de entrada, registros de saída, em ordem aleatória de registros de leitura e gravação registros em ordem aleatória.
-    + Progresso.
+  + ID.
+  + Nome ou descrição.
+  + Número total de tarefas.
+  + Dados lidos: tamanho de leitura a soma do tamanho de entrada e em ordem aleatória.
+  + Gravação de dados: a soma do tamanho de saída e em ordem aleatória de tamanho de gravação.
+  + Tempo de execução: o tempo entre a hora de início da primeira tentativa e tempo de conclusão da última tentativa.
+  + Contagem de linhas: a soma dos registros de entrada, registros de saída, em ordem aleatória de registros de leitura e gravação registros em ordem aleatória.
+  + Progresso.
 
     > [!NOTE]  
     > Por padrão, o nó de gráfico do trabalho exibirá informações da última tentativa de cada estágio (com exceção de tempo de execução do estágio), mas durante o gráfico de reprodução de nó mostrará informações de cada tentativa.
@@ -312,10 +312,10 @@ Se você quiser atualizar com o hotfix, use o script a seguir, que atualizará e
     https://hdinsighttoolingstorage.blob.core.windows.net/shsscriptactions/upgrade_spark_enhancement.sh
    ```
 
-    + Verificar **Cabeçalho** e **trabalho**.
-    + **Parâmetros**: definir o parâmetros seguem o uso do bash.
+   + Verificar **Cabeçalho** e **trabalho**.
+   + **Parâmetros**: definir o parâmetros seguem o uso do bash.
 
-    ![carregar log ou atualização hotfix](./media/apache-azure-spark-history-server/sparkui-upload2.png)
+     ![carregar log ou atualização hotfix](./media/apache-azure-spark-history-server/sparkui-upload2.png)
 
 
 ## <a name="known-issues"></a>Problemas conhecidos

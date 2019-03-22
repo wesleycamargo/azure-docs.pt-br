@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 335590cc616035020f66cfc5208e21d4c5128fe6
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: ad0e6eaae5c0fad74ea484827e0f8d535cfbf579
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48805184"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884652"
 ---
 <a name="store-your-appsource-package-to-azure-storage-and-generate-a-url-with-sas-key"></a>Armazenar o pacote do AppSource no armazenamento do Azure e gerar uma URL com chave SAS
 =============================================================================
@@ -28,39 +28,39 @@ Para manter a segurança dos arquivos, todos os parceiros devem armazenar o arqu
 
 Use as etapas a seguir para carregar o pacote no armazenamento de blobs:
 
-1.  Vá para <http://azure.microsoft.com> e crie uma conta de avaliação gratuita ou cobrada.
+1. Vá para <https://azure.microsoft.com> e crie uma conta de avaliação gratuita ou cobrada.
 
-2.  Entre no [Portal do Azure](http://portal.azure.com/).
+2. Entre no [Portal do Azure](https://portal.azure.com/).
 
-3.  Crie uma nova conta de armazenamento, clicando em **+ Novo** e indo para a conta **Dados + Armazenamento**.
+3. Crie uma nova conta de armazenamento, clicando em **+ Novo** e indo para a conta **Dados + Armazenamento**.
 
-  ![Folha Dados + Armazenamento no portal do Microsoft Azure](media/CRMScreenShot7.png)
+   ![Folha Dados + Armazenamento no portal do Microsoft Azure](media/CRMScreenShot7.png)
 
 4. Insira um **Nome** e o nome do **Grupo de Recursos** e clique no botão **Criar**.
 
-  ![Criar uma conta de armazenamento no portal do Microsoft Azure](media/CRMScreenShot8.png)
+   ![Criar uma conta de armazenamento no portal do Microsoft Azure](media/CRMScreenShot8.png)
 
 5. Navegue até o grupo de recursos criado recentemente e crie um novo contêiner de blob.
 
-  ![Carregar pacote como blob usando o portal do Microsoft Azure](media/CRMScreenShot9.png)
+   ![Carregar pacote como blob usando o portal do Microsoft Azure](media/CRMScreenShot9.png)
 
-6.  Se você ainda não fez isso, baixe e instale o [Gerenciador de Armazenamento do Microsoft Azure](http://storageexplorer.com/).
+6. Se você ainda não fez isso, baixe e instale o [Gerenciador de Armazenamento do Microsoft Azure](https://storageexplorer.com/).
 
-7.  Abra o Gerenciador de Armazenamento e use o ícone para conectar-se à conta de armazenamento do Azure.
+7. Abra o Gerenciador de Armazenamento e use o ícone para conectar-se à conta de armazenamento do Azure.
 
-8.  Navegue até o contêiner de blob que você criou e clique em **Upload** para adicionar o arquivo zip do pacote.
+8. Navegue até o contêiner de blob que você criou e clique em **Upload** para adicionar o arquivo zip do pacote.
 
-  ![Carregar o pacote usando o Gerenciador de Armazenamento do Microsoft Azure](media/CRMScreenShot10.png)
+   ![Carregar o pacote usando o Gerenciador de Armazenamento do Microsoft Azure](media/CRMScreenShot10.png)
 
-9.  Clique com o botão direito do mouse no seu arquivo e selecione **Obter assinatura de acesso compartilhado**.
+9. Clique com o botão direito do mouse no seu arquivo e selecione **Obter assinatura de acesso compartilhado**.
 
-  ![Obter assinatura de acesso compartilhado de um arquivo do Azure](media/CRMScreenShot11.png)
+   ![Obter assinatura de acesso compartilhado de um arquivo do Azure](media/CRMScreenShot11.png)
 
-10.  Modifique o **Tempo de Expiração** para ativar a SAS por um mês e clique em **Criar**.
+10. Modifique o **Tempo de Expiração** para ativar a SAS por um mês e clique em **Criar**.
 
-  ![Modificar a data de expiração de SAS de um arquivo do Azure](media/CRMScreenShot12.png)
+    ![Modificar a data de expiração de SAS de um arquivo do Azure](media/CRMScreenShot12.png)
 
-11.  Copie o campo da URL e salve-o para mais tarde. Essa URL será necessária quando você criar a oferta associada. 
+11. Copie o campo da URL e salve-o para mais tarde. Essa URL será necessária quando você criar a oferta associada. 
 
-  ![Copia a URL de SAS de um arquivo do Azure](media/CRMScreenShot13.png)
+    ![Copia a URL de SAS de um arquivo do Azure](media/CRMScreenShot13.png)
 

@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 16e135c1-a00a-4c6f-9302-6651a090571a
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: ea781b5dbbf09c0a21fbcf781ae129295d02dbad
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ms.openlocfilehash: 55d75bb0bae4bf3feb370b7fdf4d80dc43bdc0ca
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054784"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56736882"
 ---
 # <a name="configuring-cluster-resource-manager-settings-for-service-fabric-services"></a>Configurando as definições do gerenciador de recursos de cluster para serviços do Service Fabric
 O Gerenciador de Recursos de Cluster do Service Fabric permite obter um controle bastante refinado sobre as regras que regem cada serviço nomeado individual. Cada serviço nomeado pode especificar regras de como deve ser alocado no cluster. Cada serviço nomeado também pode definir o conjunto de métricas que ele deseja para relatório, incluindo importantes como eles são a esse serviço. A configuração de serviços é dividida em três tarefas diferentes:

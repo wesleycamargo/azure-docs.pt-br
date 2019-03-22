@@ -3,7 +3,7 @@ title: Visão Geral do Service Fabric e contêineres | Microsoft Docs
 description: Uma visão geral do Service Fabric e o uso de contêineres para implantar aplicativos de microsserviço. Este artigo fornece uma visão geral de como os contêineres podem ser usados e dos recursos disponíveis no Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: c98b3fcb-c992-4dd9-b67d-2598a9bf8aab
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/8/2018
-ms.author: twhitney, msfussell
-ms.openlocfilehash: 0acbd2d4ccf35c9490a06228eeb1bb465a8ca732
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
-ms.translationtype: HT
+ms.author: aljo, msfussell
+ms.openlocfilehash: 5344f34e0e35d4d47b032b660726a4d70a4f1987
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299967"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807007"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric e contêineres
 
@@ -35,8 +35,8 @@ Por padrão, o Service Fabric implanta e ativa esses serviços como processos. P
 
 Para ir diretamente e experimentar os contêineres no Service Fabric, experimente um início rápido, tutorial ou exemplo:  
 
-[Início Rápido: implantar um aplicativo do contêiner do Linux ao Service Fabric](service-fabric-quickstart-containers-linux.md)  
-[Início Rápido: implantar um aplicativo do contêiner do Windows ao Service Fabric](service-fabric-quickstart-containers.md)  
+[Início Rápido: Implantar um aplicativo de contêiner do Linux para o Service Fabric](service-fabric-quickstart-containers-linux.md)  
+[Início Rápido: Implantar um aplicativo de contêiner do Windows para o Service Fabric](service-fabric-quickstart-containers.md)  
 [Colocar um aplicativo .NET existente em um contêiner](service-fabric-host-app-in-a-container.md)  
 [Exemplos de Contêiner do Service Fabric](https://azure.microsoft.com/resources/samples/service-fabric-containers/)  
 
@@ -48,10 +48,10 @@ Os contêineres são executados sobre o kernel e têm uma exibição isolada do 
 
 Em comparação a máquinas virtuais, contêineres têm as seguintes vantagens:
 
-* **Pequeno**: os contêineres usam um único espaço de armazenamento e versões e atualizações em camadas para aumentar a eficiência.
-* **Rápido**: os contêineres não precisam inicializar um sistema operacional inteiro, por isso podem começar com muito mais rapidez, normalmente em questão de segundos.
-* **Portabilidade**: uma imagem de aplicativo em contêiner pode ser portada para execução na nuvem, local, dentro de máquinas virtuais ou diretamente em computadores físicos.
-* **Governança de recursos**: um contêiner pode limitar os recursos físicos que ele pode consumir em seu host.
+* **Pequeno**: Contêineres usam um único espaço de armazenamento e as versões de camada e as atualizações para aumentar a eficiência.
+* **Fast**: Contêineres não precisam inicializar um sistema operacional inteiro, para que possam começar muito mais rapidamente, normalmente em segundos.
+* **Portabilidade**: Uma imagem de aplicativo em contêineres pode ser portada para execução na nuvem, no local, dentro das máquinas virtuais ou diretamente em computadores físicos.
+* **Governança de recursos**: Um contêiner pode limitar os recursos físicos que ele pode consumir em seu host.
 
 ### <a name="container-types-and-supported-environments"></a>Tipos de contêineres e ambientes com suporte
 
@@ -76,11 +76,11 @@ A figura a seguir mostra os diferentes tipos de níveis de isolamento e virtuali
 
 Estes são exemplos típicos em que um contêiner é uma boa opção:
 
-* **Comparar e deslocar IIS**: você pode colocar um aplicativo [ASP.NET MVC](https://www.asp.net/mvc) existente em um contêiner em vez de migrar para ASP.NET Core. Esses aplicativos ASP.NET MVC dependem do IIS (Serviços de Informações da Internet). Você pode empacotar esses aplicativos em imagens de contêiner a partir da imagem do IIS pré-criada e implantá-los com o Service Fabric. Consulte [Container Images on Windows Server](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server) (Imagens de contêiner no Windows Server) para obter informações sobre contêineres do Windows.
+* **Comparar e deslocar IIS**: Você pode colocar um existente [ASP.NET MVC](https://www.asp.net/mvc) aplicativo em um contêiner em vez de migrar para ASP.NET Core. Esses aplicativos ASP.NET MVC dependem do IIS (Serviços de Informações da Internet). Você pode empacotar esses aplicativos em imagens de contêiner a partir da imagem do IIS pré-criada e implantá-los com o Service Fabric. Consulte [Container Images on Windows Server](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server) (Imagens de contêiner no Windows Server) para obter informações sobre contêineres do Windows.
 
-* **Combinar contêineres e microsserviços do Service Fabric**: use uma imagem existente do contêiner para parte do seu aplicativo. Por exemplo, é possível usar o [contêiner NGINX](https://hub.docker.com/_/nginx/) para o front-end da Web do seu aplicativo e serviços com estado para obter a computação mais intensiva de back-end.
+* **Misturar contêineres e microsserviços do Service Fabric**: Use uma imagem de contêiner existente para parte de seu aplicativo. Por exemplo, é possível usar o [contêiner NGINX](https://hub.docker.com/_/nginx/) para o front-end da Web do seu aplicativo e serviços com estado para obter a computação mais intensiva de back-end.
 
-* **Reduzir o impacto de serviços "vizinhos ruidosos"**: você pode usar a capacidade de governança de recursos de contêineres para restringir os recursos que um serviço usa em um host. Se os serviços consumirem muitos recursos e afetarem o desempenho dos outros (como uma operação demorada, parecida com uma consulta), considere colocar esses serviços em contêineres com governança de recursos.
+* **Reduzir o impacto de serviços "vizinhos ruidosos"**: Você pode usar a capacidade de governança de recursos de contêineres para restringir os recursos que usa um serviço em um host. Se os serviços consumirem muitos recursos e afetarem o desempenho dos outros (como uma operação demorada, parecida com uma consulta), considere colocar esses serviços em contêineres com governança de recursos.
 
 ## <a name="service-fabric-support-for-containers"></a>Suporte ao Service Fabric para contêineres
 

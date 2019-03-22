@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/17/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5431372abb9a1157b322a8af4a07ba5fa15d8e8e
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: b207d9e3123245e5cb7dddb625f7488886591ae5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720451"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089855"
 ---
 # <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>Configurando um nome de domínio personalizado para um aplicativo Web no Serviço de Aplicativo do Azure usando o Gerenciador de Tráfego
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
@@ -56,11 +56,9 @@ Para associar seu domínio personalizado a um aplicativo Web no Serviço de Apli
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records-no-h.md)]
 
 Embora as especificidades de cada provedor de registros variem, você mapeia *de* seu nome de domínio personalizado (como **contoso.com**,) *para* o nome de domínio do Gerenciador de Tráfego (**contoso.trafficmanager.net**) que é integrado em seu aplicativo web.
-   
+
 > [!NOTE]
-> Se um registro já está em uso e você precisa associar preventivamente seus aplicativos a ele, pode criar um registro CNAME adicional. Por exemplo, para associar preventivamente **www.contoso.com** a seu aplicativo Web, crie um registro CNAME de **awverify.www** para **contoso.trafficmanager.net**. Você pode adicionar "www.contoso.com" ao seu aplicativo Web sem alterar o registro CNAME "www". Para saber mais, confira [Criar registros DNS para um aplicativo Web em um domínio personalizado][CREATEDNS].
-> 
-> 
+> Se um registro já está em uso e você precisa associar preventivamente seus aplicativos a ele, pode criar um registro CNAME adicional. Por exemplo, para associar preventivamente **www\.contoso.com** ao seu aplicativo web, crie um registro CNAME de **awverify** para **contoso.trafficmanager.net**. Você pode adicionar "www\.contoso.com" para seu aplicativo Web sem alterar o registro CNAME "www". Para saber mais, confira [Criar registros DNS para um aplicativo Web em um domínio personalizado][CREATEDNS].
 
 Depois de terminar a adição ou a modificação de registros DNS no provedor de domínios, salve as alterações.
 

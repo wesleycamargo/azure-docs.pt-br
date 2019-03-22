@@ -9,43 +9,29 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 03/01/2019
 ms.author: diberry
-ms.openlocfilehash: 3fd05e2dd5b55dd590af24f0757229bead041b6d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 7315c80ad74eae07e41577fb2ac13742002e729e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859106"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57781690"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>Usando chaves de assinatura com seu aplicativo LUIS
 
-Você não precisa criar chaves de assinatura para usar suas primeiras 1.000 consultas de ponto de extremidade gratuitas. Depois que essas consultas de ponto de extremidade forem usadas, crie um recurso do Azure no [portal do Azure](http://portal.azure.com) e, em seguida, atribua esse recurso a um aplicativo do LUIS no [portal do LUIS](https://www.luis.ai).
+Você não precisa criar chaves de assinatura para usar suas primeiras 1.000 consultas de ponto de extremidade gratuitas. Depois que essas consultas de ponto de extremidade forem usadas, crie um recurso do Azure no [portal do Azure](https://portal.azure.com) e, em seguida, atribua esse recurso a um aplicativo do LUIS no [portal do LUIS](https://www.luis.ai).
 
 Se receber um erro _fora da cota_ na forma de um erro HTTP 403 ou 429, você precisará criar uma chave e atribuí-la a seu aplicativo. 
 
 Para testar e protótipo apenas, use a camada gratuita (F0). Para sistemas de produção, use uma camada [paga](https://aka.ms/luis-price-tier). Não use a [chave de criação](luis-concept-keys.md#authoring-key) para consultas de ponto de extremidade em produção.
 
 <a name="create-luis-service"></a>
+<a name="create-language-understanding-endpoint-key-in-the-azure-portal"/>
 
-## <a name="create-language-understanding-endpoint-key-in-the-azure-portal"></a>Criar chave de ponto de extremidade de Reconhecimento vocal no portal do Azure
+## <a name="create-prediction-endpoint-runtime-resource-in-the-azure-portal"></a>Criar o recurso de tempo de execução do ponto de extremidade de previsão no portal do Azure
 
-Este procedimento cria um recurso de **Reconhecimento vocal**. Se você quiser um recurso que possa ser usado em todos os Serviços Cognitivos, crie o **[Serviço Cognitivo](../cognitive-services-apis-create-account.md)** com chave tudo em um em vez do recurso de Reconhecimento vocal. 
-
-Essa chave deve ser usada somente para consultas de previsão de ponto de extremidade. Não use essa chave para alterações no modelo ou no aplicativo. 
-
-1. Entre no **[Portal do Azure](https://ms.portal.azure.com/)**. 
-1. Selecione o sinal verde **+** no painel superior esquerdo, pesquise por `Language Understanding` no marketplace e, em seguida, selecione **Reconhecimento Vocal** e siga as instruções em **criar experiência**  para criar uma conta de assinatura do LUIS. 
-
-    ![Azure Search](./media/luis-azure-subscription/azure-search.png) 
-
-1. Configure a assinatura com as configurações incluindo o nome da conta, os preços das camadas etc. 
-
-    ![Opção de API do Azure](./media/luis-azure-subscription/azure-api-choice.png) 
-
-1. Depois de criar o recurso de Reconhecimento vocal, você pode exibir as chaves de acesso geradas em **Gerenciamento de Recursos -> Chaves**. A próxima seção mostrará como conectar esse novo recurso a um aplicativo do LUIS no portal do LUIS. Você precisa do nome do recurso do LUIS da etapa 3.
-
-    ![Chaves do Azure](./media/luis-azure-subscription/azure-keys.png)
+Saiba mais com o [compilar um aplicativo](get-started-portal-build-app.md) guia de início rápido.
 
 <a name="programmatic-key" ></a>
 <a name="authoring-key" ></a>
@@ -63,23 +49,7 @@ Essa chave deve ser usada somente para consultas de previsão de ponto de extrem
 
 ## <a name="assign-resource-key-to-luis-app-in-luis-portal"></a>Atribuir chave de recurso ao aplicativo do LUIS no Portal do LUIS
 
-1. Entre no portal do LUIS, escolha um aplicativo ao qual deseja adicionar a nova chave e, em seguida, selecione **Gerenciar** no menu superior direito e selecione **Chaves e pontos de extremidade**.
-
-    [ ![Página de chaves e pontos de extremidade](./media/luis-manage-keys/keys-and-endpoints.png) ](./media/luis-manage-keys/keys-and-endpoints.png#lightbox)
-
-1. Para adicionar o LUIS, selecione **Atribuir Recurso +**.
-
-    ![Atribuir um recurso ao seu aplicativo](./media/luis-manage-keys/assign-key.png)
-
-1. Selecione um Locatário na caixa de diálogo associada ao endereço de email usado para entrar no site do LUIS.  
-
-1. Escolha o **Nome da Assinatura** associado ao recurso do Azure que deseja adicionar.
-
-1. Selecione o **Nome do recurso do LUIS**. 
-
-1. Selecione **Atribuir recurso**. 
-
-1. Localize a nova linha na tabela e copie a URL de ponto de extremidade. Ela é construída corretamente para fazer uma solicitação GET de HTTP para o ponto de extremidade do LUIS para uma previsão. 
+Saiba mais com o [implantação](get-started-portal-deploy-app.md) guia de início rápido.
 
 <!-- content moved to luis-reference-regions.md, need replacement links-->
 <a name="regions-and-keys"></a>

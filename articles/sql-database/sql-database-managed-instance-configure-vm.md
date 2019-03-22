@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, srbozovi, bonova
 manager: craigg
 ms.date: 02/18/2019
-ms.openlocfilehash: 640182b50492ed21cd604423fe1cef7301095941
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
-ms.translationtype: HT
+ms.openlocfilehash: 9e1001816e9a4cf62d2e6c84c72aae84428148d0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408792"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997907"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Início Rápido: Configurar a VM do Azure para se conectar a uma Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -70,7 +70,7 @@ A maneira mais fácil de criar uma máquina virtual cliente com todas as ferrame
 
 1. Verifique se você está conectado ao portal do Azure em outra guia do navegador. Em seguida, selecione o botão a seguir para criar uma máquina virtual de cliente e instale o SQL Server Management Studio:
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjovanpop-msft%2Fazure-quickstart-templates%2Fsql-win-vm-w-tools%2F201-vm-win-vnet-sql-tools%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjovanpop-msft%2Fazure-quickstart-templates%2Fsql-win-vm-w-tools%2F201-vm-win-vnet-sql-tools%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
 2. Preencha o formulário usando as informações na tabela a seguir:
 
@@ -84,7 +84,7 @@ A maneira mais fácil de criar uma máquina virtual cliente com todas as ferrame
    |**Senha**|Qualquer senha válida|A senha deve ter no mínimo 12 caracteres e atender a [requisitos de complexidade definidos](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).<br>Você usa essa senha sempre que você [se conecta à VM](#connect-to-virtual-machine).|
    | **Tamanho da Máquina Virtual** | Qualquer tamanho válido | O padrão neste modelo de **Standard_B2s** é suficiente para este início rápido. |
    | **Localidade**|[resourceGroup().location].| Não altere esse valor. |
-   | **Nome da Rede Virtual**|A rede virtual na qual você criou a Instância Gerenciada.|
+   | **Nome da Rede Virtual**|A rede virtual em que você criou a instância gerenciada.|
    | **Nome da sub-rede**|O nome da sub-rede que você criou no procedimento anterior| Não escolha a sub-rede na qual você criou a Instância Gerenciada.|
    | **Localização de artefatos** | [deployment().properties.templateLink.uri] | Não altere esse valor. |
    | **token SAS de Localização de artefatos** | deixar em branco | Não altere esse valor. |

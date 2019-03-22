@@ -2,16 +2,17 @@
 title: Usar aplicativos de renderização - Lote do Microsoft Azure
 description: Como usar aplicativos de renderização com o Lote do Microsoft Azure
 services: batch
+ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4c7fdbfcc34cdb6e10177d50bea707f1fa5f223e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 4c93abdfb5c523d48ce115ed7d3251a346937f5f
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53534741"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57789583"
 ---
 # <a name="rendering-applications"></a>Aplicativos de renderização
 
@@ -58,7 +59,7 @@ Além dos renderizadores incorporados no Maya, os seguintes renderizadores estã
 
 ### <a name="task-command-line"></a>Linha de comando
 
-O `renderer.exe` renderizador de linha de comando é usado na linha de comando de tarefa. O renderizador de linha de comando é documentado em [Maya ajuda](http://help.autodesk.com/view/MAYAUL/2018/ENU/?guid=GUID-EB558BC0-5C2B-439C-9B00-F97BCB9688E4).
+O `renderer.exe` renderizador de linha de comando é usado na linha de comando de tarefa. O renderizador de linha de comando é documentado em [Maya ajuda](https://help.autodesk.com/view/MAYAUL/2018/ENU/?guid=GUID-EB558BC0-5C2B-439C-9B00-F97BCB9688E4).
 
 No exemplo a seguir, uma tarefa de preparação de trabalho é usada para copiar os arquivos de cena e ativos para o diretório de trabalho de preparação de trabalho, uma pasta de saída é usada para armazenar a imagem de renderização e 10 do quadro é renderizado.
 

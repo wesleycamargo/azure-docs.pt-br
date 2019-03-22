@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 2c6ca05e2a76cb6fbf7aabc1e9d801a2639665d5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a1b6fe38087975838d99ca4fe45ee0d0638c56c3
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57850319"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58187737"
 ---
 # <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Visão geral e comparação de codificadores de mídia sob demanda do Azure 
 
@@ -44,7 +44,7 @@ Este artigo fornece uma breve visão geral dos codificadores de mídia sob deman
 >[!NOTE]
 >Por padrão, cada conta dos Serviços de Mídia pode ter uma tarefa de codificação ativa por vez. Você pode reservar unidades de codificação que permitem ter várias tarefas de codificação em execução simultaneamente, uma para cada unidade reservada de codificação que você comprar. Para saber mais, consulte [Dimensionamento das unidades de codificação](media-services-scale-media-processing-overview.md).
 
-## <a name="media-encoder-standard"></a>Codificador de Mídia Padrão
+## <a name="media-encoder-standard"></a>Media Encoder Standard
 ### <a name="how-to-use"></a>Como usar
 [Como codificar com o Codificador de Mídia Padrão](media-services-dotnet-encode-with-media-encoder-standard.md)
 
@@ -71,7 +71,7 @@ Para obter informações, veja [Como criar sobreposições usando o Codificador 
 ### <a name="see-also"></a>Consulte também
 [O blog Serviços de Mídia](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
 
-## <a name="media-encoder-premium-workflow"></a>Media Encoder Premium Workflow
+## <a name="media-encoder-premium-workflow"></a>Fluxo de trabalho do Media Encoder Premium
 ### <a name="overview"></a>Visão geral
 [Apresentando a codificação Premium nos Serviços de Mídia do Azure](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services/)
 

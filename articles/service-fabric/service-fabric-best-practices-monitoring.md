@@ -4,7 +4,7 @@ description: Melhores práticas de monitoramento de clusters e aplicativos do Se
 services: service-fabric
 documentationcenter: .net
 author: peterpogorski
-manager: jeanpaul.connock
+manager: chackdan
 editor: ''
 ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 5e3cfad70dd0cc0c53f6971c9ddce44f0ca25ecd
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: d90daaf18e5161053e00671b7667d05ec8e5db76
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104284"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242914"
 ---
 # <a name="monitoring-and-diagnostics"></a>Monitoramento e diagnóstico
 
@@ -33,13 +33,13 @@ O monitoramento de aplicativo controla como os recursos e componentes de um apli
 
 Uma das metas do Service Fabric é tornar os aplicativos resilientes a falhas de hardware. Esse objetivo é conseguido por meio da capacidade de serviços de sistema da plataforma para detectar problemas de infraestrutura e rápidas failover de cargas de trabalho para outros nós no cluster. Mas e se os próprios serviços do sistema tiverem problemas? Ou se, ao tentar implantar ou mover uma carga de trabalho, as regras para a veiculação de serviços forem violadas? O Service Fabric fornece diagnóstico para esses e outros problemas, a fim de garantir que você seja informado sobre como a plataforma Service Fabric interage com aplicativos, serviços, contêineres e nós.
 
-Para clusters do Windows, é recomendável que você configure o monitoramento de cluster com o [Agente do Diagnostics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad) e o [Log Analytics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-setup).
+Para clusters do Windows, é recomendável que você configure o monitoramento de cluster com [agente de diagnóstico](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad) e [registra em log do Azure Monitor](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-setup).
 
-Para clusters do Linux, o Log Analytics também é a ferramenta recomendada para o monitoramento da infraestrutura e da plataforma Azure. O diagnóstico da plataforma Linux exige outra configuração, conforme observado em [Eventos de cluster do Linux do Service Fabric no Syslog](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-syslog).
+Para clusters do Linux, logs do Azure Monitor também é a ferramenta recomendada para monitoramento de infraestrutura e plataforma do Azure. O diagnóstico da plataforma Linux exige outra configuração, conforme observado em [Eventos de cluster do Linux do Service Fabric no Syslog](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-syslog).
 
 ## <a name="infrastructure-monitoring"></a>Monitoramento da infraestrutura
 
-O [Log Analytics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-agent) é recomendado para o monitoramento de eventos no nível do cluster. Depois de configurar o agente do Log Analytics no workspace, conforme descrito no link anterior, você poderá coletar métricas de desempenho como Utilização da CPU, contadores de desempenho do .NET como utilização da CPU no nível do processo, contadores de desempenho do Service Fabric como o número de exceções de um serviço confiável e métricas de contêiner como Utilização da CPU.  Você precisará gravar os logs de contêiner no StdOut e em stderr, de modo que eles estejam disponíveis no Log Analytics.
+[Os logs do Azure Monitor](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-agent) é recomendado para monitorar eventos no nível de cluster. Depois de configurar o agente do Log Analytics no workspace, conforme descrito no link anterior, você poderá coletar métricas de desempenho como Utilização da CPU, contadores de desempenho do .NET como utilização da CPU no nível do processo, contadores de desempenho do Service Fabric como o número de exceções de um serviço confiável e métricas de contêiner como Utilização da CPU.  Você precisará gravar logs de contêiner e stdout para stderr, para que eles estarão disponíveis nos logs do Azure Monitor.
 
 ## <a name="watchdogs"></a>Watchdogs
 
@@ -50,7 +50,7 @@ Em geral, um watchdog é um serviço separado que inspeciona a integridade e a c
 * Introdução à instrumentação de aplicativos: [Geração de eventos e logs no nível do aplicativo](service-fabric-diagnostics-event-generation-app.md).
 * Siga as etapas para configurar o Application Insights para seu aplicativo com [Monitorar e diagnosticar um aplicativo ASP.NET Core no Service Fabric](service-fabric-tutorial-monitoring-aspnet.md).
 * Saiba mais sobre como monitorar a plataforma e os eventos que o Service Fabric fornece para você: [Geração de eventos e logs no nível da plataforma](service-fabric-diagnostics-event-generation-infra.md).
-* Configure a integração do Log Analytics ao Service Fabric: [Configurar o Log Analytics para um cluster](service-fabric-diagnostics-oms-setup.md)
-* Saiba como configurar o Log Analytics para o monitoramento de contêineres: [Monitoramento e diagnóstico para Contêineres do Windows no Azure Service Fabric](service-fabric-tutorial-monitoring-wincontainers.md).
+* Configure a integração de logs do Azure Monitor com o Service Fabric: [Configurar logs do Azure Monitor para um cluster](service-fabric-diagnostics-oms-setup.md)
+* Saiba como configurar logs do Azure Monitor para monitorar os contêineres: [Monitoramento e diagnóstico para Contêineres do Windows no Azure Service Fabric](service-fabric-tutorial-monitoring-wincontainers.md).
 * Confira os problemas de diagnóstico de exemplo e as soluções com o Service Fabric: [Cenários comuns de diagnóstico](service-fabric-diagnostics-common-scenarios.md)
 * Saiba mais sobre as recomendações gerais de monitoramento para recursos do Azure: [Melhores práticas – monitoramento e diagnóstico](https://docs.microsoft.com/azure/architecture/best-practices/monitoring).

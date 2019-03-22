@@ -7,15 +7,15 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 03/14/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 27478de68cde9a097dcc160a4553839aef9a018c
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: 5f421c8949efae5a2488d5bf156a5d3571401bcc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902798"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996436"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Instalar o tempo de execução do IoT Edge no Windows
 
@@ -25,8 +25,8 @@ Para saber mais sobre o tempo de execução do IoT Edge, consulte [Reconhecer o 
 
 Este artigo lista as etapas para instalar o tempo de execução do Azure IoT Edge no sistema Windows x64 (AMD/Intel). Atualmente, o suporte do Windows está em versão prévia.
 
->[!NOTE]
-O uso de contêineres do Linux no sistema Windows não é uma configuração de produção com suporte ou recomendada para o Azure IoT Edge. No entanto, pode ser utilizado para fins de desenvolvimento e teste.
+> [!NOTE]
+> O uso de contêineres do Linux no sistema Windows não é uma configuração de produção com suporte ou recomendada para o Azure IoT Edge. No entanto, pode ser utilizado para fins de desenvolvimento e teste.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -52,6 +52,8 @@ Para obter mais informações sobre o que está incluído na última versão do 
 
 O Azure IoT Edge depende de um mecanismo de contêiner [compatível com OCI](https://www.opencontainers.org/). Para cenários de produção, use o mecanismo Moby incluído no script de instalação para executar contêineres do Windows no dispositivo Windows. Para desenvolver e testar, você poderá executar contêineres do Linux no dispositivo Windows, mas será necessário instalar e configurar um mecanismo de contêiner antes de instalar o IoT Edge. Para qualquer um dos cenários, consulte as seções a seguir para pré-requisitos para preparar o dispositivo. 
 
+Se você quiser instalar o IoT Edge em uma máquina virtual, habilitar a virtualização aninhada e aloque pelo menos 2 GB de memória. Como habilitar a virtualização aninhada é diferente dependendo de seu uso no hipervisor. Para o Hyper-V, máquinas virtuais de geração 2 têm aninhados virtualização habilitada por padrão. Para o VMWare, há uma alternância para habilitar o recurso em sua máquina virtual. 
+
 #### <a name="moby-engine-for-windows-containers"></a>Mecanismo Moby para contêineres do Windows
 
 Para dispositivos Windows que executam IoT Edge em cenários de produção, o Moby é o único mecanismo de contêiner oficialmente com suporte. O script de instalação instalará automaticamente o mecanismo Moby no dispositivo, antes de instalar o IoT Edge. Prepare o dispositivo, ativando o recurso Contêineres. 
@@ -64,7 +66,7 @@ Para dispositivos Windows que executam IoT Edge em cenários de produção, o Mo
 
 Se você estiver usando o Windows para desenvolver e testar contêineres para dispositivos Linux, poderá usar o [Docker for Windows](https://www.docker.com/docker-windows) como o mecanismo de contêiner. O Docker pode ser configurado para [usar contêineres do Linux](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers). Será necessário instalar o Docker e configurá-lo, antes de instalar o IoT Edge. Contêineres do Linux não têm suporte em dispositivos Windows em produção. 
 
-Se o dispositivo do IoT Edge for um computador Windows, verifique se atende aos [requisitos do sistema](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) para Hyper-V. Se for uma máquina virtual, habilite [ virtualização aninhada](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) e aloque pelo menos 2 GB de memória.
+Se o dispositivo do IoT Edge for um computador Windows, verifique se atende aos [requisitos do sistema](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) para Hyper-V.
 
 ## <a name="install-iot-edge-on-a-new-device"></a>Instalar o IoT Edge em um novo dispositivo
 
@@ -213,6 +215,34 @@ Além disso, lista de módulos com em execução:
 ```powershell
 iotedge list
 ```
+
+Após uma nova instalação, o único módulo que você verá é a execução **edgeAgent**. Depois que você [implantar módulos do IoT Edge](how-to-deploy-modules-portal.md), você verá que outras pessoas. 
+
+## <a name="manage-module-containers"></a>Gerenciar contêineres do módulo
+
+O serviço do IoT Edge requer um mecanismo de contêiner em execução no seu dispositivo. Quando você implanta um módulo em um dispositivo, o tempo de execução do IoT Edge usa o mecanismo de contêiner para puxar a imagem de contêiner de um registro na nuvem. O serviço do IoT Edge permite que você interaja com seus módulos e recuperar os logs, mas, às vezes, você talvez queira usar o mecanismo de contêiner para interagir com o contêiner em si. 
+
+Para obter mais informações sobre os conceitos de módulo, consulte [módulos de compreender o Azure IoT Edge](iot-edge-modules.md). 
+
+Se você estiver executando contêineres do Windows no seu dispositivo Windows IoT Edge, a instalação do IoT Edge incluído o mecanismo de contêiner Moby. Se você estiver desenvolvendo os contêineres do Linux em seu computador de desenvolvimento do Windows, você provavelmente está usando a área de trabalho do Docker. O mecanismo Moby foi baseado nos padrões do mesmos que o Docker e foi projetado para ser executado em paralelo no mesmo computador como área de trabalho do Docker. Por esse motivo, se você quiser os contêineres de destino gerenciados pelo mecanismo Moby, você precisa especificamente que o mecanismo em vez de Docker de destino. 
+
+Por exemplo, para listar todas as imagens do Docker, use o seguinte comando:
+
+```powershell
+docker images
+```
+
+Para listar todas as imagens de Moby, modifique o mesmo comando com um ponteiro para o mecanismo de Moby: 
+
+```powershell
+docker -H npipe:////./pipe/iotedge_moby_engine images
+```
+
+O mecanismo de URI é listado na saída do script de instalação, ou você pode encontrá-lo na seção de configurações de tempo de execução do contêiner para o arquivo config. YAML. 
+
+![moby_runtime uri no config. YAML](./media/how-to-install-iot-edge-windows/moby-runtime-uri.png)
+
+Para obter mais informações sobre os comandos que você pode usar para interagir com contêineres e imagens em execução em seu dispositivo, consulte [interfaces de linha de comando do Docker](https://docs.docker.com/engine/reference/commandline/docker/).
 
 ## <a name="uninstall-iot-edge"></a>Desinstalar o IoT Edge
 

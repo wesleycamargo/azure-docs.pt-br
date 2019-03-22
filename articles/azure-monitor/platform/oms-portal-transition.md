@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: bwren
-ms.openlocfilehash: fe1f08b7b597a2e521f2b13af1d0a4a4d7d4b7a2
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
-ms.translationtype: HT
+ms.openlocfilehash: 7e14b5f2c5f84c4f1f21454f733987df6933f0c7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213989"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57886619"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Portal do OMS migrando para o Azure
 
@@ -26,7 +26,7 @@ ms.locfileid: "54213989"
 
 O portal do Azure é o hub para todos os serviços do Azure e oferece uma rica experiência de gestão, com funcionalidades como painéis para fixação de recursos, pesquisa inteligente para localização de recursos e marcação para gerenciamento de recursos. Para consolidar e simplificar o fluxo de trabalho de monitoramento e gerenciamento, começamos adicionando as funcionalidades do portal do OMS ao portal do Azure. Todos os recursos do portal do OMS agora fazem parte do portal do Azure. Na verdade, alguns dos novos recursos, como análise de tráfego só estão disponíveis no portal do Azure. Você poderá fazer tudo o que você estava fazendo no portal do OMS com o portal do Azure e muito mais. Se ainda não fez isso, você deve começar a usar o portal do Azure hoje mesmo.
 
-**O portal do OMS será oficialmente desativado em 15 de janeiro de 2019** para a nuvem comercial do Azure; para a nuvem do Azure US Government, o portal do OMS **será oficialmente desativado em 30 de março de 2019.** Estamos animados com a migração para o portal do Azure e esperamos que a transição seja fácil. No entanto, sabemos que alterações desse tipo são difíceis e que podem gerar inconvenientes. Enviar quaisquer perguntas, comentários ou preocupações para **LAUpgradeFeedback@microsoft.com**. O restante deste artigo aborda os cenários principais e o roteiro para essa transição.
+**O portal do OMS será oficialmente desativado em 15 de janeiro de 2019** para a nuvem comercial do Azure; para a nuvem do Azure US Government, o portal do OMS **será oficialmente desativado em 30 de março de 2019.** Estamos animados com a migração para o portal do Azure e esperamos que a transição seja fácil. No entanto, sabemos que alterações desse tipo são difíceis e que podem gerar inconvenientes. Enviar quaisquer perguntas, comentários ou preocupações para **LAUpgradeFeedback\@microsoft.com**. O restante deste artigo aborda os cenários principais e o roteiro para essa transição.
 
 ## <a name="what-is-changing"></a>O que está mudando? 
 As alterações a seguir estão sendo anunciadas com a substituição do portal do OMS. Cada uma dessas alterações é descrita mais detalhadamente nas seções a seguir.
@@ -47,7 +47,7 @@ Embora a maioria dos recursos continue a funcionar sem executar qualquer migraç
 - Você precisa [migrar suas permissões de usuário](#user-access-and-role-migration) para o portal do Azure.
 - Veja [Migrar suas implantações de atualização do OMS para o Azure](../../automation/migrate-oms-update-deployments.md) para obter detalhes sobre a transição da solução de Gerenciamento de Atualizações.
 
-Consulte as [Perguntas comuns para a transição do portal do OMS para o portal do Azure para usuários do Log Analytics](oms-portal-faq.md) para obter informações sobre como fazer a transição para o portal do Azure. Envie quaisquer perguntas, comentários ou dúvidas para **LAUpgradeFeedback@microsoft.com**.
+Consulte as [Perguntas comuns para a transição do portal do OMS para o portal do Azure para usuários do Log Analytics](oms-portal-faq.md) para obter informações sobre como fazer a transição para o portal do Azure. Envie quaisquer comentários, dúvidas ou preocupações para **LAUpgradeFeedback\@microsoft.com**.
 
 ## <a name="user-access-and-role-migration"></a>Acesso do usuário e migração de função
 O gerenciamento de acesso ao portal do Azure é mais avançado e mais poderoso do que o gerenciamento de acesso no Portal do OMS. Consulte [Gerenciar workspaces](manage-access.md#manage-accounts-and-users) para obter detalhes sobre o gerenciamento de acesso no Log Analytics.

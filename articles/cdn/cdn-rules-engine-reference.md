@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: 602b4303dd1940791c11b8b71ac6a27f0474a6d5
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
-ms.translationtype: HT
+ms.openlocfilehash: 3163b33f69f4cc2d6cd4127253c7b6fadfddd6b0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29733672"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994228"
 ---
 # <a name="azure-cdn-rules-engine-reference"></a>Referência do mecanismo de regras da CDN do Azure
 Este artigo lista as descrições detalhadas dos recursos e condições de correspondência disponíveis para o mecanismo de regras da [CDN (Rede de Distribuição de Conteúdo)](cdn-rules-engine.md).
@@ -58,7 +58,7 @@ Character | DESCRIÇÃO
 ----------|------------
 \ | Uma barra invertida é usada para funcionar como escape para qualquer um dos caracteres especificados nesta tabela. Uma barra invertida deve ser especificada diretamente antes do caractere especial que deve ter escape.<br/>Por exemplo, a seguinte sintaxe ignora um asterisco: `\*`
 % | Um símbolo de porcentagem é usado para indicar a codificação de URL (por exemplo, `%20`).
-* | Um asterisco é um caractere curinga que representa um ou mais caracteres.
+\* | Um asterisco é um caractere curinga que representa um ou mais caracteres.
 Espaço | Um caractere de espaço indica que uma condição de correspondência pode ser atendida por qualquer um dos valores especificados ou padrões.
 'valor' | As aspas simples não têm significado especial. No entanto, um conjunto de aspas simples é usado para indicar que um valor deve ser tratado como um valor literal. Ele pode ser usado das seguintes maneiras:<br><br/>- Permite que uma condição de correspondência seja satisfeita sempre que o valor especificado corresponder a qualquer parte do valor de comparação.  Por exemplo, `'ma'` corresponderia a qualquer uma das seguintes cadeias de caracteres: <br/><br/>/business/**ma**rathon/asset.htm<br/>**ma**p.gif<br/>/business/template.**ma**p<br /><br />- Permite que um caractere especial seja especificado como um caractere literal. Por exemplo, é possível especificar um caractere de espaço literal ao incluir um caractere de espaço dentro de um conjunto de aspas simples (ou seja, `' '` ou `'sample value'`).<br/>- Permite a especificação de um valor em branco. Especifique um valor em branco, especificando um conjunto de aspas simples (ou seja, '').<br /><br/>**Importante:**<br/>- Se o valor especificado não contiver um curinga, então ele será automaticamente considerado como um valor literal, o que significa que não será necessário especificar um conjunto de aspas simples.<br/>- Se uma barra invertida não funcionar como escape para outro caractere nesta tabela, ela será ignorada quando for especificada dentro de um conjunto de aspas simples.<br/>- Outra maneira de especificar um caractere especial como um caractere literal é isolá-lo, usando uma barra invertida (ou seja, `\`).
 
@@ -69,8 +69,8 @@ Expressões regulares definem um padrão que é pesquisado dentro de um valor de
 Caractere especial | DESCRIÇÃO
 ------------------|------------
 \ | Uma barra invertida escapa ao caractere que o segue, fazendo com que esse caractere seja tratado como um valor literal em vez de assumir o significado de expressão regular. Por exemplo, a seguinte sintaxe ignora um asterisco: `\*`
-% | O significado de um símbolo de porcentagem depende de seu uso.<br/><br/> `%{HTTPVariable}`: essa sintaxe identifica uma variável HTTP.<br/>`%{HTTPVariable%Pattern}`: essa sintaxe usa um símbolo de porcentagem para identificar uma variável HTTP e como um delimitador.<br />`\%`: escapar de um símbolo de porcentagem permite que ele seja usado como um valor literal, ou para indicar codificação de URL (por exemplo, `\%20`).
-* | Um asterisco permite que o caractere precedente corresponda a zero ou mais vezes. 
+% | O significado de um símbolo de porcentagem depende de seu uso.<br/><br/> `%{HTTPVariable}`: Essa sintaxe identifica uma variável HTTP.<br/>`%{HTTPVariable%Pattern}`: Essa sintaxe usa um símbolo de porcentagem para identificar uma variável HTTP e como um delimitador.<br />`\%`: O escape de um símbolo de porcentagem permite que ele seja usado como um valor literal ou para indicar a codificação de URL (por exemplo, `\%20`).
+\* | Um asterisco permite que o caractere precedente corresponda a zero ou mais vezes. 
 Espaço | Normalmente, um caractere de espaço é tratado como um caractere literal. 
 'valor' | Aspas simples são tratadas como caracteres literais. Um conjunto de aspas simples não tem significado especial.
 

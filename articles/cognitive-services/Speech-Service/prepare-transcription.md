@@ -1,7 +1,7 @@
 ---
-title: Diretrizes de transcrição para o treinamento do serviço de fala
+title: Diretrizes de transcrição para treinamento de modelos de serviços de fala
 titleSuffix: Azure Cognitive Services
-description: Saiba como preparar o texto para personalizar acústicos e modelos de linguagem e fontes de voz para o serviço de fala.
+description: Saiba como preparar o texto para personalizar acústicos e modelos de linguagem e vozes para os serviços de fala.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: panosper
-ms.openlocfilehash: 31813cbbe4bdb647d43e99e7585d1eb3bb6e8a5c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 0d7508ed9cf1807fa05c57a1d60c804af7d2244f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857168"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897207"
 ---
 # <a name="transcription-guidelines-for-using-the-speech-service"></a>Diretrizes de transcrição para usar o serviço de fala
 
 Para personalizar a **Conversão de Fala em Texto** ou a **Conversão de Texto em Fala**, você deverá fornecer o texto junto com a fala. Cada linha no texto corresponde a uma única declaração. O texto deve corresponder a fala mais próximo possível. O texto é chamado de *transcrição* e você deverá criá-lo em um formato específico.
 
-O serviço de fala normaliza a entrada para manter o texto consistente. 
+Os serviços de fala normalizar a entrada para manter o texto consistente.
 
 Este artigo descreve os dois tipos de normalização. As diretrizes variam ligeiramente para vários idiomas.
 
@@ -39,7 +39,7 @@ Evite o uso de caracteres de pontuação estendidos (Latin-1) ou Unicode. Esses 
 
 ### <a name="text-normalization-rules-for-english"></a>Regras de normalização de texto para inglês
 
-O serviço de fala realiza as seguintes regras de normalização:
+Os serviços de fala realizar as seguintes regras de normalização:
 
 * Usando letras minúsculas para todo o texto
 * Remover toda a pontuação exceto apóstrofos internos da palavra
@@ -64,7 +64,7 @@ Aplique a seguinte normalização às suas transcrições de texto:
 * Cadeias numéricas não padrão (como algumas datas ou formulários contábeis) devem ser escritas em palavras.
 * Palavras com caracteres não alfabéticos ou caracteres alfanuméricos mistos devem ser transcritas como pronunciadas.
 * Deixe as abreviações que são pronunciadas como palavras intocadas (por exemplo, "radar", "laser", "RAM" ou "NATO").
-* Escreva abreviações que são pronunciadas como letras separadas, com letras separadas por espaços (por exemplo, "IBM", "CPU", "FBI", "TBD" ou "NaN"). 
+* Escreva abreviações que são pronunciadas como letras separadas, com letras separadas por espaços (por exemplo, "IBM", "CPU", "FBI", "TBD" ou "NaN").
 
 Estes são alguns exemplos:
 
@@ -83,7 +83,7 @@ Estes são alguns exemplos:
 
 ## <a name="chinese-zh-cn"></a>Chinês (zh-cn)
 
-Dados de texto que são carregados para o serviço de fala personalizado devem usar a codificação UTF-8 com um marcador de ordem de byte. O arquivo deve ser gravado com um enunciado por linha.
+Dados de texto que são carregados para os serviços de fala personalizado devem usar a codificação UTF-8 com um marcador de ordem de byte. O arquivo deve ser gravado com um enunciado por linha.
 
 Evite o uso de caracteres de pontuação de meia largura. Esses caracteres podem ser incluídos inadvertidamente quando você prepara os dados em um programa de processamento de texto ou copia dados de páginas da Web. Substitua-os pelos correspondentes apropriados de largura total. Por exemplo: 
 
@@ -94,7 +94,7 @@ Evite o uso de caracteres de pontuação de meia largura. Esses caracteres podem
 
 ### <a name="text-normalization-rules-for-chinese"></a>Regras de normalização de texto para chinês
 
-O serviço de fala realiza as seguintes regras de normalização:
+Os serviços de fala realizar as seguintes regras de normalização:
 
 * Remover toda a pontuação
 * Expandindo números para a forma falada
@@ -134,7 +134,7 @@ Os dados de texto enviados para o serviço **Speech to Text** devem usar a codif
 
 ### <a name="text-normalization-rules-for-german"></a>Regras de normalização de texto para alemão
 
-O serviço de fala realiza as seguintes regras de normalização:
+Os serviços de fala realizar as seguintes regras de normalização:
 
 * Usando letras minúsculas para todo o texto
 * Remover todas as pontuações, incluindo vários tipos de aspas ("teste", "teste", "teste" e "teste" estão corretos)
@@ -162,13 +162,13 @@ Antes de importar seu texto, aplique a seguinte normalização a ele:
 
 Estes são alguns exemplos:
 
-| Texto original | Após a normalização do usuário | Após a normalização do sistema
+| Texto original | Após a normalização do usuário | Após a normalização do sistema |
 |--------  | ----- | -------- |
 | Es ist 12.23 Uhr | Es ist 12:23 Uhr | es ist zwölf uhr drei und zwanzig uhr |
-| {12.45} | {12,45} | zwölf komma vier fünf ||
+| {12.45} | {12,45} | zwölf komma vier fünf |
 | 2 + 3 - 4 | 2 plus 3 minus 4 | zwei plus drei minus vier|
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Obtenha sua assinatura de avaliação do Serviço de Fala](https://azure.microsoft.com/try/cognitive-services/)
+- [Obter sua assinatura de avaliação de Serviços de Fala](https://azure.microsoft.com/try/cognitive-services/)
 - [Reconhecer fala em C#](quickstart-csharp-dotnet-windows.md)

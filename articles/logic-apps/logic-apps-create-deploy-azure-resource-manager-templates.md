@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.date: 10/15/2017
-ms.openlocfilehash: 3abe7bae5506b721d4baf1e18da390b3e67977d8
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 5a1cae376ab9db2b0c4b5e0e5514bf7745593433
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242920"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894573"
 ---
 # <a name="create-and-deploy-logic-apps-with-azure-resource-manager-templates"></a>Criar e implantar aplicativos lógicos com modelos do Azure Resource Manager
 
@@ -82,7 +82,7 @@ Veja as descrições para os parâmetros do modelo:
 | Parâmetro | DESCRIÇÃO | Exemplo de definição JSON | 
 | --------- | ----------- | ----------------------- | 
 | `logicAppName` | Define o nome do aplicativo lógico criado pelo modelo. | "nomedoAplicativoLógico": { "type": "string", "metadados": { "descrição": "nomedoMeuAplicativoLógicoDeExemplo" } } |
-| `testUri` | Define o local para executar o ping para teste. | "testUri": { "type": "string", "defaultValue": "http://azure.microsoft.com/status/feed/"} | 
+| `testUri` | Define o local para executar o ping para teste. | "testUri": { "type": "string", "defaultValue": "https://azure.microsoft.com/status/feed/"} | 
 ||||
 
 Saiba mais sobre a [API REST para definição e propriedades do Fluxo de Trabalho de Aplicativos Lógicos](https://docs.microsoft.com/rest/api/logic/workflows) e sobre a [criação de definições de aplicativo lógico com JSON](logic-apps-author-definitions.md).

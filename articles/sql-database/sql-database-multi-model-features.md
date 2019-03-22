@@ -12,18 +12,29 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: d833d6ea695c05f80f7823f391142fee28872c40
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: f3bb6fa93a96adcd2c1995b6874aa0b36b2ce320
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300244"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884516"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Recursos de multimodelos do Banco de Dados SQL do Azure
 
 Os bancos de dados multimodelos permitem que você armazene e trabalhe com dados representados em vários formatos de dados como dados relacionais, grafos, documentos JSON/XML, pares chave-valor, etc.
 
-O Banco de Dados SQL do Azure foi projetado para funcionar com o modelo relacional que fornece o melhor desempenho na maioria dos casos para uma variedade de aplicativos de uso geral. No entanto, o Banco de Dados SQL do Azure não limita-se apenas a dados relacionais. O Banco de Dados SQL do Azure permite usar uma variedade de formatos não relacionais que são totalmente integrados ao modelo relacional. O SQL do Azure fornece os seguintes recursos de multimodelos:
+## <a name="when-to-use-multi-model-capabilities"></a>Quando usar os recursos de vários modelos
+
+O Banco de Dados SQL do Azure foi projetado para funcionar com o modelo relacional que fornece o melhor desempenho na maioria dos casos para uma variedade de aplicativos de uso geral. No entanto, o Banco de Dados SQL do Azure não limita-se apenas a dados relacionais. O Banco de Dados SQL do Azure permite usar uma variedade de formatos não relacionais que são totalmente integrados ao modelo relacional.
+Considere o uso de recursos de vários modelos de banco de dados SQL do Azure nos seguintes casos:
+- Você tem algumas informações ou estruturas que se ajuste melhor para modelos de NoSQL e você não quiser usar o banco de dados NoSQL separado.
+- A maioria dos seus dados é adequada para o modelo relacional, e você precisa modelar algumas partes de seus dados em estilo de NoSQL.
+- Você deseja aproveitar avançada linguagem Transact-SQL para consultar e analisar relacionais e dados NoSQL e integrá-lo com uma variedade de ferramentas e aplicativos que podem usar a linguagem SQL.
+- Você deseja aplicar os recursos de banco de dados, como [tecnologias in-memory](sql-database-in-memory.md) para melhorar o desempenho da sua análise ou processamento de seu strucutres de dados NoSQL, use [replicação transacional](sql-database-managed-instance-transactional-replication.md) ou [réplicas legíveis](sql-database-read-scale-out.md) para criar a cópia dos seus dados em outro lugar e descarregar algumas cargas de trabalho analíticas do banco de dados primário.
+
+## <a name="overview"></a>Visão geral
+
+O SQL do Azure fornece os seguintes recursos de multimodelos:
 - Os [recursos de Grafo](#graph-features) permitem que você represente os dados como um conjunto de nós e bordas e use consultas Transact-SQL padrão aprimoradas com o operador do grafo `MATCH` para consultar os dados do grafo.
 - Os [recursos JSON](#json-features) permitem que você coloque documentos JSON em tabelas, transforme dados relacionais em documentos JSON e vice-versa. Você pode usar a linguagem Transact-SQL padrão aprimorada com funções JSON para analisar documentos e usar índices não clusterizados, índices columnstore ou tabelas com otimização de memória para otimizar suas consultas.
 - Os [Recursos espaciais](#spatial-features) permitem que você armazene dados geográficos e geométricos, indexe-os usando os índices espaciais e recupere os dados usando consultas espaciais.
@@ -56,7 +67,7 @@ Não há nada que um banco de dados de grafo possa obter, que não possa ser obt
 
 ## <a name="json-features"></a>Recursos JSON
 
-O Banco de Dados SQL do Azure permite que você analise e consulte os dados representados no formato JavaScript Object Notation [(JSON)](http://www.json.org/) e exporte seus dados relacionais como texto JSON.
+O Banco de Dados SQL do Azure permite que você analise e consulte os dados representados no formato JavaScript Object Notation [(JSON)](https://www.json.org/) e exporte seus dados relacionais como texto JSON.
 
 JSON é um formato de dados popular usado para a troca de dados em aplicativos Web modernos e móveis. O JSON também é usado para armazenar dados semi-estruturados em arquivos de log ou em bancos de dados NoSQL como [Banco de Dados do Azure Cosmos](https://azure.microsoft.com/services/cosmos-db/). Muitos serviços de Web REST retornam resultados formatados como texto JSON ou aceitam dados formatados como JSON. A maioria dos serviços do Azure como o [Azure Search](https://azure.microsoft.com/services/search/), o [Armazenamento do Azure](https://azure.microsoft.com/services/storage/) e o [Banco de dados do Azure Cosmos](https://azure.microsoft.com/services/cosmos-db/) tem pontos de extremidade REST que retornam ou consomem JSON.
 
@@ -124,7 +135,7 @@ CREATE TABLE Collection (
 
 É possível personalizar essa estrutura de chave-valor para atender às suas necessidades sem restrições. Como exemplo, o valor pode ser um documento XML em vez de um tipo `nvarchar(max)` e, se o valor for um documento JSON, você poderá colocar a restrição `CHECK` que verificará a validade do conteúdo JSON. É possível colocar qualquer número de valores relacionados a uma chave nas colunas adicionais, adicionar colunas e índices calculados para simplificar e otimizar o acesso a dados, definir a tabela como tabela somente de esquema otimizada/memória para obter melhor desempenho, etc.
 
-Consulte [como o BWin está usando OLTP in-memory para obter escala e desempenho sem precedentes](https://blogs.msdn.microsoft.com/sqlcat/2016/10/26/how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/) para a solução de cache do ASP.NET que obteve 1.200.000 lotes por segundo, como um exemplo de como o modelo relacional pode ser efetivamente usado como solução de par chave-valor na prática.
+Consulte [como o BWin está usando OLTP in-memory para obter escala e desempenho sem precedentes](https://blogs.msdn.microsoft.com/sqlcat/20../../how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/) para a solução de cache do ASP.NET que obteve 1.200.000 lotes por segundo, como um exemplo de como o modelo relacional pode ser efetivamente usado como solução de par chave-valor na prática.
 
 ## <a name="next-steps"></a>Próximas etapas
 Os recursos de multimodelos nos Bancos de Dados SQL do Azure também são os principais recursos do Mecanismo de Banco de Dados do Microsoft SQL Server compartilhados entre o Banco de Dados SQL do Azure e o SQL Server. Para obter mais detalhes sobre esses recursos, visite as páginas de documentação do banco de dados Relacional do SQL:

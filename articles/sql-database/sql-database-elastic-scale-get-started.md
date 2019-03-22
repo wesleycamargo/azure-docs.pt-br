@@ -12,12 +12,12 @@ ms.author: anjangsh
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: dbc3b7e2e013dc53a1e2524c44bd2229a6a1b18d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 7c2e3b2bea7ddef3dfbf69f85b499d9a60158689
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462963"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999128"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Introdução às ferramentas do Banco de Dados Elástico
 
@@ -28,7 +28,7 @@ Este documento apresenta a experiência do desenvolvedor para a [biblioteca de c
 ### <a name="prerequisites"></a>Pré-requisitos
 
 * Um Java Developer Kit (JDK) versão 1.8 ou posterior
-* [Maven](http://maven.apache.org/download.cgi)
+* [Maven](https://maven.apache.org/download.cgi)
 * Um servidor de Banco de Dados SQL no Azure ou uma instância local do SQL Server
 
 ### <a name="download-and-run-the-sample-app"></a>Baixar e executar o aplicativo de amostra
@@ -74,7 +74,7 @@ Para adicionar a biblioteca de clientes a seu próprio projeto Maven, adicione a
 ### <a name="prerequisites"></a>Pré-requisitos
 
 * Visual Studio 2012 ou posterior com C#. Baixe a versão gratuita em [Downloads do Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
-* NuGet 2.7 ou posterior. Para obter a versão mais recente, veja [Instalação do NuGet](http://docs.nuget.org/docs/start-here/installing-nuget).
+* NuGet 2.7 ou posterior. Para obter a versão mais recente, veja [Instalação do NuGet](https://docs.nuget.org/docs/start-here/installing-nuget).
 
 ### <a name="download-and-run-the-sample-app"></a>Baixar e executar o aplicativo de amostra
 
@@ -131,8 +131,8 @@ Para saber mais sobre as Ferramentas de Banco de Dados Elástico, confira os arq
   * Ferramentas do Banco de Dados Elástico ([.NET](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22))
   * [Ferramentas de Banco de Dados Elástico para SQL Azure – Integração ao Entity Framework](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
   * [Elasticidade do fragmento no Script Center](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
-* Blog: [Anúncio da escala elástica](https://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/)
-* Canal 9: [Vídeo de visão geral da Escala Elástica](http://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
+* Blog: [Anúncio da escala elástica](https://azure.microsoft.com/blog/20../../introducing-elastic-scale-preview-for-azure-sql-database/)
+* Canal 9: [Vídeo de visão geral da Escala Elástica](https://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
 * Fórum de discussão: [Fórum de banco de dados SQL do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
 * Medir o desempenho: [Contadores de desempenho do gerenciador de mapa de fragmentos](sql-database-elastic-database-client-library.md)
 

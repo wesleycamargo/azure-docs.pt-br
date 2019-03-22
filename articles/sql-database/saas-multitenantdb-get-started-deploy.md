@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, stein
 manager: craigg
 ms.date: 10/16/2018
-ms.openlocfilehash: cb64b96f179bd71c3f885a54b17decb794b40c1a
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 8f19303dba7fcf2a9edb325464fdd3748220903e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567376"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994917"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Implantar e explorar um aplicativo multilocatário fragmentado
 
@@ -66,9 +66,9 @@ Escolha seus nomes agora e os escreva.
 ### <a name="steps"></a>Etapas
 
 1. Clique no botão azul **Implantar no Azure** a seguir.
-    - Ele abre o portal do Azure com o modelo de implantação Wingtip tíquetes SaaS.
+   - Ele abre o portal do Azure com o modelo de implantação Wingtip tíquetes SaaS.
 
-    [![Botão para Implantar no Azure.][image-deploy-to-azure-blue-48d]][link-aka-ms-deploywtp-mtapp-52k]
+     [![Botão para Implantar no Azure.][image-deploy-to-azure-blue-48d]][link-aka-ms-deploywtp-mtapp-52k]
 
 1. Insira os valores de parâmetros necessários para a implantação.
 
@@ -125,9 +125,9 @@ Cada local obtém um aplicativo Web personalizado para listar seus eventos e ven
 Uma página da Web central do **Hub de Eventos** fornece uma lista de links para os locatários em sua implantação particular. Use as seguintes etapas para vivenciar a página da Web do **Hub de Eventos** e um aplicativo Web individual:
 
 1. Abra o **Hub de eventos** no navegador da web:
-    - http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net &nbsp; *(Substitua &lt;user&gt; pelo valor de usuário da implantação.)*
+   - http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net &nbsp; *(Substitua &lt;user&gt; pelo valor de usuário da implantação.)*
 
-    ![hub de eventos](media/saas-multitenantdb-get-started-deploy/events-hub.png)
+     ![hub de eventos](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
 2. Clique em **Fabrikam Jazz Club** no **Hub de Eventos**.
 
@@ -208,7 +208,7 @@ Depois, vamos provisionar outro locatário, dessa vez, em seu próprio banco de 
 
 Vamos examinar alguns dos recursos que foram implantados:
 
-1. No [portal do Azure](http://portal.azure.com), procure a lista de grupos de recursos. Abra o grupo de recursos criados quando você implantou o aplicativo.
+1. No [portal do Azure](https://portal.azure.com), procure a lista de grupos de recursos. Abra o grupo de recursos criados quando você implantou o aplicativo.
 
    ![grupo de recursos](./media/saas-multitenantdb-get-started-deploy/resource-group.png)
 
@@ -275,7 +275,7 @@ A [series of related tutorials] is available that build upon this initial deploy
 
 -->
 
-[link-aka-ms-deploywtp-mtapp-52k]: http://aka.ms/deploywtp-mtapp
+[link-aka-ms-deploywtp-mtapp-52k]: https://aka.ms/deploywtp-mtapp
 
 
 [link-azure-get-started-powershell-41q]: https://docs.microsoft.com/powershell/azure/get-started-azureps
@@ -286,7 +286,7 @@ A [series of related tutorials] is available that build upon this initial deploy
 
 <!--  Image references.
 
-[image-deploy-to-azure-blue-48d]: http://aka.ms/deploywtp-mtapp "Button for Deploy to Azure."
+[image-deploy-to-azure-blue-48d]: https://aka.ms/deploywtp-mtapp "Button for Deploy to Azure."
 -->
 
 [image-deploy-to-azure-blue-48d]: media/saas-multitenantdb-get-started-deploy/deploy.png "O botão Implantar no Azure."

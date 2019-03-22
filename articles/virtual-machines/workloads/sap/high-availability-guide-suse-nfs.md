@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 799a40d759dc5614bd43234638982d5275d9d325
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: da465fb9fe51b2be5ec90df1ac75c50271db87a9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429189"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992057"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Alta disponibilidade do NFSVMs do Azure no SUSE Linux Enterprise Server
 
@@ -426,9 +426,9 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
 
    Ao usar o drbd para sincronizar os dados de um host para outro, pode ocorrer a chamada divisão de dupla personalidade. Uma divisão de dupla personalidade é um cenário em que ambos os nós de cluster promoveram o dispositivo drbd para ser o principal e saíram de sincronização. Pode ser uma situação rara, mas você ainda vai desejar controlar e resolver uma divisão de dupla personalidade o mais rápido possível. Portanto, é importante ser notificado quando ocorrer uma divisão de dupla personalidade.
 
-   Leitura [da documentação oficial drbd](http://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-split-brain-notification) sobre como configurar uma notificação de dados de dupla personalidade.
+   Leitura [da documentação oficial drbd](https://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-split-brain-notification) sobre como configurar uma notificação de dados de dupla personalidade.
 
-   Também é possível recuperar automaticamente a partir de um cenário de divisão de dupla personalidade. Para obter mais informações, leia [Políticas de recuperação de dupla personalidade automática](http://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-automatic-split-brain-recovery-configuration)
+   Também é possível recuperar automaticamente a partir de um cenário de divisão de dupla personalidade. Para obter mais informações, leia [Políticas de recuperação de dupla personalidade automática](https://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-automatic-split-brain-recovery-configuration)
    
 ### <a name="configure-cluster-framework"></a>Configurar a estrutura do cluster
 

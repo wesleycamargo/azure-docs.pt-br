@@ -14,12 +14,12 @@ ms.topic: reference
 ms.date: 04/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0a7dc5152bb1ede5f7311e74815a6d58782d32a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 27e5ae48a8194c05a19e5164ee2cc6be68967a62
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199316"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58112748"
 ---
 # <a name="user-privacy-and-azure-ad-connect-health"></a>Privacidade do usuário e Azure AD Connect Health 
 
@@ -62,17 +62,17 @@ Consulte [Como remover um servidor do Azure AD Connect Health](how-to-connect-he
 O Azure AD Connect Health também fornece a opção de interromper a coleta de dados de **todos** os serviços registrados no locatário. É recomendável uma consideração cuidadosa e um conhecimento completo de todos os administradores globais antes de realizar a ação. Quando o processo começar, o serviço Connect Health irá parar de receber, processar e relatar quaisquer dados de todos os serviços. Os dados existentes no serviço Connect Health serão mantidos por não mais de 30 dias.
 Se quiser interromper a coleta de dados de um servidor específico, siga as etapas de exclusão de servidores específicos. Para interromper a coleta de dados de locatários, siga as etapas a seguir para interromper a coleta de dados e excluir todos os serviços do locatário.
 
-1.  Clique em **Configurações gerais** em configuração na folha do principal. 
-2.  Clique no botão **Interromper a coleta de dados** na parte superior da folha. As outras opções de definições de configuração de locatário serão desabilitadas quando o processo for iniciado.  
+1. Clique em **Configurações gerais** em configuração na folha do principal. 
+2. Clique no botão **Interromper a coleta de dados** na parte superior da folha. As outras opções de definições de configuração de locatário serão desabilitadas quando o processo for iniciado.  
  
- ![Interromper a coleta de dados](./media/reference-connect-health-user-privacy/gdpr4.png)
+   ![Interromper a coleta de dados](./media/reference-connect-health-user-privacy/gdpr4.png)
   
-3.  Verifique se a lista de serviços incorporados que são afetados pela interrupção de coletas de dados. 
-4.  Insira o nome exato do locatário para habilitar o botão de ação **Excluir**.
-5.  Clique em **Excluir** para disparar a exclusão de todos os serviços. O Connect Health interromperá a recepção, o processamento e o relatório de quaisquer dados enviados de seus serviços integrados. Todo o processo de pode pode levar até 24 horas. Observe que essa etapa não é reversível. 
-6.  Depois que o processo for concluído, você não verá mais nenhum serviço registrado no Connect Health. 
+3. Verifique se a lista de serviços incorporados que são afetados pela interrupção de coletas de dados. 
+4. Insira o nome exato do locatário para habilitar o botão de ação **Excluir**.
+5. Clique em **Excluir** para disparar a exclusão de todos os serviços. O Connect Health interromperá a recepção, o processamento e o relatório de quaisquer dados enviados de seus serviços integrados. Todo o processo de pode pode levar até 24 horas. Observe que essa etapa não é reversível. 
+6. Depois que o processo for concluído, você não verá mais nenhum serviço registrado no Connect Health. 
 
- ![Após a interrupção da coleta de dados](./media/reference-connect-health-user-privacy/gdpr5.png)
+   ![Após a interrupção da coleta de dados](./media/reference-connect-health-user-privacy/gdpr5.png)
 
 ## <a name="re-enable-data-collection-and-monitoring-in-azure-ad-connect-health"></a>Habilitar novamente a coleta e o monitoramento de dados no Azure AD Connect Health
 Para habilitar novamente o monitoramento no Azure AD Connect Health de um serviço monitorado excluído anteriormente, é necessário desinstalar e [reinstalar o agente de integridade](how-to-connect-health-agent-install.md) em todos os servidores.
@@ -85,14 +85,14 @@ A coleta de dados de locatários pode ser retomada no Azure AD Connect Health. �
 > As etapas a seguir estarão disponíveis após 24 horas da ação de desabilitar.
 > Após a habilitação da coleta de dados, o insight apresentado e dados de monitoramento no Connect Health não mostrarão todos os dados herdados coletados antes. 
 
-1.  Clique em **Configurações gerais** em configuração na folha do principal. 
-2.  Clique no botão **Habilitar a coleta de dados** na parte superior da folha. 
+1. Clique em **Configurações gerais** em configuração na folha do principal. 
+2. Clique no botão **Habilitar a coleta de dados** na parte superior da folha. 
  
- ![Habilitar coleta de dados](./media/reference-connect-health-user-privacy/gdpr6.png)
+   ![Habilitar coleta de dados](./media/reference-connect-health-user-privacy/gdpr6.png)
  
-3.  Insira o nome exato de locatário para ativar o botão **Habilitar**.
-4.  Clique no botão **Habilitar** para conceder permissão de coleta de dados no serviço Connect Health. A alteração será aplicada em breve. 
-5.  Siga o [processo de instalação](how-to-connect-health-agent-install.md) para reinstalar o agente nos servidores a serem monitorados e os serviços estarão presentes no portal.  
+3. Insira o nome exato de locatário para ativar o botão **Habilitar**.
+4. Clique no botão **Habilitar** para conceder permissão de coleta de dados no serviço Connect Health. A alteração será aplicada em breve. 
+5. Siga o [processo de instalação](how-to-connect-health-agent-install.md) para reinstalar o agente nos servidores a serem monitorados e os serviços estarão presentes no portal.  
 
 
 ## <a name="next-steps"></a>Próximas etapas

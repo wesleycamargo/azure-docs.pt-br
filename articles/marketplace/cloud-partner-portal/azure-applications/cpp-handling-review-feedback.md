@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 98ab9b25c59af194a1a81c600c373b2180272e10
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: e5fe076cfe733b4fa0151570603c090af98de0e8
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106946"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882681"
 ---
 # <a name="handling-review-feedback"></a>Tratar comentários de revisão
 
@@ -58,14 +58,14 @@ Use o procedimento a seguir para revisar os problemas documentados na solicitaç
 
 1. Na seção **revisão da Microsoft** do formulário **Etapas de publicação**, clique em um link de PR para iniciar o navegador e navegue até a página **Visão Geral** (página inicial) dessa PR.  A imagem a seguir ilustra um exemplo de página inicial com problema crítico para a oferta de aplicativo de exemplo da Contoso.  Essa página contém informações de resumo úteis sobre os problemas de revisão encontrados no aplicativo do Azure.  
 
-    [ ![Home page de solicitação de pull](./media/pr-home-page-thumb.png) ](./media/pr-home-page.png)
+    [![Página inicial de solicitação de pull](./media/pr-home-page-thumb.png)](./media/pr-home-page.png)
     <br/> *Clique na imagem para expandir.*
     
 2. (Opcional) No lado direito da janela, na seção **Políticas**, clique na mensagem do problema (neste exemplo: **falha na Validação da Política**) para investigar os detalhes de baixo nível do problema, incluindo os arquivos de log associados.  Os erros normalmente são exibidos na parte inferior dos arquivos de log.
 
 3. No menu esquerdo da home page, selecione **Arquivos** para exibir os arquivos de lista que compõem os ativos técnicos dessa oferta.  Os revisores da Microsoft deverão ter adicionado comentários, descrevendo os problemas críticos descobertos.  No exemplo a seguir, dois problemas foram descobertos. 
 
-    [ ![Home page de solicitação de pull](./media/pr-files-page-thumb.png) ](./media/pr-files-page.png)
+    [![Página inicial de solicitação de pull](./media/pr-files-page-thumb.png)](./media/pr-files-page.png)
     <br/> *Clique na imagem para expandir.*
 
 4. Clique em cada nó de comentário na árvore esquerda para navegar até o comentário no contexto do código ao redor.  Corrija seu código-fonte no projeto da equipe para corrigir o problema descrito pelo comentário.

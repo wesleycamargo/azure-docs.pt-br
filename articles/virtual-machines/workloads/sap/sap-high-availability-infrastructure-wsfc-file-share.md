@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cf0f06528b3571ce8307a2fed2fb9c43f608d15d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 064daa7ed8fb5be34524d9ea27cfa6c22b9c3e66
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656706"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58008361"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Preparar a infraestrutura do Azure para alta disponibilidade do SAP usando um cluster de failover do Windows e compartilhamento de arquivos para instâncias ASCS/SCS do SAP
 
@@ -46,7 +46,7 @@ ms.locfileid: "34656706"
 
 [deployment-guide]:deployment-guide.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 
@@ -213,7 +213,7 @@ Este documento descreve as etapas de preparação da infraestrutura do Azure nec
 
 Antes de iniciar a instalação, leia este artigo:
 
-* [Guia de arquitetura: cluster de instâncias de ASCS/SCS do SAP em um cluster de failover do Windows usando o compartilhamento de arquivos][sap-high-availability-guide-wsfc-file-share]
+* [Guia de arquitetura: Instâncias do SAP ASCS/SCS de cluster em um cluster de failover do Windows usando o compartilhamento de arquivos][sap-high-availability-guide-wsfc-file-share]
 
 
 ## <a name="host-names-and-ip-addresses"></a>Nomes de host e endereços IP
@@ -226,13 +226,13 @@ Antes de iniciar a instalação, leia este artigo:
 | Nome da rede de clusters SAP PR1 ASCS |pr1-ascs | 10.0.6.7 | n/d |
 
 
-**Tabela 1**: Cluster do ASCS/SCS
+**Tabela 1**: Cluster ASCS/SCS
 
 | SAP \<SID> | Número da instância do SAP ASCS/SCS |
 | --- | --- |
 | PR1 | 00 |
 
-**Tabela 2:** Detalhes da instância ASCS/SCS do SAP
+**Tabela 2**: Detalhes da instância SAP ASCS/SCS
 
 
 | Função de nome de host virtual | Nome de host virtual | Endereço IP estático | Conjunto de disponibilidade |
@@ -243,7 +243,7 @@ Antes de iniciar a instalação, leia este artigo:
 | Nome da rede de clusters | sofs-cl | 10.0.6.13 | n/d |
 | Nome de host global do SAP | sapglobal | Usar IPs de todos os nós de cluster | n/d |
 
-**Tabela 3**: Cluster de Servidor de Arquivos de Escalabilidade Horizontal
+**Tabela 3**: Cluster de servidor de arquivos de escalabilidade horizontal
 
 
 ## <a name="deploy-vms-for-an-sap-ascsscs-cluster-a-database-management-system-dbms-cluster-and-sap-application-server-instances"></a>Implantar VMs em um cluster de ASCS/SCS do SAP, um cluster do Sistema de Gerenciamento de Banco de Dados (DBMS) e instâncias de servidor de aplicativos SAP
@@ -271,9 +271,9 @@ Para preparar a infraestrutura do Azure, faça o seguinte:
 * Com o uso do Windows Server 2016, é recomendável configurar a [Testemunha em Nuvem do Azure][deploy-cloud-witness].
 
 
-## <a name="deploy-the-scale-out-file-server-cluster-manually"></a>Implantar manualmente o cluster do Servidor de Arquivos de Escalabilidade Horizontal 
+## <a name="deploy-the-scale-out-file-server-cluster-manually"></a>Implantar manualmente o cluster do Servidor de Arquivos de Escalabilidade Horizontal 
 
-Você pode implantar o cluster do Servidor de Arquivos de Escalabilidade Horizontal Microsoft manualmente, conforme descrito no blog sobre [Espaços de Armazenamento Diretos no Azure][ms-blog-s2d-in-azure], executando o seguinte código:  
+Você pode implantar o cluster do Servidor de Arquivos de Escalabilidade Horizontal Microsoft manualmente, conforme descrito no blog sobre [Espaços de Armazenamento Diretos no Azure][ms-blog-s2d-in-azure], executando o seguinte código:  
 
 
 ```PowerShell
@@ -322,9 +322,9 @@ O modelo do Azure Resource Manager para implantação do Servidor de Arquivos de
 
 Recomendamos o uso de Discos Gerenciados.
 
-![Figura 1: Tela de interface do usuário do modelo do Resource Manager de Servidor de Arquivos de Escalabilidade Horizontal com discos gerenciados][sap-ha-guide-figure-8010]
+![Figura 1: Tela de interface do usuário para o modelo do Gerenciador de recursos de servidor de arquivos de escalabilidade horizontal com discos gerenciados][sap-ha-guide-figure-8010]
 
-_**Figura 1**: Tela de interface do usuário do modelo do Resource Manager de Servidor de Arquivos de Escalabilidade Horizontal com discos gerenciados_
+_**Figura 1**: Tela de interface do usuário para o modelo do Gerenciador de recursos de servidor de arquivos de escalabilidade horizontal com discos gerenciados_
 
 No modelo, faça o seguinte:
 1. Na caixa **Contagem de Vm**, digite uma contagem mínima de **2**.
@@ -336,9 +336,9 @@ No modelo, faça o seguinte:
 
 O modelo do Azure Resource Manager para implantação do Servidor de Arquivos de Escalabilidade Horizontal com Espaços de Armazenamento Diretos e Discos Não Gerenciados do Azure está disponível em [GitHub][arm-sofs-s2d-non-managed-disks].
 
-![Figura 2: Tela de interface do usuário do modelo do Azure Resource Manager para o Servidor de Arquivos de Escalabilidade Horizontal sem discos gerenciados][sap-ha-guide-figure-8011]
+![Figura 2: Tela de interface do usuário para o modelo do Gerenciador de recursos do Azure do servidor de arquivos de escalabilidade horizontal sem discos gerenciados][sap-ha-guide-figure-8011]
 
-_**Figura 2**: Tela de interface do usuário do modelo do Azure Resource Manager para o Servidor de Arquivos de Escalabilidade Horizontal sem discos gerenciados_
+_**Figura 2**: Tela de interface do usuário para o modelo do Gerenciador de recursos do Azure do servidor de arquivos de escalabilidade horizontal sem discos gerenciados_
 
 Na caixa **Tipo de Conta de Armazenamento**, selecione **Armazenamento Premium**. Todas as outras configurações são iguais às dos discos gerenciados.
 

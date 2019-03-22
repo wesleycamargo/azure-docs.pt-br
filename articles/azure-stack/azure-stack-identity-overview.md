@@ -16,12 +16,12 @@ ms.date: 01/14/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 564c4b011b26f2bc6b034233d014542172a4a739
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 665f8ac9a8b0738ed23649673c548bc6b1774d2d
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57885293"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259951"
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Visão geral da identidade para o Azure Stack
 
@@ -65,7 +65,7 @@ No Azure Stack, contas de usuário:
 - São restritos para o diretório em que eles primeiro registram, que é o diretório da organização.
 - Podem ser importados de seus diretórios locais. Para obter mais informações, consulte [integrar seus diretórios locais ao Azure Active Directory](/azure/active-directory/connect/active-directory-aadconnect).
 
-Quando você entrar no portal de locatário da sua organização, você usar o *https://portal.local.azurestack.external* URL. Ao entrar no portal do Azure Stack de domínios diferente daquela usada para registrar o Azure Stack, o nome de domínio usado para registrar o Azure Stack deve ser acrescentado ao portal do url. Por exemplo, se o Azure Stack foi registrado com fabrikam.onmicrosoft.com e a conta de usuário, registro em log no está admin@contoso.com, a url a ser usada para fazer logon no portal do usuário seria: https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.
+Quando você entrar no portal de locatário da sua organização, você usar o *https:\//portal.local.azurestack.external* URL. Ao entrar no portal do Azure Stack de domínios diferente daquela usada para registrar o Azure Stack, o nome de domínio usado para registrar o Azure Stack deve ser acrescentado ao portal do url. Por exemplo, se o Azure Stack foi registrado com fabrikam.onmicrosoft.com e a conta de usuário, registro em log no está admin@contoso.com, a url a ser usada para fazer logon no portal do usuário seria: https:\//portal.local.azurestack.external/ Fabrikam.onmicrosoft.com.
 
 ### <a name="guest-users"></a>Usuários convidados
 
@@ -73,9 +73,9 @@ Usuários convidados são contas de usuário de outros locatários de diretório
 
 Para convidar usuários convidados, os operadores de nuvem e os usuários podem usar [colaboração B2B do Azure AD](/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Os usuários convidados obtém acesso aos documentos, recursos e aplicativos de seu diretório e manter o controle sobre seus próprios recursos e dados. 
 
-Como um usuário convidado, você pode entrar no locatário do diretório da outra organização. Para fazer isso, você acrescentar o nome de diretório da organização ao portal do URL. Por exemplo, se você pertence à organização Contoso e deseja entrar no diretório da Fabrikam, usar https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.
+Como um usuário convidado, você pode entrar no locatário do diretório da outra organização. Para fazer isso, você acrescentar o nome de diretório da organização ao portal do URL. Por exemplo, se você pertence à organização Contoso e deseja entrar no diretório da Fabrikam, usar https:\//portal.local.azurestack.external/fabrikam.onmicrosoft.com.
 
-### <a name="applications"></a>Aplicativos
+### <a name="applications"></a>APLICATIVOS
 
 Você pode registrar aplicativos para o Azure AD ou AD FS e, em seguida, oferecer os aplicativos para usuários em sua organização.
 
@@ -147,7 +147,7 @@ Para usuários e aplicativos, a arquitetura do Azure Stack é descrita por quatr
 |---------|---------|
 |Ferramentas e clientes, como o portal de administração     | Para acessar ou modificar um recurso no Azure Stack, ferramentas e os clientes usam um [Token Web JSON](/azure/active-directory/develop/active-directory-token-and-claims) para fazer uma chamada para o Azure Resource Manager. <br>O Azure Resource Manager valida o JSON Web Token e espia a *declarações* no token emitido para estimar o nível de autorização esse usuário ou entidade de serviço tem no Azure Stack. |
 |O Azure Resource Manager e seus serviços de núcleo     |O Azure Resource Manager se comunica com os provedores de recursos para transferir a comunicação dos usuários. <br> Transferências de uso *imperativo direto* chamadas ou *declarativa* chama via [modelos do Azure Resource Manager](/azure/azure-stack/user/azure-stack-arm-templates).|
-|Provedores de recurso     |Chamadas que são passadas para provedores de recursos são protegidas com a autenticação baseada em certificado. <br>O Azure Resource Manager e o provedor de recursos, em seguida, permanecem na comunicação por meio de uma API. Para cada chamada que é recebida do Azure Resource Manager, o provedor de recursos valida a chamada com esse certificado.|
+|Provedores de recursos     |Chamadas que são passadas para provedores de recursos são protegidas com a autenticação baseada em certificado. <br>O Azure Resource Manager e o provedor de recursos, em seguida, permanecem na comunicação por meio de uma API. Para cada chamada que é recebida do Azure Resource Manager, o provedor de recursos valida a chamada com esse certificado.|
 |Lógica de negócios e infraestrutura     |Provedores de recursos se comunicar com a lógica de negócios e a infraestrutura usando um modo de autenticação de sua preferência. Os provedores de recursos padrão que vêm com o Azure Stack usam a autenticação do Windows para proteger essa comunicação.|
 
 ![Informações necessárias para autenticação](media/azure-stack-identity-overview/authentication.png)
@@ -156,10 +156,10 @@ Para usuários e aplicativos, a arquitetura do Azure Stack é descrita por quatr
 
 Para autenticar com o provedor de identidade e receber um Token Web JSON, você deve ter as seguintes informações:
 
-1. **URL para o sistema de identidade (autoridade de certificação)**: A URL na qual o seu provedor de identidade pode ser acessado. Por exemplo, *https://login.windows.net*.
+1. **URL para o sistema de identidade (autoridade de certificação)**: A URL na qual o seu provedor de identidade pode ser acessado. Por exemplo, *https:\//login.windows.net*.
 2. **URI da ID do aplicativo para o Azure Resource Manager**: O identificador exclusivo para o Azure Resource Manager que está registrado com seu provedor de identidade. Também é exclusiva para cada instalação do Azure Stack.
 3. **Credenciais**: A credencial que você pode usar para autenticar com o provedor de identidade.
-4. **URL para o Azure Resource Manager**: A URL é o local do serviço do Azure Resource Manager. Por exemplo, *https://management.azure.com* ou *https://management.local.azurestack.external*.
+4. **URL para o Azure Resource Manager**: A URL é o local do serviço do Azure Resource Manager. Por exemplo, *https:\//management.azure.com* ou *https:\//management.local.azurestack.external*.
 
 Quando uma entidade de segurança (um cliente, aplicativo ou usuário) faz uma solicitação de autenticação para acessar um recurso, a solicitação deve incluir:
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
-ms.openlocfilehash: 5d4d74d4c3b5ec6779458e84da07c03033c37935
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 673101ad7f55969c216adf7e970402a2109f8254
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330606"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078152"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>Solução de problemas de erros de exclusão de recursos de armazenamento clássicos
 Este artigo fornece diretrizes para solução de problemas quando ocorre um dos erros a seguir ao tentar excluir uma conta de armazenamento clássica do Azure, um contêiner ou um arquivo *.vhd do blob de páginas. 
@@ -59,10 +59,10 @@ Com os discos “desanexados” de uma máquina virtual
 #### <a name="azure-powershell"></a>Azure PowerShell
 O usuário tenta excluir uma conta de armazenamento, que não está sendo mais usada, por meio de cmdlets clássicos do PowerShell. O usuário verá a seguinte mensagem:
 
-><span style="color:cyan">**Remove-AzureStorageAccount -StorageAccountName myclassicaccount**</span>
-
-><span style="color:red">Remove-AzureStorageAccount: BadRequest: A conta de armazenamento myclassicaccount tem algumas imagens e/ou alguns discos ativos, por exemplo,  
-myclassicaccount. Garanta que esses discos e/ou essas imagens sejam removidos antes de excluir essa conta de armazenamento.</span>
+> <span style="color:cyan">**Remove-AzureStorageAccount -StorageAccountName myclassicaccount**</span>
+> 
+> <span style="color:red">Remove-AzureStorageAccount: BadRequest: A conta de armazenamento myclassicaccount tem algumas imagens e/ou alguns discos ativos, por exemplo,  
+> myclassicaccount. Garanta que esses discos e/ou essas imagens sejam removidos antes de excluir essa conta de armazenamento.</span>
 
 ## <a name="unable-to-delete-storage-container"></a>Não é possível excluir o contêiner de armazenamento
 
@@ -77,9 +77,9 @@ O portal do Azure não permitirá ao usuário excluir um contêiner se houver um
 #### <a name="azure-powershell"></a>Azure PowerShell
 Se o usuário optar pela exclusão usando o PowerShell, isso resultará no erro a seguir. 
 
-><span style="color:cyan">**Remove-AzureStorageContainer -Context $context -Name vhds**</span>
-
-><span style="color:red">Remove-AzureStorageContainer: O servidor remoto retornou um erro: (412) Atualmente, há uma concessão no contêiner e nenhuma ID de concessão foi especificada na solicitação. Código de Status HTTP: 412 – Mensagem de Erro HTTP: Atualmente, há uma concessão no contêiner e nenhuma ID de concessão foi especificada na solicitação.</span>
+> <span style="color:cyan">**Remove-AzureStorageContainer -Context $context -Name vhds**</span>
+> 
+> <span style="color:red">Remove-AzureStorageContainer: O servidor remoto retornou um erro: (412) Atualmente, há uma concessão no contêiner e nenhuma ID de concessão foi especificada na solicitação. Código de Status HTTP: 412 – Mensagem de Erro HTTP: Atualmente, há uma concessão no contêiner e nenhuma ID de concessão foi especificada na solicitação.</span>
 
 ## <a name="unable-to-delete-a-vhd"></a>Não é possível excluir um VHD 
 
@@ -99,9 +99,9 @@ No portal, pode haver duas experiências, dependendo da lista de blobs seleciona
 #### <a name="azure-powershell"></a>Azure PowerShell 
 Se o usuário optar pela exclusão usando o PowerShell, isso resultará no erro a seguir. 
 
-><span style="color:cyan">**Remove-AzureStorageBlob -Context $context -Container vhds -Blob "classicvm-os-8698.vhd"**</span>
-
-><span style="color:red">Remove-AzureStorageBlob: O servidor remoto retornou um erro: (412) Atualmente, há uma concessão no blob e nenhuma ID de concessão foi especificada na solicitação. Código de Status HTTP: 412 – Mensagem de Erro HTTP: Atualmente, há uma concessão no blob e nenhuma ID de concessão foi especificada na solicitação.</span>
+> <span style="color:cyan">**Remove-AzureStorageBlob -Context $context -Container vhds -Blob "classicvm-os-8698.vhd"**</span>
+> 
+> <span style="color:red">Remove-AzureStorageBlob: O servidor remoto retornou um erro: (412) Atualmente, há uma concessão no blob e nenhuma ID de concessão foi especificada na solicitação. Código de Status HTTP: 412 – Mensagem de Erro HTTP: Atualmente, há uma concessão no blob e nenhuma ID de concessão foi especificada na solicitação.</span>
 
 
 ## <a name="resolution-steps"></a>Etapas de resolução

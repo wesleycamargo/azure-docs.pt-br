@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
 ms.author: cithomas
-ms.openlocfilehash: c456f8f7f08fdbd0020bfc49ceeec262fa0ac773
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 14c9a453913a9a8080c840df3f23751487b86c34
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56458173"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58006161"
 ---
 # <a name="ilogger"></a>ILogger
 
@@ -219,6 +219,26 @@ services.AddApplicationInsightsTelemetry("ikeyhere");
 Neste exemplo, a configuração usada por `ApplicationInsightsLoggerProvider` é a mesma usada pelo monitoramento de aplicativo regular. Portanto, os rastreamentos de `ILogger` e outros dados de telemetria (solicitações, dependências, etc.) executarão o mesmo conjunto de `TelemetryInitializers`, `TelemetryProcessors` e `TelemetryChannel`. Eles serão correlacionados e amostrados/não amostrados da mesma maneira.
 
 No entanto, há uma exceção a esse comportamento. O `TelemetryConfiguration` padrão não é totalmente configurado ao registrar algo de `Program.cs` ou `Startup.cs` em logs, portanto, esses logs não terão a configuração padrão. No entanto, todos os outros logs (por exemplo, logs de controladores, modelos, etc.) compartilham a mesma configuração.
+
+## <a name="control-logging-level"></a>Nível de log de controle
+
+Além da filtragem de logs no código, como nos exemplos acima, também é possível controlar o nível de log do Application Insights captura, modificando o `appsettings.json`. O [registro em log a documentação de conceitos básicos do ASP.NET](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2#log-filtering) mostra como fazer isso. Especificamente para o Application Insights, é o nome do provedor alias `ApplicationInsights`, conforme mostrado na abaixo um exemplo que configura `ApplicationInsights` capturar somente os logs de `Warning` e acima de todas as categorias.
+
+```json
+{
+  "Logging": {
+    "ApplicationInsights": {
+      "LogLevel": {
+        "Default": "Warning"
+      }
+    },
+    "LogLevel": {
+      "Default": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+}
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 

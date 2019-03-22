@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: ce748be7f11d440e656e4af5cdd3cee3bbc9e313
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
-ms.translationtype: HT
+ms.openlocfilehash: 5c768497cc21b3fae82a9db290531af33841a2cf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302142"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877285"
 ---
-# <a name="security-frame-exception-management--mitigations"></a>Quadro de Segurança: Gerenciamento de Exceções | Atenuações 
+# <a name="security-frame-exception-management--mitigations"></a>Quadro de segurança: Gerenciamento de exceções | Atenuações 
 | Produto/Serviço | Artigo |
 | --------------- | ------- |
 | **WCF** | <ul><li>[WCF - não inclui o nó serviceDebug no arquivo de configuração](#servicedebug)</li><li>[WCF - não inclui o nó serviceMetadata no arquivo de configuração](#servicemetadata)</li></ul> |
-| **API da Web** | <ul><li>[Verificar se o tratamento de exceções adequado é feito na API Web ASP.NET ](#exception)</li></ul> |
-| **Aplicativo Web** | <ul><li>[Não expor os detalhes da segurança nas mensagens de erro ](#messages)</li><li>[Implementar a página tratamento de erros Padrão ](#default)</li><li>[Definir o Método de Implantação para o Varejo no IIS](#deployment)</li><li>[As exceções devem falhar com segurança](#fail)</li></ul> |
+| **API da Web** | <ul><li>[Certifique-se de que o tratamento de exceções adequado é feito na API Web ASP.NET](#exception)</li></ul> |
+| **Aplicativo Web** | <ul><li>[Não expor os detalhes de segurança nas mensagens de erro](#messages)</li><li>[Implementar a página de tratamento de erros padrão](#default)</li><li>[Definir o Método de Implantação para o Varejo no IIS](#deployment)</li><li>[As exceções devem falhar com segurança](#fail)</li></ul> |
 
 ## <a id="servicedebug"></a>WCF - não inclui o nó serviceDebug no arquivo de configuração
 
@@ -63,7 +63,7 @@ Desabilite as informações de depuração no serviço. Isso pode ser feito remo
 | **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_service_enumeration) |
 | **Etapas** | Expor publicamente as informações sobre um serviço pode dar aos invasores ideias valiosas sobre como eles podem explorar o serviço. A marcação `<serviceMetadata>` habilita o recurso de publicação de metadados. Os metadados do serviço podem conter informações confidenciais e não devem ser acessíveis publicamente. No mínimo, apenas permita que usuários confiáveis acessem os metadados e verifique se informações desnecessárias não são expostas. Melhor ainda, desabilite totalmente a capacidade de publicar metadados. Uma configuração segura do WCF não conterá a marcação `<serviceMetadata>`. |
 
-## <a id="exception"></a>Verificar se o tratamento de exceções adequado é feito na API Web ASP.NET
+## <a id="exception"></a>Verificar se o tratamento de exceções adequado é feito na ASP.NET Web API
 
 | Title                   | Detalhes      |
 | ----------------------- | ------------ |
@@ -71,8 +71,8 @@ Desabilite as informações de depuração no serviço. Isso pode ser feito remo
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | MVC 5, MVC 6 |
 | **Atributos**              | N/D  |
-| **Referências**              | [Tratamento de Exceções na API Web ASP.NET](http://www.asp.net/web-api/overview/error-handling/exception-handling), [Validação do Modelo na API Web ASP.NET](http://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) |
-| **Etapas** | Por padrão, a maioria das exceções não identificadas na API Web ASP.NET é convertida em uma resposta HTTP com um código de status`500, Internal Server Error`|
+| **Referências**              | [Tratamento de Exceções na ASP.NET Web API](https://www.asp.net/web-api/overview/error-handling/exception-handling), [Validação do Modelo na ASP.NET Web API](https://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) |
+| **Etapas** | Por padrão, a maioria das exceções não identificadas na ASP.NET Web API é convertida em uma resposta HTTP com um código de status`500, Internal Server Error`|
 
 ### <a name="example"></a>Exemplo
 Para controlar o código de status retornado pela API, `HttpResponseException` pode ser usado como mostrado abaixo: 
@@ -179,7 +179,7 @@ public HttpResponseMessage PostProduct(Product item)
 }
 ```
 
-Verificar os links na seção de referências para obter detalhes adicionais sobre o tratamento de exceção e a validação do modelo na API Web ASP.Net 
+Verifique os links na seção de referências para obter detalhes adicionais sobre o tratamento de exceção e a validação do modelo na API Web ASP.NET 
 
 ## <a id="messages"></a>Não expor os detalhes da segurança nas mensagens de erro
 
@@ -201,7 +201,7 @@ Verificar os links na seção de referências para obter detalhes adicionais sob
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
 | **Referências**              | [Caixa de Diálogo Editar Configurações das Páginas de Erro do ASP.NET](https://technet.microsoft.com/library/dd569096(WS.10).aspx) |
-| **Etapas** | <p>Quando um aplicativo ASP.NET falhar e fizer com que um Erro Interno do Servidor HTTP/1.x 500 ou uma configuração do recurso (por exemplo, Filtragem da Solicitação) impeça que uma página seja exibida, uma mensagem de erro será gerada. Os administradores podem escolher se o aplicativo deve exibir ou não uma mensagem amigável para o cliente, mensagem de erro detalhada para o cliente ou mensagem de erro detalhada para o localhost apenas. A marcação <customErrors> no web.config tem três modos:</p><ul><li>**Ativado:** especifica que os erros personalizados estão habilitados. Se nenhum atributo defaultRedirect for especificado, os usuários verão um erro genérico. Os erros personalizados são mostrados para os clientes remotos e para o host local</li><li>**Desativado:** especifica que os erros personalizados estão desabilitados. Os erros detalhados do ASP.NET são mostrados para os clientes remotos e o host local</li><li>**RemoteOnly:** especifica que os erros personalizados são mostrados apenas para os clientes remotos e que os erros do ASP.NET são mostrados para o host local. Este é o valor padrão</li></ul><p>Abra o arquivo `web.config` do aplicativo/site e verifique se a marcação foi `<customErrors mode="RemoteOnly" />` ou `<customErrors mode="On" />` definido.</p>|
+| **Etapas** | <p>Quando um aplicativo ASP.NET falhar e fizer com que um Erro Interno do Servidor HTTP/1.x 500 ou uma configuração do recurso (por exemplo, Filtragem da Solicitação) impeça que uma página seja exibida, uma mensagem de erro será gerada. Os administradores podem escolher se o aplicativo deve exibir ou não uma mensagem amigável para o cliente, mensagem de erro detalhada para o cliente ou mensagem de erro detalhada para o localhost apenas. A marcação <customErrors> no web.config tem três modos:</p><ul><li>**On:** Especifica que os erros personalizados estão habilitados. Se nenhum atributo defaultRedirect for especificado, os usuários verão um erro genérico. Os erros personalizados são mostrados para os clientes remotos e para o host local</li><li>**Off:** Especifica que os erros personalizados estão desabilitados. Os erros detalhados do ASP.NET são mostrados para os clientes remotos e o host local</li><li>**RemoteOnly:** Especifica que os erros personalizados são mostrados apenas para os clientes remotos e que os erros do ASP.NET são mostrados para o host local. Este é o valor padrão</li></ul><p>Abra o arquivo `web.config` do aplicativo/site e verifique se a marcação foi `<customErrors mode="RemoteOnly" />` ou `<customErrors mode="On" />` definido.</p>|
 
 ## <a id="deployment"></a>Definir o Método de Implantação para o Varejo no IIS
 

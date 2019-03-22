@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: 768f06c9d007e716f89ca61ccd9f8a2ccd575efd
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
-ms.translationtype: HT
+ms.openlocfilehash: 77f8b7094c96e507eef1d360a26240627bc0e350
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160861"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994017"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Adicione uma conexão Site a Site a uma rede virtual com uma conexão de gateway de VPN existente (clássico)
 
@@ -75,8 +75,8 @@ Se você já tiver uma VPN site a site com um gateway de roteamento dinâmico, �
 2. Configure seu novo gateway e crie seu túnel de VPN. Para obter instruções, consulte [Especificar o tipo VPN e SKU](vpn-gateway-howto-site-to-site-classic-portal.md#sku). Verifique se que você especificou o Tipo de Roteamento como 'Dinâmico'.
 
 ### <a name="if-you-dont-have-a-site-to-site-virtual-network"></a>Se você não tiver uma rede virtual site a site:
-1. Crie a sua rede virtual Site a Site usando estas instruções: [Criar uma rede virtual com uma conexão de VPN site a site](vpn-gateway-site-to-site-create.md).  
-2. Configure um gateway de roteamento dinâmico usando estas instruções: [Configurar um gateway de VPN](vpn-gateway-configure-vpn-gateway-mp.md). Lembre-se de selecionar **roteamento dinâmico** para o tipo de gateway.
+1. Crie sua rede virtual do Site a Site usando estas instruções: [Criar uma rede Virtual com uma Conexão VPN Site a Site](vpn-gateway-site-to-site-create.md).  
+2. Configure um gateway de roteamento dinâmico usando estas instruções: [Configurar um Gateway de VPN](vpn-gateway-configure-vpn-gateway-mp.md). Lembre-se de selecionar **roteamento dinâmico** para o tipo de gateway.
 
 ## <a name="export"></a>2. Exportar o arquivo de configuração de rede
 Baixe o arquivo de configuração de rede do Azure executando o comando a seguir. Você pode alterar o local do arquivo a ser exportado para um local diferente, se necessário.
@@ -88,7 +88,7 @@ Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 ## <a name="3-open-the-network-configuration-file"></a>3. Abrir o arquivo de configuração de rede
 Abra o arquivo de configuração de rede que você baixou na última etapa. Use qualquer editor de xml que desejar. O arquivo deve ser semelhante ao seguinte:
 
-        <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+        <NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
           <VirtualNetworkConfiguration>
             <LocalNetworkSites>
               <LocalNetworkSite name="Site1">

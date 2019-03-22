@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: 7a090a068984a71c917cf5c33761dd78ac1ad2c8
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 510a243b9133fe0ef0fe33b4dccce97f9d65e301
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453249"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074949"
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Criar um gateway de aplicativo com um firewall do aplicativo Web usando o portal do Azure
 
@@ -31,6 +31,8 @@ Neste artigo, você aprenderá a:
 
 ![Exemplo de Firewall do aplicativo Web](./media/application-gateway-web-application-firewall-portal/scenario-waf.png)
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
 Faça logon no Portal do Azure em [https://portal.azure.com](https://portal.azure.com)
@@ -43,21 +45,21 @@ Uma rede virtual é necessária para a comunicação entre os recursos que você
 2. Selecione **Rede** e depois **Gateway de Aplicativo** na lista em destaque.
 3. Insira esses valores para o gateway de aplicativo:
 
-    - *myAppGateway* - para o nome do gateway de aplicativo.
-    - *myResourceGroupAG* - para o novo grupo de recursos.
-    - Selecione *WAF* para a camada do gateway de aplicativo.
+   - *myAppGateway* - para o nome do gateway de aplicativo.
+   - *myResourceGroupAG* - para o novo grupo de recursos.
+   - Selecione *WAF* para a camada do gateway de aplicativo.
 
-    ![Criar novo gateway de aplicativo](./media/application-gateway-web-application-firewall-portal/application-gateway-create.png)
+     ![Criar novo gateway de aplicativo](./media/application-gateway-web-application-firewall-portal/application-gateway-create.png)
 
 4. Aceite os valores padrão para as outras configurações e, em seguida, clique em **OK**.
 5. Clique em **Escolher uma rede virtual**, clique em **Criar novo** e insira esses valores para a rede virtual:
 
-    - *myVNet* – para o nome da rede virtual.
-    - *10.0.0.0/16* – para o espaço de endereço da rede virtual.
-    - *myAGSubnet* – para o nome da sub-rede.
-    - *10.0.0.0/24* - para o espaço de endereço da sub-rede.
+   - *myVNet* – para o nome da rede virtual.
+   - *10.0.0.0/16* – para o espaço de endereço da rede virtual.
+   - *myAGSubnet* – para o nome da sub-rede.
+   - *10.0.0.0/24* - para o espaço de endereço da sub-rede.
 
-    ![Criar rede virtual](./media/application-gateway-web-application-firewall-portal/application-gateway-vnet.png)
+     ![Criar rede virtual](./media/application-gateway-web-application-firewall-portal/application-gateway-vnet.png)
 
 6. Clique em **OK** para criar a rede virtual e a sub-rede.
 7. Clique em **Escolher um endereço IP público**, clique em **Criar novo** e digite o nome do endereço IP público. Neste exemplo, o endereço IP público é denominado *myAGPublicIPAddress*. Aceite os valores padrão para as outras configurações e, em seguida, clique em **OK**.
@@ -103,7 +105,7 @@ Neste exemplo, você cria duas máquinas virtuais para serem usadas como servido
 2. Execute o comando a seguir para instalar o IIS na máquina virtual: 
 
     ```azurepowershell-interactive
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -ExtensionName IIS `
       -VMName myVM `
@@ -114,7 +116,7 @@ Neste exemplo, você cria duas máquinas virtuais para serem usadas como servido
       -Location EastUS
     ```
 
-3. Crie uma segunda máquina virtual e instale o IIS usando as etapas que você acabou de concluir. Insira *myVM2* para seu nome e para VMName em Set-AzureRmVMExtension.
+3. Crie uma segunda máquina virtual e instale o IIS usando as etapas que você acabou de concluir. Insira *myVM2* para seu nome e para VMName em Set-AzVMExtension.
 
 ### <a name="add-backend-servers"></a>Adicionar servidores de back-end
 

@@ -10,16 +10,30 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: gracez
-ms.openlocfilehash: 2e51bdd24f33789a95017c9fe5df88b0bb55de26
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 4d802b9f71edee1eec4b2c92881e2a8796db2865
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870700"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58005513"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>Notas de versão do SDK dos Dispositivos de Fala dos Serviços Cognitivos
 
 As seções a seguir listam as alterações nas versões mais recentes.
+
+## <a name="cognitive-services-speech-devices-sdk-131-2019-mar-release"></a>Serviços cognitivos de fala dispositivos SDK 1.3.1: Versão de março de 2019 
+
+* Atualizado o [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) componente versão 1.3.1. Para obter mais informações, consulte [notas de versão](https://aka.ms/csspeech/whatsnew). 
+*   Palavra de ativação atualizado tratamento, consulte alterações significativas.
+*   Aplicativo de exemplo adiciona a opção de linguagem para o reconhecimento de fala e tradução.
+
+**Alterações da falha** 
+
+*   [Instalando um ativação word](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-qsg#run-a-sample-application) foi simplificado, agora é parte do aplicativo e não precisa de uma instalação separada no dispositivo.
+*   O reconhecimento da palavra wake foi alterado, e há suporte para dois eventos.
+    - RecognizingKeyword, indica o resultado de fala contém o texto da palavra-chave (não verificado).
+    - RecognizedKeyword, indica que esse reconhecimento de palavra-chave concluído reconhecer a palavra-chave determinada.
+
 
 ## <a name="cognitive-services-speech-devices-sdk-110-2018-nov-release"></a>SDK de Dispositivos de Fala dos Serviços Cognitivos 1.1.0: versão de novembro de 2018 
 

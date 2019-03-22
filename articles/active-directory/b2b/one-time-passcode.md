@@ -10,13 +10,14 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9493f7ee3278bb42dc21574cd008fbe2f4376a1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8f5234674bc41e1f5bfa260dfc32042a3345d9f7
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185138"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294818"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>Autenticação por senha avulsa por email (versão prévia)
 
@@ -35,11 +36,11 @@ Esse recurso está atualmente disponível em versão prévia (confira [Aceitar a
 ## <a name="user-experience-for-one-time-passcode-guest-users"></a>Experiência do usuário para usuários convidados com senha avulsa
 Com a autenticação por senha avulsa, o usuário convidado pode resgatar seu convite clicando em um link direto ou usando o email de convite. Em ambos os casos, uma mensagem no navegador indica que um código será enviado ao endereço de email do usuário convidado. O usuário convidado seleciona **Enviar código**:
  
-   ![Gerenciar aplicativo do Painel de Acesso](media/one-time-passcode/otp-send-code.png)
+   ![Captura de tela mostrando o botão de código de envio](media/one-time-passcode/otp-send-code.png)
  
 Uma senha é enviada ao endereço de email do usuário. O usuário recupera a senha de email e insere-a na janela do navegador:
  
-   ![Gerenciar aplicativo do Painel de Acesso](media/one-time-passcode/otp-enter-code.png)
+   ![Captura de tela mostrando a página de código Enter](media/one-time-passcode/otp-enter-code.png)
  
 O usuário convidado está agora autenticado e pode ver o recurso compartilhado ou continuar o processo de entrada. 
 
@@ -57,7 +58,7 @@ No momento do convite, não há nenhuma indicação de que o usuário que você 
 
 Você pode exibir os usuários convidados que se autenticam com senhas de uso único no portal do Azure, acessando **Azure Active Directory** > **Relações organizacionais** > **Usuários de outras organizações**.
 
-![Exibir os usuários de senha avulsa no portal do Azure, em que a origem é igual à senha de uso único](media/one-time-passcode/otp-users.png)
+![Captura de tela mostrando um usuário de senha de uso único com valor de origem de OTP](media/one-time-passcode/otp-users.png)
 
 > [!NOTE]
 > Quando um usuário resgatar uma senha avulsa e, posteriormente, obtém uma MSA, conta do Azure AD ou outra conta federada, ele continuará a ser autenticado usando uma senha avulsa. Se quiser atualizar o método de autenticação do usuário, você poderá excluir a conta de usuário convidado dele e convidá-lo novamente.

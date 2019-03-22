@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3bae6d93ffe7ea028d3329dcc69c2f33bdf7aa2a
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: b9c66216411f42e46cc7c7be486f6103db9c7208
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635452"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894590"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>O que é o Apache Storm no Azure HDInsight?
 
@@ -48,7 +48,7 @@ O Storm no HDInsight oferece os seguintes recursos:
 
 Para obter uma lista de empresas que estão usando o Apache Storm em suas soluções de análise em tempo real, consulte [Empresas que estão usando o Apache Storm](https://storm.apache.org/documentation/Powered-By.html).
 
-Para começar a usar o Storm, consulte [Introdução ao uso do Apache Storm no HDInsight][gettingstarted].
+Para começar a usar o Storm, consulte [Introdução ao Apache Storm no HDInsight][gettingstarted].
 
 ## <a name="how-does-apache-storm-work"></a>Como funciona o Apache Storm
 
@@ -86,7 +86,7 @@ Você pode provisionar um novo cluster Storm no HDInsight em minutos. Para saber
 
 * __Azure PowerShell e CLI Clássica do Azure__: o PowerShell e a CLI clássica fornecem utilitários de linha de comando que você pode usar no sistema cliente para trabalhar com o HDInsight e outros serviços do Azure.
 
-* __Integração do Visual Studio__: o Ferramentas do Azure Data Lake para Visual Studio inclui modelos de projeto para criar topologias Storm em C# usando a estrutura SCP.Net. O Data Lake Tools também fornece ferramentas para implantar, monitorar e gerenciar soluções com o Storm no HDInsight.
+* __Integração do Visual Studio__: Ferramentas do Azure Data Lake para Visual Studio inclui modelos de projeto para criar C# topologias Storm usando a estrutura SCP.NET. O Data Lake Tools também fornece ferramentas para implantar, monitorar e gerenciar soluções com o Storm no HDInsight.
 
   Para obter mais informações, confira [Desenvolver topologias Storm C# com as Ferramentas do HDInsight para Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md).
 
@@ -142,7 +142,7 @@ Para obter mais informações, consulte [Garantias do processamento de dados](ht
 
 ### <a name="ibasicbolt"></a>IBasicBolt
 
-O padrão de leitura de uma tupla de entrada, emitindo zero ou mais tuplas, e depois confirmando a tupla de entrada imediatamente no final do método de execução é comum. O Storm oferece a interface [IBasicBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html) para automatizar esse padrão.
+O padrão de leitura de uma tupla de entrada, emitindo zero ou mais tuplas e, em seguida, confirmando a tupla de entrada imediatamente no final do método execute é comum. O Storm oferece a interface [IBasicBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html) para automatizar esse padrão.
 
 ### <a name="joins"></a>Junções
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 0d9ddbeae3a666d3b3cf56f80ae633a7ecaa650a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
-ms.translationtype: HT
+ms.openlocfilehash: 1b18bd5aae398d2ec942120af5d96943636c346c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294026"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101104"
 ---
 # <a name="stream-data-from-azure-storage-blob-into-azure-data-lake-storage-gen1-using-azure-stream-analytics"></a>Dados do Stream do Blob de armazenamento do Azure em Gen1 de armazenamento do Azure Data Lake usando o Azure Stream Analytics
 Neste artigo, você aprenderá como usar o Azure Data Lake armazenamento Gen1 como uma saída para um trabalho do Azure Stream Analytics. Este artigo demonstra um cenário simples que lê dados de um blob de armazenamento do Azure (entrada) e grava os dados no Data Lake armazenamento Gen1 (saída).
@@ -29,7 +29,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 * **Conta de Armazenamento do Azure**. Você usará um contêiner de blob desta conta para os dados de entrada para um trabalho do Stream Analytics. Para esse tutorial, suponha que você tem uma conta de armazenamento chamada **storageforasa** e um contêiner na conta chamado **storageforasacontainer**. Depois de criar o contêiner, carregue um arquivo de dados de exemplo nele. 
   
-* **Uma conta do Data Lake armazenamento Gen1**. Siga as instruções em [Introdução ao Azure Data Lake Storage Gen1 usando o Portal do Azure](data-lake-store-get-started-portal.md). Vamos supor que você tenha uma conta do Data Lake Storage Gen1 chamada **myadlsg1**. 
+* **Uma conta do Data Lake Storage Gen1**. Siga as instruções em [Introdução ao Azure Data Lake Storage Gen1 usando o Portal do Azure](data-lake-store-get-started-portal.md). Vamos supor que você tenha uma conta do Data Lake Storage Gen1 chamada **myadlsg1**. 
 
 ## <a name="create-a-stream-analytics-job"></a>Criar um trabalho do Stream Analytics
 Você começa ao criar um trabalho do Stream Analytics, que inclui uma fonte de entrada e um destino de saída. Para este tutorial, a fonte é um contêiner de BLOBs do Azure e o destino é Gen1 de armazenamento do Data Lake.
@@ -54,17 +54,17 @@ Você começa ao criar um trabalho do Stream Analytics, que inclui uma fonte de 
 
     ![Adicionar uma entrada ao trabalho](./media/data-lake-store-stream-analytics/create.input.2.png "Adicionar uma entrada ao trabalho")
 
-    * Para **Alias de entrada**, insira um nome exclusivo para essa entrada de trabalho.
-    * Para **Tipo de fonte**, selecione **luxo de dados**.
-    * Para **Fonte**, selecione **Armazenamento de Blobs**.
-    * Para **Assinatura**, selecione **Usar armazenamento de blobs da assinatura atual**.
-    * Para **Conta de armazenamento**, selecione a conta de armazenamento que você criou como parte dos pré-requisitos. 
-    * Para **Contêiner**, selecione o contêiner que você criou na conta de armazenamento selecionada.
-    * Para **Formato de Serialização de Evento**, clique em **CSV**.
-    * Para **Delimitador**, selecione **guia**.
-    * Para **Codificação**, selecione **UTF-8**.
+   * Para **Alias de entrada**, insira um nome exclusivo para essa entrada de trabalho.
+   * Para **Tipo de fonte**, selecione **luxo de dados**.
+   * Para **Fonte**, selecione **Armazenamento de Blobs**.
+   * Para **Assinatura**, selecione **Usar armazenamento de blobs da assinatura atual**.
+   * Para **Conta de armazenamento**, selecione a conta de armazenamento que você criou como parte dos pré-requisitos. 
+   * Para **Contêiner**, selecione o contêiner que você criou na conta de armazenamento selecionada.
+   * Para **Formato de Serialização de Evento**, clique em **CSV**.
+   * Para **Delimitador**, selecione **guia**.
+   * Para **Codificação**, selecione **UTF-8**.
 
-    Clique em **Criar**. O portal agora adiciona a entrada e testa a conexão.
+     Clique em **Criar**. O portal agora adiciona a entrada e testa a conexão.
 
 
 ## <a name="create-a-data-lake-storage-gen1-output-for-the-job"></a>Criar uma saída Gen1 de armazenamento do Data Lake para o trabalho
@@ -84,15 +84,15 @@ Você começa ao criar um trabalho do Stream Analytics, que inclui uma fonte de 
 
     ![Adicionar uma saída ao trabalho](./media/data-lake-store-stream-analytics/create.output.3.png "Adicionar uma saída ao trabalho")
 
-    * Para **nome da conta**, selecione a conta Data Lake armazenamento Gen1 você já criou onde você deseja que o trabalho de saída a serem enviados ao.
-    * Para **padrão de prefixo de caminho**, insira um caminho de arquivo usado para gravar seus arquivos na conta do Data Lake armazenamento Gen1 especificada.
-    * Para **Formato de data**, se você usou um token de data no caminho do prefixo, pode selecionar o formato de data em que os arquivos estão organizados.
-    * Para **Formato de hora**, se você usou um token de hora no caminho do prefixo, especifique o formato de hora em que os arquivos estão organizados.
-    * Para **Formato de Serialização de Evento**, clique em **CSV**.
-    * Para **Delimitador**, selecione **guia**.
-    * Para **Codificação**, selecione **UTF-8**.
+   * Para **nome da conta**, selecione a conta Data Lake armazenamento Gen1 você já criou onde você deseja que o trabalho de saída a serem enviados ao.
+   * Para **padrão de prefixo de caminho**, insira um caminho de arquivo usado para gravar seus arquivos na conta do Data Lake armazenamento Gen1 especificada.
+   * Para **Formato de data**, se você usou um token de data no caminho do prefixo, pode selecionar o formato de data em que os arquivos estão organizados.
+   * Para **Formato de hora**, se você usou um token de hora no caminho do prefixo, especifique o formato de hora em que os arquivos estão organizados.
+   * Para **Formato de Serialização de Evento**, clique em **CSV**.
+   * Para **Delimitador**, selecione **guia**.
+   * Para **Codificação**, selecione **UTF-8**.
     
-    Clique em **Criar**. O portal agora adiciona a saída e testa a conexão.
+     Clique em **Criar**. O portal agora adiciona a saída e testa a conexão.
     
 ## <a name="run-the-stream-analytics-job"></a>Executar o trabalho do Stream Analytics
 
@@ -106,7 +106,7 @@ Você começa ao criar um trabalho do Stream Analytics, que inclui uma fonte de 
 
     Clique em **Iniciar** para iniciar o teste. Pode levar até dois minutos para o trabalho ser iniciado.
 
-3. Para acionar o trabalho de forma a escolher a os dados do blob, copie um arquivo de dados de exemplo para o contêiner de blob. Você pode obter um arquivo de dados de exemplo do [Repositório Git do Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt). Para este tutorial, vamos copiar o arquivo **vehicle1_09142014.csv**. Você pode usar vários clientes, como o [Gerenciador de Armazenamento do Azure](http://storageexplorer.com/), para carregar dados em um contêiner de blob.
+3. Para acionar o trabalho de forma a escolher a os dados do blob, copie um arquivo de dados de exemplo para o contêiner de blob. Você pode obter um arquivo de dados de exemplo do [Repositório Git do Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt). Para este tutorial, vamos copiar o arquivo **vehicle1_09142014.csv**. Você pode usar vários clientes, como o [Gerenciador de Armazenamento do Azure](https://storageexplorer.com/), para carregar dados em um contêiner de blob.
 
 4. Na guia **Visão geral**, em **Monitoramento**, veja como os dados foram processados.
 

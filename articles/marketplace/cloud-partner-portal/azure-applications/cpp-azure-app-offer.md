@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 82d072cc6f86ae758bd0fdd4d02b68b1ac1de53a
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 9faa38a23b2039902366e5b885ab73c68a2a3d80
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56097143"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076013"
 ---
 # <a name="azure-application-offer"></a>Oferta de aplicativo do Azure
 
@@ -44,6 +44,9 @@ Há dois tipos de aplicativos do Azure: aplicativos gerenciados e modelos de sol
 
 Além do Azure Marketplace, você também pode oferecer aplicativos gerenciados em um catálogo de serviços. O catálogo de serviços é um catálogo interno das soluções aprovadas para os usuários em uma organização. Você pode usar o catálogo para atender aos padrões organizacionais ao oferecer soluções para grupos em uma organização. Os funcionários usam o catálogo para encontrar com facilidade aplicativos recomendados e aprovados pelos departamentos de TI.
 
+>[!Note]
+>Cloud Solution Providers (CSP) parceiro canal participar agora está disponível.  Consulte [Cloud Solution Providers](../../cloud-solution-providers.md) para obter mais informações sobre sua oferta por meio do Microsoft CSP de marketing de parceiros canais.
+
 Para obter mais informações sobre as vantagens e os tipos de aplicativos gerenciados, confira a [Visão geral dos aplicativos gerenciados do Azure](https://docs.microsoft.com/azure/managed-applications/overview).
 
 
@@ -55,16 +58,15 @@ O diagrama a seguir mostra o processo de alto nível para a publicação uma ofe
 
 As etapas de alto nível para publicar uma oferta de aplicativo Azure são:
 
-0. Atender aos [pré-requisitos](./cpp-prerequisites.md) – (não mostrado) Verifique se você atende aos requisitos comerciais e técnicos para a publicação de um aplicativo do Azure no Azure Marketplace. 
+1. Atender aos [pré-requisitos](./cpp-prerequisites.md) – (não mostrado) Verifique se você atende aos requisitos comerciais e técnicos para a publicação de um aplicativo do Azure no Azure Marketplace. 
 
 1. [Crie a oferta](./cpp-create-offer.md) – forneça informações detalhadas sobre a oferta. Essas informações incluem: a descrição da oferta, materiais de marketing, informações de suporte e especificações de ativos.
 
-2. [Coletar ativos técnicos e comerciais existentes ou criá-los](./cpp-create-technical-assets.md) – crie ativos comerciais (documentos legais e materiais de marketing) e ativos técnicos para a solução associada.
+1. [Coletar ativos técnicos e comerciais existentes ou criá-los](./cpp-create-technical-assets.md) – crie ativos comerciais (documentos legais e materiais de marketing) e ativos técnicos para a solução associada.
 
-3. [Criar o SKU](./cpp-skus-tab.md) – crie os SKUs associados à oferta. Uma SKU exclusiva é necessária para cada imagem que você estiver planejando publicar.
+1. [Criar o SKU](./cpp-skus-tab.md) – crie os SKUs associados à oferta. Uma SKU exclusiva é necessária para cada imagem que você estiver planejando publicar.
 
-4. Certificar e [publicar a oferta](./cpp-publish-offer.md) – depois que a oferta e os recursos técnicos forem concluídos, você poderá enviar a oferta. Esse envio inicia o processo de publicação. Durante esse processo, a solução é testada, validada, certificada e, em seguida, "entra em operação" no Azure Marketplace.
-
+1. Certificar e [publicar a oferta](./cpp-publish-offer.md) – depois que a oferta e os recursos técnicos forem concluídos, você poderá enviar a oferta. Esse envio inicia o processo de publicação. Durante esse processo, a solução é testada, validada, certificada e, em seguida, "entra em operação" no Azure Marketplace.
 
 ## <a name="next-steps"></a>Próximas etapas
 

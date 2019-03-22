@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2017
 ms.author: hkanna
-ms.openlocfilehash: 361ab36d3029dbc00e8d1e53ef9f9af42be3e1eb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 17428405a0be45854a2eaaef831864f529ed145a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255824"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994470"
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>StorSimple como um destino de backup com o NetBackup
 
@@ -94,6 +94,7 @@ As tabelas a seguir demonstram as diretrizes iniciais do modelo à arquitetura d
 |------------------------|---------------|-----------------|
 | Capacidade de armazenamento local | &lt; 10 TiB\*  | &lt; 20 TiB\*  |
 | Capacidade de armazenamento em nuvem | &gt;200 TiB\* | &gt;500 TiB\* |
+
 \*O tamanho de armazenamento não assume nenhuma eliminação de duplicação ou compactação.
 
 **Capacidade do StorSimple para backups primários e secundários**
@@ -207,16 +208,16 @@ Configure sua solução de acordo com as diretrizes indicadas nas próximas seç
 
 ### <a name="operating-system-best-practices"></a>Práticas recomendadas do sistema operacional
 
--   Desabilite a criptografia do Windows Server e a eliminação de duplicação do sistema de arquivos NTFS.
--   Desabilite a desfragmentação do Windows Server em volumes do StorSimple.
--   Desabilite a indexação do Windows Server em volumes do StorSimple.
--   Execute uma verificação antivírus no host de origem (não nos volumes do StorSimple).
--   Desligue a [Manutenção do Windows Server](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) padrão no Gerenciador de Tarefas. Faça isso de uma das seguintes maneiras:
-    - Desligue o Configurador de Manutenção no Agendador de Tarefas do Windows.
-    - Baixe [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) do Windows Sysinternals. Depois de baixar o PsExec, execute o Windows PowerShell como administrador e digite:
-      ```powershell
-      psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
-      ```
+- Desabilite a criptografia do Windows Server e a eliminação de duplicação do sistema de arquivos NTFS.
+- Desabilite a desfragmentação do Windows Server em volumes do StorSimple.
+- Desabilite a indexação do Windows Server em volumes do StorSimple.
+- Execute uma verificação antivírus no host de origem (não nos volumes do StorSimple).
+- Desligue a [Manutenção do Windows Server](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) padrão no Gerenciador de Tarefas. Faça isso de uma das seguintes maneiras:
+  - Desligue o Configurador de Manutenção no Agendador de Tarefas do Windows.
+  - Baixe [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) do Windows Sysinternals. Depois de baixar o PsExec, execute o Windows PowerShell como administrador e digite:
+    ```powershell
+    psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
+    ```
 
 ### <a name="storsimple-best-practices"></a>Práticas recomendadas do StorSimple
 
@@ -257,6 +258,7 @@ Com base nas premissas anteriores, crie um volume em camadas StorSimple de 26 Ti
 | Anual completo | 1  | 10 | 10 |
 | Requisito de GFS |   | 38 |   |
 | Cota adicional  | 4  |   | Requisito total de GFS 42  |
+
 \* O multiplicador GFS é o número de cópias que você precisa proteger e manter para atender aos requisitos da política de backup.
 
 ## <a name="set-up-netbackup-storage"></a>Configurar o armazenamento do NetBackup
@@ -292,7 +294,7 @@ Com base nas premissas anteriores, crie um volume em camadas StorSimple de 26 Ti
 
 A figura a seguir mostra o mapeamento de um volume típico para um trabalho de backup. Nesse caso, todos os backups semanais são mapeados para o disco completo no sábado e os backups incrementais são mapeados para discos incrementais de segunda a sexta-feira. Todos os backups e as restaurações são realizados de um volume em camadas do StorSimple.
 
-![Diagrama lógico de configuração de destino de backup principal ](./media/storsimple-configure-backup-target-using-netbackup/primarybackuptargetdiagram.png)
+![Diagrama lógico de configuração de destino de backup principal](./media/storsimple-configure-backup-target-using-netbackup/primarybackuptargetdiagram.png)
 
 ### <a name="storsimple-as-a-primary-backup-target-gfs-schedule-example"></a>Exemplo de agendamento do StorSimple destino de backup principal GFS
 
@@ -302,7 +304,7 @@ Veja esta exemplo de uma agenda de rotação GFS de quatro semanas, mensal e anu
 |---|---|---|
 | Semanal (1 a 4 semanas) | Sábado | Segunda a sexta-feira |
 | Mensal  | Sábado  |   |
-| Anual | Sábado  |   |   |
+| Anual | Sábado  |   |
 
 ## <a name="assigning-storsimple-volumes-to-a-netbackup-backup-job"></a>Atribuir volumes do StorSimple a um trabalho de backup do NetBackup
 
@@ -310,69 +312,69 @@ A sequência a seguir pressupõe que NetBackup e o host de destino estão config
 
 ### <a name="to-assign-storsimple-volumes-to-a-netbackup-backup-job"></a>Para atribuir volumes do StorSimple a um trabalho de backup do NetBackup
 
-1.  No Console de Administração do NetBackup, selecione **Gerenciamento do NetBackup**, clique com botão direito do mouse em **Políticas** e selecione **Nova Política**.
+1. No Console de Administração do NetBackup, selecione **Gerenciamento do NetBackup**, clique com botão direito do mouse em **Políticas** e selecione **Nova Política**.
 
-    ![Console de Administração do NetBackup, criar uma nova política](./media/storsimple-configure-backup-target-using-netbackup/nbimage6.png)
+   ![Console de Administração do NetBackup, criar uma nova política](./media/storsimple-configure-backup-target-using-netbackup/nbimage6.png)
 
-2.  Na caixa de diálogo **Adicionar uma Nova Política**, digite um nome para a política e marque a caixa de seleção **Usar Assistente de Configuração de Política**. Selecione **OK**.
+2. Na caixa de diálogo **Adicionar uma Nova Política**, digite um nome para a política e marque a caixa de seleção **Usar Assistente de Configuração de Política**. Selecione **OK**.
 
-    ![Console de Administração do NetBackup, caixa de diálogo Adicionar uma Nova Política](./media/storsimple-configure-backup-target-using-netbackup/nbimage7.png)
+   ![Console de Administração do NetBackup, caixa de diálogo Adicionar uma Nova Política](./media/storsimple-configure-backup-target-using-netbackup/nbimage7.png)
 
-3.  No Assistente de Configuração de Política de Backup, escolha o tipo de backup desejado e selecione **Avançar**.
+3. No Assistente de Configuração de Política de Backup, escolha o tipo de backup desejado e selecione **Avançar**.
 
-    ![Console de Administração do NetBackup, selecionar tipo de backup](./media/storsimple-configure-backup-target-using-netbackup/nbimage8.png)
+   ![Console de Administração do NetBackup, selecionar tipo de backup](./media/storsimple-configure-backup-target-using-netbackup/nbimage8.png)
 
-4.  Para definir o tipo de política, selecione **Standard** e clique em **Avançar**.
+4. Para definir o tipo de política, selecione **Standard** e clique em **Avançar**.
 
-    ![Console de Administração do NetBackup, selecionar tipo de política](./media/storsimple-configure-backup-target-using-netbackup/nbimage9.png)
+   ![Console de Administração do NetBackup, selecionar tipo de política](./media/storsimple-configure-backup-target-using-netbackup/nbimage9.png)
 
-5.  Selecione o host, marque a caixa de seleção **Detectar o sistema operacional cliente** e selecione **Adicionar**. Selecione **Avançar**.
+5. Selecione o host, marque a caixa de seleção **Detectar o sistema operacional cliente** e selecione **Adicionar**. Selecione **Avançar**.
 
-    ![Console de Administração do NetBackup, listar clientes em uma nova política](./media/storsimple-configure-backup-target-using-netbackup/nbimage10.png)
+   ![Console de Administração do NetBackup, listar clientes em uma nova política](./media/storsimple-configure-backup-target-using-netbackup/nbimage10.png)
 
-6.  Selecione as unidades que você deseja incluir no backup.
+6. Selecione as unidades que você deseja incluir no backup.
 
-    ![Console de Administração do NetBackup, seleções de backup para uma nova política](./media/storsimple-configure-backup-target-using-netbackup/nbimage11.png)
+   ![Console de Administração do NetBackup, seleções de backup para uma nova política](./media/storsimple-configure-backup-target-using-netbackup/nbimage11.png)
 
-7.  Selecione os valores de retenção e frequência que atendem aos seus requisitos de rotação de backup.
+7. Selecione os valores de retenção e frequência que atendem aos seus requisitos de rotação de backup.
 
-    ![Console de Administração do NetBackup, frequência e rotação de backup para uma nova política](./media/storsimple-configure-backup-target-using-netbackup/nbimage12.png)
+   ![Console de Administração do NetBackup, frequência e rotação de backup para uma nova política](./media/storsimple-configure-backup-target-using-netbackup/nbimage12.png)
 
-8.  Selecione **Avançar** > **Avançar** > **Concluir**.  É possível modificar o agendamento depois que a política for criada.
+8. Selecione **Avançar** > **Avançar** > **Concluir**.  É possível modificar o agendamento depois que a política for criada.
 
-9.  Expanda a política que você criou e selecione **Agendamentos**.
+9. Expanda a política que você criou e selecione **Agendamentos**.
 
-    ![Console de Administração do NetBackup, agendamentos para uma nova política](./media/storsimple-configure-backup-target-using-netbackup/nbimage13.png)
+   ![Console de Administração do NetBackup, agendamentos para uma nova política](./media/storsimple-configure-backup-target-using-netbackup/nbimage13.png)
 
-10.  Clique com botão direito do mouse em **Differential-Inc**, selecione **Copiar para a cova** e clique em **OK**.
+10. Clique com botão direito do mouse em **Differential-Inc**, selecione **Copiar para a cova** e clique em **OK**.
 
     ![Console de Administração do NetBackup, copiar agendamento para uma nova política](./media/storsimple-configure-backup-target-using-netbackup/nbimage14.png)
 
-11.  Clique com o botão direito do mouse no agendamento recém-criado e selecione **Alterar**.
+11. Clique com o botão direito do mouse no agendamento recém-criado e selecione **Alterar**.
 
-12.  Na guia **Atributos**, marque a caixa de seleção **Substituir seleção de armazenamento de política** e selecione o volume para onde vão os backups incrementais de segunda-feira.
+12. Na guia **Atributos**, marque a caixa de seleção **Substituir seleção de armazenamento de política** e selecione o volume para onde vão os backups incrementais de segunda-feira.
 
     ![Console de Administração do NetBackup, alterar o agendamento](./media/storsimple-configure-backup-target-using-netbackup/nbimage15.png)
 
-13.  Na guia **Início da Janela**, selecione a janela de tempo para seus backups.
+13. Na guia **Início da Janela**, selecione a janela de tempo para seus backups.
 
     ![Console de Administração do NetBackup, alterar o início da janela](./media/storsimple-configure-backup-target-using-netbackup/nbimage16.png)
 
-14.  Selecione **OK**.
+14. Selecione **OK**.
 
-15.  Repita as etapas 10 a 14 para cada backup incremental. Selecione o volume e agendamento apropriado para cada backup que você criar.
+15. Repita as etapas 10 a 14 para cada backup incremental. Selecione o volume e agendamento apropriado para cada backup que você criar.
 
-16.  Clique com o botão direito do mouse no agendamento **Diferencial-Inc** e exclua-o.
+16. Clique com o botão direito do mouse no agendamento **Diferencial-Inc** e exclua-o.
 
-17.  Modifique o Agendamento completo para atender às suas necessidades de backup.
+17. Modifique o Agendamento completo para atender às suas necessidades de backup.
 
     ![Console de Administração do NetBackup, alterar o agendamento completo](./media/storsimple-configure-backup-target-using-netbackup/nbimage17.png)
 
-18.  Altere a janela de início.
+18. Altere a janela de início.
 
     ![Console de Administração do NetBackup, alterar o início da janela](./media/storsimple-configure-backup-target-using-netbackup/nbimage18.png)
 
-19.  A agenda final tem esta aparência:
+19. A agenda final tem esta aparência:
 
     ![Console de Administração do NetBackup, agendamento final](./media/storsimple-configure-backup-target-using-netbackup/nbimage19.png)
 
@@ -400,10 +402,11 @@ A tabela a seguir mostra como configurar backups para execução no local e disc
 | Mensal completo |Disco StorSimple (longo prazo) | 1 | 12 | 12 |
 | Anual completo |Disco StorSimple (longo prazo) | 1 | 1 | 1 |
 |Requisito de tamanho de volumes do GFS |  |  |  | 18\*|
+
 A capacidade total do \* inclui 17 TiB de discos do StorSimple e 1 TiB de volume RAID local.
 
 
-### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>Agenda de exemplo GFS: agendamento de rotação GFS semanal, mensal e anual
+### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>Exemplo de agenda do GFS: Agenda semanal, mensal e anual da rotação do GFS
 
 | Semana | Completo | Incremental dia 1 | Incremental dia 2 | Incremental dia 3 | Incremental dia 4 | Incremental dia 5 |
 |---|---|---|---|---|---|---|
@@ -412,7 +415,7 @@ A capacidade total do \* inclui 17 TiB de discos do StorSimple e 1 TiB de volume
 | Semana 3 | StorSimple semanas 2 a 4 |   |   |   |   |   |
 | Semana 4 | StorSimple semanas 2 a 4 |   |   |   |   |   |
 | Mensal | StorSimple mensal |   |   |   |   |   |
-| Anual | StorSimple anual  |   |   |   |   |   |   |
+| Anual | StorSimple anual  |   |   |   |   |   |
 
 
 ## <a name="assign-storsimple-volumes-to-a-netbackup-archive-and-duplication-job"></a>Atribua volumes do StorSimple a um trabalho de arquivamento e duplicação do NetBackup
@@ -427,41 +430,41 @@ Depois de definir os pools de disco iniciais, você precisa definir três polít
 
 ### <a name="to-assign-storsimple-volumes-to-a-netbackup-archive-and-duplication-job"></a>Para atribuir os volumes do StorSimple a um trabalho de arquivamento e duplicação do NetBackup
 
-1.  No Console de Administração do NetBackup, selecione **Armazenamento** > **Políticas de Ciclo de Vida de Armazenamento** > **Nova Política de Ciclo de Vida de Armazenamento**.
+1. No Console de Administração do NetBackup, selecione **Armazenamento** > **Políticas de Ciclo de Vida de Armazenamento** > **Nova Política de Ciclo de Vida de Armazenamento**.
 
-    ![Console de Administração do NetBackup, nova política de ciclo de vida de armazenamento](./media/storsimple-configure-backup-target-using-netbackup/nbimage20.png)
+   ![Console de Administração do NetBackup, nova política de ciclo de vida de armazenamento](./media/storsimple-configure-backup-target-using-netbackup/nbimage20.png)
 
-2.  Insira um nome para o instantâneo e selecione **Adicionar**.
+2. Insira um nome para o instantâneo e selecione **Adicionar**.
 
-3.  Na caixa de diálogo **Nova Operação**, na guia **Propriedades**, para **Operação**, selecione **Backup**. Selecione os valores desejados para o **Armazenamento de destino**, o **Tipo de retenção** e o **Período de retenção**. Selecione **OK**.
+3. Na caixa de diálogo **Nova Operação**, na guia **Propriedades**, para **Operação**, selecione **Backup**. Selecione os valores desejados para o **Armazenamento de destino**, o **Tipo de retenção** e o **Período de retenção**. Selecione **OK**.
 
-    ![Console de Administração do NetBackup, caixa de diálogo Nova Operação](./media/storsimple-configure-backup-target-using-netbackup/nbimage22.png)
+   ![Console de Administração do NetBackup, caixa de diálogo Nova Operação](./media/storsimple-configure-backup-target-using-netbackup/nbimage22.png)
 
-    Isso define a primeira operação e repositório de backup.
+   Isso define a primeira operação e repositório de backup.
 
-4.  Selecione para realçar a operação anterior e escolha **Adicionar**. Na caixa de diálogo **Alterar a Operação de Armazenamento**, selecione os valores desejados para **Armazenamento de destino**, **Tipo de retenção** e **Período de retenção**.
+4. Selecione para realçar a operação anterior e escolha **Adicionar**. Na caixa de diálogo **Alterar a Operação de Armazenamento**, selecione os valores desejados para **Armazenamento de destino**, **Tipo de retenção** e **Período de retenção**.
 
-    ![Console de Administração do NetBackup, caixa de diálogo Alterar Operação de Armazenamento](./media/storsimple-configure-backup-target-using-netbackup/nbimage23.png)
+   ![Console de Administração do NetBackup, caixa de diálogo Alterar Operação de Armazenamento](./media/storsimple-configure-backup-target-using-netbackup/nbimage23.png)
 
-5.  Selecione para realçar a operação anterior e escolha **Adicionar**. Na caixa de diálogo **Nova Política de Ciclo de Vida de Armazenamento**, adicione backups mensais por um ano.
+5. Selecione para realçar a operação anterior e escolha **Adicionar**. Na caixa de diálogo **Nova Política de Ciclo de Vida de Armazenamento**, adicione backups mensais por um ano.
 
-    ![Console de Administração do NetBackup, caixa de diálogo Nova Política do Ciclo de Vida de Armazenamento](./media/storsimple-configure-backup-target-using-netbackup/nbimage24.png)
+   ![Console de Administração do NetBackup, caixa de diálogo Nova Política do Ciclo de Vida de Armazenamento](./media/storsimple-configure-backup-target-using-netbackup/nbimage24.png)
 
-6.  Repita as etapas 4 e 5 até criar a política de retenção de SLP abrangente o suficiente para atender às suas necessidades.
+6. Repita as etapas 4 e 5 até criar a política de retenção de SLP abrangente o suficiente para atender às suas necessidades.
 
-    ![Console de Administração do NetBackup, Adicionar políticas na caixa de diálogo Nova Política do Ciclo de Vida de Armazenamento](./media/storsimple-configure-backup-target-using-netbackup/nbimage25.png)
+   ![Console de Administração do NetBackup, Adicionar políticas na caixa de diálogo Nova Política do Ciclo de Vida de Armazenamento](./media/storsimple-configure-backup-target-using-netbackup/nbimage25.png)
 
-7.  Quando terminar de definir sua política de retenção de SLP, em **Política**, defina uma política de backup seguindo as etapas detalhadas em [Atribuir volumes StorSimple a um trabalho de backup do NetBackup](#assigning-storsimple-volumes-to-a-netbackup-backup-job).
+7. Quando terminar de definir sua política de retenção de SLP, em **Política**, defina uma política de backup seguindo as etapas detalhadas em [Atribuir volumes StorSimple a um trabalho de backup do NetBackup](#assigning-storsimple-volumes-to-a-netbackup-backup-job).
 
-8.  Em **Agendamentos**, na caixa de diálogo **Alterar Agendamento**, clique com o botão direito do mouse em **Completo** e selecione **Alterar**.
+8. Em **Agendamentos**, na caixa de diálogo **Alterar Agendamento**, clique com o botão direito do mouse em **Completo** e selecione **Alterar**.
 
-    ![Console de Administração do NetBackup, caixa de diálogo Alterar Agendamento](./media/storsimple-configure-backup-target-using-netbackup/nbimage26.png)
+   ![Console de Administração do NetBackup, caixa de diálogo Alterar Agendamento](./media/storsimple-configure-backup-target-using-netbackup/nbimage26.png)
 
-9.  Marque a caixa de seleção **Substituir a seleção de armazenamento da política** e selecione a política de retenção SLP que você criou nas etapas 1 a 6.
+9. Marque a caixa de seleção **Substituir a seleção de armazenamento da política** e selecione a política de retenção SLP que você criou nas etapas 1 a 6.
 
-    ![Console de Administração do NetBackup, substituir a seleção de armazenamento da política](./media/storsimple-configure-backup-target-using-netbackup/nbimage27.png)
+   ![Console de Administração do NetBackup, substituir a seleção de armazenamento da política](./media/storsimple-configure-backup-target-using-netbackup/nbimage27.png)
 
-10.  Selecione **OK** e repita o processo para o agendamento de backup incremental.
+10. Selecione **OK** e repita o processo para o agendamento de backup incremental.
 
     ![Console de Administração do NetBackup, caixa de diálogo Alterar Agendamento para backups incrementais](./media/storsimple-configure-backup-target-using-netbackup/nbimage28.png)
 
@@ -474,6 +477,7 @@ Depois de definir os pools de disco iniciais, você precisa definir três polít
 | Anual completo | 1  | 10 | 10 |
 | Requisito de GFS  |     |     | 38 |
 | Cota adicional  | 4  |    | Requisito total de GFS 42 |
+
 \* O multiplicador GFS é o número de cópias que você precisa proteger e manter para atender aos requisitos da política de backup.
 
 ## <a name="storsimple-cloud-snapshots"></a>Instantâneos de nuvem do StorSimple
@@ -503,13 +507,13 @@ A seção a seguir descreve como criar um script curto para iniciar e excluir in
 
 ### <a name="to-start-or-delete-a-cloud-snapshot"></a>Para iniciar ou excluir um instantâneo de nuvem
 
-1.  [Instale o Azure PowerShell](/powershell/azure/overview).
+1. [Instale o Azure PowerShell](/powershell/azure/overview).
 2. Baixe e instale o script [Manage-CloudSnapshots.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) do PowerShell.
 3. No servidor que executa o script, execute o PowerShell como administrador. Execute o script com `-WhatIf $true` para ver as alterações que serão feitas pelo script. Depois que a validação for concluída, passe `-WhatIf $false`. Execute o comando abaixo:
-```powershell
-.\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
-```
-4.  Adicione o script ao trabalho de backup no NetBackup. Para fazer isso, edite suas os comandos de pré e pós-processamento das opções de trabalho do NetBackup.
+   ```powershell
+   .\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
+   ```
+4. Adicione o script ao trabalho de backup no NetBackup. Para fazer isso, edite suas os comandos de pré e pós-processamento das opções de trabalho do NetBackup.
 
 > [!NOTE]
 > Recomendamos que você execute a política de backup de instantâneo de nuvem do StorSimple como um script pós-processamento no fim do seu trabalho de backup diário. Para saber mais sobre como fazer backup e restaurar seu ambiente de aplicativo de backup para ajudar a atender ao RPO e RTO, consulte seu arquiteto de backup.
@@ -536,7 +540,7 @@ Um desastre pode ser causado por uma variedade de fatores. A tabela a seguir lis
 Os documentos a seguir foram mencionados neste artigo:
 
 - [Configuração de Multipath I/O de StorSimple](storsimple-configure-mpio-windows-server.md)
-- [Cenários de armazenamento: provisionamento dinâmico](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
+- [Cenários de armazenamento: provisionamento fino](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
 - [Usando unidades GPT](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
 - [Configurar cópias de sombra para pastas compartilhadas](https://technet.microsoft.com/library/cc771893.aspx)
 

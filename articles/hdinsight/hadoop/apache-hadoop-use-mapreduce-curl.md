@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: ff905f34ab63027e9708082c4690e4275220854f
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: HT
+ms.openlocfilehash: b422074c33f52a6819d2a05144a85768a2e484a0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53406786"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011924"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>Executar tarefas do MapReduce com o Apache Hadoop no HDInsight usando o REST
 
-Aprenda a usar a API REST WebHCat do Apache Hive para executar tarefas MapReduce em um Apache Hadoop no cluster HDInsight. O Curl é usado para demonstrar como você pode interagir com o HDInsight usando solicitações HTTP brutas para executar trabalhos MapReduce.
+Saiba como usar a API de REST do Apache Hive WebHCat para executar trabalhos MapReduce em um Apache Hadoop no cluster HDInsight. O Curl é usado para demonstrar como você pode interagir com o HDInsight usando solicitações HTTP brutas para executar trabalhos MapReduce.
 
 > [!NOTE]  
 > Se você já estiver familiarizado com o uso de servidores Hadoop baseados em Linux, mas não com o HDInsight, consulte o documento [O que você precisa saber sobre o Apache Hadoop baseado em Linux no HDInsight](../hdinsight-hadoop-linux-information.md).
@@ -36,7 +36,7 @@ Aprenda a usar a API REST WebHCat do Apache Hive para executar tarefas MapReduce
 >
 > A API REST é protegida usando [autenticação básica de acesso](https://en.wikipedia.org/wiki/Basic_access_authentication). Você deve sempre fazer solicitações usando HTTPS para garantir que suas credenciais sejam enviadas com segurança para o servidor.
 
-1. Para definir o logon do cluster utilizado pelos scripts neste documento, use um dos comandos a seguir:
+1. Para definir o logon de cluster que é usado pelos scripts neste documento, use um dos seguintes comandos:
 
     ```bash
     read -p "Enter your cluster login account name: " LOGIN
@@ -107,10 +107,10 @@ Aprenda a usar a API REST WebHCat do Apache Hive para executar tarefas MapReduce
     O final do URI (/mapreduce/jar) informa ao WebHCat que essa solicitação inicia um trabalho MapReduce de uma classe em um arquivo jar. Os parâmetros usados nesse comando são os seguintes:
 
    * **-d** já que `-G` não é usado; a solicitação padrão será o método POST. `-d` especifica os valores de dados que são enviados com a solicitação.
-    * **user.name**: o usuário que está executando o comando
-    * **jar**: o local do arquivo jar que contém a classe para ser executada
-    * **class**: a classe que contém a lógica do MapReduce
-    * **arg**: os argumentos a serem passados para o trabalho MapReduce. Nesse caso, o arquivo de texto de entrada e o diretório usados para a saída
+     * **user.name**: o usuário que está executando o comando
+     * **jar**: o local do arquivo jar que contém a classe para ser executada
+     * **class**: a classe que contém a lógica do MapReduce
+     * **arg**: os argumentos a serem passados para o trabalho MapReduce. Nesse caso, o arquivo de texto de entrada e o diretório usados para a saída
 
    Esse comando deve retornar uma ID de trabalho que pode ser usada para verificar o status do trabalho:
 

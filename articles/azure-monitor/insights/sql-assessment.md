@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 2e20623c015f8bc80b61f07e28c49d49df73887b
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 534307cfd71551de5427a196902b275a15ad44b5
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189431"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436367"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Otimize seu ambiente SQL com a solução de Verificação da Integridade do SQL Server no Log Analytics
 
@@ -186,7 +186,7 @@ Se houver recomendações que deseja ignorar, você poderá criar um arquivo de 
     >
     > `SQLAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
-    Esta é uma captura de tela mostrando a consulta da Pesquisa de Log: <br><br> ![recomendações com falha](./media/sql-assessment/sql-assess-failed-recommendations.png)<br>
+    Aqui está uma captura de tela mostrando a consulta de pesquisa de Log:<br><br> ![recomendações com falha](./media/sql-assessment/sql-assess-failed-recommendations.png)<br>
 
 3. Escolha as recomendações que você deseja ignorar. Você usará os valores para RecommendationId no próximo procedimento.
 

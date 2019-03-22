@@ -8,12 +8,12 @@ author: eamonoreilly
 ms.author: eamono
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 7870aca696ec61e707c5c774fd43e6d64c0cab82
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 7d7ebc7493ff8e272e35abafeedd8fbc52b986ab
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436749"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002164"
 ---
 # <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>Criar tarefas de observador de Automação do Azure para controlar alterações de arquivo em um computador local
 
@@ -89,8 +89,8 @@ A tarefa de observador de contém duas partes. O observador e a ação. O observ
 1. Selecione **Configurar ação** e o runbook "Process-NewFile".
 1. Digite os seguintes valores para os parâmetros:
 
-   ***EVENTDATA** – deixe em branco. Os dados são passados do runbook de observador.  
-   ***Configurações de Execução** – deixe como Azure, pois este runbook é executado no serviço da Automação.
+   * **EVENTDATA** – deixe em branco. Os dados são passados do runbook de observador.  
+   * **Run Settings** – deixe como Azure, pois este runbook é executado no serviço da Automação.
 
 1. Clique em **OK** e, sem seguida, em Selecionar para voltar à página do observador.
 1. Clique em **OK** para criar a tarefa de observador.

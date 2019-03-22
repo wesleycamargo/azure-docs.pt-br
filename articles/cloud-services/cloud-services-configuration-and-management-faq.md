@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 90b6798f7b7ab3acc552135c73bb1e491e4a0111
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 85296b4549d7c9499b8d0b815ddf1cd2e85e2b1b
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835513"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259577"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Configuração e problemas de gerenciamento para Serviços de Nuvem do Azure: Perguntas frequentes (FAQs)
 
@@ -109,7 +109,7 @@ Você pode automatizar essa tarefa usando um script de inicialização (lote/cmd
 
 ### <a name="what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate"></a>Qual é a finalidade do certificado de “Gerenciamento de Serviço do Microsoft Azure para MachineKey”?
 
-Este certificado é usado para encriptar chaves de máquina em Funções de Web do Azure. Para saber mais, veja este comunicado[https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731].
+Este certificado é usado para encriptar chaves de máquina em Funções de Web do Azure. Para saber mais, confira [este comunicado](https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731).
 
 Para obter mais informações, consulte os seguintes artigos:
 - [Como configurar e executar tarefas de inicialização para um serviço de nuvem](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)

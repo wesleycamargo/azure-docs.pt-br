@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: 5c5a42908198b3a8f473efbe4f54bc481e250efa
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 29ec50a1d2e0aebb1aeb73b38c662f4a18624754
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875987"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431981"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Perguntas frequentes sobre Conversão de Fala em Texto
 
@@ -63,7 +63,7 @@ O conjunto de dados antigo e o novo devem ser combinados em um único arquivo .z
 
 **R**: As implantações NÃO serão atualizadas automaticamente.
 
-Se você tiver adaptado e implantado um modelo com a linha de base V1.0, essa implantação permanecerá como está. Os clientes podem desativar o modelo implantado, adaptar novamente usando a versão mais recente da linha de base e reimplantar.
+Se você tiver adaptado e implantado um modelo com a linha de base V1.0, essa implantação permanecerá como está. Os clientes podem encerrar o modelo implantado, adaptar novamente usando a versão mais recente da linha de base e implante novamente.
 
 **P: E se eu precisar de maior simultaneidade para o modelo implantado do que o oferecido no portal?**
 

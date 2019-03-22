@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 03/01/2018
 ms.author: banders
 ROBOTS: NOINDEX
-ms.openlocfilehash: a2beebbd7795cb71ce8de5830488de409c2b1ae9
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: 7d41e9b7774bf8840db9e729d3aa9371f5bac04f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901795"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57858007"
 ---
 # <a name="why-is-my-azure-for-students-subscription-disabled-and-how-do-i-reactivate-it"></a>Por que minha assinatura do Azure for Students está desabilitada e como posso reativá-la?
 
@@ -57,4 +57,4 @@ Se você cancelou sua assinatura do Azure for Studants acidentalmente, reative-a
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
-Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Se você tiver dúvidas ou precisar de Ajuda, [criar uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).

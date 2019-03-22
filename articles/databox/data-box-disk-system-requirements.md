@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 02/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 0effc6af1ddc3273f0c6e2bf9cbfd0f2ecadf0a2
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 067bb6b806ddd9b83d4ea755876a980ca45d76e9
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747315"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407614"
 ---
 # <a name="azure-data-box-disk-system-requirements"></a>Requisitos do sistema do Azure Data Box Disk
 
@@ -52,7 +52,7 @@ Para o cliente do Linux, o conjunto de ferramentas do Data Box Disk instala o so
 
 ## <a name="supported-connection"></a>Conexão com suporte
 
-O computador cliente que contém os dados deve ter uma porta USB 3.0 ou superior. Os discos se conectam a esse cliente usando o cabo fornecido. 
+O computador cliente que contém os dados deve ter uma porta USB 3.0 ou superior. Os discos se conectam a esse cliente usando o cabo fornecido.
 
 ## <a name="supported-storage-accounts"></a>Contas de armazenamento com suporte
 
@@ -62,19 +62,22 @@ Aqui está uma lista dos tipos de armazenamento compatíveis com o Data Box Disk
 | --- | --- |
 | Clássico | Standard |
 | Uso geral  |Standard; tanto V1 quanto V2 são compatíveis. Tanto a camada de acesso frequente quanto a camada de acesso esporádico são compatíveis. |
+| Conta de armazenamento de blob | |
 
 >[!NOTE]
 > Não há suporte para contas do Azure Data Lake Storage Gen2.
 
 
-## <a name="supported-storage-types"></a>Tipos de armazenamento com suporte
+## <a name="supported-storage-types-for-upload"></a>Tipos de armazenamento com suporte para upload
 
-Aqui está uma lista dos tipos de armazenamento compatíveis com o Data Box Disk.
+Aqui está uma lista dos tipos de armazenamento com suporte para carregado no Azure usando o disco da caixa de dados.
 
 | **Formato de arquivo** | **Observações** |
 | --- | --- |
 | Blob de blocos do Azure | |
 | Blob de páginas do Azure  | |
+| Arquivos do Azure  | |
+| Managed Disks | |
 
 
 ## <a name="next-step"></a>Próxima etapa

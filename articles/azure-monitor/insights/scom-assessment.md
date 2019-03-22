@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 7ae87763d280e129bab96c604f9118ecf088ea2f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 5b4da39d56b86f79727590076ac60b87541643e1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819851"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082833"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Otimizar seu ambiente com a solução System Center Operations Manager Health Check (Versão prévia)
 
@@ -40,15 +40,15 @@ Depois de adicionar a solução e uma avaliação ser executada, as informaçõe
 
 ## <a name="installing-and-configuring-the-solution"></a>Instalando e configurando a solução
 
-A solução funciona com o Microsoft System Operations Manager 2012 SP (Service Pack) 1 e 2012 R2.
+A solução funciona com o Microsoft System Center 2012 Operations Manager Service Pack 1, o Microsoft System Center 2012 R2 Operations Manager, o Microsoft System Center 2016 Operations Manager, o Microsoft System Center 2016 Operations Manager e o Microsoft System Center Operations Manager 1807
 
 Use as informações a seguir para instalar e configurar a solução.
 
- - Antes de usar a solução Health Check no Log Analytics, é necessário tê-la instalada. Instale a solução do [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SCOMAssessmentOMS?tab=Overview).
+- Antes de usar a solução Health Check no Log Analytics, é necessário tê-la instalada. Instale a solução do [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SCOMAssessmentOMS?tab=Overview).
 
- - Após adicionar a solução ao workspace, o bloco **Verificação de Integridade do System Center Operations Manager** no painel exibirá uma mensagem de configuração adicional necessária. Clique no bloco e siga as etapas de configuração mencionadas na página
+- Após adicionar a solução ao workspace, o bloco **Verificação de Integridade do System Center Operations Manager** no painel exibirá uma mensagem de configuração adicional necessária. Clique no bloco e siga as etapas de configuração mencionadas na página
 
- ![Bloco do painel do System Center Operations Manager](./media/scom-assessment/scom-configrequired-tile.png)
+  ![Bloco do painel do System Center Operations Manager](./media/scom-assessment/scom-configrequired-tile.png)
 
 > [!NOTE]
 > A configuração do System Center Operations Manager pode ser feita usando um script, seguindo as etapas mencionadas na página de configuração da solução no Log Analytics.
@@ -57,9 +57,9 @@ Use as informações a seguir para instalar e configurar a solução.
 1. [Definir como conta Executar como para o System Center Operations Manager Health Check](#operations-manager-run-as-accounts-for-log-analytics)  
 2. Configurar a regra do System Center Operations Manager Health Check
 
-## <a name="system-center-operations-manager-assessment-data-collection-details"></a>Detalhes da coleta de dados de avaliação do System Center Operations Manager
+## <a name="system-center-operations-manager-health-check-data-collection-details"></a>Detalhes da coleta dados System Center Operations Manager Health Check
 
-A avaliação do System Center Operations Manager coleta dados das seguintes fontes:
+A solução de verificação de integridade do System Center Operations Manager coleta dados das seguintes fontes:
 
 * Registro
 * WMI (Instrumentação de Gerenciamento do Windows)
@@ -97,7 +97,7 @@ Agora que a conta Executar como foi criada, ela precisa ser direcionada para ser
 2. Na guia **Distribuição**, clique em **Adicionar** na caixa **Computadores selecionados** e adicione o servidor de gerenciamento onde a conta deve ser distribuída.  Clique em **OK** duas vezes para salvar as alterações.
 3. Em **Configuração Executar Como**, clique em **Perfis**.
 4. Pesquise o *Perfil de Avaliação do SCOM*.
-5. O nome do perfil deve ser: *Perfil Executar como de Avaliação do Microsoft System Center Advisor SCOM*.
+5. O nome do perfil deve ser: *Verificação de integridade do Microsoft System Center Operations Manager perfil executar como*.
 6. Clique com botão direito, atualize suas propriedades e adicione a Conta Executar como criada recentemente.
 
 ### <a name="sql-script-to-grant-granular-permissions-to-the-run-as-account"></a>Script SQL para conceder permissões granulares à conta Executar Como
@@ -152,13 +152,13 @@ ALTER ROLE [db_owner] ADD MEMBER [UserName]
 
 ### <a name="configure-the-health-check-rule"></a>Configurar a regra de verificação de integridade
 
-O pacote de gerenciamento da solução System Center Operations Health Check inclui uma regra denominada *Regra de Avaliação da Execução do Microsoft System Center Advisor SCOM Assessment*. Essa regra é responsável por executar a verificação de integridade. Para habilitar a regra e configurar a frequência, use os procedimentos a seguir.
+Pacote de gerenciamento da solução System Center Operations Manager Health Check inclui uma regra denominada *regra Microsoft System Center Operations Manager execute integridade verificar*. Essa regra é responsável por executar a verificação de integridade. Para habilitar a regra e configurar a frequência, use os procedimentos a seguir.
 
-Por padrão, a Regra de Avaliação da Execução do Microsoft System Center Advisor SCOM Assessment está desabilitada. Para executar a verificação de integridade, você deve habilitar a regra em um servidor de gerenciamento. Use as etapas a seguir.
+Por padrão, a regra Microsoft System Center Operations Manager execute integridade verificar está desabilitada. Para executar a verificação de integridade, você deve habilitar a regra em um servidor de gerenciamento. Use as etapas a seguir.
 
 #### <a name="enable-the-rule-for-a-specific-management-server"></a>Habilitar a regra para um servidor de gerenciamento específico
 
-1. No workspace **Criação** do console Operações do Operations Manager, pesquise a *Regra de Avaliação da Execução do Microsoft System Center Advisor SCOM Assessment* no painel **Regras**.
+1. No **Authoring** espaço de trabalho do console de operações do Operations Manager, pesquise a regra *regra Microsoft System Center Operations Manager execute integridade verificar* no **regras** painel.
 2. Nos resultados da pesquisa, selecione aquela que inclua o texto *Tipo: Servidor de Gerenciamento*.
 3. Clique com o botão direito do mouse na regra e, em seguida, clique em **Substituições** > **Para um objeto específico da classe: Servidor de Gerenciamento**.
 4.  Na lista de servidores de gerenciamento disponíveis, selecione o servidor de gerenciamento no qual a regra deve ser executada.  Ele deve ser o mesmo servidor de gerenciamento configurado anteriormente para associar a conta Executar como.
@@ -170,7 +170,7 @@ Por padrão, a Regra de Avaliação da Execução do Microsoft System Center Adv
 
 A avaliação está configurada para ser executada a cada 10.080 minutos (ou sete dias) por padrão. Você pode substituir o valor por um valor mínimo de 1.440 minutos (ou um dia). O valor representa o intervalo de tempo mínimo necessário entre as execuções sucessivas da avaliação. Para substituir o intervalo, use as etapas a seguir.
 
-1. No workspace **Criação** do console do Operations Manager, pesquise a *Regra de Avaliação da Execução do Microsoft System Center Advisor SCOM Assessment* na seção **Regras**.
+1. No **Authoring** espaço de trabalho do console do Operations Manager, pesquise a regra *regra Microsoft System Center Operations Manager execute integridade verificar* no **regras** seção.
 2. Nos resultados da pesquisa, selecione aquela que inclua o texto *Tipo: Servidor de Gerenciamento*.
 3. Clique com o botão direito do mouse na regra e, em seguida, clique em **Substituir a Regra** > **Para todos os objetos da classe: Servidor de Gerenciamento**.
 4. Altere o valor do parâmetro **Intervalo** para o valor de intervalo desejado. No exemplo a seguir, o valor é definido para 1.440 minutos (um dia).<br><br> ![parâmetro do intervalo](./media/scom-assessment/interval.png)<br>  
@@ -240,7 +240,7 @@ Se houver recomendações que você deseja ignorar, poderá criar um arquivo de 
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
-    Esta é uma captura de tela mostrando a consulta da Pesquisa de Log: <br><br> ![pesquisa do log](./media/scom-assessment/scom-log-search.png)<br>
+    Aqui está uma captura de tela mostrando a consulta de pesquisa de Log:<br><br> ![pesquisa do log](./media/scom-assessment/scom-log-search.png)<br>
 
 3. Escolha as recomendações que você deseja ignorar. Você usará os valores para RecommendationId no próximo procedimento.
 
@@ -277,7 +277,7 @@ Se houver recomendações que você deseja ignorar, poderá criar um arquivo de 
 
 *Existe alguma maneira de configurar a frequência de execução da verificação?* Sim. Consulte [Configurar a frequência de execução](#configure-the-run-frequency).
 
-*Se outro servidor for descoberto após eu ter adicionado uma solução Avaliação do System Center Operations Manager, ele será verificado?* Sim, após a descoberta, ele será verificado deste ponto em diante; por padrão, a cada sete dias.
+*Se outro servidor for descoberto após eu ter adicionado a solução System Center Operations Manager Health Check, ele será verificado?* Sim, após a descoberta, ele será verificado deste ponto em diante; por padrão, a cada sete dias.
 
 *Qual é o nome do processo que faz a coleta de dados?* AdvisorAssessment.exe
 

@@ -12,18 +12,18 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 03/13/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 4b4859c41e7a3903de68b62e8587f1c85805a782
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: b08312040f9702b8a9100886c198138431012e3f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54081502"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007386"
 ---
 # <a name="dynamics-365-for-customer-engagement-prerequisites"></a>Pré-requisitos do Dynamics 365 for Customer Engagement
 
-Este artigo descreve os pré-requisitos técnicos e comerciais para a publicação de uma oferta de aplicativo do Dynamics 365 for Customer Engagement no AppSource Marketplace.
+Este artigo descreve os pré-requisitos técnicos e comerciais para a publicação de uma oferta de aplicativo do Dynamics 365 for Customer Engagement no AppSource Marketplace.  Se você ainda não fez isso, examine os [Office 365, Dynamics 365, PowerApps e Power BI oferecem guia de publicação](../../appsource-offer-publishing-guide.md).
 
 
 ## <a name="technical-requirements"></a>Requisitos técnicos

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/05/2019
 ms.author: kumud
-ms.openlocfilehash: f0ebb5cc913dda99d7e927ccf45c0f1478fa86c5
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: a42a56b8a4a54c33297461a427a2b64b72357020
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814819"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194071"
 ---
 # <a name="outbound-connections-in-azure"></a>Conexões de saída no Azure
 
@@ -70,7 +70,7 @@ As portas SNAT são pré-alocadas, conforme descrito na seção [Entendendo SNAT
 
 Quando [vários endereços IP (públicos) estão associados ao Load Balancer Básico](load-balancer-multivip-overview.md), qualquer um desses endereços IP públicos é um candidato para fluxos de saída e um é selecionado aleatoriamente.  
 
-Para monitorar a integridade das conexões de saída com o Load Balancer Basic, é possível usar [Log Analytics para Load Balancer](load-balancer-monitor-log.md) e [logs de eventos de alerta ](load-balancer-monitor-log.md#alert-event-log) para monitorar as mensagens de esgotamento da porta SNAT.
+Para monitorar a integridade das conexões de saída com Load Balancer Basic, você pode usar [logs do Azure Monitor para o balanceador de carga](load-balancer-monitor-log.md) e [logs de eventos de alerta](load-balancer-monitor-log.md#alert-event-log) para monitorar mensagens de esgotamento de porta SNAT.
 
 ### <a name="defaultsnat"></a>Cenário 3: VM autônoma com um Endereço IP Público em Nível de Instância
 

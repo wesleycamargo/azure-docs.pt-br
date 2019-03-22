@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: c76c7bdb398184cc297831c9395063e7bf0f6bdc
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 140c8b2ab9b7985652a6474a1a9373e0d453b9e6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492531"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900719"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>Reduza os custos de serviço usando o Assistente do Azure
 
@@ -21,7 +21,7 @@ O Advisor ajuda você a otimizar e a reduzir seus gastos gerais com o Azure, ide
 
 ## <a name="optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances"></a>Otimizar o gasto da máquina virtual redimensionando ou desligando instâncias subutilizadas 
 
-Embora alguns cenários de aplicativos possam resultar na baixa utilização por design, normalmente, é possível economizar dinheiro gerenciando o tamanho e o número de máquinas virtuais. O Assistente monitora o uso da máquina virtual durante 14 dias e, depois, identifica as máquinas virtuais com baixa utilização. As máquinas virtuais cuja utilização da CPU é de 5% ou menos e cujo uso de rede é de 7 MB ou menos durante quatro ou mais dias são consideradas máquinas virtuais de baixa utilização.
+Embora alguns cenários de aplicativos possam resultar na baixa utilização por design, normalmente, é possível economizar dinheiro gerenciando o tamanho e o número de máquinas virtuais. Advisor monitora a utilização de máquinas virtuais por 7 dias e, em seguida, identifica as máquinas virtuais de baixa utilização. Virtual máquinas são consideradas baixa utilização se a utilização da CPU é de 5% ou menos e sua utilização de rede é menor que 2%, ou se a carga de trabalho atual pode ser acomodada em um menor tamanho de máquina virtual.
 
 O Assistente mostra o custo estimado da continuação da execução da máquina virtual, de forma que você possa optar por desligá-la ou redimensioná-la.
 
@@ -40,6 +40,10 @@ O Assistente identifica os portões de rede virtual ociosos há mais de 90 dias.
 O Assistente examinará seu uso da máquina virtual nos últimos 30 dias e determinará se você poderá economizar dinheiro com a compra de uma reserva do Azure. O Assistente mostrará as regiões e os tamanhos nos quais você tem maior potencial de economia e mostrará as economias estimadas com a compra de reservas. 
 
 Com as reservas do Azure, você pode comprar previamente os custos de base para as máquinas virtuais. Descontos serão aplicados automaticamente a VMs novas ou existentes com o mesmo tamanho e na mesma região que suas reservas. [Saiba mais sobre as Instâncias de VM Reservadas do Azure](https://azure.microsoft.com/pricing/reserved-vm-instances/)
+
+## <a name="delete-unassociated-public-ip-addresses-to-save-money"></a>Excluir os endereços IP públicos não podem ser associados para economizar dinheiro
+
+O Advisor identifica os endereços IP públicos que não estão atualmente associados aos recursos do Azure, como VMs ou balanceadores de carga. Esses endereços de IP público endereços vêm com um custo nominal. Se você não planeja usá-los, excluí-los pode resultar em economias de custo.
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Como acessar as recomendações de custo no Assistente do Azure
 

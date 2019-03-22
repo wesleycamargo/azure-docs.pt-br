@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/17/2019
+ms.date: 03/12/2019
 ms.author: juliako
-ms.openlocfilehash: c1c81ba0f168759ab9cc05f3441e07ff03275e84
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 8ebf9826f156245381ce3503dc64275bca571cc5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417373"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890773"
 ---
 # <a name="what-is-video-indexer"></a>O que é o Video Indexer?
 
@@ -24,7 +24,7 @@ O Video Indexer do Azure é um aplicativo de nuvem criado com base na Análise d
 
 - **Detecção facial**: Detecta e agrupa rostos que aparecem no vídeo.
 - **Identificação de celebridade**: O Video Indexer identifica automaticamente mais de 1 milhão de celebridades, tais como líderes mundiais, atores e atrizes, atletas, pesquisadores, líderes dos negócios e do setor de tecnologia em todo o mundo. Os dados sobre esses celebridades também podem ser encontrados em diversos sites famosos, assim como IMDB e Wikipédia.
-- **Identificação de face baseada em conta**: O Video Indexer treina um modelo para uma conta específica. Em seguida, ele reconhece rostos no vídeo com base no modelo treinado especificamente para vídeos nessa conta.
+- **Identificação de face baseada em conta**: O Video Indexer treina um modelo para uma conta específica. Em seguida, reconhece faces no vídeo com base no modelo treinado. Para obter mais informações, consulte [personalizar um modelo de pessoa do site do Video Indexer](customize-person-model-with-website.md) e [personalizar um modelo de pessoa com a API do indexador de vídeo](customize-person-model-with-api.md).
 - **Extração em miniatura para rosto** ("melhor rosto"): Identifica automaticamente o melhor rosto capturado em cada grupo de rostos (com base na qualidade, no tamanho e na posição frontal) e o extrai como um ativo de imagem.
 - **Reconhecimento de texto visual** (OCR): Extrai o texto que é exibido visualmente no vídeo.
 - **Moderação de conteúdo visual**: Detecta visuais somente para adultos e/ou eróticos.
@@ -40,7 +40,7 @@ O Video Indexer do Azure é um aplicativo de nuvem criado com base na Análise d
 - **Legendagem oculta**: Cria legendas ocultas em três formatos: VTT, TTML, SRT.
 - **Processamento de dois canais**: Detecta automaticamente, separa a transcrição e mescla em uma única linha do tempo.
 - **Redução de ruído**: Limpa gravações com ruídos ou áudio com telefonia (com base nos filtros do Skype).
-- **Personalização de transcrição** (CRIS): Treina e executa modelos personalizados estendidos de conversão de fala em texto para criar transcrições específicas do setor.
+- **Personalização de transcrição** (CRIS): Treina fala personalizado para modelos de texto para criar as transcrições de específicos do setor. Para obter mais informações, consulte [personalizar um modelo de idioma do site do Video Indexer](customize-language-model-with-website.md) e [personalizar um modelo de linguagem com as APIs do indexador de vídeo](customize-language-model-with-api.md).
 - **Enumeração de alto-falante**: Mapeia e entende qual locutor disse quais palavras e quando.
 - **Estatísticas de alto-falante**: Fornece estatísticas das taxas de fala dos alto-falantes.
 - **Moderação de conteúdo visual**: Detecta texto explícito na transcrição de áudio.
@@ -58,8 +58,6 @@ Ao fazer a indexação por um canal, o resultado parcial desses modelos estará 
 - **Artefatos**: Extrai um conjunto avançado de artefatos com o "próximo nível de detalhes" para cada um dos modelos.
 - **Análise de Sentimento**: Identifica sentimentos positivos, negativos e neutros de falas e de textos visuais.
  
-  
- 
 Depois que o Video Indexer terminar de processar e analisar, você poderá examinar, coletar, pesquisar e publicar as informações do vídeo.
 
 Se sua função for um gerenciador de conteúdo ou um desenvolvedor, o serviço do Video Indexer poderá atender às suas necessidades. Os gerenciadores de conteúdo podem usar o portal da Web do Video Indexer para consumir o serviço sem escrever uma única linha de código; confira [Começar a usar o site do Video Indexer](video-indexer-get-started.md). Os desenvolvedores podem aproveitar as APIs para processar o conteúdo em grande escala; consulte [Usar API REST do Video Indexer](video-indexer-use-apis.md). O serviço também permite que os clientes usem widgets para publicar transmissões de vídeo e informações extraídas em seus próprios aplicativos; consulte [Inserir widgets visuais em seu aplicativo](video-indexer-embed-widgets.md).
@@ -75,8 +73,6 @@ Abaixo estão alguns cenários em que o Video Indexer pode ser útil
 - Monetização: o Video Indexer pode ajudar a melhorar o valor dos vídeos. Por exemplo, setores que contam com a receita de anúncios (como a mídia de notícias, mídias sociais etc.) podem entregar anúncios mais relevantes usando as informações extraídas como sinais adicionais para o servidor do anúncio (apresentar um anúncio de sapatos esportivos é mais relevante durante uma partida de futebol do que em uma competição de natação).
 
 - Participação do usuário: as informações do vídeo podem ser usadas para melhorar a participação do usuário posicionando os momentos do vídeo relevantes para os usuários. Por exemplo, considere um vídeo educativo que explica as esferas nos primeiros 30 minutos e as pirâmides nos próximos 30 minutos. Um aluno que lê sobre as pirâmides aproveitaria mais se o vídeo fosse posicionado para começar a partir do marcador de 30 minutos.
-
-Para obter mais informações, consulte este [blog](https://aka.ms/videoindexerblog).
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: manayar
-ms.openlocfilehash: e4b1153e46625f88c717fd9b7a5336ffe4ca7f6a
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
-ms.translationtype: HT
+ms.openlocfilehash: 3308b22606e87853aad7e3d3a3995aab8d1b5401
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739542"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005305"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Solução de problemas do dimensionamento automático com conjuntos de escala de máquina virtual
 **Problema**: você criou uma infraestrutura de dimensionamento automático no Azure Resource Manager usando conjuntos de dimensionamento de máquinas virtuais, por exemplo, implantando um modelo como este: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale – suas regras de escala estão definidas e ele funciona muito bem, exceto que, independentemente da carga colocada nas VMs, ele não usa dimensionamento automático.
@@ -52,7 +52,7 @@ Alguns aspectos a serem considerados incluem:
     O Azure Resource Explorer é uma ferramenta indispensável de solução de problemas que mostra o estado dos seus recursos do Azure Resource Manager. Clique na sua assinatura e examine o Grupo de Recursos em que você está solucionando problemas. No Provedor de recursos de computação, examine o conjunto de escala de máquina virtual criado e verifique a Exibição de Instância, que mostra o estado de uma implantação. Verifique também a exibição de instância de VMs no conjunto de dimensionamento de máquinas virtuais. Em seguida, vá ao provedor de recursos Microsoft.Insights e verifique se as regras de dimensionamento automático parecem corretas.
 * A extensão de Diagnóstico está funcionando e emitindo os dados de desempenho?
   
-    **Atualização:** O dimensionamento automático do Azure foi aperfeiçoado para usar um pipeline de métricas baseado em host que não requer mais a instalação de uma extensão de diagnóstico. Os poucos parágrafos seguintes já não se aplicarão se você criar um aplicativo de dimensionamento automático usando o novo pipeline. Um exemplo de modelos do Azure que foram convertidos para usar o pipeline de host está disponível aqui: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale. 
+    **Update:** Dimensionamento automático do Azure foi aprimorado para usar um pipeline de métricas baseadas em host, que não requer mais uma extensão de diagnóstico a serem instalados. Os poucos parágrafos seguintes já não se aplicarão se você criar um aplicativo de dimensionamento automático usando o novo pipeline. Um exemplo de modelos do Azure que foram convertidos para usar o pipeline de host está disponível aqui: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale. 
   
     A utilização de métricas baseadas em host para o dimensionamento automático é melhor pelos seguintes motivos:
   
@@ -72,14 +72,14 @@ Alguns aspectos a serem considerados incluem:
     
     ![Gerenciador de Nuvem][explorer]
     
-   Você verá um monte de tabelas em que os dados de cada VM estão sendo armazenados. Usando o Linux e a métrica de CPU como exemplo, procure linhas mais recentes. O Visual Studio Cloud Explorer oferece suporte a uma linguagem de consulta, de modo que você possa executar uma consulta. Por exemplo, você pode executar uma consulta para "Carimbo de data/hora gt Data/Hora’2016-02-02T21:20:00Z’" para garantir que obtém os eventos mais recentes. O fuso horário corresponde ao UTC. Os dados exibidos correspondem às regras de escala que você configurou? No exemplo seguinte, a CPU do computador 20 começou a aumentar para 100% nos últimos 5 minutos.
+    Você verá um monte de tabelas em que os dados de cada VM estão sendo armazenados. Usando o Linux e a métrica de CPU como exemplo, procure linhas mais recentes. O Visual Studio Cloud Explorer oferece suporte a uma linguagem de consulta, de modo que você possa executar uma consulta. Por exemplo, você pode executar uma consulta para "Carimbo de data/hora gt Data/Hora’2016-02-02T21:20:00Z’" para garantir que obtém os eventos mais recentes. O fuso horário corresponde ao UTC. Os dados exibidos correspondem às regras de escala que você configurou? No exemplo seguinte, a CPU do computador 20 começou a aumentar para 100% nos últimos 5 minutos.
     
     ![Tabelas de Armazenamento][tables]
     
     Se os dados não estiverem lá, isso significará que o problema está na extensão de diagnóstico em execução nas VMs. Se os dados estiverem lá, isso significará que há um problema com as suas regras de escala ou com o serviço do Insights. Verifique o [Status do Azure](https://azure.microsoft.com/status/).
     
     Depois de passar por essas etapas, se você ainda tiver problemas de dimensionamento automático, tente os seguintes recursos: 
-    * Leia os fóruns no [MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=WAVirtualMachinesforWindows) ou [Stack Overflow](http://stackoverflow.com/questions/tagged/azure) 
+    * Leia os fóruns no [MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=WAVirtualMachinesforWindows) ou [Stack Overflow](https://stackoverflow.com/questions/tagged/azure) 
     * Faça uma chamada de suporte. Prepare-se para compartilhar o modelo e uma exibição dos dados de desempenho.
 
 [audit]: ./media/virtual-machine-scale-sets-troubleshoot/image3.png

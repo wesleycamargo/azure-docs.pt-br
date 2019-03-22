@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99c6999e437abbef1920f6de771173e4e6e007f2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: b78cb45d83cd9bc9bc973ec7a09cb75a8b111744
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58116904"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224141"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutorial: Configurar o G Suite para provisionamento automático de usuários
 
@@ -149,13 +149,13 @@ Esta seção orienta sobre o processo de conexão do Azure AD à API de provisio
 
 1. Defina o **Modo de Provisionamento** como **Automático**. 
 
-      ![Provisionamento](./media/google-apps-provisioning-tutorial/provisioning.png)
+       ![Provisioning](./media/google-apps-provisioning-tutorial/provisioning.png)
 
 1. Na seção **Credenciais de Administrador**, selecione **Autorizar**. Isso abre uma caixa de diálogo de autorização do Google em uma nova janela do navegador.
 
 1. Confirme que você deseja dar permissão ao Azure Active Directory para fazer alterações em seu locatário do G Suite. Selecione **Aceitar**.
     
-      ![Confirme permissões.][28]
+       ![Confirm permissions.][28]
 
 1. No Portal do Azure, selecione **Testar Conectividade** para verificar se o Azure AD pode se conectar a seu aplicativo. Se a conexão falhar, verifique se sua conta do G Suite tem permissões de Administrador de Equipe. Em seguida, tente a etapa **Autorizar** novamente.
 
