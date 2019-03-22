@@ -1,6 +1,6 @@
 ---
-title: Venda de SaaS por meio do Azure – APIs | Microsoft Docs
-description: Explica como criar uma oferta de SaaS por meio de APIs do marketplace.
+title: V1 de API de preenchimento SaaS - o Azure Marketplace | Microsoft Docs
+description: Explica como criar uma oferta de SaaS no Azure Marketplace usando o preenchimento associado V1 APIs.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
 author: v-miclar
@@ -12,18 +12,24 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: reference
-ms.date: 09/17/2018
+ms.date: 02/27/2019
 ms.author: pbutlerm
-ms.openlocfilehash: d6ab18d68d6508a18f0b36ab5a39e15fa7c0555a
+ms.openlocfilehash: d9443349ea7ce91a3b8ab01510917bc82ae9b8ad
 ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311655"
+ms.locfileid: "58316126"
 ---
-# <a name="saas-sell-through-azure---apis"></a>Venda de SaaS por meio do Azure – APIs
+# <a name="saas-fulfillment-apis-version-1"></a>Versão de APIs de preenchimento SaaS 1
 
-Este artigo explica como criar uma oferta de SaaS com APIs. As APIs são necessárias para permitir assinaturas para sua oferta de SaaS se você tem a opção Venda por meio do Azure selecionada.  Este artigo é dividido em duas seções:
+Este artigo explica como criar uma oferta de SaaS com APIs. As APIs são necessárias para permitir assinaturas para sua oferta de SaaS se você tem a opção Venda por meio do Azure selecionada.  
+
+> [!WARNING]
+> Esta versão inicial da API de preenchimento SaaS foi preterida; em vez disso, use [SaaS cumprimento API V2](./cpp-saas-fulfillment-api-v2.md).
+
+
+Este artigo é dividido em duas seções:
 
 -   Autenticação serviço a serviço entre um serviço SaaS e o Azure Marketplace
 -   Métodos de API e pontos de extremidade
@@ -37,7 +43,7 @@ As APIs a seguir são fornecidas para ajudá-lo a integrar o seu serviço SaaS a
 
 O diagrama a seguir mostra o fluxo de assinatura de um novo cliente e quando essas APIs são usadas:
 
-![Fluxo de API da oferta de SaaS](./media/saas-offer-publish-api-flow.png)
+![Fluxo de API da oferta de SaaS](./media/saas-offer-publish-api-flow-v1.png)
 
 
 ## <a name="service-to-service-authentication-between-saas-service-and-azure-marketplace"></a>Autenticação serviço a serviço entre um serviço SaaS e o Azure Marketplace
@@ -57,7 +63,7 @@ Para registrar um novo aplicativo usando o portal do Azure, realize as seguintes
 2. Se a sua conta der acesso a mais de um, clique em sua conta no canto superior direito e defina a sessão do portal para o desejado de locatário do Azure AD.
 3. No painel de navegação esquerdo, clique no serviço **Azure Active Directory**, clique em **Registros do aplicativo** e clique em **Novo registro de aplicativo**.
 
-   ![Registros de Aplicativo do AD SaaS](./media/saas-offer-app-registration.png)
+   ![Registros de Aplicativo do AD SaaS](./media/saas-offer-app-registration-v1.png)
 
 4. Na página Criar, insira as informações de registro do aplicativo:
    - **Nome**: insira um nome significativo de aplicativo
@@ -68,11 +74,14 @@ Para registrar um novo aplicativo usando o portal do Azure, realize as seguintes
    - **URL de logon**: para aplicativos e API da Web, informe a URL base do aplicativo. Por exemplo, **http:\//localhost:31544** pode ser a URL para um aplicativo web em execução no seu computador local. Os usuários usariam então essa URL para entrar em um aplicativo cliente Web.
    - **URI de redirecionamento**: para aplicativos públicos, informe o URI usado pelo Microsoft Azure Active Directory para retornar respostas de token. Insira um valor específico para seu aplicativo, por exemplo **http:\//MyFirstAADApp**.
 
-     ![Registros de Aplicativo do AD de SaaS](./media/saas-offer-app-registration-2.png) Para obter exemplos específicos de aplicativos Web ou aplicativos nativos, confira as configurações de início rápido guiado que estão disponíveis na seção de Introdução do [Guia de desenvolvedores do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
+     ![Registros de Aplicativo do AD SaaS](./media/saas-offer-app-registration-v1-2.png)
+
+     Para obter exemplos específicos para aplicativos web ou aplicativos nativos, confira o início rápido guiado configurações que estão disponíveis na seção de Introdução ao [guia de desenvolvedores do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
 
 5. Ao terminar, clique em **Criar**. Uma ID do aplicativo exclusiva é atribuída pelo Azure AD ao aplicativo e você é levado à página de registro principal do aplicativo. Dependendo de se o seu aplicativo é Web ou nativo, diferentes opções serão fornecidas para adicionar mais recursos ao aplicativo.
 
-   **Observação:** por padrão, o aplicativo recém-registrado é configurado para permitir que somente usuários do mesmo locatário entrem no aplicativo.
+>[!Note]
+>Por padrão, o aplicativo recém-registrado é configurado para permitir que somente os usuários do mesmo locatário entrem no seu aplicativo.
 
 <a name="api-methods-and-endpoints"></a>Métodos de API e pontos de extremidade
 -------------------------
@@ -638,3 +647,8 @@ Um webhook de SaaS é usado para notificar sobre alterações de forma proativa 
 | ação                 | Cadeia        | A ação que está disparando esta notificação. Os valores possíveis: ativar, excluir, suspender, restabelecer, atualizar          |
 | timeStamp                 | Cadeia        | Valor de carimbo de hora em UTC quando essa notificação foi disparada.          |
 |  |  |  |
+
+
+## <a name="next-steps"></a>Próximas etapas
+
+Os desenvolvedores também programaticamente podem recuperar e manipulação de cargas de trabalho, ofertas e publisher perfis usando o [as APIs REST do Cloud Partner Portal](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview).

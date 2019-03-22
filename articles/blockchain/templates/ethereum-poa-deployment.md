@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: 3edd70d3012840bd66460219c32135666619a3bf
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 50d24fd41a0a933d9cfec37477773463a918ca0a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313561"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549061"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Prova de autoridade do consórcio Ethereum
 
@@ -38,15 +38,15 @@ Com algumas entradas de usuário e uma implantação de clique simples por meio 
 
 ### <a name="proof-of-authority"></a>Prova de autoridade
 
-Para aqueles que são novos na comunidade de blockchain, o lançamento dessa solução é uma grande oportunidade para saber mais sobre a tecnologia de uma maneira fácil e configurável no Azure. A prova de trabalho é um mecanismo de resistência Sybil que aproveita os custos de computação para autorregular a rede e permitir a participação justa. Isso funciona muito bem em redes de blockchain anônimas abertas onde a competição por criptomoeda promove a segurança na rede. No entanto, em redes privadas/consórcio o Ether subjacente não tem valor. Um protocolo alternativo, prova de autoridade, é mais adequado para redes com permissão em que todos os participantes de consenso são conhecidos e confiáveis. Sem a necessidade de mineração, a prova de autoridade é mais eficiente enquanto ainda retém a tolerância a falhas de Byzantine.
+Para aqueles que são novos na comunidade de blockchain, o lançamento dessa solução é uma grande oportunidade para saber mais sobre a tecnologia de uma maneira fácil e configurável no Azure. A prova de trabalho é um mecanismo de resistência Sybil que aproveita os custos de computação para autorregular a rede e permitir a participação justa. Isso funciona muito bem em redes de blockchain anônimas abertas onde a competição por criptomoeda promove a segurança na rede. No entanto, em redes privadas/consórcio o Ether subjacente não tem valor. Um protocolo alternativo, prova de autoridade, é mais adequado para redes permitidas em que todos os participantes de consenso são conhecidos e confiáveis. Sem a necessidade de mineração, a prova de autoridade é mais eficiente enquanto ainda retém a tolerância a falhas de Byzantine.
 
 ### <a name="consortium-governance"></a>Governança do Consortium
 
-Como a prova de autoridade depende de uma lista com permissão de autoridades de rede para manter a rede íntegra, é importante fornecer um mecanismo razoável para fazer modificações a essa lista de permissão. Cada implantação vem com um conjunto de contratos inteligentes e o portal para governança na cadeia dessa lista que recebeu permissão. Quando uma alteração proposta atinge um voto maioria por membros consortium, a alteração é imposta. Isso permite que novos participantes de consenso sejam adicionados ou comprometidos para serem removidos de forma transparente que incentiva uma rede honesta.
+Como prova de autoridade depende de uma lista de autoridades de rede para manter a rede íntegros permitidos, é importante fornecer um mecanismo razoável para fazer modificações a essa lista de permissão. Cada implantação vem com um conjunto de contratos inteligentes e o portal para governança na cadeia dessa lista de permitidos. Quando uma alteração proposta atinge um voto maioria por membros consortium, a alteração é imposta. Isso permite que novos participantes de consenso sejam adicionados ou comprometidos para serem removidos de forma transparente que incentiva uma rede honesta.
 
 ### <a name="admin-account"></a>Conta de administrador
 
-Durante a implantação de nós da prova de autoridade, você será solicitado para um endereço de administrador Ethereum. Você pode usar vários mecanismos diferentes para gerar e proteger esta conta Ethereum. Depois que esse endereço é adicionado como uma autoridade na rede, você pode usar essa conta para participar de governança. Essa conta de administrador também será usada para delegar a participação de consenso para os nós de validador que são criados como parte dessa implantação. Como apenas o endereço Ethereum público é usado, cada administrador tem a flexibilidade de proteger suas chaves privadas de uma maneira que esteja em conformidade com seu modelo de segurança desejado.
+Durante a implantação de nós de prova de autoridade, você será solicitado para um endereço de administrador Ethereum. Você pode usar vários mecanismos diferentes para gerar e proteger esta conta Ethereum. Depois que esse endereço é adicionado como uma autoridade na rede, você pode usar essa conta para participar de governança. Essa conta de administrador também será usada para delegar a participação de consenso para os nós de validador que são criados como parte dessa implantação. Como apenas o endereço Ethereum público é usado, cada administrador tem a flexibilidade para proteger suas chaves privadas de uma maneira que segue o modelo de segurança desejado.
 
 ### <a name="validator-node"></a>Nó do validador
 
@@ -55,15 +55,15 @@ Para garantir a participação justa na rede, cada membro do consórcio é proib
 
 ### <a name="identity-store"></a>Armazenamento de identidade
 
-Uma vez que cada membro terá vários nós de validador em execução simultaneamente e cada nó deve ter uma identidade com permissão, é importante que os validadores possam adquirir com segurança uma identidade exclusiva de Active Directory na rede. Para facilitar isso, criamos um Armazenamento de Identidade e que é implantado na assinatura de cada membro que armazena com segurança as identidades Ethereum geradas. Após a implantação do contêiner de orquestração gerará uma chave privada do Ethereum para cada validador e irá armazená-lo para cada validador e armazená-lo no Azure Key Vault. Antes do nó de paridade ser iniciado, ele primeiro adquire uma concessão em uma identidade não utilizada para garantir que a identidade não seja selecionada por outro nó. A identidade é fornecida ao cliente que fornece a ele a autoridade para iniciar a criação de blocos. Se a VM de hospedagem sofrer uma interrupção, a concessão de identidade será liberada, permitindo que um nó de substituição retome sua identidade no futuro.
+Uma vez que cada membro terá vários nós de validador em execução simultaneamente e cada nó deve ter uma identidade permitida, é importante que os validadores podem adquirir com segurança uma identidade exclusiva de Active Directory na rede. Para facilitar essa tarefa, criamos um Store de identidade que é implantado na assinatura de cada membro que armazena com segurança as identidades Ethereum geradas. Após a implantação, o contêiner de orquestração gerará uma chave privada de Ethereum para cada validador e armazená-lo no Azure Key Vault. Antes do nó de paridade ser iniciado, ele primeiro adquire uma concessão em uma identidade não utilizada para garantir que a identidade não seja selecionada por outro nó. A identidade é fornecida ao cliente que fornece a ele a autoridade para iniciar a criação de blocos. Se a VM de hospedagem sofrer uma interrupção, a concessão de identidade será liberada, permitindo que um nó de substituição retome sua identidade no futuro.
 
 ### <a name="bootnode-registrar"></a>Registrador Bootnode
 
-Para habilitar a facilidade de conectividade, cada membro hospedará um conjunto de informações de conexão com os [dados de ponto de extremidade de API](#data-api). Esses dados incluem uma lista de bootnodes que são fornecidos como nós de emparelhamento para o membro de junção. Como parte desses dados API, podemos manter essa lista bootnode atualizada
+Para habilitar a facilidade de conectividade, cada membro hospedará um conjunto de informações de conexão com os [dados de ponto de extremidade de API](#data-api). Esses dados incluem uma lista de bootnodes que são fornecidos como nós de emparelhamento para o membro da junção. Como parte desses dados API, podemos manter essa lista bootnode atualizada
 
 ### <a name="bring-your-own-operator"></a>Traga seu próprio operador
 
-Muitas vezes um membro do consórcio deseja participar de governança de rede, mas não quer operar e manter sua infraestrutura. Ao contrário dos sistemas tradicionais, tendo um único operador na rede, funciona com base no modelo descentralizado dos sistemas de blockchain. Em vez da contratação de um intermediário centralizado para operar uma rede, cada membro do consórico pode delegar o gerenciamento da infraestrutura para o operador de sua escolha. Isso permite que um modelo híbrido em que cada membro pode escolher operar sua própria infraestrutura ou delegar a operação de outro parceiro. O fluxo de trabalho de operação delegado funciona da seguinte maneira:
+Muitas vezes um membro do consórcio deseja participar de governança de rede, mas não quer operar e manter sua infraestrutura. Ao contrário dos sistemas tradicionais, tendo um único operador na rede, funciona com base no modelo descentralizado dos sistemas de blockchain. Em vez da contratação de um intermediário centralizado para operar uma rede, cada membro do consórico pode delegar o gerenciamento da infraestrutura para o operador de sua escolha. Isso permite que um modelo híbrido em que cada membro pode escolher para operar sua própria infraestrutura ou delegar a operação de outro parceiro. O fluxo de trabalho de operação delegado funciona da seguinte maneira:
 
 1.  **Membro do Consortium** gera um endereço Ethereum (mantém a chave privada)
 
@@ -77,7 +77,7 @@ Muitas vezes um membro do consórcio deseja participar de governança de rede, m
 
 ### <a name="azure-monitor"></a>Azure Monitor
 
-Essa solução também vem com o Azure Monitor para acompanhar as estatísticas de rede e de nó. Para os desenvolvedores de aplicativos, isso fornece visibilidade sobre o blockchain subjacente para acompanhar as estatísticas de geração de bloco. Os operadores de rede podem usar o Azure Monitor para detectar e evitar interrupções de rede por meio de estatísticas de infraestrutura e logs que podem ser consultados rapidamente. Consulte [monitoramento de serviço](#service-monitoring) para obter mais detalhes.
+Essa solução também vem com o Azure Monitor para acompanhar as estatísticas de rede e de nó. Para os desenvolvedores de aplicativos, isso fornece visibilidade sobre o blockchain subjacente para acompanhar as estatísticas de geração de bloco. Os operadores de rede podem usar o Azure Monitor para detectar e evitar interrupções de rede por meio de estatísticas de infraestrutura e logs que podem ser consultados rapidamente. Para obter mais informações, consulte [monitoramento de serviço](#service-monitoring).
 
 ### <a name="deployment-architecture"></a>Arquitetura de implantação
 
@@ -143,12 +143,12 @@ Os administradores têm a capacidade de delegar a participação de consenso par
 -   **Histórico de Alterações Auditável -** cada alteração será registrada do blockchain fornecendo transparência e a capacidade de auditoria.
 
 #### <a name="getting-started-with-governance"></a>Introdução à governança
-Para executar qualquer tipo de transação usando o DApp de Governança, você precisará usar uma carteira do Ethereum.  A abordagem mais simples é usar uma carteira no navegador, como o [MetaMask](https://metamask.io). No entanto, como se trata de contratos inteligentes implantados na rede, você também pode automatizar suas interações com o contrato de Governança.
+Para executar qualquer tipo de transações por meio de DApp a governança, você precisará utilizar uma carteira Ethereum.  A abordagem mais simples é usar uma carteira no navegador, como o [MetaMask](https://metamask.io). No entanto, como se trata de contratos inteligentes implantados na rede, você também pode automatizar suas interações com o contrato de Governança.
 
-Depois de instalar o MetaMask, navegue até o DApp de Governança no navegador.  Você pode localizar a URL no email de confirmação de implantação ou por meio do portal do Azure na saída da implantação.  Se não houver uma carteira instalada no navegador, você não poderá executar nenhuma ação. No entanto, você ainda poderá ler o estado de administrador.  
+Depois de instalar o MetaMask, navegue até o DApp de Governança no navegador.  Você pode localizar a URL no email de confirmação de implantação ou por meio do portal do Azure na saída da implantação.  Se você não tiver uma carteira no navegador instalada não será capaz de executar quaisquer ações; No entanto, você ainda pode ler o estado de administrador.  
 
 #### <a name="becoming-an-admin"></a>Tornando-se um administrador
-Se você for o primeiro membro que implantou a rede, você se tornará um administrador automaticamente e seus nós de Paridade serão listados como Validadores.  Se estiver ingressando na rede, você precisará ser votado como Administrador pela maioria (mais de 50%) do conjunto de Administradores existente.  Se você optar por não se tornar um Administrador, seus nós ainda sincronizarão e validarão o blockchain. No entanto, eles não participarão do processo de criação de bloco. Para iniciar o processo de votação para tornar-se um Administrador, clique em __Nomear__ e insira seu endereço e alias do Ethereum.
+Se você for o primeiro membro que são implantados na rede, em seguida, você vai se tornará automaticamente um administrador e seus nós de paridade serão listados como validadores.  Se você está se associando a rede, você precisará obter votado como um administrador pela maioria (maior que 50%) do conjunto de administrador existente.  Se você optar por não se tornar um Administrador, seus nós ainda sincronizarão e validarão o blockchain. No entanto, eles não participarão do processo de criação de bloco. Para iniciar o processo de votação para tornar-se um Administrador, clique em __Nomear__ e insira seu endereço e alias do Ethereum.
 
 ![Nomear](./media/ethereum-poa-deployment/governance-dapp-nominate.png)
 
@@ -159,12 +159,12 @@ Selecionar a guia __Candidatos__ mostrará a você o conjunto atual de candidato
 
 
 #### <a name="admins"></a>Administradores
-A guia __Administradores__ mostrará o conjunto atual de Administradores e permitirá que você vote.  Depois que o Administrador perder mais de 50% do apoio, ele será removido da função de Administrador da rede.  Todos os nós validadores que esse Administrador tiver perderão o status de validador e se tornarão nós de transação na rede.  Um Administrador pode ser removido por vários motivos. No entanto, cabe ao consórcio concordar com uma política com antecedência.
+A guia __Administradores__ mostrará o conjunto atual de Administradores e permitirá que você vote.  Depois que um administrador perde muito mais que o suporte de 50%, eles serão removidos como um administrador da rede.  Todos os nós validadores que esse Administrador tiver perderão o status de validador e se tornarão nós de transação na rede.  Um administrador pode ser removido por vários motivos; No entanto, cabe a consórcio concordar sobre uma política com antecedência.
 
 ![Administradores](./media/ethereum-poa-deployment/governance-dapp-admins.png)
 
 #### <a name="validators"></a>Validadores
-Selecionar a guia __Validadores__ no menu esquerdo exibirá os nós de Paridade implantados atualmente para essa instância e seus status atuais (tipo de nó).  Observe que cada membro do consórcio terá um conjunto diferente de validadores nessa lista, pois essa exibição representa o membro do consórcio implantado atualmente.  Se essa for uma instância recém-implantada e você ainda não tiver adicionado seus validadores, você verá a opção ‘Adicionar Validadores’.  A seleção dessa opção escolherá automaticamente um conjunto de nós de Paridade com balanceamento regional e os atribuirá ao seu conjunto de validadores.  Se você tiver implantado mais nós do que a capacidade permitida, os nós restantes se tornarão nós de transação na rede.
+Selecionar a guia __Validadores__ no menu esquerdo exibirá os nós de Paridade implantados atualmente para essa instância e seus status atuais (tipo de nó).  Cada membro consortium terá um conjunto diferente de validadores nessa lista, já que esse modo de exibição representa o membro atual do consórcio implantado.  Se essa for uma instância recém-implantada e você ainda não adicionou sua validadores, será exibida a opção para 'Adicionar validadores'.  Ao selecionar esse automaticamente escolha um conjunto balanceado regionalmente de nós de paridade e atribuí-los ao seu conjunto de validador.  Se você tiver implantado mais nós do que a capacidade permitida, os nós restantes se tornarão nós de transação na rede.
 
 O endereço de cada validador é atribuído automaticamente por meio do [repositório de identidades](#identity-store) no Azure.  Se um nó falhar, ele abrirá mão de sua identidade, permitindo que o outro nó na implantação assuma seu lugar.  Isso garante que sua participação no consenso seja altamente disponível.
 
@@ -174,7 +174,7 @@ O endereço de cada validador é atribuído automaticamente por meio do [reposit
 Qualquer Administrador pode atualizar o nome do consórcio, exibido na parte superior da página.  Selecione o ícone de engrenagem na parte superior esquerda para atualizar o nome do consórcio.
 
 #### <a name="account-menu"></a>Menu da conta
-No canto superior direito, estão o identicon e o alias da conta do Ethereum.  Se for um Administrador, você poderá atualizar seu alias.
+No canto superior direito, estão o identicon e o alias da conta do Ethereum.  Se você for um administrador, você terá a capacidade de atualizar seu alias.
 
 ![Conta](./media/ethereum-poa-deployment/governance-dapp-account.png)
 
@@ -208,7 +208,7 @@ Para obter uma descrição detalhada de cada parâmetro:
 
 Nome do parâmetro|DESCRIÇÃO|Valores permitidos|Valores padrão
 ---|---|---|---
-Criar uma nova rede ou ingressar em uma rede existente?|Criar uma nova rede ou ingressar em uma rede de consórcio pré-existente|Criar Nova Ingressar em Existente|Criar Novo
+Criar uma nova rede ou ingressar em uma rede existente?|Criar uma nova rede ou ingressar em uma rede de consortium pré-existente|Criar Nova Ingressar em Existente|Criar Novo
 Endereço de Email (opcional)|Você receberá uma notificação por email quando sua implantação for concluída com informações sobre sua implantação.|Endereço de email inválido|ND
 Nome de usuário da VM|Nome de usuário do administrador de cada VM implantada (somente caracteres alfanuméricos)|1 a 64 caracteres|ND
 Tipo de autenticação|O método para autenticar para a máquina virtual.|Senha ou chave pública SSH|Senha
@@ -254,7 +254,7 @@ Para obter uma descrição detalhada de cada parâmetro:
 
 [Detalhes de preços de máquina virtual](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
 
-Observe que a máquina virtual e a camada de armazenamento afetarão o desempenho da rede.  Recomendamos os seguintes SKUs com base no custo-benefício desejado:
+Máquina virtual e a camada de armazenamento afetará o desempenho de rede.  Recomendamos os seguintes SKUs com base no custo-benefício desejado:
 
   SKU da máquina virtual|Camada de armazenamento|Preço|Produtividade|Latency
   ---|---|---|---|---
@@ -272,28 +272,30 @@ Para obter uma descrição detalhada de cada parâmetro:
 
   Nome do parâmetro|DESCRIÇÃO|Valores permitidos|Valores padrão
   ---|---|---|---
-ID do Membro do Consortium|A ID associada a cada membro que está participando da rede consortium usada para configurar os espaços de endereço IP para evitar a colisão. No ao de rede privada, a ID do membro deve ser exclusiva em diferentes organizações na mesma rede.  É necessária uma ID de membro exclusiva mesmo quando a mesma organização implanta em várias regiões. Anote o valor desse parâmetro, pois você precisará compartilhá-lo com outros membros que ingressam para garantir que não haja colisão.|0-255|ND
+ID do Membro do Consortium|A ID associada a cada membro que está participando da rede consortium usada para configurar os espaços de endereço IP para evitar a colisão. No ao de rede privada, a ID do membro deve ser exclusiva em diferentes organizações na mesma rede.  É necessária uma ID de membro exclusiva mesmo quando a mesma organização implanta em várias regiões. Anote o valor desse parâmetro, pois você precisará para compartilhá-lo com outros membros de junção para garantir que não há nenhuma colisão.|0-255|ND
 ID da Rede|A ID de rede para a rede de Ethereum consortium que está sendo implantada.  Cada rede Ethereum tem sua própria ID de rede, sendo que 1 indica a ID para a rede pública.|5 - 999.999.999|10101010
 Endereço do administrador Ethereum|Endereço de conta Ethereum que é usado para a participação na governança PoA.  É recomendável usar MetaMask para gerar um endereço de Ethereum.|42 caracteres alfanuméricos começando com 0x|ND
 Opções avançadas|Opções avançadas para configurações do Ethereum|Habilitar ou Desabilitar|Desabilitar
 IP público (opções avançadas = habilitar)|Implanta a rede por trás de um Gateway de rede virtual e remove o acesso de emparelhamento. Se essa opção for selecionada, todos os membros devem usar um Gateway de rede virtual para a conexão para ser compatível.|Rede virtual privada de IP público|IP público
 Limite de gás do bloco (opções avançadas = habilitar)|O limite inicial de gás do bloco da rede|Qualquer numérico|50.000.00
 Período para selar o bloco novamente (s)|A frequência com que serão criados blocos vazios quando não existirem transações na rede. Uma frequência superior terá uma finalidade mais rápida, mas os custos de armazenamento serão maiores.|Qualquer numérico|15
-Contrato de permissão de transação (opções avançadas = habilitar)|Código de bytes para o contrato de permissão de transação. Restringe a implantação inteligente de contrato e a execução para uma lista com permissão de contas Ethereum.|Código de bytes do contrato|ND
+Contrato de permissão de transação (opções avançadas = habilitar)|Código de bytes para o contrato de permissão de transação. Restringe a implantação inteligente de contrato e a execução a uma lista permitida de contas Ethereum.|Código de bytes do contrato|ND
 
 Uma implantação de exemplo é mostrada abaixo: ![configurações do ethereum](./media/ethereum-poa-deployment/ethereum-settings.png)
 
 #### <a name="monitoring"></a>Monitoramento
 
-A folha Monitoramento permite que você configure um recurso do Log Analytics para sua rede. O agente de monitoramento coletará e fornecerá métricas e logs úteis da rede, oferecendo a capacidade de verificar a integridade da rede ou de depurar problemas rapidamente.
+A folha de monitoramento permite que você configure um recurso de logs do Azure Monitor para sua rede. O agente de monitoramento coletará e fornecerá métricas e logs úteis da rede, oferecendo a capacidade de verificar a integridade da rede ou de depurar problemas rapidamente.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
   Nome do parâmetro|DESCRIÇÃO|Valores permitidos|Valores padrão
   ---|---|---|---
 Monitoramento|Opção para habilitar o monitoramento|Habilitar ou Desabilitar|Habilitar
-Conecte-se ao Log Analytics existente|Criar uma nova instância do Log Analytics ou ingressar em uma instância existente|Criar nova ou ingresar em existente|Criar Novo
-Local do monitor (conectar ao Log Analytics existente = criar)|A região em que a nova instância do Log Analytics será implantada|Todas as regiões do Log Analytics|ND
-ID do workspace existente do Log Analytics (conectar-se ao Log Analytics existente = ingressar no existente)|ID do workspace da instância existente do Log Analytics||ND
-Chave primária do Log Analytics existente (conectar-se ao Log Analytics existente = ingressar no existente)|A chave primária usada para conectar-se à instância existente do Log Analytics||ND
+Conectar-se em logs existentes do Azure Monitor|Criar uma nova instância de logs do Azure Monitor ou ingressar em uma instância existente|Criar nova ou ingresar em existente|Criar Novo
+Monitorar a localização (conectar-se em logs existentes do Azure Monitor = criar novo)|A região em que o novo Azure Monitor registra a instância será implantada|Registra em log do Azure Monitor todas as regiões|ND
+ID de espaço de trabalho de análise de log existente (conectar-se em logs existentes do Azure Monitor = ingressar existente)|ID do espaço de trabalho do Monitor do Azure existente registra a instância||ND
+Chave primária de análise de log de existente (conectar-se em logs existentes do Azure Monitor = ingressar existente)|A chave primária usada para se conectar à instância existente de logs do Azure Monitor||ND
 
 
 Uma implantação de exemplo é mostrada abaixo: ![folha básica](./media/ethereum-poa-deployment/azure-monitor.png)
@@ -308,7 +310,7 @@ Revise os termos legais e de privacidade e clique em Compra para implantar. Se a
 
 ##### <a name="deployment-output"></a>Saída de implantação
 
-Depois que a implantação for concluída, você poderá acessar os parâmetros necessários por meio de email de confirmação ou por meio do portal do Azure. Nesses parâmetros você encontrará:
+Depois que a implantação for concluída, você pode acessar os parâmetros necessários por meio de email de confirmação ou por meio do portal do Azure. Nesses parâmetros você encontrará:
 
 -   Ponto de extremidade RPC do Ethereum
 
@@ -328,7 +330,7 @@ Se você fornecer um endereço de email ([seção Noções básicas](#basics)), 
 
 ##### <a name="portal"></a>Portal
 
-Depois que a implantação for concluída com êxito e todos os recursos tiverem sido provisionados, você poderá exibir os parâmetros de saída no seu grupo de recursos.
+Depois que a implantação for concluída com êxito e todos os recursos tiverem sido provisionados, você pode exibir os parâmetros de saída no seu grupo de recursos.
 
 1.  Localize o grupo de recursos no portal
 
@@ -341,7 +343,7 @@ Depois que a implantação for concluída com êxito e todos os recursos tiverem
 ### <a name="growing-the-consortium"></a>Aumentando o consórcio
 
 Para expandir seu consórcio, primeiro você deve se conectar a rede física.
-Usando a implantação com base em IP público a primeira etapa é perfeita. Se você for implantar por trás de uma VPN, confira a seção [Conectando o gateway da VNET](#connecting-vnet-gateways) para executar a conexão de rede como parte da implantação do novo membro.  Após a conclusão da implantação, use o [DApp de Governança](#governance-dapp) para tornar-se um Administrador da rede.
+Usando a implantação com base em IP público a primeira etapa é perfeita. Se implantar por trás de uma VPN, consulte a seção [Gateway de rede virtual conectando](#connecting-vnet-gateways) para fazer a conexão de rede como parte da nova implantação de membro.  Após a conclusão da implantação, use o [DApp de Governança](#governance-dapp) para tornar-se um Administrador da rede.
 
 #### <a name="new-member-deployment"></a>Nova implantação de membro
 
@@ -367,7 +369,7 @@ Usando a implantação com base em IP público a primeira etapa é perfeita. Se 
 
 #### <a name="connecting-vnet-gateways"></a>Conectar-se a gateways de rede virtual
 
-Você poderá ignorar esta etapa se tiver implantado usando as configurações de IP público padrão. No caso de uma rede privada, os membros diferentes são conectados por meio de conexões de gateway de rede virtual. Antes de um membro poder ingressar na rede e ver o tráfego de transação, um membro existente deve executar uma configuração final no seu Gateway de VPN para aceitar a conexão. Isso significa que os nós de Ethereum do membro que ingressa não serão executados até que uma conexão seja estabelecida. É recomendável criar conexões de rede redundantes (malha) em consórcio para reduzir as chances de um ponto único de falha.
+Você poderá ignorar esta etapa se tiver implantado usando as configurações de IP público padrão. No caso de uma rede privada, os membros diferentes são conectados por meio de conexões de gateway de rede virtual. Antes de um membro pode se associar à rede e ver o tráfego de transação, um membro existente deve fazer uma configuração final em seu gateway VPN para aceitar a conexão. Isso significa que os nós Ethereum do membro a junção não serão executados até que uma conexão seja estabelecida. É recomendável criar conexões de rede redundantes (malha) em consórcio para reduzir as chances de um ponto único de falha.
 
 Depois que o novo membro implanta, o membro existente deve concluir a conexão bi-direcional, configurando uma conexão de gateway de rede virtual para o novo membro. Para fazer isso, o membro existente será necessário:
 
@@ -375,7 +377,7 @@ Depois que o novo membro implanta, o membro existente deve concluir a conexão b
 
 2.  A chave de conexão compartilhada
 
-O membro existente deve executar o seguinte script do PowerShell para concluir a conexão. Recomendamos que você use o Azure Cloud Shell localizados na barra de navegação direita superior no portal.
+O membro existente deve executar o seguinte script do PowerShell para concluir a conexão. Recomendamos usando o Azure Cloud Shell localizados na barra de navegação da parte superior direita no portal.
 
 ![cloud shell](./media/ethereum-poa-deployment/cloud-shell.png)
 
@@ -425,7 +427,7 @@ Selecionar **Estatísticas de rede** direcionará você para exibir estatística
 
 ![estatísticas de rede](./media/ethereum-poa-deployment/network-stats.png)
 
-#### <a name="sample-log-analytics-queries"></a>Amostra de consultas do Log Analytics
+#### <a name="sample-kusto-queries"></a>Exemplos de consulta Kusto
 
 Por trás desses painéis está um conjunto de registros brutos que podem ser consultados. Você pode usar esses logs brutos para personalizar os painéis, investigar falhas ou limitar o alerta de configuração. Abaixo você encontrará um conjunto de consultas de exemplo que pode ser executado na ferramenta de pesquisa de Log:
 
@@ -451,7 +453,7 @@ ParityLog_CL
 
 ### <a name="ssh-access"></a>Acesso SSH
 
-Por motivos de segurança, o acesso de porta SSH é negado por uma regra de segurança de grupo de rede por padrão. Para acessar as instâncias de máquinas virtuais na rede de PoA, você precisará alterar essa regra para \"Permitir\"
+Por motivos de segurança, o acesso de porta SSH é negado por uma regra de segurança de grupo de rede por padrão. Para acessar instâncias de máquina virtual na rede PoA, você precisará alterar essa regra de \"permitir\"
 
 1.  Comece na seção Visão geral do grupo de recursos implantados do portal do Azure.
 
@@ -498,7 +500,7 @@ Atribua o perfil de um nome exclusivo e selecione o grupo de recursos que foi cr
 
 ![criar gerenciador de tráfego](./media/ethereum-poa-deployment/traffic-manager-create.png)
 
-Depois de implantado, em seguida, selecione a instância no grupo de recursos. O nome DNS para acessar o gerenciador de tráfego pode ser encontrado na guia Visão geral
+Depois de implantada, em seguida, selecione a instância no grupo de recursos. O nome DNS para acessar o gerenciador de tráfego pode ser encontrado na guia Visão geral
 
 ![Localize o Gerenciador de tráfego DNS](./media/ethereum-poa-deployment/traffic-manager-dns.png)
 
@@ -506,7 +508,7 @@ Selecione a guia Pontos de extremidade e clique no botão Adicionar. Forneça um
 
 ![Roteamento do gerenciador de tráfego](./media/ethereum-poa-deployment/traffic-manager-routing.png)
 
-Repita para cada região na rede implantada. Depois que os pontos de extremidade estiverem no status \"habilitado\", eles serão carregados automaticamente e com balanceamento de região no nome de DNS de gerenciador de tráfego. Agora você pode usar esse nome DNS, em vez do parâmetro \[CONSORTIUM\_DATA\_URL\] nas outras etapas do documento.
+Repita para cada região na rede implantada. Depois que os pontos de extremidade a \"habilitado\" status, vai ser carregar automaticamente e com balanceamento de região no nome de DNS de Gerenciador de tráfego. Agora você pode usar esse nome DNS, em vez do parâmetro \[CONSORTIUM\_DATA\_URL\] nas outras etapas do documento.
 
 ### <a name="data-api"></a>API de dados
 
@@ -514,13 +516,13 @@ Cada membro do consórcio hospeda as informações necessárias para que outras 
 
 `<CONSORTIUM_DATA_URL>/networkinfo`
 
-A resposta conterá informações úteis para unir os membros (Gênese do bloqueio, contrato de validador definido ABI, bootnodes), bem como informações úteis para o membro existente (endereços do validador). Recomendamos o uso de padronização para estender o consórcio entre provedores na nuvem. Essa API retornará uma resposta JSON formatado com a seguinte estrutura:
+A resposta conterá informações úteis para unir os membros (Gênese do bloqueio, o contrato de validador definido ABI, bootnodes) e informações úteis para o membro existente (endereços validator). Recomendamos o uso de padronização para estender o consórcio entre provedores na nuvem. Essa API retornará uma resposta JSON formatado com a seguinte estrutura:
 ```json
 {
   "$id": "",
   "type": "object",
   "definitions": {},
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft-07/schema#",
   "properties": {
     "majorVersion": {
       "$id": "/properties/majorVersion",

@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.custom: hdinsightactive, seodec18
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 4dc50de7a97055e336627e34f747a17fcedc7e58
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 37a8882653ffede121d2e2cd3f3357741d8d641a
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58091538"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336415"
 ---
 # <a name="troubleshoot-apache-hbase-by-using-azure-hdinsight"></a>Solucionar problemas do Apache HBase usando o Azure HDInsight
 
@@ -344,7 +344,7 @@ Este é um problema conhecido com o serviço HMaster. Tarefas de inicialização
 
 ### <a name="issue"></a>Problema
 
-É possível impedir uma falha de reinicialização em um servidor de região seguindo estas práticas recomendadas. Recomendamos pausar a atividade com uso intenso de carga de trabalho ao planejar reiniciar servidores de região do HBase. Se um aplicativo continuar a se conectar a servidores da região quando o desligamento estiver em andamento, a operação de reinicialização do servidor de região será desacelerada em vários minutos. Além disso, convém primeiro liberar todas as tabelas. Para obter uma referência de como liberar tabelas, confira [HDInsight HBase: Como melhorar o tempo de reinicialização do cluster HBase Apache liberando tabelas](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/).
+É possível impedir uma falha de reinicialização em um servidor de região seguindo estas práticas recomendadas. Recomendamos pausar a atividade com uso intenso de carga de trabalho ao planejar reiniciar servidores de região do HBase. Se um aplicativo continuar a se conectar a servidores da região quando o desligamento estiver em andamento, a operação de reinicialização do servidor de região será desacelerada em vários minutos. Além disso, convém primeiro liberar todas as tabelas. Para obter uma referência de como liberar tabelas, confira [HDInsight HBase: Como melhorar o tempo de reinicialização do cluster HBase Apache liberando tabelas](https://web.archive.org/web/20190112153155/ https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/).
 
 Se você iniciar a operação de reinicialização em servidores de região do HBase na interface do usuário do Apache Ambari, verá imediatamente que os servidores de região foram desativados, mas eles não reiniciam imediatamente. 
 
@@ -417,5 +417,5 @@ Veja a seguir o que está acontecendo em segundo plano:
    sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh start regionserver"   
    ```
 
-### <a name="see-also"></a>Veja também
+### <a name="see-also"></a>Consulte também
 [Solucionar problemas usando o Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)

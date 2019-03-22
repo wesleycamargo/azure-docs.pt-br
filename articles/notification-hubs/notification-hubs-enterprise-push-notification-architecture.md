@@ -14,18 +14,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 369f3ebca0ca2f5862d8300934dee57a73d8bada
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: c934a3b16f5cdd2b4f703b1be15ce16ddc6d8746
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57903395"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338472"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Orientação arquitetural do push corporativo
 
 As empresas hoje estão gradualmente migrando para a criação de aplicativos móveis para os usuários finais (externos) ou para os funcionários (internos). Eles têm sistemas de back-end no local como mainframes ou alguns aplicativos LoB que devem ser integrados na arquitetura de aplicativos móveis. Este guia fala sobre a melhor maneira de fazer esta integração recomendando a melhor solução para cenários comuns.
 
-Um requisito frequente é enviar notificação por push para os usuários através de seus aplicativos móveis quando ocorre um evento de interesse nos sistemas de back-end. por exemplo, um cliente bancário que tenha o aplicativo do banco em seu iPhone deseja ser notificado quando um débito fica acima de um determinado valor de sua conta ou um cenário de intranet em que um funcionário do departamento financeiro com um aplicativo de aprovação de orçamento em um Windows Phone deseja ser notificado quando a solicitação de aprovação for recebida.
+Um requisito frequente é enviar notificação por push para os usuários através de seus aplicativos móveis quando ocorre um evento de interesse nos sistemas de back-end. Por exemplo, um cliente bancário que tem o aplicativo de serviços bancários do banco em um iPhone deseja ser notificado quando um débito fica acima de um determinado valor da conta ou um cenário de intranet onde deseja que um funcionário do departamento financeiro com um aplicativo de aprovação de orçamento em um Windows Phone  para ser notificado quando a solicitação de aprovação é recebida.
 
 A conta bancária ou o processamento de aprovação provavelmente pode ser feito em algum sistema back-end que deve iniciar um envio por push para o usuário. Poderá haver vários sistemas de back-end e todos deverão compilar o mesmo tipo de lógica para efetuar push quando um evento disparar uma notificação. A complexidade aqui reside na integração de vários sistemas de back-end com sistemas individuais de envio por push, nos quais os usuários finais podem se inscrever para diferentes notificações e pode até mesmo haver vários aplicativos móveis. Por exemplo, no caso de aplicativos móveis de intranet nos quais um aplicativo móvel talvez queira receber notificações de vários sistemas de back-end. Os sistemas de back-end não sabem nem precisam saber de tecnologia/semântica de push. Assim, uma solução comum tem sido tradicionalmente introduzir um componente que controla os sistemas de back-end para todos os eventos de interesse e é responsável por enviar as mensagens por push para o cliente.
 
@@ -265,7 +265,7 @@ O código de exemplo completo está disponível em [Exemplos do Hub de Notifica�
 ### <a name="running-the-sample"></a>Executando o exemplo
 
 1. Confirme se seu WebJob está em execução e se está programado para executar continuamente.
-2. Execute o **EnterprisePushMobileApp que inicia o aplicativo da Windows Store.
+2. Execute o **EnterprisePushMobileApp**, que inicia o aplicativo da Windows Store.
 3. Execute o aplicativo de console **EnterprisePushBackendSystem** que simula o back-end do LoB e começa a enviar mensagens. Você deverá ver as notificações do sistema da seguinte forma:
 
     ![][5]

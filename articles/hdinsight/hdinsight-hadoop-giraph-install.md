@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3b46acfbfd77015193135d1a8c7646c331340145
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: HT
+ms.openlocfilehash: 96a334b4bd39513bfad128a8f1b59f319fef013e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200643"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317401"
 ---
 # <a name="install-and-use-apache-giraph-on-windows-based-hdinsight-clusters"></a>Instalar e usar o Apache Giraph em clusters HDInsight baseados no Windows
 
@@ -48,10 +48,10 @@ O <a href="https://giraph.apache.org/" target="_blank">Apache Giraph</a> permite
 
     |Propriedade|Valor|  
     |---|---|  
-    |NOME|Especifique um nome para a ação de script. Por exemplo, **Instalar o Giraph**|
-    |URI do script|Especifique o URI (Uniform Resource Identifier) do script invocado para personalizar o cluster. Por exemplo, *https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1*|
-    |Tipo de nó|Especifique os nós em que o script de personalização deve ser executado. Você pode escolher **Todos os nós**, **Somente nós do cabeçalho** ou **Somente nós de trabalho**.
-    |parâmetros|Especifique os parâmetros, se exigido pelo script. O script para instalar o Giraph não requer nenhum parâmetro; você pode deixar em branco.|  
+    |Nome|Especifique um nome para a ação de script. Por exemplo, **Instalar o Giraph**|
+    |URI de Script|Especifique o URI (Uniform Resource Identifier) do script invocado para personalizar o cluster. Por exemplo, *https:\//hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1*|
+    |Tipo de Nó|Especifique os nós em que o script de personalização deve ser executado. Você pode escolher **Todos os nós**, **Somente nós do cabeçalho** ou **Somente nós de trabalho**.
+    |Parâmetros|Especifique os parâmetros, se exigido pelo script. O script para instalar o Giraph não requer nenhum parâmetro; você pode deixar em branco.|  
 
     Você pode adicionar mais de uma ação de script para instalar vários componentes no cluster. Depois de adicionar os scripts, clique na marca de seleção para começar a criar o cluster.
 
