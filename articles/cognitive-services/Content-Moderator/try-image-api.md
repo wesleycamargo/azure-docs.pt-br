@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 07b709b965cf34a687e0cb39f490f62d05919b5c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 1e4efa5e06525194bfdc7d1932fcfec5ec9f8c6b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883110"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093813"
 ---
 # <a name="moderate-images-from-the-api-console"></a>Moderar imagens do console da API
 
@@ -24,55 +24,55 @@ Use a [API de Moderação de Imagem](https://westus.dev.cognitive.microsoft.com/
 ## <a name="use-the-api-console"></a>Usar o console de API
 Antes de você pode testar a API no console on-line, você precisa da chave de assinatura. Ela está localizada na guia **Configurações**, na caixa **Ocp-Apim-Subscription-Key**. Para mais informações, confira [Visão Geral](overview.md).
 
-1.  Vá para a [referência da API de Moderação de Imagem](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c).
+1. Vá para a [referência da API de Moderação de Imagem](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c).
 
-  A página de moderação de imagens **Imagem - Avaliar** é aberta.
+   A página de moderação de imagens **Imagem - Avaliar** é aberta.
 
 2. Para **Abrir o console de teste da API**, selecione a região que melhor descreve seu local. 
 
-  ![Seleção da região da página Testar Imagem - Avaliar](images/test-drive-region.png)
+   ![Seleção da região da página Testar Imagem - Avaliar](images/test-drive-region.png)
   
-  O console da API **Imagem - Avaliar** é aberto.
+   O console da API **Imagem - Avaliar** é aberto.
 
 3. Na caixa **Ocp-Apim-Subscription-Key**, insira sua chave de assinatura.
 
-  ![Chave de assinatura do console Testar Imagem - Avaliar](images/try-image-api-1.PNG)
+   ![Chave de assinatura do console Testar Imagem - Avaliar](images/try-image-api-1.PNG)
 
 4. Na caixa **Corpo da solicitação**, use a imagem de exemplo padrão ou especifique uma imagem para verificar. Você pode enviar a imagem como dados de bits binários, ou especificar uma URL publicamente acessível de uma imagem. 
 
-  Para este exemplo, use o caminho fornecido na caixa **Corpo da solicitação** e, em seguida, selecione **Enviar**. 
+   Para este exemplo, use o caminho fornecido na caixa **Corpo da solicitação** e, em seguida, selecione **Enviar**. 
 
    ![Corpo da solicitação do console Testar Imagem - Avaliar](images/try-image-api-2.PNG)
 
-  Esta é a imagem nessa URL:
+   Esta é a imagem nessa URL:
 
-  ![Imagem de exemplo do console Testar Imagem - Avaliar](images/sample-image.jpg) 
+   ![Imagem de exemplo do console Testar Imagem - Avaliar](images/sample-image.jpg) 
 
 5. Selecione **Enviar**.
 
 6. A API retorna uma pontuação de probabilidade para cada classificação. Ela também retorna uma determinação de se a imagem atende as condições (**true** ou **false**). 
 
-  ![Pontuação de probabilidade e determinação de condição do console Testar Imagem - Avaliar](images/try-image-api-3.PNG)
+   ![Pontuação de probabilidade e determinação de condição do console Testar Imagem - Avaliar](images/try-image-api-3.PNG)
 
 ## <a name="face-detection"></a>Detecção facial
 
 Você pode usar a API de Moderação de Imagem para localizar as faces em uma imagem. Essa opção pode ser útil quando você estiver preocupado com a privacidade e quiser impedir que uma face específica seja publicada em sua plataforma. 
 
-1.  Na [referência da API de Moderação de Imagem](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c), no menu à esquerda, em **Imagem**, selecione **Localizar faces**. 
+1. Na [referência da API de Moderação de Imagem](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c), no menu à esquerda, em **Imagem**, selecione **Localizar faces**. 
 
-  A página **Imagem - Localizar faces** será aberta.
+   A página **Imagem - Localizar faces** será aberta.
 
-2.  Para **Abrir o console de teste da API**, selecione a região que melhor descreve seu local. 
+2. Para **Abrir o console de teste da API**, selecione a região que melhor descreve seu local. 
 
-  ![Seleção da região da página Testar Imagem - Localizar faces](images/test-drive-region.png)
+   ![Seleção da região da página Testar Imagem - Localizar faces](images/test-drive-region.png)
 
-  O console da API **Imagem - Localizar faces** será aberto.
+   O console da API **Imagem - Localizar faces** será aberto.
 
 3. Especifique uma imagem para verificar. Você pode enviar a imagem como dados de bits binários, ou especificar uma URL publicamente acessível de uma imagem. Este exemplo vincula a uma imagem que é usada em uma história da CNN.
 
-  ![Imagem de exemplo Testar Imagem - Localizar faces](images/try-image-api-face-image.jpg)
+   ![Imagem de exemplo Testar Imagem - Localizar faces](images/try-image-api-face-image.jpg)
 
-  ![Solicitação de exemplo Testar Imagem - Localizar faces](images/try-image-api-face-request.png)
+   ![Solicitação de exemplo Testar Imagem - Localizar faces](images/try-image-api-face-request.png)
 
 4. Selecione **Enviar**. Neste exemplo, a API localiza duas faces e retorna suas coordenadas na imagem.
 
@@ -84,13 +84,13 @@ Você pode usar o recurso OCR do Content Moderator para detectar texto em imagen
 
 1. Na [referência da API de Moderação de Imagem](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c), no menu à esquerda, em **Imagem**, selecione **OCR**. 
 
-  A página **Imagem - OCR** será aberta.
+   A página **Imagem - OCR** será aberta.
 
 2. Para **Abrir o console de teste da API**, selecione a região que melhor descreve seu local. 
 
-  ![Seleção de região da página Imagem - OCR](images/test-drive-region.png)
+   ![Seleção de região da página Imagem - OCR](images/test-drive-region.png)
 
-  O console da API **Imagem - OCR** será aberto.
+   O console da API **Imagem - OCR** será aberto.
 
 3. Na caixa **Ocp-Apim-Subscription-Key**, insira sua chave de assinatura.
 
@@ -98,7 +98,7 @@ Você pode usar o recurso OCR do Content Moderator para detectar texto em imagen
 
 5. Selecione **Enviar**. O texto extraído é exibido em JSON:
 
-  ![Caixa conteúdo de resposta de exemplo de Imagem - OCR](images/try-image-api-ocr.PNG)
+   ![Caixa conteúdo de resposta de exemplo de Imagem - OCR](images/try-image-api-ocr.PNG)
 
 ## <a name="next-steps"></a>Próximas etapas
 

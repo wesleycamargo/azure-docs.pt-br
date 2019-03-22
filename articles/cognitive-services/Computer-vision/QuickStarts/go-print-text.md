@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Extrair texto impresso – REST, Go'
+title: 'Início rápido: Extrair texto impresso – REST, Go'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você extrai texto impresso de uma imagem usando a API de Pesquisa Visual Computacional com Go.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 93b66424bcafc47c8f25854a1e2d2d39e8a2aa6e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1efbb963deb71f9fa35660ecb6111413e2553e4b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862115"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57904313"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-go-in-computer-vision"></a>Início rápido: Extrair texto impresso (OCR) usando a API REST e o Go na Pesquisa Visual Computacional
 
@@ -220,10 +220,6 @@ Uma resposta com êxito é retornada em JSON. O aplicativo de exemplo analisa e 
   "textAngle": 0
 }
 ```
-
-## <a name="clean-up-resources"></a>Limpar recursos
-
-Quando não for mais necessário, exclua o pacote compilado e o arquivo do qual o pacote foi compilado e, em seguida, feche a janela do prompt de comando e o editor de texto.
 
 ## <a name="next-steps"></a>Próximas etapas
 

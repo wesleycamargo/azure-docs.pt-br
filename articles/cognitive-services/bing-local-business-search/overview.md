@@ -6,22 +6,21 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.subservice: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: fd57c344c640974e9c73156902848fb1685861f2
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: fb3b375a66ac9b05ad26287b7c39ce8e748ad699
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163136"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57780313"
 ---
 # <a name="what-is-bing-local-business-search"></a>O que é o Bing Local Business Search?
 A API da Pesquisa de empresa local do Bing é um serviço RESTful que permite que seus aplicativos localizem informações sobre empresas locais com base em consultas de pesquisa. Por exemplo, `q=<business-name> in Redmond, Washington`, ou `q=Italian restaurants near me`. 
 
 ## <a name="features"></a>Recursos
-| Recurso | DESCRIÇÃO |  
+| Recurso | Descrição |  
 | -- | -- | 
 | [Encontre empresas e locais](quickstarts/local-quickstart.md) | A API da Pesquisa de empresa local do Bing obtém resultados localizados de uma consulta. Os resultados incluem uma URL para o site da empresa e exibem texto, número de telefone e localização geográfica, incluindo: Coordenadas de GPS, cidade, endereço |  
 | [Filtre resultados locais com limites geográficos](specify-geographic-search.md) | Adicione coordenadas como parâmetros de pesquisa para limitar os resultados a uma área geográfica específica, especificada por uma área delimitadora circular ou quadrada. | 

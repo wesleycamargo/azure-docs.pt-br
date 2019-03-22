@@ -18,12 +18,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49a82e1452a4380920271f4fb4f7397208e32d78
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 021e13dafcc659337d4096a068e224312e69db1b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174445"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870934"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Gerenciar e personalizar os Serviços de Federação do Active Directory usando o Azure AD Connect
 Este artigo descreve como gerenciar e personalizar os Serviços de Federação do Active Directory (AD FS) usando o Azure Active Directory (Azure AD) Connect. Ele também inclui outras tarefas comuns do AD FS que você pode precisar realizar para obter uma configuração completa de um farm do AD FS.
@@ -32,7 +32,7 @@ Este artigo descreve como gerenciar e personalizar os Serviços de Federação d
 |:--- |:--- |
 | **Gerenciar o AD FS** | |
 | [Reparar a relação de confiança](#repairthetrust) |Como reparar a confiança de federação com o Office 365. |
-| [Federar ao Azure AD usando uma ID de logon alternativa ](#alternateid) | Configurar a federação usando uma ID de logon alternativa  |
+| [Federar ao Azure AD usando a ID de logon alternativo](#alternateid) | Configurar a federação usando uma ID de logon alternativa  |
 | [Adicionar um servidor do AD FS](#addadfsserver) |Como expandir o farm do AD FS com um servidor adicional do AD FS. |
 | [Adicionar um Servidor Proxy de Aplicativo Web do AD FS](#addwapserver) |Como expandir um farm do AD FS com um servidor WAP (Proxy de Aplicativo Web) adicional. |
 | [Adicionar um domínio federado](#addfeddomain) |Como adicionar um domínio federado. |
@@ -176,7 +176,7 @@ A configuração da ID de logon alternativa do AD FS consiste em duas etapas pri
 
     Depois de escolher o domínio, o assistente fornece as informações apropriadas sobre outras ações que o assistente realizará e o impacto da configuração. Em alguns casos, se você selecionar um domínio que ainda não seja verificado no Azure AD, o assistente fornecerá informações para ajudá-lo a verificar o domínio. Confira [Adicionar seu nome de domínio personalizado ao Azure Active Directory](../active-directory-domains-add-azure-portal.md) para obter mais detalhes.
 
-5. Clique em **Próximo**. A página **Pronto para configurar** mostra a lista de ações que o Azure AD Connect executará. Clique em **Instalar** para concluir a configuração.
+5. Clique em **Avançar**. A página **Pronto para configurar** mostra a lista de ações que o Azure AD Connect executará. Clique em **Instalar** para concluir a configuração.
 
    ![Pronto para configurar](./media/how-to-connect-fed-management/AdditionalDomain5.PNG)
 

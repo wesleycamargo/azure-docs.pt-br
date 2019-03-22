@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 07/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: d208d989fb9b84ae7bc94c6a1882754ed2bacb5d
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 0bf1558f81f2936b4556ee658a235cd09dddf905
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343954"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57892902"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Aplicativos gerenciados do Azure no Marketplace
 
@@ -43,7 +43,7 @@ Para tornar-se um editor no Microsoft Azure Marketplace, você deverá:
 
 1. Criar uma ID da Microsoft - Crie sua conta Microsoft usando um endereço de email pertencente ao domínio da sua empresa, mas não a um único indivíduo. Esse endereço de email será usado tanto para a Central de Desenvolvedores da Microsoft como para o Portal do Cloud Partner. Para obter mais informações, consulte [Guia do Editor do Microsoft Azure Marketplace](https://aka.ms/sellerguide).
 1. Enviar o [Formulário de Nominação do Microsoft Azure Marketplace](https://aka.ms/ampnomination) - Para **Solução que você pretende publicar?**, selecione **Aplicativo Gerenciado**. Quando o formulário for enviado, a equipe de Integração do Marketplace revisará o aplicativo e validará a solicitação. O processo de aprovação poderá demorar de um a três dias. Quando a nomeação for aprovada, você receberá um código promocional para renunciar à taxa de registro para a central de desenvolvedores. Se você **não** concluir o Formulário de Nominação do Marketplace, será solicitado a você pagar uma taxa de registro de $ 99.
-1. Registrar-se na [Central de Desenvolvedores](http://dev.windows.com/registration?accountprogram=azure) - A Microsoft validará que sua organização é uma entidade legal válida com uma ID do Imposto válida para o país em que está registrado. O processo de aprovação poderá demorar de 5 a 10 dias. Para evitar a taxa de registro, utilize o código promocional recebido no email do processo de nominação. Para obter mais informações, consulte [Guia do Editor do Microsoft Azure Marketplace](https://aka.ms/sellerguide).
+1. Registrar-se na [Central de Desenvolvedores](https://dev.windows.com/registration?accountprogram=azure) - A Microsoft validará que sua organização é uma entidade legal válida com uma ID do Imposto válida para o país em que está registrado. O processo de aprovação poderá demorar de 5 a 10 dias. Para evitar a taxa de registro, utilize o código promocional recebido no email do processo de nominação. Para obter mais informações, consulte [Guia do Editor do Microsoft Azure Marketplace](https://aka.ms/sellerguide).
 1. Entre no [Portal do Cloud Partner](https://cloudpartner.azure.com) - No perfil do editor, associe sua conta da Central de Desenvolvedores ao Perfil do Editor do Marketplace. Para obter mais informações, consulte [Guia do Editor do Microsoft Azure Marketplace](https://aka.ms/sellerguide).
 
 ## <a name="create-a-new-azure-application-offer"></a>Criar uma nova oferta de aplicativo do Azure

@@ -18,12 +18,12 @@ ms.author: markvi
 ms.reviewer: nigu
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36a2fc9d1ab364d44bd5dd6e7930e5d8ae3fb78d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7d9935b5605bc09f000a81e7616e807a0e194e12
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204739"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295531"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Introdução ao Azure Active Directory Identity Protection e ao Microsoft Graph
 
@@ -166,7 +166,7 @@ Para autenticar, envie uma solicitação post para `https://login.microsoft.com`
 
 - grant_type: “**client_credentials**”
 
--  resource: “**https://graph.microsoft.com**”
+-  resource: `https://graph.microsoft.com`
 
 - client_id: \<a ID do cliente\>
 
@@ -246,7 +246,7 @@ https://graph.microsoft.com/beta/identityRiskEvents?`$filter=userID eq '<userID>
 
 
 
-# <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 Parabéns, você acabou de criar sua primeira chamada para o Microsoft Graph!  
 Agora você pode consultar os eventos de risco de identidade e usar os dados como quiser.

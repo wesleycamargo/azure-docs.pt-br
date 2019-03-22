@@ -6,25 +6,21 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/05/2018
+ms.date: 02/26/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 731519b4e099bd696002af3aa08ada145e490260
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: 7d95ae1f750c59c121e998c6f51f9439b1b0339a
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314849"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287087"
 ---
-# <a name="indexing-external-data-for-queries-in-azure-search"></a>Indexando dados externos para consultas no Azure Search
-> [!div class="op_single_selector"]
-> * [Visão geral](search-what-is-data-import.md)
-> * [.NET](search-import-data-dotnet.md)
-> * [REST](search-import-data-rest-api.md)
-> 
-> 
+# <a name="data-import-overview---azure-search"></a>Visão geral – de importação de dados do Azure Search
 
 No Azure Search, as consultas são executadas sobre o conteúdo carregado e salvo em um [índice de pesquisa](search-what-is-an-index.md). Este artigo examina as duas abordagens básicas para popular um índice: enviar os dados por *push* para o índice de forma programática ou apontar um [indexador do Azure Search](search-indexer-overview.md) em uma fonte de dados com suporte para efetuar *pull* dos dados.
+
+Com essa abordagem, o objetivo é *carregar dados* de uma fonte de dados externa em um índice de Azure Search. O Azure Search permitirá que você criar um índice vazio, mas até que você enviar por push ou pull de dados para ele, não é passível de consulta.
 
 ## <a name="pushing-data-to-an-index"></a>Envio por push de dados para um índice
 O modelo de push, usado para enviar seus dados para o Azure Search, é a abordagem mais flexível. Primeiro, ele não tem restrições de tipo de fonte de dados. Qualquer conjunto de dados composto por documentos JSON pode ser enviado a um índice do Azure Search, supondo que cada documento no conjunto de dados tenha mapeamentos para campos definidos no seu esquema de índice. Em segundo lugar, ele não tem nenhuma restrição de frequência de execução. Você pode enviar por push as alterações para um índice sempre que desejar. Para os aplicativos com requisitos de latência muito baixos (por exemplo, se você precisar que as operações de pesquisa estejam sincronizadas com os bancos de dados de inventário), um modelo de push será sua única opção.
@@ -40,7 +36,38 @@ Você pode usar as APIs a seguir para carregar um ou vários documentos em um í
 
 Atualmente, não há nenhum suporte de ferramenta para enviar por push dados por meio do portal.
 
-Para obter uma introdução a cada metodologia, veja [Importar dados usando REST](search-import-data-rest-api.md) ou [Importar dados usando .NET](search-import-data-dotnet.md).
+Para obter uma introdução a cada metodologia, consulte [guia de início rápido: Criar um índice de Azure Search usando o PowerShell e a API REST](search-create-index-rest-api.md) ou [guia de início rápido: Criar um índice de Azure Search no C# ](search-import-data-dotnet.md).
+
+<a name="indexing-actions"></a>
+
+### <a name="indexing-actions-upload-merge-mergeorupload-delete"></a>Ações de indexação: carregar, mesclar, mergeOrUpload, excluir
+
+Você pode controlar o tipo de ação de indexação em uma base por documento, especificando se o documento deve ser carregado no total, mesclado com o conteúdo do documento existente ou excluído.
+
+Na API REST, emita solicitações HTTP POST com corpos de solicitação JSON para a URL de ponto de extremidade do índice de Azure Search. Cada objeto JSON na matriz "value" contém a chave do documento e especifica uma ação de indexação adições, atualizações, ou exclui o conteúdo do documento. Para obter um exemplo de código, consulte [carregar documentos](search-create-index-rest-api.md#load-documents).
+
+No SDK do .NET, empacotar seus dados em um `IndexBatch` objeto. Uma `IndexBatch` encapsula uma coleção de `IndexAction` objetos, cada um deles contém um documento e uma propriedade que informam ao Azure Search qual ação executar nesse documento. Para obter um exemplo de código, consulte [IndexBatch construir](search-import-data-dotnet.md#construct-indexbatch).
+
+
+| @search.action | DESCRIÇÃO | Campos necessários para cada documento | Observações |
+| -------------- | ----------- | ---------------------------------- | ----- |
+| `upload` |Uma ação `upload` é semelhante a um "upsert", em que o documento será inserido se for novo e atualizado/substituído se existir. |chave, além de quaisquer outros campos que você quiser definir |Ao atualizar/substituir um documento existente, qualquer campo não especificado na solicitação terá seu campo definido para `null`. Isso ocorre mesmo quando o campo tiver sido definido anteriormente como um valor não nulo. |
+| `merge` |Atualiza um documento existente com os campos especificados. Se o documento não existir no índice, a mesclagem falhará. |chave, além de quaisquer outros campos que você quiser definir |Qualquer campo que você especificar em uma mesclagem substituirá o campo existente no documento. No SDK do .NET, isso inclui campos do tipo `DataType.Collection(DataType.String)`. Na API REST, isso inclui campos do tipo `Collection(Edm.String)`. Por exemplo, se o documento contiver um campo `tags` com o valor `["budget"]` e você executar uma mesclagem com o valor `["economy", "pool"]` para `tags`, o valor final do campo `tags` será `["economy", "pool"]`. Ele não será `["budget", "economy", "pool"]`. |
+| `mergeOrUpload` |Essa ação se comportará como `merge` se já existir um documento com a chave especificada no índice. Se o documento não existir, ele se comportará como `upload` com um novo documento. |chave, além de quaisquer outros campos que você quiser definir |- |
+| `delete` |Remove o documento especificado do índice. |somente chave |Todos os campos que você especificar, exceto o campo de chave, serão ignorados. Se você quiser remover um campo individual de um documento, use `merge` e apenas defina o campo explicitamente para null. |
+
+## <a name="decide-which-indexing-action-to-use"></a>Decidir qual ação de indexação será usada
+Para importar dados usando o SDK do .NET, (carregar, mesclar, delete e mergeOrUpload). Dependendo de qual das ações abaixo você escolher, apenas determinados campos deverão ser incluídos em cada documento:
+
+
+### <a name="formulate-your-query"></a>Formular sua consulta
+Há duas maneiras de [pesquisar o índice usando a API REST](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). Uma delas consiste em emitir uma solicitação HTTP POST em que os parâmetros de consulta são definidos em um objeto JSON no corpo da solicitação. A outra maneira consiste em emitir uma solicitação HTTP GET em que os parâmetros de consulta são definidos na URL da solicitação. POST tem [limites mais flexíveis](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) quanto ao tamanho dos parâmetros de consulta do que GET. Por esse motivo, é recomendável usar POST, a menos que haja circunstâncias especiais em que o uso de GET seja mais conveniente.
+
+Para POST e GET, você precisa fornecer o *nome do serviço*, o *nome do índice* e a *versão da API* adequada (a versão atual da API é `2017-11-11` no momento da publicação deste documento) na URL da solicitação. Para GET, você fornece os parâmetros de consulta na *cadeia de consulta* no fim da URL. Veja a seguir o formato da URL:
+
+    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2017-11-11
+
+O formato para POST é o mesmo, mas apenas com api-version nos parâmetros da cadeia de caracteres de consulta.
 
 
 ## <a name="pulling-data-into-an-index"></a>Pull de dados para um índice

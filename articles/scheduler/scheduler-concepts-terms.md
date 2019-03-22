@@ -8,19 +8,19 @@ author: derek1ee
 ms.author: deli
 ms.reviewer: klam
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 08/18/2016
-ms.openlocfilehash: 5ed15a58e5b709b003e9f45d04c3654f814aefc7
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
-ms.translationtype: HT
+ms.openlocfilehash: 15770246f52e87b8fba4a9ec01e1583d194d002b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334220"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57887044"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Conceitos, terminologia e entidades do Agendador do Azure
 
 > [!IMPORTANT]
-> [Aplicativo Lógico do Azure](../logic-apps/logic-apps-overview.md) está substituindo o Agendador do Azure, que está sendo desativado. Para agendar trabalhos, [experimente os Aplicativos Lógicos do Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+> [Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) está substituindo o Agendador do Azure, que está sendo desativado. Para agendar trabalhos, [experimente os Aplicativos Lógicos do Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
 
 ## <a name="entity-hierarchy"></a>Hierarquia de entidades
 
@@ -69,21 +69,21 @@ O Agendador do Azure é compatível com vários tipos de trabalho:
 Em alto nível, um trabalho do Agendador tem essas partes básicas:
 
 * A ação executada quando o temporizador do trabalho é disparado
-* Opcional: o tempo para executar o trabalho
-* Opcional: quando e com que frequência repetir o trabalho
-* Opcional: uma ação de erro que é executada se a ação principal falha
+* Opcional: O tempo para executar o trabalho
+* Opcional: Quando e com que frequência repetir o trabalho
+* Opcional: Uma ação de erro que será executada se a ação principal falhar
 
 O trabalho também inclui os dados fornecidos pelo sistema, como tempo de execução agendada do próximo do trabalho. A definição do código desse trabalho é um objeto no formato JSON (JavaScript Object Notation), que tem estes elementos:
 
 | Elemento | Obrigatório | DESCRIÇÃO | 
 |---------|----------|-------------| 
-| [**startTime**](#start-time) | Não  | A hora de início do trabalho com um deslocamento de fuso horário em [formato ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) | 
-| [**action**](#action) | SIM | Os detalhes para a ação principal, que podem incluir um objeto **errorAction** | 
+| [**startTime**](#start-time) | Não  | A hora de início do trabalho com um deslocamento de fuso horário em [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) | 
+| [**action**](#action) | Sim | Os detalhes para a ação principal, que podem incluir um objeto **errorAction** | 
 | [**errorAction**](#error-action) | Não  | Os detalhes para a ação secundária que é executada se a ação principal falha |
 | [**recurrence**](#recurrence) | Não  | Os detalhes, como a frequência e o intervalo para um trabalho recorrente | 
 | [**retryPolicy**](#retry-policy) | Não  | Os detalhes de quantas vezes repetir uma ação | 
-| [**state**](#state) | SIM | Os detalhes do estado atual do trabalho |
-| [**Status**](#status) | SIM | Os detalhes do status atual do trabalho, que é controlado pelo serviço |
+| [**state**](#state) | Sim | Os detalhes do estado atual do trabalho |
+| [**Status**](#status) | Sim | Os detalhes do status atual do trabalho, que é controlado pelo serviço |
 ||||
 
 Aqui está um exemplo que mostra uma definição de trabalho abrangente para uma ação HTTP com detalhes de elemento mais completos descritos nas seções posteriores: 
@@ -137,7 +137,7 @@ Aqui está um exemplo que mostra uma definição de trabalho abrangente para uma
 
 ## <a name="starttime"></a>startTime
 
-No objeto **startTime**, você pode especificar a hora de início e um deslocamento de fuso horário no [formato ISO 8601](http://en.wikipedia.org/wiki/ISO_8601).
+No objeto **startTime**, você pode especificar a hora de início e um deslocamento de fuso horário no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
 
 <a name="action"></a>
 
@@ -239,7 +239,7 @@ Um trabalho se repetirá se a definição do JSON do trabalho incluir o objeto *
 },
 ```
 
-| Propriedade | Obrigatório | Valor | DESCRIÇÃO | 
+| Propriedade | Obrigatório | Value | DESCRIÇÃO | 
 |----------|----------|-------|-------------| 
 | **frequency** | Sim, quando **recurrence** é usado | "Minute", "Hour", "Day", "Week", "Month", "Year" | A unidade de tempo entre ocorrências | 
 | **interval** | Não  | 1 a 1000, inclusive | Um inteiro positivo que determina o número de unidades de tempo entre cada ocorrência com base em **frequency** | 
@@ -269,9 +269,9 @@ Para o caso quando um trabalho do Agendador falhar, você pode configurar uma po
 },
 ```
 
-| Propriedade | Obrigatório | Valor | DESCRIÇÃO | 
+| Propriedade | Obrigatório | Value | DESCRIÇÃO | 
 |----------|----------|-------|-------------| 
-| **retryType** | SIM | **Fixed**, **None** | Determina se você especifica uma política de repetição (**fixed**) ou não (**none**). | 
+| **retryType** | Sim | **Fixed**, **None** | Determina se você especifica uma política de repetição (**fixed**) ou não (**none**). | 
 | **retryInterval** | Não  | PT30S | Especifica o intervalo e a frequência entre as tentativas de repetição no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). O valor mínimo é 15 segundos, enquanto o valor máximo é 18 meses. | 
 | **retryCount** | Não  | 4 | Especifica o número de tentativas de repetição. O valor máximo é 20. | 
 ||||

@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 1c784aefca19040abb7ab34dd92dddb1ef0f28de
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 52fbef24e8a1b9fd7e0ade404c23a587c81d6b0a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418221"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105991"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-sdk-for-iot-hub-device-provisioning-service"></a>Criar e provisionar um dispositivo X.509 simulado usando o SDK do dispositivo Java para o Serviço de Provisionamento do Dispositivo Hub IoT
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -25,8 +25,8 @@ Estas etapas mostram como simular um dispositivo X.509 no computador de desenvol
 Se você não estiver familiarizado com o processo de provisionamento automático, analise também os [Conceitos de provisionamento automático](concepts-auto-provisioning.md). Não se esqueça de concluir as etapas em [Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com o Portal do Azure](./quick-setup-auto-provision.md) antes de continuar. 
 
 O Serviço de Provisionamento de Dispositivos de IoT do Azure dá suporte a dois tipos de registros:
-- [Grupos de registro](concepts-service.md#enrollment-group): usados para registrar vários dispositivos relacionados.
-- [Registros individuais](concepts-service.md#individual-enrollment): usados para registrar um único dispositivo.
+- [Grupos de registros](concepts-service.md#enrollment-group): usados para inscrever vários dispositivos relacionados.
+- [Registros individuais](concepts-service.md#individual-enrollment): usados para inscrever um único dispositivo.
 
 Este artigo irá demonstrar registros individuais.
 
@@ -86,15 +86,15 @@ Você usará o código de exemplo do [SDK do Azure IoT para Java](https://github
 6. Na folha de resumo do Serviço de Provisionamento de Dispositivos, selecione **Gerenciar registros**. Selecione a guia **Registros Individuais** e clique no botão **Adicionar registro individual** na parte superior. 
 
 7. No painel **Adicionar Registro**, insira as seguintes informações:
-    - Selecione **X.509** como o *Mecanismo* de atestado de identidade.
-    - No *Arquivo .pem ou .cer de certificado primário*, clique em *Selecionar um arquivo* para selecionar o arquivo de certificado **X509individual.pem** criado na etapa anterior.  
-    - Opcionalmente, você pode fornecer as seguintes informações:
-      - Selecione um hub IoT vinculado com o serviço de provisionamento.
-      - Insira uma ID de dispositivo exclusiva. Evite dados confidenciais ao nomear seu dispositivo. 
-      - Atualize o **Estado inicial do dispositivo gêmeo** com a configuração inicial desejada para o dispositivo.
-   - Uma vez concluído, clique no botão **Salvar**. 
+   - Selecione **X.509** como o *Mecanismo* de atestado de identidade.
+   - No *Arquivo .pem ou .cer de certificado primário*, clique em *Selecionar um arquivo* para selecionar o arquivo de certificado **X509individual.pem** criado na etapa anterior.  
+   - Opcionalmente, você pode fornecer as seguintes informações:
+     - Selecione um hub IoT vinculado com o serviço de provisionamento.
+     - Insira uma ID de dispositivo exclusiva. Evite dados confidenciais ao nomear seu dispositivo. 
+     - Atualize o **Estado inicial do dispositivo gêmeo** com a configuração inicial desejada para o dispositivo.
+     - Uma vez concluído, clique no botão **Salvar**. 
 
-    [![Adicionar um registro individual para atestado de X.509 no portal](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
+     [![Adicionar um registro individual para atestado de X.509 no portal](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
 
      Após o registro bem-sucedido, o dispositivo X.509 será exibido como **microsoftriotcore** na coluna *ID de Registro* na guia *Registros Individuais*. 
 

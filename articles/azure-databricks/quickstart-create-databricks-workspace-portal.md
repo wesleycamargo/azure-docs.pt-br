@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 07/23/2018
 ms.custom: mvc
-ms.openlocfilehash: 1c8f280d58d12df33b687fa9c09712176987cdd1
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 1e0e5deea8602b3da16074155e69c952227b8609
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259538"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117669"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Início Rápido: Executar um trabalho de Spark no Azure Databricks usando o portal do Azure
 
@@ -74,11 +74,11 @@ Nesta seção, você deve cria um workspace do Azure Databricks usando o Portal 
 
     Aceite todos os outros valores padrão que não sejam o seguinte:
 
-    * Insira um nome para o cluster.
-    * Neste artigo, crie um cluster com o tempo de execução **4.0**.
-    * Verifique se você marcou a caixa de seleção **Terminar depois de \_\_ minutos de inatividade**. Forneça uma duração (em minutos) para encerrar o cluster caso ele não esteja sendo usado.
+   * Insira um nome para o cluster.
+   * Neste artigo, crie um cluster com o tempo de execução **4.0**.
+   * Verifique se você marcou a caixa de seleção **Terminar depois de \_\_ minutos de inatividade**. Forneça uma duração (em minutos) para encerrar o cluster caso ele não esteja sendo usado.
     
-    Selecione **Criar cluster**. Quando o cluster está em execução, você pode anexar blocos de notas a ele e executar trabalhos do Spark.
+     Selecione **Criar cluster**. Quando o cluster está em execução, você pode anexar blocos de notas a ele e executar trabalhos do Spark.
 
 Para obter mais informações sobre como criar clusters, consulte [Criar um cluster Spark no Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
 
@@ -89,12 +89,12 @@ Baixe um arquivo de dados JSON de exemplo e salve-o no armazenamento de Blobs do
 1. Baixe este arquivo de dados JSON de exemplo [do GitHub](https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) no seu computador local. Clique com o botão direito e em salvar como para salvar o arquivo bruto localmente.
 
 2. Se você ainda não tiver uma conta de armazenamento, crie uma.
-    - No Portal do Azure, selecione **Criar um recurso**. Selecione a categoria **Armazenamento** e selecione **Contas de armazenamento**
-    - Forneça um nome exclusivo para a conta de armazenamento.
-    - Selecione **Tipo de Conta**: **Armazenamento de Blobs**
-    - Selecione um nome para o **Grupo de recursos**. Use o mesmo grupo de recursos no qual o workspace do Databricks foi criado.
+   - No Portal do Azure, selecione **Criar um recurso**. Selecione a categoria **Armazenamento** e selecione **Contas de armazenamento**
+   - Forneça um nome exclusivo para a conta de armazenamento.
+   - Selecione **Tipo de Conta**: **Armazenamento de Blobs**
+   - Selecione um nome para o **Grupo de recursos**. Use o mesmo grupo de recursos no qual o workspace do Databricks foi criado.
     
-    Para saber mais informações, consulte [Criar uma conta de armazenamento de Blobs do Azure](../storage/common/storage-quickstart-create-account.md).
+     Para saber mais informações, consulte [Criar uma conta de armazenamento de Blobs do Azure](../storage/common/storage-quickstart-create-account.md).
 
 3. Crie um contêiner de armazenamento na conta de Armazenamento de Blobs e carregue o arquivo JSON de exemplo no contêiner. Também é possível usar o portal do Azure ou o [Gerenciador de Armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) para carregar o arquivo.
 
@@ -130,21 +130,21 @@ Execute as seguintes tarefas para criar um bloco de notas em Databricks, configu
 
     No snippet a seguir, substitua `{YOUR CONTAINER NAME}`, `{YOUR STORAGE ACCOUNT NAME}`, e `{YOUR STORAGE ACCOUNT ACCESS KEY}` pelos valores apropriados para sua conta de armazenamento do Azure. Cole o snippet de código em uma célula vazia no bloco de notas e pressione SHIFT + ENTER para executar a célula do código.
 
-    * **Monte a conta de armazenamento com o DBFS (recomendado)**. Neste snippet, o caminho da conta de Armazenamento do Azure está montado em `/mnt/mypath`. Portanto, em todas as ocorrências futuras em que você acessar a conta de Armazenamento do Azure, não será necessário fornecer o caminho completo. Você pode usar apenas `/mnt/mypath`.
+   * **Monte a conta de armazenamento com o DBFS (recomendado)**. Neste snippet, o caminho da conta de Armazenamento do Azure está montado em `/mnt/mypath`. Portanto, em todas as ocorrências futuras em que você acessar a conta de Armazenamento do Azure, não será necessário fornecer o caminho completo. Você pode usar apenas `/mnt/mypath`.
 
-          dbutils.fs.mount(
-            source = "wasbs://{YOUR CONTAINER NAME}@{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net/",
-            mountPoint = "/mnt/mypath",
-            extraConfigs = Map("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net" -> "{YOUR STORAGE ACCOUNT ACCESS KEY}"))
+         dbutils.fs.mount(
+           source = "wasbs://{YOUR CONTAINER NAME}@{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net/",
+           mountPoint = "/mnt/mypath",
+           extraConfigs = Map("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net" -> "{YOUR STORAGE ACCOUNT ACCESS KEY}"))
 
-    * **Acessar diretamente a conta de armazenamento**
+   * **Acessar diretamente a conta de armazenamento**
 
-          spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
+         spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
 
-    Para obter instruções sobre como recuperar sua chave da conta de armazenamento, confira [Gerenciar chaves de acesso de armazenamento](../storage/common/storage-account-manage.md#access-keys).
+     Para obter instruções sobre como recuperar sua chave da conta de armazenamento, confira [Gerenciar chaves de acesso de armazenamento](../storage/common/storage-account-manage.md#access-keys).
 
-    > [!NOTE]
-    > Você também pode usar o Azure Data Lake Store com um cluster Spark no Azure Databricks. Para obter instruções, consulte [Usar Data Lake Store com Azure Databricks](https://go.microsoft.com/fwlink/?linkid=864084).
+     > [!NOTE]
+     > Você também pode usar o Azure Data Lake Store com um cluster Spark no Azure Databricks. Para obter instruções, consulte [Usar Data Lake Store com Azure Databricks](https://go.microsoft.com/fwlink/?linkid=864084).
 
 4. Execute uma instrução SQL para criar uma tabela temporária usando dados do arquivo de dados JSON de exemplo, **small_radio_json.json**. No snippet de código a seguir, substitua os valores de espaço reservado pelo nome do seu contêiner e o nome da conta de armazenamento. Cole o snippet de código em uma célula de código no bloco de notas e pressione SHIFT + ENTER. No snippet de código, `path` indica o local do arquivo JSON de exemplo que você carregou na sua Conta de armazenamento do Azure.
 
@@ -183,12 +183,12 @@ Execute as seguintes tarefas para criar um bloco de notas em Databricks, configu
 
     ![Personalizar o gráfico de barras](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-customize-plot.png "Personalizar o gráfico de barras")
 
-    * Definir **Chaves** como **gênero**.
-    * Definir **Agrupamentos de série** como **nível**.
-    * Definir **Valores** como **nível**.
-    * Definir **Agregação** como **CONTAGEM**.
+   * Definir **Chaves** como **gênero**.
+   * Definir **Agrupamentos de série** como **nível**.
+   * Definir **Valores** como **nível**.
+   * Definir **Agregação** como **CONTAGEM**.
 
-    Clique em **Aplicar**.
+     Clique em **Aplicar**.
 
 9. A saída mostra a representação visual, conforme ilustrado na seguinte captura de tela:
 

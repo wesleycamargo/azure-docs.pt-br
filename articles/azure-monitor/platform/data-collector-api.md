@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: bwren
-ms.openlocfilehash: d2bf55129465a607fdc3bce3bd1735642c64e428
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 7942b4eb5788357a807911d3eb89d1054a92c3eb
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237919"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449352"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Enviar dados de log para o Azure Monitor com a API do Coletor de Dados HTTP (visualização pública)
 Este artigo mostra como usar a API do Coletor de Dados HTTP para enviar dados de log para o Azure Monitor a partir de um cliente API REST.  O artigo descreve como formatar dados coletados pelo script ou aplicativo, incluí-los em uma solicitação e ter essa solicitação autorizada pelo Azure Monitor.  Os exemplos são fornecidos para PowerShell, C# e Python.
@@ -465,6 +465,15 @@ def post_data(customer_id, shared_key, body, log_type):
 
 post_data(customer_id, shared_key, body, log_type)
 ```
+## <a name="alternatives-and-considerations"></a>Considerações e alternativas
+Embora a API do coletor de dados deve abranger a maioria das suas necessidades para coletar dados de forma livre para os Logs do Azure, há instâncias em que uma alternativa pode ser necessário para superar algumas das limitações da API. Todas as suas opções como a seguir, são as principais considerações incluídas:
+
+| Alternativa | DESCRIÇÃO | Mais adequado para |
+|---|---|---|
+| [Eventos personalizados](https://docs.microsoft.com/en-us/azure/azure-monitor/app/api-custom-events-metrics?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): Ingestão nativo baseado no SDK, no Application Insights | O Application Insights, normalmente instrumentados por meio de um SDK dentro de seu aplicativo, oferece a capacidade de enviar dados personalizados por meio de eventos personalizados. | <ul><li> Dados que são gerados dentro de seu aplicativo, mas não escolhidos pelo SDK por meio de um dos tipos de dados padrão (ou seja: solicitações, dependências, exceções, etc).</li><li> Dados que geralmente estão correlacionados com outros dados de aplicativo no Application Insights </li></ul> |
+| [API do coletor de dados](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api) nos Logs do Azure Monitor | A API do coletor de dados em Logs do Azure Monitor é uma maneira completamente em aberto para a ingestão de dados. Todos os dados formatados em um objeto JSON podem ser enviados aqui. Depois de enviada, ela será processada e disponíveis nos Logs seja, dados, correlacionados com outros dados nos Logs ou em relação a outras Application Insights. <br/><br/> É bem fácil de carregar os dados como arquivos para um blob de BLOBs do Azure, de onde esses arquivos serão processados e carregados no Log Analytics. Consulte [isso](https://docs.microsoft.com/azure/log-analytics/log-analytics-create-pipeline-datacollector-api) artigo para uma implementação de exemplo de tal pipeline. | <ul><li> Dados que não é necessariamente gerados dentro de um aplicativo instrumentado no Application Insights.</li><li> Exemplos incluem tabelas de fatos e de pesquisa, dados de referência, agregadas previamente estatísticas, etc. </li><li> Projetado para dados que serão com referência cruzada em relação a outros dados do Azure Monitor (por exemplo, o Application Insights, outros tipos de dados de Logs, a Central de segurança, o Azure Monitor para contêineres/VMs, etc). </li></ul> |
+| [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview) | Gerenciador de dados do Azure (ADX) é a plataforma de dados que habilita a análise do Application Insights e Logs do Azure Monitor. Agora geralmente disponível ("GA"), usando a plataforma de dados em sua forma bruta fornece flexibilidade (porém completo requerer a sobrecarga de gerenciamento) sobre o cluster (RBAC, taxa de retenção, esquema, etc). ADX fornece muitas [opções de ingestão](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview#ingestion-methods) incluindo [CSV, TSV e JSON](https://docs.microsoft.com/azure/kusto/management/mappings?branch=master) arquivos. | <ul><li> Dados que não serão correlacionados para quaisquer outros dados no Application Insights ou Logs. </li><li> Dados exigindo avançadas ingestão ou não está disponíveis atualmente em Logs do Azure Monitor de recursos de processamento. </li></ul> |
+
 
 ## <a name="next-steps"></a>Próximas etapas
 - Use a [API de Pesquisa de Logs](../log-query/log-query-overview.md) para recuperar dados do workspace do Log Analytics.

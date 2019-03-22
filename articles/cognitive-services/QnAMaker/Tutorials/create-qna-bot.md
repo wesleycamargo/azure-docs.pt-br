@@ -7,16 +7,16 @@ author: tulasim88
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.subservice: qna-maker`
+ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: tulasim
-ms.openlocfilehash: 930d2d7279f23974e937fd0d858891d0bcaa1291
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: b948835b1a15eee391c6902d18229ec4926b66ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869153"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095204"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v3"></a>Tutorial: Criar um Bot do QnA com o Serviço de Bot do Azure v3
 
@@ -90,12 +90,12 @@ O bot responde com "Defina QnAKnowledgebaseId e QnASubscriptionKey nas Configura
 
 1. Obtenha a ID da sua base de dados de conhecimento, a URL do host e a chave do ponto de extremidade da guia de configurações de sua base de dados de conhecimento no portal do QnA Maker.
 
-    - Entre no [QnA Maker](https://qnamaker.ai)
-    - Vá até a sua base de dados de conhecimento
-    - Selecione a guia **Configurações**
-    - **Publique** sua base de dados de conhecimento, se ainda não tiver feito isso
+   - Entre no [QnA Maker](https://qnamaker.ai)
+   - Vá até a sua base de dados de conhecimento
+   - Selecione a guia **Configurações**
+   - **Publique** sua base de dados de conhecimento, se ainda não tiver feito isso
 
-    ![Valores do QnA Maker](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
+     ![Valores do QnA Maker](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
 
 ## <a name="test-the-bot"></a>Testar o bot
 

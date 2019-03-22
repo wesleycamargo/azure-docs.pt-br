@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 907511b7f20311479e7b11a30f3d5719daea3f87
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: 4f96a67fecead65af28a975267590ebb08c715d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301461"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852994"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Noções básicas sobre conectores de Proxy de Aplicativo Azure AD
 
@@ -93,7 +93,8 @@ Para saber mais sobre os grupos de conectores, confira [Publicar aplicativos em 
 |4|16|320|1150|
 |8|32|270|1190|
 |16|64|245|1200*|
-\* Esta máquina usou uma configuração personalizada para gerar alguns dos limites de conexão padrão que ultrapassam as configurações recomendadas do .Net. Recomendamos a execução de um teste com as configurações padrão antes de contatar o suporte para alterar esse limite para o seu locatário.
+
+\* Esta máquina usado uma configuração personalizada para gerar alguns dos limites de conexão padrão além do .NET, as configurações recomendadas. Recomendamos a execução de um teste com as configurações padrão antes de contatar o suporte para alterar esse limite para o seu locatário.
  
 >[!NOTE]
 >Não há muita diferença no TPS máximo entre computadores de 4, 8 e 16 núcleos. A principal diferença entre eles é a latência prevista.  

@@ -1,19 +1,19 @@
 ---
 title: Criar e configurar clusters do Serviço de Kubernetes do Azure no Azure usando o Ansible
 description: Saiba como usar o Ansible para criar e gerenciar um cluster do Serviço de Kubernetes do Azure no Azure
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, bash, cloudshell, guia estratégico, aks, contêiner, Kubernetes
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/23/2018
-ms.openlocfilehash: f4541bb9516855c4391188fb57e5ab64bc03c76e
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 2270a9225d26329f3d78d78895223aaa6ccc855f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55890477"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176388"
 ---
 # <a name="create-and-configure-azure-kubernetes-service-clusters-in-azure-using-ansible"></a>Criar e configurar clusters do Serviço de Kubernetes do Azure no Azure usando o Ansible
 O Ansible permite que você automatize a implantação e a configuração de recursos em seu ambiente. Você pode usar o Ansible para gerenciar seu AKS (Serviço de Contêiner do Azure). Este artigo mostra como usar o Ansible para criar e configurar um cluster do Serviço de Kubernetes do Azure.
@@ -91,7 +91,7 @@ A saída do comando **ansible-playbook* é semelhante ao seguinte, mostrando que
   TASK [Create resource group] **************************************************************************************
   changed: [localhost]
 
-  TASK [Create a Azure Container Services (AKS) cluster] ***************************************************
+  TASK [Create an Azure Container Services (AKS) cluster] ***************************************************
   changed: [localhost]
 
   PLAY RECAP *********************************************************************************************************

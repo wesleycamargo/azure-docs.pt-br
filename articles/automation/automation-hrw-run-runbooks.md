@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 35367a9ebc9ff09f40defd444f6ceb8ff54efe07
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: fab886de55cc524390093f7e7913c79f7af3fe78
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430277"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57858127"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Executar runbooks em um Hybrid Runbook Worker
 
@@ -39,7 +39,7 @@ Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" �
 
 ## <a name="runbook-permissions"></a>Permissões de runbook
 
-Os runbooks em execução em um Hybrid Runbook Worker não podem usar o mesmo método normalmente usado para autenticação de runbooks nos recursos do Azure, já que eles acessam recursos fora do Azure. O runbook pode fornecer sua própria autenticação aos recursos locais, ou pode configurar a autenticação usando [entidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager
+Os runbooks em execução em um Hybrid Runbook Worker não podem usar o mesmo método normalmente usado para autenticação de runbooks nos recursos do Azure, já que eles acessam recursos fora do Azure. O runbook pode fornecer sua própria autenticação aos recursos locais, ou pode configurar a autenticação usando [entidades gerenciadas para os recursos do Azure](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager
 ). Você também pode especificar uma conta RunAs para fornecer um contexto de usuário a todos os runbooks.
 
 ### <a name="runbook-authentication"></a>Autenticação de runbook
@@ -307,12 +307,8 @@ O runbook assinado terá o nome `<runbook name>.asc`.
 
 O runbook assinado agora pode ser carregado na Automação do Azure e pode ser executado como um runbook normal.
 
-## <a name="troubleshoot"></a>Solucionar problemas
-
-Se os runbooks não estiverem sendo concluídos com êxito, revise o guia de solução de problemas em [falhas de execução do runbook](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
-
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para saber mais sobre os diferentes métodos que podem ser usados para iniciar um runbook, confira [Como iniciar um Runbook na Automação do Azure](automation-starting-a-runbook.md).
 * Para entender as várias maneiras de trabalhar com runbooks do PowerShell na Automação do Azure usando o editor de texto, confira [Editar um runbook na Automação do Azure](automation-edit-textual-runbook.md)
-
+* Se os runbooks não estiverem sendo concluídos com êxito, revise o guia de solução de problemas em [falhas de execução do runbook](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).

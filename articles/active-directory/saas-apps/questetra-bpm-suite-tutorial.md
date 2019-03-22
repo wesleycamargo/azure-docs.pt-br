@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/29/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db8438bfa567c207e543ed716a2940bce991cc19
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 78b069e6534d8394de1f9a9fcdf51b871441c386
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56196035"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838027"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-questetra-bpm-suite"></a>Tutorial: Integração do Azure Active Directory ao Questetra BPM Suite
 
@@ -210,9 +210,9 @@ O objetivo desta seção é criar um usuário chamado Britta Simon no Questetra 
    
     ![Criar um usuário de teste][300] 
    
-     a. Na caixa de texto **Nome**, digite o **nome** do usuário **britta.simon@contoso.com**.
+     a. No **nome** caixa de texto, digite **nome** do usuário **britta.simon\@contoso.com**.
    
-    b. Na caixa de texto **Email**, digite o **email** do usuário **britta.simon@contoso.com**
+    b. No **E-mail** caixa de texto, digite **email** do usuário **britta.simon\@contoso.com**
    
     c. Na caixa de texto **Senha** , digite uma **senha** para o usuário.
     

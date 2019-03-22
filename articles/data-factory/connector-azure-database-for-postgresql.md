@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 22f9daedf1438af30006bce48826d842942309ea
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 35ac227bd420b614525d468f2d3332a2a02b5388
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659993"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111082"
 ---
 # <a name="copy-data-from-azure-database-for-postgresql-using-azure-data-factory"></a>Copiar dados do Banco de Dados do Azure para PostgreSQL usando o Azure Data Factory
 
@@ -48,7 +48,7 @@ As propriedades a seguir têm suporte no serviço vinculado do Banco de Dados do
 Uma cadeia de conexão válida é `Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>;Password=<Password>`. Mais propriedades que podem ser definidas para seu caso:
 
 | Propriedade | DESCRIÇÃO | Opções | Obrigatório |
-|:--- |:--- |:--- |:--- |:--- |
+|:--- |:--- |:--- |:--- |
 | EncryptionMethod (EM)| O método que o driver usa para criptografar dados enviados entre o driver e o servidor de banco de dados. Por exemplo `ValidateServerCertificate=<0/1/6>;`| 0 (Sem criptografia) **(Padrão)** / 1 (SSL) / 6 (RequestSSL) | Não  |
 | ValidateServerCertificate (VSC) | Determina se o driver validará o certificado que é enviado pelo servidor de banco de dados quando a criptografia SSL está habilitada (Método de Criptografia = 1). Por exemplo `ValidateServerCertificate=<0/1>;`| 0 (Desabilitado) **(Padrão)** / 1 (Habilitado) | Não  |
 

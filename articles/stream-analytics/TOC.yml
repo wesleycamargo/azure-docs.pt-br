@@ -32,15 +32,17 @@ items:
 - name: Conceitos
   items:
   - name: Tipos de entrada para um trabalho
-    href: stream-analytics-add-inputs.md
     items:
+    - name: Visão geral das entradas
+      href: stream-analytics-add-inputs.md
     - name: Entradas de dados de streaming
       href: stream-analytics-define-inputs.md
     - name: Entradas de dados de referência
       href: stream-analytics-use-reference-data.md
   - name: Tipos de saída para um trabalho
-    href: stream-analytics-define-outputs.md
     items:
+    - name: Visão geral das saídas
+      href: stream-analytics-define-outputs.md
     - name: Saída para o Cosmos DB
       href: stream-analytics-documentdb-output.md
     - name: Saída para BD SQL do Azure
@@ -61,8 +63,6 @@ items:
     href: stream-analytics-parsing-json.md
   - name: Considerações sobre o uso do tempo
     href: stream-analytics-time-handling.md
-  - name: Considerações da ordenação de eventos
-    href: stream-analytics-out-of-order-and-late-events.md
   - name: Ponto de verificação e reprodução
     href: stream-analytics-concepts-checkpoint-replay.md
   - name: Política de erro
@@ -73,8 +73,12 @@ items:
     items:
     - name: Atualizar credenciais
       href: stream-analytics-login-credentials-inputs-outputs.md
+    - name: Configurar políticas de ordenação de eventos
+      href: event-ordering.md
     - name: Configurar alertas
       href: stream-analytics-set-up-alerts.md
+    - name: Iniciar um trabalho
+      href: start-job.md
     - name: Testar um trabalho
       href: stream-analytics-test-query.md
     - name: Exibir resultados em um painel
@@ -85,7 +89,7 @@ items:
       href: stream-analytics-job-reliability.md
     - name: Autenticar com identidade gerenciada
       href: stream-analytics-managed-identities-adls.md
-    - name: Usar referência do SQL
+    - name: Usar dados de referência do SQL
       href: sql-reference-data.md
   - name: Compilar soluções
     items:
@@ -114,7 +118,7 @@ items:
       href: stream-analytics-monitoring.md
     - name: Monitorar trabalhos - PowerShell
       href: stream-analytics-monitor-and-manage-jobs-use-powershell.md
-    - name: Monitorar trabalhos - SDK do Azure para .NET
+    - name: Monitorar trabalhos – SDK do Azure para .NET
       href: stream-analytics-monitor-jobs.md
     - name: Monitorar trabalhos - Visual Studio
       href: stream-analytics-monitor-jobs-use-vs.md
@@ -122,9 +126,10 @@ items:
     items:
     - name: Expandir com unidades de streaming
       href: stream-analytics-streaming-unit-consumption.md
-    - name: Expandir com paralelização de consultas
-      href: stream-analytics-parallelization.md
+    - name: Expandir com paralelização
       items:
+      - name: Paralelização de consultas
+        href: stream-analytics-parallelization.md
       - name: Aumentar a taxa de transferência
         href: stream-analytics-scale-jobs.md
     - name: Expandir com funções de ML
@@ -428,16 +433,16 @@ items:
   - name: Atualizações de serviço
     href: https://azure.microsoft.com/updates/?product=stream-analytics
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-stream-analytics
+    href: https://stackoverflow.com/questions/tagged/azure-stream-analytics
   - name: vídeos
     href: https://azure.microsoft.com/resources/videos/index/?services=stream-analytics&sort=newest
   - name: Estudos de caso de cliente
     href: https://azure.microsoft.com/case-studies/?service=stream-analytics
   - name: Whitepaper – Processamento de eventos em tempo real
     href: stream-analytics-real-time-event-processing-reference-architecture.md
-ms.openlocfilehash: cace0353c34b2c055ed5a15f1da6958c7428008b
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: e9ef3d7ed841dd5bb2a9ad21f0dd4f71e528c374
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736362"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286050"

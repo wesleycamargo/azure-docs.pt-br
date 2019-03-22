@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: f20cd877e4cc53490016d251c5bdb343ab0cb4b0
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: acec53a99fd6d809dc01ce12b02987d66579b0c5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250326"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118282"
 ---
 # <a name="manage-role-based-access-control"></a>Gerenciar o controle de acesso baseado em função
 
@@ -41,8 +41,8 @@ Um usuário do Azure Stack pode ser um leitor, proprietário ou colaborador para
 
 ## <a name="set-access-permissions-for-a-universal-group"></a>Definir permissões de acesso para um grupo universal 
 
-> [!Note]  
-Aplicável somente ao Active Directory Federated Services (AD FS).
+> [!Note]
+> Aplicável somente ao Active Directory Federated Services (AD FS).
 
 1. Entre com uma conta que tenha permissões de proprietário ao recurso que deseja gerenciar.
 2. Na folha do recurso, clique o **acesso** ícone ![](media/azure-stack-manage-permissions/image1.png).

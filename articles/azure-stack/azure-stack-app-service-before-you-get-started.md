@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 03/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 02/22/2019
-ms.openlocfilehash: 01b0a86ede79187d8f180df0f2f71f6eaadb7428
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.lastreviewed: 03/11/2019
+ms.openlocfilehash: 58be7b6dc9eeeadd69fe82f1dc03d959aa94f9c8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990507"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58088427"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Antes de começar com o serviço de aplicativo no Azure Stack
 
@@ -147,11 +147,11 @@ O certificado para a identidade deve conter um assunto que corresponda ao format
 | --- | --- |
 | sso.appservice.\<region\>.\<DomainName\>.\<extension\> | sso.appservice.redmond.azurestack.external |
 
-
 ### <a name="validate-certificates"></a>Validar certificados
-Antes de implantar o provedor de recursos do serviço de aplicativo, você deve [validar os certificados a serem usados](azure-stack-validate-pki-certs.md#perform-platform-as-a-service-certificate-validation) usando a ferramenta de verificador de preparação de pilha do Azure disponível na [Galeria do PowerShell](https://aka.ms/AzsReadinessChecker). A ferramenta de verificador de preparação do Azure Stack valida que os certificados PKI gerados são adequados para implantação de serviços de aplicativo. 
 
-Como prática recomendada, ao trabalhar com qualquer um dos necessários [certificados PKI de pilha do Azure](azure-stack-pki-certs.md), você deve planejar deixar tempo suficiente para testar e emitir novamente os certificados, se necessário. 
+Antes de implantar o provedor de recursos do serviço de aplicativo, você deve [validar os certificados a serem usados](azure-stack-validate-pki-certs.md#perform-platform-as-a-service-certificate-validation) usando a ferramenta de verificador de preparação de pilha do Azure disponível na [Galeria do PowerShell](https://aka.ms/AzsReadinessChecker). A ferramenta de verificador de preparação do Azure Stack valida que os certificados PKI gerados são adequados para implantação de serviços de aplicativo.
+
+Como prática recomendada, ao trabalhar com qualquer um dos necessários [certificados PKI de pilha do Azure](azure-stack-pki-certs.md), você deve planejar deixar tempo suficiente para testar e emitir novamente os certificados, se necessário.
 
 ## <a name="virtual-network"></a>Rede virtual
 
@@ -170,6 +170,15 @@ Sub-redes
 - PublishersSubnet /24
 - WorkersSubnet /21
 
+## <a name="licensing-concerns-for-required-file-server-and-sql-server"></a>Questões de licenciamento para o servidor de arquivo necessário e o SQL Server
+
+Serviço de aplicativo do Azure no Azure Stack requer um servidor de arquivos e o SQL Server para funcionar.  Você é livre para usar recursos pré-existentes localizados fora da sua implantação do Azure Stack ou implantar recursos em sua assinatura de provedor padrão do Azure Stack.
+
+Se você optar por implantar os recursos dentro de sua assinatura de provedor padrão do Azure Stack, as licenças para esses recursos (licenças do Windows Server e licenças do SQL Server) estão incluídas no custo do serviço de aplicativo do Azure no Azure Stack sujeita ao que segue restrições:
+
+- a infraestrutura é implantada na **assinatura do provedor padrão**;
+- a infraestrutura é usada exclusivamente pelo serviço de aplicativo do Azure no provedor de recursos do Azure Stack.  Outras cargas de trabalho administrativas (outros provedores de recursos, por exemplo, SQL-RP) ou Locatário (por exemplo aplicativos de locatário, que exigem um banco de dados), têm permissão para fazer uso dessa infraestrutura.
+
 ## <a name="prepare-the-file-server"></a>Preparar o servidor de arquivos
 
 O serviço de aplicativo do Azure requer o uso de um servidor de arquivos. Para implantações de produção, o servidor de arquivos deve ser configurado para ser capaz de lidar com falhas e altamente disponível.
@@ -180,7 +189,7 @@ Kit de desenvolvimento do Azure Stack apenas para implantações, você pode usa
 
 ### <a name="quickstart-template-for-highly-available-file-server-and-sql-server"></a>Modelo de início rápido para o servidor de arquivos altamente disponível e o SQL Server
 
-Um [modelo de início rápido de arquitetura de referência](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/appservice-fileserver-sqlserver-ha) agora está disponível, que será implantado o servidor de arquivos, SQL Server, suporte ao Active Directory infraestrutura em uma rede Virtual configurado para dar suporte a uma implantação altamente disponível do Serviço de aplicativo do Azure no Azure Stack.  
+Um [modelo de início rápido de arquitetura de referência](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/appservice-fileserver-sqlserver-ha) agora está disponível, que será implantado o servidor de arquivos, SQL Server, suporte ao Active Directory infraestrutura em uma rede Virtual configurado para dar suporte a uma implantação altamente disponível do Serviço de aplicativo do Azure no Azure Stack.
 
 ### <a name="steps-to-deploy-a-custom-file-server"></a>Etapas para implantar um servidor de arquivo personalizado
 
@@ -295,20 +304,19 @@ Para fins de alta disponibilidade e de produção, você deve usar uma versão c
 
 Instância do SQL Server para o serviço de aplicativo do Azure no Azure Stack deve ser acessível de todas as funções de serviço de aplicativo. Você pode implantar o SQL Server na assinatura do provedor padrão no Azure Stack. Ou você pode fazer usar da infra-estrutura existente dentro da sua organização (desde que haja conectividade com o Azure Stack). Se você estiver usando uma imagem do Marketplace do Azure, lembre-se de configurar o firewall adequadamente.
 
->[!NOTE]
+> [!NOTE]
 > Um número de imagens de máquina virtual de IaaS do SQL está disponível por meio do recurso de gerenciamento do Marketplace. Verifique se você sempre baixar a versão mais recente da extensão SQL IaaS antes de implantar uma VM usando um item do Marketplace. As imagens do SQL são o mesmo que as VMs do SQL que estão disponíveis no Azure. Para VMs criadas a partir dessas imagens, a extensão IaaS e correspondente aprimoramentos do portal do SQL fornecem recursos como recursos de backup e aplicação de patch automática.
->
-Para qualquer uma das funções do SQL Server, você pode usar uma instância padrão ou uma instância nomeada. Se você usar uma instância nomeada, certifique-se de iniciar o serviço navegador do SQL Server e abra a porta 1434 manualmente.
+> 
+> Para qualquer uma das funções do SQL Server, você pode usar uma instância padrão ou uma instância nomeada. Se você usar uma instância nomeada, certifique-se de iniciar o serviço navegador do SQL Server e abra a porta 1434 manualmente.
 
 O instalador do serviço de aplicativo verificará para garantir que o SQL Server tem de contenção do banco de dados habilitada. Para habilitar a contenção do banco de dados no SQL Server que hospedará os bancos de dados do serviço de aplicativo, execute estes comandos do SQL:
 
 ```sql
-sp_configure 'contained database authentication', 1;  
-GO  
-RECONFIGURE;  
+sp_configure 'contained database authentication', 1;
+GO
+RECONFIGURE;
 GO
 ```
-
 
 >[!IMPORTANT]
 > Se você optar por implantar o serviço de aplicativo em uma rede Virtual existente do SQL Server devem ser implantado em uma sub-rede separada do serviço de aplicativo e o servidor de arquivos.

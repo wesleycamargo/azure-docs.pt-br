@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/29/2018
 ms.author: mfussell
-ms.openlocfilehash: 33ca23834f35e631c6943ec22a88f4fe3dc853e1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: f454ec7805db0a79f9346f252809c9d7f6869734
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212391"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57871004"
 ---
 # <a name="run-a-service-as-a-local-user-account-or-local-system-account"></a>Executar um serviço como uma conta de usuário ou conta de sistema local
 Usando o Azure Service Fabric, é possível proteger aplicativos em execução no cluster em contas de usuário diferentes. Por padrão, os aplicativos de Service Fabric são executados na conta sob a qual o processo Fabric.exe está sendo executado. O Service Fabric também fornece a capacidade de executar aplicativos em um usuário local ou conta do sistema. Os tipos de conta do sistema local com suporte são **LocalUser**, **NetworkService**, **LocalService** e **LocalSystem**.  Se você estiver executando o Service Fabric em um cluster autônomo do Windows, será possível executar um serviço em [Contas de domínio do Active Directory](service-fabric-run-service-as-ad-user-or-group.md) ou [Contas de serviço gerenciado de grupo](service-fabric-run-service-as-gmsa.md).
@@ -39,7 +39,7 @@ Na seção **RunAsPolicy** de um **ServiceManifestImport**, especifique a conta 
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application7Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application7Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
     <Parameter Name="Web1_InstanceCount" DefaultValue="-1" />
   </Parameters>
@@ -70,7 +70,7 @@ Você pode criar grupos de usuários e adicionar um ou mais usuários ao grupo. 
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application7Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application7Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
     <Parameter Name="Stateful1_MinReplicaSetSize" DefaultValue="3" />
     <Parameter Name="Stateful1_PartitionCount" DefaultValue="1" />
@@ -132,7 +132,7 @@ Use a seção **DefaultRunAsPolicy** para especificar uma conta de usuário padr
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application7Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application7Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
     <Parameter Name="Web1_InstanceCount" DefaultValue="-1" />
   </Parameters>

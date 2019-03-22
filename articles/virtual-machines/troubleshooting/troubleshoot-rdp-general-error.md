@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 25e70b3a685f3b777a74c4cc6bf0e56dd37741a7
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
-ms.translationtype: HT
+ms.openlocfilehash: f290a7e16938c66d45fab9b78086f77bfdfe4839
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821507"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100404"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Solucionar um problema de erro geral de protocolo RDP em uma VM do Azure
 
@@ -65,7 +65,7 @@ Para resolver esse problema, [faça backup do disco do sistema operacional](../w
 
 ### <a name="serial-console"></a>Console Serial
 
-#### <a name="step-1-open-cmd-instance-in-serial-console"></a>Etapa 1: instância CMD aberta no Console serial
+#### <a name="step-1-open-cmd-instance-in-serial-console"></a>Etapa 1: Instância CMD aberta no console Serial
 
 1. Acesso ao [Console Serial](serial-console-windows.md) selecionando **Suporte e solução de problemas** > **Console serial (visualização)**. Se o recurso estiver habilitado na VM, você poderá conectar a VM com êxito.
 
@@ -77,7 +77,7 @@ Para resolver esse problema, [faça backup do disco do sistema operacional](../w
    ch -si 1
    ```
 
-#### <a name="step-2-check-the-values-of-rdp-registry-keys"></a>Etapa 2: Verifique os valores das chaves de registro do RDP:
+#### <a name="step-2-check-the-values-of-rdp-registry-keys"></a>Etapa 2: Verifique os valores das chaves de registro RDP:
 
 1. Verifique se o RDP está desabilitado por políticas.
 
@@ -164,17 +164,17 @@ Para resolver esse problema, [faça backup do disco do sistema operacional](../w
 
 Se o problema ainda ocorrer, passe para a etapa 2.
 
-#### <a name="step-2-enable-remote-desktop-services"></a>Etapa 2: habilitar Serviços de Área de Trabalho Remota
+#### <a name="step-2-enable-remote-desktop-services"></a>Etapa 2: Habilite os serviços de área de trabalho remota
 
 Para obter mais informações, confira [Os Serviços de Área de Trabalho Remota não estão iniciando em uma VM do Azure](troubleshoot-remote-desktop-services-issues.md).
 
-#### <a name="step-3-reset-rdp-listener"></a>Etapa 3: redefinir o ouvinte RDP
+#### <a name="step-3-reset-rdp-listener"></a>Etapa 3: Redefinir o ouvinte do RDP
 
 Para obter mais informações, confira [A Área de Trabalho Remota se desconecta com frequência na VM do Azure](troubleshoot-rdp-intermittent-connectivity.md).
 
 ### <a name="offline-repair"></a>Reparo offline
 
-#### <a name="step-1-turn-on-remote-desktop"></a>Etapa 1: Ativar a área de trabalho remota
+#### <a name="step-1-turn-on-remote-desktop"></a>Etapa 1: Ativar área de trabalho remota
 
 1. [Anexar o disco de SO a uma VM de recuperação](../windows/troubleshoot-recovery-disks-portal.md).
 2. Inicie uma conexão de área de trabalho remota para a VM de recuperação.
@@ -229,19 +229,19 @@ Para obter mais informações, confira [A Área de Trabalho Remota se desconecta
 
       Definições do Azure Policy\Componentes do Windows\Serviços de Área de Trabalho Remota\Host de Sessão da Área de Trabalho Remota\Conexões\Permitir que usuários se conectem remotamente usando os Serviços de Área de Trabalho Remota
   
-7. Desanexe o disco fixo da VM de resgate.
-8. [Crie uma nova VM do disco](../windows/create-vm-specialized.md).
+1. Desanexe o disco fixo da VM de resgate.
+1. [Crie uma nova VM do disco](../windows/create-vm-specialized.md).
 
 Se o problema ainda ocorrer, passe para a etapa 2.
 
-#### <a name="step-2-enable-remote-desktop-services"></a>Etapa 2: habilitar Serviços de Área de Trabalho Remota
+#### <a name="step-2-enable-remote-desktop-services"></a>Etapa 2: Habilite os serviços de área de trabalho remota
 
 Para obter mais informações, confira [Os Serviços de Área de Trabalho Remota não estão iniciando em uma VM do Azure](troubleshoot-remote-desktop-services-issues.md).
 
-#### <a name="step-3-reset-rdp-listener"></a>Etapa 3: redefinir o ouvinte RDP
+#### <a name="step-3-reset-rdp-listener"></a>Etapa 3: Redefinir o ouvinte do RDP
 
 Para obter mais informações, confira [A Área de Trabalho Remota se desconecta com frequência na VM do Azure](troubleshoot-rdp-intermittent-connectivity.md).
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Contate o suporte
+## <a name="need-help-contact-support"></a>Precisa de ajuda? Contatar o suporte
 
 Se ainda tiver dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.

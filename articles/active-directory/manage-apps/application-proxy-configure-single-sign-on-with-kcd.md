@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: celested
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: H1Hack27Feb2017, it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19ea76f28995dfa7f7dd5a6f280f8319f5b4ca26
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 5c7744ba4ca37a2a496c75a50f274be9bf431cc5
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180753"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286577"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Delegação restrita de Kerberos para logon único em seus aplicativos com o Proxy de Aplicativo
 
@@ -30,15 +30,15 @@ Você pode fornecer o logon único para aplicativos locais, publicados por meio 
 Você pode habilitar o logon único para seus aplicativos usando a IWA (Autenticação Integrada do Windows) concedendo permissão aos conectores do Proxy de Aplicativo no Active Directory para representar usuários. Os conectores usam essa permissão para enviar e receber tokens em seu nome.
 
 ## <a name="how-single-sign-on-with-kcd-works"></a>Como funciona o logon único com a KCD
-Este diagrama explica o fluxo de quando um usuário tenta acessar um aplicativo local que usa IWA.
+Este diagrama explica o fluxo quando um usuário tenta acessar um aplicativo no local que usa IWA.
 
 ![Diagrama de fluxo de autenticação do Microsoft AAD](./media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
 
-1. O usuário insere a URL para acessar o aplicativo local por meio do Proxy de Aplicativo.
+1. O usuário insere a URL para acessar o aplicativo no local por meio do Proxy de aplicativo.
 2. O Proxy de Aplicativo redireciona a solicitação para serviços de autenticação do AD do Azure para pré-autenticação. Neste ponto, o AD do Azure se aplica a qualquer política de autenticação e autorização aplicável, tal como autenticação multifator. Se o usuário for validado, o AD do Azure cria um token e o envia para o usuário.
 3. O usuário passa o token para o Proxy de Aplicativo.
-4. O Proxy de Aplicativo valida o token e recupera o nome UPN (nome UPN), enviando em seguida a solicitação, o UPN e o SPN (Nome da Entidade de Serviço) para o Conector por meio de um canal de segurança duplamente autenticado.
-5. O conector realiza a negociação do KCD (Delegação Restrita de Kerberos) com o AD local, representando o usuário para obter um token Kerberos para o aplicativo.
+4. O Proxy de aplicativo valida o token e recupera o nome Principal de usuário (UPN) dele e, em seguida, o conector extrai o UPN e o nome Principal de serviço (SPN) por meio de um canal seguro duplamente autenticado.
+5. O conector realiza a negociação de delegação restrita de Kerberos (KCD) com o AD, representando o usuário para obter um token Kerberos para o aplicativo local.
 6. O Active Directory envia o token Kerberos para o aplicativo para o Conector.
 7. O Conector envia a solicitação original para o servidor de aplicativos usando o token Kerberos recebido do AD.
 8. O aplicativo envia a resposta para o Conector, que é retornada para o serviço de Proxy de Aplicativo e, finalmente, para o usuário.
@@ -118,7 +118,7 @@ Essa capacidade permite que muitas organizações com identidades diferentes loc
 * Têm vários domínios internamente (joe@us.contoso.com, joe@eu.contoso.com) e um único domínio na nuvem (joe@contoso.com).
 * Têm um nome de domínio não roteável internamente (joe@contoso.usa) e um nome legal na nuvem.
 * Não usem nomes de domínio internamente (joe)
-* Usem aliases diferentes no local e na nuvem. Por exemplo, joe-johns@contoso.com versus joej@contoso.com  
+* Use aliases diferentes no local e na nuvem. Por exemplo, joe-johns@contoso.com versus joej@contoso.com  
 
 Com o Proxy de Aplicativo, você pode selecionar qual identidade deve ser usada para obter o tíquete Kerberos. Essa configuração é por aplicativo. Algumas dessas opções são adequadas para sistemas que não aceitam o formato de endereço de email, e outras são desenvolvidas para logon alternativo.
 

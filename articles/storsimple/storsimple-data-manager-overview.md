@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/21/2018
 ms.author: vidarmsft
-ms.openlocfilehash: fe4d332859b3ec0ba03e64f9a830b7710586aa17
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: c5ffe3ec2ec3cb06297df6be4ba7021f692633bf
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158810"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312476"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Visão geral da solução do Gerenciador de Dados do StorSimple
 
@@ -68,7 +68,9 @@ Recomendamos que:
  - Sua conta de armazenamento de origem (aquela associada ao seu dispositivo do StorSimple) e a conta de armazenamento de destino (onde você deseja os dados em formato nativo) na mesma região do Azure.
  - Você leva sua definição de trabalho e o Gerenciador de Dados na região que contém a conta de armazenamento do StorSimple. Se isso não for possível, coloque o Gerenciador de Dados na região do Azure mais próxima e, em seguida, crie a definição do trabalho na mesma região da sua conta de armazenamento do StorSimple. 
 
-    Se a sua conta de armazenamento do StorSimple não estiver nas 26 regiões que oferecem suporte à criação de definição de trabalho, é recomendável que você não execute Gerenciador de Dados do StorSimple, pois você verá latências longas e cobranças de egresso potencialmente altas.
+    Se sua conta de armazenamento do StorSimple não estiver nas 26 regiões que dão suporte à criação de definição de trabalho, é recomendável que você não execute StorSimple Data Manager conforme você verá latências longas e os encargos de saída possíveis.
+    
+A Microsoft se esforça para garantir que os serviços do Azure sempre estejam disponíveis em todas as regiões. No entanto, interrupções de serviço não planejada podem ocorrer por curtos períodos em uma determinada região. Nesses casos, você pode exibir uma definição de trabalho e o Gerenciador de dados em uma região que não é afetada pela interrupção e executar o trabalho de transformação. Você pode encontrar alguma latência adicional em um cenário como esse, mas isso pode ser sua estratégia de recuperação no caso raro de uma interrupção regional.
 
 ## <a name="security-considerations"></a>Considerações de segurança
 

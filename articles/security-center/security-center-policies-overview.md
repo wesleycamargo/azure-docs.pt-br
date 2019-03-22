@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: f61f5ebf4c0658ff846421682d50ea346c699e01
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 818b3e3b464ecbe8d55367ab5318436a14567263
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107915"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108756"
 ---
 # <a name="security-center-settings"></a>Configurações da Central de Segurança
 Este artigo apresenta uma visão geral das configurações na Central de Segurança.
@@ -51,6 +51,6 @@ Neste artigo, você aprendeu sobre as políticas de segurança na Central de Seg
 * [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md): Saiba como monitorar a integridade dos recursos do Azure.
 * [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md): Saiba como gerenciar e responder aos alertas de segurança.
 * [Monitorando as soluções de parceiros na Central de Segurança do Azure](security-center-partner-solutions.md): Saiba como monitorar o status da integridade das soluções dos parceiros.
-- [Segurança dos Dados da Central de Segurança do Azure](security-center-data-security.md): Saiba como a Central de Segurança gerencia e protege os dados.
+* [Segurança dos Dados da Central de Segurança do Azure](security-center-data-security.md): Saiba como a Central de Segurança gerencia e protege os dados.
 * [Perguntas Frequentes sobre a Central de Segurança do Azure](security-center-faq.md): Obtenha respostas para perguntas frequentes sobre como usar o serviço.
 * [Blog de Segurança do Azure](https://blogs.msdn.com/b/azuresecurity/): Obtenha as últimas informações e notícias de segurança do Azure.

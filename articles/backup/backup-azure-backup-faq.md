@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: bfc1c419d5d58b4528b76dbed6fd0060f6b2833d
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 420c81f6206c777efc303924d81763f5984aba4c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446657"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993402"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Backup do Azure — Perguntas frequentes
 Este artigo responde às perguntas frequentes sobre o serviço de Backup do Azure.
@@ -93,7 +93,7 @@ Sim.
 ### <a name="what-operating-systems-are-supported-for-backup"></a>Há suporte para backup de quais sistemas operacionais?
 O Backup do Azure dá suporte a esses sistemas operacionais para backup de arquivos e pastas, além de aplicativos protegidos usando o Servidor de Backup do Azure e o DPM.
 
-**SO**| **SKU** |**Detalhes**
+**SO** | **SKU** | **Detalhes**
 --- | --- | ---
 Estação de trabalho | |
 Windows 10 de 64 bits | Enterprise, Pro, Home | As máquinas devem estar executando os pacotes e as atualizações de serviços mais recentes.
@@ -101,6 +101,7 @@ Windows 8.1 de 64 bits | Enterprise, Pro | As máquinas devem estar executando o
 Windows 8 de 64 bits | Enterprise, Pro | As máquinas devem estar executando os pacotes e as atualizações de serviços mais recentes.
 Windows 7 de 64 bits | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter | As máquinas devem estar executando os pacotes e as atualizações de serviços mais recentes.
 Servidor | |
+Windows Server 2019 64 bits | Standard, Datacenter, Essentials | Com os service packs/atualizações mais recentes.
 Windows Server 2016 de 64 bits | Standard, Datacenter, Essentials | Com os service packs/atualizações mais recentes.
 Windows Server 2012 R2 de 64 bits | Standard, Datacenter, Foundation | Com os service packs/atualizações mais recentes.
 Windows Server 2012 de 64 bits | Datacenter, Foundation, Standard | Com os service packs/atualizações mais recentes.
@@ -117,7 +118,7 @@ Para backups do Linux na VM do Azure, o Backup do Azure oferece suporte para [a 
 Os limites de tamanho são os seguintes:
 
 Sistema operacional/computador | Limite de tamanho da fonte de dados
---- | --- | ---
+--- | --- 
 Windows 8 ou superior | 54.400 GB
 Windows 7 |1700 GB
 Windows Server 2012 ou posterior | 54.400 GB

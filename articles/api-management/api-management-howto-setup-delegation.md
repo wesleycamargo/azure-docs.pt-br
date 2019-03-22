@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: f0050a91ca8ed380c838c96cf1e485a80a0c9297
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
-ms.translationtype: HT
+ms.openlocfilehash: c15dc83929aeaf6811f4d19bfca462abfacf4014
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445388"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57892448"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Como delegar o registro de usuário e a assinatura do produto
 A delegação permite usar seu site existente para gerenciar a entrada/inscrição e assinatura de produtos feitas por desenvolvedores em vez de usar a funcionalidade integrada no portal do desenvolvedor. Isso permite que seu site tenha os dados dos usuários e realize a validação dessas etapas de forma personalizada.
@@ -47,7 +47,7 @@ Agora, você precisa criar o **ponto de extremidade de delegação**. Ele precis
 
 1. Receba uma solicitação com a seguinte forma:
    
-   > *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL da página de origem}&salt={string}&sig={string}*
+   > *http:\//www.yourwebsite.com/apimdelegation?operation=SignIn & returnUrl = {URL da página de origem} & salt = {string} & sig = {string}*
    > 
    > 
    
@@ -104,7 +104,7 @@ Depois, certifique-se de que o ponto de extremidade de delegação realize as a�
 
 1. Receba uma solicitação com a seguinte forma:
    
-   > *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product para assinar}&userId={usuário que está fazendo a solicitação}&salt={string}&sig={string}*
+   > *http:\//www.yourwebsite.com/apimdelegation?operation= {operation} & productId = {produto para assinar} & userId = {usuário que fez a solicitação} & salt = {string} & sig = {string}*
    > 
    > 
    
@@ -120,7 +120,7 @@ Depois, certifique-se de que o ponto de extremidade de delegação realize as a�
    * **sig**: um hash de segurança calculado para ser usado para comparação com seu próprio hash calculado
 2. Confirme que a solicitação está vindo do Gerenciamento de API do Azure (opcional, mas altamente recomendado por segurança)
    
-   * Compute um HMAC-SHA512 de uma cadeia de caracteres baseada nos parâmetros de consulta **productId**, **userId e **salt**:
+   * Compute um HMAC-SHA512 de uma cadeia de caracteres com base nas **productId**, **userId**, e **salt** parâmetros de consulta:
      
      > HMAC(**salt**+ '\n' +**productId**+ '\n' +**userId**)
      > 

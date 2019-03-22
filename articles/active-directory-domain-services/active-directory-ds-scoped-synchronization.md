@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: ergreenl
-ms.openlocfilehash: e3d13082e3c076061b8d343827266ec04ae80646
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: ac11244b87c87285722b4922da69530fab98c299
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180680"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117601"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-your-managed-domain"></a>Configurar a sincronização no escopo do Microsoft Azure Active Directory para seu domínio gerenciado
 Este artigo mostra como configurar apenas contas de usuários específicos para serem sincronizadas entre seu diretório do Azure AD e o domínio gerenciado do Azure AD Domain Services.
@@ -39,12 +39,10 @@ A tabela a seguir ajuda a determinar como usar a sincronização no escopo:
 
 > [!WARNING]
 > **A alteração do escopo de sincronização faz com que o seu domínio gerenciado percorra a ressincronização.**
->
- * Quando você altera o escopo de sincronização para um domínio gerenciado, ocorre uma ressincronização completa.
- * Os objetos que não forem mais necessários no domínio gerenciado serão excluídos. Novos objetos são criados no domínio gerenciado.
- * A ressincronização pode levar muito tempo para ser concluída, dependendo do número de objetos (usuários, grupos e associações de grupo) no domínio gerenciado e no diretório do Microsoft Azure Active Directory. Para diretórios grandes com várias centenas de milhares de objetos, a ressincronização pode levar alguns dias.
->
->
+> 
+>  * Quando você altera o escopo de sincronização para um domínio gerenciado, ocorre uma ressincronização completa.
+>  * Os objetos que não forem mais necessários no domínio gerenciado serão excluídos. Novos objetos são criados no domínio gerenciado.
+>  * A ressincronização pode levar muito tempo para ser concluída, dependendo do número de objetos (usuários, grupos e associações de grupo) no domínio gerenciado e no diretório do Microsoft Azure Active Directory. Para diretórios grandes com várias centenas de milhares de objetos, a ressincronização pode levar alguns dias.
 
 
 ## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization-using-azure-portal"></a>Criar um novo domínio gerenciado e habilitar a sincronização com escopo baseada em grupo usando o portal do Azure
@@ -58,46 +56,46 @@ Use o PowerShell para concluir esse conjunto de etapas. Confira as instruções 
 Conclua as seguintes etapas para configurar a sincronização de escopo com base em grupo para seu domínio gerenciado:
 
 1. Conclua as seguintes tarefas:
-  * [Tarefa 1: Instalar os módulos do PowerShell exigidos](active-directory-ds-enable-using-powershell.md#task-1-install-the-required-powershell-modules).
-  * [Tarefa 2: Criar a entidade de serviço exigida em seu diretório do Azure AD](active-directory-ds-enable-using-powershell.md#task-2-create-the-required-service-principal-in-your-azure-ad-directory).
-  * [Tarefa 3: Criar e configurar o grupo 'Administradores do AAD DC'](active-directory-ds-enable-using-powershell.md#task-3-create-and-configure-the-aad-dc-administrators-group).
-  * [Tarefa 4: Registrar o provedor de recursos do Azure AD Domain Services](active-directory-ds-enable-using-powershell.md#task-4-register-the-azure-ad-domain-services-resource-provider).
-  * [Tarefa 5: Criar um grupo de recursos](active-directory-ds-enable-using-powershell.md#task-5-create-a-resource-group).
-  * [Tarefa 6: Criar e configurar a rede virtual](active-directory-ds-enable-using-powershell.md#task-6-create-and-configure-the-virtual-network).
+   * [Tarefa 1: Instalar os módulos do PowerShell exigidos](active-directory-ds-enable-using-powershell.md#task-1-install-the-required-powershell-modules).
+   * [Tarefa 2: Criar a entidade de serviço exigida em seu diretório do Azure AD](active-directory-ds-enable-using-powershell.md#task-2-create-the-required-service-principal-in-your-azure-ad-directory).
+   * [Tarefa 3: Criar e configurar o grupo 'Administradores do AAD DC'](active-directory-ds-enable-using-powershell.md#task-3-create-and-configure-the-aad-dc-administrators-group).
+   * [Tarefa 4: Registrar o provedor de recursos do Azure AD Domain Services](active-directory-ds-enable-using-powershell.md#task-4-register-the-azure-ad-domain-services-resource-provider).
+   * [Tarefa 5: Criar um grupo de recursos](active-directory-ds-enable-using-powershell.md#task-5-create-a-resource-group).
+   * [Tarefa 6: Criar e configurar a rede virtual](active-directory-ds-enable-using-powershell.md#task-6-create-and-configure-the-virtual-network).
 
 2. Selecione os grupos que você deseja sincronizar e forneça o nome de exibição dos grupos que deseja que sejam sincronizados com o domínio gerenciado.
 
 3. Salve o [script na seção a seguir](active-directory-ds-scoped-synchronization.md#script-to-select-groups-to-synchronize-to-the-managed-domain-select-groupstosyncps1) em um arquivo chamado ```Select-GroupsToSync.ps1```. Execute o script como indicado abaixo:
 
-  ```powershell
-  .\Select-GroupsToSync.ps1 -groupsToAdd @("AAD DC Administrators", "GroupName1", "GroupName2")
-  ```
+   ```powershell
+   .\Select-GroupsToSync.ps1 -groupsToAdd @("AAD DC Administrators", "GroupName1", "GroupName2")
+   ```
 
-  > [!WARNING]
-  > **Não se esqueça de incluir o grupo 'Administradores do AAD DC'.**
-  >
-  > Você deve incluir o grupo 'Administradores do AAD DC' na lista de grupos configurados para sincronização no escopo. Se você não incluir esse grupo, o domínio gerenciado não poderá ser usado.
-  >
+   > [!WARNING]
+   > **Não se esqueça de incluir o grupo 'Administradores do AAD DC'.**
+   >
+   > Você deve incluir o grupo 'Administradores do AAD DC' na lista de grupos configurados para sincronização no escopo. Se você não incluir esse grupo, o domínio gerenciado não poderá ser usado.
+   >
 
 4. Agora, crie o domínio gerenciado e habilite a sincronização no escopo com base no grupo para o domínio gerenciado. Inclua a propriedade ```"filteredSync" = "Enabled"``` no parâmetro ```Properties```. Por exemplo, veja o seguinte fragmento de script, copiado da [Tarefa 7: Provisionar o domínio gerenciado do Azure AD Domain Services](active-directory-ds-enable-using-powershell.md#task-7-provision-the-azure-ad-domain-services-managed-domain).
 
-  ```powershell
-  $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-  $ManagedDomainName = "contoso100.com"
-  $ResourceGroupName = "ContosoAaddsRg"
-  $VnetName = "DomainServicesVNet_WUS"
-  $AzureLocation = "westus"
+   ```powershell
+   $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
+   $ManagedDomainName = "contoso100.com"
+   $ResourceGroupName = "ContosoAaddsRg"
+   $VnetName = "DomainServicesVNet_WUS"
+   $AzureLocation = "westus"
 
-  # Enable Azure AD Domain Services for the directory.
-  New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
-  -Location $AzureLocation `
-  -Properties @{"DomainName"=$ManagedDomainName; "filteredSync" = "Enabled"; `
+   # Enable Azure AD Domain Services for the directory.
+   New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
+   -Location $AzureLocation `
+   -Properties @{"DomainName"=$ManagedDomainName; "filteredSync" = "Enabled"; `
     "SubnetId"="/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"} `
-  -ApiVersion 2017-06-01 -Force -Verbose
-  ```
+   -ApiVersion 2017-06-01 -Force -Verbose
+   ```
 
-  > [!TIP]
-  > Não se esqueça de incluir ```"filteredSync" = "Enabled"``` no parâmetro ```-Properties```, para que a sincronização no escopo seja habilitada para o domínio gerenciado.
+   > [!TIP]
+   > Não se esqueça de incluir ```"filteredSync" = "Enabled"``` no parâmetro ```-Properties```, para que a sincronização no escopo seja habilitada para o domínio gerenciado.
 
 
 ## <a name="script-to-select-groups-to-synchronize-to-the-managed-domain-select-groupstosyncps1"></a>Script para selecionar grupos para sincronizar o domínio gerenciado (selecione GroupsToSync.ps1)

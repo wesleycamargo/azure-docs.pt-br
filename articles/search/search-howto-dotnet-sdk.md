@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 6f263511a7d1df4af82a690c1d6b04fecd2a8a91
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: afc60e933c9fcc154af74c47e382d8b8e7b0df8d
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634534"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286305"
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>Como usar o Azure Search de um aplicativo .NET
 Este artigo é um passo a passo para ajudar você a usar o [SDK do .NET do Azure Search](https://aka.ms/search-sdk). Você pode usar o SDK do .NET para implementar uma experiência de pesquisa avançada em seu aplicativo usando o Azure Search.
@@ -202,7 +202,7 @@ O código-fonte completo do aplicativo é fornecido ao final deste artigo.
 Em seguida, analisaremos com mais detalhes cada um dos métodos chamados pelo `Main`.
 
 ### <a name="creating-an-index"></a>Criando um índice
-Depois de criar um `SearchServiceClient`, a próxima coisa que o `Main` faz é excluir o índice "hotéis", caso ele já exista. Isso é feito pelo método a seguir:
+Depois de criar uma `SearchServiceClient`, `Main` exclui o índice "hotéis", caso ele já exista. Isso é feito pelo método a seguir:
 
 ```csharp
 private static void DeleteHotelsIndexIfExists(SearchServiceClient serviceClient)
@@ -330,6 +330,8 @@ A terceira parte desse método é um bloco catch que trata um caso de erro impor
 
 Por fim, o método `UploadDocuments` atrasa por dois segundos. A indexação ocorre de maneira assíncrona em seu serviço de Azure Search, portanto, o exemplo de aplicativo precisa aguardar alguns instantes para garantir que os documentos estejam disponíveis para pesquisa. Normalmente, atrasos como esses só são necessários em demonstrações, testes e exemplos de aplicativos.
 
+<a name="how-dotnet-handles-documents"></a>
+
 #### <a name="how-the-net-sdk-handles-documents"></a>Como o SDK do .NET lida com documentos
 Você pode estar se perguntando como o SDK do .NET do Azure Search é capaz de carregar instâncias de uma classe definida pelo usuário, como `Hotel` , no índice. Para ajudar a responder a essa pergunta, vamos examinar a classe `Hotel` :
 
@@ -394,9 +396,9 @@ A primeira coisa a observar é que cada propriedade pública de `Hotel` correspo
 > 
 > 
 
-A segunda coisa a observar são os atributos como `IsFilterable`, `IsSearchable`, `Key` e `Analyzer` que decoram cada propriedade pública. Esses atributos são mapeados diretamente para os [atributos correspondentes do índice da Azure Search](https://docs.microsoft.com/rest/api/searchservice/create-index#request). A classe `FieldBuilder` os utiliza para criar definições de campo para o índice.
+A segunda coisa a observar é os atributos que decoram cada propriedade pública (como `IsFilterable`, `IsSearchable`, `Key`, e `Analyzer`). Esses atributos são mapeados diretamente para os [atributos correspondentes do índice da Azure Search](https://docs.microsoft.com/rest/api/searchservice/create-index#request). A classe `FieldBuilder` os utiliza para criar definições de campo para o índice.
 
-O terceiro fator importante sobre a classe `Hotel` são os tipos de dados das propriedades públicas. Os tipos .NET dessas propriedades estão mapeados para seus tipos de campo equivalentes na definição do índice. Por exemplo, a propriedade de cadeia de caracteres `Category` mapeia para o campo `category`, que é do tipo `Edm.String`. Há mapeamentos de tipo semelhantes entre `bool?` e `Edm.Boolean`, `DateTimeOffset?` e `Edm.DateTimeOffset` etc. As regras específicas para o mapeamento de tipos estão documentadas com o método `Documents.Get` na [referência do SDK do .NET do Azure Search](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.get). A classe `FieldBuilder` cuida desse mapeamento para você, mas ainda pode ser útil para entender caso você precise solucionar problemas de serialização.
+O terceiro fator importante sobre o `Hotel` classe é os tipos de dados das propriedades públicas. Os tipos .NET dessas propriedades estão mapeados para seus tipos de campo equivalentes na definição do índice. Por exemplo, a propriedade de cadeia de caracteres `Category` mapeia para o campo `category`, que é do tipo `Edm.String`. Há mapeamentos de tipo semelhantes entre `bool?` e `Edm.Boolean`, `DateTimeOffset?` e `Edm.DateTimeOffset` etc. As regras específicas para o mapeamento de tipos estão documentadas com o método `Documents.Get` na [referência do SDK do .NET do Azure Search](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.get). A classe `FieldBuilder` cuida desse mapeamento para você, mas ainda pode ser útil para entender caso você precise solucionar problemas de serialização.
 
 Essa capacidade de usar suas próprias classes como documentos funciona em ambas as direções; Você também pode recuperar os resultados da pesquisa e fazer com que o SDK os desserialize automaticamente para um tipo de sua escolha, como veremos na próxima seção.
 
@@ -585,7 +587,7 @@ Estes são os resultados, que incluem todos os campos uma vez que não especific
 
     ID: 2   Base rate: 79.99        Description: Cheapest hotel in town     Description (French): Hôtel le moins cher en ville      Name: Roach Motel       Category: Budget        Tags: [motel, budget]   Parking included: yes   Smoking allowed: yes    Last renovated on: 4/28/1982 12:00:00 AM +00:00 Rating: 1/5     Location: Latitude 49.678581, longitude -122.131577
 
-Essa etapa conclui o tutorial, mas não pare aqui. **Próximas etapas** fornece os recursos adicionais para aprender mais sobre o Azure Search.
+Essa etapa conclui o tutorial, mas não pare aqui. * * Próximas etapas fornecem recursos adicionais para aprender mais sobre o Azure Search.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Procure as referências para o [SDK do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) e a [API REST](https://docs.microsoft.com/rest/api/searchservice/).

@@ -10,16 +10,16 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: accc2803895f3892075cdd9877ca98344ab88bd1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 485775660ecfdf2291365ab98c9188295ea2cbde
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884810"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58183485"
 ---
 # <a name="entity-attributes"></a>Atributos da entidade
 
-O grafo acadêmico é composto de 7 tipos de entidades. Todas as entidades terá uma ID de Entidade e um Tipo de Entidade.
+O grafo acadêmico é composto de 7 tipos de entidades. Todas as entidades terão uma ID de entidade e um tipo de entidade.
 
 ## <a name="common-entity-attributes"></a>Atributos de entidades comuns
 NOME    |DESCRIÇÃO                |Type       | Operações

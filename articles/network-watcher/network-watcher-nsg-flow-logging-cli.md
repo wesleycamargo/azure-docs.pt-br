@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 61674cc5551fb0d1be184de0ff0ed659cc56bbbe
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 43e18326aa9afe41ddfd1183bf689972c1877b0d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340239"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57904977"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>Configurar logs de fluxo de grupo de segurança de rede com a CLI do Azure
 
@@ -65,7 +65,7 @@ az network watcher flow-log configure --resource-group resourceGroupName --enabl
 
 ## <a name="download-a-flow-log"></a>Baixar um log de fluxo
 
-O local de armazenamento de um log de fluxo é definido no momento da criação. Uma ferramenta conveniente para acessar esses logs de fluxo salvos em uma conta de armazenamento é o Gerenciador de Armazenamento do Microsoft Azure, que pode ser baixado aqui: http://storageexplorer.com/
+O local de armazenamento de um log de fluxo é definido no momento da criação. Uma ferramenta conveniente para acessar esses logs de fluxo salvos em uma conta de armazenamento é o Gerenciador de Armazenamento do Microsoft Azure, que pode ser baixado aqui: https://storageexplorer.com/
 
 Se uma conta de armazenamento for especificada, os arquivos de log de fluxo serão salvos em uma conta de armazenamento no seguinte local:
 

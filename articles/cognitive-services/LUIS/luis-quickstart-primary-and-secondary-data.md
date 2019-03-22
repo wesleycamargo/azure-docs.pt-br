@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: d333eb6baa41321fdf7daca3c545d5d5e3ed5fe4
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: b9ddd82d18b7f67f61e5c1589511ea6db4fa18a3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56732694"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100285"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Tutorial: Extrair nomes com uma entidade simples e uma lista de frases
 
@@ -127,7 +127,7 @@ As entidades simples precisam de muitos exemplos para ter uma alta confiança de
     |Candidatar-se ao trabalho de azulejista.|bloco|
     |CV anexo para arquiteto paisagista.|arquiteto paisagista|
     |Meu currículo para professor de biologia está anexado.|professor de biologia|
-    |Gostaria de me candidatar para o cargo em fotografia.|fotografia|git 
+    |Gostaria de me candidatar para o cargo em fotografia.|fotografia|
 
 ## <a name="mark-job-entity-in-other-intents"></a>Marcar entidade de trabalho em outras intenções
 

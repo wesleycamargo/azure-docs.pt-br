@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 07/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c846460d8791c15022b10ecf4517ba01699a64cd
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 4d11dfcb66a545cbecc80b6bdad558ca6d328ed2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439027"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57999685"
 ---
 # <a name="migrate-your-oms-update-deployments-to-azure"></a>Migrar as implantações de atualização do OMS para Azure
 
@@ -33,7 +33,7 @@ No workspace do OMS, clique em **Abrir no Azure**. Isso navegará para o workspa
 
 No portal do Azure, clique em **Conta de Automação**
 
-![Log Analytics](media/migrate-oms-update-deployments/log-analytics.png)
+![Logs do Azure Monitor](media/migrate-oms-update-deployments/log-analytics.png)
 
 Na Conta de Automação, clique em **	Gerenciamento de Atualizações** para abrir o Gerenciamento de Atualizações.
 
@@ -61,11 +61,11 @@ Para que os Computadores atualizem, selecione a pesquisa salva usada pela implan
 | --- | --- |
 |Nome |Nome exclusivo para identificar a Implantação de Atualizações. |
 |Sistema operacional| Selecione **Linux** ou **Windows**.|
-|Computadores para atualizar |Selecione uma pesquisa salva, um grupo importado ou selecione a máquina na lista suspensa e selecione máquinas individuais. Se você escolher **Machines**, a prontidão da máquina é mostrada na coluna **UPDATE AGENT READINESS**.</br> Para saber mais sobre os diferentes métodos de criação de grupos de computadores no Log Analytics, consulte [grupos de computadores no Log Analytics](../azure-monitor/platform/computer-groups.md) |
+|Computadores para atualizar |Selecione uma pesquisa salva, um grupo importado ou selecione a máquina na lista suspensa e selecione máquinas individuais. Se você escolher **Machines**, a prontidão da máquina é mostrada na coluna **UPDATE AGENT READINESS**.</br> Para saber mais sobre os diferentes métodos de criação de grupos de computadores nos logs do Azure Monitor, veja [Grupos de computadores nos logs do Azure Monitor](../azure-monitor/platform/computer-groups.md) |
 |Classificações de origem|Selecione todas as classificações de atualização que você precisa. CentOS não oferece suporte para isso fora da caixa.|
 |Atualizações para excluir|Insira as atualizações a serem excluídas. Para Windows, insira o artigo KB sem o prefixo **KB**. Para o Linux, insira o nome do pacote ou use um caractere curinga.  |
-|Configurações de agendamento|Selecione o tempo para iniciar e selecione **Uma Vez** ou **Recorrente** para a recorrência.|| Janela de manutenção |Número de minutos definido para atualizações. O valor não pode ser inferior a 30 minutos ou superior a 6 horas. |
-| Janela de manutenção |Número de minutos definido para atualizações. O valor não pode ser inferior a 30 minutos e não superior a 6 horas |
+|Configurações de agendamento|Selecione o tempo para iniciar e selecione **Uma Vez** ou **Recorrente** para a recorrência. | 
+| Janela de manutenção |Número de minutos definido para atualizações. O valor não pode ser inferior a 30 minutos ou superior a 6 horas. |
 | Reinicialize o controle| Determina como as reinicializações devem ser tratadas.</br>As opções disponíveis são:</br>Reinicialização, se necessário (Padrão)</br>Sempre reinicializar</br>Nunca reinicializar</br>Somente reinicialização - não instalará as atualizações|
 
 Clique em **Implantações de atualização agendadas** para exibir o status da implantação da atualização criada recentemente.

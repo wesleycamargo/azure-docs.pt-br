@@ -14,12 +14,12 @@ ms.date: 08/16/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc6d1d53fd292a936c833450fee3af91671eec86
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a51175d192a5afb1f84f8d0ed2de9796f198f82d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171155"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58102393"
 ---
 # <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Tutorial: Federar um ambiente com uma única floresta do AD na nuvem
 
@@ -83,7 +83,7 @@ Para concluir a criação da máquina virtual, é necessário concluir a instala
 
 1. Gerenciador Hyper-V, clique duas vezes na máquina virtual
 2. Clique no botão Iniciar.
-3.  Você será solicitado a "Pressionar qualquer tecla para inicializar a partir de um CD ou DVD". Prossiga e faça isso.
+3. Você será solicitado a "Pressionar qualquer tecla para inicializar a partir de um CD ou DVD". Prossiga e faça isso.
 4. Na tela de inicialização do Windows Server, selecione o idioma e clique em **Avançar**.
 5. Clique em **Instalar Agora**.
 6. Insira a chave de licença e clique em **Avançar**.
@@ -281,9 +281,9 @@ Nesse momento, verificaremos se os usuários que estavam no diretório local for
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Testar entrando com um dos usuários
 
-1.  Navegue até [https://myapps.microsoft.com](httpss://myapps.microsoft.com)
+1. Navegue até [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Entre com uma conta de usuário que foi criada no novo locatário.  Será necessário entrar usando o formato a seguir: (user@domain.onmicrosoft.com). Use a mesma senha que o usuário usa para entrar no local.
-![Verificar](media/tutorial-password-hash-sync/verify1.png)
+   ![Verificar](media/tutorial-password-hash-sync/verify1.png)
 
 Agora você configurou com êxito um ambiente de identidade híbrida que pode ser usado para testar e familiarizar-se com o que o Azure tem a oferecer.
 

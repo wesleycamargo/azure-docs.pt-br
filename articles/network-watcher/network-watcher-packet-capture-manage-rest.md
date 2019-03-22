@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: c773aae4fa4e530b563c1ae084bf05b8b5c5c12f
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: 48688c58115a002508f9df0b242ea3e2d2d94719
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56299812"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855428"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-azure-rest-api"></a>Gerenciar as capturas de pacotes com o Observador de Rede do Azure usando a API REST do Azure
 
@@ -301,7 +301,7 @@ armclient delete "https://management.azure.com/subscriptions/${subscriptionId}/R
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter instruções sobre como baixar os arquivos das contas de armazenamento do Azure, consulte [Introdução ao armazenamento de Blobs do Azure usando o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que pode ser usada é o Gerenciador de armazenamento. Para saber mais sobre o Gerenciador de Armazenamento, acesse o link: [Gerenciador de Armazenamento](http://storageexplorer.com/)
+Para obter instruções sobre como baixar os arquivos das contas de armazenamento do Azure, consulte [Introdução ao armazenamento de Blobs do Azure usando o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que pode ser usada é o Gerenciador de armazenamento. Para saber mais sobre o Gerenciador de Armazenamento, acesse o link: [Gerenciador de Armazenamento](https://storageexplorer.com/)
 
 Saiba como automatizar a captura de pacote com alertas de máquina Virtual por meio da exibição [criar uma captura de pacote acionado alerta](network-watcher-alert-triggered-packet-capture.md)
 

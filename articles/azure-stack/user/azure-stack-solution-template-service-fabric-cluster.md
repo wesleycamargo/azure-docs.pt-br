@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: a8897288e19a7628dbd1cc2c022de4db2a111393
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: d0d725a57c27fe30215d77a596f6fb3b8c8720d6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55248037"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098001"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Implantar um cluster do Service Fabric no Azure Stack
 
@@ -37,17 +37,17 @@ A seguir é necessárias para implantar o cluster do Service Fabric:
    Esse é o certificado de servidor de x. 509 que você adicionar ao Cofre de chaves durante a implantação do Service Fabric. 
    - O **CN** sobre esse certificado deve coincidir com o domínio nome FQDN (totalmente qualificado) do cluster do Service Fabric que você cria. 
    - O formato do certificado deve ser PFX, como as chaves públicas e privadas são necessárias. 
-   Ver [requisitos](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) para criar esse certificado do servidor.
+     Ver [requisitos](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) para criar esse certificado do servidor.
 
-    > [!NOTE]  
-    > Você pode usar um local de um certificado autoassinado do certificado do servidor x. 509 para fins de teste. Os certificados autoassinados não precisará corresponder ao FQDN do cluster.
+     > [!NOTE]  
+     > Você pode usar um local de um certificado autoassinado do certificado do servidor x. 509 para fins de teste. Os certificados autoassinados não precisará corresponder ao FQDN do cluster.
 
-1.  **Certificado de cliente administrador** esse é o certificado que o cliente usará para se autenticar no cluster do Service Fabric, que pode ser autoassinado. Ver [requisitos](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) para criar esse certificado do cliente.
+1. **Certificado de cliente administrador** esse é o certificado que o cliente usará para se autenticar no cluster do Service Fabric, que pode ser autoassinado. Ver [requisitos](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) para criar esse certificado do cliente.
 
-1.  **Os seguintes itens devem estar disponíveis no Azure Stack Marketplace:**
-     - **Windows Server 2016** – o modelo usa a imagem do Windows Server 2016 para criar o cluster.  
-     - **Extensão de Script de cliente** -extensão da máquina Virtual da Microsoft.  
-     - **Estágio de configuração desejado do PowerShell** -extensão da máquina Virtual da Microsoft.
+1. **Os seguintes itens devem estar disponíveis no Azure Stack Marketplace:**
+    - **Windows Server 2016** – o modelo usa a imagem do Windows Server 2016 para criar o cluster.  
+    - **Extensão de Script de cliente** -extensão da máquina Virtual da Microsoft.  
+    - **Estágio de configuração desejado do PowerShell** -extensão da máquina Virtual da Microsoft.
 
 
 ## <a name="add-a-secret-to-key-vault"></a>Adicionar um segredo ao Key Vault
@@ -129,7 +129,7 @@ Para obter mais informações, consulte [Gerenciar cofre de chaves no Azure Stac
 
 1. Para cada página, como *Noções básicas de*, preencha o formulário de implantação. Use padrões se você não tiver certeza de que um valor. Selecione **Okey** para Avançar para a próxima página:
 
-   ![Noções básicas](media/azure-stack-solution-template-service-fabric-cluster/image3.png)
+   ![Noções Básicas](media/azure-stack-solution-template-service-fabric-cluster/image3.png)
 
 1. Sobre o *as configurações de rede* página, você pode especificar portas específicas a serem abertas para seus aplicativos:
 
@@ -159,7 +159,7 @@ Você pode acessar o cluster do Service Fabric usando o Service Fabric Explorer 
 ### <a name="use-service-fabric-explorer"></a>Usar o Service Fabric Explorer
 1.  Valide se o navegador da Web tem acesso ao seu certificado de cliente administrador e possa ser autenticada no cluster do Service Fabric.  
 
-     a. Abra o Internet Explorer e vá para **opções da Internet** > **conteúdo** > **certificados**.
+    a. Abra o Internet Explorer e vá para **opções da Internet** > **conteúdo** > **certificados**.
   
     b. Sobre certificados, selecione **importação** para iniciar o *Assistente de importação de certificado*e, em seguida, clique em **próxima**. Sobre o *arquivo a ser importado* página, clique em **procurar**e selecione o **certificado de cliente do administrador** fornecido para o modelo do Azure Resource Manager.
         
@@ -174,13 +174,13 @@ Você pode acessar o cluster do Service Fabric usando o Service Fabric Explorer 
        ![Repositório de certificados](media/azure-stack-solution-template-service-fabric-cluster/image9.png)  
 1. Para localizar o FQDN do cluster do Service Fabric:  
 
-     a. Vá para o grupo de recursos que está associado com sua malha de serviço de cluster e localize o *endereço IP público* recursos. Selecione o objeto associado com o endereço IP público para abrir o *endereço IP público* folha.  
+    a. Vá para o grupo de recursos que está associado com sua malha de serviço de cluster e localize o *endereço IP público* recursos. Selecione o objeto associado com o endereço IP público para abrir o *endereço IP público* folha.  
 
-      ![Endereço IP público](media/azure-stack-solution-template-service-fabric-cluster/image10.png)   
+      ![Endereço IP Público](media/azure-stack-solution-template-service-fabric-cluster/image10.png)   
 
     b. Na folha de endereço IP público, o FQDN exibe como *nome DNS*.  
 
-      ![Nome DNS](media/azure-stack-solution-template-service-fabric-cluster/image11.png)  
+      ![Nome do DNS](media/azure-stack-solution-template-service-fabric-cluster/image11.png)  
 
 1. Para localizar a URL para o Service Fabric Explorer e o ponto de extremidade de conexão de cliente, examine os resultados da implantação do modelo.
 
@@ -199,7 +199,7 @@ Você pode acessar o cluster do Service Fabric usando o Service Fabric Explorer 
 
 1. Depois que a instalação for concluída, configure as variáveis de ambiente do sistema para garantir que os cmdlets do Service Fabric são acessíveis a partir do PowerShell.  
     
-     a. Vá para **painel de controle** > **sistema e segurança** > **sistema**e, em seguida, selecione **configurações avançadas do sistema**.  
+    a. Vá para **painel de controle** > **sistema e segurança** > **sistema**e, em seguida, selecione **configurações avançadas do sistema**.  
     
       ![Painel de controle](media/azure-stack-solution-template-service-fabric-cluster/image15.png) 
 

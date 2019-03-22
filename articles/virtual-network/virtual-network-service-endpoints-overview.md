@@ -7,18 +7,18 @@ documentationcenter: na
 author: sumeetmittal
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: 70d931a8038a9b673f3303831903287acb43a567
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: ac166161624840aae39e84aa4b149fe58a6c978e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56418000"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57780857"
 ---
 # <a name="virtual-network-service-endpoints"></a>Pontos de extremidade de serviço de rede virtual
 
@@ -137,7 +137,7 @@ Para um recurso de serviço do Azure (por exemplo, uma conta de Armazenamento do
 
 As políticas de ponto de extremidade de serviço de rede virtual permitem filtrar o tráfego da rede virtual para serviços do Azure, permitindo apenas recursos específicos de serviço do Azure, em pontos de extremidade de serviço. As políticas de ponto de extremidade de serviço fornecem controle de acesso granular para tráfego de rede virtual para serviços do Azure. Mais informações: [Políticas de Ponto de Extremidade de Serviço de Rede Virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
 
-## <a name="faqs"></a>Perguntas frequentes
+## <a name="faqs"></a>Perguntas Frequentes
 
 Para perguntas frequentes, confira as [Perguntas frequentes sobre o ponto de extremidade de serviço de rede virtual](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#virtual-network-service-endpoints)
 

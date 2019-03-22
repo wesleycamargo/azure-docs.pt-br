@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/17/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 47ca2febeffe395ba2482165f04ee29aa0193c63
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: be1c46c5bc2c8edcfeca81c82095687c4ddfd894
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55512237"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225817"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Projetar aplicativos altamente disponíveis usando RA-GRS
 
@@ -73,7 +73,7 @@ Essas são as outras considerações que discutiremos no restante deste artigo.
 
 *   Dados eventualmente consistentes e a Hora da Última Sincronização
 
-*   Testando
+*   Testes
 
 ## <a name="running-your-application-in-read-only-mode"></a>Executando o aplicativo no modo somente leitura
 
@@ -123,7 +123,7 @@ Existem basicamente dois cenários a serem considerados ao decidir como reagir a
 
     Nesse cenário, há uma redução de desempenho porque todas as solicitações de leitura tentarão primeiro o ponto de extremidade primário, aguardarão até que o tempo limite expire e alternarão para o ponto de extremidade secundário.
 
-Nesses cenários, você deve identificar que há um problema contínuo no ponto de extremidade primário e enviar todas as solicitações de leitura diretamente para o ponto de extremidade secundário, definindo a propriedade **LocationMode** como **SecondaryOnly**. Nesse momento, você também deve alterar o aplicativo para que seja executado no modo somente leitura. Essa abordagem é conhecida como [Padrão de Disjuntor](https://msdn.microsoft.com/library/dn589784.aspx).
+Nesses cenários, você deve identificar que há um problema contínuo no ponto de extremidade primário e enviar todas as solicitações de leitura diretamente para o ponto de extremidade secundário, definindo a propriedade **LocationMode** como **SecondaryOnly**. Nesse momento, você também deve alterar o aplicativo para que seja executado no modo somente leitura. Essa abordagem é conhecida como [Padrão de Disjuntor](/azure/architecture/patterns/circuit-breaker).
 
 ### <a name="update-requests"></a>Solicitações de atualização
 
@@ -203,10 +203,10 @@ A tabela a seguir mostra um exemplo do que pode acontecer quando você atualiza 
 | T0       | Transação A: <br> Inserir funcionário <br> entidade no principal |                                   |                    | Transação A inserida no primário,<br> ainda não replicada. |
 | T1       |                                                            | Transação A <br> replicada para<br> secundário | T1 | A transação A foi replicada para o secundário. <br>Hora da Última Sincronização atualizada.    |
 | T2       | Transação B:<br>Atualizar<br> entidade de funcionário<br> no principal  |                                | T1                 | Transação B gravada no principal,<br> ainda não replicada.  |
-| T3       | Transação C:<br> Atualizar <br>administrator<br>entidade de função em<br>primary |                    | T1                 | Transação C gravada no principal,<br> ainda não replicada.  |
+| T3       | Transação C:<br> Atualizar <br>administrador<br>entidade de função em<br>primary |                    | T1                 | Transação C gravada no principal,<br> ainda não replicada.  |
 | *T4*     |                                                       | Transação C <br>replicada para<br> secundário | T1         | Transação C replicada para o secundário.<br>LastSyncTime não atualizado porque <br>a transação B ainda não foi replicada.|
 | *T5*     | Ler entidades <br>de secundário                           |                                  | T1                 | Você obtém o valor obsoleto para a entidade de funcionário <br> porque a transação B não foi <br> replicada ainda. Você obtém o novo valor para<br> a entidade de função de administrador porque C foi<br> replicada. A Hora da Última Sincronização ainda não<br> foi atualizada porque a transação B<br> não foi replicada. Você pode ver que a<br>entidade da função de administrador está inconsistente <br>porque a data/hora da entidade é posterior <br>à Hora da Última Sincronização. |
-| *T6*     |                                                      | Transação B<br> replicada para<br> secundário | T6                 | *T6* – todas as transações até C <br>foram replicadas; a Hora da Última Sincronização<br> foi atualizada. |
+| *T6*     |                                                      | Transação B<br> replicada para<br> secundária | T6                 | *T6* – todas as transações até C <br>foram replicadas; a Hora da Última Sincronização<br> foi atualizada. |
 
 Neste exemplo, suponha que o cliente alterne para leitura da região secundária em T5. Ele pode ler com êxito a entidade de **função de administrador** nesse momento, mas a entidade contém um valor para a contagem de administradores que não é consistente com o número de entidades **funcionário** que são marcadas como administradores na região secundária nesse momento. O cliente simplesmente pode exibir esse valor, com o risco de que se trata de informações inconsistentes. Como alternativa, o cliente pode tentar determinar que a **função de administrador** está em um estado potencialmente inconsistente porque as atualizações ocorreram fora de ordem e informar esse fato ao usuário.
 
@@ -216,7 +216,7 @@ Para reconhecer que ele tem dados potencialmente inconsistentes, o cliente pode 
 
 É importante testar se o aplicativo se comporta conforme o esperado ao encontra erros com nova tentativa. Por exemplo, você precisa testar se o aplicativo alterna para o secundário e o modo somente leitura ao detectar um problema e alterna de volta quando a região primária fica disponível novamente. Para fazer isso, você precisa de uma maneira de simular erros com nova tentativa e controlar com que frequência eles ocorrem.
 
-Você pode usar o [Fiddler](http://www.telerik.com/fiddler) para interceptar e modificar respostas HTTP em um script. Esse script pode identificar as respostas que vêm do ponto de extremidade primário e alterar o código de status HTTP de forma que a Biblioteca de Cliente de Armazenamento o reconheça como um erros com nova tentativa. Este snippet de código mostra um exemplo simples de um script do Fiddler que intercepta as respostas para ler as solicitações em relação à tabela **employeedata** para retornar um status 502:
+Você pode usar o [Fiddler](https://www.telerik.com/fiddler) para interceptar e modificar respostas HTTP em um script. Esse script pode identificar as respostas que vêm do ponto de extremidade primário e alterar o código de status HTTP de forma que a Biblioteca de Cliente de Armazenamento o reconheça como um erros com nova tentativa. Este snippet de código mostra um exemplo simples de um script do Fiddler que intercepta as respostas para ler as solicitações em relação à tabela **employeedata** para retornar um status 502:
 
 ```java
 static function OnBeforeResponse(oSession: Session) {
@@ -228,11 +228,11 @@ static function OnBeforeResponse(oSession: Session) {
 }
 ```
 
-Você pode estender esse exemplo para interceptar uma maior gama de solicitações e alterar apenas o **responseCode** em alguns deles para simular melhor um cenário do mundo real. Para obter mais informações sobre como personalizar os scripts do Fiddler, confira [Modificando uma solicitação ou resposta](http://docs.telerik.com/fiddler/KnowledgeBase/FiddlerScript/ModifyRequestOrResponse) na documentação do Fiddler.
+Você pode estender esse exemplo para interceptar uma maior gama de solicitações e alterar apenas o **responseCode** em alguns deles para simular melhor um cenário do mundo real. Para obter mais informações sobre como personalizar os scripts do Fiddler, confira [Modificando uma solicitação ou resposta](https://docs.telerik.com/fiddler/KnowledgeBase/FiddlerScript/ModifyRequestOrResponse) na documentação do Fiddler.
 
 Se você tiver tornado configuráveis os limites para alternar o aplicativo para o modo somente leitura, será mais fácil testar o comportamento com volumes de transações de não produção.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas Etapas
 
 * Para obter mais informações sobre a Redundância Geográfica com Acesso de Leitura, incluindo outro exemplo de como LastSyncTime é definido, consulte [Opções de redundância de armazenamento do Microsoft Azure e o Armazenamento com Redundância Geográfica com Acesso de Leitura](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
 

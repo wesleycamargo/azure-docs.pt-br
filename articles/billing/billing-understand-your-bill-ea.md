@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2018
 ms.author: banders
-ms.openlocfilehash: 36ce4d96e02bac1eae1791acf811da468726b4a6
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: 16feb41707e5afa07054d20b620f5822eedad773
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902688"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858905"
 ---
 # <a name="understand-your-bill-for-azure-customers-with-an-enterprise-agreement"></a>Entenda sua fatura para clientes do Azure com um Enterprise Agreement
 
@@ -93,4 +93,4 @@ Compare seu total no Azure Marketplace em **Relatórios** > **Resumo de uso** no
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
-Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Se você tiver dúvidas ou precisar de Ajuda, [criar uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).

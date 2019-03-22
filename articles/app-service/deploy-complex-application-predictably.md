@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 657211378d7b38b88ccd40aa31a175058e1ad67c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: e6d18222e15f62f12592362827b6dbc4a3d7dfbc
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015549"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820307"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Provisionar e implantar microsserviços previsíveis no Azure
 Este tutorial mostra como provisionar e implantar um aplicativo composto por [microsserviços](https://en.wikipedia.org/wiki/Microservices) no [Serviço de Aplicativo do Azure](https://azure.microsoft.com/services/app-service/) como uma única unidade e de maneira previsível usando modelos do grupo de recursos JSON e scripts do PowerShell. 
@@ -39,9 +39,7 @@ No tutorial, você implantará um aplicativo que inclui:
 Neste tutorial, você utilizará as ferramentas a seguir. Como não se trata de uma discussão abrangente sobre ferramentas, escolherei o cenário de ponta a ponta e oferecerei uma breve introdução a respeito cada uma, indicando também onde você pode encontrar mais informações sobre ela. 
 
 ### <a name="azure-resource-manager-templates-json"></a>Modelos do Gerenciador de Recursos do Azure (JSON)
-Sempre que você cria um aplicativo no Serviço de Aplicativo do Azure, por exemplo, o Azure Resource Manager usa um modelo JSON para criar todo o grupo de recursos com os recursos do componente. Um modelo complexo do [Azure Marketplace](/azure/marketplace) pode incluir o banco de dados, contas de armazenamento, o Plano do Serviço de Aplicativo, o próprio aplicativo, regras de alerta, configurações do aplicativo, configurações de dimensionamento automático e muito mais, e todos esses modelos estão disponíveis para você por meio do PowerShell. Para obter informações sobre como baixar e usar esses modelos, confira [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md).
-
-Para obter mais informações sobre os modelos do Gerenciador de Recursos do Azure, consulte [Criação de Modelos do Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-authoring-templates.md)
+Sempre que você cria um aplicativo no Serviço de Aplicativo do Azure, por exemplo, o Azure Resource Manager usa um modelo JSON para criar todo o grupo de recursos com os recursos do componente. Um modelo complexo do [Azure Marketplace](/azure/marketplace) pode incluir o banco de dados, contas de armazenamento, o Plano do Serviço de Aplicativo, o próprio aplicativo, regras de alerta, configurações do aplicativo, configurações de dimensionamento automático e muito mais, e todos esses modelos estão disponíveis para você por meio do PowerShell. Para obter mais informações sobre os modelos do Gerenciador de Recursos do Azure, consulte [Criação de Modelos do Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-authoring-templates.md)
 
 ### <a name="azure-sdk-26-for-visual-studio"></a>SDK do Azure para Visual Studio 2.6
 O SDK mais recente contém melhorias para o suporte a modelos do Gerenciador de Recursos no editor JSON. Você pode usar isto para criar rapidamente um modelo de grupo de recursos do zero ou abrir um modelo do JSON existente (como um modelo baixado da galeria) para modificação, preencher o arquivo de parâmetros e até mesmo implantar o grupo de recursos diretamente de uma solução de Grupo de Recursos do Azure.

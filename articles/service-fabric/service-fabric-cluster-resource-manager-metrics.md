@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 0d622ea6-a7c7-4bef-886b-06e6b85a97fb
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 7a7d3ad59d743287e5fe13c52c6c6a1a115d53f3
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ms.openlocfilehash: 642f479aba62e5cc9dde63aed7c30de39b513a5e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053305"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093342"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Gerenciando o consumo e a carga de recursos no Service Fabric com métricas
 *Métricas* são os recursos que são importantes para seus serviços e que são fornecidas pelos nós no cluster. Uma métrica é tudo o que você deseja gerenciar para melhorar ou monitorar o desempenho de seus serviços. Por exemplo, você pode observar o consumo de memória para saber se o serviço está sobrecarregado. Outro uso é para descobrir se o serviço pode ser movido para outro lugar onde a memória seja menos restrita para obter um melhor desempenho.
@@ -45,6 +45,7 @@ Para cargas de trabalho básicas, as métricas padrão fornecem uma distribuiç�
 Veja o acontece:
 
 <center>
+
 ![Layout de cluster com métricas padrão][Image1]
 </center>
 
@@ -56,7 +57,7 @@ Algumas coisas que devem ser observadas:
 
 Ótimo!
 
-As métricas padrão funcionam muito bem como ponto de partida. No entanto, as métricas padrão só serão úteis até certo ponto. Por exemplo: Qual é a probabilidade de que o esquema de particionamento que você escolheu resulte na utilização perfeitamente uniforme por todas as partições? Qual é a chance de que a carga de determinado serviço seja constante ao longo do tempo ou que seja uniforme entre várias partições neste momento?
+As métricas padrão funcionam muito bem como ponto de partida. No entanto, as métricas padrão só serão úteis até certo ponto. Por exemplo:  Qual é a probabilidade de que o esquema de particionamento que você escolheu resulte na utilização perfeitamente uniforme por todas as partições? Qual é a chance de que a carga de determinado serviço seja constante ao longo do tempo ou que seja uniforme entre várias partições neste momento?
 
 Você pode executar somente com as métricas padrão. No entanto, isso geralmente significa que a utilização do cluster é menor e mais irregular que o desejado. Isso ocorre porque as métricas padrão não são adaptáveis e presumem que tudo seja equivalente. Por exemplo, uma réplica Primária está ocupada e uma que não está contribuem ambas com "1" para a métrica de PrimaryCount. Na pior das hipóteses, usar apenas as métricas padrão também pode resultar em nós com agendamento excessivo, causando problemas de desempenho. Se você está interessado em obter o máximo de seu cluster e evitar problemas de desempenho, você precisa usar as métricas personalizadas e o relatório de carga dinâmico.
 
@@ -65,13 +66,13 @@ As métricas são configuradas por instância de serviço nomeado ao criar o ser
 
 Qualquer métrica possui propriedades que a descrevem: um nome, um peso e uma carga padrão.
 
-* Nome da Métrica: o nome da métrica. O nome da métrica é um identificador exclusivo para a métrica do cluster da perspectiva do Gerenciador de Recursos.
-* Peso: o peso da métrica define o quanto ela é importante em relação as outras métricas para esse serviço.
-* Default Load: A carga padrão é representada de maneira diferente dependendo se o serviço está com ou sem estado.
+* Nome da métrica: O nome da métrica. O nome da métrica é um identificador exclusivo para a métrica do cluster da perspectiva do Gerenciador de Recursos.
+* Peso: Peso da métrica define o quanto essa métrica é importante em relação as outras métricas para esse serviço.
+* Padrão de carga: A carga padrão é representada de forma diferente dependendo se o serviço é com ou sem estado.
   * Para serviços sem estado cada métrica tem uma propriedade única chamada DeafultLoad
   * Para serviços com estado, você define:
-    * PrimaryDefaultLoad: o valor padrão dessa métrica que esse serviço consome quando é primário
-    * SecondaryDefaultLoad: o valor padrão dessa métrica que esse serviço consome quando é secundário
+    * PrimaryDefaultLoad: O valor padrão dessa métrica que esse serviço consome quando é primário
+    * SecondaryDefaultLoad: O valor padrão dessa métrica que esse serviço consome quando é secundário
 
 > [!NOTE]
 > Se definir métricas personalizadas e _também_ desejar usar as métricas padrão, você precisa adicionar _explicitamente_ as métricas padrão e definir os pesos e valores para elas. Isso ocorre porque você deve definir a relação entre as métricas padrão e as métricas personalizadas. Por exemplo, talvez você se preocupe mais com ConnectionCount ou WorkQueueDepth do que com a distribuição Principal. Por padrão o peso da métrica PrimaryCount é Alto, portanto, você deseja reduzi-lo para Médio, quando você adiciona as outras métricas para garantir que eles tenham precedência.
@@ -215,6 +216,7 @@ Como lembrete, essa sintaxe é ("MetricName, MetricWeight, PrimaryDefaultLoad, S
 Vamos ver qual poderia ser a aparência de um layout de cluster:
 
 <center>
+
 ![Cluster equilibrado com métricas padrão e personalizadas][Image2]
 </center>
 
@@ -232,14 +234,15 @@ Há alguns itens que precisamos explicar:
 ## <a name="metric-weights"></a>Pesos de métrica
 Controlar as mesmas métricas em serviços diferentes é importante. Essa exibição global é o que permite que o Gerenciador de Recursos de Cluster rastreie o consumo do cluster, equilibre o consumo entre os nós e garanta que os nós não ultrapassem a capacidade. No entanto, os serviços podem ter diferentes opiniões sobre a importância da mesma métrica. Além disso, em um cluster com várias métricas e muitos serviços, talvez não existam soluções perfeitamente equilibradas para todas as métricas. Como o Gerenciador de Recursos de Cluster deve lidar com essas situações?
 
-Os pesos das métricas permitem que o Gerenciador de Recursos de Cluster decida como equilibrar o cluster quando não houver uma resposta perfeita. Os pesos das métricas também permitem que o Gerenciador de Recursos de Cluster equilibre serviços específicos de maneira diferente. As métricas podem ter quatro níveis de peso diferente: zero, baixa, média e alta. Uma métrica com um peso Zero não contribui em nada ao considerar se as coisas estão balanceadas ou não. No entanto, sua carga ainda contribui para o gerenciamento da capacidade. Métricas com peso Zero ainda são úteis e costumam ser usadas como parte do monitoramento de desempenho e do comportamento de serviço. [Este artigo](service-fabric-diagnostics-event-generation-infra.md) fornece mais informações sobre o uso de métricas para monitoramento e diagnóstico dos seus serviços. 
+Os pesos das métricas permitem que o Gerenciador de Recursos de Cluster decida como equilibrar o cluster quando não houver uma resposta perfeita. Os pesos das métricas também permitem que o Gerenciador de Recursos de Cluster equilibre serviços específicos de maneira diferente. As métricas podem ter quatro níveis de peso diferente: Zero, baixa, média e alta. Uma métrica com um peso Zero não contribui em nada ao considerar se as coisas estão balanceadas ou não. No entanto, sua carga ainda contribui para o gerenciamento da capacidade. Métricas com peso Zero ainda são úteis e costumam ser usadas como parte do monitoramento de desempenho e do comportamento de serviço. [Este artigo](service-fabric-diagnostics-event-generation-infra.md) fornece mais informações sobre o uso de métricas para monitoramento e diagnóstico dos seus serviços. 
 
 O impacto real de pesos de métricas diferentes no cluster é que o Gerenciador de Recursos de Cluster gera diferentes soluções. Os pesos das métricas informam ao Gerenciador de Recursos de Cluster que determinadas métricas são mais importantes do que outras. Quando não há uma solução perfeita, o Gerenciador de Recursos de Cluster pode preferir soluções que equilibrem melhor as métricas ponderadas mais elevadas. Se um serviço achar que uma métrica específica não é importante, ele poderá considerar seu uso dessa métrica desequilibrado. Isso permite que outro serviço obtenha uma distribuição uniforme de alguma métrica que seja importante para ele.
 
 Vamos conferir um exemplo de alguns relatórios de carga para ver como os pesos de métrica diferentes resultam em alocações diferentes no cluster. Neste exemplo, podemos ver que alternar o peso relativo das métricas faz com que o Gerenciador de Recursos de Cluster crie diferentes disposições de serviços.
 
 <center>
-![Exemplo de ponderação da métrica e seu impacto sobre as soluções de balanceamento][Image3]
+
+![Exemplo de ponderação da métrica e seu impacto sobre soluções de balanceamento][Image3]
 </center>
 
 Neste exemplo, há quatro serviços diferentes, todos relatando diferentes valores para duas métricas diferentes, Métrica A e Métrica B. Em um caso, todos os serviços definem a Métrica A como a mais importante (Peso = Alto) e a Métrica B como não importante (Peso = Baixo). Nesse caso, vemos que o Gerenciador de Recursos de Cluster dispõe os serviços para que a Métrica A seja mais equilibrada que a Métrica B. "Melhor equilibrada" significa que a Métrica A tem um desvio padrão menor que a Métrica B. No segundo caso, invertemos os pesos de métrica. Como resultado, o Gerenciador de Recursos de Cluster troca os serviços A e B para propor uma alocação em que a Métrica B seja mais equilibrada do que a Métrica A.
@@ -256,7 +259,8 @@ Há vários pesos que são rastreados para cada métrica. O primeiro peso é def
 O que aconteceria se o Gerenciador de Recursos de Cluster não se importasse com o balanceamento global e local? Bem, é fácil criar soluções que são balanceadas globalmente, mas que resultam em um balanceamento de recursos inadequado para serviços individuais. No exemplo a seguir, vamos examinar um serviço configurado somente com as métricas padrão e ver o que acontece quando apenas o balanceamento global é considerado:
 
 <center>
-![O impacto de uma única solução global][Image4]
+
+![O impacto de uma única solução Global][Image4]
 </center>
 
 No exemplo acima, baseado somente em balanceamento global, o cluster como um todo é realmente balanceado. Todos os nós têm a mesma contagem de primárias e o mesmo número total de réplicas. Entretanto, se você examinar o impacto real dessa alocação, isso não é tão bom: a perda de qualquer nó afeta uma determinada carga de trabalho desproporcionalmente, já que leva todos seus primários. Por exemplo, se o primeiro nó falhasse, as três primárias para as três partições diferentes do serviço Círculo seriam todas perdidas. Por outro lado, as partições dos serviços Triangle e Hexagon perdem uma réplica. Isso não causa uma interrupção, só é necessário recuperar a réplica que foi derrubada.

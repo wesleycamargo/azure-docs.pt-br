@@ -15,12 +15,12 @@ ms.date: 01/22/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: 8073dff6dbd8bbceb16d7fdcf8d39012233c32d6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 24c500251c8e91b7542c5c9d3e77676205c88c1f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240447"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090960"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Ações de nó de unidade de escala no Azure Stack
 
@@ -42,15 +42,15 @@ Para exibir o status de uma unidade de escala:
 3. Nos resultados, selecione a unidade de escala.
 4. À esquerda, sob **gerais**, selecione **nós**.
 
-  Exiba as seguintes informações:
+   Exiba as seguintes informações:
 
-  - A lista de nós individuais
-  - Status operacional (consulte a lista abaixo)
-  - Status de energia (em execução ou parado)
-  - modelo de servidor
-  - Endereço IP do baseboard management controller (BMC)
-  - Número total de núcleos
-  - quantidade total de memória
+   - A lista de nós individuais
+   - Status operacional (consulte a lista abaixo)
+   - Status de energia (em execução ou parado)
+   - modelo de servidor
+   - Endereço IP do baseboard management controller (BMC)
+   - Número total de núcleos
+   - quantidade total de memória
 
 ![status de uma unidade de escala](media/azure-stack-node-actions/multinodeactions.png)
 

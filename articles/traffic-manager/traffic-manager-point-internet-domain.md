@@ -1,5 +1,5 @@
 ---
-title: Apontar um domínio de Internet da empresa para um nome de domínio do Gerenciador de Tráfego do Azure
+title: Apontar um domínio de Internet da empresa para um nome de domínio do Gerenciador de tráfego do Azure
 description: Este artigo ajudará a indicar o nome de domínio de sua empresa para um nome de domínio do Gerenciador de Tráfego.
 services: traffic-manager
 author: kumudd
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: kumud
-ms.openlocfilehash: c11d8ddcd9a1c1f051ab779a66710ab3d968acab
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: 77a5fbab6ecda910750ab2b8bae987e77607223a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200574"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57903480"
 ---
 # <a name="point-a-company-internet-domain-to-an-azure-traffic-manager-domain"></a>Apontar um domínio de Internet da empresa para um domínio do Gerenciador de Tráfego do Azure
 
@@ -25,7 +25,7 @@ Por exemplo, para o nome do ponto `www.contoso.com` para o nome DNS do Gerenciad
 
     www.contoso.com IN CNAME contoso.trafficmanager.net
 
-Todas as solicitações de tráfego para *www.contoso.com* são direcionadas para *contoso.trafficmanager.net*.
+Todo o tráfego de solicitações para *www\.contoso.com* são direcionadas para *contoso.trafficmanager.net*.
 
 > [!IMPORTANT]
 > Não é possível indicar um domínio de segundo nível, como *contoso.com*, para o domínio do Gerenciador de Tráfego. Os padrões de protocolo DNS não permitem registros CNAME para nomes de domínio de segundo nível.

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e0aaddb841687718295e09e64b23d9cefa9246fd
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: cc07aa9c1b2c540c33949a8c591bd98f91b04666
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436103"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225443"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Implantar o Hybrid Runbook Worker do Linux
 
@@ -62,7 +62,7 @@ Antes de prosseguir, observe o workspace do Log Analytics ao qual sua conta de A
 
 1. Habilite a solução **Hybrid Worker de Automação** no Azure usando um dos métodos a seguir:
 
-   * Adicione a solução **Hybrid Worker de Automação** à sua assinatura, usando o procedimento em [Adicionar soluções de gerenciamento do Log Analytics ao workspace](../log-analytics/log-analytics-add-solutions.md).
+   * Adicionar o **Hybrid Worker de automação** solução para sua assinatura usando o procedimento na [adicionar Azure Monitor registra soluções em seu espaço de trabalho](../log-analytics/log-analytics-add-solutions.md).
    * Execute o cmdlet a seguir:
 
         ```azurepowershell-interactive
@@ -71,7 +71,7 @@ Antes de prosseguir, observe o workspace do Log Analytics ao qual sua conta de A
 
 1. Instale o Agente do Log Analytics para Linux, executando o comando a seguir. Substitua \<WorkspaceID\> e \<WorkspaceKey\> pelos valores apropriados do workspace.
 
-  [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)] 
+   [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)] 
 
    ```bash
    wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
@@ -85,9 +85,12 @@ Antes de prosseguir, observe o workspace do Log Analytics ao qual sua conta de A
 
 1. Depois que o comando for concluído, a página **Grupos do Hybrid Worker** no portal do Azure mostrará o novo grupo e o número de membros. Se este for um grupo existente, o número de membros será incrementado. Você pode selecionar o grupo da lista na página **Grupos do Hybrid Worker** e no bloco **Hybrid Workers**. Na página **Hybrid Workers**, você verá cada membro do grupo listado.
 
+> [!NOTE]
+> Se você estiver usando a extensão de máquina virtual do Azure Monitor para Linux para uma VM do Azure, recomendamos a configuração `autoUpgradeMinorVersion` como falso como auto atualização de versões pode causar problemas de Hybrid Runbook Worker. Para saber como atualizar a extensão manualmente, consulte [implantação da CLI do Azure ](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment).
+
 ## <a name="turning-off-signature-validation"></a>Desativar a validação de assinatura
 
-Por padrão, o Linux Hybrid Runbook Workers exige validação de assinatura. Se você executar um runbook não assinado em um worker, verá um erro informando "Falha na validação de assinatura." Para desativar a validação de assinatura, execute o comando a seguir. Substitua o segundo parâmetro pela ID do workspace do Log Analytics.
+Por padrão, o Linux Hybrid Runbook Workers exige validação de assinatura. Se você executar um runbook não assinado em um worker, verá um erro informando "Falha na validação de assinatura." Para desativar a validação de assinatura, execute o comando a seguir. Substitua o segundo parâmetro com sua ID de espaço de trabalho da análise de log.
 
  ```bash
  sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <LogAnalyticsworkspaceId>
@@ -111,12 +114,8 @@ Os seguintes tipos de runbook não funcionam em um Linux Hybrid Worker:
 * Gráfico
 * Fluxo de Trabalho Gráfico do PowerShell
 
-## <a name="troubleshoot"></a>Solucionar problemas
-
-Para saber como solucionar problemas de seus Hybrid Runbook Workers, consulte [Solucionar Problemas de Linux Hybrid Runbook Workers](troubleshoot/hybrid-runbook-worker.md#linux)
-
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para saber como configurar os runbooks para automatizar processos no datacenter local ou em outro ambiente de nuvem, consulte [Executar runbooks em um Hybrid Runbook Worker](automation-hrw-run-runbooks.md).
 * Para obter instruções sobre como remover os Hybrid Runbook Workers, consulte [Remover Hybrid Runbook Workers da Automação do Azure](automation-hybrid-runbook-worker.md#remove-a-hybrid-runbook-worker).
-
+* Para saber como solucionar problemas de seus Hybrid Runbook Workers, consulte [Solucionar Problemas de Linux Hybrid Runbook Workers](troubleshoot/hybrid-runbook-worker.md#linux)

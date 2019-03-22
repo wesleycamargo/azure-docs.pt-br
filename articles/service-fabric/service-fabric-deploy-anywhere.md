@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: cf16a01ef1003b73740c05ff45f703a65aaf0acc
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: 8c344999839b3dcde98536b3d8d196a434f4cde8
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55961170"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244903"
 ---
 # <a name="comparing-azure-and-standalone-service-fabric-clusters-on-windows-server-and-linux"></a>Comparando clusters do Service Fabric independentes e do Azure no Windows Server e no Linux
 Um cluster do Service Fabric é um conjunto de computadores físicos ou virtuais conectados via rede, nos quais os microsserviços são implantados e gerenciados. Um computador ou VM que faz parte de um cluster é chamado de nó de cluster. Os clusters podem ser dimensionados para milhares de nós. Se você adiciona novos nós ao cluster, o Service Fabric reequilibra as réplicas de partição de serviço e instâncias entre o número aumentado de nós. O desempenho geral do aplicativo é melhorado e a contenção para o acesso à memória é reduzida. Se os nós no cluster não estiverem sendo usados com eficiência, você poderá diminuir o número de nós no cluster. O Service Fabric redistribui novamente as réplicas de partição e instâncias entre o número reduzido de nós, para fazer melhor uso do hardware em cada nó.
@@ -33,7 +33,7 @@ No Azure, fornecemos integração a outros recursos e serviços do Azure, o que 
 * **Azure Resource Manager:** O uso do Azure Resource Manager permite o fácil gerenciamento de todos os recursos usados pelo cluster como uma unidade e simplifica o acompanhamento de custos e faturamento.
 * **Cluster do Service Fabric como um recurso do Azure** Um cluster do Service Fabric é um recurso do Azure. Portanto, é possível modelá-lo como faz com outros recursos no Azure.
 * **Integração à infraestrutura do Azure** O Service Fabric é coordenado com a infraestrutura subjacente do Azure para sistema operacional, rede e outras atualizações de modo a melhorar a disponibilidade e a confiabilidade dos seus aplicativos.  
-* **Diagnóstico:** No Azure, fornecemos a integração no diagnóstico do Azure e no Log Analytics.
+* **Diagnóstico:** No Azure, fornecemos a integração com o diagnóstico do Azure e logs do Azure Monitor.
 * **Dimensionamento automático:** Para os clusters no Azure, fornecemos uma funcionalidade interna de dimensionamento automático devido aos conjuntos de escala da Máquina Virtual. Em ambientes locais e outros de nuvem, você precisa criar seu próprio recurso de dimensionamento automático ou dimensionar manualmente usando as APIs que o Service Fabric expõe para dimensionar os clusters.
 
 ## <a name="benefits-of-standalone-clusters"></a>Benefícios de clusters independentes

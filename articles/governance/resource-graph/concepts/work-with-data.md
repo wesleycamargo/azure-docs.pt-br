@@ -4,16 +4,16 @@ description: Entenda como obter e controlar grandes conjuntos de dados enquanto 
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/31/2019
+ms.date: 02/26/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 8808f42cdd6fb547b70695278993faa0f52cdb61
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: ef61314ae124668fc8970e6d68a0f927bdf771bc
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338386"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889028"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Trabalhando com grandes conjuntos de dados de recurso do Azure
 
@@ -22,6 +22,9 @@ O Azure Resource Graph foi projetado para trabalhar com informações sobre os r
 ## <a name="data-set-result-size"></a>Tamanho do resultado do conjunto de dados
 
 Por padrão, o Resource Graph limita qualquer consulta a retornar apenas **100** registros. Esse controle protege o usuário e o serviço de consultas não intencionais que resultariam em grandes conjuntos de dados. Esse evento geralmente ocorre quando um cliente está experimentando consultas para localizar e filtrar recursos da maneira que atende às suas necessidades específicas. Esse controle é diferente de usar os operadores de linguagem de programação [top](/azure/kusto/query/topoperator) ou [limit](/azure/kusto/query/limitoperator) do Azure Data Explorer para limitar os resultados.
+
+> [!NOTE]
+> Ao usar **primeira**, é recomendável para ordenar os resultados pelo menos uma coluna com `asc` ou `desc`. Sem classificação, os resultados retornados são aleatórias e não repetível.
 
 O limite padrão pode ser substituído por meio de todos os métodos de interação com o Resource Graph. Os exemplos a seguir mostram como alterar o limite de tamanho do conjunto de dados para _200_:
 
@@ -43,6 +46,9 @@ O controle que for _mais restritivo_ prevalecerá. Por exemplo, se sua consulta 
 
 A próxima opção para trabalhar com grandes conjuntos de dados é o controle **Skip**. Esse controle permite que sua consulta pule ou ignore o número definido de registros antes de retornar os resultados. **Skip** é útil para consultas que classificam os resultados de uma maneira significativa, em que a intenção é chegar a registros em algum lugar no meio do conjunto de resultados. Se os resultados necessários estão no final do conjunto de dados retornado, é mais eficiente usar uma configuração de classificação diferente e, em vez disso, recuperar os resultados da parte superior do conjunto de dados.
 
+> [!NOTE]
+> Ao usar **Skip**, é recomendável para ordenar os resultados pelo menos uma coluna com `asc` ou `desc`. Sem classificação, os resultados retornados são aleatórias e não repetível.
+
 Os exemplos a seguir mostram como ignorar os primeiros _10_ registros em que uma consulta resultaria, começando em vez disso o conjunto de resultados pelo 11º registro:
 
 ```azurecli-interactive
@@ -63,7 +69,7 @@ Quando é necessário dividir um conjunto de resultados em conjuntos de registro
 Quando **resultTruncated** é **true**, a propriedade **$skipToken** é definida na resposta. Esse valor é usado com os mesmos valores de consulta e de assinatura para obter o próximo conjunto de registros que correspondeu à consulta.
 
 > [!IMPORTANT]
-> A consulta precisa **projetar** o campo **id** para que a paginação funcione. Se ela estiver ausente da consulta, a resposta da API REST não incluirá o **$skipToken**.
+> A consulta precisa **projetar** o campo **id** para que a paginação funcione. Se ele estiver ausente da consulta, a resposta da API REST não incluirá o **$skipToken**.
 
 Para ver um exemplo, confira a [Consulta de próxima página](/rest/api/azureresourcegraph/resources/resources#next_page_query) na documentação da API REST.
 

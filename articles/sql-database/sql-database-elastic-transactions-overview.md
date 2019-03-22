@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: ae9f4d1ebcb84748b665579104f63dab3ee6f076
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: d7865d394dfc955a7b24115e747dd77352d89e3d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463864"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901909"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Transações distribuídas entre bancos de dados na nuvem
 
@@ -126,13 +126,17 @@ Observe que o instalador do .NET 4.6.1 pode exigir mais armazenamento temporári
 
 ## <a name="transactions-across-multiple-servers"></a>Transações entre vários servidores
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> O módulo do PowerShell do Azure Resource Manager ainda é compatível com o banco de dados SQL, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para esses cmdlets, consulte [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
+
 Há suporte para transações de Banco de Dados Elástico entre diferentes servidores de Banco de Dados SQL no Banco de Dados SQL do Azure. Quando as transações cruzam os limites do servidor de Banco de Dados SQL, os servidores participantes precisam primeiro serem inseridos em uma relação de comunicação comum. Após a relação de comunicação ser estabelecida, qualquer banco de dados em qualquer um dos dois servidores poderá participar de transações elásticas com bancos de dados do outro servidor. Com transações abrangendo mais de dois servidores de Banco de Dados SQL, uma relação de comunicação deve estar em vigor para qualquer par de servidores de Banco de Dados SQL.
 
 Use os cmdlets do PowerShell a seguir para gerenciar as relações de comunicação entre servidores para transações de Banco de Dados Elástico:
 
-* **New-AzureRmSqlServerCommunicationLink**: Use esse cmdlet para criar uma nova relação de comunicação entre dois servidores de Banco de Dados SQL no Banco de Dados SQL do Azure. A relação é simétrica, o que significa que ambos os servidores podem iniciar transações com outro.
-* **Get-AzureRmSqlServerCommunicationLink**: Use esse cmdlet para recuperar as relações de comunicação existentes e suas propriedades.
-* **Remove-AzureRmSqlServerCommunicationLink**: Use esse cmdlet para remover as relações de comunicação existentes. 
+* **New-AzSqlServerCommunicationLink**: Use esse cmdlet para criar uma nova relação de comunicação entre dois servidores de Banco de Dados SQL no Banco de Dados SQL do Azure. A relação é simétrica, o que significa que ambos os servidores podem iniciar transações com outro.
+* **Get-AzSqlServerCommunicationLink**: Use esse cmdlet para recuperar as relações de comunicação existentes e suas propriedades.
+* **Remove-AzSqlServerCommunicationLink**: Use esse cmdlet para remover as relações de comunicação existentes. 
 
 ## <a name="monitoring-transaction-status"></a>Monitorando o status da transação
 

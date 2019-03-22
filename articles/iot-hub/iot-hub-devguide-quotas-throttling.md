@@ -1,19 +1,19 @@
 ---
 title: Entender cotas e limitação do Hub IoT do Azure | Microsoft Docs
 description: Guia do desenvolvedor ‑ Descrição das cotas que se aplicam ao Hub IoT e o comportamento de limitação esperado.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 09/05/2018
-ms.author: dobett
-ms.openlocfilehash: d75a2cef96eaafb606c66d469b0e27fed8bb3573
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 20e92317e748ebe19661a7c35d68829229b62378
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466805"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791360"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referência - Cotas e limitação do Hub IoT
 
@@ -42,8 +42,8 @@ A tabela a seguir mostra as limitações impostas. Os valores referem-se a um hu
 | Recebimentos de nuvem para dispositivo<sup>1</sup> <br/> (somente quando o dispositivo usar HTTPS)| 16,67/s/unidade (1000/min/unidade) | 16,67/s/unidade (1000/min/unidade) | 833,33/s/unidade (50000/min/unidade) |
 | Upload de arquivos | 1,67 notificações de carregamento de arquivo/s/unidade (100/min/unidade) | 1,67 notificações de carregamento de arquivo/s/unidade (100/min/unidade) | 83,33 notificações de carregamento de arquivo/s/unidade (5000/min/unidade) |
 | Métodos diretos<sup>1</sup> | 160KB/seg/unidade<sup>2</sup> | 480KB/seg/unidade<sup>2</sup> | 24MB/seg/unidade<sup>2</sup> | 
-| Leituras de (dispositivos e módulos) gêmeos <sup>1</sup> | 10/s | Máximo de 10/s ou 1/s/unidade | 50/s/unidade |
-| Atualizações de (dispositivo e módulo) gêmeos <sup>1</sup> | 10/s | Máximo de 10/s ou 1/s/unidade | 50/s/unidade |
+| Leituras de (dispositivos e módulos) gêmeos <sup>1</sup> | 100/s | Máximo de 100/s ou 10/s/unidade | 500/s/unidade |
+| Atualizações de (dispositivo e módulo) gêmeos <sup>1</sup> | 50/s | Máximo de 50/s ou 5/s/unidade | 250/s/unidade |
 | Operações de trabalhos<sup>1,3</sup> <br/> (criar, atualizar, listar, excluir) | 1,67/s/unidade (100/min/unidade) | 1,67/s/unidade (100/min/unidade) | 83,33/s/unidade (5000/min/unidade) |
 | Operações de dispositivo de trabalhos<sup>1</sup> <br/> (atualizar gêmeos, invocar o método direto) | 10/s | Máximo de 10/s ou 1/s/unidade | 50/s/unidade |
 | Configurações e implantações de borda <sup>1</sup> <br/> (criar, atualizar, listar, excluir) | 0,33/s/unidade (20/min/unidade) | 0,33/s/unidade (20/min/unidade) | 0,33/s/unidade (20/min/unidade) |
@@ -52,7 +52,7 @@ A tabela a seguir mostra as limitações impostas. Os valores referem-se a um hu
 | Transferência máxima de dados de fluxo do dispositivo<sup>4</sup> (agregar volume por dia) | 300 MB | 300 MB | 300 MB |
 
 
-<sup>1</sup>Esse recurso não está disponível na camada básica do Hub IoT. Para obter mais informações, consulte [Como escolher o Hub IoT correto](iot-hub-scaling.md). <br/><sup>2</sup>O tamanho do medidor de limitação é 8 KB. <br/><sup>3</sup>Você só pode ter um trabalho de importação/exportação de dispositivo ativo por vez. <br/><sup>4</sup>Os fluxos de dispositivo do Hub IoT só estão disponíveis para S1, S2, S3 e SKU de F1.
+<sup>1</sup>Esse recurso não está disponível na camada básica do Hub IoT. Para obter mais informações, consulte [Como escolher o Hub IoT correto](iot-hub-scaling.md). <br/><sup>2</sup>tamanho do medidor de limitação é de 4 KB. <br/><sup>3</sup>Você só pode ter um trabalho de importação/exportação de dispositivo ativo por vez. <br/><sup>4</sup>Os fluxos de dispositivo do Hub IoT só estão disponíveis para S1, S2, S3 e SKU de F1.
 
 As *conexões de dispositivo* controla a taxa em que novas conexões de dispositivo podem ser estabelecidas com um Hub IoT. A restrição de *conexões de dispositivo* não controla o número máximo de dispositivos conectados simultaneamente. A limitação da taxa de *conexões de dispositivo* depende do número de unidades provisionadas para o hub IoT.
 

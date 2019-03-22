@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 07/03/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 4356ea57e73e063d18155611b8c11090aa11edb3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d478307ff4393d84a854fcd3b2ea0efd77de7135
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471208"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087832"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Início Rápido: Executar o primeiro trabalho em Lote no portal do Azure
 
@@ -34,7 +34,7 @@ Siga estas etapas para criar uma conta do Lote de exemplo para fins de teste. Vo
 
 1. Selecione **Criar um recurso** >  **Computação** > **Serviço de lote**. 
 
-  ![Lote no Marketplace][marketplace_portal]
+   ![Lote no Marketplace][marketplace_portal]
 
 2. Insira valores para **Nome do registro** e **Grupo de recursos**. O nome da conta deve ser exclusivo dentro da **Localização** do Azure selecionada; use apenas caracteres em minúsculas ou números e 3 a 24 caracteres. 
 
@@ -42,7 +42,7 @@ Siga estas etapas para criar uma conta do Lote de exemplo para fins de teste. Vo
 
 4. Mantenha os padrões para as configurações restantes e selecione **Criar** para criar a conta.
 
-  ![Criar uma conta do Batch][account_portal]  
+   ![Criar uma conta do Batch][account_portal]  
 
 Quando a mensagem **Implantação bem-sucedida** for exibida, vá para a conta do Lote no portal.
 
@@ -57,23 +57,23 @@ Agora que você tem uma conta do Lote, crie um pool de exemplo de nós de comput
 
 3. Em **Sistema Operacional**, selecione as configurações a seguir (você pode explorar outras opções).
   
-  |Configuração  |Valor  |
-  |---------|---------|
-  |**Tipo de imagem**|Marketplace (Linux/Windows)|
-  |**Publicador**     |MicrosoftWindowsServer|
-  |**Oferta**     |WindowsServer|
-  |**Sku**     |2012-R2-Datacenter-smalldisk|
+   |Configuração  |Valor  |
+   |---------|---------|
+   |**Tipo de imagem**|Marketplace (Linux/Windows)|
+   |**Publicador**     |MicrosoftWindowsServer|
+   |**Oferta**     |WindowsServer|
+   |**Sku**     |2012-R2-Datacenter-smalldisk|
 
-  ![Selecione um sistema operacional de pool][pool_os] 
+   ![Selecione um sistema operacional de pool][pool_os] 
 
 4. Role para baixo para inserir as configurações de **Tamanho de Nó** e **Escala**. O tamanho de nó sugerido oferece um bom equilíbrio entre desempenho e custo para este exemplo rápido.
   
-  |Configuração  |Valor  |
-  |---------|---------|
-  |**Tipo de preço do nó**     |Standard_A1|
-  |**Nós dedicados de destino**     |2|
+   |Configuração  |Valor  |
+   |---------|---------|
+   |**Tipo de preço do nó**     |Standard_A1|
+   |**Nós dedicados de destino**     |2|
 
-  ![Selecione um tamanho de pool][pool_size] 
+   ![Selecione um tamanho de pool][pool_size] 
 
 5. Mantenha os padrões para as configurações restantes e selecione **OK** para criar o pool.
 
@@ -91,7 +91,7 @@ Agora que você tem um pool, crie um trabalho para executar nele. Um trabalho do
 
 2. Insira uma **ID do trabalho** chamada *myjob*. Em **Pool**, selecione *mypool*. Mantenha os padrões para as configurações restantes e clique em **OK**.
 
-  ![Criar um trabalho][job_create]
+   ![Criar um trabalho][job_create]
 
 Depois que o trabalho é criado, a página **Tarefas** é aberta.
 
@@ -109,7 +109,7 @@ Para criar a primeira tarefa:
 
 3. Na **Linha de comando**, digite `cmd /c "set AZ_BATCH & timeout /t 90 > NUL"`. Mantenha os padrões para as configurações restantes e clique em **OK**.
 
-  ![Cria uma tarefa][task_create]
+   ![Cria uma tarefa][task_create]
 
 Depois de criar uma tarefa, o Lote a enfileira para ser executada no pool. Quando um nó fica disponível para executá-lo, a tarefa é executada.
 

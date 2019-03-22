@@ -2,18 +2,18 @@
 title: Usar GPUs no AKS (Serviço do Kubernetes do Azure)
 description: Saiba como usar GPUs para computação de alto desempenho ou cargas de trabalho de uso intensivo de gráficos no AKS (Serviço de Kubernetes do Azure)
 services: container-service
-author: lachie83
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 10/25/2018
-ms.author: laevenso
-ms.openlocfilehash: 683abd9bad93bff51bea84c8081d2b8f9d300cd4
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.date: 02/28/2019
+ms.author: iainfou
+ms.openlocfilehash: 64cd6276c00126a745e77f3d32679c54ebc2f190
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419241"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57771116"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Usar GPUs para cargas de trabalho de computação intensiva no AKS (Serviço de Kubernetes do Azure)
 
@@ -26,11 +26,11 @@ As GPUs (unidades de processamento gráfico) geralmente são usadas para cargas 
 
 Este artigo considera que já existe um cluster do AKS com nós compatíveis com GPUs. O cluster do AKS deve executar o Kubernetes 1.10 ou posterior. Se você precisar um cluster do AKS que atenda a esses requisitos, confira a primeira seção deste artigo para [criar um cluster do AKS](#create-an-aks-cluster).
 
-A CLI do Azure versão 2.0.49 ou posterior também precisa estar instalada e configurada. Execute  `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, confira  [Instalar a CLI do Azure][install-azure-cli].
+Você também precisa da CLI do Azure versão 2.0.59 ou posterior instalado e configurado. Execute  `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, confira  [Instalar a CLI do Azure][install-azure-cli].
 
 ## <a name="create-an-aks-cluster"></a>Criar um cluster AKS
 
-Se você precisar de um cluster do AKS que atenda aos requisitos mínimos (nó habilitado para GPU e Kubernetes versão 1.10 ou posterior), conclua as etapas a seguir. Se você já tem um cluster do AKS que atenda a esses requisitos, pule para a próxima seção.
+Se você precisar de um cluster do AKS que atenda aos requisitos mínimos (nó habilitado para GPU e Kubernetes versão 1.10 ou posterior), conclua as etapas a seguir. Se você já tiver um cluster do AKS que atende a esses requisitos [pular para a próxima seção](#confirm-that-gpus-are-schedulable).
 
 Primeiro, crie um grupo de recursos para o cluster usando o comando [az group create][az-group-create]. O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na região *eastus*:
 
@@ -38,7 +38,7 @@ Primeiro, crie um grupo de recursos para o cluster usando o comando [az group cr
 az group create --name myResourceGroup --location eastus
 ```
 
-Agora, crie um cluster do AKS usando o comando [az aks create][az-aks-create]. O exemplo a seguir cria um cluster com um único nó de tamanho `Standard_NC6` e executa a versão 1.10.8 do Kubernetes:
+Agora, crie um cluster do AKS usando o comando [az aks create][az-aks-create]. O exemplo a seguir cria um cluster com um único nó de tamanho `Standard_NC6`, e executa a versão 1.11.7 do Kubernetes:
 
 ```azurecli
 az aks create \
@@ -46,7 +46,7 @@ az aks create \
     --name myAKSCluster \
     --node-vm-size Standard_NC6 \
     --node-count 1 \
-    --kubernetes-version 1.10.8
+    --kubernetes-version 1.11.8
 ```
 
 Obtenha as credenciais do seu cluster do AKS usando o comando [az aks get-credentials][az-aks-get-credentials]:
@@ -63,7 +63,7 @@ Com o cluster do AKS criado, confirme se as GPUs são agendáveis no Kubernetes.
 $ kubectl get nodes
 
 NAME                       STATUS   ROLES   AGE   VERSION
-aks-nodepool1-18821093-0   Ready    agent   6m    v1.10.8
+aks-nodepool1-28993262-0   Ready    agent   6m    v1.11.7
 ```
 
 Agora use o comando [kubectl describe node][kubectl-describe] para confirmar se as GPUs são agendáveis. Na seção *Capacidade*, a GPU deve ser listada como `nvidia.com/gpu:  1`. Se você não vir as GPUs, confira a seção [Solucionar problemas de disponibilidade de GPU](#troubleshoot-gpu-availability).
@@ -71,9 +71,9 @@ Agora use o comando [kubectl describe node][kubectl-describe] para confirmar se 
 O exemplo condensado a seguir mostra que uma GPU está disponível no nó chamado *aks-nodepool1-18821093-0*:
 
 ```
-$ kubectl describe node aks-nodepool1-18821093-0
+$ kubectl describe node aks-nodepool1-28993262-0
 
-Name:               aks-nodepool1-18821093-0
+Name:               aks-nodepool1-28993262-0
 Roles:              agent
 Labels:             accelerator=nvidia
 
@@ -84,34 +84,34 @@ Capacity:
  ephemeral-storage:  30428648Ki
  hugepages-1Gi:      0
  hugepages-2Mi:      0
- memory:             57713824Ki
+ memory:             57713780Ki
  nvidia.com/gpu:     1
  pods:               110
 Allocatable:
- cpu:                5940m
+ cpu:                5916m
  ephemeral-storage:  28043041951
  hugepages-1Gi:      0
  hugepages-2Mi:      0
- memory:             53417120Ki
+ memory:             52368500Ki
  nvidia.com/gpu:     1
  pods:               110
 System Info:
- Machine ID:                 688e083d19554d4a9563bd138f4ca98b
- System UUID:                08162568-B987-A84D-8865-98D6EFC64B32
- Boot ID:                    7b440249-8a96-42eb-950f-08c9a3c530b7
- Kernel Version:             4.15.0-1023-azure
+ Machine ID:                 9148b74152374d049a68436ac59ee7c7
+ System UUID:                D599728C-96F3-B941-BC79-E0B70453609C
+ Boot ID:                    a2a6dbc3-6090-4f54-a2b7-7b4a209dffaf
+ Kernel Version:             4.15.0-1037-azure
  OS Image:                   Ubuntu 16.04.5 LTS
  Operating System:           linux
  Architecture:               amd64
  Container Runtime Version:  docker://1.13.1
- Kubelet Version:            v1.10.8
- Kube-Proxy Version:         v1.10.8
+ Kubelet Version:            v1.11.7
+ Kube-Proxy Version:         v1.11.7
 PodCIDR:                     10.244.0.0/24
-ProviderID:                  azure:///subscriptions/19da35d3-9a1a-4f3b-9b9c-3c56ef409565/resourceGroups/MC_myGPUCluster_myGPUCluster_eastus/providers/Microsoft.Compute/virtualMachines/aks-nodepool1-18821093-0
+ProviderID:                  azure:///subscriptions/<guid>/resourceGroups/MC_myResourceGroup_myAKSCluster_eastus/providers/Microsoft.Compute/virtualMachines/aks-nodepool1-28993262-0
 Non-terminated Pods:         (9 in total)
-  Namespace                  Name                                    CPU Requests  CPU Limits  Memory Requests  Memory Limits
-  ---------                  ----                                    ------------  ----------  ---------------  -------------
-  gpu-resources              nvidia-device-plugin-9cfcf              0 (0%)        0 (0%)      0 (0%)           0 (0%)
+  Namespace                  Name                                     CPU Requests  CPU Limits  Memory Requests  Memory Limits  AGE
+  ---------                  ----                                     ------------  ----------  ---------------  -------------  ---
+  gpu-resources              nvidia-device-plugin-97zfc               0 (0%)        0 (0%)      0 (0%)           0 (0%)         2m4s
 
 [...]
 ```
@@ -182,13 +182,13 @@ Agora use o comando [kubectl logs][kubectl-logs] para exibir os logs de pod. Os 
 ```
 $ kubectl logs samples-tf-mnist-demo-smnr6
 
-2018-10-25 18:31:10.155010: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
-2018-10-25 18:31:10.305937: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1030] Found device 0 with properties:
+2019-02-28 23:47:34.749013: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
+2019-02-28 23:47:34.879877: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1030] Found device 0 with properties:
 name: Tesla K80 major: 3 minor: 7 memoryClockRate(GHz): 0.8235
-pciBusID: ccb6:00:00.0
+pciBusID: 3130:00:00.0
 totalMemory: 11.92GiB freeMemory: 11.85GiB
-2018-10-25 18:31:10.305981: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1120] Creating TensorFlow device (/device:GPU:0) -> (device: 0, name: Tesla K80, pci bus id: ccb6:00:00.0, compute capability: 3.7)
-2018-10-25 18:31:14.941723: I tensorflow/stream_executor/dso_loader.cc:139] successfully opened CUDA library libcupti.so.8.0 locally
+2019-02-28 23:47:34.879915: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1120] Creating TensorFlow device (/device:GPU:0) -> (device: 0, name: Tesla K80, pci bus id: 3130:00:00.0, compute capability: 3.7)
+2019-02-28 23:47:39.492532: I tensorflow/stream_executor/dso_loader.cc:139] successfully opened CUDA library libcupti.so.8.0 locally
 Successfully downloaded train-images-idx3-ubyte.gz 9912422 bytes.
 Extracting /tmp/tensorflow/input_data/train-images-idx3-ubyte.gz
 Successfully downloaded train-labels-idx1-ubyte.gz 28881 bytes.
@@ -272,7 +272,7 @@ Primeiro, crie um namespace usando o comando [kubectl create namespace][kubectl-
 kubectl create namespace gpu-resources
 ```
 
-Crie um arquivo chamado *nvidia-device-plugin-ds.yaml* e cole o manifesto YAML a seguir. Atualize o `image: nvidia/k8s-device-plugin:1.10` do manifesto para corresponder à sua versão do Kubernetes. Por exemplo, se o cluster do AKS executar o Kubernetes versão 1.11, atualize a tag para `image: nvidia/k8s-device-plugin:1.11`.
+Crie um arquivo chamado *nvidia-device-plugin-ds.yaml* e cole o manifesto YAML a seguir. Atualize o `image: nvidia/k8s-device-plugin:1.11` do manifesto para corresponder à sua versão do Kubernetes. Por exemplo, se o cluster do AKS executar Kubernetes versão 1.12, atualize a marca a `image: nvidia/k8s-device-plugin:1.12`.
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -299,7 +299,7 @@ spec:
       - key: CriticalAddonsOnly
         operator: Exists
       containers:
-      - image: nvidia/k8s-device-plugin:1.10 # Update this tag to match your Kubernetes version
+      - image: nvidia/k8s-device-plugin:1.11 # Update this tag to match your Kubernetes version
         name: nvidia-device-plugin-ctr
         securityContext:
           allowPrivilegeEscalation: false

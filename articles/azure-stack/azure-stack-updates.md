@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/22/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: 1ee8b11b131a40150431daa22011e868ab290e3a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 6cddb513249b424ef0df2ed2d1b5609de17c0744
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250548"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894029"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Gerenciar atualizações na visão geral do Azure Stack
 
@@ -46,11 +46,10 @@ Como instalar atualizações, você pode exibir o status de alto nível como os 
 
 É altamente recomendável que você notifica os usuários de qualquer operação de manutenção, e que você agende as janelas de manutenção normal durante o horário não comercial se possível. Operações de manutenção podem afetar a cargas de trabalho de locatário e operações do portal.
 
-
 - Antes de iniciar a instalação dessa atualização, execute [AzureStack teste](azure-stack-diagnostic-test.md) com os seguintes parâmetros para validar o status do Azure Stack e resolva os problemas operacionais encontrados, incluindo todos os avisos e falhas. Também examinar os alertas ativos e resolva todos os que exigem ação.  
 
   ```PowerShell
-  Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary
+  Test-AzureStack -Group UpdateReadiness
   ``` 
 
 ## <a name="using-the-update-tile-to-manage-updates"></a>Usando o bloco de atualização para gerenciar atualizações

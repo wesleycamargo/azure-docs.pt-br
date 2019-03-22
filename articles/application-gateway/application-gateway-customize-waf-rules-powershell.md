@@ -1,32 +1,19 @@
 ---
-title: Personalizar regras de firewall do aplicativo Web no Gateway de Aplicativo do Azure – PowerShell | Microsoft Docs
+title: Personalizar regras de firewall de aplicativo web no Gateway de aplicativo do Azure - PowerShell
 description: Esta artigo fornece informações sobre como personalizar regras de firewall de aplicativo Web no Gateway de Aplicativo com o PowerShell.
-documentationcenter: na
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.custom: ''
-ms.workload: infrastructure-services
-ms.date: 07/26/2017
+ms.date: 2/22/2019
 ms.author: victorh
-ms.openlocfilehash: dfcd82a17a399f213f5c4e32326a8995d26e8458
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
-ms.translationtype: HT
+ms.openlocfilehash: f96395a54f66b787878faeee057f02818f956ade
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218262"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316992"
 ---
 # <a name="customize-web-application-firewall-rules-through-powershell"></a>Personalizar as regras de firewall de aplicativo Web por meio do PowerShell
-
-> [!div class="op_single_selector"]
-> * [Portal do Azure](application-gateway-customize-waf-rules-portal.md)
-> * [PowerShell](application-gateway-customize-waf-rules-powershell.md)
-> * [CLI do Azure](application-gateway-customize-waf-rules-cli.md)
 
 O WAF (firewall de aplicativo Web) do Gateway de Aplicativo do Azure fornece proteção para aplicativos Web. Essas proteções são fornecidas pelo CRS (conjunto de regras principais) do OWASP (Open Web Application Security Project). Algumas regras podem causar falsos positivos e bloquear o tráfego real. Por esse motivo, o Gateway de Aplicativo possibilita que a capacidade personalize regras e grupos de regras. Para obter mais informações sobre os grupos de regras e as regras específicas, consulte a [Lista de regras e grupos de regras de CRS do firewall de aplicativo Web](application-gateway-crs-rulegroups-rules.md).
 
@@ -39,7 +26,7 @@ A seguir estão exemplos de código que mostram como exibir regras e grupos de r
 O exemplo a seguir mostra como exibir grupos de regras:
 
 ```powershell
-Get-AzureRmApplicationGatewayAvailableWafRuleSets
+Get-AzApplicationGatewayAvailableWafRuleSets
 ```
 
 A saída a seguir é uma resposta truncada do exemplo anterior:
@@ -99,10 +86,23 @@ OWASP (Ver. 3.0):
 O exemplo a seguir desabilita as regras `911011` e `911012` em um gateway de aplicativo:
 
 ```powershell
-$disabledrules=New-AzureRmApplicationGatewayFirewallDisabledRuleGroupConfig -RuleGroupName REQUEST-911-METHOD-ENFORCEMENT -Rules 911011,911012
-Set-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -ApplicationGateway $gw -Enabled $true -FirewallMode Detection -RuleSetVersion 3.0 -RuleSetType OWASP -DisabledRuleGroups $disabledrules
-Set-AzureRmApplicationGateway -ApplicationGateway $gw
+$disabledrules=New-AzApplicationGatewayFirewallDisabledRuleGroupConfig -RuleGroupName REQUEST-911-METHOD-ENFORCEMENT -Rules 911011,911012
+Set-AzApplicationGatewayWebApplicationFirewallConfiguration -ApplicationGateway $gw -Enabled $true -FirewallMode Detection -RuleSetVersion 3.0 -RuleSetType OWASP -DisabledRuleGroups $disabledrules
+Set-AzApplicationGateway -ApplicationGateway $gw
 ```
+
+## <a name="mandatory-rules"></a>Regras obrigatórias
+
+A lista a seguir contém condições que causam o WAF bloquear a solicitação no modo de prevenção (no modo de detecção são registradas como exceções). Eles não podem ser configurados ou desabilitados:
+
+* Falha ao analisar o corpo da solicitação resulta na solicitação que está sendo bloqueada, a menos que a inspeção de corpo está desativada (XML, JSON, dados de formulário)
+* Comprimento de dados do corpo (e não há arquivos) de solicitação é maior do que o limite configurado
+* Corpo (incluindo arquivos) é maior que o limite de solicitação
+* Ocorreu um erro interno no mecanismo de WAF
+
+Específico do CRS 3. x:
+
+* Limite excedida de pontuação de anomalias de entrada
 
 ## <a name="next-steps"></a>Próximas etapas
 

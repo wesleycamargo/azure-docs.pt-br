@@ -18,12 +18,12 @@ ms.author: billmath
 author: billmath
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a45d776ea241e04aacf39e45f7bf6d2cc58c689
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8bd46bb820c7127c4fa6105fcc0be73bb66024c6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172158"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446632"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>Gerenciar a confiança do AD FS com o Azure AD usando o Azure AD Connect
 
@@ -105,7 +105,7 @@ O Azure AD Connect garante que a confiança do AD do Azure esteja sempre configu
 
 O Azure AD Connect versão 1.1.873.0 ou posterior faz um backup das configurações de confiança do Azure AD sempre que uma atualização é feita nas configurações de confiança do Azure AD. As configurações de confiança do AD do Azure são armazenadas em **% ProgramData% \ AADConnect \ ADFS**. O nome do arquivo está no seguinte formato AadTrust- &lt;date&gt;-&lt;time&gt; .txt, por exemplo - AadTrust-20180710-150216.txt
 
-![Um instantâneo de backup de exemplo de confiança do AD do Azure](./media/how-to-connect-azure-ad-trust/backup.png)
+![Uma captura de tela do exemplo de fazer backup de relação de confiança do AD do Azure](./media/how-to-connect-azure-ad-trust/backup.png)
 
 Você pode restaurar as regras de transformação de emissão usando as etapas sugeridas abaixo
 

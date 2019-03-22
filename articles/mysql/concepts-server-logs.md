@@ -1,17 +1,17 @@
 ---
 title: Logs do servidor para Banco de Dados do Azure para MySQL
 description: Descreve os logs disponíveis no Banco de Dados do Azure para MySQL para os parâmetros disponíveis para habilitar níveis de log diferentes.
-author: rachel-msft
-ms.author: raagyema
+author: ajlam
+ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/03/2018
-ms.openlocfilehash: c9f8fc4bee370f287b40275b76fa98d2552d7600
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.date: 02/28/2019
+ms.openlocfilehash: b1b5dffed0a82e3e3c91efd4024bafdc64f0d3d2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545066"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119030"
 ---
 # <a name="server-logs-in-azure-database-for-mysql"></a>Logs de servidor no Banco de Dados do Azure para MySQL
 No Banco de Dados do Azure para MySQL, o log de consultas lentas está disponível para os usuários. No entanto, não há suporte para acesso ao log de transação. O log de consultas lentas pode ser usado para identificar gargalos de desempenho para solução de problemas. 
@@ -44,18 +44,21 @@ Outros parâmetros que você pode ajustar incluem:
 Consulte a [documentação de log de consulta lenta](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) MySQL para descrições completas dos parâmetros de log de consultas lentas.
 
 ## <a name="diagnostic-logs"></a>Logs de diagnóstico
-O Banco de Dados do Azure para MySQL é integrado aos Logs de Diagnóstico do Monitor do Azure. Depois de ativar os logs de consulta lenta em seu servidor MySQL, você pode optar por emiti-los para o Log Analytics, Event Hubs ou Azure Storage. Para saber mais sobre como ativar logs de diagnóstico, consulte o como parte da [documentação registros de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md).
+O Banco de Dados do Azure para MySQL é integrado aos Logs de Diagnóstico do Monitor do Azure. Depois de habilitar logs de consulta lentos no servidor MySQL, você pode optar por fazer com que eles são emitidos para o armazenamento do Azure, Hubs de eventos ou logs do Azure Monitor. Para saber mais sobre como ativar logs de diagnóstico, consulte o como parte da [documentação registros de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md).
+
+> [!IMPORTANT]
+> Esse recurso de diagnóstico para logs do servidor só está disponível no uso geral e otimizado para memória [tipos de preço](concepts-pricing-tiers.md).
 
 A tabela a seguir descreve o que está em cada log. Dependendo do método de saída, os campos incluídos e a ordem em que aparecem podem variar.
 
 | **Propriedade** | **Descrição** |
-|---|---|---|
+|---|---|
 | TenantId | Sua ID de locatário |
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | Carimbo de data/hora quando o log foi gravado, em UTC |
 | Tipo | Tipo do log. Sempre `AzureDiagnostics` |
 | SubscriptionId | GUID para a assinatura a que o servidor pertence |
-| ResourceGroup | Nome do grupo de recursos ao qual o servidor pertence |
+| Grupo de Recursos | Nome do grupo de recursos ao qual o servidor pertence |
 | ResourceProvider | Nome do provedor de recursos. Sempre `MICROSOFT.DBFORMYSQL` |
 | ResourceType | `Servers` |
 | ResourceId | URI de recurso |
@@ -66,7 +69,7 @@ A tabela a seguir descreve o que está em cada log. Dependendo do método de sa�
 | start_time_t [UTC] | Horário em que a consulta começou |
 | query_time_s | Tempo total que a consulta levou para executar |
 | lock_time_s | Tempo total em que a consulta foi bloqueada |
-| user_host_s | Nome de Usuário |
+| user_host_s | Nome de usuário |
 | rows_sent_s | Número de linhas enviadas |
 | rows_examined_s | Número de linhas verificadas |
 | last_insert_id_s | [last_insert_id](https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_last-insert-id) |
@@ -76,5 +79,5 @@ A tabela a seguir descreve o que está em cada log. Dependendo do método de sa�
 | thread_id_s | id do thread |
 | \_ResourceId | URI de recurso |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas Etapas
 - [Como configurar e acessar logs de servidor por meio da CLI do Azure](howto-configure-server-logs-in-cli.md).

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: ff3fdec2f427e095c748e4a47079d783fa83802d
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: de2279d7f24400142f9d47ecf25378e7e4c47f9e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341327"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111966"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planejamento da migração de recursos de IaaS do clássico para o Azure Resource Manager
 Embora o Azure Resource Manager ofereça vários recursos incríveis, é fundamental planejar sua jornada de migração para garantir que tudo ocorra sem problemas. Gastar tempo no planejamento garantirá que não ocorram problemas durante a execução das atividades de migração. 
@@ -79,8 +79,8 @@ Os clientes de sucesso têm planos detalhados para quando as perguntas anteriore
   
   Conduzir um teste de laboratório do cenário exato (computação, rede e armazenamento) é a melhor maneira de garantir uma migração tranquila. Isso ajuda a garantir que:
 
-  - Um laboratório totalmente separado ou um ambiente de não produção existente para o teste. Recomendamos ter um laboratório totalmente separado que pode ser migrado repetidamente e modificado de forma destrutiva.  Os scripts para coletar/hidratar metadados das assinaturas reais são listados abaixo.
-  - É uma boa ideia criar o laboratório em uma assinatura separada. O motivo disso é que o laboratório será destruído repetidamente e ter uma assinatura isolada e separada reduzirá a possibilidade de que algo real seja acidentalmente excluído.
+- Um laboratório totalmente separado ou um ambiente de não produção existente para o teste. Recomendamos ter um laboratório totalmente separado que pode ser migrado repetidamente e modificado de forma destrutiva.  Os scripts para coletar/hidratar metadados das assinaturas reais são listados abaixo.
+- É uma boa ideia criar o laboratório em uma assinatura separada. O motivo disso é que o laboratório será destruído repetidamente e ter uma assinatura isolada e separada reduzirá a possibilidade de que algo real seja acidentalmente excluído.
 
   Isso pode ser feito com a ferramenta AsmMetadataParser. [Leia mais sobre essa ferramenta aqui](https://github.com/Azure/classic-iaas-resourcemanager-migration/tree/master/AsmToArmMigrationApiToolset)
 
@@ -114,13 +114,13 @@ Veja a seguir os problemas descobertos em muitas das migrações de maior porte.
     > Esses limites precisam ser acionados na mesma região do ambiente atual a ser migrado.
     >
 
-    - Interfaces de Rede
-    - Balanceadores de Carga
-    - IPs Públicos
-    - IPs Públicos Estáticos
-    - Núcleos
-    - Grupos de segurança de rede
-    - Tabelas de Rotas
+  - Interfaces de Rede
+  - Balanceadores de Carga
+  - IPs Públicos
+  - IPs Públicos Estáticos
+  - Núcleos
+  - Grupos de segurança de rede
+  - Tabelas de Rotas
 
     Você pode verificar suas cotas atuais do Azure Resource Manager usando os comandos a seguir com a última versão da CLI do Azure.
 

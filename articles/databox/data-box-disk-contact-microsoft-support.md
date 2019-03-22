@@ -8,12 +8,12 @@ ms.subservice: ''
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: alkohli
-ms.openlocfilehash: 763dfbc3813a63ffbc91180de1d5b518cef2a46d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: d62ad37e6bbe9c89ef803cefc43f373e287a7af7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470154"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100438"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box"></a>Abrir um tíquete de suporte para o Azure Data Box 
 
@@ -36,7 +36,7 @@ Execute as seguintes etapas para criar uma solicitação de suporte:
     2. Escolha sua **Assinatura**.
     3. Em **Serviço**, marque **Todos os serviços**. Na lista suspensa, selecione **Data Box – versão prévia**. 
     4. Especifique seu **Plano de suporte**.
-    5. Clique em **Próximo**.
+    5. Clique em **Avançar**.
 
         ![Noções básicas](./media/data-box-disk-contact-microsoft-support/data-box-disk-support1.png)
 
@@ -49,20 +49,20 @@ Execute as seguintes etapas para criar uma solicitação de suporte:
     5. Forneça a data de início e a hora para o problema.
     6. Em **Upload do arquivo**, clique no ícone de pasta para procurar outros arquivos que você deseja carregar.
     7. Marque **Compartilhar informações de diagnóstico**.
-    8. Clique em **Próximo**.
+    8. Clique em **Avançar**.
 
        ![Problema](./media/data-box-disk-contact-microsoft-support/data-box-disk-support2.png)
 
 4. Em **Nova solicitação de suporte**, clique **Etapa 3 Informações de contato**. Em **Informações de contato**, execute as seguintes etapas:
 
-    1. Nas **Opções de contato**, forneça seu método de contato preferencial (telefone ou email) e o idioma. O tempo de resposta é selecionado automaticamente com base em seu plano de assinatura.
-    2. Nas **Informações de contato**, informe seu nome, email, contato opcional e país. Selecione **Salvar alterações de contato para futuras solicitações de suporte**.
-    3. Clique em **Criar**.
+   1. Nas **Opções de contato**, forneça seu método de contato preferencial (telefone ou email) e o idioma. O tempo de resposta é selecionado automaticamente com base em seu plano de assinatura.
+   2. Nas **Informações de contato**, informe seu nome, email, contato opcional e país. Selecione **Salvar alterações de contato para futuras solicitações de suporte**.
+   3. Clique em **Criar**.
    
-        ![Informações de contato](./media/data-box-disk-contact-microsoft-support/data-box-disk-support3.png)   
+       ![Informações de contato](./media/data-box-disk-contact-microsoft-support/data-box-disk-support3.png)   
 
-    O Suporte da Microsoft usará essas informações para entrar em contato com você para obter mais informações, diagnóstico e resolução.
-Depois que você enviar sua solicitação, um engenheiro de Suporte entrará em contato com você assim que possível para prosseguir com sua solicitação.
+      O Suporte da Microsoft usará essas informações para entrar em contato com você para obter mais informações, diagnóstico e resolução.
+      Depois que você enviar sua solicitação, um engenheiro de Suporte entrará em contato com você assim que possível para prosseguir com sua solicitação.
 
 ## <a name="manage-a-support-request"></a>Gerenciar uma solicitação de suporte
 

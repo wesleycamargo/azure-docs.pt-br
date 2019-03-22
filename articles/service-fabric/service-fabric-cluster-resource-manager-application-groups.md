@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 4cae2370-77b3-49ce-bf40-030400c4260d
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: c8bab609212c837802be6f70e7fc74df6b5eaf2e
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
-ms.translationtype: HT
+ms.openlocfilehash: 94ae233f8591c43afa1bb73c3e17964922967d36
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346246"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58123021"
 ---
 # <a name="introduction-to-application-groups"></a>Introdução aos grupos de aplicativos
 O Cluster Resource Manager do Service Fabric geralmente gerencia os recursos de cluster distribuindo a carga (representada por meio de [Métricas](service-fabric-cluster-resource-manager-metrics.md)) uniformemente em todo o cluster. O Service Fabric gerencia a capacidade dos nós no cluster e o cluster como um todo por meio da [capacidade](service-fabric-cluster-resource-manager-cluster-description.md). As métricas e a capacidade funcionam muito bem para muitas cargas de trabalho, mas padrões que fazem uso intenso de diferentes Instâncias de Aplicativos do Service Fabric às vezes trazem requisitos adicionais. Por exemplo, você pode querer:
@@ -36,6 +36,7 @@ O caso de uso mais simples para capacidade do Aplicativo é quando uma instancia
 A imagem a seguir mostra uma instância de aplicativo com e sem um número máximo de nós definido:
 
 <center>
+
 ![Instância do aplicativo definindo o número máximo de nós][Image1]
 </center>
 
@@ -43,7 +44,7 @@ No exemplo à esquerda, o aplicativo não tem um número máximo de nós definid
 
 O parâmetro que controla esse comportamento é chamado de MaximumNodes. Esse parâmetro pode ser definido durante a criação do aplicativo ou atualizado para uma instância do aplicativo que já estava em execução.
 
-Powershell
+PowerShell
 
 ``` posh
 New-ServiceFabricApplication -ApplicationName fabric:/AppName -ApplicationTypeName AppType1 -ApplicationTypeVersion 1.0.0.0 -MaximumNodes 3
@@ -117,7 +118,8 @@ A combinação de **MinimumNodes** e **NodeReservationCapacity** garante uma res
 Vejamos um exemplo de reserva de capacidade:
 
 <center>
-Instâncias do aplicativo definindo a capacidade reservada![][Image2]
+
+![Instâncias do aplicativo definindo a capacidade reservada][Image2]
 </center>
 
 No exemplo à esquerda, os aplicativos não têm nenhuma Capacidade de Aplicativo definida. O Cluster Resource Manager equilibra tudo de acordo com as regras normais.
@@ -128,7 +130,7 @@ No exemplo à direita, digamos que o Application1 foi criado com as seguintes co
 - Uma métrica de aplicativo definida com
   - NodeReservationCapacity de 20
 
-Powershell
+PowerShell
 
  ``` posh
  New-ServiceFabricApplication -ApplicationName fabric:/AppName -ApplicationTypeName AppType1 -ApplicationTypeVersion 1.0.0.0 -MinimumNodes 2 -Metrics @("MetricName:Metric1,NodeReservationCapacity:20")
@@ -178,13 +180,13 @@ foreach (ApplicationLoadMetricInformation metric in metrics)
 
 A consulta ApplicationLoad retorna as informações básicas sobre a Capacidade do Aplicativo que foi especificada para o aplicativo. Essas informações incluem as informações de Nós Mínimos e Nós Máximos e o número que o aplicativo está ocupando atualmente. Elas também incluem informações sobre cada métrica de carga do aplicativo, incluindo:
 
-* Nome da Métrica: o nome da métrica.
-* Capacidade de Reserva: a Capacidade do Cluster reservada no cluster para esse Aplicativo.
-* Carga do Aplicativo: a Carga Total de réplicas filho deste Aplicativo.
-* Capacidade do Aplicativo: valor máximo permitido de Carga do Aplicativo.
+* Nome da métrica: Nome da métrica.
+* Capacidade de reserva: Capacidade do cluster é reservada para esse aplicativo no cluster.
+* Carga do aplicativo: Carga total de réplicas de filho deste aplicativo.
+* Capacidade do aplicativo: Máximo permitido de valor de carga do aplicativo.
 
 ## <a name="removing-application-capacity"></a>Removendo a capacidade do aplicativo
-Depois que os parâmetros de Capacidade do Aplicativo estão definidos para um aplicativo, eles podem ser removidos usando cmdlets de Atualizar APIs de Aplicativo ou PowerShell. Por exemplo: 
+Depois que os parâmetros de Capacidade do Aplicativo estão definidos para um aplicativo, eles podem ser removidos usando cmdlets de Atualizar APIs de Aplicativo ou PowerShell. Por exemplo:
 
 ``` posh
 Update-ServiceFabricApplication –Name fabric:/MyApplication1 –RemoveApplicationCapacity

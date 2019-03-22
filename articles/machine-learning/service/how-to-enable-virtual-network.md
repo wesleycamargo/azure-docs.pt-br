@@ -10,18 +10,27 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 01/08/2019
-ms.openlocfilehash: 60a76df6360ca66e8f55b03d5914283f669eb402
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: a83661a63f784f62bf46ce75b8b4f47c57c87b19
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118098"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57840436"
 ---
 # <a name="securely-run-experiments-and-inferencing-inside-an-azure-virtual-network"></a>Executar experimentos e inferências com segurança dentro de uma rede virtual do Azure
 
 Neste artigo, você aprenderá como executar experimentos e inferências dentro de uma rede virtual. Uma rede virtual atua como um limite de segurança, isolando os recursos do Azure da Internet pública. Além disso, é possível ingressar em uma rede virtual do Azure na rede local. Ela permite treinar com segurança os seus modelos, bem como acessar os modelos implantados para inferência.
 
 O Serviço do Azure Machine Learning depende de outros serviços do Azure para recursos de computação. Os recursos de computação (destinos de computação) são usados para treinar e implantar modelos. Esses destinos de computação podem ser criados dentro de uma rede virtual. Por exemplo, é possível usar a Máquina Virtual de Ciência de Dados para treinar um modelo e implantar o modelo no AKS (Serviço de Kubernetes do Azure). Para obter mais informações sobre redes virtuais, consulte a [visão geral da rede virtual do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Este documento presume que você esteja familiarizado com redes virtuais do Azure e o IP de rede em geral. Este documento também pressupõe que você tenha criado uma rede virtual e uma sub-rede para usar com seus recursos de computação. Se você não estiver familiarizado com redes virtuais do Azure, leia os artigos a seguir para saber mais sobre o serviço:
+
+* [Endereçamento IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)
+* [Grupos de segurança](https://docs.microsoft.com/azure/virtual-network/security-overview)
+* [Início Rápido: Criar uma rede virtual](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+* [Filtrar tráfego](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
 
 ## <a name="storage-account-for-your-workspace"></a>Conta de armazenamento para o seu espaço de trabalho
 
@@ -51,15 +60,17 @@ Para usar a Computação do Azure Machine Learning em uma rede virtual, use as s
 
     - Um balanceador de carga
 
-   Esses recursos são limitados pelas [cotas de recursos](https://docs.microsoft.com/azure/azure-subscription-service-limits) da assinatura.
+  Esses recursos são limitados pelas [cotas de recursos](https://docs.microsoft.com/azure/azure-subscription-service-limits) da assinatura.
 
 ### <a id="mlcports"></a> Portas obrigatórias
 
 Atualmente, a Computação do Machine Learning usa o serviço de Lote do Azure para provisionar VMs na rede virtual especificada. A sub-rede deve permitir a comunicação de entrada do serviço Lote. Essa comunicação é usada para agendar execuções nos nós de Computação do Machine Learning e para comunicação com o Armazenamento do Azure e outros recursos. O Lote adiciona NSGs no nível de NICs (adaptadores de rede) que estão anexadas às VMs. Esses NSGs configuraram automaticamente as regras de entrada e saída para permitir o tráfego a seguir:
 
-- Tráfego TCP de entrada nas portas 29876 e 29877 a partir dos endereços IP com função de serviço de Lote.
+- O tráfego TCP em portas 29876 e 29877 de entrada um __marca de serviço__ dos __BatchNodeManagement__.
+
+    ![Imagem do portal do Azure mostrando uma regra de entrada usando a marca de serviço BatchNodeManagement](./media/how-to-enable-virtual-network/batchnodemanagement-service-tag.png)
  
-- Tráfego TCP de entrada na porta 22 para permitir acesso remoto.
+- (opcional) O tráfego TCP na porta 22 para permitir o acesso remoto de entrada. Isso é necessário apenas se você quiser se conectar usando SSH no IP público.
  
 - Tráfego de saída em qualquer porta para a rede virtual.
 
@@ -151,7 +162,7 @@ Para usar uma máquina virtual ou um cluster Azure HDInsight em uma rede virtual
 
     * __Marca de serviço de origem__: Selecione __AzureMachineLearning__.
 
-    * __Intervalos de portas de origem__: Selecione __*__.
+    * __Intervalos de portas de origem__: Selecione *__.
 
     * __Destino__: Selecione __Qualquer__.
 
@@ -194,11 +205,11 @@ Para adicionar o Serviço de Kubernetes do Azure em uma rede virtual do workspac
 
     - __Sub-rede__: Escolher a sub-rede.
 
-    - __Intervalo de endereços do Serviço de Kubernetes__: Selecione o intervalo de endereços do serviço do Kubernetes. Esse intervalo de endereços usa um intervalo de IP de notação CIDR para definir os endereços IP disponíveis para o cluster. Não deverá sobrepor-se a nenhum intervalo de IP de sub-rede. Por exemplo:  10.0.0.0/16.
+    - __Intervalo de endereços do Serviço de Kubernetes__: Selecione o intervalo de endereços do serviço do Kubernetes. Esse intervalo de endereços usa um intervalo IP de notação CIDR para definir os endereços IP disponíveis para o cluster. Não deverá sobrepor-se a nenhum intervalo de IP de sub-rede. Por exemplo: 10.0.0.0/16.
 
-    - __Endereço IP do serviço DNS do Kubernetes__: selecione o endereço IP do serviço DNS do Kubernetes. Esse endereço IP é atribuído ao serviço DNS do Kubernetes. É necessário estar dentro do intervalo de endereços de serviço do Kubernetes. Por exemplo:  10.0.0.10.
+    - __Endereço IP do serviço DNS do Kubernetes__: selecione o endereço IP do serviço DNS do Kubernetes. Esse endereço IP é atribuído ao serviço DNS do Kubernetes. É necessário estar dentro do intervalo de endereços de serviço do Kubernetes. Por exemplo: 10.0.0.10.
 
-    - __Endereço da ponte Docker__: selecione o endereço da ponte Docker. Esse endereço IP é atribuído à ponte Docker. Não deverá estar em nenhum intervalo de IP de sub-rede ou intervalo de endereços de serviço do Kubernetes. Por exemplo:  172.17.0.1/16.
+    - __Endereço da ponte Docker__: selecione o endereço da ponte Docker. Esse endereço IP é atribuído à ponte Docker. Não deverá estar em nenhum intervalo de IP de sub-rede ou intervalo de endereços de serviço do Kubernetes. Por exemplo: 172.17.0.1/16.
 
    ![Serviço do Azure Machine Learning: Configurações de rede virtual de Computação do Machine Learning](./media/how-to-enable-virtual-network/aks-virtual-network-screen.png)
 

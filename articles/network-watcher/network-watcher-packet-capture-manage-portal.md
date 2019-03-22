@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: jdial
-ms.openlocfilehash: 827a3c2f831c8e8fb459e494dcad58e3661e78bd
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
-ms.translationtype: HT
+ms.openlocfilehash: 22bdd50f129a48ade97db323f904f7e652a00d39
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348150"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57889974"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Gerenciar as capturas de pacotes com o Observador de Rede do Azure usando o portal
 
@@ -41,29 +41,29 @@ Se um grupo de segurança de rede estiver associado ao adaptador de rede ou à s
 1. No seu navegador, vá para o [portal do Azure](https://portal.azure.com), selecione **Todos os serviços**, então selecione **Observador de Rede** na **Seção de rede**.
 2. Selecione **Captura de pacotes** em **Ferramentas de diagnóstico de rede**. Qualquer captura de pacotes existentes é listada, independentemente de seu status.
 3. Selecione **Adicionar** para criar uma captura de pacotes. Você pode selecionar valores para as seguintes propriedades:
-   - **Assinatura**: a assinatura em que máquina virtual para a qual você deseja criar o pacote de captura está.
-   - **Grupo de recursos**: o grupo de recursos da máquina virtual.
-   - **Máquina virtual de destino**: a máquina virtual para a qual você deseja criar a captura de pacotes.
-   - **Nome da captura de pacote**: um nome para a captura de pacotes.
-   - **Conta de armazenamento ou arquivo**: selecione **Conta de armazenamento**, **Arquivo** ou ambos. Se você selecionar **Arquivo**, a captura será gravada em um caminho na máquina virtual.
-   - **Caminho de arquivo local**: o caminho local na máquina virtual em que a captura de pacote será salva (válido somente quando *Arquivo* está selecionado). O caminho deve ser um caminho válido. Se você estiver usando uma máquina virtual Linux, o caminho deverá começar com */var/captures*.
-   - **Contas de armazenamento**: selecione uma conta de armazenamento existente se você tiver selecionado *Conta de armazenamento*. Essa opção só estará disponível se você tiver selecionado **Armazenamento**.
+   - **Assinatura**: A assinatura que a máquina virtual que você deseja criar o pacote de captura para está em.
+   - **Grupo de recursos**: O grupo de recursos da máquina virtual.
+   - **Máquina virtual de destino**: A máquina virtual que você deseja criar a captura de pacotes para.
+   - **Nome da captura de pacote**: Um nome para a captura de pacotes.
+   - **Conta de armazenamento ou o arquivo**: Selecione **conta de armazenamento**, **arquivo**, ou ambos. Se você selecionar **Arquivo**, a captura será gravada em um caminho na máquina virtual.
+   - **Caminho do arquivo local**: O caminho local na máquina virtual onde a captura de pacote será salvo (válido somente quando *arquivo* está selecionado). O caminho deve ser um caminho válido. Se você estiver usando uma máquina virtual Linux, o caminho deverá começar com */var/captures*.
+   - **Contas de armazenamento**: Selecione uma conta de armazenamento existente, se você selecionou *conta de armazenamento*. Essa opção só estará disponível se você tiver selecionado **Armazenamento**.
    
      > [!NOTE]
      > As contas de armazenamento Premium atualmente não têm suporte para armazenar as capturas de pacotes.
 
-   - **Máximo de bytes por pacote**: o número de bytes de cada pacote capturado. Se deixado em branco, todos os bytes serão capturados.
-   - **Máximo de bytes por sessão**: o número total de bytes capturados. Quando o valor é atingido, a captura de pacotes é interrompida.
-   - **Tempo limite (segundos)**: o limite de tempo antes que a captura de pacotes seja interrompida. O padrão é de 18 mil segundos.
+   - **Máximo de bytes por pacote**: O número de bytes de cada pacote que são capturados. Se deixado em branco, todos os bytes serão capturados.
+   - **Máximo de bytes por sessão**: O número total de bytes capturados. Quando o valor é atingido, a captura de pacotes é interrompida.
+   - **Tempo limite (segundos)**: O limite de tempo antes que a captura de pacotes é interrompida. O padrão é de 18 mil segundos.
    - Filtragem (Opcional). Selecione **+Adicionar filtro**
-     - **Protocolo**: o protocolo para filtrar a captura de pacotes. Os valores disponíveis são TCP, UDP e Qualquer.
-     - **Endereço IP local**: filtra a captura de pacote para pacotes em que o endereço IP local corresponde a esse valor.
-     - **Porta local:** filtra a captura de pacotes para os pacotes em que a porta local corresponde a esse valor.
-     - **Endereço IP remoto**: filtra a captura de pacote para pacotes em que o endereço IP remoto corresponde a esse valor.
-     - **Porta remota:** filtra a captura de pacotes para os pacotes em que a porta remota corresponde a esse valor.
+     - **Protocolo**: O protocolo de filtragem da captura de pacote. Os valores disponíveis são TCP, UDP e Qualquer.
+     - **Endereço IP local**: Filtra a captura de pacote para pacotes onde o endereço IP local corresponde ao valor.
+     - **Porta local**: Filtra a captura de pacotes para os pacotes em que a porta local corresponde ao valor.
+     - **Endereço IP remoto**: Filtra a captura de pacote para pacotes onde o endereço IP remoto corresponde ao valor.
+     - **Porta remota**: Filtra a captura de pacote para pacotes onde a porta remota corresponde ao valor.
     
-    > [!NOTE]
-    > Os valores da porta e do endereço IP podem ser um único valor, um intervalo de valores ou um intervalo, como 80 a 1024, para porta. Você pode definir tantos filtros quantos forem necessários.
+     > [!NOTE]
+     > Os valores da porta e do endereço IP podem ser um único valor, um intervalo de valores ou um intervalo, como 80 a 1024, para porta. Você pode definir tantos filtros quantos forem necessários.
 
 4. Selecione **OK**.
 
@@ -88,7 +88,7 @@ Na exibição da captura de pacote, selecione **…** no lado direito da captura
 
 ## <a name="download-a-packet-capture"></a>Baixar um pacote de capturas
 
-Quando a sessão de captura de pacotes for concluída, o arquivo de captura será carregado no Armazenamento de Blobs ou em um arquivo local na máquina virtual. O local de armazenamento da captura de pacote será definido durante a criação da captura de pacote. Uma ferramenta conveniente para acessar esses arquivos de captura salvos em uma conta de armazenamento é o Gerenciador de Armazenamento do Microsoft Azure, que você pode [baixar](http://storageexplorer.com/).
+Quando a sessão de captura de pacotes for concluída, o arquivo de captura será carregado no Armazenamento de Blobs ou em um arquivo local na máquina virtual. O local de armazenamento da captura de pacote será definido durante a criação da captura de pacote. Uma ferramenta conveniente para acessar esses arquivos de captura salvos em uma conta de armazenamento é o Gerenciador de Armazenamento do Microsoft Azure, que você pode [baixar](https://storageexplorer.com/).
 
 Se uma conta de armazenamento for especificada, os arquivos de captura de pacote serão salvos em uma conta de armazenamento no seguinte local:
 

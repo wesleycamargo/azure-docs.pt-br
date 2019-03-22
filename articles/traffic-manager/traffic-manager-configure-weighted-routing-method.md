@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: kumud
-ms.openlocfilehash: 132cbecdad8303414f15ff3f18caaccd6d430ded
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: ef39c09d4fc411937fdd6f4b5b5aec491efd0c5f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50154905"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994559"
 ---
 # <a name="configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>Configurar o método de roteamento de tráfego ponderado no Gerenciador de Tráfego
 
@@ -27,7 +27,7 @@ Um padrão comum de roteamento de tráfego é fornecer um conjunto de pontos de 
 
 ## <a name="to-configure-the-weighted-traffic-routing-method"></a>Como configurar o método de roteamento de tráfego ponderado
 
-1. Usando um navegador, entre no [portal do Azure](http://portal.azure.com). Se você ainda não tiver uma conta, poderá se inscrever para obter uma [avaliação gratuita de um mês](https://azure.microsoft.com/free/). 
+1. Usando um navegador, entre no [portal do Azure](https://portal.azure.com). Se você ainda não tiver uma conta, poderá se inscrever para obter uma [avaliação gratuita de um mês](https://azure.microsoft.com/free/). 
 2. Na barra de pesquisa do portal, pesquise os **perfis do Gerenciador de Tráfego** e, em seguida, clique no nome de perfil do qual você deseja configurar o método de roteamento.
 3. Na folha **Perfil do Gerenciador de Tráfego**, verifique se os serviços de nuvem e os sites que você deseja incluir na configuração estão presentes.
 4. Na seção **Configurações**, clique em **Configuração** e, na folha **Configuração**, preencha da seguinte maneira:

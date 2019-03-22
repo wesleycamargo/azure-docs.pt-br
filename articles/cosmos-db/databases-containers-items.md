@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 85d8b531f19ac35f091f54c2627f7fe6d3a62a42
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: c7288b112ce2fd062a67cb673a1efa6028ec7d57
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468131"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888512"
 ---
 # <a name="work-with-databases-containers-and-items"></a>Como trabalhar com bancos de dados, contêineres e itens
 
@@ -37,10 +37,10 @@ Você pode interagir com um banco de dados do Azure Cosmos usando as seguintes A
 
 | **Operação** | **CLI do Azure**|**API do SQL** | **API do Cassandra** | **API do Azure Cosmos DB para MongoDB** | **API do Gremlin** | **API de Tabela** |
 | --- | --- | --- | --- | --- | --- | --- |
-|Enumerar todos os bancos de dados| SIM | SIM | Sim (o banco de dados é mapeado para um keyspace) | SIM | ND | ND |
-|Ler banco de dados| SIM | SIM | Sim (o banco de dados é mapeado para um keyspace) | SIM | ND | ND |
-|Criar novo banco de dados| SIM | SIM | Sim (o banco de dados é mapeado para um keyspace) | SIM | ND | ND |
-|Atualizar banco de dados| SIM | SIM | Sim (o banco de dados é mapeado para um keyspace) | SIM | ND | ND |
+|Enumerar todos os bancos de dados| Sim | Sim | Sim (o banco de dados é mapeado para um keyspace) | Sim | ND | ND |
+|Ler banco de dados| Sim | Sim | Sim (o banco de dados é mapeado para um keyspace) | Sim | ND | ND |
+|Criar novo banco de dados| Sim | Sim | Sim (o banco de dados é mapeado para um keyspace) | Sim | ND | ND |
+|Atualizar banco de dados| Sim | Sim | Sim (o banco de dados é mapeado para um keyspace) | Sim | ND | ND |
 
 
 ## <a name="azure-cosmos-containers"></a>Contêineres do Azure Cosmos
@@ -77,27 +77,27 @@ Um contêiner do Azure Cosmos tem um conjunto de propriedades definidas pelo sis
 
 | **Propriedade definida pelo sistema** | **Configurável pelo usuário ou gerada pelo sistema** | **Finalidade** | **API do SQL** | **API do Cassandra** | **API do Azure Cosmos DB para MongoDB** | **API do Gremlin** | **API de Tabela** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|_rid | Gerada pelo sistema | Identificador exclusivo do contêiner | SIM | Não | Não | Não | Não  |
-|_etag | Gerada pelo sistema | Marca da entidade usada para controle de simultaneidade otimista | SIM | Não | Não | Não | Não  |
-|_ts | Gerada pelo sistema | Último carimbo de data/hora atualizado do contêiner | SIM | Não | Não | Não | Não  |
-|_self | Gerada pelo sistema | URI endereçável do contêiner | SIM | Não | Não | Não | Não  |
-|ID | Configurável pelo usuário | Nome exclusivo do contêiner definido pelo usuário | SIM | sim | sim | sim | SIM |
-|indexingPolicy | Configurável pelo usuário | Fornece a capacidade de alterar o caminho do índice, sua precisão e o modelo de consistência. | SIM | Não | Não | Não  | SIM |
-|TimeToLive | Configurável pelo usuário | Fornece a capacidade de excluir itens automaticamente de um contêiner após um período de tempo determinado. Para obter mais detalhes, confira o artigo [Vida útil](time-to-live.md). | SIM | Não | Não | Não  | SIM |
-|changeFeedPolicy | Configurável pelo usuário | Usado para ler as alterações feitas a itens em um contêiner. Para obter mais detalhes, confira o artigo [feed de alterações](change-feed.md). | SIM | Não | Não | Não  | SIM |
-|uniqueKeyPolicy | Configurável pelo usuário | Com chaves exclusivas, você garante a exclusividade de um ou mais valores dentro de uma partição lógica. Para obter mais informações, confira o artigo [chaves exclusivas](unique-keys.md). | SIM | Não | Não | Não  | SIM |
+|_rid | Gerada pelo sistema | Identificador exclusivo do contêiner | Sim | Não | Não | Não | Não  |
+|_etag | Gerada pelo sistema | Marca da entidade usada para controle de simultaneidade otimista | Sim | Não | Não | Não | Não  |
+|_ts | Gerada pelo sistema | Último carimbo de data/hora atualizado do contêiner | Sim | Não | Não | Não | Não  |
+|_self | Gerada pelo sistema | URI endereçável do contêiner | Sim | Não | Não | Não | Não  |
+|ID | Configurável pelo usuário | Nome exclusivo do contêiner definido pelo usuário | Sim | sim | sim | sim | Sim |
+|indexingPolicy | Configurável pelo usuário | Fornece a capacidade de alterar o caminho do índice, sua precisão e o modelo de consistência. | Sim | Não | Não | Não  | Sim |
+|TimeToLive | Configurável pelo usuário | Fornece a capacidade de excluir itens automaticamente de um contêiner após um período de tempo determinado. Para obter mais detalhes, confira o artigo [Vida útil](time-to-live.md). | Sim | Não | Não | Não  | Sim |
+|changeFeedPolicy | Configurável pelo usuário | Usado para ler as alterações feitas a itens em um contêiner. Para obter mais detalhes, confira o artigo [feed de alterações](change-feed.md). | Sim | Não | Não | Não  | Sim |
+|uniqueKeyPolicy | Configurável pelo usuário | Com chaves exclusivas, você garante a exclusividade de um ou mais valores dentro de uma partição lógica. Para obter mais informações, confira o artigo [chaves exclusivas](unique-keys.md). | Sim | Não | Não | Não  | Sim |
 
 ### <a name="operations-on-an-azure-cosmos-container"></a>Operações em um contêiner do Azure Cosmos
 
 Um contêiner do Azure Cosmos dá suporte às operações a seguir, usando qualquer uma das APIs do Azure Cosmos.
 
 | **Operação** | **CLI do Azure** | **API do SQL** | **API do Cassandra** | **API do Azure Cosmos DB para MongoDB** | **API do Gremlin** | **API de Tabela** |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Enumerar os contêineres em um banco de dados | Sim* | SIM | sim | SIM | ND | ND |
-| Ler um contêiner | SIM | sim | sim | SIM | ND | ND |
-| Criar um novo contêiner | SIM | sim | sim | SIM | ND | ND |
-| Atualizar um contêiner | SIM | sim | sim | SIM | ND | ND |
-| Excluir um contêiner | SIM | sim | sim | SIM | ND | ND |
+| --- | --- | --- | --- | --- | --- | --- |
+| Enumerar os contêineres em um banco de dados | Sim* | Sim | sim | Sim | ND | ND |
+| Ler um contêiner | Sim | sim | sim | Sim | ND | ND |
+| Criar um novo contêiner | Sim | sim | sim | Sim | ND | ND |
+| Atualizar um contêiner | Sim | sim | sim | Sim | ND | ND |
+| Excluir um contêiner | Sim | sim | sim | Sim | ND | ND |
 
 ## <a name="azure-cosmos-items"></a>Itens do Azure Cosmos
 
@@ -113,26 +113,26 @@ Cada item do Azure Cosmos tem as propriedades definidas pelo sistema listadas a 
 
 |**Propriedade definida pelo sistema** | **Configurável pelo usuário ou gerada pelo sistema**| **Finalidade** | **API do SQL** | **API do Cassandra** | **API do Azure Cosmos DB para MongoDB** | **API do Gremlin** | **API de Tabela** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|_id | Gerada pelo sistema | Identificador exclusivo do item | SIM | Não | Não | Não | Não  |
-|_etag | Gerada pelo sistema | Marca da entidade usada para controle de simultaneidade otimista | SIM | Não | Não | Não | Não  |
-|_ts | Gerada pelo sistema | Carimbo de data/hora de última atualização do item | SIM | Não | Não | Não | Não  |
-|_self | Gerada pelo sistema | URI endereçável do item | SIM | Não | Não | Não | Não  |
-|ID | Você pode usar o | Nome exclusivo definido pelo usuário dentro de uma partição lógica. Se o usuário não especificar a ID, o sistema gerará uma automaticamente. | SIM | sim | sim | sim | SIM |
-|Propriedades arbitrárias definidas pelo usuário | Definido pelo usuário | Propriedades definidas pelo usuário, representadas na representação nativa de API (JSON, BSON, CQL, etc.) | SIM | sim | sim | sim | SIM |
+|_id | Gerada pelo sistema | Identificador exclusivo do item | Sim | Não | Não | Não | Não  |
+|_etag | Gerada pelo sistema | Marca da entidade usada para controle de simultaneidade otimista | Sim | Não | Não | Não | Não  |
+|_ts | Gerada pelo sistema | Carimbo de data/hora de última atualização do item | Sim | Não | Não | Não | Não  |
+|_self | Gerada pelo sistema | URI endereçável do item | Sim | Não | Não | Não | Não  |
+|ID | Você pode usar o | Nome exclusivo definido pelo usuário dentro de uma partição lógica. Se o usuário não especificar a ID, o sistema gerará uma automaticamente. | Sim | sim | sim | sim | Sim |
+|Propriedades arbitrárias definidas pelo usuário | Definido pelo usuário | Propriedades definidas pelo usuário, representadas na representação nativa de API (JSON, BSON, CQL, etc.) | Sim | sim | sim | sim | Sim |
 
 ### <a name="operations-on-items"></a>Operações em itens
 
 Um item do Azure Cosmos dá suporte às operações a seguir, que podem ser realizadas usando qualquer uma das APIs do Azure Cosmos.
 
 | **Operação** | **CLI do Azure** | **API do SQL** | **API do Cassandra** | **API do Azure Cosmos DB para MongoDB** | **API do Gremlin** | **API de Tabela** |
-| --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- |
 | Inserir, Substituir, Excluir, Upsert, Ler | Não  | sim | sim | sim | sim | Sim |
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Agora, você pode prosseguir para aprender a provisionar a taxa de transferência em uma conta do Azure Cosmos ou ver outros conceitos:
 
-* [Como configurar a taxa de transferência provisionada em um banco de dados do Azure Cosmos](how-to-provision-database-throughput.md)
+* [Como configurar a taxa de transferência provisionada em um banco de dados Cosmos do Azure](how-to-provision-database-throughput.md)
 * [Como configurar a taxa de transferência provisionada em um contêiner do Azure Cosmos](how-to-provision-container-throughput.md)
 * [Partições lógicas](partition-data.md)
 * [Como configurar o TTL no contêiner do Azure Cosmos](how-to-time-to-live.md)

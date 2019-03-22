@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 03/15/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 2c1a4a1931bc2e38b0bee5f90518b01fdf4767a1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: HT
+ms.openlocfilehash: 4c232e1ce183c6935d625b5bc9987a4981865ae4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "30196742"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57908681"
 ---
 Se você estiver trabalhando com o modelo de implantação do Gerenciador de Recursos, poderá alterar para as novas SKUs do gateway. Quando você muda de um SKU de gateway herdado para um novo SKU, você exclui o gateway VPN existente e cria um novo gateway de VPN.
 

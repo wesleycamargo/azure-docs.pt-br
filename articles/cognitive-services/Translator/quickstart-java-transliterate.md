@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Converter script de texto, Java – API de Tradução de Texto'
+title: 'Início rápido: Converter script de texto, Java – API de Tradução de Texto'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você aprenderá a transliterar texto (converter) de um script para outro usando Java e a API REST de Tradução de Texto. Neste exemplo, o japonês é transliterado para usar o alfabeto latino.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 3ee586011c17125d5647d9a7baf946532190d8ca
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 58821492c6972eeef622f8dc8a777f8da70acdf1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729774"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57895916"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-java"></a>Início rápido: Usar a API de Tradução de Texto para transliterar texto usando Java
 
@@ -74,7 +74,7 @@ Observe que esse exemplo tem dependências de OkHttp para solicitações HTTP e 
 Vamos criar uma pasta para seu aplicativo de exemplo. No diretório de trabalho, execute:
 
 ```console
-mkdir -p src/main/java
+mkdir -p src\main\java
 ```
 
 Em seguida, nessa pasta, crie um arquivo chamado `Transliterate.java`.
@@ -184,7 +184,7 @@ gradle run
 ```json
 [
   {
-    "text": "konnnichiha",
+    "text": "konnichiwa",
     "script": "latn"
   }
 ]

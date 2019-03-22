@@ -1,5 +1,5 @@
 ---
-title: 'Criar um gateway VPN baseado em rotas: portal do Azure | Microsoft Docs'
+title: 'Crie um gateway VPN baseado em rota: Portal do Azure | Microsoft Docs'
 description: Criar um Gateway de VPN baseado em rota usando o portal do Azure
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: cherylmc
-ms.openlocfilehash: 7139b2de79b4e092ca761a4e51061c233e6031b5
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: ddc42023bae3403e7778327a40316462c85222c0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470295"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005535"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>Criar um gateway de VPN baseado em rotas usando o portal do Azure
 
@@ -22,20 +22,20 @@ As etapas neste artigo criarão uma rede virtual, uma sub-rede, uma sub-rede do 
 
 ## <a name="vnet"></a>Criar uma rede virtual
 
-1. Em um navegador, acesse o [Portal do Azure](http://portal.azure.com) e entre com sua conta do Azure.
+1. Em um navegador, acesse o [Portal do Azure](https://portal.azure.com) e entre com sua conta do Azure.
 2. Clique em **Criar um recurso**. No campo **Pesquisar no marketplace**, digite ‘rede virtual’. Localize a **Rede virtual** na lista retornada e clique para abrir a página **Rede Virtual**.
 3. Perto da parte inferior da página Rede Virtual, na lista **Selecionar um modelo de implantação**, selecione **Gerenciador de Recursos** e clique em **Criar**. Isso abre a página **Criar rede virtual**.
 4. Na página **Criar rede virtual**, defina as configurações da VNet. Durante o preenchimento dos campos, o ponto de exclamação vermelho se tornará um ponto de seleção verde quando os caracteres digitados no campo forem válidos. Use os seguintes valores:
 
-  - **Nome**: TestVNet1
-  - **Espaço de endereço**: 10.1.0.0/16
-  - **Assinatura**: verifique se a assinatura listada é a que você quer usar. Você pode alterar as assinaturas usando o menu suspenso.
-  - **Grupo de recursos**: TestRG1
-  - **Local**: Leste dos EUA
-  - **Sub-rede**: FrontEnd
-  - **Intervalo de endereços**: 10.1.0.0/24
+   - **Nome**: TestVNet1
+   - **Espaço de endereço**: 10.1.0.0/16
+   - **Assinatura**: Verifique se a assinatura listada é aquele que você deseja usar. Você pode alterar as assinaturas usando o menu suspenso.
+   - **Grupo de recursos**: TestRG1
+   - **Localização**: Leste dos EUA
+   - **Sub-rede**: Front-end
+   - **Intervalo de endereços**: 10.1.0.0/24
 
-  ![Página Criar rede virtual](./media/create-routebased-vpn-gateway-portal/create-virtual-network.png "Página Criar rede virtual")
+   ![Página Criar rede virtual](./media/create-routebased-vpn-gateway-portal/create-virtual-network.png "Página Criar rede virtual")
 5. Depois de inserir os valores, selecione **fixar no painel** para tornar mais fácil localizar sua rede virtual no painel e, em seguida, clique em **criar**. Depois de clicar em **Criar**, você verá um bloco em seu painel refletir o progresso de sua rede virtual. O bloco muda à medida que a rede virtual é criada.
 
 ## <a name="gwsubnet"></a>Adicione uma sub-rede de gateway
@@ -46,12 +46,12 @@ A sub-rede de gateway contém os endereços IP reservados que usam os serviços 
 2. Na sua página rede virtual, clique em **sub-redes** para expandir a página **VNet1 - sub-redes**.
 3. Clique em **+Sub-rede de gateway** no topo para abrir a página **Adicionar sub-rede**.
 
-  ![Adicionar a sub-rede de gateway](./media/create-routebased-vpn-gateway-portal/gateway-subnet.png "Adicionar a sub-rede de gateway")
+   ![Adicionar a sub-rede de gateway](./media/create-routebased-vpn-gateway-portal/gateway-subnet.png "Adicionar a sub-rede de gateway")
 4. O **Nome** da sua sub-rede será automaticamente preenchido com o valor 'GatewaySubnet'. Ajuste os valores preenchidos automaticamente de **Intervalo de endereços** para corresponder aos seguintes valores:
 
-  **Intervalo de endereços (bloco CIDR)**: 10.1.255.0/27
+   **Intervalo de endereços (bloco CIDR)**: 10.1.255.0/27
 
-  ![Adição da sub-rede de gateway](./media/create-routebased-vpn-gateway-portal/add-gateway-subnet.png "Adição da sub-rede de gateway")
+   ![Adição da sub-rede de gateway](./media/create-routebased-vpn-gateway-portal/add-gateway-subnet.png "Adição da sub-rede de gateway")
 5. Para criar a sub-rede de gateway, clique em **OK** na parte inferior da página.
 
 ## <a name="gwvalues"></a>Configurar Gateway
@@ -60,35 +60,35 @@ A sub-rede de gateway contém os endereços IP reservados que usam os serviços 
 2. Na página Gateway da rede virtual, clique em **Criar** na parte inferior da página para abrir a página **Criar gateway da rede virtual**.
 3. Na página **Criar gateway de rede virtual**, especifique os valores do seu gateway de rede virtual.
 
-  - **Nome**: Vnet1GW
-  - **Tipo de gateway:** VPN 
-  - **Tipo de VPN:** baseada em rota
-  - **SKU**: VpnGw1
-  - **Local**: Leste dos EUA
-  - **Rede virtual**: clique em **Virtual network/escolher uma rede virtual** para abrir a página **escolha uma rede virtual**. Selecione **VNet1**.
-  - **Endereço IP público**: essa configuração especifica o objeto de endereço IP público associado ao gateway da VPN. O endereço IP público é atribuído dinamicamente a esse objeto quando o gateway de VPN é criado. O gateway de VPN atualmente suporta apenas alocação de endereços IP público *Dinâmico*. No entanto, isso não significa que o endereço IP é alterado depois que ele foi atribuído ao seu gateway de VPN. A única vez em que o endereço IP Público é alterado é quando o gateway é excluído e recriado. Isso não altera o redimensionamento, a redefinição ou outras manutenções/atualizações internas do seu gateway de VPN.
+   - **Nome**: Vnet1GW
+   - **Tipo de gateway**: VPN 
+   - **Tipo de VPN**: Baseado em rotas
+   - **SKU**: VpnGw1
+   - **Localização**: Leste dos EUA
+   - **Rede virtual**: Clique em **Virtual network/escolher uma rede virtual** para abrir o **escolher uma rede virtual** página. Selecione **VNet1**.
+   - **Endereço IP público**: Essa configuração especifica o objeto de endereço IP público associado ao gateway da VPN. O endereço IP público é atribuído dinamicamente a esse objeto quando o gateway de VPN é criado. O gateway de VPN atualmente suporta apenas alocação de endereços IP público *Dinâmico*. No entanto, isso não significa que o endereço IP é alterado depois que ele foi atribuído ao seu gateway de VPN. A única vez em que o endereço IP Público é alterado é quando o gateway é excluído e recriado. Isso não altera o redimensionamento, a redefinição ou outras manutenções/atualizações internas do seu gateway de VPN.
 
-    - Deixe **criar novo** selecionado.
-    - Na caixa de texto, digite uma **nome** para seu endereço IP público. Para este exercício, use **VNet1GWIP**.<br>
+     - Deixe **criar novo** selecionado.
+     - Na caixa de texto, digite uma **nome** para seu endereço IP público. Para este exercício, use **VNet1GWIP**.<br>
 
-    ![Configurações de gateway](./media/create-routebased-vpn-gateway-portal/gw.png "Configurações de gateway")
+     ![Configurações de gateway](./media/create-routebased-vpn-gateway-portal/gw.png "Configurações de gateway")
 
 ## <a name="creategw"></a>Criar o gateway de VPN
 
 1. Verifique as configurações na página **Criar gateway de rede virtual**. Se necessário, ajuste valores.
 2. Clique **Criar** na parte inferior da página.
 
-  Após você clicar **Criar**, em as configurações são validadas, e você verá o bloco **Implantar gateway de rede virtual** no painel. Um gateway de VPN pode demorar até 45 minutos para ser criado. Talvez seja necessário atualizar a página do portal para ver o status concluído.
+   Após você clicar **Criar**, em as configurações são validadas, e você verá o bloco **Implantar gateway de rede virtual** no painel. Um gateway de VPN pode demorar até 45 minutos para ser criado. Talvez seja necessário atualizar a página do portal para ver o status concluído.
 
 ## <a name="viewgw"></a>Veja o Gateway de VPN
 
 1. Depois de criar o gateway, navegue para VNet1 no portal. O gateway de VPN é exibido na página Visão geral de como um dispositivo conectado.
 
-  ![Dispositivos conectados](./media/create-routebased-vpn-gateway-portal/view-connected-devices.png "dispositivos conectados")
+   ![Dispositivos conectados](./media/create-routebased-vpn-gateway-portal/view-connected-devices.png "dispositivos conectados")
 
 2. Na lista de dispositivos, clique em **VNet1GW** para exibir mais informações.
 
-  ![Gateway VPN do modo de exibição](./media/create-routebased-vpn-gateway-portal/view-gateway.png "gateway VPN do modo de exibição")
+   ![Gateway VPN do modo de exibição](./media/create-routebased-vpn-gateway-portal/view-gateway.png "gateway VPN do modo de exibição")
 
 ## <a name="next-steps"></a>Próximas etapas
 

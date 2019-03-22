@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: vidarmsft
-ms.openlocfilehash: f5b128306389a87c432b869b4756a6d232dc903c
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: f5eefd1d3fa26738729d98e60d8a56cd8d33d86c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566033"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084871"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Solução de recuperação de desastre automatizada usando o Azure Site Recovery para compartilhamentos de arquivos hospedados no StorSimple
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 O Microsoft Azure StorSimple é uma solução de armazenamento de nuvem híbrida que resolve as complexidades de dados não estruturados comumente associados aos compartilhamentos de arquivos. O StorSimple usa o armazenamento em nuvem como uma extensão da solução local e dispõe os dados em camadas automaticamente no armazenamento local e no armazenamento em nuvem. A proteção de dados integrada, com instantâneos locais e de nuvem, elimina a necessidade de uma infraestrutura de armazenamento ampla.
 
 [Azure Site Recovery](../site-recovery/site-recovery-overview.md) é um serviço baseado no Azure que fornece recursos de DR (recuperação de desastre) por meio da orquestração de replicação, de failover e da recuperação de máquinas virtuais. O Azure Site Recovery dá suporte para várias tecnologias de replicação, com o intuito de replicar, proteger e fazer o failover de forma consistente das máquinas virtuais e dos aplicativos em nuvens privadas/públicas ou hospedadas.
@@ -88,7 +88,7 @@ Esta etapa exige que você prepare o ambiente do servidor de arquivos local, cri
          > [!NOTE]
          > O nome do arquivo poderá mudar dependendo da versão.
       
-1. Clique em **Próximo**.
+1. Clique em **Avançar**.
 1. Aceite os **Termos do Contrato** e, em seguida, clique em **Avançar**.
 1. Clique em **Concluir**.
 1. Crie os compartilhamentos de arquivos usando volumes criados fora do armazenamento do StorSimple. Para obter mais informações, confira [Usar o serviço StorSimple Manager para gerenciar volumes](storsimple-manage-volumes.md).
@@ -133,7 +133,7 @@ Para o servidor de arquivos da VM, defina as configurações de rede no Azure Si
 
 Você pode selecionar a VM na guia **Itens replicados** para definir as configurações de rede, conforme mostrado na ilustração a seguir.
 
-![Computação e rede](./media/storsimple-disaster-recovery-using-azure-site-recovery/image2.png)
+![Computação e Rede](./media/storsimple-disaster-recovery-using-azure-site-recovery/image2.png)
 
 ## <a name="create-a-recovery-plan"></a>Criar um plano de recuperação
 Você pode criar um plano de recuperação no ASR para automatizar o processo de failover de compartilhamentos de arquivos. Se ocorrer uma interrupção, você poderá exibir os compartilhamentos de arquivos em poucos minutos com apenas um clique simples. Para habilitar essa automação, você precisará de uma conta de Automação do Azure.
@@ -179,7 +179,7 @@ Você pode criar um plano de recuperação no ASR para automatizar o processo de
    - *RecoveryPlanName***-StorageAccountKey**: A chave de acesso da conta de armazenamento acima.
    - *RecoveryPlanName***-VMGUIDS**: Ao proteger uma VM, o Azure Site Recovery atribui a cada VM uma ID exclusiva que fornece os detalhes da VM com failover. Para obter o VMGUID, selecione a guia **Serviços de Recuperação** e clique em **Item protegido** &gt; **Grupos de Proteção** &gt; **Computadores** &gt; **Propriedades**. Se você tiver várias VMs, adicione os GUIDs como uma cadeia de caracteres separada por vírgulas.
 
-    Por exemplo, se o nome do plano de recuperação for fileServerpredayRP, então, as suas guias **Variáveis**, **Conexões** e **Certificados** deverão aparecer da seguinte forma após a adição de todos os ativos.
+     Por exemplo, se o nome do plano de recuperação for fileServerpredayRP, então, as suas guias **Variáveis**, **Conexões** e **Certificados** deverão aparecer da seguinte forma após a adição de todos os ativos.
 
       ![Ativos](./media/storsimple-disaster-recovery-using-azure-site-recovery/image5.png)
 
@@ -238,7 +238,7 @@ Você pode criar um plano de recuperação no ASR para automatizar o processo de
    
    - Clique no botão **+ Plano de recuperação**, abra a folha abaixo.
       
-      ![Criar Plano de Recuperação](./media/storsimple-disaster-recovery-using-azure-site-recovery/image6.png)
+      ![Criar plano de recuperação](./media/storsimple-disaster-recovery-using-azure-site-recovery/image6.png)
       
    - Insira um nome de plano de recuperação, escolha valores de modelo de Implantação, Destino e Origem.
    
@@ -320,7 +320,7 @@ Durante um failback, os contêineres de volume do StorSimple são submetidos ao 
 
 ## <a name="best-practices"></a>Práticas Recomendadas
 ### <a name="capacity-planning-and-readiness-assessment"></a>Planejamento da capacidade e avaliação de prontidão
-#### <a name="hyper-v-site"></a>Site do Hyper-V
+#### <a name="hyper-v-site"></a>Site Hyper-V
 Use a [ferramenta Planejador de Capacidade do usuário](https://www.microsoft.com/download/details.aspx?id=39057) para projetar o servidor, o armazenamento e a infraestrutura de rede para o seu ambiente de Réplica do Hyper-V.
 
 #### <a name="azure"></a>Azure
@@ -332,30 +332,30 @@ O planejamento de capacidade é composto de, pelo menos, dois processos importan
    - Determinação da largura de banda de Internet necessária.
 
 ## <a name="limitations"></a>Limitações
-   - Atualmente, somente um dispositivo StorSimple pode ser submetido ao failover (para um único dispositivo de nuvem StorSimple). Ainda não há suporte para o cenário de um servidor de arquivos que abrange vários dispositivos StorSimple.
-   - Se houver um erro ao habilitar a proteção para uma VM, certifique-se de ter desconectado os destinos iSCSI.
-   - Todos os contêineres de volume que foram agrupados devido a abrangência das políticas de backup em contêineres de volume serão submetidos ao failover juntos.
-   - Todos os volumes nos contêineres de volume que você escolheu serão submetidos ao failover.
-   - Os volumes que somam mais de 64 TB não podem ser submetidos ao failover porque a capacidade máxima de um único dispositivo de nuvem do StorSimple é de 64 TB.
-   - Não limpe as VMs se o failover planejado/não planejado falhar e as VMs forem criadas no Azure. Em vez disso, faça um failback. Se você excluir as VMs, as VMs locais não poderão ser ativadas novamente.
-   - Após um failover, se você não conseguir ver os volumes, acesse as VMs, abra o Gerenciamento de Disco, examine os discos novamente e coloque-os online.
-   - Em alguns casos, as letras de unidade no site de DR podem ser diferentes das letras locais. Se isso ocorrer, você precisará corrigir o problema manualmente depois que o failover for concluído.
-   - Tempo limite do trabalho de failover: O script do StorSimple atingirá o tempo limite se o failover dos contêineres de volume levar mais tempo do que o limite do Azure Site Recovery por script (atualmente 120 minutos).
-   - Tempo limite do trabalho de backup: O script do StorSimple atingirá o tempo limite se o backup de volume levar mais tempo do que o limite do Azure Site Recovery por script (atualmente 120 minutos).
+- Atualmente, somente um dispositivo StorSimple pode ser submetido ao failover (para um único dispositivo de nuvem StorSimple). Ainda não há suporte para o cenário de um servidor de arquivos que abrange vários dispositivos StorSimple.
+- Se houver um erro ao habilitar a proteção para uma VM, certifique-se de ter desconectado os destinos iSCSI.
+- Todos os contêineres de volume que foram agrupados devido a abrangência das políticas de backup em contêineres de volume serão submetidos ao failover juntos.
+- Todos os volumes nos contêineres de volume que você escolheu serão submetidos ao failover.
+- Os volumes que somam mais de 64 TB não podem ser submetidos ao failover porque a capacidade máxima de um único dispositivo de nuvem do StorSimple é de 64 TB.
+- Não limpe as VMs se o failover planejado/não planejado falhar e as VMs forem criadas no Azure. Em vez disso, faça um failback. Se você excluir as VMs, as VMs locais não poderão ser ativadas novamente.
+- Após um failover, se você não conseguir ver os volumes, acesse as VMs, abra o Gerenciamento de Disco, examine os discos novamente e coloque-os online.
+- Em alguns casos, as letras de unidade no site de DR podem ser diferentes das letras locais. Se isso ocorrer, você precisará corrigir o problema manualmente depois que o failover for concluído.
+- Tempo limite do trabalho de failover: O script do StorSimple atingirá o tempo limite se o failover dos contêineres de volume levar mais tempo do que o limite do Azure Site Recovery por script (atualmente 120 minutos).
+- Tempo limite do trabalho de backup: O script do StorSimple atingirá o tempo limite se o backup de volume levar mais tempo do que o limite do Azure Site Recovery por script (atualmente 120 minutos).
    
-   > [!IMPORTANT]
-   > Execute o backup manualmente no Portal do Azure e, em seguida, execute o plano de recuperação novamente.
+  > [!IMPORTANT]
+  > Execute o backup manualmente no Portal do Azure e, em seguida, execute o plano de recuperação novamente.
    
-   - Tempo limite do trabalho de clonagem: O script do StorSimple atingirá o tempo limite se a clonagem de volume levar mais tempo do que o limite do Azure Site Recovery por script (atualmente 120 minutos).
-   - Erro de sincronização de tempo: Os erros de script do StorSimple informando que os backups não foram bem-sucedidos, mesmo que o backup tenha sido bem-sucedido no portal. Uma causa possível para isso seria que a hora do dispositivo StorSimple não estaria sincronizada com a hora atual no fuso horário.
+- Tempo limite do trabalho de clonagem: O script do StorSimple atingirá o tempo limite se a clonagem de volume levar mais tempo do que o limite do Azure Site Recovery por script (atualmente 120 minutos).
+- Erro de sincronização de tempo: Os erros de script do StorSimple informando que os backups não foram bem-sucedidos, mesmo que o backup tenha sido bem-sucedido no portal. Uma causa possível para isso seria que a hora do dispositivo StorSimple não estaria sincronizada com a hora atual no fuso horário.
    
-   > [!IMPORTANT]
-   > Sincronize a hora do dispositivo com a hora atual no fuso horário.
+  > [!IMPORTANT]
+  > Sincronize a hora do dispositivo com a hora atual no fuso horário.
    
-   - Erro de failover do dispositivo: O script do StorSimple poderá falhar se houver um failover de dispositivo quando o plano de recuperação estiver em execução.
+- Erro de failover do dispositivo: O script do StorSimple poderá falhar se houver um failover de dispositivo quando o plano de recuperação estiver em execução.
    
-   > [!IMPORTANT]
-   > Execute o plano de recuperação novamente após concluir o failover do dispositivo.
+  > [!IMPORTANT]
+  > Execute o plano de recuperação novamente após concluir o failover do dispositivo.
 
 
 ## <a name="summary"></a>Resumo

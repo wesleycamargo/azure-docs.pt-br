@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 2e935425-3923-4a33-89b2-0f2100b0c0c4
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 3bd7f895e3cc30c4c5a0496977d65d68c220931f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: f63851359a19455ab0f46f66a801a679ee2c3bfe
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084495"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079683"
 ---
 # <a name="quickstart-migrate-a-local-jupyter-notebook"></a>Início Rápido: Migrar um notebook local do Jupyter
 
@@ -50,13 +50,13 @@ Este Início Rápido demonstra o processo de migração de um bloco de anotaçõ
 
    (novamente, se o bloco de anotações estiver em um repositório do GitHub, siga as etapas no [Guia de Início Rápido: Clonar um notebook](quickstart-clone-jupyter-notebook.md) em vez disso).
 
-    - Se estiver usando **Do computador**, arraste e solte seus arquivos *ipynb* para o pop-up ou selecione **Escolher arquivos**, em seguida, navegue e selecione os arquivos que você deseja importar. Depois selecionar **Carregar**. Os arquivos carregados recebem o mesmo nome que os arquivos locais. (você não precisa carregar o conteúdo de quaisquer pastas *.ipynb_checkpoints*.)
+   - Se estiver usando **Do computador**, arraste e solte seus arquivos *ipynb* para o pop-up ou selecione **Escolher arquivos**, em seguida, navegue e selecione os arquivos que você deseja importar. Depois selecionar **Carregar**. Os arquivos carregados recebem o mesmo nome que os arquivos locais. (você não precisa carregar o conteúdo de quaisquer pastas *.ipynb_checkpoints*.)
 
-    ![Carregar do popup do computador](media/quickstarts/upload-from-computer-popup.png)
+     ![Carregar do popup do computador](media/quickstarts/upload-from-computer-popup.png)
 
-    - Se usar **Da URL**, insira o endereço de origem no campo **URL do Arquivo** e o nome do arquivo para atribuir ao bloco de anotações do projeto no campo **Nome do Arquivo**. Depois selecionar **Carregar**. Se você tiver vários arquivos com URLs separadas, use o comando **+ Adicionar arquivo** para verificar a primeira URL que você inseriu, após o qual o pop-up fornece novos campos para outro arquivo.
+   - Se usar **Da URL**, insira o endereço de origem no campo **URL do Arquivo** e o nome do arquivo para atribuir ao bloco de anotações do projeto no campo **Nome do Arquivo**. Depois selecionar **Carregar**. Se você tiver vários arquivos com URLs separadas, use o comando **+ Adicionar arquivo** para verificar a primeira URL que você inseriu, após o qual o pop-up fornece novos campos para outro arquivo.
 
-    ![Carregar popup da URL](media/quickstarts/upload-from-url-popup.png)
+     ![Carregar popup da URL](media/quickstarts/upload-from-url-popup.png)
 
 1. Abra e execute o notebook recentemente carregado para verificar seu conteúdo e a operação. Quando terminar, selecione **Arquivo** > **Halt e fechar** para fechar o notebook.
 

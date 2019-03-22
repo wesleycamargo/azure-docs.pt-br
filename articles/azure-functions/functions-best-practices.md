@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c8581510f16896df74f814e501648374d984945e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 30b187676f0c1fb03b7124d93b3991b0e32d61ae
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039326"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848942"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Melhore o desempenho e a confiabilidade do Azure Functions
 
@@ -84,7 +84,7 @@ As funções em um aplicativo de funções compartilham recursos. Por exemplo, a
 
 Cuidado com o que você carrega em seus aplicativos de funções de produção. A memória é dividida igualmente entre cada função no aplicativo.
 
-Se você tiver um assembly compartilhado referenciado em várias funções .Net, coloque-o em uma pasta compartilhada comum. Faça referência ao assembly com uma instrução semelhante ao exemplo a seguir, caso esteja usando scripts de C# (.csx): 
+Se você tiver um assembly compartilhado referenciado em várias funções .NET, coloque-o em uma pasta compartilhada comum. Faça referência ao assembly com uma instrução semelhante ao exemplo a seguir, caso esteja usando scripts de C# (.csx): 
 
     #r "..\Shared\MyAssembly.dll". 
 

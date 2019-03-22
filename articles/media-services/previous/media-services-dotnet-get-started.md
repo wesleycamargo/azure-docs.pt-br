@@ -11,15 +11,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
-ms.date: 02/08/2019
+ms.topic: conceptual
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 34a6676444c4723f64264e41cb0e3c4842486bf6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 2d55af3e9ed3ad64f9ba7726799b31acb6b48580
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003084"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884465"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Introdução ao fornecimento de conteúdo sob demanda usando o SDK do .NET  
 
@@ -371,7 +371,7 @@ URLs de download progressivo (áudio e vídeo).
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
 
-Para transmitir o vídeo, cole a URL na caixa de texto de URL no [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+Para transmitir o vídeo, cole a URL na caixa de texto de URL no [Azure Media Services Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 Para testar o download progressivo, cole uma URL em um navegador (por exemplo, Internet Explorer, Chrome ou Safari).
 
@@ -397,5 +397,5 @@ O exemplo de código a seguir contém o código que você criou neste tutorial: 
 
 
 <!-- URLs. -->
-[Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
-[Portal]: http://portal.azure.com/
+[Web Platform Installer]: https://go.microsoft.com/fwlink/?linkid=255386
+[Portal]: https://portal.azure.com/

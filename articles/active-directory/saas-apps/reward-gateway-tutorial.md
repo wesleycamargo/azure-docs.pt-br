@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a375b60acbb6636cdc651a41d65bc232b50946b6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 34e0e9b83dabfb5b389030248f1787e1e8ef9dd4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198925"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57840657"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a>Tutorial: Integração do Azure Active Directory com Reward Gateway
 
@@ -114,6 +114,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     ![Configurar o logon único](./media/reward-gateway-tutorial/tutorial_rewardgateway_url.png)
 
      a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
+
     | |
     |--|
     | `https://<companyname>.rewardgateway.com` |
@@ -122,6 +123,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     | `https://<companyname>.rewardgateway.com.au/` |
 
     b. Na caixa de texto **URL de resposta** , digite uma URL no seguinte padrão:
+    
     | |
     |--|
     |  `https://<companyname>.rewardgateway.com/Authentication/EndLogin?idp=<Unique Id>` |
@@ -130,7 +132,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     | `https://<companyname>.rewardgateway.com.au/Authentication/EndLogin?idp=<Unique Id>` |
 
     > [!NOTE] 
-    > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Para obter esses valores, comece a configurar uma Integração no Portal do Gerenciador de Prêmio. Detalhes podem ser localizados em https://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration
+    > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Para obter esses valores, comece a configurar uma Integração no Portal do Gerenciador de Prêmio. Detalhes podem ser localizados em https://success.rewardgateway.com/authentication-integrations/microsoft-azure-for-authentication
  
 1. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
 
@@ -140,7 +142,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Configurar o logon único](./media/reward-gateway-tutorial/tutorial_general_400.png)
 
-1. Para configurar o logon único do **Gateway de Prêmio**, comece a configurar uma Integração no Portal do Gerenciador de Prêmio. Use os metadados baixados para obter o Certificado de Autenticação e carregá-lo durante a configuração. Detalhes podem ser localizados em https://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration
+1. Para configurar o logon único do **Gateway de Prêmio**, comece a configurar uma Integração no Portal do Gerenciador de Prêmio. Use os metadados baixados para obter o Certificado de Autenticação e carregá-lo durante a configuração. Detalhes podem ser localizados em https://success.rewardgateway.com/authentication-integrations/microsoft-azure-for-authentication
 
 > [!TIP]
 > É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)

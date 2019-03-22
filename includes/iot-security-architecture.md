@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 61fb8380bcad7a30d822ab610f52e8515477d683
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: f3e05f213821b053f8cf6abbbc50a14e9ea62295
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56246689"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125167"
 ---
 # <a name="internet-of-things-iot-security-architecture"></a>Arquitetura de segurança da Internet das Coisas (IoT)
 
@@ -182,11 +182,11 @@ Em cada uma das categorias descritas na arquitetura de IoT do Azure, este exempl
 | **Componente** | **Ameaça** | **Mitigação** | **Risco** | **Implementação** |
 | --- | --- | --- | --- | --- |
 | Dispositivo |S |Atribuição de identidade para o dispositivo e autenticação do dispositivo |Substituir o dispositivo ou parte dele por outro dispositivo. Como saber se você está se comunicando com o dispositivo certo? |Autenticar o dispositivo, usando o protocolo TLS ou IPsec. A infraestrutura deve dar suporte ao uso da PSK (chave pré-compartilhada) nos dispositivos que não conseguem lidar com a criptografia assimétrica completa. Aproveite o Azure AD, o [OAuth](https://www.rfc-editor.org/pdfrfc/rfc6755.txt.pdf) |
-|| TRID |Aplicação de mecanismos à prova de violações no dispositivo, por exemplo, tornando difícil e até mesmo impossível extrair as chaves e outros materiais de criptografia do dispositivo. |O risco é se alguém está violando o dispositivo (interferência física). Como ter certeza de que o dispositivo não foi adulterado. |A mitigação mais eficaz é uma funcionalidade de TPM (trusted platform module) que permite armazenar chaves em circuitos on-chip especiais nos quais as chaves não podem ser lidas, mas apenas usadas para operações de criptografia que utilizam a chave, mas nunca a divulgam. Criptografia de memória do dispositivo. Gerenciamento de chaves para o dispositivo. Assinar o código. | |
-|| E |Ter controle de acesso do dispositivo. Esquema de autorização. |Se o dispositivo permitir que ações individuais sejam executadas com base em comandos de uma fonte externa, ou até mesmo sensores comprometidos, isso permite que o ataque execute operações não acessíveis de outra forma. |Ter um esquema de autorização para o dispositivo | |
+|| TRID |Aplicação de mecanismos à prova de violações no dispositivo, por exemplo, tornando difícil e até mesmo impossível extrair as chaves e outros materiais de criptografia do dispositivo. |O risco é se alguém está violando o dispositivo (interferência física). Como ter certeza de que o dispositivo não foi adulterado. |A mitigação mais eficaz é uma funcionalidade de TPM (trusted platform module) que permite armazenar chaves em circuitos on-chip especiais nos quais as chaves não podem ser lidas, mas apenas usadas para operações de criptografia que utilizam a chave, mas nunca a divulgam. Criptografia de memória do dispositivo. Gerenciamento de chaves para o dispositivo. Assinar o código. |
+|| E |Ter controle de acesso do dispositivo. Esquema de autorização. |Se o dispositivo permitir que ações individuais sejam executadas com base em comandos de uma fonte externa, ou até mesmo sensores comprometidos, isso permite que o ataque execute operações não acessíveis de outra forma. |Ter um esquema de autorização para o dispositivo |
 | Gateway de campo |S |Autenticação do gateway de campo no gateway de nuvem (por exemplo, baseada em certificado, PSK ou em declarações.) |Se alguém pode falsificar o gateway de campo, pode se apresentar como qualquer dispositivo. |TLS RSA/PSK, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). As mesmas preocupações de confirmação e armazenamento de chave dos dispositivos em geral, o melhor caso é usar o TPM. Extensão de 6LowPAN para o IPsec para dar suporte a WSN (Redes de Sensores Sem Fio). |
-|| TRID |Proteger o gateway de campo contra violação (TPM?) |Os ataques de falsificação que enganam gateway de nuvem pensando que ele está se comunicando com o gateway de campo podem resultar na divulgação não autorizada de informação e na violação dos dados. |Criptografia da memória, TPM, autenticação. | |
-|| E |Mecanismo de controle de acesso para o gateway de campo | | | |
+|| TRID |Proteger o gateway de campo contra violação (TPM?) |Os ataques de falsificação que enganam gateway de nuvem pensando que ele está se comunicando com o gateway de campo podem resultar na divulgação não autorizada de informação e na violação dos dados. |Criptografia da memória, TPM, autenticação. |
+|| E |Mecanismo de controle de acesso para o gateway de campo | | |
 
 Aqui estão alguns exemplos de ameaças nesta categoria:
 

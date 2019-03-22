@@ -1,6 +1,6 @@
 ---
-title: Habilitar o painel do Kubernetes no Azure Stack | Microsoft Docs
-description: Saiba como habilitar o painel do Kubernetes no Azure Stack
+title: Acessar o painel do Kubernetes no Azure Stack | Microsoft Docs
+description: Saiba como acessar o painel do Kubernetes no Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,24 +11,24 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 03/07/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: cdc1be0c0274977fe14ef704fbb74fa955ad7e11
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 76af6d6585d52eee99548f69c92bd414068fa28d
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242404"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259203"
 ---
-# <a name="enable-the-kubernetes-dashboard-in-azure-stack"></a>Habilitar o painel do Kubernetes no Azure Stack 
+# <a name="access-the-kubernetes-dashboard-in-azure-stack"></a>Acessar o painel do Kubernetes no Azure Stack 
 
 *Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack* 
 > [!Note]   
 > Kubernetes no Azure Stack está em visualização. Cenário desconectado da pilha do Azure não é suportado pelo preview. 
 
-Kubernetes inclui um painel da web que você pode usar para operações básicas de gerenciamento. Este painel permite exibir o status de integridade básico e as métricas dos seus aplicativos, criar e implantar serviços e editar aplicativos existentes. Este artigo mostra como habilitar o painel do Kubernetes no Azure Stack.
+Kubernetes inclui um painel da web que você pode usar para operações básicas de gerenciamento. Este painel permite exibir o status de integridade básico e as métricas dos seus aplicativos, criar e implantar serviços e editar aplicativos existentes. Este artigo mostra como configurar o painel do Kubernetes no Azure Stack.
 
 ## <a name="prerequisites-for-kubernetes-dashboard"></a>Pré-requisitos para o painel do Kubernetes
 
@@ -114,11 +114,11 @@ Você pode recuperar a URL para o painel de nó mestre no cluster.
 
 ## <a name="open-the-kubernetes-dashboard"></a>Abra o painel do Kubernetes 
 
-1.  Desabilite o Bloqueador de pop-up no navegador da Web.
+1. Desabilite o Bloqueador de pop-up no navegador da Web.
 
-2.  Ponto de seu navegador para a URL observado quando você executou o comando `kubectl cluster-info`. Por exemplo: https://azurestackdomainnamefork8sdashboard/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy 
-3.  Selecione o certificado do cliente.
-4.  Insira o token. 
+2. Ponto de seu navegador para a URL observado quando você executou o comando `kubectl cluster-info`. Por exemplo: https:\//azurestackdomainnamefork8sdashboard/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard: / proxy 
+3. Selecione o certificado do cliente.
+4. Insira o token. 
 5. Reconecte-se à linha de comando do bash no nó mestre e conceder permissões para `kubernetes-dashboard`. Execute o comando a seguir:
 
     ```Bash  

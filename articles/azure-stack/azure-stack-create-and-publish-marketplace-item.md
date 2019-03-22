@@ -15,12 +15,12 @@ ms.date: 01/08/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: ac4366a2e90ea239c650e611b7c4e8dddf5d5106
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 81f06e0f5d5201b902504d8275f356f9a1731065
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649655"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098892"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Criar e publicar um item do Marketplace
 
@@ -69,19 +69,19 @@ ms.locfileid: "56649655"
 
 10. Substitua **meus itens do Marketplace** com uma lista de categorias em que o item do Marketplace deve aparecer:
 
-   ```json
-   "categories":[
-   "My Marketplace Items"
-   ],
-   ```
+    ```json
+    "categories":[
+    "My Marketplace Items"
+    ],
+    ```
 
 11. Para todas as edições adicionais à manifest. JSON, consulte [referência: Manifest de item do Marketplace](#reference-marketplace-item-manifestjson).
 
 12. Para empacotar as pastas em um arquivo. azpkg, abra um prompt de comando e execute o seguinte comando:
 
-   ```shell
-   AzureGalleryPackager.exe package –m <path to manifest.json> -o <output location for the package>
-   ```
+    ```shell
+    AzureGalleryPackager.exe package –m <path to manifest.json> -o <output location for the package>
+    ```
 
     > [!NOTE]
     > O caminho completo para o pacote de saída deve existir. Por exemplo, se o caminho de saída for C:\MarketPlaceItem\yourpackage.azpkg, a pasta C:\MarketPlaceItem deve existir.

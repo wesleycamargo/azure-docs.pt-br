@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: Dale.Koetke
 ms.date: 12/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: ec0211c71b8be66262ef0f19dcd1f952051c97b8
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: edf724d6fd659ad4e8887a9c68467d17a33f5ccc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332669"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110267"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gerenciar o uso e os custos do Application Insights
 
@@ -167,15 +167,15 @@ Como esse plano é aplicável somente para clientes com uma assinatura do Operat
 ### <a name="how-the-enterprise-plan-works"></a>Como o plano Enterprise funciona
 
 * Você paga por cada nó que envia telemetria para qualquer aplicativo no plano Enterprise.
- * Um *nó* é um computador de servidor físico ou virtual ou uma instância de função de plataforma como serviço que hospeda o aplicativo.
- * Computadores de desenvolvimento, navegadores do cliente e dispositivos móveis não contam como nós.
- * Se o aplicativo tiver vários componentes que enviam telemetria, como um serviço Web e um trabalhado de back-end, os componentes serão contados separadamente.
- * Os dados de [Live Metrics Stream](../../azure-monitor/app/live-stream.md) não são contatos para fins de preços. Em uma assinatura, seus encargos são por nó, não por aplicativo. Se você tiver cinco nós que enviam telemetria para 12 aplicativos, o encargo será de cinco nós.
+  * Um *nó* é um computador de servidor físico ou virtual ou uma instância de função de plataforma como serviço que hospeda o aplicativo.
+  * Computadores de desenvolvimento, navegadores do cliente e dispositivos móveis não contam como nós.
+  * Se o aplicativo tiver vários componentes que enviam telemetria, como um serviço Web e um trabalhado de back-end, os componentes serão contados separadamente.
+  * Os dados de [Live Metrics Stream](../../azure-monitor/app/live-stream.md) não são contatos para fins de preços. Em uma assinatura, seus encargos são por nó, não por aplicativo. Se você tiver cinco nós que enviam telemetria para 12 aplicativos, o encargo será de cinco nós.
 * Embora as cobrança sejam cotadas por mês, você é cobrado apenas por aquelas horas em que um nó envia telemetria de um aplicativo. O encargo por hora é a cobrança mensal cotada dividida por 744 (o número de horas em um mês de 31 dias).
 * Uma alocação de volume de dados de 200 MB por dia é fornecida para cada nó detectado (com granularidade por hora). A alocação de dados não utilizada não é transportada de um dia para o outro.
- * Se você escolher o plano de preços Enterprise, cada assinatura receberá uma permissão diária de dados com base no número de nós que envia a telemetria aos recursos do Application Insights nessa assinatura. Portanto, se você tiver cinco nós que enviam dados todos os dias, você terá uma permissão em pool de 1 GB aplicada a todos os recursos do Application Insights nessa assinatura. Não importa se determinados nós enviam mais dados que outros nós, porque os dados incluídos são compartilhados entre todos os nós. Se em um determinado dia os recursos do Application Insights recebem mais dados do que está incluído na alocação de dados diária para esta assinatura, as cobranças por dados excedentes por GB se aplicam. 
- * A permissão de dados diária é calculada como o número de horas por dia (usando o UTC) que cada nó envia telemetria dividido por 24, multiplicado por 200 MB. Portanto, se você tiver quatro nós que enviam telemetria durante 15 das 24 horas do dia, os dados incluídos para esse dia serão ((4 &#215; 15) / 24) &#215; 200 MB = 500 MB. Pelo preço de US$ 2,30 por GB de dados excedentes, o valor a cobrar seria de US$ 1,15 se os nós enviassem 1 GB de dados naquele dia.
- * A permissão diária do plano Enterprise não é compartilhada com aplicativos para os quais você escolheu o plano Básico. A permissão não utilizada não é herdada do dia a dia. 
+  * Se você escolher o plano de preços Enterprise, cada assinatura receberá uma permissão diária de dados com base no número de nós que envia a telemetria aos recursos do Application Insights nessa assinatura. Portanto, se você tiver cinco nós que enviam dados todos os dias, você terá uma permissão em pool de 1 GB aplicada a todos os recursos do Application Insights nessa assinatura. Não importa se determinados nós enviam mais dados que outros nós, porque os dados incluídos são compartilhados entre todos os nós. Se em um determinado dia os recursos do Application Insights recebem mais dados do que está incluído na alocação de dados diária para esta assinatura, as cobranças por dados excedentes por GB se aplicam. 
+  * A permissão de dados diária é calculada como o número de horas por dia (usando o UTC) que cada nó envia telemetria dividido por 24, multiplicado por 200 MB. Portanto, se você tiver quatro nós que enviam telemetria durante 15 das 24 horas do dia, os dados incluídos para esse dia serão ((4 &#215; 15) / 24) &#215; 200 MB = 500 MB. Pelo preço de US$ 2,30 por GB de dados excedentes, o valor a cobrar seria de US$ 1,15 se os nós enviassem 1 GB de dados naquele dia.
+  * A permissão diária do plano Enterprise não é compartilhada com aplicativos para os quais você escolheu o plano Básico. A permissão não utilizada não é herdada do dia a dia. 
 
 ### <a name="examples-of-how-to-determine-distinct-node-count"></a>Exemplos de como determinar a contagem de nós distinta
 

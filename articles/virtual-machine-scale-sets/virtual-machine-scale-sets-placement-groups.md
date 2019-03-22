@@ -12,15 +12,15 @@ ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 11/9/2017
 ms.author: rajraj
-ms.openlocfilehash: 2a1c78a4cec595b672604c90e103ae3b9e40273f
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 98032291d9b9d1b0885e7442b882a7f62f9ccd59
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55693676"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123429"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Trabalhando com conjuntos de dimensionamento grandes de máquinas virtuais
 Agora você pode criar [conjuntos de dimensionamento de máquina virtual](/azure/virtual-machine-scale-sets/) do Azure com uma capacidade de até 1.000 VMs. Neste documento, um _conjunto de dimensionamento de máquinas virtuais grande_ é definido como um conjunto de dimensionamento capaz de ser redimensionado para mais de 100 VMs. Esse recurso é definido por uma propriedade de conjunto de dimensionamento (_singlePlacementGroup=False_). 
@@ -83,7 +83,7 @@ Para obter um exemplo completo de grande escala definida no modelo, consulte [ h
 ## <a name="converting-an-existing-scale-set-to-span-multiple-placement-groups"></a>Converter um conjunto de dimensionamento existente para abranger vários grupos de posicionamento
 Para tornar um conjunto de dimensionamento de máquina virtual existente capaz de ser redimensionado para mais de 100 VMs, você precisa alterar a propriedade _singplePlacementGroup_ para _false_ no modelo de conjunto de dimensionamento. Você pode testar a alteração dessa propriedade com o [Gerenciador de Recursos do Azure](https://resources.azure.com/). Localize um conjunto de dimensionamento existente, selecione _Editar_ e altere a propriedade _singlePlacementGroup_. Se não vir essa propriedade, talvez você esteja exibindo o conjunto de dimensionamento com uma versão mais antiga da API Microsoft.Compute.
 
->[!NOTE] 
-Você pode alterar um conjunto de dimensionamento de oferecer suporte a apenas um único grupo de posicionamento (o comportamento padrão) para dar suporte a vários grupos de posicionamento, mas não é possível fazer o oposto. Portanto, entenda as propriedades de conjuntos de dimensionamento grandes antes da conversão.
+> [!NOTE]
+> Você pode alterar um conjunto de dimensionamento de oferecer suporte a apenas um único grupo de posicionamento (o comportamento padrão) para dar suporte a vários grupos de posicionamento, mas não é possível fazer o oposto. Portanto, entenda as propriedades de conjuntos de dimensionamento grandes antes da conversão.
 
 

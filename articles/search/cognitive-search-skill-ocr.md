@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 6fa316452b5b9f56c33de00b96c2cf57c40edfcc
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: fb7fe0689ce54031880565c0c6409afeab2ff523
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429648"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57777884"
 ---
 # <a name="ocr-cognitive-skill"></a>Habilidades cognitivas OCR
 
@@ -33,6 +33,7 @@ A habilidade **OCR** extrai o texto de arquivos de imagem. Formatos de arquivo c
 + .PNG
 + .BMP
 + .GIF
++ .TIFF
 
 > [!NOTE]
 > A partir de 21 de dezembro de 2018, você poderá [anexar um recurso dos Serviços Cognitivos](cognitive-search-attach-cognitive-services.md) a um conjunto de habilidades do Azure Search. Isso nos permitirá começar a cobrar pela execução do conjunto de habilidades. Nessa data, também passamos a cobrar pela extração de imagem como parte do estágio de decodificação de documentos. A extração de texto de documentos continua sendo oferecida sem custo adicional.
@@ -67,32 +68,32 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 
 ```json
 {
-    "skills": [
-      {
-        "description": "Extracts text (plain and structured) from image.",
-        "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
-        "context": "/document/normalized_images/*",
-        "defaultLanguageCode": null,
-        "detectOrientation": true,
-        "inputs": [
-          {
-            "name": "image",
-            "source": "/document/normalized_images/*"
-          }
-        ],
-        "outputs": [
-          {
-            "name": "text",
-            "targetName": "myText"
-          },
-          {
-            "name": "layoutText",
-            "targetName": "myLayoutText"
-          }
-        ]
-      }
-    ]
- }
+  "skills": [
+    {
+      "description": "Extracts text (plain and structured) from image.",
+      "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
+      "context": "/document/normalized_images/*",
+      "defaultLanguageCode": null,
+      "detectOrientation": true,
+      "inputs": [
+        {
+          "name": "image",
+          "source": "/document/normalized_images/*"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "targetName": "myText"
+        },
+        {
+          "name": "layoutText",
+          "targetName": "myLayoutText"
+        }
+      ]
+    }
+  ]
+}
 ```
 <a name="sample-output"></a>
 
@@ -136,9 +137,9 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 
 ## <a name="sample-merging-text-extracted-from-embedded-images-with-the-content-of-the-document"></a>Exemplo: Mesclar o texto extraído de imagens incorporadas com o conteúdo do documento.
 
-Um caso de uso comum para o Text Merger é a capacidade de mesclar a representação textual de imagens (texto de uma habilidade OCR ou a legenda de uma imagem) no campo de conteúdo de um documento. 
+Um caso de uso comum para o Text Merger é a capacidade de mesclar a representação textual de imagens (texto de uma habilidade OCR ou a legenda de uma imagem) no campo de conteúdo de um documento.
 
-O conjunto de habilidades de exemplo a seguir cria um campo *merged_text*. Esse campo traz o conteúdo textual do documento e o texto processado para OCR de cada uma das imagens inseridas nesse documento. 
+O conjunto de habilidades de exemplo a seguir cria um campo *merged_text*. Esse campo traz o conteúdo textual do documento e o texto processado para OCR de cada uma das imagens inseridas nesse documento.
 
 #### <a name="request-body-syntax"></a>Sintaxe de Corpo da Solicitação
 ```json
@@ -147,22 +148,22 @@ O conjunto de habilidades de exemplo a seguir cria um campo *merged_text*. Esse 
   "skills":
   [
     {
-        "description": "Extract text (plain and structured) from image.",
-        "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
-        "context": "/document/normalized_images/*",
-        "defaultLanguageCode": "en",
-        "detectOrientation": true,
-        "inputs": [
-          {
-            "name": "image",
-            "source": "/document/normalized_images/*"
-          }
-        ],
-        "outputs": [
-          {
-            "name": "text"
-          }
-        ]
+      "description": "Extract text (plain and structured) from image.",
+      "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
+      "context": "/document/normalized_images/*",
+      "defaultLanguageCode": "en",
+      "detectOrientation": true,
+      "inputs": [
+        {
+          "name": "image",
+          "source": "/document/normalized_images/*"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text"
+        }
+      ]
     },
     {
       "@odata.type": "#Microsoft.Skills.Text.MergeSkill",
@@ -178,7 +179,7 @@ O conjunto de habilidades de exemplo a seguir cria um campo *merged_text*. Esse 
           "name": "itemsToInsert", "source": "/document/normalized_images/*/text"
         },
         {
-          "name":"offsets", "source": "/document/normalized_images/*/contentOffset" 
+          "name":"offsets", "source": "/document/normalized_images/*/contentOffset"
         }
       ],
       "outputs": [
@@ -193,14 +194,14 @@ O conjunto de habilidades de exemplo a seguir cria um campo *merged_text*. Esse 
 O exemplo de conjunto de qualificações acima presume que existe um campo de imagens normalizado. Para gerar esse campo, defina a configuração *imageAction* na definição do indexador para *generateNormalizedImages* conforme mostrado abaixo:
 
 ```json
-{  
-   //...rest of your indexer definition goes here ... 
-  "parameters":{  
-      "configuration":{  
-         "dataToExtract":"contentAndMetadata",
-         "imageAction":"generateNormalizedImages"
-      }
-   }
+{
+  //...rest of your indexer definition goes here ...
+  "parameters": {
+    "configuration": {
+      "dataToExtract":"contentAndMetadata",
+      "imageAction":"generateNormalizedImages"
+    }
+  }
 }
 ```
 

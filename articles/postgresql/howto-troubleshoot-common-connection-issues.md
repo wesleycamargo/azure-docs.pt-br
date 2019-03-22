@@ -7,12 +7,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/09/2018
-ms.openlocfilehash: 1a7f58960111b3fba6283830b262a9b901b8e2fd
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: a78167e9b143a4c8d424947b489043dd45dfe2db
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546225"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57886415"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql"></a>Solucionar problemas de conexão ao Banco de Dados do Azure para PostgreSQL
 
@@ -48,7 +48,7 @@ Se o aplicativo falhar persistentemente em se conectar ao Banco de Dados do Azur
 
 * Configuração de firewall do servidor: Certifique-se de que firewall do Banco de Dados do Azure para PostgreSQL esteja configurado para permitir conexões de seu cliente, incluindo servidores proxy e gateways.
 * Configuração de firewall do cliente: O firewall em seu cliente deve permitir conexões com o servidor de banco de dados. Endereços IP e portas do servidor devem ser permitidos, bem como nomes de aplicativo, como MySQL, em alguns firewalls.
-* Erro do usuário: Você pode ter digitado parâmetros de conexão, como o nome do servidor na cadeia de conexão ou a ausência de um sufixo *@servername* no nome do usuário.
+* Erro do usuário: Você pode ter digitado incorretamente os parâmetros de conexão, como o nome do servidor na cadeia de caracteres de conexão ou a ausência de um  *\@servername* sufixo no nome do usuário.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Etapas para resolver os problemas de conectividade temporários
 

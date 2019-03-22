@@ -17,12 +17,12 @@ ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01cc85f7eba2aefd08192c4e3f4e5151e7645238
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 311ba489073805fdb034b435ab9e5e1ddc2c4e3c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269103"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535035"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Conceitos de design
 O objetivo deste documento é descrever as áreas que devem ser consideradas durante o design de implementação do Azure AD Connect. Este documento é um aprofundamento em determinadas áreas e esses conceitos também são descritos brevemente em outros documentos.
@@ -157,7 +157,7 @@ Durante a análise (etapa 4), se o atributo estiver configurado em um ou mais ob
 
 ![Habilitar ConsistencyGuid para implantação existente – erro](./media/plan-connect-design-concepts/consistencyguidexistingdeploymenterror.png)
 
- Se você tiver certeza de que o atributo não é usado por outros aplicativos existentes, será possível suprimir o erro reiniciando o Assistente do Azure AD Connect com o **/SkipLdapSearchcontact** especificado. Para tal, execute o seguinte comando no prompt de comando:
+ Se você tiver certeza de que o atributo não é usado por outros aplicativos existentes, você pode suprimir o erro reiniciando o Assistente do Azure AD Connect com o **/SkipLdapSearch** switch especificado. Para tal, execute o seguinte comando no prompt de comando:
 
 ```
 "c:\Program Files\Microsoft Azure Active Directory Connect\AzureADConnect.exe" /SkipLdapSearch
@@ -171,7 +171,7 @@ Se você estiver gerenciando o AD FS fora do Azure AD Connect ou usando servidor
 ![Configuração da federação de terceiros](./media/plan-connect-design-concepts/consistencyGuid-03.png)
 
 ### <a name="adding-new-directories-to-existing-deployment"></a>Adicionando novos diretórios à implantação existente
-Suponha que você tenha implantado o Azure AD Connect com o recurso ConsistencyGuid habilitado e agora deseje adicionar outro diretório à implantação. Quando você tenta adicionar o diretório, o assistente do Azure AD Connect verifica o estado do atributo ms-DS-ConsistencyGuid no diretório. Se o atributo estiver configurado em um ou mais objetos no diretório, o assistente concluirá que o atributo está sendo usado por outros aplicativos e retornará um erro, conforme ilustrado no diagrama a seguir. Se você tiver certeza de que o atributo não é usado por outros aplicativos existentes, será possível suprimir o erro reiniciando o Assistente do Azure AD Connect com o **/SkipLdapSearchcontact** especificado conforme descrito acima ou entrando em contato com o Suporte para ter mais informações.
+Suponha que você tenha implantado o Azure AD Connect com o recurso ConsistencyGuid habilitado e agora deseje adicionar outro diretório à implantação. Quando você tenta adicionar o diretório, o assistente do Azure AD Connect verifica o estado do atributo ms-DS-ConsistencyGuid no diretório. Se o atributo estiver configurado em um ou mais objetos no diretório, o assistente concluirá que o atributo está sendo usado por outros aplicativos e retornará um erro, conforme ilustrado no diagrama a seguir. Se você tiver certeza de que o atributo não é usado pelos aplicativos existentes, você pode suprimir o erro reiniciando o Assistente do Azure AD Connect com o **/SkipLdapSearch** switch especificada conforme descrito acima, ou você precisa entrar em contato com Suporte para obter mais informações.
 
 ![Adicionando novos diretórios à implantação existente](./media/plan-connect-design-concepts/consistencyGuid-04.png)
 

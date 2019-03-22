@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 0ef4aa988f4adc855051b213013636b4a04f1cca
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: 8e108d88282894a7b1bf014146083008bedd483d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316963"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095034"
 ---
 #  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>Não é possível RDP para uma VM porque a VM é inicializada no modo de segurança
 
@@ -47,7 +47,7 @@ Para resolver esse problema, use o controle Serial para configurar a VM para ini
 ### <a name="use-serial-control"></a>Usar o Controle serial
 
 1. Conecte-se ao [Console Serial e abra a instância CMD](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
-). Se o Console Serial não estiver habilitado em sua VM, consulte [reparar a VM off-line](#repair-the-vm-offline).
+   ). Se o Console Serial não estiver habilitado em sua VM, consulte [reparar a VM off-line](#repair-the-vm-offline).
 2. Verifique os dados de configuração de inicialização:
 
         bcdedit /enum
@@ -55,12 +55,12 @@ Para resolver esse problema, use o controle Serial para configurar a VM para ini
     Se a VM estiver configurada para inicializar no Modo de Segurança, você verá um sinalizador extra na seção do **Carregador de Inicialização do Windows** chamada **safeboot**. Se você não vir o sinalizador **safeboot**, a VM não está no modo de segurança. Este artigo não se aplica ao seu cenário.
 
     O **safeboot** sinalizador pode aparecer com os seguintes valores:
-    - Mínimo
-    - Rede
+   - Mínimo
+   - Rede
 
-    Em qualquer um desses dois modos, o RDP não será iniciado. Portanto, a correção permanece a mesma.
+     Em qualquer um desses dois modos, o RDP não será iniciado. Portanto, a correção permanece a mesma.
 
-    ![Imagem sobre o sinalizador de modo de segurança](./media/troubleshoot-rdp-safe-mode/safe-mode-tag.png)
+     ![Imagem sobre o sinalizador de modo de segurança](./media/troubleshoot-rdp-safe-mode/safe-mode-tag.png)
 
 3. Exclua o sinalizador **safemoade** para que a VM inicialize no modo normal:
 

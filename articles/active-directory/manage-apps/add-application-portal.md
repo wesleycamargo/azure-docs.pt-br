@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/24/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27456f672e2fa67928b43e80bef384a14e9c1d62
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9f062596e2be93065b3c076787c2f5b3dfcedf9d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166956"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110113"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>Início Rápido: Adicionar um aplicativo a seu locatário do Azure Active Directory
 
@@ -113,35 +113,35 @@ Para editar as propriedades do aplicativo
 
 4. Use as tabelas a seguir para ajudá-lo a escolher as opções mais adequadas para suas necessidades.
 
-    - Comportamento de usuários **atribuídos**:
+   - Comportamento de usuários **atribuídos**:
 
-        | Configurações de propriedade do aplicativo | | | Experiência do usuário atribuído | |
-        |---|---|---|---|---|
-        | Habilitado para os usuários entrarem? | Atribuição de usuário obrigatória? | Visível para os usuários? | Os usuários atribuídos podem entrar? | Os usuários atribuídos podem ver o aplicativo?* |
-        | Sim | Sim | Sim | Sim | Sim  |
-        | Sim | Sim | não  | Sim | não   |
-        | Sim | não  | Sim | Sim | Sim  |
-        | Sim | não  | não  | Sim | não   |
-        | não  | Sim | Sim | não  | não   |
-        | não  | Sim | não  | não  | não   |
-        | não  | não  | Sim | não  | não   |
-        | não  | não  | não  | não  | não   |
+       | Configurações de propriedade do aplicativo | | | Experiência do usuário atribuído | |
+       |---|---|---|---|---|
+       | Habilitado para os usuários entrarem? | Atribuição de usuário obrigatória? | Visível para os usuários? | Os usuários atribuídos podem entrar? | Os usuários atribuídos podem ver o aplicativo?* |
+       | Sim | Sim | Sim | Sim | Sim  |
+       | Sim | Sim | não  | Sim | não   |
+       | Sim | não  | Sim | Sim | Sim  |
+       | Sim | não  | não  | Sim | não   |
+       | não  | Sim | Sim | não  | não   |
+       | não  | Sim | não  | não  | não   |
+       | não  | não  | Sim | não  | não   |
+       | não  | não  | não  | não  | não   |
 
-    - Comportamento de usuários **não atribuídos**:
+   - Comportamento de usuários **não atribuídos**:
 
-        | Configurações de propriedade do aplicativo | | | Experiência de usuário não atribuído | |
-        |---|---|---|---|---|
-        | Habilitado para os usuários entrarem? | Atribuição de usuário obrigatória? | Visível para os usuários? | Os usuários não atribuídos podem entrar? | Os usuários não atribuídos podem ver o aplicativo?* |
-        | Sim | Sim | Sim | não  | não   |
-        | Sim | Sim | não  | não  | não   |
-        | Sim | não  | Sim | Sim | não   |
-        | Sim | não  | não  | Sim | não   |
-        | não  | Sim | Sim | não  | não   |
-        | não  | Sim | não  | não  | não   |
-        | não  | não  | Sim | não  | não   |
-        | não  | não  | não  | não  | não   |
+       | Configurações de propriedade do aplicativo | | | Experiência de usuário não atribuído | |
+       |---|---|---|---|---|
+       | Habilitado para os usuários entrarem? | Atribuição de usuário obrigatória? | Visível para os usuários? | Os usuários não atribuídos podem entrar? | Os usuários não atribuídos podem ver o aplicativo?* |
+       | Sim | Sim | Sim | não  | não   |
+       | Sim | Sim | não  | não  | não   |
+       | Sim | não  | Sim | Sim | não   |
+       | Sim | não  | não  | Sim | não   |
+       | não  | Sim | Sim | não  | não   |
+       | não  | Sim | não  | não  | não   |
+       | não  | não  | Sim | não  | não   |
+       | não  | não  | não  | não  | não   |
 
-    *O usuário pode ver o aplicativo no painel de acesso e no iniciador de aplicativos do Office 365?
+     *O usuário pode ver o aplicativo no painel de acesso e no iniciador de aplicativos do Office 365?
 
 ## <a name="use-a-custom-logo"></a>Usar um logotipo personalizado
 

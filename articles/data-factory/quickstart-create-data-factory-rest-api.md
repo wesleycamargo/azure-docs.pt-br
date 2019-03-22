@@ -13,14 +13,14 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 3904a59a3462d7d83f976583bd7e714763af2c69
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: c3a7c089bcc6dca2379c84330d3b937b9c7f1167
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446725"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450254"
 ---
-# <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Início rápido: Crie um pipeline e um Azure Data Factory usando a API REST
+# <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Início Rápido: Crie um pipeline e um Azure Data Factory usando a API REST
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -34,10 +34,12 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 * **Assinatura do Azure**. Se você não tiver uma assinatura, poderá criar uma conta de [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * **Conta de Armazenamento do Azure**. Você usa o armazenamento de blobs como um armazenamento de dados de **origem** e de **coletor**. Se você não tiver uma conta de Armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md) para conhecer as etapas para criar uma.
 * Crie um **contêiner de blob** no Armazenamento de Blobs, crie uma **pasta** de entrada no contêiner e carregue alguns arquivos na pasta. Você pode usar ferramentas como o [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) para se conectar ao armazenamento de Blobs do Azure, criar um contêiner de blobs, carregar arquivos de entrada e verificar os arquivos de saída.
-* Instale o **Azure PowerShell**. Siga as instruções em [Como instalar e configurar o Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Este guia de início rápido usa o PowerShell para invocar chamadas à API REST.
+* Instale o **Azure PowerShell**. Siga as instruções em [Como instalar e configurar o Azure PowerShell](/powershell/azure/install-Az-ps). Este guia de início rápido usa o PowerShell para invocar chamadas à API REST.
 * **Crie um aplicativo no Azure Active Directory** seguindo [esta instrução](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Anote os valores a seguir, que você usará em etapas posteriores: **ID do aplicativo**, **chave de autenticação** e **ID do locatário**. Atribua o aplicativo à função "**Colaborador**".
 
 ## <a name="set-global-variables"></a>Definir variáveis globais
@@ -47,17 +49,17 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
     Execute o comando a seguir e insira o nome de usuário e senha usados para entrar no portal do Azure:
     
     ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
     Execute o comando abaixo para exibir todas as assinaturas dessa conta:
 
     ```powershell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
     Execute o comando a seguir para selecionar a assinatura com a qual deseja trabalhar. Substitua **SubscriptionId** pela ID da assinatura do Azure:
 
     ```powershell
-    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"
+    Select-AzSubscription -SubscriptionId "<SubscriptionId>"
     ```
 2. Execute os comandos a seguir depois de substituir os espaços reservados pelos seus próprios valores, para definir variáveis globais a serem usadas em etapas posteriores.
 
@@ -438,13 +440,13 @@ Limpe os recursos criados no Guia de início rápido de duas maneiras. Você pod
 
 Execute o comando a seguir para excluir o grupo de recursos inteiro:
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
+Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
 Execute o comando a seguir para excluir somente o data factory:
 
 ```powershell
-Remove-AzureRmDataFactoryV2 -Name "<NameOfYourDataFactory>" -ResourceGroupName "<NameOfResourceGroup>"
+Remove-AzDataFactoryV2 -Name "<NameOfYourDataFactory>" -ResourceGroupName "<NameOfResourceGroup>"
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

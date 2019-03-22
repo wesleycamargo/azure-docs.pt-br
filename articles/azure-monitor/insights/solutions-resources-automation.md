@@ -7,19 +7,19 @@ author: bwren
 manager: carmonm
 editor: tysonn
 ms.assetid: 5281462e-f480-4e5e-9c19-022f36dce76d
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a72df28fbaed89076976f567774bd5fdb15bc2f9
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.openlocfilehash: 1c9b13f44dae068597cb82a0aa803283ad5e67bc
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229482"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57763599"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>Adicionar recursos de Automação do Azure a uma solução de gerenciamento (versão prévia)
 > [!NOTE]
@@ -281,7 +281,7 @@ Se você definir o valor inicial da variável, ele deverá ser definido como o t
 
 | Tipo de dados | DESCRIÇÃO | Exemplo | É resolvido desta forma |
 |:--|:--|:--|:--|
-| string   | Coloque o valor entre aspas duplas.  | "\"Olá, Mundo\"" | "Olá, Mundo" |
+| cadeia de caracteres   | Coloque o valor entre aspas duplas.  | "\"Olá, Mundo\"" | "Olá, Mundo" |
 | numérico  | Valor numérico com aspas simples.| "64" | 64 |
 | booleano  | **true** ou **false** entre aspas.  Observe que esse valor deve estar em minúsculas. | "true" | verdadeiro |
 | Datetime | Valor de data serializada.<br>Você pode usar o cmdlet ConvertTo-Json no PowerShell para gerar esse valor para uma determinada data.<br>Exemplo: get-date "24/5/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |

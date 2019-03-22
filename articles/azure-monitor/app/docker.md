@@ -10,16 +10,19 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 11/20/2018
+ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 3ea7d6562965debda2c146fedab2ea9ab19f6cc8
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 115e2d6b041ecc3f38a2a6438d90777da9660221
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077446"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996479"
 ---
-# <a name="monitor-docker-applications-in-application-insights"></a>Monitorar aplicativos do Docker no Application Insights
+# <a name="monitor-docker-applications-in-application-insights-deprecated"></a>Monitorar aplicativos do Docker no Application Insights (preterido)
+
+> [!NOTE]
+> Esta solução foi reprovada. Para saber mais sobre nossos investimentos atuais no monitoramento de contêineres, recomendamos que você faça o check-out do [Azure Monitor para contêineres](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview).
 
 Os eventos de ciclo de vida e os contadores de desempenho dos contêineres [Docker](https://www.docker.com/) podem ser representados em gráfico no Application Insights. Instale a imagem [Application Insights](https://hub.docker.com/r/microsoft/applicationinsights/) em um contêiner em seu host e ele exibirá os contadores de desempenho para o host, bem como para outras imagens.
 
@@ -29,10 +32,7 @@ Ao executar a [imagem do Application Insights](https://hub.docker.com/r/microsof
 
 * A telemetria do ciclo de vida sobre todos os contêineres em execução no host - início, parada e assim por diante.
 * Contadores de desempenho para todos os contêineres. CPU, memória, uso da rede e muito mais.
-* Se você [instalou o SDK do Application Insights para Java](../../azure-monitor/app/java-live.md) nos aplicativos em execução nos contêineres, toda a telemetria desses aplicativos terá propriedades adicionais que identificam o contêiner e o computador host. Portanto, por exemplo, se você tiver instâncias de um aplicativo em execução em mais de um host, poderá filtrar a telemetria do aplicativo pelo host com facilidade.
-
-> [!NOTE]
-> Esta solução foi reprovada. Para saber mais sobre nossos investimentos atuais no monitoramento de contêineres, recomendamos que você faça o check-out do [Azure Monitor para contêineres](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview).
+* Se você [instalou o SDK do Application Insights para Java](../../azure-monitor/app/java-get-started.md) nos aplicativos em execução nos contêineres, toda a telemetria desses aplicativos terá propriedades adicionais que identificam o contêiner e o computador host. Portanto, por exemplo, se você tiver instâncias de um aplicativo em execução em mais de um host, poderá filtrar a telemetria do aplicativo pelo host com facilidade.
 
 ## <a name="set-up-your-application-insights-resource"></a>Configurar seu recurso do Application Insights
 
@@ -40,7 +40,7 @@ Ao executar a [imagem do Application Insights](https://hub.docker.com/r/microsof
    
     *Qual recurso devo usar?* Se os aplicativos que estão em execução no host foram desenvolvidos por outra pessoa, você precisa [criar um novo recurso do Application Insights](../../azure-monitor/app/create-new-resource.md ). Esse é o local em que você pode exibir e analisar a telemetria. (Selecione 'Geral' para o tipo de aplicativo.)
    
-    Mas se você for o desenvolvedor dos aplicativos, esperamos que você tenha [adicionado o SDK do Application Insights](../../azure-monitor/app/java-live.md) a cada um deles. Se eles forem realmente todos os componentes de um único aplicativo de negócios, você poderá configurar todos eles para enviar a telemetria para um recurso e usará esse mesmo recurso para exibir os dados de desempenho e do ciclo de vida do Docker. 
+    Mas se você for o desenvolvedor dos aplicativos, esperamos que você tenha [adicionado o SDK do Application Insights](../../azure-monitor/app/java-get-started.md) a cada um deles. Se eles forem realmente todos os componentes de um único aplicativo de negócios, você poderá configurar todos eles para enviar a telemetria para um recurso e usará esse mesmo recurso para exibir os dados de desempenho e do ciclo de vida do Docker. 
    
     Um terceiro cenário é que você desenvolveu a maioria dos aplicativos, mas está usando recursos separados para exibir a telemetria deles. Nesse caso, provavelmente, você também desejará criar um recurso separado para os dados do Docker.
 

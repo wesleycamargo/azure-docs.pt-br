@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: af8d06a8eeb1c8fbce7ccc47c9f25b9d37ff83e6
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: b71c48a86be13df51222069f6948642455bc77fc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56414633"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58121257"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Tutorial – Como usar a inicialização de nuvem para personalizar uma máquina virtual do Linux no Azure na primeira inicialização
 
@@ -46,7 +46,7 @@ A inicialização de nuvem também funciona em distribuições. Por exemplo, voc
 Estamos trabalhando com parceiros para incluir a inicialização de nuvem e trabalhar nas imagens que eles fornecem para o Azure. A tabela a seguir descreve a disponibilidade de inicialização de nuvem atual nas imagens da plataforma Azure:
 
 | Alias | Publicador | Oferta | SKU | Versão |
-|:--- |:--- |:--- |:--- |:--- |:--- |
+|:--- |:--- |:--- |:--- |:--- |
 | UbuntuLTS |Canônico |UbuntuServer |16.04-LTS |mais recente |
 | UbuntuLTS |Canônico |UbuntuServer |14.04.5-LTS |mais recente |
 | CoreOS |CoreOS |CoreOS |Estável |mais recente |

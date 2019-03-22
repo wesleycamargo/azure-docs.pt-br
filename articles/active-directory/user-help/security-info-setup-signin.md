@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3da54c4f7fae5a613d88f169d58a083f9273c0d3
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: f9c6faff10f68d720bc3c86a191e4cd1b1f9abdc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587881"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58123599"
 ---
 # <a name="set-up-your-security-info-preview-from-the-sign-in-page-prompt"></a>Configure suas informações de segurança (versão prévia) no aviso na página de entrada
 Você poderá seguir estas etapas se for solicitado a você que configure suas informações de segurança imediatamente após entrar na sua conta corporativa ou de estudante.
@@ -39,10 +39,10 @@ Siga estas etapas para configurar suas informações de segurança para sua cont
 
 1. Depois de selecionar **Avançar** no aviso, um **assistente Mantenha sua conta segura** é exibido, mostrando o primeiro método que o administrador e a organização exigem que você configure. Neste exemplo, trata-se do aplicativo Microsoft Authenticator.
 
-    >[!Note]
-    >Se você não quiser usar o aplicativo Microsoft Authenticator, selecione o link **Desejo usar um aplicativo autenticador diferente**.
-    
-    >Se a sua organização permitir que você escolha um método que não seja o aplicativo autenticador, você poderá selecionar o link **Desejo configurar um método diferente**.
+   > [!Note]
+   > Se você não quiser usar o aplicativo Microsoft Authenticator, selecione o link **Desejo usar um aplicativo autenticador diferente**.
+   > 
+   > Se a sua organização permitir que você escolha um método que não seja o aplicativo autenticador, você poderá selecionar o link **Desejo configurar um método diferente**.
 
     ![Assistente Mantenha sua conta segura, mostrando a página de download do aplicativo de autenticação](media/security-info/securityinfo-prompt-get-auth-app.png)
 

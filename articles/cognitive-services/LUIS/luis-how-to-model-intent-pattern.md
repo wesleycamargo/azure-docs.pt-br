@@ -9,17 +9,17 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/23/2019
+ms.date: 02/22/2019
 ms.author: diberry
-ms.openlocfilehash: 9d3352017723f5beac318d461a537820b6593bef
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 132f6eab86c02e28fe562a0c7d3357175e5813b8
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881665"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195040"
 ---
-# <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Como adicionar Padrões para aumentar a precisão da previsão
-Depois que um aplicativo LUIS receber declarações do ponto de extremidade, use o [conceito](luis-concept-patterns.md) de Padrões para aumentar a precisão da previsão de declarações que revelam um padrão na ordem e na escolha de palavras. Os Padrões usam [entidades](luis-concept-entity-types.md), e a funções que elas têm de extrair dados usando uma sintaxe de padrão específica. 
+# <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Como adicionar padrões para aumentar a precisão de previsão
+Depois que um aplicativo LUIS recebe declarações de ponto de extremidade, use uma [padrão](luis-concept-patterns.md) para melhorar a precisão da previsão para declarações que revelam um padrão na ordem das palavras e a escolha do word. Padrões usam specific [sintaxe](luis-concept-patterns.md#pattern-syntax) para indicar o local de: [entidades](luis-concept-entity-types.md), funções de entidade e um texto opcional.
 
 ## <a name="add-template-utterance-to-create-pattern"></a>Adicionar declaração modelo para criar o padrão
 1. Abra o aplicativo selecionando seu nome na página **Meus Aplicativos** e, em seguida, selecione **Padrões** no painel esquerdo, sob **Melhorar o desempenho do aplicativo**.
@@ -42,100 +42,36 @@ Depois que um aplicativo LUIS receber declarações do ponto de extremidade, use
 
     ![Captura de tela do padrão inserido com os dois tipos de entidades](./media/luis-how-to-model-intent-pattern/patterns-5.png)
 
-## <a name="search-patterns"></a>Padrões de pesquisa
-A pesquisa permite que você encontre padrões que contenham um determinado texto.  
-
-1. Selecione o ícone de lupa.
-
-    ![Captura de tela da página Padrões com o ícone da ferramenta de pesquisa realçado](./media/luis-how-to-model-intent-pattern/search-icon.png)
-
-    Digite o texto de pesquisa na caixa de pesquisa, que está no canto superior direito da lista de padrões, e selecione Enter. A lista de padrões é atualizada para exibir apenas os padrões, incluindo o texto de pesquisa.
-
-    ![Captura de tela da página Padrões com o texto de pesquisa, na caixa de pesquisa, realçado](./media/luis-how-to-model-intent-pattern/search-text.png)
-
-    Para cancelar a pesquisa e restaurar a lista completa de padrões, exclua o texto de pesquisa que você digitou.
-
-<!-- TBD: should I be able to click on the magnifying glass again to close the search box? It doesn't reset the list. -->
-
-## <a name="edit-a-pattern"></a>Editar um padrão
-1. Para editar um padrão, selecione o botão de reticências (***...***) no lado direito da linha daquele padrão e, em seguida, selecione **Editar**. 
-
-    ![Captura de tela do item de menu Editar na linha do padrão](./media/luis-how-to-model-intent-pattern/patterns-three-dots.png) 
-
-2. Insira as alterações na caixa de texto. Quando terminar, selecione enter. Ao terminar de editar os padrões, [treine](luis-how-to-train.md) seu aplicativo.
-
-    ![Captura de tela da edição do padrão](./media/luis-how-to-model-intent-pattern/edit-pattern.png)
-
-## <a name="reassign-individual-pattern-to-different-intent"></a>Reatribuir padrão individual a uma intenção diferente
-
-Para reatribuir um único padrão a uma intenção diferente, selecione a caixa de listagem de intenções à direita do texto padrão e selecione uma intenção diferente.
-
-![Captura de tela de reatribuição de padrão individual a uma intenção diferente](./media/luis-how-to-model-intent-pattern/reassign-individual-pattern.png)
-
-## <a name="reassign-several-patterns-to-different-intent"></a>Reatribuir vários padrões a uma intenção diferente
-
-Para reatribuir vários padrões a uma intenção diferente, marque a caixa de seleção à esquerda de cada padrão ou marque a caixa de seleção superior. A opção **Reatribuir intenção** é exibida na barra de ferramentas. Selecione a intenção correta para os padrões. 
-
-![Captura de tela de reatribuição de vários padrões a uma intenção diferente](./media/luis-how-to-model-intent-pattern/reassign-many-patterns.png)
-
-## <a name="delete-a-single-pattern"></a>Excluir um único padrão
-
-1. Para excluir um padrão, selecione o botão de reticências (***...***) no lado direito da linha daquele padrão e, em seguida, selecione **Excluir**. 
-
-    ![Captura de tela de Excluir declaração](./media/luis-how-to-model-intent-pattern/patterns-three-dots-ddl.png)
-
-2. Selecione **OK** para confirmar a exclusão.
-
-    ![Captura de tela de Excluir confirmação](./media/luis-how-to-model-intent-pattern/confirm-delete.png)
-
-## <a name="delete-several-patterns"></a>Excluir vários padrões
-
-1. Para excluir vários padrões, marque a caixa de seleção à esquerda de cada padrão ou marque a caixa de seleção superior. A opção **Excluir padrões** é exibida na barra de ferramentas. Selecione **Excluir padrões**.  
-
-    ![Captura de tela da exclusão de vários padrões](./media/luis-how-to-model-intent-pattern/delete-many-patterns.png)
-
-2. O diálogo de confirmação **Excluir padrões** é exibido. Selecione **OK** para concluir a exclusão.
-
-    ![Captura de tela da caixa de confirmação de exclusão de vários padrões](./media/luis-how-to-model-intent-pattern/delete-many-patterns-confirmation.png)
-
-## <a name="filter-pattern-list-by-entity"></a>Filtrar a lista de padrões por entidade
-
-Para filtrar a lista de padrões por uma entidade específica, selecione **Filtros de entidade** na barra de ferramentas acima dos padrões. 
-
-![Captura de tela da filtragem de padrões por entidade](./media/luis-how-to-model-intent-pattern/filter-entities-1.png)
-
-Após a aplicação do filtro, o nome da entidade é exibido abaixo da barra de ferramentas. 
-
-## <a name="filter-pattern-list-by-intent"></a>Filtrar a lista de padrões por intenção
-
-Para filtrar a lista de padrões por uma intenção específica, selecione **Filtros de intenção** na barra de ferramentas acima dos padrões. 
-
-![Captura de tela da filtragem de padrões por intenção](./media/luis-how-to-model-intent-pattern/filter-intents-1.png)
-
-Após a aplicação do filtro, o nome da intenção é exibido abaixo da barra de ferramentas. 
-
-## <a name="remove-entity-or-intent-filter"></a>Remover o filtro de entidade ou intenção
-Após a filtragem da lista de padrões, o nome da entidade ou da intenção aparecerá abaixo da barra de ferramentas. Para remover o filtro, selecione o nome.
-
-![Captura de tela da remoção de entidade do filtro](./media/luis-how-to-model-intent-pattern/filter-entities-2.png)
-
-O filtro é removido e todos os padrões aparecem. 
-
-## <a name="add-pattern-from-existing-utterance-on-intent-or-entity-page"></a>Adicionar padrão de declaração existente na página de intenção ou de entidade
-Você pode criar um padrão de uma declaração existente na página **Intenção** ou **Entidade**. Todas as declarações em qualquer página de intenção ou entidade são exibidas em uma lista, na qual a coluna à direita fornece acesso às opções no nível da declaração, como **Editar**, **Excluir** e **Adicionar como padrão**.
-
-1. Na linha selecionada do enunciado, selecione o botão de reticências (***...***) à direita do enunciado e selecione **Adicionar como padrão**.
-
-    [![Captura de tela da tabela de declarações com Adicionar padrão realçado no menu de opções](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png "Captura de tela da tabela de declarações com Adicionar padrão realçado no menu de opções")](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png)
-
-2. Modificar o padrão de acordo com as [regras de sintaxe](luis-concept-patterns.md#pattern-syntax). Se a declaração selecionada for rotulada com entidades, essas entidades já estarão no padrão com a sintaxe correta.
-
-    ![Captura de tela da filtragem de padrões por entidade](./media/luis-how-to-model-intent-pattern/confirm-patterns-modal.png)
-
 ## <a name="train-your-app-after-changing-model-with-patterns"></a>Treinar seu aplicativo após alterar o modelo com os padrões
 Depois de adicionar, editar, remover ou reatribuir um padrão, [treine](luis-how-to-train.md) e [publique](luis-how-to-publish-app.md) seu aplicativo para que as suas alterações afetem as consultas de ponto de extremidade. 
 
+<a name="search-patterns"></a>
+<a name="edit-a-pattern"></a>
+<a name="reassign-individual-pattern-to-different-intent"></a>
+<a name="reassign-several-patterns-to-different-intent"></a>
+<a name="delete-a-single-pattern"></a>
+<a name="delete-several-patterns"></a>
+<a name="filter-pattern-list-by-entity"></a>
+<a name="filter-pattern-list-by-intent"></a>
+<a name="remove-entity-or-intent-filter"></a>
+<a name="add-pattern-from-existing-utterance-on-intent-or-entity-page"></a>
+
+## <a name="use-contextual-toolbar"></a>Use a barra de ferramentas contextual
+
+A barra de ferramentas contextual acima da lista de padrões permite que você:
+
+* Procure padrões
+* Editar um padrão
+* Reatribuir padrão individual a uma intenção diferente
+* Reatribuir vários padrões a uma intenção diferente
+* Excluir um único padrão
+* Excluir vários padrões
+* Filtrar a lista de padrões por entidade
+* Filtro de lista padrão pela intenção
+* Remover o filtro de entidade ou intenção
+* Adicionar padrão de declaração existente na página de intenção ou de entidade
+
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba como [criar um padrão de](luis-tutorial-pattern.md) com pattern.any e funções.
+* Saiba como [criar um padrão](luis-tutorial-pattern.md) com um pattern.any e funções com um tutorial.
 * Saiba como [treinar](luis-how-to-train.md) seu aplicativo.

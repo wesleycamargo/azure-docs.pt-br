@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec7b2de1ae56e554013d9a5c574bb231164b80f8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9ee58c2a3bed7544ff68e7d6ec756c35bee1d05b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207289"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103155"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Permissões e consentimento no ponto de extremidade v1.0 do Azure Active Directory
 
@@ -102,11 +102,11 @@ Os aplicativos no Microsoft Azure Active Directory dependem de autorização par
 - Recursos devem definir explicitamente `Read` e `ReadWrite` permissões separadamente.
 - Recursos deverão marcar quaisquer permissões que permitam o acesso a dados entre limites de usuário como `Admin` permissões.
 - Os recursos devem seguir o padrão de nomenclatura `Subject.Permission[.Modifier]`, em que:
-    - `Subject` corresponde ao tipo de dados disponível
-    - `Permission` corresponde à ação que um usuário pode realizar em relação aos dados
-    - `Modifier` é usado, opcionalmente, para descrever especializações de outra permissão
+  - `Subject` corresponde ao tipo de dados disponível
+  - `Permission` corresponde à ação que um usuário pode realizar em relação aos dados
+  - `Modifier` é usado, opcionalmente, para descrever especializações de outra permissão
     
     Por exemplo: 
-    * Mail.Read - permite que os usuários leiam o email.
-    * Mail.Read - permite que os usuários leiam o email.
-    * Mail.ReadWrite.All - permite que um administrador ou usuário acesse todos os emails da organização.
+  - Mail.Read - permite que os usuários leiam o email.
+  - Mail.Read - permite que os usuários leiam o email.
+  - Mail.ReadWrite.All - permite que um administrador ou usuário acesse todos os emails da organização.

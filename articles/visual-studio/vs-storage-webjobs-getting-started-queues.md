@@ -12,22 +12,22 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 74aea3ad4c3dda8abc69275ad4d683fbcf485ccc
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: f6f1a3a7f0a406e1dbb40f4bfc6a358da7ac68fa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722899"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999543"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Introdução ao Armazenamento de Fila do Azure e aos Serviços Conectados do Visual Studio (Projetos WebJob)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 Este artigo descreve como começar a usar o armazenamento de filas do Azure em um projeto de Trabalho Web do Azure Visual Studio depois de ter criado ou referenciado uma conta de armazenamento do Azure usando a caixa de diálogo **Adicionar Serviços Conectados** do Visual Studio. Quando você adiciona uma conta de armazenamento a um projeto de WebJob usando a caixa de diálogo **Adicionar Serviços Conectados** do Visual Studio, os pacotes NuGet do Armazenamento do Azure apropriados são instalados, as referências apropriadas .NET são adicionadas ao projeto e cadeias de conexão para a conta de armazenamento são atualizadas no arquivo App.config.  
 
 Este artigo fornece exemplos de código em C# que mostram como usar o SDK do Azure WebJobs versão 1.x com o serviço de armazenamento de Fila do Azure.
 
-O armazenamento de filas do Azure é um serviço para armazenamento de um grande número de mensagens que podem ser acessadas de qualquer lugar do mundo por meio de chamadas autenticadas usando HTTP ou HTTPS. Uma única mensagem de fila pode ter até 64 KB de tamanho e uma fila pode conter milhões de mensagens, até o limite de capacidade total de uma conta de armazenamento. Consulte a [Introdução ao Armazenamento de Filas do Azure usando o .NET](../storage/queues/storage-dotnet-how-to-use-queues.md) para obter mais informações. Para saber mais sobre ASP.NET, confira [ASP.NET](http://www.asp.net).
+O armazenamento de filas do Azure é um serviço para armazenamento de um grande número de mensagens que podem ser acessadas de qualquer lugar do mundo por meio de chamadas autenticadas usando HTTP ou HTTPS. Uma única mensagem de fila pode ter até 64 KB de tamanho e uma fila pode conter milhões de mensagens, até o limite de capacidade total de uma conta de armazenamento. Consulte a [Introdução ao Armazenamento de Filas do Azure usando o .NET](../storage/queues/storage-dotnet-how-to-use-queues.md) para obter mais informações. Para saber mais sobre ASP.NET, confira [ASP.NET](https://www.asp.net).
 
 ## <a name="how-to-trigger-a-function-when-a-queue-message-is-received"></a>Como disparar uma função quando é recebida uma mensagem da fila
 Para gravar uma função que o SDK de Trabalhos Web chama quando uma mensagem da fila é recebida, use o atributo **QueueTrigger** . O construtor de atributo tem um parâmetro de cadeia que especifica o nome da fila para sondagem. Para saber como definir o nome da fila dinamicamente, confira [Como definir as Opções de Configuração](#how-to-set-configuration-options).
@@ -44,7 +44,7 @@ public static void ProcessQueueMessage([QueueTrigger("logqueue")] string logMess
 
 Além da **cadeia de caracteres**, o parâmetro pode ser uma matriz de bytes, um objeto **CloudQueueMessage** ou um POCO definido por você.
 
-### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>Mensagens de fila POCO [(Objeto Plain Old CLR](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
+### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>Mensagens de fila POCO [(Objeto Plain Old CLR](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
 No exemplo a seguir, a mensagem da fila contém o JSON para um objeto **BlobInformation**, que inclui uma propriedade **BlobName**. O SDK automaticamente desserializa o objeto.
 
 ```csharp
@@ -54,7 +54,7 @@ public static void WriteLogPOCO([QueueTrigger("logqueue")] BlobInformation blobI
 }
 ```
 
-O SDK usa o [pacote NuGet Newtonsoft.Json](http://www.nuget.org/packages/Newtonsoft.Json) para serializar e desserializar as mensagens. Se criar mensagens de fila em um programa que não usa o SDK de Trabalhos Web, você poderá escrever código como o exemplo a seguir para criar uma mensagem de fila POCO que o SDK possa analisar.
+O SDK usa o [pacote NuGet Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json) para serializar e desserializar as mensagens. Se criar mensagens de fila em um programa que não usa o SDK de Trabalhos Web, você poderá escrever código como o exemplo a seguir para criar uma mensagem de fila POCO que o SDK possa analisar.
 
 ```csharp
 BlobInformation blobInfo = new BlobInformation() { BlobName = "log.txt" };
@@ -72,7 +72,7 @@ public async static Task ProcessQueueMessageAsync([QueueTrigger("logqueue")] str
 }
 ```
 
-As funções assíncronas podem levar um [token de cancelamento](http://www.asp.net/mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4#CancelToken), conforme mostrado no exemplo a seguir, que copia um blob. (Para obter uma explicação do espaço reservado **queueTrigger** , consulte a seção [Blobs](#how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message) ).
+As funções assíncronas podem levar um [token de cancelamento](https://www.asp.net/mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4#CancelToken), conforme mostrado no exemplo a seguir, que copia um blob. (Para obter uma explicação do espaço reservado **queueTrigger** , consulte a seção [Blobs](#how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message) ).
 
 ```csharp
 public async static Task ProcessQueueMessageAsyncCancellationToken(
@@ -201,7 +201,7 @@ public static void CreateQueueMessage(
 }
 ```
 
-### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>Mensagens de fila POCO [(Objeto Plain Old CLR](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
+### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>Mensagens de fila POCO [(Objeto Plain Old CLR](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
 Para criar uma mensagem da fila que contenha um POCO em vez de uma cadeia de caracteres, passe o tipo POCO como um parâmetro de saída para o construtor de atributo **Queue** .
 
 ```csharp
@@ -296,7 +296,7 @@ public static void DeleteBlob(
 }
 ```
 
-### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>Mensagens de fila POCO [(Objeto Plain Old CLR](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
+### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>Mensagens de fila POCO [(Objeto Plain Old CLR](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
 Para um POCO armazenado como JSON na mensagem da fila, é possível utilizar espaços reservados que nomeiam propriedades do objeto no parâmetro **blobPath** do atributo **Queue**. Também é possível utilizar os nomes de propriedade de metadados de fila como espaços reservados. Consulte [Obter a fila ou os metadados de mensagem da fila](#get-queue-or-queue-message-metadata).
 
 O exemplo a seguir copia um blob para um novo blob com uma extensão diferente. A mensagem da fila é um objeto **BlobInformation** que inclui as propriedades **BlobName** e **BlobNameWithoutExtension**. Os nomes de propriedade são usados como espaços reservados no caminho de blob para os atributos **Blob** .
@@ -311,7 +311,7 @@ public static void CopyBlobPOCO(
 }
 ```
 
-O SDK usa o [pacote NuGet Newtonsoft.Json](http://www.nuget.org/packages/Newtonsoft.Json) para serializar e desserializar as mensagens. Se criar mensagens de fila em um programa que não usa o SDK de Trabalhos Web, você poderá escrever código como o exemplo a seguir para criar uma mensagem de fila POCO que o SDK possa analisar.
+O SDK usa o [pacote NuGet Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json) para serializar e desserializar as mensagens. Se criar mensagens de fila em um programa que não usa o SDK de Trabalhos Web, você poderá escrever código como o exemplo a seguir para criar uma mensagem de fila POCO que o SDK possa analisar.
 
 ```csharp
 BlobInformation blobInfo = new BlobInformation() { BlobName = "boot.log", BlobNameWithoutExtension = "boot" };

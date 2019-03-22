@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/19/18
+ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: cff8b8af4ca40d428edf7c6e35976bcb154a28f1
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 1794aa26fc725207c4a901c11c345eeaa3d2f65d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328683"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867723"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hospedagem de site estático no Armazenamento do Microsoft Azure
 As contas de GPv2 de Armazenamento do Microsoft Azure permitem que você forneça conteúdo estático (HTML, CSS, JavaScript e arquivos de imagem) diretamente de um contêiner de armazenamento denominado *$web*. Aproveitar a hospedagem no Armazenamento do Microsoft Azure permite que você use arquiteturas sem servidor incluindo [Azure Functions](/azure/azure-functions/functions-overview) e outros serviços de PaaS.
@@ -51,6 +51,7 @@ O nome do arquivo padrão selecionado é usado na raiz e todos os subdiretórios
 
 Para acessar seu site hospedado em um nome de domínio personalizado por HTTPS, consulte [ Usando a Rede de Distribuição de Conteúdo do Microsoft Azure com domínios personalizados por HTTPS ](storage-https-custom-domain-cdn.md). Como parte desse processo, você precisará *apontar seu CDN para o ponto de extremidade da web* em vez do ponto de extremidade do Blobs. Talvez você precise aguardar alguns minutos antes que seu conteúdo fique visível, uma vez que a configuração de CDN não é executada imediatamente.
 
+Quando você atualiza seu site estático, certifique-se de limpar o conteúdo armazenado em cache nos servidores de borda da CDN com uma limpeza de ponto de extremidade CDN. Para obter mais informações, confira [Como limpar um ponto de extremidade do CDN do Azure](../../cdn/cdn-purge-endpoint.md).
 
 ## <a name="custom-domain-names"></a>Nomes de domínio personalizados
 

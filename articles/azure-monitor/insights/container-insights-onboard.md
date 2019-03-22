@@ -11,16 +11,19 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/06/2018
+ms.date: 02/28/2019
 ms.author: magoedte
-ms.openlocfilehash: 13da9e0d731e87b6cdd5830c9295847511c301ef
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 591624e6bab07bfa06799d8e4817622e7a5c280a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567291"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107637"
 ---
 # <a name="how-to-onboard-azure-monitor-for-containers"></a>Como carregar o Azure Monitor para contêineres  
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Este artigo descreve como configurar o Azure Monitor para contêineres para monitorar o desempenho das cargas de trabalho implantadas em ambientes do Kubernetes e hospedadas no [Serviço de Kubernetes do Azure](https://docs.microsoft.com/azure/aks/).
 
 O Azure Monitor para contêineres pode ser habilitado para novas implantações ou para uma ou mais implantações existentes do AKS usando os seguintes métodos compatíveis:
@@ -31,8 +34,8 @@ O Azure Monitor para contêineres pode ser habilitado para novas implantações 
 ## <a name="prerequisites"></a>Pré-requisitos 
 Antes de começar, verifique se você tem o seguinte:
 
-- Um workspace do Log Analytics. É possível criá-lo ao habilitar o monitoramento do novo cluster do AKS ou permitir que a experiência de integração crie um workspace padrão no grupo de recursos padrão da assinatura de cluster do AKS. Se optar por criá-lo por conta própria, será possível criá-lo por meio do [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), do [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) ou no [portal do Azure](../../azure-monitor/learn/quick-create-workspace.md).
-- Você é membro da função de contribuidor do Log Analytics para habilitar o monitoramento de contêiner. Para obter mais informações sobre como controlar o acesso a um workspace do Log Analytics, veja [Gerenciar workspaces](../../azure-monitor/platform/manage-access.md).
+- **Um espaço de trabalho do Log Analytics.** É possível criá-lo ao habilitar o monitoramento do novo cluster do AKS ou permitir que a experiência de integração crie um workspace padrão no grupo de recursos padrão da assinatura de cluster do AKS. Se optar por criá-lo por conta própria, será possível criá-lo por meio do [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), do [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) ou no [portal do Azure](../../azure-monitor/learn/quick-create-workspace.md).
+- Você está uma **membro da função de Colaborador do Log Analytics** para habilitar o monitoramento de contêiner. Para obter mais informações sobre como controlar o acesso a um workspace do Log Analytics, veja [Gerenciar workspaces](../../azure-monitor/platform/manage-access.md).
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
@@ -76,7 +79,7 @@ Depois de habilitar o monitoramento e todas as tarefas de configuração terem s
 Depois de habilitar o monitoramento, poderão ser necessários cerca de 15 minutos antes de exibir as métricas de integridade para o cluster. 
 
 ## <a name="enable-monitoring-for-existing-managed-clusters"></a>Habilitar monitoramento para clusters gerenciados existentes
-É possível habilitar o monitoramento de um cluster do AKS que já tenha sido implantado usando a CLI do Azure, a partir do portal ou com o modelo do Azure Resource Manager fornecido, usando o cmdlet `New-AzureRmResourceGroupDeployment` do PowerShell. 
+É possível habilitar o monitoramento de um cluster do AKS que já tenha sido implantado usando a CLI do Azure, a partir do portal ou com o modelo do Azure Resource Manager fornecido, usando o cmdlet `New-AzResourceGroupDeployment` do PowerShell. 
 
 ### <a name="enable-monitoring-using-azure-cli"></a>Habilitar o monitoramento usando a CLI do Azure
 A etapa a seguir permite o monitoramento do cluster do AKS usando a CLI do Azure. Neste exemplo, não é necessário criar ou especificar um workspace existente. Esse comando simplificará o processo, criando um workspace padrão no grupo de recursos padrão da assinatura do cluster do AKS, se ainda não existir um na região.  O workspace padrão criado é semelhante ao formato do *DefaultWorkspace-\<GUID>-\<Region>*.  
@@ -117,7 +120,7 @@ provisioningState       : Succeeded
 
 2. Adicione [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html) após as etapas na documentação do Terraform.
 
-### <a name="enable-monitoring-from-azure-monitor"></a>Habilitar o monitoramento do Azure Monitor
+### <a name="enable-monitoring-from-azure-monitor-in-the-portal"></a>Habilitar o monitoramento do Azure Monitor no portal 
 Para habilitar o monitoramento do seu contêiner AKS no portal do Azure por meio do Azure Monitor, faça o seguinte:
 
 1. No portal do Azure, selecione **Monitor**. 
@@ -294,31 +297,31 @@ Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CL
 5. Salve esse arquivo como **existingClusterParam.json** em uma pasta local.
 6. Você está pronto para implantar o modelo. 
 
-    * Use os seguintes comandos do PowerShell na pasta que contém o modelo:
+   * Use os seguintes comandos do PowerShell na pasta que contém o modelo:
 
-        ```powershell
-        New-AzureRmResourceGroupDeployment -Name OnboardCluster -ClusterResourceGroupName ClusterResourceGroupName -TemplateFile .\existingClusterOnboarding.json -TemplateParameterFile .\existingClusterParam.json
-        ```
-        A alteração da configuração pode levar alguns minutos para ser concluída. Quando ela for concluída, será exibida uma mensagem semelhante à seguinte e incluindo o resultado:
+       ```powershell
+       New-AzResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <ResourceGroupName> -TemplateFile .\existingClusterOnboarding.json -TemplateParameterFile .\existingClusterParam.json
+       ```
+       A alteração da configuração pode levar alguns minutos para ser concluída. Quando ela for concluída, será exibida uma mensagem semelhante à seguinte e incluindo o resultado:
 
-        ```powershell
-        provisioningState       : Succeeded
-        ```
+       ```powershell
+       provisioningState       : Succeeded
+       ```
 
-    * Para executar o comando a seguir usando a CLI do Azure:
+   * Para executar o comando a seguir usando a CLI do Azure:
     
-        ```azurecli
-        az login
-        az account set --subscription "Subscription Name"
-        az group deployment create --resource-group <ResourceGroupName> --template-file ./existingClusterOnboarding.json --parameters @./existingClusterParam.json
-        ```
+       ```azurecli
+       az login
+       az account set --subscription "Subscription Name"
+       az group deployment create --resource-group <ResourceGroupName> --template-file ./existingClusterOnboarding.json --parameters @./existingClusterParam.json
+       ```
 
-        A alteração da configuração pode levar alguns minutos para ser concluída. Quando ela for concluída, será exibida uma mensagem semelhante à seguinte e incluindo o resultado:
+       A alteração da configuração pode levar alguns minutos para ser concluída. Quando ela for concluída, será exibida uma mensagem semelhante à seguinte e incluindo o resultado:
 
-        ```azurecli
-        provisioningState       : Succeeded
-        ```
-Depois de habilitar o monitoramento, poderão ser necessários cerca de 15 minutos antes de exibir as métricas de integridade para o cluster. 
+       ```azurecli
+       provisioningState       : Succeeded
+       ```
+     Depois de habilitar o monitoramento, poderão ser necessários cerca de 15 minutos antes de exibir as métricas de integridade para o cluster. 
 
 ## <a name="verify-agent-and-solution-deployment"></a>Verificar a implantação do agente e solução
 Com a versão do agente *06072018* ou posterior, você pode verificar se tanto o agente quanto a solução foram implantados com êxito. Com versões anteriores do agente, você pode verificar somente a implantação do agente.

@@ -3,7 +3,7 @@ title: Agregação de Eventos do Azure Service Fabric com Diagnóstico do Linux 
 description: Saiba mais sobre a agregação e coleta de eventos utilizando o LAD para monitoramento e diagnóstico de clusters do Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/02/2017
-ms.author: dekapur
-ms.openlocfilehash: c7eb98eb2dbff05e67b6a60c413932ba51fdfdf7
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
-ms.translationtype: HT
+ms.date: 2/25/2019
+ms.author: srrengar
+ms.openlocfilehash: ca6be2b08c9a38813b2c98eef7e5696bd61fd074
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45573749"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893026"
 ---
 # <a name="event-aggregation-and-collection-using-linux-azure-diagnostics"></a>Coleta e agregação de eventos utilizando o Diagnóstico do Linux Azure
 > [!div class="op_single_selector"]
@@ -30,12 +30,12 @@ ms.locfileid: "45573749"
 
 Quando você estiver executando um cluster de Service Fabric do Azure, é uma boa ideia coletar os logs de todos os nós em um local central. Ter os logs em um local central ajuda a analisar e solucionar problemas no cluster ou nos aplicativos e serviços em execução nesse cluster.
 
-Uma maneira de carregar e coletar logs é utilizar a extensão LAD (Diagnóstico do Linux Azure) que carrega os logs no Armazenamento do Microsoft Azure e, além disso, possui a opção de enviar os logs para o Azure Application Insights ou Hubs de Evento. Também é possível utilizar um processo externo para ler os eventos do armazenamento e colocá-los em um produto da plataforma de análise, como [Log Analytics](../log-analytics/log-analytics-service-fabric.md) ou outra solução de análise de logs.
+Uma maneira de carregar e coletar logs é utilizar a extensão LAD (Diagnóstico do Linux Azure) que carrega os logs no Armazenamento do Microsoft Azure e, além disso, possui a opção de enviar os logs para o Azure Application Insights ou Hubs de Evento. Você também pode usar um processo externo para ler os eventos do armazenamento e colocá-los em um produto de plataforma de análise, como [registra em log do Azure Monitor](../log-analytics/log-analytics-service-fabric.md) ou outra solução de análise de log.
 
 ## <a name="log-and-event-sources"></a>Origem do evento e log
 
 ### <a name="service-fabric-platform-events"></a>Eventos de plataforma do Service Fabric
-O Service Fabric emite alguns logs prontos para uso via [LTTng](http://lttng.org), incluindo eventos operacionais ou eventos de tempo de execução. Esses logs são armazenados na localização especificada pelo modelo do Resource Manager do cluster. Para obter ou definir os detalhes da conta de armazenamento, pesquise pela marca **AzureTableWinFabETWQueryable** e procure por **StoreConnectionString**.
+O Service Fabric emite alguns logs prontos para uso via [LTTng](https://lttng.org), incluindo eventos operacionais ou eventos de tempo de execução. Esses logs são armazenados na localização especificada pelo modelo do Resource Manager do cluster. Para obter ou definir os detalhes da conta de armazenamento, pesquise pela marca **AzureTableWinFabETWQueryable** e procure por **StoreConnectionString**.
 
 ### <a name="application-events"></a>Eventos de aplicativo
  Eventos emitidos pelo código de seus serviços e aplicativos, conforme especificado por você durante a instrumentação do software. Você pode usar qualquer solução de log que grave arquivos de log baseados em texto, por exemplo, LTTng. Para mais informações, consulte a documentação do LTTng no rastreamento do aplicativo.
@@ -52,5 +52,5 @@ Isso configura o agente LAD para monitorar os arquivos de log especificados. Sem
 
 ## <a name="next-steps"></a>Próximas etapas
 
-1. Confira [Documentação do LTTng](http://lttng.org/docs) e [Usando o LAD](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux) para entender mais detalhadamente quais eventos você deve examinar ao solucionar problemas.
+1. Confira [Documentação do LTTng](https://lttng.org/docs) e [Usando o LAD](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux) para entender mais detalhadamente quais eventos você deve examinar ao solucionar problemas.
 2. [Configurar o agente do Log Analytics](service-fabric-diagnostics-event-analysis-oms.md) para ajudar a coletar métricas, monitorar Contêineres implantados em seu cluster e visualizar seus logs 

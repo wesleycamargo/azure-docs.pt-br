@@ -11,19 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30627994a8fe8cfe73e7945dadf2153ea60860b8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ef8f66cda7e80ffdafefbbac5de24d45f01401af
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175125"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286923"
 ---
 # <a name="configuring-the-custom-banned-password-list"></a>Configurar a lista de senhas proibidas personalizada
-
-|     |
-| --- |
-| A proteção de senha do Azure Active Directory é uma versão prévia do recurso do Azure Active Directory. Para obter mais informações sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
 
 Muitas organizações descobrem que seus usuários criam senhas usando palavras locais comuns, como uma escola, uma equipe esportiva ou uma pessoa famosa, deixando-as fáceis de adivinhar. A lista de senhas proibidas personalizada da Microsoft permite que as organizações adicionem cadeia de caracteres para avaliar e bloquear, além da lista global de senhas proibidas, quando usuários e administradores tentam alterar ou redefinir uma senha.
 
@@ -31,7 +26,7 @@ Muitas organizações descobrem que seus usuários criam senhas usando palavras 
 
 A configuração da lista de senhas proibidas personalizada exige uma licença do Azure Active Directory Premium P1 ou P2. Para obter informações mais detalhadas sobre o licenciamento do Azure Active Directory, consulte a [página de preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).|
 
-1. Entre no [portal do Azure](https://portal.azure.com) e navegue até **Azure Active Directory**, **Métodos de autenticação** e, em seguida, **Proteção por senha (versão prévia)**.
+1. Entrar para o [portal do Azure](https://portal.azure.com) e navegue até **Azure Active Directory**, **métodos de autenticação**, em seguida, **proteção por senha**.
 1. Defina a opção **Impor lista personalizada** para **Sim**.
 1. Adicione cadeias de caracteres à **Lista de senhas proibidas personalizada**, uma cadeia de caracteres por linha
    * A lista de senhas proibidas personalizada pode conter até 1.000 palavras.

@@ -304,6 +304,9 @@ items:
       href: connector-salesforce-marketing-cloud.md
     - name: SAP Business Warehouse Open Hub
       href: connector-sap-business-warehouse-open-hub.md
+      items:
+      - name: Carregar dados do SAP BW
+        href: load-sap-bw-data.md
     - name: SAP Business Warehouse MDX
       href: connector-sap-business-warehouse.md
     - name: SAP Cloud for Customer
@@ -353,6 +356,8 @@ items:
       href: load-azure-sql-data-warehouse.md
     - name: Carregar Data Lake Storage Gen1
       href: load-azure-data-lake-store.md
+    - name: Carregar dados do SAP BW
+      href: load-sap-bw-data.md
     - name: Carregar dados do Office 365
       href: load-office-365-data.md
     - name: Ler ou gravar dados particionados
@@ -428,6 +433,8 @@ items:
     items:
     - name: Agregação
       href: data-flow-aggregate.md
+    - name: Alterar linha
+      href: data-flow-alter-row.md
     - name: Divisão condicional
       href: data-flow-conditional-split.md
     - name: Coluna derivada
@@ -544,6 +551,8 @@ items:
       href: solution-templates-introduction.md
     - name: Copiar arquivos de vários contêineres
       href: solution-template-copy-files-multiple-containers.md
+    - name: Copiar novos arquivos por LastModifiedDate
+      href: solution-template-copy-new-files-lastmodifieddate.md
     - name: Cópia em massa com uma tabela de controle
       href: solution-template-bulk-copy-with-control-table.md
     - name: Cópia delta com uma tabela de controle
@@ -555,7 +564,7 @@ items:
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.datafactory
   - name: PowerShell
-    href: /powershell/module/azurerm.datafactoryv2/
+    href: /powershell/module/az.datafactory/
   - name: API REST
     href: /rest/api/datafactory
   - name: Modelo do Resource Manager
@@ -580,9 +589,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Opções de suporte
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: ce54fab37477f288a1cba0ce7aaf7a98f158c946
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 32411c9ec042a8504ef08ece1359ea9e5ee7ebda
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959775"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858887"

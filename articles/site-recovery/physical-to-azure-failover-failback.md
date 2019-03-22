@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 4e787ab134caee1a7f9a26e46f698f2fe9807d83
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: edb169d131aafd045fdf0f670e1dda87677d57ee
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813664"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57834670"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Executar failover e failback de servidores físicos replicados para Azure
 
@@ -68,7 +68,7 @@ Siga as etapas descritas [aqui](site-recovery-failover-to-azure-troubleshoot.md)
 O servidor de processo recebe dados da VM do Azure e envia-os para o site local. Uma rede de baixa latência é necessária entre o servidor de processo e o computador protegido.
 
 - Para fins de teste, se você tiver uma conexão Azure ExpressRoute, será possível usar o servidor de processo local que é instalado automaticamente no servidor de configuração.
-- Se você tiver uma conexão VPN ou estiver executando o failback em um ambiente de produção, você deverá configurar uma VM do Azure como um servidor de processo baseado no Azure para failback.
+- Se você tiver uma conexão VPN ou estiver executando o failback em um ambiente de produção, deverá configurar uma VM do Azure como um servidor de processo baseado no Azure para failback.
 - Siga as instruções [neste artigo](vmware-azure-set-up-process-server-azure.md) para configurar um servidor de processo no Azure.
 
 ## <a name="configure-the-master-target-server"></a>Configurar o servidor de destino mestre

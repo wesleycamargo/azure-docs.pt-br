@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c2364715bfeaea473db292baff2eb1e1cce3203b
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 63fd8f75cb22a4dec888b7765c7515bfb68a4a6a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233007"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999017"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Mover dados do Salesforce usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -45,7 +45,7 @@ O Salesforce tem limites para o total de solicitações de API e as solicitaçõ
 - Se o número de solicitações simultâneas exceder o limite, a limitação será atingida e você verá falhas aleatórias.
 - Se o número total de solicitações exceder o limite, a conta do Salesforce será bloqueada por 24 horas.
 
-Você também pode receber o erro "REQUEST_LIMIT_EXCEEDED" em ambos os cenários. Veja a seção "Limites de Solicitações da API" no artigo [Salesforce Developer Limits](http://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) (Limites do Desenvolvedor Salesforce) para obter detalhes.
+Você também pode receber o erro "REQUEST_LIMIT_EXCEEDED" em ambos os cenários. Veja a seção "Limites de Solicitações da API" no artigo [Salesforce Developer Limits](https://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) (Limites do Desenvolvedor Salesforce) para obter detalhes.
 
 ## <a name="getting-started"></a>Introdução
 Você pode criar um pipeline com uma atividade de cópia que mova dados do Salesforce usando diferentes ferramentas/APIs.
@@ -283,6 +283,7 @@ Veja [Propriedades do tipo RelationalSource](#copy-activity-properties) para obt
 
 
 ### <a name="type-mapping-for-salesforce"></a>Mapeamento de tipo para Salesforce
+
 | Tipo Salesforce | Tipo baseado no .NET |
 | --- | --- |
 | Numeração automática |Cadeia de caracteres |

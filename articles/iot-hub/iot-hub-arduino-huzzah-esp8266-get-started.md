@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: e49a3063d6314947c59c5ae863077748d997f2b5
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
-ms.translationtype: HT
+ms.openlocfilehash: 65f9b392f3ae57c1eaad7454434b4870954f36f8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515464"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085092"
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Conectar-se o Adafruit Feather HUZZAH ESP8266 ao Hub IoT do Azure na nuvem
 
@@ -27,7 +27,7 @@ ms.locfileid: "51515464"
 Conecte o Adafruit Feather HUZZAH ESP8266 a um Hub IoT criado. Em seguida, você executa um aplicativo de exemplo no ESP8266 para coletar os dados de temperatura e de umidade de um sensor DHT22. Por fim, você envia os dados do sensor para o Hub IoT.
 
 > [!NOTE]
-> Se você estiver usando outras placas ESP8266, ainda poderá seguir estas etapas para conectá-las ao Hub IoT. Dependendo da placa ESP8266 utilizada, talvez seja necessário reconfigurar o `LED_PIN`. Por exemplo, se você estiver usando ESP8266 da AI-Thinker, poderá alterá-la de `0` para `2`. Não tem um dispositivo ainda? Obtenha-o no [site do Azure](http://azure.com/iotstarterkits).
+> Se você estiver usando outras placas ESP8266, ainda poderá seguir estas etapas para conectá-las ao Hub IoT. Dependendo da placa ESP8266 utilizada, talvez seja necessário reconfigurar o `LED_PIN`. Por exemplo, se você estiver usando ESP8266 da AI-Thinker, poderá alterá-la de `0` para `2`. Não tem um dispositivo ainda? Obtenha-o no [site do Azure](https://azure.com/iotstarterkits).
 
 ## <a name="what-you-learn"></a>O que você aprenderá
 
@@ -66,7 +66,7 @@ Os itens a seguir são opcionais, caso você não tenha um sensor. Você também
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>Recuperar cadeia de conexão para hub IoT
+### <a name="retrieve-connection-string-for-iot-hub"></a>Recuperar a cadeia conexão para o hub IoT
 
 [!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
@@ -160,7 +160,7 @@ O aplicativo de exemplo está hospedado no GitHub. Clone o repositório de exemp
 
 6. No Visual Studio Code, digite `F1`.
 
-7. Digite **Arduino** e selecione **Arduino: Gerenciador de Placas**.
+7. Tipo de **Arduino** e selecione **Arduino: Board Manager**.
 
 8. Na guia **Gerenciador de Placas do Arduino**, clique em **URLs adicionais**.
 
@@ -180,19 +180,19 @@ O aplicativo de exemplo está hospedado no GitHub. Clone o repositório de exemp
 
 12. Clique no botão **Instalar** para esp8266.
 
-   O Gerenciador de Placas indica que ESP8266 com uma versão 2.2.0 ou posterior está instalado.
+    O Gerenciador de Placas indica que ESP8266 com uma versão 2.2.0 ou posterior está instalado.
 
-   ![O pacote do esp8266 é instalado](media/iot-hub-arduino-huzzah-esp8266-get-started/13_vscode-esp8266-installed.png)
+    ![O pacote do esp8266 é instalado](media/iot-hub-arduino-huzzah-esp8266-get-started/13_vscode-esp8266-installed.png)
 
-13. Insira `F1`, digite **Arduino** e selecione **Arduino: Configuração de Placas**.
+13. Insira `F1`, em seguida, digite **Arduino** e selecione **Arduino: Configuração de placa**.
 
 14. Clique na caixa para **Placa Selecionada:** e digite **esp8266**, em seguida, selecione **Adafruit HUZZAH ESP8266 (esp8266)**.
 
-   ![Selecione a placa esp8266](media/iot-hub-arduino-huzzah-esp8266-get-started/14_vscode-select-esp8266.png)
+    ![Selecione a placa esp8266](media/iot-hub-arduino-huzzah-esp8266-get-started/14_vscode-select-esp8266.png)
 
 ### <a name="install-necessary-libraries"></a>Instalar as bibliotecas necessárias
 
-1. No Visual Studio Code, digite `F1`, em seguida, digite **Arduino** e selecione **Arduino: Gerenciador de Bibliotecas**.
+1. No Visual Studio Code, digite `F1`, em seguida, digite **Arduino** e selecione **Arduino: Gerenciador de biblioteca**.
 
 2. Procure a seguinte biblioteca nomes individualmente. Para cada biblioteca que você encontrar, clique em **Instalar**.
    * `AzureIoTHub`
@@ -222,7 +222,7 @@ O aplicativo de exemplo pode simular a temperatura e umidade dados caso você n�
 
 1. No Visual Studio Code, clique em **<Select Serial Port>** na barra de status e, em seguida, clique na porta serial para Feather HUZZAH ESP8266.
 
-2. Insira `F1`, em seguida, digite **Arduino** e selecione **Arduino: Carregar** para criar e implantar o aplicativo de exemplo para Feather HUZZAH ESP8266.
+2. Insira `F1`, em seguida, digite **Arduino** e selecione **Arduino: Carregar** para compilar e implantar o aplicativo de exemplo para Feather HUZZAH ESP8266.
 
 ### <a name="enter-your-credentials"></a>Inserir suas credenciais
 

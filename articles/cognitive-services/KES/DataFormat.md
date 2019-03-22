@@ -10,17 +10,17 @@ ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: f17bc3c0588476fdc4f8414fb020b16718bf1d90
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: bba257c61509d862bb3161625750f05a86af8770
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55854788"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532160"
 ---
 # <a name="data-format"></a>Formato de Dados
 
 O arquivo de dados descreve a lista de objetos a serem indexados.
-Cada linha no arquivo especifica os valores de atributos de um objeto no [formato JSON](http://json.org/) com codificação UTF-8.
+Cada linha no arquivo especifica os valores de atributos de um objeto no [formato JSON](https://json.org/) com codificação UTF-8.
 Além dos atributos definidos no [esquema](SchemaFormat.md), cada objeto possui um atributo "logprob" opcional que especifica a probabilidade de log relativa entre os objetos.
 Quando o serviço retorna objetos em ordem de probabilidade decrescente, é possível usar "logprob" para indicar a ordem de retorno dos objetos correspondentes.
 Dada uma probabilidade *p* entre 0 e 1, a probabilidade de log correspondente pode ser calculada como log(*p*), onde log() é a função de log natural.

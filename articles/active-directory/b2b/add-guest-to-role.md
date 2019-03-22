@@ -1,5 +1,5 @@
 ---
-title: Adicionar um usuário de colaboração B2B do Azure Active Directory a uma função | Microsoft Docs
+title: Adicionar um usuário de colaboração B2B a uma função - Azure Active Directory | Microsoft Docs
 description: Adicionar um usuário convidado a uma função no Azure Active Directory
 services: active-directory
 ms.service: active-directory
@@ -9,14 +9,15 @@ ms.date: 05/08/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df328228dea53f338c0b2c54422e6b343f96e43e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 5ffebd117d1ea69a81395c1517b6f75505b83ac0
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172226"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294630"
 ---
 # <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Conceder permissões a usuários de organizações parceiras em seu locatário do Azure Active Directory
 
@@ -24,15 +25,15 @@ Os usuários da colaboração B2B do Azure AD (Azure Active Directory) são adic
 
 ## <a name="default-role"></a>Função padrão
 
-![função padrão](./media/add-guest-to-role/default-role.png)
+![Captura de tela mostrando a função de diretório padrão](./media/add-guest-to-role/default-role.png)
 
 ## <a name="global-administrator-role"></a>Função Administrador Global
 
-![função administrador global](./media/add-guest-to-role/global-admin-role.png)
+![Captura de tela mostrando a função de administrador global](./media/add-guest-to-role/global-admin-role.png)
 
 ## <a name="limited-administrator-role"></a>Função Administrador Limitado
 
-![função administrador limitado](./media/add-guest-to-role/limited-admin-role.png)
+![Captura de tela mostrando a função de administrador limitado](./media/add-guest-to-role/limited-admin-role.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

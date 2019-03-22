@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 204898026dc55e7111d3810d4938101ffaddc3f9
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 4d7f3c8d8efbdc658e4f7621a0606cb7fd92c88d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698319"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103478"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms"></a>Migração para Contoso: Hospede novamente um aplicativo Linux local para VMs do Azure
 
@@ -314,17 +314,17 @@ Agora os administradores da Contoso podem iniciar a replicação da VM **OSTICKE
 
 3. Eles selecionam a VM **OSTICKETWEB** para replicação. 
 
-    - Neste estágio, selecionam somente **OSTICKETWEB** porque a rede virtual e a sub-rede devem ser selecionados e as VMs não estão na mesma sub-rede.
-    - O Site Recovery instala automaticamente o serviço Mobility quando a replicação está habilitada para a VM.
+   - Neste estágio, selecionam somente **OSTICKETWEB** porque a rede virtual e a sub-rede devem ser selecionados e as VMs não estão na mesma sub-rede.
+   - O Site Recovery instala automaticamente o serviço Mobility quando a replicação está habilitada para a VM.
 
-    ![Habilitar a replicação](./media/contoso-migration-rehost-linux-vm/enable-replication3.png)
+     ![Habilitar a replicação](./media/contoso-migration-rehost-linux-vm/enable-replication3.png)
 
 4. Nas propriedades da VM, selecionam a conta que é usada pelo servidor de processo para instalar automaticamente o serviço de mobilidade no computador.
 
      ![Serviço de mobilidade](./media/contoso-migration-rehost-linux-vm/linux-mobility.png)
 
 5. Em **Configurações de Replicação** > **Definir Configurações de Replicação**, ela verifica se a política de replicação correta está aplicada e seleciona **Habilitar Replicação**.
-6.  Eles rastreiam o progresso da replicação em **Trabalhos**. Após o trabalho de **Finalizar Proteção** ser executado, o computador estará pronto para failover.
+6. Eles rastreiam o progresso da replicação em **Trabalhos**. Após o trabalho de **Finalizar Proteção** ser executado, o computador estará pronto para failover.
 
 
 
@@ -408,7 +408,7 @@ Os administradores da Contoso já estão prontos para executar um failover no pl
 
 ### <a name="connect-the-vm-to-the-database"></a>Conectar a VM ao banco de dados
 
-Como a etapa final no processo de migração, os administradores da Contoso atualizam a cadeia de conexão do aplicativo para apontar para o banco de dados do aplicativo na VM **OSTICKETMYSQL**. 
+Como a etapa final no processo de migração, os administradores da Contoso atualizar a cadeia de caracteres de conexão do aplicativo para apontar para o banco de dados do aplicativo em execução no **OSTICKETMYSQL** VM. 
 
 1. Eles fazer uma conexão SSH para a **OSTICKETWEB** VM usando Putty ou outro cliente SSH. A VM é particular para que se conectar usando o endereço IP privado.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7763807fdb5fcff7e93d54bf5a851cd4443427d3
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 6ba21c6eacd5b72d13706c08f0cc9883ccc91388
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107184"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107467"
 ---
 # <a name="investigate-incidents-and-alerts-in-azure-security-center-preview"></a>Investigar os incidentes e alertas na Central de Segurança do Azure (Versão prévia)
 Este documento ajuda você a usar o recurso de investigação na Central de Segurança do Azure para investigar alertas e incidentes de segurança.
@@ -29,10 +29,10 @@ O recurso de investigação na Central de Segurança permite que você faça tri
 
 A intenção é facilitar o processo de investigação vinculando todas as entidades ([alertas de segurança](https://docs.microsoft.com/azure/security-center/security-center-alerts-type), usuários, computadores e incidentes) envolvidas com o incidente que você está investigando.  A Central de Segurança pode fazer isso correlacionando os dados relevantes com as entidades envolvidas e expondo essa correlação usando um grafo dinâmico que ajuda você a navegar pelos objetos e a visualizar informações relevantes.
 
+
 > [!NOTE]
-> [Alertas personalizados](security-center-custom-alert.md) não têm suporte no recurso de investigação da Central de segurança.
->
->
+> * [Alertas personalizados](security-center-custom-alert.md) não têm suporte no recurso de investigação da Central de segurança.
+> * Somente há suporte para a investigação para alertas com base nos dados coletados dos servidores do Windows.
 
 
 ## <a name="how-investigation-works"></a>Como a investigação funciona?
@@ -96,7 +96,7 @@ Os seguintes itens serão apresentados independentemente do escopo de tempo sele
 
 ## <a name="how-to-perform-an-investigation"></a>Como executar uma investigação?
 
-Você pode iniciar a investigação de um incidente de segurança ou de um alerta; a opção que você escolher varia de acordo com suas necessidades. As etapas abaixo são usadas para iniciar a investigação de um alerta:
+Você pode iniciar a investigação de um incidente de segurança ou de um alerta; a opção que você escolher varia de acordo com suas necessidades. As etapas a seguir são usadas para iniciar uma investigação de um alerta:
 
 1.  Abra o painel **Central de Segurança**.
 2.  Clique em **Alertas de Segurança**e selecione o incidente que você deseja investigar.

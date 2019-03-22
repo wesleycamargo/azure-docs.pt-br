@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: e51fa086b26e5692d8dd572654b7c1ec50c641c5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 2412bd5b4b4f05cdeb1638aa3d9ef1676e7b8315
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005141"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293066"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Como codificar um ativo usando o Media Encoder Standard
 > [!div class="op_single_selector"]
@@ -61,7 +61,7 @@ Para saber mais sobre como conectar-se à API do AMS, veja [Acessar a API dos Se
 >
 > Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).
 >
-> Quando usar JSON e especificar o uso da palavra-chave **Metadata** na solicitação (por exemplo, para referenciar um objeto vinculado), você deve definir o cabeçalho **Accept** para o [ formato JSON Detalhado](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Accept: application/json;odata=verbose.
+> Quando usar JSON e especificar o uso da palavra-chave **Metadata** na solicitação (por exemplo, para referenciar um objeto vinculado), você deve definir o cabeçalho **Accept** para o [ formato JSON Detalhado](https://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Accept: application/json;odata=verbose.
 >
 >
 
@@ -151,7 +151,7 @@ Para habilitar o encadeamento de tarefas:
 * Deve haver, pelo menos, uma tarefa cuja entrada é a saída de outra tarefa no trabalho.
 
 ## <a name="use-odata-batch-processing"></a>Usar o processamento em lotes OData
-O exemplo a seguir mostra como usar o processamento em lotes OData para criar um trabalho e tarefas. Para obter informações sobre o processamento em lotes, consulte [Processamento em lote do protocolo OData (Open Data)](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
+O exemplo a seguir mostra como usar o processamento em lotes OData para criar um trabalho e tarefas. Para obter informações sobre o processamento em lotes, consulte [Processamento em lote do protocolo OData (Open Data)](https://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
     POST https://media.windows.net/api/$batch HTTP/1.1
     DataServiceVersion: 1.0;NetFx

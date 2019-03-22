@@ -75,6 +75,8 @@ items:
       href: classroom-labs/how-to-use-classroom-lab.md
     - name: Criar e gerenciar agendas
       href: classroom-labs/how-to-create-schedules.md
+    - name: Criar um ambiente com várias VMs em uma VM de modelo
+      href: classroom-labs/how-to-enable-multi-vm-environment.md
   - name: Laboratórios de desenvolvimento/teste
     items:
     - name: Especificar grupo de recursos para máquinas virtuais do laboratório
@@ -134,6 +136,8 @@ items:
         href: devtest-lab-create-environment-from-arm.md
       - name: Configurar e usar ambientes públicos
         href: devtest-lab-configure-use-public-environments.md
+      - name: Criar um ambiente com o cluster do Service Fabric
+        href: create-environment-service-fabric-cluster.md
     - name: Proteger o acesso aos laboratórios
       items:
       - name: Adicionar proprietários e usuários do laboratório
@@ -246,9 +250,9 @@ items:
       href: https://azure.microsoft.com/resources/videos/index/?services=devtest-lab
     - name: Perguntas frequentes
       href: devtest-lab-faq.md
-ms.openlocfilehash: f4a7e26be0bbb15631fd44bf38506d564d27f331
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 773faa503cb3fc29ef07b310b5ee2a7af5089d49
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805682"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188995"

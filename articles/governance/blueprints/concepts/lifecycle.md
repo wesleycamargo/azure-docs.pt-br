@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 2dbf63e745af102de05ec6dc3e3bcb3e98cd3a32
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 71a5233c6d5af21d7bc5430cda14e156e16d5cd4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563704"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001562"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Entender o ciclo de vida de um Blueprint do Azure
 
@@ -35,7 +35,7 @@ Para entender completamente um blueprint e os estágios, vamos abordar um ciclo 
 
 Ao criar um blueprint, adicione artefatos, salve em um grupo de gerenciamento ou assinatura e forneça um nome e uma versão exclusivos. O blueprint agora está no modo **Rascunho** e ainda não pode ser atribuído. Enquanto no modo **Rascunho**, ele pode continuar a ser atualizado e alterado.
 
-Um blueprint nunca publicado no **modo Rascunho** exibe um ícone diferente na página **Blueprint Definitions** do que aqueles que foram **Publicados**. A **Última versão** também é exibida como **Rascunho** para esses esquemas nunca publicados.
+Um blueprint nunca publicado no **modo Rascunho** exibe um ícone diferente na página **Blueprint Definitions** do que aqueles que foram **Publicados**. O **versão mais recente** é exibido como **rascunho** para eles nunca publicados planos gráficos.
 
 Crie e edite um blueprint com o [portal do Azure](../create-blueprint-portal.md#create-a-blueprint) ou a [API REST](../create-blueprint-rest-api.md#create-a-blueprint).
 
@@ -68,13 +68,13 @@ Cada versão de um blueprint é um objeto exclusivo que pode ser individualmente
 > [!NOTE]
 > Não é possível excluir um blueprint com atribuições ativas. Exclua as atribuições primeiro e, em seguida, exclua a versão que você deseja remover.
 
-1. Clique em **Todos os serviços** e pesquise e selecione **Política** no painel esquerdo. Sobre a **política** página, clique em **plantas**.
+1. Selecione **Todos os serviços** no painel esquerdo. Pesquise e selecione **Blueprints**.
 
-1. Selecione **Definições de Blueprint** na página à esquerda e use as opções de filtro para localizar o blueprint do qual você deseja excluir uma versão. Clique nele para abrir a página de edição.
+1. Selecione **Blueprint definições** da página à esquerda e use opções de filtro para localizar o plano gráfico em que deseja excluir uma versão do. Clique nele para abrir a página de edição.
 
 1. Clique na guia **Versões publicadas** e localize a versão que você deseja excluir.
 
-1. Clique com o botão direito do mouse na versão a ser excluída e selecione **Excluir Esta Versão**.
+1. Clique duas vezes em que a versão a ser excluído e selecione **excluir esta versão**.
 
 ## <a name="deleting-the-blueprint"></a>Exclusão do blueprint
 
@@ -103,8 +103,8 @@ Para saber como, confira [atualizar atribuições existentes](../how-to/update-e
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Entenda como usar [parâmetros estáticos e dinâmicos](parameters.md)
-- Aprenda a personalizar o [especificações técnicas de ordem de sequenciamento](sequencing-order.md)
-- Saiba como fazer uso do [bloqueio de recurso de blueprint](resource-locking.md)
-- Saiba como [atualizar atribuições existentes](../how-to/update-existing-assignments.md)
-- Resolver problemas durante a atribuição de blueprint com [solução de problemas gerais](../troubleshoot/general.md)
+- Entenda como usar [parâmetros estáticos e dinâmicos](parameters.md).
+- Aprenda a personalizar o [especificações técnicas de ordem de sequenciamento](sequencing-order.md).
+- Saiba como fazer uso de [recurso de bloqueio do plano gráfico](resource-locking.md).
+- Saiba como [atualizar atribuições existentes](../how-to/update-existing-assignments.md).
+- Resolver problemas durante a atribuição de um plano gráfico com [solução de problemas gerais](../troubleshoot/general.md).

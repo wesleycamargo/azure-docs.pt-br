@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: 34d42f9987303c1381584ae4b2991a8f30a67ed5
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
-ms.translationtype: HT
+ms.openlocfilehash: 385163d791bff0c02a05ee1b27afd82c3afd0ac3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52618952"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57997172"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-issues-in-azure"></a>Solucionar problemas de conectividade de SMTP de saída no Azure
 
@@ -26,7 +26,7 @@ Iniciando em 15 de novembro de 2017, mensagens de email de saída que são envia
 Essa alteração no comportamento se aplica somente a novas assinaturas e novas implantações desde 15 de novembro de 2017.
 
 ## <a name="recommended-method-of-sending-email"></a>Método recomendado para enviar email
-É recomendável que você use serviços de retransmissão de SMTP autenticados (que normalmente se conectam por meio da porta TCP 587 ou 443, mas oferece suporte a outras portas também) para enviar email de máquinas virtuais do Azure ou dos Serviços de Aplicativo do Azure. Esses serviços são usados para manter o IP ou a reputação do domínio para minimizar a possibilidade de provedores de email terceiros rejeitarem a mensagem. Esses serviços de retransmissão de SMTP incluem, mas não está limitados a [SendGrid](http://sendgrid.com/partners/azure/). Também é possível que você tenha um serviço de retransmissão de SMTP seguro que esteja em execução no local que você pode usar.
+É recomendável que você use serviços de retransmissão de SMTP autenticados (que normalmente se conectam por meio da porta TCP 587 ou 443, mas oferece suporte a outras portas também) para enviar email de máquinas virtuais do Azure ou dos Serviços de Aplicativo do Azure. Esses serviços são usados para manter o IP ou a reputação do domínio para minimizar a possibilidade de provedores de email terceiros rejeitarem a mensagem. Esses serviços de retransmissão de SMTP incluem, mas não está limitados a [SendGrid](https://sendgrid.com/partners/azure/). Também é possível que você tenha um serviço de retransmissão de SMTP seguro que esteja em execução no local que você pode usar.
 
 Usando esses serviços de entrega de email não é restrito no Azure, independentemente do tipo de assinatura.
 
@@ -36,7 +36,7 @@ Para usuários do Enterprise Agreement do Azure, não há nenhuma alteração na
 ## <a name="pay-as-you-go"></a>Pré-paga
 Se você se criou a conta antes de 15 de novembro de 2017 pelas ofertas de assinatura Pagamento Conforme o Uso ou Microsoft Partner Network, não haverá alteração na responsabilidade técnica para tentar a entrega de emails de saída. Você continuará a ser capaz de testar a entrega de emails de saída das VMs do Azure dentro dessas assinaturas diretamente aos provedores de email externos sem quaisquer restrições da plataforma do Azure. Novamente, não é garantido que provedores de email aceitarão emails recebidos de um determinado usuário e os usuários terão que trabalhar diretamente com provedores de email para corrigir qualquer entrega de mensagens ou problemas de filtragem que envolvem provedores específicos de SPAM.
 
-Para assinaturas Pagamento Conforme o Uso ou Microsoft Partner Network criadas após 15 de novembro de 2017, haverá restrições técnicas que bloqueiam o email que é enviado diretamente de VMs dentro dessas assinaturas. Se você quiser a capacidade de enviar email de máquinas virtuais do Azure diretamente para provedores de email externos (não usando uma retransmissão SMTP autenticada), você pode fazer uma solicitação para remover a restrição. As solicitações serão examinadas e aprovadas conforme os critérios da Microsoft e serão concedidas somente após a realização de verificações antifraude. Para fazer uma solicitação, abra um caso de suporte usando o tipo de problema a seguir: **Técnico** > **Rede Virtual** > **Conectividade**  >  **Não é possível enviar email (SMTP/porta 25)**. Certifique-se de adicionar detalhes sobre por que sua implantação tem que enviar emails diretamente aos provedores de email em vez de usar uma retransmissão autenticada.
+Para assinaturas Pagamento Conforme o Uso ou Microsoft Partner Network criadas após 15 de novembro de 2017, haverá restrições técnicas que bloqueiam o email que é enviado diretamente de VMs dentro dessas assinaturas. Se você quiser a capacidade de enviar email de máquinas virtuais do Azure diretamente para provedores de email externos (não usando uma retransmissão SMTP autenticada), você pode fazer uma solicitação para remover a restrição. As solicitações serão examinadas e aprovadas conforme os critérios da Microsoft e serão concedidas somente após a realização de verificações antifraude. Para fazer uma solicitação, abra um caso de suporte usando o tipo de problema a seguir: **Técnicas** > **rede Virtual** > **conectividade** > **não é possível enviar email (SMTP/porta 25)**. Certifique-se de adicionar detalhes sobre por que sua implantação tem que enviar emails diretamente aos provedores de email em vez de usar uma retransmissão autenticada.
 
 Quando uma assinatura Pagamento Conforme o Uso ou Microsoft Partner Network for isenta, as VMs dentro dessa assinatura só serão isentas no futuro.
 

@@ -1,6 +1,6 @@
 ---
-title: Inicie uma revisão de acesso com as Revisões de Acesso do Azure Active Directory | Microsoft Docs
-description: Saiba como iniciar uma revisão de acesso usando Revisões de Acesso do Azure Active Directory.
+title: Examinar o acesso a grupos ou aplicativos em revisões de acesso do AD do Azure | Microsoft Docs
+description: Saiba como examinar o acesso de membros do grupo ou o acesso do aplicativo no Azure Active Directory as revisões de acesso.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -11,46 +11,97 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 07/16/2018
+ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a6a137796c24f97364b044484d2be739ae5412d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 097d230e919e6d4b56e6c677364610bda6630f75
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171157"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728379"
 ---
-# <a name="start-an-access-review-with-azure-ad-access-reviews"></a>Inicie uma revisão de acesso com as Revisões de Acesso do Azure Active Directory
+# <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>Examinar o acesso a grupos ou aplicativos em revisões de acesso do AD do Azure
 
-O Azure Active Directory (Azure AD) simplifica como as empresas gerenciam o acesso a aplicativos e membros de grupos no Azure AD e outros Serviços Online da Microsoft, com um recurso chamado revisões de acesso. Talvez você tenha recebido um email da Microsoft solicitando que você examine o acesso para membros de um grupo ou usuários com acesso a um aplicativo. 
+Azure Active Directory (Azure AD) simplifica como as empresas gerenciam o acesso a aplicativos e grupos no Azure AD e outros serviços Online da Microsoft com um recurso chamado revisões de acesso do AD do Azure.
 
-## <a name="open-an-access-review"></a>Abrir uma análise de acesso
+Este artigo descreve como um revisor designado executa uma revisão de acesso para membros de um grupo ou usuários com acesso a um aplicativo.
 
-Para ver as revisões de acesso pendentes, clique no link de acesso à revisão no email. A partir de agosto de 2018, as notificações por email para funções do Azure AD tem terão design atualizado. A seguir, é mostrado um exemplo de email enviado quando um usuário é convidado para ser um revisor. 
+## <a name="open-the-access-review"></a>Abra a revisão de acesso
 
-![Email de acesso à revisão](./media/perform-access-review/new-ar-email.png)
+É a primeira etapa para executar uma revisão de acesso localizar e abrir a revisão de acesso.
 
-Se você não tiver o email, será possível localizar as revisões de acesso fazendo o seguinte:
+1. Procure um email da Microsoft solicitando que você revisar o acesso. Aqui está um email de exemplo para examinar o acesso de um grupo.
 
-1. Entre no [Painel de acesso do Azure AD](https://myapps.microsoft.com).
+    ![Email de acesso à revisão](./media/perform-access-review/access-review-email.png)
 
-2. Selecione o símbolo de usuário no canto superior direito da página, que exibe seu nome e a organização padrão. Se houver mais de uma organização listada, selecione a organização que solicitou uma análise de acesso.
+1. Clique o **iniciar revisão** link para abrir a revisão de acesso.
 
-3. Se houver um bloco rotulado **Revisões de acesso** do lado direito da página, selecione-o. Se o bloco não estiver visível, não haverá revisões de acesso para executar nessa organização e nenhuma ação será necessária no momento.
+Se você não tiver o email, você pode encontrar que seu acesso pendentes revisões seguindo estas etapas.
 
-## <a name="fill-out-an-access-review"></a>Preencher uma análise de acesso
+1. Entrar no portal do MyApps em [ https://myapps.microsoft.com ](https://myapps.microsoft.com).
 
-Ao selecionar uma análise de acesso na lista, você verá os nomes de usuários que precisam ser revisados. Você poderá ver apenas um nome – o seu – se a solicitação era examinar seu próprio acesso.
+    ![Portal do MyApps](./media/perform-access-review/myapps-access-panel.png)
 
-Para cada linha na lista, você pode decidir se deseja aprovar ou negar o acesso do usuário. Selecione a linha e escolha se deseja aprovar ou negar. (Se você não conhecer o usuário, poderá indicar isso também.)
+1. No canto superior direito da página, clique no símbolo de usuário, que exibe seu nome e a organização padrão. Se houver mais de uma organização listada, selecione a organização que solicitou uma análise de acesso.
 
-O revisor pode exigir que você forneça uma justificativa de aprovação de acesso contínuo ou de associação a um grupo.
+1. No lado direito da página, clique no **revisões de acesso** lado a lado para ver uma lista das revisões de acesso pendente.
+
+    Se o bloco não estiver visível, não haverá revisões de acesso para executar nessa organização e nenhuma ação será necessária no momento.
+
+    ![Lista de revisões de acesso](./media/perform-access-review/access-reviews-list.png)
+
+1. Clique o **começar revisão** link para a revisão de acesso que você deseja executar.
+
+## <a name="perform-the-access-review"></a>Executar a análise de acesso
+
+Depois que você abriu a revisão de acesso, você verá os nomes de usuários que precisam ser revisados.
+
+Se a solicitação for examinar seu próprio acesso, a página terá uma aparência diferente. Para obter mais informações, consulte [revisar o acesso a grupos ou aplicativos por conta própria](review-your-access.md).
+
+![Executar análise de acesso](./media/perform-access-review/perform-access-review.png)
+
+Há duas maneiras que você pode aprovar ou negar o acesso:
+
+- Você pode aprovar ou negar cada solicitação individualmente, ou
+- Você pode aceitar as recomendações de sistema, que é a maneira mais fácil e rápida.
+
+### <a name="approve-or-deny-access-for-each-request"></a>Aprovar ou negar acesso para cada solicitação
+
+1. Examine a lista de usuários para decidir se deseja aprovar ou negar o acesso contínuo.
+
+1. Para aprovar ou negar cada solicitação, clique na linha para abrir a janela para especificar a ação a ser tomada.
+
+1. Clique em **aprovar** ou **negar**. Se você não tiver certeza, você poderá clicar **desconhece**. Isso resultará no usuário mantém o seu acesso, mas a seleção será refletida nos logs de auditoria.
+
+    ![Executar análise de acesso](./media/perform-access-review/approve-deny.png)
+
+    O administrador da revisão de acesso pode exigir que você forneça um motivo para aprovar o acesso contínuo ou associação de grupo.
+
+1. Depois de especificar a ação a ser executada, clique em **salvar**.
+
+    Se você quiser alterar sua resposta, selecione a linha e atualize a resposta. Por exemplo, você pode aprovar um usuário negado anteriormente ou negar um usuário aprovado anteriormente. Você pode alterar sua resposta a qualquer momento até que a revisão de acesso foi encerrada.
+
+    Se houver vários revisores, a última resposta enviada será registrada. Considere um exemplo em que um administrador designa dois revisores – Alice e Bob. Alice abre a revisão de acesso pela primeira vez e aprova o acesso. Antes de terminar a análise, Bob abre a revisão de acesso e nega acesso. A última negar a resposta é o que é gravado.
+
+    > [!NOTE]
+    > Se um usuário for negado acesso, eles não são removidos imediatamente. Eles são removidos quando a análise foi concluída ou quando um administrador parar a revisão.
+
+### <a name="approve-or-deny-access-based-on-recommendations"></a>Aprovar ou negar acesso com base nas recomendações
+
+Para tornar as revisões de acesso mais rápido e fácil para você, nós também fornecemos as recomendações que você pode aceitar com um único clique. As recomendações são geradas com base em atividade de entrada do usuário.
+
+1. Na barra azul na parte inferior da página, clique em **aceitar recomendações**.
+
+    ![Aceitar recomendações](./media/perform-access-review/accept-recommendations.png)
+
+    Você verá um resumo das ações recomendadas.
+
+    ![Aceitar recomendações resumidas](./media/perform-access-review/accept-recommendations-summary.png)
+
+1. Clique em **Okey** para aceitar as recomendações.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-O acesso negado de um usuário não é removido imediatamente. Ele pode ser removido quando a análise for concluída ou quando um administrador para a análise. Se desejar alterar a resposta e aprovar um usuário negado anteriormente ou negar um usuário aprovado anteriormente, selecione a linha, redefina a resposta e selecione uma nova resposta. Você pode fazer essa etapa até que a análise de acesso seja concluída.
-
-
-
+- [Concluir uma revisão de acesso de aplicativos ou grupos](complete-access-review.md)

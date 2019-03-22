@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: aa99085b04690acd15ec508bcb91d3e500d3e77b
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 8e104d67d5a16dde3229380a78a06f9c4a87f19c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54882592"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58075008"
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>Tutorial: Usar um modelo do Azure Resource Manager para criar um pipeline do Data Factory para copiar dados 
 > [!div class="op_single_selector"]
@@ -46,6 +46,9 @@ Um pipeline pode ter mais de uma atividade. E você pode encadear duas atividade
 > O pipeline de dados neste tutorial copia os dados de um armazenamento de dados de origem para um armazenamento de dados de destino. Para obter um tutorial sobre como transformar dados usando o Azure Data Factory, confira [Tutorial: Criar um pipeline para transformar dados usando um cluster Hadoop](data-factory-build-your-first-pipeline.md). 
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 * Percorra o artigo [Pré-requisitos e Visão Geral do Tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) e conclua as etapas de **pré-requisito**.
 * Siga as instruções do artigo [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para instalar a última versão do Azure PowerShell no computador. Neste tutorial, você usa o PowerShell para implantar as entidades de Data Factory. 
 * (opcional) Veja [Criando modelos do Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para saber mais sobre os modelos do Azure Resource Manager.
@@ -72,7 +75,7 @@ O modelo do Resource Manager de nível superior para definir um data factory é:
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": { ...
     },
@@ -99,7 +102,7 @@ Crie um arquivo JSON denominado **ADFCopyTutorialARM.json** na pasta **C:\ADFGet
 ```json
 {
     "contentVersion": "1.0.0.0",
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "parameters": {
       "storageAccountName": { "type": "string", "metadata": { "description": "Name of the Azure storage account that contains the data to be copied." } },
       "storageAccountKey": { "type": "securestring", "metadata": { "description": "Key for the Azure storage account." } },
@@ -318,23 +321,23 @@ Crie um arquivo JSON chamado **ADFCopyTutorialARM-Parameters.json** que contenha
 1. Inicie o **Azure PowerShell** e execute o comando a seguir:
    * Execute o comando a seguir e insira o nome de usuário e a senha que você usa para entrar no portal do Azure.
    
-    ```PowerShell
-    Connect-AzureRmAccount      
-    ```  
+     ```PowerShell
+     Connect-AzAccount       
+     ```  
    * Execute o comando a seguir para exibir todas as assinaturas dessa conta.
    
-    ```PowerShell
-    Get-AzureRmSubscription
-    ```   
+     ```PowerShell
+     Get-AzSubscription
+     ```   
    * Execute o comando a seguir para selecionar a assinatura com a qual deseja trabalhar.
     
-    ```PowerShell
-    Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext
-    ```    
+     ```PowerShell
+     Get-AzSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzContext
+     ```    
 2. Execute o comando a seguir para implantar entidades do Data Factory usando o modelo do Resource Manager criado na Etapa 1.
 
     ```PowerShell   
-    New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFCopyTutorialARM.json -TemplateParameterFile C:\ADFGetStarted\ADFCopyTutorialARM-Parameters.json
+    New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFCopyTutorialARM.json -TemplateParameterFile C:\ADFGetStarted\ADFCopyTutorialARM-Parameters.json
     ```
 
 ## <a name="monitor-pipeline"></a>Monitorar o pipeline
@@ -576,13 +579,13 @@ No tutorial, você criou um modelo para definir entidades de Data Factory e um m
 Exemplo:  
 
 ```PowerShell
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFCopyTutorialARM.json -TemplateParameterFile ADFCopyTutorialARM-Parameters-Dev.json
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFCopyTutorialARM.json -TemplateParameterFile ADFCopyTutorialARM-Parameters-Dev.json
 ```
 ```PowerShell
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFCopyTutorialARM.json -TemplateParameterFile ADFCopyTutorialARM-Parameters-Test.json
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFCopyTutorialARM.json -TemplateParameterFile ADFCopyTutorialARM-Parameters-Test.json
 ```
 ```PowerShell
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFCopyTutorialARM.json -TemplateParameterFile ADFCopyTutorialARM-Parameters-Production.json
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFCopyTutorialARM.json -TemplateParameterFile ADFCopyTutorialARM-Parameters-Production.json
 ```
 
 Observe que o primeiro comando usa o arquivo de parâmetro para o ambiente de desenvolvimento, outro para o ambiente de teste e um terceiro para o ambiente de produção.  

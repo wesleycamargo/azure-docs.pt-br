@@ -4,16 +4,16 @@ description: Chamar operações de API REST do serviço Armazenamento do Azure, 
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 08a86e1b2808a0778734edecc9385f4d61779b25
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 647d40db87f76a9e1a13a108c5f55fac40524017
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476189"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012782"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>Usando a API REST de Armazenamento do Azure
 
@@ -46,7 +46,7 @@ Este comando clona o repositório para sua pasta do git local. Para abrir a solu
 
 ## <a name="what-is-rest"></a>O que é REST?
 
-REST significa *Transferência de Estado Representacional*. Para obter uma definição específica, confira a[Wikipédia](http://en.wikipedia.org/wiki/Representational_state_transfer).
+REST significa *Transferência de Estado Representacional*. Para obter uma definição específica, confira a[Wikipédia](https://en.wikipedia.org/wiki/Representational_state_transfer).
 
 Basicamente, REST é uma arquitetura que pode ser usada a fim de chamar APIs ou disponibilizar APIs para chamadas. Ela independe do que está acontecendo em ambos os lados e de qual outro software está sendo usado ao enviar ou receber chamadas REST. Você pode escrever um aplicativo que é executado em Mac, Windows, Linux, telefone Android ou tablet, iPhone, iPod ou site da Web, e usar a mesma API REST para todas as plataformas. Dados podem ser passados de e/ou para quando a API REST é chamada. A API REST não se importa com o nome da plataforma chamada; o importante é a informação passada na solicitação e os dados fornecidos na resposta.
 
@@ -80,7 +80,7 @@ Para usar outros parâmetros, acrescente-os à cadeia de caracteres do recurso c
 
 [Corpo da solicitação](/rest/api/storageservices/List-Containers2#request-body)**:** Não há corpo da solicitação para ListContainers. O corpo da solicitação é usado em todas as operações PUT ao carregar blobs, bem como SetContainerAccessPolicy, que permite que você envie em uma lista XML de políticas de acesso armazenadas para aplicar. As políticas de acesso armazenadas são discutidas no artigo [Usando SAS (assinaturas de acesso compartilhado)](storage-dotnet-shared-access-signature-part-1.md).
 
-[Código de status de resposta](/rest/api/storageservices/List-Containers2#status-code)**:** Indica os códigos de status que você precisa saber. Neste exemplo, um código de status HTTP 200 é OK. Para obter uma lista completa de códigos de status HTTP, confira [Definições de código de status](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html). Para ver os códigos de erro específicos das APIs REST do Armazenamento, confira [Códigos de erro da API REST comuns](/rest/api/storageservices/common-rest-api-error-codes)
+[Código de status de resposta](/rest/api/storageservices/List-Containers2#status-code)**:** Indica os códigos de status que você precisa saber. Neste exemplo, um código de status HTTP 200 é OK. Para obter uma lista completa de códigos de status HTTP, confira [Definições de código de status](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html). Para ver os códigos de erro específicos das APIs REST do Armazenamento, confira [Códigos de erro da API REST comuns](/rest/api/storageservices/common-rest-api-error-codes)
 
 [Cabeçalhos de resposta](/rest/api/storageservices/List-Containers2#response-headers)**:** Eles incluem *Tipo de Conteúdo*; *x-ms-request-id* (a ID da solicitação transmitida, se aplicável); *x-ms-version* (indica a versão do serviço Blob usado) e a *Data* (UTC, indica a hora em que a solicitação foi feita).
 
@@ -88,7 +88,7 @@ Para usar outros parâmetros, acrescente-os à cadeia de caracteres do recurso c
 
 ## <a name="creating-the-rest-request"></a>Criando a solicitação REST
 
-Algumas observações antes de começar: por segurança, ao executar em produção, sempre use HTTPS em vez de HTTP. Para os fins deste exercício, você deve usar HTTP para poder exibir os dados de solicitação e resposta. Para exibir as informações de solicitação e resposta nas chamadas REST reais, você pode baixar o [Fiddler](http://www.telerik.com/fiddler) ou um aplicativo semelhante. Na solução Visual Studio, o nome da conta de armazenamento e a chave estão embutidos em código na classe e o método ListContainersAsyncREST transmite o nome e a chave da conta de armazenamento para os métodos que são usados para criar os vários componentes da solicitação REST. Em um aplicativo do mundo real, o nome da conta de armazenamento e a chave devem residir em um arquivo de configuração, em variáveis de ambiente ou ser recuperados de um Azure Key Vault.
+Algumas observações antes de começar: por segurança, ao executar em produção, sempre use HTTPS em vez de HTTP. Para os fins deste exercício, você deve usar HTTP para poder exibir os dados de solicitação e resposta. Para exibir as informações de solicitação e resposta nas chamadas REST reais, você pode baixar o [Fiddler](https://www.telerik.com/fiddler) ou um aplicativo semelhante. Na solução Visual Studio, o nome da conta de armazenamento e a chave estão embutidos em código na classe e o método ListContainersAsyncREST transmite o nome e a chave da conta de armazenamento para os métodos que são usados para criar os vários componentes da solicitação REST. Em um aplicativo do mundo real, o nome da conta de armazenamento e a chave devem residir em um arquivo de configuração, em variáveis de ambiente ou ser recuperados de um Azure Key Vault.
 
 Em nosso projeto de exemplo, o código para criar o cabeçalho de autorização é uma classe separada, com a ideia de que você pode usar a classe inteira e adicioná-la à sua própria solução e usá-la "no modo em que se encontra”. O código de cabeçalho de autorização funciona para a maioria das chamadas da API REST ao Armazenamento do Azure.
 
@@ -300,7 +300,7 @@ StringToSign = VERB + "\n" +
 
 A maioria desses campos é usada raramente. Para o armazenamento de Blobs, você pode especificar VERBO, md5, tamanho do conteúdo, cabeçalhos canonizados e recurso canonizado. Você pode deixar os outros em branco (mas colocar `\n` para que ele saiba que estão em branco).
 
-O que são CanonicalizedHeaders e CanonicalizedResource? Boa pergunta. Na verdade, o que canonizado significa? Não é uma palavra comum nesse contexto. Aqui está o que a [Wikipédia diz (em inglês) sobre a canonicalização](http://en.wikipedia.org/wiki/Canonicalization): *Na ciência da computação, a canonicalização (às vezes, padronização ou normalização) é um processo de conversão de dados que tem mais de uma possível representação em forma canônica, "normal" ou "padrão".* Em linguagem normal, isso significa fazer a lista de itens (como cabeçalhos no caso de cabeçalhos canonizados) e padronizá-los em um formato obrigatório. Basicamente, a Microsoft decidiu-se por um formato e você precisa corresponder a ele.
+O que são CanonicalizedHeaders e CanonicalizedResource? Boa pergunta. Na verdade, o que canonizado significa? Não é uma palavra comum nesse contexto. Aqui está o que a [Wikipédia diz (em inglês) sobre a canonicalização](https://en.wikipedia.org/wiki/Canonicalization): *Na ciência da computação, a canonicalização (às vezes, padronização ou normalização) é um processo de conversão de dados que tem mais de uma possível representação em forma canônica, "normal" ou "padrão".* Em linguagem normal, isso significa fazer a lista de itens (como cabeçalhos no caso de cabeçalhos canonizados) e padronizá-los em um formato obrigatório. Basicamente, a Microsoft decidiu-se por um formato e você precisa corresponder a ele.
 
 Vamos começar com esses dois campos canonizados, pois eles são necessários para criar o cabeçalho de autorização.
 
@@ -325,7 +325,7 @@ private static string GetCanonicalizedHeaders(HttpRequestMessage httpRequestMess
     StringBuilder sb = new StringBuilder();
 
     // Create the string in the right format; this is what makes the headers "canonicalized" --
-    //   it means put in a standard format. http://en.wikipedia.org/wiki/Canonicalization
+    //   it means put in a standard format. https://en.wikipedia.org/wiki/Canonicalization
     foreach (var kvp in headers)
     {
         StringBuilder headerBuilder = new StringBuilder(kvp.Key);
@@ -482,7 +482,7 @@ GET\n\n\n\n\n\n\n\n\n\n\n\nx-ms-date:Fri, 17 Nov 2017 05:16:48 GMT
 SharedKey contosorest:uzvWZN1WUIv2LYC6e3En10/7EIQJ5X9KtFQqrZkxi6s=
 ```
 
-Os valores a seguir são do [Fiddler](http://www.telerik.com/fiddler):
+Os valores a seguir são do [Fiddler](https://www.telerik.com/fiddler):
 
 **Solicitação:**
 

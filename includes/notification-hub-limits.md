@@ -4,17 +4,17 @@ ms.service: service-bus
 ms.topic: include
 ms.date: 01/04/2019
 ms.author: spelluru
-ms.openlocfilehash: 24810e67610a0c0855d5efb1f141a3324b7c75ca
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 6efcd46b174d34670a01bb7d5c440559bf0f116a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54457064"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553259"
 ---
-| CAMADA:              | GRATUITO         | BASIC      | STANDARD   |
+| Camada              | Grátis         | Basic    | Standard   |
 | ------------------ | ------------ | ---------- | ---------- |
-| Envios incluídos    | 1 milhão    | 10 milhões | 10 milhões |
+| Pushes incluídos    | 1 milhão    | 10 milhões | 10 milhões |
 | Dispositivos ativos     | 500          | 200.000    | 10 milhões |
-| Cota de marca por registro/instalação | 60  | 60 |  60 |
+| Cota de marca por instalação ou registro | 60  | 60 |  60 |
 
-Para obter detalhes adicionais sobre esses limites e informações sobre preços, consulte [Preços de Hubs de Notificação](https://azure.microsoft.com/pricing/details/notification-hubs/).
+Para obter mais informações sobre preços e limites, consulte [os preços dos Hubs de notificação](https://azure.microsoft.com/pricing/details/notification-hubs/).

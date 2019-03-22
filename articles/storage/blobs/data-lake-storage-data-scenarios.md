@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: normesta
-ms.openlocfilehash: 09514e37d1d40c489eda483980237d26e4a08730
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: ec97cf903a37465f98007750fc41edc0952ab3a6
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417915"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889589"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Usando o Azure Data Lake Storage Gen2 para exigências de big data
 
@@ -70,9 +70,9 @@ Esta tabela mostra como conceder acesso a cada serviço ou ferramenta do Azure.
 |---|--|---|
 |Gerenciador de Armazenamento| Atribuir uma função a usuários e grupos | [Atribuir funções de administrador e não administrador aos usuários com Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal) |
 |AzCopy| Atribuir uma função a usuários e grupos <br>**or**<br> Usar um token SAS| [Atribuir funções de administrador e não administrador aos usuários com Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)<br><br>[Criar facilmente um SAS para baixar um arquivo do Armazenamento do Azure, usando o Gerenciador de Armazenamento do Azure](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/)|
-|Apache DistCp | Atribuir uma função a uma identidade gerenciada atribuída pelo usuário | [Criando um cluster do HDInsight com o Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2#creating-an-hdinsight-cluster-with-data-lake-storage-gen2) |
+|Apache DistCp | Atribuir uma função a uma identidade gerenciada atribuída pelo usuário | [Criando um cluster do HDInsight com o Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) |
 |Fábrica de dados do Azure| Atribuir uma função a uma identidade gerenciada atribuída pelo usuário<br>**or**<br> Atribuir uma função a uma entidade de serviço<br>**or**<br> Usar uma chave de conta de armazenamento | [Propriedades do serviço vinculado](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#linked-service-properties) |
-|Azure HDInsight| Atribuir uma função a uma identidade gerenciada atribuída pelo usuário | [Criando um cluster do HDInsight com o Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2#creating-an-hdinsight-cluster-with-data-lake-storage-gen2)|
+|Azure HDInsight| Atribuir uma função a uma identidade gerenciada atribuída pelo usuário | [Criando um cluster do HDInsight com o Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)|
 |Azure Databricks| Atribuir uma função a uma entidade de serviço | [Como: Usar o portal para criar um aplicativo e uma entidade de serviço do Azure AD que possa acessar recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)|
 
 Para permitir acesso a pastas e arquivos específicos, confira estes artigos.

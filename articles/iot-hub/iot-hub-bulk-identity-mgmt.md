@@ -1,19 +1,19 @@
 ---
 title: Importar e exportar identidades de dispositivo do Hub IoT do Azure | Microsoft Docs
 description: Como usar o SDK do serviço IoT do Azure para executar operações em massa no Registro de identidade para importar e exportar identidades de dispositivo. As operações de importação permitem criar, atualizar e excluir as identidades de dispositivo em massa.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/03/2017
-ms.author: dobett
-ms.openlocfilehash: aedf2d0012f5af8ea2eb8e944f06b20c7f1a6bb8
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
-ms.translationtype: HT
+ms.author: robin.shahan
+ms.openlocfilehash: 5ef34fb039d35ff714e249a6ac107e6ec615093e
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42142218"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010983"
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>Gerenciar identidades de dispositivo do Hub IoT em massa
 
@@ -38,7 +38,7 @@ As operações de registro de identidade usam o sistema de **Trabalho** quando a
 
 Em vez de ter uma única chamada à API aguardando ou bloqueando o resultado da operação, a operação cria de modo assíncrono um **Trabalho** para o Hub IoT. Então, a operação retorna imediatamente um objeto **JobProperties**.
 
-O trecho de código de C# a seguir mostra como criar um trabalho de exportação:
+O snippet de código de C# a seguir mostra como criar um trabalho de exportação:
 
 ```csharp
 // Call an export job on the IoT Hub to retrieve all devices
@@ -66,7 +66,7 @@ Para encontrar a cadeia de conexão do para seu Hub IoT no Portal do Azure:
 
 - Copie a cadeia de conexão do painel no lado direito da tela.
 
-O trecho de código de C# a seguir mostra como verificar a cada cinco segundos para ver se o trabalho finalizou a execução:
+O snippet de código de C# a seguir mostra como verificar a cada cinco segundos para ver se o trabalho finalizou a execução:
 
 ```csharp
 // Wait until job is finished
@@ -102,7 +102,7 @@ O método **ExportDevicesAsync** exige dois parâmetros:
 
 * Um *booliano* que indica se você deseja excluir chaves de autenticação dos dados de exportação. Se for **false**, as chaves de autenticação serão incluídas na saída de exportação. Caso contrário, as chaves serão exportadas como **null**.
 
-O seguinte trecho de código em C# mostra como iniciar um trabalho de exportação que inclui chaves de autenticação de dispositivo nos dados de exportação e, em seguida, pesquisar se houve a conclusão:
+O seguinte snippet de código em C# mostra como iniciar um trabalho de exportação que inclui chaves de autenticação de dispositivo nos dados de exportação e, em seguida, pesquisar se houve a conclusão:
 
 ```csharp
 // Call an export job on the IoT Hub to retrieve all devices
@@ -184,7 +184,7 @@ Se um dispositivo tiver dados gêmeos, os dados gêmeos também serão exportado
 }
 ```
 
-Se precisar de acesso a esses dados no código, você poderá desserializar facilmente esses dados usando a classe **ExportImportDevice** . O seguinte trecho de código de C# mostra como ler informações do dispositivo que foram anteriormente exportadas para um blob de blocos:
+Se precisar de acesso a esses dados no código, você poderá desserializar facilmente esses dados usando a classe **ExportImportDevice** . O seguinte snippet de código de C# mostra como ler informações do dispositivo que foram anteriormente exportadas para um blob de blocos:
 
 ```csharp
 var exportedDevices = new List<ExportImportDevice>();
@@ -227,7 +227,7 @@ O método **ImportDevicesAsync** usa dois parâmetros:
 > [!NOTE]
 > Os dois parâmetros podem apontar para o mesmo contêiner de blobs. Os parâmetros separados simplesmente permitem mais controle sobre seus dados, pois o contêiner de saída requer permissões adicionais.
 
-O trecho de código de C# a seguir mostra como iniciar um trabalho de importação:
+O snippet de código de C# a seguir mostra como iniciar um trabalho de importação:
 
 ```csharp
 JobProperties importJob = 
@@ -419,13 +419,13 @@ static string GetContainerSasUri(CloudBlobContainer container)
 
 Neste artigo, você aprendeu a realizar operações em massa no registro de identidade em um Hub IoT. Para saber mais sobre o gerenciamento do Hub IoT do Azure, siga estes links:
 
-* [Métricas do Hub IoT](iot-hub-metrics.md)
+* [Métricas do IoT Hub](iot-hub-metrics.md)
 * [Monitoramento de operações](iot-hub-operations-monitoring.md)
 
 Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
 * [Guia do desenvolvedor do Hub IoT](iot-hub-devguide.md)
-* [Implantação do IA em dispositivos de borda com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Implantando o AI em dispositivos de borda com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
 
 Para explorar usando o Serviço de Provisionamento de Dispositivos do Hub IoT para habilitar o provisionamento sem toque e Just-In-Time, consulte: 
 

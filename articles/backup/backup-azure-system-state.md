@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: saurse
-ms.openlocfilehash: 14de0f632584ff5fb1a6b4395298e9cecfe455e6
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 6d8cbac7eab797662896a96ed588c9d6370cb230
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268716"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105192"
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Fazer backup de estado do sistema do Windows na implementação do Gerenciador de Recursos
 Este artigo explica como fazer backup do estado do sistema Windows Server para o Azure. É um tutorial que pretende explicar os conceitos básicos.
@@ -41,7 +41,7 @@ Para fazer backup do Estado do Sistema do Windows Server, você precisa criar um
 
     ![Criar Cofre de Serviços de Recuperação - etapa 3](./media/backup-try-azure-backup-in-10-mins/rs-vault-step-3.png)
 
-4. Em **Nome**, insira um nome amigável para identificar o cofre. O nome deve ser exclusivo para a assinatura do Azure. Digite um nome que contenha de 2 a 50 caracteres. Ele deve começar com uma letra e pode conter apenas letras, números e hifens.
+4. Em **Nome**, insira um nome amigável para identificar o cofre. O nome deve ser exclusivo para a assinatura do Azure. Digite um nome que contenha entre 2 e 50 caracteres. Ele deve começar com uma letra e pode conter apenas letras, números e hifens.
 
 5. Na seção **Assinatura**, use o menu suspenso para escolher a assinatura do Azure. Se você usar apenas uma assinatura, essa assinatura será exibida e você poderá pular para a próxima etapa. Se você não tiver certeza sobre qual assinatura usar, utilize a assinatura padrão (ou sugerida). Só haverá múltiplas opções se sua conta organizacional estiver associada a várias assinaturas do Azure.
 
@@ -51,7 +51,7 @@ Para fazer backup do Estado do Sistema do Windows Server, você precisa criar um
     Ou
     * Selecione **Usar existente** e clique no menu suspenso para ver a lista de grupos de recursos disponíveis.
 
-  Para obter informações completas sobre Grupos de recursos, confira a [Visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+   Para obter informações completas sobre Grupos de recursos, confira a [Visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
 7. Clique em **Local** para selecionar a região geográfica do cofre. Essa escolha determina a região geográfica para a qual os dados de backup são enviados.
 
@@ -130,9 +130,9 @@ Agora que você criou um cofre, configure-o para fazer backup do Estado do Siste
     As credenciais do cofre são baixadas para a pasta Downloads. Após o término do download das credenciais do cofre, você verá um pop-up perguntando se deseja abrir ou salvar as credenciais. Clique em **Salvar**. Se você clicar acidentalmente em **Abrir**, deixe a caixa de diálogo que tenta abrir as credenciais do cofre falhar. Não é possível abrir as credenciais do cofre. Vá para a próxima etapa. As credenciais do cofre estão na pasta Downloads.   
 
     ![o download das credenciais do cofre foi concluído](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
-> [!NOTE]
-> As credenciais do cofre devem ser salvas apenas em um local do Windows Server no qual você pretende usar o agente.
->
+   > [!NOTE]
+   > As credenciais do cofre devem ser salvas apenas em um local do Windows Server no qual você pretende usar o agente.
+   >
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
@@ -192,7 +192,7 @@ Para concluir o backup inicial, use o agente dos Serviços de Recuperação do M
 
 5. Selecione **Estado do sistema** e, em seguida, clique em **OK**.
 
-6. Clique em **Próximo**.
+6. Clique em **Avançar**.
 
 7. Selecione a frequência de Backup necessária e a política de retenção para os backups de Estado do Sistema nas próximas páginas.
 

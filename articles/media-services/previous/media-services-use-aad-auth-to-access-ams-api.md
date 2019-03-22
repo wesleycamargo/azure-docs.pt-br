@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: b846e1fe4552c6cec356a7e7828135b0e1fdf315
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: fa13ffe450b60bd8c896636911268a98b49bbc0f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994094"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104124"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Acessar a API dos Serviços de Mídia do Azure com a autenticação do Azure AD  
  
@@ -71,20 +71,20 @@ No diagrama anterior, os números representam o fluxo das solicitações em orde
 1. Solicite as credenciais a um usuário.
 2. Solicite um token de acesso do Azure AD com os seguintes parâmetros:  
 
-    * Ponto de extremidade do locatário do Azure AD.
+   * Ponto de extremidade do locatário do Azure AD.
 
-        As informações do locatário podem ser recuperadas no portal do Azure. Coloque o cursor sobre o nome do usuário conectado no canto superior direito.
-    * URI de recurso dos Serviços de Mídia. 
+       As informações do locatário podem ser recuperadas no portal do Azure. Coloque o cursor sobre o nome do usuário conectado no canto superior direito.
+   * URI de recurso dos Serviços de Mídia. 
 
-        Esse URI é o mesmo para contas de Serviços de Mídia que estão no mesmo ambiente do Azure (por exemplo, https://rest.media.azure.net).
+       Esse URI é o mesmo para contas de Serviços de Mídia que estão no mesmo ambiente do Azure (por exemplo, https://rest.media.azure.net).
 
-    * ID do cliente do aplicativo (nativo) dos Serviços de Mídia.
-    * URI de redirecionamento do aplicativo (nativo) dos Serviços de Mídia.
-    * URI de recurso dos Serviços de Mídia REST.
+   * ID do cliente do aplicativo (nativo) dos Serviços de Mídia.
+   * URI de redirecionamento do aplicativo (nativo) dos Serviços de Mídia.
+   * URI de recurso dos Serviços de Mídia REST.
         
-        O URI representa o ponto de extremidade da API REST (por exemplo, https://test03.restv2.westus.media.azure.net/api/).
+       O URI representa o ponto de extremidade da API REST (por exemplo, https://test03.restv2.westus.media.azure.net/api/).
 
-    Para obter valores para esses parâmetros, consulte [Usar o portal do Azure para acessar as configurações de autenticação do Azure AD](media-services-portal-get-started-with-aad.md) usando a opção de autenticação de usuário.
+     Para obter valores para esses parâmetros, consulte [Usar o portal do Azure para acessar as configurações de autenticação do Azure AD](media-services-portal-get-started-with-aad.md) usando a opção de autenticação de usuário.
 
 3. O token de acesso do Azure AD é enviado ao cliente.
 4. O cliente envia uma solicitação para a API REST da Mídia do Azure com o token de acesso do Azure AD.
@@ -113,20 +113,20 @@ Na figura anterior, os números representam o fluxo das solicitações em ordem 
     
 1. Um aplicativo de camada intermediária (API Web ou aplicativo Web) solicita um token de acesso do Azure AD que tem os seguintes parâmetros:  
 
-    * Ponto de extremidade do locatário do Azure AD.
+   * Ponto de extremidade do locatário do Azure AD.
 
-        As informações do locatário podem ser recuperadas no portal do Azure. Coloque o cursor sobre o nome do usuário conectado no canto superior direito.
-    * URI de recurso dos Serviços de Mídia. 
+       As informações do locatário podem ser recuperadas no portal do Azure. Coloque o cursor sobre o nome do usuário conectado no canto superior direito.
+   * URI de recurso dos Serviços de Mídia. 
 
-        Esse URI é o mesmo para contas de Serviços de Mídia localizadas no mesmo ambiente do Azure (por exemplo, https://rest.media.azure.net).
+       Esse URI é o mesmo para contas de Serviços de Mídia localizadas no mesmo ambiente do Azure (por exemplo, https://rest.media.azure.net).
 
-    * URI de recurso dos Serviços de Mídia REST.
+   * URI de recurso dos Serviços de Mídia REST.
 
-        O URI representa o ponto de extremidade da API REST (por exemplo, https://test03.restv2.westus.media.azure.net/api/).
+       O URI representa o ponto de extremidade da API REST (por exemplo, https://test03.restv2.westus.media.azure.net/api/).
 
-    * Valores do aplicativo do Azure AD: a ID do cliente e o segredo do cliente.
+   * Valores do aplicativo do Azure AD: a ID do cliente e o segredo do cliente.
     
-    Para obter valores para esses parâmetros, consulte [Usar o portal do Azure para acessar as configurações de autenticação do Azure AD](media-services-portal-get-started-with-aad.md) usando a opção de autenticação de entidade de serviço.
+     Para obter valores para esses parâmetros, consulte [Usar o portal do Azure para acessar as configurações de autenticação do Azure AD](media-services-portal-get-started-with-aad.md) usando a opção de autenticação de entidade de serviço.
 
 2. O token de acesso do Azure AD é enviado à camada intermediária.
 4. A camada intermediária envia a solicitação à API REST da Mídia do Azure com o token do Azure AD.

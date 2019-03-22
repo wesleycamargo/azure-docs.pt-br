@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 06/29/2018
+ms.date: 03/12/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: c49a6320b7ba37297a7c1c0775aef2c2d8c6c868
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: f3b4e6cd18a362775443bb296560a076aaa1497d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104283"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57883620"
 ---
 # <a name="example-create-a-custom-skill-using-the-text-translate-api"></a>Exemplo: Criar uma habilidade personalizada usando a API de Tradução de Texto
 
@@ -39,7 +39,7 @@ Embora este exemplo use uma Função do Azure para hospedar uma API da Web, ela 
 
 1. Na caixa de diálogo Novo Projeto, selecione **Instalado**, expanda **Visual C#** > **Nuvem**, selecione **Azure Functions**, digite um Nome para seu projeto e selecione **OK**. O nome do aplicativo de funções deve ser válido como um namespace do C# e, portanto, não use outros caracteres não alfanuméricos, hífens ou sublinhados.
 
-1. Selecione **Azure Functions v2 (.Net Core)**. Você também pode fazer isso com a versão 1, mas o código escrito abaixo é baseado no modelo v2.
+1. Selecione **do Azure Functions v2 (.NET Core)**. Você também pode fazer isso com a versão 1, mas o código escrito abaixo é baseado no modelo v2.
 
 1. Selecione o tipo de **Gatilho HTTP**
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 01af5052d8b092d10609769f211d6ffcde03cf8e
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: bd4c024e14e70b5937d85e9917340d25f552096d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190367"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110861"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Instalar e configurar um gateway de dados local
 
@@ -90,19 +90,19 @@ Após ter instalado e registrado seu gateway, você precisa criar um recurso de 
 
 2. Em **Criar gateway de conexão**, insira estas configurações:
 
-    * **Nome**: insira um nome para o recurso do gateway. 
+   * **Nome**: insira um nome para o recurso do gateway. 
 
-    * **Assinatura**: selecione a assinatura do Azure a associar ao seu recurso de gateway. 
+   * **Assinatura**: selecione a assinatura do Azure a associar ao seu recurso de gateway. 
    
-      A assinatura padrão baseia-se na conta do Azure utilizada para entrar.
+     A assinatura padrão baseia-se na conta do Azure utilizada para entrar.
 
-    * **Grupo de recursos**: Crie um grupo de recursos ou selecione um grupo de recursos existente.
+   * **Grupo de recursos**: Crie um grupo de recursos ou selecione um grupo de recursos existente.
 
-    * **Localização**: selecione a região em que você registrou o gateway.
+   * **Localização**: selecione a região em que você registrou o gateway.
 
-    * **Nome de Instalação**: se a instalação do gateway ainda não estiver selecionada, selecione o gateway registrado. 
+   * **Nome de Instalação**: se a instalação do gateway ainda não estiver selecionada, selecione o gateway registrado. 
 
-    Quando tiver concluído, clique em **Criar**.
+     Quando tiver concluído, clique em **Criar**.
 
 ## <a name="connect-servers"></a>Conectar servidores ao recurso de gateway
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: f6762c74dbe6b16791e597464584b91e696220f1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 4992ca9d1a09fa751697d6608400eb4dda688108
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863443"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57340483"
 ---
 # <a name="ordinal-prebuilt-entity-for-a-luis-app"></a>Entidade ordinal predefinida para um aplicativo LUIS
 Número ordinal é uma representação numérica de um objeto dentro de um conjunto: `first`, `second`, `third`. Uma vez que essa entidade já está treinada, não é necessário adicionar enunciados de exemplo contendo ordinal às intenções do aplicativo. A entidade ordinal é compatível com [muitas culturas](luis-reference-prebuilt-entities.md). 

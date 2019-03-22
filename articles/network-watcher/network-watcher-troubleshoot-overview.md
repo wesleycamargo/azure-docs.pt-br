@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: 8048dde6158d9eaa9bf38a8c3020420b81bdd55b
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: aa7fce21228d4413dc4964d6e828bf60478aee27
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099760"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901824"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introdução à solução de problemas do recurso no Observador de Rede do Azure
 
@@ -51,7 +51,7 @@ As tabelas a seguir mostram os diversos tipos de falha (id em resultados da list
 
 | Tipo de Falha | Motivo | Registro|
 |---|---|---|
-| NoFault | Quando nenhum erro é detectado |SIM|
+| NoFault | Quando nenhum erro é detectado |Sim|
 | GatewayNotFound | Não é possível localizar o gateway ou o gateway não está provisionado |Não |
 | PlannedMaintenance |  A instância do gateway está em manutenção  |Não |
 | UserDrivenUpdate | Essa falha ocorre quando uma atualização de um usuário está em andamento. A atualização pode ser uma operação de redimensionamento. | Não  |
@@ -59,26 +59,26 @@ As tabelas a seguir mostram os diversos tipos de falha (id em resultados da list
 | PlatformInActive | Há um problema com a plataforma. | Não |
 | ServiceNotRunning | O serviço subjacente não está em execução. | Não |
 | NoConnectionsFoundForGateway | Não existem conexões no gateway. Essa falha é apenas um aviso.| Não |
-| ConnectionsNotConnected | As conexões não estão conectadas. Essa falha é apenas um aviso.| SIM|
-| GatewayCPUUsageExceeded | O uso de CPU do gateway atual é > 95%. | SIM |
+| ConnectionsNotConnected | As conexões não estão conectadas. Essa falha é apenas um aviso.| Sim|
+| GatewayCPUUsageExceeded | O uso de CPU do gateway atual é > 95%. | Sim |
 
 ### <a name="connection"></a>Conexão
 
 | Tipo de Falha | Motivo | Registro|
 |---|---|---|
-| NoFault | Quando nenhum erro é detectado |SIM|
+| NoFault | Quando nenhum erro é detectado |Sim|
 | GatewayNotFound | Não é possível localizar o gateway ou o gateway não está provisionado |Não |
 | PlannedMaintenance | A instância do gateway está em manutenção  |Não |
 | UserDrivenUpdate | Essa falha ocorre quando uma atualização de um usuário está em andamento. A atualização pode ser uma operação de redimensionamento.  | Não  |
 | VipUnResponsive | Essa falha ocorre quando a instância primária do gateway não pode ser acessada devido a uma falha de investigação de integridade. | Não  |
 | ConnectionEntityNotFound | A configuração da conexão está ausente | Não  |
 | ConnectionIsMarkedDisconnected | A conexão está marcada como "desconectada" |Não |
-| ConnectionNotConfiguredOnGateway | O serviço subjacente não tem a conexão configurada. | SIM |
-| ConnectionMarkedStandby | O serviço subjacente está marcado como em espera.| SIM|
-| Authentication | Incompatibilidade de chave pré-compartilhada | SIM|
-| PeerReachability | O gateway correspondente não está acessível. | SIM|
-| IkePolicyMismatch | O gateway de mesmo nível tem diretivas IKE que não são suportadas pelo Azure. | SIM|
-| WfpParse Error | Ocorreu um erro ao analisar o log WFP. |SIM|
+| ConnectionNotConfiguredOnGateway | O serviço subjacente não tem a conexão configurada. | Sim |
+| ConnectionMarkedStandby | O serviço subjacente está marcado como em espera.| Sim|
+| Authentication | Incompatibilidade de chave pré-compartilhada | Sim|
+| PeerReachability | O gateway correspondente não está acessível. | Sim|
+| IkePolicyMismatch | O gateway de mesmo nível tem diretivas IKE que não são suportadas pelo Azure. | Sim|
+| WfpParse Error | Ocorreu um erro ao analisar o log WFP. |Sim|
 
 ## <a name="supported-gateway-types"></a>Tipos de gateway com suporte
 
@@ -107,7 +107,7 @@ Os arquivos de log para solução de problemas de recursos são armazenados em u
 > [!NOTE]
 > Em alguns casos, somente um subconjunto dos arquivos de log é gravado no armazenamento.
 
-Para obter instruções sobre como baixar os arquivos de contas de armazenamento do Azure, consulte [Introdução ao armazenamento de Blobs do Azure usando o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que pode ser usada é o Gerenciador de armazenamento. Para saber mais sobre o Gerenciador de Armazenamento, acesse o link: [Gerenciador de Armazenamento](http://storageexplorer.com/)
+Para obter instruções sobre como baixar os arquivos de contas de armazenamento do Azure, consulte [Introdução ao armazenamento de Blobs do Azure usando o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que pode ser usada é o Gerenciador de armazenamento. Para saber mais sobre o Gerenciador de Armazenamento, acesse o link: [Gerenciador de Armazenamento](https://storageexplorer.com/)
 
 ### <a name="connectionstatstxt"></a>ConnectionStats.txt
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 539a7fc5b9d3038424059f1ee599c6966a968781
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: a9e8d2cbc067fd92208fac778ba17c58bdc7a5e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629587"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079138"
 ---
 # <a name="filters-in-azure-search"></a>Filtros no Azure Search 
 
@@ -32,17 +32,17 @@ Os cenários de exemplo incluem o seguinte:
 
 1. Use um filtro para dividir o índice com base nos valores de dados no índice. Com um esquema com cidade tipo de residência e comodidades, você pode criar um filtro para selecionar explicitamente os documentos que atendem aos critérios (em Seattle, condomínios, orla marítima). 
 
-  A pesquisa de texto completo com as mesmas entradas geralmente produz resultados semelhantes, mas um filtro é mais preciso porque requer uma correspondência exata do termo do filtro em relação ao conteúdo no índice. 
+   A pesquisa de texto completo com as mesmas entradas geralmente produz resultados semelhantes, mas um filtro é mais preciso porque requer uma correspondência exata do termo do filtro em relação ao conteúdo no índice. 
 
 2. Use um filtro se a experiência de pesquisa vier com um requisito de filtro:
 
- * [A navegação facetada](search-faceted-navigation.md) usa um filtro para devolver a categoria de faceta selecionada pelo usuário.
- * A pesquisa de área geográfica usa um filtro para passar as coordenadas do local atual em aplicativos "Localizar próximo a mim". 
- * Filtros de segurança passam identificadores de segurança como critérios de filtro, em que uma correspondência no índice serve como um proxy para direitos de acesso ao documento.
+   * [A navegação facetada](search-faceted-navigation.md) usa um filtro para devolver a categoria de faceta selecionada pelo usuário.
+   * A pesquisa de área geográfica usa um filtro para passar as coordenadas do local atual em aplicativos "Localizar próximo a mim". 
+   * Filtros de segurança passam identificadores de segurança como critérios de filtro, em que uma correspondência no índice serve como um proxy para direitos de acesso ao documento.
 
 3. Use um filtro se desejar critérios de pesquisa em um campo numérico. 
 
-  Campos numéricos são recuperáveis no documento e podem aparecer nos resultados da pesquisa, mas não são pesquisáveis (sujeito à pesquisa de texto completo) individualmente. Se precisar de critérios de seleção com base em dados numéricos, use um filtro.
+   Campos numéricos são recuperáveis no documento e podem aparecer nos resultados da pesquisa, mas não são pesquisáveis (sujeito à pesquisa de texto completo) individualmente. Se precisar de critérios de seleção com base em dados numéricos, use um filtro.
 
 ### <a name="alternative-methods-for-reducing-scope"></a>Métodos alternativos para reduzir o escopo
 
@@ -141,10 +141,8 @@ No SDK .NET, filtrável está *desabilitado* por padrão. A API para definir a p
 
 Se um campo for não filtrável e você desejar torná-lo filtrável, será preciso adicionar um novo campo ou recompilar o campo existente. Alterar uma definição de campo altera a estrutura física do índice. No Azure Search, todos os caminhos de acesso permitidos são indexados para velocidade de consulta rápida, o que exige uma recompilação das estruturas de dados quando as definições de campo são alteradas. 
 
-Recriar campos individuais pode ser uma operação de baixo impacto, exigindo somente uma operação de mesclagem que envia a chave de documento existente e os valores associados ao índice, deixando o restante de cada documento intacto. Se você encontrar um requisito de recompilação, consulte os links a seguir para obter instruções:
+Recriar campos individuais pode ser uma operação de baixo impacto, exigindo somente uma operação de mesclagem que envia a chave de documento existente e os valores associados ao índice, deixando o restante de cada documento intacto. Se você encontrar um requisito de recompilação, consulte [ações de indexação (carregar, mesclar, mergeOrUpload, excluir)](search-what-is-data-import.md#indexing-actions) para obter uma lista de opções.
 
- + [Indexar ações usando o SDK .NET](https://docs.microsoft.com/azure/search/search-import-data-dotnet#decide-which-indexing-action-to-use)
- + [Indexar ações usando a API REST](https://docs.microsoft.com/azure/search/search-import-data-rest-api#decide-which-indexing-action-to-use)
 
 ## <a name="text-filter-fundamentals"></a>Conceitos básicos do filtro de texto
 

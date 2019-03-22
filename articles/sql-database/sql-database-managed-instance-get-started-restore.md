@@ -12,14 +12,14 @@ ms.author: srbozovi
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 12/14/2018
-ms.openlocfilehash: 9459aa9df74efa500109d7c281daad28355bd0d0
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: e2aa9edcd53aa3881b07e31fcf2312d5173a3a6e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895714"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57903481"
 ---
-# <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Início Rápido: Restaurar um banco de dados em uma Instância Gerenciada 
+# <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Início rápido: Restaurar um banco de dados em uma Instância Gerenciada 
 
 Neste início rápido, você usará o SSMS (SQL Server Management Studio) para restaurar um banco de dados (o arquivo de backup Importadores Mundiais – Padrão) do Armazenamento de Blobs do Azure para uma [Instância Gerenciada](sql-database-managed-instance.md) do Banco de Dados SQL do Azure. 
 
@@ -48,7 +48,7 @@ No SSMS, siga estas etapas para restaurar o banco de dados da Wide World Importe
 
 1. Abra o SMSS e conecte-se à Instância Gerenciada.
 2. No menu à esquerda, clique com o botão direito do mouse na Instância Gerenciada e selecione **Nova Consulta** para abrir uma nova janela de consulta.
-3. Execute o script SQL a seguir, que usa uma conta de armazenamento pré-configurada e uma chave SAS para [criar uma credencial](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql?view=sql-server-2017) na Instância Gerenciada.
+3. Execute o script SQL a seguir, que usa uma conta de armazenamento pré-configurada e uma chave SAS para [criar uma credencial](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql) na Instância Gerenciada.
 
    ```sql
    CREATE CREDENTIAL [https://mitutorials.blob.core.windows.net/databases] 

@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 9bf1b39e8cd0192a3d516bf64b32da4fcc500080
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 2466edb3d14ebbe9296fad087fce432b83005437
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003118"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58187686"
 ---
 # <a name="h264-multiple-bitrate-4k-audio-51"></a>H264 Taxas de Bits Múltiplas 4K Audio 5.1
 `Media Encoder Standard` define um conjunto de predefinições de codificação que pode ser usado ao criar trabalhos de codificação. Você pode usar um `preset name` para especificar em qual formato deseja codificar o arquivo de mídia. Ou, pode criar suas próprias predefinições com base em JSON ou XML (usando a codificação UTF-8 ou UTF-16). Em seguida, você passaria a predefinição personalizada ao codificador. Para obter a lista de todos os nomes de predefinição com suporte por este codificador `Media Encoder Standard`, consulte [Predefinições de tarefa para o Media Encoder Standard](media-services-mes-presets-overview.md).  
@@ -32,13 +32,13 @@ ms.locfileid: "56003118"
 >  Você deve obter a unidade reservada Premium com condificações 4K. Para saber mais, confira [Como dimensionar a codificação](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
   
 > [!NOTE]
->  Ao modificar os valores de `Width` e `Height` em camadas, certifique-se de que a taxa de proporção permaneça consistente. Por exemplo:  1920 x 1080, 1280 x 720, 1080 x 576, 640 x 360. Você não deve usar uma combinação de taxas de proporção, como: 1280 x 720, 720 x 480, 640 x 360.  
+>  Ao modificar os valores de `Width` e `Height` em camadas, certifique-se de que a taxa de proporção permaneça consistente. Por exemplo:  1920 x 1080, 1280 x 720, 1080 x 576, 640 x 360. Não convém usar uma combinação de taxas de proporção, como: 1280 x 720, 720 x 480, 640 x 360.  
   
  XML  
   
 ```  
 <?xml version="1.0" encoding="utf-16"?>  
-<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">  
+<Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">  
   <Encoding>  
     <H264Video>  
       <KeyFrameInterval>00:00:02</KeyFrameInterval>  

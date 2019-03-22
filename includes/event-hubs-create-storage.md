@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/16/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: e499a0f7bec47e672c599c729a15cc3e3d04a28a
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: 690e0da160042b7ac432b1a36c024a8a8f439823
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471592"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125061"
 ---
 ## <a name="create-a-storage-account-for-event-processor-host"></a>Criar uma conta de armazenamento para o Host do Processador de Eventos
 O Host do Processador de Eventos é um agente inteligente que simplifica o recebimento de eventos de hubs de eventos ao gerenciar pontos de verificação persistentes e recebimentos paralelos. Para o ponto de verificação, o Host do Processador de Eventos requer uma conta de armazenamento. O exemplo a seguir mostra como criar uma conta de armazenamento e como obter suas chaves de acesso:
@@ -26,18 +26,18 @@ O Host do Processador de Eventos é um agente inteligente que simplifica o receb
 
 3. Na página **Criar conta de armazenamento**, execute as etapas a seguir: 
 
-    1. Insira um nome para a conta de armazenamento. 
-    2. Escolha uma assinatura do Azure que contém o hub de eventos.
-    3. Selecione o grupo de recursos que tem o hub de eventos.
-    4. Selecione um local para criar o recurso. 
-    5. Em seguida clique em **Revisar + criar**.
+   1. Insira um nome para a conta de armazenamento. 
+   2. Escolha uma assinatura do Azure que contém o hub de eventos.
+   3. Selecione o grupo de recursos que tem o hub de eventos.
+   4. Selecione um local para criar o recurso. 
+   5. Em seguida clique em **Revisar + criar**.
    
-    ![Criar conta de armazenamento - página](./media/event-hubs-create-storage/create-storage2.png)
+      ![Criar conta de armazenamento - página](./media/event-hubs-create-storage/create-storage2.png)
 
 4. Na página **Revisar + criar**, revise os valores e selecione **Criar**. 
 
     ![Analisar configurações e criação de conta de armazenamento](./media/event-hubs-create-storage/review-create-storage-account.png)
-5. Depois de consultar a mensagem de **Implantações Bem-sucedidas**, selecione **Obteve para recurso** na parte superior da página. Você também pode iniciar a página da conta de armazenamento selecionando sua conta de armazenamento da lista de recursos.  
+5. Depois que você consulte os **implantações bem-sucedidas** mensagem, selecione **ir para o recurso** na parte superior da página. Você também pode iniciar a página da conta de armazenamento selecionando sua conta de armazenamento da lista de recursos.  
 
     ![Selecione a conta de armazenamento na implantação](./media/event-hubs-create-storage/select-storage-deployment.png) 
 7. Na janela **Dados Básicos**, selecione **Blobs**. 

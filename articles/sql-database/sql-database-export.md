@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/18/2019
-ms.openlocfilehash: 757d7e039b24beb170545d8055bad16410cf7883
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.date: 03/11/2019
+ms.openlocfilehash: 27a65a871264fa13a42acfb5be2d4b5f99d31adc
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415877"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57758685"
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Exportar um Banco de Dados SQL do Azure para um arquivo BACPAC
 
@@ -28,6 +28,7 @@ Quando for preciso exportar um banco de dados para arquivamento ou para mover pa
 - Para que uma exportação seja transacionalmente consistente, você deve assegurar que nenhuma atividade de gravação esteja ocorrendo durante a exportação ou que você esteja exportando de uma [cópia transacionalmente consistente](sql-database-copy.md) de seu banco de dados SQL do Azure.
 - Se você estiver exportando para o armazenamento de blobs, o tamanho máximo de um arquivo BACPAC é de 200 GB. Para arquivar um arquivo BACPAC maior, exporte para o armazenamento local.
 - Não há suporte para a exportação de um arquivo BACPAC no armazenamento Premium do Azure usando os métodos abordados neste artigo.
+- Armazenamento atrás de um firewall não é suportado atualmente.
 - Se a operação de exportação do Banco de Dados SQL do Azure exceder 20 horas, ela poderá ser cancelada. Para aumentar o desempenho durante a exportação, você pode:
 
   - Aumente temporariamente o tamanho de computação.
@@ -60,7 +61,7 @@ Quando for preciso exportar um banco de dados para arquivamento ou para mover pa
 
 Para exportar um Banco de Dados SQL usando o utilitário de linha de comando [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage), consulte [Exportar parâmetros e propriedades](https://docs.microsoft.com/sql/tools/sqlpackage#export-parameters-and-properties). O utilitário SQLPackage acompanha as últimas versões do [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) e [SQL Server Data Tools for Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx) ou você pode baixar a última versão do [SqlPackage](https://www.microsoft.com/download/details.aspx?id=53876) diretamente no Centro de Download da Microsoft.
 
-Recomendamos o uso do utilitário SQLPackage para escala e desempenho na maioria dos ambientes de produção. Para ler uma postagem de blog da Equipe de Consultoria ao Cliente do SQL Server sobre a migração usando arquivos BACPAC, confira [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/) (Migrando do SQL Server para o Banco de Dados SQL do Azure usando arquivos BACPAC).
+Recomendamos o uso do utilitário SQLPackage para escala e desempenho na maioria dos ambientes de produção. Para ler uma postagem de blog da Equipe de Consultoria ao Cliente do SQL Server sobre a migração usando arquivos BACPAC, confira [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/) (Migrando do SQL Server para o Banco de Dados SQL do Azure usando arquivos BACPAC).
 
 Este exemplo mostra como exportar um banco de dados usando SqlPackage.exe com Autenticação Universal do Active Directory:
 
@@ -77,23 +78,23 @@ As versões mais recentes do SQL Server Management Studio fornecem um assistente
 > [!NOTE]
 > [Uma instância gerenciada](sql-database-managed-instance.md) não dá suporte atualmente à exportação de um banco de dados para um arquivo BACPAC usando o Azure PowerShell. Para exportar uma instância gerenciada para um arquivo BACPAC, use o SQL Server Management Studio ou o SQLPackage.
 
-Use o cmdlet [New-AzureRmSqlDatabaseExport](/powershell/module/azurerm.sql/new-azurermsqldatabaseexport) para enviar uma solicitação de exportação de banco de dados para o serviço de Banco de Dados SQL do Azure. Dependendo do tamanho do banco de dados, a operação de exportação poderá demorar para ser concluída.
+Use o [New-AzSqlDatabaseExport](/powershell/module/az.sql/new-azsqldatabaseexport) cmdlet para enviar uma solicitação de exportação de banco de dados para o serviço de banco de dados SQL. Dependendo do tamanho do banco de dados, a operação de exportação poderá demorar para ser concluída.
 
 ```powershell
-$exportRequest = New-AzureRmSqlDatabaseExport -ResourceGroupName $ResourceGroupName -ServerName $ServerName `
+$exportRequest = New-AzSqlDatabaseExport -ResourceGroupName $ResourceGroupName -ServerName $ServerName `
   -DatabaseName $DatabaseName -StorageKeytype $StorageKeytype -StorageKey $StorageKey -StorageUri $BacpacUri `
   -AdministratorLogin $creds.UserName -AdministratorLoginPassword $creds.Password
 ```
 
-Para verificar o status da solicitação de exportação, use o cmdlet [Get-AzureRmSqlDatabaseImportExportStatus](/powershell/module/azurerm.sql/get-azurermsqldatabaseimportexportstatus). A execução disso imediatamente após a solicitação geralmente retorna **Status: InProgress**. Quando for exibido **Status: Êxito**, a exportação estará concluída.
+Para verificar o status da solicitação de exportação, use o [Get-AzSqlDatabaseImportExportStatus](/powershell/module/az.sql/get-azsqldatabaseimportexportstatus) cmdlet. A execução disso imediatamente após a solicitação geralmente retorna **Status: InProgress**. Quando for exibido **Status: Êxito**, a exportação estará concluída.
 
 ```powershell
-$exportStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink
+$exportStatus = Get-AzSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink
 [Console]::Write("Exporting")
 while ($exportStatus.Status -eq "InProgress")
 {
     Start-Sleep -s 10
-    $exportStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink
+    $exportStatus = Get-AzSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink
     [Console]::Write(".")
 }
 [Console]::WriteLine("")

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: fb12fe381cb4df6139fae7289279220f72984484
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: e72b115420e49a50f18ae9a27c6243394427ea4a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078007"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000409"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Diretrizes de listagem do Azure Marketplace
 
@@ -72,16 +72,18 @@ Todas as ofertas precisam cumprir [Todos os requisitos de listagem](https://docs
 ----
 
 ## <a name="container-offer-requirements"></a>Requisitos da oferta de contêiner
+
 |  | Elemento de listagem | Requisitos básicos | Requisitos ideais | 
 |:--- |:--- |:--- |:--- |
 |1 |Configurações da oferta | <br>• ID da oferta: Máx. de 50 caracteres <br>• ID do Editor: Selecionar no menu suspenso <br>•   Nome: Máx. de 50 caracteres | Espelha o estilo de título já disponível na descrição – não quer títulos longos. | 
-| 2 | SKUs | O parceiro clica em novas SKUs| Espelha o estilo de título já disponível na descrição – não quer títulos longos.  |  |
+| 2 | SKUs | O parceiro clica em novas SKUs| Espelha o estilo de título já disponível na descrição – não quer títulos longos.  |
 | 3 | Artefatos do Marketplace | Logotipos exibidos corretamente |<br>• O logotipo inclui a “imagem hero”, que é a imagem em formato grande no Portal do Azure <br>• Logos: Pequeno (48x48) e grande (216x216) são requisitos <br>• Requisitos da imagem hero: https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish<br>• Captura de tela (máx. 5):  O CPP requer uma imagem .png com resolução 1280 x 720.|
 | 4 | Gerenciamento de leads |<br>•    Gerenciamento de clientes potenciais: Selecione o sistema no qual seus clientes potenciais serão armazenados. <br>•   Saiba como conectar seu sistema CRM [aqui](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) | |
 
 ----
 
 ## <a name="consulting-offer-requirements"></a>Requisitos da oferta de consultoria
+
 |  | Elemento de listagem | Requisitos básicos | Requisitos ideais |
 |:--- |:--- |:--- |:--- |
 | 1 | Título da oferta  |  <br>•  Precisa listar claramente o tipo e a duração do serviço no formato a seguir: NOME: TIPO DE DURAÇÃO. (ou seja, "Oferta de Participação: Prova de conceito de 1 semana”)  | <br>• Não repete o nome do editor <br>•  Espelha o estilo de título já disponível na descrição – não quer títulos longos. | 
@@ -103,4 +105,4 @@ Todas as ofertas precisam cumprir [Todos os requisitos de listagem](https://docs
 *   [Determinar o tipo de listagem para sua solução](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type).
 
  
----  
+---

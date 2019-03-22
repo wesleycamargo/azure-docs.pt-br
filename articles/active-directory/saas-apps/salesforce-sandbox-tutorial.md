@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/10/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: feb6cebca0fe165315215813eb939dc2d5d120cf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6794d7eaccb488bb345227161f0bca02f14bc518
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177305"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852537"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>Tutorial: Integração do Azure Active Directory com a Área Restrita Salesforce
 
@@ -122,7 +122,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 5. Na seção **Configuração Básica do SAML**, execute as etapas a seguir caso deseje configurar o aplicativo no modo **IDP** iniciado:
 
-     a. Clique em **Carregar arquivo de metadados**.
+    a. Clique em **Carregar arquivo de metadados**.
 
     ![Carregar arquivo de metadados](./media/salesforce-sandbox-tutorial/upload_metadata.png)
 
@@ -177,7 +177,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 16. Se você desejar configurar o aplicativo no modo iniciado **SP**, os pré-requisitos disso estão a seguir:
 
-     a. Você deve ter um domínio verificado.
+    a. Você deve ter um domínio verificado.
 
     b. Você precisa configurar e habilitar seu domínio na Área Restrita do Salesforce, as etapas para isso serão explicadas posteriormente neste tutorial.
 
@@ -259,7 +259,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
      a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
+    b. No **nome de usuário** tipo de campo **brendafernandes\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **Propriedades**, marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.

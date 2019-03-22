@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 576d3d4b9c793c564410335ce35ddd4c40697e4a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 291b3d506993cfea89be072684835c0d4efe75f6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197395"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095442"
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>Próximas etapas e como gerenciar o Azure AD Connect
 Use os procedimentos operacionais neste artigo para personalizar o Azure AD (Azure Active Directory) Connect para atender às necessidades e requisitos de sua organização.  
@@ -51,12 +51,16 @@ Use o Portal do Azure para verificar o status de uma sincronização.
 4. Na parte superior da página do diretório, selecione **Integração de diretório**.
 5. Na **integração com o Active Directory local**, observe o horário da última sincronização.
 
-<center>![Horário de sincronização de diretórios](./media/how-to-connect-post-installation/verify.png)</center>
+<center>
+
+![Hora de sincronização de diretório](./media/how-to-connect-post-installation/verify.png)</center>
 
 ## <a name="start-a-scheduled-synchronization-task"></a>Iniciar uma tarefa de sincronização agendada
 Se você precisar executar uma tarefa de sincronização, poderá fazer isso executando-a novamente por meio do assistente do Azure AD Connect.  Você precisa fornecer suas credenciais do Azure AD.  No assistente, selecione a tarefa **Personalizar opções de sincronização** e clique em **Avançar** para seguir pelo assistente. No final, certifique-se de que a caixa **Iniciar o processo de sincronização assim que a configuração for concluída** esteja selecionada.
 
-<center>![Iniciar a sincronização](./media/how-to-connect-post-installation/startsynch.png)</center>
+<center>
+
+![Iniciar a sincronização](./media/how-to-connect-post-installation/startsynch.png)</center>
 
 Para obter mais informações sobre o Agendador de sincronização do Azure AD Connect, consulte [Agendador do Azure AD Connect](how-to-connect-sync-feature-scheduler.md).
 

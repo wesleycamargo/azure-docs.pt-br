@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc seodec18
 ms.date: 12/17/2018
 ms.author: alinast
-ms.openlocfilehash: d2588090ced3e82e63397a416245ca69204f3d87
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 4c41fbaa00dc3460df3f94433428c448a7b41250
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53583078"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089685"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Início Rápido: Encontrar salas disponíveis usando os Gêmeos Digitais do Azure
 
@@ -115,8 +115,8 @@ O exemplo de sensor simula os valores de dados aleatórios para dois sensores. E
 1. Examine esse prompt de comando e o prompt de comando dos dados do sensor lado a lado.
 
     Um prompt de comando envia os dados simulados de movimento e de dióxido de carbono para os Gêmeos Digitais a cada cinco segundos. O outro comando lê o grafo em tempo real para descobrir os ambientes disponíveis com ar fresco tendo como base dados simulados aleatórios. Ele exibe uma das seguintes condições quase em tempo real com base nos dados de sensor que foram enviados da última vez:
-    - Salas disponíveis com ar fresco.
-    - Sala ocupada ou ar de baixa qualidade.
+   - Salas disponíveis com ar fresco.
+   - Sala ocupada ou ar de baixa qualidade.
 
      ![Obter espaços disponíveis com ar fresco][3]
 
@@ -149,7 +149,7 @@ Os tutoriais abordam detalhes sobre como:
 Para continuar nos tutoriais, não limpe os recursos criados neste início rápido. Se você não planeja continuar, exclua todos os recursos criados neste início rápido.
 
 1. Exclua a pasta que foi criada quando você baixou o repositório de exemplo.
-1. No menu à esquerda no [portal do Azure](http://portal.azure.com), marque **Todos os recursos**. Em seguida, escolha o recurso dos Gêmeos Digitais. Na parte superior do painel **Todos os recursos**, marque **Excluir**.
+1. No menu à esquerda no [portal do Azure](https://portal.azure.com), marque **Todos os recursos**. Em seguida, escolha o recurso dos Gêmeos Digitais. Na parte superior do painel **Todos os recursos**, marque **Excluir**.
 
     > [!TIP]
     > Se você teve problemas para excluir sua instância de Gêmeos Digitais, lançamos uma atualização de serviço com a correção. Tente novamente excluir a instância.

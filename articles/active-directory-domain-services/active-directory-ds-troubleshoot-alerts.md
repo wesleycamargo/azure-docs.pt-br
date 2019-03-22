@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: 492b15bddad598d65c15c48f04d3148c41cd3c7e
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 7d99f5a5d027c825fa1145328bb9576229ce39b4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817522"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121988"
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services – Alertas de solução de problemas
 Este artigo fornece guias de solução de problemas para quaisquer alertas que podem ocorrer em seu domínio gerenciado.
@@ -42,10 +42,10 @@ Escolha as etapas de solução de problemas que correspondem à ID ou mensagem d
 | AADDS108 | *A assinatura usada pelo Azure Active Directory Domain Services foi movida para outro diretório. O Azure Active Directory Domain Services precisa ter uma assinatura ativa no mesmo diretório para funcionar corretamente.* | [Diretórios de assinatura movida](#aadds108-subscription-moved-directories) |
 | AADDS109 | *Um recurso que é usado para seu domínio gerenciado foi excluído. Esse recurso é necessário para que o Azure Active Directory Domain Services funcione corretamente.* | [Um recurso foi excluído](#aadds109-resources-for-your-managed-domain-cannot-be-found) |
 | AADDS110 | *A sub-rede selecionada para a implantação do Azure Active Directory Domain Services está cheio e não tem espaço para o controlador de domínio adicional precisa ser criado.* | [A subrede está cheia](#aadds110-the-subnet-associated-with-your-managed-domain-is-full) |
-| AADDS111 | *Uma entidade de serviço que usa o Azure Active Directory Domain Services para atender seu domínio não está autorizada a gerenciar recursos na assinatura do Azure. A entidade de serviço precisa obter permissões para atender seu domínio gerenciado. * | Entidade de serviço não autorizada |
+| AADDS111 | *Uma entidade de serviço que usa o Azure Active Directory Domain Services para atender seu domínio não está autorizada a gerenciar recursos na assinatura do Azure. A entidade de serviço precisa obter permissões para atender seu domínio gerenciado.* | [Entidade de serviço não autorizada](#aadds111-service-principal-unauthorized) |
 | AADDS112 | *Identificamos que a sub-rede da rede virtual neste domínio pode não ter endereços IP suficientes. O Azure Active Directory Domain Services precisa de pelo menos dois endereços IP disponíveis dentro da sub-rede que ele está habilitado. É recomendável ter pelo menos 3 a 5 endereços IP sobressalentes dentro da sub-rede. Isso pode ter ocorrido se outras máquinas virtuais são implantadas dentro da sub-rede, esgotar, portanto, o número de endereços IP disponíveis ou se há uma restrição no número de endereços IP disponíveis na sub-rede.* | [Não há endereços IP suficientes](#aadds112-not-enough-ip-address-in-the-managed-domain) |
 | AADDS113 | *Os recursos usados pelo Azure Active Directory Domain Services foram detectados em um estado inesperado e não podem ser recuperados.* | [Recursos são irrecuperáveis](#aadds113-resources-are-unrecoverable) |
-| AADDS114 | *A sub-rede selecionada para a implantação do Azure Active Directory Domain Services é inválida e não pode ser usada. * | [Sub-rede inválida](#aadds114-subnet-invalid) |
+| AADDS114 | *A sub-rede selecionada para a implantação do Azure Active Directory Domain Services é inválida e não pode ser usada.* | [Sub-rede inválida](#aadds114-subnet-invalid) |
 | AADDS115 | *Um ou mais dos recursos de rede usados pelo domínio gerenciado não podem ser operados uma vez que o escopo de destino foi bloqueado.* | [Recursos são bloqueados](#aadds115-resources-are-locked) |
 | AADDS116 | *Um ou mais dos recursos de rede usados pelo domínio gerenciado não podem ser operados devido às restrições de política.* | [Os recursos são inutilizáveis](#aadds116-resources-are-unusable) |
 | AADDS500 | *O domínio gerenciado foi sincronizado pela última vez com o Azure AD em [data]. Os usuários poderão não conseguir entrar no domínio gerenciado ou as associações de grupo poderão não ser sincronizadas com o Microsoft Azure Active Directory.* | [A sincronização não é realizada há algum tempo](#aadds500-synchronization-has-not-completed-in-a-while) |
@@ -103,13 +103,13 @@ Dentro da rede virtual, as máquinas podem fazer solicitações para recursos do
 
 1. [Exclua seu domínio gerenciado](active-directory-ds-disable-aadds.md) do seu diretório.
 2. Corrija o intervalo de endereços IP da sub-rede
-  1. Navegue até a [página de Redes Virtuais no portal do Azure](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
-  2. Selecione a rede virtual que você planeja usar para os Serviços de Domínio do Azure AD.
-  3. Clique em **Espaço de Endereço** em Configurações
-  4. Atualize o intervalo de endereços clicando no intervalo de endereços existente e editando-o ou adicionando um intervalo de endereços adicional. Verifique se o novo intervalo de endereço está em um intervalo IP privado. Salve suas alterações.
-  5. Clique em **Sub-redes** no menu de navegação esquerdo.
-  6. Clique na sub-rede que deseja editar na tabela.
-  7. Atualize o intervalo de endereços e salve suas alterações.
+   1. Navegue até a [página de Redes Virtuais no portal do Azure](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
+   2. Selecione a rede virtual que você planeja usar para os Serviços de Domínio do Azure AD.
+   3. Clique em **Espaço de Endereço** em Configurações
+   4. Atualize o intervalo de endereços clicando no intervalo de endereços existente e editando-o ou adicionando um intervalo de endereços adicional. Verifique se o novo intervalo de endereço está em um intervalo IP privado. Salve suas alterações.
+   5. Clique em **Sub-redes** no menu de navegação esquerdo.
+   6. Clique na sub-rede que deseja editar na tabela.
+   7. Atualize o intervalo de endereços e salve suas alterações.
 3. Siga [o guia Introdução ao Uso dos Serviços de Domínio do Azure AD](active-directory-ds-getting-started.md) para recriar seu domínio gerenciado. Certifique-se de escolher uma rede virtual com um intervalo de endereços IP privados.
 4. Para associar domínio às suas máquinas virtuais para seu novo domínio, siga [este guia](active-directory-ds-admin-guide-join-windows-vm-portal.md).
 8. Para garantir que o alerta seja resolvido, verifique a integridade do seu domínio em duas horas.
@@ -160,13 +160,13 @@ Você pode mover a assinatura associada ao Azure Active Directory Domain Service
 
 O Azure Active Directory Domain Services cria recursos específicos ao implantar para funcionar corretamente, incluindo um balanceador de carga, NICs e endereços IP públicos. Se qualquer um dos nomeado forem excluídos, isso torna o seu domínio gerenciado em um estado sem suporte e impede que o seu domínio gerenciado. Este alerta é encontrado quando alguém que possa editar os recursos do Azure AD Domain Services exclui um recurso necessário. As etapas a seguir descrevem como restaurar seu domínio gerenciado.
 
-1.  Navegue até a página de integridade do Azure Active Directory Domain Services
-  1.    Desloque para a [página do Azure AD Domain Services](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) no portal do Azure.
-  2.    No painel de navegação à esquerda, clique em **Integridade**
-2.  Verifique se o alerta tem menos de 4 horas
-  1.    Na página de integridade, clique no alerta com a ID **AADDS109**
-  2.    O alerta terá um carimbo de hora de quando foi encontrada pela primeira vez. Se esse carimbo de hora for menor que 4 horas atrás, há uma chance de que o Azure AD Domain Services possa recriar o recurso excluído.
-3.  Se o alerta tiver mais de 4 horas, o domínio gerenciado está em um estado irrecuperável. Você deve excluir e recriar o Azure AD Domain Services.
+1. Navegue até a página de integridade do Azure Active Directory Domain Services
+   1.    Desloque para a [página do Azure AD Domain Services](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) no portal do Azure.
+   2.    No painel de navegação à esquerda, clique em **Integridade**
+2. Verifique se o alerta tem menos de 4 horas
+   1.    Na página de integridade, clique no alerta com a ID **AADDS109**
+   2.    O alerta terá um carimbo de hora de quando foi encontrada pela primeira vez. Se esse carimbo de hora for menor que 4 horas atrás, há uma chance de que o Azure AD Domain Services possa recriar o recurso excluído.
+3. Se o alerta tiver mais de 4 horas, o domínio gerenciado está em um estado irrecuperável. Você deve excluir e recriar o Azure AD Domain Services.
 
 
 ## <a name="aadds110-the-subnet-associated-with-your-managed-domain-is-full"></a>AADDS110: A sub-rede associada ao seu domínio gerenciado está cheia
@@ -203,13 +203,13 @@ Nossas entidades de serviço precisam de acesso para poder gerenciar e criar rec
 
 1. Exclua seu domínio gerenciado de seu locatário.
 2. Corrija o intervalo de endereços IP da sub-rede
-  1. Navegue até a [página de Redes Virtuais no portal do Azure](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
-  2. Selecione a rede virtual que você planeja usar para os Serviços de Domínio do Azure AD.
-  3. Clique em **Espaço de Endereço** em Configurações
-  4. Atualize o intervalo de endereços clicando no intervalo de endereços existente e editando-o ou adicionando um intervalo de endereços adicional. Salve suas alterações.
-  5. Clique em **Sub-redes** no menu de navegação esquerdo.
-  6. Clique na sub-rede que deseja editar na tabela.
-  7. Atualize o intervalo de endereços e salve suas alterações.
+   1. Navegue até a [página de Redes Virtuais no portal do Azure](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
+   2. Selecione a rede virtual que você planeja usar para os Serviços de Domínio do Azure AD.
+   3. Clique em **Espaço de Endereço** em Configurações
+   4. Atualize o intervalo de endereços clicando no intervalo de endereços existente e editando-o ou adicionando um intervalo de endereços adicional. Salve suas alterações.
+   5. Clique em **Sub-redes** no menu de navegação esquerdo.
+   6. Clique na sub-rede que deseja editar na tabela.
+   7. Atualize o intervalo de endereços e salve suas alterações.
 3. Siga [o guia Introdução ao Uso dos Serviços de Domínio do Azure AD](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started) para recriar seu domínio gerenciado. Certifique-se de escolher uma rede virtual com um intervalo de endereços IP privados.
 4. Para associar domínio às suas máquinas virtuais para seu novo domínio, siga [este guia](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal).
 5. Verifique a integridade de seu domínio em duas horas para garantir que você tenha concluído as etapas corretamente.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.subservice: autoscale
-ms.openlocfilehash: ae1828210345eb35f9d22664285a0d348ea50d48
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 05f20aec536ebdb702caea37051a65af9bbc659f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478324"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085636"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Visão geral do dimensionamento automático em Aplicativos Web, Serviços de Nuvem e Máquinas Virtuais do Microsoft Azure
 Este artigo descreve o que é dimensionamento automático do Microsoft Azure, seus benefícios e como começar a usá-lo.  
@@ -66,15 +66,15 @@ O dimensionamento automático usa a seguinte terminologia e estrutura.
 
 - Uma **configuração do dimensionamento automático** é lido pelo mecanismo de dimensionamento automático para determinar se é para aumentar ou reduzir. Ele contém um ou mais perfis, informações sobre o recurso de destino e as configurações de notificação.
 
-    - Um **perfil de dimensionamento automático** é um combinação de:
+  - Um **perfil de dimensionamento automático** é um combinação de:
 
-        - **configuração de capacidade**, que indica os valores mínimo, máximo e padrão do número de instâncias.
-        - **conjunto de regras**, cada um deles inclui um gatilho (tempo ou métrica) e uma ação de dimensionamento (para cima ou para baixo).
-        - **recorrência**, que indica quando o dimensionamento automático deve colocar esse perfil em vigor.
+    - **configuração de capacidade**, que indica os valores mínimo, máximo e padrão do número de instâncias.
+    - **conjunto de regras**, cada um deles inclui um gatilho (tempo ou métrica) e uma ação de dimensionamento (para cima ou para baixo).
+    - **recorrência**, que indica quando o dimensionamento automático deve colocar esse perfil em vigor.
 
-        Você pode ter vários perfis, que permitem cuidar dos diferentes requisitos de sobreposição. Você pode ter diferentes perfis de dimensionamento automático para diferentes horas do dia ou dias da semana, por exemplo.
+      Você pode ter vários perfis, que permitem cuidar dos diferentes requisitos de sobreposição. Você pode ter diferentes perfis de dimensionamento automático para diferentes horas do dia ou dias da semana, por exemplo.
 
-    - Uma **configuração de notificação** define quais notificações devem ocorrer quando acontece um evento de dimensionamento automático com base no atendimento dos critérios de um dos perfis da configuração do dimensionamento automático. O dimensionamento automático pode notificar um ou mais endereços de email ou fazer chamadas para um ou mais webhooks.
+  - Uma **configuração de notificação** define quais notificações devem ocorrer quando acontece um evento de dimensionamento automático com base no atendimento dos critérios de um dos perfis da configuração do dimensionamento automático. O dimensionamento automático pode notificar um ou mais endereços de email ou fazer chamadas para um ou mais webhooks.
 
 
 ![Configuração do dimensionamento automático do Azure, perfil e estrutura de regras](./media/autoscale-overview/AzureResourceManagerRuleStructure3.png)

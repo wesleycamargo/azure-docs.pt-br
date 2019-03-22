@@ -16,19 +16,19 @@ ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 770a5e61f549a10c8b313ed4d137f56dda45769e
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 91548a4df4a77623978ea4bcb214b76427c026a6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343853"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012013"
 ---
 # <a name="manage-access-to-azure-resources-for-external-users-using-rbac"></a>Gerenciar o acesso de usuários externos a recursos do Azure usando RBAC
 
 O controle de acesso baseado em função (RBAC) permite um melhor gerenciamento de segurança para grandes empresas e SMBs que trabalham com colaboradores externos, fornecedores ou freelancers que precisam de acesso a recursos específicos em seu ambiente, mas não necessariamente a toda a infraestrutura nem nenhum escopo relacionado à cobrança. O RBAC proporciona a flexibilidade de ter uma assinatura do Azure gerenciada pela conta de administrador (função de administrador de serviços no nível da assinatura) e ter vários usuários convidados para trabalhar na mesma assinatura, mas sem os direitos administrativos para ela.
 
 > [!NOTE]
-> Assinaturas do Office 365 ou licenças do Azure Active Directory (por exemplo: Acesso ao Azure Active Directory) provisionadas no Centro de administração do Office 365 não estão qualificadas para uso do RBAC.
+> Assinaturas do Office 365 ou licenças do Azure Active Directory (por exemplo: Acesso ao Azure Active Directory) provenientes do Centro de administração não se qualificam para uso do RBAC do Microsoft 365.
 
 ## <a name="assign-rbac-roles-at-the-subscription-scope"></a>Atribuir funções de RBAC no escopo de assinatura
 

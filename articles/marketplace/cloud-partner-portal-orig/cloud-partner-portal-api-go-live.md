@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c7d643f0c7885e64636a107d22ce332b1ba9371c
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: ea3f26d70c4a4ce07c988612890687504a4cf5ac
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804982"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594671"
 ---
 <a name="go-live"></a>Go Live
 =======
@@ -35,7 +35,7 @@ Essa API inicia o processo de envio de um aplicativo para produção. Essa opera
 |  --------      |   ---------------                                                           | ------------- |
 | publisherId    | Identificador do publicador da oferta a ser recuperada, por exemplo `contoso`       |  Cadeia de caracteres       |
 | offerId        | O identificador da oferta a ser recuperada                                   |  Cadeia de caracteres       |
-| api-version    | Versão mais recente da API                                                   |  Data         |
+| api-version    | Última versão da API                                                   |  Data         |
 |  |  |  |
 
 
@@ -67,7 +67,7 @@ Essa API inicia o processo de envio de um aplicativo para produção. Essa opera
 
 ### <a name="response-status-codes"></a>Códigos de status de resposta
 
-| **Código** |  ** Descrição**                                                                        |
+| **Código** |  **Descrição**                                                                        |
 | -------- |  ----------------                                                                        |
 |  202     | `Accepted` – a solicitação foi aceita com êxito. A resposta contém um local para rastrear o status da operação. |
 |  400     | `Bad/Malformed request` – as informações de erro adicionais são encontradas dentro do corpo da resposta. |

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9e208f899ff26135d3ce26bfa18096210513381
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: bcc93254b50da9bff6f687034d39d0058aa514e1
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192040"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765944"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>Tutorial: Integração do Azure Active Directory ao Perception United States (não UltiPro)
 
@@ -111,7 +111,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Informações sobre logon único de domínio e URLs do Perception United States (não UltiPro)](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_url.png)
 
-     a. Na caixa de texto **Identificador**, digite a URL: `https://perception.kanjoya.com/sp`
+    a. Na caixa de texto **Identificador**, digite a URL: `https://perception.kanjoya.com/sp`
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://perception.kanjoya.com/sso?idp=<entity_id>`
 
@@ -128,7 +128,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
 1. Na seção **Configuração do Perception United States (não UltiPro)**, clique em **Configurar Perception United States (não UltiPro)** para abrir a janela **Configurar logon**. Copie a **ID da Entidade SAML** da **seção Referência Rápida.**
 
-     a. O aplicativo **Perception United States (não UltiPro)** exige que o valor da **ID da Entidade SAML**, que você copiou, seja codificado em URI. Para obter o valor codificado em URI, use o seguinte link:**http://www.url-encode-decode.com/**.
+    a. O aplicativo **Perception United States (não UltiPro)** exige que o valor da **ID da Entidade SAML**, que você copiou, seja codificado em URI. Para obter o valor codificado em URI, use o seguinte link:**http://www.url-encode-decode.com/**.
 
     b. Depois de obter o valor codificado em URI, combine-o com a **URL de resposta** conforme mencionado abaixo -
 
@@ -148,7 +148,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Usuário do Perception United States (não UltiPro)](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_account.png)
 
-     a. Na caixa de texto **Nome da empresa**, digite o nome da **Empresa**.
+    a. Na caixa de texto **Nome da empresa**, digite o nome da **Empresa**.
     
     b. Na caixa de texto **Nome da conta**, digite o nome da **Conta**.
 
@@ -160,13 +160,13 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![SSOConfig do Perception United States (não UltiPro)](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_ssoconfig.png)
 
-     a. Selecione **Tipo de SAML NameID** como **EMAIL**.
+    a. Selecione **Tipo de SAML NameID** como **EMAIL**.
 
     b. Na caixa de texto **Nome da configuração de SSO**, digite o nome da sua **Configuração**.
     
     c. Na caixa de texto **Nome do Provedor de Identidade**, cole o valor da **ID de Entidade do SAML** que você copiou do Portal do Azure. 
 
-    d. Na **caixa de texto Domínio de SAML**, digite o domínio como **@contoso.com**.
+    d. Na **caixa de texto domínio SAML**, digite o domínio como  **\@contoso.com**.
 
     e. Clique em **Carregar novamente** para carregar o arquivo **XML de metadados**.
 

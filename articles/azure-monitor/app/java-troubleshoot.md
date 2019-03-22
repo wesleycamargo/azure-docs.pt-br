@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 04/02/2018
+ms.date: 01/14/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4e9e9b76469554f5519626eed37a5b64586f5eb4
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: eaade5f9ec9db7e8d224305147dafc264916d9c5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265389"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995588"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Solução de problemas e perguntas e respostas para o Application Insights para Java
 Dúvidas ou problemas com o [Azure Application Insights em Java][java]? Aqui estão algumas dicas.
@@ -105,18 +105,39 @@ Usando o método XML, você precisa reiniciar o aplicativo ao alterar o valor.
 
 Para saber mais sobre o que está acontecendo na API, adicione `<SDKLogger/>` ao nó raiz do arquivo de configuração Applicationinsights.xml.
 
+### <a name="applicationinsightsxml"></a>ApplicationInsights.xml
+
 Você também pode instruir o agente para enviar a saída para um arquivo:
 
 ```XML
-
-    <SDKLogger type="FILE">
-      <enabled>True</enabled>
-      <UniquePrefix>JavaSDKLog</UniquePrefix>
-    </SDKLogger>
+  <SDKLogger type="FILE">
+    <Level>TRACE</Level>
+    <UniquePrefix>AI</UniquePrefix>
+    <BaseFolderPath>C:/agent/AISDK</BaseFolderPath>
+</SDKLogger>
 ```
 
-Os arquivos podem ser encontrados em `%temp%\javasdklogs` ou `java.io.tmpdir` no caso do servidor Tomcat.
+### <a name="spring-boot-starter"></a>Iniciador do Spring Boot
 
+Para habilitar o log do SDK com aplicativos do Spring Boot usando o iniciador do Spring Boot Application Insights, adicione o seguinte para o `application.properties` arquivo.:
+
+```yaml
+azure.application-insights.logger.type=file
+azure.application-insights.logger.base-folder-path=C:/agent/AISDK
+azure.application-insights.logger.level=trace
+```
+
+### <a name="java-agent"></a>Agente de Java
+
+Habilitar o registro em log de agente do JVM update a [arquivo AI-Agent.xml](java-agent.md).
+
+```xml
+<AgentLogger type="FILE">
+    <Level>TRACE</Level>
+    <UniquePrefix>AI</UniquePrefix>
+    <BaseFolderPath>C:/agent/AIAGENT</BaseFolderPath>
+</AgentLogger>
+```
 
 ## <a name="the-azure-start-screen"></a>A tela inicial do Azure
 **Estou examinando o [portal do Azure](https://portal.azure.com). O mapa me diz algo sobre meu aplicativo?**

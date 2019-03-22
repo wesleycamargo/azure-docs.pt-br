@@ -7,26 +7,26 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: cfab735b-923d-4246-a2a8-220d4f4e0c64
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: f3f8cf88268498d20651eab40eb655313180cadc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 75aa960ff060d74d0a579b475e4334402992b3c3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203192"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903345"
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Introdução ao Gerenciador de Recursos de Cluster do Service Fabric
 Tradicionalmente, gerenciar sistemas de TI ou serviços online significava dedicar computadores ou máquinas virtuais específicas a esses serviços ou sistemas específicos. Os serviços foram projetados como camadas. Deveria haver uma camada da "Web" e uma camada de "dados" ou "armazenamento". Os aplicativos teriam uma camada de mensagens, em que solicitações de entrada e de saída fluíam, bem como um conjunto de computadores dedicados ao cache. Cada camada ou tipo de carga de trabalho tinha computadores específicos dedicados: o banco de dados tinha dois computadores dedicados a ele, enquanto os servidores Web contavam com alguns. Se um tipo específico de carga de trabalho fizesse com que os computadores em que ele estava tivessem utilização alta demais, você adicionaria mais computadores com a mesma configuração a essa camada. No entanto, nem todas as cargas de trabalho podiam ser dimensionadas tão facilmente – especialmente com a camada de dados, normalmente você substituiria os computadores por computadores maiores. Fácil. Se uma máquina falhava, essa parte do aplicativo geral era executada com menor capacidade até que o computador pudesse ser restaurado. Ainda assim, relativamente fácil (mesmo que não necessariamente divertido).
 
 Agora, no entanto, o mundo de arquitetura de software e serviço mudou. É mais comum que os aplicativos adotem um design de expansão. É comum criar aplicativos com contêineres ou microsserviços (ou ambos). Agora, enquanto você ainda pode ter apenas alguns computadores, eles não executam apenas uma única instância de uma carga de trabalho. Eles podem até mesmo executar várias cargas de trabalho diferentes ao mesmo tempo. Agora, você tem dezenas de tipos de serviços diferentes (nenhum deles consumindo todos os recursos de um computador), talvez centenas de instâncias diferentes desses serviços. Cada instância nomeada tem uma ou mais instâncias ou réplicas para HA (Alta Disponibilidade). Dependendo dos tamanhos dessas cargas de trabalho e do quanto elas ficam ocupadas, você pode acabar tendo centenas ou milhares de computadores. 
 
-Inesperadamente, já não era tão simples gerenciar seu ambiente com poucos computadores dedicados a tipos de carga de trabalho únicos. Os servidores são virtuais e não têm mais nomes (sua mentalidade passou a valorizar a [coletividade](http://www.slideshare.net/randybias/architectures-for-open-and-scalable-clouds/20) ). A configuração tem menos a ver com os computadores e mais a ver com os próprios serviços. Ter hardware dedicado a uma única instância de uma carga de trabalho é basicamente uma coisa do passado. Os próprios serviços tornaram-se pequenos sistemas distribuídos que abrangem várias partes menores do hardware de mercadoria.
+Inesperadamente, já não era tão simples gerenciar seu ambiente com poucos computadores dedicados a tipos de carga de trabalho únicos. Os servidores são virtuais e não têm mais nomes (sua mentalidade passou a valorizar a [coletividade](https://www.slideshare.net/randybias/architectures-for-open-and-scalable-clouds/20) ). A configuração tem menos a ver com os computadores e mais a ver com os próprios serviços. Ter hardware dedicado a uma única instância de uma carga de trabalho é basicamente uma coisa do passado. Os próprios serviços tornaram-se pequenos sistemas distribuídos que abrangem várias partes menores do hardware de mercadoria.
 
 Como seu aplicativo não é mais uma série de monolitos espalhados por várias camadas, agora você tem muito combinações com que lidar. Quem decide quais tipos de carga de trabalho podem ser executados em qual hardware, ou quantos? Quais cargas de trabalho funcionam bem no mesmo hardware e quais entram em conflito? Quando um computador fica inoperante, como você sabe o que estava em execução nesse computador? Quem é o responsável por garantir que a carga de trabalho comece a execução novamente? Você espera que a máquina (virtual) volte ou suas cargas de trabalho fazem failover automaticamente para outras máquinas e continuam em execução? Há necessidade de intervenção humana? E quanto às atualizações nesse ambiente?
 
@@ -54,7 +54,7 @@ Embora algumas dessas estratégias sejam interessantes, o Gerenciador de Recurso
 Como o Gerenciador de Recursos de Cluster é responsável por mover os serviços, ele contém um conjunto de recursos diferente em comparação com o que você encontraria em um balanceador de carga de rede. Isso acontece porque os balanceadores de carga de rede entregam o tráfego de rede em que os serviços já estão, mesmo que esse local não seja ideal para executar o próprio serviço. O Gerenciador de Recursos de Cluster do Service Fabric utiliza estratégias fundamentalmente diferentes para garantir que os recursos do cluster sejam utilizados com eficiência.
 
 ## <a name="next-steps"></a>Próximas etapas
-- Para obter informações sobre arquitetura e o fluxo de informações no Cluster Resource Manager, confira [este artigo ](service-fabric-cluster-resource-manager-architecture.md)
+- Para obter informações sobre a arquitetura e fluxo de informações dentro do Gerenciador de recursos de Cluster, fazer check-out [neste artigo](service-fabric-cluster-resource-manager-architecture.md)
 - O Cluster Resource Manager tem muitas opções para descrever o cluster. Para saber mais sobre as métricas, confira este artigo sobre a [descrição de um cluster do Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)
 - Para saber mais sobre como configurar os serviços, [Saiba mais sobre como configurar serviços](service-fabric-cluster-resource-manager-configure-services.md)
 - As métricas são como o Gerenciador de Recursos de Cluster do Service Fabric gerencia o consumo e a capacidade no cluster. Para saber mais sobre as métricas e como configurá-las, confira [este artigo](service-fabric-cluster-resource-manager-metrics.md)

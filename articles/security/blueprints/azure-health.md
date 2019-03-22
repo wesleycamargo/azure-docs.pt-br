@@ -9,16 +9,16 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: 6787f347661db61806180edde5c091a865051748
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 5f23435a43d139ecb9f20e5036124f175b1830c9
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103065"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225358"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Projeto de Segurança e Conformidade do Azure: dados de integridade de HIPAA/HITRUST e IA
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 **O Blueprint de Segurança e Conformidade do Azure – Dados de integridade de HIPAA/HITRUST e a IA oferecem uma implantação imediata de uma solução PaaS e IaaS do Azure para demonstrar como ingerir, armazenar, analisar, interagir, identificar e implantar soluções usando dados de integridade de forma segura, ao mesmo tempo em que atende aos requisitos de conformidade do setor. O projeto ajuda a acelerar a utilização e adoção de nuvem para clientes com dados regulados.**
 
@@ -48,7 +48,7 @@ Esse projeto destina-se a servir de base modular para que os clientes ajustem ao
 
 -   **Diagrama de arquitetura.** O diagrama mostra a arquitetura de referência utilizada para o modelo e o exemplo do cenário de caso de uso.
 
--   [Extensão IaaS](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md)   Essa solução demonstrará como migrar uma solução baseada em SQL local para o Azure e implementar uma Estação de Trabalho de Acesso Privilegiado para gerenciar com segurança serviços e soluções baseados em nuvem. 
+-   [Extensão IaaS](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md) essa solução demonstra como migrar uma solução do SQL com base no local para o Azure e como implementar uma estação de trabalho de acesso privilegiado para gerenciar com segurança a serviços baseados em nuvem e soluções. 
 
 ## <a name="solution-components"></a>Componentes da solução
 
@@ -78,7 +78,7 @@ O administrador de site é responsável pela assinatura do Azure do cliente. Ele
 
 -   Atribuições de funções padrão: [Proprietário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
 
--   Atribuições de funções personalizadas: N/D
+-   Atribuições de funções personalizadas: Não aplicável
 
 -   Escopo: Assinatura
 
@@ -89,27 +89,27 @@ Eles não têm acesso aos registros de pacientes.
 
 -   Atribuições de funções internas: [Colaborador de banco de dados SQL](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-db-contributor), [Colaborador do SQL Server](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor)
 
--   Atribuições de funções personalizadas: N/D
+-   Atribuições de funções personalizadas: Não aplicável
 
--   Escopo: ResourceGroup
+-   Escopo: GrupoRecuso
 
- ### <a name="data-scientist"></a>Cientista de dados
+### <a name="data-scientist"></a>Cientista de dados
 
 
 O cientista de dados opera o Azure Machine Learning Studio. Eles podem importar, exportar e gerenciar dados e executar relatórios. O cientista de dados tem acesso aos dados do paciente, mas não tem privilégios administrativos.
 
 -   Atribuições de funções internas: [Colaborador da Conta de Armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)
 
--   Atribuições de funções personalizadas: N/D
+-   Atribuições de funções personalizadas: Não aplicável
 
--   Escopo: ResourceGroup
+-   Escopo: GrupoRecuso
 
 ### <a name="chief-medical-information-officer-cmio"></a>CMIO (Diretor médico executivo de informações)
 
 
 O CMIO permeiam a divisão entre informática/tecnologia e profissionais de saúde em uma organização de saúde. Suas obrigações geralmente incluem o uso de análises para determinar se os recursos estão sendo alocados adequadamente dentro da organização.
 
--   Atribuições de funções internas: Nenhum
+-   Atribuições de funções internas: Nenhuma
 
 ### <a name="care-line-manager"></a>Gerente de enfermagem
 
@@ -117,11 +117,11 @@ O CMIO permeiam a divisão entre informática/tecnologia e profissionais de saú
 O Gerente de enfermagem está diretamente envolvido com o cuidado dos pacientes.
 Essa função exige o monitoramento do status de cada paciente, bem como a certeza de que a equipe está disponível para atender às demandas de cuidados de seus pacientes. O gerente de enfermagem é responsável por adicionar e atualizar registros de pacientes.
 
--   Atribuições de funções internas: Nenhum
+-   Atribuições de funções internas: Nenhuma
 
 -   Atribuições de funções personalizadas: tem privilégio para executar HealthcareDemo.ps1 para fazer a Admissão e a Alta do paciente.
 
--   Escopo: ResourceGroup
+-   Escopo: GrupoRecuso
 
 ### <a name="auditor"></a>Auditor
 
@@ -130,7 +130,7 @@ O auditor avalia a conformidade da solução. Eles não têm acesso direto à re
 
 -   Atribuições de funções internas: [Leitor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)
 
--   Atribuições de funções personalizadas: N/D
+-   Atribuições de funções personalizadas: Não aplicável
 
 -   Escopo: Assinatura
 
@@ -224,7 +224,7 @@ Esta seção detalha as configurações padrão e as medidas de segurança inter
 
 -   Todos os usuários são atribuídos a funções internas específicas por padrão.
 
-### <a name="azure-key-vault"></a>Cofre da Chave do Azure
+### <a name="azure-key-vault"></a>Cofre de Chaves Azure
 
 -   Os dados armazenados no Key Vault incluem:
 
@@ -246,7 +246,7 @@ Esta seção detalha as configurações padrão e as medidas de segurança inter
 
 ## <a name="ingest"></a>INGERIR 
 
-### <a name="azure-functions"></a>Funções do Azure
+### <a name="azure-functions"></a>Azure Functions
 A solução foi projetada para usar o [Azure Functions](/azure/azure-functions/) processar a duração dos dados de permanência de exemplo utilizados na demonstração analítica. Três funcionalidade nas funções foram criadas.
 
 **1. Importação em massa de dados phi dos dados do cliente**
@@ -272,7 +272,7 @@ Ao usar o script de demonstração. .\\HealthcareDemo.ps1 com a opção **BulkPa
 
 **2. Key Vault** solicitado por um segredo associado ao token solicitado.
 
-**3. As funções do Azure validam a solicitação, e autorizam a solicitação de acesso ao Key Vault.
+**3. As funções do Azure** validará a solicitação e autorizar a solicitação de acesso para o Cofre de chaves.
 
 **4. Key Vault** retorna o segredo, nesse caso, a cadeia de conexão SQL DB.
 
@@ -290,7 +290,7 @@ Para obter o armazenamento dos dados, um esquema API comum foi implementado segu
 
 
 
-### <a name="event-grid"></a>Grade de Eventos
+### <a name="event-grid"></a>Grade do Evento
 
 
 A solução dá suporte para a Grade de Eventos do Azure, um único serviço para gerenciar o roteamento de todos os eventos de qualquer origem para qualquer destino, fornecendo:
@@ -359,10 +359,10 @@ A solução dá suporte para a Grade de Eventos do Azure, um único serviço par
 - O [Application Insights](/azure/application-insights/app-insights-overview) é um serviço APM (Gerenciamento de Desempenho de Aplicativos) extensível para desenvolvedores da Web em várias plataformas. Use-o para monitorar seu aplicativo Web online. Ele detecta anomalias de desempenho. Ele inclui ferramentas de análise avançadas para ajudar você a diagnosticar problemas e entender o que os usuários realmente fazem com seu aplicativo. Ele foi projetado para ajudar você a aprimorar continuamente o desempenho e a usabilidade do seu aplicativo.
 
 ### <a name="azure-alerts"></a>Alertas do Azure
-- [Os alertas oferecem um método de monitoramento de serviços do Azure e permitem configurar as condições sobre dados. Os alertas também fornecem notificações quando uma condição de alerta corresponder aos dados de monitoramento.
+- [Alertas](/azure/azure-monitor/platform/alerts-metric) oferecem um método de monitoramento de serviços do Azure e permitem que você configurar as condições sobre dados. Os alertas também fornecem notificações quando uma condição de alerta corresponder aos dados de monitoramento.
 
-### <a name="log-analytics"></a>Log Analytics
-[Log Analytics](/azure/operations-management-suite/operations-management-suite-overview) é uma coleção de serviços de gerenciamento.
+### <a name="azure-monitor-logs"></a>Logs do Azure Monitor
+[Os logs do Azure Monitor](/azure/operations-management-suite/operations-management-suite-overview) é uma coleção de serviços de gerenciamento.
 
 -   O workspace está habilitado para a Central de Segurança
 

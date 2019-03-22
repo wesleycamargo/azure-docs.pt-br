@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 99647770df9a8ca194559863a1d7212faf1c83a1
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 1cf5fb00e9f1a202fe7ad46253f916e3e6bee7a7
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328207"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295565"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Instalar e executar os contêineres de docker LUIS
  
@@ -46,15 +46,14 @@ Para executar o contêiner do LUIS, você precisará ter o seguinte:
 
 Esse contêiner dá suporte aos valores mínimos e recomendados para as configurações:
 
-|Configuração| Mínimo | Recomendadas |
-|-----------|---------|-------------|
-|Núcleos<BR>`--cpus`|Um núcleo|Um núcleo|
-|Memória<BR>`--memory`|2 GB|4 GB|
-|Transações por segundo<BR>(TPS)|20 TPS|40 TPS|
+|Contêiner| Mínimo | Recomendadas | TPS<br>(No mínimo, máximo)|
+|-----------|---------|-------------|--|
+|LUIS|1 núcleo, 2 GB de memória|1 núcleo, 4 GB de memória|20,40|
 
-Cada núcleo precisa ser de pelo menos 2,6 GHz (gigahertz) ou mais rápido.
+* Cada núcleo precisa ser de pelo menos 2,6 GHz (gigahertz) ou mais rápido.
+* TPS - transações por segundo
 
-As configurações `--cpus` e `--memory` são usadas como parte do comando `docker run`.
+Memória e núcleo correspondem às configurações `--cpus` e `--memory`, que são usadas como parte do comando `docker run`.
 
 ## <a name="get-the-container-image-with-docker-pull"></a>Obter a imagem de contêiner com `docker pull`
 
@@ -248,6 +247,8 @@ Há outros [exemplos](luis-container-configuration.md#example-docker-run-command
 > As opções `Eula`, `Billing` e `ApiKey` devem ser especificadas para executar o contêiner; caso contrário, o contêiner não será iniciado.  Para mais informações, consulte [Faturamento](#billing).
 > O valor de ApiKey é a **Chave** da página Chaves e Pontos de extremidade no portal do LUIS e também está disponível na página de chaves do recurso de Reconhecimento Vocal do Azure.  
 
+[!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
+
 ## <a name="query-the-containers-prediction-endpoint"></a>Consultar o ponto de extremidade de previsão do contêiner
 
 O contêiner fornece APIs de ponto de extremidade de previsão de consulta com base em REST. Os pontos de extremidade para aplicativos publicados (preparo ou produção) têm uma rota _diferente_ da dos pontos de extremidade para aplicativos treinados. 
@@ -263,7 +264,7 @@ Os parâmetros de consulta configuram como e o que é retornado na resposta da c
 
 |Parâmetro de consulta|Type|Finalidade|
 |--|--|--|
-|`q`|string|A declaração do usuário.|
+|`q`|cadeia de caracteres|A declaração do usuário.|
 |`timezoneOffset`|número|O timezoneOffset permite [alterar o fuso horário](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) usado pela datetimeV2 predefinida da entidade.|
 |`verbose`|booleano|Retorna todas as intenções e suas pontuações quando definido como true. O padrão é false, o que retorna apenas a intenção principal.|
 |`staging`|booleano|Retorna a consulta dos resultados do ambiente de preparo quando definido como true. |

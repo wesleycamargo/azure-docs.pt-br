@@ -9,12 +9,12 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 135f5e2500ab86d418085a5061f517176b9a4dad
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 21dcf522f00f1991ecb2a92d6dc0925baadbdcc6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54430000"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58081263"
 ---
 # <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>Tutorial: Atualizar estoque usando o PowerShell e tópicos/assinaturas
 
@@ -111,13 +111,13 @@ Para executar o código, faça o seguinte:
    ```azurepowershell-interactive
    Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
    ```
-5.  No prompt do PowerShell, digite o comando a seguir:
+5. No prompt do PowerShell, digite o comando a seguir:
 
    ```shell
    dotnet build
    ```
-6.  Navegue até a pasta `\bin\Debug\netcoreapp2.0`.
-7.  Digite o comando a seguir para executar o programa. Verifique se você substituiu `myConnectionString` pelo valor obtido anteriormente e `myQueueName` pelo nome da fila que você criou:
+6. Navegue até a pasta `\bin\Debug\netcoreapp2.0`.
+7. Digite o comando a seguir para executar o programa. Verifique se você substituiu `myConnectionString` pelo valor obtido anteriormente e `myQueueName` pelo nome da fila que você criou:
 
    ```shell
    dotnet BasicSendReceiveQuickStart.dll -ConnectionString "myConnectionString" -QueueName "myQueueName"

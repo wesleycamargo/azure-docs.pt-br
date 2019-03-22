@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 02/04/2019
+ms.date: 03/12/2019
 ms.author: juliako
-ms.openlocfilehash: 4f67158c0de8cdd161bce269059af6d421bb68b5
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 2d7dc6eb5ee77804f0c8c87ee2e5a5dd1d0dc30a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340341"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57841116"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Orientação de migração para passar dos Serviços de Mídia v2 para v3
 
@@ -72,6 +72,7 @@ E se você tiver um serviço de vídeo desenvolvido hoje em dia sobre as [APIs h
     * O Evento ao Vivo substitui o Canal.<br/>A cobrança dos Eventos ao Vivo baseia-se em medidores do Canal ao Vivo. Para obter mais informações, confira [cobrança](live-event-states-billing.md) e [preços](https://azure.microsoft.com/pricing/details/media-services/).
     * A Saída Dinâmica substitui o Programa.
 * As Saídas Dinâmicas não precisam ser iniciadas explicitamente; elas são iniciadas na criação e interrompidas quando excluídas. Os programas funcionaram de maneira diferente nas APIs v2 e tiveram que ser iniciados após a criação.
+*  Para obter informações sobre um trabalho, você precisa saber o nome da transformação sob a qual o trabalho foi criado. 
 
 ## <a name="feature-gaps-with-respect-to-v2-apis"></a>Falhas de recurso em relação a APIs v2
 
@@ -98,6 +99,7 @@ A tabela a seguir mostra as diferenças de código entre v2 e v3 para cenários 
 |Criar um ativo e enviar um arquivo |[exemplo de .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L113)|[exemplo de .NET v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L169)|
 |Enviar um trabalho|[exemplo de .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L146)|[exemplo de .NET V3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L298)<br/><br/>Mostra como criar primeiro uma transformação e, em seguida, enviar uma tarefa.|
 |Publicar um ativo com criptografia AES |1. Criar ContentKeyAuthorizationPolicyOption<br/>2. Criar ContentKeyAuthorizationPolicy<br/>3. Criar AssetDeliveryPolicy<br/>4. Criar Ativo e carregar conteúdo OU Enviar trabalho e usar ativo de saída<br/>5. Associar AssetDeliveryPolicy com Ativo<br/>6. Criar ContentKey<br/>7. Anexar ContentKey ao Ativo<br/>8. Criar AccessPolicy<br/>9. Criar Localizador<br/><br/>[exemplo de .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L64)|1. Criar Política de Chave de Conteúdo<br/>2. Criar Ativo<br/>3. Carregar conteúdo ou usar Ativo como JobOutput<br/>4. Criar um Localizador de Streaming<br/><br/>[exemplo de .NET v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs#L105)|
+|Obter detalhes do trabalho e gerenciar trabalhos |[Gerenciar trabalhos com v2](../previous/media-services-dotnet-manage-entities.md#get-a-job-reference) |[Gerenciar trabalhos com v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L546)|
 
 ## <a name="known-issues"></a>Problemas conhecidos
 

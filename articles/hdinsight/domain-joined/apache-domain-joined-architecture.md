@@ -9,12 +9,12 @@ ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 5c5615dcfc9d43016bdf995a22ae29a5c5dd2c6f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7e71f27ab8d577602dd4b02f83d57ff84a92858a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185376"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58088087"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>Usar o pacote de segurança Enterprise no HDInsight
 
@@ -64,33 +64,33 @@ O uso do Active Directory local ou do Active Directory somente em VMs IaaS, sem 
 
 Se a federação estiver sendo usada e hashes de senha forem sincronizados corretamente, mas você estiver obtendo falhas de autenticação, verifique se a autenticação de senha de nuvem está habilitada para a entidade de serviço do PowerShell. Se não, você deverá definir uma [política de HRD (Home Realm Discovery)](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) para seu locatário do Azure AD. Para verificar e definir a política de HRD:
 
- 1. Instale o módulo do PowerShell do Azure AD.
+1. Instale o módulo do PowerShell do Azure AD.
 
- ```
-    Install-Module AzureAD
- ```
+   ```
+   Install-Module AzureAD
+   ```
 
- 2. Insira `Connect-AzureAD` usando credenciais de um administrador global (administrador de locatários).
+2. Insira `Connect-AzureAD` usando credenciais de um administrador global (administrador de locatários).
 
- 3. Verifique se a entidade de serviço do Microsoft Azure PowerShell já foi criada.
+3. Verifique se a entidade de serviço do Microsoft Azure PowerShell já foi criada.
 
- ```
-    $powershellSPN = Get-AzureADServicePrincipal -SearchString "Microsoft Azure Powershell"
- ```
+   ```
+   $powershellSPN = Get-AzureADServicePrincipal -SearchString "Microsoft Azure Powershell"
+   ```
 
- 4. Se ela não existir (ou seja, se `($powershellSPN -eq $null)`), crie a entidade de serviço.
+4. Se ela não existir (ou seja, se `($powershellSPN -eq $null)`), crie a entidade de serviço.
 
- ```
-    $powershellSPN = New-AzureADServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2
- ```
+   ```
+   $powershellSPN = New-AzureADServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2
+   ```
 
- 5. Crie e anexe a política a essa entidade de serviço.
+5. Crie e anexe a política a essa entidade de serviço.
 
- ```
-    $policy = New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPasswordValidation`":true}}") -DisplayName EnableDirectAuth -Type HomeRealmDiscoveryPolicy
+   ```
+   $policy = New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPasswordValidation`":true}}") -DisplayName EnableDirectAuth -Type HomeRealmDiscoveryPolicy
 
-    Add-AzureADServicePrincipalPolicy -Id $powershellSPN.ObjectId -refObjectID $policy.ID
- ```
+   Add-AzureADServicePrincipalPolicy -Id $powershellSPN.ObjectId -refObjectID $policy.ID
+   ```
 
 ## <a name="next-steps"></a>Próximas etapas
 

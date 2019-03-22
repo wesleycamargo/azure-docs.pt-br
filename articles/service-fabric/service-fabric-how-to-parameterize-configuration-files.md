@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/09/2018
 ms.author: mikhegn
-ms.openlocfilehash: 9057cdc22e277e4e12e9f439f3fbe0c5a5cda2a2
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
-ms.translationtype: HT
+ms.openlocfilehash: 0ab6e3f189d4a2e7e8f3bc96108d7979c99fffa8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48900506"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102662"
 ---
 # <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>Como parametrizar os arquivos de configuração no Service Fabric
 
@@ -30,24 +30,24 @@ Neste exemplo, você deve substituir um valor de configuração usando os parâm
 1. Abra o arquivo *<MyService>\PackageRoot\Config\Settings.xml* em seu projeto de serviço.
 1. Defina um nome de parâmetro de configuração e valor, por exemplo, tamanho do cache igual a 25, ao adicionar o seguinte XML:
 
-  ```xml
+   ```xml
     <Section Name="MyConfigSection">
       <Parameter Name="CacheSize" Value="25" />
     </Section>
-  ```
+   ```
 
 1. Salve e feche o arquivo.
 1. Abra o arquivo *<MyApplication>\ApplicationPackageRoot\ApplicationManifest.xml*.
 1. No arquivo ApplicationManifest.xml, declare um parâmetro e um valor padrão no elemento `Parameters`.  É recomendado que o nome do parâmetro contenha o nome do serviço (por exemplo, "MyService").
 
-  ```xml
+   ```xml
     <Parameters>
       <Parameter Name="MyService_CacheSize" DefaultValue="80" />
     </Parameters>
-  ```
+   ```
 1. Na seção `ServiceManifestImport` do arquivo ApplicationManifest.xml, adicione um elemento `ConfigOverride`, fazendo referência ao pacote de configuração, à seção e ao parâmetro.
 
-  ```xml
+   ```xml
     <ConfigOverrides>
       <ConfigOverride Name="Config">
           <Settings>
@@ -57,7 +57,7 @@ Neste exemplo, você deve substituir um valor de configuração usando os parâm
           </Settings>
       </ConfigOverride>
     </ConfigOverrides>
-  ```
+   ```
 
 > [!NOTE]
 > No caso em que você adicionar um ConfigOverride, o Service Fabric sempre escolherá os parâmetros do aplicativo ou o valor padrão especificado no manifesto do aplicativo.

@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: a9a38d30ec2a8e9139470531960d47fef1025269
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: a14912c48f27c4f4d0e54239f8e0523ffa62324f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328615"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888495"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>camadas de serviço de vCore, Benefício Híbrido do Azure e migração
 
@@ -50,7 +50,7 @@ A tabela a seguir ajuda a reconhecer as diferenças entre as três camadas:
 |||
 
 > [!NOTE]
-> Você pode obter um banco de dados SQL do Azure gratuito na camada de serviço Básico em conjunto com uma conta gratuita do Azure para explorar o Azure. Para obter informações, consulte [Crie um banco de dados de nuvem gerenciado com sua conta gratuita do Azure](https://azure.microsoft.com/free/services/sql-database/).
+> Você pode obter um banco de dados SQL do Azure gratuito na camada de serviço básico em conjunto com uma conta gratuita do Azure para explorar o Azure. Para obter informações, consulte [Crie um banco de dados de nuvem gerenciado com sua conta gratuita do Azure](https://azure.microsoft.com/free/services/sql-database/).
 
 - Para obter mais informações, confira [Limites de recursos vCore no banco de dados individual](sql-database-vcore-resource-limits-single-databases.md) e [Limites de recurso vCore na Instância Gerenciada](sql-database-managed-instance.md#vcore-based-purchasing-model).
 - Para obter mais informações sobre as camadas de serviço de uso geral e comercialmente crítico, consulte [Camadas de Serviço de uso geral e Comercialmente Crítico](sql-database-service-tiers-general-purpose-business-critical.md).

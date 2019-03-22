@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 265dcccf9202d7b0116bba05b016e8967b68c67a
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.openlocfilehash: ed99bd3626bb44bff68e4122d6b50523f19e1797
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273336"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112612"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrar seu aplicativo Web a uma Rede Virtual do Azure
 Este documento descreve o recurso de visualização de integração de rede virtual do Serviço de Aplicativo do Azure e mostra como configurá-lo com os aplicativos no [Serviço de Aplicativo do Azure](https://go.microsoft.com/fwlink/?LinkId=529714). As VNets ([Redes Virtuais do Azure][VNETOverview]) permitem que você coloque qualquer um dos recursos do Azure em uma rede não roteável para a Internet com acesso controlado. Essas redes podem ser conectadas às redes locais usando tecnologias de VPN. 
@@ -82,7 +82,7 @@ Para criar um gateway:
 * 172.16.0.0/12 – isso significa um intervalo de endereços IP de 172.16.0.0 a 172.31.255.255 
 * 192.168.0.0/16 – isso significa um intervalo de endereços IP de 192.168.0.0 a 192.168.255.255
 
-Se você estiver apenas criando o gateway para uso com a Integração VNet do Serviço de Aplicativo, você não precisará fazer upload de um certificado. A criação do gateway pode levar 30 minutos. Você não poderá integrar seu aplicativo com sua VNet até que o gateway seja provisionado. 
+Se você estiver apenas criando o gateway para usar com a integração de VNet do serviço de aplicativo, em seguida, você não precisará carregar um certificado. A criação do gateway pode levar 30 minutos. Você não poderá integrar seu aplicativo com sua VNet até que o gateway seja provisionado. 
 
 ### <a name="configure-vnet-integration-with-your-app"></a>Configurar a Integração VNet com o aplicativo ###
 
@@ -277,19 +277,20 @@ A nova versão está em versão prévia e tem as características a seguir.
 * O novo recurso de Integração VNet não funciona para aplicativos em um Ambiente do Serviço de Aplicativo.
 * Você não pode excluir uma VNet com um aplicativo integrado.  
 * Tabelas de rotas e emparelhamento global ainda não estão disponíveis com a nova Integração VNet.  
-* Um endereço é usado para cada instância de plano do serviço de aplicativo. Uma vez que o tamanho da sub-rede não pode ser alterado após a atribuição, use uma sub-rede que possa cobrir com folga seu tamanho máximo de escala. Um /27 com 32 endereços é o tamanho recomendado, pois acomodará um plano de Serviço de Aplicativo dimensionado para 20 instâncias.  Você pode consumir recursos protegidos do ponto de extremidade de serviço usando a nova funcionalidade de Integração VNet. Para fazer isso, habilite os pontos de extremidade de serviço na sub-rede usada para a Integração VNet.
+* Um endereço é usado para cada instância de plano do serviço de aplicativo. Uma vez que o tamanho da sub-rede não pode ser alterado após a atribuição, use uma sub-rede que possa cobrir com folga seu tamanho máximo de escala. Um /27 com 32 endereços é o tamanho recomendado, pois acomodará um plano de Serviço de Aplicativo dimensionado para 20 instâncias.
+* Você pode consumir recursos protegidos do ponto de extremidade de serviço usando a nova funcionalidade de Integração VNet. Para fazer isso, habilite os pontos de extremidade de serviço na sub-rede usada para a Integração VNet.
 
 Para usar o novo recurso:
 
 1. Vá para a interface do usuário de rede no portal. Se o aplicativo for capaz de usar o novo recurso, você verá uma funcionalidade para usar a nova versão prévia do recurso.  
 
- ![Selecione a nova versão prévia da Integração VNet][6]
+   ![Selecione a nova versão prévia da Integração VNet][6]
 
 1. Selecione **Adicionar uma VNet (versão prévia)**.  
 
 1. Selecione a VNet do Resource Manager que você deseja integrar e, em seguida, crie uma nova sub-rede ou escolha uma sub-rede vazia já existente. A integração leva menos de um minuto para ser concluída. Durante a integração, o aplicativo é reiniciado.  Quando a integração for concluída, você verá detalhes sobre a VNet que integrou, com uma faixa na parte superior que informa que o recurso está em versão prévia.
 
- ![Selecionar a VNet e a sub-rede][7]
+   ![Selecionar a VNet e a sub-rede][7]
 
 Para habilitar o aplicativo a usar o servidor DNS configurado com a VNet, crie uma configuração de aplicativo em que o nome seja WEBSITE_DNS_SERVER e o valor seja o endereço IP do servidor.  Se você tiver um servidor DNS secundário, crie outra configuração de aplicativo em que o nome seja WEBSITE_DNS_ALT_SERVER e o valor seja o endereço IP do servidor. 
 

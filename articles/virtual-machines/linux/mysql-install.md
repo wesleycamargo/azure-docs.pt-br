@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2016
 ms.author: cynthn
-ms.openlocfilehash: c8043064ac1df40eaa31ae56e9ec31c0152e0130
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: f9e0582a1338bcae7b330c7ece7c3d8cc8593cfa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888423"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004502"
 ---
 # <a name="how-to-install-mysql-on-azure"></a>Como instalar o MySQL no Azure
 Neste artigo, você aprenderá a instalar e configurar o MySQL em uma máquina virtual do Azure que executa o Linux.
@@ -51,9 +51,9 @@ Usaremos uma VM do Linux com o Ubuntu do Azure aqui.
             #[root@mysqlnode ~]# apt-get update
             #[root@mysqlnode ~]# apt-get -y install mysql-server-5.6
   
-    Durante a instalação, uma janela de caixa de diálogo abrirá para solicitar que você defina a senha raiz do MySQL abaixo e será necessário definir a senha aqui.
+    Durante a instalação, você verá uma janela de diálogo parece que você defina a senha raiz do MySQL abaixo e você precisa definir a senha aqui.
   
-    ![imagem](./media/mysql-install/virtual-machines-linux-install-mysql-p1.png)
+    ![image](./media/mysql-install/virtual-machines-linux-install-mysql-p1.png)
 
     Insira a senha novamente para confirmar.
 
@@ -92,7 +92,7 @@ Usaremos uma VM do Linux com CentOS ou Oracle Linux aqui.
   
     Baixe e instale o pacote de versão do MySQL:
   
-            #[root@mysqlnode ~]# wget http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm
+            #[root@mysqlnode ~]# wget https://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm
             #[root@mysqlnode ~]# yum localinstall -y mysql-community-release-el6-5.noarch.rpm
 * Etapa 2: edite o arquivo abaixo para habilitar o repositório do MySQL para baixar o pacote MySQL5.6.
   

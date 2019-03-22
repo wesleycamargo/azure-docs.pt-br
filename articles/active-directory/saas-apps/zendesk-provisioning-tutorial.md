@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fb6108855cf3237af230f3356f0afb68e2b1ec4
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: f2e05e5e430760d16d5d494a6f27ef985aafc487
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445535"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097984"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Tutorial: Configurar o Zendesk para provisionamento automático do usuário
 
@@ -111,12 +111,12 @@ Esta seção orienta você pelas etapas de configuração do serviço de provisi
 
 5. Na seção **Credenciais de Administrador**, insira o **Nome de Usuário do Administrador**, o **Token Secreto** e o **Domínio** da conta do Zendesk. Exemplos desses valores são:
 
-    *   No campo **Nome de Usuário Administrador**, popule o nome de usuário da conta do administrador no locatário do Zendesk. Exemplo: admin@contoso.com.
+   * No campo **Nome de Usuário Administrador**, popule o nome de usuário da conta do administrador no locatário do Zendesk. Exemplo: admin@contoso.com.
 
-    *   No campo **Token Secreto**, preencha o token secreto conforme descrito na Etapa 6.
+   * No campo **Token Secreto**, preencha o token secreto conforme descrito na Etapa 6.
 
-    *   No campo **Domínio**, preencha o subdomínio do seu locatário do Zendesk.
-    Exemplo: Para uma conta com uma URL de locatário de https://my-tenant.zendesk.com, o subdomínio seria **my-tenant**.
+   * No campo **Domínio**, preencha o subdomínio do seu locatário do Zendesk.
+     Exemplo: Para uma conta com uma URL de locatário de https://my-tenant.zendesk.com, o subdomínio seria **my-tenant**.
 
 6. O **Token Secreto** da sua conta Zendesk está localizado em **Administrador > API > Configurações**.
    Certifique-se de que o **Token de acesso** está definido como **Habilitado**.

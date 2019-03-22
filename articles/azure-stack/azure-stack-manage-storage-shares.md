@@ -10,17 +10,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
-ms.topic: get-started-article
-ms.date: 01/22/2019
+ms.topic: conceptual
+ms.date: 03/19/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 97cdae49b4676500e29ac25b12712c94e575e5f8
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 617696c842ab90fc36c68e74831ffd1d79d14bc4
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55960557"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225698"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Gerenciar a capacidade de armazenamento para o Azure Stack 
 
@@ -89,12 +89,12 @@ Como um operador de nuvem, você pode monitorar a capacidade de armazenamento de
 Como um operador de nuvem, você pode usar o portal de administração para exibir a capacidade de armazenamento de todos os compartilhamentos.
 
 1. Entrar para o [portal de administração](https://adminportal.local.azurestack.external).
-2. Selecione **todos os serviços** > **armazenamento** para abrir a lista de compartilhamento de arquivo onde você pode exibir as informações de uso. 
+2. Selecione **todos os serviços** > **armazenamento** > **compartilhamentos de arquivos** para abrir a lista de compartilhamento de arquivo onde você pode exibir as informações de uso. 
 
     ![Exemplo: Compartilhamentos de arquivos de armazenamento](media/azure-stack-manage-storage-shares/storage-file-shares.png)
 
-  - **TOTAL** é o espaço total em bytes, que estão disponíveis no compartilhamento. Esse espaço é usado para dados e metadados que é mantido pelos serviços de armazenamento.
-  - **USADO** é a quantidade de dados em bytes que são usados por todas as extensões dos arquivos que armazenam os dados de locatário e metadados associados.
+   - **TOTAL** é o espaço total em bytes, que estão disponíveis no compartilhamento. Esse espaço é usado para dados e metadados que é mantido pelos serviços de armazenamento.
+   - **USADO** é a quantidade de dados em bytes que são usados por todas as extensões dos arquivos que armazenam os dados de locatário e metadados associados.
 
 ### <a name="storage-space-alerts"></a>Alertas de espaço de armazenamento
 Quando você usa o portal de administração, você receberá alertas sobre compartilhamentos que têm espaço suficiente.
@@ -140,64 +140,64 @@ Migração consolida todas as um blob de contêineres para o novo compartilhamen
 
 #### <a name="to-migrate-containers-using-powershell"></a>A migração de contêineres usando o PowerShell
 1. Confirme se você tem [Azure PowerShell instalado e configurado](https://azure.microsoft.com/documentation/articles/powershell-install-configure/). Para obter mais informações, consulte [Usando o PowerShell do Azure com o Azure Resource Manager](https://go.microsoft.com/fwlink/?LinkId=394767).
-2.  Examine o contêiner para compreender quais dados no compartilhamento que você planeja migrar. Para identificar os contêineres de candidato práticas para migração em um volume, use o **Get-AzsStorageContainer** cmdlet:
+2. Examine o contêiner para compreender quais dados no compartilhamento que você planeja migrar. Para identificar os contêineres de candidato práticas para migração em um volume, use o **Get-AzsStorageContainer** cmdlet:
 
-    ```PowerShell  
-    $farm_name = (Get-AzsStorageFarm)[0].name
-    $shares = Get-AzsStorageShare -FarmName $farm_name
-    $containers = Get-AzsStorageContainer -ShareName $shares[0].ShareName -FarmName $farm_name
-    ```
-    Em seguida, examine $containers:
+   ```PowerShell  
+   $farm_name = (Get-AzsStorageFarm)[0].name
+   $shares = Get-AzsStorageShare -FarmName $farm_name
+   $containers = Get-AzsStorageContainer -ShareName $shares[0].ShareName -FarmName $farm_name
+   ```
+   Em seguida, examine $containers:
 
-    ```PowerShell
-    $containers
-    ```
+   ```PowerShell
+   $containers
+   ```
 
-    ![Exemplo: $Containers](media/azure-stack-manage-storage-shares/containers.png)
+   ![Exemplo: $Containers](media/azure-stack-manage-storage-shares/containers.png)
 
-3.  Identificar os melhores compartilhamentos de destino para manter o contêiner que você migra:
+3. Identificar os melhores compartilhamentos de destino para manter o contêiner que você migra:
 
-    ```PowerShell
-    $destinationshares = Get-AzsStorageShare -SourceShareName
-    $shares[0].ShareName -Intent ContainerMigration
-    ```
+   ```PowerShell
+   $destinationshares = Get-AzsStorageShare -SourceShareName
+   $shares[0].ShareName -Intent ContainerMigration
+   ```
 
-    Em seguida, examine $destinationshares:
+   Em seguida, examine $destinationshares:
 
-    ```PowerShell 
-    $destinationshares
-    ```
+   ```PowerShell 
+   $destinationshares
+   ```
 
-    ![Exemplo: $destination compartilhamentos](media/azure-stack-manage-storage-shares/examine-destinationshares.png)
+   ![Exemplo: $destination compartilhamentos](media/azure-stack-manage-storage-shares/examine-destinationshares.png)
 
-4. Inicie a migração para um contêiner. A migração é assíncrona. Se você iniciar a migração de contêineres adicionais antes da primeira migração ser concluída, use a id do trabalho para acompanhar o status de cada um.
+4. Inicie a migração para um contêiner. A migração é assíncrona. Se você iniciar a migração de contêineres adicionais antes da primeira migração ser concluída, use a ID do trabalho para acompanhar o status de cada um.
 
-  ```PowerShell
-  $job_id = Start-AzsStorageContainerMigration -StorageAccountName $containers[0].Accountname -ContainerName $containers[0].Containername -ShareName $containers[0].Sharename -DestinationShareUncPath $destinationshares[0].UncPath -FarmName $farm_name
-  ```
+   ```PowerShell
+   $job_id = Start-AzsStorageContainerMigration -StorageAccountName $containers[0].Accountname -ContainerName $containers[0].Containername -ShareName $containers[0].Sharename -DestinationShareUncPath $destinationshares[0].UncPath -FarmName $farm_name
+   ```
 
-  Em seguida, examine $jobId. No exemplo a seguir, substitua *d62f8f7a-8b46-4f59-a8aa-5db96db4ebb0* com a id de trabalho que você deseja examinar:
+   Em seguida, examine $jobId. No exemplo a seguir, substitua *d62f8f7a-8b46-4f59-a8aa-5db96db4ebb0* com a ID de trabalho que você deseja examinar:
 
-  ```PowerShell
-  $jobId
-  d62f8f7a-8b46-4f59-a8aa-5db96db4ebb0
-  ```
+   ```PowerShell
+   $jobId
+   d62f8f7a-8b46-4f59-a8aa-5db96db4ebb0
+   ```
 
-5. Use a id do trabalho para verificar o status do trabalho de migração. Quando a migração do contêiner for concluída, **MigrationStatus** é definido como **concluir**.
+5. Use a ID do trabalho para verificar o status do trabalho de migração. Quando a migração do contêiner for concluída, **MigrationStatus** é definido como **concluir**.
 
-  ```PowerShell 
-  Get-AzsStorageContainerMigrationStatus -JobId $job_id -FarmName $farm_name
-  ```
+   ```PowerShell 
+   Get-AzsStorageContainerMigrationStatus -JobId $job_id -FarmName $farm_name
+   ```
 
-  ![Exemplo: Status de migração](media/azure-stack-manage-storage-shares/migration-status1.png)
+   ![Exemplo: Status de migração](media/azure-stack-manage-storage-shares/migration-status1.png)
 
-6.  Você pode cancelar um trabalho de migração em andamento. Cancelado migração trabalhos são processados de forma assíncrona. Você pode acompanhar o cancelamento usando $jobid:
+6. Você pode cancelar um trabalho de migração em andamento. Cancelado migração trabalhos são processados de forma assíncrona. Você pode acompanhar o cancelamento usando $jobid:
 
-  ```PowerShell
-  Stop-AzsStorageContainerMigration -JobId $job_id -FarmName $farm_name
-  ```
+   ```PowerShell
+   Stop-AzsStorageContainerMigration -JobId $job_id -FarmName $farm_name
+   ```
 
-  ![Exemplo: Status de reversão](media/azure-stack-manage-storage-shares/rollback.png)
+   ![Exemplo: Status de reversão](media/azure-stack-manage-storage-shares/rollback.png)
 
 7. Você pode executar o comando da etapa 6 novamente, até que o status confirma que o trabalho de migração está **cancelado**:  
 

@@ -4,186 +4,204 @@ description: Saiba como configurar o logon único entre o Azure Active Directory
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 496156c3-0e22-4492-b36f-2c29c055e087
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/02/2018
+ms.topic: tutorial
+ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3b6476fcedf849fb3305517ecfdcf29d07f545c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4f54e3c21049908e85a394d6ac94d302a3a934c7
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181534"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984111"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-logicmonitor"></a>Tutorial: Integração do Azure Active Directory com o LogicMonitor
 
 Neste tutorial, você aprenderá a integrar o LogicMonitor ao Azure AD (Azure Active Directory).
-
 A integração do LogicMonitor ao Azure AD oferece os seguintes benefícios:
 
-- Você pode controlar no Azure AD quem tem acesso ao LogicMonitor
-- Você pode permitir que os usuários façam logon automaticamente no LogicMonitor (Logon Único) com suas contas do Azure AD
-- Você pode gerenciar suas contas em um única localização: o Portal do Azure
+* Você pode controlar no Azure AD quem tem acesso ao LogicMonitor.
+* Você pode permitir que os usuários sejam conectados automaticamente ao LogicMonitor (logon único) com suas contas do Azure AD.
+* Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao LogicMonitor, você precisa dos seguintes itens:
 
-- Uma assinatura do Azure AD
-- Uma assinatura habilitada para logon único do LogicMonitor
-
-> [!NOTE]
-> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
-
-Para testar as etapas deste tutorial, você deve seguir estas recomendações:
-
-- Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+* Uma assinatura do Azure AD. Se não tiver um ambiente do Azure AD, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
+* Assinatura habilitada para logon único do LogicMonitor
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionar o LogicMonitor da galeria
-1. configurar e testar o logon único do AD do Azure
+Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
+
+* O LogicMonitor dá suporte ao SSO iniciado por **SP**
 
 ## <a name="adding-logicmonitor-from-the-gallery"></a>Adicionar o LogicMonitor da galeria
+
 Para configurar a integração do LogicMonitor ao Azure AD, você precisará adicionar o LogicMonitor da galeria à sua lista de aplicativos SaaS gerenciados.
 
 **Para adicionar o LogicMonitor da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
-    ![Active Directory][1]
+    ![O botão Azure Active Directory](common/select-azuread.png)
 
-1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
 
-    ![APLICATIVOS][2]
-    
-1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+    ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
-    ![APLICATIVOS][3]
+3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-1. Na caixa de pesquisa, digite **LogicMonitor**.
+    ![O botão Novo aplicativo](common/add-new-app.png)
 
-    ![Criação de um usuário de teste do AD do Azure](./media/logicmonitor-tutorial/tutorial_logicmonitor_search.png)
+4. Na caixa de pesquisa, digite **LogicMonitor**, selecione **LogicMonitor** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
-1. No painel de resultados, selecione **LogicMonitor** e clique no botão **Adicionar** para adicionar o aplicativo.
+     ![LogicMonitor na lista de resultados](common/search-new-app.png)
 
-    ![Criação de um usuário de teste do AD do Azure](./media/logicmonitor-tutorial/tutorial_logicmonitor_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>configurar e testar o logon único do AD do Azure
-Nesta seção, você configurará e testará o logon único do Azure AD com o LogicMonitor, com base em um usuário de teste chamado “Brenda Fernandes”.
-
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do LogicMonitor é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do LogicMonitor.
-
-No LogicMonitor, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.
+Nesta seção, você configurará e testará o logon único do Azure AD com o LogicMonitor, com base em um usuário de teste chamado **Brenda Fernandes**.
+Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do LogicMonitor.
 
 Para configurar e testar o logon único do Azure AD com o LogicMonitor, você precisará concluir os seguintes blocos de construção:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
-1. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
-1. **[Criação de um usuário de teste do LogicMonitor](#creating-a-logicmonitor-test-user)** – para ter um equivalente de Brenda Fernandes no LogicMonitor que esteja vinculado à representação do usuário no Azure AD.
-1. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
-1. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
+1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
+2. **[Configurar o logon único do LogicMonitor](#configure-logicmonitor-single-sign-on)** – para definir as configurações de logon único no lado do aplicativo.
+3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
+4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+5. **[Criar um usuário de teste do LogicMonitor](#create-logicmonitor-test-user)** – para ter um equivalente de Brenda Fernandes no LogicMonitor que esteja vinculado à representação de usuário do Azure AD.
+6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
-Nesta seção, você habilita o logon único do Azure AD no portal do Azure e configura o logon único no aplicativo LogicMonitor.
+Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
-**Para configurar o logon único do Azure AD com o LogicMonitor, execute as seguintes etapas:**
+Para configurar o logon único do Azure AD com o LogicMonitor, execute as seguintes etapas:
 
-1. No portal do Azure, na página de integração de aplicativos do **LogicMonitor**, clique em **Logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **LogicMonitor**, selecione **Logon único**.
 
-    ![Configurar o logon único][4]
+    ![Link Configurar logon único](common/select-sso.png)
 
-1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
- 
-    ![Configurar o logon único](./media/logicmonitor-tutorial/tutorial_logicmonitor_samlbase.png)
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
-1. Na seção **Domínio e URLs do LogicMonitor**, execute as seguintes etapas:
+    ![Modo de seleção de logon único](common/select-saml-option.png)
 
-    ![Configurar o logon único](./media/logicmonitor-tutorial/tutorial_logicmonitor_url.png)
+3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.logicmonitor.com`
+    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-    b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<companyname>.logicmonitor.com`
+4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
-    > [!NOTE] 
-    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Entre em contato com a [equipe de suporte do cliente do LogicMonitor](https://www.logicmonitor.com/contact/) para obter esses valores. 
- 
+    ![Informações de logon único de Domínio e URLs do LogicMonitor](common/sp-identifier.png)
 
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.logicmonitor.com`
 
-1. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
+    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://<companyname>.logicmonitor.com`
 
-    ![Configurar o logon único](./media/logicmonitor-tutorial/tutorial_logicmonitor_certificate.png) 
+    > [!NOTE]
+    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Entre em contato com a [equipe de suporte do cliente do LogicMonitor](https://www.logicmonitor.com/contact/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-1. Clique no botão **Salvar** .
+5. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
-    ![Configurar o logon único](./media/logicmonitor-tutorial/tutorial_general_400.png)
+    ![O link de download do Certificado](common/metadataxml.png)
+
+6. Na seção **Configurar o LogicMonitor**, copie as URLs apropriadas de acordo com suas necessidades.
+
+    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
+
+    a. URL de logon
+
+    b. Identificador do Azure Ad
+
+    c. URL de logoff
+
+### <a name="configure-logicmonitor-single-sign-on"></a>Configurar o logon único do LogicMonitor
 
 1. Faça logon em seu site de empresa do **LogicMonitor** como administrador.
 
-1. No menu na parte superior, clique em **Configurações**.
-   
+2. No menu na parte superior, clique em **Configurações**.
+
     ![Configurações](./media/logicmonitor-tutorial/ic790052.png "Configurações")
 
-1. Na guia de navegação à esquerda, clique em **Logon Único**
-   
+3. Na guia de navegação à esquerda, clique em **Logon Único**
+
     ![Logon Único](./media/logicmonitor-tutorial/ic790053.png "Logon Único")
 
-1. Na seção **Configurações de SSO (logon único)** , realize as seguintes etapas:
-   
+4. Na seção **Configurações de SSO (logon único)** , realize as seguintes etapas:
+
     ![Configurações de Logon Único](./media/logicmonitor-tutorial/ic790054.png "Configurações de Logon Único")
-   
+
      a. Selecione **Habilitar Logon Único**.
 
     b. Para **Atribuição de Função Padrão**, selecione **readonly**.
-   
+
     c. Abra o arquivo de metadados baixado no bloco de notas e cole o conteúdo do arquivo na caixa de texto **Metadados do Provedor de Identidade** .
-   
+
     d. Clique em **Salvar Alterações**.
 
-### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
+
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-![Criar um usuário do AD do Azure][100]
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
-**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+    ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
-1. No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
+2. Selecione **Novo usuário** na parte superior da tela.
 
-    ![Criação de um usuário de teste do AD do Azure](./media/logicmonitor-tutorial/create_aaduser_01.png) 
+    ![Botão Novo usuário](common/new-user.png)
 
-1. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
-    
-    ![Criação de um usuário de teste do AD do Azure](./media/logicmonitor-tutorial/create_aaduser_02.png) 
+3. Nas Propriedades do usuário, execute as etapas a seguir.
 
-1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
- 
-    ![Criação de um usuário de teste do AD do Azure](./media/logicmonitor-tutorial/create_aaduser_03.png) 
+    ![A caixa de diálogo Usuário](common/user-properties.png)
 
-1. Na página do diálogo **Usuário**, execute as seguintes etapas:
- 
-    ![Criação de um usuário de teste do AD do Azure](./media/logicmonitor-tutorial/create_aaduser_04.png) 
+    a. No campo **Nome**, insira **BrendaFernandes**.
+  
+    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
+    Por exemplo, BrittaSimon@contoso.com
 
-    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
-
-    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
-
-    c. Selecione **Mostrar senha** e anote o valor de **senha**.
+    c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
     d. Clique em **Criar**.
- 
-### <a name="creating-a-logicmonitor-test-user"></a>Criar um usuário de teste do LogicMonitor
+
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+
+Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao LogicMonitor.
+
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **LogicMonitor**.
+
+    ![Folha de aplicativos empresariais](common/enterprise-applications.png)
+
+2. Na lista de aplicativos, selecione **LogicMonitor**.
+
+    ![O link do LogicMonitor na lista Aplicativos](common/all-applications.png)
+
+3. No menu à esquerda, selecione **Usuários e grupos**.
+
+    ![O link “Usuários e grupos”](common/users-groups-blade.png)
+
+4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
+
+    ![O painel Adicionar Atribuição](common/add-assign-user.png)
+
+5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
+
+### <a name="create-logicmonitor-test-user"></a>Criar um usuário de teste do LogicMonitor
 
 Para usuários do Microsoft Azure Active Directory conseguirem efetuar logon, eles devem ser provisionados para o aplicativo LogicMonitor usando seus nomes de usuário do Active Directory do Azure.
 
@@ -191,80 +209,36 @@ Para usuários do Microsoft Azure Active Directory conseguirem efetuar logon, el
 
 1. Faça logon no site da sua empresa LogicMonitor como um administrador.
 
-1. No menu na parte superior, clique em **Configurações** e em **Funções e Usuários**.
-   
+2. No menu na parte superior, clique em **Configurações** e em **Funções e Usuários**.
+
     ![Funções e Usuários](./media/logicmonitor-tutorial/ic790056.png "Funções e Usuários")
 
-1. Clique em **Adicionar**.
+3. Clique em **Adicionar**.
 
-1. Na seção **Adicionar uma conta** , realize as seguintes etapas:
-   
+4. Na seção **Adicionar uma conta** , realize as seguintes etapas:
+
     ![Adicionar uma conta](./media/logicmonitor-tutorial/ic790057.png "Adicionar uma conta")
-   
+
      a. Digite os valores para **Nome de usuário**, **Email**, **Senha** e **Digitar senha novamente** do usuário do Azure Active Directory que você deseja provisionar nas caixas de texto relacionadas.
-   
+
     b. Selecione **Funções**, **Exibir Permissões** e **Status**.
-   
+
     c. Clique em **Enviar**.
 
->[!NOTE]
->Você pode usar qualquer outra ferramenta de criação da conta de usuário do LogicMonitor ou APIs fornecidas pelo LogicMonitor para provisionar as contas de usuário do Active Directory do Azure. 
+> [!NOTE]
+> Você pode usar qualquer outra ferramenta de criação da conta de usuário do LogicMonitor ou APIs fornecidas pelo LogicMonitor para provisionar as contas de usuário do Active Directory do Azure.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
-
-Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao LogicMonitor.
-
-![Atribuir usuário][200] 
-
-**Para atribuir Brenda Fernandes ao LogicMonitor, execute as seguintes etapas:**
-
-1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
-
-    ![Atribuir usuário][201] 
-
-1. Na lista de aplicativos, selecione **LogicMonitor**.
-
-    ![Configurar o logon único](./media/logicmonitor-tutorial/tutorial_logicmonitor_app.png) 
-
-1. No menu à esquerda, clique em **usuários e grupos**.
-
-    ![Atribuir usuário][202] 
-
-1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
-
-    ![Atribuir usuário][203]
-
-1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
-
-1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
-
-1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
-    
-### <a name="testing-single-sign-on"></a>Teste do logon único
+### <a name="test-single-sign-on"></a>Testar logon único
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
- 
-Ao clicar no bloco do LogicMonitor no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo LogicMonitor.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md). 
+
+Ao clicar no bloco do LogicMonitor no Painel de Acesso, você deverá ser conectado automaticamente ao LogicMonitor, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/logicmonitor-tutorial/tutorial_general_01.png
-[2]: ./media/logicmonitor-tutorial/tutorial_general_02.png
-[3]: ./media/logicmonitor-tutorial/tutorial_general_03.png
-[4]: ./media/logicmonitor-tutorial/tutorial_general_04.png
-
-[100]: ./media/logicmonitor-tutorial/tutorial_general_100.png
-
-[200]: ./media/logicmonitor-tutorial/tutorial_general_200.png
-[201]: ./media/logicmonitor-tutorial/tutorial_general_201.png
-[202]: ./media/logicmonitor-tutorial/tutorial_general_202.png
-[203]: ./media/logicmonitor-tutorial/tutorial_general_203.png
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

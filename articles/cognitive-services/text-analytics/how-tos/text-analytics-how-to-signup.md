@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 355a144597ce384725d92e64d4a5e4909b18c3d7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 53532a19482a33f8727e71d44ae169225b5b1c98
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246095"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449947"
 ---
 # <a name="how-to-sign-up-for-the-text-analytics-api"></a>Como se inscrever na API do Google Analytics de texto
 
@@ -25,7 +25,7 @@ Os recursos de Análise de Texto ficam disponíveis 24 horas por dia, 7 dias por
 
 + Crie uma [conta da API de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account), escolhendo a **API de Análise de Texto**. Sua chave é gerada quando você se inscreve.
 
-Na Análise de Texto, há uma Camada gratuita, para exploração e avaliação, e camadas faturáveis para cargas de trabalho de produção. Você pode ter várias inscrições em cada assinatura: uma gratuita, uma paga e assim por diante. Você poderá alternar para uma camada que ofereça mais transações se o volume de solicitações aumentar.
+Na Análise de Texto, há uma Camada gratuita, para exploração e avaliação, e camadas faturáveis para cargas de trabalho de produção. Você pode ter várias inscrições em cada assinatura: um gratuito, um paga e assim por diante. Você poderá alternar para uma camada que ofereça mais transações se o volume de solicitações aumentar.
 
 Não há nenhum contrato de nível de serviço para serviços na Versão Prévia ou na Camada gratuita. Para obter mais informações, consulte [SLA para Serviços Cognitivos](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/)
 

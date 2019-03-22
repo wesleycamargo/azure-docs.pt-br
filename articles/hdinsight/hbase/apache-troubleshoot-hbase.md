@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.custom: hdinsightactive, seodec18
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 4f6f6042eaacc809b9d413ef01883987bd558507
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 4dc50de7a97055e336627e34f747a17fcedc7e58
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651598"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091538"
 ---
 # <a name="troubleshoot-apache-hbase-by-using-azure-hdinsight"></a>Solucionar problemas do Apache HBase usando o Azure HDInsight
 
@@ -367,7 +367,7 @@ Veja a seguir o que está acontecendo em segundo plano:
            2017-03-21 13:22:40,285 - File['/var/run/hbase/hbase-hbase-regionserver.pid'] {'action': ['delete']}
            2017-03-21 13:22:40,285 - Deleting File['/var/run/hbase/hbase-hbase-regionserver.pid']
    ```
-Devido a esse desligamento inesperado, a porta associada ao processo talvez não seja liberada, embora o processo de servidor da região seja interrompido. Essa situação pode levar a uma AddressBindException quando o servidor de região estiver iniciando, como mostram os logs abaixo. É possível verificar isso em region-server.log no diretório /var/log/hbase, nos nós de trabalho em que a inicialização do servidor de região falha. 
+   Devido a esse desligamento inesperado, a porta associada ao processo talvez não seja liberada, embora o processo de servidor da região seja interrompido. Essa situação pode levar a uma AddressBindException quando o servidor de região estiver iniciando, como mostram os logs abaixo. É possível verificar isso em region-server.log no diretório /var/log/hbase, nos nós de trabalho em que a inicialização do servidor de região falha. 
 
    ```apache
 

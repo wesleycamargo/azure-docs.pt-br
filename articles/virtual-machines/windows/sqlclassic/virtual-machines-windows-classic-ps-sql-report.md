@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
-ms.openlocfilehash: 8c12190e3c34c3294d2735fdd228aafbf6073f12
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: c8b32e1d52768ea8450a2256d92d8cdb09f9fe8b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820106"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445629"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Use o PowerShell para criar uma VM do Azure com um servidor de relatório em modo nativo
 > [!IMPORTANT] 
@@ -67,7 +67,7 @@ Este tópico descreve e fornece orientação para a implantação e a configura�
    * **Tamanho:A3** é o tamanho recomendado da VM para as cargas de trabalho do SQL Server. Se uma VM for usada apenas como um servidor de relatório, o tamanho de VM A2 será suficiente, a menos que o servidor de relatório enfrente uma grande carga de trabalho. Para saber mais sobre preços da VM, consulte [Preços das Máquinas Virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/).
    * **Novo Nome de Usuário**: o nome fornecido é criado como um administrador na VM.
    * **Nova Senha** e **Confirmar**. Essa senha será usada para a nova conta de administrador, portanto, recomendamos o uso de uma senha forte.
-   * Clique em **Próximo**. ![next](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
+   * Clique em **Avançar**. ![next](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 7. Na próxima página edite os campos a seguir:
    
    * **Serviço de Nuvem**: selecione **Criar um novo Serviço de Nuvem**.
@@ -124,7 +124,7 @@ Um certificado autoassinado foi criado na VM quando a VM foi provisionada. O cer
       
        Por exemplo, na imagem a seguir, o nome da VM é **ssrsnativecloud** e o nome de usuário é **testuser**.
       
-       ![o logon inclui o nome da vm](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
+       ![logon inclui o nome da vm](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
    2. Execute mmc.exe. Para obter mais informações, consulte [Como: exibir certificados com o Snap-in do MMC](https://msdn.microsoft.com/library/ms788967.aspx).
    3. No menu **Arquivo** do aplicativo do console, adicione o snap-in **Certificados**, selecione **Conta de Computador** quando solicitado e clique em **Próximo**.
    4. Selecione **Computador Local** para gerenciar e clique em **Concluir**.
@@ -160,7 +160,7 @@ Para usar o script do Windows PowerShell a fim de configurar o servidor de relat
    
     Por exemplo, na imagem a seguir, o nome da VM é **ssrsnativecloud** e o nome de usuário é **testuser**.
    
-    ![o logon inclui o nome da vm](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
+    ![logon inclui o nome da vm](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
 2. Na VM, abra **ISE do Windows PowerShell** com privilégios administrativos. O ISE do PowerShell está instalado por padrão no Windows Server 2012. Recomendamos o uso do ISE, em vez de uma janela padrão do Windows PowerShell, para que você possa colar o script no ISE, modificar e executar o script.
 3. No ISE do Windows PowerShell, clique no menu **Exibir** e clique em **Mostrar Painel de Script**.
 4. Copie o script a seguir e cole-o no painel de script do ISE do Windows PowerShell.
@@ -294,7 +294,7 @@ Para usar o Windows PowerShell a fim de configurar o servidor de relatório, con
    
     Por exemplo, na imagem a seguir, o nome da VM é **ssrsnativecloud** e o nome de usuário é **testuser**.
    
-    ![o logon inclui o nome da vm](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
+    ![logon inclui o nome da vm](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
 2. Na VM, abra **ISE do Windows PowerShell** com privilégios administrativos. O ISE do PowerShell está instalado por padrão no Windows Server 2012. Recomendamos o uso do ISE, em vez de uma janela padrão do Windows PowerShell, para que você possa colar o script no ISE, modificar e executar o script.
 3. Para habilitar a execução de scripts, execute o seguinte comando do Windows PowerShell:
    
@@ -512,7 +512,7 @@ Se você não quiser executar o script do PowerShell para configurar o servidor 
    
    1. Clique em **Alterar Banco de Dado**s.
    2. Clique em **Criar um novo banco de dados do servidor de relatório** e clique em **Próximo**.
-   3. Mantenha o **Nome do Servidor** padrão: como o nome da VM e mantenha o **Tipo de Autenticação** padrão como **Usuário Atual** – **Segurança Integrada**. Clique em **Próximo**.
+   3. Mantenha o **Nome do Servidor** padrão: como o nome da VM e mantenha o **Tipo de Autenticação** padrão como **Usuário Atual** – **Segurança Integrada**. Clique em **Avançar**.
    4. Mantenha o **Nome do Banco de Dados** padrão como **ReportServer** e clique em **Próximo**.
    5. Mantenha o **Tipo de Autenticação** padrão como **Credenciais do Serviço** e clique em **Próximo**.
    6. Clique em **Próximo** on the **Resumo** .

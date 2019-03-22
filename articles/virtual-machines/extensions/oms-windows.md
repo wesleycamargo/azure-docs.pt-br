@@ -1,5 +1,5 @@
 ---
-title: Extensão da máquina virtual do Log Analytics do Azure para Windows | Microsoft Docs
+title: Extensão da máquina virtual do Azure Monitor para Windows | Microsoft Docs
 description: Implante o agente do Log Analytics na máquina virtual do Windows usando uma extensão da máquina virtual.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,16 +15,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: roiyz
-ms.openlocfilehash: 6a128f8fbfd39c364d63ff03a156788e44f37119
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 7c56b54f2d5be2bd47644e07369120468bb6015e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981277"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533690"
 ---
-# <a name="log-analytics-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual do Log Analytics para Windows
+# <a name="azure-monitor-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual do Azure Monitor para Windows
 
-O Log Analytics fornece recursos de monitoramento nos ativos locais e da nuvem. A extensão de máquina virtual do agente Log Analytics para Windows é publicada e suportada pela Microsoft. A extensão instala o agente do Log Analytics em máquinas virtuais do Azure e registra máquinas virtuais em um workspace do Log Analytics existente. Este documento detalha as plataformas com opções de plataformas, configurações e implantação com suporte para a extensão da máquina virtual do Log Analytics para Windows.
+Os logs do Azure Monitor fornece recursos de monitoramento em ativos de nuvem e locais. A extensão de máquina virtual do agente Log Analytics para Windows é publicada e suportada pela Microsoft. A extensão instala o agente do Log Analytics em máquinas virtuais do Azure e registra máquinas virtuais em um workspace do Log Analytics existente. Este documento detalha as plataformas com suporte, configurações e opções de implantação para a extensão de máquina virtual do Azure Monitor para Windows.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -34,7 +36,7 @@ A extensão do agente do Log Analytics para Windows pode ser executada nas vers�
 
 ### <a name="azure-security-center"></a>Central de Segurança do Azure
 
-A Central de Segurança do Azure provisiona o agente do Log Analytics e conecta-se com o workspace do Log Analytics padrão da assinatura do Azure automaticamente. Se você estiver usando a Central de Segurança do Azure, não execute as etapas neste documento. Isso substituiria o workspace configurado e interromperia a conexão com a Central de Segurança do Azure.
+A Central de segurança do Azure provisiona o agente do Log Analytics e conecta-se com o espaço de trabalho do Log Analytics padrão da assinatura do Azure automaticamente. Se você estiver usando a Central de Segurança do Azure, não execute as etapas neste documento. Isso substituiria o workspace configurado e interromperia a conexão com a Central de Segurança do Azure.
 
 ### <a name="internet-connectivity"></a>Conectividade com a Internet
 A extensão do agente Log Analytics para Windows requer que a máquina virtual de destino esteja conectada à Internet. 
@@ -68,11 +70,11 @@ O seguinte JSON mostra o esquema para a extensão do agente do Log Analytics. A 
 ```
 ### <a name="property-values"></a>Valores de propriedade
 
-| NOME | Valor/Exemplo |
+| Nome | Valor/Exemplo |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publicador | Microsoft.EnterpriseCloud.Monitoring |
-| Tipo | MicrosoftMonitoringAgent |
+| tipo | MicrosoftMonitoringAgent |
 | typeHandlerVersion | 1.0 |
 | workspaceId (por exemplo)* | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (por exemplo) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
@@ -83,9 +85,9 @@ O seguinte JSON mostra o esquema para a extensão do agente do Log Analytics. A 
 
 Extensões de VM do Azure podem ser implantadas com modelos do Azure Resource Manager. O esquema JSON detalhado na seção anterior pode ser usado em um modelo do Azure Resource Manager para executar a extensão do agente do Log Analytics durante uma implantação de modelo do Azure Resource Manager. Um exemplo de modelo que inclui a extensão de VM do agente do Log Analytics pode ser encontrado na [Galeria de Início Rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
 
-O JSON para uma extensão da máquina virtual pode ser aninhado dentro do recurso de máquina virtual ou localizado no nível de raiz ou superior de um modelo JSON do Resource Manager. O posicionamento do JSON afeta o valor do tipo e nome do recurso. Para obter mais informações, consulte [Definir o nome e o tipo de recursos filho](../../azure-resource-manager/resource-manager-templates-resources.md#child-resources). 
+O JSON para uma extensão da máquina virtual pode ser aninhado dentro do recurso de máquina virtual ou localizado no nível de raiz ou superior de um modelo JSON do Resource Manager. O posicionamento do JSON afeta o valor do tipo e nome do recurso. Para obter mais informações, consulte [Definir o nome e o tipo de recursos filho](../../azure-resource-manager/resource-group-authoring-templates.md#child-resources). 
 
-O exemplo a seguir pressupõe que a extensão Log Analytics esteja aninhada dentro do recurso de máquina virtual. Ao aninhar o recurso de extensão, o JSON é colocado no objeto `"resources": []` da máquina virtual.
+O exemplo a seguir pressupõe que a extensão do Azure Monitor é aninhada dentro do recurso de máquina virtual. Ao aninhar o recurso de extensão, o JSON é colocado no objeto `"resources": []` da máquina virtual.
 
 
 ```json

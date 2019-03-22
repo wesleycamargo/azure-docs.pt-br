@@ -7,17 +7,17 @@ documentationcenter: na
 author: jimdial
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/08/2019
+ms.date: 03/05/2019
 ms.author: jdial
-ms.openlocfilehash: a71870115c3ea5e64c8b365d6c4aa64920bc6ca3
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.openlocfilehash: 9185bfea8bddff52f6183ac3e5395cdbc0b73bb1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56675034"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860764"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipos de endereço IP e métodos de alocação no Azure
 
@@ -71,7 +71,7 @@ Todos os endereços IP públicos criados antes da introdução dos SKUs são end
 Endereços IP públicos do SKU Padrão são:
 
 - Sempre use o método de alocação estática.
-- Tenha um tempo limite de ociosidade de fluxo de entrada e saída ajustável de 4-30 minutos, com um padrão de 4 minutos.
+- Ter um fluxo originado de entrada ajustável tempo limite de ociosidade de fluxo originado de entrada ajustável de 4 a 30 minutos, com um padrão de 4 minutos, e um tempo limite de ociosidade de fluxo originado de saída fixo de 4 minutos.
 - São seguros por padrão e fechados para o tráfego de entrada. É necessário definir explicitamente uma lista de permissões do tráfego de entrada permitido com um [grupo de segurança de rede](security-overview.md#network-security-groups).
 - Atribuídos a interfaces de rede, Balanceadores de Carga públicos Padrão, Gateways de Aplicativo ou Gateways de VPN. Para obter mais informações sobre o Standard Load Balancer, veja [Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Zona redundante por padrão e, opcionalmente, zonal (pode ser criadas como zonais e garantidas em uma zona de disponibilidade específica). Para saber mais sobre as zonas de disponibilidade, consulte [Visão geral das zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Balanceador de carga Standard e zonas de disponibilidade](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
@@ -121,7 +121,7 @@ Um [Gateway de VPN do Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc
 
 ### <a name="application-gateways"></a>Application gateways
 
-Você pode associar um endereço IP público do Azure [Application Gateway](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json), atribuindo-o à configuração de **front-end** do gateway. Esse endereço IP público serve como um VIP com balanceamento de carga. Você só pode atribuir um endereço IP público *dinâmico* básico a uma configuração de front-end de gateway de aplicativo V1 e apenas um endereço de SKU estático, básico ou standard a uma configuração de front-end V2.
+Você pode associar um endereço IP público do Azure [Application Gateway](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json), atribuindo-o à configuração de **front-end** do gateway. Esse endereço IP público serve como um VIP com balanceamento de carga. Você pode atribuir apenas um *dinâmico* básico endereço IP público a uma configuração de front-end do gateway V1 do aplicativo e somente um *estático* endereço SKU standard para uma configuração de front-end V2.
 
 ### <a name="at-a-glance"></a>Imediato
 A tabela a seguir mostra a propriedade específica por meio da qual um endereço IP público pode ser associado a um recurso de nível superior e os métodos possíveis de alocação (dinâmico ou estático) que podem ser usados.

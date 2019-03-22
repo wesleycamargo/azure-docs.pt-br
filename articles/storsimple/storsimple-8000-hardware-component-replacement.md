@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: 6de50c5031db59176bdf17ecc69b934559220f6a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e05a37122647d4979089f0ba00b1fc15f9b84b0f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108444"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433647"
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>Substituir um componente de hardware no dispositivo StorSimple série 8000
 
@@ -34,7 +34,7 @@ Os tutoriais de substituição de componentes de hardware descrevem os component
 ### <a name="safety-icon-conventions"></a>Convenções de ícones de segurança
 A tabela a seguir descreve os ícones de segurança usados nestes tutoriais. Preste muita atenção a esses ícones de segurança ao percorrer as etapas para remover e substituir componentes do dispositivo.
 
-| ícone | Texto | Informações adicionais |
+| Ícone | Texto | Informações adicionais |
 |:--- |:--- |:--- |
 | ![Ícone de aviso](./media/storsimple-hardware-component-replacement/Warning.png) |**PERIGO!** |Indica uma situação perigosa que, se não for evitada, resultará em morte ou lesões graves. Essa palavra de sinalização limita-se às situações mais graves. |
 | ![Ícone de aviso](./media/storsimple-hardware-component-replacement/Warning.png) |**AVISO!** |Indica uma situação perigosa que, se não for evitada, pode causar lesões graves ou de morte. |
@@ -88,7 +88,7 @@ O compartimento primário e o compartimento EBOD têm módulos de E/S diferentes
 
 Os módulos plug-in no dispositivo são realçados nos diagramas frontal e traseiro a seguir. É possível usar esses diagramas para determinar a localização de vários módulos plug-in caso uma substituição seja necessária. O diagrama frontral mostra as unidades de disco e os diagramas traseiros do compartimento EBOD e do compartimento primário mostram os módulos plug-in.
 
-![Frontplane do dispositivo com unidades de disco](./media/storsimple-hardware-component-replacement/IC741028.png)
+![Painel frontal do dispositivo com unidades de disco](./media/storsimple-hardware-component-replacement/IC741028.png)
 
 **Figura 1** Parte frontal do dispositivo
 

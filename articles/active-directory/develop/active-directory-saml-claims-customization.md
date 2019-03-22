@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: luleon, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9396fbc470f25e3cf6fad883ab525af1f96e96a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 23ce02bd35d9cd4afd881ec276fabb0720b61c09
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188742"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444031"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Como: Personalizar declarações emitidas no token SAML para aplicativos empresariais
 
@@ -59,7 +59,7 @@ Para resolver o problema no qual o aplicativo foi implantado usando um nome de u
 
 Selecione a fonte desejada para a declaração `NameIdentifier` (ou NameID). Você pode selecionar entre as opções a seguir.
 
-| NOME | DESCRIÇÃO |
+| Nome | Descrição |
 |------|-------------|
 | Email | O endereço de email do usuário |
 | userprincipalName | O UPN (nome UPN) do usuário |
@@ -73,7 +73,7 @@ Selecione a fonte desejada para a declaração `NameIdentifier` (ou NameID). Voc
 
 Você também pode usar as funções de transformações de declarações especiais.
 
-| Função | DESCRIÇÃO |
+| Função | Descrição |
 |----------|-------------|
 | **ExtractMailPrefix()** | Remove o sufixo de domínio de endereço de email, nome de conta SAM ou nome UPN. Isso extrai somente a primeira parte do nome de usuário que está sendo passada (por exemplo, "joe_smith" em vez de joe_smith@contoso.com). |
 | **join()** | Une um atributo a um domínio verificado. Se o valor do identificador de usuário selecionado tiver um domínio, ele extrairá o nome de usuário para anexar o domínio verificado selecionado. Por exemplo, se você selecionar o email (joe_smith@contoso.com) como o valor de identificador de usuário e selecionar contoso.onmicrosoft.com como o domínio verificado, isso resultará em joe_smith@contoso.onmicrosoft.com. |
@@ -82,7 +82,7 @@ Você também pode usar as funções de transformações de declarações especi
 
 ## <a name="adding-claims"></a>Adicionando declarações
 
-Ao adicionar uma declaração, você pode especificar o nome do atributo (que não precisa seguir rigidamente um padrão de URI de acordo com a especificação SAML). Defina o valor com qualquer atributo de usuário armazenado no diretório ou use um valor constante como uma entrada estática para todos os usuários em sua organização.
+Ao adicionar uma declaração, você pode especificar o nome do atributo (que não precisa seguir rigidamente um padrão de URI de acordo com a especificação SAML). Defina o valor para qualquer atributo de usuário que é armazenado no diretório ou use um valor constante como uma entrada estática para todos os usuários em sua organização.
 
 ![Adicionar Atributo de Usuário][7]
 

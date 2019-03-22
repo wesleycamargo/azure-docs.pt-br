@@ -11,15 +11,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 22cf9b66ecf7bbbe8ef226635e84f0aaf9d26b17
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 0d7ca397cf45c4a67a914a8105deb9043adf46e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993921"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835259"
 ---
 # <a name="upload-files-into-an-azure-media-services-account-from-azure-storsimple"></a>Carregar arquivos em uma conta dos Serviços de Mídia do Azure do Azure StorSimple  
 
@@ -47,7 +47,7 @@ O [Azure StorSimple](https://docs.microsoft.com/azure/storsimple/) usa o armazen
 
 ## <a name="see-also"></a>Consulte também
 
-[Usar o SDK do .Net para disparar trabalhos no Gerenciador de Dados](../../storsimple/storsimple-data-manager-dotnet-jobs.md)
+[Usar o SDK do .NET para acionar os trabalhos no Gerenciador de dados](../../storsimple/storsimple-data-manager-dotnet-jobs.md)
 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

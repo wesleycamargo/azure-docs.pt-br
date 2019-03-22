@@ -14,12 +14,12 @@ ms.date: 02/14/2017
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d9a60544f01048cd90605306e64d750982bf7a4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 3b91e2c15e86cdda4daab27892fa7a2b6ed0c0e0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200540"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58008913"
 ---
 # <a name="view-audit-history-for-azure-ad-directory-roles-in-pim"></a>Exibir histórico de auditoria para funções de diretório do Azure AD no PIM
 Você pode usar o histórico de auditoria do PIM (Privileged Identity Management) para ver todas as ativações e atribuições de usuário dentro de um determinado período de tempo para todas as funções com privilégios. Se você quiser ver o histórico completo de auditoria da atividade em seu locatário, incluindo o administrador, usuário final e atividade de sincronização, use os [Relatórios de acesso e uso do Azure Active Directory.](../reports-monitoring/overview-reports.md)
@@ -27,10 +27,10 @@ Você pode usar o histórico de auditoria do PIM (Privileged Identity Management
 ## <a name="navigate-to-audit-history"></a>Navegar para o histórico de auditoria
 No painel do [portal do Azure](https://portal.azure.com) , selecione o aplicativo **Azure AD Privileged Identity Management** . De lá, acesse o histórico de auditoria clicando em **Gerenciar funções privilegiadas** > **Histórico de auditoria** no painel do PIM.
 
-![](media/azure-ad-pim-approval-workflow/image021.png)
+![Histórico de auditoria](media/azure-ad-pim-approval-workflow/image021.png)
 
->[!NOTE]
-É possível classificar os dados por Ação e procurar “Ativação Aprovada”
+> [!NOTE]
+> É possível classificar os dados por Ação e procurar “Ativação Aprovada”
 
 
 ## <a name="audit-history-graph"></a>Grafo do histórico de auditoria

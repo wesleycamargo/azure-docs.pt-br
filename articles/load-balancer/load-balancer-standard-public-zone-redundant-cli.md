@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: kumud
-ms.openlocfilehash: 7359be235135098779478eebc8a8927e34904ac1
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: 8f1bf9b9070f2db2376de9cb0a0602eaea98b47e
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54197786"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56592920"
 ---
 #  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>Balancear carga de VMs em todas as zonas de disponibilidade usando a CLI do Azure
 
@@ -49,7 +49,7 @@ az group create \
 ```
 
 ## <a name="create-a-zone-redundant-public-ip-standard"></a>Criar um Standard IP público com redundância de zona
-Para acessar seu aplicativo na Internet, você precisará de um endereço IP público para o balanceador de carga. Um front-end com redundância de zona é atendido por todas as zonas de disponibilidade em uma região simultaneamente. Crie um endereço IP público com redundância de zona com [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). Quando você cria um endereço IP público Standard, ele é com redundância de zona por padrão.
+Para acessar seu aplicativo na Internet, você precisará de um endereço IP público para o balanceador de carga. Um front-end com redundância de zona é atendido por todas as zonas de disponibilidade em uma região simultaneamente. Criar uma zona com redundância de endereço IP pública com [az network public-ip criar](/cli/azure/network/public-ip#az-network-public-ip-create). Quando você cria um endereço IP público Standard, ele é com redundância de zona por padrão.
 
 O exemplo a seguir cria um endereço IP público com redundância de zona nomeado *myPublicIP* no grupo de recursos *myResourceGroupLoadBalancer*.
 

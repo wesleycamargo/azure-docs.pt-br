@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 12079f8dbc409afe5acc274fa08bda878c90b76e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: be3d98dc0b3a8119fb853493440c6fc78d65c5a2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23110744"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454231"
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Failover de dispositivo e recuperação de desastre para o StorSimple Virtual Array via portal do Azure
 
@@ -134,7 +134,7 @@ Execute as seguintes etapas para restaurar o dispositivo para um dispositivo vir
     
     1. O campo de dispositivo de origem é preenchido automaticamente. Observe o tamanho total dos dados para o dispositivo de origem. O tamanho dos dados deve ser menor do que a capacidade disponível no dispositivo de destino. Examine os detalhes associados ao dispositivo de origem, como o nome do dispositivo, a capacidade total e os nomes dos compartilhamentos submetidos a failover.
 
-    2. Na lista suspensa de dispositivos disponíveis, escolha um **Dispositivo de destino**. Somente os dispositivos com capacidade suficiente são exibidos na lista suspensa.
+    2. Na lista suspensa de dispositivos disponíveis, escolha um **Dispositivo de destino**.  Somente os dispositivos com capacidade suficiente são exibidos na lista suspensa.
 
     3. Verifique se **Estou ciente de que esta operação fará failover dos dados para o dispositivo de destino**. 
 
@@ -162,7 +162,7 @@ Execute as seguintes etapas para restaurar o dispositivo para um dispositivo vir
 
 **Falha de conectividade de nuvem durante a recuperação de desastre**
 
-Se a conectividade de nuvem é interrompida depois que começou a recuperação de desastre e antes de concluir a restauração de dispositivo, a recuperação de desastre falhará. Você receberá uma notificação de failover. O dispositivo de destino para recuperação de desastre é marcado como *inutilizável.* Você não pode usar o mesmo dispositivo de destino para futuras recuperações de desastre.
+Se a conectividade de nuvem é interrompida depois que começou a recuperação de desastre e antes de concluir a restauração de dispositivo, a recuperação de desastre falhará. Você receberá uma notificação de falha. O dispositivo de destino para recuperação de desastre é marcado como *inutilizável.* Você não pode usar o mesmo dispositivo de destino para futuras recuperações de desastre.
 
 **Nenhum dispositivo de destino compatível**
 

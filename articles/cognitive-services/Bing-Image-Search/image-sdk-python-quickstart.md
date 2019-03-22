@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 03/04/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: a785cb461b12c20bd5e322a55a91c8b49cb40d54
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: cabf29423123d988b08e002077b4782529e96aa0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858154"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095629"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-python"></a>Início Rápido: Pesquisar imagens com o SDK de Pesquisa de Imagem do Bing para Python
 
@@ -52,16 +52,16 @@ Obtenha uma [chave de acesso de Serviços Cognitivos](https://azure.microsoft.co
 
 ## <a name="create-the-image-search-client"></a>Crie o cliente de Pesquisa de Imagem
 
-3. Crie uma instância do `CognitiveServicesCredentials` e use-a para instanciar o cliente:
+1. Crie uma instância do `CognitiveServicesCredentials` e use-a para instanciar o cliente:
 
     ```python
     client = ImageSearchAPI(CognitiveServicesCredentials(subscription_key))
     ```
-4. Enviar a consulta de pesquisa para a API de Pesquisa de Imagem do Bing:
+1. Enviar a consulta de pesquisa para a API de Pesquisa de Imagem do Bing:
     ```python
     image_results = client.images.search(query=search_term)
     ```
-## <a name="process-and-view-the-results"></a>Processar e ver os resultados
+   ## <a name="process-and-view-the-results"></a>Processar e ver os resultados
 
 Analise os resultados da imagem retornados na resposta.
 

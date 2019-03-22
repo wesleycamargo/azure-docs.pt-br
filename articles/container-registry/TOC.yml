@@ -62,26 +62,29 @@ items:
       href: container-registry-image-lock.md
     - name: Excluir imagens do contêiner
       href: container-registry-delete.md
-    - name: Confiança do conteúdo (versão prévia)
-      href: container-registry-content-trust.md
     - name: Atualizar um registro Clássico
       href: container-registry-upgrade.md
     - name: Usar webhooks de ACR
       href: container-registry-webhook.md
     - name: Repositórios de gráfico do Helm (versão prévia)
       href: container-registry-helm-repos.md
-  - name: Authentication
+  - name: Segurança e autenticação
     items:
+    - name: Limitar o acesso com a rede virtual (versão prévia)
+      href: container-registry-vnet.md
     - name: Visão geral da autenticação
       href: container-registry-authentication.md
-    - name: Autenticação de entidade de serviço
-      href: container-registry-auth-service-principal.md
-    - name: Autenticação de identidade gerenciada
-      href: container-registry-authentication-managed-identity.md
-    - name: Instâncias de Contêiner do Azure
-      href: container-registry-auth-aci.md
-    - name: AKS (Serviço do Kubernetes do Azure)
-      href: container-registry-auth-aks.md
+      items:
+      - name: Autenticação de entidade de serviço
+        href: container-registry-auth-service-principal.md
+      - name: Autenticação de identidade gerenciada
+        href: container-registry-authentication-managed-identity.md
+      - name: Autenticar nas Instâncias de Contêiner do Azure
+        href: container-registry-auth-aci.md
+      - name: Autenticar no AKS (Serviço de Kubernetes do Azure)
+        href: container-registry-auth-aks.md
+    - name: Confiança do conteúdo (versão prévia)
+      href: container-registry-content-trust.md
   - name: Compilar e corrigir
     items:
     - name: Tarefas do ACR
@@ -134,12 +137,12 @@ items:
   - name: Fornecer comentários sobre o produto
     href: https://feedback.azure.com/forums/903958-azure-container-registry
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-container-registry
+    href: https://stackoverflow.com/questions/tagged/azure-container-registry
   - name: vídeos
     href: https://azure.microsoft.com/resources/videos/index/?services=container-registry&sort=newest
-ms.openlocfilehash: bce8a055a537a1ac147e2779a891b0ae64b9a3c8
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 732c0f878df9b5d722571bf45e4afd76a3180ebb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652154"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58137987"

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f577a7dd9f517be6ab7b632a82227e4807862ba5
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: b596af8ae9fbbaee6964622df44d316a11582cb9
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55727901"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337916"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Implantar nas Instâncias de Contêiner do Azure por meio do Registro de Contêiner do Azure
 
@@ -33,7 +33,7 @@ Na seção a seguir, você cria um cofre de chaves do Azure e uma entidade de se
 
 ### <a name="create-key-vault"></a>Criar cofre chaves
 
-Se você ainda não tiver um cofre no [Azure Key Vault](/azure/key-vault/), crie um com a CLI do Azure usando os comandos a seguir.
+Se você ainda não tiver um cofre no [Azure Key Vault](../key-vault/key-vault-overview.md), crie um com a CLI do Azure usando os comandos a seguir.
 
 Atualize a variável `RES_GROUP` com o nome do grupo de recursos existente no qual criar o cofre de chaves e `ACR_NAME` com o nome do registro de contêiner. Especifique um nome para o novo cofre de chaves em `AKV_NAME`. O nome do cofre deve ser exclusivo no Azure e deve ter de 3 a 24 caracteres alfanuméricos, começar com uma letra, terminar com uma letra ou um dígito e não pode conter hífens consecutivos.
 

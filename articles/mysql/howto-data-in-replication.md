@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/31/2018
-ms.openlocfilehash: 18ef70d64523bc4001fa7d9a35a7f803b8050613
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 7d56d7f8fcbd53d4f69863d260591ef80f3d7188
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53539612"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102934"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Como configurar a replicação nos dados para o Banco de Dados do Azure para MySQL
 
@@ -153,7 +153,7 @@ As etapas a seguir preparam e configuram o servidor MySQL hospedado no local, em
    - master_password: a senha para o servidor mestre
    - master_log_file: nome de arquivo de log binário de `show master status` em execução
    - master_log_pos: posição de log binário de `show master status` em execução
-   - master_ssl_ca: Contexto do certificado de autoridade de certificação. Se não estiver usando SSL, passe em uma cadeia de caracteres vazia.
+   - master_ssl_ca: Contexto do Certificado de Autoridade de Certificação. Se não estiver usando SSL, passe em uma cadeia de caracteres vazia.
        - É recomendável passar esse parâmetro como uma variável. Confira os exemplos a seguir para obter mais informações.
 
 > [!NOTE]
@@ -184,7 +184,7 @@ As etapas a seguir preparam e configuram o servidor MySQL hospedado no local, em
    CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, '');
    ```
 
-2. Iniciar replicação
+1. Iniciar replicação
 
    Chame o procedimento armazenado `mysql.az_replication_start` para iniciar a replicação.
 
@@ -192,7 +192,7 @@ As etapas a seguir preparam e configuram o servidor MySQL hospedado no local, em
    CALL mysql.az_replication_start;
    ```
 
-3. Verificar status de replicação
+1. Verificar status de replicação
 
    Chame o comando [`show slave status`](https://dev.mysql.com/doc/refman/5.7/en/show-slave-status.html) no servidor de réplica para exibir o status de replicação.
     

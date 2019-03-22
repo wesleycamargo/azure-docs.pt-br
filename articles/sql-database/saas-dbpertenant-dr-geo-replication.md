@@ -12,12 +12,12 @@ ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b2be42e4984ac7000cfb31ce6575c529b752db2d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: b6f0d25f621768f79e8262f38617152e91692a23
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471140"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838843"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Recuperação de desastre para um aplicativo SaaS multilocatário usando replicação geográfica do banco de dados
 
@@ -25,14 +25,14 @@ Neste tutorial, você pode explorar um cenário de recuperação de desastre com
 
 Este tutorial explora fluxos de trabalho de failover e failback. Você aprenderá a:
 > [!div class="checklist"]
-
->* Sincronizar as informações de configuração de pool elástico e de banco de dados no catálogo de locatário
->* Configurar um ambiente de recuperação em uma região alternativa, que inclui aplicativos, servidores e pools
->* Use _replicação geográfica_ para replicar os bancos de dados do catálogos e locatários para a região de recuperação
->* Fazer failover dos bancos de dados de aplicativos, catálogos e locatários para a região de recuperação 
->* Posteriormente, faça failover dos bancos de dados de aplicativos, catálogos e locatários de volta para a região original após a interrupção ter sido resolvida
->* Atualizar o catálogo conforme cada banco de dados de locatário passar por failover para controlar o local principal de cada banco de dados do locatário
->* Garantir que o banco de dados de aplicativos e de locatário primário estejam sempre co-localizados na mesma região do Azure para reduzir a latência  
+> 
+> * Sincronizar as informações de configuração de pool elástico e de banco de dados no catálogo de locatário
+> * Configurar um ambiente de recuperação em uma região alternativa, que inclui aplicativos, servidores e pools
+> * Use _replicação geográfica_ para replicar os bancos de dados do catálogos e locatários para a região de recuperação
+> * Fazer failover dos bancos de dados de aplicativos, catálogos e locatários para a região de recuperação 
+> * Posteriormente, faça failover dos bancos de dados de aplicativos, catálogos e locatários de volta para a região original após a interrupção ter sido resolvida
+> * Atualizar o catálogo conforme cada banco de dados de locatário passar por failover para controlar o local principal de cada banco de dados do locatário
+> * Garantir que o banco de dados de aplicativos e de locatário primário estejam sempre co-localizados na mesma região do Azure para reduzir a latência  
  
 
 Antes de iniciar este tutorial, verifique se todos os pré-requisitos a seguir foram atendidos:
@@ -106,7 +106,7 @@ Antes de iniciar o processo de recuperação, examine o estado de integridade no
 Nesta tarefa, você inicia um processo que sincroniza a configuração dos servidores, dos pools elásticos e dos bancos e dados com o catálogo de locatário. O processo mantém essas informações atualizadas no catálogo.  O processo funciona com o catálogo ativo, se estiver na região original ou na região de recuperação. As informações de configuração são usadas como parte do processo de recuperação para garantir que o ambiente de recuperação é consistente com o ambiente original e posteriormente, durante a repatriação para garantir que a região original seja tornada consistente com as alterações feitas no ambiente de recuperação. O catálogo também é usado para controlar o estado de recuperação de recursos de locatário
 
 > [!IMPORTANT]
-> Para simplificar, o processo de sincronização e outros processos de recuperação e de repatriação de longa execução são implementados nesses tutoriais como trabalhos ou sessões locais do Powershell executados em seu logon de usuário de cliente. Os tokens de autenticação emitidos quando seu logon expirar após várias horas e então os trabalhos falham. Em um cenário de produção, os processos de execução longa devem ser implementados como serviços do Azure confiáveis de algum tipo, em execução sob uma entidade de serviço. Consulte [Usar o Azure PowerShell para criar uma entidade de serviço com um certificado](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal).
+> Para simplificar, o processo de sincronização e outros processos de recuperação e de repatriação de longa execução são implementados nesses tutoriais como PowerShell trabalhos ou sessões locais que são executados em seu logon de usuário do cliente. Os tokens de autenticação emitidos quando seu logon expirar após várias horas e então os trabalhos falham. Em um cenário de produção, os processos de execução longa devem ser implementados como serviços do Azure confiáveis de algum tipo, em execução sob uma entidade de serviço. Consulte [Usar o Azure PowerShell para criar uma entidade de serviço com um certificado](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal).
 
 1. No _ISE do PowerShell_, abra o arquivo ...\Learning Modules\UserConfig.psm1. Substitua `<resourcegroup>` e `<user>` nas linhas 10 e 11 pelo valor usado quando você implantou o aplicativo.  Salve o arquivo!
 
@@ -199,15 +199,15 @@ Agora imagine que haja uma interrupção na região em que o aplicativo é impla
 Enquanto o ponto de extremidade do aplicativo estiver desabilitado no Gerenciador de Tráfego, o aplicativo não estará disponível. Depois que é feito o failover do catálogo para a região de recuperação e todos os locatários são marcados como offline, o aplicativo é colocado online novamente. Embora o aplicativo esteja disponível, cada locatário aparece offline no hub de eventos até que seja feito o failover do seu banco de dados. É importante projetar seu aplicativo para que ele lide com bancos de dados de locatário offline.
 
 1. Assim que o banco de dados do catálogo tiver sido recuperado, atualize o Hub de Eventos da Wingtip Tickets no navegador da Web.
-    * No rodapé, observe que o nome do servidor de catálogo agora tem um sufixo _-recovery_ e está localizado na região de recuperação.
-    * Observe que os locatários que ainda não foram restaurados estão marcados como offline e não são selecionáveis.  
+   * No rodapé, observe que o nome do servidor de catálogo agora tem um sufixo _-recovery_ e está localizado na região de recuperação.
+   * Observe que os locatários que ainda não foram restaurados estão marcados como offline e não são selecionáveis.  
 
-    > [!Note]
-    > Com apenas alguns bancos de dados para recuperar, pode não ser possível atualizar o navegador antes de a recuperação ter sido concluída, portanto você pode não ver os locatários enquanto eles estiverem offline. 
+     > [!Note]
+     > Com apenas alguns bancos de dados para recuperar, pode não ser possível atualizar o navegador antes de a recuperação ter sido concluída, portanto você pode não ver os locatários enquanto eles estiverem offline. 
  
-    ![Hub de eventos offline](media/saas-dbpertenant-dr-geo-replication/events-hub-offlinemode.png) 
+     ![Hub de eventos offline](media/saas-dbpertenant-dr-geo-replication/events-hub-offlinemode.png) 
 
-    * Se você abrir a página Eventos de um locatário offline diretamente, ela exibirá uma notificação de 'locatário offline'. Por exemplo, se Contoso Concert Hall estiver offline, tente abrir http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall ![página Contoso Offline](media/saas-dbpertenant-dr-geo-replication/dr-in-progress-offline-contosoconcerthall.png) 
+   * Se você abrir a página Eventos de um locatário offline diretamente, ela exibirá uma notificação de 'locatário offline'. Por exemplo, se Contoso Concert Hall estiver offline, tente abrir http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall ![página Contoso Offline](media/saas-dbpertenant-dr-geo-replication/dr-in-progress-offline-contosoconcerthall.png) 
 
 ### <a name="provision-a-new-tenant-in-the-recovery-region"></a>Provisionar um novo locatário na região de recuperação
 Antes mesmo de todos os bancos de dados de locatário existentes terem passado por failover, você poderá provisionar novos locatários na região de recuperação.  
@@ -236,12 +236,12 @@ Quando o processo de recuperação for concluída, o aplicativo e todos os locat
     * Observe o grupo de recursos que você implantou, mais o grupo de recursos de recuperação, com o sufixo _-recovery_.  O grupo de recursos de recuperação contém todos os recursos criados durante o processo de recuperação, além de novos recursos criados durante a interrupção.  
 
 3. Abra o grupo de recursos de recuperação e observe os seguintes itens:
-    * As versões de recuperação dos servidores de catálogo e locatários1 com o sufixo _-recovery_.  Os bancos de dados restaurados de catálogo e de locatário nesses servidores têm os nomes usados na região original.
+   * As versões de recuperação dos servidores de catálogo e locatários1 com o sufixo _-recovery_.  Os bancos de dados restaurados de catálogo e de locatário nesses servidores têm os nomes usados na região original.
 
-    * O servidor SQL _tenants2-dpt-&lt;user&gt;-recovery_.  Este servidor é usado para provisionar novos locatários durante a interrupção.
-    *   O Serviço de Aplicativo chamado _events-wingtip-dpt-&lt;recoveryregion&gt;-&lt;usuário&gt_;, que é a instância de recuperação do aplicativo Eventos. 
+   * O servidor SQL _tenants2-dpt-&lt;user&gt;-recovery_.  Este servidor é usado para provisionar novos locatários durante a interrupção.
+   * O Serviço de Aplicativo chamado _events-wingtip-dpt-&lt;recoveryregion&gt;-&lt;usuário&gt_;, que é a instância de recuperação do aplicativo Eventos. 
 
-    ![Recursos de recuperação do Azure ](media/saas-dbpertenant-dr-geo-replication/resources-in-recovery-region.png)    
+     ![Recursos de recuperação do Azure](media/saas-dbpertenant-dr-geo-replication/resources-in-recovery-region.png) 
     
 4. Abra o servidor SQL _tenants2-dpt-&lt;user&gt;-recovery_.  Observe que ele contém o banco de dados _hawthornhall_ e o pool elástico, _Pool1_.  O banco de dados _hawthornhall_ está configurado como um banco de dados elástico no pool elástico _Pool1_.
 
@@ -305,12 +305,12 @@ Os bancos de dados de locatário podem ser distribuídos por regiões originais 
 
 Neste tutorial, você aprendeu a:
 > [!div class="checklist"]
-
->* Sincronizar as informações de configuração de pool elástico e de banco de dados no catálogo de locatário
->* Configurar um ambiente de recuperação em uma região alternativa, que inclui aplicativos, servidores e pools
->* Use _replicação geográfica_ para replicar os bancos de dados do catálogos e locatários para a região de recuperação
->* Fazer failover dos bancos de dados de aplicativos, catálogos e locatários para a região de recuperação 
->* Faça failback dos bancos de dados de aplicativos, catálogos e locatários de volta para a região original após a interrupção ter sido resolvida
+> 
+> * Sincronizar as informações de configuração de pool elástico e de banco de dados no catálogo de locatário
+> * Configurar um ambiente de recuperação em uma região alternativa, que inclui aplicativos, servidores e pools
+> * Use _replicação geográfica_ para replicar os bancos de dados do catálogos e locatários para a região de recuperação
+> * Fazer failover dos bancos de dados de aplicativos, catálogos e locatários para a região de recuperação 
+> * Faça failback dos bancos de dados de aplicativos, catálogos e locatários de volta para a região original após a interrupção ter sido resolvida
 
 Você pode aprender mais sobre as tecnologias que o banco de dados do SQL Azure fornece para permitir a continuidade dos negócios na documentação [Visão geral de continuidade de negócios](sql-database-business-continuity.md).
 

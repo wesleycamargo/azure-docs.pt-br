@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: fdbbfaf4a4c3df90302b0b69e4964b7a073f2fa4
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 222c2983d83fe2373159ea542260be7b5a8d8ce5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237953"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57885174"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Exemplo de introdução às Coleções de Workspaces do Power BI
 
@@ -28,7 +28,7 @@ Antes de continuarmos, convém salvar os recursos a seguir: Eles ajudam na integ
 
 * [Exemplo de aplicativo Web do workspace](https://go.microsoft.com/fwlink/?LinkId=761493)
 * [Referência de API de Coleções de Workspaces do Power BI](https://msdn.microsoft.com/library/azure/mt711507.aspx)
-* [SDK do .NET do Power BI ](https://go.microsoft.com/fwlink/?LinkId=746472) (disponível via NuGet)
+* [Power BI .NET SDK](https://go.microsoft.com/fwlink/?LinkId=746472) (disponível via NuGet)
 * [Amostra inserida de relatório JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo)
 
 > [!NOTE]
@@ -93,7 +93,7 @@ Depois de clicar em um relatório, o aplicativo Web **EmbedSample** deve ter ess
 
 ## <a name="explore-the-sample-code"></a>Explorar o código de exemplo
 
-A amostra das **Coleções de Workspaces do Microsoft Power BI** é um aplicativo Web de exemplo que mostra como integrar relatórios do **Power BI** ao seu aplicativo. Ele usa um MVC (Model-View-Controller) para demonstrar as práticas recomendadas. Esta seção destaca as partes do código de exemplo que você pode explorar dentro da solução de aplicativo Web **PowerBI-embedded**. O padrão Model-View-Controller (MVC) separa a modelagem do domínio, a apresentação e as ações com base na entrada do usuário em três classes separadas: Modelo, Exibição e Controle. Para saber mais sobre o MVC, consulte [Aprenda sobre o ASP.NET](http://www.asp.net/mvc).
+A amostra das **Coleções de Workspaces do Microsoft Power BI** é um aplicativo Web de exemplo que mostra como integrar relatórios do **Power BI** ao seu aplicativo. Ele usa um MVC (Model-View-Controller) para demonstrar as práticas recomendadas. Esta seção destaca as partes do código de exemplo que você pode explorar dentro da solução de aplicativo Web **PowerBI-embedded**. O padrão Model-View-Controller (MVC) separa a modelagem do domínio, a apresentação e as ações com base na entrada do usuário em três classes separadas: Modelo, Exibição e Controle. Para saber mais sobre o MVC, consulte [Aprenda sobre o ASP.NET](https://www.asp.net/mvc).
 
 O código de exemplo de **Coleções de Workspaces do Microsoft Power BI** é separado conforme demonstrado a seguir. Cada seção inclui o nome do arquivo na solução PowerBI-embedded.sln para que você possa localizar facilmente o código no exemplo.
 
@@ -270,4 +270,4 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [Amostra de inserção de JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 
-Mais perguntas? [Experimentar a comunidade do Power BI](http://community.powerbi.com/)
+Mais perguntas? [Experimentar a comunidade do Power BI](https://community.powerbi.com/)

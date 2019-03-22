@@ -1,19 +1,19 @@
 ---
 title: Criar aplicativos Web do Azure usando o Ansible
 description: Saiba como usar o Ansible para criar um aplicativo Web com tempo de execução de contêiner Java 8 e Tomcat no Serviço de Aplicativo no Linux
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, bash, guia estratégico, Serviço de Aplicativo do Azure, aplicativo Web, Java
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/08/2018
-ms.openlocfilehash: 106fe11355d629e57f71b12d1125d188b98c2236
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 5f67a9f7d629eec9ab1462a25940355869c1cd28
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051338"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791215"
 ---
 # <a name="create-azure-app-service-web-apps-by-using-ansible"></a>Criar aplicativos Web do Serviço de Aplicativo do Azure usando o Ansible
 Os [Aplicativos Web do Serviço de Aplicativo do Azure](https://docs.microsoft.com/azure/app-service/overview) (ou apenas Aplicativos Web) hospedam aplicativos Web, APIs REST e back-ends móveis. Você pode desenvolver usando sua linguagem favorita&mdash;.NET, .NET Core, Java, Ruby, Node.js, PHP ou Python.

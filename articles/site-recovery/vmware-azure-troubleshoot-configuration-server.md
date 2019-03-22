@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: ab72091c58420459620352c8169773111149316d
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 3676a1e4bf69f7d31bb347f99787c4e2f08721a9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245721"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107586"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Solucionar problemas do servidor de configuração
 
@@ -25,9 +25,9 @@ O computador de origem se registra no servidor de configuração quando você in
 1. Abra o arquivo C:\ProgramData\ASR\home\svsystems\var\configurator_register_host_static_info.log. (A pasta ProgramData pode ser uma pasta oculta. Se você não vir a pasta ProgramData, no Explorador de Arquivos, na guia **Exibir**, na seção **Mostrar/ocultar**, marque a caixa **Itens ocultos**.) As falhas podem ser causadas por vários problemas.
 
 2. Procure a cadeia de caracteres **Nenhum endereço IP válido encontrado**. Se a cadeia de caracteres for encontrada,
-    1. verifique se a ID do host solicitada é a mesma que a ID do host do computador de origem.
-    2. verifique se o computador de origem tem pelo menos um endereço IP atribuído à NIC física. Para que o registro do agente no servidor de configuração ocorra com êxito, o computador de origem deve ter pelo menos um endereço IP v4 válido atribuído à NIC física.
-    3. Execute um dos seguintes comandos no computador de origem para obter todos os endereços IP da máquina de origem:
+   1. verifique se a ID do host solicitada é a mesma que a ID do host do computador de origem.
+   2. verifique se o computador de origem tem pelo menos um endereço IP atribuído à NIC física. Para que o registro do agente no servidor de configuração ocorra com êxito, o computador de origem deve ter pelo menos um endereço IP v4 válido atribuído à NIC física.
+   3. Execute um dos seguintes comandos no computador de origem para obter todos os endereços IP da máquina de origem:
       - No Windows: `> ipconfig /all`
       - No Linux: `# ifconfig -a`
 
@@ -82,7 +82,7 @@ Não é possível criar o certificado necessário para autenticar o Site Recover
 
 ## <a name="failure-to-activate-windows-licence-from-server-standard-evaluation-to-server-standard"></a>Falha ao ativar a licença do Windows do Server Standard Evaluation para Server Standard
 
-1. Como parte da implementação do servidor de configuração por meio do OVF, é usada uma licença de avaliação, que é válida por 180 dias. É preciso ativar esta licença antes que ela expire. Caso contrário, isso pode resultar no desligamento frequente do servidor de configuração e, assim, causar impedimentos nas atividades de replicação.
+1. Como parte da implantação de servidor de configuração por meio do OVF, uma licença de avaliação é usada, o que é válido por 180 dias. É preciso ativar esta licença antes que ela expire. Caso contrário, isso pode resultar no desligamento frequente do servidor de configuração e, assim, causar impedimentos nas atividades de replicação.
 2. Se não for possível ativar a licença do Windows, entre em contato com a [equipe de suporte do Windows](https://aka.ms/Windows_Support) para resolver o problema.
 
 ## <a name="register-source-machine-with-configuration-server"></a>Registre a máquina de origem com o servidor de configuração

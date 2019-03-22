@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a405583503b75a64dda2bf277a4a50be4e926d28
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: f684a9d7bca77a8aa3aa60f5079dda0ce3b58a1c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111281"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121580"
 ---
 # <a name="azure-network-security"></a>Segurança de rede do Azure
 
@@ -90,7 +90,7 @@ Você pode conectar as VNets entre si, permitindo que os recursos conectados a q
 
 - **Emparelhamento:** Permite que os recursos conectados a diferentes VNets do Azure na mesma localização do Azure se comuniquem entre si. A largura de banda e a latência entre as VNets são as mesmas que se os recursos estivessem conectados à mesma VNet. Para saber mais sobre emparelhamento, leia [Emparelhamento de rede virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 
- ![Emparelhamento](media/azure-network-security/azure-network-security-fig-3.png)
+  ![Emparelhamento](media/azure-network-security/azure-network-security-fig-3.png)
 
 - **Conexão de VNet para VNet:** Permite recursos conectados a uma VNet do Azure diferente dentro dos mesmos locais ou em locais diferentes do Azure. Ao contrário do emparelhamento, a largura de banda é limitada entre as VNets, pois o tráfego deve fluir por um Gateway de VPN do Azure.
 
@@ -318,19 +318,19 @@ O túnel forçado no Azure é configurado por meio de UDR (rotas de definidas pe
 
 A seção a seguir lista a limitação atual da tabela de roteamento e as rotas para uma Rede Virtual do Azure:
 
--   Cada sub-rede de rede virtual tem uma tabela de roteamento interna do sistema. A tabela de roteamento do sistema tem estes três grupos de rotas:
+- Cada sub-rede de rede virtual tem uma tabela de roteamento interna do sistema. A tabela de roteamento do sistema tem estes três grupos de rotas:
 
- -  **Rotas locais de Rede Virtual:** Diretamente para as VMs de destino na mesma rede virtual
+  -  **Rotas locais de Rede Virtual:** Diretamente para as VMs de destino na mesma rede virtual
 
- - **Rotas locais:** para um gateway de VPN do Azure
+  - **Rotas locais:** para um gateway de VPN do Azure
 
- -  **Rota padrão:** diretamente para a Internet. Os pacotes destinados para os endereços IP privados não cobertos pelas duas rotas anteriores serão removidos.
+  -  **Rota padrão:** diretamente para a Internet. Os pacotes destinados para os endereços IP privados não cobertos pelas duas rotas anteriores serão removidos.
 
--   Com a liberação de rotas definidas pelo usuário, você poderá criar uma tabela de roteamento para adicionar uma rota padrão e, em seguida, associar a tabela de roteamento às suas sub-redes de VNet para habilitar o túnel forçado nessas sub-redes.
+- Com a liberação de rotas definidas pelo usuário, você poderá criar uma tabela de roteamento para adicionar uma rota padrão e, em seguida, associar a tabela de roteamento às suas sub-redes de VNet para habilitar o túnel forçado nessas sub-redes.
 
--   Você precisa definir um "site padrão" entre sites locais entre locais conectado à rede virtual.
+- Você precisa definir um "site padrão" entre sites locais entre locais conectado à rede virtual.
 
--   O túnel forçado deve ser associado a uma Rede Virtual que tem um gateway de VPN de roteamento dinâmico (e não um gateway estático).
+- O túnel forçado deve ser associado a uma Rede Virtual que tem um gateway de VPN de roteamento dinâmico (e não um gateway estático).
 
 - O túnel forçado do ExpressRoute não é configurado por meio deste mecanismo, mas é habilitado por meio do anúncio de uma rota padrão por meio de sessões de emparelhamento via protocolo BGP do ExpressRoute.
 
@@ -393,7 +393,7 @@ Além disso, o WAF de Gateway de Aplicativo ajuda a monitorar os aplicativos Web
 
 O log em formato JSON vai diretamente para a conta de armazenamento do cliente. Você tem controle total sobre esses logs e pode aplicar suas próprias políticas de retenção.
 
-Você também pode ingerir esses logs em seu próprio sistema de análise usando a [Integração de Log do Azure](https://aka.ms/AzLog). Logs de WAF também são integrados com o [Log Analytics](../log-analytics/log-analytics-overview.md) de modo que você pode usar o Log Analytics para executar consultas refinadas sofisticadas.
+Você também pode ingerir esses logs em seu próprio sistema de análise usando a [Integração de Log do Azure](https://aka.ms/AzLog). Logs de WAF também são integrados [registra em log do Azure Monitor](../log-analytics/log-analytics-overview.md) para que você pode usar os logs do Azure Monitor para executar consultas refinadas sofisticadas.
 
 #### <a name="azure-web-application-firewall-waf"></a>WAF (Firewall do aplicativo Web) do Azure
 
@@ -507,7 +507,7 @@ O Azure oferece várias ferramentas para monitorar, prevenir, detectar e respond
 
 -   Monitoramento no nível do recurso de rede
 
--   Log Analytics
+-   Logs do Azure Monitor
 
 ### <a name="network-watcher"></a>Observador de Rede
 
@@ -597,17 +597,17 @@ As métricas são medidas de desempenho e contadores coletados em um período de
 
 #### <a name="diagnostic-logs"></a>Logs de diagnóstico
 
-Os eventos periódicos e espontâneas são criados pelos recursos da rede e registrados nas contas de armazenamento, enviados para um Hub de Eventos ou Log Analytics. Esses logs fornecem informações sobre a integridade de um recurso. Esses logs podem ser visualizados em ferramentas como o Power BI e o Log Analytics. Para saber como exibir os logs de diagnóstico, visite [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics).
+Eventos periódicos e espontâneas são criados pelos recursos da rede e registrados nas contas de armazenamento, enviadas para um Hub de eventos ou logs do Azure Monitor. Esses logs fornecem informações sobre a integridade de um recurso. Esses logs podem ser visualizados em ferramentas como logs do Power BI e o Azure Monitor. Para saber como exibir os logs de diagnóstico, visite [registra em log do Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics).
 
 Os logs de diagnóstico estão disponíveis para o [Balanceador de Carga](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log), [Grupos de Segurança da Rede](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log), Rotas e [Gateway de Aplicativo](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics).
 
 O Observador de Rede fornece uma exibição dos logs de diagnóstico. Essa exibição contém todos os recursos de rede que oferecem suporte ao log de diagnóstico. Nessa exibição, você pode habilitar e desabilitar os recursos de rede de modo rápido e prático.
 
-### <a name="log-analytics"></a>Log Analytics
+### <a name="azure-monitor-logs"></a>Logs do Azure Monitor
 
-O [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) é um serviço no Azure que monitora seus ambientes na nuvem e locais a fim de manter a disponibilidade e o desempenho. Ele coleta dados gerados pelos recursos em seus ambientes de nuvem e locais e de outras ferramentas de monitoramento para fornecer análise de várias fontes.
+[Os logs do Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) é um serviço no Azure que monitora a sua nuvem e ambientes para manter a disponibilidade e desempenho no local. Ele coleta dados gerados pelos recursos em seus ambientes de nuvem e locais e de outras ferramentas de monitoramento para fornecer análise de várias fontes.
 
-O Log Analytics oferece as seguintes soluções para monitorar suas redes:
+Os logs do Azure Monitor oferece as seguintes soluções para monitorar suas redes:
 
 -   Monitor de Desempenho de Rede (NPM)
 
@@ -627,7 +627,7 @@ Ela é usada para monitorar a conectividade entre:
 -   sub-redes hospeda várias camadas de um aplicativo de várias camadas.
 
 
-#### <a name="azure-application-gateway-analytics-in-log-analytics"></a>Análise do Gateway de Aplicativo do Azure no Log Analytics
+#### <a name="azure-application-gateway-analytics-in-azure-monitor-logs"></a>Análise de gateway de aplicativo do Azure nos logs do Azure Monitor
 
 Nos Gateways de Aplicativo, há suporte para os seguintes logs:
 
@@ -641,7 +641,7 @@ Há suporte para as seguintes métricas nos Gateways de Aplicativo:
 
 -   Taxa de transferência de 5 minutos
 
-#### <a name="azure-network-security-group-analytics-in-log-analytics"></a>Análise do Grupo de Segurança de Rede do Azure no Log Analytics
+#### <a name="azure-network-security-group-analytics-in-azure-monitor-logs"></a>Análise de grupo de segurança de rede do Azure nos logs do Azure Monitor
 
 Nos [grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log), há suporte para os seguintes logs:
 
@@ -652,7 +652,7 @@ Nos [grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-netw
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre a segurança lendo alguns dos tópicos detalhados sobre segurança:
 
--   [Análise de logs para NSGs (grupos de segurança de rede)](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)
+-   [Logs de Monitor do Azure para grupos de segurança de rede (NSGs)](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)
 
 -   [As inovações de rede que causam a interrupção da nuvem](https://azure.microsoft.com/blog/networking-innovations-that-drive-the-cloud-disruption/)
 

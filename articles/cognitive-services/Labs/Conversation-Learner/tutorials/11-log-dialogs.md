@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 9a819f94ae0cc90d86fdbdf4c9201f1d5a2df6ee
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: e3a84bfa643ebe74983bcef0d0ea72c701ffa589
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213337"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170489"
 ---
 # <a name="how-to-log-dialogs-in-a-conversation-learner-model"></a>Como registrar diálogos com um modelo de Aprendizado de Conversa
 
@@ -55,6 +55,8 @@ Este modelo contém uma entidade chamada "cidade" e ações projetadas para resp
 9. Selecione a resposta, "O clima em Austin está provavelmente ensolarado".
 10. Clique no botão "Salvar como Diálogo de Treinamento".
     - O treinamento é iniciado imediatamente
+
+![](../media/T11_logdialog.png)
 
 Uma última observação. Dependendo das necessidades de negócios, o recurso de registro em log de conversa pode ser desativado indo para as configurações e desmarcando "Registrar conversas".
 

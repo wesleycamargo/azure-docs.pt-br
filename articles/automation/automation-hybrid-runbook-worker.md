@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d61b39eb0a7b6a35330e0cde2142029b8eb7ce03
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: 5f98cf51b618686e3c608535667993e9d5f9e939
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55512203"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852909"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatize recursos em seu datacenter ou nuvem usando o Hybrid Runbook Worker
 
@@ -97,9 +97,11 @@ Para remover um grupo, você primeiro precisa remover o Hybrid Runbook Worker de
 
 ### <a name="hybrid-worker-role"></a>Função de trabalhador híbrido
 
-Para o Hybrid Runbook Worker conectar e registrar com Log Analytics, ele deve ter acesso ao número da porta e às URLs descritas nesta seção. Esse acesso está na parte superior para as [portas e URLs necessárias para o Microsoft Monitoring Agent](../azure-monitor/platform/agent-windows.md) para se conectar ao Log Analytics.
+Para o Hybrid Runbook Worker conectar e registre-se com os logs do Azure Monitor, ele deve ter acesso ao número da porta e às URLs descritas nesta seção. Esse acesso é na parte superior para o [portas e URLs necessárias para o Microsoft Monitoring Agent](../azure-monitor/platform/agent-windows.md) para conectar-se aos logs do Azure Monitor.
 
-Se você usar um servidor proxy para comunicação entre o agente e o serviço do Log Analytics, verifique se os recursos apropriados estão acessíveis. Se você usar um firewall para restringir o acesso à Internet, precisará configurar o firewall para permitir o acesso. Se você usar o gateway do Log Analytics como um proxy, verifique se ele está configurado para hybrid workers. Para obter instruções sobre como fazer isso, confira [Configurar o Gateway do Log Analytics para Hybrid Workers de Automação](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway#configure-for-automation-hybrid-workers).
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+Se você usar um servidor proxy para comunicação entre o agente e o serviço do Azure Monitor, certifique-se de que os recursos apropriados estejam acessíveis. Se você usar um firewall para restringir o acesso à Internet, precisará configurar o firewall para permitir o acesso. Se você usar o gateway do Log Analytics como um proxy, verifique se ele está configurado para hybrid workers. Para obter instruções sobre como fazer isso, confira [Configurar o Gateway do Log Analytics para Hybrid Workers de Automação](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway).
 
 A porta e URLs a seguir são necessárias para a função do Hybrid Runbook Worker se comunicar com a Automação do Azure:
 
@@ -147,11 +149,8 @@ Na parte superior dos endereços padrão e portas que exige o Hybrid Runbook Wor
 |*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
 |*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
 
-## <a name="troubleshoot"></a>Solucionar problemas
-
-Para saber como solucionar problemas de seus trabalhadores com runbook híbrido, consulte [Solucionando problemas de trabalhadores com runbook híbrido](troubleshoot/hybrid-runbook-worker.md#general)
-
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber como configurar os runbooks para automatizar processos no datacenter local ou em outro ambiente de nuvem, consulte [Executar runbooks em um Hybrid Runbook Worker](automation-hrw-run-runbooks.md).
+* Para saber como configurar os runbooks para automatizar processos no datacenter local ou em outro ambiente de nuvem, consulte [Executar runbooks em um Hybrid Runbook Worker](automation-hrw-run-runbooks.md).
+* Para saber como solucionar problemas de seus trabalhadores com runbook híbrido, consulte [Solucionando problemas de trabalhadores com runbook híbrido](troubleshoot/hybrid-runbook-worker.md#general)
 

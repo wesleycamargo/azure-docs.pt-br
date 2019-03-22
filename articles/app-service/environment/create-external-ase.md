@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 7f0af2c64d04d83cc3eb4043007979c17c75e051
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 4a2c90accaafea0c17456f8e6c5eae41199b17ed
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877279"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105158"
 ---
 > [!NOTE]
 > Cada Ambiente do Serviço de Aplicativo tem um IP Virtual (VIP), que pode ser usado para entrar em contato com tal Ambiente.
->
-# <a name="create-an-external-app-service-environment"></a>Como criar um ambiente externo do Serviço de Aplicativo #
+> 
+> # <a name="create-an-external-app-service-environment"></a>Como criar um ambiente externo do Serviço de Aplicativo #
 
 O Ambiente do Serviço de Aplicativo do Azure é uma implantação do Serviço de Aplicativo do Azure em uma sub-rede de uma VNet (rede virtual) do Azure. Há duas maneiras de implantar um ASE (ambiente do serviço de aplicativo):
 
@@ -37,7 +37,7 @@ Este artigo mostra como criar um ASE Externo. Para obter uma visão geral do ASE
 
 Depois de criar o seu ASE, você não pode alterar os seguintes itens:
 
-- Local padrão
+- Localizaçãoização
 - Assinatura
 - Grupo de recursos
 - VNET usada
@@ -76,7 +76,7 @@ Para criar um ASE durante a criação de um plano do serviço de aplicativo:
 
 5. Clique no plano do serviço de aplicativo e, em seguida, selecione **Criar Novo**. Aplicativos web do Linux e aplicativos web do Windows não podem estar no mesmo Plano de Serviço de Aplicativo, mas podem estar no mesmo Ambiente de Serviço de Aplicativo. 
 
-    ![Plano do serviço de aplicativo novo][2]
+    ![Novo plano do Serviço de Aplicativo][2]
 
 6. Na lista suspensa **local**, selecione a região na qual deseja criar o ASE. Se você selecionar um ASE existente, não será criado um novo ASE. O plano do serviço de aplicativo é criado no ASE que você selecionou. 
 
@@ -90,7 +90,7 @@ Para criar um ASE durante a criação de um plano do serviço de aplicativo:
 
 9. Especifica os detalhes da sua rede virtual do Azure. Escolha **Criar novo** ou **Selecionar existente**. A opção de selecionar uma VNet existente está disponível somente se você tiver uma rede virtual na região selecionada. Se você selecionar **Criar novo**, insira um nome para a VNet. Então, é criado um novo VNet do Resource Manager com o nome inserido. Ele usa o espaço de endereço `192.168.250.0/23` na região selecionada. Se você escolher **Selecionar Existente**, precisará:
 
-     a. Selecione o bloco de endereço da VNet, se tiver mais de um.
+    a. Selecione o bloco de endereço da VNet, se tiver mais de um.
 
     b. Digite um novo nome de sub-rede.
 
@@ -112,7 +112,7 @@ Para criar um ASE durante a criação de um plano do serviço de aplicativo:
 
 1. Clique no plano do serviço de aplicativo e, em seguida, selecione **Criar Novo**. Aplicativos web do Linux e aplicativos web do Windows não podem estar no mesmo Plano de Serviço de Aplicativo, mas podem estar no mesmo Ambiente de Serviço de Aplicativo. 
 
-    ![Plano do serviço de aplicativo novo][8]
+    ![Novo plano do Serviço de Aplicativo][8]
 
 1. Na lista suspensa **local**, selecione a região na qual deseja criar o ASE. Se você selecionar um ASE existente, não será criado um novo ASE. O plano do serviço de aplicativo é criado no ASE que você selecionou. 
 
@@ -126,7 +126,7 @@ Para criar um ASE durante a criação de um plano do serviço de aplicativo:
 
 1. Especifica os detalhes da sua rede virtual do Azure. Escolha **Criar novo** ou **Selecionar existente**. A opção de selecionar uma VNet existente está disponível somente se você tiver uma rede virtual na região selecionada. Se você selecionar **Criar novo**, insira um nome para a VNet. Então, é criado um novo VNet do Resource Manager com o nome inserido. Ele usa o espaço de endereço `192.168.250.0/23` na região selecionada. Se você escolher **Selecionar Existente**, precisará:
 
-     a. Selecione o bloco de endereço da VNet, se tiver mais de um.
+    a. Selecione o bloco de endereço da VNet, se tiver mais de um.
 
     b. Digite um novo nome de sub-rede.
 

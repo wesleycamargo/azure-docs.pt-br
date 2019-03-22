@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 0b4e2d3e7c75e6d25c7d519d4179a635a7833b6b
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 3a47b18051036e925e54b9507bf2cb4e40aad844
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695314"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202514"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Conecte o Excel ao Apache Hadoop no HDInsight do Azure com o driver ODBC do Microsoft Hive
 
@@ -49,7 +49,7 @@ As etapas a seguir mostram como criar uma fonte de dados ODBC do Hive.
 
 4. Digite ou selecione os valores a seguir:
    
-   | Propriedade | DESCRIÇÃO |
+   | Propriedade | Descrição |
    | --- | --- |
    |  Nome da fonte de dados |Forneça um nome para a sua fonte de dados |
    |  Hosts |Insira &lt;HDInsightClusterName&gt;.azurehdinsight.net. Por exemplo, meu_Cluster_HDI.azurehdinsight.net |
@@ -62,7 +62,7 @@ As etapas a seguir mostram como criar uma fonte de dados ODBC do Hive.
    
 5. Opcional: Selecione **Opções Avançadas...**  
    
-   | Parâmetro | DESCRIÇÃO |
+   | Parâmetro | Descrição |
    | --- | --- |
    |  Use Consulta Nativa |Quando selecionado, o driver ODBC NÃO tenta converter TSQL em HiveQL. Você deverá usar essa opção somente se estiver 100% certo de que está enviando instruções HiveQL puras. Ao conectar-se ao SQL Server ou ao Banco de Dados SQL do Azure, deixe-a desmarcada. |
    |  Linhas buscadas por bloco |Ao buscar uma grande quantidade de registros, o ajuste desse parâmetro poderá ser necessário para garantir o desempenho ideal. |
@@ -107,7 +107,6 @@ Neste artigo você aprendeu a usar o driver ODBC do Microsoft Hive para recupera
 * [Carregue os dados no HDInsight](./../hdinsight-upload-data.md).
 
 [hdinsight-use-sqoop]:hdinsight-use-sqoop.md
-[hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
 [hdinsight-use-hive]:hdinsight-use-hive.md
 [hdinsight-upload-data]: ../hdinsight-upload-data.md
 [hdinsight-power-query]: ../hdinsight-connect-excel-power-query.md

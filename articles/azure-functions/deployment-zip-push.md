@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: glenga
-ms.openlocfilehash: 03cb9384beba1afcb97a765824e63e79ca34aa62
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
-ms.translationtype: HT
+ms.openlocfilehash: 2762e5c4f2b67415a0e42e80a34ae5b34c57adc9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717211"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086574"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Implantação de zip para o Azure Functions
 
@@ -51,13 +51,13 @@ No entanto, você pode ter criado as suas funções usando o editor no Portal do
 
 + **No Portal do Azure:**
 
-    1. Conecte-se no [Portal do Azure](https://portal.azure.com) e, em seguida, vá para o seu aplicativo de funções.
+  1. Conecte-se no [Portal do Azure](https://portal.azure.com) e, em seguida, vá para o seu aplicativo de funções.
 
-    2. Na guia **Visão Geral**, selecione **Baixar conteúdo do aplicativo**. Selecione as opções de download e, em seguida, selecione **Baixar**.
+  2. Na guia **Visão Geral**, selecione **Baixar conteúdo do aplicativo**. Selecione as opções de download e, em seguida, selecione **Baixar**.
 
-        ![Baixe o projeto de aplicativo de funções](./media/deployment-zip-push/download-project.png)
+      ![Baixe o projeto de aplicativo de funções](./media/deployment-zip-push/download-project.png)
 
-    O arquivo .zip baixado está no formato correto para ser republicado no seu aplicativo de funções usando a implantação por push do .zip. O download do portal também pode adicionar os arquivos necessários para abrir o aplicativo de funções diretamente no Visual Studio.
+     O arquivo .zip baixado está no formato correto para ser republicado no seu aplicativo de funções usando a implantação por push do .zip. O download do portal também pode adicionar os arquivos necessários para abrir o aplicativo de funções diretamente no Visual Studio.
 
 + **Usando APIs REST:**
 

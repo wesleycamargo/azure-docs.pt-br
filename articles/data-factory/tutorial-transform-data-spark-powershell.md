@@ -3,20 +3,20 @@ title: Transformar dados usando o Spark no Azure Data Factory | Microsoft Docs
 description: Este tutorial fornece instruções passo a passo para transformar dados usando a Atividade Spark no Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.author: douglasl
-ms.openlocfilehash: 644b9f3ce38b050e57fe234756a2a9a0127727c3
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: f273237431373aa69423ba244d4e7c509ffe7bfe
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424227"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57577102"
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Transformar os dados na nuvem usando a atividade Spark no Azure Data Factory
 Neste tutorial, você pode usar o Azure PowerShell para criar um pipeline do Data Factory que transforma dados usando a Atividade Spark e um serviço vinculado HDInsight sob demanda. Neste tutorial, você realizará os seguintes procedimentos:
@@ -31,8 +31,11 @@ Neste tutorial, você pode usar o Azure PowerShell para criar um pipeline do Dat
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 * **Conta de Armazenamento do Azure**. Você cria um script Python e um arquivo de entrada e carrega-os no Armazenamento do Azure. A saída do programa Spark é armazenada nessa conta de armazenamento. O cluster do Spark sob demanda usa a mesma conta de armazenamento que o respectivo armazenamento primário.  
-* **PowerShell do Azure**. Siga as instruções em [Como instalar e configurar o Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+* **PowerShell do Azure**. Siga as instruções em [Como instalar e configurar o Azure PowerShell](/powershell/azure/install-Az-ps).
 
 
 ### <a name="upload-python-script-to-your-blob-storage-account"></a>Carregar o script Python em sua conta de Armazenamento de Blobs
@@ -203,27 +206,27 @@ Você criou definições de serviço vinculado e de pipeline em arquivos JSON. A
     Execute o comando a seguir e insira o nome de usuário e senha usados para entrar no portal do Azure:
         
     ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```        
     Execute o comando abaixo para exibir todas as assinaturas dessa conta:
 
     ```powershell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
     Execute o comando a seguir para selecionar a assinatura com a qual deseja trabalhar. Substitua **SubscriptionId** pela ID da assinatura do Azure:
 
     ```powershell
-    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"    
+    Select-AzSubscription -SubscriptionId "<SubscriptionId>"    
     ```  
 3. Crie o grupo de recursos: ADFTutorialResourceGroup. 
 
     ```powershell
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location "East Us" 
+    New-AzResourceGroup -Name $resourceGroupName -Location "East Us" 
     ```
 4. Crie o data factory. 
 
     ```powershell
-     $df = Set-AzureRmDataFactoryV2 -Location EastUS -Name $dataFactoryName -ResourceGroupName $resourceGroupName
+     $df = Set-AzDataFactoryV2 -Location EastUS -Name $dataFactoryName -ResourceGroupName $resourceGroupName
     ```
 
     Execute o comando a seguir para ver a saída: 
@@ -234,17 +237,17 @@ Você criou definições de serviço vinculado e de pipeline em arquivos JSON. A
 5. Mude para a pasta em que você criou arquivos JSON e execute o seguinte comando para implantar um serviços vinculado do Armazenamento do Azure: 
        
     ```powershell
-    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyStorageLinkedService" -File "MyStorageLinkedService.json"
+    Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyStorageLinkedService" -File "MyStorageLinkedService.json"
     ```
 6. Execute o comando a seguir para implantar um serviço vinculado do Spark sob demanda: 
        
     ```powershell
-    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyOnDemandSparkLinkedService" -File "MyOnDemandSparkLinkedService.json"
+    Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyOnDemandSparkLinkedService" -File "MyOnDemandSparkLinkedService.json"
     ```
 7. Execute o seguinte comando para implantar um pipeline: 
        
     ```powershell
-    Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name $pipelineName -File "MySparkOnDemandPipeline.json"
+    Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name $pipelineName -File "MySparkOnDemandPipeline.json"
     ```
     
 ## <a name="start-and-monitor-a-pipeline-run"></a>Iniciar e monitorar uma execução de pipeline  
@@ -252,13 +255,13 @@ Você criou definições de serviço vinculado e de pipeline em arquivos JSON. A
 1. Inicie uma execução de pipeline. Ele também captura a ID da execução de pipeline para monitoramento futuro.
 
     ```powershell
-    $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName  
+    $runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName  
     ```
 2. Execute o script a seguir para verificar continuamente o status do pipeline de execução até que ele termine.
 
     ```powershell
     while ($True) {
-        $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+        $result = Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
     
         if(!$result) {
             Write-Host "Waiting for pipeline to start..." -foregroundcolor "Yellow"

@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 08/31/2018
 ms.author: danlep
-ms.openlocfilehash: 85b67fb4fa474bb00b5b7ca66580273671081cdf
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 2687a64bfd952888086862d929a3e5869aee5a4f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478178"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58003426"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Usar as Instâncias de Contêiner do Azure como um agente de build Jenkins
 
@@ -73,7 +73,7 @@ Para obter mais informações sobre as Instâncias de Contêiner do Azure, consu
    sudo cat /var/lib/jenkins/secrets/initialAdminPassword
    ```
 
-5. Deixe a sessão SSH e o túnel em execução e navegue até http://localhost:8080 em um navegador. Cole a senha de administrador inicial na caixa e, em seguida, selecione **Continuar**.
+5. Deixe a sessão SSH e o túnel em execução e navegue até `http://localhost:8080` em um navegador. Cole a senha de administrador inicial na caixa e, em seguida, selecione **Continuar**.
 
    ![Tela "Desbloquear Jenkins" com a caixa para a senha do administrador](./media/container-instances-jenkins/jenkins-portal-05.png)
 

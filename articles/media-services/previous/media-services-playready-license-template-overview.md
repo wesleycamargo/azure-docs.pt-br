@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 6e5e8597ef5f080f557e40d9f053f13daee1ffd0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: d2831472bcddf3480a87e69661b39e4ec715c786
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989348"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58257688"
 ---
 # <a name="media-services-playready-license-template-overview"></a>Visão geral do modelo de licença do PlayReady dos Serviços de Mídia
 Os Serviços de Mídia do Azure fornecem um serviço de distribuição de licenças do PlayReady. Quando o player (por exemplo, Silverlight) tenta reproduzir o conteúdo protegido por PlayReady, uma solicitação é enviada para o serviço de entrega de licença para a obtenção de uma licença. Se o serviço de licença aprovar a solicitação, ele emite a licença que é enviada ao cliente e é usada para descriptografar e reproduzir o conteúdo especificado.
@@ -44,7 +44,7 @@ Para configurar as licenças do PlayReady usando os Serviços de Mídia, você d
 O exemplo a seguir mostra o modelo mais simples (e mais comum) que configura uma licença básica de transmissão. Com essa licença, seus clientes podem reproduzir o conteúdo protegido do seu PlayReady.
 
     <?xml version="1.0" encoding="utf-8"?>
-    <PlayReadyLicenseResponseTemplate xmlns:i="http://www.w3.org/2001/XMLSchema-instance" 
+    <PlayReadyLicenseResponseTemplate xmlns:i="https://www.w3.org/2001/XMLSchema-instance" 
                                       xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1">
       <LicenseTemplates>
         <PlayReadyLicenseTemplate>
@@ -85,7 +85,7 @@ Para obter um exemplo dos níveis de proteção para os quais o Silverlight dá 
 
 ## <a id="schema"></a>Esquema XML do modelo de licença do PlayReady
     <?xml version="1.0" encoding="utf-8"?>
-    <xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1" xmlns:xs="https://www.w3.org/2001/XMLSchema">
       <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xs:complexType name="AgcAndColorStripeRestriction">
         <xs:sequence>

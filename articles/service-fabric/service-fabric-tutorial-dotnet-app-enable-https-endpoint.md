@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/17/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 541d1473b21056e24c6b04b86414936a02b7d9d5
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 5308fc024a53fdbbef12b409622cc35adaea1e2e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382571"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57857701"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Tutorial: adicionar um ponto de extremidade HTTPS a um serviço de front-end de API Web do ASP.NET Core usando o Kestrel
 
@@ -83,8 +83,8 @@ Inicie o Visual Studio como um **administrador** e abra a solução de votação
 <ServiceManifest Name="VotingWebPkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <StatelessServiceType ServiceTypeName="VotingWebType" />
   </ServiceTypes>
@@ -193,8 +193,8 @@ No Gerenciador de Soluções, abra *VotingWeb/PackageRoot/ServiceManifest.xml*. 
 <ServiceManifest Name="VotingWebPkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <StatelessServiceType ServiceTypeName="VotingWebType" />
   </ServiceTypes>
@@ -297,7 +297,7 @@ Em seguida, na seção **ServiceManifestImport** do VotingWebPkg, configure uma 
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
     <Parameter Name="VotingData_MinReplicaSetSize" DefaultValue="3" />
     <Parameter Name="VotingData_PartitionCount" DefaultValue="1" />
@@ -341,7 +341,7 @@ Em seguida, na seção **ServiceManifestImport** do VotingWebPkg, configure uma 
 
 ## <a name="run-the-application-locally"></a>Executar o aplicativo localmente
 
-No Gerenciador de Soluções, selecione o aplicativo de **Votação** e defina a propriedade **URL do aplicativo** para “ https://localhost:443 ”.
+No Gerenciador de Soluções, selecione o aplicativo de **Votação** e defina a propriedade **URL do aplicativo** para “ <https://localhost:443> ”.
 
 Salve todos os arquivos e pressione F5 para executar o aplicativo localmente.  Depois que o aplicativo é implantado, um navegador da Web abre como [https://localhost:443](https://localhost:443). Se você estiver usando um certificado autoassinado, verá um aviso informando que seu computador não confia na segurança desse site.  Siga até a página da Web.
 

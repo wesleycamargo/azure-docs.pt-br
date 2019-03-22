@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e4b737117880393e24fe6ea00223fb0f719be4e4
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: c07f01acb95523171f0297f7e2fd531713f1facf
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980460"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550149"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Recursos e extensões da máquina virtual para Windows
 
@@ -34,7 +34,7 @@ Este artigo fornece uma visão geral das extensões da VM, pré-requisitos para 
 Há várias extensões de VM do Azure diferentes disponíveis, cada uma com um caso de uso específico. Alguns exemplos incluem:
 
 - Aplique as configurações de Estado Desejado do PowerShell a uma VM usando a extensão de DSC para Windows. Para saber mais, confira [Extensão de configuração de Estado Desejado do Azure](dsc-overview.md).
-- Configure o monitoramento de uma VM com a extensão de VM do Microsoft Monitoring Agent. Para saber mais, consulte [Conectar VMs do Azure ao Log Analytics](../../log-analytics/log-analytics-azure-vm-extension.md).
+- Configure o monitoramento de uma VM com a extensão de VM do Microsoft Monitoring Agent. Para obter mais informações, consulte [conectar-se a VMs do Azure para logs do Azure Monitor](../../log-analytics/log-analytics-azure-vm-extension.md).
 - Configure uma VM do Azure ao usar o Chef. Para obter mais informações, consulte [Automatizar a implantação de VM do Azure com o Chef](../windows/chef-automation.md).
 - Configure o monitoramento de sua infraestrutura do Azure com a extensão Datadog. Para saber mais, confira [blog Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
@@ -366,7 +366,7 @@ As seguintes etapas de solução de problemas aplicam-se a todas as extensões d
 
 ### <a name="view-extension-status"></a>Exibir o status da extensão
 
-Depois de uma extensão da VM ter sido executada em uma VM, use [Get-AzVM ](https://docs.microsoft.com/powershell/module/az.compute/get-azvm)para retornar o status da extensão. O *Substatus [0]* mostra que o provisionamento de extensão foi bem-sucedido, o que significa que foi implantado com sucesso na VM, mas que houve falha na execução da extensão dentro da VM, *Substatus [1]*.
+Após executar uma extensão de VM em uma máquina virtual, use [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) para retornar o status da extensão. O *Substatus [0]* mostra que o provisionamento de extensão foi bem-sucedido, o que significa que foi implantado com sucesso na VM, mas que houve falha na execução da extensão dentro da VM, *Substatus [1]*.
 
 ```powershell
 Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status

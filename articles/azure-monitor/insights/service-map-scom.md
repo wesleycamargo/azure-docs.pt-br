@@ -1,24 +1,24 @@
 ---
 title: Integração do Mapa do Serviço com o System Center Operations Manager | Microsoft Docs
 description: O Mapa do Serviço é uma solução no Azure que descobre automaticamente os componentes do aplicativo nos sistemas Windows e Linux, e mapeia a comunicação entre os serviços. Este artigo aborda o uso do Mapa de Serviço para criar automaticamente diagramas de aplicativos distribuídos no Operations Manager.
-services: monitoring
+services: azure-monitor
 documentationcenter: ''
-author: daveirwin1
-manager: jwhit
+author: mgoedtel
+manager: carmonm
 editor: tysonn
 ms.assetid: e8614a5a-9cf8-4c81-8931-896d358ad2cb
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
-ms.author: bwren
-ms.openlocfilehash: 73e27044fc8cc79b2c95471e30bca558bd14d473
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.author: magoedte
+ms.openlocfilehash: 40e6d6ff6ea8748b525642e5507c80590b322b7a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818746"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110096"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Integração do Mapa do Serviço com o System Center Operations Manager
 
@@ -67,11 +67,11 @@ Para configurar a integração do Mapa do Serviço, faça o seguinte:
 
     Para que a integração crie um diagrama de aplicativo distribuído para um servidor, o servidor deve ser/estar:
 
-    * Gerenciado pelo Operations Manager
-    * Gerenciado pelo Mapa do Serviço
-    * Listado no Grupo de Servidores do Mapa do Serviço
+   * Gerenciado pelo Operations Manager
+   * Gerenciado pelo Mapa do Serviço
+   * Listado no Grupo de Servidores do Mapa do Serviço
 
-    ![O grupo de configuração do Operations Manager](media/service-map-scom/scom-config-group.png)
+     ![O grupo de configuração do Operations Manager](media/service-map-scom/scom-config-group.png)
 
 6. Opcional: Selecione o pool de recursos do Servidor de Gerenciamento para se comunicar com o Log Analytics e, em seguida, clique em **Adicionar Workspace**.
 

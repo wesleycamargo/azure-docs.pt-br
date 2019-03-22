@@ -1,5 +1,5 @@
 ---
-title: Criar consultas de rastreamento para mensagens B2B no Log Analytics - Aplicativos Lógicos do Azure | Microsoft Docs
+title: Criar consultas de rastreamento para mensagens B2B nos logs do Azure Monitor - aplicativos lógicos do Azure | Microsoft Docs
 description: Crie consultas que rastreiam mensagens AS2, X12 e EDIFACT no Azure Log Analytics para os Aplicativos Lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
@@ -9,19 +9,21 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: 5cfab07e19e543b7a46fcce8f449a46395c144d6
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: d4a94e75de34bbafd3bc8f1c1a0d1a6817245e5f
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995311"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194904"
 ---
-# <a name="create-tracking-queries-for-b2b-messages-in-azure-log-analytics-for-azure-logic-apps"></a>Criar consultas de rastreamento para mensagens B2B no Azure Log Analytics para os Aplicativos Lógicos do Azure
+# <a name="create-tracking-queries-for-b2b-messages-in-azure-monitor-logs-for-azure-logic-apps"></a>Criar consultas de rastreamento para mensagens B2B nos logs do Azure Monitor para aplicativos lógicos do Azure
 
-Para encontrar mensagens AS2, X12 ou EDIFACT que você está acompanhando com [Log de Análises do Azure](../log-analytics/log-analytics-overview.md), é possível criar consultas que filtram ações com base em critérios específicos. Por exemplo, você pode encontrar mensagens baseado em um número de controle de intercâmbio específico.
+Para localizar AS2, X12 ou EDIFACT mensagens que você está rastreando com [registra em log do Azure Monitor](../log-analytics/log-analytics-overview.md), você pode criar consultas que filtram ações com base em critérios específicos. Por exemplo, você pode encontrar mensagens baseado em um número de controle de intercâmbio específico.
 
 > [!NOTE]
 > Anteriormente, esta página descrevia as etapas para executar essas tarefas com o OMS (Microsoft Operations Management Suite), que será [desativado em janeiro de 2019](../azure-monitor/platform/oms-portal-transition.md), substituindo essas etapas pelo Azure Log Analytics. 
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -29,7 +31,7 @@ Para encontrar mensagens AS2, X12 ou EDIFACT que você está acompanhando com [L
 
 * Uma conta de integração configurada com o monitoramento e log. Saiba [como criar uma conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) e [como configurar o monitoramento e log para essa conta](../logic-apps/logic-apps-monitor-b2b-message.md).
 
-* Se ainda não o fez, [publique os dados de diagnóstico no Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) e [configure o rastreamento de mensagens no Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+* Se você ainda não o fez [publicar dados de diagnóstico para os logs do Azure Monitor](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) e [Configure mensagens de rastreamento em logs do Azure Monitor](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 ## <a name="create-queries-with-filters"></a>Crie consultas com filtros
 
@@ -53,7 +55,7 @@ Para encontrar mensagens com base em propriedades ou valores específicos, você
 1. Na caixa de edição da consulta, comece a digitar o nome do campo que você deseja encontrar. Quando você começa a digitar, o editor de consultas mostra as possíveis correspondências e operações que você pode usar. Depois de criar sua consulta, escolha **Executar** ou pressione a tecla Enter.
 
    Este exemplo procura correspondências no **LogicAppB2B**. 
-   Saiba mais sobre [como encontrar dados no Log Analytics](../log-analytics/log-analytics-log-searches.md).
+   Saiba mais sobre [como encontrar dados nos logs do Azure Monitor](../log-analytics/log-analytics-log-searches.md).
 
    ![Começar a digitar a cadeia de consulta](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/create-query.png)
 

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: f0a0a17fa14272b78be5f431213c37d33619ff2f
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 366cce89e2ee5c446443c4dfc5ed12244bb4938d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56414993"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123735"
 ---
 # <a name="create-a-vnet-with-a-site-to-site-vpn-connection-using-powershell"></a>Criar uma Rede Virtual com uma conexão VPN site a site usando o PowerShell
 
@@ -37,7 +37,7 @@ Uma conexão de gateway de VPN Site a Site é usada para conectar a rede local a
 Verifique se você atende aos seguintes critérios antes de iniciar a configuração:
 
 * Verifique se você possui um dispositivo VPN compatível e alguém que possa configurá-lo. Para obter mais informações sobre dispositivos VPN compatíveis e a configuração de dispositivo, confira [Sobre dispositivos VPN](vpn-gateway-about-vpn-devices.md).
-* Verifique se você possui um endereço IPv4 público voltado para o exterior para seu dispositivo VPN. Esse endereço IP não pode estar localizado atrás de um NAT.
+* Verifique se você possui um endereço IPv4 público voltado para o exterior para seu dispositivo VPN.
 * Se não estiver familiarizado com os intervalos de endereços IP localizados na configuração de rede local, você precisará trabalhar em conjunto com alguém que possa lhe fornecer os detalhes. Ao criar essa configuração, você deve especificar os prefixos de intervalo de endereços IP que o Azure roteará para seu local. Nenhuma das sub-redes da rede local podem se sobrepor às sub-redes de rede virtual às quais você deseja se conectar.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
@@ -105,16 +105,16 @@ Criar sua rede virtual.
 
 1. Defina as variáveis.
 
-  ```azurepowershell-interactive
-  $subnet1 = New-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0/27
-  $subnet2 = New-AzVirtualNetworkSubnetConfig -Name 'Frontend' -AddressPrefix 10.1.0.0/24
-  ```
+   ```azurepowershell-interactive
+   $subnet1 = New-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0/27
+   $subnet2 = New-AzVirtualNetworkSubnetConfig -Name 'Frontend' -AddressPrefix 10.1.0.0/24
+   ```
 2. Crie a Rede Virtual.
 
-  ```azurepowershell-interactive
-  New-AzVirtualNetwork -Name VNet1 -ResourceGroupName TestRG1 `
-  -Location 'East US' -AddressPrefix 10.1.0.0/16 -Subnet $subnet1, $subnet2
-  ```
+   ```azurepowershell-interactive
+   New-AzVirtualNetwork -Name VNet1 -ResourceGroupName TestRG1 `
+   -Location 'East US' -AddressPrefix 10.1.0.0/16 -Subnet $subnet1, $subnet2
+   ```
 
 ### <a name="gatewaysubnet"></a>Para adicionar uma sub-rede do gateway a uma rede virtual já criada
 
@@ -122,19 +122,19 @@ Use as etapas nesta seção quando você já tem uma rede virtual, mas precisa a
 
 1. Defina as variáveis.
 
-  ```azurepowershell-interactive
-  $vnet = Get-AzVirtualNetwork -ResourceGroupName TestRG1 -Name TestVet1
-  ```
+   ```azurepowershell-interactive
+   $vnet = Get-AzVirtualNetwork -ResourceGroupName TestRG1 -Name TestVet1
+   ```
 2. Crie a sub-rede de gateway.
 
-  ```azurepowershell-interactive
-  Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0/27 -VirtualNetwork $vnet
-  ```
+   ```azurepowershell-interactive
+   Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0/27 -VirtualNetwork $vnet
+   ```
 3. Defina a configuração.
 
-  ```azurepowershell-interactive
-  Set-AzVirtualNetwork -VirtualNetwork $vnet
-  ```
+   ```azurepowershell-interactive
+   Set-AzVirtualNetwork -VirtualNetwork $vnet
+   ```
 
 ## 2. <a name="localnet"></a>Criar o gateway de rede local
 
@@ -142,7 +142,7 @@ O gateway de rede local (LNG) geralmente se refere ao seu local. Não é o mesmo
 
 Use os seguintes valores:
 
-* O *GatewayIPAddress* é o endereço IP do dispositivo VPN local. O dispositivo VPN não pode estar localizado atrás de um NAT.
+* O *GatewayIPAddress* é o endereço IP do dispositivo VPN local.
 * O *AddressPrefix* é o espaço de endereço local.
 
 Para adicionar um gateway de rede local com um único prefixo de endereço:
@@ -222,17 +222,17 @@ As conexões Site a Site para uma rede local exigem um dispositivo VPN. Nesta et
 Em seguida, crie a conexão VPN Site a Site entre o gateway de rede virtual e o dispositivo VPN. Substitua os valores pelos seus próprios. A chave compartilhada deve corresponder ao valor usado para a configuração do dispositivo VPN. Observe que o '-ConnectionType' para Site a Site é **IPsec**.
 
 1. Defina as variáveis.
-  ```azurepowershell-interactive
-  $gateway1 = Get-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
-  $local = Get-AzLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1
-  ```
+   ```azurepowershell-interactive
+   $gateway1 = Get-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
+   $local = Get-AzLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1
+   ```
 
 2. Crie a conexão.
-  ```azurepowershell-interactive
-  New-AzVirtualNetworkGatewayConnection -Name VNet1toSite1 -ResourceGroupName TestRG1 `
-  -Location 'East US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
-  -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
-  ```
+   ```azurepowershell-interactive
+   New-AzVirtualNetworkGatewayConnection -Name VNet1toSite1 -ResourceGroupName TestRG1 `
+   -Location 'East US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
+   -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
+   ```
 
 Após um instante, a conexão será estabelecida.
 

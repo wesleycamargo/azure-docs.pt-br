@@ -9,16 +9,16 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: glenga
-ms.openlocfilehash: f2f1313461fcb58ea48af99aeda2f7005534fe34
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
-ms.translationtype: HT
+ms.openlocfilehash: 6988fb547b07f81891efea3caad8bf34f4c8a476
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885180"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088410"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Visão geral de versões de tempo de execução do Azure Functions
 
- Há duas versões principais do Azure Functions Runtime: 1.x e 2.x. A versão atual em que o novo recurso funciona e melhorias estão sendo feitas é a 2.x, embora ambas deem suporte a cenários de produção.  A seguir estão detalhadas algumas das diferenças entre as duas versões, como você pode criar cada versão e atualizar da 1.x para a 2.x.
+ Há duas versões principais do Azure Functions runtime: 1.x e 2.x. A versão atual em que o novo recurso funciona e melhorias estão sendo feitas é a 2.x, embora ambas deem suporte a cenários de produção.  A seguir estão detalhadas algumas das diferenças entre as duas versões, como você pode criar cada versão e atualizar da 1.x para a 2.x.
 
 > [!NOTE]
 > Este artigo refere-se ao serviço de nuvem Azure Functions. Para obter informações sobre o produto de versão prévia que permite que você execute o Azure Functions localmente, confira a [Visão geral do Azure Functions Runtime](functions-runtime-overview.md).
@@ -29,7 +29,7 @@ O tempo de execução versão 2.x é executado no .NET Core 2, o que permite a e
 
 No entanto, o tempo de execução versão 1.x só dá suporte a desenvolvimento e hospedagem no portal do Azure ou em computadores Windows.
 
-## <a name="languages"></a>Linguagens
+## <a name="languages"></a>Languages
 
 O tempo de execução versão 2.x usa um novo modelo de extensibilidade de linguagem. Na versão 2.x, todas as funções em um aplicativo de funções devem compartilhar o mesmo idioma. A linguagem de funções em um aplicativo de funções é escolhida ao criá-lo.
 
@@ -49,7 +49,7 @@ Você pode optar por migrar um aplicativo existente, escrito para usar a versão
 
 ### <a name="changes-in-triggers-and-bindings"></a>Alterações nos gatilhos e associações
 
-A versão 2.x requer que você instale as extensões para associações e disparadores específicos usados pelas funções em seu aplicativo. A única exceção para isso são os gatilhos de temporizador e HTTP, que não exigem uma extensão.  Para obter mais informações, confira [Registrar e instalar extensões de associação](./functions-triggers-bindings.md#register-binding-extensions).
+A versão 2.x requer que você instale as extensões para associações e disparadores específicos usados pelas funções em seu aplicativo. A única exceção para isso são os gatilhos de temporizador e HTTP, que não exigem uma extensão.  Para obter mais informações, confira [Registrar e instalar extensões de associação](./functions-bindings-register.md).
 
 Também houve algumas alterações no `function.json` ou em atributos da função entre versões. Por exemplo, a propriedade `path` do Hub de Eventos agora é `eventHubName`. Veja a [tabela de associação existente](#bindings) para obter links para a documentação de cada associação.
 
@@ -65,9 +65,9 @@ As seguintes alterações foram feitas na versão 2.x:
 
 * O arquivo de configuração de host (host.json) deve estar vazio ou ter a cadeia de caracteres `"version": "2.0"`.
 
-* Para melhorar o monitoramento, o painel WebJobs no portal, o qual usou a configuração [`AzureWebJobsDashboard`](functions-app-settings.md#azurewebjobsdashboard), é substituído com o Azure Application Insights, que usa a configuração [`APPINSIGHTS_INSTRUMENTATIONKEY`](functions-app-settings.md#appinsightsinstrumentationkey). Para saber mais, consulte [Monitorar Azure Functions](functions-monitoring.md).
+* Para melhorar o monitoramento, o painel WebJobs no portal, o qual usou a configuração [`AzureWebJobsDashboard`](functions-app-settings.md#azurewebjobsdashboard), é substituído com o Azure Application Insights, que usa a configuração [`APPINSIGHTS_INSTRUMENTATIONKEY`](functions-app-settings.md#appinsights_instrumentationkey). Para saber mais, consulte [Monitorar Azure Functions](functions-monitoring.md).
 
-* Todas as funções em um aplicativo de funções devem compartilhar a mesma linguagem de programação. Quando você cria um aplicativo de funções, você deve escolher para ele uma pilha de tempo de execução. A pilha de tempo de execução é especificada pelo valor [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functionsworkerruntime) nas configurações do aplicativo. Esse requisito foi adicionado para melhorar o tempo de inicialização e o volume. Ao desenvolver localmente, você também deve incluir essa configuração no [arquivo local.settings.json](functions-run-local.md#local-settings-file).
+* Todas as funções em um aplicativo de funções devem compartilhar a mesma linguagem de programação. Quando você cria um aplicativo de funções, você deve escolher para ele uma pilha de tempo de execução. A pilha de tempo de execução é especificada pelo valor [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functions_worker_runtime) nas configurações do aplicativo. Esse requisito foi adicionado para melhorar o tempo de inicialização e o volume. Ao desenvolver localmente, você também deve incluir essa configuração no [arquivo local.settings.json](functions-run-local.md#local-settings-file).
 
 * O tempo limite padrão para as funções em um plano do Serviço de Aplicativo foi alterado para 30 minutos. Você pode alterar manualmente o tempo limite para ilimitado, usando a configuração [functionTimeout](functions-host-json.md#functiontimeout) em host.json.
 
@@ -95,7 +95,7 @@ No Visual Studio, você seleciona a versão de tempo de execução quando cria u
 ##### <a name="version-2x"></a>Versão 2.x
 
 ```xml
-<TargetFramework>netstandard2.0</TargetFramework>
+<TargetFramework>netcoreapp2.2</TargetFramework>
 <AzureFunctionsVersion>v2</AzureFunctionsVersion>
 ```
 
@@ -109,7 +109,7 @@ Para desenvolvimento no Visual Studio Code, você também precisará atualizar a
 
 ### <a name="changing-version-of-apps-in-azure"></a>Como alterar a versão de aplicativos no Azure
 
-A versão do tempo de execução do Functions usada por aplicativos publicados no Azure é determinada pela configuração de aplicativo [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functionsextensionversion). Um valor de `~2` destina-se ao tempo de execução versão 2.x, enquanto `~1` destina-se ao tempo de execução versão 1.x. Não altere essa configuração arbitrariamente, pois para isso provavelmente são necessárias outras alterações de configuração de aplicativo e alterações de código em suas funções. Para saber mais sobre a maneira recomendada de migrar seu aplicativo de funções para uma versão de tempo de execução diferente, confira [Como direcionar para versões do Azure Functions Runtime](set-runtime-version.md).
+A versão do tempo de execução do Functions usada por aplicativos publicados no Azure é determinada pela configuração de aplicativo [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version). Um valor de `~2` destina-se ao tempo de execução versão 2.x, enquanto `~1` destina-se ao tempo de execução versão 1.x. Não altere essa configuração arbitrariamente, pois para isso provavelmente são necessárias outras alterações de configuração de aplicativo e alterações de código em suas funções. Para saber mais sobre a maneira recomendada de migrar seu aplicativo de funções para uma versão de tempo de execução diferente, confira [Como direcionar para versões do Azure Functions Runtime](set-runtime-version.md).
 
 ## <a name="bindings"></a>Associações
 
@@ -121,11 +121,13 @@ O tempo de execução versão 2.x usa um novo [modelo de extensibilidade de asso
 
 * Um ambiente de execução mais leve, onde apenas as associações em uso são conhecidas e carregadas pelo tempo de execução.
 
-Com exceção dos gatilhos HTTP e de temporizador, todas as associações devem ser explicitamente adicionadas ao projeto do aplicativo de funções ou registradas no portal. Para obter mais informações, confira [Registrar extensões de associação](functions-triggers-bindings.md#register-binding-extensions).
+Com exceção dos gatilhos HTTP e de temporizador, todas as associações devem ser explicitamente adicionadas ao projeto do aplicativo de funções ou registradas no portal. Para obter mais informações, confira [Registrar extensões de associação](./functions-bindings-expressions-patterns.md).
 
 A tabela a seguir mostra quais associações são compatíveis em cada versão de tempo de execução.
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
+
+[!INCLUDE [Timeout Duration section](../../includes/functions-timeout-duration.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 

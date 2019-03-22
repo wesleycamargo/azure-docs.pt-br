@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: ganesr;cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 0d6d8af9456f5f943eb70b5a63b69e2f7f16a4cb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 5bf6f5662e20b003bd387a6826ab87117be3f113
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104230"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075775"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>Modificar um circuito da ExpressRoute usando o PowerShell (clássico)
 
@@ -48,25 +48,25 @@ Para entrar na conta do Azure, use o seguinte exemplo:
 
 1. Abra o console do PowerShell com direitos elevados e conecte-se à sua conta. Use o exemplo a seguir para ajudar a se conectar:
 
-  ```powershell
-  Connect-AzureRmAccount
-  ```
+   ```powershell
+   Connect-AzureRmAccount
+   ```
 2. Verificar as assinaturas da conta.
 
-  ```powershell
-  Get-AzureRmSubscription
-  ```
+   ```powershell
+   Get-AzureRmSubscription
+   ```
 3. Se você tiver mais de uma assinatura, selecione a assinatura que deseja usar.
 
-  ```powershell
-  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
-  ```
+   ```powershell
+   Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+   ```
 
 4. Use o cmdlet a seguir para adicionar sua assinatura do Azure ao PowerShell para o modelo de implantação clássico.
 
-  ```powershell
-  Add-AzureAccount
-  ```
+   ```powershell
+   Add-AzureAccount
+   ```
 
 ## <a name="get-the-status-of-a-circuit"></a>Obter o status de um circuito
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 0229b83a1b19e422954879ea9660373a34b18002
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: 739780bedc701cc63747db6100242d0d6cad6085
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340038"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542668"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Como usar políticas de alocação personalizadas
 
@@ -90,7 +90,7 @@ Nesta seção, você usará o Azure Cloud Shell para criar dois novos Hubs IoT r
 
 Nesta seção, você criará um novo grupo de registro que usará a política de alocação personalizada. Para simplificar, este artigo usa o [Atestado de chave simétrica](concepts-symmetric-key-attestation.md) com o registro. Para uma solução mais segura, considere usar o [Atestado de certificado X.509](concepts-security.md#x509-certificates) com uma cadeia de confiança.
 
-1. Entre no [portal do Azure](http://portal.azure.com) e abra a instância do Serviço de Provisionamento de Dispositivos.
+1. Entre no [portal do Azure](https://portal.azure.com) e abra a instância do Serviço de Provisionamento de Dispositivos.
 
 2. Selecione a guia **Gerenciar registros** e clique no botão **Adicionar grupo de registros** na parte superior da página. 
 
@@ -98,9 +98,9 @@ Nesta seção, você criará um novo grupo de registro que usará a política de
 
     **Nome do grupo**: Insira **contoso-custom-allocated-devices**.
 
-    **Tipo de Atestado**: Selecione **Chave Simétrica**.
+    **Tipo de Atestado**: selecione **Chave Simétrica**.
 
-    **Gerar Chaves Automaticamente**: Esta caixa de seleção já deve estar marcada.
+    **Gerar Chaves Automaticamente**: esta caixa de seleção já deve estar marcada.
 
     **Selecione como deseja atribuir dispositivos aos hubs**: Selecione **Personalizado (Use o Azure Functions)**.
 
@@ -555,7 +555,7 @@ Para excluir o grupo de recursos por nome:
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para saber mais sobre reprovisionamento, confira [Conceitos de reprovisionamento de dispositivos no Hub IoT](concepts-device-reprovision.md) 
-- Para saber mais sobre desprovisionamento, confira [Como desprovisionar dispositivos provisionados anteriormente de maneira automática ](how-to-unprovision-devices.md) 
+- Para saber mais desprovisionamento, consulte [como desprovisionar dispositivos que foram anteriormente autoprovisionado](how-to-unprovision-devices.md) 
 
 
 

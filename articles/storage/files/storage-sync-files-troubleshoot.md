@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 52e0521217fb99bc5fac3fdde8f43f9c80f86ac7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: eeda1ed3181b8cc8f641ed731b7f00fac2d3fad6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194224"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005833"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solucionar problemas da Sincronização de Arquivos do Azure
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -244,6 +244,7 @@ Para ver esses erros, execute o script do PowerShell **FileSyncErrorsReport.ps1*
 
 #### <a name="troubleshooting-per-filedirectory-sync-errors"></a>Solução de problemas por erros de sincronização de arquivos/diretórios
 **ItemResulta erros de sincronização de log por item**  
+
 | HRESULT | HRESULT (decimal) | Cadeia de caracteres de erro | Problema | Correção |
 |---------|-------------------|--------------|-------|-------------|
 | 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | Uma alteração de arquivo ou diretório ainda não pode ser sincronizada porque uma pasta dependente ainda não está sincronizada. Este item será sincronizado após o mudanças dependentes serem sincronizadas. | Nenhuma ação é necessária. |
@@ -271,6 +272,7 @@ A tabela abaixo contém todos os caracteres unicode que o Azure File Sync ainda 
 
 ### <a name="common-sync-errors"></a>Erros comuns de sincronização
 <a id="-2147023673"></a>**A sessão de sincronização foi cancelada.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x800704c7 |
@@ -281,6 +283,7 @@ A tabela abaixo contém todos os caracteres unicode que o Azure File Sync ainda 
 As sessões de sincronização podem falhar por diversos motivos, incluindo o servidor que está sendo reiniciado ou atualizado, instantâneos do VSS etc. Embora esse erro pareça exigir acompanhamento, é seguro ignorar esse erro, a menos que ele persista por um período de várias horas.
 
 <a id="-2147012889"></a>**Não foi possível estabelecer uma conexão com o serviço.**    
+
 | | |
 |-|-|
 | **HRESULT** | 0x80072ee7 |
@@ -291,6 +294,7 @@ As sessões de sincronização podem falhar por diversos motivos, incluindo o se
 [!INCLUDE [storage-sync-files-bad-connection](../../../includes/storage-sync-files-bad-connection.md)]
 
 <a id="-2134376372"></a>**A solicitação do usuário foi limitada pelo serviço.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80c8004c |
@@ -301,6 +305,7 @@ As sessões de sincronização podem falhar por diversos motivos, incluindo o se
 Nenhuma ação é necessária; o servidor tentará novamente. Se esse erro persistir por mais de algumas horas, crie uma solicitação de suporte.
 
 <a id="-2134364065"></a>**A sincronização não pode acessar o compartilhamento de arquivos do Azure especificado no ponto de extremidade da nuvem.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80c8305f |
@@ -316,6 +321,7 @@ Esse erro ocorre porque o agente do Azure File Sync não pode acessar o comparti
 4. [Certifique-se de que a sincronização de arquivos do Azure tem acesso à conta de armazenamento.](#troubleshoot-rbac)
 
 <a id="-2134364064"></a><a id="cannot-resolve-storage"></a>**O nome da conta de armazenamento usado não pôde ser resolvido.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80C83060 |
@@ -332,6 +338,7 @@ Esse erro ocorre porque o agente do Azure File Sync não pode acessar o comparti
 3. [Verifique se a conta de armazenamento não contém regras de rede.](#troubleshoot-network-rules)
 
 <a id="-1906441138"></a>**Falha na sincronização devido a um problema com o banco de dados de sincronização.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x8e5e044e |
@@ -342,6 +349,7 @@ Esse erro ocorre porque o agente do Azure File Sync não pode acessar o comparti
 Esse erro ocorre quando há um problema com o banco de dados interno usado pelo Azure File Sync. Quando esse problema ocorrer, crie uma solicitação de suporte e entraremos em contato para ajudá-lo a resolver esse problema.
 
 <a id="-2134364053"></a>**A versão do agente de Sincronização de Arquivos do Azure instalada no servidor não tem suporte.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80C8306B |
@@ -352,6 +360,7 @@ Esse erro ocorre quando há um problema com o banco de dados interno usado pelo 
 Este erro ocorrerá se versão do agente de Sincronização de Arquivos do Azure instalada no servidor não for compatível. Para resolver esse problema [atualize]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#upgrade-paths) para uma [versão do agente compatível]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#supported-versions).
 
 <a id="-2134351810"></a>**Você atingiu o limite de armazenamento de compartilhamento de arquivos do Azure.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80c8603e |
@@ -377,6 +386,7 @@ Esse erro ocorre quando o limite de armazenamento de compartilhamento de arquivo
 Se o compartilhamento estiver cheio e uma cota não estiver configurada, uma maneira possível de corrigir esse problema é transformar cada subpasta do terminal do servidor atual em seu próprio terminal do servidor em seus próprios grupos de sincronização separados. Dessa forma, cada subpasta será sincronizada com compartilhamentos de arquivos individuais do Azure.
 
 <a id="-2134351824"></a>**O compartilhamento de arquivos do Azure não foi encontrado.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80c86030 |
@@ -392,6 +402,7 @@ Este erro ocorre quando o compartilhamento de arquivos do Azure não está acess
 Se o compartilhamento de arquivos do Azure tiver sido excluído, você precisará criar um novo compartilhamento de arquivos e, em seguida, recriar o grupo de sincronização. 
 
 <a id="-2134364042"></a>**A sincronização é pausada enquanto esta assinatura do Azure é suspensa.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80C83076 |
@@ -402,6 +413,7 @@ Se o compartilhamento de arquivos do Azure tiver sido excluído, você precisar�
 Este erro ocorre quando a assinatura do Azure é suspensa. A sincronização será reativada quando a assinatura do Azure for restaurada. Consulte [Por que minha assinatura do Azure está desativada e como eu a reativo?](../../billing/billing-subscription-become-disable.md) para obter mais informações.
 
 <a id="-2134364052"></a> **A conta de armazenamento tem um firewall ou redes virtuais configuradas.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80c8306c |
@@ -417,6 +429,7 @@ Esse erro ocorre quando o compartilhamento de arquivos do Azure está inacessív
 Remova essas regras para corrigir esse problema. 
 
 <a id="-2134375911"></a>**Falha na sincronização devido a um problema com o banco de dados de sincronização.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80c80219 |
@@ -432,6 +445,7 @@ Esse erro geralmente se resolve e pode ocorrer se houver:
 Se esse erro persistir por mais de algumas horas, crie uma solicitação de suporte e entraremos em contato para ajudá-lo a resolver esse problema.
 
 <a id="-2146762487"></a>**O servidor não conseguiu estabelecer uma conexão segura. O serviço de nuvem recebeu um certificado inesperado.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x800b0109 |
@@ -456,6 +470,7 @@ Esse erro pode ocorrer se sua organização estiver usando um proxy de finaliza�
 Ao definir esse valor do Registro, o agente do Azure File Sync aceitará qualquer certificado SSL confiável localmente ao transferir dados entre o servidor e o serviço de nuvem.
 
 <a id="-2147012894"></a>**Não foi possível estabelecer uma conexão com o serviço.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80072ee2 |
@@ -466,6 +481,7 @@ Ao definir esse valor do Registro, o agente do Azure File Sync aceitará qualque
 [!INCLUDE [storage-sync-files-bad-connection](../../../includes/storage-sync-files-bad-connection.md)]
 
 <a id="-2134375680"></a> **A sincronização falhou devido a um problema com a autenticação.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80c80300 |
@@ -494,6 +510,7 @@ Se o horário do servidor estiver correto, execute as seguintes etapas para reso
     ```
 
 <a id="-1906441711"></a><a id="-2134375654"></a><a id="doesnt-have-enough-free-space"></a>**O volume onde se encontra o ponto de extremidade do servidor é baixo espaço em disco.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x8e5e0211 |
@@ -509,6 +526,7 @@ Se o horário do servidor estiver correto, execute as seguintes etapas para reso
 Este erro ocorre porque o volume foi preenchido. Esse erro geralmente ocorre porque os arquivos fora do terminal do servidor estão usando espaço no volume. Libere espaço no volume adicionando terminais adicionais do servidor, movendo arquivos para um volume diferente ou aumentando o tamanho do volume em que o terminal do servidor está.
 
 <a id="-2134364145"></a><a id="replica-not-ready"></a>**O serviço ainda não está pronto para sincronizar com esse ponto de extremidade do servidor.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80c8300f |
@@ -521,6 +539,7 @@ Esse erro ocorre porque há alterações no compartilhamento de arquivos do Azur
 [!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
 
 <a id="-2134375877"></a><a id="-2134375908"></a><a id="-2134375853"></a>**Falha na sincronização devido a problemas com muitos arquivos individuais.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80c8023b |
@@ -544,6 +563,7 @@ Nos casos em que há muitos erros de sincronização por arquivo, as sessões de
 > O Azure File Sync cria um instantâneo temporário do VSS uma vez por dia no servidor para sincronizar arquivos que tenham identificadores abertos.
 
 <a id="-2134376423"></a>**Falha na sincronização devido a um problema com o caminho do ponto de extremidade de servidor.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80c80019 |
@@ -554,6 +574,7 @@ Nos casos em que há muitos erros de sincronização por arquivo, as sessões de
 Assegure-se de que o caminho exista, esteja em um volume NTFS local e não seja um ponto de nova análise ou um terminal do servidor existente.
 
 <a id="-2134375817"></a>**Falha na sincronização porque a versão do driver de filtro não é compatível com a versão do agente**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80C80277 |
@@ -564,6 +585,7 @@ Assegure-se de que o caminho exista, esteja em um volume NTFS local e não seja 
 Esse erro ocorre porque a versão do driver do filtro de Camada de Nuvem (StorageSync.sys) carregada não é compatível com o serviço de Agente de Sincronização de Armazenamento (FileSyncSvc). Se o agente de Sincronização de Arquivos do Azure tiver sido atualizado, reinicie o servidor para concluir a instalação. Se o erro persistir, desinstale o agente, reinicie o servidor e reinstale o agente de Sincronização de Arquivos do Azure.
 
 <a id="-2134376373"></a>**O serviço está indisponível no momento.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80c8004b |
@@ -574,6 +596,7 @@ Esse erro ocorre porque a versão do driver do filtro de Camada de Nuvem (Storag
 Este erro ocorre porque o serviço de Sincronização de Arquivos do Azure está indisponível. Esse erro será resolvido automaticamente quando o serviço de Sincronização de Arquivos do Azure estiver disponível novamente.
 
 <a id="-2134375922"></a>**Falha na sincronização devido a um problema temporário com o banco de dados de sincronização.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80c8020e |
@@ -730,7 +753,7 @@ if ($fileShare -eq $null) {
 1. Clique na guia **Atribuições de função** para a lista de usuários e aplicativos (*entidades de serviço*) que têm acesso à sua conta de armazenamento.
 1. Verifique se **Serviço de Sincronização de Arquivos Híbridos** aparece na lista com a função **Leitor e o Acesso de Dados**. 
 
-    ![Uma captura de tela do principal de serviço do Serviço de Sincronização de Arquivo Híbrido na guia de controle de acesso da conta de armazenamento](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
+    ![Uma captura de tela da entidade de serviço do serviço de sincronização de arquivo híbrida na guia de controle de acesso da conta de armazenamento](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
 
     Se o **Serviço de Sincronização de Arquivos do Azure híbrido** não aparecer na lista, execute as seguintes etapas:
 
@@ -793,13 +816,13 @@ Há duas classes principais de falhas que podem ocorrer por meio de um desses ca
     - *Compartilhamento de arquivos do Azure inacessível*. Essa falha geralmente ocorre quando você exclui o compartilhamento de arquivos do Azure quando ainda é um ponto de extremidade de nuvem em um grupo de sincronização.
     - *Conta de armazenamento inacessível*. Essa falha normalmente acontece quando você exclui a conta de armazenamento enquanto ela ainda tem um compartilhamento de arquivos do Azure que é um ponto de extremidade de nuvem em um grupo de sincronização. 
 - Falhas de servidor 
-    - *O filtro do sistema de arquivos da Sincronização de arquivos do Azure (StorageSync.sys) não está carregado*. Para responder às solicitações de definição de camadas/recuperação, o filtro do sistema de arquivos da Sincronização de arquivos do Azure deve ser carregado. O filtro pode não ser carregado por diversos motivos, mas o motivo mais comum é quando um administrador o descarrega manualmente. O filtro do sistema de arquivos da Sincronização de arquivos do Azure deve ser carregado sempre para que a Sincronização de arquivos do Azure funcione corretamente.
-    - *Ponto de nova análise ausente, corrompido ou desfeito por algum outro motivo*. Um ponto de nova análise é uma estrutura de dados especial em um arquivo que consiste em duas partes:
-        1. Uma marca de nova análise, que indica para o sistema operacional que o filtro do sistema de arquivos da Sincronização de arquivos do Azure (StorageSync.sys) pode precisar executar alguma ação na E/S do arquivo. 
-        2. Dados de nova análise, que indica para o filtro do sistema de arquivos qual é o URI do arquivo no ponto de extremidade de nuvem associado (o compartilhamento de arquivos do Azure). 
+  - *O filtro do sistema de arquivos da Sincronização de arquivos do Azure (StorageSync.sys) não está carregado*. Para responder às solicitações de definição de camadas/recuperação, o filtro do sistema de arquivos da Sincronização de arquivos do Azure deve ser carregado. O filtro pode não ser carregado por diversos motivos, mas o motivo mais comum é quando um administrador o descarrega manualmente. O filtro do sistema de arquivos da Sincronização de arquivos do Azure deve ser carregado sempre para que a Sincronização de arquivos do Azure funcione corretamente.
+  - *Ponto de nova análise ausente, corrompido ou desfeito por algum outro motivo*. Um ponto de nova análise é uma estrutura de dados especial em um arquivo que consiste em duas partes:
+    1. Uma marca de nova análise, que indica para o sistema operacional que o filtro do sistema de arquivos da Sincronização de arquivos do Azure (StorageSync.sys) pode precisar executar alguma ação na E/S do arquivo. 
+    2. Dados de nova análise, que indica para o filtro do sistema de arquivos qual é o URI do arquivo no ponto de extremidade de nuvem associado (o compartilhamento de arquivos do Azure). 
         
-        A maneira mais comum de corromper um ponto de nova análise é quando um administrador tenta modificar a marca ou seus dados. 
-    - *Problemas de conectividade de rede*. Para a definir camadas ou recuperar um arquivo, o servidor deve ter conectividade com a Internet.
+       A maneira mais comum de corromper um ponto de nova análise é quando um administrador tenta modificar a marca ou seus dados. 
+  - *Problemas de conectividade de rede*. Para a definir camadas ou recuperar um arquivo, o servidor deve ter conectividade com a Internet.
 
 As seções a seguir indicam como solucionar problemas de definição de camadas de nuvem e determinar se o problema é do armazenamento em nuvem ou do servidor.
 
@@ -822,14 +845,14 @@ Para monitorar a atividade de recall em um servidor, use as IDs do evento 9005, 
 Se os arquivos não camada para arquivos do Azure:
 
 1. No Visualizador de Eventos, revise os logs de eventos de telemetria, operacionais e de diagnóstico, localizados em Aplicativos e Serviços\Microsoft\FileSync\Agent. 
-    1. Verifique se que os arquivos existem no compartilhamento de arquivos do Azure.
+   1. Verifique se que os arquivos existem no compartilhamento de arquivos do Azure.
 
-    > [!NOTE]
-    > Um arquivo deve ser sincronizado com um Compartilhamento de Arquivo do Azure antes de poder ser disposto em camadas.
+      > [!NOTE]
+      > Um arquivo deve ser sincronizado com um Compartilhamento de Arquivo do Azure antes de poder ser disposto em camadas.
 
-    2. Verifique se o servidor tem conectividade com a Internet. 
-    3. Verifique se que os drivers de filtro de sincronização de arquivos do Azure (storagesync. sys e storagesyncguard. sys) estão em execução:
-        - Em um prompt de comandos com privilégios elevados, digite `fltmc`. Verifique se os drivers de filtro de sistema de arquivos StorageSync.sys e StorageSyncGuard.sys estão listados.
+   2. Verifique se o servidor tem conectividade com a Internet. 
+   3. Verifique se que os drivers de filtro de sincronização de arquivos do Azure (storagesync. sys e storagesyncguard. sys) estão em execução:
+       - Em um prompt de comandos com privilégios elevados, digite `fltmc`. Verifique se os drivers de filtro de sistema de arquivos StorageSync.sys e StorageSyncGuard.sys estão listados.
 
 > [!NOTE]
 > Um ID de Evento 9003 é registrada uma vez por hora no log de eventos da Telemetria se um arquivo falhar na camada (um evento é registrado por código de erro). Os logs de eventos operacionais e de diagnóstico devem ser usados se informações adicionais forem necessárias para diagnosticar um problema.

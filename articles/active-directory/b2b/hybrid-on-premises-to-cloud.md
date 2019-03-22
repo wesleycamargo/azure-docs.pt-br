@@ -1,5 +1,5 @@
 ---
-title: Conceder acesso às contas de parceiros gerenciadas localmente a recursos da nuvem como usuários do Microsoft Azure AD B2B | Microsoft Docs
+title: Sincronizar contas de parceiro local para a nuvem como usuários B2B – Azure Active Directory | Microsoft Docs
 description: Conceda aos parceiros externos gerenciados localmente acesso a recursos locais e da nuvem usando as mesmas credenciais com a colaboração B2B do Microsoft Azure AD.
 services: active-directory
 ms.service: active-directory
@@ -10,13 +10,14 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29f5deb8bd06d4001f1776765ea6824da9bd9802
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 66c5ec6a41b630ee20139575080d8874d819bb59
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163777"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57871351"
 ---
 # <a name="grant-locally-managed-partner-accounts-access-to-cloud-resources-using-azure-ad-b2b-collaboration"></a>Conceder acesso às contas de parceiros gerenciadas localmente aos recursos da nuvem usando a colaboração B2B do Azure AD
 
@@ -31,7 +32,7 @@ Antes de habilitar a sincronização do atributo UserType, primeiro você deve d
 Duas abordagens comuns para isso são:
 
 - Designe um atributo do Active Directory local não utilizado (por exemplo, extensionAttribute1) a ser usado como o atributo de origem. 
-- Como alternativa, derive o valor do atributo UserType de outras propriedades. Por exemplo, você deseja sincronizar todos os usuários como Convidado se o atributo local UserPrincipalName do Active Directory terminar com o domínio *@partners.contoso.com*.
+- Como alternativa, derive o valor do atributo UserType de outras propriedades. Por exemplo, você deseja sincronizar todos os usuários como convidado se o atributo do UserPrincipalName do Active Directory local for encerrada com o domínio  *\@partners.contoso.com*.
  
 Para mais detalhes sobre os requisitos de atributo, consulte [Habilitar a sincronização de UserType](../hybrid/how-to-connect-sync-change-the-configuration.md#enable-synchronization-of-usertype). 
 

@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c622b95572a078d3f5a3e4791f959fd264eddc3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 4b72ec628e048560fbfb9da63123bbb7461811b9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182163"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074277"
 ---
 # <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>Remover a atribuição de um usuário ou grupo de um aplicativo empresarial no Azure Active Directory
 É fácil impedir que um usuário ou grupo receba acesso a um de seus aplicativos empresariais no Azure AD (Azure Active Directory). Você deve ter as permissões apropriadas para gerenciar o aplicativo empresarial, além de ser um administrador global do diretório.
@@ -51,7 +51,7 @@ ms.locfileid: "56182163"
     > Você precisa instalar o módulo do Azure AD (use o comando `Install-Module -Name AzureAD`). Se solicitado a instalar um módulo do NuGet ou o novo módulo do Azure Active Directory V2 PowerShell, digite Y e pressione ENTER.
 
 2. Execute `Connect-AzureAD` e entre com uma conta de usuário de Administrador Global.
-3. Use o script abaixo para atribuir um usuário e uma função a um aplicativo:
+3. Use o script a seguir para remover um usuário e a função de um aplicativo:
 
     ```powershell
     # Store the proper parameters
@@ -67,7 +67,7 @@ ms.locfileid: "56182163"
     #To remove the App role assignment run the following command.
     Remove-AzureADServiceAppRoleAssignment -ObjectId $spo.ObjectId -AppRoleAssignmentId $assignments[assignment #].ObjectId
     ``` 
-## <a name="next-steps"></a>Próximas etapas
+   ## <a name="next-steps"></a>Próximas etapas
 
 - [Ver todos os meus grupos](../fundamentals/active-directory-groups-view-azure-portal.md)
 - [Atribuir um usuário ou um grupo a um aplicativo empresarial](assign-user-or-group-access-portal.md)

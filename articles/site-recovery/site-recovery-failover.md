@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 1/18/2019
 ms.author: mayg
-ms.openlocfilehash: 05a60ff2b2995642f797897d0e1f4db46c5b6741
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 8f76d4e54133e4e899e707e666703a67310e8702
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215831"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082085"
 ---
 # <a name="fail-over-vms-and-physical-servers"></a>Fazer failover de VMs e servidores físicos 
 
@@ -39,17 +39,17 @@ Este procedimento descreve como executar um failover para um [plano de recupera�
 
 1. Selecione **Planos de Recuperação** > *recoveryplan_name*. Clique em **Failover**.
 2. Na tela de **Failover**, selecione um **Ponto de Recuperação** para o qual fazer o failover. Você pode usar uma das seguintes opções:
-    1.  **Mais recente**: Essa opção inicia o trabalho primeiro processando todos os dados que foram enviados ao serviço Site Recovery. O processamento dos dados cria um ponto de recuperação para cada máquina virtual. Esse ponto de recuperação é usado pela máquina virtual durante o failover. Essa opção oferece o menor RPO (Objetivo de Ponto de Recuperação), pois a máquina virtual criada após o failover terá todos os dados que tiverem sido replicados para o serviço de Site Recovery quando o failover for disparado.
-    1.  **Mais recente processado**: Essa opção faz failover em todas as máquinas virtuais do plano de recuperação para o último ponto de recuperação que já foi processado pelo serviço de Site Recovery. Quando você estiver realizando o failover de teste de uma máquina virtual, o carimbo de data/hora do último ponto de recuperação processado também é mostrado. Se estiver fazendo o failover de um plano de recuperação, você pode ir para a máquina virtual individual e visualizar o bloco **Últimos Pontos de Recuperação** para obter essas informações. Como nenhum tempo é gasto para processar os dados não processados, esta opção fornece uma opção de failover de baixo RTO (objetivo de tempo de recuperação).
-    1.  **Consistente com o aplicativo mais recente**: Essa opção realiza failover em todas as máquinas virtuais do plano de recuperação para o último ponto de recuperação consistente de aplicativo que já foi processado pelo serviço do Site Recovery. Quando você estiver realizando failover de teste de uma máquina virtual, o carimbo de data/hora do ponto mais recente recuperação consistentes com o aplicativo também é mostrado. Se estiver fazendo o failover de um plano de recuperação, você pode ir para a máquina virtual individual e visualizar o bloco **Últimos Pontos de Recuperação** para obter essas informações.
-    1.  **Várias VMs processadas mais recentemente**: Essa opção só está disponível para os planos de recuperação que têm pelo menos uma máquina virtual com consistência de várias VMs ativada. As máquinas virtuais que fazem parte de um failover de grupo de replicação para o ponto de recuperação consistente de várias VMs comuns mais recentes. Outras máquinas virtuais fazem failover para seus últimos pontos de recuperação processados.  
-    1.  **Multi-VMs mais recentes consistentes com o aplicativo**: Essa opção só está disponível para os planos de recuperação que têm pelo menos uma máquina virtual com consistência de várias VMs ativada. Máquinas virtuais que fazem parte de um failover do grupo de replicação para o ponto de recuperação comum mais recente de várias VMs consistente com aplicativo. Outras máquinas virtuais fazem failover para seus últimos pontos de recuperação consistentes com aplicativo.
-    1.  **Personalizado**: Se você estiver realizando teste de failover de uma máquina virtual, você pode usar essa opção de failover para um determinado ponto de recuperação.
+   1. **Mais recente**: Essa opção inicia o trabalho primeiro processando todos os dados que foram enviados ao serviço Site Recovery. O processamento dos dados cria um ponto de recuperação para cada máquina virtual. Esse ponto de recuperação é usado pela máquina virtual durante o failover. Essa opção oferece o menor RPO (Objetivo de Ponto de Recuperação), pois a máquina virtual criada após o failover terá todos os dados que tiverem sido replicados para o serviço de Site Recovery quando o failover for disparado.
+   1. **Mais recente processado**: Essa opção faz failover em todas as máquinas virtuais do plano de recuperação para o último ponto de recuperação que já foi processado pelo serviço de Site Recovery. Quando você estiver realizando o failover de teste de uma máquina virtual, o carimbo de data/hora do último ponto de recuperação processado também é mostrado. Se estiver fazendo o failover de um plano de recuperação, você pode ir para a máquina virtual individual e visualizar o bloco **Últimos Pontos de Recuperação** para obter essas informações. Como nenhum tempo é gasto para processar os dados não processados, esta opção fornece uma opção de failover de baixo RTO (objetivo de tempo de recuperação).
+   1. **Consistente com o aplicativo mais recente**: Essa opção realiza failover em todas as máquinas virtuais do plano de recuperação para o último ponto de recuperação consistente de aplicativo que já foi processado pelo serviço do Site Recovery. Quando você estiver realizando failover de teste de uma máquina virtual, o carimbo de data/hora do ponto mais recente recuperação consistentes com o aplicativo também é mostrado. Se estiver fazendo o failover de um plano de recuperação, você pode ir para a máquina virtual individual e visualizar o bloco **Últimos Pontos de Recuperação** para obter essas informações.
+   1. **Várias VMs processadas mais recentemente**: Essa opção só está disponível para os planos de recuperação que têm pelo menos uma máquina virtual com consistência de várias VMs ativada. As máquinas virtuais que fazem parte de um failover de grupo de replicação para o ponto de recuperação consistente de várias VMs comuns mais recentes. Outras máquinas virtuais fazem failover para seus últimos pontos de recuperação processados.  
+   1. **Multi-VMs mais recentes consistentes com o aplicativo**: Essa opção só está disponível para os planos de recuperação que têm pelo menos uma máquina virtual com consistência de várias VMs ativada. Máquinas virtuais que fazem parte de um failover do grupo de replicação para o ponto de recuperação comum mais recente de várias VMs consistente com aplicativo. Outras máquinas virtuais fazem failover para seus últimos pontos de recuperação consistentes com aplicativo.
+   1. **Personalizado**: Se você estiver realizando teste de failover de uma máquina virtual, você pode usar essa opção de failover para um determinado ponto de recuperação.
 
-    > [!NOTE]
-    > A opção de escolher um ponto de recuperação só está disponível ao fazer failover no Azure.
-    >
-    >
+      > [!NOTE]
+      > A opção de escolher um ponto de recuperação só está disponível ao fazer failover no Azure.
+      >
+      >
 
 
 1. Se algumas das máquinas virtuais no plano de recuperação sofrerem failover em uma execução anterior e as máquinas virtuais estiverem ativas nos locais de origem e destino, você pode usar a opção **Alterar direção** para escolher a direção na qual o failover deve ocorrer.
@@ -70,9 +70,9 @@ Máquinas virtuais/servidores físicos protegidos usando o Site Recovery também
 
 > [!NOTE]
 > Durante o failover de máquinas virtuais Hyper-v de um site local para outro site local, antes de voltar ao site local principal, você precisa fazer a **replicação inversa** da máquina virtual para o site principal e, depois, disparar um failover. Se a máquina virtual principal não estiver disponível, você vai precisar restaurar a máquina virtual de um backup antes de iniciar a **replicação inversa**.   
->
->
-## <a name="failover-job"></a>Trabalho de failover
+> 
+> 
+> ## <a name="failover-job"></a>Trabalho de failover
 
 ![Failover](./media/site-recovery-failover/FailoverJob.png)
 

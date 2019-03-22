@@ -14,12 +14,12 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 3310dc5d72284e8d94b95b855fee90d560205fa4
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 480e21994846f5b2adb85bcf846df2a7cdda4bda
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56884382"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444456"
 ---
 # <a name="export-from-an-azure-app-configuration-store"></a>Exportação de um repositório de configurações de aplicativo do Azure
 
@@ -52,7 +52,7 @@ Esse script usa os comandos a seguir para exportar um repositório de configura�
 
 | Comando | Observações |
 |---|---|
-| [az appconfig export](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-export) | Exporta de um recurso do repositório de configurações de aplicativo. |
+| [az appconfig export](/cli/azure/ext/appconfig/appconfig) | Exporta de um recurso do repositório de configurações de aplicativo. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

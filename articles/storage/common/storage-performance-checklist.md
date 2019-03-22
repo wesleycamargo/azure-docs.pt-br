@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 010a9f4e5be34986c1098f403e4df0ccf569838c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 1b6c8b1af00c2819632c60a27d61d7cf8db44885
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821653"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012318"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Lista de verificação de desempenho e escalabilidade do armazenamento do Microsoft Azure
 ## <a name="overview"></a>Visão geral
@@ -122,7 +122,7 @@ Você pode seguir algumas práticas recomendadas para reduzir a frequência de t
 
 * Examine detalhadamente a convenção de nomenclatura usada para contas, contêineres, blobs, tabelas e filas. Considere prefixar os nomes de conta com um hash de três dígitos usando uma função de hash que melhor atenda às suas necessidades.  
 * Se você organizar os dados usando carimbos de data/hora ou identificadores numéricos, precisará garantir que não está usando padrões de tráfego somente acrescentar (ou somente preceder). Esses padrões não são adequados a um sistema de particionamento baseado em intervalo e pode fazer com que todo tráfego vá para uma única partição, limitando a eficácia do sistema no balanceamento de carga. Por exemplo, se você tiver operações diárias que usam um objeto de blob com um carimbo de data/hora, como aaammdd, todo o tráfego para essa operação diária será direcionado para um único objeto, que é atendido por um servidor de partição única. Veja se os limites por blob e os limites por partição atendem às suas necessidades e considere a divisão dessa operação em vários blobs, se necessário. Da mesma forma, se você armazenar os dados de série temporal em suas tabelas, todo o tráfego poderá ser direcionado para a última parte do namespace chave. Se você precisar usar carimbos de data/hora ou IDs numéricas, adicione um prefixo com um hash de três dígitos à ID ou, no caso de carimbos de data/hora, use um prefixo da parte de segundos da hora como ssaaaammdd. Se as operações de listagem e de consulta forem executadas rotineiramente, escolha uma função de hash que limite o número de consultas. Em outros casos, um prefixo aleatório pode ser suficiente.  
-* Para obter informações adicionais sobre o esquema de particionamento usado no Armazenamento do Azure, leia o artigo SOSP [aqui](http://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf).
+* Para obter informações adicionais sobre o esquema de particionamento usado no Armazenamento do Azure, leia o artigo SOSP [aqui](https://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf).
 
 ### <a name="networking"></a>Rede
 Embora as chamadas de API sejam importantes, muitas vezes as limitações físicas da rede do aplicativo têm impacto considerável no desempenho. A seção a seguir descreve algumas das limitações que os usuários podem enfrentar.  

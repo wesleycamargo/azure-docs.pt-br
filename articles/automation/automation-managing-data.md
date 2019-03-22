@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b133947a7daf1977f084ee4008599882b51d9e8b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 3e217e0e3367c6e1200567f589749fec9e626da8
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428470"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817449"
 ---
 # <a name="managing-azure-automation-data"></a>Gerenciando dados da Automação do Azure
 Este artigo contém vários tópicos sobre o gerenciamento de um ambiente da Automação do Azure.
@@ -39,7 +39,7 @@ A tabela a seguir resume a política de retenção para diferentes recursos.
 
 A política de retenção se aplica a todos os usuários e, atualmente não, pode ser personalizada.
 
-No entanto, se você precisar manter os dados por um período de tempo maior, poderá encaminhar logs de trabalho de runbook para Log Analytics.  Para obter mais informações, revise [encaminhar dados de trabalho de Automação do Azure para Log Analytics](automation-manage-send-joblogs-log-analytics.md).   
+No entanto, se você precisar reter dados por um período de tempo maior, você poderá encaminhar runbook logs de trabalho aos logs do Azure Monitor.  Para obter mais informações, examine [encaminhar dados de trabalho de automação do Azure para logs do Azure Monitor](automation-manage-send-joblogs-log-analytics.md).   
 
 ## <a name="backing-up-azure-automation"></a>Fazendo backup da Automação do Azure
 Quando você exclui uma conta de automação no Microsoft Azure, todos os objetos na conta são excluídos, incluindo runbooks, módulos, configurações, trabalhos e ativos. Os objetos não podem ser recuperados depois que a conta é excluída.  Você pode usar as informações a seguir para fazer backup do conteúdo de sua conta de automação antes de excluí-la. 

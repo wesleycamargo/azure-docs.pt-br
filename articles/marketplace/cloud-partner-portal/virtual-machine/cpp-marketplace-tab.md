@@ -14,16 +14,16 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: b68f7004366dcb502ffc8332cf8266a434c7ecfb
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
-ms.translationtype: HT
+ms.openlocfilehash: b1b62c68ef4e18f4d4d36a78078ad7431717b754
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977141"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995641"
 ---
 # <a name="virtual-machine-marketplace-tab"></a>Guia de Marketplace de máquina virtual
 
-A guia **Marketplace** da página **New Offer** permite que você forneça aos clientes em potencial informações e contratos de marketing, vendas e legais e gerencie leads gerados no mercado. Essa forma longa é dividida em quatro seções: **visão geral**, **artefatos de Marketing**, **gerenciamento de leads**, e **Legal**. 
+A guia **Marketplace** da página **New Offer** permite que você forneça aos clientes em potencial informações e contratos de marketing, vendas e legais e gerencie leads gerados no mercado. Essa forma longa é dividida em quatro seções: **Visão geral**, **artefatos de Marketing**, **gerenciamento de clientes potenciais**, e **Legal**. 
 
 ## <a name="overview-section"></a>Seção de visão geral
 Nesta seção, você insere as informações gerais sobre sua oferta do Azure Marketplace.  Um asterisco anexado (*) no nome do campo indica que é necessário.
@@ -38,6 +38,7 @@ A tabela a seguir descreve o objetivo e o conteúdo desses campos.
 | **Resumo**               | Breve propósito ou função da solução.  Comprimento máximo de 100 caracteres. |
 | **Resumo longo**          | Finalidade ou a função da solução.  Comprimento máximo de 256 caracteres. |
 | **Descrição**           | Descrição da solução  Comprimento máximo de 3000 caracteres, suporta formatação HTML simples. |
+| **Canal de revendedor CSP da Microsoft** | Cloud Solution Providers (CSP) parceiro canal participar agora está disponível.  Consulte [Cloud Solution Providers](../../cloud-solution-providers.md) para obter mais informações sobre sua oferta por meio do Microsoft CSP de marketing de parceiros canais. |
 | **Identificador de marketing**  | Um URL exclusivo para associar a essa oferta geralmente inclui sua organização e o nome da solução, com um comprimento máximo de 50 caracteres.  Por exemplo:  <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
 | **Visualizar códigos de inscrição** | Adicione de um a 100 identificadores de assinatura de pré-visualizadores. Essas assinaturas listadas na lista de permissões terão acesso à oferta assim que forem publicadas antes de serem publicadas. |
 | **Links úteis**          | Adicione URLs a documentações, notas de versão, perguntas frequentes e assim por diante. |
@@ -47,7 +48,7 @@ A tabela a seguir descreve o objetivo e o conteúdo desses campos.
 
 ## <a name="marketing-artifacts-section"></a>Seção de artefatos de marketing
 
-Essa segunda seção é dividida em três subseções: **logotipos**, **captura de tela**, e **vídeos**. Os logotipos são os únicos artefatos de marketing necessários, no entanto, todos são altamente recomendados para o melhor apelo do cliente.
+Essa segunda seção é dividida em três subseções: **Logotipos**, **captura de tela**, e **vídeos**. Os logotipos são os únicos artefatos de marketing necessários, no entanto, todos são altamente recomendados para o melhor apelo do cliente.
 
 ![Seção Artefatos de Marketing da guia Mercado no formulário Nova Oferta para máquinas virtuais](./media/publishvm_009.png)
 
@@ -71,7 +72,7 @@ Essa segunda seção é dividida em três subseções: **logotipos**, **captura 
 
 ### <a name="logo-guidelines"></a>Diretrizes de logotipo
 
-<!-- TD: It seems like this section could be better located in some common area, maybe a AMP Marketing/Design section 
+<!-- TD: It seems like this section could be better located in some common area, maybe an AMP Marketing/Design section 
 +1 this should all be in a common area and referenced from here to that location.-->
 
 Todos os logotipos enviados para o Cloud Partner Portal devem seguir as diretrizes:

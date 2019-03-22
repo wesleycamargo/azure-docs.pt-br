@@ -18,14 +18,14 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b06ceb86e8406657766be1375889fcfe1b4673d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2b55f7e615f2c2edb604d5b9433db6cc48d9f36f
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204535"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223386"
 ---
-# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-a-net-desktop-wpf-app"></a>Início rápido: Conectar usuários e chamar a API do Microsoft Graph de um aplicativo da área de trabalho .NET (WPF)
+# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-a-net-desktop-wpf-app"></a>Início Rápido: Conectar usuários e chamar a API do Microsoft Graph de um aplicativo da área de trabalho .NET (WPF)
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
@@ -77,9 +77,9 @@ Agora que você tem um aplicativo no AD do Azure, você pode instalar a ADAL e e
 
 1. No projeto `DirectorySearcher`, abra `app.config`.
 1. Substitua os valores dos elementos na seção `<appSettings>` para refletir os valores que você inseriu no portal do Azure. Seu código fará referência a esses valores sempre que ele usar a ADAL.
-  * O `ida:Tenant` é o domínio do locatário do Azure AD, por exemplo, contoso.onmicrosoft.com
-  * O `ida:ClientId` é a ID do cliente do aplicativo que você copiou do portal.
-  * O `ida:RedirectUri` é a URL de redirecionamento que você registrou no portal.
+   * O `ida:Tenant` é o domínio do locatário do Azure AD, por exemplo, contoso.onmicrosoft.com
+   * O `ida:ClientId` é a ID do cliente do aplicativo que você copiou do portal.
+   * O `ida:RedirectUri` é a URL de redirecionamento que você registrou no portal.
 
 ## <a name="step-3-use-adal-to-get-tokens-from-azure-ad"></a>Etapa 3: Usar a ADAL para obter tokens do Azure AD
 
@@ -172,7 +172,7 @@ O princípio básico da ADAL é que sempre que o aplicativo precisa de um token 
                 MessageBox.Show(ex.Message);
             }
 
-            // If user interaction is required, proceed to main page without singing the user in.
+            // If user interaction is required, proceed to main page without signing the user in.
             return;
         }
 

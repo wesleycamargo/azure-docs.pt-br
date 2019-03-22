@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 395b0cadf3ba3313a9a1304d9244f1fe72a8209c
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: HT
+ms.openlocfilehash: 27c9c872f4dfb82b4a1389189d62c4e1f06ee272
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016871"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58175974"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para os recursos do agendador avançado no Serviço de Kubernetes do Azure (AKS)
 
@@ -39,10 +39,10 @@ O Agendador Kubernetes pode usar taints e tolerations para restringir quais carg
 Quando você implanta um pod em um cluster do AKS, os Kubernetes apenas agendam pods em nós onde um toleration é alinhado com o taint. Por exemplo, suponha que você tem um nodepool no cluster do AKS para nós com GPU com suporte. Você define o nome, como *gpu*, em seguida, um valor para o agendamento. Se você definir esse valor como *NoSchedule*, o Agendador Kubernetes não poderá agendar pods no nó, se o pod não definir o toleration apropriado.
 
 ```console
-kubectl taint node aks-nodepool1 gpu:NoSchedule
+kubectl taint node aks-nodepool1 sku=gpu:NoSchedule
 ```
 
-Com um taint aplicado a nós, você, em seguida, define um toleration na especificação de pod que permite a programação nos nós. O exemplo a seguir define o `key: gpu` e `effect: NoSchedule` para tolerar o taint aplicado ao nó na etapa anterior:
+Com um taint aplicado a nós, você, em seguida, define um toleration na especificação de pod que permite a programação nos nós. O exemplo a seguir define o `sku: gpu` e `effect: NoSchedule` para tolerar o taint aplicado ao nó na etapa anterior:
 
 ```yaml
 kind: Pod
@@ -61,9 +61,9 @@ spec:
       cpu: 4.0
       memory: 16Gi
   tolerations:
-  - key: "gpu"
+  - key: "sku"
     operator: "Equal"
-    value: "value"
+    value: "gpu"
     effect: "NoSchedule"
 ```
 
@@ -151,7 +151,7 @@ Para obter mais informações, consulte [Afinidade e antiafinidade][k8s-affinity
 
 Uma abordagem final para o agendador Kubernetes isolar logicamente as cargas de trabalho está usando a afinidade entre pods ou antiafinidade. As configurações definem esse pods *não devem* ser agendadas em um nó que tem uma correspondência existente pod, ou que eles *devem* ser agendados. Por padrão, o agendador Kubernetes tenta agendar vários pods em uma réplica definida entre os nós. Você pode definir regras mais específicas alternativas para esse comportamento.
 
-Um bom exemplo é um aplicativo web que também usa um Azure Cache para Redis. Você pode usar regras de antiafinidade de pod para solicitar que o agendador Kubernetes distribua réplicas entre os nós. Você pode, em seguida, usar as regras de afinidade para certificar-se de que cada componente do aplicativo Web seja agendado no mesmo host como um cache correspondente. A distribuição de pods entre nós é semelhante ao exemplo a seguir:
+Um bom exemplo é um aplicativo web que também usa um Azure Cache para Redis. Você pode usar regras de antiafinidade de pod para solicitar que o agendador Kubernetes distribua réplicas entre os nós. Em seguida, você pode usar regras de afinidade para certificar-se de que cada componente do aplicativo web é agendado no mesmo host como um cache correspondente. A distribuição de pods entre nós é semelhante ao exemplo a seguir:
 
 | **Nó 1** | **Nó 2** | **Nó 3** |
 |------------|------------|------------|

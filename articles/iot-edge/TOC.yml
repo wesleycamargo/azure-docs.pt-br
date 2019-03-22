@@ -1,6 +1,4 @@
 items:
-- name: Conceitos básicos do Azure IoT
-  href: ../iot-fundamentals/index.yml
 - name: Documentação do Azure IoT Edge
   href: index.yml
 - name: Visão geral
@@ -209,14 +207,14 @@ items:
   - name: Atualizações de serviço
     href: https://azure.microsoft.com/updates/?product=iot-hub
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-iot-hub
+    href: https://stackoverflow.com/questions/tagged/azure-iot-hub
   - name: Estudos de casos técnicos
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: 917d96e24095bef9a6a5d0e12abb7b21a690e0ef
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: a7fa87685aced399db04d2341cb021e7a9eab202
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010592"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549843"

@@ -1,15 +1,15 @@
 ---
-author: dominicbetts
+author: robinsh
+ms.author: robin.shahan
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.author: dobett
-ms.openlocfilehash: ab9d059ede2464318205a90b8ac738727e8d89a4
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: e2d6b6413d1e397eaa3c53f28394dcf321dac729
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164586"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011757"
 ---
 ## <a name="obtain-an-azure-resource-manager-token"></a>Obter um token do Azure Resource Manager
 O Active Directory do Azure deve autenticar todas as tarefas que podem ser executadas nos recursos usando o Gerenciador de Recursos do Azure. O exemplo mostrado aqui usa a autenticação de senha; para ver outras abordagens, veja [Autenticação de solicitações do Azure Resource Manager][lnk-authenticate-arm].

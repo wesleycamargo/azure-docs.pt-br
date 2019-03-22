@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: c16f218903557a6d3a10f3ef201587d2885fffa9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 469213ae67f1f2bcece6afa5d9b7873bfdfe8d6c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239088"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095731"
 ---
 # <a name="azure-monitor-on-azure-stack"></a>O Azure Monitor no Azure Stack
 
@@ -27,16 +27,16 @@ ms.locfileid: "55239088"
 
 Este artigo fornece uma visão geral do serviço do Azure Monitor no Azure Stack. Ele aborda a operação do Azure Monitor e informações adicionais sobre como usar o Azure Monitor no Azure Stack. 
 
-Para obter uma introdução, visão geral e como começar com o Azure Monitor, consulte o artigo do Azure global [Introdução ao Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started).
+Para obter uma introdução, visão geral e como começar com o Azure Monitor, consulte o artigo do Azure global [começar com o Azure Monitor no Azure Stack](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started).
 
 ![Folha de Monitor de pilha do Azure](./media/azure-stack-metrics-azure-data/azs-monitor.png)
 
 O Azure Monitor é o serviço de plataforma que fornece uma única fonte para monitorar os recursos do Azure. Com o Azure Monitor, você pode visualizar, consultar, rotear, arquivar e também tomar medidas relacionadas às métricas e aos logs provenientes dos recursos do Azure. Você pode trabalhar com esses dados usando o portal de administração do Azure Stack, Cmdlets do PowerShell do Monitor, da CLI de plataforma cruzada ou APIs REST do Azure Monitor. Para a conectividade específica com suporte do Azure Stack, consulte [como consumir dados de monitoramento do Azure Stack](azure-stack-metrics-monitor.md)
 
-> [!Note]  
-As métricas e logs de diagnóstico não estão disponíveis para o Kit de desenvolvimento do Azure Stack.
+> [!Note]
+> As métricas e logs de diagnóstico não estão disponíveis para o Kit de desenvolvimento do Azure Stack.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites-for-azure-monitor-on-azure-stack"></a>Pré-requisitos para o Azure Monitor no Azure Stack
 
 Registre-se a **Microsoft. Insights** provedor de recursos em configurações de provedores de recurso de oferta da sua assinatura. Você pode verificar que o provedor de recursos está disponível em sua oferta associada à sua assinatura:
 
@@ -46,13 +46,13 @@ Registre-se a **Microsoft. Insights** provedor de recursos em configurações de
 4. Selecione **provedores de recursos** sob **configurações.** 
 5. Encontre **Microsoft. Insights** na lista e verifique se o status é **registrado.**.
 
-## <a name="overview"></a>Visão geral
+## <a name="overview-of-azure-monitor-on-azure-stack"></a>Visão geral do Monitor do Azure no Azure Stack
 
 Como o Azure Monitor no Azure, o Azure Monitor no Azure Stack fornece logs e métricas de infraestrutura de nível básico para a maioria dos serviços.
 
-## <a name="azure-monitor-sources-compute-subset"></a>Fontes do Azure monitor: subconjunto de computação
+## <a name="azure-monitor-sources-compute-subset"></a>Fontes do Azure Monitor: subconjunto de computação
 
-![O Azure monitor fontes - subconjunto de computação](media//azure-stack-metrics-azure-data/azs-monitor-computersubset.png)
+![O Azure Monitor no Azure Stack fontes - subconjunto de computação](media//azure-stack-metrics-azure-data/azs-monitor-computersubset.png)
 
 O **Microsoft. Compute** inclui o provedor de recursos no Azure Stack:
  - Máquinas Virtuais 
@@ -86,7 +86,7 @@ Você pode pesquisar os logs de atividade para obter informações sobre os recu
 
 ## <a name="azure-monitor-sources-everything-else"></a>Fontes do Azure monitor: todo o resto
 
-![Código-fonte do Azure monitor - todo o resto](media//azure-stack-metrics-azure-data/azs-monitor-othersubset.png)
+![O Azure Monitor no código-fonte do Azure Stack - todo o resto](media//azure-stack-metrics-azure-data/azs-monitor-othersubset.png)
 
 ### <a name="resources---metrics-and-diagnostics-logs"></a>Logs de recursos - métricas e diagnósticos
 

@@ -1,6 +1,6 @@
 ---
-title: Exibir todas as suas contas de cobrança no portal do Azure | Microsoft Docs
-description: Saiba como exibir suas contas de cobrança pessoais e do Contrato Enterprise no portal do Azure.
+title: Exibir suas contas de cobrança no portal do Azure | Microsoft Docs
+description: Saiba como exibir suas contas de cobrança no portal do Azure.
 services: ''
 documentationcenter: ''
 author: amberbhargava
@@ -14,33 +14,41 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2018
 ms.author: banders
-ms.openlocfilehash: a9f299f8987b5a2023d668d41c98b473f1a626d4
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: 31e4eb1d6493c8de99ac48e09dfb2b8b6481b70a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902255"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57854272"
 ---
-# <a name="view-all-your-billing-accounts-in-azure-portal"></a>Exibir todas as suas contas de cobrança no portal do Azure  
+# <a name="view-your-billing-accounts-in-azure-portal"></a>Exibir suas contas de cobrança no portal do Azure  
 
-As contas de cobrança definem as relações de cobrança do Azure. Você pode ter várias contas de cobrança. Por exemplo, você pode ter uma assinatura do Azure que usa para projetos pessoais. Você também pode ter acesso ao Azure por meio do Enterprise Agreement da sua organização. Vá para [Gerenciamento de Custos + Cobrança](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingMenuBlade/Overview) no portal do Azure para exibir todas as suas contas de cobrança.
+Uma conta de cobrança é criada para cada contrato que você entrar com a Microsoft para usar o Azure. Você usa sua conta de cobrança para gerenciar seus métodos de notas fiscais e pagamentos e controlar os custos para serviços do Azure. Você pode ter acesso a várias contas de cobrança. Por exemplo, você pode ter entrado do Azure para seus projetos pessoais. Você também pode ter acesso por meio do Enterprise Agreement ou contrato de cliente da Microsoft da sua organização. Para cada um desses cenários, você teria uma conta de cobrança separada.
 
-No momento, você pode exibir somente as contas de cobrança pessoais e do Enterprise Agreement. Por padrão, a pagina [Gerenciamento de Custo + Cobrança](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingMenuBlade/Overview) mostra sua conta de cobrança pessoal. No entanto, você pode navegar para **Contas de cobrança** e alterar a conta.
+Portal do Azure atualmente suporta os seguintes tipos de contas de cobrança:
 
-Para contas de cobrança pessoais, você pode gerenciar e exibir todos os seus encargos no [portal do Azure](https://portal.azure.com). No entanto, para contas do Enterprise Agreement, você só pode exibir as compras de reserva do Azure, o saldo e as cobranças do mês atual. Esses recursos do Enterprise Agreement estão em visualização e estarão disponíveis somente se você estiver em uma função de administrador corporativo.
+- **Programa Microsoft Online Services**: Uma conta de cobrança para um programa do Microsoft Online Services é criada quando você se inscrever para o Azure por meio do site do Azure. Por exemplo, quando você se inscrever para uma [conta gratuita do Azure](https://azure.microsoft.com/offers/ms-azr-0044p/), [oferta do Azure pago conforme o uso](https://azure.microsoft.com/offers/ms-azr-0003p/) ou como um [assinante do Visual studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
 
-## <a name="change-billing-account-view"></a>Alterar a exibição da conta de cobrança 
+- **Contrato Enterprise**: Uma conta de cobrança para um contrato Enterprise é criada quando sua organização assina um contrato Enterprise para usar o Azure. Os administradores na conta de cobrança para um contrato Enterprise usar departamentos e contas de cobrança escopos para gerenciar e organizar a cobrança para sua organização.
 
-1.  Faça logon no [Portal do Azure](https://portal.azure.com).
+- **Contrato do cliente Microsoft**: Uma conta de cobrança para um contrato de cliente da Microsoft é criada quando sua organização assina um contrato de cliente da Microsoft para usar o Azure. Os administradores na conta de cobrança para um contrato do cliente Microsoft usam perfis de cobrança e seções escopos para gerenciar e organizar a cobrança para sua organização de cobrança de nota fiscal. Para obter mais informações, consulte [começar com sua conta de cobrança para o contrato do cliente Microsoft](billing-mca-overview.md).
 
-2.  No lado esquerdo do portal, selecione **Gerenciamento de Custo + Cobrança**. 
+## <a name="change-billing-account-view-in-the-azure-portal"></a>Alterar a exibição da conta no portal do Azure de cobrança
 
-3.  Por padrão, se você tiver uma, você verá sua conta de cobrança pessoal. Se você não tiver uma conta de cobrança pessoal ou quiser alterar para uma conta do Enterprise Agreement, selecione **Contas de cobrança**.
+Um escopo é um nó dentro de uma conta de cobrança que os usuários usam para exibir e gerenciar a cobrança. Por exemplo, contas de cobrança para o programa do Microsoft Online Services tem apenas escopo - cobrança de conta, enquanto as contas de cobrança para o Enterprise Agreement tem a conta de cobrança, departamento e escopos de conta. Se você tiver acesso a vários escopos de cobrança, por padrão, um dos escopos será exibido no gerenciamento de custos do Azure + página de cobrança. Você pode alterar o escopo, seguindo as instruções abaixo:
 
-4.  Selecione uma conta para exibir os detalhes. Para o Enterprise Agreement, você só verá as contas de cobrança em que for um administrador corporativo. Outras funções do Enterprise Agreement terão suporte no futuro.
+1. Entre no [Portal do Azure](https://portal.azure.com).
 
-    ![Captura de tela que mostra a lista de contas de armazenamento](./media/billing-view-all-accounts/billing-list-of-accounts.png)
+2. Pesquise **Gerenciamento de Custos do Azure + Cobrança**.
+
+   ![Captura de tela que mostra a pesquisa do portal do Azure](./media/billing-view-all-accounts/billing-search-cost-management-billing.png)
+
+3. Selecione **todos os escopos de cobrança** à esquerda.
+
+   ![Captura de tela que mostra todos os escopos de cobrança](./media/billing-view-all-accounts/billing-list-of-accounts.png)
+
+4. Selecione um escopo para exibir detalhes.
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
-Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Se você tiver dúvidas ou precisar de Ajuda, [criar uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).

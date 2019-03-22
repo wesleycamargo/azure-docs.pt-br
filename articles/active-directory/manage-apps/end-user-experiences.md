@@ -12,12 +12,12 @@ ms.date: 11/09/2018
 ms.author: celested
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2488cb085c3be68265a787bd062028598c9243b8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 4e00ecde5550b5ef4f1698fa879a039dee8aad12
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190017"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181717"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Experiências do usuário final para aplicativos no Active Directory Domain Services do Azure
 Azure Active Directory Domain Services (Azure AD) fornece várias maneiras personalizáveis para implantar aplicativos para usuários finais em sua organização:
@@ -39,23 +39,21 @@ O Painel de acesso é separado do portal do Azure e não requer que os usuários
 Para obter mais informações sobre o painel de acesso do AD do Azure, consulte a [Introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="office-365-application-launcher"></a>Iniciador de aplicativos do Office 365
-Para organizações que implantaram o Office 365, os aplicativos atribuídos aos usuários por meio do Microsoft Azure AD também aparecerão no Portal do Office 365 em https://portal.office.com/myapps. Isso torna simples e fácil para os usuários em uma organização para iniciar seus aplicativos sem precisar usar um segundo portal e é a solução de inicialização do aplicativo recomendada para organizações que usam o Office 365.
+Para organizações que implantaram o Office 365, aplicativos atribuídos aos usuários por meio do Azure AD também aparecerão no portal do Office 365 em [ https://portal.office.com/myapps ](https://portal.office.com/myapps). Isso torna simples e fácil para os usuários em uma organização para iniciar seus aplicativos sem precisar usar um segundo portal e é a solução de inicialização do aplicativo recomendada para organizações que usam o Office 365.
 
-![](./media/what-is-single-sign-on/officeapphub.png)
+![Portal do Office 365](./media/end-user-experiences/microsoft-365-portal-office-com.png)
 
 Para obter mais informações sobre o iniciador do aplicativo Office 365, consulte [Faça o seu aplicativo ser exibido no iniciador do aplicativo do Office 365](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher).
 
 ## <a name="direct-sign-on-to-federated-apps"></a>Logon direto a aplicativos federados
 A maioria dos aplicativos federados que oferecem suporte à conexão SAML 2.0, WS-Federation ou OpenID também oferecem suporte à capacidade dos usuários de iniciar o aplicativo e, em seguida, obter conexão por meio do AD do Azure pelo redirecionamento automático ou clicando em um link para entrar. Isso é conhecido como serviço de logon iniciado pelo provedor e a maioria dos aplicativos federados na Galeria de aplicativos do Azure AD oferece suporte a eles (consulte a documentação vinculada do Assistente de configuração de logon único do aplicativo no portal do Azure para obter detalhes).
 
-![](./media/what-is-single-sign-on/workdaymobile.png)
+![](./media/end-user-experiences/workdaymobile.png)
 
 ## <a name="direct-sign-on-links"></a>Links diretos logon
 O Microsoft Azure Active Directory também oferece suporte a links de logon únicos diretos para aplicativos individuais que oferecem suporte baseado em senha de logon único, logon único vinculado e qualquer forma de logon único federado.
 
-Esses links são URLs criadas especificamente que enviam um usuário por meio do processo de entrada do Azure AD para um aplicativo específico sem exigir que o usuário as inicie do painel de acesso do Azure AD ou do Office 365. Essas URLs de logon único podem ser encontradas na guia Painel de qualquer aplicativo previamente integrado na seção Active Directory do portal do Azure, conforme mostrado na captura de tela abaixo.
-
-![](./media/what-is-single-sign-on/deeplink.png)
+Esses links são URLs criadas especificamente que enviam um usuário por meio do processo de entrada do Azure AD para um aplicativo específico sem exigir que o usuário as inicie do painel de acesso do Azure AD ou do Office 365. Eles **URLs de acesso do usuário** podem ser encontradas nas propriedades de aplicativos da empresa que estão disponíveis em Azure Active Directory no portal do Azure.
 
 Esses links podem ser copiados e colados em qualquer lugar em que você deseja fornecer um link de entrada para o aplicativo selecionado. Essa entrada poderia ser em um email ou em qualquer portal personalizado baseado na Web que você configurou o aplicativo para acesso de usuário. Aqui está um exemplo de uma URL de logon único direto do AD do Azure para o Twitter:
 

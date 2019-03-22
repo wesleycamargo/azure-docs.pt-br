@@ -2,16 +2,17 @@
 title: Movimentação de dados para renderização - Lote do Azure
 description: Opções de armazenamento e movimentação de dados para as cargas de trabalho de renderização
 services: batch
+ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0d343ff5d7513500fa7803495dd42eb94b772935
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 5a0d4dc82995e63697cc673bc54695c9c6d586df
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546089"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790239"
 ---
 # <a name="storage-and-data-movement-options-for-rendering-asset-and-output-files"></a>Opções de armazenamento e movimentação de dados para ativo de renderização e arquivos de saída
 
@@ -25,7 +26,7 @@ Há várias opções para disponibilizar os arquivos de cena e ativo para os apl
   * Essa opção tem a vantagem de ser muito econômica, como nenhuma VM é necessária para o sistema de arquivos, além de o cache blobfuse nas VMs evitar downloads repetidos dos mesmos arquivos para vários trabalhos e tarefas.  A movimentação de dados também é simples, como os arquivos são simplesmente blobs e padrão de APIs e ferramentas, como o azcopy, podem ser usados para copiar arquivos entre um sistema de arquivos local e o armazenamento do Azure.
 * Sistema de arquivos ou compartilhamento de arquivos:
   * Dependendo do sistema operacional da VM e requisitos de desempenho/escala, em seguida, as opções incluem [arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction), usando uma VM com discos anexados for NFS, usando várias VMs com discos anexados para um sistema de arquivos distribuído como GlusterFS, ou usando uma oferta de terceiros.
-  * [Sistemas de Avere](http://www.averesystems.com/) agora faz parte da Microsoft e terá no futuro próximo soluções que são ideais para a renderização em larga escala e de alto desempenho.  A solução Avere permitirá que um NFS com base no Azure ou cache SMB seja criado para funcionar em conjunto com o armazenamento de BLOBs ou com dispositivos NAS locais.
+  * [Sistemas de Avere](https://www.averesystems.com/) agora faz parte da Microsoft e terá no futuro próximo soluções que são ideais para a renderização em larga escala e de alto desempenho.  A solução Avere permitirá que um NFS com base no Azure ou cache SMB seja criado para funcionar em conjunto com o armazenamento de BLOBs ou com dispositivos NAS locais.
   * Com um sistema de arquivos, os arquivos podem ser lidos ou gravados diretamente no sistema de arquivos ou podem ser copiados entre o sistema de arquivos e o pool de VMs.
   * Um sistema de arquivos compartilhados permite um grande número de ativos compartilhados entre projetos e trabalhos a serem utilizados com as tarefas de renderização apenas acessando o que é necessário.
 

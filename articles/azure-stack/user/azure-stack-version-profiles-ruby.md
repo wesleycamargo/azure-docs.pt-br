@@ -16,12 +16,12 @@ ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 73c770f45666ce76b770796ac9714d007c2870cb
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5c7031b0d0a08106473409233db0ad95ecb32525
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247180"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095357"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>Use perfis de versão de API com o Ruby no Azure Stack
 
@@ -86,7 +86,7 @@ gem install 'azure_sdk'
 Para usar o SDK do Ruby do Azure com o Azure Stack, você deve fornecer os seguintes valores e, em seguida, defina os valores com variáveis de ambiente. Consulte as instruções após a tabela para seu sistema operacional sobre como definir as variáveis de ambiente.
 
 | Valor | Variáveis de ambiente | DESCRIÇÃO |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | ID do locatário | AZURE_TENANT_ID | O valor do Azure Stack [ID do locatário](https://docs.microsoft.com/azure/azure-stack/azure-stack-identity-overview). |
 | ID do cliente | AZURE_CLIENT_ID | O serviço de ID do aplicativo principal salvo quando a entidade de serviço foi criada na seção anterior deste documento.  |
 | ID da assinatura | AZURE_SUBSCRIPTION_ID | O [ID da assinatura](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) é como você pode acessar ofertas no Azure Stack. |

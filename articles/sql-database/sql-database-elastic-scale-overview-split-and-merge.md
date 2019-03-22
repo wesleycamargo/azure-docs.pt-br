@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: 1d350cae379c5ec790413775138225b60b9c5e32
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 2127c05d7e52b0103d91ecfac4fb5977a4815f31
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564928"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901926"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Mover dados entre bancos de dados na nuvem escalados horizontalmente
 
@@ -29,7 +29,7 @@ A ferramenta de divisão/mesclagem é executada como um serviço Web do Azure. U
 
 ## <a name="download"></a>Baixar
 
-[Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)
+[Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)
 
 ## <a name="documentation"></a>Documentação
 
@@ -136,7 +136,7 @@ O pacote de serviço de divisão/mesclagem inclui uma função de trabalho e uma
 
 - **Mapa de fragmentos**
 
- A próxima seção de parâmetros de solicitação abrange as informações sobre o mapa de fragmentos e o banco de dados que hospeda o mapa de fragmentos. Em particular, você precisa fornecer o nome do servidor de Banco de Dados SQL do Azure e do banco de dados que hospeda o mapa do fragmento, credenciais para se conectar ao banco de dados de mapa do fragmento e, finalmente, o nome do mapa do fragmento. Atualmente, a operação aceita apenas um único conjunto de credenciais. Essas credenciais precisam ter permissões suficientes para realizar alterações no mapa de fragmento, bem como para os dados do usuário nos fragmentos.
+  A próxima seção de parâmetros de solicitação abrange as informações sobre o mapa de fragmentos e o banco de dados que hospeda o mapa de fragmentos. Em particular, você precisa fornecer o nome do servidor de Banco de Dados SQL do Azure e do banco de dados que hospeda o mapa do fragmento, credenciais para se conectar ao banco de dados de mapa do fragmento e, finalmente, o nome do mapa do fragmento. Atualmente, a operação aceita apenas um único conjunto de credenciais. Essas credenciais precisam ter permissões suficientes para realizar alterações no mapa de fragmento, bem como para os dados do usuário nos fragmentos.
 
 - **Intervalo de origem (dividir e mesclar)**
 
@@ -216,12 +216,16 @@ O serviço de divisão/mesclagem usa o diagnóstico do Azure com base no SDK do 
 
 ## <a name="deploy-diagnostics"></a>Implantar Diagnósticos
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> O módulo do PowerShell do Azure Resource Manager ainda é compatível com o banco de dados SQL, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para esses cmdlets, consulte [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
+
 Para habilitar o monitoramento e diagnóstico usando a configuração de diagnóstico para as funções Web e de trabalho fornecidas pelo pacote NuGet, execute os seguintes comandos usando o Azure PowerShell:
 
 ```powershell
     $storage_name = "<YourAzureStorageAccount>"
     $key = "<YourAzureStorageAccountKey"
-    $storageContext = New-AzureStorageContext -StorageAccountName $storage_name -StorageAccountKey $key  
+    $storageContext = New-AzStorageContext -StorageAccountName $storage_name -StorageAccountKey $key  
     $config_path = "<YourFilePath>\SplitMergeWebContent.diagnostics.xml"
     $service_name = "<YourCloudServiceName>"
     Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWeb"

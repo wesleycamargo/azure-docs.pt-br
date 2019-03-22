@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: estfan
-ms.openlocfilehash: 2a1fe501386884e02657d4b6cbef58ffc533fa33
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-ms.translationtype: HT
+ms.openlocfilehash: 43ecdafac4f0a5cdc9e619537cdbe2a42ff7fe1b
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35297981"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57191911"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-solutions-with-logic-apps"></a>Criar e gerenciar contas de integração para soluções B2B com Aplicativos Lógicos
 
@@ -34,7 +34,7 @@ Este artigo mostra como executar estas tarefas:
 
 Se você não tiver uma assinatura do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscreva-se em uma conta gratuita do Azure</a>.
 
-## <a name="sign-in-to-the-azure-portal"></a>Entrar no Portal do Azure
+## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
 Entre no <a href="https://portal.azure.com" target="_blank">portal do Azure</a> com suas credenciais da conta do Azure.
 
@@ -54,12 +54,12 @@ Entre no <a href="https://portal.azure.com" target="_blank">portal do Azure</a> 
 
    | Propriedade | Obrigatório | Valor de exemplo | DESCRIÇÃO | 
    |----------|----------|---------------|-------------|
-   | NOME | sim | test-integration-account | O nome da conta de integração. Para este exemplo, use o nome especificado. | 
-   | Assinatura | sim | <*Azure-subscription-name*> | O nome da assinatura do Azure a ser usado | 
-   | Grupo de recursos | sim | test-integration-account-rg | O nome do [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) usado para organizar os recursos relacionados. Para este exemplo, crie um novo grupo de recursos com o nome especificado. | 
-   | Camada de preços | sim | Grátis | O tipo de preço que deseja usar. Para este exemplo, selecione **Gratuito**, mas para obter mais informações, consulte [Limites e configuração de Aplicativos Lógicos](../logic-apps/logic-apps-limits-and-config.md) e [Preços dos Aplicativos Lógicos](https://azure.microsoft.com/pricing/details/logic-apps/). | 
-   | Local padrão | sim | Oeste dos EUA | A região na qual armazenar os dados da conta de integração. Selecione a mesma localização do aplicativo lógico ou crie um aplicativo lógico na mesma localização da conta de integração. | 
-   | Log Analytics | Não  | Desativar | Mantenha a configuração **Desligado** para o log de diagnósticos. | 
+   | Name | Sim | test-integration-account | O nome da conta de integração. Para este exemplo, use o nome especificado. | 
+   | Assinatura | Sim | <*Azure-subscription-name*> | O nome da assinatura do Azure a ser usado | 
+   | Grupo de recursos | Sim | test-integration-account-rg | O nome do [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) usado para organizar os recursos relacionados. Para este exemplo, crie um novo grupo de recursos com o nome especificado. | 
+   | Camada de preços | Sim | Grátis | O tipo de preço que deseja usar. Para este exemplo, selecione **Gratuito**, mas para obter mais informações, consulte [Limites e configuração de Aplicativos Lógicos](../logic-apps/logic-apps-limits-and-config.md) e [Preços dos Aplicativos Lógicos](https://azure.microsoft.com/pricing/details/logic-apps/). | 
+   | Local padrão | Sim | Oeste dos EUA | A região na qual armazenar os dados da conta de integração. Selecione a mesma localização do aplicativo lógico ou crie um aplicativo lógico na mesma localização da conta de integração. | 
+   | Workspace do Log Analytics | Não  | Desativar | Mantenha a configuração **Desligado** para o log de diagnósticos. | 
    ||||| 
 
 4. Quando estiver pronto, selecione **Fixar no painel** e, em seguida, **Criar**.

@@ -19,6 +19,7 @@ items:
   - name: Utilizar a referência de modelo
     href: resource-manager-tutorial-create-encrypted-storage-accounts.md
   - name: Criar múltiplas instâncias
+    displayName: iteration,copy
     href: resource-manager-tutorial-create-multiple-instances.md
   - name: Mover recursos
     href: resource-manager-tutorial-move-resources.md
@@ -52,20 +53,9 @@ items:
     href: https://azure.microsoft.com/resources/samples/?sort=0&service=azure-resource-manager
 - name: Conceitos
   items:
-  - name: Modelos
-    items:
-    - name: Estrutura de arquivos de modelo
-      href: resource-group-authoring-templates.md
-    - name: parâmetros
-      href: resource-manager-templates-parameters.md
-    - name: variáveis
-      href: resource-group-authoring-templates.md#variables
-    - name: Funções
-      href: resource-group-authoring-templates.md#functions
-    - name: Recursos
-      href: resource-manager-templates-resources.md
-    - name: outputs
-      href: resource-group-authoring-templates.md#outputs
+  - name: Estrutura de arquivos de modelo
+    displayName: parameters,variables,resources,outputs
+    href: resource-group-authoring-templates.md
   - name: Práticas recomendadas de modelo
     href: template-best-practices.md
   - name: Modelos de consistência de nuvem
@@ -93,6 +83,7 @@ items:
     - name: Definir as dependências de recursos
       href: resource-group-define-dependencies.md
     - name: Modularizar modelos
+      displayName: linked templates, nested templates
       href: resource-group-linked-templates.md
     - name: Gerenciar segredos
       href: resource-manager-keyvault-parameter.md
@@ -245,7 +236,7 @@ items:
   - name: Java
     href: /java/api/com.microsoft.azure.management.resources
   - name: Python
-    href: http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html
+    href: /python/api/overview/azure/resources?view=azure-python
 - name: Recursos
   items:
   - name: Roteiro do Azure
@@ -260,9 +251,9 @@ items:
     href: resource-manager-personal-data.md
   - name: vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager
-ms.openlocfilehash: cb2e9b6d12acfb6fff514fc5e2603d9531acd76f
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 432cb5e4fb1e9b2ed2aa6e35e6e14ab68d78aa72
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241675"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181921"

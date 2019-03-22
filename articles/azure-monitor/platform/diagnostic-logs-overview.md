@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: e9fcf36d6ece441c73e7d1224bd5918d2e74bf84
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 07ea18a767044f0f74249859bb46d8285d52d7ab
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001946"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310175"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Coletar e consumir dados de log dos recursos do Azure
 
@@ -23,7 +23,7 @@ ms.locfileid: "56001946"
 * **Registros de locatário** - esses registros são provenientes de serviços no nível de inquilino que existem fora de uma assinatura do Azure, como os logs do Active Directory do Azure.
 * **Registros de recursos** - esses registros são provenientes dos serviços do Azure que implantam recursos em uma assinatura do Azure, como Grupos de segurança de rede ou Contas de armazenamento.
 
-    ![Logs de diagnóstico do recurso versus outros tipos de logs ](./media/diagnostic-logs-overview/Diagnostics_Logs_vs_other_logs_v5.png)
+    ![Logs de diagnóstico do recurso versus outros tipos de logs](./media/diagnostic-logs-overview/Diagnostics_Logs_vs_other_logs_v5.png)
 
 O conteúdo desses registros varia de acordo com o tipo de recurso e serviço do Azure. Por exemplo, os contadores de regras do Network Security Group e as auditorias do Key Vault são dois tipos de logs de diagnóstico.
 
@@ -113,12 +113,14 @@ Configurações de diagnóstico de locatário só podem ser configuradas na folh
 
 ### <a name="enable-collection-of-resource-diagnostic-logs-via-powershell"></a>Habilitar a coleção de logs de diagnóstico de recurso via PowerShell
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Para habilitar a coleção de logs de diagnóstico de recurso via Azure PowerShell, use os comandos a seguir:
 
 Para habilitar o armazenamento dos logs de diagnóstico em uma conta de armazenamento, use este comando:
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
 ```
 
 A ID da conta de armazenamento é a ID de recurso da conta de armazenamento para a qual você deseja enviar os logs.
@@ -126,7 +128,7 @@ A ID da conta de armazenamento é a ID de recurso da conta de armazenamento para
 Para habilitar o streaming dos logs de diagnóstico para um hub de eventos, use este comando:
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your Service Bus rule id] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your Service Bus rule id] -Enabled $true
 ```
 
 A ID da regra do barramento de serviço é uma cadeia de caracteres com este formato: `{Service Bus resource ID}/authorizationrules/{key name}`.
@@ -134,13 +136,13 @@ A ID da regra do barramento de serviço é uma cadeia de caracteres com este for
 Para habilitar o envio dos logs de diagnóstico para um workspace do Log Analytics, use este comando:
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
 ```
 
 É possível obter a ID de recurso do seu workspace do Log Analytics usando o seguinte comando:
 
 ```powershell
-(Get-AzureRmOperationalInsightsWorkspace).ResourceId
+(Get-AzOperationalInsightsWorkspace).ResourceId
 ```
 
 Você pode combinar esses parâmetros para permitir várias opções de saída.

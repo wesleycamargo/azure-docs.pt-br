@@ -38,9 +38,11 @@ items:
   href: concepts-overview.md
   items:
   - name: Upload e armazenamento na nuvem
-    href: storage-account-concept.md
-  - name: Ativos
-    href: assets-concept.md
+    items:
+    - name: Armazenamento
+      href: storage-account-concept.md
+    - name: Ativos
+      href: assets-concept.md
   - name: Codificação
     items:
     - name: Visão geral
@@ -72,7 +74,8 @@ items:
         href: filters-concept.md
     - name: Proteção do conteúdo
       items:
-      - name: Visão geral
+      - name: Tipos de criptografia e protocolos de streaming
+        displayName: Dynamic encryption
         href: content-protection-overview.md
       - name: Sistema de DRM múltiplo com controle de acesso
         href: design-multi-drm-system-with-access-control.md
@@ -103,6 +106,7 @@ items:
     - name: Codificadores dinâmicos recomendados
       href: recommended-on-premises-live-encoders.md
     - name: Usando um DVR em nuvem
+      displayName: archive
       href: live-event-cloud-dvr.md
     - name: Comparação de recursos
       href: live-event-types-comparison.md
@@ -116,6 +120,10 @@ items:
       href: reacting-to-media-services-events.md
     - name: Esquemas da Grade de Eventos
       href: media-services-event-schemas.md
+    - name: Métrica e logs de diagnóstico
+      href: media-services-metrics-diagnostic-logs.md
+    - name: Esquemas de logs de diagnóstico
+      href: media-services-diagnostic-logs-schema.md
   - name: Clientes do Player
     items:
     - name: Player de Mídia do Azure
@@ -159,9 +167,14 @@ items:
     - name: Arquivo local como entrada de trabalho – .NET
       displayName: encode, encoding
       href: job-input-from-local-file-how-to.md
-    - name: Usar uma transformação personalizada – .NET
-      displayName: encode, encoding, tranform
-      href: customize-encoder-presets-how-to.md
+    - name: Codificação com uma transformação personalizada
+      items:
+      - name: Com .NET
+        href: customize-encoder-presets-how-to.md
+      - name: Com a CLI
+        href: custom-preset-cli-howto.md
+      - name: Com REST
+        href: custom-preset-rest-howto.md
   - name: Usar a Grade de Eventos
     items:
     - name: Monitorar eventos - Portal
@@ -244,9 +257,9 @@ items:
     href: frequently-asked-questions.md
   - name: Nuvens e regiões do Azure
     href: azure-clouds-regions.md
-ms.openlocfilehash: 726c49754b1e04be8a9f03cc754c067994b98565
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: f67429869b07eba8deafec29189b6784a0eae9db
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958398"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58187703"

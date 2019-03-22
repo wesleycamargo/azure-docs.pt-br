@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 0a875b69a10f6305b4ffe32b63d3db5b508faf01
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
-ms.translationtype: HT
+ms.openlocfilehash: a3124ca2f163291d266fba77255d2ee98d30fd23
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638904"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888801"
 ---
 # <a name="create-virtual-machine-offer"></a>Criar uma oferta de Máquina Virtual
 
@@ -40,7 +40,7 @@ onde:
 
 ## <a name="new-offer-form"></a>Novo formulário de oferta
 
-Ao fazer logon no [Portal do Cloud Partner](http://cloudpartner.azure.com/), clique no item **+ Nova oferta** na barra de menus à esquerda. No menu resultante, clique em **Máquinas Virtuais** para exibir o formulário de **Nova Oferta** e iniciar o processo de definição de ativos para uma nova oferta de máquina virtual. 
+Ao fazer logon no [Portal do Cloud Partner](https://cloudpartner.azure.com/), clique no item **+ Nova oferta** na barra de menus à esquerda. No menu resultante, clique em **Máquinas Virtuais** para exibir o formulário de **Nova Oferta** e iniciar o processo de definição de ativos para uma nova oferta de máquina virtual. 
 <!-- not all publishers see corevm or azure apps test, you need to be whitelisted to see them. we should hide those in these images. -->
 
 ![A nova oferta de máquina virtual oferce seleção de interface do usuário](./media/publishvm_003.png)

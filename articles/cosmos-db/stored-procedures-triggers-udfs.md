@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 89cc7906c0503daa11f0a34520c17552a4e6b5af
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: d1960fbc9fc9e8c1d672b66d3cf1f41399842059
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454208"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58083191"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procedimentos armazenados, gatilhos e funções definidas pelo usuário
 
@@ -26,7 +26,7 @@ A escrita de procedimentos armazenados, gatilhos e UDFs (funções definidas pel
 
 * **Transações atômicas:** O Azure Cosmos DB garante que as operações de banco de dados executadas em um único procedimento armazenado ou um gatilho sejam atômicas. Essa funcionalidade atômica permite que um aplicativo combine operações relacionadas em um único lote, de modo que todas as operações ou nenhuma delas seja bem-sucedida.
 
-- **Desempenho:** Os dados JSON são intrinsecamente mapeados para o sistema de tipos de linguagem JavaScript. Esse mapeamento permite uma série de otimizações, como a materialização lenta de documentos JSON no pool de buffers e sua disponibilização sob demanda para o código em execução. Há outros benefícios de desempenho associados ao envio da lógica de negócios ao banco de dados, que incluem:
+* **Desempenho:** Os dados JSON são intrinsecamente mapeados para o sistema de tipos de linguagem JavaScript. Esse mapeamento permite uma série de otimizações, como a materialização lenta de documentos JSON no pool de buffers e sua disponibilização sob demanda para o código em execução. Há outros benefícios de desempenho associados ao envio da lógica de negócios ao banco de dados, que incluem:
 
    * *Envio em lote:* Você pode agrupar operações como inserções e enviá-las em massa. Os custos de latência do tráfego de rede e a sobrecarga de armazenamento para criar transações separadas são reduzidos significativamente.
 
@@ -34,7 +34,7 @@ A escrita de procedimentos armazenados, gatilhos e UDFs (funções definidas pel
 
    * *Sequenciamento:* Às vezes, as operações precisam de um mecanismo de disparo que possa executar uma ou mais atualizações nos dados. Além da Atomicidade, também há benefícios de desempenho com a execução do servidor.
 
-- **Encapsulamento:** Os procedimentos armazenados podem ser usados para agrupar a lógica em um só lugar. O encapsulamento adiciona uma camada de abstração aos dados, o que permite que você desenvolva seus aplicativos de maneira independente dos dados. Essa camada de abstração é útil quando os dados são sem esquema e você não precisa gerenciar a adição de lógica extra diretamente no aplicativo. A abstração permite manter os dados seguros simplificando o acesso pelos scripts.
+* **Encapsulamento:** Os procedimentos armazenados podem ser usados para agrupar a lógica em um só lugar. O encapsulamento adiciona uma camada de abstração aos dados, o que permite que você desenvolva seus aplicativos de maneira independente dos dados. Essa camada de abstração é útil quando os dados são sem esquema e você não precisa gerenciar a adição de lógica extra diretamente no aplicativo. A abstração permite manter os dados seguros simplificando o acesso pelos scripts.
 
 > [!TIP]
 > Os procedimentos armazenados são mais adequados para operações com uso intensivo de gravação. Ao decidir em que local usar procedimentos armazenados, otimize o encapsulamento da quantidade máxima possível de gravações. Em termos gerais, os procedimentos armazenados não são o meio mais eficaz para fazer grandes quantidades de operações de leitura. Portanto, o uso de procedimentos armazenados para criar um lote de uma grande quantidade de leituras para retorná-las para o cliente não produzirá o benefício desejado.

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 9967893e855770b693f0d581a07fe2910df4a3cb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 117d58f6f56fe1b24539c7bfe950f1a23d6de51a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55186936"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003606"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Acessando os logs de auditoria do Microsoft Azure Active Directory B2C
 
@@ -26,6 +26,7 @@ O Azure Active Directory B2C (Azure AD B2C) emite os logs de auditoria que cont�
 
 ## <a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>Visão geral das atividades disponíveis na categoria B2C dos logs de auditoria
 A categoria **B2C** nos logs de auditoria contém os seguintes tipos de atividades:
+
 |Tipo de atividade |DESCRIÇÃO  |
 |---------|---------|
 |Autorização |Atividades relacionadas à autorização de um usuário para acessar os recursos B2C (por exemplo, um administrador ao acessar uma lista de políticas de B2C)         |
@@ -33,7 +34,7 @@ A categoria **B2C** nos logs de auditoria contém os seguintes tipos de atividad
 |Aplicativo | Operações CRUD nos aplicativos B2C |
 |Chave |Operações CRUD nas chaves armazenadas no contêiner de chave B2C |
 |Recurso |Operações CRUD nos recursos B2C (por exemplo, políticas e provedores de identidade)
-|Autenticação |Validação de credenciais de usuário e emissão de token|
+|Authentication |Validação de credenciais de usuário e emissão de token|
 
 > [!NOTE]
 > Para atividades CRUD do objeto de usuário, consulte a categoria **Diretório Principal**.

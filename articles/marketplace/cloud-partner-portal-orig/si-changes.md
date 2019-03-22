@@ -12,24 +12,36 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 3/3/2019
 ms.author: pbutlerm
-ms.openlocfilehash: ec3784a91f8aeb7f0fedd13c9ab86a844832a578
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: 7df96d53b02e80283f263901dc7e26ed4edb947d
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804972"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342370"
 ---
-<a name="seller-insights-release-notes"></a>Notas de versão do Seller Insights 
-===============================
-(Data de lançamento: 28 de julho de 2018)
+# <a name="seller-insights-release-notes"></a>Notas de versão do Seller Insights 
+
+(Data de lançamento: 1 de março de 2019)
 
 Este artigo fornece informações sobre as alterações no recurso do Seller Insight no [Portal do Cloud Partner](https://cloudpartner.azure.com/#insights).
 
+## <a name="release-highlights-for-march-1-2019"></a>Destaques da versão para 1 de março de 2019
 
-<a name="release-highlights"></a>Destaques da versão
-------------------
+* *Tendência de cliente* adicionados ao resumo
+* *Principais cinco clientes* no resumo refletir todas as assinaturas do Azure tem um cliente
+* *Normalizados Active tendência de pedidos e a tendência de uso* no resumo movido *pedidos mensais em um relance*
+* *Relatório de reconciliação de pagamento* atualizado
+* *Principais cinco clientes* no pagamento refletem todas as assinaturas do Azure tem um cliente
+* *Relatório de uso* atualizado com a ID do cliente
+* *Gestão de cliente* em ordens e uso reflete todas as assinaturas do Azure tem um cliente
+
+
+(Data de lançamento: 28 de julho de 2018)
+
+## <a name="release-highlights-for-july-28-2018"></a>Destaques da versão para 28 de julho de 2018
+
 
 -   *Preços estimados* fornecem uma exibição dos encargos do cliente com implicações na conversão cambial.
 -   *Pagamentos previstos* fornecem uma exibição anterior nos pagamentos potenciais.
@@ -37,8 +49,7 @@ Este artigo fornece informações sobre as alterações no recurso do Seller Ins
 -   *Uso em uma granulação diária* fornece mais granularidade e melhores insights sobre o uso do cliente.
 
 
-<a name="changes-to-data-structure-and-taxonomy"></a>Alterações na estrutura de dados e taxonomia
---------------------------------------
+### <a name="changes-to-data-structure-and-taxonomy"></a>Alterações na estrutura de dados e taxonomia
 
 A tabela a seguir lista as métricas que foram adicionadas ou substancialmente alteradas com esta versão. 
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: fdeef8be1cfaabde326f68a1207f7c38d037a502
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 62a2da72a2659b95e4da41de67da4c609b8f049e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313289"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835575"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Solucionar problemas de replicação de VM do Azure para o Azure
 
@@ -79,7 +79,7 @@ Como o SuSE Linux usa links simbólicos para manter uma lista de certificados, s
 
 4. Se o certificado de autoridade de certificação raiz da Baltimore não for encontrado, baixe-o.  
 
-    ``# wget http://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root.pem``
+    ``# wget https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root.pem``
 
 5. Verifique se o certificado DigiCert_Global_Root_CA está presente.
 
@@ -158,12 +158,12 @@ Para replicação de recuperação de Site para o trabalho, conectividade de sa�
 - **Possível causa** </br>
   - Não é possível estabelecer conexão com pontos de extremidade do local devido à falha na resolução DNS.
   - Isso é visto com mais frequência durante a proteção novamente quando você fizer failover da máquina virtual, mas o servidor DNS não está acessível da região de recuperação de Desastre.
-  
+
 - **Resolução**
    - Se você estiver usando o DNS personalizado, certifique-se de que o servidor DNS está acessível da região de recuperação de desastres. Para verificar se você tem um DNS personalizado vá para a VM > rede de Recuperação de Desastres > servidores DNS. Tente acessar o servidor DNS da máquina virtual. Se não estiver acessível, em seguida, disponibilize-o failover do servidor DNS ou crie a linha de site entre a rede de recuperação de Desastre e DNS.
-  
+
     ![com-erro](./media/azure-to-azure-troubleshoot-errors/custom_dns.png)
- 
+
 
 ### <a name="issue-2-site-recovery-configuration-failed-151196"></a>Problema 2: Falha na configuração do Site Recovery (151196)
 - **Possível causa** </br>
@@ -172,8 +172,10 @@ Para replicação de recuperação de Site para o trabalho, conectividade de sa�
 - **Resolução**
   - O Azure Site Recovery precisa de acesso aos intervalos de IPs do Office 365 para autenticação.
     Se você estiver usando o proxy de regras de firewall NSG (grupo) de segurança de rede do Azure para controlar a conectividade de rede de saída na VM, verifique se você permitiu a comunicação com intervalos de IP do O365. Criar uma [marca de serviço do Azure Active Directory (AAD)](../virtual-network/security-overview.md#service-tags) com base em regra NSG para permitir o acesso a todos os endereços IP correspondente para o AAD
-        - Se novos endereços são adicionados no futuro para o Azure Active Directory (AAD) você precisará criar novas regras NSG.
+      - Se novos endereços são adicionados no futuro para o Azure Active Directory (AAD) você precisará criar novas regras NSG.
 
+> [!NOTE]
+> Se as máquinas virtuais estão por trás **Standard** balanceador de carga interno e em seguida, ele não teria acesso ao O365 IPs, ou seja, login.micorsoftonline.com por padrão. Altere-o para **básicas** interno tipo de Balanceador de carga ou criar acesso com associação de saída, conforme mencionado na [artigo](https://aka.ms/lboutboundrulescli).
 
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problema 3: Falha na configuração do Site Recovery (151197)
 - **Possível causa** </br>
@@ -181,24 +183,24 @@ Para replicação de recuperação de Site para o trabalho, conectividade de sa�
 
 - **Resolução**
   - O Azure Site Recovery requer acesso para a [intervalos de IP de recuperação de Site](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges) dependendo da região. Certifique-se de que necessários intervalos os de IP são acessíveis a partir da máquina virtual.
-    
+
 
 ### <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premise-proxy-server-151072"></a>Problema 4: A replicação de A2A falhou quando o tráfego de rede passou pelo servidor proxy local (151072)
- - **Possível causa** </br>
-   - As configurações de proxy personalizadas são inválidas, e o agente do Serviço de Mobilidade do ASR não detectou automaticamente as configurações de proxy do IE
+- **Possível causa** </br>
+  - As configurações de proxy personalizadas são inválidas, e o agente do Serviço de Mobilidade do ASR não detectou automaticamente as configurações de proxy do IE
 
 
- - **Resolução**
-   1.   O agente do Serviço de Mobilidade detecta as configurações de proxy do IE no Windows e o ambiente /etc/ no Linux.
-   2.  Se você preferir definir o proxy somente para o Serviço de Mobilidade do ASR, você poderá fornecer os detalhes do proxy no ProxyInfo.conf localizado em:</br>
-       - ``/usr/local/InMage/config/`` no ***Linux***
-       - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` no ***Windows***
-   3.   O ProxyInfo.conf deve ter as configurações de proxy no seguinte formato INI.</br>
-                   *[proxy]*</br>
-                   *Address=http://1.2.3.4*</br>
-                   *Port=567*</br>
-   4. O agente do Serviço de Mobilidade do ASR suporta apenas ***proxies não autenticados***.
- 
+- **Resolução**
+  1. O agente do Serviço de Mobilidade detecta as configurações de proxy do IE no Windows e o ambiente /etc/ no Linux.
+  2. Se você preferir definir o proxy somente para o Serviço de Mobilidade do ASR, você poderá fornecer os detalhes do proxy no ProxyInfo.conf localizado em:</br>
+     - ``/usr/local/InMage/config/`` no ***Linux***
+     - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` no ***Windows***
+  3. O ProxyInfo.conf deve ter as configurações de proxy no seguinte formato INI.</br>
+                *[proxy]*</br>
+                *Address=http://1.2.3.4*</br>
+                *Port=567*</br>
+  4. O agente do Serviço de Mobilidade do ASR suporta apenas ***proxies não autenticados***.
+
 
 ### <a name="fix-the-problem"></a>Corrija o problema
 Para permitir [as URLs necessárias](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) ou os [ intervalos de IP necessários](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), siga as etapas no [documento de diretrizes de rede](site-recovery-azure-to-azure-networking-guidance.md).
@@ -279,6 +281,7 @@ Para habilitar a replicação na VM, o estado de provisionamento deve ser **Com 
 
 
 ## <a name="comvolume-shadow-copy-service-error-error-code-151025"></a>Erro de serviço de Cópias de Sombra de Volume/COM+ (código de erro 151025)
+
 **Código de erro** | **Possíveis causas:** | **Recomendações**
 --- | --- | ---
 151025<br></br>**Mensagem**: Falha ao instalar a extensão do Site Recovery | - Serviço 'Aplicativo do Sistema COM' desabilitado.</br></br>- O serviço de 'Cópias de Sombra de Volume' está desabilitado.| Defina os serviços 'Aplicativo do Sistema COM+' e 'Cópias de Sombra de Volume' para o modo de inicialização manual ou automático.
@@ -302,31 +305,31 @@ Os arquivos de configuração do GRUB ("/boot/grub/menu.lst", "/boot/grub/grub.c
 
 
 - A seguinte linha é do arquivo GRUB **/boot/grub2/grub.cfg**. <br>
-*linux   /boot/vmlinuz-3.12.49-11-default **root=/dev/sda2**  ${extra_cmdline} **resume=/dev/sda1** splash=silent quiet showopts*
+  *linux   /boot/vmlinuz-3.12.49-11-default **root=/dev/sda2**  ${extra_cmdline} **resume=/dev/sda1** splash=silent quiet showopts*
 
 
 - A seguinte linha é do arquivo GRUB **/boot/grub/menu.lst**
-*kernel /boot/vmlinuz-3.0.101-63-default **root=/dev/sda2** **resume=/dev/sda1** splash=silent crashkernel=256M-:128M showopts vga=0x314*
+  *kernel /boot/vmlinuz-3.0.101-63-default **root=/dev/sda2** **resume=/dev/sda1** splash=silent crashkernel=256M-:128M showopts vga=0x314*
 
 Se você observar a cadeia de caracteres em negrito acima, o GRUB terá nomes de dispositivo reais para os parâmetros "root" e "resume" em vez do UUID.
- 
+
 **Como corrigir:**<br>
 os nomes de dispositivo devem ser substituídos pelo UUID correspondente.<br>
 
 
 1. Localize o UUID do dispositivo executando o comando "blkid <device name>". Por exemplo: <br>
-```
-blkid /dev/sda1 
-```<br>
-```/dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap" ```<br>
-```blkid /dev/sda2```<br> 
-```/dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
-```<br>
+   ```
+   blkid /dev/sda1 
+   ```<br>
+   ```/dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap" ```<br>
+   ```blkid /dev/sda2```<br> 
+   ```/dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
+   ```<br>
 
 
 
 1. Now replace the device name with its UUID in the format like "root=UUID=<UUID>". For example, if we replace the device names with UUID for root and resume parameter mentioned above in the files "/boot/grub2/grub.cfg", "/boot/grub2/grub.cfg" or "/etc/default/grub: then the lines in the files looks like. <br>
-*kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
+   *kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
 1. Restart the protection again
 
 ## Enable protection failed as device mentioned in the GRUB configuration doesn't exist(error code 151124)
@@ -336,14 +339,14 @@ The GRUB configuration files ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/bo
 Few examples: </br>
 
 1. The following line is from the GRUB file **"/boot/grub2/grub.cfg"** on RHEL7. </br>
-*linux16 /vmlinuz-3.10.0-957.el7.x86_64 root=/dev/mapper/rhel_mup--rhel7u6-root ro crashkernel=128M@64M **rd.lvm.lv=rootvg/root rd.lvm.lv=rootvg/swap** rhgb quiet LANG=en_US.UTF-8*</br>
-Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg". 
+   *linux16 /vmlinuz-3.10.0-957.el7.x86_64 root=/dev/mapper/rhel_mup--rhel7u6-root ro crashkernel=128M\@64M **rd.lvm.lv=rootvg/root rd.lvm.lv=rootvg/swap** rhgb quiet LANG=en_US.UTF-8*</br>
+   Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg". 
 1. The following line is from the GRUB file **"/etc/default/grub"** on RHEL7 </br>
- *GRUB_CMDLINE_LINUX="crashkernel=auto **rd.lvm.lv=rootvg/root rd.lvm.lv=rootvg/swap** rhgb quiet"*</br>
-Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg". 
+   *GRUB_CMDLINE_LINUX="crashkernel=auto **rd.lvm.lv=rootvg/root rd.lvm.lv=rootvg/swap** rhgb quiet"*</br>
+   Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg". 
 1. The following line is from the GRUB file **"/boot/grub/menu.lst"** on RHEL6 </br>
-*kernel /vmlinuz-2.6.32-754.el6.x86_64 ro root=UUID=36dd8b45-e90d-40d6-81ac-ad0d0725d69e rd_NO_LUKS LANG=en_US.UTF-8 rd_NO_MD SYSFONT=latarcyrheb-sun16 crashkernel=auto rd_LVM_LV=rootvg/lv_root  KEYBOARDTYPE=pc KEYTABLE=us rd_LVM_LV=rootvg/lv_swap rd_NO_DM rhgb quiet* </br>
- Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg".<br>
+   *kernel /vmlinuz-2.6.32-754.el6.x86_64 ro root=UUID=36dd8b45-e90d-40d6-81ac-ad0d0725d69e rd_NO_LUKS LANG=en_US.UTF-8 rd_NO_MD SYSFONT=latarcyrheb-sun16 crashkernel=auto rd_LVM_LV=rootvg/lv_root  KEYBOARDTYPE=pc KEYTABLE=us rd_LVM_LV=rootvg/lv_swap rd_NO_DM rhgb quiet* </br>
+   Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg".<br>
 
 **How to Fix:**<br>
 

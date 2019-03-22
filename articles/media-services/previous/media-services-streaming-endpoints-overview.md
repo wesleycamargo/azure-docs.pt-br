@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: b40a2bbfa7bbab7ffbdd4c47684eda7c954e7b77
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: c5979fa7ff67c5acda9ab653bc4ee52d8b5129a5
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55996913"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293797"
 ---
 # <a name="streaming-endpoints-overview"></a>Visão geral dos pontos de extremidade de streaming  
 
@@ -50,8 +50,8 @@ Começando com a versão dos Serviços de Mídia de janeiro de 2017, há dois ti
 
 Type|DESCRIÇÃO
 ---|---
-**Standard**|Essa é a opção padrão que funciona para a maioria dos cenários.<br/>Com essa opção, você obtém SLA fixo/limitado e os primeiros 15 dias após iniciar o ponto de extremidade de streaming são gratuitos.<br/>Se você criar mais de um ponto de extremidade de streaming, somente o primeiro deles será gratuito pelos primeiros 15 dias, os outros serão cobrados assim forem iniciados. <br/>Observe que a avaliação gratuita se aplica somente a contas de serviços de mídia e do ponto de extremidade de streaming recém-criadas. Pontos de extremidade de streaming existentes e criados adicionalmente não incluem o período de avaliação gratuita mesmo se forem atualizados para a versão 2.0 ou criados nela.
-**Premium**|Esta opção é adequada para cenários profissionais que exigem maior escala ou controle.<br/>SLA variável com base na capacidade da UA (unidade de streaming) premium adquirida, pontos de extremidade de streaming dedicados residem em um ambiente isolado e não competem por recursos.
+**Standard** |Essa é a opção padrão que funciona para a maioria dos cenários.<br/>Com essa opção, você obtém SLA fixo/limitado e os primeiros 15 dias após iniciar o ponto de extremidade de streaming são gratuitos.<br/>Se você criar mais de um ponto de extremidade de streaming, somente o primeiro deles será gratuito pelos primeiros 15 dias, os outros serão cobrados assim forem iniciados. <br/>Observe que a avaliação gratuita se aplica somente a contas de serviços de mídia e do ponto de extremidade de streaming recém-criadas. Pontos de extremidade de streaming existentes e criados adicionalmente não incluem o período de avaliação gratuita mesmo se forem atualizados para a versão 2.0 ou criados nela.
+**Premium** |Esta opção é adequada para cenários profissionais que exigem maior escala ou controle.<br/>SLA variável com base na capacidade da UA (unidade de streaming) premium adquirida, pontos de extremidade de streaming dedicados residem em um ambiente isolado e não competem por recursos.
 
 Para obter mais informações, consulte a seção **Comparar tipos de Streaming** a seguir.
 

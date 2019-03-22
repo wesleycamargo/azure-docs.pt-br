@@ -2,24 +2,24 @@
 title: Criar um cluster do Kubernetes com o Serviço de Kubernetes do Azure (AKS) e o Terraform
 description: Tutorial ilustrando como criar um cluster do Kubernetes com o serviço do Azure Kubernetes e o Terraform
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, máquina virtual, azure, kubernetes
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/04/2018
-ms.openlocfilehash: 57615ecd4c81359360004b732736bf757c0026c3
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: d8438f5ddbbb3744811448aeb563be602b04516d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892058"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58009101"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>Criar um cluster do Kubernetes com o Serviço do Azure Kubernetes e o Terraform
 [ O Azure Kubernetes Service (AKS) ](/azure/aks/) gerencia seu ambiente hospedado do Kubernetes, tornando rápido e fácil implantar e gerenciar aplicativos em contêiner sem a experiência em orquestração de contêineres. Também elimina a sobrecarga das operações em andamento e a manutenção provisionando, atualizando e dimensionamento os recursos sob demanda, sem colocar seus aplicativos offline.
 
-Neste tutorial, você aprenderá como executar as seguintes tarefas ao criar um cluster [ Kubernetes ](https://www.redhat.com/en/topics/containers/what-is-kubernetes) usando [ Terraform ](http://terraform.io) e AKS:
+Neste tutorial, você aprenderá como executar as seguintes tarefas ao criar um cluster [ Kubernetes ](https://www.redhat.com/en/topics/containers/what-is-kubernetes) usando [ Terraform ](https://terraform.io) e AKS:
 
 > [!div class="checklist"]
 > * Use HCL (HashiCorp Language) para definir um cluster do Kubernetes
@@ -37,7 +37,7 @@ Neste tutorial, você aprenderá como executar as seguintes tarefas ao criar um 
 ## <a name="create-the-directory-structure"></a>Crie a estrutura de diretórios
 O primeiro passo é criar o diretório que contém os arquivos de configuração do Terraform para o exercício.
 
-1. Navegue até o [Portal do Azure](http://portal.azure.com).
+1. Navegue até o [Portal do Azure](https://portal.azure.com).
 
 1. Abra o [Azure Cloud Shell](/azure/cloud-shell/overview). Se você não selecionou um ambiente anteriormente, selecione **Bash** como o ambiente.
 

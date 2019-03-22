@@ -10,36 +10,36 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/26/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 23bbcbf6947100db26f31562c44f8073e16e986f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 09b8556a83dec286ce8d67fa5fd6d27e027325bf
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239334"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769209"
 ---
 # <a name="deploy-the-local-agent"></a>Implantar o agente local
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Saiba como usar a validação como um agente local de serviço (VaaS) para verificar o seu hardware. O agente local deve ser implantado na solução do Azure Stack que estão sendo validada antes da execução de testes de validação.
+Saiba como usar a validação como um agente local de serviço (VaaS) para executar testes de validação. O agente local deve ser implantado antes de executar testes de validação.
 
 > [!Note]  
-> Certifique-se de que o computador que está executando o agente local não perde o acesso de saída à internet. Essa máquina deve ser acessível somente aos usuários que você tenha autorizado a usar VaaS em nome do seu locatário.
+> Certifique-se de que o computador que está executando o agente local não perde o acesso de saída à internet. Essa máquina deve ser acessível somente aos usuários que estão autorizados a usar VaaS em nome do seu locatário.
 
 Para implantar o agente local:
 
-1. Instalar o agente local
-2. Executar as verificações de integridade
-3. Executar o agente local
+1. Instale o agente local.
+2. Execute as verificações de integridade.
+3. Execute o agente local.
 
 ## <a name="download-and-start-the-local-agent"></a>Baixe e inicie o agente local
 
-Baixe o agente para um computador que atenda aos pré-requisitos em seu data center que não faz parte do sistema do Azure Stack, mas que tem acesso a todos os pontos de extremidade do Azure Stack.
+Baixe o agente para um computador que atenda aos pré-requisitos em seu datacenter e tem acesso a todos os pontos de extremidade do Azure Stack. Este computador não deve ser parte do sistema do Azure Stack ou hospedado na nuvem do Azure Stack.
 
 ### <a name="machine-prerequisites"></a>Pré-requisitos de máquina
 
@@ -51,8 +51,6 @@ Verifique se o seu computador atende aos seguintes critérios:
 - Mínimo de 8 processadores de núcleo
 - Espaço em disco mínimo de 200 GB
 - Conectividade de rede estável com a internet
-
-O Azure Stack é o sistema em teste. A máquina não deve ser parte da pilha do Azure ou hospedado na nuvem do Azure Stack.
 
 ### <a name="download-and-install-the-agent"></a>Baixe e instale o agente
 
@@ -95,7 +93,7 @@ O comando baixa uma imagem do (PIR) do repositório de imagem pública (SO do VH
 
 ## <a name="checks-before-starting-the-tests"></a>Verificações antes de iniciar os testes
 
-Os testes executados ações remotas. O computador que executa os testes deve ter acesso aos pontos de extremidade do Azure Stack, caso contrário, os testes não funcionará. Se você estiver usando o agente de VaaS local, use a máquina em que o agente será executado. Você pode verificar se o seu computador tem acesso aos pontos de extremidade do Azure Stack, executando as seguintes verificações:
+Os testes executados operações remotas. O computador que executa os testes deve ter acesso aos pontos de extremidade do Azure Stack, caso contrário, os testes não funcionará. Se você estiver usando o agente de VaaS local, use a máquina em que o agente será executado. Você pode verificar se o seu computador tem acesso aos pontos de extremidade do Azure Stack, executando as seguintes verificações:
 
 1. Verifique se o URI de Base pode ser acessado. Abra um prompt de comando ou shell bash, e execute o seguinte comando, substituindo `<EXTERNALFQDN>` com o FQDN externo do seu ambiente:
 

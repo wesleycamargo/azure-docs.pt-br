@@ -1,6 +1,6 @@
 ---
-title: Versão prévia da proteção por senha do Azure AD
-description: Proibir senhas fracas no Active Directory local usando a versão prévia da proteção por senha do Azure AD
+title: Proteção de senha do Azure AD
+description: Senhas fracas de vetar no Active Directory local por meio da proteção de senha do AD do Azure
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,87 +11,85 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1beae186f6eb276b9aa302d3d51f0ba8688e591
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: f1b3660d256e4beda948f723035aa75ca8a9ed2e
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415741"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58284861"
 ---
-# <a name="preview-enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Visualização: Impor a proteção por senha do Azure AD para o Active Directory do Windows Server
+# <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Impor a proteção por senha do Azure AD para o Active Directory do Windows Server
 
-|     |
-| --- |
-| A lista de senhas proibidas personalizada e a proteção por senha do Azure AD são recursos de visualização pública do Azure Active Directory. Para obter mais informações sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
-
-A proteção por senha do Azure AD é um novo recurso na visualização pública com base no Azure AD (Azure Active Directory) para aprimorar as políticas de senha em uma organização. A implantação local da proteção por senha do Azure AD usa as listas de senhas proibidas globais e personalizadas armazenadas no Azure AD e realiza as mesmas verificações no local que as alterações baseadas em nuvem do Azure AD.
+Proteção por senha do AD do Azure é um recurso que aprimora as políticas de senha em uma organização. Proteção de senha de implantação de local usa os dois as globais e personalizadas senha banida listas que são armazenadas no AD do Azure. Ele faz o mesma verificações no local como o Azure AD para alterações com base em nuvem.
 
 ## <a name="design-principles"></a>Princípios de design
 
-A Proteção de Senha do Azure AD para o Active Directory foi criada com os seguintes princípios em mente:
+Proteção por senha do AD do Azure destina-se com esses princípios em mente:
 
-* Os controladores de domínio nunca precisam se comunicar diretamente com a Internet
+* Controladores de domínio nunca precisam se comunicar diretamente com a internet.
 * Nenhuma porta de rede nova é aberta em controladores de domínio.
-* Nenhuma alteração de esquema do Active Directory é necessária. O software usa o contêiner do Active Directory existente e os objetos de esquema serviceConnectionPoint.
-* Não é necessário nenhum Domínio do Active Directory ou nível Funcional da Floresta (DFL\FFL) mínimo.
-* O software não cria nem exige nenhuma conta nos domínios do Active Directory que ele protege.
-* As senhas de texto não criptografado do usuário nunca deixam o controlador de domínio (durante as operações de validação de senha ou em qualquer outro momento).
-* A implantação incremental tem suporte com a compensação de que a política de senha somente é aplicada quando o agente do controlador de domínio é instalado.
-* É recomendável instalar o agente DC em todos os DCs para garantir a imposição de segurança proteção de senha onipresente.
+* Nenhuma alteração de esquema do Active Directory é necessária. O software usa o Active Directory existente **recipiente** e **serviceConnectionPoint** objetos de esquema.
+* Nenhum do Active Directory domínio ou floresta nível funcional mínimo (DFL/FFL) é necessário.
+* O software não criar nem exigem contas de domínios do Active Directory que ele protege.
+* Senhas de texto não criptografado de usuário não deixem o controlador de domínio durante as operações de validação de senha ou qualquer outro momento.
+* Há suporte para a implantação incremental. Mas a política de senha é imposta apenas onde o agente de controlador de domínio (agente de controlador de domínio) está instalado.
+* É recomendável que você instale o agente de controlador de domínio em todos os controladores de domínio para garantir que a imposição de segurança de proteção de senha universal.
 
 ## <a name="architectural-diagram"></a>Diagrama de arquitetura
 
-É importante ter uma compreensão dos conceitos funcionais e de design subjacentes antes de implantar a Proteção de Senha do Azure AD em um ambiente do Active Directory local. O diagrama a seguir mostra como os componentes da Proteção de Senha do Azure AD funcionam em conjunto:
+É importante entender os conceitos de funções e design subjacente antes de implantar a proteção por senha do Azure AD em um ambiente do Active Directory local. O diagrama a seguir mostra como os componentes da proteção por senha funcionam juntos:
 
 ![Como os componentes de proteção por senha do Azure AD trabalham em conjunto](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
 
-O diagrama acima mostra os três componentes de software básicos que formam a proteção por senha do Azure AD:
+* O serviço de Proxy de Proteção por Senha do Azure AD é executado em qualquer computador ingressado no domínio na floresta atual do Active Directory. Sua finalidade principal é encaminhar solicitações de download da política de senha de controladores de domínio para o Azure AD. Ele então retorna as respostas do Azure AD para o controlador de domínio.
+* DLL do agente de controlador de domínio de filtro de senha recebe solicitações de validação de senha do usuário do sistema operacional. Ele encaminha-as para o serviço de agente do DC que está em execução localmente no controlador de domínio.
+* O serviço de agente de controlador de domínio da proteção por senha recebe solicitações de validação de senha de DLL do agente de controlador de domínio de filtro de senha. Ele processa-os usando a política de senha (disponíveis localmente) atual e retorna o resultado: *passar* ou *falhar*.
 
-* O serviço de Proxy de Proteção por Senha do Azure AD é executado em qualquer computador ingressado no domínio na floresta atual do Active Directory. Sua funcionalidade principal é encaminhar solicitações de download de política de senha dos controladores de Domínio para o Azure AD e retornar a resposta do Azure AD para o controlador de domínio.
-* A dll do filtro de senha do Agente DC da Proteção por Senha do Azure AD recebe solicitações de validação de senha do sistema operacional e as encaminha para o serviço do agente DC de Proteção por Senha do Azure AD executado localmente no controlador de domínio.
-* O serviço do Agente DC de Proteção por Senha do Azure AD recebe solicitações de validação de senha da dll do filtro de senha do agente DC, processa-as usando a política de senha atual disponível localmente e retorna o resultado (aprovado/reprovado).
+## <a name="how-password-protection-works"></a>Como funciona a proteção de senha
 
-## <a name="theory-of-operations"></a>Teoria de operações
+Cada instância de serviço de Proxy de proteção de senha do Azure AD se anuncia aos controladores de domínio na floresta com a criação de um **serviceConnectionPoint** objeto no Active Directory.
 
-Considerando os princípios de design e o diagrama acima, como a Proteção por Senha do Azure AD realmente funciona?
+Cada serviço de agente de controlador de domínio para a proteção por senha também cria uma **serviceConnectionPoint** objeto no Active Directory. Esse objeto é usado principalmente para relatórios e diagnósticos.
 
-Cada serviço de Proxy de Proteção por Senha do Azure AD se anuncia para controladores de domínio na floresta criando um objeto serviceConnectionPoint no Active Directory.
+O serviço do agente de controlador de domínio é responsável por iniciar o download de uma nova política de senha do AD do Azure. A primeira etapa é localizar um serviço de Proxy de proteção de senha do Azure AD por meio de consulta da floresta para o proxy **serviceConnectionPoint** objetos. Quando um serviço de proxy disponíveis for encontrado, o agente de controlador de domínio envia uma solicitação de download da política de senha para o serviço de proxy. O serviço de proxy por sua vez envia a solicitação para o Azure AD. O serviço de proxy, em seguida, retorna a resposta para o serviço de agente de controlador de domínio.
 
-Cada serviço do Agente DC da Proteção por Senha do Azure AD também cria um objeto serviceConnectionPoint no Active Directory. No entanto, isso é usado principalmente para relatórios e diagnósticos.
+Depois que o serviço do agente de controlador de domínio recebe uma nova política de senha do AD do Azure, o serviço armazena a política em uma pasta dedicada na raiz do seu domínio *sysvol* compartilhamento da pasta. O serviço do agente de controlador de domínio também monitora essa pasta, no caso de políticas mais recentes replicam de outros serviços do agente de controlador de domínio no domínio.
 
-O serviço do Agente DC da Proteção por Senha do Azure AD é responsável por iniciar o download de uma nova política de senha do Azure AD. A primeira etapa é localizar um serviço de Proxy de Proteção por Senha do Azure AD consultando a floresta para objetos serviceConnectionPoint do proxy. Depois que um serviço de proxy disponível é encontrado, a solicitação de download de política de senha é enviada do serviço do Agente DC para o serviço de proxy, que, por sua vez, a envia para o Azure AD e retorna a resposta para o serviço do Agente DC. Depois de receber uma nova política de senha do Azure AD, o serviço de Agente DC armazena a política em uma pasta dedicada na raiz de seu compartilhamento do sysvol do domínio. O serviço de Agente DC também monitora essa pasta no caso de políticas mais recentes serem replicadas de outros serviços de Agente DC no domínio.
+O serviço do agente de controlador de domínio sempre solicitará uma nova política na inicialização do serviço. Depois que o serviço de agente de controlador de domínio é iniciado, ele verifica a idade da política atual disponível localmente por hora. Se a política é mais de uma hora, o agente de controlador de domínio solicita uma nova política do Azure AD, conforme descrito anteriormente. Se a política atual não for mais de uma hora, o agente de controlador de domínio continua a usar essa política.
 
-O serviço do Agente DC de Proteção por Senha do Azure AD sempre solicitará uma nova política na inicialização do serviço. Após o serviço do Agente DC ser iniciado, ele periodicamente (uma vez a cada hora) verificará a idade da política disponível localmente no momento. Se a política atual tiver mais de uma hora, o serviço do Agente DC solicitará uma nova política do Azure AD conforme descrito acima, caso contrário, o Agente DC continuará a usar a política atual.
+Sempre que uma política de senha de proteção de senha do Azure AD é baixada, essa política é específica para um locatário. Em outras palavras, as políticas de senha são sempre uma combinação de lista de senha banida global do Microsoft e a lista de senha banida personalizada por locatário.
 
-O serviço do Agente DC de Proteção por Senha do Azure AD se comunica com o serviço de Proxy de Proteção por Senha do Azure AD usando a RPC (chamada de procedimento remoto) por TCP. O serviço de Proxy ouve essas chamadas em uma porta de RPC dinâmica ou estática (conforme configurado).
+O agente de controlador de domínio se comunica com o serviço de proxy por meio do RPC sobre TCP. O serviço de proxy ouve essas chamadas em uma porta RPC dinâmica ou estática, dependendo da configuração.
 
-O Agente DC de Proteção por Senha do Azure AD nunca ouve em uma porta disponível na rede e o serviço de Proxy nunca tenta chamar o serviço do Agente DC.
+O agente do controlador de domínio nunca escuta em uma porta de rede disponíveis.
 
-O serviço de Proxy de Proteção por Senha do Azure AD é sem estado, ele nunca armazena em cache políticas ou qualquer outro estado baixado do Azure.
+O serviço de proxy nunca chama o serviço de agente de controlador de domínio.
 
-O serviço do Agente DC de Proteção por Senha do Azure AD avaliará a senha de um usuário somente usando a política de senha disponível localmente mais recente. Se não houver nenhuma política de senha disponível no DC local, a senha será aceita automaticamente e uma mensagem de log de evento será registrada para alertar o administrador.
+O serviço de proxy é sem monitoração de estado. Ele nunca armazena em cache as políticas ou qualquer outro estado baixado do Azure.
 
-A Proteção por Senha do Azure AD não é um mecanismo de aplicativo de política em tempo real. Pode haver um atraso no tempo entre uma alteração na configuração da política de senha é realizada no Azure AD e o tempo que ela atinge e é imposta em todos os controladores de domínio.
+O serviço do agente de controlador de domínio sempre usa a política de senha localmente disponível mais recente para avaliar a senha do usuário. Se nenhuma política de senha está disponível no controlador de domínio local, a senha é aceito automaticamente. Quando isso acontece, uma mensagem de evento é registrada para alertar o administrador.
 
-## <a name="foresttenant-binding-for-azure-ad-password-protection"></a>Associação de floresta\locatário para a Proteção por Senha do Azure AD
+Proteção por senha do Azure AD não é um mecanismo de aplicação de políticas em tempo real. Pode haver um atraso entre quando uma alteração de configuração de política de senha é feita no Azure AD e quando alteradas atingir e são aplicadas em todos os controladores de domínio.
 
-A implantação da Proteção por Senha do Azure AD em uma floresta do Active Directory requer o registro da floresta e de qualquer serviço de Proxy de Proteção por Senha do Azure AD implantado, com o Azure AD. Esses registros (floresta e proxies) estão associados a um locatário do Azure AD específico que é identificado implicitamente por meio das credenciais usadas durante o registro. Sempre que uma política de senha de Proteção por Senha do Azure AD é baixada, ela sempre é específica para esse locatário (isto é, a política sempre será uma combinação da lista de senhas banidas global da Microsoft e a lista de senhas banidas personalizada por locatário). A configuração de diferentes domínios ou proxies em uma floresta associada a locatários diferentes do Azure AD não é compatível.
+## <a name="foresttenant-binding-for-password-protection"></a>Associação de locatário/floresta para a proteção por senha
+
+Implantação da proteção por senha em uma floresta do Active Directory do Azure AD exige o registro dessa floresta com o Azure AD. Cada serviço de proxy que é implantado também deve ser registrado com o Azure AD. Esses registros de proxy e de floresta estão associados um determinado locatário do AD do Azure, o que é identificado implicitamente pelas credenciais que são usadas durante o registro.
+
+Floresta do Active Directory e todos os serviços de proxy implantados dentro de uma floresta devem ser registrados com o mesmo locatário. Não há suporte para ter uma floresta do Active Directory ou quaisquer serviços de proxy em que a floresta que está sendo registrada para o Azure AD diferente locatários. Os sintomas de tipo de implantação configurado incorretamente incluem a incapacidade de baixar as políticas de senha.
 
 ## <a name="license-requirements"></a>Requisitos de licença
 
-Os benefícios da lista global de senhas proibidas aplicam-se a todos os usuários do Azure AD (Active Directory do Azure).
+Os benefícios da lista global de senhas banidas se aplicam a todos os usuários do AD do Azure.
 
-A lista de senhas proibidas personalizada requer licenças do Azure AD Basic.
+A lista de senha banida personalizada requer licenças do Azure AD Basic.
 
-A Proteção por Senha do Azure AD para o Windows Server Active Directory requer licenças do Azure AD Premium.
+A proteção por senha do Azure AD para o Windows Server Active Directory requer licenças do Azure AD Premium.
 
-Informações adicionais sobre licenciamento, incluindo custos, podem ser encontradas no [site de preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+Para obter informações adicionais de licenciamento, consulte [preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="download"></a>Baixar
 
-Os dois instaladores de agente necessários para a Proteção de Senha do Azure AD que podem ser baixados do [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=57071)
+Dois instaladores de agente necessário para a proteção de senha do AD do Azure estão disponíveis na [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57071).
 
 ## <a name="next-steps"></a>Próximas etapas
-
 [Implantar proteção de senha do Azure AD](howto-password-ban-bad-on-premises-deploy.md)

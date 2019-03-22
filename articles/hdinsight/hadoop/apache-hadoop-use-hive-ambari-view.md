@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 16c9e1cb568533e8dcad046c4ee21bfeaf19d5b7
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: HT
+ms.openlocfilehash: cb68e93553be66d0d0be0edf61e491217bfe4d48
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407840"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091300"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Use o Apache Ambari Hive View com o Apache Hadoop no HDInsight
 
@@ -73,7 +73,7 @@ Saiba como executar as consultas do Hive usando o Apache Ambari Hive View. A Exi
    * `DROP TABLE`: Exclui a tabela e o arquivo de dados, caso a tabela já exista.
 
    * `CREATE EXTERNAL TABLE`: Cria uma nova tabela "externa" no Hive.
-   As tabelas externas armazenam apenas a definição da tabela no Hive. Os dados são mantidos no local original.
+     As tabelas externas armazenam apenas a definição da tabela no Hive. Os dados são mantidos no local original.
 
    * `ROW FORMAT`: Mostra como os dados são formatados. Nesse caso, os campos em cada log são separados por um espaço.
 
@@ -81,8 +81,8 @@ Saiba como executar as consultas do Hive usando o Apache Ambari Hive View. A Exi
 
    * `SELECT`: Seleciona uma contagem de todas as linhas em que a coluna t4 contém o valor [ERROR].
 
-    > [!IMPORTANT]  
-    > Deixe a seleção __Banco de dados__ em __padrão__. Os exemplos neste documento usam o banco de dados padrão incluído no HDInsight.
+     > [!IMPORTANT]  
+     > Deixe a seleção __Banco de dados__ em __padrão__. Os exemplos neste documento usam o banco de dados padrão incluído no HDInsight.
 
 5. Para iniciar a consulta, use o botão **Executar** abaixo da planilha. O botão fica laranja e o texto é alterado para **Parar**.
 

@@ -7,16 +7,16 @@ manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
 ms.devlang: nodejs
-ms.topic: hero-article
+ms.topic: conceptual
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
-ms.openlocfilehash: 8844260c4364776ad0fc828dcd66932d37474ecf
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
-ms.translationtype: HT
+ms.openlocfilehash: bb0bfa5eac3dd9031718fb12f270f5fc03bbaea6
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164612"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772167"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Introdução ao SDK do lote para o Node.js
 
@@ -260,7 +260,7 @@ Um trabalho de lote do Azure é um grupo lógico de tarefas semelhantes. No noss
 Essas tarefas seriam executadas em paralelo e implantadas em vários nós, orquestrados pelo serviço de lote do Azure.
 
 > [!Tip]
-> Você pode usar a propriedade [maxTasksPerNode](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) para especificar o número máximo de tarefas que podem ser executadas simultaneamente em um único nó.
+> Você pode usar a propriedade [maxTasksPerNode](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) para especificar o número máximo de tarefas que podem ser executadas simultaneamente em um único nó.
 >
 >
 
@@ -273,7 +273,7 @@ Neste exemplo, o [shell script](https://github.com/shwetams/azure-batchclient-sa
 Você pode carregar o script em uma conta de armazenamento do Azure e gerar um URI da SAS para acessar o script. Esse processo também pode ser automatizado usando o SDK do Node.js do armazenamento do Azure.
 
 > [!Tip]
-> Uma tarefa de preparação de um trabalho é executada apenas em nós de VM em que a tarefa específica precisa ser executada. Se você quiser que a tarefa de pré-requisitos a serem instalados em todos os nós, independentemente das tarefas que são executadas nele, você pode usar a propriedade [startTask](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) durante a adição de um pool. Você pode usar a seguinte definição de tarefa de preparação para referência.
+> Uma tarefa de preparação de um trabalho é executada apenas em nós de VM em que a tarefa específica precisa ser executada. Se você quiser que a tarefa de pré-requisitos a serem instalados em todos os nós, independentemente das tarefas que são executadas nele, você pode usar a propriedade [startTask](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) durante a adição de um pool. Você pode usar a seguinte definição de tarefa de preparação para referência.
 >
 >
 
@@ -349,7 +349,7 @@ var container_list = ["con1","con2","con3","con4"]
 
 O código adiciona várias tarefas ao pool. E cada uma das tarefas é executada em um nó no pool de VMs criadas. Se o número de tarefas exceder o número de VMs em um pool ou na propriedade maxTasksPerNode, as tarefas esperam até que um nó seja disponibilizado. O lote do Azure lida com a orquestração automaticamente.
 
-O portal tem exibições detalhadas nas tarefas e nos status do trabalho. Você também pode usar a lista e obter funções no SDK do nó do Azure. Os detalhes são fornecidos no [link](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html) de documentação.
+O portal tem exibições detalhadas nas tarefas e nos status do trabalho. Você também pode usar a lista e obter funções no SDK do nó do Azure. Os detalhes são fornecidos no [link](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html) de documentação.
 
 ## <a name="next-steps"></a>Próximas etapas
 

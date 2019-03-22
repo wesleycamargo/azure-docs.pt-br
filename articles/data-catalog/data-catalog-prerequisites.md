@@ -8,12 +8,12 @@ ms.assetid: ef497a54-dc4d-4820-b5bf-c361b64b964d
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 5d05371d9b948dc2f7d6f834eb9431af80fc6365
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: HT
+ms.openlocfilehash: 788e7a453e9879d9c901448659ff1c8cfa7201ff
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406865"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548296"
 ---
 # <a name="azure-data-catalog-prerequisites"></a>Pré-requisitos de Catálogo de Dados do Azure
 
@@ -30,7 +30,7 @@ Para configurar o Catálogo de Dados, você deve entrar com uma conta de usuári
 O Azure Active Directory (Azure AD) fornece uma maneira fácil para a sua empresa gerenciar identidades e acesso, tanto na nuvem quanto local. Os usuários podem usar uma única conta corporativa ou de estudante para logon único em qualquer aplicativo Web local ou em nuvem. O Catálogo de Dados usa o Azure AD para autenticar as credenciais. Para saber mais, confira [O que é o Azure Active Directory?](../active-directory/fundamentals/active-directory-whatis.md).
 
 > [!NOTE]
-> Usando o [portal do Azure](http://portal.azure.com/), você pode entrar usando uma conta pessoal da Microsoft ou uma conta corporativa ou de estudante do Azure Active Directory. Para configurar o Catálogo de Dados usando o portal do Azure ou o [portal do Catálogo de Dados](http://www.azuredatacatalog.com), você deve entrar com uma conta do Azure Active Directory, não com uma conta pessoal.
+> Usando o [portal do Azure](https://portal.azure.com/), você pode entrar usando uma conta pessoal da Microsoft ou uma conta corporativa ou de estudante do Azure Active Directory. Para configurar o Catálogo de Dados usando o portal do Azure ou o [portal do Catálogo de Dados](https://www.azuredatacatalog.com), você deve entrar com uma conta do Azure Active Directory, não com uma conta pessoal.
 >
 >
 

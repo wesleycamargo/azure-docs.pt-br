@@ -6,16 +6,16 @@ documentationcenter: .net
 author: basilhariri
 manager: timlt
 ms.service: event-hubs
-ms.topic: mirror-maker
+ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: 83f51d2980e5cb5bc2e2a415bb3ee96778667ed7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: a0f22e7940a2be442bdf836c0e76e29bad2e9b36
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53095028"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769904"
 ---
 # <a name="use-kafka-mirrormaker-with-event-hubs-for-apache-kafka"></a>Use Kafka MirrorMaker com Hubs de Eventos para o Apache Kafka
 
@@ -49,7 +49,7 @@ Para concluir este tutorial, verifique se você tem:
 * [Java Development Kit (JDK) 1.7 +](https://aka.ms/azure-jdks)
     * No Ubuntu, execute `apt-get install default-jdk` para instalar o JDK.
     * Defina a variável de ambiente JAVA_HOME para apontar para a pasta onde o JDK está instalado.
-* [Baixar](http://maven.apache.org/download.cgi) e [instalar](http://maven.apache.org/install.html) um armazenamento binário Maven
+* [Baixar](https://maven.apache.org/download.cgi) e [instalar](https://maven.apache.org/install.html) um armazenamento binário Maven
     * No Ubuntu, você pode executar `apt-get install maven` para instalar o Maven.
 * [Git](https://www.git-scm.com/downloads)
     * No Ubuntu, você pode executar `sudo apt-get install git` para instalar o Git.

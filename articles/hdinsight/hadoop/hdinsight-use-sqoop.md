@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: a6c17ad8d4af568d910597da4b44f09676d1c36a
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: ffded5705e61538a8bec886483a49705bb2298c1
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652483"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203023"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Usar Apache Sqoop com o Hadoop no HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -41,14 +41,14 @@ O cluster HDInsight é fornecido com alguns dados de exemplo. Você usa estas du
   
   | Campo | Tipo de dados |
   | --- | --- |
-  | clientid |string |
-  | querytime |string |
-  | market |string |
-  | deviceplatform |string |
-  | devicemake |string |
-  | devicemodel |string |
-  | state |string |
-  | country |string |
+  | clientid |cadeia de caracteres |
+  | querytime |cadeia de caracteres |
+  | market |cadeia de caracteres |
+  | deviceplatform |cadeia de caracteres |
+  | devicemake |cadeia de caracteres |
+  | devicemodel |cadeia de caracteres |
+  | state |cadeia de caracteres |
+  | country |cadeia de caracteres |
   | querydwelltime |double |
   | sessionid |bigint |
   | sessionpagevieworder |bigint |
@@ -56,7 +56,7 @@ O cluster HDInsight é fornecido com alguns dados de exemplo. Você usa estas du
 Neste tutorial, use esses dois conjuntos de dados para testar a importação e a exportação do Sqoop.
 
 ## <a name="create-cluster-and-sql-database"></a>Criar o cluster e o Banco de dados SQL
-Esta seção mostra como criar um cluster, um Banco de Dados SQL e os esquemas do Banco de Dados SQL para executar o tutorial usando o Portal do Azure e um modelo do Azure Resource Manager. O modelo pode ser encontrado em [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/). O modelo do Resource Manager chama um pacote bacpac para implantar os esquemas de tabela no Banco de Dados SQL.  O pacote bacpac está localizado em um contêiner de blob público, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. Se você quiser usar um contêiner particular para os arquivos bacpac, use os seguintes valores no modelo:
+Esta seção mostra como criar um cluster, um Banco de Dados SQL e os esquemas do Banco de Dados SQL para executar o tutorial usando o Portal do Azure e um modelo do Azure Resource Manager. O modelo pode ser encontrado no [modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/). O modelo do Resource Manager chama um pacote bacpac para implantar os esquemas de tabela no Banco de Dados SQL.  O pacote bacpac está localizado em um contêiner de blob público, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. Se você quiser usar um contêiner particular para os arquivos bacpac, use os seguintes valores no modelo:
    
 ```json
 "storageKeyType": "Primary",
@@ -82,9 +82,9 @@ Se você preferir usar o Azure PowerShell para criar o cluster e o Banco de Dado
     - **Nome e senha de logon do cluster**: O nome padrão de logon é admin.
     - **Nome de usuário e senha de SSH**.
     - **Nome de logon e senha do servidor de banco de dados SQL**.
-    - **Localização de _artifacts**: Use o valor padrão, a menos que você deseje usar seu próprio arquivo backpac em um local diferente.
+    - **Localização de _artifacts**: Use o valor padrão, a menos que você deseja usar seu próprio arquivo bacpac em um local diferente.
     - **Token SAS de Localização de artefatos**: Deixe em branco.
-    - **Nome do arquivo Bacpac**: Use o valor padrão, a menos que você deseje usar seu próprio arquivo backpac.
+    - **Nome do arquivo Bacpac**: Use o valor padrão, a menos que você deseja usar seu próprio arquivo bacpac.
      
         Os seguintes valores estão codificados na seção de variáveis:
         
@@ -163,7 +163,7 @@ Você aprendeu como usar Sqoop. Para obter mais informações, consulte:
 O exemplo do PowerShell executa as seguintes etapas:
 
 1. Conecte-se ao Azure.
-2. Crie um grupo de recursos do Azure. Para obter mais informações, consulte [Usando o PowerShell do Azure com o Gerenciador de Recursos do Azure](../../azure-resource-manager/powershell-azure-resource-manager.md)
+2. Crie um grupo de recursos do Azure. Para obter mais informações, consulte [Usando o PowerShell do Azure com o Gerenciador de Recursos do Azure](../../azure-resource-manager/manage-resource-groups-powershell.md)
 3. Crie um servidor de Banco de Dados SQL do Azure, um banco de dados SQL do Azure e duas tabelas. 
    
     Se, em vez disso, você usar o SQL Server, use as seguintes instruções para criar as tabelas:
@@ -627,7 +627,6 @@ Get-AzureRmHDInsightJobOutput `
 [hdinsight-provision]: ../hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-get-started]:apache-hadoop-linux-tutorial-get-started.md
 [hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
-[hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
 [hdinsight-upload-data]: ../hdinsight-upload-data.md
 [hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md

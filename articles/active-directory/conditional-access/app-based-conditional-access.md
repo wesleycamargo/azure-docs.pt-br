@@ -18,12 +18,12 @@ ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3521ea7599aecd20784bd925492649b86921c567
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 57b7f540ccf80c6d25a7dfcfcad1ba7ca6698167
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182299"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113224"
 ---
 # <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Como: Exigir aplicativos cliente aprovados para acesso de aplicativo de nuvem com acesso condicional 
 
@@ -97,7 +97,7 @@ Este cenário pressupõe que um usuário:
 
 - É capaz de acessar o email
 
-Quaisquer eventuais políticas de Proteção de Aplicativo do Intune são ativadas no momento do acesso aos dados corporativos e podem solicitar que o usuário reinicie o aplicativo, que use um PIN adicional, etc. (se configuradas para o aplicativo e a plataforma).
+Quaisquer políticas de proteção de aplicativo do Intune são ativadas no momento, o acesso aos dados corporativos e podem solicitar que o usuário para reiniciar o aplicativo, use um etc adicionais do PIN (se configurado para o aplicativo e plataforma).
 
 ### <a name="configuration"></a>Configuração 
 
@@ -292,13 +292,13 @@ Para a política de acesso condicional nesta etapa, você precisa configurar os 
 
 5. Como **Controles de acesso**, você precisa ter o seguinte selecionado:
 
-    - **Exigir que o dispositivo seja marcado como em conformidade**
+   - **Exigir que o dispositivo seja marcado como em conformidade**
 
-    - **Exigir um aplicativo cliente aprovado (versão prévia)**
+   - **Exigir um aplicativo cliente aprovado (versão prévia)**
 
-    - **Exigir um dos controles selecionados**   
+   - **Exigir um dos controles selecionados**   
  
-    ![Acesso condicional](./media/app-based-conditional-access/11.png)
+     ![Acesso condicional](./media/app-based-conditional-access/11.png)
 
 
 
@@ -388,13 +388,13 @@ Para a política de acesso condicional nesta etapa, você precisa configurar os 
 
 5. Como **Controles de acesso**, você precisa ter o seguinte selecionado:
 
-    - **Exigir que o dispositivo seja marcado como em conformidade**
+   - **Exigir que o dispositivo seja marcado como em conformidade**
 
-    - **Exigir um aplicativo cliente aprovado (versão prévia)**
+   - **Exigir um aplicativo cliente aprovado (versão prévia)**
 
-    - **Exigir todos os controles selecionados**   
+   - **Exigir todos os controles selecionados**   
  
-    ![Acesso condicional](./media/app-based-conditional-access/13.png)
+     ![Acesso condicional](./media/app-based-conditional-access/13.png)
 
 
 
@@ -420,13 +420,13 @@ Para a política de acesso condicional nesta etapa, você precisa configurar os 
 
 5. Como **Controles de acesso**, você precisa ter o seguinte selecionado:
 
-    - **Exigir que o dispositivo seja marcado como em conformidade**
+   - **Exigir que o dispositivo seja marcado como em conformidade**
 
-    - **Exigir um aplicativo cliente aprovado (versão prévia)**
+   - **Exigir um aplicativo cliente aprovado (versão prévia)**
 
-    - **Exigir todos os controles selecionados**   
+   - **Exigir todos os controles selecionados**   
  
-    ![Acesso condicional](./media/app-based-conditional-access/64.png)
+     ![Acesso condicional](./media/app-based-conditional-access/64.png)
 
 
 

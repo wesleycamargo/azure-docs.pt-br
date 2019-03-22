@@ -3,23 +3,21 @@ title: Como o Gerenciador de Tráfego do Azure funciona | Microsoft Docs
 description: Este artigo ajudará você a entender como o Traffic Manager roteia tráfego para alto desempenho e disponibilidade de seus aplicativos da Web
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
+author: KumudD
 manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/25/2018
+ms.date: 03/05/2019
 ms.author: kumud
-ms.openlocfilehash: 26d61c1b263a8fa7ff4f0ff5b2888f1d900e772e
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 52469cb2735b2270815191ec0815daee350882a4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567835"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108858"
 ---
 # <a name="how-traffic-manager-works"></a>Como funciona o Gerenciador de tráfego
 
@@ -41,8 +39,8 @@ A Contoso Corp desenvolveu um novo portal de parceiros. A URL para este portal �
 Para alcançar essa configuração, eles concluem as etapas a seguir:
 
 1. Implantam três instâncias de seu serviço. Os nomes DNS dessas implantações são “contoso-us.cloudapp.net”, “contoso-eu.cloudapp.net” e “contoso-asia.cloudapp.net”.
-2. Criam um perfil do Gerenciador de Tráfego chamado “contoso.trafficmanager.net” e configuram-no para usar o método de roteamento de tráfego por “Desempenho” nos três pontos de extremidade.
-* Configuram seu nome de domínio intuitivo “partners.contoso.com” para apontar para “contoso.trafficmanager.net” usando um registro DNS CNAME.
+1. Criam um perfil do Gerenciador de Tráfego chamado “contoso.trafficmanager.net” e configuram-no para usar o método de roteamento de tráfego por “Desempenho” nos três pontos de extremidade.
+1. Configuram seu nome de domínio intuitivo “partners.contoso.com” para apontar para “contoso.trafficmanager.net” usando um registro DNS CNAME.
 
 ![Configuração DNS do Gerenciador de Tráfego][1]
 

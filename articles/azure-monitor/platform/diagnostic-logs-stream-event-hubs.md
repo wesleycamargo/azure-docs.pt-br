@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 1ef779e64995c6996538b68b892cb45f11788067
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: b5299af375646e7759d0770139df2cd6d7ce105c
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54477457"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314069"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Transmitir logs de diagnóstico do Azure para um hub de eventos
 Os **[logs de diagnóstico do Azure](diagnostic-logs-overview.md)** podem ser transmitidos quase em tempo real a qualquer aplicativo usando a opção interna "Exportar para os Hubs de Eventos" no Portal, ou habilitando a ID da Regra de Autorização do Hub de Eventos em uma configuração de diagnóstico por meio de cmdlets do Azure PowerShell ou da CLI do Azure.
@@ -83,10 +83,12 @@ Após alguns instantes, a nova configuração aparecerá na lista de configuraç
 
 ### <a name="via-powershell-cmdlets"></a>Via Cmdlets do PowerShell
 
-Para habilitar o streaming por meio de [Cmdlets do Azure PowerShell](../../azure-monitor/platform/powershell-quickstart-samples.md), use o cmdlet `Set-AzureRmDiagnosticSetting` com estes parâmetros:
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Para habilitar o streaming por meio de [Cmdlets do Azure PowerShell](../../azure-monitor/platform/powershell-quickstart-samples.md), use o cmdlet `Set-AzDiagnosticSetting` com estes parâmetros:
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -EventHubAuthorizationRuleId [your Event Hub namespace auth rule ID] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource ID] -EventHubAuthorizationRuleId [your Event Hub namespace auth rule ID] -Enabled $true
 ```
 
 A ID de Regra da Autorização do Hub de Evento é uma cadeia de caracteres com este formato: `{Event Hub namespace resource ID}/authorizationrules/{key name}`, por exemplo, `/subscriptions/{subscription ID}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/RootManageSharedAccessKey`. Atualmente, não é possível selecionar um nome de hub de eventos específico com o PowerShell.

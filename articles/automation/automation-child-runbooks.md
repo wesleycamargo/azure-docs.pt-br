@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/17/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f52c9731b0289563037cbf065f3e22d652b40e74
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 84f17b76f03c01d0b1441a50b9bcbddc1dfe2ef3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417424"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57851302"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Runbooks filhos na Automação do Azure
 
@@ -84,6 +84,9 @@ Se os trabalhos na mesma conta de Automação funcionarem com mais de uma assina
 O exemplo a seguir inicia um runbook filho com parâmetros e aguarda a sua conclusão usando o parâmetro Start-AzureRmAutomationRunbook -wait. Depois de concluído, sua saída é coletada do runbook filho. Para usar `Start-AzureRmAutomationRunbook` é necessário autenticar-se na assinatura do Azure.
 
 ```azurepowershell-interactive
+# Ensures you do not inherit an AzureRMContext in your runbook
+Disable-AzureRmContextAutosave –Scope Process
+
 # Connect to Azure with RunAs account
 $ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
 
@@ -101,7 +104,7 @@ Start-AzureRmAutomationRunbook `
     –AutomationAccountName 'MyAutomationAccount' `
     –Name 'Test-ChildRunbook' `
     -ResourceGroupName 'LabRG' `
-    -DefaultProfile $AzureContext `
+    -AzureRMContext $AzureContext `
     –Parameters $params –wait
 ```
 

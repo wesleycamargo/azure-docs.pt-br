@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 23c532f6c344f8be37c3bf3d77f30effa4ec17e8
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 9b6c0715cb85e245aba94adfb8b33d0d07ece9a9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227702"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084405"
 ---
 # <a name="tutorial-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Tutorial: notificações por push para usuários específicos usando os Hubs de Notificação do Azure
 
@@ -54,7 +54,7 @@ Se desejar usar os Aplicativos Móveis como seu serviço de back-end, veja [Mobi
 
 2. No arquivo `Main.storyboard`, adicione os componentes mostrados na captura de tela da biblioteca de objetos.
 
-    ![Editar o storybard no Interface Builder do Xcode][1]
+    ![Editar o storyboard no interface builder do Xcode][1]
 
    * **Nome de usuário**: um UITextField com texto de espaço reservado, *Inserir nome de usuário*, imediatamente abaixo de enviar o rótulo de resultados e restrito às margens esquerda e direita e abaixo do rótulo de resultados de envio.
    * **Senha**: um UITextField com texto de espaço reservado, *Digite a senha*, imediatamente abaixo do campo de texto Nome de usuário e restrito às margens esquerda e direita e abaixo do campo de texto Nome de usuário. Verifique a opção **Entrada de texto seguro** no Inspetor de atributo, em *Retornar chave*.
@@ -64,7 +64,7 @@ Se desejar usar os Aplicativos Móveis como seu serviço de back-end, veja [Mobi
    * **APNS**: rótulo e comutador para habilitar o envio da notificação ao Apple Platform Notification Service.
    * **Nome do Usuário do Destinatário**: um UITextField com texto de espaço reservado *marca de nome de usuário do destinatário*, imediatamente abaixo do rótulo GCM e restrita às margens esquerda e direita e abaixo do rótulo do GCM.
 
-    Alguns componentes foram adicionados ao tutorial [Introdução aos Hubs de Notificação (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md) .
+     Alguns componentes foram adicionados ao tutorial [Introdução aos Hubs de Notificação (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md) .
 
 3. Arraste **Ctrl** dos componentes na exibição para `ViewController.h` e adicione essas novas saídas.
 

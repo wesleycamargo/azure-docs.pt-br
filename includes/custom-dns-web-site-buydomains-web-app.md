@@ -1,3 +1,16 @@
+---
+author: cephalin
+ms.service: app-service-web
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: cephalin
+ms.openlocfilehash: ce949caa2b80c08f1015ee21c00197d6a95103c2
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "58114584"
+---
 Se você quiser um domínio, pode comprar domínios diretamente no [Portal de Gerenciamento do Azure](https://portal.azure.com). Use as etapas a seguir para comprar os nomes de domínio e atribuir ao seu aplicativo Web.
 
 1. No seu navegador, abra o [Portal de Gerenciamento do Azure](https://portal.azure.com).
@@ -25,9 +38,4 @@ Se você quiser um domínio, pode comprar domínios diretamente no [Portal de Ge
     Depois que a configuração estiver concluída, o nome do domínio personalizado será listado na seção **Vínculos de Hostname** de seu aplicativo Web.
 
 Nesse ponto, você deve poder inserir o nome de domínio personalizado no navegador e ver se ele te leva com êxito ao aplicativo Web.
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

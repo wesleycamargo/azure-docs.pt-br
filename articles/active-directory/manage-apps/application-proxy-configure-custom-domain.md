@@ -16,16 +16,16 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3918030925022ac20144f9adac6e7683bac64aa4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 05c537b061619aa458663a9dcfcc97155d8a6614
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181755"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106790"
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Trabalhando com domínios personalizados no Proxy de Aplicativo do AD do Azure
 
-Ao publicar um aplicativo por meio do Proxy de Aplicativo do Azure Active Directory, você cria uma URL externa para seus usuários acessarem quando estiverem trabalhando remotamente. Essa URL obtém o domínio padrão *seulocatário.msappproxy.net*. Por exemplo, se você tiver publicado um aplicativo chamado Despesas e seu locatário chamar-se Contoso, a URL externa será https://expenses-contoso.msappproxy.net. Se quiser usar seu próprio nome de domínio, configure um domínio personalizado para o seu aplicativo. 
+Ao publicar um aplicativo por meio do Proxy de Aplicativo do Azure Active Directory, você cria uma URL externa para seus usuários acessarem quando estiverem trabalhando remotamente. Essa URL obtém o domínio padrão *seulocatário.msappproxy.net*. Por exemplo, se você tiver publicado um aplicativo chamado Despesas e seu locatário chamar-se Contoso, a URL externa será `https://expenses-contoso.msappproxy.net`. Se quiser usar seu próprio nome de domínio, configure um domínio personalizado para o seu aplicativo. 
 
 É recomendável que você configure domínios personalizados para seus aplicativos sempre que possível. Alguns dos benefícios dos domínios personalizados incluem:
 

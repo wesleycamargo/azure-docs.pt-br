@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.date: 12/6/2016
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 736ff5565bb279d26e686421cc13f54a73b1c7e9
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 9da8e5fb88ff34e561b579b760973ecd23c884a3
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54461086"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312045"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Métricas comuns de dimensionamento automático do Azure Monitor
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 O dimensionamento automático do Azure Monitor permite que você aumente ou reduza número de instâncias em execução com base nos dados de telemetria (métricas). Este documento descreve as métricas mais comuns que você pode querer usar. No portal do Azure, você pode escolher a métrica do recurso pela qual dimensionar. No entanto, também é possível escolher qualquer métrica de um recurso diferente e fazer o dimensionamento com base nela.
 
 O dimensionamento automático do Azure Monitor aplica-se somente aos [Conjuntos de Dimensionamento de Máquinas Virtuais](https://azure.microsoft.com/services/virtual-machine-scale-sets/), aos [Serviços de Nuvem](https://azure.microsoft.com/services/cloud-services/), ao [Serviço de Aplicativo – Aplicativos Web](https://azure.microsoft.com/services/app-service/web/) e aos [Serviços de Gerenciamento de API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts). Outros serviços do Azure usam métodos de dimensionamento diferentes.
@@ -43,7 +46,7 @@ Quando você cria uma VM no Azure, o diagnóstico é habilitado usando a extens�
 Você pode gerar uma lista das métricas usando o seguinte comando do PowerShell.
 
 ```
-Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
+Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
 Você pode criar um alerta para as métricas a seguir:
@@ -84,7 +87,7 @@ Quando você cria uma VM no Azure, o diagnóstico é habilitado por padrão usan
 Você pode gerar uma lista das métricas usando o seguinte comando do PowerShell.
 
 ```
-Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
+Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
  Você pode criar um alerta para as métricas a seguir:
@@ -137,7 +140,7 @@ Você também pode realizar a autoescala com base em métricas comuns do servido
 Você pode gerar uma lista das métricas de aplicativos Web usando o seguinte comando do PowerShell.
 
 ```
-Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
+Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
 Você pode alertar ou dimensionar com base nessas métricas.

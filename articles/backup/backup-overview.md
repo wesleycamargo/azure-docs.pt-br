@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 02/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b590d75abb9e3f6465594a5c8c684b94e6f2e07f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: d1debbcc8f225a0d4608d67b19e5e00aca580ce1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56864287"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122005"
 ---
 # <a name="what-is-azure-backup"></a>O que é o Backup do Azure?
 
@@ -55,10 +55,10 @@ Ambos os serviços fornecem funcionalidades complementares, mas diferentes.
 Use os pontos da tabela para ajudar a descobrir suas necessidades de BCDR. 
 
 **Objetivo** | **Detalhes** | **Comparação**
---- | --- | --- | --- |
+--- | --- | --- 
 **Backup de dados/retenção** | Os dados de backup podem ser retidos e armazenados por dias, meses ou até anos, se necessário, de uma perspectiva de conformidade. | Soluções de backup, como o Backup do Azure, permitem que você escolha minuciosamente os dados que deseja copiar em backup e ajuste as políticas de backup e retenção.<br/><br/> O Site Recovery não permite o mesmo ajuste fino.
 **RPO (objetivo de ponto de recuperação)** | A quantidade de perda de dados aceitável se uma recuperação precisar ser feita. | Os backups têm um RPO mais variável.<br/><br/> Os backups de VM geralmente têm um RPO de um dia, enquanto os backups de banco de dados têm RPOs de até 15 minutos.<br/><br/> O Site Recovery fornece um RPO baixo, pois a replicação é contínua ou frequente, de modo que o delta entre a cópia de origem e de réplica seja pequeno.
-**RTO (objetivo de tempo de recuperação)** |O tempo necessário para concluir uma recuperação ou restauração. | Devido ao RPO maior, a quantidade de dados que uma solução de backup precisa processar normalmente é muito maior, o que leva a RTOs mais longos. Por exemplo, a restauração de dados de fitas pode demorar dias, dependendo do tempo necessário para transportar a fita de um local externo. | As soluções de recuperação de desastre, como o Site Recovery, têm um RPO baixo, pois a replicação contínua/frequente geralmente significa que o destino está mais altamente sincronizado com a origem. |
+**RTO (objetivo de tempo de recuperação)** |O tempo necessário para concluir uma recuperação ou restauração. | Devido ao RPO maior, a quantidade de dados que uma solução de backup precisa processar normalmente é muito maior, o que leva a RTOs mais longos. Por exemplo, a restauração de dados de fitas pode demorar dias, dependendo do tempo necessário para transportar a fita de um local externo. 
 
 ## <a name="what-backup-scenarios-are-supported"></a>Há suporte para quais cenários de backup?
 

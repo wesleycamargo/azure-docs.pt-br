@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: 33f79569a2478c7e234b04ba2dee4e9b8883abae
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 16899c833d996902cf7a0a3f7ab57479869fbdd9
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895883"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737768"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Associações de armazenamento do Blob do Azure para o Azure Functions
 
@@ -95,7 +95,7 @@ public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, 
 }
 ```
 
-A cadeia de caracteres `{name}` no caminho do disparador de blob `samples-workitems/{name}` cria uma [expressão de associação](functions-triggers-bindings.md#binding-expressions-and-patterns) que você pode usar no código de função para acessar o nome de arquivo do blob disparando. Para obter mais informações, consulte [Padrões de nome do blob](#trigger---blob-name-patterns) a seguir neste artigo.
+A cadeia de caracteres `{name}` no caminho do disparador de blob `samples-workitems/{name}` cria uma [expressão de associação](./functions-bindings-expressions-patterns.md) que você pode usar no código de função para acessar o nome de arquivo do blob disparando. Para obter mais informações, consulte [Padrões de nome do blob](#trigger---blob-name-patterns) a seguir neste artigo.
 
 Para obter mais informações sobre o atributo `BlobTrigger`, consulte [Gatilho - atributos](#trigger---attributes).
 
@@ -120,7 +120,7 @@ Aqui estão os dados de associação no arquivo *function.json*:
 }
 ```
 
-A cadeia de caracteres `{name}` no caminho do disparador de blob `samples-workitems/{name}` cria uma [expressão de associação](functions-triggers-bindings.md#binding-expressions-and-patterns) que você pode usar no código de função para acessar o nome de arquivo do blob disparando. Para obter mais informações, consulte [Padrões de nome do blob](#trigger---blob-name-patterns) a seguir neste artigo.
+A cadeia de caracteres `{name}` no caminho do disparador de blob `samples-workitems/{name}` cria uma [expressão de associação](./functions-bindings-expressions-patterns.md) que você pode usar no código de função para acessar o nome de arquivo do blob disparando. Para obter mais informações, consulte [Padrões de nome do blob](#trigger---blob-name-patterns) a seguir neste artigo.
 
 Para obter mais informações sobre as propriedades do arquivo *function.json*, consulte a seção [Configuração](#trigger---configuration) que explica essas propriedades.
 
@@ -167,7 +167,7 @@ Aqui está o arquivo *function.json*:
 }
 ```
 
-A cadeia de caracteres `{name}` no caminho do disparador de blob `samples-workitems/{name}` cria uma [expressão de associação](functions-triggers-bindings.md#binding-expressions-and-patterns) que você pode usar no código de função para acessar o nome de arquivo do blob disparando. Para obter mais informações, consulte [Padrões de nome do blob](#trigger---blob-name-patterns) a seguir neste artigo.
+A cadeia de caracteres `{name}` no caminho do disparador de blob `samples-workitems/{name}` cria uma [expressão de associação](./functions-bindings-expressions-patterns.md) que você pode usar no código de função para acessar o nome de arquivo do blob disparando. Para obter mais informações, consulte [Padrões de nome do blob](#trigger---blob-name-patterns) a seguir neste artigo.
 
 Para obter mais informações sobre as propriedades do arquivo *function.json*, consulte a seção [Configuração](#trigger---configuration) que explica essas propriedades.
 
@@ -202,7 +202,7 @@ Aqui está o arquivo *function.json*:
 }
 ```
 
-A cadeia de caracteres `{name}` no caminho do disparador de blob `samples-workitems/{name}` cria uma [expressão de associação](functions-triggers-bindings.md#binding-expressions-and-patterns) que você pode usar no código de função para acessar o nome de arquivo do blob disparando. Para obter mais informações, consulte [Padrões de nome do blob](#trigger---blob-name-patterns) a seguir neste artigo.
+A cadeia de caracteres `{name}` no caminho do disparador de blob `samples-workitems/{name}` cria uma [expressão de associação](./functions-bindings-expressions-patterns.md) que você pode usar no código de função para acessar o nome de arquivo do blob disparando. Para obter mais informações, consulte [Padrões de nome do blob](#trigger---blob-name-patterns) a seguir neste artigo.
 
 Para obter mais informações sobre as propriedades do arquivo *function.json*, consulte a seção [Configuração](#trigger---configuration) que explica essas propriedades.
 
@@ -348,7 +348,7 @@ Em JavaScript, acesse os dados do blob de entrada usando `context.bindings.<name
 
 ## <a name="trigger---blob-name-patterns"></a>Gatilho - padrões de nome de blob
 
-Você pode especificar um padrão de nome de blob na `path` propriedade em *function.json* ou no `BlobTrigger` construtor de atributo. O nome padrão pode ser uma [expressão de associação ou filtro](functions-triggers-bindings.md#binding-expressions-and-patterns). As seções a seguir fornecem exemplos.
+Você pode especificar um padrão de nome de blob na `path` propriedade em *function.json* ou no `BlobTrigger` construtor de atributo. O nome padrão pode ser uma [expressão de associação ou filtro](./functions-bindings-expressions-patterns.md). As seções a seguir fornecem exemplos.
 
 ### <a name="get-file-name-and-extension"></a>Obtenha o nome de arquivo e extensão
 

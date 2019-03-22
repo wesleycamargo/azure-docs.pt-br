@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 348bde94bc01e00777603af8ac078d5e319d732c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 25b6f2b1e79cb6efdcb9d7ee0e956648673e48c0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001995"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57528858"
 ---
 # <a name="deprecated-introduction-to-docker-container-hosting-solutions-with-azure-container-service"></a>(PRETERIDO) Introdução às soluções de hospedagem de contêineres do Docker com o Serviço de Contêiner do Azure 
 
@@ -38,7 +38,7 @@ Para começar a usar o Serviço de Contêiner do Azure, implante um cluster do S
 O Serviço de Contêiner do Azure fornece uma opção de Docker Swarm, DC/SO ou Kubernetes para orquestração. Como implantar o aplicativo depende do orquestrador que você escolhe.
 
 ### <a name="using-dcos"></a>Usando o DC/SO
-Controlador de domínio/OS é um sistema operacional distribuído baseado no kernel de sistemas distribuídos do Apache Mesos. O Apache Mesos está hospedado na Apache Software Foundation e lista alguns dos [principais nomes em IT](http://mesos.apache.org/documentation/latest/powered-by-mesos/) como usuários e colaboradores.
+Controlador de domínio/OS é um sistema operacional distribuído baseado no kernel de sistemas distribuídos do Apache Mesos. O Apache Mesos está hospedado na Apache Software Foundation e lista alguns dos [principais nomes em IT](https://mesos.apache.org/documentation/latest/powered-by-mesos/) como usuários e colaboradores.
 
 ![Serviço de Contêiner do Azure configurado para o DC/SO, mostrando agentes e mestres.](media/acs-intro/dcos.png)
 

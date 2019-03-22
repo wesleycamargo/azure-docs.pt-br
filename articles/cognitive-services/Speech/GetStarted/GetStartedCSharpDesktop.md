@@ -10,14 +10,15 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 4d03ccfddab9a4aab4a1eacde02d68652bf5103a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 5f3b70a2dd9816210ed61280be38504a3980d205
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219066"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670087"
 ---
-# <a name="quickstart-use-the-bing-speech-recognition-api-in-c35-for-net-on-windows"></a>Início Rápido: Usar a API de Reconhecimento de Fala do Bing em C&#35; para o .NET no Windows
+# <a name="quickstart-use-the-bing-speech-recognition-api-in-c35-for-net-on-windows"></a>Início rápido: Usar a API de Reconhecimento de Fala do Bing em C&#35; para o .NET no Windows
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 

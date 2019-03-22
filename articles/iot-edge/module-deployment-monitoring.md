@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 18cd27ae8bf0a395fa351cf283bc1d40f94dac53
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 376ee74732daf526b31129fa8c93cbaa32350eae
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100099"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107807"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Noções básicas sobre implantações do IoT Edge para dispositivos únicos ou em escala
 
@@ -32,7 +32,7 @@ Este artigo se concentra nos estágios de configuração e monitoramento de frot
 2. O serviço Hub IoT se comunica com todos os dispositivos de destino para configurá-los com os módulos desejados. 
 3. O serviço do Hub IoT recupera o status dos dispositivos do IoT Edge e as disponibiliza para o operador.  Por exemplo, um operador pode ver quando um dispositivo de borda não foi configurado com êxito ou se um módulo falha durante o tempo de execução. 
 4. A qualquer momento, novos dispositivos IoT Edge que atendem às condições de destino são configurados para a implantação. Por exemplo, uma implantação que se destina a todos os dispositivos IoT Edge em Washington configura automaticamente um novo dispositivo IoT Edge assim que ele é configurado e adicionado ao grupo de dispositivos de Washington. 
- 
+ 
 Este artigo descreve cada componente envolvido na configuração e no monitoramento de uma implantação. Para obter instruções de criação e atualização de uma implantação, confira [Implantar e monitorar os módulos do IoT Edge em larga escala](how-to-deploy-monitor.md).
 
 ## <a name="deployment"></a>Implantação
@@ -52,7 +52,7 @@ Um manifesto de implantação é um documento JSON que descreve os módulos a se
 Os metadados de configuração para cada módulo incluem: 
 
 * Versão 
-* Tipo 
+* Type 
 * Status (por exemplo, em execução ou parado) 
 * Política de reinicialização 
 * Imagem ou registro de contêiner
@@ -62,7 +62,7 @@ Se o módulo de imagem for armazenado em um registro de contêiner privado, o ag
 
 ### <a name="target-condition"></a>Condição de destino
 
-A condição de destino é avaliada continuamente durante o tempo de vida da implantação. Os novos dispositivos que atendem aos requisitos são incluídos e qualquer dispositivo existente não é removido. A implantação é reativada se o serviço detectar qualquer alteração de condição de destino. 
+A condição de destino é avaliada continuamente durante a vida útil da implantação. Os novos dispositivos que atendem aos requisitos são incluídos e qualquer dispositivo existente não é removido. A implantação é reativada se o serviço detectar qualquer alteração de condição de destino. 
 
 Por exemplo, você tem uma implantação A com uma condição de destino tags.environment = 'prod'. Quando você iniciar a implantação, há 10 dispositivos de produção. Os módulos são instalados com êxito nesses 10 dispositivos. O Status do agente IoT Edge é mostrado como 10 dispositivos totais, 10 respostas bem sucedidas, 0 respostas com falhas e 0 respostas pendentes. Agora, adicione mais 5 dispositivos com tags.environment = 'prod'. O serviço detecta a alteração e o Status do agente de IoT Edge se torna 15 dispositivos totais, 10 respostas bem sucedidas, 0 respostas com falhas e 5 respostas pendentes ao tentar implantar em cinco novos dispositivos.
 

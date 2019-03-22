@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Criar um pipeline de CI/CD para o Python com o Azure DevOps Projects'
+title: 'Início Rápido: Criar um pipeline de CI/CD para Python com o Azure DevOps Projects'
 description: O DevOps Projects facilita o uso inicial do Azure. Ele ajuda você a iniciar um aplicativo em um serviço do Azure de sua escolha em algumas etapas rápidas.
 ms.prod: devops
 ms.technology: devops-cicd
@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 90af443621ec47400779bdc1689fc07be558e4b8
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 695056be67294c6a0787bad61bf5ee00378275b0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164524"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111422"
 ---
 # <a name="create-a-cicd-pipeline-for-python-with-azure-devops-projects"></a>Criar um pipeline de CI/CD para Python com o Azure DevOps Projects
 
@@ -64,7 +64,7 @@ O Aplicativo Web para Contêineres é o destino de implantação padrão. A estr
 
     ![Exibição Painel](_img/azure-devops-project-python/dashboardnopreview.png) 
     
- O DevOps Projects configura automaticamente um build de CI e gatilho de liberação. Agora você está pronto para colaborar com uma equipe em um aplicativo Python usando um processo de CI/CD que implanta automaticamente o trabalho mais recente em seu site.
+   O DevOps Projects configura automaticamente um build de CI e gatilho de liberação. Agora você está pronto para colaborar com uma equipe em um aplicativo Python usando um processo de CI/CD que implanta automaticamente o trabalho mais recente em seu site.
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Confirmar as alterações de código e executar CI/CD
 

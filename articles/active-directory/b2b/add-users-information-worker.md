@@ -10,13 +10,14 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16caf8b6fd48b5dca676b1c8ee046ad01264ca03
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 561d7f5b28775e5f431d35d956cff6f800cc11b2
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211420"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294495"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>Como usuários na organização podem convidar usuários convidados para um aplicativo
 
@@ -36,15 +37,15 @@ Depois que um aplicativo é configurado para autoatendimento, os proprietários 
 1. Abra o Painel de Acesso, indo para `https://myapps.microsoft.com`.
 2. Aponte para o aplicativo, selecione as reticências (**...**) e, em seguida, selecione **Gerenciar aplicativo**.
  
-   ![Gerenciar aplicativo do Painel de Acesso](media/add-users-iw/access-panel-manage-app.png)
+   ![Captura de tela mostrando o gerenciar aplicativo submenu para o aplicativo Salesforce](media/add-users-iw/access-panel-manage-app.png)
  
 3. Na parte superior da lista de usuários, selecione**+**.
    
-   ![Adicionar um usuário do Painel de Acesso](media/add-users-iw/access-panel-manage-app-add-user.png)
+   ![Captura de tela mostrando o símbolo de adição para adicionar membros ao aplicativo](media/add-users-iw/access-panel-manage-app-add-user.png)
    
 4. Na caixa de pesquisa **Adicionar membros**, insira o endereço de email do usuário convidado. Opcionalmente, inclua uma mensagem de boas-vindas.
    
-   ![Convite do Painel de Acesso](media/add-users-iw/access-panel-invitation.png)
+   ![Captura de tela mostrando a adicionar janela dos membros para adicionar um convidado](media/add-users-iw/access-panel-invitation.png)
    
 5. Selecione **Adicionar** para enviar um convite ao usuário convidado. Depois de enviar o convite, a conta de usuário é automaticamente adicionada ao diretório como convidado.
 
@@ -55,19 +56,19 @@ Depois que um aplicativo é configurado para autoatendimento, os proprietários 
 2. Abra o Painel de Acesso, indo para `https://myapps.microsoft.com`.
 3. Selecione o aplicativo de **Grupos**.
    
-   ![Aplicativo de grupos do Painel de Acesso](media/add-users-iw/access-panel-groups.png)
+   ![Captura de tela mostrando o aplicativo de grupos no painel de acesso](media/add-users-iw/access-panel-groups.png)
    
 4. Em **Grupos que possuo**, selecione o grupo que tem acesso ao aplicativo que você deseja compartilhar.
    
-   ![Grupos que possuo do Painel de Acesso](media/add-users-iw/access-panel-groups-i-own.png)
+   ![Captura de tela mostrando onde selecionar um grupo para os grupos que possuo](media/add-users-iw/access-panel-groups-i-own.png)
    
 5. Na parte superior da lista de membros do grupo, selecione **+**.
    
-   ![Adicionar um membro aos grupos do Painel de Acesso](media/add-users-iw/access-panel-groups-add-member.png)
+   ![Captura de tela mostrando o símbolo de adição para adicionar membros ao grupo](media/add-users-iw/access-panel-groups-add-member.png)
    
 6. Na caixa de pesquisa **Adicionar membros**, insira o endereço de email do usuário convidado. Opcionalmente, inclua uma mensagem de boas-vindas.
    
-   ![Convite de grupo do Painel de Acesso](media/add-users-iw/access-panel-invitation.png)
+   ![Captura de tela mostrando a adicionar janela dos membros para adicionar um convidado](media/add-users-iw/access-panel-invitation.png)
    
 7. Selecione **Adicionar** para enviar automaticamente o convite ao usuário convidado. Depois de enviar o convite, a conta de usuário é automaticamente adicionada ao diretório como convidado.
 

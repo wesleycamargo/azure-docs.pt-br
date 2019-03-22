@@ -1,5 +1,5 @@
 ---
-title: Configurar aplicativos SaaS para colaboração B2B no Azure Active Directory | Microsoft Docs
+title: Configurar aplicativos SaaS para colaboração B2B – Azure Active Directory | Microsoft Docs
 description: Exemplos de código e do PowerShell para colaboração B2B do Azure Active Directory
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a2f4ecbe8a183636bfc4e463e4c074ab94e2d01
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 03652329acaeb737cb7cb4010ef48938caa17acc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182809"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096904"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>Configurar aplicativos SaaS para colaboração B2B
 
@@ -37,37 +37,37 @@ Para permitir que os usuários façam logon usando suas contas da organização,
 
 1. Para adicionar o aplicativo Dropbox Business no Azure AD, selecione **Aplicativos da empresa** no painel esquerdo, em seguida, clique em **Adicionar**.
 
-  ![Botão "Adicionar" na página Aplicativos da empresa](media/configure-saas-apps/add-dropbox.png)
+   ![Botão "Adicionar" na página Aplicativos da empresa](media/configure-saas-apps/add-dropbox.png)
 
 2. Na janela **Adicionar um aplicativo**, digite **dropbox** na caixa de pesquisa, em seguida, selecione **Dropbox for Business** na lista de resultados.
 
-  ![Procurar "dropbox" na página Adicionar um aplicativo](media/configure-saas-apps/add-app-dialog.png)
+   ![Procurar "dropbox" na página Adicionar um aplicativo](media/configure-saas-apps/add-app-dialog.png)
 
 3. Na página **Logon único**, selecione **Logon único** no painel esquerdo, em seguida, digite **user.mail** na caixa **Identificador do Usuário**. (É definido como UPN por padrão.)
 
-  ![Configurar o logon único para o aplicativo](media/configure-saas-apps/configure-app-sso.png)
+   ![Configurar o logon único para o aplicativo](media/configure-saas-apps/configure-app-sso.png)
 
 4. Para baixar o certificado a usar para a configuração do Dropbox, selecione **Configurar DropBox**, em seguida, selecione a **URL do Serviço de Logon Único da SAML** na lista.
 
-  ![Baixar o certificado para a configuração do Dropbox](media/configure-saas-apps/download-certificate.png)
+   ![Baixar o certificado para a configuração do Dropbox](media/configure-saas-apps/download-certificate.png)
 
 5. Entre no Dropbox com a URL de logon na página **Logon único**.
 
-  ![Página de entrada do Dropbox](media/configure-saas-apps/sign-in-to-dropbox.png)
+   ![Página de entrada do Dropbox](media/configure-saas-apps/sign-in-to-dropbox.png)
 
 6. No menu, selecione **Console Admin**.
 
-  ![Link "Console Admin" no menu Dropbox](media/configure-saas-apps/dropbox-menu.png)
+   ![Link "Console Admin" no menu Dropbox](media/configure-saas-apps/dropbox-menu.png)
 
 7. Na caixa de diálogo **Autenticação**, selecione **Mais**, carregue o certificado, em seguida, na caixa **URL de Logon**, digite a URL de logon único da SAML.
 
-  ![Link "Mais" na caixa de diálogo Autenticação recolhida](media/configure-saas-apps/dropbox-auth-01.png)
+   ![Link "Mais" na caixa de diálogo Autenticação recolhida](media/configure-saas-apps/dropbox-auth-01.png)
 
-  ![A "URL de Logon" na caixa de diálogo Autenticação expandida](media/configure-saas-apps/paste-single-sign-on-URL.png)
+   ![A "URL de Logon" na caixa de diálogo Autenticação expandida](media/configure-saas-apps/paste-single-sign-on-URL.png)
 
 8. Para configurar a definição automática do usuário no portal do Azure, selecione **Provisionamento** no painel esquerdo, selecione **Automático** na caixa **Modo de Provisionamento**, em seguida, selecione **Autorizar**.
 
-  ![Configurar o provisionamento automático do usuário no portal do Azure](media/configure-saas-apps/set-up-automatic-provisioning.png)
+   ![Configurar o provisionamento automático do usuário no portal do Azure](media/configure-saas-apps/set-up-automatic-provisioning.png)
 
 Depois dos usuários convidados ou membros terem sido configurados no aplicativo Dropbox, eles receberão um convite separado do Dropbox. Para usar o logon único do Dropbox, os convidados devem aceitar o convite clicando em um link.
 
@@ -78,22 +78,22 @@ Você pode permitir que os usuários autentiquem os usuários convidados do Box 
 
 2. Configure o logon único na seguinte ordem:
 
-  ![Configurar logon único do Box](media/configure-saas-apps/configure-box-sso.png)
+   ![Configurar logon único do Box](media/configure-saas-apps/configure-box-sso.png)
 
-  a. Na caixa **URL de Logon**, verifique se a URL de Logon está definida corretamente para o Box no portal do Azure. Essa é a URL do seu locatário Box.com. Ela deve seguir a convenção de nomenclatura *https://.box.com*.  
- O **Identificador** não se aplica a esse aplicativo, mas ainda aparece como um campo obrigatório.
+    a. Na caixa **URL de Logon**, verifique se a URL de Logon está definida corretamente para o Box no portal do Azure. Essa é a URL do seu locatário Box.com. Ela deve seguir a convenção de nomenclatura *https://.box.com*.  
+   O **Identificador** não se aplica a esse aplicativo, mas ainda aparece como um campo obrigatório.
 
- b. Na caixa **Identificador do usuário**, digite **user.mail** (para o SSO das contas de convidado).
+   b. Na caixa **Identificador do usuário**, digite **user.mail** (para o SSO das contas de convidado).
 
- c. Em **Certificado de Assinatura de SAML**, clique em **Criar novo certificado**.
+   c. Em **Certificado de Assinatura de SAML**, clique em **Criar novo certificado**.
 
- d. Para começar a configurar seu locatário Box.com para usar o Azure AD como um provedor de identidade, baixe o arquivo de metadados e salve-o em sua unidade local.
+   d. Para começar a configurar seu locatário Box.com para usar o Azure AD como um provedor de identidade, baixe o arquivo de metadados e salve-o em sua unidade local.
 
- e. Encaminhe o arquivo de metadados para a equipe de suporte do Box, que configura o logon único para você.
+   e. Encaminhe o arquivo de metadados para a equipe de suporte do Box, que configura o logon único para você.
 
 3. Para a configuração automática do usuário do Azure AD, no painel esquerdo, selecione **Provisionamento**, em seguida, selecione **Autorizar**.
 
-  ![Autorizar o Azure AD a conectar o Box](media/configure-saas-apps/auth-azure-ad-to-connect-to-box.png)
+   ![Autorizar o Azure AD a conectar o Box](media/configure-saas-apps/auth-azure-ad-to-connect-to-box.png)
 
 Como os convidados do Dropbox, os convidados do Box também devem resgatar seu convite no aplicativo Box.
 

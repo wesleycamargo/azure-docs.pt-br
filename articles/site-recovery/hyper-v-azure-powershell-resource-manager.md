@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: f4e1b25133914a65f34e281c145d7db5969b0581
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 9039c1fd94bbc62f48ca5a6869f455aa41b740c9
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208016"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673915"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Configurar a recuperação de desastres para o Azure para máquinas virtuais do Hyper-V usando o PowerShell e o Azure Resource Manager
 
@@ -54,15 +54,15 @@ Além disso, o exemplo específico descrito neste artigo tem os seguintes pré-r
 
 3. Verifique se sua assinatura está registrada para usar os provedores do Azure para os Serviços de Recuperação e o Site Recovery usando os seguintes comandos:
 
-    `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices` `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.SiteRecovery`
+    `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices`
 
 4. Se, na saída de comando, o **RegistrationState** estiver definido como **Registrado**, você poderá prosseguir para a Etapa 2. Caso contrário, você deverá registrar o provedor ausente em sua assinatura executando estes comandos:
 
-    `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.SiteRecovery` `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices`
+    `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices`
 
 5. Verifique se os provedores foram registrados com êxito usando os seguintes comandos:
 
-    `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices` `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.SiteRecovery`.
+    `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices`
 
 ## <a name="step-2-set-up-the-vault"></a>Etapa 2: Configurar o cofre
 

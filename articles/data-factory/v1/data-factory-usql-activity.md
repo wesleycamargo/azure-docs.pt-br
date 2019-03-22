@@ -3,22 +3,22 @@ title: Transformar dados usando o script U-SQL - Azure | Microsoft Docs
 description: Saiba como processar ou transformar dados executando scripts U-SQL no serviço de computação do Azure Data Lake Analytics.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.assetid: e17c1255-62c2-4e2e-bb60-d25274903e80
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/01/2017
-ms.author: douglasl
+author: nabhishek
+ms.author: abnarain
+manager: craigg
 robots: noindex
-ms.openlocfilehash: 7631b103d6d14cceb2c320d56e9f68d9ea57e4d8
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 5835c37363c7e9d2dd3253c08ab97f17852725f5
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020839"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57777287"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transforme dados executando scripts U-SQL no serviço de computação do Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -48,8 +48,8 @@ A tabela a seguir apresenta as descrições das propriedades genéricas usadas n
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| **tipo** |A propriedade de tipo deve ser configurada como: **AzureDataLakeAnalytics**. |SIM |
-| **accountName** |Nome da conta da Análise Azure Data Lake. |SIM |
+| **tipo** |A propriedade de tipo deve ser configurada como: **AzureDataLakeAnalytics**. |Sim |
+| **accountName** |Nome da conta da Análise Azure Data Lake. |Sim |
 | **dataLakeAnalyticsUri** |URI da Análise Azure Data Lake. |Não  |
 | **subscriptionId** |Id de assinatura do Azure |Não (se não for especificado, a assinatura do Data Factory é usada). |
 | **resourceGroupName** |Nome do grupo de recursos do Azure |Não (se não for especificado, o grupo de recursos do Data Factory é usado). |
@@ -64,9 +64,9 @@ Use a autenticação de entidade de serviço especificando as seguintes propried
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| **servicePrincipalId** | Especifique a ID do cliente do aplicativo. | SIM |
-| **servicePrincipalKey** | Especifique a chave do aplicativo. | SIM |
-| **tenant** | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. É possível recuperá-las focalizando o mouse no canto superior direito do Portal do Azure. | SIM |
+| **servicePrincipalId** | Especifique a ID do cliente do aplicativo. | Sim |
+| **servicePrincipalKey** | Especifique a chave do aplicativo. | Sim |
+| **tenant** | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. É possível recuperá-las focalizando o mouse no canto superior direito do Portal do Azure. | Sim |
 
 **Exemplo: Autenticação de entidade de serviço**
 ```json
@@ -92,8 +92,8 @@ Como alternativa, você pode usar a autenticação de credenciais do usuário do
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| **authorization** | Clique no botão **Autorizar** no Editor do Data Factory e insira as suas credenciais, que atribuem a URL de autorização gerada automaticamente a essa propriedade. | SIM |
-| **sessionId** | A ID de sessão OAuth da sessão de autorização OAuth. Cada ID da sessão é exclusiva e pode ser usada somente uma vez. Essa configuração é gerada automaticamente quando você usa o Editor do Data Factory. | SIM |
+| **authorization** | Clique no botão **Autorizar** no Editor do Data Factory e insira as suas credenciais, que atribuem a URL de autorização gerada automaticamente a essa propriedade. | Sim |
+| **sessionId** | A ID de sessão OAuth da sessão de autorização OAuth. Cada ID da sessão é exclusiva e pode ser usada somente uma vez. Essa configuração é gerada automaticamente quando você usa o Editor do Data Factory. | Sim |
 
 **Exemplo: Autenticação da credencial do usuário**
 ```json
@@ -208,8 +208,8 @@ A tabela a seguir descreve os nomes e as descrições de propriedades que são e
 
 | Propriedade            | DESCRIÇÃO                              | Obrigatório                                 |
 | :------------------ | :--------------------------------------- | :--------------------------------------- |
-| Tipo                | A propriedade type deve ser definida como **DataLakeAnalyticsU-SQL**. | SIM                                      |
-| linkedServiceName   | Referência ao Azure Data Lake Analytics registrado como um serviço vinculado ao Data Factory | SIM                                      |
+| Tipo                | A propriedade type deve ser definida como **DataLakeAnalyticsU-SQL**. | Sim                                      |
+| linkedServiceName   | Referência ao Azure Data Lake Analytics registrado como um serviço vinculado ao Data Factory | Sim                                      |
 | scriptPath          | Caminho para a pasta que contém o script U-SQL. O nome do arquivo diferencia maiúsculas de minúsculas. | Não (se você usar o script)                   |
 | scriptLinkedService | Serviço vinculado que vincula o armazenamento que contém o script para a fábrica de dados | Não (se você usar o script)                   |
 | script              | Especificar script embutido em vez de especificar scriptPath e scriptLinkedService. Por exemplo: `"script": "CREATE DATABASE test"`. | Não (se você usar scriptPath e scriptLinkedService) |
@@ -317,7 +317,7 @@ OUTPUT @rs1
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-Os valores dos parâmetros **@in** e **@out** no script U-SQL são passados dinamicamente pelo ADF usando a seção “parameters”. Veja a seção "parâmetros" na definição do pipeline.
+Os valores para  **\@na** e  **\@out** parâmetros no script U-SQL são passados dinamicamente pelo ADF usando a seção 'parameters'. Veja a seção "parâmetros" na definição do pipeline.
 
 Você pode especificar outras propriedades, por exemplo, degreeOfParallelism e prioridade, bem como em sua definição de pipeline para os trabalhos executados no serviço Data Lake Analytics.
 

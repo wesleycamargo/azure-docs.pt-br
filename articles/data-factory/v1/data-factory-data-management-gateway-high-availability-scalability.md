@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: bc8cacd6d52de0367a0ea14748e548b9d32f47ef
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 08e7341bfd1c384e41e6d3f1bd7810552899849a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016760"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092184"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Gateway de Gerenciamento de Dados – alta disponibilidade e escalabilidade (versão prévia)
 > [!NOTE]
@@ -29,8 +29,8 @@ Este artigo ajudará a configurar a solução de alta disponibilidade e escalabi
 
 > [!NOTE]
 > Este artigo pressupõe que você já esteja familiarizado com os conceitos básicos do Integration Runtime (Gateway de Gerenciamento de Dados Anterior). Se você não estiver, consulte [Gateway de Gerenciamento de Dados](data-factory-data-management-gateway.md).
-
->**Esse recurso em versão prévia é oficialmente compatível com o Gateway de Gerenciamento de Dados versão 2.12.xxxx.x e superior**. Verifique se você está usando a versão 2.12.xxxx.x ou superior. Baixe a versão mais recente do Gateway de Gerenciamento de Dados [aqui](https://www.microsoft.com/download/details.aspx?id=39717).
+> 
+> **Esse recurso em versão prévia é oficialmente compatível com o Gateway de Gerenciamento de Dados versão 2.12.xxxx.x e superior**. Verifique se você está usando a versão 2.12.xxxx.x ou superior. Baixe a versão mais recente do Gateway de Gerenciamento de Dados [aqui](https://www.microsoft.com/download/details.aspx?id=39717).
 
 ## <a name="overview"></a>Visão geral
 Você pode associar gateways de gerenciamento de dados instalados em vários computadores locais a um único gateway lógico por meio do portal. Esses computadores são chamados de **nós**. Você pode ter até **quatro nós** associados a um gateway lógico. Os benefícios de ter vários nós (computadores locais com o gateway instalado) para um gateway lógico são:  
@@ -163,8 +163,8 @@ Aqui estão os requisitos para o certificado TLS/SSL usado para proteger as comu
 
 - O certificado deve ser um certificado X509 v3 publicamente confiável. É recomendável que você use certificados emitidos por uma AC (autoridade de certificação) pública (de terceiros).
 - Cada nó de tempo de execução de integração deve confiar nesse certificado, bem como no computador cliente que está executando o aplicativo do gerenciador de credenciais. 
-> [!NOTE]
-> O aplicativo do gerenciador de credenciais é usado durante a configuração segura da credencial do Assistente para Cópia/Portal do Azure. E isso pode ser disparado de qualquer computador na mesma rede que o armazenamento de dados local/privado.
+  > [!NOTE]
+  > O aplicativo do gerenciador de credenciais é usado durante a configuração segura da credencial do Assistente para Cópia/Portal do Azure. E isso pode ser disparado de qualquer computador na mesma rede que o armazenamento de dados local/privado.
 - Há suporte para certificados curinga. Se o nome FQDN for **node1.domain.contoso.com**, você poderá usar ***.domain.contoso.com** como nome da entidade do certificado.
 - Certificados SAN não são recomendados, já que apenas o último item dos Nomes Alternativos de Entidade será usado e todos os outros serão ignorados devido à limitação atual. Por exemplo você tem um certificado SAN cujo SAN é **node1.domain.contoso.com** e **node2.domain.contoso.com**, você só pode usar este certificado no computador cujo FQDN é **node2.domain.contoso.com**.
 - Dá suporte a qualquer tamanho de chave com suporte pelo Windows Server 2012 R2 para certificados SSL.

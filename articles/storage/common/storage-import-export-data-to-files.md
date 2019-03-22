@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 1cf2276ca1995df19cc7068764a31916e4981100
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: e3cd9d0036a55a3e6de49988dddcd6a91b81b078
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452687"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088648"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Usar o serviço de importação/exportação do Microsoft Azure para importar dados para Arquivos do Azure
 
@@ -50,60 +50,60 @@ Execute as etapas a seguir para preparar as unidades.
 2. Crie um único volume NTFS em cada unidade. Atribua uma letra da unidade ao volume. Não use pontos de montagem.
 3. Modificar o arquivo *dataset.csv* na pasta raiz onde a ferramenta reside. Dependendo de você querer importar um arquivo ou pasta ou ambos, adicione as entradas no arquivo *dataset.csv* semelhante aos exemplos a seguir.  
 
-    - **Para importar um arquivo**: No exemplo a seguir, os dados a serem copiados residem na unidade C:. O arquivo *MyFile1.txt* é copiado para a raiz de *MyAzureFileshare1*. Se o *MyAzureFileshare1* não existir, ele será criado na conta de Armazenamento do Microsoft Azure. A estrutura de pastas é mantida.
+   - **Para importar um arquivo**: No exemplo a seguir, os dados a serem copiados residem na unidade C:. O arquivo *MyFile1.txt* é copiado para a raiz de *MyAzureFileshare1*. Se o *MyAzureFileshare1* não existir, ele será criado na conta de Armazenamento do Microsoft Azure. A estrutura de pastas é mantida.
 
-        ```
-            BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
-            "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
+       ```
+           BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
+           "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
     
-        ```
-    - **Para importar uma pasta**: Todos os arquivos e pastas em *MyFolder2* são copiados para o compartilhamento de arquivos de forma recursiva. A estrutura de pastas é mantida.
+       ```
+   - **Para importar uma pasta**: Todos os arquivos e pastas em *MyFolder2* são copiados para o compartilhamento de arquivos de forma recursiva. A estrutura de pastas é mantida.
 
-        ```
-            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
-            
-        ```
-    Várias entradas podem ser feitas no mesmo arquivo correspondente a pastas ou arquivos que são importados. 
+       ```
+           "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
+            
+       ```
+     Várias entradas podem ser feitas no mesmo arquivo correspondente a pastas ou arquivos que são importados. 
 
-        ```
-            "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
-            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
-                        
-        ```
-    Saiba mais sobre [como preparar o arquivo CSV de conjunto de dados](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file).
+       ```
+           "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
+           "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
+                        
+       ```
+     Saiba mais sobre [como preparar o arquivo CSV de conjunto de dados](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file).
     
 
 4. Modifique o arquivo *driveset.csv* na pasta raiz onde a ferramenta reside. Adicione as entradas no arquivo *driveset.csv* semelhante aos exemplos a seguir. O arquivo driveset tem a lista de discos e as letras de unidade correspondentes para que a ferramenta possa escolher corretamente a lista de discos a serem preparados.
 
     Este exemplo presume que dois discos estão vinculados e volumes NTFS básicos G:\ e H:\ foram criados. H:\is não está criptografado enquanto g já está criptografado. A ferramenta formata e criptografa o disco que hospeda apenas H:\ (e não G:\).
 
-    - **Para um disco que não é criptografado**: Especifique *Criptografar* para habilitar a criptografia BitLocker no disco.
+   - **Para um disco que não é criptografado**: Especifique *Criptografar* para habilitar a criptografia BitLocker no disco.
 
-        ```
-        DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
-        H,Format,SilentMode,Encrypt,
-        ```
+       ```
+       DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
+       H,Format,SilentMode,Encrypt,
+       ```
     
-    - **Para um disco que já é criptografado**: Especificar *AlreadyEncrypted* e fornecer a chave do BitLocker.
+   - **Para um disco que já é criptografado**: Especificar *AlreadyEncrypted* e fornecer a chave do BitLocker.
 
-        ```
-        DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
-        G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631
-        ```
+       ```
+       DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
+       G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631
+       ```
 
-    Várias entradas podem ser feitas no mesmo arquivo correspondente a várias unidades. Saiba mais sobre [como preparar o arquivo CSV de driveset](storage-import-export-tool-preparing-hard-drives-import.md#prepare-initialdriveset-or-additionaldriveset-csv-file). 
+     Várias entradas podem ser feitas no mesmo arquivo correspondente a várias unidades. Saiba mais sobre [como preparar o arquivo CSV de driveset](storage-import-export-tool-preparing-hard-drives-import.md#prepare-initialdriveset-or-additionaldriveset-csv-file). 
 
-5.  Use a opção `PrepImport` para copiar e preparar dados para a unidade de disco. Para a primeira sessão de cópia copiar diretórios e/ou arquivos com uma nova sessão de cópia, execute o seguinte comando:
+5. Use a opção `PrepImport` para copiar e preparar dados para a unidade de disco. Para a primeira sessão de cópia copiar diretórios e/ou arquivos com uma nova sessão de cópia, execute o seguinte comando:
 
-        ```
-        .\WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
-        ```
+       ```
+       .\WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
+       ```
 
-    Um exemplo de importação é mostrado abaixo.
+   Um exemplo de importação é mostrado abaixo.
   
-        ```
-        .\WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset.csv /DataSet:dataset.csv /logdir:C:\logs
-        ```
+       ```
+       .\WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset.csv /DataSet:dataset.csv /logdir:C:\logs
+       ```
  
 6. Um arquivo de diário com o nome fornecido com o parâmetro `/j:` é criado para cada execução da linha de comando. Cada unidade que você prepara tem um arquivo de diário que deve ser carregado quando você cria o trabalho de importação. Unidades sem arquivos de diário não são processadas.
 
@@ -130,7 +130,7 @@ Execute as etapas a seguir para criar um trabalho de importação no portal do A
     - Digite um nome descritivo para o trabalho de importação. Use este nome para acompanhar os trabalhos enquanto eles estiverem em andamento e quando eles estiverem concluídos.
         -  Esse nome pode conter apenas letras minúsculas, números, hifens e sublinhados.
         -  O nome deve começar com uma letra e não pode conter espaços. 
-    - Selecione uma assinatura.
+    - Selecionar uma assinatura.
     - Selecione um grupo de recursos. 
 
         ![Criar o trabalho de importação - Etapa 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)

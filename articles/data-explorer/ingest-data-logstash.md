@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: ingerir dados do Logstash para o Azure Data Explorer'
+title: 'Início Rápido: ingerir dados do Logstash para o Azure Data Explorer'
 description: Neste início rápido, você aprenderá a ingerir (carregar) dados do Logstash no Azure Data Explorer
 services: data-explorer
 author: tamirkamara
@@ -8,12 +8,12 @@ ms.reviewer: orspod
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 1/14/2019
-ms.openlocfilehash: 4b5934123f5bb7fa9eaa2c67c212bcef2a5de0aa
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 01115524ae3890c1d6a0220bcf89e86090d148cd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54479259"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078866"
 ---
 # <a name="quickstart-ingest-data-from-logstash-to-azure-data-explorer"></a>Início rápido: ingerir dados do Logstash para o Azure Data Explorer
 
@@ -108,7 +108,7 @@ output {
 ```
 
 | Nome do Parâmetro | DESCRIÇÃO |
-| --- | --- | --- |
+| --- | --- |
 | **path** | O plug-in do Logstash grava eventos em arquivos temporários antes de enviá-los para o Azure Data Explorer. Esse parâmetro inclui um caminho no qual os arquivos devem ser gravados e uma expressão de tempo para a rotação de arquivos a fim de disparar um upload para o serviço do Azure Data Explorer.|
 | **ingest_url** | O ponto de extremidade do Kusto para comunicação relacionada à ingestão.|
 | **app_id**, **app_key** e **app_tenant**| Credenciais necessárias para se conectar ao Azure Data Explorer. Certifique-se de usar um aplicativo com privilégios de ingestão. |

@@ -6,17 +6,17 @@ documentationcenter: na
 author: craigshoemaker
 manager: jeconnoc
 keywords: azure functions, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor
-ms.service: azure-functions; cosmos-db
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 4536048db4abc25decf1dbf02c75833c570e41af
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 5762e934d7735dd9617cefc1f56105823d74312f
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118200"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57782183"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Associações do Azure Cosmos DB para o Azure Functions 2.x
 
@@ -1716,7 +1716,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 |**name**     || Nome do parâmetro de associação que representa o documento na função.  |
 |**databaseName** |**DatabaseName** |O banco de dados que contém o documento.        |
 |**collectionName** |**CollectionName** | O nome da coleção que contém o documento. |
-|**ID**    | **Id** | A ID do documento a ser recuperado. Essa propriedade dá suporte a [expressões de associação](functions-triggers-bindings.md#binding-expressions-and-patterns). Não defina ambas as propriedades **id** e **sqlQuery**. Se você não definir uma ou outra, toda a coleção é recuperada. |
+|**ID**    | **Id** | A ID do documento a ser recuperado. Essa propriedade dá suporte a [expressões de associação](./functions-bindings-expressions-patterns.md). Não defina ambas as propriedades **id** e **sqlQuery**. Se você não definir uma ou outra, toda a coleção é recuperada. |
 |**sqlQuery**  |**SqlQuery**  | Uma consulta SQL do Azure Cosmos DB usada para recuperar vários documentos. A propriedade dá suporte a associações de tempo de execução, como neste exemplo: `SELECT * FROM c where c.departmentId = {departmentId}`. Não defina ambas as propriedades **id** e **sqlQuery**. Se você não definir uma ou outra, toda a coleção é recuperada.|
 |**connectionStringSetting**     |**ConnectionStringSetting**|O nome da configuração do aplicativo que contém a cadeia de conexão do Azure Cosmos DB.        |
 |**partitionKey**|**PartitionKey**|Especifica o valor da chave de partição para a pesquisa. Pode incluir parâmetros de associação.|

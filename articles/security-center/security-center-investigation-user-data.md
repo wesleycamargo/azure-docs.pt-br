@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2018
 ms.author: rkarlin
-ms.openlocfilehash: 81bd34cdbe35f3e12d5afddc929b0fac7631f4cc
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: bec9be627937913c268d65bb6cdadcf68c7a3fb4
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113066"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244291"
 ---
 # <a name="manage-user-data-found-in-an-azure-security-center-investigation"></a>Gerenciar dados de usuário encontrados em uma investigação da Central de Segurança do Azure
-Este artigo fornece informações sobre como gerenciar dados de usuário encontrados no recurso de investigação da Central de Segurança do Azure. Os dados de investigação são armazenados no [Azure Log Analytics](../log-analytics/log-analytics-overview.md) e expostos na Central de Segurança. O gerenciamento de dados de usuário inclui a capacidade de excluir dados ou exportar dados.
+Este artigo fornece informações sobre como gerenciar dados de usuário encontrados no recurso de investigação da Central de Segurança do Azure. Investigação de dados é armazenada em [registra em log do Azure Monitor](../log-analytics/log-analytics-overview.md) e exposto na Central de segurança. O gerenciamento de dados de usuário inclui a capacidade de excluir dados ou exportar dados.
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
@@ -58,4 +58,4 @@ Um usuário da Central de Segurança com a função Proprietário, Colaborador o
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre o gerenciamento de dados de usuário, confira [Gerenciar dados de usuário localizados na Central de Segurança do Azure](security-center-privacy.md).
-Para saber mais sobre a exclusão de dados privados no Log Analytics, consulte [Como exportar e excluir dados privados](../azure-monitor/platform/personal-data-mgmt.md#how-to-export-and-delete-private-data).
+Para saber mais sobre como excluir dados privados nos logs do Azure Monitor, consulte [como exportar e excluir dados particulares](../azure-monitor/platform/personal-data-mgmt.md#how-to-export-and-delete-private-data).

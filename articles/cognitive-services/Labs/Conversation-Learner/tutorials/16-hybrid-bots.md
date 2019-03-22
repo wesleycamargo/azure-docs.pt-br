@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 17be364959c5cdc1beaf48aa86966ede5c7c7309
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: b90fc42aa56bfc813ec464670336dea75cff0f0e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219355"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117431"
 ---
 # <a name="how-to-use-conversation-learner-with-other-bot-building-technologies"></a>Como usar o Aprendiz de Conversa com outras tecnologias de compilação de bots
 
@@ -119,11 +119,11 @@ Ao contrário dos bots de modelo de Aprendiz de Conversa único, não será poss
 2. Insira “olá”.  Como o valor `isOpen` não está definido, o bot dirá "Desculpe, estamos fechados" e encerrará a sessão.
 
 #### <a name="scenario-2-store-is-open"></a>Cenário 2: A loja está aberta
-3. Insira 'loja aberta'.  Isso definirá o `isOpen` como verdadeiro.
-4. Insira 'loja'.
-5. Insira “olá”.  Como o valor `isOpen` está definido como verdadeiro, o bot dirá "O que você gostaria de comprar?"
-6. Insira 'cadeira'. 'cadeira' será salva na memória CL como a entidade `purchaseItem`. O retorno de chamada da sessão final é chamado, copiando esse valor para o armazenamento de conversa.
-7. Insira 'histórico'.  O bot dirá 'Você comprou a cadeira', pois esse foi o último `purchaseItem`.
+1. Insira 'loja aberta'.  Isso definirá o `isOpen` como verdadeiro.
+1. Insira 'loja'.
+1. Insira “olá”.  Como o valor `isOpen` está definido como verdadeiro, o bot dirá "O que você gostaria de comprar?"
+1. Insira 'cadeira'. 'cadeira' será salva na memória CL como a entidade `purchaseItem`. O retorno de chamada da sessão final é chamado, copiando esse valor para o armazenamento de conversa.
+1. Insira 'histórico'.  O bot dirá 'Você comprou a cadeira', pois esse foi o último `purchaseItem`.
 
 ## <a name="conclusion"></a>Conclusão
 

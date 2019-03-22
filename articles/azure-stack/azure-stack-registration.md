@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2019
+ms.date: 03/11/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.lastreviewed: 02/14/2019
-ms.openlocfilehash: 1fb9917e30a88cf5a68c9e170d66eeaa1d477deb
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: MT
+ms.lastreviewed: 03/04/2019
+ms.openlocfilehash: 1f6edd871d6815dab93bf9e8d582b0cb1ba6c78f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877139"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109232"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registre-se a pilha do Azure com o Azure
 
@@ -173,7 +173,7 @@ Ambientes conectados podem acessar a internet e o Azure. Para esses ambientes, v
    ```
    Para obter mais informações sobre o cmdlet Set-AzsRegistration, consulte [referência de registro](#registration-reference).
 
-  O processo leva entre 10 e 15 minutos. Quando o comando for concluído, você verá a mensagem **"seu ambiente agora está registrado e ativado usando os parâmetros fornecidos."**
+   O processo leva entre 10 e 15 minutos. Quando o comando for concluído, você verá a mensagem **"seu ambiente agora está registrado e ativado usando os parâmetros fornecidos."**
 
 ## <a name="register-connected-with-capacity-billing"></a>Registre-se conectado com a cobrança de capacidade
 
@@ -210,20 +210,20 @@ Ambientes conectados podem acessar a internet e o Azure. Para esses ambientes, v
 
 5. Inicie o PowerShell ISE como administrador e navegue até a **registro** pasta o **AzureStack-Tools-master** diretório criado quando você baixar as ferramentas do Azure Stack. Importar o **RegisterWithAzure.psm1** módulo usando o PowerShell:
 
-  ```PowerShell  
-  $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
-  $RegistrationName = "<unique-registration-name>"
-  Set-AzsRegistration `
+   ```PowerShell  
+   $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
+   $RegistrationName = "<unique-registration-name>"
+   Set-AzsRegistration `
       -PrivilegedEndpointCredential $CloudAdminCred `
       -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
       -AgreementNumber <EA agreement number> `
       -BillingModel Capacity `
       -RegistrationName $RegistrationName
-  ```
+   ```
    > [!Note]  
    > Você pode desabilitar o uso dos relatórios com o parâmetro UsageReportingEnabled para o **AzsRegistration conjunto** cmdlet, definindo o parâmetro como false. 
    
-  Para obter mais informações sobre o cmdlet Set-AzsRegistration, consulte [referência de registro](#registration-reference).
+   Para obter mais informações sobre o cmdlet Set-AzsRegistration, consulte [referência de registro](#registration-reference).
 
 ## <a name="register-disconnected-with-capacity-billing"></a>Registrar desconectada com a cobrança de capacidade
 
@@ -303,7 +303,7 @@ Opcionalmente, você pode usar o cmdlet Get-Content para apontar para um arquivo
 
 ## <a name="verify-azure-stack-registration"></a>Verificar o registro do Azure Stack
 
-Você pode usar o **gerenciamento de região** lado a lado para verificar se o registro do Azure Stack foi bem-sucedida. Esse bloco está disponível no painel no portal do administrador padrão. O status pode ser registrado ou não registrado. Se registrado, ele também mostra a ID da assinatura do Azure que é usado para registrar seu Azure Stack, juntamente com o grupo de recursos de registro e o nome.
+Você pode usar o **gerenciamento de região** lado a lado para verificar se o registro do Azure Stack foi bem-sucedida. Esse bloco está disponível no painel padrão no portal de administração. O status pode ser registrado ou não registrado. Se registrado, ele também mostra a ID da assinatura do Azure que é usado para registrar seu Azure Stack, juntamente com o grupo de recursos de registro e o nome.
 
 1. Entrar para o [portal de administração do Azure Stack](https://adminportal.local.azurestack.external).
 
@@ -325,7 +325,7 @@ Você pode usar o **gerenciamento de região** lado a lado para verificar se o r
 
     Registros de aplicativo do Azure Stack são prefixados com **do Azure Stack**.
 
-Como alternativa, você pode verificar se o seu registro foi bem-sucedido usando o recurso de gerenciamento do Marketplace. Se você vir uma lista de itens do marketplace na folha de gerenciamento do Marketplace, seu registro foi bem-sucedido. No entanto, em ambientes desconectados, você não poderá ver os itens do marketplace no gerenciamento do Marketplace. No entanto, você pode usar a ferramenta offline para verificar o registro.
+Como alternativa, você pode verificar se o seu registro foi bem-sucedido usando o recurso de gerenciamento do Marketplace. Se você vir uma lista de itens do marketplace na folha de gerenciamento do Marketplace, seu registro foi bem-sucedido. No entanto, em ambientes desconectados, você não poderá ver os itens do marketplace no gerenciamento do Marketplace.
 
 > [!NOTE]
 > Após a conclusão do registro, o Active Directory aviso por não registrar não aparecerá mais. Em cenários desconectados, você verá uma mensagem no gerenciamento de Marketplace solicitando que você se registrar e ativar o Azure Stack, mesmo se você tiver registrado com êxito.
@@ -483,11 +483,18 @@ Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-Privil
 
 ## <a name="registration-failures"></a>Falhas de registro
 
-Você pode ver um dos erros a seguir durante a tentativa de registro do Azure Stack:
+Você poderá ver um dos erros a seguir durante a tentativa de registro do Azure Stack:
 1. Não foi possível recuperar informações de hardware obrigatório para $hostName. Por favor, verifique a conectividade e o host físico e tente executar novamente o registro.
+
 2. Não é possível conectar ao $hostName para obter informações sobre o hardware - Verifique a conectividade e o host físico e tente executar novamente o registro.
 
-Causa: Isso é normalmente porque podemos tentar obter os detalhes de hardware, como o UUID, Bios e CPU do host para tentar a ativação e não foi possível devido à incapacidade de se conectar ao host físico.
+> Causa: isso é normalmente porque podemos tentar obter os detalhes de hardware, como o UUID, Bios e CPU do host para tentar a ativação e não foi possível devido à incapacidade de se conectar ao host físico.
+
+Ao tentar acessar o gerenciamento do Marketplace, ocorrerá um erro ao tentar distribuir produtos. 
+> Causa: isso geralmente acontece quando o Azure Stack não pode acessar o recurso de registro. Uma razão comum para isso é que quando o locatário de diretório de uma assinatura do Azure é alterado redefine o registro. Se você tiver alterado o locatário de diretório da assinatura, você não pode acessar o uso do Azure Stack marketplace ou do relatório. Você precisará registrar novamente para corrigir esse problema.
+
+Gerenciamento de Marketplace ainda solicitará que você se registrar e ativar o Azure Stack, mesmo quando você já tiver registrado seu carimbo de data / usando o processo desconectado. 
+> Causa: esse é um problema conhecido para ambientes desconectados. Você pode verificar o status do registro seguindo [essas etapas](azure-stack-registration.md#verify-azure-stack-registration). Para usar o gerenciamento do Marketplace, você precisará usar [a ferramenta offline](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario). 
 
 ## <a name="next-steps"></a>Próximas etapas
 

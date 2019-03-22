@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: df95329128c93f326b6f2c75fb7faef1a46029cc
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 66fc5c92410118f4e0042738d2107b272d68f9bf
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456496"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240330"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Conceitos de segurança para aplicativos e clusters no AKS (Serviço de Kubernetes do Azure)
 
@@ -28,13 +28,13 @@ Este artigo apresenta os conceitos básicos que protegem seus aplicativos no AKS
 
 ## <a name="master-security"></a>Segurança mestre
 
-No AKS, os componentes mestres de Kubernetes fazem parte do serviço gerenciado fornecido pela Microsoft. Cada cluster do AKS tem o próprio mestre de Kubernetes dedicado de locatário único para fornecer o Servidor de API, o Agendador etc. Esse mestre é gerenciado e mantido pela Microsoft
+No AKS, os componentes mestres de Kubernetes fazem parte do serviço gerenciado fornecido pela Microsoft. Cada cluster do AKS tem o próprio mestre de Kubernetes dedicado de locatário único para fornecer o Servidor de API, o Agendador etc. Este mestre é gerenciado e mantido pela Microsoft.
 
 Por padrão, o servidor de API do Kubernetes usa um endereço IP público e com o FQDN (nome de domínio totalmente qualificado). Você pode controlar o acesso ao Servidor de API usando os controles de acesso baseados em função do Kubernetes e do Azure Active Directory. Para obter mais informações, confira [Integração do Azure AD com o AKS][aks-aad].
 
 ## <a name="node-security"></a>Segurança do nó
 
-Nós do AKS são máquinas virtuais do Azure que você gerenciar e manter. Os nós executam uma distribuição Ubuntu Linux otimizada com o tempo de execução de contêiner do Docker. Quando um cluster do AKS é criado ou dimensionado, os nós são implantados automaticamente com as configurações e atualizações de segurança do sistema operacional mais recentes.
+Nós do AKS são máquinas virtuais do Azure que você gerenciar e manter. Os nós executam uma distribuição Ubuntu Linux otimizada usando o tempo de execução do contêiner Moby. Quando um cluster do AKS é criado ou dimensionado, os nós são implantados automaticamente com as configurações e atualizações de segurança do sistema operacional mais recentes.
 
 A plataforma Azure aplica automaticamente patches de segurança do sistema operacional aos nós todas as noites. Se uma atualização de segurança do sistema operacional exigir uma reinicialização do host, essa reinicialização não será executada automaticamente. Você pode reinicializar os nós manualmente, ou uma abordagem comum é usar [Kured][kured], um daemon de reinicialização de software livre para Kubernetes. O Kured é executado como um [DaemonSet][aks-daemonsets] e monitora cada nó para a presença de um arquivo que indica que uma reinicialização é necessária. As reinicializações são gerenciadas no cluster usando o mesmo [o processo de cordon e drenagem](#cordon-and-drain) como uma atualização do cluster.
 
@@ -65,7 +65,7 @@ Para conectividade e segurança com redes locais, você pode implantar um cluste
 
 ### <a name="azure-network-security-groups"></a>Grupos de segurança de rede do Azure
 
-Para filtrar o fluxo de tráfego em redes virtuais, o Azure usa regras de grupo de segurança de rede. Essas regras definem o código-fonte e intervalos de IP de destino, portas e protocolos que têm o acesso a recursos permitido ou negado. Regras padrão são criadas para permitir o tráfego TLS para o servidor de API do Kubernetes e para acesso SSH aos nós. Conforme você cria serviços com balanceadores de carga, mapeamentos de porta ou rotas de entrada, o AKS modifica automaticamente o grupo de segurança de rede para o tráfego fluir de modo adequado.
+Para filtrar o fluxo de tráfego em redes virtuais, o Azure usa regras de grupo de segurança de rede. Essas regras definem o código-fonte e intervalos de IP de destino, portas e protocolos que têm o acesso a recursos permitido ou negado. Regras padrão são criadas para permitir o tráfego TLS para o servidor de API do Kubernetes. Conforme você cria serviços com balanceadores de carga, mapeamentos de porta ou rotas de entrada, o AKS modifica automaticamente o grupo de segurança de rede para o tráfego fluir de modo adequado.
 
 ## <a name="kubernetes-secrets"></a>Segredos do Kubernetes
 
@@ -76,6 +76,8 @@ O uso de Segredos reduz as informações confidenciais definidas no manifesto YA
 ## <a name="next-steps"></a>Próximas etapas
 
 Para começar a proteger seus clusters do AKS, confira [Atualizar um cluster do AKS][aks-upgrade-cluster].
+
+Para práticas recomendadas associadas, consulte [práticas recomendadas para segurança de cluster e as atualizações no AKS][operator-best-practices-cluster-security].
 
 Para obter informações adicionais sobre os principais conceitos do Kubernetes e do AKS, consulte os seguintes artigos:
 
@@ -99,3 +101,4 @@ Para obter informações adicionais sobre os principais conceitos do Kubernetes 
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
 [cluster-isolation]: operator-best-practices-cluster-isolation.md
+[operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md

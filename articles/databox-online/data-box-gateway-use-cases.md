@@ -20,7 +20,7 @@ O Azure Data Box Gateway é um dispositivo de gateway de armazenamento na nuvem 
 
 Use o Data Box Gateway nos seguintes cenários:
 
-- Para ingerir continuamente quantidades massivas de dados.
+- Para ingerir continuamente grandes quantidades de dados.
 - Para o arquivamento de dados na nuvem de maneira segura e eficiente.
 - Para a transferência de dados incrementais pela rede depois que a transferência inicial em massa estiver concluída usando o Data Box.
 
@@ -31,21 +31,21 @@ Cada um desses cenários é descrito detalhadamente nas seções subsequentes.
 
 ## <a name="continuous-data-ingestion"></a>Ingestão de dados contínua
 
-Uma das principais vantagens do Data Box Gateway é a capacidade de ingerir dados continuamente em um dispositivo para copiá-los para a nuvem, independentemente do tamanho desses dados.
+Uma das principais vantagens do Data Box Gateway é a capacidade de ingerir dados continuamente em um dispositivo para copiá-los na nuvem, independentemente do tamanho dos dados.
 
-Conforme os dados são gravados no dispositivo de gateway, o dispositivo carrega os dados no Armazenamento do Azure. O dispositivo gerencia automaticamente o armazenamento, removendo os arquivos localmente ao mesmo tempo em que mantém os metadados quando ele atinge um certo limite. Manter uma cópia local dos metadados permite que o dispositivo de gateway carregue as alterações somente quando o arquivo está atualizado. Os dados carregados no dispositivo de gateway devem estar de acordo com as diretrizes descritas em [Limitações de upload de dados](data-box-gateway-limits.md#data-upload-caveats).
+Conforme os dados são gravados no dispositivo de gateway, o dispositivo carrega os dados no Armazenamento do Azure. O dispositivo gerencia automaticamente o armazenamento, removendo os arquivos localmente ao mesmo tempo em que mantém os metadados quando ele atinge um certo limite. O armazenamento de uma cópia local dos metadados permite que o dispositivo de gateway carregue as alterações somente quando o arquivo for atualizado. Os dados carregados no dispositivo de gateway devem estar de acordo com as diretrizes descritas em [Limitações de upload de dados](data-box-gateway-limits.md#data-upload-caveats).
 
 Conforme o dispositivo é preenchido com os dados, ele começa a limitar da taxa de entrada (conforme necessário) para coincidir com a taxa com qual os dados são carregados para a nuvem. Para monitorar a ingestão contínua no dispositivo, são utilizados alertas. Esses alertas são gerados quando a limitação começa e são removidos quando a limitação para.
 
 ## <a name="cloud-archival-of-data"></a>Arquivamento de dados na nuvem
 
-Use o Data Box Gateway quando desejar manter seus dados por um longo período na nuvem. Você pode usar a camada de **Arquivo Morto** de armazenamento para a retenção de longo prazo.
+Use o Data Box Gateway quando desejar manter seus dados por um longo período na nuvem. Use a camada **Arquivo Morto** do armazenamento para a retenção de longo prazo.
 
 A camada de Arquivo Morto é otimizada para armazenar dados raramente acessados por pelo menos 180 dias. A camada de **Arquivo Morto** oferece os custos de armazenamento mais baixos, mas tem os custos de acesso mais altos. Para saber mais, acesse [Camada de acesso ao Arquivo Morto](/azure/storage/blobs/storage-blob-storage-tiers#archive-access-tier).
 
 ### <a name="move-data-to-archive-tier"></a>Mover dados para a camada de Arquivo Morto
 
-Antes de começar, certifique-se de que o Data Box Gateway esteja em execução. Siga as etapas detalhadas no [Tutorial: Preparar-se para implantar o Azure Data Box Gateway](data-box-gateway-deploy-prep.md) e continue avançando para o próximo tutorial até que você tenha um dispositivo operacional.
+Antes de começar, certifique-se de que o Data Box Gateway esteja em execução. Siga as etapas detalhadas no [Tutorial: Prepare-se para implantar o Azure Data Box Gateway](data-box-gateway-deploy-prep.md) e continue avançando para o próximo tutorial até que você tenha um dispositivo operacional.
 
 - Use o Data Box Gateway para carregar os dados no Azure por meio do procedimento de transferência usual, conforme descrito no artigo [Transferir dados com o Data Box Gateway](data-box-gateway-deploy-add-shares.md).
 - Depois que os dados forem carregados, será necessário movê-los para a camada de Arquivo Morto. É possível definir a camada de blob de duas maneiras: Script do Azure PowerShell e ou uma política de Gerenciamento de ciclo de vida de armazenamento do Azure.  
@@ -53,14 +53,14 @@ Antes de começar, certifique-se de que o Data Box Gateway esteja em execução.
     - Se usar o Gerenciamento de Ciclo de Vida de Armazenamento do Azure, siga estas etapas para mover os dados para a camada de Arquivo Morto.
         - [Registre-se](/azure/storage/common/storage-lifecycle-management-concepts#register-for-preview) na versão prévia do serviço de Gerenciamento do Ciclo de Vida de Blobs para usar a camada de Arquivo Morto.
         - Use a seguinte política para [Arquivar dados em ingestão](/azure/storage/blobs/storage-lifecycle-management-concepts#archive-data-at-ingest).
-- Depois que os blobs são marcados como Arquivo Morto, eles não podem mais ser modificados pelo gateway, a menos que sejam movidos para a camada frequente ou para a camada esporádica. Se o arquivo estiver no armazenamento local, todas as alterações feitas na cópia local (incluindo exclusões) não são carregadas na camada de Arquivo Morto.
-- Para ler os dados no Armazenamento de Arquivo Morto, eles deves ser reidratados alterando a camada de blob para frequente ou esporádica. [Atualizar o compartilhamento](data-box-gateway-manage-shares.md#refresh-shares) no gateway não reidrata o blob.
+- Depois que os blobs são marcados como Arquivo Morto, eles não podem mais ser modificados pelo gateway, a menos que sejam movidos para a camada frequente ou para a camada esporádica. Se o arquivo estiver no armazenamento local, nenhuma alteração feita na cópia local (incluindo exclusões) será carregada na camada de Arquivo Morto.
+- Para ler os dados no Armazenamento de Arquivo Morto, eles devem ser reidratados alterando a camada de blob para frequente ou esporádica. [Atualizar o compartilhamento](data-box-gateway-manage-shares.md#refresh-shares) no gateway não reidrata o blob.
 
-Para saber mais, saiba mais sobre como [gerenciar o ciclo de vida do armazenamento de blobs do Azure](/azure/storage/common/storage-lifecycle-management-concepts).
+Para obter mais informações, saiba mais sobre como [gerenciar o ciclo de vida do armazenamento de blobs do Azure](/azure/storage/common/storage-lifecycle-management-concepts).
 
 ## <a name="initial-bulk-transfer-followed-by-incremental-transfer"></a>Transferência inicial em massa seguida por transferência incremental
 
-Use o Data Box e o Data Box Gateway juntos quando quiser fazer um carregamento em massa de uma grande quantidade de dados seguida por transferências incrementais. Use o Data Box para a transferência em massa em modo offline (semeadura inicial) e o Data Box Gateway para transferências incrementais (alimentação em andamento) pela rede.
+Use o Data Box e o Data Box Gateway juntos quando quiser fazer um carregamento em massa de uma grande quantidade de dados seguida por transferências incrementais. Use o Data Box para a transferência em massa em modo offline (propagação inicial) e o Data Box Gateway para as transferências incrementais (alimentação constante) pela rede.
 
 ### <a name="seed-the-data-with-data-box"></a>Propagar os dados com o Data Box
 
@@ -84,7 +84,7 @@ Siga estas etapas para a ingestão em andamento pelo Data Box Gateway.
 
     ![Clique em +Adicionar compartilhamento](media/data-box-gateway-use-cases/add-share1.png)
 
-2. Verifique se que esse compartilhamento é mapeado para o contêiner que contém os dados propagados. Em **Selecionar contêiner de blob**, escolha **Usar existente** e navegue até o contêiner para onde os dados do Data Box foram transferidos.
+2. Verifique se esse compartilhamento é direcionado ao contêiner que contém os dados propagados. Em **Selecionar contêiner de blob**, escolha **Usar existente** e navegue até o contêiner para onde os dados do Data Box foram transferidos.
 
     ![Configurações de compartilhamento](media/data-box-gateway-use-cases/share-settings-select-existing-container1.png)
 

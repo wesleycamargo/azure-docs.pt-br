@@ -10,12 +10,12 @@ ms.author: jehunte
 ms.date: 02/06/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2d6cc55ec2e3be3510b9547025db17bcbee97e10
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 59f36595e0b6cc8b9d9ea0669c9ecb5be1e74b42
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765374"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441382"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Gerenciar uma Máquina Virtual do Azure com a coleta de inventário
 
@@ -36,7 +36,7 @@ Entre no [Portal do Azure](https://portal.azure.com/).
 1. No Portal do Azure, no painel esquerdo, selecione **Máquinas virtuais**.
 2. Na lista de máquinas virtuais, selecione uma máquina virtual.
 3. No menu **Recurso**, em **Operações**, selecione **Inventário**.
-4. Selecione um workspace do Log Analytics para armazenar seus logs de dados.
+4. Selecione um espaço de trabalho do Log Analytics para armazenar seus logs de dados.
     Se nenhum workspace estiver disponível para essa região, será solicitado que você crie uma conta de automação e um workspace padrão.
 5. Para iniciar a integração de seu computador, selecione **Habilitar**.
 
@@ -91,7 +91,9 @@ As tabelas a seguir fornecem informações sobre cada propriedade que pode ser c
 
 ## <a name="manage-machine-groups"></a>Gerenciar grupos de computadores
 
-O inventário permite que você crie e exiba grupos de computadores no Log Analytics. Grupos de computadores são coleções de computadores definidos por uma consulta no Log Analytics.
+Inventário permite que você crie e exiba grupos de computadores nos logs do Azure Monitor. Grupos de computadores são coleções de computadores definidos por uma consulta nos logs do Azure Monitor.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 Para exibir seus grupos de computadores, selecione a guia **Grupos de computadores** na página Inventário.
 
@@ -103,7 +105,7 @@ Selecionar um grupo de computadores na lista abre a página de grupos de Computa
 
 Clique no botão **+ Clonar** para clonar o grupo de computadores. Aqui, você precisa atribuir ao grupo um novo nome e um alias para o grupo. A definição pode ser alterada neste momento. Depois de alterar a consulta, pressione **Validar consulta** para visualizar os computadores que seriam selecionados. Quando estiver satisfeito com o grupo, clique em **Criar** para criar o grupo de computadores
 
-Se quiser criar um novo grupo de computadores, selecione **+ Criar um grupo de computadores**. Esse botão abre a **página Criar um grupo de computadores**, na qual é possível definir o novo grupo. Clique em **Criar** para criar o grupo.
+Se você quiser criar um novo grupo de computadores, selecione **+ criar um grupo de computadores**. Esse botão abre a **página Criar um grupo de computadores**, na qual é possível definir o novo grupo. Clique em **Criar** para criar o grupo.
 
 ![Criar novo grupo de computadores](./media/automation-vm-inventory/create-new-group.png)
 
@@ -116,7 +118,7 @@ Para remover sua máquina virtual do gerenciamento de inventário:
 3. Na lista, selecione a máquina virtual que você deseja desconectar. A máquina virtual tem uma marca de seleção verde ao lado de **Este workspace** na coluna **Conexão OMS**.
 
    >[!NOTE]
-   >O OMS agora é chamado de Log Analytics.
+   >OMS agora é chamado de logs do Azure Monitor.
    
 4. Na parte superior da página seguinte, selecione **Desconectar**.
 5. Na janela de confirmação, selecione **Sim**.

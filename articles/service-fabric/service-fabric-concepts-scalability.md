@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 88c563876940da14f75d7ab30aa3f79a8f6dd870
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 79db12be04df396cf79d55ff4ec15ad728d4f251
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209365"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58094602"
 ---
 # <a name="scaling-in-service-fabric"></a>Dimensionamento no Service Fabric
 O Azure Service Fabric facilita o build de aplicativos escalonáveis gerenciando os serviços, as partições e as réplicas em todos os nós em um cluster. Executar várias cargas de trabalho no mesmo hardware permite a utilização máxima dos recursos, mas também fornece flexibilidade em termos de como você opta por dimensionar suas cargas de trabalho. Este vídeo do Channel 9 descreve como você pode criar aplicativos de microsserviço escalonáveis:
@@ -102,12 +102,14 @@ O Service Fabric permite o particionamento. O particionamento divide um serviço
 Considere um serviço que usa um esquema de particionamento de intervalo com uma chave baixa de 0, uma chave alta de 99 e uma contagem de partições de 4. Em um cluster de três nós, o serviço pode ser disposto com quatro réplicas que compartilham os recursos em cada nó, conforme mostrado aqui:
 
 <center>
+
 ![Layout de partição com três nós](./media/service-fabric-concepts-scalability/layout-three-nodes.png)
 </center>
 
 Se você aumentar o número de nós, o Service Fabric moverá algumas das réplicas existentes nele. Por exemplo, digamos que o número de nós aumente para quatro e que as réplicas sejam redistribuídas. Agora, o serviço tem três réplicas em execução em cada nó, cada um pertencente a diferentes partições. Isso permite uma melhor utilização dos recursos, desde que o novo nó não seja frio. Normalmente, isso também melhora o desempenho, porque cada serviço tem mais recursos disponíveis para ele.
 
 <center>
+
 ![Layout de partição com quatro nós](./media/service-fabric-concepts-scalability/layout-four-nodes.png)
 </center>
 
@@ -123,7 +125,7 @@ Para obter mais informações, consulte [dimensionamento do cluster](service-fab
 ## <a name="putting-it-all-together"></a>Juntando as peças
 Vamos reunir tudo o que discutimos aqui e aplicar a um exemplo. Considere o seguinte serviço: você está tentando criar um serviço que atue como um catálogo de endereços, mantendo nomes e informações de contato. 
 
-Logo no início, você tem uma série de perguntas relacionadas à escala: quantos usuários você terá? Quantos contatos cada usuário armazenará? Tentar descobrir isso enquanto você está tentando fazer o serviço funcionar pela primeira vez é difícil. Digamos que você optasse por um único serviço estático com uma contagem de partições específica. As consequências de escolher a contagem de partições errada poderia causar problemas de escala mais tarde. Da mesma forma, mesmo se escolher a contagem correta, talvez você não tenha todas as informações necessárias. Por exemplo, você também precisa decidir o tamanho do cluster logo no início, tanto em termos do número de nós quanto de seus tamanhos. Geralmente, é difícil prever quantos recursos um serviço consumirá durante seu tempo de vida. Também pode ser difícil saber antecipadamente o padrão de tráfego que realmente passa pelo serviço. Por exemplo, talvez as pessoas adicionem e removam contatos somente de manhã ou talvez isso seja distribuído uniformemente ao longo do dia. Com base nisso, talvez seja necessário reduzir e escalar horizontalmente de forma dinâmica. Talvez você possa aprender a prever quando precisará reduzir e escalar horizontalmente, mas, de qualquer forma, você provavelmente precisará reagir a alterações no consumo de recursos por seu serviço. Isso pode envolver alterar o tamanho do cluster para fornecer mais recursos quando reorganizar o uso de recursos existentes não for suficiente. 
+À direita com antecedência você tem um monte de perguntas relacionadas à escala: Quantos usuários você pretende ter? Quantos contatos cada usuário armazenará? Tentar descobrir isso enquanto você está tentando fazer o serviço funcionar pela primeira vez é difícil. Digamos que você optasse por um único serviço estático com uma contagem de partições específica. As consequências de escolher a contagem de partições errada poderia causar problemas de escala mais tarde. Da mesma forma, mesmo se escolher a contagem correta, talvez você não tenha todas as informações necessárias. Por exemplo, você também precisa decidir o tamanho do cluster logo no início, tanto em termos do número de nós quanto de seus tamanhos. Geralmente, é difícil prever quantos recursos um serviço consumirá durante seu tempo de vida. Também pode ser difícil saber antecipadamente o padrão de tráfego que realmente passa pelo serviço. Por exemplo, talvez as pessoas adicionem e removam contatos somente de manhã ou talvez isso seja distribuído uniformemente ao longo do dia. Com base nisso, talvez seja necessário reduzir e escalar horizontalmente de forma dinâmica. Talvez você possa aprender a prever quando precisará reduzir e escalar horizontalmente, mas, de qualquer forma, você provavelmente precisará reagir a alterações no consumo de recursos por seu serviço. Isso pode envolver alterar o tamanho do cluster para fornecer mais recursos quando reorganizar o uso de recursos existentes não for suficiente. 
 
 Mas por que mesmo tentar escolher um único esquema de partição para todos os usuários? Por que limitar-se a um serviço e um cluster estático? A situação real costuma ser mais dinâmica. 
 

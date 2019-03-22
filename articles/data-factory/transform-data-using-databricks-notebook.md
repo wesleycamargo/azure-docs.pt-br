@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: 7035035823e00fb0c12de3f4eeae11d8b3e1d54d
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 181e2c1d1a9758d6f196c9cb2b281eefa141d81a
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016901"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984757"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Executar um Databricks Notebook com a atividade Databricks Notebook no Azure Data Factory
 
@@ -93,7 +93,7 @@ Nesta seção, você cria um serviço vinculado Databricks. Esse serviço vincul
     
     ![Crie uma nova conexão](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image6.png)
 
-1.  Na janela **Novo Serviço Vinculado**, selecione **Computação** \> **Azure Databricks** e, em seguida, **Continuar**.
+1.  Na janela **Novo Serviço Vinculado**, elecione **Computação** \> **Azure Databricks** e, em seguida, **Continuar**.
     
     ![Especifique um serviço vinculado do Databricks](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image7.png)
 
@@ -109,7 +109,7 @@ Nesta seção, você cria um serviço vinculado Databricks. Esse serviço vincul
 
     1.  Em **Token de Acesso**, gere-o no espaço de trabalho do Azure Databricks. Você pode encontrar as etapas [aqui](https://docs.databricks.com/api/latest/authentication.html#generate-token).
 
-    1.  Para **Versão do cluster**, selecione **4.0** (com o Apache Spark 2.3.0, Scala 2.11)
+    1.  Para **Versão do cluster**, selecione **4.2** (com o Apache Spark 2.3.1, Scala 2.11)
 
     1.  Para o **Tipo de nó de cluster**, selecione **Standard\_D3\_v2** na categoria **Uso Geral (HD)** para este tutorial. 
     

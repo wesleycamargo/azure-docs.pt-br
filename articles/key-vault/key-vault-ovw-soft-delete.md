@@ -3,16 +3,16 @@ ms.assetid: ''
 title: Exclusão reversível do Azure Key Vault | Microsoft Docs
 ms.service: key-vault
 ms.topic: conceptual
-author: bryanla
-ms.author: bryanla
+author: msmbaldwin
+ms.author: mbaldwin
 manager: barbkess
 ms.date: 09/25/2017
-ms.openlocfilehash: 02d08f4334f1e20a3f635868fb053ffb44388d9c
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 526b0b135c8d5c1741ddf5f3fe6fb32f259a3e2c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108011"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092983"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Visão geral de exclusão reversível do Azure Key Vault
 
@@ -44,9 +44,9 @@ A exclusão reversível é um comportamento opcional do Key Vault e **não está
 ### <a name="purge-protection--flag"></a>Sinalizador de proteção de limpeza
 O sinalizador de proteção de limpeza (**--enable-purge-protection** na CLI do Azure) está desativado por padrão. Quando esse sinalizador está ativado, um cofre ou um objeto no estado excluído não pode ser limpo até que tenha passado o período de retenção de 90 dias. Ainda é possível recuperar tal cofre ou objeto. Esse sinalizador fornece uma garantia extra aos clientes de que um cofre ou objeto não pode ser excluído permanentemente até que tenha passado o período de retenção. Você poderá ativar o sinalizador de proteção de limpeza somente se o sinalizador de exclusão reversível estiver ativado ou se, na criação do cofre, ativar a exclusão reversível e a proteção de limpeza.
 
-> [!NOTE] 
-   O pré-requisito para ativar a proteção de limpeza é estar com a exclusão reversível ativada.
-O comando para fazer isso na CLI do Azure 2 é
+> [!NOTE]
+>    O pré-requisito para ativar a proteção de limpeza é estar com a exclusão reversível ativada.
+> O comando para fazer isso na CLI do Azure 2 é
 
 ```
 az keyvault create --name "VaultName" --resource-group "ResourceGroupName" --location westus --enable-soft-delete true --enable-purge-protection true

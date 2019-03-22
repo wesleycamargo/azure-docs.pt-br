@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 1d76f9a76c85f4f3f052c3b409f5be28b51ebe91
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: d921d0907d7481b842fd98db2c0d7cb5f402f24f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459121"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835970"
 ---
 # <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Explorar dados no repositório de blob do Azure com o Pandas
 
-Este artigos aborda como explorar dados armazenados no contêiner de blob do Azure usando o pacote Python [pandas](http://pandas.pydata.org/).
+Este artigos aborda como explorar dados armazenados no contêiner de blob do Azure usando o pacote Python [pandas](https://pandas.pydata.org/).
 
 Esta tarefa é uma etapa no [Processo de Ciência de Dados da Equipe](overview.md).
 
@@ -33,72 +33,105 @@ Este artigo supõe que você:
 ## <a name="load-the-data-into-a-pandas-dataframe"></a>Carregar os dados em um DataFrame Pandas
 Para explorar e manipular um conjunto de dados, primeiro eles devem ser baixados da fonte de blob para um arquivo local, que pode então ser carregado em um DataFrame Pandas. Aqui estão as etapas para este procedimento:
 
-1. Baixe os dados do blob do Azure com o seguinte código Python de exemplo usando o serviço blob. Substitua a variável no código abaixo por seus valores específicos: 
-   
-        from azure.storage.blob import BlobService
-        import tables
-   
-        STORAGEACCOUNTNAME= <storage_account_name>
-        STORAGEACCOUNTKEY= <storage_account_key>
-        LOCALFILENAME= <local_file_name>        
-        CONTAINERNAME= <container_name>
-        BLOBNAME= <blob_name>
-   
-        #download from blob
-        t1=time.time()
-        blob_service=BlobService(account_name=STORAGEACCOUNTNAME,account_key=STORAGEACCOUNTKEY)
-        blob_service.get_blob_to_path(CONTAINERNAME,BLOBNAME,LOCALFILENAME)
-        t2=time.time()
-        print(("It takes %s seconds to download "+blobname) % (t2 - t1))
-2. Leia os dados em um pandas DataFrame do arquivo baixado.
-   
-        #LOCALFILE is the file path    
-        dataframe_blobdata = pd.read_csv(LOCALFILE)
+1. Baixe os dados do blob do Azure com o seguinte código Python de exemplo usando o serviço blob. Substitua a variável no código abaixo por seus valores específicos:
+
+```python
+from azure.storage.blob import BlobService
+import tables
+
+STORAGEACCOUNTNAME= <storage_account_name>
+STORAGEACCOUNTKEY= <storage_account_key>
+LOCALFILENAME= <local_file_name>
+CONTAINERNAME= <container_name>
+BLOBNAME= <blob_name>
+
+#download from blob
+t1=time.time()
+blob_service=BlobService(account_name=STORAGEACCOUNTNAME,account_key=STORAGEACCOUNTKEY)
+blob_service.get_blob_to_path(CONTAINERNAME,BLOBNAME,LOCALFILENAME)
+t2=time.time()
+print(("It takes %s seconds to download "+blobname) % (t2 - t1))
+```
+
+1. Leia os dados em um pandas DataFrame do arquivo baixado.
+
+```python
+#LOCALFILE is the file path
+dataframe_blobdata = pd.read_csv(LOCALFILE)
+```
 
 Agora você está pronto para explorar os dados e gerar recursos neste conjunto de dados.
 
 ## <a name="blob-dataexploration"></a>Exemplos de exploração de dados usando o Pandas
 Veja estão alguns exemplos de maneiras de explorar dados usando Pandas:
 
-1. Inspecionar o **número de linhas e colunas** 
-   
-        print 'the size of the data is: %d rows and  %d columns' % dataframe_blobdata.shape
-2. **Inspecione** as primeiras ou últimas **linhas** no conjunto de dados a seguir:
-   
-        dataframe_blobdata.head(10)
-   
-        dataframe_blobdata.tail(10)
-3. Verifique o **tipo de dados** indicado para cada coluna importada usando o seguinte código de exemplo
-   
-        for col in dataframe_blobdata.columns:
-            print dataframe_blobdata[col].name, ':\t', dataframe_blobdata[col].dtype
-4. Verifique as **estatísticas básicas** para as colunas no conjunto de dados da seguinte maneira
-   
-        dataframe_blobdata.describe()
-5. Veja o número de entradas para cada valor de coluna da seguinte maneira
-   
-        dataframe_blobdata['<column_name>'].value_counts()
-6. **Conte os valores ausentes** em comparação com o número real de entradas em cada coluna usando o seguinte código de exemplo
-   
-        miss_num = dataframe_blobdata.shape[0] - dataframe_blobdata.count()
-        print miss_num
-7. Se você tiver **valores ausentes** para uma coluna específica nos dados, poderá removê-los da seguinte maneira:
-   
-     dataframe_blobdata_noNA = dataframe_blobdata.dropna()   dataframe_blobdata_noNA.shape
-   
-   Outra maneira de substituir valores ausentes é com a função de modo:
-   
-     dataframe_blobdata_mode = dataframe_blobdata.fillna({'<column_name>':dataframe_blobdata['<column_name>'].mode()[0]})        
-8. Crie um gráfico de **histograma** usando um número variável de compartimentos para plotar a distribuição de uma variável    
-   
-        dataframe_blobdata['<column_name>'].value_counts().plot(kind='bar')
-   
-        np.log(dataframe_blobdata['<column_name>']+1).hist(bins=50)
-9. Examine **correlações** entre variáveis usando um gráfico disperso ou a função interna de correlação
-   
-        #relationship between column_a and column_b using scatter plot
-        plt.scatter(dataframe_blobdata['<column_a>'], dataframe_blobdata['<column_b>'])
-   
-        #correlation between column_a and column_b
-        dataframe_blobdata[['<column_a>', '<column_b>']].corr()
+1. Inspecionar o **número de linhas e colunas**
 
+```python
+print 'the size of the data is: %d rows and  %d columns' % dataframe_blobdata.shape
+```
+
+1. **Inspecione** as primeiras ou últimas **linhas** no conjunto de dados a seguir:
+
+```python
+dataframe_blobdata.head(10)
+
+dataframe_blobdata.tail(10)
+```
+
+1. Verifique o **tipo de dados** indicado para cada coluna importada usando o seguinte código de exemplo
+
+```python
+for col in dataframe_blobdata.columns:
+    print dataframe_blobdata[col].name, ':\t', dataframe_blobdata[col].dtype
+```
+
+1. Verifique as **estatísticas básicas** para as colunas no conjunto de dados da seguinte maneira
+
+```python
+dataframe_blobdata.describe()
+```
+
+1. Veja o número de entradas para cada valor de coluna da seguinte maneira
+
+```python
+dataframe_blobdata['<column_name>'].value_counts()
+```
+
+1. **Conte os valores ausentes** em comparação com o número real de entradas em cada coluna usando o seguinte código de exemplo
+
+```python
+miss_num = dataframe_blobdata.shape[0] - dataframe_blobdata.count()
+print miss_num
+```
+
+1. Se você tiver **valores ausentes** para uma coluna específica nos dados, poderá removê-los da seguinte maneira:
+
+```python
+dataframe_blobdata_noNA = dataframe_blobdata.dropna()
+dataframe_blobdata_noNA.shape
+```
+
+Outra maneira de substituir valores ausentes é com a função de modo:
+
+```python
+dataframe_blobdata_mode = dataframe_blobdata.fillna({'<column_name>':dataframe_blobdata['<column_name>'].mode()[0]})
+```
+
+1. Crie um gráfico de **histograma** usando um número variável de compartimentos para plotar a distribuição de uma variável
+
+```python
+dataframe_blobdata['<column_name>'].value_counts().plot(kind='bar')
+
+np.log(dataframe_blobdata['<column_name>']+1).hist(bins=50)
+```
+
+1. Examine **correlações** entre variáveis usando um gráfico disperso ou a função interna de correlação
+
+```python
+#relationship between column_a and column_b using scatter plot
+plt.scatter(dataframe_blobdata['<column_a>'], dataframe_blobdata['<column_b>'])
+
+#correlation between column_a and column_b
+dataframe_blobdata[['<column_a>', '<column_b>']].corr()
+```

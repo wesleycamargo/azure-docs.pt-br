@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 2ed9d9fd020bb14db7e1d171a32c25239d7ee802
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 081acf572c5b23d52ec0b8b7de1918edc9536c60
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55736196"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58305192"
 ---
 O diagnóstico de problemas com um serviço de nuvem do Microsoft Azure exige a coleta dos arquivos de log do serviço em máquinas virtuais à medida que os problemas ocorrem. É possível usar a extensão AzureLogCollector sob demanda para executar uma coleta avulsa de logs de uma ou mais VMs do Serviço de Nuvem (de funções Web e funções de trabalho) e transferir os arquivos coletados para uma conta de armazenamento do Azure – tudo sem precisar fazer logon remotamente em qualquer uma das VMs.
 
@@ -93,37 +93,37 @@ Você pode acompanhar uma das duas etapas a seguir para adicionar o AzureLogColl
 1. Siga as instruções para conectar o Azure PowerShell à sua assinatura.
 2. Especifique o nome do serviço, o slot, as funções e as instâncias de função às quais você deseja adicionar e habilitar a extensão AzureLogCollector.
 
-  ```powershell
-  #Specify your cloud service name
-  $ServiceName = 'extensiontest2'
+   ```powershell
+   #Specify your cloud service name
+   $ServiceName = 'extensiontest2'
 
-  #Specify the slot. 'Production' or 'Staging'
-  $slot = 'Production'
+   #Specify the slot. 'Production' or 'Staging'
+   $slot = 'Production'
 
-  #Specified the roles on which the extension will be installed and enabled
-  $roles = @("WorkerRole1","WebRole1")
+   #Specified the roles on which the extension will be installed and enabled
+   $roles = @("WorkerRole1","WebRole1")
 
-  #Specify the instances on which extension will be installed and enabled.  Use wildcard * for all instances
-  $instances = @("*")
+   #Specify the instances on which extension will be installed and enabled.  Use wildcard * for all instances
+   $instances = @("*")
 
-  #Specify the collection mode, "Full" or "GA"
-  $mode = "GA"
-  ```
+   #Specify the collection mode, "Full" or "GA"
+   $mode = "GA"
+   ```
 
 3. Especifique a pasta de dados adicionais para a qual os arquivos serão coletados (esta etapa é opcional).
 
-  ```powershell
-  #add one location
-  $a1 = New-Object PSObject
+   ```powershell
+   #add one location
+   $a1 = New-Object PSObject
 
-  $a1 | Add-Member -MemberType NoteProperty -Name "Name" -Value "StorageData"
-  $a1 | Add-Member -MemberType NoteProperty -Name "SearchPattern" -Value "*"
-  $a1 | Add-Member -MemberType NoteProperty -Name "Location" -Value "%roleroot%storage"  #%roleroot% is normally E: or F: drive
-  $a1 | Add-Member -MemberType NoteProperty -Name "Recursive" -Value "true"
+   $a1 | Add-Member -MemberType NoteProperty -Name "Name" -Value "StorageData"
+   $a1 | Add-Member -MemberType NoteProperty -Name "SearchPattern" -Value "*"
+   $a1 | Add-Member -MemberType NoteProperty -Name "Location" -Value "%roleroot%storage"  #%roleroot% is normally E: or F: drive
+   $a1 | Add-Member -MemberType NoteProperty -Name "Recursive" -Value "true"
 
-  $AdditionalDataList+= $a1
-  #more locations can be added....
-  ```
+   $AdditionalDataList+= $a1
+   #more locations can be added....
+   ```
 
    > [!NOTE]
    > Você pode usar o token `%roleroot%` para especificar a unidade raiz da função, já que ela não usa uma unidade fixa.
@@ -131,16 +131,16 @@ Você pode acompanhar uma das duas etapas a seguir para adicionar o AzureLogColl
    > 
 4. Forneça o nome e a chave da conta de armazenamento do Azure na qual os arquivos coletados serão carregados.
 
-  ```powershell
-  $StorageAccountName = 'YourStorageAccountName'
-  $StorageAccountKey  = 'YourStorageAccountKey'
-  ```
+   ```powershell
+   $StorageAccountName = 'YourStorageAccountName'
+   $StorageAccountKey  = 'YourStorageAccountKey'
+   ```
 
 5. Chame o SetAzureServiceLogCollector.ps1 (incluído ao final do artigo) da seguinte maneira para habilitar a extensão AzureLogCollector para um Serviço de Nuvem. Quando a execução for concluída, você poderá encontrar o arquivo carregado em `https://YourStorageAccountName.blob.core.windows.net/vmlogs`
 
-  ```powershell
-  .\SetAzureServiceLogCollector.ps1 -ServiceName YourCloudServiceName  -Roles $roles  -Instances $instances –Mode $mode -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey -AdditionDataLocationList $AdditionalDataList
-  ```
+   ```powershell
+   .\SetAzureServiceLogCollector.ps1 -ServiceName YourCloudServiceName  -Roles $roles  -Instances $instances –Mode $mode -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey -AdditionDataLocationList $AdditionalDataList
+   ```
 
 A seguir, a definição dos parâmetros passados para o script. (Isso também foi copiado abaixo.)
 
@@ -197,36 +197,36 @@ Siga as instruções para conectar o Azure PowerShell à sua assinatura.
 
 1. Especifique o nome do serviço, a VM e o modo de coleta.
 
-  ```powershell
-  #Specify your cloud service name
-  $ServiceName = 'YourCloudServiceName'
+   ```powershell
+   #Specify your cloud service name
+   $ServiceName = 'YourCloudServiceName'
 
-  #Specify the VM name
-  $VMName = "'YourVMName'"
+   #Specify the VM name
+   $VMName = "'YourVMName'"
 
-  #Specify the collection mode, "Full" or "GA"
-  $mode = "GA"
+   #Specify the collection mode, "Full" or "GA"
+   $mode = "GA"
 
-  Specify the additional data folder for which files will be collected (this step is optional).
+   Specify the additional data folder for which files will be collected (this step is optional).
 
-  #add one location
-  $a1 = New-Object PSObject
+   #add one location
+   $a1 = New-Object PSObject
 
-  $a1 | Add-Member -MemberType NoteProperty -Name "Name" -Value "StorageData"
-  $a1 | Add-Member -MemberType NoteProperty -Name "SearchPattern" -Value "*"
-  $a1 | Add-Member -MemberType NoteProperty -Name "Location" -Value "%roleroot%storage"  #%roleroot% is normally E: or F: drive
-  $a1 | Add-Member -MemberType NoteProperty -Name "Recursive" -Value "true"
+   $a1 | Add-Member -MemberType NoteProperty -Name "Name" -Value "StorageData"
+   $a1 | Add-Member -MemberType NoteProperty -Name "SearchPattern" -Value "*"
+   $a1 | Add-Member -MemberType NoteProperty -Name "Location" -Value "%roleroot%storage"  #%roleroot% is normally E: or F: drive
+   $a1 | Add-Member -MemberType NoteProperty -Name "Recursive" -Value "true"
 
-  $AdditionalDataList+= $a1
+   $AdditionalDataList+= $a1
         #more locations can be added....
-  ```
+   ```
   
 2. Forneça o nome e a chave da conta de armazenamento do Azure na qual os arquivos coletados serão carregados.
 
-  ```powershell
-  $StorageAccountName = 'YourStorageAccountName'
-  $StorageAccountKey  = 'YourStorageAccountKey'
-  ```
+   ```powershell
+   $StorageAccountName = 'YourStorageAccountName'
+   $StorageAccountKey  = 'YourStorageAccountKey'
+   ```
 
 3. Chame o SetAzureServiceLogCollector.ps1 (incluído ao final do artigo) como mostrado a seguir para habilitar a extensão AzureLogCollector para um Serviço de Nuvem. Quando a execução for concluída, você poderá encontrar o arquivo carregado em `https://YourStorageAccountName.blob.core.windows.net/vmlogs`
 
@@ -360,7 +360,7 @@ if ($AdditionDataLocationList -ne $null )
 $publicConfigJSON = $publicConfig | ConvertTo-Json
 "publicConfig is:  $publicConfigJSON"
 
-#we just provide a empty privateConfig object
+#we just provide an empty privateConfig object
 $privateconfig = "{
 }"
 
@@ -452,7 +452,7 @@ $publicConfigJSON = $publicConfig | ConvertTo-Json
 Write-Output "PublicConfiguration is: \r\n$publicConfigJSON"
 
 #
-#we just provide a empty privateConfig object
+#we just provide an empty privateConfig object
 #
 $privateconfig = "{
 }"

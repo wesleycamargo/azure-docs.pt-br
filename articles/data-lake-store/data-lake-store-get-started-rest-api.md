@@ -1,5 +1,5 @@
 ---
-title: 'API REST: Conta operações de gerenciamento no Azure Data Lake armazenamento Gen1 | Microsoft Docs'
+title: 'API REST: Operações de gerenciamento no Azure Data Lake armazenamento Gen1 de conta | Microsoft Docs'
 description: Use o Armazenamento de Dados do Azure Data Lake Gen1 e a API REST do WebHDFS para executar operações de gerenciamento de contas na conta do Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 7f22fe7d1c3962e59922bc4e2795ed4f899e3eca
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
-ms.translationtype: HT
+ms.openlocfilehash: b2c4d38462cf617d8417b269d47a8c1bb0c266c3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46121661"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530103"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>Operações de gerenciamento de conta no Azure Data Lake Storage Gen1 usando a API REST
 > [!div class="op_single_selector"]
@@ -32,16 +32,16 @@ Neste artigo, você aprenderá a executar operações de gerenciamento de conta 
 ## <a name="prerequisites"></a>Pré-requisitos
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **[cURL](http://curl.haxx.se/)**. Este artigo usa cURL para demonstrar como fazer chamadas à API REST em uma conta do Data Lake armazenamento Gen1.
+* **[cURL](https://curl.haxx.se/)**. Este artigo usa cURL para demonstrar como fazer chamadas à API REST em uma conta do Data Lake Storage Gen1.
 
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Como faço para me autenticar usando o Azure Active Directory?
 Você pode usar duas abordagens para se autenticar usando o Azure Active Directory.
 
-* Para a autenticação do usuário final para o seu aplicativo (interativo), consulte [autenticação do usuário final com Data Lake armazenamento Gen1 usando o SDK do .NET](data-lake-store-end-user-authenticate-rest-api.md).
+* Para a autenticação do usuário final para o seu aplicativo (interativo), veja [Autenticação do usuário final com o Data Lake Storage Gen1 usando o SDK do .NET](data-lake-store-end-user-authenticate-rest-api.md).
 * Para autenticação de serviço a serviço para seu aplicativo (não interativo), consulte [Autenticação de serviço a serviço com o Data Lake Storage Gen1 usando o .NET SDK](data-lake-store-service-to-service-authenticate-rest-api.md).
 
 
-## <a name="create-a-data-lake-storage-gen1-account"></a>Criar uma conta do Data Lake armazenamento Gen1
+## <a name="create-a-data-lake-storage-gen1-account"></a>Criar uma conta do Data Lake Storage Gen1
 Essa operação se baseia na chamada à API REST definida [aqui](https://docs.microsoft.com/rest/api/datalakestore/accounts/create).
 
 Use o comando cURL a seguir. Substitua **\<yourstoragegen1name >** pelo nome do Data Lake armazenamento Gen1.
@@ -76,5 +76,5 @@ Você deverá algo semelhante ao seguinte snippet:
 
 ## <a name="see-also"></a>Consulte também
 * [Referência da API REST do Azure Data Lake Storage Gen1](https://docs.microsoft.com/rest/api/datalakestore/)
-* [Abrir aplicativos de Big Data de software compatíveis com o Azure Data Lake armazenamento Gen1](data-lake-store-compatible-oss-other-applications.md)
+* [Abrir aplicativos de Big Data de software livre compatíveis com o Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)
 

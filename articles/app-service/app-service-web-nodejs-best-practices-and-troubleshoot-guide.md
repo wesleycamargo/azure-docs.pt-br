@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: ranjithr
 ms.custom: seodec18
-ms.openlocfilehash: aad31e72682e15c49fb3d6dce64e7ef46525cb66
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 323de505bc1bfa9747f372033392a9fd6e08462c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051843"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898849"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Guia de solução de problemas e práticas recomendadas para aplicativos de nó no Serviço de Aplicativo do Azure Windows
 
@@ -90,7 +90,7 @@ Além disso, para aplicativos de streaming, você também precisará definir res
 
 ### <a name="watchedfiles"></a>watchedFiles
 
-Uma lista separada por ponto e vírgula de arquivos que são observados para alterações. Qualquer alteração em um arquivo faz com que o aplicativo seja reciclado. Cada entrada consiste em um nome de diretório opcional, bem como um nome de arquivo necessário, que são relativos ao diretório em que o ponto de entrada principal do aplicativo está localizado. Caracteres curinga são permitidos apenas na parte de nome de arquivo. O valor padrão é `*.js;web.config`
+Uma lista separada por ponto e vírgula de arquivos que são observados para alterações. Qualquer alteração em um arquivo faz com que o aplicativo seja reciclado. Cada entrada consiste em um nome de diretório opcional, bem como um nome de arquivo necessário, que são relativos ao diretório em que o ponto de entrada principal do aplicativo está localizado. Caracteres curinga são permitidos apenas na parte de nome de arquivo. O valor padrão é `*.js;iisnode.yml`
 
 ### <a name="recyclesignalenabled"></a>recycleSignalEnabled
 
@@ -118,7 +118,7 @@ O valor padrão é falso. Quando definido como true, iisnode exibirá o código 
 
 ### <a name="debuggingenabled-do-not-enable-on-live-production-site"></a>debuggingEnabled (não habilitar em sites de produção ativos)
 
-Essa configuração controla o recurso de depuração. Iisnode é integrado a node-inspector. Habilitando essa configuração, você habilita a depuração do aplicativo de nó. Ao habilitar essa configuração, o iisnode cria arquivos node-inspector no diretório "debuggerVirtualDir" na primeira solicitação de depuração para o aplicativo de nó. É possível carregar o node-inspector enviando uma solicitação para http://yoursite/server.js/debug. Você pode controlar o segmento de URL de depuração com a configuração 'debuggerPathSegment'. Por padrão, debuggerPathSegment='debug'. É possível definir `debuggerPathSegment` para um GUID, por exemplo, para que seja mais difícil ser descoberto por outras pessoas.
+Essa configuração controla o recurso de depuração. Iisnode é integrado a node-inspector. Habilitando essa configuração, você habilita a depuração do aplicativo de nó. Ao habilitar essa configuração, o iisnode cria arquivos node-inspector no diretório "debuggerVirtualDir" na primeira solicitação de depuração para o aplicativo de nó. É possível carregar o node-inspector enviando uma solicitação para `http://yoursite/server.js/debug`. Você pode controlar o segmento de URL de depuração com a configuração 'debuggerPathSegment'. Por padrão, debuggerPathSegment='debug'. É possível definir `debuggerPathSegment` para um GUID, por exemplo, para que seja mais difícil ser descoberto por outras pessoas.
 
 Leia [Depurar aplicativos node.js no Windows](https://tomasz.janczuk.org/2011/11/debug-nodejs-applications-on-windows.html) para obter mais detalhes sobre a depuração.
 
@@ -133,7 +133,7 @@ O módulo agentkeepalive garante que os soquetes sejam reutilizados na VM do Web
 Exemplo de configuração [agentKeepALive](https://www.npmjs.com/package/agentkeepalive):
 
 ```nodejs
-var keepaliveAgent = new Agent({
+let keepaliveAgent = new Agent({
     maxSockets: 40,
     maxFreeSockets: 10,
     timeout: 60000,
@@ -155,9 +155,9 @@ Se você achar que o aplicativo está consumindo muita CPU e não consegue deter
 Por exemplo, digamos que você tenha um aplicativo hello world para o qual deseje criar o perfil, conforme mostrado abaixo:
 
 ```nodejs
-var http = require('http');
+const http = require('http');
 function WriteConsoleLog() {
-    for(var i=0;i<99999;++i) {
+    for(let i=0;i<99999;++i) {
         console.log('hello world');
     }
 }
@@ -173,7 +173,7 @@ http.createServer(function (req, res) {
 }).listen(process.env.PORT);
 ```
 
-Vá para o site do Console de Depuração https://yoursite.scm.azurewebsites.net/DebugConsole
+Vá para o site do Console de Depuração `https://yoursite.scm.azurewebsites.net/DebugConsole`
 
 Vá para o diretório site/wwwroot. Você verá um prompt de comando conforme mostrado no exemplo a seguir:
 
@@ -185,12 +185,12 @@ Esse comando instala o v8-profiler no diretório de módulos de nó \_e todas as
 Agora, edite o server.js para criar o perfil do aplicativo.
 
 ```nodejs
-var http = require('http');
-var profiler = require('v8-profiler');
-var fs = require('fs');
+const http = require('http');
+const profiler = require('v8-profiler');
+const fs = require('fs');
 
 function WriteConsoleLog() {
-    for(var i=0;i<99999;++i) {
+    for(let i=0;i<99999;++i) {
         console.log('hello world');
     }
 }

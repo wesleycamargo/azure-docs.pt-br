@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 92bd80135d2ce0c72537240a12e6c0788443abe8
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: d83b659cc04218fad66ea95216e69682b265dc83
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700172"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077795"
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Tutorial: Usar a API REST para criar um pipeline do Azure Data Factory para copiar dados 
 > [!div class="op_single_selector"]
@@ -49,6 +49,9 @@ Um pipeline pode ter mais de uma atividade. E você pode encadear duas atividade
 > O pipeline de dados neste tutorial copia os dados de um armazenamento de dados de origem para um armazenamento de dados de destino. Para obter um tutorial sobre como transformar dados usando o Azure Data Factory, confira [Tutorial: Criar um pipeline para transformar dados usando um cluster Hadoop](data-factory-build-your-first-pipeline.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 * Percorra o artigo [Visão geral do tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) e conclua as etapas de **pré-requisito** .
 * Instale o [Curl](https://curl.haxx.se/dlwiz/) em seu computador. Você pode usar a ferramenta Curl com comandos REST para criar um data factory. 
 * Siga as instruções [deste artigo](../../active-directory/develop/howto-create-service-principal-portal.md) para: 
@@ -61,24 +64,24 @@ Um pipeline pode ter mais de uma atividade. E você pode encadear duas atividade
   
   1. Execute o comando abaixo e insira o nome de usuário e a senha que você usa para entrar no portal do Azure:
     
-    ```PowerShell 
-    Connect-AzureRmAccount
-    ```   
+     ```PowerShell 
+     Connect-AzAccount
+     ```   
   2. Execute o comando abaixo para exibir todas as assinaturas dessa conta:
 
-    ```PowerShell     
-    Get-AzureRmSubscription
-    ``` 
+     ```PowerShell     
+     Get-AzSubscription
+     ``` 
   3. Execute o comando a seguir para selecionar a assinatura com a qual deseja trabalhar. Substitua **&lt;NameOfAzureSubscription**&gt; pelo nome da sua assinatura do Azure. 
      
-    ```PowerShell
-    Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
-    ```
+     ```PowerShell
+     Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
+     ```
   4. Crie um grupo de recursos do Azure denominado **ADFTutorialResourceGroup** executando o comando a seguir no PowerShell:  
 
-    ```PowerShell     
-      New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
-    ```
+     ```PowerShell     
+      New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+     ```
      
       Se o grupo de recursos já existe, especifique se deseja atualizá-lo (S) ou mantê-lo como (N). 
      
@@ -284,7 +287,7 @@ Observe os seguintes pontos:
  
 Substitua o valor da propriedade **start** pelo dia atual e o valor de **end** pelo dia seguinte. Você pode especificar apenas a parte da data e ignorar a parte de hora do valor de data/hora. Por exemplo, "2017-02-03", que é equivalente a "2017-02-03T00:00:00Z"
  
-Ambos os valores de data/hora de início e de término devem estar no [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por exemplo:  2016-10-14T16:32:41Z. A hora **final** é opcional, mas nós a usaremos neste tutorial. 
+Ambos os valores de data/hora de início e de término devem estar no [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por exemplo:  2016-10-14T16:32:41Z. A hora **final** é opcional, mas nós a usaremos neste tutorial. 
  
 Se você não especificar o valor para a propriedade **end**, ele será calculado como "**início + 48 horas**". Para executar o pipeline indefinidamente, especifique **9999-09-09** como o valor para a propriedade **end**.
  
@@ -364,12 +367,12 @@ Observe os seguintes pontos:
   * No Azure PowerShell, execute o comando a seguir para registrar o provedor do Data Factory: 
 
     ```PowerShell    
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+    Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
     Você pode executar o comando a seguir para confirmar se o provedor do Data Factory está registrado. 
     
     ```PowerShell
-    Get-AzureRmResourceProvider
+    Get-AzResourceProvider
     ```
   * Faça logon no [portal do Azure](https://portal.azure.com) usando a assinatura do Azure e navegue até uma folha do Data Factory (ou) crie um data factory no portal do Azure. Essa ação registra automaticamente o provedor para você.
 

@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 957652a63768d25e6b180feb826551ec340b9bf0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 97570a16c7d87a3c8182909b61c04fde30b3fe9b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453664"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000210"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Implantar e explorar um aplicativo SaaS multilocatário que usa o padrão de banco de dados por locatário com o Banco de Dados SQL
 
@@ -56,7 +56,7 @@ Escolha seus nomes agora e os escreva.
 
 1. Para abrir o modelo de implantação de bancp de dados por locatárioWingtip Tickets SaaS no portal do Azure, selecione **Implantar no Azure**.
 
-   <a href="https://aka.ms/deploywingtipdpt" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+   <a href="https://aka.ms/deploywingtipdpt" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
 1. Insira os valores dos parâmetros necessários no modelo.
 
@@ -186,9 +186,9 @@ O *Demo-LoadGenerator.ps1* imita uma carga de trabalho ativa de transações de 
 
 4. Se `$OneTime = $false`, o gerador de carga inicia os trabalhos em segundo plano e, em seguida, continua a ser executado. A cada 10 segundos, ele monitora quaisquer novos locatários provisionados. Se definir `$OneTime = $true`, o LoadGenerator irá iniciar as tarefas em segundo plano e, em seguida, parar a execução em primeiro plano. Para este tutorial, deixe `$OneTime = $false`.
 
-  Use Ctrl-C ou Stop Operation Ctrl-Break se você quiser parar ou reiniciar o gerador de carga.
+   Use Ctrl-C ou Stop Operation Ctrl-Break se você quiser parar ou reiniciar o gerador de carga.
 
-  Se você deixar o gerador de carga em primeiro plano, use outra instância do ISE do PowerShell para executar outros scripts do PowerShell.
+   Se você deixar o gerador de carga em primeiro plano, use outra instância do ISE do PowerShell para executar outros scripts do PowerShell.
 
 &nbsp;
 
@@ -221,7 +221,7 @@ Atualize o Hub de Eventos para fazer com que o novo locatário apareça na lista
 
 Agora que você começou a executar uma carga na coleção de locatários, vamos analisar alguns dos recursos que foram implantados.
 
-1. No [portal do Azure](http://portal.azure.com), navegue para sua lista de servidores SQL. Abra o servidor **catalog-dpt-&lt;USUÁRIO&gt;** .
+1. No [portal do Azure](https://portal.azure.com), navegue para sua lista de servidores SQL. Abra o servidor **catalog-dpt-&lt;USUÁRIO&gt;** .
     - O servidor de catálogo contém dois bancos de dados, **tenantcatalog** e **basetenantdb** (um banco de dados modelo que é copiado para criar novos locatários).
 
    ![Bancos de dados](./media/saas-dbpertenant-get-started-deploy/databases.png)

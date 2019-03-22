@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 05abc61da7af02c56dacd632175d6fbfa64cb9e1
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 0d1e269a1818f013bc14842bc541216d7f31bc84
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098554"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116819"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Criar artefatos personalizados para sua máquina virtual do DevTest Labs
 
@@ -56,12 +56,12 @@ O exemplo a seguir mostra as seções que compõem a estrutura básica de um arq
 | Nome do elemento | Obrigatório? | DESCRIÇÃO |
 | --- | --- | --- |
 | $schema |Não  |Local do arquivo de esquema JSON. O arquivo de esquema JSON pode lhe ajudar a testar a validade do arquivo de definição. |
-| título |SIM |Nome do artefato exibido no laboratório. |
-| Descrição |SIM |Descrição do artefato exibido no laboratório. |
+| título |Sim |Nome do artefato exibido no laboratório. |
+| Descrição |Sim |Descrição do artefato exibido no laboratório. |
 | iconUri |Não  |URI do ícone exibido no laboratório. |
-| targetOsType |SIM |Sistema operacional da VM em que o artefato está instalado. As opções com suporte são Windows e Linux. |
+| targetOsType |Sim |Sistema operacional da VM em que o artefato está instalado. As opções com suporte são Windows e Linux. |
 | parâmetros |Não  |Valores fornecidos quando o comando de instalação do artefato é executado em um computador. Isso ajuda você a personalizar seu artefato. |
-| runCommand |SIM |Comando de instalação do artefato executado em uma VM. |
+| runCommand |Sim |Comando de instalação do artefato executado em uma VM. |
 
 ### <a name="artifact-parameters"></a>Parâmetros do artefato
 Na seção de parâmetros do arquivo de definição, especifique quais valores um usuário pode inserir ao instalar um artefato. Você pode consultar esses valores no comando de instalação do artefato.
@@ -78,9 +78,9 @@ Para definir parâmetros, use a seguinte estrutura:
 
 | Nome do elemento | Obrigatório? | DESCRIÇÃO |
 | --- | --- | --- |
-| Tipo |SIM |Tipo do valor do parâmetro. Veja a lista a seguir para os tipos permitidos. |
-| displayName |SIM |Nome do parâmetro exibido para um usuário no laboratório. | |
-| Descrição |SIM |Descrição do parâmetro exibido no laboratório. |
+| Tipo |Sim |Tipo do valor do parâmetro. Veja a lista a seguir para os tipos permitidos. |
+| displayName |Sim |Nome do parâmetro exibido para um usuário no laboratório. |
+| Descrição |Sim |Descrição do parâmetro exibido no laboratório. |
 
 Os tipos permitidos são:
 
@@ -126,7 +126,7 @@ O exemplo a seguir mostra como usar expressões e funções para construir um va
 
 ## <a name="related-articles"></a>Artigos relacionados
 * [Como diagnosticar falhas de artefato em DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md)
-* [Ingresse uma VM em um domínio do Active Directory existente usando um modelo do Resource Manager no DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
+* [Ingresse uma VM em um domínio do Active Directory existente usando um modelo do Resource Manager no DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba como [adicionar um repositório de artefatos Git a um laboratório](devtest-lab-add-artifact-repo.md).

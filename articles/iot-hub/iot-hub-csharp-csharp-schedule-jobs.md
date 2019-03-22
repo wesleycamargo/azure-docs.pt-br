@@ -1,19 +1,19 @@
 ---
 title: Agendar trabalhos com o Hub IoT do Azure (.NET/.NET) | Microsoft Docs
 description: Como agendar um trabalho do Hub IoT do Azure para invocar um método direto em vários dispositivos. Você pode usar o SDK do dispositivo IoT do Azure para .NET para implementar os aplicativos do dispositivo simulado e um aplicativo de serviço para executar o trabalho.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/06/2018
-ms.author: dobett
-ms.openlocfilehash: 4089ee74b44bc17324c7cd33b1bbd734a651d75f
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
-ms.translationtype: HT
+ms.author: robin.shahan
+ms.openlocfilehash: b39d7d4af4c476778665e844f647beecf20e3d9f
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514801"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008875"
 ---
 # <a name="schedule-and-broadcast-jobs-netnet"></a>Agendar e difundir trabalhos (.NET/.NET)
 
@@ -29,9 +29,9 @@ Um trabalho encapsula uma dessas ações e controla a execução em um conjunto 
 
 Para saber mais sobre cada uma dessas capacidades, consulte:
 
-* Dispositivo gêmeo e propriedades: [Introdução aos dispositivos gêmeos](iot-hub-csharp-csharp-twin-getstarted.md) e [Tutorial: como usar as propriedades de dispositivos gêmeos](tutorial-device-twins.md)
+* Dispositivo gêmeo e propriedades: [Introdução aos Gêmeos de dispositivo](iot-hub-csharp-csharp-twin-getstarted.md) e [Tutorial: Como usar propriedades gêmeo de dispositivo](tutorial-device-twins.md)
 
-* Métodos diretos: [Guia do desenvolvedor do Hub IoT – métodos diretos](iot-hub-devguide-direct-methods.md) e [Tutorial: Usar métodos diretos](quickstart-control-device-dotnet.md)
+* Métodos diretos: [Guia do desenvolvedor do IoT Hub – métodos diretos](iot-hub-devguide-direct-methods.md) e [Tutorial: Usar métodos diretos](quickstart-control-device-dotnet.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -56,7 +56,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>Recuperar cadeia de conexão para hub IoT
+### <a name="retrieve-connection-string-for-iot-hub"></a>Recuperar a cadeia conexão para o hub IoT
 
 [!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
@@ -291,6 +291,6 @@ Agora você está pronto para executar os aplicativos.
 
 Neste tutorial, você usou um trabalho para agendar um método direto para um dispositivo e a atualização das propriedades do twin do dispositivo.
 
-Para continuar com a introdução ao Hub IoT e aos padrões de gerenciamento de dispositivos como atualização de firmware remota aérea, leia: [Tutorial: como fazer uma atualização de firmware](tutorial-firmware-update.md).
+Para continuar a introdução ao IoT Hub e padrões de gerenciamento de dispositivo como remoto sobre a atualização de firmware de ar, leia [Tutorial: Como fazer uma atualização de firmware](tutorial-firmware-update.md).
 
 Para saber mais sobre como implantar IA em dispositivos de borda com o Azure IoT Edge, confira [Introdução ao IoT Edge](../iot-edge/tutorial-simulate-device-linux.md).

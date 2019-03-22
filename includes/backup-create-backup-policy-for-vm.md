@@ -4,12 +4,12 @@ ms.service: backup
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: raynew
-ms.openlocfilehash: b589c88e5b5c5991db43a9f3c10003e17094b2e1
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 3631d2e9beaa7c0d9ee018a32981a278381a7d86
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54057350"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58115014"
 ---
 ## <a name="defining-a-backup-policy"></a>Definindo uma política de backup
 Uma política de backup define uma matriz de quando os instantâneos de dados são obtidos e por quanto tempo esses instantâneos são mantidos. Ao definir uma política para fazer backup de uma VM, você pode disparar um trabalho de backup *uma vez por dia*. Quando você cria uma nova política, ela é aplicada ao cofre. A interface da política de backup fica assim:
@@ -32,13 +32,11 @@ Para criar uma política:
     Os intervalos de retenção Mensal e Anual permitem que você especifique os instantâneos com base em um incremento diário ou semanal.
 
    > [!NOTE]
-   >
-  - Ao proteger uma VM, um trabalho de backup é executado uma vez por dia. O tempo durante o qual o backup é executado é o mesmo para cada intervalo de retenção.
-  - O ponto de recuperação é gerado na data e hora em que o instantâneo de backup é concluído, independentemente de quando o trabalho de backup foi agendado.
-    - Ex.: Se a frequência de backup agendada às 23:30h e, devido a algum problema, o instantâneo é concluído às 00:01h, o ponto de recuperação será criado com a próxima data e o horário de 00:01h.
-  - No caso de backup mensal, se o backup é definido para ser executado no primeiro dia de cada mês e se o instantâneo é concluído no dia seguinte devido a algum problema, o ponto de recuperação criado para o backup mensal é marcado com o dia seguinte (ou seja, o segundo desse mês).
-   >
-   >
+   > 
+   > - Ao proteger uma VM, um trabalho de backup é executado uma vez por dia. O tempo durante o qual o backup é executado é o mesmo para cada intervalo de retenção.
+   > - O ponto de recuperação é gerado na data e hora em que o instantâneo de backup é concluído, independentemente de quando o trabalho de backup foi agendado.
+   >   - Ex.: Se a frequência de backup agendada às 23:30h e, devido a algum problema, o instantâneo é concluído às 00:01h, o ponto de recuperação será criado com a próxima data e o horário de 00:01h.
+   > - No caso de backup mensal, se o backup é definido para ser executado no primeiro dia de cada mês e se o instantâneo é concluído no dia seguinte devido a algum problema, o ponto de recuperação criado para o backup mensal é marcado com o dia seguinte (ou seja, o segundo desse mês).
 
 
 4. Depois de definir todas as opções para a política, na parte inferior da folha, clique em **Salvar**.

@@ -17,14 +17,14 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08ad61070fd3bfb8472cffb51fd0b1bb4bcf169b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7ef499e49fc4d1a0dc79dfc4efb818f7330b57b6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169370"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995211"
 ---
-# <a name="quickstart-configure-a-client-application-to-access-web-apis-preview"></a>Início rápido: Configurar um aplicativo cliente para acessar APIs Web (Versão Prévia)
+# <a name="quickstart-configure-a-client-application-to-access-web-apis-preview"></a>Início Rápido: Configurar um aplicativo cliente para acessar APIs Web (Versão Prévia)
 
 Para que um aplicativo cliente Web/confidencial possa participar de um fluxo de concessão de autorização que requer autenticação (e obter um token de acesso), ele deverá estabelecer credenciais seguras. O método de autenticação padrão com suporte no portal do Azure é a ID do Cliente + chave secreta.
 
@@ -74,11 +74,11 @@ Para adicionar um URI de redirecionamento ao seu aplicativo:
 
 1. Para adicionar um URI de redirecionamento personalizado para aplicativos clientes públicos e Web, siga estas etapas:
 
-    1. Localize a seção **URI de redirecionamento**.
-    1. Selecione o tipo de aplicativo que você está criando, **Web** ou **Cliente público (móvel e área de trabalho)**.
-    1. Insira o URI de redirecionamento para seu aplicativo.
-        * Para aplicativos Web, informe a URL base do aplicativo. Por exemplo, http://localhost:31544 pode ser uma URL para um aplicativo Web em execução no seu computador local. Os usuários usarão essa URL para entrar em um aplicativo cliente Web.
-        * Para aplicativos públicos, informe o URI usado pelo Azure AD para retornar respostas de token. Insira um valor específico para o aplicativo, por exemplo, https://MyFirstApp.
+   1. Localize a seção **URI de redirecionamento**.
+   1. Selecione o tipo de aplicativo que você está criando, **Web** ou **Cliente público (móvel e área de trabalho)**.
+   1. Insira o URI de redirecionamento para seu aplicativo.
+      * Para aplicativos Web, informe a URL base do aplicativo. Por exemplo, `http://localhost:31544` pode ser uma URL para um aplicativo Web em execução no seu computador local. Os usuários usarão essa URL para entrar em um aplicativo cliente Web.
+      * Para aplicativos públicos, informe o URI usado pelo Azure AD para retornar respostas de token. Insira um valor específico para o aplicativo, por exemplo, https://MyFirstApp.
 
 1. Para escolher os URIs de redirecionamento sugeridos para clientes públicos (móvel, área de trabalho), siga estas etapas:
 

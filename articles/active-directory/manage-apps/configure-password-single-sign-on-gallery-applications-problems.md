@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: afe467d56d0247e17f73bb85a39246c4c04629cd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: f6c313cc654461ea22c126fede317ed230408b82
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173446"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079189"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Problema ao configurar o logon único com senha para um aplicativo na Galeria do Azure AD
 
@@ -37,23 +37,23 @@ Ainda que a Microsoft possua tecnologias para detectar automaticamente quando in
 
 Para resolver este problema, primeiro teste estas coisas:
 
--   Peça ao usuário que primeiro tente **entrar diretamente no site do aplicativo** com as credenciais armazenadas para eles.
+- Peça ao usuário que primeiro tente **entrar diretamente no site do aplicativo** com as credenciais armazenadas para eles.
 
   * Se sign-in funcionar, faça com que o usuário clique no botão **Atualizar Credenciais** no **Bloco do Aplicativo** na seção **Aplicativos** do [Painel de Acesso a Aplicativo](https://myapps.microsoft.com/) para atualizá-los com o nome de usuário e senha mais recentes conhecidos.
 
-   * Se você ou outro administrador atribuiu as credenciais para esse usuário, localize a atribuição de aplicativo do usuário ou grupo, navegando até a guia **Usuários e Grupos** do aplicativo, selecionando a atribuição e clicando no botão **Atualizar Credenciais**.
+  * Se você ou outro administrador atribuiu as credenciais para esse usuário, localize a atribuição de aplicativo do usuário ou grupo, navegando até a guia **Usuários e Grupos** do aplicativo, selecionando a atribuição e clicando no botão **Atualizar Credenciais**.
 
--   Se o usuário atribuiu suas próprias credenciais, solicite ao usuário que **certifique-se de que a senha dele não tenha expirado no aplicativo** e, esse for o caso, **atualize a senha expirada** entrando diretamente no aplicativo.
+- Se o usuário atribuiu suas próprias credenciais, solicite ao usuário que **certifique-se de que a senha dele não tenha expirado no aplicativo** e, esse for o caso, **atualize a senha expirada** entrando diretamente no aplicativo.
 
-   * Após a atualização da senha no aplicativo, solicite que o usuário clique no botão **Atualizar Credenciais** no **Bloco do Aplicativo** na seção **Aplicativos** do [Painel de Acesso a Aplicativo](https://myapps.microsoft.com/) para atualizá-los com o nome de usuário e senha mais recentes conhecidos.
+  * Após a atualização da senha no aplicativo, solicite que o usuário clique no botão **Atualizar Credenciais** no **Bloco do Aplicativo** na seção **Aplicativos** do [Painel de Acesso a Aplicativo](https://myapps.microsoft.com/) para atualizá-los com o nome de usuário e senha mais recentes conhecidos.
 
-   * Se você ou outro administrador atribuiu as credenciais para esse usuário, localize a atribuição de aplicativo do usuário ou grupo, navegando até a guia **Usuários e Grupos** do aplicativo, selecionando a atribuição e clicando no botão **Atualizar Credenciais**.
+  * Se você ou outro administrador atribuiu as credenciais para esse usuário, localize a atribuição de aplicativo do usuário ou grupo, navegando até a guia **Usuários e Grupos** do aplicativo, selecionando a atribuição e clicando no botão **Atualizar Credenciais**.
 
--   Peça ao usuário para que atualize a extensão do navegador do painel de acesso, seguindo as etapas abaixo na seção [Como instalar a extensão do Navegador do Painel de Acesso](#how-to-install-the-access-panel-browser-extension).
+- Peça ao usuário para que atualize a extensão do navegador do painel de acesso, seguindo as etapas abaixo na seção [Como instalar a extensão do Navegador do Painel de Acesso](#how-to-install-the-access-panel-browser-extension).
 
--   Certifique-se de que a extensão do navegador do painel de acesso esteja em execução e habilitada no navegador do usuário.
+- Certifique-se de que a extensão do navegador do painel de acesso esteja em execução e habilitada no navegador do usuário.
 
--   Certifique-se de que os usuários não estão tentando entrar no aplicativo pelo painel de acesso enquanto estão no **modo incógnito, inPrivate ou Privado**. Não há suporte para a extensão do painel de acesso nesses modos.
+- Certifique-se de que os usuários não estão tentando entrar no aplicativo pelo painel de acesso enquanto estão no **modo incógnito, inPrivate ou Privado**. Não há suporte para a extensão do painel de acesso nesses modos.
 
 Caso as sugestões anteriores não funcionem, pode ser que tenha ocorrido uma alteração no aplicativo que interrompeu temporariamente a integração do aplicativo com o Azure AD. Por exemplo, isso pode ocorrer quando o fornecedor do aplicativo introduz um script em sua página que se comporta de forma diferente para entrada manual ou automatizada, o que faz com que a integração automatizada, como a nossa, seja interrompida. Felizmente, em muitos casos, a Microsoft pode trabalhar com fornecedores de aplicativos para resolver rapidamente esses problemas.
 
@@ -65,13 +65,13 @@ Além disso, **se você estiver em contato com o fornecedor desse aplicativo,** 
 
 Existem duas principais causas para esse problema:
 
--   Dependendo das configurações de segurança habilitadas no Internet Explorer, se o site não faz parte de uma **Zona Confiável**, às vezes nosso script é bloqueado para executar o aplicativo.
+- Dependendo das configurações de segurança habilitadas no Internet Explorer, se o site não faz parte de uma **Zona Confiável**, às vezes nosso script é bloqueado para executar o aplicativo.
 
   *  Para resolver isso, instrua o usuário a **adicionar sites da Web do aplicativo** para o **Sites confiáveis** lista dentro de suas **as configurações de segurança do Internet Explorer**. Você pode encaminhar seus usuários para o artigo [Como adicionar um site à minha lista de sites confiáveis](https://answers.microsoft.com/en-us/ie/forum/ie9-windows_7/how-do-i-add-a-site-to-my-trusted-sites-list/98cc77c8-b364-e011-8dfc-68b599b31bf5) para obter instruções detalhadas.
 
--   Em raras circunstâncias, a validação de segurança do Internet Explorer pode, às vezess, fazer com que a página seja carregada mais lentamente do que a execução do nosso script.
+- Em raras circunstâncias, a validação de segurança do Internet Explorer pode, às vezess, fazer com que a página seja carregada mais lentamente do que a execução do nosso script.
 
-   * Infelizmente, essa situação pode variar dependendo da versão do navegador, da velocidade do computador ou do site visitado. Nesse caso, sugerimos que você contate o suporte para que possamos corrigir a integração para esse aplicativo específico.
+  * Infelizmente, essa situação pode variar dependendo da versão do navegador, da velocidade do computador ou do site visitado. Nesse caso, sugerimos que você contate o suporte para que possamos corrigir a integração para esse aplicativo específico.
 
 Além disso, **se você estiver em contato com o fornecedor desse aplicativo,** **coloque-o em contato conosco** de modo que possamos trabalhar em conjunto para integrar nativamente o aplicativo com o Azure Active Directory. É possível enviar o fornecedor para o [Listar seu aplicativo na galeria de aplicativos do Azure Active Directory](../develop/howto-app-gallery-listing.md) para iniciá-los.
 

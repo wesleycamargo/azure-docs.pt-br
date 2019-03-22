@@ -3,7 +3,7 @@ title: Registro em log do serviço Web – Azure Machine Learning Studio | Micro
 description: Saiba como habilitar o registro em log de serviços Web de Machine Learning Studio. O registro em log fornece informações adicionais para ajudar a solucionar problemas com as APIs.
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
+author: xiaoharper
 ms.custom: seodec18
 ms.author: amlstudiodocs
 editor: cgronlun
@@ -11,16 +11,16 @@ ms.assetid: c54d41e1-0300-46ef-bbfc-d6f7dca85086
 ms.service: machine-learning
 ms.subservice: studio
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
-ms.openlocfilehash: 53eedd4d00b212879389d29541c4ca55ea1bfde6
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 727379edb60756ca8cb3e5ebdc29cd38858945e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270073"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57857548"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-web-services"></a>Habilitar o registro em log de serviços Web do Azure Machine Learning Studio
 Este documento fornece informações sobre o recurso de logs de serviços Web do Machine Learning Studio. Os logs fornecem informações adicionais, além de apenas um número de erro e uma mensagem, o que pode ajudar a solucionar suas chamadas para as APIs de Machine Learning Studio.  
@@ -57,7 +57,7 @@ Você habilita os registros de logs no portal de [serviços Web do Azure Machine
 
    3. Se o contêiner **ml-diagnostics** não existir, clique em **+Contêiner**, dê ao contêiner o nome "ml-diagnostics" e selecione o **Tipo de acesso** como "Blob". Clique em **OK**.
 
-      ![Selecionar o nível de log](./media/web-services-logging/create-ml-diagnostics-container.png)
+      ![Criar um novo contêiner para armazenar seus logs de diagnóstico](./media/web-services-logging/create-ml-diagnostics-container.png)
 
 > [!TIP]
 >

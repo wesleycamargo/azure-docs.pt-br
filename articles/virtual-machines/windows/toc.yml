@@ -124,8 +124,6 @@ items:
     href: monitor.md
   - name: Backup e recuperação
     href: backup-recovery.md
-  - name: Computação de alto desempenho
-    href: high-performance-computing.md
   - name: Exemplo de infraestrutura
     href: infrastructure-example.md
 - name: Guias de instruções
@@ -193,16 +191,12 @@ items:
         href: ../../site-recovery/azure-to-azure-tutorial-dr-drill.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
       - name: Fazer failover de uma VM para outra região
         href: ../../site-recovery/azure-to-azure-tutorial-failover-failback.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Mover VMs para outra região
-      href: ../../site-recovery/azure-to-azure-tutorial-migrate.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
   - name: Gerenciar VMs
     items:
     - name: Uso de VM
       href: vm-usage.md
     - name: Tarefas comuns do PowerShell
       href: ps-common-ref.md
-    - name: Como mover uma VM
-      href: move-vm.md
     - name: Como alterar o tamanho da VM
       href: resize-vm.md
     - name: Trocar o disco do sistema operacional
@@ -317,43 +311,46 @@ items:
         href: excel-cluster-hpcpack.md
   - name: Gerenciamento do armazenamento
     items:
-    - name: Perguntas frequentes de discos
-      href: faq-for-disks.md
     - name: Adicionar um disco
       items:
       - name: Azure PowerShell
         href: attach-disk-ps.md
       - name: Portal do Azure
         href: attach-managed-disk-portal.md
-    - name: Submeter um disco a benchmark
-      href: disks-benchmarks.md
     - name: Desanexar um disco
       href: detach-disk.md
+    - name: Implantar discos com modelo
+      href: using-managed-disks-template-deployments.md
     - name: Redimensionar um disco
       href: expand-os-disk.md
     - name: Instantâneo de um disco
       href: snapshot-copy-managed-disk.md
     - name: Backup de discos não gerenciados
       href: incremental-snapshots.md
-    - name: Como converter disco entre Standard e Premium
-      href: convert-disk-storage.md
-    - name: Migrar para o armazenamento Premium com o Azure Site Recovery
-      href: migrate-to-premium-storage-using-azure-site-recovery.md
+    - name: Migração e conversão
+      items:
+      - name: Como converter disco entre Standard e Premium
+        href: convert-disk-storage.md
+      - name: Migrar para o armazenamento Premium com o Azure Site Recovery
+        href: migrate-to-premium-storage-using-azure-site-recovery.md
+      - name: Como migrar para Managed Disks
+        href: migrate-to-managed-disks.md
+      - name: VM não gerenciada para Managed Disks
+        href: convert-unmanaged-to-managed-disks.md
+    - name: Desempenho
+      items:
+      - name: Habilitar acelerador de gravação
+        href: how-to-enable-write-accelerator.md
+      - name: Habilitar SSDs Ultra
+        href: disks-enable-ultra-ssd.md
+      - name: Submeter um disco a benchmark
+        href: disks-benchmarks.md
     - name: Localizar discos desconectados
       href: find-unattached-disks.md
     - name: Como usar o armazenamento de arquivos
-      href: mount-azure-file-storage.md
-    - name: Implantar discos com modelo
-      href: using-managed-disks-template-deployments.md
-    - name: Habilitar acelerador de gravação
-      href: how-to-enable-write-accelerator.md
-    - name: Habilitar SSDs Ultra
-      href: disks-enable-ultra-ssd.md
-    - name: Como migrar para Managed Disks
-      href: migrate-to-managed-disks.md
-      items:
-      - name: VM não gerenciada para Managed Disks
-        href: convert-unmanaged-to-managed-disks.md
+      href: ../../storage/files/storage-files-quick-create-use-windows.md
+    - name: Perguntas frequentes de discos
+      href: faq-for-disks.md
   - name: Como gerenciar a rede
     href: ps-common-network-ref.md
     items:
@@ -391,8 +388,14 @@ items:
       href: /azure/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
   - name: Usar extensões de VM
     href: ../extensions/overview.md
-  - name: Migrar VMs
+  - name: Mover e migrar VMs
     items:
+    - name: Alterar a assinatura ou o grupo de recursos
+      href: move-vm.md
+    - name: Mover regiões
+      href: ../../site-recovery/azure-to-azure-tutorial-migrate.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: Mover para uma zona de disponibilidade
+      href: ../../site-recovery/move-azure-vms-avset-azone.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Como migrar AWS e VMs locais
       href: on-prem-to-azure.md
       items:
@@ -454,14 +457,14 @@ items:
   - name: Disponibilidade regional
     href: https://azure.microsoft.com/regions/services/
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-virtual-machine
+    href: https://stackoverflow.com/questions/tagged/azure-virtual-machine
   - name: vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
   - name: Perguntas frequentes
     href: faq.md
-ms.openlocfilehash: 909c367475f5c41f03f7a30bb68bfc365dde581b
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 388035cfbbb95fcd16effd45fac8022c27a979fb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889725"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004437"

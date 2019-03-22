@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: alinast
-ms.openlocfilehash: 897a350c345e6e284f30040c0d4fcf07d5a6f466
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.openlocfilehash: 4db515a931bc7f423eb11ae31b7304a602f0da46
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106834"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531719"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Processamento de dados e funções definidas pelo usuário
 
@@ -40,7 +40,7 @@ O processamento de dados no Gêmeos Digitais do Azure consiste na definição de
 
 ### <a name="matchers"></a>Correspondências
 
-Correspondentes definem um conjunto de condições que avaliam quais ações ocorrem com base na telemetria do sensor de entrada. As condições para determinar a correspondência podem incluir propriedades do sensor, do dispositivo pai do sensor e do espaço pai do sensor. As condições são expressas como comparações em relação a um [caminho JSON](http://jsonpath.com/), conforme descrito neste exemplo:
+Correspondentes definem um conjunto de condições que avaliam quais ações ocorrem com base na telemetria do sensor de entrada. As condições para determinar a correspondência podem incluir propriedades do sensor, do dispositivo pai do sensor e do espaço pai do sensor. As condições são expressas como comparações em relação a um [caminho JSON](https://jsonpath.com/), conforme descrito neste exemplo:
 
 - Todos os sensores de Datatype **Temperatura** representados pelo valor de cadeia de caracteres de escape `\"Temperature\"`
 - Tendo `01` em sua porta
@@ -94,7 +94,7 @@ Correspondentes definem um conjunto de condições que avaliam quais ações oco
 
 Uma função definida pelo usuário é uma função personalizada executada em um ambiente isolado nos Gêmeos Digitais do Azure. As funções definidas pelo usuário têm acesso à mensagem de telemetria do sensor bruto à medida que foi recebida. As funções definidas pelo usuário também têm acesso ao serviço de gráfico espacial e despachante. Depois que a função definida pelo usuário é registrada no gráfico, um correspondente (detalhado [acima](#matcher)) deve ser criado para especificar quando executar a função. Por exemplo, quando os Gêmeos Digitais do Azure recebem nova telemetria de um determinado sensor, a função definida pelo usuário correspondente pode calcular uma média móvel das últimas poucas leituras do sensor.
 
-As funções definidas pelo usuário podem ser gravadas no JavaScript. Os métodos auxiliares interagem com o gráfico no ambiente de execução definido pelo usuário. Os desenvolvedores podem executar snippets personalizados de código contra mensagens de telemetria do sensor. Os exemplos incluem:
+As funções definidas pelo usuário podem ser gravadas no JavaScript. Os métodos auxiliares interagem com o gráfico no ambiente de execução definido pelo usuário. Os desenvolvedores podem executar snippets personalizados de código contra mensagens de telemetria do sensor. Por exemplo:
 
 - Defina a leitura do sensor diretamente para o objeto do sensor no grafo.
 - Execute uma ação com base em diferentes leituras de sensor dentro de um espaço no grafo.

@@ -8,16 +8,18 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: spelluru
-ms.openlocfilehash: ac43b85858451149ceabf87c77b42d40fbd4eac4
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: ad9c2d492f70a697ef0e7dc3b7ed03b9938f2468
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470964"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181683"
 ---
 # <a name="query-event-grid-subscriptions"></a>Consultar assinaturas de Grade de Eventos 
 
 Este artigo descreve como listar as assinaturas de Grade de Eventos em sua assinatura do Azure. Ao consultar as assinaturas existentes de Grade de Eventos, é importante entender os diferentes tipos de assinaturas. Você fornecer parâmetros diferentes com base no tipo de assinatura que deseja obter.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="resource-groups-and-azure-subscriptions"></a>Grupos de recursos e assinaturas do Azure
 
@@ -35,8 +37,8 @@ az eventgrid event-subscription list
 Para o PowerShell, use:
 
 ```azurepowershell-interactive
-Set-AzureRmContext -Subscription "My Azure Subscription"
-Get-AzureRmEventGridSubscription
+Set-AzContext -Subscription "My Azure Subscription"
+Get-AzEventGridSubscription
 ```
 
 Para obter as assinaturas de grade de eventos para uma assinatura do Azure, forneça o tipo de tópico de **Microsoft.Resources.Subscriptions**.
@@ -50,7 +52,7 @@ az eventgrid event-subscription list --topic-type-name "Microsoft.Resources.Subs
 Para o PowerShell, use:
 
 ```azurepowershell-interactive
-Get-AzureRmEventGridSubscription -TopicTypeName "Microsoft.Resources.Subscriptions"
+Get-AzEventGridSubscription -TopicTypeName "Microsoft.Resources.Subscriptions"
 ```
 
 Para obter as assinaturas de grade de eventos para uma assinatura do Azure, forneça o tipo de tópico de **Microsoft.Resources.Subscriptions**.
@@ -64,7 +66,7 @@ az eventgrid event-subscription list --topic-type-name "Microsoft.Resources.Reso
 Para o PowerShell, use:
 
 ```azurepowershell-interactive
-Get-AzureRmEventGridSubscription -TopicTypeName "Microsoft.Resources.ResourceGroups"
+Get-AzEventGridSubscription -TopicTypeName "Microsoft.Resources.ResourceGroups"
 ```
 
 Para obter as assinaturas de grade de eventos para um grupo de recursos especificado, forneça o nome do grupo de recursos como um parâmetro.
@@ -78,7 +80,7 @@ az eventgrid event-subscription list --resource-group myResourceGroup
 Para o PowerShell, use:
 
 ```azurepowershell-interactive
-Get-AzureRmEventGridSubscription -ResourceGroupName myResourceGroup
+Get-AzEventGridSubscription -ResourceGroupName myResourceGroup
 ```
 
 ## <a name="custom-topics-and-azure-resources"></a>Tópicos personalizados e recursos do Azure
@@ -96,7 +98,7 @@ az eventgrid event-subscription list --location westus2
 Para o PowerShell, use:
 
 ```azurepowershell-interactive
-Get-AzureRmEventGridSubscription -Location westus2
+Get-AzEventGridSubscription -Location westus2
 ```
 
 Para obter assinaturas de tópicos personalizados para um local, forneça o local e o tipo de tópico de **Microsoft.EventGrid.Topics**.
@@ -110,7 +112,7 @@ az eventgrid event-subscription list --topic-type-name "Microsoft.EventGrid.Topi
 Para o PowerShell, use:
 
 ```azurepowershell-interactive
-Get-AzureRmEventGridSubscription -TopicTypeName "Microsoft.EventGrid.Topics" -Location westus2
+Get-AzEventGridSubscription -TopicTypeName "Microsoft.EventGrid.Topics" -Location westus2
 ```
 
 Para obter as assinaturas para contas de armazenamento para um local, forneça o local e o tipo de tópico de **Microsoft.Storage.StorageAccounts**.
@@ -124,7 +126,7 @@ az eventgrid event-subscription list --topic-type "Microsoft.Storage.StorageAcco
 Para o PowerShell, use:
 
 ```azurepowershell-interactive
-Get-AzureRmEventGridSubscription -TopicTypeName "Microsoft.Storage.StorageAccounts" -Location westus2
+Get-AzEventGridSubscription -TopicTypeName "Microsoft.Storage.StorageAccounts" -Location westus2
 ```
 
 Para obter as assinaturas de grade de eventos para um tópico personalizado, forneça o nome do tópico personalizado e o nome do seu grupo de recursos.
@@ -138,7 +140,7 @@ az eventgrid event-subscription list --topic-name myCustomTopic --resource-group
 Para o PowerShell, use:
 
 ```azurepowershell-interactive
-Get-AzureRmEventGridSubscription -TopicName myCustomTopic -ResourceGroupName myResourceGroup
+Get-AzEventGridSubscription -TopicName myCustomTopic -ResourceGroupName myResourceGroup
 ```
 
 Para obter assinaturas de grade de eventos para um recurso específico, forneça a ID de recurso.
@@ -153,8 +155,8 @@ az eventgrid event-subscription list --resource-id $resourceid
 Para o PowerShell, use:
 
 ```azurepowershell-interactive
-$resourceid = (Get-AzureRmResource -Name mystorage -ResourceGroupName myResourceGroup).ResourceId
-Get-AzureRmEventGridSubscription -ResourceId $resourceid
+$resourceid = (Get-AzResource -Name mystorage -ResourceGroupName myResourceGroup).ResourceId
+Get-AzEventGridSubscription -ResourceId $resourceid
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

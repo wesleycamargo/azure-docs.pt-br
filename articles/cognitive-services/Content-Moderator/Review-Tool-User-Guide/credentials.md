@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: f3138a9d0fe201a9486c34c08b8cdb3cca47e1d7
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 0da6b6b0fef0f998e20789253b2a65c54121532c
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207540"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58260002"
 ---
 # <a name="manage-content-moderator-service-credentials"></a>Gerenciar credenciais de serviço do Content Moderator
 
@@ -61,7 +61,7 @@ A seção a seguir examina a imagem anterior em mais detalhes:
 
 A primeira parte lista seu **ponto de extremidade da API de análise**, **ID da equipe**e o **Ocp-Apim-Subscription-Key (chave de avaliação do Content Moderator)** gerados como parte da criação da sua equipe de análise. Use-os para chamar todas as APIs do Content Moderator, incluindo a API de análise.
 
-Observe também o identificador de região para seu ponto de extremidade de API. Por exemplo, **westus** é a região de "https://westus.api.cognitive.microsoft.com/contentmoderator/review/v1.0"
+Observe também o identificador de região para seu ponto de extremidade de API. Por exemplo, **westus** é a região de "https:\//westus.api.cognitive.microsoft.com/contentmoderator/review/v1.0"
 
 ![Chave do Content Moderator na ferramenta de análise](images/credentials-trialkey.PNG)
 

@@ -8,22 +8,18 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 0d771f03f9f71151ef25140148d4dd4daf3d46ec
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 3e303ce2b6f28500406bacf5b66d26f9c78ba46d
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56443326"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57783433"
 ---
 **Transferências de dados de saída**: [Transferências de dados de saída](https://azure.microsoft.com/pricing/details/bandwidth/) (dados saindo dos data centers do Azure) acarretam a cobrança por uso de largura de banda.
 
-**Transações**: Você será cobrado pelo número de transações executadas em um disco gerenciado padrão. O Azure cobra US$ 0,0036 por 100 mil transações para HDDs padrão. As transações incluem operações de leitura e gravação para o armazenamento.
+**Transações**: Você será cobrado pelo número de transações executadas em um disco gerenciado padrão.
 
-SSDs padrão usam o tamanho da unidade de e/s de 256KB. Se os dados transferidos forem menores que 256 KB, serão considerados uma unidade de E/S. Tamanhos maiores de e/s são contados como várias entradas e saídas de tamanho de 256 KB. Por exemplo, uma E/S de 1.1000 KB é contada como cinco unidades de E/S.
-
-Não há custo para transações de um disco gerenciado premium.
-
-Para obter informações detalhadas sobre os preços para Managed Disks, confira [Preços do Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks).
+Para obter informações detalhadas sobre os preços para Managed Disks, incluindo os custos de transação, consulte [preços do Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks).
 
 ### <a name="ultra-ssd-vm-reservation-fee"></a>Taxa de reserva de VM de SSD Ultra
 

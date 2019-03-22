@@ -4,7 +4,7 @@ description: Arquivo de inclusão
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: d7b78519f1e81fed1f74b6f3a2fd2720cd28cce4
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
-ms.translationtype: HT
+ms.openlocfilehash: a9aeb2f45ec8c882c47425879ab6ef726ca94060
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843291"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203281"
 ---
 ## <a name="setting-up-your-web-server-or-project"></a>Configuração do servidor Web ou do projeto
 
@@ -38,7 +38,7 @@ As instruções neste guia são baseadas no Node.js e no Visual Studio 2017, mas
 
 ## <a name="create-your-project"></a>Criar seu projeto
 
-> ### <a name="option-1-node-other-web-servers"></a>Opção 1: Node/outros servidores Web
+> ### <a name="option-1-node-other-web-servers"></a>Opção 1: Nó / outros servidores web
 > Verifique se você instalou o [Node.js](https://nodejs.org/en/download/) e siga a etapa abaixo:
 > - Crie uma pasta para hospedar o aplicativo.
 
@@ -46,33 +46,33 @@ As instruções neste guia são baseadas no Node.js e no Visual Studio 2017, mas
 
 > ### <a name="option-2-visual-studio"></a>Opção 2: Visual Studio
 > Se você estiver usando o Visual Studio e estiver criando um novo projeto, siga as etapas abaixo para criar uma nova solução do Visual Studio:
-> 1.    No Visual Studio: **Arquivo > Novo > Projeto**
+> 1.    No Visual Studio:  **Arquivo > Novo > projeto**
 > 2.    Em **Visual C#\Web**, selecione **Aplicativo Web ASP.NET (.NET Framework)**
 > 3.    Insira um nome para seu aplicativo e selecione **OK**
 > 4.    Em **Novo aplicativo Web ASP.NET**, selecione **Vazio**
 
 
 ## <a name="create-your-single-page-applications-ui"></a>Criar a interface do usuário do aplicativo de página única
-1.  Crie um arquivo `index.html` para seu JavaScript SPA. Se você estiver usando o Visual Studio, selecione o projeto (pasta raiz do projeto), clique com o botão direito do mouse e selecione: **Adicionar > Novo Item > Página HTML** e nomeie-o index.html.
+1. Crie um arquivo `index.html` para seu JavaScript SPA. Se você estiver usando o Visual Studio, selecione o projeto (pasta raiz do projeto), clique com botão direito e selecione: **Adicionar > Novo Item > página HTML** e nomeie-o index. HTML.
 
-2.  Adicione o seguinte código à sua página:
-```html
-<!DOCTYPE html>
-<html>
-<head>
-        <title>Quickstart for MSAL JS</title>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"></script>
-        <script src="https://secure.aadcdn.microsoftonline-p.com/lib/0.2.3/js/msal.js"></script>
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-</head>
-<body>
-        <h2>Welcome to MSAL.js Quickstart</h2><br/>
-        <h4 id="WelcomeMessage"></h4>
-        <button id="SignIn" onclick="signIn()">Sign In</button><br/><br/>
-        <pre id="json"></pre>
-        <script>
-            //JS code
-        </script>
-</body>
-</html>
-```
+2. Adicione o seguinte código à sua página:
+   ```html
+   <!DOCTYPE html>
+   <html>
+   <head>
+       <title>Quickstart for MSAL JS</title>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"></script>
+       <script src="https://secure.aadcdn.microsoftonline-p.com/lib/0.2.3/js/msal.js"></script>
+       <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+   </head>
+   <body>
+       <h2>Welcome to MSAL.js Quickstart</h2><br/>
+       <h4 id="WelcomeMessage"></h4>
+       <button id="SignIn" onclick="signIn()">Sign In</button><br/><br/>
+       <pre id="json"></pre>
+       <script>
+           //JS code
+       </script>
+   </body>
+   </html>
+   ```

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: abfc7ce78e8676e9560621be1ec9a81717d958e5
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
-ms.translationtype: HT
+ms.openlocfilehash: b198f860c10bd207a191057e21a8a159c5ebde26
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994276"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57403508"
 ---
 # <a name="create-azure-resource-manager-template"></a>Criar um modelo do Azure Resource Manager
 
@@ -38,15 +38,15 @@ Para obter um tutorial de instalação da extensão de ferramentas do Resource M
 
 Vamos examinar as partes do modelo para entender como funciona o modelo. O modelo pode não ter todas as seções. As seções que você quer enfocar são:
 
-* A seção [parâmetros](resource-manager-templates-parameters.md), que mostra os valores que você pode especificar durante a implantação para personalizar a infraestrutura implantada. 
+* A seção [parâmetros](resource-group-authoring-templates.md#parameters), que mostra os valores que você pode especificar durante a implantação para personalizar a infraestrutura implantada. 
 
-* A seção [variáveis](resource-manager-templates-variables.md), que mostra os valores usados em todo o modelo.
+* A seção [variáveis](resource-group-authoring-templates.md#variables), que mostra os valores usados em todo o modelo.
 
 * A seção [funções](resource-group-authoring-templates.md#functions), que mostra expressões de modelo personalizadas usadas no modelo.
 
-* A seção [recursos](resource-manager-templates-resources.md), que mostra os recursos do Azure que são implantados em sua assinatura.
+* A seção [recursos](resource-group-authoring-templates.md#resources), que mostra os recursos do Azure que são implantados em sua assinatura.
 
-* A seção [saídas](resource-manager-templates-outputs.md), que mostra os valores retornados após a conclusão da implantação.
+* A seção [saídas](resource-group-authoring-templates.md#outputs), que mostra os valores retornados após a conclusão da implantação.
 
 ## <a name="look-for-similar-templates"></a>Buscar modelos similares
 
@@ -98,7 +98,7 @@ Talvez ainda seja necessário ajustar os parâmetros para o modelo. É possível
 }
 ```
 
-Também é possível aplicar marcas dinamicamente a partir de parâmetros. Para obter mais informações, consulte [marcas no modelo](resource-manager-templates-resources.md#tags).
+Também é possível aplicar marcas dinamicamente a partir de parâmetros. Para obter mais informações, consulte [marcas no modelo](resource-group-using-tags.md#templates).
 
 ## <a name="review-template-functions"></a>Examinar as funções do modelo
 
@@ -176,7 +176,7 @@ O exemplo a seguir implanta condicionalmente uma conta de armazenamento:
 }
 ```
 
-Para obter mais informações, consulte o [elemento condicional](resource-manager-templates-resources.md#condition).
+Para obter mais informações, consulte o [elemento condicional](resource-group-authoring-templates.md#condition).
 
 ## <a name="review-dependencies"></a>Examinar dependências
 

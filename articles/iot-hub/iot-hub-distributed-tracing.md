@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: d97171003507ea0d7412c0706f9deea02fe06c0d
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 0553bd904cfaabaefce4e6ab3f7fbf5d356922d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56418330"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100353"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Rastrear mensagens de dispositivo para a nuvem do IoT do Azure com o rastreamento distribuído (versão prévia)
 
@@ -214,7 +214,7 @@ Para alterar a porcentagem de mensagens que serão rastreadas na nuvem, você de
 
     ![Atualizar o modo de amostragem](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-2.png)
 
-    ![Atualizar a taxa de amostragem ](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-3.png)
+    ![Atualizar a taxa de amostragem](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-3.png)
 
 ### <a name="bulk-update-for-multiple-devices"></a>Atualização em massa para vários dispositivos
 
@@ -269,7 +269,7 @@ Para entender os diferentes tipos de logs, confira [Logs de diagnóstico do Azur
 Para visualizar o fluxo de mensagens de IoT, configure o aplicativo de exemplo do Mapa do aplicativo. O aplicativo de exemplo envia os logs de rastreamento distribuído ao [Mapa do aplicativo](../application-insights/app-insights-app-map.md) usando uma função do Azure e um Hub de eventos.
 
 > [!div class="button"]
-<a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">Obter o exemplo no Github</a>
+> <a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">Obter o exemplo no Github</a>
 
 Essa imagem abaixo mostra o rastreamento distribuído no Mapa de aplicativo com três pontos de extremidade de roteamento:
 

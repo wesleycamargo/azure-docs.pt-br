@@ -1,6 +1,6 @@
 ---
-title: Concluir uma análise de acesso de membros de um grupo ou o acesso de usuários a um aplicativo com Azure AD | Microsoft Docs
-description: Saiba como concluir uma revisão de acesso para membros de um grupo ou os usuários com acesso a um aplicativo no Azure Active Directory.
+title: Concluir uma revisão de acesso de grupos ou aplicativos em revisões de acesso do AD do Azure | Microsoft Docs
+description: Saiba como concluir uma revisão de acesso de membros do grupo ou o acesso de aplicativo em revisões de acesso do AD do Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,16 +16,16 @@ ms.date: 05/02/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2da3b7f8b7ed60344978fb255696980ec620fd2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: cc5dbee47bd6a621b14b39858132ce229663481b
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192261"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729603"
 ---
-# <a name="complete-an-access-review-of-members-of-a-group-or-users-access-to-an-application-in-azure-ad"></a>Concluir uma análise de acesso de membros de um grupo ou o acesso de usuários a um aplicativo no Azure AD
+# <a name="complete-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Concluir uma revisão de acesso de grupos ou aplicativos em revisões de acesso do AD do Azure
 
-Os administradores podem usar o Azure Active Directory (Azure AD) para [criar uma análise de acesso](create-access-review.md) para membros do grupo ou os usuários atribuídos a um aplicativo. O Azure AD envia automaticamente, para os revisores, um email solicitando que analisem o acesso. Se um usuário não recebeu um email, é possível enviar para ele as instruções em [Examinar seu acesso](perform-access-review.md). (Observe que os convidados que forem designados como revisores, mas não aceitarem o convite, não receberão um email das revisões de acesso, pois eles devem primeiro aceitar um convite antes da revisão.) Depois que o período de análise de acesso tiver acabado ou se um administrador interromper a análise de acesso, siga as etapas deste artigo para ver e aplicar os resultados.
+Os administradores podem usar o Azure Active Directory (Azure AD) para [criar uma análise de acesso](create-access-review.md) para membros do grupo ou os usuários atribuídos a um aplicativo. O Azure AD envia automaticamente, para os revisores, um email solicitando que analisem o acesso. Se um usuário não recebeu um email, você pode enviar para ele as instruções em [revisar o acesso a grupos ou aplicativos](perform-access-review.md). (Observe que os convidados que forem designados como revisores, mas não aceitarem o convite, não receberão um email das revisões de acesso, pois eles devem primeiro aceitar um convite antes da revisão.) Depois que o período de análise de acesso tiver acabado ou se um administrador interromper a análise de acesso, siga as etapas deste artigo para ver e aplicar os resultados.
 
 ## <a name="view-an-access-review-in-the-azure-portal"></a>Exibir uma análise de acesso no Portal do Azure
 
@@ -62,5 +62,5 @@ Caso não esteja mais interessado na análise, você poderá excluí-la. Selecio
 - [Gerenciar o acesso do usuário com revisões de acesso ao Azure AD](manage-user-access-with-access-reviews.md)
 - [Gerenciar o acesso de convidado com revisões de acesso do Azure AD](manage-guest-access-with-access-reviews.md)
 - [Gerenciar os programas e os controles para análises de acesso do Azure AD](manage-programs-controls.md)
-- [Como criar uma revisão de acesso para os membros de um grupo ou para o acesso a um aplicativo](create-access-review.md)
+- [Criar uma revisão de acesso de grupos ou aplicativos](create-access-review.md)
 - [Criar uma revisão de acesso de usuários em uma função administrativa do Azure AD](../privileged-identity-management/pim-how-to-start-security-review.md)

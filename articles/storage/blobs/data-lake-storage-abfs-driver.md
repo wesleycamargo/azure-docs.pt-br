@@ -8,12 +8,12 @@ ms.author: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 47646a1593f01c4ea695b549bbde22260ffaf2f7
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: 83e2f6f42de5c729667f366a6e068f1c8bd71f02
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962427"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58011077"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>O driver do Sistema de Arquivos de Blobs do Azure (ABFS): Um driver de Armazenamento do Microsoft Azure dedicado para Hadoop
 
@@ -21,7 +21,7 @@ Um dos principais métodos de acesso para dados no Azure Data Lake Storage Gen2 
 
 ## <a name="prior-capability-the-windows-azure-storage-blob-driver"></a>Funcionalidade anterior: Driver do Azure Storage Blob do Windows
 
-O driver de Blob de Armazenamento do Microsoft Azure ou [driver WASB](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) forneceu suporte original para o Armazenamento de Blobs do Azure. Esse driver executou a tarefa complexa de mapear a semântica do sistema de arquivos (conforme requerido pela interface do Hadoop FileSystem) para aquela da interface de estilo de armazenamento de objeto exposta pelo Armazenamento de Blobs. Esse driver continua dando suporte a esse modelo, fornecendo acesso de alto desempenho aos dados armazenados nos Blobs, mas contém uma quantidade significativa de código que realiza esse mapeamento, dificultando a manutenção. Além disso, algumas operações como [FileSystem.rename()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_renamePath_src_Path_d) e [FileSystem.delete()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_deletePath_p_boolean_recursive) quando aplicadas a diretórios exigem que o driver realize um vasto número de operações (devido à falta de suporte para diretórios), o que geralmente leva a um desempenho degradado. O driver ABFS foi projetado para superar as deficiências inerentes de WASB.
+O driver de Blob de Armazenamento do Microsoft Azure ou [driver WASB](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) forneceu suporte original para o Armazenamento de Blobs do Azure. Esse driver executou a tarefa complexa de mapear a semântica do sistema de arquivos (conforme requerido pela interface do Hadoop FileSystem) para aquela da interface de estilo de armazenamento de objeto exposta pelo Armazenamento de Blobs. Esse driver continua dando suporte a esse modelo, fornecendo acesso de alto desempenho aos dados armazenados nos Blobs, mas contém uma quantidade significativa de código que realiza esse mapeamento, dificultando a manutenção. Além disso, algumas operações como [FileSystem.rename()](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_renamePath_src_Path_d) e [FileSystem.delete()](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_deletePath_p_boolean_recursive) quando aplicadas a diretórios exigem que o driver realize um vasto número de operações (devido à falta de suporte para diretórios), o que geralmente leva a um desempenho degradado. O driver ABFS foi projetado para superar as deficiências inerentes de WASB.
 
 ## <a name="the-azure-blob-file-system-driver"></a>Driver de Sistema de Arquivos de Blob do Azure
 
@@ -52,13 +52,13 @@ O driver ABFS dá suporte a duas formas de autenticação, para que o aplicativo
 
 ### <a name="configuration"></a>Configuração
 
-Todas as configurações para o driver ABFS são armazenadas no arquivo de configuração <code>core-site.xml</code>. Nas distribuições do Hadoop que caracterizam [Ambari](http://ambari.apache.org/), a configuração também pode ser gerenciada usando o portal da Web ou a API REST do Ambari.
+Todas as configurações para o driver ABFS são armazenadas no arquivo de configuração <code>core-site.xml</code>. Nas distribuições do Hadoop que caracterizam [Ambari](https://ambari.apache.org/), a configuração também pode ser gerenciada usando o portal da Web ou a API REST do Ambari.
 
-Os detalhes de todas as entradas de configuração com suporte são especificados na [Documentação oficial do Hadoop](http://hadoop.apache.org/docs/current/hadoop-azure/index.html).
+Os detalhes de todas as entradas de configuração com suporte são especificados na [Documentação oficial do Hadoop](https://hadoop.apache.org/docs/current/hadoop-azure/index.html).
 
 ### <a name="hadoop-documentation"></a>Documentação do Hadoop
 
-O driver ABFS está totalmente documentado na [Documentação oficial do Hadoop](http://hadoop.apache.org/docs/current/hadoop-azure/index.html)
+O driver ABFS está totalmente documentado na [Documentação oficial do Hadoop](https://hadoop.apache.org/docs/current/hadoop-azure/index.html)
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: ce65f71349ae6d7e86ebae1ee2067653a63b89b4
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 777aca4754d4d5dc893f930994ffe61db18362fd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161046"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089328"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configure o fluxo de credenciais de senha de proprietário do recurso no Azure AD B2C
 
@@ -37,15 +37,15 @@ Não há suporte para os fluxos a seguir:
 
 ##  <a name="create-a-resource-owner-user-flow"></a>Crie um fluxo de usuário do proprietário de recurso
 
-1.  Entre no portal do Azure como administrador global do locatário Azure AD B2C.
-2.  Para alternar para seu locatário do Azure AD B2C, selecione o diretório do B2C no canto superior direito do portal.
-3.  Clique em **Fluxos de usuário** e selecione **Novo fluxo de usuário**.
-4.  Clique na guia **Todos** e selecione **Proprietário do Recurso**.
-5.  Forneça um nome para o fluxo de usuário, como *ROPC_Auth_app*.
-6.  Em **Declarações de aplicativo**, clique em **Mostrar mais**.
-7.  Selecione as declarações de aplicativo de que você precisa para seu aplicativo, como Nome de Exibição, Endereço de Email, e Provedor de Identidade.
-8.  Selecione **OK** e, então, selecione **Criar**.
-9.  Clique em **Executar fluxo de usuário**.
+1. Entre no portal do Azure como administrador global do locatário Azure AD B2C.
+2. Para alternar para seu locatário do Azure AD B2C, selecione o diretório do B2C no canto superior direito do portal.
+3. Clique em **Fluxos de usuário** e selecione **Novo fluxo de usuário**.
+4. Clique o **todos os** e selecione **entrar usando ROPC**.
+5. Forneça um nome para o fluxo de usuário, como *ROPC_Auth_app*.
+6. Em **Declarações de aplicativo**, clique em **Mostrar mais**.
+7. Selecione as declarações de aplicativo de que você precisa para seu aplicativo, como Nome de Exibição, Endereço de Email, e Provedor de Identidade.
+8. Selecione **OK** e, então, selecione **Criar**.
+9. Clique em **Executar fluxo de usuário**.
 
    Você verá um ponto de extremidade, como neste exemplo:
 
@@ -83,7 +83,7 @@ Use seu aplicativo favorito de desenvolvimento de API para gerar uma chamada de 
 A solicitação POST real tem a aparência a seguir:
 
 ```
-POST /yourtenant.onmicrosoft.com/oauth2/v2.0/token?B2C_1_ROPC_Auth HTTP/1.1
+POST /yourtenant.onmicrosoft.com/oauth2/v2.0/token?p=B2C_1_ROPC_Auth HTTP/1.1
 Host: yourtenant.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 

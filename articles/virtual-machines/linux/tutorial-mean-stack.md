@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 97734ad6119e89c00634035b1646bc29ac6549bd
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: a8f756385b62dfb21e910b9373dc275c7f679d3e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237843"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58009663"
 ---
 # <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>Tutorial: Criar uma pilha do MongoDB, Express, AngularJS e Node.js (MEAN) em uma máquina virtual do Linux no Azure
 
@@ -91,13 +91,13 @@ sudo apt-get install -y nodejs
 ```
 
 ## <a name="install-mongodb-and-set-up-the-server"></a>Instalar o MongoDB e configurar o servidor
-O [MongoDB](http://www.mongodb.com) armazena dados em documentos flexíveis, como JSON. Os campos em um banco de dados podem variar de um documento para outro e a estrutura de dados pode ser alterada ao longo do tempo. Em nosso aplicativo de exemplo, estamos adicionando registros de livros no MongoDB que contêm o nome do livro, o número ISBN, o autor e o número de páginas. 
+O [MongoDB](https://www.mongodb.com) armazena dados em documentos flexíveis, como JSON. Os campos em um banco de dados podem variar de um documento para outro e a estrutura de dados pode ser alterada ao longo do tempo. Em nosso aplicativo de exemplo, estamos adicionando registros de livros no MongoDB que contêm o nome do livro, o número ISBN, o autor e o número de páginas. 
 
 1. Na VM, usando o shell bash que você abriu com SSH, defina a chave do MongoDB.
 
     ```bash
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
-    echo "deb [ arch=amd64 ] http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
+    echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
     ```
 
 2. Atualize o gerenciador de pacotes com a chave.
@@ -149,7 +149,7 @@ O [MongoDB](http://www.mongodb.com) armazena dados em documentos flexíveis, com
 
 ## <a name="install-express-and-set-up-routes-to-the-server"></a>Instalar rotas do Expresso e de configuração para o servidor
 
-O [Expresso](https://expressjs.com) é uma estrutura de aplicativo Web mínima e flexível de Node.js que fornece recursos para aplicativos Web e móveis. O Expresso é usado neste tutorial para passar informações de livro para e do nosso banco de dados do MongoDB. [Mongoose](http://mongoosejs.com) fornece uma solução simples, com base em esquema para modelar seus dados de aplicativo. O Mongoose é usado neste tutorial para fornecer um esquema de livro para o banco de dados.
+O [Expresso](https://expressjs.com) é uma estrutura de aplicativo Web mínima e flexível de Node.js que fornece recursos para aplicativos Web e móveis. O Expresso é usado neste tutorial para passar informações de livro para e do nosso banco de dados do MongoDB. [Mongoose](https://mongoosejs.com) fornece uma solução simples, com base em esquema para modelar seus dados de aplicativo. O Mongoose é usado neste tutorial para fornecer um esquema de livro para o banco de dados.
 
 1. Instale o Expresso e o Mongoose.
 

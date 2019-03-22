@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: 0ef11355d7a65bd2c9b7ddfb6c4db2ba02538062
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: d0902c0e0b4c669f3918155f8416f064485abbea
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270361"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874895"
 ---
 # <a name="azure-monitor-overview"></a>Visão geral do Azure Monitor
 
@@ -40,7 +40,7 @@ Para muitos recursos do Azure, você verá os dados coletados pelo Azure Monitor
 
 ![Métricas](media/overview/metrics.png)
 
-Os dados do log coletados pelo Azure Monitor podem ser analisados com [consultas](log-query/log-query-overview.md) que recuperam, consolidam e analisam rapidamente esses dados.  É possível criar e testar consultas usando o [Log Analytics](log-query/portals.md) no portal do Azure e, em seguida, analisar diretamente os dados usando essas ferramentas ou salvar consultas para uso com [visualizações](visualizations.md) ou [regras de alerta](platform/alerts-overview.md).
+Os dados do log coletados pelo Azure Monitor podem ser analisados com [consultas](log-query/log-query-overview.md) que recuperam, consolidam e analisam rapidamente esses dados.  Você pode criar e testar consultas usando [do Log Analytics](log-query/portals.md) no portal do Azure e analisar os dados usando essas ferramentas ou salvar consultas para uso com [visualizações](visualizations.md) ou [alerta regras](platform/alerts-overview.md).
 
 O Azure Monitor usa uma versão da [linguagem de consulta Kusto](/azure/kusto/query/) usada pelo Azure Data Explorer que é adequada para consultas de log simples, mas também inclui funcionalidades avançadas como agregações, junções e análises inteligentes. É possível aprender a linguagem de consulta rapidamente por meio de [várias lições](log-query/get-started-queries.md).  São fornecidas orientações específicas para usuários que já estão familiarizados com [SQL](log-query/sql-cheatsheet.md) e [Splunk](log-query/splunk-cheatsheet.md).
 
@@ -130,14 +130,12 @@ O [Power BI](https://powerbi.microsoft.com) é um serviço de análise de negóc
 Geralmente, você terá o requisito de integrar o Azure Monitor a outros sistemas e de criar soluções personalizadas que usam os dados de monitoramento. Outros serviços do Azure funcionam com o Azure Monitor para fornecer essa integração.
 
 ### <a name="event-hub"></a>Hub de evento
-Os [Hubs de Eventos do Azure](https://docs.microsoft.com/azure/event-hubs) são um serviço de ingestão de eventos e plataforma de streaming que pode transformar e armazenar dados usando qualquer provedor de análise em tempo real ou adaptadores de envio em lote/armazenamento. Use os Hubs de Eventos para [transmitir dados de log do Azure Monitor](platform/stream-monitoring-data-event-hubs.md) a ferramentas de monitoramento e SIEM de parceiros.
+Os [Hubs de Eventos do Azure](https://docs.microsoft.com/azure/event-hubs) são um serviço de ingestão de eventos e plataforma de streaming que pode transformar e armazenar dados usando qualquer provedor de análise em tempo real ou adaptadores de envio em lote/armazenamento. Usar Hubs de eventos para [fluxo de dados do Azure Monitor](platform/stream-monitoring-data-event-hubs.md) para ferramentas de monitoramento e SIEM de parceiro.
 
-> [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 
 ### <a name="logic-apps"></a>Aplicativos Lógicos
 O [Aplicativo Lógico](https://azure.microsoft.com/services/logic-apps) é um serviço que permite automatizar tarefas e processos de negócios usando fluxos de trabalho que se integram a diversos sistemas e serviços. As atividades disponíveis envolvem ler e gravar logs e métricas no Azure Monitor, o que permite a você criar fluxos de trabalho integrando-se a vários outros sistemas.
 
-![Aplicativo Lógico](platform/media/collect-activity-logs-subscriptions/log-analytics-logic-apps-activity-log-overview.png)
 
 ### <a name="api"></a>API
 Várias APIs estão disponíveis para ler e gravar logs e métricas do e para o Azure Monitor, além de acessar os alertas gerados. Você também pode configurar e recuperar alertas. Isso permite possibilidades ilimitadas para criar soluções personalizadas que se integram ao Azure Monitor.

@@ -8,17 +8,17 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 83c4ae7ff942579d55a5855c24a28809f60fdc62
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
-ms.translationtype: HT
+ms.openlocfilehash: 0e1eedf497ea5fd4a8a9551996102a8aa72847fc
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382459"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961560"
 ---
 # <a name="analyze-data-using-jupyter-notebook-and-kql-magic"></a>Analisar dados usando o Jupyter Notebook e o KQL magic
 
 O Jupyter Notebook é um aplicativo Web de código-fonte aberto que permite que criar e compartilhar documentos que contêm código ao vivo, equações, visualizações e texto narrativo. O uso inclui limpeza de dados e transformação, simulação numérica, modelagem estatística, visualização de dados e aprendizado de máquina.
-O [Jupyter Notebook](https://jupyter.org/) dá suporte a funções mágicas que ampliam os recursos do kernel, oferecendo suporte a comandos adicionais. O KQL magic é um comando que estende as funcionalidades do kernel do Python no Jupyter Notebook, de modo que você possa executar consultas na linguagem Kusto nativamente. Você pode facilmente combinar a linguagem de consulta Python e Kusto para consultar e visualizar dados usando a rica biblioteca Plot.ly integrada com comandos `render`. Há suporte para fontes de dados para execução de consultas. Essas fontes de dados incluem o Azure Data Explorer, um serviço de exploração de dados rápido e altamente escalonável para dados de log e de telemetria, bem como o Log Analytics e Application Insights. O KQL magic também funciona com o Azure Notebooks, o Jupyter Lab e a extensão do Jupyter do Visual Studio Code.
+O [Jupyter Notebook](https://jupyter.org/) dá suporte a funções mágicas que ampliam os recursos do kernel, oferecendo suporte a comandos adicionais. O KQL magic é um comando que estende as funcionalidades do kernel do Python no Jupyter Notebook, de modo que você possa executar consultas na linguagem Kusto nativamente. Você pode facilmente combinar a linguagem de consulta Python e Kusto para consultar e visualizar dados usando a rica biblioteca Plot.ly integrada com comandos `render`. Há suporte para fontes de dados para execução de consultas. Essas fontes de dados incluem o Gerenciador de dados do Azure, um serviço de exploração de dados rápida e altamente escalonável para log e dados de telemetria, bem como os logs do Azure Monitor e Application Insights. O KQL magic também funciona com o Azure Notebooks, o Jupyter Lab e a extensão do Jupyter do Visual Studio Code.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -171,6 +171,6 @@ Em muitos cenários de análise, você talvez queira criar blocos de anotações
 Execute o comando de ajuda para explorar os seguintes notebooks de amostra que contêm todos os recursos com suporte:
 - [Introdução ao KQL magic para o Azure Data Explorer](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStart.ipynb) 
 - [Introdução ao KQL magic para o Application Insights](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStartAI.ipynb) 
-- [Introdução ao KQL magic para o Log Analytics](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStartLA.ipynb) 
+- [Começar com a mágica de KQL para logs do Azure Monitor](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStartLA.ipynb) 
 - [Parametrizar a consulta KQL magic com o Python](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FParametrizeYourQuery.ipynb) 
 - [Escolher a paleta de cores para o resultado do gráfico da consulta KQL magic](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FColorYourCharts.ipynb)

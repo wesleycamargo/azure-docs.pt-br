@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/24/2018
-ms.openlocfilehash: aa884f2df76c20d3119022069179b08ba2f2a6b7
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 803d05e1aaf4d9c26a6132bde30f101ce3905924
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565189"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096819"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Saiba como provisionar novos locatários e registrá-los no catálogo
 
@@ -26,7 +26,7 @@ Neste tutorial, você aprenderá a provisionar e catalogar padrões de SaaS. Voc
 Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
-
+> 
 > * Provisionar um único locatário novo.
 > * Provisione um lote de locatários adicionais.
 
@@ -46,7 +46,7 @@ O catálogo permite que o nome ou local do banco de dados seja alterado com impa
 
 O catálogo também pode armazenar um locatário adicional ou metadados de banco de dados, como a versão do esquema, o plano de serviço ou os SLAs oferecidos aos locatários. O catálogo pode armazenar outras informações que permitem gerenciamento de aplicativos, suporte ao cliente ou DevOps. 
 
-Além do aplicativo SaaS, o catálogo pode habilitar as ferramentas de banco de dados. No exemplo do banco de dados por locatário SaaS Wingtip Tickets, o catálogo é usado para permitir consultas entre locatários, que é explorado no [Tutorial de análise ad hoc](saas-tenancy-cross-tenant-reporting.md). O gerenciamento de trabalhos entre bancos de dados é explorado nos tutoriais [Gerenciamento de esquema](saas-tenancy-schema-management.md) e [Análise de locatários](saas-tenancy-tenant-analytics.md). 
+Além do aplicativo SaaS, o catálogo pode habilitar as ferramentas de banco de dados. No exemplo de banco de dados por locatário SaaS Wingtip Tickets, o catálogo é usado para permitir consultas entre locatários, que é explorada na [tutorial de relatórios Ad hoc](saas-tenancy-cross-tenant-reporting.md). O gerenciamento de trabalhos entre bancos de dados é explorado nos tutoriais [Gerenciamento de esquema](saas-tenancy-schema-management.md) e [Análise de locatários](saas-tenancy-tenant-analytics.md). 
 
 Nos exemplos de Wingtip Tickets SaaS, o catálogo é implementado usando os recursos de Gerenciamento de Fragmentos na [EDCL (Biblioteca de cliente do Banco de Dados Elástico)](sql-database-elastic-database-client-library.md). O EDCL está disponível em Java e em .NET Framework. O EDCL permite que um aplicativo crie, gerencie e use um mapa de fragmentos com backup no banco de dados. 
 
@@ -167,7 +167,7 @@ Com o padrão de provisionamento automático, um script ou aplicativo cliente en
 Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
-
+> 
 > * Provisionar um único locatário novo.
 > * Provisione um lote de locatários adicionais.
 > * Intervir nos detalhes do provisionamento de locatários e do registro deles no catálogo.

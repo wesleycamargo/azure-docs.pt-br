@@ -1,24 +1,24 @@
 ---
 title: Usando a solução Mapa do Serviço no Azure | Microsoft Docs
 description: O Mapa do Serviço é uma solução no Azure que descobre automaticamente os componentes do aplicativo nos sistemas Windows e Linux, e mapeia a comunicação entre os serviços. Este artigo fornece detalhes sobre a implantação do Mapa do Serviço em seu ambiente e sobre como usá-lo em diversos cenários.
-services: monitoring
+services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
 ms.assetid: 3ceb84cc-32d7-4a7a-a916-8858ef70c0bd
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 041cc302f05b109de2b79697dd048a6bc0752a4f
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.openlocfilehash: 143d14df3019aa0c5c5dd798f656f95c8ebde372
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232916"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731084"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Usando a solução Mapa do Serviço no Azure
 O Mapa do Serviço detecta automaticamente os componentes de aplicativos em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Com o Mapa do Serviço é possível exibir seus servidores da maneira desejada: como sistemas interconectados que fornecem serviços críticos. O Mapa do Serviço mostra conexões entre servidores, processos, latência de conexão de entrada e saída e portas em qualquer arquitetura conectada a TCP, sem a necessidade de configuração diferente da instalação de um agente.
@@ -374,7 +374,7 @@ Registros com um tipo de *ServiceMapComputer_CL* têm dados de inventário para 
 
 | Propriedade | DESCRIÇÃO |
 |:--|:--|
-| Tipo | *ServiceMapComputer_CL* |
+| Type | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
 | ResourceId | O identificador exclusivo para um computador dentro do workspace |
 | ResourceName_s | O identificador exclusivo para um computador dentro do workspace |
@@ -399,7 +399,7 @@ Registros com um tipo de *ServiceMapProcess_CL* têm dados de inventário para p
 
 | Propriedade | DESCRIÇÃO |
 |:--|:--|
-| Tipo | *ServiceMapProcess_CL* |
+| Type | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |
 | ResourceId | O identificador exclusivo para um processo dentro do workspace |
 | ResourceName_s | O identificador exclusivo para um processo dentro do computador no qual está sendo executado|

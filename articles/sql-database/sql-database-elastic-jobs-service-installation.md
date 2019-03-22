@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: fb405d40458461fbdff8a7720425ff352bfc61de
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: a1e1be24f9cb6d762d5480385843e9a5356d4a29
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565472"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57889770"
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Visão geral de Instalando trabalhos de Banco de Dados Elástico
 
@@ -27,12 +27,12 @@ ms.locfileid: "55565472"
 
 Os [**trabalhos de Banco de Dados Elástico**](sql-database-elastic-jobs-overview.md) podem ser instalados por meio do PowerShell ou pelo portal do Azure. Será possível obter acesso para criar e gerenciar trabalhos usando a API do PowerShell apenas se você instalar o pacote do PowerShell. Além disso, as APIs do PowerShell fornecem muito mais funcionalidade do que o portal neste momento.
 
-Se você já tiver instalado os **trabalhos de Banco de Dados Elástico** por meio do Portal usando um **pool elástico** existente, a versão prévia mais recente do Powershell incluirá scripts para atualizar sua instalação existente. É altamente recomendável atualizar sua instalação para a versão mais recente dos componentes dos **trabalhos de Banco de Dados Elástico** para aproveitar a nova funcionalidade exposta por meio das APIs do PowerShell.
+Se você já tiver instalado **trabalhos de banco de dados Elástico** por meio do Portal de uma já existente **pool Elástico**, a visualização mais recente do PowerShell incluirá scripts para atualizar sua instalação existente. É altamente recomendável atualizar sua instalação para a versão mais recente dos componentes dos **trabalhos de Banco de Dados Elástico** para aproveitar a nova funcionalidade exposta por meio das APIs do PowerShell.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Uma assinatura do Azure. Para obter uma avaliação gratuita, veja [Avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * PowerShell do Azure. Instale a versão mais recente usando o [Web Platform Installer](https://go.microsoft.com/fwlink/p/?linkid=320376). Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](/powershell/azure/overview).
-* [Utilitário de Linha de Comando do NuGet](https://nuget.org/nuget.exe) é usado para instalar o pacote de trabalhos de Banco de Dados Elástico. Para obter mais informações, consulte http://docs.nuget.org/docs/start-here/installing-nuget.
+* [Utilitário de Linha de Comando do NuGet](https://nuget.org/nuget.exe) é usado para instalar o pacote de trabalhos de Banco de Dados Elástico. Para obter mais informações, consulte https://docs.nuget.org/docs/start-here/installing-nuget.
 
 ## <a name="download-and-import-the-elastic-database-jobs-powershell-package"></a>Baixar e importar o pacote do PowerShell de trabalhos de Banco de Dados Elástico
 1. Inicie a janela de comando do Microsoft Azure PowerShell e navegue até o diretório onde você baixou o utilitário de linha de comando do NuGet (nuget.exe).
@@ -75,9 +75,7 @@ Os parâmetros fornecidos nesta chamada de exemplo podem ser modificados para as
     <td>Fornece o nome do grupo de recursos do Azure criado para conter os componentes recém-criados do Azure. Esse parâmetro usa "__ElasticDatabaseJob" como padrão. Não é recomendável alterar esse valor.</td>
     </tr>
 
-</tr>
-
-    <tr>
+<tr>
     <td>ResourceGroupLocation</td>
     <td>Fornece o local do Azure a ser usado para os componentes recém-criados do Azure. O padrão desse parâmetro é o local Central dos Estados Unidos.</td>
 </tr>
@@ -85,28 +83,24 @@ Os parâmetros fornecidos nesta chamada de exemplo podem ser modificados para as
 <tr>
     <td>ServiceWorkerCount</td>
     <td>Fornece o número de trabalhadores de serviço para instalar. O padrão desse parâmetro é 1. Um número maior de trabalhadores pode ser usado para escalar horizontalmente o serviço e fornecer alta disponibilidade. É recomendável usar "2" para implantações que exigem alta disponibilidade do serviço.</td>
-    </tr>
-
 </tr>
-    <tr>
+
+<tr>
     <td>ServiceVmSize</td>
-    <td>Fornece o tamanho da VM para uso no Serviço de Nuvem. O padrão desse parâmetro é A0. Os valores de parâmetros de A0/A1/A2/A3 são aceitos, o que faz com que a função de trabalho use um tamanho Extra pequeno/Pequeno/Médio/Grande, respectivamente. Para obter mais informações sobre tamanhos de função de trabalho, consulte [Elastic Database jobs components and pricing (Preço e componentes de trabalhos do Banco de Dados Elástico)](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>Fornece o tamanho da VM para uso no Serviço de Nuvem. O padrão desse parâmetro é A0. Valores de parâmetros de... /.. / A3 são aceitos, o que fazer com que a função de trabalho usar um tamanho extra pequeno/pequeno/médio/grande, respectivamente. Para obter mais informações sobre tamanhos de função de trabalho, consulte [Elastic Database jobs components and pricing (Preço e componentes de trabalhos do Banco de Dados Elástico)](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>
 
-</tr>
-    <tr>
+<tr>
     <td>SqlServerDatabaseSlo</td>
-    <td>Fornece o tamanho de computação para uma edição Standard. O padrão desse parâmetro é S0. Os valores de parâmetro S0/S1/S2/S3/S4/S6/S9/S12 são aceitos, que fazem com que o Banco de Dados SQL do Azure use o respectivo tamanho de computação. Para obter mais informações sobre os tamanhos de computação do Banco de Dados SQL, consulte [Preço e componentes de trabalhos do Banco de Dados Elástico](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>Fornece o tamanho de computação para uma edição Standard. O padrão desse parâmetro é S0. Valores de parâmetro de... /.. /.. /.. / S9/S12 são aceitos, o que fazer com que o banco de dados do SQL Azure usar o tamanho da respectiva computação. Para obter mais informações sobre os tamanhos de computação do Banco de Dados SQL, consulte [Preço e componentes de trabalhos do Banco de Dados Elástico](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>
 
-</tr>
-    <tr>
+<tr>
     <td>SqlServerAdministratorUserName</td>
     <td>Fornece o nome de usuário do administrador para o servidor de Banco de Dados SQL recém-criado. Quando as credenciais não forem especificadas, será exibida uma janela de credenciais do PowerShell solicitando-as.</td>
 </tr>
 
-</tr>
-    <tr>
+<tr>
     <td>SqlServerAdministratorPassword</td>
     <td>Fornece a senha do administrador para o servidor de Banco de Dados SQL recém-criado. Quando as credenciais não forem fornecidas, será exibida uma janela de credenciais do PowerShell solicitando-as.</td>
 </tr>
@@ -131,24 +125,19 @@ Para atualizar o tamanho da VM de uma instalação, execute o script a seguir co
   <th>DESCRIÇÃO</th>
 </tr>
 
-  <tr>
+<tr>
     <td>ResourceGroupName</td>
     <td>Identifica o nome do grupo de recursos do Azure usado quando os componentes de trabalho de Banco de Dados Elástico foram inicialmente instalados. Esse parâmetro usa "__ElasticDatabaseJob" como padrão. Uma vez que não é recomendável alterar esse valor, você não deve ter que especificar este parâmetro.</td>
-    </tr>
 </tr>
 
-</tr>
-
-  <tr>
+<tr>
     <td>ServiceWorkerCount</td>
     <td>Fornece o número de trabalhadores de serviço para instalar.  O padrão desse parâmetro é 1.  Um número maior de trabalhadores pode ser usado para escalar horizontalmente o serviço e fornecer alta disponibilidade.  É recomendável usar "2" para implantações que exigem alta disponibilidade do serviço.</td>
 </tr>
 
-</tr>
-
-    <tr>
+<tr>
     <td>ServiceVmSize</td>
-    <td>Fornece o tamanho da VM para uso no Serviço de Nuvem. O padrão desse parâmetro é A0. Os valores de parâmetros de A0/A1/A2/A3 são aceitos, o que faz com que a função de trabalho use um tamanho Extra pequeno/Pequeno/Médio/Grande, respectivamente. Para obter mais informações sobre tamanhos de função de trabalho, consulte [Elastic Database jobs components and pricing (Preço e componentes de trabalhos do Banco de Dados Elástico)](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>Fornece o tamanho da VM para uso no Serviço de Nuvem. O padrão desse parâmetro é A0. Valores de parâmetros de... /.. / A3 são aceitos, o que fazer com que a função de trabalho usar um tamanho extra pequeno/pequeno/médio/grande, respectivamente. Para obter mais informações sobre tamanhos de função de trabalho, consulte [Elastic Database jobs components and pricing (Preço e componentes de trabalhos do Banco de Dados Elástico)](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>
 
 </table>

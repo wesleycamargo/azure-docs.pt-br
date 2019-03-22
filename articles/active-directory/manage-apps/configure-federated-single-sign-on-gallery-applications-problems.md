@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5295f2d341ce104ae51776af5c4477304b1dacb1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 31e9746c0739a2ddd6267428f428e977151077b6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187229"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099773"
 ---
 # <a name="problem-configuring-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Problema ao configurar o logon único federado para um aplicativo na Galeria do Azure AD
 
@@ -42,33 +42,33 @@ Se não conseguir configurar o Identificador ou a URL de Resposta, confirme se o
 
 Para saber os padrões pré-configurado para o aplicativo:
 
-1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global** ou **Coadministrador.** Vá para a etapa 7. Se você já estiver na folha de configuração do aplicativo no Azure AD.
+1. Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global** ou **Coadministrador.** Vá para a etapa 7. Se você já estiver na folha de configuração do aplicativo no Azure AD.
 
-2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
+2. Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
-3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
+3. Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4. clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
-5.  clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+5. clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
    * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
-6.  Selecione o aplicativo para o qual você deseja configurar o logon único.
+6. Selecione o aplicativo para o qual você deseja configurar o logon único.
 
-7.  Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação esquerdo do aplicativo.
+7. Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação esquerdo do aplicativo.
 
-8.  Selecione **Logon com base em SAML** da lista suspensa **Modo**.
+8. Selecione **Logon com base em SAML** da lista suspensa **Modo**.
 
-9.  Vá para a caixa de texto **Identificador** ou **URL de Resposta** na **Seção Domínio e URLs.**
+9. Vá para a caixa de texto **Identificador** ou **URL de Resposta** na **Seção Domínio e URLs.**
 
 10. Há três maneiras de conhecer os padrões com suporte para o aplicativo:
 
-   * Na caixa de texto, são visíveis os padrões com suporte, como um espaço reservado *Exemplo:* <https://contoso.com>.
+    * Na caixa de texto, são visíveis os padrões com suporte, como um espaço reservado *Exemplo:* <https://contoso.com>.
 
-   * Se não houver suporte para o padrão, você verá um ponto de exclamação vermelho quando tentar inserir o valor na caixa de texto. Se você passar o mouse sobre o ponto de exclamação vermelho, verá os padrões com suporte.
+    * Se não houver suporte para o padrão, você verá um ponto de exclamação vermelho quando tentar inserir o valor na caixa de texto. Se você passar o mouse sobre o ponto de exclamação vermelho, verá os padrões com suporte.
 
-   * No tutorial para o aplicativo, também é possível obter informações sobre os padrões com suporte. Na seção **Configura o logon único do Azure AD**. Vá para a etapa de valores configurados na seção **Domínio e URLs**.
+    * No tutorial para o aplicativo, também é possível obter informações sobre os padrões com suporte. Na seção **Configura o logon único do Azure AD**. Vá para a etapa de valores configurados na seção **Domínio e URLs**.
 
 Se os valores não coincidirem com os padrões pré-configurados no Azure AD. Você pode:
 
@@ -86,23 +86,23 @@ O Azure AD seleciona o formato para o atributo NameID (Identificador de Usuário
 
 Para baixar o certificado ou metadados do aplicativo Azure Active Directory, siga estas etapas:
 
-1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global** ou **Coadministrador.**
+1. Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global** ou **Coadministrador.**
 
-2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
+2. Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
-3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
+3. Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4. clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
-5.  clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+5. clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
    * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
-6.  Selecione o aplicativo para o qual você precisa configurar o logon único.
+6. Selecione o aplicativo para o qual você precisa configurar o logon único.
 
-7.  Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação esquerdo do aplicativo.
+7. Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação esquerdo do aplicativo.
 
-8.  Vá para a seção **Certificado de Autenticação SAML** e, em seguida, clique no valor da coluna **Download**. Dependendo do aplicativo que exigir a configuração de logon único, você verá a opção para baixar o Certificado ou o XML de Metadados.
+8. Vá para a seção **Certificado de Autenticação SAML** e, em seguida, clique no valor da coluna **Download**. Dependendo do aplicativo que exigir a configuração de logon único, você verá a opção para baixar o Certificado ou o XML de Metadados.
 
 O Azure AD não fornece uma URL para obter os metadados. Os metadados apenas podem ser recuperados como um arquivo XML.
 

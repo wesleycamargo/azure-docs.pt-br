@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.custom: seodec18
-ms.openlocfilehash: 74cd56f5a8bfe8717927c13e6bf30eb27b43fbc9
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: b18ae44a140d77c24d8b5741bc09740767d1344f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558510"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075945"
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>Criar um novo ambiente de Análise de Séries Temporais no portal do Azure
 Este artigo descreve como criar um novo ambiente do Time Series Insights usando o portal do Azure.
@@ -26,15 +26,15 @@ O Time Series Insights permite que você comece a visualizar e a consultar dados
 ## <a name="steps-to-create-the-environment"></a>Etapas para criar o ambiente
 Siga estas etapas para criar um ambiente:
 
-1.  Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [Portal do Azure](https://portal.azure.com).
 
-2.  Selecione o botão **+ Novo**.
+2. Selecione o botão **+ Novo**.
 
-3.  Selecione a categoria **Internet das Coisas** e selecione **Time Series Insights**.
+3. Selecione a categoria **Internet das Coisas** e selecione **Time Series Insights**.
 
    ![Criar o ambiente de Análise de Séries Temporais](media/time-series-insights-get-started/1-new-tsi.png)
 
-4.  Na página **Time Series Insights**, selecione **Criar**.
+4. Na página **Time Series Insights**, selecione **Criar**.
 
 5. Preencha os parâmetros necessários. A tabela a seguir explica cada parâmetro:
    

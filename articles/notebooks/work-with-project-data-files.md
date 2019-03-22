@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 586b423b-6668-4bdd-9592-4c237d7458fb
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: ae50581404dceb7b59b2ca145207f7d4ade23440
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: c5f8b6db77cabdf5e7af66063cbd9a058bd01800
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309239"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082765"
 ---
 # <a name="work-with-data-files-in-azure-notebook-projects"></a>Trabalhar com arquivos de dados em projetos do Azure Notebook
 
@@ -42,13 +42,13 @@ Você pode trazer arquivos para um projeto no painel do projeto ou em um bloco d
 
 1. Escolha o comando **Carregar** e **Da URL** ou **Do computador** e crie os detalhes necessários para os dados que você deseja importar:
 
-    - **Da URL**: Insira o endereço de origem no campo **URL do Arquivo** e o nome do arquivo para atribuir ao bloco de anotações do projeto no campo **Nome do Arquivo**. Em seguida, escolha **+ Adicionar Arquivo** para adicionar a URL à lista de carregamento. Repita o processo para todas as URLs adicionais e escolha **Concluído**.
+   - **Da URL**: Insira o endereço de origem no campo **URL do Arquivo** e o nome do arquivo para atribuir ao bloco de anotações do projeto no campo **Nome do Arquivo**. Em seguida, escolha **+ Adicionar Arquivo** para adicionar a URL à lista de carregamento. Repita o processo para todas as URLs adicionais e escolha **Concluído**.
 
-    ![Carregar de URL popup](media/quickstarts/upload-from-url-popup.png)
+     ![Carregar de URL popup](media/quickstarts/upload-from-url-popup.png)
 
-    - **Do computador**: Arraste e solte os arquivos no popup ou marque **Escolher Arquivos** e, em seguida, procure e escolha os arquivos de dados que você deseja importar. Você pode soltar ou escolher qualquer número de arquivos, de qualquer tipo e formato, já que é o código no bloco de anotações que abre o arquivo e analisa seus dados.
+   - **Do computador**: Arraste e solte os arquivos no popup ou marque **Escolher Arquivos** e, em seguida, procure e escolha os arquivos de dados que você deseja importar. Você pode soltar ou escolher qualquer número de arquivos, de qualquer tipo e formato, já que é o código no bloco de anotações que abre o arquivo e analisa seus dados.
 
-    ![Carregar do popup do computador](media/quickstarts/upload-from-computer-popup.png)
+     ![Carregar do popup do computador](media/quickstarts/upload-from-computer-popup.png)
 
 1. Uma vez importados, os arquivos são exibidos no painel do projeto e podem ser acessados dentro do código do bloco de anotações usando nomes de caminhos relativos para a pasta que os contêm.
 

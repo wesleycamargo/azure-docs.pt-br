@@ -17,12 +17,12 @@ ms.date: 06/27/2018
 ms.author: markvi
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d52d89d577d0bf50168104e9dae1ddc2a5278ff0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: bc2f2f90029918955f00771acaac10b3cf5f4416
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201560"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868265"
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Guia estratégico do Azure Active Directory Identity Protection
 
@@ -148,7 +148,7 @@ Para obter mais informações, consulte [Como configurar a política de risco de
 
 **Para testar uma política de segurança de entrada, execute as seguintes etapas:**
 
-1. Entre em [https://portal.azure.com ](https://portal.azure.com) com as credenciais de administrador global para seu locatário.
+1. Entre em [https://portal.azure.com](https://portal.azure.com) com as credenciais de administrador global para seu locatário.
 
 2. Navegue para **Azure AD Identity Protection**.
 

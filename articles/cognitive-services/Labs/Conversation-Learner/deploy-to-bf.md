@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 56dab93087249082330c0f685e5457bc2585664c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: ae984cc2e0f43b81b8aa2f08b3944886733c9054
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55237924"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994634"
 ---
 # <a name="how-to-deploy-a-conversation-learner-bot"></a>Como implantar um bot Aprendiz de conversa
 
@@ -45,7 +45,7 @@ A seguir, veja como obter a ID do modelo:
     npm run ui
     ```
 
-2. Abra o navegador para http://localhost:5050 
+2. Abra o navegador para `http://localhost:5050` 
 
 3. Clique no modelo de Aprendiz de conversa para o qual você deseja obter a ID
 
@@ -94,7 +94,7 @@ Agora o bot está em execução localmente.  Você pode acessá-lo com o emulado
 
 Publica o bot do Aprendiz de conversa semelhante à forma como você publicaria qualquer outro bot. Em um nível alto, carregue seu código para um site hospedado, defina os valores de configuração apropriados e, em seguida, registre o bot com vários canais. Há instruções detalhadas neste vídeo, mostrando como publicar seu bot usando o Serviço de Bot do Azure.
 
-Depois que o bot for implantado e estiver em execução, você pode conectar canais diferentes a ele, como Facebook, Teams, Skype, etc. usando um Registro de canal de bot do Azure. Para obter a documentação desse processo, consulte: https://docs.microsoft.com/bot-framework/bot-service-quickstart-registration
+Depois que o bot é implantado e em execução, você pode conectar diferentes canais a ele, como Facebook, Teams, Skype etc. usando um registro de canal de Bot do Azure. Para obter a documentação desse processo, consulte: https://docs.microsoft.com/bot-framework/bot-service-quickstart-registration
 
 Abaixo estão instruções passo a passo para implantar um bot de Aprendiz de conversa do Azure.  Essas instruções pressupõem que a fonte de bot está disponível a partir de uma fonte baseada em nuvem, como Azure DevOps Services, GitHub, BitBucket ou OneDrive, e configurará o bot para implantação contínua.
 
@@ -109,20 +109,20 @@ Abaixo estão instruções passo a passo para implantar um bot de Aprendiz de co
 
 3. No portal do Azure, edite o recurso do bot do aplicativo Web que você acabou de criar.
 
-    1. Clique no item de navegação “Configurações do Aplicativo” à esquerda
-    1. Role até a seção “Configurações de Aplicativo”
-    2. Adicione essas configurações:
+   1. Clique no item de navegação “Configurações do Aplicativo” à esquerda
+   1. Role até a seção “Configurações de Aplicativo”
+   2. Adicione essas configurações:
 
-        Variável de ambiente | value
-        --- | --- 
-        CONVERSATION_LEARNER_SERVICE_URI | "https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/"
-        CONVERSATION_LEARNER_MODEL_ID      | GUID da ID do aplicativo, obtida da interface do usuário do Aprendiz de Conversa em “configurações” do modelo>
-        LUIS_AUTHORING_KEY               | Chave de criação de LUIS para esse modelo
-        LUIS_SUBSCRIPTION_KEY            | Não é necessário, mas é recomendado, que bots publicados evitem o uso de sua cota de Criação.
+       Variável de ambiente | value
+       --- | --- 
+       CONVERSATION_LEARNER_SERVICE_URI | "https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/"
+       CONVERSATION_LEARNER_MODEL_ID      | GUID da ID do aplicativo, obtida da interface do usuário do Aprendiz de Conversa em “configurações” do modelo>
+       LUIS_AUTHORING_KEY               | Chave de criação de LUIS para esse modelo
+       LUIS_SUBSCRIPTION_KEY            | Não é necessário, mas é recomendado, que bots publicados evitem o uso de sua cota de Criação.
     
-    4. Clique em “Salvar” na parte superior da página
-    5. Abra o item de navegação “Build” à esquerda
-    6. Clique em “Configurar implantação contínua” 
-    7. Clique no ícone de “Instalação” em implantações
-    8. Clique em “Configurações Necessárias”
-    9. Selecione a fonte onde seu código bot está disponível e configure a origem.
+   4. Clique em “Salvar” na parte superior da página
+   5. Abra o item de navegação “Build” à esquerda
+   6. Clique em “Configurar implantação contínua” 
+   7. Clique no ícone de “Instalação” em implantações
+   8. Clique em “Configurações Necessárias”
+   9. Selecione a fonte onde seu código bot está disponível e configure a origem.

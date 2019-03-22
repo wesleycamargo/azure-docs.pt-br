@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: a5413f80-eaad-4bcf-b371-2ad0ef629c3d
 ms.date: 01/27/2017
-ms.openlocfilehash: cfd195f2f812c8b2e09058d325d0dbb6f7a60d59
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: 1db324006e1e6332b5fdd8afd28ebed8a32ac707
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125594"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195176"
 ---
 # <a name="create-schemas-for-tracking-x12-messages-in-integration-accounts-for-azure-logic-apps"></a>Criar esquemas para acompanhamento de mensagens X12 em contas de integração para os Aplicativos Lógicos do Azure
 
@@ -57,7 +57,7 @@ Você pode usar esses esquemas de acompanhamento X12 em sua conta de integraçã
 }
 ```
 
-| Propriedade | Tipo | DESCRIÇÃO |
+| Propriedade | Type | DESCRIÇÃO |
 | --- | --- | --- |
 | senderPartnerName | Cadeia de caracteres | O nome do parceiro do remetente da mensagem X12. (Opcional) |
 | receiverPartnerName | Cadeia de caracteres | O nome do parceiro do destinatário da mensagem X12. (Opcional) |
@@ -113,7 +113,7 @@ Você pode usar esses esquemas de acompanhamento X12 em sua conta de integraçã
 }
 ```
 
-| Propriedade | Tipo | DESCRIÇÃO |
+| Propriedade | Type | DESCRIÇÃO |
 | --- | --- | --- |
 | senderPartnerName | Cadeia de caracteres | O nome do parceiro do remetente da mensagem X12. (Opcional) |
 | receiverPartnerName | Cadeia de caracteres | O nome do parceiro do destinatário da mensagem X12. (Opcional) |
@@ -171,7 +171,7 @@ Você pode usar esses esquemas de acompanhamento X12 em sua conta de integraçã
 }
 ```
 
-| Propriedade | Tipo | DESCRIÇÃO |
+| Propriedade | Type | DESCRIÇÃO |
 | --- | --- | --- |
 | senderPartnerName | Cadeia de caracteres | O nome do parceiro do remetente da mensagem X12. (Opcional) |
 | receiverPartnerName | Cadeia de caracteres | O nome do parceiro do destinatário da mensagem X12. (Opcional) |
@@ -222,7 +222,7 @@ Você pode usar esses esquemas de acompanhamento X12 em sua conta de integraçã
 }
 ```
 
-| Propriedade | Tipo | DESCRIÇÃO |
+| Propriedade | Type | DESCRIÇÃO |
 | --- | --- | --- |
 | senderPartnerName | Cadeia de caracteres | O nome do parceiro do remetente da mensagem X12. (Opcional) |
 | receiverPartnerName | Cadeia de caracteres | O nome do parceiro do destinatário da mensagem X12. (Opcional) |
@@ -275,7 +275,7 @@ Você pode usar esses esquemas de acompanhamento X12 em sua conta de integraçã
 }
 ```
 
-| Propriedade | Tipo | DESCRIÇÃO |
+| Propriedade | Type | DESCRIÇÃO |
 | --- | --- | --- |
 | senderPartnerName | Cadeia de caracteres | O nome do parceiro do remetente da mensagem X12. (Opcional) |
 | receiverPartnerName | Cadeia de caracteres | O nome do parceiro do destinatário da mensagem X12. (Opcional) |
@@ -331,7 +331,7 @@ Você pode usar esses esquemas de acompanhamento X12 em sua conta de integraçã
 }
 ```
 
-| Propriedade | Tipo | DESCRIÇÃO |
+| Propriedade | Type | DESCRIÇÃO |
 | --- | --- | --- |
 | senderPartnerName | Cadeia de caracteres | O nome do parceiro do remetente da mensagem X12. (Opcional) |
 | receiverPartnerName | Cadeia de caracteres | O nome do parceiro do destinatário da mensagem X12. (Opcional) |
@@ -365,4 +365,4 @@ Para obter informações sobre esquemas de acompanhamento do protocolo B2B, veja
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre o [monitoramento de mensagens de B2B](logic-apps-monitor-b2b-message.md).
-* Saiba mais sobre [acompanhamento de mensagens B2B no Log Analytics ](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+* Saiba mais sobre [rastreando mensagens B2B nos logs do Azure Monitor](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).

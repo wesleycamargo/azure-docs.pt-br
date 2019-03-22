@@ -3,18 +3,18 @@ title: Introdução aos aceleradores de solução de IoT – Azure | Microsoft D
 description: Saiba mais sobre os aceleradores de solução de IoT do Azure. Os aceleradores de solução de IoT são soluções de IoT completas, de ponta a ponta e prontas para implantação.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/09/2018
+ms.date: 03/09/2019
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: 79c8f0f1c987de6320770416641300f3b8bb7c1d
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 042c3c2925e9d537847f16f02d841d793456fb03
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53607193"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58172811"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>O que são aceleradores de solução do Azure IoT?
 

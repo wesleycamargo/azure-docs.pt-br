@@ -1,6 +1,6 @@
 ---
 title: Implantar grupos com vários contêineres em Instâncias de Contêiner do Azure
-description: Saiba como implantar um grupo de contêiner com vários contêineres em Instâncias de Contêiner do Azure.
+description: Saiba como implantar um grupo de contêiner com vários contêineres em instâncias de contêiner do Azure usando um modelo do Azure Resource Manager.
 services: container-instances
 author: dlepow
 ms.service: container-instances
@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 06/08/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: adb284772291dc901dd5302124982948c1f37eea
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
-ms.translationtype: HT
+ms.openlocfilehash: 2dfe1bbf01b7e1fae8c07602ac4faa40ae74ecc9
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856448"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729507"
 ---
-# <a name="deploy-a-container-group"></a>Implantar um grupo de contêineres
+# <a name="deploy-a-multi-container-group-with-a-resource-manager-template"></a>Implantar um grupo de vários contêiner com um modelo do Resource Manager
 
 As Instâncias de Contêiner do Azure são compatíveis com a implantação de vários contêineres em um único host utilizando um [grupo de contêineres](container-instances-container-groups.md). Isso é útil ao criar um aplicativo secundário para registro em log, monitoramento ou qualquer outra configuração em que um serviço precise de um segundo processo anexado.
 
@@ -28,6 +28,8 @@ A implantação com um modelo do Resource Manager será recomendável se você p
 
 > [!NOTE]
 > Grupos com vários contêineres são atualmente restritos a contêineres do Linux. Enquanto estamos trabalhando para trazer todos os recursos para contêineres do Windows, você pode encontrar as diferenças atuais de plataforma em [Cotas e disponibilidade de região para Instâncias de Contêiner do Azure](container-instances-quotas.md).
+
+Para obter exemplos adicionais de modelo, consulte [modelos do Azure Resource Manager para instâncias de contêiner do Azure](container-instances-samples-rm.md). 
 
 ## <a name="configure-the-template"></a>Configurar o modelo
 

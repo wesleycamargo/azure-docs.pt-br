@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: bd6384dcd132ffb53e3531707c600465e8d0b649
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 249ed7b1be2731fc8165ca7f205ba1d94066818e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190010"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088036"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas de versão do Gerenciador de Armazenamento do Microsoft Azure
 
@@ -27,13 +27,115 @@ Este artigo contém as notas sobre a versão do Gerenciador de Armazenamento do 
 
 O [Gerenciador de Armazenamento do Microsoft Azure](./vs-azure-tools-storage-manage-with-storage-explorer.md) é um aplicativo autônomo que permite que você trabalhe facilmente com dados do Armazenamento do Azure no Windows, macOS e Linux.
 
+## <a name="version-170"></a>Versão 1.7.0
+3/5/2019
+
+### <a name="download-azure-storage-explorer-170"></a>Baixar o Gerenciador de armazenamento do Azure 1.7.0
+- [Gerenciador de armazenamento do Azure 1.7.0 para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Gerenciador de armazenamento do Azure 1.7.0 para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Gerenciador de armazenamento do Azure 1.7.0 para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>Novo
+
+* Agora você pode alterar o proprietário e o grupo proprietário ao gerenciar o acesso para um contêiner de Gen2 ADLS, arquivo ou pasta.
+* No Windows, atualizar o Gerenciador de armazenamento de dentro do produto agora é uma instalação incremental. Isso deve resultar em uma experiência de atualização mais rápida. Se você preferir uma instalação limpa e, em seguida, você pode baixar o [installer](https://azure.microsoft.com/en-us/features/storage-explorer/) por conta própria e, em seguida, instale manualmente. #1089
+
+### <a name="preview-features"></a>Recursos de visualização
+
+* Entrada de fluxo de código de dispositivo no agora está disponível para visualização. Para habilitá-lo, vá para "Preview" → "Use código fluxo de logon de dispositivo". Recomendamos que todos os usuários que tiveram problemas com o windows de entrada em branco para experimentar este recurso, ele pode se revelar uma forma mais confiável de entrar. #938
+* O Gerenciador de armazenamento integrado com o AzCopy está disponível para visualização. Para habilitá-lo, vá para "Preview" → "Use AzCopy para aprimorado Blob carregar e baixar". Transferências de blob concluídas com o AzCopy devem ser mais rápidas e mais funcionais.
+
+### <a name="fixes"></a>Correções
+
+* Agora você pode escolher o tipo de blob que você deseja carregar como quando o AzCopy está habilitado. #1111
+* Anteriormente, se você tivesse habilitado a sites estáticos para uma conta de armazenamento do ADLS Gen2 e, em seguida, anexá-lo com o nome e a chave, o Gerenciador de armazenamento não seria ter detectado que esse namespace hierárquico foi habilitado. Esse problema foi corrigido. #1081
+* No editor de blob, a classificação por dias de retenção restantes ou status foi interrompida. Esse problema foi corrigido. #1106
+* Após a 1.5.0, o Gerenciador de armazenamento não é mais aguardava cópias do lado do servidor concluir antes de relatar êxito durante uma renomeação ou copiar e colar. Esse problema foi corrigido. #976
+* Ao usar o recurso experimental do AzCopy, o comando copiado depois de clicar em "Copiar o comando para área de transferência" sempre não era viável por conta própria. Agora, todos os comandos necessários para executar a transferência manualmente serão copiados. #1079
+* Anteriormente, o ADLS Gen2 blobs não eram acessíveis se você estivesse atrás de um proxy. Isso ocorreu devido a um bug em uma nova biblioteca de rede usado pelo SDK do armazenamento. No 1.7.0, foi feita uma tentativa de atenuar esse problema, mas algumas pessoas podem continuar a ver problemas. Uma correção completa será lançada em uma atualização futura. #1090
+* No 1.7.0, salvar caixa de diálogo arquivo agora corretamente lembra o último local em que você salvou um arquivo. #16
+* No painel Propriedades, a camada de SKU de uma conta de armazenamento que está sendo mostrada como o tipo da conta. Esse problema foi corrigido. #654
+* Às vezes, era impossível interromper a concessão de um blob, mesmo se você digitou o nome do blob corretamente. Esse problema foi corrigido. #1070
+
+### <a name="known-issues"></a>Problemas conhecidos
+
+* Ao usar o RBAC, o Gerenciador de armazenamento requer algumas permissões de camada de gerenciamento para acessar seus recursos de armazenamento. Consulte a [guia de solução](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting) para obter mais informações.
+* A tentativa de acessar os Blobs de Gen2 ADLS quando atrás de um proxy pode falhar.
+* Desanexar de um recurso anexado por meio de URI de SAS, como um contêiner de blob, pode causar um erro que impede que outros anexos apareçam corretamente. Para contornar esse problema, basta atualizar o nó do grupo. Veja # 537 para mais informações.
+* Desanexar de um recurso anexado por meio de URI de SAS, como um contêiner de blob, pode causar um erro que impede que outros anexos apareçam corretamente. Para contornar esse problema, basta atualizar o nó do grupo. Para obter mais informações, veja #537.
+* Se você usar o VS para Mac e já tiver criado uma configuração do AAD personalizada, talvez não consiga se conectar. Para contornar o problema, exclua o conteúdo de ~/.IdentityService/AadConfigurations. Se isso não desbloquear você, comente sobre este assunto.
+* O Azurite ainda não implementou totalmente todas as APIs de Armazenamento. Por causa disso, pode haver um comportamento ou erros inesperados ao usar o Azurite para armazenamento de desenvolvimento.
+* Em casos raros, o foco da árvore pode ficar preso no Acesso Rápido. Para liberar o foco, você pode Atualizar Tudo.
+* Carregar da sua pasta do OneDrive não funciona por causa de um bug no NodeJS. O bug foi corrigido, mas ainda não foi integrado ao Electron. Para solucionar esse problema ao carregar ou fazer o download de um contêiner de blob, você pode usar o recurso experimental do AzCopy.
+* Pode ocorrer uma falha ao carregar certos arquivos como blobs acrescentados durante o direcionamento para o Azure Stack.
+* Depois de clicar em "Cancelar" em uma tarefa, talvez demore algum tempo para a tarefa ser cancelada. Isso ocorre porque estamos usando a solução alternativa de filtro de cancelamento descrita aqui.
+* Se você escolher o PIN/Certificado de cartão inteligente incorreto, será necessário reiniciar para que o Gerenciador de Armazenamento se esqueça dessa decisão.
+* Renomear blobs (individualmente ou dentro de um contêiner de blob renomeado) não preserva os instantâneos. Todas as outras propriedades e metadados de blobs, arquivos e entidades são preservadas durante uma renomeação.
+* O Azure Stack não suporta os seguintes recursos. A tentativa de usar esses recursos ao trabalhar com recursos do Azure Stack pode resultar em erros inesperados.
+   * Compartilhamentos de arquivos
+   * Níveis de acesso
+   * Exclusão reversível
+* O shell Electron usado pelo Gerenciador de Armazenamento tem conflitos com a aceleração de hardware de algumas GPUs (unidade de processamento gráfico). Se o Gerenciador de Armazenamento estiver exibindo uma janela principal em banco (vazia), experimente iniciar o Gerenciador de Armazenamento na linha de comando e desabilitar a aceleração de GPU adicionando a opção `--disable-gpu`:
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Para usuários no Ubuntu 14.04, será necessário verificar se o GCC está atualizado – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Para usuários no Ubuntu 17.04, será necessário instalar o GConf – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="previous-releases"></a>Versões anteriores
+
+* [Versão 1.6.2](#version-162)
+* [Versão 1.6.1](#version-161)
+* [Versão 1.6.0](#version-160)
+* [Versão 1.5.0](#version-150)
+* [Version 1.4.4](#version-144)
+* [Versão 1.4.3](#version-143)
+* [Versão 1.4.2](#version-142)
+* [Versão 1.4.1](#version-141)
+* [Versão 1.3.0](#version-130)
+* [Versão 1.2.0](#version-120)
+* [Version 1.1.0](#version-110)
+* [Versão 1.0.0](#version-100)
+* [Versão 0.9.6](#version-096)
+* [Versão 0.9.5](#version-095)
+* [Versões 0.9.4 e 0.9.3](#version-094-and-093)
+* [Versão 0.9.2](#version-092)
+* [Versões 0.9.1 e 0.9.0](#version-091-and-090)
+* [Versão 0.8.16](#version-0816)
+* [Versão 0.8.14](#version-0814)
+* [Versão 0.8.13](#version-0813)
+* [Versão 0.8.12 e 0.8.11 e 0.8.10](#version-0812-and-0811-and-0810)
+* [Versões 0.8.9 e 0.8.8](#version-089-and-088)
+* [Versão 0.8.7](#version-087)
+* [Versão 0.8.6](#version-086)
+* [Versão 0.8.5](#version-085)
+* [Versão 0.8.4](#version-084)
+* [Versão 0.8.3](#version-083)
+* [Versão 0.8.2](#version-082)
+* [Versão 0.8.0](#version-080)
+* [Versão 0.7.20160509.0](#version-07201605090)
+* [Versão 0.7.20160325.0](#version-07201603250)
+* [Versão 0.7.20160129.1](#version-07201601291)
+* [Versão 0.7.20160105.0](#version-07201601050)
+* [Versão 0.7.20151116.0](#version-07201511160)
+
 ## <a name="version-162"></a>Versão 1.6.2
 09/01/2019
-
-### <a name="download-azure-storage-explorer-162"></a>Baixar do Gerenciador de Armazenamento do Azure 1.6.2
-- [Gerenciador de Armazenamento do Azure 1.6.2 para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Gerenciador de Armazenamento do Azure 1.6.2 para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Gerenciador de Armazenamento do Azure 1.6.2 para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="hotfixes"></a>Hotfixes
 * Na 1.6.1, entidades adicionadas às ACLs do ADLS Gen2 por ObjectId de entidades que não eram usuários sempre foram adicionadas como grupos. Agora, somente grupos são adicionados como grupos e entidades como Aplicativos Empresariais e Entidades de Serviço são adicionadas como usuários. [nº 1049](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1049)
@@ -56,12 +158,12 @@ O [Gerenciador de Armazenamento do Microsoft Azure](./vs-azure-tools-storage-man
 
 * Use agora o Gerenciador de Armazenamento para acessar seus dados de Blob por meio de [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Se estiver conectado e o Gerenciador de Armazenamento não pôde recuperar as chaves para sua conta de armazenamento, em seguida, um token OAuth será usado para autenticar ao interagir com seus dados.
 * O Gerenciador de Armazenamento agora dá suporte a contas de armazenamento do ADLS Gen2. Quando o Gerenciador de Armazenamento detecta que esse namespace hierárquico está habilitado para uma conta de armazenamento, "(ADLS Gen2 Preview )" irá aparecer ao lado do nome da sua conta de armazenamento. O Gerenciador de Armazenamento é capaz de detectar se o namespace hierárquico está habilitado quando você está ou não conectado, ou se tiver conectado a sua conta de armazenamento com o nome e a chave. Para contas de armazenamento do ADLS Gen2, pode-se usar o Gerenciador de Armazenamento:
-    * Criar e excluir contêiner
-    * Gerenciar propriedades do contêiner e permissões (lado esquerdo)
-    * Exibir e navegar em dados dentro de contêineres
-    * Criar novas pastas
-    * Carregar, fazer o download, renomear e excluir arquivos e pastas
-    * Gerencie propriedades de arquivo, pasta e permissões (lado direito).
+  * Criar e excluir contêiner
+  * Gerenciar propriedades do contêiner e permissões (lado esquerdo)
+  * Exibir e navegar em dados dentro de contêineres
+  * Criar novas pastas
+  * Carregar, fazer o download, renomear e excluir arquivos e pastas
+  * Gerencie propriedades de arquivo, pasta e permissões (lado direito).
     
     Outros recursos típicos de Blob, como a exclusão reversível e instantâneos, não estão disponíveis no momento. Gerenciando permissões também só está disponível quando conectado. Além disso, ao trabalhar em uma conta de armazenamento do ADLS Gen2, o Gerenciador de Armazenamento usará o AzCopy para todos os carregamentos, downloads e padrões usando o nome e as credenciais de chave para todas as operações, se disponível.
 * Depois de comentários do usuário de alta segurança, interromper a concessão mais uma vez pode ser usado para interromper as concessões em vários blobs ao mesmo tempo.
@@ -104,42 +206,6 @@ O [Gerenciador de Armazenamento do Microsoft Azure](./vs-azure-tools-storage-man
     sudo apt-get install libgconf-2-4
     ```
 
-## <a name="previous-releases"></a>Versões anteriores
-
-* [Versão 1.6.1](#version-161)
-* [Versão 1.6.0](#version-160)
-* [Versão 1.5.0](#version-150)
-* [Version 1.4.4](#version-144)
-* [Versão 1.4.3](#version-143)
-* [Versão 1.4.2](#version-142)
-* [Versão 1.4.1](#version-141)
-* [Versão 1.3.0](#version-130)
-* [Versão 1.2.0](#version-120)
-* [Version 1.1.0](#version-110)
-* [Versão 1.0.0](#version-100)
-* [Versão 0.9.6](#version-096)
-* [Versão 0.9.5](#version-095)
-* [Versões 0.9.4 e 0.9.3](#version-094-and-093)
-* [Versão 0.9.2](#version-092)
-* [Versões 0.9.1 e 0.9.0](#version-091-and-090)
-* [Versão 0.8.16](#version-0816)
-* [Versão 0.8.14](#version-0814)
-* [Versão 0.8.13](#version-0813)
-* [Versão 0.8.12 e 0.8.11 e 0.8.10](#version-0812-and-0811-and-0810)
-* [Versões 0.8.9 e 0.8.8](#version-089-and-088)
-* [Versão 0.8.7](#version-087)
-* [Versão 0.8.6](#version-086)
-* [Versão 0.8.5](#version-085)
-* [Versão 0.8.4](#version-084)
-* [Versão 0.8.3](#version-083)
-* [Versão 0.8.2](#version-082)
-* [Versão 0.8.0](#version-080)
-* [Versão 0.7.20160509.0](#version-07201605090)
-* [Versão 0.7.20160325.0](#version-07201603250)
-* [Versão 0.7.20160129.1](#version-07201601291)
-* [Versão 0.7.20160105.0](#version-07201601050)
-* [Versão 0.7.20151116.0](#version-07201511160)
-
 ## <a name="version-161"></a>Versão 1.6.1
 18/12/2018
 
@@ -161,12 +227,12 @@ O [Gerenciador de Armazenamento do Microsoft Azure](./vs-azure-tools-storage-man
 
 * Use agora o Gerenciador de Armazenamento para acessar seus dados de Blob por meio de [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Se estiver conectado e o Gerenciador de Armazenamento não pôde recuperar as chaves para sua conta de armazenamento, em seguida, um token OAuth será usado para autenticar ao interagir com seus dados.
 * O Gerenciador de Armazenamento agora dá suporte a contas de armazenamento do ADLS Gen2. Quando o Gerenciador de Armazenamento detecta que esse namespace hierárquico está habilitado para uma conta de armazenamento, "(ADLS Gen2 Preview )" irá aparecer ao lado do nome da sua conta de armazenamento. O Gerenciador de Armazenamento é capaz de detectar se o namespace hierárquico está habilitado quando você está ou não conectado, ou se tiver conectado a sua conta de armazenamento com o nome e a chave. Para contas de armazenamento do ADLS Gen2, pode-se usar o Gerenciador de Armazenamento:
-    * Criar e excluir contêiner
-    * Gerenciar propriedades do contêiner e permissões (lado esquerdo)
-    * Exibir e navegar em dados dentro de contêineres
-    * Criar novas pastas
-    * Carregar, fazer o download, renomear e excluir arquivos e pastas
-    * Gerencie propriedades de arquivo, pasta e permissões (lado direito).
+  * Criar e excluir contêiner
+  * Gerenciar propriedades do contêiner e permissões (lado esquerdo)
+  * Exibir e navegar em dados dentro de contêineres
+  * Criar novas pastas
+  * Carregar, fazer o download, renomear e excluir arquivos e pastas
+  * Gerencie propriedades de arquivo, pasta e permissões (lado direito).
     
     Outros recursos típicos de Blob, como a exclusão reversível e instantâneos, não estão disponíveis no momento. Gerenciando permissões também só está disponível quando conectado. Além disso, ao trabalhar em uma conta de armazenamento do ADLS Gen2, o Gerenciador de Armazenamento usará o AzCopy para todos os carregamentos, downloads e padrões usando o nome e as credenciais de chave para todas as operações, se disponível.
 * Depois de comentários do usuário de alta segurança, interromper a concessão mais uma vez pode ser usado para interromper as concessões em vários blobs ao mesmo tempo.
@@ -216,12 +282,12 @@ O [Gerenciador de Armazenamento do Microsoft Azure](./vs-azure-tools-storage-man
 
 * Use agora o Gerenciador de Armazenamento para acessar seus dados de Blob por meio de [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Se estiver conectado e o Gerenciador de Armazenamento não pôde recuperar as chaves para sua conta de armazenamento, em seguida, um token OAuth será usado para autenticar ao interagir com seus dados.
 * O Gerenciador de Armazenamento agora dá suporte a contas de armazenamento do ADLS Gen2. Quando o Gerenciador de Armazenamento detecta que esse namespace hierárquico está habilitado para uma conta de armazenamento, "(ADLS Gen2 Preview )" irá aparecer ao lado do nome da sua conta de armazenamento. O Gerenciador de Armazenamento é capaz de detectar se o namespace hierárquico está habilitado quando você está ou não conectado, ou se tiver conectado a sua conta de armazenamento com o nome e a chave. Para contas de armazenamento do ADLS Gen2, pode-se usar o Gerenciador de Armazenamento:
-    * Criar e excluir contêiner
-    * Gerenciar propriedades do contêiner e permissões (lado esquerdo)
-    * Exibir e navegar em dados dentro de contêineres
-    * Criar novas pastas
-    * Carregar, fazer o download, renomear e excluir arquivos e pastas
-    * Gerencie propriedades de arquivo, pasta e permissões (lado direito).
+  * Criar e excluir contêiner
+  * Gerenciar propriedades do contêiner e permissões (lado esquerdo)
+  * Exibir e navegar em dados dentro de contêineres
+  * Criar novas pastas
+  * Carregar, fazer o download, renomear e excluir arquivos e pastas
+  * Gerencie propriedades de arquivo, pasta e permissões (lado direito).
     
     Outros recursos típicos de Blob, como a exclusão reversível e instantâneos, não estão disponíveis no momento. Gerenciando permissões também só está disponível quando conectado. Além disso, ao trabalhar em uma conta de armazenamento do ADLS Gen2, o Gerenciador de Armazenamento usará o AzCopy para todos os carregamentos, downloads e padrões usando o nome e as credenciais de chave para todas as operações, se disponível.
 * Depois de comentários do usuário de alta segurança, interromper a concessão mais uma vez pode ser usado para interromper as concessões em vários blobs ao mesmo tempo.
@@ -284,7 +350,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * Quebrar concessões agora só pode ser executado em um blob de cada vez. Além disso, você tem que digitar o nome do blob cujo aluguel você está quebrando. Essa alteração foi feita para reduzir a probabilidade de quebra acidental de uma concessão, especialmente para VMs. #394
 * Se você encontrar problemas de login, poderá tentar redefinir a autenticação. Vá para o menu "Ajuda" e clique em "Redefinir" para acessar essa funcionalidade. #419
 
-### <a name="fix"></a>Correção
+### <a name="fix"></a>Corrigir
 
 * Após um forte feedback do usuário, o nó do emulador padrão foi reativado. Você ainda pode adicionar mais conexões de emulador por meio da caixa de diálogo Conectar, mas se o emulador estiver configurado para usar as portas padrão, você também poderá usar o nó "Emulator * Default Ports" em "Contas locais e anexadas / armazenamento". #669
 * O Storage Explorer não permitirá mais que você defina valores de metadados de blob com espaço em branco à esquerda ou à direita. #760

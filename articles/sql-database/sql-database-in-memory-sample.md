@@ -6,18 +6,18 @@ ms.service: sql-database
 ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
-ms.topic: howto
+ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: b36db929d1ed6487f0da72bea5415d6ca4223b92
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 2aa98c3958f1dffeb8adbad5e91a11f397d4a9fd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756029"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58005730"
 ---
 # <a name="in-memory-sample"></a>Exemplo de In-Memory
 
@@ -52,7 +52,7 @@ Para ver uma demonstração de desempenho mais simples, porém, mais visualmente
 
 3. Copie o [script Transact-SQL do OLTP Na Memória](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_oltp_sample.sql) para a área de transferência. O script T-SQL cria os objetos necessários In-Memory no banco de dados de exemplo AdventureWorksLT criado na etapa 1.
 
-4. Cole o script T-SQL no SSMS e execute o script. As instruções CREATE TABLE da cláusula `MEMORY_OPTIMIZED = ON` são cruciais. Por exemplo: 
+4. Cole o script T-SQL no SSMS e execute o script. As instruções CREATE TABLE da cláusula `MEMORY_OPTIMIZED = ON` são cruciais. Por exemplo:
 
 
 ```sql
@@ -183,18 +183,18 @@ Na VM ou em qualquer host que você escolher, instale os utilitários RML (Repla
 Para obter mais informações, consulte:
 - A discussão sobre ostress.exe no [Banco de dados de exemplo para OLTP In-Memory](https://msdn.microsoft.com/library/mt465764.aspx).
 - [Banco de dados de exemplo para OLTP In-Memory](https://msdn.microsoft.com/library/mt465764.aspx).
-- O [blog para instalar o ostress.exe](https://blogs.msdn.com/b/psssql/archive/2013/10/29/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx).
+- O [blog para instalar o ostress.exe](https://blogs.msdn.com/b/psssql/archive/20../../cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx).
 
 
 
 <!--
 dn511655.aspx is for SQL 2014,
 [Extensions to AdventureWorks to Demonstrate In-Memory OLTP]
-(http://msdn.microsoft.com/library/dn511655&#x28;v=sql.120&#x29;.aspx)
+(https://msdn.microsoft.com/library/dn511655&#x28;v=sql.120&#x29;.aspx)
 
 whereas for SQL 2016+
 [Sample Database for In-Memory OLTP]
-(http://msdn.microsoft.com/library/mt465764.aspx)
+(https://msdn.microsoft.com/library/mt465764.aspx)
 -->
 
 
@@ -244,9 +244,9 @@ Depois de obter o resultado da execução do *_inmem*, realize as seguintes etap
 
 
 1. Redefina o banco de dados executando o seguinte comando no SSMS para excluir todos os dados inseridos pela execução anterior:
-```sql
-EXECUTE Demo.usp_DemoReset;
-```
+   ```sql
+   EXECUTE Demo.usp_DemoReset;
+   ```
 
 2. Edite a linha de comando do ostress.exe para substituir todos os *_inmem* por *_ondisk*.
 
@@ -277,13 +277,13 @@ Para fazer uma análise em tempo real em uma carga de trabalho OLTP, quase sempr
 
 
 1. Use o portal do Azure para criar um novo banco de dados AdventureWorksLT desde o exemplo.
- - Use esse nome exato.
- - Escolha qualquer camada de serviço Premium.
+   - Use esse nome exato.
+   - Escolha qualquer camada de serviço Premium.
 
 2. Copie o [sql_in-memory_analytics_sample](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_analytics_sample.sql) para sua área de transferência.
- - O script T-SQL cria os objetos necessários In-Memory no banco de dados de exemplo AdventureWorksLT criado na etapa 1.
- - O script cria a tabela Dimension e duas tabelas de fatos. As tabelas de fatos são preenchidas com 3,5 milhões de linhas cada.
- - O script pode levar 15 minutos para ser concluído.
+   - O script T-SQL cria os objetos necessários In-Memory no banco de dados de exemplo AdventureWorksLT criado na etapa 1.
+   - O script cria a tabela Dimension e duas tabelas de fatos. As tabelas de fatos são preenchidas com 3,5 milhões de linhas cada.
+   - O script pode levar 15 minutos para ser concluído.
 
 3. Cole o script T-SQL no SSMS e execute o script. A palavra-chave **COLUMNSTORE** na instrução **CREATE INDEX** é crucial, como em:<br/>`CREATE NONCLUSTERED COLUMNSTORE INDEX ...;`
 

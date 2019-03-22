@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 05/25/2018
+ms.date: 03/11/2019
 ms.author: pafarley
-ms.openlocfilehash: 01273ca241769c5e3bb7b7222355d32b29fd51b9
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 4c395a062b1132710f888cc5a315529db082a805
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56308495"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850019"
 ---
 # <a name="export-or-delete-user-data-in-custom-vision"></a>Exportar ou excluir dados de usuário em Visão Personalizada
 
-A Visão Personalizada coleta dados do usuário para operar o serviço, mas os clientes têm controle total sobre a exibição, a exportação e a exclusão dos dados usando a [API de Treinamento](https://go.microsoft.com/fwlink/?linkid=865446) do Serviço de Visão Personalizada.
+Visão personalizada coleta dados de usuário para operar o serviço, mas os clientes têm controle total sobre como exibir, exportar e excluir seus dados usando a visão personalizada [APIs de treinamento](https://go.microsoft.com/fwlink/?linkid=865446).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
-Para obter mais informações sobre como exportar e excluir dados do usuário em Visão Personalizada, veja a tabela a seguir.
+Para saber como exportar e excluir dados de usuário na visão personalizada, consulte a tabela a seguir.
 
 | Dados | Operação de exportar | Operação de Exclusão |
 | ---- | ---------------- | ---------------- |
@@ -34,4 +34,4 @@ Para obter mais informações sobre como exportar e excluir dados do usuário em
 | Projetos e detalhes do projeto | [GetProject](https://go.microsoft.com/fwlink/?linkid=865446) e [GetProjects](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteProject](https://go.microsoft.com/fwlink/?linkid=865446) | 
 | Marcas de imagem | [GetTag](https://go.microsoft.com/fwlink/?linkid=865446) e [GetTags](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteTag](https://go.microsoft.com/fwlink/?linkid=865446) | 
 | Imagens | [GetTaggedImages](https://go.microsoft.com/fwlink/?linkid=865446) (fornece o uri para download da imagem) e [GetUntaggedImages](https://go.microsoft.com/fwlink/?linkid=865446) (fornece o uri para download da imagem) | [DeleteImages](https://go.microsoft.com/fwlink/?linkid=865446) | 
-| Modelos exportados | [GetExports](https://go.microsoft.com/fwlink/?linkid=865446) | Excluído mediante a exclusão da conta | 
+| Modelos exportados | [GetExports](https://go.microsoft.com/fwlink/?linkid=865446) | Excluído mediante a exclusão da conta |

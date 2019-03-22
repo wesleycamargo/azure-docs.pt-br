@@ -10,14 +10,14 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: v-gedod
-ms.openlocfilehash: 04ec95e891b4e9333949a3a0f40dcc9df88e49e7
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 015a2d344b066bd7b65c3228a2795c3395793f2b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865841"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097023"
 ---
-# <a name="quickstart-send-a-search-request-with-the-bing-entity-search-sdk-for-nodejs"></a>Início Rápido: Enviar uma solicitação de pesquisa com o SDK da Pesquisa de Entidade do Bing para o Node.js
+# <a name="quickstart-send-a-search-request-with-the-bing-entity-search-sdk-for-nodejs"></a>Início rápido: Enviar uma solicitação de pesquisa com o SDK da Pesquisa de Entidade do Bing para o Node.js
 
 Use este Início Rápido para começar a pesquisar entidades com o SDK da Pesquisa de Entidade do Bing para o Node.js. Embora a Pesquisa de Entidade do Bing tenha uma API REST compatível com a maioria das linguagens de programação, o SDK fornece uma maneira fácil de integrar o serviço aos seus aplicativos. O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/entitySearch.js).
 
@@ -53,7 +53,7 @@ Para instalar o SDK da Pesquisa de Entidade do Bing:
 
 ## <a name="send-a-request-and-receive-a-response"></a>Enviar uma solicitação e receber uma resposta
 
-2. Envie uma solicitação de pesquisa de entidades com `entitiesOperations.search()`. Depois de receber uma resposta, imprima o `queryContext`, o número de resultados retornados e a descrição do primeiro resultado.
+1. Envie uma solicitação de pesquisa de entidades com `entitiesOperations.search()`. Depois de receber uma resposta, imprima o `queryContext`, o número de resultados retornados e a descrição do primeiro resultado.
       
     ```javascript
     entitySearchApiClient.entitiesOperations.search('seahawks').then((result) => {

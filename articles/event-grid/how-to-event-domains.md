@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/17/2019
-ms.openlocfilehash: 662e946eee633d12cf517549509281fca4047385
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: c49044d8bd96efb7e86cf54509c32033900be305
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470419"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58180901"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Gerenciar tópicos e publicar eventos usando domínios de eventos
 
@@ -24,6 +24,8 @@ Este artigo mostra como:
 * Publicar eventos em um domínio
 
 Para saber mais sobre domínios de eventos, consulte [Entender os domínios de eventos para gerenciar tópicos da Grade de Eventos](event-domains.md).
+
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
 ## <a name="install-preview-feature"></a>Instalar versão prévia do recurso
 
@@ -132,7 +134,7 @@ New-AzureRmEventGridSubscription `
 
 Se você precisar de um endpoint de teste para assinar seus eventos, poderá sempre implantar um aplicativo da Web [pré-criado](https://github.com/Azure-Samples/azure-event-grid-viewer) que exiba os eventos de entrada. Você pode enviar seus eventos para o website de teste em `https://<your-site-name>.azurewebsites.net/api/updates`.
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
 As permissões definidas para um tópico são armazenadas no Azure Active Directory e devem ser excluídas explicitamente. A exclusão de uma assinatura de evento não revoga o acesso de usuários para criar assinaturas de eventos se eles tiverem acesso de gravação em um tópico.
 

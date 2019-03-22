@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d8cb0829698b13e2193850c29f98492df6c48d4f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 688ef059387dc4c312873051c7c9d1eae259b1ae
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468505"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57844776"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Mover dados para ou do Armazenamento de Blobs do Azure usando conectores SSIS
 O [Feature Pack dos Serviços de Integração do SQL Server para Azure](https://msdn.microsoft.com/library/mt146770.aspx) fornece componentes para se conectar ao Azure, transferir dados entre o Azure e fontes de dados locais e processar os dados armazenados no Azure.
@@ -55,7 +55,7 @@ Para obter os materiais de treinamento sobre o SSIS, veja [Treinamento prático 
 Para obter informações sobre como começar a usar o SISS para compilar pacotes ETL (extração, transformação e carregamento) simples, confira [Tutorial do SSIS: criando um pacote ETL simples](https://msdn.microsoft.com/library/ms169917.aspx).
 
 ## <a name="download-nyc-taxi-dataset"></a>Baixar o conjunto de dados NYC Taxi
-O exemplo descrito aqui usa um conjunto de dados disponível publicamente, o conjunto de dados [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) . O conjunto de dados é formado por cerca de 173 milhões de corridas de táxi em NYC no ano de 2013. Há dois tipos de dados: dados sobre detalhes da corrida e dados sobre tarifas. Como há um arquivo para cada mês, temos 24 arquivos no total, cada um deles com aproximadamente 2 GB descompactados.
+O exemplo descrito aqui usa um conjunto de dados disponível publicamente, o conjunto de dados [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) . O conjunto de dados é formado por cerca de 173 milhões de corridas de táxi em NYC no ano de 2013. Há dois tipos de dados: dados sobre detalhes da corrida e dados sobre tarifas. Como há um arquivo para cada mês, temos 24 arquivos no total, cada um deles com aproximadamente 2 GB descompactados.
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Carregar dados no armazenamento de blob do Azure
 Para mover dados do local para o Armazenamento de Blobs do Azure usando o pacote de recursos do SSIS, podemos usar uma instância da [**Tarefa de Carregamento de Blob do Azure**](https://msdn.microsoft.com/library/mt146776.aspx), como mostrado aqui:
@@ -64,7 +64,7 @@ Para mover dados do local para o Armazenamento de Blobs do Azure usando o pacote
 
 Os parâmetros usados pela tarefa são descritos aqui:
 
-| Campo | DESCRIÇÃO |
+| Campo | Descrição |
 | --- | --- |
 | **AzureStorageConnection** |Especifica um Gerenciador de Conexão de Armazenamento do Azure existente ou cria um novo, que faz referência a uma conta de armazenamento do Azure, que aponta para onde os arquivos de blob estão hospedados. |
 | **BlobContainer** |Especifica o nome do contêiner de blob que contém os arquivos carregados como blobs. |

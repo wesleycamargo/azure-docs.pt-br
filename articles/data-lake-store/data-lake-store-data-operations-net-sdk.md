@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 929ce0d984e53586c46f15f21b9e5c90c6a34771
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
-ms.translationtype: HT
+ms.openlocfilehash: 0a6cfc5ca9a0b788075f4472649a6e1bcdf87637
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54402295"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119489"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Operações de sistema de arquivos no Azure Data Lake Storage Gen1 usando o SDK do .NET
 > [!div class="op_single_selector"]
@@ -62,7 +62,7 @@ O exemplo de código disponível [no GitHub](https://github.com/Azure-Samples/da
       * `Microsoft.Azure.DataLake.Store` - Este tutorial usa a versão v1.0.0.
       * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - Este tutorial usa a versão v2.3.1.
     
-    Feche o **Gerenciador de Pacotes NuGet**.
+      Feche o **Gerenciador de Pacotes NuGet**.
 
 6. Abra **Program.cs**, exclua o código existente e inclua as instruções a seguir para adicionar referências aos namespaces.
 
@@ -90,7 +90,7 @@ O exemplo de código disponível [no GitHub](https://github.com/Azure-Samples/da
 
 Nas seções restantes do artigo, você pode ver como usar o métodos do .NET disponíveis para executar operações como autenticação, carregamento de arquivos, etc.
 
-## <a name="authentication"></a>Autenticação
+## <a name="authentication"></a>Authentication
 
 * Para autenticação do usuário final para seu aplicativo, veja [Autenticação de usuário final com o Data Lake Storage Gen1 usando o SDK do .NET](data-lake-store-end-user-authenticate-net-sdk.md).
 * Para autenticação de serviço a serviço do aplicativo, confira [Autenticação de serviço a serviço com o Data Lake Storage Gen1 usando o SDK do .NET](data-lake-store-service-to-service-authenticate-net-sdk.md).

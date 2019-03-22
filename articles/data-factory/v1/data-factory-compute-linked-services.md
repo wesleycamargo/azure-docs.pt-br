@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: fea90d273d156eec3bf29f376e4cf6668c68170f
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 0e0a249c53c90d3d8d03dcdb5fbb4f11f31c54df
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697510"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57545137"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Ambientes de computação com suporte do Azure Data Factory
 > [!NOTE]
@@ -116,7 +116,7 @@ O JSON a seguir define um serviço vinculado HDInsight sob demanda baseado em Li
 > [!IMPORTANT]
 > O cluster HDInsight cria um *contêiner padrão* no armazenamento de Blob do Azure que você especifica na propriedade JSON **linkedServiceName**. Por design, o HDInsight não exclui esse contêiner quando o cluster é excluído. Em um serviço vinculado HDInsight sob demanda, um cluster HDInsight é criado sempre que uma fatia é processada, a menos que haja um cluster ativo existente (**timeToLive**). O cluster é excluído quando o processamento é concluído. 
 >
-> Quanto mais fatias forem processadas, mais contêineres você verá no armazenamento de Blobs. Se você não precisa dos contêineres para trabalhos de solução de problemas, convém excluir contêineres para reduzir o custo de armazenamento. Os nomes desses contêineres seguem um padrão: `adf<your Data Factory name>-<linked service name>-<date and time>`. Você pode usar uma ferramenta como o [Gerenciador de Armazenamento da Microsoft](http://storageexplorer.com/) para excluir contêineres no armazenamento de Blob.
+> Quanto mais fatias forem processadas, mais contêineres você verá no armazenamento de Blobs. Se você não precisa dos contêineres para trabalhos de solução de problemas, convém excluir contêineres para reduzir o custo de armazenamento. Os nomes desses contêineres seguem um padrão: `adf<your Data Factory name>-<linked service name>-<date and time>`. Você pode usar uma ferramenta como o [Gerenciador de Armazenamento da Microsoft](https://storageexplorer.com/) para excluir contêineres no armazenamento de Blob.
 >
 > 
 
@@ -271,7 +271,7 @@ Você pode criar um serviço vinculado do Lote para registrar um pool de Lote de
 Se essa é a sua primeira vez usando o serviço de Lote:
 
 * Saiba mais sobre [Noções básicas de Lote do Azure](../../batch/batch-technical-overview.md).
-* Saiba mais sobre o cmdlet [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx). Use este cmdlet para criar uma conta do Lote. Ou, você pode criar a conta do Lote usando o [portal do Azure](../../batch/batch-account-create-portal.md). Para obter informações detalhadas sobre como usar o cmdlet, consulte [Usando o PowerShell para gerenciar uma conta de Lote](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx).
+* Saiba mais sobre o cmdlet [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx). Use este cmdlet para criar uma conta do Lote. Ou, você pode criar a conta do Lote usando o [portal do Azure](../../batch/batch-account-create-portal.md). Para obter informações detalhadas sobre como usar o cmdlet, consulte [Usando o PowerShell para gerenciar uma conta de Lote](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx).
 * Saiba mais sobre o cmdlet [New-AzureBatchPool novo](https://msdn.microsoft.com/library/mt125936.aspx). Use este cmdlet para criar um pool do Lote.
 
 ### <a name="example"></a>Exemplo

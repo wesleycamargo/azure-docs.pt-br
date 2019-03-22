@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/03/2018
 ms.author: mbullwin
-ms.openlocfilehash: 24132fdb23ff89045f2b497327997d95e4ceecac
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 7f3b8101b633c977201b6c413ad12e4bbe55e9a7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054836"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011790"
 ---
 # <a name="application-insights-for-aspnet-core"></a>Application Insights para ASP.NET Core
 
@@ -88,15 +88,15 @@ Selecione **Exibir** > **Team Explorer** (Ctrl +\, Ctrl + M) > **Projeto** > **A
 
 - Um novo arquivo é criado:
 
-  -  _ConnectedService.json_
+  - _ConnectedService.json_
 
     ```json
     {
-      "ProviderId": "Microsoft.ApplicationInsights.ConnectedService.ConnectedServiceProvider",
-      "Version": "8.12.10405.1",
-      "GettingStartedDocument": {
-        "Uri": "https://go.microsoft.com/fwlink/?LinkID=798432"
-      }
+     "ProviderId": "Microsoft.ApplicationInsights.ConnectedService.ConnectedServiceProvider",
+     "Version": "8.12.10405.1",
+     "GettingStartedDocument": {
+       "Uri": "https://go.microsoft.com/fwlink/?LinkID=798432"
+     }
     }
     ```
 
@@ -181,6 +181,10 @@ Selecione **Exibir** > **Team Explorer** (Ctrl +\, Ctrl + M) > **Projeto** > **A
       }
       ```
 
+## <a name="send-ilogger-logs-to-application-insights"></a>Enviar logs de ILogger ao Application Insights
+
+Application Insights oferece suporte à captura de logs enviados por meio de ILogger. Para configurar os exemplos de código de check-out de registro em log [aqui](https://docs.microsoft.com/azure/azure-monitor/app/ilogger).
+
 ## <a name="synthetic-transactions-with-powershell"></a>Transações sintéticas com o PowerShell
 
 Para automatizar solicitações com relação ao seu aplicativo com transações sintéticas:
@@ -191,7 +195,7 @@ Para automatizar solicitações com relação ao seu aplicativo com transações
 
    ![Captura de tela da barra de endereço da URL na barra de endereço](./media/asp-net-core/0013-copy-url.png)
 
-3. Execute o seguinte loop de PowerShell para criar 100 transações sintéticas usando seu aplicativo de teste. Modifique o número de porta após `localhost:` para corresponder com a URL que você copiou na etapa anterior. Por exemplo: 
+3. Execute o seguinte loop de PowerShell para criar 100 transações sintéticas usando seu aplicativo de teste. Modifique o número de porta após `localhost:` para corresponder com a URL que você copiou na etapa anterior. Por exemplo:
 
    ```PowerShell
    for ($i = 0 ; $i -lt 100; $i++)
@@ -213,7 +217,7 @@ No menu do Visual Studio, selecione **Projeto** > **Application Insights** > **a
 
 ## <a name="collect-failed-requests-live-stream-and-page-view-load-time"></a>Coletar Solicitações com falha, Live Stream e o Tempo de carregamento da exibição de página
 
-### <a name="failed-requests"></a>Solicitações com falha
+### <a name="failed-requests"></a>Solicitações com Falha
 
 Tecnicamente, solicitações com falha estão sendo coletadas, mas não ocorreu nenhuma ainda. Para acelerar o processo ao longo de uma exceção personalizada ao projeto existente para simular uma exceção do mundo real. Se seu aplicativo ainda estiver em execução no Microsoft Visual Studio antes de continuar **Interrompa a depuração** (Shift + F5).
 
@@ -245,7 +249,7 @@ Tecnicamente, solicitações com falha estão sendo coletadas, mas não ocorreu 
     }
     ```
 
-### <a name="live-stream"></a>Live Stream
+### <a name="live-stream"></a>Fluxo em Tempo Real
 
 Para acessar a funcionalidade Live Stream do Application Insights com atualização do ASP.NET Core para os pacotes NuGet do Microsoft.ApplicationInsights.AspNetCore 2.2.0.
 
@@ -338,7 +342,7 @@ A funcionalidade é possível em parte porque o pacote NuGet _Microsoft.AspNetCo
 
 ![Captura de tela do grafo de dependência do NuGet para Microsoft.AspNETCore.all](./media/asp-net-core/013-dependency.png)
 
-Fora do Visual Studio, se você estivesse editando um projeto ASP.NET Core em VSCode ou algum outro editor, esses assemblies não seriam carregados automaticamente durante a depuração se você não tivesse adicionado explicitamente o Application Insights ao seu projeto.
+Fora do Visual Studio, se você estava editando um projeto ASP.NET Core no VSCode ou outro editor, esses assemblies não carregados automaticamente durante a depuração se você ainda não adicionou explicitamente o Application Insights ao seu projeto.
 
 No entanto, no Microsoft Visual Studio, esta iluminação de recursos locais do Application Insights de assemblies externos é realizada usando a [Interface IHostingStartup](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup?view=aspnetcore-2.1). A interface adiciona dinamicamente o Application Insights durante a depuração.
 

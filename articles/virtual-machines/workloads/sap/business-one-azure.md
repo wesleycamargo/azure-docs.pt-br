@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f0e96b87e46872bebe7563e08f0eb7a33b11015f
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 101710b5a57faa37be77ff4b059fa0d494f4e617
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329841"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878057"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business One em Máquinas Virtuais do Microsoft Azure
 Este documento fornece diretrizes para implantar o SAP Business One em Máquinas Virtuais do Microsoft Azure. A documentação não substitui a documentação de instalação do Business One para SAP. A documentação deve abranger as diretrizes básicas de planejamento e implantação da infraestrutura do Azure para executar os aplicativos do Business One.
@@ -38,7 +38,7 @@ Para usar este guia, você precisa ter um conhecimento básico dos seguintes com
 - [Máquinas Virtuais do Microsoft Azure no Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
 - [Máquinas Virtuais do Microsoft Azure no Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 - [Rede do Azure e gerenciamento de redes virtuais com PowerShelll](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-virtual-network)
-- [Rede do Azure e redes virtuais com CLI ](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
+- [A rede do Azure e redes virtuais com a CLI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
 - [Gerenciar discos do Azure com a CLI do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks)
 
 Mesmo se você estiver interessado somente no Business One, o documento [Planejamento e implementação de Máquinas Virtuais do Microsoft Azure para SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) pode ser uma boa fonte de informações.

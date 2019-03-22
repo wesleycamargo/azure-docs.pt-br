@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 1133bdb3c5d708710a556f68e4ac5c57d2dc3dc9
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: a6ec4c7d239754fe3211b528dd0ac64ee150ad3c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153237"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089362"
 ---
 # <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C: coletando logs
 
@@ -44,31 +44,31 @@ O Azure AD B2C oferece suporte a um recurso para envio de dados ao Application I
 1. Abra o arquivo RP (por exemplo, SignUpOrSignin.xml).
 1. Adicione os atributos a seguir ao elemento `<TrustFrameworkPolicy>`:
 
-  ```XML
-  DeploymentMode="Development"
-  UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
-  ```
+   ```XML
+   DeploymentMode="Development"
+   UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
+   ```
 
 1. Se ele ainda não existir, adicione um nó filho `<UserJourneyBehaviors>` ao nó `<RelyingParty>`. Ele deve estar localizado imediatamente após o `<DefaultUserJourney ReferenceId="UserJourney Id from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />`
 2. Adicione o seguinte nó como um filho do elemento `<UserJourneyBehaviors>`. Substitua `{Your Application Insights Key}` pela **Chave de Instrumentação** que você obteve do Application Insights na seção anterior.
 
-  ```XML
-  <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
-  ```
+   ```XML
+   <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
+   ```
 
-  * `DeveloperMode="true"` informa ao ApplicationInsights para agilizar a telemetria por meio do pipeline de processamento, bom para o desenvolvimento, mas com restrição em grandes volumes.
-  * `ClientEnabled="true"` envia o script do lado do cliente do ApplicationInsights para rastrear erros de exibição de página e do lado do cliente (não é necessário).
-  * `ServerEnabled="true"` envia o JSON UserJourneyRecorder existente como um evento personalizado para o Application Insights.
-Exemplo:
+   * `DeveloperMode="true"` informa ao ApplicationInsights para agilizar a telemetria por meio do pipeline de processamento, bom para o desenvolvimento, mas com restrição em grandes volumes.
+   * `ClientEnabled="true"` envia o script do lado do cliente do ApplicationInsights para rastrear erros de exibição de página e do lado do cliente (não é necessário).
+   * `ServerEnabled="true"` envia o JSON UserJourneyRecorder existente como um evento personalizado para o Application Insights.
+   Exemplo:
 
-  ```XML
-  <TrustFrameworkPolicy
+   ```XML
+   <TrustFrameworkPolicy
     ...
     TenantId="fabrikamb2c.onmicrosoft.com"
     PolicyId="SignUpOrSignInWithAAD"
     DeploymentMode="Development"
     UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
-  >
+   >
     ...
     <RelyingParty>
       <DefaultUserJourney ReferenceId="UserJourney ID from your extensions policy, or equivalent (for example: SignUpOrSigninWithAzureAD)" />
@@ -76,8 +76,8 @@ Exemplo:
         <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
       </UserJourneyBehaviors>
       ...
-  </TrustFrameworkPolicy>
-  ```
+   </TrustFrameworkPolicy>
+   ```
 
 3. Carregue a política.
 
@@ -91,7 +91,7 @@ Exemplo:
 1. Abra uma nova guia no Application Insights.
 1. Aqui está uma lista de consultas que você pode usar para ver os logs
 
-| Consultar | DESCRIÇÃO |
+| Consulta | Descrição |
 |---------------------|--------------------|
 traces | Veja todos os logs gerados pelo Azure AD B2C |
 rastreamentos \| onde carimbo de data/hora > ago(1d) | Veja todos os logs gerados pelo Azure AD B2C para o último dia
@@ -112,6 +112,6 @@ A versão do visualizador que faz leitura dos eventos do Application Insights es
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas Etapas
 
 Explore os dados no Application Insights para ajudar a entender como o Identity Experience Framework por trás do B2C trabalha para fornecer suas próprias experiências de identidade.

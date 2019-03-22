@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, LADocs
 ms.topic: article
 ms.date: 01/13/2019
-ms.openlocfilehash: b58059727a383e978691bfbbee77a1f6b04692ce
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: c5128e904e540deeb3293fb687da4e8cafcfa1e0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264319"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57870987"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Conectar a sistemas de arquivos locais com os Aplicativos Lógicos do Azure
 
@@ -34,9 +34,9 @@ Para seguir o exemplo, você precisa destes itens:
 
 * Antes de poder conectar aplicativos lógicos a sistemas locais, como seu servidor do sistema de arquivos, você precisará [instalar e configurar o gateway de dados local](../logic-apps/logic-apps-gateway-install.md). Dessa forma, você pode especificar para usar sua instalação de gateway quando criar a conexão do sistema de arquivos do seu aplicativo lógico.
 
-* Uma [conta do Dropbox](https://www.dropbox.com/) e suas credenciais da conta. Suas credenciais do DropBox são necessárias para a criação de uma conexão entre seu aplicativo lógico e sua conta de Drobox. 
+* Um [conta do Dropbox](https://www.dropbox.com/), que você pode se inscrever gratuitamente. Suas credenciais de conta são necessárias para a criação de uma conexão entre seu aplicativo lógico e sua conta do Dropbox. 
 
-* Suas credenciais de conta do computador que tem o sistema de arquivos que você deseja acessar. Por exemplo, se você instalar o gateway de dados no mesmo computador que seu sistema de arquivos, você precisará das credenciais de conta do computador. 
+* Acesso ao computador que tem o sistema de arquivos que você deseja usar. Por exemplo, se você instalar o gateway de dados no mesmo computador que o seu sistema de arquivos, você precisa das credenciais de conta para o computador. 
 
 * Uma conta de email de um provedor compatível com os Aplicativos Lógicos, como o Outlook do Office 365, o Outlook.com ou o Gmail. Para outros provedores, [revise a lista de conectores aqui](https://docs.microsoft.com/connectors/). Esso aplicativo lógico usa uma conta do Outlook do Office 365. Se você usar outra conta de email, as etapas gerais são as mesmos, mas a interface do usuário pode ser ligeiramente diferente. 
 
@@ -68,14 +68,14 @@ Para seguir o exemplo, você precisa destes itens:
 
    ![Criar conexão](media/logic-apps-using-file-connector/file-system-connection.png)
 
-   | Propriedade | Obrigatório | Valor | DESCRIÇÃO | 
+   | Propriedade | Obrigatório | Value | DESCRIÇÃO | 
    | -------- | -------- | ----- | ----------- | 
-   | **Nome da Conexão** | SIM | <*connection-name*> | O nome desejado para a conexão | 
-   | **Pasta raiz** | SIM | <*root-folder-name*> | A pasta raiz do sistema de arquivos, por exemplo, se você tiver instalado seu gateway de dados local, como uma pasta local no computador em que o gateway de dados local está instalado ou a pasta de um compartilhamento de rede que o computador pode acessar. <p>Por exemplo: `\\PublicShare\\DropboxFiles` <p>A pasta raiz é a pasta pai principal, que é usada para caminhos relativos de todas as ações relacionadas ao arquivo. | 
+   | **Nome da Conexão** | Sim | <*connection-name*> | O nome desejado para a conexão | 
+   | **Pasta raiz** | Sim | <*root-folder-name*> | A pasta raiz do sistema de arquivos, por exemplo, se você tiver instalado seu gateway de dados local, como uma pasta local no computador em que o gateway de dados local está instalado ou a pasta de um compartilhamento de rede que o computador pode acessar. <p>Por exemplo: `\\PublicShare\\DropboxFiles` <p>A pasta raiz é a pasta pai principal, que é usada para caminhos relativos de todas as ações relacionadas ao arquivo. | 
    | **Tipo de autenticação** | Não  | <*auth-type*> | O tipo de autenticação usado pelo seu sistema de arquivos, por exemplo, **Windows** | 
-   | **Nome de Usuário** | SIM | <*domain*>\\<*username*> | O nome de usuário do computador no qual você tem seu sistema de arquivos | 
-   | **Senha** | SIM | <*your-password*> | A senha do computador no qual você tem seu sistema de arquivos | 
-   | **gateway** | SIM | <*installed-gateway-name*> | O nome do seu gateway instalado anteriormente | 
+   | **Nome de Usuário** | Sim | <*domain*>\\<*username*> | O nome de usuário do computador no qual você tem seu sistema de arquivos | 
+   | **Senha** | Sim | <*your-password*> | A senha do computador no qual você tem seu sistema de arquivos | 
+   | **gateway** | Sim | <*installed-gateway-name*> | O nome do seu gateway instalado anteriormente | 
    ||| 
 
 1. Quando terminar, escolha **Criar**. 

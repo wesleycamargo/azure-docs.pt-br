@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: 2aa5522b8200f87df633759ee136f744cd1b8099
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 6588690629d2e266469a4b8ea533c5650f3fc0ea
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471225"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890875"
 ---
 # <a name="introduction-to-the-geo-artificial-intelligence-data-science-virtual-machine"></a>Introdução à Máquina Virtual de Ciência de Dados de Inteligência Artificial Geográfica
 
@@ -44,7 +44,7 @@ Integração das informações geográficas e localização com os seus dados tr
 
 A [Máquina Virtual de Ciência de Dados (DSVM)](overview.md) da Microsoft é uma experimentaçãopopular e modelagem de ambiente no Azure, que oferece uma série de ferramentas de ciência de IA, aprendizado de máquina e de dados. Essas plataformas e ferramentas são todas convenientemente pré-configuradas para ajudar você a ser produtivo imediatamente. 
 
-Ao combinar os recursos de previsão da Máquina Virtual de Ciência de Dados com a escalabilidade de nuvem do Azure e o software de análise geoespaciais do [ESRI](http://www.esri.com), cientistas de dados e analistas geoespaciais agora têm uma plataforma produtiva da qual obter nova inteligência de seus dados e identificar novas oportunidades. 
+Ao combinar os recursos de previsão da Máquina Virtual de Ciência de Dados com a escalabilidade de nuvem do Azure e o software de análise geoespaciais do [ESRI](https://www.esri.com), cientistas de dados e analistas geoespaciais agora têm uma plataforma produtiva da qual obter nova inteligência de seus dados e identificar novas oportunidades. 
 
 
 ## <a name="next-steps"></a>Próximas etapas

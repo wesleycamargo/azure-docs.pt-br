@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b73656e2bb7c413d2c29fafb682f39154499854a
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: 7d877f467f06768c31679752d9deff1ca19d0003
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904447"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882868"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Habilitar log de diagnósticos para aplicativos no Serviço de Aplicativo do Azure
 ## <a name="overview"></a>Visão geral
@@ -34,8 +34,8 @@ O Serviço de Aplicativo oferece funcionalidade de diagnóstico para informaçõ
 ### <a name="web-server-diagnostics"></a>Diagnóstico de servidor Web
 Você pode habilitar ou desabilitar os seguintes tipos de logs:
 
-* **Registro em Log Detalhado de Erros** - informações detalhadas de erros para códigos de status HTTP que indiquem uma falha (código de status 400 ou superior). Pode conter informações que podem ajudar a determinar por que o servidor retornou o código de erro.
-* **Falha no Rastreamento de Solicitação** - informações detalhadas sobre solicitações com falha, incluindo um rastreamento dos componentes IIS usados para processar a solicitação e o tempo levado em cada componente. Isso é útil se você quiser melhorar o desempenho do site ou isolar um erro HTTP específico.
+* **Detalhadas no log de erros** -informações detalhadas para qualquer solicitação que resulte em código de status HTTP 400 ou superior. Pode conter informações que podem ajudar a determinar por que o servidor retornou o código de erro. Um arquivo HTML é gerado para cada erro no sistema de arquivos do aplicativo e até 50 erros (arquivos) são mantidos. Quando o número de arquivos HTML exceder 50, os arquivos de 26 mais antigos são excluídos automaticamente.
+* **Falha no Rastreamento de Solicitação** - informações detalhadas sobre solicitações com falha, incluindo um rastreamento dos componentes IIS usados para processar a solicitação e o tempo levado em cada componente. Isso é útil se você quiser melhorar o desempenho do site ou isolar um erro HTTP específico. Uma pasta é gerada para cada erro no sistema de arquivos do aplicativo. Políticas de retenção de arquivo são o mesmo que o erro detalhado log acima.
 * **Registro em Log de Servidor Web** - informações sobre transações HTTP usando o [formato de arquivo de log estendido W3C](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). É útil para determinar as métricas gerais do site, como o número de solicitações manipuladas e quantas solicitações existem vindas de um endereço IP específico.
 
 ### <a name="application-diagnostics"></a>Diagnóstico de aplicativo
@@ -93,7 +93,7 @@ Enquanto ambos os locais de armazenamento fornecem as mesmas informações bási
 > As informações armazenadas no **armazenamento de blobs** só podem ser acessadas usando um cliente de armazenamento ou um aplicativo que possa trabalhar diretamente com esses sistemas de armazenamento. Por exemplo, o Visual Studio 2013 contém um Gerenciador de Armazenamento que pode ser usado para explorar o armazenamento de blobs, e o HDInsight pode acessar os dados armazenados no armazenamento de blobs. Você também pode gravar um aplicativo que acesse o Armazenamento do Azure usando um dos [SDKs do Azure](https://azure.microsoft.com/downloads/).
 >
 
-## <a name="download"></a> Como: baixar logs
+## <a name="download"></a> Como baixar logs
 Informações de diagnóstico armazenadas no sistema de arquivos do aplicativo podem ser diretamente acessadas usando FTP. Além disso, pode ser baixado como um arquivo Zip usando a CLI do Azure.
 
 A estrutura de diretórios onde os logs estão armazenados é a seguinte:
@@ -134,7 +134,7 @@ O Application Insights do Visual Studio fornece ferramentas para filtrar e pesqu
 
 [Saiba mais sobre desempenho de rastreamento com o Application Insights](../azure-monitor/app/azure-web-apps.md)
 
-## <a name="streamlogs"></a> Como: Transmitir logs
+## <a name="streamlogs"></a> Como Transmitir logs
 Ao desenvolver um aplicativo, é sempre útil visualizar informações de registro em log realizado em tempo quase real. É possível transmitir informações de registro para o ambiente de desenvolvimento usando a CLI do Azure.
 
 > [!NOTE]
@@ -213,6 +213,10 @@ Os dados armazenados em um blob deverão ser semelhantes ao seguinte exemplo:
 Os rastreamentos de solicitações com falha são armazenados em arquivos XML chamados **fr######.xml**. Para facilitar a exibição das informações registradas, uma folha de estilos XSL chamada **freb.xsl** é fornecida no mesmo diretório dos arquivos XML. Se você abrir um dos arquivos XML no Internet Explorer, ele usará a folha de estilos XSL para fornecer uma exibição formatada da informação rastreada, similar ao seguinte exemplo:
 
 ![solicitação falha visualizada no navegador](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
+
+> [!NOTE]
+> É uma maneira fácil de exibir os rastreamentos de solicitação com falha formatada navegar até a página do seu aplicativo no portal. No menu à esquerda, selecione **diagnosticar e solucionar problemas**, em seguida, procure **falha os Logs de rastreamento de solicitação**, em seguida, clique no ícone para procurar e exibir o rastreamento que você deseja.
+>
 
 ### <a name="detailed-error-logs"></a>Logs de erro do aplicativo
 Logs detalhados de erro são documentos HTML que fornecem informações mais detalhadas sobre erros HTTP que tenham ocorrido. Como são simplesmente documentos HTML, eles podem ser visualizados usando um navegador da Web.

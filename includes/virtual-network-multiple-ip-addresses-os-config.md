@@ -8,30 +8,30 @@ ms.topic: include
 ms.date: 04/09/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: ec1727926f6dbfeead9932004715a8bb1dfbb0cd
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
-ms.translationtype: HT
+ms.openlocfilehash: 7679bbc450e5fa0761860aedbb37ed02b27ec828
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36964528"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58115775"
 ---
 ## <a name="os-config"></a>Adicionar endereços IP em um sistema operacional da VM
 
 Conecte-se e faça logon em uma VM criada com vários endereços IP privados. Você deve adicionar manualmente todos os endereços IP privados (incluindo o principal) que você adicionou à VM. Complete as etapas a seguir para seu sistema operacional VM.
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 
 1. Em um prompt de comando, digite *ipconfig /all*.  Você vê apenas o endereço IP privado *Primário* (por meio do DHCP).
 2. Digite *ncpa.cpl* no prompt de comando para abrir a janela **Conexões de rede**.
-3. Abra as propriedades do adaptador apropriado: **Conexão de Área Local**.
+3. Abra as propriedades do adaptador apropriado: **Conexão de área local**.
 4. Clique duas vezes em versão do Protocolo de Internet 4 (IPv4).
 5. Selecione **Usar o seguinte endereço IP** e insira os seguintes valores:
 
-    * **Endereço IP**: insira o endereço IP privado *primário*
-    * **Máscara de sub-rede**: defina com base na sua sub-rede. Por exemplo, se a sub-rede for uma sub-rede /24, então, a máscara de sub-rede será 255.255.255.0.
-    * **Gateway padrão**: o primeiro endereço IP na sub-rede. Se sua sub-rede for 10.0.0.0/24, o endereço IP do gateway será 10.0.0.1.
+    * **Endereço IP**: Insira o *primário* endereço IP privado
+    * **Máscara de sub-rede**: Definidos com base em sua sub-rede. Por exemplo, se a sub-rede for uma sub-rede /24, então, a máscara de sub-rede será 255.255.255.0.
+    * **Gateway padrão**: O primeiro endereço IP na sub-rede. Se sua sub-rede for 10.0.0.0/24, o endereço IP do gateway será 10.0.0.1.
     * Selecione **Usar os seguintes endereços do servidor DNS** e insira os seguintes valores:
-        * **Servidor DNS preferencial**: digite 168.63.129.16 se você não estiver usando seu próprio servidor DNS.  Se você estiver usando seu próprio servidor DNS, digite o endereço IP do seu servidor.
+        * **Servidor DNS preferencial**: Se você não estiver usando seu próprio servidor DNS, digite 168.63.129.16.  Se você estiver usando seu próprio servidor DNS, digite o endereço IP do seu servidor.
     * Selecione o botão **Avançado** e adicione mais endereços IP. Adicione cada um dos endereços IP privados secundários, que você adicionou à interface de rede do Azure em uma etapa anterior à interface de rede do Windows que recebe o endereço IP principal atribuído à interface de rede do Azure.
 
         Nunca atribua manualmente o endereço IP público atribuído a uma máquina virtual do Azure no sistema operacional da máquina virtual. Ao definir manualmente o endereço IP privado no sistema operacional, verifique se é o mesmo endereço que o endereço IP privado atribuído ao [adaptador de rede](../articles/virtual-network/virtual-network-network-interface-addresses.md#change-ip-address-settings) do Azure ou se é possível perder a conectividade com a máquina virtual. Saiba mais sobre as configurações de [endereço IP privado](../articles/virtual-network/virtual-network-network-interface-addresses.md#private). Nunca atribua um endereço de IP público do Azure dentro do sistema operacional.
@@ -62,15 +62,15 @@ ping -S 10.0.0.5 hotmail.com
 
 3. Atualize o arquivo de configuração do adaptador de rede (supondo que 'eth0').
 
-    * Mantenha o item de linha existente para o dhcp. O endereço IP principal permanece configurado como era anteriormente.
-    * Adicione uma configuração para um endereço IP estático adicional com os seguintes comandos:
+   * Mantenha o item de linha existente para o dhcp. O endereço IP principal permanece configurado como era anteriormente.
+   * Adicione uma configuração para um endereço IP estático adicional com os seguintes comandos:
 
-        ```bash
-        cd /etc/network/interfaces.d/
-        ls
-        ```
+       ```bash
+       cd /etc/network/interfaces.d/
+       ls
+       ```
 
-    Você deve ver um arquivo. cfg.
+     Você deve ver um arquivo. cfg.
 4. Abra o arquivo. Você verá as seguintes linhas ao final do arquivo:
 
     ```bash

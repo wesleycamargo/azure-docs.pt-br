@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 2/18/2019
-ms.openlocfilehash: 4fd0f0990163963fc0cc3c7caf221609da487909
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: c4db658db3d32905368390826e5531ca31525486
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340171"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58133120"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Ingestão de dados do Azure Data Explorer
 
@@ -53,7 +53,7 @@ O Azure Data Explorer atualmente dá suporte ao seguinte:
 
 ### <a name="ingestion-using-integration-services"></a>Ingestão usando os serviços de integração
 
-* O Azure Data Factory (ADF), um serviço de integração de dados totalmente gerenciado para cargas de trabalho analíticas no Azure, para copiar dados para e do Azure Data Explorer. Para obter mais informações, confira [Copiar dados para ou do Azure Data Explorer usando o Azure Data Factory](/azure/data-factory/connector-azure-data-explorer).
+* Azure Data Factory (ADF), um serviço de integração de dados totalmente gerenciado para cargas de trabalho analíticas no Azure, para copiar dados para e do Gerenciador de dados do Azure usando [formatos e armazenamentos de dados com suporte](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats). Para obter mais informações, confira [Copiar dados para ou do Azure Data Explorer usando o Azure Data Factory](/azure/data-factory/connector-azure-data-explorer).
 
 ### <a name="programmatic-ingestion"></a>Ingestão programática
 
@@ -81,7 +81,7 @@ O Kusto oferece um SDK cliente que pode ser usado para ingerir e consultar dados
 
 * Ingestão de dados direta no mecanismo do Azure Data Explorer (mais apropriada para exploração e criação de protótipos):
 
-  * **Ingestão embutida**: o comando de controle (.ingest inline) que contém os dados na banda destina-se a testes ad hoc.
+  * **Ingestão de embutido**: comando de controle (.ingest embutido) que contém os dados em banda destina-se ao ad-hoc para fins de teste.
 
   * **Ingestão de consulta**: o comando de controle (.set, .set-or-append, .set-or-replace) que aponta para os resultados da consulta é usado para a geração de relatórios ou tabelas temporárias pequenas.
 

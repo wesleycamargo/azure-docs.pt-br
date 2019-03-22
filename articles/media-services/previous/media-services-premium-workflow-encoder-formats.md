@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2019
+ms.date: 03/19/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: a24448507fa16a48ab3522c3307261d989d773ee
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 25f32750b612bb66f23eb19c378f7935689f3a73
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895005"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258608"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Codecs e formatos de fluxo de trabalho do Media Encoder Premium
 
@@ -26,8 +26,6 @@ ms.locfileid: "55895005"
 > Para questões de Codificador Premium, email mepd@microsoft.com.
 > 
 > O processador de mídia do Fluxo de Trabalho do Media Encoder Premium analisado neste tópico não está disponível na China. 
-> 
-> 
 
 Este documento contém uma lista de formatos de arquivo de entrada e saída e codecs com suporte pela versão de demonstração pública do codificador de **Fluxo de trabalho do Media Encoder Premium** .
 

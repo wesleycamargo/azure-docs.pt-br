@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 08/12/2016
 ms.author: pibehre
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4228692d707f0cff8be0d76bc70794f48d944143
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 751b6e5979174eae9bc815061f16bf99bd0899cf
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878758"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534779"
 ---
 # <a name="what-is-the-web-language-model-api-preview"></a>O que é a API de Modelo de Linguagem da Web? (Visualização)
 
@@ -44,7 +44,7 @@ A API de Modelo de Linguagem da Web dá suporte a quatro operações de pesquisa
 1. Assine o serviço.
 2. Baixe o [SDK](https://www.github.com/microsoft/cognitive-weblm-windows).
 3. Execute o código de exemplo do SDK.
-4. Consulte a [Referência da API](http://web.archive.org/web/20170503191852/westus.dev.cognitive.microsoft.com/docs/services/55de9ca4e597ed1fd4e2f104/operations/55de9ca4e597ed19b0de8a51) para obter detalhes completos dos pontos de extremidade, incluindo trechos de código em uma variedade de linguagens.
+4. Consulte a [Referência da API](https://web.archive.org/web/20170503191852/westus.dev.cognitive.microsoft.com/docs/services/55de9ca4e597ed1fd4e2f104/operations/55de9ca4e597ed19b0de8a51) para obter detalhes completos dos pontos de extremidade, incluindo trechos de código em uma variedade de linguagens.
 
 ## <a name="underlying-technology"></a>A tecnologia subjacente
 

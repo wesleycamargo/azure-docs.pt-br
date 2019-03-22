@@ -1,7 +1,7 @@
 ---
-title: Gerenciar configurações
+title: Gerenciar contas e chaves
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Use o site do LUIS para gerenciar as configurações de conta do usuário e a chave de criação usada em todos os seus aplicativos.
+description: As duas partes principais de informação para uma conta LUIS são a conta de usuário e a chave de criador. As informações de logon são gerenciadas em account.microsoft.com. A chave de criação é gerenciada na página Configurações do portal LUIS.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,36 +9,40 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 03/11/2019
 ms.author: diberry
-ms.openlocfilehash: 9fc1882a56c0e1bccdfbb658dac83e4c231ef261
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: d7d63ad642ab2d3b336e15dcca606077762ceb9d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879081"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116615"
 ---
 # <a name="manage-account-and-authoring-key"></a>Gerenciar conta e chave de criação
-As duas partes principais de informação para uma conta LUIS são a conta de usuário e a chave de criador. Suas informações de logon são gerenciadas em [account.microsoft.com](https://account.microsoft.com). A chave de criação é gerenciada no site do [LUIS](luis-reference-regions.md) na página **Configurações**. 
+
+As duas partes principais de informação para uma conta LUIS são a conta de usuário e a chave de criador. Suas informações de logon são gerenciadas em [account.microsoft.com](https://account.microsoft.com). Sua chave de criação é gerenciado a partir de [LUIS](luis-reference-regions.md) portal **configurações** página.
 
 ## <a name="authoring-key"></a>Chave de criação
 
-Essa chave única de criação específica à região, na página **Configurações**, permite que você crie todos os aplicativos no site do [LUIS](luis-reference-regions.md) assim como nas [APIs de criação](https://aka.ms/luis-authoring-api). Para sua comodidade, a chave de criador é permitida para fazer um número [limitado](luis-boundaries.md) de consultas de ponto de extremidade a cada mês. 
+Essa única e específica da região de criação chave na **configurações** página, permite que você crie todos os seus aplicativos da [LUIS](luis-reference-regions.md) portal, bem como a [APIs de criação](https://aka.ms/luis-authoring-api). Para sua comodidade, a chave de criador é permitida para fazer um número [limitado](luis-boundaries.md) de consultas de ponto de extremidade a cada mês.
 
 [![Página Configurações de LUIS](./media/luis-how-to-account-settings/account-settings.png)](./media/luis-how-to-account-settings/account-settings.png#lightbox)
 
 A chave de criador é usada para todos os seus aplicativos, bem como quaisquer aplicativos que você listou como colaborador.
 
 ## <a name="authoring-key-regions"></a>Regiões da chave de criador
-A chave de criador é específica para a [região de autoria](luis-reference-regions.md#publishing-regions). A chave não funciona em uma região diferente. 
+
+A chave de criador é específica para a [região de autoria](luis-reference-regions.md#publishing-regions). A chave não funciona em uma região diferente.
 
 ## <a name="reset-authoring-key"></a>Redefinir a chave de criador
-Se a chave de criador estiver comprometida, redefina a chave. A chave é redefinida em todos os seus aplicativos no website de [LUIS](luis-reference-regions.md). Se você criar seus aplicativos por meio de APIs de criador, você precisa alterar o valor de `Ocp-Apim-Subscription-Key` para a nova chave. 
+
+Se a chave de criador estiver comprometida, redefina a chave. A chave é redefinida em todos os seus aplicativos na [LUIS](luis-reference-regions.md) portal. Se você criar seus aplicativos por meio de APIs de criador, você precisa alterar o valor de `Ocp-Apim-Subscription-Key` para a nova chave.
 
 ## <a name="delete-account"></a>Exclui a conta
-Consulte [Armazenamento e remoção de dados](luis-concept-data-storage.md#accounts) para obter informações sobre quais dados são excluídos quando você exclui sua conta. 
+
+Consulte [Armazenamento e remoção de dados](luis-concept-data-storage.md#accounts) para obter informações sobre quais dados são excluídos quando você exclui sua conta.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre sua [chave de criador](luis-concept-keys.md#authoring-key). 
+Saiba mais sobre sua [chave de criador](luis-concept-keys.md#authoring-key).
 

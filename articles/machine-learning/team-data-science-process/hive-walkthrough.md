@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a0b4c41d347ba556e737d422af22fb5a47c7c4ff
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: a7aa5401cbba9fafda9f995a882934ef0edfa481
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108714"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57881139"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>O Processo de Ciência de Dados da Equipe na prática: Use os clusters do Azure HDInsight Hadoop
-Neste passo a passo, usamos o [TDSP (Processo de ciência de dados da equipe)](overview.md) em um cenário de ponta a ponta. Usamos um [cluster Hadoop do Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) para armazenar, explorar e apresentar dados de engenharia do conjunto de dados publicamente disponível [Corridas de táxi em NYC](http://www.andresmh.com/nyctaxitrips/) e reduzir os dados da amostra. Para manipular a classificação binária e multiclasse e tarefas preditivas de regressão, criamos modelos dos dados com o Azure Machine Learning. 
+Neste passo a passo, usamos o [TDSP (Processo de ciência de dados da equipe)](overview.md) em um cenário de ponta a ponta. Usamos um [cluster Hadoop do Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) para armazenar, explorar e apresentar dados de engenharia do conjunto de dados publicamente disponível [Corridas de táxi em NYC](https://www.andresmh.com/nyctaxitrips/) e reduzir os dados da amostra. Para manipular a classificação binária e multiclasse e tarefas preditivas de regressão, criamos modelos dos dados com o Azure Machine Learning. 
 
 Para obter um passo a passo que mostra como manipular um conjunto de dados maior, consulte [Processo de ciência de dados de equipe – usando clusters Azure HDInsight Hadoop em um conjunto de dados de 1 TB](hive-criteo-walkthrough.md).
 
@@ -84,7 +84,7 @@ Você pode configurar um ambiente do Azure para análises avançadas que empregu
 > 
 > 
 
-Para copiar o conjunto de dados [Corridas de Táxi em NYC](http://www.andresmh.com/nyctaxitrips/) para seu computador de seu local público, use um dos métodos descritos em [Mover dados bidirecionalmente no armazenamento de Blobs do Azure](move-azure-blob.md).
+Para copiar o conjunto de dados [Corridas de Táxi em NYC](https://www.andresmh.com/nyctaxitrips/) para seu computador de seu local público, use um dos métodos descritos em [Mover dados bidirecionalmente no armazenamento de Blobs do Azure](move-azure-blob.md).
 
 Aqui, descrevemos como usar o AzCopy para transferir os arquivos que contêm dados. Para baixar e instalar o AzCopy, siga as instruções em [Introdução ao utilitário de linha de comando AzCopy](../../storage/common/storage-use-azcopy.md).
 
@@ -516,7 +516,7 @@ Execute o seguinte comando no console de linha de comando do Hadoop:
 
 Talvez você queira saber se há uma diferença entre a distância direta entre dois locais e a distância real da corrida do táxi. Pode haver uma menor probabilidade de um passageiro dar gorjeta se ele descobrir que o motorista intencionalmente o levou por uma rota mais longa.
 
-Para ver a comparação entre a distância real da corrida e a [distância do Haversine](http://en.wikipedia.org/wiki/Haversine_formula) entre dois pontos de latitude-longitude (a distância do “círculo grande”), use as funções trigonométricas disponíveis no Hive:
+Para ver a comparação entre a distância real da corrida e a [distância do Haversine](https://en.wikipedia.org/wiki/Haversine_formula) entre dois pontos de latitude-longitude (a distância do “círculo grande”), use as funções trigonométricas disponíveis no Hive:
 
     set R=3959;
     set pi=radians(180);
@@ -822,8 +822,8 @@ Agora você pode continuar a criação e a implantação do modelo no [Machine L
 Este passo a passo do exemplo e os scripts que o acompanham são compartilhados pela Microsoft sob a licença MIT. Para obter mais detalhes, consulte o arquivo **LICENSE.txt** no diretório do código de exemplo no GitHub .
 
 ## <a name="references"></a>Referências
-•   [Página de download de Viagens de Táxi de NYC, de Andrés Monroy](http://www.andresmh.com/nyctaxitrips/)  
-•   [Dados de Viagem de Táxi de FOILing NYC, de Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
+•   [Página de download de Viagens de Táxi de NYC, de Andrés Monroy](https://www.andresmh.com/nyctaxitrips/)  
+•   [Dados de Viagem de Táxi de FOILing NYC, de Chris Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)   
 •   [Pesquisa e estatísticas de comissionamento de táxis e limusines de NYC](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [2]: ./media/hive-walkthrough/output-hive-results-3.png

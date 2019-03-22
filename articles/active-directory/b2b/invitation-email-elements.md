@@ -1,5 +1,5 @@
 ---
-title: Os elementos do email de convite para colaboração B2B – Azure Active Directory | Microsoft Docs
+title: Elementos do email de convite B2B – Azure Active Directory | Microsoft Docs
 description: Modelo de email de convite para colaboração B2B do Azure Active Directory
 services: active-directory
 ms.service: active-directory
@@ -9,20 +9,21 @@ ms.date: 02/06/2019
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6eaab50360269ac1231db2696ba095b6d8841f74
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7015abcfe3c53e2180d617bd2c78ecd44c42af7a
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162993"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295616"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Os elementos do email de convite para colaboração B2B – Azure Active Directory
 
 Emails de convite são um componente essencial para ingressar parceiros como usuários de colaboração B2B no Azure AD. Você pode usá-los para aumentar a confiança do destinatário. Você pode adicionar a legitimidade e a comprovação social ao email, para certificar-se de que o destinatário sinta-se confortável com a seleção do botão **Introdução** para aceitar o convite. Essa confiança é uma maneira importante de reduzir o atrito de compartilhamento. E o email fica ótimo dessa maneira!
 
-![Email de convite de B2b do AD do Azure](media/invitation-email-elements/invitation-email.png)
+![Captura de tela mostrando o email de convite B2B](media/invitation-email-elements/invitation-email.png)
 
 ## <a name="explaining-the-email"></a>Explicação do email
 Vamos examinar alguns elementos do email para que você conheça a melhor maneira de usar esses recursos.
@@ -31,7 +32,7 @@ Vamos examinar alguns elementos do email para que você conheça a melhor maneir
 O assunto do email segue o seguinte padrão: Você foi convidado para a organização &lt;tenantname&gt;
 
 ### <a name="from-address"></a>Do endereço
-Usamos um padrão parecido com o do LinkedIn para o endereço De.  Você deve deixar claro quem é o emissor do convite e de qual empresa, e também esclarecer que o email é proveniente de um endereço de email da Microsoft. O formato é: &lt;Nome de exibição do emissor do convite&gt; de &lt;tenantname&gt; (via Microsoft) <invites@microsoft.com>
+Usamos um padrão parecido com o do LinkedIn para o endereço De.  Você deve deixar claro quem é o emissor do convite e de qual empresa, e também esclarecer que o email é proveniente de um endereço de email da Microsoft. O formato é: Microsoft Invitations <invites@microsoft.com> ou &lt;nome de exibição do emissor do convite&gt; partir &lt;tenantname&gt; (via Microsoft) <invites@microsoft.com>.
 
 ### <a name="reply-to"></a>Responder Para
 O email para resposta é definido como o email do emissor do convite, quando houver um disponível, para que a resposta envie um email ao emissor do convite.
@@ -50,22 +51,26 @@ O nome de exibição do emissor do convite está incluído no email. E, além di
 
 Se você ainda não tiver configurado uma imagem de perfil, um ícone com as iniciais do emissor do convite no lugar da imagem, conforme mostra a imagem:
 
-  ![exibição das iniciais do emissor do convite](media/invitation-email-elements/inviters-initials.png)
+  ![Captura de tela mostrando o convite com o emissor do convite iniciais exibidas](media/invitation-email-elements/inviters-initials.png)
 
 ### <a name="body"></a>Corpo
 O corpo contém a mensagem que o emissor do convite compõe ao [convidar um usuário convidado para o diretório, grupo ou aplicativo](add-users-administrator.md) ou [usando a API de convite](customize-invitation-api.md). Como é uma área de texto, ela não processa marcas HTML por motivos de segurança.
 
+  ![Captura de tela mostrando o corpo do email de convite](media/invitation-email-elements/invitation-email-body.png)
+
 ### <a name="footer-section"></a>Seção de rodapé
-O rodapé contém a marca da empresa Microsoft e informará ao destinatário se o email foi enviado de um alias não monitorado. Casos especiais:
+O rodapé contém a marca da empresa Microsoft e informará ao destinatário se o email foi enviado de um alias não monitorado. 
+
+Casos especiais:
 
 - O emissor do convite não tem um endereço de email no locatário que está convidando
 
-  ![imagem do emissor do convite não tem um endereço de email no locatário que está convidando](media/invitation-email-elements/inviter-no-email.png)
+  ![Captura de tela quando um emissor do convite não tem o email no locatário que convida](media/invitation-email-elements/inviter-no-email.png)
 
 
 - O destinatário não precisa resgatar o convite
 
-  ![quando o destinatário não precisa resgatar o convite](media/invitation-email-elements/when-recipient-doesnt-redeem.png)
+  ![Captura de tela quando o destinatário não precisa resgatar o convite](media/invitation-email-elements/when-recipient-doesnt-redeem.png)
 
 ## <a name="how-the-language-is-determined"></a>Como o idioma é determinado
 O idioma apresentado ao usuário convidado no email de convite é determinado pelas configurações a seguir. Elas estão listadas na ordem de precedência. Se uma configuração não estiver definida, a próxima configuração na lista determinará o idioma. 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: e6148a35540b08916a4f0468af39e0f088453286
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 3889aa1e8b19e203a3f6354c2d26fb82afe2b922
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958859"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214275"
 ---
 # <a name="create-a-new-device-template-version"></a>Criar uma nova versão do modelo de dispositivo
 
@@ -56,7 +56,7 @@ Os **painéis do dispositivo** podem conter vários tipos de blocos. Algumas blo
 
 É possível criar várias versões do modelo de dispositivo. Com o tempo, você terá vários dispositivos conectados usando esses modelos de dispositivo. Você pode migrar dispositivos de uma versão do modelo de dispositivo para outra. As etapas a seguir descrevem como migrar um dispositivo:
 
-1. Acesse a página **Explorer**.
+1. Vá para o **Device Explorer** página.
 1. Selecione o dispositivo que você precisa migrar para outra versão.
 1. Escolha **Migrar Dispositivo**.
 1. Selecione o número de versão para o qual você deseja migrar o dispositivo e escolha **Migrar**.

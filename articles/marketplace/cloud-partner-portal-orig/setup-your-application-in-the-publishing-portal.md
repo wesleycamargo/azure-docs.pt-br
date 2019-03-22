@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 7b5bb0bf8ff5fac10c47cf5bdf9564903f4d6b94
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 58be8a222f649abe4be6de272a1ef2b686336262
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448476"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57847120"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>Configurar seu aplicativo no Portal de Publicação
 
@@ -27,16 +27,16 @@ Agora você está pronto para configurar seu aplicativo no portal de publicaçã
 
 ## <a name="login-and-create-a-new-offer"></a>Fazer logon e criar uma nova oferta
 
-1. Entre no [Portal de Parceiros de Nuvem](http://cloudpartner.azure.com/).
+1. Entre no [Portal de Parceiros de Nuvem](https://cloudpartner.azure.com/).
 2. Na barra de navegação à esquerda, clique em "+ Nova oferta" e selecione "Dynamics 365 for Customer Engagement".
 
 ![Como selecionar uma nova oferta](./media/CRMScreenShot14.png)
 
-3. Uma exibição de Editor de nova oferta aparece agora para você e estamos prontos para começar a criar.
+1. Uma exibição de Editor de nova oferta aparece agora para você e estamos prontos para começar a criar.
 
 ![Tela Nova oferta](./media/CRMScreenShot15.png)
 
-4. Os formulários que precisam ser preenchidos estão visíveis à esquerda na exibição Editor. Cada formulário consiste em um conjunto de campos que devem ser preenchidos. Os campos obrigatórios estão marcados com um asterisco vermelho (\*).
+1. Os formulários que precisam ser preenchidos estão visíveis à esquerda na exibição Editor. Cada formulário consiste em um conjunto de campos que devem ser preenchidos. Os campos obrigatórios estão marcados com um asterisco vermelho (\*).
 
 Há quatro formas principais de criar uma oferta do Dynamics 365 for Customer Engagement
 
@@ -88,7 +88,7 @@ Aqui está uma explicação para esses campos:
 
 ### <a name="crm-package-availability"></a>Disponibilidade do Pacote CRM
 
-Nesta seção, selecione para quais regiões do CRM seu pacote será disponibilizado. Para obter informações sobre quais regiões atendem quais países, confira o link: [http://o365datacentermap.azurewebsites.net/](http://o365datacentermap.azurewebsites.net/)
+Nesta seção, selecione para quais regiões do CRM seu pacote será disponibilizado. Para obter informações sobre quais regiões atendem quais países, confira o link: [https://o365datacentermap.azurewebsites.net/](https://o365datacentermap.azurewebsites.net/)
 
 Observação: implantar para "Soberana e nuvem US Gov" da Alemanha REQUER PERMISSÃO ESPECIAL e VALIDAÇÃO DURANTE A CERTIFICAÇÃO
 

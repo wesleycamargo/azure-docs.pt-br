@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: 47d5616f86c8f4cb62773d0b92a24a5fb63b2ea7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: c4b178cc7e0604f38e4da25452a3bad01f8145de
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240456"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858126"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Provisionar uma Máquina Virtual de Inteligência Artificial Geográfica no Azure 
 
@@ -33,7 +33,7 @@ A Geo-DSVM contém várias ferramentas para IA, incluindo:
 - ferramentas para adquirir e pré-processar imagens e dados textuais, 
 - ferramentas para atividades de desenvolvimento, como o Microsoft R Server Developer Edition, Anaconda Python, Jupyter Notebooks para Python e R, IDEs para Python e R, bancos de dados SQL
 - Software de área de trabalho do ArcGIS Pro do ESRI, junto com as interfaces do Python e R que podem trabalhar com os dados geoespaciais por meio dos aplicativos de IA. 
-
+ 
 
 ## <a name="create-your-geo-ai-data-science-vm"></a>Criar sua VM de Ciência de Dados de IA Geográfica
 
@@ -67,16 +67,16 @@ Este é o procedimento para criar uma instância da VM de Ciência de Dados de I
    - **Resumo**: Verifique se todas as informações inseridas estão corretas.
 
    - **Comprar**: Clique em **Comprar** para iniciar o provisionamento. Um link para os termos do serviço é fornecido. A VM não tem encargos adicionais além dos de computação para o tamanho do servidor que você escolheu na etapa **Tamanho** . 
-
+ 
 >[!NOTE]
 > O provisionamento deve levar cerca de 20 a 30 minutos. O status do provisionamento é exibido no Portal do Azure.
 
-
+ 
 ## <a name="how-to-access-the-geo-ai-data-science-virtual-machine"></a>Como acessar a Máquina Virtual de Ciência de Dados de IA Geográfica
 
-Depois de criar a VM, você estará pronto para começar a usar as ferramentas que estão instaladas e pré-configuradas nela. Há blocos do menu Iniciar e ícones da área de trabalho para várias das ferramentas. Você poderá entrar na área de trabalho remota usando as credenciais da conta do Administrador configurada anteriormente na seção anterior **Informações básicas**. 
+ Depois de criar a VM, você estará pronto para começar a usar as ferramentas que estão instaladas e pré-configuradas nela. Há blocos do menu Iniciar e ícones da área de trabalho para várias das ferramentas. Você poderá entrar na área de trabalho remota usando as credenciais da conta do Administrador configurada anteriormente na seção anterior **Informações básicas**. 
 
-
+ 
 ## <a name="using-arcgis-pro-installed-in-the-vm"></a>Usando o ArcGIS Pro instalado na VM
 
 A Geo-DSVM já tem a área de trabalho do ArcGIS Pro pré-instalada e o ambiente pré-configurado para trabalhar com todas as ferramentas na DSVM. Quando você inicia o ArcGIS, ele solicita um logon para sua conta do ArcGIS. Se você já tiver uma conta do ArcGIS e as licenças do software, use suas credenciais existentes.  
@@ -87,7 +87,7 @@ Caso contrário, inscreva-se para uma nova conta do ArcGIS e a licença ou obten
 
 ![ArcGIS-Free-Trial](./media/provision-geo-ai-dsvm/ArcGIS-Free-Trial.png)
 
-Depois de se inscrever para uma conta paga ou de avaliação gratuita do ArcGIS, autorize o ArcGIS Pro para sua conta seguindo as instruções da [documentação Introdução ao ArcGIS Pro](http://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf). 
+Depois de se inscrever para uma conta paga ou de avaliação gratuita do ArcGIS, autorize o ArcGIS Pro para sua conta seguindo as instruções da [documentação Introdução ao ArcGIS Pro](https://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf). 
 
 Depois de entrar na área de trabalho do ArcGIS Pro com sua conta do ArcGIS, você estará pronto para começar a usar as ferramentas de ciência de dados instaladas e configuradas na VM para seus projetos de aprendizado de máquina e análise Geoespacial.
 

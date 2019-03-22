@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 5746d8b1f4c12a9b39f1599da753db8109790a55
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: c4684dd27aeed4fab4335a93ea5a458b4a9f5d80
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984115"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821176"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Gerenciar um conjunto de dimensionamento da máquina virtual usando o Azure PowerShell
 
@@ -92,7 +92,7 @@ Start-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -
 
 
 ## <a name="restart-vms-in-a-scale-set"></a>Reiniciar VMs em um conjunto de dimensionamento
-Para reiniciar uma ou mais VMs em um conjunto de dimensionamento, use [Retart-AzVmss](/powershell/module/az.compute/restart-azvmss). O parâmetro `-InstanceId` permite que você especifique uma ou mais VMs para reiniciar. Se você não especificar uma ID de instância, todas as VMs no conjunto de dimensionamento são reiniciadas. Para reiniciar várias VMs, separe cada ID de instância com uma vírgula.
+Para reiniciar uma ou mais VMs em um conjunto de dimensionamento, use [reinicialização AzVmss](/powershell/module/az.compute/restart-azvmss). O parâmetro `-InstanceId` permite que você especifique uma ou mais VMs para reiniciar. Se você não especificar uma ID de instância, todas as VMs no conjunto de dimensionamento são reiniciadas. Para reiniciar várias VMs, separe cada ID de instância com uma vírgula.
 
 O exemplo a seguir reinicia a instância *0* no conjunto de dimensionamento chamado *myScaleSet* e o grupo de recursos *myResourceGroup*. Use seus próprios valores, da seguinte maneira:
 

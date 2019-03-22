@@ -5,44 +5,42 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 10/08/2018
+ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 1a8609dbf5fa1c1e7d5f4e35b081ecaa09994eb6
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
-ms.translationtype: HT
+ms.openlocfilehash: f8558529df24c0aaede0c58744e17829ec0b5669
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068067"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337525"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>Criar manualmente e usar um volume com o compartilhamento de Arquivos do Azure no AKS (Serviço de Kubernetes do Azure)
 
 Aplicativos baseados em contêiner geralmente precisam acessar e manter dados em um volume de dados externo. Se vários pods precisarem de acesso simultâneo ao mesmo volume de armazenamento, você poderá usar os Arquivos do Azure para se conectar por meio do [protocolo SMB][smb-overview]. Este artigo mostra como criar um compartilhamento de arquivos do Azure manualmente e anexá-lo a um pod no AKS.
 
-Para obter mais informações sobre volumes Kubernetes, consulte [Volumes Kubernetes][kubernetes-volumes].
+Para obter mais informações sobre volumes Kubernetes, consulte [opções de armazenamento para aplicativos no AKS][concepts-storage].
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 Este artigo considera que já existe um cluster do AKS. Se você precisar de um cluster do AKS, confira o guia de início rápido do AKS [Usando a CLI do Azure][aks-quickstart-cli] ou [Usando o portal do Azure][aks-quickstart-portal].
 
-Você também precisa ter instalada e configurada a CLI do Azure versão 2.0.46 ou posterior. Execute `az --version` para encontrar a versão. Se precisar instalar ou atualizar, consulte [Instalar a CLI do Azure][install-azure-cli].
+Você também precisa da CLI do Azure versão 2.0.59 ou posterior instalado e configurado. Execute  `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, confira  [Instalar a CLI do Azure][install-azure-cli].
 
 ## <a name="create-an-azure-file-share"></a>Criar um compartilhamento de arquivos do Azure
 
-Antes de usar os Arquivo do Azure como um volume Kubernetes, você deve criar uma conta de Armazenamento do Azure e o compartilhamento de arquivos. O script a seguir cria um grupo de recursos chamado *myAKSShare*, uma conta de armazenamento e um compartilhamento de arquivos chamado *aksshare*:
+Antes de usar os Arquivo do Azure como um volume Kubernetes, você deve criar uma conta de Armazenamento do Azure e o compartilhamento de arquivos. Os seguintes comandos criam um grupo de recursos denominado *myAKSShare*, uma conta de armazenamento e um compartilhamento de arquivos chamado *aksshare*:
 
-```azurecli
-#!/bin/bash
-
-# Change these four parameters
+```azurecli-interactive
+# Change these four parameters as needed for your own environment
 AKS_PERS_STORAGE_ACCOUNT_NAME=mystorageaccount$RANDOM
 AKS_PERS_RESOURCE_GROUP=myAKSShare
 AKS_PERS_LOCATION=eastus
 AKS_PERS_SHARE_NAME=aksshare
 
-# Create the Resource Group
+# Create a resource group
 az group create --name $AKS_PERS_RESOURCE_GROUP --location $AKS_PERS_LOCATION
 
-# Create the storage account
+# Create a storage account
 az storage account create -n $AKS_PERS_STORAGE_ACCOUNT_NAME -g $AKS_PERS_RESOURCE_GROUP -l $AKS_PERS_LOCATION --sku Standard_LRS
 
 # Export the connection string as an environment variable, this is used when creating the Azure file share
@@ -104,7 +102,7 @@ spec:
 
 Use o comando `kubectl` para criar o pod.
 
-```azurecli-interactive
+```console
 kubectl apply -f azure-files-pod.yaml
 ```
 
@@ -117,7 +115,7 @@ Containers:
     Image:          nginx:1.15.5
     Image ID:       docker-pullable://nginx@sha256:9ad0746d8f2ea6df3a17ba89eca40b48c47066dfab55a75e08e2b70fc80d929e
     State:          Running
-      Started:      Mon, 08 Oct 2018 19:28:34 +0000
+      Started:      Sat, 02 Mar 2019 00:05:47 +0000
     Ready:          True
     Mounts:
       /mnt/azure from azure (rw)
@@ -135,7 +133,46 @@ Volumes:
 [...]
 ```
 
+## <a name="mount-options"></a>Opções de montagem
+
+Os valores padrão *fileMode* e *dirMode* diferem entre as versões do Kubernetes, conforme descrito na tabela a seguir.
+
+| versão | valor |
+| ---- | ---- |
+| v1.6.x, v1.7.x | 0777 |
+| v1.8.0-v1.8.5 | 0700 |
+| v.1.8.6 ou superior | 0755 |
+| v1.9.0 | 0700 |
+| v.1.9.1 ou superior | 0755 |
+
+Se estiver usando um cluster da versão 1.8.5 ou superior e criando estaticamente o objeto de volume persistente, as opções de montagem precisam ser especificadas no objeto *PersistentVolume*.
+
+```yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: azurefile
+spec:
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteMany
+  azureFile:
+    secretName: azure-secret
+    shareName: azurefile
+    readOnly: false
+  mountOptions:
+  - dir_mode=0777
+  - file_mode=0777
+  - uid=1000
+  - gid=1000
+```
+
+Se usar um cluster de versão 1.8.0 - 1.8.4, um contexto de segurança pode ser especificado com o *runAsUser* valor definido como *0*. Para obter mais informações sobre o contexto de segurança Pod, consulte [Configurar um contexto de segurança][kubernetes-security-context].
+
 ## <a name="next-steps"></a>Próximas etapas
+
+Para práticas recomendadas associadas, consulte [práticas recomendadas para armazenamento e backups no AKS][operator-best-practices-storage].
 
 Para obter mais informações sobre os clusters do AKS que interagem com os Arquivos do Azure, consulte o [Plugin do Kubernetes para Arquivos do Azure][kubernetes-files].
 
@@ -145,6 +182,7 @@ Para obter mais informações sobre os clusters do AKS que interagem com os Arqu
 [kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/volumes/
 [smb-overview]: /windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview
+[kubernetes-security-context]: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
 
 <!-- LINKS - internal -->
 [az-group-create]: /cli/azure/group#az-group-create
@@ -154,3 +192,5 @@ Para obter mais informações sobre os clusters do AKS que interagem com os Arqu
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
+[operator-best-practices-storage]: operator-best-practices-storage.md
+[concepts-storage]: concepts-storage.md

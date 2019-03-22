@@ -5,7 +5,7 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-mss.service: azure-stack
+ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -13,26 +13,26 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 77493782802eeb29313b57d11442535f1734c12e
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.lastreviewed: 03/19/2019
+ms.openlocfilehash: 080129ca1520dc2b1b085c69f6389508f11c7ba2
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56097378"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285914"
 ---
 # <a name="backup-and-data-recovery-for-azure-stack-with-the-infrastructure-backup-service"></a>Backup e recuperação de dados para o Azure Stack com o serviço de Backup de infraestrutura
 
 *Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-Você pode fazer backup e restaurar a configuração e os dados de serviço usando o serviço de Backup de infraestrutura. Cada instalação do Azure Stack contém uma instância do serviço. Você pode usar os backups criados pelo serviço para a reimplantação da nuvem do Azure Stack para restaurar dados do Azure Resource Manager, segurança e identidade.
+Você pode fazer backup e restaurar a configuração e os dados de serviço usando o serviço de Backup de infraestrutura. Cada instalação do Azure Stack contém uma instância do serviço. Você pode usar os backups criados pelo serviço para a reimplantação da nuvem do Azure Stack para restaurar dados do Azure Resource Manager, segurança e identidade. 
 
 Quando você estiver pronto para colocar sua nuvem em produção, você pode habilitar o backup. Não habilite o backup se você planeja executar testes e a validação por um longo período de tempo.
 
 Antes de habilitar o serviço de backup, verifique se você tem [requisitos em vigor](#verify-requirements-for-the-infrastructure-backup-service).
 
 > [!Note]  
-> O serviço de Backup de infraestrutura não inclui aplicativos e dados de usuário. <!-- See the following articles for instructions on backing up and restore [App Services](https://aka.ms/azure-stack-app-service), [SQL](https://aka.ms/azure-stack-ms-sql), and [MySQL](https://aka.ms/azure-stack-mysql) resource providers and associated user data. -->
+> O serviço de Backup de infraestrutura não inclui aplicativos e dados de usuário. Consulte a [proteger as VMs implantadas no Azure Stack](user/azure-stack-manage-vm-protect.md) para obter mais informações sobre como proteger o IaaS VM com base em aplicativos. Para obter um entendimento de como proteger aplicativos no Azure Stack, consulte o [onsiderations Azure Stack para whitepaper de recuperação de desastre e continuidade dos negócios](http://aka.ms/azurestackbcdrconsiderationswp).
 
 ## <a name="the-infrastructure-backup-service"></a>O serviço de Backup de infraestrutura
 

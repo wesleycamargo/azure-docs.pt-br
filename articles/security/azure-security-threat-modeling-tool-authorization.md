@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: ddf40538fc3d6e39fe48ff49311f86314008b4ce
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 3c078f7246140ee966f1d202d2248758dde49059
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994754"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888461"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Estrutura de segurança: Autorização | Mitigações 
 | Produto/Serviço | Artigo |
@@ -397,7 +397,7 @@ return result;
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico, MVC5 |
 | **Atributos**              | N/D, Provedor de Identidade - ADFS, Provedor de Identidade - Azure AD |
-| **Referências**              | [Autenticação e autorização na ASP.NET Web API](http://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api) |
+| **Referências**              | [Autenticação e autorização na ASP.NET Web API](https://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api) |
 | **Etapas** | <p>As informações de função dos usuários do aplicativo podem ser derivadas do Azure AD ou de declarações do ADFS, se o aplicativo os considerar como provedores de identidade, ou o próprio aplicativo pode fornecê-las. Em qualquer um desses casos, a implementação de autorização personalizada deve validar as informações de função de usuário.</p><p>As informações de função dos usuários do aplicativo podem ser derivadas do Azure AD ou de declarações do ADFS, se o aplicativo os considerar como provedores de identidade, ou o próprio aplicativo pode fornecê-las. Em qualquer um desses casos, a implementação de autorização personalizada deve validar as informações de função de usuário.</p>
 
 ### <a name="example"></a>Exemplo

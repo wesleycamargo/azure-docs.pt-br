@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/18/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 9fd64e4a9eb100b00dc4597042321b21466f2c7d
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: 55e92632b43d365c4041c79f20e68a0a63477d6f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54414460"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58114583"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>Quantos pontos de extremidade de cliente VPN posso ter em minha configuração ponto a site?
 
@@ -58,7 +58,7 @@ Sim. Para o modelo de implantação do Gerenciador de Recursos, você deve ter u
 
 ### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-networks-at-the-same-time"></a>Posso configurar um cliente de ponto a site para se conectar a várias redes virtuais ao mesmo tempo?
 
- Não. Um cliente de Ponto a Site só pode se conectar aos recursos na rede virtual na qual o gateway de rede virtual reside.
+Nº. Um cliente de Ponto a Site só pode se conectar aos recursos na rede virtual na qual o gateway de rede virtual reside.
 
 ### <a name="how-much-throughput-can-i-expect-through-site-to-site-or-point-to-site-connections"></a>Quanta taxa de transferência posso esperar por meio de conexões site a site ou ponto a site?
 
@@ -66,7 +66,7 @@ Sim. Para o modelo de implantação do Gerenciador de Recursos, você deve ter u
 
 ### <a name="can-i-use-any-software-vpn-client-for-point-to-site-that-supports-sstp-andor-ikev2"></a>Posso usar qualquer cliente de VPN de software para Ponto a Site que dê suporte a SSTP e/ou IKEv2?
 
- Não. Você só pode usar o cliente VPN nativo no Windows para SSTP, e o cliente VPN nativo no Mac para IKEv2. Consulte a lista dos sistemas operacionais de cliente com suporte.
+Nº. Você só pode usar o cliente VPN nativo no Windows para SSTP, e o cliente VPN nativo no Mac para IKEv2. Consulte a lista dos sistemas operacionais de cliente com suporte.
 
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>O Azure oferece suporte à VPN IKEv2 com o Windows?
 
@@ -77,11 +77,11 @@ Para preparar o Windows 10 ou Server 2016 para IKEv2:
 1. Instale a atualização.
 
    | Versão do SO | Data | Número/Link |
-   |---|---|---|---|
+   |---|---|---|
    | Windows Server 2016<br>Windows 10, versão 1607 | 17 de janeiro de 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
    | Windows 10, versão 1703 | 17 de janeiro de 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
    | Windows 10 Versão 1709 | 22 de março de 2018 | [BDC4089848](https://www.catalog.update.microsoft.com/search.aspx?q=kb4089848) |
-   |  |  |  |  |
+   |  |  |  |
 
 2. Defina o valor da chave do Registro. Crie ou defina a chave "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload" REG_DWORD do Registro como 1.
 

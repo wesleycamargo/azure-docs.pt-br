@@ -1,19 +1,19 @@
 ---
 title: Excluir discos da replicação para recuperação de desastre do VMware para o Azure usando o Azure Site Recovery | Microsoft Docs
 description: Descreve por que e como excluir discos de VM da replicação para recuperação de desastre do VMware para o Azure.
-author: Rajeswari-Mamilla
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
-ms.date: 11/27/2018
-ms.author: ramamill
+ms.date: 3/3/2019
+ms.author: mayg
 ms.topic: conceptual
-ms.openlocfilehash: af610aaec238e1b2ae8ec2387e5a8f71225cab8c
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 105074892cc6dfa4da1e7c8ddd0a0aad9f1b60a1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848154"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002891"
 ---
 # <a name="exclude-disks-from-replication-of-vmware-vms-to-azure"></a>Excluir discos da replicação de VMs VMware para o Azure
 
@@ -80,7 +80,7 @@ Os discos na máquina virtual de origem são os seguintes:
 DB-Disk0-OS | DISK0 | C:\ | Disco do sistema operacional
 DB-Disk1| Disk1 | D:\ | Banco de dados do sistema SQL e User Database1
 DB-Disco2 (disco excluído da proteção) | Disk2 | E:\ | Arquivos temporários
-DB-Disco3 (disco excluído da proteção) | Disk3 | F:\ | Banco de dados tempdb do SQL (caminho da pasta (F:\MSSQL\Data\) </br /> </br />Anote o caminho da pasta antes do failover.
+DB-Disco3 (disco excluído da proteção) | Disk3 | F:\ | Banco de dados do tempdb do SQL (caminho da pasta (F:\MSSQL\Data\) <br /> <br />Anote o caminho da pasta antes do failover.
 DB-Disk4 | Disk4 |G:\ |User Database2
 
 Como a variação de dados em dois discos da máquina virtual é temporária, enquanto proteger a máquina virtual SalesDB, exclua Disco2 e Disco3 da replicação. O Azure Site Recovery não replicará esses discos. Durante o failover, os discos não estarão presentes na máquina virtual de failover no Azure.
@@ -90,7 +90,7 @@ Os discos na máquina virtual do Azure após o failover são os seguintes:
 **Sistema operacional convidado - disco nº** | **Letra da unidade** | **Tipo de dados no disco**
 --- | --- | ---
 DISK0 | C:\ | Disco do sistema operacional
-Disk1 | E:\ | Armazenamento temporário</br /> </br />o Azure adiciona este disco e atribui a primeira letra da unidade disponível.
+Disk1 | E:\ | Armazenamento temporário<br /> <br />O Azure adiciona este disco e atribui a primeira letra de unidade disponível.
 Disk2 | D:\ | Banco de dados do sistema SQL e User Database1
 Disk3 | G:\ | User Database2
 
@@ -154,7 +154,7 @@ No exemplo anterior, a configuração de disco de máquina virtual do Azure é a
 **Sistema operacional convidado - disco nº** | **Letra da unidade** | **Tipo de dados no disco**
 --- | --- | ---
 DISK0 | C:\ | Disco do sistema operacional
-Disk1 | E:\ | Armazenamento temporário</br /> </br />o Azure adiciona este disco e atribui a primeira letra da unidade disponível.
+Disk1 | E:\ | Armazenamento temporário<br /> <br />O Azure adiciona este disco e atribui a primeira letra de unidade disponível.
 Disk2 | D:\ | Banco de dados do sistema SQL e User Database1
 Disk3 | G:\ | User Database2
 
@@ -193,7 +193,7 @@ Após o failover da máquina virtual do VMware para o Azure, os discos na máqui
 **Nome do disco** | **Sistema operacional convidado - disco nº** | **Letra da unidade** | **Tipo de dados no disco**
 --- | --- | --- | ---
 DB-Disk0-OS | DISK0 | C:\ | Disco do sistema operacional
-DB-Disk1 | Disk1 | D:\ | Armazenamento temporário</br /> </br />pagefile.sys
+DB-Disk1 | Disk1 | D:\ | Armazenamento temporário<br /> <br />pagefile.sys
 DB-Disk2 | Disk2 | E:\ | User data 1
 DB-Disk3 | Disk3 | F:\ | User data 2
 
@@ -220,10 +220,10 @@ Aqui estão as configurações de arquivo de paginação na máquina virtual loc
 
 Após o failover da máquina virtual do VMware para o Azure, os discos na máquina virtual do Azure são:
 
-**Nome do disco**| **Sistema operacional convidado - disco nº**| **Letra da unidade** | **Tipo de dados no disco**
+**Nome do disco** | **Sistema operacional convidado - disco nº** | **Letra da unidade** | **Tipo de dados no disco**
 --- | --- | --- | ---
 DB-Disk0-OS | DISK0  |C:\ |Disco do sistema operacional
-DB-Disk1 | Disk1 | D:\ | Armazenamento temporário</br /> </br />pagefile.sys
+DB-Disk1 | Disk1 | D:\ | Armazenamento temporário<br /> <br />pagefile.sys
 DB-Disk2 | Disk2 | E:\ | User data 1
 DB-Disk3 | Disk3 | F:\ | User data 2
 

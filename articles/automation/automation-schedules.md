@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c1c36736e9d023ab1bd2ed607638b600bc468f2c
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: d6677733339babf45e7351e10d6de1c002a6ea93
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437209"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436476"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Agendando um runbook na Automação do Azure
 
@@ -52,7 +52,7 @@ Você pode criar uma nova agenda para runbooks no portal do Azure ou com o Windo
 1. No painel **Novo agendamento**, digite um **Nome** e, opcionalmente, uma **Descrição** para a nova agenda.
 1. Selecione se o agendamento é executado uma vez ou em um agendamento recorrente selecionando **Once** ou **Recurring**. Se você selecionar **Uma vez**, especifique uma **Hora de início** e clique em **Criar**. Se você selecionar **Recorrente**, especifique um **Horário de início** e para **Recorrente a cada**, selecione a frequência com que o runbook deve repetir - por **horas**, **dia**, **semana** ou pelo **mês**.
     1. Se você selecionar **semana**, receberá uma lista dos dias da semana para escolher. Selecione quantos dias você desejar. A primeira execução da agenda de ocorrerá no primeiro dia selecionado após a hora de início.
-    2. Se você selecionar **mês**, terá diferentes opções. Para o **occurrances mensais** opção, selecione **dias do mês** ou **dias da semana**. Se você escolher **dias do mês**, será exibido um calendário que permite escolher quantos dias você desejar. Se você escolher uma data como a 31ª que não ocorre no mês atual, a programação não será executada. Se você quiser que a programação seja executada no último dia, escolha **Sim** em **Executar no último dia do mês**. Se você escolher **dias da semana**, o **repetir cada** opção for apresentada. Escolher **primeira**, **segundo**, **terceira**, **quarto**, ou **último**. Finalmente escolha um dia para repetir.
+    2. Se você selecionar **mês**, terá diferentes opções. Para o **ocorrências mensais** opção, selecione **dias do mês** ou **dias da semana**. Se você escolher **dias do mês**, será exibido um calendário que permite escolher quantos dias você desejar. Se você escolher uma data como a 31ª que não ocorre no mês atual, a programação não será executada. Se você quiser que a programação seja executada no último dia, escolha **Sim** em **Executar no último dia do mês**. Se você escolher **dias da semana**, o **repetir cada** opção for apresentada. Escolher **primeira**, **segundo**, **terceira**, **quarto**, ou **último**. Finalmente escolha um dia para repetir.
 1. Quando terminar, clique em **criar**.
 
 ### <a name="to-create-a-new-schedule-with-windows-powershell"></a>Para criar uma nova agenda com o Windows PowerShell

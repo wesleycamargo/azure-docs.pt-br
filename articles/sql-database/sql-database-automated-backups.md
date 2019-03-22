@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 7afc1170ba2503c8a8c97be9a19459c92e331449
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: a4907a65f100fd6efcabe422becad69aaee4b6ef
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453572"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57882702"
 ---
 # <a name="automated-backups"></a>Backups automatizados
 
@@ -42,7 +42,7 @@ Use esses backups para:
 
 ## <a name="how-long-are-backups-kept"></a>Quanto tempo são backups mantidos
 
-Cada Banco de Dados SQL do Microsoft Azure tem um período de retenção de backup padrão entre 7 e 35 dias que depende de modelo de compra e peça de serviço. Você pode atualizar o período de retenção de backup de um banco de dados no servidor de Banco de Dados SQL. Para obter mais informações, veja [Alterar o período de retenção de backup](#how-to-change-the-pitr-backup-retention-period).
+Cada Banco de Dados SQL do Microsoft Azure tem um período de retenção de backup padrão entre 7 e 35 dias que depende de modelo de compra e peça de serviço. Você pode atualizar o período de retenção de backup para um banco de dados no servidor de banco de dados SQL. Para obter mais informações, veja [Alterar o período de retenção de backup](#how-to-change-the-pitr-backup-retention-period).
 
 Se você excluir um banco de dados, o Banco de Dados SQL manterá os backups da mesma maneira que em um banco de dados online. Por exemplo, se você excluir um banco de dados Básico que tenha um período de retenção de sete dias, um backup de quatro dias será salvo por mais três dias.
 
@@ -66,7 +66,7 @@ O período de retenção padrão para um banco de dados criado usando o modelo d
 Se estiver usando o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md), o período de retenção de backup padrão será de 7 dias (para bancos de dados individuais, pools de bancos de dados e bancos de dados de instâncias). Para todos os bancos de dados SQL do Azure (individuais, pool de bancos de dados e bancos de dados de instância, é possível [alterar o período de retenção de backup para até 35 dias](#how-to-change-the-pitr-backup-retention-period).
 
 > [!WARNING]
-> Se você reduzir o período de retenção atual, todos os backups existentes mais antigos do que o novo período de retenção não estarão mais disponíveis. Se você aumentar o período de retenção atual, o Banco de Dados SQL manterá os backups existentes até que o período de retenção mais longo seja atingido.
+> Se você reduzir o período de retenção atual, todos os backups existentes mais antigos que o novo período de retenção não estão mais disponíveis. Se você aumentar o período de retenção atual, o Banco de Dados SQL manterá os backups existentes até que o período de retenção mais longo seja atingido.
 
 ## <a name="how-often-do-backups-happen"></a>A frequência com que os backups ocorrem
 
@@ -126,12 +126,13 @@ Para alterar o período de retenção de backup do PITR usando o portal do Azure
 
 ### <a name="change-pitr-backup-retention-period-using-powershell"></a>Alterar o período de retenção de backup de PITR usando o PowerShell
 
-```powershell
-Set-AzureRmSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
-```
-
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Essa API está incluída no módulo para PowerShell AzureRM.Sql começando com a versão [4.7.0-preview](https://www.powershellgallery.com/packages/AzureRM.Sql/4.7.0-preview).
+> O módulo do PowerShell do Azure Resource Manager ainda é compatível com o banco de dados SQL, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para esses cmdlets, consulte [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
+
+```powershell
+Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
+```
 
 ### <a name="change-pitr-retention-period-using-rest-api"></a>Alterar o período de retenção de PITR usando a API REST
 
@@ -145,9 +146,9 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
 
 ```json
 {
-  "properties":{  
-      "retentionDays":28
-   }
+  "properties":{
+    "retentionDays":28
+  }
 }
 ```
 
@@ -174,4 +175,4 @@ Para obter mais informações, confira [API REST de retenção de backup](https:
 - Para restaurar para um determinado ponto no tempo usando o Portal do Azure, consulte [Restaurar um banco de dados para um ponto no tempo usando o Portal do Azure](sql-database-recovery-using-backups.md).
 - Para restaurar para um determinado ponto no tempo usando o PowerShell, consulte [Restaurar um banco de dados para um ponto no tempo usando o PowerShell](scripts/sql-database-restore-database-powershell.md).
 - Para configurar, gerenciar e restaurar a retenção de longo prazo de backups automatizados no Armazenamento de Blobs do Azure usando o portal do Azure, consulte [Gerenciar retenção de backup de longo prazo usando o portal do Azure](sql-database-long-term-backup-retention-configure.md).
-- Para configurar, gerenciar e restaurar a retenção de longo prazo de backups automatizados no Armazenamento de Blobs do Azure usando o PowerShell, consulte [Gerenciar retenção de backup de longo prazo usando o PowerShell](sql-database-long-term-backup-retention-configure.md).
+- Para configurar, gerenciar e restaurar da retenção de longo prazo de backups automatizados em armazenamento de BLOBs do Azure usando o PowerShell, consulte [gerenciar retenção de longo prazo usando o PowerShell](sql-database-long-term-backup-retention-configure.md).

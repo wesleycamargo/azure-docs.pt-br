@@ -11,15 +11,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: 85d32af93586b460c2885d7ed58c0f5aa5df8a44
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: 77d37d5fae024c7b50d9eac461c9f609a86f8ed9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828342"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100097"
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-net"></a>Como executar a transmissão ao vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits com o .NET
 > [!div class="op_single_selector"]
@@ -42,8 +42,6 @@ As etapas a seguir descrevem as tarefas envolvidas na criação de aplicativos c
 
 > [!NOTE]
 > Atualmente, a duração máxima recomendada de um evento ao vivo é de 8 horas. Entre em contato com amslived@microsoft.com se precisar executar um Canal por períodos mais longos.
-> 
-> 
 
 1. Conecte uma câmera de vídeo a um computador. Inicie e configure um codificador dinâmico local que possa produzir um fluxo de taxa de bits única em um dos seguintes protocolos: RTMP ou Smooth Streaming. Para obter mais informações, consulte [Suporte RTMP dos Serviços de Mídia do Azure e Codificadores ao Vivo](https://go.microsoft.com/fwlink/?LinkId=532824).
 
@@ -230,7 +228,7 @@ namespace EncodeLiveStreamWithAmsClear
             // When creating a Channel, you can specify allowed IP addresses in one of the following formats: 
             // IpV4 address with 4 numbers
             // CIDR address range
-        
+
             return new ChannelInput
             {
                 StreamingProtocol = StreamingProtocol.FragmentedMP4,
@@ -258,7 +256,7 @@ namespace EncodeLiveStreamWithAmsClear
             // When creating a Channel, you can specify allowed IP addresses in one of the following formats: 
             // IpV4 address with 4 numbers
             // CIDR address range
-        
+
             return new ChannelPreview
             {
                 AccessControl = new ChannelAccessControl

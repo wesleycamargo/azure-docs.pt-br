@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 5be6acc28932cb3c7f0481b18cbcffae27c3ce13
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: be7dbe35800bbe911bc56d1883462534a16499a0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002367"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58083174"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Monitorar e gerenciar o desempenho do banco de dados SQL do Azure multilocatário fragmentado em um aplicativo SaaS multilocatário
 
@@ -28,7 +28,7 @@ O aplicativo de banco de dados multilocatário SaaS Wingtip Tickets usa um model
 Neste tutorial, você aprenderá a:
 
 > [!div class="checklist"]
-
+> 
 > * Simular o uso em um banco de dados multilocatário fragmentado executando um gerador de carga fornecido
 > * Monitorar o banco de dados à medida que ele responde ao aumento de carga
 > * Dimensionar o banco de dados em resposta ao aumento de carga do banco de dados
@@ -52,7 +52,7 @@ O gerenciamento de desempenho do banco de dados consiste na compilação e anál
 
 O [Portal do Azure](https://portal.azure.com) fornece monitoramento e alertas internos sobre a maioria dos recursos. Para o Banco de Dados SQL, o monitoramento e o alerta estão disponíveis em bancos de dados. Esse monitoramento e alertas internos são específicos ao recurso e, portanto, é conveniente usá-los para pequenas quantidades de recursos, mas não são convenientes ao trabalhar com muitos recursos.
 
-Para cenários de alto volume em que você está trabalhando com muitos recursos, o [Log Analytics](https://azure.microsoft.com/services/log-analytics/) pode ser usado. Esse é um serviço separado do Azure que fornece a análise de logs de diagnóstico emitidos e da telemetria coletada em um workspace de análise de logs. O Log Analytics pode coletar a telemetria de diversos serviços e usá-las para consultar e definir alertas.
+Para cenários de alto volume, em que você está trabalhando com muitos recursos, [registra em log do Azure Monitor](https://azure.microsoft.com/services/log-analytics/) pode ser usado. Isso é um serviço do Azure separado que fornece análise sobre logs de diagnóstico emitidos e telemetria coletados em um espaço de trabalho do Log Analytics. Os logs do Azure Monitor podem coletar a telemetria de muitos serviços e ser usados para consultar e definir alertas.
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Obter o código-fonte e os scripts do aplicativo de banco de dados multilocatário SaaS Wingtip Tickets
 
@@ -78,10 +78,10 @@ O script *New-TenantBatch* cria novos locatários com chaves de locatário exclu
 
 | Demonstração | Cenário |
 |:--|:--|
-| 2 | Gerar carga de intensidade normal (aproximadamente 30 DTUs) |
+| 2 | Gerar carga de intensidade normal (aproximadamente 30 DTU) |
 | 3 | Gerar carga com intermitências mais longas por locatário|
-| 4 | Gerar carga com intermitências de DTU mais longas por locatário (aproximadamente 70 DTUs)|
-| 5 | Gerar uma alta intensidade (aproximadamente 90 DTUs) em um único locatário, mais uma carga de intensidade normal em todos os outros locatários |
+| 4 | Gerar carga com picos maiores de DTU por locatário (aproximadamente 70 DTUS)|
+| 5 | Gerar uma alta intensidade (aproximadamente 90 DTUS) em um único locatário e uma carga de intensidade normal em todos os outros locatários |
 
 O gerador de carga aplica uma carga *sintética* somente da CPU em cada banco de dados de locatário. O gerador inicia um trabalho para cada banco de dados de locatário, que chama um procedimento armazenado que gera a carga periodicamente. Os níveis de carga (em DTUs), a duração e os intervalos variam em todos os bancos de dados, simulando uma atividade de locatário imprevisível.
 
@@ -168,7 +168,7 @@ Se um único locatário em um banco de dados multilocatário enfrentar uma alta 
 Este exercício simula o efeito em que Salix Salsa enfrenta uma alta carga quando tíquetes são colocados à venda para um evento popular.
 
 1. Abra o script …\\*Demo-PerformanceMonitoringAndManagement.ps1*.
-1. Defina **$DemoScenario = 5**, _Gerar uma carga normal e uma carga alta em um locatário único (aproximadamente 90 DTUs)._
+1. Definir **$DemoScenario = 5**, _gerar uma carga normal e uma carga alta em um único locatário (aproximadamente 90 DTUS)._
 1. Defina **$SingleTenantName = Salix Salsa**
 1. Execute o script usando **F5**.
 

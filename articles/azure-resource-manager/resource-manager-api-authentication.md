@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2018
 ms.author: dugill
-ms.openlocfilehash: a81c1d20e0f7b58c132a5ece04f05d6740c2308f
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 138367eb7eb0d4be2e0a7bec57d1bce551a5e829
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56266986"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107045"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Usar API de autenticação do Resource Manager para acessar assinaturas
 
@@ -234,7 +234,8 @@ Você tem apenas um token de acesso para o Azure Resource Manager. É necessári
 <a id="app-azure-ad-graph" />
 
 ### <a name="get-app-only-access-token-for-azure-ad-graph-api"></a>Obter o token de acesso somente de aplicativo para a API do Azure AD Graph
-Para autenticar seu aplicativo e obter um token para a API do Graph do Azure AD, emita uma solicitação de token de fluxo OAuth 2.0 de Concessão de Credencial de Cliente para o ponto de extremidade de token do Azure AD (**https://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token**).
+
+Para autenticar seu aplicativo e obter um token para a API do Graph do Azure AD, emita uma solicitação de token de fluxo do OAuth 2.0 de concessão de credencial de cliente para ponto de extremidade de token do AD do Azure (**https:\//login.microsoftonline.com/{directory_domain_name}/OAuth2/Token** ).
 
 O método [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs) do aplicativo de exemplo do ASP.NET MVC obtém um token de acesso somente de aplicativo para API do Graph usando a Biblioteca de Autenticação do Active Directory para .NET.
 

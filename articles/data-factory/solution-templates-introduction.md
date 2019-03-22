@@ -3,21 +3,20 @@ title: Visão geral de modelos para Azure Data Factory | Microsoft Docs
 description: Saiba como usar um modelo predefinido para iniciar rapidamente com Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/04/2019
-ms.author: douglasl
-ms.reviewer: douglasl
-ms.openlocfilehash: c3571aec55d5050df01f740a163db18e9c6c1095
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+author: gauravmalhot
+ms.author: gamal
+manager: craigg
+ms.openlocfilehash: 4bd38991b2452bdda65a7647f844dcc17fdfb125
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55966389"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003558"
 ---
 # <a name="templates"></a>Modelos
 
@@ -41,11 +40,13 @@ Há duas maneiras para você começar a criar um pipeline do Data Factory a part
 
 ### <a name="out-of-the-box-data-factory-templates"></a>Modelos do Data Factory prontos para uso
 
-O Data Factory usa modelos do Azure Resource Manager para salvar modelos de pipeline do Data Factory. É possível ver todos os modelos do Resource Manager, juntamente com o arquivo de manifesto usado para modelos do Data Factory prontos para uso, no [repositório Github oficial do Azure Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/templates). Os modelos predefinidos fornecidos pela Microsoft incluem os, mas não estão limitados aos, seguintes itens:
+O Data Factory usa modelos do Azure Resource Manager para salvar modelos de pipeline do Data Factory. Você pode ver todos os modelos do Gerenciador de recursos, juntamente com o arquivo de manifesto usados para fora os modelos de fábrica de dados de caixa, nos [repositório do GitHub do Azure Data Factory oficial](https://github.com/Azure/Azure-DataFactory/tree/master/templates). Os modelos predefinidos fornecidos pela Microsoft incluem os, mas não estão limitados aos, seguintes itens:
 
 -   Copiar modelos:
 
     -   [Cópia em massa do Banco de Dados](solution-template-bulk-copy-with-control-table.md)
+    
+    -   [Copiar novos arquivos por LastModifiedDate](solution-template-copy-new-files-lastmodifieddate.md)
 
     -   [Copiar vários contêineres de arquivos entre armazenamentos baseados em arquivo](solution-template-copy-files-multiple-containers.md)
 

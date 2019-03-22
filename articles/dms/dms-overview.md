@@ -2,20 +2,20 @@
 title: Visão Geral do Serviço de Migração de Banco de Dados do Azure | Microsoft Docs
 description: Visão geral do Serviço de Migração de Banco de Dados do Azure, que fornece migrações perfeitas de várias fontes de banco de dados para plataformas de dados do Azure.
 services: database-migration
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.topic: article
-ms.date: 12/19/2018
-ms.openlocfilehash: 68fb6497141d79dc721af7dfa5a8f69102c7e239
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 38bce2316110259298ff478d6019b33c78a53d21
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722193"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182822"
 ---
 # <a name="what-is-the-azure-database-migration-service"></a>O que é o Serviço de Migração de Banco de Dados do Azure?
 O Serviço de Migração de Banco de Dados do Azure é um serviço totalmente gerenciado projetado para permitir migrações contínuas de várias fontes de banco de dados para plataformas de dados do Azure com tempo de inatividade mínimo (migrações on-line).

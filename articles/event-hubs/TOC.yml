@@ -23,7 +23,7 @@ items:
       href: event-hubs-resource-manager-namespace-event-hub.md
   - name: Enviar eventos para hub de eventos
     items:
-    - name: .NET Standard
+    - name: .NET Core
       href: event-hubs-dotnet-standard-getstarted-send.md
     - name: .NET Framework
       href: event-hubs-dotnet-framework-getstarted-send.md
@@ -39,7 +39,7 @@ items:
       href: event-hubs-node-get-started-send.md
   - name: Receber eventos do hub de eventos
     items:
-    - name: .NET Standard
+    - name: .NET Core
       href: event-hubs-dotnet-standard-getstarted-receive-eph.md
     - name: .NET Framework
       href: event-hubs-dotnet-framework-getstarted-receive-eph.md
@@ -196,12 +196,12 @@ items:
   - name: Atualizações de serviço
     href: https://azure.microsoft.com/updates/?product=event-hubs
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-eventhub
+    href: https://stackoverflow.com/questions/tagged/azure-eventhub
   - name: vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=event-hubs
-ms.openlocfilehash: 95e32aa7c38ba5cda4ac6a83bb72f5d28d5b5e9b
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: f565b8c743d8ed29b1fea4480f798dd522fcd045
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55560780"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285965"

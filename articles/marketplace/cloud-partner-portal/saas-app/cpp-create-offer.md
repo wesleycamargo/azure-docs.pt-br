@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 03920bc3ed17eac9d76cea78877f1f008e83f4dd
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: bcaf470fae34056fe932cf8b5fd3076899f895ae
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53195252"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880272"
 ---
 # <a name="create-a-new-saas-application-offer"></a>Criar uma nova oferta de aplicativo SaaS
 
@@ -34,6 +34,7 @@ O diagrama a seguir mostra o processo de criação de uma oferta de aplicativo S
 ## <a name="offer-components"></a>Componentes de oferta
 
 A oferta de aplicativo SaaS consiste em cinco seções, descritas na tabela a seguir:
+
 |  **Grupo de ativos**   |  **Descrição**  |
 |  ---------------   |  ---------------  |
 |    Configurações da oferta  |  Use para configurar uma identidade exclusiva para o aplicativo SaaS.                 |
@@ -45,7 +46,7 @@ A oferta de aplicativo SaaS consiste em cinco seções, descritas na tabela a se
 
 ## <a name="new-offer-form"></a>Novo formulário de oferta
 
-Entre no [Portal do Cloud Partner](http://cloudpartner.azure.com/)e, em seguida, selecione **+ Nova oferta** na barra de menus à esquerda. No menu Nova oferta, selecione **Aplicativos SaaS** para exibir o formulário Nova oferta e iniciar o processo de definição de ativos para uma nova oferta de aplicativo SaaS.
+Entre no [Portal do Cloud Partner](https://cloudpartner.azure.com/)e, em seguida, selecione **+ Nova oferta** na barra de menus à esquerda. No menu Nova oferta, selecione **Aplicativos SaaS** para exibir o formulário Nova oferta e iniciar o processo de definição de ativos para uma nova oferta de aplicativo SaaS.
 
 ![Menu Nova oferta para aplicativos SaaS](./media/azure-new-saas-offer.png)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/3/2019
 ms.author: rkarlin
-ms.openlocfilehash: 52b347aef240f2338aedff2c2a1a3cd53743dc27
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 5a25ba889ebde750937f88e447123263a82d5627
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114256"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896816"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrar soluções de segurança na Central de Segurança do Azure
 Este documento ajuda você a gerenciar soluções de segurança já conectadas à Central de Segurança do Azure e a adicionar novas.
@@ -34,7 +34,7 @@ A Central de Segurança facilita a criação de soluções de segurança integra
 Atualmente, as soluções de segurança integradas incluem:
 
 - Firewall de aplicativo Web ([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/products.html), [Gateway de Aplicativo do Azure](https://azure.microsoft.com/blog/azure-web-application-firewall-waf-generally-available/))
-- Firewall de próxima geração ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2), [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html) e [Palo Alto Networks](https://www.paloaltonetworks.com/products))
+- Firewall de próxima geração ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](https://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2), [Cisco](https://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html) e [Palo Alto Networks](https://www.paloaltonetworks.com/products))
 - Avaliação de vulnerabilidade ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/) e [Rapid7](https://www.rapid7.com/products/insightvm/))
 
 > [!NOTE]
@@ -60,7 +60,7 @@ As soluções de segurança do Azure implantadas da Central de Segurança serão
 
 3. No menu da Central de Segurança, selecione **Soluções de segurança**.
 
-  ![Visão geral da Central de Segurança](./media/security-center-partner-integration/overview.png)
+   ![Visão geral da Central de Segurança](./media/security-center-partner-integration/overview.png)
 
 Em **Soluções de segurança**, você pode exibir informações sobre a integridade da solução integrada de segurança do Azure e executar tarefas básicas de gerenciamento. Você também pode conectar a outros tipos de fontes de dados de segurança, como logs de firewall e alertas do Azure Active Directory Identity Protection no CEF (Formato de Evento Comum).
 
@@ -82,12 +82,12 @@ O status de uma solução de parceiro pode ser:
 >
 >
 
-2. Selecione **EXIBIR** para obter informações e opções adicionais, o que inclui:
+1. Selecione **EXIBIR** para obter informações e opções adicionais, o que inclui:
 
-  - **Console da solução**. Abre a experiência de gerenciamento para esta solução.
-  - **Vincular VM**. Abre a folha Vincular Aplicativos. Nela, você pode conectar recursos à solução de parceiro.
-  - **Excluir solução**.
-  - **Configurar**.
+   - **Console da solução**. Abre a experiência de gerenciamento para esta solução.
+   - **Vincular VM**. Abre a folha Vincular Aplicativos. Nela, você pode conectar recursos à solução de parceiro.
+   - **Excluir solução**.
+   - **Configurar**.
 
    ![Detalhes da solução de parceiro](./media/security-center-partner-solutions/partner-solutions-detail.png)
 

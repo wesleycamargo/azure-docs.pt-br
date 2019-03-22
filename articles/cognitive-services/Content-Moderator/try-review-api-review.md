@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: d963cdd484727ac46aed1915643dd92462e2c643
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 2e40165bde7f3ce2eabd91b55c5bbc8139282b60
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857797"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101458"
 ---
 # <a name="create-reviews-from-the-api-console"></a>Criar análises a partir do console de API
 
@@ -33,35 +33,35 @@ Para testar a API usando o console online, você precisa de alguns valores para 
 
 É a maneira mais simples de acessar um console de teste da janela **Credenciais**.
 
-1.  Na janela **Credenciais**, selecione [referência da API de Análise](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4).
+1. Na janela **Credenciais**, selecione [referência da API de Análise](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4).
 
-  A página **Análise - Criar** será aberta.
+   A página **Análise - Criar** será aberta.
 
-2.  Para **Abrir o console de teste da API**, selecione a região que melhor descreve seu local.
+2. Para **Abrir o console de teste da API**, selecione a região que melhor descreve seu local.
 
-  ![Análise - Criar página seleção de região](images/test-drive-region.png)
+   ![Análise - Criar página seleção de região](images/test-drive-region.png)
 
-  O console de API **Análise - Criar** será aberto.
+   O console de API **Análise - Criar** será aberto.
   
-3.  Insira valores para os parâmetros de consulta necessários, o tipo de conteúdo e a sua chave de assinatura. Na caixa **Corpo da solicitação**, especifique o conteúdo (por exemplo, o local de imagem), metadados e outras informações associadas com o conteúdo.
+3. Insira valores para os parâmetros de consulta necessários, o tipo de conteúdo e a sua chave de assinatura. Na caixa **Corpo da solicitação**, especifique o conteúdo (por exemplo, o local de imagem), metadados e outras informações associadas com o conteúdo.
 
-  ![Análise - Criar console parâmetros de consulta, cabeçalhos e Caixa de corpo da solicitação](images/test-drive-review-1.PNG)
+   ![Análise - Criar console parâmetros de consulta, cabeçalhos e Caixa de corpo da solicitação](images/test-drive-review-1.PNG)
   
-4.  Selecione **Enviar**. Uma ID de análise é criada. Copie esta ID para usar nas etapas a seguir.
+4. Selecione **Enviar**. Uma ID de análise é criada. Copie esta ID para usar nas etapas a seguir.
 
-  ![Análise - Criar console Caixa de conteúdo de resposta exibe a ID de análise](images/test-drive-review-2.PNG)
+   ![Análise - Criar console Caixa de conteúdo de resposta exibe a ID de análise](images/test-drive-review-2.PNG)
   
-5.  Selecione **Obter**e, em seguida, abra a API selecionando o botão que corresponde à sua região. Na página resultante, insira os valores para **teamName**, **ReviewID**, e **chave de assinatura**. Selecione o botão **Enviar** na página. 
+5. Selecione **Obter**e, em seguida, abra a API selecionando o botão que corresponde à sua região. Na página resultante, insira os valores para **teamName**, **ReviewID**, e **chave de assinatura**. Selecione o botão **Enviar** na página. 
 
-  ![Análise - Criar console Obter resultados](images/test-drive-review-3.PNG)
+   ![Análise - Criar console Obter resultados](images/test-drive-review-3.PNG)
   
-6.  Você verá os resultados da varredura.
+6. Você verá os resultados da varredura.
 
-  ![Análise - Criar console Caixa de conteúdo de resposta](images/test-drive-review-4.PNG)
+   ![Análise - Criar console Caixa de conteúdo de resposta](images/test-drive-review-4.PNG)
   
-7.  No painel do Content Moderator, selecione **Análise** > **Imagem**. A imagem que você tiver examinado é exibida, pronta para revisão humana.
+7. No painel do Content Moderator, selecione **Análise** > **Imagem**. A imagem que você tiver examinado é exibida, pronta para revisão humana.
 
-  ![Imagem da ferramenta de análise de uma bola de futebol](images/test-drive-review-5.PNG)
+   ![Imagem da ferramenta de análise de uma bola de futebol](images/test-drive-review-5.PNG)
 
 ## <a name="next-steps"></a>Próximas etapas
 

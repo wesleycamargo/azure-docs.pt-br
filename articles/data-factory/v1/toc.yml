@@ -188,7 +188,7 @@ items:
   - name: Exemplos de código
     href: https://azure.microsoft.com/resources/samples/?service=data-factory
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.datafactories
+    href: /powershell/module/az.datafactory
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.datafactories.models
   - name: REST
@@ -216,7 +216,7 @@ items:
   - name: Atualizações de serviço
     href: https://azure.microsoft.com/updates/?product=data-factory
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-data-factory
+    href: https://stackoverflow.com/questions/tagged/azure-data-factory
   - name: vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=data-factory
   - name: Processar conjuntos de dados em larga escala usando o Data Factory e o Lote
@@ -227,9 +227,9 @@ items:
       href: data-factory-customer-profiling-usecase.md
     - name: Recomendações de Produtos
       href: data-factory-product-reco-usecase.md
-ms.openlocfilehash: 5f2c249f5e822b26d7e1cd5a4fe0c340feb108bf
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 3f1f95be4dc6327c97d5553da76529d58f2a7554
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363021"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57528841"

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: 5a8ac32f43ecadb8908582fa853fc3f2bec7ac55
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 8910b4963c7f40b5b6ecdde06c7c7a0c9b86e97a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970984"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899104"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-azure-cli"></a>Como solucionar problemas de conexões e gateway de rede virtual do usando a CLI do Azure do Observador de rede do Azure
 
@@ -81,7 +81,7 @@ A solução de problemas de recursos produz relatório de dados sobre a integrid
 
 ## <a name="run-network-watcher-resource-troubleshooting"></a>Como executar a solução de problemas de recursos do Observador de rede
 
-Você usa o cmdlet `az network watcher troubleshooting` para solucionar problemas de recursos. Aprovamos o cmdlet no grupo de recursos, no nome do Observador de rede, no ID da conexão, no ID da conta de armazenamento e no caminho para o blob para armazenar o resultado da solução de problemas.
+Utilize o cmdlet `az network watcher troubleshooting` para solucionar os problemas dos recursos. Aprovamos o cmdlet no grupo de recursos, no nome do Observador de rede, no ID da conexão, no ID da conta de armazenamento e no caminho para o blob para armazenar o resultado da solução de problemas.
 
 ```azurecli
 az network watcher troubleshooting start --resource-group resourceGroupName --resource resourceName --resource-type {vnetGateway/vpnConnection} --storage-account storageAccountName  --storage-path https://{storageAccountName}.blob.core.windows.net/{containerName}
@@ -93,7 +93,7 @@ Depois que você executar o cmdlet, o Observador de rede revisará o recurso par
 
 O texto de ação fornece orientação geral sobre como resolver o problema. Se for possível executar uma ação para solucionar o problema, você receberá um link com orientações adicionais. Nos casos em que não há orientações adicionais, a resposta fornecerá a url para abrir um caso de suporte.  Para obter mais informações sobre as propriedades da resposta e o do que está incluído, acesse [Visão geral da solução de problemas do observador de rede](network-watcher-troubleshoot-overview.md)
 
-Para obter instruções sobre como baixar os arquivos de contas de armazenamento do Azure, confira [Introdução ao armazenamento de Blobs do Azure usando o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que pode ser usada é o Gerenciador de armazenamento. Para obter mais informações sobre o Gerenciador de armazenamento acesse o link: [Gerenciador de armazenamento](http://storageexplorer.com/)
+Para obter instruções sobre como baixar os arquivos de contas de armazenamento do Azure, confira [Introdução ao armazenamento de Blobs do Azure usando o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que pode ser usada é o Gerenciador de armazenamento. Para saber mais sobre o Gerenciador de Armazenamento, acesse o link: [Gerenciador de Armazenamento](https://storageexplorer.com/)
 
 ## <a name="next-steps"></a>Próximas etapas
 

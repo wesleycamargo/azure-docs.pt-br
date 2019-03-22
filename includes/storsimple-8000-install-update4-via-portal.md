@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: a95b781d0d08cdca96cf4e98ac9dce43da535d13
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: a3ccf76b2722c04a9353fcc7020ff1387bc454c6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55889562"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58115120"
 ---
 #### <a name="to-install-an-update-from-the-azure-portal"></a>Para instalar uma atualização por meio do portal do Azure
 
@@ -35,7 +35,7 @@ ms.locfileid: "55889562"
    * **Verificações de integridade do componente de hardware** para verificar se todos os componentes de hardware no dispositivo StorSimple estão em boas condições.
    * **Verificações de DATA 0** para verificar se DATA 0 está habilitada no dispositivo. Se essa interface não estiver habilitada, você deverá habilitá-la e repetir a ação.
 
-    A atualização só será baixada e instalada se todas as verificações forem concluídas com êxito. Você será notificado quando as verificações estiverem em andamento. Se as verificações prévias falharem, os motivos da falha serão fornecidos. Resolva esses problemas e então repita a operação. Talvez seja necessário entrar em contato com o Suporte da Microsoft se você não conseguir resolver esses problemas por conta própria.
+     A atualização só será baixada e instalada se todas as verificações forem concluídas com êxito. Você será notificado quando as verificações estiverem em andamento. Se as verificações prévias falharem, os motivos da falha serão fornecidos. Resolva esses problemas e então repita a operação. Talvez seja necessário entrar em contato com o Suporte da Microsoft se você não conseguir resolver esses problemas por conta própria.
 
 7. Depois que as pré-verificações tiverem sido concluídas com êxito, será criado um trabalho de atualização. Você será notificado quando o trabalho de atualização for criado com êxito.
    
@@ -53,5 +53,5 @@ ms.locfileid: "55889562"
 
 10. Após a conclusão do trabalho, navegue até **Configurações do dispositivo > Atualizações do dispositivo**. A versão do software deve ser atualizada.
 
-    ![Criação do trabalho de atualização](./media/storsimple-8000-install-update4-via-portal/update9.png)
+   ![Criação do trabalho de atualização](./media/storsimple-8000-install-update4-via-portal/update9.png)
 

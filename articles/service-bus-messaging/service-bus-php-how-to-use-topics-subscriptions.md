@@ -14,12 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: aschhab
-ms.openlocfilehash: a8d9ea841aee21531ccb0379fbbc9b10ccf25303
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 4862377a8441d5ec920d6b52dbed8ad405144227
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55727306"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57857956"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Como usar tópicos e assinaturas do Barramento de Serviço com PHP
 
@@ -29,11 +29,13 @@ Este artigo mostra como usar os tópicos e as assinaturas do Barramento de Servi
 
 [!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+
 ## <a name="create-a-php-application"></a>Criar um aplicativo PHP
 O único requisito para a criação de um aplicativo PHP que acessa o serviço Blob do Azure é a referência de classes no [SDK do Azure para PHP](../php-download-sdk.md) em seu código. Você pode usar quaisquer ferramentas de desenvolvimento para criar seu aplicativo, ou o Bloco de Notas.
 
 > [!NOTE]
-> A instalação do PHP também deve ter a [extensão OpenSSL](http://php.net/openssl) instalada e habilitada.
+> A instalação do PHP também deve ter a [extensão OpenSSL](https://php.net/openssl) instalada e habilitada.
 > 
 > 
 
@@ -105,7 +107,7 @@ use WindowsAzure\ServiceBus\Models\TopicInfo;
 // Create Service Bus REST proxy.
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 
-try    {        
+try {
     // Create topic.
     $topicInfo = new TopicInfo("mytopic");
     $serviceBusRestProxy->createTopic($topicInfo);
@@ -141,7 +143,7 @@ use WindowsAzure\ServiceBus\Models\SubscriptionInfo;
 // Create Service Bus REST proxy.
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 
-try    {
+try {
     // Create subscription.
     $subscriptionInfo = new SubscriptionInfo("mysubscription");
     $serviceBusRestProxy->createSubscription("mytopic", $subscriptionInfo);
@@ -207,7 +209,7 @@ use WindowsAzure\ServiceBus\Models\BrokeredMessage;
 // Create Service Bus REST proxy.
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 
-try    {
+try {
     // Create message.
     $message = new BrokeredMessage();
     $message->setBody("my message");
@@ -262,7 +264,7 @@ use WindowsAzure\ServiceBus\Models\ReceiveMessageOptions;
 // Create Service Bus REST proxy.
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 
-try    {
+try {
     // Set receive mode to PeekLock (default is ReceiveAndDelete)
     $options = new ReceiveMessageOptions();
     $options->setPeekLock();
@@ -313,7 +315,7 @@ use WindowsAzure\Common\ServiceException;
 // Create Service Bus REST proxy.
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 
-try    {        
+try {
     // Delete topic.
     $serviceBusRestProxy->deleteTopic("mytopic");
 }
@@ -339,5 +341,5 @@ Para obter mais informações, confira [Filas, tópicos e assinaturas][Queues, t
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [sqlfilter]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter
-[require-once]: http://php.net/require_once
+[require-once]: https://php.net/require_once
 [Service Bus quotas]: service-bus-quotas.md

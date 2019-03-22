@@ -10,32 +10,32 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/17/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 99a1b218919380dcdb0c1dba4540d9f8219d2df3
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 7f9a4ce4f1e16f69a1d8998e24c1bfe955d17d92
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593634"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767100"
 ---
 # <a name="automate-azure-stack-validation-with-powershell"></a>Automatizar a validação de pilha do Azure com o PowerShell
 
 Validação como um serviço (VaaS) fornece a capacidade de automatizar a inicialização de testes usando o **LaunchVaaSTests.ps1** script.
 
-> [!NOTE]
+> [!NOTE]  
 > Automação só está disponível para o fluxo de trabalho de aprovação do teste. Somente há suporte para os fluxos de trabalho de validação de pacote e a validação de solução por meio do portal VaaS.
 
-Neste tutorial, você aprenderá a criar um script que:
+Esse script pode ser usado para:
 
 > [!div class="checklist"]
-> * Instala pré-requisitos
-> * Instala e inicia o agente local
-> * Inicia uma categoria de testes, como a integração, funcional, confiabilidade
-> * Relatórios de resultados de teste
+> * Instalar pré-requisitos
+> * Instalar e iniciar o agente local
+> * Inicie uma categoria de testes, como *integration*, *funcional*, *confiabilidade*
+> * Resultados de teste de relatório
 
 ## <a name="launch-the-test-pass-workflow"></a>Iniciar o fluxo de trabalho de aprovação do teste
 
@@ -89,7 +89,7 @@ Neste tutorial, você aprenderá a criar um script que:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre o PowerShell no Azure Stack, examine os módulos mais recente.
+Para saber mais sobre o PowerShell no Azure Stack, examine os módulos mais recentes.
 
 > [!div class="nextstepaction"]
 > [Módulo do Azure Stack](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.6.0)

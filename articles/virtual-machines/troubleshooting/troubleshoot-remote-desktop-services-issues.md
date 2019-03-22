@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 3d747f3b8f54dfefe7e96c378eddbce320bcc8f7
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
-ms.translationtype: HT
+ms.openlocfilehash: 8dc3dcbe3a84a0c35c1e3fc6e367c63393bebb70
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215109"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58003146"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Serviços de área de trabalho remota não estiver iniciando uma VM do Azure
 
@@ -58,7 +58,7 @@ Esse problema ocorre porque os Serviços de Área de Trabalho Remota não estão
 
 - O serviço TermService é definido como **desabilitado**. 
 - O serviço de TermService está falhando ou travando. 
-- O TermService não está iniciando devido a uma configuração incorreta.
+- O serviço de terminal não está iniciando devido a uma configuração incorreta.
 
 ## <a name="solution"></a>Solução
 
@@ -99,7 +99,8 @@ Para solucionar esse problema, use o Console Serial. Ou então, [repare a VM off
 
     |  Erro |  Sugestão |
     |---|---|
-    |5 - ACESSO NEGADO |Consulte o [Serviço TermService está parado devido a um erro de Acesso Negado](#termService-service-is-stopped-because-of-an-access-denied-problem). |   |1053 - ERROR_SERVICE_REQUEST_TIMEOUT  |Veja [Serviço TermService está desabilitado](#termService-service-is-disabled).  |  
+    |5 - ACESSO NEGADO |Consulte o [Serviço TermService está parado devido a um erro de Acesso Negado](#termService-service-is-stopped-because-of-an-access-denied-problem). |
+    |1053 - ERROR_SERVICE_REQUEST_TIMEOUT  |Veja [Serviço TermService está desabilitado](#termService-service-is-disabled).  |  
     |1058 - ERROR_SERVICE_DISABLED  |Ver [TermService serviço falhar ou travar](#termService-service-crashes-or-hangs).  |
     |1059 - ERROR_CIRCULAR_DEPENDENCY |[Entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.|
     |1067 - ERROR_PROCESS_ABORTED  |Ver [TermService serviço falhar ou travar](#termService-service-crashes-or-hangs).  |
@@ -108,7 +109,7 @@ Para solucionar esse problema, use o Console Serial. Ou então, [repare a VM off
     |1070 - ERROR_SERVICE_START_HANG   | Ver [TermService serviço falhar ou travar](#termService-service-crashes-or-hangs). |
     |1077 - ERROR_SERVICE_NEVER_STARTED   | Veja [Serviço TermService está desabilitado](#termService-service-is-disabled).  |
     |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   |[Entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente. |
-    |1753   |[Entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.   |   |5 - ACESSO NEGADO |Consulte o [Serviço TermService está parado devido a um erro de Acesso Negado](#termService-service-is-stopped-because-of-an-access-denied-error). |
+    |1753   |[Entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.   |
     
 #### <a name="termservice-service-is-stopped-because-of-an-access-denied-problem"></a>Serviço TermService está parado devido a um problema de acesso negado
 
@@ -205,7 +206,7 @@ Para solucionar esse problema, use o Console Serial. Ou então, [repare a VM off
 
 1. [Anexar o disco de SO a uma VM de recuperação](../windows/troubleshoot-recovery-disks-portal.md).
 2. Inicie uma conexão de área de trabalho remota para a VM de recuperação. Certifique-se de que o disco conectado esteja sinalizado como **Online** no console de gerenciamento de disco. Anote a letra da unidade atribuída ao disco do SO anexado.
-3.  Abra uma instância de prompt de comando com privilégios elevados (**Executar como administrador**). Em seguida, execute o script a seguir. Assumimos que a letra da unidade atribuída ao disco do SO anexado é **F**. Substitua-o pelo valor apropriado na sua VM. 
+3. Abra uma instância de prompt de comando com privilégios elevados (**Executar como administrador**). Em seguida, execute o script a seguir. Assumimos que a letra da unidade atribuída ao disco do SO anexado é **F**. Substitua-o pelo valor apropriado na sua VM. 
 
    ```
    reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv

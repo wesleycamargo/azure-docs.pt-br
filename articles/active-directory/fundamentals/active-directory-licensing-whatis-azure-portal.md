@@ -14,12 +14,12 @@ ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a6f7eaa91faabfea7bb951eb9863ffecd2f5499
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: be7094db14f53af939ded2313823bf2749e59a46
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182367"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58183145"
 ---
 # <a name="what-is-group-based-licensing-in-azure-active-directory"></a>O que é o licenciamento baseado em grupo no Azure Active Directory?
 
@@ -49,7 +49,7 @@ Aqui estão os principais recursos do licenciamento baseado em grupo:
 
 - Todos os serviços de nuvem da Microsoft que exigem licenciamento no nível do usuário têm suporte. Esse suporte inclui todos os produtos do Office 365, Enterprise Mobility + Security e Dynamics 365.
 
-- Atualmente, o licenciamento baseado em grupo está disponível apenas por meio [do portal do Azure](https://portal.azure.com). Se você usa outros portais de gerenciamento principalmente para gerenciamento de usuário e de grupo, como o portal do Office 365, pode continuar a fazê-lo. Mas você deve usar o portal do Azure para gerenciar licenças no nível do grupo.
+- Licenciamento baseado em grupo está disponível atualmente apenas por meio de [portal do Azure](https://portal.azure.com). Se você usa principalmente outros portais de gerenciamento para o gerenciamento de usuário e grupo, como o [Centro de administração do Microsoft 365](https://admin.microsoft.com), você pode continuar a fazê-lo. Mas você deve usar o portal do Azure para gerenciar licenças no nível do grupo.
 
 - O Azure AD gerencia automaticamente as modificações de licença que resultam das alterações de associação de grupo. Normalmente, as modificações de licença entram em vigor dentro de minutos após uma alteração de associação.
 

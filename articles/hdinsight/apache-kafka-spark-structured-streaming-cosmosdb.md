@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: e964e00cd326d924a77a53348942f91ebbdbdea4
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: 9d29608ded920b14af1be6d4d68ab1d77c3c8cb5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630153"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099147"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Use o Streaming Estruturado do Apache Spark com o Apache Kafka e o Azure Cosmos DB
 
@@ -52,19 +52,19 @@ Enquanto você pode criar uma rede virtual do Azure, Kafka e clusters de Spark m
 
     Este modelo cria os seguintes recursos:
 
-    * Um cluster Kafka no HDInsight 3.6.
+   * Um cluster Kafka no HDInsight 3.6.
 
-    * Um cluster Spark no HDInsight 3.6.
+   * Um cluster Spark no HDInsight 3.6.
 
-    * Uma Rede Virtual do Azure, que contém os clusters HDInsight.
+   * Uma Rede Virtual do Azure, que contém os clusters HDInsight.
 
-        > [!NOTE]  
-        > A rede virtual criada pelo modelo usa o espaço de endereço 10.0.0.0/16.
+       > [!NOTE]  
+       > A rede virtual criada pelo modelo usa o espaço de endereço 10.0.0.0/16.
 
-    * Um banco de dados da API do SQL do Azure Cosmos DB.
+   * Um banco de dados da API do SQL do Azure Cosmos DB.
 
-    > [!IMPORTANT]  
-    > O bloco de anotações de streaming estruturado usado neste exemplo requer o Spark no HDInsight 3.6. Se você usar uma versão anterior do Spark no HDInsight, você receberá erros ao usar o bloco de anotações.
+     > [!IMPORTANT]  
+     > O bloco de anotações de streaming estruturado usado neste exemplo requer o Spark no HDInsight 3.6. Se você usar uma versão anterior do Spark no HDInsight, você receberá erros ao usar o bloco de anotações.
 
 2. Use as seguintes informações para preencher as entradas na seção **Implantação personalizada**:
    

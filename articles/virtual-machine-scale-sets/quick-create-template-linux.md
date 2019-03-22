@@ -16,14 +16,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 481c05f01992ea682176d68211feeea26711e29c
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 5361dc41aeaab0d44ee9a28ad0d7e40d98b17b8a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671872"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013000"
 ---
-# <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-azure-template"></a>Início Rápido: Criar um conjunto de dimensionamento de máquinas virtuais Linux com um modelo do Azure
+# <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-azure-template"></a>Início rápido: Criar um conjunto de dimensionamento de máquinas virtuais Linux com um modelo do Azure
 Um conjunto de dimensionamento de máquinas virtuais permite implantar e gerenciar um conjunto de máquinas virtuais idênticas de dimensionamento automático. É possível dimensionar o número de VMs manualmente no conjunto de dimensionamento ou definir as regras para o dimensionamento automático com base no uso de recursos, como CPU, demanda de memória ou tráfego de rede. Um balanceador de carga do Azure então distribui o tráfego para as instâncias de VM no conjunto de dimensionamento. Neste guia de início rápido, você cria um conjunto de dimensionamento de máquinas virtuais e implanta um aplicativo de exemplo com um modelo do Azure Resource Manager.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
@@ -104,7 +104,7 @@ Para testar seu conjunto de dimensionamento, instale um aplicativo Web básico. 
 - Local dos scripts de configuração ou de instalação
 - Comandos a serem executados nas instâncias da VM
 
-O modelo [servidor HTTP Python no Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) usa a extensão de Script personalizado para instalar o [Bottle](http://bottlepy.org/docs/dev/), uma estrutura de Web Python e um servidor HTTP simples. 
+O modelo [servidor HTTP Python no Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) usa a extensão de Script personalizado para instalar o [Bottle](https://bottlepy.org/docs/dev/), uma estrutura de Web Python e um servidor HTTP simples. 
 
 Dois scripts são definidos em **fileUris** - *installserver.sh* e *workserver.py*. Esses arquivos são baixados do GitHub e o *commandToExecute* executa `bash installserver.sh` para instalar e configurar o aplicativo:
 

@@ -10,16 +10,16 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: 23b627d480acf7bbbff7ade2ba6e596a57a15327
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 85113a5007a171459b831684f584773ba4328b94
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993347"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079939"
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-portal"></a>Criar um gateway de aplicativo com hospedagem de vários sites usando o Portal do Azure
 
-Você pode usar o portal do Azure para configurar [a hospedagem de vários sites da Web](application-gateway-multi-site-overview.md) ao criar um [gateway de aplicativo](application-gateway-introduction.md). Neste tutorial, você criará pools de back-end usando conjuntos de dimensionamento de máquinas virtuais. Em seguida, você configurará ouvintes e regras com base em domínios que possui para garantir que o tráfego da Web chegue aos servidores apropriados nos pools. Este tutorial presume que você possui vários domínios e usa exemplos do *www.contoso.com* e do *www.fabrikam.com*.
+Você pode usar o portal do Azure para configurar [a hospedagem de vários sites da Web](application-gateway-multi-site-overview.md) ao criar um [gateway de aplicativo](application-gateway-introduction.md). Neste tutorial, você criará pools de back-end usando conjuntos de dimensionamento de máquinas virtuais. Em seguida, você configurará ouvintes e regras com base em domínios que possui para garantir que o tráfego da Web chegue aos servidores apropriados nos pools. Este tutorial presume que você possui vários domínios e usa os exemplos *www\.contoso.com* e *www\.fabrikam.com*.
 
 Neste artigo, você aprenderá a:
 
@@ -46,20 +46,20 @@ Uma rede virtual é necessária para a comunicação entre os recursos que você
 2. Selecione **Rede** e depois **Gateway de Aplicativo** na lista em destaque.
 3. Insira esses valores para o gateway de aplicativo:
 
-    - *myAppGateway* - para o nome do gateway de aplicativo.
-    - *myResourceGroupAG* - para o novo grupo de recursos.
+   - *myAppGateway* - para o nome do gateway de aplicativo.
+   - *myResourceGroupAG* - para o novo grupo de recursos.
 
-    ![Criar novo gateway de aplicativo](./media/application-gateway-create-multisite-portal/application-gateway-create.png)
+     ![Criar novo gateway de aplicativo](./media/application-gateway-create-multisite-portal/application-gateway-create.png)
 
 4. Aceite os valores padrão para as outras configurações e, em seguida, clique em **OK**.
 5. Clique em **Escolher uma rede virtual**, clique em **Criar novo** e insira esses valores para a rede virtual:
 
-    - *myVNet* – para o nome da rede virtual.
-    - *10.0.0.0/16* – para o espaço de endereço da rede virtual.
-    - *myAGSubnet* – para o nome da sub-rede.
-    - *10.0.0.0/24* - para o espaço de endereço da sub-rede.
+   - *myVNet* – para o nome da rede virtual.
+   - *10.0.0.0/16* – para o espaço de endereço da rede virtual.
+   - *myAGSubnet* – para o nome da sub-rede.
+   - *10.0.0.0/24* - para o espaço de endereço da sub-rede.
 
-    ![Criar rede virtual](./media/application-gateway-create-multisite-portal/application-gateway-vnet.png)
+     ![Criar rede virtual](./media/application-gateway-create-multisite-portal/application-gateway-vnet.png)
 
 6. Clique em **OK** para criar a rede virtual e a sub-rede.
 7. Clique em **Escolher um endereço IP público**, clique em **Criar novo** e digite o nome do endereço IP público. Neste exemplo, o endereço IP público é denominado *myAGPublicIPAddress*. Aceite os valores padrão para as outras configurações e, em seguida, clique em **OK**.
@@ -96,6 +96,8 @@ Neste exemplo, você cria duas máquinas virtuais para serem usadas como servido
 
 ### <a name="install-iis"></a>Instalar o IIS
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 1. Abra o shell interativo e verifique se ele está definido como **PowerShell**.
 
     ![Instalar a extensão personalizada](./media/application-gateway-create-multisite-portal/application-gateway-extension.png)
@@ -104,7 +106,7 @@ Neste exemplo, você cria duas máquinas virtuais para serem usadas como servido
 
     ```azurepowershell-interactive
     $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `
       -ExtensionName IIS `
@@ -115,7 +117,7 @@ Neste exemplo, você cria duas máquinas virtuais para serem usadas como servido
       -Settings $publicSettings
     ```
 
-3. Crie a segunda máquina virtual e instale o IIS usando as etapas que você acabou de concluir. Insira os nomes de *fabrikamVM* para o nome e o valor de VMName em Set-AzureRmVMExtension.
+3. Crie a segunda máquina virtual e instale o IIS usando as etapas que você acabou de concluir. Insira os nomes dos *fabrikamVM* para o nome e o valor de VMName em Set-AzVMExtension.
 
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>Criar pools de back-end com as máquinas virtuais
 
@@ -134,11 +136,11 @@ Neste exemplo, você cria duas máquinas virtuais para serem usadas como servido
 1. Clique em **Ouvintes** e, em seguida, clique em **Vários sites**.
 2. Insira esses valores para o ouvinte:
     
-    - *contosoListener* – para o nome do ouvinte.
-    - *www.contoso.com* – substitua este exemplo de nome de host pelo nome de domínio.
+   - *contosoListener* – para o nome do ouvinte.
+   - *www\.contoso.com* -substitua este exemplo de nome de host pelo seu nome de domínio.
 
 3. Clique em **OK**.
-4. Crie um segundo ouvinte usando o nome de *fabrikamListener* e use seu segundo nome de domínio. Neste exemplo, *www.fabrikam.com* é usado.
+4. Crie um segundo ouvinte usando o nome de *fabrikamListener* e use seu segundo nome de domínio. Neste exemplo, *www\.fabrikam.com* é usado.
 
 As regras são processadas na ordem em que são listadas e o tráfego é direcionado usando da primeira regra correspondente, independentemente de especificidade. Por exemplo, se você tiver uma regra usando um ouvinte básico e outra usando um ouvinte multissite, ambas na mesma porta, a regra com o ouvinte multissite deverá ser listada antes daquela com o ouvinte básico, para que a função multissite funcione conforme esperado. 
 

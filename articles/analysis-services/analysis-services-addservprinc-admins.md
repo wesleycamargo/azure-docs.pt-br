@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5089083862f243a6a6847a58ac0777c52f978e73
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 701be795ca217c4a2dc5a7dbaa3a3717d16c85bc
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189721"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730215"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Adicionar uma entidade de serviço à função de administrador do servidor 
 
@@ -42,7 +42,7 @@ Para concluir essa tarefa, você deve ter permissões de [administrador do servi
 
 
 > [!NOTE]
-> Para operações do servidor utilizando cmdlets do AzureRm, o agendador executando a entidade de serviço também deverá pertencer à função **Proprietário** do recurso no [RBAC (Controle de Acesso Baseado em Função do Azure)](../role-based-access-control/overview.md). 
+> Para operações de servidor usando cmdlets do PowerShell do Azure, o Agendador em execução do serviço principal também deve pertencer à **proprietário** função para o recurso no [controle de acesso baseado em função (RBAC)](../role-based-access-control/overview.md). 
 
 ## <a name="related-information"></a>Informações relacionadas
 

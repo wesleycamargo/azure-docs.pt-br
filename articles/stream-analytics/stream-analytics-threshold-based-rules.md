@@ -9,17 +9,17 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: 802be1ad5b1029add249430ee7760002407c4641
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
-ms.translationtype: HT
+ms.openlocfilehash: ce2cf6ebdfd74549114e94e4c7356e387576d3c8
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37021618"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731184"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Processar regras de limite configurável com base no Azure Stream Analytics
 Este artigo descreve como usar dados de referência para obter uma solução de alerta que usa regras de limite configurável com base no Azure Stream Analytics.
 
-## <a name="scenario-alerting-based-on-adjustable-rule-thresholds"></a>Cenário: Alertas com base nos limites de regra ajustáveis
+## <a name="scenario-alerting-based-on-adjustable-rule-thresholds"></a>Cenário: Alertas com base nos limites ajustáveis regra
 Talvez seja necessário gerar um alerta como saída quando eventos de fluxo de entrada atingirem um determinado valor, ou quando um valor agregado com base em eventos de fluxo de entrada exceder um certo limite. É simples configurar uma consulta do Stream Analytics, que tem o valor comparado com um limite estático, fixo e predeterminado. Um limite fixo pode ser codificado na sintaxe de consulta de streaming usando comparações numéricas simples (maior que, menor que e de igualdade).
 
 Em alguns casos, os valores de limite precisam ser mais facilmente configuráveis sem a edição da sintaxe de consulta cada vez que um valor de limite é alterado. Em outros casos, talvez você precise de vários dispositivos ou usuários processados na mesma consulta com cada um deles com valores de limite diferentes em cada tipo de dispositivo. 

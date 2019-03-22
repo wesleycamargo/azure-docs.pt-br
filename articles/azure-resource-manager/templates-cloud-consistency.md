@@ -12,12 +12,12 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 4d5c7f8a91bb63cdd80a6f70603e34f8130b92ef
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 4b1c829a417d050b4d931611d9f2952e01582f04
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106674"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089464"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>Desenvolva modelos do Azure Resource Manager para consistência de nuvem
 
@@ -49,8 +49,6 @@ O restante deste guia descreve as áreas a serem consideradas no planejamento pa
 
 Para obter uma introdução aos modelos do Azure Resource Manager, confira [Implantação de modelo](resource-group-overview.md#template-deployment).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## <a name="ensure-template-functions-work"></a>Garantir o funcionamento das funções de modelo
 
 A sintaxe básica de um modelo do Resource Manager é o JSON. Os modelos usam um superconjunto do JSON, estendendo a sintaxe com expressões e funções. O processador de linguagem do modelo é frequentemente atualizado para dar suporte a funções de modelo adicionais. Para obter uma explicação detalhada sobre as funções de modelo disponíveis, confira [Funções de modelo do Azure Resource Manager](resource-group-template-functions.md).
@@ -65,13 +63,13 @@ As funcionalidades do Azure Resource Manager sempre serão introduzidas primeiro
 
 1. Importe o módulo psm1 e execute o cmdlet Test-AzureRmureRmTemplateFunctions:
 
-  ```powershell
-  # Import the module
-  Import-module <path to local clone>\AzTemplateFunctions.psm1
+   ```powershell
+   # Import the module
+   Import-module <path to local clone>\AzTemplateFunctions.psm1
 
-  # Execute the Test-AzureRmTemplateFunctions cmdlet
-  Test-AzureRmTemplateFunctions -path <path to local clone>
-  ```
+   # Execute the Test-AzureRmTemplateFunctions cmdlet
+   Test-AzureRmTemplateFunctions -path <path to local clone>
+   ```
 
 O script implanta vários modelos minimizados, cada um contendo apenas funções de modelo exclusivas. A saída do script relata as funções de modelo compatíveis e não disponíveis.
 

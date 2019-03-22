@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 61211db72928bebf0e1ea50cad6362337f66f0eb
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: c8d2ccc197eb8818cfe3fc54449ee982bbe0c087
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859600"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57844581"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Tipos de entidade e suas finalidades no LUIS
 
@@ -38,8 +38,8 @@ Entidades são dados que você deseja extrair da declaração. Elas podem ser um
 
 |Enunciado|Entidade|Dados|
 |--|--|--|
-|Comprar três passagens para Nova York|Número predefinido<br>Location.Destination|3<br>Nova Iorque|
-|Comprar uma passagem de Nova York para Londres em 5 de março|Location.Origin<br>Location.Destination<br>datetimeV2 predefinido|Nova Iorque<br>Londres<br>5 de março de 2018|
+|Comprar três passagens para Nova York|Número predefinido<br>Location.Destination|3<br>Nova York|
+|Comprar uma passagem de Nova York para Londres em 5 de março|Location.Origin<br>Location.Destination<br>datetimeV2 predefinido|Nova York<br>Londres<br>5 de março de 2018|
 
 ## <a name="entities-are-optional-but-highly-recommended"></a>As entidades são opcionais, mas altamente recomendadas
 
@@ -86,7 +86,7 @@ As entidades podem ser extraídas com aprendizado de máquina, permitindo que o 
 
 Depois que a entidade é extraída, os dados da entidade podem ser representados como uma única unidade de informação ou combinados com outras entidades para formar uma unidade de informação que o aplicativo cliente pode usar.
 
-|Aprendizado de máquina|Pode marcar|Tutorial|Exemplo<br>Response|Tipo de entidade|Finalidade|
+|Aprendizado de máquina|Pode marcar|Tutorial|Exemplo<br>Resposta|Tipo de entidade|Finalidade|
 |--|--|--|--|--|--|
 |✔|✔|[✔](luis-tutorial-composite-entity.md)|[✔](luis-concept-data-extraction.md#composite-entity-data)|[**Composição**](#composite-entity)|Agrupamento de entidades, independentemente do tipo de entidade.|
 |✔|✔|[✔](luis-quickstart-intent-and-hier-entity.md)|[✔](luis-concept-data-extraction.md#hierarchical-entity-data)|[**Hierárquica**](#hierarchical-entity)|Agrupamento de entidades simples.|
@@ -201,7 +201,7 @@ Algumas dessas entidades predefinidas são definidas no projeto [Recognizers-Tex
 
 ## <a name="regular-expression-entity"></a>Entidade de expressão regular 
 
-Uma expressão regular é melhor para texto de enunciado bruto. Não diferencia maiúsculas de minúsculas e ignora a variante cultural.  A correspondência de expressão regular é aplicada após alterações ortográficas no nível do caractere, não no nível do token. Se a expressão regular for muito complexa, como o uso de vários colchetes, não será possível adicionar a expressão ao modelo. Usa parte, mas não toda a biblioteca [.Net Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions). 
+Uma expressão regular é melhor para texto de enunciado bruto. Não diferencia maiúsculas de minúsculas e ignora a variante cultural.  A correspondência de expressão regular é aplicada após alterações ortográficas no nível do caractere, não no nível do token. Se a expressão regular for muito complexa, como o uso de vários colchetes, não será possível adicionar a expressão ao modelo. Usa a parte, mas nem todos os [Regex .NET](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) biblioteca. 
 
 A entidade é uma boa opção quando:
 
@@ -234,7 +234,7 @@ Examine os [limites](luis-boundaries.md#model-boundaries) para entender a quanti
 
 Entidades compostas e hierárquicas têm relações pai-filho e se tratam de aprendizado de máquina. O aprendizado de máquina permite que o LUIS compreenda as entidades baseadas em diferentes contextos (disposição de palavras). Entidades compostas são mais flexíveis, porque permitem tipos de entidade diferente como filhos. Os filhos de uma entidade hierárquica são apenas entidades simples. 
 
-|Type|Finalidade|Exemplo|
+|Tipo|Finalidade|Exemplo|
 |--|--|--|
 |Hierárquico|Pai-filho de entidades simples|Location.Origin=New York<br>Location.Destination=London|
 |Composição|Entidades pai-filho: predefinidas, lista, simples, hierárquicas| number=3<br>list=first class<br>prebuilt.datetimeV2=March 5|

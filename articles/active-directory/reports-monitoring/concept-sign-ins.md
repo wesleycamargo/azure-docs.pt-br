@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f47de0544d6d708d3c8b104be4edada86c11551
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 32720669ae9d8941abce4429471c13608a18cbc5
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190357"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294885"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividades de entrada no portal do Azure Active Directory
 
@@ -149,23 +149,13 @@ Se você adicionar outros campos ao modo de exibição de entradas, esses campos
 
 ## <a name="download-sign-in-activities"></a>Baixar atividades de entrada
 
-Você poderá [baixar os dados de entradas](quickstart-download-sign-in-report.md), caso queira trabalhar com esses dados fora do portal do Azure. Clicar em **Baixar** cria um arquivo CSV contendo os 5 mil registros mais recentes.  Além de um botão de download, o portal do Azure também oferece uma opção para [gerar um script para baixar seus dados](tutorial-signin-logs-download-script.md).  
+Você poderá [baixar os dados de entradas](quickstart-download-sign-in-report.md), caso queira trabalhar com esses dados fora do portal do Azure. Clicando em **baixar** lhe dá a opção de criar um arquivo CSV ou JSON dos registros de 250.000 mais recentes.  
 
 ![Baixar](./media/concept-sign-ins/71.png "Baixar")
-
-Se você precisar de mais flexibilidade, você pode usar a solução de script. Clicar em **Script** cria um script do PowerShell que inclui todos os filtros que você definiu. Baixe e execute esse script no **modo de administrador** para gerar o arquivo CSV. 
 
 > [!IMPORTANT]
 > O número de registros que podem ser baixados é restringido pelas [políticas de retenção de relatórios do Azure Active Directory](reference-reports-data-retention.md).  
 
-### <a name="running-the-script-on-a-windows-10-machine"></a>Executando o script em uma máquina com Windows 10
-
-Se você deseja executar o script em uma máquina do **Windows 10**, é necessário executar algumas etapas adicionais primeiro. 
-
-1. Instale o [módulo Az](/powershell/azure/install-az-ps).
-2. Importe o módulo abrindo um prompt do PowerShell e executando o comando **Import-Module Az**.
-3. Execute **Set-ExecutionPolicy irrestrito** e escolha **Sim para Todos**. 
-4. Agora você pode executar o script do PowerShell baixado no modo de administrador para gerar o arquivo CSV.
 
 ## <a name="sign-ins-data-shortcuts"></a>Atalhos dos dados de entradas
 
@@ -178,7 +168,7 @@ Além do Azure AD, o portal do Azure fornece pontos de entrada adicionais aos da
 
 ### <a name="users-sign-ins-data-in-identity-security-protection"></a>Dados de entradas de usuário na proteção de segurança de identidade
 
-O grafo de entrada de usuário na página de visão geral da **proteção de segurança de identidade** mostra agregações semanais de entradas de todos os usuários em um determinado período de tempo. O padrão para o período é de 30 dias.
+O gráfico de entrada do usuário na **proteção de segurança de identidade** página Visão geral mostra agregações semanais de entradas para todos os usuários em um determinado período de tempo. O padrão para o período é de 30 dias.
 
 ![Atividade de entrada](./media/concept-sign-ins/06.png "Atividade de entrada")
 
@@ -224,7 +214,7 @@ Seu ponto de entrada para esses dados é composto pelos três principais aplicat
 
 ![Atividade de entrada](./media/concept-sign-ins/10.png "Atividade de entrada")
 
-As agregações semanais ao grafo de uso do aplicativo de entradas para seus três principais aplicativos em um determinado período de tempo. O padrão para o período é de 30 dias.
+As aplicativo uso agregações semanais ao grafo de entradas para seus aplicativos de 3 principais em um determinado período de tempo. O padrão para o período é de 30 dias.
 
 ![Atividade de entrada](./media/concept-sign-ins/47.png "Atividade de entrada")
 
@@ -240,7 +230,7 @@ A opção **Entradas** oferece uma visão geral completa de todos os eventos de 
 
 ## <a name="office-365-activity-logs"></a>Logs de atividade do Office 365
 
-É possível exibir logs de atividades do Office 365 no [Centro de Administração do Office 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Embora os logs de atividades do Office 365 e do Azure AD compartilhem muitos dos recursos de diretório, somente o Centro de Administração do Office 365 oferece uma exibição completa dos logs de atividades do Office 365. 
+Você pode exibir os logs de atividades do Office 365 do [Centro de administração do Microsoft 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Apesar de atividades do Office 365 e logs de atividade do Azure AD compartilhem muitos dos recursos de diretório, o Centro de administração do Microsoft 365 fornece uma exibição completa dos logs de atividades do Office 365. 
 
 Você também pode acessar os logs de atividade do Office 365 de modo programático usando as [APIs de gerenciamento do Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 

@@ -6,14 +6,14 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 03/20/2019
 ms.author: sogup
-ms.openlocfilehash: 1a25a9c3e0d099349286476f0ae3791efee1642f
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 20f934ae418b0a5e37d3e619fabadc5cb6e23642
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56452807"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285540"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Obter o melhor backup e restaurar o desempenho com a funcionalidade de restauração instantânea do Backup do Azure
 
@@ -25,9 +25,8 @@ O novo modelo para Restauração instantânea oferece os seguintes aprimoramento
 * Capacidade de usar o instantâneo tirado como parte do trabalho de backup que está disponível para recuperação sem aguardar a conclusão da transferência de dados para o cofre. Isso reduz o tempo de espera para instantâneos para copiar para o cofre antes de disparar a restauração.
 * Reduz os tempos de backup e restauração mantendo os instantâneos localmente. O padrão é de dois dias. O cofre padrão pode ser configurado com qualquer valor entre 1 e 5 dias.
 * Suporte a tamanhos de disco de até 4 TB.
-* Suporte a discos SSD Standard.
-*   Capacidade de usar as contas de armazenamento originais de uma VM não gerenciada (por disco) ao restaurar. Essa capacidade existe mesmo quando a VM possui discos distribuídos em contas de armazenamento. Ela acelera as operações de restauração para uma ampla variedade de configurações de VM
-
+* Dá suporte a discos SSD Standard juntamente com discos Standard HDD e SSD Premium.
+*   Capacidade de usar as contas de armazenamento originais de uma VM não gerenciada (por disco) ao restaurar. Essa capacidade existe mesmo quando a VM possui discos distribuídos em contas de armazenamento. Isso acelera as operações de restauração para uma ampla variedade de configurações de VM.
 
 
 ## <a name="whats-new-in-this-feature"></a>Novidades deste recurso
@@ -41,120 +40,44 @@ Um ponto de recuperação é considerado criado somente após as fases 1 e 2 est
 
 ![Trabalho de backup na pilha de backup de VM, modelo de implantação do Gerenciador de Recursos - armazenar e cofre](./media/backup-azure-vms/instant-rp-flow.png)
 
-Os instantâneos são retidos por sete dias. Esse recurso possibilita a operação de restauração a partir desses instantâneos para diminuir os tempos de restauração. Ele reduz o tempo necessário para transformar e copiar dados do cofre para a conta de armazenamento do usuário para cenários de disco não gerenciado, enquanto que, para os usuários do disco gerenciado, ele cria discos gerenciados dos dados de backup.
+Por padrão, os instantâneos são mantidos por dois dias. Esse recurso permite que a operação de restauração a partir desses instantâneos lá por diminuir os tempos de restauração. Ele reduz o tempo necessário para transformar e copiar dados do cofre.
 
 ## <a name="feature-considerations"></a>Considerações do recurso
 
 * Instantâneos são armazenados com os discos para aumentar a criação do ponto de recuperação e acelerar as operações de restauração. Como resultado, você vê os custos de armazenamento correspondentes aos instantâneos obtidos durante esse período.
 * Os instantâneos incrementais são armazenados como blobs de página. Todos os usuários de discos não gerenciados são cobrados pelos instantâneos armazenados na conta de armazenamento local. Uma vez que as coleções de ponto de restauração usadas por backups de VM gerenciada usam instantâneos de blob no nível de armazenamento subjacente, para discos gerenciados, você vê os custos correspondentes a preços de instantâneo de blob, e eles são incrementais.
-* Para contas de armazenamento premium, os instantâneos obtidos para pontos de recuperação instantâneos contam para o limite de 10 TB de espaço alocado.
+* Para contas de armazenamento premium, os instantâneos tirados para contagem de pontos de recuperação instantânea até o limite de 10 TB de espaço alocado.
 * Você consegue configurar a retenção de instantâneos com base nas necessidades de restauração. Dependendo do requisito, você pode definir a retenção de instantâneos como, no mínimo, um dia na folha de política de backup, conforme explicado abaixo. Isso poderá ajudá-lo a economizar custos de retenção de instantâneo caso você não execute restaurações com frequência.
-
+* Isso é uma atualização de direcional um, uma vez atualizada para a restauração instantânea, você não pode voltar.
 
 >[!NOTE]
 >Com o upgrade da restauração instantânea, a duração da retenção de instantâneos para todos os clientes (**tanto novos quanto existentes**) será definida com um valor padrão de dois dias. No entanto, você pode definir a duração, de acordo com sua necessidade, como qualquer valor entre 1 e 5 dias.
-
 
 ## <a name="cost-impact"></a>Impacto de custo
 
 Os instantâneos incrementais são armazenados na conta de armazenamento da VM, e são usados para a recuperação instantânea. Instantâneo incremental significa que o espaço ocupado por um instantâneo é igual ao espaço ocupado por páginas escritas depois que o instantâneo foi criado. A cobrança ainda ocorre de acordo com o espaço usado em GB ocupado pelo instantâneo e o preço por GB é o mesmo mencionado na [página de preços](https://azure.microsoft.com/pricing/details/managed-disks/).
 
+>[!NOTE]
+> Retenção de instantâneo é fixada em 5 dias para políticas semanais.
 
-## <a name="upgrading-to-instant-restore"></a>Atualizar para a Restauração instantânea
+## <a name="configure-snapshot-retention-using-the-azure-portal"></a>Configurar a retenção de instantâneo usando o portal do Azure
 
-Se você usa o portal do Azure, verá uma notificação no dashboard do cofre. Essa notificação se relaciona com o suporte a disco grande e melhorias de velocidade de backup e restauração.
-Para abrir uma tela para atualização da Restauração instantânea, selecione a faixa.
+**Todos os usuários de backup do Azure agora foram atualizados para a restauração instantânea**.
 
-![Trabalho de backup na pilha de backup de VM, modelo de implantação do Gerenciador de Recursos - suporte e cofre](./media/backup-azure-vms/instant-rp-banner.png)
-
-Clique em **Upgrade** conforme mostrado na captura de tela abaixo:
-
-![Trabalho de backup na pilha de backup de VM, modelo de implantação do Gerenciador de Recursos - atualização](./media/backup-azure-vms/instant-rp.png)
-
-Como alternativa, você pode ir para página **Propriedades** do cofre para ver a opção **Upgrade** em **Pilha de backup da VM**.
-
-![Trabalho de backup na da pilha de backup da VM - Página de propriedades](./media/backup-azure-vms/instant-restore-capability-properties.png)
-
-
-## <a name="configure-snapshot-retention-using-azure-portal"></a>Configurar a retenção de instantâneos usando o portal do Azure
-Tal opção está disponível atualmente no Centro-Oeste dos EUA, no Sul da Índia e no Leste da Austrália.
-
-Para os usuários atualizados, no portal do Azure, é possível ver um campo adicionado à folha **Política de Backup da VM** na seção **Restauração Instantânea**. Você pode alterar a duração da retenção de instantâneos na folha **Política de Backup da VM** para todas as VMs associadas à política de backup específica.
+No portal do Azure, você pode ver um campo adicionado na **política de Backup de VM** folha sob o **restauração instantânea** seção. Você pode alterar a duração da retenção de instantâneos na folha **Política de Backup da VM** para todas as VMs associadas à política de backup específica.
 
 ![Funcionalidade de restauração instantânea](./media/backup-azure-vms/instant-restore-capability.png)
-
-## <a name="upgrade-to-instant-restore-using-powershell"></a>Atualizar para a Restauração instantânea usando o PowerShell
-
-Se quiser fazer autoatendimento e atualizar para a Restauração instantânea, execute os seguintes cmdlets em um terminal do PowerShell com privilégios elevados:
-
-1.  Entre na sua conta do Azure:
-
-    ```
-    PS C:> Connect-AzureRmAccount
-    ```
-
-2.  Selecione a assinatura que você deseja registrar:
-
-    ```
-    PS C:>  Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
-    ```
-
-3.  Registrar esta assinatura:
-
-    ```
-    PS C:>  Register-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
-    ```
-
-## <a name="upgrade-to-instant-restore-using-cli"></a>Atualize para a restauração instantânea usando a CLI
-
-Execute os seguintes comandos em um shell:
-
-1.  Entre na sua conta do Azure:
-
-    ```
-    az login
-    ```
-
-2.  Selecione a assinatura que você deseja registrar:
-
-    ```
-    az account set --subscription "Subscription Name"
-    ```
-
-3.  Registrar esta assinatura:
-
-    ```
-    az feature register --namespace Microsoft.RecoveryServices --name InstantBackupandRecovery
-    ```
-
-## <a name="verify-that-the-upgrade-is-successful"></a>Verifique se a atualização foi bem-sucedida
-
-### <a name="powershell"></a>PowerShell
-De um terminal do PowerShell elevado, execute o cmdlet a seguir:
-
-```
-Get-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" -ProviderNamespace Microsoft.RecoveryServices
-```
-
-### <a name="cli"></a>CLI
-Em um shell, execute o seguinte comando:
-
-```
-az feature show --namespace Microsoft.RecoveryServices --name InstantBackupandRecovery
-```
-
-Se ele diz: "Registrado", então sua assinatura está atualizada para a Restauração instantânea.
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 ### <a name="what-are-the-cost-implications-of-instant-restore"></a>Quais são as implicações de custo da Restauração instantânea?
 Instantâneos são armazenados com os discos para acelerar a criação do ponto de recuperação e as operações de restauração. Como resultado, você vê os custos de armazenamento que correspondem à retenção de instantâneo selecionada como parte da política de backup de VM.
 
-### <a name="in-premium-storage-accounts-do-the-snapshots-taken-for-instant-recovery-point-occupy-the-10-tb-snapshot-limit"></a>Nas contas de Armazenamento Premium, os instantâneos obtidos para o ponto de Recuperação instantânea ocupam o limite de instantâneos de 10 TB?
-Sim, para contas de armazenamento premium, os instantâneos obtidos para o ponto de Recuperação instantânea ocupam os 10 TB de espaço de instantâneo alocado.
+### <a name="in-premium-storage-accounts-do-the-snapshots-taken-for-instant-recovery-point-occupy-the-10-tb-snapshot-limit"></a>Nas contas de armazenamento Premium, os instantâneos obtidos para o ponto de recuperação instantânea, ocupam o limite de instantâneo de 10 TB?
+Sim, para contas de armazenamento premium, os instantâneos obtidos para o ponto de recuperação instantânea ocupam 10 TB de espaço alocado do instantâneo.
 
 ### <a name="how-does-the-snapshot-retention-work-during-the-five-day-period"></a>Como funciona o trabalho de retenção de instantâneo durante o período de cinco dias?
-Cada dia um novo instantâneo é obtido. Em um determinado momento, há cinco instantâneos incrementais individuais. O tamanho do instantâneo depende da variação de dados, que, na maioria dos casos, é de aproximadamente 2% a 7%.
+Cada dia um novo instantâneo é obtido. Em um determinado momento, há cinco instantâneos incrementais individuais. O tamanho do instantâneo depende da variação de dados, que são na maioria dos casos de aproximadamente 2 a 7%.
 
 ### <a name="is-an-instant-restore-snapshot-an-incremental-snapshot-or-full-snapshot"></a>Um instantâneo de Restauração instantânea é um instantâneo incremental ou um instantâneo completo?
 Os instantâneos tirados como parte da funcionalidade de Restauração instantânea são instantâneos incrementais.

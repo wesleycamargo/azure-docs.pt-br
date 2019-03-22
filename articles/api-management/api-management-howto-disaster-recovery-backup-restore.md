@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 7da97b763c532a2189ef058cbb8ffb14c5b150f9
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 56d0b8ced4a0eed3c2bf215ed0e5fc77c343f7fd
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968366"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728634"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Como implementar a recuperação de desastre usando o backup de serviço e restaurar no Gerenciamento de API no Azure
 
@@ -32,6 +32,8 @@ Esse guia mostra como autenticar as solicitações do Azure Resource Manager. El
 > O processo de backup e restauração de uma instância do serviço Gerenciamento de API para recuperação de desastres também pode ser usado para replicar as instâncias de serviço Gerenciamento de API para cenários como preparação.
 >
 > Cada backup expira após 30 dias. Se você tentar restaurar um backup após o período de expiração de 30 dias, a restauração falhará com uma mensagem `Cannot restore: backup expired`.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -207,7 +209,7 @@ Restaure uma operação longa de execução que pode levar até 30 minutos ou ma
 <!-- Dummy comment added to suppress markdown lint warning -->
 
 > [!NOTE]
-> Operações de backup e restauração também podem ser executadas com os comandos PowerShell *Backup-AzureRmApiManagement* e *Restore-AzureRmApiManagement*, respectivamente.
+> Operações de backup e restauração também podem ser executadas com o PowerShell *Backup-AzApiManagement* e *AzApiManagement restauração* comandos, respectivamente.
 
 ## <a name="next-steps"></a>Próximas etapas
 

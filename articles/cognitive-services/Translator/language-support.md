@@ -7,19 +7,19 @@ author: Jann-Skotdal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.topic: article
-ms.date: 09/25/2018
+ms.topic: reference
+ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: d0ab683ac59c17cbae1e0947cd2acd785b0365d3
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: aed3d08f96265736889deccf51d427a6631e1ea9
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884963"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241555"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Idiomas e regiões compatíveis com a API de Tradução de Texto
 
-A API de Tradução de Texto dá suporte aos seguintes idiomas para tradução de texto em texto. A Neural Machine Translation (NMT) é o novo padrão para traduções automáticas de alta qualidade alimentadas por AI e está disponível como padrão usando a V3 da API de texto do tradutor quando um sistema neural está disponível. 
+A API de Tradução de Texto dá suporte aos seguintes idiomas para tradução de texto em texto. A Neural Machine Translation (NMT) é o novo padrão para traduções automáticas de alta qualidade alimentadas por AI e está disponível como padrão usando a V3 da API de texto do tradutor quando um sistema neural está disponível.
 
 [Saiba mais sobre como a tradução automática funciona](https://www.microsoft.com/translator/mt.aspx)
 
@@ -33,7 +33,7 @@ A API de Tradução de Texto dá suporte aos seguintes idiomas para tradução d
 * Neural padrão: neural é o sistema de tradução padrão. Use o parâmetro `category=smt` para acessar o sistema estatístico para uso com o Hub do Microsoft Translator.
 * Neural apenas: apenas a tradução neural está disponível.
 
-**API do Tradutor V3** a API do Tradutor V3 é neural por padrão e sistemas estatísticos estão disponíveis somente quando não houver nenhum sistema neural. O Tradutor Personalizado pode ser usado apenas com linguagens neurais. 
+**API do Tradutor V3** a API do Tradutor V3 é neural por padrão e sistemas estatísticos estão disponíveis somente quando não houver nenhum sistema neural. O Tradutor Personalizado pode ser usado apenas com linguagens neurais. [Exibir idiomas disponíveis atualmente no conversor personalizado](#customization).
 
 |Linguagem|  Código de idioma|  API V2| API V3|
 |:-----|:-----:|:-----|:-----|
@@ -268,7 +268,7 @@ Você pode recuperar uma lista de idiomas com suporte para a API de Tradução d
 
 ## <a name="customization"></a>Personalização
 
-Os seguintes idiomas estão disponíveis para a personalização usando o [Tradutor Personalizado](http://aka.ms/CustomTranslator).
+Os seguintes idiomas estão disponíveis para personalização de ou para uso em inglês [conversor personalizado](http://aka.ms/CustomTranslator).
 
 | Linguagem    | Código de idioma |
 |:----------- |:-------------:|

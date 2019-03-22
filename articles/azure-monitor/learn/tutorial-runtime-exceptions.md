@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 84d98d6b3af884c959e8f0e4d9c117192af32d3a
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 267e790cec3c915330f8f72053458527ee7bfead
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106300"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095561"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Localizar e diagnosticar exceções de tempo de execução com o Azure Application Insights
 
@@ -96,11 +96,11 @@ O depurador de instantâneo coleta instantâneos das exceções mais frequentes 
 ## <a name="use-analytics-data"></a>Usar dados de análise
 Todos os dados coletados pelo Application Insights são armazenados no Azure Log Analytics, que fornece uma linguagem de consulta eficiente que permite que você analise os dados de várias maneiras.  Podemos usar esses dados para analisar as solicitações que geraram a exceção que estamos pesquisando. 
 
-8. Clique nas informações do CodeLens acima do código para exibir a telemetria fornecida pelo Application Insights.
+1. Clique nas informações do CodeLens acima do código para exibir a telemetria fornecida pelo Application Insights.
 
     ![Código](media/tutorial-runtime-exceptions/codelens.png)
 
-9. Clique em **Analisar o impacto** para abrir o Application Insights Analytics.  Ele é preenchido com várias consultas que fornecem detalhes sobre solicitações com falha, como os usuários afetados, navegadores e regiões.<br><br>![Analytics](media/tutorial-runtime-exceptions/analytics.png)<br>
+1. Clique em **Analisar o impacto** para abrir o Application Insights Analytics.  Ele é preenchido com várias consultas que fornecem detalhes sobre solicitações com falha, como os usuários afetados, navegadores e regiões.<br><br>![Analytics](media/tutorial-runtime-exceptions/analytics.png)<br>
 
 ## <a name="add-work-item"></a>Adicionar item de trabalho
 Se você conectar o Application Insights a um sistema de acompanhamento, como Azure DevOps ou GitHub, poderá criar um item de trabalho diretamente do Application Insights.

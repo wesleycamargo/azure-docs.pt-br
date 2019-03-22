@@ -17,6 +17,9 @@ items:
     href: quick-create-net.md
   - name: Definir e recuperar um segredo - Node.js
     href: quick-create-node.md
+  - name: Definir e recuperar um segredo – modelo
+    displayName: resource manager, resource manager template, arm
+    href: quick-create-template.md
   expanded: true
 - name: Tutoriais
   items:
@@ -121,6 +124,8 @@ items:
     href: /python/api/overview/azure/key-vault?view=azure-python
   - name: REST
     href: /rest/api/keyvault
+  - name: Práticas Recomendadas
+    href: key-vault-best-practices.md
   - name: Modelo do Resource Manager
     href: /azure/templates/microsoft.keyvault/allversions
   - name: Autenticação, solicitações e respostas
@@ -168,12 +173,12 @@ items:
   - name: Atualizações de serviço
     href: https://azure.microsoft.com/updates/?product=key-vault
   - name: Blog
-    href: http://blogs.technet.com/b/kv/
+    href: https://blogs.technet.com/b/kv/
   - name: Comentários sobre o Produto
     href: https://feedback.azure.com/forums/906355-azure-key-vault
-ms.openlocfilehash: ca44c7d12064c7a458b1718ede2684c58bdab9b8
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: e54a60608423e8589dfa79dc70ffd4539bfb8a97
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822558"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834635"

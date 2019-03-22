@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/17/2018
 ms.author: dkshir
 ms.custom: include file
-ms.openlocfilehash: f286676cba3d1333db52fb1125279772d518dd88
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 0c89c8353d410ddd54e8a59f3838c914702b96ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584715"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58124518"
 ---
 1. Entre no [Portal do Azure](http://portal.azure.com).
 
@@ -27,7 +27,7 @@ ms.locfileid: "53584715"
    * **Grupo de recursos**: Selecione ou crie um [grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups) para a instância de Gêmeos Digitais.
    * **Localização**: selecione a localização mais próxima de seus dispositivos.
 
-    ![Painel Gêmeos Digitais com informações inseridas](./media/create-digital-twins-portal/create-digital-twins-param.png)
+     ![Painel Gêmeos Digitais com informações inseridas](./media/create-digital-twins-portal/create-digital-twins-param.png)
 
 1. Examine as informações de Gêmeos Digitais e, em seguida, selecione **Criar**. Sua instância de Gêmeos Digitais pode levar alguns minutos para ser criada. Você pode monitorar o progresso no painel **Notificações**.
 

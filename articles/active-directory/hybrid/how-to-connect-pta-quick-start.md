@@ -16,12 +16,12 @@ ms.date: 02/19/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a282ef88a5112593d4d8b9e304ec6ad03f44787c
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 51fc93f9508bada40885e41b39e8a87cf4e0bf3c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415860"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100999"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Autenticação de passagem do Azure Active Directory: Início rápido
 
@@ -68,7 +68,7 @@ Verifique se os pré-requisitos a seguir estão em vigor.
      Se o firewall impõe as regras de acordo com os usuários originadores, abra essas portas para o tráfego proveniente dos serviços Windows que são executados como um serviço de rede.
    - Se o seu firewall ou proxy permitirem lista de permissões de DNS, adicione as conexões a **\*msappproxy.net** e **\*servicebus.windows.net** à lista de permissões. Caso contrário, permita o acesso aos [Intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653), os quais são atualizados semanalmente.
    - Os seus Agentes de autenticação devem acessar **login.windows.net** e **login.microsoftonline.net** para o registro inicial. Abra seu firewall para essas URLs também.
-   - Para validação de certificado, desbloqueie as seguintes URLs: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80** e **www.microsoft.com:80**. Uma vez que essas URLs são usadas para a validação de certificado com outros produtos da Microsoft, você talvez já tenha essas URLs desbloqueadas.
+   - Para validação de certificado, desbloqueie as seguintes URLs: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80**, e **www \.microsoft.com:80**. Uma vez que essas URLs são usadas para a validação de certificado com outros produtos da Microsoft, você talvez já tenha essas URLs desbloqueadas.
 
 ## <a name="step-2-enable-the-feature"></a>Etapa 2: habilitar o recurso
 

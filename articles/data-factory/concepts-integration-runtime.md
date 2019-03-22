@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: jingwang
-ms.openlocfilehash: 82885c00557c85fefcf221789263632e21bd77da
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: ab6da597457fa94c171a1e2547c1d48cf35cd0f9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56344022"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893043"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime no Azure Data Factory
 O IR (tempo de execução de integração) é a infraestrutura de computação usada pelo Azure Data Factory para fornecer as seguintes funcionalidades de integração de dados entre diferentes ambientes de rede:
@@ -51,7 +51,7 @@ O diagrama a seguir mostra como os diferentes tempos de execução de integraç�
 Um Integration Runtime do Azure é capaz de:
 
 - Executar a atividade de cópia entre armazenamentos de dados de nuvem
-- Distribua as seguintes atividades de transformação na rede pública: Atividade de Hive do HDInsight, atividade de Pig do HDInsight, atividade de MapReduce do HDInsight, atividade de Spark do HDInsight, atividade de Streaming do HDInsight, atividade de execução em lote do Machine Learning, atividades de recurso de atualização do Machine Learning, atividade de procedimento armazenado, atividade U-SQL do Data Lake Analytics, atividade personalizada do .Net, atividade da Web, atividade de pesquisa e atividade de obtenção de metadados.
+- Distribua as seguintes atividades de transformação na rede pública: Atividade de Hive do HDInsight, atividade de Pig do HDInsight, atividade de MapReduce do HDInsight, atividade do Spark do HDInsight, atividade de Streaming do HDInsight, atividade de execução de lote do Machine Learning, atividades de recurso de atualização do Machine Learning, atividade de procedimento armazenado Atividade do data Lake Analytics U-SQL, atividade personalizada do .NET, atividade da Web, atividade de pesquisa e obter metadados atividade.
 
 ### <a name="azure-ir-network-environment"></a>Ambiente de rede do IR do Azure
 O Integration Runtime do Azure dá suporte à conexão a armazenamentos de dados e serviços de computação em rede pública com pontos de extremidade publicamente acessíveis. Use um Integration Runtime auto-hospedado para o ambiente de Rede Virtual do Azure.
@@ -69,7 +69,7 @@ Para obter informações sobre como criar e configurar um IR do Azure, consulte 
 Um IR auto-hospedado é capaz de:
 
 - Executar a atividade de cópia entre um armazenamento de dados de nuvem e um armazenamento de dados na rede privada.
-- Distribua as atividades de transformação a seguir contra os recursos do computador no local ou Rede Virtual do Microsoft Azure: Atividade de Hive do HDInsight (BYOC-Bring Your Own Cluster), atividade de Pig do HDInsight (BYOC), atividade de MapReduce do HDInsight (BYOC), atividade de Spark do HDInsight (BYOC), atividade de Streaming do HDInsight (BYOC), atividade de execução em lote do Machine Learning, atividades de recurso de atualização do Machine Learning, atividade de procedimento armazenado, atividade U-SQL do Data Lake Analytics, atividade personalizada do .Net, atividade de pesquisa e atividade de obtenção de metadados.
+- Distribua as atividades de transformação a seguir contra os recursos do computador no local ou Rede Virtual do Microsoft Azure: Atividade de Hive do HDInsight (BYOC – traga seu próprio Cluster), a atividade de Pig de HDInsight (BYOC), a atividade de MapReduce do HDInsight (BYOC), atividade do HDInsight Spark (BYOC), HDInsight atividade de Streaming (BYOC), atividade de execução de lote do Machine Learning, Machine Learning Atividades de recurso, atividade de procedimento armazenado, atividade U-SQL do Data Lake Analytics, atividade personalizada do .NET, atividade de pesquisa e atividade de obter metadados de atualização.
 
 > [!NOTE] 
 > Use o Integration Runtime auto-hospedado para dar suporte a armazenamentos de dados que requer traga seu próprio driver como SAP Hana, MySQL, etc.  Para obter mais informações, consulte [fontes de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).

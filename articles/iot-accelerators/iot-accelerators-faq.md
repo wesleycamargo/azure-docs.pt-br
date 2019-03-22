@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 59271a96c5ad1a92483ca585fc30f1e9de0ed4f7
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: b2f08e811217572e09a254e9ab3306ab954b14b5
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608742"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57009675"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Perguntas frequentes sobre os aceleradores de solução do IoT
 
@@ -71,9 +71,9 @@ A versão anterior do acelerador de solução do Monitoramento Remoto era conhec
 
 Sim, o novo monitoramento remoto está disponível nas mesmas regiões geográficas.
 
-### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsuitecom"></a>Qual é a diferença entre excluir um grupo de recursos no portal do Azure e clicar em excluir em um acelerador de solução no site azureiotsuite.com?
+### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsolutionscom"></a>Qual é a diferença entre excluir um grupo de recursos no portal do Azure e clicar em Excluir em um acelerador de solução em azureiotsolutions.com?
 
-* Se você excluir o acelerador de solução no site [azureiotsuite.com](https://www.azureiotsolutions.com/), todos os recursos implantados na criação do acelerador de solução serão excluídos. Se você adicionou mais recursos ao grupo de recursos, esses recursos também serão excluídos.
+* Se você excluir o solution accelerator na [azureiotsolutions.com](https://www.azureiotsolutions.com/), excluir todos os recursos que foram implantados quando você criou o solution accelerator. Se você adicionou mais recursos ao grupo de recursos, esses recursos também serão excluídos.
 * Se você excluir o grupo de recursos no [Portal do Azure](https://portal.azure.com), somente os recursos nesse grupo de recursos serão excluídos. Você também precisa excluir o aplicativo do Azure Active Directory associado ao acelerador de solução.
 
 ### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-solution-accelerators"></a>Posso continuar meus investimentos existentes nos aceleradores de solução do Azure IoT?

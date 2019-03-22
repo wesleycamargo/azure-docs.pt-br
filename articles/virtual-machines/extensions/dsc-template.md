@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
-ms.openlocfilehash: d55f6097e3e1eed508580676edcf008b0739034c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 41d9f21688df6f32918500365bc88f3f168604d2
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230965"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56869642"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Extensão de configuração de estado desejado com os modelos do Azure Resource Manager
 
@@ -36,33 +36,46 @@ Para obter mais informações, consulte a [classe VirtualMachineExtension](/dotn
 
 ```json
 {
-    "type": "Microsoft.Compute/virtualMachines/extensions",
-    "name": "[concat(parameters('VMName'),'/Microsoft.Powershell.DSC')]",
-    "apiVersion": "2018-04-01",
-    "location": "[resourceGroup().location]",
-    "dependsOn": [
-        "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
-    ],
-    "properties": {
-        "publisher": "Microsoft.Powershell",
-        "type": "DSC",
-        "typeHandlerVersion": "2.76",
-        "autoUpgradeMinorVersion": true,
-        "settings": {
-            "configurationArguments": {
-                "RegistrationUrl" : "registrationUrl",
-                "NodeConfigurationName" : "nodeConfigurationName"
-            }
+  "type": "Microsoft.Compute/virtualMachines/extensions",
+  "name": "Microsoft.Powershell.DSC",
+  "apiVersion": "2018-06-30",
+  "location": "[parameters('location')]",
+  "dependsOn": [
+    "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
+  ],
+  "properties": {
+    "publisher": "Microsoft.Powershell",
+    "type": "DSC",
+    "typeHandlerVersion": "2.77",
+    "autoUpgradeMinorVersion": true,
+    "protectedSettings": {
+      "Items": {
+        "registrationKeyPrivate": "[listKeys(resourceId('Microsoft.Automation/automationAccounts/', parameters('automationAccountName')), '2018-06-30').Keys[0].value]"
+      }
+    },
+    "settings": {
+      "Properties": [
+        {
+          "Name": "RegistrationKey",
+          "Value": {
+            "UserName": "PLACEHOLDER_DONOTUSE",
+            "Password": "PrivateSettingsRef:registrationKeyPrivate"
+          },
+          "TypeName": "System.Management.Automation.PSCredential"
         },
-        "protectedSettings": {
-            "configurationArguments": {
-                "RegistrationKey": {
-                    "userName": "NOT_USED",
-                    "Password": "registrationKey"
-                }
-            }
+        {
+          "Name": "RegistrationUrl",
+          "Value": "[reference(concat('Microsoft.Automation/automationAccounts/', parameters('automationAccountName'))).registrationUrl]",
+          "TypeName": "System.String"
+        },
+        {
+          "Name": "NodeConfigurationName",
+          "Value": "[parameters('nodeConfigurationName')]",
+          "TypeName": "System.String"
         }
+      ]
     }
+  }
 }
 ```
 
@@ -77,37 +90,44 @@ Para obter mais informações, consulte a [classe VirtualMachineScaleSetExtensio
 ```json
 "extensionProfile": {
     "extensions": [
-        {
-            "type": "Microsoft.Compute/virtualMachines/extensions",
-            "name": "[concat(parameters('VMName'),'/Microsoft.Powershell.DSC')]",
-            "apiVersion": "2018-04-01",
-            "location": "[resourceGroup().location]",
-            "dependsOn": [
-                "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
-            ],
-            "properties": {
-                "publisher": "Microsoft.Powershell",
-                "type": "DSC",
-                "typeHandlerVersion": "2.76",
-                "autoUpgradeMinorVersion": true,
-                "settings": {
-                    "configurationArguments": {
-                        "RegistrationUrl" : "registrationUrl",
-                        "NodeConfigurationName" : "nodeConfigurationName"
-                    }
-                },
-                "protectedSettings": {
-                    "configurationArguments": {
-                        "RegistrationKey": {
-                            "userName": "NOT_USED",
-                            "Password": "registrationKey"
-                        }
-                    }
-                }
+      {
+        "name": "Microsoft.Powershell.DSC",
+        "properties": {
+          "publisher": "Microsoft.Powershell",
+          "type": "DSC",
+          "typeHandlerVersion": "2.77",
+          "autoUpgradeMinorVersion": true,
+          "protectedSettings": {
+            "Items": {
+              "registrationKeyPrivate": "[listKeys(resourceId('Microsoft.Automation/automationAccounts/', parameters('automationAccountName')), '2018-06-30').Keys[0].value]"
             }
+          },
+          "settings": {
+            "Properties": [
+              {
+                "Name": "RegistrationKey",
+                "Value": {
+                  "UserName": "PLACEHOLDER_DONOTUSE",
+                  "Password": "PrivateSettingsRef:registrationKeyPrivate"
+                },
+                "TypeName": "System.Management.Automation.PSCredential"
+              },
+              {
+                "Name": "RegistrationUrl",
+                "Value": "[reference(concat('Microsoft.Automation/automationAccounts/', parameters('automationAccountName'))).registrationUrl]",
+                "TypeName": "System.String"
+              },
+              {
+                "Name": "NodeConfigurationName",
+                "Value": "[parameters('nodeConfigurationName')]",
+                "TypeName": "System.String"
+              }
+            ]
+          }
         }
+      }
     ]
-}
+  }
 ```
 
 ## <a name="detailed-settings-information"></a>Informações de configuração detalhadas
@@ -158,35 +178,35 @@ Para obter uma lista de argumentos disponíveis para o script de configuração 
 
 ## <a name="details"></a>Detalhes
 
-| Nome da propriedade | Tipo | DESCRIÇÃO |
+| Nome da propriedade | Type | DESCRIÇÃO |
 | --- | --- | --- |
-| settings.wmfVersion |string |Especifica a versão do Windows Management Framework (WMF) que deve ser instalada em sua VM. Configurar essa propriedade como **latest** instala a versão mais recente de WMF. Atualmente, os únicos valores possíveis para essa propriedade são **4.0**, **5.0**, **5.1** e **o mais recente**. Esses valores possíveis estão sujeitos a atualizações. O valor padrão é **latest**. |
-| settings.configuration.url |string |Especifica o local da URL de onde baixar seu arquivo .zip de configuração DSC. Se a URL fornecida exigir um token SAS para acesso, defina a propriedade **protectedSettings.configurationUrlSasToken** como o valor do seu token de SAS. Esta propriedade será necessária se **settings.configuration.script** ou **settings.configuration.function** estiverem definidas. Se nenhum valor for fornecido para essas propriedades, a extensão chama o script de configuração padrão para definir os metadados do LCM (Location Configuration Manager) e os argumentos devem ser fornecidos. |
-| settings.configuration.script |string |Especifica o nome do arquivo do script que contém a definição de sua configuração DSC. Esse script deve estar na pasta raiz do arquivo .zip que é baixado da URL especificada pela propriedade **settings.configuration.url**. Esta propriedade é necessária se **settings.configuration.url** ou **settings.configuration.script** estiverem definidas. Se nenhum valor for fornecido para essas propriedades, a extensão chama o script de configuração padrão para definir os metadados do LCM e os argumentos devem ser fornecidos. |
-| settings.configuration.function |string |Especifica o nome da configuração DSC. A configuração que é denominada deve estar contida no script definido por **settings.configuration.script**. Esta propriedade será necessária se **settings.configuration.script.url** ou **settings.configuration.function** estiverem definidas. Se nenhum valor for fornecido para essas propriedades, a extensão chama o script de configuração padrão para definir os metadados do LCM e os argumentos devem ser fornecidos. |
+| settings.wmfVersion |cadeia de caracteres |Especifica a versão do Windows Management Framework (WMF) que deve ser instalada em sua VM. Configurar essa propriedade como **latest** instala a versão mais recente de WMF. Atualmente, os únicos valores possíveis para essa propriedade são **4.0**, **5.0**, **5.1** e **o mais recente**. Esses valores possíveis estão sujeitos a atualizações. O valor padrão é **latest**. |
+| settings.configuration.url |cadeia de caracteres |Especifica o local da URL de onde baixar seu arquivo .zip de configuração DSC. Se a URL fornecida exigir um token SAS para acesso, defina a propriedade **protectedSettings.configurationUrlSasToken** como o valor do seu token de SAS. Esta propriedade será necessária se **settings.configuration.script** ou **settings.configuration.function** estiverem definidas. Se nenhum valor for fornecido para essas propriedades, a extensão chama o script de configuração padrão para definir os metadados do LCM (Location Configuration Manager) e os argumentos devem ser fornecidos. |
+| settings.configuration.script |cadeia de caracteres |Especifica o nome do arquivo do script que contém a definição de sua configuração DSC. Esse script deve estar na pasta raiz do arquivo .zip que é baixado da URL especificada pela propriedade **settings.configuration.url**. Esta propriedade é necessária se **settings.configuration.url** ou **settings.configuration.script** estiverem definidas. Se nenhum valor for fornecido para essas propriedades, a extensão chama o script de configuração padrão para definir os metadados do LCM e os argumentos devem ser fornecidos. |
+| settings.configuration.function |cadeia de caracteres |Especifica o nome da configuração DSC. A configuração que é denominada deve estar contida no script definido por **settings.configuration.script**. Esta propriedade será necessária se **settings.configuration.script.url** ou **settings.configuration.function** estiverem definidas. Se nenhum valor for fornecido para essas propriedades, a extensão chama o script de configuração padrão para definir os metadados do LCM e os argumentos devem ser fornecidos. |
 | settings.configurationArguments |Coleção |Define os parâmetros que você deseja passar para a configuração de DSC. Essa propriedade não é criptografada. |
-| settings.configurationData.url |string |Especifica a URL de onde baixar o arquivo de dados de configuração (.psd1) para usar como entrada para a sua configuração de DSC. Se a URL fornecida exigir um token SAS para acesso, defina a propriedade **protectedSettings.configurationDataUrlSasToken** como o valor do seu token de SAS. |
-| settings.privacy.dataCollection |string |Habilita ou desabilita a coleta de telemetria. Os únicos valores possíveis para essa propriedade são **Enable**, **Disable**, **''** ou **$null**. Deixar esta propriedade em branco ou nulo permite telemetria. O valor padrão é **''**. Para obter mais informações, consulte [coleta de dados de extensão de DSC do Azure](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/). |
+| settings.configurationData.url |cadeia de caracteres |Especifica a URL de onde baixar o arquivo de dados de configuração (.psd1) para usar como entrada para a sua configuração de DSC. Se a URL fornecida exigir um token SAS para acesso, defina a propriedade **protectedSettings.configurationDataUrlSasToken** como o valor do seu token de SAS. |
+| settings.privacy.dataCollection |cadeia de caracteres |Habilita ou desabilita a coleta de telemetria. Os únicos valores possíveis para essa propriedade são **Enable**, **Disable**, **''** ou **$null**. Deixar esta propriedade em branco ou nulo permite telemetria. O valor padrão é **''**. Para obter mais informações, consulte [coleta de dados de extensão de DSC do Azure](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/). |
 | settings.advancedOptions.downloadMappings |Coleção |Define os locais alternativos de onde baixar o WMF. Para obter mais informações, consulte [extensão de DSC do Azure 2.8 e como mapear downloads das dependências de extensão para seu próprio local](https://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx). |
 | protectedSettings.configurationArguments |Coleção |Define os parâmetros que você deseja passar para a configuração de DSC. Essa propriedade é criptografada. |
-| protectedSettings.configurationUrlSasToken |string |Especifica o token SAS a usar para acessar a URL definida por **settings.configuration.url**. Essa propriedade é criptografada. |
-| protectedSettings.configurationDataUrlSasToken |string |Especifica o token SAS a usar para acessar a URL definida por **settings.configurationData.url**. Essa propriedade é criptografada. |
+| protectedSettings.configurationUrlSasToken |cadeia de caracteres |Especifica o token SAS a usar para acessar a URL definida por **settings.configuration.url**. Essa propriedade é criptografada. |
+| protectedSettings.configurationDataUrlSasToken |cadeia de caracteres |Especifica o token SAS a usar para acessar a URL definida por **settings.configurationData.url**. Essa propriedade é criptografada. |
 
 ## <a name="default-configuration-script"></a>Script de configuração padrão
 
 Para obter mais informações sobre os seguintes valores, consulte [Configurações Básicas do Local Configuration Manager](/powershell/dsc/metaconfig#basic-settings).
 Você pode usar o script de configuração padrão de extensão DSC para configurar apenas as propriedades do LCM que são listadas na tabela a seguir.
 
-| Nome da propriedade | Tipo | DESCRIÇÃO |
+| Nome da propriedade | Type | DESCRIÇÃO |
 | --- | --- | --- |
 | protectedSettings.configurationArguments.RegistrationKey |PSCredential |Propriedade exigida. Especifica a chave que é usada para um nó para registrar com o serviço de Automação do Azure como a senha de um objeto de credencial do PowerShell. Esse valor pode ser descoberto automaticamente usando o método **listkeys** em relação à conta de Automação.  Veja o [exemplo](#example-using-referenced-azure-automation-registration-values). |
-| settings.configurationArguments.RegistrationUrl |string |Propriedade exigida. Especifica a URL do ponto de extremidade de Automação em que o nó tenta registrar. Esse valor pode ser descoberto automaticamente usando o método de **referência** em relação à conta de Automação. |
-| settings.configurationArguments.NodeConfigurationName |string |Propriedade exigida. Especifica a configuração de nó na conta de Automação para atribuir ao nó. |
-| settings.configurationArguments.ConfigurationMode |string |Especifica o modo para o LCM. As opções válidas incluem **ApplyOny**, **ApplyandMonitior** e **ApplyandAutoCorrect**.  O valor padrão é **ApplyandMonitor**. |
+| settings.configurationArguments.RegistrationUrl |cadeia de caracteres |Propriedade exigida. Especifica a URL do ponto de extremidade de Automação em que o nó tenta registrar. Esse valor pode ser descoberto automaticamente usando o método de **referência** em relação à conta de Automação. |
+| settings.configurationArguments.NodeConfigurationName |cadeia de caracteres |Propriedade exigida. Especifica a configuração de nó na conta de Automação para atribuir ao nó. |
+| settings.configurationArguments.ConfigurationMode |cadeia de caracteres |Especifica o modo para o LCM. As opções válidas incluem **ApplyOny**, **ApplyandMonitior** e **ApplyandAutoCorrect**.  O valor padrão é **ApplyandMonitor**. |
 | settings.configurationArguments.RefreshFrequencyMins | uint32 | Especifica com que frequência o LCM tenta verificar a conta de automação para atualizações.  O valor padrão é **30**.  O valor mínimo é **15**. |
 | settings.configurationArguments.ConfigurationModeFrequencyMins | uint32 | Especifica com que frequência o LCM valida a configuração atual. O valor padrão é **15**. O valor mínimo é **15**. |
 | settings.configurationArguments.RebootNodeIfNeeded | booleano | Especifica se um nó pode ser reinicializado automaticamente se uma operação de DSC solicitar. O valor padrão é **false**. |
-| settings.configurationArguments.ActionAfterReboot | string | Especifica o que acontece após uma reinicialização ao aplicar uma configuração. As opções válidas são **ContinueConfiguration** e **StopConfiguration**. O valor padrão é **ContinueConfiguration**. |
+| settings.configurationArguments.ActionAfterReboot | cadeia de caracteres | Especifica o que acontece após uma reinicialização ao aplicar uma configuração. As opções válidas são **ContinueConfiguration** e **StopConfiguration**. O valor padrão é **ContinueConfiguration**. |
 | settings.configurationArguments.AllowModuleOverwrite | booleano | Especifica se o LCM substitui os módulos existentes no nó. O valor padrão é **false**. |
 
 ## <a name="settings-vs-protectedsettings"></a>settings vs.protectedSettings
@@ -234,7 +254,7 @@ Os argumentos de configuração são passados para o script de configuração pa
 
 O exemplo a seguir é da [visão geral de manipulador de extensão de DSC](dsc-overview.md).
 Este exemplo usa modelos do Resource Manager, em vez de cmdlets para implantar a extensão.
-Salve a configuração de IisInstall.ps1, coloque-o em um arquivo .zip e carregue-o em uma URL acessível.
+Salvar a configuração de IisInstall.ps1, coloque-o em um arquivo. zip (exemplo: `iisinstall.zip`) e, em seguida, carregue o arquivo em uma URL acessível.
 Este exemplo usa o Armazenamento de Blobs do Azure, mas você pode baixar os arquivos .zip de qualquer local aleatório.
 
 No modelo do Resource Manager, o código a seguir instrui a VM a baixar o arquivo correto e, em seguida, executar a função apropriada do PowerShell:
@@ -242,7 +262,7 @@ No modelo do Resource Manager, o código a seguir instrui a VM a baixar o arquiv
 ```json
 "settings": {
     "configuration": {
-        "url": "https://demo.blob.core.windows.net/",
+        "url": "https://demo.blob.core.windows.net/iisinstall.zip",
         "script": "IisInstall.ps1",
         "function": "IISInstall"
     }
@@ -335,27 +355,27 @@ Os únicos valores possíveis são '', 'Enable' e 'Disable'".
 "WmfVersion é '{0}'.
 Únicos valores possíveis são... e 'latest'".
 
-**Problema**: um valor fornecido não é permitido.
+**Problema**: Um valor fornecido não é permitido.
 
-**Solução**: altere o valor inválido para um valor válido.
+**Solução**: Altere o valor inválido para um valor válido.
 Para saber mais, consulte a tabela em [Detalhes](#details).
 
 ### <a name="invalid-url"></a>URL inválida
 
 "ConfigurationData.url é '{0}'. Essa não é uma URL válida" "DataBlobUri é '{0}'. Essa não é uma URL válida" "Configuration.url é '{0}'. Essa não é uma URL válida"
 
-**Problema**: uma URL fornecida não é válida.
+**Problema**: Uma URL fornecida não é válido.
 
-**Solução**: verifique todas as URLs fornecidas.
+**Solução**: Verifique todas as URLs fornecidas.
 Certifique-se de que todas as URLs resolvem para locais válidos que a extensão pode acessar no computador remoto.
 
 ### <a name="invalid-registrationkey-type"></a>Tipo RegistrationKey inválido
 
 “Tipo inválido para o parâmetro RegistrationKey do tipo PSCredential.”
 
-**Problema**: o valor *RegistrationKey* em protectedSettings.configurationArguments só pode ser fornecido como o tipo PSCredential.
+**Problema**: O *RegistrationKey* valor em protectedSettings.configurationArguments não pode ser fornecido como qualquer tipo que não seja uma PSCredential.
 
-**Solução**: alterar a entrada protectedSettings.configurationArguments de RegistrationKey para um tipo PSCredential usando o seguinte formato:
+**Solução**: Altere a entrada de protectedSettings.configurationArguments para RegistrationKey para um tipo PSCredential usando o seguinte formato:
 
 ```json
 "configurationArguments": {
@@ -370,18 +390,18 @@ Certifique-se de que todas as URLs resolvem para locais válidos que a extensão
 
 "Tipo configurationArgument inválido {0}"
 
-**Problema**: a propriedade *ConfigurationArguments* não pode resolver um objeto **tabela de hash**.
+**Problema**: O *ConfigurationArguments* propriedade não pode ser resolvida para um **tabela de Hash** objeto.
 
-**Solução**: torne a propriedade *ConfigurationArguments* uma **tabela de hash**.
+**Solução**: Verifique sua *ConfigurationArguments* propriedade um **tabela de Hash**.
 Siga o formato fornecido no exemplo anterior. Fique atento às chaves, vírgulas e aspas.
 
 ### <a name="duplicate-configurationarguments"></a>ConfigurationArguments duplicado
 
 "Argumentos '{0}' duplicados encontrados em configurationArguments públicos e protegidos"
 
-**Problema**: *ConfigurationArguments* nas configurações públicas, e *ConfigurationArguments* nas configurações protegidas têm propriedades com o mesmo nome.
+**Problema**: O *ConfigurationArguments* nas configurações públicas e o *ConfigurationArguments* nas configurações protegidas têm propriedades com o mesmo nome.
 
-**Solução**: remova uma das propriedades duplicadas.
+**Solução**: Remova uma das propriedades duplicadas.
 
 ### <a name="missing-properties"></a>Propriedades ausentes
 
@@ -397,7 +417,7 @@ Siga o formato fornecido no exemplo anterior. Fique atento às chaves, vírgulas
 
 “protectedSettings.ConfigurationDataUrlSasToken requer a especificação de settings.configurationData.url”
 
-**Problema**: uma propriedade definida precisa de outra propriedade que não está presente.
+**Problema**: Uma propriedade definida precisa de outra propriedade, que está ausente.
 
 **Soluções**:
 

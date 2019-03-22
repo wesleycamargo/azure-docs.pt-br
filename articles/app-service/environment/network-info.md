@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2018
+ms.date: 03/14/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: d22b181baa9b9e6d01fb92a3644078ecbd6af7be
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 73175b326c25d5d9a78155d0d9d888b655da1bfd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191591"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124126"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerações sobre a rede para um Ambiente do Serviço de Aplicativo #
 
@@ -54,6 +54,7 @@ As portas de acesso normais do aplicativo são:
 |  HTTP/HTTPS  | Configurável pelo usuário |  80, 443 |
 |  FTP/FTPS    | Configurável pelo usuário |  21, 990, 10001-10020 |
 |  Depuração remota no Visual Studio  |  Configurável pelo usuário |  4020, 4022, 4024 |
+|  Implantar serviço Web | Configurável pelo usuário | 8172 |
 
 Isso será verdadeiro se você estiver em um ASE externo ou em um ASE ILB. Se você estiver em um ASE externo, chegará a essas portas no VIP público. Se você estiver em um ASE ILB, chegará a essas portas no ILB. Se você bloquear a porta 443, poderá haver um efeito sobre alguns recursos expostos no portal. Para saber mais, confira [Dependências do portal](#portaldep).
 

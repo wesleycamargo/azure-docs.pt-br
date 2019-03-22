@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 343ffb8daf19711d6c2a61b819ece92448146446
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: HT
+ms.openlocfilehash: c97c94492417dcc87d34751908f1766393ad37ed
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52330692"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58114068"
 ---
 Quando não precisar mais de um disco de dados conectado a uma máquina virtual, você poderá desanexá-lo facilmente. Desanexar um disco remove o disco da máquina virtual, mas não exclui o disco da conta de armazenamento do Azure.
 
@@ -28,7 +28,7 @@ Se você não souber o nome do disco ou deseja verificá-lo antes de desanexá-l
 
 3. Clique em **Discos** ao longo da borda esquerda do painel da máquina virtual, em **Configurações**.
 
- O painel da máquina virtual lista o nome e o tipo de todos os discos anexados. Por exemplo, esta tela mostra uma máquina virtual com um disco do sistema operacional (SO) e um disco de dados:
+   O painel da máquina virtual lista o nome e o tipo de todos os discos anexados. Por exemplo, esta tela mostra uma máquina virtual com um disco do sistema operacional (SO) e um disco de dados:
 
     ![Encontrar disco de dados](./media/howto-detach-disk-windows-linux/vmwithdisklist.png)
 
@@ -39,14 +39,14 @@ Se você não souber o nome do disco ou deseja verificá-lo antes de desanexá-l
 
 3. Clique no disco que você deseja desanexar.
 
-  ![Identificar o disco para desanexar](./media/howto-detach-disk-windows-linux/disklist.png)
+   ![Identificar o disco para desanexar](./media/howto-detach-disk-windows-linux/disklist.png)
 
 4. Na barra de comandos, clique em **Desanexar**.
 
-  ![Localizar o comando desanexar](./media/howto-detach-disk-windows-linux/diskdetachcommand.png)
+   ![Localizar o comando desanexar](./media/howto-detach-disk-windows-linux/diskdetachcommand.png)
 
 5. Na janela de confirmação, clique em **Sim** para desanexar o disco.
 
-  ![Confirmar desanexar o disco](./media/howto-detach-disk-windows-linux/confirmdetach.png)
+   ![Confirmar desanexar o disco](./media/howto-detach-disk-windows-linux/confirmdetach.png)
 
 O disco permanece no armazenamento mas não esteja conectado a uma máquina virtual.

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 1/10/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 74ac8602e61404214f300682f5696100b8fa0c60
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: f7c5ce2ce4725277fc08634a021d2b38d11abc1c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868847"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58074788"
 ---
 # <a name="quickstart-search-for-news-using-c-and-the-bing-news-search-rest-api"></a>Início Rápido: Pesquisar notícias usando C# e a API REST de Pesquisa de Notícias do Bing
 
@@ -28,7 +28,7 @@ Embora esse aplicativo seja escrito em C#, a API é um serviço Web RESTful comp
 
 * Qualquer edição do [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 * A estrutura [Json.NET](https://www.newtonsoft.com/json), disponível como um pacote do NuGet.
-* Se você estiver usando Linux/MacOS, este aplicativo poderá ser executado usando [Mono](http://www.mono-project.com/).
+* Se você estiver usando Linux/MacOS, este aplicativo poderá ser executado usando [Mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
@@ -53,7 +53,7 @@ Veja também [Cognitive Services Pricing - API de Pesquisa do Bing](https://azur
     const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/news/search";
     const string searchTerm = "Microsoft";
     ```
-## <a name="create-a-struct-to-format-the-bing-news-search-response"></a>Criar um struct para formatar a resposta da Pesquisa de Notícias do Bing
+   ## <a name="create-a-struct-to-format-the-bing-news-search-response"></a>Criar um struct para formatar a resposta da Pesquisa de Notícias do Bing
 
 1. Defina um struct `SearchResult` para conter os resultados da pesquisa de imagem e as informações de cabeçalho do JSON.
 

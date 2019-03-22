@@ -3,7 +3,7 @@ title: Alertas de segurança por tipo na Central de Segurança do Azure | Micros
 description: Este artigo descreve os diferentes tipos de alertas de segurança disponíveis na Central de Segurança do Azure.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: b3e7b4bc-5ee0-4280-ad78-f49998675af1
@@ -12,22 +12,19 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/3/2018
-ms.author: rkarlin
-ms.openlocfilehash: 1f9ea2fd1e9a346046c55db451bc333373896db5
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.date: 3/20/2018
+ms.author: monhaber
+ms.openlocfilehash: 407d0610f919b1145a91e8678f57f8d344c9c187
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118081"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286356"
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Noções básicas de alertas de segurança na Central de Segurança do Azure
 Este artigo ajuda você a compreender os diferentes tipos de alertas de segurança e as informações relacionadas disponíveis na Central de Segurança do Azure. Para saber mais sobre como gerenciar os alertas e os incidentes, confira [Gerenciar e responder aos alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md).
 
 Para configurar as detecções avançadas, atualize para a Central de Segurança do Azure Standard. Há uma avaliação gratuita disponível. Para atualizar, selecione **Tipo de Preço** na [política de segurança](tutorial-security-policy.md). Para saber mais, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
-
-> [!NOTE]
-> A Central de Segurança foi lançada para visualização limitada de um novo conjunto de detecções que aproveitam os registros de auditoria, uma estrutura de auditoria comum, para detectar comportamentos mal-intencionados em máquinas Linux. Envie um email com suas IDs de assinatura para [nós](mailto:ASC_linuxdetections@microsoft.com) para ingressar na visualização.
 
 ## <a name="what-type-of-alerts-are-available"></a>Que tipo de alerta está disponível?
 A Central de Segurança do Azure usa uma variedade de [recursos de detecção](security-center-detection-capabilities.md) para alertar os clientes de possíveis ataques direcionados a seus ambientes. Esses alertas contêm informações valiosas sobre o que disparou o alerta, os recursos de destino e a origem do ataque. As informações incluídas em um alerta variam de acordo com o tipo de análise usado para detectar a ameaça. Os Incidentes também podem conter informações contextuais adicionais que podem ser úteis ao investigar uma ameaça.  Este artigo fornece informações sobre os seguintes tipos de alerta:
@@ -96,7 +93,7 @@ A Central de Segurança usa análises avançadas para identificar recursos compr
 * **Todas as cópias de sombra de arquivos foram excluídas**: esse alerta indica que cópias de sombra foram excluídas.
 * **Comandos de limpeza de arquivo suspeito**: esse alerta indica uma combinação de comandos systeminfo usada para executar uma atividade de autolimpeza pós-comprometimento.  Embora *systeminfo.exe* seja uma ferramenta legítima do Windows, executá-la duas vezes consecutivas seguida por um comando de exclusão da maneira que ocorreu aqui é raro.
 * **Criação de conta suspeita**: esse alerta indica que foi criada uma conta bastante semelhante a uma conta interna com privilégio administrativo. Essa técnica pode ser usada para criar uma conta de invasor sem ser detectada.
-* **Atividade de cópia de sombra de volume suspeita**: esse alerta indica a atividade de exclusão de cópia de sombra no recurso. Cópia de sombra de volume (VSC) é um artefato importante que armazena instantâneos de dados. Essa atividade é geralmente associada a Ransowmare, mas também poderia ser legítima.
+* **Atividade de cópia de sombra de volume suspeita**: esse alerta indica a atividade de exclusão de cópia de sombra no recurso. Cópia de sombra de volume (VSC) é um artefato importante que armazena instantâneos de dados. Essa atividade é associada a Ransomware, mas também poderia ser legítima.
 * **Método de persistência de Registro do Windows**: esse alerta indica uma tentativa de manter um executável no Registro do Windows. Um malware geralmente usa essa técnica para sobreviver a uma inicialização.
 * **Nova regra de firewall suspeita**: esse alerta indica que uma nova regra de firewall foi adicionada por meio do *netsh.exe* para permitir o tráfego de um executável em um local suspeito.
 * **Execuções de XCOPY suspeitas**: esse alerta indica uma série de execuções de XCOPY, o que pode sinalizar que um dos seus computadores foi comprometido e usado para propagar o malware.

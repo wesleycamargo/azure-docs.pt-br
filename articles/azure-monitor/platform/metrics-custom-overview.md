@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: cb1d08bb7b4c64d8dbcf39a667cb037ff30c38e7
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 8602027431fdf2c1378834419977606bab5c6921
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467886"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287257"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Métricas personalizadas no Azure Monitor
 
@@ -29,7 +29,7 @@ Métricas personalizadas podem ser enviadas ao Monitor do Azure por vários mét
 
 Quando você envia as métricas personalizadas para o Azure Monitor, cada ponto de dados ou valor, relatado deve incluir as informações a seguir.
 
-### <a name="authentication"></a>Autenticação
+### <a name="authentication"></a>Authentication
 Para enviar métricas personalizadas para o Monitor do Azure, a entidade que envia a métrica precisa de um token válido do Azure AD (Azure Active Directory) no cabeçalho **Portador** da solicitação. Há algumas maneiras para adquirir um token de portador válido:
 1. [Identidades gerenciadas para recursos do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Fornece uma identidade a um recurso do Azure, como uma VM. A MSI (Managed Service Identity, identidade de serviço gerenciado) foi projetada para fornecer permissões de recursos para executar determinadas operações. Um exemplo é permitir que um recurso emita métricas sobre si mesmo. Um recurso, ou seu MSI, pode receber permissões de **Monitoring Metrics Publisher** em outro recurso. Com essa permissão, o MSI também pode emitir métricas para outros recursos.
 2. [Entidade de serviço do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). Nesse cenário, um aplicativo ou serviço do Azure AD pode receber permissões para emitir métricas sobre um recurso do Azure.
@@ -55,7 +55,7 @@ Essa propriedade captura em que região do Azure o recurso para o qual você est
 >
 
 ### <a name="timestamp"></a>Timestamp
-Cada ponto de dados enviado ao Azure Monitor deve estar marcado com um carimbo de data/hora. Esse registro de data e hora captura o DateTime no qual o valor da métrica é medido ou coletado. O Monitor do Azure aceita dados de métricas com registros de data e hora em até 20 minutos no passado e 5 minutos no futuro.
+Cada ponto de dados enviado ao Azure Monitor deve estar marcado com um carimbo de data/hora. Esse registro de data e hora captura o DateTime no qual o valor da métrica é medido ou coletado. O Monitor do Azure aceita dados de métricas com registros de data e hora em até 20 minutos no passado e 5 minutos no futuro. O carimbo de hora deve estar no formato ISO 8601.
 
 ### <a name="namespace"></a>Namespace
 Namespaces são uma maneira de categorizar ou agrupar métricas semelhantes. Ao usar namespaces, você pode obter isolamento entre grupos de métricas que podem coletar diferentes insights ou indicadores de desempenho. Por exemplo, você pode ter um namespace chamado **ContosoMemoryMetrics**, que monitora as métricas de uso da memória que formam o perfil do seu aplicativo. Outro namespace chamado **ContosoAppTransaction** pode rastrear todas as métricas sobre transações do usuário em seu aplicativo.
@@ -65,7 +65,7 @@ Namespaces são uma maneira de categorizar ou agrupar métricas semelhantes. Ao 
 
 ### <a name="dimension-keys"></a>Chaves de dimensão
 Uma dimensão é um par de chave ou valor que ajuda a descrever características adicionais sobre a métrica que está sendo coletada. Usando as características adicionais, você pode coletar mais informações sobre a métrica, o que permite insights mais profundos. Por exemplo, a métrica **Memory Bytes In Use** pode ter uma chave de dimensão chamada **Process** que captura quantos bytes de memória cada processo em uma VM consome. Usando essa chave, você pode filtrar a métrica para ver quantos processos específicos de memória usam ou para identificar os cinco principais processos pelo uso da memória.
-Cada métrica personalizada pode ter até 10 dimensões.
+As dimensões são opcionais, nem todas as métricas podem ter dimensões. Uma métrica personalizada pode ter até 10 dimensões.
 
 ### <a name="dimension-values"></a>Valores de dimensão
 Ao relatar um ponto de dados de métrica, para cada chave de dimensão na métrica que está sendo relatada, há um valor de dimensão correspondente. Por exemplo, você pode querer relatar a memória usada pelo ContosoApp em sua VM:
@@ -75,6 +75,7 @@ Ao relatar um ponto de dados de métrica, para cada chave de dimensão na métri
 * O valor da dimensão seria **ContosoApp.exe**.
 
 Ao publicar um valor de métrica, você pode especificar apenas um valor de dimensão por chave de dimensão. Se você coletar a mesma utilização de memória para vários processos na VM, poderá relatar vários valores de métrica para esse registro de data e hora. Cada valor de métrica especificaria um valor de dimensão diferente para a chave de dimensão **Process**.
+As dimensões são opcionais, nem todas as métricas podem ter dimensões. Se uma postagem métrica define chaves de dimensão, os valores de dimensão correspondente são obrigatórios.
 
 ### <a name="metric-values"></a>Valores métricos
 O Azure Monitor armazena todas as métricas em intervalos com granularidade de um minuto. Entendemos que, durante um determinado minuto, uma métrica pode precisar ser amostrada várias vezes. Um exemplo é a utilização da CPU. Ou talvez precise ser medido para muitos eventos distintos. Um exemplo é latências de transações de entrada. Para limitar o número de valores brutos que você precisa emitir e pagar no Azure Monitor, é possível pré-agregar os valores localmente e emiti-los:
@@ -169,13 +170,13 @@ Durante a pré-visualização pública, a capacidade de publicar métricas perso
 
 |Região do Azure|Prefixo de ponto de extremidade regional|
 |---|---|
-|Leste dos EUA|https://eastus.monitoring.azure.com/|
-|Centro-Sul dos Estados Unidos|https://southcentralus.monitoring.azure.com/|
-|Centro-Oeste dos EUA|https://westcentralus.monitoring.azure.com/|
-|Oeste dos EUA 2|https://westus2.monitoring.azure.com/|
-|Sudeste Asiático|https://southeastasia.monitoring.azure.com/|
-|Norte da Europa|https://northeurope.monitoring.azure.com/|
-|Europa Ocidental|https://westeurope.monitoring.azure.com/|
+|Leste dos EUA| https:\//eastus.monitoring.azure.com/ |
+|Centro-Sul dos Estados Unidos| https:\//southcentralus.monitoring.azure.com/ |
+|Centro-Oeste dos EUA| https:\//westcentralus.monitoring.azure.com/ |
+|Oeste dos EUA 2| https:\//westus2.monitoring.azure.com/ |
+|Sudeste Asiático| https:\//southeastasia.monitoring.azure.com/ |
+|Norte da Europa| https:\//northeurope.monitoring.azure.com/ |
+|Europa Ocidental| https:\//westeurope.monitoring.azure.com/ |
 
 ## <a name="quotas-and-limits"></a>Cotas e limites
 O Monitor do Azure impõe os seguintes limites de uso em métricas personalizadas:
@@ -185,6 +186,7 @@ O Monitor do Azure impõe os seguintes limites de uso em métricas personalizada
 |Série de tempo de atividade/assinaturas/região|50.000|
 |Chaves de dimensão por métrica|10|
 |Tamanho da cadeia de caracteres para namespaces de métrica, nomes de métrica, chaves de dimensão e valores de dimensão|256 caracteres|
+
 Uma série temporal ativa é definida como qualquer combinação exclusiva de métrica, chave de dimensão ou valor de dimensão que teve valores de métrica publicados nas últimas 12 horas.
 
 ## <a name="next-steps"></a>Próximas etapas

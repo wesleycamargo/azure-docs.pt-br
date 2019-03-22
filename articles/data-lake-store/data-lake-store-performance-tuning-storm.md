@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: aa4d42a53e6fb8ea236a9d544102aab3dff19013
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
-ms.translationtype: HT
+ms.openlocfilehash: 8066a759cf80be6e9ca232bcd3693a5fa4d2f2f9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129226"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084803"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Diretrizes para o Storm no HDInsight e Azure Data Lake armazenamento Gen1 de ajuste de desempenho
 
@@ -26,10 +26,10 @@ Entenda os fatores que devem ser considerados ao ajustar o desempenho de uma top
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Uma conta do Azure Data Lake armazenamento Gen1**. Para obter instruções sobre como criar um, consulte [Introdução ao Azure Data Lake armazenamento Gen1](data-lake-store-get-started-portal.md).
-* **Um cluster Azure HDInsight** com acesso a uma conta do Data Lake armazenamento Gen1. Ver [criar um cluster de HDInsight com Data Lake armazenamento Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Certifique-se de habilitar a área de trabalho remota para o cluster.
+* **Uma conta do Azure Data Lake Storage Gen1**. Para obter instruções sobre como criar um, consulte [Introdução ao Azure Data Lake armazenamento Gen1](data-lake-store-get-started-portal.md).
+* **Um cluster Azure HDInsight** com acesso a uma conta do Data Lake armazenamento Gen1. Veja [Criar um cluster HDInsight com Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Certifique-se de habilitar a área de trabalho remota para o cluster.
 * **Executando um cluster do Storm no Data Lake armazenamento Gen1**. Para obter mais informações, consulte [Storm no HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview).
-* **Diretrizes sobre o Data Lake armazenamento Gen1 de ajuste de desempenho**.  Para ver os conceitos gerais de desempenho, consulte [diretrizes de ajuste Data Lake armazenamento Gen1 desempenho](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance).  
+* **Diretrizes de ajuste de desempenho no Data Lake Storage Gen1**.  Para ver os conceitos gerais de desempenho, consulte [diretrizes de ajuste Data Lake armazenamento Gen1 desempenho](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance).  
 
 ## <a name="tune-the-parallelism-of-the-topology"></a>Ajuste do paralelismo da topologia
 
@@ -82,7 +82,7 @@ Você pode modificar as seguintes configurações para ajustar o spout.
 
 - **Máx. de spouts pendentes: topology.max.spout.pending**. Essa configuração determina o número de tuplas que podem estar em voo (ainda não confirmadas em todos os nós na topologia) por thread de spout em qualquer tempo.
 
- Um bom cálculo a fazer é estimar o tamanho de cada uma de suas tuplas. Em seguida, calcule quanta memória um thread de spout tem. A memória total alocada para um thread dividida por esse valor deve fornecer o limite superior para o parâmetro de máx. de spouts pendentes.
+  Um bom cálculo a fazer é estimar o tamanho de cada uma de suas tuplas. Em seguida, calcule quanta memória um thread de spout tem. A memória total alocada para um thread dividida por esse valor deve fornecer o limite superior para o parâmetro de máx. de spouts pendentes.
 
 ## <a name="tune-the-bolt"></a>Ajustar o bolt
 Quando você estiver gravando no Data Lake Storage Gen1, defina uma política de sincronização de tamanho (buffer no lado do cliente) como 4 MB. Uma liberação ou hsync() será executada somente quando o tamanho do buffer tiver esse valor. O driver Data Lake Storage Gen1 na VM de trabalho faz esse buffer automaticamente, a menos que você execute explicitamente um hsync ().
@@ -98,7 +98,7 @@ No Storm, um spout permanece com uma tupla até que ela seja explicitamente conf
 Para melhor desempenho no Data Lake armazenamento Gen1, ter o bolt do buffer de 4 MB de dados de tupla. Em seguida, grave a Gen1 de armazenamento do Data Lake volta final como uma gravação de 4 MB. Depois que os dados tiverem sido gravados com êxito no repositório (chamando hflush()), o bolt poderá confirmar os dados de volta para o spout. É isso que o bolt de exemplo fornecido aqui faz. Também é aceitável manter um número maior de tuplas antes de fazer a chamada de hflush() e confirmar as tuplas. No entanto, isso aumenta o número de tuplas em voo que o spout precisa armazenar e, portanto, aumenta a quantidade de memória exigida por JVM.
 
 > [!NOTE]
-Determinados aplicativos podem ter um requisito de confirmar tuplas com maior frequência (em tamanhos de dados menores que 4 MB), por motivos não relacionados a desempenho. No entanto, isso pode afetar a taxa de transferência de E/S para o back-end de armazenamento. Avalie com cuidado essa compensação em relação ao desempenho de E/S do bolt.
+> Determinados aplicativos podem ter um requisito de confirmar tuplas com maior frequência (em tamanhos de dados menores que 4 MB), por motivos não relacionados a desempenho. No entanto, isso pode afetar a taxa de transferência de E/S para o back-end de armazenamento. Avalie com cuidado essa compensação em relação ao desempenho de E/S do bolt.
 
 Se a taxa de entrada de tuplas não for alta, fazendo com que o buffer de 4 MB demore muito para ser preenchido, é recomendável mitigar isso:
 * Reduzindo o número de bolts, de modo que haja menos buffers a preencher.

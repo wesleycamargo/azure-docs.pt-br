@@ -12,13 +12,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 670bdd43a4a581f349ca84c17ead67975fa0232e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: bcda6ac723101d6a907a10c5163ae1baf0ad2214
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110159"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884164"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Always Encrypted: Proteja dados confidenciais e armazene chaves de criptografia no Azure Key Vault
 
@@ -37,13 +37,18 @@ Siga as etapas neste artigo e saiba como configurar o Always Encripted para um b
 * Crie um aplicativo que insira, selecione e exiba os dados das colunas criptografadas.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> O módulo do PowerShell do Azure Resource Manager ainda é compatível com o banco de dados SQL, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para esses cmdlets, consulte [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
+
 Para este tutorial, será necessário:
 
 * Uma conta e uma assinatura do Azure. Se não tiver uma, inscreva-se em uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) versão 13.0.700.242 ou posterior.
 * [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) ou posterior (no computador cliente).
 * [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
-* [Azure PowerShell](/powershell/azure/overview), versão 1.0 ou posterior. Digite **(Get-Module azure -ListAvailable).Version** para ver qual versão do PowerShell você está executando.
+* [Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="enable-your-client-application-to-access-the-sql-database-service"></a>Habilitar seu aplicativo cliente para acessar o serviço do Banco de Dados SQL
 Você deve habilitar seu aplicativo cliente para acessar o serviço de Banco de Dados SQL ao configurar um aplicativo do Azure Active Directory (AAD) e copiar o *ID do Aplicativo* e *chave* que você precisará para autenticar seu aplicativo.
@@ -65,15 +70,15 @@ Você pode criar rapidamente um cofre de chaves executando o script a seguir. Pa
     $vaultName = 'AeKeyVault'
 
 
-    Connect-AzureRmAccount
-    $subscriptionId = (Get-AzureRmSubscription -SubscriptionName $subscriptionName).Id
-    Set-AzureRmContext -SubscriptionId $subscriptionId
+    Connect-AzAccount
+    $subscriptionId = (Get-AzSubscription -SubscriptionName $subscriptionName).Id
+    Set-AzContext -SubscriptionId $subscriptionId
 
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-    New-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName $resourceGroupName -Location $location
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
+    New-AzKeyVault -VaultName $vaultName -ResourceGroupName $resourceGroupName -Location $location
 
-    Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $resourceGroupName -PermissionsToKeys create,get,wrapKey,unwrapKey,sign,verify,list -UserPrincipalName $userPrincipalName
-    Set-AzureRmKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $resourceGroupName -ServicePrincipalName $applicationId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
+    Set-AzKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $resourceGroupName -PermissionsToKeys create,get,wrapKey,unwrapKey,sign,verify,list -UserPrincipalName $userPrincipalName
+    Set-AzKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $resourceGroupName -ServicePrincipalName $applicationId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
 ```
 
 
@@ -140,7 +145,7 @@ Clique em **Avançar** na página **Introdução** para abrir a página **Seleç
 
 Criptografe as informações de **SSN** e **BirthDate** de cada paciente. A coluna SSN usará criptografia determinística, que oferece suporte a pesquisas de igualdade, junções e agrupar por. A coluna BirthDate usará criptografia aleatória, que não oferece suporte a operações.
 
-Defina o **Tipo de Criptografia** para a coluna SSN como **Determinístico** e a coluna BirthDate como **Aleatório**. Clique em **Próximo**.
+Defina o **Tipo de Criptografia** para a coluna SSN como **Determinístico** e a coluna BirthDate como **Aleatório**. Clique em **Avançar**.
 
 ![Criptografar Colunas](./media/sql-database-always-encrypted-azure-key-vault/column-selection.png)
 
@@ -151,7 +156,7 @@ Este tutorial mostra como armazenar suas chaves no Cofre de Chaves do Azure.
 
 1. Selecione **Cofre de Chaves do Azure**.
 2. Selecione o cofre de chaves desejado na lista suspensa.
-3. Clique em **Próximo**.
+3. Clique em **Avançar**.
 
 ![Configuração da Chave Mestra](./media/sql-database-always-encrypted-azure-key-vault/master-key-configuration.png)
 
@@ -606,7 +611,7 @@ Execute a consulta a seguir no banco de dados Clínica.
 
    ![Novo aplicativo de console](./media/sql-database-always-encrypted-azure-key-vault/ssms-encrypted.png)
 
-Para usar o SSMS para acessar os dados de texto sem formatação, primeiro você precisa garantir que o usuário tenha as permissões adequadas para o Azure Key Vault: *get*, *unwrapKey* e *verify*. Para obter informações detalhadas, consulte [Criar e armazenar chaves mestras de coluna (Always Encrypted)](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-2017).
+Para usar o SSMS para acessar os dados de texto sem formatação, primeiro você precisa garantir que o usuário tenha as permissões adequadas para o Azure Key Vault: *get*, *unwrapKey* e *verify*. Para obter informações detalhadas, consulte [Criar e armazenar chaves mestras de coluna (Always Encrypted)](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted).
 
 Em seguida, adicione o parâmetro *Column Encryption Setting=enabled* durante a sua conexão.
 

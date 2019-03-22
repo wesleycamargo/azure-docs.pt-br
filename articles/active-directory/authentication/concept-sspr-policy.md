@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fed31d07f4bbe9fc47ce0d2c31f45fed288c4c4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6888a8787856ef23c459c7ffc18f8e2b4de17f6f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218016"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901127"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Políticas e restrições de senha do Active Directory do Azure
 
@@ -36,20 +36,22 @@ A política de duas portas requer dois tipos de dados de autenticação, como um
   * Administrador de cobrança
   * Suporte de camada 1 do parceiro
   * Suporte de camada 2 do parceiro
-  * Administrador de serviços do Exchange
-  * Administrador de serviços do Lync
-  * Administrador da conta de usuário
+  * Administrador do Exchange
+  * Administrador do Skype for Business
+  * Administrador de usuários
   * Gravadores de diretório
   * Administrador global ou administrador da empresa
-  * Administrador de serviços do SharePoint
+  * Administrador do SharePoint
   * Administrador de conformidade
   * Administrador de aplicativos
   * Administrador de segurança
   * Administrador de função com privilégios
-  * Administrador de serviços do Microsoft Intune
+  * Administrador do Intune
   * Administrador de serviços de Proxy do aplicativo
-  * Administrador de serviços do CRM
+  * Administrador do Dynamics 365
   * Administrador de serviços do Power BI
+  * Administrador de autenticação
+  * Administrador com privilégios de autenticação
 
 * Caso tenham se passado 30 dias decorridos de uma assinatura de avaliação; ou
 * Um domínio personalizado esteja presente, como contoso.com; ou
@@ -75,13 +77,13 @@ Cada conta de usuário que precisa entrar no Azure AD deve ter um valor de atrib
 
 ## <a name="password-policies-that-only-apply-to-cloud-user-accounts"></a>Políticas de senha que se aplicam somente a contas de usuário na nuvem
 
-A tabela a seguir descreve as configurações de política de senha disponíveis que podem ser aplicadas a contas de usuário que são criadas e gerenciadas no Azure AD:
+A tabela a seguir descreve as configurações de política de senha aplicadas a contas de usuário que são criadas e gerenciadas no Azure AD:
 
 | Propriedade | Requisitos |
 | --- | --- |
-| Caracteres permitidos |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ " ( ) ;</li></ul> |
-| Caracteres não permitidos |<ul><li>Caracteres Unicode.</li><li>Espaços.</li><li> Somente senhas fortes: Não pode conter um caractere de ponto "." Imediatamente anterior ao "símbolo \@\"".</li></ul> |
-| Restrições de senha |<ul><li>Um mínimo de 8 caracteres e um máximo de 16 caracteres.</li><li>Somente senhas fortes: Requer três de quatro dos seguintes itens:<ul><li>Caracteres minúsculos.</li><li>Caracteres maiúsculos.</li><li>Números (0-9).</li><li>Símbolos (veja as restrições de senha acima).</li></ul></li></ul> |
+| Caracteres permitidos |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / \` ~ " ( ) ;</li></ul> |
+| Caracteres não permitidos |<ul><li>Caracteres Unicode.</li><li>Espaços.</li><li> Não pode conter um caractere de ponto "." imediatamente anterior a "\@ \" símbolo".</li></ul> |
+| Restrições de senha |<ul><li>Um mínimo de 8 caracteres e um máximo de 16 caracteres.</li><li>Requer três de quatro dos seguintes itens:<ul><li>Caracteres minúsculos.</li><li>Caracteres maiúsculos.</li><li>Números (0-9).</li><li>Símbolos (veja as restrições de senha acima).</li></ul></li></ul> |
 | Tempo de expiração da senha |<ul><li>Valor Padrão: **90** dias.</li><li>O valor é configurável usando o cmdlet `Set-MsolPasswordPolicy` do Módulo do Azure Active Directory para Windows PowerShell.</li></ul> |
 | Notificação de expiração de senha |<ul><li>Valor Padrão: **14** dias (antes do vencimento de senha).</li><li>O valor é configurável usando o cmdlet `Set-MsolPasswordPolicy`.</li></ul> |
 | Expiração de senha |<ul><li>Valor padrão: **false** dias (indica que a expiração de senha está habilitada).</li><li>O valor pode ser configurado para contas de usuário individuais usando o cmdlet `Set-MsolUser`.</li></ul> |
@@ -108,7 +110,7 @@ Para começar, primeiramente é preciso [baixar e instalar o módulo PowerShell 
 1. Conecte-se ao Windows PowerShell usando suas credenciais de administrador de empresa.
 1. Execute um dos seguintes comandos:
 
-   * Para ver se a senha de um único usuário está definida para nunca expirar, execute o seguinte cmdlet usando o UPN (por exemplo, *aprilr@contoso.onmicrosoft.com*) ou a ID do usuário que você deseja verificar: `Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
+   * Para ver se a senha de um único usuário está definida para nunca expirar, execute o seguinte cmdlet usando o UPN (por exemplo, *aprilr\@contoso.onmicrosoft.com*) ou a ID de usuário do usuário que você deseja verificar: `Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
    * Para ver a configuração **Senha nunca expira** para todos os usuários, execute o seguinte cmdlet: `Get-AzureADUser -All $true | Select-Object UserPrincipalName, @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
 
 ### <a name="set-a-password-to-expire"></a>Definir uma senha para expirar

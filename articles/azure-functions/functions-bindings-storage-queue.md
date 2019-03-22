@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 61752ad9feda7ad6b8d91f1b996b68f27f24b2c6
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: ea2d51487999be2e7412e102b3381d8994e1e4c4
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821976"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295310"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Associações de armazenamento de filas do Azure Functions
 
@@ -160,7 +160,6 @@ module.exports = async function (context, message) {
     context.log('Node.js queue trigger function processed work item', message);
     // OR access using context.bindings.<name>
     // context.log('Node.js queue trigger function processed work item', context.bindings.myQueueItem);
-    context.log('queueTrigger =', context.bindingData.queueTrigger);
     context.log('expirationTime =', context.bindingData.expirationTime);
     context.log('insertionTime =', context.bindingData.insertionTime);
     context.log('nextVisibleTime =', context.bindingData.nextVisibleTime);
@@ -176,7 +175,7 @@ A seção [uso](#trigger---usage) explica `myQueueItem`, que é chamado pela `na
 ### <a name="trigger---java-example"></a>Gatilho - exemplo Java
 
 O exemplo Java a seguir mostra as funções do acionador da fila de armazenamento que registra a mensagem acionada colocada na fila `myqueuename`.
- 
+
  ```java
  @FunctionName("queueprocessor")
  public void run(
@@ -190,7 +189,7 @@ O exemplo Java a seguir mostra as funções do acionador da fila de armazenament
  ```
 
 ## <a name="trigger---attributes"></a>Gatilho – atributos
- 
+
 Em [bibliotecas de classes C#](functions-dotnet-class-library.md), use os seguintes atributos para configurar um gatilho de fila:
 
 * [QueueTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueTriggerAttribute.cs)
@@ -218,7 +217,7 @@ Em [bibliotecas de classes C#](functions-dotnet-class-library.md), use os seguin
       ....
   }
   ```
- 
+
   Para ver um exemplo completo, consulte [Gatilho – exemplo de C#](#trigger---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
@@ -253,14 +252,14 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 |---------|---------|----------------------|
 |**tipo** | n/d| Deve ser definido como `queueTrigger`. Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure.|
 |**direction**| n/d | Apenas no arquivo *function.json*. Deve ser definido como `in`. Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure. |
-|**name** | n/d |O nome da variável que contém o conteúdo do item de fila no código da função.  | 
-|**queueName** | **QueueName**| O nome da fila a ser controlada. | 
+|**name** | n/d |O nome da variável que contém o conteúdo do item de fila no código da função.  |
+|**queueName** | **QueueName**| O nome da fila a ser controlada. |
 |**conexão** | **Conexão** |O nome de uma configuração de aplicativo que contém uma cadeia de conexão de Armazenamento para usar para essa associação. Se o nome de configuração do aplicativo começar com "AzureWebJobs", você pode especificar apenas o resto do nome aqui. Por exemplo, se você configurar `connection` para “MyStorage”, o tempo de execução do Functions procura por uma configuração de aplicativo que esteja nomeada “AzureWebJobsMyStorage." Se você deixar `connection` vazio, o tempo de execução de Functions usa a cadeia de caracteres de conexão de Armazenamento padrão na configuração de aplicativo chamada `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="trigger---usage"></a>Gatilho - uso
- 
+
 Em C# e script C#, acesse os dados da mensagem usando um parâmetro de método, como `string paramName`. No script do C#, `paramName` é o valor especificado na propriedade `name` de *function.json*. É possível associar a qualquer um dos seguintes tipos:
 
 * Objeto - o tempo de execução do Functions desserializa um conteúdo JSON em uma instância de uma classe arbitrária definida em seu código. 
@@ -274,7 +273,7 @@ Em JavaScript, use `context.bindings.<name>` para acessar o conteúdo de item de
 
 ## <a name="trigger---message-metadata"></a>Gatilho - metadados da mensagem
 
-O gatilho de fila fornece várias propriedades de [metadados](functions-triggers-bindings.md#binding-expressions---trigger-metadata). Essas propriedades podem ser usadas como parte de expressões de associação em outras associações ou como parâmetros em seu código. Essas são propriedades da classe [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage).
+O gatilho de fila fornece várias propriedades de [metadados](./functions-bindings-expressions-patterns.md#trigger-metadata). Essas propriedades podem ser usadas como parte de expressões de associação em outras associações ou como parâmetros em seu código. Essas são propriedades da classe [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage).
 
 |Propriedade|Type|DESCRIÇÃO|
 |--------|----|-----------|
@@ -306,9 +305,7 @@ O gatilho de fila impede automaticamente que uma função processe uma mensagem 
 
 ## <a name="trigger---hostjson-properties"></a>Gatilho - propriedades de host.json
 
-O arquivo [host.json](functions-host-json.md#queues) contém configurações que controlam o comportamento de gatilho de fila.
-
-[!INCLUDE [functions-host-json-queues](../../includes/functions-host-json-queues.md)]
+O arquivo [host.json](functions-host-json.md#queues) contém configurações que controlam o comportamento de gatilho de fila. Consulte a [configurações de host. JSON](#hostjson-settings) seção para obter detalhes sobre as configurações disponíveis.
 
 ## <a name="output"></a>Saída
 
@@ -370,7 +367,7 @@ Aqui está o arquivo *function.json*:
     }
   ]
 }
-``` 
+```
 
 A seção [configuração](#output---configuration) explica essas propriedades.
 
@@ -431,7 +428,7 @@ Aqui está o arquivo *function.json*:
     }
   ]
 }
-``` 
+```
 
 A seção [configuração](#output---configuration) explica essas propriedades.
 
@@ -466,13 +463,13 @@ module.exports = function(context) {
        result.setValue(message + " has been added.");
        return message;
  }
- ```
+```
 
 No [biblioteca de tempo de execução de funções Java](/java/api/overview/azure/functions/runtime), use o `@QueueOutput` anotação em parâmetros cujo valor seria gravado no armazenamento de fila.  O tipo de parâmetro deve ser `OutputBinding<T>`, onde T é qualquer tipo Java nativo de um POJO.
 
 
 ## <a name="output---attributes"></a>Saída - atributos
- 
+
 Em [bibliotecas de classes do C#](functions-dotnet-class-library.md), use o [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs).
 
 O atributo se aplica a um `out` parâmetro ou o valor de retorno da função. O construtor do atributo usa o nome da fila, conforme mostrado no exemplo a seguir:
@@ -509,14 +506,14 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 |---------|---------|----------------------|
 |**tipo** | n/d | Deve ser definido como `queue`. Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure.|
 |**direction** | n/d | Deve ser definido como `out`. Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure. |
-|**name** | n/d | O nome da variável que representa a fila no código de função. Definido como `$return` para referenciar o valor de retorno da função.| 
-|**queueName** |**QueueName** | O nome da fila. | 
+|**name** | n/d | O nome da variável que representa a fila no código de função. Definido como `$return` para referenciar o valor de retorno da função.|
+|**queueName** |**QueueName** | O nome da fila. |
 |**conexão** | **Conexão** |O nome de uma configuração de aplicativo que contém uma cadeia de conexão de Armazenamento para usar para essa associação. Se o nome de configuração do aplicativo começar com "AzureWebJobs", você pode especificar apenas o resto do nome aqui. Por exemplo, se você configurar `connection` para “MyStorage”, o tempo de execução do Functions procura por uma configuração de aplicativo que esteja nomeada “AzureWebJobsMyStorage." Se você deixar `connection` vazio, o tempo de execução de Functions usa a cadeia de caracteres de conexão de Armazenamento padrão na configuração de aplicativo chamada `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="output---usage"></a>Saída - uso
- 
+
 Em C# e script C#, grave uma mensagem de fila única usando um parâmetro de método como o `out T paramName`. No script do C#, `paramName` é o valor especificado na propriedade `name` de *function.json*. Você pode usar o tipo de retorno de método em vez de um `out` parâmetro, e `T` pode ser qualquer um dos seguintes tipos:
 
 * Um objeto serializado como JSON
@@ -564,16 +561,16 @@ Esta seção descreve as definições de configuração globais disponíveis par
         }
     }
 }
-```  
+```
 
 
 |Propriedade  |Padrão | DESCRIÇÃO |
-|---------|---------|---------| 
-|maxPollingInterval|00:00:02|O intervalo máximo entre as sondagens de fila. O mínimo é de 00:00:00.100 (100 ms). | 
-|visibilityTimeout|00:00:00|O intervalo de tempo entre as repetições quando o processamento de uma mensagem falha. | 
-|batchSize|16|O número de mensagens em fila que o tempo de execução de Funções recupera simultaneamente e processa em paralelo. Quando o número que está sendo processado chega até `newBatchThreshold`, o tempo de execução obtém outro lote e começa a processar as mensagens. Portanto, o número máximo de mensagens simultâneas que estão sendo processadas por função é `batchSize` mais `newBatchThreshold`. Esse limite se aplica separadamente a cada função acionada por fila. <br><br>Se quiser evitar uma execução paralela para mensagens recebidas em uma fila, é possível definir `batchSize` como 1. No entanto, essa configuração elimina a simultaneidade desde que seu aplicativo de função seja executado em uma única máquina virtual (VM). Se o aplicativo de função se expande para várias VMs, cada VM pode executar uma instância de cada função acionada por fila.<br><br>O máximo `batchSize` é 32. | 
-|maxDequeueCount|5|O número de vezes para tentar processar uma mensagem antes de movê-la para a fila de mensagens suspeitas.| 
-|newBatchThreshold|batchSize/2|Sempre que o número de mensagens processadas simultaneamente chega a esse número, o tempo de execução recupera outro lote.| 
+|---------|---------|---------|
+|maxPollingInterval|00:00:02|O intervalo máximo entre as sondagens de fila. O mínimo é de 00:00:00.100 (100 ms). |
+|visibilityTimeout|00:00:00|O intervalo de tempo entre as repetições quando o processamento de uma mensagem falha. |
+|batchSize|16|O número de mensagens em fila que o tempo de execução de Funções recupera simultaneamente e processa em paralelo. Quando o número que está sendo processado chega até `newBatchThreshold`, o tempo de execução obtém outro lote e começa a processar as mensagens. Portanto, o número máximo de mensagens simultâneas que estão sendo processadas por função é `batchSize` mais `newBatchThreshold`. Esse limite se aplica separadamente a cada função acionada por fila. <br><br>Se quiser evitar uma execução paralela para mensagens recebidas em uma fila, é possível definir `batchSize` como 1. No entanto, essa configuração elimina a simultaneidade desde que seu aplicativo de função seja executado em uma única máquina virtual (VM). Se o aplicativo de função se expande para várias VMs, cada VM pode executar uma instância de cada função acionada por fila.<br><br>O máximo `batchSize` é 32. |
+|maxDequeueCount|5|O número de vezes para tentar processar uma mensagem antes de movê-la para a fila de mensagens suspeitas.|
+|newBatchThreshold|batchSize/2|Sempre que o número de mensagens processadas simultaneamente chega a esse número, o tempo de execução recupera outro lote.|
 
 ## <a name="next-steps"></a>Próximas etapas
 

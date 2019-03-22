@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 03/06/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 430aa6e60efe63e6741436e53152126bc15798fc
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: ce9635c108a948b4773c7d27cb254f01d06896f8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327843"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544232"
 ---
 # <a name="azure-storage-account-overview"></a>Visão geral da conta de armazenamento do Azure
 
@@ -38,7 +38,7 @@ As contas de armazenamento para uso geral v2 são compatíveis com os recursos m
 > [!NOTE]
 > A Microsoft recomenda o uso de contas de armazenamento para uso geral v2 na maioria dos cenários. É possível atualizar facilmente de uma conta de armazenamento de blobs ou para uso geral v1 para uma v2 sem tempo de inatividade e sem a necessidade de copiar dados.
 >
-> Para saber mais sobre o upgrade para uma conta para uso geral v2, confira [Atualizar para uma conta de armazenamento de para geral v2](storage-account-upgrade.md). 
+> Para saber mais sobre o upgrade para uma conta para uso geral v2, confira [Atualizar para uma conta de armazenamento de para geral v2](storage-account-upgrade.md).
 
 As contas de armazenamento para uso geral v2 oferecem várias camadas de acesso para armazenamento de dados com base nos seus padrões de uso. Para saber mais, confira [Camadas de acesso para dados de blob de blocos](#access-tiers-for-block-blob-data).
 
@@ -60,11 +60,9 @@ Embora as contas para uso geral v2 sejam recomendadas na maioria dos casos, as c
 
 * Você usa uma versão da [API REST dos Serviços de Armazenamento](https://msdn.microsoft.com/library/azure/dd894041.aspx) que é anterior a 2014-02-14 ou uma biblioteca de cliente com uma versão inferior a 4.x e não pode atualizar o aplicativo.
 
-### <a name="blob-storage-accounts"></a>Contas de armazenamento de Blobs
+### <a name="block-blob-storage-accounts"></a>Contas de armazenamento de blobs de bloco
 
-Uma conta de armazenamento de blobs é uma conta de armazenamento especializada para armazenar dados de objetos não estruturados, como blobs de blocos. As contas de armazenamento de blobs oferecem a mesma durabilidade, disponibilidade, escalabilidade e recursos de desempenho disponíveis nas contas de armazenamento para uso geral v2. As contas de armazenamento de blobs são compatíveis com os blobs de bloco e os blobs de acréscimo, e não com os blobs de página.
-
-As contas de armazenamento de blobs oferecem várias camadas de acesso para armazenamento de dados com base nos seus padrões de uso. Para saber mais, confira [Camadas de acesso para dados de blob de blocos](#access-tiers-for-block-blob-data).
+Uma conta de armazenamento de blob de bloco é uma conta de armazenamento especializada para armazenar dados de objeto não estruturados como blobs de bloco ou blobs de acréscimo. Contas de armazenamento de blobs de bloco oferecem vários níveis de acesso para o armazenamento de dados com base nos seus padrões de uso. Para saber mais, confira [Camadas de acesso para dados de blob de blocos](#access-tiers-for-block-blob-data).
 
 ## <a name="naming-storage-accounts"></a>Nomear contas de armazenamento
 
@@ -87,7 +85,7 @@ O Armazenamento do Azure oferece diferentes opções para acessar dados de blob 
 As camadas de acesso disponíveis são:
 
 > [!NOTE]
-> A [camada de acesso Premium](../blobs/storage-blob-storage-tiers.md#premium-access-tier) está disponível em versão prévia limitada como uma conta de LRS (armazenamento com redundância local) nas regiões da Europa Setentrional, Leste dos EUA 2, Centro dos EUA e Oeste dos EUA. Para saber como se registrar para a versão prévia, confira [Introdução ao Armazenamento de Blobs Premium do Azure](https://aka.ms/premiumblob).
+> O [camada de acesso de premium (visualização)](../blobs/storage-blob-storage-tiers.md#premium-access-tier), que é otimizado para aplicativos sensíveis ao desempenho, fornece latência baixa e consistente com altas taxas de taxa de transferência e transação. A camada de acesso premium está disponível apenas com contas de armazenamento de Blob de blocos (visualização). Para obter mais informações, consulte [visualização pública do armazenamento de BLOBs do Azure Premium](https://azure.microsoft.com/blog/azure-premium-blob-storage-public-preview/).
 
 * A camada de acesso **quente** é otimizada para acesso frequente a objetos na conta de armazenamento. Acessar dados na camada de acesso quente é mais econômico, pois os custos de armazenamento são um pouco mais altos. Por padrão, as novas contas de armazenamento são criadas na camada de acesso quente.
 * A camada de acesso **frio** é otimizada para armazenar grandes quantidades de dados acessados com menos frequência e armazenados por pelo menos 30 dias. Armazenar dados na camada de acesso frio é mais econômico, mas acessá-los pode ser um pouco mais caro que acessar os dados da camada de acesso quente.

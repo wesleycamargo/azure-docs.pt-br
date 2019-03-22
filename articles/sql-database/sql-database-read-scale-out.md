@@ -11,15 +11,19 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: cf32f3998e254e8f4a9c347980718dbc8d0b13c4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 8f34b3ed91e4b470fdfa7c2ffad401e7890abe1e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461637"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57886449"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Usar réplicas somente leitura para balancear a carga de cargas de trabalho de consulta somente leitura (visualização)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> O módulo do PowerShell do Azure Resource Manager ainda é compatível com o banco de dados SQL, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para esses cmdlets, consulte [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
 
 **Read Scale-Out** permite que você faça o balanceamento de carga das cargas de trabalho somente leitura do Banco de Dados SQL do Azure usando a capacidade de uma réplica somente leitura.
 
@@ -29,14 +33,14 @@ Cada banco de dados na camada Premium ([modelo de compra com base em DTU](sql-da
 
 Essas réplicas são provisionadas com o mesmo tamanho de computação que a réplica de leitura-gravação usada pelas conexões de banco de dados regulares. O recurso **Escala de leitura** permite que você balanceie a carga de cargas de trabalho somente leitura do Banco de Dados SQL do Microsoft Azure usando a capacidade de uma das réplicas somente leitura em vez de compartilhar a réplica de leitura-gravação. Dessa forma, a carga de trabalho somente leitura serão isoladas da carga de trabalho principal de leitura/gravação e não afetarão o desempenho. O recurso destina-se aos aplicativos que incluem cargas de trabalho somente leitura logicamente separadas, como análises e, portanto, poderiam obter benefícios de desempenho usando essa capacidade adicional sem nenhum custo extra.
 
-Para usar o recurso Expansão de leitura com um determinado banco de dados, você deve habilitá-lo ao criar o banco de dados ou posteriormente, alterando a configuração usando o PowerShell invocando os cmdlets [et-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) ou [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) ou por meio da API REST do Azure Resource Manager usando o método [Bancos de dados - Criar ou Atualizar](https://docs.microsoft.com/rest/api/sql/databases/createorupdate).
+Para usar o recurso de expansão de leitura com um determinado banco de dados, é necessário ativá-lo ao criar o banco de dados ou posteriormente, alterando a configuração usando o PowerShell invocando o [AzSqlDatabase conjunto](/powershell/module/az.sql/set-azsqldatabase) ou o [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) cmdlets ou por meio de REST API do Azure Resource Manager usando o [bancos de dados – criar ou atualizar](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) método.
 
-Após a Expansão de leitura ser habilitada para um banco de dados, aplicativos que se conectam ao banco de dados serão direcionados para a réplica de leitura-gravação ou para uma réplica somente leitura desse banco de dados de acordo com a propriedade `ApplicationIntent` configurada na cadeia de conexão do aplicativo. Para obter informações sobre a propriedade `ApplicationIntent`, consulte [Especificando a intenção do aplicativo](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
+Após a Expansão de Leitura ser habilitada para um banco de dados, aplicativos que se conectam ao banco de dados serão direcionados para a réplica de leitura-gravação ou para uma réplica somente leitura desse banco de dados de acordo com a propriedade `ApplicationIntent` configurada na cadeia de conexão do aplicativo. Para obter informações sobre a propriedade `ApplicationIntent`, consulte [Especificando a intenção do aplicativo](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
 
 Se a expansão de leitura está desabilitada ou você definir a propriedade ReadScale em uma camada de serviço sem suporte, todas as conexões são direcionadas para a réplica de leitura-gravação, independentemente da propriedade `ApplicationIntent`.
 
 > [!NOTE]
-> Durante a visualização, o Repositório de Dados de Consultas e os Eventos Estendidos não têm suporte nas réplicas somente leitura.
+> Consulta dados Store e os eventos estendidos não têm suporte nas réplicas somente leitura.
 
 ## <a name="data-consistency"></a>Consistência de dados
 
@@ -82,24 +86,24 @@ A Expansão de Leitura está habilitada por padrão em [Instância Gerenciada](s
 
 Gerenciar a Expansão de leitura no Microsoft Azure PowerShell requer a versão de dezembro de 2016 do Microsoft Azure PowerShell ou mais recente. Para a versão mais recente do PowerShell, consulte [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
-Habilitar ou desabilitar a escala leitura no Azure PowerShell invocando o cmdlet [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) e passando o valor desejado – `Enabled` ou `Disabled` – para o parâmetro `-ReadScale`. Como alternativa, você pode usar o cmdlet [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) para criar um novo banco de dados com escala de leitura habilitada.
+Habilitar ou desabilitar a escala horizontal de leitura no Azure PowerShell invocando o [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) cmdlet e passando o valor desejado – `Enabled` ou `Disabled` – para o `-ReadScale` parâmetro. Como alternativa, você pode usar o [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) para criar um novo banco de dados com escala de leitura habilitado.
 
 Por exemplo, para habilitar a escala de leitura para um banco de dados existente (substituindo os itens nos chevrons pelos valores corretos para o seu ambiente e descartando os chevrons):
 
 ```powershell
-Set-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled
+Set-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled
 ```
 
 Para desabilitar a escala de leitura para um banco de dados existente (substituindo os itens nos chevrons pelos valores corretos para o seu ambiente e descartando os chevrons):
 
 ```powershell
-Set-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Disabled
+Set-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Disabled
 ```
 
 Para criar um novo banco de dados com escala de leitura habilitada (substituindo os itens nos chevrons pelos valores corretos para o seu ambiente e descartando os chevrons):
 
 ```powershell
-New-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled -Edition Premium
+New-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled -Edition Premium
 ```
 
 ### <a name="rest-api-enable-and-disable-read-scale-out"></a>API REST: Ativar e desativar o Escalonamento de Leitura
@@ -125,9 +129,9 @@ Para obter mais informações, consulte [Bancos de dados - Criar ou Atualizar](h
 Se estiver usando escala de leitura para balancear a carga de cargas de trabalho somente leitura em um banco de dados que é replicado geograficamente (por exemplo, um membro de um grupo de failover), verifique se a escala de leitura está habilitada nos bancos de dados primário e secundário replicado geograficamente. Isso garantirá o mesmo efeito de balanceamento de carga quando seu aplicativo se conectar ao novo primário após o failover. Se estiver se conectando ao banco de dados secundário geograficamente replicado com escala de leitura habilitada, suas sessões com `ApplicationIntent=ReadOnly` serão roteadas para uma das réplicas da mesma forma que roteamos conexões no banco de dados primário.  As sessões sem `ApplicationIntent=ReadOnly` serão roteadas para a réplica primária do secundário replicado geograficamente, que também é somente leitura. Como o banco de dados secundário replicado geograficamente tem um ponto de extremidade diferente do banco de dados primário, historicamente para acessar o secundário não era necessário configurar o `ApplicationIntent=ReadOnly`. Para garantir a compatibilidade com versões anteriores, o `sys.geo_replication_links` DMV mostra `secondary_allow_connections=2` (qualquer conexão de cliente é permitida).
 
 > [!NOTE]
-> Durante a versão prévia, round robin e demais roteamentos balanceados de carga entre as réplicas locais do banco de dados secundário não são compatíveis.
+> Não há suporte para o round-robin ou qualquer outra com balanceamento de carga roteamento entre réplicas de banco de dados secundário locais.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter informações sobre como usar o PowerShell para definir a escala de leitura, consulte os cmdlets [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) ou [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase).
+- Para obter informações sobre como usar o PowerShell para definir a leitura de escala horizontal, consulte o [AzSqlDatabase conjunto](/powershell/module/az.sql/set-azsqldatabase) ou o [New AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) cmdlets.
 - Para obter informações sobre como usar a API REST para definir a escala de leitura, consulte [Bancos de dados - Criar ou Atualizar](https://docs.microsoft.com/rest/api/sql/databases/createorupdate).

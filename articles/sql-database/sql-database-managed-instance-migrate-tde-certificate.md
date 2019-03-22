@@ -11,13 +11,13 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: carlrab, jovanpop
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: c6d0d2eec61375760ee3dc4e4b100b24cef2b405
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 43793380fab2bcece215c53b82e09a3c3a849af3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388805"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57833906"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>Migrar o certificado do banco de dados protegido por TDE para a Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -35,17 +35,21 @@ Para uma opção alternativa usando o serviço totalmente gerenciado para migra�
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> O módulo do PowerShell do Azure Resource Manager ainda é compatível com o banco de dados SQL, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para esses cmdlets, consulte [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
+
 Para concluir as etapas neste artigo, você precisa dos seguintes pré-requisitos:
 
 - Ferramenta de linha de comando [Pvk2Pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) instalada no servidor local ou em outro computador com acesso ao certificado exportado como arquivo. A ferramenta Pvk2Pfx faz parte do [Kit de drivers corporativos do Windows](https://docs.microsoft.com/windows-hardware/drivers/download-the-wdk), um ambiente de linha de comando autônomo independente.
 - [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell) versão 5.0 ou posterior instalada.
-- Módulo do AzureRM PowerShell [instalado e atualizado](https://docs.microsoft.com/powershell/azure/install-az-ps).
-- [Módulo AzureRM.Sql](https://www.powershellgallery.com/packages/AzureRM.Sql) versão 4.10.0 ou posterior.
+- Módulo do Azure PowerShell [instalados e atualizados](https://docs.microsoft.com/powershell/azure/install-az-ps).
+- [Módulo Az.Sql](https://www.powershellgallery.com/packages/Az.Sql).
   Execute os seguintes comandos no PowerShell para instalar/atualizar o módulo do PowerShell:
 
    ```powershell
-   Install-Module -Name AzureRM.Sql
-   Update-Module -Name AzureRM.Sql
+   Install-Module -Name Az.Sql
+   Update-Module -Name Az.Sql
    ```
 
 ## <a name="export-tde-certificate-to-a-personal-information-exchange-pfx-file"></a>Exportação do certificado TDE para um arquivo .pfx (Troca de Informações Pessoais)
@@ -116,13 +120,13 @@ Se o certificado for mantido no repositório de certificados do computador local
 
    ```powershell
    # Import the module into the PowerShell session
-   Import-Module AzureRM
+   Import-Module Az
    # Connect to Azure with an interactive dialog for sign-in
-   Connect-AzureRmAccount
+   Connect-AzAccount
    # List subscriptions available and copy id of the subscription target Managed Instance belongs to
-   Get-AzureRmSubscription
+   Get-AzSubscription
    # Set subscription for the session (replace Guid_Subscription_Id with actual subscription id)
-   Select-AzureRmSubscription Guid_Subscription_Id
+   Select-AzSubscription Guid_Subscription_Id
    ```
 
 2. Após a conclusão de todas as etapas de preparação, execute os comandos a seguir para carregar o certificado codificado em base-64 para a Instância Gerenciada de destino:
@@ -133,7 +137,7 @@ Se o certificado for mantido no repositório de certificados do computador local
    $securePrivateBlob = $base64EncodedCert  | ConvertTo-SecureString -AsPlainText -Force
    $password = "SomeStrongPassword"
    $securePassword = $password | ConvertTo-SecureString -AsPlainText -Force
-   Add-AzureRmSqlManagedInstanceTransparentDataEncryptionCertificate -ResourceGroupName "<ResourceGroupName>" -ManagedInstanceName "<ManagedInstanceName>" -PrivateBlob $securePrivateBlob -Password $securePassword
+   Add-AzSqlManagedInstanceTransparentDataEncryptionCertificate -ResourceGroupName "<ResourceGroupName>" -ManagedInstanceName "<ManagedInstanceName>" -PrivateBlob $securePrivateBlob -Password $securePassword
    ```
 
 Agora, o certificado está disponível para a Instância Gerenciada especificada e o backup do banco de dados protegido por TDE correspondente pode ser restaurado com êxito.

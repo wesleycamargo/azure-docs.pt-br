@@ -11,19 +11,19 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b49ec91af0c2b55185d7f750420825bb174c4b6d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 932587afcffcb3b1a259a02a98c648e938e99931
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473724"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57845331"
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Visão geral da ciência de dados usando Spark no Azure HDInsight
 
 Este conjunto de tópicos mostra como usar o HDInsight Spark para concluir tarefas comuns de ciência de dados, tais como ingestão de dados, engenharia de recursos, modelagem e avaliação de modelo. Os dados usados são uma amostra do conjunto de dados de corridas e tarifas de táxi em Nova York de 2013. Os modelos criados incluem a regressão logística e linear, florestas aleatórias e árvores aumentadas gradientes. Os tópicos também mostram como armazenar esses modelos no Armazenamento de Blobs do Azure (WASB) e como pontuar e avaliar seu desempenho preditivo. Os tópicos mais avançados abordam como os modelos podem ser treinados usando a validação cruzada e a limpeza de hiperparâmetro. Este tópico de visão geral também referencia os tópicos que descrevem como configurar um cluster Spark necessário para concluir as etapas no passo a passos fornecido.
 
 ## <a name="spark-and-mllib"></a>Spark e MLlib
-[Spark](http://spark.apache.org/) é uma estrutura de processamento paralelo de software livre que dá suporte ao processamento na memória para melhorar o desempenho de aplicativos analíticos de Big Data. O mecanismo de processamento do Spark foi desenvolvido para velocidade, facilidade de uso e análise sofisticada. As funcionalidades de computação distribuídas na memória do Spark fazem dele uma boa escolha para algoritmos iterativos usados em cálculos de grafo e aprendizado de máquina. [MLlib](http://spark.apache.org/mllib/) é a biblioteca de aprendizado de máquina escalonável do Spark que oferece recursos de modelagem de algoritmo para esse ambiente distribuído.
+[Spark](https://spark.apache.org/) é uma estrutura de processamento paralelo de software livre que dá suporte ao processamento na memória para melhorar o desempenho de aplicativos analíticos de Big Data. O mecanismo de processamento do Spark foi desenvolvido para velocidade, facilidade de uso e análise sofisticada. As funcionalidades de computação distribuídas na memória do Spark fazem dele uma boa escolha para algoritmos iterativos usados em cálculos de grafo e aprendizado de máquina. [MLlib](https://spark.apache.org/mllib/) é a biblioteca de aprendizado de máquina escalonável do Spark que oferece recursos de modelagem de algoritmo para esse ambiente distribuído.
 
 ## <a name="hdinsight-spark"></a>HDInsight Spark
 [HDInsight Spark](../../hdinsight/spark/apache-spark-overview.md) é a oferta do Spark de software livre hospedada no Azure. Ele também inclui suporte para **notebooks do Jupyter PySpark** no cluster Spark, que podem executar consultas Spark SQL interativas para transformar, filtrar e visualizar dados armazenados em Blobs do Azure (WASB). PySpark é a API do Python para o Spark. Os snippets de código que fornecem as soluções e mostram as gráficos relevantes para visualizar os dados aqui são executados em notebooks do Jupyter instalados nos clusters Spark. As etapas de modelagem nesses tópicos contêm código que mostra como treinar, avaliar, salvar e consumir cada tipo de modelo.
@@ -49,19 +49,17 @@ Esses notebooks devem ser executados no kernel pySpark3 do servidor de notebook 
 
 > [!NOTE]
 > O conjunto de dados da companhia aérea foi adicionado ao notebook Spark 2.0 para melhor ilustrar os algoritmos de classificação. Consulte os links a seguir para obter informações sobre um conjunto de dados de partidas no horário e de clima:
-
->- Dados de saída no horário de companhia aérea: [http://www.transtats.bts.gov/ONTIME/](http://www.transtats.bts.gov/ONTIME/)
-
->- Dados de clima de do aeroporto:[https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/)
->
->
+> 
+> - Dados de saída no horário de companhia aérea: [https://www.transtats.bts.gov/ONTIME/](https://www.transtats.bts.gov/ONTIME/)
+> 
+> - Dados de clima de do aeroporto:[https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/)
 
 <!-- -->
 
 <!-- -->
 
 > [!NOTE]
-Os notebooks do Spark 2.0 dos conjuntos de dados de atrasos de voo e táxi de Nova York podem levar 10 minutos ou mais para serem executados (dependendo do tamanho do seu cluster de HDI). O primeiro notebook da lista acima mostra vários aspectos da exploração, da visualização e do treinamento de modelos de ML de dados em um notebook que leva menos tempo para ser executado com um conjunto de dados de NYC com amostras reduzidas, em que os arquivos de taxi e tarifas foram unidos previamente: [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb). Este notebook precisa de muito menos tempo para terminar (2 a 3 minutos) e pode ser um bom ponto de partida para explorar rapidamente o código que fornecemos para o Spark 2.0.
+> Os notebooks do Spark 2.0 dos conjuntos de dados de atrasos de voo e táxi de Nova York podem levar 10 minutos ou mais para serem executados (dependendo do tamanho do seu cluster de HDI). O primeiro notebook da lista acima mostra vários aspectos da exploração, da visualização e do treinamento de modelos de ML de dados em um notebook que leva menos tempo para ser executado com um conjunto de dados de NYC com amostras reduzidas, em que os arquivos de taxi e tarifas foram unidos previamente: [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb). Este notebook precisa de muito menos tempo para terminar (2 a 3 minutos) e pode ser um bom ponto de partida para explorar rapidamente o código que fornecemos para o Spark 2.0.
 
 <!-- -->
 
@@ -94,7 +92,7 @@ Os procedimentos a seguir são relacionados ao Spark 1.6. Para as versões do Sp
 Os dados de Viagens de Táxi em NYC são cerca de 20 GB de arquivos compactados em valores separados por vírgulas (CSV) (cerca de 48 GB descompactados), que incluem mais de 173 milhões de viagens individuais e a tarifa paga por cada viagem. Cada registro de corrida inclui o local e horário de saída e chegada, número da carteira de motorista de taxista anônima e o número do medalhão (identificador exclusivo do táxi). Os dados abrangem todas as corridas no ano de 2013 e são fornecidos nos dois conjuntos de dados a seguir para cada mês:
 
 1. Os arquivos CSV “trip_data” contêm detalhes da corrida, como o número de passageiros, pontos de saída e chegada, duração e extensão da corrida. Aqui estão alguns exemplos de registros:
-   
+
         medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
         89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171
         0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-06 00:18:35,2013-01-06 00:22:54,1,259,1.50,-74.006683,40.731781,-73.994499,40.75066
@@ -102,7 +100,7 @@ Os dados de Viagens de Táxi em NYC são cerca de 20 GB de arquivos compactados 
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:54:15,2013-01-07 23:58:20,2,244,.70,-73.974602,40.759945,-73.984734,40.759388
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868
 2. Os arquivos CSV “trip_fare” contêm detalhes sobre as passagens pagas por cada corrida, como tipo de pagamento, valor da tarifa, custos adicionais e impostos, gorjetas e pedágios, e o valor total pago. Aqui estão alguns exemplos de registros:
-   
+
         medallion, hack_license, vendor_id, pickup_datetime, payment_type, fare_amount, surcharge, mta_tax, tip_amount, tolls_amount, total_amount
         89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,2013-01-01 15:11:48,CSH,6.5,0,0.5,0,0,7
         0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,2013-01-06 00:18:35,CSH,6,0.5,0.5,0,0,7
@@ -145,7 +143,7 @@ Pegamos uma amostra de 0,1% desses arquivos CVS trip\_data and trip\_fare e os u
 ## <a name="execute-code-from-a-jupyter-notebook-on-the-spark-cluster"></a>Executar código de um bloco de anotações Jupyter no cluster Spark
 É possível iniciar o Notebook do Jupyter no portal do Azure. Encontre o cluster Spark no painel e clique nele para entrar na página de gerenciamento de seu cluster. Para abrir o notebook associado ao cluster Spark, clique nos **Painéis do Cluster** -> **Notebook Jupyter**.
 
-![Painéis de cluster](./media/spark-overview/spark-jupyter-on-portal.png)
+![Painéis do cluster](./media/spark-overview/spark-jupyter-on-portal.png)
 
 Você também pode navegar até ***https://CLUSTERNAME.azurehdinsight.net/jupyter*** para acessar o Jupyter Notebooks. Substitua a parte CLUSTERNAME desta URL pelo nome do seu próprio cluster. Você precisa da senha de sua conta de administrador para acessar os notebooks.
 

@@ -12,12 +12,12 @@ ms.author: vanto
 ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: a3ba80ce7b5abcb2f112880c4fef5ed3f067f691
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 051aa6b6ca8571fe948fa30e1e4a4320bb564a52
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563211"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593311"
 ---
 # <a name="split-merge-security-configuration"></a>Configuração de segurança da divisão e mesclagem
 
@@ -121,24 +121,29 @@ A configuração padrão nega todo os acessos ao ponto de extremidade HTTP. Esta
 A configuração padrão permite todo os acessos ao ponto de extremidade HTTPS. Essa configuração pode ser mais restrita.
 
 ### <a name="changing-the-configuration"></a>Alterando a configuração
-O grupo de regras de controle de acesso que são aplicadas e o ponto de extremidade são configurados na seção **<EndpointAcls>** no **arquivo de configuração de serviço**.
+O grupo de regras de controle de acesso que se aplicam a e o ponto de extremidade são configurados na  **\<EndpointAcls >** seção os **arquivo de configuração de serviço**.
 
-    <EndpointAcls>
-      <EndpointAcl role="SplitMergeWeb" endPoint="HttpIn" accessControl="DenyAll" />
-      <EndpointAcl role="SplitMergeWeb" endPoint="HttpsIn" accessControl="AllowAll" />
-    </EndpointAcls>
+```xml
+<EndpointAcls>
+    <EndpointAcl role="SplitMergeWeb" endPoint="HttpIn" accessControl="DenyAll" />
+    <EndpointAcl role="SplitMergeWeb" endPoint="HttpsIn" accessControl="AllowAll" />
+</EndpointAcls>
+```
 
-As regras em um grupo de controle de acesso são configuradas em uma seção de <AccessControl name=""> do arquivo de configuração do serviço. 
+As regras em um grupo de controle de acesso são configuradas em um \<AccessControl nome = "" > seção do arquivo de configuração do serviço. 
 
 O formato é explicado na documentação de listas de controle de acesso à rede.
 Por exemplo, para permitir que apenas IPs no intervalo 100.100.0.0 para 100.100.255.255 acessem o ponto de extremidade HTTPS, as regras teriam esta aparência:
 
-    <AccessControl name="Retricted">
-      <Rule action="permit" description="Some" order="1" remoteSubnet="100.100.0.0/16"/>
-      <Rule action="deny" description="None" order="2" remoteSubnet="0.0.0.0/0" />
-    </AccessControl>
-    <EndpointAcls>
+```xml
+<AccessControl name="Retricted">
+    <Rule action="permit" description="Some" order="1" remoteSubnet="100.100.0.0/16"/>
+    <Rule action="deny" description="None" order="2" remoteSubnet="0.0.0.0/0" />
+</AccessControl>
+<EndpointAcls>
     <EndpointAcl role="SplitMergeWeb" endPoint="HttpsIn" accessControl="Restricted" />
+</EndpointAcls>
+```
 
 ## <a name="denial-of-service-prevention"></a>Negação de prevenção de serviço
 Há dois mecanismos diferentes com suporte para detectar e impedir ataques de negação de serviço:
@@ -154,22 +159,29 @@ Eles se baseiam nos recursos documentados mais adiante na segurança de IP dinâ
 ## <a name="restricting-number-of-concurrent-accesses"></a>Restringir o número de acessos simultâneos
 As configurações que configuram esse comportamento são:
 
-    <Setting name="DynamicIpRestrictionDenyByConcurrentRequests" value="false" />
-    <Setting name="DynamicIpRestrictionMaxConcurrentRequests" value="20" />
+```xml
+<Setting name="DynamicIpRestrictionDenyByConcurrentRequests" value="false" />
+<Setting name="DynamicIpRestrictionMaxConcurrentRequests" value="20" />
+```
 
 Alterar DynamicIpRestrictionDenyByConcurrentRequests como verdadeiro (true) para habilitar essa proteção.
 
 ## <a name="restricting-rate-of-access"></a>Restringindo a taxa de acesso
 As configurações que configuram esse comportamento são:
 
-    <Setting name="DynamicIpRestrictionDenyByRequestRate" value="true" />
-    <Setting name="DynamicIpRestrictionMaxRequests" value="100" />
-    <Setting name="DynamicIpRestrictionRequestIntervalInMilliseconds" value="2000" />
+```xml
+<Setting name="DynamicIpRestrictionDenyByRequestRate" value="true" />
+<Setting name="DynamicIpRestrictionMaxRequests" value="100" />
+<Setting name="DynamicIpRestrictionRequestIntervalInMilliseconds" value="2000" />
+```
 
 ## <a name="configuring-the-response-to-a-denied-request"></a>Configurando a resposta para uma solicitação negada
 A configuração a seguir configura a resposta para uma solicitação negada:
 
-    <Setting name="DynamicIpRestrictionDenyAction" value="AbortRequest" />
+```xml
+<Setting name="DynamicIpRestrictionDenyAction" value="AbortRequest" />
+```
+
 Consulte a documentação de segurança de IP dinâmico no IIS para outros valores com suporte.
 
 ## <a name="operations-for-configuring-service-certificates"></a>Operações para configurar certificados de serviço
@@ -232,12 +244,16 @@ Há suporte somente para autenticação com base em certificado de cliente e des
 
 Altere essas configurações para false no arquivo de configuração de serviço para desativar o recurso:
 
-    <Setting name="SetupWebAppForClientCertificates" value="false" />
-    <Setting name="SetupWebserverForClientCertificates" value="false" />
+```xml
+<Setting name="SetupWebAppForClientCertificates" value="false" />
+<Setting name="SetupWebserverForClientCertificates" value="false" />
+```
 
 Em seguida, copie a mesma impressão digital do certificado SSL na configuração do Certificado de Autoridade de Certificação:
 
-    <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+```xml
+<Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+```
 
 ## <a name="create-a-self-signed-certification-authority"></a>Criar uma Autoridade de certificado autoassinado
 Execute as seguintes etapas para criar um certificado autoassinado para atuar como uma autoridade de certificação:
@@ -280,11 +296,15 @@ Carregar certificado com o arquivo .CER existente ou gerado com a chave pública
 ## <a name="update-ca-certificate-in-service-configuration-file"></a>Atualizar o Certificado de Autoridade de Certificação no arquivo de configuração de serviço
 Atualize o valor de impressão digital da seguinte configuração no arquivo de configuração de serviço com a impressão digital do certificado carregado para o serviço de nuvem:
 
-    <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+```xml
+<Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+```
 
 Atualize o valor de configuração a seguir com a mesma impressão digital:
 
-    <Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
+```xml
+<Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
+```
 
 ## <a name="issue-client-certificates"></a>Emitir certificados de cliente
 Cada pessoa autorizada a acessar o serviço deve ter um certificado de cliente emitido para seu uso exclusivo e deve escolher sua própria senha forte para proteger sua chave privada. 
@@ -338,17 +358,23 @@ Cada pessoa para quem um certificado cliente tiver sido emitido deve seguir esta
 * Na caixa de diálogo certificado é aberta, selecione a guia Detalhes
 * Certifique-se de que mostrar está exibindo todos
 * Selecione o campo denominado impressão digital na lista
-* Copie o valor da impressão digital ** Exclua caracteres Unicode não visíveis na frente do primeiro dígito ** Exclua todos os espaços
+* Copie o valor da impressão digital
+  * Exclua caracteres Unicode não visíveis na frente do primeiro dígito
+  * Exclua todos os espaços
 
 ## <a name="configure-allowed-clients-in-the-service-configuration-file"></a>Configurar clientes permitidos no arquivo de configuração de serviço
 Atualize o valor da configuração a seguir no arquivo de configuração de serviço com uma lista separada por vírgulas das impressões digitais dos certificados do cliente pode acessar o serviço:
 
-    <Setting name="AllowedClientCertificateThumbprints" value="" />
+```xml
+<Setting name="AllowedClientCertificateThumbprints" value="" />
+```
 
 ## <a name="configure-client-certificate-revocation-check"></a>Configurar a verificação de revogação de certificado do cliente
 A configuração padrão não verifica a autoridade de certificação para o status de revogação de certificado de cliente. Para ativar as verificações, se a autoridade de certificação que emitiu os certificados de cliente oferece suporte a essas verificações, altere a configuração a seguir com um dos valores definidos na enumeração X509RevocationMode:
 
-    <Setting name="ClientCertificateRevocationCheck" value="NoCheck" />
+```xml
+<Setting name="ClientCertificateRevocationCheck" value="NoCheck" />
+```
 
 ## <a name="create-pfx-file-for-self-signed-encryption-certificates"></a>Criar arquivo PFX para certificados de criptografia autoassinados
 Para um certificado de criptografia, execute:
@@ -381,7 +407,9 @@ Carregar certificado com o arquivo .PFX existente ou gerado com o par de chaves 
 ## <a name="update-encryption-certificate-in-service-configuration-file"></a>Atualizar o certificado de criptografia no arquivo de configuração de serviço
 Atualize o valor de impressão digital das seguintes configurações no arquivo de configuração de serviço com a impressão digital do certificado carregado para o serviço de nuvem:
 
-    <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
+```xml
+<Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
+```
 
 ## <a name="common-certificate-operations"></a>Operações comuns de certificado
 * Configurar o certificado SSL
@@ -405,14 +433,14 @@ Siga estas etapas:
 ## <a name="export-certificate"></a>Exportar o certificado
 No **Assistente para Exportação de Certificados**:
 
-1. Clique em **Próximo**.
+1. Clique em **Avançar**.
 2. Selecione **Sim** e **Exportar a chave privada**.
-3. Clique em **Próximo**.
+3. Clique em **Avançar**.
 4. Selecione o formato de arquivo de saída desejado.
 5. Marque as opções desejadas.
 6. Marque a **Senha**.
 7. Digite uma senha forte e confirme-a.
-8. Clique em **Próximo**.
+8. Clique em **Avançar**.
 9. Digite ou procure um nome de arquivo onde o certificado deverá ser armazenado (use uma extensão .PFX).
 10. Clique em **Avançar**.
 11. Clique em **Concluir**.
@@ -425,7 +453,7 @@ No Assistente para importação de certificados:
    
    * Selecione **Usuário Atual** somente se processos em execução no atual usuário acessarão o serviço
    * Selecione **Computador Local** se outros processos no computador acessarão o serviço
-2. Clique em **Próximo**.
+2. Clique em **Avançar**.
 3. Se estiver importando um arquivo, verifique seu caminho.
 4. Se estiver importando um arquivo .PFX:
    1. Digite a senha que protege as informações da chave privada
@@ -452,7 +480,9 @@ No [Portal do Azure](https://portal.azure.com/)
 ## <a name="other-security-considerations"></a>Outras considerações de segurança
 As configurações de SSL descritas neste documento criptografar a comunicação entre o serviço e seus clientes quando o ponto de extremidade HTTPS é usado. Isso é importante já que as credenciais para acesso ao banco de dados e potencialmente outras informações confidenciais estão contidos na comunicação. No entanto, observe que o serviço persista status interno, incluindo credenciais, em suas tabelas internas no banco de dados SQL do Microsoft Azure que você forneceu para o armazenamento de metadados em sua assinatura do Microsoft Azurre. Esse banco de dados foi definido como parte da seguinte configuração no arquivo de configuração de serviço (arquivo .CSCFG): 
 
-    <Setting name="ElasticScaleMetadata" value="Server=…" />
+```xml
+<Setting name="ElasticScaleMetadata" value="Server=…" />
+```
 
 As credenciais armazenadas neste banco de dados são criptografadas. No entanto, como uma prática recomendada, certifique-se de que funções da web e de trabalho de suas implantações de serviço sejam atualizadas e protegidas, visto que elas têm acesso ao banco de dados de metadados e o certificado usado para criptografia e descriptografia de credenciais armazenadas. 
 

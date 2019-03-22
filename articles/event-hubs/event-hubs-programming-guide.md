@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 60c709108da041dc1e54ba69d3b1b153accebc19
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
-ms.translationtype: HT
+ms.openlocfilehash: e96abfbdbd9394d27fbffbcb64aa9cbfabbbcb69
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401394"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835428"
 ---
 # <a name="programming-guide-for-azure-event-hubs"></a>Guia de programação para Hubs de Eventos do Azure
 Este artigo descreve alguns cenários comuns de produção de código usando os Hubs de Eventos do Azure. Ele supõe uma compreensão preliminar de Hubs de Eventos. Para obter uma visão geral conceitual dos Hubs de Eventos, confira [Visão geral dos Hubs de Eventos](event-hubs-what-is-event-hubs.md).
@@ -26,8 +26,7 @@ Envie eventos para um Hub de Eventos usando HTTP POST ou via uma conexão AMQP 1
 Ao usar APIs gerenciadas pelo .NET, as principais construções para publicar os dados nos Hubs de Eventos são as classes [EventHubClient][] e [EventData][]. [EventHubClient][] fornece o canal de comunicação AMQP pelo qual os eventos são enviados ao Hub de Eventos. A classe [EventData][] representa um evento e é usada para publicar mensagens em um hub de eventos. Essa classe inclui o corpo, alguns metadados e informações de cabeçalho sobre o evento. Outras propriedades são adicionadas ao objeto [EventData][] à medida que ele passa por um hub de eventos.
 
 ## <a name="get-started"></a>Introdução
-
-As classes do .NET que são compatíveis com os Hubs de Eventos são fornecidas no pacote do NuGet [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/). Você pode instalar usando o gerenciador de soluções do Visual Studio, ou o [Console do Gerenciador de pacotes](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) no Visual Studio. Digite o comando a seguir na janela [Console do Gerenciador de Pacotes](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) :
+As classes do .NET que são compatíveis com os Hubs de Eventos são fornecidas no pacote do NuGet [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/). Você pode instalar usando o gerenciador de soluções do Visual Studio, ou o [Console do Gerenciador de pacotes](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) no Visual Studio. Digite o comando a seguir na janela [Console do Gerenciador de Pacotes](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) :
 
 ```shell
 Install-Package Microsoft.Azure.EventHubs
@@ -99,7 +98,6 @@ Um único lote não deve exceder o limite de 1 MB de um evento. Além disso, cad
 Você envia eventos para um hub de eventos de forma assíncrona. O envio de forma assíncrona pode aumentar a taxa em que um cliente é capaz de enviar eventos. O [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) retorna um objeto da [Tarefa](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx). Você pode usar a classe [RetryPolicy](/dotnet/api/microsoft.servicebus.retrypolicy) no cliente para controlar as opções de novas tentativas do cliente.
 
 ## <a name="event-consumers"></a>Consumidores de evento
-
 A classe [EventProcessorHost][] processa dados de Hubs de Eventos. Você deve usar essa implementação ao criar os leitores de evento na plataforma .NET. [EventProcessorHost][] fornece um ambiente de tempo de execução seguro, thread-safe, de vários processos, para implementações de processador de eventos, que também fornece gerenciamento de concessão de ponto de verificação e partição.
 
 Para usar a classe [EventProcessorHost][], você pode implementar o [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor). Essa interface contém quatro métodos:
@@ -110,6 +108,9 @@ Para usar a classe [EventProcessorHost][], você pode implementar o [IEventProce
 * [ProcessErrorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processerrorasync)
 
 Para iniciar o processamento de eventos, instancie o [EventProcessorHost][] fornecendo os parâmetros adequados para seu hub de eventos. Por exemplo: 
+
+> [!NOTE]
+> EventProcessorHost e suas classes relacionadas são fornecidos a **Microsoft.Azure.EventHubs.Processor** pacote. Adicionar o pacote ao projeto do Visual Studio seguindo as instruções em [neste artigo](event-hubs-dotnet-framework-getstarted-receive-eph.md#add-the-event-hubs-nuget-package) ou emitindo o comando a seguir na [Package Manager Console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) janela:`Install-Package Microsoft.Azure.EventHubs.Processor`.
 
 ```csharp
 var eventProcessorHost = new EventProcessorHost(

@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: danlep
-ms.openlocfilehash: 3f058a68057d6b84cbbb2dfdb08ea8c2cb12b0b9
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
-ms.translationtype: HT
+ms.openlocfilehash: 8fc364eac619c2f23ad2db1051a9b3ffa1bd38d6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322083"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58138075"
 ---
 # <a name="azure-container-registry-skus"></a>SKUs do Registro de Contêiner do Azure
 
@@ -20,9 +20,9 @@ O ACR (Registro de Contêiner do Azure) está disponível em várias camadas de 
 
 | SKU | Gerenciada | DESCRIÇÃO |
 | --- | :-------: | ----------- |
-| **Básico** | SIM | Um ponto de entrada de otimização de custo para desenvolvedores aprendendo sobre o Registro de Contêiner do Azure. Os registros Básicos têm os mesmos recursos programáticos do Standard e Premium (integração de autenticação do Azure Active Directory, exclusão de imagens e web hooks). No entanto, o armazenamento incluído e a taxa de transferência de imagem são mais apropriados para cenários de uso mais baixos. |
-| **Standard** | SIM | Os registros Standard oferecem os mesmos recursos do Básico, com maior armazenamento incluído e taxa de transferência de imagem. Registros Standard devem atender às necessidades da maioria dos cenários de produção. |
-| **Premium** | SIM | Os registros Premium fornecem a maior quantidade de armazenamento incluído e operações simultâneas, permitindo cenários de alto volume. Além de maior taxa de transferência de imagem, o Premium adiciona recursos como [replicação geográfica][container-registry-geo-replication] para gerenciar um único registro em várias regiões e [confiança de conteúdo (versão prévia)](container-registry-content-trust.md) para assinatura de marca de imagem. |
+| **Básico** | Sim | Um ponto de entrada de otimização de custo para desenvolvedores aprendendo sobre o Registro de Contêiner do Azure. Os registros Básicos têm os mesmos recursos programáticos do Standard e Premium (integração de autenticação do Azure Active Directory, exclusão de imagens e web hooks). No entanto, o armazenamento incluído e a taxa de transferência de imagem são mais apropriados para cenários de uso mais baixos. |
+| **Standard** | Sim | Os registros Standard oferecem os mesmos recursos do Básico, com maior armazenamento incluído e taxa de transferência de imagem. Registros Standard devem atender às necessidades da maioria dos cenários de produção. |
+| **Premium** | Sim | Os registros Premium fornecem a maior quantidade de armazenamento incluído e operações simultâneas, permitindo cenários de alto volume. Além de maior taxa de transferência de imagem, o Premium adiciona recursos, incluindo [replicação geográfica] [ container-registry-geo-replication] para gerenciar um único registro em várias regiões, [confiança (visualização)deconteúdo](container-registry-content-trust.md) para a assinatura de marca de imagem, e [firewalls e redes virtuais (versão prévia)](container-registry-vnet.md) para restringir o acesso ao registro. |
 | Clássico<sup>1</sup> | Não  | Esta SKU permitiu a versão inicial do serviço Registro de Contêiner do Azure no Azure. Os registros Clássicos contam com uma conta de armazenamento que o Azure cria em sua assinatura, o que limita a capacidade do ACR de fornecer recursos de níveis mais altos, como uma maior taxa de transferência e a replicação geográfica. |
 
 <sup>1</sup> O SKU clássico será **preterido** em **março de 2019**. Use Básico, Standard ou Premium para todos os novos registros de contêiner.

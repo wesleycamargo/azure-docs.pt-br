@@ -1,19 +1,19 @@
 ---
 title: Entender o Registro da identidade do Hub IoT do Azure | Microsoft Docs
 description: Guia do desenvolvedor ‑ descrição do Registro de identidade do Hub IoT e como usá-lo para gerenciar seus dispositivos. Inclui informações sobre a importação e exportação de identidades de dispositivo em massa.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/29/2018
-ms.author: dobett
-ms.openlocfilehash: 6291350cab41c123b41f7fee811bf72a21d9ff35
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
-ms.translationtype: HT
+ms.openlocfilehash: 935635c474190413545d1a2731c367a691bfa56d
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319125"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010253"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Entender o registro de identidade no Hub IoT
 
@@ -101,7 +101,7 @@ Uma implementação mais complexa poderia incluir as informações do [Azure Mon
 
 O Hub IoT pode notificar sua solução de IoT quando uma identidade é criada ou excluída, enviando notificações do ciclo de vida. Para fazer isso, sua solução de IoT precisa para criar uma rota e definir a Fonte de Dados como *DeviceLifecycleEvents* ou *ModuleLifecycleEvents*. Por padrão, nenhuma notificação de ciclo de vida é enviada, ou seja, nenhuma dessas rotas existe previamente. A mensagem de notificação inclui propriedades e o corpo.
 
-Propriedades: as propriedades do sistema de mensagens são prefixadas com o símbolo `$`.
+Propriedades: As propriedades do sistema de mensagens são fixadas previamente com o símbolo `$`.
 
 Mensagem de notificação para dispositivo:
 
@@ -117,7 +117,7 @@ Mensagem de notificação para dispositivo:
 |operationTimestamp | Carimbo de data/hora ISO8601 da operação |
 |iothub-message-schema | deviceLifecycleNotification |
 
-Corpo: esta seção está no formato JSON e representa o gêmeo da identidade de dispositivo criada. Por exemplo,
+Corpo: Esta seção está no formato JSON e representa o gêmeo da identidade de dispositivo criada. Por exemplo,
 
 ```json
 {
@@ -153,7 +153,7 @@ moduleId | ID do módulo |
 operationTimestamp | Carimbo de data/hora ISO8601 da operação |
 iothub-message-schema | moduleLifecycleNotification |
 
-Corpo: esta seção está no formato JSON e representa o gêmeo da identidade de módulo criada. Por exemplo,
+Corpo: Esta seção está no formato JSON e representa o gêmeo da identidade do módulo criado. Por exemplo,
 
 ```json
 {
@@ -191,7 +191,7 @@ As identidades do dispositivo são representadas como documentos JSON com as seg
 | status |obrigatório |Um indicador de acesso. Pode estar **Habilitado** ou **Desabilitado**. Se estiver **Habilitado**, o dispositivo terá permissão para se conectar. Se estiver **Desabilitado**, este dispositivo não poderá acessar qualquer ponto de extremidade voltado para o dispositivo. |
 | statusReason |opcional |Uma cadeia de caracteres com 128 caracteres que armazena o motivo do status de identidade do dispositivo. Todos os caracteres UTF-8 são permitidos. |
 | statusUpdateTime |somente leitura |Um indicador temporal, mostrando a data e hora da última atualização de status. |
-| connectionState |somente leitura |Um campo indicando o status da conexão: **Conectado** ou **Desconectado**. Esse campo representa a exibição do Hub IoT do status de conexão do dispositivo. **Importante**: esse campo deve ser usado apenas para fins de desenvolvimento/depuração. O estado da conexão é atualizado somente nos dispositivos que usam MQTT ou AMQP. Além disso, ele se baseia nos pings do nível de protocolo (pings MQTT ou AMQP) e pode ter um atraso máximo de apenas cinco minutos. Por esses motivos, pode haver falsos positivos, como dispositivos relatados como conectados, mas que estão desconectados. |
+| connectionState |somente leitura |Um campo indicando o status da conexão: **Conectado** ou **Desconectado**. Esse campo representa a exibição do Hub IoT do status de conexão do dispositivo. **Importante**: Este campo deve ser usado apenas para fins de desenvolvimento/depuração. O estado da conexão é atualizado somente nos dispositivos que usam MQTT ou AMQP. Além disso, ele se baseia nos pings do nível de protocolo (pings MQTT ou AMQP) e pode ter um atraso máximo de apenas cinco minutos. Por esses motivos, pode haver falsos positivos, como dispositivos relatados como conectados, mas que estão desconectados. |
 | connectionStateUpdatedTime |somente leitura |Um indicador temporal, mostrando a data e a hora da última atualização do estado da conexão. |
 | lastActivityTime |somente leitura |Um indicador temporal, mostrando a data e hora da última vez em que o dispositivo se conectou, recebeu ou enviou uma mensagem. |
 
@@ -216,7 +216,7 @@ As identidades do módulo são representadas como documentos JSON com as seguint
 | status |obrigatório |Um indicador de acesso. Pode estar **Habilitado** ou **Desabilitado**. Se estiver **Habilitado**, o dispositivo terá permissão para se conectar. Se estiver **Desabilitado**, este dispositivo não poderá acessar qualquer ponto de extremidade voltado para o dispositivo. |
 | statusReason |opcional |Uma cadeia de caracteres com 128 caracteres que armazena o motivo do status de identidade do dispositivo. Todos os caracteres UTF-8 são permitidos. |
 | statusUpdateTime |somente leitura |Um indicador temporal, mostrando a data e hora da última atualização de status. |
-| connectionState |somente leitura |Um campo indicando o status da conexão: **Conectado** ou **Desconectado**. Esse campo representa a exibição do Hub IoT do status de conexão do dispositivo. **Importante**: esse campo deve ser usado apenas para fins de desenvolvimento/depuração. O estado da conexão é atualizado somente nos dispositivos que usam MQTT ou AMQP. Além disso, ele se baseia nos pings do nível de protocolo (pings MQTT ou AMQP) e pode ter um atraso máximo de apenas cinco minutos. Por esses motivos, pode haver falsos positivos, como dispositivos relatados como conectados, mas que estão desconectados. |
+| connectionState |somente leitura |Um campo indicando o status da conexão: **Conectado** ou **Desconectado**. Esse campo representa a exibição do Hub IoT do status de conexão do dispositivo. **Importante**: Este campo deve ser usado apenas para fins de desenvolvimento/depuração. O estado da conexão é atualizado somente nos dispositivos que usam MQTT ou AMQP. Além disso, ele se baseia nos pings do nível de protocolo (pings MQTT ou AMQP) e pode ter um atraso máximo de apenas cinco minutos. Por esses motivos, pode haver falsos positivos, como dispositivos relatados como conectados, mas que estão desconectados. |
 | connectionStateUpdatedTime |somente leitura |Um indicador temporal, mostrando a data e a hora da última atualização do estado da conexão. |
 | lastActivityTime |somente leitura |Um indicador temporal, mostrando a data e hora da última vez em que o dispositivo se conectou, recebeu ou enviou uma mensagem. |
 

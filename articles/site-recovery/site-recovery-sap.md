@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: 9399f9d47d89215080b1f633423843f501fefb7b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 68efc039c5de5d7f61b7ce34e74c6c2cf4bad027
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850424"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670869"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Configurar a recuperação de desastre para uma implantação de aplicativo do SAP NetWeaver de várias camadas
 
@@ -80,7 +80,7 @@ Para dar suporte ao ambiente de cluster de failover, a [SIOS DataKeeper Cluster 
 
 Outra maneira de lidar com o clustering é implementando um cluster de compartilhamento de arquivos. Recentemente, a [SAP](https://blogs.sap.com/2018/03/19/migration-from-a-shared-disk-cluster-to-a-file-share-cluster) modificou o padrão de implantação do Central Services para acessar os diretórios globais /sapmnt por meio de um caminho UNC. No entanto, ainda é recomendável garantir que o compartilhamento UNC /sapmnt seja altamente disponível. Isso pode ser feito na instância do Central Services usando um Cluster de Failover do Windows Server com SOFS (Servidor de Arquivos de Escalabilidade Horizontal) e o recurso S2D (Espaços de Armazenamento Diretos) no Windows Server 2016. 
  > [!NOTE]
- > No momento, o Azure Site Recovery oferece suporte apenas para falhas constantes no ponto de replicação de máquinas virtuais que usam espaços de armazenamento diretos 
+ > No momento, o suporte à recuperação de Site do Azure falhar apenas ponto consistente com a replicação de máquinas virtuais usando o nó de passivo e direta de espaços de armazenamento do SIOS Datakeeper
 
 
 ## <a name="disaster-recovery-considerations"></a>Considerações de recuperação de desastres

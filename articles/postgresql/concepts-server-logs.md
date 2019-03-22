@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/04/2018
-ms.openlocfilehash: 0e2dc2af6b4c7ddf531458136e6bcabb49be3b8f
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.date: 02/28/2019
+ms.openlocfilehash: 99deef907818ffdb1ce858c8e988e26cbd53a1a1
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538798"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195091"
 ---
 # <a name="server-logs-in-azure-database-for-postgresql"></a>Logs de servidor no Banco de Dados do Azure para PostgreSQL 
 Banco de Dados do Azure para PostgreSQL gera logs de consulta e de erro. Os logs de erro e consulta podem ser usados para identificar, solucionar problemas e reparar erros de configuração e desempenho abaixo do ideal. (O acesso aos logs de transação não está incluído). 
@@ -28,8 +28,10 @@ Se você habilitou os logs, poderá acessá-los do armazenamento de logs do Banc
 
 
 ## <a name="diagnostic-logs"></a>Logs de diagnóstico
-O Banco de Dados do Azure para PostgreSQL é integrado aos Logs de Diagnóstico do Azure Monitor. Depois de habilitar os logs em seu servidor PostgreSQL, você pode optar por emiti-los no [Log Analytics](../azure-monitor/log-query/log-query-overview.md), nos Hubs de Eventos ou no Armazenamento do Azure. Para saber mais sobre como habilitar logs de diagnóstico, consulte a seção de instruções da [documentação logs de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md). 
+O Banco de Dados do Azure para PostgreSQL é integrado aos Logs de Diagnóstico do Azure Monitor. Depois de habilitar os logs no seu servidor PostgreSQL, você pode optar por fazer com que eles são emitidos para [registra em log do Azure Monitor](../azure-monitor/log-query/log-query-overview.md), Hubs de eventos ou armazenamento do Azure. Para saber mais sobre como habilitar logs de diagnóstico, consulte a seção de instruções da [documentação logs de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md). 
 
+> [!IMPORTANT]
+> Esse recurso de diagnóstico para logs do servidor só está disponível no uso geral e otimizado para memória [tipos de preço](concepts-pricing-tiers.md).
 
 A tabela a seguir descreve o que está em cada log. Dependendo do ponto de extremidade de saída escolhido, os campos incluídos e a ordem em que aparecem podem variar. 
 
@@ -38,7 +40,7 @@ A tabela a seguir descreve o que está em cada log. Dependendo do ponto de extre
 | TenantId | Sua ID de locatário |
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | Carimbo de data/hora quando o log foi gravado, em UTC |
-| Tipo | Tipo do log. Sempre `AzureDiagnostics` |
+| Type | Tipo do log. Sempre `AzureDiagnostics` |
 | SubscriptionId | GUID para a assinatura a que o servidor pertence |
 | ResourceGroup | Nome do grupo de recursos ao qual o servidor pertence |
 | ResourceProvider | Nome do provedor de recursos. Sempre `MICROSOFT.DBFORPOSTGRESQL` |

@@ -15,12 +15,12 @@ ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 01/05/2019
 <!-- dev: viananth -->
-ms.openlocfilehash: c7c23352cea4f9e79b371f38112fb66ac31ac849
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b3bfc3072f819a92bdceb1721bb7737a3dc04cf8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242290"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078849"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>Use perfis de versão de API com o Python no Azure Stack
 
@@ -57,8 +57,59 @@ Para usar o SDK do Python do Azure com o Azure Stack, você deve fornecer os seg
 | ID do cliente | AZURE_CLIENT_ID | O serviço de ID do aplicativo principal salvo quando a entidade de serviço foi criada na seção anterior deste artigo. |
 | ID da assinatura | AZURE_SUBSCRIPTION_ID | O [ID da assinatura](../azure-stack-plan-offer-quota-overview.md#subscriptions) é como você pode acessar ofertas no Azure Stack. |
 | Segredo do cliente | AZURE_CLIENT_SECRET | O segredo do aplicativo principal do serviço salvo quando a entidade de serviço foi criada. |
-| Ponto de extremidade do Gerenciador de recursos | ARM_ENDPOINT | Consulte a [ponto de extremidade de Gerenciador de recursos do Azure Stack](azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
+| Ponto de extremidade do Gerenciador de recursos | ARM_ENDPOINT | Consulte a [ponto de extremidade do Gerenciador de recursos do Azure Stack](azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
 | Local do recurso | AZURE_RESOURCE_LOCATION | A localização de recursos do seu ambiente de pilha do Azure.
+
+### <a name="trust-the-azure-stack-ca-root-certificate"></a>Confiar no certificado de raiz da autoridade de certificação do Azure Stack
+
+Se você estiver usando o ASDK, você precisará confiar no certificado de raiz da autoridade de certificação no computador remoto. Você não precisará fazer isso com os sistemas integrados.
+
+#### <a name="windows"></a> Windows
+
+1. Localize o python repositório de certificados local em seu computador. O local pode variar, dependendo de onde você instalou o Python. Abra um prompt de comando ou um prompt do PowerShell com privilégios elevados e digite o seguinte comando:
+
+    ```PowerShell  
+      python -c "import certifi; print(certifi.where())"
+    ```
+
+    Anote o certificado de local de armazenamento. Por exemplo, *~/lib/python3.5/site-packages/certifi/cacert.pem*. O caminho específico dependem do seu sistema operacional e a versão do Python que você instalou.
+
+2. Confie no certificado de raiz de autoridade de certificação do Azure Stack anexando-o para o certificado existente do Python.
+
+    ```powershell
+    $pemFile = "<Fully qualified path to the PEM certificate Ex: C:\Users\user1\Downloads\root.pem>"
+
+    $root = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
+    $root.Import($pemFile)
+
+    Write-Host "Extracting required information from the cert file"
+    $md5Hash    = (Get-FileHash -Path $pemFile -Algorithm MD5).Hash.ToLower()
+    $sha1Hash   = (Get-FileHash -Path $pemFile -Algorithm SHA1).Hash.ToLower()
+    $sha256Hash = (Get-FileHash -Path $pemFile -Algorithm SHA256).Hash.ToLower()
+
+    $issuerEntry  = [string]::Format("# Issuer: {0}", $root.Issuer)
+    $subjectEntry = [string]::Format("# Subject: {0}", $root.Subject)
+    $labelEntry   = [string]::Format("# Label: {0}", $root.Subject.Split('=')[-1])
+    $serialEntry  = [string]::Format("# Serial: {0}", $root.GetSerialNumberString().ToLower())
+    $md5Entry     = [string]::Format("# MD5 Fingerprint: {0}", $md5Hash)
+    $sha1Entry    = [string]::Format("# SHA1 Fingerprint: {0}", $sha1Hash)
+    $sha256Entry  = [string]::Format("# SHA256 Fingerprint: {0}", $sha256Hash)
+    $certText = (Get-Content -Path $pemFile -Raw).ToString().Replace("`r`n","`n")
+
+    $rootCertEntry = "`n" + $issuerEntry + "`n" + $subjectEntry + "`n" + $labelEntry + "`n" + `
+    $serialEntry + "`n" + $md5Entry + "`n" + $sha1Entry + "`n" + $sha256Entry + "`n" + $certText
+
+    Write-Host "Adding the certificate content to Python Cert store"
+    Add-Content "${env:ProgramFiles(x86)}\Python35\Lib\site-packages\certifi\cacert.pem" $rootCertEntry
+
+    Write-Host "Python Cert store was updated to allow the Azure Stack CA root certificate"
+
+    ```
+
+> [!NOTE]  
+> Se você estiver usando virtualenv para desenvolver com o SDK do Python, conforme mencionado abaixo, você precisará adicionar o certificado acima ao repositório de certificados do seu ambiente virtual também. O caminho pode ser semelhante a: "... \mytestenv\Lib\site-packages\certifi\cacert.PEM"
+
+
 
 ## <a name="python-samples-for-azure-stack"></a>Exemplos de Python para o Azure Stack
 
@@ -133,7 +184,7 @@ Cada operação é claramente rotulada com um comentário e uma função de impr
     export AZURE_RESOURCE_LOCATION={your AzureStack Resource location}
     ```
 
-8. Para executar este exemplo, Ubuntu 16.04-LTS e imagens do Windows Server 2012-R2-Datacenter devem estar presentes no marketplace do Azure Stack. Eles podem ser qualquer um [baixado do Azure](../azure-stack-download-azure-marketplace-item.md), ou adicionado para o [repositório de imagens de plataforma](../azure-stack-add-vm-image.md).
+8. Para executar este exemplo, Ubuntu 16.04-LTS e imagens do Windows Server 2012-R2-DataCenter devem estar presentes no marketplace do Azure Stack. Eles podem ser qualquer um [baixado do Azure](../azure-stack-download-azure-marketplace-item.md), ou adicionado para o [repositório de imagens de plataforma](../azure-stack-add-vm-image.md).
 
 9. Execute o exemplo:
 

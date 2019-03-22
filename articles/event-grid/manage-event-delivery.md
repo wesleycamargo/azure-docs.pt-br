@@ -7,20 +7,25 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/06/2019
 ms.author: spelluru
-ms.openlocfilehash: a15797e9b181aa877b6dfa3350e69b210af5885e
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: a1b49fd3a2a85377a56c92aefd1b0056f91895b1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731760"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181955"
 ---
 # <a name="dead-letter-and-retry-policies"></a>Mensagens mortas e tentar novas políticas
 
 Ao criar uma assinatura de evento, você pode personalizar as configurações para entrega de eventos. Este artigo mostra como configurar um local de mensagens mortas e personalizar as configurações de repetição. Para obter informações sobre esses recursos, consulte [Entrega e repetição de mensagens da Grade de Eventos](delivery-and-retry.md).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="set-dead-letter-location"></a>Defina o local de mensagens mortas
 
 Para definir um local de mensagens mortas, é necessário ter uma conta de armazenamento para armazenar eventos que não podem ser entregues a um ponto de extremidade. Os exemplos obtêm a ID de recurso de uma conta de armazenamento existente. Eles criam uma assinatura de evento que usa um contêiner na conta de armazenamento para o ponto de extremidade de inatividade.
+
+> [!NOTE]
+> Crie uma conta de armazenamento e um contêiner de blob no armazenamento antes de executar os comandos neste artigo.
 
 ### <a name="azure-cli"></a>CLI do Azure
 
@@ -47,10 +52,10 @@ Para desativar a colocação em fila de mensagens mortas, execute novamente o co
 ```azurepowershell-interactive
 $containername = "testcontainer"
 
-$topicid = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name demoTopic).Id
-$storageid = (Get-AzureRmStorageAccount -ResourceGroupName gridResourceGroup -Name demostorage).Id
+$topicid = (Get-AzEventGridTopic -ResourceGroupName gridResourceGroup -Name demoTopic).Id
+$storageid = (Get-AzStorageAccount -ResourceGroupName gridResourceGroup -Name demostorage).Id
 
-New-AzureRmEventGridSubscription `
+New-AzEventGridSubscription `
   -ResourceId $topicid `
   -EventSubscriptionName <event_subscription_name> `
   -Endpoint <endpoint_URL> `
@@ -99,9 +104,9 @@ Se você definir ambos `event-ttl` e `max-deliver-attempts`, a Grade de Eventos 
 Para definir o evento de vida útil para um valor diferente de 1440 minutos, use:
 
 ```azurepowershell-interactive
-$topicid = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name demoTopic).Id
+$topicid = (Get-AzEventGridTopic -ResourceGroupName gridResourceGroup -Name demoTopic).Id
 
-New-AzureRmEventGridSubscription `
+New-AzEventGridSubscription `
   -ResourceId $topicid `
   -EventSubscriptionName <event_subscription_name> `
   -Endpoint <endpoint_URL> `
@@ -111,9 +116,9 @@ New-AzureRmEventGridSubscription `
 Para definir o máximo de tentativas com um valor diferente de 30, use:
 
 ```azurepowershell-interactive
-$topicid = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name demoTopic).Id
+$topicid = (Get-AzEventGridTopic -ResourceGroupName gridResourceGroup -Name demoTopic).Id
 
-New-AzureRmEventGridSubscription `
+New-AzEventGridSubscription `
   -ResourceId $topicid `
   -EventSubscriptionName <event_subscription_name> `
   -Endpoint <endpoint_URL> `

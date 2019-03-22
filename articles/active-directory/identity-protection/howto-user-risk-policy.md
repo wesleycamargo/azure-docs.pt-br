@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 03/14/2019
 ms.author: markvi
 ms.reviewer: raluthra
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 409c86556d8132cb913508518be7d5b9f9d35321
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8caf7d0670246d14c5197fda763826b970bd125e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180191"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993082"
 ---
 # <a name="how-to-configure-the-user-risk-policy"></a>Como: Configurar a política de risco de usuário
 
@@ -64,7 +64,7 @@ Ao configurar a política de risco de entrada, será necessário definir:
 
 - O tipo de acesso que deverá ser imposto quando o nível de risco de entrada for alcançado:  
 
-    ![Access](./media/howto-user-risk-policy/13.png)
+    ![Acessar](./media/howto-user-risk-policy/13.png)
 
 - O estado da sua política:
 
@@ -78,7 +78,7 @@ A caixa de diálogo de configuração de política fornece uma opção para esti
 
 É possível definir uma política de segurança de risco do usuário para bloquear os usuários ao entrar dependendo do nível do risco.
 
-![Bloqueio](./media/howto-user-risk-policy/16.png)
+![Bloqueando](./media/howto-user-risk-policy/16.png)
 
 
 Bloquear a entrada:

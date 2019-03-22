@@ -3,7 +3,7 @@ title: Contêineres do Azure oferecem pré-requisitos | Microsoft Docs
 description: Pré-requisitos para a publicação de um contêiner do Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
-author: dan-wesley
+author: v-miclar
 manager: Patrick.Butler
 editor: ''
 ms.assetid: ''
@@ -12,18 +12,18 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 03/13/2019
 ms.author: pbutlerm
-ms.openlocfilehash: fd308c645593a401736a0a1ab1d336d63d900217
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
-ms.translationtype: HT
+ms.openlocfilehash: 09c9afcf3126f7f84c20f5514bc038a65b2ea1b2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50980083"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57990717"
 ---
 # <a name="container-publishing-prerequisites"></a>Pré-requisitos de publicação de contêiner
 
-Este artigo descreve os pré-requisitos para a publicação uma oferta de contêiner no Azure Marketplace.
+Este artigo descreve os pré-requisitos para a publicação uma oferta de contêiner no Azure Marketplace.  Se você ainda não fez isso, você deve examinar a [guia de publicação oferecem contêineres](../../marketplace-containers.md).
 
 ## <a name="publishing-prerequisites"></a>Pré-requisitos de publicação
 
@@ -35,12 +35,11 @@ Para publicar uma nova imagem de contêiner, você precisa atender aos seguintes
 - Ter os metadados de contêiner pronto para uso. Por exemplo, a não está completa lista a seguir:
   - Um título
   - Uma descrição (no formato HTML)
-  - Uma imagem do logotipo (no formato PNG) e nesses tamanhos fixos de imagem: 40x40 px, 90x90 px, 115x 115 px e 255x115 px.
-- Uma política de privacidade e termos de uso
-- Documentação
+  - Uma imagem de logotipo (no formato PNG) e nesses tamanhos de imagem fixos: 40 x 40 px, 90 x 90 px, 115 x 115 px e 255 x 115 px.
+- Um *termos de uso* e uma *política de privacidade* instruções
+- Documentação de solução de contêiner
 - Contatos de suporte
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Preparar seu contêiner de ativos técnicos](./cpp-create-technical-assets.md)
-- [Criar sua oferta de contêiner](./cpp-create-offer.md) 
+Se você ainda não fez isso, você deve [preparar seu contêiner de ativos técnicos](./cpp-create-technical-assets.md) antes de você [criar sua oferta de contêiner](./cpp-create-offer.md).  

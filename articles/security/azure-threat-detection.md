@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 32e705c5c338d9bd7c16514b2dc2ab081a9caf6a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 60a0d7c2da25f63d0728dbb86f9a6c2328def811
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115548"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245233"
 ---
 # <a name="azure-advanced-threat-detection"></a>Detecção avançada de ameaças do Azure
 
-O Azure oferece a funcionalidade interna de detecção avançada de ameaças por meio de serviços como o Azure AD (Azure Active Directory), Azure Log Analytics e a Central de Segurança do Azure. Esta coleção de recursos e serviços de segurança fornece uma maneira simples e rápida de compreender o que está acontecendo em suas implantações do Azure.
+Ofertas do Azure criado na funcionalidade de detecção avançada de ameaças por meio de serviços, como o Azure Active Directory (Azure AD), logs do Azure Monitor e a Central de segurança do Azure. Esta coleção de recursos e serviços de segurança fornece uma maneira simples e rápida de compreender o que está acontecendo em suas implantações do Azure.
 
 O Azure fornece uma ampla gama de opções para configurar e personalizar a segurança para atender às necessidades de implantações de seu aplicativo. Este artigo discute como atender a esses requisitos.
 
@@ -75,17 +75,17 @@ O PIM ajuda você a:
 
 -   Receber alertas sobre o acesso a uma função com privilégios.
 
-## <a name="azure-log-analytics"></a>Azure Log Analytics
+## <a name="azure-monitor-logs"></a>Logs do Azure Monitor
 
-O [Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) é a solução de gerenciamento de TI baseada em nuvem da Microsoft que ajuda você a gerenciar e proteger sua infraestrutura local e de nuvem. Como o Log Analytics é implementado como um serviço baseado em nuvem, é possível colocá-lo em funcionamento com investimentos mínimos em serviços de infraestrutura. Novos recursos de segurança são entregues automaticamente, economizando em manutenção contínua e custos de atualização.
+[Os logs do Azure Monitor](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) é uma Microsoft baseados em nuvem gerenciamento solução de TI que ajuda você a gerenciar e proteger suas instalações e infraestrutura de nuvem. Como logs do Azure Monitor é implementado como um serviço baseado em nuvem, você pode colocá-lo em funcionamento rapidamente com investimento mínimo nos serviços de infraestrutura. Novos recursos de segurança são entregues automaticamente, economizando em manutenção contínua e custos de atualização.
 
-Além de fornecer serviços importantes por conta própria, o Log Analytics pode ser integrado aos componentes do System Center, como o [System Center Operations Manager](https://blogs.technet.microsoft.com/cbernier/2013/10/23/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started/), para estender para a nuvem os seus investimentos em gerenciamento de segurança existentes. O System Center e o Log Analytics podem trabalhar juntos para proporcionar uma experiência completa de gerenciamento híbrido.
+Além de fornecer serviços importantes por conta própria, o Azure Monitor logs podem integrar componentes do System Center, como [System Center Operations Manager](https://blogs.technet.microsoft.com/cbernier/2013/10/23/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started/), para estender sua segurança existente investimentos de gerenciamento para o nuvem. Logs do System Center e o Azure Monitor podem trabalhar juntos para fornecer a experiência de um gerenciamento híbrido completa.
 
 ### <a name="holistic-security-and-compliance-posture"></a>Situação de conformidade e de segurança abrangente
 
-O [painel de Segurança e Auditoria do Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) fornece uma exibição abrangente da situação de segurança de TI da organização, com consultas de pesquisa internas para problemas importantes que exigem atenção. O painel Segurança e Auditoria é a tela inicial para tudo relacionado à segurança no Log Analytics. Ela fornece uma análise de alto nível do estado de segurança de seus computadores. Você também pode exibir todos os eventos das últimas 24 horas, 7 dias ou de qualquer outro período personalizado.
+O [painel de Segurança e Auditoria do Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) fornece uma exibição abrangente da situação de segurança de TI da organização, com consultas de pesquisa internas para problemas importantes que exigem atenção. O painel segurança e auditoria é a tela inicial para tudo relacionado à segurança nos logs do Azure Monitor. Ela fornece uma análise de alto nível do estado de segurança de seus computadores. Você também pode exibir todos os eventos das últimas 24 horas, 7 dias ou de qualquer outro período personalizado.
 
-O Log Analytics ajuda a entender com rapidez e facilidade a situação geral de segurança de qualquer ambiente, todos dentro do contexto das operações de TI, inclusive com avaliação de atualização de software, avaliação de antimalware e linhas de base de configuração. Os dados de log de segurança ficam prontamente acessíveis para simplificar os processos de auditoria de segurança e conformidade.
+O Azure Monitor registra ajudam a forma rápida e fácil entender a postura geral de segurança de qualquer ambiente, todas dentro do contexto de operações de TI, incluindo avaliação de atualização de software, avaliação de antimalware e linhas de base de configuração. Os dados de log de segurança ficam prontamente acessíveis para simplificar os processos de auditoria de segurança e conformidade.
 
 ![O painel de Segurança e Auditoria do Log Analytics](./media/azure-threat-detection/azure-threat-detection-fig3.jpg)
 
@@ -102,25 +102,25 @@ O painel de Segurança e Auditoria do Log Analytics é organizado em quatro cate
 -   **Consultas comuns de segurança**: Lista as consultas de segurança mais comuns que você pode usar para monitorar seu ambiente. Quando você seleciona qualquer consulta, o painel Pesquisa é aberto e exibe os resultados da consulta.
 
 ### <a name="insight-and-analytics"></a>Insight e análise
-No centro do [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) está o repositório que é hospedado pelo Azure.
+No centro da [registra em log do Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) é o repositório, que é hospedado pelo Azure.
 
 ![Diagrama de insight e análise](./media/azure-threat-detection/azure-threat-detection-fig4.png)
 
 Colete dados no repositório de fontes conectadas configurando fontes de dados e adicionando soluções à sua assinatura.
 
-![Painel do Log Analytics ](./media/azure-threat-detection/azure-threat-detection-fig5.png)
+![O painel de logs do Azure Monitor](./media/azure-threat-detection/azure-threat-detection-fig5.png)
 
 As fontes de dados e as soluções criam tipos de registro separados com seus próprios conjuntos de propriedades, mas também é possível analisá-los juntos fazendo consultas ao repositório. Você pode usar as mesmas ferramentas e métodos para trabalhar com uma variedade de dados que são coletados por várias fontes.
 
 
-A maioria da sua interação com o Log Analytics se dá por meio do portal do Microsoft Azure, que é executado em qualquer navegador e fornece acesso às definições de configuração e várias ferramentas para analisar e agir sobre os dados coletados. No portal, você pode usar:
+A maioria da sua interação com logs do Azure Monitor é por meio do portal do Azure, que é executado em qualquer navegador e fornece acesso às definições de configuração e várias ferramentas para analisar e agir sobre dados coletados. No portal, você pode usar:
 * [Pesquisas de logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-searches) nas quais é possível construir consultas para analisar os dados coletados.
 * [Painéis](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-logs-dashboards), que você pode personalizar com exibições gráficas das pesquisas mais valiosas.
 * [Soluções](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions), que fornecem ferramentas de análise e funcionalidade adicionais.
 
 ![Ferramentas de análise](./media/azure-threat-detection/azure-threat-detection-fig6.png)
 
-As soluções acrescentam funcionalidades ao Log Analytics. Elas são executadas principalmente na nuvem e fornecem a análise dos dados coletados no repositório do Log Analytics. As soluções também podem definir novos tipos de registro a serem coletados que podem ser analisados com pesquisas de logs ou por meio de uma interface de usuário adicional que a solução fornece no painel do Log Analytics.
+As soluções adicionam funcionalidade aos logs do Azure Monitor. Eles basicamente executam na nuvem e fornecem análise de dados que são coletados no repositório do log analytics. As soluções também podem definir novos tipos de registro a serem coletados que podem ser analisados com pesquisas de log ou por meio de uma interface de usuário adicionais que a solução fornece no painel de análise de log.
 
 O painel Segurança e Auditoria é um exemplo desses tipos de soluções.
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 76af79cc9ef1ebea30b30a291f451b7b0a4f3ba6
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 832614c46f0269460245d081f20897b591e31fce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694475"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101560"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Migração para Contoso: Hospedar novamente um aplicativo local em uma Instância Gerenciada do Banco de Dados SQL e VM do Azure
 
@@ -222,7 +222,7 @@ A Contoso considera estes fatores:
 - Uma sub-rede pode ser associada a apenas uma tabela de rotas.
 - Não há nenhuma cobrança adicional para a criação de tabelas de rotas no Microsoft Azure.
 
- Para configurar o roteamento, os administradores da Contoso fazem o seguinte:
+  Para configurar o roteamento, os administradores da Contoso fazem o seguinte:
 
 1. Eles criam uma tabela UDR (rota) no grupo de recursos **ContosoNetworkingRG**.
 
@@ -441,11 +441,11 @@ Quando a origem e o destino estão configurados, os administradores da Contoso c
 
 1. Em **Preparar infraestrutura** > **Configurações de Replicação** > **Política de Replicação** >  **Criar e Associar**, eles criam a política **ContosoMigrationPolicy**.
 2. Usam as configurações padrão:
-    - **Limite de RPO**: Padrão de 60 minutos. Esse valor define a frequência em que são criados os pontos de recuperação. Um alerta será gerado se a replicação contínua exceder esse limite.
-    - **Retenção do ponto de recuperação**: Padrão de 24 horas. Esse valor especifica qual é o tempo da janela de retenção para cada ponto de recuperação. VMs replicadas podem ser recuperadas para qualquer ponto em uma janela.
-    - **Frequência de instantâneos consistentes com o aplicativo**: Padrão de 1 hora. Esse valor especifica a frequência com que são criados instantâneos consistentes com o aplicativo.
+   - **Limite de RPO**: Padrão de 60 minutos. Esse valor define a frequência em que são criados os pontos de recuperação. Um alerta será gerado se a replicação contínua exceder esse limite.
+   - **Retenção do ponto de recuperação**: Padrão de 24 horas. Esse valor especifica qual é o tempo da janela de retenção para cada ponto de recuperação. VMs replicadas podem ser recuperadas para qualquer ponto em uma janela.
+   - **Frequência de instantâneos consistentes com o aplicativo**: Padrão de 1 hora. Esse valor especifica a frequência com que são criados instantâneos consistentes com o aplicativo.
  
-    ![Política de replicação - Criar](./media/contoso-migration-rehost-vm-sql-managed-instance/replication-policy.png)
+     ![Política de replicação - Criar](./media/contoso-migration-rehost-vm-sql-managed-instance/replication-policy.png)
 
 3. A política é associada automaticamente ao servidor de configuração. 
 

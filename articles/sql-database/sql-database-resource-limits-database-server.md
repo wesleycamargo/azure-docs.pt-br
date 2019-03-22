@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: CarlRabeler
 ms.author: carlrab
-ms.reviewer: sashan,moslake
+ms.reviewer: sashan,moslake,josack
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: 670ca1b8ba16122d4e969a41f8679e1a6d1b27c6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.date: 03/01/2019
+ms.openlocfilehash: 5b11f9bc25cd0fcc8a83a2eeaf5cc1746a63200e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990097"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093881"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Limites de recursos de Banco de Dados SQL para servidor de Banco de Dados SQL do Azure
 
@@ -36,7 +36,7 @@ Este artigo fornece uma visão geral dos limites de recursos do Banco de Dados S
 | DTU / cota de eDTU por servidor | 54.000 |  
 | Cota de vCore por servidor/instância | 540 |
 | Pools de máx por servidor | Limitado pelo número de DTUs ou vCores. Por exemplo, se cada pool tiver 1.000 DTUs, um servidor poderá dar suporte a 54 pools.|
-||||
+|||
 
 > [!NOTE]
 > Para obter mais cotas DTU / eDTU, vCore ou mais servidores do que o valor padrão, uma nova solicitação de suporte pode ser enviada no portal do Azure para a assinatura com o tipo de problema "Cota". O DTU / eDTU limite de cota e o banco de dados por servidor restringe o número de pools Elásticos por servidor.
@@ -73,6 +73,34 @@ Ao encontrar uma utilização alta de sessão ou trabalho, as opções de atenua
 
 - Aumentar a camada de serviço ou o tamanho de computação do banco de dados ou do pool elástico. Consulte [limites de recursos do banco de dados individual em escala](sql-database-single-database-scale.md) e [limites de recursos do pool elástico](sql-database-elastic-pool-scale.md).
 - Otimizar consultas para reduzir a utilização de recursos de cada consulta se a causa do aumento da utilização de trabalho for devido à contenção de recursos de computação. Para saber mais, consulte [Ajuste/Dicas de consulta](sql-database-performance-guidance.md#query-tuning-and-hinting).
+
+## <a name="transaction-log-rate-governance"></a>Governança de taxa de Log de transação 
+Governança de taxa de log de transações é um processo no banco de dados SQL do Azure usada para limitar as taxas de ingestão de alta para cargas de trabalho como bulk insert, SELECT INTO e compilações de índice. Esses limites são rastreados e aplicados no nível de subsegundos para a taxa de geração de registro de log, limitação de taxa de transferência, independentemente de quantos IOs pode ser emitida em relação aos arquivos de dados.  Taxas de geração de log de transações atualmente aumentam linearmente até um ponto que é dependente de hardware, com o máximo do log de taxa de permissão que está sendo 48 MB/s com o modelo de compra de vCore. 
+
+> [!NOTE]
+> O IOs físico real para arquivos de log de transações não é regido ou limitado. 
+
+As taxas de log são definidas, de modo que pode ser obtidas e mantidos em uma variedade de cenários, enquanto o sistema geral pode manter sua funcionalidade com menor impacto à carga de usuário. Governança de taxa de log garante que backups permanecem dentro a recuperabilidade publicada SLAs do log de transações.  Esse controle também impede que uma lista de pendências excessiva em réplicas secundárias.
+
+Conforme os registros de log são gerados, cada operação é avaliada e avaliada por se ele deve ser atrasado para manter uma taxa de log desejado máximo (MB/s por segundo). Os atrasos não são adicionados quando os registros de log são liberados para o armazenamento, em vez disso, governança de taxa de log é aplicada durante a geração de taxa de log em si.
+
+A geração de log real taxas de imposto em tempo de execução também podem ser influenciadas por mecanismos de comentários, reduzindo temporariamente as taxas de log permitido para que o sistema pode se estabilizar. Gerenciamento de espaço do arquivo de log, evitando ficando em condições de espaço de log e o grupo de disponibilidade mecanismos de replicação temporariamente pode diminuir os limites do sistema geral. 
+
+Modelagem de tráfego do administrador de taxa de log será exposto por meio dos seguintes tipos de espera (exposto na [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) DMV):
+
+| Tipo de espera | Observações |
+| :--- | :--- |
+| LOG_RATE_GOVERNOR | Limitação do banco de dados |
+| POOL_LOG_RATE_GOVERNOR | Limitação de pool |
+| INSTANCE_LOG_RATE_GOVERNOR | Limitação de nível de instância |  
+| HADR_THROTTLE_LOG_RATE_SEND_RECV_QUEUE_SIZE | Controle de comentários, replicação física do grupo de disponibilidade no Premium/comercialmente crítico não manter |  
+| HADR_THROTTLE_LOG_RATE_LOG_SIZE | Controle de comentários, limitando as taxas para evitar uma condição de espaço de log de insuficiente |
+|||
+
+Ao encontrar um limite de taxa de log que está limitando a escalabilidade desejada, considere as seguintes opções:
+- Escalar verticalmente para uma camada maior de fim de obter a taxa máxima de log 48 MB/s. 
+- Se os dados que está sendo carregados forem transitórios, ou seja, a preparação de dados em um processo ETL, pode ser carregado em tempdb (que é minimamente registrada). 
+- Para cenários analíticos, carregue em uma tabela columnstore clusterizada coberto. Isso reduz a taxa de log necessários devido à compactação. Essa técnica aumente a utilização da CPU e só é aplicável aos conjuntos de dados que se beneficiam de índices columnstore clusterizados. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

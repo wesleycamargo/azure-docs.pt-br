@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/29/2018
 ms.author: robb
-ms.openlocfilehash: 596b7eb53d82f8eee7da439314994fd0951c7e64
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 3b6ddd99d7b198cdc5274b2944a723e68864bd4f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661710"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993032"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>O que são alertas clássicos no Microsoft Azure?
 
@@ -80,10 +80,10 @@ No entanto, os alertas de métrica mais antigos não usam grupos de ações. Em 
 - Chamar um webhook, o que permite inicializar ações de automação adicionais.
 
 Webhooks permite automação e correção, por exemplo, usando:
-    - Runbook de Automação do Azure
-    - Azure Function
-    - Aplicativo lógico do Azure
-    - um serviço de terceiros
+- Runbook de Automação do Azure
+- Azure Function
+- Aplicativo lógico do Azure
+- um serviço de terceiros
 
 ## <a name="next-steps"></a>Próximas etapas
 Obter informações sobre as regras de alerta e sobre como configurá-las usando:

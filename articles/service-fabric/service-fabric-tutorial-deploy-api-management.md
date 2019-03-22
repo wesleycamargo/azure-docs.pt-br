@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 9/26/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 015cbadef57a3e306fea4321db4b12c3a3918683
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 4685c4213ad992e8d0fcffdf91a039cd04b426ee
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433774"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57844200"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Integrar o Gerenciamento de API ao Service Fabric no Azure
 
@@ -142,7 +142,7 @@ Insira um **displayName** descritivo e uma **descrição** para o produto. Para 
 
 * **displayName** pode ser qualquer nome para a API. Para este artigo, use "Aplicativo do Service Fabric".
 * **name** fornece um nome exclusivo e descritivo para a API, como "service-fabric-app". Esse nome será exibido nos portais do desenvolvedor e do editor.
-* **serviceUrl** faz referência ao serviço HTTP que está implementando a API. O gerenciamento de API envia as solicitações para esse endereço. Para back-ends do Service Fabric, esse valor de URL não é usado. Aqui, você pode colocar qualquer valor. Para este artigo, por exemplo "http://servicefabric".
+* **serviceUrl** faz referência ao serviço HTTP que está implementando a API. O gerenciamento de API envia as solicitações para esse endereço. Para back-ends do Service Fabric, esse valor de URL não é usado. Aqui, você pode colocar qualquer valor. Para este artigo, por exemplo "<http://servicefabric>".
 * **path** é acrescentado à URL base para o serviço de gerenciamento de API. A URL base é comum para todas as APIs hospedadas por uma instância de um serviço de Gerenciamento de API. O Gerenciamento de API diferencia as APIs pelo sufixo e, portanto, o sufixo deve ser único para cada API para um editor específico.
 * **protocols** determina quais protocolos podem ser usados para acessar a API. Para este artigo, liste **http** e **https**.
 * **path** é um sufixo para a API. Para este artigo, use "myapp".
@@ -177,7 +177,7 @@ A [configuração de back-end para o Service Fabric](/azure/api-management/api-m
     <set-backend-service
         backend-id="servicefabric"
         sf-service-instance-name="service-name"
-        sf-resolve-condition="@(context.LastError?.Reason == 'BackendConnectionFailure')" />
+        sf-resolve-condition="@(context.LastError?.Reason == "BackendConnectionFailure")" />
   </inbound>
   <backend>
     <base/>
@@ -226,7 +226,7 @@ Em *inbound_policy*, substitua o valor *sf-service-instance-name* por `fabric:/A
     <set-backend-service
         backend-id="servicefabric"
         sf-service-instance-name="service-name"
-        sf-resolve-condition="@(context.LastError?.Reason == 'BackendConnectionFailure')" />
+        sf-resolve-condition="@(context.LastError?.Reason == "BackendConnectionFailure")" />
   </inbound>
   <backend>
     <base/>
@@ -285,7 +285,7 @@ Agora é possível tentar enviar uma solicitação para seu serviço de back-end
 
 Um cluster é composto por outros recursos do Azure, além do próprio recurso do cluster. A maneira mais simples de excluir o cluster e todos os recursos que ele consume é excluir o grupo de recursos.
 
-Faça logon no Azure e selecione a ID de assinatura com a qual você deseja remover o cluster.  Você pode encontrar sua ID de assinatura fazendo logon no [Portal do Azure](http://portal.azure.com). Exclua o grupo de recursos e todos os recursos de cluster usando o [cmdlet Remove-AzureRMResourceGroup](/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup).
+Faça logon no Azure e selecione a ID de assinatura com a qual você deseja remover o cluster.  Você pode encontrar sua ID de assinatura fazendo logon no [Portal do Azure](https://portal.azure.com). Exclua o grupo de recursos e todos os recursos de cluster usando o [cmdlet Remove-AzureRMResourceGroup](/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup).
 
 ```powershell
 $ResourceGroupName = "sfclustertutorialgroup"

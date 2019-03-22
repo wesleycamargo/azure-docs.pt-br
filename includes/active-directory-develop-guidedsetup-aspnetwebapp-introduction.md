@@ -3,23 +3,23 @@ title: Arquivo de inclusão
 description: Arquivo de inclusão
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: jmprieur
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2018
-ms.author: andret
+ms.date: 03/20/2019
+ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: bc439cbe5e690077213b5d7953a4e74488988c3b
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: HT
+ms.openlocfilehash: 5a1ff10901d10fb274a6fa1418f04e1f20113cb7
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988495"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203567"
 ---
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Adicionar a opção Entrar com uma Conta da Microsoft a um aplicativo Web ASP.NET
 
@@ -31,7 +31,7 @@ Ao final deste guia, seu aplicativo poderá aceitar conexões de contas pessoais
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Como o aplicativo de exemplo gerado por este guia funciona
 
-![Como funciona este guia](media/active-directory-develop-guidedsetup-aspnetwebapp-intro/aspnetbrowsergeneral.png)
+![Mostra como o aplicativo de exemplo gerado por esse funciona tutoriais](media/active-directory-develop-guidedsetup-aspnetwebapp-intro/aspnetbrowsergeneral-updated.png)
 
 Este aplicativo de exemplo criado por este guia se baseia no cenário em que um usuário usa o navegador para acessar um site ASP.NET, solicitando a autenticação de um usuário por meio de um botão de entrada. Nesse cenário, a maior parte do trabalho de renderização da página da Web ocorre no lado do servidor.
 
@@ -39,7 +39,7 @@ Este aplicativo de exemplo criado por este guia se baseia no cenário em que um 
 
 Este guia usa as seguintes bibliotecas:
 
-|Biblioteca|DESCRIÇÃO|
+|Biblioteca|Descrição|
 |---|---|
 |[Microsoft.Owin.Security.OpenIdConnect](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect/)|Middleware que permite que um aplicativo use OpenIdConnect para autenticação|
 |[Microsoft.Owin.Security.Cookies](https://www.nuget.org/packages/Microsoft.Owin.Security.Cookies)|Middleware que permite que um aplicativo mantenha a sessão de usuário usando cookies|

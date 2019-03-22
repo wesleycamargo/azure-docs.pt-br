@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 01/09/2019
+ms.date: 03/13/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 78b309336b21c3b6a58a37b1729f675db111c5d0
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 32c46f0a488d775275b3a367aa2913f034569041
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190537"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57903922"
 ---
 # <a name="tutorial-add-a-sample-model-from-the-portal"></a>Tutorial: Adicionar um modelo de exemplo do portal
 
@@ -57,7 +57,7 @@ Entre no [portal](https://portal.azure.com/).
 
 Seu modelo de amostra está usando recursos de memória cache. Se você não estiver usando o modelo de amostra para testes, você deverá removê-lo do servidor.
 
-Essas etapas descrevem como excluir um modelo de um servidor usando o SSMS. Também é possível excluir um modelo, usando a versão prévia do recurso de Web Designer.
+Essas etapas descrevem como excluir um modelo de um servidor usando o SSMS.
 
 1. No SSMS > **Pesquisador de Objetos**, clique em **Conectar** > **Analysis Services**.
 

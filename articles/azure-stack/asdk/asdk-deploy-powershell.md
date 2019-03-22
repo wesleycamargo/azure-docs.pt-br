@@ -17,12 +17,12 @@ ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 0fb3e9cd193e570a965d6bbd3e16c86dc39de350
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: e8d3653049b0160fac155ebc49329c17cb27224f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984266"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014381"
 ---
 # <a name="deploy-the-asdk-from-the-command-line"></a>Implantar o ASDK da linha de comando
 O ASDK é um ambiente de teste e desenvolvimento que você pode implantar para avaliar e demonstrar os serviços e recursos do Azure Stack. Para obtê-lo em funcionamento, você precisa preparar o ambiente hardware e executar alguns scripts (Isso levará várias horas). Depois disso, você pode entrar portais do administrador e usuário para começar a usar o Azure Stack.
@@ -138,6 +138,7 @@ Se seu ambiente não tem o DHCP ativado, você deve incluir os seguintes parâme
 ```
 
 ### <a name="asdk-installazurestackpocps1-optional-parameters"></a>Parâmetros opcionais ASDK InstallAzureStackPOC.ps1
+
 |Parâmetro|Obrigatório/Opcional|DESCRIÇÃO|
 |-----|-----|-----|
 |AdminPassword|Obrigatório|Define a conta de administrador local e todas as outras contas de usuário em todas as máquinas virtuais criadas como parte da implantação do kit de desenvolvimento. Essa senha deve corresponder a senha de administrador local atual no host.|

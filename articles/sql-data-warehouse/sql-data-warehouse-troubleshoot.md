@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 12/04/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: d94d434f83e1a8507b1a98660e8169ff6be4ee24
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: d220922f17f6727acdbfcd5c2feabac6fc2b88d4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244567"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010594"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Solução de problemas do Azure SQL Data Warehouse
 Este artigo lista perguntas de solução de problemas comuns.
@@ -52,7 +52,7 @@ Este artigo lista perguntas de solução de problemas comuns.
 | Msg 40847: Não foi possível executar a operação, pois o servidor excederia a cota de Unidade de Transação de Banco de Dados permitida de 45000. | Reduza a [DWU][DWU] do banco de dados que você está tentando criar ou [solicite um aumento de cota][request a quota increase]. |
 | Investigação da utilização de espaço                              | Confira os [Tamanhos da tabela][Table sizes] para entender a utilização do espaço de seu sistema. |
 | Ajuda com o gerenciamento de tabelas                                    | Confira o artigo [Visão geral da tabela][Overview] para obter ajuda com o gerenciamento de suas tabelas.  Este artigo também inclui links para tópicos mais detalhados, como [Tipos de dados de tabela][Data types], [Distribuindo uma tabela][Distribute], [Indexando uma tabela][Index], [Particionando uma tabela][Partition], [Mantendo as estatísticas da tabela][Statistics] e [Tabelas temporárias][Temporary]. |
-| A barra de progresso TDE (Transparent Data Encryption) não está atualizando no Portal do Azure | Você pode exibir o estado de TDE via [PowerShell](/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryption). |
+| A barra de progresso TDE (Transparent Data Encryption) não está atualizando no Portal do Azure | Você pode exibir o estado de TDE via [PowerShell](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption). |
 
 ## <a name="polybase"></a>Polybase
 | Problema                                           | Resolução                                                   |
@@ -129,6 +129,6 @@ Para obter mais ajuda na busca de soluções para o problema, a seguir são apre
 [Blogs da equipe CAT]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Solicitações de recursos]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [Fórum do MSDN]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse
-[Fórum Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Fórum Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Vídeos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse

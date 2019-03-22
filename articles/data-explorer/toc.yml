@@ -11,6 +11,12 @@ items:
     href: create-cluster-database-portal.md
   - name: Criar um cluster – CLI do Azure
     href: create-cluster-database-cli.md
+  - name: Criar um cluster – PowerShell
+    href: create-cluster-database-powershell.md
+  - name: Criar um cluster – C#
+    href: create-cluster-database-csharp.md
+  - name: Criar um cluster – Python
+    href: create-cluster-database-python.md
   - name: Ingestão de dados
     items:
     - name: Fluxo de dados - Hub de Eventos
@@ -120,16 +126,16 @@ items:
     - name: Fórum do MSDN
       href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureKusto
   - name: Comentários sobre o produto
-    href: http://aka.ms/adefeedback
+    href: https://aka.ms/adefeedback
   - name: Preços
     href: https://azure.microsoft.com/pricing/details/data-explorer/
   - name: Estimativa de Custo
-    href: http://aka.ms/adecostestimator
+    href: https://aka.ms/adecostestimator
   - name: Atualizações de serviço
     href: https://azure.microsoft.com/updates/?product=data-explorer
-ms.openlocfilehash: 8f9d139b7773c45ff4554ab0f58663e1fad03af9
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 485a49d46e76c0e1db7d8d1297e126819ec6cd12
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730113"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286475"

@@ -15,17 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: e2adae46e3124fcd407fa4d4677f02bdface0a6b
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: cc74bfe9bf9e5f33b7cf05ebb19b44ab8b3bea43
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077633"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864636"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Capture eventos por meio dos Hubs de Eventos do Azure no Armazenamento de Blobs do Azure ou no Azure Data Lake Storage
-Os Hubs de Eventos do Azure permitem que você capture automaticamente dados de streaming em seus Hubs de Eventos em uma conta de [Armazenamento de Blobs do Azure](https://azure.microsoft.com/services/storage/blobs/) ou do [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/) de sua escolha, com maior flexibilidade para especificar uma hora ou um período. A configuração da Captura é rápida, não há custos administrativos para executá-la e ela é dimensionada automaticamente com as [unidades de produtividade](event-hubs-features.md#capacity) dos Hubs de Eventos. A Captura de Hubs de Eventos é a maneira mais fácil de carregar dados de streaming no Azure e permite que você se concentre no processamento de dados em vez de se concentrar na captura de dados.
+Os Hubs de Eventos do Azure permitem que você capture automaticamente dados de streaming em seus Hubs de Eventos em uma conta de [Armazenamento de Blobs do Azure](https://azure.microsoft.com/services/storage/blobs/) ou do [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/) de sua escolha, com maior flexibilidade para especificar uma hora ou um período. A configuração da Captura é rápida, não há custos administrativos para executá-la e ela é dimensionada automaticamente com as [unidades de produtividade](event-hubs-features.md#throughput-units) dos Hubs de Eventos. A Captura de Hubs de Eventos é a maneira mais fácil de carregar dados de streaming no Azure e permite que você se concentre no processamento de dados em vez de se concentrar na captura de dados.
 
 A Captura de Hubs de Eventos permite processar pipelines em tempo real e baseados em lote no mesmo fluxo. Isso significa que você pode criar soluções que crescem com suas necessidades ao longo do tempo. Se você estiver criando sistemas baseados em lote com o objetivo de processá-los em tempo real no futuro ou para adicionar um caminho frio eficiente para uma solução em tempo real, a Captura de Hubs de Eventos facilita o trabalho de transmissão de dados.
+
+> [!NOTE]
+> Atualmente, o recurso de captura de Hubs de eventos dá suporte a apenas Gen 1 do Azure Data Lake Store, não Gen 2. 
 
 ## <a name="how-event-hubs-capture-works"></a>Como a Captura de Hubs de Eventos funciona
 
@@ -51,7 +54,7 @@ https://mystorageaccount.blob.core.windows.net/mycontainer/mynamespace/myeventhu
 
 ### <a name="scaling-to-throughput-units"></a>Dimensionamento de unidades de produtividade
 
-O tráfego dos Hubs de Eventos é controlado por [unidades de produtividade](event-hubs-features.md#capacity). Uma única unidade de produtividade permite o ingresso de 1 MB por segundo ou 1.000 eventos por segundo e duas vezes essa quantidade de saída. Os Hubs de Evento Standard podem ser configurados com 1 a 20 unidades de produtividade e outras podem ser adquiridas por meio de uma [solicitação de suporte][support request] para aumento de cota. O uso além das unidades de produtividade adquiridas é restringido. A Captura de Hubs de Eventos copia os dados diretamente do armazenamento interno dos Hubs de Eventos, ignorando as cotas de saída das unidades de produtividade e salvando a saída de outros leitores de processamento, como o Stream Analytics ou o Spark.
+O tráfego dos Hubs de Eventos é controlado por [unidades de produtividade](event-hubs-features.md#throughput-units). Uma única unidade de produtividade permite o ingresso de 1 MB por segundo ou 1.000 eventos por segundo e duas vezes essa quantidade de saída. Os Hubs de Evento Standard podem ser configurados com 1 a 20 unidades de produtividade e outras podem ser adquiridas por meio de uma [solicitação de suporte][support request] para aumento de cota. O uso além das unidades de produtividade adquiridas é restringido. A Captura de Hubs de Eventos copia os dados diretamente do armazenamento interno dos Hubs de Eventos, ignorando as cotas de saída das unidades de produtividade e salvando a saída de outros leitores de processamento, como o Stream Analytics ou o Spark.
 
 Uma vez configurado, a Captura de Hubs de Eventos é executada automaticamente quando você envia o primeiro evento e continua em execução. Para que o seu processamento downstream saiba mais facilmente que o processo está funcionando, os Hubs de Eventos gravam arquivos vazios quando não há nenhum dado. Esse processo fornece cadência e marcador previsíveis que podem alimentar os processadores em lotes.
 
@@ -146,15 +149,15 @@ Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 * [Começar a enviar e receber eventos](event-hubs-dotnet-framework-getstarted-send.md)
 * [Visão Geral dos Hubs de Eventos][Event Hubs overview]
 
-[Apache Avro]: http://avro.apache.org/
+[Apache Avro]: https://avro.apache.org/
 [Apache Drill]: https://drill.apache.org/
 [Apache Spark]: https://spark.apache.org/
 [support request]: https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade
-[Azure Storage Explorer]: http://azurestorageexplorer.codeplex.com/
+[Azure Storage Explorer]: https://azurestorageexplorer.codeplex.com/
 [3]: ./media/event-hubs-capture-overview/event-hubs-capture3.png
-[Avro Tools]: http://www-us.apache.org/dist/avro/avro-1.8.2/java/avro-tools-1.8.2.jar
-[Java]: http://avro.apache.org/docs/current/gettingstartedjava.html
-[Python]: http://avro.apache.org/docs/current/gettingstartedpython.html
+[Avro Tools]: https://www-us.apache.org/dist/avro/avro-1.8.2/java/avro-tools-1.8.2.jar
+[Java]: https://avro.apache.org/docs/current/gettingstartedjava.html
+[Python]: https://avro.apache.org/docs/current/gettingstartedpython.html
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
 [HDInsight: Address files in Azure storage]:https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage#address-files-in-azure-storage
 [Azure Databricks: Azure Blob Storage]:https://docs.databricks.com/spark/latest/data-sources/azure/azure-storage.html

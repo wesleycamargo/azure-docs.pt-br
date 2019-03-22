@@ -14,12 +14,12 @@ ms.tgt_pltfrm: windows
 ms.workload: ''
 ms.date: 03/26/2018
 ms.author: robreed
-ms.openlocfilehash: 1d65238115ca57a3fcc8047a27c8161aaa144ce4
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
-ms.translationtype: HT
+ms.openlocfilehash: 9f81e2b7537a5ecc6778baa93a1bab23dd30ff8a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407700"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451902"
 ---
 # <a name="powershell-dsc-extension"></a>Extensão de DSC do PowerShell
 
@@ -33,11 +33,11 @@ A extensão DSC PowerShell para Windows é publicada e recebe suporte da Microso
 
 A Extensão DSC suporta os seguintes OS
 
-Windows Server 2016, Windows Server 2012R2, Windows Server 2012, Windows Server 2008 R2 SP1, Windows Client 7/8.1
+Windows Server 2019, Windows Server 2016, Windows Server 2012R2, Windows Server 2012, Windows Server 2008 R2 SP1, Windows Client 7/8.1/10
 
 ### <a name="internet-connectivity"></a>Conectividade com a Internet
 
-A extensão do agente DSC para Windows requer que a máquina virtual de destino esteja conectada à Internet. 
+A extensão de DSC para Windows requer que a máquina virtual de destino é capaz de se comunicar com o Azure e o local do pacote de configuração (arquivo. zip), se ele estiver armazenado em um local fora do Azure. 
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
@@ -47,12 +47,12 @@ O JSON a seguir mostra o esquema que serve para a parte das configurações da e
 {
   "type": "Microsoft.Compute/virtualMachines/extensions",
   "name": "Microsoft.Powershell.DSC",
-  "apiVersion": "2015-06-15",
+  "apiVersion": "2018-10-01",
   "location": "<location>",
   "properties": {
     "publisher": "Microsoft.Powershell",
     "type": "DSC",
-    "typeHandlerVersion": "2.73",
+    "typeHandlerVersion": "2.77",
     "autoUpgradeMinorVersion": true,
     "settings": {
         "wmfVersion": "latest",
@@ -98,58 +98,41 @@ O JSON a seguir mostra o esquema que serve para a parte das configurações da e
 
 ### <a name="property-values"></a>Valores de propriedade
 
-| NOME | Valor/Exemplo | Tipo de Dados |
+| Nome | Valor/Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | data |
-| publicador | Microsoft.Powershell.DSC | string |
-| Tipo | DSC | string |
-| typeHandlerVersion | 2.73 | int |
+| apiVersion | 01-10-2018 | data |
+| publicador | Microsoft.Powershell.DSC | cadeia de caracteres |
+| tipo | DSC | cadeia de caracteres |
+| typeHandlerVersion | 2.77 | int |
 
 ### <a name="settings-property-values"></a>Valores da Propriedade de Configurações
 
-| NOME | Tipo de Dados | DESCRIÇÃO
+| Nome | Tipo de Dados | Descrição
 | ---- | ---- | ---- |
-| settings.wmfVersion | string | Especifica a versão do Windows Management Framework que deve ser instalada em sua VM. Configurar essa propriedade como 'latest' instalará a versão mais atualizada do WMF. Os únicos valores possíveis atualmente para essa propriedade são ‘4.0’, ‘5.0’, e a mais recente. Esses valores possíveis estão sujeitos a atualizações. O valor padrão é ‘latest’. |
-| settings.configuration.url | string | Especifica o local da URL de onde baixar o arquivo zip configuração DSC. Se a URL fornecida exigir um token SAS para acesso, será necessário definir a propriedade protectedSettings.configurationUrlSasToken como o valor do token de SAS. Esta propriedade será necessária se settings.configuration.script e/ou settings.configuration.function estiverem definidas.
-| settings.configuration.script | string | Especifica o nome do arquivo do script que contém a definição de sua configuração DSC. Esse script deve estar na pasta raiz do arquivo zip baixado da URL especificada pela propriedade configuration.url. Esta propriedade é necessária se settings.configuration.url e/ou settings.configuration.script estiverem definidas.
-| settings.configuration.function | string | Especifica o nome da configuração DSC. A configuração denominada deve estar contida no script definido por configuration.script. Esta propriedade será necessária se settings.configuration.script.url e/ou settings.configuration.function estiverem definidas.
+| settings.wmfVersion | cadeia de caracteres | Especifica a versão do Windows Management Framework que deve ser instalada em sua VM. Configurar essa propriedade como 'latest' instalará a versão mais atualizada do WMF. Os únicos valores possíveis atualmente para essa propriedade são ‘4.0’, ‘5.0’, e a mais recente. Esses valores possíveis estão sujeitos a atualizações. O valor padrão é ‘latest’. |
+| settings.configuration.url | cadeia de caracteres | Especifica o local da URL de onde baixar o arquivo zip configuração DSC. Se a URL fornecida exigir um token SAS para acesso, será necessário definir a propriedade protectedSettings.configurationUrlSasToken como o valor do token de SAS. Esta propriedade será necessária se settings.configuration.script e/ou settings.configuration.function estiverem definidas.
+| settings.configuration.script | cadeia de caracteres | Especifica o nome do arquivo do script que contém a definição de sua configuração DSC. Esse script deve estar na pasta raiz do arquivo zip baixado da URL especificada pela propriedade configuration.url. Esta propriedade é necessária se settings.configuration.url e/ou settings.configuration.script estiverem definidas.
+| settings.configuration.function | cadeia de caracteres | Especifica o nome da configuração DSC. A configuração denominada deve estar contida no script definido por configuration.script. Esta propriedade será necessária se settings.configuration.script.url e/ou settings.configuration.function estiverem definidas.
 | settings.configurationArguments | Coleção | Define os parâmetros que você deseja passar para a configuração de DSC. Esta propriedade não será criptografada.
-| settings.configurationData.url | string | Especifica a URL de onde baixar o arquivo de dados de configuração (.pds1) para usar como entrada para a sua configuração de DSC. Se a URL fornecida exigir um token SAS para acesso, será necessário definir a propriedade protectedSettings.configurationDataUrlSasToken como o valor do token de SAS.
-| settings.privacy.dataEnabled | string | Habilita ou desabilita a coleta de telemetria. Os únicos valores possíveis para essa propriedade são ‘Enable’, ‘Disable’, ”, ou $null. Deixar esta propriedade em branco ou nulo permitirá telemetria
-| settings.advancedOptions.forcePullAndApply | Bool | Permite à extensão de DSC atualizar e aplicar configurações DSC quando o modo de atualização for Pull.
+| settings.configurationData.url | cadeia de caracteres | Especifica a URL de onde baixar o arquivo de dados de configuração (.pds1) para usar como entrada para a sua configuração de DSC. Se a URL fornecida exigir um token SAS para acesso, será necessário definir a propriedade protectedSettings.configurationDataUrlSasToken como o valor do token de SAS.
+| settings.privacy.dataEnabled | cadeia de caracteres | Habilita ou desabilita a coleta de telemetria. Os únicos valores possíveis para essa propriedade são ‘Enable’, ‘Disable’, ”, ou $null. Deixar esta propriedade em branco ou nulo permitirá telemetria
+| settings.advancedOptions.forcePullAndApply | Booleano | Esta configuração é projetada para aprimorar a experiência de trabalhar com a extensão para registrar os nós com o DSC de automação do Azure.  Se o valor for `$true`, aguardará a extensão para a primeira execução da configuração extraída do serviço antes de retornar êxito/falha.  Se o valor é definido como $false, o status retornado pela extensão só fará referência a se o nó foi registrado com a configuração de estado de automação do Azure com êxito e a configuração de nó não será executada durante o registro.
 | settings.advancedOptions.downloadMappings | Coleção | Define locais alternativos para fazer o download de dependências como WMF e .NET
 
 ### <a name="protected-settings-property-values"></a>Valores da Propriedade de Configurações Protegidos
 
-| NOME | Tipo de Dados | DESCRIÇÃO
+| Nome | Tipo de Dados | Descrição
 | ---- | ---- | ---- |
-| protectedSettings.configurationArguments | string | Define os parâmetros que você deseja passar para a configuração de DSC. Esta propriedade será criptografada. |
-| protectedSettings.configurationUrlSasToken | string | Especifica o token SAS para acessar a URL definida por configuration.url. Esta propriedade será criptografada. |
-| protectedSettings.configurationDataUrlSasToken | string | Especifica o token SAS para acessar a URL definida por configurationData.url. Esta propriedade será criptografada. |
+| protectedSettings.configurationArguments | cadeia de caracteres | Define os parâmetros que você deseja passar para a configuração de DSC. Esta propriedade será criptografada. |
+| protectedSettings.configurationUrlSasToken | cadeia de caracteres | Especifica o token SAS para acessar a URL definida por configuration.url. Esta propriedade será criptografada. |
+| protectedSettings.configurationDataUrlSasToken | cadeia de caracteres | Especifica o token SAS para acessar a URL definida por configurationData.url. Esta propriedade será criptografada. |
 
 
 ## <a name="template-deployment"></a>Implantação de modelo
 
-Extensões de VM do Azure podem ser implantadas com modelos do Azure Resource Manager. Modelos são ideais ao implantar uma ou mais máquinas virtuais que exigem configuração pós-implantação. Um modelo do Gerenciador de Recursos de exemplo que inclui a extensão de VM do agente do Log Analytics pode ser encontrado na [Galeria de Início Rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/052db5feeba11f85d57f170d8202123511f72044/dsc-extension-iis-server-windows-vm). 
-
-A configuração do JSON para uma extensão da máquina virtual pode ser aninhado dentro do recurso de máquina virtual ou localizado no nível de raiz ou superior de um modelo JSON do Resource Manager. O posicionamento da configuração do JSON afeta o valor do tipo e nome do recurso. 
-
-Ao aninhar o recurso de extensão, o JSON é colocado no objeto `"resources": []` da máquina virtual. Ao inserir o JSON da extensão na raiz do modelo, o nome do recurso inclui uma referência na máquina virtual pai e o tipo reflete a configuração aninhada.  
-
-
-## <a name="azure-cli-deployment"></a>Implantação da CLI do Azure
-
-A CLI do Azure pode ser usada para implantar a extensão da VM do Agente do Log Analytics para uma máquina virtual existente. Substitua a chave de Log Analytics e a ID do Log Analytics por aqueles do espaço de trabalho do Log Analytics. 
-
-```azurecli
-az vm extension set \
-  --resource-group myResourceGroup \
-  --vm-name myVM \
-  --name Microsoft.Powershell.DSC \
-  --publisher Microsoft.Powershell \
-  --version 2.73 --protected-settings '{}' \
-  --settings '{}'
-```
+Extensões de VM do Azure podem ser implantadas com modelos do Azure Resource Manager.
+Modelos são ideais ao implantar uma ou mais máquinas virtuais que exigem configuração pós-implantação.
+Um modelo do Resource Manager que inclui a extensão de DSC para Windows pode ser encontrado na [Galeria de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-automation-configuration/nested/provisionServer.json#L91).
 
 ## <a name="troubleshoot-and-support"></a>Solução de problemas e suporte
 
@@ -166,7 +149,7 @@ Pacote de extensão é baixado e implantado para esse local na VM do Azure
 C:\Packages\Plugins\{Extension_Name}\{Extension_Version}
 ```
 
-Arquivo de extensão de status contém o status de sub e códigos de status de acertos/erros junto com o erro detalhado e a descrição para cada extensão de execução.
+Arquivo de status de extensão contém o status de sub-rotina e códigos de status de êxito/erro juntamente com o erro detalhado e uma descrição para cada execução da extensão.
 ```
 C:\Packages\Plugins\{Extension_Name}\{Extension_Version}\Status\{0}.Status  -> {0} being the sequence number
 ```
@@ -179,9 +162,9 @@ C:\WindowsAzure\Logs\Plugins\{Extension_Name}\{Extension_Version}
 
 ### <a name="error-codes-and-their-meanings"></a>Códigos de erro e seus significados
 
-| Código do Erro | Significado | Ação possível |
+| Código de Erro | Significado | Ação possível |
 | :---: | --- | --- |
-| 1000 | Erro genérico | A mensagem de erro é fornecida pela exceção específica em logs de extensão |
+| 1.000 | Erro genérico | A mensagem de erro é fornecida pela exceção específica em logs de extensão |
 | 52 | Erro de Instalação da Extensão | A mensagem de erro é fornecida pela exceção específica |
 | 1002 | Erro de instalação Wmf | Erro ao instalar WMF. |
 | 1004 | Pacote Zip Inválido | Zip inválido ; Erro ao desempacotar o zip |

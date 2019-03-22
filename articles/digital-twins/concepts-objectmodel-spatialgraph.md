@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: alinast
-ms.openlocfilehash: 912a3ed558f8fabfcad517aeb7b7e864cf8f359e
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.openlocfilehash: e7efe1a8632643e2a299b6c9a1b1407414deee4b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436918"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542940"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Noções básicas sobre modelos de objeto e grafos de inteligência espacial dos Gêmeos Digitais
 
@@ -99,7 +99,7 @@ Para obter mais detalhes sobre como usar grafos de inteligência espacial, visit
 
 Saiba mais sobre [como usar o Swagger](how-to-use-swagger.md).
 
-Todas as chamadas à API devem ser autenticadas usando [OAuth](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code). As APIs seguem as [convenções de Diretrizes da API REST da Microsoft](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md). A maioria das APIs que retorna coleções é compatível com opções de consulta do sistema [OData](http://www.odata.org/getting-started/basic-tutorial/#queryData).
+Todas as chamadas à API devem ser autenticadas usando [OAuth](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code). As APIs seguem as [convenções de Diretrizes da API REST da Microsoft](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md). A maioria das APIs que retorna coleções é compatível com opções de consulta do sistema [OData](https://www.odata.org/getting-started/basic-tutorial/#queryData).
 
 ## <a name="next-steps"></a>Próximas etapas
 

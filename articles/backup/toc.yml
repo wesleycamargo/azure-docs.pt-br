@@ -172,7 +172,7 @@ items:
       href: backup-azure-backup-sharepoint.md
   - name: Usar PowerShell do Azure
     items:
-    - name: VMs do Azure no portal do Azure
+    - name: Restaurar VMs no portal do Azure
       href: backup-azure-vms-automation.md
     - name: DPM no portal do Azure
       href: backup-dpm-automation.md
@@ -180,6 +180,8 @@ items:
       href: backup-client-automation.md
     - name: Compartilhamentos de arquivos do Azure no portal do Azure
       href: backup-azure-afs-automation.md
+    - name: SQL nos backups de VM do Azure
+      href: backup-azure-sql-automation.md
   - name: Usar API REST do Backup do Azure
     items:
     - name: Criar cofre de Serviços de Recuperação
@@ -194,9 +196,11 @@ items:
       href: backup-azure-arm-userestapi-managejobs.md
   - name: Fazer backup de bancos de dados do SQL Server em VMs do Azure
     items:
-    - name: Fazer backup de bancos de dados do SQL Server em VMs do Azure
+    - name: Sobre o Backup do SQL Server nas VMs do Azure
       href: backup-azure-sql-database.md
-    - name: Restaurar o backup de bancos de dados do SQL Server
+    - name: Fazer backup de bancos de dados do SQL Server nas VMs do Azure
+      href: backup-sql-server-database-azure-vms.md
+    - name: Restaurar bancos de dados do SQL Server nas VMs do Azure
       href: restore-sql-database-azure-vm.md
     - name: Gerenciar o backup de bancos de dados do SQL Server
       href: manage-monitor-sql-database-backup.md
@@ -242,7 +246,7 @@ items:
       href: backup-sql-server-azure-troubleshoot.md
   - name: Monitorar cargas de trabalho de Backup do Azure
     items:
-    - name: Usando o Portal do Azure
+    - name: Usando o portal do Azure
       href: backup-azure-monitoring-built-in-monitor.md
     - name: Como usar o Azure Monitor
       href: backup-azure-monitoring-use-azuremonitor.md
@@ -276,9 +280,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=backup
   - name: vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=backup
-ms.openlocfilehash: c30132c7dcad3873daa39e7d8ecf112032183963
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: eb58460b2331ab867e064235d5a2536809b28021
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873382"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58284962"

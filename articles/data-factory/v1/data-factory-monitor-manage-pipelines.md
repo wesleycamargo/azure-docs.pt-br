@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 77c55657f57af655b5b8154dbcf58472434396a6
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 64fae56bfc95b62bd60444d49100689845f64278
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015485"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445136"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorar e gerenciar os pipelines do Azure Data Factory usando o Portal do Azure e o PowerShell
 > [!div class="op_single_selector"]
@@ -35,6 +35,8 @@ Este artigo descreve como monitorar, gerenciar e depurar seus pipelines usando o
 
 > [!IMPORTANT]
 > O Azure Data Factory versão 1 agora usa a nova [infraestrutura de alerta do Azure Monitor](../../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). A infraestrutura de alerta antiga foi preterida. Como resultado, os alertas existentes configurados para data factories versão 1 deixará de funcionar. Os alertas existentes para data factories v1 não são migrados automaticamente. Você precisa recriar esses alertas na nova infraestrutura de alerta. Faça logon no portal do Azure e selecione **Monitor** para criar novos alertas em métricas (como execuções com falha ou execuções com êxito) para a data factories versão 1.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="understand-pipelines-and-activity-states"></a>Entenda os pipelines e os estados de atividade
 No Portal do Azure, você pode:
@@ -173,26 +175,26 @@ Você pode gerenciar seus pipelines usando o Azure PowerShell. Por exemplo, voc�
 > [!NOTE] 
 > A exibição de diagrama não dá suporte à pausa e continuação de pipelines. Se você desejar usar uma interface do usuário, use o aplicativo de monitoramento e gerenciamento. Para obter detalhes sobre como usar o aplicativo, consulte o artigo [Monitorar e gerenciar os pipelines do Data Factory usando o aplicativo de Monitoramento e Gerenciamento](data-factory-monitor-manage-app.md). 
 
-Você pode pausar/suspender pipelines usando o cmdlet **Suspend-AzureDataFactoryPipeline** do Powershell. Esse cmdlet é útil quando você não quiser executar o pipeline até que um problema seja corrigido. 
+Você pode pausar/suspender pipelines usando o **AzDataFactoryPipeline Suspend** cmdlet do PowerShell. Esse cmdlet é útil quando você não quiser executar o pipeline até que um problema seja corrigido. 
 
 ```powershell
-Suspend-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
+Suspend-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
 Por exemplo: 
 
 ```powershell
-Suspend-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
+Suspend-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
 ```
 
 Depois que o problema com o pipeline for corrigido, você poderá retomar o pipeline suspenso executando o seguinte comando do PowerShell:
 
 ```powershell
-Resume-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
+Resume-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
 Por exemplo: 
 
 ```powershell
-Resume-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
+Resume-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
 ```
 
 ## <a name="debug-pipelines"></a>Depurar pipelines
@@ -217,29 +219,29 @@ Se a execução da atividade falhar em um pipeline, o conjunto de dados produzid
 
 #### <a name="use-powershell-to-debug-an-error"></a>Usar o PowerShell para depurar um erro
 1. Inicie o **PowerShell**.
-2. Execute o comando **Get-AzureDataFactorySlice** para ver as fatias e seus status. Você deve ver uma fatia com o status **Falha**.        
+2. Execute o **Get-AzDataFactorySlice** comando para ver as fatias e seus status. Você deve ver uma fatia com o status **Falha**.        
 
     ```powershell   
-    Get-AzureRmDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
+    Get-AzDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```   
    Por exemplo: 
 
     ```powershell   
-    Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
+    Get-AzDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
     ```
 
    Substitua **StartDateTime** pela hora de início do pipeline. 
-3. Agora, execute o cmdlet **Get-AzureRmDataFactoryRun** para obter detalhes sobre a execução da atividade para a fatia.
+3. Agora, execute as **Get-AzDataFactoryRun** para obter detalhes sobre a atividade de execução da fatia.
 
     ```powershell   
-    Get-AzureRmDataFactoryRun [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime]
+    Get-AzDataFactoryRun [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime]
     <DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```
 
     Por exemplo: 
 
     ```powershell   
-    Get-AzureRmDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
+    Get-AzDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
     ```
 
     O valor de StartDateTime é a hora de início do erro/fatia com problema observada na etapa anterior. A data e hora devem ser colocadas entre aspas duplas.
@@ -267,10 +269,10 @@ Se a execução da atividade falhar em um pipeline, o conjunto de dados produzid
     PipelineName            : EnrichGameLogsPipeline
     Type                    :
     ```
-5. Você pode executar o cmdlet **Save-AzureRmDataFactoryLog** com o valor de Id que você vê na saída e baixar os arquivos de log usando a opção **-DownloadLogsoption** para o cmdlet.
+5. Você pode executar o **Save-AzDataFactoryLog** cmdlet com o valor da Id que você vê na saída e baixar os arquivos de log usando o **- DownloadLogsoption** para o cmdlet.
 
     ```powershell
-    Save-AzureRmDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\Test"
+    Save-AzDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\Test"
     ```
 
 ## <a name="rerun-failures-in-a-pipeline"></a>Executar novamente as falhas em um pipeline
@@ -288,7 +290,7 @@ Em caso de falha na validação da fatia devido a uma falha de política (por ex
 ![Corrigir os erros e validar](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
 ### <a name="use-azure-powershell"></a>Usar PowerShell do Azure
-Você pode executar novamente as falhas usando o cmdlet **Set-AzureRmDataFactorySliceStatus**. Confira o tópico [Set-AzureRmDataFactorySliceStatus](https://docs.microsoft.com/powershell/module/azurerm.datafactories/set-azurermdatafactoryslicestatus) para obter a sintaxe e outros detalhes sobre o cmdlet.
+Você pode executar novamente as falhas usando o **AzDataFactorySliceStatus conjunto** cmdlet. Consulte a [AzDataFactorySliceStatus conjunto](https://docs.microsoft.com/powershell/module/az.datafactory/set-azdatafactoryslicestatus) tópico para sintaxe e outros detalhes sobre o cmdlet.
 
 **Exemplo:**
 
@@ -297,7 +299,7 @@ O exemplo a seguir define o status de todas as fatias da tabela "DAWikiAggregate
 UpdateType é definido como UpstreamInPipeline, o que significa que o status de cada fatia da tabela e todas as tabelas dependentes (upstream) é definido como "Aguardando". O outro valor possível para esse parâmetro é "Individual".
 
 ```powershell
-Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -DatasetName DAWikiAggregatedData -Status Waiting -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
+Set-AzDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -DatasetName DAWikiAggregatedData -Status Waiting -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
 ```
 ## <a name="create-alerts-in-the-azure-portal"></a>Criar alertas no portal do Azure
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
-ms.openlocfilehash: b88d850b708a10d0e0fdff2f54b68cb9b39988f5
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
-ms.translationtype: HT
+ms.openlocfilehash: 8638b788762a56813c622c0abffe2a8eae3c70c2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42140391"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437098"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Usar a Versão 1 da Extensão de Script Personalizado do Azure com máquinas virtuais do Linux
 
@@ -119,17 +119,17 @@ Esses itens devem ser tratados como dados confidenciais e especificados na confi
 
 ### <a name="property-values"></a>Valores de propriedade
 
-| NOME | Valor/Exemplo | Tipo de Dados |
+| Nome | Valor/Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | data |
-| publicador | Microsoft.OSTCExtensions | string |
-| Tipo | CustomScriptForLinux | string |
+| publicador | Microsoft.OSTCExtensions | cadeia de caracteres |
+| tipo | CustomScriptForLinux | cadeia de caracteres |
 | typeHandlerVersion | 1.5 | int |
 | fileUris (por exemplo) | https://github.com/MyProject/Archive/MyPythonScript.py | matriz |
-| commandToExecute (por exemplo) | python MyPythonScript.py \<my-param1\> | string |
-| enableInternalDNSCheck | verdadeiro | booleano |
-| storageAccountName (por exemplo) | examplestorageacct | string |
-| storageAccountKey (por exemplo) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
+| commandToExecute (por exemplo) | python MyPythonScript.py \<my-param1\> | cadeia de caracteres |
+| enableInternalDNSCheck | verdadeiro | booliano |
+| storageAccountName (por exemplo) | examplestorageacct | cadeia de caracteres |
+| storageAccountKey (por exemplo) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | cadeia de caracteres |
 
 ### <a name="property-value-details"></a>Detalhes de valor de propriedade
 
@@ -259,7 +259,7 @@ az vm extension set
   --protected-settings ./protected-config.json
 ```
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 Quando a extensão de script personalizado é executada, o script é criado ou baixado em um diretório semelhante ao exemplo a seguir. A saída do comando também é salva nesse diretório nos arquivos `stdout` e `stderr`.
 
@@ -305,7 +305,7 @@ A próxima etapa é fazer uma verificação do arquivo de log, este é o formato
 /var/log/azure/<extension-name>/<version>/extension.log file.
 ```
 
-Você deve procurar a execução individual, sua exibição será algo assim:
+Você deve procurar a execução individual, ele será algo parecido com:
 
 ```text
 2018/04/26 15:29:46 [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] Enable,transitioning,0,Launching the script...

@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 04/25/2018
+ms.date: 03/14/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5e185eea6fb1e96f17bf458dbfe2f06226933386
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: 3c9227a34c1b7208210b84b5b7d64ecdc8654a83
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341161"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286373"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Desempenho e escala nas Funções Duráveis (Azure Functions)
 
@@ -49,9 +49,18 @@ Há várias *filas de controle* por hub de tarefa em Funções Duráveis. Uma *f
 
 Filas de controle contêm uma variedade de tipos de mensagem de ciclo de vida de orquestração. Exemplos incluem [mensagens de controle de orquestrador](durable-functions-instance-management.md), mensagens de *resposta* de função de atividade e mensagens de temporizador. Até 32 mensagens serão removidas da fila de uma fila de controle em uma única chamada seletiva. Essas mensagens contêm dados de conteúdo, bem como metadados, incluindo qual instância de orquestração é destinada. Se várias mensagens removidas da fila destinam-se à mesma instância de orquestração, será processado como um lote.
 
+### <a name="queue-polling"></a>Sondagem de fila
+
+A extensão de tarefa durável implementa um algoritmo exponencial aleatório de retirada para reduzir o efeito de sondagem nos custos das transações de armazenamento de fila ociosa. Quando uma mensagem for encontrada, o tempo de execução imediatamente verifica outra mensagem; Quando nenhuma mensagem for encontrada, ele aguarda um período de tempo antes de tentar novamente. Após subsequentes tentativas com falha para obter uma mensagem da fila, o tempo de espera continua a aumentar até atingir o tempo de espera máximo, cujo padrão é 30 segundos.
+
+O atraso máximo de sondagem é configurável por meio de `maxQueuePollingInterval` propriedade no [arquivo host. JSON](../functions-host-json.md#durabletask). Definir isso como um valor mais alto pode resultar em maior latências de processamento de mensagens. Latências mais altas deve ser esperadas somente após períodos de inatividade. Definir isso como um valor mais baixo pode resultar em custos de armazenamento maiores devido às transações de armazenamento maior.
+
+> [!NOTE]
+> Quando em execução nos planos de consumo do Azure Functions e Premium, o [controlador de escala do Azure Functions](../functions-scale.md#how-the-consumption-plan-works) irá sondar cada fila de controle e de item de trabalho uma vez a cada 10 segundos. Essa pesquisa adicional é necessária para determinar quando ativar instâncias do aplicativo de função e para tomar decisões de dimensionamento. No momento da escrita, esse intervalo de 10 segundos é constante e não pode ser configurado.
+
 ## <a name="storage-account-selection"></a>Seleção da conta de armazenamento
 
-As filas, tabelas e blobs usados por Funções Duráveis são criados por uma conta de Armazenamento do Microsoft Azure configurada. A conta a ser usada pode ser especificada usando a configuração do arquivo `durableTask/azureStorageConnectionStringName` em **host.json** arquivo.
+As filas, tabelas e blobs usados pelas funções duráveis são criados em uma conta de armazenamento do Azure configurada. A conta a ser usada pode ser especificada usando a configuração do arquivo `durableTask/azureStorageConnectionStringName` em **host.json** arquivo.
 
 ### <a name="functions-1x"></a>Funções 1.x
 

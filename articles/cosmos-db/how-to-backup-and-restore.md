@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 7f99b6d2f6fc1c6d1c270bd66965d978749ac63f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 1d886e146e9e18eb735e6f88d2cb2c1a4a472924
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455925"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996884"
 ---
 # <a name="restore-data-from-a-backup-in-azure-cosmos-db"></a>Restaurar dados do backup no Azure Cosmos DB 
 
-Se você excluir acidentalmente seu banco de dados ou um contêiner, poderá [arquivar um tíquete de suporte]( https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ou [chamar o suporte do Azure]( https://azure.microsoft.com/support/options/) para restaurar os dados de backups on-line automáticos. O suporte do Azure está disponível apenas para planos selecionados, como **Standard**, **Desenvolvedor e planos superiores a eles. Suporte do Azure não está disponível com plano **Basic**. Para saber mais sobre os diferentes planos de suporte, consulte a página [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/). 
+Se você excluir acidentalmente seu banco de dados ou um contêiner, poderá [arquivar um tíquete de suporte]( https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ou [chamar o suporte do Azure]( https://azure.microsoft.com/support/options/) para restaurar os dados de backups on-line automáticos. Suporte do Azure só está disponível para planos selecionados, como **Standard**, **desenvolvedor**e planos de mais do que-los. Suporte do Azure não está disponível com plano **Basic**. Para saber mais sobre os diferentes planos de suporte, consulte a página [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/). 
 
 Para restaurar um instantâneo específico do backup, o Azure Cosmos DB exige que os dados estejam disponíveis durante o ciclo de backup desse instantâneo.
 
@@ -33,6 +33,11 @@ Você deve ter os seguintes detalhes antes de solicitar uma restauração:
 * Se um ou mais bancos de dados forem excluídos, você deverá fornecer a conta do Azure Cosmos, bem como os nomes do banco de dados do Azure Cosmos, e especificar se existe um novo banco de dados com o mesmo nome.
 
 * Se um ou mais contêineres forem excluídos, você deverá fornecer o nome da conta do Azure Cosmos, os nomes do banco de dados e os nomes dos contêineres. E especifique se existe um contêiner com o mesmo nome.
+
+* Se você tiver acidentalmente excluído ou corrompido de seus dados, você deverá contatar [suporte do Azure](https://azure.microsoft.com/support/options/) dentro de 8 horas para que a equipe do Azure Cosmos DB pode ajudar a restaurar os dados dos backups.
+  
+  * Se você excluiu acidentalmente seu banco de dados ou o contêiner, abra um caso de suporte Sev B ou Sev C Azure. 
+  * Se você acidentalmente excluído ou corrompido alguns documentos dentro do contêiner, abra um caso de suporte severidades A. 
 
 Quando ocorrer corrupção de dados e se os documentos dentro de um contêiner forem modificados ou excluídos, **exclua o contêiner o mais rápido possível**. Excluindo o contêiner, você pode evitar o Azure Cosmos DB substituam os backups. Se, por algum motivo, a exclusão não for possível, você deverá enviar um ticket o mais rápido possível. Além do nome da conta do Azure Cosmos, nomes de bancos de dados, nomes de coleções, você deve especificar o ponto no tempo para o qual os dados podem ser restaurados. É importante ser o mais preciso possível para nos ajudar a determinar os melhores backups disponíveis naquele momento. Também é importante especificar o horário no UTC. 
 

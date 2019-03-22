@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/08/2018
 ms.author: ryanwi
-ms.openlocfilehash: bdff930e00bfebe1d702e397a9dfc7de15aa3225
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: f358080b3bcada5515f578ad2215fa2b135c2f2d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55156217"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57878322"
 ---
 # <a name="multi-container-application-and-service-manifest-examples"></a>Exemplos de aplicativo multicontêiner e manifesto do serviço
 A seguir estão exemplos dos manifestos do serviço e do aplicativo para um aplicativo do Service Fabric de vários contêineres. O objetivo desses exemplos é mostrar quais configurações estão disponíveis e como usá-las. Esses manifestos do serviço e do aplicativo se baseiam nos manifestos de [Exemplo de contêiner do Windows Server 2016](https://github.com/Azure-Samples/service-fabric-containers/tree/master/Windows).
 
 Os seguintes recursos são mostrados:
+
 |Manifesto|Recursos|
 |---|---|
 |[Manifesto do aplicativo](#application-manifest)| [substituir variáveis de ambiente](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [configurar o mapeamento de porta para host do contêiner](service-fabric-get-started-containers.md#configure-container-port-to-host-port-mapping-and-container-to-container-discovery), [configurar a autenticação de registro de contêiner](service-fabric-get-started-containers.md#configure-container-registry-authentication), [governança de recursos](service-fabric-resource-governance.md), [definir o modo de isolamento](service-fabric-get-started-containers.md#configure-isolation-mode), [especificar imagens de contêiner de build específicas do sistema operacional](service-fabric-get-started-containers.md#specify-os-build-specific-container-images)| 
@@ -40,8 +41,8 @@ Confira [Elementos do manifesto do aplicativo](#application-manifest-elements), 
 <ApplicationManifest ApplicationTypeName="Container.ApplicationType"
                      ApplicationTypeVersion="1.0.0"
                      xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                     xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                     xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <Parameters>
     <Parameter Name="BackEndService_InstanceCount" DefaultValue="-1" />
     <Parameter Name="FrontEndService_InstanceCount" DefaultValue="-1" />
@@ -171,8 +172,8 @@ Confira [Elementos do manifesto do aplicativo](#application-manifest-elements), 
 <ServiceManifest Name="FrontEndServicePkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <!-- This is the name of your ServiceType.
          The UseImplicitHost attribute indicates this is a guest service. -->
@@ -221,8 +222,8 @@ Confira [Elementos do manifesto do aplicativo](#application-manifest-elements), 
 <ServiceManifest Name="BackEndServicePkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <!-- This is the name of your ServiceType.
          The UseImplicitHost attribute indicates this is a guest service. -->

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 64cbf8f8704dbb216a15247caf741ff43690496a
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: ca4bd3d3b40934323bab8036f3ce72e9281f1de4
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54457102"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56751395"
 ---
 > [!div class="op_single_selector"]
 > * [C em Windows](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
@@ -39,7 +39,7 @@ O dispositivo de exemplo também:
 
 Para concluir este tutorial, você precisa de uma conta ativa do Azure. Se não tiver uma conta, você poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="before-you-start"></a>Antes de começar
+## <a name="before-you-start"></a>Antes de iniciar
 
 Antes de escrever qualquer código para o dispositivo, implante o acelerador de solução de Monitoramento Remoto e adicione um novo dispositivo real à solução.
 
@@ -58,9 +58,9 @@ Quando o processo de implantação para a solução de Monitoramento Remoto for 
 
 Para que um dispositivo se conecte ao acelerador de solução, ele precisa se identificar para o Hub IoT usando credenciais válidas. É possível salvar a cadeia de conexão do dispositivo contendo essas credenciais, quando você adicionar o dispositivo à solução. Você incluirá a cadeia de conexão de dispositivo no seu aplicativo cliente, mais adiante neste tutorial.
 
-Para adicionar um dispositivo à sua solução de Monitoramento Remoto, conclua as seguintes etapas na página **Dispositivos** na solução:
+Para adicionar um dispositivo à sua solução de monitoramento remoto, conclua as etapas a seguir sobre o **Device Explorer** página na solução:
 
-1. Escolha **+ Novo dispositivo** e, em seguida, escolha **Físico** como o **Tipo de dispositivo**:
+1. Escolher **+ novo dispositivo**e, em seguida, escolha **Real** como o **tipo de dispositivo**:
 
     ![Adicionar um dispositivo real](media/iot-suite-selector-connecting/devicesprovision.png)
 

@@ -1,30 +1,32 @@
 ---
-title: Exemplos do Log Analytics do Firewall do Azure
-description: Exemplos do Log Analytics do Firewall do Azure
+title: Exemplos de análise de log de Firewall do Azure
+description: Exemplos de análise de log de Firewall do Azure
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 2/15/2019
 ms.author: victorh
-ms.openlocfilehash: cff31ba73730b7cf7cb27ecb132ec70806234924
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: 21309060b7b4a93d798c444bd96bc21c62693a54
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233388"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533996"
 ---
-# <a name="azure-firewall-log-analytics-samples"></a>Exemplos do Log Analytics do Firewall do Azure
+# <a name="azure-firewall-log-analytics-samples"></a>Exemplos de análise de log de Firewall do Azure
 
-Os seguintes exemplos do Log Analytics podem ser usados para analisar os logs do Firewall do Azure. O arquivo de exemplo é criado no Designer de Exibição do Log Analytics; o artigo [Designer de Exibição do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer) tem mais informações sobre o conceito de Design de Exibição.
+Os seguintes exemplos de logs do Azure Monitor podem ser usados para analisar os logs de Firewall do Azure. O arquivo de exemplo é criado no Designer de exibição no Azure Monitor, o [Designer de exibição no Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer) artigo tem mais informações sobre o conceito de exibição de Design.
 
-## <a name="log-analytics-view"></a>Modo de exibição do Log Analytics
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Veja como você pode configurar uma visualização de análise de log de exemplo. Você pode baixar a visualização de exemplo do repositório [azure-docs-json-samples](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-firewall/AzureFirewall.omsview). A maneira mais fácil de fazer isso é clicar com o botão direito do mouse no hiperlink nesta página e escolher *Salvar como* e fornecer um nome como **AzureFirewall.omsview**. 
+## <a name="azure-monitor-logs-view"></a>Exibição dos logs do Azure Monitor
 
-Execute as etapas a seguir para adicionar a exibição ao seu workspace do Log Analytics:
+Aqui está como você pode configurar um exemplo de visualização de logs do Azure Monitor. Você pode baixar a visualização de exemplo do repositório [azure-docs-json-samples](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-firewall/AzureFirewall.omsview). A maneira mais fácil de fazer isso é clicar com o botão direito do mouse no hiperlink nesta página e escolher *Salvar como* e fornecer um nome como **AzureFirewall.omsview**. 
 
-1. Abra o workspace do Log Analytics no Portal do Azure.
+Execute as seguintes etapas para adicionar o modo de exibição para seu espaço de trabalho do Log Analytics:
+
+1. Abra o espaço de trabalho do Log Analytics no Portal do Azure.
 2. Abra **Designer de Exibição** abaixo de **Geral**.
 3. Clique em **Importar**.
 4. Procure e selecione o arquivo **AzureFirewall.omsview** baixado anteriormente.
@@ -149,6 +151,21 @@ AzureDiagnostics
 | project TimeGenerated, msg_s, Protocol, SourceIP,SourcePort,TargetIP,TargetPort,Action, NatDestination
 ```
 
+## <a name="threat-intelligence-log-data-query"></a>Consulta de dados de log de inteligência de ameaça
+
+A consulta a seguir analisa os dados de log de regra de inteligência contra ameaças:
+
+```Kusto
+AzureDiagnostics
+| where OperationName  == "AzureFirewallThreatIntelLog"
+| parse msg_s with Protocol " request from " SourceIP ":" SourcePortInt:int " to " TargetIP ":" TargetPortInt:int *
+| parse msg_s with * ". Action: " Action "." Message
+| parse msg_s with Protocol2 " request from " SourceIP2 " to " TargetIP2 ". Action: " Action2
+| extend SourcePort = tostring(SourcePortInt),TargetPort = tostring(TargetPortInt)
+| extend Protocol = case(Protocol == "", Protocol2, Protocol),SourceIP = case(SourceIP == "", SourceIP2, SourceIP),TargetIP = case(TargetIP == "", TargetIP2, TargetIP),SourcePort = case(SourcePort == "", "N/A", SourcePort),TargetPort = case(TargetPort == "", "N/A", TargetPort)
+| sort by TimeGenerated desc | project TimeGenerated, msg_s, Protocol, SourceIP,SourcePort,TargetIP,TargetPort,Action,Message
+```
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre diagnóstico e monitoramento do Firewall do Azure, confira [Tutorial: Monitorar métricas e logs do Firewall do Azure](tutorial-diagnostics.md).
+Para saber mais sobre diagnóstico e monitoramento do Firewall do Azure, consulte [Tutorial: Monitorar logs de Firewall do Azure e métricas](tutorial-diagnostics.md).

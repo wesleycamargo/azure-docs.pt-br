@@ -12,19 +12,28 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 29b8e0953109238b724cc8df9f456706f71a041e
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 59bcf2b33d203ae216b4965b963a727a6b34ae72
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341616"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57998414"
 ---
 # <a name="list-deny-assignments-for-azure-resources-using-the-rest-api"></a>Listar atribuições de negação para recursos do Azure usando a API REST
 
-Atualmente as atribuições de negação são **somente leitura** e só podem ser definidas pelo Azure. Mesmo que você não possa criar suas próprias atribuições de negação, é possível listar as atribuições de negação, porque elas poderiam afetar suas permissões efetivas. Este artigo descreve como listar atribuições de negação usando RBAC e API REST.
+As [atribuições de negação](deny-assignments.md) impedem que os usuários executem ações específicas, mesmo que uma atribuição de função conceda o acesso a elas. Este artigo descreve como usar a API REST para a lista de atribuições de negar.
+
+> [!NOTE]
+> Neste momento, a única maneira de adicionar seu próprio negar atribuições é por meio de especificações técnicas do Azure. Para obter mais informações, consulte [proteger os novos recursos com bloqueios de recursos do Azure BluePrint](../governance/blueprints/tutorials/protect-new-resources.md).
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Para obter informações sobre uma atribuição de deny, você deve ter:
+
+- `Microsoft.Authorization/denyAssignments/read` permissão, que está incluído na maioria [funções internas para recursos do Azure](built-in-roles.md).
 
 ## <a name="list-a-single-deny-assignment"></a>Lista uma única atribuição de negação
 

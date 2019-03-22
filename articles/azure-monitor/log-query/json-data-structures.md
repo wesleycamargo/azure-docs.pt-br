@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: dda7ef2e4e974ea053f030a3ebe71a16872612b0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 718b12c8a66d66a75796f88ef31b5f0f62abbbc4
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993717"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750949"
 ---
 # <a name="working-with-json-and-data-structures-in-azure-monitor-log-queries"></a>Trabalhar com JSON e estruturas de dados em consultas de log do Azure Monitor
 
 > [!NOTE]
-> Você deve concluir a [Introdução ao Log Analytics do Azure Monitor](get-started-portal.md) e a [Introdução às consultas de logs do Azure Monitor](get-started-queries.md) antes de concluir esta lição.
+> Você deve concluir [Introdução ao Log Analytics do Azure Monitor](get-started-portal.md) e [Introdução às consultas de log do Azure Monitor](get-started-queries.md) antes de concluir esta lição.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 

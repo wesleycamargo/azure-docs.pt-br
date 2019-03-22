@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 01/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3aba118354c51285d714bb127e6f5984f8a50057
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: aeb97d661d330ed6afb3ca5e5e1eb924dacc4024
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329745"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096292"
 ---
 # <a name="automated-backup-for-sql-server-in-azure-virtual-machines-classic"></a>Backup automatizado para SQL Server em Máquinas Virtuais do Azure (Clássico)
 > [!div class="op_single_selector"]
@@ -67,13 +67,14 @@ Para usar o Backup Automatizado, considere os seguintes pré-requisitos:
 ## <a name="settings"></a>Configurações
 A tabela a seguir descreve as opções que podem ser configuradas para Backup Automatizado. Para VMs clássicas, você deve usar o PowerShell para definir essas configurações.
 
-| Configuração | Intervalo (Padrão) | DESCRIÇÃO |
+| Configuração | Intervalo (Padrão) | Descrição |
 | --- | --- | --- |
 | **Backup Automatizado** |Habilitar/desabilitar (Desabilitado) |Habilita ou desabilita o Backup Automatizado de uma VM do Azure que executa o SQL Server 2014 Standard ou Enterprise. |
 | **Período de retenção** |Um a 30 dias (30 dias) |O número de dias para manter um backup. |
 | **Conta de armazenamento** |Conta de armazenamento do Azure (a conta de armazenamento criada para a VM especificada) |Uma conta de armazenamento do Azure a ser usada para armazenar arquivos de Backup Automatizado no armazenamento de blobs. Um contêiner é criado neste local para armazenar todos os arquivos de backup. A convenção de nomenclatura do arquivo de backup inclui a data, hora e nome do computador. |
 | **Criptografia** |Habilitar/desabilitar (Desabilitado) |Habilita ou desabilita a criptografia. Quando a criptografia está habilitada, os certificados usados para restaurar o backup estão localizados na conta de armazenamento especificado no mesmo contêiner automaticbackup usando a mesma convenção de nomenclatura. Se a senha for alterada, um novo certificado será gerado com essa senha, mas o certificado antigo permanece para restaurar backups anteriores. |
-| **Senha** |Texto da senha (nenhum) |Uma senha para as chaves de criptografia. Isso só é necessário se a criptografia estiver habilitada. Para restaurar um backup criptografado, você deverá ter a senha correta e o certificado relacionado que foi usado no momento em que o backup foi feito. | **Bancos de dados do sistema de backup** | Habilitar/desabilitar (Desabilitado) | Fazer backups completos do Mestre, Modelo e MSDB |
+| **Senha** |Texto da senha (nenhum) |Uma senha para as chaves de criptografia. Isso só é necessário se a criptografia estiver habilitada. Para restaurar um backup criptografado, você deverá ter a senha correta e o certificado relacionado que foi usado no momento em que o backup foi feito. |
+| **Bancos de dados do sistema de backup** | Habilitar/desabilitar (Desabilitado) | Fazer backups completos do Mestre, Modelo e MSDB |
 | **Configurar agendamento de backup** | Manual/Automatizado (Automatizado) | Selecione **Automatizado** para fazer backups e registrar logs completos com base no crescimento de log automaticamente. Selecione **Manual** para especificar o cronograma para backups e registros de log completos. |
 
 ## <a name="configuration-with-powershell"></a>Configuração com o PowerShell

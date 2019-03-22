@@ -3,15 +3,15 @@ title: Tipos de recurso com suporte por meio do Azure Resource Health | Microsof
 description: Tipos de recurso com suporte por meio do Azure Resource Health
 author: stephbaron
 ms.author: stbaron
-ms.topic: how-to
+ms.topic: conceptual
 ms.service: service-health
 ms.date: 01/29/2019
-ms.openlocfilehash: 6945573fffa5a8398a61bfa44737bec798e16be2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: a8bc82a2717bfa6838b2331ef54ed8098422c223
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881433"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57770332"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipos de recursos e verificações de integridade no Azure Resource Health
 Abaixo, temos uma lista completa de todas as verificações executadas por meio do Resource Health segundo o tipo do recurso.

@@ -9,12 +9,12 @@ ms.date: 10/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 0d67571024c9ace3618f7ae6172122ac48b57faa
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 0f5d36dfbe614e35256231a91a9e15055e2e81cb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106708"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57843616"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Integrar soluções de Gerenciamento de Atualizações, Controle de Alterações e Inventário
 
@@ -28,11 +28,11 @@ Entre no Azure em https://portal.azure.com
 
 Navegue até sua conta de Automação e selecione **Inventário** ou **Controle de alterações** em **GERENCIAMENTO DE CONFIGURAÇÃO**.
 
-Escolha o workspace do Log Analytics e a conta de automação e clique em **Habilitar** para habilitar a solução. A solução demora até 15 minutos para habilitar.
+Escolha o espaço de trabalho do Log Analytics e a conta de automação e clique em **habilitar** para habilitar a solução. A solução demora até 15 minutos para habilitar.
 
 ![Integrar a solução de Inventário](media/automation-onboard-solutions-from-automation-account/onboardsolutions.png)
 
-Ao habilitar soluções, somente determinadas regiões têm suporte para vincular um Workspace do Log Analytics e uma Conta de Automação.
+Ao habilitar soluções, somente determinadas regiões têm suporte para vincular um espaço de trabalho do Log Analytics e uma conta de automação.
 
 A tabela abaixo mostra os mapeamentos com suporte:
 
@@ -41,14 +41,19 @@ A tabela abaixo mostra os mapeamentos com suporte:
 |AustraliaSoutheast|AustraliaSoutheast|
 |Canadá Central|Canadá Central|
 |CentralIndia|CentralIndia|
-|EastUS|EastUS2|
+|EastUS<sup>1</sup>|EastUS2|
 |JapanEast|JapanEast|
 |SoutheastAsia|SoutheastAsia|
 |WestCentralUS|WestCentralUS|
 |WestEurope|WestEurope|
 |UKSouth|UKSouth|
 |USGovVirginia|USGovVirginia|
-|LesteEUA2EUAP|CentralUSEUAP|
+|EastUS2EUAP<sup>1</sup>|CentroEUAEUAP|
+
+<sup>1</sup> mapeamentos EastUS2EUAP e EastUS para espaços de trabalho do Log Analytics para contas de automação não são um mapeamento de região para região exato, mas é o mapeamento correto.
+
+> [!NOTE]
+> Devido à demanda, uma região pode não estar disponível ao criar seu espaço de trabalho de conta de automação ou o Log Analytics.  Se esse for o caso, verifique se que você estiver usando uma região em que você pode criar recursos na tabela anterior.
 
 A solução de Controle de Alterações e Inventário fornece a capacidade de [acompanhar alterações](automation-vm-change-tracking.md) e [inventário](automation-vm-inventory.md) em suas máquinas virtuais. Nesta etapa, você deve habilitar a solução em uma máquina virtual.
 
@@ -56,7 +61,7 @@ Quando a notificação da integração da solução de inventário e controle de
 
 A solução de Gerenciamento de Atualizações permite que você gerencie atualizações e patches para suas VMs do Windows do Azure. Você pode avaliar o status de atualizações disponíveis, agendar a instalação de atualizações necessárias e examinar os resultados de implantação para verificar se as atualizações foram aplicadas com êxito na VM. Esta ação habilitou a solução para a VM.
 
-Selecione **Gerenciamento de atualizações** em **GERENCIAMENTO DE ATUALIZAÇÕES**. O workspace do Log Analytics selecionado é o mesmo workspace usado na etapa anterior. Clique em **Habilitar** para integrar a solução de Gerenciamento de atualizações. A solução demora até 15 minutos para habilitar.
+Selecione **Gerenciamento de atualizações** em **GERENCIAMENTO DE ATUALIZAÇÕES**. O espaço de trabalho do Log Analytics selecionado é o mesmo espaço de trabalho usado na etapa anterior. Clique em **Habilitar** para integrar a solução de Gerenciamento de atualizações. A solução demora até 15 minutos para habilitar.
 
 ![Integrar solução de atualização](media/automation-onboard-solutions-from-automation-account/onboardsolutions2.png)
 
@@ -91,7 +96,7 @@ Selecione a pesquisa salva para visualizar a consulta usada para preencher o gru
 
 Na sua conta de Automação do Azure, selecione **Inventário** ou **Controle de alterações** em **GERENCIAMENTO DE CONFIGURAÇÃO** ou **Gerenciamento de atualizações** em **GERENCIAMENTO DE ATUALIZAÇÕES**.
 
-Clique em **+Adicionar VMs do Azure**, selecione uma ou mais VMs na lista. Máquinas virtuais que não podem ser habilitadas ficam esmaecidas e não podem ser selecionadas. Na página **Habilitar Gerenciamento de Atualizações**, clique em **Habilitar**. Esta ação adiciona as VMs selecionadas à pesquisa salva do grupo de computadores para a solução.
+Clique em **+Adicionar VMs do Azure**, selecione uma ou mais VMs na lista. Máquinas virtuais que não podem ser habilitadas ficam esmaecidas e não podem ser selecionadas. As VMs do Azure podem existir em qualquer região não importa o local de sua conta de automação. Na página **Habilitar Gerenciamento de Atualizações**, clique em **Habilitar**. Esta ação adiciona as VMs selecionadas à pesquisa salva do grupo de computadores para a solução.
 
 ![Habilitar VMs do Azure](media/automation-onboard-solutions-from-automation-account/enable-azure-vms.png)
 
@@ -129,7 +134,7 @@ As seguintes soluções são dependentes de um workspace do Log Analytics:
 * [Controle de alterações](automation-change-tracking.md)
 * [Iniciar/parar VMs durante os horários fora de pico](automation-solution-vm-management.md)
 
-Caso decida que não quer mais integrar sua conta de Automação ao Log Analytics, você poderá desvincular a conta diretamente no Portal do Azure.  Antes de continuar, primeiro você precisa remover as soluções mencionadas anteriormente, caso contrário, esse processo será impedido de prosseguir. Revise o artigo para a solução específica que você importou para entender as etapas necessárias para removê-lo.
+Se você decidir que você não deseja mais integrar sua conta de automação com um espaço de trabalho do Log Analytics, você pode desvincular sua conta diretamente do portal do Azure.  Antes de continuar, primeiro você precisa remover as soluções mencionadas anteriormente, caso contrário, esse processo será impedido de prosseguir. Revise o artigo para a solução específica que você importou para entender as etapas necessárias para removê-lo.
 
 Depois de remover essas soluções, você pode concluir as etapas a seguir para desvincular sua conta de automação.
 

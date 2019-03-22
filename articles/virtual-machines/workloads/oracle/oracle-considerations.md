@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 08/02/2018
 ms.author: rogirdh
 ms.custom: seodec18
-ms.openlocfilehash: 50e5dfa21cf7a8f7203e7d96640e3cf5215130a6
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 945ba9b2ba4dbc22941ca6b105417f591f2dd837
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191454"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012753"
 ---
 # <a name="oracle-solutions-and-their-deployment-on-microsoft-azure"></a>Soluções da Oracle e sua implantação no Microsoft Azure
 Este artigo aborda informações necessárias para implantar com êxito várias soluções da Oracle no Microsoft Azure. Essas soluções são baseadas em imagens de Máquina Virtual publicadas pela Oracle no Azure Marketplace. Para obter uma lista de imagens disponíveis no momento, execute o seguinte comando:
@@ -43,7 +43,7 @@ Oracle-Linux            Oracle       7.3                     Oracle:Oracle-Linux
 Oracle-WebLogic-Server  Oracle       Oracle-WebLogic-Server  Oracle:Oracle-WebLogic-Server:Oracle-WebLogic-Server:12.1.2  12.1.2
 ```
 
-Essas imagens são consideradas "Traga sua própria licença" e como tal, você só será cobrado pelos custos de computação, armazenamento e rede incorridos na execução de uma VM.  Presume-se que você esteja devidamente licenciado para usar o software da Oracle e que tem um contrato de suporte em vigor com a Oracle. A Oracle tem garantia de mobilidade de licença do local para o Azure. Consulte a observação [Oracle e Microsoft](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html) publicada para obter detalhes sobre a mobilidade da licença. 
+Essas imagens são consideradas "Traga sua própria licença" e como tal, você só será cobrado pelos custos de computação, armazenamento e rede incorridos na execução de uma VM.  Presume-se que você esteja devidamente licenciado para usar o software da Oracle e que tem um contrato de suporte em vigor com a Oracle. A Oracle tem garantia de mobilidade de licença do local para o Azure. Consulte a observação [Oracle e Microsoft](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html) publicada para obter detalhes sobre a mobilidade da licença. 
 
 Pessoas também podem optar por basear suas soluções em uma imagem personalizada, elas criam imagens do zero no Azure ou fazem upload da imagem personalizada de seu ambiente local.
 
@@ -55,7 +55,7 @@ A Oracle oferece suporte às edições Oracle DB 12.1 Standard e Enterprise em e
 
 ### <a name="attached-disk-configuration-options"></a>Opções de configuração de disco anexado
 
-Os discos anexados se baseiam no serviço de armazenamento de Blobs do Azure. Cada disco padrão pode fornecer uma velocidade máxima teórica de aproximadamente 500 IOPS (operações de entrada/saída por segundo). Nossa oferta de disco premium é preferencial para cargas de trabalho de banco de dados de alto desempenho e pode alcançar até 5000 IOPS por disco. Embora você possa usar um único disco se isso atender às suas necessidades de desempenho, você poderá melhorar o desempenho efetivo do IOPS se usar vários discos anexados, distribuir os dados do banco de dados entre eles e, em seguida, usar o ASM (Automatic Storage Management) da Oracle. Veja [Visão geral do armazenamento automático da Oracle](http://www.oracle.com/technetwork/database/index-100339.html) para obter mais informações específicas do Oracle ASM. Para obter um exemplo de como instalar e configurar o Oracle ASM em uma VM do Azure Linux - você pode tentar o tutorial [Instalando e configurando o Oracle Automated Storage Management](configure-oracle-asm.md).
+Os discos anexados se baseiam no serviço de armazenamento de Blobs do Azure. Cada disco padrão pode fornecer uma velocidade máxima teórica de aproximadamente 500 IOPS (operações de entrada/saída por segundo). Nossa oferta de disco premium é preferencial para cargas de trabalho de banco de dados de alto desempenho e pode alcançar até 5000 IOPS por disco. Embora você possa usar um único disco se isso atender às suas necessidades de desempenho, você poderá melhorar o desempenho efetivo do IOPS se usar vários discos anexados, distribuir os dados do banco de dados entre eles e, em seguida, usar o ASM (Automatic Storage Management) da Oracle. Veja [Visão geral do armazenamento automático da Oracle](https://www.oracle.com/technetwork/database/index-100339.html) para obter mais informações específicas do Oracle ASM. Para obter um exemplo de como instalar e configurar o Oracle ASM em uma VM do Azure Linux - você pode tentar o tutorial [Instalando e configurando o Oracle Automated Storage Management](configure-oracle-asm.md).
 
 ## <a name="oracle-real-application-cluster-oracle-rac"></a>Oracle Real Application Cluster (Oracle RAC)
 O RAC da Oracle foi projetado para atenuar a falha de um único nó em uma configuração de cluster de vários nós local. Ele se baseia em duas tecnologias locais que não são nativas em ambientes de nuvem pública de hiperescala: multicast de rede e disco compartilhado. Se sua solução de banco de dados exigir o Oracle RAC no Azure, será necessário um software de terceiros para habilitar essas tecnologias. Para obter mais informações sobre o Oracle RAC, confira a [página de solução do FlashGrid](https://www.flashgrid.io/oracle-rac-in-azure/).
@@ -63,11 +63,11 @@ O RAC da Oracle foi projetado para atenuar a falha de um único nó em uma confi
 ## <a name="high-availability-and-disaster-recovery-considerations"></a>Considerações sobre alta disponibilidade e recuperação de desastres
 Ao usar o Banco de Dados da Oracle no Azure, você será responsável por implementar uma solução de recuperação de desastre e alta disponibilidade para evitar que haja tempo de inatividade. 
 
-É possível obter alta disponibilidade e recuperação de desastre para o Oracle Database Enterprise Edition (sem precisar do Oracle RAC) no Azure usando o [Data Guard, Active Data Guard](http://www.oracle.com/technetwork/articles/oem/dataguardoverview-083155.html) ou o [Oracle Golden Gate](http://www.oracle.com/technetwork/middleware/goldengate), com dois bancos de dados em duas máquinas virtuais separadas. As duas máquinas virtuais devem estar na mesma [rede virtual](https://azure.microsoft.com/documentation/services/virtual-network/) para garantir que podem se acessar mutuamente por um endereço IP privado persistente.  Além disso, é recomendável colocar as máquinas virtuais no mesmo conjunto de disponibilidade para permitir que o Azure as coloque em domínios de falha e domínios de atualização separados.  Você deve ter a redundância geográfica - é possível ter esses dois bancos de dados replicados entre duas regiões diferentes e conectar as duas instâncias com um Gateway de VPN.
+É possível obter alta disponibilidade e recuperação de desastre para o Oracle Database Enterprise Edition (sem precisar do Oracle RAC) no Azure usando o [Data Guard, Active Data Guard](https://www.oracle.com/technetwork/articles/oem/dataguardoverview-083155.html) ou o [Oracle Golden Gate](https://www.oracle.com/technetwork/middleware/goldengate), com dois bancos de dados em duas máquinas virtuais separadas. As duas máquinas virtuais devem estar na mesma [rede virtual](https://azure.microsoft.com/documentation/services/virtual-network/) para garantir que podem se acessar mutuamente por um endereço IP privado persistente.  Além disso, é recomendável colocar as máquinas virtuais no mesmo conjunto de disponibilidade para permitir que o Azure as coloque em domínios de falha e domínios de atualização separados.  Você deve ter a redundância geográfica - é possível ter esses dois bancos de dados replicados entre duas regiões diferentes e conectar as duas instâncias com um Gateway de VPN.
 
 Temos um tutorial "[Implementar o Oracle DataGuard no Azure](configure-oracle-dataguard.md)" que orienta você por meio do procedimento de configuração básica para a versão de avaliação dele no Azure.  
 
-Com o Oracle Data Guard, a alta disponibilidade pode ser obtida com um banco de dados primário em uma máquina virtual, um banco de dados secundário (em espera) em outra máquina virtual e replicação unidirecional entre eles. O resultado é o acesso de leitura à cópia do banco de dados. Com o Oracle GoldenGate, você pode configurar a replicação bidirecional entre dois bancos de dados. Para saber como configurar uma solução de alta disponibilidade para seus bancos de dados usando essas ferramentas, veja a documentação do [Active Data Guard](http://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html) e do [GoldenGate](http://docs.oracle.com/goldengate/1212/gg-winux/index.html) no site da Oracle. Se precisar de acesso de leitura-gravação à cópia do banco de dados, você poderá usar o [Oracle Active Data Guard](http://www.oracle.com/uk/products/database/options/active-data-guard/overview/index.html).
+Com o Oracle Data Guard, a alta disponibilidade pode ser obtida com um banco de dados primário em uma máquina virtual, um banco de dados secundário (em espera) em outra máquina virtual e replicação unidirecional entre eles. O resultado é o acesso de leitura à cópia do banco de dados. Com o Oracle GoldenGate, você pode configurar a replicação bidirecional entre dois bancos de dados. Para saber como configurar uma solução de alta disponibilidade para seus bancos de dados usando essas ferramentas, veja a documentação do [Active Data Guard](https://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html) e do [GoldenGate](https://docs.oracle.com/goldengate/1212/gg-winux/index.html) no site da Oracle. Se precisar de acesso de leitura-gravação à cópia do banco de dados, você poderá usar o [Oracle Active Data Guard](https://www.oracle.com/uk/products/database/options/active-data-guard/overview/index.html).
 
 Temos um tutorial "[Implementar o Oracle GoldenGate no Azure](configure-oracle-golden-gate.md)" que orienta você por meio do procedimento de configuração básica para a versão de avaliação dele no Azure.
 
@@ -91,7 +91,7 @@ Apesar de ter uma solução de alta disponibilidade e recuperação de desastre 
 
          -Dweblogic.rjvm.enableprotocolswitch=true
 
-Para obter informações relacionadas, consulte o artigo KB **860340.1** em <http://support.oracle.com>.
+Para obter informações relacionadas, consulte o artigo KB **860340.1** em <https://support.oracle.com>.
 
 * **Limitações de balanceamento de carga e clustering dinâmico.**  Suponha que você queira usar um cluster dinâmico no WebLogic Server e expô-lo por meio de um ponto de extremidade único, com balanceamento de carga, no Azure. Isso poderá ser feito, desde que você use um número da porta fixa para cada um dos servidores gerenciados (atribuídos dinamicamente dentro de um intervalo) e não inicie mais servidores gerenciados do que o número de máquinas monitoradas pelo administrador (ou seja, não mais que um servidor gerenciado por máquina virtual). Se sua configuração fizer com que sejam iniciados mais servidores WebLogic do que há máquinas virtuais (isto é, várias instâncias do WebLogic compartilharão a mesma máquina virtual), não será possível que mais de uma dessas instâncias do WebLogic Server se associe a um determinado número da porta e as outras na máquina virtual falharão.
 

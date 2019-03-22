@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: raynew
-ms.openlocfilehash: 62683aaf7dda048b5828e9494ba8cafe6c8b8f9f
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 012a352b00de2e2d1bf64fd18125ddd10faba5cd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417932"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122800"
 ---
 # <a name="assessment-calculations"></a>Cálculos de avaliação
 
@@ -118,14 +118,14 @@ Para o dimensionamento com base no desempenho, as Migrações para Azure precisa
 
    Veja abaixo os motivos em relação ao motivo pelo qual uma avaliação poderia obter uma classificação de baixa confiança:
 
-   - Você não criou o perfil do ambiente pelo tempo para o qual está criando a avaliação. Por exemplo, se você está criando a avaliação com duração de desempenho definida como 1 dia, precisa aguardar pelo menos um dia após iniciar a descoberta para que todos os pontos de dados sejam coletados.
+- Você não criou o perfil do ambiente pelo tempo para o qual está criando a avaliação. Por exemplo, se você está criando a avaliação com duração de desempenho definida como 1 dia, precisa aguardar pelo menos um dia após iniciar a descoberta para que todos os pontos de dados sejam coletados.
 
-   - Algumas VMs foram desativadas durante o período para o qual a avaliação é calculada. Se todas as VMs foram desligadas por algum tempo, o vCenter Server não poderá coletar os dados de desempenho daquele período.
+- Algumas VMs foram desativadas durante o período para o qual a avaliação é calculada. Se todas as VMs foram desligadas por algum tempo, o vCenter Server não poderá coletar os dados de desempenho daquele período.
 
-   - Algumas VMs foram criadas durante o período para o qual a avaliação é calculada. Por exemplo, se você estiver criando uma avaliação para o histórico de desempenho do último mês, mas algumas VMs foram criadas no ambiente somente há uma semana. Nesses casos, o histórico de desempenho das novas VMs não estará lá durante todo o período.
+- Algumas VMs foram criadas durante o período para o qual a avaliação é calculada. Por exemplo, se você estiver criando uma avaliação para o histórico de desempenho do último mês, mas algumas VMs foram criadas no ambiente somente há uma semana. Nesses casos, o histórico de desempenho das novas VMs não estará lá durante todo o período.
 
-   > [!NOTE]
-   > Se a classificação de confiança de qualquer avaliação estiver abaixo de 5 estrelas, é recomendável aguardar pelo menos um dia para que o dispositivo crie o perfil do ambiente e, em seguida, *Recalcular* a avaliação. Se não for possível fazer isso, o dimensionamento com base no desempenho poderá não ser confiável e é recomendável alternar para *conforme dimensionamento local* alterando as propriedades de avaliação.
+  > [!NOTE]
+  > Se a classificação de confiança de qualquer avaliação estiver abaixo de 5 estrelas, é recomendável aguardar pelo menos um dia para que o dispositivo crie o perfil do ambiente e, em seguida, *Recalcular* a avaliação. Se não for possível fazer isso, o dimensionamento com base no desempenho poderá não ser confiável e é recomendável alternar para *conforme dimensionamento local* alterando as propriedades de avaliação.
 
 ## <a name="monthly-cost-estimation"></a>Estimativa de custo mensal
 

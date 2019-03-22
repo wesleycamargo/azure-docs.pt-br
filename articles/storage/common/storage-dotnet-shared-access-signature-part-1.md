@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/18/2017
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 7b5f4db51fca97f79f2b43bfcd5ce8dead3ba50b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: e9e78d3226f90ef780a1ed2114ba256c293463dc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470341"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001589"
 ---
 # <a name="using-shared-access-signatures-sas"></a>Usando SAS (Assinaturas de Acesso Compartilhado)
 
@@ -40,11 +40,11 @@ Um cenário comum em que uma SAS é útil é um serviço onde os usuários leem 
 
 1. Os clientes carregam e baixam dados por meio de um serviço de proxy front-end, que executa a autenticação. Esse serviço de proxy front-end tem a vantagem de permitir a validação de regras de negócio, mas, para grandes quantidades de dados ou transações de alto volume, a criação de um serviço que possa ser dimensionado de acordo com a demanda pode ser difícil ou dispendiosa.
 
-  ![Diagrama do cenário: Serviço de proxy de front-end](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png)   
+   ![Diagrama do cenário: Serviço de proxy de front-end](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png)   
 
 1. Um serviço leve autentica o cliente conforme necessário e gera uma SAS. Depois que o cliente recebe a SAS, ele pode acessar os recursos da conta de armazenamento diretamente com as permissões definidas pela SAS e para o intervalo permitido pela SAS. A SAS reduz a necessidade de roteamento de todos os dados por meio do serviço de proxy front-end.
 
-  ![Diagrama do cenário: Serviço de provedor SAS](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png)   
+   ![Diagrama do cenário: Serviço de provedor SAS](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png)   
 
 Muitos serviços reais podem usar uma combinação dessas duas abordagens. Por exemplo, alguns dados podem ser processados e validados por meio do proxy front-end, enquanto outros são salvos e/ou lidos diretamente usando SAS.
 
@@ -108,7 +108,7 @@ Este é um exemplo de um URI SAS de serviço que fornece permissões de leitura 
 https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
 ```
 
-| NOME | Parte SAS | DESCRIÇÃO |
+| Nome | Parte SAS | Descrição |
 | --- | --- | --- |
 | URI do blob |`https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt` |O endereço do blob. Observe que o uso de HTTPS é altamente recomendável. |
 | Versão dos serviços de armazenamento |`sv=2015-04-05` |Para os serviços de armazenamento de versão 12-02-2012 e posterior, este parâmetro indica a versão a ser usada. |
@@ -118,7 +118,7 @@ https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&s
 | Permissões |`sp=rw` |As permissões concedidas pelas SAS incluem Ler (r) e Gravar (w). |
 | Intervalo IP |`sip=168.1.5.60-168.1.5.70` |O intervalo de endereços IP do qual uma solicitação será aceita. |
 | Protocolo |`spr=https` |São permitidas somente solicitações usando HTTPS. |
-| Signature |`sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D` |Usada para autorizar o acesso ao blob. A assinatura é um HMAC computado em uma cadeia-para-assinar e uma chave que usa o algoritmo SHA256 e depois codificado usando a codificação Base64. |
+| Assinatura |`sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D` |Usada para autorizar o acesso ao blob. A assinatura é um HMAC computado em uma cadeia-para-assinar e uma chave que usa o algoritmo SHA256 e depois codificado usando a codificação Base64. |
 
 ### <a name="account-sas-uri-example"></a>Exemplo de URI de SAS de conta
 
@@ -128,7 +128,7 @@ Veja aqui um exemplo de uma SAS de conta que usa os mesmos parâmetros comuns no
 https://myaccount.blob.core.windows.net/?restype=service&comp=properties&sv=2015-04-05&ss=bf&srt=s&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=F%6GRVAZ5Cdj2Pw4tgU7IlSTkWgn7bUkkAg8P6HESXwmf%4B
 ```
 
-| NOME | Parte SAS | DESCRIÇÃO |
+| Nome | Parte SAS | Descrição |
 | --- | --- | --- |
 | URI de recurso |`https://myaccount.blob.core.windows.net/?restype=service&comp=properties` |O ponto de extremidade de serviço Blob, com parâmetros para obter as propriedades do serviço (quando chamado com GET) ou definir as propriedades do serviço (quando chamado com SET). |
 | Serviços |`ss=bf` |A SAS se aplica a serviços de arquivo e Blob |
@@ -230,8 +230,8 @@ Abaixo estão alguns exemplos de ambos os tipos de assinatura de acesso comparti
 
 Para executar esses exemplos em C#, você precisa fazer referência aos seguintes pacotes NuGet em seu projeto:
 
-* [Biblioteca de cliente de armazenamento do Azure para .NET](http://www.nuget.org/packages/WindowsAzure.Storage), versão 6.x ou posterior (para usar a conta SAS).
-* [Azure Configuration Manager](http://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager)
+* [Biblioteca de cliente de armazenamento do Azure para .NET](https://www.nuget.org/packages/WindowsAzure.Storage), versão 6.x ou posterior (para usar a conta SAS).
+* [Azure Configuration Manager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager)
 
 Para outros exemplos que mostram como criar e testar uma SAS, confira [Exemplos de Código do Azure para Armazenamento](https://azure.microsoft.com/documentation/samples/?service=storage).
 
@@ -339,7 +339,7 @@ private static string GetContainerSasUri(CloudBlobContainer container, string st
     // If no stored policy is specified, create a new access policy and define its constraints.
     if (storedPolicyName == null)
     {
-        // Note that the SharedAccessBlobPolicy class is used both to define the parameters of an ad-hoc SAS, and
+        // Note that the SharedAccessBlobPolicy class is used both to define the parameters of an ad hoc SAS, and
         // to construct a shared access policy that is saved to the container's shared access policies.
         SharedAccessBlobPolicy adHocPolicy = new SharedAccessBlobPolicy()
         {
@@ -359,7 +359,7 @@ private static string GetContainerSasUri(CloudBlobContainer container, string st
     {
         // Generate the shared access signature on the container. In this case, all of the constraints for the
         // shared access signature are specified on the stored access policy, which is provided by name.
-        // It is also possible to specify some constraints on an ad-hoc SAS and others on the stored access policy.
+        // It is also possible to specify some constraints on an ad hoc SAS and others on the stored access policy.
         sasContainerToken = container.GetSharedAccessSignature(null, storedPolicyName);
 
         Console.WriteLine("SAS for blob container (stored access policy): {0}", sasContainerToken);
@@ -386,7 +386,7 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
     if (policyName == null)
     {
         // Create a new access policy and define its constraints.
-        // Note that the SharedAccessBlobPolicy class is used both to define the parameters of an ad-hoc SAS, and
+        // Note that the SharedAccessBlobPolicy class is used both to define the parameters of an ad hoc SAS, and
         // to construct a shared access policy that is saved to the container's shared access policies.
         SharedAccessBlobPolicy adHocSAS = new SharedAccessBlobPolicy()
         {
@@ -420,7 +420,7 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
 ## <a name="conclusion"></a>Conclusão
 As assinaturas de acesso compartilhado são úteis para fornecer permissões limitadas para a sua conta de armazenamento aos clientes que não devem ter a chave de conta. Desse modo, elas são uma parte vital do modelo de segurança para qualquer aplicativo que utilize o Armazenamento do Azure. Se você seguir as práticas recomendadas listadas aqui, poderá usar a SAS para oferecer mais flexibilidade de acesso aos recursos da sua conta de armazenamento, sem comprometer a segurança do seu aplicativo.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas Etapas
 * [Assinatura de Acesso Compartilhado, Parte 2: Criar e usar um SAS com o Armazenamento de Blobs](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 * [Gerenciar o acesso de leitura anônimo aos contêineres e blobs](../blobs/storage-manage-access-to-resources.md)
 * [Delegando acesso com uma assinatura de acesso compartilhado](https://msdn.microsoft.com/library/azure/ee395415.aspx)

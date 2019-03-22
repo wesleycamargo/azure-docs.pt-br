@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2019
 ms.author: cynthn
-ms.openlocfilehash: 3aa3b29ef44d3efb21237dc0d82a1ee6e99e729b
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 03501ea774cf58a4be88ed9155e5cfdfb99f0379
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328938"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007198"
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Introdução ao Docker e Compose para definir e executar um aplicativo de vários contêineres no Azure
-Com o [Compose](http://github.com/docker/compose), você usa um arquivo de texto simples para definir um aplicativo que consiste em vários contêineres do Docker. Em seguida, você acelera seu aplicativo com um único comando que faz tudo que é necessário para implantar o ambiente definido. Por exemplo, este artigo mostra como configurar rapidamente um blog WordPress com um banco de dados SQL MariaDB de back-end em uma VM Ubuntu. Você também pode usar o Redigir para configurar aplicativos mais complexos.
+Com o [Compose](https://github.com/docker/compose), você usa um arquivo de texto simples para definir um aplicativo que consiste em vários contêineres do Docker. Em seguida, você acelera seu aplicativo com um único comando que faz tudo que é necessário para implantar o ambiente definido. Por exemplo, este artigo mostra como configurar rapidamente um blog WordPress com um banco de dados SQL MariaDB de back-end em uma VM Ubuntu. Você também pode usar o Redigir para configurar aplicativos mais complexos.
 
 Este artigo foi testado pela última vez em 14/02/2019 usando o [Azure Cloud Shell](https://shell.azure.com/bash) e a [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) versão 2.0.58.
 
@@ -132,7 +132,7 @@ Agora você pode conectar o WordPress diretamente na VM na porta 80. Abra um nav
 ![Tela inicial do WordPress](./media/docker-compose-quickstart/wordpressstart.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-* Confira a [referência da linha de comando do Compose](http://docs.docker.com/compose/reference/) e o [guia do usuário](http://docs.docker.com/compose/) para obter mais exemplos de criação e implantação de aplicativos com vários contêineres.
+* Confira a [referência da linha de comando do Compose](https://docs.docker.com/compose/reference/) e o [guia do usuário](https://docs.docker.com/compose/) para obter mais exemplos de criação e implantação de aplicativos com vários contêineres.
 * Use um modelo do Gerenciador de Recursos do Azure, seu ou da do [comunidade](https://azure.microsoft.com/documentation/templates/), para implantar uma VM do Azure com Docker e um aplicativo configurado com o Redigir. Por exemplo, o modelo [Implantar um blog WordPress com Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-wordpress-mysql) usa Docker e Redigir para implantar rapidamente o WordPress com um back-end do MySQL em uma VM do Ubuntu.
 * Tente integrar o Docker Compose com um cluster do Docker Swarm. Veja [Using Compose with Swarm (Uso do Redigir com o Swarm)](https://docs.docker.com/compose/swarm/) para obter os cenários.
 

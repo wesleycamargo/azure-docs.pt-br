@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 5d7e21661d7ee905ff77a4856544d358924cd9ea
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 1d0905900b81a0c7775011774b55565217d13b71
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700869"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011546"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementar Oracle Golden Gate em uma VM Linux do Azure 
 
@@ -349,79 +349,79 @@ SQL> EXIT;
 ### <a name="download-golden-gate-software"></a>Baixar o software de Golden Gate
 Para baixar e preparar o software de Oracle Golden Gate, conclua as seguintes etapas:
 
-1. Baixe o arquivo **fbo_ggs_Linux_x64_shiphome.zip** da [página de download do Oracle Golden Gate](http://www.oracle.com/technetwork/middleware/goldengate/downloads/index.html). Sob o título do download **12.x.x.x do Oracle GoldenGate para Oracle Linux x86-64**, deve haver um conjunto de arquivos. zip para download.
+1. Baixe o arquivo **fbo_ggs_Linux_x64_shiphome.zip** da [página de download do Oracle Golden Gate](https://www.oracle.com/technetwork/middleware/goldengate/downloads/index.html). Sob o título do download **12.x.x.x do Oracle GoldenGate para Oracle Linux x86-64**, deve haver um conjunto de arquivos. zip para download.
 
 2. Depois de baixar os arquivos .zip para o computador cliente, você poderá usar o protocolo SCP para copiar os arquivos na sua VM:
 
-  ```bash
-  $ scp fbo_ggs_Linux_x64_shiphome.zip <publicIpAddress>:<folder>
-  ```
+   ```bash
+   $ scp fbo_ggs_Linux_x64_shiphome.zip <publicIpAddress>:<folder>
+   ```
 
 3. Mova os arquivos .zip para a pasta **/opt**. Em seguida, altere o proprietário dos arquivos da seguinte maneira:
 
-  ```bash
-  $ sudo su -
-  # mv <folder>/*.zip /opt
-  ```
+   ```bash
+   $ sudo su -
+   # mv <folder>/*.zip /opt
+   ```
 
 4. Descompacte os arquivos (instale o utilitário unzip do Linux se ele ainda não estiver instalado):
 
-  ```bash
-  # yum install unzip
-  # cd /opt
-  # unzip fbo_ggs_Linux_x64_shiphome.zip
-  ```
+   ```bash
+   # yum install unzip
+   # cd /opt
+   # unzip fbo_ggs_Linux_x64_shiphome.zip
+   ```
 
 5. Alterar permissão:
 
-  ```bash
-  # chown -R oracle:oinstall /opt/fbo_ggs_Linux_x64_shiphome
-  ```
+   ```bash
+   # chown -R oracle:oinstall /opt/fbo_ggs_Linux_x64_shiphome
+   ```
 
 ### <a name="prepare-the-client-and-vm-to-run-x11-for-windows-clients-only"></a>Prepare o cliente e a VM para executar X11 (somente para clientes Windows)
 Esta é uma etapa opcional. Essa é uma etapa opcional, você pode ignorá-la se estiver usando um cliente do Linux ou já tiver a instalação do x11.
 
 1. Baixe o PuTTY e o Xming em seu computador Windows:
 
-  * [Baixar PuTTY](http://www.putty.org/)
-  * [Baixar Xming](https://xming.en.softonic.com/)
+   * [Baixar PuTTY](https://www.putty.org/)
+   * [Baixar Xming](https://xming.en.softonic.com/)
 
-2.  Depois de instalar o PuTTY, na pasta PuTTY (por exemplo, C:\Arquivos de Programa\PuTTY), execute puttygen.exe (Gerador de Chave PuTTY).
+2. Depois de instalar o PuTTY, na pasta PuTTY (por exemplo, C:\Arquivos de Programa\PuTTY), execute puttygen.exe (Gerador de Chave PuTTY).
 
-3.  No Gerador de Chave PuTTY:
+3. No Gerador de Chave PuTTY:
 
-  - Para gerar uma chave, selecione o botão **Gerar**.
-  - Copie o conteúdo da chave (**Ctrl+C**).
-  - Selecione o botão **Salvar chave privada**.
-  - Ignore o aviso que aparece e selecione **OK**.
+   - Para gerar uma chave, selecione o botão **Gerar**.
+   - Copie o conteúdo da chave (**Ctrl+C**).
+   - Selecione o botão **Salvar chave privada**.
+   - Ignore o aviso que aparece e selecione **OK**.
 
-    ![Captura de tela da página do gerador de chave PuTTY](./media/oracle-golden-gate/puttykeygen.png)
+   ![Captura de tela da página do gerador de chave PuTTY](./media/oracle-golden-gate/puttykeygen.png)
 
-4.  Em sua VM, execute estes comandos:
+4. Em sua VM, execute estes comandos:
 
-  ```bash
-  # sudo su - oracle
-  $ mkdir .ssh (if not already created)
-  $ cd .ssh
-  ```
+   ```bash
+   # sudo su - oracle
+   $ mkdir .ssh (if not already created)
+   $ cd .ssh
+   ```
 
 5. Crie um arquivo chamado **authorized_keys**. Cole o conteúdo da chave nesse arquivo e salve-o.
 
-  > [!NOTE]
-  > A chave deve conter a cadeia de caracteres `ssh-rsa`. Além disso, o conteúdo da chave deve ser uma única linha de texto.
-  >  
+   > [!NOTE]
+   > A chave deve conter a cadeia de caracteres `ssh-rsa`. Além disso, o conteúdo da chave deve ser uma única linha de texto.
+   >  
 
 6. Inicie o PuTTY. No painel **Categoria**, selecione **Conexão** > **SSH** > **Autenticação**. Na caixa **Arquivo de chave privada para autenticação**, navegue até a chave que você gerou anteriormente.
 
-  ![Captura de tela da página Instalar chave privada](./media/oracle-golden-gate/setprivatekey.png)
+   ![Captura de tela da página Instalar chave privada](./media/oracle-golden-gate/setprivatekey.png)
 
 7. No painel **Categoria**, selecione **Conexão** > **SSH** > **X11**. Em seguida, selecione a caixa **Habilitar encaminhamento X11**.
 
-  ![Captura de tela da página Habilitar X11](./media/oracle-golden-gate/enablex11.png)
+   ![Captura de tela da página Habilitar X11](./media/oracle-golden-gate/enablex11.png)
 
 8. No painel **Categoria**, vá para **Sessão**. Insira as informações do host e selecione **Abrir**.
 
-  ![Captura de tela da página de sessão](./media/oracle-golden-gate/puttysession.png)
+   ![Captura de tela da página de sessão](./media/oracle-golden-gate/puttysession.png)
 
 ### <a name="install-golden-gate-software"></a>Instalar o software de Golden Gate
 
@@ -429,43 +429,43 @@ Para instalar o Oracle Golden Gate, conclua as etapas a seguir:
 
 1. Entre como oracle. (Você deve ser capaz de entrar sem inserir uma senha.) Verifique se Xming está em execução antes de iniciar a instalação.
  
-  ```bash
-  $ cd /opt/fbo_ggs_Linux_x64_shiphome/Disk1
-  $ ./runInstaller
-  ```
+   ```bash
+   $ cd /opt/fbo_ggs_Linux_x64_shiphome/Disk1
+   $ ./runInstaller
+   ```
 2. Selecione 'Oracle GoldenGate para o banco de dados Oracle 12c'. Em seguida, selecione **Avançar** para continuar.
 
-  ![Captura de tela da página Selecionar Instalação do instalador](./media/oracle-golden-gate/golden_gate_install_01.png)
+   ![Captura de tela da página Selecionar Instalação do instalador](./media/oracle-golden-gate/golden_gate_install_01.png)
 
 3. Altere o local do software. Em seguida, selecione a caixa **Iniciar Gerenciador** e insira o local do banco de dados. Selecione **Avançar** para continuar.
 
-  ![Captura de tela da página Selecionar Instalação](./media/oracle-golden-gate/golden_gate_install_02.png)
+   ![Captura de tela da página Selecionar Instalação](./media/oracle-golden-gate/golden_gate_install_02.png)
 
 4. Altere o diretório de inventário e, em seguida, selecione **Avançar** para continuar.
 
-  ![Captura de tela da página Selecionar Instalação](./media/oracle-golden-gate/golden_gate_install_03.png)
+   ![Captura de tela da página Selecionar Instalação](./media/oracle-golden-gate/golden_gate_install_03.png)
 
 5. Na tela de **Resumo**, selecione **Instalar** para continuar.
 
-  ![Captura de tela da página Selecionar Instalação do instalador](./media/oracle-golden-gate/golden_gate_install_04.png)
+   ![Captura de tela da página Selecionar Instalação do instalador](./media/oracle-golden-gate/golden_gate_install_04.png)
 
 6. Pode ser solicitado que você execute um script como 'root'. Nesse caso, abra uma sessão separada, ssh para a VM, sudo para a raiz e, em seguida, execute o script. Selecione **OK** para continuar.
 
-  ![Captura de tela da página Selecionar Instalação](./media/oracle-golden-gate/golden_gate_install_05.png)
+   ![Captura de tela da página Selecionar Instalação](./media/oracle-golden-gate/golden_gate_install_05.png)
 
 7. Quando a instalação for concluída, selecione **Fechar** para concluir o processo.
 
-  ![Captura de tela da página Selecionar Instalação](./media/oracle-golden-gate/golden_gate_install_06.png)
+   ![Captura de tela da página Selecionar Instalação](./media/oracle-golden-gate/golden_gate_install_06.png)
 
 ### <a name="set-up-service-on-myvm1-primary"></a>Configuração de serviço no myVM1 (primário)
 
 1. Criar ou atualizar o arquivo tnsnames.ora:
 
-  ```bash
-  $ cd $ORACLE_HOME/network/admin
-  $ vi tnsnames.ora
+   ```bash
+   $ cd $ORACLE_HOME/network/admin
+   $ vi tnsnames.ora
 
-  cdb1=
+   cdb1=
     (DESCRIPTION=
       (ADDRESS=
         (PROTOCOL=TCP)
@@ -478,7 +478,7 @@ Para instalar o Oracle Golden Gate, conclua as etapas a seguir:
       )
     )
 
-  pdb1=
+   pdb1=
     (DESCRIPTION=
       (ADDRESS=
         (PROTOCOL=TCP)
@@ -490,13 +490,13 @@ Para instalar o Oracle Golden Gate, conclua as etapas a seguir:
         (SERVICE_NAME=pdb1)
       )
     )
-  ```
+   ```
 
 2. Crie as contas de usuário e de proprietário de Golden Gate.
 
-  > [!NOTE]
-  > A conta do proprietário deve ter o prefixo de C##.
-  >
+   > [!NOTE]
+   > A conta do proprietário deve ter o prefixo de C##.
+   >
 
     ```bash
     $ sqlplus / as sysdba
@@ -510,124 +510,124 @@ Para instalar o Oracle Golden Gate, conclua as etapas a seguir:
 
 3. Crie a conta de usuário de teste Golden Gate:
 
-  ```bash
-  $ cd /u01/app/oracle/product/12.1.0/oggcore_1
-  $ sqlplus system/OraPasswd1@pdb1
-  SQL> CREATE USER test identified by test DEFAULT TABLESPACE USERS TEMPORARY TABLESPACE TEMP;
-  SQL> GRANT connect, resource, dba TO test;
-  SQL> ALTER USER test QUOTA 100M on USERS;
-  SQL> connect test/test@pdb1
-  SQL> @demo_ora_create
-  SQL> @demo_ora_insert
-  SQL> EXIT;
-  ```
+   ```bash
+   $ cd /u01/app/oracle/product/12.1.0/oggcore_1
+   $ sqlplus system/OraPasswd1@pdb1
+   SQL> CREATE USER test identified by test DEFAULT TABLESPACE USERS TEMPORARY TABLESPACE TEMP;
+   SQL> GRANT connect, resource, dba TO test;
+   SQL> ALTER USER test QUOTA 100M on USERS;
+   SQL> connect test/test@pdb1
+   SQL> @demo_ora_create
+   SQL> @demo_ora_insert
+   SQL> EXIT;
+   ```
 
 4. Configure o arquivo de parâmetro de extração.
 
- Inicie a interface de linha de comando de Golden Gate (ggsci):
+   Inicie a interface de linha de comando de Golden Gate (ggsci):
 
-  ```bash
-  $ sudo su - oracle
-  $ cd /u01/app/oracle/product/12.1.0/oggcore_1
-  $ ./ggsci
-  GGSCI> DBLOGIN USERID test@pdb1, PASSWORD test
-  Successfully logged into database  pdb1
-  GGSCI>  ADD SCHEMATRANDATA pdb1.test
-  2017-05-23 15:44:25  INFO    OGG-01788  SCHEMATRANDATA has been added on schema test.
-  2017-05-23 15:44:25  INFO    OGG-01976  SCHEMATRANDATA for scheduling columns has been added on schema test.
+   ```bash
+   $ sudo su - oracle
+   $ cd /u01/app/oracle/product/12.1.0/oggcore_1
+   $ ./ggsci
+   GGSCI> DBLOGIN USERID test@pdb1, PASSWORD test
+   Successfully logged into database  pdb1
+   GGSCI>  ADD SCHEMATRANDATA pdb1.test
+   2017-05-23 15:44:25  INFO    OGG-01788  SCHEMATRANDATA has been added on schema test.
+   2017-05-23 15:44:25  INFO    OGG-01976  SCHEMATRANDATA for scheduling columns has been added on schema test.
 
-  GGSCI> EDIT PARAMS EXTORA
-  ```
+   GGSCI> EDIT PARAMS EXTORA
+   ```
 5. Adicione o seguinte para o arquivo de parâmetro de EXTRAÇÃO (usando comandos vi). Pressione a tecla Esc, ': wq!' para salvar o arquivo. 
 
-  ```bash
-  EXTRACT EXTORA
-  USERID C##GGADMIN, PASSWORD ggadmin
-  RMTHOST 10.0.0.5, MGRPORT 7809
-  RMTTRAIL ./dirdat/rt  
-  DDL INCLUDE MAPPED
-  DDLOPTIONS REPORT 
-  LOGALLSUPCOLS
-  UPDATERECORDFORMAT COMPACT
-  TABLE pdb1.test.TCUSTMER;
-  TABLE pdb1.test.TCUSTORD;
-  ```
+   ```bash
+   EXTRACT EXTORA
+   USERID C##GGADMIN, PASSWORD ggadmin
+   RMTHOST 10.0.0.5, MGRPORT 7809
+   RMTTRAIL ./dirdat/rt  
+   DDL INCLUDE MAPPED
+   DDLOPTIONS REPORT 
+   LOGALLSUPCOLS
+   UPDATERECORDFORMAT COMPACT
+   TABLE pdb1.test.TCUSTMER;
+   TABLE pdb1.test.TCUSTORD;
+   ```
 6. Registrar extrair – extrair integrado:
 
-  ```bash
-  $ cd /u01/app/oracle/product/12.1.0/oggcore_1
-  $ ./ggsci
+   ```bash
+   $ cd /u01/app/oracle/product/12.1.0/oggcore_1
+   $ ./ggsci
 
-  GGSCI> dblogin userid C##GGADMIN, password ggadmin
-  Successfully logged into database CDB$ROOT.
+   GGSCI> dblogin userid C##GGADMIN, password ggadmin
+   Successfully logged into database CDB$ROOT.
 
-  GGSCI> REGISTER EXTRACT EXTORA DATABASE CONTAINER(pdb1)
+   GGSCI> REGISTER EXTRACT EXTORA DATABASE CONTAINER(pdb1)
 
-  2017-05-23 15:58:34  INFO    OGG-02003  Extract EXTORA successfully registered with database at SCN 1821260.
+   2017-05-23 15:58:34  INFO    OGG-02003  Extract EXTORA successfully registered with database at SCN 1821260.
 
-  GGSCI> exit
-  ```
+   GGSCI> exit
+   ```
 7. Configurar pontos de verificação de extração e iniciar a extração em tempo real:
 
-  ```bash
-  $ ./ggsci
-  GGSCI>  ADD EXTRACT EXTORA, INTEGRATED TRANLOG, BEGIN NOW
-  EXTRACT (Integrated) added.
+   ```bash
+   $ ./ggsci
+   GGSCI>  ADD EXTRACT EXTORA, INTEGRATED TRANLOG, BEGIN NOW
+   EXTRACT (Integrated) added.
 
-  GGSCI>  ADD RMTTRAIL ./dirdat/rt, EXTRACT EXTORA, MEGABYTES 10
-  RMTTRAIL added.
+   GGSCI>  ADD RMTTRAIL ./dirdat/rt, EXTRACT EXTORA, MEGABYTES 10
+   RMTTRAIL added.
 
-  GGSCI>  START EXTRACT EXTORA
+   GGSCI>  START EXTRACT EXTORA
 
-  Sending START request to MANAGER ...
-  EXTRACT EXTORA starting
+   Sending START request to MANAGER ...
+   EXTRACT EXTORA starting
 
-  GGSCI > info all
+   GGSCI > info all
 
-  Program     Status      Group       Lag at Chkpt  Time Since Chkpt
+   Program     Status      Group       Lag at Chkpt  Time Since Chkpt
 
-  MANAGER     RUNNING
-  EXTRACT     RUNNING     EXTORA      00:00:11      00:00:04
-  ```
-Nesta etapa, você deve encontrar o SCN inicial, que será usado mais tarde, em uma seção diferente:
+   MANAGER     RUNNING
+   EXTRACT     RUNNING     EXTORA      00:00:11      00:00:04
+   ```
+   Nesta etapa, você deve encontrar o SCN inicial, que será usado mais tarde, em uma seção diferente:
 
-  ```bash
-  $ sqlplus / as sysdba
-  SQL> alter session set container = pdb1;
-  SQL> SELECT current_scn from v$database;
-  CURRENT_SCN
-  -----------
+   ```bash
+   $ sqlplus / as sysdba
+   SQL> alter session set container = pdb1;
+   SQL> SELECT current_scn from v$database;
+   CURRENT_SCN
+   -----------
       1857887
-  SQL> EXIT;
-  ```
+   SQL> EXIT;
+   ```
 
-  ```bash
-  $ ./ggsci
-  GGSCI> EDIT PARAMS INITEXT
-  ```
+   ```bash
+   $ ./ggsci
+   GGSCI> EDIT PARAMS INITEXT
+   ```
 
-  ```bash
-  EXTRACT INITEXT
-  USERID C##GGADMIN, PASSWORD ggadmin
-  RMTHOST 10.0.0.5, MGRPORT 7809
-  RMTTASK REPLICAT, GROUP INITREP
-  TABLE pdb1.test.*, SQLPREDICATE 'AS OF SCN 1857887'; 
-  ```
+   ```bash
+   EXTRACT INITEXT
+   USERID C##GGADMIN, PASSWORD ggadmin
+   RMTHOST 10.0.0.5, MGRPORT 7809
+   RMTTASK REPLICAT, GROUP INITREP
+   TABLE pdb1.test.*, SQLPREDICATE 'AS OF SCN 1857887'; 
+   ```
 
-  ```bash
-  GGSCI> ADD EXTRACT INITEXT, SOURCEISTABLE
-  ```
+   ```bash
+   GGSCI> ADD EXTRACT INITEXT, SOURCEISTABLE
+   ```
 
 ### <a name="set-up-service-on-myvm2-replicate"></a>Configuração de serviço no myVM2 (replicação)
 
 
 1. Criar ou atualizar o arquivo tnsnames.ora:
 
-  ```bash
-  $ cd $ORACLE_HOME/network/admin
-  $ vi tnsnames.ora
+   ```bash
+   $ cd $ORACLE_HOME/network/admin
+   $ vi tnsnames.ora
 
-  cdb1=
+   cdb1=
     (DESCRIPTION=
       (ADDRESS=
         (PROTOCOL=TCP)
@@ -640,7 +640,7 @@ Nesta etapa, você deve encontrar o SCN inicial, que será usado mais tarde, em 
       )
     )
 
-  pdb1=
+   pdb1=
     (DESCRIPTION=
       (ADDRESS=
         (PROTOCOL=TCP)
@@ -652,72 +652,72 @@ Nesta etapa, você deve encontrar o SCN inicial, que será usado mais tarde, em 
         (SERVICE_NAME=pdb1)
       )
     )
-  ```
+   ```
 
 2. Crie uma conta de replicação:
 
-  ```bash
-  $ sqlplus / as sysdba
-  SQL> alter session set container = pdb1;
-  SQL> create user repuser identified by rep_pass container=current;
-  SQL> grant dba to repuser;
-  SQL> exec dbms_goldengate_auth.grant_admin_privilege('REPUSER',container=>'PDB1');
-  SQL> connect repuser/rep_pass@pdb1 
-  SQL> EXIT;
-  ```
+   ```bash
+   $ sqlplus / as sysdba
+   SQL> alter session set container = pdb1;
+   SQL> create user repuser identified by rep_pass container=current;
+   SQL> grant dba to repuser;
+   SQL> exec dbms_goldengate_auth.grant_admin_privilege('REPUSER',container=>'PDB1');
+   SQL> connect repuser/rep_pass@pdb1 
+   SQL> EXIT;
+   ```
 
 3. Crie uma conta de usuário de teste Golden Gate:
 
-  ```bash
-  $ cd /u01/app/oracle/product/12.1.0/oggcore_1
-  $ sqlplus system/OraPasswd1@pdb1
-  SQL> CREATE USER test identified by test DEFAULT TABLESPACE USERS TEMPORARY TABLESPACE TEMP;
-  SQL> GRANT connect, resource, dba TO test;
-  SQL> ALTER USER test QUOTA 100M on USERS;
-  SQL> connect test/test@pdb1
-  SQL> @demo_ora_create
-  SQL> EXIT;
-  ```
+   ```bash
+   $ cd /u01/app/oracle/product/12.1.0/oggcore_1
+   $ sqlplus system/OraPasswd1@pdb1
+   SQL> CREATE USER test identified by test DEFAULT TABLESPACE USERS TEMPORARY TABLESPACE TEMP;
+   SQL> GRANT connect, resource, dba TO test;
+   SQL> ALTER USER test QUOTA 100M on USERS;
+   SQL> connect test/test@pdb1
+   SQL> @demo_ora_create
+   SQL> EXIT;
+   ```
 
 4. Arquivo de parâmetro de réplicas para replicar as alterações: 
 
-  ```bash
-  $ cd /u01/app/oracle/product/12.1.0/oggcore_1
-  $ ./ggsci
-  GGSCI> EDIT PARAMS REPORA  
-  ```
-  Conteúdo do arquivo de parâmetro REPORA:
+   ```bash
+   $ cd /u01/app/oracle/product/12.1.0/oggcore_1
+   $ ./ggsci
+   GGSCI> EDIT PARAMS REPORA  
+   ```
+   Conteúdo do arquivo de parâmetro REPORA:
 
-  ```bash
-  REPLICAT REPORA
-  ASSUMETARGETDEFS
-  DISCARDFILE ./dirrpt/repora.dsc, PURGE, MEGABYTES 100
-  DDL INCLUDE MAPPED
-  DDLOPTIONS REPORT
-  DBOPTIONS INTEGRATEDPARAMS(parallelism 6)
-  USERID repuser@pdb1, PASSWORD rep_pass
-  MAP pdb1.test.*, TARGET pdb1.test.*;
-  ```
+   ```bash
+   REPLICAT REPORA
+   ASSUMETARGETDEFS
+   DISCARDFILE ./dirrpt/repora.dsc, PURGE, MEGABYTES 100
+   DDL INCLUDE MAPPED
+   DDLOPTIONS REPORT
+   DBOPTIONS INTEGRATEDPARAMS(parallelism 6)
+   USERID repuser@pdb1, PASSWORD rep_pass
+   MAP pdb1.test.*, TARGET pdb1.test.*;
+   ```
 
-5. Configure um ponto de verificação de réplicas:
+5. Configure um ponto de verificação de replicação:
 
-  ```bash
-  GGSCI> ADD REPLICAT REPORA, INTEGRATED, EXTTRAIL ./dirdat/rt
-  GGSCI> EDIT PARAMS INITREP
+   ```bash
+   GGSCI> ADD REPLICAT REPORA, INTEGRATED, EXTTRAIL ./dirdat/rt
+   GGSCI> EDIT PARAMS INITREP
 
-  ```
+   ```
 
-  ```bash
-  REPLICAT INITREP
-  ASSUMETARGETDEFS
-  DISCARDFILE ./dirrpt/tcustmer.dsc, APPEND
-  USERID repuser@pdb1, PASSWORD rep_pass
-  MAP pdb1.test.*, TARGET pdb1.test.*;   
-  ```
+   ```bash
+   REPLICAT INITREP
+   ASSUMETARGETDEFS
+   DISCARDFILE ./dirrpt/tcustmer.dsc, APPEND
+   USERID repuser@pdb1, PASSWORD rep_pass
+   MAP pdb1.test.*, TARGET pdb1.test.*;   
+   ```
 
-  ```bash
-  GGSCI> ADD REPLICAT INITREP, SPECIALRUN
-  ```
+   ```bash
+   GGSCI> ADD REPLICAT INITREP, SPECIALRUN
+   ```
 
 ### <a name="set-up-the-replication-myvm1-and-myvm2"></a>Configurar a replicação (myVM1 e myVM2)
 

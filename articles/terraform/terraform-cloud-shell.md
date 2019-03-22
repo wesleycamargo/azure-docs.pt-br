@@ -2,19 +2,19 @@
 title: Usar o Terraform com o Azure Cloud Shell
 description: Use o Terraform com o Azure Cloud Shell para simplificar a autenticação e a configuração do modelo.
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, conjunto de dimensionamento, máquina virtual, rede, módulos
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/19/2017
-ms.openlocfilehash: af71cf07ea12e605f57d34b530fcbcd61838128b
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: ab2fd0c7fa546201d6eb19f727053a9ac54fa854
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074500"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57773056"
 ---
 # <a name="terraform-cloud-shell-development"></a>Desenvolvimento do Terraform Cloud Shell 
 

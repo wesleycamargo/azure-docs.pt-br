@@ -9,12 +9,12 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 10f3f7d6b878e8f1d4efee360e0f8a9967ac07bc
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: a325b976e657fbdc318a41b3b79b50e77a948e14
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886427"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079836"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Tutorial: Atualizar estoque usando o portal do Azure e tópicos/assinaturas
 
@@ -88,7 +88,7 @@ Para executar o código, faça o seguinte:
    - Execute 2: para adicionar seus próprios filtros.
    - Execute 3: para, opcionalmente, remover seus próprios filtros. Observe que isso não irá recriar os filtros padrão.
 
-    ![Mostrar a saída de 2](./media/service-bus-tutorial-topics-subscriptions-portal/create-rules.png)
+     ![Mostrar a saída de 2](./media/service-bus-tutorial-topics-subscriptions-portal/create-rules.png)
 
 8. Após a criação do filtro, será possível enviar mensagens. Pressione 4 e observe 10 mensagens sendo enviadas para o tópico:
 

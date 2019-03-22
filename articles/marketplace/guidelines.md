@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 4da6f5c4513477d1adbf4d7645a66de112eeab23
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
-ms.translationtype: HT
+ms.openlocfilehash: a0ab88b1375f5178ca6f41689de8d2f30f8d7808
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36307478"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728124"
 ---
 # <a name="guidelines"></a>Diretrizes  
 
 <!--
 ## Guidelines for AppSource  
 -->
----  
+---
 
 ## <a name="guidelines-for-azure-marketplace"></a>Diretrizes para o Azure Marketplace  
 
@@ -35,7 +35,7 @@ Se mais de uma pessoa requer acesso para a mesma ID da Microsoft usada para cria
 
 >[!IMPORTANT]
 >Para autorizar a vários usuários para acessar sua conta do Microsoft Developer Center (Centro de desenvolvimento), a Microsoft recomenda que você use o Azure Active Directory (Azure AD) para atribuir funções aos usuários individuais. Cada usuário deve acessar a conta entrando com credenciais individuais do Azure AD. Crie sua ID da Microsoft usando um endereço de email em um domínio registrado em sua empresa. A Microsoft sugere que o email não seja atribuído a um indivíduo. Um exemplo é `windowsapps@fabrikam.com`.  
->*   Para obter mais informações, visite a seção [Problema: ID da Microsoft em um domínio federado do Microsoft Azure AD](#issue-microsoft-id-in-an-azure-ad-federated-domain).  
+>*   Para obter mais informações, visite o [problema: ID da Microsoft no Azure AD federado domínio](#issue-microsoft-id-in-an-azure-ad-federated-domain) seção.  
 
 *   Limite o acesso à ID da Microsoft ao menor número possível de desenvolvedores. 
 *   Configure uma lista de distribuição (DL) de email corporativo que inclui todas as pessoas que devem acessar sua conta do Centro de Desenvolvimento. Adicione o endereço de email da DL às informações de segurança. A DL permite que todos os funcionários na lista recebam códigos de segurança quando solicitado e gerenciem as informações de segurança da sua ID da Microsoft. Se a configuração de uma lista de distribuição não for viável, o proprietário da conta de email individual deve estar disponível para acessar e compartilhar o código de segurança quando solicitado.  
@@ -49,9 +49,9 @@ Se mais de uma pessoa requer acesso para a mesma ID da Microsoft usada para cria
 Sua conta do Centro de Desenvolvimento deve ser acessada principalmente de computadores confiáveis. É importante que você acesse de computadores confiáveis, pois há um limite para o número de códigos gerados por conta do Centro de Desenvolvimento por semana. Usar computadores confiáveis também torna a experiência de entrar mais segura e consistente. 
 *   Para obter mais informações sobre as diretrizes de conta e segurança adicionais do Centro de Desenvolvimento, visite a página Abrir uma conta de desenvolvedor localizada em [docs.microsoft.com/windows/uwp/publish/opening-a-developer-account](https://docs.microsoft.com/windows/uwp/publish/opening-a-developer-account). 
 
----  
+---
 
-#### <a name="issue-microsoft-id-in-an-azure-ad-federated-domain"></a>Problema: ID da Microsoft em domínio federado do Azure AD  
+#### <a name="issue-microsoft-id-in-an-azure-ad-federated-domain"></a>Problema: ID da Microsoft em um domínio federado do Azure AD  
 Sua conta corporativa pode ser federada por meio do Azure Active Directory (Azure AD). Se você tentar criar uma ID da Microsoft usando um endereço de email corporativo que é federado com o Azure AD, você recebe um erro. Se você receber um erro, você deve verificar com sua equipe de TI para confirmar que sua conta é federada por meio do Azure AD. O email federado do Azure AD é um problema conhecido e a Microsoft está trabalhando para resolvê-lo.  
 *   Para obter mais informações sobre o Azure AD, visite a página Documentação do Azure Active Directory localizada em [docs.microsoft.com/azure/active-directory](https://docs.microsoft.com/azure/active-directory).
 
@@ -75,4 +75,4 @@ A Microsoft recomenda uma solução alternativa. Siga estas etapas para criar um
 ## <a name="next-steps"></a>Próximas etapas
 *   Visite a página [ do Azure Marketplace e do AppSource Publisher Guide ](./marketplace-publishers-guide.md).  
  
----  
+---

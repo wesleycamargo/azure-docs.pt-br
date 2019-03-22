@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: eb227b4b4cbdc40a4e708726bbe0f5d0c7eacb74
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
-ms.translationtype: HT
+ms.openlocfilehash: f791b17f2729af3efd2dff5d7884a168f8377154
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364654"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57999757"
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Usar o cliente do Windows no Azure para cenários de desenvolvimento/teste
 Use o Windows 7, Windows 8 ou Windows 10 Enterprise (x64) no Azure para cenários de desenvolvimento/teste, desde que você tenha uma assinatura apropriada do Visual Studio (anteriormente MSDN). Este artigo descreve os requisitos de qualificação para executar o Windows 7, Windows 8.1, Windows 10 Enterprise no Azure e o uso das imagens a seguir da Galeria do Azure.
@@ -59,7 +59,7 @@ Se você não souber sua ID de oferta, poderá obtê-la por meio do portal do Az
 
 - Ou, clique em **Cobrança** e, em seguida, clique em sua ID de assinatura. A ID da oferta aparece na janela *Cobrança*.
 
-Você também pode exibir a ID de oferta na [guia “Assinaturas”](http://account.windowsazure.com/Subscriptions) do portal de Contas do Azure:
+Você também pode exibir a ID de oferta na [guia “Assinaturas”](https://account.windowsazure.com/Subscriptions) do portal de Contas do Azure:
 
 ![Detalhes da ID de oferta no portal de Contas do Azure](./media/client-images/offer-id-azure-account-portal.png) 
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: magattus
-ms.openlocfilehash: 39084fd8408a123e8152ad96fa92025fd04ed42b
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.openlocfilehash: 42fd28f2a18ecf81c7846abdc7b3159a275a9cd7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092806"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013548"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Variáveis HTTP para o mecanismo de regras de CDN do Azure
 As variáveis HTTP fornecem os meios através dos quais você pode recuperar metadados de solicitação e resposta HTTP. Esses metadados, em seguida, podem ser usados para alterar dinamicamente uma solicitação ou resposta. O uso de variáveis HTTP é restrito aos recursos de mecanismo de regras a seguir:
@@ -50,19 +50,19 @@ A tabela a seguir descreve as variáveis HTTP compatíveis. Um valor em branco �
 | Área Metropolitana Estatística (Solicitante) | %{geo_metro_code} | Indica a área metropolitana do solicitante. <br /><br />Este campo só é aplicável às solicitações que se originam dos Estados Unidos.<br />| 745 |
 | Porta (Solicitante) | %{virt_dst_port} | Indica a porta efêmera do solicitante. | 55885 |
 | Código Postal (Solicitante) | %{geo_postal_code} | Indica o código postal do solicitante. | 90210 |
-| Cadeia de Consulta Encontrada | %{is_args} | O valor desta variável varia conforme a solicitação contém ou não uma cadeia de consulta.<br /><br />- Cadeia de Consulta Encontrada: ?<br />- Nenhuma Cadeia de Consulta: NULL | ? |
-| Parâmetro Cadeia de Consulta Encontrado | %{is_amp} | O valor desta variável será alterado, com variações, se a solicitação contiver pelo menos um parâmetro de cadeia de consulta.<br /><br />- Parâmetro Encontrado: &<br />- Sem Parâmetros: NULL | & |
+| Cadeia de Consulta Encontrada | %{is_args} | O valor desta variável varia conforme a solicitação contém ou não uma cadeia de consulta.<br /><br />- Cadeia de Consulta Encontrada: ?<br />-Nenhuma cadeia de caracteres de consulta: NULO | ? |
+| Parâmetro Cadeia de Consulta Encontrado | %{is_amp} | O valor desta variável será alterado, com variações, se a solicitação contiver pelo menos um parâmetro de cadeia de consulta.<br /><br />- Parâmetro Encontrado: &<br />-Sem parâmetros: NULO | & |
 | Valor do Parâmetro Cadeia de Consulta | %{arg_&lt;parameter&gt;} | Retorna o valor correspondente ao parâmetro de cadeia de caracteres de consulta identificado pelo termo &lt;parameter&gt;. | Exemplo de uso: <br />%{arg_language}<br /><br />Exemplo de Parâmetro de Cadeia de Consulta: <br />?language=en<br /><br />Valor de exemplo: en |
 | Valor da Cadeia de Consulta | %{query_string} | Indica o valor de cadeia de consulta definido na URL da solicitação. |key1=val1&key2=val2&key3=val3 |
-| Domínio Referenciador | %{referring_domain} | Indica o domínio definido no cabeçalho de solicitação do Referenciador. | www.google.com |
+| Domínio Referenciador | %{referring_domain} | Indica o domínio definido no cabeçalho de solicitação de referenciador. | <www.google.com> |
 | Região (Solicitante) | %{geo_region} | Indica a região do solicitante (por exemplo, estado ou província) por meio de sua abreviação alfanumérica. | CA |
-| Valor do Cabeçalho da Solicitação | %{http_RequestHeader} | Retorna o valor correspondente ao cabeçalho de solicitação identificado pelo termo RequestHeader. <br /><br />Se o nome do cabeçalho da solicitação contém um traço (por exemplo, User-Agent), substitua-o por um sublinhado (por exemplo, User_Agent).| Exemplo de Uso: % {http_Connection}<br /><br />Valor de Exemplo: Keep-Alive | 
-| Host de Solicitação | %{host} | Indica o host definido na URL da solicitação. | www.mydomain.com |
+| Valor do Cabeçalho da Solicitação | %{http_RequestHeader} | Retorna o valor correspondente ao cabeçalho de solicitação identificado pelo termo RequestHeader. <br /><br />Se o nome do cabeçalho da solicitação contém um traço (por exemplo, User-Agent), substitua-o por um sublinhado (por exemplo, User_Agent).| Exemplo de Uso: % {http_Connection}<br /><br />Valor de exemplo: Keep-Alive | 
+| Host de Solicitação | %{host} | Indica o host definido na URL da solicitação. | <www.mydomain.com> |
 | Protocolo de Solicitação | %{request_protocol} | Indica o protocolo de solicitação. | HTTP/1.1 |
 | Esquema de Solicitação | %{scheme} | Indica o esquema de solicitação. |http |
 | URI de Solicitação (Relativo) | %{request_uri} | Indica o caminho relativo, incluindo a cadeia de consulta definida no URI de solicitação. | /marketing/foo.js?loggedin=true |
-| URI de Solicitação (Relativo sem a cadeia de consulta) | %{uri} | Indica o caminho relativo para o conteúdo solicitado. <br /><br/>Informações de chave:<br />- Este caminho relativo exclui a cadeia de consulta.<br />- Este caminho relativo reflete regravações de URL. Uma URL será regravada sob as seguintes condições:<br />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Recurso de regravação de URL: Esse recurso regrava o caminho relativo definido no URI de solicitação.<br />    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- URL CNAME Edge: Este tipo de solicitação foi reescrito para a URL da CDN correspondente. |/800001/corigin/rewrittendir/foo.js |
-| URI da solicitação | %{request} | Descreve a solicitação. <br />Sintaxe: &lt;método HTTP&gt; &lt;caminho relativo&gt; &lt;protocolo HTTP&gt; | GET /marketing/foo.js?loggedin=true HTTP/1.1 |
+| URI de Solicitação (Relativo sem a cadeia de consulta) | %{uri} | Indica o caminho relativo para o conteúdo solicitado. <br /><br/>Informações de chave:<br />- Este caminho relativo exclui a cadeia de consulta.<br />- Este caminho relativo reflete regravações de URL. Uma URL será regravada sob as seguintes condições:<br />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-Recurso de reconfiguração de URL: Esse recurso regrava o caminho relativo definido no URI da solicitação.<br />    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-URL de CNAME de borda: Este tipo de solicitação é reescrito para a URL da CDN correspondente. |/800001/corigin/rewrittendir/foo.js |
+| URI da solicitação | %{request} | Descreve a solicitação. <br />Sintaxe: &lt;Método HTTP&gt; &lt;caminho relativo&gt; &lt;protocolo HTTP&gt; | GET /marketing/foo.js?loggedin=true HTTP/1.1 |
 | Valor do Cabeçalho de Resposta | %{resp_&lt;ResponseHeader&gt;} | Retorna o valor correspondente ao cabeçalho da resposta identificado pelo termo &lt;ResponseHeader&gt;. <br /><br />Se o nome do cabeçalho da resposta contém um traço (por exemplo, User-Agent), substitua-o por um sublinhado (por exemplo, User_Agent). | Exemplo de uso: %{resp_Content_Length}<br /><br />Valor de exemplo: 100 |
 
 ## <a name="usage"></a>Uso
@@ -82,13 +82,13 @@ Um delimitador pode ser especificado depois de uma variável HTTP para obter os 
 
 - Transformar o valor associado à variável.
 
-     Exemplo: converter o valor inteiro em minúsculas.
+     Exemplo: Converte o valor inteiro em minúsculas.
 
 - Excluir o valor associado à variável.
 
 - Manipular o valor associado à variável.
 
-     Exemplo: Usar expressões regulares para alterar o valor associado à variável HTTP.
+     Exemplo: Use expressões regulares para alterar o valor associado à variável HTTP.
 
 Os delimitadores estão descritos na tabela a seguir.
 
@@ -114,7 +114,7 @@ A tabela a seguir descreve as circunstâncias em que o texto especificado não �
 | --------- | ----------- | --------|
 | Símbolo de escape % | O símbolo de porcentagem pode ser ignorado com o uso de uma barra invertida. <br />O valor de exemplo à direita será tratado como um valor literal e não como uma variável HTTP.| \%{host} |
 | Variáveis desconhecidas | Uma cadeia de caracteres vazia é sempre retornada para variáveis desconhecidas. | %{unknownvariable} |
-| Caracteres ou sintaxe inválidos | Variáveis que contêm caracteres ou sintaxe inválidos são tratadas como valores literais. <br /><br />Exemplo 1: O valor especificado contém um caractere inválido (por exemplo, -). <br /><br />Exemplo 2: O valor especificado contém um conjunto duplo de chaves. <br /><br />Exemplo 3: O valor especificado não possui as chave de fechamento.<br /> | Exemplo 1: %{resp_user-agent} <br /><br />Exemplo #2: %{{host}} <br /><br />Exemplo #3: %{host |
+| Caracteres ou sintaxe inválidos | Variáveis que contêm caracteres ou sintaxe inválidos são tratadas como valores literais. <br /><br />Exemplo 1 #: O valor especificado contém um caractere inválido (por exemplo,-). <br /><br />Exemplo 2 de #: O valor especificado contém um conjunto duplo de chaves. <br /><br />Exemplo 3 #: O valor especificado não tem uma chave de fechamento.<br /> | Exemplo 1: %{resp_user-agent} <br /><br />Exemplo #2: %{{host}} <br /><br />Exemplo #3: %{host |
 | Nome da variável ausente | Um valor NULL sempre é retornado quando uma variável não for especificada. | %{} |
 | Caracteres à direita | Caracteres à direita de uma variável são tratados como valores literais. <br />O valor de exemplo à direita contém uma chave à direita que será tratada como um valor literal. | %{host}} |
 
@@ -152,7 +152,7 @@ Informações de chave:
 
 - O comprimento da subcadeia de caracteres é determinado pelo termo *Comprimento*:
 
-     - Omitido: Omitir o termo Comprimento permite que a subcadeia de caracteres inclua todos os caracteres entre o caractere inicial e final da cadeia de caracteres.
+     - Omitido: Omitir o termo de comprimento permite que a subcadeia de caracteres incluir todos os caracteres entre o caractere inicial e final da cadeia de caracteres.
      - Positivo: Determina o comprimento da subcadeia de caracteres do caractere inicial para a direita.
      - Negativo: Determina o comprimento da subcadeia de caracteres do caractere inicial para a esquerda.
 
@@ -187,8 +187,8 @@ Neste cenário de exemplo, a variável *request_uri* é definida como:
 
 A tabela a seguir demonstra como funciona essa sintaxe.
 
-| Sintaxe de exemplo | Resultados |
-| ------------- | ------- |
+| Sintaxe de exemplo | Resultados | |
+| ------------- | ------- | --- |
 | %{request_uri#/800001}/customerorigin | /customerorigin/myorigin/marketing/product.html?language=en-US | Como a variável inicia com o padrão, ela foi substituída. |
 | %{request_uri%html}htm | /800001/myorigin/marketing/product.html?language=en-US | Como a variável não termina com o padrão, não houve nenhuma alteração.|
 
@@ -227,13 +227,13 @@ Informações de chave:
     No exemplo anterior, o nome do host foi reescrito para `cdn.$2.$3:80` (por exemplo, cdn.mydomain.com:80).
 
 - O espaço reservado do padrão (por exemplo, $1) pode ser modificado para maiúsculas ou minúsculas através dos sinalizadores a seguir:
-     - U: Maiúsculas no valor expandido.
+     - U: O valor expandido de letra maiuscula.
 
          Sintaxe de exemplo:
 
          `%{host/=^www\.([^\.]+)\.([^\.:]+)/cdn.$U2.$3:80}`
 
-     - L: Minúsculas no valor expandido.
+     - L: Minúsculo o valor expandido.
 
          Sintaxe de exemplo:
 
@@ -241,9 +241,9 @@ Informações de chave:
 
 - Um operador deve ser especificado antes do padrão. O operador especificado determina o comportamento padrão de captura:
 
-     - `=`: Indica que todas as ocorrências do padrão especificado devem ser capturadas e reescritas.
+     - `=`: Indica que todas as ocorrências de um padrão especificado devem ser capturadas e reescritas.
      - `^`: Indica que somente o texto que começa com o padrão especificado será capturado.
-     - `$`: Indica que somente o texto que termina com o padrão especificado será capturado.
+     - `$`: Indica que somente o texto que termina com o padrão especificado será captura.
  
 - Se você omitir o valor */Reescrever* valor, o texto que corresponde ao padrão é excluído.
 

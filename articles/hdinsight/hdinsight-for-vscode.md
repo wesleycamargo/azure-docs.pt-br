@@ -1,7 +1,7 @@
 ---
 title: Ferramentas do Azure HDInsight – Use o Visual Studio Code para o Hive, o LLAP ou PySpark | Microsoft Docs
 description: Saiba como usar as Ferramentas do Azure HDInsight para Visual Studio Code para criar e enviar consultas e scripts.
-Keywords: Visual Studio Code,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
+Keywords: Código do Visual Studio, ferramentas do Azure HDInsight, Hive, Python, PySpark, Spark, HDInsight, Hadoop, LLAP, Hive interativo, consulta interativa
 services: HDInsight
 documentationcenter: ''
 author: hrasheed-msft
@@ -10,12 +10,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/04/2019
-ms.openlocfilehash: 3301f3cdea1795db3b17bc2fa7da05bf362c744d
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 71e12e661c704af028ac4dc48f255bdee980619c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895057"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100319"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Usar a Ferramenta do Azure HDInsight para Visual Studio Code
 
@@ -81,7 +81,7 @@ Antes de enviar scripts para clusters do HDInsight a partir do Visual Studio Cod
 
         ![Instruções de entrada para outro ambiente](./media/hdinsight-for-vscode/hdi-azure-hdinsight-hdinsight-signin.png)
 
- Depois que você estiver conectado, o nome da conta do Azure será mostrado na barra de status no canto inferior esquerdo da janela do Visual Studio Code.  
+   Depois que você estiver conectado, o nome da conta do Azure será mostrado na barra de status no canto inferior esquerdo da janela do Visual Studio Code.  
   
 
 <h2 id="linkcluster">Criar link: Azure HDInsight</h2>
@@ -310,20 +310,20 @@ Envie um arquivo, observe que a pasta .vscode é adicionada automaticamente à p
     | Nome | Descrição | Tipo | 
     | :- | :- | :- | 
     | file | Arquivo que contém o aplicativo a ser executado | caminho (obrigatório) | 
-    | proxyUser | Usuário a ser representado ao executar o trabalho | string | 
-    | className | Classe principal Java/Spark do aplicativo | string |
+    | proxyUser | Usuário a ser representado ao executar o trabalho | cadeia de caracteres | 
+    | className | Classe principal Java/Spark do aplicativo | cadeia de caracteres |
     | args | Argumentos de linha de comando do aplicativo | lista de cadeias de caracteres | 
     | jars | jars a serem usados nesta sessão | Lista de cadeias de caracteres | 
     | pyFiles | Arquivos Python a serem usados nesta sessão | Lista de cadeias de caracteres |
     | de entrada | arquivos a serem usados nesta sessão | Lista de cadeias de caracteres |
-    | driverMemory | Quantidade de memória a ser usada para o processo de driver | string |
+    | driverMemory | Quantidade de memória a ser usada para o processo de driver | cadeia de caracteres |
     | driverCores | Quantidade de núcleos a ser usado para o processo de driver | int |
-    | executorMemory | Quantidade de memória a ser usada por processo de executor | string |
+    | executorMemory | Quantidade de memória a ser usada por processo de executor | cadeia de caracteres |
     | executorCores | Número de núcleos a serem usados para cada executor | int |
     | numExecutors | Número de executores a serem iniciados para esta sessão | int |
     | archives | Arquivos a serem usados nesta sessão | Lista de cadeias de caracteres |
-    | fila | O nome da fila YARN ao qual foi enviado | string |
-    | Nome | O nome desta sessão | string |
+    | fila | O nome da fila YARN ao qual foi enviado | cadeia de caracteres |
+    | Nome | O nome desta sessão | cadeia de caracteres |
     | conf | Propriedades de configuração do Spark | Mapa de key=val |
 
     Corpo da resposta   
@@ -335,7 +335,7 @@ Envie um arquivo, observe que a pasta .vscode é adicionada automaticamente à p
     | appId | A ID de aplicativo desta sessão |  Cadeia de caracteres |
     | appInfo | As informações detalhadas do aplicativo | Mapa de key=val |
     | log | As linhas do log | lista de cadeias de caracteres |
-    | state |   O estado do lote | string |
+    | state |   O estado do lote | cadeia de caracteres |
 
 >[!NOTE]
 >A configuração de Livy atribuída será exibida no painel de saída ao enviar o script.

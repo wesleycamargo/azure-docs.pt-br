@@ -1,6 +1,6 @@
 ---
 title: Pesquisa da Central de Segurança do Azure | Microsoft Docs
-description: Saiba como a Central de Segurança do Azure usa a pesquisa do Log Analytics para recuperar e analisar seus dados de segurança.
+description: Saiba como a Central de segurança do Azure usa a pesquisa de logs do Azure Monitor para recuperar e analisar seus dados de segurança.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: rkarlin
-ms.openlocfilehash: c02a9f61a4a8b88f8b6c4d861f1a6cbe904ad70d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 6cbf3d70bd835ce1b838b19c93507f7d9487a418
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110533"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074498"
 ---
 # <a name="azure-security-center-search"></a>Pesquisa da Central de Segurança do Azure
-A Central de Segurança do Azure usa a [pesquisa do Log Analytics](../log-analytics/log-analytics-log-searches.md) para recuperar e analisar seus dados de segurança. O Log Analytics inclui uma linguagem de consulta para recuperar e consolidar dados rapidamente. Na Central de Segurança, você pode aproveitar a pesquisa do Log Analytics para construir consultas e analisar os dados coletados.
+Central de segurança do Azure usa [pesquisa de logs do Azure Monitor](../log-analytics/log-analytics-log-searches.md) para recuperar e analisar seus dados de segurança. Os logs do Azure Monitor inclui uma linguagem de consulta para recuperar e consolidar dados rapidamente. Central de segurança, você pode aproveitar a pesquisa de logs do Azure Monitor para construir consultas e analisar os dados coletados.
 
 A pesquisa está disponível nas camadas Gratuita e Standard da Central de Segurança.  Os dados disponíveis em suas pesquisas de log dependem do nível de camada aplicado ao seu workspace.  Para saber mais, confira a [página de preços](../security-center/security-center-pricing.md) da Central de Segurança.
 
@@ -35,29 +35,29 @@ A pesquisa está disponível nas camadas Gratuita e Standard da Central de Segur
 ## <a name="access-search"></a>Pesquisa de acesso
 1. No menu principal da Central de Segurança, selecione **Pesquisar**.
 
-  ![Selecionar Pesquisa de log][1]
+   ![Selecionar Pesquisa de log][1]
 
 2. A Central de Segurança lista todos os workspaces em suas assinaturas do Azure. Selecione um workspace. (Se você tiver apenas um workspace, o seletor desse workspace não aparecerá).
 
-  ![Selecionar um workspace][2]
+   ![Selecionar um workspace][2]
 
 3. A **Pesquisa de Logs** é aberta. Para consultar mais dados no workspace selecionado, insira este exemplo de consulta:
 
-  SecurityEvent | where EventID == 4625 | summarize count() by TargetAccount
+   SecurityEvent | where EventID == 4625 | summarize count() by TargetAccount
 
-  O resultado mostra todas as contas com falha de logon (evento 4625).
+   O resultado mostra todas as contas com falha de logon (evento 4625).
 
-  ![Resultados da Pesquisa][3]
+   ![Resultados da pesquisa][3]
 
-Confira [Linguagem de consulta do Log Analytics](../log-analytics/log-analytics-search-reference.md) para saber mais sobre como consultar os dados no workspace selecionado.
+Ver [linguagem de consulta Kusto](../log-analytics/log-analytics-search-reference.md) para obter mais informações sobre como consultar dados no espaço de trabalho selecionado.
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste artigo, você aprendeu a acessar a pesquisa na Central de Segurança. A Central de Segurança usa a pesquisa do Log Analytics. Para saber mais sobre a pesquisa do Log Analytics, confira:
+Neste artigo, você aprendeu a acessar a pesquisa na Central de Segurança. Central de segurança usa a pesquisa de logs do Azure Monitor. Para saber mais sobre a pesquisa de logs do Azure Monitor, consulte:
 
-- [O que é o Log Analytics?](../log-analytics/log-analytics-overview.md) – Visão geral sobre o Log Analytics
-- [Compreender as pesquisas de logs no Log Analytics](../log-analytics/log-analytics-log-search-new.md) - descreve como as pesquisas de logs são utilizadas no Log Analytics e fornece conceitos que deverão ser compreendidos antes de criar uma pesquisa de log
-- [Localizar dados usando as pesquisas de logs no Log Analytics](../log-analytics/log-analytics-log-searches.md) – tutorial sobre como usar a pesquisa de log
-- [Referência de pesquisa do Log Analytics](../log-analytics/log-analytics-search-reference.md) – descreve a linguagem de consulta no Log Analytics
+- [O que é o Azure Monitor logs?](../log-analytics/log-analytics-overview.md) – Visão geral sobre os logs do Azure Monitor
+- [Entender pesquisas de log nos logs do Azure Monitor](../log-analytics/log-analytics-log-search-new.md) – descreve como as pesquisas de log são usadas nos logs do Azure Monitor e fornece conceitos que devem ser compreendidos antes de criar uma pesquisa de logs
+- [Localizar dados usando pesquisas de log nos logs do Azure Monitor](../log-analytics/log-analytics-log-searches.md) – Tutorial sobre como usar a pesquisa de logs
+- [Referência de pesquisa do Kusto](../log-analytics/log-analytics-search-reference.md) – descreve a linguagem de consulta nos logs do Azure Monitor
 
 Para saber mais sobre a Central de Segurança, confira:
 

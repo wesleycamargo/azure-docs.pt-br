@@ -11,15 +11,15 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 08/30/2018
+ms.topic: conceptual
+ms.date: 03/05/2019
 ms.author: aschhab
-ms.openlocfilehash: ae35f73e601cfa83fc960c5331f9956863677941
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 9e9c8918556b7ff003bcfed062ea1e15233b2845
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54855288"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57761949"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Camadas de sistema de mensagens Premium e Standard do Barramento de Serviço
 
@@ -54,6 +54,21 @@ Não há suporte para filas e tópicos particionados no Sistema de Mensagens Pre
 Como o sistema de mensagens Premium é executado em um ambiente de tempo de execução totalmente isolado, não há suporte para as entidades expressas em namespaces Premium. Para saber mais sobre o recurso expresso, consulte a propriedade [QueueDescription.EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress).
 
 Se você tiver código em execução no sistema de mensagens padrão e deseja portá-lo para a camada Premium, verifique se a propriedade [EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) está definida como **false** (o valor padrão).
+
+## <a name="premium-messaging-resource-usage"></a>Uso de recursos do sistema de mensagens Premium
+Em geral, qualquer operação em uma entidade pode causar o uso da CPU e memória. Aqui estão algumas dessas operações: 
+
+- Operações de gerenciamento como CRUD (Create, Retrieve, Update e Delete) operações em filas, tópicos e assinaturas.
+- Tempo de execução operações (enviar e receber mensagens)
+- Operações de monitoramento e alertas
+
+O uso adicional de CPU e memória não é cobrado adicionalmente no entanto. Para a camada de mensagens Premium, há um preço único para a unidade de mensagem.
+
+O uso de CPU e memória são rastreadas e exibidos para você pelos seguintes motivos: 
+
+- Forneça transparência para a parte interna do sistema
+- Compreenda a capacidade de recursos adquiridos.
+- Capacidade de planejamento que ajuda você a decidir dimensionar para cima/para baixo.
 
 ## <a name="get-started-with-premium-messaging"></a>Introdução ao sistema de mensagens Premium
 

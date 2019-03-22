@@ -1,20 +1,21 @@
 ---
-title: 'Início Rápido: Ponto de extremidade de previsão da consulta do SDK do C#'
+title: 'Início rápido: Ponto de extremidade de previsão da consulta do SDK do C#'
 titleSuffix: Azure Cognitive Services
 description: Use o SDK do C# para enviar um enunciado de usuário ao LUIS e receber uma previsão.
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
+services: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 02/14/2019
 ms.author: diberry
-ms.openlocfilehash: e009ef159a51a22c56409cd1564fa9fde3c67b55
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 086f55094474d4c06e52001d77630932cd04213c
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56344192"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404086"
 ---
 # <a name="quickstart-query-prediction-endpoint-with-c-net-sdk"></a>Início rápido: Consultar o ponto de extremidade de previsão com o SDK do C# do .NET
 

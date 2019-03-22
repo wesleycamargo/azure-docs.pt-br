@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: cenkd;juliako
-ms.openlocfilehash: c982707b24f18e840e866b1dcc858fe2aceb686e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4f72738d0ca9b8c6dc170892a985d821923a4405
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999998"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894012"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtros e manifestos dinâmicos
 
@@ -34,7 +34,7 @@ Este tópico analisa cenários comuns nos quais o uso dos filtros será muito ú
 ## <a name="overview"></a>Visão geral
 Ao fornecer conteúdo aos clientes (eventos de transmissão ao vivo ou vídeo sob demanda) sua meta é fornecer um vídeo de alta qualidade para vários dispositivos em condições de rede diferentes. Para atingir essa meta, faça o seguinte:
 
-* codifique seu fluxo para múltiplas taxas de bits ([taxa de bits adaptável](http://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)) transmissão de vídeo (isso também tratará das condições de rede e de qualidade) e 
+* codifique seu fluxo para múltiplas taxas de bits ([taxa de bits adaptável](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)) transmissão de vídeo (isso também tratará das condições de rede e de qualidade) e 
 * use o [Empacotamento dinâmico](media-services-dynamic-packaging-overview.md) dos serviços de mídia para reempacotar dinamicamente seu fluxo em protocolos diferentes (isso se encarregará da transmissão em dispositivos diferentes). Os Serviços de Mídia permitem a entrega das seguintes tecnologias de streaming de taxa de bits adaptável: HTTP Live Streaming (HLS), Smooth Streaming e MPEG DASH. 
 
 ### <a name="manifest-files"></a>Arquivos de manifesto

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: a8e52af1a1feb8a01ed5556efb6e153c56b25cca
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: ca111623f6d3d7c61b1bfc4e1af328f9599c2440
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700580"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884499"
 ---
 # <a name="sample-application-for-use-with-dmzs"></a>Aplicativo de exemplo para uso com DMZs
 [Voltar à página Práticas recomendadas de limite de segurança][HOME]
@@ -42,7 +42,7 @@ Se você usar os scripts abaixo, a adição da regra de firewall é a primeira i
 Este script:
 
 1. Abrirá o IMCPv4 (Ping) no Firewall do Windows do servidor local para testes mais fáceis
-2. Instalará o IIS e o .Net Framework v4.5
+2. Instalar o IIS e o .NET Framework v4.5
 3. Criará uma página da Web ASP.NET e um arquivo de Web.config
 4. Alterará o pool de aplicativos Padrão para facilitar o acesso aos arquivos
 5. Definirá o usuário Anônimo para sua conta e senha de administrador
@@ -61,7 +61,7 @@ Esse script do PowerShell deve ser executado localmente com RDP em IIS01.
     New-NetFirewallRule -Name Allow_ICMPv4 -DisplayName "Allow ICMPv4" -Protocol ICMPv4 -Enabled True -Profile Any -Action Allow
 
 # Install IIS
-    Write-Host "Installing IIS and .Net 4.5, this can take some time, like 15+ minutes..." -ForegroundColor Cyan
+    Write-Host "Installing IIS and .NET 4.5, this can take some time, like 15+ minutes..." -ForegroundColor Cyan
     add-windowsfeature Web-Server, Web-WebServer, Web-Common-Http, Web-Default-Doc, Web-Dir-Browsing, Web-Http-Errors, Web-Static-Content, Web-Health, Web-Http-Logging, Web-Performance, Web-Stat-Compression, Web-Security, Web-Filtering, Web-App-Dev, Web-ISAPI-Ext, Web-ISAPI-Filter, Web-Net-Ext, Web-Net-Ext45, Web-Asp-Net45, Web-Mgmt-Tools, Web-Mgmt-Console
 
 # Create Web App Pages
@@ -105,7 +105,7 @@ Esse script do PowerShell deve ser executado localmente com RDP em IIS01.
           <div style="border: 2px solid #8AC007; border-radius: 25px; padding: 20px; margin: 10px; width: 650px;">
             <b>Image File Linked from the Internet</b>:<br />
             <br />
-            <img src="http://sd.keepcalm-o-matic.co.uk/i/keep-calm-you-made-it-7.png" alt="You made it!" width="150" length="175"/></div>
+            <img src="https://sd.keepcalm-o-matic.co.uk/i/keep-calm-you-made-it-7.png" alt="You made it!" width="150" length="175"/></div>
         </div>
       </form>
     </body>
@@ -152,12 +152,12 @@ Esse script configura o back-end para esse aplicativo simples. Este script:
 2. Criar um diretório para o site
 3. Criar um arquivo de texto para ser acessado remotamente pela página da Web
 4. Definirá permissões no diretório e no arquivo como Anônimo para permitir o acesso
-5. Desativará a Segurança Aprimorada do IE para permitir a navegação mais fácil por meio deste servidor 
+5. Desativará a Segurança Aprimorada do IE para permitir a navegação mais fácil por meio deste servidor
 
 > [!IMPORTANT]
 > **Melhor prática**: Nunca desative a Segurança Aprimorada do IE em um servidor de produção, além disso, costuma não ser boa ideia surfar na web por meio de um servidor de produção. Além disso, abrir compartilhamentos de arquivos para acesso anônimo é uma ideia ruim, mas que foi executado aqui para simplificar.
-> 
-> 
+>
+>
 
 Esse script do PowerShell deve ser executado localmente com RDP em AppVM01. O PowerShell deve ser executado como Administrador para garantir a execução bem-sucedida.
 

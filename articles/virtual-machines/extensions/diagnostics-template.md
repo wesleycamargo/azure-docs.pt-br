@@ -1,6 +1,6 @@
 ---
 title: Adicionar monitoramento e diagnóstico a uma máquina virtual do Azure | Microsoft Docs
-description: Use um modelo do Azure Resource Manager para criar uma nova máquina virtual do Windows com a extensão de diagnóstico do Azure.
+description: Use um modelo do Azure Resource Manager para criar uma nova máquina virtual Windows com extensão de diagnóstico do Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: sbtron
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 85e9b49cb8be1a3f53ca0f3b4816e6165b68bde0
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
-ms.translationtype: HT
+ms.openlocfilehash: 00b4a145da9104cab410c5a07f6d7ec5ded5c45d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993078"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893536"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Usar monitoramento e diagnóstico com uma VM Windows e modelos do Azure Resource Manager
 A Extensão Diagnóstico do Azure fornece funcionalidades de monitoramento e diagnóstico em uma máquina virtual do Azure baseada no Windows. É possível habilitar esses recursos na máquina virtual incluindo a extensão como parte do modelo do Azure Resource Manager. Para saber mais sobre como incluir extensões como parte de um modelo de máquina virtual, confira [Criando modelos do Gerenciador de Recursos do Azure com extensões de VM](../windows/template-description.md#extensions) . Este artigo descreve como adicionar a extensão de diagnóstico do Microsoft Azure para a um modelo de máquina virtual do Windows.  
@@ -172,9 +172,9 @@ Cada tabela WADMetrics inclui as seguintes colunas:
 * **RowKey**: Segue o formato `<Descending time tick>:<Performance Counter Name>`. O cálculo do tique de tempo decrescente é o tique do tempo máximo menos o tempo de início do período de agregação. Por exemplo, se o período de exemplo tivesse se iniciado em 10 de novembro de 2015 à 00:00 UTC, o cálculo seria: `DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)`. Para o contador de desempenho de bytes de memória disponível, a chave de linha se parecerá com:`2519551871999999999__:005CMemory:005CAvailable:0020Bytes`
 * **CounterName**: É o nome do contador de desempenho. Ele corresponde ao *counterSpecifier* definido na configuração XML.
 * **Maximum**: O valor máximo do contador de desempenho durante o período de agregação.
-* **Minimum**: O valor mínimo do contador de desempenho durante o período de agregação.
+* **Mínimos**: O valor mínimo do contador de desempenho durante o período de agregação.
 * **Total**: A soma de todos os valores do contador de desempenho relatados durante o período de agregação.
-* **Count**: O número total de valores relatados do contador de desempenho.
+* **Contagem**: O número total de valores relatados do contador de desempenho.
 * **Average**: O valor médio (total/contagem) do contador de desempenho durante o período de agregação.
 
 ## <a name="next-steps"></a>Próximas etapas

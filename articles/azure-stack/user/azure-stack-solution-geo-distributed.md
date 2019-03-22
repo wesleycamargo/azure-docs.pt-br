@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 7c7279f1895764c2a3ed73e824d44c2eed68240c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 857aa71a4812534030ca638fd8bab11f60535ea0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244565"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536939"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Tutorial: Criar uma solução de aplicativo distribuído geograficamente com o Azure e o Azure Stack
 
@@ -507,9 +507,9 @@ Quando o serviço de aplicativo terminar de carregar o certificado, ele aparece 
 
 1.  No **Adicionar associação SSL** página, use as listas suspensas para selecionar o nome de domínio para proteger e o certificado a ser usado.
 
-2.  Na **tipo de SSL**, selecione se deseja usar [ **indicação de nome de servidor (SNI)**](http://en.wikipedia.org/wiki/Server_Name_Indication)ou SSL baseado em IP.
+2.  Na **tipo de SSL**, selecione se deseja usar [ **indicação de nome de servidor (SNI)**](https://en.wikipedia.org/wiki/Server_Name_Indication)ou SSL baseado em IP.
 
--   **SSL baseado em SNI**-SSL baseado em SNI várias associações podem ser adicionadas. Esta opção permite que vários certificados SSL protejam vários domínios no mesmo endereço IP. Navegadores mais modernos (incluindo Internet Explorer, Chrome, Firefox e Opera) dão suporte ao SNI (encontre informações de suporte ao navegador mais abrangentes em [Indicação de Nome de Servidor](http://wikipedia.org/wiki/Server_Name_Indication)).
+-   **SSL baseado em SNI**-SSL baseado em SNI várias associações podem ser adicionadas. Esta opção permite que vários certificados SSL protejam vários domínios no mesmo endereço IP. Navegadores mais modernos (incluindo Internet Explorer, Chrome, Firefox e Opera) dão suporte ao SNI (encontre informações de suporte ao navegador mais abrangentes em [Indicação de Nome de Servidor](https://wikipedia.org/wiki/Server_Name_Indication)).
 
 -   **SSL baseado em IP**-apenas uma associação de SSL com base em IP pode ser adicionada. Esta opção permite apenas um certificado SSL para proteger um endereço IP público dedicado. Para proteger vários domínios, protegê-los todos usando o mesmo certificado SSL. Essa é a opção tradicional para associação de SSL.
 
@@ -533,7 +533,7 @@ O **domínio personalizado** página é atualizada com o novo endereço IP dedic
 
 #### <a name="test-https"></a>Testar HTTPS
 
-Em vários navegadores, navegue até https://<your.custom.domain>to, certifique-se a web PA é atendido.
+Em vários navegadores, navegue até https://<your.custom.domain>to, verifique se o aplicativo web é atendido.
 
 ![Alt text](media/azure-stack-solution-geo-distributed/image42.png)
 

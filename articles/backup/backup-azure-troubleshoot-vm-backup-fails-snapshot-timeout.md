@@ -9,18 +9,20 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: a73dab8a0df642e439e8519c404423c6689418f5
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 4d090740b75acbe2629ae4f1e13cde8947f190bb
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236967"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286424"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solucionar problemas de falha de Backup do Azure: Problemas com o agente ou extensão
 
 Este artigo fornece etapas de solução de problemas que podem ajudar você a resolver erros de Backup do Azure relacionados à comunicação com a extensão e o agente da VM.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+
+
 
 ## <a name="UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup"></a>UserErrorGuestAgentStatusUnavailable – o agente de VM não pode se comunicar com o Backup do Azure
 
@@ -54,7 +56,7 @@ Depois de registrar e agendar uma máquina virtual para o serviço de Backup do 
 Ação recomendada:<br>
 Para resolver esse problema, remova o bloqueio do grupo de recursos da VM e repita a operação para disparar a limpeza.
 > [!NOTE]
-    > O serviço de backup cria um grupo de recursos separado que o grupo de recursos da VM para armazenar a coleção de pontos de restauração. Os clientes são aconselhados a não bloquear o grupo de recursos criado para uso pelo serviço de Backup. O formato de nomenclatura do grupo de recursos criado pelo serviço de Backup é: AzureBackupRG_`<Geo>`_`<number>` Eg: AzureBackupRG_northeurope_1
+> O serviço de backup cria um grupo de recursos separado que o grupo de recursos da VM para armazenar a coleção de pontos de restauração. Os clientes são aconselhados a não bloquear o grupo de recursos criado para uso pelo serviço de Backup. O formato de nomenclatura do grupo de recursos criado pelo serviço de Backup é: AzureBackupRG_`<Geo>`_`<number>` Eg: AzureBackupRG_northeurope_1
 
 **Etapa 1: [Remover bloqueio do grupo de recursos do ponto de restauração](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **Etapa 2: [ Limpar a coleção do ponto de restauração](#clean_up_restore_point_collection)**<br>
@@ -64,7 +66,7 @@ Para resolver esse problema, remova o bloqueio do grupo de recursos da VM e repi
 **Erro de código**: UserErrorKeyvaultPermissionsNotConfigured <br>
 **Mensagem de erro**: O backup não tem permissões suficientes para o cofre de chaves para fazer backup de VMs criptografadas. <br>
 
-Para que a operação de backup tenha êxito em VMs criptografadas, é necessário ter permissões para acessar o cofre de chaves. Isso pode ser feito usando o [portal do Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption) ou por meio do [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection)
+Para que a operação de backup tenha êxito em VMs criptografadas, é necessário ter permissões para acessar o cofre de chaves. Isso pode ser feito usando o [portal do Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption) ou por meio das [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection).
 
 ## <a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork – falha na operação de instantâneo por falta de conectividade à rede na máquina virtual
 
@@ -100,19 +102,12 @@ Depois de registrar e agendar uma máquina virtual para o serviço de Backup do 
 **Causa 5: O serviço de backup não tem permissão para excluir os pontos de restauração antigos devido a um bloqueio de grupo de recursos** <br>
 **Causa 6: [A VM não tem acesso à internet](#the-vm-has-no-internet-access)**
 
-## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-1023gb"></a>UserErrorUnsupportedDiskSize - Atualmente, o Backup do Azure não suporta tamanhos de disco maiores que 1023 GB
+## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-4095gb"></a>UserErrorUnsupportedDiskSize - Backup do Azure atualmente não dá suporte a tamanhos de disco maiores que 4095GB
 
 **Erro de código**: UserErrorUnsupportedDiskSize <br>
-**Mensagem de erro**: Atualmente, o Backup do Azure não dá suporte a tamanhos de disco maiores que 1.023 GB <br>
+**Mensagem de erro**: Atualmente o Backup do Azure não dá suporte a tamanhos de disco maiores que 4095GB <br>
 
-Sua operação de backup pode falhar ao fazer o backup da VM com tamanho de disco maior que 1.023 GB, pois o seu cofre não é atualizado para Restauração Instantânea. A atualização para Restauração Instantânea dará suporte a até 4 TB, confira este [artigo](backup-instant-restore-capability.md#upgrading-to-instant-restore). Depois que você fizer a atualização, serão necessárias até duas horas para a assinatura fornecer essa funcionalidade. Forneça buffer suficiente antes de repetir a operação.  
-
-## <a name="usererrorstandardssdnotsupported---currently-azure-backup-does-not-support-standard-ssd-disks"></a>UserErrorStandardSSDNotSupported - Atualmente, o Backup do Azure não suporta discos SSD padrão
-
-**Erro de código**: UserErrorStandardSSDNotSupported <br>
-**Mensagem de erro**: Atualmente, o Backup do Azure não dá suporte para discos SSD padrão <br>
-
-Atualmente, o Backup do Azure dá suporte a discos SSD Standard apenas para os cofres atualizados para a [Restauração Instantânea](backup-instant-restore-capability.md).
+A operação de backup pode falhar ao fazer backup de VM com tamanho de disco maior que 4095GB. Suporte para discos grandes em breve.  
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress – não é possível iniciar o backup porque outra operação de backup já está em andamento
 
@@ -126,12 +121,12 @@ O seu trabalho de backup recente falhou porque há um trabalho de backup existen
 3. No menu do dashboard do cofre, clique em **Trabalhos de Backup** para exibir todos os trabalhos de backup.
 
     * Se um trabalho de backup estiver em andamento, aguarde a sua conclusão ou cancele-o.
-        * Para cancelar o trabalho de backup, clique com botão direito do mouse no trabalho de backup e clique em **Cancelar** ou use o [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.backup/stop-azurermbackupjob?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.12.0).
+        * Para cancelar o trabalho de backup, clique com botão direito do mouse no trabalho de backup e clique em **Cancelar** ou use o [PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
     * Se você reconfigurou o backup em um cofre diferente, verifique se não há trabalhos de backup em execução no antigo cofre. Se houver, cancele-os.
-        * Para cancelar o trabalho de backup, clique com botão direito do mouse no trabalho de backup e clique em **Cancelar** ou use o [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.backup/stop-azurermbackupjob?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.12.0)
+        * Para cancelar o trabalho de backup, clique com botão direito do mouse no trabalho de backup e clique em **Cancelar** ou use o [PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)
 4. Tente novamente a operação de backup.
 
-Se a operação de backup agendada estiver demorando muito tempo, entrando em conflito com a próxima configuração de backup, reveja as [Práticas recomendadas](backup-azure-vms-introduction.md#best-practices), o [Desempenho de Backup](backup-azure-vms-introduction.md#backup-performance) e a [Consideração sobre restauração](backup-azure-vms-introduction.md#restore-considerations).
+Se a operação de backup agendada estiver demorando muito tempo, entrando em conflito com a próxima configuração de backup, reveja as [Práticas recomendadas](backup-azure-vms-introduction.md#best-practices), o [Desempenho de Backup](backup-azure-vms-introduction.md#backup-performance) e a [Consideração sobre restauração](backup-azure-vms-introduction.md#backup-and-restore-considerations).
 
 
 ## <a name="causes-and-solutions"></a>Causas e soluções
@@ -166,15 +161,15 @@ A maioria das falhas relacionadas ao agente ou relacionadas à extensão para VM
 
 1. Siga as instruções para [atualizar o agente de VM do Linux ](../virtual-machines/linux/update-agent.md).
 
- > [!NOTE]
- > Estamos *altamente recomendável* que você atualizar o agente apenas por meio de um repositório de distribuição. Não é recomendável baixar o código do agente diretamente do GitHub e atualizá-lo. Se o agente mais recente para a sua distribuição não está disponível, entre em contato com o suporte da distribuição para obter instruções de como instalá-lo. Para verificar o agente mais recente, vá para a página [agente Linux do Windows Azure](https://github.com/Azure/WALinuxAgent/releases) no repositório do GitHub.
+   > [!NOTE]
+   > Estamos *altamente recomendável* que você atualizar o agente apenas por meio de um repositório de distribuição. Não é recomendável baixar o código do agente diretamente do GitHub e atualizá-lo. Se o agente mais recente para a sua distribuição não está disponível, entre em contato com o suporte da distribuição para obter instruções de como instalá-lo. Para verificar o agente mais recente, vá para a página [agente Linux do Windows Azure](https://github.com/Azure/WALinuxAgent/releases) no repositório do GitHub.
 
 2. Verifique se o agente do Azure está em execução na VM, executando o seguinte comando: `ps -e`
 
- Se o processo não estiver em execução, reinicie-o usando os seguintes comandos:
+   Se o processo não estiver em execução, reinicie-o usando os seguintes comandos:
 
- * Para o Ubuntu: `service walinuxagent start`
- * Para outras distribuições: `service waagent start`
+   * Para o Ubuntu: `service walinuxagent start`
+   * Para outras distribuições: `service waagent start`
 
 3. [Configure o agente de reinicialização automática](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
 4. Execute um novo backup de teste. Se a falha persistir, colete os seguintes logs da VM:
@@ -198,7 +193,7 @@ As seguintes condições podem causar falha na tarefa de instantâneo:
 | Causa | Solução |
 | --- | --- |
 | O status da VM foi informado incorretamente porque a VM foi desligada no protocolo RDP. | Se você desligar a VM no RDP, verifique o portal para determinar se o status da VM está correto. Se não estiver correto, desligue a VM no portal usando a opção de **Desligar** no painel de VM. |
-| A VM não pode obter o endereço do host ou da malha do DHCP. | O DHCP deve estar habilitado no convidado para que o backup da VM IaaS funcione. Se a VM não puder obter o endereço do host ou da malha por meio da resposta 245 do DHCP, ela não poderá baixar ou executar nenhuma extensão. Se você precisar de um IP privado estático, configure-o através do **Portal do Azure** ou do **PowerShell** e verifique se a opção DHCP dentro da VM está ativada. Para obter mais informações sobre como configurar um IP estático por meio do PowerShell, consulte [VM clássica](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm) e [VM do Gerenciador de recursos](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface).
+| A VM não pode obter o endereço do host ou da malha do DHCP. | O DHCP deve estar habilitado no convidado para que o backup da VM IaaS funcione. Se a VM não puder obter o endereço do host ou da malha por meio da resposta 245 do DHCP, ela não poderá baixar ou executar nenhuma extensão. Se você precisar de um endereço IP privado estático, você deve configurá-lo por meio de **portal do Azure** ou **PowerShell** e verifique se a opção DHCP na VM está habilitada. [Saiba mais](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) sobre como configurar um endereço IP estático com o PowerShell.
 
 ### <a name="the-backup-extension-fails-to-update-or-load"></a>A extensão de backup não pode ser atualizada ou carregada
 Se as extensões não puderem ser carregadas, o backup falhará porque não é possível obter um instantâneo.
@@ -220,36 +215,36 @@ Para VM Linux, se a extensão VMSnapshot não for mostrada no Portal do Azure, [
 A realização dessas etapas faz com que a extensão seja reinstalada durante o próximo backup.
 
 ### <a name="remove_lock_from_the_recovery_point_resource_group"></a>Remover o bloqueio do grupo de recursos de ponto de recuperação
-1. Entre no [Portal do Azure](http://portal.azure.com/).
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 2. Vá para a **opção Todos os Recursos** e selecione o grupo de recursos de coleção de ponto de restauração no seguinte formato: AzureBackupRG_`<Geo>`_`<number>`.
 3. Na seção **Configurações**, selecione **Bloqueios** para exibir os bloqueios.
 4. Para remover o bloqueio, selecione as reticências e clique em **Excluir**.
 
-    ![Excluir bloqueio ](./media/backup-azure-arm-vms-prepare/delete-lock.png)
+    ![Excluir bloqueio](./media/backup-azure-arm-vms-prepare/delete-lock.png)
 
 ### <a name="clean_up_restore_point_collection"></a> Limpar a coleção de pontos de restauração
 Depois de remover o bloqueio, os pontos de restauração precisam ser limpos. Para limpar os pontos de restauração, siga qualquer um dos seguintes métodos:<br>
-* [Limpar a coleção de pontos de restauração executando backup ad-hoc](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
+* [Limpar a restauração de ponto coleção executando backup ad hoc](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
 * [Limpar a coleção de pontos de restauração do portal do Azure](#clean-up-restore-point-collection-from-azure-portal)<br>
 
-#### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>Limpar a coleção de pontos de restauração executando backup ad-hoc
-Depois de remover o bloqueio, dispare um backup ad-hoc/manual. Isso garantirá que os pontos de restauração sejam limpos automaticamente. É provável que essa operação ad-hoc/manual falhe na primeira vez. No entanto, ela garantirá limpeza automática, em vez de exclusão manual dos pontos de restauração. Após a limpeza, o próximo backup agendado deverá ser bem-sucedido.
+#### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>Limpar a restauração de ponto coleção executando backup ad hoc
+Depois de remover o bloqueio, dispare um backup do ad hoc/manual. Isso garantirá que os pontos de restauração sejam limpos automaticamente. Esperar ad hoc/manual a falha da operação primeira vez; No entanto, ele garantirá que a limpeza automática, em vez de exclusão manual dos pontos de restauração. Após a limpeza, o próximo backup agendado deverá ser bem-sucedido.
 
 > [!NOTE]
-    > A limpeza automática ocorrerá algumas horas após disparar o backup ad-hoc/manual. Se o backup agendado ainda falhar, tente excluir manualmente a coleção de pontos de restauração usando as etapas listadas [aqui](#clean-up-restore-point-collection-from-azure-portal).
+> A limpeza automática ocorrerá após algumas horas de disparar o backup do ad hoc/manual. Se o backup agendado ainda falhar, tente excluir manualmente a coleção de pontos de restauração usando as etapas listadas [aqui](#clean-up-restore-point-collection-from-azure-portal).
 
 #### <a name="clean-up-restore-point-collection-from-azure-portal"></a>Limpar coleção de pontos de restauração do portal do Azure <br>
 
 Para limpar manualmente a coleção de pontos de restauração que não está desmarcada devido ao bloqueio no grupo de recursos, tente as seguintes etapas:
-1. Entre no [Portal do Azure](http://portal.azure.com/).
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 2. No menu **Hub**, clique em **Todos os recursos**, selecione o grupo de recursos com o formato AzureBackupRG_`<Geo>`_`<number>` a seguir em que sua VM se encontra.
 
-    ![Excluir bloqueio ](./media/backup-azure-arm-vms-prepare/resource-group.png)
+    ![Excluir bloqueio](./media/backup-azure-arm-vms-prepare/resource-group.png)
 
 3. Clique em Grupo de recursos, a folha **Visão geral** é exibida.
 4. Selecione a opção **Mostrar tipos ocultos** opção para exibir todos os recursos ocultos. Selecione as coleções de ponto de restauração com o seguinte formato: AzureBackupRG_`<VMName>`_`<number>`.
 
-    ![Excluir bloqueio ](./media/backup-azure-arm-vms-prepare/restore-point-collection.png)
+    ![Excluir bloqueio](./media/backup-azure-arm-vms-prepare/restore-point-collection.png)
 
 5. Clique em **Excluir** para limpar a coleção de pontos de restauração.
 6. Tente a operação de backup novamente.

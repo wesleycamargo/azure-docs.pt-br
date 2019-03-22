@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: eec13db8bdbe1f40a51df14077adb8740e977f5d
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
-ms.translationtype: HT
+ms.openlocfilehash: 1a5b883a8c9688d4545c0e98c00f78a2e982a611
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138405"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079700"
 ---
 # <a name="how-to-send-real-user-measurements-to-traffic-manager-with-visual-studio-mobile-center"></a>Como enviar as Medidas Reais de Usuário ao Gerenciador de Tráfego com o Visual Studio Mobile Center
 
@@ -33,22 +33,22 @@ Para configurar as Medidas Reais de Usuário, você precisa obter uma chave e in
 As medidas obtidas e enviadas para o Gerenciador de Tráfego do aplicativo cliente são identificadas pelo serviço usando uma cadeia de caracteres exclusiva, chamada de chave de RUM (Medidas Reais de Usuário). Você pode obter uma chave de RUM usando o portal do Azure, uma API REST ou as interfaces do PowerShell ou da CLI.
 
 Para obter a chave de RUM pelo portal do Azure use o procedimento a seguir:
-   1. Em um navegador, entre no portal do Azure. Se você ainda não tiver uma conta, inscreva-se para uma avaliação gratuita de um mês.
-   2. Na barra de pesquisa do portal, pesquise o nome do perfil do Gerenciador de Tráfego que deseja modificar e, em seguida, clique no perfil do Gerenciador de Tráfego nos resultados exibidos.
-   3. Na página de perfil do Gerenciador de Tráfego, clique em **Medidas Reais de Usuário** em **Configurações**.
-   4. Clique em **Gerar Chave** para criar uma nova chave de RUM.
+1. Em um navegador, entre no portal do Azure. Se você ainda não tiver uma conta, inscreva-se para uma avaliação gratuita de um mês.
+2. Na barra de pesquisa do portal, pesquise o nome do perfil do Gerenciador de Tráfego que deseja modificar e, em seguida, clique no perfil do Gerenciador de Tráfego nos resultados exibidos.
+3. Na página de perfil do Gerenciador de Tráfego, clique em **Medidas Reais de Usuário** em **Configurações**.
+4. Clique em **Gerar Chave** para criar uma nova chave de RUM.
         
    ![Gerar chave de Medidas Reais de Usuário](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
 
-   **Figura 1: geração de chave de Medidas Reais de Usuário**
+   **Figura 1: Geração de chave de medidas de usuário real**
 
-   5.   A página exibe a chave de RUM que é gerada e um snippet de código JavaScript que precisa ser inserido em sua página HTML.
+5. A página exibe a chave de RUM que é gerada e um snippet de código JavaScript que precisa ser inserido em sua página HTML.
  
    ![Código Javascript da chave de Medidas Reais de Usuário](./media/traffic-manager-create-rum-visual-studio/rum-key.png)
 
-   **Figura 2: chave de Medidas Reais de Usuário e JavaScript de medidas**
+   **Figura 2: chave de Medidas de Usuário Reais e JavaScript de medidas**
  
-   6. Clique no botão **Copiar** para copiar a chave de RUM. 
+6. Clique no botão **Copiar** para copiar a chave de RUM. 
 
 ## <a name="step-2-instrument-your-app-with-the-rum-package-of-mobile-center-sdk"></a>Etapa 2: Instrumentar seu aplicativo com o pacote de RUM do SDK do Mobile Center
 
@@ -72,7 +72,7 @@ Para usar as Medidas Reais de Usuário, conclua o procedimento a seguir:
     No arquivo **app/build.gradle** adicione as seguintes linhas:
 
     ```groovy
-    dependencies {   
+    dependencies {
      
         def mobileCenterSdkVersion = '0.12.1-16+3fe5b08'
         compile "com.microsoft.azure.mobile:mobile-center-rum:${mobileCenterSdkVersion}"

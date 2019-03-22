@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/10/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4782afa71919a3545bd023f33f873969c86b6cc6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6d3bb9708c7bab41f87ad9c2b6ae18ac62849a2d
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208343"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223913"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-azure-cli"></a>Configurar identidades gerenciadas para recursos do Azure em uma VM do Azure usando a CLI do Azure
 
@@ -107,12 +107,8 @@ Se você tiver uma máquina virtual que não precisa mais da identidade atribuí
 ```azurecli-interactive
 az vm update -n myVM -g myResourceGroup --set identity.type="none"
 ```
-
-Para remover a extensão da VM de recursos de identidade gerenciada do Azure (com desativação planejada para em janeiro de 2019), o usuário `-n ManagedIdentityExtensionForWindows` ou a opção `-n ManagedIdentityExtensionForLinux` (dependendo do tipo de VM) com [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/):
-
-```azurecli-interactive
-az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows
-```
+> [!NOTE]
+> Se você tiver provisionado a identidade gerenciada para recursos do Azure extensão da VM (preterido), você precisará removê-lo usando [exclusão de extensão de vm az](https://docs.microsoft.com/cli/azure/vm/). Para obter mais informações, consulte [migrar da extensão de VM para o Azure IMDS para autenticação](howto-migrate-vm-extension.md).
 
 ## <a name="user-assigned-managed-identity"></a>Identidade gerenciada atribuída pelo usuário
 
@@ -135,7 +131,7 @@ Para atribuir uma identidade atribuída pelo usuário a uma VM durante sua cria�
    ```azurecli-interactive
    az identity create -g myResourceGroup -n myUserAssignedIdentity
    ```
-   A resposta contém detalhes para a identidade gerenciada atribuída ao usuário criada, semelhante à seguinte. O valor da ID do recurso atribuído à identidade gerenciada atribuída ao usuário é usado na etapa a seguir.
+   A resposta contém detalhes para a identidade gerenciada atribuída ao usuário criada, semelhante à seguinte. O valor de ID do recurso atribuído para a identidade atribuída pelo usuário gerenciada é usado na etapa a seguir.
 
    ```json
    {

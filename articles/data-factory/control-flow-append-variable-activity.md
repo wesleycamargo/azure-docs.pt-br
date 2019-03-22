@@ -3,21 +3,20 @@ title: Atividade Anexar Variável no Azure Data Factory | Microsoft Docs
 description: Saiba como definir a atividade Anexar Variável para adicionar um valor a uma variável de matriz existente definida em um pipeline do Data Factory
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/09/2018
-ms.author: douglasl
-ms.openlocfilehash: e904075908fe7108c0566856b25fe03be0b7fd86
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+author: sharonlo101
+ms.author: shlo
+manager: craigg
+ms.openlocfilehash: a5efe946000eb00e65d314ae53d7136761e2109d
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023782"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57575147"
 ---
 # <a name="append-variable-activity-in-azure-data-factory"></a>Atividade Anexar Variável no Azure Data Factory
 
@@ -27,7 +26,7 @@ Use a atividade Anexar Variável para adicionar um valor a uma variável de matr
 
 Propriedade | DESCRIÇÃO | Obrigatório
 -------- | ----------- | --------
-Nome | Nome da atividade no pipeline | SIM
+Nome | Nome da atividade no pipeline | Sim
 Descrição | Texto descrevendo o que a atividade realiza | não
 Tipo | O tipo de atividade é AppendVariable | Sim
 value | Literal de cadeia de caracteres ou valor do objeto de expressão usado para acrescentar à variável especificada | Sim

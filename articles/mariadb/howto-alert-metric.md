@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.openlocfilehash: 15f280b16e362a4b39cb9fc0e4baaf67d0e31942
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: ce9804a4ecad4cd0f2e797038dc10c71b50de9bf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661693"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122701"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mariadb"></a>Usar o portal do Azure para configurar alertas de métricas no Banco de Dados do Azure para MariaDB
 
@@ -60,21 +60,21 @@ Você pode configurar e obter informações sobre as regras de alerta usando:
 
 10. Configure o tipo de ação **Email/SMS/Push/Voz**.
     
-   Escolha "Enviar email para a Função do Azure Resource Manager" para selecionar os Proprietários da assinatura, Colaboradores e Leitores para receber notificações.
+    Escolha "Enviar email para a Função do Azure Resource Manager" para selecionar os Proprietários da assinatura, Colaboradores e Leitores para receber notificações.
    
-   Opcionalmente, forneça um URI válido no campo **Webhook** se você quiser chamá-lo quando o alerta for disparado.
+    Opcionalmente, forneça um URI válido no campo **Webhook** se você quiser chamá-lo quando o alerta for disparado.
 
-   Selecione **OK** ao concluir.
+    Selecione **OK** ao concluir.
 
-   ![Grupo de ações](./media/howto-alert-metric/10-action-group-type.png)
+    ![Grupo de ações](./media/howto-alert-metric/10-action-group-type.png)
 
 11. Especifique um Nome da regra de alerta, uma Descrição e uma Gravidade.
 
-   ![Grupo de ações](./media/howto-alert-metric/11-name-description-severity.png) 
+    ![Grupo de ações](./media/howto-alert-metric/11-name-description-severity.png) 
 
 12. Selecione **Criar regra de alerta** para criar o alerta.
 
-   Em alguns minutos, o alerta estará ativo e disparará conforme descrito anteriormente.
+    Em alguns minutos, o alerta estará ativo e disparará conforme descrito anteriormente.
 
 ## <a name="manage-your-alerts"></a>Gerenciar seus alertas
 Depois de criar um alerta, você poderá selecioná-lo e executar as seguintes ações:

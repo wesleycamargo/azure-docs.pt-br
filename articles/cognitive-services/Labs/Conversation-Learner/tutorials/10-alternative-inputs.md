@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: c60dc2ca93547b93ce2ee457393570479069c899
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 10335f9c74b9033b303c960a77af136cc80d75bb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216261"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094357"
 ---
 # <a name="how-to-use-alternative-inputs"></a>Como usar entradas alternativas
 
@@ -48,6 +48,8 @@ As entradas alternativas são enunciados de usuário alternativos que o usuário
 3. Digite "city" para o "Nome da Entidade".
 4. Clique no botão "Criar".
 
+![](../media/T10_actions.png)
+
 Agora, crie três ações.
 
 ### <a name="create-the-first-action"></a>Criar a primeira ação
@@ -58,11 +60,15 @@ Agora, crie três ações.
 4. No campo "Entidades Desqualificadas", digite "cidade".
 5. Clique no botão "Criar".
 
+![](../media/T10_action_create_1.png)
+
 ### <a name="create-the-second-action"></a>Criar a segunda ação
 
 1. No painel esquerdo, clique em "Ações" e, em seguida, no botão "Nova ação".
 2. No "do Bot de resposta...", digite "O clima em $city provavelmente está ensolarado".
 3. Clique no botão "Criar".
+
+![](../media/T10_action_create_2.png)
 
 ### <a name="create-the-third-action"></a>Crie a terceira ação
 
@@ -71,7 +77,11 @@ Agora, crie três ações.
 3. No campo "Entidades Desqualificadas", digite "cidade".
 4. Clique no botão "Criar".
 
+![](../media/T10_action_create_3.png)
+
 Agora você tem três ações.
+
+![](../media/T10_actions.png)
 
 ### <a name="train-the-model"></a>Treinar o modelo
 
@@ -82,7 +92,9 @@ Agora você tem três ações.
 5. No painel de chat, onde está escrito "Digite sua mensagem...", digite "Denver"
 6. Clique no botão "Ações de Pontuação".
 7. Selecione a resposta, "O clima em Denver está provavelmente ensolarado".
-8. Clique no botão "Salvar".
+8. Clique no botão “Enviar alterações”.
+
+![](../media/T10_training_1.png)
 
 Vamos fazer o treinamento do modelo com a criação de outra caixa de diálogo Treinar.
 
@@ -96,7 +108,9 @@ Vamos fazer o treinamento do modelo com a criação de outra caixa de diálogo T
 6. Clique em "Seattle", em seguida, clique em "cidade" na lista de entidades.
 7. Clique no botão "Ações de Pontuação".
 8. Selecione a resposta, "O clima em Seattle está provavelmente ensolarado".
-9. Clique no botão "Salvar".
+9. Clique no botão “Enviar alterações”.
+
+![](../media/T10_training_2.png)
 
 ### <a name="third-model-train-dialog-using-alternative-input"></a>Terceiro modelo de diálogo de treinamento usando alternativos de entrada
 
@@ -106,27 +120,29 @@ Vamos fazer o treinamento do modelo com a criação de outra caixa de diálogo T
     - O Modelo é indefinido como a melhor opção, portanto, ele escolherá o percentual mais alto por padrão.
 4. Clique no botão "Ensinando por abandonar" e depois no botão "Confirmar".
 
-![](../media/tutorial8_closescores.png)
+![](../media/T10_training_3.png)
 
 Vamos ajustar melhor o sistema usando entradas alternativas. Você pode adicionar entradas alternativas ao ensinar ou depois.
 
-5. No painel esquerdo, clique em "Diálogos de Treinamento" e, em seguida, selecione “O que eu posso fazer?" na lista de caixas de diálogo de treinamento.
-6. Clique no enunciado "O que você pode fazer?" no painel de chat.
-7. No campo "Adicionar entrada alternativa...", digite "ajuda" e aperte enter.
-8. Clique no botão "Salvar alterações".
+1. No painel esquerdo, clique em "Diálogos de Treinamento" e, em seguida, selecione “O que eu posso fazer?" na lista de caixas de diálogo de treinamento.
+1. Clique no enunciado "O que você pode fazer?" no painel de chat.
+1. No campo "Adicionar entrada alternativa...", digite "ajuda" e aperte enter.
+1. Clique no botão "Salvar alterações".
 
-![](../media/tutorial8_helpalternates.png)
+![](../media/T10_training_4.png)
 
 Vamos adicionar outra entrada alternativa para lidar com Houston.
 
-9. Clique no enunciado "Como está o clima em Seattle?" no painel de chat.
-10. No campo "Adicionar entrada alternativa...", digite "tempo em Houston" e aperte enter.
-    - As mensagem de erro que destacam as entradas alternativas devem ser semanticamente equivalentes e conter as mesmas entidades que o enunciado original; não apenas os mesmos valores das entidades. A presença das mesmas entidades é necessária.
-11. Clique em "Houston" e selecione "cidade" na Lista de Entidades.
-12. No campo "Adicionar entrada alternativa...", digite "tempo em Seattle" e aperte enter.
-13. Clique em "Seattle" e selecione "city" na Lista de Entidades.
-14. Clique no botão "Salvar alterações".
-15. Clique no botão “Salvar Edição”.
+1. Clique no enunciado "Como está o clima em Seattle?" no painel de chat.
+1. No campo "Adicionar entrada alternativa...", digite "tempo em Houston" e aperte enter.
+   - As mensagem de erro que destacam as entradas alternativas devem ser semanticamente equivalentes e conter as mesmas entidades que o enunciado original; não apenas os mesmos valores das entidades. A presença das mesmas entidades é necessária.
+1. Clique em "Houston" e selecione "cidade" na Lista de Entidades.
+1. No campo "Adicionar entrada alternativa...", digite "tempo em Seattle" e aperte enter.
+1. Clique em "Seattle" e selecione "city" na Lista de Entidades.
+1. Clique no botão "Salvar alterações".
+1. Clique no botão “Salvar Edição”.
+
+![](../media/T10_training_5.png)
 
 ### <a name="testing-the-model"></a>Testar o modelo
 
@@ -134,7 +150,7 @@ Vamos adicionar outra entrada alternativa para lidar com Houston.
 2. No painel de chat, onde está escrito "Digite sua mensagem...", digite "ajude-me"
 3. No painel de chat, onde está escrito "Digite sua mensagem...", digite "tempo em Denver".
 
-![](../media/tutorial8_altcities.png)
+![](../media/T10_logdialog.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

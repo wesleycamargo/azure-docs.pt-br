@@ -1,7 +1,7 @@
 ---
 title: Migração da API v1 para a v2
 titleSuffix: Azure Cognitive Services
-description: O ponto de extremidade versão 1 e as APIs de criação foram preteridos. Use este guia para entender como migrar para as APIs de criação e o ponto de extremidade versão 2.
+description: O ponto de extremidade da versão 1 e a criação de APIs de compreensão de idioma são preteridos. Use este guia para entender como migrar para as APIs de criação e o ponto de extremidade versão 2.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 03/11/2019
 ms.author: diberry
-ms.openlocfilehash: dfd30ce148002e32986c58aff607e182033e02b3
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 7496142b1c762ce0a7afa96a1a94dd3026351cc9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859855"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087917"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>Guia de migração da API v1 para a v2 para aplicativos do LUIS
 O [ponto de extremidade](https://aka.ms/v1-endpoint-api-docs) versão 1 e as APIs de [criação](https://aka.ms/v1-authoring-api-docs) foram preteridos. Use este guia para entender como migrar para o [ponto de extremidade](https://aka.ms/luis-endpoint-apis) versão 2 e para as APIs de [criação](https://aka.ms/luis-authoring-apis). 
 
 ## <a name="new-azure-regions"></a>Novas regiões do Azure
-O LUIS tem novas [regiões](https://aka.ms/LUIS-regions) fornecidas para as APIs do LUIS. O LUIS fornece um site diferente para grupos de regiões. O aplicativo deve ser criado na mesma região que você espera consultar. Os aplicativos não migram regiões automaticamente. Exporte o aplicativo de uma região e importe para outra para que ele fique disponível em uma nova região.
+O LUIS tem novas [regiões](https://aka.ms/LUIS-regions) fornecidas para as APIs do LUIS. LUIS fornece um portal diferente para grupos de região. O aplicativo deve ser criado na mesma região que você espera consultar. Os aplicativos não migram regiões automaticamente. Exporte o aplicativo de uma região e importe para outra para que ele fique disponível em uma nova região.
 
 ## <a name="authoring-route-changes"></a>Criação de alterações de rota
 A rota da API de criação mudou de usar a rota **prog** para usar a rota **api**.
@@ -35,7 +35,7 @@ A rota da API de criação mudou de usar a rota **prog** para usar a rota **api*
 
 
 ## <a name="endpoint-route-changes"></a>Alterações de rota de ponto de extremidade
-A API de ponto de extremidade tem novos parâmetros querystring, bem como uma resposta diferente. Se o sinalizador detalhado for true, todas as intenções, independentemente da pontuação, serão retornadas em uma matriz denominada intenções, além de topScoringIntent.
+O ponto de extremidade de API tem novos parâmetros de cadeia de caracteres de consulta, bem como uma resposta diferente. Se o sinalizador detalhado for true, todas as intenções, independentemente da pontuação, serão retornadas em uma matriz denominada intenções, além de topScoringIntent.
 
 | version | Rota GET |
 |--|--|

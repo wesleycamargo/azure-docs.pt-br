@@ -6,17 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: haining
-author: hning86
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1b2934ceb402dab5e9cf98e7e0a53b1b438c66a8
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 1640b1cdb9410f33f6556667f36aafcfe575a082
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111842"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080315"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Como funciona o Serviço do Azure Machine Learning: Arquitetura e conceitos
 
@@ -50,7 +49,7 @@ Os modelos são registrados no workspace. Um modelo registrado e scripts de pont
 Você pode criar vários workspaces, e cada workspace pode ser compartilhado por várias pessoas. Ao compartilhar um workspace, controle o acesso ao atribuir as funções a seguir para os usuários:
 
 * Proprietário
-* Colaborador
+* Contribuidor
 * Leitor
 
 Quando você cria um novo workspace, ele automaticamente cria vários recursos do Azure que são usados pelo workspace:
@@ -118,8 +117,8 @@ Um destino de computação é o recurso de computação usado para executar o sc
 | Seu computador local | ✓ | &nbsp; |
 | Computação do Azure Machine Learning | ✓ | &nbsp; |
 | Uma VM do Linux no Azure</br>(como a Máquina Virtual de Ciência de Dados) | ✓ | &nbsp; |
-| Azure Databricks | ✓ | &nbsp; | &nbsp; |
-| Análise Azure Data Lake | ✓ | &nbsp; |
+| Azure Databricks | ✓ | &nbsp; |
+| Azure Data Lake Analytics | ✓ | &nbsp; |
 | Apache Spark para HDInsight | ✓ | &nbsp; |
 | Instâncias de Contêiner do Azure | &nbsp; | ✓ |
 | Serviço de Kubernetes do Azure | &nbsp; | ✓ |
@@ -219,7 +218,7 @@ Os pipelines de aprendizado de máquina são usados para criar e gerenciar fluxo
 
 Para obter mais informações sobre os pipelines de aprendizado de máquina com esse serviço, consulte [Pipelines e Azure Machine Learning](concept-ml-pipelines.md).
 
-## <a name="logging"></a>Registro em log
+## <a name="logging"></a>Log
 
 Ao desenvolver sua solução, use o SDK do Python do Azure Machine Learning em seu script de Python para registrar métricas arbitrárias. Após a execução, consulte as métricas para determinar se a execução produziu o modelo que você deseja implantar.
 

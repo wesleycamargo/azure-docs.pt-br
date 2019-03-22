@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/16/2019
 ms.author: diberry
-ms.openlocfilehash: f3376b8077302eb6bd9a96710f92d692b641cac4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 0723c3730ca0ae6325d828fbb5f41698cb807dd3
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55866773"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874878"
 ---
 # <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>Usar listas de frases para melhorar o sinal da lista de palavras
 
@@ -44,7 +44,7 @@ O LUIS permite até 10 listas de frase por aplicativo.
 
 5. Clique em **Esses valores são intercambiáveis**, se os valores da lista de frases adicionados forem alternativas que podem ser usadas de forma intercambiável.
 
-    ![Valores propostos à lista de frases – caixa selecionar de modo intercambiável ](./media/luis-add-features/interchangeable.png)
+    ![Valores propostos à lista de frases – caixa selecionar de modo intercambiável](./media/luis-add-features/interchangeable.png)
 
 6. Clique em **Salvar**. A lista de frases "Cidades" é adicionada à página **Listas de Frases**.
 

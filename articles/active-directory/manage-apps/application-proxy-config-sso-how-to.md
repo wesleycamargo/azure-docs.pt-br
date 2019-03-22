@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 03/12/2019
 ms.author: celested
-ms.reviewer: asteen
+ms.reviewer: japere, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7df7469a6975fa5e84b43487b524ca888718d7d2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 5f9c4f2c618851b596cd8f2dfa1fd45820a05049
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162315"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791674"
 ---
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>Como configurar o logon único para um aplicativo de Application Proxy
 
@@ -43,6 +43,8 @@ Configure o tipo específico de logon único. Os métodos de logon são classifi
 
 -   **Logon baseado em cabeçalho**: O logon baseado em cabeçalho é habilitado por meio de uma parceria e exige alguma configuração adicional. Para obter detalhes sobre a parceria e instruções passo a passo para configurar o logon único para um aplicativo que usa cabeçalhos para autenticação, consulte o [PingAccess para a documentação do Azure AD](application-proxy-configure-single-sign-on-with-ping-access.md).
 
+-   **Logon único SAML**: Com o SAML SSO, Azure AD autentica o aplicativo usando a conta do usuário do Azure AD. O Azure AD comunica as informações do logon para o aplicativo por meio de um protocolo de conexão. Com o logon único baseado em SAML, você pode mapear os usuários para funções de aplicativo específicas com base nas regras definidas nas suas declarações SAML. Para obter informações sobre como configurar o logon único SAML, consulte [SAML para logon único com Proxy de aplicativo](application-proxy-configure-single-sign-on-on-premises-apps.md).
+
 Cada uma dessas opções pode ser encontrada indo em seu aplicativo em "Aplicativos empresariais" e abrindo a página **Logon Único** no menu à esquerda. Observe que, se seu aplicativo foi criado no portal antigo, você talvez não veja todas essas opções.
 
 Nessa página, você também visualiza uma opção de logon adicional: Logon vinculado. Essa opção também tem suporte do Application Proxy. No entanto, essa opção não adiciona o logon único para o aplicativo. Isso posto, o aplicativo pode já ter logon único implementado usando outro serviço, como Serviços de Federação do Active Directory. 
@@ -50,4 +52,7 @@ Nessa página, você também visualiza uma opção de logon adicional: Logon vin
 Essa opção permite que um administrador crie um link para um aplicativo que os usuários encontram ao acessar o aplicativo. Por exemplo, se houver um aplicativo que está configurado para autenticar usuários usando os Serviços de Federação do Active Directory 2.0, um administrador poderá usar a opção "Logon vinculado" para criar um link para ele no painel de acesso.
 
 ## <a name="next-steps"></a>Próximas etapas
-[Fornecer logon único para seus aplicativos com Proxy de Aplicativo](application-proxy-configure-single-sign-on-with-kcd.md)
+- [Compartimentação de senhas para logon único com o Proxy de Aplicativo](application-proxy-configure-single-sign-on-password-vaulting.md)
+- [Delegação restrita de Kerberos para logon único com o Proxy de Aplicativo](application-proxy-configure-single-sign-on-with-kcd.md)
+- [Autenticação baseada em cabeçalho para logon único com o Proxy de Aplicativo](application-proxy-configure-single-sign-on-with-ping-access.md) 
+- [SAML para logon único com Proxy de aplicativo](application-proxy-configure-single-sign-on-on-premises-apps.md).

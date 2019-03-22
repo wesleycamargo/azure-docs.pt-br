@@ -2,22 +2,17 @@
 title: Analisar dados de log no Azure Monitor | Microsoft Docs
 description: Você precisa de uma consulta de log para recuperar dados de log do Azure Monitor.  Este artigo descreve como novas consultas de log são utilizadas no Azure Monitor e fornece conceitos necessários para serem compreendidos antes de criar uma.
 services: log-analytics
-documentationcenter: ''
 author: bwren
-manager: carmonm
-editor: ''
 ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: bwren
-ms.openlocfilehash: 4c428372868e3d3fac58bc851de8c59ad01d1d8f
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: b25bbc0c4beac12c0b0f693dd4e01ddb2896fa16
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269953"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57857871"
 ---
 # <a name="analyze-log-data-in-azure-monitor"></a>Analisar dados de log no Azure Monitor
 
@@ -34,14 +29,19 @@ Você precisa de uma consulta de log para recuperar quaisquer dados de log do Az
 
 ## <a name="where-log-queries-are-used"></a>Onde as consultas de logs são usadas
 
-As diferentes maneiras de usar consultas de log no Azure Monitor incluem:
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+As diferentes maneiras que você usará consultas no Azure Monitor incluem o seguinte:
+
 
 - **Portal.** Você pode executar análises interativas de dados de log no [portal do Azure](portals.md).  Isso permite que você edite sua consulta e analise os resultados em uma variedade de formatos e visualizações.  
 - **Regras de alerta** As [Regras de alerta](../platform/alerts-overview.md) identificam proativamente os problemas dos dados no workspace.  Cada regra de alerta é baseada em uma pesquisa de logs que é executada automaticamente em intervalos regulares.  Os resultados são inspecionados para determinar se um alerta deve ser criado.
 - **Painéis.** Você pode fixar os resultados da consulta em um [painel do Azure](../learn/tutorial-logs-dashboards.md), que permite visualizar os dados de log e de métrica em conjunto e, opcionalmente, compartilhar com outros usuários do Azure. 
 - **Exibições.**  Você pode criar visualizações de dados a serem incluídas em painéis de usuários com [Designer de Exibição](../platform/view-designer.md).  As consultas de logs fornecem os dados usados por [blocos](../platform/view-designer-tiles.md) e [blocos de visualização](../platform/view-designer-parts.md) em cada exibição.  
+
 - **Exportação.**  Ao importar dados de log do Azure Monitor para o Excel ou o [Power BI](../platform/powerbi.md), você cria uma consulta de logs para definir os dados a serem exportados.
-- **PowerShell.** É possível executar um script do PowerShell em uma linha de comando ou um runbook de Automação do Azure que utiliza [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) para recuperar dados de log do Azure Monitor.  Esse cmdlet requer uma consulta para determinar os dados a serem recuperados.
+- **PowerShell.** Você pode executar um script do PowerShell de uma linha de comando ou um runbook de automação do Azure que usa [Get-AzOperationalInsightsSearchResults](/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) para recuperar dados de log do Azure Monitor.  Esse cmdlet requer uma consulta para determinar os dados a serem recuperados.
 - **API de Logs do Azure Monitor.**  A [API de Logs do Azure Monitor](../platform/alerts-overview.md) permite que qualquer cliente da API REST recupere dados de log do workspace.  A solicitação de API inclui uma consulta que é executada no Azure Monitor para determinar os dados a serem recuperados.
 
 ![Pesquisas de log](media/log-query-overview/queries-overview.png)
@@ -102,5 +102,5 @@ Embora o [Application Insights](../app/app-insights-overview.md) armazene dados 
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- Saiba mais sobre como usar o [Log Analytics para criar e editar pesquisas de log](../log-query/portals.md).
+- Saiba mais sobre como usar [pesquisas de log do Log Analytics para criar e editar](../log-query/portals.md).
 - Confira um [tutorial sobre como escrever consultas](../log-query/get-started-queries.md) utilizando a nova linguagem de consulta.

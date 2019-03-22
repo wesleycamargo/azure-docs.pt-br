@@ -1,6 +1,6 @@
 ---
-title: Tabela de limites do serviço SignalR
-description: Descreve os limites do sistema para o serviço SignalR.
+title: Tabela de limites do Azure SignalR Service
+description: Descreve os limites do sistema para o serviço do Azure SignalR.
 services: signalr
 documentationcenter: signalr
 author: sffamily
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/24/2018
 ms.author: zhshang
-ms.openlocfilehash: 9283c106aa41bd5061dfd1761c840382a0bb3337
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: HT
+ms.openlocfilehash: 236bb39125ec03a9652a57f9cd4aaa5da2695452
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47045234"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553264"
 ---
 | Recurso | Limite padrão | Limite máximo | 
 | --- | --- | --- |
-| Unidades do serviço SignalR por instância da camada gratuita |1 |1 |
-| Unidades do serviço SignalR por instância da camada Standard |100 |100 |
-| Unidades do serviço SignalR por assinatura e por região da camada gratuita|5 |5 |
-| Contagem total de unidades do serviço SignalR por assinatura por região |50 |Ilimitado |
+| As unidades de Azure SignalR Service por instância de camada gratuita |1 |1 |
+| Unidades de Azure SignalR Service por instância para a camada padrão |100 |100 |
+| Camada gratuita de unidades de SignalR Service do Azure por assinatura por região|5 |5 |
+| Contagens de unidade de serviço do Azure SignalR total por assinatura por região |50 |Ilimitado |
 | Conexões por unidade por dia para a camada gratuita |20 |20 |
 | Conexões por unidade por dia para a camada Standard |1.000 |1.000|
 | Mensagens incluídas por unidade por dia para a camada gratuita|20.000 |20.000 |

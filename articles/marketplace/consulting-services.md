@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: 53281af4cf3ce49272ffe9fc48ab0f85cea276b2
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
-ms.translationtype: HT
+ms.openlocfilehash: fbaa89140033ee3b07017370e31e69601aa298db
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213614"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078747"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Consulte de Serviços para o Azure Marketplace e AppSource
 Os Serviços de Consultoria no Azure Marketplace e AppSource fornecem a parceiros da Microsoft a meta de conectar clientes com os serviços de suporte e estender seu uso e objetivos de negócios. 
@@ -41,12 +41,12 @@ As vitrines do Marketplace estão alinhadas com o público e os produtos de nuve
 
 As ofertas de serviço baseadas no Microsoft Dynamics 365, Office 365 e Power BI são qualificadas para serem listadas no AppSource. Para obter mais informações, consulte [diretrizes da lista de serviços de consultoria do Microsoft AppSource](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf). 
 
->[!Note]
->Os Serviços de Consultoria no Azure Marketplace devem aproveitar as ofertas voltadas para um público técnico ** com foco em *soluções e serviços técnicos do Azure.* ** Os serviços de consultoria no AppSource devem aproveitar ofertas destinadas a sua experiência no fornecimento de soluções de qualidade para Dynamics 365, Power BI ou o PowerApps para listar suas ofertas de serviços de consultoria no AppSource
-
-
->[!TIP]
->Para publicar na vitrine do Microsoft Azure Market Place, você fará essa seleção escolhendo "Azure" no menu suspenso "Produto principal" no Portal do Microsoft Cloud Partner. Para publicar no AppSource, você fará essa seleção escolhendo "Dynamics 365," "Power BI," ou "Power Apps"no menu suspenso "Primary Product" no Portal do Microsoft Cloud Partner.
+> [!Note]
+> Os Serviços de Consultoria no Azure Marketplace devem aproveitar as ofertas voltadas para um público técnico ** com foco em *soluções e serviços técnicos do Azure.* ** Os serviços de consultoria no AppSource devem aproveitar ofertas destinadas a sua experiência no fornecimento de soluções de qualidade para Dynamics 365, Power BI ou o PowerApps para listar suas ofertas de serviços de consultoria no AppSource
+> 
+> 
+> [!TIP]
+> Para publicar na vitrine do Microsoft Azure Market Place, você fará essa seleção escolhendo "Azure" no menu suspenso "Produto principal" no Portal do Microsoft Cloud Partner. Para publicar no AppSource, você fará essa seleção escolhendo "Dynamics 365," "Power BI," ou "Power Apps"no menu suspenso "Primary Product" no Portal do Microsoft Cloud Partner.
 
 ## <a name="eligible-partners-and-supported-countries"></a>Parceiros qualificados e países com suporte
 

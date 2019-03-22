@@ -13,14 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: bc78c4afd3a85dc4b7b03fb3543632da7586ea31
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: afa840bd0b48cc9df1e9711caa035b85e8ec3855
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083252"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57883654"
 ---
 # <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>Configurar o modo de distribuição para o Azure Load Balancer
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="hash-based-distribution-mode"></a>Modo de distribuição baseado em hash
 
@@ -50,10 +52,10 @@ Outro cenário de caso de uso é o upload de mídia. O upload de dados ocorre po
 
 Para máquinas virtuais implantadas com o Resource Manager, use o Azure PowerShell para alterar as configurações de distribuição do balanceador de carga em uma regra de balanceamento de carga existente. Isso atualiza o modo de distribuição: 
 
-```powershell 
-$lb = Get-AzureRmLoadBalancer -Name MyLb -ResourceGroupName MyLbRg 
-$lb.LoadBalancingRules[0].LoadDistribution = 'sourceIp' 
-Set-AzureRmLoadBalancer -LoadBalancer $lb 
+```powershell
+$lb = Get-AzLoadBalancer -Name MyLb -ResourceGroupName MyLbRg
+$lb.LoadBalancingRules[0].LoadDistribution = 'sourceIp'
+Set-AzLoadBalancer -LoadBalancer $lb
 ```
 
 Para máquinas virtuais clássicas, use o Azure PowerShell para alterar as configurações de distribuição. Adicione um ponto de extremidade do Azure a uma máquina virtual e configure o modo de distribuição do balanceador de carga:
@@ -92,7 +94,7 @@ Quando o elemento `LoadBalancerDistribution` não está presente, o Azure Load B
 
 Quando os pontos de extremidade formarem parte de um conjunto de pontos de extremidade com balanceamento de carga, o modo de distribuição deverá ser configurado no conjunto de pontos de extremidade com balanceamento de carga:
 
-```powershell
+```azurepowershell
 Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol TCP -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 –LoadBalancerDistribution sourceIP
 ```
 
@@ -133,7 +135,7 @@ Use o modelo de implantação clássico do Azure para alterar uma configuração
     POST https://management.core.windows.net/<subscription-id>/services/hostedservices/<cloudservice-name>/deployments/<deployment-name>?comp=UpdateLbSet   x-ms-version: 2014-09-01
     Content-Type: application/xml
 
-    <LoadBalancedEndpointList xmlns="http://schemas.microsoft.com/windowsazure" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    <LoadBalancedEndpointList xmlns="http://schemas.microsoft.com/windowsazure" xmlns:i="https://www.w3.org/2001/XMLSchema-instance">
       <InputEndpoint>
         <LoadBalancedEndpointSetName> endpoint-set-name </LoadBalancedEndpointSetName>
         <LocalPort> local-port-number </LocalPort>

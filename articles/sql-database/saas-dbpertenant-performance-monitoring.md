@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 5b9d5d6252f22901d2b8ac5a61d924ce12cc7065
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 075d0e2471457e1a585f7fdea9b523b1d13499c7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004610"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100421"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Monitore e gerencie o desempenho dos pools e dos bancos de dados SQL do Azure em um aplicativo SaaS multilocatário
 
@@ -28,7 +28,7 @@ O aplicativo Wingtip Tickets SaaS Banco de dados Por Locatário usa um modelo de
 Neste tutorial, você aprenderá a:
 
 > [!div class="checklist"]
-
+> 
 > * Simular o uso em bancos de dados de locatário executando um gerador de carga fornecido
 > * Monitorar os bancos de dados de locatário conforme eles respondem ao aumento de carga
 > * Escalar verticalmente o pool elástico em resposta ao aumento da carga do banco de dados
@@ -57,7 +57,7 @@ Os pools e os bancos de dados nos pools, devem ser monitorados para garantir que
 
 O [Portal do Azure](https://portal.azure.com) fornece monitoramento e alertas internos sobre a maioria dos recursos. Para o Banco de Dados SQL, o monitoramento e o alerta estão disponíveis em bancos de dados e pools. Esse monitoramento e alertas internos são específicos ao recurso e, portanto, é conveniente usá-los para pequenas quantidades de recursos, mas não são muito convenientes ao trabalhar com muitos recursos.
 
-Para cenários de alto volume em que você está trabalhando com muitos recursos, o [Log Analytics](saas-dbpertenant-log-analytics.md) pode ser usado. Esse é um serviço separado do Azure que fornece a análise de logs de diagnóstico emitidos e da telemetria coletada em um workspace de análise de logs. O Log Analytics pode coletar a telemetria de diversos serviços e usá-las para consultar e definir alertas.
+Para cenários de alto volume, em que você está trabalhando com muitos recursos, [registra em log do Azure Monitor](saas-dbpertenant-log-analytics.md) pode ser usado. Isso é um serviço do Azure separado que fornece análise sobre logs de diagnóstico emitidos e telemetria coletados em um espaço de trabalho do Log Analytics. Os logs do Azure Monitor podem coletar a telemetria de muitos serviços e ser usados para consultar e definir alertas.
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obter os scripts do aplicativo Wingtip Tickets SaaS Database Per Tenant
 
@@ -83,10 +83,10 @@ O script *New-TenantBatch* usa um conjunto aninhado ou vinculado de modelos do [
 
 | Demonstração | Cenário |
 |:--|:--|
-| 2 | Gerar carga de intensidade normal (aproximadamente 40 DTU) |
+| 2 | Gerar carga de intensidade normal (aproximadamente 40 DTU) |
 | 3 | Gerar carga com picos mais longos e mais frequentes por banco de dados|
-| 4 | Gerar carga com picos maiores de DTU por banco de dados (aprox. 80 DTU)|
-| 5 | Gerar uma carga normal e uma carga alta em um locatário único (aprox. 95 DTU)|
+| 4 | Gerar carga com picos maiores de DTU por banco de dados (aproximadamente 80 DTU)|
+| 5 | Gerar uma carga normal e uma carga alta em um único locatário (aproximadamente 95 DTU)|
 | 6 | Gerar carga desbalanceada entre vários pools|
 
 O gerador de carga aplica uma carga *sintética* somente da CPU em cada banco de dados de locatário. O gerador inicia um trabalho para cada banco de dados de locatário, que chama um procedimento armazenado que gera a carga periodicamente. Os níveis de carga (em eDTUs), a duração e os intervalos variam em todos os bancos de dados, simulando uma atividade de locatário imprevisível.
@@ -171,17 +171,17 @@ Como alternativa a escalar verticalmente o pool, crie um segundo pool e mova os 
 1. Clique em **+ Novo pool** para criar um pool no servidor atual.
 1. No modelo **Pool elástico**:
 
-    1. Defina **Nome** como *Pool2*.
-    1. Deixe o tipo de preço como **Pool Standard**.
-    1. Clique em **Configurar pool**,
-    1. Defina **eDTU do Pool** como *50 eDTUs*.
-    1. Clique em **Adicionar bancos de dados** para ver uma lista de bancos de dados no servidor que podem ser adicionados ao *Pool2*.
-    1. Selecione 10 bancos de dados aleatórios para movê-los para o novo pool e, em seguida, clique em **Selecionar**. Se você estiver executando o gerador de carga, o serviço já reconhecerá que o perfil de desempenho exige um pool maior que o tamanho padrão de 50 eDTUs e recomendará que você comece com uma configuração de 100 eDTUs.
+   1. Defina **Nome** como *Pool2*.
+   1. Deixe o tipo de preço como **Pool Standard**.
+   1. Clique em **Configurar pool**,
+   1. Defina **eDTU do Pool** como *50 eDTUs*.
+   1. Clique em **Adicionar bancos de dados** para ver uma lista de bancos de dados no servidor que podem ser adicionados ao *Pool2*.
+   1. Selecione 10 bancos de dados aleatórios para movê-los para o novo pool e, em seguida, clique em **Selecionar**. Se você estiver executando o gerador de carga, o serviço já reconhecerá que o perfil de desempenho exige um pool maior que o tamanho padrão de 50 eDTUs e recomendará que você comece com uma configuração de 100 eDTUs.
 
-    ![recomendação](media/saas-dbpertenant-performance-monitoring/configure-pool.png)
+      ![recomendação](media/saas-dbpertenant-performance-monitoring/configure-pool.png)
 
-    1. Para este tutorial, deixe o padrão em 50 eDTUs e clique em **Selecionar** novamente.
-    1. Selecione **OK** para criar um novo pool e para mover os bancos de dados selecionados para ele.
+   1. Para este tutorial, deixe o padrão em 50 eDTUs e clique em **Selecionar** novamente.
+   1. Selecione **OK** para criar um novo pool e para mover os bancos de dados selecionados para ele.
 
 A criação do pool e a movimentação dos bancos de dados leva apenas alguns minutos. Conforme os bancos de dados são movidos, eles permanecem online e totalmente acessíveis até o último momento, quando todas as conexões abertas são fechadas. Desde que você tenha uma lógica de repetição, os clientes se conectarão ao banco de dados no novo pool.
 
@@ -196,7 +196,7 @@ Se um banco de dados individual em um pool apresentar uma alta carga constante, 
 Este exercício simula o efeito do Contoso Concert Hall experimentando uma alta carga quando os ingressos de um concerto popular são disponibilizados para a venda.
 
 1. No **PowerShell ISE**, abra o script \\*Demo-PerformanceMonitoringAndManagement.ps1*.
-1. Defina **$DemoScenario = 5, Gerar uma carga normal e uma carga alta em um locatário único (aprox. 95 DTU).**
+1. Definir **$DemoScenario = 5, gerar uma carga normal e uma carga alta em um único locatário (aproximadamente 95 DTU).**
 1. Defina **$SingleTenantDatabaseName = contosoconcerthall**
 1. Execute o script usando **F5**.
 
@@ -247,4 +247,4 @@ Neste tutorial, você aprenderá a:
 * [Tutoriais que compilam a implantação do aplicativo Banco de Dados por Locatário SaaS Wingtip Tickets](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials) adicionais
 * [Pools elásticos do SQL](sql-database-elastic-pool.md)
 * [Automação do Azure](../automation/automation-intro.md)
-* [Log Analytics](saas-dbpertenant-log-analytics.md) – Tutorial de configuração e uso do Log Analytics
+* [Os logs do Azure Monitor](saas-dbpertenant-log-analytics.md) – configuração e uso tutorial de logs do Azure Monitor

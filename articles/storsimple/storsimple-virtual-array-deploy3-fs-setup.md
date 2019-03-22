@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 04/17/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f699e40a4a31b6d57b12a43ae307806d3f010015
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: a931b303e40e41bc23e8b586e1d37e600625b1a8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267174"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57881054"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Implantar o StorSimple Virtual Array — configurar como um servidor de arquivos por meio do portal do Azure
 ![](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
@@ -129,15 +129,15 @@ Execute as etapas a seguir no [portal do Azure](https://portal.azure.com/) para 
     ![Configurar um servidor de arquivos](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs3m.png)
 3. Clique em **Configurar** na barra de comandos. Isso abrirá a folha **Configurar**. Na folha **Configurar**, faça o seguinte:
    
-    1. O nome do servidor de arquivos é preenchido automaticamente.
+   1. O nome do servidor de arquivos é preenchido automaticamente.
     
-    2. Verifique se a criptografia de armazenamento em nuvem está definida como **Habilitada**. Isso irá criptografar todos os dados enviados para a nuvem. 
+   2. Verifique se a criptografia de armazenamento em nuvem está definida como **Habilitada**. Isso irá criptografar todos os dados enviados para a nuvem. 
     
-    3. Uma chave AES de 256 bits é ser usada com a chave de criptografia definida pelo usuário. Especifique uma chave de 32 caracteres e, em seguida, insira novamente a chave para confirmá-la. Registre a chave em um aplicativo de gerenciamento de chaves para referência futura.
+   3. Uma chave AES de 256 bits é ser usada com a chave de criptografia definida pelo usuário. Especifique uma chave de 32 caracteres e, em seguida, insira novamente a chave para confirmá-la. Registre a chave em um aplicativo de gerenciamento de chaves para referência futura.
     
-    4. Clique em **Definir configurações necessárias** para especificar as credenciais de conta de armazenamento a serem usadas com o dispositivo. Clique em **adicionar novo** se não houver nenhuma credencial de conta de armazenamento configurada. **Certifique-se de que a conta de armazenamento usada oferece suporte a blobs de bloco. Blobs de página não têm suporte.** Para obter mais informações sobre [blobs de blocos e blobs de página](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
+   4. Clique em **Definir configurações necessárias** para especificar as credenciais de conta de armazenamento a serem usadas com o dispositivo. Clique em **adicionar novo** se não houver nenhuma credencial de conta de armazenamento configurada. **Certifique-se de que a conta de armazenamento usada oferece suporte a blobs de bloco. Blobs de página não têm suporte.** Para obter mais informações sobre [blobs de blocos e blobs de página](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
    
-    ![Configurar um servidor de arquivos](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
+      ![Configurar um servidor de arquivos](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
 4. Na folha **Adicionar credenciais de uma conta de armazenamento**, faça o seguinte: 
 
     1. Escolha a assinatura atual caso a conta de armazenamento esteja na mesma assinatura do que o serviço. Especifique outra se a conta de armazenamento estiver fora da assinatura do serviço. 
@@ -175,26 +175,26 @@ Execute as etapas a seguir no [portal do Azure](https://portal.azure.com/) para 
    ![Adicionar um compartilhamento](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs15m.png)
 2. Especifique as configurações de compartilhamento a seguir:
 
-    1. Um nome exclusivo para seu compartilhamento. O nome deve ser uma cadeia de caracteres contendo entre 3 e 127 caracteres.
+   1. Um nome exclusivo para seu compartilhamento. O nome deve ser uma cadeia de caracteres contendo entre 3 e 127 caracteres.
     
-    2. Uma **Descrição** opcional para o compartilhamento. A descrição ajudará a identificar os proprietários de compartilhamento.
+   2. Uma **Descrição** opcional para o compartilhamento. A descrição ajudará a identificar os proprietários de compartilhamento.
     
-    3. Um **Tipo** para o compartilhamento. O tipo pode ser **Em camadas** ou **Localmente afixado**, sendo que Em camadas é o padrão. Para cargas de trabalho que exigem garantias locais, menos latências e um melhor desempenho, selecione um compartilhamento **Fixado localmente** . Para todos os outros dados, selecione um compartilhamento **Em camadas** .
-    Um compartilhamento fixado localmente é provisionado estaticamente e garante que os dados primários no compartilhamento permaneçam como locais para o dispositivo e não sejam divulgados na nuvem. Um compartilhamento em camadas, por outro lado, é provisionado dinamicamente. Quando você cria um volume em camadas, aproximadamente 10% do espaço é provisionado na camada local e 90% do espaço é provisionado na nuvem. Por exemplo, se você provisionar um volume de 1 TB, 100 GB residiriam no espaço local e 900 GB seriam usados na nuvem quando os dados fossem distribuídos em camadas. Isso, por sua vez, implica que se você ficar sem todo o espaço local no dispositivo, você não poderá provisionar um compartilhamento em camadas.
+   3. Um **Tipo** para o compartilhamento. O tipo pode ser **Em camadas** ou **Localmente afixado**, sendo que Em camadas é o padrão. Para cargas de trabalho que exigem garantias locais, menos latências e um melhor desempenho, selecione um compartilhamento **Fixado localmente** . Para todos os outros dados, selecione um compartilhamento **Em camadas** .
+      Um compartilhamento fixado localmente é provisionado estaticamente e garante que os dados primários no compartilhamento permaneçam como locais para o dispositivo e não sejam divulgados na nuvem. Um compartilhamento em camadas, por outro lado, é provisionado dinamicamente. Quando você cria um volume em camadas, aproximadamente 10% do espaço é provisionado na camada local e 90% do espaço é provisionado na nuvem. Por exemplo, se você provisionar um volume de 1 TB, 100 GB residiriam no espaço local e 900 GB seriam usados na nuvem quando os dados fossem distribuídos em camadas. Isso, por sua vez, implica que se você ficar sem todo o espaço local no dispositivo, você não poderá provisionar um compartilhamento em camadas.
    
-    4. No campo **Definir permissões padrão completas a**, atribua as permissões para o usuário ou para o grupo que está acessando esse compartilhamento. Especifique o nome do usuário ou grupo de usuários no formato *john@contoso.com*. É recomendável que você use um grupo de usuários (em vez de um único usuário) para conceder privilégios de administrador para acessar esses compartilhamentos. Depois de atribuir as permissões aqui, você pode usar o Gerenciador de Arquivos para modificar essas permissões.
+   4. No campo **Definir permissões padrão completas a**, atribua as permissões para o usuário ou para o grupo que está acessando esse compartilhamento. Especifique o nome do usuário ou grupo de usuários no *john\@contoso.com* formato. É recomendável que você use um grupo de usuários (em vez de um único usuário) para conceder privilégios de administrador para acessar esses compartilhamentos. Depois de atribuir as permissões aqui, você pode usar o Gerenciador de Arquivos para modificar essas permissões.
    
-    5. Clique em **Adicionar** para criar o compartilhamento. 
+   5. Clique em **Adicionar** para criar o compartilhamento. 
     
-        ![Adicionar um compartilhamento](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs18m.png)
+       ![Adicionar um compartilhamento](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs18m.png)
    
-        Você será notificado de que a criação do compartilhamento está em andamento.
+       Você será notificado de que a criação do compartilhamento está em andamento.
    
-        ![Adicionar um compartilhamento](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs19m.png)
+       ![Adicionar um compartilhamento](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs19m.png)
    
-    Depois que o compartilhamento tiver sido criado com as configurações especificadas, a folha **Compartilhamentos** será atualizada para refletir o novo compartilhamento. Por padrão, o monitoramento e o backup estão habilitados para o compartilhamento.
+      Depois que o compartilhamento tiver sido criado com as configurações especificadas, a folha **Compartilhamentos** será atualizada para refletir o novo compartilhamento. Por padrão, o monitoramento e o backup estão habilitados para o compartilhamento.
    
-    ![Adicionar um compartilhamento](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs22m.png)
+      ![Adicionar um compartilhamento](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs22m.png)
 
 ## <a name="step-4-connect-to-the-share"></a>Etapa 4: Conectar-se ao compartilhamento
 Agora, você precisará conectar-se a um ou mais compartilhamentos que você criou na etapa anterior. Execute estas etapas no host do Windows Server conectado à sua Matriz Virtual StorSimple.

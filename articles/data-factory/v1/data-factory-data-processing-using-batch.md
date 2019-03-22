@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: adb9fb649d934d08ea546759bcf4733a1c6d9080
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: f78275af5faaf19a4993a5ae4414b0163f9a4d9d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822741"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124143"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Processar conjuntos de dados em larga escala usando o Data Factory e o Lote
 > [!NOTE]
@@ -26,9 +26,12 @@ ms.locfileid: "55822741"
 
 Este artigo descreve uma arquitetura de um exemplo de solução que move e processa os conjuntos de dados em larga escala de maneira automática e agendada. Ele também fornece um passo a passo completo para implementar a solução usando o Data Factory e o Lote do Azure.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Este artigo é maior que um artigo típico porque contém um passo a passo de uma solução de exemplo inteira. Se estiver conhecendo o Lote e o Data Factory agora, saiba mais sobre esses serviços e como eles funcionam juntos. Se você conhece algo sobre os serviços e está criando/projetando uma solução, concentre-se na seção sobre arquitetura do artigo. Se estiver desenvolvendo um protótipo ou uma solução, você pode usar as instruções passo a passo. Seus comentários sobre esse conteúdo e como usá-lo são bem-vindos.
 
 Primeiro, vamos observar como os serviços Data Factory e Lote podem ajudá-lo a processar conjuntos de dados grandes na nuvem.     
+
 
 ## <a name="why-azure-batch"></a>Por que usar o Lote do Azure?
  Use o Lote para executar aplicativos HPC (computação de alto desempenho) e paralelos em larga escala com eficiência na nuvem. É um serviço de plataforma que agenda trabalhos com uso intensivo de computação para execução em uma coleção gerenciada de VMs (máquinas virtuais). Pode dimensionar automaticamente os recursos de computação conforme as necessidades de seus trabalhos.
@@ -40,7 +43,7 @@ Com o serviço em Lotes, você define os recursos de computação do Azure para 
 * [Conceitos básicos do Lote](../../batch/batch-technical-overview.md)
 * [Visão geral do recurso de Lote](../../batch/batch-api-basics.md)
 
-Opcionalmente, para saber mais sobre o Batch, consulte [Documentação do lote](https://docs.microsoft.com/azure/batch/).
+Opcionalmente, para saber mais sobre o lote, consulte [documentação do lote](https://docs.microsoft.com/azure/batch/).
 
 ## <a name="why-azure-data-factory"></a>Por que usar o Azure Data Factory?
 O Data Factory é um serviço de integração de dados baseado em nuvem que automatiza a movimentação e a transformação dos dados. Use o Data Factory para criar pipelines de dados gerenciados que movem dados dos armazenamentos de dados locais e na nuvem para um armazenamento de dados centralizado. Um exemplo é o armazenamento de Blobs do Azure. Use o Data Factory para o processar/transformar dados usando serviços como o Azure HDInsight e Azure Machine Learning. Também agende pipelines de dados para serem executados de maneira agendada (por exemplo, por hora, diariamente e semanalmente). Monitore e gerencie rapidamente os pipelines de dados para identificar problemas e agir.
@@ -89,11 +92,11 @@ A solução de exemplo é intencionalmente simples. Ela foi projetada para mostr
 #### <a name="azure-subscription"></a>Assinatura do Azure
 Se você não tem uma assinatura do Azure, crie uma conta de avaliação gratuita rapidamente. Para obter mais informações, consulte [Avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-#### <a name="azure-storage-account"></a>Conta de Armazenamento do Azure
+#### <a name="azure-storage-account"></a>Conta de armazenamento do Azure
 Use uma conta de armazenamento para armazenar os dados deste tutorial. Se você não tem uma conta de armazenamento, consulte [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md). A solução de exemplo usa o armazenamento de blobs.
 
 #### <a name="azure-batch-account"></a>Conta do Lote do Azure
-Crie uma conta do Lote usando o [portal do Azure](http://portal.azure.com/). Para obter mais informações, consulte [Criar e gerenciar uma conta do Lote](../../batch/batch-account-create-portal.md). Anote a chave e o nome da conta do Lote. Também use o cmdlet [New-AzureRmBatchAccount](https://docs.microsoft.com/powershell/module/azurerm.batch/new-azurermbatchaccount) para criar uma conta do Lote. Para obter instruções sobre como usar esse cmdlet, consulte [Introdução aos cmdlets do PowerShell do Lote](../../batch/batch-powershell-cmdlets-get-started.md).
+Crie uma conta do Lote usando o [portal do Azure](https://portal.azure.com/). Para obter mais informações, consulte [Criar e gerenciar uma conta do Lote](../../batch/batch-account-create-portal.md). Anote a chave e o nome da conta do Lote. Você também pode usar o [New-AzBatchAccount](https://docs.microsoft.com/powershell/module/az.batch/new-azbatchaccount) para criar uma conta do lote. Para obter instruções sobre como usar esse cmdlet, consulte [Introdução aos cmdlets do PowerShell do Lote](../../batch/batch-powershell-cmdlets-get-started.md).
 
 A solução de exemplo usa o Lote (indiretamente por meio de um pipeline do data factory) para processar dados de forma paralela em um pool de nós de computação (uma coleção gerenciada de VMs).
 
@@ -108,7 +111,7 @@ Crie um pool do Lote com pelo menos dois nós de computação.
 
 1. Na folha **Pools**, selecione o botão **Adicionar** na barra de ferramentas para adicionar um pool.
 
-    a. Insira uma ID para o pool (**ID do Pool**). Anote a ID do pool. Você precisará dela quando criar a solução de data factory.
+   a. Insira uma ID para o pool (**ID do Pool**). Anote a ID do pool. Você precisará dela quando criar a solução de data factory.
 
    b. Especifique **Windows Server 2012 R2** para a configuração **Família de Sistemas Operacionais**.
 
@@ -177,7 +180,7 @@ O método tem alguns componentes principais que você precisa entender:
 #### <a name="procedure-create-the-custom-activity"></a>Procedimento: Criar a atividade personalizada
 1. Crie um projeto de biblioteca de classes .NET no Visual Studio.
 
-    a. Inicie o Visual Studio 2012/2013/2015.
+   a. Inicie o Visual Studio 2012/2013/2015.
 
    b. Selecione **Arquivo** > **Novo** > **Projeto**.
 
@@ -201,7 +204,7 @@ O método tem alguns componentes principais que você precisa entender:
 1. Importe o pacote NuGet do **Armazenamento do Azure** para o projeto. Você precisa desse pacote porque usa a API de Armazenamento de Blobs nesta amostra:
 
     ```powershell
-    Install-Package Azure.Storage
+    Install-Package Az.Storage
     ```
 1. Adicione as seguintes diretivas using ao arquivo de origem no projeto:
 
@@ -525,7 +528,7 @@ A apresentação passo a passo a seguir dá os detalhes adicionais.
 #### <a name="step-1-create-the-data-factory"></a>Etapa 1: Criar o data factory
 1. Depois de entrar no [portal do Azure](https://portal.azure.com/), execute as seguintes etapas:
 
-    a. Selecione **NOVO** no menu à esquerda.
+   a. Selecione **NOVO** no menu à esquerda.
 
    b. Selecione **Dados + Análise** na folha **Novo**.
 
@@ -553,7 +556,7 @@ Os serviços vinculados vinculam armazenamentos de dados ou serviços de computa
 
 1. Selecione **Novo armazenamento de dados** na barra de comandos e escolha **Armazenamento do Azure.** O script JSON usado para criar um serviço vinculado do Armazenamento no editor é exibido.
 
-   ![Novo armazenamento de dados](./media/data-factory-data-processing-using-batch/image7.png)
+   ![Novo repositório de dados](./media/data-factory-data-processing-using-batch/image7.png)
 
 1. Substitua o **nome da conta** pelo nome da sua conta de armazenamento. Substitua **chave de conta** pela chave de acesso da conta de armazenamento. Para saber como obter sua chave de acesso de armazenamento, consulte [Exibir, copiar e regenerar chaves de acesso de armazenamento](../../storage/common/storage-account-manage.md#access-keys).
 
@@ -568,7 +571,7 @@ Nesta etapa, você cria um serviço vinculado para sua conta do Lote que é usad
 
 1. No script JSON:
 
-    a. Substitua **nome da conta** pelo nome de sua conta do Lote.
+   a. Substitua **nome da conta** pelo nome de sua conta do Lote.
 
    b. Substitua **chave de acesso** pela chave de acesso da conta do Lote.
 
@@ -799,8 +802,8 @@ Nesta etapa, você cria um pipeline com uma atividade, a atividade personalizada
    * A propriedade **linkedServiceName** da atividade personalizada aponta para **AzureBatchLinkedService**, que informa o Data Factory de que a atividade personalizada precisa ser executada no Lote.
    * A configuração **simultaneidade** é importante. Se você usar o valor padrão, que é 1, mesmo que tenha dois ou mais nós de computação no pool do Lote, as fatias serão processadas uma após a outra. Portanto, você não está aproveitando a capacidade de processamento paralelo do Lote. Se você definir **concurrency** com um valor mais alto, digamos 2, isso significa que duas fatias (corresponde a duas tarefas no Lote) podem ser processadas ao mesmo tempo. Nesse caso, ambas as VMs do pool do Lote são utilizadas. Defina a propriedade de simultaneidade adequadamente.
    * Apenas uma tarefa (fatia) é executada em uma VM a qualquer momento por padrão. Por padrão, a configuração **Máximo de tarefas por VM** é definida como 1 para um pool do Lote. Como parte dos pré-requisitos, você criou um pool com essa propriedade definida como 2. Portanto, duas fatias do data factory podem ser executadas em uma VM ao mesmo tempo.
-    - A propriedade **isPaused** está definida como falso por padrão. O pipeline é executado imediatamente neste exemplo porque a fatias começam no passado. Defina essa propriedade como **true** para pausar o pipeline e defina-a novamente como **false** para reiniciá-lo.
-    -   As horas de **início** e de **término** são separadas por cinco horas. As fatias são produzidas por hora; portanto, cinco fatias são produzidas pelo pipeline.
+     - A propriedade **isPaused** está definida como falso por padrão. O pipeline é executado imediatamente neste exemplo porque a fatias começam no passado. Defina essa propriedade como **true** para pausar o pipeline e defina-a novamente como **false** para reiniciá-lo.
+     -   As horas de **início** e de **término** são separadas por cinco horas. As fatias são produzidas por hora; portanto, cinco fatias são produzidas pelo pipeline.
 
 1. Clique em **Implantar** na barra de comandos para implantar o pipeline.
 
@@ -977,4 +980,4 @@ Depois de processar dados, consuma-os com ferramentas online como o Power BI. Aq
   * [Introdução à biblioteca de clientes do Lote para .NET](../../batch/quick-run-dotnet.md)
 
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
-[batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
+[batch-explorer-walkthrough]: https://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx

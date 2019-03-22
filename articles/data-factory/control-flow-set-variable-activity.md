@@ -3,21 +3,20 @@ title: Definir atividade variável no Azure Data Factory | Microsoft Docs
 description: Saiba como usar a atividade Definir Variável para definir o valor de uma variável existente definida em um pipeline do Data Factory
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/10/2018
-ms.author: douglasl
-ms.openlocfilehash: cc573028779bcd6b77394bbeefbea58f714b835c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+author: sharonlo101
+ms.author: shlo
+manager: craigg
+ms.openlocfilehash: 71abfdff629f36b278488851b546c7371353a4d9
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017337"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57575283"
 ---
 # <a name="set-variable-activity-in-azure-data-factory"></a>Definir Atividade Variável no Azure Data Factory
 
@@ -25,13 +24,13 @@ Use a atividade Definir Variável para definir o valor de uma variável existent
 
 ## <a name="type-properties"></a>Propriedades de tipo
 
-Propriedade | DESCRIÇÃO | Obrigatório
+Propriedade | Descrição | Obrigatório
 -------- | ----------- | --------
-Nome | Nome da atividade no pipeline | SIM
-Descrição | Texto descrevendo o que a atividade realiza | não
-Tipo | Tipo de atividade é SetVariable | Sim
-value | Literal de cadeia de caracteres ou valor do objeto de expressão usado para definir a variável especificada | Sim
-variableName | Nome da variável que será definida por essa atividade | Sim
+nome | Nome da atividade no pipeline | Sim
+descrição | Texto descrevendo o que a atividade realiza | não
+tipo | Tipo de atividade é SetVariable | sim
+valor | Literal de cadeia de caracteres ou valor do objeto de expressão usado para definir a variável especificada | sim
+variableName | Nome da variável que será definida por essa atividade | sim
 
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: dab0a6a5eee8893f28a221b44d57afe255841fa0
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 9267360394568f0f9259a3c818b21f4e585fd958
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329738"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543722"
 ---
 # <a name="mapping-data-flow-expression-builder"></a>Construtor de Expressões de Fluxo de Dados de Mapeamento
 
@@ -49,9 +49,9 @@ Adicione comentários às expressões usando sintaxe de comentário de linha ún
 
 ![Comentários](media/data-flow/comments.png "Comentários")
 
-## <a name="regular-expressions"></a>Expressões regulares
+## <a name="regular-expressions"></a>Expressões Regulares
 
-A linguagem de expressão do Fluxo de Dados do Azure Data Factory, [documentação de referência completa aqui](http://aka.ms/dataflowexpressions), habilita funções que incluem sintaxe de expressão regular. Ao usar funções de expressões regulares, o Construtor de Expressões tentará interpretar a barra invertida (\) como uma sequência de caracteres de escape. Ao usar barras invertidas na expressão regular, coloque o regex inteiro em tiques ` ` ou use uma barra invertida dupla.
+A linguagem de expressão do Fluxo de Dados do Azure Data Factory, [documentação de referência completa aqui](https://aka.ms/dataflowexpressions), habilita funções que incluem sintaxe de expressão regular. Ao usar funções de expressões regulares, o Construtor de Expressões tentará interpretar a barra invertida (\) como uma sequência de caracteres de escape. Ao usar barras invertidas na expressão regular, coloque o regex inteiro em tiques ` ` ou use uma barra invertida dupla.
 
 Exemplo usando tiques
 
@@ -70,3 +70,12 @@ regex_replace('100 and 200', '(\\d+)', 'digits')
 Com funções de expressão que retornam matrizes, use colchetes [] para endereçar índices específicos dentro desse objeto de matriz de retorno. A matriz baseia-se neles.
 
 ![Matriz do Construtor de Expressões](media/data-flow/expb2.png "Visualização dos Dados de Expressão")
+
+## <a name="handling-names-with-special-characters"></a>Tratamento de nomes com caracteres especiais
+
+Quando você tiver nomes de coluna que incluem espaços ou caracteres especiais, coloque o nome entre chaves.
+* ```{[dbo].this_is my complex name$$$}```
+
+## <a name="next-steps"></a>Próximas etapas
+
+[Comece a criar expressões de transformação de dados](data-flow-expression-functions.md)

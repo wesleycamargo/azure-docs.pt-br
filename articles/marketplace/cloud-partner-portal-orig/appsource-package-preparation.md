@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 0b24c5d2f174c9a656e81d0c85e12b589d7d7799
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: cc06ddf2fce93bef27e7aaee85b47179608e192b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48805149"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837024"
 ---
 # <a name="appsource-package-preparation"></a>Preparação do pacote do AppSource
 
@@ -39,8 +39,8 @@ O pacote do Package Deployer é uma parte do pacote do AppSource.
 
 Para criar um pacote do Package Deployer, siga as instruções a seguir: [https://msdn.microsoft.com/library/dn688182.aspx](https://msdn.microsoft.com/library/dn688182.aspx). Ao concluir, seu pacote consistirá nos ativos abaixo:
 
-1. Pasta do pacote: contém todas as soluções, os dados de configuração, os arquivos simples e o conteúdo do pacote. _Observação: no exemplo a seguir vamos considerar que a pasta do pacote se chama "PkgFolder"_
-2. dll: o assembly contém o código personalizado do pacote. _Observação: no exemplo a seguir vamos considerar que esse arquivo se chama "MicrosoftSample.dll"._
+1. Pasta do pacote: contém todas as soluções, os dados de configuração, os arquivos simples e o conteúdo do pacote. _Observação: No exemplo a seguir vamos pressupor que a pasta do pacote é chamada de "PkgFolder"_
+2. DLL: O assembly contém o código personalizado para seu pacote. _Observação: No exemplo a seguir vamos pressupor que esse arquivo é denominado "MicrosoftSample.dll"._
 
 Agora, você precisa criar um arquivo chamado "**Content_Types.xml**" Este arquivo listará todas as extensões de ativos que fazem parte do pacote. Aqui está o código de exemplo do arquivo.
 
@@ -71,11 +71,11 @@ Etapas para criar o package.zip:
 
 ![CRMScreenShot2](media/CRMScreenShot2.png)
 
-2. Selecione todos os itens na pasta, clique com o botão direito do mouse e escolha Enviar para pasta compactada (zip)
+1. Selecione todos os itens na pasta, clique com o botão direito do mouse e escolha Enviar para pasta compactada (zip)
 
 ![CRMScreenShot3](media/CRMScreenShot3.png)
 
-3. Altere o nome para package.zip
+1. Altere o nome para package.zip
 
 ![CRMScreenShot4](media/CRMScreenShot4.png)
 
@@ -97,7 +97,7 @@ Aqui está o código de exemplo de input.xml. Confira as definições na tabela 
         <StartDate>01/01/2016</StartDate>
         <EndDate>01/01/2021</EndDate>
         <SupportedCountries>US,CA</SupportedCountries>
-        <LearnMoreLink>http://www.microsoft.com</LearnMoreLink>
+        <LearnMoreLink>https://www.microsoft.com</LearnMoreLink>
         <Locales>
         <PackageLocale Code="1033" IsDefault="true">
         <Logo>logo32x32.png</Logo>
@@ -117,13 +117,13 @@ Aqui está o código de exemplo de input.xml. Confira as definições na tabela 
 |SolutionAnchorName |Nome do arquivo zip da solução no Package Deployer que é usado para o nome de exibição e a descrição dos ativos da solução.|
 | StartDate| Essa é a data em que o pacote da solução será disponibilizado. O formato é MM/DD/AAAA|
 |EndDate|Essa é a data em que o pacote da solução deixará de estar disponível. O formato é MM/DD/AAAA |
-|SupportedCountries |Essa é uma lista delimitada por vírgulas dos países que devem ver esse pacote. Entre em contato com os serviços online para obter uma lista de todos os códigos de país/região atuais. No momento da escrita desta lista, os códigos eram: AE, AL, AM, AO, AR, AT, AU, AZ, BA, BB, BD, BE, BG, BH, BM, BN, BO, BR, BY, CA, CH, CI, CL, CM, CO, CR, CV, CW, CY, CZ, DE, DK, DO, DZ, EC, EE, EG, ES, FI, FR, GB, GE, GH, GR, GT, HK, HN, HR, HU, ID, IE, IL, IN, IQ, IS, IT, JM, JO, JP, KE, KG, KN, KR, KW, KY, KZ, LB, LK, LT, LU, LV, LY, MA, MC, MD, ME, MK, MN, MO, MT, MU, MX, MY, NG, NI, NL, NO, NZ, OM, PA, PE, PH, PK, PL, PR, PS, PT, PY, QA, RO, RS, RU, RW, SA, SE, SG, SI, SK, SN, SV, TH, TM, TN, TR, TT, TW, UA, US, UY, UZ, VE, VI, VN, ZA, ZW |
+|SupportedCountries |Essa é uma lista delimitada por vírgulas dos países que devem ver esse pacote. Entre em contato com os serviços online para obter uma lista de todos os códigos de país/região atuais. No momento, este artigo lista era: O AE, AL, AM, SOL, AR, AT, AU, AZ, BA, BB, BD, SER, BG, BH, BM, BN, BO, BR PELA AUTORIDADE DE CERTIFICAÇÃO, CH, CI, CL, CM, CO, CR, CV, CW, CY, CZ, DE, DK, FAÇA, DZ, EC, EE, POR EXEMPLO, ES, FI, FR, GB, GE, GH, GR, GT, HONG KONG , HN, RH, HU, ID, IE, IL, IN, IQ, É, ELE, JM, JO, JP, KE, KG, KN, COREIA, KW, KY, KZ, BALANCEAMENTO DE CARGA, LK, LT, LU, LV, LY, MA, MC, MD, ME, MK, MN, MÊS, MT, MU, MX, MY, NG, NI, NL, NÃO, NZ, OM, PA, PE, PH , PK, PL, PR, PS, PT, PY, CONTROLE DE QUALIDADE, RO, RS, RU, RW, SA, SE, SG, SI, SK, SN, SV, TH, TM, TN, TR, TT, TW, UA, EUA, UY, UZ, VE, VI, VN, ZA, ZW |
 |LearnMoreLink | URL da página de mais informações desse pacote. |
 |Localidades|Uma instância desse nó para cada idioma da UX ao qual você deseja dar suporte na UX da solução preferencial. Esse nó contém filhos que descrevem a localidade, o logotipo e os termos para cada idioma|
-|Localidades: PackageLocale.Code|LCID do idioma desse nó. Exemplo: inglês dos EUA é 1033|
+|Localidades: PackageLocale.Code|LCID do idioma desse nó. Exemplo: Inglês é 1033|
 |Localidades: PackageLocale.IsDefault|Indica que esse é o idioma padrão. Ele será usado como o idioma de fallback caso o idioma da UX escolhido pelo cliente não esteja disponível.|
-|Localidades: logotipo|Esse é o logotipo que você deseja usar para este pacote. O tamanho de ícone é 32 x 32. Os formatos permitidos são PNG e JPG|
-|Locales:Terms: PackageTerm.File|Esse é o nome do arquivo do documento HTML que contém os termos da licença.|
+|Localidades: Logotipo|Esse é o logotipo que você deseja usar para este pacote. O tamanho de ícone é 32 x 32. Os formatos permitidos são PNG e JPG|
+|Localidades: termos: PackageTerm.File|Esse é o nome do arquivo do documento HTML que contém os termos da licença.|
 
 O logotipo será exibido aqui:
 

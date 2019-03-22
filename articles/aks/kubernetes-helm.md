@@ -1,18 +1,18 @@
 ---
 title: Implantar contêineres com Helm no Kubernetes no Azure
-description: Use a ferramenta de empacotamento Helm para implantar contêineres em um cluster do AKS (Serviço de Kubernetes do Azure)
+description: Saiba como usar a ferramenta de empacotamento Helm para implantar contêineres em um cluster do serviço de Kubernetes do Azure (AKS)
 services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 10/01/2018
+ms.date: 03/06/2019
 ms.author: iainfou
-ms.openlocfilehash: a3f5bad20ddd0968f2e76008799494adbb55bc31
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: ccd98f5bf859673ae69b80dfcd0e5020ba289682
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55092084"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768545"
 ---
 # <a name="install-applications-with-helm-in-azure-kubernetes-service-aks"></a>Instalar aplicativos com o Helm no AKS (Serviço de Kubernetes do Azure)
 
@@ -22,7 +22,7 @@ Este artigo mostra como configurar e usar o Helm em um cluster Kubernetes no AKS
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-As etapas detalhadas neste documento pressupõem que você tenha criado um cluster do AKS e estabelecido uma conexão `kubectl` com o cluster. Se você precisar desses itens, consulte o [Início rápido do AKS][aks-quickstart].
+Este artigo considera que já existe um cluster do AKS. Se você precisar de um cluster do AKS, confira o guia de início rápido do AKS [Usando a CLI do Azure][aks-quickstart-cli] ou [Usando o portal do Azure][aks-quickstart-portal].
 
 Você também precisa do Helm CLI instalado, o cliente que é executado em seu sistema de desenvolvimento e permite iniciar, parar e gerenciar aplicativos com o Helm. Se você usa o Azure Cloud Shell, o a CLI do Helm já está instalada. Para obter instruções de instalação em sua plataforma local, consulte [instalação do Helm][helm-install].
 
@@ -153,7 +153,7 @@ A saída do exemplo condensado a seguir mostra o status de implantação dos rec
 $ helm install stable/wordpress
 
 NAME:   wishful-mastiff
-LAST DEPLOYED: Thu Jul 12 15:53:56 2018
+LAST DEPLOYED: Wed Mar  6 19:11:38 2019
 NAMESPACE: default
 STATUS: DEPLOYED
 
@@ -201,8 +201,8 @@ Para ver uma lista de versões instaladas no seu cluster, use o comando [helm li
 ```console
 $ helm list
 
-NAME             REVISION    UPDATED                     STATUS      CHART              NAMESPACE
-wishful-mastiff  1           Thu Jul 12 15:53:56 2018    DEPLOYED    wordpress-2.1.3  default
+NAME                REVISION    UPDATED                     STATUS      CHART            APP VERSION    NAMESPACE
+wishful-mastiff   1         Wed Mar  6 19:11:38 2019    DEPLOYED    wordpress-2.1.3  4.9.7          default
 ```
 
 ## <a name="clean-up-resources"></a>Limpar recursos
@@ -236,4 +236,6 @@ Para saber mais sobre como gerenciar implantações de aplicativo do Kubernetes 
 [helm-ssl]: https://docs.helm.sh/using_helm/#using-ssl-between-helm-and-tiller
 
 <!-- LINKS - internal -->
-[aks-quickstart]: ./kubernetes-walkthrough.md
+[aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[install-azure-cli]: /cli/azure/install-azure-cli

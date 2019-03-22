@@ -5,17 +5,17 @@ description: 'Segredo comercial da ciência de dados: Obtenha outras pessoas par
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 01/05/2018
-ms.openlocfilehash: 821ee126350d18102ec92de04436a76050734dc4
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: a179efe3c4dcd3b36fa8d86910f10c4ab4cdb0aa
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456819"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817806"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Copiar o trabalho de outras pessoas para fazer a ciência de dados
 ## <a name="video-5-data-science-for-beginners-series"></a>Vídeo 5: Série Ciência de dados para iniciantes
@@ -92,4 +92,4 @@ Confira outros vídeos da série "Ciência de dados para iniciantes" no Microsof
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Tenha sua primeira experiência da ciência de dados com o Azure Machine Learning Studio](create-experiment.md)
-* [Obtenha uma introdução ao Machine Learning no Microsoft Azure](what-is-machine-learning.md)
+* [Obtenha uma introdução ao Machine Learning no Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)

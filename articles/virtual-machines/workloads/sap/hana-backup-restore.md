@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e71e4ea56bfe467e03be59d6a855272baafc4235
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 04da80cd5c30d0556dc681b7bff412391aa2bcda
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822724"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107722"
 ---
 # <a name="backup-and-restore"></a>Backup e restauração
 
@@ -47,7 +47,7 @@ O SAP HANA no Azure (Instâncias Grandes) oferece duas opções de backup e de r
 
 - Funcionalidade de backup e restauração de infraestrutura. Também é possível utilizar a funcionalidade de backup e restauração que a infraestrutura subjacente do SAP HANA (Instâncias Grandes) do Azure fornece. Essa opção atende a necessidade de backups e restaurações rápidas. O restante desta seção aborda a funcionalidade de backup e de restauração oferecida com Instâncias Grandes HANA. Esta seção também aborda a restauração e o backup de relação e a restauração para a funcionalidade de recuperação de desastre oferecida pelo SAP HANA em Instâncias Grandes.
 
->   [!NOTE]
+> [!NOTE]
 >   A tecnologia de instantâneo que é usada pela infraestrutura subjacente das Instâncias Grandes HANA tem uma dependência de instantâneos do SAP HANA. Neste ponto, os instantâneos do SAP HANA não funcionam junto com os múltiplos locatários dos contêineres de banco de dados multilocatário do SAP HANA. Se apenas um locatário for implantado, os instantâneos do SAP HANA funcionarão e esse método poderá ser utilizado.
 
 ## <a name="using-storage-snapshots-of-sap-hana-on-azure-large-instances"></a>Usando instantâneos de armazenamento do SAP HANA no Azure (Instâncias Grandes)
@@ -641,44 +641,44 @@ A seguir, é apresentado como preparar a solicitação:
 
 1. Desligar a instância do HANA.
 
- ![Desligar a instância do HANA](./media/hana-overview-high-availability-disaster-recovery/image7-shutdown-hana.png)
+   ![Desligar a instância do HANA](./media/hana-overview-high-availability-disaster-recovery/image7-shutdown-hana.png)
 
 1. Desmonte os volumes de dados em cada nó do banco de dados do HANA. Se os volumes de dados ainda estiverem montados para o sistema operacional, a restauração do instantâneo falhará.
- ![Desmontar os volumes de dados em cada nó de banco de dados do HANA](./media/hana-overview-high-availability-disaster-recovery/image8-unmount-data-volumes.png)
+   ![Desmontar os volumes de dados em cada nó de banco de dados do HANA](./media/hana-overview-high-availability-disaster-recovery/image8-unmount-data-volumes.png)
 
 1. Abra uma solicitação de suporte do Azure e inclua instruções sobre a restauração de um instantâneo específico.
 
- - Durante a restauração: o Gerenciamento de Serviços do SAP HANA no Azure pode solicitar que você participe de uma chamada em conferência para garantir a coordenação, a verificação e a confirmação de que o instantâneo de armazenamento correto foi restaurado. 
+   - Durante a restauração: o Gerenciamento de Serviços do SAP HANA no Azure pode solicitar que você participe de uma chamada em conferência para garantir a coordenação, a verificação e a confirmação de que o instantâneo de armazenamento correto foi restaurado. 
 
- - Depois da restauração: o SAP HANA no Gerenciamento de Serviços do Azure será notificado quando o instantâneo de armazenamento tiver sido restaurado.
+   - Depois da restauração: o SAP HANA no Gerenciamento de Serviços do Azure será notificado quando o instantâneo de armazenamento tiver sido restaurado.
 
 1. Depois que o processo de restauração for concluído, monte novamente todos os volumes de dados.
 
- ![Montar novamente todos os volumes de dados](./media/hana-overview-high-availability-disaster-recovery/image9-remount-data-volumes.png)
+   ![Montar novamente todos os volumes de dados](./media/hana-overview-high-availability-disaster-recovery/image9-remount-data-volumes.png)
 
 1. Selecione as opções de recuperação no SAP HANA Studio, caso elas não apareçam automaticamente quando você se reconectar ao HANA DB por meio do SAP HANA Studio. O exemplo a seguir mostra uma restauração para o último instantâneo HANA. Um instantâneo de armazenamento incorpora um instantâneo do HANA. Se você restaurar para o instantâneo de armazenamento mais recente, ele deverá ser o instantâneo mais recente do HANA. (Se você restaurar para um instantâneo de armazenamento mais antigo, será necessário localizar o instantâneo do HANA com base na hora em que o instantâneo de armazenamento foi tirado.)
 
- ![Selecionar as opções de recuperação no SAP HANA Studio](./media/hana-overview-high-availability-disaster-recovery/image10-recover-options-a.png)
+   ![Selecionar as opções de recuperação no SAP HANA Studio](./media/hana-overview-high-availability-disaster-recovery/image10-recover-options-a.png)
 
 1. Selecione **Recuperar o banco de dados para um instantâneo de backup ou armazenamento de dados específico**.
 
- ![A janela Especificar o tipo de recuperação](./media/hana-overview-high-availability-disaster-recovery/image11-recover-options-b.png)
+   ![A janela Especificar o tipo de recuperação](./media/hana-overview-high-availability-disaster-recovery/image11-recover-options-b.png)
 
 1. Selecione **Especificar backup sem catálogo**.
 
- ![A janela Especificar o local de backup](./media/hana-overview-high-availability-disaster-recovery/image12-recover-options-c.png)
+   ![A janela Especificar o local de backup](./media/hana-overview-high-availability-disaster-recovery/image12-recover-options-c.png)
 
 1. Na lista **Tipo de Destino**, selecione **Instantâneo**.
 
- ![A janela Especificar o Backup a ser Recuperado](./media/hana-overview-high-availability-disaster-recovery/image13-recover-options-d.png)
+   ![A janela Especificar o Backup a ser Recuperado](./media/hana-overview-high-availability-disaster-recovery/image13-recover-options-d.png)
 
 1. Selecione **Concluir** para iniciar o processo de recuperação.
 
- ![Selecione “Concluir” para iniciar o processo de recuperação](./media/hana-overview-high-availability-disaster-recovery/image14-recover-options-e.png)
+    ![Selecione “Concluir” para iniciar o processo de recuperação](./media/hana-overview-high-availability-disaster-recovery/image14-recover-options-e.png)
 
 1. O banco de dados do HANA é restaurado e recuperado para o instantâneo HANA incluído pelo instantâneo de armazenamento.
 
- ![O banco de dados do HANA é restaurado e recuperado para o instantâneo do HANA](./media/hana-overview-high-availability-disaster-recovery/image15-recover-options-f.png)
+    ![O banco de dados do HANA é restaurado e recuperado para o instantâneo do HANA](./media/hana-overview-high-availability-disaster-recovery/image15-recover-options-f.png)
 
 ### <a name="recover-to-the-most-recent-state"></a>Recuperar para o estado mais recente
 
@@ -691,23 +691,23 @@ O processo a seguir restaura um instantâneo HANA que foi incluído no instantâ
 
 1. Selecione **Recuperar o banco de dados para seu estado mais recente**.
 
- ![Selecione “Recuperar o banco de dados para seu estado mais recente”](./media/hana-overview-high-availability-disaster-recovery/image16-recover-database-a.png)
+   ![Selecione “Recuperar o banco de dados para seu estado mais recente”](./media/hana-overview-high-availability-disaster-recovery/image16-recover-database-a.png)
 
 1. Especifique o local dos backups de log mais recentes do HANA. O local especificado precisa conter todos os backups de log de transações do instantâneo do HANA até o estado mais recente.
 
- ![Especifique o local dos backups de log mais recentes do HANA](./media/hana-overview-high-availability-disaster-recovery/image17-recover-database-b.png)
+   ![Especifique o local dos backups de log mais recentes do HANA](./media/hana-overview-high-availability-disaster-recovery/image17-recover-database-b.png)
 
 1. Selecione um backup como uma base recuperar o banco de dados. Nesse exemplo, o instantâneo HANA na captura de tela, é o instantâneo HANA que foi incluído no instantâneo de armazenamento. 
 
- ![Selecione um backup como uma base recuperar o banco de dados](./media/hana-overview-high-availability-disaster-recovery/image18-recover-database-c.png)
+   ![Selecione um backup como uma base recuperar o banco de dados](./media/hana-overview-high-availability-disaster-recovery/image18-recover-database-c.png)
 
 1. Desmarque a caixa de seleção **Usar Backups Delta** se não existirem deltas entre a hora do instantâneo do HANA e o estado mais recente.
 
- ![Desmarque a caixa de seleção “Usar Backups de Delta” se nenhum delta existir](./media/hana-overview-high-availability-disaster-recovery/image19-recover-database-d.png)
+   ![Desmarque a caixa de seleção “Usar Backups de Delta” se nenhum delta existir](./media/hana-overview-high-availability-disaster-recovery/image19-recover-database-d.png)
 
 1. Na tela de resumo, selecione **Concluir** para iniciar o procedimento de restauração.
 
- ![Clique em “Concluir” na tela de resumo](./media/hana-overview-high-availability-disaster-recovery/image20-recover-database-e.png)
+   ![Clique em “Concluir” na tela de resumo](./media/hana-overview-high-availability-disaster-recovery/image20-recover-database-e.png)
 
 ### <a name="recover-to-another-point-in-time"></a>Recuperar para outro ponto no tempo
 Para recuperar para um ponto de tempo entre o instantâneo HANA (incluído no instantâneo de armazenamento) e um posterior àquele da recuperação pontual, execute as seguintes etapas:

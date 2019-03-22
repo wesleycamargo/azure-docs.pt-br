@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: cf16f27a8d39871491b7cf46a509b9714a669667
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 87e006cc5d56e0c7eb5455147c5ce9eb40afc162
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873807"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086608"
 ---
 # <a name="tutorial-identify-common-intents-and-entities"></a>Tutorial: Identificar intenções e entidades comuns
 
@@ -55,13 +55,13 @@ O LUIS oferece várias intenções predefinidas para ajudar com intenções do c
 
 1. Selecione as seguintes intenções e selecione **Concluído**: 
 
-    * Utilities.Cancel
-    * Utilities.Confirm
-    * Utilities.Help
-    * Utilities.StartOver
-    * Utilities.Stop
+   * Utilities.Cancel
+   * Utilities.Confirm
+   * Utilities.Help
+   * Utilities.StartOver
+   * Utilities.Stop
 
-    Essas intenções são úteis para determinar em que ponto da conversa o usuário está e o que ele está solicitando que seja feito. 
+     Essas intenções são úteis para determinar em que ponto da conversa o usuário está e o que ele está solicitando que seja feito. 
 
 
 ## <a name="add-prebuilt-entities-to-help-with-common-data-type-extraction"></a>Adicionar as entidades predefinidas para ajudar com a extração de tipo de dados comuns
@@ -74,12 +74,12 @@ O LUIS fornece várias entidades predefinidas para extração de dados comuns.
 
 1. Selecione as entidades a seguir na lista de entidades predefinidas e selecione **Pronto**:
 
-    * **[PersonName](luis-reference-prebuilt-person.md)** 
-    * **[GeographyV2](luis-reference-prebuilt-geographyV2.md)**
+   * **[PersonName](luis-reference-prebuilt-person.md)** 
+   * **[GeographyV2](luis-reference-prebuilt-geographyV2.md)**
 
-    ![Captura de tela do número selecionado no diálogo de entidades predefinidas](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
+     ![Captura de tela do número selecionado no diálogo de entidades predefinidas](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
 
-    Essas entidades ajudarão você a adicionar o reconhecimento de nome e local ao aplicativo cliente.
+     Essas entidades ajudarão você a adicionar o reconhecimento de nome e local ao aplicativo cliente.
 
 ## <a name="add-example-utterances-to-the-none-intent"></a>Adicionar enunciados de exemplo à intenção None 
 

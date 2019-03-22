@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 045f2d12eb6836d14a09ea96c8eca3cad0e5246d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 551d0cd149c4d1555a40ccf0d7baeff97c6809c2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458204"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863286"
 ---
 # <a name="collaborative-coding-with-git"></a>Codificação colaborativa com o Git
 
@@ -36,7 +36,7 @@ Forneça as informações para essa nova branch, como nome da branch, repositór
 
 Uma prática recomendada é criar uma Git branch para cada item de trabalho da história. Em seguida, para cada item de trabalho da tarefa, você deve criar uma branch com base no na branch da história. Organizar as branches dessa maneira hierárquica, que corresponde às relações de tarefa da história, é útil quando você tem várias pessoas trabalhando em histórias diferentes do mesmo projeto ou quando há várias pessoas trabalhando em tarefas diferentes da mesma história. Conflitos podem ser minimizados quando cada membro da equipe trabalha em uma branch diferente e quando cada membro trabalha em códigos diferentes ou em outros artefatos ao compartilhar uma branch. 
 
-A figura a seguir ilustra a estratégia recomendada de branch para TDSP. Talvez não sejam necessárias muitas branches como mostrado aqui, especialmente quando você tiver apenas uma ou duas pessoas trabalhando no mesmo projeto ou apenas uma pessoa trabalhando em todas as tarefas de uma história. No entanto, separar a branch de desenvolvimento da branch mestre é sempre uma boa prática. Isso pode ajudar a impedir que a branch de versão seja interrompida por atividades de desenvolvimento. Uma descrição mais completa do modelo de Git branch pode ser encontrada em [Um modelo de GIT branch bem-sucedido](http://nvie.com/posts/a-successful-git-branching-model/).
+A figura a seguir ilustra a estratégia recomendada de branch para TDSP. Talvez não sejam necessárias muitas branches como mostrado aqui, especialmente quando você tiver apenas uma ou duas pessoas trabalhando no mesmo projeto ou apenas uma pessoa trabalhando em todas as tarefas de uma história. No entanto, separar a branch de desenvolvimento da branch mestre é sempre uma boa prática. Isso pode ajudar a impedir que a branch de versão seja interrompida por atividades de desenvolvimento. Uma descrição mais completa do modelo de Git branch pode ser encontrada em [Um modelo de GIT branch bem-sucedido](https://nvie.com/posts/a-successful-git-branching-model/).
 
 ![3](./media/collaborative-coding-with-git/3-git-branches.png)
 

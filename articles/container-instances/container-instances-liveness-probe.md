@@ -2,18 +2,18 @@
 title: Configurar investigações de atividade nas Instâncias de Contêiner do Azure
 description: Saiba como configurar investigações de atividade para reiniciar contêineres não íntegros em Instâncias de Contêiner do Azure
 services: container-instances
-author: jluk
+author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
 ms.date: 06/08/2018
-ms.author: juluk
-ms.openlocfilehash: 1582f0d7ec688bc72cc9d1aa6ae0ddb0a6ad3a17
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
-ms.translationtype: HT
+ms.author: danlep
+ms.openlocfilehash: 89b76fc68c113b7931894c0cf003ffd846c646ab
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213064"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57899716"
 ---
 # <a name="configure-liveness-probes"></a>Configurar investigações de atividade
 
@@ -23,7 +23,7 @@ Este artigo explica como implantar um grupo de contêineres que inclui uma inves
 
 ## <a name="yaml-deployment"></a>Implantação do YAML
 
-Crie um arquivo `liveness-probe.yaml` com o trecho a seguir. Esse arquivo define um grupo de contêineres composto por um contêiner NGNIX que eventualmente se tornará não íntegro.
+Crie um arquivo `liveness-probe.yaml` com o snippet a seguir. Esse arquivo define um grupo de contêineres composto por um contêiner NGNIX que eventualmente se tornará não íntegro.
 
 ```yaml
 apiVersion: 2018-06-01

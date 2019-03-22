@@ -1,5 +1,5 @@
 ---
-title: Entidade composta
+title: Tutorial de entidade composta
 titleSuffix: Azure Cognitive Services
 description: Adicione uma entidade composta para agrupar dados extraídos de vários tipos em uma única entidade contida. Agrupando os dados, o aplicativo cliente poderá extrair com facilidade dados relacionados em diferentes tipos de dados.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 12/21/2018
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: 0d78c365b171ea80d208c447f4746fe80b965ef2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: c49090a5563a6d63c90b29cc7442c1e4ed9886e0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883297"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091572"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>Tutorial: Agrupar e extrair dados relacionados
 Neste tutorial, adicione uma entidade composta para agrupar dados extraídos de vários tipos em uma única entidade contida. Agrupando os dados, o aplicativo cliente poderá extrair com facilidade dados relacionados em diferentes tipos de dados.
@@ -85,18 +85,19 @@ O LUIS fornece várias entidades predefinidas para extração de dados comuns.
 
 1. Selecione **TransferEmployeeToDepartment** da lista de intenções.
 
-1. No primeiro enunciado, selecione a entidade personName `John Jackson`e, em seguida, selecione **Iniciar a quebra automática de entidade composta** na lista de menu pop-up para o enunciado a seguir:
+1. Na declaração `place John Jackson in engineering`, selecione a entidade personName `John Jackson`, em seguida, selecione **Wrap na entidade composta** na lista de menu pop-up para a expressão a seguir. 
 
-    `place John Jackson in engineering`
+    ![Captura de tela da seleção de composição de quebra automática de linha na lista suspensa da caixa de diálogo](./media/luis-tutorial-composite-entity/hr-create-composite-entity-1.png)
 
 1. Em seguida, selecione imediatamente a última entidade, `engineering` no enunciado. Uma barra verde é desenhada sob as palavras selecionadas, indicando uma entidade composta. No menu pop-up, insira o nome composto `TransferEmployeeInfo` e, em seguida, selecione enter. 
 
-1. Em **Que tipo de entidade você quer criar?**, quase todos os campos necessários estão na lista: `personName` e `Department`. Selecione **Concluído**. 
+    ![Captura de tela de inserir um nome composto na lista suspensa da caixa de diálogo](./media/luis-tutorial-composite-entity/hr-create-composite-entity-2.png)
 
-    Observe que a entidade predefinida, personName, foi adicionada à entidade composta. Se você pudesse fazer uma entidade predefinida ser exibida entre os tokens de início e fim de uma entidade composta, ela deveria conter essas entidades predefinidas. Se as entidades predefinidas não forem incluídas, a entidade composta não será prevista corretamente, mas, sim, cada elemento individual.
+1. Em **Que tipo de entidade você quer criar?**, quase todos os campos necessários estão na lista: `personName` e `Department`. Selecione **Concluído**. Observe que a entidade predefinida, personName, foi adicionada à entidade composta. Se você pudesse fazer uma entidade predefinida ser exibida entre os tokens de início e fim de uma entidade composta, ela deveria conter essas entidades predefinidas. Se as entidades predefinidas não forem incluídas, a entidade composta não será prevista corretamente, mas, sim, cada elemento individual.
+
+    ![Captura de tela de inserir um nome composto na lista suspensa da caixa de diálogo](./media/luis-tutorial-composite-entity/hr-create-composite-entity-3.png)
 
 ## <a name="label-example-utterances-with-composite-entity"></a>Declarações de exemplo de rótulo com entidade composta
-
 
 1. Em cada enunciado de exemplo, selecione a entidade mais à esquerda que deveria estar na composição. Em seguida, selecione **Encapsular em entidade composta**.
 
@@ -182,7 +183,7 @@ O LUIS fornece várias entidades predefinidas para extração de dados comuns.
     }
     ```
 
-  Esse enunciado retorna uma matriz de entidades compostas. Cada entidade recebe um tipo e valor. Para conseguir maior precisão para cada entidade filho, use a combinação de tipo e valor do item da matriz composta para localizar o item correspondente na matriz de entidades.  
+   Esse enunciado retorna uma matriz de entidades compostas. Cada entidade recebe um tipo e valor. Para conseguir maior precisão para cada entidade filho, use a combinação de tipo e valor do item da matriz composta para localizar o item correspondente na matriz de entidades.  
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: jingwang
-ms.openlocfilehash: 64439a002cc01e9040408552d421fcafa505d758
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 547edc2fdfc78f9c22cd62ad2707515f010f2d58
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662356"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852416"
 ---
 # <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Copiar dados do HDFS usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -117,6 +117,8 @@ Para copiar dados do HDFS, defina a propriedade type do conjunto de dados como *
 | Tipo | A propriedade type do conjunto de dados deve ser definida como: **FileShare** |Sim |
 | folderPath | Caminho para a pasta. O filtro curinga é permitido; os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único); use `^` para escape se o nome de arquivo real tiver curinga ou esse caractere interno de escape. <br/><br/>Exemplos: rootfolder/subfolder/; veja mais exemplos em [Exemplos de filtro de pasta e arquivo](#folder-and-file-filter-examples). |Sim |
 | fileName |  **Filtro de nome ou curinga** para os arquivos em "folderPath" especificado. Se você não especificar um valor para essa propriedade, o conjunto de dados apontará para todos os arquivos na pasta. <br/><br/>Para filtro, os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único).<br/>– Exemplo 1: `"fileName": "*.csv"`<br/>– Exemplo 2: `"fileName": "???20180427.txt"`<br/>Use `^` como escape se o nome real da pasta tiver curingas ou esse caractere de escape. |Não  |
+| modifiedDatetimeStart | Filtro de arquivos com base no atributo: Última Modificação. Os arquivos serão selecionados se a hora da última alteração estiver dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd`. A hora é aplicada ao fuso horário de UTC no formato "2018-12-01T05:00:00Z". <br/><br/> As propriedades podem ser NULL, o que significa que nenhum filtro de atributo de arquivo será aplicado ao conjunto de dados.  Quando `modifiedDatetimeStart` tem o valor de data e hora, mas `modifiedDatetimeEnd` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é maior ou igual ao valor de data e hora.  Quando `modifiedDatetimeEnd` tem o valor de data e hora, mas `modifiedDatetimeStart` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é menor que o valor de data e hora.| Não  |
+| modifiedDatetimeEnd | Filtro de arquivos com base no atributo: Última Modificação. Os arquivos serão selecionados se a hora da última alteração estiver dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd`. A hora é aplicada ao fuso horário de UTC no formato "2018-12-01T05:00:00Z". <br/><br/> As propriedades podem ser NULL, o que significa que nenhum filtro de atributo de arquivo será aplicado ao conjunto de dados.  Quando `modifiedDatetimeStart` tem o valor de data e hora, mas `modifiedDatetimeEnd` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é maior ou igual ao valor de data e hora.  Quando `modifiedDatetimeEnd` tem o valor de data e hora, mas `modifiedDatetimeStart` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é menor que o valor de data e hora.| Não  |
 | formato | Se você quiser **copiar arquivos no estado em que se encontram** entre repositórios baseados em arquivo (cópia binária), ignore a seção de formato nas duas definições de conjunto de dados de entrada e de saída.<br/><br/>Se você quer analisar arquivos com um formato específico, os seguintes tipos de formato de arquivo têm suporte: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Defina a propriedade **type** sob formato como um desses valores. Para saber mais, veja as seções [Formato de texto](supported-file-formats-and-compression-codecs.md#text-format), [Formato Json](supported-file-formats-and-compression-codecs.md#json-format), [Formato Avro](supported-file-formats-and-compression-codecs.md#avro-format), [Formato Orc](supported-file-formats-and-compression-codecs.md#orc-format), e [Formato Parquet](supported-file-formats-and-compression-codecs.md#parquet-format). |Não (somente para o cenário de cópia binária) |
 | compactação | Especifique o tipo e o nível de compactação para os dados. Para obter mais informações, consulte [Formatos de arquivo e codecs de compactação com suporte](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Tipos compatíveis são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**.<br/>Níveis compatíveis são: **Ideal** e **Mais Rápido**. |Não  |
 
@@ -136,7 +138,9 @@ Para copiar dados do HDFS, defina a propriedade type do conjunto de dados como *
         },
         "typeProperties": {
             "folderPath": "folder/subfolder/",
-            "fileName": "myfile.csv.gz",
+            "fileName": "*",
+            "modifiedDatetimeStart": "2018-12-01T05:00:00Z",
+            "modifiedDatetimeEnd": "2018-12-01T06:00:00Z",
             "format": {
                 "type": "TextFormat",
                 "columnDelimiter": ",",
@@ -200,7 +204,7 @@ O [DistCp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) é
 
 A atividade de cópia dá suporte ao uso do DistCp para copiar arquivos no estado em que se encontram para o Blob do Azure (incluindo [cópia em etapas](copy-activity-performance.md)) ou para o Azure Data Lake Store, caso em que ele poderá aproveitar totalmente o potencial do seu cluster, em vez de ser executado no Integration Runtime auto-hospedado. Ele proporcionará melhor taxa de transferência de cópia, especialmente se o cluster for muito avançado. Com base em sua configuração no Azure Data Factory, a atividade de cópia criará automaticamente um comando distcp, enviará ao cluster Hadoop e monitorará o status da cópia.
 
-### <a name="prerequsites"></a>Pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 
 Para usar o DistCp para copiar arquivos no estado em que se encontram do HDFS para o Blob do Azure (incluindo cópia em etapas) ou para o Azure Data Lake Store, verifique se seu cluster Hadoop atende aos requisitos abaixo:
 
@@ -304,49 +308,49 @@ Há duas opções para configurar o ambiente local para usar a autenticação Ke
 
 **No servidor KDC:**
 
-1.  Edite a configuração do KDC no arquivo **krb5.conf** para permitir que o Domínio do Windows de confiança do KDC se refira ao modelo de configuração a seguir. Por padrão, a configuração está localizada em **/etc/krb5.conf**.
+1. Edite a configuração do KDC no arquivo **krb5.conf** para permitir que o Domínio do Windows de confiança do KDC se refira ao modelo de configuração a seguir. Por padrão, a configuração está localizada em **/etc/krb5.conf**.
 
-            [logging]
-             default = FILE:/var/log/krb5libs.log
-             kdc = FILE:/var/log/krb5kdc.log
-             admin_server = FILE:/var/log/kadmind.log
+           [logging]
+            default = FILE:/var/log/krb5libs.log
+            kdc = FILE:/var/log/krb5kdc.log
+            admin_server = FILE:/var/log/kadmind.log
 
-            [libdefaults]
-             default_realm = REALM.COM
-             dns_lookup_realm = false
-             dns_lookup_kdc = false
-             ticket_lifetime = 24h
-             renew_lifetime = 7d
-             forwardable = true
+           [libdefaults]
+            default_realm = REALM.COM
+            dns_lookup_realm = false
+            dns_lookup_kdc = false
+            ticket_lifetime = 24h
+            renew_lifetime = 7d
+            forwardable = true
 
-            [realms]
-             REALM.COM = {
-              kdc = node.REALM.COM
-              admin_server = node.REALM.COM
-             }
+           [realms]
+            REALM.COM = {
+             kdc = node.REALM.COM
+             admin_server = node.REALM.COM
+            }
+           AD.COM = {
+            kdc = windc.ad.com
+            admin_server = windc.ad.com
+           }
+
+           [domain_realm]
+            .REALM.COM = REALM.COM
+            REALM.COM = REALM.COM
+            .ad.com = AD.COM
+            ad.com = AD.COM
+
+           [capaths]
             AD.COM = {
-             kdc = windc.ad.com
-             admin_server = windc.ad.com
+             REALM.COM = .
             }
 
-            [domain_realm]
-             .REALM.COM = REALM.COM
-             REALM.COM = REALM.COM
-             .ad.com = AD.COM
-             ad.com = AD.COM
+   **Reinicie** o serviço KDC após a configuração.
 
-            [capaths]
-             AD.COM = {
-              REALM.COM = .
-             }
+2. Prepare uma entidade de segurança chamada **krbtgt/REALM.COM\@AD.COM** no servidor KDC com o seguinte comando:
 
-  **Reinicie** o serviço KDC após a configuração.
+           Kadmin> addprinc krbtgt/REALM.COM@AD.COM
 
-2.  Prepare uma entidade de segurança chamada **krbtgt/REALM.COM@AD.COM** no servidor KDC com o seguinte comando:
-
-            Kadmin> addprinc krbtgt/REALM.COM@AD.COM
-
-3.  No arquivo de configuração de serviço HDFS **hadoop.security.auth_to_local**, adicione `RULE:[1:$1@$0](.*@AD.COM)s/@.*//`.
+3. No arquivo de configuração de serviço HDFS **hadoop.security.auth_to_local**, adicione `RULE:[1:$1@$0](.*\@AD.COM)s/\@.*//`.
 
 **No controlador de domínio:**
 
@@ -355,7 +359,7 @@ Há duas opções para configurar o ambiente local para usar a autenticação Ke
             C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
             C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
 
-2.  Estabeleça uma relação de confiança do Domínio do Windows ao Realm Kerberos. [password] é a senha da entidade de segurança **krbtgt/REALM.COM@AD.COM**.
+2.  Estabeleça uma relação de confiança do Domínio do Windows ao Realm Kerberos. [password] é a senha para a entidade de segurança **krbtgt/REALM.COM\@AD.COM**.
 
             C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
 

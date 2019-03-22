@@ -11,12 +11,12 @@ ms.date: 03/19/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c25aef949b99bb4dc348bd2392ada325fcd466ea
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: eeeb9989b6bf0233354d493f5dbb6916c806cfdb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169608"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076829"
 ---
 # <a name="move-azure-ad-connect-database-from-sql-server-express-to-sql-server"></a>Mover o banco de dados do Azure AD Connect do SQL Server Express para o SQL Server 
 
@@ -30,42 +30,42 @@ A seguir estão algumas informações rápidas sobre este cenário.  Neste cená
 ## <a name="move-the-azure-ad-connect-database"></a>Mover o banco de dados do Azure AD Connect
 Use as etapas a seguir para mover o banco de dados do Azure AD Connect para um SQL Server remoto.
 
-1.  No servidor do Azure AD Connect, acesse **Serviços** e pare o serviço **Microsoft Azure AD Sync**.
+1. No servidor do Azure AD Connect, acesse **Serviços** e pare o serviço **Microsoft Azure AD Sync**.
 2. Localize a pasta **%Program Files%\Microsoft Azure AD Sync/Data/** e copie os arquivos **ADSync.mdf** e **ADSync_log.ldf** para o SQL Server remoto.
 3. Reinicie o serviço **Microsoft Azure AD Sync** no servidor do Azure AD Connect.
 4. Desinstale o Azure AD Connect acessando o Painel de Controle - - Programas - Programas e Recursos.  Selecione Microsoft Azure AD Connect e clique em Desinstalar, na parte superior.
 5. No SQL server remoto, abra o SQL Server Management Studio.
 6. Em Bancos de dados, clique com o botão direito do mouse e selecione Anexar.
 7. Na tela **Anexar Bancos de dados**, clique em **Adicionar** e navegue até o arquivo ADSync.mdf.  Clique em **OK**.
-![](media/how-to-connect-install-move-db/move2.png)
+   ![](media/how-to-connect-install-move-db/move2.png)
 
 8. Depois que o banco de dados for anexado, volte para o servidor do Azure AD Connect e instale o Azure AD Connect.
 9. Depois de concluir a instalação do MSI, o assistente do Azure AD Connect começa a instalação do modo Express. Feche a tela clicando no ícone de Saída.
-![Bem-vindo](./media/how-to-connect-install-move-db/db1.png)
+   ![Bem-vindo](./media/how-to-connect-install-move-db/db1.png)
 10. Inicie um novo prompt de comando ou sessão do PowerShell. Navegue até a pasta <drive>\Program Files\Microsoft Azure AD Connect. Execute o comando .\AzureADConnect.exe /useexistingdatabase para iniciar o assistente do Azure AD Connect no modo de configuração "Usar banco de dados existente".
-![PowerShell](./media/how-to-connect-install-move-db/db2.png)
+    ![PowerShell](./media/how-to-connect-install-move-db/db2.png)
 11. Você receberá boas-vindas com a tela Bem-vindo ao Azure AD Connect. Depois que você concordar com os termos de licença e o aviso de privacidade, clique em **Continuar**.
-![Bem-vindo](./media/how-to-connect-install-move-db/db3.png)
+    ![Bem-vindo](./media/how-to-connect-install-move-db/db3.png)
 12. Na tela **Instalar os componentes necessários**, a opção **Usar um SQL Server existente** é habilitada. Especifique o nome do SQL Server hospedando o banco de dados ADSync. Se a instância do mecanismo SQL usada para hospedar o banco de dados ADSync não for a instância padrão no SQL Server, você deverá especificar o nome de instância do mecanismo SQL. Além disso, se a pesquisa do SQL não está habilitada, você também deve especificar o número da porta da instância do mecanismo SQL. Por exemplo:          
-![Bem-vindo](./media/how-to-connect-install-move-db/db4.png)           
+    ![Bem-vindo](./media/how-to-connect-install-move-db/db4.png)           
 
 13. Na tela **Conectar ao Azure AD**, você deve fornecer as credenciais de um administrador global do seu diretório do Azure AD. Uma recomendação é usar uma conta no domínio onmicrosoft.com padrão. Lembre-se de que essa conta é usada apenas para criar uma conta de serviço no Azure AD e não é usada após a conclusão do assistente.
-![Conectar](./media/how-to-connect-install-move-db/db5.png)
+    ![Conectar](./media/how-to-connect-install-move-db/db5.png)
  
 14. Na tela **Conectar seus diretórios**, a floresta do AD existente configurada para sincronização de diretório está listada com um ícone de cruz vermelha ao lado dela. Para sincronizar as alterações de uma floresta do AD local, uma conta do AD DS é necessária. O assistente do Azure AD Connect não é capaz de recuperar as credenciais da conta do AD DS armazenadas no banco de dados ADSync porque as credenciais são criptografadas e podem ser descriptografadas somente pelo servidor do Azure AD Connect anterior. Clique em **Alterar Credenciais** para especificar a conta do AD DS para a floresta do AD.
-![Diretórios](./media/how-to-connect-install-move-db/db6.png)
+    ![Diretórios](./media/how-to-connect-install-move-db/db6.png)
  
  
 15. No diálogo pop-up, você pode (i) fornecer uma credencial de admin corporativo e permitir que o Azure AD Connect crie a conta do AD DS para você ou (ii) criar a conta do AD DS você mesmo e fornecer a credencial dela para o Azure AD Connect. Depois que você tiver selecionado uma opção e fornecido as credenciais necessárias, clique em **OK** para fechar o diálogo pop-up.
-![Bem-vindo](./media/how-to-connect-install-move-db/db7.png)
+    ![Bem-vindo](./media/how-to-connect-install-move-db/db7.png)
  
  
-16. Depois que as credenciais são fornecidas, o ícone de cruz vermelha é substituído por um ícone de tique verde. Clique em **Próximo**.
-![Bem-vindo](./media/how-to-connect-install-move-db/db8.png)
+16. Depois que as credenciais são fornecidas, o ícone de cruz vermelha é substituído por um ícone de tique verde. Clique em **Avançar**.
+    ![Bem-vindo](./media/how-to-connect-install-move-db/db8.png)
  
  
 17. Na tela **Pronto para configurar**, clique em **Instalar**.
-![Bem-vindo](./media/how-to-connect-install-move-db/db9.png)
+    ![Bem-vindo](./media/how-to-connect-install-move-db/db9.png)
  
  
 18. Depois que a instalação for concluída, o servidor do Azure AD Connect será habilitado automaticamente para o Modo de Preparo. É recomendável que você examine a configuração do servidor e exportações pendentes para alterações inesperadas antes de desabilitar o Modo de Preparo. 

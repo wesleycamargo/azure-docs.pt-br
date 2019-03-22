@@ -1,26 +1,26 @@
 ---
 title: Como publicar uma base de dados de conhecimento
-titleSuffix: QnA Maker - Azure Cognitive Services
-description: A publicação da base de dados de conhecimento é a etapa final para tornar a base de dados de conhecimento disponível como um ponto de extremidade de resposta a perguntas. Ao publicar uma base de dados de conhecimento, o conteúdo do QnA da base de dados de conhecimento é movido do índice de teste para um índice de produção na pesquisa do Azure.
+titleSuffix: QnA Maker API - Azure Cognitive Services
+description: A publicação de sua base de dados de conhecimento com o serviço de API do QnA Maker é a etapa final para tornar sua base de dados de conhecimento disponível como um ponto de extremidade responder a pergunta. Ao publicar uma base de dados de conhecimento, o conteúdo do QnA da base de dados de conhecimento é movido do índice de teste para um índice de produção na pesquisa do Azure.
 services: cognitive-services
 author: tulasim88
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 03/11/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 585e5f8f955a405b08bef42588ab5caff71c7bba
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: c65654e7d6b2e66a07116ea9555ed316ace88912
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865906"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091946"
 ---
-# <a name="publish-a-knowledge-base-using-the-qna-maker-portal"></a>Publicar uma base de dados de conhecimento usando portal do QnA Maker
+# <a name="publish-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>Publicar uma base de dados de conhecimento usando o portal do serviço de API do QnA Maker
 
-A publicação da base de dados de conhecimento é a etapa final para tornar a base de dados de conhecimento disponível como um ponto de extremidade de resposta a perguntas para um aplicativo cliente. 
+A publicação de sua base de dados de conhecimento com o serviço de API do QnA Maker é a etapa final para tornar sua base de dados de conhecimento disponível como um ponto de extremidade responder a pergunta. 
 
 Ao publicar uma base de dados de conhecimento, o conteúdo de perguntas e respostas base de dados de conhecimento é movido do índice de teste para um índice de produção no Azure Search.
 

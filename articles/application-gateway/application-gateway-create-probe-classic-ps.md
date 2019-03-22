@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: victorh
-ms.openlocfilehash: 2b661968fd64f4d2a61bc59f9b99b1eea6b01f86
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 17893a37bbaf67014c9b34dd446af204b907ff24
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997282"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004973"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Criar uma investigação personalizada para o Gateway de Aplicativo (clássico) pelo uso do PowerShell
 
@@ -151,7 +151,7 @@ Os parâmetros de configuração são:
 |Parâmetro|DESCRIÇÃO|
 |---|---|
 |**Nome** |Nome de referência da investigação personalizada. |
-* **Protocolo** | Protocolo usado (os valores possíveis são HTTP ou HTTPS).|
+| **Protocolo** | Protocolo usado (os valores possíveis são HTTP ou HTTPS).|
 | **Host** e **Path** | Caminho de URL completo que é invocado pelo Gateway de Aplicativo para determinar a integridade da instância. Por exemplo, se você tiver um site http://contoso.com/, a investigação personalizada poderá ser configurada para "http://contoso.com/path/custompath.htm" para verificações de investigação com uma resposta HTTP bem-sucedida.|
 | **Intervalo** | Configura as verificações de intervalo de investigação em segundos.|
 | **Tempo limite** | Define o tempo limite da investigação para uma verificação de resposta HTTP.|
@@ -165,14 +165,14 @@ Alterar a configuração atual de um gateway de aplicativo exige três etapas: o
 
 1. Obtenha o arquivo XML usando `Get-AzureApplicationGatewayConfig`. Este cmdlet exporta o XML de configuração a ser modificado para adicionar uma configuração de investigação.
 
-  ```powershell
-  Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
-  ```
+   ```powershell
+   Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
+   ```
 
 1. Abra o arquivo XML em um editor de texto. Adicione uma seção `<probe>` após `<frontendport>`.
 
-  ```xml
-<Probes>
+   ```xml
+   <Probes>
     <Probe>
         <Name>Probe01</Name>
         <Protocol>Http</Protocol>
@@ -182,12 +182,12 @@ Alterar a configuração atual de um gateway de aplicativo exige três etapas: o
         <Timeout>15</Timeout>
         <UnhealthyThreshold>5</UnhealthyThreshold>
     </Probe>
-</Probes>
-  ```
+   </Probes>
+   ```
 
-  Na seção backendHttpSettings do XML, adicione o nome da investigação como mostrado no exemplo a seguir:
+   Na seção backendHttpSettings do XML, adicione o nome da investigação como mostrado no exemplo a seguir:
 
-  ```xml
+   ```xml
     <BackendHttpSettings>
         <Name>setting1</Name>
         <Port>80</Port>
@@ -196,9 +196,9 @@ Alterar a configuração atual de um gateway de aplicativo exige três etapas: o
         <RequestTimeout>120</RequestTimeout>
         <Probe>Probe01</Probe>
     </BackendHttpSettings>
-  ```
+   ```
 
-  Salve o arquivo XML.
+   Salve o arquivo XML.
 
 1. Atualize a configuração do Gateway de Aplicativo com o novo arquivo XML usando `Set-AzureApplicationGatewayConfig`. Este cmdlet atualiza seu Gateway de Aplicativo com a nova configuração.
 

@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: justhu, elisol
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 766eb7864a6bce296daafc86179e2deed77f8e02
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 44feaecd42a8c3ce0ac0c712aa27b2480fd2a486
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163115"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806922"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Como: Entrar em qualquer usuário do Azure Active Directory usando o padrão de aplicativo multilocatário
 
@@ -39,7 +39,7 @@ Há quatro etapas simples para converter seu aplicativo em um aplicativo multilo
 1. [Atualizar seu registro de aplicativo para ser multilocatário](#update-registration-to-be-multi-tenant)
 2. [Atualizar seu código para enviar solicitações para o ponto de extremidade /common](#update-your-code-to-send-requests-to-common)
 3. [Atualizar seu código para lidar com vários valores de emissor](#update-your-code-to-handle-multiple-issuer-values)
-4. Entender o consentimento do usuário e administrador e fazer as alterações de código apropriadas
+4. [Entender o consentimento do usuário e administrador e fazer as alterações de código apropriadas](#understand-user-and-admin-consent)
 
 Vamos examinar cada etapa detalhadamente. Você também pode ir diretamente para [esta lista de exemplos de multilocatário][AAD-Samples-MT].
 
@@ -138,7 +138,7 @@ Seu aplicativo pode ter várias camadas, cada uma representada por seu próprio 
 
 **Várias camadas em um único locatário**
 
-Isso poderá ser um problema se seu aplicativo lógico consistir em dois ou mais registros de aplicativo, por exemplo, um cliente e um recurso separados. Como você obtém o recurso no locatário do cliente primeiro? O Azure AD abrange neste caso permitindo que o cliente e o recurso recebam o consentimento em uma única etapa. O usuário vê a soma total das permissões solicitadas pelo cliente e pelo recurso na página de consentimento. Para permitir esse comportamento, o registro do aplicativo do recurso deve incluir a ID do aplicativo do cliente como um `knownClientApplications` no [manifesto do aplicativo][AAD-App-Manifest]. Por exemplo: 
+Isso poderá ser um problema se seu aplicativo lógico consistir em dois ou mais registros de aplicativo, por exemplo, um cliente e um recurso separados. Como você obtém o recurso no locatário do cliente primeiro? O Azure AD abrange neste caso permitindo que o cliente e o recurso recebam o consentimento em uma única etapa. O usuário vê a soma total das permissões solicitadas pelo cliente e pelo recurso na página de consentimento. Para permitir esse comportamento, o registro do aplicativo do recurso deve incluir a ID do aplicativo do cliente como um `knownClientApplications` no [manifesto do aplicativo][AAD-App-Manifest]. Por exemplo:
 
     knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
 

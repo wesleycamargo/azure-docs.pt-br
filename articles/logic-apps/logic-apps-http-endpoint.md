@@ -16,12 +16,12 @@ ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
 ms.author: klam; LADocs
-ms.openlocfilehash: 7920fee1bacf569ac41c36142fc68080b4de5780
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: c58b39f8e2d49eeb3e64c7ffce1d34d7a7b7b780
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230481"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904364"
 ---
 # <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>Chamar, disparar ou aninhar fluxos de trabalho com pontos de extremidade HTTP em aplicativos lógicos
 
@@ -71,7 +71,7 @@ Para criar um ponto de extremidade HTTP, adicione um gatilho que possa receber s
 
     > [!TIP]
     > 
-    > Você pode gerar um esquema para um conteúdo JSON de exemplo usando uma ferramenta como [jsonschema.net](http://jsonschema.net/) ou no gatilho **Solicitar** escolhendo **Use o conteúdo de amostra para gerar o esquema**. 
+    > Você pode gerar um esquema para um conteúdo JSON de exemplo usando uma ferramenta como [jsonschema.net](https://jsonschema.net/) ou no gatilho **Solicitar** escolhendo **Use o conteúdo de amostra para gerar o esquema**. 
     > Insira o conteúdo de exemplo e escolha **Concluído**.
 
     Por exemplo, este conteúdo de exemplo:
@@ -275,9 +275,9 @@ Veja a seguir como o esquema JSON se parece agora para a ação **Resposta**:
 
 ## <a name="q--a"></a>Perguntas e respostas
 
-#### <a name="q-what-about-url-security"></a>P: O que dizer sobre a segurança de URL?
+#### <a name="q-what-about-url-security"></a>P: E sobre a segurança de URL?
 
-R: O Azure gera com segurança URLs de retorno de chamada do aplicativo lógico usando uma SAS (Assinatura de Acesso Compartilhado). Essa assinatura é transmitida como um parâmetro de consulta e deve ser validada antes do aplicativo lógico ser acionado. O Azure gera a assinatura usando uma combinação exclusiva de uma chave secreta por aplicativo lógico, o nome do gatilho e a operação que é executada. Portanto, a menos que alguém tenha acesso à chave secreta do aplicativo lógico, não é possível gerar uma assinatura válida.
+R: O Azure gera com segurança URLs de retorno de chamada do aplicativo lógico usando uma assinatura de acesso compartilhado (SAS). Essa assinatura é transmitida como um parâmetro de consulta e deve ser validada antes do aplicativo lógico ser acionado. O Azure gera a assinatura usando uma combinação exclusiva de uma chave secreta por aplicativo lógico, o nome do gatilho e a operação que é executada. Portanto, a menos que alguém tenha acesso à chave secreta do aplicativo lógico, não é possível gerar uma assinatura válida.
 
    > [!IMPORTANT]
    > Para sistemas seguros e de produção, é altamente recomendável não chamar o aplicativo lógico de chamada diretamente do navegador porque:
@@ -285,18 +285,18 @@ R: O Azure gera com segurança URLs de retorno de chamada do aplicativo lógico 
    > * A chave de acesso compartilhado é exibida na URL.
    > * Você não pode gerenciar políticas de conteúdo seguras devido a domínios compartilhados entre clientes de Aplicativos Lógicos.
 
-#### <a name="q-can-i-configure-http-endpoints-further"></a>P: Posso configurar pontos de extremidade HTTP mais tarde?
+#### <a name="q-can-i-configure-http-endpoints-further"></a>P: Posso configurar pontos de extremidade HTTP ainda mais?
 
-R: Sim, os pontos de extremidade HTTP dão suporte à configuração mais avançada por meio do [**Gerenciamento de API**](../api-management/api-management-key-concepts.md). Esse serviço também oferece a capacidade de gerenciar todas as suas APIs de modo consistente, incluindo aplicativos lógicos, configurar os nomes de domínio personalizados, usar mais métodos de autenticação e mais, por exemplo:
+R: Sim, pontos de extremidade HTTP dão suporte a configuração mais avançada por meio [ **gerenciamento de API**](../api-management/api-management-key-concepts.md). Esse serviço também oferece a capacidade de gerenciar todas as suas APIs de modo consistente, incluindo aplicativos lógicos, configurar os nomes de domínio personalizados, usar mais métodos de autenticação e mais, por exemplo:
 
 * [Alterar o método de solicitação](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#SetRequestMethod)
 * [Alterar os segmentos de URL da solicitação](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#RewriteURL)
 * Configurar os domínios de Gerenciamento de API no [portal do Azure](https://portal.azure.com/ "portal do Azure")
 * Configurar a política para verificar a autenticação Básica
 
-#### <a name="q-what-changed-when-the-schema-migrated-from-the-december-1-2014-preview"></a>P: O que mudou quando o esquema migrou do modo de visualização de 1º de dezembro de 2014?
+#### <a name="q-what-changed-when-the-schema-migrated-from-the-december-1-2014-preview"></a>P: O que mudou quando o esquema migrou da versão prévia 1 de dezembro de 2014?
 
-R: Veja um resumo sobre essas alterações:
+R: Aqui está um resumo sobre essas alterações:
 
 | Visualização de 1º de dezembro de 2014 | 1º de junho de 2016 |
 | --- | --- |

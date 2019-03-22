@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 665fbbc8668e465c78d93b134f6a314d58791490
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.openlocfilehash: f955ed63af221a08313042fcc8373b179ecbc120
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276444"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569375"
 ---
 # <a name="sfctl-chaos-schedule"></a>sfctl chaos schedule
 Obter e definir a agenda do caos.
@@ -83,15 +83,15 @@ O Caos agendará automaticamente execuções com base na Agenda do Caos. A vers�
 O comando a seguir define uma agenda (supondo que a agenda atual tenha a versão 0) que inicia em 01-01-2016 e expira em 01-01-2038 que executa o Caos 24 horas por dia, 7 dias por semana. O Caos serão agendado no cluster para esse horário.
 
     sfctl chaos schedule set --version 0 --start-date-utc "2016-01-01T00:00:00.000Z" --expiry-date-utc "2038-01-01T00:00:00.000Z"
-    --chaos-parameters-dictionary 
-    [  
-    {  
+    --chaos-parameters-dictionary
+    [
+    {
         "Key":"adhoc",
-        "Value":{  
+        "Value":{
             "MaxConcurrentFaults":3,
             "EnableMoveReplicaFaults":true,
-            "ChaosTargetFilter":{  
-                "NodeTypeInclusionList":[  
+            "ChaosTargetFilter":{
+                "NodeTypeInclusionList":[
                 "N0010Ref",
                 "N0020Ref",
                 "N0030Ref",
@@ -103,12 +103,12 @@ O comando a seguir define uma agenda (supondo que a agenda atual tenha a versão
             "WaitTimeBetweenIterationsInSeconds":15,
             "WaitTimeBetweenFaultsInSeconds":30,
             "TimeToRunInSeconds":"600",
-            "Context":{  
-                "Map":{  
+            "Context":{
+                "Map":{
                 "test":"value"
                 }
             },
-            "ClusterHealthPolicy":{  
+            "ClusterHealthPolicy":{
                 "MaxPercentUnhealthyNodes":0,
                 "ConsiderWarningAsError":true,
                 "MaxPercentUnhealthyApplications":0
@@ -116,11 +116,11 @@ O comando a seguir define uma agenda (supondo que a agenda atual tenha a versão
         }
     }
     ]
-    --jobs 
-    [  
-    {  
+    --jobs
+    [
+    {
         "ChaosParameters":"adhoc",
-        "Days":{  
+        "Days":{
             "Sunday":true,
             "Monday":true,
             "Tuesday":true,
@@ -129,13 +129,13 @@ O comando a seguir define uma agenda (supondo que a agenda atual tenha a versão
             "Friday":true,
             "Saturday":true
         },
-        "Times":[  
-            {  
-                "StartTime":{  
+        "Times":[
+            {
+                "StartTime":{
                 "Hour":0,
                 "Minute":0
                 },
-                "EndTime":{  
+                "EndTime":{
                 "Hour":23,
                 "Minute":59
                 }

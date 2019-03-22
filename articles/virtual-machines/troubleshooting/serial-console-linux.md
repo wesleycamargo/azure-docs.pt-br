@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 6c0207a68cea70951143c87f83f6b17bb0c7b1f3
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 4fd96aedc658833493d6fddb704104a70c01df44
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098452"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010983"
 ---
 # <a name="virtual-machine-serial-console-for-linux"></a>Console serial da máquina virtual para Linux
 
@@ -82,6 +82,7 @@ Imagens personalizadas do Linux     | Para ativar o console serial para sua imag
 > Se você não estiver vendo nada no console serial, verifique se o diagnóstico de inicialização está habilitado na VM.
 
 ## <a name="common-scenarios-for-accessing-the-serial-console"></a>Cenários comuns para acessar o console serial
+
 Cenário          | Ações no console serial
 :------------------|:-----------------------------------------
 Arquivo  *FSTAB quebrado* | Pressione a tecla **Enter** para continuar e use um editor de texto para corrigir o arquivo *FSTAB*. Você pode precisar estar no modo de usuário único para fazer isso. Para obter mais informações, consulte [Como corrigir problemas do fstab](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) e [Use o console serial para acessar o GRUB e o modo de usuário único](serial-console-grub-single-user-mode.md).
@@ -143,14 +144,14 @@ Todos os dados enviados são criptografados na rede.
 ### <a name="audit-logs"></a>Logs de auditoria
 Todo o acesso ao console serial está conectado a logs de [diagnósticos de inicialização](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) da máquina virtual. O acesso a esses logs pertence e é controlado pelo administrador da máquina virtual do Azure.
 
->[!CAUTION]
-Nenhuma senha de acesso para o console seja registrada. No entanto, se comandos executados dentro do console contiverem ou gerarem senhas, segredos, nomes de usuário ou qualquer outra forma de informações de identificação pessoal (PII), eles serão gravados nos logs de diagnóstico de inicialização VM. Eles serão gravados juntamente com todos os outro texto visível, como parte da implementação de scrollback do console serial função. Esses logs são circulares e somente indivíduos com permissões de leitura para a conta de armazenamento de diagnósticos têm acesso a eles. No entanto, recomendamos seguir a melhor prática de usar a Área de Trabalho Remota para qualquer coisa que possa envolver segredos e / ou PII.
+> [!CAUTION]
+> Nenhuma senha de acesso para o console seja registrada. No entanto, se comandos executados dentro do console contiverem ou gerarem senhas, segredos, nomes de usuário ou qualquer outra forma de informações de identificação pessoal (PII), eles serão gravados nos logs de diagnóstico de inicialização VM. Eles serão gravados juntamente com todos os outro texto visível, como parte da implementação de scrollback do console serial função. Esses logs são circulares e somente indivíduos com permissões de leitura para a conta de armazenamento de diagnósticos têm acesso a eles. No entanto, recomendamos seguir a melhor prática de usar a Área de Trabalho Remota para qualquer coisa que possa envolver segredos e / ou PII.
 
 ### <a name="concurrent-usage"></a>Uso simultâneo
 Se um usuário estiver conectado ao console serial e outro usuário solicitar com êxito acesso à mesma máquina virtual, o primeiro usuário será desconectado e o segundo usuário será conectado à mesma sessão.
 
->[!CAUTION]
-Isso significa que um usuário desconectado não será desconectado. A capacidade de impor um logout após a desconexão (usando SIGHUP ou mecanismo similar) ainda está no roteiro. Para o Windows, há um tempo limite automático ativado no Console Administrativo Especial (SAC); no entanto, para o Linux, você pode definir a configuração de tempo limite do terminal. Para fazer isso, adicione `export TMOUT=600` no arquivo *.bash_profile* ou *.profile* para o usuário que você usa para fazer login no console. Essa configuração expirará a sessão após 10 minutos.
+> [!CAUTION]
+> Isso significa que um usuário desconectado não será desconectado. A capacidade de impor um logout após a desconexão (usando SIGHUP ou mecanismo similar) ainda está no roteiro. Para o Windows, há um tempo limite automático ativado no Console Administrativo Especial (SAC); no entanto, para o Linux, você pode definir a configuração de tempo limite do terminal. Para fazer isso, adicione `export TMOUT=600` no arquivo *.bash_profile* ou *.profile* para o usuário que você usa para fazer login no console. Essa configuração expirará a sessão após 10 minutos.
 
 ## <a name="accessibility"></a>Acessibilidade
 A acessibilidade é o foco principal do console serial do Azure. Para esse fim, garantimos que o console serial seja totalmente acessível.
@@ -188,7 +189,7 @@ O console serial não funciona com um firewall de conta de armazenamento. | Por 
 
 **P. Como posso enviar comentários?**
 
-a. Fornecer comentários com a criação de um problema do GitHub em https://aka.ms/serialconsolefeedback. Como alternativa (menos preferencial), você pode enviar comentários por meio azserialhelp@microsoft.com ou na categoria da máquina virtual http://feedback.azure.com.
+a. Fornecer comentários com a criação de um problema do GitHub em https://aka.ms/serialconsolefeedback. Como alternativa (menos preferencial), você pode enviar comentários por meio azserialhelp@microsoft.com ou na categoria da máquina virtual https://feedback.azure.com.
 
 **P. O console serial dá suporte para copiar/colar?**
 

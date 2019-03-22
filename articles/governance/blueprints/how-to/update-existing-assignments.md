@@ -1,6 +1,6 @@
 ---
-title: Como atualizar uma atribuição existente
-description: Saiba mais sobre o mecanismo para atualizar uma atribuição existente em Azure Blueprints.
+title: Como atualizar uma atribuição existente no portal
+description: Saiba mais sobre o mecanismo para atualizar uma atribuição existente no portal em especificações técnicas do Azure.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 2ada0ccc1286677300c005da4fa0e92be94a3ca8
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: 572a962e98332fc70c276346f497ed2e67e3c329
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314815"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999857"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Como atualizar uma atribuição de blueprint existente
 
@@ -26,21 +26,21 @@ Quando um blueprint é atribuído, a atribuição pode ser atualizada. Há vári
 
 ## <a name="updating-assignments"></a>Atualizando atribuições
 
-1. Clique em **Todos os serviços** e pesquise e selecione **Política** no painel esquerdo. Sobre a **política** página, clique em **plantas**.
+1. Selecione **Todos os serviços** no painel esquerdo. Pesquise e selecione **Blueprints**.
 
-1. Selecione **Assigned Blueprints** na página à esquerda.
+1. Selecione **Blueprints atribuídos** na página à esquerda.
 
-1. Na lista de planos gráficos, clique em atribuição de planta. Em seguida, clique o **Atribuição de atualizações** botão ou a atribuição de planta com o botão direito e selecione **atribuição de atualização**.
+1. Na lista de planos gráficos, clique em atribuição de planta. Em seguida, clique o **atualizar atribuição** botão ou a atribuição de planta com o botão direito e selecione **atualizar atribuição**.
 
    ![Atualizar atribuição](../media/update-existing-assignments/update-assignment.png)
 
-1. A página **Atribuir Blueprint** será carregada já preenchida com todos os valores da atribuição original. Você pode alterar a **versão de definição do blueprint**, o estado **Bloquear Atribuição** e qualquer um dos parâmetros dinâmicos que existem na definição do blueprint. Clique em **Atribuir** quando terminar de fazer alterações.
+1. O **Assign blueprint** página será carregada previamente preenchido com todos os valores da atribuição original. Você pode alterar a **versão de definição do blueprint**, o estado **Bloquear Atribuição** e qualquer um dos parâmetros dinâmicos que existem na definição do blueprint. Clique em **Atribuir** quando terminar de fazer alterações.
 
 1. Na página de detalhes de atribuição atualizada, veja o novo status. Neste exemplo, adicionamos **Bloqueio** à atribuição.
 
    ![Atribuição atualizada – bloqueada](../media/update-existing-assignments/updated-assignment.png)
 
-1. Explore detalhes sobre outras **Operações de Atribuição** usando a lista suspensa. A tabela **Recursos Gerenciados** é atualizada com a operação de atribuição selecionada.
+1. Explorar os detalhes sobre outros **operações de atribuição** usando a lista suspensa. A tabela de **os recursos gerenciados** atualizações pela operação de atribuição selecionado.
 
    ![Operações de atribuição](../media/update-existing-assignments/assignment-operations.png)
 
@@ -69,8 +69,8 @@ Não há nenhum limite para o número de vezes que uma atribuição pode ser atu
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Aprenda sobre o [ciclo de vida do blueprint](../concepts/lifecycle.md)
-- Entenda como usar [parâmetros estáticos e dinâmicos](../concepts/parameters.md)
-- Aprenda a personalizar o [especificações técnicas de ordem de sequenciamento](../concepts/sequencing-order.md)
-- Saiba como usar o [bloqueio de recurso de blueprint](../concepts/resource-locking.md)
-- Resolver problemas durante a atribuição de um blueprint com a [solução de problemas gerais](../troubleshoot/general.md)
+- Saiba mais sobre o [ciclo de vida do blueprint](../concepts/lifecycle.md).
+- Saiba como usar [parâmetros estáticos e dinâmicos](../concepts/parameters.md).
+- Saiba como personalizar a [ordem de sequenciamento de blueprint](../concepts/sequencing-order.md).
+- Saiba como usar o [bloqueio de recurso de blueprint](../concepts/resource-locking.md).
+- Resolver problemas durante a atribuição de blueprint com [solução de problemas gerais](../troubleshoot/general.md).

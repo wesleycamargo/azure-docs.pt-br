@@ -5,16 +5,16 @@ description: Como preparar seu modelo treinado para implantação como um servi�
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.date: 03/28/2017
-ms.openlocfilehash: 1d07ad7e60e1ee9ff3216767fcfc77405d557f44
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 2a318edada5cdc4124e221fdc8c441ab323a9289
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455102"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119608"
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio"></a>Como preparar seu modelo para implantação no Azure Machine Learning Studio
 

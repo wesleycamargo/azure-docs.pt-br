@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 01/06/2019
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: 01c88b9bc64bc1541e97aff26e41c360acfaf6bd
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 1fa9eaa5f4ba399622e0b8889ab722e4a4e130a0
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54809960"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57770462"
 ---
 # <a name="what-is-azure-event-grid"></a>O que é a Grade de Eventos do Azure?
 
@@ -44,6 +44,7 @@ Para obter detalhes completos sobre os recursos de cada origem, bem como artigos
 * Barramento de Serviço
 * Blob de Armazenamento
 * Uso geral v2 (GPv2) do Armazenamento
+* Mapas do Azure
 
 ## <a name="event-handlers"></a>Manipuladores de eventos
 
@@ -87,7 +88,7 @@ Para obter uma comparação de Grade de Eventos, Hubs de Eventos e Barramento de
 
 ## <a name="what-can-i-do-with-event-grid"></a>O que posso fazer com a Grade de Eventos?
 
-A Grade de Eventos do Azure fornece vários recursos que melhoram muito o trabalho sem servidor, de automação de operações e de [integração](http://azure.com/integration): 
+A Grade de Eventos do Azure fornece vários recursos que melhoram muito o trabalho sem servidor, de automação de operações e de [integração](https://azure.com/integration): 
 
 ### <a name="serverless-application-architectures"></a>Arquiteturas de aplicativo sem servidor
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 7bd4c261af4159429a91bd8b425180037eec8c23
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 112d0bd4b6802179692d0d177775027e552d1170
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670886"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085313"
 ---
 # <a name="set-up-a-geofence-by-using-azure-maps"></a>Configurar um limite geográfico usando o Azure Mapas
 
@@ -25,11 +25,11 @@ Para saber mais sobre a Grade de Eventos, confira [Grade de Eventos do Azure](ht
 Neste tutorial, você aprenderá a:
 
 > [!div class="checklist"]
-* Carregue a área do limite geográfico no Azure Mapas, serviço de dados usando a API de Upload de Dados.
-*   Configure uma Grade de Eventos para manipular eventos de limite geográfico.
-*   Configure o manipulador de eventos do limite geográfico.
-*   Configure alertas em resposta a eventos do limite geográfico usando os Aplicativos Lógicos.
-*   Use APIs do serviço do limite geográfico do Azure Mapas para controlar se um ativo de construção está ou não dentro do local de construção.
+> * Carregue a área do limite geográfico no Azure Mapas, serviço de dados usando a API de Upload de Dados.
+> *   Configure uma Grade de Eventos para manipular eventos de limite geográfico.
+> *   Configure o manipulador de eventos do limite geográfico.
+> *   Configure alertas em resposta a eventos do limite geográfico usando os Aplicativos Lógicos.
+> *   Use APIs do serviço do limite geográfico do Azure Mapas para controlar se um ativo de construção está ou não dentro do local de construção.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -150,9 +150,9 @@ Abra o aplicativo Postman e siga as etapas a seguir para carregar o limite geogr
 
 5. Clique em enviar e revise o cabeçalho de resposta. O cabeçalho de localização contém o URI para acessar ou baixar os dados para uso futuro. Ele também contém um `udId` exclusivo para os dados carregados.
 
-  ```HTTP
-  https://atlas.microsoft.com/mapData/{udId}/status?api-version=1.0&subscription-key={Subscription-key}
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/mapData/{udId}/status?api-version=1.0&subscription-key={Subscription-key}
+   ```
 
 ## <a name="set-up-an-event-handler"></a>Configurar um manipulador de eventos
 
@@ -163,15 +163,15 @@ Você pode ver todos os [manipuladores de eventos com suporte](https://docs.micr
 
 1. Criar um aplicativo lógico no portal do Azure
 
-  ![Criar Aplicativos Lógicos](./media/tutorial-geofence/logic-app.png)
+   ![Criar Aplicativos Lógicos](./media/tutorial-geofence/logic-app.png)
 
 2. Selecione um gatilho de solicitação HTTP e, em seguida, selecione "enviar um email" como uma ação no conector do Outlook
   
-  ![Esquema dos Aplicativos Lógicos](./media/tutorial-geofence/logic-app-schema.png)
+   ![Esquema dos Aplicativos Lógicos](./media/tutorial-geofence/logic-app-schema.png)
 
 3. Salve o Aplicativo Lógico para gerar o ponto de extremidade de URL HTTP e copie a URL HTTP.
 
-  ![Ponto de extremidade de Aplicativos Lógicos](./media/tutorial-geofence/logic-app-endpoint.png)
+   ![Ponto de extremidade de Aplicativos Lógicos](./media/tutorial-geofence/logic-app-endpoint.png)
 
 
 ## <a name="create-an-azure-maps-events-subscription"></a>Criar uma assinatura de Eventos do Azure Mapas
@@ -208,53 +208,53 @@ A seguir estão as cinco solicitações de API de limitação geográfica GET HT
  
 1. Localização 1:
     
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.638237&lon=-122.1324831&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
-  ![Consulta 1 do limite geográfico](./media/tutorial-geofence/geofence-query1.png)
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.638237&lon=-122.1324831&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
+   ![Consulta 1 do limite geográfico](./media/tutorial-geofence/geofence-query1.png)
 
-  Se você examinar a resposta acima, a distância negativa do limite geográfico principal significará que o equipamento está dentro do limite geográfico e a distância positiva do limite geográfico do subsite indica que ele está fora do subsite do limite geográfico. 
+   Se você examinar a resposta acima, a distância negativa do limite geográfico principal significará que o equipamento está dentro do limite geográfico e a distância positiva do limite geográfico do subsite indica que ele está fora do subsite do limite geográfico. 
 
 2. Localização 2: 
    
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63800&lon=-122.132531&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63800&lon=-122.132531&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
     
-  ![Consulta 2 do limite geográfico](./media/tutorial-geofence/geofence-query2.png)
+   ![Consulta 2 do limite geográfico](./media/tutorial-geofence/geofence-query2.png)
 
-  Se você examinar a resposta JSON anterior cuidadosamente, verá que o equipamento está fora do subsite, mas está dentro do limite principal. Ele não dispara um evento e nenhum email é enviado.
+   Se você examinar a resposta JSON anterior cuidadosamente, verá que o equipamento está fora do subsite, mas está dentro do limite principal. Ele não dispara um evento e nenhum email é enviado.
 
 3. Localização 3: 
   
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63810783315048&lon=-122.13336020708084&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63810783315048&lon=-122.13336020708084&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
 
-  ![Consulta 3 do limite geográfico](./media/tutorial-geofence/geofence-query3.png)
+   ![Consulta 3 do limite geográfico](./media/tutorial-geofence/geofence-query3.png)
 
-  Ocorreu uma alteração de estado e agora o equipamento está dentro dos limites geográficos principal e de subsite. Isso publica um evento e uma notificação por email será enviada para o gerente de operações.
+   Ocorreu uma alteração de estado e agora o equipamento está dentro dos limites geográficos principal e de subsite. Isso publica um evento e uma notificação por email será enviada para o gerente de operações.
 
 4. Localização 4: 
 
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.637988&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.637988&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
   
-  ![Consulta 4 do limite geográfico](./media/tutorial-geofence/geofence-query4.png)
+   ![Consulta 4 do limite geográfico](./media/tutorial-geofence/geofence-query4.png)
 
    Observando cuidadosamente a resposta correspondente, você pode observar que nenhum evento for publicado aqui, embora o equipamento tenha saído do limite geográfico do subsite. Se examinar a hora especificada do usuário na solicitação GET, você poderá ver que o limite geográfico do subsite expirou em relação ao seu horário e o equipamento ainda está no limite geográfico principal. Você também pode ver a ID de geometria do limite geográfico do subsite sob `expiredGeofenceGeometryId` no corpo da resposta.
 
 
 5. Localização 5:
       
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63799&lon=-122.134505&userTime=2019-01-16&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63799&lon=-122.134505&userTime=2019-01-16&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
 
-  ![Consulta 5 do limite geográfico](./media/tutorial-geofence/geofence-query5.png)
+   ![Consulta 5 do limite geográfico](./media/tutorial-geofence/geofence-query5.png)
 
-  Você pode ver que o equipamento saiu do limite geográfico do local de construção principal. Ele publica um evento, ele é uma violação séria e um email de alerta crítico é enviado ao gerente de operações.
+   Você pode ver que o equipamento saiu do limite geográfico do local de construção principal. Ele publica um evento, ele é uma violação séria e um email de alerta crítico é enviado ao gerente de operações.
 
 ## <a name="next-steps"></a>Próximas etapas
 

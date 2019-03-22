@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a494e403b8afa1424640ac2e24d0f832b3de02dd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 89b264c35d7dc269252a156aad6a24a565dbd6ea
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210604"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872668"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-apex-portal"></a>Tutorial: Integração do Azure Active Directory ao Portal Apex
 
@@ -217,8 +217,8 @@ Nesta seção, você permitirá que Britta Simon use o logon único do Azure con
 
 Nesta seção, um usuário chamado Brenda Fernandes é criado no Portal do Apex. O Portal do Apex dá suporte ao provisionamento do usuário Just-In-Time, que está habilitado por padrão. Não há itens de ação para você nesta seção. Se um usuário ainda não existir no Portal do Apex, um novo usuário será criado após a autenticação.
 
-> [!NOTE]
-> Se precisar criar um usuário manualmente, entre em contato com a  [equipe de suporte do Portal Apex](mailto:support@apexanalytix.com).
+> [!NOTE]
+> Se precisar criar um usuário manualmente, entre em contato com a  [equipe de suporte do Portal Apex](mailto:support@apexanalytix.com).
 
 ### <a name="test-single-sign-on"></a>Testar logon único
 
@@ -228,9 +228,9 @@ Ao clicar no bloco do Portal do Apex no Painel de Acesso, você deverá ser cone
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

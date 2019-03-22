@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/26/2018
-ms.openlocfilehash: 0c962dc6d8aff63a3b7dd34133a40c7ff9feec4c
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: c4fcdc43e8c88bf307e4de5727df0641616d7b78
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540734"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448128"
 ---
 # <a name="best-practices-for-query-store"></a>Práticas recomendadas para Repositório de Consultas
 
@@ -28,7 +28,7 @@ Deixe que o Repositório de Consultas capture os dados que importam para você.
 
 |**pg_qs.query_capture_mode** | **Cenário**|
 |---|---|
-|_Todas_  |Analise sua carga de trabalho cuidadosamente em termos de todas as consultas e das respectivas frequências de execução e outras estatísticas. Identifique novas consultas na carga de trabalho. Detecte se consultas ad hoc são usadas para identificar oportunidades de parametrização automática ou de usuário. _All_ acompanha um custo de consumo de recursos maior. |
+|_Todas_  |Analise sua carga de trabalho cuidadosamente em termos de todas as consultas e das respectivas frequências de execução e outras estatísticas. Identifique novas consultas na carga de trabalho. Detecte se consultas ad hoc são usadas para identificar oportunidades de parametrização automática ou usuário. _All_ acompanha um custo de consumo de recursos maior. |
 |_Top_  |Concentre sua atenção nas principais consultas – aquelas emitidas pelos clientes.
 |_Nenhum_ |Você já capturou um conjunto de consultas e a janela de tempo que você deseja investigar, e você deseja eliminar as distrações que outras consultas podem causar. _None_ é adequado para teste e avaliação de desempenho de ambientes. _None_ deve ser usado com cuidado, pois você pode perder a oportunidade de acompanhar e otimizar consultas novas importantes. Você não pode recuperar dados nessas janelas de tempo do passado. |
 

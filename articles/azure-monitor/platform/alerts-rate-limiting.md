@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.date: 3/12/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: cb70dd30d2c3218ac0ad6ef4bd7b71108845f8cb
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 11fd6a2c58671cc5d0bcf0593239eb9e62aca834
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54476437"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109484"
 ---
 # <a name="rate-limiting-for-voice-sms-emails-azure-app-push-notifications-and-webhook-posts"></a>Limitação de taxa para voz, SMS, emails, notificações por push do Azure App e webhooks
 A limitação de taxa é uma suspensão de notificações que ocorre quando muitas são enviadas para determinado número de telefone, endereço de email ou dispositivo. A limitação de taxa assegura que os alertas sejam gerenciáveis e acionáveis.
 
 Os limites de taxa são:
 
- - **SMS**: não mais de 1 SMS a cada 5 minutos.
- - **Voz**: não mais de 1 chamada de voz a cada 5 minutos.
- - **Email**: não mais de 100 emails em uma hora.
+- **SMS**: não mais de 1 SMS a cada 5 minutos.
+- **Voz**: não mais de 1 chamada de voz a cada 5 minutos.
+- **Email**: não mais de 100 emails em uma hora.
  
- Outras ações não são limitadas por classificação.
+  Outras ações não são limitadas por classificação.
 
 ## <a name="rate-limit-rules"></a>Regras do limite de taxa
 - Um número de telefone ou email específico tem um limite de taxa imposto quando recebe mais mensagens do que o limite permite.

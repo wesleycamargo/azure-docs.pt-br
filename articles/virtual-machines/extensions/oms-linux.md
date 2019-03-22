@@ -1,5 +1,5 @@
 ---
-title: Extensão da máquina virtual do Log Analytics do Azure para Linux | Microsoft Docs
+title: Extensão da máquina virtual do Azure Monitor para Linux | Microsoft Docs
 description: Implante o agente do Log Analytics na máquina virtual do Linux usando uma extensão da máquina virtual.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,23 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/30/2018
+ms.date: 03/12/2019
 ms.author: roiyz
-ms.openlocfilehash: 6ca39d13fa54d772de17d519be5977e1a437c033
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: 538eb492829c8ad171d1d27b51405725f53f352a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337556"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853215"
 ---
-# <a name="log-analytics-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual do Log Analytics para Linux
+# <a name="azure-monitor-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual do Azure Monitor para Linux
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
-O Log Analytics fornece recursos de monitoramento, alertas e correção de alertas nos ativos locais e da nuvem. A extensão da máquina virtual do agente do Log Analytics para Linux é publicada e recebe suporte da Microsoft. A extensão instala o agente do Log Analytics em máquinas virtuais do Azure e registra máquinas virtuais em um workspace do Log Analytics existente. Este documento detalha as plataformas com opções de plataformas, configurações e implantação com suporte para a extensão da máquina virtual do Log Analytics para Linux.
+Os logs do Azure Monitor fornece recursos de correção de alerta, monitoramento e alertas nos ativos de nuvem e locais. A extensão da máquina virtual do agente do Log Analytics para Linux é publicada e recebe suporte da Microsoft. A extensão instala o agente do Log Analytics em máquinas virtuais do Azure e registra máquinas virtuais em um workspace do Log Analytics existente. Este documento detalha as plataformas com suporte, configurações e opções de implantação para a extensão de máquina virtual do Azure Monitor para Linux.
 
 >[!NOTE]
 >Como parte da transição contínua do Microsoft OMS (Operations Management Suite) para o Azure Monitor, o Agente do OMS para Windows ou Linux será chamado de agente do Log Analytics para Windows e agente do Log Analytics para Linux.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -52,10 +54,11 @@ A extensão do agente do Log Analytics pode ser executada nessas distribuições
 >
 
 ### <a name="agent-and-vm-extension-version"></a>Versão do Agente e da Extensão de VM
-A tabela a seguir fornece um mapeamento da versão da extensão de VM do Log Analytics e o pacote do agente do Log Analytics para cada versão. Há um link para as notas de versão da versão do pacote do agente do Log Analytics. As notas de versão incluem detalhes sobre correções de bug e novos recursos disponíveis para uma determinada liberação de agente.  
+A tabela a seguir fornece um mapeamento da versão da extensão de VM do Azure Monitor e o pacote do agente do Log Analytics para cada versão. Há um link para as notas de versão da versão do pacote do agente do Log Analytics. As notas de versão incluem detalhes sobre correções de bug e novos recursos disponíveis para uma determinada liberação de agente.  
 
-| Versão da extensão de VM do Linux do Log Analytics | Versão do pacote do agente do Log Analytics | 
+| Versão da extensão de VM do Linux de Monitor do Azure | Versão do pacote do agente do Log Analytics | 
 |--------------------------------|--------------------------|
+| 1.9.1 | [1.9.0-0](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.9.0-0) |
 | 1.8.11 | [1.8.1-256](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.8.1.256)| 
 | 1.8.0 | [1.8.0-256](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/1.8.0-256)| 
 | 1.7.9 | [1.6.1-3](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.6.1.3)| 
@@ -113,11 +116,11 @@ O JSON a seguir mostra o esquema para a extensão do Agente do Log Analytics. A 
 
 ### <a name="property-values"></a>Valores de propriedade
 
-| NOME | Valor/Exemplo |
+| Nome | Valor/Exemplo |
 | ---- | ---- |
 | apiVersion | 2018-06-01 |
 | publicador | Microsoft.EnterpriseCloud.Monitoring |
-| Tipo | OmsAgentForLinux |
+| tipo | OmsAgentForLinux |
 | typeHandlerVersion | 1.7 |
 | workspaceId (por exemplo) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (por exemplo) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
@@ -125,9 +128,9 @@ O JSON a seguir mostra o esquema para a extensão do Agente do Log Analytics. A 
 
 ## <a name="template-deployment"></a>Implantação de modelo
 
-Extensões de VM do Azure podem ser implantadas com modelos do Azure Resource Manager. Modelos são ideais ao implantar uma ou mais máquinas virtuais que exigem configuração pós-implantação, tal como integração ao Log Analytics. Um modelo do Resource Manager de exemplo que inclui a extensão de VM do agente do Log Analytics pode ser encontrado na [Galeria de Início Rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
+Extensões de VM do Azure podem ser implantadas com modelos do Azure Resource Manager. Modelos são ideais ao implantar um ou mais máquinas virtuais que exigem configuração pós-implantação, tal como integração aos logs do Azure Monitor. Um modelo do Resource Manager de exemplo que inclui a extensão de VM do agente do Log Analytics pode ser encontrado na [Galeria de Início Rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
 
-A configuração do JSON para uma extensão da máquina virtual pode ser aninhado dentro do recurso de máquina virtual ou localizado no nível de raiz ou superior de um modelo JSON do Resource Manager. O posicionamento da configuração do JSON afeta o valor do tipo e nome do recurso. Para obter mais informações, consulte [Definir o nome e o tipo de recursos filho](../../azure-resource-manager/resource-manager-templates-resources.md#child-resources). 
+A configuração do JSON para uma extensão da máquina virtual pode ser aninhado dentro do recurso de máquina virtual ou localizado no nível de raiz ou superior de um modelo JSON do Resource Manager. O posicionamento da configuração do JSON afeta o valor do tipo e nome do recurso. Para obter mais informações, consulte [Definir o nome e o tipo de recursos filho](../../azure-resource-manager/resource-group-authoring-templates.md#child-resources). 
 
 O exemplo a seguir pressupõe que a extensão de VM está aninhada dentro do recurso de máquina virtual. Ao aninhar o recurso de extensão, o JSON é colocado no objeto `"resources": []` da máquina virtual.
 
@@ -195,7 +198,7 @@ az vm extension set \
 
 ## <a name="troubleshoot-and-support"></a>Solução de problemas e suporte
 
-### <a name="troubleshoot"></a>Solucionar problemas
+### <a name="troubleshoot"></a>Solução de problemas
 
 Dados sobre o estado das implantações de extensão podem ser recuperados do Portal do Azure usando a CLI do Azure. Para ver o estado da implantação das extensões de uma determinada VM, execute o comando a seguir usando a CLI do Azure.
 
@@ -211,7 +214,7 @@ A saída de execução da extensão é registrada no seguinte arquivo:
 
 ### <a name="error-codes-and-their-meanings"></a>Códigos de erro e seus significados
 
-| Código do Erro | Significado | Ação possível |
+| Código de Erro | Significado | Ação possível |
 | :---: | --- | --- |
 | 9 | Habilitar chamado prematuramente | [Atualize o Agente Linux do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) para a versão mais recente disponível. |
 | 10 | A VM já está conectada a um workspace do Log Analytics | Para conectar a VM ao workspace especificado no esquema de extensão, defina stopOnMultipleConnections como falso nas configurações públicas ou remova esta propriedade. Essa VM é cobrada uma vez para cada workspace ao qual está conectada. |
@@ -220,7 +223,7 @@ A saída de execução da extensão é registrada no seguinte arquivo:
 | 19 | Falha da instalação do pacote OMI | 
 | 20 | Falha da instalação do pacote SCX |
 | 51 | Não há suporte para essa extensão no sistema operacional da VM | |
-| 55 | Não é possível conectar-se ao serviço Log Analytics, os pacotes necessários faltando ou gerenciador de pacotes dpkg está bloqueado| Verifique se o sistema tem acesso à Internet ou que um proxy HTTP válido foi fornecido. Além disso, verifique a exatidão da ID do workspace e verifique se os utilitários curl e tar estão instalados. |
+| 55 | Não é possível conectar ao serviço do Azure Monitor ou os pacotes necessários Gerenciador de pacotes ausentes ou dpkg está bloqueado| Verifique se o sistema tem acesso à Internet ou que um proxy HTTP válido foi fornecido. Além disso, verifique a exatidão da ID do workspace e verifique se os utilitários curl e tar estão instalados. |
 
 Informações adicionais podem ser encontradas no [Guia de solução de problemas do Log Analytics-Agent-for-Linux](../../azure-monitor/platform/vmext-troubleshoot.md).
 

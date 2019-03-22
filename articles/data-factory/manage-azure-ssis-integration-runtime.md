@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: d0022ee46049181ed15e6b3968b9b952483c7fba
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 3c1178a20debc36fbdbbd374eaf9adb6005a93a7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016011"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454928"
 ---
 # <a name="reconfigure-the-azure-ssis-integration-runtime"></a>Reconfigurar o tempo de execução de integração do Azure-SSIS
 Este artigo descreve como reconfigurar um tempo de execução de integração existente do Azure-SSIS. Para criar um IR (tempo de execução de integração) do Azure-SSIS no Azure Data Factory, confira [Criar um tempo de execução de integração do Azure-SSIS](create-azure-ssis-integration-runtime.md).  
@@ -40,51 +40,54 @@ Use a interface do usuário do Data Factory para parar, editar/reconfigurar ou e
 3. Para reiniciar o IR, clique no botão **Iniciar** na coluna **Ações**.     
 
 ## <a name="azure-powershell"></a>Azure PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Depois de provisionar e iniciar uma instância do tempo de execução de integração do Azure-SSIS, você pode reconfigurá-lo executando uma sequência de cmdlets do PowerShell `Stop` - `Set` - `Start` consecutivamente. Por exemplo, o script do PowerShell a seguir altera o número de nós alocados para a instância de tempo de execução de integração do Azure-SSIS para cinco.
 
 ### <a name="reconfigure-an-azure-ssis-ir"></a>Reconfigurar um IR do Azure-SSIS
 
-1. Primeiro, interrompa o tempo de execução de integração do Azure-SSIS usando o [Stop-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/stop-azurermdatafactoryv2integrationruntime?view=azurermps-4.4.1) cmdlet. Este comando libera todos os seus nós e interrompe a cobrança.
+1. Em primeiro lugar, pare o tempo de execução de integração do Azure-SSIS usando o [Stop-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/stop-Azdatafactoryv2integrationruntime) cmdlet. Este comando libera todos os seus nós e interrompe a cobrança.
 
     ```powershell
-    Stop-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName 
+    Stop-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName 
     ```
-2. Em seguida, reconfigure o IR do Azure-SSIS usando o cmdlet [Set-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/set-azurermdatafactoryv2integrationruntime?view=azurermps-4.4.1). O comando de exemplo a seguir escala horizontalmente um tempo de execução de integração do Azure-SSIS para cinco nós.
+2. Em seguida, reconfigure o IR Azure-SSIS usando o [AzDataFactoryV2IntegrationRuntime conjunto](/powershell/module/az.datafactory/set-Azdatafactoryv2integrationruntime) cmdlet. O comando de exemplo a seguir escala horizontalmente um tempo de execução de integração do Azure-SSIS para cinco nós.
 
     ```powershell
-    Set-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -NodeCount 5
+    Set-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -NodeCount 5
     ```  
-3. Em seguida, inicialize o tempo de execução de integração do Azure-SSIS usando o cmdlet [Start-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/start-azurermdatafactoryv2integrationruntime?view=azurermps-4.4.1). Esse comando aloca todos os seus nós para executar pacotes do SSIS.   
+3. Em seguida, inicie o tempo de execução de integração do Azure-SSIS usando o [AzDataFactoryV2IntegrationRuntime início](/powershell/module/az.datafactory/start-Azdatafactoryv2integrationruntime) cmdlet. Esse comando aloca todos os seus nós para executar pacotes do SSIS.   
 
     ```powershell
-    Start-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName
+    Start-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName
     ```
 
 ### <a name="delete-an-azure-ssis-ir"></a>Excluir um IR do Azure-SSIS
 1. Primeiro, liste todos os IRs do Azure SSIS em seu data factory.
 
     ```powershell
-    Get-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName -Status
+    Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName -Status
     ```
 2. Em seguida, pare todos os IRs do Azure SSIS em seu data factory.
 
     ```powershell
-    Stop-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Force
+    Stop-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Force
     ```
 3. Em seguida, remova todos os IRs do Azure SSIS de seu data factory um por um.
 
     ```powershell
-    Remove-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Force
+    Remove-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Force
     ```
 4. Por fim, remova o data factory.
 
     ```powershell
-    Remove-AzureRmDataFactoryV2 -Name $DataFactoryName -ResourceGroupName $ResourceGroupName -Force
+    Remove-AzDataFactoryV2 -Name $DataFactoryName -ResourceGroupName $ResourceGroupName -Force
     ```
 5. Se tiver criado um novo grupo de recursos, remova-o.
 
     ```powershell
-    Remove-AzureRmResourceGroup -Name $ResourceGroupName -Force 
+    Remove-AzResourceGroup -Name $ResourceGroupName -Force 
     ```
 
 ## <a name="next-steps"></a>Próximas etapas

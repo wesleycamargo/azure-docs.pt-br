@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: 680b47fd65cfde1fe01dfff9b74ddd42d1a73c1f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 68655ea03f53fe7100f67d111fcd3c8595bdf4c9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052386"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109385"
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-an-azure-resource-manager-template"></a>Exemplo 1 – Criar uma DMZ simples usando NSGs com um modelo do Azure Resource Manager
 [Voltar à página Práticas recomendadas de limite de segurança][HOME]
@@ -97,14 +97,14 @@ Cada regra é discutida com mais detalhes a seguir:
     ``` 
 
 2. A primeira regra neste exemplo habilita o tráfego DNS entre todas as redes internas para o servidor DNS na sub-rede de back-end. A regra tem alguns parâmetros importantes:
-  * "destinationAddressPrefix" – o prefixo de endereço de destino é definido como "10.0.2.4" para que o tráfego DNS tem permissão para acessar o servidor DNS.
-  * “Direction” (Direção) indica em qual direção do fluxo de tráfego esta regra entra em vigor. Esta é a direção da perspectiva da sub-rede ou da máquina virtual (dependendo da associação desse NSG). Portanto, se a Direção for “Inbound” (Entrada) e o tráfego estiver entrando na sub-rede, a regra se aplicará e o tráfego que sai da sub-rede não será afetado por essa regra.
-  * “Priority” (Prioridade) define a ordem na qual um fluxo de tráfego é avaliado. Quanto menor o número, maior a prioridade. Assim que uma regra se aplicar a um fluxo de tráfego específico, nenhuma regra adicional será processada. Portanto, se uma regra com prioridade 1 permite o tráfego e uma regra com prioridade 2 impede o tráfego e ambas as regras se aplicam ao tráfego, ele teria o fluxo permitido (já que a regra 1 tinha uma prioridade mais alta, ela vigorou e nenhuma regra adicional foi aplicada).
-  * “Action” (Ação) indica se um tráfego afetado por essa regra é bloqueado (“Deny”, Negar) ou permitido (“Allow”, Permitir).
+   * "destinationAddressPrefix" – o prefixo de endereço de destino é definido como "10.0.2.4" para que o tráfego DNS tem permissão para acessar o servidor DNS.
+   * “Direction” (Direção) indica em qual direção do fluxo de tráfego esta regra entra em vigor. Esta é a direção da perspectiva da sub-rede ou da máquina virtual (dependendo da associação desse NSG). Portanto, se a Direção for “Inbound” (Entrada) e o tráfego estiver entrando na sub-rede, a regra se aplicará e o tráfego que sai da sub-rede não será afetado por essa regra.
+   * “Priority” (Prioridade) define a ordem na qual um fluxo de tráfego é avaliado. Quanto menor o número, maior a prioridade. Assim que uma regra se aplicar a um fluxo de tráfego específico, nenhuma regra adicional será processada. Portanto, se uma regra com prioridade 1 permite o tráfego e uma regra com prioridade 2 impede o tráfego e ambas as regras se aplicam ao tráfego, ele teria o fluxo permitido (já que a regra 1 tinha uma prioridade mais alta, ela vigorou e nenhuma regra adicional foi aplicada).
+   * “Action” (Ação) indica se um tráfego afetado por essa regra é bloqueado (“Deny”, Negar) ou permitido (“Allow”, Permitir).
 
-    ```JSON
-    "properties": {
-    "securityRules": [
+     ```JSON
+     "properties": {
+     "securityRules": [
       {
         "name": "enable_dns_rule",
         "properties": {
@@ -119,7 +119,7 @@ Cada regra é discutida com mais detalhes a seguir:
           "direction": "Inbound"
         }
       },
-    ```
+     ```
 
 3. Essa regra permite que o tráfego de RDP flua da Internet para a porta RDP em qualquer servidor na sub-rede associada. 
 
@@ -221,23 +221,23 @@ Cada regra é discutida com mais detalhes a seguir:
 1. Um usuário de Internet solicita uma página HTTP do endereço IP público da NIC associada à NIC IIS01
 2. O endereço IP público passa tráfego para a VNet em direção a IIS01 (o servidor Web)
 3. A sub-rede Frontend inicia o processamento da regra de entrada:
-  1. A Regra NSG 1 (DNS) não se aplica; vá para a próxima regra
-  2. A Regra NSG 2 (RDP) não se aplica; vá para a próxima regra
-  3. A Regra NSG 3 (Internet para IIS01) não se aplica; o tráfego é permitido, pare o processamento da regra
+   1. A Regra NSG 1 (DNS) não se aplica; vá para a próxima regra
+   2. A Regra NSG 2 (RDP) não se aplica; vá para a próxima regra
+   3. A Regra NSG 3 (Internet para IIS01) não se aplica; o tráfego é permitido, pare o processamento da regra
 4. O tráfego atinge o endereço IP interno do servidor Web IIS01 (10.0.1.5)
 5. O IIS01 está escutando o tráfego da Web, recebe essa solicitação e começa a processar a solicitação
 6. O IIS01 solicita informações do SQL Server na AppVM01
 7. Não há regras de saída na sub-rede Frontend; o tráfego é permitido
 8. A sub-rede Backend inicia o processamento da regra de entrada:
-  1. A Regra NSG 1 (DNS) não se aplica; vá para a próxima regra
-  2. A Regra NSG 2 (RDP) não se aplica; vá para a próxima regra
-  3. A Regra NSG 3 (Internet para Firewall) não se aplica; vá para a próxima regra
-  4. A regra NSG 4 (IIS01 para AppVM01) não se aplica; o tráfego é permitido, pare o processamento da regra
+   1. A Regra NSG 1 (DNS) não se aplica; vá para a próxima regra
+   2. A Regra NSG 2 (RDP) não se aplica; vá para a próxima regra
+   3. A Regra NSG 3 (Internet para Firewall) não se aplica; vá para a próxima regra
+   4. A regra NSG 4 (IIS01 para AppVM01) não se aplica; o tráfego é permitido, pare o processamento da regra
 9. AppVM01 recebe a consulta SQL e responde
 10. Como não há nenhuma regra de saída na sub-rede de Back-end, a resposta é permitida
 11. A sub-rede Frontend inicia o processamento da regra de entrada:
-  1. Não há nenhuma regra NSG que se aplique ao tráfego de Entrada da sub-rede Backend para a sub-rede Frontend e, portanto, nenhuma das regras NSG se aplica
-  2. A regra do sistema padrão que permite o tráfego entre sub-redes permitiria esse tráfego e, portanto, o tráfego é permitido.
+    1. Não há nenhuma regra NSG que se aplique ao tráfego de Entrada da sub-rede Backend para a sub-rede Frontend e, portanto, nenhuma das regras NSG se aplica
+    2. A regra do sistema padrão que permite o tráfego entre sub-redes permitiria esse tráfego e, portanto, o tráfego é permitido.
 12. O servidor IIS recebe a resposta SQL, conclui a resposta HTTP e a envia ao solicitante
 13. Como não há nenhuma regra de saída na sub-rede Frontend, a resposta é permitida e o Usuário da Internet recebe a página da Web solicitada.
 
@@ -245,8 +245,8 @@ Cada regra é discutida com mais detalhes a seguir:
 1. Um Administrador do Servidor na Internet solicita uma sessão RDP para IIS01 no endereço IP público da NIC associada à NIC IIS01 (esse endereço IP público pode ser encontrado por meio do Portal ou do PowerShell)
 2. O endereço IP público passa tráfego para a VNet em direção a IIS01 (o servidor Web)
 3. A sub-rede Frontend inicia o processamento da regra de entrada:
-  1. A Regra NSG 1 (DNS) não se aplica; vá para a próxima regra
-  2. A regra NSG 2 (RDP) não se aplica; o tráfego é permitido, pare o processamento da regra
+   1. A Regra NSG 1 (DNS) não se aplica; vá para a próxima regra
+   2. A regra NSG 2 (RDP) não se aplica; o tráfego é permitido, pare o processamento da regra
 4. Sem regras de saída, as regras padrão serão aplicadas e o tráfego de retorno será permitido
 5. A sessão RDP está habilitada
 6. O IIS01 solicita o nome de usuário e senha
@@ -261,7 +261,7 @@ Cada regra é discutida com mais detalhes a seguir:
 2. A configuração de rede para a Rede Virtual lista DNS01 (10.0.2.4 na sub-rede Backend), já que o servidor DNS primário, IIS01, envia a solicitação DNS para DNS01
 3. Não há regras de saída na sub-rede Frontend; o tráfego é permitido
 4. A sub-rede Backend inicia o processamento da regra de entrada:
-  * A regra NSG 1 (DNS) não se aplica; o tráfego é permitido, pare o processamento da regra
+   * A regra NSG 1 (DNS) não se aplica; o tráfego é permitido, pare o processamento da regra
 5. O servidor DNS recebe a solicitação
 6. O servidor DNS não tem o endereço armazenado em cache e consulta um servidor DNS raiz na Internet
 7. Nenhuma regra de saída na sub-rede Backend; o tráfego é permitido
@@ -269,23 +269,23 @@ Cada regra é discutida com mais detalhes a seguir:
 9. O servidor DNS armazena em cache a resposta e responde à solicitação inicial para IIS01
 10. Nenhuma regra de saída na sub-rede Backend; o tráfego é permitido
 11. A sub-rede Frontend inicia o processamento da regra de entrada:
-  1. Não há nenhuma regra NSG que se aplique ao tráfego de Entrada da sub-rede Backend para a sub-rede Frontend e, portanto, nenhuma das regras NSG se aplica
-  2. A regra do sistema padrão que permite o tráfego entre sub-redes permitiria esse tráfego e, portanto, o tráfego é permitido
+    1. Não há nenhuma regra NSG que se aplique ao tráfego de Entrada da sub-rede Backend para a sub-rede Frontend e, portanto, nenhuma das regras NSG se aplica
+    2. A regra do sistema padrão que permite o tráfego entre sub-redes permitiria esse tráfego e, portanto, o tráfego é permitido
 12. O IIS01 recebe a resposta do DNS01
 
 #### <a name="allowed-web-server-access-file-on-appvm01"></a>(*Permitido*) Arquivo de acesso do servidor Web em AppVM01
 1. IIS01 solicita um arquivo em AppVM01
 2. Não há regras de saída na sub-rede Frontend; o tráfego é permitido
 3. A sub-rede Backend inicia o processamento da regra de entrada:
-  1. A Regra NSG 1 (DNS) não se aplica; vá para a próxima regra
-  2. A Regra NSG 2 (RDP) não se aplica; vá para a próxima regra
-  3. A Regra NSG 3 (Internet para IIS01) não se aplica; vá para a próxima regra
-  4. A regra NSG 4 (IIS01 para AppVM01) não se aplica; o tráfego é permitido, pare o processamento da regra
+   1. A Regra NSG 1 (DNS) não se aplica; vá para a próxima regra
+   2. A Regra NSG 2 (RDP) não se aplica; vá para a próxima regra
+   3. A Regra NSG 3 (Internet para IIS01) não se aplica; vá para a próxima regra
+   4. A regra NSG 4 (IIS01 para AppVM01) não se aplica; o tráfego é permitido, pare o processamento da regra
 4. AppVM01 recebe a solicitação e responde com o arquivo (supondo que o acesso é autorizado)
 5. Como não há nenhuma regra de saída na sub-rede de Back-end, a resposta é permitida
 6. A sub-rede Frontend inicia o processamento da regra de entrada:
-  1. Não há nenhuma regra NSG que se aplique ao tráfego de Entrada da sub-rede Backend para a sub-rede Frontend e, portanto, nenhuma das regras NSG se aplica
-  2. A regra do sistema padrão que permite o tráfego entre sub-redes permitiria esse tráfego e, portanto, o tráfego é permitido.
+   1. Não há nenhuma regra NSG que se aplique ao tráfego de Entrada da sub-rede Backend para a sub-rede Frontend e, portanto, nenhuma das regras NSG se aplica
+   2. A regra do sistema padrão que permite o tráfego entre sub-redes permitiria esse tráfego e, portanto, o tráfego é permitido.
 7. O servidor IIS recebe o arquivo
 
 #### <a name="denied-rdp-to-backend"></a>(*Negado*) RDP para back-end
@@ -312,9 +312,9 @@ Cada regra é discutida com mais detalhes a seguir:
 1. Um usuário da Internet solicita dados SQL do IIS01
 2. Como não há nenhum endereço IP público associado a esta NIC dos servidores, esse tráfego nunca entraria na VNet e não alcançaria o servidor
 3. Se um endereço IP Público tiver sido habilitado por algum motivo, a sub-rede Frontend iniciará o processamento da regra de entrada:
-  1. A Regra NSG 1 (DNS) não se aplica; vá para a próxima regra
-  2. A Regra NSG 2 (RDP) não se aplica; vá para a próxima regra
-  3. A Regra NSG 3 (Internet para IIS01) não se aplica; o tráfego é permitido, pare o processamento da regra
+   1. A Regra NSG 1 (DNS) não se aplica; vá para a próxima regra
+   2. A Regra NSG 2 (RDP) não se aplica; vá para a próxima regra
+   3. A Regra NSG 3 (Internet para IIS01) não se aplica; o tráfego é permitido, pare o processamento da regra
 4. O tráfego atinge o endereço IP interno do IIS01 (10.0.1.5)
 5. O IIS01 não está escutando na porta 1433; portanto, não há resposta para a solicitação
 

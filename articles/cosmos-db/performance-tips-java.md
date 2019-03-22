@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 01/02/2018
 ms.author: sngun
-ms.openlocfilehash: 747f58ba5062bd8bcc3995bbfa73cea49e8ddc4b
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: a3f194150d1ce452f79db273266d3c9d77e560fb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892891"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58094728"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-java"></a>Dicas de desempenho para o Azure Cosmos DB e Java
 
@@ -36,25 +36,25 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
    1. [Gateway (padrão)](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionmode)
    2. [DirectHttps](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionmode)
 
-    O modo Gateway é compatível com todas as plataformas SDK e é o padrão configurado.  Se seu aplicativo for executado em uma rede corporativa com restrições de firewall rígidas, o Gateway será a melhor opção, já que ele usa a porta HTTPS padrão e um único ponto de extremidade. Porém, a compensação do desempenho é que o Modo gateway envolve um salto de rede adicional sempre que os dados são lidos ou gravados no Azure Cosmos DB. Por isso, o Modo DirectHttps oferece um melhor desempenho devido a menos saltos de rede. 
+      O modo Gateway é compatível com todas as plataformas SDK e é o padrão configurado.  Se seu aplicativo for executado em uma rede corporativa com restrições de firewall rígidas, o Gateway será a melhor opção, já que ele usa a porta HTTPS padrão e um único ponto de extremidade. Porém, a compensação do desempenho é que o Modo gateway envolve um salto de rede adicional sempre que os dados são lidos ou gravados no Azure Cosmos DB. Por isso, o Modo DirectHttps oferece um melhor desempenho devido a menos saltos de rede. 
 
-    O SDK do Java usa HTTPS como um protocolo de transporte. O HTTPS usa SSL para a autenticação inicial e criptografar o tráfego. Ao usar o SDK do Java, apenas a porta 443 HTTPS precisa ser aberta. 
+      O SDK do Java usa HTTPS como um protocolo de transporte. O HTTPS usa SSL para a autenticação inicial e criptografar o tráfego. Ao usar o SDK do Java, apenas a porta 443 HTTPS precisa ser aberta. 
 
-    O ConnectionMode é configurado durante a construção da instância do DocumentClient com o parâmetro ConnectionPolicy. 
+      O ConnectionMode é configurado durante a construção da instância do DocumentClient com o parâmetro ConnectionPolicy. 
 
-    ```Java
-    public ConnectionPolicy getConnectionPolicy() {
+      ```Java
+      public ConnectionPolicy getConnectionPolicy() {
         ConnectionPolicy policy = new ConnectionPolicy();
         policy.setConnectionMode(ConnectionMode.DirectHttps);
         policy.setMaxPoolSize(1000);
         return policy;
-    }
+      }
         
-    ConnectionPolicy connectionPolicy = new ConnectionPolicy();
-    DocumentClient client = new DocumentClient(HOST, MASTER_KEY, connectionPolicy, null);
-    ```
+      ConnectionPolicy connectionPolicy = new ConnectionPolicy();
+      DocumentClient client = new DocumentClient(HOST, MASTER_KEY, connectionPolicy, null);
+      ```
 
-    ![Ilustração da política de conexão do Azure Cosmos DB](./media/performance-tips-java/connection-policy.png)
+      ![Ilustração da política de conexão do Azure Cosmos DB](./media/performance-tips-java/connection-policy.png)
 
    <a id="same-region"></a>
 2. **Colocar os clientes na mesma região do Azure para o desempenho**
@@ -147,7 +147,7 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
     ```             
 
     A carga de solicitação retornada nesse cabeçalho é uma fração de sua taxa de transferência provisionada. Por exemplo, se você tem 2000 RUs/s provisionados e se a consulta anterior retornar 1000 documentos de 1 KB, o custo da operação será 1000. Assim, em um segundo, o servidor mantém apenas duas dessas solicitações antes de limitar as solicitações subsequentes. Para saber mais, consulte [Unidades de solicitação](request-units.md) e a [calculadora das unidades de solicitação](https://www.documentdb.com/capacityplanner).
-<a id="429"></a>
+   <a id="429"></a>
 1. **Lidar com uma limitação da taxa/taxa de solicitação muito grande**
 
     Quando um cliente tentar exceder a taxa de transferência reservada para uma conta, não haverá nenhuma degradação de desempenho no servidor e nenhum uso da capacidade da taxa além do nível reservado. O servidor encerrará antecipadamente a solicitação com RequestRateTooLarge (código de status HTTP 429) e retornará o cabeçalho [x-ms-retry-after-ms](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) indicando a quantidade de tempo, em milissegundos, que o usuário deve aguardar antes de tentar novamente a solicitação.

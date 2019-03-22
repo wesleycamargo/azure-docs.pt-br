@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 0ca82da43ea53aed3fbcf858b34a3ad94d712661
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: d5d3d7031f9795db0ae04bc707bd9e7707137210
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864937"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530732"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Gravar amostras de voz para criar uma voz personalizada
 
@@ -150,7 +150,7 @@ Defina os níveis, de modo que a maior parte do intervalo dinâmico disponível 
 
 Aqui, a maior parte da gama (altura) é usada, mas os picos mais altos do sinal não atingem a parte superior ou inferior da janela. Você também pode ver que o silêncio na gravação aproxima-se de uma linha horizontal fina, indicando um baixo nível de ruído. Essa gravação possui gama dinâmica aceitável e relação sinal-ruído.
 
-Grave diretamente no computador usando uma interface de áudio de alta qualidade ou uma porta USB, dependendo do microfone que estiver usando. Para analógico, mantenha a cadeia de áudio simples: mic, pré-amplificador, interface de áudio, computador. Você pode licenciar tanto o [Avid Pro Tools](http://www.avid.com/en/pro-tools) quanto o [Adobe Audition](https://www.adobe.com/products/audition.html) mensalmente a um custo razoável. Se o orçamento estiver extremamente limitado, experimente o [Audacity](https://www.audacityteam.org/) gratuito.
+Grave diretamente no computador usando uma interface de áudio de alta qualidade ou uma porta USB, dependendo do microfone que estiver usando. Para analógico, mantenha a cadeia de áudio simples: mic, pré-amplificador, interface de áudio, computador. Você pode licenciar tanto o [Avid Pro Tools](https://www.avid.com/en/pro-tools) quanto o [Adobe Audition](https://www.adobe.com/products/audition.html) mensalmente a um custo razoável. Se o orçamento estiver extremamente limitado, experimente o [Audacity](https://www.audacityteam.org/) gratuito.
 
 Grave em 44,1 kHz monofônico de 16 bits (qualidade de CD) ou melhor. A última geração é de 48 kHz/24 bits se o equipamento tiver suporte para isso. Você reduzirá o tamanho do áudio para 16 kHz/16 bits antes de enviá-lo para o portal de Voz Personalizada. Ainda assim, vale a pena ter uma gravação original de alta qualidade se for necessário ter edições.
 
@@ -204,7 +204,7 @@ Estúdios de gravação modernos são executados em computadores. No final da se
 
 O portal de Voz Personalizada exige que cada enunciado fornecido esteja em arquivo próprio. Cada arquivo de áudio fornecido pelo Estúdio contém vários enunciados. Portanto, a principal tarefa de pós-produção é dividir as gravações e prepará-las para envio. O engenheiro de gravação pode ter colocado marcadores no arquivo (ou fornecido uma folha de deixas separada) para indicar o ponto em que cada enunciado começa.
 
-Use as anotações para localizar as tomadas corretas que você quer e então use uma ferramenta de edição de som como [Avid Pro Tools](http://www.avid.com/en/pro-tools), [Adobe Audition](https://www.adobe.com/products/audition.html) ou o [Audacity](https://www.audacityteam.org/) gratuito para copiar cada enunciado em um novo arquivo.
+Use as anotações para localizar as tomadas corretas que você quer e então use uma ferramenta de edição de som como [Avid Pro Tools](https://www.avid.com/en/pro-tools), [Adobe Audition](https://www.adobe.com/products/audition.html) ou o [Audacity](https://www.audacityteam.org/) gratuito para copiar cada enunciado em um novo arquivo.
 
 Deixe apenas 0,2 segundo de silêncio no início e no final de cada clipe, exceto o primeiro. Esse arquivo deve iniciar com cinco segundos completos de silêncio. Não use um editor de áudio para "zerar" partes silenciosas do arquivo. A inclusão do "tom da sala" ajudará os algoritmos da voz personalizada a compensar qualquer ruído de fundo residual.
 

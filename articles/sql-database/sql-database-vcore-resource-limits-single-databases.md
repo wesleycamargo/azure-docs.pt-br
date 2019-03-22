@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 735c3dc4764f45512386a0c53a389f355f069aa3
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.date: 03/19/2019
+ms.openlocfilehash: b1467550ac84c57eaad9178d32fdcfaf14d84ae8
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998088"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58260223"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Limites do modelo de compra com base em vCore do Banco de Dados SQL do Azure para um banco de dados individual
 
@@ -29,6 +29,9 @@ Para limites do modelo de compra com base em DTU para bancos de dados individuai
 > Em algumas circunstâncias, talvez seja necessário reduzir um banco de dados para recuperar o espaço não utilizado. Para obter mais informações, consulte [gerenciar o espaço de arquivo no banco de dados SQL](sql-database-file-space-management.md).
 
 É possível definir a camada de serviço, o tamanho de computação e a quantidade de armazenamento para um banco de dados individual usando o [portal do Azure](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server), o [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-sql-database-servers-and-single-databases), o [PowerShell](sql-database-single-databases-manage.md#powershell-manage-sql-database-servers-and-single-databases), a [CLI do Azure](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases) ou a [API REST](sql-database-single-databases-manage.md#rest-api-manage-sql-database-servers-and-single-databases).
+
+> [!IMPORTANT]
+> Para dimensionar as diretrizes e considerações, consulte [dimensionar um único banco de dados](sql-database-single-database-scale.md).
 
 ## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>Camada de serviço de Uso Geral: Tamanhos de armazenamento e tamanhos de computação
 
@@ -47,10 +50,11 @@ Para limites do modelo de compra com base em DTU para bancos de dados individuai
 |Tipo de armazenamento|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
 |IOPS de destino (64 KB)|500|1000|1500|2000|2500|3000|
+|Limites de taxa de log (MBps)|2.5|5|7.5|10|12.5|15|
 |Máximo de trabalhos simultâneos (solicitações)|200|400|600|800|1000|1.200|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|1|1|1|1|1|1|
-|Multi-AZ|N/D|N/D|N/D|N/D|N/D|N/D|000
+|Multi-AZ|N/D|N/D|N/D|N/D|N/D|N/D|
 |Escala de leitura|N/D|N/D|N/D|N/D|N/D|N/D|
 |Armazenamento de backup incluído|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|
 
@@ -69,6 +73,7 @@ Para limites do modelo de compra com base em DTU para bancos de dados individuai
 |Tipo de armazenamento|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)
 |IOPS de destino (64 KB)|3500|4000|4500|5.000|7000|7000|
+|Limites de taxa de log (MBps)|17.5|20|20|20|20|20|
 |Máximo de trabalhos simultâneos (solicitações)|1.400|1600|1800|2000|3200|4800|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|1|1|1|1|1|1|
@@ -79,18 +84,19 @@ Para limites do modelo de compra com base em DTU para bancos de dados individuai
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-1"></a>Camada de serviço de Uso Geral: Plataforma de computação de geração 5 (parte 1)
 
 |Tamanho de computação|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
-|:--- | --: |--: |--: |--: |---: | --: |--: |--: |
+|:--- | --: |--: |--: |--: |---: | --: |--: |
 |Geração de hardware|5|5|5|5|5|5|5|
 |vCores|2|4|6|8|10|12|14|
 |Memória (GB)|10.2|20,4|30,6|40,8|51|61,2|71,4|
 |Suporte de columnstore|Sim|sim|sim|sim|sim|sim|Sim|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
-|Tamanho máximo de dados (GB)|1024|1024|1024|1536|1536|1536|1536|
+|Tamanho máximo de dados (GB)|1024|1024|1536|1536|1536|3072|3072|
 |Tamanho máximo de log (GB)|307|307|307|461|461|461|461|
 |Tamanho de TempDB (GB)|64|128|192|256|320|384|384|
 |Tipo de armazenamento|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
 |IOPS de destino (64 KB)|500|1000|1500|2000|2500|3000|3500|
+|Limites de taxa de log (MBps)|2.5|56|7.5|10|12.5|15|17.5|
 |Máximo de trabalhos simultâneos (solicitações)|200|400|600|800|1000|1.200|1.400|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|1|1|1|1|1|1|1|
@@ -101,7 +107,7 @@ Para limites do modelo de compra com base em DTU para bancos de dados individuai
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-2"></a>Camada de serviço de Uso Geral: Plataforma de computação de geração 5 (parte 2)
 
 |Tamanho de computação|GP_Gen5_16|GP_Gen5_18|GP_Gen5_20|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
-|:--- | --: |--: |--: |--: |---: | --: |--: |--: |
+|:--- | --: |--: |--: |--: |---: | --: |--: |
 |Geração de hardware|5|5|5|5|5|5|5|
 |vCores|16|18|20|24|32|40|80|
 |Memória (GB)|81,6|91,8|102|122,4|163,2|204|408|
@@ -113,6 +119,7 @@ Para limites do modelo de compra com base em DTU para bancos de dados individuai
 |Tipo de armazenamento|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
 |IOPS de destino (64 KB)|4000|4500|5.000|6000|7000|7000|7000|
+|Limites de taxa de log (MBps)|20|20|20|20|20|20|20|
 |Máximo de trabalhos simultâneos (solicitações)|1600|1800|2000|2400|3200|4000|8000|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|1|1|1|1|1|1|1|
@@ -129,15 +136,17 @@ Para limites do modelo de compra com base em DTU para bancos de dados individuai
 |Geração de hardware|4|4|4|4|4|4|
 |vCores|1|2|3|4|5|6|
 |Memória (GB)|7|14|21|28|35|42|
-|Suporte de columnstore|N/D|N/D|N/D|N/D|N/D|N/D|
+|Suporte de columnstore|Sim|sim|sim|sim|sim|Sim|
 |Armazenamento OLTP na memória (GB)|1|2|3|4|5|6|
 |Tipo de armazenamento|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|
-|Tamanho máximo de dados (GB)|1024|1024|1024|1024|1024|1024|
-|Tamanho máximo de log (GB)|307|307|307|307|307|307|
+|Tamanho máximo de dados (GB)|650|650|650|650|650|650|
+|Tamanho máximo de log (GB)|195|195|195|195|195|195|
 |Tamanho de TempDB (GB)|32|64|96|128|160|192|
 |Latência de E/S (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|
 |IOPS de destino (64 KB)|5.000|10000|15000|20000|25000|30000|
+|Limites de taxa de log (MBps)|6|12|18|24|30|36|
 |Máximo de trabalhos simultâneos (solicitações)|200|400|600|800|1000|1.200|
+|Máximo de logons simultâneos|200|400|600|800|1000|1.200|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|4|4|4|4|4|4|
 |Multi-AZ|Sim|sim|sim|sim|sim|Sim|
@@ -151,15 +160,17 @@ Para limites do modelo de compra com base em DTU para bancos de dados individuai
 |Geração de hardware|4|4|4|4|4|4|
 |vCores|7|8|9|10|16|24|
 |Memória (GB)|49|56|63|70|112|168|
-|Suporte de columnstore|N/D|N/D|N/D|N/D|N/D|N/D|
+|Suporte de columnstore|Sim|sim|sim|sim|sim|Sim|
 |Armazenamento OLTP na memória (GB)|7|8|9,5|11|20|36|
 |Tipo de armazenamento|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|
-|Tamanho máximo de dados (GB)|1024|1024|1024|1024|1024|1024|
-|Tamanho máximo de log (GB)|307|307|307|307|307|307|
+|Tamanho máximo de dados (GB)|650|650|650|650|1024|1024|
+|Tamanho máximo de log (GB)|195|195|195|195|307|307|
 |Tamanho de TempDB (GB)|224|256|288|320|384|384|
 |Latência de E/S (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|
 |IOPS de destino (64 KB)|35.000|40000|45000|50000|80000|120000|
+|Limites de taxa de log (MBps)|42|48|54|60|64|64|
 |Máximo de trabalhos simultâneos (solicitações)|1.400|1600|1800|2000|3200|4800|
+|Máximo de logons simultâneos (solicitações)|1.400|1600|1800|2000|3200|4800|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|4|4|4|4|4|4|
 |Multi-AZ|Sim|sim|sim|sim|sim|Sim|
@@ -169,29 +180,31 @@ Para limites do modelo de compra com base em DTU para bancos de dados individuai
 ### <a name="business-critical-service-tier-generation-5-compute-platform-part-1"></a>Camada de serviço Comercialmente Crítico: Plataforma de computação de geração 5 (parte 1)
 
 |Tamanho de computação|BC_Gen5_2|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
-|:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |
+|:--- | --: |--: |--: |--: |---: | --: |--: |
 |Geração de hardware|5|5|5|5|5|5|5|
 |vCores|2|4|6|8|10|12|14|
 |Memória (GB)|10.2|20,4|30,6|40,8|51|61,2|71,4|
 |Suporte de columnstore|Sim|sim|sim|sim|sim|sim|Sim|
 |Armazenamento OLTP na memória (GB)|1. 571|3.142|4,713|6.284|8,655|11,026|13,397|
-|Tamanho máximo de dados (GB)|1024|1024|1024|1536|1536|1536|1536|
-|Tamanho máximo de log (GB)|307|307|307|461|461|461|461|
+|Tamanho máximo de dados (GB)|1024|1024|1536|1536|1536|3072|3072|
+|Tamanho máximo de log (GB)|307|307|307|461|461|922|922|
 |Tamanho de TempDB (GB)|64|128|192|256|320|384|384|
 |Tipo de armazenamento|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|
 |Latência de E/S (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|
 |IOPS de destino (64 KB)|5.000|10000|15000|20000|25000|30000|35.000|
+|Limites de taxa de log (MBps)|6|12|18|24|30|36|42|
 |Máximo de trabalhos simultâneos (solicitações)|200|400|600|800|1000|1.200|1.400|
+|Máximo de logons simultâneos|200|400|600|800|1000|1.200|1.400|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|4|4|4|4|4|4|4|
 |Multi-AZ|Sim|sim|sim|sim|sim|sim|Sim|
-|Escala de leitura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
+|Escala de leitura|Sim|sim|sim|sim|sim|sim|Sim|
 |Armazenamento de backup incluído|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|
 
 ### <a name="business-critical-service-tier-generation-5-compute-platform-part-2"></a>Camada de serviço Comercialmente Crítico: Plataforma de computação de geração 5 (parte 2)
 
 |Tamanho de computação|BC_Gen5_16|BC_Gen5_18|BC_Gen5_20|BC_Gen5_24|BC_Gen5_32|GP_Gen5_40|BC_Gen5_80|
-|:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |
+|:--- | --: |--: |--: |--: |---: | --: |--: |
 |Geração de hardware|5|5|5|5|5|5|5|
 |vCores|16|18|20|24|32|40|80|
 |Memória (GB)|81,6|91,8|102|122,4|163,2|204|408|
@@ -203,11 +216,13 @@ Para limites do modelo de compra com base em DTU para bancos de dados individuai
 |Tipo de armazenamento|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|
 |Latência de E/S (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|
 |IOPS de destino (64 KB)|40000|45000|50000|60000|80000|100000|200000|
+|Limites de taxa de log (MBps)|48|54|60|72|96|96|96|
 |Máximo de trabalhos simultâneos (solicitações)|1600|1800|2000|2400|3200|4000|8000|
+|Máximo de logons simultâneos|1600|1800|2000|2400|3200|4000|8000|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|30000|
-|Número de réplicas|4|4|4|4|4|4|
-|Multi-AZ|Sim|sim|sim|sim|sim|Sim|
-|Escala de leitura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
+|Número de réplicas|4|4|4|4|4|4|4|
+|Multi-AZ|Sim|sim|sim|sim|sim|sim|Sim|
+|Escala de leitura|Sim|sim|sim|sim|sim|sim|Sim|
 |Armazenamento de backup incluído|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|
 
 ## <a name="hyperscale-service-tier-preview"></a>Camada de serviço de hiperescala (versão prévia)
@@ -215,7 +230,7 @@ Para limites do modelo de compra com base em DTU para bancos de dados individuai
 ### <a name="generation-4-compute-platform-storage-sizes-and-compute-sizes"></a>Plataforma de computação de geração 4: Tamanhos de armazenamento e tamanhos de computação
 
 |Nível de desempenho|HS_Gen4_1|HS_Gen4_2|HS_Gen4_4|HS_Gen4_8|HS_Gen4_16|HS_Gen4_24|
-|:--- | --: |--: |--: |--: |--: |--: |--: |
+|:--- | --: |--: |--: |--: |--: |--: |
 |Geração de hardware|4|4|4|4|4|4|
 |vCores|1|2|4|8|16|24|
 |Memória (GB)|7|14|28|56|112|168|
@@ -238,7 +253,7 @@ Para limites do modelo de compra com base em DTU para bancos de dados individuai
 ### <a name="generation-5-compute-platform"></a>Plataforma de computação de Geração 5
 
 |Nível de desempenho|HS_Gen5_2|HS_Gen5_4|HS_Gen5_8|HS_Gen5_16|HS_Gen5_24|HS_Gen5_32|HS_Gen5_40|HS_Gen5_80|
-|:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |--: |
+|:--- | --: |--: |--: |--: |---: | --: |--: |--: |
 |Geração de hardware|5|5|5|5|5|5|5|5|
 |vCores|2|4|8|16|24|32|40|80|
 |Memória (GB)|10.2|20,4|40,8|81,6|122,4|163,2|204|408|
@@ -262,7 +277,7 @@ Para limites do modelo de compra com base em DTU para bancos de dados individuai
 
 - Para limites de recursos de DTU de um banco de dados individual, consulte os [limites de recurso para bancos de dados individuais usando o modelo de compra com base em DTU](sql-database-dtu-resource-limits-single-databases.md)
 - Para limites de recursos do vCore para pools elásticos, confira os [limites de recurso para pools elásticos usando o modelo de compra com base no vCore](sql-database-vcore-resource-limits-elastic-pools.md)
-- Para limites de recurso de DTU para pools elásticos, confira os [limites de recurso para pools elásticos usando o modelo de compra com base na DTU](sql-database-dtu-resource-limits-elastic-pools.md)
-- Para limites de recurso das instâncias gerenciadas, confira os [limites de recurso para instâncias gerenciadas](sql-database-managed-instance-resource-limits.md).
+- Para os limites de recursos de DTU dos pools elásticos, confira [limites de recursos para pools elásticos usando o modelo de compras baseado em DTU](sql-database-dtu-resource-limits-elastic-pools.md)
+- Para os limites de recursos das instâncias gerenciadas, confira [limites de recursos para instâncias gerenciadas](sql-database-managed-instance-resource-limits.md).
 - Para saber mais sobre limites gerais do Azure, confira [Assinatura do Azure e limites de serviço, cotas e restrições](../azure-subscription-service-limits.md).
 - Para se informar sobre os limites de recursos em um servidor de banco de dados, confira a [visão geral dos limites de recursos em um servidor do Banco de Dados SQL](sql-database-resource-limits-database-server.md) para conferir os limites nos níveis do servidor e da assinatura.

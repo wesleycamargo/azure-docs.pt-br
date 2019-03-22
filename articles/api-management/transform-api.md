@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 06/15/2018
+ms.date: 02/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 4aa4c69857bfd1ab99945cb0f5f748e60cff9978
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: e50c5d942bdbafc60bf0e2b8c74b008ac12b3bc6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417323"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58084973"
 ---
-# <a name="transform-and-protect-your-api"></a>Transformar e proteger sua API 
+# <a name="transform-and-protect-your-api"></a>Transformar e proteger sua API
 
 O tutorial mostra como transformar sua API para que ela não revele informações de back-end privadas. Por exemplo, você talvez queira ocultar as informações sobre a pilha de tecnologia que está em execução no back-end. Você também pode desejar ocultar URLs originais que aparecem no corpo da resposta HTTP da API e em vez disso, redirecioná-las para o gateway de APIM.
 
@@ -30,19 +30,20 @@ Este tutorial também mostra como é fácil adicionar proteção à API de back-
 Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
-> * Transformar uma API para retirar os cabeçalhos de resposta
-> * Substituir as URLs originais no corpo da resposta da API por URLs de gateway de APIM
-> * Proteger uma API adicionando a política de limite de taxa (limitação)
-> * Testar as transformações
+>
+> -   Transformar uma API para retirar os cabeçalhos de resposta
+> -   Substituir as URLs originais no corpo da resposta da API por URLs de gateway de APIM
+> -   Proteger uma API adicionando a política de limite de taxa (limitação)
+> -   Testar as transformações
 
 ![Políticas](./media/transform-api/api-management-management-console.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-+ Conheça a [terminologia do Gerenciamento de API do Azure](api-management-terminology.md).
-+ Compreenda o [conceito de políticas no Gerenciamento de API do Azure](api-management-howto-policies.md).
-+ Conclua o início rápido a seguir: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
-+ Além disso, conclua o seguinte tutorial: [Importar e publicar sua primeira API](import-and-publish.md).
+-   Conheça a [terminologia do Gerenciamento de API do Azure](api-management-terminology.md).
+-   Compreenda o [conceito de políticas no Gerenciamento de API do Azure](api-management-howto-policies.md).
+-   Conclua o início rápido a seguir: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
+-   Além disso, conclua o seguinte tutorial: [Importar e publicar sua primeira API](import-and-publish.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -50,8 +51,8 @@ Neste tutorial, você aprenderá como:
 
 Esta seção mostra como ocultar os cabeçalhos HTTP que você não deseja mostrar aos usuários. Neste exemplo, os cabeçalhos a seguir são excluídos na resposta HTTP:
 
-* **X-Powered-By**
-* **X-AspNet-Version**
+-   **X-Powered-By**
+-   **X-AspNet-Version**
 
 ### <a name="test-the-original-response"></a>Testar a resposta original
 
@@ -78,13 +79,14 @@ A resposta original deve se parecer com esta:
 5. Posicione o cursor dentro do elemento **&lt;outbound&gt;**.
 6. Na janela à direita, em **Políticas de transformação**, clique em **+ Definir cabeçalho HTTP** duas vezes (para inserir dois snippets de código de política).
 
-    ![Políticas](./media/transform-api/transform-api.png)
+   ![Políticas](./media/transform-api/transform-api.png)
+
 7. Modifique seu código **<outbound>** para ter a seguinte aparência:
 
-        <set-header name="X-Powered-By" exists-action="delete" />
-        <set-header name="X-AspNet-Version" exists-action="delete" />
+       <set-header name="X-Powered-By" exists-action="delete" />
+       <set-header name="X-AspNet-Version" exists-action="delete" />
 
-    ![Políticas](./media/transform-api/set-policy.png)
+   ![Políticas](./media/transform-api/set-policy.png)
 
 8. Clique no botão **Salvar** .
 
@@ -99,7 +101,7 @@ Para ver a resposta original:
 1. Selecione **API de Conferência de Demonstração**.
 2. Clique na guia **Testar** na parte superior da tela.
 3. Selecione a operação **GetSpeakers**.
-4. Pressione o botão **Enviar** na parte inferior da tela. 
+4. Pressione o botão **Enviar** na parte inferior da tela.
 
     Como você pode ver, a resposta original tem esta aparência:
 
@@ -107,13 +109,13 @@ Para ver a resposta original:
 
 ### <a name="set-the-transformation-policy"></a>Definir a política de transformação
 
-1. Selecione **API de Conferência de Demonstração**.
-2. Selecione **Todas as operações**.
-3. Na parte superior da tela, selecione a guia **Design**.
-4. Na seção **Processamento de saída**, clique no ícone **</>**.
-5. Posicione o cursor dentro do elemento **&lt;outbound&gt;**.
-6. Na janela à direita, em **Políticas de transformação**, clique em **+ Localizar e substituir cadeia de caracteres no corpo**.
-7. Modifique seu código **find-and-replace** (no elemento **\<outbound\>**) para substituir a URL para corresponder ao gateway de APIM. Por exemplo: 
+1.  Selecione **API de Conferência de Demonstração**.
+2.  Selecione **Todas as operações**.
+3.  Na parte superior da tela, selecione a guia **Design**.
+4.  Na seção **Processamento de saída**, clique no ícone **</>**.
+5.  Posicione o cursor dentro do elemento **&lt;outbound&gt;**.
+6.  Na janela à direita, em **Políticas de transformação**, clique em **+ Localizar e substituir cadeia de caracteres no corpo**.
+7.  Modifique seu código **find-and-replace** (no elemento **\<outbound\>**) para substituir a URL para corresponder ao gateway de APIM. Por exemplo: 
 
         <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
 
@@ -123,18 +125,18 @@ Esta seção mostra como adicionar a proteção para a API de back-end configura
 
 ![Definir política de entrada](./media/transform-api/04-ProtectYourAPI-01-SetPolicy-Inbound.png)
 
-1. Selecione **API de Conferência de Demonstração**.
-2. Selecione **Todas as operações**.
-3. Na parte superior da tela, selecione a guia **Design**.
-4. Na seção **Processamento de entrada**, clique no ícone **</>**.
-5. Posicione o cursor dentro do elemento **&lt;inbound&gt;**.
-6. Na janela à direita, em **Políticas de restrição de acesso**, clique em **+ Limit call rate per key (+ Limitar taxa de chamada por chave)**.
-7. Mude o código **rate-limit-by-key** (no elemento **\<inbound\>**) para o código a seguir:
+1.  Selecione **API de Conferência de Demonstração**.
+2.  Selecione **Todas as operações**.
+3.  Na parte superior da tela, selecione a guia **Design**.
+4.  Na seção **Processamento de entrada**, clique no ícone **</>**.
+5.  Posicione o cursor dentro do elemento **&lt;inbound&gt;**.
+6.  Na janela à direita, em **Políticas de restrição de acesso**, clique em **+ Limit call rate per key (+ Limitar taxa de chamada por chave)**.
+7.  Mude o código **rate-limit-by-key** (no elemento **\<inbound\>**) para o código a seguir:
 
         <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
 
 ## <a name="test-the-transformations"></a>Testar as transformações
-        
+
 Nesse ponto, se você examinar o código no editor de códigos, suas políticas terão esta aparência:
 
     <policies>
@@ -148,6 +150,7 @@ Nesse ponto, se você examinar o código no editor de códigos, suas políticas 
         <outbound>
             <set-header name="X-Powered-By" exists-action="delete" />
             <set-header name="X-AspNet-Version" exists-action="delete" />
+            <find-and-replace from="://conferenceapi.azurewebsites.net:443" to="://apiphany.azure-api.net/conference"/>
             <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
             <base />
         </outbound>
@@ -202,10 +205,11 @@ O restante desta seção testa as transformações de política que você defini
 Neste tutorial, você aprendeu como:
 
 > [!div class="checklist"]
-> * Transformar uma API para retirar os cabeçalhos de resposta
-> * Substituir as URLs originais no corpo da resposta da API por URLs de gateway de APIM
-> * Proteger uma API adicionando a política de limite de taxa (limitação)
-> * Testar as transformações
+>
+> -   Transformar uma API para retirar os cabeçalhos de resposta
+> -   Substituir as URLs originais no corpo da resposta da API por URLs de gateway de APIM
+> -   Proteger uma API adicionando a política de limite de taxa (limitação)
+> -   Testar as transformações
 
 Prosseguir para o próximo tutorial:
 

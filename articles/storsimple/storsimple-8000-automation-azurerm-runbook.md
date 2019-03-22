@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/23/2017
 ms.author: alkohli
-ms.openlocfilehash: cfd0e4dbb6a4f24df5ba42cd45f9c16fbe5b493c
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
-ms.translationtype: HT
+ms.openlocfilehash: 93c77b5f678c4e6b3170d2c7612bef3f104f0b6b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2017
-ms.locfileid: "23493126"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002604"
 ---
 # <a name="use-azure-automation-runbooks-to-manage-storsimple-devices"></a>Usar o runbook de Automação do Azure para gerenciar dispositivos StorSimple
 
@@ -50,7 +50,7 @@ Para criar um módulo de automação para o gerenciamento de dispositivo StorSim
         mkdir C:\scripts\StorSimpleSDKTools
         cd C:\scripts\StorSimpleSDKTools
     ```    
-2. [Baixe a CLI do NuGet](http://www.nuget.org/downloads) na pasta criada na etapa anterior. Há várias versões do _nuget.exe_. Escolha a versão correspondente ao seu SDK. Cada link de download aponta diretamente para um arquivo _.exe_. Clique com o botão direito e salve o arquivo em seu computador, em vez de executá-lo no navegador.
+2. [Baixe a CLI do NuGet](https://www.nuget.org/downloads) na pasta criada na etapa anterior. Há várias versões do _nuget.exe_. Escolha a versão correspondente ao seu SDK. Cada link de download aponta diretamente para um arquivo _.exe_. Clique com o botão direito e salve o arquivo em seu computador, em vez de executá-lo no navegador.
 
     Você também pode executar o comando a seguir para baixar e armazenar o script na mesma pasta que você criou anteriormente.
     
@@ -187,16 +187,16 @@ Para criar um módulo de automação para o gerenciamento de dispositivo StorSim
 
 2. Na folha **Adicionar Conta de Automação**:
 
-    1. Forneça o **Nome** da Conta de automação.
-    2. Selecione a **Assinatura** vinculada para seu serviço de Gerenciador de Dispositivos StorSimple.
-    3. Crie um novo grupo de recursos ou selecione um existente.
-    4. Selecione uma **Localização** (se possível, a mesma em que o serviço está em execução).
-    5. Deixe a opção **Criar Conta Executar Como** padrão selecionada.
-    5. Opcionalmente, marque **Fixar no painel**. Clique em **Criar**.
+   1. Forneça o **Nome** da Conta de automação.
+   2. Selecione a **Assinatura** vinculada para seu serviço de Gerenciador de Dispositivos StorSimple.
+   3. Crie um novo grupo de recursos ou selecione um existente.
+   4. Selecione uma **Localização** (se possível, a mesma em que o serviço está em execução).
+   5. Deixe a opção **Criar Conta Executar Como** padrão selecionada.
+   5. Opcionalmente, marque **Fixar no painel**. Clique em **Criar**.
 
-        ![create-automation-account](./media/storsimple-8000-automation-azurerm-runbook/create-automation-account.png)
+       ![create-automation-account](./media/storsimple-8000-automation-azurerm-runbook/create-automation-account.png)
 
-    Depois de a conta de automação ser criada com sucesso, você será notificado. Para obter mais informações sobre como criar uma Conta de Automação, vá para [Criar a conta Executar como](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
+      Depois de a conta de automação ser criada com sucesso, você será notificado. Para obter mais informações sobre como criar uma Conta de Automação, vá para [Criar a conta Executar como](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
 
 3. Para garantir que a conta de automação criada possa acessar o serviço de Gerenciador de Dispositivos StorSimple, você precisa atribuir as permissões apropriadas para a conta de automação. Acesse **Controle de acesso** no serviço do Gerenciador de Dispositivos StorSimple. Clique em **+ Adicionar** e forneça o nome de sua Conta de Automação do Azure. **Salve** as configurações.
 

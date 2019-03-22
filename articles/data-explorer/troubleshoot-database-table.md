@@ -8,14 +8,14 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: ec66066fe51af97f6355b78dd7af3480a39a5a03
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.openlocfilehash: 0bd9f5ed00193aa9f872287b6afaf9e2b28c24dc
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215071"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188332"
 ---
-# <a name="troubleshoot-failure-to-create-or-delete-a-database-or-table-in-azure-data-explorer"></a>Solução de problema: falha ao criar ou excluir um banco de dados ou uma tabela no Azure Data Explorer
+# <a name="troubleshoot-failure-to-create-or-delete-a-database-or-table-in-azure-data-explorer"></a>Solucionar problemas: Falha ao criar ou excluir um banco de dados ou uma tabela no Azure Data Explorer
 
 No Azure Data Explorer, você trabalha regularmente com bancos de dados e tabelas. Este artigo fornece as etapas de solução de problemas para os problemas que possam surgir.
 
@@ -37,7 +37,7 @@ Certifique-se de ter as permissões adequadas. Para criar ou renomear um banco d
 
     Para obter mais informações sobre permissões, consulte [Gerenciar permissões de banco de dados](manage-database-permissions.md).
 
-1. Certifique-se de que já não exista uma tabela com o mesmo nome. Se existir, é possível: criar uma tabela com um nome diferente. renomear a tabela existente (requer a função *administrador de tabelas*); ou remover a tabela existente (requer a função *administrador de banco de dados*). Use os seguintes comandos.
+1. Certifique-se de que já não exista uma tabela com o mesmo nome. Se ele existir, então, você pode: Criar uma tabela com um nome diferente. Renomeie a tabela existente (requer *tabela admin* função); ou remova a tabela existente (requer *administrador de banco de dados* função). Use os seguintes comandos.
 
     ```Kusto
     .drop table <TableName>
@@ -53,7 +53,7 @@ Para obter mais informações sobre permissões, consulte [Gerenciar permissões
 
 ## <a name="general-guidance"></a>Orientação geral
 
-1. Verifique o [painel de integridade do serviço do Azure](https://azure.microsoft.com/status/>). Procure o status do Azure Data Explorer na região em que você está tentando trabalhar com um banco de dados ou uma tabela.
+1. Verifique o [painel de integridade do serviço do Azure](https://azure.microsoft.com/status/). Procure o status do Azure Data Explorer na região em que você está tentando trabalhar com um banco de dados ou uma tabela.
 
     Se o status não for **Bom** (marca de seleção verde), tente novamente depois que o status melhorar.
 

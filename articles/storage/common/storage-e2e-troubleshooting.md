@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5a160ef767909814e363dbb692e58c30783aaf6f
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: ac30888c9f54c5dc88cb72aeec0f3db81d5a99dc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746295"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004938"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Solução de problemas ponta a ponta usando Métricas de Armazenamento do Azure e Registro em Log, AzCopy e Analisador de Mensagem
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -133,9 +133,9 @@ O log do lado do cliente inclui informações detalhadas sobre como o cliente pr
 A biblioteca de cliente de armazenamento armazena dados de log do cliente no local especificado no arquivo de configuração do aplicativo (Web.config ou App.config).
 
 ### <a name="collect-a-network-trace"></a>Coletar um rastreamento de rede
-Você pode usar o Analisador de Mensagem para coletar um rastreamento de rede HTTP/HTTPS, enquanto o aplicativo cliente está em execução. O Analisador de Mensagem usa o [Fiddler](http://www.telerik.com/fiddler) no back-end. Antes de você coletar o rastreamento de rede, recomendamos que você configure o Fiddler para registrar o tráfego HTTPS não criptografado:
+Você pode usar o Analisador de Mensagem para coletar um rastreamento de rede HTTP/HTTPS, enquanto o aplicativo cliente está em execução. O Analisador de Mensagem usa o [Fiddler](https://www.telerik.com/fiddler) no back-end. Antes de você coletar o rastreamento de rede, recomendamos que você configure o Fiddler para registrar o tráfego HTTPS não criptografado:
 
-1. Instale o [Fiddler](http://www.telerik.com/download/fiddler).
+1. Instale o [Fiddler](https://www.telerik.com/download/fiddler).
 2. Inicie o Fiddler.
 3. Selecione **Ferramentas| Opções do Fiddler**.
 4. Na caixa de diálogo Opções, verifique se **Capturar CONEXÕES HTTPS** e **Descriptografar Tráfego HTTPS** estão selecionadas, conforme mostrado abaixo.

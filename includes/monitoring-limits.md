@@ -1,27 +1,36 @@
 ---
 title: Arquivo de inclusão
 description: Arquivo de inclusão
-services: monitoring-and-diagnostics
+services: azure-monitor
 author: rboucher
-manager: carmonm
 tags: azure-service-management
-ms.service: monitoring-and-diagnostics
-ms.devlang: dotnet
 ms.topic: include
-ms.date: 09/13/2018
+ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 3901ad2ce883f8257a74ddd2a931947624977184
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
-ms.translationtype: HT
+ms.openlocfilehash: 4360196a33381d1a9c8316430339b9a80cb0dba3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45637040"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58016493"
 ---
 | Recurso | Limite padrão | Limite máximo |
 | --- | --- | --- |
-| Configurações de dimensionamento automático |100 por região e assinatura | igual ao padrão |
-| Alertas de métrica (clássicos) |Existem 100 regras de alerta ativas por assinatura | contate o suporte |
-| Alertas de Métricas |Existem 100 regras de alerta ativas por assinatura | contate o suporte |
-| Grupos de Ação |Grupos de ação de 2000 por assinatura | contate o suporte |
+| Configurações de autoescala |100 por região e assinatura. | Mesmo que o padrão. |
+| Alertas de métrica (clássico) |regras de alerta ativas 100 por assinatura. | Contate o suporte. |
+| Alertas de métricas |regras de alerta ativas 100 por assinatura. | Contate o suporte. |
+| Grupos de ação |2.000 grupos de ação por assinatura. | Contate o suporte. |
 
+**Limites da ação específica de um grupo**
+
+| Recurso | Limite padrão | Limite máximo |
+| --- | --- | --- |
+| Push do aplicativo do Azure | 10 ações de aplicativo do azure por grupo de ação. | Contate o suporte. |
+| Email | 1.000 ações de email em um grupo de ação. Consulte também o [informações de limitação de taxa](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Contate o suporte. |
+| ITSM | 10 ações de ITSM em um grupo de ação. | Contate o suporte. | 
+| Aplicativo lógico | 10 ações do aplicativo lógico em um grupo de ação. | Contate o suporte. |
+| Runbook | 10 ações de runbook em um grupo de ação. | Contate o suporte. |
+| sms | 10 ações de SMS em um grupo de ação. Consulte também o [informações de limitação de taxa](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Contate o suporte. |
+| Voz | 10 ações de voz em um grupo de ação. Consulte também o [informações de limitação de taxa](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Contate o suporte. |
+| webhook | 10 ações de webhook em um grupo de ação. Outros limites estão disponíveis em [informações específicas da ação](../articles/azure-monitor/platform/action-groups.md#action-specific-information).  | Contate o suporte. |

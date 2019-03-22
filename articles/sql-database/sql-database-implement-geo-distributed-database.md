@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/10/2019
-ms.openlocfilehash: 11c1f34176e7852806464781e80d6dc0fd5345a4
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 6022c016b83ffe1362db4d826a5ee4397afd4128
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750334"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57844136"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database"></a>Tutorial: Implementar um banco de dados distribuído geograficamente
 
@@ -31,6 +31,10 @@ Configurar um Banco de Dados SQL do Azure e o aplicativo para o failover para um
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> O módulo do PowerShell do Azure Resource Manager ainda é compatível com o banco de dados SQL, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para esses cmdlets, consulte [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
 
 Para concluir o tutorial, verifique se você instalou os seguintes itens:
 
@@ -72,14 +76,14 @@ Para criar um grupo de failover, execute o seguinte script:
     $myfailovergroupname = "<your globally unique failover group name>"
 
     # Create a backup server in the failover region
-    New-AzureRmSqlServer -ResourceGroupName $myresourcegroupname `
+    New-AzSqlServer -ResourceGroupName $myresourcegroupname `
        -ServerName $mydrservername `
        -Location $mydrlocation `
        -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential `
           -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
 
     # Create a failover group between the servers
-    New-AzureRMSqlDatabaseFailoverGroup `
+    New-AzSqlDatabaseFailoverGroup `
        –ResourceGroupName $myresourcegroupname `
        -ServerName $myservername `
        -PartnerServerName $mydrservername  `
@@ -88,11 +92,11 @@ Para criar um grupo de failover, execute o seguinte script:
        -GracePeriodWithDataLossHours 2
 
     # Add the database to the failover group
-    Get-AzureRmSqlDatabase `
+    Get-AzSqlDatabase `
        -ResourceGroupName $myresourcegroupname `
        -ServerName $myservername `
        -DatabaseName $mydatabasename | `
-     Add-AzureRmSqlDatabaseToFailoverGroup `
+     Add-AzSqlDatabaseToFailoverGroup `
        -ResourceGroupName $myresourcegroupname `
        -ServerName $myservername `
        -FailoverGroupName $myfailovergroupname
@@ -300,7 +304,7 @@ Execute os scripts a seguir para simular um failover e observe os resultados do 
 Também é possível verificar a função do servidor de recuperação de desastre durante o teste com o seguinte comando:
 
    ```powershell
-   (Get-AzureRMSqlDatabaseFailoverGroup `
+   (Get-AzSqlDatabaseFailoverGroup `
       -FailoverGroupName $myfailovergroupname `
       -ResourceGroupName $myresourcegroupname `
       -ServerName $mydrservername).ReplicationRole
@@ -311,7 +315,7 @@ Para testar um failover:
 1. Inicie um failover manual do grupo de failover:
 
    ```powershell
-   Switch-AzureRMSqlDatabaseFailoverGroup `
+   Switch-AzSqlDatabaseFailoverGroup `
       -ResourceGroupName $myresourcegroupname `
       -ServerName $mydrservername `
       -FailoverGroupName $myfailovergroupname
@@ -320,7 +324,7 @@ Para testar um failover:
 1. Reverta o grupo de failover de volta para o servidor primário:
 
    ```powershell
-   Switch-AzureRMSqlDatabaseFailoverGroup `
+   Switch-AzSqlDatabaseFailoverGroup `
       -ResourceGroupName $myresourcegroupname `
       -ServerName $myservername `
       -FailoverGroupName $myfailovergroupname

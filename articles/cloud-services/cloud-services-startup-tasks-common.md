@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: c9f0707f6d24ba899c89bf19066994ae860a69d5
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
-ms.translationtype: HT
+ms.openlocfilehash: ec3952f2bb0b4180f5c72d948d1835a903152f0d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620980"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181819"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Tarefas de inicialização comuns do Serviço de Nuvem
 Este artigo oferece alguns exemplos de tarefas de inicialização comuns que talvez você queira executar no serviço de nuvem. Você pode usar as tarefas de inicialização para executar operações antes do início de uma função. As operações que talvez você queira executar incluem a instalação de um componente, o registro de componentes COM, a configuração de chaves do registro ou o início de um processo de longa duração. 
@@ -93,7 +93,7 @@ REM   *** Add a compression section to the Web.config file. ***
 %windir%\system32\inetsrv\appcmd set config /section:urlCompression /doDynamicCompression:True /commit:apphost >> "%TEMP%\StartupLog.txt" 2>&1
 
 REM   ERRORLEVEL 183 occurs when trying to add a section that already exists. This error is expected if this
-REM   batch file were executed twice. This can occur and must be accounted for in a Azure startup
+REM   batch file were executed twice. This can occur and must be accounted for in an Azure startup
 REM   task. To handle this situation, set the ERRORLEVEL to zero by using the Verify command. The Verify
 REM   command will safely set the ERRORLEVEL to zero.
 IF %ERRORLEVEL% EQU 183 DO VERIFY > NUL
@@ -186,7 +186,7 @@ powershell -ExecutionPolicy Unrestricted -command "Install-WindowsFeature Web-IP
 
 Essa tarefa faz com que o arquivo em lotes **startup.cmd** seja executado sempre que a função Web for inicializada, garantindo que a seção **ipSecurity** necessária seja desbloqueada.
 
-Por fim, modifique a [seção system.webServer](http://www.iis.net/configreference/system.webserver/security/ipsecurity#005) do arquivo **web.config** da sua função Web para adicionar uma lista de endereços IP com acesso concedido, como mostrado neste exemplo:
+Por fim, modifique a [seção system.webServer](https://www.iis.net/configreference/system.webserver/security/ipsecurity#005) do arquivo **web.config** da sua função Web para adicionar uma lista de endereços IP com acesso concedido, como mostrado neste exemplo:
 
 Esta configuração de exemplo **permite** que todos os IPs acessem o servidor, exceto os dois definidos
 

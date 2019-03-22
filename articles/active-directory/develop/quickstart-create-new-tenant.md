@@ -18,14 +18,14 @@ ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7db08cde0df1ba3d9bc227758ab3ad00c1fc422
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2f569b497afe01db0fc4c3aa29589e6f2c538faf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207363"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108654"
 ---
-# <a name="quickstart-set-up-a-dev-environment"></a>Início rápido: Configurar um ambiente
+# <a name="quickstart-set-up-a-dev-environment"></a>Início Rápido: Configurar um ambiente
 
 A plataforma de identidade da Microsoft permite que os desenvolvedores criem aplicativos direcionados para uma ampla variedade de ambientes e identidades personalizados do Microsoft 365. Para começar a usar a plataforma de identidade da Microsoft, você precisará ter acesso a um ambiente, também chamado de locatário do Azure AD, que pode registrar e gerenciar aplicativos, ter acesso a dados do Microsoft 365 e implantar restrições personalizadas de Acesso Condicional e de locatário.
 
@@ -55,8 +55,8 @@ Muitos desenvolvedores já contam com locatários por meio de serviços ou assin
 
 > [!TIP]
 > Se você precisar localizar a ID do locatário:
-* Passe o mouse sobre o nome da sua conta para obter o diretório ou a ID do locatário ou
-* Selecione **Azure Active Directory > Propriedades > ID do diretório** no portal do Azure
+> * Passe o mouse sobre o nome da sua conta para obter o diretório ou a ID do locatário ou
+> * Selecione **Azure Active Directory > Propriedades > ID do diretório** no portal do Azure
 
 Se não houver um locatário existente associado à sua conta, você verá um GUID abaixo do nome da conta e só poderá executar ações, como registrar aplicativos, depois de seguir as etapas da próxima seção.
 

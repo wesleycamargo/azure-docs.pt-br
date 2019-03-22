@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2fa9cebe092f726b2df3dec99cee1bb97ccc92dc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 4f9628be1d1f1d146ed0dbc5ebd9579f0512aeac
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658648"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997369"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Instalar alta disponibilidade do SAP NetWeaver em um cluster de failover do Windows e compartilhamento de arquivos para instâncias ASCS/SCS do SAP no Azure
 
@@ -48,7 +48,7 @@ ms.locfileid: "34658648"
 
 [deployment-guide]:deployment-guide.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 
@@ -199,11 +199,11 @@ ms.locfileid: "34658648"
 
 Este artigo descreve como instalar e configurar um sistema SAP altamente disponível no Azure, com WSFC (Windows Server Failover Cluster) e Servidor de Arquivos de Escalabilidade Horizontal como uma opção para cluster da instância SAP ASCS/SCS.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de iniciar a instalação, revise os seguintes artigos:
 
-* [Guia de arquitetura: cluster de instâncias de ASCS/SCS do SAP em um cluster de failover do Windows usando o compartilhamento de arquivos][sap-high-availability-guide-wsfc-file-share]
+* [Guia de arquitetura: Uma instância do SAP ASCS/SCS de cluster em um cluster de failover do Windows usando o compartilhamento de arquivos][sap-high-availability-guide-wsfc-file-share]
 
 * [Preparar a infraestrutura do Azure para alta disponibilidade do SAP usando um cluster de failover do Windows e compartilhamento de arquivos para instâncias ASCS/SCS do SAP][sap-high-availability-infrastructure-wsfc-file-share]
 
@@ -211,7 +211,7 @@ Você precisa dos seguintes executáveis e DLLs do SAP:
 * Ferramenta de instalação do SWPM (Gerenciador de Provisionamento de Software) SAP versão SPS21 ou superior.
 * Baixe o arquivo-morto NTCLUST.SAR mais recente com a nova DLL de recurso de cluster SAP. As novas DLLs do cluster SAP dão suporte à alta disponibilidade do SAP ASCS/SCS com compartilhamento de arquivos no Cluster de Failover do Windows Server.
 
-  Para obter mais informações sobre a nova DLL de recurso de cluster do SAP, consulte este blog: [A nova DLL de recurso de cluster do SAP está disponível!][sap-blog-new-sap-cluster-resource-dll].
+  Para obter mais informações sobre o novo recurso de cluster SAP DLL, consulte este blog: [Novo recurso de cluster SAP DLL está disponível! ][sap-blog-new-sap-cluster-resource-dll].
 
 Não descrevemos a configuração do DBMS (Gerenciador de banco de dados) porque as configurações variam dependendo do DBMS que você usa. No entanto, supomos que as preocupações de alta disponibilidade com o DBMS são dissipadas com o suporte às funcionalidades que os diversos fornecedores de DBMS dão para o Azure. Essas funcionalidades incluem o Always On ou o Espelhamento de Banco de Dados para SQL Server e Oracle Data Guard para bancos de dados Oracle. No cenário que usamos neste artigo, não adicionamos outra proteção ao DBMS.
 
@@ -391,7 +391,7 @@ Para usar o novo nome de host virtual SAP ASCS/SCS e nome de host global do SAP,
 ### <a name="update-sap-default-profile"></a>Atualizar perfil padrão SAP
 
 
-| Nome do parâmetro | Valor de parâmetro |
+| Nome do parâmetro | Valor do parâmetro |
 | --- | --- |
 | SAPGLOBALHOST | **sapglobal** |
 | rdisp/mshost | **pr1-ascs** |
@@ -399,7 +399,7 @@ Para usar o novo nome de host virtual SAP ASCS/SCS e nome de host global do SAP,
 
 ### <a name="update-the-sap-ascsscs-instance-profile"></a>Atualizar o perfil da instância do SAP ASCS/SCS
 
-| Nome do parâmetro | Valor de parâmetro |
+| Nome do parâmetro | Valor do parâmetro |
 | --- | --- |
 | SAPGLOBALHOST | **sapglobal** |
 | DIR_PROFILE | \\\sapglobal\sapmnt\PR1\SYS\profile |
@@ -425,9 +425,9 @@ Import-Module C:\tmp\SAPScripts.psm1
 Update-SAPASCSSCSProfile -PathToAscsScsInstanceProfile \\sapglobal\sapmnt\PR1\SYS\profile\PR1_ASCS00_ascs-1 -NewASCSHostName pr1-ascs -NewSAPGlobalHostName sapglobal -Verbose  
 ```
 
-![Figura 1: saída SAPScripts.psm1][sap-ha-guide-figure-8012]
+![Figura 1: Saída SAPScripts.psm1][sap-ha-guide-figure-8012]
 
-_**Figura 1**: saída SAPScripts.psm1_
+_**Figura 1**: Saída SAPScripts.psm1_
 
 ## <a name="update-the-sidadm-user-environment-variable"></a>Atualizar a variável de ambiente do usuário \<sid>adm
 
@@ -514,9 +514,9 @@ No prompt de comandos com privilégios elevados, execute o seguinte comando:
 C:\usr\sap\PR1\ASCS00\exe\sapstartsrv.exe -r -p \\sapglobal\sapmnt\PR1\SYS\profile\PR1_ASCS00_pr1-ascs -s PR1 -n 00 -U SAPCLUSTER\SAPServicePR1 -P mypasswd12 -e SAPCLUSTER\pr1adm
 ```
 
-![Figura 2: Reinstalar o serviço do SAP][sap-ha-guide-figure-8013]
+![Figura 2: Reinstale o serviço do SAP][sap-ha-guide-figure-8013]
 
-_**Figura 2:** Reinstalar o serviço do SAP_
+_**Figura 2**: Reinstale o serviço do SAP_
 
 Certifique-se de que os parâmetros estejam corretos e, em seguida, selecione **Manual** como o **Tipo de inicialização**.
 

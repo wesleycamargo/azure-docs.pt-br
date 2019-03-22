@@ -1,6 +1,6 @@
 ---
-title: Operações da versão prévia da proteção por senha do Azure AD e relatórios
-description: Operações de pós-implantação da versão prévia da proteção por senha do Azure AD e relatórios
+title: Operações de proteção de senha do AD do Azure e emissão de relatórios
+description: Operações de pós-implantação de proteção por senha do AD do Azure e a emissão de relatórios
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,19 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1fda79f16560a5c96e1283f4d9d9f14dbe503d61
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ac91a70465d79b235ae43681a1375d47e7691efe
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175228"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285795"
 ---
-# <a name="preview-azure-ad-password-protection-operational-procedures"></a>Visualização: Procedimentos operacionais de proteção por senha do Azure AD
-
-|     |
-| --- |
-| A proteção de senha do Azure AD é uma versão prévia pública do recurso do Azure Active Directory. Para obter mais informações sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+# <a name="azure-ad-password-protection-operational-procedures"></a>Procedimentos operacionais de proteção por senha do Azure AD
 
 Após concluir a [instalação da proteção por senha do Azure AD](howto-password-ban-bad-on-premises-deploy.md) no local, há alguns itens que devem ser configurados no portal do Azure.
 
@@ -33,7 +28,7 @@ Siga as orientações no artigo [Configurar a lista de senhas banidas personaliz
 
 ## <a name="enable-password-protection"></a>Habilitar proteção por senha
 
-1. Entre no [portal do Azure](https://portal.azure.com) e navegue até **Azure Active Directory**, **Métodos de autenticação** e, em seguida, **Proteção por senha (versão prévia)**.
+1. Entrar para o [portal do Azure](https://portal.azure.com) e navegue até **Azure Active Directory**, **métodos de autenticação**, em seguida, **proteção por senha**.
 1. Configure **Habilitar proteção por senha no Windows Server Active Directory** para **Sim**
 1. Conforme mencionado na [Guia de implantação](howto-password-ban-bad-on-premises-deploy.md#deployment-strategy), é recomendável configurar inicialmente o **Modo** para **Auditoria**
    * Depois que estiver familiarizado com o recurso, você pode alternar a **Modo** para **Imposto**

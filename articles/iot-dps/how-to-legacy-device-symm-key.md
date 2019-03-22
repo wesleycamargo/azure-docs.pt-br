@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 9d82ff29b988925f244fc33d7124fe43487895b8
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: c43d3b236a305f1e6d2bd392527a5206b6a5c974
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341228"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58074889"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Como provisionar dispositivos herdados usando chaves simétricas
 
@@ -114,23 +114,23 @@ O SDK inclui o código de exemplo para o dispositivo simulado. Este dispositivo 
 
 ## <a name="create-a-symmetric-key-enrollment-group"></a>Criar um grupo de registro de chave simétrica
 
-1. Entre no [portal do Azure](http://portal.azure.com) e abra a instância do Serviço de Provisionamento de Dispositivos.
+1. Entre no [portal do Azure](https://portal.azure.com) e abra a instância do Serviço de Provisionamento de Dispositivos.
 
 2. Selecione a guia **Gerenciar registros** e clique no botão **Adicionar grupo de registros** na parte superior da página. 
 
 3. Em **Adicionar Grupo de Registros**, insira as informações a seguir e clique no botão **Salvar**.
 
-    - **Nome do grupo**: Insira **mylegacydevices**.
+   - **Nome do grupo**: Insira **mylegacydevices**.
 
-    - **Tipo de Atestado**: Selecione **Chave Simétrica**.
+   - **Tipo de Atestado**: selecione **Chave Simétrica**.
 
-    - **Gerar Chaves Automaticamente**: Marque essa caixa.
+   - **Gerar Chaves Automaticamente**: Marque essa caixa.
 
-    - **Selecione como deseja atribuir dispositivos aos hubs**: Selecione **Configuração estática** para que você possa atribuir a um hub específico.
+   - **Selecione como deseja atribuir dispositivos aos hubs**: Selecione **Configuração estática** para que você possa atribuir a um hub específico.
 
-    - **Selecione os hubs IoT ao quais este grupo pode ser atribuído**: Selecione um dos seus hubs.
+   - **Selecione os hubs IoT ao quais este grupo pode ser atribuído**: Selecione um dos seus hubs.
 
-    ![Adicionar grupo de registros para atestado de chave simétrica](./media/how-to-legacy-device-symm-key/symm-key-enrollment-group.png)
+     ![Adicionar grupo de registros para atestado de chave simétrica](./media/how-to-legacy-device-symm-key/symm-key-enrollment-group.png)
 
 4. Após salvar o registro, uma **Chave Primária** e **Chave Secundária** serão geradas e adicionadas à entrada de registro. Seu grupo de registro de chave simétrica é exibido como **mylegacydevices** na coluna *Nome do Grupo* na guia *Grupos de Registro*. 
 
@@ -294,7 +294,7 @@ Entenda que isso deixa a chave de dispositivo derivada incluída como parte da i
 
 * Para saber mais sobre reprovisionamento, confira [Conceitos de reprovisionamento de dispositivos no Hub IoT](concepts-device-reprovision.md) 
 * [Início Rápido: Provisionar um dispositivo simulado com chaves simétricas](quick-create-simulated-device-symm-key.md)
-* Para saber mais sobre desprovisionamento, confira [Como desprovisionar dispositivos provisionados anteriormente de maneira automática ](how-to-unprovision-devices.md) 
+* Para saber mais desprovisionamento, consulte [como desprovisionar dispositivos que foram anteriormente autoprovisionado](how-to-unprovision-devices.md) 
 
 
 

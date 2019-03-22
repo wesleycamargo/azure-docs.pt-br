@@ -11,18 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2018
-ms.openlocfilehash: 47ba057091f0660bf1449f062edfacde710d2f1a
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 34159d059b976043fac415470421970056320acc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428170"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996484"
 ---
 # <a name="provider-resource-usage-api"></a>API de uso de recurso de provedor
+
 O termo *provedor* aplica-se para o administrador de serviço e quaisquer provedores delegados. Operadores do Azure Stack e provedores delegados podem usar a API de uso do provedor para exibir o uso de seus locatários diretos. Por exemplo, conforme mostrado no diagrama, P0 pode chamar o provedor de API para obter informações de uso do P1 e uso direto do P2 e P1 podem chamar para obter informações de uso sobre P3 e P4.
 
 ![Modelo conceitual da hierarquia de provedor](media/azure-stack-provider-resource-api/image1.png)
@@ -38,6 +39,7 @@ Essa API de uso é um provedor de API, portanto, o chamador deve ser atribuído 
 | GET |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity} & subscriberId = {sub1.1} & api-version = 2015-06-01-preview & continuationToken = {token-value} |
 
 ### <a name="arguments"></a>Argumentos
+
 | **Argumento** | **Descrição** |
 | --- | --- |
 | *armendpoint* |Azure Resource Manager ponto de extremidade do seu ambiente do Azure Stack. A convenção do Azure Stack é que o nome do ponto de extremidade do Azure Resource Manager está no formato `https://adminmanagement.{domain-name}`. Por exemplo, para o kit de desenvolvimento, se o nome de domínio estiver *local.azurestack.external*, em seguida, o ponto de extremidade do Gerenciador de recursos é `https://adminmanagement.local.azurestack.external`. |
@@ -79,6 +81,7 @@ meterID1",
 ```
 
 ### <a name="response-details"></a>Detalhes da resposta
+
 | **Argumento** | **Descrição** |
 | --- | --- |
 | *ID* |ID exclusiva da agregação de uso. |
@@ -101,9 +104,10 @@ Para gerar os dados de uso, você deve ter recursos que estão em execução e u
 1. [Instale o PowerShell para o Azure Stack.](azure-stack-powershell-install.md)
 2. [Configurar o usuário Azure Stack](user/azure-stack-powershell-configure-user.md) ou o [do operador do Azure Stack](azure-stack-powershell-configure-admin.md) ambiente do PowerShell 
 3. Para recuperar os dados de uso, use o [Get-UsageAggregates](/powershell/module/azurerm.usageaggregates/get-usageaggregates) cmdlet do PowerShell:
-```powershell
-Get-UsageAggregates -ReportedStartTime "<Start time for usage reporting>" -ReportedEndTime "<end time for usage reporting>" -AggregationGranularity <Hourly or Daily>
-```
+   ```powershell
+   Get-UsageAggregates -ReportedStartTime "<Start time for usage reporting>" -ReportedEndTime "<end time for usage reporting>" -AggregationGranularity <Hourly or Daily>
+   ```
+
 ### <a name="rest-api"></a>API REST
 
 Você pode coletar informações de uso de assinaturas excluídas chamando o serviço Microsoft.Commerce.Admin. 

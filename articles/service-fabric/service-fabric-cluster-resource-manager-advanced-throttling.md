@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 4a44678b-a5aa-4d30-958f-dc4332ebfb63
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 4c86655b650464f1debadab35fdd82611d17ad81
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: b1824fc5f93bafb26650d28277054869a3659099
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55092332"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731745"
 ---
 # <a name="throttling-the-service-fabric-cluster-resource-manager"></a>Restringindo o Gerenciador de Recursos de Cluster do Service Fabric
 Mesmo se você tiver configurado o Gerenciador de Recursos do Cluster corretamente, o cluster poderá ser interrompido. Por exemplo, poderia haver falhas simultâneas no domínio de falha e no nó – o que aconteceria se isso ocorresse durante um upgrade? O Gerenciador de Recursos de Cluster sempre tenta corrigir tudo, consumindo recursos do cluster ao tentar reorganizar e corrigir o cluster. As restrições ajudam a construir uma barreira para que o cluster possa usar recursos para se estabilizar — os nós voltam, as partições de rede são corrigidas, os bits corrigidos são implantados.

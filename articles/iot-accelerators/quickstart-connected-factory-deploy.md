@@ -7,16 +7,16 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 02/08/2019
+ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: 46ea73e0a0c2dd14dcafcaa332c7feb1c70445df
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 2d759dbfc9b38aae00dd8c3a51a6c0ee2dbe523f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56098878"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176558"
 ---
-# <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Início Rápido: Experimentar uma solução baseada em nuvem para gerenciar meus dispositivos IoT industriais
+# <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Início rápido: Experimentar uma solução baseada em nuvem para gerenciar meus dispositivos IoT industriais
 
 Este início rápido mostra como implantar o acelerador de solução Azure IoT de Fábrica Conectada para executar uma simulação baseada em nuvem de monitoramento e gerenciamento para dispositivos IoT industriais. Ao implantar o acelerador de solução da Fábrica Conectada, ele será pré-preenchido com recursos simulados que permitem que você percorra um cenário IoT industrial comum. Várias fábricas simuladas estão conectadas à solução; elas relatam os valores de dados necessários para calcular a OEE (eficiência geral de equipamentos) e KPIs (indicadores chave de desempenho). Este início rápido mostra como usar o painel da solução para:
 

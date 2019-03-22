@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: 4511ef81ccfa7008cd21a22b09459fb122d46327
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: efe85e017d883ca82414fe5ff10b5c2932366e48
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452933"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101101"
 ---
 # <a name="configure-access-from-virtual-networks-vnet"></a>Configurar acesso das VNets (redes virtuais)
 
@@ -49,8 +49,11 @@ As seções a seguir descrevem como configurar o ponto de extremidade do serviç
 
 > [!NOTE]
 > Para habilitar terminais de serviço de rede virtual, você precisaria das seguintes permissões de assinatura:
-  * Assinatura com rede virtual: Colaborador de rede
-  * Assinatura com a conta do Azure Cosmos DB: Colaborador da Conta do DocumentDB
+>   * Assinatura com rede virtual: Colaborador de rede
+>   * Assinatura com a conta do Azure Cosmos DB: Colaborador da Conta do DocumentDB
+>   * Se sua rede virtual e conta do Azure Cosmos DB estão em assinaturas diferentes, certifique-se de que a assinatura que tem a rede virtual também tem `Microsoft.DocumentDB` registrado do provedor de recursos. Para registrar um provedor de recursos, consulte [provedores de recursos do Azure e tipos](../azure-resource-manager/resource-manager-supported-services.md) artigo. 
+
+Aqui estão as instruções para registrar a assinatura com o provedor de recursos.
 
 ### <a name="configure-a-service-endpoint-for-a-new-azure-virtual-network-and-subnet"></a>Configurar o ponto de extremidade de serviço para uma rede virtual do Azure e uma sub-rede novas
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: 653d3e357e3a02659a225b4e26c386ca54b6288f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 52ad40a2521f21efee3b9f98b46c2e2e6343b656
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715419"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098297"
 ---
 # <a name="run-apache-pig-jobs-with-apache-hadoop-on-hdinsight-by-using-rest"></a>Execute trabalhos do Apache Pig com o Apache Hadoop no HDInsight usando o REST
 
@@ -58,8 +58,8 @@ Saiba como executar tarefas do Apache Pig Latin fazendo solicitações REST para
 
     Os parâmetros usados nesse comando são os seguintes:
 
-    * **-u**: O nome de usuário e a senha usados para autenticar a solicitação
-    * **-G**: Indica que essa solicitação é uma solicitação GET
+   * **-u**: O nome de usuário e a senha usados para autenticar a solicitação
+   * **-G**: Indica que essa solicitação é uma solicitação GET
 
      O início da URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, é o mesmo para todas as solicitações. O caminho, **/status**, indica que a solicitação é para retornar o status de WebHCat (também conhecido como Templeton) para o servidor.
 
@@ -71,18 +71,18 @@ Saiba como executar tarefas do Apache Pig Latin fazendo solicitações REST para
 
     Os parâmetros usados nesse comando são os seguintes:
 
-    * **-d**: Como `-G` não é usado; a solicitação padrão é o método POST. `-d` especifica os valores de dados que são enviados com a solicitação.
+   * **-d**: Como `-G` não é usado; a solicitação padrão é o método POST. `-d` especifica os valores de dados que são enviados com a solicitação.
 
-    * **user.name**: O usuário que está executando o comando
-    * **executar**: As instruções de Pig Latin a executar
-    * **statusdir**: O diretório no qual o status deste trabalho é gravado
+   * **user.name**: O usuário que está executando o comando
+   * **executar**: As instruções de Pig Latin a executar
+   * **statusdir**: O diretório no qual o status deste trabalho é gravado
 
-    > [!NOTE]  
-    > Observe que os espaços em instruções do Pig Latin são substituídos pelo caractere `+` quando usado com o Curl.
+     > [!NOTE]  
+     > Observe que os espaços em instruções do Pig Latin são substituídos pelo caractere `+` quando usado com o Curl.
 
-    Esse comando deve retornar uma ID de trabalho que pode ser usada para verificar o status do trabalho, por exemplo:
+     Esse comando deve retornar uma ID de trabalho que pode ser usada para verificar o status do trabalho, por exemplo:
 
-        {"id":"job_1415651640909_0026"}
+       {"id":"job_1415651640909_0026"}
 
 3. Para verificar o status do trabalho, use o comando a seguir
 

@@ -3,22 +3,22 @@ title: O que são os Serviços Cognitivos do Azure?
 description: Os Serviços Cognitivos do Azure são API, SDKs e serviços que você pode usar para criar aplicativos inteligentes com o Microsoft Azure.
 services: cognitive-services
 author: nitinme
-manager: nitinmed
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ''
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 03/11/2019
 ms.author: nitinme
-ms.openlocfilehash: d9271b32f6254b032fab9e93aaf82ab39e7f1932
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 7f0bfa407705f4c9535e6dddc9a27a4f7130931d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876276"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113823"
 ---
 # <a name="what-are-azure-cognitive-services"></a>O que são os Serviços Cognitivos do Azure?
 
-Os Serviços Cognitivos do Azure são APIs, SDKs e serviços disponíveis para ajudar os desenvolvedores a criarem aplicativos inteligentes, sem precisar de habilidades de IA direta, ciência de dados nem conhecimento. Os Serviços Cognitivos do Azure ampliam o portfólio de APIs de aprendizado de máquina da Microsoft em constante evolução e permitem aos desenvolvedores adicionar facilmente aos seus aplicativos recursos cognitivos – como emoção e detecção de vídeo; reconhecimento facial, de fala e de visão, além de compreensão de fala e de idioma. O objetivo dos Serviços Cognitivos do Azure é ajudar os desenvolvedores a criar aplicativos que podem ver, ouvir, falar, entender e até mesmo começar a raciocinar. O catálogo de serviços incluído nos Serviços Cognitivos do Azure pode ser categorizado em cinco pilares principais – Visão, Fala, Idioma, Pesquisa e Conhecimento.
+Os Serviços Cognitivos do Azure são APIs, SDKs e serviços disponíveis para ajudar os desenvolvedores a criarem aplicativos inteligentes, sem precisar de habilidades de IA direta, ciência de dados nem conhecimento. Serviços Cognitivos do Azure permite aos desenvolvedores adicionar facilmente recursos cognitivos como emoção e detecção de vídeo; facial, fala e reconhecimento de visão; e fala e reconhecimento vocal – aos seus aplicativos. O objetivo dos Serviços Cognitivos do Azure é ajudar os desenvolvedores a criar aplicativos que podem ver, ouvir, falar, entender e até mesmo começar a raciocinar. O catálogo de serviços incluído nos Serviços Cognitivos do Azure pode ser categorizado em cinco pilares principais – Visão, Fala, Idioma, Pesquisa e Conhecimento.
 
 ## <a name="vision-apis"></a>APIs de visão
 
@@ -28,7 +28,6 @@ Os Serviços Cognitivos do Azure são APIs, SDKs e serviços disponíveis para a
 |[Serviço de Visão Personalizada](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/home "Serviço de Visão Personalizada") (Versão prévia)|O Serviço de Visão Personalizada permite criar classificadores de imagem personalizada.|
 |[Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview "Content Moderator")|O Content Moderator fornece monitoramento para um possível conteúdo ofensivo, indesejável e arriscado.|
 |[API de Detecção Facial](https://docs.microsoft.com/azure/cognitive-services/face/ "API de Detecção Facial")|A API de Detecção Facial fornece acesso a algoritmos avançados de detecção facial, habilitando o atributo de detecção e reconhecimento facial.|
-|[API de Detecção de Emoções](https://docs.microsoft.com/azure/cognitive-services/emotion/home "API de Detecção de Emoções") (Versão prévia)|A API de Detecção de Emoções pega uma imagem como uma entrada e retorna a confiança entre um conjunto de emoções para cada face na imagem.|
 | [Video Indexer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "Video Indexer")|O Video Indexer permite extrair insights de seus vídeos.|
 
 ## <a name="speech-apis"></a>Speech APIs
@@ -36,7 +35,6 @@ Os Serviços Cognitivos do Azure são APIs, SDKs e serviços disponíveis para a
 |Nome do Serviço|Descrição do Serviço|
 |:-----------|:------------------|
 |[Serviço de Fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Serviço de Fala") (Versão prévia)|O Serviço de Fala adiciona recursos habilitados para fala aos aplicativos.|
-|[Serviço de Fala Personalizado](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home "Serviço de Fala Personalizado") (Versão prévia)|O Serviço de Fala Personalizado permite que v você crie modelos de linguagem personalizados e modelos acústicos, personalizados para o seu aplicativo e seus usuários.|
 |[API de Fala do Bing](https://docs.microsoft.com/azure/cognitive-services/speech/home "API de Fala do Bing")|A API de Fala do Bing fornece uma maneira fácil de criar recursos habilitados para fala em seus aplicativos.|
 |[Tradução de Fala](https://docs.microsoft.com/azure/cognitive-services/translator-speech/ "Tradução de Fala")|A Tradução de Fala é um serviço de tradução automática.|
 |[API de Reconhecimento do Locutor](https://docs.microsoft.com/azure/cognitive-services/speaker-recognition/home "API de Reconhecimento do Locutor") (Versão prévia)|A API de Reconhecimento do Locutor fornece algoritmos para a verificação e identificação do locutor.|
@@ -47,10 +45,8 @@ Os Serviços Cognitivos do Azure são APIs, SDKs e serviços disponíveis para a
 |:-----------|:------------------|
 |[Verificação Ortográfica do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/ "Verificação Ortográfica do Bing")|A Verificação Ortográfica do Bing permite fazer verificações de gramática contextual e ortográfica.|
 |[Reconhecimento Vocal LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/ "Reconhecimento Vocal")|O serviço de Reconhecimento Vocal (LUIS) permite que seu aplicativo entenda o que uma pessoa quer com suas próprias palavras.|
-|[Análise Linguística](https://docs.microsoft.com/azure/cognitive-services/linguisticanalysisapi/home "Análise Linguística") (Versão prévia)|A Análise Linguística fornece acesso a ferramentas de processamento de linguagem natural que identificam a estrutura do texto.|
 |[Análise de Texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/ "Análise de Texto")|A Análise de Texto oferece processamento de linguagem natural sobre texto bruto para análise de sentimento, extração de frases-chave e detecção de idioma.|
-|[Tradução de Texto](https://docs.microsoft.com/azure/cognitive-services/translator/ "Tradução de Texto")|Fornece de tradução de texto para tradução de máquina com base em texto em tempo quase real.||
-|[Modelo de Linguagem da Web](https://docs.microsoft.com/azure/cognitive-services/web-language-model/home "Modelo de Linguagem da Web") (Versão prévia)|Processamento de linguagem natural para prever o sequenciamento e conclusões de palavras, e quebras de palavras de cadeias de caracteres sem espaços.|
+|[Tradução de Texto](https://docs.microsoft.com/azure/cognitive-services/translator/ "Tradução de Texto")|Fornece de tradução de texto para tradução de máquina com base em texto em tempo quase real.|
 
 ## <a name="search-apis"></a>APIs de pesquisa
 
@@ -64,12 +60,12 @@ Os Serviços Cognitivos do Azure são APIs, SDKs e serviços disponíveis para a
 |[Pesquisa de Entidade do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/ "Pesquisa de Entidade do Bing")|A Pesquisa de Entidade do Bing retorna informações sobre entidades que o Bing determina como relevantes para a consulta de um usuário.|
 |[Pesquisa de Imagem do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search "Pesquisa de Imagem do Bing")|A Pesquisa de Imagem do Bing retorna uma exibição de imagens determinadas como relevantes para a consulta do usuário.|
 |[Pesquisa Visual do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search "Pesquisa Visual do Bing")|A Pesquisa Visual do Bing retorna insights sobre uma imagem, como imagens visualmente semelhantes, fontes de compras de produtos encontrados na imagem e pesquisas relacionadas.|
+|[Local de negócios de pesquisa do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-local-business-search/ "comercial Local de pesquisa do Bing")| API de pesquisa do Bing Local negócios permite que seus aplicativos encontrar informações de contato e localização sobre empresas locais com base em consultas de pesquisa.|
 
 ## <a name="knowledge-apis"></a>APIs de Conhecimento
 
 |Nome do Serviço|Descrição do Serviço|
 |:-----------|:------------------|
-| [Serviço de Decisão Personalizada](https://docs.microsoft.com/azure/cognitive-services/custom-decision-service/ "Pesquisa de Decisão Personalizada") (Versão prévia)|O Serviço de Decisão Personalizada ajuda você a criar sistemas inteligentes com uma tomada de decisão contextual para a personalização e a otimização da experiência do usuário.|
 |[QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/index "QnA Maker")|A QnA Maker permite que você crie um serviço de perguntas e respostas do seu conteúdo semiestruturado.|
 
 ## <a name="use-free-trials"></a>Use as avaliações gratuitas
@@ -94,7 +90,7 @@ Procurando uma região ainda sem suporte? Informe-nos com uma solicitação de r
 
  Os Serviços Cognitivos oferecem suporte a uma ampla variedade de linguagens culturais no nível do serviço. Você pode encontrar a disponibilidade de linguagem para cada API na [lista de linguagens compatíveis](language-support.md).
 
- ## <a name="container-support"></a>Suporte a contêiner
+## <a name="container-support"></a>Suporte a contêiner
 
  Os Serviços Cognitivos fornecem contêineres para implantação local ou na nuvem do Azure. Saiba mais sobre [Contêineres de Serviços Cognitivos](cognitive-services-container-support.md).
 

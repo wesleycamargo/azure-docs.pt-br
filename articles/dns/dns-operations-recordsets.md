@@ -14,12 +14,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: victorh
-ms.openlocfilehash: 6907382fccaa463fe305ac5049b3858e59b8631b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: fa1f90cf0236a589d1df96658c672a555195be6b
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991388"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888807"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Gerenciar registros e conjuntos de registros DNS no DNS do Azure usando o Azure PowerShell
 
@@ -238,7 +238,7 @@ Esta sequência de operações também pode ser *redirecionada*, significando qu
 Get-AzDnsRecordSet -Name "www" –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Add-AzDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzDnsRecordSet
 ```
 
-Os exemplos acima mostram como adicionar um registro 'A' a um conjunto de registros existente do tipo 'A'. Uma sequência de operações parecida é usada para adicionar registros a outros tipos de conjuntos de registro, substituindo o parâmetro `-Ipv4Address` de `Add-AzDnsRecordConfig` por outros parâmetros específicos para cada tipo de registro. Os parâmetros para cada tipo de registro são iguais para o cmdlet `New-AzDnsRecordConfig`, como mostrado em [Exemplos adicionais dos tipos de registro](#additional-record-type-examples) acima.
+Os exemplos acima mostram como adicionar um registro 'A' a um conjunto de registros existente do tipo 'A'. Uma sequência de operações parecida é usada para adicionar registros a outros tipos de conjuntos de registro, substituindo o parâmetro `-Ipv4Address` de `Add-AzDnsRecordConfig` por outros parâmetros específicos para cada tipo de registro. Os parâmetros para cada tipo de registro são iguais para o cmdlet `New-AzDnsRecordConfig`, como mostrado em Exemplos adicionais dos tipos de registro acima.
 
 Os conjuntos de registro do tipo 'CNAME' ou 'SOA' não podem conter mais de um registro. Essa restrição resulta dos padrões do DNS. Não é uma limitação do DNS do Azure.
 
@@ -272,7 +272,7 @@ Da mesma forma para adicionar registros a um conjunto de registros, a sequência
 Get-AzDnsRecordSet -Name www –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Remove-AzDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzDnsRecordSet
 ```
 
-Diferentes tipos de registro são suportados passando os parâmetros específicos do tipo apropriados para `Remove-AzDnsRecordSet`. Os parâmetros para cada tipo de registro são iguais para o cmdlet `New-AzDnsRecordConfig`, como mostrado em [Exemplos adicionais dos tipos de registro](#additional-record-type-examples) acima.
+Diferentes tipos de registro são suportados passando os parâmetros específicos do tipo apropriados para `Remove-AzDnsRecordSet`. Os parâmetros para cada tipo de registro são iguais para o cmdlet `New-AzDnsRecordConfig`, como mostrado em Exemplos adicionais dos tipos de registro acima.
 
 
 ## <a name="modify-an-existing-record-set"></a>Modificar um conjunto de registros existente

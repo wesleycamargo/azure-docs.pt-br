@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 1dd6be61aab91bb15cc42939689e3c7399bee3db
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: e9b240a17614593cd04280a13e006c4d06e832fd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236519"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904263"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Autenticando e autorizando com Coleções de Workspaces do Power BI
 
@@ -182,4 +182,4 @@ Após as **Coleções de Workspaces do Power BI** enviarem um relatório para o 
 [Introdução às Coleções de Workspaces do Microsoft Power BI](get-started.md)  
 [Repositório de Git PowerBI-CSharp](https://github.com/Microsoft/PowerBI-CSharp)
 
-Mais perguntas? [Experimentar a comunidade do Power BI](http://community.powerbi.com/)
+Mais perguntas? [Experimentar a comunidade do Power BI](https://community.powerbi.com/)

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: lakasa
 ms.subservice: common
-ms.openlocfilehash: dfff159d7e0204a752935458a2b4845499c0d652
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: ecfd86a7e4a8ef97663cc930906fd909b6f0fae8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453388"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011125"
 ---
 # <a name="client-side-encryption-with-python-for-microsoft-azure-storage"></a>Criptografia do lado do cliente com Python para o Armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -48,7 +48,7 @@ A descriptografia com a técnica de envelope funciona da seguinte maneira:
 4. A CEK (chave de criptografia de conteúdo) é então usada para descriptografar os dados de usuário criptografados.
 
 ## <a name="encryption-mechanism"></a>Mecanismo de criptografia
-A biblioteca de cliente de armazenamento usa [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) para criptografar os dados do usuário. Especificamente, o modo [CBC (Encadeamento de Blocos de Criptografia)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) com AES. Cada serviço funciona ligeiramente diferente, portanto, discutiremos cada uma deles aqui.
+A biblioteca de cliente de armazenamento usa [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) para criptografar os dados do usuário. Especificamente, o modo [CBC (Encadeamento de Blocos de Criptografia)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) com AES. Cada serviço funciona ligeiramente diferente, portanto, discutiremos cada uma deles aqui.
 
 ### <a name="blobs"></a>Blobs
 Atualmente, a biblioteca de cliente dá suporte à criptografia somente de blobs completos. Especificamente, a criptografia tem suporte quando os usuários utilizam os métodos **create**\*. Para downloads, os downloads completos e de intervalo têm suporte e a paralelização do download e do upload está disponível.
@@ -91,9 +91,9 @@ Criptografia de dados de tabela funciona da seguinte maneira:
 2. A biblioteca de cliente gera um vetor de inicialização aleatório (IV) de 16 bytes com uma chave de criptografia aleatória de conteúdo (CEK) de 32 bytes para cada entidade e executa a criptografia de envelope sobre as propriedades individuais que devem ser criptografadas, derivando uma nova IV por propriedade. A propriedade criptografada é armazenada como dados binários.
 3. O CEK encapsulado e alguns metadados adicionais de criptografia, em seguida, são armazenados como duas propriedades reservadas adicionais. A primeira propriedade reservada (\_ClientEncryptionMetadata1) é uma propriedade de cadeia de caracteres que contém informações sobre o IV, versão e chave encapsulada. A segunda propriedade reservada (\_ClientEncryptionMetadata2) é uma propriedade binária que armazena as informações sobre as propriedades criptografadas. As informações nessa segunda propriedade (\_ClientEncryptionMetadata2) são criptografadas.
 4. Devido a essas propriedades reservadas adicionais necessárias para a criptografia, os usuários agora podem ter apenas 250 propriedades personalizadas, em vez de 252. O tamanho total da entidade deve ser menor que 1 MB.
-   
+
    Observe que somente as propriedades de cadeia de caracteres podem ser criptografadas. Se outros tipos de propriedades precisarem ser criptografados, elas devem ser convertidas em cadeias de caracteres. As cadeias de caracteres criptografadas são armazenadas no serviço como propriedades binárias e são convertidas novamente em cadeias de caracteres (cadeias de caracteres brutas, não EntityProperties com tipo EdmType.STRING) após a descriptografia.
-   
+
    Para tabelas, além da política de criptografia, os usuários devem especificar as propriedades que devem ser criptografadas. Isso pode ser feito ao armazenar essas propriedades em objetos TableEntity com o tipo definido como EdmType.STRING e a criptografia definida como true ou ao definir a encryption_resolver_function no objeto tableservice. Um resolvedor de criptografia é uma função que usa uma chave de partição, a chave de linha e o nome da propriedade e retorna um valor booliano que indica se essa propriedade deve ser criptografada. Durante a criptografia, a biblioteca de cliente usará essas informações para decidir se uma propriedade deve ser criptografada durante a gravação para a transmissão. O representante também oferece a possibilidade de lógica em torno de como as propriedades são criptografadas. (Por exemplo, se X, então criptografar a propriedade A; caso contrário, criptografar as propriedades A e B.) Observe que não é necessário fornecer essas informações durante a leitura ou ap consultar entidades.
 
 ### <a name="batch-operations"></a>Operações em lote
@@ -105,9 +105,9 @@ Observe que as entidades são criptografadas conforme elas são inseridas no lot
 > [!NOTE]
 > Como as entidades são criptografadas, é possível executar consultas que filtram uma propriedade criptografada.  Se você tentar, os resultados estarão incorretos, porque o serviço tentará comparar dados criptografados com dados não criptografados.
 > 
->
-Para executar operações de consulta, você deve especificar que um resolvedor de chave é capaz de resolver todas as chaves no conjunto de resultados. Se uma entidade contida no resultado da consulta não puder ser resolvida para um provedor, a biblioteca de cliente gerará um erro. Para qualquer consulta que realiza as projeções de lado do servidor, a biblioteca de cliente adicionará as propriedades de metadados de criptografia especiais (\_ClientEncryptionMetadata1 e \_ClientEncryptionMetadata2) por padrão para as colunas selecionadas.
-
+> 
+> Para executar operações de consulta, você deve especificar que um resolvedor de chave é capaz de resolver todas as chaves no conjunto de resultados. Se uma entidade contida no resultado da consulta não puder ser resolvida para um provedor, a biblioteca de cliente gerará um erro. Para qualquer consulta que realiza as projeções de lado do servidor, a biblioteca de cliente adicionará as propriedades de metadados de criptografia especiais (\_ClientEncryptionMetadata1 e \_ClientEncryptionMetadata2) por padrão para as colunas selecionadas.
+> 
 > [!IMPORTANT]
 > Lembre-se dos seguintes pontos importantes ao usar a criptografia no lado do cliente:
 > 
@@ -115,8 +115,6 @@ Para executar operações de consulta, você deve especificar que um resolvedor 
 > * Para tabelas, existe uma restrição semelhante. Tenha cuidado para não atualizar propriedades criptografadas sem atualizar os metadados de criptografia.
 > * Se você definir os metadados no blob criptografado, poderá substituir os metadados relacionados à criptografia necessários para a descriptografia, uma vez que a definição de metadados não é aditiva. Isso também ocorre em instantâneos. Evite especificar metadados ao criar um instantâneo de um blob criptografado. Se for necessário definir os metadados, lembre-se de chamar o método **get_blob_metadata** primeiro para obter os metadados de criptografia atuais e evitar gravações simultâneas enquanto os metadados estão sendo definidos.
 > * Habilite o sinalizador **require_encryption** no objeto de serviço para usuários que devem trabalhar apenas com dados criptografados. Saiba mais logo abaixo.
-> 
-> 
 
 A biblioteca de cliente de armazenamento espera a KEK fornecida e o resolvedor de chave para implementar a interface a seguir. [Cofre de Chaves do Azure](https://azure.microsoft.com/services/key-vault/) ao gerenciamento de Python KEK está pendente e será integrado a essa biblioteca quando estiver concluído.
 
@@ -136,10 +134,10 @@ O resolvedor de chave deve pelo menos implementar um método que, dada uma ID de
 
 * Para criptografia, a chave é usada sempre e a ausência de uma chave resultará em um erro.
 * Para descriptografar:
-  
+
   * O resolvedor de chave é invocado se especificado para obter a chave. Se o resolvedor for especificado, mas não tiver um mapeamento para o identificador de chave, um erro será gerado.
   * Se o resolvedor não for especificado, mas uma chave for especificada, a chave será usada se o identificador corresponder ao identificador da chave necessária. Se o identificador não corresponder, um erro será gerado.
-    
+
     Os exemplos de criptografia em azure.storage.samples <fix URL>demonstram um cenário de ponta a ponta mais detalhado para blobs, filas e tabelas.
       As implementações de exemplo da KEK e do resolvedor de chave são fornecidas nos arquivos de exemplo como KeyWrapper e KeyResolver respectivamente.
 

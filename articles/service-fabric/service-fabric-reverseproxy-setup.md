@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 07/27/201
+ms.date: 11/13/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 522e9209da5d2df796700dea764270382b1170f5
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 8c405941417ad1a4e877cfd8fd0bdb53e186f6d0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102758"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452293"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Defina e configure o proxy reverso no Azure Service Fabric
 O proxy reverso é um serviço opcional no Azure Service Fabric que ajuda microsserviços em execução em um cluster do Service Fabric a descobrir e comunicar-se com outros serviços que têm pontos de extremidade http. Para saber mais, confira [Proxy reverso no Azure Service Fabric](service-fabric-reverseproxy.md). Este artigo mostra como instalar e configurar o proxy reverso no cluster. 
@@ -47,7 +47,7 @@ Para um novo cluster, você pode [criar um modelo do Gerenciador de Recursos per
 
 Você pode encontrar modelos do Gerenciador de Recursos de exemplo que podem ajudar a configurar o proxy reverso seguro para um cluster do Azure em [Modelos de exemplo de Proxy Reverso Seguro](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample) no GitHub. Consulte [Configurar Proxy Reverso HTTPS em um cluster seguro](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample/README.md#configure-https-reverse-proxy-in-a-secure-cluster) para o arquivo LEIAME para instruções e exemplos para usar e configurar o proxy reverso seguro com um certifico e tratar a substituição do certificado.
 
-Para um cluster existente, você pode exportar o modelo do Gerenciador de Recursos para o recurso do cluster de grupo usando o [portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template#export-the-template-from-resource-group), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell#export-resource-group-as-template), ou a [CLI do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli#export-resource-group-as-template).
+Para um cluster existente, você pode exportar o modelo do Gerenciador de Recursos para o recurso do cluster de grupo usando o [portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell), ou a [CLI do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli).
 
 Depois de ter um modelo do Gerenciador de Recursos, habilite o proxy reverso com as etapas a seguir:
 
@@ -334,7 +334,7 @@ Por exemplo, você pode definir o valor de **DefaultHttpRequestTimeout** para de
 
 Para obter mais informações sobre como atualizar as configurações de malha para clusters do Azure, consulte [Personalizar as configurações de cluster usando modelos do Gerenciador de Recursos](service-fabric-cluster-config-upgrade-azure.md). Para clusters autônomos, consulte [Personalizar configurações para clusters autônomos](service-fabric-cluster-config-upgrade-windows-server.md). 
 
-Várias configurações de malha são usadas para ajudar a estabelecer uma comunicação segura entre o proxy reverso e serviços. Para obter informações detalhadas sobre essas configurações, consulte [Conectar-se a um serviço seguro com o proxy reverso](service-fabric-reverseproxy-configure-secure-communication.md).
+Várias configurações de malha são usadas para ajudar a estabelecer uma comunicação segura entre o proxy reverso e serviços. Para obter informações detalhadas sobre essas configurações, consulte [conectar-se a um serviço seguro com o proxy reverso](service-fabric-reverseproxy-configure-secure-communication.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Definir encaminhamento para o serviço HTTP seguro com um proxy reverso](service-fabric-reverseproxy-configure-secure-communication.md)

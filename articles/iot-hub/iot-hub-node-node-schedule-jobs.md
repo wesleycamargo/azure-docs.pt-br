@@ -1,20 +1,20 @@
 ---
 title: Agendar trabalhos com o Hub IoT do Azure (Node) | Microsoft Docs
 description: Como agendar um trabalho do Hub IoT do Azure para invocar um método direto em vários dispositivos. Você pode usar os SDKs do IoT do Azure para Node.js para implementar os aplicativos do dispositivo simulado e um aplicativo de serviço para executar o trabalho.
-author: juanjperez
-manager: cberlin
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 10/06/2017
-ms.author: juanpere
-ms.openlocfilehash: a0614b5a1eadafe78537a4793d2dc0a866337487
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 5f0198581c83522f42a6742a0578adfd6c0cb781
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118873"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535726"
 ---
 # <a name="schedule-and-broadcast-jobs-node"></a>Agendar e transmitir trabalhos (Node)
 
@@ -273,4 +273,4 @@ Para continuar a introdução ao Hub IoT, consulte [Introdução ao Azure IoT Ed
 [lnk-fwupdate]: tutorial-firmware-update.md
 [lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
-[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/

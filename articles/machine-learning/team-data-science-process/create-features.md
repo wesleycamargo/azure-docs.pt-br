@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b7c10884682b6537bbfcbb1b1f8b89b38751d05b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 8b0973007a78b492cff1c5ffc2ce1e43116a0847
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478042"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835077"
 ---
 # <a name="feature-engineering-in-data-science"></a>Engenharia de recursos em ciência de dados
 Este artigo explica a finalidade da criação de recursos e fornece exemplos de sua função no processo de aperfeiçoamento de dados do aprendizado de máquina. Os exemplos usados para ilustrar esse processo são extraídos do Azure Machine Learning Studio. 
@@ -46,7 +46,7 @@ Que tipos de recursos devem ser criados para aperfeiçoar o conjunto de dados ao
 
 Ao começar a usar o Azure Machine Learning, é mais fácil entender esse processo concretamente usando exemplos fornecidos no Studio. Dois exemplos são apresentados aqui:
 
-* Um exemplo de regressão, [Previsão do número de locações de bicicletas](http://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4) , em um experimento supervisionado em que os valores de destino são conhecidos
+* Um exemplo de regressão, [Previsão do número de locações de bicicletas](https://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4) , em um experimento supervisionado em que os valores de destino são conhecidos
 * Um exemplo de classificação de mineração de texto usando [Hash de recursos](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/)
 
 ## <a name="example-1-add-temporal-features-for-a-regression-model"></a>Exemplo 1: Adicionar recursos temporais para um modelo de regressão

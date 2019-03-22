@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 8f5a0a22ecea0b5df0f4108984b2a65d4add2bf8
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: d7b8037f50fc4877fe233925f3e922648169f73b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301767"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901161"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Monitore o desempenho em aplicativos da web
 
@@ -55,7 +55,7 @@ Clique em um gráfico para selecionar outras medidas que são exibidas, ou adici
 ## <a name="metrics"></a>O que significa tudo isso? Blocos e relatórios de desempenho
 Há várias métricas de desempenho que você pode obter. Vamos começar com estas que aparecem por padrão na folha do aplicativo.
 
-### <a name="requests"></a>Requests
+### <a name="requests"></a>Solicitações
 O número de solicitações de HTTP receberam em um período especifico. Compare isso com os resultados em outros reatórios para ver como seu aplicativo se comporta conforme a carga varia.
 
 As solicitações HTTP incluem todas as solicitações GET ou POST para páginas, dados e imagens.
@@ -112,7 +112,7 @@ Aqui estão algumas dicas para localizar e diagnosticar problemas de desempenho:
 * Compare a contagem de Solicitação com outras métricas para ver se falhas ou resposta lenta são relatadas ao carregar.
 * [Inserir e pesquisar instruções de rastreamento][diagnostic] em seu código para ajudar a detectar problemas.
 * Monitore seu aplicativo Web em operação com o [Live Metrics Stream][livestream].
-* Capture o estado do aplicativo .Net com o [Depurador de Instantâneo][snapshot].
+* Capturar o estado do aplicativo .NET com [depurador de instantâneo][snapshot].
 
 ## <a name="find-and-fix-performance-bottlenecks-with-performance-investigation-experience"></a>Encontrar e corrigir gargalos de desempenho com uma experiência de investigação de desempenho
 

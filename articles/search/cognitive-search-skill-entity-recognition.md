@@ -8,15 +8,15 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 01/17/2019
+ms.date: 02/27/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 7a7fe9603716575c241ca78ebdc9b674888ca835
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 2a245a6e3d76a7df41b5ef28f9bac8a2c2122402
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452200"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985405"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Habilidades cognitivas de reconhecimento de entidade
 
@@ -43,7 +43,8 @@ Os parâmetros diferenciam maiúsculas de minúsculas e são todos opcionais.
 | Categorias    | Matriz de categorias que devem ser extraídas.  Os tipos possíveis de categoria: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. Se nenhuma categoria for fornecida, todos os tipos são retornados.|
 |defaultLanguageCode |  Código de idioma do texto de entrada. Há suporte para vários idiomas: `de, en, es, fr, it`|
 |minimumPrecision | Não utilizado. Reservado para uso futuro. |
-|includeTypelessEntities | Quando configurado como verdadeiro, se o texto contiver uma entidade conhecida, mas não puder ser categorizado em uma das categorias compatíveis, ela será retornada como parte do campo de saída complexa `"entities"`. O padrão é `false` |
+|includeTypelessEntities | Quando configurado como verdadeiro, se o texto contiver uma entidade conhecida, mas não puder ser categorizado em uma das categorias compatíveis, ela será retornada como parte do campo de saída complexa `"entities"`. 
+Essas são entidades que são conhecidas, mas não classificadas como parte das atuais com suporte "categorias". Por exemplo, "Windows 10" é uma entidade conhecida (um produto), mas não são "Produtos" nas categorias de suporte no momento. O padrão é `false` |
 
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
@@ -67,7 +68,7 @@ Somente _en_, _es_ dão suporte à extração dos tipos `"Quantity"`, `"Datetime
 | dateTimes  | Uma matriz de cadeia de caracteres onde cada cadeia de caracteres representa um valor DateTime (como aparece no texto). |
 | urls | Uma matriz de cadeia de caracteres onde cada cadeia de caracteres representa um URL |
 | e-mails | Uma matriz de cadeia de caracteres onde cada cadeia de caracteres representa um e-mail |
-| namedEntities | Uma matriz de tipos complexos que contêm os seguintes campos: <ul><li>categoria</li> <li>valor (nome de entidade real)</li><li>deslocamento (o local onde ele foi encontrado no texto)</li><li>confiança (não usado por enquanto. Será definido como um valor de -1)</li></ul> |
+| namedEntities | Uma matriz de tipos complexos que contêm os seguintes campos: <ul><li>categoria</li> <li>valor (o nome de entidade real)</li><li>deslocamento (o local onde ele foi encontrado no texto)</li><li>confiança (não usado por enquanto. Será definido como um valor de -1)</li></ul> |
 | entidades | Uma matriz de tipos complexos que contém informações ricas sobre as entidades extraídas do texto, com os seguintes campos <ul><li> nome (o nome da entidade real. Isso representa um formulário "normalizado")</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (um link para a página da Wikipedia para a entidade)</li><li>bingId</li><li>tipo (a categoria da entidade reconhecida)</li><li>subType (disponível apenas para algumas categorias; oferece uma exibição mais granular do tipo de entidade)</li><li> correspondências (uma coleção complexa que contém)<ul><li>texto (texto bruto para a entidade)</li><li>deslocamento (o local onde ele foi encontrado)</li><li>comprimento (o comprimento do texto bruto de entidade)</li></ul></li></ul> |
 
 ##  <a name="sample-definition"></a>Definição de exemplo

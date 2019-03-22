@@ -8,12 +8,12 @@ ms.author: jasonh
 ms.assetid: cf5633d4-bc43-444e-90fc-f90fbd0b7935
 ms.topic: conceptual
 ms.date: 02/12/2018
-ms.openlocfilehash: 0bade9f393d879123b7b1485052f70924d9c9b9c
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.openlocfilehash: 7fd88383e909ebd6be64c22721b813946e37179e
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045474"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959113"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Acessando os logs de diagnóstico do Azure Data Lake Analytics
 
@@ -41,7 +41,7 @@ O registro em log de diagnóstico permite que você colete as trilhas de auditor
 
      * Selecione **Transmitir para um Hub de Eventos** para transmitir os dados de log para um Hub de Eventos do Azure. Use essa opção se tiver um pipeline de processamento downstream que esteja analisando logs de entrada em tempo real. Se escolher esta opção, você deverá fornecer os detalhes no Hub de Eventos do Azure que deseja usar.
 
-     * Selecione __Enviar para o Log Analytics__ para enviar os dados ao serviço Log Analytics. Use essa opção se você quiser usar o Log Analytics para coletar e analisar logs.
+     * Selecione __enviar para Log Analytics__ para enviar os dados para o serviço do Azure Monitor. Use esta opção se você quiser usar os logs do Azure Monitor para coletar e analisar logs.
    * Especifique se deseja obter os logs de auditoria, os logs de solicitação ou ambos.  Um log de solicitação captura todas as solicitações da API. Um log de auditoria registra todas as operações disparadas pela solicitação de API.
 
    * Para __Arquivar para uma conta de armazenamento__, especifique o número de dias a reter os dados.
@@ -125,7 +125,7 @@ Aqui está um exemplo de entrada no log de solicitação formatado em JSON. Cada
 
 #### <a name="request-log-schema"></a>Esquema do log de solicitação
 
-| NOME | Tipo | DESCRIÇÃO |
+| NOME | Type | DESCRIÇÃO |
 | --- | --- | --- |
 | tempo real |Cadeia de caracteres |O carimbo de data/hora (em UTC) do log |
 | ResourceId |Cadeia de caracteres |O identificador do recurso em que a operação ocorreu |
@@ -139,7 +139,7 @@ Aqui está um exemplo de entrada no log de solicitação formatado em JSON. Cada
 
 #### <a name="request-log-properties-schema"></a>Esquema de propriedades do log de solicitação
 
-| NOME | Tipo | DESCRIÇÃO |
+| NOME | Type | DESCRIÇÃO |
 | --- | --- | --- |
 | HttpMethod |Cadeia de caracteres |O método HTTP usado para a operação. Por exemplo, GET. |
 | Caminho |Cadeia de caracteres |O caminho em que a operação foi executada |
@@ -177,7 +177,7 @@ Aqui está um exemplo de entrada no log de auditoria formatado em JSON. Cada blo
 
 #### <a name="audit-log-schema"></a>Esquema do log de auditoria
 
-| NOME | Tipo | DESCRIÇÃO |
+| NOME | Type | DESCRIÇÃO |
 | --- | --- | --- |
 | tempo real |Cadeia de caracteres |O carimbo de data/hora (em UTC) do log |
 | ResourceId |Cadeia de caracteres |O identificador do recurso em que a operação ocorreu |
@@ -195,7 +195,7 @@ Aqui está um exemplo de entrada no log de auditoria formatado em JSON. Cada blo
 
 #### <a name="audit-log-properties-schema"></a>Esquema de propriedades do log de auditoria
 
-| Name | Tipo | DESCRIÇÃO |
+| Name | Type | DESCRIÇÃO |
 | --- | --- | --- |
 | JobId |Cadeia de caracteres |A ID atribuída ao trabalho |
 | JobName |Cadeia de caracteres |O nome fornecido para o trabalho |

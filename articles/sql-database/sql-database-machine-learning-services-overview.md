@@ -1,9 +1,8 @@
 ---
-title: Visão geral dos serviços do Machine Learning (com R) no Banco de Dados SQL do Azure (versão prévia)
+title: Serviços do Azure SQL banco de dados de Machine Learning com visão geral do R (versão prévia)
 description: Este tópico descreve os Serviços do Machine Learning do Banco de Dados SQL do Azure (com R) e explica como eles funcionam.
 services: sql-database
 ms.service: sql-database
-ms.subservice: machine-learning-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,22 +10,26 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
-ms.date: 02/06/2019
-ms.openlocfilehash: b50fd21e4d3325875134d2e2e9caeed9f8db75d0
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.date: 03/01/2019
+ms.openlocfilehash: e6d6250da4df6ab267ef28f8f15a73c8cbc68618
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875596"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762052"
 ---
-# <a name="machine-learning-services-with-r-in-azure-sql-database-preview"></a>Serviços do Machine Learning (com R) no Banco de Dados SQL do Azure (versão prévia)
+# <a name="azure-sql-database-machine-learning-services-with-r-preview"></a>Serviços do Azure SQL banco de dados de Machine Learning com R (versão prévia)
 
 Os Serviços do Machine Learning são um recurso do Banco de Dados SQL do Azure, usado para executar scripts do R no banco de dados. O recurso inclui pacotes R da Microsoft para análise preditiva de alto desempenho e machine learning. Os dados relacionais podem ser usados em scripts R por meio de procedimentos armazenados, do script T-SQL que contém instruções do R ou do código R que contém o T-SQL.
 
 > [!IMPORTANT]
-> Os Serviços de Machine Learning (com R) no Banco de Dados SQL do Azure estão disponíveis atualmente apenas em versão prévia pública para pools elásticos e bancos de dados individuais usando o modelo de compra baseado em vCore das camadas de serviço **uso geral** e **comercialmente crítico**. Nesta versão prévia pública inicial, não há suporte para a camada de serviço **hiperescala** e para a opção de implantação **instância gerenciada**. Atualmente, R é a única linguagem com suporte. No momento, não há suporte para Python. 
+> Serviços do Azure SQL banco de dados de Machine Learning (com R) está atualmente em visualização pública.
+> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
+> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> A versão prévia está atualmente disponível nas seguintes regiões: Europa Ocidental, Europa Setentrional, Oeste dos EUA 2, Leste dos EUA, Centro-Sul dos EUA, Centro-Norte dos EUA, Canadá Central, Sudeste Asiático, Sul da Índia e Sudeste da Austrália. 
+> A visualização pública está disponível para bancos de dados únicos e pools Elásticos usando o modelo de compra baseado em vCore na **finalidade geral** e **comercialmente crítico** camadas de serviço. Nesta versão prévia pública inicial, não há suporte para a camada de serviço **hiperescala** e para a opção de implantação **instância gerenciada**. Atualmente, R é a única linguagem com suporte. No momento, não há suporte para Python.
+>
+> A visualização está atualmente disponível nas seguintes regiões: Europa Ocidental, Europa Setentrional, oeste dos EUA 2, Leste dos EUA, Centro-Sul dos EUA, Centro-Norte dos EUA, Canadá Central, Sudeste Asiático, Sul da Índia e Sudeste da Austrália.
 >
 > [Inscreva-se na versão prévia](#signup) abaixo.
 
@@ -40,7 +43,7 @@ Os Serviços do Machine Learning incluem uma distribuição base do R, sobrepost
 
 Os pacotes R de software livre mais comuns são pré-instalados nos Serviços do Machine Learning. Os seguintes pacotes R da Microsoft também estão incluídos:
 
-| Pacote R | DESCRIÇÃO|
+| Pacote R | Descrição|
 |-|-|
 | [Microsoft R Open](https://mran.microsoft.com/rro) | O Microsoft R Open é a distribuição aprimorada de R da Microsoft. É uma plataforma de software livre completa para análise estatística e ciência de dados. É baseada no R e totalmente compatível com ele, além de incluir outras funcionalidades para um melhor desempenho e capacidade de reprodução. |
 | [RevoScaleR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler) | O RevoScaleR é a biblioteca principal para o R escalonável. As funções nessa biblioteca estão entre mais amplamente usadas. As transformações e a manipulação de dados, resumo estatístico, visualização e muitas formas de modelagem e de análises são encontrados nessas bibliotecas. Além disso, as funções nessas bibliotecas distribuem automaticamente as cargas de trabalho entre os núcleos disponíveis para processamento paralelo, com a capacidade de trabalhar em partes de dados coordenadas e gerenciadas pelo mecanismo de cálculo. |
@@ -50,7 +53,7 @@ Além dos pacotes pré-instalados, é possível [instalar pacotes de adição](s
 
 <a name="signup"></a>
 
-## <a name="sign-up-for-the-preview"></a>Inscrever-se para obter a visualização
+## <a name="sign-up-for-the-preview"></a>Inscreva-se para a visualização
 
 Para se inscrever na versão prévia pública, siga estas etapas:
 
@@ -60,7 +63,7 @@ Para se inscrever na versão prévia pública, siga estas etapas:
 
 Após se inscrever no programa, a Microsoft integrará você à versão prévia pública e habilitará o R para seu banco de dados novo ou existente.
 
-Não use os Serviços do Machine Learning com R para cargas de trabalho de produção durante a versão prévia pública.
+Serviços de Machine Learning com R não é recomendado para cargas de trabalho de produção durante a visualização pública.
 
 ## <a name="next-steps"></a>Próximas etapas
 

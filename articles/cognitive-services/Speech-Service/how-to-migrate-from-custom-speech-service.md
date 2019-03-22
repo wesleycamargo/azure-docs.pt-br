@@ -1,7 +1,7 @@
 ---
 title: Migrar do Serviço de Fala Personalizado para os Serviços de Fala
 titlesuffix: Azure Cognitive Services
-description: O Custom Speech Service agora faz parte do Serviço de Fala. Mude para o serviço de fala para se beneficiar das mais recentes atualizações de qualidade e recursos.
+description: O serviço de fala personalizado agora faz parte dos serviços de fala. Alternar para os serviços de fala para se beneficiar com as atualizações de qualidade e recursos mais recentes.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 698962aa0e3d72b204c4e990aa1384b44bf3896f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 501555c68b7b5922bbf5a74d2a7ed5e548b900c5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55856879"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57833530"
 ---
 # <a name="migrate-from-the-custom-speech-service-to-the-speech-service"></a>Migrar do Serviço de Fala Personalizado para o Serviço de Fala
 
 Use este artigo para migrar seus aplicativos do Serviço de Fala Personalizado para o Serviço de Fala.
 
-O Custom Speech Service agora faz parte do Serviço de Fala. Mude para o serviço de fala para se beneficiar das mais recentes atualizações de qualidade e recursos.
+O Custom Speech Service agora faz parte do Serviço de Fala. Alternar para os serviços de fala para se beneficiar com as atualizações de qualidade e recursos mais recentes.
 
 ## <a name="migration-for-new-customers"></a>Migração para novos clientes
 
@@ -39,16 +39,16 @@ O modelo de preços é mais simples, usando um modelo de preços baseado em hora
 
 3. Siga os guias de início rápido e as amostras de SDK para usar as APIs corretas. Se você usar as APIs REST, também precisará usar os terminais e as chaves de recursos corretos.
 
-4. Atualize o aplicativo cliente para usar o Serviço de Fala e as APIs.
+4. Atualize o aplicativo de cliente para usar as APIs e serviços de fala.
 
 ## <a name="migration-for-existing-customers"></a>Migração para os clientes existentes
 
-Migre suas chaves de recursos existentes para o Serviço de Fala no portal do Serviço de Fala. Use as seguintes etapas:
+Migre suas chaves de recurso existente para os serviços de fala no portal de serviços de fala. Use as seguintes etapas:
 
 > [!NOTE]
 > As chaves de recurso só podem ser migradas na mesma região.
 
-1. Entre no portal [cris.ai](http://www.cris.ai) e selecione a assinatura no menu superior direito.
+1. Entre no portal [cris.ai](https://www.cris.ai) e selecione a assinatura no menu superior direito.
 
 2. Selecione **migrar a assinatura selecionada**.
 
@@ -56,10 +56,10 @@ Migre suas chaves de recursos existentes para o Serviço de Fala no portal do Se
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Experimentar o Serviço de Fala gratuitamente](get-started.md).
+* [Experimente gratuitamente o serviços de fala](get-started.md).
 * Saiba mais sobre conceitos de [conversão de fala em texto](./speech-to-text.md).
 
 ## <a name="see-also"></a>Consulte também
 
 * [O que é o Serviço de Fala](overview.md)
-* [Documentação do SDK e do Serviço de Fala](speech-sdk.md#get-the-sdk)
+* [Documentação do SDK de fala e serviços de fala](speech-sdk.md#get-the-sdk)

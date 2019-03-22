@@ -1,18 +1,19 @@
 ---
 title: Opções da nuvem para o dispositivo do Hub IoT do Azure| Microsoft Docs
 description: Guia de desenvolvedor ‑ diretrizes sobre quando usar métodos diretos, propriedades desejadas do dispositivo gêmeo ou mensagens para comunicações da nuvem para o dispositivo.
-author: fsautomata
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.author: elioda
-ms.openlocfilehash: 2c2701b2ccfceef7f64078d13501aa9184fc87a3
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
-ms.translationtype: HT
+ms.openlocfilehash: 4b738f34ae75478c0120832e7ad2b6a6a83dbf69
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451622"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010694"
 ---
 # <a name="cloud-to-device-communications-guidance"></a>Diretrizes de comunicações da nuvem para o dispositivo
 
@@ -35,7 +36,7 @@ Aqui está uma comparação detalhada das várias opções de comunicação da n
 | Durabilidade | Dispositivos desconectados não são contatados. O back-end da solução é notificado de que o dispositivo não está conectado. | Os valores de propriedade são preservados no dispositivo gêmeo. O dispositivo lerá na próxima reconexão. Os valores da propriedade podem ser recuperados com a [linguagem de consulta do Hub IoT](iot-hub-devguide-query-language.md). | As mensagens podem ser mantidas pelo Hub IoT por até 48 horas. |
 | Destinos | Dispositivo único usando **deviceId** ou vários dispositivos usando [jobs](iot-hub-devguide-jobs.md). | Dispositivo único usando **deviceId** ou vários dispositivos usando [jobs](iot-hub-devguide-jobs.md). | Dispositivo único por **deviceId**. |
 | Tamanho | O tamanho de payload do método direto máximo é 128 KB. | O tamanho máximo desejado das propriedades é de 8 KB. | Mensagens de até 64 KB. |
-| Frequência | Alta. Para saber mais, consulte [Limites do Hub IoT](iot-hub-devguide-quotas-throttling.md). | Média. Para saber mais, consulte [Limites do Hub IoT](iot-hub-devguide-quotas-throttling.md). | Baixa. Para saber mais, consulte [Limites do Hub IoT](iot-hub-devguide-quotas-throttling.md). |
+| Frequência | Alta. Para obter mais informações, confira [Limites do Hub IoT](iot-hub-devguide-quotas-throttling.md). | Média. Para obter mais informações, confira [Limites do Hub IoT](iot-hub-devguide-quotas-throttling.md). | Baixa. Para obter mais informações, confira [Limites do Hub IoT](iot-hub-devguide-quotas-throttling.md). |
 | Protocolo | Disponível usando MQTT ou AMQP. | Disponível usando MQTT ou AMQP. | Disponível em todos os protocolos. O dispositivo deve sondar ao usar HTTPS. |
 
 Saiba como usar métodos diretos, propriedades desejadas e mensagens da nuvem para o dispositivo nos seguintes tutoriais:

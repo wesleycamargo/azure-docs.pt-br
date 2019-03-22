@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: 9ea236718b7fd9b808a5092dddec9574f6b93b48
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 6d78e310ffd5b473c3d7e44b4edbf9caaff7655f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167148"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077659"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>Ingressar uma máquina virtual do CentOS Linux em um domínio gerenciado
 Este artigo mostra como adicionar uma máquina virtual CentOS Linux no Azure a um domínio gerenciado do Azure AD Domain Services.
@@ -86,12 +86,11 @@ Agora que os pacotes necessários são instalados na máquina virtual do Linux, 
     sudo realm discover CONTOSO100.COM
     ```
 
-    > [!NOTE]
-    > **Solução de problemas:** Se *realm discover* não puder localizar o domínio gerenciado:  
-      * Verifique se o domínio pode ser acessado da máquina virtual (tente executar o ping).  
-      * Verifique se a máquina virtual, de fato, foi implantada na mesma rede virtual na qual o domínio gerenciado está disponível.
-      * Verifique se você atualizou as configurações do servidor DNS para a rede virtual para apontar para os controladores de domínio do domínio gerenciado.  
-      >
+   > [!NOTE]
+   > **Solução de problemas:** Se *realm discover* não puder localizar o domínio gerenciado:  
+   >    * Verifique se o domínio pode ser acessado da máquina virtual (tente executar o ping).  
+   >    * Verifique se a máquina virtual, de fato, foi implantada na mesma rede virtual na qual o domínio gerenciado está disponível.
+   >    * Verifique se você atualizou as configurações do servidor DNS para a rede virtual para apontar para os controladores de domínio do domínio gerenciado.  
 
 2. Inicialize o Kerberos. No terminal SSH, digite o seguinte comando:
 

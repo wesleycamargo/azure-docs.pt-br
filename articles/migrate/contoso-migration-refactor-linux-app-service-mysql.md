@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 60bd3aef20e39a9f451f54164ef3fb8ef682bc3e
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: 4ff3f129838a43bd7684dc10e1653dab969e9c1e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54809677"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086999"
 ---
 # <a name="contoso-migration-refactor-a-contoso-linux-service-desk-app-to-multiple-regions-with-azure-app-service-traffic-manager-and-azure-mysql"></a>Migração para Contoso: Refatore um aplicativo da central de serviços do Contoso Linux em várias regiões com o Serviço de Aplicativo do Azure, o Gerenciador de Tráfego e o MySQL do Azure
 
@@ -48,7 +48,7 @@ A equipe de liderança de TI trabalhou em conjunto com seus parceiros comerciais
 - **Escala**: A solução deve ser criada para que a Contoso possa adicionar mais agentes de atendimento ao cliente à medida que os negócios crescem.
 - **Aumento da resiliência**:  No passado, os problemas com o sistema só afetavam os usuários internos. Com o novo modelo de negócios, os usuários externos serão afetados, e a Contoso precisará ter o aplicativo em funcionamento sempre.
 
-## <a name="migration-goals"></a>Metas de migração
+## <a name="migration-goals"></a>Objetivos da migração
 
 A equipe de nuvem Contoso fixou metas para essa migração a fi de determinar o melhor método de migração:
 
@@ -109,7 +109,7 @@ A Contoso concluirá o processo de migração da seguinte maneira:
 **Serviço** | **Descrição** | **Custo**
 --- | --- | ---
 [Serviço de Aplicativo do Azure](https://azure.microsoft.com/services/app-service/) | O serviço executa e dimensiona aplicativos usando o serviço PaaS do Azure para sites.  | O preço é baseado no tamanho das instâncias e nos recursos necessários. [Saiba mais](https://azure.microsoft.com/pricing/details/app-service/windows/).
-[Gerenciador de Tráfego](https://azure.microsoft.com/services/traffic-manager/) | Um balanceador carga que usa o DNS para direcionar os usuários ao Azure ou a sites e serviços externos. | O preço é calculado com base no número de consultas DNS recebidas e no número de pontos de extremidade monitorados. | [Saiba mais](https://azure.microsoft.com/pricing/details/traffic-manager/).
+[Gerenciador de Tráfego](https://azure.microsoft.com/services/traffic-manager/) | Um balanceador carga que usa o DNS para direcionar os usuários ao Azure ou a sites e serviços externos. | O preço é calculado com base no número de consultas DNS recebidas e no número de pontos de extremidade monitorados. [Saiba mais](https://azure.microsoft.com/pricing/details/traffic-manager/).
 [Banco de Dados do Azure para MySQL](https://docs.microsoft.com/azure/mysql/) | O banco de dados baseia-se no mecanismo do servidor MySQL de software livre. Ele fornece um banco de dados MySQL comunitário pronto para empresas e totalmente gerenciado, como um serviço para o desenvolvimento e para a implantação de aplicativos. | O preço é calculado com base nos requisitos de computação, de armazenamento e de backup. [Saiba mais](https://azure.microsoft.com/pricing/details/mysql/).
 
  
@@ -216,7 +216,7 @@ Os administradores da Contoso provisionam uma instância do banco de dados MySQL
 
 Os administradores da Contoso migram o banco de dados usando backup e restauração, com as ferramentas do MySQL. Ela instala o Workbench do MySQL, faz backup do banco de dados de OSTICKETMYSQL e, em seguida, o restaura no servidor do Banco de Dados do Azure para MySQL.
 
-### <a name="install-mysql-workbench"></a>Instalar o MySQL Workbench
+### <a name="install-mysql-workbench"></a>Instalar MySQL Workbench
 
 1. Eles verificam os [pré-requisitos e downloads do MySQL Workbench](https://dev.mysql.com/downloads/workbench/?utm_source=tuicool).
 2. Ela instala o Workbench do MySQL para Windows de acordo com as [instruções de instalação](https://dev.mysql.com/doc/workbench/en/wb-installing.html). O computador no qual ela instala deverá ser acessível para a VM OSTICKETMYSQL e para o Azure por meio da Internet.

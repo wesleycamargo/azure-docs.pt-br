@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 03/5/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e2115ad1a88c819e0ee1da34d9d332a0b013b96
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 02183abb60fe24b9ee9c769f7af696355966ab24
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174343"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551051"
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>Protocolos v2.0 – fluxo de código de autorização do OAuth 2.0
 
@@ -271,7 +271,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `grant_type`    | obrigatório    | Deve ser `refresh_token` para essa ramificação do código de autorização. |
 | `scope`         | obrigatório    | Uma lista de escopos separados por espaços. Os escopos solicitados nessa ramificação devem ser equivalentes aos escopos solicitados na ramificação de solicitação authorization_code original, ou um subconjunto desses escopos. Se os escopos especificados nessa solicitação incluírem vários servidores de recursos, o ponto de extremidade v2.0 retornará um token para o recurso especificado no primeiro escopo. Para obter uma explicação mais detalhada de escopos, confira [permissões, consentimento e escopos](v2-permissions-and-consent.md). |
 | `refresh_token` | obrigatório    | O refresh_token que você adquiriu na segunda ramificação do fluxo. |
-| `redirect_uri`  | obrigatório    | O mesmo valor de redirect_uri que foi usado para adquirir o authorization_code. |
+| `redirect_uri`  | obrigatório    |  Um `redirect_uri`registrada no aplicativo cliente. |
 | `client_secret` | obrigatório para aplicativos Web | O segredo do aplicativo que você criou no portal de registro do aplicativo para seu aplicativo. Ele não deve ser usado em um aplicativo nativo, pois client_secrets não podem ser armazenados de modo confiável em dispositivos. Ele é obrigatório para aplicativos Web e APIs Web, que têm a capacidade de armazenar o client_secret com segurança no servidor.                                                                                                                                                    |
 
 #### <a name="successful-response"></a>Resposta bem-sucedida
@@ -319,6 +319,6 @@ Uma resposta de token bem-sucedida se parecerá com esta:
 | `error_codes` |Uma lista de códigos de erro específicos do STS que pode ajudar no diagnóstico. |
 | `timestamp` | A hora na qual o erro ocorreu. |
 | `trace_id` | Um identificador exclusivo para a solicitação que pode ajudar no diagnóstico. |
-| c`orrelation_id` | Um identificador exclusivo para a solicitação que pode ajudar no diagnóstico entre os componentes. |
+| `correlation_id` | Um identificador exclusivo para a solicitação que pode ajudar no diagnóstico entre os componentes. |
 
 Para obter uma descrição dos códigos de erro e a ação recomendada do cliente, veja [Códigos de erro para erros de ponto de extremidade de token](#error-codes-for-token-endpoint-errors).

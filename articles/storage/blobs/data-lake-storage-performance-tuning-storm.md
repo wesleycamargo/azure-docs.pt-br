@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
-ms.openlocfilehash: 5d7b798c66ec6512c8badcccbf36d6f2f0d50e3b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 2401c74b55df78014a2f642b5166b4cf0017d87d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882940"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076200"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Diretrizes de ajuste de desempenho para o Storm no HDInsight e o Azure Data Lake Storage Gen2
 
@@ -78,7 +78,7 @@ Você pode modificar as seguintes configurações para ajustar o spout.
 
 - **Máx. de spouts pendentes: topology.max.spout.pending**. Essa configuração determina o número de tuplas que podem estar em voo (ainda não confirmadas em todos os nós na topologia) por thread de spout em qualquer tempo.
 
- Um bom cálculo a fazer é estimar o tamanho de cada uma de suas tuplas. Em seguida, calcule quanta memória um thread de spout tem. A memória total alocada para um thread dividida por esse valor deve fornecer o limite superior para o parâmetro de máx. de spouts pendentes.
+  Um bom cálculo a fazer é estimar o tamanho de cada uma de suas tuplas. Em seguida, calcule quanta memória um thread de spout tem. A memória total alocada para um thread dividida por esse valor deve fornecer o limite superior para o parâmetro de máx. de spouts pendentes.
 
 O bolt do Storm do Data Lake Storage Gen2 padrão tem um parâmetro de política de sincronização de tamanho (fileBufferSize) que pode ser usado para ajustar esse parâmetro.
 

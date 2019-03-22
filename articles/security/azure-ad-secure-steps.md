@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: f0b76e54da60396e01b5893b143bcee9048e2184
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 92546e6aabdf43c2f9cb0339fb21dd2dfc641d44
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750317"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314306"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinco etapas para proteger sua infraestrutura de identidade
 
-Se você está lendo esse documento, está ciente da significância da segurança. Você provavelmente já tem a responsabilidade de proteger sua organização. Se precisar convencer outras pessoas sobre a importância da segurança, envie-as para que leiam o [Relatório de inteligência de segurança da Microsoft](https://www.microsoft.com/security/intelligence-report) mais recente.
+Se você está lendo esse documento, está ciente da significância da segurança. Você provavelmente já tem a responsabilidade de proteger sua organização. Se precisar convencer outras pessoas sobre a importância da segurança, envie-as para que leiam o [Relatório de inteligência de segurança da Microsoft](https://go.microsoft.com/fwlink/p/?linkid=2073747) mais recente.
 
 Esse documento ajudará você a obter uma postura mais segura usando os recursos do Azure Active Directory utilizando uma lista de verificação de cinco etapas para imunizar sua organização contra ataques cibernéticos.
 

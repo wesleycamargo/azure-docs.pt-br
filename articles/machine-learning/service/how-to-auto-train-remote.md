@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 95c495bf3a8ad7b82c42d4071899d045cb49f27b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 4784ca08366d833d02372393e0e12f0fefe8c5cf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247537"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58112442"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Treinar modelos com o aprendizado de máquina automatizado na nuvem
 
@@ -80,8 +80,8 @@ Também é possível anexar uma DSVM do Linux existente como o destino de comput
 
 > [!NOTE]
 >
-> O código a seguir usa a classe de destino `RemoteCompute` para anexar uma VM existente como o destino de computação.
-> A classe `DsvmCompute` será preterida em versões futuras a favor desse padrão de design.
+> O código a seguir usa o [RemoteCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.remote.remotecompute?view=azure-ml-py) classe anexar uma VM existente como seu destino de computação de destino.
+> O [DsvmCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.dsvmcompute?view=azure-ml-py) classe será preterido em versões futuras em favor esse padrão de design.
 
 Execute o código a seguir para criar o destino de computação a partir de uma DSVM do Linux pré-existente.
 
@@ -107,7 +107,7 @@ Forneça ao recurso remoto acesso aos seus dados de treinamento. Para experiment
 
 Para fornecer acesso, você deve:
 + Criar um arquivo get_data.py contendo uma função `get_data()` 
-* Coloque esse arquivo em um diretório acessível como um caminho absoluto 
++ Coloque esse arquivo em um diretório acessível como um caminho absoluto 
 
 Você pode encapsular o código para ler dados de um armazenamento de blobs ou de um disco local no arquivo get_data.py. No exemplo de código a seguir, os dados vêm do pacote sklearn.
 

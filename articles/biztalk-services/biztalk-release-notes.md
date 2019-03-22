@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: 10e790c2edb22b3c7926216535d76c50261589f3
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: a82035bfbed109d6521131d8c730bef04030c94f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260310"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093534"
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Notas de versão dos Serviços BizTalk do Azure
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
-
+> 
 > [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 As notas de versão dos Serviços BizTalk do Microsoft Azure contêm os problemas conhecidos nesta versão.
@@ -47,7 +47,8 @@ As notas de versão dos Serviços BizTalk do Microsoft Azure contêm os problema
 * No contrato do lado de envio, agora você pode especificar diferentes conjuntos de delimitadores para cada esquema. Essa configuração é especificada nas configurações de protocolo do contrato do lado de envio. Para saber mais, confira [Criar um contrato X12 nos Serviços BizTalk do Azure](https://msdn.microsoft.com/library/azure/hh689847.aspx) e [Criar um contrato EDIFACT nos Serviços BizTalk do Azure](https://msdn.microsoft.com/library/azure/dn606267.aspx). Também foram adicionadas duas novas entidades à API TPM OM para a mesma finalidade. Confira [X12DelimiterOverrides](https://msdn.microsoft.com/library/azure/dn798749.aspx) e [EDIFACTDelimiterOverride](https://msdn.microsoft.com/library/azure/dn798748.aspx).  
 * Agora há suporte para construtores XSD padrão, incluindo tipos derivados. Confira [Usar construtores XSD padrão em seus mapas](https://msdn.microsoft.com/library/azure/dn793987.aspx) e [Usar tipos derivados nos exemplos e cenários de mapeamento](https://msdn.microsoft.com/library/azure/dn793997.aspx).  
 * O AS2 dá suporte a novos algoritmos MIC para assinatura de mensagens e a novos algoritmos de criptografia. Veja [Criar um contrato AS2 nos Serviços BizTalk do Azure](https://msdn.microsoft.com/library/azure/hh689890.aspx).  
-  ## <a name="know-issues"></a>Problemas conhecidos
+
+## <a name="known-issues"></a>Problemas conhecidos
 
 ### <a name="connectivity-issues-after-biztalk-services-portal-update"></a>Problemas de conectividade após a atualização do Portal dos Serviços BizTalk
   Se você tiver o Portal dos Serviços BizTalk aberto enquanto os Serviços BizTalk são atualizados para implementar as alterações ao serviço, você poderá enfrentar problemas de conectividade com o Portal dos Serviços BizTalk.  
@@ -127,7 +128,7 @@ Ao usar tipos de dados definidos pelo usuário, copie os arquivos (.dll) para dr
 <faultcode>s:Client</faultcode>
 <faultstring xml:lang="en-US">The UDT with FullName "File, FileUDT, Version=Value, Culture=Value, PublicKeyToken=Value" could not be loaded. Try placing the assembly containing the UDT definition in the Global Assembly Cache.</faultstring>
 <detail>
-  <AFConnectRuntimeFault xmlns="http://Microsoft.ApplicationServer.Integration.AFConnect/2011" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+  <AFConnectRuntimeFault xmlns="http://Microsoft.ApplicationServer.Integration.AFConnect/2011" xmlns:i="https://www.w3.org/2001/XMLSchema-instance">
     <ExceptionCode>ERROR_IN_SENDING_MESSAGE</ExceptionCode>
   </AFConnectRuntimeFault>
 </detail>

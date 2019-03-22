@@ -1,5 +1,5 @@
 ---
-title: 'Vincular uma rede virtual a um circuito ExpressRoute: PowerShell: clássico: Azure| Microsoft Docs'
+title: 'Vincular uma rede virtual a um circuito de ExpressRoute: PowerShell: clássico: Azure | Microsoft Docs'
 description: Este documento fornece uma visão geral de como vincular as redes virtuais (VNets) aos circuitos de ExpressRoute usando o modelo de implantação clássico e o PowerShell.
 services: expressroute
 documentationcenter: na
@@ -8,12 +8,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/27/2018
 ms.author: cherylmc
-ms.openlocfilehash: d2108b86aa44710535dbfad49819949a621cc900
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
-ms.translationtype: HT
+ms.openlocfilehash: bab38b98fa1f39691dfdeaf0b0492a2e3ed0df93
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161252"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116853"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>Conectar uma rede virtual a um circuito do ExpressRoute usando o PowerShell (clássico)
 > [!div class="op_single_selector"]
@@ -60,25 +60,25 @@ Para entrar na sua conta do Azure, use os seguintes exemplos:
 
 1. Abra o console do PowerShell com direitos elevados e conecte-se à sua conta.
 
-  ```powershell
-  Connect-AzureRmAccount
-  ```
+   ```powershell
+   Connect-AzureRmAccount
+   ```
 2. Verificar as assinaturas da conta.
 
-  ```powershell
-  Get-AzureRmSubscription
-  ```
+   ```powershell
+   Get-AzureRmSubscription
+   ```
 3. Se você tiver mais de uma assinatura, selecione a assinatura que deseja usar.
 
-  ```powershell
-  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
-  ```
+   ```powershell
+   Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+   ```
 
 4. Use o cmdlet a seguir para adicionar sua assinatura do Azure ao PowerShell para o modelo de implantação clássico.
 
-  ```powershell
-  Add-AzureAccount
-  ```
+   ```powershell
+   Add-AzureAccount
+   ```
 
 ## <a name="connect-a-virtual-network-in-the-same-subscription-to-a-circuit"></a>Conectar uma rede virtual na mesma assinatura a um circuito
 Você pode vincular uma rede virtual a um circuito do ExpressRoute usando o cmdlet a seguir. Verifique se o gateway de rede virtual foi criado e se está pronto para vinculação antes de executar o cmdlet.
@@ -99,7 +99,7 @@ Remove-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VN
 ## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>Conectar uma rede virtual em uma assinatura diferente a um circuito
 Você pode compartilhar um circuito do ExpressRoute entre várias assinaturas. A figura a seguir mostra um esquema simples de como funciona o compartilhamento de circuitos do ExpressRoute entre várias assinaturas.
 
-Cada uma das nuvens menores dentro da nuvem grande é usada para representar assinaturas pertencentes a diferentes departamentos dentro de uma organização. Cada um dos departamentos dentro da organização pode usar sua própria assinatura para implantar seus serviços, mas os departamentos podem compartilhar um único circuito do ExpressRoute para se conectar de volta à respectiva rede local. Um único departamento (neste exemplo: TI) pode ter o circuito do ExpressRoute. Outras assinaturas dentro da organização podem usar o circuito de ExpressRoute.
+Cada uma das nuvens menores dentro da nuvem grande é usada para representar assinaturas pertencentes a diferentes departamentos dentro de uma organização. Cada um dos departamentos dentro da organização pode usar sua própria assinatura para implantar seus serviços, mas os departamentos podem compartilhar um único circuito do ExpressRoute para se conectar de volta à respectiva rede local. Um único departamento (neste exemplo: IT) pode ser proprietário do circuito do Microsoft Azure ExpressRoute. Outras assinaturas dentro da organização podem usar o circuito de ExpressRoute.
 
 > [!NOTE]
 > As cobranças por conectividade e largura de banda do circuito dedicado serão aplicadas ao proprietário do circuito do ExpressRoute. Todas as redes virtuais compartilham a mesma largura de banda.

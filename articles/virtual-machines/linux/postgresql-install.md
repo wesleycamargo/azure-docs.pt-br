@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
-ms.openlocfilehash: e851f6f5433a832aa30a0d87a917b64d1bc721f2
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: 76f1ddeebb173bf19b15753d12e4374e6365bf8f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888270"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57998994"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Instalar e configurar o PostgreSQL no Azure
 PostgreSQL é um banco de dados avançado de código aberto semelhante ao Oracle e DB2. Ele inclui recursos corporativos como conformidade total com ACID, processamento transacional confiável e controle de simultaneidade de várias versões. Também oferece suporte a padrões como ANSI SQL e SQL/MED (inclusive wrappers de dados externos para Oracle, MySQL, MongoDB e muitos outros). Ele é altamente extensível com suporte para mais de 12 idiomas de procedimento, índices GIN e GiST, dados espaciais e vários recursos como NoSQL para aplicativos JSON ou de chave-valor.
@@ -238,5 +238,5 @@ Use o seguinte comando para atualizar dados em uma tabela. Para este, Sandy conf
 
 
 ## <a name="get-more-information-about-postgresql"></a>Obter mais informações sobre o PostgreSQL
-Agora que você concluiu a instalação do PostgreSQL em uma VM do Linux do Azure, aproveite-o usando-o no Azure. Para saber mais sobre o PostgreSQL, visite o [site do PostgreSQL](http://www.postgresql.org/).
+Agora que você concluiu a instalação do PostgreSQL em uma VM do Linux do Azure, aproveite-o usando-o no Azure. Para saber mais sobre o PostgreSQL, visite o [site do PostgreSQL](https://www.postgresql.org/).
 

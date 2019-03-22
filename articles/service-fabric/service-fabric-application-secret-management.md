@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/04/2019
 ms.author: vturecek
-ms.openlocfilehash: a0003ee02c09ad8c99d6fa94935f96527c146e7d
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
-ms.translationtype: HT
+ms.openlocfilehash: 77aa6d48f499a94f8fe2f3ef4e2444a34d3b3176
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063804"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894726"
 ---
 # <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>Gerenciar segredos criptografados nos aplicativos do Service Fabric
 Este guia explica as etapas do gerenciamento de segredos em um aplicativo do Service Fabric. Os segredos podem ser informações confidenciais, como cadeias de conexão de armazenamento, senhas ou outros valores que não devem ser tratados como texto sem formatação.
@@ -41,7 +41,7 @@ Especifique um [parâmetro][parameters-link] no arquivo de configuração Settin
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Section Name="MySettings">
     <Parameter Name="MySecret" IsEncrypted="true" Value="I6jCCAeYCAxgFhBXABFxzAt ... gNBRyeWFXl2VydmjZNwJIM=" />
   </Section>
@@ -64,7 +64,7 @@ O arquivo de configuração de Settings.xml permite a existência de parâmetros
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Section Name="MySettings">
     <Parameter Name="MySecret" IsEncrypted="true" Value="" MustOverride="true" />
   </Section>

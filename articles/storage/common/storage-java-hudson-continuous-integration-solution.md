@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: seguler
 ms.subservice: common
-ms.openlocfilehash: 431a4ef4e84c88467dc7e36bb12d406309f9a8b7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: d00bf87a80e13808c42a5839ad0f4508ad7214b9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467825"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011109"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Usando o Armazenamento do Azure com uma solução Hudson Continuous Integration
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 As informações a seguir mostram como usar o Armazenamento de Blobs como um repositório de artefatos de compilação criado por uma solução de CI (Integração Contínua) Hudson, ou como uma fonte de arquivos baixáveis a serem usados em um processo de compilação. Um dos cenários em que isso poderia ser útil é quando você está codificando em um ambiente de desenvolvimento ágil (usando Java ou outras linguagens), as compilações estão sendo executadas com base na integração contínua e você precisa de um repositório para seus artefatos de compilação, para que possa, por exemplo, compartilhá-los com outros membros da organização, com seus clientes ou mantê-los em um arquivo.  Outro cenário é quando o seu próprio trabalho de compilação requer outros arquivos, por exemplo, dependências a serem baixadas como parte da entrada da compilação.
 
 Neste tutorial, você usará o plug-in do Armazenamento do Azure para o Hudson CI disponibilizado pela Microsoft.
@@ -25,7 +25,7 @@ Neste tutorial, você usará o plug-in do Armazenamento do Azure para o Hudson C
 ## <a name="introduction-to-hudson"></a>Introdução ao Hudson
 O Hudson possibilita a integração contínua de um projeto de software permitindo que os desenvolvedores integrem de forma fácil as alterações de código e fazendo com que as compilações sejam produzidas automaticamente e com frequência, aumentando, assim, a produtividade dos desenvolvedores. As compilações têm uma versão e os artefatos de compilação podem ser carregados em vários repositórios. Este artigo mostra como usar o armazenamento de Blob do Azure como o repositório dos artefatos de compilação. Ele também mostra como baixar as dependências do armazenamento de Blob do Azure.
 
-Mais informações sobre o Hudson podem ser encontradas em [Conheça o Hudson (a página pode estar em inglês)](http://wiki.eclipse.org/Hudson-ci/Meet_Hudson).
+Mais informações sobre o Hudson podem ser encontradas em [Conheça o Hudson (a página pode estar em inglês)](https://wiki.eclipse.org/Hudson-ci/Meet_Hudson).
 
 ## <a name="benefits-of-using-the-blob-service"></a>Benefícios do uso do serviço Blob
 Alguns dos benefícios de usar o serviço Blob para hospedar seus artefatos de compilação de desenvolvimento ágil incluem:
@@ -52,7 +52,7 @@ Será necessário o seguinte para usar o serviço Blob com a solução Hudson CI
   5. Depois de concluir a configuração inicial, cancele a instância em execução do Hudson WAR, inicie o Hudson WAR novamente e reabra o painel do Hudson, `http://localhost:8080/`, que você usará para instalar e configurar o plug-in de Armazenamento do Azure.
      
       Embora uma solução Hudson CI típica possa ser configurada para ser executada como um serviço, a execução do war do Hudson na linha de comando será suficiente para este tutorial.
-* Uma conta do Azure. Você pode se inscrever para uma conta do Azure em <http://www.azure.com>.
+* Uma conta do Azure. Você pode se inscrever para uma conta do Azure em <https://www.azure.com>.
 * Uma conta de armazenamento do Azure. Se você não tiver uma conta de armazenamento, crie uma usando as etapas em [Criar uma Conta de Armazenamento](../common/storage-quickstart-create-account.md).
 * Estar familiarizado com a solução Hudson CI é recomendável, mas não é obrigatório, já que o conteúdo a seguir usará um exemplo básico para mostrar a você as etapas necessárias ao usar o serviço Blob como um repositório para os artefatos de compilação do Hudson CI.
 
@@ -73,7 +73,7 @@ Para usar o serviço Blob com o Hudson, você deverá instalar o plug-in Armazen
 2. Na página **Gerenciar Hudson**, clique em **Configurar Sistema**.
 3. Na seção **Configuração da Conta de Armazenamento do Microsoft Azure** :
    
-     a. Insira o nome da conta de armazenamento, que pode ser obtido no [portal do Azure](https://portal.azure.com).
+    a. Insira o nome da conta de armazenamento, que pode ser obtido no [portal do Azure](https://portal.azure.com).
    
     b. Insira a chave de conta de armazenamento, que também pode ser obtida no [portal do Azure](https://portal.azure.com).
    
@@ -116,7 +116,7 @@ Para fins de instrução, primeiro será necessário criar um trabalho que crie 
 13. No painel do Hudson, clique em **Build Now** para executar **MyJob**. Examine a saída do console para o status. As mensagens de status do Armazenamento do Azure serão incluídas na saída do console quando a ação de pós-compilação iniciar o carregamento dos artefatos de compilação.
 14. Após a conclusão bem-sucedida do trabalho, você poderá examinar os artefatos de compilação abrindo o blob público.
     
-     a. Entre no [Portal do Azure](https://portal.azure.com).
+    a. Entre no [Portal do Azure](https://portal.azure.com).
     
     b. Clique em **Armazenamento**.
     
@@ -134,7 +134,7 @@ As etapas a seguir mostram como configurar uma etapa de compilação para baixar
 1. Na seção **Compilar** da configuração do trabalho, clique em **Adicionar etapa de compilação** e selecione **Baixar no armazenamento de Blob do Azure**.
 2. Em **Nome de conta de armazenamento**, selecione a conta de armazenamento a ser usada.
 3. Em **Nome do contêiner**, especifique o nome do contêiner que contém os blobs que você quer baixar. É possível usar variáveis de ambiente.
-4. Em **Nome do blob**, especifique o nome do blob. É possível usar variáveis de ambiente. Além disso, você pode usar um asterisco como um curinga depois de especificar a letra inicial do nome do blob. Por exemplo, **project\*** deve especificar todos os blobs cujos nomes começam com **project**.
+4. Em **Nome do blob**, especifique o nome do blob. É possível usar variáveis de ambiente. Além disso, você pode usar um asterisco como um curinga depois de especificar a letra inicial do nome do blob. Por exemplo, **project\\*** especificaria todos os blobs cujos nomes começam com **projeto**.
 5. [Opcional] Em **Caminho do download**, especifique o caminho no computador Hudson, onde você quer baixar arquivos do armazenamento de Blob do Azure. Também é possível usar variáveis de ambiente. (Se você não fornecer um valor para **Caminho do download**, os arquivos no armazenamento de Blob do Azure serão baixados no workspace da tarefa).
 
 Se houver itens adicionais que deseja baixar do armazenamento de Blob do Azure, você poderá criar etapas de compilação adicionais.
@@ -158,7 +158,7 @@ Segue abaixo uma visão geral dos componentes do serviço Blob.
     `http://example.blob.core.windows.net/myjob/2014-05-01_11-56-22/1/hello.txt`
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Conheça o Hudson](http://wiki.eclipse.org/Hudson-ci/Meet_Hudson)
+* [Conheça o Hudson](https://wiki.eclipse.org/Hudson-ci/Meet_Hudson)
 * [SDK de Armazenamento do Azure para Java](https://github.com/azure/azure-storage-java)
 * [Referência de SDK do Cliente de Armazenamento do Azure](http://dl.windowsazure.com/storage/javadoc/)
 * [API REST de serviços de armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)

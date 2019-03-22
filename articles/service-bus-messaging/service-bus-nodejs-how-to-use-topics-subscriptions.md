@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: aschhab
-ms.openlocfilehash: a5d0f457d06bd4e4e655d8f3ebc712f4d6ee7523
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: c2a6acc1ce48a8671af20df6daa89498a81fdb4c
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849899"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587150"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>Como usar tópicos e assinaturas do Barramento de Serviço com Node.js
 
@@ -36,6 +36,8 @@ Este guia descreve como usar tópicos do Barramento de Serviço e assinaturas de
 Para saber mais sobre tópicos e assinaturas, consulte a seção [Próximas etapas](#next-steps).
 
 [!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
+
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## <a name="create-a-nodejs-application"></a>Criar um aplicativo do Node.js
 Criar um aplicativo Node.js em branco. Para obter instruções sobre como criar um aplicativo Node.js, confira [Criar e implantar um aplicativo Node.js em um site da Web do Azure], [Serviço de Nuvem do Node.js][Node.js Cloud Service] usando o Windows PowerShell ou Site com o WebMatrix.

@@ -3,16 +3,15 @@ title: Transformação do Coletor de Fluxo de Dados de Mapeamento do Azure Data 
 description: Transformação do Coletor de Fluxo de Dados de Mapeamento do Azure Data Factory
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: 381dc2f9f6d3a074af00ba047472719c086f5811
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
-ms.translationtype: HT
+ms.openlocfilehash: 3829fb3c045b149552d3f022e31f30f9cfae8182
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408401"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852433"
 ---
 # <a name="mapping-data-flow-sink-transformation"></a>Transformação do Coletor de Fluxo de Dados de Mapeamento
 
@@ -35,27 +34,17 @@ Para os tipos de coletor de Data Lake ou do Azure Storage Blob, você entregará
 
 ![Opções de coletor](media/data-flow/opt001.png "opções de coletor")
 
-### <a name="output-settings"></a>Configurações de saída
-
-Substituir truncará a tabela se ela existir, então recrie-a e carregue os dados. Acrescentar inserirá novas linhas. Se a tabela do nome da tabela de conjunto de dados não existir no destino de ADW, o Fluxo de Dados criará a tabela e carregará os dados.
-
-Se você desmarcar "Mapeamento Automático", poderá mapear os campos para a tabela de destino manualmente.
-
-![Opções de ADW do coletor](media/data-flow/adw2.png "coletor do ADW")
-
-#### <a name="field-mapping"></a>Mapeamento de campos
+## <a name="field-mapping"></a>Mapeamento de campo
 
 Na guia Mapeamento de sua Transformação do Coletor, você pode mapear as colunas de entrada (lado esquerdo) para o destino (lado direito). Quando você coleta fluxos de dados em arquivos, o ADF sempre grava novos arquivos em um pasta. Quando você faz o mapeamento para um conjunto de dados do banco de dados, pode optar por gerar uma nova tabela com esse esquema (defina Salvar Política como "substituir") ou inserir novas linhas em uma tabela existente e mapear os campos para o esquema existente.
 
 Você pode usar a seleção múltipla na tabela de mapeamento para vincular várias colunas com um clique, desvincular várias colunas ou mapear várias linhas para o mesmo nome de coluna.
 
+Quando você deseja sempre tomam o conjunto de campos de entrada e mapeá-los para um destino como-está, defina a configuração "Permitir que o descompasso do esquema".
+
 ![Mapeamento de campo](media/data-flow/multi1.png "várias opções")
 
 Se você quiser redefinir os mapeamentos de colunas, pressione o botão "Remapear" para redefinir os mapeamentos.
-
-![Conexões](media/data-flow/maxcon.png "Conexões")
-
-### <a name="updates-to-sink-transformation-for-adf-v2-ga-version"></a>Atualizações para a Transformação do Coletor da versão de GA do ADF V2
 
 ![Opções de coletor](media/data-flow/sink1.png "Coletor Um")
 
@@ -65,7 +54,7 @@ Se você quiser redefinir os mapeamentos de colunas, pressione o botão "Remapea
 
 * Limpe a pasta. O ADF truncará o conteúdo da pasta do coletor antes de gravar os arquivos de destino nessa pasta de destino.
 
-* Opções de nome de arquivo
+## <a name="file-name-options"></a>Opções de nome de arquivo
 
    * Padrão: Permitir que o Spark nomeie arquivos com base nos padrões de PART
    * Padrão: Insira um nome para seus arquivos de saída
@@ -75,14 +64,19 @@ Se você quiser redefinir os mapeamentos de colunas, pressione o botão "Remapea
 > [!NOTE]
 > As operações de arquivo serão executadas somente quando você estiver executando a atividade de Execução de Fluxo de Dados, não no modo de Depuração de Fluxo de Dados
 
-Com os tipos de coletor do SQL, você pode definir:
+## <a name="database-options"></a>Opções de banco de dados
 
-* Truncar tabela
-* Recriar tabela (realiza soltar/criar)
-* Tamanho do lote de carregamentos de dados grandes. Insira um número de gravações de bucket em partes.
+* Permitir a inserção, atualização, exclusão, upserts. O padrão é permitir que inserções. Se você quiser inserir linhas, upsert ou atualização, você deve adicionar primeiro uma transformação de linha de alteração para linhas de marca para essas ações específicas.
+* Truncar a tabela (remove todas as linhas da sua tabela de destino antes de concluir o fluxo de dados)
+* Recrie a tabela (realiza soltam/criam da sua tabela de destino antes de concluir o fluxo de dados)
+* Tamanho do lote de carregamentos de dados grandes. Insira um número para gravações de bucket em partes
+* Habilite preparo: Isso instruirá o ADF para usar o Polybase ao carregar o Data Warehouse do Azure, como seu conjunto de dados do coletor
 
-![Mapeamento de campo](media/data-flow/sql001.png "Opções do SQL")
+![Opções de coletor do SQL](media/data-flow/alter-row2.png "opções SQL")
+
+> [!NOTE]
+> Ao atualizar ou excluir linhas no seu coletor do banco de dados, você deve definir a coluna de chave. Dessa forma, a linha de Alter é capaz de determinar a linha exclusiva a DML.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você criou seu Fluxo de Dados, adicione uma [Atividade de Execução de Fluxo de Dados para seu pipeline](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-overview).
+Agora que você criou seu Fluxo de Dados, adicione uma [Atividade de Execução de Fluxo de Dados para seu pipeline](concepts-data-flow-overview.md).

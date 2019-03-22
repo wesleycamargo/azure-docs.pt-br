@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: b6e9557503933dfc5271868692cf8546c785bc03
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 8f5e3958588a597bde04ae1c8e4873006b281458
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021842"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992225"
 ---
 # <a name="copy-data-from-quickbooks-online-using-azure-data-factory-preview"></a>Copiar dados do QuickBooks Online usando o Azure Data Factory (Versão prévia)
 
@@ -46,13 +46,13 @@ As propriedades a seguir têm suporte no serviço vinculado do QuickBooks:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **QuickBooks** | SIM |
-| endpoint | O ponto de extremidade do servidor do QuickBooks Online. (ou seja, quickbooks.api.intuit.com)  | SIM |
-| companyId | A ID de empresa da empresa QuickBooks para autorização. Para obter informações sobre como localizar a ID da empresa, confira [Como encontrar minha ID da Empresa?](https://quickbooks.intuit.com/community/Getting-Started/How-do-I-find-my-Company-ID/m-p/185551). | SIM |
-| consumerKey | A chave do consumidor para autenticação OAuth 1.0. | SIM |
-| consumerSecret | O segredo do consumidor para autenticação OAuth 1.0. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | SIM |
-| accessToken | O token de acesso para autenticação OAuth 1.0. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | SIM |
-| accessTokenSecret | O token de acesso secreto para autenticação OAuth 1.0. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | SIM |
+| Tipo | A propriedade type deve ser definida como: **QuickBooks** | Sim |
+| endpoint | O ponto de extremidade do servidor do QuickBooks Online. (ou seja, quickbooks.api.intuit.com)  | Sim |
+| companyId | A ID de empresa da empresa QuickBooks para autorização. Para obter informações sobre como localizar a ID da empresa, confira [Como encontrar minha ID da Empresa?](https://quickbooks.intuit.com/community/Getting-Started/How-do-I-find-my-Company-ID/m-p/185551). | Sim |
+| consumerKey | A chave do consumidor para autenticação OAuth 1.0. | Sim |
+| consumerSecret | O segredo do consumidor para autenticação OAuth 1.0. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| accessToken | O token de acesso para autenticação OAuth 1.0. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| accessTokenSecret | O token de acesso secreto para autenticação OAuth 1.0. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | useEncryptedEndpoints | Especifica se os endpoints de fonte de dados são criptografados usando HTTPS. O valor padrão é true.  | Não  |
 
 **Exemplo:**
@@ -92,8 +92,9 @@ Para copiar dados do QuickBooks Online, defina a propriedade type do conjunto de
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como: **QuickBooksObject** | SIM |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como: **QuickBooksObject** | Sim |
 | tableName | Nome da tabela. | Não (se "query" na fonte da atividade for especificada) |
+
 **Exemplo**
 
 ```json
@@ -120,7 +121,7 @@ Para copiar dados do QuickBooks Online, defina o tipo de fonte na atividade de c
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **QuickBooksSource** | SIM |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **QuickBooksSource** | Sim |
 | query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM "Bill" WHERE Id = '123'"`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**

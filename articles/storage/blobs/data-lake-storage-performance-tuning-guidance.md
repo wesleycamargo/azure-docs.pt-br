@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
-ms.openlocfilehash: 7039df6dde25fd4ba9a8b9cb7670e72df7e68797
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: f175360586428b57d1ff10e3529ae9e3283399e8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245809"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117040"
 ---
 # <a name="tuning-azure-data-lake-storage-gen2-for-performance"></a>Ajustando o desempenho do Azure Data Lake Storage Gen2
 
@@ -131,12 +131,12 @@ Dependendo de sua carga de trabalho, sempre haverá um tamanho de contêiner YAR
 
 Além das diretrizes gerais acima, cada aplicativo tem diferentes parâmetros disponíveis para ajustar para esse aplicativo específico. A tabela a seguir lista alguns dos parâmetros e links para começar com o ajuste de desempenho para cada aplicativo.
 
-| Carga de trabalho               | Parâmetro para definir tarefas                                                         |
-|--------------------|-------------------------------------------------------------------------------------|
-| [Spark no HDInsight](data-lake-storage-performance-tuning-spark.md)       | <ul><li>Num-executors</li><li>Executor-memory</li><li>Executor-cores</li></ul> |
-| [Hive no HDInsight](data-lake-storage-performance-tuning-hive.md)    | <ul><li>hive.tez.container.size</li></ul>         |
-| [MapReduce no HDInsight](data-lake-storage-performance-tuning-mapreduce.md)            | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
-| [Storm no HDInsight](data-lake-storage-performance-tuning-storm.md)|  | <ul><li>Número de processos de trabalho</li><li>Número de instâncias de spout executor</li><li>Número de instâncias de bolt executor </li><li>Número de tarefas de spout</li><li>Número de tarefas de bolt</li></ul>|
+| Carga de trabalho | Parâmetro para definir tarefas |
+|----------|------------------------|
+| [Spark no HDInsight](data-lake-storage-performance-tuning-spark.md) | <ul><li>Num-executors</li><li>Executor-memory</li><li>Executor-cores</li></ul> |
+| [Hive no HDInsight](data-lake-storage-performance-tuning-hive.md) | <ul><li>hive.tez.container.size</li></ul> |
+| [MapReduce no HDInsight](data-lake-storage-performance-tuning-mapreduce.md) | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
+| [Storm no HDInsight](data-lake-storage-performance-tuning-storm.md)| <ul><li>Número de processos de trabalho</li><li>Número de instâncias de spout executor</li><li>Número de instâncias de bolt executor </li><li>Número de tarefas de spout</li><li>Número de tarefas de bolt</li></ul>|
 
 ## <a name="see-also"></a>Consulte também
 * [Visão geral do Azure Data Lake Storage Gen2](data-lake-storage-introduction.md)

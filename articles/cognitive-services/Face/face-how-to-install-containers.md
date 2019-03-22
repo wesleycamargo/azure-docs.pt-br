@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: article
-ms.date: 02/11/2019
+ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 7a41bfaada64528e90f43064b34c394f9a9b8f8f
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: f3534f3001de1c3e58f0be3fb7bc9639b7dfcd03
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099081"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295412"
 ---
-# <a name="install-and-run-containers"></a>Instalar e executar contêineres
+# <a name="install-and-run-face-containers"></a>Instalar e executar os contêineres de detecção facial
 
 O Face fornece um contêiner Linux padronizado para o Docker, chamado Face, que detecta rostos humanos em imagens e identifica atributos, incluindo referências faciais (como narizes e olhos), sexo, idade e outros recursos faciais preditos pela máquina. Além da detecção, o Face pode verificar se duas faces na mesma imagem ou imagens diferentes são iguais usando uma pontuação de confiança ou comparar faces em relação a um banco de dados para ver se uma face semelhante ou idêntica já existe. Além disso, também pode organizar rostos semelhantes em grupos, usando traços visuais compartilhados.
 
@@ -48,11 +48,12 @@ Você precisa atender aos seguintes pré-requisitos antes de usar contêineres d
 
 A tabela a seguir descreve os núcleos de CPU e a memória mínimos e recomendados a serem alocados para cada contêiner da API de Detecção Facial.
 
-| Contêiner | Mínimo | Recomendadas |
-|-----------|---------|-------------|
-|Face | 1 núcleo, 2 GB de memória | 1 núcleo, 4 GB de memória |
+| Contêiner | Mínimo | Recomendadas | TPS<br>(No mínimo, máximo)|
+|-----------|---------|-------------|--|
+|Face | 1 núcleo, 2 GB de memória | 1 núcleo, 4 GB de memória |10, 20|
 
-Cada núcleo precisa ser de pelo menos 2,6 GHz (gigahertz) ou mais rápido.
+* Cada núcleo precisa ser de pelo menos 2,6 GHz (gigahertz) ou mais rápido.
+* TPS - transações por segundo
 
 Memória e núcleo correspondem às configurações `--cpus` e `--memory`, que são usadas como parte do comando `docker run`.
 
@@ -110,11 +111,14 @@ Há outros [exemplos](./face-resource-container-config.md#example-docker-run-com
 > [!IMPORTANT]
 > As opções `Eula`, `Billing` e `ApiKey` devem ser especificadas para executar o contêiner; caso contrário, o contêiner não será iniciado.  Para mais informações, consulte [Faturamento](#billing).
 
+[!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
+
+
 ## <a name="query-the-containers-prediction-endpoint"></a>Consultar o ponto de extremidade de previsão do contêiner
 
 O contêiner fornece APIs de ponto de extremidade de previsão de consulta com base em REST. 
 
-Use o host, https://localhost:5000, para APIs de contêiner.
+Use o host, `https://localhost:5000`, para APIs de contêiner.
 
 ## <a name="stop-the-container"></a>Parar o contêiner
 

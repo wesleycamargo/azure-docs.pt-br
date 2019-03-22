@@ -11,17 +11,17 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: dad97fab8c4c8fe997ee9b8d9ac8c7dc6c0d1e48
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: e2f0f1e7ac8f510c4ff5be7933c55278fef74694
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454463"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57885429"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>Guia técnico do Modelo de Solução do Cortana Intelligence para a manutenção preventiva no setor aeroespacial
 
->[!Important]
-Este artigo foi preterido. A discussão sobre a manutenção preditiva no setor aeroespacial continua relevante, mas consulte a [Visão geral da solução para empresas](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace) para obter informações mais recentes.
+> [!Important]
+> Este artigo foi preterido. A discussão sobre a manutenção preditiva no setor aeroespacial continua relevante, mas consulte a [Visão geral da solução para empresas](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace) para obter informações mais recentes.
 
 
 Os modelos de solução foram projetados para acelerar o processo de criação de uma demonstração E2E sobre o Cortana Intelligence Suite. Um modelo implantado fornece à sua assinatura os componentes necessários do Cortana Intelligence e cria as relações entre eles. Ele também alimenta o pipeline de dados com dados de amostra produzidos por um aplicativo gerador de dados, que você baixa e instala no computador local depois de implantar o modelo de solução. Os dados produzidos pelo gerador irrigam o pipeline de dados e iniciam a geração das previsões de aprendizado de máquina, que podem ser visualizadas no painel do Power BI.
@@ -51,7 +51,7 @@ As seções a seguir descrevem as partes da solução.
 ### <a name="synthetic-data-source"></a>Fonte de dados sintética
 Para esse modelo, a fonte de dados usada é gerada por meio de um aplicativo da área de trabalho que você baixa e executa localmente após a implantação bem-sucedida.
 
-Para encontrar as instruções para baixar e instalar este aplicativo, selecione o primeiro nó, Gerador de Dados de Manutenção Preditiva, no diagrama do modelo de solução. As instruções podem ser encontradas na barra Propriedades. Esse aplicativo alimenta o serviço [Hub de Eventos do Azure](#azure-event-hub) com pontos de dados, ou eventos, usados no restante do fluxo da solução. Essa fonte de dados deriva de dados publicamente disponíveis no [repositório de dados da NASA](https://c3.nasa.gov/dashlink/resources/139/) usando o [Turbofan Engine Degradation Simulation Data Set](http://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan).
+Para encontrar as instruções para baixar e instalar este aplicativo, selecione o primeiro nó, Gerador de Dados de Manutenção Preditiva, no diagrama do modelo de solução. As instruções podem ser encontradas na barra Propriedades. Esse aplicativo alimenta o serviço [Hub de Eventos do Azure](#azure-event-hub) com pontos de dados, ou eventos, usados no restante do fluxo da solução. Essa fonte de dados deriva de dados publicamente disponíveis no [repositório de dados da NASA](https://c3.nasa.gov/dashlink/resources/139/) usando o [Turbofan Engine Degradation Simulation Data Set](https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan).
 
 O aplicativo de geração de eventos preenche o Hub de Eventos do Azure somente enquanto ele está em execução no computador.  
 
@@ -79,7 +79,7 @@ Use o [Power BI](https://powerbi.microsoft.com) para mostrar um painel com as ag
 ## <a name="how-to-bring-in-your-own-data"></a>Como inserir seus próprios dados
 Esta seção descreve como inserir seus próprios dados no Azure e quais áreas exigem alterações nos dados trazidos para essa arquitetura.
 
-É improvável que seu conjunto de dados corresponda ao conjunto de dados usado pelo [Turbofan Engine Degradation Simulation Data Set](http://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan) utilizado para esse modelo de solução. A compreensão dos seus dados e dos requisitos é fundamental para a forma como você modificará esse modelo para que ele funcione com seus próprios dados. 
+É improvável que seu conjunto de dados corresponda ao conjunto de dados usado pelo [Turbofan Engine Degradation Simulation Data Set](https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan) utilizado para esse modelo de solução. A compreensão dos seus dados e dos requisitos é fundamental para a forma como você modificará esse modelo para que ele funcione com seus próprios dados. 
 
 As seções a seguir discutem as partes do modelo que exigem modificações quando um novo conjunto de dados é introduzido.
 
@@ -143,7 +143,7 @@ Esse [pipeline](../../data-factory/concepts-pipelines-activities.md) contém uma
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 O experimento do [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) usado para esse modelo de solução fornece a RUL (Vida Útil Restante) de um motor de aeronave. O experimento é específico ao conjunto de dados consumido e exige modificação ou substituição específica para os dados apresentados.
 
-Para saber mais sobre como o experimento do Azure Machine Learning foi criado, confira [Manutenção preventiva: Etapa 1 de 3, preparação de dados e engenharia de recursos](http://gallery.cortanaanalytics.com/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2).
+Para saber mais sobre como o experimento do Azure Machine Learning foi criado, confira [Manutenção preventiva: Etapa 1 de 3, preparação de dados e engenharia de recursos](https://gallery.cortanaanalytics.com/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2).
 
 ## <a name="monitor-progress"></a>Monitorar o progresso
 Depois que o Gerador de Dados é iniciado, o pipeline começa a esvaziar e os diferentes componentes de sua solução começam a entrar em ação seguindo os comandos emitidos pelo data factory. Há duas maneiras possíveis de monitorar o pipeline.
@@ -186,7 +186,7 @@ As etapas a seguir mostram como conectar o arquivo pbix ao Banco de Dados SQL en
    * Na próxima janela aberta, você verá duas opções no painel à esquerda (**Windows** e **Banco de Dados**). Clique em **'Banco de Dados'**, preencha o **'Nome de usuário'** e a **'Senha'** (são o nome de usuário e a senha inseridos quando você implantou pela primeira vez a solução e criou um Banco de Dados SQL do Azure). Em ***Selecione o nível no qual aplicar essas configurações***, marque a opção do nível do banco de dados. Clique em **'Conectar'**.
    * Clique na segunda tabela **PMResult** e clique no ![Ícone de Navegação](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-navigation.png) ao lado de **“Fonte”** em **“ETAPAS APLICADAS”** no painel **“Configurações da Consulta”** à direita e atualize os nomes do servidor e do banco de dados, como nas etapas acima e clique em OK.
    * Depois de ser guiado de volta à página anterior, feche a janela. Uma mensagem é exibida; clique em **Aplicar**. Por fim, clique no botão **Salvar** para salvar as alterações. Seu arquivo do Power BI agora estabeleceu uma conexão com o servidor. Se suas visualizações estiverem vazias, limpe as seleções nas visualizações para visualizar todos os dados clicando no ícone de borracha no canto superior direito das legendas. Use o botão de atualização para refletir os novos dados nas visualizações. Inicialmente, você só vê os dados propagados em suas visualizações, já que a atualização do data factory está agendada para a cada três horas. Após três horas, você verá novas previsões refletidas nas visualizações quando atualizar os dados.
-3. (Opcional) Publique o painel de caminho frio no [Power BI online](http://www.powerbi.com/). Observe que esta etapa precisa de uma conta do Power BI (ou de uma conta do Office 365).
+3. (Opcional) Publique o painel de caminho frio no [Power BI online](https://www.powerbi.com/). Observe que esta etapa precisa de uma conta do Power BI (ou de uma conta do Office 365).
    
    * Clique em **'Publicar'** e, depois de alguns segundos, será exibida uma janela mostrando "Êxito ao publicar no Power BI!". com uma marca de seleção verde. Clique no link abaixo, "Abrir PredictiveMaintenanceAerospace.pbix no Power BI". Para obter instruções detalhadas, consulte [Publicar do Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
    * Para criar um novo painel: clique no sinal **+** ao lado da seção **Painéis** no painel à esquerda. Insira o nome "Demonstração de manutenção preditiva" para esse novo painel.
@@ -195,7 +195,7 @@ As etapas a seguir mostram como conectar o arquivo pbix ao Banco de Dados SQL en
      <br/>
      ![Exibição final](./media/cortana-analytics-technical-guide-predictive-maintenance/final-view.png)
      <br/>
-   * Para agendar a atualização dos dados, passe o mouse sobre o conjunto de dados **PredictiveMaintenanceAerospace**, clique no ![Ícone de Elipse](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-elipsis.png) e escolha **Agendar Atualização**.
+   * Para agendar a atualização dos dados, passe o mouse sobre o **PredictiveMaintenanceAerospace** conjunto de dados, clique em ![no ícone reticências](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-elipsis.png) e, em seguida, escolha **agendar atualização**.
      <br/>
      **Observação:** Se for exibida uma mensagem de aviso, clique em **Editar Credenciais** e verifique se suas credenciais do banco de dados são iguais às descritas na etapa 1.
      <br/>
@@ -206,13 +206,13 @@ As etapas a seguir mostram como conectar o arquivo pbix ao Banco de Dados SQL en
    * Agende a atualização com base em suas necessidades. Para saber mais, confira [Atualizar dados no Power BI](https://support.powerbi.com/knowledgebase/articles/474669-data-refresh-in-power-bi).
 
 ### <a name="setup-hot-path-dashboard"></a>Painel de afunilamento de instalação
-As etapas a seguir mostram como visualizar a saída de dados dos trabalhos do Stream Analytics gerados no momento da implantação da solução. Será necessária uma conta do [Power BI online](http://www.powerbi.com/) para executar as etapas a seguir. Se não tiver uma conta, você poderá [criar uma](https://powerbi.microsoft.com/pricing).
+As etapas a seguir mostram como visualizar a saída de dados dos trabalhos do Stream Analytics gerados no momento da implantação da solução. Será necessária uma conta do [Power BI online](https://www.powerbi.com/) para executar as etapas a seguir. Se não tiver uma conta, você poderá [criar uma](https://powerbi.microsoft.com/pricing).
 
 1. Adicione a saída do Power BI ao Stream Analytics (ASA).
    
    * Você deve seguir as instruções em [Azure Stream Analytics e Power BI: Um painel de análise para a visibilidade em tempo real dos dados de streaming](../../stream-analytics/stream-analytics-power-bi-dashboard.md) para configurar a saída do seu trabalho do Azure Stream Analytics como seu painel do Power BI.
    * Configure as três saídas da consulta do ASA, **aircraftmonitor**, **aircraftalert** e **flightsbyhour**. Você pode exibir a consulta clicando na guia Consulta. Correspondendo a cada uma dessas tabelas, você precisa adicionar uma saída ao ASA. Quando você adiciona a primeira saída (**aircraftmonitor**), verifique se **Alias de Saída**, **Nome do Conjunto de Dados** e **Nome da Tabela** estão iguais (**aircraftmonitor**). Repita as etapas para adicionar saídas para **aircraftalert** e **flightsbyhour**. Depois de adicionar as três tabelas de saída e de iniciar o trabalho do ASA, você obterá uma mensagem de confirmação (“Êxito ao iniciar o trabalho maintenancesa02asapbi do Stream Analytics”).
-2. Faça logon no [Power BI online](http://www.powerbi.com)
+2. Faça logon no [Power BI online](https://www.powerbi.com)
    
    * No painel à esquerda, seção Conjuntos de Dados em Meu Workspace, os nomes de ***CONJUNTO DE DADOS*** **aircraftmonitor**, **aircraftalert** e **flightsbyhour** devem aparecer. Esses são os dados de streaming enviados do Stream Analytics do Azure na etapa anterior. O conjunto de dados **flightsbyhour** poderá não aparecer ao mesmo tempo que os outros dois conjuntos de dados devido à natureza da consulta SQL por trás dele. No entanto, ele deve aparecer após uma hora.
    * Verifique se o painel ***Visualizações*** está aberto e se é mostrado no lado direito da tela.

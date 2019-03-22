@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 62c81368b8a3129b42262cb99cf23a5021744c1b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 49f5a74c2fcd45d03119bffbffad6fcf30e72440
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34210752"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570548"
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Como usar as APIs de comunicação dos Reliable Services
 O Service Fabric do Azure como uma plataforma é totalmente independente quanto às comunicações entre serviços. Todos os protocolos e pilhas são aceitáveis, de UDP a HTTP. Cabe ao desenvolvedor determinar a forma de comunicação entre os serviços. A estrutura de aplicativo dos Reliable Services fornece algumas pilhas de comunicação internas, bem como APIs que você pode usar para criar componentes de comunicação personalizados.
@@ -374,7 +374,7 @@ class MyExceptionHandler : IExceptionHandler
 public class MyExceptionHandler implements ExceptionHandler {
 
     @Override
-    public ExceptionHandlingResult handleException(ExceptionInformation exceptionInformation, OperationRetrySettings retrySettings) {        
+    public ExceptionHandlingResult handleException(ExceptionInformation exceptionInformation, OperationRetrySettings retrySettings) {
 
         /* if exceptionInformation.getException() is known and is transient (can be retried without re-resolving)
          */

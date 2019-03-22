@@ -2,7 +2,6 @@
 title: Conectar aos sistemas SAP – Aplicativos Lógicos do Azure | Microsoft Docs
 description: Como acessar e gerenciar recursos SAP automatizando os fluxos de trabalho com os Aplicativos Lógicos do Azure
 author: ecfan
-manager: jeconnoc
 ms.author: estfan
 ms.date: 05/31/2018
 ms.topic: article
@@ -11,18 +10,17 @@ services: logic-apps
 ms.reviewer: klam, divswa, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 77d1e11c1400f9a3d6bb6bda8e935cd4d24a195e
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: d677c0eae9c92f90783ed4ebd95a528b34c872ec
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230889"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170829"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Conectar aos sistemas SAP a partir do Aplicativos Lógicos do Azure
 
 > [!NOTE]
-> Este conector SAP será preterido em breve. Lançamos conectores SAP novos e mais avançados, e é recomendável escolher ou mudar para o [novo conector SAP](./logic-apps-using-sap-connector.md).
->  
+> Este conector SAP está agendada para substituição. Por favor, usar ou migrar para o [conector do SAP mais recente e mais avançado](./logic-apps-using-sap-connector.md). 
 
 Este artigo mostra como é possível acessar os recursos SAP de dentro de um aplicativo lógico usando os conectores do Servidor de Aplicativos SAP e do Servidor de Mensagens SAP. Dessa forma, você pode automatizar tarefas, processos e fluxos de trabalho que gerenciam dados e recursos SAP com a criação de aplicativos lógicos.
 
@@ -38,7 +36,7 @@ Caso você ainda não tenha uma assinatura do Azure, <a href="https://azure.micr
 
 Para seguir com este artigo, são necessário esses itens:
 
-* O aplicativo lógico de onde você deseja acessar seu sistema SAP e um gatilho que inicia o fluxo de trabalho do aplicativo lógico. Atualmente, os conectores SAP fornecem somente as ações. Se você não estiver familiarizado com os Aplicativos Lógicos, examine [O que são Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) e [Início rápido: crie seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* O aplicativo lógico de onde você deseja acessar seu sistema SAP e um gatilho que inicia o fluxo de trabalho do aplicativo lógico. Atualmente, os conectores SAP fornecem somente as ações. Se ainda não estiver familiarizado com aplicativo lógicos, consulte [O que são os Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) e [Início Rápido: criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 * Seu <a href="https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server" target="_blank">Servidor de Aplicativos SAP</a> ou <a href="https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm" target="_blank">Servidor de Mensagens SAP</a>
 
@@ -67,7 +65,7 @@ Neste exemplo, você criará um aplicativo lógico com um ponto de extremidade n
 
 1. No portal do Azure, crie um aplicativo lógico em branco, o que abrirá o Designer do Aplicativo Lógico. 
 
-2. Na caixa de pesquisa, digite “solicitação http” como filtro. Na lista de gatilhos, selecione este: **Solicitar – Quando uma solicitação HTTP é recebida**
+2. Na caixa de pesquisa, digite “solicitação http” como filtro. Na lista de gatilhos, selecione este gatilho: **Solicitação – quando uma solicitação HTTP é recebida**
 
    ![Adicionar gatilho de solicitação HTTP](./media/logic-apps-using-sap-connector-old/add-trigger.png)
 
@@ -93,7 +91,7 @@ Em Aplicativos Lógicos do Azure, uma [ação](../logic-apps/logic-apps-overview
    * **Servidor de aplicativos SAP – Enviar para a SAP**
    * **Servidor de mensagens SAP – Enviar para a SAP**
 
-   Este exemplo usa esta ação: **Servidor de Aplicativo SAP – Enviar para a SAP**
+   Este exemplo usa essa ação: **Servidor de aplicativos SAP – Enviar para a SAP**
 
    ![Selecionar “Servidor de Aplicativos SAP” ou “Servidor de Mensagens SAP”](media/logic-apps-using-sap-connector-old/select-sap-action.png)
 

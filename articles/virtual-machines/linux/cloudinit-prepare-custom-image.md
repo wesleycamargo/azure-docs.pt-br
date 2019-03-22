@@ -3,7 +3,7 @@ title: Preparar a imagem de VM do Azure para uso com a cloud-init | Microsoft Do
 description: Como preparar uma imagem de VM do Azure já existente para implantação com cloud-init
 services: virtual-machines-linux
 documentationcenter: ''
-author: rickstercdn
+author: danis
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -12,28 +12,28 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 11/29/2017
-ms.author: rclaus
-ms.openlocfilehash: ff5c76ca0a164d09e45488cb7abf7f2c2ee50a95
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
-ms.translationtype: HT
+ms.date: 02/27/2019
+ms.author: danis
+ms.openlocfilehash: da539a5bebc1613115f89a7b47c513ce486b5e3a
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064225"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337304"
 ---
 # <a name="prepare-an-existing-linux-azure-vm-image-for-use-with-cloud-init"></a>Preparar uma imagem de VM do Azure do Linux para uso com cloud-init
 Este artigo mostra como usar uma máquina virtual do Azure existente e prepará-la para ser reimplantada e estar pronta para usar cloud-init. A imagem resultante pode ser usada para implantar uma nova máquina virtual ou conjuntos de dimensionamento de máquinas virtuais, que podem ser ainda mais personalizados pela cloud-init no tempo de implantação.  Esses scripts de cloud-init são executados na primeira inicialização depois que os recursos são provisionados pelo Azure. Para obter mais informações de como o cloud-init funciona nativamente no Azure e as distribuições do Linux compatíveis, consulte [Visão geral de cloud-init](using-cloud-init.md)
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Este documento assume que você já tem uma máquina virtual do Azure em execução executando uma versão compatível do sistema operacional Linux. Você já configurou o computador para atender às suas necessidades, instalou todos os módulos necessários, processou todas as atualizações necessárias e o testou para garantir que ele atende aos seus requisitos. 
 
-## <a name="preparing-rhel-74--centos-74"></a>Preparando o RHEL 7.4 / CentOS 7.4
+## <a name="preparing-rhel-76--centos-76"></a>Preparando o RHEL 7.6 / CentOS 7.6
 Você precisa se conectar por SSH à sua VM Linux e executar os seguintes comandos para instalar a cloud-init.
 
 ```bash
-sudo yum install -y cloud-init gdisk
-sudo yum check-update cloud-init -y
-sudo yum install cloud-init -y
+sudo yum makecache fast
+sudo yum install -y gdisk cloud-utils-growpart
+sudo yum install - y cloud-init 
 ```
 
 Atualize a seção `cloud_init_modules` em `/etc/cloud/cloud.cfg` para incluir os seguintes módulos:
@@ -65,34 +65,19 @@ sed -i 's/Provisioning.Enabled=y/Provisioning.Enabled=n/g' /etc/waagent.conf
 sed -i 's/Provisioning.UseCloudInit=n/Provisioning.UseCloudInit=y/g' /etc/waagent.conf
 sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
 sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
+cp /lib/systemd/system/waagent.service /etc/systemd/system/waagent.service
+sed -i 's/After=network-online.target/WantedBy=cloud-init.service\\nAfter=network.service systemd-networkd-wait-online.service/g' /etc/systemd/system/waagent.service
+systemctl daemon-reload
+cloud-init clean
 ```
 Permita apenas o Azure como uma fonte de dados para o Agente Linux do Azure criando um novo arquivo `/etc/cloud/cloud.cfg.d/91-azure_datasource.cfg` usando um editor de sua preferência com as seguintes linhas:
 
 ```bash
-# This configuration file is provided by the WALinuxAgent package.
+# Azure Data Source config
 datasource_list: [ Azure ]
-```
-
-Adicione uma configuração para resolver um bug de registro do nome do host.
-```bash
-cat > /etc/cloud/hostnamectl-wrapper.sh <<\EOF
-#!/bin/bash -e
-if [[ -n $1 ]]; then
-  hostnamectl set-hostname $1
-else
-  hostname
-fi
-EOF
-
-chmod 0755 /etc/cloud/hostnamectl-wrapper.sh
-
-cat > /etc/cloud/cloud.cfg.d/90-hostnamectl-workaround-azure.cfg <<EOF
-# local fix to ensure hostname is registered
 datasource:
-  Azure:
-    hostname_bounce:
-      hostname_command: /etc/cloud/hostnamectl-wrapper.sh
-EOF
+   Azure:
+     agent_command: [systemctl, start, waagent, --no-block]
 ```
 
 Se a imagem do Azure existente tiver um arquivo de permuta configurado e você desejar alterar a configuração do arquivo de permuta para novas imagens usando a cloud-init, será necessário remover o arquivo de permuta existente.
@@ -125,8 +110,7 @@ rm /mnt/resource/swapfile
 Os três comandos a seguir serão usados somente se a VM que está sendo personalizada para ser uma nova imagem de origem especializada tiver sido provisionada anteriormente por cloud-init.  Você NÃO precisará executá-los se sua imagem tiver sido configurada usando o Agente Linux do Azure.
 
 ```bash
-sudo rm -rf /var/lib/cloud/instances/* 
-sudo rm -rf /var/log/cloud-init*
+sudo cloud-init clean --logs
 sudo waagent -deprovision+user -force
 ```
 

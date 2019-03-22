@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/09/2018
+ms.date: 03/05/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 0a4be349bfd8ce546ee2a27c206a7bd86306c27a
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 91a776ba13ffaeeb4f8184371ae45a80d829ae46
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493551"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550602"
 ---
 # <a name="throttling-resource-manager-requests"></a>Restrição de solicitações do Resource Manager
 
@@ -28,14 +28,14 @@ As solicitações são aplicadas à sua assinatura ou ao seu inquilino. As solic
 
 Esses limites se aplicam a cada instância do Azure Resource Manager. Há várias instâncias em todas as regiões do Azure e o Azure Resource Manager é implantado em todas as regiões do Azure.  Portanto, na prática, os limites são efetivamente muito maiores do que esses, pois as solicitações do usuário são geralmente atendidas por muitas instâncias diferentes.
 
-Se seu aplicativo ou script atingir esses limites, será necessário restringir suas solicitações. Este artigo mostra como determinar as solicitações restantes que você tem antes de atingir o limite e como responder quando você tiver atingido o limite.
+Se seu aplicativo ou script atingir esses limites, será necessário restringir suas solicitações. Este artigo mostra como determinar as solicitações restantes que você tem antes de atingir o limite e como responder quando você atingiu o limite.
 
 Quando você alcança o limite, recebe o código de status HTTP **429 Excesso de solicitações**.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="remaining-requests"></a>Solicitações restantes
-Você pode determinar o número de solicitações restantes ao examinar cabeçalhos de resposta. Cada solicitação inclui os valores para o número de solicitações de leitura e gravação restantes. A tabela a seguir descreve os cabeçalhos de resposta que você pode examinar em busca desses valores:
+Você pode determinar o número de solicitações restantes ao examinar cabeçalhos de resposta. As solicitações de leitura retornam um valor no cabeçalho para o número de solicitações de leitura restantes. Grave solicitações incluem um valor para o número de solicitações de gravação restantes. A tabela a seguir descreve os cabeçalhos de resposta que você pode examinar em busca desses valores:
 
 | Cabeçalho de resposta | DESCRIÇÃO |
 | --- | --- |
@@ -82,7 +82,7 @@ OK
 
 Headers:
 Pragma                        : no-cache
-x-ms-ratelimit-remaining-subscription-reads: 14999
+x-ms-ratelimit-remaining-subscription-reads: 11999
 ```
 
 Para obter limites de gravação, use uma operação de gravação: 
@@ -121,7 +121,7 @@ msrest.http_logger :     'Content-Type': 'application/json; charset=utf-8'
 msrest.http_logger :     'Content-Encoding': 'gzip'
 msrest.http_logger :     'Expires': '-1'
 msrest.http_logger :     'Vary': 'Accept-Encoding'
-msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-reads': '14998'
+msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-reads': '11998'
 ```
 
 Para obter limites de gravação, use uma operação de gravação: 

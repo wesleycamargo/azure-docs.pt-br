@@ -54,12 +54,10 @@ items:
     href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
   - name: Criar um aplicativo web sem servidor
     href: https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database
-  - name: Funções no Linux
-    items:
-    - name: Imagem personalizada
-      href: functions-create-function-linux-custom-image.md
-    - name: Dispositivo IoT Edge
-      href: ../iot-edge/tutorial-deploy-function.md?toc=%2fazure%2fazure-functions%2ftoc.json
+  - name: Criar uma imagem personalizada do Linux
+    href: functions-create-function-linux-custom-image.md
+  - name: Funções no dispositivo do IoT Edge
+    href: ../iot-edge/tutorial-deploy-function.md?toc=%2fazure%2fazure-functions%2ftoc.json
 - name: Exemplos
   items:
   - name: Exemplos de código
@@ -69,6 +67,7 @@ items:
 - name: Conceitos
   items:
   - name: Comparar versões 1.x e 2.x
+    displayName: migrate, migration
     href: functions-versions.md
   - name: Escala e hospedagem
     href: functions-scale.md
@@ -134,10 +133,14 @@ items:
       href: create-function-app-linux-app-service-plan.md
     - name: Gerenciar conexões
       href: manage-connections.md
+    - name: Tratamento de erros
+      href: functions-bindings-error-pages.md
     - name: Executar manualmente uma função não disparada por HTTP
       href: functions-manually-run-non-http.md
     - name: Depurar gatilho da Grade de Eventos localmente
       href: functions-debug-event-grid-trigger-local.md
+    - name: Azure for Students Starter
+      href: functions-create-student-starter.md
   - name: Implantar
     items:
     - name: Implantação contínua
@@ -150,6 +153,9 @@ items:
       href: functions-infrastructure-as-code.md
     - name: Funções locais
       href: functions-runtime-install.md
+    - name: Implantar usando o plug-in do Jenkins
+      href: /azure/jenkins/jenkins-azure-functions-deploy
+      maintainContext: true
   - name: Configurar
     items:
     - name: Gerenciar um aplicativo de funções
@@ -230,6 +236,8 @@ items:
       href: functions-bindings-event-grid.md
     - name: Hubs de Eventos
       href: functions-bindings-event-hubs.md
+    - name: Hub IoT
+      href: functions-bindings-event-iot.md
     - name: HTTP e webhooks
       href: functions-bindings-http-webhook.md
     - name: Microsoft Graph
@@ -287,9 +295,9 @@ items:
     href: https://github.com/Azure/Azure-Functions/
   - name: Atualizações de serviço
     href: https://azure.microsoft.com/updates/?product=functions&updatetype=&platform=
-ms.openlocfilehash: 5f2fee7c298b505977742fd105fe6227fa2c2946
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 45e4c6a93f9996c2cba46337d723dc1fc0349412
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734601"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224661"

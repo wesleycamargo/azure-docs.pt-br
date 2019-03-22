@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/01/2018
+ms.date: 03/04/2018
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: be7bf4596989cf8dfd154e0a366f93650546224b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c3ea877e3271dcb5bea527d661e12827eb64fa0c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247350"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997410"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>Tutorial: Criar uma solução de análise de dados preparados com o Azure e o Azure Stack 
 
@@ -54,7 +54,7 @@ Algumas preparações é necessário para criar essa solução:
 
 -   Uma assinatura do Azure. (Criar uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
 
--   Baixe e instale o [Gerenciador de Armazenamento do Microsoft Azure](http://storageexplorer.com/).
+-   Baixe e instale o [Gerenciador de Armazenamento do Microsoft Azure](https://storageexplorer.com/).
 
 -   Você precisará fornecer seus próprios dados a ser processado pelas funções. Dados devem ser gerados e disponível para carregar no contêiner de blob de armazenamento do Azure Stack.
 
@@ -175,25 +175,25 @@ Crie uma nova função do Azure Stack para mover limpar dados do Azure Stack par
 
 ## <a name="create-a-blob-storage-triggered-function"></a>Criar uma função disparada pelo Armazenamento de Blobs
 
-1.  Expanda o aplicativo de funções e selecione o **+** lado **funções**.
+1. Expanda o aplicativo de funções e selecione o **+** lado **funções**.
 
-2.  No campo de pesquisa, digite `blob` e, em seguida, escolha a linguagem desejada para o **gatilho de Blob** modelo.
+2. No campo de pesquisa, digite `blob` e, em seguida, escolha a linguagem desejada para o **gatilho de Blob** modelo.
 
-  ![Escolha o modelo de gatilho de armazenamento de Blob.](media/azure-stack-solution-staged-data-analytics/image10.png)
+   ![Escolha o modelo de gatilho de armazenamento de Blob.](media/azure-stack-solution-staged-data-analytics/image10.png)
 
-3.  Use as configurações conforme especificado na tabela a seguir:
+3. Use as configurações conforme especificado na tabela a seguir:
 
-    | Configuração | Valor sugerido | DESCRIÇÃO |
-    | ------- | ------- | ------- |
-    | NOME | Exclusivo no aplicativo de funções | O nome dessa função disparada pelo blob. |
-    | Caminho | \<caminho do local de armazenamento acima > | Local no Armazenamento de Blobs que está sendo monitorada. O nome do arquivo do blob é passado na associação como o parâmetro name. |
-    | Conexão da conta de armazenamento | Conexão do aplicativo de função | Você pode usar a conexão da conta de armazenamento já está sendo usado por seu aplicativo de funções ou criar um novo. |
+   | Configuração | Valor sugerido | DESCRIÇÃO |
+   | ------- | ------- | ------- |
+   | NOME | Exclusivo no aplicativo de funções | O nome dessa função disparada pelo blob. |
+   | Caminho | \<caminho do local de armazenamento acima > | Local no Armazenamento de Blobs que está sendo monitorada. O nome do arquivo do blob é passado na associação como o parâmetro name. |
+   | Conexão da conta de armazenamento | Conexão do aplicativo de função | Você pode usar a conexão da conta de armazenamento já está sendo usado por seu aplicativo de funções ou criar um novo. |
 
-    **Exemplo:**
+   **Exemplo:**
 
-    ![Crie a função disparada pelo Armazenamento de Blobs.](media/azure-stack-solution-staged-data-analytics/image11.png)
+   ![Crie a função disparada pelo Armazenamento de Blobs.](media/azure-stack-solution-staged-data-analytics/image11.png)
 
-4.  Selecione **Criar** para criar a função.
+4. Selecione **Criar** para criar a função.
 
 ### <a name="test-the-function"></a>Testar a função
 
@@ -253,21 +253,21 @@ Use as etapas e as configurações descritas acima para criar outro contêiner d
 
 ## <a name="test-the-queue-triggered-function"></a>Função disparada por fila de teste
 
-1.  No portal do Azure Stack, vá para a função. Expanda o **Logs** na parte inferior da página e verifique se o streaming de log não está em pausa.
+1. No portal do Azure Stack, vá para a função. Expanda o **Logs** na parte inferior da página e verifique se o streaming de log não está em pausa.
 
-2.  Abra o Gerenciador de armazenamento e conecte-se à conta de armazenamento criada no início desta seção.
+2. Abra o Gerenciador de armazenamento e conecte-se à conta de armazenamento criada no início desta seção.
 
-3.  Expanda a conta de armazenamento **contêineres de Blob**, e o blob criado anteriormente. Selecione **carregue** e, em seguida, **carregar arquivos.**
+3. Expanda a conta de armazenamento **contêineres de Blob**, e o blob criado anteriormente. Selecione **carregue** e, em seguida, **carregar arquivos.**
 
-    ![Carregue um arquivo para o contêiner de blob.](media/azure-stack-solution-staged-data-analytics/image12.png)
+   ![Carregue um arquivo para o contêiner de blob.](media/azure-stack-solution-staged-data-analytics/image12.png)
 
-4.  Na caixa de diálogo de Upload de arquivos, selecione o campo de arquivos. Navegue até um arquivo em um computador local, como um arquivo de imagem, selecione-o e selecione **aberto** e, em seguida **carregar**.
+4. Na caixa de diálogo de Upload de arquivos, selecione o campo de arquivos. Navegue até um arquivo em um computador local, como um arquivo de imagem, selecione-o e selecione **aberto** e, em seguida **carregar**.
 
-5.  Volte para os logs de função e verifique se que o blob foi lido.
+5. Volte para os logs de função e verifique se que o blob foi lido.
 
-  **Exemplo:**
+   **Exemplo:**
 
-    ![Exiba a mensagem nos logs.](media/azure-stack-solution-staged-data-analytics/image13.png)
+   ![Exiba a mensagem nos logs.](media/azure-stack-solution-staged-data-analytics/image13.png)
 
 ## <a name="securely-stored-and-accessed-compliant-data"></a>Armazenados e acessados com segurança dados em conformidade
 

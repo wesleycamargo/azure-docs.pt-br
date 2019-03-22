@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: meladie
-ms.openlocfilehash: 8fd3725a5f3cd45da261aca17bf0f89a3e5a5aa0
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: c17f16ce796c9f296facd69c18de4effc7ff5258
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055176"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440974"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-australia-protected"></a>Blueprint de Segurança e Conformidade do Azure - Aplicativo Web de PaaS PROTEGIDO para Austrália
 
@@ -59,7 +59,7 @@ A solução usa os serviços do Azure a seguir. Mais detalhes estão na seção 
 - Central de Segurança do Azure
 - Banco de Dados SQL do Azure
 - Armazenamento do Azure
-- Azure Log Analytics
+- Logs do Azure Monitor
 - Rede Virtual do Azure
     - (1) /16 rede
     - (4) /24 redes
@@ -73,7 +73,7 @@ Este Blueprint contém Serviços do Azure que não foram certificados para uso n
 ## <a name="deployment-architecture"></a>Arquitetura de implantação
 A seção a seguir fornece detalhes sobre os elementos de implantação e implementação.
 
-**Azure Resource Manager**: [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) permite que os clientes trabalhem com os recursos da solução como um grupo. Os clientes podem implantar, atualizar ou excluir todos os recursos da solução em uma única operação coordenada. Os clientes usam um modelo para a implantação e esse modelo pode ser útil para ambientes diferentes, como teste, preparação e produção. O Resource Manager fornece recursos de segurança, auditoria e marcação para ajudar os clientes a gerenciar seus recursos após a implantação.
+**Azure Resource Manager**: O [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) permite que os clientes trabalhem com os recursos da solução como um grupo. Os clientes podem implantar, atualizar ou excluir todos os recursos da solução em uma única operação coordenada. Os clientes usam um modelo para a implantação e esse modelo pode ser útil para ambientes diferentes, como teste, preparação e produção. O Resource Manager fornece recursos de segurança, auditoria e marcação para ajudar os clientes a gerenciar seus recursos após a implantação.
 
 **Host bastião**: O host bastião é o único ponto de entrada que permite que os usuários acessem os recursos implantados nesse ambiente. O host bastião fornece uma conexão segura com os recursos implantados, permitindo apenas tráfego remoto de endereços IP públicos em uma lista de segurança. Para permitir o tráfego RDP (área de trabalho remota), a origem do tráfego precisa ser definida no grupo de segurança de rede.
 
@@ -114,7 +114,7 @@ A arquitetura define uma rede virtual privada com um espaço de endereço de 10.
 Cada um dos grupos de segurança de rede têm portas e protocolos específicos abertos para que a solução possa funcionar corretamente e com segurança. Além disso, as configurações a seguir são habilitadas para cada grupo de segurança de rede:
 
   - [Eventos e logs de diagnóstico](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) são habilitados e armazenados em uma conta de armazenamento
-  - O Azure Log Analytics é conectado aos [diagnósticos do grupo de segurança de rede ](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
+  - Os logs do Azure Monitor está conectado ao [o diagnóstico do grupo de segurança de rede](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
 **sub-redes**: Cada sub-rede está associada ao seu grupo de segurança de rede correspondente.
 
@@ -123,11 +123,11 @@ Cada um dos grupos de segurança de rede têm portas e protocolos específicos a
 **Azure Load Balancer**: O [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) permite que os clientes dimensionem os aplicativos e criem alta disponibilidade para serviços. O Azure Load Balancer é compatível tanto com cenários de entrada como de saída e fornece latência baixa, taxa de transferência alta e escala verticalmente a milhões de fluxos para todos os aplicativos TCP e UDP.
 
 ### <a name="data-in-transit"></a>Dados em trânsito
-Por padrão, o Azure criptografa todas as comunicações de e para os datacenters do Azure. 
+O Azure criptografa todas as comunicações entre datacenters do Azure por padrão. 
 
 Para dados Protegidos em trânsito de redes de propriedade do cliente, a Arquitetura usa o Azure, a Internet ou o ExpressRoute com um Gateway de VPN configurado com IPSEC.
 
-Além disso, todas as transações para o Azure por meio do portal de gerenciamento do Azure ocorrem via HTTPS utilizando TLS v1.2.
+Além disso, todas as transações para o Azure por meio do portal de gerenciamento do Azure ocorrerem via HTTPS utilizando v TLS 1.2.
 
 ### <a name="data-at-rest"></a>Dados em repouso
 A arquitetura protege dados em repouso usando criptografia, auditoria de banco de dados e outras medidas.
@@ -189,9 +189,9 @@ Os serviços do Azure registram em log de forma extensiva as atividades do siste
 - **Logs de atividades**: Os [logs de atividades](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fornecem insights sobre as operações executadas em recursos em uma assinatura. Os logs de atividade podem ajudar a determinar o iniciador, o horário da ocorrência e o status de uma operação.
 - **Logs de diagnóstico**: Os [Logs de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) incluem todos os registros emitidos por todos os recursos. Esses logs são logs do sistema de eventos do Windows, logs de Armazenamento do Azure, logs de auditoria do Key Vault e logs de acesso e firewall do Gateway de Aplicativo. Todos os logs de diagnóstico são gravados em uma conta de armazenamento do Azure centralizada e criptografada para arquivamento. A retenção é configurável pelo usuário, de até 730 dias, para atender aos requisitos de retenção específicos da organização.
 
-**Log Analytics**: Esses logs são consolidados no [Log Analytics](https://azure.microsoft.com/services/log-analytics/) para processamento, armazenamento e relatórios de painel. Após coletados, os dados são organizados em tabelas separadas para cada tipo de dados, o que permite que todos os dados sejam analisados em conjunto, independentemente da fonte original. Além disso, a Central de Segurança do Azure é integrada ao Log Analytics, o que possibilita aos clientes usar consultas do Log Analytics para acessar seus dados de eventos de segurança e combiná-los com dados de outros serviços.
+**Logs do Azure Monitor**: Esses logs são consolidados [registra em log do Azure Monitor](https://azure.microsoft.com/services/log-analytics/) para processamento, armazenamento e emissão de relatórios do painel. Depois de coletados, os dados são organizados em tabelas separadas para cada tipo de dados, o que permite que todos os dados sejam analisados em conjunto, independentemente de sua fonte. Além disso, a Central de segurança do Azure integra-se com os logs do Azure Monitor permitindo que os clientes usem Kusto consultas para acessar seus dados de evento de segurança e combiná-lo com dados de outros serviços.
 
-As seguintes [soluções de gerenciamento](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) do Log Analytics são incluídas como parte desta arquitetura:
+O Azure a seguir [soluções de monitoramento](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) são incluídos como parte dessa arquitetura:
 -   [Avaliação do Active Directory](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): A solução de Verificação de Integridade do Active Directory avalia o risco e a integridade dos ambientes de servidor em intervalos regulares e fornece uma lista priorizada de recomendações específicas para a infraestrutura de servidor implantada.
 - [Avaliação do SQL](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): A solução de Verificação de Integridade do SQL avalia o risco e a integridade dos ambientes do servidor em intervalos regulares e fornece aos clientes uma lista priorizada de recomendações específicas para a infraestrutura de servidor implantada.
 - [Integridade do Agente](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): A solução de Integridade do Agente informa quantos agentes são implantados e sua distribuição geográfica, além de quantos agentes sem resposta e o número de agentes que estão enviando dados operacionais.

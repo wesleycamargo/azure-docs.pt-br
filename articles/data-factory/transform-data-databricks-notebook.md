@@ -3,21 +3,21 @@ title: Transformar dados com o Notebook do Databricks - Azure | Microsoft Docs
 description: Saiba como processar ou transformar dados executando um notebook do Databricks.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.assetid: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.author: douglasl
-ms.openlocfilehash: 8ab6dad36bf47430a925d21ca2464286e7e70002
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+author: sharonlo101
+ms.author: shlo
+manager: craigg
+ms.openlocfilehash: 8036a8694bb8c8d0db236eba831f13dc2bf47d0a
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022063"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576813"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Transformar dados executando um notebook do Databricks
 
@@ -57,15 +57,15 @@ A seguir está a definição JSON de exemplo de uma Atividade de Notebook do Dat
 
 A tabela a seguir descreve as propriedades JSON usadas na definição de JSON:
 
-|Propriedade|DESCRIÇÃO|Obrigatório|
+|Propriedade|Descrição|Necessário|
 |---|---|---|
-|Nome|Nome da atividade no pipeline.|SIM|
-|Descrição|Texto que descreve o que a atividade faz.|Não |
-|Tipo|Para Atividade de Notebook do Databricks, o tipo da atividade é DatabricksNotebook.|SIM|
-|linkedServiceName|Nome do serviço vinculado do Databricks no qual o notebook do Databricks executa. Saiba mais sobre esse serviço vinculado no artigo  [Serviços de computação vinculados](compute-linked-services.md) .|SIM|
-|notebookPath|O caminho absoluto do notebook a ser executado no workspace do Databricks. Esse caminho deve começar com uma barra.|SIM|
-|baseParameters|Uma matriz de pares chave-valor. Parâmetros básicos podem ser utilizados para cada execução de atividade. Se o notebook utilizar um parâmetro que não for especificado, será usado o valor padrão do notebook. Encontre mais informações sobre os parâmetros em [Notebooks do Databricks](https://docs.databricks.com/api/latest/jobs.html#jobsparampair).|Não |
-|bibliotecas|Uma lista de bibliotecas a serem instaladas no cluster, que executará o trabalho. Pode ser uma matriz de \<cadeia de caracteres, object>.|Não |
+|nome|Nome da atividade no pipeline.|Sim|
+|descrição|Texto que descreve o que a atividade faz.|Não|
+|tipo|Para Atividade de Notebook do Databricks, o tipo da atividade é DatabricksNotebook.|Sim|
+|linkedServiceName|Nome do serviço vinculado do Databricks no qual o notebook do Databricks executa. Saiba mais sobre esse serviço vinculado no artigo  [Serviços de computação vinculados](compute-linked-services.md) .|Sim|
+|notebookPath|O caminho absoluto do notebook a ser executado no workspace do Databricks. Esse caminho deve começar com uma barra.|Sim|
+|baseParameters|Uma matriz de pares chave-valor. Parâmetros básicos podem ser utilizados para cada execução de atividade. Se o notebook utilizar um parâmetro que não for especificado, será usado o valor padrão do notebook. Encontre mais informações sobre os parâmetros em [Notebooks do Databricks](https://docs.databricks.com/api/latest/jobs.html#jobsparampair).|Não|
+|bibliotecas|Uma lista de bibliotecas a serem instaladas no cluster, que executará o trabalho. Pode ser uma matriz de \<cadeia de caracteres, object>.|Não|
 
 
 ## <a name="supported-libraries-for-databricks-activities"></a>Bibliotecas com suporte para atividades do Databricks
@@ -96,7 +96,7 @@ Na definição da atividade acima do Databricks você especifica esses tipos de 
         {
             "cran": {
                 "package": "ada",
-                "repo": "http://cran.us.r-project.org"
+                "repo": "https://cran.us.r-project.org"
             }
         }
     ]

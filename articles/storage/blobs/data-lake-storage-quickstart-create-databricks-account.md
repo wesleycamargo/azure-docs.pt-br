@@ -8,12 +8,12 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/15/2019
-ms.openlocfilehash: 1b5f05f3cddea986230327165399b0fe530e361b
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: c5c69ded05e5ec6d1df6bd2befb4fe89417bae06
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588068"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226786"
 ---
 # <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>Início Rápido: Analisar dados no Azure Data Lake Storage Gen2 usando o Azure Databricks
 
@@ -29,16 +29,16 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
   Cole o nome da conta de armazenamento em um arquivo de texto. Você precisará dele em breve.
 
-*  Crie uma entidade de serviço. Confira [Como: Usar o portal para criar um aplicativo e uma entidade de serviço do Azure AD que possa acessar recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+* Crie uma entidade de serviço. Confira [Como: Usar o portal para criar um aplicativo e uma entidade de serviço do Azure AD que possa acessar recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
-   Há algumas tarefas específicas que você precisará realizar conforme executar as etapas deste artigo.
+  Há algumas tarefas específicas que você precisará realizar conforme executar as etapas deste artigo.
 
-   :heavy_check_mark: Ao executar as etapas da seção [Atribuir o aplicativo a uma função](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) do artigo, atribua a função **Colaborador dos Dados do Storage Blob** à entidade de serviço.
+  :heavy_check_mark: Ao executar as etapas da seção [Atribuir o aplicativo a uma função](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) do artigo, atribua a função **Colaborador dos Dados do Storage Blob** à entidade de serviço.
 
-   > [!IMPORTANT]
-   > Atribua a função no escopo da conta de armazenamento do Data Lake Storage Gen2. Você pode atribuir uma função ao grupo de recursos pai ou à assinatura, mas receberá erros relacionados a permissões até que essas atribuições de função sejam propagadas para a conta de armazenamento.
+  > [!IMPORTANT]
+  > Atribua a função no escopo da conta de armazenamento do Data Lake Storage Gen2. Você pode atribuir uma função ao grupo de recursos pai ou à assinatura, mas receberá erros relacionados a permissões até que essas atribuições de função sejam propagadas para a conta de armazenamento.
 
-   :heavy_check_mark: Ao executar as etapas da seção [Obter valores para conexão](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) do artigo, cole a ID do locatário, a ID do aplicativo e os valores de chave de autenticação em um arquivo de texto. Você precisará deles em breve.
+  :heavy_check_mark: Ao executar as etapas da seção [Obter valores para conexão](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) do artigo, cole a ID do locatário, a ID do aplicativo e os valores de chave de autenticação em um arquivo de texto. Você precisará deles em breve.
 
 ## <a name="create-an-azure-databricks-workspace"></a>Criar um workspace do Azure Databricks
 

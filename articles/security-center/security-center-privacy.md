@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2018
 ms.author: rkarlin
-ms.openlocfilehash: 8cbe391f756dab35abda411c3a6c943a51eae302
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: fcec410df631a58b76878a4cb327ca2fb04a2105
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115973"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117839"
 ---
 # <a name="manage-user-data-in-azure-security-center"></a>Gerenciar dados de usuário na Central de Segurança do Azure
 Este artigo fornece informações sobre como é possível gerenciar dados de usuário na Central de Segurança do Azure. O gerenciamento de dados de usuário inclui a capacidade de acessar, excluir ou exportar dados.
@@ -68,25 +68,25 @@ Um usuário da Central de Segurança com a função Leitor, Proprietário, Colab
 
 - Fazendo uma cópia do portal do Azure
 - Executando a chamada à API REST do Azure, GET HTTP:
-```HTTP
-GET https://<endpoint>/subscriptions/{subscriptionId}/providers/Microsoft.Security/securityContacts?api-version={api-version}
-```
+  ```HTTP
+  GET https://<endpoint>/subscriptions/{subscriptionId}/providers/Microsoft.Security/securityContacts?api-version={api-version}
+  ```
 
 Um usuário da Central de Segurança com a função Administrador da Conta pode exportar [políticas just-in-time](security-center-just-in-time.md) contendo endereços IP:
 
 - Fazendo uma cópia do portal do Azure
 - Executando a chamada à API REST do Azure, GET HTTP:
-```HTTP
-GET https://<endpoint>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Security/locations/{location}/jitNetworkAccessPolicies/default?api-version={api-version}
-```
+  ```HTTP
+  GET https://<endpoint>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Security/locations/{location}/jitNetworkAccessPolicies/default?api-version={api-version}
+  ```
 
 Um Administrador da Conta pode exportar os detalhes do alerta:
 
 - Fazendo uma cópia do portal do Azure
 - Executando a chamada à API REST do Azure, GET HTTP:
-```HTTP
-GET https://<endpoint>/subscriptions/{subscriptionId}/providers/microsoft.Security/alerts?api-version={api-version}
-```
+  ```HTTP
+  GET https://<endpoint>/subscriptions/{subscriptionId}/providers/microsoft.Security/alerts?api-version={api-version}
+  ```
 
 Consulte [Obter alertas de segurança (Coleção GET)](https://msdn.microsoft.com/library/mt704050.aspx) para mais informações.
 

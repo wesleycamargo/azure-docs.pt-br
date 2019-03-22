@@ -6,18 +6,18 @@ ms.author: raagyema
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 11/10/2018
-ms.openlocfilehash: 2ad641ae054f9542ec1ef42f5ebbe724ba4ecf87
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.openlocfilehash: f34e32b9bda83ac1185d0c7b7dcaaaa7b47161a1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354018"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082476"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Monitorando no Banco de Dados do Azure para MariaDB
 Monitorar os dados dos seus servidores ajuda a solucionar problemas e otimizar sua carga de trabalho. O Banco de Dados do Azure para MariaDB fornece várias métricas que fornecem informações sobre o comportamento do seu servidor.
 
 ## <a name="metrics"></a>Métricas
-Todas as métricas do Azure têm uma frequência de um minuto e cada uma delas fornece 30 dias de histórico. É possível configurar alertas nas métricas. Outras tarefas incluem a configuração de ações automatizadas, execução de análises avançadas e arquivamento de histórico. Para obter mais informações, consulte a [métricas de visão geral do Azure] (... /Monitoring-and-Diagnostics/Monitoring-Overview-Metrics.MD).
+Todas as métricas do Azure têm uma frequência de um minuto e cada uma delas fornece 30 dias de histórico. É possível configurar alertas nas métricas. Outras tarefas incluem a configuração de ações automatizadas, execução de análises avançadas e arquivamento de histórico. Para obter mais informações, consulte a [Visão geral das métricas no Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
 Para obter diretrizes passo a passo, consulte [How to set up alerts](howto-alert-metric.md) (Como configurar alertas).
 
@@ -25,7 +25,7 @@ Para obter diretrizes passo a passo, consulte [How to set up alerts](howto-alert
 Essas métricas estão disponíveis para o Banco de Dados do Azure para MariaDB:
 
 |Métrica|Nome de exibição da métrica|Unidade|DESCRIÇÃO|
-|---|---|---|---|---|
+|---|---|---|---|
 |cpu_percent|Porcentagem de CPU|Porcentagem|O percentual de CPU em uso.|
 |memory_percent|Porcentagem de memória|Porcentagem|O percentual de memória em uso.|
 |io_consumption_percent|Porcentagem de E/S|Porcentagem|O percentual de E/S em uso.|
@@ -41,8 +41,8 @@ Essas métricas estão disponíveis para o Banco de Dados do Azure para MariaDB:
 |network_bytes_ingress|Entrada na rede|Bytes|Entrada de rede em conexões ativas.|
 
 ## <a name="server-logs"></a>Logs do servidor
-É possível habilitar o registro de consulta no servidor. Para saber mais sobre o registro, visite a página  [logs do servidor](concepts-server-logs.md).
+É possível habilitar o registro de consulta no servidor. Para saber mais sobre o registro em log, visite a página [logs de servidor](concepts-server-logs.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 - Para obter mais informações sobre como acessar e exportar métricas usando o Portal do Azure, a API REST ou a CLI, consulte a [Visão geral das métricas no Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
- - Consulte [Como configurar alertas](howto-alert-metric.md) para obter orientação sobre como criar um alerta em uma métrica.
+  - Consulte [Como configurar alertas](howto-alert-metric.md) para obter orientação sobre como criar um alerta em uma métrica.

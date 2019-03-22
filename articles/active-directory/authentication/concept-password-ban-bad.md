@@ -11,19 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96e2c3cfd509c9b0b77d0db00add31b58a07ce6a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b7dcac665dadef7f3f192e7f0e359b6b7c244bde
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206541"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287019"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Eliminar senhas incorretas na organização
-
-|     |
-| --- |
-| A lista de senhas proibidas personalizada e a proteção por senha do Azure AD são recursos de visualização pública do Azure Active Directory. Para obter mais informações sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
 
 Os líderes do setor orientam que você não utilize a mesma senha em vários lugares, que torne-a complexa e para não simplificá-la como Senha123. Como as organizações podem garantir que os usuários estejam seguindo as diretrizes? Como podem garantir que os usuários não utilizam senhas comuns ou senhas que são conhecidas por estarem incluídas em violações de dados recentes?
 
@@ -31,7 +26,7 @@ Os líderes do setor orientam que você não utilize a mesma senha em vários lu
 
 A Microsoft está sempre trabalhando para se manter um passo à frente dos cibercriminosos. Portanto, a equipe do Azure AD Identity Protection procura continuamente por senhas comumente usadas e comprometidas. Em seguida, bloqueiam as senhas consideradas muito comuns na lista de senhas proibidas globalmente. Os criminosos cibernéticos também usam estratégias semelhantes em seus ataques, portanto, a Microsoft não publica o conteúdo dessa lista publicamente. Essas senhas vulneráveis são bloqueadas antes de tornarem-se uma ameaça real aos clientes da Microsoft. Para obter mais informações sobre os esforços atuais de segurança, consulte o [Relatório de inteligência de segurança da Microsoft](https://www.microsoft.com/security/operations/security-intelligence-report).
 
-## <a name="preview-custom-banned-password-list"></a>Visualização: Lista personalizada de senhas banidas
+## <a name="custom-banned-password-list"></a>Lista personalizada de senhas banidas
 
 Algumas organizações podem querer levar a segurança um passo adiante, adicionando suas próprias personalizações no topo da lista de senhas proibidas, em que a Microsoft chama de lista de senhas proibidas personalizada. Os clientes empresariais, como a Contoso, podem optar por bloquear variantes de nomes de marca, termos específicos da empresa ou outros itens.
 
@@ -41,7 +36,7 @@ A lista de senhas proibidas personalizada e a capacidade de habilitar a integra�
 
 ## <a name="on-premises-hybrid-scenarios"></a>Cenários híbridos locais
 
-A proteção de contas somente na nuvem é útil, mas muitas organizações mantêm cenários híbridos, incluindo o Windows Server Active Directory local. É possível instalar a proteção por senha do Azure AD para agentes do Windows Server Active Directory (versão prévia) local para estender as listas de senhas proibidas à infraestrutura existente. Agora, os usuários e administradores que alteram, definem ou redefinem senhas locais precisam obedecer à mesma política de senha que os usuários somente na nuvem.
+A proteção de contas somente na nuvem é útil, mas muitas organizações mantêm cenários híbridos, incluindo o Windows Server Active Directory local. É possível instalar a proteção por senha do Azure AD para Windows Server Active Directory agentes locais estender as as listas de senhas em sua infraestrutura existente. Agora, os usuários e administradores que alteram, definem ou redefinem senhas locais precisam obedecer à mesma política de senha que os usuários somente na nuvem.
 
 ## <a name="how-are-passwords-evaluated"></a>Como as senhas são avaliadas
 
@@ -60,7 +55,7 @@ A normalização tem duas partes.  Primeiros, todas as letras maiúsculas são a
 | '0'  | 'o' |
 | '1'  | 'l' |
 | '$'  | 's' |
-| '@'  | 'a' |
+| '\@'  | 'a' |
 
 Exemplo: suponha que a senha "em branco" seja proibida e um usuário tente alterar a senha para “Bl@nK”. Mesmo que “Bl@nk” não seja especificamente proibida, o processo de normalização converterá essa senha como "em branco", que é uma senha banida.
 
@@ -96,7 +91,7 @@ Exemplo: um usuário altera sua senha para “C0ntos0Blank12”
 
 Após a normalização, essa senha se torna “contosoblank12”. O processo de correspondência localiza que essa senha contém duas senhas banidas: contoso e em branco. Essa senha então recebe uma pontuação:
 
-[contoso] + [em branco] = [1] + [2] = 4 pontos; como essa senha tem menos de 5 pontos, ele será rejeitada.
+[contoso] + [em branco] + [1] + [2] = 4 pontos como essa senha é em 5 pontos, ele será rejeitado.
 
 Exemplo: um usuário altera a senha para "ContoS0Bl@nkf9!".
 

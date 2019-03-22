@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 10/20/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 4d576fb79ed931d6a07ab231888617c95c0e465d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 3b4e8c78d7402c254c91c3e100814e1f3eafc41b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452542"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867194"
 ---
 # <a name="what-is-the-team-data-science-process"></a>O que é o Processo de Ciência de Dados de Equipe?
 
@@ -63,7 +63,7 @@ As metas, tarefas e artefatos de documentação de cada estágio do ciclo de vid
 
 O diagrama a seguir fornece um modo de exibição de grade das tarefas (em azul), e os artefatos (em verde) associados a cada estágio do ciclo de vida (no eixo horizontal) para essas funções (no eixo vertical). 
 
-[ ![Funções e tarefas do TDSP](./media/overview/tdsp-tasks-by-roles.png) ](./media/overview/tdsp-tasks-by-roles.png#lightbox)
+[![TDSP funções e tarefas](./media/overview/tdsp-tasks-by-roles.png)](./media/overview/tdsp-tasks-by-roles.png#lightbox)
 
 ## <a name="standardized-project-structure"></a>Estrutura de projeto padronizada
 
@@ -77,7 +77,7 @@ Fornecemos modelos para a estrutura de pastas e documentos obrigatórios em loca
 - modelar métricas de desempenho como curvas de ROC ou MSE
 
 
-[ ![Diretórios do TDSP](./media/overview/tdsp-dir-structure.png) ](./media/overview/tdsp-dir-structure.png#lightbox)
+[![Diretórios de TDSP](./media/overview/tdsp-dir-structure.png)](./media/overview/tdsp-dir-structure.png#lightbox)
 
 A estrutura de diretórios pode ser clonada no [GitHub](https://github.com/Azure/Azure-TDSP-ProjectTemplate).
 
@@ -94,7 +94,7 @@ A infraestrutura de análise e armazenamento pode ser local ou na nuvem. É nela
 
 Confira um exemplo de uma equipe que trabalha em vários projetos e compartilha vários componentes da infraestrutura de análise em nuvem.
 
-[ ![Infraestrutura do TDSP](./media/overview/tdsp-analytics-infra.png) ](./media/overview/tdsp-analytics-infra.png#lightbox) 
+[![Infraestrutura de TDSP](./media/overview/tdsp-analytics-infra.png)](./media/overview/tdsp-analytics-infra.png#lightbox) 
 
 
 ## <a name="tools-and-utilities-for-project-execution"></a>Ferramentas e utilitários para execução do projeto

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 52c5cb640bfb861fb2da52ee711fe3955a169bcf
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 9d0a803f8a397d3c24f083188b6186acf4dde809
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244021"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122868"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Como chamar a API REST de Análise de Texto
 
@@ -43,7 +43,7 @@ No momento, é possível enviar os mesmos documentos para todas as operações d
 | Elemento | Valores válidos | Obrigatório? | Uso |
 |---------|--------------|-----------|-------|
 |`id` |O tipo de dados é a cadeia de caracteres, mas na prática as IDs do documento tendem a ser números inteiros. | Obrigatório | O sistema usa as IDs que você fornece para estruturar o resultado. São gerados códigos de idioma, pontuações de sentimento e frases-chave para cada ID na solicitação.|
-|`text` | Texto não processado de até cinco mil caracteres. | Obrigatório | O texto pode ser expresso em qualquer idioma para a detecção de idioma. Para análise de sentimento, extração de frases-chave e identificação de entidades, o texto deve estar em um [idioma compatível](../text-analytics-supported-languages.md). |
+|`text` | Texto bruto não estruturado, até 5.120 caracteres. | Obrigatório | O texto pode ser expresso em qualquer idioma para a detecção de idioma. Para análise de sentimento, extração de frases-chave e identificação de entidades, o texto deve estar em um [idioma compatível](../text-analytics-supported-languages.md). |
 |`language` | Código [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) de dois caracteres para um [idioma compatível](../text-analytics-supported-languages.md) | Varia | Obrigatório para análise de sentimento, extração de frases-chave e vinculação de entidade; opcional para detecção de idioma. Nenhum erro ocorre se você excluí-lo, mas a análise é enfraquecida sem ele. O código de idioma deve corresponder ao `text` fornecido. |
 
 Para saber mais sobre limites, confira [Visão geral da Análise de Texto > Limites de dados](../overview.md#data-limits). 
@@ -58,7 +58,7 @@ O serviço aceita solicitações de até 1 MB de tamanho. Se você estiver usand
    + Cole o ponto de extremidade que você copiou da página do portal.
    + Acrescente um recurso.
 
-  Os pontos de extremidade do recurso são assim (sua região pode variar):
+   Os pontos de extremidade do recurso são assim (sua região pode variar):
 
    + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
    + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
@@ -71,7 +71,7 @@ O serviço aceita solicitações de até 1 MB de tamanho. Se você estiver usand
    + `Content-Type`: application/json.
    + `Accept`: application/json.
 
-  Sua solicitação deve ser semelhante à seguinte captura de tela, assumindo um recurso **/keyPhrases**.
+   Sua solicitação deve ser semelhante à seguinte captura de tela, assumindo um recurso **/keyPhrases**.
 
    ![Captura de tela da solicitação com o ponto de extremidade e cabeçalhos](../media/postman-request-keyphrase-1.png)
 
@@ -81,15 +81,15 @@ O serviço aceita solicitações de até 1 MB de tamanho. Se você estiver usand
 
 5. Cole alguns documentos JSON em um formato válido para a análise pretendida. Para saber mais sobre uma análise específica nos tópicos a seguir:
 
-  + [Detecção de idioma](text-analytics-how-to-language-detection.md)  
-  + [Extração de frases-chave](text-analytics-how-to-keyword-extraction.md)  
-  + [Análise de sentimento](text-analytics-how-to-sentiment-analysis.md)  
-  + [Reconhecimento de Entidade (versão prévia)](text-analytics-how-to-entity-linking.md)  
+   + [Detecção de idioma](text-analytics-how-to-language-detection.md)  
+   + [Extração de frases-chave](text-analytics-how-to-keyword-extraction.md)  
+   + [Análise de sentimento](text-analytics-how-to-sentiment-analysis.md)  
+   + [Reconhecimento de Entidade (versão prévia)](text-analytics-how-to-entity-linking.md)  
 
 
 6. Clique em **Enviar** para enviar a solicitação. Você pode enviar até 100 solicitações por minuto. 
 
-  No Postman, a resposta é exibida na próxima janela, como um único documento JSON, com um item para cada ID do documento fornecido na solicitação.
+   No Postman, a resposta é exibida na próxima janela, como um único documento JSON, com um item para cada ID do documento fornecido na solicitação.
 
 ## <a name="see-also"></a>Consulte também 
 

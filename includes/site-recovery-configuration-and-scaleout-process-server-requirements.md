@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 06/10/2018
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: 4346b347994f49774584caf31a96ff2f81fdc0e1
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 371cbcc50b574f95e8d9ba4efe79058b2b25a8ba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55701209"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58016674"
 ---
 **Configuração/Requisitos do servidor de processo**
 
@@ -48,7 +48,7 @@ https:\//management.azure.com | Usado para operações de gerenciamento de repli
 *.services.visualstudio.com | Usado para fins de telemetria (é opcional)
 time.nist.gov | Usados para verificar a sincronização de horário entre a hora do sistema e a hora global.
 time.windows.com | Usados para verificar a sincronização de horário entre a hora do sistema e a hora global.
-- https:\//login.microsoftonline.com <br> - https:\//secure.aadcdn.microsoftonline-p.com <br> - https:\//login.live.com  <br> - https:\//graph.windows.net <br> - https:\//login.windows.net <br> - https:\//www.live.com <br> - https:\//www.microsoft.com | A configuração de OVF precisa de acesso a estas URLs. Elas são usadas pelo Azure Active Directory para o gerenciamento de identidade e controle de acesso
+| <ul> <li> https:\//login.microsoftonline.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https:\//login.live.com </li><li> https:\//graph.windows.net </li><li> https:\//login.windows.net </li><li> https:\//www.live.com </li><li> https:\//www.microsoft.com </li></ul> | A configuração de OVF precisa de acesso a estas URLs. Elas são usadas pelo Azure Active Directory para o gerenciamento de identidade e controle de acesso
 https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Para concluir o download do MySQL
 |
 **SOFTWARE PARA INSTALAÇÃO** | 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: szark
-ms.openlocfilehash: ce2b9811baffea85cfa9a542fb5f93652daf39c8
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
-ms.translationtype: HT
+ms.openlocfilehash: 6ef0a9f6efbf5f8398ba242150b2eb6102875f7e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976443"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58000327"
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>Preparar um VHD do Debian para o Azure
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -34,7 +34,7 @@ Esta seção pressupõe que você já instalou um sistema operacional Linux Debi
 * Todos os VHDs no Azure devem ter um tamanho virtual alinhado a 1 MB. Ao converter de um disco não processado para VHD, certifique-se de que o tamanho do disco não processado seja um múltiplo de 1 MB antes da conversão. Para obter mais informações, consulte [Notas de Instalação do Linux](create-upload-generic.md#general-linux-installation-notes).
 
 ## <a name="use-azure-manage-to-create-debian-vhds"></a>Usar o gerenciamento do Azure para criar VHDs Debian
-Existem ferramentas disponíveis para gerar VHDs Debian para o Azure, como os scripts [azure-manage](https://github.com/credativ/azure-manage) do [Credativ](http://www.credativ.com/). Essa é a abordagem recomendada em vez de criar uma imagem do zero. Por exemplo, para criar um VHD no Debian 8, execute os seguintes comandos para baixar o `azure-manage` utilitário (e dependências) e executar o `azure_build_image` script:
+Existem ferramentas disponíveis para gerar VHDs Debian para o Azure, como os scripts [azure-manage](https://github.com/credativ/azure-manage) do [Credativ](https://www.credativ.com/). Essa é a abordagem recomendada em vez de criar uma imagem do zero. Por exemplo, para criar um VHD no Debian 8, execute os seguintes comandos para baixar o `azure-manage` utilitário (e dependências) e executar o `azure_build_image` script:
 
     # sudo apt-get update
     # sudo apt-get install git qemu-utils mbr kpartx debootstrap

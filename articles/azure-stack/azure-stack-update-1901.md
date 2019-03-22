@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 03/20/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 02/09/2019
-ms.openlocfilehash: 18c4fd3fff244ac180ac0129f100a7d5b2472cab
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.lastreviewed: 03/20/2019
+ms.openlocfilehash: e02a09bdc8bd80b93f7fa33632c32a75c1d705bd
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984825"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226854"
 ---
 # <a name="azure-stack-1901-update"></a>Atualização da pilha 1901 do Azure
 
@@ -58,12 +58,12 @@ Os hotfixes de pilha do Azure são aplicáveis apenas aos sistemas integrados do
 
 - **1809**: [KB 4481548 – o Azure Stack hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/)
 - **1811**: Nenhum hotfix atual disponível.
-- **1901**: Nenhum hotfix atual disponível.
+- **1901**: [KB 4481548 – o Azure Stack hotfix 1.1901.2.103](https://support.microsoft.com/help/4494720)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 > [!IMPORTANT]
-- Instalar o [hotfix mais recente do Azure Stack](#azure-stack-hotfixes) para 1811 (se houver) antes de atualizar para 1901.
+> - Instalar o [hotfix mais recente do Azure Stack](#azure-stack-hotfixes) para 1811 (se houver) antes de atualizar para 1901.
 
 - Antes de iniciar a instalação dessa atualização, execute [AzureStack teste](azure-stack-diagnostic-test.md) com os seguintes parâmetros para validar o status do Azure Stack e resolva os problemas operacionais encontrados, incluindo todos os avisos e falhas. Também examine os alertas ativos e resolver todos os que exigem ação:
 
@@ -71,7 +71,7 @@ Os hotfixes de pilha do Azure são aplicáveis apenas aos sistemas integrados do
     Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
     ```
 
-- Quando o Azure Stack é gerenciado pelo SCOM System Center Operations Manager (), certifique-se de atualizar o pacote de gerenciamento para Microsoft Azure Stack para versão 10.0.3.11 antes de aplicar 1901.
+- Quando o Azure Stack é gerenciado pelo SCOM System Center Operations Manager (), certifique-se de atualizar o pacote de gerenciamento para Microsoft Azure Stack para versão 1.0.3.11 antes de aplicar 1901.
 
 ## <a name="new-features"></a>Novos recursos
 
@@ -89,7 +89,7 @@ Esta atualização inclui os seguintes novos recursos e melhorias para o Azure S
    * **AzureRm.Storage**  
          Módulo do AzureRm pacote cumulativo de atualizações agora inclui a versão já publicada 5.0.4 com suporte a **2017-10-01 de versão de api**.  
    * **AzureRm.Compute**  
-         Adicionado o parâmetro simple define `New-AzureRMVM` e `NewAzureRMVMSS`, `-ImageName` parâmetro dá suporte à especificação de imagens de usuário.  
+         Adicionado o parâmetro simple define `New-AzureRmVM` e `New-AzureRmVmss`, `-Image` parâmetro dá suporte à especificação de imagens de usuário.  
    * **AzureRm.Insights**  
          Módulo do AzureRm pacote cumulativo de atualizações agora inclui a versão já publicada 5.1.5 com suporte a **api-version 2018-01-01** para métricas, tipos de recursos de definições de métrica.
 
@@ -115,7 +115,8 @@ Para examinar a referência para os módulos atualizados, consulte [referência 
 <!-- 16523695 – IS, ASDK -->
 - Corrigido um problema em que, depois de atualizar as configurações de DNS para sua rede Virtual do **usar o DNS do Azure Stack** à **DNS personalizado**, as instâncias não foram atualizadas com a nova configuração.
 
-- <!-- 3235634 – IS, ASDK --> Corrigido um problema no quais implantar VMs com tamanhos que contém um **v2** sufixo; por exemplo, **Standard_A2_v2**, é obrigatório especificar o sufixo como **Standard_A2_v2** ( v minúsculo). Como com o Azure global, agora você pode usar **Standard_A2_V2** (V maiusculo).
+- <!-- 3235634 – IS, ASDK -->
+  Corrigido um problema no quais implantar VMs com tamanhos que contém um **v2** sufixo; por exemplo, **Standard_A2_v2**, é obrigatório especificar o sufixo como **Standard_A2_v2** ( v minúsculo). Como com o Azure global, agora você pode usar **Standard_A2_V2** (V maiusculo).
 
 <!-- 2869209 – IS, ASDK --> 
 - Corrigido um problema ao usar o [cmdlet Add-AzsPlatformImage](/powershell/module/azs.compute.admin/add-azsplatformimage), em que você tinha que usar o **- OsUri** parâmetro como a conta de armazenamento em que o disco é carregado do URI. Agora você pode usar também o caminho local para o disco.
@@ -291,9 +292,9 @@ A seguir estão os problemas conhecidos de pós-instalação para esta versão d
 <!-- 3632798 - IS, ASDK -->
 - No portal, se você adicionar uma regra de segurança de entrada e selecione **marca de serviço** como a origem, várias opções são exibidas na **marca de origem** lista que não estão disponíveis para o Azure Stack. As únicas opções que são válidas no Azure Stack são da seguinte maneira:
 
-    - **Internet**
-    - **VirtualNetwork**
-    - **AzureLoadBalancer**
+  - **Internet**
+  - **VirtualNetwork**
+  - **AzureLoadBalancer**
   
     Não há suporte para as outras opções como marcas de origem no Azure Stack. Da mesma forma, se você adicionar uma regra de segurança de saída e selecione **marca de serviço** como o destino, a mesma lista de opções para **marca de origem** é exibida. As únicas opções válidas são os mesmos para **marca de origem**, conforme descrito na lista anterior.
 

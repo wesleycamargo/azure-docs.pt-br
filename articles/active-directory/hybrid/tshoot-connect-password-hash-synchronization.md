@@ -16,12 +16,12 @@ ms.date: 03/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29cb7f6799556406c4c5def12b1367bfd581d06b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 56fda1110218910f8fbd8aa9597195f37444e01c
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198568"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193307"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Solução de problemas de sincronização de hash de senha com a sincronização do Azure AD Connect
 Este tópico fornece etapas para solucionar problemas com a sincronização de hash de senha. Se as senhas não estiverem sincronizando conforme o esperado, isso poderá ocorrer para um subconjunto de usuários ou para todos os usuários.
@@ -225,7 +225,7 @@ Para solucionar problemas em que nenhuma senha esteja sincronizada para um usuá
 ## <a name="no-passwords-are-synchronized-manual-troubleshooting-steps"></a>Nenhuma senha é sincronizada: etapas manuais de solução de problemas
 Siga estas etapas para determinar por que nenhuma senha é sincronizada:
 
-1. O servidor do Connect está no [modo de preparo](how-to-connect-sync-operations.md#staging-mode)? Um servidor no modo de preparo não sincroniza nenhuma senha.
+1. O servidor do Connect está no [modo de preparo](how-to-connect-sync-staging-server.md)? Um servidor no modo de preparo não sincroniza nenhuma senha.
 
 2. Execute o script na seção [Obter o status das configurações de sincronização de senha](#get-the-status-of-password-sync-settings). Ele fornece uma visão geral da configuração da sincronização de senha.  
 

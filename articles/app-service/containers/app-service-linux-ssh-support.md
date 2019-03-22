@@ -4,8 +4,8 @@ description: Saiba como usar SSH com o Serviço de Aplicativo do Azure no Linux.
 keywords: serviço de aplicativo do azure, aplicativo web, linux, oss
 services: app-service
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: msangapu
+manager: jeconnoc
 editor: ''
 ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
 ms.service: app-service
@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2017
-ms.author: wesmc
+ms.date: 02/25/2019
+ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 9a05769b4cfd4bcaca0df9e1af1816d99f78bc62
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: a56c4b0bac61bd2039138ffed554130c6e520821
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984454"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58167126"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Suporte de SSH para o Serviço de Aplicativo do Azure no Linux
 
@@ -67,7 +67,7 @@ Essas etapas são mostradas no repositório do Serviço de Aplicativo do Azure c
         && echo "root:Docker!" | chpasswd
     ```
 
-2. Adicione uma [instrução `COPY`](https://docs.docker.com/engine/reference/builder/#copy) ao Dockerfile para copiar um arquivo [sshd_config](https://man.openbsd.org/sshd_config) para o diretório */etc/ssh/*. Seu arquivo de configuração deve ser baseado no arquivo sshd_config no repositório Azure-App-Service do GitHub [aqui](https://github.com/Azure-App-Service/node/blob/master/8.2.1/sshd_config).
+2. Adicione uma [instrução `COPY`](https://docs.docker.com/engine/reference/builder/#copy) ao Dockerfile para copiar um arquivo [sshd_config](https://man.openbsd.org/sshd_config) para o diretório */etc/ssh/*. Seu arquivo de configuração deve ser baseado no arquivo sshd_config no repositório Azure-App-Service do GitHub [aqui](https://github.com/Azure-App-Service/node/blob/master/10.14/sshd_config).
 
     > [!NOTE]
     > O arquivo *sshd_config* deve incluir o seguinte ou a conexão falhará: 
@@ -110,18 +110,6 @@ O Dockerfile usa a [instrução `ENTRYPOINT`](https://docs.docker.com/engine/ref
 Usando o túnel TCP, você pode criar uma conexão de rede entre o computador de desenvolvimento e o Aplicativo Web para contêineres em uma conexão autenticada do WebSocket. Isso permite que você abra uma sessão SSH com o contêiner em execução no serviço de Serviço de Aplicativo do Azure do cliente de sua escolha.
 
 Para começar, você precisa instalar a [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Para ver como funciona sem instalar a CLI do Azure, abra [Azure Cloud Shell](../../cloud-shell/overview.md). 
-
-Adicione a extensão de Serviço de Aplicativo do Azure mais recente, executando [Adicionar extensão az](/cli/azure/extension?view=azure-cli-latest#az-extension-add):
-
-```azurecli-interactive
-az extension add --name webapp
-```
-
-Se você já tiver executado `az extension add` antes, execute [atualização de extensão az](/cli/azure/extension?view=azure-cli-latest#az-extension-update) em vez disso:
-
-```azurecli-interactive
-az extension update --name webapp
-```
 
 Abra uma conexão remota para seu aplicativo usando o comando [criar az webapp remoto-conexão](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create). Especifique _\<subscription\_id>_, _\<group\_name>_ e \_<app\_name>_ para o aplicativo.
 
@@ -167,7 +155,7 @@ A P P   S E R V I C E   O N   L I N U X
 0e690efa93e2:~#
 ```
 
-Agora você está conectado a seu conector. 
+Agora você está conectado a seu conector.  
 
 Tente executar o comando novamente [top](https://ss64.com/bash/top.html). Você deve ser capaz de ver o processo do aplicativo na lista de processos. No exemplo abaixo, é aquele com `PID 263`.
 

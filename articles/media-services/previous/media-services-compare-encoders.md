@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: 3dac469c2932276a903a516b71caa860f8870fa6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: bb827b80f79a53f30074b9230efe3e2049471051
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989331"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880765"
 ---
 # <a name="comparison-of-azure-on-demand-media-encoders"></a>Comparação de codificadores de mídia sob demanda do Azure  
 
@@ -33,7 +33,7 @@ A tabela a seguir compara as funcionalidades entre o MES (Media Encoder Standard
 |---|---|---|
 |Aplicar a lógica condicional durante a codificação<br/>(por exemplo, se a entrada for HD, codificar como áudio 5.1)|Não |Sim|
 |Legendagem oculta|Não |[Sim](media-services-premium-workflow-encoder-formats.md#closed_captioning)|
-|[Dolby® Professional Loudness Correction](http://www.dolby.com/us/en/technologies/dolby-professional-loudness-solutions.pdf)<br/> com Dialogue Intelligence™|Não |Sim|
+|[Dolby® Professional Loudness Correction](https://www.dolby.com/us/en/technologies/dolby-professional-loudness-solutions.pdf)<br/> com Dialogue Intelligence™|Não |Sim|
 |Desentrelaçamento, telecine inverso|Basic|Qualidade de difusão|
 |Detectar e remover bordas pretas <br/>(formatos pillarbox e letterbox)|Não |Sim|
 |Geração de miniaturas|[Sim](media-services-dotnet-generate-thumbnail-with-mes.md)|[Sim](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4)|
@@ -153,4 +153,4 @@ A tabela a seguir compara as funcionalidades entre o MES (Media Encoder Standard
 * [Cotas e limitações](media-services-quotas-and-limitations.md)
 
 <!--Reference links in article-->
-[1]: http://azure.microsoft.com/pricing/details/media-services/
+[1]: https://azure.microsoft.com/pricing/details/media-services/

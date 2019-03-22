@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: 861a4d4d64f970a13aba68f831d2148f8a354ef4
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: bddfccaf0749bbb5eaf206e5961c713efa5eea17
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732151"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311892"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>Como solucionar o problema "Functions Runtime inacessível"
 
@@ -66,7 +66,7 @@ Na etapa anterior, se não havia uma cadeia de conexão da conta de armazenament
 ### <a name="guidance"></a>Diretrizes
 
 * Não marque "configuração de slot" para nenhuma dessas configurações. Quando você trocar os slots de implantação, a função será interrompida.
-* Não defina essas configurações ao usar implantações automatizadas.
+* Não modifique essas configurações como parte de implantações automatizadas.
 * Essas configurações precisam ser fornecidas e estarem válidas no momento da criação. Uma implantação automatizada que não contenha essas configurações resultará em um aplicativo não funcional, mesmo se as configurações forem adicionadas após o fato.
 
 ## <a name="storage-account-credentials-invalid"></a>Credenciais da conta de armazenamento inválidas

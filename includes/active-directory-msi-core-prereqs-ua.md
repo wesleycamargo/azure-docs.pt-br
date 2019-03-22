@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: daveba
 ms.custom: include file
-ms.openlocfilehash: 106c4796bde838e28b91771454e971f9999194e1
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
-ms.translationtype: HT
+ms.openlocfilehash: dc8f9797b7b4c04da27a54dfddc79bd96d6df88d
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753771"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "58114498"
 ---
-Se você não estiver familiarizado com o MSI, confira [Visão geral da Identidade do Serviço Gerenciado](~/articles/active-directory/managed-service-identity/overview.md) e **certifique-se que examine a [diferença entre uma MSI atribuída pelo sistema e atribuída pelo usuário](~/articles/active-directory/managed-service-identity/overview.md#how-does-it-work)**. Se você ainda não tiver uma conta do Azure, [inscreva-se em uma conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
+Se você estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a [identidades para visão geral de recursos do Azure gerenciadas](~/articles/active-directory/managed-identities-azure-resources/overview.md), e **não se esqueça de examinar o [diferença entre o sistema e atribuída ao usuário identidades gerenciadas](~/articles/active-directory/managed-identities-azure-resources/overview.md#how-does-it-work)**. Se você ainda não tiver uma conta do Azure, [inscreva-se em uma conta gratuita](https://azure.microsoft.com/free/) antes de continuar.

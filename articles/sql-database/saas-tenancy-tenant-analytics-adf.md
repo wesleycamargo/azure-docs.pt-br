@@ -12,12 +12,12 @@ ms.author: anjangsh
 ms.reviewer: MightyPen, sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 7d4748ced196abdb4f3f0bcb70ad6fe254b24bf7
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: a658e2fe32ec95dfabad54684a0c9095af7a341d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657563"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850285"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>Explore a análise de SaaS com o Banco de Dados SQL do Azure, o SQL Data Warehouse, o Data Factory e o Power BI
 
@@ -94,7 +94,7 @@ Nesta etapa, você implanta os recursos adicionais usados no tutorial: um SQL Da
 
 Agora, examine os recursos do Azure implantados:
 #### <a name="tenant-databases-and-analytics-store"></a>Bancos de dados de locatário e repositório de análise
-Use o [SSMS (SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) para se conectar aos servidores **tenants1-dpt-&lt;usuário&gt;** e **catalog-dpt-&lt;usuário&gt;**. Substitua &lt;usuário&gt; pelo valor usado quando você implantou o aplicativo. Use logon = *developer* e senha = *P@ssword1*. Veja o [tutorial introdutório](saas-dbpertenant-wingtip-app-overview.md) para obter instruções.
+Use o [SSMS (SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) para se conectar aos servidores **tenants1-dpt-&lt;usuário&gt;** e **catalog-dpt-&lt;usuário&gt;**. Substitua &lt;usuário&gt; pelo valor usado quando você implantou o aplicativo. Usar o logon = *developer* e a senha = *P\@ssword1*. Veja o [tutorial introdutório](saas-dbpertenant-wingtip-app-overview.md) para obter instruções.
 
 ![Conectar-se ao servidor de Banco de Dados SQL do SSMS](media/saas-tenancy-tenant-analytics/ssmsSignIn.JPG)
 
@@ -113,7 +113,7 @@ No Pesquisador de Objetos:
 #### <a name="blob-storage"></a>Armazenamento de blob
 1. No [portal do Azure](https://ms.portal.azure.com), navegue até o grupo de recursos que você usou para implantar o aplicativo. Verifique se uma conta de armazenamento chamada **wingtipstaging\<usuário\>** foi adicionada.
 
-  ![DWtables](media/saas-tenancy-tenant-analytics/adf-staging-storage.PNG)
+   ![DWtables](media/saas-tenancy-tenant-analytics/adf-staging-storage.PNG)
 
 1. Clique na conta de armazenamento **wingtipstaging\<usuário\>** para explorar os objetos presentes.
 1. Clique no bloco **Blobs**
@@ -195,7 +195,7 @@ Use as seguintes etapas para se conectar ao Power BI e importar os modos de exib
 
     ![sign-in-to-power-bi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. Selecione **Banco de dados** no painel esquerdo, insira o nome de usuário = *developer*e digite a senha = *P@ssword1*. Clique em **Conectar**.  
+5. Selecione **banco de dados** no painel esquerdo, em seguida, insira o nome de usuário = *desenvolvedor*e insira a senha = *P\@ssword1*. Clique em **Conectar**.  
 
     ![database-sign-in](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 

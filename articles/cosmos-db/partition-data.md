@@ -1,46 +1,46 @@
 ---
 title: Particionamento e escala horizontal no Azure Cosmos DB
-description: Saiba mais sobre como o particionamento funciona no DB Cosmos do Azure, como configurar o particionamento e as chaves de partição e como escolher a chave de partição correta para seu aplicativo.
+description: Saiba mais sobre como o particionamento funciona no Azure Cosmos DB, como configurar o particionamento e chaves de partição e como escolher a chave de partição correta para seu aplicativo.
 ms.author: mjbrown
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 55e9ef0f8bd268f36378c7d34cea95384c6f725e
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 4c6847d8f870c02228aa14ab9e11c85b091ec48b
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099338"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959945"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Particionamento e escala horizontal no Azure Cosmos DB
 
-Este artigo explica sobre partições físicas e lógicas no Azure Cosmos DB e as melhores práticas para dimensionamento e particionamento. 
+Este artigo explica as partições físicas e lógicas no Azure Cosmos DB. Ele também aborda as práticas recomendadas para dimensionamento e particionamento. 
 
 ## <a name="logical-partitions"></a>Partições lógicas
 
-Uma partição lógica é composta por um conjunto de itens com a mesma chave de partição. Por exemplo, considere um contêiner em que todos os itens contêm uma propriedade `City`, então, use `City` como a chave de partição para o contêiner. Grupos de itens com valores específicos para o `City`, como "Londres", "Paris", "NYC" etc. formará uma partição lógica distinta.
+Uma partição lógica consiste em um conjunto de itens que têm a mesma chave de partição. Por exemplo, em um contêiner em que todos os itens contêm uma `City` propriedade, você pode usar `City` como a chave de partição para o contêiner. Grupos de itens que têm valores específicos para `City`, como `London`, `Paris`, e `NYC`, formam uma partição lógica distinta. Você não precisa se preocupar sobre como excluir uma partição quando os dados subjacentes são excluídos.
 
-No Azure Cosmos DB, um contêiner é a unidade fundamental de escalabilidade. Os dados adicionados ao contêiner e a taxa de transferência que você provisiona no contêiner são automaticamente particionados (horizontalmente) em um conjunto de partições lógicas. Eles são particionados com base na chave de partição especificada para o contêiner do Cosmos. Para saber mais, confira o artigo [como especificar a chave de partição para seu contêiner do Cosmos](how-to-create-container.md).
+No Azure Cosmos DB, um contêiner é a unidade fundamental de escalabilidade. Dados que são adicionados ao contêiner e a taxa de transferência que você provisiona no contêiner são automaticamente particionado (horizontalmente) em um conjunto de partições lógicas. Taxa de transferência e os dados são particionados com base na chave de partição especificado para o contêiner do Azure Cosmos DB. Para obter mais informações, consulte [criar um contêiner do Azure Cosmos DB](how-to-create-container.md).
 
 Uma partição lógica define o escopo das transações de banco de dados. Você pode atualizar itens dentro de uma partição lógica usando uma transação com isolamento de instantâneo. Quando novos itens são adicionados ao contêiner, novas partições lógicas são transparentemente criadas pelo sistema.
 
 ## <a name="physical-partitions"></a>Partições físicas
 
-Um contêiner do Azure Cosmos é dimensionado pela distribuição dos dados e da taxa de transferência em um grande número de partições lógicas. Internamente, uma ou mais partições lógicas são mapeadas para uma **partição física** composta por um conjunto de réplicas, também conhecido como um conjunto de réplicas. Cada conjunto de réplicas hospeda uma instância do mecanismo de banco de dados do Azure Cosmos. Um conjunto de réplicas torna os dados armazenados dentro da partição física durável, altamente disponível e consistente. Uma partição física oferece suporte a uma quantidade máxima de armazenamento e RUs. Cada réplica que compõem a partição física herda a cota de armazenamento. E todas as réplicas de uma partição física dão suporte, coletivamente, à taxa de transferência alocada para a partição física. A imagem a seguir mostra como as partições lógicas são mapeadas para partições físicas distribuídas globalmente:
+Um contêiner do Azure Cosmos DB é dimensionado com a distribuição de dados e taxa de transferência em um grande número de partições lógicas. Internamente, uma ou mais partições lógicas são mapeadas para uma partição física que consiste em um conjunto de réplicas, também conhecido como um *conjunto de réplicas*. Cada réplica definidas hospeda uma instância do mecanismo de banco de dados do Azure Cosmos DB. Um conjunto de réplicas faz com que os dados armazenados dentro da partição física durável, altamente disponível e consistente. A quantidade máxima de unidades de armazenamento e a solicitação (RUs) oferece suporte a uma partição física. Cada réplica que compõe a partição física herda a cota de armazenamento da partição. Todas as réplicas de uma partição física coletivamente dão suporte a taxa de transferência alocada para a partição física. 
 
-![Particionamento no Azure Cosmos DB](./media/partition-data/logical-partitions.png)
+A imagem a seguir mostra como as partições lógicas são mapeadas para partições físicas distribuídas globalmente:
 
-A taxa de transferência provisionada para um contêiner é dividida igualmente entre as partições físicas. Portanto, o design de uma chave de partição que não distribui as solicitações de taxa de transferência uniformemente pode criar partições "dinâmicas". Partições dinâmicas podem resultar no uso ineficiente e limitação de taxa de produtividade provisionada.
+![Uma imagem que demonstra o particionamento do Azure Cosmos DB](./media/partition-data/logical-partitions.png)
 
-Ao contrário das partições lógicas, as partições físicas são uma implementação interna do sistema. Você não pode controlar o tamanho, o posicionamento, a contagem ou o mapeamento entre as partições lógicas e as partições físicas. No entanto, você pode controlar o número de partições lógicas e a distribuição de dados e a taxa de transferência escolhendo a chave de partição correta.
+Taxa de transferência provisionada para um contêiner é dividida igualmente entre partições físicas. Um design de chave de partição que não distribui as solicitações de taxa de transferência uniformemente pode criar partições "hot". Partições ativas podem resultar em limitação de taxa e no uso ineficiente da produtividade provisionada.
+
+Ao contrário das partições lógicas, as partições físicas são uma implementação interna do sistema. Você não pode controlar o tamanho, o posicionamento ou a contagem de partições físicas, e você não pode controlar o mapeamento entre partições lógicas e partições físicas. No entanto, você pode controlar o número de partições lógicas e a distribuição de dados e a taxa de transferência escolhendo a chave de partição correta.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, fornecemos uma visão geral do particionamento de dados e melhores práticas para o dimensionamento e particionamento no Azure Cosmos DB. 
-
-* Saiba mais sobre a [produtividade provisionada no DB Cosmos do Azure](request-units.md)
-* Saiba mais sobre [distribuição global no BD Cosmos do Azure](distribute-data-globally.md)
-* Saiba mais sobre [escolhendo uma chave de partição](partitioning-overview.md#choose-partitionkey)
-* Saiba [como provisionar a taxa de transferência em um contêiner do Cosmos](how-to-provision-container-throughput.md)
-* Aprenda [como provisionar a taxa de transferência em um banco de dados Cosmos](how-to-provision-database-throughput.md)
+* Saiba mais sobre [escolher uma chave de partição](partitioning-overview.md#choose-partitionkey).
+* Saiba mais sobre a [taxa de transferência provisionada no Azure Cosmos DB](request-units.md).
+* Saiba mais sobre [distribuição global no Azure Cosmos DB](distribute-data-globally.md).
+* Saiba como [provisionar a produtividade em um contêiner do Azure Cosmos DB](how-to-provision-container-throughput.md).
+* Saiba como [provisionar a produtividade em um banco de dados do Azure Cosmos DB](how-to-provision-database-throughput.md).

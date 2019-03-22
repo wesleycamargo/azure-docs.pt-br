@@ -10,12 +10,12 @@ ms.suite: integration
 ms.topic: article
 ms.date: 08/18/2018
 tags: connectors
-ms.openlocfilehash: 1247f603b759364edcee2bff12f75bb0a217ecd6
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 9fe41cf2946525948897635a4e30213d161431ef
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231247"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295293"
 ---
 # <a name="manage-dynamics-365-records-with-azure-logic-apps"></a>Gerenciar registros do Dynamics 365 com os Aplicativos Lógicos do Azure
 
@@ -42,7 +42,7 @@ Primeiro, adicione um gatilho do Dynamics 365 que é acionado quando um novo reg
 
 1. No [Portal do Azure](https://portal.azure.com), abra seu aplicativo lógico em branco no Designer de Aplicativo Lógico, se ele ainda não estiver aberto.
 
-1. Na caixa de pesquisa, insira “Dynamics 365” como filtro. Neste exemplo, na lista de gatilhos, selecione este gatilho: **Quando um registro é criado**
+1. Na caixa de pesquisa, insira “Dynamics 365” como filtro. Neste exemplo, sob a lista de gatilhos, selecione este gatilho: **Quando um registro é criado**
 
    ![Selecionar gatilho](./media/connectors-create-api-crmonline/select-dynamics-365-trigger.png)
 
@@ -52,10 +52,10 @@ Primeiro, adicione um gatilho do Dynamics 365 que é acionado quando um novo reg
 
    | Propriedade | Obrigatório | DESCRIÇÃO | 
    |----------|----------|-------------| 
-   | **Nome da organização** | SIM | O nome da instância do Dynamics 365 da sua organização a ser monitorada, por exemplo, “Contoso” |
-   | **Nome da entidade** | SIM | O nome da entidade a ser monitorada, por exemplo, “Clientes potenciais” | 
-   | **Frequência** | SIM | A unidade de tempo a ser usada com intervalos durante a verificação de atualizações relacionadas ao gatilho |
-   | **Intervalo** | SIM | O número de segundos, minutos, horas, dias, semanas ou meses que você deseja que passem antes da próxima verificação |
+   | **Nome da organização** | Sim | O nome da instância do Dynamics 365 da sua organização a ser monitorada, por exemplo, “Contoso” |
+   | **Nome da entidade** | Sim | O nome da entidade a ser monitorada, por exemplo, “Clientes potenciais” | 
+   | **Frequência** | Sim | A unidade de tempo a ser usada com intervalos durante a verificação de atualizações relacionadas ao gatilho |
+   | **Intervalo** | Sim | O número de segundos, minutos, horas, dias, semanas ou meses que você deseja que passem antes da próxima verificação |
    ||| 
 
    ![Detalhes do gatilho](./media/connectors-create-api-crmonline/trigger-details.png)
@@ -74,8 +74,8 @@ Agora, adicione a ação do Dynamics 365 que cria um registro de tarefa para o n
 
    | Propriedade | Obrigatório | DESCRIÇÃO | 
    |----------|----------|-------------| 
-   | **Nome da organização** | SIM | A instância do Dynamics 365 na qual você deseja criar o registro, que não precisa ser a mesma instância em seu gatilho, mas é “Contoso” neste exemplo |
-   | **Nome da entidade** | SIM | A entidade na qual você deseja criar o registro, por exemplo, “Tarefas” | 
+   | **Nome da organização** | Sim | A instância do Dynamics 365 na qual você deseja criar o registro, que não precisa ser a mesma instância em seu gatilho, mas é “Contoso” neste exemplo |
+   | **Nome da entidade** | Sim | A entidade na qual você deseja criar o registro, por exemplo, “Tarefas” | 
    | | |
 
    ![Detalhes da ação](./media/connectors-create-api-crmonline/action-details.png)
@@ -122,9 +122,9 @@ Esta tabela descreve alguns dos tipos de campo e os tipos de dados exigidos para
 
 | Tipo de campo | Tipo de dados exigido | DESCRIÇÃO | 
 |------------|--------------------|-------------|
-| Campos de texto | Linha única de texto | Esses campos exigem uma única linha de texto ou conteúdo dinâmico que tenha o tipo do texto. <p><p>*Campos de exemplo*: **Descrição** e **Categoria** | 
-| Campos de número inteiro | Número inteiro | Alguns campos exigem conteúdo inteiro ou dinâmico que tenha um tipo inteiro. <p><p>*Campos de exemplo*: **Percentual concluído** e **Duração** | 
-| Campos de data | Data e hora | Alguns campos exigem a data inserida no formato mm/dd/aaaa ou conteúdo dinâmico que tenha o tipo de data. <p><p>*Campos de exemplo*: **Criado em**, **Data de início**, **Início real**, **Término real** e **Data de conclusão** | 
+| Campos de texto | Linha única de texto | Esses campos exigem uma única linha de texto ou conteúdo dinâmico que tenha o tipo do texto. <p><p>*Campos de exemplo*: **Descrição** e **categoria** | 
+| Campos de número inteiro | Número inteiro | Alguns campos exigem conteúdo inteiro ou dinâmico que tenha um tipo inteiro. <p><p>*Campos de exemplo*: **Porcentagem concluída** e **duração** | 
+| Campos de data | Data e hora | Alguns campos exigem a data inserida no formato mm/dd/aaaa ou conteúdo dinâmico que tenha o tipo de data. <p><p>*Campos de exemplo*: **Criado em**, **data de início**, **início real**, **término real**, e **data de vencimento** | 
 | Campos que exigem uma ID de registro e um tipo de pesquisa | Chave primária | Alguns campos que fazem referência a outro registro de entidade exigem a ID do registro e um tipo de pesquisa. | 
 ||||
 
@@ -187,7 +187,7 @@ Para obter mais informações sobre como solucionar problemas de aplicativos ló
 
 ## <a name="connector-reference"></a>Referência de conector
 
-Para obter detalhes técnicos, como gatilhos, ações e limites, conforme descrito pelo arquivo de Swagger do conector, confira a [página de referência do conector](/connectors/crm/). 
+Para obter detalhes técnicos, como gatilhos, ações e limites, conforme descrito pelo arquivo de Swagger do conector, confira a [página de referência do conector](/connectors/dynamicscrmonline/). 
 
 ## <a name="get-support"></a>Obtenha suporte
 

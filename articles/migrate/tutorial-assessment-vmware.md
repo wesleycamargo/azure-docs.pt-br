@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7ad5f22b0604cb9de38f7990c88d760df97098d9
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: dc2fb3faddc8af30edd66b926259c05580d9872a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235828"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104515"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Descobrir e avaliar as VMs do VMware locais para migração para o Azure
 
@@ -179,16 +179,16 @@ Importe o arquivo baixado para o vCenter Server.
 3. Na área de trabalho, clique no atalho **Executar coletor**.
 4. Clique em **Verificar se há atualizações** na barra superior da interface do usuário do coletor e verifique se o coletor está executando a versão mais recente. Caso contrário, você pode optar por baixar o pacote de atualização mais recente do link e atualizar o coletor.
 5. No Coletor de Migrações para Azure, abra **Configurar Pré-Requisitos**.
-    - Selecione a nuvem do Azure para a qual você planeja migrar (Azure Global ou Azure Governamental).
-    - Aceite os termos de licença e leia as informações de terceiros.
-    - O coletor verifica se a VM tem acesso à Internet.
-    - Se a VM acessa a internet através de um proxy, clique em **Configurações de proxy** e especifique o endereço de proxy e a porta de escuta. Especifique as credenciais caso o proxy exija autenticação. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) sobre os requisitos de conectividade com a Internet e a [lista de URLs](https://docs.microsoft.com/azure/migrate/concepts-collector) acessada pelo coletor.
+   - Selecione a nuvem do Azure para a qual você planeja migrar (Azure Global ou Azure Governamental).
+   - Aceite os termos de licença e leia as informações de terceiros.
+   - O coletor verifica se a VM tem acesso à Internet.
+   - Se a VM acessa a internet através de um proxy, clique em **Configurações de proxy** e especifique o endereço de proxy e a porta de escuta. Especifique as credenciais caso o proxy exija autenticação. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) sobre os requisitos de conectividade com a Internet e a [lista de URLs](https://docs.microsoft.com/azure/migrate/concepts-collector) acessada pelo coletor.
 
-      > [!NOTE]
-      > O endereço de proxy deve ser inserido no formato http://ProxyIPAddress ou http://ProxyFQDN. Há suporte apenas para o proxy HTTP. Se você tiver um proxy de interceptação, a conexão de internet poderá falhar no início se o certificado de proxy não foi importado. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-collector) sobre como pode corrigir isso importando o certificado de proxy como um certificado confiável na VM do coletor.
+     > [!NOTE]
+     > O endereço de proxy deve ser inserido no formato <http://ProxyIPAddress> ou <http://ProxyFQDN>. Há suporte apenas para o proxy HTTP. Se você tiver um proxy de interceptação, a conexão de internet poderá falhar no início se o certificado de proxy não foi importado. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-collector) sobre como pode corrigir isso importando o certificado de proxy como um certificado confiável na VM do coletor.
 
-    - O coletor verifica se o serviço coletor está em execução. O serviço é instalado por padrão na VM do coletor.
-    - Baixe e instale o VMware PowerCLI.
+   - O coletor verifica se o serviço coletor está em execução. O serviço é instalado por padrão na VM do coletor.
+   - Baixe e instale o VMware PowerCLI.
 
 6. Em **Especificar detalhes do vCenter Server**, faça o seguinte:
     - Especifique o nome (FQDN) ou endereço IP do servidor do vCenter.

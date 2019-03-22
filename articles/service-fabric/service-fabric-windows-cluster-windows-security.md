@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/24/2017
 ms.author: dekapur
-ms.openlocfilehash: 1775eb4659ccc71d962d0beab9b605e01eb12f72
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 681ee66ca165ece170dd2a2ce2736cf55a44f1f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253611"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104073"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-windows-security"></a>Proteger um cluster autônomo no Windows usando a Segurança do Windows
 Para evitar acesso não autorizado a um cluster do Service Fabric, você deve proteger o cluster. A segurança é especialmente importante quando o cluster executa cargas de trabalho de produção. Este artigo descreve como configurar a segurança de nó para nó e de cliente para nó usando a Segurança do Windows no arquivo *ClusterConfig.JSON*.  O processo corresponde à etapa configurar segurança de [Criar um cluster autônomo em execução no Windows](service-fabric-cluster-creation-for-windows-server.md). Para saber mais sobre como o Service Fabric usa a Segurança do Windows, veja [Cenários de segurança de cluster](service-fabric-cluster-security.md).
@@ -32,79 +32,82 @@ Para evitar acesso não autorizado a um cluster do Service Fabric, você deve pr
 ## <a name="configure-windows-security-using-gmsa"></a>Configurar a segurança do Windows usando gMSA  
 O arquivo de configuração *ClusterConfig.gMSA.Windows.MultiMachine.JSON* de exemplo baixado com o pacote de clusters independentes [Microsoft.Azure.ServiceFabric.WindowsServer<version>.zip](https://go.microsoft.com/fwlink/?LinkId=730690) contém um modelo para a configuração da segurança do Windows usando [Conta de Serviço Gerenciado por Grupo (gMSA)](https://technet.microsoft.com/library/hh831782.aspx):  
 
-```  
+```
 "security": {
-            "ClusterCredentialType": "Windows",
-            "ServerCredentialType": "Windows",
-            "WindowsIdentities": {  
-                "ClustergMSAIdentity": "[gMSA Identity]", 
-                "ClusterSPN": "[Registered SPN for the gMSA account]",
-                "ClientIdentities": [  
-                    {  
-                        "Identity": "domain\\username",  
-                        "IsAdmin": true  
-                    }  
-                ]  
-            }  
-        }  
-```  
+    "ClusterCredentialType": "Windows",
+    "ServerCredentialType": "Windows",
+    "WindowsIdentities": {  
+        "ClustergMSAIdentity": "[gMSA Identity]",
+        "ClusterSPN": "[Registered SPN for the gMSA account]",
+        "ClientIdentities": [
+            {
+                "Identity": "domain\\username",
+                "IsAdmin": true
+            }
+        ]
+    }
+}
+```
 
 | **Parâmetro de configuração** | **Descrição** |
 | --- | --- |
 | ClusterCredentialType |Defina como *Windows* para ativar a segurança do Windows para a comunicação do nó de nó.  | 
-| ServerCredentialType |Definido como *Windows* para habilitar a Segurança do Windows para comunicação de cliente a nó. |  
-| WindowsIdentities |Contém as identidades do cluster e do cliente. |  
-| ClustergMSAIdentity |Configura a segurança de nó para nó. Uma conta de serviço gerenciado de grupo. |  
-| ClusterSPN |SPN registrado para a conta gMSA|  
-| ClientIdentities |Configura a segurança de cliente para nó. Uma matriz de contas de usuário do cliente. | 
-| Identidade |Adicione o usuário de domínio, domínio\nomedeusuário, à identidade do cliente. |  
-| IsAdmin |Defina como true para especificar que o usuário de domínio tem acesso de cliente de administrador ou false para acesso de cliente de usuário. |  
+| ServerCredentialType |Definido como *Windows* para habilitar a Segurança do Windows para comunicação de cliente a nó. |
+| WindowsIdentities |Contém as identidades do cluster e do cliente. |
+| ClustergMSAIdentity |Configura a segurança de nó para nó. Uma conta de serviço gerenciado de grupo. |
+| ClusterSPN |SPN registrado para a conta gMSA|
+| ClientIdentities |Configura a segurança de cliente para nó. Uma matriz de contas de usuário do cliente. |
+| Identidade |Adicione o usuário de domínio, domínio\nomedeusuário, à identidade do cliente. |
+| IsAdmin |Defina como true para especificar que o usuário de domínio tem acesso de cliente de administrador ou false para acesso de cliente de usuário. |
 
-[A segurança entre nós](service-fabric-cluster-security.md#node-to-node-security) é configurada definindo **ClustergMSAIdentity** quando a malha do serviço precisar ser executada em gMSA. Para criar as relações de confiança entre os nós, eles deverão estar cientes uns dos outros. Isso pode ser feito de duas maneiras diferentes: especifique a conta de serviço gerenciada por grupo que inclui todos os nós no cluster, ou especifique o grupo de máquina de domínio que inclui todos os nós no cluster. É altamente recomendável usar a abordagem de [gMSA (Conta de Serviço Gerenciado de Grupo)](https://technet.microsoft.com/library/hh831782.aspx) , especialmente para clusters maiores (com mais de 10 nós) ou para clusters com probabilidade de aumentar ou reduzir.  
+> [!NOTE]
+> O valor de ClustergMSAIdentity não pode incluir o nome de domínio e só pode ser o nome de conta de serviço gerenciado de grupo. I.E. "mysfgmsa" está correto e ambos "mydomain / / mysfgmsa" ou "mysfgmsa@mydomain" são inválidos; porque o domínio é insinuado pela máquina host.
+
+[A segurança entre nós](service-fabric-cluster-security.md#node-to-node-security) é configurada definindo **ClustergMSAIdentity** quando a malha do serviço precisar ser executada em gMSA. Para criar as relações de confiança entre os nós, eles deverão estar cientes uns dos outros. Isso pode ser feito de duas maneiras diferentes: Especifique o grupo de conta de serviço gerenciado que inclui todos os nós no cluster ou o grupo de computador do domínio que inclui todos os nós no cluster. É altamente recomendável usar a abordagem de [gMSA (Conta de Serviço Gerenciado de Grupo)](https://technet.microsoft.com/library/hh831782.aspx) , especialmente para clusters maiores (com mais de 10 nós) ou para clusters com probabilidade de aumentar ou reduzir.  
 Essa abordagem não exige a criação de um grupo de domínios para o qual os administradores de cluster receberam direitos de acesso para adicionar e remover membros. Essas contas também são úteis para gerenciamento automático de senha. Para obter mais informações, confira [Introdução a contas de serviços gerenciados de grupo](https://technet.microsoft.com/library/jj128431.aspx).  
  
-[Segurança de cliente para nó](service-fabric-cluster-security.md#client-to-node-security) é configurada usando **ClientIdentities**. Para estabelecer a confiança entre um cliente e o cluster, você deverá configurar o cluster para saber em quais identidades de cliente ele poderá confiar. Isso pode ser feito de duas maneiras diferentes: especifique os usuários do grupo de domínio que podem se conectar ou especifique os usuários de nó do domínio que podem se conectar. O Service Fabric oferece suporte a dois tipos de controle de acesso diferentes para clientes conectados a um cluster do Service Fabric: administrador e usuário. O controle de acesso oferece a capacidade para que o administrador de cluster limite o acesso a determinados tipos de operação de cluster para diferentes grupos de usuários, tornando o cluster mais seguro.  Os administradores têm acesso completo aos recursos de gerenciamento (incluindo recursos de leitura/gravação). Os usuários, por padrão, têm apenas acesso de leitura aos recursos de gerenciamento (por exemplo, recursos de consulta) e a capacidade de resolver serviços e aplicativos. Para saber mais sobre controles de acesso, veja [Controle de acesso baseado em função para clientes do Service Fabric](service-fabric-cluster-security-roles.md).  
+[Segurança de cliente para nó](service-fabric-cluster-security.md#client-to-node-security) é configurada usando **ClientIdentities**. Para estabelecer a confiança entre um cliente e o cluster, você deverá configurar o cluster para saber em quais identidades de cliente ele poderá confiar. Isso pode ser feito de duas maneiras diferentes: Especifique os usuários do grupo de domínio que podem se conectar ou especifique os usuários de nó de domínio que podem se conectar. O Service Fabric oferece suporte a dois tipos de controle de acesso diferentes para clientes conectados a um cluster do Service Fabric: administrador e usuário. O controle de acesso oferece a capacidade para que o administrador de cluster limite o acesso a determinados tipos de operação de cluster para diferentes grupos de usuários, tornando o cluster mais seguro.  Os administradores têm acesso completo aos recursos de gerenciamento (incluindo recursos de leitura/gravação). Os usuários, por padrão, têm apenas acesso de leitura aos recursos de gerenciamento (por exemplo, recursos de consulta) e a capacidade de resolver serviços e aplicativos. Para saber mais sobre controles de acesso, veja [Controle de acesso baseado em função para clientes do Service Fabric](service-fabric-cluster-security-roles.md).  
  
 A seção **security** do exemplo a seguir configura a segurança do Windows usando o gMSA e especifica que as máquinas no *ServiceFabric.clusterA.contoso.com* gMSA fazem parte do cluster e que *CONTOSO \ usera* tem acesso do cliente admin:  
   
-```  
+```
 "security": {
-    "ClusterCredentialType": "Windows",            
+    "ClusterCredentialType": "Windows",
     "ServerCredentialType": "Windows",
-    "WindowsIdentities": {  
-        "ClustergMSAIdentity" : "ServiceFabric.clusterA.contoso.com",  
-        "ClusterSPN" : "http/servicefabric/clusterA.contoso.com",  
-        "ClientIdentities": [{  
-            "Identity": "CONTOSO\\usera",  
-            "IsAdmin": true  
-        }]  
-    }  
-}  
-```  
+    "WindowsIdentities": {
+        "ClustergMSAIdentity" : "ServiceFabric.clusterA.contoso.com",
+        "ClusterSPN" : "http/servicefabric/clusterA.contoso.com",
+        "ClientIdentities": [{
+            "Identity": "CONTOSO\\usera",
+            "IsAdmin": true
+        }]
+    }
+}
+```
   
 ## <a name="configure-windows-security-using-a-machine-group"></a>Configurar a segurança do Windows usando um grupo de máquinas  
 Esse modelo está sendo preterido. Recomenda-se usar o gMSA conforme descrito acima. O arquivo de configuração *ClusterConfig.Windows.MultiMachine.JSON* de exemplo baixado com o pacote de clusters independentes [Microsoft.Azure.ServiceFabric.WindowsServer<version>.zip](https://go.microsoft.com/fwlink/?LinkId=730690) contém um modelo para a configuração da segurança do Windows.  A segurança do Windows é configurada na seção **Propriedades** : 
 
 ```
 "security": {
-            "ClusterCredentialType": "Windows",
-            "ServerCredentialType": "Windows",
-            "WindowsIdentities": {
-                "ClusterIdentity" : "[domain\machinegroup]",
-                "ClientIdentities": [{
-                    "Identity": "[domain\username]",
-                    "IsAdmin": true
-                }]
-            }
-        }
+    "ClusterCredentialType": "Windows",
+    "ServerCredentialType": "Windows",
+    "WindowsIdentities": {
+        "ClusterIdentity" : "[domain\machinegroup]",
+        "ClientIdentities": [{
+            "Identity": "[domain\username]",
+            "IsAdmin": true
+        }]
+    }
+}
 ```
 
 | **Parâmetro de configuração** | **Descrição** |
 | --- | --- |
-| ClusterCredentialType |Defina como *Windows* para ativar a segurança do Windows para a comunicação do nó de nó.  | 
-| ServerCredentialType |Definido como *Windows* para habilitar a Segurança do Windows para comunicação de cliente a nó. |  
-| WindowsIdentities |Contém as identidades do cluster e do cliente. |  
-| ClusterIdentity |Use um nome de grupo de computadores, domínio\grupodecomputadores, para configurar a segurança de nó para nó. |  
+| ClusterCredentialType |Defina como *Windows* para ativar a segurança do Windows para a comunicação do nó de nó.  |
+| ServerCredentialType |Definido como *Windows* para habilitar a Segurança do Windows para comunicação de cliente a nó. |
+| WindowsIdentities |Contém as identidades do cluster e do cliente. |
+| ClusterIdentity |Use um nome de grupo de computadores, domínio\grupodecomputadores, para configurar a segurança de nó para nó. |
 | ClientIdentities |Configura a segurança de cliente para nó. Uma matriz de contas de usuário do cliente. |  
 | Identidade |Adicione o usuário de domínio, domínio\nomedeusuário, à identidade do cliente. |  
 | IsAdmin |Defina como true para especificar que o usuário de domínio tem acesso de cliente de administrador ou false para acesso de cliente de usuário. |  

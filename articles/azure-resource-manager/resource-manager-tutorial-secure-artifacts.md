@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 02/25/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 53cc987d13479fc0d9276ec80f33a163a2a6ded7
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: f7f235ce709fd81c4bb4c367774b4a96cd920e13
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817024"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120339"
 ---
 # <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>Tutorial: Proteger os artefatos em implantações de modelo do Azure Resource Manager
 
@@ -126,11 +126,11 @@ Um contêiner de Blob é necessário antes de carregar todos os arquivos.
 3. Selecione **Gerar URL e token SAS do blob**.
 4. Faça uma cópia da **URL de SAS do Blob**. No meio da URL está o nome do arquivo **SQLDatabaseExtension.bacpac**.  O nome do arquivo divide a URL em três partes:
 
-    - **Localização do artefato**: https://xxxxxxxxxxxxxx.blob.core.windows.net/sqlbacpac/. Verifique se a localização termina com "/".
-    - **Nome do arquivo BACPAC**: SQLDatabaseExtension.bacpac.
-    - **Token de SAS de localização do artefato**: verifique se o token é precedido por um "?".
+   - **Localização do artefato**: https://xxxxxxxxxxxxxx.blob.core.windows.net/sqlbacpac/. Verifique se a localização termina com "/".
+   - **Nome do arquivo BACPAC**: SQLDatabaseExtension.bacpac.
+   - **Token de SAS de localização do artefato**: verifique se o token é precedido por um "?".
 
-    Você precisa desses três valores em [Implantar o modelo](#deploy-the-template).
+     Você precisa desses três valores em [Implantar o modelo](#deploy-the-template).
 
 ## <a name="open-an-existing-template"></a>Abrir um modelo existente
 
@@ -146,13 +146,13 @@ Nesta sessão, você modifica o modelo criado no [Tutorial: Importar arquivos BA
 
     Há cinco recursos definidos no modelo:
 
-    * `Microsoft.Sql/servers`. Consulte a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers).
-    * `Microsoft.SQL/servers/securityAlertPolicies`. Consulte a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/securityalertpolicies).
-    * `Microsoft.SQL/servers/filewallRules`. Consulte a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers/firewallrules).
-    * `Microsoft.SQL/servers/databases`.  Consulte a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
-    * `Microsoft.SQL/server/databases/extensions`.  Consulte a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/extensions).
+   * `Microsoft.Sql/servers`. Consulte a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers).
+   * `Microsoft.SQL/servers/securityAlertPolicies`. Consulte a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/securityalertpolicies).
+   * `Microsoft.SQL/servers/filewallRules`. Consulte a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers/firewallrules).
+   * `Microsoft.SQL/servers/databases`.  Consulte a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
+   * `Microsoft.SQL/server/databases/extensions`.  Consulte a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/extensions).
 
-    É útil ter algumas noções básicas do modelo antes de personalizá-lo.
+     É útil ter algumas noções básicas do modelo antes de personalizá-lo.
 4. Selecione **Arquivo**>**Salvar como** para salvar uma cópia do arquivo no computador local com o nome **azuredeploy.json**.
 
 ## <a name="edit-the-template"></a>Editar o modelo

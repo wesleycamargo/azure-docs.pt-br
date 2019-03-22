@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2016
 ms.author: jeconnoc
-ms.openlocfilehash: 9d6cc542b6af0b508529c1392e16df93e1ba084d
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+ms.openlocfilehash: 4adc6ef6e7dd445eea3fd567072a995e3ac07dda
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005937"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539625"
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>Habilitar a comunicação para instâncias de função no Azure
 As funções de serviço de nuvem se comunicam por meio de conexões internas e externas. As conexões externas são chamadas de **pontos de extremidade de entrada**, enquanto as conexões internas são chamadas de **pontos de extremidade internos**. Este tópico descreve como modificar a [definição de serviço](cloud-services-model-and-package.md#csdef) para criar pontos de extremidade.
@@ -210,7 +210,7 @@ namespace WorkerRole1
       ServicePointManager.DefaultConnectionLimit = 12;
 
       // For information on handling configuration changes
-      // see the MSDN topic at http://go.microsoft.com/fwlink/?LinkId=166357.
+      // see the MSDN topic at https://go.microsoft.com/fwlink/?LinkId=166357.
       return base.OnStart();
     }
   }

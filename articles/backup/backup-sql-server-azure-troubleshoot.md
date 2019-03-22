@@ -6,22 +6,22 @@ author: anuragm
 manager: shivamg
 ms.service: backup
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 03/13/2019
 ms.author: anuragm
-ms.openlocfilehash: 0beb65d6ef7c036c8a294f53eeb3db327457ea84
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: e5565e257e511203043c84e499712cc6a0a78c3f
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428612"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286003"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Solucionar problemas de backup do SQL Server no Azure
 
 Este artigo fornece informações sobre solução de problemas para proteger VM do SQL Server no Azure (versão prévia).
 
-## <a name="public-preview-limitations"></a>Limitações da visualização pública
+## <a name="feature-consideration-and-limitations"></a>Recurso considerações e limitações
 
-Para exibir as limitações da Visualização Pública, consulte o artigo, [Fazer backup do banco de dados do SQL Server no Azure](backup-azure-sql-database.md#preview-limitations).
+Para exibir a consideração de recurso, consulte o artigo [backup do SQL Server em VMs do Azure](backup-azure-sql-database.md#feature-consideration-and-limitations).
 
 ## <a name="sql-server-permissions"></a>Permissões do SQL Server
 
@@ -37,7 +37,7 @@ Use as informações nas tabelas a seguir para solucionar problemas e erros enco
 
 | Severity | DESCRIÇÃO | Possíveis causas | Ação recomendada |
 |---|---|---|---|
-| Aviso | As configurações atuais para este banco de dados não dão suporte a determinados tipos de backup presentes na política associada. | <li>**BD mestre**: Apenas uma operação de backup de banco de dados completo pode ser executada no banco de dados mestre; nem backup **diferencial** nem backup de **logs** de transação são possíveis. </li> <li>Nenhum banco de dados no **modelo de recuperação simples** permite que backups de **logs** de transação sejam executados.</li> | Modifica as configurações de banco de dados, de modo que todos os tipos na política de backup têm suporte. Como alternativa, altere a política atual para incluir somente os tipos de backup com suporte. Caso contrário, os tipos de backup sem suporte serão ignorados durante o backup agendado ou o trabalho de backup falhará para backup ad-hoc.
+| Aviso | As configurações atuais para este banco de dados não dão suporte a determinados tipos de backup presentes na política associada. | <li>**BD mestre**: Apenas uma operação de backup de banco de dados completo pode ser executada no banco de dados mestre; nem **diferencial** backup nem transação **logs** backup é possível. </li> <li>Nenhum banco de dados no **modelo de recuperação simples** permite que backups de **logs** de transação sejam executados.</li> | Modifica as configurações de banco de dados, de modo que todos os tipos na política de backup têm suporte. Como alternativa, altere a política atual para incluir somente os tipos de backup com suporte. Caso contrário, os tipos de backup sem suporte serão ignorados durante o backup agendado ou o trabalho de backup irá falhar para backup ad hoc.
 
 
 ## <a name="backup-failures"></a>Falhas de backup
@@ -61,7 +61,7 @@ As tabelas a seguir são organizadas por código de erro.
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
-| A cadeia de logs está desfeita. | O banco de dados ou a VM é submetido a backup usando outra solução de backup, que trunca a cadeia de logs.|<ul><li>Verifique se outra solução de backup ou script está em uso. Nesse caso, pare a outra solução de backup. </li><li>Se o backup foi um backup de log ad-hoc, dispare um backup completo para iniciar uma nova cadeia de logs. Para backups de log agendados, nenhuma ação será necessária, pois o serviço de Backup do Azure acionará automaticamente um backup completo para corrigir esse problema.</li>|
+| A cadeia de logs está desfeita. | O banco de dados ou a VM é submetido a backup usando outra solução de backup, que trunca a cadeia de logs.|<ul><li>Verifique se outra solução de backup ou script está em uso. Nesse caso, pare a outra solução de backup. </li><li>Se o backup foi um backup de log do ad-hoc, dispare um backup completo para iniciar uma nova cadeia de logs. Para backups de log agendados, nenhuma ação será necessária, pois o serviço de Backup do Azure acionará automaticamente um backup completo para corrigir esse problema.</li>|
 
 ### <a name="usererroropeningsqlconnection"></a>UserErrorOpeningSQLConnection
 
@@ -73,14 +73,14 @@ As tabelas a seguir são organizadas por código de erro.
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
-| O primeiro backup completo está faltando para essa fonte de dados. | O backup completo está faltando para o banco de dados. Backups de log e diferenciais fazem parte de um backup completo, portanto, backups completos devem ser feitos antes de disparar backups de log ou diferenciais. | Dispare um backup completo ad-hoc.   |
+| O primeiro backup completo está faltando para essa fonte de dados. | O backup completo está faltando para o banco de dados. Backups de log e diferenciais fazem parte de um backup completo, portanto, backups completos devem ser feitos antes de disparar backups de log ou diferenciais. | Dispare um backup completo ad hoc.   |
 
 ### <a name="usererrorbackupfailedastransactionlogisfull"></a>UserErrorBackupFailedAsTransactionLogIsFull
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
 | Não é possível fazer backup como log de transações para a fonte de dados que está completo. | O espaço de log transacional do banco de dados está completo. | Para corrigir esse problema, consulte a [documentação do SQL](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-9002-database-engine-error). |
-| Este banco de dados SQL não dá suporte para o tipo de backup solicitado. | Réplicas secundárias do Grupo de Disponibilidade AlwaysOn não dão suporte para backups diferenciais e completos. | <ul><li>Se você disparou um backup ad-hoc, dispare os backups no nó primário.</li><li>Se o backup foi agendado por política, certifique-se de que o nó primário está registrado. Para registrar o nó, [siga as etapas para descobrir um banco de dados do SQL Server ](backup-azure-sql-database.md#discover-sql-server-databases).</li></ul> |
+| Este banco de dados SQL não dá suporte para o tipo de backup solicitado. | Réplicas secundárias do Grupo de Disponibilidade AlwaysOn não dão suporte para backups diferenciais e completos. | <ul><li>Se você disparado um backup ad hoc, dispare os backups no nó primário.</li><li>Se o backup foi agendado por política, certifique-se de que o nó primário está registrado. Para registrar o nó, [siga as etapas para descobrir um banco de dados do SQL Server ](backup-sql-server-database-azure-vms.md#discover-sql-server-databases).</li></ul> |
 
 ## <a name="restore-failures"></a>Restaurar falhas
 
@@ -136,6 +136,35 @@ Os códigos de erro a seguir são para configurar falhas de backup.
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
 | Intenção de proteção automática foi removida ou não é mais válida. | Quando você habilita a proteção automática em uma instância do SQL, os trabalhos de **Configurar Backup** são executados para todos os bancos de dados nessa instância. Se você desabilitar a proteção automática, enquanto os trabalhos estão em execução, os trabalhos **Em andamento** são cancelados com esse código de erro. | Habilite a proteção automática mais uma vez para proteger todos os bancos de dados restantes. |
+
+## <a name="re-registration-failures"></a>Falhas de reinscrição
+
+Seleção de um ou mais dos [sintomas](#symptoms) antes de disparar a operação registrar novamente.
+
+### <a name="symptoms"></a>Sintomas
+
+* Todas as operações como backup, restaurar e configurar o backup estão falhando na VM com um dos seguintes códigos de erro: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**
+* O **Status de Backup** para o Backup do item está mostrando **não pode ser acessado**. Embora você deve descartar todos os outros motivos que podem resultar no mesmo status:
+
+  * Falta de permissão para executar operações de backup relacionadas na VM  
+  * VM foi desligada devido a qual os backups não podem ocorrer
+  * Problemas de rede  
+
+    ![Registrar novamente a VM](./media/backup-azure-sql-database/re-register-vm.png)
+
+* No caso do grupo de disponibilidade always on, os backups começaram a falhar depois que você alterou a preferência de backup ou quando houve um failover
+
+### <a name="causes"></a>Causas
+Esses sintomas podem surgir devido a um ou mais dos seguintes motivos:
+
+  * Extensão foi excluída ou desinstalada do portal 
+  * Extensão foi desinstalada do **painel de controle** da VM sob **desinstalar ou alterar um programa** interface do usuário
+  * VM foi restaurada de volta no tempo usando a restauração de discos no local
+  * VM foi desligada por um longo período devido ao qual a configuração da extensão nele expirou
+  * VM foi excluída e outra VM foi criada com o mesmo nome e no mesmo grupo de recursos da VM excluída
+  * Um de nós do AG não recebeu a configuração de backup completa, isso pode ocorrer no momento do registro de grupo de disponibilidade para o cofre ou quando um novo nó é adicionado  <br>
+    Nos cenários acima, é recomendável para disparar a operação registrar novamente na VM. Essa opção só está disponível por meio do PowerShell e em breve estará disponível no portal do Azure.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

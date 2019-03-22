@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/15/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46466ac85a8be1dec273440751489833f12c00db
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ade40287bd38580a1e3f6377e54017bfe92bf452
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166804"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863399"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-replicon"></a>Tutorial: Integração do Azure Active Directory ao Replicon
 
@@ -196,7 +196,7 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Mixpan
 
     ![Perfil de usuário](./media/replicon-tutorial/ic777808.png "Perfil de usuário")
 
-     a. Na caixa de texto **Nome de Logon**, digite o endereço de e-mail do Microsoft Azure AD do usuário do Microsoft Azure AD que você deseja provisionar, como **BrittaSimon@contoso.com**.
+     a. No **nome de logon** caixa de texto, digite o endereço de email do usuário do AD do Azure que você deseja provisionar como **Brendafernandes\@contoso.com**.
 
     b. Para **Tipo de Autenticação**, selecione **SSO**.
 

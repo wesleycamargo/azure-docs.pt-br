@@ -11,18 +11,18 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 03/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 18cb4aae9470766b75c3c6519473660ac24ad4f0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 4be33b809ee2e620a565c9907a5b77833a279567
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003798"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848806"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Criar um workspace do Log Analytics com a CLI do Azure 2.0
 
-A CLI do Azure 2.0 é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts. Este início rápido mostra como usar a CLI do Azure 2.0 para implantar um workspace do Log Analytics no Azure Monitor. Um workspace do Log Analytics é um ambiente exclusivo para dados de log do Azure Monitor. Cada workspace tem seu próprio repositório de dados e a configuração, as fontes de dados e as soluções são configuradas para armazenar os dados em um determinado workspace. Você precisa de um workspace do Log Analytics se pretender coletar dados das seguintes fontes:
+A CLI do Azure 2.0 é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts. Este início rápido mostra como usar a CLI do Azure 2.0 para implantar um workspace do Log Analytics no Azure Monitor. Um workspace do Log Analytics é um ambiente exclusivo para dados de log do Azure Monitor. Cada espaço de trabalho tem seu próprio repositório de dados e configuração. As fontes de dados e as soluções são configuradas para armazenar seus dados em um determinado espaço de trabalho. Você precisa de um espaço de trabalho do Log Analytics se pretender coletar dados das seguintes fontes:
 
 * Recursos do Azure em sua assinatura  
 * Computadores locais monitorados pelo System Center Operations Manager  
@@ -43,6 +43,8 @@ Se você optar por instalar e usar a CLI localmente, este início rápido exigir
 
 ## <a name="create-a-workspace"></a>Criar um workspace
 Crie um workspace com [az group deployment create](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). O exemplo a seguir cria um workspace chamado *TestWorkspace* no grupo de recursos *Laboratório* no local *eastus* usando um modelo do Resource Manager de seu computador local. O modelo JSON está configurado para solicitar apenas o nome do workspace e especifica um valor padrão para os outros parâmetros que provavelmente seriam usados como uma configuração padrão em seu ambiente. Ou ainda armazenar o modelo em uma conta de armazenamento do Azure para acesso compartilhado na sua organização. Para obter mais informações sobre como trabalhar com modelos, veja [Implantar recursos com modelos do Resource Manager e a CLI do Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md)
+
+Para obter informações sobre regiões com suporte, consulte [regiões do Log Analytics está disponível no](https://azure.microsoft.com/regions/services/) e pesquise o Azure Monitor da **procurar um produto** campo. 
 
 Os parâmetros a seguir definem um valor padrão:
 
@@ -96,7 +98,7 @@ Os parâmetros a seguir definem um valor padrão:
         {
             "type": "Microsoft.OperationalInsights/workspaces",
             "name": "[parameters('workspaceName')]",
-            "apiVersion": "2017-03-15-preview",
+            "apiVersion": "2015-11-01-preview",
             "location": "[parameters('location')]",
             "properties": {
                 "sku": {
@@ -111,12 +113,12 @@ Os parâmetros a seguir definem um valor padrão:
     }
     ```
 
-2. Edite o modelo para atender às suas necessidades.  Revisão de referência[Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) para saber quais propriedades e os valores são suportados. 
+2. Edite o modelo para atender às suas necessidades. Revisão de referência[Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) para saber quais propriedades e os valores são suportados. 
 3. Salve esse arquivo como **deploylaworkspacetemplate.json** para uma pasta local.   
 4. Você está pronto para implantar o modelo. Use os seguintes comandos na pasta que contém o modelo:
 
     ```azurecli
-    azure group deployment create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deploylaworkspacetemplate.json
+    az group deployment create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deploylaworkspacetemplate.json
     ```
 
 A implantação pode levar alguns minutos para ser concluída. Quando ela for concluída, você verá uma mensagem semelhante que inclui o resultado:
@@ -129,4 +131,4 @@ Agora que já tem um workspace disponível, você pode configurar a coleta de mo
 * Para habilitar a coleta de dados de recursos do Azure com o Diagnóstico do Azure ou com o armazenamento do Azure, consulte [Coletar logs e as métricas do serviço do Azure para uso no Log Analytics](../platform/collect-azure-metrics-logs.md).  
 * Adicione o [System Center Operations Manager como uma fonte de dados](../platform/om-agents.md) para coletar dados de agentes que se reportam ao seu grupo de gerenciamento do Operations Manager e armazene-o em seu repositório de workspace do Log Analytics.  
 * Conecte-se ao [Configuration Manager](../platform/collect-sccm.md) para importar computadores que são membros de coleções na hierarquia.  
-* Examine as [soluções de monitoramento](../insights/solutions.md) disponíveis e como adicionar ou remover uma solução do workspace.
+* Examine as [soluções de monitoramento](../insights/solutions.md) disponíveis e como adicionar ou remover uma solução do espaço de trabalho.

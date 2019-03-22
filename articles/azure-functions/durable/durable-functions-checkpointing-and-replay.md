@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 5d2cf4d76ce6f44cb31f05d45f2ccbceccbe9c10
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: 9edcc313a9e88b657337ba631218388f70d4b41f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339358"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086744"
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>Pontos de verificação e reprodução nas Funções Duráveis (Azure Functions)
 
@@ -79,7 +79,7 @@ Quando o ponto de verificação for concluído, a função de orquestrador estar
 Após a conclusão, o histórico da função mostrado anteriormente se parece com o seguinte no Armazenamento de Tabelas do Azure (abreviado para fins de ilustração):
 
 | PartitionKey (InstanceId)                     | EventType             | Timestamp               | Entrada | NOME             | Result                                                    | Status |
-|----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|---------------------|
+|----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     |
 | eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | nulo  | E1_HelloSequence |                                                           |                     |
 | eaee885b | TaskScheduled         | 2017-05-05T18:45:32.670Z |       | E1_SayHello      |                                                           |                     |

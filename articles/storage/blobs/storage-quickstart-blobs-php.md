@@ -8,12 +8,12 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: rogarana
-ms.openlocfilehash: 58d1d47b548569f7542e24bd09a41299f12e496e
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 3e1738c3e5acbe63faf1d614e2435088efd8c4d6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53787878"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014779"
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>Transferir objetos de/para o Armazenamento de Blobs do Azure usando PHP
 Neste guia de início rápido, você aprenderá a usar PHP para carregar, baixar e listar blobs de blocos em um contêiner no Armazenamento de Blobs do Azure. 
@@ -24,7 +24,7 @@ Neste guia de início rápido, você aprenderá a usar PHP para carregar, baixar
 
 Verifique se você tem os pré-requisitos adicionais a seguir instalados:
 
-* [PHP](http://php.net/downloads.php)
+* [PHP](https://php.net/downloads.php)
 * [SDK do Armazenamento do Azure para PHP](https://github.com/Azure/azure-storage-php)
 
 ## <a name="download-the-sample-application"></a>Baixar o aplicativo de exemplo
@@ -74,7 +74,7 @@ This is the content of the blob uploaded: Hello Azure!
 ```
 Quando você pressiona a tecla exibida, o programa de exemplo exclui o contêiner de armazenamento e os arquivos. Antes de continuar, verifique se os dois documentos estão na pasta do servidor. Você pode abri-los e ver que eles são idênticos.
 
-Você também pode usar uma ferramenta como o [Gerenciador de Armazenamento do Azure](http://storageexplorer.com) para exibir os arquivos no Armazenamento de Blobs. O Gerenciador de Armazenamento do Azure é uma ferramenta gratuita de multiplataforma que permite que você acesse as informações da sua conta de armazenamento. 
+Você também pode usar uma ferramenta como o [Gerenciador de Armazenamento do Azure](https://storageexplorer.com) para exibir os arquivos no Armazenamento de Blobs. O Gerenciador de Armazenamento do Azure é uma ferramenta gratuita de multiplataforma que permite que você acesse as informações da sua conta de armazenamento. 
 
 Depois de verificar os arquivos, pressione qualquer tecla para concluir a demonstração e excluir os arquivos de teste. Agora que você sabe o que o exemplo faz, abra o arquivo example.rb para examinar o código. 
 

@@ -8,131 +8,131 @@ ms.author: mamccrea
 manager: kfile
 ms.topic: conceptual
 ms.date: 08/03/2018
-ms.openlocfilehash: 456167d3f17811aa77bb0c43165e5e70bb641814
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
-ms.translationtype: HT
+ms.openlocfilehash: 3d4c1bfa8b376ec50efc7b3cddc8d22a40e70892
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979005"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341386"
 ---
 # <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>Analisar dados JSON e Avro no Azure Stream Analytics
 
-O Azure Stream Analytics dá suporte ao processamento de eventos em formatos de dados CSV, JSON e Avro. JSON e Avro podem conter tipos complexos, como objetos aninhados (registros) e matrizes. 
-  
-## <a name="array-data-types"></a>Tipos de dados de matrizes  
+O Azure Stream Analytics dá suporte ao processamento de eventos em formatos de dados CSV, JSON e Avro. JSON e Avro podem conter tipos complexos, como objetos aninhados (registros) e matrizes.
+
+## <a name="array-data-types"></a>Tipos de dados de matrizes
 Tipos de dados de matriz são uma coleção ordenada de valores. Algumas operações típicas em valores da matriz são detalhadas abaixo. Estes exemplos supõem que os eventos de entrada tem uma propriedade chamada "arrayField" que é um tipo de dados de matriz.
 
 Esses exemplos usam as funções [GetArrayElement](https://msdn.microsoft.com/azure/stream-analytics/reference/getarrayelement-azure-stream-analytics), [GetArrayElements](https://msdn.microsoft.com/azure/stream-analytics/reference/getarrayelements-azure-stream-analytics), [GetArrayLength](https://msdn.microsoft.com/azure/stream-analytics/reference/getarraylength-azure-stream-analytics)e o operador [Aplicar](https://msdn.microsoft.com/azure/stream-analytics/reference/apply-azure-stream-analytics).
 
-## <a name="examples"></a>Exemplos  
- Selecione o elemento da matriz em um índice especificado (selecionando o primeiro elemento da matriz):  
-  
-```SQL 
-SELECT   
-    GetArrayElement(arrayField, 0) AS firstElement  
-FROM input  
-```  
-  
- Selecionar o comprimento da matriz:  
-  
-```SQL  
-SELECT   
-    GetArrayLength(arrayField) AS arrayLength  
-FROM input  
-```  
-  
-Selecione todos os elementos de matriz como eventos individuais. O operador [APLICAR](https://msdn.microsoft.com/azure/stream-analytics/reference/apply-azure-stream-analytics) junto com a função [GetArrayElements](https://msdn.microsoft.com/azure/stream-analytics/reference/getarrayelements-azure-stream-analytics) interna extrai todos os elementos da matriz como eventos individuais:  
-  
-```SQL  
-SELECT   
-    arrayElement.ArrayIndex,  
-    arrayElement.ArrayValue  
-FROM input as event  
-CROSS APPLY GetArrayElements(event.arrayField) AS arrayElement  
-```  
-  
-## <a name="record-data-types"></a>Tipos de dados do sistema  
+## <a name="examples"></a>Exemplos
+Selecione o elemento da matriz em um índice especificado (selecionando o primeiro elemento da matriz):
+
+```SQL
+SELECT
+    GetArrayElement(arrayField, 0) AS firstElement
+FROM input
+```
+
+Selecionar o comprimento da matriz:
+
+```SQL
+SELECT
+    GetArrayLength(arrayField) AS arrayLength
+FROM input
+```
+
+Selecione todos os elementos de matriz como eventos individuais. O operador [APLICAR](https://msdn.microsoft.com/azure/stream-analytics/reference/apply-azure-stream-analytics) junto com a função [GetArrayElements](https://msdn.microsoft.com/azure/stream-analytics/reference/getarrayelements-azure-stream-analytics) interna extrai todos os elementos da matriz como eventos individuais:
+
+```SQL
+SELECT
+    arrayElement.ArrayIndex,
+    arrayElement.ArrayValue
+FROM input as event
+CROSS APPLY GetArrayElements(event.arrayField) AS arrayElement
+```
+
+## <a name="record-data-types"></a>Tipos de dados do sistema
 Tipos de dados de registro são usados para representar matrizes JSON e Avro quando formatos correspondentes são usados em fluxos de dados de entrada. Esses exemplos demonstram um sensor de exemplo, o que está lendo os eventos de entrada no formato JSON. Aqui está o exemplo de um único evento:
-  
-```json  
-{  
-    "DeviceId" : "12345",  
-    "Location" : 
+
+```json
+{
+    "DeviceId" : "12345",
+    "Location" :
     {
         "Lat": 47,
-        "Long": 122 
-    },  
-    "SensorReadings" :  
-    {  
-        "Temperature" : 80,  
-        "Humidity" : 70,  
-        "CustomSensor01" : 5,  
-        "CustomSensor02" : 99  
-    }  
-}  
-```  
-  
-## <a name="examples"></a>Exemplos  
-Use a notação de ponto (.) para acessar campos aninhados. Por exemplo, esta consulta seleciona o Lat e coordena Long sob a propriedade local nos dados JSON anteriores: 
-  
-```SQL  
-SELECT  
-    DeviceID,  
-    Location.Lat,  
-    Location.Long  
-FROM input  
-```  
+        "Long": 122
+    },
+    "SensorReadings" :
+    {
+        "Temperature" : 80,
+        "Humidity" : 70,
+        "CustomSensor01" : 5,
+        "CustomSensor02" : 99
+    }
+}
+```
 
-Use a função [GetRecordPropertyValue](https://msdn.microsoft.com/azure/stream-analytics/reference/getrecordpropertyvalue-azure-stream-analytics) se o nome da propriedade for desconhecido. Por exemplo, imagine que um fluxo de dados de exemplo precisa ser unida com limites de recipiente de dados de referência para cada sensor do dispositivo:  
+## <a name="examples"></a>Exemplos
+Use a notação de ponto (.) para acessar campos aninhados. Por exemplo, esta consulta seleciona o Lat e coordena Long sob a propriedade local nos dados JSON anteriores:
 
-```json  
-{  
-    "DeviceId" : "12345",  
-    "SensorName" :  "Temperature",
+```SQL
+SELECT
+    DeviceID,
+    Location.Lat,
+    Location.Long
+FROM input
+```
+
+Use a função [GetRecordPropertyValue](https://msdn.microsoft.com/azure/stream-analytics/reference/getrecordpropertyvalue-azure-stream-analytics) se o nome da propriedade for desconhecido. Por exemplo, imagine que um fluxo de dados de exemplo precisa ser unida com limites de recipiente de dados de referência para cada sensor do dispositivo:
+
+```json
+{
+    "DeviceId" : "12345",
+    "SensorName" : "Temperature",
     "Value" : 75
-}  
-```  
-  
-```SQL  
-SELECT  
-    input.DeviceID,  
-    thresholds.SensorName  
-FROM input  
-JOIN thresholds  
-ON  
-    input.DeviceId = thresholds.DeviceId  
-WHERE  
-    GetRecordPropertyValue(input.SensorReadings, thresholds.SensorName) > thresholds.Value  
-```  
-  
-Para converter os campos de registro em eventos separados, use o operador [APLICAR](https://msdn.microsoft.com/azure/stream-analytics/reference/apply-azure-stream-analytics) junto com a função [GetRecordProperties](https://msdn.microsoft.com/azure/stream-analytics/reference/getrecordproperties-azure-stream-analytics). Por exemplo, para converter um fluxo de exemplo em um fluxo de eventos com leituras de sensor individuais, essa consulta pode ser usada:  
-  
-```SQL  
-SELECT   
-    event.DeviceID,  
-    sensorReading.PropertyName,  
-    sensorReading.PropertyValue  
-FROM input as event  
-CROSS APPLY GetRecordProperties(event.SensorReadings) AS sensorReading  
-```  
+}
+```
 
-Você pode selecionar todas as propriedades de um registro aninhado usando o curinga'*'. Considere o exemplo a seguir:  
+```SQL
+SELECT
+    input.DeviceID,
+    thresholds.SensorName
+FROM input
+JOIN thresholds
+ON
+    input.DeviceId = thresholds.DeviceId
+WHERE
+    GetRecordPropertyValue(input.SensorReadings, thresholds.SensorName) > thresholds.Value
+```
 
-```SQL  
-SELECT input.SensorReadings.*  
-FROM input  
-```  
+Para converter os campos de registro em eventos separados, use o operador [APLICAR](https://msdn.microsoft.com/azure/stream-analytics/reference/apply-azure-stream-analytics) junto com a função [GetRecordProperties](https://msdn.microsoft.com/azure/stream-analytics/reference/getrecordproperties-azure-stream-analytics). Por exemplo, para converter um fluxo de exemplo em um fluxo de eventos com leituras de sensor individuais, essa consulta pode ser usada:
 
-O resultado é:  
+```SQL
+SELECT
+    event.DeviceID,
+    sensorReading.PropertyName,
+    sensorReading.PropertyValue
+FROM input as event
+CROSS APPLY GetRecordProperties(event.SensorReadings) AS sensorReading
+```
 
-```json  
-{  
-    "Temperature" : 80,  
-    "Humidity" : 70,  
-    "CustomSensor01" : 5,  
-    "CustomSensor022" : 99  
-}  
-```  
-  
-## <a name="see-also"></a>Veja também  
- [Tipos de dados no Azure Stream Analytics](https://msdn.microsoft.com/azure/stream-analytics/reference/data-types-azure-stream-analytics)  
+Você pode selecionar todas as propriedades de um registro aninhado usando o curinga'*'. Considere o exemplo a seguir:
+
+```SQL
+SELECT input.SensorReadings.*
+FROM input
+```
+
+O resultado é:
+
+```json
+{
+    "Temperature" : 80,
+    "Humidity" : 70,
+    "CustomSensor01" : 5,
+    "CustomSensor022" : 99
+}
+```
+
+## <a name="see-also"></a>Veja também
+[Tipos de dados no Azure Stream Analytics](https://msdn.microsoft.com/azure/stream-analytics/reference/data-types-azure-stream-analytics)

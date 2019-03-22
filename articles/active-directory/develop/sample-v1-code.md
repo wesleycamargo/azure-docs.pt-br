@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a05b1885871c83da79839448fce2814016f0c082
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 64c199df2012e6ce3b3de5f34989cf5cbc135fdc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194556"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101016"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Exemplos de código do Azure Active Directory (ponto de extremidade v1.0)
 
@@ -45,7 +45,7 @@ Você também pode contribuir com nossas amostras no GitHub. Para saber como, co
 Este exemplo mostra como escrever um aplicativo de página única protegido com o Azure AD.
 
  Plataforma | Chama sua própria API | Chama outra API da Web
- -------- |  --------------------- | ------------------ | ----------------
+ -------- |  --------------------- | ------------------ 
 ![JavaScript](media/sample-v2-code/logo_js.png) | [javascript-singlepageapp](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |
 ![Angular JS](media/sample-v2-code/logo_angular.png) | [angularjs-singlepageapp](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) | [angularjs-singlepageapp-cors](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp-dotnet-webapi)
 
@@ -67,8 +67,8 @@ Os exemplos a seguir ilustram os usuários assinantes de aplicativos Web. Alguns
 
 Os exemplos a seguir mostram como implementar o RBAC (controle de acesso baseado em função). O RBAC é usado para restringir as permissões de determinados recursos em um aplicativo Web para determinados usuários. Os usuários estão autorizados dependendo se pertencerem a um **grupo do Azure AD** ou se têm uma determinada **função** do aplicativo.
 
-Plataforma | Amostra
- -------- | -------------------
+Plataforma | Amostra |
+ -------- | ------------------- |
 ![ASP.NET 4.5](media/sample-v2-code/logo_NETframework.png)<p/> ASP.NET 4.5 | [dotnet-webapp-groupclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-groupclaims) <p/>  [dotnet-webapp-roleclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) | Um aplicativo web .NET 4.5 MVC que usa Azure AD **papéis** de autorização
 
 ## <a name="desktop-and-mobile-public-client-applications-calling-microsoft-graph-or-a-web-api"></a>Aplicativos de desktop e mobile cliente público chamar Microsoft Graph ou uma API da Web
@@ -95,7 +95,7 @@ Mobile (iOS)           | ![iOS / Objective C ou swift](media/sample-v2-code/logo
 Os exemplos a seguir mostram aplicativos desktop ou Web que acessam o Microsoft Graph ou uma API da Web com a identidade do aplicativo (sem usuário).
 
 Aplicativo cliente | Plataforma | Fluxo/Concessão | Chama uma API da Web ASP.NET ou ASP.NET Core 2.0
------------------- | -------- | ---------- | -------------------- | -------------------------
+------------------ | -------- | ---------- | -------------------- 
 Aplicativo de daemon (Console)          | ![.NET](media/sample-v2-code/logo_NETframework.png) | Credenciais do cliente com o segredo do aplicativo ou certificado | [dotnet-daemon](https://github.com/azure-samples/active-directory-dotnet-daemon)</p> [dotnet-daemon-certificate-credential](https://github.com/azure-samples/active-directory-dotnet-daemon-certificate-credential)
 Aplicativo de daemon (Console)         | ![.NET](media/sample-v2-code/logo_NETcore.png) | Credenciais do cliente com certificado| [dotnetcore-daemon-certificate-credential](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-certificate-credential)
 Aplicativo Web ASP.NET  | ![.NET](media/sample-v2-code/logo_NETframework.png) | Credenciais do cliente | [dotnet-webapp-webapi-oauth2-appidentity](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-appidentity)

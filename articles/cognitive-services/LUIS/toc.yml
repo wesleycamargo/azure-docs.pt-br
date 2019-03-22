@@ -10,6 +10,14 @@ items:
   items:
   - name: Compilar um domínio de domínio predefinido
     href: luis-get-started-create-app.md
+  - name: Usar o portal do LUIS
+    items:
+    - name: 1. Criar um aplicativo
+      displayName: intent, entity, create app, test, example utterance
+      href: get-started-portal-build-app.md
+    - name: 2. Implantar um aplicativo
+      displayName: assign key, assign resource, add key, add resource, test, deploy, endpoint, query, publish
+      href: get-started-portal-deploy-app.md
   - name: Usar o SDK do .NET
     items:
     - name: Ponto de extremidade de previsão da consulta
@@ -251,6 +259,7 @@ items:
   - name: Privacidade do usuário
     href: luis-user-privacy.md
   - name: Regiões
+    displayName: failover, fail-over, fail over, Europe, EU, Austrailia, business continuity, bcdr
     href: luis-reference-regions.md
   - name: Limites
     href: luis-boundaries.md
@@ -374,6 +383,7 @@ items:
   - name: Disponibilidade regional
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Suporte de idioma e região
+    displayName: phrase list recommendations, multi-language, translator, locale, language, English, Chinese, Dutch, French, Germain, Italian, Japanese, Korean, Portuguese, Spanish, Turkish, Keigo, informal Japanese, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens
     href: luis-language-support.md
   - name: Roteiro do Azure
     href: https://aka.ms/luis-roadmap
@@ -393,9 +403,9 @@ items:
     href: https://blog.botframework.com/category/luis/
   - name: Base de Dados de Conhecimento
     href: https://cognitive.uservoice.com/knowledgebase/topics/127872-luis-language-understanding-intelligent-service
-ms.openlocfilehash: 5fc7a290d14ba1de59be758905fdd934ab772745
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 59950ced82f3b50ec5d0fe340157016954d2ff0b
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340359"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57779752"

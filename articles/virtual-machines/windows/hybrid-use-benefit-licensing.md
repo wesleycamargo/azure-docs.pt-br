@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing-ms
-ms.openlocfilehash: 4de6e4429543ea4f691cc3a38c15b896b866075b
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 64e9350606748116d2eef247790e88ed0d576c3f
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980713"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570361"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Benefício Híbrido do Azure para Windows Server
 Para clientes com o Software Assurance, o Benefício Híbrido do Azure para Windows Server permite usar as licenças locais do Windows Server e executar máquinas virtuais do Windows no Azure por um custo reduzido. Você pode usa o Benefício Híbrido do Azure para Windows Server para implantar novas máquinas virtuais com Windows OS. Este artigo percorre as etapas sobre como implantar novas VMs com o Benefício Híbrido do Azure para Windows Server e como você pode atualizar VMs existentes e em execução. Para saber mais sobre licenciamento e economia de custo do Benefício Híbrido do Azure para Windows Server, consulte a [página de licenciamento do Benefício Híbrido do Azure para Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -33,7 +33,7 @@ Para clientes com o Software Assurance, o Benefício Híbrido do Azure para Wind
 >
 
 > [!NOTE]
-> Para VMs clássicas, há suporte apenas para a implantação de uma nova VM a partir de imagens personalizadas locais. Para aproveitar os recursos com suporte neste artigo, você deve primeiro migrar as VMs clássicas para o modelo do Resource Manager.
+> Para VMs clássicas, há suporte para somente implantação nova VM a partir em imagens personalizadas do local. Para aproveitar os recursos com suporte neste artigo, você deve primeiro migrar as VMs clássicas para o modelo do Resource Manager.
 >
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
@@ -53,7 +53,7 @@ Todas as imagens baseadas em Windows Server OS têm suporte para Benefício Híb
 ### <a name="portal"></a>Portal
 Para criar uma VM com Benefício Híbrido do Azure para Windows Server, use a alternância na seção “Salvar dinheiro”.
 
-### <a name="powershell"></a>Powershell
+### <a name="powershell"></a>PowerShell
 
 
 ```powershell
@@ -77,11 +77,11 @@ az vm create \
 ### <a name="template"></a>Modelo
 Nos modelos do Resource Manager, um parâmetro adicional para `licenseType` deve ser especificado. Você pode ler mais sobre a [criação de modelos do Azure Resource Manager](../../resource-group-authoring-templates.md)
 ```json
-"properties": {  
-   "licenseType": "Windows_Server",
-   "hardwareProfile": {
+"properties": {
+    "licenseType": "Windows_Server",
+    "hardwareProfile": {
         "vmSize": "[variables('vmSize')]"
-   }
+    }
 ```
 
 ## <a name="convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server"></a>Converter uma VM existente usando o Benefício Híbrido do Azure para Windows Server
@@ -94,7 +94,7 @@ Se houver uma VM existente que você deseja converter para aproveitar o Benefíc
 ### <a name="portal"></a>Portal
 Na folha VM do portal, você pode atualizar a VM para usar o Benefício Híbrido do Azure selecionando a opção de “Configuração” e alternar a opção “Benefício Híbrido do Azure”
 
-### <a name="powershell"></a>Powershell
+### <a name="powershell"></a>PowerShell
 - Converter VMs do Windows Server existentes para o Benefício Híbrido do Azure para Windows Server
 
     ```powershell
@@ -124,7 +124,7 @@ Depois de implantar sua VM por meio do PowerShell, modelo do Gerenciador de Recu
 ### <a name="portal"></a>Portal
 No portal de folha de VM, você pode ver a alternância para o Benefício Híbrido do Azure para Windows Server, selecionando a guia "Configuração".
 
-### <a name="powershell"></a>Powershell
+### <a name="powershell"></a>PowerShell
 O exemplo a seguir mostra o tipo de licença para uma única VM
 ```powershell
 Get-AzVM -ResourceGroup "myResourceGroup" -Name "myVM"
@@ -159,9 +159,9 @@ Para ver e contar todas as máquinas virtuais implantadas com o Benefício Híbr
 ### <a name="portal"></a>Portal
 Na folha de recursos de conjuntos de dimensionamento de máquina Virtual ou Máquina Virtual, você pode exibir uma lista de todas as VMs e tipo de licenciamento, configurando a coluna da tabela para incluir o "Benefício Híbrido do Azure". A configuração da VM pode ser "Habilitado", "Não habilitado" ou "Sem suporte".
 
-### <a name="powershell"></a>Powershell
+### <a name="powershell"></a>PowerShell
 ```powershell
-$vms = Get-AzVM 
+$vms = Get-AzVM
 $vms | ?{$_.LicenseType -like "Windows_Server"} | select ResourceGroupName, Name, LicenseType
 ```
 
@@ -171,7 +171,7 @@ az vm list --query "[?licenseType=='Windows_Server']" -o table
 ```
 
 ## <a name="deploy-a-virtual-machine-scale-set-with-azure-hybrid-benefit-for-windows-server"></a>Implantar um Conjunto de Dimensionamento de Máquinas Virtuais com o Benefício Híbrido do Azure para Windows Server
-Nos modelos do Gerenciador de Recursos de seu conjunto de dimensionamento de máquinas virtuais, um parâmetro adicional `licenseType` deve ser especificado dentro da sua propriedade VirtualMachineProfile. Você pode fazer isso durante a criação ou atualização para a escala definida por meio do modelo do ARM, Powershell, CLI do Azure ou REST.
+Nos modelos do Gerenciador de Recursos de seu conjunto de dimensionamento de máquinas virtuais, um parâmetro adicional `licenseType` deve ser especificado dentro da sua propriedade VirtualMachineProfile. Você pode fazer isso durante a criação ou atualizar seu conjunto de dimensionamento por meio do modelo ARM, PowerShell, CLI do Azure ou REST.
 
 O exemplo a seguir usa um modelo ARM com uma imagem do Windows Server 2016 Datacenter:
 ```json

@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 01/18/2019
 ms.author: alkohli
-ms.openlocfilehash: d0d5ee18e37436562f1e9e15571dc39fb0e00129
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: a81eef9e3f7892afa1d64befec35852381ffe17b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875015"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117737"
 ---
 # <a name="what-is-azure-data-box"></a>O que é o Azure Data Box?
 
@@ -44,11 +44,11 @@ O Data Box foi projetado para mover grandes quantidades de dados para o Azure co
 - **Velocidade** – a interfaces de rede do Data Box usa 1 Gbps ou 10 Gbps para mover até 80 TB de dados para o Azure.
 
 - **Seguro** – o Data Box tem proteções de segurança internas para o dispositivo, os dados e o serviço.
-    - O dispositivo tem uma caixa reforçada protegida por parafusos resistentes a adulteração e adesivos com evidência de adulteração. 
-    - Os dados do dispositivo são sempre protegidos por uma criptografia AES de 256 bits.
-    - O dispositivo só pode ser desbloqueado com uma senha fornecida no portal do Azure.
-    - O serviço é protegido pelos recursos de segurança do Azure.
-    - Após o upload dos dados no Azure, os discos do dispositivo são apagados, de acordo com os padrões NIST 800-88r1.
+  - O dispositivo tem uma caixa reforçada protegida por parafusos resistentes a adulteração e adesivos com evidência de adulteração. 
+  - Os dados do dispositivo são sempre protegidos por uma criptografia AES de 256 bits.
+  - O dispositivo só pode ser desbloqueado com uma senha fornecida no portal do Azure.
+  - O serviço é protegido pelos recursos de segurança do Azure.
+  - Após o upload dos dados no Azure, os discos do dispositivo são apagados, de acordo com os padrões NIST 800-88r1.
     
     Para obter mais informações, acesse [Segurança e proteção de dados do Azure Data Box](data-box-security.md).
 

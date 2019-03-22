@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/09/2018
+ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: e86b6af562208e51e36b4679fd088ea399ce70b8
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
-ms.translationtype: HT
+ms.openlocfilehash: 4128ad53f30e74fb72f6256b78587cc222f4c282
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2018
-ms.locfileid: "27745771"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838707"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Usar o serviço StorSimple Device Manager para exibir e gerenciar alertas do StorSimple
 
@@ -56,7 +56,7 @@ Você pode escolher se deseja ser notificado por email das condições de alerta
 > [!NOTE]
 > Você pode inserir um máximo de 20 endereços de email por dispositivo.
 
-Depois de habilitar a notificação por email para um dispositivo, os membros da lista de notificação receberão uma mensagem de email sempre que um alerta crítico ocorrer. As mensagens serão enviadas por *storsimple-alerts-noreply@mail.windowsazure.com* e descreverão a condição de alerta. Os destinatários podem clicar em **Cancelar inscrição** para serem removidos da lista de notificação de email.
+Depois de habilitar a notificação por email para um dispositivo, os membros da lista de notificação receberão uma mensagem de email sempre que um alerta crítico ocorrer. As mensagens serão enviadas por *storsimple de alertas de noreply\@mail.windowsazure.com* e descreverão a condição de alerta. Os destinatários podem clicar em **Cancelar inscrição** para serem removidos da lista de notificação de email.
 
 #### <a name="to-enable-email-notification-of-alerts-for-a-device"></a>Para habilitar a notificação por email de alertas para um dispositivo
 1. Vá até o seu serviço do Gerenciador de Dispositivos StorSimple. Na lista de dispositivos, selecione e clique no dispositivo que você deseja configurar.
@@ -68,7 +68,7 @@ Depois de habilitar a notificação por email para um dispositivo, os membros da
    
    1. No campo **Enviar notificação por email**, selecione **SIM**.
    2. No campo **Administradores do serviço de email**, selecione **SIM** para que o administrador de serviços e todos os coadministradores recebam as notificações de alerta.
-   3. No campo **Outros destinatários de email** , insira os endereços de email de todos os outros destinatários que devem receber as notificações de alerta. Insira os nomes no formato *someone@somewhere.com*. Use ponto e vírgula para separar os endereços de email. Você pode configurar um máximo de 20 endereços de email por dispositivo. 
+   3. No campo **Outros destinatários de email** , insira os endereços de email de todos os outros destinatários que devem receber as notificações de alerta. Digite os nomes no formato *alguém\@somewhere.com*. Use ponto e vírgula para separar os endereços de email. Você pode configurar um máximo de 20 endereços de email por dispositivo. 
       
 3. Para enviar uma notificação de email de teste, clique em **Enviar email de teste**. O serviço Gerenciador de Dispositivo do StorSimple exibirá mensagens de status conforme ele encaminha a notificação de teste.
 
@@ -142,11 +142,11 @@ O que acontece se a conectividade de nuvem falhar para o dispositivo StorSimple 
 
 Se a conectividade de nuvem falhar em seu dispositivo de produção do StorSimple, dependendo do estado do seu dispositivo, poderá ocorrer o seguinte:
 
-* **Para os dados locais em seu dispositivo**: durante algum tempo, não haverá interrupção e as leituras continuarão a ser realizadas. No entanto, conforme o número de E/Ss pendentes aumenta e excede um limite, as leituras podem começar a falhar.
+* **Para os dados locais em seu dispositivo**: Há algum tempo, não haverá nenhuma interrupção e leituras continuarão a ser atendido. No entanto, conforme o número de E/Ss pendentes aumenta e excede um limite, as leituras podem começar a falhar.
 
     Dependendo da quantidade de dados em seu dispositivo, as gravações também continuarão a ocorrer para as primeiras horas após a interrupção na conectividade de nuvem. As gravações então desacelerarão e acabarão por começar a falhar se a conectividade de nuvem for interrompida por várias horas. (Há armazenamento temporário no dispositivo para dados que deve ser enviados para a nuvem. Essa área é liberada quando os dados são enviados. Se a conectividade falhar, os dados nessa área de armazenamento não serão liberados para a nuvem, e a E/S falhará).
-* **Para os dados na nuvem**: para a maioria dos erros de conectividade de nuvem, é retornado um erro. Quando a conectividade for restaurada, as E/Ss são reiniciadas sem que o usuário precise colocar o volume online. Em casos raros, pode haver a necessidade de intervenção do usuário para colocar o volume online novamente no portal do Azure.
-* **Para instantâneos de nuvem em andamento**: a operação é repetida algumas vezes dentro de 4 a 5 horas e, se a conectividade não for restaurada, os instantâneos de nuvem falharão.
+* **Para os dados na nuvem**: Para a maioria dos erros de conectividade de nuvem, um erro será retornado. Quando a conectividade for restaurada, as E/Ss são reiniciadas sem que o usuário precise colocar o volume online. Em casos raros, pode haver a necessidade de intervenção do usuário para colocar o volume online novamente no portal do Azure.
+* **Para instantâneos de nuvem em andamento**: A operação é repetida algumas vezes dentro de 4 a 5 horas e se a conectividade não for restaurada, os instantâneos de nuvem falhará.
 
 ### <a name="cluster-alerts"></a>Alertas de cluster
 
@@ -202,13 +202,14 @@ Se a conectividade de nuvem falhar em seu dispositivo de produção do StorSimpl
 | Não foi possível iniciar os serviços do StorSimple. |Erro de caminho de dados |Se o problema persistir, contate o Suporte da Microsoft. |
 | Endereço IP duplicado detectado para 'Data0'. | |O sistema detectou um conflito para o endereço IP '10.0.0.1'. O recurso de rede 'Data0' no dispositivo *<device1>* está offline. Verifique se esse endereço IP não está sendo usado por qualquer outra entidade nessa rede. Para solucionar problemas de rede, acesse [Solucionar problemas com o cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Para ajudar a resolver esse problema, entre em contato com o administrador da rede. Se o problema persistir, contate o Suporte da Microsoft. |
 | O endereço IPv4 (ou IPv6) para 'Data0' está offline. | |O recurso de rede 'Data0' com o endereço IP '10.0.0.1'. e o comprimento de prefixo '22' no dispositivo *<device1>* está offline. Certifique-se de que as portas de comutação às quais esta interface está conectada estejam operacionais. Para solucionar problemas de rede, acesse [Solucionar problemas com o cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
-| Não foi possível se conectar ao serviço de autenticação. |Erro de caminho de dados |A URL usada para autenticar não está acessível. Certifique-se de que as regras de firewall incluam os padrões de URL especificados para o dispositivo StorSimple. Para saber mais sobre os padrões de URL no Portal do Azure, acesse https://aka.ms/ss-8000-network-reqs. Se estiver usando a Nuvem do Azure Governamental, acesse os padrões de URL em https://aka.ms/ss8000-gov-network-reqs.|
+| Não foi possível se conectar ao serviço de autenticação. |Erro de caminho de dados |A URL usada para autenticar não está acessível. Certifique-se de que as regras de firewall incluam os padrões de URL especificados para o dispositivo StorSimple. Para obter mais informações sobre os padrões de URL no portal do Azure, vá para https://aka.ms/ss-8000-network-reqs. Se usando a nuvem do Azure governamental, acesse os padrões de URL em https://aka.ms/ss8000-gov-network-reqs.|
 
 ### <a name="performance-alerts"></a>Alertas de desempenho
 
-| Texto de alerta | Evento | Mais informações / ações recomendadas |
-|:--- |:--- |:--- |
-| A carga do dispositivo excedeu o <*limite*>. |Mais lento do que os tempos de resposta esperados. |O dispositivo está relatando a utilização sob uma pesada carga de entrada/saída. Isso pode fazer com que o dispositivo não funcione tão bem quanto deveria. Examine as cargas de trabalho que você atribuiu ao dispositivo e determine se há alguma que possa ser movida para outro dispositivo ou que não são mais necessárias.| Não foi possível iniciar os serviços do StorSimple. |Erro de caminho de dados |Se o problema persistir, contate o Suporte da Microsoft. |e o status atual, acesse [Usar o serviço Gerenciador de Dispositivos do StorSimple para monitorar o dispositivo](storsimple-8000-monitor-device.md) |
+| Texto de alerta | Evento | Mais informações / ações recomendadas | |
+|:--- |:--- |:--- | --- |
+| A carga do dispositivo excedeu o <*limite*>. |Mais lento do que os tempos de resposta esperados. |O dispositivo está relatando a utilização sob uma pesada carga de entrada/saída. Isso pode fazer com que o dispositivo não funcione tão bem quanto deveria. Examine as cargas de trabalho que você atribuiu ao dispositivo e determine se há alguma que possa ser movida para outro dispositivo ou que não são mais necessárias.|
+| Não foi possível iniciar os serviços do StorSimple. |Erro de caminho de dados |Se o problema persistir, contate o Suporte da Microsoft. |
 
 ### <a name="security-alerts"></a>Alertas de segurança
 

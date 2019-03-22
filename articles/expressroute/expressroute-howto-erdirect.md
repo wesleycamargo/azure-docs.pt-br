@@ -1,130 +1,125 @@
 ---
 title: Configurar o ExpressRoute Direct – Azure | Microsoft Docs
-description: Esta página ajuda você a configurar o ExpressRoute Direct (versão prévia).
+description: Esta página ajuda você a configurar diretos do ExpressRoute.
 services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/02/2018
+ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 05eb75c77cef5b975d0122714bb0ec9fba1d09a3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 1d7bb72dab622cd0b18d1da1aa34a651e1443997
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463967"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095527"
 ---
-# <a name="how-to-configure-expressroute-direct-preview"></a>Como configurar o ExpressRoute Direct (versão prévia)
+# <a name="how-to-configure-expressroute-direct"></a>Como configurar diretos do ExpressRoute
 
 O ExpressRoute Direct fornece a capacidade de conectar-se diretamente à rede global da Microsoft em localizações de emparelhamento estrategicamente distribuídas no mundo todo. Para obter mais informações, confira [Sobre a conexão do ExpressRoute Direct](expressroute-erdirect-about.md).
-
-> [!IMPORTANT]
-> O ExpressRoute Direct está na versão prévia no momento.
->
-> Essa versão prévia pública é fornecida sem um contrato de nível de serviço e não deve ser usada para cargas de trabalho de produção. Determinados recursos podem não ter suporte, podem ter restrição ou podem não estar disponíveis em todos os locais do Azure. Veja os [Termos de Uso Adicionais para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter detalhes.
 
 ## <a name="resources"></a>Criar o recurso
 
 1. Entre no Azure e selecione a assinatura. O recurso do ExpressRoute Direct e os circuitos do ExpressRoute precisam estar na mesma assinatura.
 
-  ```powershell
-  Connect-AzureRMAccount 
+   ```powershell
+   Connect-AzAccount 
 
-  Select-AzureRMSubscription -Subscription “<SubscriptionID or SubscriptionName>”
-  ```
+   Select-AzSubscription -Subscription “<SubscriptionID or SubscriptionName>”
+   ```
 2. Liste todas as localizações onde há suporte para o ExpressRoute Direct.
   
-  ```powershell
-  Get-AzureRmExpressRoutePortsLocation
-  ```
+   ```powershell
+   Get-AzExpressRoutePortsLocation
+   ```
 
-  **Exemplo de saída**
+   **Exemplo de saída**
   
-  ```powershell
-  Name                : Equinix-Ashburn-DC2
-  Id                  : /subscriptions/<subscriptionID>/providers/Microsoft.Network/expressRoutePortsLocations/Equinix-Ashburn-D
+   ```powershell
+   Name                : Equinix-Ashburn-DC2
+   Id                  : /subscriptions/<subscriptionID>/providers/Microsoft.Network/expressRoutePortsLocations/Equinix-Ashburn-D
                         C2
-  ProvisioningState   : Succeeded
-  Address             : 21715 Filigree Court, DC2, Building F, Ashburn, VA 20147
-  Contact             : support@equinix.com
-  AvailableBandwidths : []
+   ProvisioningState   : Succeeded
+   Address             : 21715 Filigree Court, DC2, Building F, Ashburn, VA 20147
+   Contact             : support@equinix.com
+   AvailableBandwidths : []
 
-  Name                : Equinix-Dallas-DA3
-  Id                  : /subscriptions/<subscriptionID>/providers/Microsoft.Network/expressRoutePortsLocations/Equinix-Dallas-DA
+   Name                : Equinix-Dallas-DA3
+   Id                  : /subscriptions/<subscriptionID>/providers/Microsoft.Network/expressRoutePortsLocations/Equinix-Dallas-DA
                         3
-  ProvisioningState   : Succeeded
-  Address             : 1950 N. Stemmons Freeway, Suite 1039A, DA3, Dallas, TX 75207
-  Contact             : support@equinix.com
-  AvailableBandwidths : []
+   ProvisioningState   : Succeeded
+   Address             : 1950 N. Stemmons Freeway, Suite 1039A, DA3, Dallas, TX 75207
+   Contact             : support@equinix.com
+   AvailableBandwidths : []
 
-  Name                : Equinix-San-Jose-SV1
-  Id                  : /subscriptions/<subscriptionID>/providers/Microsoft.Network/expressRoutePortsLocations/Equinix-San-Jose-
+   Name                : Equinix-San-Jose-SV1
+   Id                  : /subscriptions/<subscriptionID>/providers/Microsoft.Network/expressRoutePortsLocations/Equinix-San-Jose-
                         SV1
-  ProvisioningState   : Succeeded
-  Address             : 11 Great Oaks Blvd, SV1, San Jose, CA 95119
-  Contact             : support@equinix.com
-  AvailableBandwidths : []
-  ```
+   ProvisioningState   : Succeeded
+   Address             : 11 Great Oaks Blvd, SV1, San Jose, CA 95119
+   Contact             : support@equinix.com
+   AvailableBandwidths : []
+   ```
 3. Determinar se uma localização listada acima tem largura de banda disponível
 
-  ```powershell
-  Get-AzureRmExpressRoutePortsLocation -LocationName "Equinix-San-Jose-SV1"
-  ```
+   ```powershell
+   Get-AzExpressRoutePortsLocation -LocationName "Equinix-San-Jose-SV1"
+   ```
 
-  **Exemplo de saída**
+   **Exemplo de saída**
 
-  ```powershell
-  Name                : Equinix-San-Jose-SV1
-  Id                  : /subscriptions/<subscriptionID>/providers/Microsoft.Network/expressRoutePortsLocations/Equinix-San-Jose-
+   ```powershell
+   Name                : Equinix-San-Jose-SV1
+   Id                  : /subscriptions/<subscriptionID>/providers/Microsoft.Network/expressRoutePortsLocations/Equinix-San-Jose-
                         SV1
-  ProvisioningState   : Succeeded
-  Address             : 11 Great Oaks Blvd, SV1, San Jose, CA 95119
-  Contact             : support@equinix.com
-  AvailableBandwidths : [
+   ProvisioningState   : Succeeded
+   Address             : 11 Great Oaks Blvd, SV1, San Jose, CA 95119
+   Contact             : support@equinix.com
+   AvailableBandwidths : [
                           {
                             "OfferName": "100 Gbps",
                             "ValueInGbps": 100
                           }
                         ]
-  ```
+   ```
 4. Criar um recurso do ExpressRoute Direct com base na localização escolhida acima
 
-  O ExpressRoute Direct dá suporte a encapsulamento QinQ e Dot1Q. Se o QinQ for selecionado, cada circuito do ExpressRoute será atribuído dinamicamente a uma marca S e será exclusivo em todo o recurso ExpressRoute Direct. Cada marca C no circuito precisa ser exclusiva no circuito, mas não no ExpressRoute Direct.  
+   O ExpressRoute Direct dá suporte a encapsulamento QinQ e Dot1Q. Se o QinQ for selecionado, cada circuito do ExpressRoute será atribuído dinamicamente a uma marca S e será exclusivo em todo o recurso ExpressRoute Direct. Cada marca C no circuito precisa ser exclusiva no circuito, mas não no ExpressRoute Direct.  
 
-  Se o encapsulamento Dot1Q for selecionado, você precisará gerenciar a exclusividade da marca C (VLAN) em todo o recurso ExpressRoute Direct.  
+   Se o encapsulamento Dot1Q for selecionado, você precisará gerenciar a exclusividade da marca C (VLAN) em todo o recurso ExpressRoute Direct.  
 
-  > [!IMPORTANT]
-  > O ExpressRoute Direct só pode ser um tipo de encapsulamento. O encapsulamento não pode ser alterado após a criação do ExpressRoute Direct.
-  > 
+   > [!IMPORTANT]
+   > O ExpressRoute Direct só pode ser um tipo de encapsulamento. O encapsulamento não pode ser alterado após a criação do ExpressRoute Direct.
+   > 
  
-  ```powershell 
-  $ERDirect = New-AzureRMExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName -PeeringLocation $PeeringLocationName -BandwidthInGbps 100.0 -Encapsulation QinQ | Dot1Q -Location $AzureRegion
-  ```
+   ```powershell 
+   $ERDirect = New-AzExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName -PeeringLocation $PeeringLocationName -BandwidthInGbps 100.0 -Encapsulation QinQ | Dot1Q -Location $AzureRegion
+   ```
 
-  > [!NOTE]
-  > O atributo de encapsulamento também pode ser definido como Dot1Q. 
-  >
+   > [!NOTE]
+   > O atributo de encapsulamento também pode ser definido como Dot1Q. 
+   >
 
-  **Exemplo de saída:**
+   **Exemplo de saída:**
 
-  ```powershell
-  Name                       : Contoso-Direct
-  ResourceGroupName          : Contoso-Direct-rg
-  Location                   : westcentralus
-  Id                         : /subscriptions/<subscriptionID>/resourceGroups/Contoso-Direct-rg/providers/Microsoft.Network/exp
+   ```powershell
+   Name                       : Contoso-Direct
+   ResourceGroupName          : Contoso-Direct-rg
+   Location                   : westcentralus
+   Id                         : /subscriptions/<subscriptionID>/resourceGroups/Contoso-Direct-rg/providers/Microsoft.Network/exp
                                ressRoutePorts/Contoso-Direct
-  Etag                       : W/"<etagnumber> "
-  ResourceGuid               : <number>
-  ProvisioningState          : Succeeded
-  PeeringLocation            : Equinix-Seattle-SE2
-  BandwidthInGbps            : 100
-  ProvisionedBandwidthInGbps : 0
-  Encapsulation              : QinQ
-  Mtu                        : 1500
-  EtherType                  : 0x8100
-  AllocationDate             : Saturday, September 1, 2018
-  Links                      : [
+   Etag                       : W/"<etagnumber> "
+   ResourceGuid               : <number>
+   ProvisioningState          : Succeeded
+   PeeringLocation            : Equinix-Seattle-SE2
+   BandwidthInGbps            : 100
+   ProvisionedBandwidthInGbps : 0
+   Encapsulation              : QinQ
+   Mtu                        : 1500
+   EtherType                  : 0x8100
+   AllocationDate             : Saturday, September 1, 2018
+   Links                      : [
                                  {
                                    "Name": "link1",
                                    "Etag": "W/\"<etagnumber>\"",
@@ -152,47 +147,47 @@ O ExpressRoute Direct fornece a capacidade de conectar-se diretamente à rede gl
                                    "ProvisioningState": "Succeeded"
                                  }
                                ]
-  Circuits                   : []
-  ```
+   Circuits                   : []
+   ```
 
 ## <a name="state"></a>Alterar Estado de Administrador de links
 
   Esse processo deve ser usado para realizar um teste de Camada 1, garantindo que cada conexão cruzada seja corrigida corretamente em cada roteador para o primário e o secundário.
 1. Obtenha detalhes do ExpressRoute Direct.
 
-  ```powershell
-  $ERDirect = Get-AzureRmExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName
-  ```
+   ```powershell
+   $ERDirect = Get-AzExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName
+   ```
 2. Defina o link para Habilitado. Repita essa etapa para definir cada link como habilitado.
 
-  Links[0] é a porta primária e Links[1] é a porta secundária.
+   Links[0] é a porta primária e Links[1] é a porta secundária.
 
-  ```powershell
-  $ERDirect.Links[0].AdminState = “Enabled”
-  Set-AzureRmExpressRoutePort -ExpressRoutePort $ERDirect
-  $ERDirect = Get-AzureRmExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName
-  $ERDirect.Links[1].AdminState = “Enabled”
-  Set-AzureRmExpressRoutePort -ExpressRoutePort $ERDirect
-  ```
-  **Exemplo de saída:**
+   ```powershell
+   $ERDirect.Links[0].AdminState = “Enabled”
+   Set-AzExpressRoutePort -ExpressRoutePort $ERDirect
+   $ERDirect = Get-AzExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName
+   $ERDirect.Links[1].AdminState = “Enabled”
+   Set-AzExpressRoutePort -ExpressRoutePort $ERDirect
+   ```
+   **Exemplo de saída:**
 
-  ```powershell
-  Name                       : Contoso-Direct
-  ResourceGroupName          : Contoso-Direct-rg
-  Location                   : westcentralus
-  Id                         : /subscriptions/<number>/resourceGroups/Contoso-Direct-rg/providers/Microsoft.Network/exp
+   ```powershell
+   Name                       : Contoso-Direct
+   ResourceGroupName          : Contoso-Direct-rg
+   Location                   : westcentralus
+   Id                         : /subscriptions/<number>/resourceGroups/Contoso-Direct-rg/providers/Microsoft.Network/exp
                              ressRoutePorts/Contoso-Direct
-  Etag                       : W/"<etagnumber> "
-  ResourceGuid               : <number>
-  ProvisioningState          : Succeeded
-  PeeringLocation            : Equinix-Seattle-SE2
-  BandwidthInGbps            : 100
-  ProvisionedBandwidthInGbps : 0
-  Encapsulation              : QinQ
-  Mtu                        : 1500
-  EtherType                  : 0x8100
-  AllocationDate             : Saturday, September 1, 2018
-  Links                      : [
+   Etag                       : W/"<etagnumber> "
+   ResourceGuid               : <number>
+   ProvisioningState          : Succeeded
+   PeeringLocation            : Equinix-Seattle-SE2
+   BandwidthInGbps            : 100
+   ProvisionedBandwidthInGbps : 0
+   Encapsulation              : QinQ
+   Mtu                        : 1500
+   EtherType                  : 0x8100
+   AllocationDate             : Saturday, September 1, 2018
+   Links                      : [
                                {
                                  "Name": "link1",
                                  "Etag": "W/\"<etagnumber>\"",
@@ -220,10 +215,10 @@ O ExpressRoute Direct fornece a capacidade de conectar-se diretamente à rede gl
                                  "ProvisioningState": "Succeeded"
                                }
                              ]
-  Circuits                   : []
-  ```
+   Circuits                   : []
+   ```
 
-  Use o mesmo procedimento com `AdminState = “Disabled”` para desabilitar as portas.
+   Use o mesmo procedimento com `AdminState = “Disabled”` para desabilitar as portas.
 
 ## <a name="circuit"></a>Criar um circuito
 
@@ -236,7 +231,7 @@ Há larguras de banda de circuito adicionais que podem ser utilizadas no Express
 Crie um circuito no recurso ExpressRoute Direct.
 
   ```powershell
-  New-AzureRmExpressRouteCircuit -Name $Name -ResourceGroupName $ResourceGroupName -ExpressRoutePort $ERDirect -BandwidthinGbps 100.0  -Location $AzureRegion -SkuTier Premium -SkuFamily MeteredData 
+  New-AzExpressRouteCircuit -Name $Name -ResourceGroupName $ResourceGroupName -ExpressRoutePort $ERDirect -BandwidthinGbps 100.0  -Location $AzureRegion -SkuTier Premium -SkuFamily MeteredData 
   ```
 
   Outras larguras de banda incluem: 5.0, 10.0 e 40.0

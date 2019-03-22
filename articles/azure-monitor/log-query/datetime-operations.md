@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 8350524e51d8ced45586d085fe1b49274aa6db9d
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 402511ba3c45e8bd12cb7f92ecd54f6084c8ada2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269970"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58009004"
 ---
 # <a name="working-with-date-time-values-in-azure-monitor-log-queries"></a>Trabalhar com valores de data e hora em consultas de log do Azure Monitor
 
@@ -114,6 +114,7 @@ Event
 ```
 
 Essa consulta produz a seguinte tabela:  
+
 |TimeGenerated(UTC)|events_count|
 |--|--|
 |2018-08-01T09:30:00.000|54|
@@ -161,7 +162,7 @@ Event
 | Obter um valor de data relativo  | [endofday](/azure/kusto/query/endofdayfunction) [endofweek](/azure/kusto/query/endofweekfunction) [endofmonth](/azure/kusto/query/endofmonthfunction) [endofyear](/azure/kusto/query/endofyearfunction) [startofday](/azure/kusto/query/startofdayfunction) [startofweek](/azure/kusto/query/startofweekfunction) [startofmonth](/azure/kusto/query/startofmonthfunction) [startofyear](/azure/kusto/query/startofyearfunction) |
 
 ## <a name="next-steps"></a>Próximas etapas
-Veja outras lições para usar a [linguagem de consulta do Kusto](/azure/kusto/query/) com os dados de log do Azure Monitor:
+Consulte outras lições para usar a [linguagem de consulta Kusto](/azure/kusto/query/) com os dados de log do Azure Monitor:
 
 - [Operações de cadeia de caracteres](string-operations.md)
 - [Funções de agregação](aggregations.md)

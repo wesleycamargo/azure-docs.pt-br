@@ -7,16 +7,16 @@ author: cynthn
 manager: jeconnoc
 ms.author: cynthn
 ms.date: 10/09/2017
-ms.topic: howto
+ms.topic: conceptual
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: 6a116c2f3d92b19f266be4d3b467a93fdeaced2c
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: f90ca51349eef92bd25095f5a2a10d7d181fdb2c
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888954"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766522"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Como habilitar a virtualização aninhada em uma VM do Azure
 
@@ -26,7 +26,7 @@ Este artigo demonstra como habilitar o Hyper-V em uma VM do Azure e configurar a
 
 ## <a name="create-a-nesting-capable-azure-vm"></a>Criar uma VM do Azure com capacidade de aninhamento
 
-Crie uma nova VM do Windows Server 2016 do Azure.  Para referência rápida, todas as máquinas virtuais v3 dão suporte à virtualização aninhada. Para obter uma lista completa dos tamanhos de máquinas virtuais que dão suporte para aninhamento, confira o [artigo da Unidade de Computação do Azure](acu.md).
+Crie uma nova VM do Windows Server 2016 do Azure.  Para referência rápida, todas as máquinas virtuais de v3 dão suporte a virtualização aninhada. Para obter uma lista completa dos tamanhos de máquinas virtuais que dão suporte para aninhamento, confira o [artigo da Unidade de Computação do Azure](acu.md).
 
 Escolha um tamanho de VM grande o suficiente para dar suporte às demandas de uma máquina virtual convidada. Neste exemplo, estamos usando uma VM do Azure com um tamanho D3_v3. 
 

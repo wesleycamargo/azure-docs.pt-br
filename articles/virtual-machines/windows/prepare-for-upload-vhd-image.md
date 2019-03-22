@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 12/13/2018
 ms.author: genli
-ms.openlocfilehash: b5e3e84ce8f8b4b364b2fa69dda0b0091db25b6d
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 0988902e0a2154f2935a01ddcfb6a460be693df3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329772"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093796"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparar um VHD ou VHDX do Windows para carregar no Azure
 Antes de carregar uma VM (máquina virtual) Windows do local para o Microsoft Azure, você deve preparar o VHD (disco rígido virtual) ou VHDX. O Azure oferece suporte a **somente VMs de geração 1** que estão no formato de arquivo VHD e possuem um disco de tamanho fixo. O tamanho máximo permitido para o VHD é 1.023 GB. Você pode converter uma VM de geração 1 do sistema de arquivos VHD para VHDX e de um disco de expansão dinâmica para um disco de tamanho fixo. No entanto, não é possível alterar a geração de uma VM. Para obter mais informações, consulte [Devo criar uma VM de geração 1 ou 2 no Hyper-V?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
@@ -320,14 +320,14 @@ Verifique se as seguintes configurações estão configuradas corretamente para 
 
 9. Verifique a seguinte política do AD para se certificar de que você não esteja removendo nenhuma das seguintes contas de acesso necessárias:
 
-    - Configuração do Computador\Configurações do Windows\Configurações de Segurança\Políticas Locais\Atribuição de direitos de usuário\Acessar este computador pela rede
+   - Configuração do Computador\Configurações do Windows\Configurações de Segurança\Políticas Locais\Atribuição de direitos de usuário\Acessar este computador pela rede
 
-    Os grupos a seguir devem ser listados nesta política:
+     Os grupos a seguir devem ser listados nesta política:
 
-    - Administradores
-    - Operadores de Backup
-    - Todos
-    - Usuários
+   - Administradores
+   - Operadores de Backup
+   - Todos
+   - Usuários
 
 10. Reinicie a VM para garantir que o Windows ainda está íntegro e pode ser acessado usando a conexão RDP. Neste ponto, talvez você deseje criar uma VM no Hyper-V local para verificar se a VM está iniciando por completo e, em seguida, testar se ela é acessível por RDP.
 
@@ -338,7 +338,7 @@ Verifique se as seguintes configurações estão configuradas corretamente para 
 ### <a name="install-windows-updates"></a>Instalar atualizações do Windows
 A configuração ideal é **ter o último nível de patch do computador**. Se isso não for possível, verifique se as seguintes atualizações estão instaladas:
 
-| Componente               | Binário         | Windows 7 SP1, Windows Server 2008 R2 SP1 | Windows 8, Windows Server 2012               | Windows 8.1,Windows Server 2012 R2 | Windows 10 Version 1607Windows Server 2016 Versão 1607 | Windows 10, versão 1703    | Windows 10 1709 Windows Server 2016 versão 1709 | Windows 10 1803Windows Server 2016 versão 1803 |
+| Componente               | Binário         | Windows 7 SP1, Windows Server 2008 R2 SP1 | Windows 8, Windows Server 2012               | Windows 8.1,Windows Server 2012 R2 | Windows 10 versão 1607, Windows Server 2016 versão 1607 | Windows 10, versão 1703    | Windows 10 1709 Windows Server 2016 versão 1709 | Windows 10 1803 Windows Server 2016 versão 1803 |
 |-------------------------|----------------|-------------------------------------------|---------------------------------------------|------------------------------------|---------------------------------------------------------|----------------------------|-------------------------------------------------|-------------------------------------------------|
 | Armazenamento                 | disk.sys       | 6.1.7601.23403 – KB3125574                | 6.2.9200.17638/6.2.9200.21757 – KB3137061 | 6.3.9600.18203 – KB3137061         | -                                                       | -                          | -                                               | -                                               |
 |                         | storport.sys   | 6.1.7601.23403 – KB3125574                | 6.2.9200.17188/6.2.9200.21306 – KB3018489 | 6.3.9600.18573 – KB4022726         | 10.0.14393.1358 – KB4022715                             | 10.0.15063.332             | -                                               | -                                               |
@@ -415,17 +415,13 @@ Nem toda função ou aplicativo que é instalado em um computador baseado no Win
 ## <a name="complete-recommended-configurations"></a>Conclua as configurações recomendadas
 As seguintes configurações não afetam o carregamento do VHD. No entanto, é altamente recomendável que você as configure.
 
-* Instale o [Agente de VMs do Azure](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Em seguida, você pode habilitar as extensões de VM. As extensões de VM implementam a maioria da funcionalidade crítica que você pode desejar usar com as VMs, como redefinição de senhas, configuração do RDP e assim por diante. Para obter mais informações, consulte:
+* Instale o [Agente de VMs do Azure](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Em seguida, você pode habilitar as extensões de VM. As extensões de VM implementam a maioria da funcionalidade crítica que você pode desejar usar com as VMs, como redefinição de senhas, configuração do RDP e assim por diante. Para obter mais informações, consulte [visão geral do agente de máquina Virtual do Azure](../extensions/agent-windows.md).
+* Depois que a VM for criada no Azure, recomendamos colocar o arquivo de paginação no volume “Unidade temporal” para melhorar o desempenho. Configure isso da seguinte maneira:
 
-    - [Agente de VM e extensões – parte 1](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-1/)
-    - [Agente de VM e extensões – parte 2](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/)
-
-*  Depois que a VM for criada no Azure, recomendamos colocar o arquivo de paginação no volume “Unidade temporal” para melhorar o desempenho. Configure isso da seguinte maneira:
-
-    ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -force
-    ```
-Se houver um disco de dados anexado à VM, a letra da unidade do volume da Unidade temporal geralmente será “D”. Essa designação poderá ser diferente, dependendo do número de unidades disponíveis e das configurações feitas.
+   ```PowerShell
+   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -force
+   ```
+  Se houver um disco de dados anexado à VM, a letra da unidade do volume da Unidade temporal geralmente será “D”. Essa designação poderá ser diferente, dependendo do número de unidades disponíveis e das configurações feitas.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Carregar uma imagem de VM Windows no Azure para implantações do Resource Manager](upload-generalized-managed.md)

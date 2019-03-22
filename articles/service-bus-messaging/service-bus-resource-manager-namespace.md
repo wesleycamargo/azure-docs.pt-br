@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: spelluru
-ms.openlocfilehash: e925ea91518d8f093cd270e238b7ffd09674e726
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: a79565661ae11e70364d64503b3b11bdeabeabdb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54844085"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899750"
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Criar um namespace do Barramento de Serviço usando um modelo do Azure Resource Manager
 Neste início rápido, você cria um modelo do Azure Resource Manager que cria um namespace do Barramento de Serviço do tipo **Messaging** com um SKU **Standard**. O artigo também define os parâmetros que são especificados para execução da implantação. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades. Para obter mais informações sobre a criação de modelos, consulte [Criação de Modelos do Azure Resource Manager][Authoring Azure Resource Manager templates]. Para ver o modelo completo, confira o [Modelo de namespace do Barramento de Serviço][Service Bus namespace template] no GitHub.
@@ -53,7 +53,7 @@ Crie um arquivo JSON denominado **MyServiceBusNamespace.json** com o seguinte co
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "serviceBusNamespaceName": {
@@ -109,7 +109,7 @@ Crie um arquivo JSON denominado **MyServiceBusNamespace-Parameters.json** com o 
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "serviceBusNamespaceName": {

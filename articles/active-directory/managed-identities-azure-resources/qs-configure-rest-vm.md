@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e3933f10a777a1aa10a4e04f8901e7fd1af5c48
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 778897e1a146abd0655d76ef157f64522681cb0d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56195627"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57889668"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>Configurar identidades gerenciadas para recursos do Azure em uma VM do Azure usando chamadas da API REST
 
@@ -63,7 +63,7 @@ Para criar uma VM do Azure com a identidade gerenciada atribuída ao sistema hab
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
    ```
 
-3.  Recupere um token de acesso do portador, que você usará na próxima etapa no cabeçalho Autorização para criar sua VM com uma identidade gerenciada atribuída pelo sistema.
+3. Recupere um token de acesso do portador, que você usará na próxima etapa no cabeçalho Autorização para criar sua VM com uma identidade gerenciada atribuída pelo sistema.
 
    ```azurecli-interactive
    az account get-access-token
@@ -80,6 +80,7 @@ Para criar uma VM do Azure com a identidade gerenciada atribuída ao sistema hab
    ```
    
    **Cabeçalhos da solicitação**
+   
    |Cabeçalho da solicitação  |DESCRIÇÃO  |
    |---------|---------|
    |*Content-Type*     | Obrigatório. Defina como `application/json`.        |
@@ -168,6 +169,7 @@ Para habilitar a identidade gerenciada atribuída ao sistema em uma VM que foi o
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
    ```
    **Cabeçalhos da solicitação**
+
    |Cabeçalho da solicitação  |DESCRIÇÃO  |
    |---------|---------|
    |*Content-Type*     | Obrigatório. Defina como `application/json`.        |
@@ -239,6 +241,7 @@ Para habilitar a identidade gerenciada atribuída ao sistema em uma VM que foi o
    |---------|---------|
    |*Content-Type*     | Obrigatório. Defina como `application/json`.        |
    |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido.        | 
+
    **Corpo da solicitação**
 
    ```JSON
@@ -314,7 +317,7 @@ Para atribuir uma identidade atribuída pelo usuário a uma VM, sua conta precis
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
    ```
 
-3.  Recupere um token de acesso do portador, que você usará na próxima etapa no cabeçalho Autorização para criar sua VM com uma identidade gerenciada atribuída pelo sistema.
+3. Recupere um token de acesso do portador, que você usará na próxima etapa no cabeçalho Autorização para criar sua VM com uma identidade gerenciada atribuída pelo sistema.
 
    ```azurecli-interactive
    az account get-access-token
@@ -507,11 +510,12 @@ Para atribuir uma identidade atribuída pelo usuário a uma VM, sua conta precis
    GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01 HTTP/1.1
    ```
    **Cabeçalhos da solicitação**
+
    |Cabeçalho da solicitação  |DESCRIÇÃO  |
    |---------|---------|
    |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido.
 
-    Se você tiver qualquer usuário ou identidades gerenciadas atribuídas pelo sistema atribuídas à VM, conforme identificado no valor `identity` na resposta, vá para a etapa 5 que mostra como manter a identidade gerenciada atribuída pelo sistema ao adicionar um gerenciado atribuído pelo usuário identidade na sua VM.
+    Se você tiver qualquer usuário ou identidades gerenciadas atribuído pelo sistema atribuídas à VM, conforme identificado no `identity` o valor na resposta, pule para a etapa 5 que mostra a você como reter a identidade gerenciada atribuído pelo sistema durante a adição de uma identidade atribuída pelo usuário gerenciada no sua VM.
 
 4. Se você não tiver nenhuma identidade gerenciada atribuída pelo usuário atribuída à sua VM, use o seguinte comando CURL para chamar o ponto de extremidade REST do Azure Resource Manager para atribuir a primeira identidade gerenciada atribuída pelo usuário à VM.
 
@@ -675,6 +679,7 @@ Para remover uma identidade atribuída ao usuário a uma VM, a conta precisará 
    ```
 
    **Cabeçalhos da solicitação**
+
    |Cabeçalho da solicitação  |DESCRIÇÃO  |
    |---------|---------|
    |*Content-Type*     | Obrigatório. Defina como `application/json`.        |

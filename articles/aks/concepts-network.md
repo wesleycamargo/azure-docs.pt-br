@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 6affa19c61ff4a824e390c42b7fd97554a30c9bb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: cbdbf7dcd6269991d23c61d316dcee68e6678171
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176230"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58175659"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Conceitos de rede para aplicativos no Serviço de Kubernetes do Azure (AKS)
 
@@ -23,13 +23,13 @@ Este artigo apresenta os principais conceitos que fornecem rede para seus aplica
 - [Serviços](#services)
 - [Redes virtuais do Azure](#azure-virtual-networks)
 - [Controladores de entrada](#ingress-controllers)
-- Políticas de rede
+- [Políticas de rede](#network-policies)
 
 ## <a name="kubernetes-basics"></a>Noções básicas do Kubernetes
 
 Para permitir o acesso aos seus aplicativos, ou para os componentes do aplicativo se comunicarem uns com os outros, o Kubernetes fornece uma camada de abstração para a rede virtual. Os nós do Kubernetes estão conectados a uma rede virtual e podem fornecer conectividade de entrada e saída para pods. O componente *kube-proxy* é executado em cada nó para fornecer esses recursos de rede.
 
-No Kubernetes, os *Serviços* agrupam logicamente os pods para permitir o acesso direto por meio de um endereço IP ou nome DNS e em uma porta específica. Você também pode distribuir tráfego usando um *balanceador de carga*. Um roteamento mais complexo de tráfego de aplicativos também pode ser obtido com os *Controladores de Ingressos*. A segurança e a filtragem do tráfego de rede para pods é possível com as políticas de *rede do Kubernetes*.
+No Kubernetes, os *Serviços* agrupam logicamente os pods para permitir o acesso direto por meio de um endereço IP ou nome DNS e em uma porta específica. Você também pode distribuir tráfego usando um *balanceador de carga*. Um roteamento mais complexo de tráfego de aplicativos também pode ser obtido com os *Controladores de Ingressos*. Segurança e a filtragem de tráfego de rede para pods é possível com o Kubernetes *políticas de rede* (em visualização no AKS).
 
 A plataforma do Azure também ajuda a simplificar a rede virtual para clusters do AKS. Quando você cria um balanceador de carga do Kubernetes, o recurso do balanceador de carga do Azure subjacente é criado e configurado. À medida que você abre portas de rede para pods, as regras correspondentes do grupo de segurança de rede do Azure são configuradas. Para o roteamento de aplicativos HTTP, o Azure também pode configurar *DNS externo* à medida que novas rotas de ingresso são configuradas.
 
@@ -68,7 +68,7 @@ No AKS, você pode implantar um cluster que usa um dos dois modelos de rede a se
 
 A opção de rede *kubenet* é a configuração padrão para a criação do cluster AKS. Com o *kubenet*, os nós obtêm um endereço IP de uma sub-rede da rede virtual do Azure. Os pods recebem um endereço IP de um espaço de endereço logicamente diferente da sub-rede da rede virtual do Azure dos nós. A NAT (conversão de endereços de rede), então, é configurada para que os pods possam acessar recursos na rede virtual do Azure. O endereço IP de origem do tráfego é configurado via NAT como o endereço IP primário do nó.
 
-Os nós usam o plug-in [kubenet][kubenet] do Kubernetes. Você pode permitir que a plataforma do Azure crie e configure as redes virtuais para você ou pode optar por implantar o cluster do AKS em uma sub-rede da rede virtual existente. Novamente, somente os nós que recebem um endereço IP roteável e os pods usam NAT para se comunicar com outros recursos fora do cluster do AKS. Essa abordagem reduz muito o número de endereços IP que você precisa reservar no espaço de rede para uso dos pods.
+Os nós usam o plug-in [kubenet][kubenet] do Kubernetes. Você pode permitir que a plataforma do Azure crie e configure as redes virtuais para você ou pode optar por implantar o cluster do AKS em uma sub-rede da rede virtual existente. Novamente, somente os nós recebem um endereço IP roteável e os pods usam NAT para se comunicar com outros recursos fora do cluster do AKS. Essa abordagem reduz muito o número de endereços IP que você precisa reservar no espaço de rede para uso dos pods.
 
 Para obter mais informações, consulte [Configurar rede kubenet para um cluster AKS][aks-configure-kubenet-networking].
 
@@ -102,21 +102,21 @@ Outro recurso comum do Ingress é o encerramento de SSL / TLS. Em grandes aplica
 
 ## <a name="network-security-groups"></a>Grupos de segurança de rede
 
-Um grupo de segurança de rede filtra o tráfego para VMs, como os nós do AKS. À medida que você cria Serviços, como um LoadBalancer, a plataforma do Azure configura automaticamente as regras do grupo de segurança de rede necessárias. Não configure manualmente as regras do grupo de segurança de rede para filtrar o tráfego de pods em um cluster do AKS. Defina as portas e o encaminhamento necessários como parte dos manifestos do Kubernetes Service e permita que a plataforma do Azure crie ou atualize as regras apropriadas. Também é possível usar políticas de rede, conforme discutido na próxima seção, bem como aplicar automaticamente regras de filtro de tráfego a pods.
-
-Regras de grupo de segurança de rede padrão existem para o tráfego, como SSH. Essas regras padrão são para gerenciamento de cluster e acesso à solução de problemas. A exclusão dessas regras padrão pode causar problemas com o gerenciamento do AKS e interrompe o objetivo de nível de serviço (SLO).
+Um grupo de segurança de rede filtra o tráfego para VMs, como os nós do AKS. À medida que você cria Serviços, como um LoadBalancer, a plataforma do Azure configura automaticamente as regras do grupo de segurança de rede necessárias. Não configure manualmente as regras do grupo de segurança de rede para filtrar o tráfego de pods em um cluster do AKS. Defina as portas e o encaminhamento necessários como parte dos manifestos do Kubernetes Service e permita que a plataforma do Azure crie ou atualize as regras apropriadas. Você também pode usar políticas de rede, conforme discutido na próxima seção, para aplicar automaticamente as regras de filtro de tráfego com os pods.
 
 ## <a name="network-policies"></a>Políticas de rede
 
 Por padrão, todos os pods em um cluster AKS podem enviar e receber tráfego sem limitações. Para melhorar a segurança, você pode definir regras que controlam o fluxo de tráfego. Os aplicativos de back-end geralmente só são expostos aos serviços de front-end necessários ou os componentes de banco de dados são acessíveis somente para as camadas de aplicativos que se conectam a eles.
 
-As políticas de rede são recursos de Kubernetes que permitem controlar o fluxo de tráfego entre os pods. Você pode optar por permitir ou negar o tráfego com base em configurações, como rótulos atribuídos, namespace ou porta de tráfego. Os grupos de segurança de rede são mais para os nós do AKS, e não para os pods. O uso de políticas de rede é uma maneira mais adequada e nativa da nuvem de controlar o fluxo de tráfego. Como os pods são criados dinamicamente em um cluster AKS, as políticas de rede necessárias podem ser aplicadas automaticamente.
+Política de rede é um recurso do Kubernetes atualmente em visualização no AKS que lhe permite controlar o fluxo de tráfego entre os pods. Você pode optar por permitir ou negar o tráfego com base em configurações, como rótulos atribuídos, namespace ou porta de tráfego. Os grupos de segurança de rede são mais para os nós do AKS, e não para os pods. O uso de políticas de rede é uma maneira mais adequada e nativa da nuvem de controlar o fluxo de tráfego. Como os pods são criados dinamicamente em um cluster AKS, as políticas de rede necessárias podem ser aplicadas automaticamente.
 
 Para saber mais, confira [Proteger o tráfego entre os pods usando as políticas de rede no AKS (Serviço de Kubernetes do Azure)][use-network-policies].
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para obter uma introdução à rede do AKS, crie e configure um cluster do AKS com seus próprios intervalos de endereços IP usando [kubenet][aks-configure-kubenet-networking] ou a [CNI do Azure][aks-configure-advanced-networking].
+
+Para práticas recomendadas associadas, consulte [práticas recomendadas para conectividade de rede e segurança no AKS][operator-best-practices-network].
 
 Para obter informações adicionais sobre os principais conceitos do Kubernetes e do AKS, consulte os seguintes artigos:
 
@@ -148,3 +148,4 @@ Para obter informações adicionais sobre os principais conceitos do Kubernetes 
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-identity]: concepts-identity.md
 [use-network-policies]: use-network-policies.md
+[operator-best-practices-network]: operator-best-practices-network.md

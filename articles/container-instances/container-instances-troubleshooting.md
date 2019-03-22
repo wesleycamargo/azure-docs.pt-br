@@ -2,19 +2,19 @@
 title: Solução de problemas de Instâncias de Contêiner do Azure
 description: Saiba como solucionar problemas com as Instâncias de Contêiner do Azure
 services: container-instances
-author: seanmck
+author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/08/2019
-ms.author: seanmck
+ms.date: 02/15/2019
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 609d52f9f2c5dce1bbfd668e94db25aca3d52f69
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: c90041f54fc9b4b57885083ec94843b596f48b79
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119043"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58123259"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Solucionar problemas comuns nas Instâncias de Contêiner do Azure
 
@@ -25,10 +25,10 @@ Este artigo mostra como solucionar problemas ao gerenciar ou implantar contêine
 Ao definir a especificação de contêiner, alguns parâmetros exigem aderência às restrições de nomenclatura. Abaixo está uma tabela com requisitos específicos para o contêiner de propriedades do grupo. Para obter mais informações sobre convenções de nomenclatura do Azure, consulte [Convenções de nomenclatura][azure-name-restrictions] no Azure Architecture Center.
 
 | Escopo | Comprimento | Capitalização | Caracteres válidos | Padrão sugerido | Exemplo |
-| --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- |
 | Nome do grupo de contêineres | 1-64 |Não diferencia maiúsculas de minúsculas |Alfanumérico e hífen em qualquer lugar, exceto o primeiro ou último caractere |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | Nome do contêiner | 1-64 |Não diferencia maiúsculas de minúsculas |Alfanumérico e hífen em qualquer lugar, exceto o primeiro ou último caractere |`<name>-<role>-CG<number>` |`web-batch-CG1` |
-| Portas de contêiner | Entre 1 e 65535 |Número inteiro |Um número inteiro entre 1 e 65535 |`<port-number>` |`443` |
+| Portas de contêiner | Entre 1 e 65535 |Inteiro |Um número inteiro entre 1 e 65535 |`<port-number>` |`443` |
 | Rótulo do nome DNS | 5 a 63 |Não diferencia maiúsculas de minúsculas |Alfanumérico e hífen em qualquer lugar, exceto o primeiro ou último caractere |`<name>` |`frontend-site1` |
 | Variável de ambiente | 1-63 |Não diferencia maiúsculas de minúsculas |Alfanumérico e sublinhado (_) em qualquer lugar, exceto o primeiro ou último caractere |`<name>` |`MY_VARIABLE` |
 | Nome do volume | 5 a 63 |Não diferencia maiúsculas de minúsculas |Letras minúsculas, números e hifens em qualquer lugar, exceto o primeiro ou último caractere. Não pode conter dois hífenes consecutivos. |`<name>` |`batch-output-volume` |
@@ -66,7 +66,7 @@ Se não for possível efetuar pull da imagem, eventos como a seguir serão mostr
     "count": 3,
     "firstTimestamp": "2017-12-21T22:56:19+00:00",
     "lastTimestamp": "2017-12-21T22:57:00+00:00",
-    "message": "pulling image \"microsoft/aci-hellowrld\"",
+    "message": "pulling image \"microsoft/aci-helloworld\"",
     "name": "Pulling",
     "type": "Normal"
   },
@@ -74,7 +74,7 @@ Se não for possível efetuar pull da imagem, eventos como a seguir serão mostr
     "count": 3,
     "firstTimestamp": "2017-12-21T22:56:19+00:00",
     "lastTimestamp": "2017-12-21T22:57:00+00:00",
-    "message": "Failed to pull image \"microsoft/aci-hellowrld\": rpc error: code 2 desc Error: image t/aci-hellowrld:latest not found",
+    "message": "Failed to pull image \"microsoft/aci-helloworld\": rpc error: code 2 desc Error: image t/aci-hellowrld:latest not found",
     "name": "Failed",
     "type": "Warning"
   },
@@ -82,7 +82,7 @@ Se não for possível efetuar pull da imagem, eventos como a seguir serão mostr
     "count": 3,
     "firstTimestamp": "2017-12-21T22:56:20+00:00",
     "lastTimestamp": "2017-12-21T22:57:16+00:00",
-    "message": "Back-off pulling image \"microsoft/aci-hellowrld\"",
+    "message": "Back-off pulling image \"microsoft/aci-helloworld\"",
     "name": "BackOff",
     "type": "Normal"
   }
@@ -93,7 +93,7 @@ Se não for possível efetuar pull da imagem, eventos como a seguir serão mostr
 
 A [política de reinicialização](container-instances-restart-policy.md) padrão dos grupos de contêineres é **Sempre**; portanto, o grupo de contêineres sempre reiniciará após ser executado até a conclusão. Talvez seja necessário alterar isso para **OnFailure** ou **Nunca** se você pretende executar contêineres baseados em tarefa. Se você especificar **Em caso de Falha** e ainda continuar sendo reiniciado, pode haver um problema com o aplicativo ou script executado em seu contêiner.
 
-Ao executar grupos de contêineres sem processos de longa execução, talvez você veja saídas e reinicializações repetidos com imagens como Ubuntu ou Alpine. Conectar-se por meio de [EXEC](container-instances-exec.md) não funcionará, porque o contêiner não tem nenhum processo que o mantenha ativo. Para resolver isso, inclua um comando de início como o seguinte com sua implantação do grupo de contêineres para manter o contêiner em execução.
+Ao executar grupos de contêineres sem processos de longa execução, talvez você veja saídas e reinicializações repetidos com imagens como Ubuntu ou Alpine. Conectar-se por meio de [EXEC](container-instances-exec.md) não funcionará, porque o contêiner não tem nenhum processo que o mantenha ativo. Para resolver esse problema, inclua um comando de início, semelhante à seguinte com sua implantação do grupo de contêiner para manter o contêiner em execução.
 
 ```azurecli-interactive
 ## Deploying a Linux container
@@ -178,11 +178,11 @@ Outra maneira de reduzir o impacto do pull da imagem no tempo de inicialização
 
 ### <a name="cached-windows-images"></a>Imagens armazenadas em cache do Windows
 
-Instâncias de Contêiner do Azure usa um mecanismo de cache para ajudar a acelerar o tempo de inicialização de contêiner para imagens com base em determinadas imagens do Windows.
+As instâncias de contêiner do Azure usa um mecanismo de cache para ajudar a acelerar o tempo de inicialização de contêiner para imagens com base em imagens comuns do Windows e Linux. Para obter uma lista detalhada de marcas e imagens armazenadas em cache, use o [lista de imagens armazenadas em cache] [ list-cached-images] API.
 
 Para garantir o menor tempo de inicialização do contêiner do Windows, use uma da **três versões mais recentes** das **duas imagens** seguintes como a imagem base:
 
-* [Windows Server 2016][docker-hub-windows-core] (somente LTS)
+* [Windows Server Core 2016] [ docker-hub-windows-core] (LTSC somente)
 * [Windows Server 2016 Nano Server][docker-hub-windows-nano]
 
 ### <a name="windows-containers-slow-network-readiness"></a>Preparação de rede lenta de contêineres do Windows
@@ -197,7 +197,7 @@ Devido a diversas cargas de recursos regionais no Azure, você poderá receber o
 
 Esse erro indica que devido à carga pesada na região em que você está tentando implantar, os recursos especificados para o contêiner não poderão ser alocados no momento. Use uma ou mais das seguintes etapas de mitigação para ajudar a resolver o problema.
 
-* Verifique se suas configurações de implantação de contêiner se enquadram nos parâmetros definidos em [Quotas e disponibilidade de região para Instâncias de Contêiner do Azure](container-instances-quotas.md#region-availability)
+* Verifique se suas configurações de implantação do contêiner caem dentro dos parâmetros definidos na [Disponibilidade de região para Instâncias de Contêiner do Azure](container-instances-region-availability.md)
 * Especificar configurações de CPU e memória inferiores para o contêiner
 * Implantar em uma região diferente do Azure
 * Implantar em um momento posterior
@@ -207,9 +207,11 @@ Esse erro indica que devido à carga pesada na região em que você está tentan
 As Instâncias de Contêiner do Azure não expõem acesso direto para a infraestrutura subjacente que hospeda grupos de contêineres. Isso inclui o acesso à API do Docker em execução no host do contêiner e contêineres com privilégios em execução. Se exigir interação com o Docker, verifique a [Documentação de referência do REST](https://aka.ms/aci/rest) para ver o que é compatível com a API do ACI. Se faltar alguma coisa, envie uma solicitação nos [Fóruns de comentários do ACI](https://aka.ms/aci/feedback).
 
 ## <a name="ips-may-not-be-accessible-due-to-mismatched-ports"></a>IPs podem não estar acessíveis devido a portas incompatíveis
+
 No momento, as Instâncias de Contêiner do Azure não suportam o mapeamento de portas como na configuração do Docker comum, mas essa correção está no roteiro. Se você achar que os IPs não estão acessíveis quando você acredita que devem estar, certifique-se de ter configurado sua imagem de contêiner para ouvir as mesmas portas expostas em seu grupo de contêineres com a propriedade `ports`.
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Saiba como [recuperar eventos e logs de contêiner](container-instances-get-logs.md) para ajudar a depurar seus contêineres.
 
 <!-- LINKS - External -->
@@ -221,3 +223,4 @@ Saiba como [recuperar eventos e logs de contêiner](container-instances-get-logs
 
 <!-- LINKS - Internal -->
 [az-container-show]: /cli/azure/container#az-container-show
+[list-cached-images]: /rest/api/container-instances/listcachedimages

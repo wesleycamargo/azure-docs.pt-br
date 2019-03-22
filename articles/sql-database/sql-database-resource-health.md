@@ -11,13 +11,13 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 36a448a861bdfdcd85e532578383b14e56f54b1a
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.date: 02/26/2019
+ms.openlocfilehash: c3b9fecd3ad404385732e55a9cf3aa65a6e388b8
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039088"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889368"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>Use o Resource Health para solucionar problemas de conectividade do Banco de Dados SQL do Azure
 
@@ -53,9 +53,9 @@ Um status **Indisponível** significa que o Resource Health detectou falhas de l
 
 ### <a name="unknown"></a>Desconhecido
 
-O status de integridade de **Desconhecido** indica que o Resource Health não recebeu informações sobre esse recurso por mais de 10 minutos. Embora esse status não seja uma indicação definitiva sobre o estado do recurso, é um ponto de dados importante no processo de solução de problemas.
-Se o seu recurso permanecer nesse estado por um período prolongado, entre em contato com o suporte.
-Se você está tendo problemas com o recurso, o status de integridade Desconhecido pode sugerir que um evento na plataforma está afetando o recurso.
+O status de integridade de **Desconhecido** indica que o Resource Health não recebeu informações sobre esse recurso por mais de 10 minutos. Embora esse status não seja uma indicação definitiva sobre o estado do recurso, é um ponto de dados importante no processo de solução de problemas. Se o seu recurso permanecer nesse estado por um período prolongado, entre em contato com o suporte. Se você está tendo problemas com o recurso, o status de integridade Desconhecido pode sugerir que um evento na plataforma está afetando o recurso.
+
+![Desconhecido](./media/sql-database-resource-health/sql-resource-health-unknown.jpg)
 
 ## <a name="historical-information"></a>Informações de histórico
 

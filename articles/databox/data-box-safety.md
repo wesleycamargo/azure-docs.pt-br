@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 65b111d74121b6a679883d480b9e1f19d41e334e
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.openlocfilehash: d0ef3e407fd256b4db351f86b51964cbcb16e819
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093543"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905130"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box"></a>Instalar e operar o Azure Data Box com segurança
 ![Ícone de aviso](./media/data-box-safety/warning_icon.png)
@@ -77,14 +77,14 @@ Estes são os ícones que você encontrará ao ler as precauções de segurança
 * Desconecte permanentemente a unidade antes de movê-la ou se achar que ela foi danificada de alguma forma.
 * Forneça uma fonte de alimentação adequada com proteção contra sobrecarga elétrica para atender às seguintes especificações de energia:
 
-    - Voltagem: 100 V CA a 240 V CA
-    - Corrente: 6 A, máximo
+    - Tensão: V CA de 100 a 240 V CA
+    - Atual: 6, no máximo
     - Frequência: 50 Hz a 60 Hz
 
 ![Ícone de Aviso](./media/data-box-safety/warning_icon.png) **CUIDADO:**
 
 * este dispositivo contém baterias em forma de moeda. Não tente reparar o dispositivo. As baterias no dispositivo não são peças operadas pelo usuário. 
-* **Somente para a equipe de manutenção**: haverá risco de explosão se a bateria for substituída por um tipo incorreto. Descarte as baterias usadas de acordo com as instruções.
+* **Para a equipe de serviço somente**: Risco de explosão se a bateria é substituída por um tipo incorreto. Descarte as baterias usadas de acordo com as instruções.
 
 ![Ícone de observação](./media/data-box-safety/notice_icon.png) **OBSERVAÇÃO:**
 
@@ -101,10 +101,10 @@ Este dispositivo é:
 - Avaliado como ITE (Equipamento de Tecnologia da Informação), projetado para funcionar em um ambiente de sala de dados típico. A adequação do produto a outros ambientes pode exigir avaliação.
 - Projetado para uso com equipamentos de Tecnologia da Informação NRTL listado (UL, CSA, ETL etc.) e em conformidade com IEC/EN 60950-1 ou IEC/EN 62368 1 (marcação CE).
 - Projetado para funcionar no ambiente abaixo. 
-    - Temperatura operacional: 10 °C a 35 °C
+    - Temperatura operacional: 50° a 95° F (10° a 35° C)
     - Temperatura de armazenamento: -20 °C a 50 °C
     - Umidade relativa: 15% a 85% (sem condensação) 
-    - Altitude operacional: testada de 0 a 2.000 metros
+    - Altitude operacional: Testado até 6500 metros 0 aos medidores de 2000
 
 Para as classificações de energia elétrica, consulte o rótulo de classificação do dispositivo fornecido com a unidade. 
 
@@ -118,7 +118,7 @@ As alterações ou as modificações feitas no dispositivo não expressamente ap
 
 Este equipamento foi testado e considerado em conformidade com os limites de um dispositivo digital Classe A, de acordo com a parte 15 das Regras da FCC. Esses limites são projetados para fornecer uma proteção razoável contra interferência prejudicial quando o equipamento é operado em um ambiente comercial. O equipamento gera, usa e pode irradiar energia de radiofrequência. Se não for instalado e usado de acordo com o manual de instruções, poderá causar interferências prejudiciais às comunicações de rádio. A operação do equipamento em uma área residencial pode causar interferências prejudiciais. Nesse caso, o usuário precisará corrigir a interferência por conta própria.
 
-O dispositivo está em conformidade com a parte 15 das Regras da FCC e normas RSS isentas de licença do Canadá. A operação está sujeita a estas duas condições: (1) o dispositivo não pode causar interferência prejudicial e (2) o dispositivo deve aceitar todas as interferências recebidas, inclusive interferências que possam causar uma operação indesejada do dispositivo.
+O dispositivo está em conformidade com a parte 15 das Regras da FCC e normas RSS isentas de licença do Canadá. A operação está sujeito a estas duas condições: (1) este dispositivo não pode causar interferência prejudicial e (2) o dispositivo deve aceitar qualquer interferência recebida, inclusive interferência que pode causar operação indesejada do dispositivo.
 
 ![Canadá](./media/data-box-safety/canada.png)
 
@@ -142,7 +142,7 @@ Uma cópia da Declaração de Conformidade da UE está disponível aqui.
 
 ![Ícone de descarte da bateria](./media/data-box-safety/battery_disposal_icon.png)
 
-Este símbolo no produto, nas baterias ou embalagem significa que o produto e as baterias contidas não devem ser descartadas no lixo comum. É sua responsabilidade levá-los a um ponto de coleta para reciclagem de baterias e equipamentos eletroeletrônicos. Essa coleta e reciclagem separadas ajudarão a conservar os recursos naturais e impedir possíveis consequências negativas para a saúde humana e o meio ambiente devido à possível existência de substâncias perigosas nas baterias e equipamentos eletroeletrônicos, que podem ser causadas pelo descarte inadequado. Para obter mais informações sobre onde entregar suas baterias e equipamentos eletroeletrônicos, entre em contato com a Prefeitura, com o serviço de coleta seletiva ou a loja que vendeu o produto. Entre em contato com *erecycle@microsoft.com* para obter mais informações sobre a WEEE.
+Este símbolo no produto, nas baterias ou embalagem significa que o produto e as baterias contidas não devem ser descartadas no lixo comum. É sua responsabilidade levá-los a um ponto de coleta para reciclagem de baterias e equipamentos eletroeletrônicos. Essa coleta e reciclagem separadas ajudarão a conservar os recursos naturais e impedir possíveis consequências negativas para a saúde humana e o meio ambiente devido à possível existência de substâncias perigosas nas baterias e equipamentos eletroeletrônicos, que podem ser causadas pelo descarte inadequado. Para obter mais informações sobre onde entregar suas baterias e equipamentos eletroeletrônicos, entre em contato com a Prefeitura, com o serviço de coleta seletiva ou a loja que vendeu o produto. Entre em contato com *erecycle\@microsoft.com* para obter mais informações sobre a WEEE.
 
 Este produto contém baterias em forma de moeda.
 

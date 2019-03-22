@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89d587a71eeb75f7be567cbc29a4d77ac371e3dc
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: a898b5b235099109fcfeaaa4d647493e54caf57e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237850"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853164"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Problema ao adicionar um aplicativo da Galeria do Azure AD
 
@@ -38,7 +38,7 @@ Se seu aplicativo nunca for adicionado, ou se você encontrar um erro ao clicar 
 
 Se encontrar um erro ao clicar no botão **Adicionar**, você verá uma **Notificação** em um estado **Erro**. Se quiser mais detalhes sobre o erro para saber mais ou para compartilhar com um engenheiro de suporte, você poderá ver mais informações sobre o erro seguindo as etapas na seção [Como ver os detalhes de uma notificação do portal](#how-to-see-the-details-of-a-portal-notification).
 
- ## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>Não sei configurar meu aplicativo após tê-lo adicionado
+## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>Não sei configurar meu aplicativo após tê-lo adicionado
 
 Se você precisar de ajuda para aprender sobre aplicativos, o artigo [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) é um bom lugar para começar.
 
@@ -73,41 +73,41 @@ Veja as descrições a seguir para mais detalhes sobre as notificações.
 
 ### <a name="essential-notification-items"></a>Itens de notificação essenciais
 
--   **Título** – o título descritivo da notificação
+- **Título** – o título descritivo da notificação
 
   * Exemplo – **Configurações do proxy do aplicativo**
 
--   **Descrição** – a descrição do que ocorreu como resultado da operação
+- **Descrição** – a descrição do que ocorreu como resultado da operação
 
-    -   Exemplo – **A URL interna inserida já está sendo usada por outro aplicativo**
+  -   Exemplo – **A URL interna inserida já está sendo usada por outro aplicativo**
 
--   **ID da Notificação** – a ID exclusiva da notificação
+- **ID da Notificação** – a ID exclusiva da notificação
 
-    -   Exemplo – **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
+  -   Exemplo – **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
 
--   **ID de Solicitação do Cliente** – a ID de solicitação específica feita por seu navegador
+- **ID de Solicitação do Cliente** – a ID de solicitação específica feita por seu navegador
 
-    -   Exemplo – **302fd775-3329-4670-a9f3-bea37004f0bc**
+  -   Exemplo – **302fd775-3329-4670-a9f3-bea37004f0bc**
 
--   **Carimbo de Data/Hora UTC** – o carimbo de data/hora durante o qual a notificação ocorreu, em UTC
+- **Carimbo de Data/Hora UTC** – o carimbo de data/hora durante o qual a notificação ocorreu, em UTC
 
-    -   Exemplo – **2017-03-23T19:50:43.7583681Z**
+  -   Exemplo – **2017-03-23T19:50:43.7583681Z**
 
--   **ID de Transação Interna** – a ID interna que podemos usar para procurar o erro em nossos sistemas
+- **ID de Transação Interna** – a ID interna que podemos usar para procurar o erro em nossos sistemas
 
-    -   Exemplo – **71a2f329-ca29-402f-aa72-bc00a7aca603**
+  -   Exemplo – **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
--   **UPN** – o usuário que realizou a operação
+- **UPN** – o usuário que realizou a operação
 
-    -   Exemplo – **tperkins@f128.info**
+  -   Exemplo – **tperkins\@f128.info**
 
--   **ID do Locatário** – a ID exclusiva do locatário do qual o usuário que realizou a operação era membro
+- **ID do Locatário** – a ID exclusiva do locatário do qual o usuário que realizou a operação era membro
 
-    -   Exemplo – **7918d4b5-0442-4a97-be2d-36f9f9962ece**
+  -   Exemplo – **7918d4b5-0442-4a97-be2d-36f9f9962ece**
 
--   **ID de objeto de usuário** – a ID exclusiva do usuário que realizou a operação
+- **ID de objeto de usuário** – a ID exclusiva do usuário que realizou a operação
 
-    -   Exemplo – **17f84be4-51f8-483a-b533-383791227a99**
+  -   Exemplo – **17f84be4-51f8-483a-b533-383791227a99**
 
 ### <a name="detailed-notification-items"></a>Itens de notificação detalhados
 
@@ -125,7 +125,7 @@ Veja as descrições a seguir para mais detalhes sobre as notificações.
 
 -   **Detalhes** – a descrição detalhada do que ocorreu como resultado da operação
 
-    -   Exemplo – **URL interna 'https://bing.com/' é inválida porque já está em uso**
+    -   Exemplo – **url interna `https://bing.com/` é inválido, pois ele já está em uso**
 
 -   **Copiar erro** – clique no **ícone de cópia** à direita da caixa de texto **Copiar erro** para copiar todos os detalhes de notificação para compartilhar com um suporte ou grupo de produtos 
 -   engenheiro

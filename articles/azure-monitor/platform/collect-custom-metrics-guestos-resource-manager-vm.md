@@ -4,18 +4,20 @@ description: Enviar métricas do SO convidado para o repositório de métricas d
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 1eaf73e1d8b3c60ea32fa7d4aaf51a212d24a18c
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 63b134ab9bfdac3617c845da7a14ee6b9234c84d
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894591"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57782013"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Enviar métricas do SO convidado para o repositório de métricas do Azure Monitor usando um modelo do Resource Manager para uma máquina virtual do Windows
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Usando a [extensão de Diagnóstico](diagnostics-extension-overview.md) do Azure Monitor, você pode coletar logs e métricas do SO (sistema operacional) convidado executado como parte de uma máquina virtual, do serviço de nuvem ou do cluster do Service Fabric. A extensão pode enviar telemetria para [vários locais diferentes](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json).
 
@@ -29,7 +31,7 @@ Se você é novo nos modelos do Resource Manager, aprenda sobre [implantações 
 
 - Sua assinatura deve ser registrada com [Microsoft. Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services).
 
-- Você precisará ter o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) ou o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) instalado.
+- Você precisará ter o [Azure PowerShell](/powershell/azure) ou o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) instalado.
 
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Configurar o Azure Monitor como um coletor de dados
@@ -237,17 +239,17 @@ Salve e feche ambos os arquivos.
 Para implantar o modelo do Resource Manager, usamos o Azure PowerShell.
 
 1. Inicie o PowerShell.
-1. Faça logon no Azure usando `Login-AzureRmAccount`.
-1. Obtenha sua lista de assinaturas usando `Get-AzureRmSubscription`.
+1. Faça logon no Azure usando `Login-AzAccount`.
+1. Obtenha sua lista de assinaturas usando `Get-AzSubscription`.
 1. Defina a assinatura que você está usando para criar/atualizar a máquina virtual em:
 
    ```PowerShell
-   Select-AzureRmSubscription -SubscriptionName "<Name of the subscription>"
+   Select-AzSubscription -SubscriptionName "<Name of the subscription>"
    ```
 1. Para criar um novo grupo de recursos para a VM sendo implantada, execute o comando a seguir:
 
    ```PowerShell
-    New-AzureRmResourceGroup -Name "<Name of Resource Group>" -Location "<Azure Region>"
+    New-AzResourceGroup -Name "<Name of Resource Group>" -Location "<Azure Region>"
    ```
    > [!NOTE]
    > Lembre-se de [usar uma região do Azure habilitada para métricas personalizadas](metrics-custom-overview.md).
@@ -257,7 +259,7 @@ Para implantar o modelo do Resource Manager, usamos o Azure PowerShell.
    > Se quiser atualizar uma VM existente, adicione *-Mode Incremental* ao final do comando a seguir.
 
    ```PowerShell
-   New-AzureRmResourceGroupDeployment -Name "<NameThisDeployment>" -ResourceGroupName "<Name of the Resource Group>" -TemplateFile "<File path of your Resource Manager template>" -TemplateParameterFile "<File path of your parameters file>"
+   New-AzResourceGroupDeployment -Name "<NameThisDeployment>" -ResourceGroupName "<Name of the Resource Group>" -TemplateFile "<File path of your Resource Manager template>" -TemplateParameterFile "<File path of your parameters file>"
    ```
 
 1. Depois que a implantação for bem-sucedida, a VM deverá estar no portal do Azure, emitindo métricas para o Azure Monitor.

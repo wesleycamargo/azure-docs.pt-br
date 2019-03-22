@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
-ms.openlocfilehash: be0cdeed81c66e1a848b44d2429c1c67bce9b4f3
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: cdd5c7592ebbc092c8e7be01a0fdd16e9c78aeaf
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024086"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240789"
 ---
 # <a name="azure-data-factory-faq"></a>Perguntas frequentes sobre o Azure Data Factory
 Este artigo fornece respostas a perguntas frequentes sobre o Azure Data Factory.  
@@ -174,6 +174,33 @@ Sim. Uma saída de atividade pode ser consumida em uma atividade subsequente com
  
 ### <a name="how-do-i-gracefully-handle-null-values-in-an-activity-output"></a>Como tratar normalmente o valores nulos em uma saída de atividade? 
 Você pode usar o constructo `@coalesce` nas expressões para manipular valores nulos normalmente. 
+
+## <a name="mapping-data-flows"></a>Fluxos de dados de mapeamento
+
+### <a name="which-adf-version-do-i-use-to-create-data-flows"></a>Qual versão do ADF usar para criar fluxos de dados?
+Use a versão do ADF V2 para criar fluxos de dados
+  
+### <a name="i-was-a-previous-private-preview-customer-using-data-flows-and-i-used-the-adf-v2-wdata-flows-preview-version"></a>Eu era um cliente de visualização privada anterior usando fluxos de dados e usei a versão de visualização de fluxos de dados/w de ADF V2
+Esta versão agora é obsoleta. Usar o ADF V2 para fluxos de dados
+  
+### <a name="what-has-changed-from-private-preview-to-limited-public-preview-in-data-flows"></a>O que mudou na versão prévia privada para visualização pública limitada em fluxos de dados?
+Você não terá mais trazer seus próprios clusters do Databricks. ADF irá gerenciar a criação do cluster e a desmontagem. Conjuntos de dados de blob e conjuntos de dados do ADLS são separados em conjuntos de dados de texto delimitados e Parquet. Você ainda pode usar o ADLS & Blob Store para armazenar esses arquivos. Use o serviço de vinculado apropriado para os mecanismos de armazenamento.
+
+### <a name="can-i-migrate-my-private-preview-factories-to-adf-v2"></a>Posso migrar meu fábricas de versão prévia privada para ADF V2?
+
+[Sim, siga as instruções aqui](https://www.slideshare.net/kromerm/adf-mapping-data-flow-private-preview-migration)
+
+### <a name="i-need-help-troubleshooting-my-data-flow-logic-what-do-you-need"></a>Preciso de ajuda para solucionar minha lógica de fluxo de dados, o que você precisa?
+
+Quando a Microsoft fornece ajuda ou solução de problemas com os dados fluem, forneça o "DSL código plano". Para fazer isso, siga estas etapas:
+
+* Do Designer de fluxo de dados, clique em "Code" no canto superior direito. Isso exibirá o código JSON editável para o fluxo de dados.
+* Na exibição de código, clique em "Planejar" no canto superior direito. A alternância de plano será alternado de JSON para somente leitura formatada DSL script plano.
+* Copiar e colar esse script ou salvá-lo em um arquivo de texto.
+
+### <a name="how-do-i-access-data-using-the-other-80-dataset-types-in-adf"></a>Como fazer para acessar dados usando os outros tipos de conjunto de dados 80 no ADF?
+
+Fluxo de dados atualmente permite BD SQL do Azure, SQL DW do Azure, arquivos de texto delimitados de ADLS ou Blob e arquivos Parquet do ADLS ou Blob nativamente fonte e coletor. Use a atividade de cópia para transferir dados de qualquer um dos outros conectores e, em seguida, executar uma atividade de fluxo de dados para transformar os dados depois que ele foi preparado. Por exemplo, seu pipeline primeiro copiará no Blob e, em seguida, uma atividade de fluxo de dados será usar um conjunto de dados na fonte para transformar os dados.
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter instruções passo a passo para criar um data factory, consulte os tutoriais a seguir:

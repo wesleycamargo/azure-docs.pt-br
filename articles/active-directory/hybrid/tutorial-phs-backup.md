@@ -12,12 +12,12 @@ ms.date: 01/30/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c68dba4a188e5acf88cc39b02e535d89a1c9e46
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2281bc451a5acf9e4e634a124161a3e8b0734deb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178814"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58090501"
 ---
 # <a name="tutorial--setting-up-phs-as-backup-for-ad-fs-in-azure-ad-connect"></a>Tutorial:  Configurando o PHS como backup para o AD FS no Azure AD Connect
 
@@ -60,9 +60,9 @@ Agora, mostraremos a você como alternar para a sincronização de hash de senha
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Testar entrando com um dos usuários
 
-1.  Navegue até [http://myapps.microsoft.com](http://myapps.microsoft.com)
+1. Navegue até [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Entre com uma conta de usuário que foi criada no novo locatário.  Será necessário entrar usando o formato a seguir: (user@domain.onmicrosoft.com). Use a mesma senha que o usuário usa para entrar localmente.</br>
-![Verificar](media/tutorial-password-hash-sync/verify1.png)</br>
+   ![Verificar](media/tutorial-password-hash-sync/verify1.png)</br>
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -7,19 +7,19 @@ author: sumukhs
 manager: timlt
 editor: vturecek
 ms.assetid: 9f72373d-31dd-41e3-8504-6e0320a11f0e
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: ee8010fbbadc011e04d6d43599d671a1f926bb5f
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ms.openlocfilehash: c131cf96f11dcddfb0de87ccf47f2d2c8a99617d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049649"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850795"
 ---
 # <a name="configure-stateful-reliable-services"></a>Configurar serviços confiáveis com estado
 Há dois conjuntos de definições de configuração para Reliable Services. Um conjunto é global para todos os Reliable Services no cluster, enquanto o outro conjunto é específico para um determinado Reliable Service.
@@ -36,7 +36,7 @@ A configuração do Reliable Service global é especificada no manifesto do clus
 | SharedLogPath |Nome de caminho totalmente qualificado |"" |Especifica o caminho totalmente qualificado onde o arquivo de log compartilhado usado por todos os serviços confiáveis em todos os nós no cluster que não especificam o SharedLogPath na configuração específica de seu serviço. No entanto, se SharedLogPath for especificado, SharedLogId também deverá ser especificado. |
 | SharedLogSizeInMB |Megabytes |8192 |Especifica o número de MB do espaço em disco a ser alocado estatisticamente para o log compartilhado. O valor deve ser de 2048 ou superior. |
 
-No ARM do Azure ou no modelo JSON local, o exemplo abaixo mostra como alterar o log de transações compartilhado que é criado como um apoio para as coletas confiáveis de serviços com estado.
+No Azure ARM ou no modelo JSON de local, o exemplo a seguir mostra como alterar o log de transações compartilhado que é criado para dar apoio às coleções confiáveis para serviços com estado.
 
     "fabricSettings": [{
         "name": "KtlLogger",
@@ -161,7 +161,7 @@ class MyStatefulService : StatefulService
 ### <a name="sample-configuration-file"></a>Arquivo de exemplo de configuração
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
    <Section Name="ReplicatorConfig">
       <Parameter Name="ReplicatorEndpoint" Value="ReplicatorEndpoint" />
       <Parameter Name="BatchAcknowledgementInterval" Value="0.05"/>

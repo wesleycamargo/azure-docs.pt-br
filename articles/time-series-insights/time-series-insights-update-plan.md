@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: 09fef060a58723624796fe6192fef2444251cc1c
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: 251e95744f57d9b5e42df9bdc3743f4880ff5381
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556077"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076989"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Planeje o ambiente de versão prévia do Azure Time Series Insights
 
@@ -79,7 +79,7 @@ Uma boa regra prática:
 * Armazenar metadados no modelo de série temporal
 * O modo de série temporal, os campos de instância e os eventos incluem somente informações necessárias, como:
   * ID da série temporal
-  * Timestamp
+  * Carimbo de data/hora
 
 Para saber mais, confira [Formatar eventos](./time-series-insights-send-events.md#json).
 
@@ -90,7 +90,7 @@ O Time Series Insights é um serviço de alta disponibilidade que usa redundânc
 Para saber mais sobre os recursos internos do Azure para BCDR (continuidade dos negócios e recuperação de desastres), confira [Continuidade dos negócios e diretrizes técnicas do Azure](https://docs.microsoft.com/azure/resiliency/resiliency-technical-guidance). Para obter diretrizes de arquitetura sobre estratégias para aplicativos do Azure a fim de alcançar alta disponibilidade e recuperação de desastre, confira o artigo em [Recuperação de desastre e alta disponibilidade para aplicativos do Azure](https://docs.microsoft.com/azure/architecture/resiliency/index).
 
 > [!NOTE]
-
+> 
 >  O Time Series Insights não tem BCDR interno.
 > Por padrão, o Armazenamento do Azure, o Hub IoT do Azure e os Hubs de Eventos do Azure têm recuperação interna.
 

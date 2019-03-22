@@ -10,15 +10,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 11/14/2018
+ms.date: 03/05/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 0aa0be7ae9658259b327014c5678777c963e6cb5
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
-ms.translationtype: HT
+ms.openlocfilehash: 1d2d53213af34377d23c9ea140bab15822fc1b2e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302809"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444762"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Manter os dados de tarefa para o Armazenamento do Azure com a API de serviço de lote
 
@@ -36,9 +36,6 @@ O Lote do Azure fornece mais de uma maneira de manter a saída da tarefa. Usar a
 - Você deseja manter a saída das tarefas em Lote e as tarefas do gerenciador de trabalho em pools criados com a configuração de máquina virtual.
 - Você deseja manter a saída a um contêiner de Armazenamento do Azure com um nome arbitrário.
 - Você deseja manter a saída a um contêiner de Armazenamento do Azure nomeado de acordo com o [padrão de Convenções de Arquivo em Lotes](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). 
-
-> [!NOTE]
-> A API do serviço de Lote não dá suporte a manter dados de tarefas em execução em pools criados com a configuração de serviço de nuvem. Para obter informações sobre manter a saída de tarefas de pools que estejam executando a configuração de serviços de nuvem, consulte [Manter dados de trabalhos e tarefas no Armazenamento do Microsoft Azure com a biblioteca de Convenções de Arquivo em Lotes para .NET para manter ](batch-task-output-file-conventions.md)
 
 Se seu cenário for diferente daqueles listados acima, poderá ser necessário considerar uma abordagem diferente. Por exemplo, a API de serviço de lote atualmente não suporta saída de transmissão para o armazenamento do Azure durante a execução da tarefa. Para a saída de fluxo, considere usar a biblioteca de Convenções de Arquivo em Lotes, disponível para .NET. Para outros idiomas, você precisará implantar sua própria solução. Para obter mais informações sobre outras opções para manter a saída da tarefa, consulte [Manter saída de trabalho e tarefa no Armazenamento do Azure](batch-task-output.md).
 

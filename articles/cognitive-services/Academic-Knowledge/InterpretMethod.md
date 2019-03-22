@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: 6db9a5b65fc2723af2eae006ad81716e23e52133
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: b679f1da0ada3e61fca79cdb985a43dc445877ce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860517"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57975484"
 ---
 # <a name="interpret-method"></a>Método Interpretar
 
@@ -37,9 +37,11 @@ NOME     | Valor | Obrigatório?  | DESCRIÇÃO
 **count**    | Número | Não <br>default:10 | Número máximo de interpretações para retornar.         
 **offset**   | Número | Não <br>default:0  | Índice da primeira interpretação para retornar. Por exemplo, *count=2&offset=0* retorna as interpretações 0 e 1. *count=2&offset=2* retorna interpretações 2 e 3.       
 **tempo limite**  | Número | Não <br>default:1000 | Tempo limite em milissegundos. Somente interpretações localizadas antes que o tempo limite tenha decorrido serão retornadas.
+
 <br>
   
 ## <a name="response-json"></a>Resposta (JSON)
+
 NOME     | DESCRIÇÃO
 ---------|---------
 **query** |O parâmetro *query* da solicitação.
@@ -54,6 +56,7 @@ NOME     | DESCRIÇÃO
 **anulado** | Verdadeiro se a solicitação atingiu o tempo limite.
 
 <br>
+
 #### <a name="example"></a>Exemplo:
 ```
 https://westus.api.cognitive.microsoft.com/academic/v1.0/interpret?query=papers by jaime&complete=1&count=2

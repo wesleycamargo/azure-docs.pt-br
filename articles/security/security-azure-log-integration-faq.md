@@ -4,7 +4,7 @@ description: Este artigo de perguntas frequentes responde às perguntas sobre a 
 services: security
 documentationcenter: na
 author: TomShinder
-manager: barbkess
+manager: MBaldwin
 editor: TerryLanfear
 ms.assetid: d06d1ac5-5c3b-49de-800e-4d54b3064c64
 ms.service: security
@@ -15,12 +15,12 @@ ms.workload8: na
 ms.date: 01/14/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: f1b809e52cc532d13be85776f73aba4465fa2140
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 4f6a724fe6c1e8668084f1c1cefbaa01cffba181
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114919"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005856"
 ---
 # <a name="azure-log-integration-faq"></a>Perguntas frequentes sobre a Integração de Logs do Azure
 
@@ -32,6 +32,8 @@ Este artigo responde as perguntas frequentes (FAQ) sobre a Integração de Logs 
 A Integração de Logs do Azure é um serviço do sistema operacional Windows que permite integrar logs brutos de recursos do Azure a seus sistemas locais de SIEM (Gerenciamento de Eventos e Informações de Segurança). Essa integração oferece um painel unificado para todos os seus ativos, locais ou na nuvem. Você pode então agregar, correlacionar, analisar e alertar sobre eventos de segurança associados a seus aplicativos.
 
 O método preferencial para integrar os logs do Azure é usando o conector do Azure Monitor do seu fornecedor de SIEM e seguindo estas [instruções](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). No entanto, se o fornecedor de SIEM não fornecer um conector para o Azure Monitor, você poderá usar a Integração de Logs do Azure como solução temporária (se o SIEM for compatível com a Integração de Logs do Azure) até que o conector esteja disponível.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="is-the-azure-log-integration-software-free"></a>O software Integração de Log do Azure é gratuito?
 
@@ -97,7 +99,7 @@ O comando **azlog createazureid** tenta criar uma entidade de serviço em todos 
 
 Erro:
 
-  *Aviso ao criar Atribuição de Função – AuthorizationFailed: O cliente janedo@microsoft.com com a id de objeto 'fe9e03e4-4dad-4328-910f-fd24a9660bd2' não tem autorização para executar a ação 'Microsoft.Authorization/roleAssignments/write' além do escopo '/subscriptions/70d95299-d689-4c97-b971-0d8ff0000000'.*
+  *Aviso ao criar Atribuição de Função – AuthorizationFailed: O cliente janedo\@microsoft.com' com o objeto id 'fe9e03e4-4dad-4328-910f-fd24a9660bd2' não tem autorização para executar a ação 'Microsoft.Authorization/roleAssignments/write' no escopo ' /subscriptions/ d 70 95299-d689-4c 97 b971 0d8ff0000000'.*
 
 O comando **azlog authorize** tenta criar a função de leitor para a entidade de serviço do Azure AD (criada com **azlog createazureid**) para as assinaturas fornecidas. Se o logon do Azure não for um coadministrador nem um proprietário da assinatura, ele falhará com a mensagem de erro “Falha na Autorização”. O RBAC (Controle de Acesso Baseado em Função) do coadministrador ou proprietário é necessário para concluir essa ação.
 
@@ -118,8 +120,8 @@ Para obter detalhes sobre como obter, modificar e definir a configuração do Di
 
 O exemplo a seguir obtém a configuração do Diagnóstico do Azure:
 
-    -AzureRmVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient
-    $publicsettings = (Get-AzureRmVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient).PublicSettings
+    Get-AzVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient
+    $publicsettings = (Get-AzVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient).PublicSettings
     $encodedconfig = (ConvertFrom-Json -InputObject $publicsettings).xmlCfg
     $xmlconfig = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($encodedconfig))
     Write-Host $xmlconfig
@@ -136,7 +138,7 @@ O exemplo a seguir modifica a configuração do Diagnóstico do Azure. Nessa con
 O exemplo a seguir define a configuração do Diagnóstico do Azure:
 
     $diagnosticsconfig_path = "d:\WADConfig.xml"
-    Set-AzureRmVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName log3121 -StorageAccountKey <storage key>
+    Set-AzVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName log3121 -StorageAccountKey <storage key>
 
 Depois de fazer alterações, verifique a conta de armazenamento para garantir que os eventos corretos sejam coletados.
 

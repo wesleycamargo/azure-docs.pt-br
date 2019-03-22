@@ -5,27 +5,27 @@ description: Estudo de caso do desenvolvimento de um modelo integrado para anali
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: a00548bd5eb88c95ea83d492524e2ae10f274bba
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 320dd28ba22d7919e3f3afdcd8baa47780f363dd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453980"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57856100"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio"></a>Analisar a rotatividade de clientes usando o Azure Machine Learning Studio
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 Este artigo apresenta uma implementação de referência de um projeto de análise de variação de cliente que é criado com o Azure Machine Learning Studio. Discutimos aqui modelos genéricos associados para resolver holisticamente o problema de variação do cliente industrial. Medimos também a precisão dos modelos criados usando o Machine Learning e avaliamos o trajeto para maior desenvolvimento.  
 
 ### <a name="acknowledgements"></a>Confirmações
 Esse teste foi desenvolvido e testado por Serge Berger, principal cientista de dados da Microsoft, e Roger Barga, ex-gerente de produto do Microsoft Azure Machine Learning Studio. A equipe de documentação do Azure confirma reconhecidamente a experiência que eles têm e os agradece por compartilhar este white paper.
 
 > [!NOTE]
-> Os dados usados neste experimento não estão publicamente disponíveis. Para ver um exemplo de como criar um modelo de aprendizado de máquina para análise de rotatividade, confira: [Modelo de rotatividade de varejo](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1) na [Galeria de IA do Azure](http://gallery.azure.ai/)
+> Os dados usados neste experimento não estão publicamente disponíveis. Para ver um exemplo de como criar um modelo de aprendizado de máquina para análise de rotatividade, confira: [Modelo de rotatividade de varejo](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1) na [Galeria de IA do Azure](https://gallery.azure.ai/)
 > 
 > 
 
@@ -106,7 +106,7 @@ Os diagramas a seguir ilustram os dados que foram usados.
  
 
 > Observe que esses dados são particulares e, portanto, o modelo e os dados não podem ser compartilhados.
-> No entanto, para um modelo semelhante usando dados publicamente disponíveis, confira esse experimento de exemplo na [Galeria de IA do Azure](http://gallery.azure.ai/): [Rotatividade de clientes de empresas de telecomunicações](http://gallery.azure.ai/Experiment/31c19425ee874f628c847f7e2d93e383).
+> No entanto, para um modelo semelhante usando dados publicamente disponíveis, confira esse experimento de exemplo na [Galeria de IA do Azure](https://gallery.azure.ai/): [Rotatividade de clientes de empresas de telecomunicações](https://gallery.azure.ai/Experiment/31c19425ee874f628c847f7e2d93e383).
 > 
 > Para saber mais sobre como você pode implementar um modelo de análise de variação usando o Cortana Intelligence Suite, também recomendamos [este vídeo](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) do gerente de programa sênior Wee Hyong Tok. 
 > 
@@ -213,13 +213,13 @@ Este documento descreve uma abordagem sensata para lidar com o problema comum de
 ## <a name="references"></a>Referências
 [1] Análise Preditiva: Beyond the Predictions, W. McKnight, Information Management, julho/agosto de 2011, págs. 18 a 20.  
 
-[2] Artigo da Wikipedia: [Accuracy and precision](http://en.wikipedia.org/wiki/Accuracy_and_precision)
+[2] Artigo da Wikipedia: [Accuracy and precision](https://en.wikipedia.org/wiki/Accuracy_and_precision)
 
-[3] [CRISP-DM 1.0: Step-by-Step Data Mining Guide](http://www.the-modeling-agency.com/crisp-dm.pdf)   
+[3] [CRISP-DM 1.0: Step-by-Step Data Mining Guide](https://www.the-modeling-agency.com/crisp-dm.pdf)   
 
 [4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Modelo de variação de telecomunicações](http://gallery.azure.ai/Experiment/Telco-Customer-Churn-5) na [Galeria de IA do Azure](http://gallery.azure.ai/) 
+[5] [Modelo de variação de telecomunicações](https://gallery.azure.ai/Experiment/Telco-Customer-Churn-5) na [Galeria de IA do Azure](https://gallery.azure.ai/) 
  
 
 ## <a name="appendix"></a>Apêndice

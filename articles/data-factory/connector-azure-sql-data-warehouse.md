@@ -10,18 +10,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 02/22/2019
 ms.author: jingwang
-ms.openlocfilehash: bed076ac1bd81d90d367d18315a4d0de12468ec8
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: c2257dac60ed92859e3df3360ce55558b176de91
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660197"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010197"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiar dados de e para o SQL Data Warehouse do Azure usando o Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
-> * [Versão1 ](v1/data-factory-azure-sql-data-warehouse-connector.md)
+> * [Versão 1](v1/data-factory-azure-sql-data-warehouse-connector.md)
 > * [Versão atual](connector-azure-sql-data-warehouse.md)
 
 Este artigo explica como usar a atividade de cópia no Azure Data Factory para copiar dados para ou do Azure SQL Data Warehouse. Ele amplia o artigo [visão geral da Atividade de Cópia](copy-activity-overview.md) que apresenta uma visão geral da Atividade de Cópia.
@@ -59,7 +59,7 @@ As seguintes propriedades são suportadas para um serviço vinculado do Data War
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | Tipo | A propriedade type deve ser definida como  **AzureSqlDW**. | Sim |
-| connectionString | Especifique as informações necessárias para conectar-se à instância do Azure SQL Data Warehouse para a propriedade  **connectionString**. <br/>Marque esse campo como SecureString para armazená-lo com segurança no Data Factory. Você também pode colocar uma senha/chave da entidade de serviço no Azure Key Vault, e se sua autenticação do SQL tirar a configuração da `password` da cadeia de conexão. Veja o exemplo de JSON abaixo da tabela e o artigo [Armazenar credenciais no Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. | Sim |
+| connectionString | Especifique as informações necessárias para conectar-se à instância do Azure SQL Data Warehouse para a propriedade  **connectionString**. <br/>Marque esse campo como SecureString para armazená-lo com segurança no Data Factory. Você também pode colocar uma senha/chave da entidade de serviço no Azure Key Vault e se sua autenticação do SQL efetua pull da configuração da `password` da cadeia de conexão. Veja o exemplo de JSON abaixo da tabela e o artigo [Armazenar credenciais no Azure Key Vault](store-credentials-in-key-vault.md) que fornece mais detalhes. | Sim |
 | servicePrincipalId | Especifique a ID do cliente do aplicativo. | Sim, quando você usa a autenticação do Azure AD com uma entidade de serviço. |
 | servicePrincipalKey | Especifique a chave do aplicativo. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim, quando você usa a autenticação do Azure AD com uma entidade de serviço. |
 | locatário | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. É possível recuperá-lo focalizando o canto superior direito do portal do Azure. | Sim, quando você usa a autenticação do Azure AD com uma entidade de serviço. |
@@ -136,7 +136,7 @@ Para usar a autenticação de token de aplicativo do Azure AD com base em entida
     - Chave do aplicativo
     - ID do locatário
 
-1. **[Provisione um administrador do Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** para o servidor SQL do Azure no Portal do Azure, caso ainda não tenha feito isso. O administrador do Azure AD pode ser um usuário do AD do Azure ou um grupo do Azure AD. Se você conceder ao grupo com o MSI uma função administrativa, pule as etapas 3 e 4. O administrador terá acesso total ao banco de dados.
+1. **[Provisione um administrador do Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** para o servidor SQL do Azure no Portal do Azure, caso ainda não tenha feito isso. O administrador do Azure AD pode ser um usuário do AD do Azure ou um grupo do Azure AD. Se você conceder ao grupo com uma função de administrador de identidade gerenciada, ignore as etapas 3 e 4. O administrador terá acesso total ao banco de dados.
 
 1. **[Crie usuários de banco de dados contidos](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** para o diretor de serviços. Conecte-se ao data warehouse de ou para o qual você deseja copiar dados usando ferramentas como SSMS, com uma identidade do Azure AD que tenha pelo menos a permissão ALTER ANY USER. Execute o seguinte T-SQL:
     
@@ -182,22 +182,22 @@ Para usar a autenticação de token de aplicativo do Azure AD com base em entida
 
 ### <a name="managed-identity"></a> Identidades gerenciadas para autenticação de recursos do Azure
 
-Um data factory pode ser associado a uma [identidade gerenciada para recursos do Azure](data-factory-service-identity.md), que representa o factory específico. Você pode usar essa identidade de serviço para a autenticação do Azure SQL Data Warehouse. A fábrica designada pode acessar e copiar dados de ou para seu data warehouse usando essa identidade.
+Um data factory pode ser associado a uma [identidade gerenciada para recursos do Azure](data-factory-service-identity.md), que representa o factory específico. Você pode usar essa identidade gerenciada para a autenticação do Azure SQL Data Warehouse. A fábrica designada pode acessar e copiar dados de ou para seu data warehouse usando essa identidade.
 
 > [!IMPORTANT]
-> Observe que o PolyBase não é atualmente suportado pela autenticação MSI.
+> Observe que o PolyBase atualmente não há suporte para autenticação de identidade gerenciada.
 
-Para usar a autenticação de token do aplicativo do Azure AD com base em MSI, siga estas etapas:
+Para usar a autenticação de identidade gerenciada, siga estas etapas:
 
-1. **Crie um grupo no AD do Azure.** Faça da fábrica MSI um membro do grupo.
+1. **Crie um grupo no AD do Azure.** Verifique a identidade gerenciada de um membro do grupo.
 
-    1. Encontre a identidade do serviço de fábrica de dados no portal do Azure. Vá para as **Propriedades** da sua data factory. Copie o ID da IDENTIDADE DO SERVIÇO.
+   1. Encontre a identidade do data factory gerenciada do portal do Azure. Vá para as **Propriedades** da sua data factory. Copie o ID da IDENTIDADE DO SERVIÇO.
 
-    1. Instale o módulo do [PowerShell do Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2). Entre usando o comando `Connect-AzureAD`. Execute os seguintes comandos para criar um grupo e inclua o MSI do data factory como membro.
-    ```powershell
-    $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
-    Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
-    ```
+   1. Instale o módulo do [PowerShell do Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2). Entre usando o comando `Connect-AzureAD`. Execute os seguintes comandos para criar um grupo e adicionar a identidade gerenciada como um membro.
+      ```powershell
+      $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
+      Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory managed identity object ID>"
+      ```
 
 1. **[Provisione um administrador do Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** para o servidor SQL do Azure no Portal do Azure, caso ainda não tenha feito isso.
 
@@ -215,7 +215,7 @@ Para usar a autenticação de token do aplicativo do Azure AD com base em MSI, s
 
 1. **Configure um serviço vinculado do Data Warehouse SQL do Azure** no Azure Data Factory.
 
-#### <a name="linked-service-example-that-uses-msi-authentication"></a>Exemplo de serviço vinculado que usa autenticação MSI
+**Exemplo:**
 
 ```json
 {
@@ -388,7 +388,7 @@ Para copiar dados para o SQL Data Warehouse do Azure, defina o tipo de coletor e
 | useTypeDefault | Especifica como tratar valores ausentes nos arquivos de texto delimitados quando PolyBase recupera dados do arquivo de texto.<br/><br/>Saiba mais sobre essa propriedade na seção Argumentos em [CRIAR FORMATO DE ARQUIVO EXTERNO (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Os valores permitidos são **True** e **False** (padrão). | Não  |
 | writeBatchSize | Insere dados na tabela SQL quando o tamanho do buffer atinge **writeBatchSize** . Aplica-se apenas quando o PolyBase não é usado.<br/><br/>O valor permitido é **inteiro** (número de linhas). |  Não. O padrão é 10000. |
 | writeBatchTimeout | Tempo de espera para a operação de inserção em lote ser concluída antes de expirar. Aplica-se apenas quando o PolyBase não é usado.<br/><br/>O valor permitido é **timespan**. Exemplo: “00:30:00” (30 minutos). | Não  |
-| preCopyScript | Especifique uma consulta SQL para que a Atividade de Cópia seja executada antes de gravar dados no Azure SQL Data Warehouse em cada execução. Use essa propriedade para limpar os dados pré-carregados. | Não  | (#repeatability-during-copy). | Uma instrução de consulta. | Não  |
+| preCopyScript | Especifique uma consulta SQL para que a Atividade de Cópia seja executada antes de gravar dados no Azure SQL Data Warehouse em cada execução. Use essa propriedade para limpar os dados pré-carregados. | Não  |
 
 #### <a name="sql-data-warehouse-sink-example"></a>Exemplo de coletor do SQL Data Warehouse
 
@@ -437,8 +437,8 @@ Se os requisitos não forem atendidos, o Azure Data Factory verificará as confi
    5. `escapeChar`, `quoteChar` e `skipLineCount` não são especificadas. O suporte do PolyBase ignorar a linha de cabeçalho que pode ser configurada como `firstRowAsHeader` no ADF.
    6. `compression` pode ser **sem compactação**, **GZip** ou **Deflate**.
 
-    ```json
-    "typeProperties": {
+      ```json
+      "typeProperties": {
         "folderPath": "<blobpath>",
         "format": {
             "type": "TextFormat",
@@ -452,8 +452,8 @@ Se os requisitos não forem atendidos, o Azure Data Factory verificará as confi
             "type": "GZip",
             "level": "Optimal"
         }
-    },
-    ```
+      },
+      ```
 
 ```json
 "activities":[

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
-ms.openlocfilehash: 94931546f3b8ddb18a5381de3baa31d66376badb
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: b6f0ce1939b2a78ca191d2feb0140506d130b9b0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54810713"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107450"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Fluxo de trabalho de backup offline no Backup do Azure
 O Backup do Azure tem vários mecanismos internos eficientes que reduzem os custos de armazenamento e de rede durante os primeiros backups 'completos' de dados no Azure. Os primeiros backups "completos" transferem grandes quantidades de dados e, portanto, exigem mais largura de banda em comparação com os backups subsequentes, que transferem apenas os deltas/incrementais. Durante o processo de propagação offline, o Backup do Azure pode usar discos para carregar os dados de backup offline no Azure.
@@ -65,7 +65,7 @@ Antes de iniciar o fluxo de trabalho de Backup Offline, execute os seguintes pr�
 * Ao enviar discos para o Azure, use apenas SSD de 2,5 polegadas ou discos rígidos internos SATA II/III de 2,5 ou 3,5 polegadas. Você pode usar discos rígidos de até 10 TB. Confira a [documentação da Importação/Exportação do Azure](../storage/common/storage-import-export-requirements.md#supported-hardware) para saber o conjunto mais recente de unidades às quais o serviço dá suporte.
 * As unidades SATA precisam estar conectadas a um computador (conhecido como *computador de cópia*) de onde é realizada a cópia de dados de backup do *local de preparo* para as unidades SATA. Verifique se o BitLocker está habilitado no *computador de cópia*.
 
-## <a name="workflow"></a>Fluxo de trabalho
+## <a name="workflow"></a>Fluxo de Trabalho
 Esta seção descreve o fluxo de trabalho de backup offline para que os dados possam ser entregues a um datacenter do Azure e carregados no Armazenamento do Azure. Se você tiver dúvidas sobre o serviço de importação ou sobre qualquer aspecto do processo, confira a [Documentação de visão geral do serviço de importação](../storage/common/storage-import-export-service.md).
 
 ## <a name="initiate-offline-backup"></a>Iniciar o backup offline
@@ -73,7 +73,7 @@ Esta seção descreve o fluxo de trabalho de backup offline para que os dados po
 
     ![Tela de importação](./media/backup-azure-backup-import-export/offlinebackup_inputs.png)
 
-  A descrição das entradas é a seguinte:
+   A descrição das entradas é a seguinte:
 
     * **Local de preparo**: O local de armazenamento temporário no qual a cópia de backup inicial é gravada. O local de preparo pode estar em um compartilhamento de rede ou em um computador local. Se o computador de cópia e o computador de origem são diferentes, é recomendável especificar o caminho completo de rede do local de preparo.
     * **Conta de Armazenamento do Azure Resource Manager**: O nome da conta de armazenamento de tipo do Resource Manager, em qualquer assinatura do Azure.
@@ -81,7 +81,7 @@ Esta seção descreve o fluxo de trabalho de backup offline para que os dados po
     * **ID de assinatura do Azure**: A ID da assinatura do Azure em que a conta de Armazenamento do Azure é criada.
     * **Nome do trabalho de importação do Azure**: O nome exclusivo pelo qual o serviço Importação do Azure e o Backup do Azure controlam a transferência de dados enviados em discos no Azure. 
   
-  Forneça as entradas na tela e clique em **Avançar**. Salve o *Local de preparo* e o *Nome do Trabalho de Importação do Azure* fornecidos, pois essas informações são necessárias para preparar os discos.
+   Forneça as entradas na tela e clique em **Avançar**. Salve o *Local de preparo* e o *Nome do Trabalho de Importação do Azure* fornecidos, pois essas informações são necessárias para preparar os discos.
 
 2. Quando solicitado, entre em sua assinatura do Azure. Você precisa entrar para que o Backup do Azure possa criar o aplicativo do Azure Active Directory e fornecer as permissões necessárias para acessar o serviço de Importação do Azure.
 
@@ -106,20 +106,20 @@ O utilitário *AzureOfflineBackupDiskPrep* prepara as unidades SATA que são env
 
 1. Acesse o diretório e copie o diretório **AzureOfflineBackupDiskPrep** para outro computador no qual as unidades SATA estão conectadas. No computador com as unidades SATA conectadas, verifique se:
 
-    * O computador de cópia pode acessar o local de preparo para o fluxo de trabalho de propagação offline usando o mesmo caminho de rede fornecido no fluxo de trabalho de **Iniciar o backup offline** .
-    * O BitLocker está habilitado no computador de cópia.
-    * O Azure PowerShell 3.7.0 está instalado.
-    * Os navegadores compatíveis mais recentes (Microsoft Edge ou Internet Explorer 11) estão instalados e se o JavaScript está habilitado. 
-    * O computador de cópia pode acessar o portal do Azure. Se necessário, o computador de cópia também pode ser o computador de origem.
+   * O computador de cópia pode acessar o local de preparo para o fluxo de trabalho de propagação offline usando o mesmo caminho de rede fornecido no fluxo de trabalho de **Iniciar o backup offline** .
+   * O BitLocker está habilitado no computador de cópia.
+   * O Azure PowerShell 3.7.0 está instalado.
+   * Os navegadores compatíveis mais recentes (Microsoft Edge ou Internet Explorer 11) estão instalados e se o JavaScript está habilitado. 
+   * O computador de cópia pode acessar o portal do Azure. Se necessário, o computador de cópia também pode ser o computador de origem.
     
-    > [!IMPORTANT] 
-    > Se o computador de origem for uma máquina virtual, o computador de cópia precisará ser um servidor ou um computador cliente físico do computador de origem.
+     > [!IMPORTANT] 
+     > Se o computador de origem for uma máquina virtual, o computador de cópia precisará ser um servidor ou um computador cliente físico do computador de origem.
 
 2. Abra um prompt de comandos com privilégios elevados no computador de cópia com o diretório do utilitário *AzureOfflineBackupDiskPrep* como o diretório atual e execute o comando a seguir:
 
     ```.\AzureOfflineBackupDiskPrep.exe s:<Staging Location Path>```
 
-    | Parâmetro | DESCRIÇÃO |
+    | Parâmetro | Descrição |
     | --- | --- |
     | s:&lt;*Caminho do Local de Preparo*&gt; |A entrada obrigatória usada para fornecer o caminho para o local de preparo inserido no fluxo de trabalho de **Iniciar backup offline**. |
     | p:&lt;*Caminho para PublishSettingsFile*&gt; |A entrada opcional usada para fornecer o caminho para o arquivo **Configurações de Publicação do Azure** inserido no fluxo de trabalho de **Iniciar o backup offline**. |
@@ -137,11 +137,11 @@ O utilitário *AzureOfflineBackupDiskPrep* prepara as unidades SATA que são env
     A ferramenta começa a preparar o disco e copiar os dados de backup. Talvez seja necessário anexar mais discos quando solicitado pela ferramenta, caso o disco fornecido não tenha espaço suficiente para os dados de backup. <br/>
 
     No final da execução bem-sucedida da ferramenta, o prompt de comando fornecerá três tipos de informação:
-    1. Um ou mais discos que você forneceu estão preparados para o envio ao Azure. 
-    2. O recebimento da confirmação de que o trabalho de importação foi criado. O trabalho de importação usa o nome fornecido.
-    3. A ferramenta exibe o endereço para entrega do datacenter do Azure.
+   1. Um ou mais discos que você forneceu estão preparados para o envio ao Azure. 
+   2. O recebimento da confirmação de que o trabalho de importação foi criado. O trabalho de importação usa o nome fornecido.
+   3. A ferramenta exibe o endereço para entrega do datacenter do Azure.
 
-    ![Preparação de disco do Azure concluída](./media/backup-azure-backup-import-export/console2.png)<br/>
+      ![Preparação de disco do Azure concluída](./media/backup-azure-backup-import-export/console2.png)<br/>
 
 6. No final da execução do comando, você pode atualizar as informações de envio.
 

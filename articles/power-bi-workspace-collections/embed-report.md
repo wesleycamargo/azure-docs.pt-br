@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 7a83a56a63fbd8a74e6a7e6d6f5158e3b5a8c2a4
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: ecf73b08755f548c5506888a8113ad53fd8987ad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232722"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877965"
 ---
 # <a name="embed-a-report-in-power-bi-workspace-collections"></a>Inserir um relatório nas Coleções de Workspaces do Power BI
 
@@ -157,4 +157,4 @@ O relatório será inserido automaticamente com base no tamanho do respectivo co
 [Repositório de Git PowerBI-CSharp](https://github.com/Microsoft/PowerBI-CSharp)  
 [Repositório de Git PowerBI-Node](https://github.com/Microsoft/PowerBI-Node)  
 
-Mais perguntas? [Experimentar a comunidade do Power BI](http://community.powerbi.com/)
+Mais perguntas? [Experimentar a comunidade do Power BI](https://community.powerbi.com/)

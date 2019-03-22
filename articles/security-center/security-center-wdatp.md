@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2018
 ms.author: barclayn
-ms.openlocfilehash: 09e8ee05017c47c5b01bc529135004eff19b846f
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: ee5ed8871ea5c021ad8c87e35f45e42ad641a324
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118455"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58124160"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Proteção Avançada contra Ameaças do Windows Defender com a Central de Segurança do Azure
 
@@ -64,11 +64,11 @@ Para a integração de servidores à Central de segurança, clique em **Ir para 
 1. Na folha **Integração**, selecione ou crie um workspace no qual armazenar os dados. <br>
 2. Se você não conseguir ver todos os seus workspaces, pode ser devido à falta de permissões, verifique se que seu workspace está definido na camada Standard de Segurança do Azure. Para saber mais, confira [Atualizar para a camada Standard da Central de Segurança para segurança aprimorada](security-center-pricing.md).
     
-3.  Selecione **Adicionar servidores** para exibir instruções sobre como instalar o Microsoft Monitoring Agent. 
+3. Selecione **Adicionar servidores** para exibir instruções sobre como instalar o Microsoft Monitoring Agent. 
 
-4.  Após a integração, monitore as máquinas **Computação e aplicativos**.
+4. Após a integração, monitore as máquinas **Computação e aplicativos**.
 
-  ![Integrar computadores](media/security-center-wdatp/onboard-computers.png)
+   ![Integrar computadores](media/security-center-wdatp/onboard-computers.png)
 
 
 ## <a name="enable-windows-defender-atp-integration"></a>Integração habilitada com o Windows Defender ATP

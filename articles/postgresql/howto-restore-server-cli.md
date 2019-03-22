@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.openlocfilehash: 357b22e4d4a6bf42ba165e49fc3cc01762268297
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 17f9acf6dcdc5a81c785bedc3649ee0258562b43
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756505"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994164"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>Como fazer backup e restaurar um servidor no Banco de Dados do Azure para PostgreSQL usando a CLI do Azure
 
@@ -47,7 +47,7 @@ Para saber mais sobre como definir esses valores de durante a criação, confira
 O período de retenção de backup de um servidor pode ser alterado da seguinte maneira:
 
 ```azurecli-interactive
-az postgres server update --name mydemoserver --resource-group myresourcegroup --backup-retention-days 10
+az postgres server update --name mydemoserver --resource-group myresourcegroup --backup-retention 10
 ```
 
 O exemplo anterior altera o período de retenção de backup de mydemoserver para 10 dias.
@@ -68,6 +68,7 @@ az postgres server restore --resource-group myresourcegroup --name mydemoserver-
 ```
 
 O comando `az postgres server restore` exige os seguintes parâmetros:
+
 | Configuração | Valor sugerido | DESCRIÇÃO  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  O grupo de recursos em que o servidor de origem existe.  |
@@ -107,6 +108,7 @@ az postgres server georestore --resource-group newresourcegroup --name mydemoser
 ```
 
 O comando `az postgres server georestore` exige os seguintes parâmetros:
+
 | Configuração | Valor sugerido | DESCRIÇÃO  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | O nome do grupo de recursos a qual o novo servidor pertencerá.|

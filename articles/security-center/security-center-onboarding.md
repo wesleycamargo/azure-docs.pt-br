@@ -3,7 +3,7 @@ title: Integração à Central de Segurança do Azure Standard para uma seguran�
 description: " Saiba como para integrar-se à Central de Segurança do Azure Standard para uma segurança aprimorada. "
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/02/2018
-ms.author: rkarlin
-ms.openlocfilehash: 9d95503e4b17124d1d027a90a21869ef65831654
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.date: 19/02/2019
+ms.author: monhaber
+ms.openlocfilehash: d9c9a079198a8ff263c729b8e90c1fc8d0e64cd0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114409"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100063"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Integração à Central de Segurança do Azure Standard para uma segurança aprimorada
 Atualize para a Central de Segurança Standard para aproveitar o gerenciamento de segurança aprimorado e a proteção contra ameaças para suas cargas de trabalho de nuvem híbrida.  Você pode experimentar o Standard gratuitamente. Para saber mais, confira a [página de preços](https://azure.microsoft.com/pricing/details/security-center/) da Central de Segurança.
@@ -33,7 +33,7 @@ A Central de Segurança Standard inclui:
 ## <a name="detecting-unprotected-resources"></a>Detectando recursos desprotegidos     
 A Central de Segurança detecta automaticamente as assinaturas ou workspaces do Azure não habilitados para a Central de Segurança Standard. Isso inclui assinaturas do Azure usando a Central de Segurança Gratuita e workspaces que não têm a solução da Segurança habilitada.
 
-Você pode atualizar uma assinatura inteira do Azure para a camada Standard, que será herdada por todos os recursos na assinatura ou você pode definir uma política exclusiva para atualizar somente um grupo de recursos específico. Se as configurações de política do grupo de recursos forem exclusivas, a Central de Segurança não substituirá as políticas de preço quando você atualizar a assinatura para a camada Standard. A aplicação da camada Standard a uma assinatura só tem efeito em VMs da assinatura que estejam se relacionando com workspaces criados pela Central de Segurança. A aplicação da camada Standard ao workspace terá efeito em todos os recursos que se relacionam com o workspace.
+Você pode atualizar uma assinatura inteira do Azure para a camada Standard, que será herdada por todos os recursos na assinatura ou você pode definir uma política exclusiva para atualizar somente um grupo de recursos específico. Se as configurações de política do grupo de recursos forem exclusivas, a Central de Segurança não substituirá as políticas de preço quando você atualizar a assinatura para a camada Standard. Aplicando o padrão de camada a uma assinatura se aplica a todos os recursos com suporte na assinatura. Aplicando o padrão de camada a um espaço de trabalho se aplica a todos os recursos de emissão de relatórios no espaço de trabalho.
 
 > [!NOTE]
 > Talvez você queira gerenciar os custos e limitar a quantidade de dados coletados de uma solução limitando-a a determinado conjunto de agentes. O [direcionamento de solução](../operations-management-suite/operations-management-suite-solution-targeting.md) permite que você aplique um escopo à solução e direcione a um subconjunto de computadores no workspace.  Se você estiver usando o direcionamento de solução, a Central de Segurança listará o workspace como não tendo uma solução.
@@ -53,7 +53,7 @@ Para atualizar uma assinatura ou um workspace para Standard:
 
 
    > [!NOTE]
-   > Os recursos Gratuitos da Central de Segurança são aplicados somente às suas VMs do Azure. Os recursos Gratuitos não serão aplicados aos computadores não Azure. Se você selecionar Standard, os recursos Standard serão aplicados a todas as VMs do Azure, bem como aos computadores não Azure que se relacionam com o workspace. É recomendável que você aplique a Standard para proporcionar segurança avançada tanto para seus recursos do Azure quanto para os não Azure.
+   > Recursos gratuitos da Central de segurança são aplicados apenas para VMs do Azure e VMSS. Os recursos Gratuitos não serão aplicados aos computadores não Azure. Se você selecionar Standard, os recursos padrão serão aplicados a todas as VMs do Azure, conjuntos de dimensionamento de VMs e computadores não Azure relatando para o espaço de trabalho. É recomendável que você aplique a Standard para proporcionar segurança avançada tanto para seus recursos do Azure quanto para os não Azure.
    >
    >
 
@@ -65,11 +65,11 @@ A Central de Segurança pode monitorar a postura de segurança dos computadores 
 1. Retorne à **Introdução**.   
 2. Selecione a guia **Introdução**.
 
-  ![Não Azure](./media/security-center-onboarding/non-azure.png)
+   ![Não Azure](./media/security-center-onboarding/non-azure.png)
 
 3. Clique em **Configurar** sob **Adicionar novos computadores não Azure**. É mostrada uma lista dos workspaces do Log Analytics. A lista inclui, se aplicável, o workspace padrão criado para você pela Central de Segurança quando o provisionamento automático foi habilitado. Selecione esse workspace ou outro que você queira usar.
 
-  ![Adicionar computador não Azure][7]
+   ![Adicionar computador não Azure][7]
 
 Se você tiver workspaces existentes, eles serão listados em **Adicionar novos computadores não Azure**. Você pode adicionar computadores a um workspace existente ou criar um novo workspace. Para criar um novo workspace, selecione o link **adicionar um novo workspace**.
 
@@ -82,8 +82,8 @@ Se você tiver workspaces existentes, eles serão listados em **Adicionar novos 
    ![Adicionar um novo workspace][4]
 
 2. Em **Segurança e Auditoria**, selecione **Workspace OMS** para criar um novo workspace.
-> [!NOTE]
-> Os workspaces do OMS agora são chamados de workspaces do Log Analytics.
+   > [!NOTE]
+   > Os workspaces do OMS agora são chamados de workspaces do Log Analytics.
 3. Em **Workspace OMS**, insira as informações do seu workspace.
 4. Em **Workspace OMS**, selecione **OK**.  Depois de selecionar OK, você receberá um link para baixar um agente do Windows ou do Linux e as chaves da sua ID do workspace para ser usada na configuração do agente.
 5. Em **Segurança e Auditoria**, selecione **OK**.
@@ -105,7 +105,7 @@ Você pode adicionar um computador, seguindo o fluxo de trabalho de **Integraç�
 
    ![Adicionar computadores][7]
 
- A folha **Agente Direto** fornece um link para baixar um agente do Windows ou do Linux, bem como a ID do workspace e as chaves a usar na configuração do agente.   
+   A folha **Agente Direto** fornece um link para baixar um agente do Windows ou do Linux, bem como a ID do workspace e as chaves a usar na configuração do agente.   
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você aprendeu como integrar recursos Azure e não Azure para se beneficiar da segurança avançada da Central de Segurança.  Para fazer mais com os recursos integrados, veja

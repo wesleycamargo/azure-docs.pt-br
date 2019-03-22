@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: b0cd20278287b41dd953c64044b705aa2dba7557
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: HT
+ms.openlocfilehash: a8856bd46f516aa3c64965648d4f23b9ba665b1b
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52318975"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820018"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Desativar o firewall do sistema operacional convidado na VM do Azure
 
@@ -33,7 +33,7 @@ O processo descrito neste artigo se destina a ser usado como uma solução alter
 
 Se a VM estiver on-line e puder ser acessada em outra VM na mesma rede virtual, você poderá fazer as mitigações a seguir usando a outra VM.
 
-#### <a name="mitigation-1-custom-script-extension-or-run-command-feature"></a>Mitigação 1: recurso de Extensão de Script personalizado ou Executar Comando
+#### <a name="mitigation-1-custom-script-extension-or-run-command-feature"></a>Mitigação 1: Recurso de extensão de Script ou executar comando personalizado
 
 Se você tiver um agente do Azure em funcionamento, você pode usar a [Extensão de Script Personalizado](../extensions/custom-script-windows.md) ou o recurso [Executar Comandos](../windows/run-command.md) (somente VMs do Resource Manager) para executar remotamente os scripts a seguir.
 
@@ -54,7 +54,7 @@ Se você tiver um agente do Azure em funcionamento, você pode usar a [Extensão
 >   ```
 >   No entanto, assim que a política é aplicada novamente, você vai será retirado da sessão remota. A correção permanente para esse problema é modificar a política que é aplicada neste computador.
 
-#### <a name="mitigation-2-remote-powershell"></a>Mitigação 2: PowerShell Remoto
+#### <a name="mitigation-2-remote-powershell"></a>Mitigação 2: PowerShell remoto
 
 1.  Conecte-se a uma VM que está localizada na mesma rede virtual da VM que você não pode acessar por meio de conexão de RDP.
 
@@ -70,9 +70,9 @@ Se você tiver um agente do Azure em funcionamento, você pode usar a [Extensão
     ```
 
 > [!Note]
-> Se o firewall for definido por meio de um Objeto da Política de Grupo, esse método pode não funcionar porque esse comando altera somente as entradas dos registros locais. Se uma política estiver em vigor, ela substituirá essa alteração. 
+> Se o firewall é definido por meio de um objeto de diretiva de grupo, esse método pode não funcionar porque esse comando altera somente as entradas do Registro local. Se uma política estiver em vigor, ela substituirá essa alteração. 
 
-#### <a name="mitigation-3-pstools-commands"></a>Mitigação 3: comandos do PSTools
+#### <a name="mitigation-3-pstools-commands"></a>Mitigação 3: Comandos do PSTools
 
 1.  Na VM de solução de problemas, baixe [ PSTools ](https://docs.microsoft.com/sysinternals/downloads/pstools).
 
@@ -86,7 +86,7 @@ Se você tiver um agente do Azure em funcionamento, você pode usar a [Extensão
     psservice restart mpssvc
     ```
 
-#### <a name="mitigation-4-remote-registry"></a>Mitigation 4: Registro remoto 
+#### <a name="mitigation-4-remote-registry"></a>Mitigação 4: Registro remoto 
 
 Siga estas etapas para usar o [Registro Remoto](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry).
 

@@ -3,21 +3,21 @@ title: Criação visual no Azure Data Factory | Microsoft Docs
 description: Saiba como usar a criação visual no Azure Data Factory
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/09/2019
+author: sharonlo101
 ms.author: shlo
-ms.openlocfilehash: 323d22363ee52ff6ccf7575b00c6b8b31a0fa156
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.reviewer: ''
+manager: craigg
+ms.openlocfilehash: 77eb109b8826bcb6136e91ac610235f74551cecb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188487"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57853079"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Criação visual no Azure Data Factory
 A experiência (UX) da interface do usuário do Azure Data Factory permite criar e implantar visualmente recursos para seu data factory sem ter que gravar nenhum código. Você pode arrastar atividades para uma tela de pipeline, realizar execuções de teste, depurar iterativamente e implantar e monitorar as execuções do pipeline. Há duas abordagens para usar a UX para executar a criação visual:
@@ -31,7 +31,7 @@ A criação visual com o serviço Data Factory difere da criação visual com a 
 - O serviço de Data Factory não inclui um repositório para armazenar as entidades JSON para as alterações.
 - O serviço de Data Factory não está otimizado para colaboração ou controle de versão.
 
-![Configurar o serviço do Data Factory ](media/author-visually/configure-data-factory.png)
+![Configurar o serviço do Data Factory](media/author-visually/configure-data-factory.png)
 
 Quando você usa a **Tela de criação** UX para criar diretamente com o serviço do Data Factory, somente o modo **Publica Tudo** estará disponível. As alterações feitas são publicadas diretamente no serviço do Data Factory.
 
@@ -204,7 +204,7 @@ O painel mostra as seguintes configurações do repositório de código do Azure
 | **Configuração**                                              | **Descrição**                                                                                                                                                                                                                                                                                                                                                                                                                   | **Valor**          |
 |----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
 | **Tipo de repositório**                                      | O tipo do repositório de código do Azure Repos.                                                                                                                                                                                                                                                                                                                                                                                             | GitHub             |
-| **Conta do GitHub**                                       | Seu nome de conta do GitHub. Esse nome pode ser encontrado em https://github.com/{account nome}/{nome do repositório}. Navegar até essa página solicita que você insira as credenciais do GitHub OAuth para sua conta do GitHub.                                                                                                                                                                                                                                               |                    |
+| **Conta do GitHub**                                       | Seu nome de conta do GitHub. Esse nome pode ser localizado em https:\//github.com/{account nome} / {nome do repositório}. Navegar até essa página solicita que você insira as credenciais do GitHub OAuth para sua conta do GitHub.                                                                                                                                                                                                                                               |                    |
 | **RepositoryName**                                       | O nome do repositório de código do GitHub. As contas do GitHub contêm repositórios Git para gerenciar seu código-fonte. Você pode criar um novo repositório ou usar um existente que já esteja na conta.                                                                                                                                                                                                                              |                    |
 | **Ramificação de colaboração**                                 | Sua ramificação de colaboração do GitHub usada para publicação. Por padrão, é o primário. Altere essa configuração se você desejar publicar recursos de outra ramificação.                                                                                                                                                                                                                                                               |                    |
 | **Pasta raiz**                                          | Sua pasta raiz em sua ramificação de colaboração GitHub.                                                                                                                                                                                                                                                                                                                                                                             |                    |
@@ -221,7 +221,7 @@ Um painel de configuração é exibido. Para obter detalhes sobre as definiçõe
 
 Você pode configurar um repositório do GitHub Enterprise com um data factory por meio de dois métodos.
 
- #### <a name="configuration-method-1-enterprise-repo-lets-get-started-page"></a>Método de configuração 1 (repositório Enterprise): Página Introdução
+#### <a name="configuration-method-1-enterprise-repo-lets-get-started-page"></a>Método de configuração 1 (repositório Enterprise): Página Introdução
 
 No Azure Data Factory, vá para a página  **Vamos começar** . Selecione  **Configurar Repositório de Código**:
 
@@ -238,7 +238,7 @@ O painel mostra as seguintes configurações do repositório de código do Azure
 | **Tipo de repositório**                                      | O tipo do repositório de código do Azure Repos.                                                                                                                                                                                                                                                                                                                                                                                             | GitHub             |
 | **Usar GitHub Enterprise**                                | Caixa de seleção para selecionar o GitHub Enterprise                                                                                                                                                                                                                                                                                                                                                                                              |                    |
 | **URL do GitHub Enterprise**                                | A URL raiz do GitHub Enterprise. Por exemplo: https://github.mydomain.com                                                                                                                                                                                                                                                                                                                                                          |                    |
-| **Conta do GitHub**                                       | Seu nome de conta do GitHub. Esse nome pode ser encontrado em https://github.com/{account nome}/{nome do repositório}. Navegar até essa página solicita que você insira as credenciais do GitHub OAuth para sua conta do GitHub.                                                                                                                                                                                                                                               |                    |
+| **Conta do GitHub**                                       | Seu nome de conta do GitHub. Esse nome pode ser localizado em https:\//github.com/{account nome} / {nome do repositório}. Navegar até essa página solicita que você insira as credenciais do GitHub OAuth para sua conta do GitHub.                                                                                                                                                                                                                                               |                    |
 | **RepositoryName**                                       | O nome do repositório de código do GitHub. As contas do GitHub contêm repositórios Git para gerenciar seu código-fonte. Você pode criar um novo repositório ou usar um existente que já esteja na conta.                                                                                                                                                                                                                              |                    |
 | **Ramificação de colaboração**                                 | Sua ramificação de colaboração do GitHub usada para publicação. Por padrão, é o primário. Altere essa configuração se você desejar publicar recursos de outra ramificação.                                                                                                                                                                                                                                                               |                    |
 | **Pasta raiz**                                          | Sua pasta raiz em sua ramificação de colaboração GitHub.                                                                                                                                                                                                                                                                                                                                                                             |                    |

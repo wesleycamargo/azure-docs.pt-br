@@ -1,35 +1,35 @@
 ---
-title: Monitoramento de operações de Hub IoT do Azure | Microsoft Docs
+title: Operações do IoT Hub do Azure monitoramento (preterido) | Microsoft Docs
 description: Como usar o monitoramento das operações do Hub IoT do Azure para monitorar o status das operações no seu Hub IoT em tempo real.
 author: nberdy
 manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 10/10/2017
+ms.date: 03/11/2019
 ms.author: nberdy
-ms.openlocfilehash: 3aa452cd178bd0d064726c5be7dbdf65c6ef8d92
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
-ms.translationtype: HT
+ms.openlocfilehash: d839e2e9922ac68af3aea37884e8b2f72b80b0e7
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160041"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791572"
 ---
-# <a name="iot-hub-operations-monitoring"></a>Monitoramento de operações do Hub IoT
+# <a name="iot-hub-operations-monitoring-deprecated"></a>Operações do IoT Hub monitoramento (preterido)
 
 O monitoramento das operações do Hub IoT permite monitorar o status das operações no seu Hub IoT em tempo real. O Hub IoT controla eventos em várias categorias de operações. Você pode aceitar o envio de eventos de uma ou mais categorias para um ponto de extremidade do seu Hub IoT para processamento. É possível monitorar os dados em busca de erros ou configurar processamento mais complexo com base nos padrões de dados.
 
 >[!NOTE]
->O monitoramento de operações do Hub IoT foi preterido e será removido do Hub IoT em 10 de março de 2019. Para monitorar as operações e a integridade do Hub IoT, consulte [Monitorar a integridade do Hub IoT do Azure e diagnosticar problemas rapidamente][lnk-monitor]. Para obter mais informações sobre a linha do tempo de substituição, consulte [Monitorar suas soluções de IoT do Azure com o Azure Monitor e o Azure Resource Health][lnk-blog-announcement].
+>O IoT Hub **operações de monitoramento foi preterido e foi removidas do IoT Hub em 10 de março de 2019**. Para monitorar as operações e a integridade do Hub IoT, consulte [Monitorar a integridade do Hub IoT do Azure e diagnosticar problemas rapidamente][lnk-monitor]. Para obter mais informações sobre a linha do tempo de substituição, consulte [Monitorar suas soluções de IoT do Azure com o Azure Monitor e o Azure Resource Health][lnk-blog-announcement].
 
 O Hub IoT monitora seis categorias de eventos:
 
 * Operações de identidade do dispositivo
 * Telemetria de dispositivo
 * Mensagens da nuvem para o dispositivo
-* conexões
+* Conexões
 * Carregamentos de arquivos
-* Roteamento de mensagem
+* Roteamento de mensagens
 
 > [!IMPORTANT]
 > O monitoramento de operações do Hub IoT não garante a entrega confiável ou ordenada de eventos. Dependendo da infraestrutura subjacente do Hub IoT, alguns eventos podem ser perdidos ou entregues fora de ordem. Use o monitoramento de operações para gerar alertas com base nos sinais de erro, como tentativas de conexão com falha ou desconexões de alta frequência de dispositivos específicos. Você não deve confiar em eventos do monitoramento de operações para criar um repositório consistente para o estado do dispositivo, por exemplo, um repositório de controle do estado de um dispositivo conectado ou desconectado. 
@@ -120,7 +120,7 @@ A categoria de comandos da nuvem para o dispositivo rastreia erros que ocorrem n
 }
 ```
 
-### <a name="connections"></a>conexões
+### <a name="connections"></a>Conexões
 
 A categoria de conexões rastreia erros que ocorrem quando os dispositivos se conectam a um Hub IoT ou se desconectam dele. Rastrear essa categoria é útil para identificar tentativas de conexão não autorizada e para saber quando dispositivos em áreas de conectividade ruim perdem conexão.
 

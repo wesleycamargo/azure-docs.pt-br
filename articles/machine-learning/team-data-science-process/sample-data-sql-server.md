@@ -11,18 +11,18 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 2c556fe3cc27e68d591c0f513dcfbe525e868b2c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: a544ddb6f31481750b1cd46b52d2909d71739707
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470715"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897071"
 ---
 # <a name="heading"></a>Dados de exemplo no SQL Server no Azure
 
 Este artigo mostra como obter amostras de dados armazenados no SQL Server no Azure usando o SQL ou a linguagem de programação Python. Também mostra como mover dados de amostra para o Azure Machine Learning, salvando-os em um arquivo, carregando-os em um blob do Azure e, em seguida, lendo-os no Estúdio do Azure Machine Learning.
 
-A amostragem de Python usa a biblioteca ODBC [pyodbc](https://code.google.com/p/pyodbc/) para se conectar ao SQL Server no Azure e a biblioteca [Pandas](http://pandas.pydata.org/) para fazer a amostragem.
+A amostragem de Python usa a biblioteca ODBC [pyodbc](https://code.google.com/p/pyodbc/) para se conectar ao SQL Server no Azure e a biblioteca [Pandas](https://pandas.pydata.org/) para fazer a amostragem.
 
 > [!NOTE]
 > O código de exemplo SQL neste documento pressupõe que os dados estejam em um SQL Server no Azure. Caso não estejam, consulte o tópico [Mover dados para o SQL Server no Azure](move-sql-server-virtual-machine.md) para obter instruções sobre como mover os dados para um SQL Server no Azure.
@@ -60,7 +60,7 @@ Tablesample pode ser usado para amostragem de dados também. Isso pode ser uma a
 > 
 
 ### <a name="sql-aml"></a>Conectando ao Azure Machine Learning
-É possível usar diretamente as consultas de exemplo acima no módulo [Importar Dados][import-data] do Azure Machine Learning para buscar os dados dinamicamente e colocá-los em um teste do Azure Machine Learning. Uma captura de tela usando o módulo do leitor para ler os dados de amostra é mostrada abaixo:
+É possível usar diretamente as consultas de exemplo acima no módulo [Importar Dados][import-data] do Azure Machine Learning para buscar os dados dinamicamente e colocá-los em um teste do Azure Machine Learning. Uma captura de tela usando o módulo leitor para ler os dados de amostra é mostrada aqui:
 
 ![sql leitor][1]
 
@@ -71,7 +71,7 @@ Esta seção demonstra como usar a [biblioteca pyodbc](https://code.google.com/p
     import pyodbc    
     conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-A biblioteca [Pandas](http://pandas.pydata.org/) no Python fornece um conjunto avançado de estruturas de dados e ferramentas de análise de dados para manipulação de dados em programação Python. O código a seguir lê um exemplo de 0,1% dos dados por meio de uma tabela no banco de dados SQL do Azure em um dado Pandas:
+A biblioteca [Pandas](https://pandas.pydata.org/) no Python fornece um conjunto avançado de estruturas de dados e ferramentas de análise de dados para manipulação de dados em programação Python. O código a seguir lê um exemplo de 0,1% dos dados por meio de uma tabela no banco de dados SQL do Azure em um dado Pandas:
 
     import pandas as pd
 

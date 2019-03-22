@@ -16,25 +16,25 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: bbd73035993d3a981744eb5377fe0bf2c9d55b63
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 92f9fcc8a10f90c0886667f33f3c7d4dec09bc8e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268848"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884669"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Provisionar a Máquina Virtual de Ciência de Dados para Linux (Ubuntu)
 
 A Máquina Virtual de Ciência de Dados para Linux é uma imagem de máquina virtual baseada no Ubuntu que facilita a introdução ao aprendizado de máquina, incluindo o aprendizado aprofundado, no Azure. As ferramentas de aprendizado aprofundado incluem:
 
-  * [Caffe](http://caffe.berkeleyvision.org/): Uma estrutura de aprendizado aprofundado criada para velocidade, expressividade e modularidade
+  * [Caffe](https://caffe.berkeleyvision.org/): Uma estrutura de aprendizado aprofundado criada para velocidade, expressividade e modularidade
   * [Caffe2](https://github.com/caffe2/caffe2): Uma versão de plataforma cruzada do Caffe
   * [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK): Um kit de ferramentas de software de aprendizado profundo da Microsoft Research
   * [H2O](https://www.h2o.ai/): Uma plataforma de big data de software livre e interface gráfica do usuário
   * [Keras](https://keras.io/): Uma API de rede neural de alto nível em Python para TensorFlow, Microsoft Cognitive Toolkit e Theano
-  * [MXNet](http://mxnet.io/): Uma biblioteca de aprendizado aprofundado flexível e eficiente com muitas associações de linguagem
+  * [MXNet](https://mxnet.io/): Uma biblioteca de aprendizado aprofundado flexível e eficiente com muitas associações de linguagem
   * [NVIDIA DIGITS](https://developer.nvidia.com/digits): Um sistema gráfico que simplifica tarefas comuns de aprendizado profundo
-  * [PyTorch](http://pytorch.org/): Uma biblioteca Python de alto nível com suporte para redes dinâmicas
+  * [PyTorch](https://pytorch.org/): Uma biblioteca Python de alto nível com suporte para redes dinâmicas
   * [TensorFlow](https://www.tensorflow.org/): Uma biblioteca de software livre para inteligência de máquina do Google
   * [Theano](http://deeplearning.net/software/theano/): Uma biblioteca do Python para definir, otimizar e avaliar com eficiência expressões matemáticas que envolvem matrizes multidimensionais
   * [Torch](http://torch.ch/): Uma estrutura de computação científica com amplo suporte para algoritmos de aprendizado de máquina
@@ -87,7 +87,7 @@ Veja as etapas para criar uma instância da Máquina Virtual de Ciência de Dado
 1. Clique em **Criar** (na parte inferior) para abrir o assistente. ![configure-data-science-vm](./media/dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
 1. As seções a seguir fornecem as entradas para cada uma das etapas no assistente (enumeradas à direita da figura acima) que são usadas para criar a Máquina Virtual de Ciência de Dados da Microsoft. Aqui estão as entradas necessárias para configurar cada uma das seguintes etapas:
    
-    a. **Noções básicas**:
+   a. **Noções básicas**:
    
    * **Nome**: O nome do servidor de ciência de dados que você está criando.
    * **Tipo de disco da VM**: Escolha **SSD Premium** se preferir uma unidade de estado sólido (SSD). Caso contrário, escolha **HDD Standard**. 
@@ -120,7 +120,7 @@ O provisionamento deve demorar cerca de 5 minutos. O status do provisionamento �
 
 ### <a name="ssh"></a>SSH
 
-Após a criação da VM, você poderá entrar nela usando SSH. Use as credenciais da conta criada na seção **Noções básicas** da etapa 3 para a interface shell de texto. No Windows, você pode baixar uma ferramenta de cliente SSH como o [Putty](http://www.putty.org). Se você preferir uma área de trabalho gráfica (Sistema do Windows X), poderá usar o encaminhamento X11 no Putty ou instalar o cliente X2Go.
+Após a criação da VM, você poderá entrar nela usando SSH. Use as credenciais da conta criada na seção **Noções básicas** da etapa 3 para a interface shell de texto. No Windows, você pode baixar uma ferramenta de cliente SSH como o [Putty](https://www.putty.org). Se você preferir uma área de trabalho gráfica (Sistema do Windows X), poderá usar o encaminhamento X11 no Putty ou instalar o cliente X2Go.
 
 > [!NOTE]
 > O cliente X2Go apresentou desempenho melhor do que o encaminhamento X11 em testes. Recomendamos o uso do cliente X2Go para uma interface gráfica de área de trabalho.
@@ -130,7 +130,7 @@ Após a criação da VM, você poderá entrar nela usando SSH. Use as credenciai
 ### <a name="x2go"></a>X2Go
 A VM Linux já está provisionada com um servidor X2Go e pronta para aceitar conexões de cliente. Para se conectar à área de trabalho gráfica da VM do Linux, realize o seguinte procedimento em seu cliente:
 
-1. Baixe e instale o cliente X2Go para sua plataforma de cliente [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
+1. Baixe e instale o cliente X2Go para sua plataforma de cliente [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
 1. Execute o cliente X2Go e selecione **Nova Sessão**. Ele abrirá uma janela de configuração com várias guias. Insira os seguintes parâmetros de configuração:
    * **Guia Sessão**:
      * **Host**: O nome do host ou endereço IP da sua VM de Ciência de Dados Linux.
@@ -205,7 +205,7 @@ R é uma das linguagens mais populares para análise de dados e aprendizado de m
 
 Para iniciar o console R, basta digitar **R** no shell. Isso leva você para um ambiente interativo. Para desenvolver seu programa R, você normalmente usa um editor como vi ou Emacs e, em seguida, executa os scripts no R. Com o RStudio, você tem um ambiente IDE gráfico completo para desenvolver o seu programa R.
 
-Também há um script de R para você instalar os [20 melhores pacotes do R](http://www.kdnuggets.com/2015/06/top-20-r-packages.html) , caso queira. Esse script pode ser executado quando você estiver na interface interativa de R, na qual você pode entrar (conforme mencionado) digitando **R** no shell.  
+Também há um script de R para você instalar os [20 melhores pacotes do R](https://www.kdnuggets.com/2015/06/top-20-r-packages.html) , caso queira. Esse script pode ser executado quando você estiver na interface interativa de R, na qual você pode entrar (conforme mencionado) digitando **R** no shell.  
 
 ### <a name="python"></a>Python
 O Anaconda Python é instalado com os ambientes Python 2.7 e 3.5. O ambiente 2.7 é chamado _raiz_ e o ambiente 3.5 é chamado _py35_. Essa distribuição contém o Python base com aproximadamente 300 dos mais populares pacotes de matemática, engenharia e análise de dados. 
@@ -235,7 +235,7 @@ Para conda, você sempre deve especificar o nome do ambiente (_py35_ ou _raiz_):
 
 Se estiver em uma interface gráfica ou tiver a configuração do encaminhamento X11, você poderá digitar o comando **pycharm** para iniciar o IDE do PyCharm Python. Você pode usar os editores de texto padrão. Além disso, você pode usar o Spyder, um IDE do Python que é fornecido com distribuições do Anaconda Python. O Spyder precisa de uma área de trabalho gráfica ou de encaminhamento X11. Um atalho para o Spyder é fornecido na área de trabalho gráfica.
 
-### <a name="jupyter-notebook"></a>Notebook Jupyter
+### <a name="jupyter-notebook"></a>Jupyter Notebook
 A distribuição do Anaconda também acompanha um notebook Jupyter, um ambiente de compartilhamento de código e de análise. O notebook Jupyter é acessado com o JupyterHub. Entre usando seu nome de usuário e senha locais do Linux.
 
 O servidor do notebook Jupyter foi previamente configurado com os kernels do Python 2, do Python 3 e do R. Há um ícone de área de trabalho chamado "Bloco de anotações do Jupyter" para iniciar o navegador a fim de acessar o servidor do notebook. Se você estiver na VM via cliente SSH ou X2Go, também poderá visitar [https://localhost:8000/](https://localhost:8000/) para acessar o servidor do Notebook Jupyter.
@@ -271,12 +271,12 @@ Antes de executar no contexto do Spark no Microsoft R Server, execute uma etapa 
     chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
     systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
 
-Você pode interromper os serviços Hadoop relacionados quando não precisar mais deles executando ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn``` Um exemplo que demonstra como desenvolver e testar o MRS no contexto de Spark remoto (que é a instância de Spark autônoma no DSVM) é fornecido e disponibilizado no diretório `/dsvm/samples/MRS`. 
+Você pode interromper o Hadoop serviços relacionados quando não precisar deles, executando ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn``` um exemplo que demonstra como desenvolver e testar o MRS no contexto de Spark remoto (que é a instância de Spark autônoma no DSVM) é fornecido e disponibilizado no `/dsvm/samples/MRS` diretório. 
 
 ### <a name="ides-and-editors"></a>IDEs e editores
 Você tem a opção de vários editores de código. Isso inclui vi/VIM, Emacs, PyCharm, RStudio e IntelliJ. IntelliJ, RStudio e PyCharm são editores gráficos, e você precisa estar conectado a uma área de trabalho gráfica para usá-los. Há atalhos do menu do aplicativo e da área de trabalho para iniciar esses editores.
 
-**VIM** e **Emacs** são editores baseados em texto. No Emacs, instalamos um pacote complementar chamado ESS (Emacs Speaks Statistics) que facilita o trabalho com R no editor Emacs. Mais informações podem ser encontradas em: [ESS](http://ess.r-project.org/).
+**VIM** e **Emacs** são editores baseados em texto. No Emacs, instalamos um pacote complementar chamado ESS (Emacs Speaks Statistics) que facilita o trabalho com R no editor Emacs. Mais informações podem ser encontradas em: [ESS](https://ess.r-project.org/).
 
 **LaTex** é instalado por meio do pacote texlive, juntamente com um pacote complementar do Emacs chamado [auctex](https://www.gnu.org/software/auctex/manual/auctex/auctex.html) , que simplifica a criação de seus documentos do LaTex no Emacs.  
 

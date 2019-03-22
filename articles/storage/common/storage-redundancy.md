@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/18/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ea6d94ff1ee8c27c1642f24660a6ab4f276137a8
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 347ae6dbdbab866b6d82d64bec4e668689078429
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330776"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791232"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância do Armazenamento do Azure
 
@@ -51,7 +51,7 @@ Para obter informações sobre o armazenamento do Azure garante para durabilidad
 > O Armazenamento Premium dá suporte apenas ao LRS (armazenamento com redundância local).
 
 ## <a name="changing-replication-strategy"></a>Alterar estratégia de replicação
-É possível alterar a estratégia de replicação da sua conta de armazenamento usando o [Portal do Azure](https://portal.azure.com/), [Microsoft Azure Powershell](storage-powershell-guide-full.md), [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) ou uma das muitas [Bibliotecas de cliente do Azure](https://docs.microsoft.com/azure/index?view=azure-dotnet#pivot=sdkstools). Alterar o tipo de replicação da sua conta de armazenamento não resulta em tempo de inatividade.
+Você pode alterar a estratégia de replicação da sua conta de armazenamento usando o [portal do Azure](https://portal.azure.com/), [do Azure Powershell](storage-powershell-guide-full.md), [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), ou uma da [cliente do Azure bibliotecas](https://docs.microsoft.com/azure/index?view=azure-dotnet#pivot=sdkstools). Alterar o tipo de replicação da sua conta de armazenamento não resulta em tempo de inatividade.
 
    > [!NOTE]
    > Atualmente, você não pode usar o Portal ou a API para converter sua conta no ZRS. Se você quiser converter a replicação da conta para ZRS, consulte [Armazenamento com redundância de zona (ZRS)](storage-redundancy-zrs.md) para mais detalhes.
@@ -59,7 +59,9 @@ Para obter informações sobre o armazenamento do Azure garante para durabilidad
 ### <a name="are-there-any-costs-to-changing-my-accounts-replication-strategy"></a>Há algum custo para alterar a estratégia de replicação da minha conta?
 Depende do caminho de conversão. A ordenação da oferta de redundância mais barata para a mais cara é LRS, ZRS, GRS e RA-GRS. Por exemplo, se você escolher *partir de* LRS para qualquer outra, terá encargos adicionais porque você está transitando para um nível de redundância mais sofisticado. Escolher *para* GRS ou RA-GRS acarretará um encargo de largura de banda de saída porque os dados (em sua região primária) estão sendo replicados para a região secundária remota. Esse é um encargo único na configuração inicial. Depois que os dados forem copiados, não haverá mais encargos de conversão. Você será cobrado apenas para replicar qualquer novo ou atualizações em dados existentes. Para obter detalhes sobre taxas de largura de banda, visite a [página Preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-Se você alterar de GRS para LRS, não haverá custo adicional, mas seus dados replicados serão excluídos do local secundário.
+Se você converter sua conta de armazenamento do GRS para LRS, não há nenhum custo adicional, mas seus dados replicados serão excluídos do local secundário.
+
+Se você converter sua conta de armazenamento de RA-GRS para GRS ou LRS, essa conta é cobrada como RA-GRS por 30 dias adicionais além da data em que ele foi convertido.
 
 ## <a name="see-also"></a>Consulte também
 
@@ -68,5 +70,5 @@ Se você alterar de GRS para LRS, não haverá custo adicional, mas seus dados r
 - [Armazenamento com redundância geográfica (GRS): Replicação inter-regional para Armazenamento do Microsoft Azure](storage-redundancy-grs.md)
 - [Metas de desempenho e escalabilidade do Armazenamento do Azure](storage-scalability-targets.md)
 - [Criando aplicativos altamente disponíveis usando o armazenamento de RA-GRS](../storage-designing-ha-apps-with-ragrs.md)
-- [Armazenamento com redundância geográfica com acesso de leitura e opções de redundância do Armazenamento do Microsoft Azure ](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
+- [Armazenamento do Microsoft Azure redundância acesso de leitura e opções de armazenamento com redundância geográfica](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
 - [SOSP Paper – Armazenamento do Azure: Um serviço de armazenamento em nuvem altamente disponível com coerência forte](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)

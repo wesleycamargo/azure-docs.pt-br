@@ -5,26 +5,31 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 1/23/2019
+ms.date: 3/1/2019
 ms.author: victorh
-ms.openlocfilehash: f88cc44890277604411f482779a83ee266820ac8
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 7f5f377f34a43dfb01ea516e023bb98f118d0dd4
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816315"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247215"
 ---
 # <a name="use-azure-dns-for-private-domains"></a>Usar DNS do Azure para domínios privados
 
 O Sistema de Nomes de Domínio ou DNS, é responsável por converter (ou resolver) um nome de serviço em seu endereço IP. Um serviço de hospedagem para domínios DNS, o DNS do Azure fornece resolução de nomes usando a infraestrutura do Microsoft Azure. Além de dar suporte a domínios DNS para a Internet, o DNS do Azure agora também dá suporte a domínios DNS privados como um recurso de versão prévia.
 
+[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
+
 O DNS do Azure fornece um serviço DNS confiável e seguro para gerenciar e resolver nomes de domínio em uma rede virtual sem a necessidade de adicionar uma solução DNS personalizada. Ao usar zonas DNS privadas você poderá usar seus próprios nomes de domínio personalizados, em vez dos nomes fornecidos pelo Azure atualmente disponíveis. O uso de nomes de domínio personalizados ajuda você a personalizar a sua arquitetura de rede virtual para melhor satisfazer às necessidades da sua organização. Esse uso fornece resolução de nomes para VMs (máquinas virtuais) em uma rede virtual e entre redes virtuais. Além disso, você pode configurar nomes de zonas com uma exibição de omissão de rotas, o que permite que uma zona DNS privada e pública compartilhe o nome.
+
+Para publicar uma zona de DNS privado em sua rede virtual, você deve especificar a lista de redes virtuais que podem resolver registros na zona. Elas são chamadas de *redes virtuais de resolução*. Também é possível especificar uma rede virtual para a qual o DNS do Azure mantenha registros de nome do host sempre que uma VM for criada, mudar de IP ou for excluída. Ela é chamada de *rede virtual de registro*.
 
 Se você especificar uma rede virtual de registro, os registros DNS das VMs dessa rede virtual, registrados na zona privada, não poderão ser visualizados nem recuperados nas APIs da CLI do Azure e no Azure Powershell, mas os registros da VM serão realmente registrados e resolverão com êxito.
 
 ![Visão geral de DNS](./media/private-dns-overview/scenario.png)
 
-[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
+> [!NOTE]
+> Como prática recomendada, não use um domínio. local para sua zona DNS privada. Nem todos os sistemas operacionais dão suporte a isso.
 
 ## <a name="benefits"></a>Benefícios
 

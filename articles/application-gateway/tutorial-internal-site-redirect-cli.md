@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 9f82ed280d18be304129bf8b7807213a75110df2
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 186d0bb9161d70d9e458d25dc1b9cbe518bb790e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660979"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082718"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Criar um gateway de aplicativo com redirecionamento interno usando a CLI do Azure
 
-Você pode usar a CLI do Azure para configurar o [redirecionamento do tráfego da Web](application-gateway-multi-site-overview.md) ao criar um [gateway de aplicativo](application-gateway-introduction.md). Neste tutorial, você cria pools de back-end usando um conjunto de dimensionamento de máquinas virtuais. Em seguida, configura ouvintes e regras com base em domínios que você tem, para garantir que o tráfego da Web chegue ao pool apropriado. Este tutorial presume que você tem vários domínios e usa os exemplos *www.contoso.com* e *www.contoso.org*.
+Você pode usar a CLI do Azure para configurar o [redirecionamento do tráfego da Web](application-gateway-multi-site-overview.md) ao criar um [gateway de aplicativo](application-gateway-introduction.md). Neste tutorial, você cria pools de back-end usando um conjunto de dimensionamento de máquinas virtuais. Em seguida, configura ouvintes e regras com base em domínios que você tem, para garantir que o tráfego da Web chegue ao pool apropriado. Este tutorial presume que você possui vários domínios e usa os exemplos *www\.contoso.com* e *www\.contoso.org*.
 
 Neste artigo, você aprenderá a:
 
@@ -101,7 +101,7 @@ Pode levar vários minutos para o gateway de aplicativo ser criado. Depois de cr
 
 ## <a name="add-listeners-and-rules"></a>Adicionar ouvintes e regras 
 
-Um ouvinte é necessário para habilitar o gateway de aplicativo para rotear o tráfego corretamente para o pool de back-end. Neste tutorial, você cria dois ouvintes para os seus dois domínios. Neste exemplo, são criados ouvintes para os domínios *www.contoso.com* e *www.contoso.org*.
+Um ouvinte é necessário para habilitar o gateway de aplicativo para rotear o tráfego corretamente para o pool de back-end. Neste tutorial, você cria dois ouvintes para os seus dois domínios. Neste exemplo, são criados ouvintes para os domínios *www\.contoso.com* e *www\.contoso.org*.
 
 Adicione ouvintes de back-end necessários para redirecionar o tráfego usando [az network application-gateway http-listener create](/cli/azure/network/application-gateway).
 
@@ -124,7 +124,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-the-redirection-configuration"></a>Adicionar a configuração de redirecionamento
 
-Adicione a configuração de redirecionamento que envia tráfego de *www.contoso.org* para o ouvinte de *www.contoso.com* no gateway do aplicativo usando [az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config).
+Adicione a configuração de redirecionamento que envia o tráfego de *www\.consoto.org* para o ouvinte de *www\.contoso.com* no gateway de aplicativo usando [criar gateway de aplicativo de rede az redirect-config](/cli/azure/network/application-gateway/redirect-config).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -213,7 +213,7 @@ Digite seu nome de domínio na barra de endereços do navegador. Como http://www
 
 ![Testar o site contoso no gateway do aplicativo](./media/tutorial-internal-site-redirect-cli/application-gateway-nginxtest.png)
 
-Altere o endereço para seu outro domínio, por exemplo http://www.contoso.org e você deve observar que o tráfego foi redirecionado de volta ao ouvinte para www.contoso.com.
+Altere o endereço para seu domínio, por exemplo http://www.contoso.org e você deverá ver que o tráfego foi redirecionado de volta para o ouvinte de www\.contoso.com.
 
 ## <a name="next-steps"></a>Próximas etapas
 

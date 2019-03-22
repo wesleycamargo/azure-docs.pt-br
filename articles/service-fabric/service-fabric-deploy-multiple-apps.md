@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: ea2f27069ca445a4d74ddc634f5c396ab13564a1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 4d9dfbcfc1dd00209a90386bf75f0c2515a28060
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248989"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57854459"
 ---
 # <a name="deploy-multiple-guest-executables"></a>Implantar vários executáveis de convidado
 Este artigo mostra como empacotar e implantar vários executáveis de convidado no Azure Service Fabric. Para criar e implantar um pacote de Service Fabric único, leia como [implantar um executável de convidado no Service Fabric](service-fabric-deploy-existing-app.md).
 
 Embora este passo a passo mostre como implantar um aplicativo com um front-end Node.js que usa MongoDB como o repositório de dados, você pode aplicar as etapas a qualquer aplicativo que tenha dependências de outro aplicativo.   
 
-Você pode usar o Visual Studio para gerar o pacote de aplicativos que contém vários executáveis de convidado. Veja [Uso do Visual Studio para empacotar um aplicativo existente](service-fabric-deploy-existing-app.md). Depois de adicionar o primeiro executável de convidado, clique com o botão direito do mouse no projeto de aplicativo e selecione **Adicionar -> Novo serviço do Service Fabric** para adicionar o segundo projeto do executável de convidado à solução. Observação: se você optar por vincular a origem no projeto do Visual Studio, criar a solução do Visual Studio garantirá que seu pacote de aplicativos esteja atualizado com as alterações na fonte. 
+Você pode usar o Visual Studio para gerar o pacote de aplicativos que contém vários executáveis de convidado. Veja [Uso do Visual Studio para empacotar um aplicativo existente](service-fabric-deploy-existing-app.md). Depois de adicionar o primeiro executável de convidado, clique com o botão direito do mouse no projeto de aplicativo e selecione **Adicionar -> Novo serviço do Service Fabric** para adicionar o segundo projeto do executável de convidado à solução. Observação: Se você optar por vincular a origem no projeto do Visual Studio, criando a solução do Visual Studio, garantirá que seu pacote de aplicativo será atualizado com as alterações na fonte. 
 
 ## <a name="samples"></a>Exemplos
 * [Exemplo de empacotamento e implantação de um executável convidado](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
@@ -167,7 +167,7 @@ Vamos navegar até o diretório e examinar o que a ferramenta criou.
 Como você pode ver, a ferramenta adicionou uma nova pasta, MongoDB, ao diretório que contém os binários do MongoDB. Se você abrir o arquivo `ApplicationManifest.xml` , poderá ver que agora o pacote contém o aplicativo Node.js e o MongoDB. O código a seguir mostra o conteúdo do manifesto do aplicativo.
 
 ```xml
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyNodeApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyNodeApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
    <ServiceManifestImport>
       <ServiceManifestRef ServiceManifestName="MongoDB" ServiceManifestVersion="1.0" />
    </ServiceManifestImport>

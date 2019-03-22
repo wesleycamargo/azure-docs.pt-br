@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017
-ms.openlocfilehash: 164d705a16dd82a1c5f3ff6f5e6982f80eb40dab
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 180cbb9c31d14c36679bb84f92b3c9892ee3602d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330861"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58011162"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Envie sua primeira imagem para um registro de contêiner privado do Docker usando a CLI do Docker
 
-Um registro de contêiner do Azure armazena e gerencia imagens de contêiner privadas do [Docker](http://hub.docker.com), de forma semelhante a como o [Docker Hub](https://hub.docker.com/) armazena imagens públicas do Docker. Você pode usar a [Interface de linha de comando do Docker](https://docs.docker.com/engine/reference/commandline/cli/) (Docker CLI) para [logon](https://docs.docker.com/engine/reference/commandline/login/), [push](https://docs.docker.com/engine/reference/commandline/push/), [pull](https://docs.docker.com/engine/reference/commandline/pull/) e outras operações no registro de contêiner.
+Um registro de contêiner do Azure armazena e gerencia imagens de contêiner privadas do [Docker](https://hub.docker.com), de forma semelhante a como o [Docker Hub](https://hub.docker.com/) armazena imagens públicas do Docker. Você pode usar a [Interface de linha de comando do Docker](https://docs.docker.com/engine/reference/commandline/cli/) (Docker CLI) para [logon](https://docs.docker.com/engine/reference/commandline/login/), [push](https://docs.docker.com/engine/reference/commandline/push/), [pull](https://docs.docker.com/engine/reference/commandline/pull/) e outras operações no registro de contêiner.
 
 Nas etapas a seguir, você baixará uma [imagem Nginx](https://store.docker.com/images/nginx) oficial do registro do Hub do Docker público, a rotulará para seu registro de contêiner do Azure privado, enviará por push para o registro e, em seguida, efetuará pull dela do registro.
 
@@ -62,7 +62,7 @@ Execute o seguinte comando [docker run](https://docs.docker.com/engine/reference
 docker run -it --rm -p 8080:80 nginx
 ```
 
-Navegue até [http://localhost:8080](http://localhost:8080) para exibir a página da Web padrão servida pelo Nginx no contêiner em execução. Você verá uma página semelhante à seguinte:
+Navegue até `http://localhost:8080` para exibir a página da web padrão servida pelo Nginx no contêiner em execução. Você verá uma página semelhante à seguinte:
 
 ![Nginx no computador local](./media/container-registry-get-started-docker-cli/nginx.png)
 
@@ -104,7 +104,7 @@ Use o comando [docker run](https://docs.docker.com/engine/reference/run/) para e
 docker run -it --rm -p 8080:80 myregistry.azurecr.io/samples/nginx
 ```
 
-Navegue até [http://localhost:8080](http://localhost:8080) para exibir o contêiner em execução.
+Navegue até `http://localhost:8080` para exibir o contêiner em execução.
 
 Para parar e remover o contêiner, pressione `Control`+`C`.
 

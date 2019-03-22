@@ -15,16 +15,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 4e6527bf115f327635a0b0fe187094dafb320598
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
-ms.translationtype: HT
+ms.openlocfilehash: d4592c93cb7969c45a107d7365a1b9dabf11f412
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49380455"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884028"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-portal"></a>Criar e monitorar eventos do Media Services com o Event Grid usando o portal do Azure
 
-A Grade de Eventos do Azure é um serviço de eventos para a nuvem. Neste artigo, você usa o portal do Azure para assinar eventos da sua conta dos Serviços de Mídia do Azure. Em seguida, você aciona eventos para exibir o resultado. Normalmente, você envia eventos para um ponto de extremidade que processa os dados de evento e realiza ações. Neste artigo, podemos enviar eventos para um aplicativo web que coleta e exibe as mensagens.
+A Grade de Eventos do Azure é um serviço de eventos para a nuvem. Esse serviço usa [assinaturas de evento](../../event-grid/concepts.md#event-subscriptions) para rotear mensagens de evento para os assinantes. Os eventos dos Serviços de Mídia contêm todas as informações que você precisa para responder às alterações em seus dados. Você pode identificar um evento de Serviços de Mídia porque a propriedade eventType começa com "Microsoft.Media". Para obter mais informações, confira [Esquemas de eventos dos Serviços de Mídia](media-services-event-schemas.md).
+
+Neste artigo, você usa o portal do Azure para assinar eventos da sua conta dos Serviços de Mídia do Azure. Em seguida, você aciona eventos para exibir o resultado. Normalmente, você envia eventos para um ponto de extremidade que processa os dados de evento e realiza ações. Neste artigo, podemos enviar eventos para um aplicativo web que coleta e exibe as mensagens.
 
 Ao concluir, você verá que os dados do evento foram enviados para um aplicativo Web.
 
@@ -39,7 +41,7 @@ Antes de assinar os eventos da conta dos Serviços de Mídia, vamos criar o term
 
 1. Selecione **Implantar no Azure** para implantar a solução na sua assinatura. No portal do Azure, forneça os valores para os parâmetros.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
 1. A implantação pode levar alguns minutos para ser concluída. Depois que a implantação for bem-sucedida, exiba seu aplicativo Web para garantir que ele esteja em execução. Em um navegador da Web, navegue até: `https://<your-site-name>.azurewebsites.net`
 

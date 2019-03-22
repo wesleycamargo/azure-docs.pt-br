@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: cherylmc
-ms.openlocfilehash: 18834357651e5fb72dd849a8d8e2e7687f0a8141
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 6cf427ee1dbd47d3b762035abc2236bda65db116
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730349"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57773173"
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>Criar uma rede virtual com uma conexão VPN Site a Site usando a CLI
 
@@ -36,7 +36,7 @@ Uma conexão de gateway de VPN Site a Site é usada para conectar a rede local a
 Verifique se você atende aos seguintes critérios antes de iniciar a configuração:
 
 * Verifique se você possui um dispositivo VPN compatível e alguém que possa configurá-lo. Para obter mais informações sobre dispositivos VPN compatíveis e a configuração de dispositivo, confira [Sobre dispositivos VPN](vpn-gateway-about-vpn-devices.md).
-* Verifique se você possui um endereço IPv4 público voltado para o exterior para seu dispositivo VPN. Esse endereço IP não pode estar localizado atrás de um NAT.
+* Verifique se você possui um endereço IPv4 público voltado para o exterior para seu dispositivo VPN.
 * Se não estiver familiarizado com os intervalos de endereços IP localizados na configuração de rede local, você precisará trabalhar em conjunto com alguém que possa lhe fornecer os detalhes. Ao criar essa configuração, você deve especificar os prefixos de intervalo de endereços IP que o Azure roteará para seu local. Nenhuma das sub-redes da rede local podem se sobrepor às sub-redes de rede virtual às quais você deseja se conectar.
 * Você pode usar o Azure Cloud Shell para executar seus comandos da CLI (instruções abaixo). No entanto, se você preferir executar seus comandos localmente, verifique se você instalou a versão mais recente dos comandos da CLI (2.0 ou posterior). Para saber mais sobre como instalar os comandos da CLI, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli) e [Introdução à CLI do Azure](/cli/azure/get-started-with-azure-cli). 
  
@@ -115,7 +115,7 @@ O gateway de rede local geralmente se refere ao seu local. Você atribui um nome
 
 Use os seguintes valores:
 
-* O *--gateway-ip-address* é o endereço IP do dispositivo VPN local. O dispositivo VPN não pode estar localizado atrás de um NAT.
+* O *--gateway-ip-address* é o endereço IP do dispositivo VPN local.
 * Os *--local-address-prefixes* são seus espaços de endereços locais.
 
 Use o comando [az network local-gateway create](/cli/azure/network/local-gateway) para adicionar um gateway de rede local com vários prefixos de endereço:

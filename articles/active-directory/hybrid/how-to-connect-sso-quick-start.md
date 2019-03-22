@@ -16,12 +16,12 @@ ms.date: 01/10/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69645c4aa9034b9a3459c7ee5fb0378c790a6e18
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 345c97a19f789bb3d850df000824d4c23989a81f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178083"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086812"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Logon Único Contínuo do Azure Active Directory: Início rápido
 
@@ -74,8 +74,9 @@ Se você já tem uma instalação do Azure AD Connect, selecione **Alterar pági
 ![Azure AD Connect: Alterar a entrada do usuário](./media/how-to-connect-sso-quick-start/changeusersignin.png)
 
 Prossiga com o assistente até chegar à página **Habilitar logon único**. Forneça credenciais de administrador de domínio para cada floresta do Active Directory que:
-    * Você sincroniza com o Azure AD por meio do Azure AD Connect.
-    * Contém os usuários que você deseja habilitar para o SSO Contínuo.
+
+* Você sincroniza com o Azure AD por meio do Azure AD Connect.
+* Contém os usuários que você deseja habilitar para o SSO Contínuo.
 
 Após a conclusão do assistente, o SSO Contínuo está habilitado no seu locatário.
 
@@ -111,7 +112,7 @@ Por padrão, o navegador calcula automaticamente a zona correta, Internet ou Int
 
 Há duas maneiras de modificar as configurações de zona de Intranet dos usuários:
 
-| Opção | Consideração de administração | Experiência do usuário |
+| Opção | Consideração de administração | Experiência de usuário |
 | --- | --- | --- |
 | Política de grupo | O administrador bloqueia a edição das configurações da zona da Intranet | Os usuários não podem modificar as próprias configurações |
 | Preferência de política de grupo |  O administrador permite edição nas configurações da zona de Intranet | Os usuários podem modificar as próprias configurações |
@@ -120,17 +121,17 @@ Há duas maneiras de modificar as configurações de zona de Intranet dos usuár
 
 1. Abra a ferramenta Editor de Gerenciamento de Política de Grupo.
 2. Edite a política de grupo que é aplicada a alguns ou todos os seus usuários. Este exemplo usa a **Política de domínio padrão**.
-3. Navegue até **Configuração do Usuário** > **Modelos Administrativos** > **Componentes do Windows** > **Internet Explorer** > **Painel de controle da Internet** > **Página de Segurança**. Em seguida, selecione **Lista de atribuição de sites a zonas**.
+3. Navegue até **configuração do usuário** > **política** > **modelos administrativos** > **Windows Componentes** > **Internet Explorer** > **painel de controle da Internet** > **página segurança**. Em seguida, selecione **Lista de atribuição de sites a zonas**.
     ![Logon Único](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Habilite a política e insira os valores a seguir na caixa de diálogo:
    - **Nome do valor**: A URL do Azure AD para a qual os tíquetes do Kerberos são encaminhados.
    - **Valor** (dados): **1** indica a zona da Intranet.
 
-    O resultado é semelhante a:
+     O resultado é semelhante a:
 
-    Nome do valor: `https://autologon.microsoftazuread-sso.com`
+     Nome do valor: `https://autologon.microsoftazuread-sso.com`
   
-    Valor (dados): 1
+     Valor (dados): 1
 
    >[!NOTE]
    > Se você quiser cancelar a permissão de uso do SSO Contínuo de alguns usuários (por exemplo, se esses usuários estiverem entrando em quiosques compartilhados), defina os valores anteriores como **4**. Essa ação adiciona s URL do Azure Active Directory à zona Restrita e ocasiona a falha do SSO Contínuo todas as vezes.
@@ -140,7 +141,7 @@ Há duas maneiras de modificar as configurações de zona de Intranet dos usuár
 
     ![Logon único](./media/how-to-connect-sso-quick-start/sso7.png)
 
-6. Navegue até **Configuração do Usuário** > **Modelos Administrativos** > **Componentes do Windows** > **Internet Explorer** > **Painel de Controle da Internet** > **Página de Segurança** > **Zona de Intranet**. Em seguida, selecione **Permitir atualizações à barra de status por meio de script**.
+6. Navegue até **configuração do usuário** > **modelos administrativos** **política** > * * > **componentes do Windows**  >  **Internet Explorer** > **painel de controle da Internet** > **página segurança**  >   **Zona da intranet**. Em seguida, selecione **Permitir atualizações à barra de status por meio de script**.
 
     ![Logon único](./media/how-to-connect-sso-quick-start/sso11.png)
 
@@ -162,9 +163,9 @@ Há duas maneiras de modificar as configurações de zona de Intranet dos usuár
    - **Tipo de valor**: ***REG_DWORD***.
    - **Dados do valor**: ***00000001***.
  
-    ![Logon único](./media/how-to-connect-sso-quick-start/sso16.png)
+     ![Logon único](./media/how-to-connect-sso-quick-start/sso16.png)
  
-    ![Logon único](./media/how-to-connect-sso-quick-start/sso17.png)
+     ![Logon único](./media/how-to-connect-sso-quick-start/sso17.png)
 
 ### <a name="browser-considerations"></a>Considerações de navegador
 

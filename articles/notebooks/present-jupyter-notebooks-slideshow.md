@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: c372175b-beb5-4b45-b2f8-34cb06990117
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: d29aac52948cddf9d7e274d28735e2c12143b5ca
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: d36cbe50ab040549353efd19dd794ec7fab51b7b
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081414"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57774397"
 ---
 # <a name="run-a-notebook-slideshow"></a>Executar uma apresentação de slides de notebook
 
@@ -60,8 +60,8 @@ Se você pegar um notebook aleatório e usá-lo para uma apresentação de slide
     | Slide | A célula é um slide principal, navegada usando as setas à esquerda e direita do controle de navegação. |
     | Subslide | A célula esta “abaixo” do slide principal, navegado usando a seta para baixo do controle de navegação. A seta para cima retorna para o slide principal. Subslides são usados para o material secundário que você poderia ignorar no caminho principal de uma apresentação, mas está prontamente disponível, se necessário. |
     | Fragmento | Conteúdo da célula aparece no contexto do slide anterior ou subslide ao usar a seta para baixo de navegação (um fragmento é removido ao usar a seta para cima). Você pode usar um fragmento com uma célula de código para fazer com que esse código apareça dentro de um slide, ou você pode usar vários fragmentos para fazer os marcadores de texto aparecerem um por um (veja o exemplo na próxima seção). Uma vez que os fragmentos são construídos no slide atual, os fragmentos em excesso não ficarão visíveis na parte inferior da janela do navegador. |
-    | Skip | A célula não é mostrada na apresentação de slides. |
-    | Observações | A célula contém anotações do falante, que não são mostradas na apresentação de slides. |
+    | Ignorar | A célula não é mostrada na apresentação de slides. |
+    | Notes | A célula contém anotações do falante, que não são mostradas na apresentação de slides. |
 
 1. Inicialmente, é útil escolher **Slide** para cada célula. Você pode executar a apresentação de slides e fazer os ajustes apropriados.
 

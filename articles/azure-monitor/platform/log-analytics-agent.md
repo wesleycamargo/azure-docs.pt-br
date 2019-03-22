@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 03/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 0140cb4fd1721e1d13840fe27db223c0ebec7d8a
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: e9df83ef81c2656bf94002feb79d7e4d99ed7954
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301886"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57841099"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Colete dados de log com o agente do Log Analytics do Azure
 
@@ -83,6 +83,7 @@ As informações abaixo listam as informações de configuração de proxy e fir
 |*.blob.core.windows.net |Porta 443 |Saída|Sim |  
 |*.azure-automation.net |Porta 443 |Saída|Sim |  
 
+Para obter informações de firewall necessárias para o Azure governamental, consulte [gerenciamento do Azure governamental](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). 
 
 Se você planeja usar o Hybrid Runbook Worker da Automação do Azure para conectar e se registrar no serviço de automação para usar runbooks em seu ambiente, é necessário ter acesso ao número da porta e as URLs descritas em [Configurar sua rede para o Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
 

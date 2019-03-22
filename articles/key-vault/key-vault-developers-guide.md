@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 02/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 274ba6d6a1ce2e9c8f2cae0ca29de8442525391e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 06fd66c3fb9e90e0198d40253f3c554fe8596c3d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106471"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543350"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guia do desenvolvedor do Cofre da Chave do Azure
 
@@ -156,5 +156,5 @@ Estes artigos abordam outros cenários e serviços que usam ou se integram ao Ke
 
 ## <a name="supporting-libraries"></a>Bibliotecas de Suporte
 
-- A [Biblioteca Principal do Microsoft Azure Key Vault](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core) fornece as interfaces **IKey** e **IKeyResolver** para localizar chaves com base em identificadores e realizar operações com chaves.
-- As [Extensões do Cofre de Chaves do Microsoft Azure](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions) fornecem recursos estendidos para o Cofre de Chaves do Azure.
+- A [Biblioteca Principal do Microsoft Azure Key Vault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core) fornece as interfaces **IKey** e **IKeyResolver** para localizar chaves com base em identificadores e realizar operações com chaves.
+- As [Extensões do Cofre de Chaves do Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions) fornecem recursos estendidos para o Cofre de Chaves do Azure.

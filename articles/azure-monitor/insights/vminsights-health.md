@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2019
 ms.author: magoedte
-ms.openlocfilehash: 67217b63588946782d42b4287cf5f24e29ebe5bd
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: 38236cba6af46df2701bb0128fe9d78e95aa6ec7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55961254"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076812"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>Compreenda a integridade de suas máquinas virtuais do Azure com o Azure Monitor para VMs (versão prévia)
-O Azure inclui vários serviços que executam individualmente uma função ou tarefa específica no espaço de monitoramento, mas não oferece uma perspectiva de integridade detalhada do sistema operacional hospedado nas máquinas virtuais do Azure.  Embora você possa monitorar diferentes condições usando o Log Analytics ou o Azure Monitor, elas não foram projetadas para modelar e representar a integridade dos principais componentes ou a integridade geral da máquina virtual.  Com o recurso de integridade do Azure Monitor for VMs, ele monitora proativamente a disponibilidade e o desempenho do sistema operacional convidado Windows ou Linux com um modelo que representa os principais componentes e seus relacionamentos, critérios que determinam como avaliar a integridade desses componentes e alertam quando um condição insalubre é detectada.  
+O Azure inclui vários serviços que executam individualmente uma função ou tarefa específica no espaço de monitoramento, mas não oferece uma perspectiva de integridade detalhada do sistema operacional hospedado nas máquinas virtuais do Azure.  Enquanto você pode monitorar condições diferentes usando o Azure Monitor, ele não foi projetado para modelar e representam a integridade geral da máquina virtual ou a integridade dos componentes principais.  Com o recurso de integridade do Azure Monitor for VMs, ele monitora proativamente a disponibilidade e o desempenho do sistema operacional convidado Windows ou Linux com um modelo que representa os principais componentes e seus relacionamentos, critérios que determinam como avaliar a integridade desses componentes e alertam quando um condição insalubre é detectada.  
 
 Exibir o estado geral de integridade da VM do Azure e do sistema operacional subjacente pode ser observado de duas perspectivas com a integridade do Monitor do Azure para VMs, diretamente da máquina virtual ou em todas as VMs em um grupo de recursos do Monitor do Azure.
 
@@ -29,22 +29,22 @@ Este artigo ajudará você a entender como avaliar, investigar e resolver rapida
 
 Para obter informações sobre como configurar o Monitor do Azure para VMs, consulte [Ativar o Monitor do Azure para VMs](vminsights-onboard.md).
 
->[!NOTE]
->A partir de 11 de fevereiro de 2019, começaremos a fazer sua migração do modelo de integridade atual no recurso de integridade do Azure Monitor para VMs, que atualmente fica visível quando você está na experiência de diagnóstico de integridade, para uma nova versão do modelo de integridade. Esta atualização melhora o desempenho de processamento de rollup de integridade e inclui um modelo de integridade refinado, apresentado na exibição de diagnóstico de integridade. 
->
->Com o novo modelo de integridade, o rollup dos critérios de integridade filho para os critérios de integridade no nível de entidade/pai será mais rápido e, como resultado, o estado de integridade do pai atualizará para o estado desejado ou de destino com menor latência. Você ainda pode filtrar os critérios de integridade sob as categorias **Desempenho** e **Disponibilidade** a fim de selecionar qualquer categoria na exibição, ao contrário do que ocorria com método anterior, com base em guias.
->
->Para obter mais detalhes sobre a experiência de diagnóstico de integridade, confira a [seção](#health-diagnostics) Diagnóstico de integridade neste artigo. 
->
->Essa atualização melhorará o seguinte: 
->
->- Processamento de acumulação de integridade com latência reduzida  
->- Alertas mais rápidos sobre alterações de estado de integridade 
->- Atualização mais rápida do estado de integridade na exibição de máquina virtual agregada para todas as VMs 
->
->Atualmente, não há nenhuma regressão de nenhuma funcionalidade entregue com o recurso de Integridade do Azure Monitor para VMs.
-
->Como resultado dessa alteração, as duas experiências no diagnóstico de Integridade são afetadas: o histórico de alterações do estado será redefinido e as alterações do estado anteriores para os critérios de integridade não estarão disponíveis para a revisão na coluna Alteração do Estado da página de diagnóstico de Integridade. Se estiver interessado nos dados históricos de qualquer VM crítica, você poderá gerar uma captura de tela dos dados de critérios de integridade e das alterações de estado correspondentes para sua referência. 
+> [!NOTE]
+> A partir de 11 de fevereiro de 2019, começaremos a fazer sua migração do modelo de integridade atual no recurso de integridade do Azure Monitor para VMs, que atualmente fica visível quando você está na experiência de diagnóstico de integridade, para uma nova versão do modelo de integridade. Esta atualização melhora o desempenho de processamento de rollup de integridade e inclui um modelo de integridade refinado, apresentado na exibição de diagnóstico de integridade. 
+> 
+> Com o novo modelo de integridade, o rollup dos critérios de integridade filho para os critérios de integridade no nível de entidade/pai será mais rápido e, como resultado, o estado de integridade do pai atualizará para o estado desejado ou de destino com menor latência. Você ainda pode filtrar os critérios de integridade sob as categorias **Desempenho** e **Disponibilidade** a fim de selecionar qualquer categoria na exibição, ao contrário do que ocorria com método anterior, com base em guias.
+> 
+> Para obter mais detalhes sobre a experiência de diagnóstico de integridade, confira a [seção](#health-diagnostics) Diagnóstico de integridade neste artigo. 
+> 
+> Essa atualização melhorará o seguinte: 
+> 
+> - Processamento de acumulação de integridade com latência reduzida  
+> - Alertas mais rápidos sobre alterações de estado de integridade 
+> - Atualização mais rápida do estado de integridade na exibição de máquina virtual agregada para todas as VMs 
+> 
+> Atualmente, não há nenhuma regressão de nenhuma funcionalidade entregue com o recurso de Integridade do Azure Monitor para VMs.
+> 
+> Como resultado dessa alteração, as duas experiências no diagnóstico de Integridade são afetadas: o histórico de alterações do estado será redefinido e as alterações do estado anteriores para os critérios de integridade não estarão disponíveis para a revisão na coluna Alteração do Estado da página de diagnóstico de Integridade. Se estiver interessado nos dados históricos de qualquer VM crítica, você poderá gerar uma captura de tela dos dados de critérios de integridade e das alterações de estado correspondentes para sua referência. 
 
 ## <a name="monitoring-configuration-details"></a>Detalhes de configuração de monitoramento
 Esta seção descreve os critérios de integridade padrão definidos para monitorar as máquinas virtuais do Windows e Linux do Azure. Todos os critérios de integridade são pré-configurados para o alerta quando a condição não íntegra é atendida. 
@@ -251,7 +251,7 @@ O número total de alertas de integridade da VM categorizados por gravidade est�
 
 Na página **Alertas**, o escopo não abrange apenas os alertas correspondentes à sua seleção, mas também são filtrados por **Tipo de recurso** para mostrar apenas os alertas de integridade gerados pelo recurso de máquina virtual.  Isso é refletido na lista de alertas, na coluna **Recurso de Destino**, em que é mostrado que a VM do Azure para a qual o alerta foi gerado devido ao atingimento de uma condição de não íntegro dos critérios de integridade específico.  
 
-Alertas de outros tipos de recursos ou serviços não devem ser incluídos nessa exibição, como alertas de log com base no Log Analytics ou alertas de métrica que você normalmente exibiria na página [Todos os Alertas](../../azure-monitor/platform/alerts-overview.md#all-alerts-page) padrão do Azure Monitor. 
+Alertas de outros tipos de recursos ou serviços não devem ser incluídos nessa exibição, como alertas de log com base em consultas de log ou alertas de métrica que você normalmente seria exibir do padrão do Azure Monitor [todos os alertas](../../azure-monitor/platform/alerts-overview.md#all-alerts-page) página. 
 
 É possível filtrar essa exibição, selecionando valores nos menus suspensos na parte superior da página.
 

@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 0f500ec776d90755d6738af80c34866105d354f5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: ffbf30f2bfdf0a175513a8d2b9182b35c39f6aae
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999395"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58292439"
 ---
 # <a name="managing-media-services-entities-with-rest"></a>Gerenciar entidades dos Serviços de Mídia com REST  
 
@@ -29,7 +29,7 @@ ms.locfileid: "55999395"
 > 
 > 
 
-O Serviço de mídia do Microsoft Azure é um serviço baseado em REST integrado ao OData v3. Você pode adicionar, consultar, atualizar e excluir entidades exatamente como faria com qualquer outro serviço OData. As exceções serão indicadas, quando necessário. Para obter mais informações sobre OData, consulte [Documentação do protocolo Open Data](http://www.odata.org/documentation/).
+O Serviço de mídia do Microsoft Azure é um serviço baseado em REST integrado ao OData v3. Você pode adicionar, consultar, atualizar e excluir entidades exatamente como faria com qualquer outro serviço OData. As exceções serão indicadas, quando necessário. Para obter mais informações sobre OData, consulte [Documentação do protocolo Open Data](https://www.odata.org/documentation/).
 
 Este tópico mostra como gerenciar as entidades dos Serviços de Mídia do Azure com REST.
 

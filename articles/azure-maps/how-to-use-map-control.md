@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 877393de20788b0aa1c76084b121a82f12715cd3
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 57850f67b56113036cb6cc37e9f1f2694ba9eb8f
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118064"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672722"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Use o controle de mapa de mapas do Azure
 
@@ -27,7 +27,7 @@ Você pode inserir um mapa em uma página da Web usando a biblioteca Javascript 
 
 2. Carregar no SDK Web do Azure Mapas. Isso pode ser feito usando uma de duas opções:
     
-     a. Use a versão do CDN hospedada globalmente do SDK Web do Azure Mapas adicionando os pontos de extremidade da URL à folha de estilos e às referências de script no elemento `<head>` do arquivo:
+    a. Use a versão do CDN hospedada globalmente do SDK Web do Azure Mapas adicionando os pontos de extremidade da URL à folha de estilos e às referências de script no elemento `<head>` do arquivo:
 
     ```html
     <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css" />
@@ -68,7 +68,7 @@ Você pode inserir um mapa em uma página da Web usando a biblioteca Javascript 
     </body>
     ```
 
-5. Para inicializar o Controle de Mapeamento, defina uma nova seção no corpo html e crie um script. Use sua própria chave de conta do Azure Mapas ou as credenciais do AAD (Azure Active Directory) para autenticar o mapa usando as [opções de autenticação](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.atlas.authenticationoptions). Se você precisar criar uma conta ou encontrar sua chave, consulte [Como gerenciar sua conta e chaves do Azure Maps](how-to-manage-account-keys.md). A opção **linguagem** especifica a linguagem a ser usada nos rótulos e nos controles de mapa. Para obter mais informações sobre linguagens com suporte, confira [Linguagens com suporte](supported-languages.md). Se estiver usando uma chave de assinatura para autenticação.
+5. Para inicializar o Controle de Mapeamento, defina uma nova seção no corpo html e crie um script. Use sua própria chave de conta do Azure Mapas ou as credenciais do AAD (Azure Active Directory) para autenticar o mapa usando as [opções de autenticação](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions). Se você precisar criar uma conta ou encontrar sua chave, consulte [Como gerenciar sua conta e chaves do Azure Maps](how-to-manage-account-keys.md). A opção **linguagem** especifica a linguagem a ser usada nos rótulos e nos controles de mapa. Para obter mais informações sobre linguagens com suporte, confira [Linguagens com suporte](supported-languages.md). Se estiver usando uma chave de assinatura para autenticação.
 
     ```html
     <script type='text/javascript'>
@@ -95,13 +95,14 @@ Você pode inserir um mapa em uma página da Web usando a biblioteca Javascript 
             authOptions: {
                 authType: 'aad',
                 clientId: '<Your AAD Client Id>',
-                aadAppId: '<Your AAD App Id',
+                aadAppId: '<Your AAD App Id>',
                 aadTenant: 'msft.ccsctp.net'
             }
         });
     </script>
     ```
 
+    Ver [autenticação com o Azure mapas](azure-maps-authentication.md) para obter mais detalhes.
 6. Como opção, você poderá considerar útil adicionar os seguintes elementos de marcação meta ao cabeçalho da sua página:
 
     ```html

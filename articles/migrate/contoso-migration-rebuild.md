@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: a4e5087e53d4505d54b5ff4b8d17ad6166c6174b
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
-ms.translationtype: HT
+ms.openlocfilehash: c0e953434e947703308ff8d796107838df8cc979
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002494"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437307"
 ---
 # <a name="contoso-migration-rebuild-an-on-premises-app-to-azure"></a>Migração para Contoso: Recompilar um aplicativo local para Azure
 
@@ -48,7 +48,7 @@ A equipe de liderança de TI trabalhou em conjunto com parceiros comerciais para
 - **Lidando com o crescimento da empresa**: A Contoso está crescendo e quer fornecer experiências diferenciadas aos clientes nos sites da Contoso.
 - **Agilidade**: A Contoso deve ser capaz de reagir mais rápido frente às mudanças no mercado para possibilitar o sucesso em uma economia global. 
 - **Escala**: Na medida em que a empresa cresce com sucesso, a equipe de TI da Contoso deve disponibilizar sistemas capazes de crescer no mesmo ritmo.
-- **Custos**: A Contoso quer minimizar os custos de licenciamento.
+- **Custos**: a Contoso quer minimizar os custos de licenciamento.
 
 ## <a name="migration-goals"></a>Metas de migração
 
@@ -138,7 +138,7 @@ Veja como a Contoso executará a migração:
 > [!div class="checklist"]
 > * **Etapa 1: Provisionar AKS e ACR**: A Contoso provisiona o cluster do AKS gerenciado e o registro de contêiner do Azure usando PowerShell
 > * **Etapa 2: Compilar contêineres do Docker**: Configuram a CI para contêineres do Docker usando Azure DevOp e efetuam push para o ACR.
-> *  **Etapa 3: Implantar microsserviços de back-end**: Implantam o restante da infraestrutura que será utilizada pelos microsserviços de back-end.
+> * **Etapa 3: Implantar microsserviços de back-end**: Implantam o restante da infraestrutura que será utilizada pelos microsserviços de back-end.
 > * **Etapa 4: Implantar infraestrutura de front-end**: Implantam a infraestrutura de front-end, incluindo o armazenamento de blobs para telefones de animais de estimação, Cosmos DB e API de Pesquisa Visual.
 > * **Etapa 5: Migrar o back-end**: Implantam microsserviços e executam no AKS para migrar o back-end.
 > * **Etapa 6: Publicar o front-end**: Publicam o aplicativo SmartHotel360 no serviço de Aplicativo Azure e Aplicativo de Funções que será chamado pelo serviço para animais de estimação.
@@ -154,7 +154,7 @@ Os administradores da Contoso executam um script de implantação para criar o c
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-1. Antes de começar, os administradores da Contoso verificam se todos os software de pré-requisitos estão instalados no computador de desenvolvimento usado para a implantação.
+1. Antes de começar, verifique se os administradores da Contoso que todos os softwares de pré-requisito no instalado no computador de desenvolvimento, que elas estão usando para a implantação.
 2. Eles clonam o repositório local no computador de desenvolvimento usando o Git: **git clone https://github.com/Microsoft/SmartHotel360-Azure-backend.git**
 
 

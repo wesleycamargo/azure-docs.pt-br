@@ -16,12 +16,12 @@ ms.date: 05/31/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3b503c7f0693a90d438fcec3ecae335fd349b3d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: cb44c64540cc461bca4e305f7783f7c6b612591b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187994"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996329"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Opções de entrada de usuário do Azure AD Connect
 O Azure AD (Azure Active Directory) Connect permite que os usuários se conectem a recursos de nuvem e locais usando as mesmas senhas. Este artigo descreve os principais conceitos de cada modelo de identidade, a fim de ajudá-lo a escolher a identidade que você deseja usar para entrar no Azure AD.
@@ -75,7 +75,9 @@ Para obter mais informações, consulte:
 ### <a name="federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2"></a>Federação que usa um farm novo ou existente com o AD FS no Windows Server 2012 R2
 Com a conexão federada, os usuários podem se conectar aos serviços baseados no Azure AD com suas senhas locais. Embora eles estejam na rede corporativa, eles nem precisam inserir suas senhas. Ao usar a opção de federação com o AD FS, é possível implantar um farm novo ou existente com o AD FS no Windows Server 2012 R2. Se você optar por especificar um farm existente, o Azure AD Connect configurará a relação de confiança entre o farm e o Azure AD, para que os usuários possam se conectar.
 
-<center>![Federação com o AD FS no Windows Server 2012 R2](./media/plan-connect-user-signin/federatedsignin.png)</center>
+<center>
+
+![Federação com AD FS no Windows Server 2012 R2](./media/plan-connect-user-signin/federatedsignin.png)</center>
 
 #### <a name="deploy-federation-with-ad-fs-in-windows-server-2012-r2"></a>Implantar a federação com o AD FS no Windows Server 2012 R2
 
@@ -152,6 +154,7 @@ O atributo userPrincipalName é o atributo que os usuários usam ao se conectare
 Para as informações a seguir, suponhamos que o sufixo UPN contoso.com seja de nosso interesse, que é usado no diretório local como parte do UPN – por exemplo user@contoso.com.
 
 ###### <a name="express-settingspassword-hash-synchronization"></a>Configurações expressas/sincronização de hash de senha
+
 | Estado | Efeito sobre a experiência de entrada do usuário do Azure |
 |:---:|:--- |
 | Não adicionado |Nesse caso, nenhum domínio personalizado para contoso.com foi adicionado no diretório do Azure AD. Os usuários que têm o UPN local com o sufixo @contoso.com não poderão usar seus UPNs locais para entrar no Azure. Em vez disso, eles precisarão usar um novo UPN fornecido pelo Azure AD adicionando o sufixo do diretório padrão do Azure AD. Por exemplo, se você estiver sincronizando usuários com o diretório do Azure AD azurecontoso.onmicrosoft.com, o usuário local user@contoso.com receberá um UPN igual a user@azurecontoso.onmicrosoft.com. |

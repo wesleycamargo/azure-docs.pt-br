@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: aeeab619ac2366796a1039bf85cc71f89a10b83c
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: cc0d004a20aa5497c40b07e04e0eeae7758a9826
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158492"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085245"
 ---
 # <a name="create-and-provision-an-x509-simulated-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Criar e provisionar um dispositivo X.509 simulado usando o SDK do dispositivo Node.js para o Serviço de Provisionamento de Dispositivos no Hub IoT
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -25,8 +25,8 @@ Essas etapas mostram como criar uma entrada de registro no Serviço de Provision
 Se você não estiver familiarizado com o processo de provisionamento automático, analise também os [Conceitos de provisionamento automático](concepts-auto-provisioning.md). Não se esqueça de concluir as etapas em [Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com o Portal do Azure](./quick-setup-auto-provision.md) antes de continuar. 
 
 O Serviço de Provisionamento de Dispositivos de IoT do Azure dá suporte a dois tipos de registros:
-- [Grupos de registro](concepts-service.md#enrollment-group): usados para registrar vários dispositivos relacionados.
-- [Registros individuais](concepts-service.md#individual-enrollment): usados para registrar um único dispositivo.
+- [Grupos de registros](concepts-service.md#enrollment-group): usados para inscrever vários dispositivos relacionados.
+- [Registros individuais](concepts-service.md#individual-enrollment): usados para inscrever um único dispositivo.
 
 Este artigo irá demonstrar registros individuais.
 
@@ -80,17 +80,17 @@ Você usará o código de exemplo do [SDK do Azure IoT para Node.js](https://git
 5. Na folha de resumo do Serviço de Provisionamento de Dispositivos, selecione **Gerenciar registros**. Selecione a guia **Registros Individuais** e clique no botão **Adicionar registro individual** na parte superior. 
 
 6. No painel **Adicionar Registro**, insira as seguintes informações:
-    - Selecione **X.509** como o *Mecanismo* de atestado de identidade.
-    - No *arquivo primário certificate .pem ou .cer*, clique em *Selecionar um arquivo* para selecionar o arquivo de certificado **{certificate-name}_cert.pem** criado na etapa anterior.  
-    - Opcionalmente, você pode fornecer as seguintes informações:
-      - Selecione um hub IoT vinculado com o serviço de provisionamento.
-      - Insira uma ID de dispositivo exclusiva. Evite dados confidenciais ao nomear seu dispositivo. 
-      - Atualize o **Estado inicial do dispositivo gêmeo** com a configuração inicial desejada para o dispositivo.
-   - Uma vez concluído, clique no botão **Salvar**. 
+   - Selecione **X.509** como o *Mecanismo* de atestado de identidade.
+   - No *arquivo primário certificate .pem ou .cer*, clique em *Selecionar um arquivo* para selecionar o arquivo de certificado **{certificate-name}_cert.pem** criado na etapa anterior.  
+   - Opcionalmente, você pode fornecer as seguintes informações:
+     - Selecione um hub IoT vinculado com o serviço de provisionamento.
+     - Insira uma ID de dispositivo exclusiva. Evite dados confidenciais ao nomear seu dispositivo. 
+     - Atualize o **Estado inicial do dispositivo gêmeo** com a configuração inicial desejada para o dispositivo.
+     - Uma vez concluído, clique no botão **Salvar**. 
 
-    [![Adicionar um registro individual para atestado de X.509 no portal](./media/quick-create-simulated-device-x509-node/device-enrollment.png)](./media/quick-create-simulated-device-x509-node/device-enrollment.png#lightbox)
+     [![Adicionar um registro individual para atestado de X.509 no portal](./media/quick-create-simulated-device-x509-node/device-enrollment.png)](./media/quick-create-simulated-device-x509-node/device-enrollment.png#lightbox)
 
-    No registro bem-sucedido, o dispositivo X.509 é exibido como **{certificatename}** na coluna *ID do Registro* na guia o *Registros Individuais*. Anote esse valor para usar mais tarde.
+     No registro bem-sucedido, o dispositivo X.509 é exibido como **{certificatename}** na coluna *ID do Registro* na guia o *Registros Individuais*. Anote esse valor para usar mais tarde.
 
 ## <a name="simulate-the-device"></a>Simular o dispositivo
 

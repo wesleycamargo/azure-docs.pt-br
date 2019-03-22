@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: a3687a4b8bb4e0d900ee96f52c40352db4e96df6
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: 270708496fbe13b9061abe5d64d5577193db4027
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635554"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450644"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>Analisar dados do Twitter usando o Apache Hive e Apache Hadoop no HDInsight
 
@@ -70,7 +70,7 @@ O código Python a seguir baixa 10.000 tweets do Twitter e os salva em um arquiv
 
     Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-3. Use os comandos a seguir para instalar [Tweepy](https://www.tweepy.org/), [Progressbar](https://pypi.python.org/pypi/progressbar/2.2) e outros pacotes necessários:
+3. Use os seguintes comandos para instalar [Tweepy](https://www.tweepy.org/), [barra de progresso](https://pypi.python.org/pypi/progressbar/2.2)e outros pacotes necessários:
 
    ```bash
    sudo apt install python-dev libffi-dev libssl-dev

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: banders
-ms.openlocfilehash: 6e0339808d65cd5b4acd7b77284ccedf7cdf1989
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: bbdcbdc7ef288eeeb279c7e5e59baee492e1f292
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902118"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835258"
 ---
 # <a name="change-your-azure-pay-as-you-go-subscription-to-a-different-offer"></a>Alterar sua assinatura Paga Conforme o Uso do Azure para uma oferta diferente
 
@@ -116,4 +116,4 @@ No dia da alteração, uma fatura é gerada para todos os encargos pendentes. Em
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
-Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Se você tiver dúvidas ou precisar de Ajuda, [criar uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/23/2019
 ms.author: banders
-ms.openlocfilehash: b0d5dd5fb29c8915e2c660b8647cb0148bce1399
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: 374224663323e75a1d1413c47490bd3aacd00267
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901506"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57876809"
 ---
 # <a name="cancel-your-subscription-for-azure"></a>Cancelar sua assinatura do Azure
 
@@ -61,4 +61,4 @@ Caso sua assinatura não seja Pré-paga, contate o suporte em até 90 dias após
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
-Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Se você tiver dúvidas ou precisar de Ajuda, [criar uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).

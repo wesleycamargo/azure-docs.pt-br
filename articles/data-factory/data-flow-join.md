@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: 517afe21fbf9241e2b2423525e9caee12a5603f6
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 204ee1b812949311258be968de387dc5b66c4fc0
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270835"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57726865"
 ---
-# <a name="azure-data-factory-data-flow-join-transformation"></a>Transformação de junção do Fluxo de Dados do Azure Data Factory
+# <a name="mapping-data-flow-join-transformation"></a>Transformação de associação de fluxo de dados de mapeamento
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -24,11 +24,11 @@ Use a junção para combinar dados de duas tabelas em seu Fluxo de Dados. Clique
 
 ## <a name="join-types"></a>Tipos de junção
 
-A seleção do Tipo de junção é necessária para a transformação de junção
+Selecionar tipo de junção é necessária para a transformação de junção.
 
 ### <a name="inner-join"></a>Junção interna
 
-A junção interna será passada somente por linhas que correspondem às condições de coluna das duas tabelas
+Junção interna será passado somente linhas que correspondem às condições de coluna das duas tabelas.
 
 ### <a name="left-outer"></a>Externa esquerda
 
@@ -40,11 +40,11 @@ Todas as linhas do fluxo direito que não atenderem à condição de junção s�
 
 ### <a name="full-outer"></a>Externa completa
 
-Externa completa produz todas as colunas e linhas de ambos os lados com valores NULL para colunas que não estão presentes na outra tabela
+Externa completa produz todas as colunas e linhas de ambos os lados com valores NULL para colunas que são não presente na outra tabela.
 
 ### <a name="cross-join"></a>União cruzada
 
-Específica do produto cruzado dos dois fluxos com uma expressão
+Especifique o produto cruzado de dois fluxos com uma expressão. Você pode usar isso para criar condições de junção personalizadas.
 
 ## <a name="specify-join-conditions"></a>Especificar condições de junção
 
@@ -67,3 +67,7 @@ Se o conjunto de dados puder se ajustar à memória do nó de trabalho do Databr
 ![Autojunção](media/data-flow/selfjoin.png "Autojunção")
 
 No diagrama acima, a Transformação de seleção está na parte superior. Tudo o que ela está fazendo é atribuir um alias ao fluxo original como “OrigSourceBatting”. Na transformação de junção realçada embaixo dele, é possível ver que usamos esse fluxo de alias de Junção como a junção direita, permitindo-nos referenciar a mesma chave no lado esquerdo e no direito da junção interna.
+
+## <a name="next-steps"></a>Próximas etapas
+
+Após a associação de dados, em seguida, você pode [criar novas colunas](data-flow-derived-column.md) e [seus dados do coletor para um armazenamento de dados de destino](data-flow-sink.md).

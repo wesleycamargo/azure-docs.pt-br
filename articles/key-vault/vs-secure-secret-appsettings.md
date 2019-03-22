@@ -7,18 +7,18 @@ author: cawaMS
 manager: paulyuk
 editor: ''
 ms.assetid: ''
-ms.service: ''
+ms.service: key-vault
 ms.workload: web, azure
 ms.tgt_pltfrm: vs-getting-started
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: cawa
-ms.openlocfilehash: df6330827a4fb8bb8e80af89855c3ea104584295
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 79b1c740bca56982243ddc130d8747fdc955247f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662272"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124109"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Salvar com segurança as configurações de aplicativo secretas para um aplicativo Web
 
@@ -143,9 +143,9 @@ Se você estiver escrevendo um protótipo rápido e não quiser provisionar recu
 Siga as instruções da seção do ASP.NET Core para configurar um Key Vault para o seu projeto.
 
 1. Instale o pacote NuGet a seguir no seu projeto.
-```
-Microsoft.Configuration.ConfigurationBuilders.UserSecrets
-```
+   ```
+   Microsoft.Configuration.ConfigurationBuilders.UserSecrets
+   ```
 
 2. Defina o construtor de configuração do Key Vault em Web.config. Coloque esta seção antes da seção *appSettings*. Substitua *vaultName* para ser o nome do Key Vault se o Key Vault no Azure público ou URI completo se você estiver usando a nuvem soberana.
 
@@ -159,16 +159,16 @@ Microsoft.Configuration.ConfigurationBuilders.UserSecrets
         </builders>
     </configBuilders>
     ```
-3.  Especifique se a seção appSettings está usando o construtor de configuração do Key Vault. Verifique se que há alguma entrada para a configuração secreta com valor fictício.
+3. Especifique se a seção appSettings está usando o construtor de configuração do Key Vault. Verifique se que há alguma entrada para a configuração secreta com valor fictício.
 
-    ```xml
-    <appSettings configBuilders="AzureKeyVault">
-        <add key="webpages:Version" value="3.0.0.0" />
-        <add key="webpages:Enabled" value="false" />
-        <add key="ClientValidationEnabled" value="true" />
-        <add key="UnobtrusiveJavaScriptEnabled" value="true" />
-        <add key="secret" value="" />
-    </appSettings>
-    ```
+   ```xml
+   <appSettings configBuilders="AzureKeyVault">
+       <add key="webpages:Version" value="3.0.0.0" />
+       <add key="webpages:Enabled" value="false" />
+       <add key="ClientValidationEnabled" value="true" />
+       <add key="UnobtrusiveJavaScriptEnabled" value="true" />
+       <add key="secret" value="" />
+   </appSettings>
+   ```
 
 4. Comece a depuração do projeto. Ele deve ser executado com êxito.

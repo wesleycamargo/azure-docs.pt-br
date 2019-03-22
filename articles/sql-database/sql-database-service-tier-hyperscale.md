@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 49c41b436e0d935d1f9fce5ba2de10e0f2d0c99d
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 4db013b51657bb327c36d616a3743c46731cd19a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991212"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903786"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>Camada de serviço em Hiperescala (versão prévia) para até 100 TB
 
@@ -112,7 +112,7 @@ Com a capacidade de criar rapidamente nós de computação adicionais de somente
 
 ## <a name="create-a-hyperscale-database"></a>Criar um banco de dados em Hiperescala
 
-Um banco de dados em Hiperescala pode ser criado usando o [portal do Azure](https://portal.azure.com), o [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), o [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) ou a [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). Bancos de dados em Hiperescala estão disponíveis somente usando o [Modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
+Um banco de dados em hiperescala pode ser criado usando o [portal do Azure](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase) ou [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). Bancos de dados em Hiperescala estão disponíveis somente usando o [Modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
 
 O comando T-SQL a seguir cria um banco de dados em Hiperescala. Você deve especificar tanto o objetivo do serviço quanto a edição na instrução `CREATE DATABASE`.
 
@@ -124,7 +124,7 @@ GO
 
 ## <a name="migrate-an-existing-azure-sql-database-to-the-hyperscale-service-tier"></a>Migrar um Banco de Dados SQL do Azure existente para a camada de serviço em Hiperescala
 
-Você pode mover seus Bancos de Dados SQL do Azure existentes em Hiperescala usando o [portal do Azure](https://portal.azure.com), o [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), o [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) ou a [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update). Na visualização pública, essa é uma migração unidirecional. Você não pode mover bancos de dados da Hiper escala para outro nível de serviço. Recomendamos que você faça uma cópia de seus bancos de dados de produção e migre para a Hiper escala para prova de conceitos (POCs).
+Você pode mover seus bancos de dados SQL do Azure existentes em hiperescala usando o [portal do Azure](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) ou [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update). Na visualização pública, essa é uma migração unidirecional. Você não pode mover bancos de dados da Hiper escala para outro nível de serviço. Recomendamos que você faça uma cópia de seus bancos de dados de produção e migre para a Hiper escala para prova de conceitos (POCs).
 
 O comando T-SQL a seguir move um banco de dados para a camada de serviço em Hiperescala. Você deve especificar tanto o objetivo do serviço quanto a edição na instrução `ALTER DATABASE`.
 
@@ -145,7 +145,7 @@ Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationInte
 
 ## <a name="available-regions"></a>Regiões disponíveis
 
-A camada de serviço em hiperescala está atualmente em versão prévia pública e disponível nas seguintes regiões do Azure: EastUS1, EastUS2, WestUS2, CentralUS, NorthCentralUS, WestEurope, NorthEurope, UKWest, AustraliaEast, AustraliaSouthEast, SouthEastAsia, JapanEast, KoreaCentral
+A camada de serviço em hiperescala está atualmente em versão prévia pública e disponível nas seguintes regiões do Azure: Leste dos EUA 1, Leste dos EUA 2, oeste dos EUA 2, centro dos EUA, Norte CentralU S, Europa Ocidental, Norte da Europa, Leste da Austrália, Sudeste da Austrália, Sudeste Asiático, Leste do Japão e centro da Coreia
 
 ## <a name="known-limitations"></a>Limitações conhecidas
 

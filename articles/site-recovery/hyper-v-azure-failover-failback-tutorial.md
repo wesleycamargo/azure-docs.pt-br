@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 03b8dd9bd0a7acc63fdae66330904142384429a8
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: ead2b83fb7bf505fe4cbb5a09a383598617066a3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794202"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104039"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>Executar failover e failback em VMs do Hyper-V replicadas no Azure
 
@@ -49,13 +49,13 @@ Antes do failover, verifique as propriedades da VM e verifique se a VM atende ao
 
 Em **Itens Protegidos**, clique em **Itens Replicados** > VM.
 
-2. No painel **Item Replicado**, há um resumo das informações da VM, o status de integridade e os últimos pontos de recuperação disponíveis. Clique em **Propriedades** para exibir mais detalhes.
+1. No painel **Item Replicado**, há um resumo das informações da VM, o status de integridade e os últimos pontos de recuperação disponíveis. Clique em **Propriedades** para exibir mais detalhes.
 
-3. Em **Computação e Rede**, você pode modificar o nome do Azure, o grupo de recursos, o tamanho do destino, o [conjunto de disponibilidade](../virtual-machines/windows/tutorial-availability-sets.md) e as configurações de disco gerenciado.
+1. Em **Computação e Rede**, você pode modificar o nome do Azure, o grupo de recursos, o tamanho do destino, o [conjunto de disponibilidade](../virtual-machines/windows/tutorial-availability-sets.md) e as configurações de disco gerenciado.
 
-4. Você pode exibir ou modificar as configurações de rede, incluindo a rede/sub-rede na qual a VM do Azure estará localizada após o failover e o endereço IP que será atribuído a ela.
+1. Você pode exibir ou modificar as configurações de rede, incluindo a rede/sub-rede na qual a VM do Azure estará localizada após o failover e o endereço IP que será atribuído a ela.
 
-5. Em **Discos**, é possível visualizar as informações sobre o sistema operacional e os discos de dados na VM.
+1. Em **Discos**, é possível visualizar as informações sobre o sistema operacional e os discos de dados na VM.
 
 ## <a name="failover-to-azure"></a>Failover para o Azure
 

@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 937ac1d892cdea849d7e5a89c8e69c6b069f2efd
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: c16483f4b8ef160c78ff95582faf54c9a9d24a04
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56333785"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57964066"
 ---
 Este artigo fornece informações sobre as gerações anteriores de tamanhos de máquina virtual. Esses tamanhos ainda podem ser usados, mas as gerações mais recentes estão disponíveis.
 
 
 ## <a name="ds-series"></a>Série DS
 
-ACU: 160
+ACU: 160-250 <sup>1</sup>
 
 Armazenamento Premium:  Com suporte
 
@@ -28,16 +28,17 @@ Cache de Armazenamento Premium:  Com suporte
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima de armazenamento temporário: IOPS / MBps (tamanho do cache em GiB) | Taxa de transferência de disco sem cache: IOPS / MBps | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_DS1 |1 |3,5 |7 |4 |4.000 / 32 (43) |3.200 / 32 |2 / 500 |
+| Standard_DS1 |1 |3.5 |7 |4 |4.000 / 32 (43) |3.200 / 32 |2 / 500 |
 | Standard_DS2 |2 |7 |14 |8 |8.000 / 64 (86) |6.400 / 64 |2 / 1000 |
 | Standard_DS3 |4 |14 |28 |16 |16.000 / 128 (172) |12.800 / 128 |4 / 2000 |
 | Standard_DS4 |8 |28 |56 |32 |32.000 / 256 (344) |25.600 / 256 |8 / 4000 |
 
+<sup>1</sup> família de VM pode ser executado em um dos seguintes da CPU: 2.2 GHz Intel Xeon® E5 2660 v2, 2,4 GHz Intel Xeon® 2673 E5 v3 (Haswell) ou 2.3 GHz Intel XEON® 2673 E5 v4 (Broadwell)
 <br>
 
 ## <a name="ds-series---memory-optimized"></a>Série DS - otimizado para memória
 
-ACU: 160 <sup>1</sup>
+ACU: 160-250 <sup>1,2</sup>
 
 Armazenamento Premium:  Com suporte
 
@@ -50,34 +51,35 @@ Cache de Armazenamento Premium:  Com suporte
 | Standard_DS13 |8 |56 |112 |32 |32.000 / 256 (288) |25.600 / 256 |8 / 4000 |
 | Standard_DS14 |16 |112 |224 |64 |64.000 / 512 (576) |51.200 / 512 |8 / 8000 |
 
-<sup>1</sup> A taxa de transferência máxima possível do disco (IOPS ou MBps) com uma VM da série DS pode ser limitada pelo número, tamanho e distribuição dos discos anexados.  Para obter detalhes, confira o artigo [Projetar para um alto desempenho](../articles/virtual-machines/windows/premium-storage-performance.md).
+<sup>1</sup> A taxa de transferência máxima possível do disco (IOPS ou MBps) com uma VM da série DS pode ser limitada pelo número, tamanho e distribuição dos discos anexados.  Para saber mais, consulte [Projetar para alto desempenho](../articles/virtual-machines/windows/premium-storage-performance.md).
 
-
+<sup>2</sup> família de VM pode ser executado em um dos seguintes da CPU: 2.2 GHz Intel Xeon® E5 2660 v2, 2,4 GHz Intel Xeon® 2673 E5 v3 (Haswell) ou 2.3 GHz Intel XEON® 2673 E5 v4 (Broadwell)
 
 ## <a name="d-series"></a>Série D 
 
-ACU: 160
+ACU: 160-250 <sup>1</sup>
 
-Armazenamento Premium:  Sem suporte
+Armazenamento Premium:  Sem Suporte
 
-Cache de Armazenamento Premium:  Sem suporte
+Cache de Armazenamento Premium:  Sem Suporte
 
 | Tamanho         | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Taxa de transferência máxima de armazenamento temporário: IOPS / MBps de leitura / MBps de gravação | Discos de dados máximos / taxa de transferência: IOPS | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_D1  | 1         | 3,5         | 50             | 3000 / 46 / 23                                           | 4 / 4 x 500                         | 2 / 500                 |
+| Standard_D1  | 1         | 3.5         | 50             | 3000 / 46 / 23                                           | 4 / 4 x 500                         | 2 / 500                 |
 | Standard_D2  | 2         | 7           | 100            | 6000 / 93 / 46                                           | 8 / 8 x 500                         | 2 / 1000                     |
 | Standard_D3  | 4         | 14          | 200            | 12000 / 187 / 93                                         | 16 / 16 x 500                         | 4 / 2000                     |
 | Standard_D4  | 8         | 28          | 400            | 24000 / 375 / 187                                        | 32 / 32 x 500                       | 8 / 4000                     |
 
+<sup>1</sup> família de VM pode ser executado em um dos seguintes da CPU: 2.2 GHz Intel Xeon® E5 2660 v2, 2,4 GHz Intel Xeon® 2673 E5 v3 (Haswell) ou 2.3 GHz Intel XEON® 2673 E5 v4 (Broadwell)
 <br>
 
 ## <a name="d-series---memory-optimized"></a>Série D - otimizado para memória
 
-ACU: 160
+ACU: 160-250 <sup>1</sup>
 
-Armazenamento Premium:  Sem suporte
+Armazenamento Premium:  Sem Suporte
 
-Cache de Armazenamento Premium:  Sem suporte
+Cache de Armazenamento Premium:  Sem Suporte
 
 | Tamanho         | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Taxa de transferência máxima de armazenamento temporário: IOPS / MBps de leitura / MBps de gravação | Discos de dados máximos / taxa de transferência: IOPS | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
@@ -86,17 +88,18 @@ Cache de Armazenamento Premium:  Sem suporte
 | Standard_D13 | 8         | 56          | 400            | 24000 / 375 / 187                                        | 32 / 32 x 500                       | 8 / 4000                     |
 | Standard_D14 | 16        | 112         | 800            | 48000 / 750 / 375                                        | 64 / 64x500                       | 8 / 8000                |
 
+<sup>1</sup> família de VM pode ser executado em um dos seguintes da CPU: 2.2 GHz Intel Xeon® E5 2660 v2, 2,4 GHz Intel Xeon® 2673 E5 v3 (Haswell) ou 2.3 GHz Intel XEON® 2673 E5 v4 (Broadwell)
 <br>
 
 ## <a name="a-series---compute-intensive-instances"></a>Série A – Instâncias de computação intensiva
 
 ACU: 225
 
-Armazenamento Premium:  Sem suporte
+Armazenamento Premium:  Sem Suporte
 
-Cache de Armazenamento Premium:  Sem suporte
+Cache de Armazenamento Premium:  Sem Suporte
 
-Os tamanhos A8-A11 e série H também são conhecidos como *instâncias de computação intensiva*. O hardware de datacenter do Azure que executa esses tamanhos é projetado e otimizado para aplicativos de uso intensivo de computação e rede, incluindo aplicativos, modelagem e simulações de cluster HPC (computação de alto desempenho). A série de A8-A11 usa Intel Xeon E5-2670 a 2,6 GHz e a série H usa Intel Xeon E5-2667 v3 a 3,2 GHz.  Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como a taxa de transferência de armazenamento e largura de banda de rede para cada tamanho neste agrupamento. 
+Os tamanhos A8-A11 e série H também são conhecidos como *instâncias de computação intensiva*. O hardware de datacenter do Azure que executa esses tamanhos é projetado e otimizado para aplicativos de uso intensivo de computação e rede, incluindo aplicativos, modelagem e simulações de cluster HPC (computação de alto desempenho). A série de A8-A11 usa Intel Xeon E5-2670 a 2,6 GHz e a série H usa Intel Xeon E5-2667 v3 a 3,2 GHz.  
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (HDD): GiB | Discos de dados máximos | Taxa de transferência máxima do disco de dados: IOPS | Máximo de NICs|
 | --- | --- | --- | --- | --- | --- | --- |
@@ -113,9 +116,9 @@ Os tamanhos A8-A11 e série H também são conhecidos como *instâncias de compu
 
 ACU: 50-100
 
-Armazenamento Premium:  Sem suporte
+Armazenamento Premium:  Sem Suporte
 
-Cache de Armazenamento Premium:  Sem suporte
+Cache de Armazenamento Premium:  Sem Suporte
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (HDD): GiB | Discos de dados máximos | Taxa de transferência máxima do disco de dados: IOPS | Máximo de NICs/Largura de banda de rede esperado (Mbps)  |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -127,6 +130,7 @@ Cache de Armazenamento Premium:  Sem suporte
 | Standard_A5 |2 |14 |135 |4 |4x500 |2 / 500 |
 | Standard_A6 |4 |28 |285 |8 |8 x 500 |2 / 1000 |
 | Standard_A7 |8 |56 |605 |16 |16 x 500 |4 / 2000 |
+
 <br>
 
 <sup>1</sup> O tamanho A0 está assinado em excesso no hardware físico. Para este tamanho específico somente, outras implantações de clientes podem afetar o desempenho da carga de trabalho em execução. O desempenho relativo é descrito a seguir como a linha de base esperada, sujeito a uma variação aproximada de 15%.
@@ -143,9 +147,9 @@ No modelo de implantação clássica, alguns nomes de tamanhos de VM são ligeir
 
 ## <a name="basic-a"></a>A Básico
 
-Armazenamento Premium:  Sem suporte
+Armazenamento Premium:  Sem Suporte
 
-Cache de Armazenamento Premium:  Sem suporte
+Cache de Armazenamento Premium:  Sem Suporte
 
 Os tamanhos da camada básicos são principalmente para as cargas de trabalho de desenvolvimento e outros aplicativos que não requerem o balanceamento de carga, dimensionamento automático ou máquinas virtuais que consomem muita memória.
 

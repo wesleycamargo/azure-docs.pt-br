@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 2775ceb3cf27b6feedfd73cd43855204490ebc31
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: d55d8f8f945e30402cb772c7e26b234e3e460698
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471191"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217862"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Padrões de locatário de banco de dados de SaaS multilocatários
 
@@ -99,7 +99,7 @@ Quando os bancos de dados são implantados no mesmo grupo de recursos, eles pode
 
 ![Aplicativo de multilocatário com o banco de dados por locatário.][image-mt-app-db-per-tenant-pool-153p]
 
-Banco de dados SQL do Azure fornece as ferramentas necessárias para configurar, monitorar e gerenciar o compartilhamento.  As duas métricas de desempenho do nível de pool e nível de banco de dados estão disponíveis no portal do Azure e por meio de análise de Log.  As métricas podem fornecer excelentes ideias sobre desempenho de agregação e específicos de locatário.  Bancos de dados individuais podem ser movidos entre grupos para fornecer recursos reservados para um locatário específico.  Essas ferramentas permitem garantir o bom desempenho de maneira econômica.
+Banco de dados SQL do Azure fornece as ferramentas necessárias para configurar, monitorar e gerenciar o compartilhamento.  Ambas as métricas de desempenho do nível do pool e nível de banco de dados estão disponíveis no portal do Azure e logs do Azure Monitor.  As métricas podem fornecer excelentes ideias sobre desempenho de agregação e específicos de locatário.  Bancos de dados individuais podem ser movidos entre grupos para fornecer recursos reservados para um locatário específico.  Essas ferramentas permitem garantir o bom desempenho de maneira econômica.
 
 #### <a name="operations-scale-for-database-per-tenant"></a>Escala de operações para o banco de dados por locatário
 

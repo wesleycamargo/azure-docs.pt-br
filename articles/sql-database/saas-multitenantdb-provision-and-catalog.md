@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib,andrela,stein
 manager: craigg
 ms.date: 09/24/2018
-ms.openlocfilehash: fd420e29387aedd3f04fdf7437a3ef27c5589fc8
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: d29baaad6090cea5eb31f5f50bba444cb3771155
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562888"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835774"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Provisionar e catalogar novos locatários em um aplicativo de SaaS usando um banco de dados SQL multilocatário fragmentado do Azure
 
@@ -237,7 +237,7 @@ A lista completa de locatários e o banco de dados correspondente para cada um e
 - O nome do locatário é armazenado na tabela Locatários.
 - O nome do banco de dados é armazenado nas tabelas de gerenciamento de fragmentos.
 
-1. No SSMS (SQL Server Management Studio), conecte-se ao servidor de locatários em **catalog-mt.\<USER\>.database.windows.net**, com o logon = **desenvolvedor** e a senha = **P@ssword1**
+1. No SQL Server Management Studio (SSMS), conecte-se ao servidor de locatários em **catalog-MT.\<usuário\>. database.windows.net**, com o logon = **desenvolvedor**e a senha =  **P\@ssword1**
 
     ![caixa de diálogo de conexão do SSMS](media/saas-multitenantdb-provision-and-catalog/SSMSConnection.png)
 

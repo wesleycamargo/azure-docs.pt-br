@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: dadb645067a0f6cac436d638a829ac4c0937bd60
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
-ms.translationtype: HT
+ms.openlocfilehash: 8fa093d629eb7c655ea277b1d57f35193394f722
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304347"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729994"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guia do desenvolvedor de Python para o Azure Functions
 
@@ -109,7 +109,7 @@ O código compartilhado deve ser mantido em uma pasta separada. Para fazer refer
 from ..SharedCode import myFirstHelperFunction
 ```
 
-As extensões de associação usadas pelo tempo de execução do Functions são definidas no arquivo `extensions.csproj`, com os arquivos de biblioteca reais na pasta `bin`. Ao desenvolver localmente, você deverá [registrar as extensões de associação](functions-triggers-bindings.md#local-development-azure-functions-core-tools) usando o Azure Functions Core Tools. 
+As extensões de associação usadas pelo tempo de execução do Functions são definidas no arquivo `extensions.csproj`, com os arquivos de biblioteca reais na pasta `bin`. Ao desenvolver localmente, você deverá [registrar as extensões de associação](./functions-bindings-register.md#local-development-azure-functions-core-tools) usando o Azure Functions Core Tools. 
 
 Ao implantar um projeto do Functions em seu aplicativo de funções no Azure, todo o conteúdo da pasta FunctionApp deverá ser incluído no pacote, mas não a pasta em si.
 

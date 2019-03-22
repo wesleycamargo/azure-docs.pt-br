@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6521dc8db663df5e19fb97c495b4a5bcb6d3c1d1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0c0d0fdf4e7df0401692eb026d55fe1a7c9322f1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208462"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106467"
 ---
 # <a name="reset-your-work-or-school-password"></a>Redefinir sua senha corporativa ou de estudante
 
@@ -93,15 +93,15 @@ Se você não conseguir acessar sua conta do Azure AD (Azure Active Directory), 
 
 - **Redefina sua senha usando um código do seu aplicativo do autenticador.** Aceita um código aleatório fornecido pelo seu aplicativo de autenticação. Se o administrador ativou a experiência de informações de segurança, você pode encontrar mais informações sobre a configuração de um aplicativo do autenticador para fornecer um código no artigo [Configurar informações de segurança para usar um aplicativo de autenticação (visualização)](security-info-setup-auth-app.md). Se você ainda não estiver usando as informações de segurança, poderá encontrar mais informações sobre como configurar um aplicativo do autenticador para fornecer um código no artigo [Configurar minha conta para verificação em duas etapas](multi-factor-authentication-end-user-first-time.md).
 
-    1. Selecione **Insira um código do meu aplicativo autenticador** e selecione **Enviar notificação**.
+  1. Selecione **Insira um código do meu aplicativo autenticador** e selecione **Enviar notificação**.
 
-    2. Abra o aplicativo do autenticador, digite o código de verificação da sua conta na caixa e, em seguida, selecione **Próximo**.
+  2. Abra o aplicativo do autenticador, digite o código de verificação da sua conta na caixa e, em seguida, selecione **Próximo**.
 
-    3. Digite e confirme sua nova senha e, em seguida, selecione **Finalizar**.
+  3. Digite e confirme sua nova senha e, em seguida, selecione **Finalizar**.
 
-    4. Depois de receber a mensagem informando que sua senha foi redefinida, você poderá fazer login na sua conta usando sua nova senha.
+  4. Depois de receber a mensagem informando que sua senha foi redefinida, você poderá fazer login na sua conta usando sua nova senha.
         
-    Se você ainda não conseguir acessar sua conta, entre em contato com o administrador da organização para obter mais ajuda.
+     Se você ainda não conseguir acessar sua conta, entre em contato com o administrador da organização para obter mais ajuda.
 
 Depois de redefinir sua senha, você pode receber um e-mail de confirmação proveniente de uma conta como "Microsoft em nome de \<*your_organization*>". Se você receber um e-mail semelhante, mas não redefiniu sua senha recentemente, entre em contato com o administrador da organização imediatamente.
 
@@ -113,7 +113,7 @@ Se você quiser apenas alterar sua senha, poderá fazê-lo através do portal do
 
 Use esse método se você normalmente acessa seus aplicativos pelo portal do Office:
 
-1. Faça login na sua [conta do Office 365](https://www.office.com), usando sua senha existente.
+1. Faça login na sua [conta do Office 365](https://portal.office.com), usando sua senha existente.
 
 2. Selecione seu perfil no lado superior direito e selecione **Exibir conta**.
 
@@ -155,7 +155,7 @@ Se o administrador ativou a funcionalidade, você pode ver um link para **Redefi
 
 Aqui estão alguns casos de erro comuns e suas soluções:
 
-|Problema|DESCRIÇÃO|Solução|
+|Problema|Descrição|Solução|
 | --- | --- | --- |
 |Quando tento alterar minha senha, recebo um erro. |Sua senha tem uma palavra, frase ou padrão que torna sua senha facilmente adivinhada.| Tente novamente usando uma senha mais forte.|
 |Depois de inserir minha ID de usuário, vou para uma página que diz "Entre em contato com seu administrador".|A Microsoft determinou que a senha da sua conta de usuário é gerenciada pelo seu administrador em um ambiente local. Como resultado, você não pode redefinir sua senha no link "Não consigo acessar sua conta". |Entre em contato com seu administrador para mais ajuda.|
@@ -163,9 +163,6 @@ Aqui estão alguns casos de erro comuns e suas soluções:
 |Depois de inserir minha ID de usuário, recebo um erro que diz "Não foi possível confirmar sua conta".|O processo de login não conseguiu confirmar as informações da sua conta.|Existem duas razões pelas quais você pode estar vendo esta mensagem.<br><br>1. Seu administrador ativou a redefinição de senha para sua organização, mas você não se registrou para usar o serviço. Para se registrar para redefinição de senha, consulte um dos artigos a seguir, com base em seu método de verificação: [Configurar informações de segurança para usar um aplicativo autenticador (versão prévia)](security-info-setup-auth-app.md), [Configurar informações de segurança para usar uma ligação (versão prévia)](security-info-setup-phone-number.md), [Configurar informações de segurança para usar mensagens de texto (versão prévia)](security-info-setup-text-msg.md), [Configurar informações de segurança para usar o email (versão prévia)](security-info-setup-email.md) ou [Configurar informações de segurança para usar perguntas de segurança (versão prévia)](security-info-setup-questions.md).<br><br>2. Seu administrador não ativou a redefinição de senha para sua organização. Nessa situação, você deve selecionar o "contatar um link de administrador" para enviar um e-mail ao seu administrador, pedindo para redefinir sua senha.|
 
 ## <a name="next-steps"></a>Próximas etapas
-
-- Edite suas informações de segurança para adicionar ou alterar seus métodos de verificação no artigo [Gerenciar informações de segurança (visualização)](security-info-manage-settings.md). 
-
 - Saiba mais sobre as informações de segurança no artigo [Visão geral da informação de segurança (visualização)](user-help-security-info-overview.md).
 
 - Saiba mais sobre a verificação em duas etapas no artigo [Visão geral da verificação em duas etapas](user-help-two-step-verification-overview.md). 

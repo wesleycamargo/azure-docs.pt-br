@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/30/2018
 ms.author: cephalin;dariac
 ms.custom: seodec18
-ms.openlocfilehash: 8b1a4bbb100fc4db1323f530808a8d01bd8f30ce
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
-ms.translationtype: HT
+ms.openlocfilehash: db8445ec2b3dd8bdefa661d7f186e720c6fada09
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582417"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858870"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Implantar seu aplicativo no Serviço de Aplicativo do Azure usando FTP/S
 
@@ -30,7 +30,7 @@ O ponto de extremidade FTP/S para seu aplicativo já está ativo. Nenhuma config
 
 ## <a name="open-ftp-dashboard"></a>Abrir o painel FTP
 
-No [Portal do Azure](https://portal.azure.com), abra a [página de recursos](../azure-resource-manager/resource-group-portal.md#manage-resources) do seu aplicativo.
+No [Portal do Azure](https://portal.azure.com), abra a [página de recursos](../azure-resource-manager/manage-resources-portal.md#manage-resources) do seu aplicativo.
 
 Para abrir o painel de FTP, clique em **Centro de Implantação** > **FTP** > **Painel**.
 
@@ -43,6 +43,14 @@ No painel FTP, clique em **Copiar** para copiar o ponto de extremidade de FTPS e
 ![Copiar informações de FTP](./media/app-service-deploy-ftp/ftp-dashboard.png)
 
 É recomendável que você use as **Credenciais do Aplicativo** para implantar seu aplicativo porque ele é exclusivo para cada aplicativo. No entanto, se você clicar em **Credenciais do Usuário**, poderá definir as credenciais de nível de usuário a serem usadas para logon do FTP/S em todos os aplicativos do Serviço de Aplicativo em sua assinatura.
+
+> [!NOTE]
+> Fazer a autenticação em um ponto de extremidade FTP/FTPS usando um nome de usuário de requirers de credenciais de usuário no seguinte formato: 
+>
+>`<app-name>\<user-name>`
+>
+> Uma vez que as credenciais de usuário são vinculadas ao usuário e não um recurso específico, o nome de usuário deve estar no seguinte formato para direcionar a ação de sinal para o ponto de extremidade do aplicativo certo.
+>
 
 ## <a name="deploy-files-to-azure"></a>Implantar arquivos no Azure
 
@@ -58,7 +66,6 @@ No painel FTP, clique em **Copiar** para copiar o ponto de extremidade de FTPS e
 > - geração de Web. config (eis uma [Node. js exemplo](https://github.com/projectkudu/kudu/wiki/Using-a-custom-web.config-for-Node-apps))
 > 
 > Gere esses arquivos necessários manualmente no computador local e implante-os junto com seu aplicativo.
->
 >
 
 ## <a name="enforce-ftps"></a>Impor o FTPS

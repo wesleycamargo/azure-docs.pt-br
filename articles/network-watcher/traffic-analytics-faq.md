@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: e2b08dbbeb078a4e139400112e9cdd9416878214
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
-ms.translationtype: HT
+ms.openlocfilehash: 41b80e3914c93a4baeb39f35c7281f8fe81ff37c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382995"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835309"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Perguntas frequentes sobre Análise de Tráfego
 
@@ -83,6 +83,7 @@ Você pode usar a análise de tráfego para NSGs em qualquer uma das seguintes r
 - Índia Central
 - Sul da Índia
 - Leste do Japão
+- Gov. dos EUA – Virgínia
 
 O espaço de trabalho do Log Analytics deve existir nas seguintes regiões:
 - Canadá Central
@@ -94,6 +95,7 @@ O espaço de trabalho do Log Analytics deve existir nas seguintes regiões:
 - Sudeste Asiático 
 - Índia Central
 - Leste do Japão
+- Gov. dos EUA – Virgínia
 
 ## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>Os NSGs para os quais eu habilito logs de fluxo podem estar em regiões diferentes do meu workspace?
 
@@ -105,7 +107,7 @@ Sim.
 
 ## <a name="can-i-use-an-existing-workspace"></a>Posso usar um workspace existente?
 
-Sim. Se você selecionar um workspace existente, verifique se ele foi migrado para o novo idioma de consulta. Se você não quiser atualizar o workspace, precisará criar um novo. Para obter mais informações sobre a nova linguagem de consulta, consulte [Atualização do Azure Log Analytics para a nova pesquisa de logs ](../log-analytics/log-analytics-log-search-upgrade.md).
+Sim. Se você selecionar um workspace existente, verifique se ele foi migrado para o novo idioma de consulta. Se você não quiser atualizar o workspace, precisará criar um novo. Para obter mais informações sobre a nova linguagem de consulta, consulte [do Azure Monitor registra a atualização para uma nova pesquisa de log](../log-analytics/log-analytics-log-search-upgrade.md).
 
 ## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>A minha Conta de Armazenamento do Microsoft Azure pode estar em uma assinatura e meu espaço de trabalho do Log Analytics está em uma assinatura diferente?
 
@@ -118,6 +120,12 @@ Sim, sua conta de Armazenamento do Microsoft Azure pode estar em uma assinatura 
 ## <a name="what-if-i-cant-configure-an-nsg-for-traffic-analytics-due-to-a-not-found-error"></a>E se eu não conseguir configurar um NSG para análise de tráfego devido a um erro "Não encontrado"?
 
 Selecione uma região suportada. Se você selecionar uma região sem suporte, receberá um erro "Não encontrado". As regiões suportadas são listadas anteriormente neste artigo.
+
+## <a name="why-am-i-getting-the-error-failed-to-update-flow-logs-settings-for--internalservererror-when-enabling-nsgs-in-us-gov-virginia"></a>Por que estou recebendo o erro "Falha ao atualizar as configurações de logs de fluxo para... InternalServerError..." ao habilitar o NSG no gov. EUA-Virgínia?
+
+Isso ocorre devido a um bug em que o provedor de recursos 'Microsoft. Network' não é registrado novamente para uma assinatura no Gov. EUA Virgínia. A equipe está trabalhando na correção para isso. Como alternativa, você precisaria [registrar de novo manualmente 'Microsoft. Network' RP](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-register-provider-errors). 
+
+Se o problema persistir, contate o suporte. 
 
 ## <a name="what-if-i-am-getting-the-status-failed-to-load-under-the-nsg-flow-logs-page"></a>E se eu estiver recebendo o status "Falha ao carregar" na página de logs de fluxo do NSG?
 

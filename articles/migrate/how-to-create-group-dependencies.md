@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 5c4d16ff85972bc4b608e6ce2006912fb27d49d2
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: a3c0e94e213b861714bfc5f38e20e4d9a1de3a19
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895424"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107909"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Refinar um grupo usando o mapeamento de dependências de grupo
 
@@ -21,9 +21,10 @@ Este artigo descreve como refinar a um grupo visualizando as dependências de to
 > [!NOTE]
 > Os grupos para os quais você deseja visualizar dependências de grupo não devem conter mais de 10 máquinas. Caso você tenha mais de 10 máquinas no grupo, recomendamos que o divida em grupos menores para aproveitar a funcionalidade de visualização de dependências.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prepare-for-dependency-visualization"></a>Preparar para visualização de dependências
-As Migrações para Azure utilizam a solução Mapa do Serviço no Log Analytics para habilitar a visualização de dependências dos computadores.
+As migrações para Azure aproveita a solução Mapa do serviço nos logs do Azure Monitor para habilitar a visualização de dependência das máquinas.
 
 > [!NOTE]
 > A funcionalidade de visualização de dependências não está disponível no Azure Governamental.
@@ -60,7 +61,7 @@ Para instalar o agente em uma máquina com Windows:
 2. Na página de **Boas-vindas**, clique em **Avançar**. Na página **Termos de Licença**, clique em **Concordo** para aceitar a licença.
 3. Em **Pasta de Destino**, mantenha ou modifique a pasta de instalação padrão > **Avançar**.
 4. Em **Opções de Configuração do Agente**, selecione **Azure Log Analytics** > **Avançar**.
-5. Clique em **Adicionar** para adicionar um workspace do Log Analytics. Cole a ID do workspace e a chave que você copiou do portal. Clique em **Próximo**.
+5. Clique em **Adicionar** para adicionar um workspace do Log Analytics. Cole a ID do workspace e a chave que você copiou do portal. Clique em **Avançar**.
 
 Você pode instalar o agente da linha de comando ou usando um método automatizado como DSC de Automação do Azure, System Center Configuration Manager ou com um modelo do Azure Resource Manager se você implantou o Microsoft Azure Stack no seu datacenter. [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) sobre como usar esses métodos para instalar o agente do MMA.
 
@@ -93,18 +94,18 @@ Depois de instalar os agentes em todas as máquinas do grupo, você pode visuali
 1. No projeto das Migrações para Azure, em **Gerenciar**, clique em  **Grupos** e selecione o grupo.
 2. Na página do grupo, clique em  **Exibir Dependências**, para abrir o mapa de dependências de grupo.
 3. O mapa de dependências do grupo mostra os seguintes detalhes:
-    - Conexões TCP de entrada (clientes) e saída (servidores) para/de todos os computadores que fazem parte do grupo
-        - As máquinas dependentes que não têm o agente de dependência e o MMA instalado são agrupadas por números de porta
-        - As máquinas dependentes que têm o agente de dependência e o MMA instalados aparecem como caixas separadas
-    - Quanto aos processos em execução na máquina, você pode expandir cada caixa para exibir os processos
-    - Quanto às propriedades como o nome de domínio totalmente qualificado, o sistema operacional, o endereço MAC de cada máquina, você pode clicar na caixa de cada máquina para exibir esses detalhes
+   - Conexões TCP de entrada (clientes) e saída (servidores) para/de todos os computadores que fazem parte do grupo
+       - As máquinas dependentes que não têm o agente de dependência e o MMA instalado são agrupadas por números de porta
+       - As máquinas dependentes que têm o agente de dependência e o MMA instalados aparecem como caixas separadas
+   - Quanto aos processos em execução na máquina, você pode expandir cada caixa para exibir os processos
+   - Quanto às propriedades como o nome de domínio totalmente qualificado, o sistema operacional, o endereço MAC de cada máquina, você pode clicar na caixa de cada máquina para exibir esses detalhes
 
      ![Exibir dependências de grupo](./media/how-to-create-group-dependencies/view-group-dependencies.png)
 
 3. Para exibir dependências mais granulares, clique no intervalo de tempo para modificá-las. Por padrão, o intervalo é de uma hora. Você pode modificar o intervalo, ou especificar as datas de início e de término e a duração.
 
-    > [!NOTE]
-      Atualmente, a interface do usuário de visualização de dependência não dá suporte à seleção de um intervalo de tempo maior do que uma hora. Use o Log Analytics para [consultar os dados de dependência](https://docs.microsoft.com/azure/migrate/how-to-create-a-group) por um período mais longo.
+   > [!NOTE]
+   >    Atualmente, a interface do usuário de visualização de dependência não dá suporte à seleção de um intervalo de tempo maior do que uma hora. Registra em log para usar o Azure Monitor [consultar os dados de dependência](https://docs.microsoft.com/azure/migrate/how-to-create-a-group) em um período mais longo.
 
 4. Verifique as máquinas dependentes, o processo em execução dentro de cada máquina e identifique as máquinas que devem ser adicionadas ou removidas do grupo.
 5. Use Ctrl+Clique para selecionar máquinas no mapa para adicionar ou remover do grupo.
@@ -117,19 +118,19 @@ Depois de instalar os agentes em todas as máquinas do grupo, você pode visuali
 
 Se você quiser verificar as dependências de uma máquina específica que é exibida no mapa de dependência de grupo, [configure o mapeamento de dependência da máquina](how-to-create-group-machine-dependencies.md).
 
-## <a name="query-dependency-data-from-log-analytics"></a>Consultar dados de dependência do Log Analytics
+## <a name="query-dependency-data-from-azure-monitor-logs"></a>Consultar dados de dependência de logs do Azure Monitor
 
-Dados de dependência capturados pelo Mapa do Serviço estão disponíveis para consulta no workspace do Log Analytics associado ao seu projeto de Migrações para Azure. [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) sobre as tabelas de dados do Mapa do Serviço a consultar no Log Analytics. 
+Os dados capturados pelo mapa do serviço de dependência estão disponíveis para a consulta no espaço de trabalho do Log Analytics associado ao seu projeto de migrações para Azure. [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) sobre as tabelas de dados de mapa do serviço de consulta no Azure Monitor registra em log. 
 
-Para executar as consultas do Log Analytics:
+Para executar as consultas do Kusto:
 
 1. Depois de instalar os agentes, acesse o portal e clique em **Visão geral**.
 2. Em **visão geral**, acesse a seção **Essentials** do projeto e clique no nome do workspace fornecido, ao lado de **Workspace do OMS**.
 3. Na página do workspace do Log Analytics, clique em **Geral** > **Logs**.
-4. Escreva sua consulta para coletar dados de dependência usando o Log Analytics. Exemplos de consultas para coletar dados de dependência estão disponíveis [aqui](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
+4. Escreva sua consulta para coletar dados de dependência usando os logs do Azure Monitor. Exemplos de consultas para coletar dados de dependência estão disponíveis [aqui](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
 5. Execute a consulta clicando em Executar. 
 
-[Saiba mais](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) sobre como escrever consultas do Log Analytics. 
+[Saiba mais](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) sobre como escrever consultas do Kusto. 
 
 
 ## <a name="next-steps"></a>Próximas etapas

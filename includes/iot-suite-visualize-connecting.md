@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 73ba80878615f04e1755a4d12014691c5ae2a077
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 9b9e28f18208674609d0842b0e3a54e3fc661c9f
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54453113"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56988111"
 ---
 ## <a name="view-device-telemetry"></a>Exibir telemetria de dispositivo
 
-Você pode exibir a telemetria enviada do dispositivo na página **Dispositivos** na solução.
+Você pode exibir a telemetria enviada do seu dispositivo **Device Explorer** página na solução.
 
-1. Selecione o dispositivo que você provisionou na lista de dispositivos na página **Dispositivos**. Um painel exibe informações sobre seu dispositivo, incluindo um gráfico de telemetria do dispositivo:
+1. Selecione o dispositivo provisionado na lista de dispositivos na **Device Explorer** página. Um painel exibe informações sobre seu dispositivo, incluindo um gráfico de telemetria do dispositivo:
 
     ![Consultar detalhes do dispositivo](media/iot-suite-visualize-connecting/devicesdetail.png)
 
@@ -33,28 +33,24 @@ Você pode exibir a telemetria enviada do dispositivo na página **Dispositivos*
 
 ## <a name="act-on-your-device"></a>Agir no dispositivo
 
-Para invocar métodos em seus dispositivos, use a página **Dispositivos** na solução de Monitoramento Remoto. Por exemplo, na solução de Monitoramento Remoto, os dispositivos **Chiller** implementam um método **FirmwareUpdate**.
+Para invocar métodos em seus dispositivos, use o **Device Explorer** página na solução de monitoramento remoto. Por exemplo, na solução de monitoramento remoto **Resfriador** dispositivos implementam um **reinicializar** método.
 
-1. Escolha **Dispositivos** para navegar até a página **Dispositivos** na solução.
+1. Escolher **dispositivos** para navegar até a **Device Explorer** página na solução.
 
-1. Selecione o dispositivo que você provisionou na lista de dispositivos da página **Dispositivos**:
+1. Selecione o dispositivo provisionado na lista de dispositivos na **Device Explorer** página:
 
     ![Selecione seu dispositivo real](media/iot-suite-visualize-connecting/devicesselect.png)
 
-1. Para exibir uma lista dos métodos que você pode chamar em seu dispositivo, escolha **Trabalhos**, em seguida, **Executar método**. Para agendar um método a ser executado em vários dispositivos, você pode selecionar vários dispositivos na lista. O painel **Trabalhos** mostra os tipos de método comuns a todos os dispositivos selecionados.
+1. Para exibir uma lista dos métodos que você pode chamar em seu dispositivo, escolha **trabalhos**, em seguida, **métodos**. Para agendar um método a ser executado em vários dispositivos, você pode selecionar vários dispositivos na lista. O painel **Trabalhos** mostra os tipos de método comuns a todos os dispositivos selecionados.
 
-1. Escolha **FirmwareUpdate**, defina o nome do trabalho para **UpdatePhysicalChiller**. Defina a **Versão do Firmware** para **2.0.0**, defina **URI do Firmware** para **http://contoso.com/updates/firmware.bin**e, em seguida, escolha **Aplicar**:
+1. Escolher **reinicializar**, defina o nome do trabalho **RebootPhysicalChiller** e, em seguida, escolha **aplicar**:
 
     ![Agendar a atualização do firmware](media/iot-suite-visualize-connecting/deviceschedule.png)
 
 1. Uma sequência de mensagens é exibida no console executando o código de dispositivo, enquanto o dispositivo simulado manipula o método.
 
-1. Quando a atualização estiver concluída, a nova versão do firmware é exibida na página **Dispositivos**:
-
-    ![Atualização concluída](media/iot-suite-visualize-connecting/complete.png)
-
 > [!NOTE]
-> Para acompanhar o status do trabalho na solução, escolha **Exibir**.
+> Para acompanhar o status do trabalho na solução, escolha **exibir o Status do trabalho**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

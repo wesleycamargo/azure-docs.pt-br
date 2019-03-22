@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 3ca3222f47b6a728905f895007269e3c22acd66d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: cefde79cf8c544a6900b1efa5dbcefbc43638d40
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789935"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009957"
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-disaster-recovery-to-azure"></a>Preparar o mapeamento da rede para recuperação de desastre da VM do Hyper-V no Azure
 
@@ -24,8 +24,8 @@ Este artigo ajuda você a entender e reparar o mapeamento de rede quando você r
 ## <a name="prepare-network-mapping-for-replication-to-azure"></a>Preparar o mapeamento de rede para replicação do Azure
 
 Ao replicar para o Azure, o mapeamento de rede mapeia entre as redes de VM em um servidor VMM de origem e as redes virtuais do Azure de destino. Mapeamento faz o seguinte:
-    -  **Conexão de rede**— assegura que VMs do Azure replicadas estejam conectadas à rede mapeada. Todas as máquinas que passarem por failover na mesma rede poderão se conectar entre si, independentemente do plano de recuperação em que estão.
-    - **Gateway de rede**— se um gateway de rede for configurado na rede Azure de destino, as máquinas virtuais poderão conectar-se a outras máquinas virtuais locais.
+-  **Conexão de rede**— assegura que VMs do Azure replicadas estejam conectadas à rede mapeada. Todas as máquinas que passarem por failover na mesma rede poderão se conectar entre si, independentemente do plano de recuperação em que estão.
+- **Gateway de rede**— se um gateway de rede for configurado na rede Azure de destino, as máquinas virtuais poderão conectar-se a outras máquinas virtuais locais.
 
 O mapeamento de rede funciona da seguinte maneira:
 

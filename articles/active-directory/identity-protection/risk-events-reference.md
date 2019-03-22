@@ -16,12 +16,12 @@ ms.date: 01/25/2018
 ms.author: markvi
 ms.reviewer: raluthra
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1509f40b88e3dc9c51bd00ed379c5b0130230a99
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b1c69705131cfea4e5ace9b5b9e829b3fdfa87e4
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178831"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991641"
 ---
 # <a name="azure-active-directory-identity-protection-risk-events-reference"></a>Referência a eventos de risco do Azure Active Directory Identity Protection
 
@@ -83,6 +83,7 @@ Esse tipo de evento de risco indica as entradas de endereços IP infectados com 
 **Tipo de Detecção:** Tempo real  
 **Nome antigo:** Entradas de locais desconhecidos
 
-Esse tipo de evento de risco considera propriedades de entrada anteriores (por exemplo, dispositivo, localização, rede) para determinar as entradas com propriedades desconhecidas. O sistema armazena propriedades de localizações anteriores usadas por um usuário e as considera “conhecidas”. O evento de risco é disparado quando a entrada ocorre com propriedades que ainda não estão na lista de propriedades conhecidas. O sistema tem um período inicial de aprendizado de 30 dias, durante o qual não sinaliza nenhuma detecção nova.
+Esse tipo de evento de risco considera histórico de entrada (IP, Latitude / Longitude e ASN) para procurar por entradas anômalas. O sistema armazena informações sobre locais anteriores usados por um usuário e considera esses locais "familiares". O evento de risco é disparado quando a entrada ocorre em uma localização que ainda não está na lista de localizações conhecidas. Usuários recém-criado será em "modo de aprendizado" por um período de tempo em quais propriedades de entrada não familiares eventos de risco serão desativados Embora nossos algoritmos aprender o comportamento do usuário. O aprendizado de duração do modo é dinâmica e depende de quanto tempo ele leva o algoritmo para coletar informações suficientes sobre padrões de logon do usuário. A duração mínima é de cinco dias. Um usuário pode voltar no modo de aprendizado após um longo período de inatividade. O sistema também ignora entradas de dispositivos conhecidos e locais que são geograficamente próximos de uma localização familiar. 
+
 Também podemos executar essa detecção para a autenticação Básica (ou protocolos herdados). Como esses protocolos não têm propriedades modernas como a ID do cliente, há uma telemetria limitada para reduzir os falsos positivos. Recomendamos que nossos clientes mudem para a autenticação moderna.
 

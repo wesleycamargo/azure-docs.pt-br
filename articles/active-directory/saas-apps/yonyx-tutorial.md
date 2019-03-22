@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/16/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d08b1f3889136fadee68b3aa95d879b0495bddb1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: fce7653770d0fb3134f266137e167125b9161865
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198398"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097586"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yonyx-interactive-guides"></a>Tutorial: Integração do Azure Active Directory com o Yonyx Interactive Guides
 
@@ -174,8 +174,8 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Yonyx 
 
 Não há itens de ação para você nesta seção. Um novo usuário será criado durante a tentativa de acessar o Yonyx Interactive Guides, caso ele ainda não exista.
 
->[!NOTE]
->Se precisar criar um usuário manualmente, contate a equipe de suporte do Yonyx Interactive Guides pelo email <mailto:support@yonyx.com>. 
+> [!NOTE]
+> Se precisar criar um usuário manualmente, contate a equipe de suporte do Yonyx Interactive Guides pelo email <mailto:support@yonyx.com>. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 

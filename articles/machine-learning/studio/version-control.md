@@ -5,17 +5,16 @@ description: Aplicar práticas recomendadas do Gerenciamento do Ciclo de Vida do
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
-ms.custom: previous-ms.author=haining, previous-author=hning86
 ms.date: 10/27/2016
-ms.openlocfilehash: 26e469076e16f57300cf3e385620a723ddf51a4c
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: 102d06f6d4a51f7edc1fc269180f8fb3e5b0626c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510709"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121461"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio"></a>Gerenciamento do Ciclo de Vida do Aplicativo no Azure Machine Learning Studio
 O Azure Machine Learning Studio é uma ferramenta para desenvolvimento de testes de aprendizado de máquina que é operacionalizada na plataforma da nuvem no Azure. Ele é parecido com o IDE do Visual Studio e o serviço de nuvem escalável mesclados em uma única plataforma. Você pode incorporar práticas padrão de ALM (Gerenciamento do Ciclo de Vida do Aplicativo), desde controle de versão de vários ativos até a execução implantação automatizada, ao Azure Machine Learning Studio. Este artigo discute algumas das opções e abordagens.
@@ -42,7 +41,7 @@ Os instantâneos do histórico de execução mantêm uma versão imutável do te
 O arquivo JSON é uma representação textual do grafo de teste, que pode incluir referência aos ativos no workspace, como um conjunto de dados ou um modelo treinado. Ele não contém uma versão serializada do ativo. Se você tentar importar o documento JSON de volta para o workspace, os ativos referenciados já devem existir com as mesmas IDs de ativo referenciadas no teste. Caso contrário, você não poderá acessar o teste importado.
 
 ## <a name="versioning-trained-model"></a>Controle de versão do modelo treinado
-Um modelo treinado no Azure Machine Learning é serializado em um formato conhecido como arquivo iLearner (`.iLearner`), e é armazenados na conta de Armazenamento de Blobs do Azure associada ao workspace. Uma maneira de obter uma cópia do arquivo iLearner é por meio da API de novos treinamentos. [Este artigo](retrain-models-programmatically.md) explica como funciona a API de novos treinamentos funciona. As etapas de alto nível:
+Um modelo treinado no Azure Machine Learning Studio é serializado em um formato conhecido como um arquivo iLearner (`.iLearner`) e é armazenado na conta de armazenamento de BLOBs do Azure associada com o espaço de trabalho. Uma maneira de obter uma cópia do arquivo iLearner é por meio da API de novos treinamentos. [Este artigo](/azure/machine-learning/studio/retrain-machine-learning-model) explica como funciona a API de novos treinamentos funciona. As etapas de alto nível:
 
 1. Configurar seu teste de treinamento.
 2. Adicionar uma porta de saída do serviço Web ao módulo Treinar Modelo, ou ao módulo que produza o modelo treinado, por exemplo, Ajustar Hiperparâmetro de Modelo ou Criar Modelo R.
@@ -57,7 +56,7 @@ Depois que você tiver o arquivo iLearner contendo o modelo treinado, é possív
 Assim, o arquivo iLearner salvo pode ser usado para pontuação por meio de serviços Web implantados.
 
 ## <a name="versioning-web-service"></a>Controle de versão do serviço Web
-Você pode implantar dois tipos de serviços Web a partir de um teste do Azure Machine Learning. O serviço Web clássico está intimamente ligado ao teste e ao workspace. O novo serviço Web usa a estrutura do Azure Resource Manager e não está mais ligado ao teste original nem ao workspace.
+Você pode implantar dois tipos de web services de um estúdio de Azure Machine Learning experimentar. O serviço Web clássico está intimamente ligado ao teste e ao workspace. O novo serviço Web usa a estrutura do Azure Resource Manager e não está mais ligado ao teste original nem ao workspace.
 
 ### <a name="classic-web-service"></a>Serviço Web clássico
 Para controlar a versão de um serviço Web clássico, você pode aproveitar a construção do ponto de extremidade do serviço Web. Este é um fluxo típico:
@@ -79,7 +78,7 @@ Se você criar um novo serviço Web baseado no Azure Resource Manager, a constru
 Depois de exportar o arquivo WSD e controlar a versão dele, você também poderá implantar o WSD como um novo serviço Web em um plano de serviço Web diferente, em uma região diferente do Azure. Apenas forneça a configuração apropriada da conta de armazenamento, bem como a nova ID do plano do serviço Web. Para aplicar arquivos de iLearner diferentes, modifique o arquivo WSD e atualize a referência ao local do modelo treinado, e implante-o como um novo serviço Web.
 
 ## <a name="automate-experiment-execution-and-deployment"></a>Automatizar a implantação e a execução do teste
-Um aspecto importante do ALM é ser capaz de automatizar a execução e o processo de implantação do aplicativo. No Azure Machine Learning, você pode fazer isso usando o [módulo do PowerShell](https://aka.ms/amlps). Veja um exemplo das etapas de ponta a ponta relevantes para um processo automatizado padrão de implantação/execução de ALM usando o [módulo do PowerShell do Azure Machine Learning Studio](https://aka.ms/amlps). Cada etapa é vinculada a um ou mais cmdlets do PowerShell que você pode usar para realizar essa etapa.
+Um aspecto importante do ALM é ser capaz de automatizar a execução e o processo de implantação do aplicativo. No Azure Machine Learning Studio, você pode fazer isso usando o [módulo do PowerShell](https://aka.ms/amlps). Veja um exemplo das etapas de ponta a ponta relevantes para um processo automatizado padrão de implantação/execução de ALM usando o [módulo do PowerShell do Azure Machine Learning Studio](https://aka.ms/amlps). Cada etapa é vinculada a um ou mais cmdlets do PowerShell que você pode usar para realizar essa etapa.
 
 1. [Carregar um conjunto de dados](https://github.com/hning86/azuremlps#upload-amldataset).
 2. Copie um teste de treinamento no workspace a partir de um [workspace](https://github.com/hning86/azuremlps#copy-amlexperiment) ou de uma [Galeria](https://github.com/hning86/azuremlps#copy-amlexperimentfromgallery) ou [importe](https://github.com/hning86/azuremlps#import-amlexperimentgraph) um teste [exportado](https://github.com/hning86/azuremlps#export-amlexperimentgraph) do disco local.

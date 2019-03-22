@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 415cf34a8b19400091807005e1e9943aa025f244
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 769305cc3d838832f8f445ac9623a1724603f968
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980016"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58002742"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Extensão de VM de Diagnóstico de Desempenho do Azure para Windows
 
@@ -71,9 +71,9 @@ O JSON a seguir mostra o esquema para a Extensão da VM de Diagnóstico de Desem
 |--------------|-------------------|----------------------------|
 |apiVersion|2015-06-15|A versão da API.
 |publicador|Microsoft.Azure.Performance.Diagnostics|O namespace do publicador para a extensão.
-|Tipo|AzurePerformanceDiagnostics|O tipo da extensão de VM.
+|tipo|AzurePerformanceDiagnostics|O tipo da extensão de VM.
 |typeHandlerVersion|1.0|A versão do manipulador de extensão.
-|performanceScenario|básico|O cenário de desempenho para o qual capturar dados. Os valores válidos são: **basic**, **vmslow**, **azurefiles** e **custom**.
+|performanceScenario|básica|O cenário de desempenho para o qual capturar dados. Os valores válidos são: **basic**, **vmslow**, **azurefiles** e **custom**.
 |traceDurationInSeconds|300|A duração dos rastreamentos se qualquer uma das opções de rastreamento estiver selecionada.
 |perfCounterTrace|p|Opção para habilitar o rastreamento do contador de desempenho. Os valores válidos são **p** ou valor vazio. Se você não deseja capturar esse rastreamento, deixe o valor como vazio.
 |networkTrace|n|Opção para habilitar o Rastreamento de Rede. Os valores válidos são **n** ou um valor vazio. Se você não deseja capturar esse rastreamento, deixe o valor como vazio.
@@ -81,7 +81,7 @@ O JSON a seguir mostra o esquema para a Extensão da VM de Diagnóstico de Desem
 |storPortTrace|s|Opção para habilitar o rastreamento do StorPort. Os valores válidos são **s** ou valor vazio. Se você não deseja capturar esse rastreamento, deixe o valor como vazio.
 |srNumber|123452016365929|O número do tíquete de suporte, se disponível. Deixe o valor como vazio se você não o tiver.
 |requestTimeUtc|2017-09-28T22:08:53.736Z|Data e hora atual em Utc. Caso esteja usando o portal para instalar essa extensão, você não precisará fornecer esse valor.
-|ResourceId|/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}|Identificador exclusivo de uma VM.
+|resourceId|/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}|Identificador exclusivo de uma VM.
 |storageAccountName|mystorageaccount|O nome da conta de armazenamento para armazenar os logs de diagnóstico e os resultados.
 |storageAccountKey|lDuVvxuZB28NNP…hAiRF3voADxLBTcc==|A chave da conta de armazenamento.
 
@@ -89,7 +89,7 @@ O JSON a seguir mostra o esquema para a Extensão da VM de Diagnóstico de Desem
 
 Siga estas instruções para instalar a extensão em máquinas virtuais do Windows:
 
-1. Entre no [Portal do Azure](http://portal.azure.com).
+1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Selecione a máquina virtual em que você deseja instalar essa extensão.
 
     ![Captura de tela do portal do Azure, com máquinas virtuais realçadas](media/performance-diagnostics-vm-extension/select-the-virtual-machine.png)
@@ -112,7 +112,7 @@ Siga estas instruções para instalar a extensão em máquinas virtuais do Windo
 ## <a name="remove-the-extension"></a>Remover a extensão
 Para remover a extensão de uma máquina virtual, siga estas etapas:
 
-1. Faça logon no [Portal do Azure](http://portal.azure.com), selecione a máquina virtual em que você deseja remover a extensão e, em seguida, selecione a folha **Extensões**. 
+1. Faça logon no [Portal do Azure](https://portal.azure.com), selecione a máquina virtual em que você deseja remover a extensão e, em seguida, selecione a folha **Extensões**. 
 2. Clique no (**...**) da entrada de Extensão de Diagnóstico de Desempenho na lista e selecione **Desinstalar**.
 
     ![Captura de tela da folha Extensões, com a opção Desinstalar realçada](media/performance-diagnostics-vm-extension/uninstall-the-extension.png)
@@ -125,7 +125,7 @@ As extensões de máquina virtual do Azure podem ser implantadas com modelos do 
 
 ```
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "vmName": {

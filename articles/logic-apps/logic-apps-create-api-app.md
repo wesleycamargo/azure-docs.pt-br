@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
-ms.openlocfilehash: 25b33242b9f7bddf0497067f111ca3fb4a1ea570
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: 620ede672d71338abeff5198fd5f94e92dc193d0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600703"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895848"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Criar APIs personalizadas que podem ser chamadas dos Aplicativos Lógicos do Azure
 
@@ -25,7 +25,7 @@ Embora os Aplicativos Lógicos do Azure ofereçam [mais de 100 conectores intern
 * Ajudar os clientes a usar seu serviço para gerenciar tarefas profissionais ou pessoais.
 * Expandir o alcance, a descoberta e o uso do seu serviço.
 
-Basicamente, conectores são APIs Web que usam REST para interfaces conectáveis, [formatos de metadados do Swagger](http://swagger.io/specification/) para documentação e JSON como formato de troca de dados. Como os conectores são APIs REST que se comunicam por meio de pontos de extremidade HTTP, você pode usar qualquer linguagem, como .NET, Java ou Node.js, para criar conectores. Você também pode hospedar suas APIs no [Serviço de Aplicativo do Azure](../app-service/overview.md), uma oferta de PaaS (plataforma como serviço) que fornece uma das maneiras mais fáceis, mais escaláveis e melhores de hospedar a API. 
+Basicamente, conectores são APIs Web que usam REST para interfaces conectáveis, [formatos de metadados do Swagger](https://swagger.io/specification/) para documentação e JSON como formato de troca de dados. Como os conectores são APIs REST que se comunicam por meio de pontos de extremidade HTTP, você pode usar qualquer linguagem, como .NET, Java ou Node.js, para criar conectores. Você também pode hospedar suas APIs no [Serviço de Aplicativo do Azure](../app-service/overview.md), uma oferta de PaaS (plataforma como serviço) que fornece uma das maneiras mais fáceis, mais escaláveis e melhores de hospedar a API. 
 
 Para que as APIs personalizadas funcionem com aplicativos lógicos, sua API pode fornecer [ *ações* ](./logic-apps-overview.md#logic-app-concepts) que executam tarefas específicas em fluxos de trabalho de aplicativos lógicos. Sua API também pode atuar como um [ *gatilho* ](./logic-apps-overview.md#logic-app-concepts) que inicia um fluxo de trabalho do aplicativo lógico quando novos dados ou um evento atendem a uma condição especificada. Este tópico descreve padrões comuns que você pode seguir para criar ações e gatilhos em sua API, com base no comportamento que a API deve fornecer.
 
@@ -41,11 +41,11 @@ Você pode hospedar suas APIs no [Serviço de Aplicativo do Azure](../app-servic
 > * [Python](../app-service/containers/quickstart-python.md)
 > * [Ruby](../app-service/containers/quickstart-ruby.md)
 >
-> Para obter exemplos de aplicativo de API criados para aplicativos lógicos, visite o [Repositório GitHub de Aplicativos Lógicos do Azure](http://github.com/logicappsio) ou o [blog](https://aka.ms/logicappsblog).
+> Para obter exemplos de aplicativo de API criados para aplicativos lógicos, visite o [Repositório GitHub de Aplicativos Lógicos do Azure](https://github.com/logicappsio) ou o [blog](https://aka.ms/logicappsblog).
 
 ## <a name="how-do-custom-apis-differ-from-custom-connectors"></a>Como as APIs personalizadas diferem dos conectores personalizados?
 
-APIs personalizadas e [conectores personalizados](../logic-apps/custom-connector-overview.md) são APIs Web que usam REST para interfaces conectáveis, [formatos de metadados do Swagger](http://swagger.io/specification/) para documentação e JSON como formato de troca de dados. E como essas APIs e conectores são APIs REST que se comunicam por meio de pontos de extremidade HTTP, você pode usar qualquer linguagem, como .NET, Java ou Node.js, para criar APIs e conectores personalizados.
+APIs personalizadas e [conectores personalizados](../logic-apps/custom-connector-overview.md) são APIs Web que usam REST para interfaces conectáveis, [formatos de metadados do Swagger](https://swagger.io/specification/) para documentação e JSON como formato de troca de dados. E como essas APIs e conectores são APIs REST que se comunicam por meio de pontos de extremidade HTTP, você pode usar qualquer linguagem, como .NET, Java ou Node.js, para criar APIs e conectores personalizados.
 
 APIs personalizadas permitem que você chame APIs que não são conectores e forneça pontos de extremidade que você pode chamar com HTTP + Swagger, Gerenciamento de API do Azure ou Serviços de Aplicativos. Conectores personalizados funcionam como APIs personalizadas, mas também têm estes atributos:
 
@@ -63,7 +63,7 @@ Para obter mais informações sobre conectores personalizados, consulte
 
 ## <a name="helpful-tools"></a>Ferramentas úteis
 
-Uma API personalizada funciona melhor com aplicativos lógicos quando a API também tem um [documento do Swagger](http://swagger.io/specification/) que descreve as operações e os parâmetros da API.
+Uma API personalizada funciona melhor com aplicativos lógicos quando a API também tem um [documento do Swagger](https://swagger.io/specification/) que descreve as operações e os parâmetros da API.
 Muitas bibliotecas, como a [Swashbuckle](https://github.com/domaindrivendev/Swashbuckle), podem gerar o swagger para você automaticamente. Para anotar nomes de exibição, tipos de propriedade e outros no arquivo do Swagger, você também pode usar [TRex](https://github.com/nihaue/TRex) para que o arquivo Swagger funcione bem com aplicativos lógicos.
 
 <a name="actions"></a>
@@ -176,7 +176,7 @@ Por exemplo, para verificar periodicamente novos arquivos no serviço, você pod
 | A solicitação inclui `triggerState`? | Resposta da API | 
 | -------------------------------- | -------------| 
 | Não  | Retornar um status HTTP `202 ACCEPTED` e um cabeçalho `location` com `triggerState` definido com a hora atual e o intervalo `retry-after` como 15 segundos. | 
-| SIM | Verifique em seu serviço arquivos adicionados após o `DateTime` para `triggerState`. | 
+| Sim | Verifique em seu serviço arquivos adicionados após o `DateTime` para `triggerState`. | 
 ||| 
 
 | Número de arquivos encontrados | Resposta da API | 

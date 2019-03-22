@@ -5,20 +5,20 @@ author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 12/24/2018
+ms.date: 03/01/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 6af1c5347a522f7e42feecb6722dfbb64439d086
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 7c8e2297426b098fa6e86a5cda81afc2d71b08f4
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341004"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214632"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>Mudar preferência de API para os Alertas de Log
 
 > [!NOTE]
-> Conteúdo declarado **não** aplicável aos usuários do Azure GovCloud e apenas para usuários da nuvem pública do Azure.  
+> Conteúdo declarado aplicável aos usuários somente nuvem pública do Azure e **não** para a nuvem Azure governamental ou Azure China.  
 
 Até recentemente, você gerenciava regras de alerta no Portal do Microsoft Operations Management Suite. A nova experiência de alertas foi integrada a vários serviços no Microsoft Azure, incluindo o Log Analytics, e solicitamos [estender as regras de alerta do portal do OMS para o Azure](alerts-extend.md). Mas, para assegurar o mínimo de interrupção para os clientes, o processo não alterou a interface programática do seu consumo – [API de alerta do Log Analytics](api-alerts.md) com base em SavedSearch.
 
@@ -43,6 +43,7 @@ Os impactos da mudança de preferência para a API scheduledQueryRules são comp
 
 - Todas as interações feitas para gerenciar alertas de log por meio de interfaces programáticas agora devem ser feitas usando a [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Para obter mais informações, confira o [exemplo de uso por meio do modelo de recursos do Azure](alerts-log.md#managing-log-alerts-using-azure-resource-template) e [exemplo de uso por meio da CLI do Azure e do PowerShell](alerts-log.md#managing-log-alerts-using-powershell-cli-or-api)
 - Qualquer regra de alerta de log nova criada no portal do Azure será criada usando somente a [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) e permitirá que os usuários usem a [funcionalidade adicional da nova API](#Benefits-of-switching-to-new-Azure-API) por meio do portal do Azure também
+- Gravidade para regras de alerta do log mudará de: *Crítico, aviso e informativo*, para *valores de severidade de 0, 1 e 2*. Juntamente com a opção de criar/atualizar regras de alerta com severidade 4.
 
 Qualquer cliente que desejar mudar voluntariamente para a nova [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) e bloquear o uso da [API herdada de alertas do Log Analytics](api-alerts.md) poderá fazer isso executando uma chamada PUT na API abaixo para mudar todas as regras de alerta associadas ao workspace específico do Log Analytics.
 

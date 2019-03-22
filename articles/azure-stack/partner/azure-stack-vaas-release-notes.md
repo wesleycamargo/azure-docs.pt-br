@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 02/19/2019
-ms.openlocfilehash: 884c87501a54a582177cba99596fe6f0b4cccf36
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.lastreviewed: 03/11/2019
+ms.openlocfilehash: 96325d7c21ccf7d93deaafbad974009004030157
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593328"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091980"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Notas de versão para a validação como um serviço
 
@@ -42,10 +42,10 @@ Este artigo apresenta as notas de versão para a validação de pilha do Azure c
 
 Se você estiver executando o fluxo de trabalho do Azure Stack mensal atualizar verificação e a versão para o seu pacote de atualização do OEM não é 1810 ou superior, você receberá um erro quando você chegar à etapa de atualização de OEM. Este é um bug. Uma correção está sendo desenvolvida. As etapas de mitigação são da seguinte maneira:
 
-1.  Execute a atualização de OEM como de costume.
-2.  Executar teste AzureStack após a aplicação bem-sucedida do pacote e salvar a saída.
-3.  Cancele o teste.
-4.  Enviar a saída salva VaaSHelp@microsoft.com para receber os resultados de passar para a execução.
+1. Execute a atualização de OEM como de costume.
+2. Executar teste AzureStack após a aplicação bem-sucedida do pacote e salvar a saída.
+3. Cancele o teste.
+4. Enviar a saída salva VaaSHelp@microsoft.com para receber os resultados de passar para a execução.
 
 ## <a name="version-402"></a>Versão 4.0.2
 
@@ -107,7 +107,7 @@ Se você estiver executando o fluxo de trabalho do Azure Stack mensal atualizar 
 
   - Categoria de teste interativa
 
-    O **interativo** categoria de teste foi adicionada. Esses testes permitem que os parceiros para exercitar cenários do Azure Stack interativos não automatizada.
+    O **interativo** categoria de teste foi adicionada. Esses testes exercitam interativos e não-automatizados cenários do Azure Stack.
 
   - Verificação de recurso interativo
 

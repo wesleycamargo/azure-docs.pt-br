@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5db4387c2fd610313aaac032c122366aa45dc7f9
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 93313557781c6b3788d8b4d43d6676fc17625709
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720179"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201306"
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>Desenvolver scripts do Script de Ação para clusters baseados no Windows do HDInsight
-Aprenda a gravar scripts de Ação de Script para o HDInsight. Para obter informações sobre scripts de Ação de Script, consulte [Personalizar clusters HDInsight usando a Ação de Script](hdinsight-hadoop-customize-cluster.md). Para o mesmo artigo escrito para clusters HDInsight baseados em Linux, consulte [Desenvolver scripts de Ação de Script para o HDInsight](hdinsight-hadoop-script-actions-linux.md).
+Aprenda a gravar scripts de Ação de Script para o HDInsight. Para obter informações sobre scripts de Ação de Script, consulte [Personalizar clusters HDInsight usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md). Para o mesmo artigo escrito para clusters HDInsight baseados em Linux, consulte [Desenvolver scripts de Ação de Script para o HDInsight](hdinsight-hadoop-script-actions-linux.md).
 
 
 > [!IMPORTANT]  
@@ -95,12 +95,11 @@ O HDInsight fornece vários scripts para instalar componentes adicionais em clus
 | --- | --- |
 | **Instalar Spark** | `https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1`. Consulte [Instalar e usar o Apache Spark em clusters do HDInsight][hdinsight-install-spark]. |
 | **Instalar R** | `https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1`. Consulte [Instalar e usar o R em clusters HDInsight](r-server/r-server-hdinsight-manage.md#install-additional-r-packages-on-the-cluster). |
-| **Instalar Solr** | `https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1`. Veja [Instalar e usar o Apache Solr em clusters do HDInsight](hdinsight-hadoop-solr-install.md). |
 | **Instalar o Giraph** | `https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1`. Veja [Instalar e usar o Apache Giraph em clusters do HDInsight](hdinsight-hadoop-giraph-install.md). |
 | **Pré-carregar bibliotecas Hive** | `https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1`. Consulte [Adicionar bibliotecas do Apache Hive em clusters do HDInsight](hdinsight-hadoop-add-hive-libraries.md) |
 
 
-A Ação de script pode ser implantada por meio do portal do Azure, do Azure PowerShell ou usando o SDK .NET do HDInsight.  Para obter mais informações, consulte [Personalizar clusters HDInsight usando a Ação de Script][hdinsight-cluster-customize].
+A Ação de script pode ser implantada por meio do portal do Azure, do Azure PowerShell ou usando o SDK .NET do HDInsight.  Para obter mais informações, consulte [HDInsight personalizar clusters usando a ação de Script] [hdinsight-cluster-customize].
 
 > [!NOTE]  
 > Os scripts de exemplo funcionam apenas com o cluster HDInsight versão 3.1 ou posterior. Para obter mais informações sobre as versões do cluster HDInsight, consulte [Versões do cluster HDInsight](hdinsight-component-versioning.md).
@@ -291,13 +290,11 @@ Nesse log, é claro que a ação de script de Spark foi executada na VM denomina
 Se uma falha na execução ocorrer, a saída que a descreve também estará contida nesse arquivo de log. As informações fornecidas nesses logs devem ser úteis ao depurar problemas de script que possam surgir.
 
 ## <a name="see-also"></a>Consulte também
-* [Personalizar os clusters HDInsight usando a Ação de Script][hdinsight-cluster-customize]
+* [Personalizar clusters HDInsight usando ação de Script] [hdinsight-cluster-customize]
 * [Instalar e usar o Apache Spark em clusters HDInsight][hdinsight-install-spark]
-* [Instalar e usar o Apache Solr em clusters do HDInsight](hdinsight-hadoop-solr-install.md).
 * [Instalar e usar o Apache Giraph em clusters do HDInsight](hdinsight-hadoop-giraph-install.md).
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
-[hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [powershell-install-configure]: install-configure-powershell.md
 

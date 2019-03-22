@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 02/01/2019
 ms.author: juliako
-ms.openlocfilehash: e90dd052f6a4af83d2dd794dd405a4700da75bde
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 67876532496aa0a295bf32692534b16d38599492
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656322"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839501"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Transmissão ao vivo com os Serviços de Mídia do Azure v3
 
@@ -28,7 +28,7 @@ O Azure Media Services permite entregar eventos ao vivo para seus clientes na nu
 - Um codificador de vídeo ao vivo que converte sinais de uma câmera (ou outro dispositivo, como um laptop) em um feed de contribuição enviado para os Serviços de Mídia. O feed de contribuição pode incluir sinais relacionados à publicidade, como os marcadores SCTE-35.<br/>Para obter uma lista dos codificadores de transmissão ao vivo recomendados, confira [Codificadores de transmissão ao vivo](recommended-on-premises-live-encoders.md). Além disso, confira este blog: [Live streaming production with OBS](https://link.medium.com/ttuwHpaJeT) (Produção de transmissão ao vivo com o OBS).
 - Componentes nos Serviços de Mídia, que permitem a você ingerir, visualizar, empacotar, gravar, criptografar e transmitir o evento ao vivo para seus clientes ou para um CDN para distribuição posterior.
 
-Com os Serviços de Mídia, você pode aproveitar o **empacotamento dinâmico**, que permite ver e difundir as transmissões ao vivo nos [formatos MPEG-DASH, HLS e Smooth Streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) do feed de contribuição enviado para o serviço. Seus espectadores podem reproduzir a transmissão ao vivo com qualquer player compatível com HLS, DASH ou Smooth Streaming. Você pode usar o [Player de Mídia do Azure](http://amp.azure.net/libs/amp/latest/docs/index.html) em seus aplicativos da Web ou móveis para fornecer seu fluxo em qualquer um desses protocolos.
+Com os Serviços de Mídia, você pode aproveitar o **empacotamento dinâmico**, que permite ver e difundir as transmissões ao vivo nos [formatos MPEG-DASH, HLS e Smooth Streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) do feed de contribuição enviado para o serviço. Seus espectadores podem reproduzir a transmissão ao vivo com qualquer player compatível com HLS, DASH ou Smooth Streaming. Você pode usar o [Player de Mídia do Azure](https://amp.azure.net/libs/amp/latest/docs/index.html) em seus aplicativos da Web ou móveis para fornecer seu fluxo em qualquer um desses protocolos.
 
 Com os Serviços de Mídia, você pode entregar seu conteúdo criptografado dinamicamente (**Criptografia Dinâmica**) com a criptografia AES-128 (Advanced Encryption Standard) ou qualquer um dos três principais sistemas de DRM: Microsoft PlayReady, Google Widevine e Apple FairPlay. Os Serviços de Mídia também fornecem um serviço para entrega de chaves AES e licenças DRM a clientes autorizados. Para obter mais informações sobre como criptografar seu conteúdo com os Serviços de Mídia, consulte [Protegendo a visão geral do conteúdo](content-protection-overview.md)
 
@@ -42,6 +42,7 @@ Para entender o fluxo de trabalho da transmissão ao vivo nos Serviços de Mídi
 
 - [Pontos de Extremidade de Streaming](streaming-endpoint-concept.md)
 - [Eventos ao Vivo e Saídas Dinâmicas](live-events-outputs-concept.md)
+- [Localizadores de Streaming](streaming-locators-concept.md)
 
 ## <a name="live-streaming-workflow"></a>Fluxo de trabalho de streaming ao vivo
 

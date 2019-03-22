@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: michaelhauss
 ms.subservice: blobs
-ms.openlocfilehash: a9b7d15bebdef40c983eaf4d5eee6953b5a10994
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: d86b2c71515900405b0e7714d2c36cd8e4cbc7fc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55236931"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993220"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>Como usar o armazenamento de Blobs do C++
 
-Este guia demonstra como executar cenários comuns usando o armazenamento de Blobs do Azure. Os exemplos mostram como carregar, listar, fazer o download e excluir blobs. Os exemplos são escritos em C++ e usam a [Biblioteca do Cliente de Armazenamento do Azure para C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md).   
+Este guia demonstra como executar cenários comuns usando o armazenamento de Blobs do Azure. Os exemplos mostram como carregar, listar, fazer o download e excluir blobs. Os exemplos são escritos em C++ e usam a [Biblioteca do Cliente de Armazenamento do Azure para C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).   
 
 Para saber mais sobre armazenamento de Blobs, consulte [Introdução ao armazenamento de Blobs do Azure](storage-blobs-introduction.md).
 
 > [!NOTE]
-> Este guia tem como alvo a Biblioteca do Cliente de Armazenamento do Azure para C++, versão 1.0.0 e superior. A Microsoft recomenda o uso da última versão da Biblioteca de Clientes de Armazenamento para C++, disponível por meio de [NuGet](http://www.nuget.org/packages/wastorage) ou [GitHub](https://github.com/Azure/azure-storage-cpp).
+> Este guia tem como alvo a Biblioteca do Cliente de Armazenamento do Azure para C++, versão 1.0.0 e superior. A Microsoft recomenda o uso da última versão da Biblioteca de Clientes de Armazenamento para C++, disponível por meio de [NuGet](https://www.nuget.org/packages/wastorage) ou [GitHub](https://github.com/Azure/azure-storage-cpp).
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
@@ -34,7 +34,7 @@ Para isso, você precisará instalar a Biblioteca do Cliente de Armazenamento do
 Para instalar a Biblioteca do Cliente de Armazenamento do Azure para C++, você pode usar os seguintes métodos:
 
 * **Linux:** Siga as instruções dadas na página README da [Biblioteca do Cliente de Armazenamento do Microsoft Azure para C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).  
-* **Windows:** No Visual Studio, clique em **Ferramentas > Gerenciador de Pacotes do NuGet > Console do Gerenciador de Pacotes**. Digite o seguinte comando no console do [Gerenciador de Pacotes do NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) e pressione **ENTER**.  
+* **Windows:** No Visual Studio, clique em **Ferramentas > Gerenciador de Pacotes do NuGet > Console do Gerenciador de Pacotes**. Digite o seguinte comando no console do [Gerenciador de Pacotes do NuGet](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) e pressione **ENTER**.  
   
      Install-Package wastorage
 
@@ -258,7 +258,7 @@ Agora que você aprendeu os conceitos básicos do armazenamento de blobs, siga e
 * [Como usar o Armazenamento de Filas do C++](../storage-c-plus-plus-how-to-use-queues.md)
 * [Como usar o Armazenamento de Tabelas do C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
 * [Listar recursos de Armazenamento do Azure em C++](../storage-c-plus-plus-enumeration.md)
-* [Referência da Biblioteca de Cliente de Armazenamento para C++](http://azure.github.io/azure-storage-cpp)
+* [Referência da Biblioteca de Cliente de Armazenamento para C++](https://azure.github.io/azure-storage-cpp)
 * [Documentação do Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)
 * [Transferir dados com o utilitário de linha de comando AzCopy](../storage-use-azcopy.md)
 

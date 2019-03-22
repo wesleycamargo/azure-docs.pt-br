@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: genemi
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b94c5f712469183d64704307316f8bbdaa3d5a11
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: e76b5ecd3d6401c317f6500ec376fc25d3fa55b8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751626"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997695"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Como usar o envio em lote para melhorar o desempenho do aplicativo Banco de Dados SQL
 
@@ -94,7 +94,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 Na verdade, as transações estão sendo usadas nos dois exemplos. No primeiro exemplo, cada chamada individual é uma transação implícita. No segundo exemplo, uma transação explícita encapsula todas as chamadas. Conforme a documentação do [log de transações write-ahead](https://msdn.microsoft.com/library/ms186259.aspx), registros de log são liberados no disco quando a transação é confirmada. Então, incluindo mais chamadas em uma transação, a gravação no log de transações pode atrasar até que a transação seja confirmada. Na verdade, você está habilitando o envio em lote das gravações no log de transações do servidor.
 
-A tabela a seguir mostra alguns resultados de teste ad hoc. Os testes executaram as mesmas inserções sequenciais, com e sem transações. Para obter uma perspectiva maior, o primeiro conjunto de testes foi executado remotamente de um laptop para o banco de dados no Microsoft Azure. O segundo conjunto de testes foi executado de um serviço de nuvem e de um banco de dados localizados no mesmo datacenter do Microsoft Azure (Oeste dos Estados Unidos). A tabela a seguir mostra a duração em milissegundos de inserções sequenciais, com e sem transações.
+A tabela a seguir mostra alguns resultados de testes ad-hoc. Os testes executaram as mesmas inserções sequenciais, com e sem transações. Para obter uma perspectiva maior, o primeiro conjunto de testes foi executado remotamente de um laptop para o banco de dados no Microsoft Azure. O segundo conjunto de testes foi executado de um serviço de nuvem e de um banco de dados localizados no mesmo datacenter do Microsoft Azure (Oeste dos Estados Unidos). A tabela a seguir mostra a duração em milissegundos de inserções sequenciais, com e sem transações.
 
 **Local para o Azure**:
 
@@ -168,7 +168,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-No exemplo anterior, o objeto **SqlCommand** insere linhas de um parâmetro com valor de tabela, **@TestTvp**. O objeto **DataTable** criado anteriormente é atribuído a esse parâmetro com o método **SqlCommand.Parameters.Add**. O envio em lote de inserções em uma chamada aumenta consideravelmente o desempenho com inserções sequenciais.
+No exemplo anterior, o **SqlCommand** objeto insere linhas de um parâmetro com valor de tabela,  **\@TestTvp**. O objeto **DataTable** criado anteriormente é atribuído a esse parâmetro com o método **SqlCommand.Parameters.Add**. O envio em lote de inserções em uma chamada aumenta consideravelmente o desempenho com inserções sequenciais.
 
 Para melhorar ainda mais o exemplo anterior, use um procedimento armazenado e não um comando baseado em texto. O comando Transact-SQL a seguir cria um procedimento armazenado que utiliza o parâmetro com valor de tabela **SimpleTestTableType** .
 
@@ -192,7 +192,7 @@ cmd.CommandType = CommandType.StoredProcedure;
 
 Na maioria dos casos, os parâmetros com valor de tabela têm um desempenho equivalente ou superior às outras técnicas de envio em lote. Normalmente, a preferência fica com os parâmetros com valor de tabela, pois são mais flexíveis do que as outras opções. Por exemplo, outras técnicas, como cópia em massa do SQL, só permitem a inserção de novas linhas. Porém, com os parâmetros com valor de tabela, você pode usar lógica no procedimento armazenado para determinar quais linhas serão atualizações e quais serão inserções. O tipo de tabela também pode ser modificado para conter uma coluna "Operação" que indica se a linha especificada deve ser inserida, atualizada ou excluída.
 
-A tabela a seguir mostra os resultados do teste ad hoc do uso de parâmetros com valor de tabela em milissegundos.
+A tabela a seguir mostra os resultados do teste ad hoc para o uso de parâmetros com valor de tabela em milissegundos.
 
 | Operações | Local para o Azure (ms) | Mesmo datacenter do Azure (ms) |
 | --- | --- | --- |
@@ -298,7 +298,7 @@ A classe **DataAdapter** permite que você modifique um objeto **DataSet** e env
 
 ### <a name="entity-framework"></a>Entity Framework
 
-No momento, o Entity Framework não oferece suporte para o envio em lote. Vários desenvolvedores da comunidade tentaram demonstrar soluções alternativas, como a substituição do método **SaveChanges** . Mas normalmente as soluções são complexas e personalizadas para o aplicativo e o modelo de dados. Atualmente, o projeto codeplex do Entity Framework tem uma página de discussão sobre essa solicitação de recurso. Para exibir esta discussão, confira [Anotações da reunião de design – 2 de agosto de 2012](http://entityframework.codeplex.com/wikipage?title=Design%20Meeting%20Notes%20-%20August%202%2c%202012).
+No momento, o Entity Framework não oferece suporte para o envio em lote. Vários desenvolvedores da comunidade tentaram demonstrar soluções alternativas, como a substituição do método **SaveChanges** . Mas normalmente as soluções são complexas e personalizadas para o aplicativo e o modelo de dados. Atualmente, o projeto codeplex do Entity Framework tem uma página de discussão sobre essa solicitação de recurso. Para exibir esta discussão, confira [Anotações da reunião de design – 2 de agosto de 2012](https://entityframework.codeplex.com/wikipage?title=Design%20Meeting%20Notes%20-%20August%202%2c%202012).
 
 ### <a name="xml"></a>XML
 

@@ -2,20 +2,20 @@
 title: Monitore sua carga de trabalho usando DMVs | Microsoft Docs
 description: Aprenda a monitorar sua carga de trabalho usando DMVs.
 services: sql-data-warehouse
-author: kevinvngo
+author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 04/17/2018
-ms.author: kevin
+ms.date: 03/18/2019
+ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: fdb51bf249990a10b8476a55be1103cb05c5821b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: e2360b5587d204ec87fe82c029391c7252d27914
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466975"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189539"
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Monitore sua carga de trabalho usando DMVs
 Este artigo descreve como usar DMVs (Exibições de Gerenciamento Dinâmico) para monitorar a carga de trabalho. Isso inclui a investigação de execução da consulta no SQL Data Warehouse do Azure.
@@ -68,9 +68,9 @@ WHERE   [label] = 'My Query';
 
 Nos resultados da consulta anterior, **observe a ID da Solicitação** da consulta que você deseja investigar.
 
-As consultas no estado **Suspenso** estão sendo enfileiradas devido aos limites de simultaneidade. Essas consultas também aparecem na consulta de esperas sys.dm_pdw_waits com um tipo de UserConcurrencyResourceType. Para obter informações sobre os limites de simultaneidade, consulte [Níveis de desempenho](performance-tiers.md) ou [Classes de recursos para gerenciamento de carga de trabalho](resource-classes-for-workload-management.md). As consultas também podem esperar por motivos, como bloqueios.  Se sua consulta estiver aguardando um recurso, confira [Investigar consultas aguardando recursos][Investigating queries waiting for resources] mais adiante neste artigo.
+As consultas na **Suspended** estado pode ser enfileirado devido a um grande número de consultas em execução ativas. Essas consultas também aparecem na [DM pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql) esperas de consulta com um tipo de UserConcurrencyResourceType. Para obter informações sobre os limites de simultaneidade, consulte [Níveis de desempenho](performance-tiers.md) ou [Classes de recursos para gerenciamento de carga de trabalho](resource-classes-for-workload-management.md). As consultas também podem esperar por motivos, como bloqueios.  Se sua consulta estiver aguardando um recurso, confira [Investigar consultas aguardando recursos][Investigating queries waiting for resources] mais adiante neste artigo.
 
-Para simplificar a pesquisa de uma consulta na tabela sys.dm_pdw_exec_requests, use [LABEL][LABEL] para atribuir um comentário à consulta que pode ser pesquisada no modo de exibição sys.dm_pdw_exec_requests.
+Para simplificar a pesquisa de uma consulta na [DM pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) da tabela, use [rótulo] [ LABEL] para atribuir um comentário à consulta que pode ser pesquisada no sys.dm_pdw_exec_ modo de exibição de solicitações.
 
 ```sql
 -- Query with Label
@@ -292,11 +292,11 @@ Para obter mais informações sobre DMVs, consulte [Exibições do sistema][Syst
 [Investigating queries waiting for resources]: ./sql-data-warehouse-manage-monitor.md#waiting
 
 <!--MSDN references-->
-[sys.dm_pdw_dms_workers]: http://msdn.microsoft.com/library/mt203878.aspx
-[sys.dm_pdw_exec_requests]: http://msdn.microsoft.com/library/mt203887.aspx
-[sys.dm_pdw_exec_sessions]: http://msdn.microsoft.com/library/mt203883.aspx
-[sys.dm_pdw_request_steps]: http://msdn.microsoft.com/library/mt203913.aspx
-[sys.dm_pdw_sql_requests]: http://msdn.microsoft.com/library/mt203889.aspx
-[DBCC PDW_SHOWEXECUTIONPLAN]: http://msdn.microsoft.com/library/mt204017.aspx
-[DBCC PDW_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
+[sys.dm_pdw_dms_workers]: https://msdn.microsoft.com/library/mt203878.aspx
+[sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/library/mt203887.aspx
+[sys.dm_pdw_exec_sessions]: https://msdn.microsoft.com/library/mt203883.aspx
+[sys.dm_pdw_request_steps]: https://msdn.microsoft.com/library/mt203913.aspx
+[sys.dm_pdw_sql_requests]: https://msdn.microsoft.com/library/mt203889.aspx
+[DBCC PDW_SHOWEXECUTIONPLAN]: https://msdn.microsoft.com/library/mt204017.aspx
+[DBCC PDW_SHOWSPACEUSED]: https://msdn.microsoft.com/library/mt204028.aspx
 [LABEL]: https://msdn.microsoft.com/library/ms190322.aspx

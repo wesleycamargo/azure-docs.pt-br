@@ -2,22 +2,23 @@
 title: Visão geral da renderização - Lote do Azure
 description: Introdução ao uso do Azure para renderização e uma visão geral dos recursos de renderização do Lote do Azure
 services: batch
+ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: bc8c96345aeb1886696326edd230666ac8b6c41d
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: d4423b22c4c8afea5afa9c7040e081665b17ba87
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542181"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790333"
 ---
 # <a name="rendering-using-azure"></a>Renderizar usando o Azure
 
 A renderização é o processo de obter modelos 3D e convertê-los em imagens 2D. Os arquivos de cenas 3D são criados em aplicativos como Autodesk 3ds Max, Autodesk Maya e Blender.  Aplicativos de renderização como Autodesk Maya, Autodesk Arnold, Chaos Group V-Ray e Blender Cycles produzem imagens 2D.  Às vezes, imagens individuais são criadas a partir dos arquivos de cena. No entanto, é comum modelar e renderizar várias imagens e, em seguida, combiná-las em uma animação.
 
-A carga de trabalho de renderização é muito usada para efeitos especiais (VFX) na indústria de Mídia e Entretenimento. A renderização também é usada em muitos outros setores como publicidade, varejo, petróleo e gás e manufatura.
+A carga de trabalho de renderização é muito usada para efeitos especiais (VFX) na indústria de Mídia e Entretenimento. Renderização também é usada em muitos outros setores, como anúncios, varejo, fabricação, petróleo e gás.
 
 O processo de renderização é computacionalmente intensivo, isso significa que pode haver muitos quadros/imagens a serem produzidos e cada imagem poderá demorar muitas horas para ser renderizada.  A renderização é, portanto, uma carga de trabalho de processamento em lotes perfeita que pode aproveitar o Azure e o Lote do Azure para executar muitas renderizações em paralelo.
 

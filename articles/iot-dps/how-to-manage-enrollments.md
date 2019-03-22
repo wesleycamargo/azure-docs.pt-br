@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 0970131c4b674fd864ad574b0f749cd6d7f6f2a2
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
-ms.translationtype: HT
+ms.openlocfilehash: 51b072bfd0827528a5504133dff8c1cdd7a7ca86
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42140800"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089379"
 ---
-# <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Como gerenciar os registros de dispositivos com o Portal do Azure
+# <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Como gerenciar os registros de dispositivo com o Portal do Azure
 
 Um *registro de dispositivos* cria um registro de um único dispositivo ou um grupo de dispositivos que pode em algum momento registrar com o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure. O registro contém a configuração inicial desejada para os dispositivos como parte desse registro, incluindo o Hub IoT desejado. Este artigo mostra como gerenciar registros de dispositivo para o serviço de provisionamento.
 
@@ -28,15 +28,15 @@ Há duas maneiras em que você pode registrar seus dispositivos com o serviço d
 
     Você pode criar um grupo de registro no portal para um grupo de dispositivos usando as etapas a seguir:
 
-    1. Faça logon no Portal do Azure e clique em **Todos os recursos** no menu à esquerda.  
-    1. Clique no serviço de provisionamento do dispositivo no qual você deseja registrar seu dispositivo na lista de recursos.  
-    1. No serviço de provisionamento:  
-       a. Clique em **Gerenciar registros** e, em seguida, selecione a guia **Grupos de Registros**.  
-       b. Clique no botão **Adicionar** na parte superior.  
-       c. Quando o painel "Adicionar Grupos de Registros" for exibido, insira as informações da entrada da lista de registro.  O **Nome de Grupo** é obrigatório. Selecione também "AC ou Intermediária" para **Tipo de certificado** e carregue o **Certificado principal** raiz para o grupo de dispositivos.  
-       d. Clique em **Salvar**. Após a criação bem-sucedida de seu grupo de registro, você deverá ver o nome do grupo aparecer sob a guia **Grupos de Registro**.  
+  1. Faça logon no Portal do Azure e clique em **Todos os recursos** no menu à esquerda.  
+  1. Clique no serviço de provisionamento do dispositivo no qual você deseja registrar seu dispositivo na lista de recursos.  
+  1. No serviço de provisionamento:  
+      a. Clique em **Gerenciar registros** e, em seguida, selecione a guia **Grupos de Registros**.  
+     b. Clique no botão **Adicionar** na parte superior.  
+     c. Quando o painel "Adicionar Grupos de Registros" for exibido, insira as informações da entrada da lista de registro.  O **Nome de Grupo** é obrigatório. Selecione também "AC ou Intermediária" para **Tipo de certificado** e carregue o **Certificado principal** raiz para o grupo de dispositivos.  
+     d. Clique em **Salvar**. Após a criação bem-sucedida de seu grupo de registro, você deverá ver o nome do grupo aparecer sob a guia **Grupos de Registro**.  
 
-       [![Grupo de registro no portal](./media/how-to-manage-enrollments/group-enrollment.png)]  (./media/how-to-manage-enrollments/group-enrollment.png#lightbox)
+     [![Grupo de registro no portal](./media/how-to-manage-enrollments/group-enrollment.png)](./media/how-to-manage-enrollments/group-enrollment.png#lightbox)
     
 
 * Um **registro Individual** é uma entrada para um único dispositivo que pode registrar. Os registros individuais podem usar certificados x509 ou tokens de SAS (de um TPM virtual ou físico) como mecanismos de certificação. É recomendável usar registros individuais para dispositivos que exigem configurações iniciais exclusivas ou para dispositivos que só podem usar tokens SAS por meio do TPM ou TPM virtual como o mecanismo de Atestado. Registros individuais podem ter a ID de dispositivo de Hub IoT desejada especificada.
@@ -46,7 +46,7 @@ Há duas maneiras em que você pode registrar seus dispositivos com o serviço d
     1. Faça logon no Portal do Azure e clique em **Todos os recursos** no menu à esquerda.
     1. Clique no serviço de provisionamento do dispositivo no qual você deseja registrar seu dispositivo na lista de recursos.
     1. No serviço de provisionamento:  
-       a. Clique em **Gerenciar registros** e, em seguida, selecione a guia **Registros Individuais**.  
+        a. Clique em **Gerenciar registros** e, em seguida, selecione a guia **Registros Individuais**.  
        b. Clique no botão **Adicionar** na parte superior.   
        c. Quando o painel "Adicionar Registro" for exibido, insira as informações da entrada da lista de registro. Primeiro, selecione o **Mecanismo** de certificação para o dispositivo (X.509 ou TPM). A certificação X.509 exige upload do **Certificado principal** para o dispositivo. O TPM exige que você insira a **Chave de Atestado** e a **ID do Registro** para o dispositivo.  
        d. Clique em **Salvar**. Após a criação bem-sucedida de seu grupo de registro, você deverá ver o dispositivo aparecer sob a guia **Registros Individuais**.  

@@ -1,6 +1,6 @@
 ---
-title: Atualizações de esquema da versão prévia de 1º de agosto de 2015 – Aplicativo Lógico do Azure | Microsoft Docs
-description: Versão prévia de 2015-08-01 do esquema atualizada para definições de aplicativo lógico no Aplicativo Lógico do Azure
+title: Atualizações de esquema da versão prévia de 1º de agosto de 2015 – Aplicativos Lógicos do Azure | Microsoft Docs
+description: Versão prévia de 2015-08-01 do esquema atualizada para definições de aplicativo lógico nos Aplicativos Lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 0d03a4d4-e8a8-4c81-aed5-bfd2a28c7f0c
 ms.topic: article
 ms.date: 05/31/2016
-ms.openlocfilehash: ec6f98ca0f0260a0d7bed16538f557931cd2e33e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 92f522c72f69218e55b1ee4cfff74511a30288b0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080003"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57904534"
 ---
 # <a name="schema-updates-for-azure-logic-apps---august-1-2015-preview"></a>Atualizações de esquema para Aplicativos Lógicos do Azure - visualização de 1º de junho de 2015
 
@@ -352,7 +352,7 @@ Portanto, usando o exemplo `repeat` anterior, você obter essas saídas:
    },
    "outputs": {
       "headers": { },
-      "body": "<!DOCTYPE html><html lang=\"en\" xml:lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:Web=\"http://schemas.live.com/Web/\">...</html>"
+      "body": "<!DOCTYPE html><html lang=\"en\" xml:lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:Web=\"https://schemas.live.com/Web/\">...</html>"
    },
    "status": "Succeeded"
 } ]
@@ -369,7 +369,7 @@ Agora você obtém essas saídas em vez disso:
       },
       "outputs": {
          "headers": { },
-         "body": "<!DOCTYPE html><html lang=\"en\" xml:lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:Web=\"http://schemas.live.com/Web/\">...</html>"
+         "body": "<!DOCTYPE html><html lang=\"en\" xml:lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:Web=\"https://schemas.live.com/Web/\">...</html>"
       },
       "status": "Succeeded"
 } ]
@@ -384,7 +384,7 @@ Anteriormente, para obter o `body` da ação ao fazer referência a essas saída
       "repeat": "@outputs('pingBing').repeatItems",
       "inputs": {
          "method": "POST",
-         "uri": "http://www.example.com",
+         "uri": "https://www.example.com",
          "body": "@repeatItem().outputs.body"
       }
    }
@@ -400,7 +400,7 @@ Agora você deve escrever esta versão em vez disso:
       "foreach": "@outputs('pingBing')",
       "inputs": {
          "method": "POST",
-         "uri": "http://www.example.com",
+         "uri": "https://www.example.com",
          "body": "@item().outputs.body"
       }
    }
@@ -461,4 +461,4 @@ A `parse()` função agora está renomeada a `json()` função para tipos de con
 
 ## <a name="enterprise-integration-apis"></a>APIs do Enterprise Integration
 
-Esse esquema ainda não dá suporte para versões gerenciadas para APIs do Enterprise Integration, como AS2. Porém, você pode usar suas APIs do BizTalk implantadas existentes por meio da ação de HTTP. Para obter detalhes, veja “Usando seus aplicativo de API já implantados" no [roteiro de integração](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/). 
+Esse esquema ainda não dá suporte para versões gerenciadas para APIs do Enterprise Integration, como AS2. Porém, você pode usar suas APIs do BizTalk implantadas existentes por meio da ação de HTTP. Para obter detalhes, veja “Usando seus aplicativo de API já implantados" no [roteiro de integração](https://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/). 

@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 413e005762ab557e0605f9b4e79a6fe5b45448b7
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 79de09631b33f838c1a2f12fdc58b2648548004b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993904"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57998417"
 ---
 # <a name="azure-media-services-concepts"></a>Conceitos dos Serviços de Mídia do Azure 
 
@@ -177,7 +177,7 @@ Por padrão, você pode ter até dois pontos de extremidade de streaming em sua 
 Você será cobrado apenas quando seu StreamingEndpoint estiver em estado de execução.
 
 ### <a name="asset-delivery-policy"></a>Política de fornecimento de ativos
-Uma das etapas do fluxo de trabalho de fornecimento de conteúdo de Serviços de Mídia é a configuração de [políticas de entrega de ativos ](https://docs.microsoft.com/rest/api/media/operations/assetdeliverypolicy)que você deseja transmitir. A política de entrega de ativos informa aos serviços de mídia como você deseja que o ativo seja entregue: em que protocolo de fluxo seu ativo deve ser dinamicamente empacotado (por exemplo, MPEG DASH, HLS, Smooth Streaming ou todos), se você deseja criptografar dinamicamente seu ativo ou não e como (criptografia de envelope ou comum).
+É a configuração de uma das etapas no fluxo de trabalho de distribuição de conteúdo dos serviços de mídia [políticas de entrega de ativos](https://docs.microsoft.com/rest/api/media/operations/assetdeliverypolicy)que você deseja transmitir. A política de entrega de ativos informa aos serviços de mídia como você deseja que o ativo seja entregue: em que protocolo de fluxo seu ativo deve ser dinamicamente empacotado (por exemplo, MPEG DASH, HLS, Smooth Streaming ou todos), se você deseja criptografar dinamicamente seu ativo ou não e como (criptografia de envelope ou comum).
 
 Se você tiver um ativo de armazenamento criptografado, antes que possa ser transmitido seu ativo, o servidor de streaming remove a criptografia de armazenamento e transmite o conteúdo usando a política de entrega especificada. Por exemplo, para entregar o ativo criptografado com chave de criptografia AES (criptografia avançada padrão), defina o tipo de política para DynamicEnvelopeEncryption. Para remover a criptografia de armazenamento e transmitir o ativo claro, defina o tipo de política como NoDynamicEncryption.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/06/2018
 ms.author: aljo
-ms.openlocfilehash: 71448125d7308ca28e7241fd4019aadba430214e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 80a4014cb371f3c37c01fa1cf2d20041caf17184
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106130"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448214"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Criar um cluster do Service Fabric no usando o portal do Azure
 > [!div class="op_single_selector"]
@@ -90,7 +90,7 @@ Navegue até o **Cluster do Service Fabric** folha e clique em **Criar**.
 A folha **Criar cluster do Service Fabric** tem as quatro etapas a seguir:
 
 ### <a name="1-basics"></a>1. Noções básicas
-![Captura de tela da criação de um novo grupo de recursos.][CreateRG]
+![Captura de tela de criação de um novo grupo de recursos.][CreateRG]
 
 Na folha Básico, você precisa fornecer os detalhes básicos do seu cluster.
 
@@ -130,7 +130,7 @@ Configure os nós de cluster. Os tipos de nó definem os tamanhos e o número de
 > 
 
 ### <a name="3-security"></a>3. Segurança
-![Captura de tela das configurações de segurança no Portal do Azure][BasicSecurityConfigs]
+![Captura de tela das configurações de segurança no portal do Azure.][BasicSecurityConfigs]
 
 Para facilitar a configuração de um cluster de teste seguro para você, oferecemos a opção **Básica**. Se você já tiver um certificado e já o carregou para sua [Cofre de chaves](/azure/key-vault/) (e habilitada o Cofre de chaves para implantação), em seguida, usar o **personalizado** opção
 
@@ -191,7 +191,7 @@ Você pode ver o progresso da criação nas notificações. (Clique no ícone de
 Para realizar operações de gerenciamento no cluster usando o Powershell ou a CLI, você precisa se conectar ao cluster, ler mais sobre como em [conexão ao cluster](service-fabric-connect-to-secure-cluster.md).
 
 ## <a name="view-your-cluster-status"></a>Exibir o status do cluster
-![Captura de tela dos detalhes do cluster no painel de controle.][ClusterDashboard]
+![Captura de tela de detalhes do cluster no painel.][ClusterDashboard]
 
 Depois que o cluster for criado, você poderá inspecioná-lo no portal:
 

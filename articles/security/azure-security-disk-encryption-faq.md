@@ -1,19 +1,18 @@
 ---
 title: 'Perguntas frequentes: Azure Disk Encryption para VMs da IaaS | Microsoft Docs'
 description: Este artigo fornece respostas a perguntas frequentes sobre o Microsoft Azure Disk Encryption para VMs IaaS Windows e Linux.
-author: mestew
+author: msmbaldwin
 ms.service: security
-ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.author: mstewart
-ms.date: 01/25/2019
+ms.author: mbaldwin
+ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: fda7d6d3fddf2f4529a983ce2d4991797a5c8448
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: b98b9653aee395ebdf797c50c313c322727480c0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661829"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57892754"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Perguntas frequentes do Azure Disk Encryption para VMs de IaaS
 
@@ -44,12 +43,14 @@ O Azure Disk Encryption tem suporte nas seguintes distribuições e versões do 
 | --- | --- |--- |
 | Ubuntu | 16.04| SO e disco de dados |
 | Ubuntu | 14.04.5</br>[com kernel ajustado para Azure atualizado para 4.15 ou posterior](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | SO e disco de dados |
+| RHEL | 7.6 | SO e disco de dados* |
 | RHEL | 7.5 | SO e disco de dados* |
 | RHEL | 7.4 | SO e disco de dados* |
 | RHEL | 7.3 | SO e disco de dados* |
 | RHEL | 7,2 | SO e disco de dados* |
 | RHEL | 6,8 | Disco de dados* |
 | RHEL | 6.7 | Disco de dados* |
+| CentOS | 7.5 | SO e disco de dados |
 | CentOS | 7.4 | SO e disco de dados |
 | CentOS | 7.3 | SO e disco de dados |
 | CentOS | 7.2n | SO e disco de dados |
@@ -72,6 +73,18 @@ Para começar, leia as [visão geral do Azure Disk Encryption](azure-security-di
 ## <a name="can-i-encrypt-both-boot-and-data-volumes-with-azure-disk-encryption"></a>Posso criptografar volumes de dados e de inicialização com o Azure Disk Encryption?
 
 Sim, você pode criptografar volumes de inicialização e de dados para VMs IaaS Windows e Linux. Em VMs Windows, não é possível criptografar os dados sem primeiro criptografar o volume do SO. Para VMs Linux, é possível criptografar o volume de dados sem precisar criptografar o volume do sistema operacional primeiro. Depois de criptografar o volume do SO para Linux, não há suporte para desabilitar a criptografia em um volume do SO para VMs do Linux IaaS.
+
+## <a name="can-i-encrypt-an-unmounted-volume-with-azure-disk-encryption"></a>Para criptografar um volume desmontado com o Azure Disk Encryption?
+
+Não, o Azure Disk Encryption criptografa apenas volumes montados.
+
+## <a name="how-do-i-rotate-secrets-or-encryption-keys"></a>Como girar segredos ou chaves de criptografia?
+
+Para girar os segredos, basta chame o mesmo comando que você usou originalmente para habilitar a criptografia de disco, especificando um cofre de chave diferente. Para girar a chave de criptografia de chave, chame o mesmo comando usado originalmente para habilitar a criptografia de disco, especificando a nova chave de criptografia. 
+
+## <a name="how-do-i-add-or-remove-a-key-encryption-key-if-i-didnt-originally-use-one"></a>Como adicionar ou remover uma chave de criptografia de chave se originalmente não usar um?
+
+Para adicionar uma chave de criptografia de chave, chame o comando enable novamente passando o parâmetro de chave de criptografia de chave. Para remover uma chave de criptografia de chave, chame o comando enable novamente sem o parâmetro de chave de criptografia de chave.
 
 ## <a name="does-azure-disk-encryption-allow-you-to-bring-your-own-key-byok"></a>O Azure Disk Encryption permite o recurso BYOK (Bring Your Own Key)?
 
@@ -133,10 +146,17 @@ Se esse fluxo de trabalho não for possível, usar a SSE [(Criptografia do Servi
 
 ## <a name="what-encryption-method-does-azure-disk-encryption-use"></a>Qual método de criptografia é usado pela criptografia de disco do Azure?
 
-No Windows, o ADE usa o método de criptografia AES256 do BitLocker (AES256WithDiffuser em versões anteriores ao Windows Server 2012). No Linux, o ADE usa o padrão dmcrypt de aes-xts-plain64 com uma chave mestra de volume de 256 bits.
+No Windows, o ADE usa o método de criptografia AES256 do BitLocker (AES256WithDiffuser em versões anteriores ao Windows Server 2012). No Linux, ADE usa o padrão de descriptografia de plain64-xts-aes com uma chave mestra de volume de 256 bits.
 
 ## <a name="if-i-use-encryptformatall-and-specify-all-volume-types-will-it-erase-the-data-on-the-data-drives-that-we-already-encrypted"></a>Se eu usar EncryptFormatAll e especificar todos os tipos de volume, ele apagará os dados em unidades de dados que já tivermos criptografado?
 Não, os dados não serão apagados de unidades de dados que já tiverem sido criptografadas usando o Azure Disk Encryption. Semelhante ao modo como o EncryptFormatAll não criptografou novamente a unidade do sistema operacional, ele não criptografará novamente a unidade de dados já criptografada. Para obter mais informações, veja os [critérios do EncryptFormatAll](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).        
+
+## <a name="is-xfs-filesystem-supported"></a>Há suporte para sistema de arquivos XFS
+Volumes XFS têm suporte para criptografia de disco de dados. Para criptografar um volume atualmente com o formato usando XFS, especifique a opção de EncryptFormatAll. Reformata o volume. Para obter mais informações, veja os [critérios do EncryptFormatAll](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).
+
+## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>É possível fazer backup e restaurar uma VM criptografada? 
+
+O Backup do Azure fornece um mecanismo para fazer backup e restaurar a VM criptografada dentro da mesma assinatura e região.  Para obter instruções, consulte [fazer backup e restaurar máquinas virtuais criptografadas com o Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-encryption).  Atualmente, não há suporte para a restauração de uma VM criptografada para uma região diferente.  
 
 ## <a name="where-can-i-go-to-ask-questions-or-provide-feedback"></a>Onde posso fazer perguntas ou fornecer comentários?
 

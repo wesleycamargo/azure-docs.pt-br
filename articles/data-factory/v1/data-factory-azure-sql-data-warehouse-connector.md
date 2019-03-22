@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 72a666db6157300942b966b88d9c3369495b9fd4
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: 905d084b46919ad945cf44f5517b95d5321ee3de
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331227"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116191"
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Copiar dados bidirecionalmente no SQL Data Warehouse do Azure usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -71,8 +71,8 @@ A tabela a seguir fornece a descrição para elementos JSON específicas para o 
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| Tipo |A propriedade type deve ser definida como: **AzureSqlDW** |SIM |
-| connectionString |Especifique as informações necessárias para se conectar à instância do SQL Data Warehouse do Azure para a propriedade connectionString. Há suporte somente para autenticação básica. |SIM |
+| Tipo |A propriedade type deve ser definida como: **AzureSqlDW** |Sim |
+| connectionString |Especifique as informações necessárias para se conectar à instância do SQL Data Warehouse do Azure para a propriedade connectionString. Há suporte somente para autenticação básica. |Sim |
 
 > [!IMPORTANT]
 > Configure o [Firewall do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) e o servidor do banco de dados para [permitir que os Serviços do Azure acessem o servidor](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Além disso, se você estiver copiando os dados para o Azure SQL Data Warehouse de fora do Azure, inclusive a partir das fontes de dados locais com o gateway do data factory, configure o devido intervalo de endereços IP do computador que está enviando os dados para o Azure SQL Data Warehouse.
@@ -84,7 +84,7 @@ A seção typeProperties é diferente para cada tipo de conjunto de dados e forn
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| tableName |Nome da tabela ou exibição no banco de dados SQL Data Warehouse do Azure ao qual o serviço vinculado se refere. |SIM |
+| tableName |Nome da tabela ou exibição no banco de dados SQL Data Warehouse do Azure ao qual o serviço vinculado se refere. |Sim |
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
 Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, confia o artigo [Criando pipelines](data-factory-create-pipelines.md). As propriedades, como nome, descrição, tabelas de entrada e saída, e política, estão disponíveis para todos os tipos de atividades.
@@ -197,28 +197,28 @@ Se os requisitos não forem atendidos, o Azure Data Factory verificará as confi
 1. O **serviço vinculado de origem** é do tipo: **AzureStorage** ou **AzureDataLakeStore** com autenticação da entidade de serviço.
 2. O **conjunto de dados de entrada** é do tipo: **AzureBlob** ou **AzureDataLakeStore**, e o tipo de formato nas propriedades `type` é **OrcFormat**, **ParquetFormat** ou **TextFormat** com as configurações abaixo:
 
-    1. `rowDelimiter` deve ser **\n**.
-    2. `nullValue` é definido como **cadeia de caracteres vazia** ("") ou `treatEmptyAsNull` é definido como **true**.
-    3. `encodingName` é definido como **utf-8**, que é o valor **padrão**.
-    4. `escapeChar`, `quoteChar`, `firstRowAsHeader` e `skipLineCount` não foram especificados.
-    5. `compression` pode ser **sem compactação**, **GZip** ou **Deflate**.
+   1. `rowDelimiter` deve ser **\n**.
+   2. `nullValue` é definido como **cadeia de caracteres vazia** ("") ou `treatEmptyAsNull` é definido como **true**.
+   3. `encodingName` é definido como **utf-8**, que é o valor **padrão**.
+   4. `escapeChar`, `quoteChar`, `firstRowAsHeader` e `skipLineCount` não foram especificados.
+   5. `compression` pode ser **sem compactação**, **GZip** ou **Deflate**.
 
-    ```JSON
-    "typeProperties": {
-        "folderPath": "<blobpath>",
-        "format": {
-            "type": "TextFormat",
-            "columnDelimiter": "<any delimiter>",
-            "rowDelimiter": "\n",
-            "nullValue": "",
-            "encodingName": "utf-8"
-        },
-        "compression": {
-            "type": "GZip",
-            "level": "Optimal"
-        }
-    },
-    ```
+      ```JSON
+      "typeProperties": {
+       "folderPath": "<blobpath>",
+       "format": {
+           "type": "TextFormat",
+           "columnDelimiter": "<any delimiter>",
+           "rowDelimiter": "\n",
+           "nullValue": "",
+           "encodingName": "utf-8"
+       },
+       "compression": {
+           "type": "GZip",
+           "level": "Optimal"
+       }
+      },
+      ```
 
 3. Não há uma configuração `skipHeaderLineCount` em **BlobSource** ou **AzureDataLakeStore** para a atividade de cópia no pipeline.
 4. Não há nenhuma configuração `sliceIdentifierColumnName` em **SqlDWSink** para a atividade de Cópia no pipeline. (O PolyBase garante que todos os dados são atualizados ou que nada é atualizado em uma execução única. Para obter **repetibilidade**, você pode usar `sqlWriterCleanupScript`).
@@ -228,7 +228,7 @@ Se os requisitos não forem atendidos, o Azure Data Factory verificará as confi
 Quando os dados de origem não atenderem aos critérios introduzidos na seção anterior, você poderá habilitar a cópia dos dados via Armazenamento de Blobs do Azure de preparo provisório (não pode ser Armazenamento Premium). Neste caso, o Azure Data Factory executa automaticamente transformações nos dados para atender aos requisitos do formato de dados do PolyBase, em seguida, use o PolyBase para carregar os dados no SQL Data Warehouse e, por fim, limpe os dados temporários do Armazenamento de Blobs. Confira [Cópia de Preparo](data-factory-copy-activity-performance.md#staged-copy) para obter detalhes sobre como copiar dados por meio de um trabalho de preparo do Blob do Azure em geral.
 
 > [!NOTE]
-> Ao copiar dados de um armazenamento de dados local para o SQL Data Warehouse do Azure usando o PolyBase e o preparo, se a versão do Gateway de Gerenciamento de Dados for inferior a 2.4, o JRE (Java Runtime Environment) será necessário no computador do gateway que é usado para transformar os dados de origem em um formato adequado. Sugerimos que você faça upgrade do gateway para a versão mais recente para evitar essa dependência.
+> Quando copiar dados de um local armazenamento de dados no Azure SQL Data Warehouse usando PolyBase e preparo, se sua versão do Gateway de gerenciamento de dados for inferior a 2.4, o JRE (Java Runtime Environment) é necessária no computador do gateway que é usada para transformar sua fonte dados em formato adequado. Sugerimos que você faça upgrade do gateway para a versão mais recente para evitar essa dependência.
 >
 
 Para usar esse recurso, crie um [serviço vinculado de Armazenamento do Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service) que se refere à Conta de Armazenamento do Azure que tem o armazenamento de blobs provisório, então, especifique as propriedades `enableStaging` e `stagingSettings` para a Atividade de Cópia, como mostrado no código a seguir:
@@ -302,7 +302,7 @@ O Data Factory cria a tabela no repositório de destino com o mesmo nome de tabe
 
 | Tipo de coluna do Banco de Dados SQL da origem | Tipo de coluna do SQL DW de destino (limitação de tamanho) |
 | --- | --- |
-| int | int |
+| Int | Int |
 | BigInt | BigInt |
 | SmallInt | SmallInt |
 | TinyInt | TinyInt |
@@ -316,7 +316,7 @@ O Data Factory cria a tabela no repositório de destino com o mesmo nome de tabe
 | Binário | Binário |
 | Varbinary | Varbinary (até 8.000) |
 | Data | Data |
-| Datetime | Datetime |
+| DateTime | DateTime |
 | DateTime2 | DateTime2 |
 | Hora | Hora |
 | DateTimeOffset | DateTimeOffset |
@@ -349,13 +349,13 @@ O mapeamento é o mesmo que o [Mapeamento de tipo de dados do SQL Server para o 
 | binário |Byte[] |
 | bit |BOOLEAN |
 | char |String, Char[] |
-| data |Datetime |
-| DateTime |Datetime |
-| datetime2 |Datetime |
+| data |DateTime |
+| DateTime |DateTime |
+| datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
 | Atributo FILESTREAM (varbinary(max)) |Byte[] |
-| Float |Duplo |
+| Float |Double |
 | image |Byte[] |
 | int |Int32 |
 | money |Decimal |
@@ -365,12 +365,12 @@ O mapeamento é o mesmo que o [Mapeamento de tipo de dados do SQL Server para o 
 | nvarchar |String, Char[] |
 | real |Single |
 | rowversion |Byte[] |
-| smalldatetime |Datetime |
+| smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Objeto * |
 | text |String, Char[] |
-| tempo real |timespan |
+| tempo real |TimeSpan |
 |  timestamp |Byte[] |
 | tinyint |Byte |
 | uniqueidentifier |Guid |

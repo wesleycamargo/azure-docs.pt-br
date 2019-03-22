@@ -15,16 +15,16 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c926f0c80ce56cac3106ad97ec3ec2e18a8e2cc6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a61dcca1f78b6ba444a2deefcf6b8bb4fd5c5087
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109564"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121971"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Fazer backup de volumes ou compartilhamentos no StorSimple Virtual Array
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 O StorSimple Virtual Array é um dispositivo virtual local de armazenamento em nuvem híbrida que pode ser configurado como servidor de arquivos ou um servidor iSCSI. A matriz virtual permite ao usuário criar backups agendados e manuais de todos os volumes ou compartilhamentos no dispositivo. Quando configurado como um servidor de arquivos, ele também permite a recuperação em nível de item. Este tutorial descreve como criar backups agendados e manuais e realizar a recuperação em nível de item para restaurar um arquivo excluído na matriz virtual.
 
@@ -32,7 +32,7 @@ Este tutorial se aplica somente a Matrizes Virtuais StorSimple. Para obter infor
 
 ## <a name="back-up-shares-and-volumes"></a>Fazer backup de compartilhamentos e volumes
 
-Backups oferecem proteção pontual, melhoram a capacidade de recuperação e minimizam os tempos de compartilhamentos e volumes. É possível fazer backup de um compartilhamento ou volume em seu dispositivo StorSimple de duas maneiras: **Agendada** ou **Manual**. Cada um desses métodos é discutido nas seções a seguir.
+Backups oferecem proteção pontual, melhoram a capacidade de recuperação e minimizam os tempos de compartilhamentos e volumes. Você pode fazer backup de um compartilhamento ou volume em seu dispositivo StorSimple de duas maneiras: **Agendado** ou **Manual**. Cada um desses métodos é discutido nas seções a seguir.
 
 ## <a name="change-the-backup-start-time"></a>Alterar a hora de início do backup
 
@@ -100,13 +100,13 @@ Execute as etapas a seguir no portal do Azure para exibir os backups existentes.
     ![Navegar até o catálogo de backup](./media/storsimple-virtual-array-backup/viewbackups1.png)
 2. Especifique os seguintes critérios para uso na filtragem:
    
-    - **Intervalo de tempo** – pode ser **Última hora**, **Últimas 24 horas**, **Últimos 7 dias**, **Últimos 30 dias**, **Ano passado** e **Data personalizada**.
+   - **Intervalo de tempo** – pode ser **Última hora**, **Últimas 24 horas**, **Últimos 7 dias**, **Últimos 30 dias**, **Ano passado** e **Data personalizada**.
     
-    - **Dispositivos** – selecione na lista de servidores de arquivos ou servidores iSCSI registrados no serviço do Gerenciador de Dispositivos do StorSimple.
+   - **Dispositivos** – selecione na lista de servidores de arquivos ou servidores iSCSI registrados no serviço do Gerenciador de Dispositivos do StorSimple.
    
-    - **Iniciado** – pode ser **Agendado** automaticamente (por uma política de backup) ou iniciado **Manualmente** (por você).
+   - **Iniciado** – pode ser **Agendado** automaticamente (por uma política de backup) ou iniciado **Manualmente** (por você).
    
-    ![Backups de filtro](./media/storsimple-virtual-array-backup/viewbackups2.png)
+     ![Backups de filtro](./media/storsimple-virtual-array-backup/viewbackups2.png)
 
 3. Clique em **Aplicar**. A lista filtrada de backups é exibida na folha **Catálogo de backup**. Observe que apenas 100 elementos de backup podem ser exibidos de cada vez.
    

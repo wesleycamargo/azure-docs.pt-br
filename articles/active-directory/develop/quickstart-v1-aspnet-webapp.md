@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcb235ab96ed8a85cbe44dd672dff004dd0a7310
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 73d762e5bb358964b439d1dc6027abc01332da21
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185309"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58007618"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Início Rápido: Adicionar a opção Entrar com uma Conta da Microsoft a um aplicativo Web ASP.NET
 
@@ -146,7 +146,8 @@ No Visual Studio, crie uma nova exibição para adicionar o botão de conexão e
 
     [!code-html[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Views/Home/Index.cshtml "Index.cshtml")]
 
-<!--start-collapse--> Esta página adiciona um botão Entrar no formato SVG com uma tela de fundo preta:<br/>![Entrar com uma Conta da Microsoft](./media/quickstart-v1-aspnet-webapp/aspnetsigninbuttonsample.png)<br/> Para obter mais botões Entrar, acesse [Diretrizes de identidade visual para aplicativos](howto-add-branding-in-azure-ad-apps.md).
+<!--start-collapse-->
+Esta página adiciona um botão de conexão no formato SVG com uma tela de fundo preta:<br/>![Entrar com uma Conta da Microsoft](./media/quickstart-v1-aspnet-webapp/aspnetsigninbuttonsample.png)<br/> Para obter mais botões Entrar, acesse [Diretrizes de identidade visual para aplicativos](howto-add-branding-in-azure-ad-apps.md).
 <!--end-collapse-->
 
 ## <a name="step-7-display-users-claims-by-adding-a-controller"></a>Etapa 7: Exiba as declarações do usuário adicionando um controlador
@@ -300,7 +301,7 @@ Além disso, você pode ver uma tabela que inclui todas as declarações de usu�
 
 Nesta etapa, você testa o acesso ao controlador de Declarações como um usuário anônimo:<br/>
 Selecione o link para desconectar o usuário e concluir o processo de saída.<br/>
-Agora no navegador, digite http://localhost:{port}/claims para acessar o controlador que está protegido com o atributo `[Authorize]`
+Agora no navegador, digite `http://localhost:{port}/claims` para acessar o controlador que está protegido com o atributo `[Authorize]`
 
 #### <a name="expected-results"></a>Resultados esperados
 

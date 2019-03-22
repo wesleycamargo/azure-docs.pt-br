@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2016
 ms.author: v-sharos
-ms.openlocfilehash: a99b3d7336c3dc1a1f249915d6971a49f4b69be6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: bc72da98800ef85ef14be0882ba856fbf01386b9
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109214"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872176"
 ---
 # <a name="use-storsimple-snapshot-manager-to-administer-your-storsimple-solution"></a>Use o StorSimple Snapshot Manager para administrar sua solução de StorSimple
 
@@ -48,7 +48,7 @@ Você pode usar o StorSimple Snapshot Manager para monitorar e gerenciar trabalh
 
 | SE VOCÊ QUISER FAZER ISSO... | USE ESTE TUTORIAL... |
 |:--- |:--- |
-| Saiba mais sobre o StorSimple Snapshot Manager |[O que é o StorSimple Snapshot Manager? ](storsimple-what-is-snapshot-manager.md) |
+| Saiba mais sobre o StorSimple Snapshot Manager |[O que é o StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md) |
 | Instalar o StorSimple Snapshot Manager<br>Reinstalar o StorSimple Snapshot Manager<br>Remover o StorSimple Snapshot Manager |[Implantar o StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md) |
 | Use os menus e recursos do StorSimple Snapshot Manager:<ul><li>Barra de menus</li><li>Barra de ferramentas</li><li>Painel Escopo</li><li>Painel Resultados</li><li>Painel Ações</li><li>Navegação por teclado e atalhos</li></ul> |[Interface do usuário do StorSimple Snapshot Manager](storsimple-use-snapshot-manager.md) |
 | Use os recursos comuns do MMC incluídos no StorSimple Snapshot Manager:<ul><li>Visualizar</li><li>Nova Janela a Partir Daqui</li><li>Atualizar</li><li>Exportar Lista</li><li>Ajuda</li></ul> |[Usar as ações de menu do MMC no StorSimple Snapshot Manager](storsimple-snapshot-manager-mmc-menu.md) |

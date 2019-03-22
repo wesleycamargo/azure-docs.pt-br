@@ -5,17 +5,17 @@ services: azure-stack
 author: mattbriggs
 ms.author: mabrigg
 ms.date: 02/27/2019
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: 45bd47d0a55f447cc6222bb24de8eafcf37e263b
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 1640e06d2d6eec19d516fb3ddf0e98c579e667a7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010643"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080787"
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Introdução às ferramentas de desenvolvimento de armazenamento do Azure Stack
 
@@ -58,7 +58,7 @@ Para instalar por meio do compositor: (levar o blob como um exemplo).
     }
     ```
 
-2. Baixe [Phar](http://getcomposer.org/composer.phar) à raiz do projeto.
+2. Baixe [Phar](https://getcomposer.org/composer.phar) à raiz do projeto.
 3. Execute: `php composer.phar install`.
 
 ### <a name="previous-versions-1802-to-1809-update"></a>Versões anteriores (atualização 1802 para 1809)
@@ -79,15 +79,15 @@ Para instalar por meio do Compoer: (tome blob como exemplo).
 
 1. Crie um arquivo chamado **Composer. JSON** na raiz do projeto com o código a seguir:
 
-  ```json
+   ```json
     {
       "require": {
       "Microsoft/azure-storage-blob":"1.0.0"
       }
     }
-  ```
+   ```
 
-2. Baixe [Phar](http://getcomposer.org/composer.phar) à raiz do projeto.
+2. Baixe [Phar](https://getcomposer.org/composer.phar) à raiz do projeto.
 3. Execute: `php composer.phar install`.
 
 ## <a name="endpoint-declaration"></a>Declaração de ponto de extremidade
@@ -173,7 +173,7 @@ AccountKey=mykey;
 EndpointSuffix=local.azurestack.external
 ```
 
-## <a name="blob-storage"></a>Armazenamento de blob
+## <a name="blob-storage"></a>Armazenamento de Blob
 
 Os tutoriais de armazenamento de BLOBs do Azure a seguir são aplicáveis para o Azure Stack. Observe o requisito de sufixo de ponto de extremidade específico para o Azure Stack descrito anteriormente na [exemplos](#examples) seção.
 
@@ -197,7 +197,7 @@ Os tutoriais de armazenamento de filas do Azure a seguir são aplicáveis para o
 * [Como usar o Armazenamento de fila do Python](../../storage/queues/storage-python-how-to-use-queue-storage.md)
 * [Como usar o Armazenamento de fila do Ruby](../../storage/queues/storage-ruby-how-to-use-queue-storage.md)
 
-## <a name="table-storage"></a>Armazenamento de tabela
+## <a name="table-storage"></a>Armazenamento de tabelas
 
 Os tutoriais de armazenamento de tabelas do Azure a seguir são aplicáveis para o Azure Stack. Observe o requisito de sufixo de ponto de extremidade específico para o Azure Stack descrito anteriormente na [exemplos](#examples) seção.
 

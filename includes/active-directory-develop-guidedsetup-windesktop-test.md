@@ -4,7 +4,7 @@ description: Arquivo de inclusão
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: ac4f826ed1d27ee39d8e35605a3baa7f94b33e64
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: HT
+ms.openlocfilehash: 6345eca674086801f8bb0f45476009f04a10f2e3
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "50035131"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58214520"
 ---
 ## <a name="test-your-code"></a>Testar seu código
 
@@ -45,7 +45,7 @@ Depois de entrar, você deverá ver as informações do perfil do usuário retor
 |---------|---------|---------|
 |**Nome** |Nome completo do usuário |O nome e sobrenome do usuário.|
 |**Nome de Usuário** |<span>user@domain.com</span> |O nome de usuário que é usado para identificar o usuário.|
-|**O Token Expira** |Datetime |A data e hora em que o token expira. MSAL estende a data de validade renovando o token, conforme necessário.|
+|**O Token Expira** |DateTime |A data e hora em que o token expira. MSAL estende a data de validade renovando o token, conforme necessário.|
 |**Token de acesso** |Cadeia de caracteres |A cadeia de caracteres do token enviada para solicitações HTTP que requerem um *Cabeçalho de Autorização*.|
 
 <!--start-collapse-->

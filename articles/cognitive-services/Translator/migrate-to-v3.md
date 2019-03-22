@@ -10,17 +10,19 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 04d7bfcf0527b490bc18f6d85977d899823d5e69
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: 1857cd7c4fe6102f94487dbb2cc5ad5c43c18f99
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301869"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101169"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Migração da API de Tradução de Texto V2 para V3
 
 > [!NOTE]
 > A V2 será preterida em 30 de abril de 2018 e será descontinuada em 30 de abril de 2019.
+> 
+> O Microsoft Translator Hub será desativado em 30 de abril de 2019. [Exibir informações de migração importantes e datas](https://www.microsoft.com/translator/business/hub/).  
 
 A equipe do Microsoft Translator lançou a versão 3 (V3) da API de Tradução de Texto. Esta versão inclui novos recursos, métodos preteridos e um novo formato para enviar e receber dados do Serviço do Microsoft Translator. Este documento apresenta informações sobre como alterar os aplicativos para usar a V3. 
 
@@ -49,8 +51,8 @@ A seguinte lista de métodos V2 e V3 identifica as APIs e os métodos da V3 que 
 | `Speak`     | [Serviço de fala da Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
 | `Detect`     | [Detect](reference/v3-0-detect.md)         |
 | `DetectArray`     | [Detect](reference/v3-0-detect.md)         |
-| `AddTranslation`     | [API do Microsoft Translator Hub](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)         |
-| `AddTranslationArray`    | [API do Microsoft Translator Hub](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)          |
+| `AddTranslation`     | Não há mais suporte para o recurso       |
+| `AddTranslationArray`    | Não há mais suporte para o recurso          |
 | `BreakSentences`      | [BreakSentence](reference/v3-0-break-sentence.md)       |
 | `GetTranslations`      | Não há mais suporte para o recurso         |
 | `GetTranslationsArray`      | Não há mais suporte para o recurso         |
@@ -106,6 +108,10 @@ Global
 
 ## <a name="compatibility-and-customization"></a>Compatibilidade e personalização
 
+> [!NOTE]
+> 
+> O Microsoft Translator Hub será desativado em 30 de abril de 2019. [Exibir informações de migração importantes e datas](https://www.microsoft.com/translator/business/hub/).   
+
 Por padrão, o Microsoft Translator V3 usa tradução automática neural. Como tal, não pode ser utilizado com o Hub do Microsoft Translator. O Hub do Translator dá suporte somente para tradução automática de estatística herdada. A personalização para tradução neural agora está disponível usando o Tradutor Personalizado. [Saiba mais sobre como personalizar a tradução automática neural](custom-translator/overview.md)
 
 A tradução neural com a API de texto V3 não dá suporte ao uso de categorias padrão (SMT, fala, texto, generalnn).
@@ -130,13 +136,13 @@ Você está usando a Versão 3 da API de Tradução de Texto caso esteja usando 
 * Fornece acesso a sistemas de tradução personalizada criados usando o Hub do Microsoft Translator.
 * Você está usando a Versão 2 da API de Tradução de Texto caso esteja usando o ponto de extremidade api.microsofttranslator.com.
 
-Nenhuma versão da API do Tradutor cria um registro de suas traduções. Suas traduções nunca são compartilhadas com ninguém. Mais informações podem ser encontradas na página da Web [Tradutor sem rastreamento](http://www.aka.ms/NoTrace).
+Nenhuma versão da API do Tradutor cria um registro de suas traduções. Suas traduções nunca são compartilhadas com ninguém. Mais informações podem ser encontradas na página da Web [Tradutor sem rastreamento](https://www.aka.ms/NoTrace).
 
 ## <a name="links"></a>Links
 
 * [Política de privacidade da Microsoft](https://privacy.microsoft.com/privacystatement)
 * [Informações legais do Microsoft Azure](https://azure.microsoft.com/support/legal)
-* [Termos de serviços online](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)
+* [Termos de serviços online](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)
 
 ## <a name="next-steps"></a>Próximas etapas
 

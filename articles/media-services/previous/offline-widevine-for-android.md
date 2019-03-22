@@ -14,14 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: 13042a25a0bf106dd579e7d5e8cf8553a79c8f00
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: bf2f2db57f33645389fd751c8c00f9f135416c50
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002074"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864126"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Streaming offline do Widevine para Android  
+
+> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> * [Versão 3](../latest/offline-widevine-for-android.md)
+> * [Versão 2](offline-widevine-for-android.md)
 
 Além de proteger o conteúdo para streaming online, os serviços de aluguel e assinatura de conteúdo de mídia oferecem conteúdo para baixar que funciona quando você não está conectado à Internet. Talvez você precise baixar o conteúdo em seu telefone ou tablet para reprodução no modo avião quando estiver em um voo desconectado da rede. Outros cenários, em que talvez você deseje baixar o conteúdo:
 

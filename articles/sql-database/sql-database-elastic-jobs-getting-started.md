@@ -11,23 +11,25 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: ff7e15579bfb0edfe9229238c6a4d5672700d0ef
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 5fd51e2d847b540d2eb8c17c2bc31f4e162a21ee
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567002"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904619"
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Introdução a trabalhos de Banco de Dados Elástico
-
-[!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
 
 Trabalhos de Banco de Dados Elástico (visualização) para o Banco de Dados SQL do Azure permite que você execute, de modo confiável, scripts T-SQL que abrangem vários bancos de dados, repetindo tentativas automaticamente e fornecendo eventuais garantias de conclusão. Para obter mais informações sobre o recurso de trabalho de Banco de Dados Elástico, consulte [Trabalhos elásticos](sql-database-elastic-jobs-overview.md).
 
 Este artigo estende o exemplo encontrado na [Introdução às ferramentas de Banco de Dados Elástico](sql-database-elastic-scale-get-started.md). Quando concluído, você terá aprendido a criar e gerenciar trabalhos que gerenciam um grupo de bancos de dados relacionados. Não é necessário usar as ferramentas de Dimensionamento Elástico para tirar proveito dos benefícios dos Trabalhos elásticos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> O módulo do PowerShell do Azure Resource Manager ainda é compatível com o banco de dados SQL, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para esses cmdlets, consulte [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
 
 Baixe e execute a [exemplo da Introdução às ferramentas de Banco de Dados Elástico](sql-database-elastic-scale-get-started.md).
 
@@ -50,12 +52,12 @@ Normalmente, criaríamos aqui um destino para o mapa de fragmentos, usando o cmd
 
 ## <a name="creates-a-custom-collection-and-add-all-databases-in-the-server-to-the-custom-collection-target-with-the-exception-of-master"></a>Criar uma coleção personalizada e adicionar todos os bancos de dados no servidor ao destino de coleção personalizada, com exceção do mestre
 
-   ```Powershell
+   ```PowerShell
     $customCollectionName = "dbs_in_server"
     New-AzureSqlJobTarget -CustomCollectionName $customCollectionName
     $ResourceGroupName = "ddove_samples"
     $ServerName = "samples"
-    $dbsinserver = Get-AzureRMSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName
+    $dbsinserver = Get-AzSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName
     $dbsinserver | %{
     $currentdb = $_.DatabaseName
     $ErrorActionPreference = "Stop"
@@ -314,7 +316,7 @@ Se for solicitado um cancelamento de trabalho para um trabalho pai, a solicitaç
 
 Para enviar uma solicitação de cancelamento, use o cmdlet **Stop-AzureSqlJobExecution** e defina o parâmetro **JobExecutionId**.
 
-   ```Powershell
+   ```PowerShell
     $jobExecutionId = "{Job Execution Id}"
     Stop-AzureSqlJobExecution -JobExecutionId $jobExecutionId
    ```

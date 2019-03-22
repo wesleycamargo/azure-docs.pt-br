@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/04/2018
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: 284a590a484052fdb7da2f03c6155078268b2aac
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 93c19bc39f64df21dfa9db2490ab2103aba8191d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211437"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086098"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Gerenciando o ciclo de vida do Armazenamento de Blobs do Azure (Versão Prévia)
 
@@ -84,7 +84,7 @@ Adicione, edite ou remova uma política usando o portal do Azure, o [PowerShell]
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-$rules = '{ ... }' 
+$rules = '{ ... }'
 
 Set-AzStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName] -StorageAccountName [storageAccountName] -Policy $rules 
 
@@ -100,7 +100,7 @@ az storage account management-policy show --resource-group [resourceGroupName] -
 ```
 
 > [!NOTE]
-Se você habilitar as regras de firewall para sua conta de armazenamento, as solicitações de gerenciamento do ciclo de vida poderão ser bloqueadas. Desbloqueie essas solicitações fornecendo exceções. Para obter mais informações, confira a seção Exceções em [Configurar firewalls e redes virtuais](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+> Se você habilitar as regras de firewall para sua conta de armazenamento, as solicitações de gerenciamento do ciclo de vida poderão ser bloqueadas. Desbloqueie essas solicitações fornecendo exceções. Para obter mais informações, confira a seção Exceções em [Configurar firewalls e redes virtuais](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 ## <a name="policy"></a>Política
 
@@ -127,17 +127,17 @@ Uma política de gerenciamento do ciclo de vida é uma coleção de regras em um
 
 Uma política exige dois parâmetros:
 
-| Nome do parâmetro | Tipo de parâmetro | Observações |
+| Nome do parâmetro | Tipo de parâmetro | Anotações |
 |----------------|----------------|-------|
-| version        | Uma cadeia de caracteres expressada como `x.x` | O número de versão da versão prévia é 0.5. |
+| versão        | Uma cadeia de caracteres expressada como `x.x` | O número de versão da versão prévia é 0.5. |
 | regras          | Uma matriz de objetos de regra | Pelo menos uma regra é necessária em cada política. Durante a versão prévia, você pode especificar até quatro regras por política. |
 
 Cada regra na política exige três parâmetros:
 
-| Nome do parâmetro | Tipo de parâmetro | Observações |
+| Nome do parâmetro | Tipo de parâmetro | Anotações |
 |----------------|----------------|-------|
-| NOME           | Cadeia de caracteres | Um nome de regra pode incluir qualquer combinação de caracteres alfanuméricos. A regra de nome diferencia maiúsculas de minúsculas. Ela deve ser exclusiva em uma política. |
-| Tipo           | Um valor de enumeração | O valor válido para a versão prévia é `Lifecycle`. |
+| Nome           | Cadeia | Um nome de regra pode incluir qualquer combinação de caracteres alfanuméricos. A regra de nome diferencia maiúsculas de minúsculas. Ela deve ser exclusiva em uma política. |
+| tipo           | Um valor de enumeração | O valor válido para a versão prévia é `Lifecycle`. |
 | definição     | Um objeto que define a regra de ciclo de vida | Cada definição é composta por um conjunto de filtros e um conjunto de ações. |
 
 ## <a name="rules"></a>Regras
@@ -155,10 +155,10 @@ A regra de amostra a seguir filtra a conta para executar as ações somente em `
 ```json
 {
   "version": "0.5",
-  "rules": [ 
+  "rules": [
     {
-      "name": "ruleFoo", 
-      "type": "Lifecycle", 
+      "name": "ruleFoo",
+      "type": "Lifecycle",
       "definition": {
         "filters": {
           "blobTypes": [ "blockBlob" ],
@@ -187,10 +187,10 @@ Os filtros limitam as ações de regra a um subconjunto de blobs na conta de arm
 
 Durante a versão prévia, os filtros válidos incluem:
 
-| Nome do filtro | Tipo do filtro | Observações | Obrigatório |
+| Nome do filtro | Tipo de filtro | Anotações | É Necessário |
 |-------------|-------------|-------|-------------|
 | blobTypes   | Uma matriz de valores de enumeração predefinidos. | A versão prévia só dá suporte a `blockBlob`. | Sim |
-| prefixMatch | Uma matriz de cadeias de caracteres para prefixos a serem correspondidos. Uma cadeia de caracteres de prefixo deve começar com um nome de contêiner. Por exemplo, se você deseja encontrar uma correspondência para todos os blobs em "https://myaccount.blob.core.windows.net/container1/foo/..." em uma regra, o prefixMatch é `container1/foo`. | Se você não definir o prefixMatch, as regras serão aplicadas a todos os blobs da conta. | Não  |
+| prefixMatch | Uma matriz de cadeias de caracteres para prefixos a serem correspondidos. Uma cadeia de caracteres de prefixo deve começar com um nome de contêiner. Por exemplo, se você deseja correspondência com todos os blobs no "<https://myaccount.blob.core.windows.net/container1/foo/>..." uma regra, o prefixMatch é `container1/foo`. | Se você não definir o prefixMatch, as regras serão aplicadas a todos os blobs da conta. | Não |
 
 ### <a name="rule-actions"></a>Ações de regra
 
@@ -204,12 +204,12 @@ Na versão prévia, o gerenciamento do ciclo de vida dá suporte à colocação 
 | tierToArchive | Dá suporte aos blobs atualmente presentes na camada frequente ou esporádica | Sem suporte |
 | excluir        | Com suporte                                   | Com suporte     |
 
->[!NOTE] 
-Se você definir mais de uma ação no mesmo blob, o gerenciamento do ciclo de vida aplicará a ação mais barata ao blob. Por exemplo, a ação `delete` é mais barata do que a ação `tierToArchive`. A ação `tierToArchive` é mais barata do que a ação `tierToCool`.
+> [!NOTE]
+> Se você definir mais de uma ação no mesmo blob, o gerenciamento do ciclo de vida aplicará a ação mais barata ao blob. Por exemplo, a ação `delete` é mais barata do que a ação `tierToArchive`. A ação `tierToArchive` é mais barata do que a ação `tierToCool`.
 
 Na versão prévia, as condições de execução da ação são com base na idade. Os blobs base usam a hora da última modificação para acompanhar a idade, enquanto os instantâneos de blob usam a hora de criação do instantâneo para executar a mesma tarefa.
 
-| Condição de execução da ação | Valor de condição | DESCRIÇÃO |
+| Condição de execução da ação | Valor de condição | Descrição |
 |----------------------------|-----------------|-------------|
 | daysAfterModificationGreaterThan | Valor inteiro que indica a idade em dias | Condição válida para ações de blob de base |
 | daysAfterCreationGreaterThan     | Valor inteiro que indica a idade em dias | Condição válida para ações de instantâneo de blob | 
@@ -224,23 +224,22 @@ Este exemplo mostra como fazer a transição de blobs de blocos prefixados com `
 ```json
 {
   "version": "0.5",
-  "rules": [ 
+  "rules": [
     {
-      "name": "agingRule", 
-      "type": "Lifecycle", 
-      "definition": 
-        {
-          "filters": {
-            "blobTypes": [ "blockBlob" ],
-            "prefixMatch": [ "container1/foo", "container2/bar" ]
-          },
-          "actions": {
-            "baseBlob": {
-              "tierToCool": { "daysAfterModificationGreaterThan": 30 },
-              "tierToArchive": { "daysAfterModificationGreaterThan": 90 }
-            }
+      "name": "agingRule",
+      "type": "Lifecycle",
+      "definition": {
+        "filters": {
+          "blobTypes": [ "blockBlob" ],
+          "prefixMatch": [ "container1/foo", "container2/bar" ]
+        },
+        "actions": {
+          "baseBlob": {
+            "tierToCool": { "daysAfterModificationGreaterThan": 30 },
+            "tierToArchive": { "daysAfterModificationGreaterThan": 90 }
           }
-        }      
+        }
+      }
     }
   ]
 }
@@ -253,22 +252,21 @@ Alguns dados permanecem ociosos na nuvem e raramente ou nunca são acessados dep
 ```json
 {
   "version": "0.5",
-  "rules": [ 
+  "rules": [
     {
-      "name": "archiveRule", 
-      "type": "Lifecycle", 
-      "definition": 
-        {
-          "filters": {
-            "blobTypes": [ "blockBlob" ],
-            "prefixMatch": [ "archivecontainer" ]
-          },
-          "actions": {
-            "baseBlob": { 
-                "tierToArchive": { "daysAfterModificationGreaterThan": 0 }
-            }
+      "name": "archiveRule",
+      "type": "Lifecycle",
+      "definition": {
+        "filters": {
+          "blobTypes": [ "blockBlob" ],
+          "prefixMatch": [ "archivecontainer" ]
+        },
+        "actions": {
+          "baseBlob": {
+              "tierToArchive": { "daysAfterModificationGreaterThan": 0 }
           }
-        }      
+        }
+      }
     }
   ]
 }
@@ -282,21 +280,20 @@ Espera-se que alguns dados expirem dias ou meses após a criação para reduzir 
 ```json
 {
   "version": "0.5",
-  "rules": [ 
+  "rules": [
     {
-      "name": "expirationRule", 
-      "type": "Lifecycle", 
-      "definition": 
-        {
-          "filters": {
-            "blobTypes": [ "blockBlob" ]
-          },
-          "actions": {
-            "baseBlob": {
-              "delete": { "daysAfterModificationGreaterThan": 365 }
-            }
+      "name": "expirationRule",
+      "type": "Lifecycle",
+      "definition": {
+        "filters": {
+          "blobTypes": [ "blockBlob" ]
+        },
+        "actions": {
+          "baseBlob": {
+            "delete": { "daysAfterModificationGreaterThan": 365 }
           }
-        }      
+        }
+      }
     }
   ]
 }
@@ -309,22 +306,21 @@ Para dados que são modificados e acessados regularmente durante seu ciclo de vi
 ```json
 {
   "version": "0.5",
-  "rules": [ 
+  "rules": [
     {
-      "name": "snapshotRule", 
-      "type": "Lifecycle", 
-      "definition": 
-        {
-          "filters": {
-            "blobTypes": [ "blockBlob" ],
-            "prefixMatch": [ "activedata" ]
-          },
-          "actions": {            
-            "snapshot": {
-              "delete": { "daysAfterCreationGreaterThan": 90 }
-            }
+      "name": "snapshotRule",
+      "type": "Lifecycle",
+    "definition": {
+        "filters": {
+          "blobTypes": [ "blockBlob" ],
+          "prefixMatch": [ "activedata" ]
+        },
+        "actions": {
+          "snapshot": {
+            "delete": { "daysAfterCreationGreaterThan": 90 }
           }
-        }      
+        }
+      }
     }
   ]
 }
@@ -337,4 +333,4 @@ A plataforma executa a política de ciclo de vida uma vez por dia. Depois que vo
 
 Saiba como recuperar dados após uma exclusão acidental:
 
-- [Exclusão reversível para blobs do Armazenamento do Azure ](../blobs/storage-blob-soft-delete.md)
+- [Exclusão reversível para blobs de armazenamento do Azure](../blobs/storage-blob-soft-delete.md)

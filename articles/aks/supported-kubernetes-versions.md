@@ -5,14 +5,14 @@ services: container-service
 author: sauryadas
 ms.service: container-service
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 02/15/2019
 ms.author: saudas
-ms.openlocfilehash: 37a9712749a1575f81086d28ad461a665bef36d9
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: aafc6c5a240a1dd3e3c75dd33da26bde918b2288
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313442"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57403202"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versões do Kubernetes com suporte no AKS (Serviço de Kubernetes do Azure)
 
@@ -31,7 +31,7 @@ Por exemplo, se o AKS introduzir a versão *1.12.x* hoje, ele também oferecerá
 
 Quando uma nova versão secundária é introduzida, as versões secundárias e de patch mais antigas com suporte são desativadas. Quinze dias antes do lançamento da nova versão secundária e da futura desativação da versão, um comunicado é feito por meio dos [canais de atualização do Azure][azure-update-channel]. No exemplo acima, em que *1.12.x* é lançado, as versões desativadas são *1.8.g* + *1.8.h*.
 
-Quando você implanta um cluster do AKS no portal ou com a CLI do Azure, o cluster é sempre definido como a versão secundária n-1 e o patch mais recente. Por exemplo, se o AKS oferecer suporte às versões *1.12.x*, *1.11.a* + *1.11.b*, *1.10.c* + *1.10d*, *1.9.e* + *1.9f*, a versão padrão dos novos clusters será *1.10.b*.
+Quando você implanta um cluster do AKS no portal ou com a CLI do Azure, o cluster é sempre definido como a versão secundária n-1 e o patch mais recente. Por exemplo, se o AKS oferecer suporte às versões *1.12.x*, *1.11.a* + *1.11.b*, *1.10.c* + *1.10d*, *1.9.e* + *1.9F*, é a versão padrão para novos clusters *1.11.b*.
 
 ## <a name="list-currently-supported-versions"></a>Lista de versões compatíveis no momento
 

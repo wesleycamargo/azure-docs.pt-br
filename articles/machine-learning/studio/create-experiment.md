@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: 803a52994536d2d6f39a064f97af7831af0cebb6
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 0819c232412e1619f82a25476a8318d26c8087da
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453164"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105719"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Início rápido: crie seu primeiro experimento no de ciência de dados no Azure Machine Learning Studio
 
@@ -95,21 +95,21 @@ Primeiro, vamos adicionar um módulo que remova a coluna **normalized-losses** c
 
 1. Selecione o módulo [Selecionar Colunas no Conjunto de Dados][select-columns] e clique em **Iniciar seletor de coluna** no painel **Propriedades**.
 
-    - À esquerda, clique em **Com regras**
-    - Em **Começa com**, clique em **Todas as colunas**. Essas regras instruem [Selecionar Colunas no Conjunto de Dados][select-columns] a passar por todas as colunas (exceto por aquelas que estamos prestes a excluir).
-    - Nos menus suspensos, selecione **Excluir** e **nomes da coluna** e clique dentro da caixa de texto. Uma lista de colunas é exibida. Selecione **normalized-losses**e ela será adicionada à caixa de texto.
-    - Clique no botão de marca de seleção (OK) para fechar o seletor de coluna (no canto inferior direito).
+   - À esquerda, clique em **Com regras**
+   - Em **Começa com**, clique em **Todas as colunas**. Essas regras instruem [Selecionar Colunas no Conjunto de Dados][select-columns] a passar por todas as colunas (exceto por aquelas que estamos prestes a excluir).
+   - Nos menus suspensos, selecione **Excluir** e **nomes da coluna** e clique dentro da caixa de texto. Uma lista de colunas é exibida. Selecione **normalized-losses**e ela será adicionada à caixa de texto.
+   - Clique no botão de marca de seleção (OK) para fechar o seletor de coluna (no canto inferior direito).
 
-    ![Inicie o seletor de coluna e exclua a coluna "normalized-losses"](./media/create-experiment/launch-column-selector.png)
+     ![Inicie o seletor de coluna e exclua a coluna "normalized-losses"](./media/create-experiment/launch-column-selector.png)
 
-    Agora, o painel de propriedades de **Selecionar Colunas no Conjunto de Dados** indica que ele passará por todas as colunas do conjunto de dados exceto por **normalized-losses**.
+     Agora, o painel de propriedades de **Selecionar Colunas no Conjunto de Dados** indica que ele passará por todas as colunas do conjunto de dados exceto por **normalized-losses**.
 
-    ![O painel de propriedades mostra que a coluna "normalized-losses" foi excluída](./media/create-experiment/showing-excluded-column.png)
+     ![O painel de propriedades mostra que a coluna "normalized-losses" foi excluída](./media/create-experiment/showing-excluded-column.png)
 
-    > [!TIP] 
-    > É possível adicionar um comentário em um módulo ao clicar duas vezes nele e inserir o texto. Isso pode ajudar a ver rapidamente o que o módulo está fazendo em seu experimento. Neste caso, clique duas vezes no módulo [Selecionar Colunas no Conjunto de Dados][select-columns] e digite o comentário “Excluir perdas normalizadas”.
+     > [!TIP] 
+     > É possível adicionar um comentário em um módulo ao clicar duas vezes nele e inserir o texto. Isso pode ajudar a ver rapidamente o que o módulo está fazendo em seu experimento. Neste caso, clique duas vezes no módulo [Selecionar Colunas no Conjunto de Dados][select-columns] e digite o comentário “Excluir perdas normalizadas”.
 
-    ![Clique duas vezes em um módulo para adicionar um comentário](./media/create-experiment/add-comment.png)
+     ![Clique duas vezes em um módulo para adicionar um comentário](./media/create-experiment/add-comment.png)
 
 1. Arraste o módulo [Limpar valores ausentes][clean-missing-data] até a tela do teste e conecte-o ao módulo [Selecionar Colunas no Conjunto de Dados][select-columns]. No painel **Propriedades** selecione **Remover linha inteira** em **Modo de limpeza**. Essas opções direcionam o [Limpar Dados Ausentes][clean-missing-data] a limpar os dados removendo as linhas que têm valores ausentes. Clique duas vezes no módulo e digite o comentário “Remover linhas de valor ausente".
 

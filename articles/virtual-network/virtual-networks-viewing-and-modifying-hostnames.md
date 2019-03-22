@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: afd5361774af3379dc0d4054509e318e8263dcc5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 3fdb0f566789382a1606b19e4fac179f9ecf40cd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250179"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57887452"
 ---
 # <a name="viewing-and-modifying-hostnames"></a>Exibindo e modificando os nomes do host
 Para permitir que as instâncias de função sejam referenciadas pelo nome do host, você deve definir o valor para o nome do host no arquivo de configuração de serviço para cada função. Você pode fazer isso adicionando o nome do host desejado ao atributo **vmName** do elemento **Função**. O valor do atributo **vmName** é usado como base para o nome do host de cada instância de função. Por exemplo, se **vmName** for *webrole* e houver três instâncias dessa função, os nomes do host das instâncias serão *webrole0*, *webrole1* e *webrole2*. Você não precisa especificar um nome do host para máquinas virtuais no arquivo de configuração, porque o nome do host para uma máquina virtual é preenchido com base no nome da máquina virtual. Para obter mais informações sobre como configurar um serviço do Microsoft Azure, consulte [Esquema de configuração do serviço do Azure (arquivo .cscfg)](https://msdn.microsoft.com/library/azure/ee758710.aspx)
@@ -40,9 +40,9 @@ Após habilitar a área de trabalho remota (Windows), comunicação remota do Wi
 ### <a name="azure-service-management-rest-api"></a>API REST de Gerenciamento de Serviços do Azure
 Em um cliente REST, siga estas instruções:
 
-1. Certifique-se de que você tenha um certificado do cliente para se conectar ao Portal do Azure. Para obter um certificado do cliente, execute as etapas apresentadas em [Como baixar e importar configurações de publicação e informações de assinatura](https://msdn.microsoft.com/library/dn385850.aspx). 
+1. Certifique-se de que você tenha um certificado do cliente para se conectar ao Portal do Azure. Para obter um certificado de cliente, siga as etapas apresentadas em [como: Baixar e importar publicam informações de assinatura e configurações](https://msdn.microsoft.com/library/dn385850.aspx). 
 2. Defina uma entrada de cabeçalho chamada x-ms-version com um valor de 2013-11-01.
-3. Envie uma solicitação no seguinte formato: https://management.core.windows.net/\<subscrition-id\>/services/hostedservices/\<service-name\>?embed-detail=true
+3. Envie uma solicitação no seguinte formato: https:\//management.core.windows.net/\<subscrition-id\>/serviços/hostedservices/\<nome do serviço\>? incorporar-detail = true
 4. Procure o elemento **HostName** para cada elemento **RoleInstance**.
 
 > [!WARNING]

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d4b8cd07e50697139f68084f47c847ef8728c429
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: 00357641f51be703d2e5c52c5b9cc6187ce05ff6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888950"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002676"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Passo a passo de infraestrutura do Azure de exemplo para VMs Linux
 Este artigo explica como criar uma infraestrutura de aplicativo de exemplo. Fornecemos detalhes de como projetar uma infraestrutura para um repositório online simples que reúne todas as diretrizes e decisões sobre convenções de nomenclatura, conjuntos de disponibilidade, redes virtuais e balanceadores de carga, bem como a implantação de fato das VMs (máquinas virtuais).
@@ -48,13 +48,13 @@ O projeto resultante deve incorporar:
 * Azure Managed Disks
 * Uma rede virtual com duas sub-redes
 * Conjuntos de disponibilidade para as VMs com funções semelhantes
-* Máquinas virtuais
+* Máquinas Virtuais
 
 Todos os itens acima seguem estas convenções de nomenclatura:
 
 * A Adventure Works Cycles usa **[carga de trabalho de TI]-[localização]-[recurso do Azure]** como prefixo
   * Neste exemplo, “**azos**” (Repositório Online do Azure) é o nome de carga de trabalho de TI e “**use**” (Leste dos EUA 2) é a localização
-* As redes virtuais usam AZOS-USE-VN **[número]**
+* As redes virtuais usam AZOS-USE-VN<strong>[número]</strong>
 * Os conjuntos de disponibilidade usam azos-use-as-**[função]**
 * Os nomes de máquina virtual usam azos-use-vm-**[nomevm]**
 
@@ -73,7 +73,7 @@ Como a rede virtual não precisa de conectividade contínua com a rede local da 
 Criaram uma rede virtual somente em nuvem com as seguintes configurações usando o portal do Azure:
 
 * Nome: AZOS-USE-VN01
-* Localização: Leste dos EUA 2
+* Local: Leste dos EUA 2
 * Espaço de endereço da rede virtual: 10.0.0.0/8
 * Primeira sub-rede:
   * Nome: FrontEnd
@@ -90,7 +90,7 @@ Para manter a alta disponibilidade de todas as quatro camadas de seu repositóri
 * **azos-use-as-db** para os servidores no cluster fragmentado do MongoDB
 * **azos-use-as-dc** para os controladores de domínio
 
-## <a name="virtual-machines"></a>Máquinas virtuais
+## <a name="virtual-machines"></a>Máquinas Virtuais
 A Adventure Works Cycles decidiu usar os seguintes nomes para suas VMs do Azure:
 
 * **azos-use-vm-web01** para o primeiro servidor Web

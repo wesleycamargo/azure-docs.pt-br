@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
 ms.author: kgremban
-ms.openlocfilehash: 7c5030a80ead7e84526e01aa3a8a4a75ee2b276a
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9c84e1a62ad8b67e398c62074c390711f4b0be28
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135008"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079990"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>Tutorial: Enviar notificações por email sobre os eventos do Hub IoT usando Aplicativos Lógicos
 
@@ -162,14 +162,14 @@ Nesta seção, você configura o Hub IoT para publicar eventos à medida que oco
    ![Criar nova assinatura de evento](./media/publish-iot-hub-events-to-logic-apps/event-subscription.png)
 
 4. Crie a assinatura de evento com os seguintes valores: 
-    * **Tipo de evento**: desmarque a opção Assinar todos os tipos de evento e selecione **Dispositivo Criado** no menu.
-    * **Detalhes do Ponto de Extremidade**: selecione o Tipo de Ponto de Extremidade como **Web hook**, clique em Selecionar ponto de extremidade, cole a URL copiada do aplicativo lógico e confirme a seleção.
+   * **Tipo de evento**: desmarque a opção Assinar todos os tipos de evento e selecione **Dispositivo Criado** no menu.
+   * **Detalhes do Ponto de Extremidade**: Selecione o Tipo de Ponto de Extremidade como **Web hook**, clique em Selecionar ponto de extremidade, cole a URL copiada do aplicativo lógico e confirme a seleção.
 
-    ![selecionar a url de ponto de extremidade](./media/publish-iot-hub-events-to-logic-apps/endpoint-url.png)
+     ![selecionar a url de ponto de extremidade](./media/publish-iot-hub-events-to-logic-apps/endpoint-url.png)
 
-    * **Detalhes da Assinatura de Evento**: forneça um nome descritivo e selecione **Esquema da Grade de Eventos**
+   * **Detalhes da Assinatura de Evento**: forneça um nome descritivo e selecione **Esquema da Grade de Eventos**
 
-  Quando terminar, o formulário deverá ser o seguinte exemplo: 
+   Quando terminar, o formulário deverá ser o seguinte exemplo: 
 
     ![Exemplo de formulário de inscrição de evento](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
 
@@ -177,8 +177,8 @@ Nesta seção, você configura o Hub IoT para publicar eventos à medida que oco
 
 6. Crie os seguintes filtros:
 
-  * **Entidade Começa Com**: insira `devices/Building1_` para filtrar eventos de dispositivo na construção 1.
-  * **Entidade Termina Com**: insira `_Temperature` para filtrar eventos de dispositivos relacionados à temperatura.
+   * **Entidade Começa Com**: insira `devices/Building1_` para filtrar eventos de dispositivo na construção 1.
+   * **Entidade Termina Com**: insira `_Temperature` para filtrar eventos de dispositivos relacionados à temperatura.
 
 5. Selecione **Criar** para salvar a assinatura de evento.
 

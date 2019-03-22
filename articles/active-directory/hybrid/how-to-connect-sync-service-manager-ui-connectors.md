@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a0d42ff70bfaebf4d544fd81e6767592198ccef
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ae932191c7b76590ea217386dfd729add5566f87
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205589"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431165"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Usando conectores com o Azure AD Connect Sync Service Manager
 
@@ -86,7 +86,7 @@ Para resolver o problema, atualize a conta de usuário do AD DS usando o seguint
 3. Selecione o Conector do AD que está configurado para usar a conta do AD DS.
 4. Em Ações, selecione **Propriedades**.
 5. Na caixa de diálogo pop-up, selecione Conectar-se à Floresta do Active Directory:
-6. O Nome da floresta indica o AD local correspondente.
+6. O nome da floresta indica correspondente no AD local.
 7. O Nome de usuário indica a conta do AD DS usada para sincronização.
 8. Insira a nova senha da conta do AD DS na caixa de texto ![Utilitário de Chave de Criptografia de Sincronização do Azure AD Connect](./media/how-to-connect-sync-service-manager-ui-connectors/key6.png) da Senha
 9. Clique em OK para salvar a nova senha e reinicie o Serviço de Sincronização para remover a senha antiga do cache de memória.

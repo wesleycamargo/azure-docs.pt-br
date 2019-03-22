@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: adigan
-ms.openlocfilehash: cc76b15c3cb108b5181e22330954dfee789b01ba
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
+ms.openlocfilehash: 621d071f98701ff3a949f4172fef1d13819d7192
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251106"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852843"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Adicionar armazenamento ao Servidor de Backup do Azure
 
@@ -75,7 +75,7 @@ Com o armazenamento com reconhecimento de carga de trabalho, você pode selecion
 
 ### <a name="update-dpmdiskstorage"></a>Update-DPMDiskStorage
 
-Você pode configurar o armazenamento com reconhecimento de carga de trabalho usando o cmdlet do PowerShell Update-DPMDiskStorage, que atualiza as propriedades de um volume no pool de armazenamento em um Servidor de Backup do Azure. 
+Você pode configurar o armazenamento de reconhecimento de carga de trabalho usando o cmdlet do PowerShell Update-DPMDiskStorage, que atualiza as propriedades de um volume no pool de armazenamento em um servidor de Backup do Azure. 
 
 Sintaxe:
 
@@ -100,13 +100,13 @@ Atualizar grupos de proteção para usar o Armazenamento de Backup Moderno é op
 
 1. No Console do Administrador, selecione a funcionalidade **Proteção**. Na lista **Membro do Grupo de Proteção**, clique com o botão direito no membro e, em seguida, selecione **Interromper proteção do membro**.
 
-  ![Interromper a proteção de membro](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
+   ![Interromper a proteção de membro](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
 
 2. Na caixa de diálogo **Remover do grupo**, examine o espaço em disco usado e o espaço livre disponível no pool de armazenamento. O padrão é deixar os pontos de recuperação no disco e permitir a expiração por sua política de retenção associada. Clique em **OK**.
 
-  Se você quiser retornar imediatamente o espaço em disco usado para o pool de armazenamento livre, selecione a caixa de seleção **Excluir réplica no disco** para excluir os dados de backup (e pontos de recuperação) associado a esse membro.
+   Se você quiser retornar imediatamente o espaço em disco usado para o pool de armazenamento livre, selecione a caixa de seleção **Excluir réplica no disco** para excluir os dados de backup (e pontos de recuperação) associado a esse membro.
 
-  ![Remover da caixa de diálogo Grupo](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
+   ![Remover da caixa de diálogo Grupo](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
 
 3. Crie um grupo de proteção que usa o Armazenamento de Backup Moderno. Inclua as fontes de dados desprotegidos.
 
@@ -118,7 +118,7 @@ Para adicionar armazenamento em disco:
 
 1. No Console do Administrador, selecione **Gerenciamento** > **Armazenamento em Disco** > **Adicionar**.
 
-    ![Adicionar caixa de diálogo de Armazenamento em Disco](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
+    ![Adicionar caixa de diálogo de Armazenamento em Disco](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
 
 4. Na caixa de diálogo **Adicionar Armazenamento em Disco**, selecione **Adicionar discos**.
 

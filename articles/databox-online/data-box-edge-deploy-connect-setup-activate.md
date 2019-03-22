@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: c50aece847119dd0d2421553e9e9827c2168e553
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 4fd52510abd61c4d319a3fcbc8f722df5edbc476
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451639"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120594"
 ---
 # <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge-preview"></a>Tutorial: Conectar, configurar e ativar o Azure Data Box Edge (versão prévia) 
 
@@ -82,12 +82,12 @@ O painel exibe as várias configurações necessárias para configurar e registr
    
     Conforme você define as configurações de rede, tenha em mente:
 
-    - Se o DHCP estiver ativado em seu ambiente, as interfaces de rede serão configuradas automaticamente. Um endereço IP, sub-rede, gateway e DNS são atribuídos automaticamente.
-    - Se o DHCP não estiver ativado, você poderá atribuir IPs estáticos, se necessário.
-    - Você pode configurar sua interface de rede como IPv4.
+   - Se o DHCP estiver ativado em seu ambiente, as interfaces de rede serão configuradas automaticamente. Um endereço IP, sub-rede, gateway e DNS são atribuídos automaticamente.
+   - Se o DHCP não estiver ativado, você poderá atribuir IPs estáticos, se necessário.
+   - Você pode configurar sua interface de rede como IPv4.
 
-    >[!NOTE] 
-    > É recomendável que você não alterne o endereço IP local do adaptador de rede estático para DCHP, a menos que tenha outro endereço IP para se conectar ao dispositivo. Se estiver usando um adaptador de rede e alternar para DHCP, não haverá como determinar o endereço DHCP. Se você quiser alterar para um endereço DHCP, espere até o dispositivo ser registrado com o serviço e então altere. Posteriormente, você pode visualizar os IPs de todos os adaptadores em **Propriedades do dispositivo** no portal do Azure para seu serviço.
+     >[!NOTE] 
+     > É recomendável que você não alterne o endereço IP local do adaptador de rede estático para DCHP, a menos que tenha outro endereço IP para se conectar ao dispositivo. Se estiver usando um adaptador de rede e alternar para DHCP, não haverá como determinar o endereço DHCP. Se você quiser alterar para um endereço DHCP, espere até o dispositivo ser registrado com o serviço e então altere. Posteriormente, você pode visualizar os IPs de todos os adaptadores em **Propriedades do dispositivo** no portal do Azure para seu serviço.
 
 1. (Opcional) No painel esquerdo, selecione **Configurações de proxy Web** e, em seguida, configure seu servidor proxy Web. Embora a configuração do proxy Web seja opcional, se você usar um proxy Web, poderá configurá-lo apenas nesta página.
    
@@ -95,7 +95,7 @@ O painel exibe as várias configurações necessárias para configurar e registr
    
    Na página **Configurações de proxy Web**, faça o seguinte:
    
-    a. Na **URL do proxy Web**, digite a URL neste formato: `http://host-IP address or FQDN:Port number`. Não há suporte para URLs HTTPS.
+   a. Na **URL do proxy Web**, digite a URL neste formato: `http://host-IP address or FQDN:Port number`. Não há suporte para URLs HTTPS.
 
    b. Em **Autenticação**, selecione **Nenhuma** ou **NTLM**.
 
@@ -110,7 +110,7 @@ O painel exibe as várias configurações necessárias para configurar e registr
     
     Na página **Configurações de hora**, faça o seguinte:
     
-     a. Na lista suspensa **Fuso horário**, selecione o fuso horário que corresponde à localização geográfica na qual o dispositivo está sendo implantado.  
+    a. Na lista suspensa **Fuso horário**, selecione o fuso horário que corresponde à localização geográfica na qual o dispositivo está sendo implantado.  
         O fuso horário padrão para o seu dispositivo é PST. Seu dispositivo usará esse fuso horário para todas as operações agendadas.
 
     b. Na caixa **Servidor NTP primário**, digite o servidor primário para seu dispositivo ou aceite o valor padrão de time.windows.com.  
@@ -122,7 +122,7 @@ O painel exibe as várias configurações necessárias para configurar e registr
 
 6. No painel esquerdo, selecione **Configurações de nuvem** e, em seguida, ative seu dispositivo com o serviço do Data Box Edge no portal do Azure.
     
-     a. Na caixa **Chave de ativação**, digite a chave de ativação recebida em [Obter chave de ativação](data-box-edge-deploy-prep.md#get-the-activation-key) para o Data Box Edge.
+    a. Na caixa **Chave de ativação**, digite a chave de ativação recebida em [Obter chave de ativação](data-box-edge-deploy-prep.md#get-the-activation-key) para o Data Box Edge.
 
     b. Escolha **Aplicar**. 
        

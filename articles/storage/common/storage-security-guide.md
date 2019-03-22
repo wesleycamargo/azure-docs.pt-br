@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 72d4a9cd9a8b9244c428d49b5270952deb6f5162
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 56c09d9c6d1249713de7c6a0428ad2a124eee157
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454480"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013078"
 ---
 # <a name="azure-storage-security-guide"></a>Guia de segurança do Armazenamento do Azure
 
@@ -111,7 +111,7 @@ Veja os principais pontos que você precisa saber sobre como usar o RBAC para ac
 ### <a name="managing-your-storage-account-keys"></a>Gerenciando as chaves da conta de armazenamento
 As chaves da conta de armazenamento são cadeias de caracteres de 512 bits criadas pelo Azure que, com o nome da conta de armazenamento, podem ser usadas para acessar os objetos de dados armazenados na conta de armazenamento, por exemplo, blobs, entidades em uma tabela, mensagens na fila e arquivos em um compartilhamento de arquivos do Azure. O controle do acesso às chaves da conta de armazenamento controla o acesso ao plano de dados dessa conta de armazenamento.
 
-Cada conta de armazenamento tem duas chaves, conhecidas como "Chave 1" e "Chave 2" no [Portal do Azure](http://portal.azure.com/) e nos cmdlets do PowerShell. Elas podem ser regeneradas manualmente usando um dos vários métodos, incluindo, entre outros, o [Portal do Azure](https://portal.azure.com/), o PowerShell, a CLI do Azure ou, de modo programático, a Biblioteca de Cliente de Armazenamento .NET ou a API REST dos Serviços de Armazenamento do Microsoft Azure.
+Cada conta de armazenamento tem duas chaves, conhecidas como "Chave 1" e "Chave 2" no [Portal do Azure](https://portal.azure.com/) e nos cmdlets do PowerShell. Elas podem ser regeneradas manualmente usando um dos vários métodos, incluindo, entre outros, o [Portal do Azure](https://portal.azure.com/), o PowerShell, a CLI do Azure ou, de modo programático, a Biblioteca de Cliente de Armazenamento .NET ou a API REST dos Serviços de Armazenamento do Microsoft Azure.
 
 Há vários motivos para regenerar suas chaves da conta de armazenamento.
 

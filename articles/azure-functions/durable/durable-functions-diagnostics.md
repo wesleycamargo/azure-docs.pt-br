@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 4f6d49a60df09e78c3cbeee22d43827ecc9f9f64
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: ac9abaaea7f33627332a9bc7563745b5efdf3d12
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118414"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436232"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Diagnóstico no Durable Functions no Azure
 
@@ -327,7 +327,7 @@ O Azure Functions dá suporte à depuração do código de função diretamente 
 
 Por padrão, as Funções Duráveis armazenam o estado no Armazenamento do Azure. Isso significa que você pode inspecionar o estado de suas orquestrações usando ferramentas como o [Gerenciador de Armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 
-![Captura de tela do Gerenciador de Armazenamento do Azure](./media/durable-functions-diagnostics/storage-explorer.png)
+![Captura de tela do Gerenciador de armazenamento do Azure](./media/durable-functions-diagnostics/storage-explorer.png)
 
 Isso é útil para a depuração, pois você vê exatamente em qual estado uma orquestração pode estar. Mensagens nas filas também podem ser examinadas para saber qual trabalho está pendente (ou preso, em alguns casos).
 

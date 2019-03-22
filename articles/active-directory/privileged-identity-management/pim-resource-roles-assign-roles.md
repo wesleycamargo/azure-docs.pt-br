@@ -15,12 +15,12 @@ ms.date: 08/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87c92387c14cd0b82ec26acb411609c794c2601e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ee09526c2bf1ebf9821e1f84dc99bfc8635b9ee2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171257"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086183"
 ---
 # <a name="assign-azure-resource-roles-in-pim"></a>Atribuir funções de recurso do Azure no PIM
 
@@ -28,12 +28,12 @@ O Azure AD PIM pode gerenciar as funções internas de recurso do Azure, bem com
 
 - Proprietário
 - Administrador de Acesso do Usuário
-- Colaborador
-- Administrador de Segurança
+- Contribuidor
+- Admin de Segurança
 - Gerenciador de Segurança e muito mais
 
->[!NOTE]
-Os usuários ou membros de um grupo atribuído às funções de Administrador de Acesso de Usuário ou Proprietário e Administradores Globais que permitem o gerenciamento de assinatura no Azure AD são Administradores de Recursos. Esses administradores podem atribuir funções, definir configurações de função e revisar o acesso ao usar o PIM para recursos do Azure. Exiba a lista de [funções internas para recursos do Azure](../../role-based-access-control/built-in-roles.md).
+> [!NOTE]
+> Os usuários ou membros de um grupo atribuído às funções de Administrador de Acesso de Usuário ou Proprietário e Administradores Globais que permitem o gerenciamento de assinatura no Azure AD são Administradores de Recursos. Esses administradores podem atribuir funções, definir configurações de função e revisar o acesso ao usar o PIM para recursos do Azure. Exiba a lista de [funções internas para recursos do Azure](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="assign-a-role"></a>Atribuir uma função
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: seguler
-ms.openlocfilehash: 7f6bd1857c056d7b3570d5d2367ade7e20a19108
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 47143a76c2b57bc889b74f29d709785d0c19451a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752609"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58008230"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>Início Rápido: Carregar, baixar e listar blobs usando Ruby
 
@@ -74,7 +74,7 @@ Downloading blob to C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-9
 ```
 Quando você pressiona qualquer tecla para continuar, o programa de exemplo exclui o contêiner de armazenamento e os arquivos. Antes de continuar, verifique se os dois documentos estão na pasta 'Documentos'. Você pode abri-los e ver que eles são idênticos.
 
-Você também pode usar uma ferramenta como o [Gerenciador de Armazenamento do Azure](http://storageexplorer.com) para exibir os arquivos no Armazenamento de Blobs. O Gerenciador de Armazenamento do Azure é uma ferramenta gratuita de multiplataforma que permite que você acesse as informações da sua conta de armazenamento. 
+Você também pode usar uma ferramenta como o [Gerenciador de Armazenamento do Azure](https://storageexplorer.com) para exibir os arquivos no Armazenamento de Blobs. O Gerenciador de Armazenamento do Azure é uma ferramenta gratuita de multiplataforma que permite que você acesse as informações da sua conta de armazenamento. 
 
 Depois de verificar os arquivos, pressione qualquer tecla para concluir a demonstração e excluir os arquivos de teste. Agora que você sabe o que o exemplo faz, abra o arquivo example.rb para examinar o código. 
 

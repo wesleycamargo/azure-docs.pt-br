@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: d418715ab651721d03b67bd411eb90607391bf10
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 2a1785b9c749a8c413987974446190aafc08ed3a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237120"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105583"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Visão geral de Hubs de Eventos Dedicados
 
@@ -29,7 +29,7 @@ A capacidade dos *Hubs de Eventos Dedicados* oferece implantações de único lo
 A tabela a seguir compara os tipos de serviço disponíveis dos Hubs de Eventos. A oferta de Hubs de Eventos Dedicados tem um preço mensal fixo, em comparação ao preço de uso da maioria dos recursos Standard. A camada Dedicada oferece todos os recursos do plano Standard, mas com capacidade em escala empresarial para clientes com cargas de trabalho exigentes. 
 
 | Recurso | Standard | Dedicado |
-| --- |:---:|:---:|:---:|
+| --- |:---:|:---:|
 | Eventos de entrada | Pagamento por milhão de eventos | Incluso |
 | Unidade de taxa de transferência (entrada de 1 MB/s, saída de 2 MB/s) | Pagamento por hora | Incluso |
 | Tamanho da mensagem | 1 MB | 1 MB |

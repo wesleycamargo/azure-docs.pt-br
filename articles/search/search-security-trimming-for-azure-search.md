@@ -9,12 +9,12 @@ author: brjohnstmsft
 ms.author: brjohnst
 manager: jlembicz
 ms.custom: seodec2018
-ms.openlocfilehash: 84147b250ea17df9af67cc8a9025cdf6ec59a705
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: 326a449d3992d22a4be2d365061c99ef8b13aef9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314220"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453483"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-search"></a>Filtros de segurança para resultados de corte no Azure Search
 
@@ -152,7 +152,7 @@ Você deve obter os documentos de volta, em que `group_ids` contém "group_id1" 
 ```
 ## <a name="conclusion"></a>Conclusão
 
-É assim que você pode filtrar os resultados com base na identidade do usuário e na função `search.in()` do Azure Search. Você pode usar essa função para passar identificadores de entidade ao usuário solicitante para correspondência com os identificadores de entidade associados a cada documento de destino. Quando uma solicitação de pesquisa é manipulada, a função `search.in` filtra os resultados da pesquisa aos quais nenhuma das entidades do usuário têm acesso de leitura. Os identificadores de entidade podem representar itens como grupos de segurança, funções ou até mesmo a própria identidade do usuário.
+É assim que você pode filtrar os resultados com base na identidade do usuário e na função `search.in()` do Azure Search. Você pode usar essa função para passar identificadores de princípio do usuário solicitante para correspondência com identificadores de entidade associados a cada documento de destino. Quando uma solicitação de pesquisa é manipulada, a função `search.in` filtra os resultados da pesquisa aos quais nenhuma das entidades do usuário têm acesso de leitura. Os identificadores de entidade podem representar itens como grupos de segurança, funções ou até mesmo a própria identidade do usuário.
  
 ## <a name="see-also"></a>Consulte também
 

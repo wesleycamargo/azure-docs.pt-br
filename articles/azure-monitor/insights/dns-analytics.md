@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 0eeab5a2489bacde74b98e7d404789a00b64d02a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: fdc3c42da7f3d2290806a8cd00d7c90d16f3b87d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992714"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103920"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Coletar informações sobre a infraestrutura DNS com a solução Visualização da Análise de DNS
 
@@ -43,9 +43,9 @@ A seguinte tabela descreve as fontes conectadas que têm suporte nessa solução
 | **Fonte conectada** | **Suporte** | **Descrição** |
 | --- | --- | --- |
 | [Agentes do Windows](../platform/agent-windows.md) | Sim | A solução coleta informações de DNS dos agentes do Windows. |
-| [Agentes do Linux](../learn/quick-collect-linux-computer.md) | Não  | A solução não coleta informações de DNS dos agentes diretos do Linux. |
+| [Agentes do Linux](../learn/quick-collect-linux-computer.md) | Não | A solução não coleta informações de DNS dos agentes diretos do Linux. |
 | [Grupo de gerenciamento do System Center Operations Manager](../platform/om-agents.md) | Sim | A solução coleta informações de DNS dos agentes em um grupo de gerenciamento conectado do Operations Manager. Não é necessária uma conexão direta entre o agente do Operations Manager e o Azure Monitor. Os dados são encaminhados do grupo de gerenciamento para o workspace do Log Analytics. |
-| [Conta de armazenamento do Azure](../platform/collect-azure-metrics-logs.md) | Não  | O armazenamento do Azure não é usado pela solução. |
+| [Conta de armazenamento do Azure](../platform/collect-azure-metrics-logs.md) | Não | O armazenamento do Azure não é usado pela solução. |
 
 ### <a name="data-collection-details"></a>Detalhes da coleta de dados
 
@@ -66,7 +66,7 @@ No painel de solução, clique em **Configuração** para abrir a página Config
 
 - **Nomes de Domínio na Lista de Permissões**. A solução não processa todas as consultas de pesquisa. Ela mantém uma lista de permissões de sufixos de nome de domínio. As consultas de pesquisa que são resolvidas para os nomes de domínio que correspondem aos sufixos de nome de domínio na lista de permissões não são processadas pela solução. O não processamento de nomes de domínio na lista de permissões ajuda a otimizar os dados enviados ao Azure Monitor. A lista de permissões padrão inclui nomes de domínio público populares, como www.google.com e www.facebook.com. Você pode exibir a lista padrão completa com a barra de rolagem.
 
- É possível modificar a lista para adicionar qualquer sufixo de nome de domínio do qual você deseja exibir informações de pesquisa. Você também pode remover qualquer sufixo de nome de domínio do qual você não deseja exibir informações de pesquisa.
+  É possível modificar a lista para adicionar qualquer sufixo de nome de domínio do qual você deseja exibir informações de pesquisa. Você também pode remover qualquer sufixo de nome de domínio do qual você não deseja exibir informações de pesquisa.
 
 - **Limite de Cliente Comunicativo**. Os clientes DNS que excedem o limite do número de solicitações de pesquisa são realçados na folha **Clientes DNS**. O limite padrão é 1.000. Você pode editar o limite.
 
@@ -142,7 +142,7 @@ As informações ajudam você a identificar:
 
 **Solicitações de registro de nome**. O bloco superior mostra uma linha de tendência das solicitações de atualização dinâmica de DNS com êxito e com falha. O bloco inferior lista os 10 principais clientes que enviam solicitações de atualização DNS com falha aos servidores DNS, classificados pelo número de falhas.
 
-![folha Solicitações de registro de nome ](./media/dns-analytics/name-reg-req-blade.png)
+![folha Solicitações de registro de nome](./media/dns-analytics/name-reg-req-blade.png)
 
 **Consultas de Análise de DDI de Exemplo**. Contém uma lista das consultas de pesquisa mais comuns que buscam dados analíticos brutos diretamente.
 
@@ -170,7 +170,7 @@ Na página Pesquisa de Logs, é possível criar uma consulta. Você pode filtrar
 
     ![Pesquisa de logs de DnsEvents](./media/dns-analytics/log-search-dnsevents.png)  
 
-     a. Para exibir os dados de logs das consultas de pesquisa, selecione **LookUpQuery** como o filtro **Subtipo** no controle de faceta à esquerda. É exibida uma tabela que lista os eventos de consulta de pesquisa do período selecionado.
+    a. Para exibir os dados de logs das consultas de pesquisa, selecione **LookUpQuery** como o filtro **Subtipo** no controle de faceta à esquerda. É exibida uma tabela que lista os eventos de consulta de pesquisa do período selecionado.
 
     b. Para exibir os dados de logs dos registros dinâmicos, selecione **DynamicRegistration** como o filtro **Subtipo** no controle de faceta à esquerda. É exibida uma tabela que lista os eventos de registro dinâmico do período selecionado.
 
@@ -180,7 +180,7 @@ Na página Pesquisa de Logs, é possível criar uma consulta. Você pode filtrar
 
     ![Pesquisa de logs de DnsInventory](./media/dns-analytics/log-search-dnsinventory.png)
 
-## <a name="feedback"></a>Comentários
+## <a name="feedback"></a>Comentário
 
 Há duas maneiras de enviar comentários:
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: f21d92dabfcfbe51cf8135388a1ab489c20593a4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: c37e2357038e4f711b015fda80a0de8c4dbd9498
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537538"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880918"
 ---
 # <a name="azure-networking"></a>Rede do Azure
 
@@ -136,7 +136,7 @@ O Azure cria tabelas de rotas padrão que permitem aos recursos conectados a qua
 
 O Azure fornece as seguintes ferramentas para monitorar e gerenciar a rede:
 - **Logs de atividade:** todos os recursos do Azure têm logs de atividades que fornecem informações sobre operações ocorridas, status das operações e quem iniciou a operação. Para saber mais sobre os logs de atividades, leia o artigo [Visão geral dos logs de atividades](../azure-monitor/platform/activity-logs-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
-- **Logs de diagnóstico:** eventos periódicos e espontâneos são criados pelos recursos da rede e registrados nas contas de armazenamento do Azure, enviados para um Hub de Eventos do Azure ou para o Log Analytics do Azure. Os logs de diagnóstico fornecem informações sobre a integridade de um recurso. Os logs de diagnóstico são fornecidos para o Balanceador de Carga (voltado para a Internet), Grupos de Segurança de Rede, rotas e o Gateway de Aplicativo. Para saber mais sobre os logs de diagnóstico, leia o artigo [Visão geral dos logs de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
+- **Logs de diagnóstico:** Eventos periódicos e espontâneas são criados pelos recursos da rede e registrados nas contas de armazenamento do Azure, enviados para um Hub de eventos do Azure, ou enviados para os logs do Azure Monitor. Os logs de diagnóstico fornecem informações sobre a integridade de um recurso. Os logs de diagnóstico são fornecidos para o Balanceador de Carga (voltado para a Internet), Grupos de Segurança de Rede, rotas e o Gateway de Aplicativo. Para saber mais sobre os logs de diagnóstico, leia o artigo [Visão geral dos logs de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
 - **Métricas:** as métricas são contadores e medidas de desempenho coletados durante um período. Elas podem ser usadas para disparar alertas com base em limites. Atualmente, as métricas estão disponíveis para o Gateway de Aplicativo. Para saber mais sobre as métricas, leia o artigo [Visão geral das métricas](../monitoring-and-diagnostics/monitoring-overview-metrics.md?toc=%2fazure%2fnetworking%2ftoc.json).
 - **Solução de problemas:** informações sobre solução de problemas podem ser acessadas diretamente no portal do Azure. As informações ajudam a diagnosticar problemas comuns com o ExpressRoute, o Gateway de VPN, o Gateway de Aplicativo, os Logs de Segurança da Rede, as Rotas, o DNS, o Balanceador de Carga e o Gerenciador de Tráfego.
 - **RBAC (Controle de Acesso Baseado em Função):** controle quem pode criar e gerenciar recursos de rede com o RBAC (controle de acesso baseado em função). Saiba mais sobre o RBAC lendo o artigo [Introdução ao RBAC](../role-based-access-control/overview.md?toc=%2fazure%2fnetworking%2ftoc.json). 
@@ -149,7 +149,7 @@ O Azure fornece as seguintes ferramentas para monitorar e gerenciar a rede:
 
 É possível implantar e configurar recursos de rede do Azure com qualquer uma das seguintes ferramentas:
 
-- **Portal do Azure:** uma interface gráfica do usuário que é executada em um navegador. Abra o [Portal do Azure](http://portal.azure.com).
+- **Portal do Azure:** uma interface gráfica do usuário que é executada em um navegador. Abra o [Portal do Azure](https://portal.azure.com).
 - **Azure PowerShell:** ferramentas de linha de comando para gerenciar o Azure de computadores Windows. Saiba mais sobre o Azure PowerShell lendo o artigo [Visão geral do Azure PowerShell](/powershell/azure/overview?view=azurermps-3.8.0?toc=%2fazure%2fnetworking%2ftoc.json).
 - **CLI (interface de linha de comando) do Azure**: ferramentas de linha de comando para gerenciar o Azure de computadores Windows, Linux ou macOS. Saiba mais sobre a CLI do Azure lendo o artigo [Visão geral da CLI do Azure](/cli/azure/get-started-with-azure-cli?toc=%2fazure%2fnetworking%2ftoc.json).
 - **Modelos do Azure Resource Manager:** um arquivo (no formato JSON) que define a infraestrutura e a configuração de uma solução do Azure. Usando um modelo, você pode implantar a solução repetidamente em todo seu ciclo de vida e com a confiança de que seus recursos serão implantados em um estado consistente. Para saber mais sobre a criação de modelos, leia o artigo [Práticas recomendadas para a criação de modelos](../azure-resource-manager/resource-manager-template-best-practices.md?toc=%2fazure%2fnetworking%2ftoc.json). Modelos podem ser implantados com o PowerShell, a CLI e o Portal do Azure. Para começar a usar os modelos imediatamente, implante um dos muitos modelos pré-configurados na biblioteca [Modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/?term=network). 

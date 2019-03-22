@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 12/07/2018
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: 9ad1208283527f35e04dede2706fd0e424096dc5
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: 9e9c09c1825f5c8383a708e8bd343146396f878e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54300632"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553252"
 ---
 Os limites a seguir se aplicam ao Backup do Azure.
 
 | **Limite** | **Padrão** |
 | --- | --- |
-| Servidores/computadores que podem ser registrados em um cofre | Windows Server/Windows Client/System Center DPM: 50 <br/><br/> VMs de IaaS: 1000  |
-| Tamanho de uma fonte de dados no armazenamento de cofre |Máximo de 54400 GB. O limite de 54400 GB não se aplica ao backup de VM de IaaS |
-| Cofres de backup em uma assinatura do Azure |500 cofres por região |
-| Agendar backups diários |Windows Server/Client: 3 vezes por dia<br/> System Center DPM: 2 vezes por dia <br/> VMs de IaaS: Uma vez por dia  |
-| Discos de dados conectados a uma máquina virtual do Azure para backup | 16 |
-| Discos de dados individuais conectados a uma máquina virtual do Azure para backup| 4095 GB|
+| Servidores ou computadores que podem ser registrados em um cofre. | Windows Server/Windows Client/System Center Data Protection Manager: 50. <br/><br/> VMs de IaaS: 1,000.  |
+| Tamanho da fonte de dados no armazenamento do cofre. |Máximo de 54,400 GB. O limite não se aplica ao backup de VM IaaS. |
+| Cofres de backup em uma assinatura do Azure. |500 cofres por região. |
+| Agende backups diários. |Windows Server/Client: Três por dia.<br/> System Center DPM: Dois por dia. <br/> VMs de IaaS: Uma vez por dia.  |
+| Discos de dados anexados a uma VM do Azure para backup. | 16 |
+| Anexado à VM do Azure para backup de discos de dados individuais.| 4.095 GB|

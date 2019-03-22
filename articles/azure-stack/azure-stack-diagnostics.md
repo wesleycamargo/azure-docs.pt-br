@@ -11,12 +11,12 @@ ms.date: 11/20/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: bd1994aca3dbbc23977b01d3511f87b5ec08b96d
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 068c239b4ec04363107554d1ad402749cc84d5b3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251853"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58076693"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Ferramentas de diagnóstico do Azure Stack
 
@@ -113,12 +113,12 @@ Use estas etapas para executar o Get-AzureStackLog em um computador de host ASDK
 
 - O **FromDate** e **ToDate** parâmetros podem ser usados para coletar logs para um determinado período de tempo. Se esses parâmetros não forem especificados, os logs são coletados para as últimas quatro horas por padrão.
 
-- Use o **FilterByNode** parâmetro para filtrar logs por nome do computador. Por exemplo: 
+- Use o **FilterByNode** parâmetro para filtrar logs por nome do computador. Por exemplo:
 
     ```powershell
     Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByNode azs-xrp01
     ```
-- Use o **FilterByLogType** parâmetro para filtrar logs por tipo. Você pode optar por filtrar por arquivo, compartilhamento ou WindowsEvent. Por exemplo: 
+- Use o **FilterByLogType** parâmetro para filtrar logs por tipo. Você pode optar por filtrar por arquivo, compartilhamento ou WindowsEvent. Por exemplo:
 
     ```powershell
     Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByLogType File
@@ -127,28 +127,28 @@ Use estas etapas para executar o Get-AzureStackLog em um computador de host ASDK
 - Coleta de log de arquivo de despejo é desabilitada por padrão. Para habilitá-lo, use o **IncludeDumpFile** Troque o parâmetro. 
 - No momento, você pode usar o **FilterByRole** parâmetro à coleção de log de filtros, as seguintes funções:
 
- |   |   |   |    |
- | - | - | - | -  |   
- |ACS                   |CacheService                   |IBC                            |OEM|
- |ACSDownloadService    |Computação                        |InfraServiceController         |OnboardRP|
- |ACSFabric             |CPI                            |KeyVaultAdminResourceProvider  |PXE|
- |ACSFrontEnd           |CRP                            |KeyVaultControlPlane           |QueryServiceCoordinator|
- |ACSMetrics            |DeploymentMachine              |KeyVaultDataPlane              |QueryServiceWorker|
- |ACSMigrationService   |DiskRP                         |KeyVaultInternalControlPlane   |SeedRing|
- |ACSMonitoringService  |Domínio                         |KeyVaultInternalDataPlane      |SeedRingServices|
- |ACSSettingsService    |ECE                            |KeyVaultNamingService          |SLB|
- |ACSTableMaster        |EventAdminRP                   |MDM                            |SQL|
- |ACSTableServer        |EventRP                        |MetricsAdminRP                 |SRP   |
- |ACSWac                |ExternalDNS                    |MetricsRP                      |Armazenamento|
- |ADFS                  |FabricRing                     |MetricsServer                  |StorageController   |
- |ApplicationController |FabricRingServices             |MetricsStoreService            |URP   |
- |ASAppGateway          |FirstTierAggregationService    |MonAdminRP                     |UsageBridge|
- |AzureBridge           |FRP                            |MonRP                          |VirtualMachines   |
- |AzureMonitor          |Gateway                        |NC                             |WAS|
- |BareMetal             |HealthMonitoring               |NonPrivilegedAppGateway        |WASPUBLIC|
- |BRP                   |HintingServiceV2               |NRP                            |   |
- |CA                    |HRP                            |OboService                     |   |
- |   |   |   |    |
+  |   |   |   |    |
+  | - | - | - | -  |   
+  |ACS                   |CacheService                   |IBC                            |OEM|
+  |ACSDownloadService    |Computação                        |InfraServiceController         |OnboardRP|
+  |ACSFabric             |CPI                            |KeyVaultAdminResourceProvider  |PXE|
+  |ACSFrontEnd           |CRP                            |KeyVaultControlPlane           |QueryServiceCoordinator|
+  |ACSMetrics            |DeploymentMachine              |KeyVaultDataPlane              |QueryServiceWorker|
+  |ACSMigrationService   |DiskRP                         |KeyVaultInternalControlPlane   |SeedRing|
+  |ACSMonitoringService  |Domínio                         |KeyVaultInternalDataPlane      |SeedRingServices|
+  |ACSSettingsService    |ECE                            |KeyVaultNamingService          |SLB|
+  |ACSTableMaster        |EventAdminRP                   |MDM                            |SQL|
+  |ACSTableServer        |EventRP                        |MetricsAdminRP                 |SRP   |
+  |ACSWac                |ExternalDNS                    |MetricsRP                      |Armazenamento|
+  |ADFS                  |FabricRing                     |MetricsServer                  |StorageController   |
+  |ApplicationController |FabricRingServices             |MetricsStoreService            |URP   |
+  |ASAppGateway          |FirstTierAggregationService    |MonAdminRP                     |UsageBridge|
+  |AzureBridge           |FRP                            |MonRP                          |VirtualMachines   |
+  |AzureMonitor          |Gateway                        |NC                             |WAS|
+  |BareMetal             |HealthMonitoring               |NonPrivilegedAppGateway        |WASPUBLIC|
+  |BRP                   |HintingServiceV2               |NRP                            |   |
+  |AC                    |HRP                            |OboService                     |   |
+  |   |   |   |    |
 
 ### <a name="additional-considerations"></a>Considerações adicionais
 
@@ -163,7 +163,7 @@ Use estas etapas para executar o Get-AzureStackLog em um computador de host ASDK
     -   Logs do ACS são coletados na *armazenamento* e *ACS* funções.
 
 > [!NOTE]
-> Os logs coletados conforme é essencial para garantir que a utilização eficiente de seu espaço de armazenamento para garantir que nada é inundado com os logs são impostos limites de tamanho e idade. No entanto, para diagnosticar um problema você precisa, às vezes, os logs que talvez não exista mais devido a esses limites. Portanto, é **altamente recomendado** descarregamento de logs para um espaço de armazenamento externo (uma conta de armazenamento do Azure, um dispositivo de armazenamento adicional no local etc.) a cada 8 a 12 horas e mantê-los lá por 1 a 3 meses, dependendo do seu requisitos. Além disso, verifique se que o local de armazenamento é criptografado.
+> Os logs coletados conforme é essencial para garantir que a utilização eficiente de seu espaço de armazenamento para garantir que nada é inundado com os logs são impostos limites de tamanho e idade. No entanto, para diagnosticar um problema você precisa, às vezes, os logs que talvez não exista mais devido a esses limites. Portanto, é **altamente recomendado** que descarregar os logs para um espaço de armazenamento externo (uma conta de armazenamento no Azure, adicional no dispositivo de armazenamento local etc.) a cada 8 a 12 horas e mantê-los lá por 1 a 3 meses, dependendo do seu requisitos. Além disso, verifique se que o local de armazenamento é criptografado.
 
 ## <a name="next-steps"></a>Próximas etapas
 [Solução de problemas do Microsoft Azure Stack](azure-stack-troubleshooting.md)

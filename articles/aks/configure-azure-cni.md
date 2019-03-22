@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 7d91366ee0fec2930484f7aaa7468e6d1d62f233
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 4bd934c710d6300e95c60742d5873f5b71bdae59
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55701498"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58002193"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurar a rede CNI do Azure no AKS (Serviço de Kubernetes do Azure)
 
 Por padrão, os clusters do AKS usam o [kubenet][kubenet], e uma rede virtual e uma sub-rede são criadas para você. Com o *kubenet*, os nós obtém um endereço IP de uma sub-rede da rede virtual. Em seguida, o NAT (conversão de endereços de rede) é configurado nos nós e os pods recebem um endereço IP "oculto" por trás do IP do nó. Essa abordagem reduz o número de endereços IP que você precisa reservar no espaço de rede para uso dos pods.
 
-Com a [CNI (Interface de Rede de Contêiner) do Azure][cni-networking], cada pod obtém um endereço IP da sub-rede e pode ser acessado diretamente. Esses endereços IP precisam ser exclusivos no espaço de rede e ser planejados com antecedência. Cada nó tem um parâmetro de configuração para o número máximo de pods aos quais ele dá suporte. O número equivalente de endereços IP por nó é então reservado com antecedência para esse nó. Essa abordagem exige mais planejamento e, muitas vezes, leva à exaustão do endereço IP ou à necessidade de recriar os clusters em uma sub-rede maior conforme as demandas de aplicativo aumentam.
+Com a [CNI (Interface de Rede de Contêiner) do Azure][cni-networking], cada pod obtém um endereço IP da sub-rede e pode ser acessado diretamente. Esses endereços IP devem ser exclusivos em todo o seu espaço de rede e devem ser planejados com antecedência. Cada nó tem um parâmetro de configuração para o número máximo de pods aos quais ele dá suporte. O número equivalente de endereços IP por nó é então reservado com antecedência para esse nó. Essa abordagem exige mais planejamento e, muitas vezes, leva à exaustão do endereço IP ou à necessidade de recriar os clusters em uma sub-rede maior conforme as demandas de aplicativo aumentam.
 
 Este artigo mostra como usar a rede *CNI do Azure* para criar e usar uma sub-rede da rede virtual de um cluster do AKS. Para obter mais informações sobre opções de rede e considerações, confira [Conceitos de rede para o Kubernetes e o AKS][aks-network-concepts].
 
@@ -143,7 +143,7 @@ As perguntas e respostas a seguir se aplicam à configuração da rede **CNI do 
 
 * *Posso configurar políticas de rede por pod?*
 
-   Não. Não há suporte para políticas de rede por pod no momento.
+  Política de rede do Kubernetes está disponível como um recurso de visualização no AKS. Para começar, consulte [proteger o tráfego entre os pods por meio de políticas de rede no AKS][network-policy].
 
 * *O número máximo de pods implantados em um nó é configurável?*
 
@@ -201,3 +201,4 @@ Clusters de Kubernetes criados com Mecanismo do AKS dão suporte aos plug-ins [k
 [aks-ingress-static-tls]: ingress-static-ip.md
 [aks-http-app-routing]: http-application-routing.md
 [aks-ingress-internal]: ingress-internal-ip.md
+[network-policy]: use-network-policies.md

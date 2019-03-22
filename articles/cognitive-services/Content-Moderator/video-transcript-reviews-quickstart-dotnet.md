@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: feecafcae8095c11736d1a76a1b6774c8dde1fc8
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 2e33f94486fe295fffa1f0b4bbd298b15d9271f4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864087"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113726"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>Criar análises de transcrições de vídeo usando .NET
 
@@ -246,10 +246,10 @@ Além de adicionar uma transcrição a uma análise de vídeo, também é possí
 1. O nome da sua equipe do Content Moderator.
 1. A ID da análise de vídeo retornada por **CreateVideoReviews**.
 1. Um objeto IList<TranscriptModerationBodyItem>. Um **TranscriptModerationBodyItem** tem as seguintes propriedades:
-- **Terms**. Um objeto IList<TranscriptModerationBodyItemTermsItem>. Um **TranscriptModerationBodyItemTermsItem** tem as seguintes propriedades:
-- **Index**. Índice baseado em zero do termo.
-- **Term**. Uma cadeia de caracteres que contém o termo.
-- **Timestamp**. Uma cadeia de caracteres que contém, em segundos, o tempo na transcrição onde os termos estão localizados.
+1. **Terms**. Um objeto IList<TranscriptModerationBodyItemTermsItem>. Um **TranscriptModerationBodyItemTermsItem** tem as seguintes propriedades:
+1. **Index**. Índice baseado em zero do termo.
+1. **Term**. Uma cadeia de caracteres que contém o termo.
+1. **Timestamp**. Uma cadeia de caracteres que contém, em segundos, o tempo na transcrição onde os termos estão localizados.
 
 A transcrição deve estar no formato WebVTT. Para obter mais informações, confira [WebVTT: O formato da Web Video Text Tracks](https://www.w3.org/TR/webvtt1/).
 

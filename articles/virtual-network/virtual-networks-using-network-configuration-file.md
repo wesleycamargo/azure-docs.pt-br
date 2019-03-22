@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2017
 ms.author: genli
 ms.custom: ''
-ms.openlocfilehash: 2baae0a1932bdcb7fa5e29ac06dd8ae7a7020a30
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.openlocfilehash: e26ec4d268b9bd8852ef8cd2c522995902e15923
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52421837"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992382"
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>Configurar uma rede virtual (clássico) usando um arquivo de configuração de rede
 > [!IMPORTANT]
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Este artigo aborda o uso do modelo de implantação clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo de implantação do Gerenciador de Recursos.
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Resource Manager e clássico](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Este artigo aborda o uso do modelo de implantação clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo de implantação do Gerenciador de Recursos.
 
 Você pode criar e configurar uma rede virtual (clássica) com um arquivo de configuração de rede usando a CLI (interface de linha de comando) clássica do Azure ou o Azure PowerShell. Não é possível criar ou modificar uma rede virtual por meio do modelo de implantação do Azure Resource Manager usando um arquivo de configuração de rede. Não é possível utilizar o portal do Azure para criar ou modificar uma rede virtual (clássica) utilizando um arquivo de configuração de rede, no entanto, você pode usar o portal do Azure para criar uma rede virtual (clássica) sem utilizar um arquivo de configuração de rede.
 
@@ -71,7 +71,7 @@ O arquivo de configuração de rede de exemplo a seguir cria uma rede virtual no
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+<NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
   <VirtualNetworkConfiguration>
     <Dns />
     <VirtualNetworkSites>

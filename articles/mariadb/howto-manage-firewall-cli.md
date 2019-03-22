@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 11/10/2018
-ms.openlocfilehash: a2f0d775f061ab221092c9354d9d04b9241c9430
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: f457246b429062625e6542cfdaf00f3526a85209
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543879"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58083225"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-cli"></a>Criar e gerenciar regras de firewall do Banco de Dados do Azure para MariaDB usando a CLI do Azure
 As regras de firewall no nível de servidor permitem que os administradores gerenciem o acesso a um Servidor de Banco de Dados do Azure para MariaDB de um endereço IP específico ou intervalo de endereços IP. Usando comandos convenientes da CLI do Azure, você pode criar, atualizar, excluir, listar e mostrar as regras de firewall para gerenciar o servidor. Para obter uma visão geral dos firewalls do Banco de Dados do Azure para MariaDB, confira [Regras de firewall do servidor de Banco de Dados do Azure para MariaDB](./concepts-firewall-rules.md)
@@ -35,10 +35,10 @@ Comandos:
 Conecte com segurança a CLI do Azure à sua conta do Azure usando o comando **az login**.
 
 1. Na linha de comando, execute o seguinte comando:
-```azurecli
-az login
-```
-Esse comando gera um código para usar na próxima etapa.
+   ```azurecli
+   az login
+   ```
+   Esse comando gera um código para usar na próxima etapa.
 
 2. Use um navegador da Web para abrir a página [https://aka.ms/devicelogin](https://aka.ms/devicelogin) e, em seguida, insira o código.
 

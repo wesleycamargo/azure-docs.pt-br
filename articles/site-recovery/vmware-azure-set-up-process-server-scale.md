@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: mayg
-ms.openlocfilehash: f2d8d070a8adbe7992795b06722427da2830cb50
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
+ms.openlocfilehash: e3f6a160f57a4432f91c395a2e0dd664bc8f323d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253673"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106535"
 ---
 # <a name="scale-for-failback-with-additional-process-servers"></a>Escala para failback com servidores de processo adicionais
 
@@ -24,8 +24,8 @@ Por padrão, quando você estiver replicando VMs do VMware ou servidores físico
 
 Verifique se você realizou o [planejamento de capacidade](site-recovery-plan-capacity-vmware.md) para replicação de VMware. Isso ajuda a identificar como e quando você deve implantar servidores de processo adicionais.
 
->[!NOTE]
-Não há suporte para o uso de um componente do Servidor de Processo clonado. Siga as etapas deste artigo para cada expansão de PS.
+> [!NOTE]
+> Não há suporte para o uso de um componente do Servidor de Processo clonado. Siga as etapas deste artigo para cada expansão de PS.
 
 ### <a name="sizing-requirements"></a>Requisitos de dimensionamento 
 
@@ -56,11 +56,11 @@ Baixe o arquivo de instalação para o servidor de processo da seguinte maneira:
 3. Selecione o servidor de configuração para fazer drill down nos detalhes do servidor. Clique em **+ Servidor de processo**.
 4. Em **Adicionar servidor de processo** >  **, escolha onde você quer implantar um servidor de processo** e selecione **Implantar uma expansão de servidor de processo local**.
 
-  ![Página Adicionar Servidores](./media/vmware-azure-set-up-process-server-scale/add-process-server.png)
+   ![Página Adicionar Servidores](./media/vmware-azure-set-up-process-server-scale/add-process-server.png)
 1. Clique em **Baixar a Configuração Unificada do Microsoft Azure Site Recovery**. A versão mais recente do arquivo de instalação será baixada.
 
-  > [!WARNING]
-  A versão de instalação do servidor de processo deve ser a mesma ou anterior à versão do servidor de configuração executado. Uma maneira simples de garantir a compatibilidade de versão é usar o mesmo instalador usado recentemente para instalar ou atualizar o servidor de configuração.
+   > [!WARNING]
+   > A versão de instalação do servidor de processo deve ser a mesma ou anterior à versão do servidor de configuração executado. Uma maneira simples de garantir a compatibilidade de versão é usar o mesmo instalador usado recentemente para instalar ou atualizar o servidor de configuração.
 
 ## <a name="install-from-the-ui"></a>Instalar da interface do usuário
 

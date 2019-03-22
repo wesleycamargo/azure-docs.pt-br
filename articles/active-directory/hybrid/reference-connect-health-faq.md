@@ -15,12 +15,12 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c1b653ee16864f5076cdad9d1dbc33e63b175ca
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ec88caafa9a6168860a8e9e2ff9e2abe0cfd0e77
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167571"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852937"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Perguntas frequentes do Azure AD Connect Health
 Este artigo inclui respostas para FAQs (perguntas frequentes) sobre o Azure AD (Azure Active Directory) Connect Health. Essas perguntas frequentes abordam perguntas sobre como usar o serviço, o que inclui o modelo de cobrança, os recursos, as limitações e o suporte.
@@ -155,7 +155,7 @@ O Azure AD Connect Health para AD FS gera este alerta quando o Agente de Integri
 
 Geralmente esse teste falha porque o Agente de Integridade não consegue resolver o nome do farm do AD FS. Isso poderá acontecer se os servidores do AD FS estiverem atrás de um balanceador de carga de rede e a solicitação for iniciada de um nó que esteja atrás do balanceador de carga (ao contrário de um cliente regular que está na frente do balanceador de carga). Isso pode ser corrigido através da atualização do arquivo "hosts" localizado em "C:\Windows\System32\drivers\etc" para incluir o endereço IP do servidor do AD FS ou um endereço IP de loopback (127.0.0.1) para o nome do farm do AD FS (por exemplo, sts.contoso.com). A adição do arquivo de host causará curto-circuito na chamada de rede, permitindo assim que o Agente de Integridade obtenha o token.
 
-**P: Recebi um email indicando que meus computadores NÃO têm patches para os ataques de ransomeware recentes. Por que eu recebi esse email?**
+**P: Recebi um email indicando que meus computadores não têm patches para os recentes ataques de ransomware. Por que eu recebi esse email?**
 
 O serviço Azure AD Connect Health verificou todos os computadores que ele monitora para garantir que os patches necessários fossem instalados. O email foi enviado aos administradores de locatário se um ou mais computadores não tinham os patches críticos. A seguinte lógica foi usada para fazer essa determinação.
 1. Localizar todos os hotfixes instalados no computador.
@@ -192,6 +192,9 @@ O <i>Get-MsolDirSyncProvisioningError</i> só retornará erros de provisionament
 **P: Por que minhas auditorias do ADFS não estão sendo geradas?**
 
 Use o cmdlet do PowerShell <i>Get-AdfsProperties -AuditLevel</i> para garantir que os logs de auditoria não estejam no estado desabilitado. Leia mais sobre [Logs de auditoria do ADFS](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Observe que, se houver configurações de auditoria avançadas enviadas por push para o servidor do ADFS, todas as alterações com auditpol.exe serão substituídas (evento se o Aplicativo Gerado não estiver configurado). Nesse caso, defina a política de segurança local para registrar falhas e êxitos do Aplicativo Gerado.
+
+**P: Quando o certificado do agente será renovada antes da expiração automática?**
+A certificação de agente será automática renovado **6 meses** antes da data de expiração. Se não for renovada, verifique se que a conexão de rede do agente é estável. Reinicie os serviços do agente ou atualize para a versão mais recente também pode resolver o problema.
 
 
 ## <a name="related-links"></a>Links relacionados

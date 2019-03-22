@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 9edd243c47c7c0eeeff3b875fccede01806862a7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: d89886e7cc5fe47013902b281c490b79a07e7641
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452670"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888103"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Operacionalizar modelos de aprendizado de máquina criados no Spark
 
@@ -190,9 +190,9 @@ Esta seção mostra como indexar, codificar e dimensionar recursos categóricos 
 ### <a name="feature-transformation-index-and-encode-categorical-features-for-input-into-models-for-scoring"></a>Transformação de recurso: indexe e codifique recursos categóricos para entrada em modelos de pontuação
 Esta seção mostra como indexar dados categóricos usando recursos `StringIndexer` e codificar com entrada `OneHotEncoder` para os modelos.
 
-O [StringIndexer](http://spark.apache.org/docs/latest/ml-features.html#stringindexer) codifica uma coluna de cadeia de caracteres de rótulos em uma coluna de índices de rótulo. Os índices são ordenados por frequências de rótulo. 
+O [StringIndexer](https://spark.apache.org/docs/latest/ml-features.html#stringindexer) codifica uma coluna de cadeia de caracteres de rótulos em uma coluna de índices de rótulo. Os índices são ordenados por frequências de rótulo. 
 
-O [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) mapeia uma coluna de índices de rótulo para uma coluna de vetores binários com no máximo um valor único. Essa codificação permite que os algoritmos que esperam recursos valiosos contínuos, como a regressão logística, sejam aplicados em recursos categóricos.
+O [OneHotEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) mapeia uma coluna de índices de rótulo para uma coluna de vetores binários com no máximo um valor único. Essa codificação permite que os algoritmos que esperam recursos valiosos contínuos, como a regressão logística, sejam aplicados em recursos categóricos.
 
     #INDEX AND ONE-HOT ENCODE CATEGORICAL FEATURES
 
@@ -257,7 +257,7 @@ O [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.prepr
 Tempo necessário para executar a célula acima: 5,37 segundos
 
 ### <a name="create-rdd-objects-with-feature-arrays-for-input-into-models"></a>Crie objetos RDD com matrizes de recurso para entrada em modelos
-Esta seção contém código que mostra como indexar dados de texto categóricos como objeto RDD e fazer codificação one-hot para que ele possa ser usado no treinamento e no teste de regressão logística MLlib e modelos baseados em árvore. Os dados indexados são armazenados em objetos [RDD (conjunto de dados distribuído resiliente)](http://spark.apache.org/docs/latest/api/java/org/apache/spark/rdd/RDD.html) . Essas são as abstrações básicas no Spark. Um objeto RDD representa uma coleção imutável e particionada de elementos que pode ser operada em paralelo com o Spark.
+Esta seção contém código que mostra como indexar dados de texto categóricos como objeto RDD e fazer codificação one-hot para que ele possa ser usado no treinamento e no teste de regressão logística MLlib e modelos baseados em árvore. Os dados indexados são armazenados em objetos [RDD (conjunto de dados distribuído resiliente)](https://spark.apache.org/docs/latest/api/java/org/apache/spark/rdd/RDD.html) . Essas são as abstrações básicas no Spark. Um objeto RDD representa uma coleção imutável e particionada de elementos que pode ser operada em paralelo com o Spark.
 
 Ele também contém o código que mostra como dimensionar dados com o `StandardScalar` fornecido por MLlib para uso na regressão linear com SGD (Stochastic Gradient Descent), um algoritmo popular de treinamento de uma grande variedade de modelos de aprendizado de máquina. O [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) é usado para dimensionar os recursos de acordo com a variação de unidade. O dimensionamento de recursos, também conhecido como normalização de dados, faz com que recursos com valores amplamente distribuídos não tenham peso excessivo na função objetiva. 
 
@@ -397,9 +397,9 @@ Tempo necessário para executar a célula acima: 16,63 segundos
 ## <a name="score-classification-and-regression-random-forest-models"></a>Pontue modelos de florestas aleatórias de classificação e regressão
 O código nesta seção mostra como carregar os modelos de florestas aleatórias de regressão e classificação salvos no armazenamento de blobs do Azure, pontuar seu desempenho com métricas de regressão e classificadoras padrão e salvar os resultados no armazenamento de blobs.
 
-[Florestas aleatórias](http://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) são conjuntos de árvores de decisão.  Elas combinam várias árvores de decisão para reduzir o risco de superajuste. As florestas aleatórias podem lidar com recursos categóricos e estender à configuração de classificação multiclasse, não exigem o dimensionamento de recursos e são capazes de capturar não linearidades e interações de recursos. As florestas aleatórias são um dos modelos de aprendizado de máquina com maior taxa de sucesso para classificação e regressão.
+[Florestas aleatórias](https://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) são conjuntos de árvores de decisão.  Elas combinam várias árvores de decisão para reduzir o risco de superajuste. As florestas aleatórias podem lidar com recursos categóricos e estender à configuração de classificação multiclasse, não exigem o dimensionamento de recursos e são capazes de capturar não linearidades e interações de recursos. As florestas aleatórias são um dos modelos de aprendizado de máquina com maior taxa de sucesso para classificação e regressão.
 
-[spark.mllib](http://spark.apache.org/mllib/) dá suporte a florestas aleatórias na classificação binária, multiclasse e regressão, usando recursos contínuos e categóricos. 
+[spark.mllib](https://spark.apache.org/mllib/) dá suporte a florestas aleatórias na classificação binária, multiclasse e regressão, usando recursos contínuos e categóricos. 
 
     # SCORE RANDOM FOREST MODELS FOR CLASSIFICATION AND REGRESSION
 
@@ -445,7 +445,7 @@ O código nesta seção mostra como carregar modelos de aumento gradiente de cla
 
 **spark.mllib** dá suporte a GBTs para classificação binária e de regressão usando recursos contínuos e categóricos. 
 
-[GBTs (árvores de aumento gradiente)](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) são conjuntos de árvores de decisão. As GBTs treinam árvores de decisão iterativamente para minimizar uma função de perda. As GBTs podem manipular recursos categóricos, não exigem o dimensionamento de recursos e são capazes de capturar não linearidades e interações de recursos. Elas também podem ser usadas em uma configuração de classificação multiclasse.
+[GBTs (árvores de aumento gradiente)](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) são conjuntos de árvores de decisão. As GBTs treinam árvores de decisão iterativamente para minimizar uma função de perda. As GBTs podem manipular recursos categóricos, não exigem o dimensionamento de recursos e são capazes de capturar não linearidades e interações de recursos. Elas também podem ser usadas em uma configuração de classificação multiclasse.
 
     # SCORE GRADIENT BOOSTING TREE MODELS FOR CLASSIFICATION AND REGRESSION
 

@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: 0a2ccdc6b02e9d348517bee95306ffc88d9ccd98
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: 99953b486fbd1daa9800aa850684447465eead9e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599937"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182091"
 ---
 # <a name="deploy-an-edge-gateway-for-the-connected-factory-solution-accelerator-on-windows-or-linux"></a>Implantar um gateway edge para o acelerador de Fábrica conectada no Windows ou Linux
 
@@ -39,7 +39,7 @@ As etapas neste artigo mostram como implantar um gateway de borda usando o Docke
 
 ## <a name="choose-a-gateway-device"></a>Escolher um dispositivo de gateway
 
-Se você ainda não tem um dispositivo de gateway, a Microsoft te aconselha a comprar um gateway comercial de um de nossos parceiros. Para obter uma lista de dispositivos de gateway compatíveis com a solução de fábrica conectada, visite o [catálogo de dispositivos do IoT do Azure](https://catalog.azureiotsuite.com/?q=opc). Siga as instruções que acompanham o dispositivo para configurar o gateway.
+Se você ainda não tem um dispositivo de gateway, a Microsoft te aconselha a comprar um gateway comercial de um de nossos parceiros. Para obter uma lista de dispositivos de gateway compatíveis com a solução de fábrica conectada, visite o [catálogo de dispositivos do IoT do Azure](https://catalog.azureiotsolutions.com/?q=opc). Siga as instruções que acompanham o dispositivo para configurar o gateway.
 
 Se você precisar configurar manualmente um dispositivo de gateway existente, use as instruções a seguir.
 

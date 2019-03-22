@@ -8,28 +8,28 @@ ms.topic: include
 ms.date: 10/11/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: c98a2146a019817152be9fae76638dbaa4d9de3d
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
-ms.translationtype: HT
+ms.openlocfilehash: 6b48dbfc33890df12209c3a242d812ad2103e07a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49458815"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553210"
 ---
 | **Recurso** | **Limite padrão** | **Limite máximo** |
 | --- | --- | --- |
-| Contas do Lote por região e assinatura | 1 - 3 |50 |
-| Núcleos dedicados por conta do Lote | 10 - 100 | N/A<sup>1</sup> |
-| Núcleos de baixa prioridade por conta do Lote | 10 - 100 | N/A<sup>2</sup> |
-| Trabalhos ativos e agendas de trabalho<sup>3</sup> por Conta de lote | 100 - 300 | 1000<sup>4</sup> |
-| Núcleos por conta do Lote | 20 - 100 | 500<sup>4</sup> |
+| Contas do lote do Azure por região e assinatura | 1-3 |50 |
+| Núcleos dedicados por conta do Lote | 10-100 | N/A<sup>1</sup> |
+| Núcleos de baixa prioridade por conta do Lote | 10-100 | N/A<sup>2</sup> |
+| Trabalhos ativos e agendas de trabalho<sup>3</sup> por Conta de lote | 100-300 | 1,000<sup>4</sup> |
+| Núcleos por conta do Lote | 20-100 | 500<sup>4</sup> |
 
 > [!NOTE]
 > Os limites padrão variam dependendo do tipo de assinatura que você usa para criar uma conta do Lote. As cotas de núcleos mostradas são para as contas do Lote no modo do Serviço de lote. [Exibir as cotas na conta do Lote](../articles/batch/batch-quota-limit.md#view-batch-quotas). 
 
-<sup>1</sup> O número de núcleos dedicados por conta do Lote pode ser aumentado, mas o número máximo não está especificado. Entre em contato com o suporte do Azure para discutir opções de aumento.
+<sup>1</sup>o número de núcleos dedicados por conta do lote pode ser aumentado, mas o número máximo não está especificado. Para discutir as opções de aumento, entre em contato com o suporte do Azure.
 
-<sup>2</sup> O número de núcleos de baixa prioridade por conta do Lote pode ser aumentado, mas o número máximo não está especificado. Entre em contato com o suporte do Azure para discutir opções de aumento.
+<sup>2</sup>o número de núcleos de baixa prioridade por conta do lote pode ser aumentado, mas o número máximo não está especificado. Para discutir as opções de aumento, entre em contato com o suporte do Azure.
 
-<sup>3</sup> Os trabalhos concluídos e as agendas de trabalho não são limitados.
+<sup>3</sup>trabalhos concluídos e as agendas de trabalho não forem limitadas.
 
-<sup>4</sup> Entre em contato com o suporte do Azure se você deseja solicitar um aumento além desse limite.
+<sup>4</sup>para solicitar um aumento além desse limite, entre em contato com o suporte do Azure.

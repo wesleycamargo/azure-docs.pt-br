@@ -5,16 +5,16 @@ services: container-service
 author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: b2a9c6c31771be1316038d794d1c15ff9fa45916
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 52ed101199126818abaddef47892e1f033eb3968
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55166723"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57777848"
 ---
 # <a name="deprecated-set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>(PRETERIDO) Configurar uma entidade de serviço do Azure AD para um cluster Kubernetes no Serviço de Contêiner
 
@@ -35,7 +35,7 @@ Você pode usar uma entidade de serviço existente do Azure AD que atende aos re
 
 * **Escopo**: Grupo de recursos
 
-* **Função**: Colaborador
+* **Função**: Contribuidor
 
 * **Segredo do cliente**: Deve ser uma senha. Atualmente, é possível usar uma entidade de serviço configurada para autenticação de certificado.
 

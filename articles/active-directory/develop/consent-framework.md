@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbac6fe421864f9479c9a4ee7eecde97c13f6052
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0200aa917894f4b7f1a45a9d3bd15b128aaf27a2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200523"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124167"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Estrutura de consentimento do Azure Active Directory
 
@@ -58,14 +58,14 @@ As etapas a seguir mostram como a experiência de consentimento funciona para o 
 
     **Para consentir com as permissões delegadas de um aplicativo**
 
-    1. Vá para a página **Configurações** do seu aplicativo
-    1. Selecione **Permissões necessárias**.
-    1. Clique no botão **conceder permissões**.
+   1. Vá para a página **Configurações** do seu aplicativo
+   1. Selecione **Permissões necessárias**.
+   1. Clique no botão **conceder permissões**.
 
-    ![Conceda permissões para consentimento explícito de admin](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
+      ![Conceda permissões para consentimento explícito de admin](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
 
-  > [!IMPORTANT]
-  > A concessão explícita de consentimento usando o botão **Conceder permissões** é necessária atualmente para SPAs (aplicativos de página única) que usam o ADAL.js. Caso contrário, o aplicativo falhará quando o token de acesso for solicitado.
+   > [!IMPORTANT]
+   > A concessão explícita de consentimento usando o botão **Conceder permissões** é necessária atualmente para SPAs (aplicativos de página única) que usam o ADAL.js. Caso contrário, o aplicativo falhará quando o token de acesso for solicitado.
 
 ## <a name="next-steps"></a>Próximas etapas
 

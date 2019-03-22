@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: 5fc50aeeb2764f90a111c2466ff5a9deefe1e65c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 513cccb8b83eb4a69df1bc6172f1f02485215e35
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167981"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085996"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Políticas de senha e de bloqueio de conta em domínios gerenciados
 Este artigo explica as políticas de senha padrão em domínios gerenciados. Ele também aborda como configurar essas políticas.
@@ -89,28 +89,28 @@ Para criar uma FGPP personalizada no domínio gerenciado:
 7. No painel **Tarefas** à direita, clique em **Novo** e em **Configurações de Senha**.
 8. Na caixa de diálogo **Criar Configurações de Senha**, especifique as configurações de senha personalizada a serem aplicadas como parte da FGPP personalizada. Lembre-se de definir a prioridade adequadamente para substituir a FGPP padrão.
 
-  ![Criar FGPP personalizada](./media/how-to/custom-fgpp.png)
+   ![Criar FGPP personalizada](./media/how-to/custom-fgpp.png)
 
-  > [!TIP]
-  > **Lembre-se de desmarcar a opção Proteger contra exclusão acidental.** Se essa opção estiver selecionada, a FGPP não poderá ser salva.
-  >
-  >
+   > [!TIP]
+   > **Lembre-se de desmarcar a opção Proteger contra exclusão acidental.** Se essa opção estiver selecionada, a FGPP não poderá ser salva.
+   >
+   >
 
 9. Em **Aplica-se Diretamente se a**, clique no botão **Adicionar**. Na caixa de diálogo **Selecionar Usuários ou Grupos**, clique no botão **Locais**.
 
-  ![Selecionar Usuários e grupos](./media/how-to/fgpp-applies-to.png)
+   ![Selecionar Usuários e grupos](./media/how-to/fgpp-applies-to.png)
 
 10. Na caixa de diálogo **Locais**, expanda o nome de domínio e clique em **Usuários do AADDC**. Agora você pode selecionar um grupo na UO de usuários internos aos quais aplicar a FGPP.
 
-  ![Selecionar a UO à qual esse grupo pertence](./media/how-to/fgpp-container.png)
+    ![Selecionar a UO à qual esse grupo pertence](./media/how-to/fgpp-container.png)
 
 11. Digite o nome do grupo e clique no botão **Verificar Nomes** para validar a existência do grupo.
 
-  ![Selecionar o grupo ao qual aplicar a FGPP](./media/how-to/fgpp-apply-group.png)
+    ![Selecionar o grupo ao qual aplicar a FGPP](./media/how-to/fgpp-apply-group.png)
 
 12. O nome do grupo é exibido na seção **Aplica-se Diretamente a**. Clique no botão **OK** para salvar essas alterações.
 
-  ![FGPP aplicada](./media/how-to/fgpp-applied.png)
+    ![FGPP aplicada](./media/how-to/fgpp-applied.png)
 
 > [!TIP]
 > **Para aplicar política de senha personalizada para contas de usuário em uma UO personalizada:** As políticas de senha refinadas podem ser aplicadas apenas a grupos. Para configurar uma política de senha personalizada somente para usuários de uma UO personalizada, crie um grupo que inclua usuários dessa UO.

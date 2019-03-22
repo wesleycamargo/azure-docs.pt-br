@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Extrair texto impresso – REST, Node.js'
+title: 'Início Rápido: Extrair texto impresso – REST, Node.js'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você extrai texto impresso de uma imagem usando a API de Pesquisa Visual Computacional com Node.js.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 5c3314f61344dd56e0c96ca76fe143128c279b68
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: f7623c126e47a05b5a4be0c23baa191c4de8a766
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870581"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57856304"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-nodejs-in-computer-vision"></a>Início rápido: Extrair texto impresso (OCR) usando a API REST e o Node.js na Pesquisa Visual Computacional
 
@@ -53,7 +53,7 @@ Para criar e executar o exemplo, siga estas etapas:
 1. Abra una janela de prompt de comando.
 1. No prompt, use o comando `node` para executar o arquivo. Por exemplo, `node get-printed-text.js`.
 
-```nodejs
+```javascript
 'use strict';
 
 const request = require('request');

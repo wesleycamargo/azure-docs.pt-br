@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: alkohli;
 ms.subservice: common
-ms.openlocfilehash: 1494ccea1580d7415c6c86f14682ca59ad7124d5
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: b01c8a3fe9b0c0856dceb5c05f449504ce8c75d6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459888"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120356"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>Abra um tíquete de suporte para um trabalho de Importação/Exportação
 
@@ -40,7 +40,7 @@ Execute as seguintes etapas para criar uma solicitação de suporte:
         - Se você escolher **Blob**, selecione **Recurso**, **Nomes de contêiner** (opcional) e **Plano de Suporte**.
             ![Escolher Blob](./media/storage-import-export-contact-microsoft-support/import-export-support2.png)
         - Se você escolher **Arquivo**, selecione **Recurso**, **Nomes de compartilhamento de arquivo** (opcional) e **Plano de Suporte** ![Escolher Arquivo](./media/storage-import-export-contact-microsoft-support/import-export-support4.png)
-    4. Clique em **Próximo**.
+    4. Clique em **Avançar**.
 
 3. Em **Nova solicitação de suporte**, selecione **Etapa 2 Problema**. Em **Problema**, execute as seguintes etapas:
     
@@ -51,20 +51,20 @@ Execute as seguintes etapas para criar uma solicitação de suporte:
     5. Forneça a data de início e a hora para o problema.
     6. Em **Upload do arquivo**, clique no ícone de pasta para procurar outros arquivos que você deseja carregar.
     7. Marque **Compartilhar informações de diagnóstico**.
-    8. Clique em **Próximo**.
+    8. Clique em **Avançar**.
 
        ![Problema](./media/storage-import-export-contact-microsoft-support/import-export-support5.png)
 
 4. Em **Nova solicitação de suporte**, clique **Etapa 3 Informações de contato**. Em **Informações de contato**, execute as seguintes etapas:
 
-    1. Nas **Opções de contato**, forneça seu método de contato preferencial (telefone ou email) e o idioma. O tempo de resposta é selecionado automaticamente com base em seu plano de assinatura.
-    2. Nas Informações de contato, informe seu nome, email, contato opcional e país. Marque a caixa de seleção **Salvar alterações de contato para futuras solicitações de suporte**.
-    3. Clique em **Criar**.
+   1. Nas **Opções de contato**, forneça seu método de contato preferencial (telefone ou email) e o idioma. O tempo de resposta é selecionado automaticamente com base em seu plano de assinatura.
+   2. Nas Informações de contato, informe seu nome, email, contato opcional e país. Marque a caixa de seleção **Salvar alterações de contato para futuras solicitações de suporte**.
+   3. Clique em **Criar**.
    
-        ![Informações de contato](./media/storage-import-export-contact-microsoft-support/import-export-support7.png)   
+       ![Informações de contato](./media/storage-import-export-contact-microsoft-support/import-export-support7.png)   
 
-    O Microsoft Support usará essas informações para entrar em contato com você para obter mais informações, diagnóstico e resolução.
-Depois que você enviar sua solicitação, um engenheiro de Suporte entrará em contato com você assim que possível para prosseguir com sua solicitação.
+      O Microsoft Support usará essas informações para entrar em contato com você para obter mais informações, diagnóstico e resolução.
+      Depois que você enviar sua solicitação, um engenheiro de Suporte entrará em contato com você assim que possível para prosseguir com sua solicitação.
 
 ## <a name="manage-a-support-request"></a>Gerenciar uma solicitação de suporte
 

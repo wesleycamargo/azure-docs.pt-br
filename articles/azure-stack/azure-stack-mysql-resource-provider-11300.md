@@ -16,12 +16,12 @@ ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: jiahan
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 1bfdaef4523a714aed0f1b7bbdb5a600f7775ffb
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5934d075378df9f04130b79eb43131d71eaa25af
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244803"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449454"
 ---
 # <a name="mysql-resource-provider-11300--release-notes"></a>Notas de versão do provedor 1.1.30.0 de recursos do MySQL
 
@@ -49,7 +49,7 @@ Esta versão do provedor de recursos MySQL do Azure Stack inclui os seguintes ap
 
 ### <a name="fixes"></a>Correções
 
-- **Compatibilidade de PowerShell do Azure Stack de provedor de recursos MySQL**. O provedor de recursos MySQL foi atualizado para funcionar com o perfil do PowerShell do Azure Stack 2018-03-01-hybrid e para fornecer compatibilidade com AzureRM 1.3.0 e posterior.
+- **Provedor de recursos do MySQL do Azure Stack PowerShell compatibilidade**. O provedor de recursos MySQL foi atualizado para funcionar com o perfil do PowerShell do Azure Stack 2018-03-01-hybrid e para fornecer compatibilidade com AzureRM 1.3.0 e posterior.
 
 - **Folha de alteração de senha de logon de MySQL**. Corrigido um problema em que a senha não pode ser alterada na folha de alteração de senha. As notificações de alteração de links removidos da senha.
 

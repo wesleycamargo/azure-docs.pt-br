@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: ca951c813554ae253cbd572e03c53b8687499af9
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 94bdc0670fb63b1b4c306a5af3357f437784338c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000158"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007937"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Coletar logs II no Azure Monitor
 O IIS (Serviços de Informações da Internet) armazena a atividade do usuário em arquivos de log que podem ser coletados pelo Azure Monitor e armazenados como [dados de log](data-collection.md).
@@ -72,7 +72,7 @@ A tabela a seguir fornece diferentes exemplos de consultas de log que recuperam 
 | W3CIISLog |Todos os registros de log do IIS. |
 | W3CIISLog &#124; where scStatus==500 |Todos os registros de log do IIS com um status de retorno de 500. |
 | W3CIISLog &#124; summarize count() by cIP |Contagem das entradas do log do IIS por endereço IP do cliente. |
-| W3CIISLog &#124; where csHost=="www.contoso.com" &#124; summarize count() by csUriStem |Contagem das entradas de log do IIS por URL para o host www.contoso.com. |
+| W3CIISLog &#124; where csHost=="www\.contoso.com" &#124; summarize count() by csUriStem |Entradas de log de contagem do IIS por URL para o host www\.contoso.com. |
 | W3CIISLog &#124; summarize sum(csBytes) by Computer &#124; take 500000 |Total de bytes recebidos por cada computador com IIS. |
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -1,19 +1,19 @@
 ---
 title: Implantar aplicativos nos conjuntos de dimensionamento de máquinas virtuais no Azure usando o Ansible
 description: Saiba como usar o Ansible para configurar um conjunto de dimensionamento de máquinas virtuais e implantar aplicativos nesse conjunto, no Azure
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, bash, guia estratégico, máquina virtual, conjunto de dimensionamento de máquinas virtuais, vmss
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/11/2018
-ms.openlocfilehash: 540634d68f28aadeed308bc6cc84f459b79385e2
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 2214dd9505dff86ac26f01967a360140dee0069f
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729280"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791725"
 ---
 # <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Implantar aplicativos nos conjuntos de dimensionamento de máquinas virtuais no Azure usando o Ansible
 O Ansible permite que você automatize a implantação e a configuração de recursos em seu ambiente. Você pode usar o Ansible para implantar aplicativos no Azure. Este artigo mostra como implantar um aplicativo Java em um VMSS (conjunto de dimensionamento de máquinas virtuais) do Azure.

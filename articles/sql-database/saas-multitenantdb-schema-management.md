@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: b3855386f89eda71e145df6dd83d1b1e7e093735
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: c7c10608d90f7659b108d2d8c80038f59396de2d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563636"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878067"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Gerenciar o esquema em um aplicativo SaaS que usa bancos de dados SQL multilocatários fragmentados
 
@@ -53,7 +53,7 @@ Neste tutorial, você aprenderá a:
 - O Azure PowerShell deve estar instalado. Para obter detalhes, consulte [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 > [!NOTE]
-> Este tutorial usa recursos do serviço do Banco de Dados SQL do Azure que estão em uma versão prévia limitada ([trabalhos de Banco de Dados Elástico](sql-database-elastic-database-client-library.md)). Se você deseja fazer este tutorial, forneça sua ID de assinatura para *SaaSFeedback@microsoft.com* com o assunto = Elastic Jobs Preview. Após receber a confirmação de que sua assinatura foi habilitada, [baixe e instale as versões de pré-lançamento mais recentes dos cmdlets de trabalhos](https://github.com/jaredmoo/azure-powershell/releases). Esta é uma versão prévia limitada, então entre em contato com *SaaSFeedback@microsoft.com* para conferir perguntas relacionadas ou para obter suporte.
+> Este tutorial usa recursos do serviço do Banco de Dados SQL do Azure que estão em uma versão prévia limitada ([trabalhos de Banco de Dados Elástico](sql-database-elastic-database-client-library.md)). Se você quiser fazer este tutorial, forneça sua ID de assinatura para *SaaSFeedback\@microsoft.com* com o assunto = Elastic Jobs Preview. Após receber a confirmação de que sua assinatura foi habilitada, [baixe e instale as versões de pré-lançamento mais recentes dos cmdlets de trabalhos](https://github.com/jaredmoo/azure-powershell/releases). Essa visualização é limitada, então contate *SaaSFeedback\@microsoft.com* para perguntas relacionadas ou suporte.
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Introdução aos padrões de gerenciamento de esquema de SaaS
 
@@ -173,5 +173,5 @@ Neste tutorial, você aprendeu a:
 > * Atualizar dados de referência em todos os bancos de dados de locatário
 > * Criar um índice em uma tabela em todos os bancos de dados de locatário
 
-Em seguida, experimente o [tutorial de relatórios ad hoc](saas-multitenantdb-adhoc-reporting.md) para explorar a execução de consultas distribuídas entre bancos de dados de locatário.
+Em seguida, tente o [tutorial de relatórios Ad hoc](saas-multitenantdb-adhoc-reporting.md) para explorar a execução de consultas distribuídas entre locatários bancos de dados.
 

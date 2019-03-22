@@ -9,12 +9,12 @@ ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: fa2c34168423796a82f274db1b60b45ac10b5501
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: 25e7ba20ea6054439d72b1827f32b8470e2b6a91
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888657"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106620"
 ---
 # <a name="service-fabric-mesh-terminology"></a>Terminologia da Malha do Service Fabric
 
@@ -71,14 +71,14 @@ O Service Fabric é uma tecnologia de plataforma de software livre em que vário
 Diferentes ambientes possuem diferentes níveis de suporte para modelos de implantação e estrutura. A tabela a seguir descreve as combinações de modelo de implantação e estrutura com suporte.
 
 | Tipo de aplicativo | Descrito por | Malha do Microsoft Azure Service Fabric | Clusters do Microsoft Azure Service Fabric (qualquer sistema operacional)| Cluster local | Cluster autônomo |
-|---|---|---|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|
 | Aplicativos de Malha do Service Fabric | Modelo de recurso (YAML & JSON) | Com suporte |Sem suporte | Windows- com suporte, Linux e Mac - sem suporte | Windows- sem suporte |
 |Aplicativos nativos do Service Fabric | Modelo de aplicativo nativo (XML) | Sem suporte| Com suporte|Com suporte|Windows- sem suporte|
 
 A tabela a seguir descreve os diferentes modelos de aplicativos e as ferramentas existentes no Service Fabric.
 
 | Tipo de aplicativo | Descrito por | Visual Studio | Eclipse | SFCTL | AZ CLI | Powershell|
-|---|---|---|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|---|
 | Aplicativos de Malha do Service Fabric | Modelo de recurso (YAML & JSON) | VS 2017 |Sem suporte |Sem suporte | Com suporte - apenas ambiente de Malha | Sem suporte|
 |Aplicativos nativos do Service Fabric | Modelo de aplicativo nativo (XML) | VS 2017 e VS 2015| Com suporte|Com suporte|Com suporte|Com suporte|
 

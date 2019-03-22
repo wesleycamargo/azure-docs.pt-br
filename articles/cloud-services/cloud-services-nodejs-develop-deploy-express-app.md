@@ -14,17 +14,17 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 260c63ed55b5cb2535567038f27626aa7a085550
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
-ms.translationtype: HT
+ms.openlocfilehash: b212eaffb977846d40270a5f2abc76192aee4c0d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574599"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550604"
 ---
 # <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Criar um aplicativo Web do Node.js usando o Express em um Serviço de Nuvem do Microsoft Azure
 
 O Node.js inclui um conjunto mínimo de funcionalidades em tempo de execução básico.
-Os desenvolvedores normalmente usam módulos de terceiros para fornecer funcionalidade adicional ao desenvolver um aplicativo do Node.js. Neste tutorial, você vai criar um novo aplicativo usando o módulo [Express](https://github.com/expressjs/express), que fornece uma estrutura MVC para criar aplicativos Web do Node.js.
+Os desenvolvedores normalmente usam módulos de terceiros para fornecer funcionalidade adicional ao desenvolver um aplicativo do Node.js. Neste tutorial, você vai criar um novo aplicativo usando o módulo [Express](https://github.com/expressjs/express) que fornece uma estrutura MVC para criar aplicativos web do Node.js.
 
 Abaixo, uma captura de tela do aplicativo concluído:
 
@@ -121,8 +121,8 @@ Quando a operação de implantação estiver concluída, o navegador será abert
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais, confira o [Centro de desenvolvedores do Node.js](https://docs.microsoft.com/javascript/azure/?view=azure-node-latest).
 
-[Node.js Web Application]: http://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
-[Express]: http://expressjs.com/
+[Node.js Web Application]: https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
+[Express]: https://expressjs.com/
 [http://jade-lang.com]: http://jade-lang.com
 
 

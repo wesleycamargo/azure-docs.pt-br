@@ -6,18 +6,18 @@ keywords: codificação; codificadores; mídia
 author: dbgeorge
 manager: johndeu
 ms.author: johndeu
-ms.date: 02/09/2019
+ms.date: 03/20/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: f07b2d128bd770854b7c240fd3c964d880029d3c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 373ce1d10af87603b1bdd6339c94891187c35d8c
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999004"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295361"
 ---
 # <a name="recommended-on-premises-encoders"></a>Codificadores locais recomendados
-Ao fazer uma transmissão ao vivo com os Serviços de Mídia do Azure, você pode especificar como deseja que o canal receba o fluxo de entrada. Se optar por usar um codificador local com um canal de codificação ativa, o codificador deverá enviar por push um fluxo de taxa de bits única de alta qualidade como saída. Se optar por usar um codificador local com um canal de passagem, o codificador deverá enviar por push um fluxo de múltiplas taxas de bits como saída com todas as qualidades de saída desejada. Para obter mais informações, consulte [Transmissão ao vivo com codificadores locais](media-services-live-streaming-with-onprem-encoders.md).
+Ao fazer uma transmissão ao vivo com os Serviços de Mídia do Azure, você pode especificar como deseja que o canal receba o fluxo de entrada. Se você optar por usar um codificador local diante com um canal de codificação ao vivo, o codificador deve enviar por push um fluxo de taxa única de alta qualidade como saída. Se você optar por usar um codificador local diante com um canal de passagem, o codificador deve enviar por push um fluxo de múltiplas taxas de bits como saída com todas as qualidades de saída desejada. Para obter mais informações, consulte [transmissão ao vivo com no local codificadores](media-services-live-streaming-with-onprem-encoders.md).
 
 Os Serviços de Mídia do Azure recomendam o uso de um dos seguintes codificadores dinâmicos que têm RTMP como saída:
 - Adobe Flash Media Live Encoder 3.2
@@ -44,8 +44,8 @@ Os Serviços de Mídia do Azure recomendam o uso de um dos seguintes codificador
 > [!NOTE]
 > Um codificador dinâmico pode enviar um fluxo de taxa de bits única para um canal de passagem, mas essa configuração não é recomendada porque não permite um streaming de taxa de bits adaptável para o cliente.
 
-## <a name="how-to-become-an-on-prem-encoder-partner"></a>Como se tornar um parceiro de codificador local
-Como um parceiro de codificador local dos Serviços de Mídia do Azure, os Serviços de Mídia promovem seu produto recomendando seu codificador para clientes corporativos. Para se tornar um parceiro de codificador local, você deve verificar a compatibilidade de seu codificador local com os Serviços de Mídia. Para fazer isso, conclua as seguintes verificações:
+## <a name="how-to-become-an-on-premises-encoder-partner"></a>Como se tornar um parceiro de codificador local no
+Como um serviços de mídia do Azure no parceiro de codificador local, os serviços de mídia promovem seu produto recomendando seu codificador para clientes empresariais. Para se tornar um parceiro de codificador no local, você deve verificar a compatibilidade de seu codificador local em serviços de mídia. Para fazer isso, conclua as seguintes verificações:
 
 Verificação de canal de passagem
 1. Criar ou acessar sua conta dos Serviços de Mídia do Azure

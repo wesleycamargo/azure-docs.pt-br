@@ -4,18 +4,18 @@ description: Instruções passo a passo sobre como usar as Ferramentas do HDInsi
 keywords: depurar o intellij remotamente, depuração remota do intellij, ssh, intellij, hdinsight, depurar o intellij, depuração
 services: hdinsight
 ms.service: hdinsight
-author: jejiang
-ms.author: jejiang
+author: hrasheed
+ms.author: hrasheed-msft
 ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/25/2017
-ms.openlocfilehash: 1c94f184e57c125ce2520b857b47a9da99a9e517
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: 87a774fad6b7e45f233102b7fb026aa9663dceb0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601603"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005911"
 ---
 # <a name="debug-apache-spark-applications-locally-or-remotely-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Depurar aplicativos Apache Spark local ou remotamente em um cluster HDInsight com Azure Toolkit for IntelliJ por meio do SSH
 
@@ -31,25 +31,27 @@ Este artigo fornece orientação passo-a-passo sobre como usar as Ferramentas do
 
 1. Inicie o IDEA do IntelliJ e crie um projeto. Na caixa de diálogo **Novo Projeto** , faça o seguinte:
 
-    a. Selecione **HDInsight**. 
+    a. Selecione **Spark do Azure/HDInsight**. 
 
    b. Selecione um modelo Java ou Scala com base em sua preferência. Selecione entre as seguintes opções:
 
-      - **Spark no HDInsight (Scala)**
+   - **Projeto do Spark (Java)**
 
-      - **Spark no HDInsight (Java)**
+   - **Projeto do Spark (Scala)**
 
-      - **Amostra do Spark no HDInsight (Scala)**
+   - **Projeto do Spark com exemplos (Scala)**
 
-      Este exemplo usa um modelo de **Amostra do Spark no HDInsight (Scala)**.
+   - **Projeto do Spark com exemplos (visualização) (Scala) de depuração de tarefa de falha**
+
+     Este exemplo usa uma **projeto de Spark com exemplos (Scala)** modelo.
 
    c. Na lista **Ferramenta de build**, selecione uma das seguintes opções, de acordo com suas necessidades:
 
-      - **Maven**, para obter suporte ao assistente de criação de projetos Scala
+   - **Maven**, para obter suporte ao assistente de criação de projetos Scala
 
-      -  **SBT**, para gerenciar as dependências e a compilação no projeto Scala 
+   - **SBT**, para gerenciar as dependências e a compilação no projeto Scala 
 
-      ![Criar um projeto de depuração](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-create-projectfor-debug-remotely.png)
+     ![Criar um projeto de depuração](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-create-projectfor-debug-remotely.png)
 
    d. Selecione **Avançar**.     
  
@@ -77,17 +79,17 @@ Para resolver esse erro, [baixe o executável](https://public-repo-1.hortonworks
 1. Assim que a execução local estiver concluída, você pode ver o arquivo de saída salvo no Explorador de projeto atual **dados** > **__padrão__**.
 
     ![Resultado da execução local](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-result.png)
-1. Nossas ferramentas definiram a configuração de execução local automaticamente quando você executar a execução local e depuração local. Abra a configuração **XXX [Trabalho do Spark]** no canto superior direito e você poderá ver o **XXX [Trabalho do Spark]** já criado em **Trabalho do Spark do Azure HDInsight**. Mude para a guia **Executar localmente**.
+1. Nossas ferramentas definiram a configuração de execução local automaticamente quando você executar a execução local e depuração local. Abra a configuração **[Spark no HDInsight] XXX** no canto superior direito, você pode ver o **[Spark no HDInsight] XXX** já criado sob **Apache Spark no HDInsight**. Mude para a guia **Executar localmente**.
 
     ![Configuração de execução local](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-configuration.png)
     - [Variáveis de ambiente](#prerequisite-for-windows): Se a variável de ambiente do sistema **HADOOP_HOME** já foi definida como **C:\WinUtils**, isso detectará automaticamente que não será necessário adicionar manualmente.
     - [Local de WinUtils.exe](#prerequisite-for-windows): Se a variável de ambiente do sistema ainda não foi definida, você poderá localizar o local clicando no botão.
     - Basta escolher uma das duas opções, e elas não são necessárias em MacOS e Linux.
-1. Você também pode definir a configuração manualmente antes de executar a depuração e execução local. Na captura de tela acima, selecione o sinal de adição (**+**). Em seguida, selecione a opção **Trabalho do Spark do Azure HDInsight**. Insira as informações para **Nome**, **Nome da classe principal** para salvar, em seguida, clique no botão de execução local.
+1. Você também pode definir a configuração manualmente antes de executar a depuração e execução local. Na captura de tela acima, selecione o sinal de adição (**+**). Em seguida, selecione a **Apache Spark no HDInsight** opção. Insira as informações para **Nome**, **Nome da classe principal** para salvar, em seguida, clique no botão de execução local.
 
 ### <a name="scenario-3-perform-local-debugging"></a>Cenário 3: Executar depuração local
 1. Abra o script **SparkCore_wasbloTest** e defina os pontos de interrupção.
-1. Clique com o botão direito do mouse no editor de script, e, em seguida selecione a opção **Depurar '[Trabalho do Spark]XXX'** para realizar a depuração local.   
+1. Clique com botão direito no editor de scripts e, em seguida, selecione a opção **depurar ' [Spark no HDInsight] XXX'** para realizar a depuração local.   
 
 
 
@@ -98,14 +100,14 @@ Para resolver esse erro, [baixe o executável](https://public-repo-1.hortonworks
 
    ![Editar configurações](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-edit-configurations.png) 
 
-1. Na caixa de diálogo **Configurações de Execução/Depuração**, selecione o sinal de mais (**+**). Em seguida, selecione a opção **Trabalho do Spark do Azure HDInsight**.
+1. Na caixa de diálogo **Configurações de Execução/Depuração**, selecione o sinal de mais (**+**). Em seguida, selecione a **Apache Spark no HDInsight** opção.
 
    ![Adicionar nova configuração](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-add-new-Configuration.png)
-1. Mude para a guia **Executar Remotamente em Cluster**. Insira as informações em **Nome**, **Cluster do Spark** e **Nome da classe principal**. Em seguida, selecione **Configurações avançadas**. Nossas ferramentas oferecem suporte à depuração com **Executores**. O **numExectors**, o valor padrão é 5. É melhor não definir como maior que 3.
+1. Mude para a guia **Executar Remotamente em Cluster**. Insira as informações em **Nome**, **Cluster do Spark** e **Nome da classe principal**. Em seguida, clique em **configuração avançada (depuração remota)**. Nossas ferramentas oferecem suporte à depuração com **Executores**. O **numExectors**, o valor padrão é 5. É melhor não definir como maior que 3.
 
    ![Executar configurações de depuração](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-run-debug-configurations.png)
 
-1. Na caixa de diálogo **Configuração avançada de envio do Spark**, selecione **Habilitar depuração remota do Spark**. Insira o nome de usuário do SSH e insira uma senha ou use um arquivo de chave privada. Selecione **OK** para salvar a configuração. Se desejar executar a depuração remota, será necessário configurá-la. Não será necessário configurá-la se quiser usar apenas a execução remota.
+1. No **(depuração remota) de configuração avançada** parte, selecione **depuração remota do Spark habilitar**. Insira o nome de usuário do SSH e insira uma senha ou use um arquivo de chave privada. Se desejar executar a depuração remota, será necessário configurá-la. Não será necessário configurá-la se quiser usar apenas a execução remota.
 
    ![Habilitar depuração remota do Spark](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-enable-spark-remote-debug.png)
 
@@ -157,7 +159,7 @@ Para resolver esse erro, [baixe o executável](https://public-repo-1.hortonworks
 * [Visão geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="demo"></a>Demonstração
-* Crie projeto do Scala (vídeo): [Criar aplicativos Scala do Apache Spark](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ)
+* Crie o projeto Scala (vídeo): [Criar aplicativos Scala do Apache Spark](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ)
 * Depuração remota (vídeo): [Usar o Azure Toolkit for IntelliJ para depurar aplicativos Apache Spark remotamente em um cluster HDInsight](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ)
 
 ### <a name="scenarios"></a>Cenários

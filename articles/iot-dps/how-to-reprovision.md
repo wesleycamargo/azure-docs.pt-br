@@ -8,24 +8,24 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 36f919d1c22a88dfaf13079f09e6a43980a22828
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 4fedc5b8b3b69ff364374dbef0460930e1f631a6
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981773"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56869064"
 ---
 # <a name="how-to-reprovision-devices"></a>Como reprovisionar dispositivos
 
 Durante o ciclo de vida de uma solução IoT, é comum mover dispositivos entre os Hubs IoT. Os motivos para essa mudança podem incluir os seguintes cenários:
 
-* **Localização geográfica**: uma vez que um dispositivo se move entre locais, a latência de rede é aprimorada fazendo com que o dispositivo seja migrado para um Hub IoT mais próximo a cada localização.
+* **Localização geográfica**: Enquanto um dispositivo se movem entre locais, a latência de rede é aprimorada fazendo com que o dispositivo migrado para um hub IoT mais próximos a cada local.
 
-* **Multilocação**: um dispositivo poderia ser usado dentro da mesma solução de IoT, mas reatribuído ou concedido a um novo cliente ou site do cliente. Esse novo cliente pode ser atendido usando um Hub IoT diferente.
+* **Multilocação**: Um dispositivo pode ser usado dentro da mesma solução de IoT, mas, reatribuído ou concedido a um novo cliente ou site do cliente. Esse novo cliente pode ser atendido usando um Hub IoT diferente.
 
-* **Alteração de solução**: um dispositivo pode ser movido para uma solução de IoT nova ou atualizada. Essa reatribuição pode exigir que o dispositivo se comunique com um novo Hub IoT que está conectado a outros componentes de back-end. 
+* **Alteração de solução**: Um dispositivo pode ser movido para uma solução de IoT nova ou atualizada. Essa reatribuição pode exigir que o dispositivo se comunique com um novo Hub IoT que está conectado a outros componentes de back-end. 
 
-* **Quarentena**: semelhante a uma alteração de solução. Um dispositivo que está com defeito, comprometido ou desatualizado pode ser reatribuído a um Hub IoT em que tudo o que ele pode fazer é atualizar e voltar em conformidade. Depois que o dispositivo estiver funcionando corretamente, ele é migrado de volta a seu hub principal.
+* **Quarentena**: Semelhante a uma alteração de solução. Um dispositivo que está com defeito, comprometido ou desatualizado pode ser reatribuído a um Hub IoT em que tudo o que ele pode fazer é atualizar e voltar em conformidade. Depois que o dispositivo estiver funcionando corretamente, ele é migrado de volta a seu hub principal.
 
 Para obter uma visão geral mais detalhada do reprovisionamento, confira [Conceitos de reprovisionamento de dispositivos do Hub IoT](concepts-device-reprovision.md).
 
@@ -42,11 +42,11 @@ As seguintes etapas configuram a política de alocação para o registro do disp
 
 3. Em **Selecione como deseja atribuir dispositivos aos hubs**, selecione uma das seguintes políticas de alocação:
 
-    * **Menor latência**: esta política atribui dispositivos ao Hub IoT vinculado que resultará nas comunicações de menor latência entre o dispositivo e o Hub IoT. Essa opção permite que o dispositivo se comunique com o Hub IoT mais próximo no local. 
+    * **Menor latência**: Essa política atribui dispositivos ao IoT Hub vinculado que resultará nas comunicações de latência mais baixas entre o dispositivo e IoT Hub. Essa opção permite que o dispositivo se comunique com o Hub IoT mais próximo no local. 
     
-    * **Distribuição uniformemente ponderada**: esta política distribui os dispositivos entre os Hubs IoT vinculados com base no peso de alocação atribuído a cada Hub IoT vinculado. Essa política permite que você faça o balanceamento de carga de dispositivos em um grupo de hubs vinculados com base nos pesos de alocação definidos nesses hubs. Se estiver provisionando dispositivos para apenas um Hub IoT, recomendamos essa configuração. Esta é a configuração padrão. 
+    * **Distribuição igualmente ponderada**: Essa política distribui os dispositivos em Hubs IoT vinculados com base no peso de alocação atribuído a cada hub IoT vinculado. Essa política permite que você faça o balanceamento de carga de dispositivos em um grupo de hubs vinculados com base nos pesos de alocação definidos nesses hubs. Se estiver provisionando dispositivos para apenas um Hub IoT, recomendamos essa configuração. Esta é a configuração padrão. 
     
-    * **Configuração estática**: esta política requer que um Hub IoT desejado seja listado na entrada de registro de um dispositivo a ser provisionado. Essa política permite que você designe um único Hub IoT específico ao qual deseja atribuir dispositivos.
+    * **Configuração estática**: Essa política requer que um IoT Hub desejado estejam listados na entrada do registro para um dispositivo a ser provisionado. Essa política permite que você designe um único Hub IoT específico ao qual deseja atribuir dispositivos.
 
 4. Em **Selecione os hubs IoT aos quais esse grupo pode ser atribuído**, selecione os Hubs IoT vinculados que você deseja incluir na sua política de alocação. Opcionalmente, adicione um novo Hub IoT vinculado usando o botão **Vincular um novo Hub IoT**.
 
@@ -70,9 +70,9 @@ As seguintes etapas configuram a política de alocação para o registro do disp
 
 3. Em **Selecione como quer que os dados do dispositivo sejam tratados no reprovisionamento para um Hub IoT diferente**, escolha uma das seguintes políticas de reprovisionamento:
 
-    * **Reprovisionar e migrar dados**: esta política entra em ação quando os dispositivos associados com a entrada de registro enviam uma nova solicitação de provisionamento. Dependendo da configuração de entrada de registro, o dispositivo pode ser reatribuído a outro hub IoT. Se o dispositivo estiver mudando entre hubs IoT, o registro de dispositivo com o hub IoT inicial será removido. Todas as informações de estado do dispositivo do hub IoT inicial serão migradas para o novo Hub IoT. Durante a migração, o status do dispositivo será relatado como **Atribuindo**
+    * **Provisionar novamente e migrar dados**: Essa política entra em ação quando os dispositivos associados com a entrada de registro enviar uma nova solicitação de provisionamento. Dependendo da configuração de entrada de registro, o dispositivo pode ser reatribuído a outro hub IoT. Se o dispositivo estiver mudando entre hubs IoT, o registro de dispositivo com o hub IoT inicial será removido. Todas as informações de estado do dispositivo do hub IoT inicial serão migradas para o novo Hub IoT. Durante a migração, o status do dispositivo será relatado como **Atribuindo**
 
-    * **Reprovisionar e redefinir a configuração inicial**: Essa política entra em ação quando os dispositivos associados com a entrada de registro enviam uma nova solicitação de provisionamento. Dependendo da configuração de entrada de registro, o dispositivo pode ser reatribuído a outro hub IoT. Se o dispositivo estiver mudando entre hubs IoT, o registro de dispositivo com o hub IoT inicial será removido. Os dados de configuração inicial que a instância de serviço de provisionamento recebeu quando o dispositivo foi provisionado são fornecidos ao novo Hub IoT. Durante a migração, o status do dispositivo será relatado como **Atribuindo**.
+    * **Provisionar novamente e redefinir a configuração inicial**: Essa política entra em ação quando os dispositivos associados com a entrada de registro enviar uma nova solicitação de provisionamento. Dependendo da configuração de entrada de registro, o dispositivo pode ser reatribuído a outro hub IoT. Se o dispositivo estiver mudando entre hubs IoT, o registro de dispositivo com o hub IoT inicial será removido. Os dados de configuração inicial que a instância de serviço de provisionamento recebeu quando o dispositivo foi provisionado são fornecidos ao novo Hub IoT. Durante a migração, o status do dispositivo será relatado como **Atribuindo**.
 
 4. Clique em **Salvar** para habilitar o reprovisionamento do dispositivo com base em suas alterações.
 
@@ -94,7 +94,7 @@ Para encontrar um código de exemplo do envio de solicitações de provisionamen
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para saber mais sobre reprovisionamento, confira [Conceitos de reprovisionamento de dispositivos no Hub IoT](concepts-device-reprovision.md) 
-- Para saber mais sobre desprovisionamento, confira [Como desprovisionar dispositivos provisionados anteriormente de maneira automática ](how-to-unprovision-devices.md) 
+- Para saber mais desprovisionamento, consulte [como desprovisionar dispositivos que foram anteriormente autoprovisionado](how-to-unprovision-devices.md) 
 
 
 

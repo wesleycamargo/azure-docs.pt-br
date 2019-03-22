@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: df69cb5cc2e369a5e1f372d49a821616bf624db9
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 51f5355e365d0dcf7a103deab3356f015e75641e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237545"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57897497"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Limites para seu modelo e suas chaves do LUIS
 O LUIS tem várias áreas de limite. A primeira é o [limite de modelo](#model-boundaries), que controla intenções, entidades e recursos no LUIS. A segunda área é [limites de cota](#key-limits) com base no tipo de chave. A terceira área de limites é a [combinação de teclado](#keyboard-controls) para controlar o site do LUIS. Uma quarta área é o [mapeamento de região do mundo](luis-reference-regions.md) entre o site de criação do LUIS e as APIs do [ponto de extremidade](luis-glossary.md#endpoint) do LUIS. 
@@ -27,7 +27,7 @@ O LUIS tem várias áreas de limite. A primeira é o [limite de modelo](#model-b
 Se seu aplicativo exceder os limites e os perímetros do modelo LUIS, considere usar um aplicativo de [expedição LUIS](luis-concept-enterprise.md#dispatch-tool-and-model) ou um [contêiner LUIS](luis-container-howto.md). 
 
 |Área|Limite|
-|--|:--|--|
+|--|:--|
 | [Nome do aplicativo][luis-get-started-create-app] | *Máximo de caracteres padrão |
 | [Teste de lote][batch-testing]| 10 conjuntos de dados, 1000 declarações por conjunto de dados|
 | Lista explícita | 50 por aplicativo|
@@ -41,7 +41,7 @@ Se seu aplicativo exceder os limites e os perímetros do modelo LUIS, considere 
 | [Entidades de expressão regular](./luis-concept-entity-types.md)|20 entidades<br>500 caracteres, no máximo, por padrão de entidade de expressão regular|
 | [Funções](luis-concept-roles.md)|300 funções por aplicativo. 10 funções por entidade|
 | [Declaração][utterances] | 500 caracteres|
-| [Declarações][utterances] | 15 mil por aplicativo|
+| [Declarações][utterances] | 15.000 por aplicativo - não há nenhum limite no número de declarações por intenção|
 | [Versões](luis-concept-version.md)| nenhum limite |
 | [Nome da versão][luis-how-to-manage-versions] | 10 caracteres restritos a alfanuméricos e ponto (.) |
 

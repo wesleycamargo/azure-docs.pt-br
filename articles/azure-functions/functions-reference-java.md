@@ -11,22 +11,26 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: 429c7c266357b4808ab3ebbb7f346cf22d9f479c
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 9258b58783d4670620a251fef866211f7634480f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54855376"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096717"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guia do desenvolvedor de Java do Azure Functions
 
-[!INCLUDE [functions-java-preview-note](../../includes/functions-java-preview-note.md)]
+O tempo de execução do Azure Functions dá suporte a [Java SE 8 LTS (zulu8.31.0.2-jre8.0.181-win_x64)](https://repos.azul.com/azure-only/zulu/packages/zulu-8/8u181/).
+
+Este guia contém informações sobre a complexidade da gravação de funções do Azure com Java.
+
+Uma função de Java é um `public` método decorado com anotação `@FunctionName`. Esse método define a entrada para uma função de java e deve ser exclusivo em um determinado pacote. 
+
+Este artigo pressupõe que você já tenha lido a [Referência do desenvolvedor do Azure Functions](functions-reference.md). Você também deve concluir o guia de início rápido funções para criar sua primeira função, usando [Visual Studio Code](functions-create-first-function-vs-code.md) ou [usando o maven](functions-create-first-java-maven.md).
 
 ## <a name="programming-model"></a>Modelo de programação 
 
 Os conceitos de [gatilhos e ligações](functions-triggers-bindings.md) são fundamentais para as Funções do Azure. Os gatilhos iniciam a execução do seu código. As ligações fornecem uma maneira de transmitir dados e retornar dados de uma função, sem precisar escrever código de acesso a dados personalizado.
-
-Uma função deve ser um método sem estado para processar entrada e produzir saída. Sua função não deve depender de nenhum campo de instância da classe. Todos os métodos de função devem ser `public` e o método com anotação @FunctionName deve ser único, pois o nome do método define a entrada para uma função.
 
 ## <a name="folder-structure"></a>Estrutura de pastas
 
@@ -387,6 +391,6 @@ Para obter mais informações sobre o desenvolvimento de Java de função do Azu
 * [Práticas recomendadas para o Azure Functions](functions-best-practices.md)
 * [Referência do desenvolvedor do Azure Functions](functions-reference.md)
 * [Gatilhos e associações de Azure Functions](functions-triggers-bindings.md)
-- Local de desenvolvimento e depuração com o [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions), [IntelliJ](functions-create-maven-intellij.md), e [Eclipse](functions-create-maven-eclipse.md). 
+* Local de desenvolvimento e depuração com o [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions), [IntelliJ](functions-create-maven-intellij.md), e [Eclipse](functions-create-maven-eclipse.md). 
 * [Azure Functions de Java de Depuração Remota com Visual Studio Code](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)
 * [Plugin Maven para as Funções do Azure](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-functions-maven-plugin/README.md) - simplifique a criação de funções por meio da meta `azure-functions:add` e prepare um diretório temporário para a [implantação do arquivo ZIP](deployment-zip-push.md).

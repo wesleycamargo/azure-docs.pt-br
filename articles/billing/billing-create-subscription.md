@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: banders
-ms.openlocfilehash: 870ceaf1ded3dd8eb08128514dcc7020fe74e7ae
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: f907ebcfc1efc2e6eb9b458f83ab11d868871946
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903903"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858330"
 ---
 # <a name="create-an-additional-subscription-in-the-azure-portal"></a>Criar uma assinatura adicional no portal do Azure
 
@@ -48,6 +48,6 @@ Você também pode criar assinaturas adicionais programaticamente. Para obter ma
 - [Crie grupos de gerenciamento para organização e gerenciamento de recursos](../governance/management-groups/create.md?toc=/azure/billing/TOC.json)
 - [Cancelar sua assinatura do Azure](billing-how-to-cancel-azure-subscription.md)
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco.
 
-Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Se você tiver dúvidas ou precisar de Ajuda, [criar uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).

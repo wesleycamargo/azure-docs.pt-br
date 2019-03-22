@@ -3,7 +3,7 @@ title: Guia de início rápido do Bash no Azure Cloud Shell | Microsoft Docs
 description: Guia de início rápido para o Back no Cloud Shell
 services: ''
 documentationcenter: ''
-author: jluk
+author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
-ms.author: juluk
-ms.openlocfilehash: 0b3616a723e793ab1ce8d7bcca1f53ca10ec4f96
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.author: damaerte
+ms.openlocfilehash: 1b6419feef96b57bafd0831531bd8cfa56142cc4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970644"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089141"
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Guia de início rápido para o Back no Azure Cloud Shell
 
@@ -44,14 +44,14 @@ Verifique se o menu suspenso do ambiente no lado esquerdo da janela do shell diz
 
 ### <a name="set-your-subscription"></a>Definir sua assinatura
 1. Liste as assinaturas a que você tem acesso.
-```azurecli-interactive
-az account list
-```
+   ```azurecli-interactive
+   az account list
+   ```
 
 2. Defina sua assinatura preferencial: <br>
-```azurecli-interactive
-az account set --subscription my-subscription-name`
-```
+   ```azurecli-interactive
+   az account set --subscription my-subscription-name`
+   ```
 
 > [!TIP]
 > Sua assinatura será lembrada em sessões futuras com o uso de `/home/<user>/.azure/azureProfile.json`.
@@ -77,26 +77,26 @@ Seu nome de usuário nessa VM será o nome de usuário usado no Cloud Shell ($Us
 ### <a name="ssh-into-your-linux-vm"></a>SSH em sua VM Linux
 1. Pesquise pelo nome de sua VM na barra de pesquisa do portal do Azure.
 2. Clique em "Conectar" para obter o nome da VM e o endereço IP público. <br>
-![](media/quickstart/sshcmd-copy.png)
+   ![](media/quickstart/sshcmd-copy.png)
 
 3. SSH em sua VM com o cmd `ssh`.
-```
-ssh username@ipaddress
-```
+   ```
+   ssh username@ipaddress
+   ```
 
 Após estabelecer a conexão SSH, você deverá ver o prompt de boas-vindas do Ubuntu. <br>
 ![](media/quickstart/ubuntu-welcome.png)
 
 ## <a name="cleaning-up"></a>Limpando 
 1. Saia da sua sessão SSH.
-```azurecli-interactive
-exit
-```
+   ```azurecli-interactive
+   exit
+   ```
 
 2. Exclua o grupo de recursos e todos os recursos dentro dele.
-```azurecli-interactive
-az group delete -n MyRG
-```
+   ```azurecli-interactive
+   az group delete -n MyRG
+   ```
 
 ## <a name="next-steps"></a>Próximas etapas
 [Saiba mais sobre como manter arquivos para Bash no Cloud Shell](persisting-shell-storage.md) <br>

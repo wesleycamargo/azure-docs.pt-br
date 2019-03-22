@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 733aae0fe7bd11dfb5c41b7c3d15838a76ab5834
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 28029fe92a207dba85e2ab5a22c08879b7172925
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870191"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105770"
 ---
 # <a name="moderate-with-custom-term-lists-in-the-api-console"></a>Moderar com as listas de termos personalizadas no console de API
 
@@ -44,78 +44,78 @@ Antes de você testar a API no console on-line, você precisa da chave de assina
 
 Após você fazer alterações em uma lista de termos, você deve atualizar o índice para que as alterações sejam incluídas nas verificações futuras. Esta etapa é semelhante a como um mecanismo de pesquisa na área de trabalho (se habilitado) ou um mecanismo de pesquisa da web continuamente atualiza o índice para incluir novos arquivos ou páginas.
 
-1.  Na [referência de API de Gerenciamento de Lista de Termos](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f), no menu à esquerda, selecione **Listas de termos**e, em seguida, selecione **Atualizar o índice de pesquisa**. 
+1. Na [referência de API de Gerenciamento de Lista de Termos](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f), no menu à esquerda, selecione **Listas de termos**e, em seguida, selecione **Atualizar o índice de pesquisa**. 
 
-  A página **Listas de termos - Atualizar o índice de pesquisa** será aberta.
+   A página **Listas de termos - Atualizar o índice de pesquisa** será aberta.
 
 2. Para **Abrir o console de teste da API**, selecione a região que melhor descreve seu local. 
 
-  ![Seleção de região de página Listas de termos - Atualizar o índice de pesquisa](images/test-drive-region.png)
+   ![Seleção de região de página Listas de termos - Atualizar o índice de pesquisa](images/test-drive-region.png)
 
-  O console de API **Listas de termos - Atualizar o índice de pesquisa** será aberto.
+   O console de API **Listas de termos - Atualizar o índice de pesquisa** será aberto.
 
-3.  Na caixa **listId**, digite a ID da lista. Insira a chave de assinatura e selecione **Enviar**.
+3. Na caixa **listId**, digite a ID da lista. Insira a chave de assinatura e selecione **Enviar**.
 
-  ![A Caixa de conteúdo de resposta do console da API Listas de termos - Atualizar o índice de pesquisa](images/try-terms-list-refresh-1.png)
+   ![A Caixa de conteúdo de resposta do console da API Listas de termos - Atualizar o índice de pesquisa](images/try-terms-list-refresh-1.png)
 
 ## <a name="create-a-term-list"></a>Criar uma lista de termos
-1.  Vá para a [referência de API de Gerenciamento de Lista de Termos](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f). 
+1. Vá para a [referência de API de Gerenciamento de Lista de Termos](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f). 
 
-  A página **Listas de Termos - Criar** será aberta.
+   A página **Listas de Termos - Criar** será aberta.
 
-2.  Para **Abrir o console de teste da API**, selecione a região que melhor descreve seu local. 
+2. Para **Abrir o console de teste da API**, selecione a região que melhor descreve seu local. 
 
-  ![Seleção da região da página Lista de Termos - Criar](images/test-drive-region.png)
+   ![Seleção da região da página Lista de Termos - Criar](images/test-drive-region.png)
 
-  O console de API **Listas de Termos - Criar** será aberto.
+   O console de API **Listas de Termos - Criar** será aberto.
  
-3.  Na caixa **Ocp-Apim-Subscription-Key**, insira sua chave de assinatura.
+3. Na caixa **Ocp-Apim-Subscription-Key**, insira sua chave de assinatura.
 
-4.  Na caixa **Corpo da solicitação**, insira valores para **Nome** (por exemplo, MyList) e **Descrição**.
+4. Na caixa **Corpo da solicitação**, insira valores para **Nome** (por exemplo, MyList) e **Descrição**.
 
-  ![Nome e descrição de corpo de solicitação do console Listas de termos - Criar](images/try-terms-list-create-1.png)
+   ![Nome e descrição de corpo de solicitação do console Listas de termos - Criar](images/try-terms-list-create-1.png)
 
-5.  Use espaços reservados de par chave-valor para atribuir metadados mais descritivos à sua lista.
+5. Use espaços reservados de par chave-valor para atribuir metadados mais descritivos à sua lista.
 
-        {
-           "Name": "MyExclusionList",
-           "Description": "MyListDescription",
-           "Metadata": 
-           {
-              "Category": "Competitors",
-              "Type": "Exclude"
-           }
-        }
+       {
+          "Name": "MyExclusionList",
+          "Description": "MyListDescription",
+          "Metadata": 
+          {
+             "Category": "Competitors",
+             "Type": "Exclude"
+          }
+       }
 
-  Adicione metadados de lista como pares chave-valor e não termos reais.
+   Adicione metadados de lista como pares chave-valor e não termos reais.
  
-6.  Selecione **Enviar**. Sua lista é criada. Observe o valor **ID** associado à nova lista. Você precisa dessa ID para outras funções de gerenciamento da lista de termos.
+6. Selecione **Enviar**. Sua lista é criada. Observe o valor **ID** associado à nova lista. Você precisa dessa ID para outras funções de gerenciamento da lista de termos.
 
-  ![A Caixa de conteúdo de resposta do console Listas de Termos - Criar mostra a ID da lista](images/try-terms-list-create-2.png)
+   ![A Caixa de conteúdo de resposta do console Listas de Termos - Criar mostra a ID da lista](images/try-terms-list-create-2.png)
  
-7.  Adicionar termos a MyList. No menu à esquerda, em **Termo**, selecione **Adicionar termo**. 
+7. Adicionar termos a MyList. No menu à esquerda, em **Termo**, selecione **Adicionar termo**. 
 
-  A página **Termo - Adicionar termo** será aberta. 
+   A página **Termo - Adicionar termo** será aberta. 
 
-8.  Para **Abrir o console de teste da API**, selecione a região que melhor descreve seu local. 
+8. Para **Abrir o console de teste da API**, selecione a região que melhor descreve seu local. 
 
-  ![Seleção de região de página Termo - Adicionar termo](images/test-drive-region.png)
+   ![Seleção de região de página Termo - Adicionar termo](images/test-drive-region.png)
 
-  O console de API **Termo - Adicionar termo** será aberto.
+   O console de API **Termo - Adicionar termo** será aberto.
  
-9.  Na caixa **listId**, insira a ID da lista que é gerada e selecione um valor para **idioma**. Insira a chave de assinatura e selecione **Enviar**.
+9. Na caixa **listId**, insira a ID da lista que é gerada e selecione um valor para **idioma**. Insira a chave de assinatura e selecione **Enviar**.
 
-  ![Parâmetros de consulta do console Termo - Adicionar termo](images/try-terms-list-create-3.png)
+   ![Parâmetros de consulta do console Termo - Adicionar termo](images/try-terms-list-create-3.png)
  
 10. Para verificar se o termo foi adicionado à lista, no menu à esquerda, selecione **Termo**e, em seguida, selecione **Obter todos os termos**. 
 
-  O console de API **Termo - Obter todos os termos** será aberto.
+    O console de API **Termo - Obter todos os termos** será aberto.
 
 11. Na caixa **listId**, insira a ID da lista e, em seguida, insira a chave de assinatura. Selecione **Enviar**.
 
 12. Na caixa **Conteúdo de resposta**, verifique os termos que você inseriu.
 
-  ![A Caixa de conteúdo de resposta do console Termo - Obter todos os termos lista os termos que você inseriu](images/try-terms-list-create-4.png)
+    ![A Caixa de conteúdo de resposta do console Termo - Obter todos os termos lista os termos que você inseriu](images/try-terms-list-create-4.png)
  
 13. Adicione mais alguns termos. Agora que você criou uma lista personalizada de termos, tente [verificação algum texto](try-text-api.md) usando a lista de termos personalizados. 
 
@@ -129,45 +129,45 @@ Excluir um termo ou uma lista é simples. Você pode usar a API para realizar as
 
 Este exemplo exclui um único termo.
 
-1.  Na [referência de API de Gerenciamento de Lista de Termos](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f), no menu à esquerda, selecione **Termo** e, em seguida, selecione **Excluir**. 
+1. Na [referência de API de Gerenciamento de Lista de Termos](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f), no menu à esquerda, selecione **Termo** e, em seguida, selecione **Excluir**. 
 
-  O **Termo - Excluir** é aberto.
+   O **Termo - Excluir** é aberto.
 
 2. Para **Abrir o console de teste da API**, selecione a região que melhor descreve seu local. 
 
-  ![Seleção de região da página Termo - Excluir](images/test-drive-region.png)
+   ![Seleção de região da página Termo - Excluir](images/test-drive-region.png)
 
-  O console de API **Termo - Excluir** será aberto.
+   O console de API **Termo - Excluir** será aberto.
   
-3.  Na caixa **listId**, digite a ID da lista da qual você deseja excluir um termo. Essa ID é o número (em nosso exemplo, **122**) que é retornado no console **Lista de termos - Obter detalhes** para MyList. Insira o termo e selecione um idioma.
+3. Na caixa **listId**, digite a ID da lista da qual você deseja excluir um termo. Essa ID é o número (em nosso exemplo, **122**) que é retornado no console **Lista de termos - Obter detalhes** para MyList. Insira o termo e selecione um idioma.
  
-  ![Parâmetros de consulta do console Termo - Excluir](images/try-terms-list-delete-1.png)
+   ![Parâmetros de consulta do console Termo - Excluir](images/try-terms-list-delete-1.png)
 
-4.  Insira a chave de assinatura e selecione **Enviar**.
+4. Insira a chave de assinatura e selecione **Enviar**.
 
-5.  Para verificar se o termo foi excluído, use o console **Lista de termos - Obter todos**.
+5. Para verificar se o termo foi excluído, use o console **Lista de termos - Obter todos**.
 
-  ![A Caixa de conteúdo de resposta do console Listas de termos - Obter todos mostra que o termo foi excluído](images/try-terms-list-delete-2.png)
+   ![A Caixa de conteúdo de resposta do console Listas de termos - Obter todos mostra que o termo foi excluído](images/try-terms-list-delete-2.png)
  
 ## <a name="change-list-information"></a>Alterar informações da lista
 
 Você pode editar o nome e a descrição de uma lista e adicionar itens de metadados.
 
-1.  Na [referência de API de Gerenciamento de Lista de Termos](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f), no menu à esquerda, selecione **Listas de termos**e, em seguida, selecione **Atualizar detalhes**. 
+1. Na [referência de API de Gerenciamento de Lista de Termos](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f), no menu à esquerda, selecione **Listas de termos**e, em seguida, selecione **Atualizar detalhes**. 
 
-  A página **Listas de termos - Atualizar detalhes** será aberta.
+   A página **Listas de termos - Atualizar detalhes** será aberta.
 
 2. Para **Abrir o console de teste da API**, selecione a região que melhor descreve seu local. 
 
-  ![Seleção de região de página Listas de termos - Atualizar detalhes](images/test-drive-region.png)
+   ![Seleção de região de página Listas de termos - Atualizar detalhes](images/test-drive-region.png)
 
-  O console de API **Listas de termos - Atualizar detalhes** será aberto.
+   O console de API **Listas de termos - Atualizar detalhes** será aberto.
 
-3.  Na caixa **listId**, insira a ID da lista e, em seguida, insira a chave de assinatura.
+3. Na caixa **listId**, insira a ID da lista e, em seguida, insira a chave de assinatura.
 
-4.  Na caixa **Corpo da solicitação**, faça as edições e, em seguida, selecione **Enviar**.
+4. Na caixa **Corpo da solicitação**, faça as edições e, em seguida, selecione **Enviar**.
 
-  ![Edições do Corpo de solicitação do console Lista de Termos - Atualizar detalhes](images/try-terms-list-change-1.png)
+   ![Edições do Corpo de solicitação do console Lista de Termos - Atualizar detalhes](images/try-terms-list-change-1.png)
  
 
 ## <a name="next-steps"></a>Próximas etapas

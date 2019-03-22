@@ -9,89 +9,122 @@ ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
-ms.date: 09/24/2018
+ms.date: 02/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 759ae1c077a2c93ee4450843a796b84d95701a10
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: e6e1b304b90b37c93bed22bcb720a646680ee083
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769888"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223607"
 ---
-# <a name="access-data-during-training-from-your-datastores"></a>Acesse os dados durante o treinamento de seus armazenamentos de dados
-Use um datastore para acessar e interagir com seus dados nos fluxos de trabalho do AML.
+# <a name="access-data-from-your-datastores"></a>Acessar dados de seus repositórios de dados
 
-No serviço de Azure Machine Learning, o repositório de dados é uma abstração de [Armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction). O repositório de dados pode referenciar um contêiner de [Blob do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) ou [compartilhamento de arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) como o armazenamento subjacente. 
+Armazenamentos de dados permitem que você interagir com e acessar seus dados, se você estiver executando seu código localmente, em um cluster de computação, ou em uma máquina virtual. Neste artigo, você saiba os fluxos de trabalho do Azure Machine Learning que garantem que seus armazenamentos de dados estão acessíveis e disponíveis para seu contexto de computação.
 
-## <a name="create-a-datastore"></a>Criar um repositório de dados
-Para usar datastores, primeiro você precisa de uma [área de trabalho](concept-azure-machine-learning-architecture.md#workspace). Início das [criando um novo espaço de trabalho](quickstart-create-workspace-with-python.md) ou recuperar um existente:
+Estas instruções mostram exemplos para as seguintes tarefas:
+* [Escolha um repositório de dados](#access)
+* [Obter dados](#get)
+* [Carregar e baixar dados para armazenamentos de dados](#up-and-down)
+* [Acesso de armazenamento de dados durante o treinamento](#train)
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Para usar armazenamentos de dados, você precisa de uma [espaço de trabalho](concept-azure-machine-learning-architecture.md#workspace) primeiro. 
+
+Início das [criando um novo espaço de trabalho](quickstart-create-workspace-with-python.md) ou recuperar um existente:
 
 ```Python
 import azureml.core
-from azureml.core import Workspace
+from azureml.core import Workspace, Datastore
 
 ws = Workspace.from_config()
 ```
 
-### <a name="use-the-default-datastore"></a>Usar o repositório de dados padrão
-Não há necessidade de criar ou configurar uma conta de armazenamento.  Cada espaço de trabalho possui um armazenamento de dados padrão que você pode começar a usar imediatamente.
+Ou, [seguir este início rápido de Python](quickstart-create-workspace-with-python.md) para usar o SDK para criar seu espaço de trabalho e começar a trabalhar.
+
+<a name="access"></a>
+
+## <a name="choose-a-datastore"></a>Escolha um repositório de dados
+
+Você pode usar o armazenamento de dados padrão ou traga seu próprio.
+
+### <a name="use-the-default-datastore-in-your-workspace"></a>Usar o armazenamento de dados padrão em seu espaço de trabalho
+
+Não há necessidade de criar ou configurar uma conta de armazenamento, pois cada espaço de trabalho tem um repositório de dados padrão. Você pode usar esse armazenamento de dados imediatamente como ela já está registrado no espaço de trabalho. 
 
 Para obter acesso ao repositório de dados padrão do workspace:
 ```Python
 ds = ws.get_default_datastore()
 ```
 
-### <a name="register-a-datastore"></a>Registrar um repositório de dados
-Se você tiver o Armazenamento do Microsoft Azure existente, poderá registrá-lo como um armazenamento de dados em sua área de trabalho. Você pode registrar um contêiner de BLOBs do Azure ou o compartilhamento de arquivos do Azure como um repositório de dados. Todos os métodos de registro estão na classe `Datastore` e têm o formato `register_azure_*`.
+### <a name="register-your-own-datastore-with-the-workspace"></a>Registrar seu próprio repositório de dados com o espaço de trabalho
+Se você tiver o Armazenamento do Microsoft Azure existente, poderá registrá-lo como um armazenamento de dados em sua área de trabalho.   Todos os métodos de registro são sobre o [ `Datastore` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) de classe e ter o formulário register_azure_ *. 
 
-#### <a name="azure-blob-container-datastore"></a>Repositório de Dados do Contêiner de Blob do Azure
-Para registrar um repositório de dados do contêiner de Blob do Azure:
+Os exemplos a seguir mostram a você registrar um contêiner de Blob do Azure ou um compartilhamento de arquivos do Azure como um repositório de dados.
+
++ Para um **repositório de dados de contêiner de Blob do Azure**, use [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py)
+
+  ```Python
+  ds = Datastore.register_azure_blob_container(workspace=ws, 
+                                               datastore_name='your datastore name', 
+                                               container_name='your azure blob container name',
+                                               account_name='your storage account name', 
+                                               account_key='your storage account key',
+                                               create_if_not_exists=True)
+  ```
+
++ Para um **repositório de dados de compartilhamento de arquivos do Azure**, use [ `register_azure_file_share()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-). Por exemplo: 
+  ```Python
+  ds = Datastore.register_azure_file_share(workspace=ws, 
+                                           datastore_name='your datastore name', 
+                                           container_name='your file share name',
+                                           account_name='your storage account name', 
+                                           account_key='your storage account key',
+                                           create_if_not_exists=True)
+  ```
+
+<a name="get"></a>
+
+## <a name="find--define-datastores"></a>Localizar & Definir armazenamentos de dados
+
+Para obter um repositório de dados especificado registrado no espaço de trabalho atual, use [ `get()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#get-workspace--datastore-name-) :
 
 ```Python
-ds = Datastore.register_azure_blob_container(workspace=ws, 
-                                             datastore_name='your datastore name', 
-                                             container_name='your azure blob container name',
-                                             account_name='your storage account name', 
-                                             account_key='your storage account key',
-                                             create_if_not_exists=True)
-```
-
-#### <a name="azure-file-share-datastore"></a>Repositório de Dados do Compartilhamento de Arquivos do Azure
-Para registrar um repositório de dados do Compartilhamento de Dados do Azure:
-
-```Python
-ds = Datastore.register_azure_file_share(workspace=ws, 
-                                         datastore_name='your datastore name', 
-                                         container_name='your file share name',
-                                         account_name='your storage account name', 
-                                         account_key='your storage account key',
-                                         create_if_not_exists=True)
-```
-
-### <a name="get-an-existing-datastore"></a>Obter um repositório de dados existente
-Para consultar um repositório de dados registrado pelo nome:
-```Python
+#get named datastore from current workspace
 ds = Datastore.get(ws, datastore_name='your datastore name')
 ```
 
-Também é possível obter todos os repositórios de dados para um workspace:
+Para obter uma lista de todos os armazenamentos de dados em um determinado espaço de trabalho, use este código:
+
 ```Python
+#list all datastores registered in current workspace
 datastores = ws.datastores
 for name, ds in datastores.items():
     print(name, ds.datastore_type)
 ```
 
-Por conveniência, defina um dos seus datastores registrados como o armazenamento de dados padrão para o seu espaço de trabalho:
+Para definir um repositório de dados padrão diferente para o espaço de trabalho atual, use [ `set_default_datastore()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#set-default-datastore-name-):
+
 ```Python
+#define default datastore for current workspace
 ws.set_default_datastore('your datastore name')
 ```
 
-## <a name="upload-and-download-data"></a>Carregar e baixar dados
+<a name="up-and-down"></a>
+## <a name="upload--download-data"></a>Carregar e baixar dados
+O [ `upload()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py#download-target-path--prefix-none--overwrite-false--show-progress-true-) e [ `download()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py#download-target-path--prefix-none--overwrite-false--show-progress-true-) métodos descritos nos exemplos a seguir são específicos e operar identicamente para o [AzureBlobDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py) e [AzureFileDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azurefiledatastore?view=azure-ml-py) classes.
+
 ### <a name="upload"></a>Carregar
-Carregue um diretório ou arquivos individuais para o armazenamento de dados usando o SDK do Python.
+
+ Carregue um diretório ou arquivos individuais para o armazenamento de dados usando o SDK do Python.
 
 Para carregar um diretório em um repositório de dados `ds`:
+
 ```Python
+import azureml.data
+from azureml.data import AzureFileDatastore, AzureBlobDatastore
+
 ds.upload(src_dir='your source directory',
           target_path='your target path',
           overwrite=True,
@@ -101,7 +134,7 @@ ds.upload(src_dir='your source directory',
 
 Ou faça o upload de uma lista de arquivos individuais para o armazenamento de dados por meio do método `upload_files()` do armazenamento de dados.
 
-### <a name="download"></a>Baixar
+### <a name="download"></a>Download
 Da mesma forma, faça o download dos dados de um armazenamento de dados para o sistema de arquivos local.
 
 ```Python
@@ -111,21 +144,46 @@ ds.download(target_path='your target path',
 ```
 `target_path` é a localização do diretório local para o qual os dados serão baixados. Para especificar um caminho para a pasta no compartilhamento de arquivos (ou contêiner de blob) para baixar, forneça esse caminho para `prefix`. Se `prefix` for `None`, todo o conteúdo do compartilhamento de arquivos (ou contêiner de blob) será baixado.
 
-## <a name="access-datastores-for-training"></a>Acesso a repositórios de dados para treinamento
-Você pode acessar um datastore durante uma execução de treinamento (por exemplo, para dados de treinamento ou validação) em um destino de computação remoto por meio do SDK do Python. 
+<a name="train"></a>
+## <a name="access-datastores-during-training"></a>Acesso a armazenamentos de dados durante o treinamento
 
-Há dois modos com suporte para disponibilizar o repositório de dados na computação remota:
-* **Mount**  
-`ds.as_mount()`: ao especificar esse modo de montagem, o repositório de dados será montado para você na computação remota. 
-* **Download/upload**  
-    * `ds.as_download(path_on_compute='your path on compute')` faz o download de dados do seu armazenamento de dados para o computador remoto para o local especificado por `path_on_compute`.
-    * `ds.as_upload(path_on_compute='yourfilename'` carrega dados no repositório de dados.  Suponha que seu script de treinamento crie um arquivo `foo.pkl` no diretório de trabalho atual na computação remota. Carregue este arquivo no seu armazenamento de dados com `ds.as_upload(path_on_compute='./foo.pkl')` depois que o script criar o arquivo. O arquivo é enviado para a raiz do seu armazenamento de dados.
-    
-Para fazer referência a uma pasta ou arquivo específico em seu armazenamento de dados, use a função **`path`** do armazenamento de dados. Por exemplo, para fazer o download do conteúdo do diretório `./bar` do armazenamento de dados para seu destino de computação, use `ds.path('./bar').as_download()`.
+Depois que você disponibiliza seu armazenamento de dados na computação remota, você pode acessá-lo durante execuções de treinamento (por exemplo, dados de treinamento ou validação), simplesmente passando o caminho para ele como um parâmetro em seu script de treinamento.
 
-Qualquer objeto `ds` ou `ds.path` é resolvido para um nome de variável de ambiente do formato `"$AZUREML_DATAREFERENCE_XXXX"` cujo valor representa o caminho de mount/download na computação remota. O caminho do repositório de dados na computação remota talvez não seja o mesmo que o caminho de execução do script.
+A tabela a seguir lista comum [ `DataReference` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) métodos que tornam os armazenamentos de dados disponíveis na computação remota.
 
-Para acessar seu datastore durante o treinamento, passe-o para o seu script de treinamento como um argumento de linha de comando via `script_params`:
+# #
+
+forma|Método|Descrição
+----|-----|--------
+Montagem| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--)| Use para montar um armazenamento de dados na computação remota. Modo padrão para armazenamentos de dados.
+Download|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-)|Usar para baixar dados do local especificado por `path_on_compute` em seu armazenamento de dados para a computação remota.
+Carregar|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)| Use para carregar dados para a raiz do seu armazenamento de dados do local especificado por `path_on_compute`.
+
+```Python
+import azureml.data
+from azureml.data import DataReference
+
+ds.as_mount()
+ds.as_download(path_on_compute='your path on compute')
+ds.as_upload(path_on_compute='yourfilename')
+```  
+
+Para fazer referência a uma pasta ou arquivo específico em seu armazenamento de dados, use a função [`path()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#path-path-none--data-reference-name-none-) do armazenamento de dados.
+
+```Python
+#download the contents of the `./bar` directory from the datastore to the remote compute
+ds.path('./bar').as_download()
+```
+
+
+
+> [!NOTE]
+> Qualquer objeto `ds` ou `ds.path` é resolvido para um nome de variável de ambiente do formato `"$AZUREML_DATAREFERENCE_XXXX"` cujo valor representa o caminho de mount/download na computação remota. O caminho do repositório de dados na computação remota não pode ser o mesmo que o caminho de execução do script de treinamento.
+
+### <a name="examples"></a>Exemplos 
+
+A seguir ilustra exemplos específicos para o [ `Estimator` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) classe para acessar seu repositório de dados durante o treinamento.
+
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -139,9 +197,13 @@ est = Estimator(source_directory='your code directory',
                 compute_target=compute_target,
                 entry_script='train.py')
 ```
-`as_mount()` é o modo padrão para um repositório de dados, assim, também é possível apenas aprovar diretamente `ds` para o `'--data_dir'` argumento.
 
-Ou passe uma lista de datastores para o parâmetro `inputs` do construtor Estimator para montar ou copiar para / de seu (s) armazenamento (s) de dados:
+Uma vez que `as_mount()` é o modo padrão para um repositório de dados, você poderia passar diretamente `ds` para o `'--data_dir'` argumento.
+
+Ou passe em uma lista de armazenamentos de dados para o construtor do estimador `inputs` parâmetro montar ou copiar bidirecionalmente em seus armazenamentos de dados. Este exemplo de código:
+* Baixa todo o conteúdo no armazenamento de dados `ds1` para a computação remota antes de seu script de treinamento `train.py` é executado
+* A pasta de downloads `'./foo'` no repositório de dados `ds2` para a computação remota antes de `train.py` é executado
+* Carrega o arquivo `'./bar.pkl'` de computação remota até o repositório de dados `ds3` depois que o script foi executado
 
 ```Python
 est = Estimator(source_directory='your code directory',
@@ -149,10 +211,10 @@ est = Estimator(source_directory='your code directory',
                 entry_script='train.py',
                 inputs=[ds1.as_download(), ds2.path('./foo').as_download(), ds3.as_upload(path_on_compute='./bar.pkl')])
 ```
-O código acima irá:
-* baixar todo o conteúdo no repositório de dados `ds1` para a computação remota antes que o script de treinamento `train.py` seja executado
-* baixar a pasta `'./foo'` no repositório de dados `ds2` para a computação remota antes que `train.py` seja executado
-* carregar o arquivo `'./bar.pkl'` da computação remota ao repositório de dados `d3` após o script ser executado
+
 
 ## <a name="next-steps"></a>Próximas etapas
+
 * [Treinar um modelo](how-to-train-ml-models.md)
+
+* [Implantar um modelo](how-to-deploy-and-where.md)

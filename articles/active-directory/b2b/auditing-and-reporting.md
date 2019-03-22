@@ -1,5 +1,5 @@
 ---
-title: Auditoria e relatórios de um usuário de colaboração B2B do Azure Active Directory | Microsoft Docs
+title: Auditoria e relatórios de um usuário de colaboração B2B – Azure Active Directory | Microsoft Docs
 description: As propriedades do usuário convidado são configuráveis na colaboração B2B do Azure Active Directory
 services: active-directory
 ms.service: active-directory
@@ -9,14 +9,15 @@ ms.date: 12/14/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fc36128f8f998d78dd2cf9ef112fe5961bbef5b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 5763a7e5f122702ddaf86246fbfbd18326878146
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204603"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294188"
 ---
 # <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>Auditoria e relatórios de um usuário de colaboração B2B
 Com usuários convidados, você conta com funcionalidades de auditoria semelhantes àquelas dos usuários membros. 
@@ -28,11 +29,11 @@ Com usuários convidados, você conta com funcionalidades de auditoria semelhant
 
 Os logs de auditoria do Azure AD fornecem registros das atividades do usuário e do sistema, incluindo atividades iniciadas por usuários convidados. Para acessar os logs de auditoria, no **Azure Active Directory**, em **monitoramento**, selecione **Logs de auditoria**. Este é um exemplo do histórico de convites e resgates do convidado Davi Barros:
 
-![log de auditoria](./media/auditing-and-reporting/audit-log.png)
+![Exemplo de auditoria e de captura de tela mostrando o log de saída](./media/auditing-and-reporting/audit-log.png)
 
 Você pode se aprofundar em cada um desses eventos para obter detalhes. Por exemplo, vamos examinar os detalhes de aceitação.
 
-![detalhes da atividade](./media/auditing-and-reporting/activity-details.png)
+![Captura de tela mostrando e exemplo de saída de detalhes da atividade](./media/auditing-and-reporting/activity-details.png)
 
 Você também pode exportar esses logs do Azure AD e usar a ferramenta de relatório de sua preferência para obter relatórios personalizados.
 

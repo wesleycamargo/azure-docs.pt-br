@@ -13,15 +13,15 @@ ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68655efaf9d6020489b7bc05ed1855ac181cd22f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9820fcae0dfb366c1722c50c95400c7de0fbeb12
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211930"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285778"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Adicionar um nome de domínio personalizado usando o portal do Azure Active Directory
-Todo novo locatário do Azure AD vem com um nome de domínio inicial: *domainname*.onmicrosoft.com. Você não pode alterar ou excluir o nome de domínio inicial, mas pode adicionar nomes da sua organização à lista. Adicionar nomes de domínio personalizado ajuda você a criar nomes de usuário que sejam familiares para seus usuários, tais como *alain@contoso.com*.
+Todo novo locatário do Azure AD vem com um nome de domínio inicial: *domainname*.onmicrosoft.com. Você não pode alterar ou excluir o nome de domínio inicial, mas pode adicionar nomes da sua organização à lista. Adicionar nomes de domínio personalizados ajuda você a criar nomes de usuário que são familiares para seus usuários, tais como *alain\@contoso.com*.
 
 ## <a name="before-you-begin"></a>Antes de começar
 Antes de poder adicionar um nome de domínio personalizado, é necessário criar seu nome de domínio com um registrador de domínios. Para um registrador de domínios reconhecido, consulte [Registradores reconhecidos pelo ICANN](https://www.icann.org/registrar-reports/accredited-list.html).
@@ -31,7 +31,7 @@ Depois de obter seu nome de domínio, é possível criar seu primeiro diretório
 
 1. Entre no [Portal do Azure](https://portal.azure.com/) do seu diretório, usando uma conta com a função **Proprietário** para a assinatura e, em seguida, selecione **Azure Active Directory**. Para saber mais sobre funções de assinatura, consulte [Funções de administrador da assinatura clássica, funções RBAC do Azure e funções de administrador do Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles).
 
-    ![Tela do portal do Azure](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
+    ![Tela de portal do Azure, mostrando a opção Azure AD](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
 
     >[!TIP]
     > Se você planeja federar seu AD do Windows Server local com o Azure AD, você precisa selecionar a caixa de seleção **Pretendo configurar esse domínio para logon único com meu Active Directory local** quando você executa a ferramenta Azure AD Connect para sincronizar seus diretórios. Você também precisa registrar o mesmo nome de domínio selecionado para federação com seu diretório local na etapa **domínio do Azure AD** no assistente. Você pode ver como é essa etapa do assistente [nessas instruções](../hybrid/how-to-connect-install-custom.md#verify-the-azure-ad-domain-selected-for-federation). Se você não tiver a ferramenta Azure AD Connect, poderá [baixá-la aqui](https://go.microsoft.com/fwlink/?LinkId=615771).
@@ -46,7 +46,7 @@ Depois de criar seu diretório, você pode adicionar seu nome de domínio person
 
 1. Selecione **Nomes de domínio personalizado** e, em seguida, selecione **Adicionar domínio personalizado**.
 
-    ![Página Fabrikam – nomes de domínio personalizado, com a opção Adicionar domínio personalizado realçada](media/add-custom-domain/add-custom-domain.png)
+    ![Página de nomes de domínio personalizado, com Adicionar domínio personalizado mostrado](media/add-custom-domain/add-custom-domain.png)
 
 2. Digite o novo nome de domínio da sua organização na caixa **Nome de domínio personalizado** (por exemplo, _contoso.com_) e, em seguida, selecione **Adicionar domínio**.
 
@@ -55,7 +55,7 @@ Depois de criar seu diretório, você pode adicionar seu nome de domínio person
     >[!Important]
     >É necessário incluir .com, .net ou qualquer outra extensão de nível superior para isso funcionar adequadamente.
 
-    ![Página Fabrikam – nomes de domínio personalizado, com o botão Adicionar domínio realçado](media/add-custom-domain/add-custom-domain-blade.png)
+    ![Página de nomes de domínio personalizado, com a página Adicionar domínio personalizado](media/add-custom-domain/add-custom-domain-blade.png)
 
 4. Copie as informações de DNS da página da **Contoso**. Por exemplo, MS=ms64983159.
 
@@ -87,9 +87,9 @@ Depois de registrar seu nome de domínio personalizado, precisa certificar-se de
 
 ## <a name="common-verification-issues"></a>Problemas comuns de verificação
 - Se o Azure AD não puder verificar um nome de domínio personalizado, tente as sugestões a seguir:
-    - **Aguarde pelo menos uma hora e tente novamente**. Os registros DNS precisam ser propagados para que o Azure AD possa verificar o domínio; esse processo pode demorar uma hora ou mais.
+  - **Aguarde pelo menos uma hora e tente novamente**. Os registros DNS precisam ser propagados para que o Azure AD possa verificar o domínio; esse processo pode demorar uma hora ou mais.
 
-    - **Verifique se o registro DNS está correto.** Volte para o site do registrador de nomes de domínio e verifique se a entrada está lá e se corresponde às informações de entrada de DNS fornecidas pelo Azure AD.
+  - **Verifique se o registro DNS está correto.** Volte para o site do registrador de nomes de domínio e verifique se a entrada está lá e se corresponde às informações de entrada de DNS fornecidas pelo Azure AD.
 
     Se você não conseguir atualizar o registro no site do registrador, deverá compartilhar a entrada com alguém que tenha as permissões corretas para adicioná-la e verificar se ela está correta.
 

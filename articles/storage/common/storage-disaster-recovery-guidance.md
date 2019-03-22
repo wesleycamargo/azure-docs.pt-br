@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 02/01/2019
+ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: fbd4782d7fde089f9770e148564ec5941da3dc8e
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: e14e35cc8589bb524bae791ccd74952da90bdb04
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753581"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871529"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Recuperação de desastre e failover de conta de armazenamento (versão prévia) no Armazenamento do Azure
 
@@ -113,7 +113,7 @@ Para evitar uma grande perda de dados, verifique o valor da propriedade **Hora d
 O failover de conta está disponível em versão prévia para todos os clientes que utilizam o GRS ou o RA-GRS com implantações do Azure Resource Manager. Há suporte para uso geral v1, uso geral v2 e os tipos de conta de armazenamento de Blob. O failover de conta está disponível atualmente nestas regiões:
 
 - Oeste dos EUA 2
-- Centro-Oeste dos EUA
+- Centro-oeste dos EUA
 
 A versão prévia é destinada apenas para uso não produtivo. SLAs (Contratos de Nível de Serviço) não estão disponíveis atualmente.
 
@@ -152,7 +152,6 @@ Os discos não gerenciados são armazenadas como blobs de páginas no Armazename
 4. Aguarde até que a **Hora da última sincronização** seja atualizada, ela deve posterior à hora em que você excluiu a VM. Esta etapa é importante porque se o ponto de extremidade secundário não foi totalmente atualizado com os arquivos VHD quando o failover ocorrer, a VM poderá não funcionar corretamente na nova região primária.
 5. Inicie o failover da conta.
 6. Aguarde até que o failover da conta esteja concluído e a região secundária tenha se tornado a nova região primária.
-6. Crie uma conta de armazenamento na nova região primária e copie o disco não gerenciado para ela.
 7. Crie uma VM na nova região primária e anexe novamente os VHDs.
 8. Inicie a nova VM.
 

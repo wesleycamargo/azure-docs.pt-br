@@ -10,18 +10,18 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 09/14/2018
 tags: connectors
-ms.openlocfilehash: 27da87c11ca35be72690965a2359ff6ff6b9f999
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
-ms.translationtype: HT
+ms.openlocfilehash: 468e73c64037a76da612cba8d6c2e9507dd3ac87
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54391271"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57887078"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Conectar aos sistemas SAP a partir do Aplicativos Lógicos do Azure
 
-Este artigo mostra como é possível acessar os recursos do SAP locais de dentro de um aplicativo lógico usando o conector ECC (Componente Central do ERP) do SAP. O conector ECC do SAP é compatível com a integração de dados ou de mensagens entre os sistemas baseados no SAP Netweaver por meio do IDoc (Documento Intermediário) ou BAPI (Interface de programação de aplicativo de negócios) ou RFC (Chamada de função remota).
+Este artigo mostra como é possível acessar os recursos do SAP locais de dentro de um aplicativo lógico usando o conector ECC (Componente Central do ERP) do SAP. O conector funciona com sistemas de ECC e S/4 HANA no local. O conector ECC do SAP é compatível com a integração de dados ou de mensagens entre os sistemas baseados no SAP Netweaver por meio do IDoc (Documento Intermediário) ou BAPI (Interface de programação de aplicativo de negócios) ou RFC (Chamada de função remota).
 
-O conector ECC do SAP usa a <a href="https://support.sap.com/en/product/connectors/msnet.html">biblioteca do NCo (.Net Connector) do SAP</a> e oferece estas operações ou ações:
+O conector do SAP ECC usa o <a href="https://support.sap.com/en/product/connectors/msnet.html">biblioteca do SAP .NET Connector (NCo)</a> e fornece essas operações ou ações:
 
 - **Enviar para o SAP**: Envie o IDoc ou chame funções BAPI pelo tRFC em sistemas SAP.
 - **Receber do SAP**: Receba o IDoc ou chamadas de função BAPI pelo tRFC em sistemas SAP.
@@ -393,7 +393,7 @@ Veja os problemas e limitações atualmente conhecidos para o conector do SAP:
 
 * A conversão para valores ausentes (nulos), vazios, mínimos e máximos para campos DATS e TIMS do SAP está sujeita a alteração em atualizações posteriores para o gateway de dados local.
 
-## <a name="get-support"></a>Obtenha suporte
+## <a name="get-support"></a>Obter suporte
 
 * Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](https://aka.ms/logicapps-wish).

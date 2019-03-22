@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: e3c172a0e88988acfb0244fff4603dc644aee03f
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
-ms.translationtype: HT
+ms.openlocfilehash: 0889476d84bbeaf620d9fc952efe102601a1eaf8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091016"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57857837"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher"></a>Como solucionar problemas de conexões e gateway de rede virtual do usando o observador de rede do Azure
 
@@ -161,7 +161,7 @@ As respostas a seguir são exemplos de uma resposta típica e degradada retornad
         },
         {
           "actionText": "If your VPN gateway isn't up and running by the expected resolution time, contact support",
-          "actionUri": "http://azure.microsoft.com/support",
+          "actionUri": "https://azure.microsoft.com/support",
           "actionUriText": "contact support"
         }
       ]
@@ -178,7 +178,7 @@ As respostas a seguir são exemplos de uma resposta típica e degradada retornad
         },
         {
           "actionText": "If you are experiencing problems you believe are caused by Azure, contact support",
-          "actionUri": "http://azure.microsoft.com/support",
+          "actionUri": "https://azure.microsoft.com/support",
           "actionUriText": "contact support"
         }
       ]
@@ -295,7 +295,7 @@ is a transient state while the Azure platform is being updated.",
         },
         {
           "actionText": "If your VPN Connection isn't up and running by the expected resolution time, contact support",
-          "actionUri": "http://azure.microsoft.com/support",
+          "actionUri": "https://azure.microsoft.com/support",
           "actionUriText": "contact support"
         }
       ]
@@ -312,7 +312,7 @@ is a transient state while the Azure platform is being updated.",
         },
         {
           "actionText": "If you are experiencing problems you believe are caused by Azure, contact support",
-          "actionUri": "http://azure.microsoft.com/support",
+          "actionUri": "https://azure.microsoft.com/support",
           "actionUriText": "contact support"
         }
       ]
@@ -325,7 +325,7 @@ is a transient state while the Azure platform is being updated.",
 
 O texto de ação fornece orientação geral sobre como resolver o problema. Se for possível executar uma ação para solucionar o problema, você receberá um link com orientações adicionais. Nos casos em que não há orientações adicionais, a resposta fornecerá a url para abrir um caso de suporte.  Para obter mais informações sobre as propriedades da resposta e o do que está incluído, acesse [Visão geral da solução de problemas do observador de rede](network-watcher-troubleshoot-overview.md)
 
-Para obter instruções sobre como baixar os arquivos de contas de armazenamento do Azure, confira [Introdução ao armazenamento de Blobs do Azure usando o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que pode ser usada é o Gerenciador de armazenamento. Para obter mais informações sobre o Gerenciador de armazenamento acesse o link: [Gerenciador de armazenamento](http://storageexplorer.com/)
+Para obter instruções sobre como baixar os arquivos de contas de armazenamento do Azure, confira [Introdução ao armazenamento de Blobs do Azure usando o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que pode ser usada é o Gerenciador de armazenamento. Para saber mais sobre o Gerenciador de Armazenamento, acesse o link: [Gerenciador de Armazenamento](https://storageexplorer.com/)
 
 ## <a name="next-steps"></a>Próximas etapas
 

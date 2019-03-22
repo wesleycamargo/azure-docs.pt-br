@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 08/08/2016
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 3b6781a6b87f9f11b341cf3cf2bcf6668b640c2b
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 39cd5a3fe7db0c442608e7943e7cbd6e3198edfb
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52992191"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547773"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-sysdig"></a>(PRETERIDO) Monitorar um cluster do Serviço de Contêiner do Azure com Sysdig
 
@@ -23,7 +23,7 @@ ms.locfileid: "52992191"
 Neste artigo, implantaremos agentes de Sysdig para todos os nós de agente em seu cluster do Serviço de Contêiner do Azure. Você precisa de uma conta com Sysdig para essa configuração. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-[Implantar](container-service-deployment.md) e [conectar](../container-service-connect.md) um cluster configurado pelo Serviço de Contêiner do Azure. Explorar a [interface do usuário do Marathon](container-service-mesos-marathon-ui.md). Vá para [http://app.sysdigcloud.com](http://app.sysdigcloud.com) para configurar uma conta de nuvem Sysdig. 
+[Implantar](container-service-deployment.md) e [conectar](../container-service-connect.md) um cluster configurado pelo Serviço de Contêiner do Azure. Explorar a [interface do usuário do Marathon](container-service-mesos-marathon-ui.md). Vá para [https://app.sysdigcloud.com](https://app.sysdigcloud.com) para configurar uma conta de nuvem Sysdig. 
 
 ## <a name="sysdig"></a>Sysdig
 Sysdig é um serviço de monitoramento que permite monitorar os contêineres no cluster. Sysdig ajuda a solucionar problemas, mas também tem métricas de monitoramentos básicas para CPU, rede, memória e E/S. Com Sysdig, é mais fácil ver quais contêineres estão trabalhando mais ou, essencialmente, usando mais memória e CPU. Esse modo de exibição está na seção "Visão geral", que está atualmente na versão beta. 

@@ -1,5 +1,5 @@
 ---
-title: 'Autenticação de serviço a serviço: Java com o armazenamento de dados do Windows Azure Gen1 usando o Active Directory do Azure | Microsoft Docs'
+title: 'Autenticação serviço a serviço: Java com Gen1 de armazenamento do Azure Data Lake usando o Azure Active Directory | Microsoft Docs'
 description: Saiba como conseguir a autenticação de serviço a serviço com o Azure Data Lake Storage Gen1 usando o Active Directory do Azure com Java
 services: data-lake-store
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 86cc5148c862c18c01cec2951fc58e2932c17ca8
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
-ms.translationtype: HT
+ms.openlocfilehash: 257db3ab0a155dd79ef74365f956293886e2f658
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46298142"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57529708"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-java"></a>Autenticação serviço a serviço com Gen1 de armazenamento do Azure Data Lake usando o Java
 > [!div class="op_single_selector"]
@@ -32,14 +32,14 @@ Neste artigo, você aprende sobre como usar o Java SDK para fazer a autenticaç�
 ## <a name="prerequisites"></a>Pré-requisitos
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Criar um aplicativo "Web" do Azure Active Directory**. Você deve ter concluído as etapas em [autenticação de serviço a serviço com Data Lake armazenamento Gen1 usando o Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md).
+* **Criar um aplicativo "Web" do Azure Active Directory**. Você deve ter concluído as etapas em [Autenticação de serviço a serviço com Azure Data Lake Storage Gen1 usando Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
 * [Maven](https://maven.apache.org/install.html). Este tutorial usa o Maven para compilação e dependências de projeto. Embora seja possível compilar sem usar um sistema de compilação como Maven ou Gradle, com esses sistemas é muito mais fácil gerenciar dependências.
 
 * (Opcional) Como um IDE [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) ou [Eclipse](https://www.eclipse.org/downloads/) ou semelhantes.
 
 ## <a name="service-to-service-authentication"></a>Autenticação serviço a serviço
-1. Crie um projeto do Maven usando [mvn archetype](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html) na linha de comando ou usando um IDE. Para obter instruções sobre como criar um projeto Java usando IntelliJ, veja [aqui](https://www.jetbrains.com/help/idea/2016.1/creating-and-running-your-first-java-application.html). Para obter instruções sobre como criar um projeto usando o Eclipse, veja [aqui](http://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2FgettingStarted%2Fqs-3.htm).
+1. Crie um projeto do Maven usando [mvn archetype](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html) na linha de comando ou usando um IDE. Para obter instruções sobre como criar um projeto Java usando IntelliJ, veja [aqui](https://www.jetbrains.com/help/idea/2016.1/creating-and-running-your-first-java-application.html). Para obter instruções sobre como criar um projeto usando o Eclipse, veja [aqui](https://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2FgettingStarted%2Fqs-3.htm).
 
 2. Adicione as dependências a seguir para o arquivo **pom.xml** do Maven. Adicione o snippet a seguir antes da marca **\</project&gt;**:
    
@@ -56,7 +56,7 @@ Neste artigo, você aprende sobre como usar o Java SDK para fazer a autenticaç�
           </dependency>
         </dependencies>
    
-    A primeira dependência é usar o SDK do Data Lake Storage Gen1 (`azure-data-lake-store-sdk`) do repositório maven. A segunda dependência serve para especificar qual estrutura de registros (`slf4j-nop`) usar para o aplicativo. O SDK Data Lake Storage Gen1 usa a fachada de logging [slf4j](http://www.slf4j.org/), que permite escolher entre uma série de estruturas de logging populares, como log4j, logging Java, logback, etc., ou nenhum logging. Para este exemplo, desabilitamos o registro em log, por isso, usamos a associação **slf4j-nop**. Para usar outras opções de log em seu aplicativo, veja [aqui](http://www.slf4j.org/manual.html#projectDep).
+    A primeira dependência é usar o SDK do Data Lake Storage Gen1 (`azure-data-lake-store-sdk`) do repositório maven. A segunda dependência serve para especificar qual estrutura de registros (`slf4j-nop`) usar para o aplicativo. O SDK do Data Lake Storage Gen1 usa fachada de registros [slf4j](https://www.slf4j.org/), o que permite escolher entre uma série de estruturas de registros populares como log4j, registro do Java, logback, etc., ou nenhum registro. Para este exemplo, desabilitamos o registro em log, por isso, usamos a associação **slf4j-nop**. Para usar outras opções de log em seu aplicativo, veja [aqui](https://www.slf4j.org/manual.html#projectDep).
 
 3. Adicione as seguintes instruções import ao seu aplicativo.
 

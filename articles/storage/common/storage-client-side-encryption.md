@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/20/2017
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 2f646df3cab0320b574023cd543015921c640cab
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: c8f9b17bf5b572128348b22de62566ba06d5d766
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478314"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57992401"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Criptografia do lado do cliente e o Cofre da Chave do Azure para o Armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -48,10 +48,10 @@ A descriptografia com a técnica de envelope funciona da seguinte maneira:
 4. A CEK (chave de criptografia de conteúdo) é então usada para descriptografar os dados de usuário criptografados.
 
 ## <a name="encryption-mechanism"></a>Mecanismo de criptografia
-A biblioteca de cliente de armazenamento usa [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) para criptografar os dados do usuário. Especificamente, o modo [CBC (Encadeamento de Blocos de Criptografia)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) com AES. Cada serviço funciona ligeiramente diferente, portanto, discutiremos cada uma deles aqui.
+A biblioteca de cliente de armazenamento usa [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) para criptografar os dados do usuário. Especificamente, o modo [CBC (Encadeamento de Blocos de Criptografia)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) com AES. Cada serviço funciona ligeiramente diferente, portanto, discutiremos cada uma deles aqui.
 
 ### <a name="blobs"></a>Blobs
-Atualmente, a biblioteca de cliente dá suporte à criptografia somente de blobs completos. Especificamente, há suporte para a criptografia quando os usuários usam os métodos **UploadFrom*** ou o método **OpenWrite**. Para downloads, tanto os downloads completos quanto os de intervalo têm suporte.
+Atualmente, a biblioteca de cliente dá suporte à criptografia somente de blobs completos. Especificamente, a criptografia é suportada quando os usuários usam o **UploadFrom** métodos ou o **OpenWrite** método. Para downloads, tanto os downloads completos quanto os de intervalo têm suporte.
 
 Durante a criptografia, a biblioteca de cliente gerará um vetor de inicialização aleatório (IV) de 16 bytes, juntamente com uma chave de criptografia aleatória de conteúdo (CEK) de 32 bytes e executará a criptografia de envelope dos dados blob usando essas informações. O CEK encapsulado e alguns metadados adicionais de criptografia são armazenadas como metadados com o blob criptografado no serviço de blob.
 
@@ -60,9 +60,9 @@ Durante a criptografia, a biblioteca de cliente gerará um vetor de inicializaç
 > 
 > 
 
-Fazer o download de um blob criptografado envolve a recuperação do conteúdo do blob inteiro usando os métodos de conveniência **DownloadTo**/**BlobReadStream**\*. O CEK encapsulado é desempacotado e usado em conjunto com o IV (armazenado como metadados de blob neste caso) para retornar os dados descriptografados para os usuários.
+Baixar um blob criptografado envolve a recuperação do conteúdo do blob inteiro usando o **DownloadTo**/**BlobReadStream** métodos de conveniência. O CEK encapsulado é desempacotado e usado em conjunto com o IV (armazenado como metadados de blob neste caso) para retornar os dados descriptografados para os usuários.
 
-Baixar um intervalo arbitrário (métodos**DownloadRange**\*) no blob criptografado envolve o ajuste do intervalo fornecido pelos usuários para obter uma pequena quantidade de dados adicionais que podem ser usados para descriptografar o intervalo solicitado com êxito.
+Baixar um intervalo arbitrário (**DownloadRange** métodos) no blob criptografado envolve o ajuste do intervalo fornecido pelos usuários para obter uma pequena quantidade de dados adicionais que podem ser usados para descriptografar o solicitado com êxito intervalo.
 
 Todos os tipos de blob (blobs de blocos, blobs de páginas e blobs de anexo) podem ser criptografados/descriptografados usando este esquema.
 
@@ -102,7 +102,7 @@ Em operações em lote, o mesmo KEK será usado em todas as linhas de operação
 > Como as entidades são criptografadas, é possível executar consultas que filtram uma propriedade criptografada.  Se você tentar, os resultados estarão incorretos, porque o serviço tentará comparar dados criptografados com dados não criptografados.
 > 
 > 
-Para executar operações de consulta, você deve especificar que um resolvedor de chave é capaz de resolver todas as chaves no conjunto de resultados. Se uma entidade contida no resultado da consulta não puder ser resolvida para um provedor, a biblioteca de cliente gerará um erro. Para qualquer consulta que realiza as projeções do lado do servidor, a biblioteca de cliente adicionará as propriedades de metadados de criptografia especial (_ClientEncryptionMetadata1 e ClientEncryptionMetadata2) por padrão às colunas selecionadas.
+> Para executar operações de consulta, você deve especificar que um resolvedor de chave é capaz de resolver todas as chaves no conjunto de resultados. Se uma entidade contida no resultado da consulta não puder ser resolvida para um provedor, a biblioteca de cliente gerará um erro. Para qualquer consulta que realiza as projeções do lado do servidor, a biblioteca de cliente adicionará as propriedades de metadados de criptografia especial (_ClientEncryptionMetadata1 e ClientEncryptionMetadata2) por padrão às colunas selecionadas.
 
 ## <a name="azure-key-vault"></a>Cofre da Chave do Azure
 O Cofre da Chave do Azure ajuda a proteger chaves criptográficas e segredos usados por aplicativos e serviços em nuvem. Usando o Cofre da Chave do Azure, os usuários podem criptografar chaves e segredos (como chaves de autenticação, chaves de conta de armazenamento, chaves de criptografia de dados, arquivos .PFX e senhas) usando chaves que são protegidas por HSMs (módulos de segurança de hardware). Para obter mais informações, veja [O que é o Cofre da Chave do Azure?](../../key-vault/key-vault-whatis.md).
@@ -243,5 +243,5 @@ Observe que criptografar seu armazenamento de dados resulta em uma sobrecarga ad
 ## <a name="next-steps"></a>Próximas etapas
 * [Tutorial: Criptografar e descriptografar blobs no Armazenamento do Microsoft Azure usando o Azure Key Vault](../blobs/storage-encrypt-decrypt-blobs-key-vault.md)
 * Baixar o [pacote NuGet da Biblioteca de Clientes do Armazenamento do Azure para o .NET](https://www.nuget.org/packages/WindowsAzure.Storage)
-* Baixar os pacotes NuGet de [Núcleo](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Cliente](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) e [Extensões](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) do Cofre de Chaves do Azure  
+* Baixar os pacotes NuGet de [Núcleo](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Cliente](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/) e [Extensões](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) do Cofre de Chaves do Azure  
 * Visitar a [Documentação do Cofre de Chaves do Azure](../../key-vault/key-vault-whatis.md)

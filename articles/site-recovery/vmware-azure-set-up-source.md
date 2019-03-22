@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: b4ed878b19b2eebe01c9888388949600e85c56e3
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: 536b7ed21e7dd54fcbea97951330b08925961713
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792962"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884958"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Configurar o ambiente de origem para replicação de VMware no Azure
 
@@ -24,7 +24,7 @@ Este artigo descreve como configurar seu ambiente local de origem para replicar 
 O artigo supõe que você já tenha:
 
 - Planeje sua implantação com a ajuda do [Planejador de Implantações do Azure Site Recovery](site-recovery-deployment-planner.md). Isso ajuda você a alocar largura de banda suficiente, com base em sua taxa diária de alteração de dados, a fim de atender ao RPO (objetivo de ponto de recuperação) desejado.
-- [Configurar recursos](tutorial-prepare-azure.md) no [portal do Azure](http://portal.azure.com).
+- [Configurar recursos](tutorial-prepare-azure.md) no [portal do Azure](https://portal.azure.com).
 - [Configurar o VMware local](vmware-azure-tutorial-prepare-on-premises.md), incluindo uma conta dedicada para a descoberta automática.
 
 ## <a name="choose-your-protection-goals"></a>Escolher as metas de proteção
@@ -41,7 +41,7 @@ Você pode configurar o servidor de configuração como uma VM do VMware local p
 
 1. Saiba mais sobre os [pré-requisitos](vmware-azure-deploy-configuration-server.md#prerequisites) para implantação de servidor de configuração.
 2. [Verificar números de capacidade](vmware-azure-deploy-configuration-server.md#capacity-planning) para implantação.
-3. [Baixar](vmware-azure-deploy-configuration-server.md#download-the-template) e [importar](vmware-azure-deploy-configuration-server.md#import-the-template-in-vmware) o modelo OVA para configurar um VM do VMware local que executa o servidor de configuração. A licença fornecida com o modelo OVA é uma licença de avaliação e tem validade de 180 dias. Após esse período, o cliente precisa ativar o Windows com uma licença adquirida.
+3. [Baixar](vmware-azure-deploy-configuration-server.md#download-the-template) e [importar](vmware-azure-deploy-configuration-server.md#import-the-template-in-vmware) o modelo OVA para configurar um VM do VMware local que executa o servidor de configuração. A licença fornecida com o modelo é uma licença de avaliação e é válida por 180 dias. Após esse período, cliente precisa ativar o windows com uma licença adquirida.
 4. Ativar a VM do VMware e [registre-o](vmware-azure-deploy-configuration-server.md#register-the-configuration-server-with-azure-site-recovery-services) no cofre dos Serviços de Recuperação.
 
 ## <a name="azure-site-recovery-folder-exclusions-from-antivirus-program"></a>Exclusões de pasta do Azure Site Recovery do programa Antivírus
@@ -58,18 +58,18 @@ Exclua as seguintes pastas do software antivírus para ter uma replicação tran
 - C:\Arquivos de Programas\Provedor do Microsoft Azure Site Recovery
 - C:\Arquivos de Programas\Gerente de Configuração do Microsoft Azure Site Recovery 
 - C:\Arquivos de Programas\Ferramenta de Coleta de Erro do Microsoft Azure Site Recovery 
- - C:\thirdparty
- - C:\Temp
- - C:\strawberry
- - C:\ProgramData\MySQL
- - C:\Arquivos de Programas (x86)\MySQL
- - C:\ProgramData\ASR
- - C:\ProgramData\Microsoft Azure Site Recovery
- - C:\ProgramData\ASRLogs
- - C:\ProgramData\ASRSetupLogs
- - C:\ProgramData\LogUploadServiceLogs
- - C:\inetpub
- - Diretório de instalação de servidor do ASR. Por exemplo:  E:\Program Files (x86)\Microsoft Azure Site Recovery
+  - C:\thirdparty
+  - C:\Temp
+  - C:\strawberry
+  - C:\ProgramData\MySQL
+  - C:\Arquivos de Programas (x86)\MySQL
+  - C:\ProgramData\ASR
+  - C:\ProgramData\Microsoft Azure Site Recovery
+  - C:\ProgramData\ASRLogs
+  - C:\ProgramData\ASRSetupLogs
+  - C:\ProgramData\LogUploadServiceLogs
+  - C:\inetpub
+  - Diretório de instalação de servidor do ASR. Por exemplo:  E:\Program Files (x86)\Microsoft Azure Site Recovery
 
 ### <a name="if-antivirus-software-is-active-on-scale-out-process-servermaster-target"></a>Se o software antivírus estiver ativo no servidor de processo/destino mestre em expansão
 

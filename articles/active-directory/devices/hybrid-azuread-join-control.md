@@ -17,12 +17,12 @@ ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6b1e1c103c37874365f7e8d0b893985c9a6469c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8b113dd3e354e778d2cf16182665afff5440d2e5
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171070"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57408523"
 ---
 # <a name="control-the-hybrid-azure-ad-join-of-your-devices"></a>Controlar ingresso no Azure AD híbrido de seus dispositivos
 
@@ -82,7 +82,7 @@ Para definir o GPO:
 8.  Clique com o botão direito do mouse em **Registrar computadores associados ao domínio como dispositivos** e selecione **Editar**.
 
     > [!NOTE] 
-    > Esse modelo de Política de Grupo foi renomeado de versões anteriores do console de Gerenciamento de Política de Grupo. Se você estiver usando uma versão anterior do console, vá para **Configuração do Computador** > **Políticas** > **Modelos Administrativos** > **Componentes do Windows** > **Ingressar no Local de Trabalho** > **Ingressar automaticamente computadores cliente**. 
+    > Esse modelo de Política de Grupo foi renomeado de versões anteriores do console de Gerenciamento de Política de Grupo. Se você estiver usando uma versão anterior do console, acesse **configuração do computador** > **políticas** > **modelos administrativos**  >  **Componentes do Windows** > **o registro de dispositivo** > **integrado ao domínio de registro de computador como dispositivo**. 
 
 9.  Selecione uma das configurações a seguir e, em seguida, selecione **Aplicar**:
 
@@ -99,16 +99,16 @@ Você pode controlar o comportamento de registro de dispositivo dos dispositivos
 
 Para definir a configuração do cliente:
 
-1.  Abra o **Gerenciador de Configurações** e, em seguida, vá para **Serviços de Nuvem**.
+1.  Abra **Configuration Manager**, selecione **administração**e, em seguida, vá para **configurações de cliente**.
 
-2.  Em **Configurações do Dispositivo**, selecione uma das seguintes configurações para **Registrar automaticamente novos dispositivos ingressados no domínio do Windows 10 com Azure Active Directory**:
+2.  Abra as propriedades de **configurações do cliente padrão** e selecione **serviços de nuvem**.
+
+3.  Em **Configurações do Dispositivo**, selecione uma das seguintes configurações para **Registrar automaticamente novos dispositivos ingressados no domínio do Windows 10 com Azure Active Directory**:
 
     - **Não**: Para evitar o registro de dispositivos automático.
     - **Sim**: Para habilitar o registro de dispositivos automático.
 
-
-3.  Selecione **OK**.
-    
+4.  Selecione **OK**.
 
 É necessário vincular essa configuração do cliente a um local de sua escolha. Por exemplo, para definir essa configuração do cliente para todos os dispositivos atuais do Windows na organização, vincule a configuração do cliente ao domínio. Para fazer uma implantação controlada, é possível definir a configuração do cliente para dispositivos atuais do Windows ingressados no domínio que pertençam a uma unidade organizacional ou a um grupo de segurança.
 

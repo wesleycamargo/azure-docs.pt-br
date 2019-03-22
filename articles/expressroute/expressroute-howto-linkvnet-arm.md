@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 5dde6dfdfaed23dbbfe61b06a433f731d90a0440
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: b0ae3d5b2c60badfb9b59820b1e0b85383e524ca
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075991"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57406302"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Conectar uma rede virtual a um circuito do ExpressRoute
 > [!div class="op_single_selector"]
@@ -44,21 +44,24 @@ Este artigo ajuda a vincular as VNets (redes virtuais) aos circuitos do Azure Ex
   * Verifique se tem uma rede virtual e um gateway de rede virtual criados e totalmente provisionados. Siga as instruções para [criar um gateway de rede virtual para ExpressRoute](expressroute-howto-add-gateway-resource-manager.md). Um gateway de rede virtual para ExpressRoute usa o GatewayType “ExpressRoute”, não VPN.
 
 ### <a name="working-with-azure-powershell"></a>Trabalhando com o Azure PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
 ## <a name="connect-a-virtual-network-in-the-same-subscription-to-a-circuit"></a>Conectar uma rede virtual na mesma assinatura a um circuito
 Você pode vincular um gateway de rede virtual a um circuito do ExpressRoute usando o cmdlet a seguir. Verifique se o gateway de rede virtual foi criado e se está pronto para vinculação antes de executar o cmdlet:
 
 ```azurepowershell-interactive
-$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
-$gw = Get-AzureRmVirtualNetworkGateway -Name "ExpressRouteGw" -ResourceGroupName "MyRG"
-$connection = New-AzureRmVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName "MyRG" -Location "East US" -VirtualNetworkGateway1 $gw -PeerId $circuit.Id -ConnectionType ExpressRoute
+$circuit = Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
+$gw = Get-AzVirtualNetworkGateway -Name "ExpressRouteGw" -ResourceGroupName "MyRG"
+$connection = New-AzVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName "MyRG" -Location "East US" -VirtualNetworkGateway1 $gw -PeerId $circuit.Id -ConnectionType ExpressRoute
 ```
 
 ## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>Conectar uma rede virtual em uma assinatura diferente a um circuito
 Você pode compartilhar um circuito do ExpressRoute entre várias assinaturas. A figura a seguir mostra um esquema simples de como funciona o compartilhamento de circuitos do ExpressRoute entre várias assinaturas.
 
-Cada uma das nuvens menores dentro da nuvem grande é usada para representar assinaturas pertencentes a diferentes departamentos dentro de uma organização. Cada um dos departamentos dentro da organização pode usar sua própria assinatura para implantar seus serviços, mas pode compartilhar um único circuito do ExpressRoute para se conectar de volta à respectiva rede local. Um único departamento (neste exemplo: IT) pode ser proprietário do circuito do ExpressRoute. Outras assinaturas dentro da organização podem usar o circuito de ExpressRoute.
+Cada uma das nuvens menores dentro da nuvem grande é usada para representar assinaturas pertencentes a diferentes departamentos dentro de uma organização. Cada um dos departamentos dentro da organização pode usar sua própria assinatura para implantar seus serviços, mas pode compartilhar um único circuito do ExpressRoute para se conectar de volta à respectiva rede local. Um único departamento (neste exemplo: IT) pode ser proprietário do circuito do Microsoft Azure ExpressRoute. Outras assinaturas dentro da organização podem usar o circuito de ExpressRoute.
 
 > [!NOTE]
 > As cobranças por conectividade e largura de banda pelo circuito ExpressRoute serão aplicadas ao proprietário da assinatura. Todas as redes virtuais compartilham a mesma largura de banda.
@@ -83,12 +86,12 @@ O proprietário do circuito cria uma autorização. Isso resulta na criação de
 O seguinte snippet de cmdlet mostra como criar uma autorização:
 
 ```azurepowershell-interactive
-$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
-Add-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization1"
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
+$circuit = Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
+Add-AzExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization1"
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $circuit
 
-$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
-$auth1 = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization1"
+$circuit = Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
+$auth1 = Get-AzExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization1"
 ```
 
 
@@ -108,8 +111,8 @@ A resposta para isso conterá a chave de autorização e o status:
 O proprietário do circuito pode examinar todas as autorizações emitidas em um circuito específico executando o seguinte cmdlet:
 
 ```azurepowershell-interactive
-$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
-$authorizations = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit
+$circuit = Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
+$authorizations = Get-AzExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit
 ```
 
 **Adicionar autorizações**
@@ -117,12 +120,12 @@ $authorizations = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircu
 O proprietário do circuito pode adicionar autorizações usando o cmdlet a seguir.
 
 ```azurepowershell-interactive
-$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
-Add-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization2"
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
+$circuit = Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
+Add-AzExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization2"
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $circuit
 
-$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
-$authorizations = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit
+$circuit = Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
+$authorizations = Get-AzExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit
 ```
 
 **Excluir autorizações**
@@ -130,8 +133,8 @@ $authorizations = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircu
 O proprietário do circuito pode revogar/excluir autorizações usando o seguinte cmdlet:
 
 ```azurepowershell-interactive
-Remove-AzureRmExpressRouteCircuitAuthorization -Name "MyAuthorization2" -ExpressRouteCircuit $circuit
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
+Remove-AzExpressRouteCircuitAuthorization -Name "MyAuthorization2" -ExpressRouteCircuit $circuit
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $circuit
 ```    
 
 ### <a name="circuit-user-operations"></a>Operações do usuário do circuito
@@ -141,7 +144,7 @@ O usuário do circuito precisa da ID do par e de uma chave de autorização do p
 É possível verificar a ID de Par com o seguinte comando:
 
 ```azurepowershell-interactive
-Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
+Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 ```
 
 **Resgatar uma autorização de conexão**
@@ -150,8 +153,8 @@ O usuário de circuito pode executar o seguinte cmdlet para resgatar uma autoriz
 
 ```azurepowershell-interactive
 $id = "/subscriptions/********************************/resourceGroups/ERCrossSubTestRG/providers/Microsoft.Network/expressRouteCircuits/MyCircuit"    
-$gw = Get-AzureRmVirtualNetworkGateway -Name "ExpressRouteGw" -ResourceGroupName "MyRG"
-$connection = New-AzureRmVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName "RemoteResourceGroup" -Location "East US" -VirtualNetworkGateway1 $gw -PeerId $id -ConnectionType ExpressRoute -AuthorizationKey "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+$gw = Get-AzVirtualNetworkGateway -Name "ExpressRouteGw" -ResourceGroupName "MyRG"
+$connection = New-AzVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName "RemoteResourceGroup" -Location "East US" -VirtualNetworkGateway1 $gw -PeerId $id -ConnectionType ExpressRoute -AuthorizationKey "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
 ```
 
 **Liberar uma autorização de conexão**
@@ -166,9 +169,9 @@ Você pode atualizar determinadas propriedades de uma conexão de rede virtual.
 Sua rede virtual pode ser conectada a vários circuitos do ExpressRoute. Você pode receber o mesmo prefixo de mais de um circuito do ExpressRoute. Para escolher à qual conexão enviar o tráfego destinado a esse prefixo, você pode alterar *RoutingWeight* de uma conexão. O tráfego será enviado na conexão com o *RoutingWeight* mais alto.
 
 ```azurepowershell-interactive
-$connection = Get-AzureRmVirtualNetworkGatewayConnection -Name "MyVirtualNetworkConnection" -ResourceGroupName "MyRG"
+$connection = Get-AzVirtualNetworkGatewayConnection -Name "MyVirtualNetworkConnection" -ResourceGroupName "MyRG"
 $connection.RoutingWeight = 100
-Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection
+Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection
 ```
 
 O intervalo de *RoutingWeight* é de 0 a 32.000. O valor padrão é 0.

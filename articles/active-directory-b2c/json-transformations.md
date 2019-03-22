@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 67cda814925c3e5b974e4580594724c890851f64
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 88d447f86dd54fc9479a6d7d2006b9a8639ad09e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55176192"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089226"
 ---
 # <a name="json-claims-transformations"></a>Transformações de declarações JSON
 
@@ -29,9 +29,9 @@ Obter um elemento especificado de dados JSON.
 
 | item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputJson | string | Os ClaimTypes que são usados pela transformação de declarações para obter o item. |
-| InputParameter | claimToExtract | string | o nome do elemento JSON a ser extraído. |
-| OutputClaim | extractedClaim | string | O ClaimType que é produzido após a invocação dessa transformação de declarações, o valor do elemento especificado no parâmetro de entrada _claimToExtract_. |
+| InputClaim | inputJson | cadeia de caracteres | Os ClaimTypes que são usados pela transformação de declarações para obter o item. |
+| InputParameter | claimToExtract | cadeia de caracteres | o nome do elemento JSON a ser extraído. |
+| OutputClaim | extractedClaim | cadeia de caracteres | O ClaimType que é produzido após a invocação dessa transformação de declarações, o valor do elemento especificado no parâmetro de entrada _claimToExtract_. |
 
 No exemplo a seguir, a transformação de declarações extraiu o elemento `emailAddress` dos dados JSON: `{"emailAddress": "someone@example.com", "displayName": "Someone"}`
 
@@ -52,11 +52,11 @@ No exemplo a seguir, a transformação de declarações extraiu o elemento `emai
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-    - **inputJson**: {"emailAddress": "someone@example.com", "displayName": "Someone"}
+  - **inputJson**: {"emailAddress": "someone@example.com", "displayName": "Someone"}
 - Parâmetro de entrada:
     - **claimToExtract**: emailAddress
 - Declarações de saída: 
-    - **extractedClaim**: someone@example.com
+  - **extractedClaim**: someone@example.com
 
 
 ## <a name="getclaimsfromjsonarray"></a>GetClaimsFromJsonArray
@@ -65,11 +65,11 @@ Obter uma lista de elementos especificados de dados JSON.
 
 | item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | jsonSourceClaim | string | Os ClaimTypes que são usados pela transformação de declarações para obter as declarações. |
+| InputClaim | jsonSourceClaim | cadeia de caracteres | Os ClaimTypes que são usados pela transformação de declarações para obter as declarações. |
 | InputParameter | errorOnMissingClaims | booleano | Especifica se um erro deverá ser gerado se uma das declarações estiver ausente. |
-| InputParameter | includeEmptyClaims | string | Especifica se você deseja incluir declarações vazias. |
-| InputParameter | jsonSourceKeyName | string | Nome da chave do elemento |
-| InputParameter | jsonSourceValueName | string | Nome do valor do elemento |
+| InputParameter | includeEmptyClaims | cadeia de caracteres | Especifica se você deseja incluir declarações vazias. |
+| InputParameter | jsonSourceKeyName | cadeia de caracteres | Nome da chave do elemento |
+| InputParameter | jsonSourceValueName | cadeia de caracteres | Nome do valor do elemento |
 | OutputClaim | Coleção | string, int, boolean e datetime |Lista de declarações a serem extraídas. O nome da declaração deve ser igual ao especificado na declaração de entrada _jsonSourceClaim_. |
 
 No exemplo a seguir, a transformação de declarações extrai as declarações a seguir: email (string), displayName (string), membershipNum (int), active (boolean) e birthdate (datetime) dos dados JSON.
@@ -100,18 +100,18 @@ No exemplo a seguir, a transformação de declarações extrai as declarações 
 ```    
 
 - Declarações de entrada:
-    - **jsonSourceClaim**: [{"key":"email","value":"someone@example.com"}, {"key":"displayName","value":"Someone"}, {"key":"membershipNum","value":6353399}, {"key":"active","value": true}, {"key":"birthdate","value":"1980-09-23T00:00:00Z"}]
+  - **jsonSourceClaim**: [{"key":"email","value":"someone@example.com"}, {"key":"displayName","value":"Someone"}, {"key":"membershipNum","value":6353399}, {"key":"active","value": true}, {"key":"birthdate","value":"1980-09-23T00:00:00Z"}]
 - Parâmetros de entrada:
     - **errorOnMissingClaims**: false
     - **includeEmptyClaims**: false
     - **jsonSourceKeyName**: key
     - **jsonSourceValueName**: value
 - Declarações de saída:
-    - **email**: "someone@example.com"
-    - **displayName**: "Someone"
-    - **membershipNum**: 6353399
-    - **active**: true
-    - **birthdate**: 1980-09-23T00:00:00Z
+  - **email**: "someone@example.com"
+  - **displayName**: "Someone"
+  - **membershipNum**: 6353399
+  - **active**: true
+  - **birthdate**: 1980-09-23T00:00:00Z
 
 ## <a name="getnumericclaimfromjson"></a>GetNumericClaimFromJson
 
@@ -119,8 +119,8 @@ Obtém um elemento (longo) numérico especificado dos dados JSON.
 
 | item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputJson | string | Os ClaimTypes que são usados pela transformação de declarações para obter a declaração. |
-| InputParameter | claimToExtract | string | O nome do elemento JSON a ser extraído. |
+| InputClaim | inputJson | cadeia de caracteres | Os ClaimTypes que são usados pela transformação de declarações para obter a declaração. |
+| InputParameter | claimToExtract | cadeia de caracteres | O nome do elemento JSON a ser extraído. |
 | OutputClaim | extractedClaim | longo | O ClaimType que é produzido após a invocação desse ClaimsTransformation, o valor do elemento especificado no parâmetro de entrada _claimToExtract_. |
 
 No exemplo a seguir, a transformação de declarações extrai o elemento `id` dos dados JSON.
@@ -150,7 +150,7 @@ No exemplo a seguir, a transformação de declarações extrai o elemento `id` d
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-    - **inputJson**: {"emailAddress": "someone@example.com", "displayName": "Someone", "id" : 6353399}
+  - **inputJson**: {"emailAddress": "someone@example.com", "displayName": "Someone", "id" : 6353399}
 - Parâmetros de entrada
     - **claimToExtract**: id
 - Declarações de saída: 
@@ -162,8 +162,8 @@ Obtém o primeiro elemento de uma matriz de dados JSON.
 
 | item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputJsonClaim | string | Os ClaimTypes que são usados pela transformação de declarações para obter o item da matriz JSON. |
-| OutputClaim | extractedClaim | string | O ClaimType que é produzido após a invocação desse ClaimsTransformation, o primeiro elemento na matriz JSON. |
+| InputClaim | inputJsonClaim | cadeia de caracteres | Os ClaimTypes que são usados pela transformação de declarações para obter o item da matriz JSON. |
+| OutputClaim | extractedClaim | cadeia de caracteres | O ClaimType que é produzido após a invocação desse ClaimsTransformation, o primeiro elemento na matriz JSON. |
 
 No exemplo a seguir, a transformação de declarações extrai o primeiro elemento (endereço de email) da matriz JSON `["someone@example.com", "Someone", 6353399]`.
 
@@ -181,9 +181,9 @@ No exemplo a seguir, a transformação de declarações extrai o primeiro elemen
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-    - **inputJsonClaim**: ["someone@example.com", "Someone", 6353399]
+  - **inputJsonClaim**: ["someone@example.com", "Someone", 6353399]
 - Declarações de saída: 
-    - **extractedClaim**: someone@example.com
+  - **extractedClaim**: someone@example.com
 
 ## <a name="xmlstringtojsonstring"></a>XmlStringToJsonString
 
@@ -191,8 +191,8 @@ Converte dados XML no formato JSON.
 
 | item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | xml | string | Os ClaimTypes que são usados pela transformação de declarações para converter os dados do formato XML para JSON. |
-| OutputClaim | json | string | O ClaimType que é produzido após a invocação dessee ClaimsTransformation, os dados no formato JSON. |
+| InputClaim | xml | cadeia de caracteres | Os ClaimTypes que são usados pela transformação de declarações para converter os dados do formato XML para JSON. |
+| OutputClaim | json | cadeia de caracteres | O ClaimType que é produzido após a invocação dessee ClaimsTransformation, os dados no formato JSON. |
 
 ```XML
 <ClaimsTransformation Id="ConvertXmlToJson" TransformationMethod="XmlStringToJsonString">

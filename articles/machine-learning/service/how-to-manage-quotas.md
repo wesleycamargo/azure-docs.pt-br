@@ -11,18 +11,18 @@ author: nishankgu
 ms.author: nigup
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: b735df4e245d6e3ceebd847e91ed7dfdb255c267
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: aa425b6dfeb076448d14fc35cbea964516d603b0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245983"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904636"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Gerenciar e solicitar cotas para recursos do Azure
 
 Como acontece com outros serviços do Azure, há limites em determinados recursos associados ao serviço do Azure Machine Learning. Esses limites variam de um limite no número de workspaces que podem ser criados a limites na computação subjacente real que é usada para treinar ou inferir seus modelos. Este artigo fornece mais detalhes sobre os limites pré-configurados em vários recursos do Azure para sua assinatura e também contém links úteis para solicitar aprimoramentos de cota para cada tipo de recurso. Esses limites são estabelecidos para evitar estouros de orçamento devido a fraudes e respeitar as restrições de capacidade do Azure.
 
-Lembre-se dessas cotas enquanto cria e aumenta seus recursos do Serviço do Azure Machine Learning para cargas de trabalho de produção. Por exemplo, se o cluster não atingir o número de destino de nós especificado, você poderá ter atingido um limite de núcleos de Computação do Azure Machine Learning para sua assinatura. Se você desejar aumentar o limite ou a cota acima do limite padrão, abra uma solicitação de suporte ao cliente online sem custo. Os limites não podem ser aumentados além do valor Limite Máximo mostrado nas tabelas a seguir devido a restrições de Capacidade do Azure. Se não houver nenhuma coluna Limite Máximo, o recurso não terá limites ajustáveis.
+Lembre-se dessas cotas enquanto cria e aumenta seus recursos do Serviço do Azure Machine Learning para cargas de trabalho de produção. Por exemplo, se o cluster não atinge o número alvo de nós que você especificou, em seguida, você talvez tenha atingido um limite de núcleos de computação do Azure Machine Learning para sua assinatura. Se você desejar aumentar o limite ou a cota acima do limite padrão, abra uma solicitação de suporte ao cliente online sem custo. Os limites não podem ser aumentados além do valor Limite Máximo mostrado nas tabelas a seguir devido a restrições de Capacidade do Azure. Se não houver nenhuma coluna Limite Máximo, o recurso não terá limites ajustáveis.
 
 ## <a name="special-considerations"></a>Considerações especiais
 

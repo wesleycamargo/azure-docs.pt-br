@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: 8f549c20480e3866725717aa054af6653ab5a913
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 236e4e7079da792d055a8de148d03852ca1012ab
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343988"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57877353"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de versão dos Serviços de Mídia do Azure v3
 
@@ -182,7 +182,7 @@ Se você criou Ativos ou Filtros de Conta entre 09/28 e 10/12 com CLI ou APIs do
 
 ### <a name="net-sdk"></a>SDK .NET
 
-Os recursos a seguir estão presentes no SDK .NET:
+Os recursos a seguir estão presentes no SDK do .NET:
 
 * **Transformações** e **Trabalhos** para codificar ou analisar o conteúdo de mídia. Para obter exemplos, consulte [Transmitir arquivos por stream](stream-files-tutorial-with-api.md) e [Analisar](analyze-videos-tutorial-with-api.md).
 * **Localizadores de streaming** para publicar e transmitir conteúdo aos dispositivos do usuário final

@@ -11,12 +11,12 @@ ms.date: 01/14/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d39305b4a8fafbd2fe2f1ac101f92597d6a3e4a0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6510105af8c019b1aca5333f516a10667edaadb5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189032"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58000876"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Configurar as permissões de Conta do AD DS Connector 
 
@@ -158,7 +158,7 @@ Esse cmdlet definirá as seguintes permissões:
 
 |Type |NOME |Access |Aplica-se A|
 |-----|-----|-----|-----| 
-|PERMITIR|Conta do AD DS conector|Propriedade de leitura/gravação|MS-DS-Consistency-Guid|Objetos de usuário descendentes|
+|PERMITIR|Conta do AD DS conector|Propriedade de leitura/gravação|Objetos de usuário descendentes|
 
 ### <a name="permissions-for-password-hash-synchronization"></a>Permissões para sincronização de hash de senha 
 Para definir permissões para a conta do conector do AD DS ao usar a sincronização de Hash de senha, execute: 
@@ -271,7 +271,7 @@ Este script do PowerShell apertará as permissões para a conta de conector do A
 - Desabilite herança no objeto especificado 
 - Remova todas as ACEs no objeto específico, exceto as ACEs específicas ao SELF, pois queremos manter as permissões padrão intactas quando se trata de para si mesmo. 
  
- O parâmetro -ADConnectorAccountDN é a conta do AD cujas permissões precisam ser reforçadas. Isso normalmente é a conta de domínio MSOL_nnnnnnnnnnnn que está configurada no conector do AD DS (consulte a determinar sua conta do conector do AD DS). O parâmetro de credenciamento é necessário para especificar a conta de administrador que tem os privilégios necessários para restringir as permissões do Active Directory no objeto de destino do AD. Esse normalmente é o administrador Corporativo ou de Domínio.  
+  O parâmetro -ADConnectorAccountDN é a conta do AD cujas permissões precisam ser reforçadas. Isso normalmente é a conta de domínio MSOL_nnnnnnnnnnnn que está configurada no conector do AD DS (consulte a determinar sua conta do conector do AD DS). O parâmetro de credenciamento é necessário para especificar a conta de administrador que tem os privilégios necessários para restringir as permissões do Active Directory no objeto de destino do AD. Esse normalmente é o administrador Corporativo ou de Domínio.  
 
 ``` powershell
 Set-ADSyncRestrictedPermissions [-ADConnectorAccountDN] <String> [-Credential] <PSCredential> [-DisableCredentialValidation] [-WhatIf] [-Confirm] [<CommonParameters>] 

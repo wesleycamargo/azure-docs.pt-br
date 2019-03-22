@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: ergreenl
-ms.openlocfilehash: 23d30d3b881fbe5aab4e537073b2582eb01bfe7c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: b5544be37015368173f3f8eb39288b7a97ae11c6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183417"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58084990"
 ---
 # <a name="synchronization-in-an-azure-ad-domain-services-managed-domain"></a>Sincronização em um domínio gerenciado dos Serviços de Domínio do Azure AD
 O diagrama a seguir ilustra o funcionamento da sincronização nos domínios gerenciados dos Serviços de Domínio do Azure AD.
@@ -70,8 +70,6 @@ A tabela a seguir lista alguns atributos comuns e descreve como eles serão sinc
 
 > [!NOTE]
 > **Entrar no domínio gerenciado usando o formato UPN:** o atributo SAMAccountName pode ser gerado automaticamente para algumas contas de usuário em seu domínio gerenciado. Se vários usuários tiverem o mesmo atributo mailNickname ou os usuários tiverem prefixos UPN excessivamente longos, o SAMAccountName para esses usuários poderá ser gerado automaticamente. Portanto, o formato de SAMAccountName (por exemplo, ' CONTOSO100\pedrousuario') nem sempre é uma maneira confiável de entrar no domínio. O SAMAccountName gerado automaticamente dos usuários pode diferir do seu prefixo UPN. Use o formato UPN (por exemplo, 'joeuser@contoso100.com') para entrar no domínio gerenciado de forma confiável.
->
->
 
 ### <a name="attribute-mapping-for-user-accounts"></a>Mapeamento de atributos para contas de usuário
 A tabela a seguir ilustra como os atributos específicos de objetos de usuário em seu locatário do Azure AD são sincronizados com os atributos correspondentes em seu domínio gerenciado.

@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/20/2018
+ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 751f582e2cfc39b62194ec55efa5cd8580c001e3
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 8e75a6344e517fb0343343f557cb7211f49cfed8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341701"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838300"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-cli"></a>Gerenciar o acesso aos recursos do Azure usando o RBAC e a CLI do Azure
 
@@ -89,9 +89,9 @@ az role definition list --custom-role-only false --output json | jq '.[] | {"rol
 ...
 ```
 
-### <a name="list-actions-of-a-role"></a>Relacionar ações de uma função
+## <a name="list-a-role-definition"></a>Listar uma definição de função
 
-Para listar as ações de uma definição de função, use [lista de definições de função az](/cli/azure/role/definition#az-role-definition-list):
+Para listar uma definição de função, use [lista de definições de função az](/cli/azure/role/definition#az-role-definition-list):
 
 ```azurecli
 az role definition list --name <role_name>
@@ -104,6 +104,7 @@ az role definition list --name "Contributor"
 ```
 
 ```Output
+[
   {
     "additionalProperties": {},
     "assignableScopes": [
@@ -134,7 +135,9 @@ az role definition list --name "Contributor"
 ]
 ```
 
-A exemplo a seguir lista as *ações* e *não ações* da função *Colaborador*:
+### <a name="list-actions-of-a-role"></a>Relacionar ações de uma função
+
+O exemplo a seguir lista apenas os *ações* e *notActions* dos *Colaborador* função:
 
 ```azurecli
 az role definition list --name "Contributor" --output json | jq '.[] | {"actions":.permissions[0].actions, "notActions":.permissions[0].notActions}'
@@ -153,7 +156,7 @@ az role definition list --name "Contributor" --output json | jq '.[] | {"actions
 }
 ```
 
-A exemplo a seguir lista as ações da função *Colaborador da Máquia Virtual*:
+O exemplo a seguir lista apenas as ações do *colaborador da máquina Virtual* função:
 
 ```azurecli
 az role definition list --name "Virtual Machine Contributor" --output json | jq '.[] | .permissions[0].actions'
@@ -191,7 +194,7 @@ az role assignment list --assignee <assignee>
 
 Por padrão, somente as atribuições de escopo para a assinatura serão exibidas. Para exibir as atribuições de escopo por grupo ou recurso, use `--all`.
 
-O exemplo a seguir lista as atribuições da função atribuídas diretamente ao usuário *patlong@contoso.com*:
+O exemplo a seguir lista as atribuições de função que são atribuídas diretamente para o *patlong\@contoso.com* usuário:
 
 ```azurecli
 az role assignment list --all --assignee patlong@contoso.com --output json | jq '.[] | {"principalName":.principalName, "roleDefinitionName":.roleDefinitionName, "scope":.scope}'
@@ -249,7 +252,7 @@ Para criar uma atribuição de função a um usuário no escopo do grupo de recu
 az role assignment create --role <role> --assignee <assignee> --resource-group <resource_group>
 ```
 
-O exemplo a seguir atribui a função *Colaborador da Máquina Virtual* ao usuário *patlong@contoso.com* no escopo do grupo de recursos *pharma-sales-projectforcast*:
+O exemplo a seguir atribui a *colaborador da máquina Virtual* função *patlong\@contoso.com* usuário no *pharma-sales-projectforcast* escopo do grupo de recursos:
 
 ```azurecli
 az role assignment create --role "Virtual Machine Contributor" --assignee patlong@contoso.com --resource-group pharma-sales-projectforecast
@@ -297,7 +300,7 @@ No RBAC, para remover o acesso, você remove uma atribuição de função usando
 az role assignment delete --assignee <assignee> --role <role> --resource-group <resource_group>
 ```
 
-O exemplo a seguir remove a atribuição da função *Colaborador da Máquina Virtual* do usuário *patlong@contoso.com* no grupo de recursos *pharma-sales-projectforcast*:
+O exemplo a seguir remove a *colaborador da máquina Virtual* atribuição de função a *patlong\@contoso.com* usuário no *pharma-sales-projectforcast* grupo de recursos:
 
 ```azurecli
 az role assignment delete --assignee patlong@contoso.com --role "Virtual Machine Contributor" --resource-group pharma-sales-projectforecast

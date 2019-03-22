@@ -1,5 +1,5 @@
 ---
-title: Excluir atores do Microsoft Azure Service Fabric | Microsoft Docs
+title: Excluir os atores do Microsoft Azure Service Fabric | Microsoft Docs
 description: Saiba como excluir manualmente o Reliable Actors do Service Fabric e o respectivo estado.
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/19/2018
 ms.author: amanbha
-ms.openlocfilehash: d6ac5ea79ed1eb47bc71a520761050889fe6edd8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: ab6f8740ec1955078c6acbd9cb362a25a89e4bda
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55178164"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57887384"
 ---
 # <a name="delete-reliable-actors-and-their-state"></a>Excluir Reliable Actors e o respectivo estado
 A coleta de lixo dos atores desativados elimina apenas o objeto do ator, mas não remove os dados que são armazenados no Gerenciador de Estado de um ator. Quando um ator é reativado, seus dados são novamente disponibilizados a ele através do Gerenciador de Estado. Nos casos em que atores armazenam dados no Gerenciador de Estado e são desativados, mas nunca reativados, pode ser necessário eliminar seus dados.
@@ -60,7 +60,7 @@ Para obter mais informações sobre Reliable Actors, leia o seguinte:
 * [Diagnóstico e monitoramento de desempenho do ator](service-fabric-reliable-actors-diagnostics.md)
 * [Documentação de referência da API do Ator](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [Código de exemplo C#](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Código de exemplo Java](http://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Código de exemplo Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png

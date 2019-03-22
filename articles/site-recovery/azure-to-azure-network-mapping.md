@@ -5,24 +5,24 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 2/28/2018
 ms.author: mayg
-ms.openlocfilehash: fccc7379794b4b75ff53e517eddd95ff0f7db0e9
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 99c7309e22d8ebe61a0a85b38c92bd3027977848
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55223775"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013117"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Configurar mapeamento de rede e endereçamento IP para VNets
 
-Este artigo descreve como mapear duas instâncias de VNets (redes virtuais) do Azure localizadas em diferentes regiões do Azure e como configurar o endereçamento IP entre redes. O mapeamento de rede garante que uma VM replicada seja criada na região do Azure de destino criada na VNet que é mapeada para a VNet da VM de origem.
+Este artigo descreve como mapear duas instâncias de VNets (redes virtuais) do Azure localizadas em diferentes regiões do Azure e como configurar o endereçamento IP entre redes. Mapeamento de rede fornece um comportamento padrão para seleção de rede de destino com base na rede de origem no momento da habilitação da replicação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de mapear as redes, você deverá ter [VNets do Azure](../virtual-network/virtual-networks-overview.md) nas regiões de origem e destino do Azure. 
 
-## <a name="set-up-network-mapping"></a>Configurar o mapeamento de rede
+## <a name="set-up-network-mapping-manually-optional"></a>Configurar manualmente de mapeamento de rede (opcional)
 
 Mapeie as redes da seguinte forma:
 
@@ -32,7 +32,7 @@ Mapeie as redes da seguinte forma:
 
 3. Em **Adicionar mapeamento de rede**, selecione os locais de origem e destino. Em nosso exemplo, a VM de origem está executando na região da Ásia Oriental e é replicada para a região do Sudeste Asiático.
 
-    ![Selecionar origem e destino ](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
+    ![Selecionar origem e destino](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
 3. Agora, crie um mapeamento de rede no diretório oposto. Em nosso exemplo, a origem agora será o Sudeste Asiático e o destino será a Ásia Oriental.
 
     ![Adicionar painel de mapeamento de rede - Selecionar os locais de origem e destino para a rede de destino](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
@@ -44,8 +44,13 @@ Se você não preparou o mapeamento de rede antes de configurar a recuperação 
 
 - Baseado no destino que você selecionar, o Site Recovery criará automaticamente mapeamentos de rede da origem para a região de destino e do destino para a região de origem.
 - Por padrão, o Site Recovery cria uma rede na região de destino que é idêntica à rede de origem. O Site Recovery adiciona **-asr** como um sufixo ao nome da rede de origem. É possível personalizar a rede de destino.
-- Se o mapeamento de rede já tiver ocorrido, você não poderá alterar a rede virtual de destino ao habilitar a replicação. Para alterar a rede virtual de destino, será necessário modificar o mapeamento de rede existente.
-- Se você modificar um mapeamento de rede da região A para a região B, verifique também se modifica o mapeamento de rede da região B para a região A. ]
+- Se o mapeamento de rede já tiver ocorrido para uma rede de origem, a rede de destino mapeada sempre será o padrão no momento da habilitação de replicações mais VMs. Você pode optar por alterar a rede virtual de destino ao escolher outras opções disponíveis no menu suspenso. 
+- Para alterar a rede virtual de destino padrão para replicações novo, você precisará modificar o mapeamento de rede existente.
+- Se você quiser modificar um mapeamento de rede da região A para a região B, certifique-se de que você primeiro excluir o mapeamento de rede da região B para a região A. Após a exclusão de mapeamento inverso, modifique o mapeamento de rede da região A para a região B e, em seguida, crie o mapeamento inverso relevante.
+
+>[!NOTE]
+>* Modificar o mapeamento de rede altera apenas os valores padrão para novos replicações de VM. Ela não afeta as seleções de rede virtual de destino para replicações existentes. 
+>* Se você quiser modificar a rede de destino para uma replicação existente, vá para configurações de rede do item replicado e computação.
 
 ## <a name="specify-a-subnet"></a>Especificar uma sub-rede
 
@@ -71,6 +76,7 @@ O endereço IP de cada NIC em uma máquina virtual de destino é configurado con
 **Sub-redes de origem e destino** | **Detalhes**
 --- | ---
 Mesmo espaço de endereço | O endereço IP do NIC da VM de origem é definido como o endereço IP do NIC da VM de destino.<br/><br/> Se o endereço não estiver disponível, o próximo endereço IP disponível será definido como o destino.
+
 Espaço de endereço diferente<br/><br/> O próximo endereço IP disponível na sub-rede de destino é definido como o endereço NIC da VM de destino.
 
 

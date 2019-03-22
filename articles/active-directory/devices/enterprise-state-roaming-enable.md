@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ce6dc4cf98f2886eb4eed7049048d67599ac42e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: adad43f337d4cf026ca8f48976a9fc713fd52200
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207476"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077404"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Habilitar o Enterprise State Roaming no Active Directory do Azure
 Enterprise State Roaming está disponível para qualquer organização com uma licença Azure AD Premium ou Enterprise Mobility + Security (EMS). Para saber mais sobre como obter uma assinatura do Azure AD, confira a [página de produto do Azure AD](https://azure.microsoft.com/services/active-directory).
@@ -37,12 +37,12 @@ Quando você habilita o Enterprise State Roaming, sua organização recebe autom
 
 1. Selecione **Usuários podem sincronizar configurações e dados de aplicativo entre dispositivos**. Para obter mais informações, confira [como definir as configurações do dispositivo](https://docs.microsoft.com/azure/active-directory/device-management-azure-portal).
   
-  ![A imagem da configuração do dispositivo rotulada como Usuários pode sincronizar configurações e dados de aplicativo entre dispositivos](./media/enterprise-state-roaming-enable/device-settings.png)
+   ![A imagem da configuração do dispositivo rotulada como Usuários pode sincronizar configurações e dados de aplicativo entre dispositivos](./media/enterprise-state-roaming-enable/device-settings.png)
   
 Para que um dispositivo Windows 10 use o serviço Enterprise State Roaming, o dispositivo deverá se autenticar usando uma identidade do Azure AD. Para os dispositivos ingressados no Azure AD, a identidade de logon principal do usuário será a identidade do Azure AD, portanto, não será necessária nenhuma configuração adicional. Para dispositivos que usam o Active Directory local, o administrador de TI precisa [Configurar dispositivos ingressados no Azure Active Directory híbrido](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-manual-steps). 
 
 ## <a name="data-storage"></a>Armazenamento de dados
-Os dados do Enterprise State Roaming são hospedados em uma ou mais [regiões do Azure](https://azure.microsoft.com/regions/) que se alinhem melhor ao valor de país/região definido na instância do Azure Active Directory. Os dados do Enterprise State Roaming são particionados com base em três regiões geográficas principais: América do Norte, EMEA e APAC. Dados de Enterprise State Roaming para o locatário estão localizados localmente com a região geográfica e não são replicados entre regiões.  Por exemplo: 
+Os dados do Enterprise State Roaming são hospedados em uma ou mais [regiões do Azure](https://azure.microsoft.com/regions/) que se alinhem melhor ao valor de país/região definido na instância do Azure Active Directory. Os dados do Enterprise State Roaming são particionados com base em três regiões geográficas principais: América do Norte, EMEA e APAC. Dados de Enterprise State Roaming para o locatário estão localizados localmente com a região geográfica e não são replicados entre regiões.  Por exemplo:
 
 Valor de país/região | tem os dados hospedados em
 ---------------------|-------------------------
@@ -64,11 +64,11 @@ Siga estas etapas para exibir um relatório de status de sincronização de disp
 
 1. Em **Mostrar**, selecione **Dispositivos sincronizando configurações e dados de aplicativo** para mostrar o status de sincronização.
   
-  ![imagem da configuração de dados de sincronização do dispositivo](./media/enterprise-state-roaming-enable/sync-status.png)
+   ![imagem da configuração de dados de sincronização do dispositivo](./media/enterprise-state-roaming-enable/sync-status.png)
   
 1. Se houver dispositivos fazendo sincronização para esse usuário, você verá os dispositivos conforme mostrado aqui.
   
-  ![imagem de dados de colunas de sincronização do dispositivo](./media/enterprise-state-roaming-enable/device-status-row.png)
+   ![imagem de dados de colunas de sincronização do dispositivo](./media/enterprise-state-roaming-enable/device-status-row.png)
 
 ## <a name="data-retention"></a>Retenção de dados
 Os dados sincronizados com a nuvem da Microsoft usando o Enterprise State Roaming são mantidos até serem excluídos manualmente ou até que os dados em questão sejam considerados obsoletos. 
@@ -81,7 +81,7 @@ Exclusão explícita é quando o administrador do Azure exclui um usuário ou di
 * **Exclusão mediante solicitação**: se o administrador do Azure AD quiser excluir manualmente os dados de configuração de um usuário específico, poderá criar um [tíquete no suporte do Azure](https://azure.microsoft.com/support/). 
 
 ### <a name="stale-data-deletion"></a>Exclusão de dados obsoletos
-Os dados que não forem acessados por um ano ("o período de retenção") serão tratados como obsoletos e poderão ser excluídos da nuvem da Microsoft. O período de retenção está sujeito a alterações, mas não será menos de 90 dias. Os dados obsoletos podem ser um conjunto específico de configurações do Windows/aplicativo ou todas as configurações para um usuário específico. Por exemplo: 
+Os dados que não forem acessados por um ano ("o período de retenção") serão tratados como obsoletos e poderão ser excluídos da nuvem da Microsoft. O período de retenção está sujeito a alterações, mas não será menos de 90 dias. Os dados obsoletos podem ser um conjunto específico de configurações do Windows/aplicativo ou todas as configurações para um usuário específico. Por exemplo:
 
 * Se nenhum dispositivo acessar uma coleção de configurações em particular (por exemplo, um aplicativo é removido do dispositivo ou um grupo de configurações, como "Tema" é desabilitado para todos os dispositivos do usuário), essa coleção se tornará obsoleta após o período de retenção e poderá ser excluída. 
 * Se um usuário tiver desativado a sincronização de configurações em todos os dispositivos, nenhum dos dados de configuração será acessado e todos os dados de configuração do usuário se tornarão obsoletos e poderão ser excluídos após o período de retenção. 

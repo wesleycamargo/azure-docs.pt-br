@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 9e972ee64d60f0fc9703e766c3ab45c3057c32a2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 1823c2ec28b342d41371eb6677e0330d7f885087
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019870"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893247"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Mover dados do SAP Business Warehouse usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -46,7 +46,7 @@ Para habilitar a conectividade com a instância do SAP BW, instale os seguintes 
 ## <a name="getting-started"></a>Introdução
 Você pode criar um pipeline com atividade de cópia que mova dados de um armazenamento de dados local Cassandra usando diferentes ferramentas/APIs. 
 
-- A maneira mais fácil de criar um pipeline é usar o **Assistente de Cópia**. Consulte [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados. 
+- A maneira mais fácil de criar um pipeline é usar o **Assistente de Cópia**. Consulte [Tutorial: criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados. 
 - Você também pode usar as ferramentas abaixo para criar um pipeline: **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, **Modelo do Azure Resource Manager**, **API .NET** e **API REST**. Confira o [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia. 
 
 Ao usar as ferramentas ou APIs, você executa as seguintes etapas para criar um pipeline que move dados de um armazenamento de dados de origem para um armazenamento de dados de coletor:
@@ -64,13 +64,13 @@ A tabela a seguir fornece a descrição para elementos JSON específicas para o 
 
 Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
-Servidor | Nome do servidor no qual reside a instância do SAP BW. | string | SIM
-systemNumber | Número de sistema do sistema SAP BW. | Número decimal de dois dígitos representado como uma cadeia de caracteres. | SIM
-clientId | ID de Cliente do cliente no sistema SAP W. | Número decimal de três dígitos representado como uma cadeia de caracteres. | SIM
-Nome de Usuário | Nome do usuário que tem acesso ao servidor SAP | string | SIM
-Senha | Senha do usuário. | string | SIM
-gatewayName | O nome do gateway que o serviço Data Factory deve usar para se conectar à instância local do SAP BW. | string | SIM
-encryptedCredential | A cadeia de caracteres de credencial criptografada. | string | Não 
+Servidor | Nome do servidor no qual reside a instância do SAP BW. | cadeia de caracteres | Sim
+systemNumber | Número de sistema do sistema SAP BW. | Número decimal de dois dígitos representado como uma cadeia de caracteres. | Sim
+clientId | ID de Cliente do cliente no sistema SAP W. | Número decimal de três dígitos representado como uma cadeia de caracteres. | Sim
+Nome de Usuário | Nome do usuário que tem acesso ao servidor SAP | cadeia de caracteres | Sim
+Senha | Senha do usuário. | cadeia de caracteres | Sim
+gatewayName | O nome do gateway que o serviço Data Factory deve usar para se conectar à instância local do SAP BW. | cadeia de caracteres | Sim
+encryptedCredential | A cadeia de caracteres de credencial criptografada. | cadeia de caracteres | Não 
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, confira o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). As seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Azure, Blob do Azure, Tabela do Azure etc.).
@@ -87,7 +87,7 @@ Quando a fonte na atividade de cópia for do tipo **RelationalSource** (que incl
 
 | Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| query | Especifica a consulta MDX para ler dados da instância do SAP BW. | Consulta MDX. | SIM |
+| query | Especifica a consulta MDX para ler dados da instância do SAP BW. | Consulta MDX. | Sim |
 
 
 ## <a name="json-example-copy-data-from-sap-business-warehouse-to-azure-blob"></a>Exemplo JSON: Copiar dados do SAP Business Warehouse para o Blob do Azure
@@ -289,29 +289,29 @@ Conforme mencionado no artigo [Atividades de movimentação de dados](data-facto
 
 Ao mover dados do SAP BW, os seguintes mapeamentos serão usados dos tipos do SAP BW para os tipos do .NET.
 
-Tipo de dados no Dicionário ABAP | Tipo de Dados do .NET
+Tipo de dados no Dicionário ABAP | Tipo de dados do .NET
 -------------------------------- | --------------
-ACCP |  int
-CHAR | Cadeia de caracteres
-CLNT | Cadeia de caracteres
+ACCP |  Int
+CHAR | String
+CLNT | String
 CURR | Decimal
-CUKY | Cadeia de caracteres
+CUKY | String
 DEC | Decimal
-FLTP | Duplo
+FLTP | Double
 INT1 | Byte
 INT2 | Int16
-INT4 | int
-LANG | Cadeia de caracteres
-LCHR | Cadeia de caracteres
+INT4 | Int
+LANG | String
+LCHR | String
 LRAW | Byte[]
 PREC | Int16
 QUAN | Decimal
 RAW | Byte[]
 RAWSTRING | Byte[]
-STRING | Cadeia de caracteres
-UNIDADE | Cadeia de caracteres
-DATS | Cadeia de caracteres
-NUMC | Cadeia de caracteres
+STRING | String
+UNIDADE | String
+DATS | String
+NUMC | String
 TIMS | Cadeia de caracteres
 
 > [!NOTE]

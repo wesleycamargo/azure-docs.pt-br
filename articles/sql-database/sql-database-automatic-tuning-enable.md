@@ -12,18 +12,24 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 5b3a77a28945b597fe4fdd57aadfc3e05196a353
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 30a16c2a8b82ff4b32b95b14937166b94aba06b5
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478246"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57726950"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>Habilite o ajuste automático para monitorar consultas e melhorar o desempenho da carga de trabalho
 
 O Banco de Dados SQL do Azure é um serviço de dados gerenciados automaticamente que monitora as consultas constantemente e identifica a ação que pode ser executada para melhorar o desempenho da carga de trabalho. Examine as recomendações e aplique-as manualmente ou permita que o Banco de Dados SQL do Azure aplique as ações corretivas automaticamente – isso é conhecido como **modo de ajuste automático**.
 
 O ajuste automático pode ser ativado no nível do servidor ou do banco de dados por meio das chamadas do [Portal do Azure](sql-database-automatic-tuning-enable.md#azure-portal), [API REST](sql-database-automatic-tuning-enable.md#rest-api) e dos comandos [T-SQL](sql-database-automatic-tuning-enable.md#t-sql).
+
+> [!NOTE]
+> Para a instância gerenciada, a opção com suporte: FORCE_LAST_GOOD_PLAN pode ser configurada por meio [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) apenas. Portal com base em configuração e opções de ajuste do índice automático descritas neste artigo não se aplicam à instância gerenciada.
+
+> [!NOTE]
+> Configurar opções de ajuste automático por meio do modelo do ARM (Azure Resource Manager) não é suportado no momento.
 
 ## <a name="enable-automatic-tuning-on-server"></a>Habilitar o ajuste automático no servidor
 
@@ -51,7 +57,7 @@ Saiba mais sobre o uso da API REST para ativar o Ajuste automático em um servid
 
 O Banco de Dados SQL do Azure permite especificar a configuração de ajuste automático individualmente para cada banco de dados. No nível do banco de dados, você pode escolher entre herdar ou não a configuração de ajuste automático do servidor pai, "Padrões do Azure". Os padrões do Azure são definidos para FORCE_LAST_GOOD_PLAN está habilitado, CREATE_INDEX está habilitado e DROP_INDEX está desabilitado.
 
-> [!NOTE]
+> [!TIP]
 > A recomendação geral é gerenciar a configuração de ajuste automático no **nível de servidor**, de forma que as mesmas definições de configuração possam ser aplicadas em cada banco de dados automaticamente. Configure o ajuste automático em um banco de dados individual somente se você precisar que esse banco de dados tenha configurações diferentes de outras configurações herdadas do mesmo servidor.
 >
 

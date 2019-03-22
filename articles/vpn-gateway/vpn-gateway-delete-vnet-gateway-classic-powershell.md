@@ -1,5 +1,5 @@
 ---
-title: 'Excluir um gateway de rede virtual: PowerShell: clássico do Azure | Microsoft Docs'
+title: 'Excluir um gateway da rede virtual: PowerShell: Azure clássico | Microsoft Docs'
 description: Exclua um gateway de rede virtual usando o PowerShell no modelo de implantação clássico.
 services: vpn-gateway
 documentationcenter: na
@@ -10,17 +10,17 @@ tags: azure-service-management
 ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: ''
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: cherylmc
-ms.openlocfilehash: 2c92db96820b9796ba2c952affcb3b3eef5b985e
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
-ms.translationtype: HT
+ms.openlocfilehash: ca014e4f5fbc4a5695dbc5fedc85826c71a2a906
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319839"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767763"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell-classic"></a>Excluir um gateway de rede virtual usando o PowerShell (clássico)
 
@@ -32,7 +32,7 @@ ms.locfileid: "49319839"
 
 Este artigo ajuda você a excluir um gateway de VPN no modelo de implantação clássico usando o PowerShell. Depois que o gateway de rede virtual tiver sido excluído, modifique o arquivo de configuração de rede para remover elementos que você não está mais usando.
 
-## <a name="connect"></a>Etapa 1: Conectar ao Azure
+## <a name="connect"></a>Etapa 1: Conecte-se ao Azure
 
 ### <a name="1-install-the-latest-powershell-cmdlets"></a>1. Instale os cmdlets mais recentes do PowerShell.
 
@@ -48,7 +48,7 @@ Add-AzureAccount
 
 ## <a name="export"></a>Etapa 2: Exportar e exibir o arquivo de configuração de rede
 
-Crie um diretório em seu computador e exporte o arquivo de configuração de rede para o diretório. Use esse arquivo para exibir as informações da configuração atual e também para modificar a configuração de rede.
+Crie um diretório no seu computador e exporte o arquivo de configuração de rede para o diretório. Use esse arquivo para exibir as informações da configuração atual e também para modificar a configuração de rede.
 
 Neste exemplo, o arquivo de configuração de rede é exportado para C:\AzureNet.
 
@@ -56,7 +56,7 @@ Neste exemplo, o arquivo de configuração de rede é exportado para C:\AzureNet
 Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 ```
 
-Abra o arquivo com um editor de texto e exiba o nome da rede virtual clássica. Quando você cria uma VNet no portal do Azure, o nome completo usado pelo Azure não fica visível no portal. Por exemplo, uma VNet que parece ser chamada “ClassicVNet1” no portal do Azure pode ter um nome muito mais longo no arquivo de configuração de rede. O nome pode ser algo parecido com ‘Grupo ClassicRG1 ClassicVNet1’. Os nomes de rede virtual são listados como **'VirtualNetworkSite name ='**. Use os nomes no arquivo de configuração de rede ao executar os cmdlets do PowerShell.
+Abra o arquivo com um editor de texto e exiba o nome da rede virtual clássica. Quando você cria uma VNet no portal do Azure, o nome completo usado pelo Azure não fica visível no portal. Por exemplo, uma VNet que parece ser chamada “ClassicVNet1” no portal do Azure pode ter um nome muito mais longo no arquivo de configuração de rede. O nome poderia ser semelhante ao seguinte: 'Grupo ClassicRG1 ClassicVNet1'. Os nomes de rede virtual são listados como **'VirtualNetworkSite name ='**. Use os nomes no arquivo de configuração de rede ao executar os cmdlets do PowerShell.
 
 ## <a name="delete"></a>Etapa 3: Excluir o gateway de rede virtual
 

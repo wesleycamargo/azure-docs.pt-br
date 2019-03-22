@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 0d9ee24e9ab104fb554033802507f78fcbf38fc3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: e3aae5f7936204a7fe4fbce4102fc2727088e025
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55170922"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442024"
 ---
 # <a name="sfctl-cluster"></a>cluster sfctl
 Selecionar, gerenciar e operar clusters do Service Fabric.
@@ -140,7 +140,7 @@ Obter o manifesto do cluster do Service Fabric. O manifesto do cluster contém p
 ## <a name="sfctl-cluster-operation-cancel"></a>operação de cluster sfctl cancelamento
 Cancela uma operação com falha induzida pelo usuário.
 
-As seguintes APIs iniciam operações com falha que podem ser canceladas usando CancelOperation\: StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition. Se forçar for false, em seguida, a operação especificada induzido pelo usuário será normalmente interrompida e limpos.  Se forçar for true, o comando será anulado e algum estado interno pode ser deixado para trás.  Especificar force como verdadeiro deve ser usada com cuidado. Não é permitido chamar essa API com force definido como verdadeiro, até que essa API já foi chamada no mesmo comando de teste com force definido como false, ou a menos que o comando de teste já tem um OperationState de OperationState.RollingBack. 
+As seguintes APIs iniciar operações com falha que podem ser canceladas usando CancelOperation\: StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition. Se forçar for false, em seguida, a operação especificada induzido pelo usuário será normalmente interrompida e limpos.  Se forçar for true, o comando será anulado e algum estado interno pode ser deixado para trás.  Especificar force como verdadeiro deve ser usada com cuidado. Não é permitido chamar essa API com force definido como verdadeiro, até que essa API já foi chamada no mesmo comando de teste com force definido como false, ou a menos que o comando de teste já tem um OperationState de OperationState.RollingBack. 
 
 Esclarecimento\: significa OperationState.RollingBack que o sistema será/está limpando interno do sistema de estado causado pela execução do comando.  Ele não irá restaurar os dados se o comando de teste foi causar perda de dados.  Por exemplo, se você chamar StartDataLoss chamar esta API, o sistema só limpará o estado interno da execução do comando. Ele não irá restaurar os dados da partição de destino, se o comando progrediu distante o suficiente para causar perda de dados. 
 

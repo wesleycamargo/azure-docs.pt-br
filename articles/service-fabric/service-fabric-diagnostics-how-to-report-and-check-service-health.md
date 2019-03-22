@@ -3,7 +3,7 @@ title: Relatar e verificar a integridade com o Service Fabric do Azure| Microsof
 description: Saiba como enviar relatórios de integridade do seu código de serviço e como verificar a integridade do serviço usando as ferramentas de monitoramento de integridade fornecidas pelo Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: mfussell
 editor: ''
 ms.assetid: 7c712c22-d333-44bc-b837-d0b3603d9da8
@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/2/2017
-ms.author: dekapur
-ms.openlocfilehash: d374886efb708797db1dd6352aa063a56aff4f44
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: HT
+ms.date: 02/25/2019
+ms.author: srrengar
+ms.openlocfilehash: 2126157f49bd978d2218986601245cae2e4157b6
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427301"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821671"
 ---
 # <a name="report-and-check-service-health"></a>Relatar e verificar a integridade de serviço
 Quando seus serviços enfrentam problemas, sua capacidade de reagir e corrigir os incidentes e as interrupções depende da sua capacidade de detectar os problemas rapidamente. Se relatar problemas e falhas ao gerenciador de integridade do Azure Service Fabric usando seu código de serviço, você pode usar ferramentas padrão de monitoramento de integridade fornecidas pelo Service Fabric para verificar o status de integridade.
@@ -68,7 +68,7 @@ Os modelos de projeto do Service Fabric no Visual Studio contêm código de exem
 1. Abra o arquivo Stateful1.cs e encontre a chamada `myDictionary.TryGetValueAsync` no método `RunAsync`. Você pode ver que esse método retorna um `result` que mantém o valor atual do contador, pois a lógica principal desse aplicativo é manter uma contagem em execução. Se esse fosse um aplicativo real e a falta de resultado representasse uma falha, seria necessário sinalizar esse evento.
 1. Para relatar um evento de integridade quando a falta de resultado representa uma falha, adicione as etapas a seguir.
    
-    a. Adicione o namespace `System.Fabric.Health` ao arquivo Stateful1.cs.
+     a. Adicione o namespace `System.Fabric.Health` ao arquivo Stateful1.cs.
    
     ```csharp
     using System.Fabric.Health;
@@ -96,7 +96,7 @@ Os modelos de projeto do Service Fabric no Visual Studio contêm código de exem
     ```
 1. Se o serviço estiver sendo executado com privilégios de administrador ou se o cluster não for [seguro](service-fabric-cluster-security.md), também será possível usar `FabricClient` para relatar a integridade conforme mostrado nas etapas a seguir.  
    
-    a. Crie a instância do `var myDictionary` após a declaração `FabricClient`.
+     a. Crie a instância do `var myDictionary` após a declaração `FabricClient`.
    
     ```csharp
     var fabricClient = new FabricClient(new FabricClientSettings() { HealthReportSendInterval = TimeSpan.FromSeconds(0) });

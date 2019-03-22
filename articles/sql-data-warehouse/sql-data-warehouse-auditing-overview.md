@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 701c5c175e22556aefa95d1ac3836d52cd19b845
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 85693ec6aa67dc69cd65aae8e66e66e2118672ef
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342297"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898475"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Auditoria no Azure SQL Data Warehouse
 
@@ -131,11 +131,11 @@ Há vários métodos que podem ser usados para exibir os logs de auditoria de bl
 
     4. O arquivo mesclado é aberto no SSMS, no qual você pode exibi-lo e analisá-lo, bem como exportá-lo para um arquivo XEL ou CSV ou para uma tabela.
 
-* Use o [aplicativo de sincronização](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) que criamos. Ele é executado no Azure e utiliza APIs públicas do Log Analytics para enviar os logs de auditoria do SQL por push para o Log Analytics. O aplicativo de sincronização envia os logs de auditoria por push para o Log Analytics do OMS para consumo por meio do painel do Log Analytics.
+* Use o [aplicativo de sincronização](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) que criamos. Ele é executado no Azure e do log analytics de utiliza APIs públicas para enviar por push SQL logs de auditoria nos logs do Azure Monitor. O aplicativo de sincronização envia os logs de auditoria do SQL para os logs do Azure Monitor para consumo por meio do painel de análise de log.
 
-* Use o Power BI. Você pode exibir e analisar dados do log de auditoria no Power BI. Saiba mais sobre o [Power BI e acesse um modelo para download](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/).
+* Use o Power BI. Você pode exibir e analisar dados do log de auditoria no Power BI. Saiba mais sobre o [Power BI e acesse um modelo para download](https://blogs.msdn.microsoft.com/azuresqldbsupport/20../../sql-azure-blob-auditing-basic-power-bi-dashboard/).
 
-* Baixe os arquivos de log do contêiner de Azure Storage Blob por meio do portal ou usando uma ferramenta como o [Gerenciador de Armazenamento do Azure](http://storageexplorer.com/).
+* Baixe os arquivos de log do contêiner de Azure Storage Blob por meio do portal ou usando uma ferramenta como o [Gerenciador de Armazenamento do Azure](https://storageexplorer.com/).
     * Depois de baixar um arquivo de log localmente, clique duas vezes no arquivo para abrir, exibir e analisar os logs no SSMS.
     * Baixe também vários arquivos simultaneamente por meio do Gerenciador de Armazenamento do Azure. Clique com o botão direito do mouse em uma subpasta específica e selecione **Salvar como** para salvar em uma pasta local.
 
@@ -144,14 +144,15 @@ Há vários métodos que podem ser usados para exibir os logs de auditoria de bl
 
    * Exiba os logs de auditoria de blob de forma programática:
 
-     * Use a biblioteca C# do [Leitor de Eventos Estendidos](https://blogs.msdn.microsoft.com/extended_events/2011/07/20/introducing-the-extended-events-reader/).
-     * [Consulte Arquivos de Eventos Estendidos usando o PowerShell](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/).
+     * Use a biblioteca C# do [Leitor de Eventos Estendidos](https://blogs.msdn.microsoft.com/extended_events/20../../introducing-the-extended-events-reader/).
+     * [Consulte Arquivos de Eventos Estendidos usando o PowerShell](https://sqlscope.wordpress.com/20../../reading-extended-event-files-using-client-side-tools-only/).
 
 
 
 <br>
+
 ### <a name="database-level-policy-audit-logs"></a>Logs de auditoria de política de nível de banco de dados
-Os logs de auditoria de nível de banco de dados são agregados em uma coleção de Tabelas de Armazenamento com um prefixo **SQLDBAuditLogs** na conta de armazenamento do Azure que você escolheu durante a instalação. Você pode ver os arquivos de log usando uma ferramenta como o [Gerenciador de Armazenamento do Azure](http://azurestorageexplorer.codeplex.com).
+Os logs de auditoria de nível de banco de dados são agregados em uma coleção de Tabelas de Armazenamento com um prefixo **SQLDBAuditLogs** na conta de armazenamento do Azure que você escolheu durante a instalação. Você pode ver os arquivos de log usando uma ferramenta como o [Gerenciador de Armazenamento do Azure](https://azurestorageexplorer.codeplex.com).
 
 Um modelo de relatório do painel pré-configurado está disponível como uma planilha do [Excel para download](https://go.microsoft.com/fwlink/?LinkId=403540) para ajudar você a analisar rapidamente os dados de log. Para utilizar o modelo em seus logs de auditoria, você precisará do Excel 2013 ou mais recente e do Power Query, que você pode [baixar aqui](https://www.microsoft.com/download/details.aspx?id=39379).
 
@@ -169,18 +170,26 @@ Em produção, você provavelmente atualizará suas chaves de armazenamento peri
 4. Volte para a interface do usuário de armazenamento e **regenere** a *Chave de Acesso Secundária* (como preparação para o próximo ciclo de atualização de chaves.
 
 ## <a id="subheading-5"></a>Automação (PowerShell/API REST)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Você também pode configurar a auditoria no SQL Data Warehouse do Azure usando as seguintes ferramentas de automação:
 
 * **Cmdlets do PowerShell**:
 
-   * [Get-AzureRMSqlDatabaseAuditingPolicy](/powershell/module/azurerm.sql/get-azurermsqldatabaseauditingpolicy)
-   * [Get-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditingPolicy)
-   * [Remove-AzureRMSqlDatabaseAuditing](/powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing)
-   * [Remove-AzureRMSqlServerAuditing](/powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing)
-   * [Set-AzureRMSqlDatabaseAuditingPolicy](/powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditingPolicy)
-   * [Set-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditingPolicy)
-   * [Use-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Use-AzureRMSqlServerAuditingPolicy)
+<!-- None of the following links exist anymore 3-12-2019
+   * [Get-AzSqlDatabaseAuditingPolicy](/powershell/module/az.sql/get-azsqldatabaseauditingpolicy)
+   * [Get-AzSqlServerAuditingPolicy](/powershell/module/az.sql/Get-azSqlServerAuditingPolicy)
+   * [Remove-AzSqlDatabaseAuditing](/powershell/module/az.sql/Remove-azSqlDatabaseAuditing)
+   * [Remove-AzSqlServerAuditing](/powershell/module/az.sql/Remove-azSqlServerAuditing)
+   * [Set-AzSqlDatabaseAuditingPolicy](/powershell/module/az.sql/Set-azSqlDatabaseAuditingPolicy)
+   * [Set-AzSqlServerAuditingPolicy](/powershell/module/az.sql/Set-azSqlServerAuditingPolicy)
+   * [Use-AzSqlServerAuditingPolicy](/powershell/module/az.sql/Use-azSqlServerAuditingPolicy) -->
 
+   * [Get-AzSqlDatabaseAuditing](/powershell/module/az.sql/get-azsqldatabaseauditing)
+   * [Set-AzSqlDatabaseAuditing](/powershell/module/az.sql/set-azsqldatabaseauditing)
+   * [Get-AzSqlServerAuditing](/powershell/module/az.sql/get-azsqlserverauditing)
+   * [Set-AzSqlServerAuditing](/powershell/module/az.sql/set-azsqlserverauditing)
 
 ## <a name="downlevel-clients-support-for-auditing-and-dynamic-data-masking"></a>Suporte de versão anterior a clientes para auditoria e máscara de dados dinâmicos
 A auditoria funciona com clientes SQL que oferecem suporte ao redirecionamento de TDS.

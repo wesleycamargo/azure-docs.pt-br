@@ -7,18 +7,18 @@ author: bwren
 manager: carmonm
 editor: tysonn
 ms.assetid: 1f054a4e-6243-4a66-a62a-0031adb750d8
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: d1d2dd689cb389b6adfe1dd534e7c73e17f755f5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 4082847e1871fc03713471b0c043dddb80f91b0d
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989178"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769226"
 ---
 # <a name="targeting-monitoring-solutions-in-azure-monitor-preview"></a>Direcionamento de soluções de monitoramento no Azure Monitor (versão prévia)
 Quando você adiciona uma solução de monitoramento à sua assinatura, ela é implantada automaticamente por padrão em todos os agentes do Windows e do Linux conectados ao seu workspace do Log Analytics.  Talvez você queira gerenciar os custos e limitar a quantidade de dados coletados de uma solução limitando-a a determinado conjunto de agentes.  Este artigo descreve como usar o **Direcionamento de Solução**, que é um recurso que permite aplicar um escopo às suas soluções.
@@ -35,7 +35,7 @@ Especifique os computadores que deseja incluir no escopo criando um [grupo de co
 Depois de criar o grupo de computadores em seu workspace, você o incluirá em uma configuração de escopo que pode ser aplicada a uma ou mais soluções.
  
  
- ### <a name="2-create-a-scope-configuration"></a>2. Criar uma configuração de escopo
+### <a name="2-create-a-scope-configuration"></a>2. Criar uma configuração de escopo
  Uma **Configuração de Escopo** inclui um ou mais grupos de computadores e pode ser aplicada a uma ou mais soluções. 
  
  Crie uma configuração de escopo usando o processo a seguir.  
@@ -49,7 +49,7 @@ Depois de criar o grupo de computadores em seu workspace, você o incluirá em u
  6. Clique em **OK** para criar a configuração de escopo. 
 
 
- ### <a name="3-apply-the-scope-configuration-to-a-solution"></a>3. Aplicar a configuração de escopo a uma solução.
+### <a name="3-apply-the-scope-configuration-to-a-solution"></a>3. Aplicar a configuração de escopo a uma solução.
 Depois que você tiver uma configuração de escopo, poderá aplicá-la a uma ou mais soluções.  Observe que, embora uma única configuração de escopo possa ser usada com várias soluções, cada solução só poderá usar uma configuração de escopo.
 
 Aplique uma configuração de escopo usando o processo a seguir.  

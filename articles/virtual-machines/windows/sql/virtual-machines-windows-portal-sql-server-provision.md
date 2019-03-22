@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: fd01fdd3f7f8803dc7221bd0bd6c993120a83d44
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: ee6c05b2da4347ed034ae6e7318d6f5d90ea7884
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330884"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099637"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Como provisionar uma máquina virtual do Windows SQL Server no portal do Azure
 
@@ -74,7 +74,7 @@ Quando você cria uma máquina virtual SQL Server, pode selecionar uma das vári
 ## <a id="configure"></a> Opções de configuração
 Há cinco janelas para configurar uma máquina virtual do SQL Server.
 
-| Etapa | DESCRIÇÃO |
+| Etapa | Descrição |
 | --- | --- |
 | **Noções básicas** |[Definir as configurações básicas](#1-configure-basic-settings) |
 | **Tamanho** |[Escolher o tamanho da máquina virtual](#2-choose-virtual-machine-size) |
@@ -82,7 +82,7 @@ Há cinco janelas para configurar uma máquina virtual do SQL Server.
 | **Configurações do SQL Server** |[Definir as configurações do SQL Server](#4-configure-sql-server-settings) |
 | **Resumo** |[Examinar o resumo](#5-review-the-summary) |
 
-## <a name="1-configure-basic-settings"></a>1. Definir as configurações básicas
+## <a name="1-configure-basic-settings"></a>1. Definir configurações básicas
 
 Na janela **Básico**, forneça as seguintes informações:
 
@@ -123,7 +123,7 @@ Para as cargas de trabalho de produção, consulte os tamanhos recomendados de m
 
 Escolha o tamanho da máquina e clique em **Selecionar**.
 
-## <a name="3-configure-optional-features"></a>3. Configurar os recursos opcionais
+## <a name="3-configure-optional-features"></a>3. Configurar recursos opcionais
 
 Na janela **Configurações**, defina o armazenamento do Azure, a rede e o monitoramento da máquina virtual.
 
@@ -245,9 +245,9 @@ Para armazenar os segredos de segurança no Azure para a criptografia, clique em
 
 A tabela a seguir lista os parâmetros necessários para configurar a integração do Cofre da Chave do Azure.
 
-| PARÂMETRO | Descrição | EXEMPLO |
+| PARÂMETRO | DESCRIÇÃO | EXEMPLO |
 | --- | --- | --- |
-| **URL do cofre da chave** |O local do cofre da chave. |https://contosokeyvault.vault.azure.net/ |
+| **URL do cofre da chave** |O local do cofre da chave. |<https://contosokeyvault.vault.azure.net/> |
 | **Nome de entidade** |Nome de entidade de serviço do Active Directory do Azure Ele também é chamado de ID do Cliente. |fde2b411-33d5-4e11-af04eb07b669ccf2 |
 | **Segredo da entidade** |Segredo da entidade de serviço do Azure Active Directory. O segredo também é chamado de Segredo do Cliente. |9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM= |
 | **Nome da credencial** |**Nome da credencial**: A Integração AKV cria uma credencial no SQL Server, permitindo que a VM tenha acesso ao cofre da chave. Escolha um nome para essa credencial. |mycred1 |
@@ -292,6 +292,6 @@ As seções a seguir mostram como se conectar à sua instância de VM do SQL Ser
 
 [!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas Etapas
 
 Para saber mais sobre como usar o SQL Server no Azure, consulte [SQL Server nas Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md) e as [Perguntas Frequentes](virtual-machines-windows-sql-server-iaas-faq.md).

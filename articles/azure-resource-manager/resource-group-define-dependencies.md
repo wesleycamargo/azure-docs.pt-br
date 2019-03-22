@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2018
+ms.date: 03/20/2019
 ms.author: tomfitz
-ms.openlocfilehash: 39d0813eab49f526842eec171e3355326bd13c44
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 91325b7884eae4c6f4c85c142b1e81cf2121c039
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53727795"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295327"
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Definir a ordem de implantação dos recursos em modelos do Azure Resource Manager
 Para um determinado recurso, pode ser necessário que existam outros recursos antes que o recurso em questão seja implantado. Por exemplo, um SQL Server deve existir antes que você tente implantar um Banco de Dados SQL. Você define essa relação marcando um recurso como dependente do outro. Defina uma dependência com o elemento **dependsOn** ou usando a função **reference**. 
@@ -65,7 +65,7 @@ Ao definir dependências, você pode incluir o namespace do provedor de recurso 
 Embora você talvez queira usar o dependsOn para mapear as relações entre os seus recursos, é importante entender por que você está fazendo isso. Por exemplo, para documentar a maneira como os recursos são interconectados, dependsOn não é a abordagem certa. Não é possível consultar os recursos que foram definidos no elemento dependsOn após a implantação. Usando o dependsOn, potencialmente afetar o tempo de implantação porque o Resource Manager - Gerenciador de recursos não implantar em paralelos dois recursos que têm uma dependência. 
 
 ## <a name="child-resources"></a>Recursos filho
-A propriedade resources permite especificar os recursos filho relacionados ao recurso que está sendo definido. Os recursos filho só podem ser definidos em cinco níveis de profundidade. É importante observar que uma dependência implícita não é criada entre um recurso filho e o pai. Se precisar que o recurso filho seja implantado após o recurso pai, você deve declarar explicitamente essa dependência com a propriedade dependsOn. 
+A propriedade resources permite especificar os recursos filho relacionados ao recurso que está sendo definido. Os recursos filho só podem ser definidos em cinco níveis de profundidade. É importante observar que uma dependência implícita de implantação não é criada entre um recurso filho e o recurso pai. Se precisar que o recurso filho seja implantado após o recurso pai, você deve declarar explicitamente essa dependência com a propriedade dependsOn. 
 
 Cada recurso pai aceita somente determinados tipos de recurso como recursos filho. Os tipos de recurso aceitos são especificados no [esquema do modelo](https://github.com/Azure/azure-resource-manager-schemas) do recurso pai. O nome do tipo de recurso de filho inclui o nome do tipo de recurso pai, assim como **Microsoft.Web/sites/config** e **Microsoft.Web/sites/extensions** são ambos recursos filho do **Microsoft.Web/sites**.
 
@@ -143,7 +143,7 @@ No exemplo a seguir, um ponto de extremidade CDN depende explicitamente do perfi
 
 Você pode usar esse elemento ou o elemento dependsOn para especificar dependências, mas não é necessário usar ambos para o mesmo recurso dependente. Sempre que possível, use uma referência implícita para evitar adicionar uma dependência desnecessária.
 
-Para saber mais, confira [Função de referência](resource-group-template-functions-resource.md#reference).
+Para saber mais, consulte [Função de referência](resource-group-template-functions-resource.md#reference).
 
 ## <a name="circular-dependencies"></a>Dependências circulares
 

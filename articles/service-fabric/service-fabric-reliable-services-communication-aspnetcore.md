@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 10/12/2018
 ms.author: vturecek
-ms.openlocfilehash: 71d5b0e8156710e2f82ac76d3187ba1ddba46936
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: d74cee712b33f8d8d9924b9b8906ccd97e0b1756
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55151083"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57902987"
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>Núcleo do ASP.NET em Serviços Confiáveis do Service Fabric
 
@@ -333,6 +333,123 @@ new KestrelCommunicationListener(serviceContext, (url, listener) => ...
 ```
 
 Nessa configuração, `KestrelCommunicationListener` selecionará automaticamente uma porta não utilizada do intervalo de portas de aplicativo.
+
+## <a name="service-fabric-configuration-provider"></a>Provedor de configuração do Service Fabric
+Configuração de aplicativo no ASP.NET Core é com base nos pares de chave-valor estabelecidas por provedores de configuração, leia [configuração no ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/) para entender mais sobre ASP.NET Core configuração suporte geral.
+
+Esta seção descreve o provedor de configuração do serviço do Fabric para integrar com a configuração do ASP.NET Core, importando o `Microsoft.ServiceFabric.AspNetCore.Configuration` pacote do NuGet.
+
+### <a name="addservicefabricconfiguration-startup-extensions"></a>Extensões de inicialização AddServiceFabricConfiguration
+Depois que você importar `Microsoft.ServiceFabric.AspNetCore.Configuration` pacote do NuGet, você precisa registrar a origem de configuração do Service Fabric com a API de configuração do ASP.NET Core por **AddServiceFabricConfiguration** extensões no `Microsoft.ServiceFabric.AspNetCore.Configuration` namespace em relação a `IConfigurationBuilder`
+
+```csharp
+using Microsoft.ServiceFabric.AspNetCore.Configuration;
+
+public Startup(IHostingEnvironment env)
+{
+    var builder = new ConfigurationBuilder()
+        .SetBasePath(env.ContentRootPath)
+        .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+        .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+        .AddServiceFabricConfiguration() // Add Service Fabric configuration settings.
+        .AddEnvironmentVariables();
+    Configuration = builder.Build();
+}
+
+public IConfigurationRoot Configuration { get; }
+```
+
+Agora, o serviço ASP.NET Core pode acessar as definições de configuração assim como outras configurações de aplicativo do Service Fabric. Por exemplo, você pode usar o padrão de opções para carregar configurações em objetos fortemente tipados.
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.Configure<MyOptions>(Configuration);  // Strongly typed configuration object.
+    services.AddMvc();
+}
+```
+### <a name="default-key-mapping"></a>Mapeamento de chave padrão
+Por padrão, o provedor de sua configuração do Service Fabric inclui nome do pacote, o nome da seção e o nome da propriedade para formar a configuração do asp.net core usando a seguinte função da chave:
+```csharp
+$"{this.PackageName}{ConfigurationPath.KeyDelimiter}{section.Name}{ConfigurationPath.KeyDelimiter}{property.Name}"
+```
+
+Por exemplo, se você tiver um pacotes de configuração chamado `MyConfigPackage` com o conteúdo, abaixo, em seguida, o valor de configuração estarão disponível no ASP.NET Core `IConfiguration` por meio da chave *MyConfigPackage:MyConfigSection:MyParameter*
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">  
+  <Section Name="MyConfigSection">
+    <Parameter Name="MyParameter" Value="Value1" />
+  </Section>  
+</Settings>
+```
+### <a name="service-fabric-configuration-options"></a>Opções de configuração do Service Fabric
+Provedor de configuração do Service Fabric também dá suporte a `ServiceFabricConfigurationOptions` para alterar o comportamento padrão de mapeamento de chaves.
+
+#### <a name="encrypted-settings"></a>Configurações criptografadas
+Service Fabric dá suporte para criptografar as configurações, o provedor de configuração do Service Fabric também dá suporte a isso. A seguir seguro pelo princípio do padrão, o descrypted de are't configurações criptografadas por padrão para o ASP.NET Core `IConfiguration`, o valor criptografado são armazenados ali em vez disso. No entanto, se você quiser descriptografar o valor a ser armazenado no ASP.NET Core IConfiguration você pode definir DecryptValue sinalizador como false no `AddServiceFabricConfiguration` extensões da seguinte maneira:
+
+```csharp
+public Startup()
+{
+    ICodePackageActivationContext activationContext = FabricRuntime.GetActivationContext();
+    var builder = new ConfigurationBuilder()        
+        .AddServiceFabricConfiguration(activationContext, (options) => options.DecryptValue = true); // set flag to decrypt the value
+    Configuration = builder.Build();
+}
+```
+#### <a name="multiple-configuration-packages"></a>Vários pacotes de configuração
+O Service Fabric dá suporte a vários pacotes de configuração. Por padrão, o nome do pacote está incluído na configuração da chave. Você pode definir o `IncludePackageName` sinalizador para alterar o comportamento padrão.
+```csharp
+public Startup()
+{
+    ICodePackageActivationContext activationContext = FabricRuntime.GetActivationContext();
+    var builder = new ConfigurationBuilder()        
+        // exclude package name from key.
+        .AddServiceFabricConfiguration(activationContext, (options) => options.IncludePackageName = false); 
+    Configuration = builder.Build();
+}
+```
+#### <a name="custom-key-mapping-value-extraction-and-data-population"></a>Mapeamento de chaves personalizado, extração de valor e preenchimento dos dados
+Além de acima 2 sinalizadores para alterar o comportamento padrão, provedor de configuração do Service Fabric também dá suporte a cenários mais avançados de para personalizar o mapeamento de chaves por meio `ExtractKeyFunc` e como personalizado, extraia os valores por meio de `ExtractValueFunc`. Você poderia até alterar todo o processo para preencher os dados de configuração do Service Fabric para a configuração do ASP.NET Core por meio de `ConfigAction`.
+
+Os exemplos a seguir ilustram para usar `ConfigAction` para personalizar o preenchimento dos dados.
+```csharp
+public Startup()
+{
+    ICodePackageActivationContext activationContext = FabricRuntime.GetActivationContext();
+    
+    this.valueCount = 0;
+    this.sectionCount = 0;
+    var builder = new ConfigurationBuilder();
+    builder.AddServiceFabricConfiguration(activationContext, (options) =>
+        {
+            options.ConfigAction = (package, configData) =>
+            {
+                ILogger logger = new ConsoleLogger("Test", null, false);
+                logger.LogInformation($"Config Update for package {package.Path} started");
+
+                foreach (var section in package.Settings.Sections)
+                {
+                    this.sectionCount++;
+
+                    foreach (var param in section.Parameters)
+                    {
+                        configData[options.ExtractKeyFunc(section, param)] = options.ExtractValueFunc(section, param);
+                        this.valueCount++;
+                    }
+                }
+
+                logger.LogInformation($"Config Update for package {package.Path} finished");
+            };
+        });
+  Configuration = builder.Build();
+}
+```
+### <a name="configuration-update"></a>Atualização da configuração
+Provedor de configuração do Service Fabric também dá suporte à atualização de configuração e você pode usar o ASP.NET Core `IOptionsMonitor` para receber notificações de alteração e também com `IOptionsSnapshot` para recarregar os dados de configuração. Para obter mais informações, consulte [opções do ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options).
+
+Isso é suportado por padrão e nenhuma outra codificação é necessária para habilitar a atualização de configuração.
 
 ## <a name="scenarios-and-configurations"></a>Cenários e configurações
 Esta seção descreve os cenários a seguir e fornece a combinação recomendada de servidor Web, configuração de porta, opções de integração do Service Fabric e diversos parâmetros para obter um serviço corretamente funcional:

@@ -1,5 +1,5 @@
 ---
-title: Monitorando e fazendo logon na versão prévia da Proteção de Senha do Azure AD
+title: Monitoramento e registro em log na proteção de senha do Azure AD
 description: Entender o monitoramento e o logon na Proteção de Senha do Azure AD
 services: active-directory
 ms.service: active-directory
@@ -11,23 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a3127cde66ce7de9a3920d238193a3a3b2225be
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b1e12addc15afe0c0745e0e8d5a9b6718483d477
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56195780"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293712"
 ---
-# <a name="preview-azure-ad-password-protection-monitoring-and-logging"></a>Visualização: Monitoramento e o logon na Proteção de Senha do Azure AD
-
-|     |
-| --- |
-| A Proteção de Senha do Azure AD é uma versão prévia pública do recurso do Azure Active Directory. Para obter mais informações sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+# <a name="azure-ad-password-protection-monitoring-and-logging"></a>Monitoramento e o logon na Proteção de Senha do Azure AD
 
 Após a implantação da Proteção de Senha do Azure AD, o monitoramento e o relatório são tarefas essenciais. Este artigo apresenta detalhes para entender várias técnicas de monitoramento, incluindo o local em que cada serviço registra informações e como relatar o uso da Proteção de Senha do Azure AD.
 
-# <a name="dc-agent-event-logging"></a>Log de eventos do agente do DC
+## <a name="dc-agent-event-logging"></a>Log de eventos do agente do DC
 
 Em cada controlador de domínio, o software de serviço do agente do DC grava os resultados de cada operação de validação de senha individual (e outro status) em um log de eventos local:
 
@@ -317,7 +312,7 @@ O log de texto é desabilitado por padrão. Uma reinicialização do serviço Pr
 
 Os cmdlets do PowerShell que podem resultar em uma alteração de estado (por exemplo, Register-AzureADPasswordProtectionProxy) normalmente registrarão um evento de saída no Log operacional.
 
-Além disso, a maioria dos cmdlets PowerShell de Proteção de Senha do Azure AD grava em um log de texto localizado em:
+Além disso, a maioria dos cmdlets do PowerShell de proteção de senha do Azure AD irá gravar em um log de texto localizado em:
 
 `%ProgramFiles%\Azure AD Password Protection Proxy\Logs`
 

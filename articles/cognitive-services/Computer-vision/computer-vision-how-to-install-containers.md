@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 3/19/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 2a786d383d103f9b45ea7b13de24b8de9c9e9f5e
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 665e6651db37cc04693d68bd2de2ede6e595eab4
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445365"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293380"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>Instalar e executar os contêineres de Reconhecimento de Texto
 
@@ -50,14 +50,14 @@ Você deve cumprir os seguintes pré-requisitos antes de usar contêineres de Re
 
 A tabela a seguir descreve os núcleos de CPU e a memória mínimos e recomendados a serem alocados para cada contêiner do Reconhecimento de Texto.
 
-| Contêiner | Mínimo | Recomendadas |
-|-----------|---------|-------------|
-|Reconhecimento de Texto|1 núcleo, 8 GB de memória, 0,5 TPS|2 núcleos, 8 GB de memória, 1 TPS|
+| Contêiner | Mínimo | Recomendadas |TPS<br>(No mínimo, máximo)|
+|-----------|---------|-------------|--|
+|Reconhecimento de Texto|1 núcleo, 8 GB de memória, 0,5 TPS|2 núcleos, 8 GB de memória, 1 TPS|0.5, 1|
 
-Cada núcleo precisa ser de pelo menos 2,6 GHz (gigahertz) ou mais rápido.
+* Cada núcleo precisa ser de pelo menos 2,6 GHz (gigahertz) ou mais rápido.
+* TPS - transações por segundo
 
 Memória e núcleo correspondem às configurações `--cpus` e `--memory`, que são usadas como parte do comando `docker run`.
-
 
 ## <a name="get-the-container-image-with-docker-pull"></a>Obter a imagem de contêiner com `docker pull`
 
@@ -116,11 +116,14 @@ Há outros [exemplos](./computer-vision-resource-container-config.md#example-doc
 > [!IMPORTANT]
 > As opções `Eula`, `Billing` e `ApiKey` devem ser especificadas para executar o contêiner; caso contrário, o contêiner não será iniciado.  Para mais informações, consulte [Faturamento](#billing).
 
+[!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
+
+
 ## <a name="query-the-containers-prediction-endpoint"></a>Consultar o ponto de extremidade de previsão do contêiner
 
 O contêiner fornece APIs de ponto de extremidade de previsão de consulta com base em REST. 
 
-Use o host, https://localhost:5000, para APIs de contêiner.
+Use o host, `https://localhost:5000`, para APIs de contêiner.
 
 ### <a name="asynchronous-text-recognition"></a>Reconhecimento de texto assíncrono
 

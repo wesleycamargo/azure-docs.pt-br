@@ -1,19 +1,20 @@
 ---
 title: Introdução ao gerenciamento de dispositivo do Hub IoT do Azure (Java) | Microsoft Docs
 description: Como usar o gerenciamento de dispositivos do Hub IoT do Azure para iniciar uma reinicialização do dispositivo remoto. Use o SDK do dispositivo IoT do Azure para Java para implementar um aplicativo de dispositivo simulado que inclui um método direto e o SDK do serviço do Azure IoT para Java para implementar um aplicativo de serviço que invoca o método direto.
-author: dominicbetts
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.author: dobett
-ms.openlocfilehash: 46b094e8436d74915a1cd5a0ccec402bee03e33b
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
-ms.translationtype: HT
+ms.openlocfilehash: 6dcec5b72be8868a83a5760ef95117d3e751bcc3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515277"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538095"
 ---
 # <a name="get-started-with-device-management-java"></a>Introdução ao gerenciamento de dispositivos (Java)
 
@@ -56,13 +57,13 @@ Para concluir este tutorial, você precisará:
 
 * Maven 3.  <br/> [Prepare seu ambiente de desenvolvimento](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md) descreve como instalar o [Maven](https://maven.apache.org/what-is-maven.html) para este tutorial no Windows ou no Linux.
 
-* [Versão do Node.js 0.10.0 ou posterior](http://nodejs.org).
+* [Versão do Node.js 0.10.0 ou posterior](https://nodejs.org).
 
 ## <a name="create-an-iot-hub"></a>Crie um hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>Recuperar cadeia de conexão para hub IoT
+### <a name="retrieve-connection-string-for-iot-hub"></a>Recuperar a cadeia conexão para o hub IoT
 
 [!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
@@ -100,7 +101,7 @@ Esse aplicativo de console se conecta ao Hub IoT para invocar o método direto e
     ```
 
     > [!NOTE]
-    > Você pode verificar a versão mais recente do **iot-service-client** usando a [pesquisa do Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
+    > Você pode verificar a versão mais recente do **iot-service-client** usando a [pesquisa do Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
 5. Adicione o seguinte nó **buid** após o nó **dependencies**. Esta configuração instrui o Maven a usar Java 1.8 para compilar o aplicativo:
 
@@ -246,7 +247,7 @@ Nesta seção, você cria um aplicativo de console Java que simula um dispositiv
     ```
 
     > [!NOTE]
-    > Você pode verificar a versão mais recente do **iot-device-client** usando a [pesquisa do Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
+    > Você pode verificar a versão mais recente do **iot-device-client** usando a [pesquisa do Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
 4. Adicione o seguinte nó **buid** após o nó **dependencies**. Esta configuração instrui o Maven a usar Java 1.8 para compilar o aplicativo:
 

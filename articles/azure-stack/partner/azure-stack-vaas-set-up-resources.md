@@ -10,47 +10,45 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/26/2018
+ms.date: 03/04/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: c866bb1ff5603f08377ed96ddd81eedf71e243bf
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 55c9120547472bb9a9a74533fe532d346844e89c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593227"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081756"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Tutorial: Configurar recursos para a validação como um serviço
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Você precisará criar uma solução. Uma validação como uma solução de serviço (VaaS) representa uma solução do Azure Stack com uma lista de hardware específicas de materiais. Você usará a solução para verificar se o hardware pode dar suporte a execução do Azure Stack. Siga este tutorial se preparar para usar o serviço com sua solução.
+A validação como um serviço (VaaS) é um serviço do Azure que é usado para validar e dar suporte a soluções do Azure Stack no mercado. Siga este artigo antes de usar o serviço para validar sua solução.
 
 Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
-> * Prepare-se para usar VaaS, configurando o Azure AD instância de (AD Azure).
-> * Criar uma conta de armazenamento.
+> * Prepare-se de usar VaaS, definindo-se o Azure Active Directory (AD).
+> * Crie uma conta de armazenamento.
 
 ## <a name="configure-an-azure-ad-tenant"></a>Configurar um locatário do AD do Azure
 
-Um locatário do AD do Azure é necessário para autenticar e registrar com VaaS. Os recursos de RBAC (controle) de acesso baseado em função do locatário serão ser usados pelo parceiro para gerenciar quem na organização do parceiro pode usar VaaS.
-
-Registrar seu Azure AD organizacional locatário de diretório (em vez de diretório de locatário do Azure AD usado para o Azure Stack) e estabelecer uma política para gerenciar as contas de usuário nele. Para obter mais informações, consulte [Gerenciar seu diretório do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-administer).
+Um locatário do AD do Azure é usado para registrar uma organização e autenticar usuários com VaaS. O parceiro usará os recursos de RBAC (controle) de acesso baseado em função do locatário para gerenciar quem na organização do parceiro pode usar VaaS. Para obter mais informações, confira [O que é Azure Active Directory?](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis).
 
 ### <a name="create-a-tenant"></a>Criar um locatário
 
-Criar um locatário especificamente para uso com VaaS com um nome descritivo, por exemplo, `ContosoVaaS@onmicrosoft.com`.
+Crie um locatário que sua organização irá usar para acessar os serviços de VaaS. Use um nome descritivo, por exemplo, `ContosoVaaS@onmicrosoft.com`.
 
 1. Criar um locatário do AD do Azure na [portal do Azure](https://portal.azure.com), ou use um locatário existente. <!-- For instructions on creating new Azure AD tenants, see [Get started with Azure AD](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad). -->
 
 2. Adicione membros de sua organização para o locatário. Esses usuários será responsáveis por usar o serviço para exibir ou agendar os testes. Depois de concluir o registro, você vai definir níveis de acesso dos usuários.
- 
+
     Autorize os usuários em seu locatário para executar as ações na VaaS atribuindo uma das seguintes funções:
 
-    | Nome da função | DESCRIÇÃO |
+    | Nome da Função | Descrição |
     |---------------------|------------------------------------------|
     | Proprietário | Tem acesso total a todos os recursos. |
     | Leitor | Pode exibir todos os recursos, mas não criar ou gerenciar. |
@@ -58,13 +56,13 @@ Criar um locatário especificamente para uso com VaaS com um nome descritivo, po
 
     Para atribuir funções na **serviço do Azure Stack validação** aplicativo:
 
-    1. Entre no [Portal do Azure](https://portal.azure.com).
-    2. Selecione **todos os serviços** > **do Azure Active Directory** sob o **identidade** seção.
-    3. Selecione **aplicativos empresariais** > **serviço do Azure Stack validação** aplicativo.
-    4. Selecione **Usuários e grupos**. O **serviço do Azure Stack validação - usuários e grupos** folha lista os usuários com permissão para usar o aplicativo.
-    5. Selecione **+ adicionar usuário** para adicionar um usuário do seu locatário e atribuir uma função.
-   
-    Se você quiser isolar recursos de VaaS e ações entre diferentes grupos dentro de uma organização, você pode criar vários diretórios de locatário do AD do Azure.
+   1. Entre no [Portal do Azure](https://portal.azure.com).
+   2. Selecione **todos os serviços** > **do Azure Active Directory** sob o **identidade** seção.
+   3. Selecione **aplicativos empresariais** > **serviço do Azure Stack validação** aplicativo.
+   4. Selecione **Usuários e grupos**. O **serviço do Azure Stack validação - usuários e grupos** folha lista os usuários com permissão para usar o aplicativo.
+   5. Selecione **+ adicionar usuário** para adicionar um usuário do seu locatário e atribuir uma função.
+
+      Se você quiser isolar recursos de VaaS e ações entre diferentes grupos dentro de uma organização, você pode criar vários diretórios de locatário do AD do Azure.
 
 ### <a name="register-your-tenant"></a>Registrar seu locatário
 
@@ -72,7 +70,7 @@ Esse processo autoriza seu locatário com o **serviço do Azure Stack validaçã
 
 1. Enviar as informações a seguir sobre o locatário para a Microsoft em [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com).
 
-    | Dados | DESCRIÇÃO |
+    | Dados | Descrição |
     |--------------------------------|---------------------------------------------------------------------------------------------|
     | Nome da Organização | O nome da organização oficial. |
     | Nome do diretório de locatário do Azure AD | O nome do diretório de locatário do Azure AD que está sendo registrado. |
@@ -102,10 +100,7 @@ A conta de armazenamento do Azure está hospedada na nuvem pública do Azure, n�
 
 3. Sob **grupo de recursos**, selecione **criar novo**. Insira um nome para seu novo grupo de recursos.
 
-4. Insira um nome para a conta de armazenamento. O nome escolhido deve ser:
-    - Exclusivo no Azure
-    - Entre 3 e 24 caracteres
-    - Conter apenas números e letras minúsculas
+4. Examine os [convenções de nomenclatura](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#storage) para contas de armazenamento do Azure. Insira um nome para a conta de armazenamento.
 
 5. Selecione o **Oeste dos EUA** região de sua conta de armazenamento.
 
@@ -119,7 +114,7 @@ A conta de armazenamento do Azure está hospedada na nuvem pública do Azure, n�
     - O **campo de replicação** é definido como **armazenamento localmente redundante (LRS)** por padrão.
     - A **Camada de acesso** é definido como **Frequente** por padrão.
 
-7. Clique em **Revisar + Criar** para examinar as configurações da conta de armazenamento e criar a conta.
+7. Selecione **Revisar + Criar** para examinar as configurações da conta de armazenamento e criar a conta.
 
 ## <a name="next-steps"></a>Próximas etapas
 

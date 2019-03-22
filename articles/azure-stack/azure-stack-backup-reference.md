@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: a7930ea86f7972a6e4abb939fb148d519ca924e9
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: b35b069f05f117b227a2edbf5595f2682b7f6e86
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416710"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997276"
 ---
 # <a name="infrastructure-backup-service-reference"></a>Referência de serviço de Backup de infraestrutura
 
@@ -89,17 +89,20 @@ Os requisitos incluem:
 Controlador de infraestrutura de Backup fará backup de dados sob demanda. A recomendação é fazer backup de pelo menos duas vezes por dia e manter no máximo sete dias de backups. 
 
 **1811 e muito mais**
+
 | Escala do ambiente | Tamanho projetado do backup | Quantidade total de espaço necessário |
 |-------------------|--------------------------|--------------------------------|
 | 4 a 16 nós        | 20 GB                    | 280 GB                        |
 | ASDK              | 10 GB                    | 140 GB                        |
 
 **Pré-1811**
+
 | Escala do ambiente | Tamanho projetado do backup | Quantidade total de espaço necessário |
 |-------------------|--------------------------|--------------------------------|
 | 4 a 16 nós, ASDK  | 10 GB                     | 140 GB                        |
 
 ### <a name="network-requirements"></a>Requisitos de rede
+
 | Local de armazenamento                                                                 | Detalhes                                                                                                                                                                                 |
 |----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Compartilhamento de arquivos SMB hospedado em um dispositivo de armazenamento dentro do ambiente de rede confiável | A porta 445 será necessária se a instância do Azure Stack reside em um ambiente protegido por firewall. Controlador de infraestrutura de Backup iniciará uma conexão ao servidor de arquivos SMB na porta 445. |
@@ -131,6 +134,7 @@ O certificado usado durante a recuperação de nuvem com a chave privada (. PFX)
 Considere esses limites, como planejar, implantar e operar suas instâncias do Microsoft Azure Stack. A tabela a seguir descreve esses limites.
 
 ### <a name="infrastructure-backup-limits"></a>Limites de infraestrutura Backup
+
 | Identificador de limite                                                 | Limite        | Comentários                                                                                                                                    |
 |------------------------------------------------------------------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | Tipo de backup                                                      | Somente completo    | Controlador de infraestrutura de Backup só oferece suporte a backups completos. Não há suporte para backups incrementais.                                          |

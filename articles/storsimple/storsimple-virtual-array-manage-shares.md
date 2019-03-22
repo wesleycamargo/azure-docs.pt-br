@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
-ms.openlocfilehash: e5c62689de36baa175001f5f4f70d87568876ef0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 82a6cdb6c9a39a0d196049a7ba662681ea06b36a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23110584"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092422"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-shares-on-the-storsimple-virtual-array"></a>Use o serviço do Gerenciador de Dispositivos StorSimple para gerenciar compartilhamentos na Matriz Virtual StorSimple
 
@@ -33,8 +33,8 @@ O serviço Gerenciador de Dispositivos StorSimple é uma extensão do portal do 
 
 Os compartilhamentos do StorSimple podem ser:
 
-* **Fixados localmente**: os dados nesses compartilhamentos permanecerão sempre na matriz e não transbordam para a nuvem.
-* **Em camadas**: os dados nesses compartilhamentos podem transbordar para a nuvem. Quando você cria um compartilhamento em camadas, aproximadamente 10% do espaço é provisionado na camada de local e 90% do espaço é provisionado na nuvem. Por exemplo, se você provisionasse um compartilhamento de 1 TB, 100 GB residiriam no espaço local e 900 GB seriam usados na nuvem quando os dados fossem distribuídos em camadas. Isso, por sua vez, implica que se você ficar sem todo o espaço local no dispositivo, não poderá provisionar um compartilhamento em camadas (porque 10% necessários na camada local não estarão disponíveis).
+* **Fixados localmente**: Dados nesses compartilhamentos permanecerão sempre na matriz em todos os momentos e não transbordam para a nuvem.
+* **Em camadas**: Os dados nesses compartilhamentos podem transbordar para a nuvem. Quando você cria um compartilhamento em camadas, aproximadamente 10% do espaço é provisionado na camada de local e 90% do espaço é provisionado na nuvem. Por exemplo, se você provisionasse um compartilhamento de 1 TB, 100 GB residiriam no espaço local e 900 GB seriam usados na nuvem quando os dados fossem distribuídos em camadas. Isso, por sua vez, implica que se você ficar sem todo o espaço local no dispositivo, não poderá provisionar um compartilhamento em camadas (porque 10% necessários na camada local não estarão disponíveis).
 
 ### <a name="provisioned-capacity"></a>Capacidade provisionada
 
@@ -80,15 +80,15 @@ Use as instruções neste tutorial para executar as seguintes tarefas:
 
 2. Na folha **Adicionar compartilhamento**, faça o seguinte:
    
-    1. No **Nome do compartilhamento** , insira um nome exclusivo para o compartilhamento. O nome deve ser uma cadeia de caracteres contendo entre 3 e 127 caracteres.
+   1. No **Nome do compartilhamento** , insira um nome exclusivo para o compartilhamento. O nome deve ser uma cadeia de caracteres contendo entre 3 e 127 caracteres.
 
-    2. Uma **Descrição** opcional para o compartilhamento. A descrição ajudará a identificar os proprietários de compartilhamento.
+   2. Uma **Descrição** opcional para o compartilhamento. A descrição ajudará a identificar os proprietários de compartilhamento.
 
-    3. Na lista suspensa **Tipo**, especifique se deseja criar um compartilhamento **Em camadas** ou **Fixado localmente**. Para cargas de trabalho que exigem garantias locais, latências menores e um melhor desempenho, selecione um compartilhamento **Fixado localmente** . Para todos os outros dados, selecione compartilhamento **Em camadas** .
+   3. Na lista suspensa **Tipo**, especifique se deseja criar um compartilhamento **Em camadas** ou **Fixado localmente**. Para cargas de trabalho que exigem garantias locais, latências menores e um melhor desempenho, selecione um compartilhamento **Fixado localmente** . Para todos os outros dados, selecione compartilhamento **Em camadas** .
 
-    4. No campo **Capacidade** , especifique o tamanho do compartilhamento. Um compartilhamento em camadas deve ter entre 500 GB e 20 TB e um compartilhamento fixo local deve ter entre 50 GB e 2 GB.
+   4. No campo **Capacidade** , especifique o tamanho do compartilhamento. Um compartilhamento em camadas deve ter entre 500 GB e 20 TB e um compartilhamento fixo local deve ter entre 50 GB e 2 GB.
 
-    5. No campo **Definir permissões padrão completas a**, atribua as permissões para o usuário ou para o grupo que está acessando esse compartilhamento. Especifique o nome do usuário ou grupo de usuários no formato _john@contoso.com_. É recomendável que você use um grupo de usuários (em vez de um único usuário) para conceder privilégios de administrador para acessar esses compartilhamentos. Depois de atribuir as permissões aqui, você pode usar o Gerenciador de Arquivos para modificar essas permissões.
+   5. No campo **Definir permissões padrão completas a**, atribua as permissões para o usuário ou para o grupo que está acessando esse compartilhamento. Especifique o nome do usuário ou grupo de usuários no formato _john@contoso.com_. É recomendável que você use um grupo de usuários (em vez de um único usuário) para conceder privilégios de administrador para acessar esses compartilhamentos. Depois de atribuir as permissões aqui, você pode usar o Gerenciador de Arquivos para modificar essas permissões.
 3. Quando você tiver terminado de configurar o compartilhamento, clique em **Criar**. Um compartilhamento será criado com as configurações especificadas e você verá uma notificação. Por padrão, o backup estará habilitado para o compartilhamento.
 4. Para confirmar se o compartilhamento foi criado com êxito, vá para a página **Compartilhamentos** . Você deve ver o compartilhamento listado.
    

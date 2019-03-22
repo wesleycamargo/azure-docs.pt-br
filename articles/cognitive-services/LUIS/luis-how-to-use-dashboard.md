@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 03/04/2019
 ms.author: diberry
-ms.openlocfilehash: 8927213dc4f1cf01eccdd8f54a946f9dbbaaa04d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: c173152d0a59e391fe77ee855311a867a1b2b6c0
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869952"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338426"
 ---
 # <a name="model-and-usage-statistics-in-the-dashboard"></a>Estatísticas de uso e o modelo no painel
 O painel do aplicativo permite que você monitore seu aplicativo em uma visão rápida. O **Painel** é exibido quando você abre um aplicativo clicando no nome do aplicativo na página **Meus Aplicativos** e selecione **Painel** no painel superior. 
@@ -69,21 +69,8 @@ A **Divisão de intenções** exibe uma divisão de intenções com base nas dec
 
 ![Divisão de intenções](./media/luis-how-to-use-dashboard/intent-breakdown.png)
 
-Para controlar se a análise é baseada em declarações rotuladas ou ocorrências de ponto de extremidade:
-
-1. Clique em **Configurações Adicionais** ![botão Configurações Adicionais](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) para acessar a lista, como na imagem a seguir:
-
-    ![Lista de divisão de intenções](./media/luis-how-to-use-dashboard/intent-breakdown-based-on.png)
-2. Selecione um valor da lista e clique na seta Voltar ![Seta Voltar](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) para exibir o gráfico.
-
 ## <a name="entity-breakdown"></a>Divisão de entidades
 O painel exibe uma divisão de entidades com base nas declarações rotuladas ou ocorrências do ponto de extremidade. Este gráfico de resumo mostra a importância relativa de cada entidade no aplicativo. Quando você passa o ponteiro do mouse sobre uma fatia, verá o nome da entidade e a porcentagem nas ocorrências rotuladas de declarações/pontos de extremidade. 
 
 ![Divisão de entidades](./media/luis-how-to-use-dashboard/entity-breakdown.png)
 
-Para controlar se a análise é baseada em declarações rotuladas ou ocorrências de ponto de extremidade:
-
-1. Clique em **Configurações Adicionais** ![botão Configurações Adicionais para obter a lista](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) para acessar a lista, como na imagem a seguir:
-
-    ![Lista de divisão de entidades](./media/luis-how-to-use-dashboard/entity-breakdown-based-on.png)
-2. Selecione um valor da lista e clique na seta Voltar ![Seta Voltar](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) para exibir o gráfico corretamente.

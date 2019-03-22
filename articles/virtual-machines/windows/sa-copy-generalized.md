@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: cf0eb7a0b9e38397034c03ef2b4310ed67c6e6dd
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: a7181c91424e1d905329eefd13f926d0b2700081
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980373"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56864967"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Como criar uma imagem de VM não gerenciada a partir de uma VM do Azure
 
@@ -41,7 +41,7 @@ Verifique se as funções de servidor em execução no computador são suportada
 > 
 > 
 
-Você também pode generalizar uma VM Linux usando `sudo waagent -deprovision+user` e depois o PowerShell para capturar a VM. Para obter informações sobre o uso da CLI para capturar uma VM, consulte [Como generalizar e capturar uma máquina virtual Linux utilizando a CLI do Azure ](../linux/capture-image.md).
+Você também pode generalizar uma VM Linux usando `sudo waagent -deprovision+user` e depois o PowerShell para capturar a VM. Para obter informações sobre como usar a CLI para capturar uma VM, consulte [como generalizar e capturar uma máquina virtual do Linux usando a CLI do Azure](../linux/capture-image.md).
 
 
 1. Entre na máquina virtual Windows.

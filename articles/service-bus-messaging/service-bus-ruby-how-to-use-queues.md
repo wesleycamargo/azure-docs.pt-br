@@ -14,12 +14,12 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 3ec1e2eef4990b16942022a83ba393eab94a91f3
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 074976ea1f889893b5daa21cea5c186ec77145c4
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856767"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56588340"
 ---
 # <a name="how-to-use-service-bus-queues-with-ruby"></a>Como usar filas do Barramento de Serviço com Ruby
 
@@ -29,6 +29,7 @@ Este guia descreve como usar as filas do barramento de serviço. Os exemplos sã
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
+## <a name="create-a-service-bus-namespace"></a>Criar um namespace do Barramento de Serviço
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
    
 [!INCLUDE [service-bus-ruby-setup](../../includes/service-bus-ruby-setup.md)]

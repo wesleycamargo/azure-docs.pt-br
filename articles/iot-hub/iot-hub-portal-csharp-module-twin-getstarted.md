@@ -1,20 +1,20 @@
 ---
 title: Introdução à identidade do módulo e ao módulo gêmeo do Hub IoT do Azure (portal e .NET) | Microsoft Docs
 description: Saiba como criar a identidade do módulo e atualizar o módulo gêmeo usando o portal e .NET.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/26/2018
-ms.author: dobett
-ms.openlocfilehash: 6048ddbcfed4ab929d521693175c456ad91f22e2
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: f323eb777d98a812ead8dd8ac78ee3d6b36a748a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447093"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57545813"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Introdução à identidade do módulo e ao módulo gêmeo do Hub IoT usando o portal e o dispositivo .NET
 
@@ -77,7 +77,7 @@ A identidade do módulo e o módulo gêmeo estão em versão prévia pública. E
 
 ## <a name="get-your-module-connection-string"></a>Obter a cadeia de conexão do módulo
 
-Logon no [portal do Azure][lnk-portal]. Navegue até seu Hub IoT e clique em Dispositivos IoT. Localize myFirstDevice, abra-o e você verá que myFirstModule foi criado com êxito. Copie a cadeia de conexão do módulo. Ela será necessária na próxima etapa.
+Logon no [portal do Azure][lnk-portal]. Navegue até seu Hub IoT e clique em Dispositivos IoT. Localize myFirstDevice e abra-o. Você verá que myFirstModule foi criado com êxito. Copie a cadeia de conexão do módulo. Ela será necessária na próxima etapa.
 
   ![Detalhes do módulo do Portal do Azure][15]
 
@@ -177,7 +177,7 @@ Para continuar a introdução ao Hub IoT e explorar outros cenários de IoT, con
 [15]: ./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
 <!-- Links -->
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
-[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
 [lnk-csharp-csharp-getstarted]: iot-hub-csharp-csharp-module-twin-getstarted.md

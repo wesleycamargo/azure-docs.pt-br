@@ -5,20 +5,20 @@ description: Quando seu treinamento for bem-sucedido, revise os testes do sistem
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.subservice: translator-text
+ms.date: 02/21/2019
 ms.author: v-rada
-ms.topic: article
-ms.openlocfilehash: 6cad142c050ca1de7e4c5f9b4415132a82f38c7b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: 67ddc7a8e9d79d0eef9c017b315385df62c18e33
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215233"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997706"
 ---
 # <a name="view-system-test-results"></a>Exibir resultados de teste do sistema
 
-Quando seu treinamento for bem-sucedido, revise os testes do sistema para analisar seus resultados de treinamento. Se você estiver satisfeito com os resultados do treinamento, faça uma solicitação de implantação para o modelo treinado. 
+Quando seu treinamento for bem-sucedido, revise os testes do sistema para analisar seus resultados de treinamento. Se você estiver satisfeito com os resultados do treinamento, faça uma solicitação de implantação para o modelo treinado.
 
 ## <a name="system-test-results-page"></a>Página de resultados de teste do sistema
 
@@ -26,7 +26,7 @@ Selecione um projeto, selecione a guia de modelos desse projeto, localize o mode
 
 A guia teste mostra:
 
-1.  **Resultados de Teste do Sistema:** O resultado do processo de teste nos treinamentos. O processo de teste produz a pontuação do BLEU.
+1.  **Resultados de teste do sistema:** O resultado do processo de teste nos treinamentos. O processo de teste produz a pontuação do BLEU.
 
     **Contagem de sentença:** Sentenças paralelas quantas foram usadas no conjunto de teste.
 

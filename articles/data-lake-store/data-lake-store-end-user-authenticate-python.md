@@ -1,5 +1,5 @@
 ---
-title: 'Autenticação de usuário final: Python com o armazenamento de dados do Azure Data Lake usando o Azure Active Directory | Microsoft Docs'
+title: 'Autenticação do usuário final: Python com Gen1 de armazenamento do Azure Data Lake usando o Active Directory do Azure | Microsoft Docs'
 description: Aprenda como obter autenticação de usuário final com o Azure Data Lake Storage Gen1 usando o Active Directory do Azure com o Python
 services: data-lake-store
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 1ba7dbd9436a15989564a806a7c8f586c01e5243
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
-ms.translationtype: HT
+ms.openlocfilehash: 2e8859667e3a69f51ae23bab0487bf15d9eeeab6
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46128062"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537177"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-python"></a>Autenticação de usuário final com o Azure Data Lake Storage Gen1 usando Python
 > [!div class="op_single_selector"]
@@ -40,15 +40,15 @@ Essas duas opções são discutidas neste artigo. Para autenticação de serviç
 
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Criar um aplicativo "Nativo" do Azure Active Directory**. Você deve ter concluído as etapas em [Autenticação do usuário final com o Data Lake Storage Gen1 usando o Active Directory do Azure](data-lake-store-end-user-authenticate-using-active-directory.md).
+* **Criar um aplicativo "Nativo" do Azure Active Directory**. Você deve ter concluído as etapas em [Autenticação de usuário final com Data Lake Storage Gen1 usando Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
 ## <a name="install-the-modules"></a>Instalar os módulos
 
-Para trabalhar com Data Lake armazenamento Gen1 usando o Python, você precisa instalar três módulos.
+Para trabalhar com o Data Lake Storage Gen1 usando o Python, você precisa instalar três módulos.
 
 * O módulo `azure-mgmt-resource`, que inclui módulos do Azure para o Active Directory etc.
-* O módulo `azure-mgmt-datalake-store`, que inclui as operações de gerenciamento de conta do Azure Data Lake Storage Gen1. Para obter mais informações sobre este módulo, consulte [Referência do módulo de gerenciamento do Azure Data Lake Storage Gen1](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python).
-* O módulo `azure-datalake-store`, que inclui as operações do sistema de arquivos do Azure Data Lake Storage Gen1. Para obter mais informações sobre este módulo, consulte [referência do módulo do sistema de arquivos azure-datalake-store](http://azure-datalake-store.readthedocs.io/en/latest/).
+* O módulo `azure-mgmt-datalake-store`, que inclui as operações de gerenciamento de conta do Azure Data Lake Storage Gen1. Para obter mais informações sobre esse módulo, consulte [Referência do módulo de gerenciamento do Azure Data Lake Storage Gen1](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python).
+* O módulo `azure-datalake-store`, que inclui as operações do sistema de arquivos do Azure Data Lake Storage Gen1. Para obter mais informações sobre esse módulo, consulte [referência do módulo Filesystem azure-datalake-store](https://azure-datalake-store.readthedocs.io/en/latest/).
 
 Use os comandos a seguir para instalar os módulos.
 

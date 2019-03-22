@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: michaelhauss
-ms.openlocfilehash: b35bec31035c0219bf34a31cb34e20f7dc3a72c5
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
-ms.translationtype: HT
+ms.openlocfilehash: b9c707dcc1628f685661f88aaed29612465a5469
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397022"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010059"
 ---
 # <a name="how-to-use-blob-storage-from-xamarin"></a>Como usar o Armazenamento de Blobs no Xamarin
 
@@ -29,7 +29,7 @@ Neste tutorial, criaremos um aplicativo para Android, iOS e Windows. Este aplica
 Execute estas etapas para criar o aplicativo:
 
 1. Se você ainda não o fez, baixe e instale o [Xamarin para Visual Studio](https://www.xamarin.com/download).
-2. Abra o Visual Studio e crie um Aplicativo em Branco (Portátil nativo): **Arquivo > Novo > Projeto > Plataforma Cruzada > Aplicativo em Branco (Portátil nativo)**.
+2. Abra o Visual Studio e crie um aplicativo em branco (portátil nativo): **Arquivo > Novo > projeto > plataforma cruzada > aplicativo (nativo portátil) em branco**.
 3. Clique com o botão direito no painel do Gerenciador de Soluções e selecione **Gerenciar Pacotes NuGet para a Solução**. Procure por **WindowsAzure.Storage** e instale a versão estável mais recente para todos os projetos em sua solução.
 4. Compile e execute seu projeto.
 
@@ -155,7 +155,7 @@ namespace XamarinApp.iOS
             public override void DidReceiveMemoryWarning ()
             {
                 base.DidReceiveMemoryWarning ();
-                // Release any cached data, images, etc that aren't in use.
+                // Release any cached data, images, etc. that aren't in use.
             }
         }
     }
@@ -168,7 +168,7 @@ namespace XamarinApp.iOS
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=391641
+// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=391641
 
 namespace XamarinApp.WinPhone
 {
@@ -231,7 +231,7 @@ namespace XamarinApp.WinPhone
 ## <a name="run-the-application"></a>Executar o aplicativo
 Agora você pode executar esse aplicativo em um emulador do Android ou do Windows Phone. Também é possível executar esse aplicativo em um emulador de iOS, mas isso exigirá um Mac. Para obter instruções específicas sobre como fazer isso, leia a documentação sobre como [Conectar o Visual Studio a um Mac](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/)
 
-Após a execução do aplicativo, ele criará o contêiner `mycontainer` em sua conta de armazenamento. Ele deve conter o blob, `myblob`, que tem o texto `Hello, world!`. Você pode verificar isso usando o [Gerenciador de Armazenamento do Microsoft Azure](http://storageexplorer.com/).
+Após a execução do aplicativo, ele criará o contêiner `mycontainer` em sua conta de armazenamento. Ele deve conter o blob, `myblob`, que tem o texto `Hello, world!`. Você pode verificar isso usando o [Gerenciador de Armazenamento do Microsoft Azure](https://storageexplorer.com/).
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste tutorial, você aprendeu como criar um aplicativo de plataforma cruzada no Xamarin que usa o armazenamento do Azure, concentrando-se especificamente em um cenário no Armazenamento de Blobs. No entanto, você pode fazer muito mais, não apenas com o Armazenamento de Blobs, mas também com o Armazenamento de Filas, de Tabelas e de Arquivo. Para saber mais, veja os artigos a seguir:

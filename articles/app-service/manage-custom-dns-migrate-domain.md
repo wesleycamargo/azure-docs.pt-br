@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/28/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: e7449b5c36d9a1c3df3692f80aed8ccc05a98ade
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 6215230a52bcb5c44f54747b447dc5f64e6af650
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53729830"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999095"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrar um nome DNS ativo para o Serviço de Aplicativo do Azure
 
@@ -124,7 +124,7 @@ Para o exemplo de domínio raiz `contoso.com`, remapeie o registro A ou CNAME co
 | Exemplo de FQDN | Tipo de registro | Host | Valor |
 | - | - | - | - |
 | contoso.com (raiz) | O  | `@` | Endereço IP de [Copiar o endereço IP do aplicativo](#info) |
-| www.contoso.com (sub) | CNAME | `www` | _&lt;appname>.azurewebsites.net_ |
+| www\.contoso.com (sub) | CNAME | `www` | _&lt;appname>.azurewebsites.net_ |
 | \*.contoso.com (curinga) | CNAME | _\*_ | _&lt;appname>.azurewebsites.net_ |
 
 Salve suas configurações.

@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/7/2019
+ms.date: 03/14/2019
 ms.author: mayg
-ms.openlocfilehash: 71c07d93d75ee372a50ec4ff5fc81e92926d329b
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: 1aaf13f01c7e7197001f3099fabd4b8be8545f0d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55964760"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58094694"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Solução de problemas de replicação para VMs VMware e servidores físicos
 
@@ -28,6 +28,8 @@ Assegure-se de que os serviços a seguir estão em execução no computador de P
 
 **Servidor de Processo Interno**
 
+* ProcessServer
+* ProcessServerMonitor
 * cxprocessserver
 * InMage PushInstall
 * Serviço de Upload de Log (LogUpload)
@@ -41,6 +43,8 @@ Assegure-se de que os serviços a seguir estão em execução no computador de P
 
 **Expandir Servidor de Processo**
 
+* ProcessServer
+* ProcessServerMonitor
 * cxprocessserver
 * InMage PushInstall
 * Serviço de Upload de Log (LogUpload)
@@ -51,19 +55,26 @@ Assegure-se de que os serviços a seguir estão em execução no computador de P
 
 **Servidor de Processo no Azure para failback**
 
+* ProcessServer
+* ProcessServerMonitor
 * cxprocessserver
 * InMage PushInstall
 * Serviço de Upload de Log (LogUpload)
 
 Certifique-se de que o StartType de todos os serviços esteja definido como **Automático ou Automático (Atraso na Inicialização)**. O agente dos Serviços de Recuperação do Microsoft Azure (obengine) não precisa ter o conjunto StartType, conforme acima.
 
-## <a name="initial-replication-issues"></a>Problemas de replicação inicial
+## <a name="replication-issues"></a>Problemas de replicação
 
-Falhas de replicação inicial geralmente são causadas por problemas de conectividade entre o servidor de origem e o servidor de processo ou entre o servidor de processo e o Azure. Na maioria dos casos, você pode solucionar esses problemas seguindo as etapas nas próximas seções.
+Falhas de replicação inicial e contínua geralmente são causadas por problemas de conectividade entre o servidor de origem e o servidor de processo ou entre o servidor de processo e o Azure. Na maioria dos casos, você pode solucionar esses problemas seguindo as etapas nas próximas seções.
 
-### <a name="check-the-source-machine"></a>Verificar o computador de origem
+>[!Note]
+>Verifique se:
+>1. O sistema de data hora para o item protegido está em sincronizado.
+>2. Nenhum software antivírus está bloqueando o Azure Site Recovery. Saiba mais [mais](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) em exclusões de pastas necessárias para o Azure Site Recovery.
 
-A lista a seguir mostra maneiras para você verificar o computador de origem:
+### <a name="check-the-source-machine-for-connectivity-issues"></a>Verifique o computador de origem para problemas de conectividade
+
+As seguintes lista mostra maneiras você pode verificar o computador de origem.
 
 *  Na linha de comando do servidor de origem, use Telnet para executar ping no servidor de processo por meio da porta HTTPS, executando o comando a seguir. A Porta HTTPS 9443 é o padrão usado pelo Servidor de Processo para enviar e receber tráfego de replicação. É possível modificar essa porta no momento do registro. O comando a seguir verifica problemas de conectividade de rede e problemas que bloqueiam a porta de firewall.
 
@@ -88,7 +99,7 @@ A lista a seguir mostra maneiras para você verificar o computador de origem:
 
        C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\svagents*.log 
 
-### <a name="check-the-process-server"></a>Alterar o servidor de processo
+### <a name="check-the-process-server-for-connectivity-issues"></a>Verifique o servidor de processo para problemas de conectividade
 
 A lista a seguir mostra maneiras para você verificar o servidor de processo:
 
@@ -96,66 +107,66 @@ A lista a seguir mostra maneiras para você verificar o servidor de processo:
 > O Servidor de Processo deve ter um endereço IPv4 estático e não deve ter o IP de NAT configurado nele.
 
 * **Verifique a conectividade entre os computadores de origem e o Servidor de Processo**
-1. Caso tenha resposta para Telnet do computador de origem e ainda assim o PS não puder ser acessado a partir da origem, verifique a conexão ponta a ponta com cxprocessserver da VM de origem, executando a ferramenta cxpsclient na VM de origem:
+* Caso tenha resposta para Telnet do computador de origem e ainda assim o PS não puder ser acessado a partir da origem, verifique a conexão ponta a ponta com cxprocessserver da VM de origem, executando a ferramenta cxpsclient na VM de origem:
 
-       <install folder>\cxpsclient.exe -i <PS_IP> -l <PS_Data_Port> -y <timeout_in_secs:recommended 300>
+      <install folder>\cxpsclient.exe -i <PS_IP> -l <PS_Data_Port> -y <timeout_in_secs:recommended 300>
 
-    Verifique os logs gerados no PS nos diretórios a seguir para obter detalhes sobre os erros correspondentes:
+   Verifique os logs gerados no PS nos diretórios a seguir para obter detalhes sobre os erros correspondentes:
 
-       C:\ProgramData\ASR\home\svsystems\transport\log\cxps.err
-       and
-       C:\ProgramData\ASR\home\svsystems\transport\log\cxps.xfer
-2. Verifique os seguintes logs no PS, caso não haja pulsação do PS:
+      C:\ProgramData\ASR\home\svsystems\transport\log\cxps.err
+      and
+      C:\ProgramData\ASR\home\svsystems\transport\log\cxps.xfer
+* Verifique os seguintes logs sobre o PS caso não haja nenhuma pulsação do PS. Isso é identificado por **código de erro 806** no portal.
 
-       C:\ProgramData\ASR\home\svsystems\eventmanager*.log
-       and
-       C:\ProgramData\ASR\home\svsystems\monitor_protection*.log
+      C:\ProgramData\ASR\home\svsystems\eventmanager*.log
+      and
+      C:\ProgramData\ASR\home\svsystems\monitor_protection*.log
 
-*  **Verifique se o servidor de processo está enviando dados por push ativamente para o Azure**.
+* **Verifique se o servidor de processo está enviando dados por push ativamente para o Azure**.
 
-   1. No servidor de processo, abra o Gerenciador de Tarefas (pressione Ctrl+Shift+Esc).
-   2. Selecione a guia **Desempenho** e clique no link **Abrir o Monitor de Recursos**. 
-   3. Na página **Monitor de Recursos**, selecione a guia **Rede**. Em **Processos com Atividade de Rede**, verifique se o **cbengine.exe** está enviando ativamente grandes volumes de dados.
+  1. No servidor de processo, abra o Gerenciador de Tarefas (pressione Ctrl+Shift+Esc).
+  2. Selecione a guia **Desempenho** e clique no link **Abrir o Monitor de Recursos**. 
+  3. Na página **Monitor de Recursos**, selecione a guia **Rede**. Em **Processos com Atividade de Rede**, verifique se o **cbengine.exe** está enviando ativamente grandes volumes de dados.
 
-        ![Captura de tela que mostra os volumes em processos com atividade de rede](./media/vmware-azure-troubleshoot-replication/cbengine.png)
+       ![Captura de tela que mostra os volumes em processos com atividade de rede](./media/vmware-azure-troubleshoot-replication/cbengine.png)
 
-   Se cbengine.exe não estiver enviando um grande volume de dados, conclua as etapas nas seções a seguir.
+  Se cbengine.exe não estiver enviando um grande volume de dados, conclua as etapas nas seções a seguir.
 
-*  **Verifique se o servidor de processo pode se conectar ao armazenamento de Blobs do Azure**.
+* **Verifique se o servidor de processo pode se conectar ao armazenamento de Blobs do Azure**.
 
-   Selecione **cbengine.exe**. Em **Conexões TCP**, verifique se há conectividade do servidor de processo à URL do Armazenamento de Blobs do Azure.
+  Selecione **cbengine.exe**. Em **Conexões TCP**, verifique se há conectividade do servidor de processo à URL do Armazenamento de Blobs do Azure.
 
-   ![Captura de tela que mostra a conectividade entre cbengine.exe e a URL do Armazenamento de Blobs do Azure](./media/vmware-azure-troubleshoot-replication/rmonitor.png)
+  ![Captura de tela que mostra a conectividade entre cbengine.exe e a URL do Armazenamento de Blobs do Azure](./media/vmware-azure-troubleshoot-replication/rmonitor.png)
 
-   Se não houver nenhuma conectividade do servidor de processo à URL do Armazenamento de Blobs do Azure, no Painel de Controle, selecione **Serviços**. Verifique se os seguintes serviços estão em execução:
+  Se não houver nenhuma conectividade do servidor de processo à URL do Armazenamento de Blobs do Azure, no Painel de Controle, selecione **Serviços**. Verifique se os seguintes serviços estão em execução:
 
-   *  cxprocessserver
-   *  Agente do InMage Scout VX – Sentinel/Outpost
-   *  Agente de Serviços dos Serviços de Recuperação do Microsoft Azure
-   *  Serviço do Microsoft Azure Site Recovery
-   *  tmansvc
+  *  cxprocessserver
+  *  Agente do InMage Scout VX – Sentinel/Outpost
+  *  Agente de Serviços dos Serviços de Recuperação do Microsoft Azure
+  *  Serviço do Microsoft Azure Site Recovery
+  *  tmansvc
 
-   Iniciar ou reiniciar qualquer serviço que não está em execução. Verifique se o problema ainda ocorre.
+  Iniciar ou reiniciar qualquer serviço que não está em execução. Verifique se o problema ainda ocorre.
 
-*  **Verifique se o servidor de processo pode se conectar ao endereço IP público do Azure usando a porta 443**.
+* **Verifique se o servidor de processo pode se conectar ao endereço IP público do Azure usando a porta 443**.
 
-   Em %programfiles%\Microsoft Azure Recovery Services Agent\Temp, abra o arquivo CBEngineCurr.errlog mais recente. No arquivo, procure **443** ou a cadeia de caracteres **Falha na tentativa de conexão**.
+  Em %programfiles%\Microsoft Azure Recovery Services Agent\Temp, abra o arquivo CBEngineCurr.errlog mais recente. No arquivo, procure **443** ou a cadeia de caracteres **Falha na tentativa de conexão**.
 
-   ![Captura de tela que mostra os logs de erros na pasta Temp](./media/vmware-azure-troubleshoot-replication/logdetails1.png)
+  ![Captura de tela que mostra os logs de erros na pasta Temp](./media/vmware-azure-troubleshoot-replication/logdetails1.png)
 
-   Se problemas forem exibidos na linha de comando no servidor de processo, use o Telnet para o endereço IP público do Azure (o endereço IP é mascarado na imagem anterior). Você pode encontrar o endereço IP público do Azure no arquivo CBEngineCurr.currLog usando a porta 443:
+  Se problemas forem exibidos na linha de comando no servidor de processo, use o Telnet para o endereço IP público do Azure (o endereço IP é mascarado na imagem anterior). Você pode encontrar o endereço IP público do Azure no arquivo CBEngineCurr.currLog usando a porta 443:
 
-   `telnet <your Azure Public IP address as seen in CBEngineCurr.errlog>  443`
+  `telnet <your Azure Public IP address as seen in CBEngineCurr.errlog>  443`
 
-   Se não for possível conectar-se, verifique se o problema de acesso é devido às configurações de firewall ou de proxy, conforme descrito na próxima etapa.
+  Se não for possível conectar-se, verifique se o problema de acesso é devido às configurações de firewall ou de proxy, conforme descrito na próxima etapa.
 
-*  **Verifique se o firewall baseado em endereço IP no servidor de processo bloqueia o acesso**.
+* **Verifique se o firewall baseado em endereço IP no servidor de processo bloqueia o acesso**.
 
-   Se você usar regras de firewall baseadas em endereço IP no servidor, baixe a lista completa dos [intervalos de IP de datacenter do Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). Adicione intervalos de endereços IP à sua configuração de firewall para garantir que o firewall permita a comunicação com o Azure (e com a porta HTTPS padrão, 443). Permita os intervalos de endereço IP para a região do Azure da sua assinatura e para a região do Azure Oeste dos EUA (usados para controle de acesso e gerenciamento de identidade).
+  Se você usar regras de firewall baseadas em endereço IP no servidor, baixe a lista completa dos [intervalos de IP de datacenter do Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). Adicione intervalos de endereços IP à sua configuração de firewall para garantir que o firewall permita a comunicação com o Azure (e com a porta HTTPS padrão, 443). Permita os intervalos de endereço IP para a região do Azure da sua assinatura e para a região do Azure Oeste dos EUA (usados para controle de acesso e gerenciamento de identidade).
 
-*  **Verifique se um firewall baseado em URL no servidor de processo bloqueia o acesso**.
+* **Verifique se um firewall baseado em URL no servidor de processo bloqueia o acesso**.
 
-   Se você usar uma regra de firewall baseada em URL no servidor, adicione as URLs listadas na tabela a seguir à configuração do firewall:
+  Se você usar uma regra de firewall baseada em URL no servidor, adicione as URLs listadas na tabela a seguir à configuração do firewall:
 
 [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
 
@@ -172,6 +183,7 @@ A lista a seguir mostra maneiras para você verificar o servidor de processo:
 *  **Verifique se a largura de banda de limitação está ou não restrita no servidor de processo**.
 
    Aumente a largura de banda e verifique se o problema ainda ocorre.
+
 
 ## <a name="source-machine-isnt-listed-in-the-azure-portal"></a>O computador de origem não está listado no portal do Azure
 
@@ -190,6 +202,96 @@ Ao tentar selecionar o computador de origem para habilitar a replicação por me
 ## <a name="protected-virtual-machines-are-greyed-out-in-the-portal"></a>As máquinas virtuais protegidas estão em cinza no portal
 
 As máquinas virtuais que são replicadas no Site Recovery não estão disponíveis no portal do Azure se há entradas duplicadas no sistema. Para saber como excluir entradas obsoletas e resolver o problema, consulte [Azure Site Recovery – VMware para o Azure: Como limpar entradas duplicadas ou obsoletas](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx).
+
+## <a name="common-errors-and-recommended-steps-for-resolution"></a>Etapas para resolução de erros comuns e recomendados
+
+### <a name="initial-replication-issues-error-78169"></a>[Erro 78169] de problemas de replicação inicial
+
+Ao longo de um acima garantindo que há nenhuma conectividade, largura de banda ou tempo sincronizar questões relacionadas, certifique-se de que:
+
+- Nenhum software antivírus está bloqueando o Azure Site Recovery. Saiba mais [mais](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) em exclusões de pastas necessárias para o Azure Site Recovery.
+
+### <a name="application-consistency-recovery-point-missing-error-78144"></a>Ponto de recuperação de consistência do aplicativo ausente [Erro 78144]
+
+ Isso ocorre devido a problemas com cópia de sombra de Volume Service (VSS). Para resolver esse erro: 
+ 
+- Verifique se a versão instalada do agente do Azure Site Recovery é pelo menos 9.22.2. 
+- Verifique se o provedor VSS é instalado como um serviço nos serviços do Windows e verifique também se o serviço de componentes do MMC para verificar se o Azure Site Recovery VSS Provider está listado.
+- Se o provedor do VSS não está instalado, consulte o [Falha na instalação do artigo de solução de problemas](vmware-azure-troubleshoot-push-install.md#vss-installation-failures).
+
+- Se estiver desabilitado VSS,
+    - Verificar se o tipo de inicialização do serviço do provedor do VSS está definido como **automática**.
+    - Reinicie os serviços a seguir:
+        - Serviço VSS
+        - Provedor de VSS do Azure Site Recovery
+        - Serviço VDS
+
+### <a name="high-churn-on-source-machine-error-78188"></a>Alta rotatividade no computador de origem [Erro 78188]
+
+Possíveis causas:
+- A taxa de alteração de dados (bytes de gravação/s) nos discos listados da máquina virtual é mais do que o [limites com suporte do Azure Site Recovery](site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) para o tipo de conta de armazenamento de destino de replicação.
+- Há um aumento repentino na taxa de rotatividade devido à qual alta quantidade de dados está pendente para upload.
+
+Como resolver o problema:
+- Certifique-se de que o tipo de conta de armazenamento de destino (Standard ou Premium) é provisionado, de acordo com o requisito de taxa de variação na origem.
+- Se a variação observada é temporária, aguarde algumas horas para que o carregamento de dados pendentes para acompanhar e criar pontos de recuperação.
+- Se o problema persistir, use o ASR [Planejador de implantação](site-recovery-deployment-planner.md#overview) para ajudar a planejar a replicação.
+
+### <a name="no-heartbeat-from-source-machine-error-78174"></a>Nenhuma pulsação da máquina de origem [Erro 78174]
+
+Isso acontece quando o agente de mobilidade do Azure Site Recovery na máquina de origem não está se comunicando com o servidor de configuração (CS).
+
+Para resolver o problema, use as etapas a seguir para verificar a conectividade de rede da VM de origem para o servidor de configuração:
+
+1. Verifique se que o computador de origem está em execução.
+2. Entrar no computador de origem usando uma conta que tenha privilégios de administrador.
+3. Verificar se os seguintes serviços estão em execução e se não reiniciar os serviços:
+   - Svagents (InMage Scout VX Agent)
+   - Serviço de Aplicativo InMage Scout
+4. No computador de origem, examine os logs no local para obter detalhes do erro:
+
+       C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
+    
+### <a name="no-heartbeat-from-process-server-error-806"></a>Nenhuma pulsação do servidor de processo [Erro 806]
+Caso não haja nenhuma pulsação do servidor de processo (PS), verifique se:
+1. PS VM está em execução
+2. Verifique o seguinte logon do PS para detalhes do erro:
+
+       C:\ProgramData\ASR\home\svsystems\eventmanager*.log
+       and
+       C:\ProgramData\ASR\home\svsystems\monitor_protection*.log
+
+### <a name="no-heartbeat-from-master-target-error-78022"></a>Não houve pulsação do destino mestre [Erro 78022]
+
+Isso acontece quando o agente de mobilidade do Azure Site Recovery no destino mestre não está se comunicando com o servidor de configuração.
+
+Para resolver o problema, use as etapas a seguir para verificar o status do serviço:
+
+1. Verifique se que a VM de destino mestre está em execução.
+2. Entrar para a VM de destino mestre usando uma conta que tenha privilégios de administrador.
+    - Verifique se o serviço svagents está em execução. Se estiver em execução, reinicie o serviço
+    - Verifique os logs no local para obter detalhes do erro:
+        
+          C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
+
+### <a name="process-server-is-not-reachable-from-the-source-machine-error-78186"></a>Servidor de processo não está acessível da máquina de origem [Erro 78186]
+
+Esse erro resulta em pontos consistentes de aplicativo e falha não seja gerados se não for resolvido. Para resolver o problema, siga os links de solução de problemas abaixo:
+1. Certifique-se de que [PS serviços estão em execução](vmware-azure-troubleshoot-replication.md#monitor-process-server-health-to-avoid-replication-issues)
+2. [Verifique os problemas de conectividade de máquina de origem](vmware-azure-troubleshoot-replication.md#check-the-source-machine-for-connectivity-issues)
+3. [Verifique os problemas de conectividade do servidor de processo](vmware-azure-troubleshoot-replication.md#check-the-process-server-for-connectivity-issues) e siga as orientações fornecidas para:
+    - Verificando a conectividade com o código-fonte
+    - Problemas de firewall e proxy
+
+### <a name="data-upload-blocked-from-source-machine-to-process-server-error-78028"></a>Carregamento de dados bloqueado da máquina de origem para o servidor de processo [Erro 78028]
+
+Esse erro resulta em pontos consistentes de aplicativo e falha não seja gerados se não for resolvido. Para resolver o problema, siga os links de solução de problemas abaixo:
+
+1. Certifique-se de que [PS serviços estão em execução](vmware-azure-troubleshoot-replication.md#monitor-process-server-health-to-avoid-replication-issues)
+2. [Verifique os problemas de conectividade de máquina de origem](vmware-azure-troubleshoot-replication.md#check-the-source-machine-for-connectivity-issues)
+3. [Verifique os problemas de conectividade do servidor de processo](vmware-azure-troubleshoot-replication.md#check-the-process-server-for-connectivity-issues) e siga as orientações fornecidas para:
+    - Verificando a conectividade com o código-fonte
+    - Problemas de firewall e proxy
 
 ## <a name="next-steps"></a>Próximas etapas
 

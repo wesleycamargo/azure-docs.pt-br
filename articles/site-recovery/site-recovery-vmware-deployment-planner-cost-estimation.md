@@ -5,18 +5,26 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 3/14/2019
 ms.author: mayg
-ms.openlocfilehash: d1e406567b5f56f6ad08e4d276202ebf43d92534
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.openlocfilehash: 8a36a80903a47bb4163666baf86ed8dac13a00de
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321477"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093830"
 ---
 # <a name="review-the-cost-estimation-report-in-the-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Examine o relatório de estimativa de custo no Planejador de Implantações do Azure Site Recovery para recuperação de desastres do VMware para o Azure
 
 O relatório do Planejador de Implantações fornece o resumo de estimativa de custo nas planilhas de [Recomendações](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations) e a análise de custo detalhada na planilha Estimativa de Custo. Ele tem a análise de custo detalhada por VM. 
+
+>[!Note]
+>A versão atual da ferramenta de Planejador de implantação não fornece uma estimativa de custo para VMs replicando para o Managed Disks.
+>* As estimativas de custo de recuperação de Desastre Drill são o mesmo para contas de armazenamento e discos gerenciados, quando o parâmetro 'Usar discos gerenciados' é definido como "Sim" na folha de "Computação e rede".
+>* Para obter uma estimativa aproximada de custo anual de replicação, faça as seguintes configurações temporárias na **estimativa de custo** folha:
+>    * Defina o parâmetro "Duração de custo" no **configurações** tabela para "Ano"
+>    * Na **detalhado, análise de custo** da tabela, definir a coluna "Número de análises de recuperação de Desastre em um ano" como 12 e "duração de cada análise recuperação de Desastre (dias)" para 30 
+>    * O custo de replicação será semelhante ao custo preenchido no custo de armazenamento de 'R' ou seja, análise de recuperação de Desastre de coluna por ano em **custo de análise de DR por ano** subseção.
 
 ### <a name="cost-estimation-summary"></a>Resumo de estimativa de custo 
 O gráfico mostra a exibição de resumo do custo total de recuperação de desastre (DR) estimado para o Azure da sua região de destino escolhida e da moeda que você especificou para a geração de relatórios.
@@ -106,9 +114,9 @@ Para adicionar manualmente as máquinas virtuais:
 * Redundância de dados 
 * Benefício Híbrido do Azure
 
-3.  Você pode aplicar o mesmo valor a todas as VMs na tabela clicando no botão 'Aplicar a todos' para Número de Análises de Recuperação de Desastre em um ano, Duração da Análise de cada Recuperação de Desastre (Dias), Redundância de dados e Benefício Híbrido do Azure.
+1. Você pode aplicar o mesmo valor a todas as VMs na tabela clicando no botão 'Aplicar a todos' para Número de Análises de Recuperação de Desastre em um ano, Duração da Análise de cada Recuperação de Desastre (Dias), Redundância de dados e Benefício Híbrido do Azure.
 
-4.  Clique em 'Recalcular custo' para atualizar o custo.
+1. Clique em 'Recalcular custo' para atualizar o custo.
 
 **Nome da VM**: O nome da VM.
 
@@ -156,7 +164,7 @@ O Planejador de Implantações do Azure Site Recovery pode gerar o relatório de
 |IDR|Rúpia da Indonésia (Rp)||INR|Rúpia indiana (₹)||JPY|Iene japonês (¥)|
 |KRW|Won coreano (₩)||MXN|Peso mexicano (MXN$)||MYR|Ringgit malaio (RM$)|
 |NOK|Coroa norueguesa (kr)||NZD|Dólar neozelandês ($)||RUB|Rublo russo (руб)|
-|SAR|Rial saudita (SR)||SEK|Coroa sueca (kr)||TWD|Dólar taiwanês (NT$)|
+|SAR|Saudi Riyal (SR)||SEK|Coroa sueca (kr)||TWD|Dólar taiwanês (NT$)|
 |TRY|Lira turca (TL)||USD| Dólar americano (US$)||ZAR|Rand da África do Sul (R)|
 
 ## <a name="next-steps"></a>Próximas etapas

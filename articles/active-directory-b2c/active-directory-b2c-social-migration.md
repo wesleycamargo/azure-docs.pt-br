@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/03/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 4d4acecbbb90fff7865902a3371d282f1d402374
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: a1ecc4de9475e735cd17286826c1d8cea05904ab
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662883"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089345"
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C: Migrar usuários com identidades sociais
 Quando você planeja migrar seu provedor de identidade para o Microsoft Azure AD B2C, talvez seja necessário migrar usuários com identidades sociais. Este artigo explica como migrar as contas de identidades sociais existentes, como: Contas do Facebook, LinkedIn, Microsoft e Google para o Azure AD B2C. Este artigo também aplica-se a identidades federadas, no entanto, essas migrações são menos comuns.
@@ -32,14 +32,14 @@ Este artigo é uma continuação do artigo de migração de usuário e concentra
 * **Combine conta local com identidade social**. Como mencionado, os nomes de entrada da conta local e as identidades da conta social são armazenados em atributos diferentes. `signInNames` é usado para conta local, enquanto `userIdentities` para conta social. Uma única conta do Microsoft Azure Active Directory B2C, pode ser uma conta local somente, conta social somente ou combinar uma conta local com identidade social em um registro do usuário. Esse comportamento permite gerenciar uma única conta, enquanto um usuário pode entrar com as credenciais da conta local ou com as identidades sociais.
 
 * `UserIdentity` Tipo - Contém informações sobre a identidade de um usuário da conta social em um locatário do Microsoft Azure Active Directory B2C:
-    * `issuer` A representação da cadeia de caracteres do provedor de identidade que emitiu o identificador de usuário, como facebook.com.
-    * `issuerUserId` O identificador de usuário exclusivo utilizado pelo provedor de identidade social no formato Base64.
+  * `issuer` A representação da cadeia de caracteres do provedor de identidade que emitiu o identificador de usuário, como facebook.com.
+  * `issuerUserId` O identificador de usuário exclusivo utilizado pelo provedor de identidade social no formato Base64.
 
     ```JSON
     "userIdentities": [{
-            "issuer": "Facebook.com",
-            "issuerUserId": "MTIzNDU2Nzg5MA=="
-        }
+          "issuer": "Facebook.com",
+          "issuerUserId": "MTIzNDU2Nzg5MA=="
+      }
     ]
     ```
 
@@ -139,7 +139,7 @@ O nome do emissor ou o nome do provedor de identidade é configurado na polític
 1. Entre com uma das contas sociais
 2. Do token JWT, copie o valor `sub`. O `sub` geralmente contém a ID de objeto do usuário no Microsoft Azure Active Directory B2C. Ou pelo Portal do Azure, abra as propriedades do usuário e copie a ID de objeto.
 3. Abrir o [Explorador do Graph do Microsoft Azure AD](https://graphexplorer.azurewebsites.net)
-4. Entre com seu administrador. N
+4. Entre com seu administrador.
 5. Execute a seguinte solicitação GET. Substitua o userObjectId pela ID de usuário que você copiou. **GET** https://graph.windows.net/tenant-name.onmicrosoft.com/users/userObjectId
 6. Localize o elemento `userIdentities` dentro do retorno JSON do Microsoft Azure Active Directory B2C.
 7. [Opcional] Também é possível decodificar o valor `issuerUserId`.

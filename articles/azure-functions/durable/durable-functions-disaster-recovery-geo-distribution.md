@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 0fb2103b982d5b2fc1a04455b451459ede12166e
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: 1363dd3c620789b9f3c8ce1dbe0892ee61d66051
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336928"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108198"
 ---
 # <a name="disaster-recovery-and-geo-distribution"></a>Recuperação de desastres e distribuição geográfica
 
@@ -24,7 +24,7 @@ ms.locfileid: "53336928"
 Nas Durable Functions, todos os estados são persistentes no Armazenamento do Azure. Um [hub de tarefas](durable-functions-task-hubs.md) é um contêiner lógico dos recursos do Armazenamento do Azure usado para orquestrações. Funções de orquestrador e atividade só podem interagir entre si quando pertencem ao mesmo hub de tarefas.
 Os cenários descritos propõem opções de implantação para aumentar a disponibilidade e minimizar o tempo de inatividade durante as atividades de recuperação de desastre.
 
-É importante observar que esses cenários são baseados nas configurações ativa-passiva, pois são guiados pelo uso do Armazenamento do Azure. Esse padrão consiste em implantar um aplicativo de função (passivo) de backup em uma região diferente. O Gerenciador de Tráfego monitorará o aplicativo de função (ativo) principal quanto à disponibilidade. Ele fará failover para o aplicativo de função de backup se o principal falhar. Para obter mais informações, consulte [Método de roteamento de tráfego por prioridade](../../traffic-manager/traffic-manager-routing-methods.md#a-name--priorityapriority-traffic-routing-method) do [Gerenciador de Tráfego](https://azure.microsoft.com/services/traffic-manager/).
+É importante observar que esses cenários são baseados nas configurações ativa-passiva, pois são guiados pelo uso do Armazenamento do Azure. Esse padrão consiste em implantar um aplicativo de função (passivo) de backup em uma região diferente. O Gerenciador de Tráfego monitorará o aplicativo de função (ativo) principal quanto à disponibilidade. Ele fará failover para o aplicativo de função de backup se o principal falhar. Para obter mais informações, consulte [Método de roteamento de tráfego por prioridade](../../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method) do [Gerenciador de Tráfego](https://azure.microsoft.com/services/traffic-manager/).
 
 >[!NOTE]
 >

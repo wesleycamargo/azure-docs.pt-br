@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/06/2019
+ms.date: 03/01/2019
 ms.author: juliako
-ms.openlocfilehash: 9d62ef2295abbb8f8fc6f45ffc0c7ab1ce9616e4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 9952a7bbac1eb79de0d3425f839e3bd30196844e
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878350"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243883"
 ---
 # <a name="live-event-types-comparison"></a>Comparação de tipos de Eventos ao Vivo
 
@@ -33,7 +33,7 @@ A tabela a seguir compara os recursos dos dois tipos de Evento ao Vivo.
 | A entrada de taxa de bits única é codificada em várias taxas de bits na nuvem |Não  |Sim |
 | Resolução máxima de vídeo para feed de contribuição |4K (4096 x 2160 a 60 quadros / seg) |1080p de (1920 x 1088 em 30 quadros por segundo)|
 | Camadas máximas recomendadas no feed de contribuição|Até 12|Um áudio|
-| Camadas máximo na saída| Igual à entrada|Até 7|
+| Camadas máximo na saída| Igual à entrada|Até 6 (veja abaixo as predefinições de sistema)|
 | Largura de banda agregada máxima de feed de contribuição|60 Mbps|N/D|
 | Taxa de bits máxima para uma única camada de contribuição |20 Mbps|20 Mbps|
 | Suporte para várias faixas de áudio de idioma|Sim|Não |
@@ -54,6 +54,30 @@ A tabela a seguir compara os recursos dos dois tipos de Evento ao Vivo.
 | Suporte para GOPs de entrada não uniforme|Sim|Não – entrada deve ter GOP duração fixa|
 | Suporte para entrada de taxa de quadros variável|Sim|Não – a entrada deve ser uma taxa de quadros fixa. Pequenas variações são toleradas, por exemplo, durante cenas ricas em movimento. Mas o feed de contribuição não é possível descartar a taxa de quadros (por exemplo, para 15 quadros por segundo).|
 | Desligamento automático do Evento ao Vivo quando há perda do feed de entrada|Não |Após 12 horas, se não houver nenhum LiveOutput em execução|
+
+## <a name="system-presets"></a>Predefinições do sistema
+
+Ao usar a codificação ao vivo (conjunto de eventos ao vivo **Standard**), a predefinição de codificação define como o fluxo de entrada é codificado em várias taxas de bits ou camadas. Atualmente, o único valor permitido para é a predefinição *Default720p* (padrão).
+
+**Default720p** codificará o vídeo nas seis camadas a seguir.
+
+### <a name="output-video-stream"></a>Fluxo de vídeo de saída
+
+| Taxa de bits | Largura | Altura | MáxFPS | Perfil | Nome do fluxo de saída |
+| --- | --- | --- | --- | --- | --- |
+| 3500 |1280 |720 |30 |Alto |Video_1280x720_3500kbps |
+| 2200 |960 |540 |30 |Alto |Video_960x540_2200kbps |
+| 1350 |704 |396 |30 |Alto |Video_704x396_1350kbps |
+| 850 |512 |288 |30 |Alto |Video_512x288_850kbps |
+| 550 |384 |216 |30 |Alto |Video_384x216_550kbps |
+| 200 |340 |192 |30 |Alto |Video_340x192_200kbps |
+
+> [!NOTE]
+> Se você precisar usar uma predefinição de codifica ao vivo personalizada, entre em contato com amshelp@microsoft.com. Você deve especificar a tabela desejada da resolução e taxas de bits. Verifique se há apenas uma camada em 720p e no máximo de 6 camadas.
+
+### <a name="output-audio-stream"></a>Fluxo de áudio de saída
+
+O áudio é codificado para AAC-LC estéreo a 128 kbps, taxa de amostragem de 48 kHz.
 
 ## <a name="next-steps"></a>Próximas etapas
 

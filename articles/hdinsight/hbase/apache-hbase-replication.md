@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: 933506e732926b0f3827f039a65e78acd3a6932b
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: d50c3f4452dd00b5656b6cde5e671caebcb4bb7c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653808"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112527"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurar a replicação de cluster do Apache HBase em redes virtuais do Azure
 
@@ -288,15 +288,15 @@ As etapas a seguir mostram como chamar o script de ação de script no Portal do
 4. Na parte superior da página, selecione **Enviar Novo**.
 5. Selecione ou insira as seguintes informações:
 
-  1. **Nome**: Insira **Habilitar a replicação**.
-  2. **URL do script Bash**: Digite https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**.
-  3.  **Cabeçalho**: Verifique se essa opção está selecionada. Desmarque os outros tipos de nós.
-  4. **Parâmetros**: Os seguintes parâmetros de exemplo habilitam a replicação de todas as tabelas existentes e copiam todos os dados do cluster de origem para o cluster de destino:
+   1. **Nome**: Insira **Habilitar a replicação**.
+   2. **URL do script Bash**: Digite https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**.
+   3. **Cabeçalho**: Verifique se essa opção está selecionada. Desmarque os outros tipos de nós.
+   4. **Parâmetros**: Os seguintes parâmetros de exemplo habilitam a replicação de todas as tabelas existentes e copiam todos os dados do cluster de origem para o cluster de destino:
 
           -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
     
-    > [!NOTE]
-    > Use o nome do host em vez de FQDN para o nome DNS do cluster de origem e de destino.
+      > [!NOTE]
+      > Use o nome do host em vez de FQDN para o nome DNS do cluster de origem e de destino.
 
 6. Selecione **Criar**. O script pode demorar, especialmente quando o argumento **-copydata** for usado.
 

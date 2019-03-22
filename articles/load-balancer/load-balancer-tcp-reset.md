@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/29/2019
 ms.author: kumud
-ms.openlocfilehash: 18e4a7ae5010730054dd110828c63e8418b93f39
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: 52524e6291faae8ccc27c0d53e9e38ab63a4c8d5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296912"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58132422"
 ---
 # <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Balanceador de Carga com Redefinição de TCP quando ocioso (Versão Prévia Pública)
 
@@ -27,7 +27,7 @@ Você pode usar o [Standard Load Balancer](load-balancer-standard-overview.md) p
 ![Redefinição de TCP do Balanceador de Carga](media/load-balancer-tcp-reset/load-balancer-tcp-reset.png)
 
 >[!NOTE] 
->A funcionalidade de Load Balancer com tempo limite de ociosidade para redefinição do TCP está disponível como Visualização Pública no momento e disponibilizada em um conjunto limitado de [regiões](#regions). Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Veja os [Termos de Uso Adicionais para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter detalhes.
+>Balanceador de carga com redefinição na funcionalidade de tempo limite de ociosidade de TCP está disponível como visualização pública no momento. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Veja os [Termos de Uso Adicionais para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter detalhes.
  
 Alterar esse comportamento padrão e habilitar envio de Redefinições de TCP no tempo limite de ociosidade em regras NAT de entrada, regras de balanceamento de carga e [regras de saída](https://aka.ms/lboutboundrules).  Quando habilitado por regra, o Load Balancer enviará Redefinições de TCP (pacotes TCP RST) para os pontos de extremidade do cliente e do servidor no momento do tempo limite de ociosidade para todos os fluxos correspondentes.
 

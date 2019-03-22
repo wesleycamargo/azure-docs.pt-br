@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: shlo
-ms.openlocfilehash: 70f8533843668a86607e31a551e6ebf9abeab6c4
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 62c9a8e6375f6ac7db86ae81cdd4e5c9eb445770
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016623"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432814"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Criar um gatilho que executa um pipeline com base em um agendamento
 Este artigo fornece informações sobre o gatilho de agendamento e as etapas para criar, iniciar e monitorar um gatilho de agendamento. Para outros tipos de gatilhos, consulte [Execução de pipeline e gatilhos](concepts-pipeline-execution-triggers.md).
@@ -66,6 +66,9 @@ Crie um **gatilho de agendamento** para agendar a execução periódica de um pi
     ![Monitorar execuções de gatilho](./media/how-to-create-schedule-trigger/monitor-trigger-runs.png)
 
 ## <a name="azure-powershell"></a>Azure PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Esta seção mostra como usar o Azure PowerShell para criar, iniciar e monitorar um gatilho de agendamento. Para visualizar esse exemplo funcionando, primeiro acompanhe o [Início Rápido: Criar um data factory usando o Azure PowerShell](quickstart-create-data-factory-powershell.md). Em seguida, adicione o seguinte código ao método principal, que cria e inicia um gatilho de agenda que é executado a cada 15 minutos. O gatilho é associado a um pipeline chamado **Adfv2QuickStartPipeline** que você cria como parte do Início Rápido.
 
 1. Crie um arquivo JSON chamado **MyTrigger.json** na pasta C:\ADFv2QuickStartPSH\ com o seguinte conteúdo:
@@ -108,34 +111,34 @@ Esta seção mostra como usar o Azure PowerShell para criar, iniciar e monitorar
     - O gatilho está associado ao pipeline **Adfv2QuickStartPipeline**. Para associar vários pipelines a um gatilho, adicione mais seções **pipelineReference**.
     - O pipeline no Início Rápido usa dois valores de **parameters**: **inputPath** e **outputPath**. Portanto, você passa os valores para esses parâmetros por meio do gatilho.
 
-2. Crie um gatilho usando o cmdlet **Set-AzureRmDataFactoryV2Trigger**:
+2. Criar um gatilho usando o **AzDataFactoryV2Trigger conjunto** cmdlet:
 
     ```powershell
-    Set-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
+    Set-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
     ```
 
-3. Confirme se o status do gatilho é **Parado** usando o cmdlet **Get-AzureRmDataFactoryV2Trigger**:
+3. Confirme se o status do gatilho está **Stopped** usando o **Get-AzDataFactoryV2Trigger** cmdlet:
 
     ```powershell
-    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
+    Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-4. Inicie o gatilho usando o cmdlet **Start-AzureRmDataFactoryV2Trigger**:
+4. Inicie o gatilho usando o **AzDataFactoryV2Trigger início** cmdlet:
 
     ```powershell
-    Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
+    Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-5. Confirme se o status do gatilho é **Iniciado** usando o cmdlet **Get-AzureRmDataFactoryV2Trigger**:
+5. Confirme se o status do gatilho está **iniciado** usando o **Get-AzDataFactoryV2Trigger** cmdlet:
 
     ```powershell
-    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
+    Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-6.  Obtenha as execuções do gatilho no Azure PowerShell usando o cmdlet **Get-AzureRmDataFactoryV2TriggerRun**. Para obter as informações sobre as execuções do gatilho, execute o comando a seguir periodicamente. Atualize os valores de **TriggerRunStartedAfter** e **TriggerRunStartedBefore** para que correspondam aos valores na definição de gatilho:
+6.  Obter o gatilho é executado no Azure PowerShell usando o **Get-AzDataFactoryV2TriggerRun** cmdlet. Para obter as informações sobre as execuções do gatilho, execute o comando a seguir periodicamente. Atualize os valores de **TriggerRunStartedAfter** e **TriggerRunStartedBefore** para que correspondam aos valores na definição de gatilho:
 
     ```powershell
-    Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
+    Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
     ```
     
     Para monitorar as execuções de gatilho e de pipeline no portal do Azure, consulte [Monitorar execuções de pipeline](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
@@ -324,10 +327,10 @@ A seguinte tabela fornece uma visão geral de alto nível dos principais element
 
 | Propriedade JSON | type | Obrigatório | Valor padrão | Valores válidos | Exemplo |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | Cadeia de caracteres | SIM | Nenhum | Data e hora ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **recurrence** | Objeto | SIM | Nenhum | Objeto de recorrência | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **startTime** | Cadeia de caracteres | Sim | Nenhum | Data e hora ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **recurrence** | Objeto | Sim | Nenhum | Objeto de recorrência | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **interval** | Número | Não  | 1 | 1 a 1.000 | `"interval":10` |
-| **endTime** | Cadeia de caracteres | SIM | Nenhum | Um valor de Data/Hora que representa uma hora no futuro. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **endTime** | Cadeia de caracteres | Sim | Nenhum | Um valor de Data/Hora que representa uma hora no futuro. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
 | **schedule** | Objeto | Não  | Nenhum | Objeto Agendamento | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Propriedade startTime

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
+ms.date: 03/05/2019
 ms.author: terrylan
-ms.openlocfilehash: e845adc3aad21e62009ee9b99dbd65bcff794bd9
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: e833317fa16576fa0006a774226d12974fd93ed8
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117792"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404800"
 ---
 # <a name="securing-paas-deployments"></a>Proteção de implantações de PaaS
 
@@ -85,7 +85,7 @@ Os princípios e padrões do perímetro de rede estiveram disponíveis por déca
 A seguir estão as práticas recomendadas para gerenciar o perímetro de identidade.
 
 **Melhor prática**: Proteja suas chaves e credenciais para proteger a implantação de PaaS.   
-**Detalhe**: Perder chaves e credenciais é um problema comum. Você pode usar uma solução centralizada em que as chaves e os segredos são armazenados em módulos de segurança de hardware. O Azure fornece um HSM na nuvem com o [Azure Key Vault](../key-vault/key-vault-whatis.md).
+**Detalhe**: Perder chaves e credenciais é um problema comum. Você pode usar uma solução centralizada em que as chaves e segredos podem ser armazenados em módulos de segurança de hardware (HSMs). [O Azure Key Vault](../key-vault/key-vault-whatis.md) protege suas chaves e segredos ao criptografar as chaves de autenticação, chaves de conta de armazenamento, chaves de criptografia de dados, arquivos. pfx e senhas usando chaves que são protegidas por HSMs.
 
 **Melhor prática**: Não coloque credenciais e outros segredos no código-fonte ou GitHub.   
 **Detalhe**: A única coisa pior do que perder as chaves e as credenciais é quando um terceiro não autorizado tem acesso a elas. Os invasores podem aproveitar as tecnologias de bot para encontrar chaves e segredos armazenados em repositórios de código, como o GitHub. Não coloque a chave e os segredos nesses repositórios de código público.
@@ -153,7 +153,7 @@ O monitoramento é o ato de coletar e analisar dados para determinar o desempenh
 
 Use o [Azure Application Insights](https://azure.microsoft.com/documentation/services/application-insights) para monitorar a disponibilidade, o desempenho e o uso do aplicativo, esteja ele hospedado na nuvem ou localmente. Usando o Application Insights, você pode identificar e diagnosticar erros no aplicativo sem esperar que um usuário os relate. Com as informações coletadas, será possível fazer as escolhas informadas sobre a manutenção e as melhorias do seu aplicativo.
 
-O Application Insights tem ferramentas abrangentes para interagir com os dados que coleta. O Application Insights armazena seus dados em um repositório comum. Ele pode tirar proveito de recursos compartilhados, como alertas, painéis e análise detalhada com a linguagem de consulta do Log Analytics.
+O Application Insights tem ferramentas abrangentes para interagir com os dados que coleta. O Application Insights armazena seus dados em um repositório comum. Ele pode tirar proveito dos recursos compartilhados, como alertas, painéis e uma análise profunda com a linguagem de consulta do Kusto.
 
 
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 430e3f0db2f053a2d5a6ea2a3e2a2d1c4418b501
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: e557f7f615a53bc7ed27849e9ea1721328c1afee
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995128"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834567"
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Como gerar miniaturas usando o Codificador de Mídia Padrão com o .NET 
 
@@ -66,7 +66,7 @@ As predefinições JSON e XML a seguir podem ser usadas para produzir um único 
 
 ```xml
     <?xml version="1.0" encoding="utf-16"?>
-    <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+    <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
         <PngImage Start="{Best}">
           <PngLayers>
@@ -125,7 +125,7 @@ As predefinições JSON e XML a seguir podem ser usadas para produzir um conjunt
     
 ```xml
     <?xml version="1.0" encoding="utf-16"?>
-    <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+    <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
         <JpgImage Start="5%" Step="10%" Range="96%">
           <JpgLayers>
@@ -184,7 +184,7 @@ A predefinição JSON e XML a seguir pode ser usada para produzir uma única ima
 ### <a name="xml-preset"></a>Predefinição XML
 ```xml
     <?xml version="1.0" encoding="utf-16"?>
-    <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+    <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
         <JpgImage Start="00:00:30" Step="00:00:01" Range="00:00:01">
           <JpgLayers>
@@ -252,7 +252,7 @@ Observe o uso da macro {Resolution} no FileName. Isso faz com que o codificador 
 ### <a name="xml-preset"></a>Predefinição XML
 ```xml
     <?xml version="1.0" encoding="utf-8"?>
-    <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+    <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
     <Encoding>
     <JpgImage Start="5%" Step="10%" Range="96%"><JpgImage Start="00:00:01" Step="00:00:15">
       <JpgLayers>
@@ -351,7 +351,7 @@ Para obter informações sobre o esquema, consulte [este](https://msdn.microsoft
 
 ```csharp
     <?xml version="1.0" encoding="utf-16"?>
-    <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+    <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
         <H264Video>
           <KeyFrameInterval>00:00:02</KeyFrameInterval>
@@ -551,14 +551,14 @@ As seguintes considerações se aplicam:
 * O uso de carimbos explícitos para Início/Etapa/Intervalo pressupõe que a fonte de entrada tem duração de pelo menos 1 minuto.
 * Elementos Jpg/Png/BmpImage têm atributos de cadeia de caracteres de Início, Etapa e Intervalo que podem ser interpretados como:
   
-  * Número de quadro se eles forem números inteiros não negativos, por exemplo, "Início": "120",
-  * Relativos à duração da origem se expressos com sufixo %, por exemplo, "Início": "15%", OU
+  * Número de quadro se eles forem números inteiros não negativos, por exemplo, “Início”: "120",
+  * Relativos à duração da origem se expressos com o sufixo %, por exemplo, “Início”: “15%”, OU
   * Carimbo de data/hora se expresso no formato HH:MM:SS… . Por exemplo “Iniciar”: "00:01:00"
     
     Você pode combinar as notações como desejar.
     
-    Além disso, o Início também dá suporte a uma Macro especial: {Best}, que tenta determinar o primeiro quadro "interessante" da NOTA de conteúdo: (Etapa e Intervalo são ignorados quando Início é definido como {Best})
-  * Padrões: Início: {Best}
+    Além disso, o Início também dá suporte a uma Macro especial: {Best}, que tenta determinar o primeiro quadro “interessante” da NOTA de conteúdo: (Etapa e Intervalo são ignorados quando Início é definido como {Best})
+  * Padrões: Início:{Best}
 * O formato de saída precisa ser fornecido explicitamente para cada formato de Imagem: Jpg/Png/BmpFormat. Quando presente, o MES corresponde JpgVideo a JpgFormat e assim por diante. OutputFormat introduz uma nova Macro específica do codec de imagem: {Index}, que precisa estar presente (apenas uma vez) para formatos de saída de imagem.
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -571,6 +571,6 @@ Você pode verificar o [andamento do trabalho](media-services-check-job-progress
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 [Visão geral da codificação de serviços de mídia](media-services-encode-asset.md)
 

@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 776e3f7047e2f6b43063e085a8ae7a8d29835a75
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c851b5ef024e6584e6f8c93995208b08a91fbb60
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217346"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096666"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Sincronização do Azure AD Connect: tratar erros de LargeObject causados pelo atributo userCertificate
 
@@ -79,9 +79,9 @@ Garanta que não há nenhuma sincronização em andamento durante a implementaç
 > [!Note]
 > As etapas anteriores só são aplicáveis às versões mais novas (1.1.xxx.x) do Azure AD Connect com o agendador interno. Se você estiver usando versões mais antigas (1.0.xxx.x) do Azure AD Connect que usam o Agendador de Tarefas do Windows ou estiver usando seu próprio agendador personalizado (caso incomum) para disparar a sincronização periódica, precisará desabilitá-las de acordo.
 
-3. Inicie o **Synchronization Service Manager** acessando INICIAR → Serviço de Sincronização.
+1. Inicie o **Synchronization Service Manager** acessando INICIAR → Serviço de Sincronização.
 
-4. Acesse a guia **Operações** e confirme se não há nenhuma operação cujo status é *“Em andamento”.*
+1. Acesse a guia **Operações** e confirme se não há nenhuma operação cujo status é *“Em andamento”.*
 
 ### <a name="step-2-find-the-existing-outbound-sync-rule-for-usercertificate-attribute"></a>Etapa 2. Encontrar a regra de sincronização de saída existente para o atributo userCertificate
 Deve haver uma regra de sincronização existente que é habilitada e configurada para exportar o atributo userCertificate para objetos User para o Azure AD. Localize essa regra de sincronização para descobrir sua configuração de **precedência** e **filtro de escopo**:

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 514242eb759a2349d96b38ebe54bb98cf0e83423
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 6838f4db240a0712eece7a97bc2cfe99efb87215
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468811"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454930"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Cenários para análises avançadas no Azure Machine Learning
 Este artigo descreve as diversas fontes de dados de exemplo e os cenários de destino que podem ser manipulados pelo [TDSP (Processo de Ciência de Dados de Equipe)](overview.md). O TDSP fornece uma abordagem sistemática para que as equipes colaborem na criação de aplicativos inteligentes. Os cenários apresentados aqui ilustram as opções disponíveis no fluxo de trabalho de processamento de dados que dependem das características de dados, de locais de origem e de repositórios de destino no Azure.
@@ -113,7 +113,7 @@ Cada uma das seções a seguir apresenta um cenário de exemplo. Para cada cená
 1. Carregue dados para um contêiner de armazenamento do Azure.
 1. (Opcional) Pré-processe e limpe os dados.
    
-    a.  Pré-processe e limpe dados no IPython Notebook, acessando dados do Azure
+   a.  Pré-processe e limpe dados no IPython Notebook, acessando dados do Azure
    
        blobs.
    
@@ -122,7 +122,7 @@ Cada uma das seções a seguir apresenta um cenário de exemplo. Para cada cená
    c.  Salve dados em arquivos locais da VM (o IPython Notebook está em execução na VM, as unidades locais se referem às unidades da VM).
 1. Carregue dados para o banco de dados do SQL Server em execução em uma VM do Azure.
    
-    a.  Faça logon na VM do SQL Server.
+   a.  Faça logon na VM do SQL Server.
    
    b.  Se os dados já não estiverem salvos, baixe arquivos de dados do Azure
    
@@ -146,7 +146,7 @@ Cada uma das seções a seguir apresenta um cenário de exemplo. Para cada cená
 1. Leia os dados diretamente do SQL Server usando o módulo [Importar Dados][import-data]. Cole a consulta necessária que extrai os campos, cria recursos e amostras de dados, se necessário, diretamente na consulta [Importar Dados][import-data].
 1. Fluxo experimental simples do Azure Machine Learning começando com o conjunto de dados carregado
 
-## <a name="largedbtodb"></a>Cenário \#6: Conjunto de dados grande em um banco de dados do SQL Server local, com o SQL Server em uma Máquina Virtual do Azure como destino
+## <a name="largedbtodb"></a>Cenário \#6: Conjunto de dados grande em um banco de dados do SQL Server local, direcionando o SQL Server em uma máquina Virtual do Azure
 ![Banco de Dados SQL local grande para o Banco de Dados SQL no Azure][6]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Recursos adicionais do Azure: Máquina Virtual do Azure (servidor IPython Notebook/SQL Server)
@@ -154,13 +154,13 @@ Cada uma das seções a seguir apresenta um cenário de exemplo. Para cada cená
 1. Use um dos métodos de exportação de dados para exportar os dados do SQL Server para arquivos de despejo.
    
    > [!NOTE]
-   > Caso você decida mover todos os dados do banco de dados local, há um método alternativo (mais rápido) para mover o banco de dados completo para a instância do SQL Server no Azure. Ignore as etapas para exportar dados, criar o banco de dados e carregar/importar dados para o banco de dados de destino e execute o método alternativo.
+   > Se você decidir mover todos os dados do banco de dados local, um método alternativo (mais rápido) para mover o banco de dados completo para a instância do SQL Server no Azure. Ignore as etapas para exportar dados, criar o banco de dados e carregar/importar dados para o banco de dados de destino e execute o método alternativo.
    > 
    > 
 1. Carregue os arquivos de despejo no contêiner de armazenamento do Azure.
 1. Carregue os dados para um banco de dados do SQL Server em execução em uma Máquina Virtual do Azure.
    
-    a.  Faça logon na VM do SQL Server.
+   a.  Faça logon na VM do SQL Server.
    
    b.  Baixe os arquivos de dados de um contêiner de armazenamento do Azure para a pasta da VM local.
    
@@ -202,7 +202,7 @@ Para replicar todo o banco de dados do SQL Server na sua VM do SQL Server, você
 1. Personalize um cluster Hadoop do Azure HDInsight.
 1. (Opcional) Pré-processe e limpe os dados.
    
-    a.  Pré-processe e limpe dados no IPython Notebook, acessando dados do Azure
+   a.  Pré-processe e limpe dados no IPython Notebook, acessando dados do Azure
    
        blobs.
    
@@ -212,7 +212,7 @@ Para replicar todo o banco de dados do SQL Server na sua VM do SQL Server, você
 1. Carregue dados no contêiner padrão do cluster Hadoop selecionado na etapa 2.
 1. Carregue dados para o banco de dados Hive no cluster Hadoop do Azure HDInsight.
    
-    a.  Faça logon no nó principal do cluster Hadoop
+   a.  Faça logon no nó principal do cluster Hadoop
    
    b.  Abra a linha de comando do Hadoop.
    
@@ -226,7 +226,7 @@ Para replicar todo o banco de dados do SQL Server na sua VM do SQL Server, você
    > 
 1. Explore dados e crie recursos conforme necessário na linha de comando do Hadoop. Observe que os recursos não precisam ser materializado nas tabelas do banco de dados. Anote somente a consulta necessária para criá-los.
    
-    a.  Faça logon no nó principal do cluster Hadoop
+   a.  Faça logon no nó principal do cluster Hadoop
    
    b.  Abra a linha de comando do Hadoop.
    

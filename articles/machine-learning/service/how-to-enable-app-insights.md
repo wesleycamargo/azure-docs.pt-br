@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
-ms.date: 10/01/2018
+ms.date: 1/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: d4ffd3d2383973c6e4b318d580e442a2a53cc629
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 32dc55927f614a91c390a417595b7a00c16e9386
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239614"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57847942"
 ---
 # <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>Monitore seus modelos do Azure Machine Learning com o Application Insights
 
@@ -30,7 +30,7 @@ Neste artigo, você aprenderá como configurar o Insight do Aplicativo do Azure 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Teste hoje mesmo a [versão gratuita ou paga do Serviço do Azure Machine Learning](http://aka.ms/AMLFree).
+* Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Teste hoje mesmo a [versão gratuita ou paga do Serviço do Azure Machine Learning](https://aka.ms/AMLFree).
 
 * Um espaço de trabalho do Azure Machine Learning, um diretório local que contém seus scripts e o SDK de Aprendizado de Máquina do Azure para Python instalado. Para saber como obter esses pré-requisitos, consulte [como configurar um ambiente de desenvolvimento](how-to-configure-environment.md).
 * Um modelo de aprendizado de máquina treinado para ser implantado para o serviço de Kubernetes do Azure (AKS) ou Instância de Contêiner do Azure (ACI). Se você não tiver um, consulte o tutorial [Modelo de classificação de imagem de trem](tutorial-train-models-with-aml.md).

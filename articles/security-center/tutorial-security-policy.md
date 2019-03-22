@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/4/2019
-ms.author: rkarlin
-ms.openlocfilehash: c31510b0d5ca2afcd6a52cf4301e5e5eaae7da5b
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.date: 3/14/2019
+ms.author: monhaber
+ms.openlocfilehash: d99ef6026f3605f4081393811d840ba3fe2892ba
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343503"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226106"
 ---
 # <a name="working-with-security-policies"></a>Trabalhando com políticas de segurança
 
@@ -36,7 +36,7 @@ Uma política de segurança define a configuração desejada de suas cargas de t
 
 Suas políticas de segurança direcionam as recomendações de segurança que você recebe na Central de Segurança do Azure. Você pode monitorar a conformidade com eles para ajudá-lo a identificar possíveis vulnerabilidades e atenuar ameaças. Para obter mais informações sobre como determinar a opção apropriada para você, consulte a lista de [políticas de segurança internas](security-center-policy-definitions.md).
 
-Quando você habilita a Central de Segurança, a política de segurança interna da Central de Segurança é refletida no Azure Policy como iniciativa interna, na categoria Central de Segurança. A iniciativa interna é atribuída automaticamente a todas as assinaturas registradas da Central de Segurança (camadas Gratuita ou Standard). A iniciativa interna contém somente políticas de Auditoria. 
+Quando você habilita a Central de Segurança, a política de segurança interna da Central de Segurança é refletida no Azure Policy como iniciativa interna, na categoria Central de Segurança. A iniciativa interna é atribuída automaticamente a todas as assinaturas registradas da Central de Segurança (camadas Gratuita ou Standard). A iniciativa interna contém somente políticas de Auditoria.
 
 
 ### <a name="management-groups"></a>Grupos de gerenciamento
@@ -68,25 +68,25 @@ Para exibir suas políticas de segurança na Central de Segurança:
 
     ![O painel Gerenciamento de Política](./media/security-center-policies/security-center-policy-mgt.png)
 
-  Na tela **Gerenciamento de políticas**, você pode ver o número de grupos de gerenciamento, assinaturas e áreas de trabalho, bem como a estrutura do grupo de gerenciamento.
+   Na tela **Gerenciamento de políticas**, você pode ver o número de grupos de gerenciamento, assinaturas e áreas de trabalho, bem como a estrutura do grupo de gerenciamento.
 
-  > [!NOTE]
-  > - O painel da Central de Segurança pode mostrar um número maior de inscrições em **Cobertura de assinatura** do que o número de inscrições mostrado em **Gerenciamento de políticas**. Cobertura de assinatura mostra o número de assinaturas Padrão, Gratuitas e “não cobertas”. As assinaturas "não cobertas" não têm o Security Center ativado e não são exibidas em **Gerenciamento de políticas**.
-  >
+   > [!NOTE]
+   > - O painel da Central de Segurança pode mostrar um número maior de inscrições em **Cobertura de assinatura** do que o número de inscrições mostrado em **Gerenciamento de políticas**. Cobertura de assinatura mostra o número de assinaturas Padrão, Gratuitas e “não cobertas”. As assinaturas "não cobertas" não têm o Security Center ativado e não são exibidas em **Gerenciamento de políticas**.
+   >
 
-  As colunas na tabela são exibidas:
+   As colunas na tabela são exibidas:
 
- - **Atribuição de iniciativa de política** - Central de Segurança [políticas internas](security-center-policy-definitions.md) e iniciativas atribuídas a uma assinatura ou grupo de gerenciamento.
- - **Cobertura** - identifica a camada de preços, Free ou Standard, na qual o grupo de gerenciamento, a assinatura ou a área de trabalho está sendo executada.  Confira os [Preços](security-center-pricing.md) para saber mais sobre os tipos de preço da Central de Segurança.
- - **Configurações** - As assinaturas têm o link **Editar configurações**. Ao selecionar **Editar configurações**, você pode atualizar suas [Configurações da Central de Segurança](security-center-policies-overview.md) para cada assinatura ou grupo de gerenciamento.
- - **Classificação de segurança** – a [classificação de segurança](security-center-secure-score.md) mostra se sua postura de segurança da carga de trabalho é adequada e ajuda a priorizar recomendações para melhorias.
+   - **Atribuição de iniciativa de política** - Central de Segurança [políticas internas](security-center-policy-definitions.md) e iniciativas atribuídas a uma assinatura ou grupo de gerenciamento.
+   - **Cobertura** - identifica a camada de preços, Free ou Standard, na qual o grupo de gerenciamento, a assinatura ou a área de trabalho está sendo executada.  Confira os [Preços](security-center-pricing.md) para saber mais sobre os tipos de preço da Central de Segurança.
+   - **Configurações** - As assinaturas têm o link **Editar configurações**. Ao selecionar **Editar configurações**, você pode atualizar suas [Configurações da Central de Segurança](security-center-policies-overview.md) para cada assinatura ou grupo de gerenciamento.
+   - **Classificação de segurança** – a [classificação de segurança](security-center-secure-score.md) mostra se sua postura de segurança da carga de trabalho é adequada e ajuda a priorizar recomendações para melhorias.
 
 2. Selecione a assinatura ou o grupo de gerenciamento cujas políticas você deseja visualizar.
 
-  - A tela **Política de segurança** reflete a ação tomada pelas políticas atribuídas na assinatura ou no grupo de gerenciamento selecionado.
-  - Na parte superior, use os links fornecidos para abrir cada **atribuição** de política aplicável à assinatura ou ao grupo de gerenciamento. Você pode usar os links para acessar a atribuição e editar ou desativar a política. Por exemplo, se você perceber que determinada atribuição de política está efetivamente negando a proteção do ponto de extremidade, poderá usar o link para acessar a política e editá-la ou desativá-la.
-  - Na lista de políticas, você pode ver a aplicação efetiva da política em sua assinatura ou grupo de gerenciamento. Isso significa que as configurações de cada política que se aplicam ao escopo são levadas em consideração e você recebe o resultado cumulativo de qual ação é tomada pela política. Por exemplo, se em uma atribuição a política estiver desabilitada, mas em outra ela estiver definida como AuditIfNotExist, o efeito cumulativo será aplicado a AuditIfNotExist. O efeito mais ativo sempre tem precedência.
-  - O efeito das políticas pode ser: Append, Audit, AuditIfNotExists, Deny, DeployIfNotExists, Disabled. Para obter mais informações sobre como os efeitos são aplicados, consulte [Reconhecer os efeitos da política](../governance/policy/concepts/effects.md).
+   - A tela **Política de segurança** reflete a ação tomada pelas políticas atribuídas na assinatura ou no grupo de gerenciamento selecionado.
+   - Na parte superior, use os links fornecidos para abrir cada **atribuição** de política aplicável à assinatura ou ao grupo de gerenciamento. Você pode usar os links para acessar a atribuição e editar ou desativar a política. Por exemplo, se você perceber que determinada atribuição de política está efetivamente negando a proteção do ponto de extremidade, poderá usar o link para acessar a política e editá-la ou desativá-la.
+   - Na lista de políticas, você pode ver a aplicação efetiva da política em sua assinatura ou grupo de gerenciamento. Isso significa que as configurações de cada política que se aplicam ao escopo são levadas em consideração e você recebe o resultado cumulativo de qual ação é tomada pela política. Por exemplo, se em uma atribuição a política estiver desabilitada, mas em outra ela estiver definida como AuditIfNotExist, o efeito cumulativo será aplicado a AuditIfNotExist. O efeito mais ativo sempre tem precedência.
+   - O efeito das políticas pode ser: Append, Audit, AuditIfNotExists, Deny, DeployIfNotExists, Disabled. Para obter mais informações sobre como os efeitos são aplicados, consulte [Reconhecer os efeitos da política](../governance/policy/concepts/effects.md).
 
    ![tela de política](./media/security-center-policies/policy-screen.png)
 
@@ -99,6 +99,29 @@ Você pode editar a política de segurança padrão para cada uma das suas assin
 Para obter instruções sobre como editar uma política de segurança na Azure Policy, consulte e [Crie e gerencie políticas para impor a conformidade](../governance/policy/tutorials/create-and-manage.md).
 
 Você pode editar as políticas de segurança no portal Azure Policy usando a API REST ou o Windows PowerShell. O exemplo a seguir fornece instruções para editar usando a API REST.
+
+
+## <a name="disable-security-policies"></a>Desabilitar as políticas de segurança
+Se a política de segurança padrão estiver gerando uma recomendação que não é relevante para o seu ambiente, você pode interrompê-lo, desabilitando a definição de política que envia a recomendação.
+Para obter mais informações sobre as recomendações, consulte [Gerenciando recomendações de segurança](security-center-recommendations.md).
+
+1. Na Central de segurança, do **política e conformidade** seção, clique em **política de segurança**.
+
+   ![Gerenciamento de política](./media/tutorial-security-policy/policy-management.png)
+
+2. Clique na assinatura para o qual você deseja desabilitar a recomendação.
+
+1. Clique na política atribuída.
+
+   ![Desabilitar política](./media/tutorial-security-policy/security-policy.png)
+
+1. No **parâmetros** seção, a pesquisa para a política que invoca a recomendação que você deseja desabilitar e, na lista suspensa, selecione **desabilitado**
+
+   ![Desabilitar política](./media/tutorial-security-policy/disable-policy.png)
+1. Clique em **Salvar**.
+   > [!Note]
+   > As alterações de política de desativação podem levar até 12 horas para entrar em vigor.
+
 
 ### <a name="configure-a-security-policy-using-the-rest-api"></a>Configurar uma política de segurança usando a API REST
 
@@ -159,38 +182,38 @@ Este exemplo mostra como atribuir a iniciativa interna da Central de Segurança 
 
 - Proteção do ponto de extremidade ("endpointProtectionMonitoringEffect") 
 
- 
-      PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
 
-      Request Body (JSON) 
-
-      { 
-
-        "properties":{ 
-
-      "displayName":"Enable Monitoring in Azure Security Center", 
-
-      "metadata":{ 
-
-      "assignedBy":"{Name}" 
-
-      }, 
-
-      "policyDefinitionId":"/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8", 
-
-      "parameters":{ 
-
-      "systemUpdatesMonitoringEffect":{"value":"Disabled"}, 
-
-      "systemConfigurationsMonitoringEffect":{"value":"Disabled"}, 
-
-      "endpointProtectionMonitoringEffect":{"value":"Disabled"}, 
-
-      }, 
-
-       } 
-
-      } 
+    PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
+    
+    Corpo da solicitação (JSON) 
+    
+    { 
+    
+      "properties":{ 
+    
+    "displayName": "Habilitar monitoramento na Central de segurança do Azure", 
+    
+    "metadata":{ 
+    
+    "assignedBy": "{Name}" 
+    
+    }, 
+    
+    "policyDefinitionId":"/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8", 
+    
+    "parameters":{ 
+    
+    "systemUpdatesMonitoringEffect":{"value":"Disabled"}, 
+    
+    "systemConfigurationsMonitoringEffect":{"value":"Disabled"}, 
+    
+    "endpointProtectionMonitoringEffect":{"value":"Disabled"}, 
+    
+    }, 
+    
+     } 
+    
+    } 
 
 Este exemplo mostra como remover uma atribuição:
 

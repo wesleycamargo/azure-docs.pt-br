@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fcf0e421572a9a698bcc68af47d8950795ac8791
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 55dfab0c60e77b86157a005db34c37917a5e08d2
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456802"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341095"
 ---
 # <a name="manage-app-passwords-from-your-security-info-preview-page"></a>Gerenciar senhas de aplicativos usando a página de informações de segurança (versão prévia)
 Alguns aplicativos, como o Outlook 2010, não dão suporte à verificação em duas etapas. Essa falta de suporte significa que, se você estiver usando a verificação em duas etapas, o aplicativo não funcionará. Para contornar este problema, você pode criar uma senha gerada automaticamente para usar com cada aplicativo que não seja o navegador, separado da sua senha normal.
@@ -47,11 +47,11 @@ Se você usa a verificação em duas etapas com sua conta corporativa ou de estu
 ### <a name="to-create-a-new-app-password"></a>Criar uma nova senha de aplicativo
 1. Entre em sua conta corporativa ou de estudante e vá para a página https://myprofile.microsoft.com/.
 
-    ![Página Meu Perfil, com links para Informações de segurança em destaque](media/security-info/securityinfo-myprofile.png)
+    ![Página Meu Perfil, com links para Informações de segurança em destaque](media/security-info/securityinfo-myprofile-page.png)
 
-2. Selecione **Informações de segurança** no painel de navegação esquerdo ou pelo link no bloco **Informações de segurança**. Depois, selecione **Adicionar método** na página **Informações de segurança**.
+2. Escolha **Informações de segurança** no painel de navegação esquerdo ou pelo link no bloco **Informações de segurança**. Em seguida, escolha **Adicionar método** na página **Informações de segurança**.
 
-    ![Página Informações de segurança com a opção Adicionar método em destaque](media/security-info/securityinfo-myprofile-addmethod.png)
+    ![Página Informações de segurança com a opção Adicionar método em destaque](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
 3. Na página **Adicionar método**, selecione **Senha de aplicativo** na lista suspensa e selecione **Adicionar**.
 

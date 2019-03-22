@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/26/2018
+ms.date: 02/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6083237426e86220f8a3cb7fbe0cdfc30f44f8cc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: bfd61b78ca3027ade1f2f48dec33e0a8ed508d3d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208819"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58003905"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: Atualização automática
 Esse recurso foi introduzido com a build [1.1.105.0 (lançada em fevereiro de 2016)](reference-connect-version-history.md#111050).  Esse recurso foi atualizado na [build 1.1.561](reference-connect-version-history.md#115610) e agora dá suporte a cenários adicionais que anteriormente não tinham suporte.
@@ -43,7 +43,7 @@ O estado atual da atualização automática pode ser exibido com o cmdlet `Get-A
 | Suspenso |Somente definido pelo sistema. O sistema não está **atualmente** qualificado para receber atualizações automáticas. |
 | Desabilitado |A atualização automática está desabilitada. |
 
-Você pode alterar entre **Habilitado** e **Desabilitado** com o `Set-ADSyncAutoUpgrade`. Somente o sistema deve definir o estado como **Suspenso**.
+Você pode alterar entre **Habilitado** e **Desabilitado** com o `Set-ADSyncAutoUpgrade`. Somente o sistema deve definir o estado como **Suspenso**.  Antes de 1.1.750.0 o cmdlet Set-ADSyncAutoUpgrade bloquearia Autoupgrade, se o estado de atualização automática foi definido como suspenso. Essa funcionalidade foi alterado para que isso não bloqueie no upgrade automático.
 
 A atualização automática está usando o Azure AD Connect Health para a infraestrutura de atualização. Para que a atualização automática funcione, não deixe de abrir as URLs no seu servidor proxy do **Azure AD Connect Health** conforme documentado em [Intervalos de endereços IP e URLs do Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
@@ -89,18 +89,18 @@ Esta é uma lista das mensagens mais comuns que você encontrará. Ela não list
 | UpgradeAbortedSyncExeInUse |A [interface do usuário do Synchronization Service Manager](how-to-connect-sync-service-manager-ui.md) está aberta no servidor. |
 | UpgradeAbortedSyncOrConfigurationInProgress |O assistente de instalação está em execução ou uma sincronização foi agendada fora do agendador. |
 | **UpgradeNotSupported** | |
-| UpgradeNotSupportedAdfsSignInMethod | Você selecionou o Adfs como o método de entrada. | 
+| UpgradeNotSupportedAdfsSignInMethod | Você selecionou o Adfs como o método de entrada. |
 | UpgradeNotSupportedCustomizedSyncRules |Você adicionou suas próprias regras personalizadas à configuração. |
 | UpgradeNotSupportedDeviceWritebackEnabled |Você habilitou o recurso [write-back de dispositivo](how-to-connect-device-writeback.md) . |
 | UpgradeNotSupportedGroupWritebackEnabled |Você habilitou o recurso [write-back de grupo](how-to-connect-preview.md#group-writeback) . |
 | UpgradeNotSupportedInvalidPersistedState |A instalação não é uma configuração Express ou uma atualização de DirSync. |
 | UpgradeNotSupportedMetaverseSizeExceeeded |Você tem mais de 100 mil objetos no metaverso. |
 | UpgradeNotSupportedMultiForestSetup |Você está se conectando a mais de uma floresta. A instalação expressa se conecta somente a uma floresta. |
-| UpgradeNotSupportedNonLocalDbInstall |Você não está usando um banco de dados SQL Server Express LocalDB. |d
+| UpgradeNotSupportedNonLocalDbInstall |Você não está usando um banco de dados SQL Server Express LocalDB. |
 | UpgradeNotSupportedNonMsolAccount |O [conta do conector do AD DS](reference-connect-accounts-permissions.md#ad-ds-connector-account) não é mais a conta do msol _ padrão. |
-| UpgradeNotSupportedNotConfiguredSignInMethod | Ao configurar o AAD Connect, você escolheu *Não configurar* ao selecionar o método de entrada. | 
+| UpgradeNotSupportedNotConfiguredSignInMethod | Ao configurar o AAD Connect, você escolheu *Não configurar* ao selecionar o método de entrada. |
 | UpgradeNotSupportedPtaSignInMethod | Você selecionou Autenticação de passagem como o método de entrada. |
-| UpgradeNotSupportedStagingModeEnabled |O servidor está definido como em [modo de preparo](how-to-connect-sync-operations.md#staging-mode). |
+| UpgradeNotSupportedStagingModeEnabled |O servidor está definido como em [modo de preparo](how-to-connect-sync-staging-server.md). |
 | UpgradeNotSupportedUserWritebackEnabled |Você habilitou o recurso [write-back de usuário](how-to-connect-preview.md#user-writeback) . |
 
 ## <a name="next-steps"></a>Próximas etapas

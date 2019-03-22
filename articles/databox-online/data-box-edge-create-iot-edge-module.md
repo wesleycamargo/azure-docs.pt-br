@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 01/31/2019
 ms.author: alkohli
-ms.openlocfilehash: d0b171f05bb2243da83509348b099bebcb44ebc7
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: 81407a298ccfe1b9884fc5d5b815ac8c18ffee6a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508701"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094670"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge-preview"></a>Desenvolver um módulo do IoT Edge em C# para mover arquivos no Data Box Edge (Versão prévia)
 
@@ -71,14 +71,14 @@ Um registro de contêiner do Azure é um registro particular do Docker no Azure 
 2. Selecione **Criar um recurso > Contêineres > Registro de Contêiner**. Clique em **Criar**.
 3. Forneça:
 
-    1. Um **Nome do registro** exclusivo no Azure que contenha de 5 a 50 caracteres alfanuméricos.
-    2. Escolha uma **Assinatura**.
-    3. Escolha um **Grupo de recursos** existente ou crie um novo.
-    4. Selecione um **Local**. Recomendamos que esse local seja o mesmo que está associado ao recurso do Data Box Edge.
-    5. Alterne **Usuário administrador** para **Ativar**.
-    6. Defina o SKU como **Básico**.
+   1. Um **Nome do registro** exclusivo no Azure que contenha de 5 a 50 caracteres alfanuméricos.
+   2. Escolha uma **Assinatura**.
+   3. Escolha um **Grupo de recursos** existente ou crie um novo.
+   4. Selecione um **Local**. Recomendamos que esse local seja o mesmo que está associado ao recurso do Data Box Edge.
+   5. Alterne **Usuário administrador** para **Ativar**.
+   6. Defina o SKU como **Básico**.
 
-    ![Criar um registro de contêiner](./media/data-box-edge-create-iot-edge-module/create-container-registry-1.png)
+      ![Criar um registro de contêiner](./media/data-box-edge-create-iot-edge-module/create-container-registry-1.png)
  
 4. Selecione **Criar**.
 5. Depois que o registro de contêiner for criado, navegue até ele e selecione **Chaves de acesso**.

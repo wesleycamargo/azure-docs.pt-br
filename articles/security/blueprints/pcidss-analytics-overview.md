@@ -8,16 +8,16 @@ ms.service: security
 ms.topic: article
 ms.date: 07/03/2018
 ms.author: meladie
-ms.openlocfilehash: 23ed7da53253eec39bebf34b4baf5efd2d7690e1
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 6a2ffef9a1384ac2e2a678404171f33312b5d63a
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994803"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247436"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-pci-dss"></a>Blueprint de Segurança e Conformidade do Azure: Análise para PCI DSS
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 Este Blueprint de conformidade e segurança do Azure fornece as diretrizes para a implantação de uma arquitetura de análise de dados no Azure que ajuda com os requisitos do PCI DSS 3.2 (Padrão de Segurança de Dados do Setor de Cartões de Pagamento). Ele demonstra uma arquitetura de referência comum e o tratamento adequado de dados de cartão de crédito (incluindo dados de número do cartão, validade e verificação) em um ambiente de várias camadas seguro e em conformidade. Este blueprint demonstra como os clientes podem atender a requisitos de segurança e conformidade específicos e funciona como uma base para os clientes criarem e configurarem suas próprias soluções de análise de dados no Azure.
 
@@ -46,12 +46,12 @@ O Banco de Dados SQL do Azure normalmente é gerenciado por meio do SSMS (SQL Se
 A solução usa os serviços do Azure a seguir. Há detalhes da arquitetura de implantação na seção [Arquitetura de implantação](#deployment-architecture).
 
 - Application Insights
-- Azure Active Directory
+- Active Directory do Azure
 - Catálogo de Dados do Azure
 - Azure Disk Encryption
 - Grade de Eventos do Azure
-- Funções do Azure
-- Cofre da Chave do Azure
+- Azure Functions
+- Cofre de Chaves Azure
 - Azure Machine Learning
 - Azure Monitor
 - Central de Segurança do Azure
@@ -87,7 +87,7 @@ A arquitetura define uma rede virtual privada com um espaço de endereço de 10.
 Cada um dos grupos de segurança de rede têm portas e protocolos específicos abertos para que a solução possa funcionar corretamente e com segurança. Além disso, as configurações a seguir são habilitadas para cada grupo de segurança de rede:
 
 - [Eventos e logs de diagnóstico](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) são habilitados e armazenados em uma conta de armazenamento
-- O Log Analytics está conectado aos [logs de diagnóstico do grupo de segurança de rede](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
+- Os logs do Azure Monitor está conectado às [grupo de segurança de rede&#39;logs de diagnóstico s](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
 **sub-redes**: Cada sub-rede está associada ao seu grupo de segurança de rede correspondente.
 
@@ -146,12 +146,12 @@ A Central de Segurança do Azure fornece alertas de segurança e incidentes prio
 ### <a name="logging-and-auditing"></a>Registro em log e auditoria
 
 Os serviços do Azure registram em log de forma extensiva as atividades do sistema e do usuário, bem como a integridade do sistema:
-- **Logs de atividades**: Os [Logs de atividades](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fornecem insights sobre as operações executadas em recursos em uma assinatura. Os logs de atividade podem ajudar a determinar o iniciador, o horário da ocorrência e o status de uma operação.
+- **Logs de atividades**: Os [logs de atividades](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fornecem insights sobre as operações executadas em recursos em uma assinatura. Os logs de atividade podem ajudar a determinar o iniciador, o horário da ocorrência e o status de uma operação.
 - **Logs de diagnóstico**: Os [Logs de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) incluem todos os registros emitidos por todos os recursos. Esses logs são logs do sistema de eventos do Windows, logs de Armazenamento do Azure, logs de auditoria do Key Vault e logs de acesso e firewall do Gateway de Aplicativo. Todos os logs de diagnóstico são gravados em uma conta de armazenamento do Azure centralizada e criptografada para arquivamento. A retenção é configurável pelo usuário, de até 730 dias, para atender aos requisitos de retenção específicos da organização.
 
-**Log Analytics**: Esses logs são consolidados no [Log Analytics](https://azure.microsoft.com/services/log-analytics/) para processamento, armazenamento e relatórios de painel. Depois de coletados, os dados são organizados em tabelas separadas para cada tipo de dados nos espaços de trabalho do Log Analytics, o que permite que todos os dados sejam analisados juntos, independentemente de sua origem original. Além disso, a Central de Segurança do Azure é integrada ao Log Analytics, o que possibilita aos clientes usar consultas do Log Analytics para acessar seus dados de eventos de segurança e combiná-los com dados de outros serviços.
+**Logs do Azure Monitor**: Esses logs são consolidados [registra em log do Azure Monitor](https://azure.microsoft.com/services/log-analytics/) para processamento, armazenamento e emissão de relatórios do painel. Depois de coletados, os dados são organizados em tabelas separadas para cada tipo de dados nos espaços de trabalho do Log Analytics, o que permite que todos os dados sejam analisados juntos, independentemente de sua origem original. Além disso, a Central de segurança do Azure integra-se com os logs do Azure Monitor permitindo que os clientes usem Kusto consultas para acessar seus dados de evento de segurança e combiná-lo com dados de outros serviços.
 
-As seguintes [soluções de gerenciamento](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) do Log Analytics são incluídas como parte desta arquitetura:
+O Azure a seguir [soluções de monitoramento](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) são incluídos como parte dessa arquitetura:
 -   [Avaliação do Active Directory](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): A solução de Verificação de Integridade do Active Directory avalia o risco e a integridade dos ambientes de servidor em intervalos regulares e fornece uma lista priorizada de recomendações específicas para a infraestrutura de servidor implantada.
 - [Avaliação do SQL](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): A solução de Verificação de Integridade do SQL avalia o risco e a integridade dos ambientes do servidor em intervalos regulares e fornece aos clientes uma lista priorizada de recomendações específicas para a infraestrutura de servidor implantada.
 - [Integridade do Agente](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): A solução de Integridade do Agente informa quantos agentes são implantados e sua distribuição geográfica, além de quantos agentes sem resposta e o número de agentes que estão enviando dados operacionais.
@@ -193,7 +193,7 @@ O [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polyba
 ### <a name="azure-active-directory-setup"></a>Configuração do Azure Active Directory
 O [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) é essencial para gerenciar a implantação e provisionar acesso para pessoas que interagem com o ambiente. Um Windows Server Active Directory existente pode ser integrado ao Azure Active Directory com [quatro cliques](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-express). Os clientes também podem associar a infraestrutura implantada (os controladores de domínio) do Active Directory a um Azure Active Directory existente fazendo da infraestrutura do Active Directory implantada um subdomínio de uma floresta do Azure Active Directory.
 
-## <a name="disclaimer"></a>Isenção de responsabilidade
+## <a name="disclaimer"></a>Aviso de isenção de responsabilidade
 
  - Este documento serve apenas para fins informativos. A MICROSOFT NÃO FORNECE NENHUMA GARANTIA, EXPRESSA, IMPLÍCITA OU REGULAMENTAR, QUANTO ÀS INFORMAÇÕES PRESENTES NESTE DOCUMENTO. Este documento é fornecido "no estado em que se encontra". As informações e opiniões expressadas neste documento, incluindo URLs e outras referências a sites da Internet, podem ser alteradas sem aviso prévio. Os clientes que estão lendo este documento arcarão com o risco de usá-lo.
  - Este documento não fornece aos clientes nenhum direito legal a qualquer propriedade intelectual de qualquer produto ou solução da Microsoft.

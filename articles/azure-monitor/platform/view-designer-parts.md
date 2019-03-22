@@ -1,6 +1,6 @@
 ---
-title: Um guia de referência para as partes do Designer de Modos de Exibição no Azure Log Analytics | Microsoft Docs
-description: Usando o Designer de Modos de Exibição do Log Analytics você pode criar modos de exibição personalizados no portal do Azure que exibem uma variedade de visualizações de dados no seu workspace do Log Analytics. Este artigo é um guia de referência das configurações para as partes de visualização que estão disponíveis em modos de exibição personalizados.
+title: Um guia de referência para as partes do Designer de exibição no Azure Monitor | Microsoft Docs
+description: Usando o Designer de exibição no Azure Monitor, você pode criar exibições personalizadas que são exibidas no portal do Azure e contenham uma variedade de visualizações de dados no espaço de trabalho do Log Analytics. Este artigo é um guia de referência das configurações para as partes de visualização que estão disponíveis em modos de exibição personalizados.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
-ms.openlocfilehash: 61118520e84b53a7669e482694f48d60fd8e67ad
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 53323e70884e61b4643f7950a1a6333f08dbbb6f
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193868"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889895"
 ---
-# <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Guia de referência para partes de visualização do Designer de Modos de Exibição do Log Analytics
-Usando o Designer de Modos de Exibição do Azure Log Analytics você pode criar modos de exibição personalizados no portal do Azure que apresentam uma variedade de visualizações de dados do seu workspace do Log Analytics. Este artigo é um guia de referência das configurações para as partes de visualização que estão disponíveis em modos de exibição personalizados.
+# <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Guia de referência para partes de visualização do Designer de exibição no Azure Monitor
+Usando o Designer de exibição no Azure Monitor, você pode criar uma variedade de modos de exibição personalizados no portal do Azure que pode ajudar você a visualizar os dados em seu espaço de trabalho do Log Analytics. Este artigo é um guia de referência das configurações para as partes de visualização que estão disponíveis em modos de exibição personalizados.
 
 Para obter mais informações sobre o Designer de Exibição, consulte:
 
@@ -33,9 +33,9 @@ Os tipos de blocos do Designer de Modos de Exibição disponíveis são descrito
 
 | Tipo de exibição | DESCRIÇÃO |
 |:--- |:--- |
-| [Lista de consultas](#list-of-queries-part) |Exibe uma lista de consultas de pesquisa de log. Você pode selecionar cada consulta para exibir seus resultados. |
-| [Número e lista](#number-and-list-part) |O cabeçalho exibe um número único que mostra uma contagem de registros de uma consulta de pesquisa de log. A lista exibe os dez primeiros resultados de uma consulta com um grafo que indica o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo. |
-| [Dois números e lista](#two-numbers-and-list-part) |O cabeçalho exibe dois números que mostram contagens de registros de consultas de pesquisa de log separadas. A lista exibe os dez primeiros resultados de uma consulta com um grafo que indica o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo. |
+| [Lista de consultas](#list-of-queries-part) |Exibe uma lista de consultas de log. Você pode selecionar cada consulta para exibir seus resultados. |
+| [Número e lista](#number-and-list-part) |O cabeçalho exibe um único número que mostra uma contagem de registros de uma consulta de log. A lista exibe os dez primeiros resultados de uma consulta com um grafo que indica o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo. |
+| [Dois números e lista](#two-numbers-and-list-part) |O cabeçalho exibe dois números que mostram contagens de registros de consultas de log separados. A lista exibe os dez primeiros resultados de uma consulta com um grafo que indica o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo. |
 | [Lista e rosca](#donut-and-list-part) |O cabeçalho exibe um único número que resume uma coluna de valor em uma consulta de log. A rosca exibe graficamente os resultados dos três registros principais. |
 | [Duas linhas do tempo e lista](#two-timelines-and-list-part) |O cabeçalho exibe os resultados de duas consultas de log ao longo do tempo como gráficos de coluna com um balão mostrando um único número que resume de uma coluna de valor em uma consulta de log. A lista exibe os dez primeiros resultados de uma consulta com um grafo que indica o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo. |
 | [Informações](#information-part) |O cabeçalho exibe texto estático e um link opcional. A lista exibe um ou mais itens com texto e título estático. |
@@ -46,7 +46,7 @@ Os tipos de blocos do Designer de Modos de Exibição disponíveis são descrito
 As próximas seções descrevem os tipos de bloco e suas propriedades em detalhes.
 
 ## <a name="list-of-queries-part"></a>Lista da parte de consultas
-A lista de parte de consultas exibe uma lista de consultas de pesquisa de log. Você pode selecionar cada consulta para exibir seus resultados. O modo de exibição inclui uma única consulta por padrão e você pode selecionar **+ Consulta** para incluir consultas adicionais.
+A lista da parte de consultas exibe uma lista de consultas de log. Você pode selecionar cada consulta para exibir seus resultados. O modo de exibição inclui uma única consulta por padrão e você pode selecionar **+ Consulta** para incluir consultas adicionais.
 
 ![Lista da exibição de consultas](media/view-designer-parts/view-list-queries.png)
 
@@ -62,7 +62,7 @@ A lista de parte de consultas exibe uma lista de consultas de pesquisa de log. V
 | Nome amigável | O nome descritivo que é exibido. |
 
 ## <a name="number-and-list-part"></a>Número e parte da lista
-O cabeçalho exibe um número único que mostra uma contagem de registros de uma consulta de pesquisa de log. A lista exibe os dez primeiros resultados de uma consulta com um grafo que indica o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo.
+O cabeçalho exibe um único número que mostra uma contagem de registros de uma consulta de log. A lista exibe os dez primeiros resultados de uma consulta com um grafo que indica o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo.
 
 ![Lista da exibição de consultas](media/view-designer-parts/view-number-list.png)
 
@@ -91,7 +91,7 @@ O cabeçalho exibe um número único que mostra uma contagem de registros de uma
 | Habilitar limites |Selecione este link para habilitar limites. Para saber mais, veja [Configurações comuns](#thresholds). |
 
 ## <a name="two-numbers-and-list-part"></a>Dois números e parte da lista
-O cabeçalho tem dois números que mostram a contagem de registros de consultas de pesquisa de log separadas. A lista exibe os dez primeiros resultados de uma consulta com um grafo que indica o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo.
+O cabeçalho tem dois números que exibem uma contagem de registros de consultas de log separados. A lista exibe os dez primeiros resultados de uma consulta com um grafo que indica o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo.
 
 ![Exibição de dois números e lista](media/view-designer-parts/view-two-numbers-list.png)
 
@@ -322,14 +322,14 @@ O separador de valor e nome é o delimitador de caractere único a ser usado par
 Por exemplo, considere uma propriedade chamada *Localização* que incluía valores como *Redmond-Building 41* e *Bellevue-Building12*. Você poderia especificar um traço (-) para o separador de valor e nome e *City-Building* para o nome. Essa abordagem analisa cada valor em duas propriedades chamadas *Cidade* e *Edifício*.
 
 ### <a name="click-through-navigation"></a>Navegação clickthrough
-A navegação clickthrough define qual ação será tomada quando você clicar em um cabeçalho ou item de lista em uma exibição.  Isso abrirá uma consulta no [Portal de pesquisa de logs](../../azure-monitor/log-query/portals.md) ou iniciar outra exibição.
+A navegação clickthrough define qual ação será tomada quando você clicar em um cabeçalho ou item de lista em uma exibição.  Isso abrirá uma consulta na [Analyticsl Log](../../azure-monitor/log-query/portals.md) ou iniciar outra exibição.
 
 A tabela a seguir descreve as configurações de navegação clickthrough.
 
 | Configuração           | DESCRIÇÃO |
 |:--|:--|
-| Pesquisa de Logs (Automática) | Pesquisa de logs para executar quando você seleciona um item de cabeçalho.  Essa é a mesma pesquisa de logs na qual o item é baseado.
-| Pesquisa de log        | Pesquisa de logs para executar quando você seleciona um item em uma lista.  Digite a consulta na caixa **Consulta de navegação**.   Use *{selected item}* para incluir a sintaxe para o item selecionado pelo usuário.  Por exemplo, se a consulta tiver uma coluna denominada *Computer* e a consulta de navegação for *{selected item}*, uma consulta como *Computer="MyComputer"* é executada quando você seleciona um computador. Se a consulta de navegação for do tipo *Type=Event {selected item}*, a consulta *Type=Event Computer="MyComputer"* é executada. |
+| Pesquisa de Logs (Automática) | Consulta de log para ser executado quando você seleciona um item de cabeçalho.  Isso é a mesma consulta de log que o item se baseia.
+| Pesquisa de log        | Consulta de log para ser executado quando você seleciona um item em uma lista.  Digite a consulta na caixa **Consulta de navegação**.   Use *{selected item}* para incluir a sintaxe para o item selecionado pelo usuário.  Por exemplo, se a consulta tiver uma coluna denominada *Computer* e a consulta de navegação for *{selected item}*, uma consulta como *Computer="MyComputer"* é executada quando você seleciona um computador. Se a consulta de navegação for do tipo *Type=Event {selected item}*, a consulta *Type=Event Computer="MyComputer"* é executada. |
 | Visualizar              | Modo de exibição para abrir quando você seleciona um item de cabeçalho ou um item em uma lista.  Selecione o nome de uma exibição no seu workspace na caixa **Nome de exibição**. |
 
 
@@ -361,4 +361,4 @@ A tabela a seguir descreve as configurações de limites:
 | Cor |A cor que indica o valor limite. |
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre [pesquisas de log](../../azure-monitor/log-query/log-query-overview.md) para dar suporte às consultas partes da visualização.
+* Saiba mais sobre [registrar consultas](../log-query/log-query-overview.md) para oferecer suporte as consultas em partes de visualização.

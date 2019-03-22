@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: 1bf2222e09644520bbfc6c5424c7f29d05b3c799
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 85dd3cca081d492bfeefa3e8ea0d143c9c37af8f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257690"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007952"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Considerações de desempenho sobre Gerenciador de Tráfego
 
@@ -28,7 +28,7 @@ Você tem instâncias do seu site nas regiões WestUS e EastAsia. Uma das instâ
 
 O único impacto sobre o desempenho que o Gerenciador de Tráfego pode no seu site é na pesquisa de DNS inicial. Uma solicitação DNS para o nome do seu perfil do Gerenciador de Tráfego é tratada pelo servidor raiz DNS da Microsoft que hospeda a zona trafficmanager.net. O Gerenciador de Tráfego preenche e atualiza regularmente os servidores raiz DNS da Microsoft com base na política do Gerenciador de Tráfego e nos resultados da investigação. Portanto, mesmo durante a pesquisa de DNS inicial, nenhuma consulta DNS é enviada ao Gerenciador de Tráfego.
 
-O Gerenciador de Tráfego é composto por vários componentes: servidores de nome DNS, um serviço de API, a camada de armazenamento e um serviço de monitoramento de ponto de extremidade. Se um componente de serviço do Gerenciador de Tráfego falhar, não haverá nenhum efeito sobre o nome DNS associado ao perfil do Gerenciador de Tráfego. Os registros nos servidores DNS da Microsoft permanecem inalterados. No entanto, o monitoramento de ponto de extremidade e a atualização de DNS não acontecem. Portanto, o Gerenciador de Tráfego não consegue atualizar o DNS para apontar para seu site de failover quando seu site primário fica inativo.
+O Gerenciador de tráfego é composto por vários componentes: Um ponto de extremidade de serviço de monitoramento, um serviço de API, a camada de armazenamento e servidores de nomes DNS. Se um componente de serviço do Gerenciador de Tráfego falhar, não haverá nenhum efeito sobre o nome DNS associado ao perfil do Gerenciador de Tráfego. Os registros nos servidores DNS da Microsoft permanecem inalterados. No entanto, o monitoramento de ponto de extremidade e a atualização de DNS não acontecem. Portanto, o Gerenciador de Tráfego não consegue atualizar o DNS para apontar para seu site de failover quando seu site primário fica inativo.
 
 A resolução de nome DNS é rápida e os resultados são armazenados em cache. A velocidade da pesquisa DNS inicial depende dos servidores DNS que o cliente usa para resolução de nomes. Normalmente, um cliente pode concluir uma pesquisa de DNS em cerca de 50 ms. Os resultados da pesquisa são armazenados em cache durante a TTL (vida útil) do DNS. A TTL padrão para o Gerenciador de Tráfego é de 300 segundos.
 
@@ -42,11 +42,11 @@ As ferramentas nesses sites medem as latências de DNS e exibem os endereços IP
 
 ## <a name="sample-tools-to-measure-dns-performance"></a>Exemplo de ferramentas para medir o desempenho de DNS
 
-* [SolveDNS](http://www.solvedns.com/dns-comparison/)
+* [SolveDNS](https://www.solvedns.com/dns-comparison/)
 
     SolveDNS oferece várias ferramentas de desempenho. A ferramenta de Comparação de DNS pode mostrar quanto tempo leva para resolver o nome DNS e como isso se compara a outros provedores de serviço DNS.
 
-* [WebSitePulse](http://www.websitepulse.com/help/tools.php)
+* [WebSitePulse](https://www.websitepulse.com/help/tools.php)
 
     Uma das ferramentas mais simples é o WebSitePulse. Insira a URL para ver o tempo de resolução DNS, o Primeiro Byte, o Último Byte e outras estatísticas de desempenho. Você pode escolher entre três locais de teste diferentes. Neste exemplo, você verá que a primeira execução mostra que a pesquisa de DNS leva 0,204 s.
 
@@ -58,19 +58,19 @@ As ferramentas nesses sites medem as latências de DNS e exibem os endereços IP
 
 * [Monitor Sintético de Aplicativo de AC](https://asm.ca.com/en/checkit.php)
 
-    Anteriormente conhecido como ferramenta Check Website da Watchmouse, esse site mostra o tempo de resolução DNS de várias regiões geográficas ao mesmo tempo. Insira a URL para ver o tempo de resolução de DNS, o tempo de conexão e a velocidade de vários locais geográficos. Use esse teste para ver qual serviço hospedado é retornado para diferentes locais no mundo.
+    Anteriormente conhecido como a ferramenta Check Website de mouse de inspeção, esse site mostra o tempo de resolução DNS de várias regiões geográficas ao mesmo tempo. Insira a URL para ver o tempo de resolução de DNS, o tempo de conexão e a velocidade de vários locais geográficos. Use esse teste para ver qual serviço hospedado é retornado para diferentes locais no mundo.
 
     ![pulse1](./media/traffic-manager-performance-considerations/traffic-manager-web-site-watchmouse.png)
 
-* [Pingdom](http://tools.pingdom.com/)
+* [Pingdom](https://tools.pingdom.com/)
 
     Essa ferramenta fornece estatísticas de desempenho para cada elemento de uma página da Web. A guia Análise da Página mostra o percentual de tempo gasto na pesquisa de DNS.
 
-* [What's My DNS?](http://www.whatsmydns.net/)
+* [What's My DNS?](https://www.whatsmydns.net/)
 
     Este site realiza uma pesquisa de DNS de 20 locais diferentes e exibe os resultados em um mapa.
 
-* [Interface Dig Web](http://www.digwebinterface.com)
+* [Interface Dig Web](https://www.digwebinterface.com)
 
     Esse site mostra informações de DNS mais detalhadas, incluindo CNAMEs e registros A. Marque “Colorir Saída” e “Estatísticas” em opções e selecione “Todos em Nameservers.
 

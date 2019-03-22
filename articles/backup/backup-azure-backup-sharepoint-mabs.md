@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: kasinh
-ms.openlocfilehash: 7669d713f9a96ef893f7ec2ac895c28f654385c8
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 7fa68e11ccac69db9335e589f5048264df9d0a47
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810960"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58074974"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Fazer backup do farm do SharePoint para o Azure
 Faça backup de um farm do SharePoint para o Microsoft Azure usando o MABS (Servidor de Backup do Microsoft Azure) da mesma maneira que você faz backup de outras fontes de dados. O Backup do Azure fornece flexibilidade no agendamento de backup para criar pontos de backup diariamente, semanalmente, mensalmente ou anualmente e fornece opções de política de retenção para diversos pontos de backup. Ele também fornece a capacidade de armazenar cópias de disco locais para obter RTOs (Objetivos de Tempo de Recuperação) rápidos e armazenar cópias no Azure para uma retenção econômica e de longo prazo.
@@ -21,11 +21,11 @@ Faça backup de um farm do SharePoint para o Microsoft Azure usando o MABS (Serv
 ## <a name="sharepoint-supported-versions-and-related-protection-scenarios"></a>Versões do SharePoint com suporte e cenários de proteção relacionados
 O Backup do Azure para DPM dá suporte aos seguintes cenários:
 
-| Carga de trabalho | Versão | Implantação do SharePoint | Proteção e recuperação |
-| --- | --- | --- | --- | --- | --- |
-| SharePoint |SharePoint 2016, SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3.0 |SharePoint implantado como um servidor físico ou em uma máquina virtual Hyper-V/VMware  <br> -------------- <br>  AlwaysOn do SQL | Proteger opções de recuperação do SharePoint Farm: Farm de recuperação, banco de dados e arquivo ou item de lista de pontos de recuperação de disco.  Recuperação do farm e do banco de dados dos pontos de recuperação do Azure. |
+| Carga de Trabalho | Versão | Implantação do SharePoint | Proteção e recuperação |
+| --- | --- | --- | --- |
+| SharePoint |SharePoint 2016, SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3.0 |SharePoint implantado como um servidor físico ou em uma máquina virtual Hyper-V/VMware  <br> -------------- <br> SQL AlwaysOn | Proteger opções de recuperação do SharePoint Farm: Farm de recuperação, banco de dados e arquivo ou item de lista de pontos de recuperação de disco.  Recuperação do farm e do banco de dados dos pontos de recuperação do Azure. |
 
-## <a name="before-you-start"></a>Antes de começar
+## <a name="before-you-start"></a>Antes de iniciar
 Há alguns elementos que você precisa confirmar antes de fazer o backup de um farm do SharePoint para o Azure.
 
 ### <a name="prerequisites"></a>Pré-requisitos
@@ -83,7 +83,7 @@ Depois de configurar o MABS e o farm do SharePoint conforme explicado anteriorme
    > Com o agente de proteção instalado, você pode ver o servidor no assistente. O MABS também mostra sua estrutura. Como você executou o ConfigureSharePoint.exe, o MABS se comunica com o serviço do Gravador VSS do SharePoint e seus bancos de dados do SQL Server correspondentes e reconhece a estrutura de farm do SharePoint, os bancos de dados de conteúdo associados e todos os itens correspondentes.
    >
    >
-4. Na página **Selecionar Método de Proteção de Dados**, insira o nome do **Grupo de Proteção** e selecione seus *métodos de proteção* preferenciais. Clique em **Próximo**.
+4. Na página **Selecionar Método de Proteção de Dados**, insira o nome do **Grupo de Proteção** e selecione seus *métodos de proteção* preferenciais. Clique em **Avançar**.
 
     ![Selecionar método de proteção de dados](./media/backup-azure-backup-sharepoint/select-data-protection-method1.png)
 
@@ -154,7 +154,7 @@ No exemplo a seguir, o *item Recuperando SharePoint* foi excluído acidentalment
 5. Você também pode navegar pelos diversos pontos de recuperação e selecionar um banco de dados ou item para recuperar. Selecione **Data > Hora da recuperação** e escolha o **Banco de Dados > Farm do SharePoint > Ponto de recuperação > Item** correto.
 
     ![Proteção do SharePoint do MABS 7](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection8.png)
-6. Clique com o botão direito do mouse no item e selecione **Recuperar** para abrir o **Assistente de Recuperação**. Clique em **Próximo**.
+6. Clique com o botão direito do mouse no item e selecione **Recuperar** para abrir o **Assistente de Recuperação**. Clique em **Avançar**.
 
     ![Rever Seleção de Recuperação](./media/backup-azure-backup-sharepoint/review-recovery-selection.png)
 7. Selecione o tipo de recuperação que você deseja executar e clique em **Avançar**.
@@ -178,7 +178,7 @@ No exemplo a seguir, o *item Recuperando SharePoint* foi excluído acidentalment
     O MABS anexa o banco de dados de conteúdo que está hospedando o item do SharePoint à instância temporária do SQL Server. Do banco de dados de conteúdo, ele recupera o item e o coloca no local do arquivo de preparo no MABS. O item recuperado no local de preparo agora precisa ser exportado para o local de preparo no farm do SharePoint.
 
     ![Local de Preparo2](./media/backup-azure-backup-sharepoint/staging-location2.png)
-10. Selecione **Especificar opções de recuperação**e aplique as configurações de segurança ao farm do SharePoint ou aplique as configurações de segurança do ponto de recuperação. Clique em **Próximo**.
+10. Selecione **Especificar opções de recuperação**e aplique as configurações de segurança ao farm do SharePoint ou aplique as configurações de segurança do ponto de recuperação. Clique em **Avançar**.
 
     ![Opções de Recuperação](./media/backup-azure-backup-sharepoint/recovery-options.png)
 
@@ -224,14 +224,14 @@ No exemplo a seguir, o *item Recuperando SharePoint* foi excluído acidentalment
     ![Proteção do SharePoint do MABS 13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
 5. Nesse ponto, siga as etapas de recuperação descritas anteriormente neste artigo para recuperar um banco de dados de conteúdo do SharePoint do disco.
 
-## <a name="faqs"></a>Perguntas frequentes
+## <a name="faqs"></a>Perguntas Frequentes
 P: Poderei recuperar um item do SharePoint para a localização original se o SharePoint tiver sido configurado usando o SQL AlwaysOn (com proteção em disco)?<br>
 R: Sim, o item pode ser recuperado para o site do SharePoint original.
 
 P: Poderei recuperar um banco de dados do SharePoint na localização original se o SharePoint estiver configurado usando o AlwaysOn do SQL?<br>
 R: Como os bancos de dados do SharePoint são configurados no SQL AlwaysOn, eles não podem ser modificados a menos que o grupo de disponibilidade seja removido. Por isso, o MABS não pode restaurar o banco de dados para o local original. Não é possível recuperar um banco de dados do SQL Server para outra instância do SQL Server.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas Etapas
 
 Veja o artigo [Back up Exchange server](backup-azure-exchange-mabs.md) (Fazer backup do Exchange Server).
 Veja o artigo [Back up SQL Server](backup-azure-sql-mabs.md) (Fazer backup do SQL Server).

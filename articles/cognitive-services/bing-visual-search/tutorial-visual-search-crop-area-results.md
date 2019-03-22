@@ -9,12 +9,12 @@ ms.subservice: bing-visual-search
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: rosh
-ms.openlocfilehash: 6444a49a95ee53fb624501bc464f6378423e6e26
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 46bd170966d391f49d3c816c15e4bdf2e7449c90
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863016"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58102476"
 ---
 # <a name="tutorial-crop-an-image-with-the-bing-visual-search-sdk-for-c"></a>Tutorial: Recortar uma imagem no SDK da Pesquisa Visual do Bing para C#
 
@@ -33,8 +33,8 @@ Esse tutorial ilustra como:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Qualquer edição do [Visual Studio 2017](https://www.visualstudio.com/downloads/).
-* Se você estiver usando Linux/MacOS, este aplicativo poderá ser executado usando [Mono](http://www.mono-project.com/).
-- O pacote [Pesquisa Personalizada do NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) instalado. 
+* Se você estiver usando Linux/MacOS, este aplicativo poderá ser executado usando [Mono](https://www.mono-project.com/).
+* O pacote [Pesquisa Personalizada do NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) instalado. 
     - No Gerenciador de Soluções no Visual Studio, clique com o botão direito do mouse no seu projeto e selecione `Manage NuGet Packages` no menu. Instale o pacote `Microsoft.Azure.CognitiveServices.Search.CustomSearch`. A instalação do pacote Pesquisa Personalizada do NuGet também instala os assemblies a seguir:
         - Microsoft.Rest.ClientRuntime
         - Microsoft.Rest.ClientRuntime.Azure

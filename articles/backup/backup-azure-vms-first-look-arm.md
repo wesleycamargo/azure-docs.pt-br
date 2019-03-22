@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: raynew
-ms.openlocfilehash: 40557d4e71dfea5996396cde634f7a1c80913556
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 2fe786d90612feff312983dbd25dc6d691be6e70
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430532"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089770"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Fazer backup de uma VM do Azure usando as configurações da VM
 
@@ -44,18 +44,18 @@ Para fazer backup de VMs do Azure, o Backup do Azure instala uma extensão no ag
 3. Na lista de VMs, selecione a VM que você deseja fazer backup.
 4. No menu da VM, clique em **Backup**. 
 5. Em **cofre dos Serviços de Recuperação**, faça o seguinte:
-  - Se você já tem um cofre, clique em **Selecionar existente** e selecione um cofre.
-  - Caso não tenha um cofre, clique em **Criar novo**. Especifique um nome para o cofre. Ele será criado no mesmo grupo de recursos e mesma região que a VM. Você não pode modificar essas configurações ao habilitar o backup diretamente nas configurações da VM.
+   - Se você já tem um cofre, clique em **Selecionar existente** e selecione um cofre.
+   - Caso não tenha um cofre, clique em **Criar novo**. Especifique um nome para o cofre. Ele será criado no mesmo grupo de recursos e mesma região que a VM. Você não pode modificar essas configurações ao habilitar o backup diretamente nas configurações da VM.
 
-  ![Habilitar o Assistente de Backup](./media/backup-azure-vms-first-look-arm/vm-menu-enable-backup-small.png)
+   ![Habilitar o Assistente de Backup](./media/backup-azure-vms-first-look-arm/vm-menu-enable-backup-small.png)
 
 6. Em **Escolher política de backup**, faça o seguinte:
 
-  - Deixe a política padrão. Isso faz backup da VM uma vez por dia no horário especificado e retém os backups no cofre por 30 dias.
-  - Selecione uma política de backup existente se você tiver uma.
-  - Crie uma nova política e defina as configurações da política.  
+   - Deixe a política padrão. Isso faz backup da VM uma vez por dia no horário especificado e retém os backups no cofre por 30 dias.
+   - Selecione uma política de backup existente se você tiver uma.
+   - Crie uma nova política e defina as configurações da política.  
 
-  ![Selecionar a política de backup](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
+   ![Selecionar a política de backup](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
 
 7. Clique em **Habilitar o Backup**. Isso associa a política de backup com a VM. 
 
@@ -64,9 +64,9 @@ Para fazer backup de VMs do Azure, o Backup do Azure instala uma extensão no ag
 8. Você pode acompanhar o progresso da configuração nas notificações do portal.
 9. Depois que o trabalho for concluído, no menu da VM, clique em **Backup**. A página mostra o status do backup para a VM, informações sobre pontos de recuperação, trabalhos em execução e alertas emitidos.
 
-  ![Status do backup](./media/backup-azure-vms-first-look-arm/backup-item-view-update.png)
+   ![Status do backup](./media/backup-azure-vms-first-look-arm/backup-item-view-update.png)
 
-10. Depois de habilitar o backup, um [backup inicial](#run-the-initial-backup) é executado. Você pode começar o backup inicial imediatamente ou aguardar até que ele inicie de acordo com o agendamento de backup.
+10. Depois de habilitar o backup, um backup inicial é executado. Você pode começar o backup inicial imediatamente ou aguardar até que ele inicie de acordo com o agendamento de backup.
     - Até que o backup inicial seja concluído, o **Status do último backup** é mostrado como **Aviso (Backup inicial pendente)**.
     - Para ver quando o próximo backup agendado será executado, clique no nome da política de backup.
     

@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 15ef1905562d04c2732016dfd1340910b3a8f699
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 381eecefbba238e712820a09c8ec489706ef3751
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54900350"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106450"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Adicionar mensagens a uma fila do Armazenamento do Azure usando o Functions
 
@@ -122,7 +122,7 @@ Uma nova fila denominada **outqueue** é criada na sua conta de armazenamento pe
 
 Ignore esta seção caso já tenha instalado o Gerenciador de Armazenamento e o conectado à conta de armazenamento sendo usada neste guia de início rápido.
 
-2. Execute a ferramenta [Gerenciador de Armazenamento do Microsoft Azure](https://storageexplorer.com/), selecione o ícone conectar-se à esquerda, escolha **Usar um nome e chave de conta de armazenamento** e selecione **Avançar**.
+1. Execute a ferramenta [Gerenciador de Armazenamento do Microsoft Azure](https://storageexplorer.com/), selecione o ícone conectar-se à esquerda, escolha **Usar um nome e chave de conta de armazenamento** e selecione **Avançar**.
 
     ![Execute a ferramenta Gerenciador de Conta de Armazenamento.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-1.png)
 
@@ -140,13 +140,13 @@ Ignore esta seção caso já tenha instalado o Gerenciador de Armazenamento e o 
  
 1. Clique no ícone mostrar/ocultar ao lado da **Chave de Conta** para exibir o valor e depois copie o valor **Chave de Conta** e cole-o na caixa **Chave de conta** no Gerenciador de Armazenamento.
   
-3. Selecione **Próximo > Conectar**.
+1. Selecione **Próximo > Conectar**.
 
    ![Cole as credenciais de armazenamento e conecte-se.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-2.png)
 
 ### <a name="examine-the-output-queue"></a>Examinar a fila de saída
 
-4. No Gerenciador de Armazenamento, selecione a conta de armazenamento sendo usada para este guia de início rápido.
+1. No Gerenciador de Armazenamento, selecione a conta de armazenamento sendo usada para este guia de início rápido.
 
 1. Expanda o nó **Filas** e selecione a fila denominada **outqueue**. 
 
@@ -154,7 +154,7 @@ Ignore esta seção caso já tenha instalado o Gerenciador de Armazenamento e o 
 
     ![Mensagem da fila mostrada no Gerenciador de Armazenamento](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 
-2. Execute a função novamente e você verá uma nova mensagem exibida na fila.  
+1. Execute a função novamente e você verá uma nova mensagem exibida na fila.  
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

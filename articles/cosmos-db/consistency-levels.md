@@ -5,25 +5,25 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/27/2018
-ms.openlocfilehash: 914933e4e0489d68640edb58ceb91dc73a963eb3
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.date: 03/18/2019
+ms.openlocfilehash: b43fe513b15d55ee595acaa6733d96cdb58f4e83
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034957"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294494"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Níveis de coerência no Azure Cosmos DB
 
-Bancos de dados distribuídos que dependem de replicação para alta disponibilidade, baixa latência ou ambos realizam o equilíbrio fundamental entre a coerência de leitura versus a disponibilidade, a latência e a taxa de transferência. A maioria dos bancos de dados distribuídos comercialmente disponíveis pede para os desenvolvedores escolherem entre os dois modelos de extremos de coerência: coerência forte e coerência eventual. A  [linearizabilidade](https://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) ou o modelo de coerência forte é o padrão ouro de programação de dados. No entanto, ele adiciona um preço alto de maior latência (no estado estável) e disponibilidade reduzida (durante falhas). Por outro lado, a consistência eventual oferece maior disponibilidade e melhor desempenho, mas é difícil programar aplicativos. 
+Bancos de dados distribuídos que dependem de replicação para alta disponibilidade, baixa latência ou ambos realizam o equilíbrio fundamental entre a coerência de leitura versus a disponibilidade, a latência e a taxa de transferência. A maioria dos bancos de dados distribuídos comercialmente disponíveis perguntar aos desenvolvedores escolher entre os dois modelos de consistência extreme: *forte* consistência e *eventual* consistência. O  [transação atômica](https://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) ou o modelo de coerência forte é o padrão ouro de programação de dados. Mas ele adiciona um preço maior latência (no estado estável) e redução de disponibilidade (durante falhas). Por outro lado, a consistência eventual oferece maior disponibilidade e melhor desempenho, mas torna difícil a programação de aplicativos. 
 
-O Azure Cosmos DB aborda a coerência de dados como um espectro de opções, em vez dos dois extremos. Consistência forte e consistência eventual são os dois extremos, há muitas escolhas de consistência ao longo do espectro. Os desenvolvedores podem usar essas opções para fazer escolhas precisas e compensações granulares a respeito da alta disponibilidade ou desempenho. 
+O Azure Cosmos DB aborda a coerência de dados como um espectro de opções, em vez dos dois extremos. Consistência forte e consistência eventual são nas extremidades do espectro, mas há muitas opções de consistência, juntamente com o espectro. Os desenvolvedores podem usar essas opções para fazer escolhas precisas e granulares vantagens e desvantagens em relação à alta disponibilidade e desempenho. 
 
-Com o Azure Cosmos DB, os desenvolvedores pode escolher a partir de cinco modelos de consistência bem definidos no espectro de consistência. Do mais forte ao mais fraco, os modelos são forte, desatualização limitada, sessão, prefixo consistente e eventual. Os modelos são bem definidos e intuitivos. Podem ser usados para cenários específicos do mundo real. Cada modelo fornece [compensações de desempenho e disponibilidade](consistency-levels-tradeoffs.md) e é respaldado por SLAs abrangentes. A imagem a seguir mostra diferentes níveis de consistência como um espectro.
+Com o Azure Cosmos DB, os desenvolvedores pode escolher a partir de cinco modelos de consistência bem definidos no espectro de consistência. Do mais forte ao mais relaxadas, os modelos incluem *forte*, *desatualização*, *sessão*, *prefixo consistente*e *eventual* consistência. Os modelos são bem definidas e intuitiva e podem ser usados para cenários específicos do mundo real. Cada modelo fornece [compensações de desempenho e disponibilidade](consistency-levels-tradeoffs.md) e com o respaldo de SLAs. A imagem a seguir mostra os níveis de consistência diferentes como um espectro.
 
 ![Consistência como um espectro](./media/consistency-levels/five-consistency-levels.png)
 
-Os níveis de consistência são independentes da região. O nível de consistência da conta do Azure Cosmos é garantido para todas as operações de leitura, independentemente da região da qual as leituras e gravações são atendidas, o número de regiões associadas à conta do Azure Cosmos ou se a conta está configurada com uma ou várias regiões de gravação.
+Os níveis de consistência são independentes de região e são garantidos para todas as operações, independentemente da região da qual as leituras e gravações são atendidas, o número de regiões associadas à sua conta do Cosmos do Azure, ou se sua conta está configurada com um único ou em várias regiões de gravação.
 
 ## <a name="scope-of-the-read-consistency"></a>Escopo da coerência de leitura
 
@@ -81,7 +81,7 @@ Para saber mais sobre conceitos de coerência, leia os artigos a seguir:
 - [Explicação de Coerência de Dados Replicados por meio do beisebol (vídeo) por Doug Terry](https://www.youtube.com/watch?v=gluIh8zd26I)
 - [Explicação de Coerência de Dados Replicados por meio do beisebol (whitepaper) por Doug Terry](https://www.microsoft.com/en-us/research/publication/replicated-data-consistency-explained-through-baseball/?from=http%3A%2F%2Fresearch.microsoft.com%2Fpubs%2F157411%2Fconsistencyandbaseballreport.pdf)
 - [Session Guarantees for Weakly Consistent Replicated Data](https://dl.acm.org/citation.cfm?id=383631)
-- [Consistency tradeoffs in modern distributed database systems design: (Compensações de coerência no projeto de sistemas de bancos de dados modernos distribuídos): CAP é apenas parte da história](https://www.computer.org/web/csdl/index/-/csdl/mags/co/2012/02/mco2012020037-abs.html)
+- [Consistency tradeoffs in modern distributed database systems design: (Compensações de coerência no projeto de sistemas de bancos de dados modernos distribuídos): CAP é apenas parte da história](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
 - [Probabilistic Bounded Staleness (PBS) for Practical Partial Quorums](https://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf) (PBS (Probabilistic Bounded Staleness) para quóruns parciais práticos)
 - [Eventualmente Coerente – Revisado](https://www.allthingsdistributed.com/2008/12/eventually_consistent.html)
 

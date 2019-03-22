@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 manager: jeconnoc
 ms.date: 01/05/2019
 ms.topic: article
-ms.openlocfilehash: 7237a9a6a99b57401af40512a6d2e21a3fe49e53
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: c37e41bce481fff5e172687907cce527c10ae006
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159478"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225001"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Criar loops que repetem ações de fluxo de trabalho ou processam matrizes nos Aplicativos Lógicos do Azure
 
@@ -166,7 +166,8 @@ Começando às 8h00 todos os dias, esse aplicativo lógico incrementa uma variá
 > Essas etapas usam o Outlook do Office 365, mas você pode usar qualquer provedor de email que seja compatível com Aplicativos Lógicos. 
 > [Veja a lista de conectores aqui](https://docs.microsoft.com/connectors/). Se você usar uma outra conta de email, as etapas gerais serão as mesmas, mas a interface do usuário poderá parecer um pouco diferente. 
 
-1. Criar um aplicativo lógico em branco. No Designer de Aplicativos Lógicos, na caixa de pesquisa, escolha **Tudo**. Pesquise por "recorrência". Na lista de gatilhos, selecione este gatilho: **Recorrência – Agendamento**
+1. Criar um aplicativo lógico em branco. No Designer de Aplicativos Lógicos, na caixa de pesquisa, escolha **Tudo**. Pesquise por "recorrência". 
+   Na lista de gatilhos, selecione este gatilho: **Recorrência – Agendamento**
 
    ![Adicionar o gatilho "Recorrência – Agendamento"](./media/logic-apps-control-flow-loops/do-until-loop-add-trigger.png)
 
@@ -181,7 +182,8 @@ Começando às 8h00 todos os dias, esse aplicativo lógico incrementa uma variá
    | **A estas horas** | 8 |
    ||| 
 
-1. No gatilho, escolha **Nova etapa**. Pesquise por "variáveis" e selecione esta ação: **Inicializar variável – Variáveis**
+1. No gatilho, escolha **Nova etapa**. 
+   Pesquise por "variáveis" e selecione esta ação: **Inicializar variável – Variáveis**
 
    ![Adicionar a ação Inicializar variável – Variáveis](./media/logic-apps-control-flow-loops/do-until-loop-add-variable.png)
 
@@ -202,7 +204,8 @@ Começando às 8h00 todos os dias, esse aplicativo lógico incrementa uma variá
 
    ![Adicionar o loop "Until"](./media/logic-apps-control-flow-loops/do-until-loop-add-until-loop.png)
 
-1. Compile a condição de saída do loop, selecionando a variável **Limite** e o operador **é igual**. Insira **10** como o valor da comparação.
+1. Compile a condição de saída do loop, selecionando a variável **Limite** e o operador **é igual**. 
+   Insira **10** como o valor da comparação.
 
    ![Compile a condição de saída para parar o loop](./media/logic-apps-control-flow-loops/do-until-loop-settings.png)
 
@@ -214,32 +217,33 @@ Começando às 8h00 todos os dias, esse aplicativo lógico incrementa uma variá
 
 1. Para **Nome**, selecione a variável **Limite**. Para **Valor**, insira "1". 
 
-   ![Incrementar "Limite" por 1](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
+     ![Incrementar "Limite" por 1](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
 
 1. Fora e abaixo do loop, escolha **Nova etapa**. 
 
-1. Na caixa de pesquisa, escolha **Tudo**. Encontre e adicione uma ação que envia email, por exemplo: 
+1. Na caixa de pesquisa, escolha **Tudo**. 
+     Encontre e adicione uma ação que envia email, por exemplo: 
 
-   ![Adicionar ação que envia email](media/logic-apps-control-flow-loops/do-until-loop-send-email.png)
+     ![Adicionar ação que envia email](media/logic-apps-control-flow-loops/do-until-loop-send-email.png)
 
 1. Se solicitado, entre em sua conta de email.
 
 1. Defina as propriedades da ação do email. Adicione a variável **Limite** para o assunto. Dessa forma, é possível confirmar se o valor atual da variável atende à condição especificada, por exemplo:
 
-    ![Configurar propriedades de email](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
+      ![Configurar propriedades de email](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
 
-    | Propriedade | Valor | DESCRIÇÃO |
-    | -------- | ----- | ----------- | 
-    | **Para** | *<email-address@domain>* | O endereço de email do destinatário. Para testes, use seu próprio endereço de email. | 
-    | **Assunto** | O valor atual para "Limit" é **Limite** | Especifique o assunto do email. Para esse exemplo, certifique-se de incluir a variável **Limite**. | 
-    | **Corpo** | <*email-conteúdo*> | Especifique o conteúdo da mensagem de email que deseja enviar. Para esse exemplo, insira o texto de sua escolha. | 
-    |||| 
+      | Propriedade | Valor | DESCRIÇÃO |
+      | -------- | ----- | ----------- | 
+      | **Para** | *< endereço de email\@domínio >* | O endereço de email do destinatário. Para testes, use seu próprio endereço de email. | 
+      | **Assunto** | O valor atual para "Limit" é **Limite** | Especifique o assunto do email. Para esse exemplo, certifique-se de incluir a variável **Limite**. | 
+      | **Corpo** | <*email-conteúdo*> | Especifique o conteúdo da mensagem de email que deseja enviar. Para esse exemplo, insira o texto de sua escolha. | 
+      |||| 
 
 1. Salve seu aplicativo lógico. Para testar manualmente o aplicativo lógico, na barra de ferramentas do Designer, escolha **Executar**.
 
-    Após a lógica iniciar a execução, você receberá um email com o conteúdo especificado:
+      Após a lógica iniciar a execução, você receberá um email com o conteúdo especificado:
 
-    ![Email recebido](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
+      ![Email recebido](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
 
 ## <a name="prevent-endless-loops"></a>Impedir loops infinitos
 

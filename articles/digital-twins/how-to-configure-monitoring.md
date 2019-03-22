@@ -9,18 +9,20 @@ ms.topic: conceptual
 ms.date: 12/26/2018
 ms.author: adgera
 ms.custom: seodec18
-ms.openlocfilehash: 2749a5c6c4e6003c51523d83c46b48d3b55b3d45
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
-ms.translationtype: HT
+ms.openlocfilehash: 23759a6c3d920e2b791a10ddd5ac5c5285ed1889
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53807577"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959860"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>Como configurar o monitoramento nos Gêmeos Digitais do Azure
 
-Os Gêmeos Digitais do Azure dão suporte a registro em log, monitoramento e análise robustos. Os desenvolvedores de soluções podem usar o Azure Log Analytics, os logs de diagnóstico, o log de atividades e outros serviços para dar suporte às necessidades complexas de monitoramento de um aplicativo de IoT. As opções de registro em log podem ser combinadas para consultar ou exibir registros em vários serviços e para fornecer cobertura de registro em log granular para muitos serviços.
+Os Gêmeos Digitais do Azure dão suporte a registro em log, monitoramento e análise robustos. Os desenvolvedores de soluções podem usar os logs, logs de diagnóstico, o log de atividades e outros serviços do Azure Monitor para suportar as necessidades de monitoramento complexas de um aplicativo de IoT. As opções de registro em log podem ser combinadas para consultar ou exibir registros em vários serviços e para fornecer cobertura de registro em log granular para muitos serviços.
 
 Este artigo resume as opções de registro em log e monitoramento e como combiná-las de maneiras específicas para os Gêmeos Digitais do Azure.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="review-activity-logs"></a>Revisar logs de atividade
 
@@ -75,7 +77,7 @@ Para habilitar logs de diagnóstico, siga estas etapas:
 
     ![Configurações de Diagnóstico dois][5]
 
-    Os logs de diagnóstico geralmente são salvos usando [Armazenamento de Arquivos do Azure](../storage/files/storage-files-deployment-guide.md) e são compartilhados com [Azure Log Analytics](../azure-monitor/log-query/get-started-portal.md). Ambas as opções podem ser selecionadas.
+    Os logs de diagnóstico geralmente são salvos usando [Azure File Storage](../storage/files/storage-files-deployment-guide.md) e é compartilhada com [registra em log do Azure Monitor](../azure-monitor/log-query/get-started-portal.md). Ambas as opções podem ser selecionadas.
 
 >[!TIP]
 >Use **logs de diagnóstico** para obter insights sobre operações de recursos.
@@ -84,7 +86,7 @@ Para habilitar logs de diagnóstico, siga estas etapas:
 
 Aplicativos de IoT unem diferentes recursos, dispositivos, locais e dados em um só local. O registro em log refinado fornece informações detalhadas sobre cada parte, serviço ou componente específicos da arquitetura geral do aplicativo, mas uma visão geral unificada costuma ser necessária para manutenção e depuração.
 
-O Azure Monitor inclui o poderoso serviço do Log Analytics, que permite que fontes de registro em log sejam exibidos e analisados em um único local. O Azure Monitor, portanto, é muito útil para analisar logs de dentro de aplicativos sofisticados de IoT.
+O Azure Monitor inclui o serviço de análise de log poderosa, que permite que o registro em log fontes para serem exibidos e analisados em um único local. O Azure Monitor, portanto, é muito útil para analisar logs de dentro de aplicativos sofisticados de IoT.
 
 Os exemplos de uso incluem:
 
@@ -92,32 +94,32 @@ Os exemplos de uso incluem:
 * Visualizar os logs para várias funções definidas pelo usuário
 * Exibir os logs para dois ou mais serviços dentro de um período de tempo específico
 
-A consulta completa de log é fornecida por meio do [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md). Para configurar esses recursos avançados:
+Consultar log completo é fornecido por meio [registra em log do Azure Monitor](../azure-monitor/log-query/log-query-overview.md). Para configurar esses recursos avançados:
 
 1. No portal do Microsoft Azure, pesquise **Log Analytics**.
-1. Você verá suas instâncias disponíveis de **Log Analytics**. Para consultar, escolha um e selecione **Logs**:
+1. Você verá seu disponíveis **espaço de trabalho do Log Analytics** instâncias. Para consultar, escolha um e selecione **Logs**:
 
     ![Log Analytics][6]
 
-1. Se você ainda não tiver uma instância do **Log Analytics**, é possível criar um espaço de trabalho clicando no botão **Adicionar**:
+1. Se você ainda não tiver um **espaço de trabalho do Log Analytics** instância, você pode criar um espaço de trabalho clicando o **Add** botão:
 
     ![Criar OMS][7]
 
-Depois que sua instância do **Log Analytics** for provisionada, você poderá usar consultas avançadas para localizar entradas em vários logs ou pesquisar usando critérios específicos com **Gerenciamento de Log**:
+Uma vez sua **espaço de trabalho do Log Analytics** instância é provisionada, você pode usar consultas avançadas para localizar entradas nos logs de múltiplos ou pesquisar usando critérios específicos usando **gerenciamento de Log**:
 
    ![Gerenciamento de Log][8]
 
 Para obter mais informações sobre as operações de consulta avançada, confira [Introdução às consultas](../azure-monitor/log-query/get-started-queries.md).
 
 > [!NOTE]
-> Pode haver um atraso de 5 minutos ao enviar eventos para o **Log Analytics** pela primeira vez.
+> Você pode ter um atraso de 5 minutos, ao enviar eventos a serem **espaço de trabalho do Log Analytics** pela primeira vez.
 
-O Azure Log Analytics também fornece os poderosos serviços de notificação de alerta e erro, que podem ser exibidos clicando **Diagnosticar e resolver problemas**:
+Os logs do Azure Monitor também fornece o erro poderoso e serviços de notificação de alerta, que podem ser exibidos clicando **diagnosticar e resolver problemas**:
 
    ![Notificações de alerta e erro][9]
 
 >[!TIP]
->Use o **Log Analytics** para consultar históricos de log de várias funcionalidades, assinaturas e serviços de aplicativo.
+>Use **espaço de trabalho do Log Analytics** para históricos de log de consulta para vários serviços, assinaturas ou as funcionalidades do aplicativo.
 
 ## <a name="other-options"></a>Outras opções
 
@@ -129,7 +131,7 @@ Os Gêmeos Digitais do Azure também dão suporte a registro em log específico 
 
 - Aprofunde-se nas configurações de diagnóstico do Azure lendo uma [Visão geral dos logs de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md).
 
-- Saiba mais sobre [Azure Log Analytics](../azure-monitor/log-query/get-started-portal.md).
+- Leia mais sobre [registra em log do Azure Monitor](../azure-monitor/log-query/get-started-portal.md).
 
 <!-- Images -->
 [1]: media/how-to-configure-monitoring/activity-log.png

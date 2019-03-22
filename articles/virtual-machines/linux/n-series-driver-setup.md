@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: df78852e309054bb5c27a779b37bb2310d9f7a01
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: cb597edc676fbb7b63c6a07849551cc21f69b354
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201033"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58015021"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalar drivers NVIDIA GPU em VMs da série N que executam o Linux
 
@@ -38,7 +38,7 @@ Para obter as especificações de VMs da série N, as capacidades de armazenamen
 Aqui estão as etapas para instalar os drivers CUDA a partir do NVIDIA CUDA Toolkit em VMs série N. 
 
 
-Os desenvolvedores de C e C++ podem opcionalmente instalar o Kit de ferramentas completo para criar aplicativos com aceleração de GPU. Para obter mais informações, consulte o [Guia de instalação do CUDA](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
+Os desenvolvedores de C e C++ podem opcionalmente instalar o Kit de ferramentas completo para criar aplicativos com aceleração de GPU. Para obter mais informações, consulte o [Guia de instalação do CUDA](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
 
 Para instalar os drivers de CUDA, realize uma conexão SSH para cada VM. Para verificar se o sistema tem uma GPU compatível com CUDA, execute o seguinte comando:
 
@@ -54,30 +54,30 @@ Em seguida, execute os comandos de instalação específicos para a sua distribu
 ### <a name="ubuntu"></a>Ubuntu 
 
 1. Baixe e instale os drivers CUDA do site da NVIDIA. Por exemplo, para Ubuntu 16.04 LTS:
-  ```bash
-  CUDA_REPO_PKG=cuda-repo-ubuntu1604_10.0.130-1_amd64.deb
+   ```bash
+   CUDA_REPO_PKG=cuda-repo-ubuntu1604_10.0.130-1_amd64.deb
 
-  wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
+   wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
 
-  sudo dpkg -i /tmp/${CUDA_REPO_PKG}
+   sudo dpkg -i /tmp/${CUDA_REPO_PKG}
 
-  sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub 
+   sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub 
 
-  rm -f /tmp/${CUDA_REPO_PKG}
+   rm -f /tmp/${CUDA_REPO_PKG}
 
-  sudo apt-get update
+   sudo apt-get update
 
-  sudo apt-get install cuda-drivers
+   sudo apt-get install cuda-drivers
 
-  ```
+   ```
 
-  A instalação poderá levar vários minutos.
+   A instalação poderá levar vários minutos.
 
 2. Para opcionalmente instalar o Kit de ferramentas CUDA completo, digite:
 
-  ```bash
-  sudo apt-get install cuda
-  ```
+   ```bash
+   sudo apt-get install cuda
+   ```
 
 3. Reinicie a VM e prossiga para verificar a instalação.
 
@@ -101,50 +101,50 @@ sudo reboot
 
 1. Atualize o kernel (recomendado). Se você optar por não atualizar o kernel, verifique se as versões `kernel-devel` e `dkms` são apropriadas para seu kernel.
 
-  ```
-  sudo yum install kernel kernel-tools kernel-headers kernel-devel
+   ```
+   sudo yum install kernel kernel-tools kernel-headers kernel-devel
   
-  sudo reboot
+   sudo reboot
 
 2. Install the latest [Linux Integration Services for Hyper-V and Azure](https://www.microsoft.com/download/details.aspx?id=55106).
 
-  ```bash
-  wget https://aka.ms/lis
+   ```bash
+   wget https://aka.ms/lis
  
-  tar xvzf lis
+   tar xvzf lis
  
-  cd LISISO
+   cd LISISO
  
-  sudo ./install.sh
+   sudo ./install.sh
  
-  sudo reboot
-  ```
+   sudo reboot
+   ```
  
 3. Reconecte-se à VM e continue a instalação com os seguintes comandos:
 
-  ```bash
-  sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+   ```bash
+   sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 
-  sudo yum install dkms
+   sudo yum install dkms
 
-  CUDA_REPO_PKG=cuda-repo-rhel7-10.0.130-1.x86_64.rpm
+   CUDA_REPO_PKG=cuda-repo-rhel7-10.0.130-1.x86_64.rpm
 
-  wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
+   wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
 
-  sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
+   sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
 
-  rm -f /tmp/${CUDA_REPO_PKG}
+   rm -f /tmp/${CUDA_REPO_PKG}
 
-  sudo yum install cuda-drivers
-  ```
+   sudo yum install cuda-drivers
+   ```
 
-  A instalação poderá levar vários minutos. 
+   A instalação poderá levar vários minutos. 
 
 4. Para opcionalmente instalar o Kit de ferramentas CUDA completo, digite:
 
-  ```bash
-  sudo yum install cuda
-  ```
+   ```bash
+   sudo yum install cuda
+   ```
 
 5. Reinicie a VM e prossiga para verificar a instalação.
 
@@ -180,53 +180,53 @@ Para instalar drivers NVIDIA GRID em VMs da série NVv2 ou NV, faça uma conexã
 
 2. Instale as atualizações.
 
-  ```bash
-  sudo apt-get update
+   ```bash
+   sudo apt-get update
 
-  sudo apt-get upgrade -y
+   sudo apt-get upgrade -y
 
-  sudo apt-get dist-upgrade -y
+   sudo apt-get dist-upgrade -y
 
-  sudo apt-get install build-essential ubuntu-desktop -y
-  ```
+   sudo apt-get install build-essential ubuntu-desktop -y
+   ```
 3. Desabilite o driver de kernel Nouveau, que é incompatível com o driver NVIDIA. (Apenas use o driver NVIDIA em VMs NVv2 ou NV.) Para fazer isso, crie um arquivo em `/etc/modprobe.d `chamado `nouveau.conf` com o conteúdo a seguir:
 
-  ```
-  blacklist nouveau
+   ```
+   blacklist nouveau
 
-  blacklist lbm-nouveau
-  ```
+   blacklist lbm-nouveau
+   ```
 
 
 4. Reinicie a VM e reconecte. Saia do servidor X:
 
-  ```bash
-  sudo systemctl stop lightdm.service
-  ```
+   ```bash
+   sudo systemctl stop lightdm.service
+   ```
 
 5. Baixe e instale o driver GRID:
 
-  ```bash
-  wget -O NVIDIA-Linux-x86_64-grid.run https://go.microsoft.com/fwlink/?linkid=874272  
+   ```bash
+   wget -O NVIDIA-Linux-x86_64-grid.run https://go.microsoft.com/fwlink/?linkid=874272  
 
-  chmod +x NVIDIA-Linux-x86_64-grid.run
+   chmod +x NVIDIA-Linux-x86_64-grid.run
 
-  sudo ./NVIDIA-Linux-x86_64-grid.run
-  ``` 
+   sudo ./NVIDIA-Linux-x86_64-grid.run
+   ``` 
 
 6. Quando você for questionado se deseja executar o utilitário nvidia-xconfig para atualizar seu arquivo de configuração X, selecione **Sim**.
 
 7. Após a conclusão da instalação, copie /etc/nvidia/gridd.conf.template para um novo arquivo gridd.conf no local /etc/hosts nvidia/
 
-  ```bash
-  sudo cp /etc/nvidia/gridd.conf.template /etc/nvidia/gridd.conf
-  ```
+   ```bash
+   sudo cp /etc/nvidia/gridd.conf.template /etc/nvidia/gridd.conf
+   ```
 
 8. Adicione o seguinte a `/etc/nvidia/gridd.conf`:
  
-  ```
-  IgnoreSP=FALSE
-  ```
+   ```
+   IgnoreSP=FALSE
+   ```
 9. Reinicie a VM e prossiga para verificar a instalação.
 
 
@@ -234,63 +234,63 @@ Para instalar drivers NVIDIA GRID em VMs da série NVv2 ou NV, faça uma conexã
 
 1. Atualize o kernel e o DKMS (recomendado). Se você optar por não atualizar o kernel, verifique se as versões `kernel-devel` e `dkms` são apropriadas para seu kernel.
  
-  ```bash  
-  sudo yum update
+   ```bash  
+   sudo yum update
  
-  sudo yum install kernel-devel
+   sudo yum install kernel-devel
  
-  sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+   sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
  
-  sudo yum install dkms
-  ```
+   sudo yum install dkms
+   ```
 
 2. Desabilite o driver de kernel Nouveau, que é incompatível com o driver NVIDIA. (Apenas use o driver NVIDIA em VMs NV2 ou NV.) Para fazer isso, crie um arquivo em `/etc/modprobe.d `chamado `nouveau.conf` com o conteúdo a seguir:
 
-  ```
-  blacklist nouveau
+   ```
+   blacklist nouveau
 
-  blacklist lbm-nouveau
-  ```
+   blacklist lbm-nouveau
+   ```
  
 3. Reinicie a VM, reconecte e instale o último [Integration Services do Linux para Hyper-V e Azure](https://www.microsoft.com/download/details.aspx?id=55106).
  
-  ```bash
-  wget https://aka.ms/lis
+   ```bash
+   wget https://aka.ms/lis
 
-  tar xvzf lis
+   tar xvzf lis
 
-  cd LISISO
+   cd LISISO
 
-  sudo ./install.sh
+   sudo ./install.sh
 
-  sudo reboot
+   sudo reboot
 
-  ```
+   ```
  
 4. Reconecte-se à VM e execute o comando `lspci`. Verifique se a placa ou placas NVIDIA M60 estão visíveis como dispositivos PCI.
  
 5. Baixe e instale o driver GRID:
 
-  ```bash
-  wget -O NVIDIA-Linux-x86_64-grid.run https://go.microsoft.com/fwlink/?linkid=874272  
+   ```bash
+   wget -O NVIDIA-Linux-x86_64-grid.run https://go.microsoft.com/fwlink/?linkid=874272  
 
-  chmod +x NVIDIA-Linux-x86_64-grid.run
+   chmod +x NVIDIA-Linux-x86_64-grid.run
 
-  sudo ./NVIDIA-Linux-x86_64-grid.run
-  ``` 
+   sudo ./NVIDIA-Linux-x86_64-grid.run
+   ``` 
 6. Quando você for questionado se deseja executar o utilitário nvidia-xconfig para atualizar seu arquivo de configuração X, selecione **Sim**.
 
 7. Após a conclusão da instalação, copie /etc/nvidia/gridd.conf.template para um novo arquivo gridd.conf no local /etc/hosts nvidia/
   
-  ```bash
-  sudo cp /etc/nvidia/gridd.conf.template /etc/nvidia/gridd.conf
-  ```
+   ```bash
+   sudo cp /etc/nvidia/gridd.conf.template /etc/nvidia/gridd.conf
+   ```
   
 8. Adicione o seguinte a `/etc/nvidia/gridd.conf`:
  
-  ```
-  IgnoreSP=FALSE
-  ```
+   ```
+   IgnoreSP=FALSE
+   ```
 9. Reinicie a VM e prossiga para verificar a instalação.
 
 ### <a name="verify-driver-installation"></a>Verificar a instalação de drivers

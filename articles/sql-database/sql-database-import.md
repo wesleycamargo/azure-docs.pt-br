@@ -11,15 +11,15 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/18/2019
-ms.openlocfilehash: c5f90776cb0e8617f0e524bd6b1701f4bf20d0a1
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 3eaa12b5ba735d1e2aa0e074054328942a3041eb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415691"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57900091"
 ---
-# <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database"></a>Início rápido: Importar um arquivo BACPAC para um banco de dados no Banco de Dados SQL do Azure
+# <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database"></a>Início Rápido: Importar um arquivo BACPAC para um banco de dados no Banco de Dados SQL do Azure
 
 Você pode importar um banco de dados do SQL Server para um banco de dados no Banco de Dados SQL do Azure usando um arquivo [BACPAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac). Você pode importar dados de um arquivo `BACPAC` armazenado no Armazenamento de Blobs do Azure (apenas no Armazenamento Standard) ou de uma determinada localização do armazenamento local. Para maximizar a velocidade de importação fornecendo mais recursos e mais rápidos, dimensione seu banco de dados para uma camada de serviço superior e o tamanho de computação durante o processo de importação. Em seguida, você poderá reduzir verticalmente após a importação ser realizada.
 
@@ -58,6 +58,8 @@ Para importar um Banco de Dados do SQL Server usando o utilitário de linha de c
 
 Para escala e desempenho, recomendamos usar o SqlPackage na maioria dos ambientes de produção em vez de usar no portal do Azure. Para ler uma postagem de blog da Equipe de Consultoria ao Cliente do SQL Server sobre a migração usando arquivos `BACPAC`, confira [Migrando do SQL Server para o Banco de Dados SQL do Azure usando arquivos BACPAC](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
 
+Para escala e desempenho, recomendamos usar o SqlPackage na maioria dos ambientes de produção. Para ler uma postagem de blog da Equipe de Consultoria ao Cliente do SQL Server sobre a migração usando arquivos BACPAC, confira [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/) (Migrando do SQL Server para o Banco de Dados SQL do Azure usando arquivos BACPAC).
+
 O seguinte comando SqlPackage importa o banco de dados **AdventureWorks2008R2** do armazenamento local para um servidor de Banco de Dados SQL do Azure chamado **mynewserver20170403**. Ele cria um novo banco de dados chamado **myMigratedDatabase** com uma camada de serviço **Premium** e um Objetivo de serviço **P6**. Altere esses valores conforme apropriado para o seu ambiente.
 
 ```cmd
@@ -77,19 +79,23 @@ SqlPackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 ## <a name="import-into-a-single-database-from-a-bacpac-file-using-powershell"></a>Importar para um banco de dados individual de um arquivo BACPAC usando o PowerShell
 
 > [!NOTE]
-> [Uma instância gerenciada](sql-database-managed-instance.md) não dá suporte à migração de um banco de dados para um banco de dados de instância de um arquivo BACPAC usando o Azure PowerShell]. Para importar para uma instância gerenciada, use o SQL Server Management Studio ou o SQLPackage.
+> [Uma instância gerenciada](sql-database-managed-instance.md) não oferece suporte a migração de um banco de dados em um banco de dados de instância de um arquivo BACPAC usando o Azure PowerShell. Para importar para uma instância gerenciada, use o SQL Server Management Studio ou o SQLPackage.
 
 
-Use o cmdlet [New-AzureRmSqlDatabaseImport](/powershell/module/azurerm.sql/new-azurermsqldatabaseimport) para enviar uma solicitação de importação de banco de dados para o serviço de Banco de Dados SQL do Azure. Dependendo do tamanho do banco de dados, a importação pode levar algum tempo para ser concluída.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> O módulo do PowerShell do Azure Resource Manager ainda é compatível com o banco de dados SQL, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para esses cmdlets, consulte [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
+
+Use o [New-AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport) cmdlet para enviar uma solicitação para importar o banco de dados para o serviço de banco de dados SQL. Dependendo do tamanho do banco de dados, a importação pode levar algum tempo para ser concluída.
 
  ```powershell
- $importRequest = New-AzureRmSqlDatabaseImport
+ $importRequest = New-AzSqlDatabaseImport 
     -ResourceGroupName "<your_resource_group>" `
     -ServerName "<your_server>" `
     -DatabaseName "<your_database>" `
     -DatabaseMaxSizeBytes "<database_size_in_bytes>" `
     -StorageKeyType "StorageAccessKey" `
-    -StorageKey $(Get-AzureRmStorageAccountKey -ResourceGroupName "<your_resource_group>" -StorageAccountName "<your_storage_account").Value[0] `
+    -StorageKey $(Get-AzStorageAccountKey -ResourceGroupName "<your_resource_group>" -StorageAccountName "<your_storage_account").Value[0] `
     -StorageUri "https://myStorageAccount.blob.core.windows.net/importsample/sample.bacpac" `
     -Edition "Standard" `
     -ServiceObjectiveName "P6" `
@@ -98,14 +104,14 @@ Use o cmdlet [New-AzureRmSqlDatabaseImport](/powershell/module/azurerm.sql/new-a
 
  ```
 
- Você pode usar o cmdlet [Get-AzureRmSqlDatabaseImportExportStatus](/powershell/module/azurerm.sql/get-azurermsqldatabaseimportexportstatus) para verificar o progresso da importação. A execução do cmdlet imediatamente após a solicitação geralmente retorna **Status: InProgress**. A importação estará concluída quando você vir **Status: Succeeded**.
+ Você pode usar o [Get-AzSqlDatabaseImportExportStatus](/powershell/module/az.sql/get-azsqldatabaseimportexportstatus) cmdlet para verificar o andamento da importação. A execução do cmdlet imediatamente após a solicitação geralmente retorna **Status: InProgress**. A importação estará concluída quando você vir **Status: Succeeded**.
 
 ```powershell
-$importStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
+$importStatus = Get-AzSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
 [Console]::Write("Importing")
 while ($importStatus.Status -eq "InProgress")
 {
-    $importStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
+    $importStatus = Get-AzSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
     [Console]::Write(".")
     Start-Sleep -s 10
 }
@@ -114,7 +120,7 @@ $importStatus
 ```
 
 > [!TIP]
-Para outro exemplo de script, confira [Importar um banco de dados de um arquivo BACPAC](scripts/sql-database-import-from-bacpac-powershell.md).
+> Para outro exemplo de script, confira [Importar um banco de dados de um arquivo BACPAC](scripts/sql-database-import-from-bacpac-powershell.md).
 
 ## <a name="limitations"></a>Limitações
 

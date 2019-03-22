@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2018
 ms.author: roiyz
-ms.openlocfilehash: f29c995c4fb4a1e87c95295779ff83dd133ac61c
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 520ff1dfeefc8cca66710745012ee54b550a19a0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984385"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097916"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensão de script personalizado para o Windows
 
@@ -107,27 +107,27 @@ Esses itens devem ser tratados como dados confidenciais e especificados na confi
 
 ### <a name="property-values"></a>Valores de propriedade
 
-| NOME | Valor/Exemplo | Tipo de Dados |
+| Nome | Valor/Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | data |
-| publicador | Microsoft.Compute | string |
-| Tipo | CustomScriptExtension | string |
+| publicador | Microsoft.Compute | cadeia de caracteres |
+| tipo | CustomScriptExtension | cadeia de caracteres |
 | typeHandlerVersion | 1.9 | int |
 | fileUris (por exemplo) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | matriz |
 | carimbo de data/hora (exemplo) | 123456789 | Inteiro de 32 bits |
-| commandToExecute (por exemplo) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | string |
-| storageAccountName (por exemplo) | examplestorageacct | string |
-| storageAccountKey (por exemplo) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
+| commandToExecute (por exemplo) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | cadeia de caracteres |
+| storageAccountName (por exemplo) | examplestorageacct | cadeia de caracteres |
+| storageAccountKey (por exemplo) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | cadeia de caracteres |
 
 >[!NOTE]
 >Esses nomes de propriedade diferenciam maiúsculas de minúsculas. Para evitar problemas de implantação, use os nomes conforme mostrado aqui.
 
 #### <a name="property-value-details"></a>Detalhes de valor de propriedade
- * `commandToExecute`: (**necessária**, cadeia de caracteres) o script de ponto de entrada a ser executado. Use esse campo se o comando contiver segredos, como senhas, ou se os fileUris diferenciarem maiúsculas de minúsculas.
-* `fileUris`: (opcional, matriz de cadeia de caracteres) as URLs dos arquivos a serem baixados.
-* `timestamp` (opcional, inteiro de 32 bits) use esse campo apenas para disparar uma nova execução do script, alterando o valor desse campo.  Qualquer valor inteiro é aceitável. Só deve ser diferente do valor anterior.
-* `storageAccountName`: (opcional, cadeia de caracteres) o nome da conta de armazenamento. Se você especificar credenciais de armazenamento, todos os `fileUris` deverão ser URLs para Blobs do Azure.
-* `storageAccountKey`: (opcional, cadeia de caracteres) a chave de acesso da conta de armazenamento
+* `commandToExecute`: (**necessária**, cadeia de caracteres) o script de ponto de entrada a ser executado. Use esse campo se o comando contiver segredos, como senhas, ou se os fileUris diferenciarem maiúsculas de minúsculas.
+  * `fileUris`: (opcional, matriz de cadeia de caracteres) as URLs dos arquivos a serem baixados.
+  * `timestamp` (opcional, inteiro de 32 bits) use esse campo apenas para disparar uma nova execução do script, alterando o valor desse campo.  Qualquer valor inteiro é aceitável. Só deve ser diferente do valor anterior.
+  * `storageAccountName`: (opcional, cadeia de caracteres) o nome da conta de armazenamento. Se você especificar credenciais de armazenamento, todos os `fileUris` deverão ser URLs para Blobs do Azure.
+  * `storageAccountKey`: (opcional, cadeia de caracteres) a chave de acesso da conta de armazenamento
 
 Os valores a seguir podem ser definidos nas configurações públicas ou protegidas. A extensão rejeitará qualquer configuração em que os valores abaixo estejam definidos tanto nas configurações protegidas quanto nas públicas.
 * `commandToExecute`
@@ -229,7 +229,7 @@ em que `<n>` é um inteiro decimal que pode ser alterado entre as execuções da
 
 Ao executar o comando `commandToExecute`, a extensão definirá esse diretório (por exemplo, `...\Downloads\2`) como o diretório de trabalho atual. Esse processo permite o uso de caminhos relativos para localizar os arquivos baixados por meio da propriedade `fileURIs`. Veja a tabela abaixo para obter exemplos.
 
-Como o caminho absoluto do download pode variar ao longo do tempo, é melhor optar por caminhos de arquivo/script relativos na cadeia de caracteres `commandToExecute`, sempre que possível. Por exemplo: 
+Como o caminho absoluto do download pode variar ao longo do tempo, é melhor optar por caminhos de arquivo/script relativos na cadeia de caracteres `commandToExecute`, sempre que possível. Por exemplo:
 ```json
     "commandToExecute": "powershell.exe . . . -File \"./scripts/myscript.ps1\""
 ```

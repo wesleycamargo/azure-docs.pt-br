@@ -2,22 +2,20 @@
 title: Autenticação serviço a serviço no Azure Key Vault usando o .NET
 description: Use a biblioteca Microsoft.Azure.Services.AppAuthentication para se autenticar no Azure Key Vault usando o .NET.
 keywords: credenciais de local de autenticação do Azure Key Vault
-author: bryanla
+author: msmbaldwin
 manager: barbkess
 services: key-vault
-ms.author: bryanla
-ms.date: 01/04/2019
+ms.author: mbaldwin
+ms.date: 03/05/2019
 ms.topic: conceptual
-ms.prod: ''
 ms.service: key-vault
-ms.technology: ''
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: 3b9f401a4fbbbf6cc6a66e257b0186e33966c321
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: b7532dc910fae84733c04d4e16ac93a5cd0f11c8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116432"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097899"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Autenticação serviço a serviço no Azure Key Vault usando o .NET
 
@@ -29,9 +27,8 @@ O uso das credenciais do desenvolvedor durante o desenvolvimento local é mais s
 
 A biblioteca `Microsoft.Azure.Services.AppAuthentication` gerencia a autenticação automaticamente, que, por sua vez, permite que você se concentre em sua solução, em vez de nas credenciais.
 
-A biblioteca `Microsoft.Azure.Services.AppAuthentication` dá suporte ao desenvolvimento local com o Microsoft Visual Studio, a CLI do Azure ou a Autenticação Integrada do Azure AD. Quando implantada em um recurso do Azure que oferece suporte a uma identidade gerenciada, a biblioteca usa automaticamente as [identidades gerenciadas para recursos do Azure](/azure/active-directory/msi-overview). Nenhuma alteração de configuração ou de código é necessária. A biblioteca também dá suporte ao uso direto das [credenciais do cliente](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal) do Azure AD quando uma identidade gerenciada não está disponível ou quando o contexto de segurança do desenvolvedor não pode ser determinado durante o desenvolvimento local.
+A biblioteca `Microsoft.Azure.Services.AppAuthentication` dá suporte ao desenvolvimento local com o Microsoft Visual Studio, a CLI do Azure ou a Autenticação Integrada do Azure AD. Quando implantada em um recurso do Azure que oferece suporte a uma identidade gerenciada, a biblioteca usa automaticamente as [identidades gerenciadas para recursos do Azure](../active-directory/msi-overview.md). Nenhuma alteração de configuração ou de código é necessária. A biblioteca também dá suporte ao uso direto das [credenciais do cliente](../azure-resource-manager/resource-group-authenticate-service-principal.md) do Azure AD quando uma identidade gerenciada não está disponível ou quando o contexto de segurança do desenvolvedor não pode ser determinado durante o desenvolvimento local.
 
-<a name="asal"></a>
 ## <a name="using-the-library"></a>Usando a biblioteca
 
 Para aplicativos .NET, a maneira mais simples de trabalhar com uma identidade gerenciada é por meio do pacote `Microsoft.Azure.Services.AppAuthentication`. Estas são algumas dicas para começar:
@@ -55,10 +52,8 @@ Para aplicativos .NET, a maneira mais simples de trabalhar com uma identidade ge
 
 A classe `AzureServiceTokenProvider` armazena em cache o token na memória e recupera-o do Azure AD logo antes da expiração. Consequentemente, você não precisa mais verificar a expiração antes de chamar o método `GetAccessTokenAsync`. Basta chamar o método quando desejar usar o token. 
 
-O método `GetAccessTokenAsync` exige um identificador de recurso. Para saber mais, veja [quais serviços do Azure dão suporte a identidades gerenciadas para recursos do Azure](https://docs.microsoft.com/azure/active-directory/msi-overview).
+O método `GetAccessTokenAsync` exige um identificador de recurso. Para saber mais, veja [quais serviços do Azure dão suporte a identidades gerenciadas para recursos do Azure](../active-directory/msi-overview.md).
 
-
-<a name="samples"></a>
 ## <a name="samples"></a>Exemplos
 
 As seguintes amostras mostram a biblioteca `Microsoft.Azure.Services.AppAuthentication` em ação:
@@ -69,17 +64,12 @@ As seguintes amostras mostram a biblioteca `Microsoft.Azure.Services.AppAuthenti
 
 3. [Use uma amostra do .NET Core e uma identidade gerenciada para chamar os serviços do Azure de uma VM Linux do Azure](https://github.com/Azure-Samples/linuxvm-msi-keyvault-arm-dotnet/).
 
-
-<a name="local"></a>
 ## <a name="local-development-authentication"></a>Autenticação de desenvolvimento local
 
 Para o desenvolvimento local, há dois cenários de autenticação principais:
 
 - [Autenticação nos serviços do Azure](#authenticating-to-azure-services)
 - [Autenticação em serviços personalizados](#authenticating-to-custom-services)
-
-Aqui, você conhecerá os requisitos para cada cenário e as ferramentas com suporte.
-
 
 ### <a name="authenticating-to-azure-services"></a>Autenticação nos serviços do Azure
 
@@ -89,17 +79,17 @@ Para o desenvolvimento local, o `AzureServiceTokenProvider` busca tokens usando 
 
 ### <a name="authenticating-with-visual-studio"></a>Autenticando com o Visual Studio
 
-Para usar o Virtual Studio, verifique se:
+Autenticar com o Visual Studio tem os seguintes pré-requisitos:
 
-1. Você instalou o [Visual Studio 2017 v15.5](https://blogs.msdn.microsoft.com/visualstudio/2017/10/11/visual-studio-2017-version-15-5-preview/) ou posterior.
+1. [Visual Studio 2017 v15.5](https://blogs.msdn.microsoft.com/visualstudio/2017/10/11/visual-studio-2017-version-15-5-preview/) ou posterior.
 
-2. A [extensão de Autenticação do Aplicativo para o Visual Studio](https://go.microsoft.com/fwlink/?linkid=862354) está instalada.
+2. O [extensão de autenticação do aplicativo para o Visual Studio](https://go.microsoft.com/fwlink/?linkid=862354), disponível como uma extensão separada para Visual Studio 2017 atualização 5 e agrupado com o produto na atualização 6 e posterior. Com a atualização 6 ou posterior, você pode verificar a instalação da extensão de autenticação do aplicativo, selecionando as ferramentas de desenvolvimento do Azure no instalador do Visual Studio.
  
-3. Você se conectou ao Visual Studio e selecionou uma conta a ser usada para desenvolvimento local. Use **Ferramentas**&nbsp;>&nbsp;**Opções**&nbsp;>&nbsp;**Autenticação de Serviço do Azure** para escolher uma conta de desenvolvimento local. 
+Entre no Visual Studio e usar **ferramentas**&nbsp;>&nbsp;**opções**&nbsp;>&nbsp;**o serviço do Azure Autenticação** para selecionar uma conta para o desenvolvimento local. 
 
 Caso tenha problemas com o Visual Studio, como erros referentes ao arquivo do provedor de token, leia estas etapas com atenção. 
 
-Também pode ser necessário autenticar novamente o token de desenvolvedor.  Para fazer isso, acesse **Ferramentas**&nbsp;>&nbsp;**Opções**>**Azure&nbsp;Serviço&nbsp;Autenticação** e procure um link **Autenticar novamente** na conta selecionada.  Selecione-o para autenticar. 
+Também pode ser necessário autenticar novamente o token de desenvolvedor. Para fazer isso, acesse **Ferramentas**&nbsp;>&nbsp;**Opções**>**Azure&nbsp;Serviço&nbsp;Autenticação** e procure um link **Autenticar novamente** na conta selecionada.  Selecione-o para autenticar. 
 
 ### <a name="authenticating-with-azure-cli"></a>Autenticando com a CLI do Azure
 
@@ -129,7 +119,7 @@ az account list
 
 Para usar a autenticação do Azure AD, verifique se:
 
-- O Active Directory local [é sincronizado com o Azure AD](/azure/active-directory/connect/active-directory-aadconnect).
+- O Active Directory local [é sincronizado com o Azure AD](../active-directory/connect/active-directory-aadconnect.md).
 
 - O código está sendo executado em um computador ingressado no domínio.
 
@@ -159,18 +149,17 @@ Depois de entrar no Azure, o `AzureServiceTokenProvider` usa a entidade de servi
 
 Isso se aplica apenas ao desenvolvimento local. Quando a solução é implantada no Azure, a biblioteca muda uma identidade gerenciada com propósito de autenticação.
 
-<a name="msi"></a>
-## <a name="running-the-application-using-managed-identity"></a>Executar o aplicativo usando uma identidade gerenciada 
+## <a name="running-the-application-using-managed-identity-or-user-assigned-identity"></a>Executando o aplicativo usando a identidade gerenciada ou identidade atribuída pelo usuário 
 
 Quando você executa o código em um Serviço de Aplicativo do Azure ou em uma VM do Azure com uma identidade gerenciada habilitada, a biblioteca usa automaticamente a identidade gerenciada. Nenhuma alteração de código é necessária. 
 
+Como alternativa, você pode autenticar com uma identidade atribuída pelo usuário. Para obter mais informações sobre identidades atribuídas ao usuário, consulte [sobre as identidades de gerenciado para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work). A cadeia de conexão é especificada na [suporte de cadeia de caracteres de Conexão](#connection-string-support) seção abaixo.
 
-<a name="sp"></a>
 ## <a name="running-the-application-using-a-service-principal"></a>Executando o aplicativo usando uma Entidade de Serviço 
 
 Pode ser necessário criar uma credencial do Cliente do Azure AD para autenticar. Exemplos comuns incluem:
 
-1. O código é executado em um ambiente de desenvolvimento local, mas não na identidade do desenvolvedor.  O Service Fabric, por exemplo, usa a [conta NetworkService](/azure/service-fabric/service-fabric-application-secret-management) para o desenvolvimento local.
+1. O código é executado em um ambiente de desenvolvimento local, mas não na identidade do desenvolvedor.  O Service Fabric, por exemplo, usa a [conta NetworkService](../service-fabric/service-fabric-application-secret-management.md) para o desenvolvimento local.
  
 2. O código é executado em um ambiente de desenvolvimento local e você se autentica em um serviço personalizado e, portanto, não pode usar sua identidade de desenvolvedor. 
  
@@ -178,7 +167,7 @@ Pode ser necessário criar uma credencial do Cliente do Azure AD para autenticar
 
 Para usar um certificado para entrar no Azure AD:
 
-1. Crie um [certificado de entidade de serviço](/azure/azure-resource-manager/resource-group-authenticate-service-principal). 
+1. Crie um [certificado de entidade de serviço](../azure-resource-manager/resource-group-authenticate-service-principal.md). 
 
 2. Implante o certificado no repositório *LocalMachine* ou *CurrentUser*. 
 
@@ -195,7 +184,7 @@ Para usar um certificado para entrar no Azure AD:
 
 Para entrar usando uma credencial de segredo compartilhado do Azure AD:
 
-1. Crie uma [entidade de serviço com uma senha](/azure/azure-resource-manager/resource-group-authenticate-service-principal) e conceda acesso a ela ao Key Vault. 
+1. Crie uma [entidade de serviço com uma senha](../azure-resource-manager/resource-group-authenticate-service-principal.md) e conceda acesso a ela ao Key Vault. 
 
 2. Defina uma variável de ambiente chamada **AzureServicesAuthConnectionString** como:
 
@@ -209,7 +198,6 @@ Para entrar usando uma credencial de segredo compartilhado do Azure AD:
 
 Depois que tudo estiver configurado corretamente, nenhuma alteração de código adicional será necessária.  O `AzureServiceTokenProvider` usa a variável de ambiente e o certificado para se autenticar no Azure AD. 
 
-<a name="connectionstrings"></a>
 ## <a name="connection-string-support"></a>Suporte à cadeia de conexão
 
 Por padrão, o `AzureServiceTokenProvider` usa vários métodos para recuperar um token. 
@@ -222,14 +210,16 @@ Há suporte para as seguintes opções:
 |:--------------------------------|:------------------------|:----------------------------|
 | `RunAs=Developer; DeveloperTool=AzureCli` | Desenvolvimento local | O AzureServiceTokenProvider usa a AzureCli para obter um token. |
 | `RunAs=Developer; DeveloperTool=VisualStudio` | Desenvolvimento local | O AzureServiceTokenProvider usa o Visual Studio para obter um token. |
-| `RunAs=CurrentUser;` | Desenvolvimento local | O AzureServiceTokenProvider usa a Autenticação Integrada do Azure AD para obter um token. |
-| `RunAs=App;` | identidades gerenciadas para recursos do Azure | O AzureServiceTokenProvider usa uma identidade gerenciada para obter um token. |
-| `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint`<br>`   ={Thumbprint};CertificateStoreLocation={LocalMachine or CurrentUser}`  | Entidade de serviço | O `AzureServiceTokenProvider` usa um certificado para obter um token do Azure AD. |
-| `RunAs=App;AppId={AppId};TenantId={TenantId};`<br>`   CertificateSubjectName={Subject};CertificateStoreLocation=`<br>`   {LocalMachine or CurrentUser}` | Entidade de serviço | O `AzureServiceTokenProvider` usa um certificado para obter um token do Azure AD|
+| `RunAs=CurrentUser` | Desenvolvimento local | O AzureServiceTokenProvider usa a Autenticação Integrada do Azure AD para obter um token. |
+| `RunAs=App` | [Identidades gerenciadas para os recursos do Azure](../active-directory/managed-identities-azure-resources/index.yml) | O AzureServiceTokenProvider usa uma identidade gerenciada para obter um token. |
+| `RunAs=App;AppId={ClientId of user-assigned identity}` | [Identidade atribuída pelo usuário para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work) | O AzureServiceTokenProvider usa uma identidade atribuída pelo usuário para obter um token. |
+| `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint={Thumbprint};CertificateStoreLocation={LocalMachine or CurrentUser}`   | Entidade de serviço | O `AzureServiceTokenProvider` usa um certificado para obter um token do Azure AD. |
+| `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateSubjectName={Subject};CertificateStoreLocation={LocalMachine or CurrentUser}` | Entidade de serviço | O `AzureServiceTokenProvider` usa um certificado para obter um token do Azure AD|
 | `RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret}` | Entidade de serviço |O `AzureServiceTokenProvider` usa um segredo para obter um token do Azure AD. |
+
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Aprenda sobre [identidades gerenciadas dos recursos do Azure](/azure/active-directory/managed-identities-azure-resources/).
-- Saiba mais sobre os [cenários de autenticação do Azure AD](/azure/active-directory/develop/active-directory-authentication-scenarios).
+- Aprenda sobre [identidades gerenciadas dos recursos do Azure](../active-directory/managed-identities-azure-resources/index.yml).
+- Saiba mais sobre os [cenários de autenticação do Azure AD](../active-directory/develop/active-directory-authentication-scenarios.md).

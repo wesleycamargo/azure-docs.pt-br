@@ -13,18 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: apimpm
-ms.openlocfilehash: b05713fd8acb49b25dba04781c1049c9f05115fb
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
-ms.translationtype: HT
+ms.openlocfilehash: 5161a35fd52b2f3d8374c76bdab60281e33dacf6
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444676"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730640"
 ---
 # <a name="how-to-add-a-custom-ca-certificate-in-azure-api-management"></a>Como adicionar um Certificado de Autoridade de Certificação personalizado no Gerenciamento de API do Azure
 
 O Gerenciamento de API do Azure permite instalar Certificados de Autoridade de Certificação no computador de dentro da raiz confiável e de repositórios de certificados intermediários. Essa funcionalidade deve ser usada se os serviços exigem um Certificado de Autoridade de Certificação personalizado.
 
 O artigo mostra como gerenciar Certificado de Autoridade de Certificação de uma instância do serviço Gerenciamento de API do Azure no portal do Azure.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -51,7 +53,7 @@ Siga as etapas abaixo para fazer upload de um novo Certificado de Autoridade de 
     ![Adicionar certificados de autoridade de certificação](media/api-management-howto-ca-certificates/03.png)  
 
 > [!NOTE]
-> Você pode carregar um Certificado de Autoridade de Certificação usando o comando `New-AzureRmApiManagementSystemCertificate` do Powershell.
+> Você pode carregar um Certificado de Autoridade de Certificação usando o comando `New-AzApiManagementSystemCertificate` do Powershell.
 
 ## <a name="step1a"> </a>Excluir um certificado do cliente
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2bba14e37e811c941c9709eef6b6d8ffd8322643
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3772f42b1216cfb26d66b1d68fcb9e59fd8652d8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167126"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107535"
 ---
 # <a name="what-is-password-writeback"></a>O que é write-back de senha?
 
@@ -96,11 +96,11 @@ Quando um usuário federado ou sincronizado com hash de senha tenta redefinir ou
    >
 
 1. Se a operação de definição de senha falhar, um erro solicitará que o usuário tente novamente. A operação poderá falhar porque:
-   * O serviço foi desativado.
-   * A senha selecionada não atendeu às políticas da organização.
-   * Não é possível localizar o usuário no Active Directory local.
+    * O serviço foi desativado.
+    * A senha selecionada não atendeu às políticas da organização.
+    * Não é possível localizar o usuário no Active Directory local.
 
-    As mensagens de erro fornecem diretrizes aos usuários para que possam tentar resolver sem intervenção do administrador.
+      As mensagens de erro fornecem diretrizes aos usuários para que possam tentar resolver sem intervenção do administrador.
 
 ## <a name="password-writeback-security"></a>Segurança de write-back de senha
 

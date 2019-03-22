@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 32c326ff7bef98f9d8f4f20664889109d291a6ea
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 74b1ed79e04bcca05dcb5308b844622e4dd413ce
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328836"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57410291"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configurações e operações de infraestrutura do SAP HANA no Azure
 Este documento fornece orientação para configurar a infraestrutura do Azure e operar sistemas SAP HANA que são implantados em máquinas virtuais nativas (VMs) do Azure. O documento também inclui informações de configuração de expansão para a SKU de VM M128s do SAP HANA. Este documento não pretende substituir a documentação padrão do SAP, que inclui o seguinte conteúdo:
@@ -442,7 +442,7 @@ Como para escalabilidade horizontal de SAP HANA, o diretório /hana/shared deve 
 ### <a name="links-to-dt-20-documentation"></a>Links para documentação DT 2.0 
 
 - [Instalação do SAP HANA Dynamic Tiering e atualizar guia](https://help.sap.com/viewer/88f82e0d010e4da1bc8963f18346f46e/2.0.03/en-US)
-- [Recursos e tutoriais de camadas do SAP HANA Dynamic Tiering](https://www.sap.com/developer/topics/hana-dynamic-tiering.html)
+- [Recursos e tutoriais de camadas do SAP HANA Dynamic Tiering](https://help.sap.com/viewer/fb9c3779f9d1412b8de6dd0788fa167b/2.0.03/en-US)
 - [PoC de SAP HANA Dynamic Tiering](https://blogs.sap.com/2017/12/08/sap-hana-dynamic-tiering-delivering-on-low-tco-with-impressive-performance/)
 - [Aprimoramentos do SAP HANA 2.0 SPS 02](https://blogs.sap.com/2017/07/31/sap-hana-2.0-sps-02-dynamic-tiering-enhancements/)
 

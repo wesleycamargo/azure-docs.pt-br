@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 0cffb4fdff4bddc33c6938e27425035c929808b7
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 7bfed1144ebfc69ed51b7bbc1adf78538ed28425
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301920"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861070"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Use grupos de failover automático para habilitar o failover transparente e coordenado de vários bancos de dados
 
@@ -129,6 +129,18 @@ Para garantir a continuidade de negócios real, a adição de redundância de ba
 
   > [!IMPORTANT]
   > A Instância Gerenciada não dá suporte a vários grupos de failover.
+  
+## <a name="permissions"></a>Permissões
+Permissões para um grupo de failover são gerenciadas por meio [controle de acesso baseado em função (RBAC)](../role-based-access-control/overview.md). O [Colaborador do SQL Server](../role-based-access-control/built-in-roles.md#sql-server-contributor) função tem todas as permissões necessárias para gerenciar grupos de failover. 
+
+### <a name="create-failover-group"></a>Criar grupo de failover
+Para criar um grupo de failover, você precisa ter acesso de gravação RBAC para os servidores primários e secundários e todos os bancos de dados no grupo de failover. Para uma instância gerenciada, você precisa ter acesso de gravação RBAC para ambas as primária e secundária instância gerenciada, mas permissões nos bancos de dados individuais não são relevantes, como bancos de dados de instância gerenciada individual não podem ser adicionados ou removidos de um grupo de failover. 
+
+### <a name="update-a-failover-group"></a>Atualizar um grupo de failover
+Para atualizar um grupo de failover, você precisa de RBAC acesso de gravação para o grupo de failover e todos os bancos de dados no servidor principal atual ou a instância gerenciada.  
+
+### <a name="failover-a-failover-group"></a>Failover de um grupo de failover
+Para fazer failover de um grupo de failover, você precisa ter acesso de gravação RBAC para o grupo de failover no novo servidor primário ou a instância gerenciada. 
 
 ## <a name="best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools"></a>Práticas recomendadas de como usar grupos de failover com bancos de dados individuais e pools elásticos
 
@@ -203,7 +215,7 @@ Se o aplicativo usar a Instância Gerenciada como a camada de dados, siga estas 
   > [!NOTE]
   > Em determinadas camadas de serviço, o Banco de Dados SQL do Azure é compatível com o uso de [réplicas somente leitura](sql-database-read-scale-out.md) para realizar o balanceamento de cargas de trabalho de consulta somente leitura usando a capacidade de uma réplica somente leitura e usando o parâmetro `ApplicationIntent=ReadOnly` na cadeia de conexão. Quando você tiver configurado um secundário replicado geograficamente, você pode usar essa funcionalidade para se conectar a uma réplica somente leitura na localização do primário ou na localização com replicação geográfica.
   > - Para se conectar a uma réplica somente leitura na localização do primário, use `failover-group-name.zone_id.database.windows.net`.
-  > - Para se conectar a uma réplica somente leitura na localização do primário, use `failover-group-name.secondary.zone_id.database.windows.net`.
+  > - Para se conectar a uma réplica somente leitura no local secundário, use `failover-group-name.secondary.zone_id.database.windows.net`.
 
 - **Prepare-se para degradação de desempenho**
 
@@ -270,7 +282,9 @@ Quando você configura um grupo de failover entre instâncias gerenciadas de pri
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>Atualizar ou fazer downgrade de um banco de dados primário
 
-Você pode atualizar ou fazer downgrade de um banco de dados primário para um tamanho de computação diferente (dentro da mesma camada de serviço, não entre Uso Geral e Comercialmente Crítico) sem desconectar nenhum banco de dados secundário. Ao atualizar, recomendamos que você atualize primeiro o banco de dados secundário e, depois, atualize o primário. Ao fazer downgrade, inverta a ordem: faça primeiro o downgrade do banco de dados primário e, depois, faça do secundário. Quando você atualiza ou faz downgrade do banco de dados para uma camada de serviço diferente essa recomendação é imposta.
+Você pode atualizar ou fazer downgrade de um banco de dados primário para um tamanho de computação diferente (dentro da mesma camada de serviço, não entre Uso Geral e Comercialmente Crítico) sem desconectar nenhum banco de dados secundário. Ao atualizar, recomendamos que você atualize todos os bancos de dados secundários primeiro e, em seguida, atualize o primário. Ao fazer o downgrade, inverta a ordem: fazer o downgrade do primário pela primeira vez e, em seguida, fazer downgrade de todos os bancos de dados secundários. Quando você atualiza ou faz downgrade do banco de dados para uma camada de serviço diferente essa recomendação é imposta.
+
+Essa sequência é recomendável especificamente para evitar o problema em que o secundário em uma SKU inferior fica sobrecarregado e deve ser repropagado durante um processo de atualização ou downgrade. Você também pode evitar o problema, tornando o primário como somente leitura, às custas de afetar todas as cargas de trabalho de leitura / gravação no primário. 
 
 > [!NOTE]
 > Se você tiver criado um banco de dados secundário como parte da configuração do grupo de failover não é recomendável fazer o downgrade do banco de dados secundário. Isso é para garantir que sua camada de dados tenha capacidade suficiente para processar sua carga de trabalho normal após o failover ser ativado.
@@ -294,12 +308,12 @@ Conforme discutido anteriormente, os grupos de failover automático e a replica�
 
 | Cmdlet | DESCRIÇÃO |
 | --- | --- |
-| [New-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |Esse comando cria um grupo de failover e registra-o nos servidores primário e secundário|
-| [Remove-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqldatabasefailovergroup) | Remove o grupo de failover do servidor e exclui todos os bancos de dados secundários incluídos no grupo |
-| [Get-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasefailovergroup) | Recupera a configuração do grupo de failover |
-| [Set-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |Modifica a configuração do grupo de failover |
-| [Switch-AzureRMSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/switch-azurermsqldatabasefailovergroup) | Dispara o failover do grupo de failover para o servidor secundário |
-| [Add-AzureRmSqlDatabaseToFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/add-azurermsqldatabasetofailovergroup)|Adiciona um ou mais bancos de dados a um grupo de failover do Banco de Dados SQL do Azure|
+| [New-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasefailovergroup) |Esse comando cria um grupo de failover e registra-o nos servidores primário e secundário|
+| [Remove-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasefailovergroup) | Remove o grupo de failover do servidor e exclui todos os bancos de dados secundários incluídos no grupo |
+| [Get-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Recupera a configuração do grupo de failover |
+| [Set-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasefailovergroup) |Modifica a configuração do grupo de failover |
+| [Switch-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/switch-azsqldatabasefailovergroup) | Dispara o failover do grupo de failover para o servidor secundário |
+| [Add-AzSqlDatabaseToFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/add-azsqldatabasetofailovergroup)|Adiciona um ou mais bancos de dados a um grupo de failover do Banco de Dados SQL do Azure|
 |  | |
 
 > [!IMPORTANT]
@@ -312,13 +326,13 @@ Conforme discutido anteriormente, os grupos de failover automático e a replica�
 
 1. Atualize o módulo PowerShellGet para 1.6.5 (ou a versão prévia mais recente). Confira o [site da versão prévia do PowerShell](https://www.powershellgallery.com/packages/AzureRM.Sql/4.11.6-preview).
 
-   ```Powershell
+   ```PowerShell
       install-module PowerShellGet -MinimumVersion 1.6.5 -force
    ```
 
 2. Em uma nova janela do PowerShell, execute os comandos a seguir:
 
-   ```Powershell
+   ```PowerShell
       import-module PowerShellGet
       get-module PowerShellGet #verify version is 1.6.5 (or newer)
       install-module azurerm.sql -RequiredVersion 4.5.0-preview -AllowPrerelease –Force
@@ -329,11 +343,11 @@ Conforme discutido anteriormente, os grupos de failover automático e a replica�
 
 | API | DESCRIÇÃO |
 | --- | --- |
-| New-AzureRmSqlDatabaseInstanceFailoverGroup |Esse comando cria um grupo de failover e registra-o nos servidores primário e secundário|
-| Set-AzureRmSqlDatabaseInstanceFailoverGroup |Modifica a configuração do grupo de failover|
-| Get-AzureRmSqlDatabaseInstanceFailoverGroup |Recupera a configuração do grupo de failover|
-| Switch-AzureRmSqlDatabaseInstanceFailoverGroup |Dispara o failover do grupo de failover para o servidor secundário|
-| Remove-AzureRmSqlDatabaseInstanceFailoverGroup | Remove um grupo de failover|
+| New-AzSqlDatabaseInstanceFailoverGroup |Esse comando cria um grupo de failover e registra-o nos servidores primário e secundário|
+| Set-AzSqlDatabaseInstanceFailoverGroup |Modifica a configuração do grupo de failover|
+| Get-AzSqlDatabaseInstanceFailoverGroup |Recupera a configuração do grupo de failover|
+| Switch-AzSqlDatabaseInstanceFailoverGroup |Dispara o failover do grupo de failover para o servidor secundário|
+| Remove-AzSqlDatabaseInstanceFailoverGroup | Remove um grupo de failover|
 
 ### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>API REST: Gerenciar grupos de failover de Banco de Dados SQL com bancos de dados individuais e em pool
 

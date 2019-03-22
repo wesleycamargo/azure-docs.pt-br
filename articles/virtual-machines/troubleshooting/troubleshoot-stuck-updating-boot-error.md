@@ -3,7 +3,7 @@ title: A inicialização VM do Azure está presa no Windows Update | Microsoft D
 description: Saiba como solucionar o problema quando uma inicialização de VM do Azure fica presa no Windows Update.
 services: virtual-machines-windows
 documentationCenter: ''
-authors: genli
+author: genlin
 manager: cshepard
 editor: v-jesits
 ms.service: virtual-machines-windows
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
-ms.openlocfilehash: d56e96ca1fbc96261f6f526c792b0a53c74718ef
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
-ms.translationtype: HT
+ms.openlocfilehash: 7c516781f7d0c80dc7185585a29278820ab9a46e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063653"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57777559"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>Inicialização de VM do Azure presa no Windows Update
 
@@ -27,7 +27,7 @@ Este artigo ajuda a resolver o problema de quando sua VM (Máquina Virtual) fica
 > [!NOTE] 
 > O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Resource Manager e clássico](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação do Gerenciador de Recursos. É recomendável usar esse modelo para novas implantações, em vez de usar o modelo de implantação clássico.
 
- ## <a name="symptom"></a>Sintoma
+## <a name="symptom"></a>Sintoma
 
  Uma VM do Windows não inicia. Quando você verificar as capturas de tela na janela [Diagnósticos de inicialização](../troubleshooting/boot-diagnostics.md), verá que a inicialização está presa no processo de atualização. A seguir estão exemplos de mensagens que você pode receber:
 

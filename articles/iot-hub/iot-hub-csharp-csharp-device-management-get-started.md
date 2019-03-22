@@ -1,20 +1,20 @@
 ---
 title: Introdução ao gerenciamento de dispositivo de Hub IoT do Azure (.NET/.NET) | Microsoft Docs
 description: Como usar o gerenciamento de dispositivos do Hub IoT do Azure para iniciar uma reinicialização do dispositivo remoto. Use o SDK do dispositivo IoT do Azure para .NET para implementar um aplicativo de dispositivo simulado que inclua um método direto e o SDK do serviço do Azure IoT para .NET para implementar um aplicativo de serviço que invoque o método direto.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 09/15/2017
-ms.author: dobett
-ms.openlocfilehash: 00eda1dc5ad0e455c451fda17cc915ae6c633696
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
-ms.translationtype: HT
+ms.author: robin.shahan
+ms.openlocfilehash: 7e7d6fad4268200e5410eb3d3ba3c1e2df06e967
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515124"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008603"
 ---
 # <a name="get-started-with-device-management-netnet"></a>Introdução ao gerenciamento de dispositivos (.NET/.NET)
 
@@ -44,7 +44,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>Recuperar cadeia de conexão para hub IoT
+### <a name="retrieve-connection-string-for-iot-hub"></a>Recuperar a cadeia conexão para o hub IoT
 
 [!INCLUDE [iot-hub-find-include-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2886dbafe6bf20718f4e3cd2976764fc432dbb04
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
-ms.translationtype: HT
+ms.openlocfilehash: 92a5f7c058904015cb22a239b7e7c4938ae1fdae
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44021745"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895245"
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Elemento de interface do usuário Microsoft.Common.FileUpload
 Um controle que permite a um usuário especificar um ou mais arquivos a carregar.
@@ -48,7 +48,7 @@ Um controle que permite a um usuário especificar um ou mais arquivos a carregar
 ```
 
 ## <a name="remarks"></a>Comentários
-- `constraints.accept`Especifica os tipos de arquivos que são mostrados no diálogo do arquivo do navegador. Consulte a [especificação do HTML5](http://www.w3.org/TR/html5/forms.html#attr-input-accept) para obter os valores permitidos. O valor padrão é **null**.
+- `constraints.accept`Especifica os tipos de arquivos que são mostrados no diálogo do arquivo do navegador. Consulte a [especificação do HTML5](https://www.w3.org/TR/html5/forms.html#attr-input-accept) para obter os valores permitidos. O valor padrão é **null**.
 - Se `options.multiple` é definido como **true**, o usuário pode selecionar mais de um arquivo no diálogo do arquivo do navegador. O valor padrão é **false**.
 - Esse elemento dá suporte ao carregamento de arquivos em dois modos com base no valor de `options.uploadMode`. Se **file** for especificado, a saída terá o conteúdo do arquivo como um blob. Se **url** for especificado, o arquivo será carregado em um local temporário e a saída terá a URL do blob. Blobs temporários serão limpos após 24 horas. O valor padrão é **file**.
 - Um arquivo carregado é protegido. A URL de saída inclui um [token SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para acessar o arquivo durante a implantação.

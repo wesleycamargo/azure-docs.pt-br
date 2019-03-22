@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: shlo
-ms.openlocfilehash: d103061289991fb149b7c8d76430b37a6b385f80
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
-ms.translationtype: HT
+ms.openlocfilehash: 21e66f962d1cc0bbbe8d780a702216d40abe2836
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064365"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453466"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Gatilhos e execução de pipeline no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -94,10 +94,13 @@ https://management.azure.com/subscriptions/mySubId/resourceGroups/myResourceGrou
 Para ver um exemplo completo, consulte [Início rápido: Criar um data factory usando a API REST](quickstart-create-data-factory-rest-api.md).
 
 ### <a name="azure-powershell"></a>Azure PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 O comando de exemplo abaixo mostra como executar o pipeline manualmente usando o Azure PowerShell:
 
 ```powershell
-Invoke-AzureRmDataFactoryV2Pipeline -DataFactory $df -PipelineName "Adfv2QuickStartPipeline" -ParameterFile .\PipelineParameters.json
+Invoke-AzDataFactoryV2Pipeline -DataFactory $df -PipelineName "Adfv2QuickStartPipeline" -ParameterFile .\PipelineParameters.json
 ```
 
 Você passa parâmetros no corpo do conteúdo da solicitação. No SDK do .NET, no Azure PowerShell e no SDK do Python, você passa valores em um dicionário que é passado como um argumento para a chamada:

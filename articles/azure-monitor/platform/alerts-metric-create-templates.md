@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.date: 9/27/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 9f8d6488d12b5550c3390699b9c34380b51b60f9
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 13507361411a08852a059782f1ed6f00e25bec94
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112590"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541308"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Criar um alerta de métrica com um modelo do Resource Manager
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Este artigo mostra como você pode usar um [o modelo do Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para configurar [alertas de métricas novos](../../azure-monitor/platform/alerts-metric-near-real-time.md) no Azure Monitor. Os modelos do Resource Manager permitem que você configure programaticamente os alertas de maneira consistente e reproduzível em seus ambientes. Alertas de métrica novos estão disponíveis atualmente [neste conjunto de tipos de recurso](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
@@ -235,11 +237,11 @@ Você pode criar o alerta de métrica usando o arquivo de modelo e parâmetros u
 Usando o PowerShell do Azure
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 
-Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
  
-New-AzureRmResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupofTargetResource `
+New-AzResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupofTargetResource `
   -TemplateFile simplestaticmetricalert.json -TemplateParameterFile simplestaticmetricalert.parameters.json
 ```
 
@@ -267,7 +269,7 @@ Salve o json abaixo como simpledynamicmetricalert.json para usar neste passo a p
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -444,7 +446,7 @@ Salve o json abaixo como simpledynamicmetricalert.parameters.json e modifique-o 
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -493,11 +495,11 @@ Você pode criar o alerta de métrica usando o arquivo de modelo e parâmetros u
 Usando o PowerShell do Azure
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 
-Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
  
-New-AzureRmResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupofTargetResource `
+New-AzResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupofTargetResource `
   -TemplateFile simpledynamicmetricalert.json -TemplateParameterFile simpledynamicmetricalert.parameters.json
 ```
 
@@ -643,7 +645,7 @@ Salve e modifique o json abaixo como advancedstaticmetricalert.parameters.json p
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -710,11 +712,11 @@ Você pode criar o alerta de métrica usando o arquivo de modelo e parâmetros u
 
 Usando o PowerShell do Azure
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 
-Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
  
-New-AzureRmResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupofTargetResource `
+New-AzResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupofTargetResource `
   -TemplateFile advancedstaticmetricalert.json -TemplateParameterFile advancedstaticmetricalert.parameters.json
 ```
 
@@ -745,7 +747,7 @@ Salve o json abaixo como advanceddynamicmetricalert.json para usar neste passo a
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -855,7 +857,7 @@ Salve e modifique o json abaixo como advanceddynamicmetricalert.parameters.json 
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -911,11 +913,11 @@ Você pode criar o alerta de métrica usando o arquivo de modelo e parâmetros u
 
 Usando o PowerShell do Azure
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 
-Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
  
-New-AzureRmResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupofTargetResource `
+New-AzResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupofTargetResource `
   -TemplateFile advanceddynamicmetricalert.json -TemplateParameterFile advanceddynamicmetricalert.parameters.json
 ```
 
@@ -956,7 +958,7 @@ Salve o json abaixo como all-vms-in-resource-group-static.json para usar neste p
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -1172,7 +1174,7 @@ Salve e modifique o JSON abaixo como all-vms-in-resource-group-static.parameters
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -1223,11 +1225,11 @@ Você pode criar o alerta de métrica estática usando o arquivo de parâmetros 
 Usando o PowerShell do Azure
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 
-Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
 
-New-AzureRmResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
+New-AzResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
   -TemplateFile all-vms-in-resource-group-static.json -TemplateParameterFile all-vms-in-resource-group-static.parameters.json
 ```
 
@@ -1251,7 +1253,7 @@ Salve o json abaixo como all-vms-in-resource-group-dynamic.json para usar neste 
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -1488,7 +1490,7 @@ Salve e modifique o JSON abaixo como all-vms-in-resource-group-dynamic.parameter
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -1545,11 +1547,11 @@ Você pode criar o alerta de métrica usando o arquivo de modelo e parâmetros u
 Usando o PowerShell do Azure
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 
-Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
 
-New-AzureRmResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
+New-AzResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
   -TemplateFile all-vms-in-resource-group-dynamic.json -TemplateParameterFile all-vms-in-resource-group-dynamic.parameters.json
 ```
 
@@ -1573,7 +1575,7 @@ Salve o JSON abaixo como all-vms-in-subscription-static.json para usar neste pas
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -1837,11 +1839,11 @@ Você pode criar o alerta de métrica usando o arquivo de modelo e parâmetros u
 Usando o PowerShell do Azure
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 
-Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
 
-New-AzureRmResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
+New-AzResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
   -TemplateFile all-vms-in-subscription-static.json -TemplateParameterFile all-vms-in-subscription-static.parameters.json
 ```
 
@@ -2156,11 +2158,11 @@ Você pode criar o alerta de métrica usando o arquivo de modelo e parâmetros u
 Usando o PowerShell do Azure
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 
-Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
 
-New-AzureRmResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
+New-AzResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
   -TemplateFile all-vms-in-subscription-dynamic.json -TemplateParameterFile all-vms-in-subscription-dynamic.parameters.json
 ```
 
@@ -2451,11 +2453,11 @@ Você pode criar o alerta de métrica usando o arquivo de modelo e parâmetros u
 Usando o PowerShell do Azure
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 
-Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
 
-New-AzureRmResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
+New-AzResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
   -TemplateFile list-of-vms-static.json -TemplateParameterFile list-of-vms-static.parameters.json
 ```
 
@@ -2773,11 +2775,11 @@ Você pode criar o alerta de métrica usando o arquivo de modelo e parâmetros u
 Usando o PowerShell do Azure
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 
-Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
 
-New-AzureRmResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
+New-AzResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
   -TemplateFile list-of-vms-dynamic.json -TemplateParameterFile list-of-vms-dynamic.parameters.json
 ```
 

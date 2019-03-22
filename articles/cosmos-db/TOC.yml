@@ -22,7 +22,7 @@ items:
   expanded: true
 - name: Tutoriais
   items:
-  - name: 1 - Criar conta
+  - name: 1 – Criar e gerenciar dados
     items:
     - name: Compilar o aplicativo de console
       items:
@@ -238,7 +238,7 @@ items:
         href: create-mongodb-golang.md
     - name: Tutoriais
       items:
-      - name: 1 - Criar conta
+      - name: 1 – Criar e gerenciar dados
         items:
         - name: Aplicativo de console do Node.js
           href: mongodb-samples.md
@@ -337,7 +337,7 @@ items:
         href: create-cassandra-python.md
     - name: Tutoriais
       items:
-      - name: 1 - Criar conta e banco de dados
+      - name: 1 – Criar e gerenciar dados
         href: create-cassandra-api-account-java.md
       - name: 2 - Carregar Dados
         href: cassandra-api-load-data.md
@@ -389,7 +389,7 @@ items:
         href: create-table-python.md
     - name: Tutoriais
       items:
-      - name: 1 - Criar conta
+      - name: 1 – Criar e gerenciar dados
         href: tutorial-develop-table-dotnet.md
       - name: 2 - Migrar dados
         displayName: import
@@ -600,6 +600,8 @@ items:
     items:
     - name: Solucionar problemas de SDK do Java Assíncrono
       href: troubleshoot-java-async-sdk.md
+    - name: Solucionar problemas de SDK do .NET
+      href: troubleshoot-dot-net-sdk.md
 - name: Referência
   items:
   - name: .NET
@@ -654,9 +656,9 @@ items:
       href: use-cases.md
     - name: Aplicativos de mídia social
       href: social-media-apps.md
-ms.openlocfilehash: f1f36d86466f93c0acac30364ba648391fb03095
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 96160b85319ddd7e09b1ecd4e57b974608648021
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652511"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57876911"

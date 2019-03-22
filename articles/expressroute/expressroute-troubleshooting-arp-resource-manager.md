@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 1807bda35f6bfcc9dbbb30f054cedb9454a88a7f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 01eac27b63f9eaaf62e863cd023201c3eab4b74e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158563"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432134"
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>Obtenção de tabelas ARP no modelo de implantação do Resource Manager
 > [!div class="op_single_selector"]
@@ -28,6 +28,8 @@ Este artigo fornece uma orientação pelas etapas de aprendizado sobre as tabela
 > Este documento tem como intenção ajudar você a diagnosticar e corrigir problemas simples. Ela não deve ser usado como uma substituição ao suporte da Microsoft. Você deve abrir um tíquete de suporte com o [suporte da Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) se não conseguir resolver o problema usando a orientação abaixo.
 > 
 > 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="address-resolution-protocol-arp-and-arp-tables"></a>ARP (Protocolo de resolução de endereço) e tabelas ARP
 ARP (Protocolo de resolução de endereço) é um protocolo de camada 2 definido no [RFC 826](https://tools.ietf.org/html/rfc826). ARP é usado para mapear o endereço de Ethernet (endereço MAC) com um endereço IP.
@@ -69,10 +71,10 @@ O cmdlet a seguir fornece as tabelas ARP para o emparelhamento privado do Azure
         $Name = "<Your ExpressRoute Circuit Name Here>"
 
         # ARP table for Azure private peering - Primary path
-        Get-AzureRmExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePrivatePeering -DevicePath Primary
+        Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePrivatePeering -DevicePath Primary
 
         # ARP table for Azure private peering - Secondary path
-        Get-AzureRmExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePrivatePeering -DevicePath Secondary 
+        Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePrivatePeering -DevicePath Secondary 
 
 Veja abaixo um exemplo de saída para um dos caminhos
 
@@ -90,10 +92,10 @@ O cmdlet a seguir fornece as tabelas ARP para o emparelhamento público do Azure
         $Name = "<Your ExpressRoute Circuit Name Here>"
 
         # ARP table for Azure public peering - Primary path
-        Get-AzureRmExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePublicPeering -DevicePath Primary
+        Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePublicPeering -DevicePath Primary
 
         # ARP table for Azure public peering - Secondary path
-        Get-AzureRmExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePublicPeering -DevicePath Secondary 
+        Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePublicPeering -DevicePath Secondary 
 
 
 Veja abaixo um exemplo de saída para um dos caminhos
@@ -112,10 +114,10 @@ O cmdlet a seguir fornece as tabelas ARP para o emparelhamento da Microsoft
         $Name = "<Your ExpressRoute Circuit Name Here>"
 
         # ARP table for Microsoft peering - Primary path
-        Get-AzureRmExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType MicrosoftPeering -DevicePath Primary
+        Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType MicrosoftPeering -DevicePath Primary
 
         # ARP table for Microsoft peering - Secondary path
-        Get-AzureRmExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType MicrosoftPeering -DevicePath Secondary 
+        Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType MicrosoftPeering -DevicePath Secondary 
 
 
 Veja abaixo um exemplo de saída para um dos caminhos
@@ -141,13 +143,13 @@ A tabela ARP de um emparelhamento pode ser usada para determinar a validade da c
           0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
 
 ### <a name="arp-table-when-on-premises--connectivity-provider-side-has-problems"></a>Tabela de ARP quando o lado do provedor de conectividade/local tiver problemas
-Se houver problemas com o local ou com o provedor de conectividade, você verá que apenas uma entrada aparecerá na tabela ARP, ou o endereço MAC local aparecerá incompleto. Isso mostrará o mapeamento entre o endereço MAC e o endereço IP usado no lado da Microsoft. 
+Se houver problemas com o local ou provedor de conectividade, que você poderá ver que apenas uma entrada aparecerá na tabela ARP ou no endereço MAC local aparecerá incompleto. Isso mostrará o mapeamento entre o endereço MAC e o endereço IP usado no lado da Microsoft. 
   
        Age InterfaceProperty IpAddress  MacAddress    
        --- ----------------- ---------  ----------    
          0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
 
-ou o
+ou
        
        Age InterfaceProperty IpAddress  MacAddress    
        --- ----------------- ---------  ----------   
@@ -166,7 +168,7 @@ ou o
 * Você não verá uma tabela ARP para um emparelhamento se houver problemas no lado da Microsoft. 
 * Abra um tíquete com o suporte com o [suporte da Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Especifique que você tem um problema de conectividade de camada 2. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas Etapas
 * Validar as configurações de Camada 3 para o circuito de ExpressRoute
   * Obter o resumo de rota para determinar o estado das sessões BGP 
   * Obter a tabela de rota para determinar quais prefixos são anunciados pelo ExpressRoute

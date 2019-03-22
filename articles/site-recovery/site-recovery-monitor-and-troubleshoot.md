@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.author: bsiva
-ms.openlocfilehash: 48e53bcc542b9a0e00a544f80ec796082fa71f7b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 5bbde2f1059982424c2557d6a767692b3491f6aa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210413"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098467"
 ---
 # <a name="monitor-and-troubleshoot-site-recovery"></a>Monitorar e solucionar problemas do Site Recovery
 
@@ -84,7 +84,7 @@ A seção **Resumo de erros** mostra os sintomas de erro atualmente ativos que p
 A **Exibição de infraestrutura** mostra os componentes de infraestrutura envolvidos na replicação e a integridade da conectividade entre os servidores e os serviços do Azure.
 
 - Uma linha verde indica que a conexão está íntegra.
-- Uma linha vermelha com o ícone de erro de sobreposição indica a existência de um ou mais sintomas de erro que afetam a conectividade.
+- Uma linha vermelha com o ícone de erro sobreposto indica a existência de um ou mais sintomas de erro se a conectividade de impacto.
 -  Passe o ponteiro do mouse sobre o ícone de erro para mostrar o erro e o número de entidades afetadas. Clique no ícone de uma lista filtrada de entidades afetadas.
 
     ![Modo de exibição de infraestrutura do Site Recovery (cofre)](./media/site-recovery-monitor-and-troubleshoot/site-recovery-vault-infra-view.png)
@@ -98,9 +98,9 @@ A **Exibição de infraestrutura** mostra os componentes de infraestrutura envol
     **Cenário** | **State**  | **Exibição disponível?**
     --- |--- | ---
     **Replicação entre sites locais** | Todos os estados | Não  
-    **Replicação da VM do Azure entre regiões do Azure**  | Replicação habilitada/replicação inicial em andamento | SIM
+    **Replicação da VM do Azure entre regiões do Azure**  | Replicação habilitada/replicação inicial em andamento | Sim
     **Replicação da VM do Azure entre regiões do Azure** | Com failover/failback | Não    
-    **Replicação do VMware para Azure** | Replicação habilitada/replicação inicial em andamento | SIM     
+    **Replicação do VMware para Azure** | Replicação habilitada/replicação inicial em andamento | Sim     
     **Replicação do VMware para Azure** | Com failover/failback | Não       
     **Replicação do Hyper-V para Azure** | Com failover/failback | Não 
 
@@ -149,19 +149,19 @@ Além disso, você pode monitorar computadores na página de máquinas virtuais.
     ![Exibição da lista de itens replicados do Site Recovery](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-list-view.png)
 
 2. Na página **Itens replicados**, é possível exibir e filtrar informações. No menu de ação na parte superior, é possível executar ações para um determinado computador, incluindo a execução de um failover de teste ou a exibição de erros específicos.
-3.  Clique em **Colunas** para mostrar colunas adicionais, por exemplo, mostrar RPO, problemas de configuração de destino e erros de replicação.
+3. Clique em **Colunas** para mostrar colunas adicionais, por exemplo, mostrar RPO, problemas de configuração de destino e erros de replicação.
 4. Clique em **Filtrar** para exibir as informações com base em parâmetros específicos, como integridade de replicação ou uma política de replicação específica.
 5. Clique com o botão direito do mouse em um computador para iniciar operações, como teste de failover, ou exibir detalhes de erros específicos associados ao computador.
 6. Clique em um computador para obter mais detalhes. Os detalhes incluem:
-      - **Informações de replicação**: Status atual e integridade do computador.
-      - **RPO** (objetivo de ponto de recuperação): RPO atual para a máquina virtual e a hora em que o RPO foi computado pela última vez.
-      - **Pontos de recuperação**: Pontos de recuperação mais recentes disponíveis para o computador.
-      - **Prontidão de failover**: Indica se um failover de teste foi executado no computador, a versão do agente em execução no computador (para computadores executando o serviço de Mobilidade) e quaisquer problemas de configuração.
-      - **Erros**: Lista de sintomas de erros de replicação observados atualmente no computador e possíveis causas/ações.
-      - **Eventos**: Uma lista cronológica de eventos recentes que afetam o computador. Os detalhes do erro mostram os sintomas de erro observáveis no momento, enquanto os eventos são um registro histórico dos problemas que afetaram o computador.
-      - **Exibição de infraestrutura**: Mostra o estado da infraestrutura do cenário quando os computadores estão replicando para o Azure.
+   - **Informações de replicação**: Status atual e integridade do computador.
+   - **RPO** (objetivo de ponto de recuperação): RPO atual para a máquina virtual e a hora em que o RPO foi computado pela última vez.
+   - **Pontos de recuperação**: Pontos de recuperação mais recentes disponíveis para o computador.
+   - **Prontidão de failover**: Indica se um failover de teste foi executado no computador, a versão do agente em execução no computador (para computadores executando o serviço de Mobilidade) e quaisquer problemas de configuração.
+   - **Erros**: Lista de sintomas de erros de replicação observados atualmente no computador e possíveis causas/ações.
+   - **Eventos**: Uma lista cronológica de eventos recentes que afetam o computador. Os detalhes do erro mostram os sintomas de erro observáveis no momento, enquanto os eventos são um registro histórico dos problemas que afetaram o computador.
+   - **Exibição de infraestrutura**: Mostra o estado da infraestrutura do cenário quando os computadores estão replicando para o Azure.
 
-    ![Visão geral/detalhes do item replicado do Site Recovery](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
+     ![Visão geral/detalhes do item replicado do Site Recovery](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
 
 
 ### <a name="common-questions"></a>Perguntas comuns
@@ -191,7 +191,7 @@ Além disso, você pode monitorar computadores na página de máquinas virtuais.
 Assine conforme a seguir:
 
 No cofre > seção **Monitoramento e Relatórios**, clique em **Eventos do Azure Site Recovery**.
-2. Clique em **Notificações por email**.
-3. Na **Notificação por email**, ative as notificações e especifique para quem enviar. É possível enviar para todos os administradores da assinatura receberem notificações e, opcionalmente, endereços de email específicos.
+1. Clique em **Notificações por email**.
+1. Na **Notificação por email**, ative as notificações e especifique para quem enviar. É possível enviar para todos os administradores da assinatura receberem notificações e, opcionalmente, endereços de email específicos.
 
     ![Notificações por email](./media/site-recovery-monitor-and-troubleshoot/email.png)

@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: spelluru
-ms.openlocfilehash: b69215a76b332db9b994827705d6bbc3b48af5c8
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 6dfa84eff8dcc104ae6f9c16262f3b1c697df6c1
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465506"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991199"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega e repetição de mensagens da Grade de Eventos
 
@@ -24,17 +24,20 @@ Atualmente, a Grade de Eventos envia cada evento individualmente aos assinantes.
 
 ## <a name="retry-schedule-and-duration"></a>Agendamento de nova tentativa e duração
 
-A Grade de Eventos usa uma política de repetição de retirada exponencial para a entrega de eventos. Se um ponto de extremidade não responder ou retornar um código de falha, a Grade de Eventos tentará novamente fazer a entrega no seguinte agendamento:
+A Grade de Eventos usa uma política de repetição de retirada exponencial para a entrega de eventos. Se um ponto de extremidade não responde ou retorna um código de falha, a grade de eventos repete a entrega na seguinte agenda em uma base de melhor esforço:
 
 1. 10 segundos
-2. 30 segundos
-3. 1 minuto
-4. 5 minutos
-5. 10 minutos
-6. 30 minutos
-7. 1 hora
+1. 30 segundos
+1. 1 minuto
+1. 5 Minutos
+1. 10 minutos
+1. 30 Minutos
+1. 1 hora
+1. Por hora por até 24 horas
 
-A Grade de Eventos adiciona uma pequena aleatoriedade a todas as etapas de repetição. Após uma hora, a entrega de eventos é repetida a cada uma hora.
+Grade de eventos adiciona uma pequena aleatoriedade para todas as etapas de repetição e oportunamente pode ignorar determinadas tentativas se um ponto de extremidade não está íntegro consistentemente, inativo por um longo período ou parece estar sobrecarregado.
+
+Para um comportamento determinístico, defina a hora do evento ao vivo e tentativas de entrega máximo do [políticas de repetição de assinatura](manage-event-delivery.md).
 
 Por padrão, a Grade de Eventos expira todos os eventos que não são entregues em 24 horas. Você pode [personalizar a política de repetição](manage-event-delivery.md) ao criar uma assinatura de evento. Forneça o número máximo de tentativas de entrega (o padrão é 30) e a vida útil do evento (o padrão é 1440 minutos).
 

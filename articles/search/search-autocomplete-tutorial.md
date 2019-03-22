@@ -1,32 +1,32 @@
 ---
-title: Tutorial para adição de preenchimento automático à caixa de pesquisa – Azure Search
+title: Exemplo de como adicionar preenchimento automático para sua caixa de pesquisa - Azure Search
 description: Exemplos de como melhorar a experiência do usuário final de seus aplicativos centrados em dados usando o preenchimento automático do Azure Search e as APIs de sugestões.
 manager: pablocas
 author: mrcarter8
 services: search
 ms.service: search
 ms.devlang: NA
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: de48f3129beba31f80f5bd4d0c131b28f2b1c91a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: b754f00e9bed34717734c4aec81e5489d2c12b63
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997153"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200269"
 ---
-# <a name="tutorial-add-autocomplete-to-your-search-box-using-azure-search"></a>Tutorial: Adicionar preenchimento automático à caixa de pesquisa usando o Azure Search
+# <a name="example-add-autocomplete-to-your-search-box-using-azure-search"></a>Exemplo: Adicionar preenchimento automático à caixa de pesquisa usando o Azure Search
 
-Neste tutorial, você aprenderá a usar [sugestões](https://docs.microsoft.com/rest/api/searchservice/suggestions), [preenchimento automático](https://docs.microsoft.com/rest/api/searchservice/autocomplete) e [facetas](search-faceted-navigation.md) na [API REST do Azure Search](https://docs.microsoft.com/rest/api/searchservice/) e no [SDK do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet) para criar uma caixa de pesquisa avançada. 
+Neste exemplo, você aprenderá a usar [sugestões](https://docs.microsoft.com/rest/api/searchservice/suggestions), [AutoCompletar](https://docs.microsoft.com/rest/api/searchservice/autocomplete) e [facetas](search-faceted-navigation.md) no [API REST do Azure Search](https://docs.microsoft.com/rest/api/searchservice/) e [SDK do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet) para criar uma caixa de pesquisa avançada. 
 
 + A opção *Sugestões* fornece recomendações de resultados reais com base no que o usuário digitou até agora. 
 + A opção *Preenchimento automático*, [uma nova versão prévia do recurso](search-api-preview.md) no Azure Search, oferece termos do índice para concluir o que o usuário está digitando no momento. 
 
 Vamos comparar as várias técnicas para melhorar a produtividade do usuário levando a riqueza da pesquisa diretamente ao usuário enquanto ele digita.
 
-Este tutorial orienta você por um aplicativo baseado em ASP.NET MVC que usa C# para chamar as [bibliotecas de cliente .NET do Azure Search](https://aka.ms/search-sdk) e JavaScript para chamar a API REST do Azure Search diretamente. O aplicativo para este tutorial usa um índice populado pelos dados de exemplo [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). Você pode usar o índice já configurado na demonstração NYC Jobs ou preencher seu próprio índice usando um carregador de dados na solução de exemplo NYCJobs. O exemplo usa as bibliotecas JavaScript [jQuery UI](https://jqueryui.com/autocomplete/) e [XDSoft](https://xdsoft.net/jqplugins/autocomplete/) para criar uma caixa de pesquisa que dá suporte a preenchimento automático. Usando esses componentes juntamente com o Azure Search, você verá vários exemplos de como dar suporte ao preenchimento automático com digitação antecipada em sua caixa de pesquisa.
+Este exemplo orienta você por meio de um aplicativo baseado no ASP.NET MVC que usa C# para chamar o [bibliotecas de cliente .NET do Azure Search](https://aka.ms/search-sdk)e o JavaScript para chamar a API REST do Azure Search diretamente. O aplicativo para este exemplo se destina a um índice populado o [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) dados de exemplo. Você pode usar o índice já configurado na demonstração NYC Jobs ou preencher seu próprio índice usando um carregador de dados na solução de exemplo NYCJobs. O exemplo usa as bibliotecas JavaScript [jQuery UI](https://jqueryui.com/autocomplete/) e [XDSoft](https://xdsoft.net/jqplugins/autocomplete/) para criar uma caixa de pesquisa que dá suporte a preenchimento automático. Usando esses componentes juntamente com o Azure Search, você verá vários exemplos de como dar suporte ao preenchimento automático com digitação antecipada em sua caixa de pesquisa.
 
 Você executará as seguintes etapas:
 
@@ -35,16 +35,16 @@ Você executará as seguintes etapas:
 > * Adiciona informações de serviço de pesquisa às configurações do aplicativo
 > * Implementar uma caixa de entrada de pesquisa
 > * Adicionar suporte para obter uma lista de preenchimento automático que efetua pull de uma fonte remota 
-> * Recuperar sugestões e o preenchimento automático usando o SDK do .NET e a API REST
+> * Recuperar sugestões e preenchimento automático usando o SDK do .NET e a API REST
 > * Suporte a cache no lado do cliente para melhorar o desempenho 
 
 ## <a name="prerequisites"></a>pré-requisitos
 
 * Visual Studio 2017. Você pode usar a versão gratuita do [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). 
 
-* Baixe o exemplo de [código-fonte](https://github.com/azure-samples/search-dotnet-getting-started) para o tutorial.
+* Baixe a amostra [código-fonte](https://github.com/azure-samples/search-dotnet-getting-started) no exemplo.
 
-* (Opcional) Uma conta do Azure ativa e um serviço Azure Search. Se não tiver uma conta do Azure, você poderá assinar uma versão de [avaliação gratuita](https://azure.microsoft.com/free/). Para obter ajuda com o serviço de provisionamento, consulte [Criar um serviço de pesquisa](search-create-service-portal.md). A conta e o serviço são opcionais, pois este tutorial pode ser concluído usando um índice NYCJobs hospedado já existente para uma demonstração diferente.
+* (Opcional) Uma conta do Azure ativa e um serviço Azure Search. Se não tiver uma conta do Azure, você poderá assinar uma versão de [avaliação gratuita](https://azure.microsoft.com/free/). Para obter ajuda com o serviço de provisionamento, consulte [Criar um serviço de pesquisa](search-create-service-portal.md). A conta e o serviço são opcionais porque este exemplo pode ser concluído usando um índice NYCJobs hospedado já em vigor para uma demonstração de diferente.
 
 * (Opcional) Baixe o código de exemplo de [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) para importar os dados do NYCJobs para um índice em seu próprio serviço Azure Search.
 
@@ -61,11 +61,11 @@ Siga as etapas nesta seção se quiser importar os dados do aplicativo de exempl
 
 1. Pressione F5 para iniciar o aplicativo.  Isso criará dois índices e importará os dados do exemplo NYCJob.
 
-1. No código de exemplo do tutorial, abra o arquivo de solução AutocompleteTutorial.sln no Visual Studio.  Abra Web.config no projeto AutocompleteTutorial e altere os valores de SearchServiceName e SearchServiceApiKey para o mesmo visto acima.
+1. No código de exemplo do exemplo, abra o arquivo de solução de AutocompleteTutorial.sln no Visual Studio.  Abra Web.config no projeto AutocompleteTutorial e altere os valores de SearchServiceName e SearchServiceApiKey para o mesmo visto acima.
 
 ### <a name="running-the-sample"></a>Executando o exemplo
 
-Agora você está pronto para executar o aplicativo de exemplo do tutorial.  Abra o arquivo de solução AutocompleteTutorial.sln no Visual Studio para executar o tutorial.  A solução contém um projeto ASP.NET MVC.  Pressione F5 para executar o projeto e carregue a página em seu navegador preferido.  Na parte superior, você verá uma opção para selecionar C# ou JavaScript.  A opção C# chama o HomeController do navegador e usa o SDK do .Net do Azure Search para recuperar os resultados.  A opção JavaScript chama a API REST do Azure Search diretamente do navegador.  Essa opção normalmente tem desempenho claramente melhor, pois ela usa o controlador fora do fluxo.  Você pode escolher a opção que atender às suas necessidades e preferências de linguagem.  Há vários exemplos de preenchimento automático na página com algumas diretrizes para cada um.  Cada exemplo tem um texto de exemplo recomendado que você pode usar para experimentar.  Tente digitar algumas letras em cada caixa de pesquisa para ver o que acontece.
+Agora você está pronto para executar o aplicativo de exemplo do exemplo.  Abra o arquivo de solução de AutocompleteTutorial.sln no Visual Studio para executar o exemplo.  A solução contém um projeto ASP.NET MVC.  Pressione F5 para executar o projeto e carregue a página em seu navegador preferido.  Na parte superior, você verá uma opção para selecionar C# ou JavaScript.  O C# opção chama o HomeController do navegador e usa o SDK do .NET do Azure Search para recuperar os resultados.  A opção JavaScript chama a API REST do Azure Search diretamente do navegador.  Essa opção normalmente tem desempenho claramente melhor, pois ela usa o controlador fora do fluxo.  Você pode escolher a opção que atender às suas necessidades e preferências de linguagem.  Há vários exemplos de preenchimento automático na página com algumas diretrizes para cada um.  Cada exemplo tem um texto de exemplo recomendado que você pode usar para experimentar.  Tente digitar algumas letras em cada caixa de pesquisa para ver o que acontece.
 
 ## <a name="how-this-works-in-code"></a>Como isso funciona no código
 
@@ -79,7 +79,7 @@ Para qualquer uma das opções de linguagem, a caixa de pesquisa é exatamente a
 <input class="searchBox" type="text" id="example1a" placeholder="search">
 ```
 
-Essa é uma caixa de texto de entrada simples com uma classe para definir o estilo, uma ID para referência pelo JavaScript e o texto de espaço reservado.  A mágica está no JavaScript.
+Essa é uma caixa de texto de entrada simples com uma classe para aplicação de estilo, uma ID para serem referenciados pelo JavaScript e o texto de espaço reservado.  A mágica está no JavaScript.
 
 ### <a name="javascript-code-c"></a>Código JavaScript (C#)
 
@@ -132,7 +132,7 @@ Agora que examinamos o código JavaScript para o exemplo, vamos examinar o códi
 
 1. Abra o arquivo HomeController.cs no diretório Controllers. 
 
-1. A primeira coisa que você pode notar é um método na parte superior da classe chamada InitSearch.  Isso cria um cliente de índice HTTP autenticado para o serviço Azure Search.  Se você quiser saber mais sobre como isso funciona, acesse o tutorial a seguir: [Como usar o Azure Search de um aplicativo .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
+1. A primeira coisa que você pode notar é um método na parte superior da classe chamada InitSearch.  Isso cria um cliente de índice HTTP autenticado para o serviço Azure Search.  Se você quiser saber mais sobre como isso funciona, visite o exemplo a seguir: [Como usar o Azure Search de um aplicativo .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
 
 1. Mude para a função Suggest.
 
@@ -209,15 +209,15 @@ $(function () {
 });
 ```
 
-Se você comparar isso com o exemplo acima que chama o controlador Home, verá várias semelhanças.  A configuração de preenchimento automático para `minLength` e `position` são exatamente iguais.  A alteração significativa aqui está na origem.  Em vez de chamar o método Suggest no controlador principal, uma solicitação REST é criada em uma função de JavaScript e executada usando o ajax.  A resposta, em seguida, é processada em "success" e usada como a origem.
+Se você comparar isso com o exemplo acima que chama o controlador Home, verá várias semelhanças.  A configuração de preenchimento automático para `minLength` e `position` são exatamente iguais.  A alteração significativa aqui está na origem.  Em vez de chamar o método sugerir no controlador principal, uma solicitação REST é criada em uma função de JavaScript e executado usando o Ajax.  A resposta, em seguida, é processada em "success" e usada como a origem.
 
 ## <a name="takeaways"></a>Observações
 
-Este tutorial demonstra as etapas básicas para a criação de uma caixa de pesquisa que dá suporte ao preenchimento automático e a sugestões.  Você viu como poderia criar um aplicativo ASP.NET MVC e usar a API REST ou SDK do .NET do Azure Search para recuperar sugestões.
+Este exemplo demonstra as etapas básicas para a criação de uma caixa de pesquisa que dá suporte a preenchimento automático e sugestões.  Você viu como você poderia criar um aplicativo ASP.NET MVC e usar a API REST ou o SDK do .NET do Azure Search para recuperar sugestões.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Integrar sugestões e preenchimento automático à sua experiência de pesquisa.  Considerar como o uso do SDK do .NET ou a API REST diretamente pode ajudar a trazer o poder do Azure Search para seus usuários quando eles digitam para torná-los mais produtivos.
+Integrar sugestões e preenchimento automático à sua experiência de pesquisa.  Determinar como usar o SDK do .NET ou a API REST diretamente pode ajudar a trazer o poder do Azure Search a seus usuários como eles para torná-los mais produtivos.
 
 > [!div class="nextstepaction"]
 > [API REST de preenchimento automático](https://docs.microsoft.com/rest/api/searchservice/autocomplete)

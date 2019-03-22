@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bacefaada8ab0d63bb17d22f67b91c51a789de8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c769d241f54d5d86ef4954609eec555d8aab947a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172324"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57857990"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Como configurar o logon único com senha para um aplicativo que não seja da galeria
 
@@ -46,27 +46,27 @@ Em geral, **se captura manual do campo de entrada não funcionar, experimente a 
 
 Configurar **Logon único baseado em senha** para um aplicativo usando **captura automática do campo de entrada**, siga as etapas abaixo:
 
-1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global** ou **Coadministrador.**
+1. Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global** ou **Coadministrador.**
 
-2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
+2. Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
-3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
+3. Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4. clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
-5.  clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+5. clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
-  * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
+   * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
-6.  Selecione o aplicativo para o qual você deseja configurar o logon único.
+6. Selecione o aplicativo para o qual você deseja configurar o logon único.
 
-7.  Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação esquerdo do aplicativo.
+7. Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação esquerdo do aplicativo.
 
-8.  Selecione o modo **Logon baseado em senha.**
+8. Selecione o modo **Logon baseado em senha.**
 
-9.  Insira a **URL de Entrada**, a URL onde os usuários inserem o nome de usuário e senha para entrar. **Verifique se os campos de entrada estão visíveis na URL que você fornece**.
+9. Insira a **URL de Entrada**, a URL onde os usuários inserem o nome de usuário e senha para entrar. **Verifique se os campos de entrada estão visíveis na URL que você fornece**.
 
-10. Clique no botão **Salvar** .
+10. Clique no botão **Salvar**.
 
 11. Depois de fazer isso, essa URL é automaticamente recortada para uma caixa de entrada de nome de usuário e senha e permite que você use o Azure Active Directory para transmitir com segurança senhas a esse aplicativo, usando a extensão do navegador do painel de acesso.
 
@@ -76,27 +76,27 @@ Para capturar manualmente os campos de entrada, você deve primeiramente ter a e
 
 Para configurar **Logon único baseado em senha** para um aplicativo usando **captura manual do campo de entrada**, siga as etapas abaixo:
 
-1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global** ou **Coadministrador.**
+1. Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global** ou **Coadministrador.**
 
-2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
+2. Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
-3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
+3. Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4. clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
-5.  clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+5. clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
    * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
-6.  Selecione o aplicativo para o qual você deseja configurar o logon único.
+6. Selecione o aplicativo para o qual você deseja configurar o logon único.
 
-7.  Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação esquerdo do aplicativo.
+7. Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação esquerdo do aplicativo.
 
-8.  Selecione o modo **Logon baseado em senha.**
+8. Selecione o modo **Logon baseado em senha.**
 
-9.  Insira a **URL de Entrada**, a URL onde os usuários inserem o nome de usuário e senha para entrar. **Verifique se os campos de entrada estão visíveis na URL que você fornece**.
+9. Insira a **URL de Entrada**, a URL onde os usuários inserem o nome de usuário e senha para entrar. **Verifique se os campos de entrada estão visíveis na URL que você fornece**.
 
-10. Clique no botão **Salvar** .
+10. Clique no botão **Salvar**.
 
 11. Depois de fazer isso, essa URL é automaticamente recortada para uma caixa de entrada de nome de usuário e senha e permite que você use o Azure Active Directory para transmitir com segurança senhas a esse aplicativo, usando a extensão do navegador do painel de acesso. Em caso de falha, você poderá **alterar o modo de entrada para usar a captura de campo de entrada manual** continuando até a etapa 12.
 
@@ -174,21 +174,21 @@ Também é possível baixar a extensão para Chrome e Firefox diretamente pelos 
 
 Veja os detalhes de qualquer notificação do portal executando as etapas abaixo:
 
-1.  Clique no ícone **Notificações** (o sino) na parte superior direita do Portal do Azure
+1. Clique no ícone **Notificações** (o sino) na parte superior direita do Portal do Azure
 
-2.  Selecione qualquer notificação com estado de **Erro** (aquelas com um (!) vermelho ao lado).
+2. Selecione qualquer notificação com estado de **Erro** (aquelas com um (!) vermelho ao lado).
 
-  >!NOTA] Não é possível clicar em notificações com estado de **Êxito** ou **Em Andamento**.
-  >
-  >
+   >!NOTA] Não é possível clicar em notificações com estado de **Êxito** ou **Em Andamento**.
+   >
+   >
 
-3.  Isso abre o painel **Detalhes de Notificação**.
+3. Isso abre o painel **Detalhes de Notificação**.
 
-4.  Use as informações para saber mais detalhes sobre o problema.
+4. Use as informações para saber mais detalhes sobre o problema.
 
-5.  Se ainda precisar de ajuda, você também poderá compartilhar as informações com um engenheiro de suporte ou com o grupo de produtos para obter ajuda com o problema.
+5. Se ainda precisar de ajuda, você também poderá compartilhar as informações com um engenheiro de suporte ou com o grupo de produtos para obter ajuda com o problema.
 
-6.  Clique no **ícone** de **cópia** à direita da caixa de texto **Copiar erro** para copiar todos os detalhes da notificação para compartilhar com um engenheiro de suporte ou de grupo de produtos.
+6. Clique no **ícone** de **cópia** à direita da caixa de texto **Copiar erro** para copiar todos os detalhes da notificação para compartilhar com um engenheiro de suporte ou de grupo de produtos.
 
 ## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Como obter ajuda enviando detalhes da notificação a um engenheiro de suporte
 
@@ -226,7 +226,7 @@ Abaixo, explicamos mais sobre o significado de cada item de notificação e forn
 
 -   **UPN** – o usuário que realizou a operação
 
-    -   Exemplo – **tperkins@f128.info**
+    -   Exemplo – **tperkins\@f128.info**
 
 -   **ID do Locatário** – a ID exclusiva do locatário do qual o usuário que realizou a operação era membro
 
@@ -240,7 +240,7 @@ Abaixo, explicamos mais sobre o significado de cada item de notificação e forn
 
 -   **Nome de Exibição** – **(pode estar vazio)** um nome de exibição mais detalhado do erro
 
-    -   Exemplo *– **Configurações do proxy do aplicativo**
+    -   Exemplo – **Configurações do proxy do aplicativo**
 
 -   **Status** – o status específico da notificação
 
@@ -252,7 +252,7 @@ Abaixo, explicamos mais sobre o significado de cada item de notificação e forn
 
 -   **Detalhes** – a descrição detalhada do que ocorreu como resultado da operação
 
-    -   Exemplo – **URL interna 'https://bing.com/' é inválida porque já está em uso**
+    -   Exemplo – **URL interna '<https://bing.com/>' é inválida porque já está em uso**
 
 -   **Copiar erro** – clique no **ícone de cópia** à direita da caixa de texto **Copiar erro** para copiar todos os detalhes de notificação para compartilhar com um engenheiro de suporte ou de grupo de produtos
 

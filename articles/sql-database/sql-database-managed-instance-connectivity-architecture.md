@@ -1,6 +1,6 @@
 ---
-title: Arquitetura de Conectividade de Instância Gerenciada do Banco de Dados SQL do Azure | Microsoft Docs
-description: Este artigo fornece a visão geral da comunicação de Instância Gerenciada do Banco de Dados SQL do Azure e explica a arquitetura de conectividade, além de como os diferentes componentes funcionam para direcionar o tráfego para a Instância Gerenciada.
+title: Arquitetura de conectividade para uma instância gerenciada SQL do Azure | Microsoft Docs
+description: Aprenda sobre comunicação de instância de banco de dados do SQL Azure gerenciado e arquitetura de conectividade, bem como os componentes de direcionam o tráfego para a instância gerenciada.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -11,122 +11,162 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: b709bbacce23a89b8c60b77a524018b50ca1ca5e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.date: 02/26/2019
+ms.openlocfilehash: 6ef020ff1054416e2b9af5af824b9aa27f0b1e64
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245660"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247232"
 ---
-# <a name="azure-sql-database-managed-instance-connectivity-architecture"></a>Arquitetura de Conectividade de Instância Gerenciada do Banco de Dados SQL do Azure
+# <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Arquitetura de conectividade para uma instância gerenciada SQL do Azure 
 
-Este artigo fornece a visão geral da comunicação de Instância Gerenciada do Banco de Dados SQL do Azure e explica a arquitetura de conectividade, além de como os diferentes componentes funcionam para direcionar o tráfego para a Instância Gerenciada.  
+Este artigo explica a comunicação em uma instância gerenciada do banco de dados SQL. Ele também descreve a arquitetura de conectividade e como os componentes de direcionam o tráfego para a instância gerenciada.  
 
-A Instância Gerenciada do Banco de Dados SQL do Azure é colocada dentro da rede virtual do Azure e a sub-rede dedicada para Instâncias Gerenciadas. Essa implantação permite os cenários a seguir: 
-- Proteger o endereço IP privado.
-- Conectar uma Instância Gerenciada diretamente de uma rede local.
-- Conectar uma Instância Gerenciada ao servidor vinculado ou a outro armazenamento de dados local.
-- Conectar uma Instância Gerenciada a recursos do Azure.
+A instância gerenciada do banco de dados SQL é colocada dentro da rede virtual do Azure e a sub-rede dedicada para instâncias gerenciadas. Essa implantação fornece:
+
+- Um endereço IP privado seguro.
+- A capacidade de se conectar a uma rede local a uma instância gerenciada.
+- A capacidade de se conectar a uma instância gerenciada para um servidor vinculado ou outro armazenamento de dados no local.
+- A capacidade de se conectar a uma instância gerenciada a recursos do Azure.
 
 ## <a name="communication-overview"></a>Visão geral da comunicação
 
-O diagrama a seguir mostra entidades que se conectam à Instância Gerenciada, bem como recursos que a Instância Gerenciada precisa atingir para funcionar adequadamente.
+O diagrama a seguir mostra as entidades que se conectam a uma instância gerenciada. Ele também mostra os recursos que precisam se comunicar com a instância gerenciada. O processo de comunicação na parte inferior do diagrama representa aplicativos de cliente e ferramentas que se conectar à instância gerenciada como fontes de dados.  
 
-![entidades de arquitetura de conectividade](./media/managed-instance-connectivity-architecture/connectivityarch001.png)
+![Entidades na arquitetura de conectividade](./media/managed-instance-connectivity-architecture/connectivityarch001.png)
 
-A comunicação descrita na parte inferior do diagrama representa os aplicativos e as ferramentas do cliente que se conectam à Instância Gerenciada como fonte de dados.  
+Uma instância gerenciada é uma plataforma como uma oferta de serviço (PaaS). A Microsoft usa agentes automatizados (gerenciamento, implantação e manutenção) para gerenciar esse serviço com base em fluxos de dados de telemetria. Como a Microsoft é responsável pelo gerenciamento, os clientes não podem acessar as máquinas virtuais de cluster de instância gerenciada por meio do protocolo RDP (Remote Desktop).
 
-Como a Instância Gerenciada é uma oferta de plataforma como um serviço (PaaS), a Microsoft gerencia esse serviço usando agentes automatizados (gerenciamento, implementação e manutenção) com base em fluxos de dados de telemetria. Como o gerenciamento de instâncias gerenciadas é de responsabilidade exclusiva da Microsoft, os clientes não podem acessar as máquinas de cluster virtual da instância gerenciada por meio do RDP.
+Algumas operações iniciadas por aplicativos ou usuários finais podem exigir do SQL Server gerenciado de instâncias para interagir com a plataforma. Um caso é a criação de um banco de dados de instância gerenciada. Esse recurso é exposto por meio do portal do Azure, PowerShell, CLI do Azure e a API REST.
 
-Algumas operações do SQL Server iniciadas pelos usuários finais ou aplicativos podem exigir que a Instância Gerenciada interaja com a plataforma. Um caso é a criação de um banco de dados de Instância Gerenciada - um recurso que é exposto por meio do portal, PowerShell e CLI do Azure.
+Instâncias gerenciadas dependem de serviços do Azure como o armazenamento do Azure para backups, o barramento de serviço do Azure para a telemetria, Azure Active Directory para autenticação e o Azure Key Vault para criptografia de dados transparente (TDE). As instâncias gerenciadas fazem conexões com esses serviços.
 
-A Instância Gerenciada depende de outros Serviços do Azure para seu funcionamento adequado (como o Armazenamento do Azure para backups, o Barramento de Serviços do Azure para telemetria, o Azure AD para autenticação, o Cofre de Chaves do Azure para TDE e assim por diante) e inicia as conexões de acordo.
-
-Todas as comunicações, mencionadas acima, são criptografadas e assinadas usando certificados. Para garantir que as partes em comunicação sejam confiáveis, a Instância Gerenciada verifica constantemente esses certificados entrando em contato com a Autoridade de Certificação. Se os certificados forem revogados ou a Instância Gerenciada não puder verificá-los, ele fechará as conexões para proteger os dados.
+Todas as comunicações usam certificados de criptografia e assinatura. Para verificar a confiabilidade de comunicação partes, gerenciadas instâncias constantemente verificar esses certificados entrando em uma autoridade de certificação. Se os certificados são revogados ou não podem ser verificados, a instância gerenciada fecha as conexões para proteger os dados.
 
 ## <a name="high-level-connectivity-architecture"></a>Arquitetura de alto nível de conectividade
 
-Em um nível alto, a Instância Gerenciada é um conjunto de componentes de serviço, hospedado em um conjunto dedicado de máquinas virtuais isoladas que são executadas dentro da sub-rede da rede virtual do cliente e formam um cluster virtual.
+Em um alto nível, uma instância gerenciada é um conjunto de componentes de serviço. Esses componentes são hospedados em um conjunto dedicado de máquinas virtuais isoladas que são executados dentro da sub-rede de rede virtual do cliente. Essas máquinas formam um cluster virtual.
 
-Várias instâncias gerenciadas podem ser hospedadas em um único cluster virtual. O cluster é expandido ou contratado automaticamente, se necessário, quando o cliente altera o número de instâncias aprovisionadas na sub-rede.
+Um cluster virtual pode hospedar várias instâncias gerenciadas. Se necessário, o cluster se expande automaticamente ou contratos quando o cliente alterar o número de instâncias provisionados na sub-rede.
 
-Os aplicativos do cliente podem se conectar à Instância Gerenciada, consultar e atualizar bancos de dados somente se forem executados dentro da rede virtual ou em rede virtual emparelhada ou rede conectada por VPN / Express Route usando endpoint com endereço IP privado.  
+Aplicativos cliente podem se conectar a instâncias gerenciadas e podem consultar e atualizar bancos de dados somente se eles são executados dentro da rede virtual, virtual emparelhada rede, ou conectados por VPN ou ExpressRoute do Azure. Essa rede deve usar um ponto de extremidade e um endereço IP privado.  
 
-![diagrama de arquitetura de conectividade](./media/managed-instance-connectivity-architecture/connectivityarch002.png)
+![Diagrama de arquitetura de conectividade](./media/managed-instance-connectivity-architecture/connectivityarch002.png)
 
-Os serviços de gerenciamento e implantação da Microsoft são executados fora da rede virtual, para que a conexão entre a Instância Gerenciada e os serviços da Microsoft ultrapasse os terminais com endereços IP públicos. Quando a Instância Gerenciada cria uma conexão de saída, ao receber o destino, parece que ela está vindo desse IP público devido à NAT (Tradução de Endereço de Rede).
+Serviços de implantação e gerenciamento do Microsoft executar fora da rede virtual. Uma instância gerenciada e serviços da Microsoft conectam através de pontos de extremidade que tem endereços IP públicos. Quando uma instância gerenciada cria uma conexão de saída, na extremidade de recebimento torna de tradução de endereço de rede (NAT), a aparência de conexão, como ele é proveniente de endereço IP público.
 
-O tráfego de gerenciamento flui através da rede virtual do cliente. Isso significa que os elementos da infraestrutura de rede virtual afetam e podem prejudicar o tráfego de gerenciamento, fazendo com que a instância entre no estado defeituoso e se torne indisponível.
+Fluxos de tráfego de gerenciamento por meio da rede virtual do cliente. Isso significa que elementos da infraestrutura da rede virtual podem prejudicar o tráfego de gerenciamento, tornando a instância falhar e se tornar indisponível.
 
 > [!IMPORTANT]
-> Para melhorar a experiência do cliente e a disponibilidade do serviço, a Microsoft aplica a Diretiva de Intenção de Rede nos elementos da infraestrutura de rede virtual do Azure que podem afetar o funcionamento da Instância Gerenciada. Este é um mecanismo de plataforma para comunicar de forma transparente os requisitos de rede aos usuários finais, com o objetivo principal de impedir a configuração incorreta da rede e garantir as operações normais da Instância Gerenciada. Na exclusão da instância gerenciada, a política de intenção de rede também é removida.
+> Para melhorar a experiência do cliente e a disponibilidade do serviço, a Microsoft aplica uma política de intenção de rede em elementos de infraestrutura de rede virtual do Azure. A política pode afetar o funcionamento da instância gerenciada. Esse mecanismo de plataforma transparentemente comunica-se os requisitos de rede para os usuários. Meta principal da política é para evitar erros de configuração de rede e para garantir operações de instância gerenciada normal. Quando você exclui uma instância gerenciada, a política de intenção de rede também é removida.
 
 ## <a name="virtual-cluster-connectivity-architecture"></a>Arquitetura de conectividade do cluster virtual
 
-Vamos nos aprofundar na arquitetura de conectividade de instâncias gerenciadas. O diagrama a seguir mostra o layout conceitual do cluster virtual.
+Vamos dar um aprofundamento na arquitetura de conectividade para instâncias gerenciadas. O diagrama a seguir mostra o layout conceitual do cluster virtual.
 
-![cluster virtual do diagrama de arquitetura de conectividade](./media/managed-instance-connectivity-architecture/connectivityarch003.png)
+![Arquitetura de conectividade do cluster virtual](./media/managed-instance-connectivity-architecture/connectivityarch003.png)
 
-Os clientes se conectam à Instância Gerenciada usando o nome do host que possui um formulário `<mi_name>.<dns_zone>.database.windows.net`. Esse nome de host é resolvido para o endereço IP privado, embora esteja registrado na zona DNS pública e seja publicamente solucionável. A `zone-id` é gerada quando o cluster é criado. Se um cluster recém-criado estiver hospedando uma instância gerenciada secundária, ele compartilhará sua ID de zona com o cluster primário. Para obter mais informações, confira [Grupos de failover automático](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets)
+Os clientes se conectam a uma instância gerenciada usando um nome de host que tem a forma `<mi_name>.<dns_zone>.database.windows.net`. Esse nome de host resolve para um endereço IP privado, embora ele é registrado em uma zona de nome DNS (sistema) de domínio público e pode ser resolvido publicamente. O `zone-id` é gerado automaticamente quando você cria o cluster. Se um cluster recém-criado hospeda uma instância gerenciada secundária, ele compartilha sua ID de zona com o cluster primário. Para obter mais informações, consulte [usar grupos de autofailover para habilitar o failover transparente e coordenado de vários bancos de dados](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets).
 
-Esse endereço IP privado pertence ao ILB (Managed Internal Load Balancer) da instância gerenciada que direciona o tráfego para o GW (Gateway de Instância Gerenciada). Como várias instâncias gerenciadas podem ser executadas no mesmo cluster, o GW usa o nome do host da instância gerenciada para redirecionar o tráfego para o serviço do SQL Engine correto.
+Esse endereço IP pertence ao balanceador de carga interno da instância gerenciada. O balanceador de carga direciona o tráfego para gateway a instância gerenciada. Como várias instâncias gerenciadas podem ser executado dentro do mesmo cluster, o gateway usa o nome do host da instância gerenciada para redirecionar o tráfego para o serviço de mecanismo SQL correto.
 
-Os serviços de gerenciamento e implantação se conectam à Instância Gerenciada usando o [endpoint de gerenciamento](#management-endpoint) que mapeia para o balanceador de carga externo. O tráfego é roteado para os nós apenas se recebido em um conjunto predefinido de portas usadas exclusivamente pelos componentes de gerenciamento da instância gerenciada. O firewall interno de nós está configurado para permitir tráfego apenas de intervalos IP específicos da Microsoft. Toda a comunicação entre componentes de gerenciamento e plano de gerenciamento é mutuamente autenticado do certificado.
+Serviços de gerenciamento e implantação de se conectar a uma instância gerenciada usando um [ponto de extremidade de gerenciamento](#management-endpoint) balanceador de carga é mapeado para externo. Tráfego é roteado para os nós somente se ela é recebida em um conjunto predefinido de portas que usam somente os componentes de gerenciamento da instância gerenciada. Configurar um firewall interno em nós para permitir o tráfego apenas de intervalos de IP da Microsoft. Certificados de autenticam mutuamente toda a comunicação entre componentes de gerenciamento e o plano de gerenciamento.
 
 ## <a name="management-endpoint"></a>Ponto de extremidade de gerenciamento
 
-O cluster virtual da Instância Gerenciada do Banco de Dados SQL do Azure contém um ponto de extremidade de gerenciamento que a Microsoft usa gerenciar a Instância Gerenciada. O ponto de extremidade de gerenciamento é protegido com um firewall interno no nível de rede e a verificação de certificado mútua no nível do aplicativo. Você pode [localizar o endereço IP do ponto de extremidade de gerenciamento](sql-database-managed-instance-find-management-endpoint-ip-address.md).
+A Microsoft gerencia a instância gerenciada usando um ponto de extremidade de gerenciamento. Esse ponto de extremidade está dentro do cluster virtual da instância. O ponto de extremidade de gerenciamento é protegido por um firewall interno no nível da rede. No nível do aplicativo, ele é protegido pela verificação de certificado mútuo. Para localizar o endereço IP do ponto de extremidade, consulte [determinar o endereço IP do ponto de extremidade de gerenciamento](sql-database-managed-instance-find-management-endpoint-ip-address.md).
 
-Quando as conexões são iniciadas de dentro da instância gerenciada (backup, log de auditoria) parece que o tráfego origina-se do endereço IP público de ponto de extremidade de gerenciamento. Você pode limitar o acesso para serviços públicos da instância gerenciada, definindo regras de firewall para permitir somente o endereço IP de Instância Gerenciada. Localize mais informações sobre o método que pode [verificar se o firewall interno da Instância Gerenciada](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
+Quando conexões iniciar dentro da instância gerenciada (assim como acontece com backups e logs de auditoria), o tráfego é exibido iniciar a partir do endereço IP público de um ponto de extremidade de gerenciamento. Você pode limitar o acesso a serviços públicos de uma instância gerenciada, definindo regras de firewall para permitir que somente o endereço IP da instância gerenciada. Para obter mais informações, consulte [Verifique se o firewall interno da instância gerenciada](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
 
 > [!NOTE]
-> Isso não se aplica à configuração de regras de firewall para os serviços do Azure que estão na mesma região que a Instância Gerenciada do que a plataforma do Azure tem uma otimização para o tráfego que passa entre os serviços que são colocados.
+> Ao contrário do firewall para conexões que iniciar dentro da instância gerenciada, os serviços do Azure que estão dentro região da instância gerenciada tem um firewall que é otimizado para o tráfego que passa entre esses serviços.
 
 ## <a name="network-requirements"></a>Requisitos de rede
 
-Para implantar uma Instância Gerenciada, em uma sub-rede dedicada (sub-rede da Instância Gerenciada) dentro da rede virtual em conformidade com os seguintes requisitos:
-- **Sub-rede dedicada**: A sub-rede da Instância Gerenciada não deve conter nenhum outro serviço de nuvem associado a ela e não deve ser uma sub-rede de Gateway. Não será possível criar a Instância Gerenciada na sub-rede que contenha outros recursos, além da Instância Gerenciada, e não é possível adicionar outros recursos à sub-rede posteriormente.
-- **Grupo de Segurança de Rede Compatível (NSG)**: Um NSG associado à sub-rede de uma Instância Gerenciada deve conter as regras mostradas nas tabelas a seguir (Regras de segurança de entrada obrigatórias e Regras de segurança de saída obrigatórias) na frente de qualquer outra regra. Você pode usar um NSG para controlar totalmente o acesso ao ponto de extremidade de dados da Instância Gerenciada filtrando o tráfego na porta 1433. 
-- **Tabela de rotas definidas pelo usuário (UDR) compatível**: A sub-rede da Instância Gerenciada deve ter uma tabela de rotas do usuário com **0.0.0.0/0 da Internet de Próximo Salto** como a UDR obrigatória atribuída a ela. Além disso, você pode adicionar uma UDR que roteia o tráfego que tem intervalos IP privados locais como um destino por meio do gateway de rede virtual ou NVA (dispositivo de rede virtual). 
-- **DNS personalizado opcional**: Se o DNS personalizado for especificado na rede virtual, o endereço IP do resolvedor recursivo do Azure (como 168.63.129.16) deverá ser adicionado à lista. Para obter mais informações, consulte [Configurar DNS personalizado](sql-database-managed-instance-custom-dns.md). O servidor DNS personalizado deve ser capaz de resolver nomes de host nos seguintes domínios e seus subdomínios: *microsoft.com*, *windows.net*, *windows.com*, *msocsp.com*, *digicert.com*, *live.com*, *microsoftonline.com* e *microsoftonline-p.com*. 
-- **Pontos de extremidade de serviço**: A sub-rede da Instância Gerenciada não deve ter um Ponto de extremidade de serviço associado a ela. Certifique-se de que a opção de pontos de extremidade de serviço esteja desabilitada ao criar a rede virtual.
-- **Endereço IP suficientes**: A sub-rede da Instância Gerenciada deve ter suporte para no mínimo 16 endereços IP (o mínimo recomendado é de 32 endereços IP). Para obter mais informações, consulte [Determinar o tamanho da sub-rede para Instâncias Gerenciadas](sql-database-managed-instance-determine-size-vnet-subnet.md). Você pode implantar instâncias gerenciadas na [rede existente](sql-database-managed-instance-configure-vnet-subnet.md) depois de você configurá-lo para satisfazer [Requisitos de Rede de Instância Gerenciada](#network-requirements), ou crie um [nova rede e sub-rede](sql-database-managed-instance-create-vnet-subnet.md).
+Implante uma instância gerenciada em uma sub-rede dedicada dentro da rede virtual. A sub-rede deve ter as seguintes características:
+
+- **Sub-rede dedicada:** Sub-rede da instância gerenciada não pode conter qualquer outro serviço de nuvem que está associada com ele, e não pode ser uma sub-rede de gateway. A sub-rede não pode conter qualquer recurso, mas a instância gerenciada e, posteriormente, você não pode adicionar recursos na sub-rede.
+- **NSG (Grupo de Segurança de Rede):** Um NSG que está associada com a rede virtual deve definir [regras de segurança de entrada](#mandatory-inbound-security-rules) e [regras de segurança de saída](#mandatory-outbound-security-rules) antes de qualquer outra regra. Você pode usar um NSG para controlar o acesso ao ponto de extremidade da instância gerenciada dados filtrando o tráfego na porta 1433.
+- **Tabela de rotas definida (UDR) de usuário:** Uma tabela UDR que está associada com a rede virtual deve incluir específico [entradas](#user-defined-routes).
+- **Nenhum ponto de extremidade de serviço:** Nenhum ponto de extremidade de serviço deve ser associado com a sub-rede da instância gerenciada. Certifique-se de que a opção de pontos de extremidade de serviço é desabilitada quando você cria a rede virtual.
+- **Endereços IP suficientes:** A sub-rede da instância gerenciada deve ter pelo menos 16 endereços IP. O mínimo recomendado é 32 endereços IP. Para obter mais informações, consulte [determinar o tamanho da sub-rede para instâncias gerenciadas](sql-database-managed-instance-determine-size-vnet-subnet.md). Você pode implantar instâncias gerenciadas na [a rede existente](sql-database-managed-instance-configure-vnet-subnet.md) depois de você configurá-lo para satisfazer [os requisitos de rede para instâncias gerenciadas](#network-requirements). Caso contrário, crie uma [nova rede e sub-rede](sql-database-managed-instance-create-vnet-subnet.md).
 
 > [!IMPORTANT]
-> Não será possível implantar nova Instância Gerenciada se a sub-rede de destino não estiver compatível com todos esses requisitos. Quando uma Instância Gerenciada é criada, uma *Política de intenção de rede* é aplicada à sub-rede para evitar alterações fora de conformidade na configuração de rede. Depois que a última instância for removida da sub-rede, a *Política de intenção de rede* também será removida
+> É possível implantar uma nova instância gerenciada se a sub-rede de destino não tem as seguintes características. Quando você cria uma instância gerenciada, uma política de intenção de rede é aplicada na sub-rede para evitar alterações fora de conformidade para a configuração de rede. Após a última instância é removida da sub-rede, a política de intenção de rede também será removida.
 
-### <a name="mandatory-inbound-security-rules"></a>Regras de segurança de entrada obrigatórias 
+### <a name="mandatory-inbound-security-rules"></a>Regras de segurança de entrada obrigatórias
 
-| NOME       |Porta                        |Protocolo|Fonte           |Destino|Ação|
+| Nome       |Porta                        |Protocolo|Fonte           |Destino|Ação|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|gerenciamento  |9000, 9003, 1438, 1440, 1452|TCP     |Qualquer              |Qualquer        |PERMITIR |
-|mi_subnet   |Qualquer                         |Qualquer     |SUB-REDE DA MI        |Qualquer        |PERMITIR |
-|health_probe|Qualquer                         |Qualquer     |AzureLoadBalancer|Qualquer        |PERMITIR |
+|gerenciamento  |9000, 9003, 1438, 1440, 1452|TCP     |Qualquer              |Qualquer        |Permitir |
+|mi_subnet   |Qualquer                         |Qualquer     |SUB-REDE DA MI        |Qualquer        |Permitir |
+|health_probe|Qualquer                         |Qualquer     |AzureLoadBalancer|Qualquer        |Permitir |
 
-### <a name="mandatory-outbound-security-rules"></a>Regras de segurança de saída obrigatórias 
+### <a name="mandatory-outbound-security-rules"></a>Regras de segurança de saída obrigatórias
 
-| NOME       |Porta          |Protocolo|Fonte           |Destino|Ação|
+| Nome       |Porta          |Protocolo|Fonte           |Destino|Ação|
 |------------|--------------|--------|-----------------|-----------|------|
-|gerenciamento  |80, 443, 12000|TCP     |Qualquer              |Internet   |PERMITIR |
-|mi_subnet   |Qualquer           |Qualquer     |Qualquer              |SUB-REDE DA MI  |PERMITIR |
+|gerenciamento  |80, 443, 12000|TCP     |Qualquer              |Internet   |Permitir |
+|mi_subnet   |Qualquer           |Qualquer     |Qualquer              |SUB-REDE DE MI *  |Permitir |
 
-  > [!Note]
-  > MI SUBNET refere-se ao intervalo de endereços IP para a sub-rede no formato 10.x.x.x/y. Essas informações podem ser encontradas no portal do Azure (por meio de propriedades de sub-rede).
-  
-  > [!Note]
-  > Embora as regras de segurança de entrada obrigatórias permitam o tráfego de _Qualquer_ origem nas portas 9000, 9003, 1438, 1440, 1452 essas portas são protegidas por firewall interno. Este [artigo](sql-database-managed-instance-find-management-endpoint-ip-address.md) mostra como você pode descobrir o endereço IP do ponto de extremidade de gerenciamento e verificar as regras de firewall. 
-  
-  > [!Note]
-  > Se estiver usando uma replicação transacional na instância gerenciada e qualquer banco de dados na instância gerenciada for usado como publicador ou distribuidor, a porta 445 (TCP de saída) também precisa ser aberto nas regras de segurança da sub-rede para acessar o compartilhamento de arquivos do Azure.
-  
+\* Subrede de MI refere-se ao intervalo de endereços IP para a sub-rede na 10.x.x.x/y formulário. Você pode encontrar essas informações no portal do Azure, nas propriedades de sub-rede.
+
+> [!IMPORTANT]
+> Embora as regras de segurança de entrada necessário permitirem o tráfego de _qualquer_ 9000 de origem nas portas, 9003, 1438, 1440 e 1452, essas portas são protegidas por um firewall interno. Para obter mais informações, consulte [determinar o endereço do ponto de extremidade de gerenciamento](sql-database-managed-instance-find-management-endpoint-ip-address.md).
+
+> [!NOTE]
+> Se você usa a replicação transacional em uma instância gerenciada e, se você usar qualquer instância de banco de dados como um publicador ou um distribuidor, abre a porta 445 (TCP de saída) nas regras de segurança da sub-rede. Essa porta permitirá acesso ao compartilhamento de arquivos do Azure.
+
+### <a name="user-defined-routes"></a>rotas definidas pelo usuário
+
+|Nome|Prefixo de endereço|Próximo salto|
+|----|--------------|-------|
+|subnet_to_vnetlocal|[mi_subnet]|Rede virtual|
+|mi-0-5-next-hop-internet|0.0.0.0/5|Internet|
+|mi-11-8-nexthop-internet|11.0.0.0/8|Internet|
+|mi-12-6-nexthop-internet|12.0.0.0/6|Internet|
+|mi-128-3-nexthop-internet|128.0.0.0/3|Internet|
+|mi-16-4-nexthop-internet|16.0.0.0/4|Internet|
+|mi-160-5-nexthop-internet|160.0.0.0/5|Internet|
+|mi-168-6-nexthop-internet|168.0.0.0/6|Internet|
+|mi-172-12-nexthop-internet|172.0.0.0/12|Internet|
+|mi-172-128-9-nexthop-internet|172.128.0.0/9|Internet|
+|mi-172-32-11-nexthop-internet|172.32.0.0/11|Internet|
+|mi-172-64-10-nexthop-internet|172.64.0.0/10|Internet|
+|mi-173-8-nexthop-internet|173.0.0.0/8|Internet|
+|mi-174-7-nexthop-internet|174.0.0.0/7|Internet|
+|mi-176-4-nexthop-internet|176.0.0.0/4|Internet|
+|mi-192-128-11-nexthop-internet|192.128.0.0/11|Internet|
+|mi-192-160-13-nexthop-internet|192.160.0.0/13|Internet|
+|mi-192-169-16-nexthop-internet|192.169.0.0/16|Internet|
+|mi-192-170-15-nexthop-internet|192.170.0.0/15|Internet|
+|mi-192-172-14-nexthop-internet|192.172.0.0/14|Internet|
+|mi-192-176-12-nexthop-internet|192.176.0.0/12|Internet|
+|mi-192-192-10-nexthop-internet|192.192.0.0/10|Internet|
+|mi-192-9-nexthop-internet|192.0.0.0/9|Internet|
+|mi-193-8-nexthop-internet|193.0.0.0/8|Internet|
+|mi-194-7-nexthop-internet|194.0.0.0/7|Internet|
+|mi-196-6-nexthop-internet|196.0.0.0/6|Internet|
+|mi-200-5-nexthop-internet|200.0.0.0/5|Internet|
+|mi-208-4-nexthop-internet|208.0.0.0/4|Internet|
+|mi-224-3-nexthop-internet|224.0.0.0/3|Internet|
+|mi-32-3-nexthop-internet|32.0.0.0/3|Internet|
+|mi-64-2-nexthop-internet|64.0.0.0/2|Internet|
+|mi-8-7-nexthop-internet|8.0.0.0/7|Internet|
+||||
+
+Além disso, você pode adicionar entradas à tabela de rotas para rotear o tráfego que tem intervalos IP privados em locais como um destino por meio do gateway de rede virtual ou um dispositivo de rede virtual (NVA).
+
+Se a rede virtual inclui um DNS personalizado, adicione uma entrada para o endereço IP do resolvedor recursivo do Azure (como 168.63.129.16). Para obter mais informações, consulte [configurar um DNS personalizado](sql-database-managed-instance-custom-dns.md). O servidor DNS personalizado deve ser capaz de resolver nomes de host nesses domínios e seus subdomínios: *microsoft.com*, *windows.net*, *windows.com*,  *msocsp.com*, *digicert.com*, *live.com*, *microsoftonline.com*, e *Secure.aadcdn.microsoftonline-p.com microsoftonline*.
+
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para uma visão geral, consulte  [O que é uma instância gerenciada](sql-database-managed-instance.md)
-- Saiba como [configurar a nova rede virtual](sql-database-managed-instance-create-vnet-subnet.md) ou [configurarVNet](sql-database-managed-instance-configure-vnet-subnet.md) onde você pode implantar instâncias gerenciadas.
-- [Calcular o tamanho da sub-rede](sql-database-managed-instance-determine-size-vnet-subnet.md) onde você irá implantar Instâncias Gerenciadas. 
-- Para um início rápido, consulte como criar a instância gerenciada:
-  - No [portal do Azure](sql-database-managed-instance-get-started.md)
-  - Usando o [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/)
-  - usando [modelo do Resource Manager](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/)
-  - usando [modelo do Resource Manager (jumpbox com o SSMS incluído)](https://portal.azure.com/)
+- Para obter uma visão geral, consulte [avançadas de segurança de dados do banco de dados do SQL](sql-database-managed-instance.md).
+- Saiba como [configurar uma nova rede virtual do Azure](sql-database-managed-instance-create-vnet-subnet.md) ou um [rede virtual do Azure existente](sql-database-managed-instance-configure-vnet-subnet.md) onde você pode implantar instâncias gerenciadas.
+- [Calcular o tamanho da sub-rede](sql-database-managed-instance-determine-size-vnet-subnet.md) onde você deseja implantar as instâncias gerenciadas.
+- Saiba como criar uma instância gerenciada:
+  - No [portal do Azure](sql-database-managed-instance-get-started.md).
+  - Usando [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/).
+  - Usando [um modelo do Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
+  - Usando [um modelo do Resource Manager (usando o JumpBox, com o SSMS incluído)](https://portal.azure.com/).

@@ -16,23 +16,23 @@ ms.date: 2/17/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 171beb432a2c49f1896dc13208a3df1b922828c0
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 1ab59dfc42213fc5c5ce22841e572e2724e239aa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57245685"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118996"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Sistemas operacionais convidados com suporte no Azure Stack
 
 *Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-## <a name="windows"></a>Windows
+## <a name="windows"></a> Windows
 
 O Azure Stack oferece suporte os sistemas de operacionais de convidados do Windows listados na tabela a seguir:
 
 | Sistema operacional | DESCRIÇÃO | Disponível no Marketplace |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- |
 | Windows Server, versão 1709 | 64 bits | Core com contêineres |
 | Windows Server 2016 | 64 bits |  Datacenter, Datacenter Core, Datacenter com contêineres |
 | Windows Server 2012 R2 | 64 bits |  Datacenter |
@@ -58,7 +58,7 @@ Distribuições do Linux listadas como disponíveis no Marketplace incluem o nec
 > [a inicialização de nuvem](https://cloud-init.io/) não tem suporte no Azure Stack no momento.
 
 | Distribuição | DESCRIÇÃO | Publicador | Marketplace |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | Baseado em centOS 6.9 | 64 bits | Rogue Wave | Sim |
 | Baseado em centOS 7.4 | 64 bits | Rogue Wave | Sim |
 | ClearLinux | 64 bits | ClearLinux.org | Sim |

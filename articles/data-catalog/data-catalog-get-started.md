@@ -8,19 +8,19 @@ ms.assetid: 03332872-8d84-44a0-8a78-04fd30e14b18
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: dd3cb108844cd009d74de42630511073021d94b1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 5513948a6611e93833c7e70fa4e5667b3901a9f3
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238481"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880216"
 ---
 # <a name="get-started-with-azure-data-catalog"></a>Introdução ao Catálogo de Dados do Azure
 O Catálogo de Dados do Azure é um serviço de nuvem totalmente gerenciado que atua como um sistema de registro e sistema de descoberta em ativos de dados da empresa. Para obter uma visão detalhada, confira [O que é o Catálogo de Dados do Azure](data-catalog-what-is-data-catalog.md).
 
 Este tutorial ajudará você a começar a usar o Catálogo de Dados do Azure. Neste tutorial, você realizará os seguintes procedimentos:
 
-| Procedimento | DESCRIÇÃO |
+| Procedimento | Descrição |
 |:--- |:--- |
 | [Provisionar catálogo de dados](#provision-data-catalog) |Neste procedimento, você provisiona ou configura o Catálogo de Dados do Azure. Siga esta etapa somente se o catálogo não tiver sido configurado anteriormente. Você só pode ter um catálogo de dados por organização (domínio do Microsoft Azure Active Directory), mesmo que haja várias assinaturas associadas à sua conta do Azure. |
 | [Registrar ativos de dados](#register-data-assets) |Neste procedimento, você registra os ativos de dados do banco de dados de amostra do AdventureWorks2014 com o catálogo de dados. O registro é o processo de extração de metadados estruturais chave, como nomes, tipos e locais, da fonte de dados, copiando os metadados para o catálogo. As fontes de dados e seus dados permanecem onde estão, porém os metadados são usados pelo catálogo para torná-los mais facilmente identificáveis e compreensíveis. |
@@ -38,7 +38,7 @@ As assinaturas do Azure ajudam a organizar o acesso aos recursos de serviço de 
 
 Se você não tiver uma assinatura, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Confira [Avaliação Gratuita](https://azure.microsoft.com/pricing/free-trial/) para obter detalhes.
 
-### <a name="azure-active-directory"></a>Azure Active Directory
+### <a name="azure-active-directory"></a>Active Directory do Azure
 Para configurar o Catálogo de Dados do Azure, você deve entrar com uma conta de usuário do Azure AD (Azure Active Directory). Você deve ser o proprietário ou coproprietário de uma assinatura do Azure.  
 
 O Azure Active Directory (Azure AD) fornece uma maneira fácil para a sua empresa gerenciar identidades e acesso, tanto na nuvem quanto local. Você pode usar uma única conta corporativa ou de estudante para entrar em qualquer nuvem e aplicativo Web local. O Catálogo de Dados do Azure usa o Azure AD para autenticar o logon. Para saber mais, confira [O que é o Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md).
@@ -82,7 +82,7 @@ Você somente pode provisionar um catálogo de dados por organização (domínio
     ![Catálogo de Dados do Azure – exibir catálogo em lista](media/data-catalog-get-started/data-catalog-azure-portal-show-catalog.png)
 3. Clique no catálogo que você criou. Você vê a folha **Catálogo de dados** no portal.
    
-   ![Catálogo de Dados do Azure – folha no portal ](media/data-catalog-get-started/data-catalog-blade-azure-portal.png)
+   ![Catálogo de Dados do Azure – folha no portal](media/data-catalog-get-started/data-catalog-blade-azure-portal.png)
 4. Você pode exibir as propriedades do catálogo de dados e atualizá-las. Por exemplo, clique em **Tipo de preço** e altere a edição.
    
     ![Catálogo de Dados do Azure – tipo de preço](media/data-catalog-get-started/data-catalog-change-pricing-tier.png)
@@ -144,7 +144,7 @@ Neste exercício, você usará a ferramenta de registro para registrar os ativos
       ![Catálogo de Dados do Azure – objetos registrados](media/data-catalog-get-started/data-catalog-registered-objects.png)
    9. Para ver seus objetos de fonte de dados registrados, clique em **Exibir Portal**. No portal Catálogo de Dados do Azure, confirme se você vê todas as quatro tabelas e o banco de dados no modo de exibição de grade.
       
-      ![Objetos no portal do Catálogo de Dados do Azure ](media/data-catalog-get-started/data-catalog-view-portal.png)
+      ![Objetos no portal do Catálogo de Dados do Azure](media/data-catalog-get-started/data-catalog-view-portal.png)
 
 Neste exercício, você registrou objetos do banco de dados de exemplo do Adventure Works para que eles possam ser facilmente descobertos por usuários na sua organização. No próximo exercício, você aprenderá como descobrir ativos de dados registrados.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: 92a6d0f0cd9ef9a7d246624f89315a87a7fb26f9
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: c28bf3ac85709fb996cfb067b83530645fdccba1
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55097802"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008898"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor-public-preview"></a>Alertas de Métrica com Limites Dinâmicos no Azure Monitor (Versão Prévia Pública)
 
@@ -79,7 +79,11 @@ Provavelmente, não. Limites Dinâmicos são bons para detectar desvios signific
 
 ## <a name="how-much-data-is-used-to-preview-and-then-calculate-thresholds"></a>Qual é a quantidade de dados usada para visualizar e então calcular os limites?
 
-Os limites que aparecem no gráfico, antes de uma regra de alerta ser criada na métrica, são calculados com base nos últimos 10 dias de dados históricos; quando uma regra de alerta é criada, os Limites Dinâmicos vão adquirir dados históricos adicionais disponíveis e continuarão aprendendo com base nos novos dados para tornar os limites mais precisos.
+Os limites que aparecem no gráfico, antes de uma regra de alerta é criada na métrica, são calculados com base em dados históricos suficiente para calcular a hora ou diariamente padrões sazonais (10 dias). Pressionar 'Padrão semanal de exibição' vai adquirir dados históricos suficientes para calcular padrões sazonais semanais (28 dias). Depois de criar uma regra de alerta, os limites dinâmicos usará necessários todos os dados históricos que está disponível e irá aprender continuamente e adeptos com base nos novos dados para tornar os limites mais precisa.
+
+## <a name="how-much-data-is-needed-to-trigger-an-alert"></a>A quantidade de dados é necessário para disparar um alerta?
+
+Limites dinâmicos requer pelo menos três dias de dados para garantir que os limites precisos antes de disparar alertas.
 
 ## <a name="dynamic-thresholds-best-practices"></a>Melhores práticas para Limites Dinâmicos
 

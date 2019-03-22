@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 33edfdc58d82530bc1a5d0245b5e18e94b0a6dc1
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 8973558e0841bfd0d6651a08d39da96b544156c9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077548"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842440"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Torne-se um editor do Marketplace de nuvem
 
@@ -45,23 +45,23 @@ Após o registro, registre a ID do Microsoft Partner Network da organização. V
 *   Saiba mais sobre os benefícios do [Microsoft Partner Network](https://partner.microsoft.com/commercial)
 *   Se sua organização tiver uma associação existente, você se juntará à sua organização durante o registro. Se você usar o [Partner Center](https://partnercenter.microsoft.com/partner/home), poderá ver a ID em sua conta do Partner Center. Se você usar o [PMC (Partner Membership Center)](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx), poderá ver a ID em sua conta do Partner Membership Center. 
 
----  
+---
 
 ## <a name="2-create-a-microsoft-account"></a>2. Criar uma conta Microsoft  
 | 15 min |  
-Uma conta Microsoft, por exemplo *@outlook.com ou @live.com*, é usada para acessar vários dispositivos e serviços da Microsoft. Ele é necessário para ofertas de transação do Azure Marketplace e recomendamos seu uso para todos os editores de nuvem. Para obter mais informações sobre os benefícios e usos de uma conta Microsoft, [visite esta página](https://account.microsoft.com/account/). Você usará uma conta Microsoft pessoal para acessar o Portal do Cloud Partner, a plataforma de publicação que você usará para criar e gerenciar suas ofertas do marketplace. 
+Conta Microsoft, por exemplo,  *\@outlook.com ou \@live.com*, é usado para acessar vários serviços e dispositivos da Microsoft. Ele é necessário para ofertas de transação do Azure Marketplace e recomendamos seu uso para todos os editores de nuvem. Para obter mais informações sobre os benefícios e usos de uma conta Microsoft, [visite esta página](https://account.microsoft.com/account/). Você usará uma conta Microsoft pessoal para acessar o Portal do Cloud Partner, a plataforma de publicação que você usará para criar e gerenciar suas ofertas do marketplace. 
 
 [! IMPORTANTE] Observe que uma conta Microsoft associada ao seu email de trabalho não permitirá que você acesse o portal.
 
->[!Note]
->Se você já tiver uma conta Microsoft, examine as [Diretrizes para criar uma ID da Microsoft para gerenciar uma conta do marketplace](https://docs.microsoft.com/azure/marketplace/guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) para determinar se ela pode ser usada para publicação no marketplace. 
-
->Os usuários com uma conta corporativa federada do Azure Active Directory devem ler [este artigo](https://docs.microsoft.com/azure/marketplace/guidelines#issue-microsoft-id-in-an-azure-ad-federated-domain) antes de tentar criar ou usar sua conta Microsoft existente.
+> [!Note]
+> Se você já tiver uma conta Microsoft, examine as [Diretrizes para criar uma ID da Microsoft para gerenciar uma conta do marketplace](https://docs.microsoft.com/azure/marketplace/guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) para determinar se ela pode ser usada para publicação no marketplace. 
+> 
+> Os usuários com uma conta corporativa federada do Azure Active Directory devem ler [este artigo](https://docs.microsoft.com/azure/marketplace/guidelines#issue-microsoft-id-in-an-azure-ad-federated-domain) antes de tentar criar ou usar sua conta Microsoft existente.
 
 *   Para ajudar a criar ou gerenciar sua conta Microsoft, visite o [páginas de suporte de ajuda de conta Microsoft](https://support.microsoft.com/products/microsoft-account?category=manage-account).
 
 
----  
+---
 
 ## <a name="3-submit-the-marketplace-registration-form"></a>3. Enviar o formulário de registro do marketplace  
 | 15 min |  
@@ -72,7 +72,7 @@ Será solicitado que você inclua as seguintes informações:
 *   Uma breve descrição da sua oferta de serviços de consultoria ou aplicativo inicial que você pretende publicar, incluindo o produto ou serviço da Microsoft com sua oferta melhor se alinha
 *   O público-alvo para seu aplicativo ou serviço 
 
----  
+---
 ## <a name="4-sign-into-cloud-partner-portal"></a>4. Entrar no Portal do Cloud Partner
 | 1 a 3 dias | <br>
 Nossa equipe de integração do Marketplace validará os detalhes do registro do marketplace fornecidos na etapa 3. Após a aprovação, você receberá um email de boas-vindas com as credenciais da conta e orientações sobre como entrar no [Portal do Cloud Partner](https://cloudpartner.azure.com).
@@ -108,4 +108,4 @@ Depois de ter concluído o registro no [Centro de Desenvolvimento](https://devel
 *   [Determinar o tipo de listagem para sua solução](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type).
 
  
----  
+---

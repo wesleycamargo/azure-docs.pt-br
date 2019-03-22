@@ -5,18 +5,19 @@ services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
+ms.author: estfan
 ms.reviewer: jehollan, klam, LADocs
 ms.topic: article
 ms.assetid: 19cbd921-7071-4221-ab86-b44d0fc0ecef
 ms.date: 08/25/2018
-ms.openlocfilehash: 69a4e4c59038599a7375466c46878bdd017582fa
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: 1d3c4039ae823d3797e768af5892333d4d925268
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231603"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57789934"
 ---
-# <a name="scenario-trigger-logic-apps-with-azure-functions-and-azure-service-bus"></a>Cenário: disparar aplicativos lógicos usando o Azure Functions e o Barramento de Serviço do Azure
+# <a name="scenario-trigger-logic-apps-with-azure-functions-and-azure-service-bus"></a>Cenário: Disparar aplicativos lógicos com Azure Functions e barramento de serviço do Azure
 
 Você pode usar as Azure Functions para criar um gatilho para um aplicativo lógico quando você precisa implantar um ouvinte ou uma tarefa de execução longa. Por exemplo, você pode criar uma função que escutaria em uma fila e acionaria imediatamente um aplicativo lógico como um gatilho de envio.
 
@@ -34,9 +35,9 @@ Neste exemplo, você terá uma função em execução para cada aplicativo lógi
 
 1. Entre no [portal do Azure](https://portal.azure.com) e crie um aplicativo lógico em branco. 
 
-   Se ainda não estiver familiarizado com aplicativos lógicos, veja o [Guia de Início Rápido: criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+   Se você estiver familiarizado com aplicativos lógicos, examine [guia de início rápido: criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-1. Na caixa de pesquisa, digite “solicitação http”. Na lista de gatilhos, selecione este: **Quando uma solicitação HTTP é recebida**
+1. Na caixa de pesquisa, digite “solicitação http”. Na lista de gatilhos, selecione este gatilho: **Quando uma solicitação HTTP é recebida**
 
    ![Selecionar gatilho](./media/logic-apps-scenario-function-sb-trigger/when-http-request-received-trigger.png)
 
@@ -98,7 +99,7 @@ Em seguida, crie a função que atuará como o gatilho e escutará a fila.
 
 1. No portal do Azure, abra e expanda seu aplicativo de funções, se ainda não estiver aberto. 
 
-1. No nome do aplicativo de funções, expanda **Funções**. No painel **Funções**, escolha **Nova função**. Selecione esse modelo: **Gatilho de fila do Barramento de Serviço – C#**
+1. No nome do aplicativo de funções, expanda **Funções**. No painel **Funções**, escolha **Nova função**. Selecione esse modelo: **Gatilho de fila do barramento de serviço-C#**
    
    ![Portal de seleção do Azure Functions](./media/logic-apps-scenario-function-sb-trigger/newqueuetriggerfunction.png)
 
@@ -114,14 +115,14 @@ Em seguida, crie a função que atuará como o gatilho e escutará a fila.
    
    private static string logicAppUri = @"https://prod-05.westus.logic.azure.com:443/.........";
    
+   // Re-use instance of http clients if possible - https://docs.microsoft.com/en-us/azure/azure-functions/manage-connections
+   private static HttpClient httpClient = new HttpClient();
+   
    public static void Run(string myQueueItem, TraceWriter log)
    {
        log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
 
-       using (var client = new HttpClient())
-       {
-           var response = client.PostAsync(logicAppUri, new StringContent(myQueueItem, Encoding.UTF8, "application/json")).Result;
-       }
+       var response = httpClient.PostAsync(logicAppUri, new StringContent(myQueueItem, Encoding.UTF8, "application/json")).Result;
    }
    ```
 

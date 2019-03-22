@@ -1,6 +1,6 @@
 ---
 title: Escala do cluster do Azure Data Explorer para acomodar as mudanças de demanda
-description: Este artigo descreve as etapas de expansão e redução de um cluster do Azure Data Explorer conforme as mudanças de demanda.
+description: Este artigo descreve as etapas para escalar verticalmente e reduzir verticalmente um cluster do Gerenciador de dados do Azure com base na demanda de alteração.
 author: radennis
 ms.author: radennis
 ms.reviewer: v-orspod
@@ -8,30 +8,32 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: bc3f97c798f5e040908e8103c00d3f015f8c824d
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: a74c529fc3543d5cbdcf009a5b7736309e15569e
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415327"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961696"
 ---
 # <a name="manage-cluster-scale-up-to-accommodate-changing-demand"></a>Gerenciar o aumento do cluster para acomodar as mudanças de demanda
 
-Dimensionar um cluster apropriadamente é essencial para o desempenho do Azure Data Explorer. Contudo, não é possível prever a demanda em um cluster com 100% de precisão. Um tamanho de cluster estático pode levar a subutilização ou superutilização, e nenhuma dessas condições é a ideal. Uma abordagem melhor é *dimensionar* um cluster, adicionando e removendo capacidade e CPU conforme as mudanças na demanda. Há dois fluxos de trabalho para o dimensionamento, escalar verticalmente e escalar horizontalmente. Este artigo mostra como gerenciar o aumento de um cluster.
+Dimensionar um cluster apropriadamente é essencial para o desempenho do Azure Data Explorer. Mas por demanda em um cluster não pode ser prevista com exatidão absoluta. Um tamanho de cluster estático pode levar a subutilização ou superutilização, nenhum deles é ideal.
 
-1. Navegue para seu cluster e, em **Configurações**, selecione **Escalar verticalmente**.
+Uma abordagem melhor é *escala* um cluster, adicionando e removendo a capacidade e os recursos de CPU com a demanda de alteração. Há dois fluxos de trabalho para o dimensionamento: ampliação e expansão. Este artigo mostra como gerenciar o aumento de escala do cluster.
 
-    Você receberá uma lista de SKUs disponíveis. Por exemplo, na figura a seguir há apenas uma SKU disponível: D14_V2.
+1. Vá para seu cluster. Sob **as configurações**, selecione **escalar verticalmente**.
+
+    Você vê uma lista de SKUs disponíveis. Por exemplo, na figura a seguir, apenas quatro SKUs estão disponíveis.
 
     ![Escalar verticalmente](media/manage-cluster-scale-up/scale-up.png)
 
-    A D13_V2 está desabilitada já que é a SKU atual do cluster. L8 e L16 estão desabilitadas porque não estão disponíveis na região onde está o cluster.
+    SKUs estão desabilitados porque eles são o SKU atual, ou eles não estão disponíveis na região em que o cluster está localizado.
 
-1. Para alterar a SKU, selecione a que deseja e pressione o botão **Selecionar**.
+1. Para alterar a SKU, selecione a SKU desejado e escolha o **selecionar** botão.
 
 > [!NOTE]
-> O processo de expansão pode levar alguns minutos e, durante esse tempo, o cluster ficará suspenso. Observe que reduzir verticalmente pode prejudicar o desempenho do cluster.
+> O processo de expansão pode levar alguns minutos e, durante esse tempo o cluster será suspenso. Observe que reduzir verticalmente pode prejudicar o desempenho do cluster.
 
-Agora, você executou uma operação de expansão ou redução para o cluster do Azure Data Explorer. Você também pode fazer um [redimensionamento do cluster](manage-cluster-scale-out.md), também conhecido como dimensionamento automático, para mudar o tamanho dinamicamente com base nas métricas que especificar.
+Agora, você fez uma operação de ampliação ou redução de escala para o cluster do Gerenciador de dados do Azure. Você também pode [gerenciar o cluster de escala horizontal](manage-cluster-scale-out.md) que dinamicamente escalar horizontalmente a contagem de instâncias com base nas métricas que você especificar.
 
-Se você precisar de auxílio com problemas de escala, abra uma solicitação de suporte no [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+Se precisar de ajuda com problemas de dimensionamento de cluster [abrir uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) no portal do Azure.

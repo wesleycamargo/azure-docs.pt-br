@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 8feee92e9105259bddf45114ac48a54347266cd7
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 5d1b2718b360a55d9b1510bcfcb2ddb6492e2830
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54845992"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436741"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Suspender e reativar as entidades de mensagens (desabilitar)
 
@@ -28,7 +28,7 @@ A suspensão de uma entidade normalmente é feita por razões administrativas ur
 
 Uma suspensão ou reativação pode ser executada pelo usuário ou pelo sistema. O sistema suspende entidades apenas por razões administrativas graves como atingir a limite de gastos de assinatura. As entidades desabilitadas pelo sistema não podem ser reativadas pelo usuário, mas serão restauradas quando a causa a suspensão tiver sido resolvida.
 
-No portal, a seção **Propriedades** da respectiva entidade permite alterar o estado, a captura de tela a seguir mostra a alternância para uma fila:
+No portal, o **propriedades** seção para a respectiva entidade permite alterar o estado; a captura de tela a seguir mostra a alternância para uma fila:
 
 ![][1]
 

@@ -11,17 +11,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 4a9c7221fbb549494e3ed112e2ab4e66c4b7dadd
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: cb5b64869a26133e1c08095a816c2d2854f85b94
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770628"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103495"
 ---
 # <a name="manage-physical-memory-capacity-for-azure-stack"></a>Gerenciar a capacidade de memória física para o Azure Stack
 
@@ -39,11 +39,11 @@ O diagrama de fluxo a seguir mostra o processo geral para adicionar memória a c
 ## <a name="add-memory-to-an-existing-node"></a>Adicionar memória a um nó existente
 As etapas a seguir fornecem uma visão geral do processo de memória a adicionar. 
 
-> [!Warning]  
-Não siga estas etapas sem fazer referência a documentação fornecida pelo OEM.
-
-> [!Warning]  
-A unidade de escala inteira deve ser desligada como não há suporte para uma atualização sem interrupção de memória.
+> [!Warning]
+> Não siga estas etapas sem fazer referência a documentação fornecida pelo OEM.
+> 
+> [!Warning]
+> A unidade de escala inteira deve ser desligada como não há suporte para uma atualização sem interrupção de memória.
 
 1. Parar o Azure Stack usando as etapas documentadas na [iniciar e parar o Azure Stack](azure-stack-start-and-stop.md) artigo.
 2. Atualize a memória em cada computador físico usando a documentação do fabricante do hardware.

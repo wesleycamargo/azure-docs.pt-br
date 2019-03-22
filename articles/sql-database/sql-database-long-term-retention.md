@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 68bcddeee2cec1a77f20f8f470669f170fa50743
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 85757ace20501bea1db22ecfdd2fdb63284038d5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992476"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108739"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Armazenar backups do Banco de Dados SQL do Azure por um período de até 10 anos
 
@@ -56,22 +56,20 @@ W=12 semanas (84 dias), M=12 meses (365 dias), Y=10 anos (3650 dias), WeekOfYear
    ![Exemplo de LTR](./media/sql-database-long-term-retention/ltr-example.png)
 
 
- 
+
 Se você modificasse a política acima e definisse W=0 (sem backups semanais), a cadência das cópias de backup mudaria, conforme mostrado na tabela acima pelas datas destacadas. O valor de armazenamento necessário para manter esses backups reduziria adequadamente. 
 
 > [!NOTE]
-1. As cópias LTR são criadas pelo serviço de armazenamento do Azure, de modo que o processo de cópia não cause nenhum impacto de desempenho no banco de dados existente.
-2. A política se aplica aos backups futuros. Por exemplo se a WeekOfYear especificada estiver no passado quando a política for configurada, o primeiro backup LTR será criado no próximo ano. 
-3. Para restaurar um banco de dados do armazenamento LTR, você pode selecionar um backup específico com base no carimbo de data/hora.   O banco de dados pode ser restaurado para qualquer servidor existente sob a mesma assinatura do banco de dados original. 
-> 
+> 1. As cópias LTR são criadas pelo serviço de armazenamento do Azure, de modo que o processo de cópia não cause nenhum impacto de desempenho no banco de dados existente.
+> 2. A política se aplica aos backups futuros. Por exemplo se a WeekOfYear especificada estiver no passado quando a política for configurada, o primeiro backup LTR será criado no próximo ano. 
+> 3. Para restaurar um banco de dados do armazenamento LTR, você pode selecionar um backup específico com base no carimbo de data/hora.   O banco de dados pode ser restaurado para qualquer servidor existente sob a mesma assinatura do banco de dados original. 
 
 ## <a name="geo-replication-and-long-term-backup-retention"></a>Replicação geográfica e retenção de backup de longo prazo
 
 Se estiver usando grupos de failover ou de replicação geográfica ativos como a solução de continuidade de negócios, prepare-se para eventuais failovers e configure a mesma política de LTR no banco de dados geográfico secundário. Isso não aumentará o custo de armazenamento de LTR, pois os backups não serão gerados a partir dos secundários. Somente quando o secundário tornar-se primário, os backups serão criados. Dessa forma, você garantirá a geração não interrompida dos backups de LTR quando o failover for acionado e o primário for movido para a região secundária. 
 
 > [!NOTE]
-Quando o banco de dados primário original recuperar-se da indisponibilidade que causa o failover, ele se tornará um novo secundário. Portanto, a criação de backup não será retomada e a política de LTR existente não terá efeito até que torne-se primário novamente. 
-> 
+> Quando o banco de dados primário original recuperar-se da indisponibilidade que causa o failover, ele se tornará um novo secundário. Portanto, a criação de backup não será retomada e a política de LTR existente não terá efeito até que torne-se primário novamente. 
 
 ## <a name="configure-long-term-backup-retention"></a>Configurar retenção de backup de longo prazo
 

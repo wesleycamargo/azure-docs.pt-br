@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: tomsh
-ms.openlocfilehash: da58737314012255f26d344f279d855244f0c1ba
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 38054d6ee3799296887726954ef1f096945aeaeb
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116466"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241078"
 ---
 # <a name="azure-operational-security-overview"></a>Visão geral de segurança operacional do Azure
 
@@ -29,13 +29,13 @@ A [segurança operacional do Azure](https://docs.microsoft.com/azure/security/az
 
 Uma equipe de operações de TI é responsável por gerenciar a infraestrutura do datacenter, os aplicativos e os dados, incluindo a estabilidade e a segurança desses sistemas. No entanto, a obtenção de informações de segurança em ambientes de TI cada vez mais complexos geralmente exige que as empresas reúnam dados de vários sistemas de gerenciamento e segurança.
 
-O [Microsoft Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) é uma solução de gerenciamento de TI baseada em nuvem que ajuda a gerenciar e proteger sua infraestrutura de nuvem e local. Sua funcionalidade central é proporcionada pelos serviços executados no Azure descritos a seguir. O Azure inclui vários serviços que ajudam a gerenciar e proteger a infraestrutura de nuvem e local. Cada serviço fornece uma função de gerenciamento específica. Você pode combinar serviços para obter diferentes cenários de gerenciamento. 
+[Logs do Microsoft Azure Monitor](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) é uma solução de gerenciamento de TI baseada em nuvem que ajuda você a gerenciar e proteger suas instalações e infraestrutura de nuvem. Sua funcionalidade central é proporcionada pelos serviços executados no Azure descritos a seguir. O Azure inclui vários serviços que ajudam a gerenciar e proteger a infraestrutura de nuvem e local. Cada serviço fornece uma função de gerenciamento específica. Você pode combinar serviços para obter diferentes cenários de gerenciamento. 
 
 ### <a name="azure-monitor"></a>Azure Monitor
 
 O [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) coleta dados de fontes gerenciadas em armazenamentos de dados centrais. Esses dados podem incluir eventos, dados de desempenho ou dados personalizados fornecidos por meio da API. Depois de coletados, os dados ficam disponíveis para alertas, análise e exportação. 
 
-Consolide os dados de uma variedade de fontes e combine os dados de seus serviços do Azure com o ambiente local existente. O Log Analytics também separa claramente a coleta dos dados da ação executada neles, de modo que todas as ações fiquem disponíveis para todos os tipos de dados.
+Consolide os dados de uma variedade de fontes e combine os dados de seus serviços do Azure com o ambiente local existente. Os logs do Azure Monitor também separa a coleta dos dados da ação executada nesses dados, para que todas as ações estão disponíveis para todos os tipos de dados.
 
 ### <a name="automation"></a>Automação
 
@@ -93,7 +93,7 @@ A Central de Segurança avalia a configuração de seus recursos para identifica
 >[!Note]
 >Confira [Permissões na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-permissions) para saber mais sobre as funções e as ações permitidas na Central de Segurança.
 
-A Central de Segurança usa o Microsoft Monitoring Agent. Esse é o mesmo agente que o serviço Log Analytics usa. Os dados coletados desse agente são armazenados em um [workspace](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access) existente do Log Analytics associado à sua assinatura do Azure ou a um novo workspace, levando em conta a geolocalização da VM.
+A Central de Segurança usa o Microsoft Monitoring Agent. Isso é o mesmo agente usado pelo serviço do Azure Monitor. Os dados coletados desse agente são armazenados em um [workspace](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access) existente do Log Analytics associado à sua assinatura do Azure ou a um novo workspace, levando em conta a geolocalização da VM.
 
 ## <a name="azure-monitor"></a>Azure Monitor
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f62a87343ea0dc8d5d3818ee8516f0d8e8f607c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 1cbd40f2ab91f854f46dc3e62bccbc8a3264f97f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206711"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087458"
 ---
 # <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>Atribuir usuários e grupos a um aplicativo no Azure Active Directory
 Este artigo mostra como atribuir usuários ou grupos a um aplicativo no Azure AD (Azure Active Directory). Primeiro os usuários devem ser atribuídos a um aplicativo para que um administrador possa conceder a eles acesso para fazer o seguinte:
@@ -32,7 +32,7 @@ Este artigo mostra como atribuir usuários ou grupos a um aplicativo no Azure AD
 
 -   Ver um aplicativo em seu [Inicializador de Aplicativos do Office 365](https://support.office.com/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a).
 
-## <a name="prerequisties"></a>Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Antes de atribuir usuários e grupos a um aplicativo, você precisa exigir a atribuição de usuários. Para exigir a atribuição de usuário:
 
 1. Faça logon no Portal do Azure com uma conta de administrador.
@@ -126,25 +126,25 @@ O acesso de aplicativo de autoatendimento é uma ótima maneira de permitir que 
 
 Para habilitar o acesso de aplicativos de autoatendimento a um aplicativo, siga as etapas abaixo:
 
-1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global.**
+1. Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global.**
 
-2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
+2. Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
-3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
+3. Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4. clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
-5.  clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+5. clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
    * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
-6.  Selecione na lista o aplicativo ao qual você deseja habilitar o acesso do autoatendimento.
+6. Selecione na lista o aplicativo ao qual você deseja habilitar o acesso do autoatendimento.
 
-7.  Após o carregamento do aplicativo, clique em **Autoatendimento** no menu de navegação esquerdo do aplicativo.
+7. Após o carregamento do aplicativo, clique em **Autoatendimento** no menu de navegação esquerdo do aplicativo.
 
-8.  Para habilitar o acesso de aplicativos de autoatendimento a este aplicativo, coloque o controle de alternância **Permitir aos usuários solicitar acesso a esse aplicativo?** na posição **Sim.**
+8. Para habilitar o acesso de aplicativos de autoatendimento a este aplicativo, coloque o controle de alternância **Permitir aos usuários solicitar acesso a esse aplicativo?** na posição **Sim.**
 
-9.  Em seguida, para selecionar o grupo ao qual os usuários que solicitam acesso a esse aplicativo devem ser adicionados, clique no seletor ao lado do rótulo **A qual grupo os usuários atribuídos devem ser adicionados?** e selecione um grupo.
+9. Em seguida, para selecionar o grupo ao qual os usuários que solicitam acesso a esse aplicativo devem ser adicionados, clique no seletor ao lado do rótulo **A qual grupo os usuários atribuídos devem ser adicionados?** e selecione um grupo.
 
 10. **Opcional:** Se quiser exigir uma aprovação de negócios antes que os usuários tenham permissão de acesso, coloque o controle de alternância **Exigir aprovação antes de conceder acesso a esse aplicativo?** na posição **Sim**.
 
@@ -152,10 +152,10 @@ Para habilitar o acesso de aplicativos de autoatendimento a um aplicativo, siga 
 
 12. **Opcional:** Para especificar os aprovadores de negócios que têm permissão para aprovar o acesso ao aplicativo, clique no seletor ao lado do rótulo **Quem tem permissão para aprovar o acesso a esse aplicativo?** para selecionar até 10 aprovadores de negócios individuais.
 
-  >[!NOTE]
-  >Não há suporte para grupos.
-  >
-  >
+    >[!NOTE]
+    >Não há suporte para grupos.
+    >
+    >
 
 13. **Opcional:** **para aplicativos que expõem funções**, se quiser atribuir usuários aprovados de autoatendimento a uma função, clique no seletor ao lado de **A que função os usuários devem ser atribuídos neste aplicativo?** para selecionar a função a que esses usuários devem ser atribuídos.
 

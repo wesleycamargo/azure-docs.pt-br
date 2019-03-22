@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 02/05/2019
 ms.author: alkohli
-ms.openlocfilehash: b36926365b85c576cbe2927c690a30cc64df23d8
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 5770cd9a4955013100b7e58698eed77da10c0583
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752765"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012264"
 ---
 # <a name="azure-data-box-blob-storage-requirements"></a>Requisitos de armazenamento de Blobs do Azure Data Box
 
@@ -53,7 +53,7 @@ Lançamento da versão prévia pública (Azure Data Box 1.8 em diante)
 |     Biblioteca do cliente     |     Versão com suporte de armazenamento de Blob do Azure Data Box     |     Link             |     Especificação do ponto de extremidade         |
 |------------------------|-------------------------------------------------|---------------------------------------------|------------------------------------|
 |    .NET                |    De 6.2.0 a 8.7.0.                         |    Pacote NuGet:   https://www.nuget.org/packages/WindowsAzure.Storage/ <br>Versão do GitHub:  https://github.com/Azure/azure-storage-net/releases                                                                      |    app.config file                 |
-|    Java                |    De 4.1.0 a 6.1.0                          |    Maven Package:   http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage   <br>Versão do GitHub:  https://github.com/Azure/azure-storage-java/releases                                                      |    Configuração de cadeia de conexão         |
+|    Java                |    De 4.1.0 a 6.1.0                          |    Maven Package:   https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage   <br>Versão do GitHub:  https://github.com/Azure/azure-storage-java/releases                                                      |    Configuração de cadeia de conexão         |
 |    Node.js             |    De 1.1.0 a 2.7.0                          |    Link do NPM:   https://www.npmjs.com/package/azure-storage   (Por exemplo: execute "instalar npm azure-storage@2.7.0")   <br>Versão do GitHub:   https://github.com/Azure/azure-storage-node/releases                            |    Declaração de instância de serviço    |
 |    C++                 |    De 2.4.0 a 3.1.0                          |    Pacote NuGet:   https://www.nuget.org/packages/wastorage.v140/   <br>Versão do GitHub:  https://github.com/Azure/azure-storage-cpp/releases                                                                            |    Configuração de cadeia de conexão         |
 |    PHP                 |    De 0.15.0 a 1.0.0                         |    Versão do GitHub:   https://github.com/Azure/azure-storage-php/releases   <br>Instalar por meio do Composer (veja os detalhes abaixo)                                                                                                   |    Configuração de cadeia de conexão         |
@@ -69,7 +69,7 @@ Para o armazenamento de Blob do Azure Data Box, há bibliotecas específicas de 
 | Biblioteca do cliente     |Versão com suporte de armazenamento de Blob do Azure Data Box     | Link   |     Especificação do ponto de extremidade      |
 |--------------------|--------------------------------------------|--------|---------------------------------|
 |    .NET                |    8.7.0                                           |    Pacote NuGet:  https://www.nuget.org/packages/WindowsAzure.Storage/8.7.0    <br>Versão do GitHub:  https://github.com/Azure/azure-storage-net/releases/tag/v8.7.0                                                                                                                                                                                               |    app.config file                 |
-|    Java                |    6.1.0                                           |    Maven Package:   http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0   <br>Versão do GitHub:  https://github.com/Azure/azure-storage-java/releases/tag/v6.1.0                                                                                                                                                                              |    Configuração de cadeia de conexão         |
+|    Java                |    6.1.0                                           |    Maven Package:   https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0   <br>Versão do GitHub:  https://github.com/Azure/azure-storage-java/releases/tag/v6.1.0                                                                                                                                                                              |    Configuração de cadeia de conexão         |
 |    Node.js             |    2.7.0                                           |    Link do NPM:   https://www.npmjs.com/package/azure-storage   (Executar: instalar npm azure-storage@2.7.0)   <br>Versão do GitHub:  https://github.com/Azure/azure-storage-node/releases/tag/v2.7.0                                                                                                                                                                        |    Declaração de instância de serviço    |
 |    C++                 |    3.1.0                                           |    Pacote Nuget:   https://www.nuget.org/packages/wastorage.v140/3.1.0   <br>Versão do GitHub:  https://github.com/Azure/azure-storage-cpp/releases/tag/v3.1.0                                                                                                                                                                                                     |    Configuração de cadeia de conexão         |
 |    PHP                 |    1.0.0                                           |    Versão do GitHub:<br>Comum: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-common   <br>Blob: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-blob      <br>Instalar por meio do Composer (para saber mais, veja os detalhes abaixo).                                                                                                             |    Configuração de cadeia de conexão         |
@@ -96,7 +96,7 @@ Execução: instalar o php composer.phar.
 
 ### <a name="endpoint-declaration"></a>Declaração de ponto de extremidade
 
-Um ponto de extremidade de armazenamento de Blob do Azure Data Box inclui duas partes: nome de uma região e o domínio do Data Box. No SDK de armazenamento do Azure Data Box, o ponto de extremidade padrão é <serial no. of the device>. microsoftdatabox.com.  Para obter mais informações sobre o ponto de extremidade de serviço blob, acesse [Conectar por meio do armazenamento de blobs do Azure Data Box](data-box-deploy-copy-data-via-rest.md).
+Um ponto de extremidade de armazenamento de Blob do Azure Data Box inclui duas partes: nome de uma região e o domínio do Data Box. No SDK de armazenamento do Blob de caixa de dados, o ponto de extremidade padrão é \<n ° de série. do dispositivo >. microsoftdatabox.com.  Para obter mais informações sobre o ponto de extremidade de serviço blob, acesse [Conectar por meio do armazenamento de blobs do Azure Data Box](data-box-deploy-copy-data-via-rest.md).
  
 ## <a name="examples"></a>Exemplos
 

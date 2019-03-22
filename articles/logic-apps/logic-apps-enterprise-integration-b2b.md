@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 20fc3722-6f8b-402f-b391-b84e9df6fcff
 ms.date: 07/08/2016
-ms.openlocfilehash: ad7a29f4a554d599b17576921542b1ac6e403911
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: 05368f627c5e9482a43d5e30b0e16b1d47f6217c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127756"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58074699"
 ---
 # <a name="receive-b2b-data-with-azure-logic-apps-and-enterprise-integration-pack"></a>Receber dados de B2B com os Aplicativos Lógicos do Azure e o Enterprise Integration Pack
 
@@ -47,11 +47,13 @@ Siga estas etapas para criar um aplicativo lógico B2B que usa as ações AS2 e 
 
     ![](./media/logic-apps-enterprise-integration-b2b/b2b-6.png)
 
-6. Adicione o **corpo** que você deseja usar como entrada. Neste exemplo, selecione o corpo da solicitação HTTP que disparou o Aplicativo Lógico. Ou insira uma expressão que insere os cabeçalhos no campo **CABEÇALHOS**:
+6. Adicione o **corpo** que você deseja usar como entrada. 
+   Neste exemplo, selecione o corpo da solicitação HTTP que disparou o Aplicativo Lógico. Ou insira uma expressão que insere os cabeçalhos no campo **CABEÇALHOS**:
 
     @triggerOutputs()['headers']
 
-7. Adicione os **cabeçalhos** necessários para AS2, que pode ser encontrado nos cabeçalhos de solicitação HTTP. Neste exemplo, selecione o cabeçalho da solicitação HTTP que disparou o Aplicativo Lógico.
+7. Adicione os **cabeçalhos** necessários para AS2, que pode ser encontrado nos cabeçalhos de solicitação HTTP. 
+   Neste exemplo, selecione o cabeçalho da solicitação HTTP que disparou o Aplicativo Lógico.
 
 8. Agora, adicione a ação de mensagem X12 de decodificação. Escolha **Adicionar uma ação**.
 
@@ -65,7 +67,8 @@ Siga estas etapas para criar um aplicativo lógico B2B que usa as ações AS2 e 
 
     ![](./media/logic-apps-enterprise-integration-b2b/b2b-as2message.png)
 
-11. Agora, você deve especificar a entrada para esta ação. Essa entrada é a saída da ação AS2 anterior.
+11. Agora, você deve especificar a entrada para esta ação. 
+    Essa entrada é a saída da ação AS2 anterior.
 
     O conteúdo real da mensagem está em um objeto JSON e é codificado em base64, então você deve especificar uma expressão como entrada. 
     Insira a seguinte expressão no campo de entrada **X12 MENSAGEM DO ARQUIVO SIMPLES PARA DECODIFICAÇÃO**:

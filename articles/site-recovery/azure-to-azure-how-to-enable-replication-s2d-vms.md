@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: asgang
-ms.openlocfilehash: 0b3094abfe1642cb65043729489f3aaed0732df9
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 6c639d4503b170660abed5767e3571c8a2bf24b9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55568949"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58112765"
 ---
 # <a name="replicate-azure-virtual-machines-using-storage-spaces-direct-to-another-azure-region"></a>Replicar máquinas virtuais do Azure usando espaços de armazenamento diretos para outra região do Azure
 
@@ -23,10 +23,10 @@ Este artigo descreve como habilitar a recuperação de desastre de VMs do Azure 
 >Somente os pontos de recuperação com controle de falhas são compatíveis com clusters de espaços de armazenamento diretos.
 >
 
-##<a name="introduction"></a>Introdução 
+## <a name="introduction"></a>Introdução 
 [S2D (espaços de armazenamento diretos)](https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-storage-spaces-direct) é um armazenamento definido por software, que fornece uma maneira de criar [clusters convidados](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure) no Azure.  Um cluster convidado no Microsoft Azure um Cluster de Failover composto de VMs de IaaS. Ele permite que cargas de trabalho de VM hospedadas façam failover entre clusters convidados, alcançando maior disponibilidade de SLA para aplicativos do que uma única VM do Azure pode fornecer. É útil em cenários nos quais uma VM hospeda um aplicativo crítico como SQL ou servidor de arquivos de escala horizontal, etc.
 
-##<a name="disaster-recovery-of-azure-virtual-machines-using-storage-spaces-direct"></a>Recuperação de desastre de Máquinas Virtuais do Azure usando espaços de armazenamento diretos
+## <a name="disaster-recovery-of-azure-virtual-machines-using-storage-spaces-direct"></a>Recuperação de desastre de Máquinas Virtuais do Azure usando espaços de armazenamento diretos
 Em um cenário típico, você pode ter um cluster convidado de máquinas virtuais no Azure para maior resiliência do aplicativo, assim como no servidor de arquivos de escala horizontal. Embora isso possa fornecer maior disponibilidade ao aplicativo, é conveniente que você proteja esses aplicativos usando o Site Recovery contra falhas em qualquer nível de região. O Site Recovery replica os dados de uma região para outra região do Azure e traz o cluster na região de recuperação de desastre em um evento de failover.
 
 O diagrama abaixo mostra a representação visual de dois espaços de cluster de failover de VMs do Azure usando os espaços de armazenamento diretos.
@@ -45,7 +45,7 @@ O diagrama abaixo mostra a representação visual de dois espaços de cluster de
 2. Se você pretende fazer failover das máquinas virtuais para a sub-rede na região de Recuperação de Desastre, que é diferente da região de origem, o endereço IP do cluster precisa ser alterado após o failover.  Para alterar o IP do cluster, você precisa usar o [script de plano de recuperação](https://docs.microsoft.com/azure/site-recovery/site-recovery-runbook-automation) do ASR.</br>
 [Exemplo de script](https://github.com/krnese/azure-quickstart-templates/blob/master/asr-automation-recovery/scripts/ASR-Wordpress-ChangeMysqlConfig.ps1) para executar o comando dentro da VM usando a extensão de script personalizado 
 
-###<a name="enabling-site-recovery-for-s2d-cluster"></a>Habilitar o Site Recovery para o cluster S2D:
+### <a name="enabling-site-recovery-for-s2d-cluster"></a>Habilitar o Site Recovery para o cluster S2D:
 
 1. Dentro do cofre dos serviços de recuperação, clique em "+replicar"
 1. Selecione todos os nós no cluster e torne-os parte de um [Grupo de consistência de várias VMs](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-common-questions#multi-vm-consistency)
@@ -72,7 +72,7 @@ Um plano de recuperação dá suporte à sequência de várias camadas em um apl
 Talvez seja necessário fazer algumas operações nas máquinas virtuais do Azure após o failover ou durante o teste de failover para que seus aplicativos funcionem corretamente. É possível automatizar algumas operações pós-failover. Por exemplo, aqui estamos estiver anexando um balanceador de carga e alterando o IP do cluster.
 
 
-###<a name="failover-of-the-virtual-machines"></a>Failover das máquinas virtuais 
+### <a name="failover-of-the-virtual-machines"></a>Failover das máquinas virtuais 
 Ambos os nós das máquinas virtuais precisam sofrer failover usando o [plano de recuperação ASR](https://docs.microsoft.com/azure/site-recovery/site-recovery-create-recovery-plans) 
 
 ![proteção storagespacesdirect](./media/azure-to-azure-how-to-enable-replication-s2d-vms/recoveryplan.PNG)

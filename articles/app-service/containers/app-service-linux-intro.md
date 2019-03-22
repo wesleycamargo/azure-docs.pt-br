@@ -16,12 +16,12 @@ ms.topic: overview
 ms.date: 1/11/2019
 ms.author: msangapu;yili
 ms.custom: seodec18
-ms.openlocfilehash: 2e75ff08acdda03c0080f49c6616274a4b031075
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 161b2054d690a2e609085852aa7caf2f02366f69
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903716"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215652"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Introdução ao Serviço de Aplicativo do Azure no Linux
 
@@ -71,9 +71,7 @@ Verifique o [Painel de Status do Azure](https://azure.microsoft.com/status).
 
 O portal do Azure mostra somente os recursos que funcionam atualmente para o Aplicativo Web para Contêineres. Conforme habilitarmos mais recursos, eles ficarão visíveis no portal.
 
-Alguns recursos, como a integração de rede virtual, a autenticação do Azure Active Directory/de terceiros ou as extensões de site do Kudu, ainda não estão disponíveis. Quando esses recursos estiverem disponíveis, atualizaremos nossa documentação e nosso blog sobre as alterações.
-
-O Serviço de Aplicativo no Linux só tem suporte com os planos de serviço de aplicativo [Básico, Standard e Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) e não tem uma camada [Gratuita nem Compartilhada](https://azure.microsoft.com/pricing/details/app-service/plans/). Não é possível criar o Aplicativo Web para Contêineres em um plano do Serviço de Aplicativo que já esteja hospedando Aplicativos Web não Linux. 
+O Serviço de Aplicativo no Linux só tem suporte com os planos de serviço de aplicativo [Básico, Standard e Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) e não tem uma camada [Gratuita nem Compartilhada](https://azure.microsoft.com/pricing/details/app-service/plans/). Não é possível criar o Aplicativo Web para Contêineres em um plano do Serviço de Aplicativo que já esteja hospedando Aplicativos Web não Linux.  
 
 Além disso, com base em uma limitação atual, não misture aplicativos do Windows e do Linux no mesmo grupo de recursos.
 

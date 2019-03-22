@@ -4,14 +4,14 @@ description: Visão geral da implantação do Avere vFXT para o Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 1be11fff7139b250e85fe15cec9082a2c85cf857
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: 0c61db5e34ba58bb767b0bda773a54c8e65cd404
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298527"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991794"
 ---
 # <a name="avere-vfxt-for-azure---deployment-overview"></a>Avere vFXT para Azure - visão geral da implantação
 
@@ -52,10 +52,12 @@ Aqui está uma visão geral de todas as etapas.
 
      O controlador de cluster é uma VM simples do que reside na mesma rede virtual que o cluster do Avere vFXT e tem o software personalizado necessário para criar e gerenciar o cluster. O controlador cria os nós vFXT e forma o cluster e também fornece uma interface de linha de comandos para gerenciar o cluster durante sua existência.
 
-     Se você configurar seu controlador com um endereço IP público, ele também poderá servir como um host de salto para se conectar ao cluster de fora da vnet.
+     Se você criar uma nova rede virtual durante a implantação, seu controlador terá um endereço IP público. Isso significa que o controlador pode servir como um host de salto para conectar-se ao cluster de fora da vnet.
 
    * Criar as VMs do nó de cluster
-   * Configurar as VMs do nó de cluster como o cluster
+
+   * Configurar as VMs para formar o cluster do nó de cluster
+
    * Opcionalmente, criar um novo contêiner de Blob e configurá-lo como um armazenamento de back-end para o cluster
 
 1. Configurar o cluster 

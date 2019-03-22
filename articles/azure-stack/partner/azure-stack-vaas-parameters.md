@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/19/2018
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 59adaed427eb0d791e18438826aff4f6477e831a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f66f57799e1e6b6d0e27624e3dc08b4de5d09cac
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247265"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766192"
 ---
 # <a name="workflow-common-parameters-for-azure-stack-validation-as-a-service"></a>Parâmetros comuns de fluxo de trabalho para validação de pilha do Azure como um serviço
 
@@ -40,8 +40,9 @@ Parâmetros do ambiente descrevem o ambiente do Azure Stack em teste. Esses valo
 
 ### <a name="generate-the-stamp-information-file"></a>Gerar o arquivo de informações de carimbo de data /
 
-1. Faça logon em qualquer máquina que tem acesso ao ambiente do Azure Stack ou o DVM.
+1. Entrar para o DVM ou qualquer computador que tenha acesso ao ambiente do Azure Stack.
 2. Execute os seguintes comandos em uma janela elevada do PowerShell:
+
     ```PowerShell  
     $CloudAdminUser = "<cloud admin username>"
     $CloudAdminPassword = ConvertTo-SecureString "<cloud admin password>" -AsPlainText -Force

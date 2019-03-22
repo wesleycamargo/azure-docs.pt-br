@@ -148,9 +148,6 @@ items:
   - name: Monitoramento
     href: ../virtual-machines/windows/monitor.md
     maintainContext: true
-  - name: Computação de alto desempenho
-    href: ../virtual-machines/windows/high-performance-computing.md
-    maintainContext: true
   - name: Considerações de implantação
     items:
     - name: Cotas do vCPU
@@ -282,10 +279,10 @@ items:
   - name: Calculadora de preço
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-vm-scale-set
-ms.openlocfilehash: 6750e7687634119b9a1219260640d54f9bbe2e7b
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+    href: https://stackoverflow.com/questions/tagged/azure-vm-scale-set
+ms.openlocfilehash: 75b5a36505f56f71a7a5cbf3addb96085e823b2b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327741"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014621"

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 7b6a5a46e311fa54d6957c45d35ef20d94cf7632
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c032961bf89ba470a38ebccfd846659b080f9fab
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200489"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013232"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planejando uma implantação da Sincronização de Arquivos do Azure
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -132,6 +132,7 @@ Para exibir os resultados em CSV:
 - Um volume anexado localmente formatado com o sistema de arquivos NTFS.
 
 ### <a name="file-system-features"></a>Recursos do sistema de arquivos
+
 | Recurso | Status de suporte | Observações |
 |---------|----------------|-------|
 | ACLs (listas de controle de acesso) | Com suporte total | As ACLs do Windows são preservadas pela Sincronização de arquivos do Azure e são impostas pelo Windows Server nos pontos de extremidade do servidor. Não há suporte (ainda) para as ACLs do Windows nos Arquivos do Azure, caso os arquivos sejam acessados diretamente na nuvem. |
@@ -148,6 +149,7 @@ Para exibir os resultados em CSV:
 > Há suporte para apenas os volumes NTFS. ReFS, FAT, FAT32 e outros sistemas de arquivos não têm suporte.
 
 ### <a name="files-skipped"></a>Arquivos ignorados
+
 | Arquivo/pasta | Observação |
 |-|-|
 | Desktop.ini | Arquivo específico do sistema |
@@ -235,13 +237,16 @@ A Sincronização de Arquivos do Azure está disponível apenas nas seguintes re
 |--------|---------------------|
 | Leste da Austrália | Nova Gales do Sul |
 | Sudeste da Austrália | Vitória |
+| Sul do Brasil | Estado de Paolo são |
 | Canadá Central | Toronto |
 | Leste do Canadá | Cidade de Quebec |
 | Índia Central | Pune |
 | Centro dos EUA | Iowa |
-| Ásia Oriental | Hong Kong |
+| Ásia Oriental | RAE de Hong Kong |
 | Leste dos EUA | Virgínia |
 | Leste dos EUA 2 | Virgínia |
+| Leste do Japão | Tóquio |
+| Oeste do Japão | Osaka |
 | Centro-Norte dos EUA | Illinois |
 | Norte da Europa | Irlanda |
 | Centro-Sul dos Estados Unidos | Texas |

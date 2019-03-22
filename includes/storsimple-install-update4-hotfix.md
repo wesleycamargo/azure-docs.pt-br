@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 46cf3b01a3c5e653d5588e463f26540fef15f4e1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 0755c01fe8e13e8e39c0b453198f2b67c51a2bc4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55889326"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58115984"
 ---
 #### <a name="to-download-hotfixes"></a>Para baixar os hotfixes
 
@@ -99,12 +99,12 @@ Siga as etapas abaixo para instalar e verificar os hotfixes do modo normal. Caso
     Você deverá ver as seguintes versões:
    
    * `FriendlySoftwareVersion: StorSimple 8000 Series Update 4.0`
-   *  `HcsSoftwareVersion: 6.3.9600.17820`
+   * `HcsSoftwareVersion: 6.3.9600.17820`
    
-    Se o número de versão não mudar após a aplicação da atualização, isso indica que houve falha na aplicação do hotfix. Caso isso aconteça, entre em contato com o [Suporte da Microsoft](../articles/storsimple/storsimple-contact-microsoft-support.md) para obter mais ajuda.
+     Se o número de versão não mudar após a aplicação da atualização, isso indica que houve falha na aplicação do hotfix. Caso isso aconteça, entre em contato com o [Suporte da Microsoft](../articles/storsimple/storsimple-contact-microsoft-support.md) para obter mais ajuda.
      
-    > [!IMPORTANT]
-    > Você deve reiniciar o controlador ativo via cmdlet `Restart-HcsController` antes de aplicar a próxima atualização.
+     > [!IMPORTANT]
+     > Você deve reiniciar o controlador ativo via cmdlet `Restart-HcsController` antes de aplicar a próxima atualização.
      
 7. Repita as etapas 3 a 5 para instalar o agente Cis/MDS baixado para a pasta _FirstOrderUpdate_. 
 8. Repita as etapas 3 a 5 para instalar as atualizações de ordem de segundo. **Para atualizações da segunda ordem, várias atualizações podem ser instaladas executando apenas o `Start-HcsHotfix cmdlet` e apontando para a pasta onde as atualizações da segunda ordem estão localizadas. O cmdlet executará todas as atualizações disponíveis na pasta.** Se uma atualização já estiver instalada, a lógica de atualização detectar que e não aplicar essa atualização. 

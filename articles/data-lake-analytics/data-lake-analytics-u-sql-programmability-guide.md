@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.openlocfilehash: eca1379c4f721a0201b01f149b581859c49c6540
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: f0f5a4ee5206201cca20e705011126e6cf472a1a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234366"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835445"
 ---
 # <a name="u-sql-programmability-guide"></a>Guia de programação do U-SQL
 
@@ -133,7 +133,7 @@ Conforme mencionado anteriormente, o U-SQL executa código em um formato de 64 b
 
 Cada arquivo de recurso e DLL de assembly carregado, como um tempo de execução diferente, um assembly nativo ou um arquivo config, pode ter no máximo 400 MB. O tamanho total dos recursos implantados, seja por meio de DEPLOY RESOURCE ou por meio de referências a assemblies e a seus arquivos adicionais, não pode exceder 3 GB.
 
-Por fim, observe que cada banco de dados U-SQL pode conter apenas uma versão de qualquer determinado assembly. Por exemplo, se você precisar da versão 7 e da versão 8 da biblioteca NewtonSoft Json.Net, será preciso registrá-las em dois bancos de dados diferentes. Além disso, cada script pode fazer referência apenas a uma versão da DLL de um determinado assembly. Nesse sentido, o U-SQL segue a semântica de controle de versão e gerenciamento do assembly de C#.
+Por fim, observe que cada banco de dados U-SQL pode conter apenas uma versão de qualquer determinado assembly. Por exemplo, se você precisar versão 7 e a versão 8 da biblioteca NewtonSoft Json.NET, você precisa registrá-los em dois bancos de dados diferentes. Além disso, cada script pode fazer referência apenas a uma versão da DLL de um determinado assembly. Nesse sentido, o U-SQL segue a semântica de controle de versão e gerenciamento do assembly de C#.
 
 ## <a name="use-user-defined-functions-udf"></a>Usar funções definidas pelo usuário: UDF
 As funções definidas pelo usuário ou UDF do U-SQL são rotinas de programação que aceitam parâmetros, executam uma ação (mo um cálculo complexo)e retornam o resultado dessa ação como um valor. O valor de retorno da UDF pode ser apenas um único escalar. A UDF do U-SQL pode ser chamado no script base U-SQL como qualquer outra função escalar C#.
@@ -949,13 +949,13 @@ public abstract class IAggregate<T1, T2, TResult> : IAggregate
 * T2: Segundo parâmetro para accumulate
 * TResult: Tipo de retorno de terminate
 
-Por exemplo: 
+Por exemplo:
 
 ```
 public class GuidAggregate : IAggregate<string, int, int>
 ```
 
-ou o
+ou
 
 ```
 public class GuidAggregate : IAggregate<string, string, string>

@@ -1,6 +1,6 @@
 ---
-title: Cópia em massa do banco de dados com a tabela de controle usando o Azure Data Factory | Microsoft Docs
-description: Saiba como usar um modelo de solução para copiar completamente os dados em massa de um banco de dados usando uma tabela de controle externa, para armazenar uma lista de partições das tabelas de origem com o Azure Data Factory.
+title: Copiar de um banco de dados em massa usando-se uma tabela de controle com o Azure Data Factory | Microsoft Docs
+description: Saiba como usar um modelo de solução para copiar dados em massa de um banco de dados usando uma tabela de controle externo para armazenar uma lista de partição das tabelas de origem usando o Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -13,38 +13,38 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/14/2018
-ms.openlocfilehash: b267da18f2537e462ecda0ac265eac07a069c293
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: c4224693642e8c9f76deedc0c8ad8586e122cc23
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55966328"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530562"
 ---
-# <a name="bulk-copy-from-database-with-control-table"></a>Cópia em massa do banco de dados com tabela de controle
+# <a name="bulk-copy-from-a-database-with-a-control-table"></a>Cópia em massa de um banco de dados com uma tabela de controle
 
-Quando você quer copiar dados do seu data warehouse, como o servidor Oracle, servidor Netezza, servidor Teradata ou do SQL Server para o Azure, é preciso carregar uma enorme quantidade de dados de várias tabelas em fontes de dados. Na maioria dos casos, os dados precisam ser ainda mais particionados em cada tabela para que seja possível carregar linhas com vários threads paralelamente de uma única tabela. O presente modelo foi desenvolvido para esse caso. 
+Para copiar dados de um data warehouse no servidor Oracle, Netezza, Teradata ou do SQL Server para o Azure SQL Data Warehouse, você precisa carregar grandes quantidades de dados de várias tabelas. Normalmente, os dados precisam ser particionados em cada tabela para que você possa carregar linhas com vários threads em paralelo de uma única tabela. Este artigo descreve um modelo para usar nesses cenários.
 
-Se quiser copiar dados de um pequeno número de tabelas com pequeno volume de dados, é mais eficiente usar a ferramenta "copiar dados" para ter uma única atividade de cópia ou a atividade foreach + a atividade de cópia em seu pipeline. Esse modelo é o mais adequado para esse caso de uso simples.
+ >! Observação Se você quiser copiar dados de um pequeno número de tabelas com o volume de dados relativamente pequeno para o SQL Data Warehouse, é mais eficiente usar a [ferramenta Copiar dados do Azure Data Factory](copy-data-tool.md). O modelo que é descrito neste artigo é mais do que você precisa para esse cenário.
 
 ## <a name="about-this-solution-template"></a>Sobre o modelo de solução
 
-Esse modelo recupera a lista de partições do banco de dados de origem de uma tabela de controle externa, que precisa ser copiada para o repositório de destino e, em seguida, itera em cada partição no banco de dados de origem e executa a operação de cópia de dados.
+Esse modelo recupera uma lista de partições de banco de dados de origem para copiar de uma tabela externa do controle. Em seguida, ele itera em cada partição no banco de dados de origem e copia os dados para o destino.
 
 O modelo contém três atividades:
--   Uma atividade **Lookup** para recuperar a lista de partições do banco de dados de origem de uma tabela de controle externa.
--   Uma atividade **ForEach** para obter a lista de partições da atividade de pesquisa e, em seguida, iterar cada uma delas para a atividade de cópia.
--   Uma atividade **Copy** para copiar cada partição do armazenamento de dados de origem para o armazenamento de destino.
+- **Pesquisa** recupera a lista de partições de banco de dados-se de uma tabela de controle externo.
+- **ForEach** obtém a lista de partição da atividade de pesquisa e itera cada partição para a atividade de cópia.
+- **Cópia** copia cada partição do armazenamento de banco de dados de origem para o armazenamento de destino.
 
 O modelo define cinco parâmetros:
--   O parâmetro *Control_Table_Name* é o nome da tabela de controle externa. A tabela de controle é usada para armazenar a lista de partições do banco de dados de origem.
--   O parâmetro *Control_Table_Schema_PartitionID* é o nome da coluna em sua tabela de controle externa para armazenar cada ID da Partição. Verifique se a ID da Partição é exclusiva para cada partição no banco de dados de origem.
--   O parâmetro *Control_Table_Schema_SourceTableName* é o nome da coluna em sua tabela de controle externa para armazenar cada nome de tabela do banco de dados de origem.
--   O parâmetro *Control_Table_Schema_FilterQuery* é o nome da coluna em sua tabela de controle externa para armazenar a consulta de filtro a fim de obter os dados de cada partição no banco de dados de origem. Por exemplo, se você particionou os dados por ano, a consulta armazenada em cada linha pode ser semelhante a 'select * from datasource where LastModifytime >= ''2015-01-01 00:00:00'' e LastModifytime <= ''2015-12-31 23:59:59.999'''
--   O parâmetro *Data_Destination_Folder_Path* é o caminho da pasta em que os dados são copiados no seu armazenamento de destino.  Esse parâmetro fica visível somente quando o destino escolhido é um repositório de armazenamento baseado em arquivo.  Se você escolher o SQL Data Warehouse como o armazenamento de destino, não há parâmetros obrigatórios a inserir aqui. Porém, os nomes de tabela e o esquema no SQL Data Warehouse devem ser os mesmos que os do banco de dados de origem.
+- *Control_Table_Name* é sua tabela de controle externo, que armazena a lista de partição para o banco de dados de origem.
+- *Control_Table_Schema_PartitionID* é o nome do nome da coluna em sua tabela de controle externo que armazena cada ID da partição. Certifique-se de que a ID de partição é exclusiva para cada partição no banco de dados de origem.
+- *Control_Table_Schema_SourceTableName* é sua tabela de controle externo que armazena cada nome de tabela do banco de dados de origem.
+- *Control_Table_Schema_FilterQuery* é o nome da coluna na sua tabela de controle externo que armazena a consulta de filtro para obter os dados de cada partição no banco de dados de origem. Por exemplo, se os dados são particionados por ano, a consulta que é armazenada em cada linha pode ser semelhante a ' Selecionar * de fonte de dados onde LastModifytime > = ' 2015-01-01 00:00:00 ' e LastModifytime < = ' 2015-12-31 23:59:59.999 ' '.
+- *Data_Destination_Folder_Path* é o caminho onde os dados são copiados para o armazenamento de destino. Esse parâmetro só é visível se o destino que você escolher é o armazenamento baseado em arquivo. Se você escolher o SQL Data Warehouse como o armazenamento de destino, esse parâmetro não é necessário. Mas os nomes de tabela e o esquema no SQL Data Warehouse devem ser o mesmo que aqueles no banco de dados de origem.
 
 ## <a name="how-to-use-this-solution-template"></a>Como usar este modelo de solução
 
-1. Crie uma tabela de controle em um SQL Server ou SQL Azure para armazenar a lista de partições do banco de dados de origem para a cópia em massa.  No exemplo abaixo, você pode ver que há cinco partições no seu banco de dados de origem; três partições são para uma tabela (*datasource_table*) e duas partições são para outra tabela (*project_table*). A coluna *LastModifytime* é usada para particionar os dados na tabela *datasource_table* do banco de dados de origem. A consulta usada para ler a primeira partição é 'select * from datasource_table where LastModifytime >= ''2015-01-01 00:00:00'' and LastModifytime <= ''2015-12-31 23:59:59.999'''.  Você também pode ver a consulta semelhante para ler dados de outras partições. 
+1. Crie uma tabela de controle no SQL Server ou banco de dados SQL para armazenar a lista de partição de banco de dados de origem para cópia em massa. No exemplo a seguir, há cinco partições no banco de dados de origem. Três partições são para o *datasource_table*, e duas servem para o *project_table*. A coluna *LastModifytime* é usado para particionar os dados na tabela *datasource_table* do banco de dados de origem. A consulta que é usada para ler a primeira partição é ' Selecionar * de datasource_table onde LastModifytime > = ' 2015-01-01 00:00:00 ' e LastModifytime < = ' 2015-12-31 23:59:59.999 ' '. Você pode usar uma consulta semelhante para ler dados de outras partições.
 
      ```sql
             Create table ControlTableForTemplate
@@ -64,35 +64,35 @@ O modelo define cinco parâmetros:
             (5, 'project_table','select * from project_table where ID >= 1000 and ID < 2000');
     ```
 
-2. Vá para o modelo **Cópia em massa do Banco de Dados** e crie uma **nova conexão** com a sua tabela de controle externa.  Essa conexão é estabelecida com o banco de dados em que você criou a tabela de controle na etapa 1.
+2. Vá para o **cópia em massa de banco de dados** modelo. Criar uma **New** conexão para a tabela de controle externo que você criou na etapa 1.
 
     ![Criar uma nova conexão com a tabela de controle](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable2.png)
 
-3. Crie uma **nova conexão** com o seu banco de dados de origem, de onde os dados são copiados.
+3. Criar uma **New** conexão à fonte de dados que você estiver copiando dados do.
 
      ![Criar uma nova conexão com o banco de dados de origem](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable3.png)
     
-4. Crie uma **nova conexão** para seu armazenamento de dados de destino, para onde os dados são copiados.
+4. Criar uma **New** armazenar de conexão para os dados de destino que você está copiando os dados a serem.
 
     ![Criar uma nova conexão com o armazenamento de destino](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable4.png)
 
-5. Clique em **Usar este modelo**.
+5. Selecione **Use este modelo**.
 
-    ![Usar este modelo](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable5.png)
+    ![Use este modelo](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable5.png)
     
-6. Você verá o pipeline disponível no painel, conforme mostrado no seguinte exemplo:
+6. Você vê o pipeline, conforme mostrado no exemplo a seguir:
 
     ![Revisar o pipeline](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable6.png)
 
-7. Clique em **Depurar**, insira os parâmetros e clique em **Concluir**
+7. Selecione **Debug**, insira o **parâmetros**e, em seguida, selecione **concluir**.
 
-    ![Clicar em Depurar](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable7.png)
+    ![Clique em * * * * de depuração](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable7.png)
 
-8. Você verá o resultado disponível no painel, conforme mostrado no seguinte exemplo:
+8. Você verá resultados semelhantes ao exemplo a seguir:
 
     ![Revisar o resultado](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable8.png)
 
-9. (Opcional) Se você selecionar o SQL Data Warehouse como destino dos dados, também será necessário inserir a conexão de um armazenamento de blobs do Azure como uma preparação, o que é exigido pelo Polybase do SQL Data Warehouse.  Verifique se o contêiner no armazenamento de blobs já foi criado.  
+9. (Opcional) Se você escolher o SQL Data Warehouse como o destino de dados, você deve inserir uma conexão para o armazenamento de BLOBs do Azure para preparação, conforme exigido pelo Polybase do SQL Data Warehouse. Certifique-se de que o contêiner no armazenamento de BLOBs já foi criado.
     
     ![Configuração do Polybase](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable9.png)
        

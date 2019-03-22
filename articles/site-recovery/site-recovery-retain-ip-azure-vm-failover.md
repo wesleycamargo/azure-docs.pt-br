@@ -6,12 +6,12 @@ ms.date: 11/27/2018
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: f7b546e8a0ca52fd2037e471f01787bb64db032d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: aefb0684ea065841824ad27d1105ef309418c6b9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842740"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090739"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>Reter endereços IP durante o failover
 
@@ -62,10 +62,10 @@ Se ocorrer uma interrupção regional na origem, a Empresa A poderá fazer failo
 
 - Com os endereços IP de destino já em vigor antes do failover, a Empresa A pode orquestrar o failover e estabelecer automaticamente após o failover conexões entre a **VNet de Recuperação** e a **VNet do Azure**. Isso é ilustrado no diagrama a seguir.
 - Dependendo dos requisitos do aplicativo, as conexões entre as duas VNets (**VNet de Recuperação** e **VNet do Azure**) na região de destino podem ser estabelecida antes, durante (como etapa intermediária) ou depois do failover.
-    - A empresa pode usar [planos de recuperação](site-recovery-create-recovery-plans.md) para especificar quando as conexões serão estabelecidas.
-    - Eles podem estabelecer uma conexão entre as VNets usando o Emparelhamento VNET ou um VPN site a site.
-        - O Emparelhamento VNET não usa um gateway de VPN e tem restrições diferentes.
-        - Os [preços do Emparelhamento VNET](https://azure.microsoft.com/pricing/details/virtual-network) são calculados de maneira diferente dos [preços](https://azure.microsoft.com/pricing/details/vpn-gateway) do Gateway de VPN de VNet a VNet. Para failovers, normalmente aconselhamos o uso do mesmo método de conectividade das redes de origem, incluindo o tipo de conexão, para minimizar incidentes de rede imprevisíveis.
+  - A empresa pode usar [planos de recuperação](site-recovery-create-recovery-plans.md) para especificar quando as conexões serão estabelecidas.
+  - Eles podem estabelecer uma conexão entre as VNets usando o Emparelhamento VNET ou um VPN site a site.
+      - O Emparelhamento VNET não usa um gateway de VPN e tem restrições diferentes.
+      - Os [preços do Emparelhamento VNET](https://azure.microsoft.com/pricing/details/virtual-network) são calculados de maneira diferente dos [preços](https://azure.microsoft.com/pricing/details/vpn-gateway) do Gateway de VPN de VNet a VNet. Para failovers, normalmente aconselhamos o uso do mesmo método de conectividade das redes de origem, incluindo o tipo de conexão, para minimizar incidentes de rede imprevisíveis.
 
     ![Failover completo de recursos no Azure](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-full-region-failover2.png)
 
@@ -128,13 +128,13 @@ Neste cenário, a **Empresa B** tem um negócio híbrido, com parte da infraestr
 A arquitetura de rede tem a seguinte aparência antes do failover.
 
 - VMs de aplicativo são hospedadas no Azure na Ásia Oriental.
--  A Ásia Oriental tem uma VNet (**VNet de Origem**) com o espaço de endereço 10.1.0.0/16.
-    - A Ásia Oriental tem cargas de trabalho divididas entre três sub-redes na **VNet de Origem**:
-        - **Sub-rede 1**: 10.1.1.0/24
-        - **Sub-rede 2**: 10.1.2.0/24,
-        - **Sub-rede 3**: 10.1.3.0/24, usando uma rede virtual do Azure com o espaço de endereço 10.1.0.0/16. Essa rede virtual é chamada de **VNet de Origem**
- - A região secundária (de destino) é o Azure no Sudeste Asiático:
-    - O Sudeste Asiático tem uma VNet de recuperação (**VNet de Recuperação**) idêntica à **VNet de Origem**.
+- A Ásia Oriental tem uma VNet (**VNet de Origem**) com o espaço de endereço 10.1.0.0/16.
+  - A Ásia Oriental tem cargas de trabalho divididas entre três sub-redes na **VNet de Origem**:
+    - **Sub-rede 1**: 10.1.1.0/24
+    - **Sub-rede 2**: 10.1.2.0/24,
+    - **Sub-rede 3**: 10.1.3.0/24, usando uma rede virtual do Azure com o espaço de endereço 10.1.0.0/16. Essa rede virtual é chamada de **VNet de Origem**
+      - A região secundária (de destino) é o Azure no Sudeste Asiático:
+  - O Sudeste Asiático tem uma VNet de recuperação (**VNet de Recuperação**) idêntica à **VNet de Origem**.
 - As VMs na Ásia Oriental são conectadas a um datacenter local por meio do Azure ExpressRoute ou do VPN site a site.
 - Para reduzir o RTO, a Empresa B provisiona gateways na VNet de Recuperação no Azure do Sudeste Asiático antes do failover.
 - A Empresa B atribui/verifica os endereços IP de destino para VMs replicadas. O endereço IP de destino é o mesmo que o endereço IP de origem para cada VM.

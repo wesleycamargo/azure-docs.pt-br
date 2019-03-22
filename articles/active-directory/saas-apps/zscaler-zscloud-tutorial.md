@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c70d58669fe6351c67a54c282ee1310fb52ed50a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: fb9c5e359065364a9bc67e5f235a294ea06c2b2f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218050"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57846847"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-zscloud"></a>Tutorial: Integração do Azure Active Directory com Zscaler ZSCloud
 
@@ -246,7 +246,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No **nome de usuário** , digite **brittasimon@yourcompanydomain.extension**  
+    b. No **nome de usuário** , digite **brendafernandes\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **Propriedades**, marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.

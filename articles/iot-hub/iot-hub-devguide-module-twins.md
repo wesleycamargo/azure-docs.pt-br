@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: 9c82ad04b22a29f4a548b79b9b46a08d46de24ca
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
-ms.translationtype: HT
+ms.openlocfilehash: cd0a9a66f3014a39a73cf04badfc67cd2ff4c3de
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284295"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295735"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Entender e usar módulos gêmeos no Hub IoT
 
@@ -93,7 +93,7 @@ O seguinte exemplo mostra um documento JSON de módulo gêmeo:
             "telemetryConfig": {
                 "sendFrequency": "5m",
                 "status": "success"
-            }
+            },
             "batteryLevel": 55,
             "$metadata" : {...},
             "$version": 4
@@ -174,7 +174,7 @@ O back-end da solução funciona no módulo gêmeo usando as seguintes operaçõ
 
 * **Receba notificações gêmeas**. Esta operação permite que o back-end de solução seja notificado quando o gêmeo é modificado. Para fazer isso, sua solução de IoT precisa para criar uma rota e definir a Fonte de Dados como *twinChangeEvents*. Por padrão, nenhuma notificação gêmea é enviada, ou seja, nenhuma dessas rotas existe previamente. Se a taxa de alteração for alta demais ou então por outros motivos como falhas internas, o Hub IoT poderá enviar apenas uma notificação contendo todas as alterações. Portanto, se o aplicativo precisar de auditoria e registro em log confiável de todos os estados intermediários, será necessário usar mensagens de dispositivo para nuvem. A mensagem de notificação gêmea inclui propriedades e corpo.
 
-    - propriedades
+  - propriedades
 
     | NOME | Valor |
     | --- | --- |
@@ -191,26 +191,26 @@ O back-end da solução funciona no módulo gêmeo usando as seguintes operaçõ
 
     As propriedades do sistema de mensagens são fixadas previamente com o símbolo `$`.
 
-    - Corpo
+  - Corpo
         
     Esta seção inclui todas as alterações gêmeas em um formato JSON. Ele usa o mesmo formato que um patch, com as diferenças de que ele pode conter todas as seções gêmeas: marcas, properties.reported, properties.desired e também de que ele contém os elementos "$metadata". Por exemplo,
 
     ```json
     {
-        "properties": {
-            "desired": {
-                "$metadata": {
-                    "$lastUpdated": "2016-02-30T16:24:48.789Z"
-                },
-                "$version": 1
-            },
-            "reported": {
-                "$metadata": {
-                    "$lastUpdated": "2016-02-30T16:24:48.789Z"
-                },
-                "$version": 1
-            }
-        }
+      "properties": {
+          "desired": {
+              "$metadata": {
+                  "$lastUpdated": "2016-02-30T16:24:48.789Z"
+              },
+              "$version": 1
+          },
+          "reported": {
+              "$metadata": {
+                  "$lastUpdated": "2016-02-30T16:24:48.789Z"
+              },
+              "$version": 1
+          }
+      }
     }
     ```
 
@@ -300,7 +300,7 @@ Por exemplo:
             "telemetryConfig": {
                 "sendFrequency": "5m",
                 "status": "success"
-            }
+            },
             "batteryLevel": "55%",
             "$metadata": {
                 "telemetryConfig": {
@@ -309,7 +309,7 @@ Por exemplo:
                         "$lastUpdated": "2016-03-31T16:35:48.789Z"
                     },
                     "$lastUpdated": "2016-03-31T16:35:48.789Z"
-                }
+                },
                 "batteryLevel": {
                     "$lastUpdated": "2016-04-01T16:35:48.789Z"
                 },

@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
-ms.openlocfilehash: 92d5d458615b029553dee2f8047c85e3fb5f9696
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 83a866b20d2802b7d49363b7c6451356e938eac1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892586"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838911"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>SDK do .NET do Azure Cosmos DB para a API do SQL: Downloads e notas sobre a versão
 > [!div class="op_single_selector"]
@@ -47,6 +47,10 @@ ms.locfileid: "55892586"
 * Novo modelo de objeto, com CosmosClient de nível superior e métodos divididos entre as classes CosmosDatabases, CosmosContainers e CosmosItems. 
 * Suporte para fluxos. 
 * Atualizado CosmosResponseMessage do servidor para retornar o código de status e somente gerar exceção quando nenhuma resposta for retornada. 
+
+### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
+
+* Aprimoramentos de diagnóstico
 
 ### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
 
@@ -357,6 +361,7 @@ Qualquer solicitação feita ao BD Cosmos do Azure usando um SDK obsoleto é rej
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [2.2.3](#2.2.3) |11 de fevereiro de 2019 |--- |
 | [2.2.2](#2.2.2) |06 de fevereiro de 2019 |--- |
 | [2.2.1](#2.2.1) |24 de dezembro de 2018 |--- |
 | [2.2.0](#2.2.0) |07 de dezembro de 2018 |--- |

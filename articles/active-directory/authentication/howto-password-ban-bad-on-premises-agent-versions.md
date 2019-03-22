@@ -11,19 +11,32 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8897651c963b0036bc2ac3d8cdb06a52d6f52ba1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6e09127f8ed2e8e949711631a20fa5a9cd855311
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188028"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58284792"
 ---
-# <a name="preview--azure-ad-password-protection-agent-version-history"></a>Visualização:  Histórico de versão do agente de Proteção de Senha do Azure AD
+# <a name="azure-ad-password-protection-agent-version-history"></a>Histórico de versão do agente de Proteção de Senha do Azure AD
 
-|     |
-| --- |
-| A Proteção de Senha do Azure AD é uma versão prévia pública do recurso do Azure Active Directory. Para obter mais informações sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+## <a name="121160"></a>1.2.116.0
+
+Data de lançamento: 3/13/2019
+
+* Os Get-AzureADPasswordProtectionProxy e Get-AzureADPasswordProtectionDCAgent cmdlets agora a versão do software de relatório e do Azure atual locatário com as seguintes limitações:
+  * Versão de software e dados de locatário do Azure só estão disponíveis para agentes do DC e proxies executando a versão 1.2.116.0 ou posterior.
+  * Dados de locatário do Azure não podem ser reportados até que um novo registro (ou renovação) do proxy ou floresta ocorreu.
+* O serviço de Proxy agora requer que o .NET 4.7 esteja instalado.
+  * .NET 4.7 já deve estar instalado em um Windows Server totalmente atualizado. Se isso não for o caso, baixe e execute o instalador encontrado em [o .NET Framework 4.7 o instalador offline para o Windows](https://support.microsoft.com/en-us/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
+  * Em sistemas de núcleo do servidor pode ser necessário passar o sinalizador /q para o instalador do .NET 4.7 para que ele seja bem-sucedida.
+* O serviço de Proxy agora dá suporte a atualização automática. A atualização automática usa o serviço de atualizador do Microsoft Azure AD Connect agente que é instalada lado a lado com o serviço de Proxy. A atualização automática está ativada por padrão.
+* A atualização automática pode ser habilitada ou desabilitado usando o cmdlet Set-AzureADPasswordProtectionProxyConfiguration. A configuração atual pode ser consultada usando o cmdlet Get-AzureADPasswordProtectionProxyConfiguration.
+* O binário do serviço para o serviço de agente do controlador de domínio foi renomeado para AzureADPasswordProtectionDCAgent.exe.
+* O binário do serviço para o serviço de Proxy foi renomeado para AzureADPasswordProtectionProxy.exe. Regras de firewall talvez precise ser modificado conforme apropriado, se um firewall de terceiros estiver em uso.
+  * Observação: se um arquivo de configuração de proxy http estava sendo usado em um Proxy anterior instalar, ele precisará ser renomeado (de *proxyservice.exe.config* à *AzureADPasswordProtectionProxy.exe.config*) depois de fazer isso atualização.
+* Todas as verificações de tempo limitado de funcionalidades foram removidas do agente de controlador de domínio.
+* Correções de bugs secundários e melhorias de registro em log.
 
 ## <a name="12650"></a>1.2.65.0
 

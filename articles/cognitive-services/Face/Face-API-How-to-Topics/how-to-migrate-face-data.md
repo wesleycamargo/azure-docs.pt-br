@@ -6,16 +6,16 @@ services: cognitive-services
 author: lewlu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: lewlu
-ms.openlocfilehash: 5eb198ecf76556e632c5f42bc22362b2f20f8916
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 95b339e8d7f2c5c63c30e002411152b50cece2a5
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55771524"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448774"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Migrar seus dados de detecção facial para uma assinatura diferente de Detecção Facial
 
@@ -83,7 +83,7 @@ var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
 
 ## <a name="retrieve-the-snapshot-id"></a>Recuperar a ID do instantâneo
 
-O método de captura de instantâneos é assíncrono, portanto, será necessário aguardar sua conclusão (as operações de captura de instantâneo não podem ser canceladas). Nesse código, o método `WaitForOperation` monitora a chamada assíncrona, verificando o status a cada 100 ms. Quando a operação estiver concluída, você poderá recuperar uma ID de operação. Você pode obtê-la analisando o campo `OperationLocation`. 
+O instantâneo usando o método é assíncrono, portanto, você precisará aguardar sua conclusão (instantâneo operações não podem ser canceladas). Nesse código, o método `WaitForOperation` monitora a chamada assíncrona, verificando o status a cada 100 ms. Quando a operação estiver concluída, você poderá recuperar uma ID de operação. Você pode obtê-la analisando o campo `OperationLocation`. 
 
 ```csharp
 var takeOperationId = Guid.Parse(takeSnapshotResult.OperationLocation.Split('/')[2]);

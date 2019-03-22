@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: e050122984c19e46f3782c8364331323b403caad
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 2e13f1f09fcdfb68a99e705511e3659f1632132e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893826"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895474"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Criar o perfil de Serviços de Nuvem do Azure ativos com o Application Insights
 
@@ -32,6 +32,8 @@ O Application Insights Profiler é instalado com a extensão de Diagnóstico do 
 1. Verifique se você usa o [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) ou posterior. É suficiente confirmar que os arquivos *ServiceConfiguration.\*.cscfg* têm um valor `osFamily` de "5" ou posterior.
 
 1. Adicione o [SDK do Application Insights aos Serviços de Nuvem do Azure](../../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json).
+
+   >**Há um bug no criador de perfil que é fornecido com a versão mais recente do WAD para serviços de nuvem.** Para usar o criador de perfil com um serviço de nuvem, ele só dá suporte a SDK do AI até versão 2.7.2. Se você estiver usando uma versão mais recente do SDK do AI, você precisará voltar para 2.7.2 para usar o criador de perfil. Se você usar o Visual Studio para fazer downgrade da versão do SDK do App Insights, você pode receber um erro de redirecionamento de associação em tempo de execução. Isso ocorre porque o arquivo Web. config para Microsoft. applicationinsights "newVersion" deve ser definido como "2.7.2.0" depois de fazer o downgrade do SDK do AI, mas ele não é atualizado automaticamente.
 
 1. Acompanhe as solicitações com o Application Insights:
 

@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd5d724583dd4682fb6c0b01e8ec11196936289b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 53f8ec8a6833446663d7f142deefd595eed13136
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211896"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116258"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Chamadas de serviço a serviço que usam a identidade do usuário delegado no fluxo On-Behalf-Of
 
@@ -63,12 +63,12 @@ Registre o aplicativo de camada intermediária e o aplicativo cliente no Azure A
     1. Dependendo do tipo de aplicativo, defina a URL de entrada ou a URL de redirecionamento para a URL base.
     1. Selecione **Criar** para criar o aplicativo.
 1. Gere um segredo do cliente antes de sair do portal do Azure.
-    1. No portal do Azure, escolha seu aplicativo e selecione **Configurações**.
-    1. Selecione **Chaves** no menu Configurações e adicione uma chave com duração de um ou dois anos.
-    1. Quando você salvar a página, o portal do Azure exibirá o valor da chave. Copie e salve o valor da chave em uma localização segura.
+   1. No portal do Azure, escolha seu aplicativo e selecione **Configurações**.
+   1. Selecione **Chaves** no menu Configurações e adicione uma chave com duração de um ou dois anos.
+   1. Quando você salvar a página, o portal do Azure exibirá o valor da chave. Copie e salve o valor da chave em uma localização segura.
 
-    > [!IMPORTANT]
-    > Você precisa da chave para definir as configurações do aplicativo em sua implementação. O valor da chave não será exibido novamente e não é possível recuperá-lo por outros meios. Registre-o assim que ele ficar visível no portal do Azure.
+      > [!IMPORTANT]
+      > Você precisa da chave para definir as configurações do aplicativo em sua implementação. O valor da chave não será exibido novamente e não é possível recuperá-lo por outros meios. Registre-o assim que ele ficar visível no portal do Azure.
 
 ### <a name="register-the-client-application"></a>Registrar o aplicativo cliente
 

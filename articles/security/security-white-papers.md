@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2018
 ms.author: tomsh
-ms.openlocfilehash: 01688c120a8302da4903302ab8bcd2d1fa4ab351
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 3fb6e42e55119684ace8547a55297d38dbb9a26e
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113406"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57402369"
 ---
 # <a name="azure-security-white-papers"></a>White papers de segurança do Azure
 | | |
@@ -42,4 +42,4 @@ ms.locfileid: "56113406"
 |[Visão geral de conformidade do Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)|Este documento para download aborda as ofertas de conformidade do Azure, incluindo certificações formais, atestados, validações, autorizações e avaliações produzidas por empresas de auditoria independentes, bem como emendas contratuais, autoavaliações e documentos de orientação para clientes produzidos pela Microsoft. <br/> Cada descrição de oferta indica quais serviços do Azure voltados ao cliente estão no escopo para a avaliação e fornece links para recursos para download para ajudar os clientes com suas próprias obrigações de conformidade.|
 |[Gerenciamento de segurança no Azure](azure-security-management.md)|Discute problemas de acesso remoto de recursos do Azure. A natureza da nuvem exige a administração de acesso remoto e, portanto, a segurança é muito importante. Aborda as diretrizes gerais de segurança, configuração do cliente, práticas recomendadas e princípios operacionais e procedimentos. |
 |[Segurança e dados do Azure AD](https://aka.ms/aaddatawhitepaper) | O documento disponível para download explica os diferentes componentes do Azure Active Directory e a interação entre eles. Ele descreve como os vários componentes protegem, criptografam ou realizam hash dos seus dados em trânsito (por exemplo, através da Internet) e como eles são protegidos em repouso. Ele explica os vários locais do datacenter do Azure AD e a interação deles com diretórios locais, bem como os fluxos de e para o Azure AD. Por fim, ele descreve os procedimentos operacionais usados pela equipe de engenharia do Azure AD para gerenciar e proteger o serviço.|
-
+|[Uma visão geral da autenticação sem senha](https://aka.ms/pwdless-whitepaper)|Este documento é uma visão geral dos benefícios-chave de autenticação sem senha usando o Windows Hello for Business, as chaves de segurança FIDO2 e o aplicativo Microsoft Authenticator. É recomendável para profissionais de segurança e CISOs que estejam interessados em entender como a Microsoft pode ajudar a ir além de senhas e credenciais de autenticação de próxima geração de implantar.|

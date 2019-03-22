@@ -4,22 +4,22 @@ ms.service: redis-cache
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: wesmc
-ms.openlocfilehash: 71d19b5d922616944c176cdda98470607c515af9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 77019068279261a36f8ba40247e5f5694ca77892
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53111660"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553245"
 ---
 | Recurso | Limite |
 | --- | --- |
 | Tamanho do cache |530 GB |
 | Bancos de dados |64 |
-| Máx. de clientes conectados |40.000 |
-| Réplicas de Cache Redis do Azure (para alta disponibilidade) |1 |
+| Máximo de clientes conectado |40.000 |
+| Cache do Azure para Redis réplicas, para alta disponibilidade |1 |
 | Fragmentos em um cache premium com clustering |10 |
 
-Os limites e tamanhos do Cache Redis do Azure são diferentes para cada camada de preços. Para ver os tipos de preço e seus tamanhos associados, confira [Cache Redis do Azure para Preços Redis](https://azure.microsoft.com/pricing/details/cache/).
+Os limites e tamanhos do Cache Redis do Azure são diferentes para cada camada de preços. Para ver os tipos de preço e seus tamanhos associados, consulte [Cache do Azure para Redis preços](https://azure.microsoft.com/pricing/details/cache/).
 
 Para obter informações sobre os limites de configuração do Cache Redis do Azure, veja [Configuração padrão do servidor do Redis](../articles/azure-cache-for-redis/cache-configure.md#default-redis-server-configuration).
 

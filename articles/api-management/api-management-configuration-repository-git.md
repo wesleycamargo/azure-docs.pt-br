@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: e2f0fb6333f3786b29c2a7516e46a4599d6e89ed
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 36b60b3784739a884b887a29f3dd53c61c44cd6f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961002"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57851339"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Como salvar e definir a configuração de seu serviço de Gerenciamento de API usando o Git
 
@@ -53,9 +53,9 @@ Para exibir e definir as configurações do Git, clique no menu **Segurança** e
 ![Habilitar o GIT][api-management-enable-git]
 
 > [!IMPORTANT]
-> Quaisquer segredos que não sejam definidos como propriedades serão armazenados no repositório e permanecerão em seu histórico até que você desabilite e habilite novamente o acesso ao Git. As propriedades fornecem um local seguro para o gerenciamento de valores constantes de cadeia de caracteres, incluindo segredos, em todas as configurações e políticas de API. Portanto, não é necessário armazená-los diretamente nas instruções de sua política. Para saber mais, confira [Como usar as propriedades nas políticas de Gerenciamento de API do Azure](api-management-howto-properties.md).
-> 
-> 
+> Quaisquer segredos que não estão definidos como valores chamado serão armazenados no repositório e permanecerão no seu histórico até que você desabilitar e reabilitar o acesso do Git. Valores nomeados fornecem um local seguro para gerenciar valores de constante de cadeia de caracteres, incluindo segredos, em todas as configurações de API e políticas, para que você não precise armazená-los diretamente em suas instruções de política. Para obter mais informações, consulte [como usar valores nomeados nas políticas de gerenciamento de API do Azure](api-management-howto-properties.md).
+>
+>
 
 Para saber mais sobre como habilitar ou desabilitar o acesso ao Git usando a API REST, confira [Habilitar ou desabilitar o acesso ao Git usando a API REST](https://msdn.microsoft.com/library/dn781420.aspx#EnableGit).
 
@@ -73,13 +73,13 @@ Para saber mais sobre como executar essa operação usando a API REST, confira [
 
 ## <a name="to-clone-the-repository-to-your-local-machine"></a>Para clonar o repositório em seu computador local
 
-Para clonar um repositório, você precisa da URL de seu repositório, um nome de usuário e uma senha. Para obter o nome de usuário e outras credenciais, clique em **Credenciais de acesso** próximo à parte superior da página.  
- 
+Para clonar um repositório, você precisa da URL de seu repositório, um nome de usuário e uma senha. Para obter o nome de usuário e outras credenciais, clique em **Credenciais de acesso** próximo à parte superior da página.
+
 Para gerar uma senha, primeiro verifique se **Vencimento** está definido como a data e a hora de vencimento desejadas e clique em **Gerar**.
 
 > [!IMPORTANT]
 > Anote essa senha. Depois que você sair desta página a senha não será exibida novamente.
-> 
+>
 
 Os exemplos a seguir usam a ferramenta Git Bash do [Git para Windows](https://www.git-scm.com/downloads) , mas você pode usar qualquer ferramenta Git com a qual esteja familiarizado.
 
@@ -172,12 +172,12 @@ Esses arquivos podem ser criados, excluídos, editados e gerenciados em seu sist
 
 > [!NOTE]
 > As entidades a seguir não estão no repositório Git e não podem ser configuradas usando o Git.
-> 
-> * Usuários
-> * Assinaturas
-> * propriedades
+>
+> * [Usuários](https://docs.microsoft.com/en-us/rest/api/apimanagement/user)
+> * [Assinaturas](https://docs.microsoft.com/en-us/rest/api/apimanagement/subscription)
+> * [Valores nomeados](https://docs.microsoft.com/en-us/rest/api/apimanagement/property)
 > * Outras entidades do portal do desenvolvedor além dos estilos
-> 
+>
 
 ### <a name="root-api-management-folder"></a>Pasta api-management raiz
 A pasta `api-management` raiz contém um arquivo `configuration.json` com informações de alto nível sobre a instância do serviço no seguinte formato.
@@ -223,7 +223,7 @@ A configuração final, `$ref-policy`, é mapeada para o arquivo de instruções
 ### <a name="apis-folder"></a>pasta apis
 A pasta `apis` contém uma pasta para cada API na instância do serviço que contém os itens a seguir.
 
-* `apis\<api name>\configuration.json` - é a configuração da API e contém informações sobre a URL do serviço de back-end e as operações. Essas são as mesmas informações que retornariam se você chamasse [Obter uma API específica](https://docs.microsoft.com/rest/api/apimanagement/api/get) com `export=true` no formato `application/json`.
+* `apis\<api name>\configuration.json` - é a configuração da API e contém informações sobre a URL do serviço de back-end e as operações. Essas são as mesmas informações que retornariam se você chamasse [Obter uma API específica](https://docs.microsoft.com/rest/api/apimanagement/apis/get) com `export=true` no formato `application/json`.
 * `apis\<api name>\api.description.html` - é a descrição da API e corresponde à propriedade `description` da [entidade da API](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._entity_property).
 * `apis\<api name>\operations\` - esta pasta contém os arquivos `<operation name>.description.html` que são mapeados para as operações na API. Cada arquivo contém a descrição de uma única operação na API que mapeia para a propriedade `description` da [entidade de operação](https://docs.microsoft.com/rest/api/visualstudio/operations/list#operationproperties) na API REST.
 

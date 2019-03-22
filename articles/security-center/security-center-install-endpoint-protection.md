@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 1ce1faa13c541939335d188866e15c683b6ffc28
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 6d9c5b080c491d3a6f35f591c69d4c39989b22a8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110261"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099790"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Gerenciar problemas de proteção de ponto de extremidade com a Central de Segurança do Azure
 A Central de Segurança do Azure monitora o status da proteção antimalware e relata isso na folha Problemas de proteção de ponto de extremidade. A Central de Segurança realça os problemas, como ameaças detectadas e proteção insuficiente, que podem tornar seus computadores e VMs (máquinas virtuais) vulneráveis a ameaças de antimalware. Ao usar as informações em **Problemas de proteção de ponto de extremidade**, você pode identificar um plano para solucionar os problemas identificados.
@@ -30,15 +30,15 @@ A Central de Segurança relata os seguintes problemas de proteção de ponto de 
 - Proteção de ponto de extremidade não instalada em computadores não Azure – um antimalware com suporte não está instalado nesses computadores não Azure.
 - Integridade da proteção do ponto de extremidade:
 
-   - Assinatura desatualizada – uma solução antimalware está instalada nessas VMs e computadores, mas a solução não tem as assinaturas de antimalware mais recentes.
-   - Sem proteção em tempo real – uma solução antimalware está instalada nessas VMs e computadores, mas ela não está configurada para oferecer proteção em tempo real.   O serviço pode estar desabilitado ou a Central de Segurança não conseguiu obter o status porque não há suporte para a solução. Consulte a [integração com parceiros](security-center-partner-integration.md) para obter uma lista de soluções com suporte.
-   - Sem relatório – uma solução antimalware está instalada, mas não está relatando dados.
-   - Desconhecido – uma solução antimalware está instalada, mas seu status é desconhecido ou está relatando um erro desconhecido.
+  - Assinatura desatualizada – uma solução antimalware está instalada nessas VMs e computadores, mas a solução não tem as assinaturas de antimalware mais recentes.
+  - Sem proteção em tempo real – uma solução antimalware está instalada nessas VMs e computadores, mas ela não está configurada para oferecer proteção em tempo real.   O serviço pode estar desabilitado ou a Central de Segurança não conseguiu obter o status porque não há suporte para a solução. Consulte a [integração com parceiros](security-center-partner-integration.md) para obter uma lista de soluções com suporte.
+  - Sem relatório – uma solução antimalware está instalada, mas não está relatando dados.
+  - Desconhecido – uma solução antimalware está instalada, mas seu status é desconhecido ou está relatando um erro desconhecido.
 
-   > [!NOTE]
-   > Consulte [Integrar soluções de segurança](security-center-partner-integration.md#integrated-azure-security-solutions) para obter uma lista de soluções de segurança da proteção de ponto de extremidade integradas com a Central de Segurança.
-   >
-   >
+    > [!NOTE]
+    > Consulte [Integrar soluções de segurança](security-center-partner-integration.md#integrated-azure-security-solutions) para obter uma lista de soluções de segurança da proteção de ponto de extremidade integradas com a Central de Segurança.
+    >
+    >
 
 ## <a name="implement-the-recommendation"></a>Implementar a recomendação
 Os problemas de proteção de ponto de extremidade são apresentado como uma recomendação na Central de Segurança.  Se seu ambiente estiver vulnerável a ameaças de antimalware, essa recomendação será exibida em **Recomendações** e em **Computação**. Para ver o **painel Problemas de proteção de ponto de extremidade**, você deve seguir o fluxo de trabalho de Computação.
@@ -60,7 +60,7 @@ Neste exemplo, usaremos **Computação**.  Examinaremos como instalar antimalwar
    - Provedores de proteção de ponto de extremidade instalados – lista os diferentes provedores identificados pela Central de Segurança.
    - Estado de integridade da proteção de ponto de extremidade instalada – mostra o estado de integridade das VMs e dos computadores que têm uma solução de proteção de ponto de extremidade instalada. O gráfico mostra o número de VMs e computadores que estão íntegros, bem como quantos estão com proteção insuficiente.
    - Malware detectado – mostra o número de VMs e computadores em que a Central de Segurança relata detecção de malware.
-   - Computadores atacados – mostra o número de VMs e computadores em que a Central de Segurança relata ataques por malware.
+   - Computadores atacados – mostra o número de VMs e computadores em que a Central de segurança relata ataques por malware.
 
    Na parte inferior do painel há uma lista de problemas de proteção de ponto de extremidade que inclui as seguintes informações:  
 
@@ -84,13 +84,13 @@ Neste exemplo, usaremos **Computação**.  Examinaremos como instalar antimalwar
 
    ![Selecionar Proteção de ponto de extremidade não instalada em computadores não Azure][4]
 
-2. Em **Proteção de ponto de extremidade não instalada em computadores não Azure**, selecione um workspace. Uma consulta de pesquisa do Log Analytics filtrada para o workspace é aberta, com a lista dos computadores sem antimalware. Selecione um computador da lista para obter mais informações.
+2. Em **Proteção de ponto de extremidade não instalada em computadores não Azure**, selecione um workspace. Uma consulta de pesquisa de logs do Azure Monitor filtrada para o espaço de trabalho abre e lista computadores sem antimalware. Selecione um computador da lista para obter mais informações.
 
-   ![Pesquisa de Análise de Log][5]
+   ![Pesquisa de logs do Azure Monitor][5]
 
 Outro resultado da pesquisa é aberto com informações filtradas para esse computador.
 
-  ![Pesquisa de Análise de Log][6]
+  ![Pesquisa de logs do Azure Monitor][6]
 
 > [!NOTE]
 > É recomendável que a proteção de ponto de extremidade seja provisionada para todas as VMs e computadores a fim de ajudar a identificar e remover vírus, spyware e outros softwares mal-intencionados.

@@ -11,15 +11,15 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: vlvinogr
-ms.openlocfilehash: 91463520547ca534048bba77d3b979b462ded6b5
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
-ms.translationtype: HT
+ms.openlocfilehash: fd9902a83a813daffc52e089e6e8bfc4137c5b8f
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442345"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57758821"
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>Modificar o conteúdo e o layout de páginas no portal do desenvolvedor no Gerenciamento de API do Azure
 Há três maneiras básicas para personalizar o portal do desenvolvedor no Gerenciamento de API do Azure:

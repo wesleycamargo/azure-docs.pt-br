@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43ddf56e4c72e7e59778fc43a808b9800bc3b9b3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 602dd0fd4050a3b4336c560bbd82b32f3903b93c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187696"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850189"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Tutorial: Integração do Azure Active Directory com o PolicyStat
 
@@ -70,7 +70,7 @@ Para configurar a integração do PolicyStat ao Azure AD, é necessário adicion
     
 1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![APLICATIVOS][3]
+    ![Aplicativos][3]
 
 1. Na caixa de pesquisa, digite **PolicyStat**.
 
@@ -134,11 +134,11 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 1. Para adicionar os mapeamentos de atributo necessários, execute as seguintes etapas:
 
-    | Nome do atributo    |   Valor do atributo |
+    | Nome do Atributo    |   Valor do Atributo |
     |------------------- | -------------------- |
     | uid | ExtractMailPrefix([mail]) |
     
-     a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
+    a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
 
     ![Configurar o logon único](./media/policystat-tutorial/tutorial_policystat_04.png)
 
@@ -170,23 +170,23 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
    
     ![Configuração de Logon Único](./media/policystat-tutorial/ic808635.png "Configuração de Logon Único")
    
-     a. Na caixa de texto **Atributo do Nome de Usuário**, digite **uid**.
+    a. Na caixa de texto **Atributo do Nome de Usuário**, digite **uid**.
 
     b. Na caixa de texto **Atributo de Nome**, digite o **firstname** do usuário **Brenda**.
 
     c. Na caixa de texto **Atributo de Sobrenome**, digite o **lastname** do usuário **Fernandes**.
 
-    d. Na caixa de texto **Atributo de Email**, digite o **emailaddress** do usuário **BrittaSimon@contoso.com**.
+    d. No **atributo de Email** caixa de texto, digite **emailaddress** do usuário **Brendafernandes\@contoso.com**.
 
-    e. Clique em **Salvar Alterações**.
+    e. Clique em **salvar alterações**.
 
 1. Clique em **Seus Metadados do IDP** e, na seção **Seus Metadados do IDP**, realize as seguintes etapas:
    
     ![Configuração de Logon Único](./media/policystat-tutorial/ic808636.png "Configuração de Logon Único")
    
-     a. Abra o arquivo de metadados baixado, copie o conteúdo e, depois, cole-o na caixa de texto **Metadados do Provedor de Identidade**.
+    a. Abra o arquivo de metadados baixado, copie o conteúdo e, depois, cole-o na caixa de texto **Metadados do Provedor de Identidade**.
 
-    b. Clique em **Salvar Alterações**.
+    b. Clique em **salvar alterações**.
 
 > [!TIP]
 > É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)

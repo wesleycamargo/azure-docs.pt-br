@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: a5c08536614476de38c7bfde524a12163162bed4
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: f6ebeb1d9953311ad1cb85d8ab33c83d5e92d687
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339253"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405514"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Solução de erros comuns de implantação do Azure com o Azure Resource Manager
 
@@ -37,7 +37,7 @@ Este artigo descreve alguns erros comuns de implantação do Azure e fornece inf
 | AllocationFailed | O cluster ou a região não tem recursos disponíveis ou não é compatível com o tamanho solicitado de VM. Repita a solicitação mais tarde ou solicite um tamanho de VM diferente. | [Problemas de provisionamento e alocação para Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [Problemas de provisionamento e alocação para Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) e [Solucionar problemas de falhas de alocação](../virtual-machines/troubleshooting/allocation-failure.md)|
 | AnotherOperationInProgress | Aguarde a conclusão da operação simultânea. | |
 | AuthorizationFailed | Sua conta ou entidade de serviço não tem acesso suficiente para concluir a implantação. Verifique a função a que sua conta pertence e seu acesso para o escopo da implantação.<br><br>Você pode receber esse erro quando o provedor de recurso necessário não estiver registrado. | [Controle de Acesso Baseado em Função do Azure](../role-based-access-control/role-assignments-portal.md)<br><br>[Resolver registro](resource-manager-register-provider-errors.md) |
-| BadRequest | Você enviou valores de implantação que não coincidem com o que é esperado pelo Resource Manager. Verifique a mensagem de status interna para obter ajuda com a solução de problemas. | [Referência de modelos](/azure/templates/) e [Locais com suporte](resource-manager-templates-resources.md#location) |
+| BadRequest | Você enviou valores de implantação que não coincidem com o que é esperado pelo Resource Manager. Verifique a mensagem de status interna para obter ajuda com a solução de problemas. | [Referência de modelos](/azure/templates/) e [Locais com suporte](resource-group-authoring-templates.md#resource-location) |
 | Conflito | Você está solicitando uma operação não permitida no estado atual do recurso. Por exemplo, o redimensionamento do disco é permitido apenas ao criar uma VM ou quando a VM é desalocada. | |
 | DeploymentActive | Aguarde a conclusão da implantação simultânea nesse grupo de recursos. | |
 | DeploymentFailed | O erro DeploymentFailed é um erro geral que não fornece os detalhes necessários para resolvê-lo. Examine os detalhes do erro em busca de um código de erro que fornece mais informações. | [Encontrar código do erro](#find-error-code) |
@@ -58,7 +58,7 @@ Este artigo descreve alguns erros comuns de implantação do Azure e fornece inf
 | InvalidTemplateCircularDependency | Remova as dependências desnecessárias. | [Resolver as dependências circulares](resource-manager-invalid-template-errors.md#circular-dependency) |
 | LinkedAuthorizationFailed | Verifique se a conta pertence ao mesmo locatário que o grupo de recursos em que você está implantando. | |
 | LinkedInvalidPropertyId | A ID de um recurso não está sendo resolvida corretamente. Verifique se você forneceu todos os valores necessários para a ID do recurso, incluindo a ID de assinatura, nome do grupo de recursos, o tipo de recurso, o nome do recurso pai (se necessário) e o nome de recurso. | |
-| LocationRequired | Forneça um local para o recurso. | [Definir local](resource-manager-templates-resources.md#location) |
+| LocationRequired | Forneça um local para o recurso. | [Definir local](resource-group-authoring-templates.md#resource-location) |
 | MismatchingResourceSegments | Verifique se o recurso aninhado tem o número correto de segmentos de nome e tipo. | [Resolver segmentos de recurso](resource-manager-invalid-template-errors.md#incorrect-segment-lengths)
 | MissingRegistrationForLocation | Verifique o status de registro do provedor de recursos e os locais com suporte. | [Resolver registro](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | Registre sua assinatura no provedor de recursos. | [Resolver registro](resource-manager-register-provider-errors.md) |

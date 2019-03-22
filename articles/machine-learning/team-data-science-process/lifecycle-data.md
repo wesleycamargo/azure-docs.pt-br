@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c4acb3b779821193949c69d440edaafec5e3d803
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: e29f36897dd52fcb09456768a799209a385d74fe
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474047"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444490"
 ---
 # <a name="data-acquisition-and-understanding-stage-of-the-team-data-science-process"></a>Aquisição de dados e etapa de entendimento do Processo de Ciência de Dados de Equipe
 
@@ -66,9 +66,9 @@ Neste estágio, você desenvolverá uma arquitetura da solução do pipeline de 
 ## <a name="artifacts"></a>Artefatos
 Veja a seguir os resultados deste estágio:
 
-   * [Relatório de qualidade de dados](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/DataSummaryReport.md): este relatório inclui resumos de dados, as relações entre cada atributo e o destino, classificação de variável e mais. A ferramenta [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) fornecida como parte do TDSP pode gerar rapidamente este relatório em qualquer conjunto de dados de tabela, como um arquivo CSV ou uma tabela relacional. 
+   * [Relatório de qualidade de dados](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/DataSummaryReport.md): este relatório inclui resumos de dados, as relações entre cada atributo e o destino, classificação de variável e mais. A ferramenta [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) fornecida como parte do TDSP pode gerar rapidamente este relatório em qualquer conjunto de dados de tabela, como um arquivo CSV ou uma tabela relacional. 
    * **Arquitetura da solução**: a arquitetura da solução pode ser um diagrama ou uma descrição do pipeline de dados usado para executar a pontuação ou previsões sobre novos dados após a criação de um modelo. Também contém o pipeline para treinar novamente seu modelo com base nos novos dados. Armazene o documento no diretório [Projeto](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) quando você usar o modelo de estrutura de diretório do TDSP.
-   * **Decisão de ponto de verificação**: antes de começar a engenharia de recursos completos e a criação do modelo, é possível reavaliar o projeto para determinar se o valor esperado é suficiente para continuar investindo nele. Por exemplo, talvez você esteja pronto para continuar, precise coletar mais dados ou abandone o projeto, pois não existem dados para responder à pergunta.
+   * **Decisão de ponto de verificação**: Antes de começar a engenharia de recursos completos e a criação do modelo, reavalie o projeto para determinar se o valor esperado é suficiente para continuar buscando a ele. Por exemplo, talvez você esteja pronto para continuar, precise coletar mais dados ou abandone o projeto, pois não existem dados para responder à pergunta.
 
 ## <a name="next-steps"></a>Próximas etapas
 

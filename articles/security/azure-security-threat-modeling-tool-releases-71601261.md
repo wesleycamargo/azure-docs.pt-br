@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: jegeib
-ms.openlocfilehash: 55c781d0c6284de1382c9d3e614621c40963194b
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: c96b924294286be57de90dae7e6534b5ed9306ea
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55302888"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57874565"
 ---
 # <a name="threat-modeling-tool-update-release-71601261---1292019"></a>Versão 7.1.60126.1 de atualização da Threat Modeling Tool – 29/01/2019
 
 A versão 7.1.60126.1 do Microsoft Threat Modeling Tool foi lançada em 29 de janeiro de 2019 e contêm as seguintes alterações:
 
-- A versão mínima exigida do .NET foi aumentada para a [.Net 4.7.1](http://go.microsoft.com/fwlink/?LinkId=863262).
+- A versão mínima necessária do .NET foi aumentada [.NET 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262).
 - A versão mínima exigida do Windows foi aumentada para a [Atualização de Aniversário do Windows 10](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) devido à dependência do .NET.
 - Um recurso de alternância de validação de modelo foi adicionado ao menu Opções da ferramenta.
 - Vários links nas Propriedades da Ameaça foram atualizados.
@@ -47,7 +47,7 @@ A opção de ativar e desativar a validação de modelo pode ser encontrada no m
 - Sistemas operacionais com suporte
   - [Atualização de Aniversário do Microsoft Windows 10 ou posterior](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97)
 - Versão necessária do .NET
-  - [.Net 4.7.1](http://go.microsoft.com/fwlink/?LinkId=863262) ou posterior
+  - [O .NET 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262) ou posterior
 - Requisitos adicionais
   - Uma conexão de Internet é necessária para receber as atualizações da ferramenta e também os modelos.
 

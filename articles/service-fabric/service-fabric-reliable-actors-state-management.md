@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: aae0ec93f3de708096ff9546a3a4f4e090095a89
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
-ms.translationtype: HT
+ms.openlocfilehash: 77fa369a3085a3d11d5bf03406b4ddb885a24009
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041146"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57847392"
 ---
 # <a name="reliable-actors-state-management"></a>Gerenciamento de estado dos Reliable Actors
 Reliable Actors são objetos single-threaded que podem encapsular a lógica e o estado. Como os atores são executados nos Reliable Services, eles podem manter o estado de modo confiável usando os mesmos mecanismos de persistência e replicação. Dessa forma, os atores não perdem seu estado após falhas, na reativação após a coleta de lixo ou quando são movidos entre nós em um cluster devido ao balanceamento de recursos ou às atualizações.
@@ -29,9 +29,9 @@ Todos os Reliable Actors são considerados *com estado* , pois cada instância d
 
 Mesmo que os atores sejam considerados com estado, isso não significa que eles devem armazenar o estado de modo confiável. Os atores podem escolher o nível de persistência de estado e replicação com base em seus requisitos de armazenamento de dados:
 
-* **Estado persistente:** o estado é persistido em disco e replicado para três ou mais réplicas. O estado persistente é a opção de armazenamento de estado mais duradoura, na qual o estado pode persistir após a interrupção completa do cluster.
-* **Estado volátil:** o estado é replicado para três ou mais réplicas e mantido apenas na memória. O estado volátil proporciona resiliência contra falhas de nó e de ator, e durante atualizações e balanceamento de recursos. No entanto, o estado não é persistido no disco. Portanto, se todas as réplicas forem perdidas ao mesmo tempo, o estado também será perdido.
-* **Nenhum estado persistente**: O estado não é replicado ou gravado no disco, use apenas para os atores não necessários para manter o estado de forma confiável.
+* **Estado persistente**: Estado é persistido em disco e replicado para três ou mais réplicas. O estado persistente é a opção de armazenamento de estado mais duradoura, na qual o estado pode persistir após a interrupção completa do cluster.
+* **Estado volátil**: Estado é replicado para três ou mais réplicas e mantido apenas na memória. O estado volátil proporciona resiliência contra falhas de nó e de ator, e durante atualizações e balanceamento de recursos. No entanto, o estado não é persistido no disco. Portanto, se todas as réplicas forem perdidas ao mesmo tempo, o estado também será perdido.
+* **Nenhum estado persistente**: Estado não é replicado ou gravado no disco, use somente para atores que não precisam manter o estado de modo confiável.
 
 Cada nível de persistência é apenas um *provedor de estado* e uma configuração de *replicação* diferentes do serviço. A decisão de gravar ou não o estado em disco depende do provedor de estado – o componente que armazena o estado em um serviço confiável. A replicação depende de quantas réplicas são implantadas com um serviço. Assim como acontece com os Reliable Services, o provedor de estado e a contagem de réplicas podem ser definidos manualmente com facilidade. A estrutura de ator fornece um atributo, que, quando usado em um ator, seleciona automaticamente um provedor de estado padrão e gera automaticamente as configurações de contagem de réplicas, a fim de alcançar uma dessas três configurações de persistência. O atributo StatePersistence não será herdado pela classe derivada. Cada tipo de Ator deve fornecer seu nível de StatePersistence.
 
@@ -86,7 +86,7 @@ Ao usar o atributo `StatePersistence`, um provedor de estado será selecionado a
 Você pode alterar esses parâmetros manualmente. Mas, sempre que o atributo `StatePersistence` for alterado, os parâmetros serão definidos como os valores padrão de tamanho do conjunto de réplicas para o atributo `StatePersistence` selecionado, substituindo os valores anteriores. Em outras palavras, os valores definidos em ServiceManifest.xml serão substituídos *somente* no momento do build quando você alterar o valor do atributo `StatePersistence`.
 
 ```xml
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application12Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application12Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
    <Parameters>
       <Parameter Name="MyActorService_PartitionCount" DefaultValue="10" />
       <Parameter Name="MyActorService_MinReplicaSetSize" DefaultValue="3" />

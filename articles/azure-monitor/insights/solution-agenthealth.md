@@ -1,5 +1,5 @@
 ---
-title: Solução de agente de segurança no Azure | Microsoft Docs
+title: Solução de integridade do agente no Azure Monitor | Microsoft Docs
 description: Este artigo destina-se a ajudá-lo a entender como usar essa solução para monitorar a integridade de seus agentes que se reportam diretamente ao Log Analytics ou ao System Center Operations Manager.
 services: operations-management-suite
 documentationcenter: ''
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: 203a37071637a7e0e44b65240be4c4cae974d95f
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: cca234340526b732067adac3c6725f8aa5acc47c
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53335941"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983364"
 ---
 #  <a name="agent-health-solution-in-azure"></a>Solução de integridade do agente do Azure
-A solução do Agent Health no Azure ajuda você a entender, para todos os agentes que se reportam diretamente ao espaço de trabalho do Log Analytics ou um grupo de gerenciamento do System Center Operations Manager conectado ao Log Analytics, que não responde e envia dados operacionais.  Você pode também manter controle de quantos agentes estão implantados, onde eles estão distribuídos geograficamente e executam outras consultas para saber a distribuição dos agentes implantados no Azure, em outros ambientes de nuvem ou no local.    
+A solução de integridade do agente no Azure ajuda você a entender, para todos os agentes que se reportam diretamente para o espaço de trabalho do Log Analytics ou um grupo de gerenciamento do System Center Operations Manager conectados ao Azure Monitor, que não estão respondendo e enviando operacionais dados.  Você pode também manter controle de quantos agentes estão implantados, onde eles estão distribuídos geograficamente e executam outras consultas para saber a distribuição dos agentes implantados no Azure, em outros ambientes de nuvem ou no local.    
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de implantar essa solução, confirme se você tem suporte no momento [agentes do Windows](../../log-analytics/log-analytics-windows-agent.md) relatórios no espaço de trabalho do Log Analytics ou em relatórios para um [grupo de gerenciamento do Operations Manager](../../azure-monitor/platform/om-agents.md) integrado com seu espaço de trabalho.    
+Antes de implantar essa solução, confirme se você tem suporte no momento [agentes do Windows](../../log-analytics/log-analytics-windows-agent.md) relatórios no espaço de trabalho do Log Analytics ou em relatórios para um [grupo de gerenciamento do Operations Manager](../../azure-monitor/platform/om-agents.md) integrado com seu espaço de trabalho.
 
 ## <a name="solution-components"></a>Componentes da solução
 Essa solução consiste nos seguintes recursos que são adicionados ao seu workspace e aos agentes conectados diretamente ou ao grupo de gerenciamento conectado do Operations Manager.
@@ -47,8 +47,8 @@ A tabela a seguir descreve as fontes conectadas que têm suporte dessa solução
 
 | Fonte Conectada | Com suporte | Descrição |
 | --- | --- | --- |
-| Agentes do Windows | SIM | Os eventos de pulsação são coletados dos agentes diretos do Windows.|
-| Grupo de gerenciamento do System Center Operations Manager | SIM | Os eventos de pulsação são coletados dos agentes que se reportam ao grupo de gerenciamento a cada 60 segundos e, em seguida, encaminhados para o Log Analytics. Uma conexão direta de agentes do Operations Manager ao Log Analytics não é necessária. Os dados de evento de pulsação são encaminhados do grupo de gerenciamento para o repositório do Log Analytics.|
+| Agentes do Windows | Sim | Os eventos de pulsação são coletados dos agentes diretos do Windows.|
+| Grupo de gerenciamento do System Center Operations Manager | Sim | Eventos de pulsação são coletados dos agentes que se reportam ao grupo de gerenciamento a cada 60 segundos e, em seguida, encaminhados para o Azure Monitor. Uma conexão direta de agentes do Operations Manager para o Azure Monitor não é necessária. Dados de evento de pulsação são encaminhados do grupo de gerenciamento para o espaço de trabalho do Log Analytics.|
 
 ## <a name="using-the-solution"></a>Usando a solução
 Quando você adiciona a solução ao espaço de trabalho do Log Analytics, o **integridade do agente** bloco será adicionado ao seu painel. Esse bloco mostra o número total de agentes e o número de agentes sem resposta nas últimas 24 horas.<br><br> ![Bloco da solução Integridade do Agente no painel](./media/solution-agenthealth/agenthealth-solution-tile-homepage.png)
@@ -68,7 +68,7 @@ Clique no bloco **Integridade do Agente** para abrir o painel **Integridade do A
 
 ![Exemplo de painel da solução Integridade do Agente](./media/solution-agenthealth/agenthealth-solution-dashboard.png)  
 
-## <a name="log-analytics-records"></a>Registros do Log Analytics
+## <a name="azure-monitor-log-records"></a>Registros de log do Azure Monitor
 A solução cria um tipo de registro no espaço de trabalho do Log Analytics.  
 
 ### <a name="heartbeat-records"></a>Registros de pulsação
@@ -76,7 +76,7 @@ Um registro com o tipo **pulsação** é criado.  Esses registros têm as propri
 
 | Propriedade | DESCRIÇÃO |
 | --- | --- |
-| Tipo | *Pulsação*|
+| Type | *Pulsação*|
 | Categoria | O valor é *Agente Direto*, *Agente SCOM* ou *o Servidor de Gerenciamento do SCOM*.|
 | Computador | Nome do computador.|
 | OSType | Sistema operacional Windows ou Linux.|
@@ -92,7 +92,7 @@ Um registro com o tipo **pulsação** é criado.  Esses registros têm as propri
 | RemoteIPLongitude | Longitude do local geográfico do computador.|
 | RemoteIPLatitude | Latitude da localização geográfica do computador.|
 
-Cada agente que estiver se reportando a um servidor de gerenciamento do Operations Manager enviará duas heartbeats e o valor da propriedade SCAgentChannel incluirá **Direta** e **SCManagementServer**, dependendo de quais fontes de dados e soluções do Log Analytics você ativou em seu inscrição. Se você se lembrar, os dados das soluções serão enviados diretamente de um servidor de gerenciamento do Operations Manager para o Log Analytics ou, devido ao volume de dados coletados no agente, serão enviados diretamente do agente para o Log Analytics. Para eventos de pulsação que têm o valor **SCManagementServer**, o valor de ComputerIP é o endereço IP do servidor de gerenciamento, desde que os dados realmente sejam carregados por ele.  Para pulsações em que SCAgentChannel está definido como **Direct**, é o endereço IP público do agente.  
+Cada agente subordinado a um servidor de gerenciamento do Operations Manager enviará duas pulsações e o valor da propriedade SCAgentChannel inclui tanto **direto** e **SCManagementServer** dependendo do que fontes de dados e soluções de monitoramento que você habilitou na sua assinatura. Se você se lembra, dados de soluções são ou enviados diretamente de um servidor de gerenciamento do Operations Manager para o Azure Monitor, ou por causa do volume de dados coletados no agente, são enviados diretamente do agente para o Azure Monitor. Para eventos de pulsação que têm o valor **SCManagementServer**, o valor de ComputerIP é o endereço IP do servidor de gerenciamento, desde que os dados realmente sejam carregados por ele.  Para pulsações em que SCAgentChannel está definido como **Direct**, é o endereço IP público do agente.  
 
 ## <a name="sample-log-searches"></a>Pesquisas de log de exemplo
 A tabela a seguir fornece pesquisas de log de exemplo para os registros coletados por essa solução.
@@ -117,4 +117,4 @@ A tabela a seguir fornece pesquisas de log de exemplo para os registros coletado
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre os [Alertas no Log Analytics](../../azure-monitor/platform/alerts-overview.md) para obter detalhes sobre como gerar alertas por meio do Log Analytics. 
+* Saiba mais sobre [alertas no Azure Monitor](../platform/alerts-overview.md) para obter detalhes sobre como gerar alertas do Log Analytics. 

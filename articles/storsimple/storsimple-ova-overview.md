@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/02/2018
+ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: a7aace89ad4323d6fad6942fe03c4240fb53c8fd
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: e5713af737a6d9d190814b4155a8e772deea06bc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811182"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013904"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Introdução ao StorSimple Virtual Array
 
@@ -74,8 +74,8 @@ A tabela a seguir descreve algumas das principais vantagens oferecidas pela solu
 
 Confira abaixo um resumo das cargas de trabalho com suporte do StorSimple.
 
-|Cenário     |Carga de trabalho     |Com suporte      |Restrições               |
-|-------------|-------------|---------------|---------------------------|
+|Cenário     |Carga de trabalho     |Com suporte      |Restrições               | Versões aplicáveis|
+|-------------|-------------|---------------|---------------------------|--------------------|
 |Escritórios remotos/filiais (ROBO)  |Compartilhamento de arquivos     |Sim      |Consulte [limites máximos para o servidor de arquivos](storsimple-ova-limits.md).<br></br>Confira [requisitos do sistema para as versões suportadas por SMB](storsimple-ova-system-requirements.md).| Todas as versões     |
 |Arquivamento de nuvem  |Compartilhamento de arquivos de arquivamento     |Sim      |Consulte [limites máximos para o servidor de arquivos](storsimple-ova-limits.md).<br></br>Confira [requisitos do sistema para as versões suportadas por SMB](storsimple-ova-system-requirements.md).| Todas as versões     |
 
@@ -101,7 +101,7 @@ Você pode usar o serviço Gerenciador de Dispositivos StorSimple em execução 
 ![Gerenciamento de armazenamento baseado em nuvem](./media/storsimple-ova-overview/cloud-based-storage-management.png)
 
 ### <a name="location-independent-backup"></a>Backup independente de local
-Com a matriz virtual, os instantâneos de nuvem fornecem uma cópia pontual de um volume ou compartilhamento, independente de local. Instantâneos de nuvem são habilitados por padrão e não podem ser desabilitados. O backup de todos os volumes e compartilhamentos é realizado ao mesmo tempo por meio de uma única política de backup diária, e você pode fazer backups de ad hoc adicionais sempre que necessário.
+Com a matriz virtual, os instantâneos de nuvem fornecem uma cópia pontual de um volume ou compartilhamento, independente de local. Instantâneos de nuvem são habilitados por padrão e não podem ser desabilitados. Todos os volumes e compartilhamentos de backup serão realizado ao mesmo tempo por meio de uma única política de backup diária, e você pode fazer backups de ad-hoc adicionais sempre que necessário.
 
 ### <a name="data-protection-and-disaster-recovery"></a>Recuperação de desastre e proteção de dados
 A matriz virtual dá suporte aos seguintes cenários de proteção de dados e recuperação de desastre:

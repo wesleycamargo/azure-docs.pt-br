@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: asganesh
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: d5ed8da4ea527e350b1ff73d0bd188cdad2caf71
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ad58b8f1034a0e2818d3aca53c023736da9370cb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189201"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119914"
 ---
 # <a name="azure-stack-datacenter-integration"></a>Integração de datacenter do Azure Stack
 
@@ -116,32 +116,32 @@ Várias etapas que devem ser executadas pelo parceiro antes que a solução é t
 
 As ações que devem ser realizadas pelo parceiro OEM são:
 
--   [Executar teste azurestack](azure-stack-diagnostic-test.md#run-validation-tool-to-test-system-readiness-before-installing-update-or-hotfix)
+- [Executar teste azurestack](azure-stack-diagnostic-test.md#run-validation-tool-to-test-system-readiness-before-installing-update-or-hotfix)
 
--   [Registro com o Azure](azure-stack-registration.md)
+- [Registro com o Azure](azure-stack-registration.md)
 
--   [Sindicalização do Marketplace](azure-stack-download-azure-marketplace-item.md#use-the-marketplace-syndication-tool-to-download-marketplace-items)
+- [Sindicalização do Marketplace](azure-stack-download-azure-marketplace-item.md#use-the-marketplace-syndication-tool-to-download-marketplace-items)
 
--   Arquivos de configuração do comutador e HLH configuração de backup
+- Arquivos de configuração do comutador e HLH configuração de backup
 
--   Remover DVM
+- Remover DVM
 
--   Preparar um resumo do cliente para a implantação
+- Preparar um resumo do cliente para a implantação
 
--   [Verificar atualizações para garantir que o software de solução é atualizado para a versão mais recente](.\azure-stack-updates.md)
+- [Verificar atualizações para garantir que o software de solução é atualizado para a versão mais recente](./azure-stack-updates.md)
 
 Há várias etapas que são obrigatórios ou opcionais, dependendo do tipo de instalação.
 
--   Se a implantação foi concluída usando [do AD FS](azure-stack-integrate-identity.md), em seguida, o Azure Stack carimbo precisará ser integrado com o cliente do próprio AD FS.
+- Se a implantação foi concluída usando [do AD FS](azure-stack-integrate-identity.md), em seguida, o Azure Stack carimbo precisará ser integrado com o cliente do próprio AD FS.
 
   > [!NOTE]
   > Esta etapa é responsabilidade do cliente, embora o parceiro pode optar por oferecer serviços para fazer isso.
 
--   Integração com um sistema de monitoramento existente do respectivo parceiro.
+- Integração com um sistema de monitoramento existente do respectivo parceiro.
 
-    -   [Integração do System Center Operations Manager](azure-stack-integrate-monitor.md) também dá suporte a recursos de gerenciamento de frota.
+  -   [Integração do System Center Operations Manager](azure-stack-integrate-monitor.md) também dá suporte a recursos de gerenciamento de frota.
 
-    -   [Integração do Nagios](azure-stack-integrate-monitor.md#integrate-with-nagios)
+  -   [Integração do Nagios](azure-stack-integrate-monitor.md#integrate-with-nagios)
 
 ## <a name="overall-timeline"></a>Cronograma geral
 

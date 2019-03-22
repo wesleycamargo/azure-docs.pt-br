@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 02/25/2019
 ms.author: manayar
-ms.openlocfilehash: 757ff087b7bb12528779f0477aadb629ea94c73e
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 779a10257a94ed761572fdcc80a68059750342dd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566054"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994448"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Atualizações automáticas de imagem do sistema operacional do conjunto de dimensionamento de máquinas virtuais do Azure
 
@@ -65,6 +65,9 @@ Os seguintes SKUs são compatíveis atualmente (e mais são adicionados periodic
 | Microsoft Corporation   | WindowsServer | 2016-Datacenter    |
 | Microsoft Corporation   | WindowsServer | 2016-Datacenter-Smalldisk |
 | Microsoft Corporation   | WindowsServer | 2016-Datacenter-with-Containers |
+| Microsoft Corporation   | WindowsServer | 2019-Datacenter |
+| Microsoft Corporation   | WindowsServer | 2019-Datacenter-Smalldisk |
+| Microsoft Corporation   | WindowsServer | 2019-Datacenter-with-Containers |
 
 
 ## <a name="requirements-for-configuring-automatic-os-image-upgrade"></a>Requisitos para configurar a atualização automática de imagem do sistema operacional
@@ -236,7 +239,7 @@ az vm image list --location "westus" --publisher "Canonical" --offer "UbuntuServ
 
 Você pode usar modelos para implantar um conjunto de dimensionamento com atualizações de sistema operacional automáticas para imagens compatíveis, tais como [Ubuntu 16.04-LTS](https://github.com/Azure/vm-scale-sets/blob/master/preview/upgrade/autoupdate.json).
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fvm-scale-sets%2Fmaster%2Fpreview%2Fupgrade%2Fautoupdate.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fvm-scale-sets%2Fmaster%2Fpreview%2Fupgrade%2Fautoupdate.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
 ## <a name="next-steps"></a>Próximas etapas
 Para ver mais exemplos sobre como usar atualizações automáticas do sistema operacional com conjuntos de dimensionamento, examine o [repositório do GitHub](https://github.com/Azure/vm-scale-sets/tree/master/preview/upgrade).

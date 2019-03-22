@@ -1,5 +1,5 @@
 ---
-title: Diagnóstico de notificações removidas dos Hubs de Notificações do Microsoft Azure
+title: Hubs de notificação do Azure - diagnosticar notificações removidas
 description: Saiba como diagnosticar problemas comuns com notificações removidas nos Hubs de Notificações do Microsoft Azure.
 services: notification-hubs
 documentationcenter: Mobile
@@ -14,14 +14,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 9dd6a66ea416ad61682b8e33c6163db3ac345d92
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: c0fd7dec31a2c4054c59db3bae52cdb15ba01eed
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447710"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884414"
 ---
-# <a name="diagnose-dropped-notifications-in-notification-hubs"></a>Diagnosticar notificações removidas nos Hubs de Notificação
+# <a name="azure-notification-hubs---diagnose-dropped-notifications"></a>Hubs de notificação do Azure - diagnosticar notificações removidas
 
 Uma das perguntas mais comuns dos clientes de Hubs de Notificação do Azure é como solucionar problemas quando as notificações enviadas de um aplicativo não aparecem no dispositivos cliente. Eles querem saber onde e por que as notificações são removidas, e como corrigir o problema. Este artigo identifica o motivo pelo qual as notificações podem ser removidas ou não recebidas pelos dispositivos. Saiba como analisar e determinar a causa raiz.
 
@@ -246,10 +246,7 @@ No portal, é possível obter uma visão geral rápida de todas as atividades no
 
 * **Acesso programático**
 
-Para obter mais informações sobre acesso programático, consulte esses artigos:
-
-* [Acesso programático à telemetria]  
-* [Acesso de telemetria por meio do exemplo de APIs]
+Para obter mais informações sobre o acesso programático, consulte [acesso programático à Telemetria]
 
 > [!NOTE]
 > Vários recursos relacionados à telemetria, como exportar e importar os registros e acesso à telemetria por meio de APIs, estão disponíveis apenas na camada de serviço Standard. Se tentar usar esses recursos na camada de serviço Gratuita ou Básica, você receberá uma mensagem de exceção se usar o SDK e um erro de HTTP 403 (Proibido) se usar os recursos diretamente das APIs REST.
@@ -274,12 +271,11 @@ Para obter mais informações sobre acesso programático, consulte esses artigos
 [Templates]: https://msdn.microsoft.com/library/dn530748.aspx
 [Visão geral de APNs]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html
 [Sobre mensagens de FCM]: https://firebase.google.com/docs/cloud-messaging/concept-options
-[Export and modify registrations in bulk]: http://msdn.microsoft.com/library/dn790624.aspx
+[Export and modify registrations in bulk]: https://msdn.microsoft.com/library/dn790624.aspx
 [Explorer do Barramento de Serviço]: https://msdn.microsoft.com/library/dn530751.aspx#sb_explorer
 [Código do Gerenciador de Barramento de Serviço]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
-[Exibir registros de dispositivo para os hubs de notificação]: http://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx
-[Aprofundamento: Visual Studio 2013 Update 2 RC e SDK 2.3 do Azure]: http://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs
-[Anunciando o lançamento do Visual Studio 2013 Atualização 3 e SDK do Azure 2.4]: http://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/
+[Exibir registros de dispositivo para os hubs de notificação]: https://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx
+[Aprofundamento: Visual Studio 2013 Update 2 RC e SDK 2.3 do Azure]: https://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs
+[Anunciando o lançamento do Visual Studio 2013 Atualização 3 e SDK do Azure 2.4]: https://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/
 [EnableTestSend]: https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend?view=azure-dotnet
-[Acesso programático à telemetria]: http://msdn.microsoft.com/library/azure/dn458823.aspx
-[Acesso de telemetria por meio do exemplo de APIs]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
+[Acesso programático à telemetria]: https://msdn.microsoft.com/library/azure/dn458823.aspx

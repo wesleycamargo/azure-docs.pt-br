@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: danlep
-ms.openlocfilehash: 2cbfb21469df45f29a70b5d10d8c99ecd894c30c
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
-ms.translationtype: HT
+ms.openlocfilehash: f35b2cd8d360bd46913eaa34b91e1fd19bc1ba9b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53755012"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533588"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Implantar instâncias de contêiner que usam recursos GPU
 
@@ -28,15 +28,7 @@ Conforme mostrado neste artigo, você pode adicionar recursos GPU, quando você 
 
 Na visualização, as seguintes limitações se aplicam ao usar recursos GPU em grupos de contêineres. 
 
-**Regiões com suporte**:
-
-* Leste dos EUA (eastus)
-* Oeste dos EUA 2 (westus2)
-* Centro-Sul dos EUA (southcentralus)
-* Europa Ocidental (westeurope)
-* Norte da Europa (northeurope)
-* Pacífico Asiático (eastasia)
-* Índia Central (centralindia)
+[!INCLUDE [container-instances-gpu-regions](../../includes/container-instances-gpu-regions.md)]
 
 O suporte será adicionado para regiões adicionais ao longo do tempo.
 
@@ -59,21 +51,9 @@ Para usar GPUs em uma instância de contêiner, especifique um *recurso GPU* com
   | P100 | [NCv2](../virtual-machines/linux/sizes-gpu.md#ncv2-series) |
   | V100 | [NCv3](../virtual-machines/linux/sizes-gpu.md#ncv3-series) |
 
-### <a name="cpu-and-memory"></a>CPU e memória
+[!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]
 
-Ao implantar recursos GPU, defina recursos de CPU e memória apropriada para a carga de trabalho, até os valores máximo, mostrados na tabela a seguir. Esses valores são atualmente maiores do que os limites de CPU e memória em instâncias de contêiner sem recursos GPU.  
-
-| GPU SKU | Contagem de GPU | CPU |  Memória (GB) |
-| --- | --- | --- | --- |
-| K80 | 1 | 6 | 56 |
-| K80 | 2 | 12 | 112 |
-| K80 | 4 | 24 | 224 |
-| P100 | 1 | 6 | 112 |
-| P100 | 2 | 12 | 224 |
-| P100 | 4 | 24 | 448 |
-| V100 | 1 | 6 | 112 |
-| V100 | 2 | 12 | 224 |
-| V100 | 4 | 24 | 448 |
+Ao implantar recursos GPU, defina recursos de CPU e memória apropriada para a carga de trabalho, até os valores máximo, mostrados na tabela anterior. Esses valores são atualmente maiores do que os recursos de CPU e memória disponíveis nos grupos de contêiner sem recursos GPU.  
 
 ### <a name="things-to-know"></a>Observações importantes
 
@@ -85,6 +65,10 @@ Ao implantar recursos GPU, defina recursos de CPU e memória apropriada para a c
 
 * **Drivers CUDA** - instâncias de contêiner com os recursos GPU são previamente provisionadas com drivers NVIDIA CUDA e tempos de execução do contêiner, portanto, você pode usar imagens de contêiner desenvolvido para cargas de trabalho do CUDA.
 
+  Há suporte para CUDA 9.0 neste estágio. Por exemplo, você pode usar imagens base para seu arquivo do Docker a seguir:
+  * [nvidia/cuda:9.0-base-ubuntu16.04](https://hub.docker.com/r/nvidia/cuda/)
+  * [tensorflow/tensorflow: 1.12.0-gpu-py3](https://hub.docker.com/r/tensorflow/tensorflow)
+    
 ## <a name="yaml-example"></a>Exemplo YAML
 
 Uma maneira de adicionar recursos GPU é implantar um grupo de contêineres usando um [arquivo YAML](container-instances-multi-container-yaml.md). Copie o YAML a seguir para um novo arquivo chamado *aci.yaml implantar gpu*, em seguida, salve o arquivo. Esse YAML cria um grupo de contêiner chamado *gpucontainergroup* especificando uma instância de contêiner com uma GPU K80. A instância é executada em um aplicativo de adição de vetor CUDA de exemplo. As solicitações de recurso são suficientes para executar a carga de trabalho.

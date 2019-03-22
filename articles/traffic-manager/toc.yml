@@ -7,8 +7,10 @@ items:
     href: traffic-manager-overview.md
 - name: Início rápido
   items:
-  - name: Criar um perfil do Gerenciador de Tráfego
+  - name: Criar um perfil do Gerenciador de Tráfego – portal
     href: quickstart-create-traffic-manager-profile.md
+  - name: Criar um perfil do Gerenciador de Tráfego – PowerShell
+    href: quickstart-create-traffic-manager-profile-powershell.md
 - name: Tutoriais
   items:
   - name: Rotear tráfego de baixa latência
@@ -101,7 +103,7 @@ items:
   - name: Java
     href: /java/api/com.microsoft.azure.management.trafficmanager
   - name: Node.js
-    href: http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/
+    href: https://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/
   - name: Ruby
     href: http://www.rubydoc.info/gems/azure_mgmt_traffic_manager
   - name: Python
@@ -138,9 +140,9 @@ items:
     href: https://azure.microsoft.com/support/legal/sla/traffic-manager/
   - name: vídeos
     href: https://azure.microsoft.com/resources/videos/index/?services=traffic-manager
-ms.openlocfilehash: 7d9640cba3e65eacc16fb3de59e3a099aa1926e2
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 5b85231337e2e28a5cd4955999e4fde4bae573f5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991091"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58006907"

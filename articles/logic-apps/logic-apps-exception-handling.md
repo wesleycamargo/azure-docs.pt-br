@@ -10,12 +10,12 @@ ms.date: 01/31/2018
 ms.topic: article
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 56f3573bbab059aed78608209cb2815413876bb0
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 3f812c1142b5cd40169f7340163295b0f7ea6a4d
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56308716"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57779132"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Tratar erros e exceções em Aplicativos Lógicos do Azure
 
@@ -223,9 +223,9 @@ Para limites nos escopos, consulte [Limites e configurações](../logic-apps/log
 
 Embora seja útil detectar falhas de um escopo, convém ter o contexto para ajudá-lo a entender exatamente quais ações falharam, além de quais erros ou códigos de status foram retornados. A expressão `@result()` fornece contexto sobre o resultado de todas as ações em um escopo.
 
-A expressão `@result()` aceita um único parâmetro (o nome do escopo) e retorna uma matriz de todos os resultados da ação dentro desse escopo. Esses objetos de ação incluem os mesmos atributos do objeto **@actions()**, como a hora de início, hora de término, status, entradas, IDs de correlação e saídas da ação. Para enviar o contexto de qualquer ação que falhou dentro de um escopo, você pode facilmente emparelhar uma função **@result()** com uma propriedade **runAfter**.
+A expressão `@result()` aceita um único parâmetro (o nome do escopo) e retorna uma matriz de todos os resultados da ação dentro desse escopo. Esses objetos de ação incluem os mesmos atributos como o  **\@actions()** objeto, como a hora de início, hora de término, status, entradas, as IDs de correlação e saídas da ação. Para enviar o contexto para qualquer ação que falhou dentro de um escopo, você pode facilmente emparelhar uma  **\@result()** funcionar com um **runAfter** propriedade.
 
-Para executar uma ação para cada ação em um escopo que tenha um resultado **com falha** e filtrar a matriz de resultados até as ações com falha, é possível parear **@result()** com a**[ Filtrar Matriz](../connectors/connectors-native-query.md)** action e a [**Para cada loop**](../logic-apps/logic-apps-control-flow-loops.md). Você pode pegar o array de resultados filtrados e executar uma ação para cada falha usando o **For each**  loop. 
+Para executar uma ação para cada ação em um escopo que tenha uma **Failed** resultados, e para filtrar a matriz de resultados para as ações que falharam, é possível emparelhar  **\@result()** com um **[ Filtrar matriz](../connectors/connectors-native-query.md)** ação e um [ **para cada** ](../logic-apps/logic-apps-control-flow-loops.md) loop. Você pode pegar o array de resultados filtrados e executar uma ação para cada falha usando o **For each**  loop. 
 
 Aqui está um exemplo, seguido por uma explicação detalhada, que envia uma solicitação HTTP POST com o corpo da resposta para quaisquer ações que falharam no escopo "My_Scope":
 
@@ -317,7 +317,7 @@ Para referência, veja um exemplo de um único item `@result()`, mostrando as pr
 }
 ```
 
-Para executar diferentes padrões de tratamento de exceções, você pode usar as expressões descritas anteriormente neste artigo. Você pode optar por executar uma única ação de tratamento de exceção fora do escopo que aceita toda a matriz filtrada de falhas e remover a ação **For each**. Adicionalmente, é possível incluir outras propriedades úteis da resposta **@result()** response, conforme descrito anteriormente.
+Para executar diferentes padrões de tratamento de exceções, você pode usar as expressões descritas anteriormente neste artigo. Você pode optar por executar uma única ação de tratamento de exceção fora do escopo que aceita toda a matriz filtrada de falhas e remover a ação **For each**. Você também pode incluir outras propriedades úteis dos  **\@result()** resposta conforme descrita anteriormente.
 
 ## <a name="azure-diagnostics-and-metrics"></a>Métricas e diagnóstico do Azure
 

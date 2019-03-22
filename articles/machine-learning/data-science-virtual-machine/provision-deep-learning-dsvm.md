@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 53ddea5426d2adfa7b0ddfcbda3375efae8d0859
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 42430c847149f7eda2f0dbed1cff006a92f372ee
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250799"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57845181"
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Provisionar uma Máquina Virtual de Aprendizado Aprofundado no Azure 
 
@@ -49,10 +49,10 @@ Veja as etapas para criar uma instância da Máquina Virtual de Aprendizado Apro
 > [!NOTE]
 > O DLVM oferece suporte a todos as instâncias de VM de GPU das séries NC e ND. Ao provisionar o DLVM, você deve escolher um dos locais no Azure que tenha GPUs. Verifique a página [Produtos do Azure por Página de Região](https://azure.microsoft.com/regions/services/) para os locais disponíveis e procure **Série NC**, **Série NCv2**, **Série NCv3** ou **Série ND** em **Computação**. 
 
-   2. **Configurações**: Selecione um dos tamanhos de máquina virtual de GPU Série NC (NC, NCv2, NCv3) ou ND que atenda aos seus requisitos funcionais e restrições de custo. Crie uma conta de armazenamento para sua VM.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
+1. **Configurações**: Selecione um dos tamanhos de máquina virtual de GPU Série NC (NC, NCv2, NCv3) ou ND que atenda aos seus requisitos funcionais e restrições de custo. Crie uma conta de armazenamento para sua VM.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
    
-   3. **Resumo**: Verifique se todas as informações inseridas estão corretas.
-   5. **Comprar**: Clique em **Comprar** para iniciar o provisionamento. Um link para os termos da transação é fornecido. A VM não tem encargos adicionais além dos de computação para o tamanho do servidor que você escolheu na etapa **Tamanho** . 
+1. **Resumo**: Verifique se todas as informações inseridas estão corretas.
+1. **Comprar**: Clique em **Comprar** para iniciar o provisionamento. Um link para os termos da transação é fornecido. A VM não tem encargos adicionais além dos de computação para o tamanho do servidor que você escolheu na etapa **Tamanho** . 
 
 > [!NOTE]
 > O provisionamento deve levar cerca de 10 a 20 minutos. O status do provisionamento é exibido no Portal do Azure.
@@ -76,7 +76,7 @@ Após a criação da VM, você poderá entrar nela usando SSH. Use as credenciai
 #### <a name="installing-and-configuring-x2go-client"></a>Instalando e configurando o cliente X2Go
 A DLVM do Linux já está provisionada com um servidor X2Go e pronta para aceitar conexões de cliente. Para se conectar à área de trabalho gráfica da VM do Linux, realize o seguinte procedimento em seu cliente:
 
-1. Baixe e instale o cliente X2Go para sua plataforma de cliente [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
+1. Baixe e instale o cliente X2Go para sua plataforma de cliente [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
 2. Execute o cliente X2Go e selecione **Nova Sessão**. Ele abrirá uma janela de configuração com várias guias. Insira os seguintes parâmetros de configuração:
    * **Guia Sessão**:
      * **Host**: O nome do host ou endereço IP da sua VM de Ciência de Dados Linux.

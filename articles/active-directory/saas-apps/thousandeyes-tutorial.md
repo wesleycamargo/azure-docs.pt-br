@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43aa43d37099d69441a5dde47327e784d67fa9ac
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 5d85c4dbd3cc1c3d827a3f8324e63f75eb942425
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189439"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892975"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thousandeyes"></a>Tutorial: Integração do Azure Active Directory com o ThousandEyes
 
@@ -70,7 +70,7 @@ Para configurar a integração do ThousandEyes com o Azure AD, é necessário ad
     
 1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![APLICATIVOS][3]
+    ![Aplicativos][3]
 
 1. Na caixa de pesquisa, digite **ThousandEyes**.
 
@@ -145,7 +145,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Configurar o logon único](./media/thousandeyes-tutorial/ic790069.png "Configurar o logon único")
 
-     a. Selecione **Habilitar Logon Único**.
+    a. Selecione **Habilitar Logon Único**.
 
     b. Na caixa de texto **URL de Página de Logon**, cole a **URL do Serviço de Logon Único SAML** copiada do portal do Azure.
 
@@ -212,9 +212,9 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Thousa
 
     ![Adicionar contas de usuário](./media/thousandeyes-tutorial/IC790074.png "Adicionar contas de usuário")
 
-     a. Na caixa de texto **Nome**, digite o nome do usuário como **Brenda Fernandes**.
+    a. Na caixa de texto **Nome**, digite o nome do usuário como **Brenda Fernandes**.
 
-    b. Na caixa de texto **Email**, digite o email do usuário como **brittasimon@contoso.com**.
+    b. Na **E-mail** caixa de texto, digite o email do usuário, como **brendafernandes\@contoso.com**.
 
     b. Clique em **Adicionar Novo Usuário à Conta**.
 

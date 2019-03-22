@@ -10,15 +10,15 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 08/09/2018
+ms.date: 02/28/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 08897b2085c2a8f0eafb90b77486d60a0edce190
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
-ms.translationtype: HT
+ms.openlocfilehash: 17df4415166c71f49c6b2534289b2c1f79cb6174
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359860"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117244"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Escala e hospedagem no Azure Functions
 
@@ -43,9 +43,6 @@ Em um Plano do Serviço de Aplicativo, você pode dimensionar entre as camadas p
 
 Ao usar um plano de Consumo, as instâncias do host do Azure Functions são adicionadas e removidas dinamicamente com base no número de eventos de entrada. Esse plano sem servidor escala automaticamente, e você é cobrado pelos recursos de computação apenas durante a execução de suas funções. Em um plano de consumo, a execução de uma função expire após um período configurável.
 
-> [!NOTE]
-> O tempo limite padrão para funções em um plano de consumo é de 5 minutos. O valor pode ser aumentado para o App de Função até um máximo de 10 minutos, alterando a propriedade `functionTimeout` no arquivo de projeto [ host.json ](functions-host-json.md#functiontimeout).
-
 A cobrança baseia-se no número de execuções, no tempo de execução e na memória usada. A cobrança é agregada entre todas as funções em um aplicativo de funções. Para saber mais, confira a [página de preços do Azure Functions].
 
 O plano de Consumo é o plano de hospedagem padrão e oferece os seguintes benefícios:
@@ -62,7 +59,7 @@ Considere um Plano do Serviço de Aplicativo nos seguintes casos:
 * Você tem VMs subutilizadas que já estão executando outras instâncias do Serviço de Aplicativo.
 * Os aplicativos de funções executam continuamente ou quase continuamente. Nesse caso, um Plano de Serviço de Aplicativo pode ser mais econômico.
 * Você precisa de mais opções de CPU ou memória do que é fornecido no plano de Consumo.
-* O código precisa ser executado por mais tempo do que o tempo máximo de execução permitido no plano de Consumo, que é de até 10 minutos.
+* Seu código precisa executar por mais tempo do que o [tempo de execução máximo permitido](#timeout) no plano de consumo.
 * Você precisa de recursos que estão disponíveis somente em um Plano do Serviço de Aplicativo, como suporte para o Ambiente de Serviço de Aplicativo, conectividade VPN/VNET e tamanhos de VM maiores.
 * Você deseja executar seu aplicativo de funções no Linux, ou você deseja fornecer uma imagem personalizada na qual executará suas funções.
 
@@ -70,13 +67,15 @@ Uma VM baseia o curso no número de execuções, no tempo de execução e na mem
 
 Com um plano do Serviço de Aplicativo, você pode escalar horizontalmente manualmente adicionando mais instâncias de VM ou você pode habilitar o dimensionamento automático. Para saber mais, confira [Dimensionar a contagem de instâncias manual ou automaticamente](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). Você também pode escalar verticalmente escolhendo um plano do Serviço de Aplicativo diferente. Para obter mais informações, consulte [Escalar verticalmente um aplicativo no Azure](../app-service/web-sites-scale.md). 
 
-Ao executar funções JavaScript em um plano do Serviço de Aplicativo, você deve escolher um plano que tenha menos vCPUs. Para saber mais, acesse [Escolher Planos do Serviço de Aplicativo de núcleo único](functions-reference-node.md#considerations-for-javascript-functions).  
+Ao executar funções JavaScript em um plano do Serviço de Aplicativo, você deve escolher um plano que tenha menos vCPUs. Para obter mais informações, consulte [escolher planos do serviço de aplicativo de núcleo único](functions-reference-node.md#choose-single-vcpu-app-service-plans).  
 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
-<a name="always-on"></a>
-### <a name="always-on"></a>Always On
+
+### <a name="always-on"></a> Sempre ativo
 
 Se executar em um plano do Serviço de Aplicativo, você deverá habilitar a configuração **Always On** para que o aplicativo de funções execute corretamente. Em um plano do Serviço de Aplicativo, o tempo de execução das funções ficará ocioso após alguns minutos de inatividade, portanto, apenas gatilhos HTTP "despertarão" suas funções. Always On está disponível apenas em um plano de Serviço de Aplicativo. Em um plano de Consumo, a plataforma ativa automaticamente os aplicativos de função.
+
+[!INCLUDE [Timeout Duration section](../../includes/functions-timeout-duration.md)]
 
 ## <a name="what-is-my-hosting-plan"></a>Qual é o meu plano de hospedagem
 
@@ -125,7 +124,8 @@ A unidade de escala é o aplicativo de funções. Quando o aplicativo de funçõ
 O dimensionamento pode variar em uma série de fatores e ser diferente com base no gatilho e na linguagem selecionada. No entanto, há alguns aspectos de dimensionamento que existem no sistema atualmente:
 
 * Um único aplicativo de funções será escalado verticalmente somente para um máximo de 200 instâncias. Uma única instância pode processar mais de uma mensagem ou solicitação por vez, portanto, não há um limite definido de número de execuções simultâneas.
-* Novas instâncias só serão alocadas no máximo uma vez a cada 10 segundos.
+* Para gatilhos HTTP, novas instâncias só serão alocadas no máximo uma vez a cada 1 segundo.
+* Para os gatilhos não HTTP, novas instâncias só serão alocadas no máximo uma vez a cada 30 segundos.
 
 Gatilhos diferentes também podem ter diferentes limites de dimensionamento, como documentado abaixo:
 

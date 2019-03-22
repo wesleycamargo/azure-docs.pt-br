@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/27/2017
+ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: c7805e64c4f387b870922dcb63e20d86f691092a
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 931727eff0de104ea57930abb1d3739fa086967a
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119009"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226650"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Alta disponibilidade de máquinas virtuais do Azure para SAP NetWeaver no Red Hat Enterprise Linux
 
@@ -78,7 +78,7 @@ Primeiro, leia os seguintes documentos e Notas SAP
   * [Políticas de suporte para clusters de alta disponibilidade do RHEL - máquinas virtuais do Microsoft Azure como membros de cluster](https://access.redhat.com/articles/3131341)
   * [Instalando e configurando um Cluster de alta disponibilidade do Red Hat Enterprise Linux 7.4 (e posterior) no Microsoft Azure](https://access.redhat.com/articles/3252491)
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 Para obter alta disponibilidade, o SAP NetWeaver requer armazenamento compartilhado. O GlusterFS é configurado em um cluster separado e pode ser usado por vários sistemas SAP.
 
@@ -93,15 +93,15 @@ O SAP NetWeaver ASCS, o SAP NetWeaver SCS, o SAP NetWeaver ERS e o banco de dado
 * Configuração de back-end
   * Conectado aos adaptadores de rede primários de todas as máquinas virtuais que devem ser parte do cluster (A)SCS/ERS
 * Porta de Investigação
-  * Porta 620**&lt;nr&gt;**
+  * Porta 620<strong>&lt;nr&gt;</strong>
 * Regras de balanceamento de carga
-  * 32**&lt;nr&gt;** TCP
-  * 36**&lt;nr&gt;** TCP
-  * 39**&lt;nr&gt;** TCP
-  * 81**&lt;nr&gt;** TCP
-  * 5**&lt;nr&gt;** 13 TCP
-  * 5**&lt;nr&gt;** 14 TCP
-  * 5**&lt;nr&gt;** 16 TCP
+  * 32<strong>&lt;nr&gt;</strong> TCP
+  * 36<strong>&lt;nr&gt;</strong> TCP
+  * 39<strong>&lt;nr&gt;</strong> TCP
+  * 81<strong>&lt;nr&gt;</strong> TCP
+  * 5<strong>&lt;nr&gt;</strong>13 TCP
+  * 5<strong>&lt;nr&gt;</strong>14 TCP
+  * 5<strong>&lt;nr&gt;</strong>16 TCP
 
 ### <a name="ers"></a>ERS
 
@@ -110,12 +110,12 @@ O SAP NetWeaver ASCS, o SAP NetWeaver SCS, o SAP NetWeaver ERS e o banco de dado
 * Configuração de back-end
   * Conectado aos adaptadores de rede primários de todas as máquinas virtuais que devem ser parte do cluster (A)SCS/ERS
 * Porta de Investigação
-  * Porta 621**&lt;nr&gt;**
+  * Porta 621<strong>&lt;nr&gt;</strong>
 * Regras de balanceamento de carga
-  * 33**&lt;nr&gt;** TCP
-  * 5**&lt;nr&gt;** 13 TCP
-  * 5**&lt;nr&gt;** 14 TCP
-  * 5**&lt;nr&gt;** 16 TCP
+  * 33<strong>&lt;nr&gt;</strong> TCP
+  * 5<strong>&lt;nr&gt;</strong>13 TCP
+  * 5<strong>&lt;nr&gt;</strong>14 TCP
+  * 5<strong>&lt;nr&gt;</strong>16 TCP
 
 ## <a name="setting-up-glusterfs"></a>Configurando GlusterFS
 
@@ -204,6 +204,9 @@ Você primeiro precisa criar as máquinas virtuais para este cluster. Posteriorm
          * Repita as etapas acima para as portas 36**00**, 39**00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 e TCP para o ASCS
       1. Portas adicionais para ERS do ASCS
          * Repita as etapas acima para portas 33**02**, 5**02**13, 5**02**14, 5**02**16 e TCP para o ERS do ASCS
+
+> [!IMPORTANT]
+> Não habilite os carimbos de hora do TCP em VMs do Azure colocadas por trás do balanceador de carga do Azure. Habilitar TCP carimbos de hora fará com que as investigações de integridade falha. Defina o parâmetro **net.ipv4.tcp_timestamps** à **0**. Para obter detalhes, consulte [investigações de integridade do balanceador de carga](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-custom-probe-overview).
 
 ### <a name="create-pacemaker-cluster"></a>Criar cluster do Pacemaker
 

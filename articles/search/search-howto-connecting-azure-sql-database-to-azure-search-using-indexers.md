@@ -1,7 +1,7 @@
 ---
 title: Conecte-se ao conteúdo do Banco de Dados SQL do Azure e indexe-o usando indexadores – Azure Search
 description: Saiba como rastrear dados no Banco de Dados SQL do Azure usando indexadores para pesquisa de texto completo no Azure Search. Este artigo aborda conexões, configuração do indexador e ingestão de dados.
-ms.date: 10/17/2018
+ms.date: 03/01/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 7df785d1493ad2df698ff197d72824ceb15d39ad
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 5453bcdd371c0639cb1d3568f05a1768e6204d3d
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752885"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315207"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Conecte-se ao conteúdo do Banco de Dados SQL do Azure e indexe-o usando indexadores do Azure Search
 
@@ -305,7 +305,7 @@ O indexador do SQL expõe várias definições de configuração:
 
 | Configuração | Tipo de dados | Finalidade | Valor padrão |
 | --- | --- | --- | --- |
-| queryTimeout |string |Define o tempo limite de execução da consulta SQL |5 minutos ("00:05:00") |
+| queryTimeout |cadeia de caracteres |Define o tempo limite de execução da consulta SQL |5 minutos ("00:05:00") |
 | disableOrderByHighWaterMarkColumn |bool |Faz com que a consulta SQL usada pela política de marca d'água alta omita a cláusula ORDER BY. Consulte [Política de marca d'água alta](#HighWaterMarkPolicy) |falso |
 
 Essas configurações são usadas no objeto `parameters.configuration` na definição do indexador. Por exemplo, para definir o tempo limite da consulta para 10 minutos, crie ou atualize o indexador com a seguinte configuração:

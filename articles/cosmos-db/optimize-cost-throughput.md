@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 32c0ee4764c7c2b541428c63857286a45a09a634
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: e4d4d15ebb8200f16be8953e955b2e793be03c3a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733105"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452174"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Otimizar a taxa de transferência provisionada no Azure Cosmos DB
 
@@ -113,7 +113,7 @@ Além disso, se você está usando o Azure Cosmos DB e sabe que não vai pesquis
 
 ## <a name="optimize-by-changing-indexing-policy"></a>Otimizar através da alteração da política de indexação 
 
-Por padrão, o Azure Cosmos DB indexa automaticamente todas as propriedades de cada registro. Isso serve para facilitar o desenvolvimento e garantir um desempenho excelente em vários tipos diferentes de consultas ad hoc. Se você tiver grandes registros com milhares de propriedades, pagar o custo da taxa de transferência para indexar todas as propriedades pode não ser útil, especialmente se você faz consulta apenas em relação a 10 ou 20 dessas propriedades. À medida que você for ficando mais familiarizado com sua carga de trabalho específica, nossa diretriz é a de ajustar sua política de índice. Obtenha detalhes completos sobre a política de indexação do Azure Cosmos DB [aqui](indexing-policies.md). 
+Por padrão, o Azure Cosmos DB indexa automaticamente todas as propriedades de cada registro. Isso serve para facilitar o desenvolvimento e garantir um desempenho excelente em muitos tipos diferentes de consultas ad hoc. Se você tiver grandes registros com milhares de propriedades, pagar o custo da taxa de transferência para indexar todas as propriedades pode não ser útil, especialmente se você faz consulta apenas em relação a 10 ou 20 dessas propriedades. À medida que você for ficando mais familiarizado com sua carga de trabalho específica, nossa diretriz é a de ajustar sua política de índice. Obtenha detalhes completos sobre a política de indexação do Azure Cosmos DB [aqui](indexing-policies.md). 
 
 ## <a name="monitoring-provisioned-and-consumed-throughput"></a>Monitoramento provisionado e taxa de transferência consumida 
 
@@ -159,7 +159,7 @@ As etapas a seguir ajudam a tornar as suas soluções altamente escalonáveis e 
 
 2. Um método para estimar a quantidade de produtividade reservada exigida pelo aplicativo é registrar o encargo de RUs ( unidades de solicitação) associado à execução de operações comuns em relação a um banco de dados ou contêiner do Azure Cosmos representativo usado pelo aplicativo e, em seguida, estimar o número de operações que você prevê que executará a cada segundo. Meça e inclua consultas comuns e seu uso também. Para saber como estimar os custos de RU de consultas programaticamente ou usando o portal, consulte [Otimizar o custo de consultas](online-backup-and-restore.md). 
 
-3. Outra maneira de obter as operações e seus custos em RUs é habilitando o Log Analytics, que lhe dará o detalhamento da operação/duração e os encargos de solicitação. O Azure Cosmos DB fornece encargos de solicitação para cada operação, ou seja, o encargo de cada operação pode ser armazenado a partir da resposta e usado para análise. 
+3. É outra maneira de obter as operações e seus custos em RUs, habilitando os logs do Azure Monitor, que lhe dará a divisão de operação/duração e o encargo de solicitação. O Azure Cosmos DB fornece encargos de solicitação para cada operação, ou seja, o encargo de cada operação pode ser armazenado a partir da resposta e usado para análise. 
 
 4. Você pode escalar e reduzir a taxa de transferência provisionada verticalmente, conforme necessário, para atender às suas necessidades de carga de trabalho. 
 

@@ -10,18 +10,18 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: ''
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/27/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 3d3561cf1ad760930821fabeef9839c25d55f2a9
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
-ms.translationtype: HT
+ms.openlocfilehash: 23d1e53785ece50943d732db12b4cf460ba6752a
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30321981"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767474"
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-the-azure-portal"></a>Crie uma máquina virtual do Windows em uma Região de Disponibilidade com o portal do Azure
 
@@ -57,7 +57,7 @@ Faça logon no Portal do Azure em https://portal.azure.com.
 
 ## <a name="confirm-zone-for-managed-disk-and-ip-address"></a>Confirme a zona do disco gerenciado e endereço IP
 
-Quando a VM é implantada em uma zona de disponibilidade, um disco gerenciado para a VM sé criado na mesma zona de disponibilidade. Por padrão, um endereço IP público também é criado nessa região.
+Quando a VM é implantada em uma zona de disponibilidade, um disco gerenciado para a VM é criado na mesma zona de disponibilidade. Por padrão, um endereço IP público também é criado nessa região.
 
 Você pode confirmar as configurações de zona para esses recursos no portal.  
 

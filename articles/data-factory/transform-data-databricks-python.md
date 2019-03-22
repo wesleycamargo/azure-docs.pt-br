@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.author: douglasl
-ms.openlocfilehash: de730004b55f72cb645c6a31c02fd1fe28a52ecd
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 60aafd983d1c21777276683a8685376a247d11f5
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54013172"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541699"
 ---
 # <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>Transformar dados executando uma atividade de Python no Azure Databricks
 
@@ -64,11 +64,11 @@ A tabela a seguir descreve as propriedades JSON usadas na definição de JSON:
 
 |Propriedade|DESCRIÇÃO|Obrigatório|
 |---|---|---|
-|Nome|Nome da atividade no pipeline.|SIM|
+|Nome|Nome da atividade no pipeline.|Sim|
 |Descrição|Texto que descreve o que a atividade faz.|Não |
-|Tipo|Para a Atividade do Databricks Python, o tipo de atividade é DatabricksSparkPython.|SIM|
-|linkedServiceName|Nome do serviço vinculado ao Databricks no qual a atividade de Python é executado. Saiba mais sobre esse serviço vinculado no artigo  [Serviços de computação vinculados](compute-linked-services.md) .|SIM|
-|pythonFile|O URI do arquivo Python a ser executado. Há suporte para apenas os caminhos DBFS.|SIM|
+|Tipo|Para a Atividade do Databricks Python, o tipo de atividade é DatabricksSparkPython.|Sim|
+|linkedServiceName|Nome do serviço vinculado ao Databricks no qual a atividade de Python é executado. Saiba mais sobre esse serviço vinculado no artigo  [Serviços de computação vinculados](compute-linked-services.md) .|Sim|
+|pythonFile|O URI do arquivo Python a ser executado. Há suporte para apenas os caminhos DBFS.|Sim|
 |parâmetros|Parâmetros de linha de comando que serão passados para o arquivo Python. Isto é uma matriz de cadeias de caracteres.|Não |
 |bibliotecas|Uma lista de bibliotecas a serem instaladas no cluster, que executará o trabalho. Ele pode ser uma matriz de <string, object>|Não |
 
@@ -100,7 +100,7 @@ Na definição da atividade acima do Databricks você especifica esses tipos de 
         {
             "cran": {
                 "package": "ada",
-                "repo": "http://cran.us.r-project.org"
+                "repo": "https://cran.us.r-project.org"
             }
         }
     ]

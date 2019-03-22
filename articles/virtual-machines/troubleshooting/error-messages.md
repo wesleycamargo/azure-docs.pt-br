@@ -12,12 +12,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure
 ms.date: 5/22/2017
 ms.author: xujing
-ms.openlocfilehash: 80b99880362c3979ae5ead6d1cdff4091d23d065
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 5945be210812a6cbc24c9a3bb12414be5212be17
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118968"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437591"
 ---
 # <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>Entender as mensagens de erro comuns ao gerenciar máquinas virtuais no Azure
 
@@ -99,8 +99,8 @@ Esta seção lista as mensagens de erro comuns que você pode encontrar ao geren
 |  InvalidParameter  |  "A senha fornecida deve ter entre {0}-{1} caracteres e deve atender pelo menos {2} requisitos de complexidade de senha entre os seguintes: <ol><li> Contém um caractere maiúsculo</li><li>Contém um caractere minúsculo</li><li>Contém um dígito numérico</li><li>Contém um caractere especial.</li></ol>  |
 |  InvalidParameter  |  O Nome de Utilizador de Admin especificado não é permitido.  |
 |  InvalidParameter  |  Não é possível anexar um disco de SO existente quando a VM é criada a partir de uma imagem de plataforma ou de utilizador.  |
-|  InvalidParameter  |  O nome de contêiner {0} é inválido. Os nomes de contêiner devem ter de três a 63 caracteres e conter somente caracteres alfanuméricos minúsculos e hífen. O hífen deve ser precedido e seguido por um caractere alfanumérico.  |
-|  InvalidParameter  |  O nome de contêiner {0} na URL {1} é inválido. Os nomes de contêiner devem ter de três a 63 caracteres e conter somente caracteres alfanuméricos minúsculos e hífen. O hífen deve ser precedido e seguido por um caractere alfanumérico.  |
+|  InvalidParameter  |  O nome de contêiner {0} é inválido. Os nomes de contêiner devem ter de três a 63 caracteres e conter somente caracteres alfanuméricos minúsculos e hífen. Hífen deve ser precedido e seguido por um caractere alfanumérico.  |
+|  InvalidParameter  |  O nome de contêiner {0} na URL {1} é inválido. Os nomes de contêiner devem ter de três a 63 caracteres e conter somente caracteres alfanuméricos minúsculos e hífen. Hífen deve ser precedido e seguido por um caractere alfanumérico.  |
 |  InvalidParameter  |  O nome de blob na URL {0} contém uma barra invertida. Atualmente, não há suporte para isso em discos.  |
 |  InvalidParameter  |  O URI {0} não parece ser um URI de blob correto.  |
 |  InvalidParameter  |  Um disco chamado "{0}" já utiliza o mesmo LUN: {1}.  |

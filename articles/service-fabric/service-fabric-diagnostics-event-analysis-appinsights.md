@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: efcd2e279d1bf387bc11c238a0592ecee6545cc4
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 7a3abd854ec5e492407d1fbdc8d170f2a27ba1bc
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053612"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816718"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Visualização e análise de eventos com o Application Insights
 
@@ -48,50 +48,6 @@ O Application Insights tem uma exibição designada para consultar todos os dado
 ![Detalhes do pedido de insights do aplicativo](media/service-fabric-diagnostics-event-analysis-appinsights/ai-metrics-explorer.png)
 
 Para explorar ainda mais os recursos do portal do Application Insights, acesse a documentação do portal [Application Insights](../azure-monitor/app/app-insights-dashboards.md).
-
-### <a name="configuring-application-insights-with-wad"></a>Configurar o Application Insights com WAD
-
->[!NOTE]
->No momento, isso só é aplicável a clusters do Windows.
-
-Há duas maneiras principais de enviar dados do WAD para o Azure Application Insights, o que é obtido pela adição de um coletor do Application Insights à configuração do WAD, conforme detalhado em [este artigo](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
-
-#### <a name="add-an-application-insights-instrumentation-key-when-creating-a-cluster-in-azure-portal"></a>Adicionar uma chave de instrumentação do Application Insights ao criar um cluster no portal do Azure
-
-![Adicionar uma AIKey](media/service-fabric-diagnostics-event-analysis-appinsights/azure-enable-diagnostics.png)
-
-Ao criar um cluster, se o Diagnóstico estiver ativado em "On", um campo opcional para inserir uma chave de Instrumentação do Application Insights será exibido. Se você colar sua chave do Application Insights aqui, o coletor do Application Insights será configurado automaticamente no modelo do Resource Manager usado para implantar o cluster.
-
-#### <a name="add-the-application-insights-sink-to-the-resource-manager-template"></a>Adicionar o coletor do Application Insights para o modelo do Resource Manager
-
-No "WadCfg" do modelo do Resource Manager, adicione um "Coletor", incluindo as duas alterações a seguir:
-
-1. Adicione a configuração do coletor diretamente após a conclusão da declaração de `DiagnosticMonitorConfiguration`:
-
-    ```json
-    "SinksConfig": {
-        "Sink": [
-            {
-                "name": "applicationInsights",
-                "ApplicationInsights": "***ADD INSTRUMENTATION KEY HERE***"
-            }
-        ]
-    }
-
-    ```
-
-2. Inclua o Coletor no `DiagnosticMonitorConfiguration` ao adicionar a linha a seguir no `DiagnosticMonitorConfiguration` do `WadCfg` (antes da declaração de `EtwProviders`):
-
-    ```json
-    "sinks": "applicationInsights"
-    ```
-
-Nos dois snippets de código anteriores, o nome "applicationInsights" era usado para descrever o coletor. Isso não é um requisito e, enquanto o nome do coletor estiver incluído em "coletores", você poderá definir o nome para qualquer cadeia de caracteres.
-
-Atualmente, os logs do cluster aparecem como **rastreios** no visualizador de log do Application Insights. Como a maioria dos rastreamentos originados da plataforma é de nível "Informativo", você também pode considerar alterar a configuração do coletor para enviar apenas logs do tipo "Crítico" ou "Erro." Isso pode ser feito adicionando "Canais" ao seu coletor, conforme demonstrado [neste artigo](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
-
->[!NOTE]
->Se você usar uma chave do Application Insights incorreta no portal ou no modelo do Resource Manager, será necessário alterar manualmente a chave e atualizá-la / reimplementá-la.
 
 ### <a name="configuring-application-insights-with-eventflow"></a>Configurar o Application Insights com EventFlow
 

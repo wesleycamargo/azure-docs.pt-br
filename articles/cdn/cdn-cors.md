@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: f9429e88525e27c0b6bad29d1927d53d05dfbcc8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 3c8fab85d71f5f81bbf81bc3dd7a22d6c0b7f11b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33765357"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551833"
 ---
 # <a name="using-azure-cdn-with-cors"></a>Usar a CDN do Azure com o CORS
 ## <a name="what-is-cors"></a>O que é CORS?
-O CORS (Compartilhamento de Recursos entre Origens) é um recurso HTTP que permite que um aplicativo web em execução em um domínio acesse recursos em outro domínio. Para reduzir a possibilidade de ataques de script entre sites, todos os navegadores modernos implementam uma restrição de segurança conhecida como [política de mesma origem](http://www.w3.org/Security/wiki/Same_Origin_Policy).  Isso impede que uma página da Web chame APIs em um domínio diferente.  O CORS fornece uma maneira segura para permitir que uma origem (o domínio de origem) chame APIs em outra origem.
+O CORS (Compartilhamento de Recursos entre Origens) é um recurso HTTP que permite que um aplicativo web em execução em um domínio acesse recursos em outro domínio. Para reduzir a possibilidade de ataques de script entre sites, todos os navegadores modernos implementam uma restrição de segurança conhecida como [política de mesma origem](https://www.w3.org/Security/wiki/Same_Origin_Policy).  Isso impede que uma página da Web chame APIs em um domínio diferente.  O CORS fornece uma maneira segura para permitir que uma origem (o domínio de origem) chame APIs em outra origem.
 
 ## <a name="how-it-works"></a>Como ele funciona
 Há dois tipos de solicitações CORS, *solicitações simples* e *solicitações complexas.*
@@ -76,7 +76,7 @@ Nesse caso, você criará uma expressão regular que inclua todas as origens que
     https?:\/\/(www\.contoso\.com|contoso\.com|www\.microsoft\.com|microsoft.com\.com)$
 
 > [!TIP]
-> A **CDN Premium do Azure da Verizon** usa as [Expressões Regulares Compatíveis com o Perl](http://pcre.org/) como seu mecanismo de expressões regulares.  Você pode usar uma ferramenta, como [Expressões Regulares 101](https://regex101.com/), para validar sua expressão regular.  Observe que o caractere "/" é válido em expressões regulares e não precisa ter um caractere de escape. No entanto, adicionar um caractere de escape a esse caractere é considerado uma prática recomendada e é esperado por alguns validadores de regex.
+> A **CDN Premium do Azure da Verizon** usa as [Expressões Regulares Compatíveis com o Perl](https://pcre.org/) como seu mecanismo de expressões regulares.  Você pode usar uma ferramenta, como [Expressões Regulares 101](https://regex101.com/), para validar sua expressão regular.  Observe que o caractere "/" é válido em expressões regulares e não precisa ter um caractere de escape. No entanto, adicionar um caractere de escape a esse caractere é considerado uma prática recomendada e é esperado por alguns validadores de regex.
 > 
 > 
 

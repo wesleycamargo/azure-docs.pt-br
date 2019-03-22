@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfe77602d138224c848cc915bbba5a7084c29650
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c22b035b325582cf4a12ff10a9abbedb8837229b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170050"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117873"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrar sua infraestrutura VPN com a MFA do Azure usando a extensão Servidor de Políticas de Rede para o Azure
 
@@ -30,20 +30,20 @@ Os Serviços de Acesso e Política de Rede permitem às organizações:
 
 * Atribuir um local central para o gerenciamento e o controle de solicitações de rede para especificar:
 
-    * Quem pode se conectar 
+  * Quem pode se conectar 
     
-    * Em que horários do dia as conexões são permitidas 
+  * Em que horários do dia as conexões são permitidas 
     
-    * A duração das conexões
+  * A duração das conexões
     
-    * O nível de segurança que os clientes devem usar para se conectar
+  * O nível de segurança que os clientes devem usar para se conectar
 
     Em vez de especificar políticas em cada VPN ou servidor de Gateway de Área de Trabalho Remota, faça isso depois que estiverem em um local central. O protocolo RADIUS é usado para fornecer AAA (Autenticação, Autorização e Contabilização) centralizada. 
 
 * Estabelecer e impor políticas de integridade do cliente de Proteção de Acesso à Rede (NAP) que determinam se os dispositivos têm acesso irrestrito ou restrito aos recursos de rede.
 
 * Oferece uma maneira de impor a autenticação e autorização para acesso aos comutadores Ethernet e pontos de acesso sem fio compatíveis com 802.1x.   
-Para obter mais informações, consulte [Servidor de Políticas de Rede](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top). 
+  Para obter mais informações, consulte [Servidor de Políticas de Rede](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top). 
 
 Para aumentar a segurança e fornecer um alto nível de conformidade, as organizações podem integrar o NPS à Autenticação Multifator do Azure para garantir que os usuários usem a verificação em duas etapas para conectarem-se à porta virtual no servidor VPN. Usuários que devem receber acesso devem informar a combinação de nome de usuário e senha e outras informações que eles controlem. Essas informações devem ser confiáveis e não devem ser facilmente duplicadas. Podem incluir um número de telefone celular, um número de telefone fixo ou um aplicativo em um dispositivo móvel.
 

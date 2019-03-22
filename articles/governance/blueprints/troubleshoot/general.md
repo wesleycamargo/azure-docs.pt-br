@@ -9,12 +9,12 @@ ms.topic: troubleshooting
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: cebbc8b61a806663e7cb58e0bf7fbdd589f46cca
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 3621ca198ec2bac24791a2515ade51b990194bf2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343299"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003861"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Solucionar problemas usando o Azure Blueprint
 
@@ -24,11 +24,11 @@ Você pode executar erros ao criar ou atribuir blueprints. Este artigo descreve 
 
 Muitos erros serão o resultado da atribuição de um blueprint para um escopo. Quando uma atribuição falha, o blueprint fornece detalhes sobre a implantação com falha. Essa informação indica o problema para que ele possa ser corrigido e a próxima implantação for bem-sucedida.
 
-1. Clique em **Todos os serviços** e pesquise e selecione **Política** no painel esquerdo. Sobre a **política** página, clique em **plantas**.
+1. Selecione **Todos os serviços** no painel esquerdo. Pesquise e selecione **Blueprints**.
 
-1. Selecione **Blueprints Atribuídos** na página à esquerda e use a caixa de pesquisa para filtrar as atribuições de blueprint para encontrar as atribuições com falha. Você também pode classificar a tabela de atribuições de acordo com a coluna **Estado de Provisionamento** para ver todas as atribuições com falha agrupadas.
+1. Selecione **atribuído plantas** da página à esquerda e use a caixa de pesquisa para filtrar as atribuições de especificações técnicas para localizar a atribuição com falha. Você também pode classificar a tabela de atribuições de acordo com a coluna **Estado de Provisionamento** para ver todas as atribuições com falha agrupadas.
 
-1. Clique com o botão esquerdo do mouse no blueprint com o status _Com falha_ ou clique com o botão direito do mouse e selecione **Exibir Detalhes da Atribuição**.
+1. Botão esquerdo do mouse sobre o plano gráfico com o _Failed_ status ou o botão direito do mouse e selecione **exibir detalhes da atribuição**.
 
 1. Uma faixa vermelha que falhou a atribuição de aviso está na parte superior da página de atribuição de plano gráfico. Clique em qualquer lugar na faixa para obter mais detalhes.
 
@@ -65,12 +65,12 @@ Passar um parâmetro de blueprint que usa uma função, como `[resourceGroup().t
 
 #### <a name="resolution"></a>Resolução
 
-Para passar uma função como um parâmetro, faça o escape de toda a cadeia de caracteres com `[`, de modo que o parâmetro de blueprint se pareça com `[[resourceGroup().tags.myTag]`. O caractere de escape faz com que o Blueprints trate o valor como uma cadeia de caracteres ao processar o blueprint. O Blueprints, em seguida, coloca a função no artefato, permitindo que ela seja dinâmica conforme o esperado.
+Para passar uma função como um parâmetro, faça o escape de toda a cadeia de caracteres com `[`, de modo que o parâmetro de blueprint se pareça com `[[resourceGroup().tags.myTag]`. O caractere de escape faz com que o Blueprints trate o valor como uma cadeia de caracteres ao processar o blueprint. O Blueprints, em seguida, coloca a função no artefato, permitindo que ela seja dinâmica conforme o esperado. Para obter mais informações, consulte [estrutura do arquivo de modelo - sintaxe](../../../azure-resource-manager/resource-group-authoring-templates.md#syntax).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Se você não encontrou seu problema ou não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
 
-- Obtenha respostas de especialistas do Azure por meio de [Fóruns do Azure](https://azure.microsoft.com/support/forums/)
+- Obtenha respostas de especialistas do Azure por meio [fóruns do Azure](https://azure.microsoft.com/support/forums/).
 - Conecte-se a [@AzureSupport](https://twitter.com/azuresupport) – a conta oficial do Microsoft Azure para melhorar a experiência do cliente conectando-se à comunidade do Azure para os recursos certos: respostas, suporte e especialistas.
 - Se precisar de mais ajuda, você pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **Obter Suporte**.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee6c6559b5dd6c6a6e357ff2f258bad79d57205c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9809993d47141b70484892103e318a6f55381a2e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192635"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57856253"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurar a Autenticação Multifator do Azure
 
@@ -64,7 +64,7 @@ Use o recurso _bloquear e desbloquear usuários_ para impedir que os usuários r
 1. Entre no [Portal do Azure](https://portal.azure.com) como administrador.
 2. Navegue até **Azure Active Directory** > **MFA** > **Bloquear/desbloquear usuários**.
 3. Selecione **Adicionar** para bloquear um usuário.
-4. Selecione o **Grupo de Replicação**. Digite o nome de usuário do usuário bloqueado como **username@domain.com**. Insira um comentário no campo **Motivo**.
+4. Selecione o **Grupo de Replicação**. Insira o nome de usuário para usuário bloqueado como **nome de usuário\@domain.com**. Insira um comentário no campo **Motivo**.
 5. Selecione **Adicionar** para concluir o bloqueio do usuário.
 
 ### <a name="unblock-a-user"></a>Desbloquear um usuário
@@ -154,7 +154,7 @@ O recurso _bypass avulso_ permite que um usuário se autentique uma única vez s
 2. Navegue até **Azure Active Directory** > **MFA** > **bypass avulso**.
 3. Selecione **Adicionar**.
 4. Se necessário, selecione o grupo de replicação para o bypass.
-5. Insira o nome de usuário como **username@domain.com**. Insira o número de segundos que o bypass deve durar. Insira o motivo do bypass.
+5. Insira o nome de usuário como **nome de usuário\@domain.com**. Insira o número de segundos que o bypass deve durar. Insira o motivo do bypass.
 6. Selecione **Adicionar**. O tempo limite entra em vigor imediatamente. O usuário precisa entrar antes que o bypass avulso se expire.
 
 ### <a name="view-the-one-time-bypass-report"></a>Para exibir o relatório de bypass avulso
@@ -252,7 +252,7 @@ Por padrão, os usuários não podem criar senhas de aplicativo. O recurso de se
 
 Os usuários podem criar senhas de aplicativo durante o registro inicial. O usuário tem a opção de criar senhas de aplicativo no final do processo de registro.
 
-Os usuários também podem criar senhas de aplicativo após o registro. As senhas de aplicativo podem ser alteradas por meio das configurações no Portal do Azure ou no portal do Office 365. Para obter mais informações e etapas detalhadas para os usuários, consulte [O que são senhas de aplicativo na Autenticação Multifator do Azure?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
+Os usuários também podem criar senhas de aplicativo após o registro. Para obter mais informações e etapas detalhadas para os usuários, consulte [O que são senhas de aplicativo na Autenticação Multifator do Azure?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
 
 ## <a name="trusted-ips"></a>IPs confiáveis
 

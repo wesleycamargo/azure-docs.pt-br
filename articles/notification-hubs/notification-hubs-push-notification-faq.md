@@ -13,14 +13,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 03/11/2019
 ms.author: jowargo
-ms.openlocfilehash: 7f1a1bd22ecd0b0a7ab64e639683ae316742c5f0
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: da24c437a1dbe8744579cd26ee1348f50c4815ff
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563976"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884737"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Enviar notificações por push com Hubs de Notificação do Azure: Perguntas frequentes
 
@@ -206,30 +206,34 @@ Os Hubs de Notificação do Azure fornecem vários recursos para a solução de 
 
 Os Hubs de Notificação do Azure permitem a exibição de dados de telemetria no [portal do Azure]. Os detalhes das métricas estão disponíveis na página [Métricas de Hubs de Notificação].
 
+Você pode também acessar programaticamente as métricas. Para obter mais informações, consulte os seguintes artigos:
+
+- [Recuperar as métricas do Azure Monitor com .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/). Este exemplo usa o nome de usuário e senha. Para usar um certificado, sobrecarregar o método FromServicePrincipal para fornecer um certificado, conforme mostrado na [Este exemplo](https://github.com/Azure/azure-libraries-for-net/blob/master/src/ResourceManagement/ResourceManager/Authentication/AzureCredentialsFactory.cs). 
+- [Obtendo métricas e logs de atividades para um recurso](https://azure.microsoft.com/resources/samples/monitor-dotnet-query-metrics-activitylogs/)
+- [Passo a passo de API REST de monitoramento do Azure](../azure-monitor/platform/rest-api-walkthrough.md)
+
+
 > [!NOTE]
 > Notificações de sucesso significam simplesmente que notificações de push foram entregues ao PNS externo (por exemplo, APNS para Apple ou FCM para Google). É responsabilidade do PNS para entregar as notificações para dispositivos de destino. Normalmente, o PNS não expõe as métricas de entrega para terceiros.  
 
-Também fornecemos a capacidade de exportar a telemetria programaticamente (na camada Standard). Para obter detalhes, veja o [exemplo de métricas de Hubs de Notificação].
-
 [Portal do Azure]: https://portal.azure.com
-[Preços dos Hubs de Notificação]: http://azure.microsoft.com/pricing/details/notification-hubs/
-[Notification Hubs SLA]: http://azure.microsoft.com/support/legal/sla/
+[Preços dos Hubs de Notificação]: https://azure.microsoft.com/pricing/details/notification-hubs/
+[Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
 [Estudo de caso: Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
 [Estudo de caso: Skanska]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5847
 [Estudo de caso: Seattle Times]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=8354
 [Estudo de caso: Mural.ly]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11592
 [Estudo de caso: 7Digital]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=3684
 [APIs REST dos Hubs de Notificação]: https://msdn.microsoft.com/library/azure/dn530746.aspx
-[Tutoriais de Introdução aos Hubs de Notificação]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
-[tutorial de Aplicativos do Chrome]: http://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/
-[Mobile Services Pricing]: http://azure.microsoft.com/pricing/details/mobile-services/
+[Tutoriais de Introdução aos Hubs de Notificação]: https://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
+[tutorial de Aplicativos do Chrome]: https://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/
+[Mobile Services Pricing]: https://azure.microsoft.com/pricing/details/mobile-services/
 [Diretrizes de registro de back-end]: https://msdn.microsoft.com/library/azure/dn743807.aspx
 [Diretrizes de registro de back-end 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx
 [Modelo de segurança dos Hubs de Notificação]: https://msdn.microsoft.com/library/azure/dn495373.aspx
-[Tutorial de Push Seguro dos Hubs de Notificação]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
-[Solução de problemas de Hubs de Notificação]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
+[Tutorial de Push Seguro dos Hubs de Notificação]: https://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
+[Solução de problemas de Hubs de Notificação]: https://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
 [Métricas de Hubs de Notificação]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
-[Exemplo de métricas de Hubs de Notificação]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [Importação/Exportação de Registros]: https://msdn.microsoft.com/library/dn790624.aspx
 [Portal do Azure]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples

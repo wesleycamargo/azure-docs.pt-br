@@ -1,6 +1,6 @@
 ---
-title: Solução de capacidade e desempenho do Log Analytics do Azure | Microsoft Docs
-description: Use a solução de capacidade e desempenho no Log Analytics para ajudá-lo a compreender a capacidade dos servidores Hyper-V.
+title: Solução de capacidade e desempenho no Azure Monitor | Microsoft Docs
+description: Use a solução de capacidade e desempenho no Monitor para ajudá-lo a compreender a capacidade dos seus servidores Hyper-V.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 41508a1d99ed243d377cc72c0accc005c5ca737d
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: fcf71bf144b559c4867303988d4c1f08b7aa5605
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189193"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008620"
 ---
-# <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Planeje a capacidade da máquina virtual do Hyper-V com a solução de capacidade e desempenho (visualização)
+# <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>Planejar a capacidade de máquina virtual do Hyper-V com a solução capacidade e desempenho (preterida)
 
 ![Símbolo de capacidade e desempenho](./media/capacity-performance/capacity-solution.png)
 
 > [!NOTE]
 > A solução Capacidade e Desempenho foi preterida.  Os clientes que já têm instalada a solução podem continuar a usá-la, mas a Capacidade e Desempenho não pode ser adicionada a nenhum novo workspace.
 
-Você pode usar a solução de capacidade e desempenho no Log Analytics para ajudá-lo a compreender a capacidade dos servidores Hyper-V. A solução fornece percepções sobre seu ambiente Hyper-V e apresentando uma visão geral da utilização (CPU, memória e disco) dos hosts e das VMs em execução nos hosts do Hyper-V. As métricas são coletadas para a CPU, memória e discos em todos os hosts e VMs em execução.
+Você pode usar a solução capacidade e desempenho no Monitor para ajudá-lo a compreender a capacidade dos seus servidores Hyper-V. A solução fornece percepções sobre seu ambiente Hyper-V e apresentando uma visão geral da utilização (CPU, memória e disco) dos hosts e das VMs em execução nos hosts do Hyper-V. As métricas são coletadas para a CPU, memória e discos em todos os hosts e VMs em execução.
 
 A solução:
 
@@ -48,9 +48,9 @@ A tabela a seguir descreve as fontes conectadas que têm suporte dessa solução
 
 | Fonte Conectada | Suporte | DESCRIÇÃO |
 |---|---|---|
-| [Agentes do Windows](../../azure-monitor/platform/agent-windows.md) | SIM | A solução coleta informações de dados de desempenho e capacidade de agentes do Windows. |
+| [Agentes do Windows](../../azure-monitor/platform/agent-windows.md) | Sim | A solução coleta informações de dados de desempenho e capacidade de agentes do Windows. |
 | [Agentes do Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Não     | A solução não coleta informações de dados de desempenho e capacidade de agentes do Linux diretos.|
-| [Grupo de gerenciamento do SCOM](../../azure-monitor/platform/om-agents.md) | SIM |A solução coleta dados de desempenho e capacidade de agentes em um grupo de gerenciamento do SCOM conectado. Uma conexão direta do agente do SCOM ao Log Analytics não é necessária.|
+| [Grupo de gerenciamento do SCOM](../../azure-monitor/platform/om-agents.md) | Sim |A solução coleta dados de desempenho e capacidade de agentes em um grupo de gerenciamento do SCOM conectado. Uma conexão direta do agente do SCOM ao Log Analytics não é necessária.|
 | [Conta de armazenamento do Azure](../../azure-monitor/platform/collect-azure-metrics-logs.md) | Não  | O armazenamento do Azure não inclui dados de desempenho, nem de capacidade.|
 
 ## <a name="prerequisites"></a>Pré-requisitos

@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: anroth
-ms.openlocfilehash: d91d62c387fc7bcaef8b7f2cb7e8d865c882aeed
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: f2cd8f5074f815e84caaedb01335406657f29088
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445450"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088002"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Como compilar um classificador com Visão Personalizada
 
@@ -100,7 +100,7 @@ Para carregar outro conjunto de imagens, retorne ao topo desta seção e repita 
 
 > [!NOTE]
 > O Serviço de Visão Personalizada dá suporte a alguns tratamentos de imagem negativo automática. Por exemplo, se você está compilando um classificador de uva em comparação com banana e envia uma imagem de um sapato para previsão, o classificador deve classificar essa imagem em cerca de 0 % tanto para uva como para banana.
-
+> 
 > Por outro lado, nos casos em que as imagens negativas são apenas uma variação das imagens utilizadas no treinamento, é provável que o modelo classifique as imagens negativas como uma classe rotulada devido às grandes semelhanças. Por exemplo, se você tiver um classificador de laranja em comparação com toranja, e envia em uma imagem de clementina, o classificador poderá classificar a clementina como laranja porque a clementina possui muitas características semelhantes às das laranjas. Se as imagens negativas forem dessa natureza, recomendamos criar uma ou mais marcas adicionais (como **Outro**) e rotular as imagens negativas com essa marca durante o treinamento para permitir que o modelo diferencie melhor essas classes.
 
 ## <a name="train-the-classifier"></a>Treinar o classificador

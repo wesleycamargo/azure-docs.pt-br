@@ -11,22 +11,53 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 03/18/2019
 ms.author: sethm
 ms.reviewer: misainat
-ms.lastreviewed: 02/09/2019
-ms.openlocfilehash: 8268408137653e99863f7803300e6d843c1d9a47
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.lastreviewed: 03/18/2019
+ms.openlocfilehash: 33f1ccf3f1c7bc657cc66efe7c5025356c954ad6
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889300"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58187754"
 ---
 # <a name="asdk-release-notes"></a>Notas de versão ASDK
 
 Este artigo fornece informações sobre problemas conhecidos no Azure Stack desenvolvimento ASDK (Kit), correções e alterações. Se você não tiver certeza de qual versão você está executando, você poderá [usar o portal para verificar](../azure-stack-updates.md#determine-the-current-version).
 
 Mantenha-se atualizado com o que há de novo no ASDK assinando o [ ![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [feed](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
+
+## <a name="build-11902069"></a>Compilação 1.1902.0.69
+
+### <a name="new-features"></a>Novos recursos
+
+- A compilação de 1902 introduz uma nova interface de usuário no portal do administrador de pilha do Azure para a criação de planos, ofertas, cotas e planos de complemento. Para obter mais informações, incluindo capturas de tela, consulte [criar planos, ofertas e cotas](../azure-stack-create-plan.md).
+
+- Para obter uma lista das outras alterações e aprimoramentos nesta versão, consulte [esta seção](../azure-stack-update-1902.md#improvements) notas de versão no Azure Stack.
+
+<!-- ### New features
+
+- For a list of new features in this release, see [this section](../azure-stack-update-1902.md#new-features) of the Azure Stack release notes.
+
+### Fixed and known issues
+
+- For a list of issues fixed in this release, see [this section](../azure-stack-update-1902.md#fixed-issues) of the Azure Stack release notes. For a list of known issues, see [this section](../azure-stack-update-1902.md#known-issues-post-installation).
+- Note that [available Azure Stack hotfixes](../azure-stack-update-1902.md#azure-stack-hotfixes) are not applicable to the Azure Stack ASDK. -->
+
+### <a name="known-issues"></a>Problemas conhecidos
+
+- Foi identificado um problema no qual os pacotes mais 1450 bytes para um balanceador de carga interno (ILB) são descartados. O problema é devido à configuração de MTU no host que está sendo muito baixas para acomodar os pacotes VXLAN encapsulada que atravessam a função, que foi movida para o host a partir de 1901. Há pelo menos dois cenários que você pode encontrar em que vimos esse problema se manifestar:
+
+  - Consultas SQL para SQL AlwaysOn que está por trás de um balanceador de carga interno (ILB) e são mais de 660 bytes.
+  - Implantações de Kubernetes falhar se você tentar habilitar vários mestres.  
+
+  O problema ocorre quando você tem a comunicação entre uma máquina virtual e um ILB na mesma rede virtual, mas em sub-redes diferentes. Você pode contornar esse problema, executando os seguintes comandos no prompt de comandos com privilégios elevados no host ASDK:
+
+  ```shell
+  netsh interface ipv4 set sub "hostnic" mtu=1660
+  netsh interface ipv4 set sub "management" mtu=1660
+  ```
 
 ## <a name="build-11901095"></a>Compilação 1.1901.0.95
 
@@ -63,17 +94,3 @@ Para obter uma lista dos novos recursos nesta versão, consulte [esta seção](.
 ### <a name="fixed-and-known-issues"></a>Fixos e problemas conhecidos
 
 Para obter uma lista dos problemas corrigidos nesta versão, consulte [esta seção](../azure-stack-update-1811.md#fixed-issues) notas de versão do Azure Stack. Para obter uma lista dos problemas conhecidos, consulte [esta seção](../azure-stack-update-1811.md#known-issues-post-installation).
-
-## <a name="build-11809090"></a>Compilação 1.1809.0.90
-
-### <a name="new-features"></a>Novos recursos
-
-Para obter uma lista dos novos recursos nesta versão, consulte [esta seção](../azure-stack-update-1809.md#new-features) notas de versão do Azure Stack.
-
-### <a name="fixed-issues"></a>Problemas corrigidos
-
-Para obter uma lista dos problemas corrigidos nesta versão, consulte [esta seção](../azure-stack-update-1809.md#fixed-issues).
-
-### <a name="known-issues"></a>Problemas conhecidos
-
-Para obter uma lista dos problemas conhecidos nesta versão, consulte [esta seção](../azure-stack-update-1809.md#known-issues-post-installation).

@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 0f70bb91ccb0cb403d9292c2e3f069a8a9d2da41
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 2639d47a6c9d8da53c9d6bccde0d317698d5d9fd
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993853"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58257952"
 ---
-# <a name="publish-content-in-the-azure-portal-legacy"></a>Publicar conteúdo no Portal do Azure (herdado)
+# <a name="publish-content-in-the-azure-portal"></a>Publicar conteúdo no Portal do Azure  
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-publish.md)
 > * [.NET](media-services-deliver-streaming-content.md)
@@ -89,7 +89,7 @@ Selecione o vídeo e, em seguida, selecione o botão **Reproduzir**.
 Algumas considerações se aplicam:
 
 * Verifique se que o vídeo foi publicado.
-* O player de mídia do Portal do Azure reproduz do ponto de extremidade de streaming padrão. Se você quiser reproduzir de um ponto de extremidade de streaming não padrão, selecione e copie a URL e cole-a em outro player. Por exemplo, você pode testar o vídeo no [Player de Mídia do Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+* O player de mídia do Portal do Azure reproduz do ponto de extremidade de streaming padrão. Se você quiser reproduzir de um ponto de extremidade de streaming não padrão, selecione e copie a URL e cole-a em outro player. Por exemplo, você pode testar o vídeo no [Player de Mídia do Azure](https://amsplayer.azurewebsites.net/azuremediaplayer.html).
 * O ponto de extremidade de streaming do qual você estiver transmitindo deverá estar em execução.  
 
 ## <a name="provide-feedback"></a>Fornecer comentários

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: ''
+ms.date: 03/01/2019
 ms.author: haroldw
-ms.openlocfilehash: bf34d7e85632999056388eb74816140ce667ce10
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
-ms.translationtype: HT
+ms.openlocfilehash: 826085df8d928cab0a05527be8c464af5f4e9180
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382356"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002507"
 ---
 # <a name="openshift-in-azure"></a>OpenShift no Azure
 
@@ -46,11 +46,11 @@ Das cinco versões abordadas neste artigo, somente duas estão disponíveis hoje
 
 Plataforma de contêiner é uma [versão comercial](https://www.openshift.com) pronta para empresa do e suportada pelo Red Hat. Com essa versão, o cliente adquire os direitos necessários para a Plataforma de Contêiner OpenShift e é responsável pela instalação e o gerenciamento de toda a infraestrutura.
 
-Como o cliente é "dono" de toda a plataforma, pode instalar em seus datacenters locais, nuvem pública (Azure, AWS, Google etc.), entre outros.
+Porque o cliente é "dono" de toda a plataforma, eles podem instalá-lo em seu datacenter local ou em uma nuvem pública (por exemplo, o Azure).
 
 ## <a name="openshift-on-azure"></a>OpenShift no Azure
 
-O OpenShift no Azure é uma oferta totalmente gerenciada do OpenShift em execução no Azure. Esse serviço é gerenciado e suportado pela Microsoft e Red Hat em conjunto. O cluster será implantado na assinatura do Azure do cliente. O serviço está atualmente em versão prévia privada e está programado para ser GA no início do T1 CY2019. Para clientes interessados em participar da versão prévia privada, preencha o [Formulário de Nomeação](http://aka.ms/openshiftazureinterest).  Mais informações serão fornecidas na medida que a oferta ficar mais próxima a GA.
+O OpenShift no Azure é uma oferta totalmente gerenciada do OpenShift em execução no Azure. Esse serviço é gerenciado e suportado pela Microsoft e Red Hat em conjunto. O cluster será implantado na assinatura do Azure do cliente. O serviço está atualmente em versão prévia privada e está programado para ser GA no início do T1 CY2019. Para clientes interessados em participar da versão prévia privada, preencha o [Formulário de Nomeação](https://aka.ms/openshiftazureinterest).  Mais informações serão fornecidas na medida que a oferta ficar mais próxima a GA.
 
 ## <a name="okd-formerly-openshift-origin"></a>OKD (anteriormente conhecido como origem do OpenShift)
 
@@ -58,7 +58,7 @@ O OKD é um projeto upstream de [software livre](https://www.okd.io/) do OpenShi
 
 ## <a name="openshift-dedicated"></a>OpenShift Dedicado
 
-Dedicado é um OpenShift *multilocatário* gerenciado da Red Hat que usa a Plataforma de Contêiner. O Red Hat gerencia toda a infraestrutura subjacente (máquinas virtuais, cluster OpenShift, rede, armazenamento etc.). O cluster é específico para um cliente e é executado em uma nuvem pública (AWS, ou Google). Um cluster inicial inclui quatro nós de aplicativo e todos os custos são anuais e pagos antecipadamente.
+Dedicado é um OpenShift *multilocatário* gerenciado da Red Hat que usa a Plataforma de Contêiner. O Red Hat gerencia toda a infraestrutura subjacente (máquinas virtuais, cluster OpenShift, rede, armazenamento etc.). O cluster é específico para um cliente e é executado em uma nuvem pública (por exemplo, o Azure). Um cluster inicial inclui quatro nós de aplicativo e todos os custos são anuais e pagos antecipadamente.
 
 ## <a name="openshift-online"></a>OpenShift Online
 

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 0576941c803dfed6359fe34b67370eaf3f99c7e7
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 4b83917a76cb4b3e24ca4f5961d3a00c4d2c9cb0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538252"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077251"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mariadb-by-using-the-azure-portal"></a>Como configurar os parâmetros do servidor no banco de dados do Azure para MariaDB usando o portal do Azure
 
@@ -38,7 +38,7 @@ A lista de parâmetros de servidor com suporte está em constante crescimento. U
 Pool de buffers InnoDB e Máximo de Conexões não são configuráveis e são associados ao seu [tipo de preço](concepts-pricing-tiers.md).
 
 |**Tipo de preço**| **vCore(s)**|**Pool de Buffers InnoDB (MB)**| **Máximo de conexões**|
-|---|---|---|---|--|
+|---|---|---|---|
 |Basic| 1| 1024| 50|
 |Basic| 2| 2560| 100|
 |Uso geral| 2| 3584| 300|

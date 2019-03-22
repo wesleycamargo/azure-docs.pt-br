@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: b80a2effb4cdfe45ad3f37785f7e97449d60f00c
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: e929fd80e87524b62c08a159c457be6f1f21eaad
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340137"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768597"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Criar políticas por meio de programação e exibir dados de conformidade
 
@@ -95,8 +95,8 @@ A primeira etapa para obter melhor visibilidade de seus recursos é criar e atri
 
    Substitua _ContosoRG_ pelo nome do grupo de recursos desejado.
 
-   O parâmetro **Escopo** em `New-AzPolicyAssignment` também funciona com as assinaturas e os grupos de gerenciamento. O parâmetro usa um caminho de recurso completo, que a propriedade **ResourceId** em `Get-AzResourceGroup` retorna. O padrão para **Escopo** para cada contêiner é como segue.
-   Substitua `{rName}`, `{rgName}`, `{subId}` e `{mgName}` pelo nome de recurso, nome do grupo de recursos, ID da assinatura e nome do grupo de gerenciamento, respectivamente. `{rType}` deve ser substituído pelo **tipo de recurso**, como `Microsoft.Compute/virtualMachines` para uma VM.
+   O **escopo** parâmetro em `New-AzPolicyAssignment` funciona com o grupo de gerenciamento, assinatura, grupo de recursos ou um único recurso. O parâmetro usa um caminho de recurso completo, que a propriedade **ResourceId** em `Get-AzResourceGroup` retorna. O padrão para **Escopo** para cada contêiner é como segue. Substitua `{rName}`, `{rgName}`, `{subId}` e `{mgName}` pelo nome de recurso, nome do grupo de recursos, ID da assinatura e nome do grupo de gerenciamento, respectivamente.
+   `{rType}` deve ser substituído pelo **tipo de recurso**, como `Microsoft.Compute/virtualMachines` para uma VM.
 
    - Recurso: `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - Grupo de recursos – `/subscriptions/{subId}/resourceGroups/{rgName}`
@@ -183,24 +183,24 @@ Para criar uma definição de política, use o procedimento a seguir:
 
 1. Copie o snippet JSON a seguir para criar um arquivo de atribuição de política JSON.
 
-  ```json
-  {
-      "if": {
-          "allOf": [{
-                  "field": "type",
-                  "equals": "Microsoft.Storage/storageAccounts"
-              },
-              {
-                  "field": "Microsoft.Storage/storageAccounts/networkAcls.defaultAction",
-                  "equals": "Allow"
-              }
-          ]
-      },
-      "then": {
-          "effect": "audit"
-      }
-  }
-  ```
+   ```json
+   {
+       "if": {
+           "allOf": [{
+                   "field": "type",
+                   "equals": "Microsoft.Storage/storageAccounts"
+               },
+               {
+                   "field": "Microsoft.Storage/storageAccounts/networkAcls.defaultAction",
+                   "equals": "Allow"
+               }
+           ]
+       },
+       "then": {
+           "effect": "audit"
+       }
+   }
+   ```
 
    Para obter mais informações sobre a criação de uma definição de política, consulte [Estrutura da definição do Azure Policy](../concepts/definition-structure.md).
 

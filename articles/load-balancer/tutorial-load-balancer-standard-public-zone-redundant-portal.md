@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 2b37d77e00595be125490431694f4549f61fced6
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 912307e6509ea66be887838e875076b7a895ca94
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56982786"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57888138"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Tutorial: Balancear carga de VMs entre zonas de disponibilidade com um Load Balancer Standard utilizando o Portal do Azure
 
@@ -43,7 +43,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Entre no Portal do Azure em [http://portal.azure.com](http://portal.azure.com).
+Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-standard-load-balancer"></a>Criar um Balanceador de Carga Standard
 
@@ -108,7 +108,7 @@ Nesta seção, você cria regras do grupo de segurança de rede para permitir co
     - *Permitir HTTP* – para descrição da regra de balanceador de carga.
 4. Clique em **OK**.
  
- ![Criar uma rede virtual](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
+   ![Criar uma rede virtual](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
 5. Repita as etapas 2 a 4 para criar outra regra denominada *myRDPRule* para permitir uma conexão de RDP de entrada usando a porta 3389 com os seguintes valores:
     - *Service Tag* – para **Fonte**.
     - *Internet* – para **Marca de serviço de fonte**
@@ -137,7 +137,7 @@ Crie máquinas virtuais em diferentes regiões (zona 1, zona 2 e zona 3) para a 
 5. Clique em **Desabilitado** para desabilitar o diagnóstico de inicialização.
 6. Clique em **OK**, examine as configurações na página de resumo e, em seguida, clique em **Criar**.
   
- ![Criar uma máquina virtual](./media/load-balancer-standard-public-availability-zones-portal/create-vm-standard-ip.png)
+   ![Criar uma máquina virtual](./media/load-balancer-standard-public-availability-zones-portal/create-vm-standard-ip.png)
 
 7. Crie uma segunda VM, nomeada *VM2* na Zona 2 e a terceira VM na Zona 3 e, com *myVnet* como a rede virtual, *myBackendSubnet* como a sub-rede e **myNetworkSecurityGroup* como o grupo de segurança de rede, utilizando as etapas de 1 a 6.
 

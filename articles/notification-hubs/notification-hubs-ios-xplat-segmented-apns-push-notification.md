@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 8b37f86706e47e3998a4ba85e4416ce1a8a44c22
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: dd625dba0e125ccf993af524a0ab0c0cc66555fb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567070"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57834203"
 ---
 # <a name="tutorial-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Tutorial: Notificações por push para dispositivos iOS específicos usando Hubs de Notificação do Azure
 
@@ -49,14 +49,14 @@ A primeira etapa é adicionar os elementos da interface do usuário a seu storyb
 
 1. No **MainStoryboard_iPhone.storyboard**, adicione os seguintes componentes da biblioteca de objetos:
 
-    * Um rótulo com o texto "Breaking News",
-    * Rótulos com os textos das categorias "World", "Politics", "Business", "Technology", "Science", "Sports",
-    * Seis comutadores, um por categoria, defina cada comutador **Estado** para estar **Desligado** por padrão.
-    * Um botão rotulado "Assinar"
+   * Um rótulo com o texto "Breaking News",
+   * Rótulos com os textos das categorias "World", "Politics", "Business", "Technology", "Science", "Sports",
+   * Seis comutadores, um por categoria, defina cada comutador **Estado** para estar **Desligado** por padrão.
+   * Um botão rotulado "Assinar"
 
-    O storyboard deve ter a seguinte aparência:
+     O storyboard deve ter a seguinte aparência:
 
-    ![Interface Builder do Xcode][3]
+     ![Interface Builder do Xcode][3]
 
 2. No editor do assistente, crie saídas para todos os comutadores e chame-os de "WorldSwitch", "PoliticsSwitch", "BusinessSwitch", "TechnologySwitch", "ScienceSwitch", "SportsSwitch"
 3. Criar uma Ação para o botão chamado `subscribe`; seu `ViewController.h` deve conter o código a seguir:
@@ -359,11 +359,11 @@ Neste tutorial, você enviou notificações de notícias a dispositivos iOS espe
 [3]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios2.png
 
 <!-- URLs. -->
-[How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/library/jj927168.aspx
+[How To: Service Bus Notification Hubs (iOS Apps)]: https://msdn.microsoft.com/library/jj927168.aspx
 [Use Notification Hubs to broadcast localized breaking news]: notification-hubs-ios-xplat-localized-apns-push-notification.md
 [Mobile Service]: /develop/mobile/tutorials/get-started
 [Notify users with Notification Hubs]: notification-hubs-aspnet-backend-ios-notify-users.md
-[Notification Hubs Guidance]: http://msdn.microsoft.com/library/dn530749.aspx
-[Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
+[Notification Hubs Guidance]: https://msdn.microsoft.com/library/dn530749.aspx
+[Notification Hubs How-To for iOS]: https://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: notification-hubs-ios-apple-push-notification-apns-get-started.md
 [Portal do Azure]: https://portal.azure.com

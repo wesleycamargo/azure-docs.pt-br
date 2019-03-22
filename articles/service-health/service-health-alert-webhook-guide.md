@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: service-health
 ms.workload: Supportability
 ms.date: 3/27/2018
-ms.openlocfilehash: 898f2eca0b6cc115f56bcae195c58c6eef190694
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 69b142cd46c006e562218c949fb450864589a661
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884861"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838054"
 ---
 # <a name="configure-health-notifications-for-existing-problem-management-systems-using-a-webhook"></a>Configurar notificações de integridade para sistemas de gerenciamento de problemas existentes usando um webhook
 
@@ -59,7 +59,7 @@ Da gravidade mais baixa até a mais alta, a propriedade `level` no conteúdo pod
 
 ## <a name="parsing-the-impacted-services-to-understand-the-full-scope-of-the-incident"></a>Analisando os serviços afetados para entender o escopo completo do incidente
 Os alertas de integridade do serviço podem informá-lo sobre problemas em várias Regiões e serviços. Para obter os detalhes completos, você precisa analisar o valor de `impactedServices`.
-O conteúdo é uma cadeia de caracteres [JSON com escape](http://json.org/); quando sem escape, contém outro objeto JSON que pode ser analisado normalmente.
+O conteúdo é uma cadeia de caracteres [JSON com escape](https://json.org/); quando sem escape, contém outro objeto JSON que pode ser analisado normalmente.
 
 ```json
 {"data.context.activityLog.properties.impactedServices": "[{\"ImpactedRegions\":[{\"RegionName\":\"Australia East\"},{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"Alerts & Metrics\"},{\"ImpactedRegions\":[{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"App Service\"}]"}

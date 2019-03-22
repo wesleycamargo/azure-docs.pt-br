@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0d1c2a35a6ad246eea593990c485181aa776594
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 76af36de833bc496df7c24ddb1cbfd75c91c7976
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175074"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214742"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Como funciona: Redefinição de senha self-service do Azure AD
 
@@ -59,7 +59,7 @@ Leia as etapas abaixo para saber mais sobre a lógica por trás da página de re
 
 ## <a name="authentication-methods"></a>Métodos de autenticação
 
-Se a SSPR estiver habilitada, você deve selecionar pelo menos uma das seguintes opções para os métodos de autenticação. Às vezes, essas opções referidas como "portões." É altamente recomendável que você **escolha dois ou mais métodos de autenticação** para que seus usuários tenham mais flexibilidade caso não consigam acessar um quando precisarem.
+Se a SSPR estiver habilitada, você deve selecionar pelo menos uma das seguintes opções para os métodos de autenticação. Às vezes, essas opções referidas como "portões." É altamente recomendável que você **escolha dois ou mais métodos de autenticação** para que seus usuários tenham mais flexibilidade caso não consigam acessar um quando precisarem. Detalhes adicionais sobre os métodos listados abaixo podem ser encontrados no artigo [quais são os métodos de autenticação?](concept-authentication-methods.md).
 
 * Notificação de aplicativos para dispositivos móveis (visualização)
 * Código de aplicativo móvel (visualização)
@@ -69,6 +69,9 @@ Se a SSPR estiver habilitada, você deve selecionar pelo menos uma das seguintes
 * Perguntas de segurança
 
 Os usuários só podem redefinir sua senha se tiverem dados presentes nos métodos de autenticação que o administrador habilitou.
+
+> [!IMPORTANT]
+> A partir de março de 2019 as opções de chamada telefônica não estará disponível para os usuários do MFA e o SSPR em locatários gratuitos/avaliação do Azure AD. Mensagens SMS não são afetadas por essa alteração. Chamada telefônica continuará disponível para os usuários no pago locatários do Azure AD. Essa alteração só afeta o locatários gratuitos/avaliação do Azure AD.
 
 > [!WARNING]
 > Contas atribuídas a funções de administrador do Azure será necessárias para usar métodos conforme definido na seção [diferenças de política de redefinição de administrador](concept-sspr-policy.md#administrator-reset-policy-differences).

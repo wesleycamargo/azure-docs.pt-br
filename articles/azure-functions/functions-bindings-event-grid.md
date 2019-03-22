@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: 3d0c72f0178cddd668c0ac029c803ff339a1f6f4
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: b2ab07e40ac2652d97e912f8c7bd3b8893bfc114
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311606"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094153"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Gatilho de Grade de Eventos para o Azure Functions
 
@@ -30,17 +30,17 @@ Se você preferir, é possível utilizar um gatilho HTTP para manipular eventos 
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages---functions-1x"></a>Pacotes - Functions 1. x
-
-O gatilho de grade de eventos é fornecido no [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) pacote NuGet, versão 1. x. O código-fonte do pacote está no repositório GitHub [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension/tree/master).
-
-[!INCLUDE [functions-package](../../includes/functions-package.md)]
-
 ## <a name="packages---functions-2x"></a>Pacotes - Functions 2. x
 
 O gatilho de grade de eventos é fornecido no [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) pacote NuGet, versão 2. x. O código-fonte do pacote está no repositório GitHub [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension/tree/v2.x).
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
+
+## <a name="packages---functions-1x"></a>Pacotes - Functions 1. x
+
+O gatilho de grade de eventos é fornecido no [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) pacote NuGet, versão 1. x. O código-fonte do pacote está no repositório GitHub [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension/tree/master).
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="example"></a>Exemplo
 
@@ -53,31 +53,6 @@ Consulte o exemplo específico do idioma para um gatilho de Grade de Eventos:
 * [Python](#python-example)
 
 Para um exemplo de gatilho HTTP, consulte [Como usar o gatilho HTTP](#use-an-http-trigger-as-an-event-grid-trigger), posteriormente neste artigo.
-
-### <a name="c-version-1x"></a>C# (Versão 1.x)
-
-O exemplo a seguir mostra um funções 1. x [função C#](functions-dotnet-class-library.md) que associa a `JObject`:
-
-```cs
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.EventGrid;
-using Microsoft.Azure.WebJobs.Host;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using Microsoft.Extensions.Logging;
-
-namespace Company.Function
-{
-    public static class EventGridTriggerCSharp
-    {
-        [FunctionName("EventGridTriggerCSharp")]
-        public static void Run([EventGridTrigger]JObject eventGridEvent, ILogger log)
-        {
-            log.LogInformation(eventGridEvent.ToString(Formatting.Indented));
-        }
-    }
-}
-```
 
 ### <a name="c-2x"></a>C# (2.x)
 
@@ -105,6 +80,31 @@ namespace Company.Function
 
 Para obter mais informações, confira Pacotes, [Atributos](#attributes), [Configuração](#configuration) e [Uso](#usage).
 
+### <a name="c-version-1x"></a>C# (Versão 1.x)
+
+O exemplo a seguir mostra um funções 1. x [função C#](functions-dotnet-class-library.md) que associa a `JObject`:
+
+```cs
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+using Microsoft.Azure.WebJobs.Host;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Microsoft.Extensions.Logging;
+
+namespace Company.Function
+{
+    public static class EventGridTriggerCSharp
+    {
+        [FunctionName("EventGridTriggerCSharp")]
+        public static void Run([EventGridTrigger]JObject eventGridEvent, ILogger log)
+        {
+            log.LogInformation(eventGridEvent.ToString(Formatting.Indented));
+        }
+    }
+}
+```
+
 ### <a name="c-script-example"></a>Exemplo 2 de C# script
 
 O exemplo a seguir mostra uma associação de gatilho em um arquivo *function.json* e uma [função de script de C#](functions-reference-csharp.md) que usa a associação.
@@ -124,22 +124,6 @@ Aqui estão os dados de associação no arquivo *function.json*:
 }
 ```
 
-#### <a name="c-script-version-1x"></a>Script C# (Versão 1.x)
-
-Aqui está o código de script de 1. x C# funções que associa a `JObject`:
-
-```cs
-#r "Newtonsoft.Json"
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-
-public static void Run(JObject eventGridEvent, TraceWriter log)
-{
-    log.Info(eventGridEvent.ToString(Formatting.Indented));
-}
-```
-
 #### <a name="c-script-version-2x"></a>Script C# (Versão 2.x)
 
 Aqui está o código de script de 2. x C# funções que associa a `EventGridEvent`:
@@ -156,6 +140,22 @@ public static void Run(EventGridEvent eventGridEvent, ILogger log)
 ```
 
 Para obter mais informações, confira Pacotes, [Atributos](#attributes), [Configuração](#configuration) e [Uso](#usage).
+
+#### <a name="c-script-version-1x"></a>Script C# (Versão 1.x)
+
+Aqui está o código de script de 1. x C# funções que associa a `JObject`:
+
+```cs
+#r "Newtonsoft.Json"
+
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
+public static void Run(JObject eventGridEvent, TraceWriter log)
+{
+    log.Info(eventGridEvent.ToString(Formatting.Indented));
+}
+```
 
 ### <a name="javascript-example"></a>Exemplo de JavaScript
 
@@ -321,7 +321,7 @@ Para ver um exemplo completo, confira o exemplo de C#.
 A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json*. Não há parâmetros ou propriedades do construtor para definir o atributo `EventGridTrigger`.
 
 |Propriedade function.json |DESCRIÇÃO|
-|---------|---------|----------------------|
+|---------|---------|
 | **tipo** | Obrigatório – deve ser definido como `eventGridTrigger`. |
 | **direction** | Obrigatório – deve ser definido como `in`. |
 | **name** | Obrigatório - o nome da variável usado no código de função para o parâmetro que recebe os dados de eventos. |
@@ -484,10 +484,10 @@ Como alternativa, você mesmo pode enviar uma HTTP PUT para especificar o valor 
 
 Para testar um gatilho de Grade de Eventos localmente, você deve receber solicitações HTTP de Grade de Eventos entre suas origens na nuvem para sua máquina local. Uma maneira de fazer isso é capturar solicitações online e manualmente reenviá-las em sua máquina local:
 
-2. [Criar um aplicativo Web visualizador](#create-a-viewer-web-app) que captura as mensagens de evento.
-3. [Criar uma assinatura da Grade de Eventos](#create-an-event-grid-subscription) que envia eventos para o aplicativo visualizador.
-4. [Gerar uma solicitação](#generate-a-request) e copiar o corpo da solicitação do aplicativo visualizador.
-5. [Postar manualmente a solicitação](#manually-post-the-request) para a URL localhost da sua função de gatilho da Grade de Eventos.
+1. [Criar um aplicativo Web visualizador](#create-a-viewer-web-app) que captura as mensagens de evento.
+1. [Criar uma assinatura da Grade de Eventos](#create-an-event-grid-subscription) que envia eventos para o aplicativo visualizador.
+1. [Gerar uma solicitação](#generate-a-request) e copiar o corpo da solicitação do aplicativo visualizador.
+1. [Postar manualmente a solicitação](#manually-post-the-request) para a URL localhost da sua função de gatilho da Grade de Eventos.
 
 Quando terminar de testar, você poderá usar a mesma assinatura para a produção atualizando o ponto de extremidade. Use o comando da CLI do Azure[az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update).
 
@@ -528,11 +528,18 @@ Use uma ferramenta como [Postman](https://www.getpostman.com/) ou [curl](https:/
 * Defina um cabeçalho `Content-Type: application/json`.
 * Defina um cabeçalho `aeg-event-type: Notification`.
 * Cole os dados RequestBin no corpo da solicitação.
-* Poste na URL da sua função de gatilho de Grade de Eventos, usando o seguinte padrão:
+* Poste na URL da sua função de gatilho de grade de eventos.
+  * Para o 2.x, use o seguinte padrão:
 
-```
-http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={functionname}
-```
+    ```
+    http://localhost:7071/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
+    ```
+
+  * Para 1.x, use:
+
+    ```
+    http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={FUNCTION_NAME}
+    ```
 
 O parâmetro `functionName` deverá ser o nome especificado no atributo `FunctionName`.
 
@@ -550,10 +557,10 @@ A função de gatilho da Grade de Eventos executa e mostra logs semelhantes ao e
 
 Outra maneira de testar um gatilho de Grade de Eventos localmente é automatizar a conexão HTTP entre a Internet e o computador de desenvolvimento. Você pode fazer isso com uma ferramenta de software livre nomeada [ngrok](https://ngrok.com/):
 
-3. [Criar um ponto de extremidade ngrok](#create-an-ngrok-endpoint).
-4. [Executar a função de gatilho de Grade de Eventos ](#run-the-event-grid-trigger-function).
-5. [Criar uma assinatura na Grade de Eventos](#create-a-subscription) que envia eventos para o ponto de extremidade ngrok.
-6. [Disparar um evento](#trigger-an-event).
+1. [Criar um ponto de extremidade ngrok](#create-an-ngrok-endpoint).
+1. [Executar a função de gatilho de Grade de Eventos ](#run-the-event-grid-trigger-function).
+1. [Criar uma assinatura na Grade de Eventos](#create-a-subscription) que envia eventos para o ponto de extremidade ngrok.
+1. [Disparar um evento](#trigger-an-event).
 
 Quando terminar de testar, você poderá usar a mesma assinatura para a produção atualizando o ponto de extremidade. Use o comando da CLI do Azure[az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update).
 
@@ -591,19 +598,19 @@ A URL ngrok não recebe tratamento especial pela Grade de Eventos, portanto, sua
 
 Crie uma assinatura de grade de eventos do tipo que você deseja testar e forneça seu ponto de extremidade ngrok.
 
-Use este padrão de terminal para Funções 1.x:
-
-```
-https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={functionname}
-```
-
 Use este padrão de terminal para Funções 2.x:
 
 ```
-https://{subdomain}.ngrok.io/runtime/webhooks/eventgrid?functionName={functionName}
+https://{SUBDOMAIN}.ngrok.io/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
 ```
 
-O parâmetro `functionName` deverá ser o nome especificado no atributo `FunctionName`.
+Use este padrão de terminal para Funções 1.x:
+
+```
+https://{SUBDOMAIN}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={FUNCTION_NAME}
+```
+
+O parâmetro `{FUNCTION_NAME}` deverá ser o nome especificado no atributo `FunctionName`.
 
 Aqui, está um exemplo usando a CLI do Azure:
 

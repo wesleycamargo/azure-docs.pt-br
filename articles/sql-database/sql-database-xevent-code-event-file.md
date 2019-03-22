@@ -11,13 +11,13 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 manager: craigg
-ms.date: 12/19/2018
-ms.openlocfilehash: 035d2731a78ad6216f56255fb87e32444366ea97
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 0a9472dec9b76dfbde1690e11f13836746b0dfaa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563484"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57862889"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>Código de destino do Arquivo de evento para eventos estendidos no Banco de Dados SQL
 
@@ -37,6 +37,10 @@ Este tópico apresenta um exemplo de código em duas fases:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> O módulo do PowerShell do Azure Resource Manager ainda é compatível com o banco de dados SQL, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para esses cmdlets, consulte [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
+
 * Uma conta e uma assinatura do Azure. Você pode se inscrever em uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Qualquer banco de dados no qual você possa criar uma tabela.
   
@@ -48,7 +52,7 @@ Este tópico apresenta um exemplo de código em duas fases:
   * [Um link direto para o download.](https://go.microsoft.com/fwlink/?linkid=616025)
 * Você deve ter os [módulos do Azure PowerShell](https://go.microsoft.com/?linkid=9811175) instalados.
   
-  * Os módulos fornecem comandos como: **New-AzureStorageAccount**.
+  * Os módulos fornecem comandos como - **New-AzStorageAccount**.
 
 ## <a name="phase-1-powershell-code-for-azure-storage-container"></a>Fase 1: Código do PowerShell para contêiner de Armazenamento do Azure
 
@@ -68,7 +72,7 @@ O script começa com comandos para limpeza após uma possível execução anteri
 
 ### <a name="powershell-code"></a>Código do PowerShell
 
-Este script do PowerShell pressupõe que você já executou o cmdlet Import-Module para o módulo AzureRm. Para obter a documentação de referência, consulte [Navegador de Módulo do PowerShell](https://docs.microsoft.com/powershell/module/).
+Este script do PowerShell pressupõe que você já tiver instalado o módulo de Az. Para obter informações, consulte [instalar o módulo Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ```powershell
 ## TODO: Before running, find all 'TODO' and make each edit!!
@@ -78,8 +82,8 @@ cls;
 #--------------- 1 -----------------------
 
 'Script assumes you have already logged your PowerShell session into Azure.
-But if not, run  Connect-AzureRmAccount (or  Connect-AzureRmAccount), just one time.';
-#Connect-AzureRmAccount;   # Same as  Connect-AzureRmAccount.
+But if not, run  Connect-AzAccount (or  Connect-AzAccount), just one time.';
+#Connect-AzAccount;   # Same as  Connect-AzAccount.
 
 #-------------- 2 ------------------------
 
@@ -112,7 +116,7 @@ $policySasPermission = 'rwl';  # Leave this value alone, as 'rwl'.
 
 'Choose an existing subscription for the current PowerShell environment.';
 
-Select-AzureRmSubscription -Subscription $subscriptionName;
+Select-AzSubscription -Subscription $subscriptionName;
 
 #-------------- 4 ------------------------
 
@@ -122,7 +126,7 @@ before continuing this new run.';
 
 If ($storageAccountName)
 {
-    Remove-AzureRmStorageAccount `
+    Remove-AzStorageAccount `
         -Name              $storageAccountName `
         -ResourceGroupName $resourceGroupName;
 }
@@ -136,7 +140,7 @@ Create a storage account.
 This might take several minutes, will beep when ready.
   ...PLEASE WAIT...';
 
-New-AzureRmStorageAccount `
+New-AzStorageAccount `
     -Name              $storageAccountName `
     -Location          $storageAccountLocation `
     -ResourceGroupName $resourceGroupName `
@@ -150,7 +154,7 @@ Get the access key for your storage account.
 ';
 
 $accessKey_ForStorageAccount = `
-    (Get-AzureRmStorageAccountKey `
+    (Get-AzStorageAccountKey `
         -Name              $storageAccountName `
         -ResourceGroupName $resourceGroupName
         ).Value[0];
@@ -168,21 +172,21 @@ Remainder of PowerShell .ps1 script continues.
 'Create a context object from the storage account and its primary access key.
 ';
 
-$context = New-AzureStorageContext `
+$context = New-AzStorageContext `
     -StorageAccountName $storageAccountName `
     -StorageAccountKey  $accessKey_ForStorageAccount;
 
 'Create a container within the storage account.
 ';
 
-$containerObjectInStorageAccount = New-AzureStorageContainer `
+$containerObjectInStorageAccount = New-AzStorageContainer `
     -Name    $containerName `
     -Context $context;
 
 'Create a security policy to be applied to the SAS token.
 ';
 
-New-AzureStorageContainerStoredAccessPolicy `
+New-AzStorageContainerStoredAccessPolicy `
     -Container  $containerName `
     -Context    $context `
     -Policy     $policySasToken `
@@ -195,7 +199,7 @@ Generate a SAS token for the container.
 ';
 Try
 {
-    $sasTokenWithPolicy = New-AzureStorageContainerSASToken `
+    $sasTokenWithPolicy = New-AzStorageContainerSASToken `
         -Name    $containerName `
         -Context $context `
         -Policy  $policySasToken;
@@ -219,7 +223,7 @@ REMINDER: sasTokenWithPolicy here might start with "?" character, which you must
 ';
 
 '
-(Later, return here to delete your Azure Storage account. See the preceding  Remove-AzureRmStorageAccount -Name $storageAccountName)';
+(Later, return here to delete your Azure Storage account. See the preceding  Remove-AzStorageAccount -Name $storageAccountName)';
 
 '
 Now shift to the Transact-SQL portion of the two-part code sample!';
@@ -442,7 +446,7 @@ GO
 DROP TABLE gmTabEmployee;
 GO
 
-PRINT 'Use PowerShell Remove-AzureStorageAccount to delete your Azure Storage account!';
+PRINT 'Use PowerShell Remove-AzStorageAccount to delete your Azure Storage account!';
 GO
 ```
 

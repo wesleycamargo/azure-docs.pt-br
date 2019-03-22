@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: a8c4ef5df586c87862ea8e1634e9a72356401d0b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: bcb538cf2e546e4913ccb223e143c2343e114de7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247418"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896187"
 ---
 # <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>Tutorial: Criar soluções de colocação em escala de nuvem com o Azure
 
@@ -128,7 +128,7 @@ Azure Repos
 
 1. Log em Pipelines do Azure a fim de confirmar a capacidade de criar definições de compilação.
 
-2. Adicione **- r win10-x64** código. Isso é necessário para disparar uma implantação autocontida com.Net Core.
+2. Adicione **- r win10-x64** código. Isso é necessário para disparar uma implantação autocontida com o .NET Core.
 
     ![Alt text](media/azure-stack-solution-cloud-burst/image4.png)
 
@@ -266,7 +266,7 @@ Agora que as informações de ponto de extremidade existem, os Pipelines do Azur
 
 Use [modelos do Azure Resource Manager, como web](https://azure.microsoft.com/resources/templates/) código de aplicativo de repositórios do Azure para implantar em ambas as nuvens.
 
-### <a name="add-code-to-a-azure-repos-project"></a>Adicionar código a um projeto de repositórios do Azure
+### <a name="add-code-to-an-azure-repos-project"></a>Adicione o código a um projeto de repositórios do Azure
 
 1.  Entrar para repositórios do Azure com uma conta que tenha direitos de criação do projeto no Azure Stack. A próxima captura de tela mostra como conectar-se ao projeto HybridCICD.
 
@@ -286,7 +286,7 @@ Use [modelos do Azure Resource Manager, como web](https://azure.microsoft.com/re
 
 2.  Navegue até a **compilar o aplicativo de Web** página para o projeto.
 
-3.  Na **argumentos**, adicione **- r win10-x64** código. Isso é necessário para disparar uma implantação autocontida com.Net Core.
+3.  Na **argumentos**, adicione **- r win10-x64** código. Isso é necessário para disparar uma implantação autocontida com o .NET Core.
 
 4.  Execute a compilação. O [compilação de implantação autocontida](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) processo publicará os artefatos que podem ser executados no Azure e Azure Stack.
 

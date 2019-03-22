@@ -1,7 +1,7 @@
 ---
 title: Proteger o servidor Web com SSL
 titleSuffix: Azure Machine Learning service
-description: Saiba como proteger um serviço Web implantado com o serviço do Azure Machine Learning. Você pode restringir o acesso a serviços Web e proteger os dados enviados pelos clientes usando SSL e autenticação baseada em chave.
+description: Saiba como proteger um serviço web implantado com o serviço de Azure Machine Learning, habilitando o HTTPS. HTTPS protege os dados enviados por clientes que usam o protocolo TLS (TLS), uma substituição para camadas de soquete seguro (SSL). Ele também é usado pelos clientes para verificar a identidade do serviço web.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,27 +11,34 @@ ms.author: aashishb
 author: aashishb
 ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 160bc0e67b2686d17357241887a207cb4a03002c
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 1a6aa75f3d25cd88cd1edb9b2cdcfabc3b4ec8f9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56098095"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58103886"
 ---
 # <a name="use-ssl-to-secure-web-services-with-azure-machine-learning-service"></a>Usar o SSL para proteger os serviços Web com o Serviço do Azure Machine Learning
 
-Neste artigo, você aprenderá como proteger um serviço Web implantado com o serviço do Azure Machine Learning. Você pode restringir o acesso a serviços Web e proteger os dados enviados pelos clientes usando SSL e autenticação baseada em chave.
+Neste artigo, você aprenderá como proteger um serviço Web implantado com o serviço do Azure Machine Learning. Você pode restringir o acesso a serviços da web e proteger os dados enviados por clientes que usam [o protocolo seguro (HTTPS)](https://en.wikipedia.org/wiki/HTTPS).
+
+HTTPS é usado para proteger as comunicações entre um cliente e o serviço web ao criptografar as comunicações entre os dois. Criptografia é tratada usando [segurança de camada de transporte (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). Às vezes, isso ainda é conhecido como protocolo (SSL), que foi o predecessor TLS.
+
+> [!TIP]
+> O SDK do Azure Machine Learning usa o termo 'SSL' para propriedades relacionado à habilitação de comunicações seguras. Isso não significa que o TLS não é usado pelo seu serviço web, apenas SSL é o termo mais reconhecível para muitos leitores.
+
+TLS e SSL ambos dependem __certificados digitais__, que são usados para executar a verificação de identidade e criptografia. Para obter mais informações sobre certificados digitais como funcionam, consulte a entrada da Wikipedia sobre [infraestrutura de chave pública (PKI)](https://en.wikipedia.org/wiki/Public_key_infrastructure).
 
 > [!Warning]
-> Se você não habilitar o SSL, qualquer usuário na Internet poderá fazer chamadas ao serviço Web.
+> Se você não habilitar e usar HTTPS para o serviço web, dados enviados para e do serviço podem ser visíveis para outras pessoas na internet.
+>
+> HTTPS também permite que o cliente verificar a autenticidade do servidor que ele está se conectando. Isso protege os clientes contra [man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) ataques.
 
-O SSL criptografa os dados enviados entre o cliente e o serviço Web. Ele também é usado pelo cliente para verificar a identidade do servidor. A autenticação só está habilitada para serviços que forneceram um certificado SSL e uma chave.  Se você habilitar o SSL, uma chave de autenticação será necessária para acessar o serviço Web.
-
-Se você implantar um serviço Web habilitado com SSL ou habilitar o SSL para um serviço Web implantado existente, as etapas serão as mesmas:
+O processo de proteção de um serviço web novo ou existente é da seguinte maneira:
 
 1. Obter um nome de domínio.
 
-2. Obter um certificado SSL.
+2. Obtenha um certificado digital.
 
 3. Implantar ou atualizar o serviço Web com a configuração de SSL habilitada.
 
@@ -41,16 +48,16 @@ Há pequenas diferenças ao proteger serviços Web entre os [destinos de implant
 
 ## <a name="get-a-domain-name"></a>Obter um nome de domínio
 
-Se você ainda não tem um nome de domínio, pode comprá-lo de um __registrador de nome de domínio__. O processo é diferente entre registradores, assim como o custo. O registrador também fornece ferramentas para gerenciar o nome de domínio. Essas ferramentas são usadas para mapear um nome de domínio totalmente qualificado (como www.contoso.com) para o endereço IP que hospeda o serviço Web.
+Se você ainda não tem um nome de domínio, pode comprá-lo de um __registrador de nome de domínio__. O processo é diferente entre registradores, assim como o custo. O registrador também fornece ferramentas para gerenciar o nome de domínio. Essas ferramentas são usadas para mapear um nome de domínio totalmente qualificado (como www\.contoso.com) para o endereço IP que o serviço web de hospedagem.
 
 ## <a name="get-an-ssl-certificate"></a>Obter um certificado SSL
 
-Há muitas maneiras de obter um certificado SSL. A mais comum é comprar um de uma __CA__ (autoridade de certificação). Independentemente de onde você obtém o certificado, é necessário ter os seguintes arquivos:
+Há várias maneiras de obter um certificado SSL (certificado digital). A mais comum é comprar um de uma __CA__ (autoridade de certificação). Independentemente de onde você obtém o certificado, é necessário ter os seguintes arquivos:
 
 * Um __certificado__. O certificado deve conter a cadeia de certificados completa e deve ser codificado em PEM.
 * Uma __chave__. A chave deve ser codificada em PEM.
 
-Ao solicitar um certificado, você precisa fornecer o FQDN (nome de domínio totalmente qualificado) do endereço que planeja usar para o serviço Web. Por exemplo, www.contoso.com. O endereço identificado no certificado e o endereço usado pelos clientes são comparados na hora de validar a identidade do serviço Web. Se os endereços não coincidem, os clientes recebem um erro.
+Ao solicitar um certificado, você precisa fornecer o FQDN (nome de domínio totalmente qualificado) do endereço que planeja usar para o serviço Web. Por exemplo, www\.contoso.com. O endereço identificado no certificado e o endereço usado pelos clientes são comparados na hora de validar a identidade do serviço Web. Se os endereços não coincidem, os clientes recebem um erro.
 
 > [!TIP]
 > Se a Autoridade de Certificação não puder fornecer o certificado e a chave como arquivos codificados em PEM, você poderá usar um utilitário como [OpenSSL](https://www.openssl.org/) para alterar o formato.

@@ -5,28 +5,28 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 03/12/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 68f99b71930b507501aa6fb8cf0d3529de2ede5d
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: bc8fae8f1278babd8c4c7402d86700ad78e3cb9d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310365"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57897411"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Bibliotecas de cliente para conectar-se ao Azure Analysis Services
 
-Bibliotecas de cliente são necessárias para que ferramentas e aplicativos cliente se conectem aos servidores do Analysis Services. 
+Bibliotecas de cliente são necessárias para que ferramentas e aplicativos cliente se conectem aos servidores do Analysis Services. Aplicativos cliente da Microsoft, como Power BI Desktop, Excel, SQL Server Management Studio (SSMS) e SQL Server Data Tools (SSDT) instalar todas as três bibliotecas de cliente e atualizá-los junto com as atualizações de aplicativo regular. Em alguns casos, talvez você precise instalar versões mais recentes das bibliotecas de cliente. Os aplicativos cliente personalizados também exigem bibliotecas de cliente são instaladas.
 
 ## <a name="download-the-latest-client-libraries-windows-installer"></a>Baixar as bibliotecas de clientes mais recentes (Windows Installer)  
 
-|Baixar  |Versão do produto  | 
+|Download  |Versão do produto  | 
 |---------|---------|
-|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.8.19     |
-|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.8.19      |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.14.1.0    |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.14.1.0     |
+|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.11.19    |
+|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.11.19      |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.15.0.0    |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.15.0.0     |
 
 ## <a name="amo-and-adomd-nuget-packages"></a>AMO e ADOMD (pacotes do NuGet)
 
@@ -34,8 +34,8 @@ O AMO (Objetos de Gerenciamento de Serviços de Análise) e as bibliotecas de cl
 
 |Pacote  | Versão do produto  | 
 |---------|---------|
-|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.14.1.0     |
-|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.14.1.0      |
+|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.15.0.0     |
+|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.15.0.0      |
 
 Os assemblies de pacotes NuGet AssemblyVersion seguem a versão semântica: MAJOR.MINOR.PATCH. As referências de NuGet carregam a versão esperada, mesmo que haja uma versão diferente no GAC (resultante da instalação do MSI). PATCH é incrementado para cada versão. As versões AMO e ADOMD são mantidas em sincronia.
 

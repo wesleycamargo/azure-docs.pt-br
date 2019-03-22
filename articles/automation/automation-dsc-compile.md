@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d49ab32ace1ad0900c4867a41aba56900ef2bcaa
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: f2c6f45081b78d330033570ff322f90cd06e50dd
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54423401"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594263"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Compilação das configurações DSC na Configuração do Estado de Automação do Azure
 
@@ -284,6 +284,14 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 
 > [!NOTE]
 > Quando a compilação for concluída, você poderá receber um erro indicando: **O módulo 'Microsoft.PowerShell.Management' não foi importado porque o snap-in 'Microsoft.PowerShell.Management' já foi importado.** Esse aviso pode ser ignorado sem problemas.
+
+## <a name="partial-configuration"></a>Configuração parcial
+
+Configuração de estado de automação do Azure dá suporte ao uso de [configurações parciais](https://docs.microsoft.com/en-us/powershell/dsc/pull-server/partialconfigs).
+Nesse cenário, DSC está configurado para gerenciar várias configurações de forma independente e cada configuração é retreieved da automação do Azure.
+No entanto, somente uma configuração pode ser atribuída a um nó por conta de automação.
+Isso significa que se você estiver usando duas configurações para um nó exigirá duas contas de automação.
+Para obter mais informações sobre como as equipes podem trabalhar juntos para gerenciar os servidores de modo colaborativo usando a configuração como código ver [a função da compreensão DSC em um Pipeline de CI/CD](https://docs.microsoft.com/en-us/powershell/dsc/overview/authoringadvanced).
 
 ## <a name="importing-node-configurations"></a>Como importar configurações de nó
 

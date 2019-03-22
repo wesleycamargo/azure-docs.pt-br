@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7625eb383beef2e86cc8a977362db09329a6ea1b
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: f4e14435c2ccab98619bec57fef0e121e2df4403
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556706"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431591"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Casos de uso da Versão Prévia do Azure Time Series Insights
 
@@ -32,7 +32,7 @@ Este documento fornece uma visão geral dos casos de uso projetados para os quai
 
 ## <a name="introduction"></a>Introdução
 
-O Time Series Insights é uma oferta de plataforma como serviço de ponta a ponta. É usado para ingerir, armazenar e consultar dados de escala de IoT otimizados para série temporal e altamente contextualizados. O Time Series Insights é ideal para exploração de dados ad hoc e para análise operacional. O Time Series Insights é uma oferta de serviço exclusivamente extensível e personalizado que atende às amplas necessidades de implantações de IoT industriais.
+O Time Series Insights é uma oferta de plataforma como serviço de ponta a ponta. É usado para ingerir, armazenar e consultar dados de escala de IoT otimizados para série temporal e altamente contextualizados. Time Series Insights é ideal para análise operacional e a exploração de dados ad hoc. O Time Series Insights é uma oferta de serviço exclusivamente extensível e personalizado que atende às amplas necessidades de implantações de IoT industriais.
 
 ## <a name="data-exploration-and-visual-anomaly-detection"></a>Exploração de dados e detecção visual de anomalias
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 05/30/2017
 ms.author: genli
-ms.openlocfilehash: d84881d4c86fd91fce430956705791097e200937
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 1c28c0bb3fdc2bb94595910ccff9f86769b17da5
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753411"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547122"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Solucionar problemas em conexões SSH com uma VM Linux do Azure que falha, apresenta erro ou é recusada
 Este artigo ajuda a encontrar e corrigir os problemas que ocorrem em razão de erros do Secure Shell (SSH), falhas na conexão de SSH ou quando o SSH é recusado ao tentar se conectar a uma máquina virtual (VM) Linux. Você pode usar o portal do Azure, a CLI do Azure ou a Extensão de Acesso da VM para Linux para solucionar problemas de conexão.
@@ -112,7 +112,7 @@ A Extensão de Acesso de VM para Linux lê um arquivo json que define as ações
 Crie um arquivo chamado `settings.json` com o conteúdo a seguir:
 
 ```json
-{  
+{
     "reset_ssh":"True"
 }
 ```

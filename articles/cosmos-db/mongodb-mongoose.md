@@ -9,12 +9,12 @@ ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
 ms.custom: seodec18
-ms.openlocfilehash: 26eccfd2a144d5bfcb285e6b52af246c3eefde75
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 23275bc639b445b55cafb72c929514541ba00660
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822027"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105940"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Conectar um aplicativo Mongoose do Node.js ao Azure Cosmos DB
 
@@ -49,15 +49,15 @@ Vamos criar uma conta do Cosmos. Caso já tenha uma conta que queira usar, você
 
 1. Adicione um novo arquivo à pasta e denomine ```index.js```.
 1. Instalar os pacotes necessários usando uma das opções ```npm install```:
-    * Mongoose: ```npm install mongoose@5 --save```
+   * Mongoose: ```npm install mongoose@5 --save```
 
-    > [!Note]
-    > A conexão de exemplo do Mongoose abaixo é baseada no Mongoose 5+, que alterou desde as versões anteriores.
+     > [!Note]
+     > A conexão de exemplo do Mongoose abaixo é baseada no Mongoose 5+, que alterou desde as versões anteriores.
     
-    * Dotenv (se você gostaria de carregar seus segredos de um arquivo de .env): ```npm install dotenv --save```
+   * Dotenv (se você gostaria de carregar seus segredos de um arquivo de .env): ```npm install dotenv --save```
 
-    >[!Note]
-    > O sinalizador ```--save``` adiciona a dependência ao arquivo package.json.
+     >[!Note]
+     > O sinalizador ```--save``` adiciona a dependência ao arquivo package.json.
 
 1. Importe as dependências em seu arquivo index.js.
     ```JavaScript
@@ -161,29 +161,29 @@ O comportamento de Mongoose padrão é criar uma coleção do MongoDB toda vez q
     ```
 
 1. Agora, vamos criar outro esquema e objeto. Esta vez, vamos criar um para 'Destinos de Férias' que as famílias podem se interessar.
-    1. Assim como a última vez, vamos criar o esquema
-    ```JavaScript
-    const VacationDestinations = mongoose.model('VacationDestinations', new mongoose.Schema({
-        name: String,
-        country: String
-    }));
-    ```
+   1. Assim como a última vez, vamos criar o esquema
+      ```JavaScript
+      const VacationDestinations = mongoose.model('VacationDestinations', new mongoose.Schema({
+       name: String,
+       country: String
+      }));
+      ```
 
-    1. Crie um objeto de exemplo (você pode adicionar vários objetos a este esquema) e salvá-lo.
-    ```JavaScript
-    const vacaySpot = new VacationDestinations({
-        name: "Honolulu",
-        country: "USA"
-    });
+   1. Crie um objeto de exemplo (você pode adicionar vários objetos a este esquema) e salvá-lo.
+      ```JavaScript
+      const vacaySpot = new VacationDestinations({
+       name: "Honolulu",
+       country: "USA"
+      });
 
-    vacaySpot.save((err, saveVacay) => {
-        console.log(JSON.stringify(saveVacay));
-    });
-    ```
+      vacaySpot.save((err, saveVacay) => {
+       console.log(JSON.stringify(saveVacay));
+      });
+      ```
 
 1. Agora, ao ir ao portal do Azure, você observa duas coleções criadas no Azure Cosmos DB.
 
-    ![Tutorial de Node.js – Captura de tela do portal do Azure, mostrando uma conta do Azure Cosmos DB, com vários nomes de coleção realçados – banco de dados do nó][multiple-coll]
+    ![Banco de dados do nó de - captura de tela do portal do Azure, mostrando uma conta do Azure Cosmos DB, com vários nomes de coleção realçados - tutorial Node. js][multiple-coll]
 
 1. Por fim, vamos ler os dados do Azure Cosmos DB. Como estamos usando o modelo operacional de Mongoose padrão, as leituras são as mesmas que quaisquer outras leituras com o Mongoose.
 
@@ -251,44 +251,44 @@ Aqui, criamos um modelo do objeto base, definimos uma chave de diferenciação e
     ```
 
 1. Por fim, vamos criar objetos para o modelo e salvá-lo.
-    1. Vamos adicionar o(s) objeto(s) ao modelo 'Família'.
-    ```JavaScript
-    const family_common = new Family_common({
-        lastName: "Volum",
-        parents: [
-            { firstName: "Thomas" },
-            { firstName: "Mary Kay" }
-        ],
-        children: [
-            { firstName: "Ryan", gender: "male", grade: 8 },
-            { firstName: "Patrick", gender: "male", grade: 7 }
-        ],
-        pets: [
-            { givenName: "Blackie" }
-        ],
-        address: { country: "USA", state: "WA", city: "Seattle" }
-    });
+   1. Vamos adicionar o(s) objeto(s) ao modelo 'Família'.
+      ```JavaScript
+      const family_common = new Family_common({
+       lastName: "Volum",
+       parents: [
+           { firstName: "Thomas" },
+           { firstName: "Mary Kay" }
+       ],
+       children: [
+           { firstName: "Ryan", gender: "male", grade: 8 },
+           { firstName: "Patrick", gender: "male", grade: 7 }
+       ],
+       pets: [
+           { givenName: "Blackie" }
+       ],
+       address: { country: "USA", state: "WA", city: "Seattle" }
+      });
 
-    family_common.save((err, saveFamily) => {
-        console.log("Saved: " + JSON.stringify(saveFamily));
-    });
-    ```
+      family_common.save((err, saveFamily) => {
+       console.log("Saved: " + JSON.stringify(saveFamily));
+      });
+      ```
 
-    1. Em seguida, vamos adicionar o(s) objeto(s) ao modelo 'Destino de Férias' e salvá-lo.
-    ```JavaScript
-    const vacay_common = new Vacation_common({
-        name: "Honolulu",
-        country: "USA"
-    });
+   1. Em seguida, vamos adicionar o(s) objeto(s) ao modelo 'Destino de Férias' e salvá-lo.
+      ```JavaScript
+      const vacay_common = new Vacation_common({
+       name: "Honolulu",
+       country: "USA"
+      });
 
-    vacay_common.save((err, saveVacay) => {
-        console.log("Saved: " + JSON.stringify(saveVacay));
-    });
-    ```
+      vacay_common.save((err, saveVacay) => {
+       console.log("Saved: " + JSON.stringify(saveVacay));
+      });
+      ```
 
 1. Agora, se você voltar ao portal do Azure, observe que você tem apenas uma coleção chamada ```alldata``` com dados de 'Família' e 'Destinos de Férias'.
 
-    ![Tutorial de Node.js - Captura de tela do portal do Azure, mostrando uma conta do Azure Cosmos DB, com o nome da coleção realçado - banco de dados do nó][alldata]
+    ![Banco de dados do nó de - captura de tela do portal do Azure, mostrando uma conta do Azure Cosmos DB, com o nome da coleção realçado - tutorial Node. js][alldata]
 
 1. Além disso, observe que cada objeto tem outro atributo chamado de ```__type```, que ajuda você a diferenciar entre os dois modelos de objeto diferente.
 

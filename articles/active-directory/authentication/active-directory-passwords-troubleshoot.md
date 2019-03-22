@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4af7c5721458e36a1efa27c9696feaa3dbf043e4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 3621bbce0128fbd173120ae2a327065ee2e84e33
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186975"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57878441"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Solucionar problemas de autoatendimento de redefinição de senha
 
@@ -101,7 +101,7 @@ Uma melhor prática para solucionar problemas com write-back de senha é inspeci
 | Código | Nome ou mensagem | DESCRIÇÃO |
 | --- | --- | --- |
 | 6329 | BAIL: MMS(4924) 0x80230619: “Uma restrição impede que a senha seja alterada para a atual especificada.” | Esse evento ocorre quando o serviço de write-back de senha tenta definir uma senha no diretório local que não atende à idade, ao histórico, à complexidade da senha ou aos requisitos de filtragem do domínio. <br> <br> Se você tiver uma duração mínima da senha e tiver alterado a senha recentemente nessa janela de tempo, não poderá alterar a senha novamente até que ela atinja a duração especificada no domínio. Para fins de teste, a idade mínima deve ser definida como 0. <br> <br> Se você tiver requisitos de histórico de senha habilitados, deve selecionar uma senha que não foi usada nas últimas *X* vezes, em que *X* é a configuração de histórico de senha. Se você selecionar uma senha que foi usada nas últimas *X* vezes, verá uma falha. Para fins de teste, o histórico de senha deve ser definido como 0. <br> <br> Se você tiver requisitos de complexidade de senha, todos eles serão impostos quando o usuário tentar alterar ou redefinir uma senha. <br> <br> Se você tiver filtros de senha habilitados e um usuário selecionar uma senha que não atende aos critérios de filtragem, a operação de redefinição ou de alteração falhará. |
-| 6329 | MMS(3040): admaexport.cpp(2837): O servidor não contém o controle da política de senha do LDAP. | Esse problema ocorre se o controle LDAP_SERVER_POLICY_HINTS_OID (1.2.840.113556.1.4.2066) não está habilitado nos controladores de domínio. Para usar o recurso de write-back de senha, é necessário habilitar o controle. Para fazer isso, os controladores de domínio devem estar no Windows Server 2008 (com o SP mais recente) ou posterior. Se seus controladores de domínio estiverem no 2008 (pré-R2), também será necessário aplicar o hotfix [KB2386717](https://support.microsoft.com/kb/2386717). |
+| 6329 | MMS(3040): admaexport.cpp(2837): O servidor não contém o controle da política de senha do LDAP. | Esse problema ocorre se o controle LDAP_SERVER_POLICY_HINTS_OID (1.2.840.113556.1.4.2066) não está habilitado nos controladores de domínio. Para usar o recurso de write-back de senha, é necessário habilitar o controle. Para fazer isso, os controladores de domínio devem ser no Windows Server 2008 R2 ou posterior. |
 | HR 8023042 | O Mecanismo de Sincronização retornou um erro hr = 80230402, mensagem= Houve uma falha na tentativa de obter um objeto, porque existem entradas duplicadas com a mesma âncora. | Esse erro ocorre quando a mesma ID de usuário está habilitada em vários domínios. Por exemplo, se você estiver sincronizando florestas de contas e recursos e tiver a mesma ID de usuário presente e habilitada em cada uma delas, esse erro poderá ocorrer. <br> <br> Esse erro também pode ocorrer se você usa um atributo de âncora não exclusivo (como alias ou UPN) e dois usuários compartilham o mesmo atributo de âncora. <br> <br> Para resolver esse problema, verifique se você não tem nenhum usuário duplicado em seus domínios e se está usando um atributo de âncora exclusivo para cada usuário. |
 
 ### <a name="if-the-source-of-the-event-is-passwordresetservice"></a>Se a origem do evento é PasswordResetService
@@ -179,10 +179,10 @@ Para saber mais, examine os pré-requisitos de conectividade no artigo [Pré-req
 
 Para resolver problemas de conectividade ou outros problemas temporários com o serviço, reinicie o serviço Sincronização do Azure AD Connect:
 
-   1. Como administrador, selecione **Iniciar** no servidor que executa o Azure AD Connect.
-   1. Insira **services.msc** no campo de pesquisa e selecione **Enter**.
-   1. Procure a entrada **Microsoft Azure AD Sync**.
-   1. Clique com o botão direito do mouse na entrada do serviço, selecione **Reiniciar**e aguarde a conclusão da operação.
+1. Como administrador, selecione **Iniciar** no servidor que executa o Azure AD Connect.
+1. Insira **services.msc** no campo de pesquisa e selecione **Enter**.
+1. Procure a entrada **Microsoft Azure AD Sync**.
+1. Clique com o botão direito do mouse na entrada do serviço, selecione **Reiniciar**e aguarde a conclusão da operação.
 
    ![Reiniciar o serviço Azure AD Sync][Service restart]
 
@@ -272,13 +272,13 @@ Para uma assistência adequada, solicitamos que você forneça o máximo de deta
 * **Descrição geral do erro**: Qual é o erro? Qual foi o comportamento observado? Como podemos reproduzir o erro? Forneça o máximo de detalhes possível.
 * **Página**: Em qual página você estava quando observou o erro? Se possível, inclua a URL e uma captura de tela da página.
 * **Código de suporte**: Qual foi o código de suporte gerado quando o usuário viu o erro?
-    * Para encontrar o código, reproduza o erro, selecione o link **Código de Suporte** na parte inferior da tela e envie o GUID resultante ao engenheiro de suporte.
+  * Para encontrar o código, reproduza o erro, selecione o link **Código de Suporte** na parte inferior da tela e envie o GUID resultante ao engenheiro de suporte.
 
     ![Localizar o código de suporte na parte inferior da tela][Support code]
 
-    * Se você estiver em uma página sem um código de suporte na parte inferior, selecione F12 para o SID e o CID e envie esses dois resultados para o engenheiro de suporte.
+  * Se você estiver em uma página sem um código de suporte na parte inferior, selecione F12 para o SID e o CID e envie esses dois resultados para o engenheiro de suporte.
 * **Data, hora e fuso horário**: Inclua a data e a hora exatas *com o fuso horário* em que ocorreu o erro.
-* **ID de Usuário**: Qual usuário viu o erro? Um exemplo é *user@contoso.com*.
+* **ID de Usuário**: Qual usuário viu o erro? Um exemplo é *usuário\@contoso.com*.
     * Trata-se de um usuário federado?
     * Trata-se de um usuário de autenticação de passagem?
     * Um usuário sincronizado com hash de senha?

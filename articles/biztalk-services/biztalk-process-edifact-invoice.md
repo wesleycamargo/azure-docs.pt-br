@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/31/2016
 ms.author: deonhe
-ms.openlocfilehash: bb07e3ab8043aab24d6d8c3e3db3f3674b28c6f3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 5eb9740bdd0543556265f54a1a37b632f79ac861
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244484"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550115"
 ---
 # <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>Tutorial: Processar faturas EDIFACT usando os Serviços BizTalk do Azure
 
@@ -55,13 +55,13 @@ Para obter esse cenário de negócios, a Contoso usa os recursos fornecidos pelo
 Para concluir o cenário, usamos as filas do Barramento de Serviço para enviar a fatura da Contoso para a Northwind ou receber a confirmação da Northwind. Essas filas podem ser criadas usando um aplicativo cliente, que está disponível para download e está incluído no pacote de exemplo disponível como parte deste tutorial.  
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Você deve ter um namespace do Barramento de Serviço. Para obter instruções sobre como criar um namespace, confira [Como criar ou modificar um namespace do Barramento de Serviço](https://msdn.microsoft.com/library/azure/hh674478.aspx). Vamos supor que você já tenha um namespace de Barramento de serviço provisionado, chamado **edifactbts**.
+* Você deve ter um namespace do Barramento de Serviço. Para obter instruções sobre como criar um namespace, consulte [How To: Criar ou modificar um Namespace de serviço do barramento de serviço](https://msdn.microsoft.com/library/azure/hh674478.aspx). Vamos supor que você já tenha um namespace de Barramento de serviço provisionado, chamado **edifactbts**.
 * Você deve ter uma assinatura dos Serviços BizTalk. Para este tutorial, suponhamos que você tenha uma assinatura dos Serviços BizTalk chamada **contosowabs**.
 * Registre sua assinatura dos Serviços BizTalk no Portal dos Serviços BizTalk. Para obter instruções, confira [Registrar uma implantação de Serviço BizTalk no Portal dos Serviços BizTalk](https://msdn.microsoft.com/library/hh689837.aspx)
 * Você deve ter o Visual Studio instalado.
-* Você deve ter o SDK dos Serviços BizTalk instalado. Você pode fazer o download do SDK do [http://go.microsoft.com/fwlink/?LinkId=235057](https://go.microsoft.com/fwlink/?LinkId=235057)  
+* Você deve ter o SDK dos Serviços BizTalk instalado. Você pode fazer o download do SDK do [https://go.microsoft.com/fwlink/?LinkId=235057](https://go.microsoft.com/fwlink/?LinkId=235057)  
 
-## <a name="step-1-create-the-service-bus-queues"></a>Etapa 1: Criar as filas do Barramento de Serviço
+## <a name="step-1-create-the-service-bus-queues"></a>Etapa 1: Criar as filas do barramento de serviço
 Essa solução usa filas do Barramento de Serviço para trocar mensagens entre parceiros comerciais. A Contoso e a Northwind enviam mensagens às filas de onde as pontes EAI e/ou EDI irão consumi-las. Para essa solução, você precisa de três filas do Barramento de Serviço:
 
 * **northwindreceive** – A Northwind recebe a fatura da Contoso por essa fila.
@@ -106,7 +106,7 @@ Acordos entre parceiros comerciais são criados entre os perfis comerciais dos p
    3. Na guia **Protocolo**, na seção **Esquemas**, carregue o esquema **EFACT_D93A_INVOIC.xsd**. Esse esquema está disponível com o pacote de exemplo.
       
       ![][4]  
-   4. Na guia **Transporte** , especifique os detalhes das filas do Barramento de Serviço. Para o contrato do lado de envio, usamos a fila **northwindreceive** para enviar a fatura EDIFACT à Northwind e a fila **suspended** para rotear todas as mensagens que falham durante o processamento e são suspensas. Você criou essas filas na **Etapa 1: criar as filas do Barramento de Serviço** (neste tópico).
+   4. Na guia **Transporte** , especifique os detalhes das filas do Barramento de Serviço. Para o contrato do lado de envio, usamos a fila **northwindreceive** para enviar a fatura EDIFACT à Northwind e a fila **suspended** para rotear todas as mensagens que falham durante o processamento e são suspensas. Você criou essas filas na **etapa 1: Criar as filas do barramento de serviço** (neste tópico).
       
       ![][5]  
       
@@ -227,7 +227,7 @@ O projeto dos Serviços BizTalk, **InvoiceProcessingBridge**, que transforma a m
 Neste tópico, veremos como testar a solução usando o aplicativo **Cliente de Tutorial** fornecido como parte do exemplo.  
 
 1. No Visual Studio, pressione F5 para iniciar o **Cliente de Tutorial**.
-2. A tela deverá ter valores pré-populados da etapa de criação de filas do Barramento de Serviço. Clique em **Próximo**.
+2. A tela deverá ter valores pré-populados da etapa de criação de filas do Barramento de Serviço. Clique em **Avançar**.
 3. Na próxima janela, forneça as credenciais de ACS para a assinatura dos Serviços BizTalk e os pontos de extremidade onde as pontes EAI e EDI (recebimento) foram implantadas.
    
    O ponto de extremidade de ponte EAI foi copiado na etapa anterior. Para o ponto de extremidade da ponte de recebimento EDI, no Portal dos Serviços BizTalk, acesse o contrato > Configurações de Recebimento > Transporte > Ponto de Extremidade.
@@ -253,10 +253,10 @@ O aspecto mais importante ao trabalhar em lotes é a versão real do lote, tamb�
 
 1. No Portal dos Serviços BizTalk, clique no contrato que você criou anteriormente. Clique em Configurações de Envio > Em lote > Adicionar Lotes.
 2. Para o nome do lote, digite **InvoiceBatch**, forneça uma descrição e clique em **Avançar**.
-3. Especifique os critérios de lote, que definem quais mensagens devem ser agrupadas. Nesta solução, agrupamos todas as mensagens. Selecione a opção Usar definições avançadas e digite **1 = 1**. Essa é uma condição que será sempre verdadeira e, portanto, todas as mensagens serão agrupadas. Clique em **Próximo**.
+3. Especifique os critérios de lote, que definem quais mensagens devem ser agrupadas. Nesta solução, agrupamos todas as mensagens. Selecione a opção Usar definições avançadas e digite **1 = 1**. Essa é uma condição que será sempre verdadeira e, portanto, todas as mensagens serão agrupadas. Clique em **Avançar**.
    
    ![][17]  
-4. Especifique um critério de liberação de lote. Na caixa suspensa, selecione **MessageCountBased** e, para **Contagem**, especifique **3**. Isso significa que um lote de três mensagens será enviado para a Northwind. Clique em **Próximo**.
+4. Especifique um critério de liberação de lote. Na caixa suspensa, selecione **MessageCountBased** e, para **Contagem**, especifique **3**. Isso significa que um lote de três mensagens será enviado para a Northwind. Clique em **Avançar**.
    
    ![][18]  
 5. Examine o resumo e clique em **Salvar**. Clique em **Implantar** para reimplantar o contrato.

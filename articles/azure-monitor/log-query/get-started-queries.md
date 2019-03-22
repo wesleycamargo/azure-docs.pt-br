@@ -13,22 +13,22 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 52a441d5d8f3f44b35253e02786a033da5439597
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 8c3ef3f115d37400eb72fdaca5df4f326382df5c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269849"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871631"
 ---
 # <a name="get-started-with-azure-monitor-log-queries"></a>Introdução às consultas de log do Azure Monitor
 
 
 > [!NOTE]
-> Você deve concluir a [Introdução à análise do log do Azure Monitor](get-started-portal.md) antes de concluir este tutorial.
+> Você deve concluir [Introdução ao Log Analytics do Azure Monitor](get-started-portal.md) antes de concluir este tutorial.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Neste tutorial, você aprenderá a escrever consultas do Azure Monitor. Ele irá ensiná-lo como para:
+Neste tutorial, você aprenderá a escrever consultas de log do Azure Monitor. Ele irá ensiná-lo como para:
 
 - Entender a estrutura de consultas
 - Classificar os resultados de consulta
@@ -108,7 +108,7 @@ SecurityEvent
 
 Ao escrever as condições de filtro, você pode usar as expressões a seguir:
 
-| Expression | DESCRIÇÃO | Exemplo |
+| Expressão | Descrição | Exemplo |
 |:---|:---|:---|
 | == | Verificação de igualdade<br>(diferencia maiusculas de minúsculas) | `Level == 8` |
 | =~ | Verificação de igualdade<br>(diferencia maiusculas de minúsculas) | `EventSourceName =~ "microsoft-windows-security-auditing"` |

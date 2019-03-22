@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 32f533d06b7db0284459951e65f9c04fe0bb0285
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227120"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "58115985"
 ---
 Os conjuntos de disponibilidade ajudam a manter as máquinas virtuais disponíveis em caso de tempo de inatividade (por exemplo, durante a manutenção). Ter duas ou mais máquinas virtuais com configurações parecidas em um conjunto de disponibilidade cria a redundância necessária para manter a disponibilidade dos aplicativos ou serviços executados em sua máquina virtual. Para obter detalhes sobre como isso funciona, consulte [Gerenciar a disponibilidade das máquinas virtuais][Manage the availability of virtual machines].
 
@@ -17,15 +17,15 @@ Você deve usar uma combinação de conjuntos de disponibilidade e pontos de ext
 
 Você pode adicionar máquinas virtuais clássicas a um conjunto de disponibilidade usando uma das duas opções:
 
-* [Opção 1: criar uma máquina virtual e um conjunto de disponibilidade ao mesmo tempo][Option 1: Create a virtual machine and an availability set at the same time]. Em seguida, adicione novas máquinas virtuais ao conjunto ao criá-las.
-* [Opção 2: adicionar uma máquina virtual existente a um conjunto de disponibilidade][Option 2: Add an existing virtual machine to an availability set].
+* [Opção 1: Criar uma máquina virtual e uma conjunto de disponibilidade ao mesmo tempo][Option 1: Create a virtual machine and an availability set at the same time]. Em seguida, adicione novas máquinas virtuais ao conjunto ao criá-las.
+* [Opção 2: Adicionar uma máquina virtual existente a um conjunto de disponibilidade][Option 2: Add an existing virtual machine to an availability set].
 
 > [!NOTE]
 > No modelo clássico, as máquinas virtuais que você pretende inserir em um mesmo conjunto de disponibilidade devem pertencer ao mesmo serviço de nuvem.
 > 
 > 
 
-## <a id="createset"> </a>Opção 1: crie uma máquina virtual e um conjunto de disponibilidade ao mesmo tempo
+## <a id="createset"> </a>Opção 1: Criar uma máquina virtual e uma conjunto de disponibilidade ao mesmo tempo
 Você pode usar comandos do Portal do Azure ou do Azure PowerShell para fazer isso.
 
 Para usar o portal do Azure:
@@ -46,7 +46,7 @@ Para usar o portal do Azure:
 
 Para usar comandos do Azure PowerShell para criar uma máquina virtual do Azure e adicioná-la a um conjunto de disponibilidade novo ou existente, consulte [Usar o Azure PowerShell para criar e pré-configurar máquinas virtuais baseadas em Windows](../articles/virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-## <a id="addmachine"> </a>Opção 2: adicione uma máquina virtual já existente a um conjunto de disponibilidade
+## <a id="addmachine"> </a>Opção 2: Adicionar uma máquina virtual existente a um conjunto de disponibilidade
 No Portal do Azure, é possível adicionar máquinas virtuais clássicas existentes a um conjunto de disponibilidade existente ou criar um novo conjunto para essas máquinas. (Lembre-se de que as máquinas virtuais no mesmo conjunto de disponibilidade devem pertencer ao mesmo serviço de nuvem). As etapas são praticamente as mesmas. Como o PowerShell do Azure é possível adicionar a máquina virtual a um conjunto de disponibilidade existente.
 
 1. Se ainda não tiver feito isso, entre no [Portal do Azure](https://portal.azure.com).

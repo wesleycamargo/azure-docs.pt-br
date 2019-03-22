@@ -1,19 +1,18 @@
 ---
 title: Pré-requisitos - Azure Disk Encryption para VMs de IaaS | Microsoft Docs
 description: Este artigo fornece os pré-requisitos para usar o Microsoft Azure Disk Encryption para VMs IaaS.
-author: mestew
+author: msmbaldwin
 ms.service: security
-ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.author: mstewart
-ms.date: 01/14/2019
+ms.author: mbaldwin
+ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 24e757c80e23cecb50419a4855ec3ea9f94bcf3b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 9ce1bb6df0a4c062ee41d2a58adf1b7fc93d9805
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112115"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286237"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Pré-requisitos de criptografia de disco do Azure
 
@@ -25,12 +24,13 @@ Antes de habilitar o Azure Disk Encryption em VMs IaaS do Azure para os cenário
 > - Se você já tiver usado o [Azure Disk Encryption com aplicativo do Microsoft Azure Active Directory](azure-security-disk-encryption-prerequisites-aad.md) para criptografar essa VM, precisará continuar a usar essa opção para criptografar a sua VM. Não é possível usar o [Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md) nessa VM criptografada pois esse cenário não é suportado, o que significa abandonar o aplicativo Azure Active Directory nessa VM criptografada que ainda não tem suporte.
 > - Determinadas recomendações podem aumentar o uso de recursos de dados, rede ou computação, resultando em custos adicionais de licença ou inscrição. Você deve ter uma assinatura ativa válida do Azure para criar recursos no Azure nas regiões com suporte.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="bkmk_OSs"></a> Sistemas operacionais com suporte
 O Azure Disk Encryption tem suporte nos seguintes sistemas operacionais:
 
 - Versões do Windows Server: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 e Windows Server 2016.
-    - Para o Windows Server 2008 R2, você deve ter o .NET Framework 4.5 instalado antes de habilitar a criptografia no Azure. Instale-o a partir do Windows Update com a atualização opcional Microsoft .NET Framework 4.5.2 para sistemas baseados em x64 do Windows Server 2008 R2 ([KB2901983](https://support.microsoft.com/kb/2901983)).    
+  - Para o Windows Server 2008 R2, você deve ter o .NET Framework 4.5 instalado antes de habilitar a criptografia no Azure. Instale-o a partir do Windows Update com a atualização opcional Microsoft .NET Framework 4.5.2 para sistemas baseados em x64 do Windows Server 2008 R2 ([KB2901983](https://support.microsoft.com/kb/2901983)).    
 - Versões de cliente do Windows: Cliente Windows 8 e cliente Windows 10.
 - O Azure Disk Encryption tem suporte somente em distribuições e versões específicas do servidor Linux baseado na Galeria do Azure. Para obter a lista das versões com suporte no momento, consulte o [perguntas frequentes sobre o Azure Disk Encryption](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport).
 - O Azure Disk Encryption exige que seu cofre de chaves e as VMs residam na mesma região e assinatura do Azure. Configurá os recursos em regiões separadas causa uma falha na habilitação do recurso de Azure Disk Encryption.
@@ -38,11 +38,12 @@ O Azure Disk Encryption tem suporte nos seguintes sistemas operacionais:
 ## <a name="bkmk_LinuxPrereq"></a> Pré-requisitos adicionais para VMs IaaS Linux 
 
 - O Azure Disk Encryption para Linux requer 7 GB de RAM na VM para habilitar a criptografia de disco do sistema operacional em [imagens com suporte](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport). Quando o processo de criptografia de disco do sistema operacional for concluído, a VM pode ser configurada para executar com menos memória.
+- Azure Disk Encryption exige o módulo vfat esteja presente no sistema.  Remover ou desabilitar esse módulo a partir da imagem padrão impedirá que o sistema seja capaz de ler o volume de chave e obter a chave necessária para desbloquear os discos em reinicializações subsequentes. Etapas de proteção do sistema que remova o módulo vfat do sistema não são compatíveis com o Azure Disk Encryption. 
 - Antes de habilitar a criptografia, os discos de dados a serem criptografados precisam ser listados corretamente em /etc/fstab. Use um nome de dispositivo de bloco persistente para essa entrada, pois nomes de dispositivo no formato "/dev/sdX" não podem ser considerados para serem associados com o mesmo disco entre as reinicializações, principalmente depois que a criptografia é aplicada. Para obter mais detalhes sobre esse comportamento, consulte: [Solucionar problemas de alterações do nome do dispositivo da VM do Linux](../virtual-machines/linux/troubleshoot-device-names-problems.md)
 - Verifique se as configurações de /etc/fstab estão definidas corretamente para a montagem. Para definir essas configurações, execute o comando mount - a ou reinicie a VM e disparar a remontagem dessa forma. Quando terminar, verifique a saída do comando lsblk para verificar se a unidade ainda está montada. 
-    - Se o arquivo /etc/fstab não montar a unidade corretamente antes de habilitar a criptografia, o Azure Disk Encryption não será capaz de montá-la corretamente.
-    - O processo de criptografia de disco do Azure se moverá as informações de montagem fora /etc/fstab e em seu próprio arquivo de configuração como parte do processo de criptografia. Não se assuste para ver a entrada ausente do /etc/fstab após a criptografia de unidade de dados é concluída.
-    -  Após a reinicialização, ela levará tempo para o processo de criptografia de disco do Azure montar os discos criptografados recentemente. Eles não estarão disponíveis imediatamente após uma reinicialização. O processo precisa de tempo para iniciar, desbloquear e, em seguida, montar as unidades criptografadas antes de estar disponível para ser acessado por outros processos. Esse processo pode levar mais de um minuto após a reinicialização, dependendo das características do sistema.
+  - Se o arquivo /etc/fstab não montar a unidade corretamente antes de habilitar a criptografia, o Azure Disk Encryption não será capaz de montá-la corretamente.
+  - O processo de criptografia de disco do Azure se moverá as informações de montagem fora /etc/fstab e em seu próprio arquivo de configuração como parte do processo de criptografia. Não se assuste para ver a entrada ausente do /etc/fstab após a criptografia de unidade de dados é concluída.
+  -  Após a reinicialização, ela levará tempo para o processo de criptografia de disco do Azure montar os discos criptografados recentemente. Eles não estarão disponíveis imediatamente após uma reinicialização. O processo precisa de tempo para iniciar, desbloquear e, em seguida, montar as unidades criptografadas antes de estar disponível para ser acessado por outros processos. Esse processo pode levar mais de um minuto após a reinicialização, dependendo das características do sistema.
 
 Um exemplo de comandos que podem ser usados para montar os discos de dados e criar as entradas/ etc/fstab necessárias pode ser encontrado nas [linhas 244-248 desse arquivo de script ](https://github.com/ejarvi/ade-cli-getting-started/blob/master/validate.sh#L244-L248). 
 
@@ -59,7 +60,9 @@ Um exemplo de comandos que podem ser usados para montar os discos de dados e cri
 **Política de grupo:**
  - A solução de Azure Disk Encryption usa o protetor de chave externa BitLocker para VMs IaaS do Windows. Para VMs ingressado no domínio, não envie por push todas as políticas de grupo que imponham protetores TPM. Para obter informações sobre a política de grupo "Permitir BitLocker sem um TPM compatível", confira [Referência de política de grupo do BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#a-href-idbkmk-unlockpol1arequire-additional-authentication-at-startup).
 
--  A política do BitLocker em máquinas virtuais ingressadas no domínio com política de grupo personalizada deve incluir a seguinte configuração: [Configurar o armazenamento de usuário de informações de recuperação do bitlocker -> Permitir chave de recuperação de 256 bits](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). O Azure Disk Encryption falha quando as configurações da política de grupo personalizada para o BitLocker são incompatíveis. Em computadores que não tinham a configuração de política correta, aplique a nova política, force a atualização da nova política (gpupdate.exe /force) e, em seguida, pode ser necessário reiniciar.  
+-  A política do BitLocker em máquinas virtuais ingressadas no domínio com política de grupo personalizada deve incluir a seguinte configuração: [Configurar o armazenamento de usuário de informações de recuperação do bitlocker -> Permitir chave de recuperação de 256 bits](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). O Azure Disk Encryption falha quando as configurações da política de grupo personalizada para o BitLocker são incompatíveis. Em computadores que não tinham a configuração de política correta, aplique a nova política, force a atualização da nova política (gpupdate.exe /force) e, em seguida, pode ser necessário reiniciar.
+
+- O Azure Disk Encryption falhará se a política de grupo no nível do domínio bloqueia o algoritmo AES-CBC, que é usado pelo Bitlocker.
 
 
 ## <a name="bkmk_PSH"></a>PowerShell do Azure
@@ -67,29 +70,28 @@ O [Azure PowerShell](/powershell/azure/overview) fornece um conjunto de cmdlets 
 
 ### <a name="install-azure-powershell-for-use-on-your-local-machine-optional"></a>Instale o Azure PowerShell para uso em seu computador local (opcional): 
 1. Em seguida, siga as instruções nos links para o seu sistema operacional, porém continuar o restante das etapas a seguir.      
-    - [Instalar e configurar o PowerShell do Azure para Windows](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0). 
-        - Instalar o PowerShellGet, Azure PowerShell e carregar o módulo AzureRM. 
+   - [Instale e configure o Azure PowerShell](/powershell/azure/install-az-ps). 
+     - Instalar o PowerShellGet, Azure PowerShell e carregar o módulo do Az. 
 
-2. Verifique se as versões instaladas do módulo AzureRM. Se necessário, [atualize o módulo do Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0#update-the-azure-powershell-module).
-    -  A versão do módulo AzureRM precisa ser 6.0.0 ou superior.
-    - É recomendável usar a versão mais recente do módulo AzureRM.
+2. Verifique se as versões instaladas do módulo Az. Se necessário, [atualize o módulo do Azure PowerShell](/powershell/azure/install-az-ps#update-the-azure-powershell-module).
+    É recomendável usar a versão mais recente do módulo Az.
 
      ```powershell
-     Get-Module AzureRM -ListAvailable | Select-Object -Property Name,Version,Path
+     Get-Module Az -ListAvailable | Select-Object -Property Name,Version,Path
      ```
 
-3. Entre no Azure usando o cmdlet [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount).
+3. Entrar no Azure usando o [AzAccount Connect](/powershell/module/az.accounts/connect-azaccount) cmdlet.
      
      ```azurepowershell-interactive
-     Connect-AzureRmAccount
+     Connect-AzAccount
      # For specific instances of Azure, use the -Environment parameter.
-     Connect-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)
+     Connect-AzAccount –Environment (Get-AzEnvironment –Name AzureUSGovernment)
     
      <# If you have multiple subscriptions and want to specify a specific one, 
-     get your subscription list with Get-AzureRmSubscription and 
-     specify it with Set-AzureRmContext.  #>
-     Get-AzureRmSubscription
-     Set-AzureRmContext -SubscriptionId "xxxx-xxxx-xxxx-xxxx"
+     get your subscription list with Get-AzSubscription and 
+     specify it with Set-AzContext.  #>
+     Get-AzSubscription
+     Set-AzContext -SubscriptionId "xxxx-xxxx-xxxx-xxxx"
      ```
 
 4.  Se necessário, examine a [Introdução ao Azure PowerShell](/powershell/azure/get-started-azureps).
@@ -133,7 +135,7 @@ Se você já estiver familiarizado com os pré-requisitos do Key Vault e do Azur
 >Antes de excluir um cofre de chaves, verifique se você não criptografou nenhuma VM existente. Para proteger um cofre de exclusão acidental, [habilite a exclusão reversível](../key-vault/key-vault-soft-delete-powershell.md#enabling-soft-delete) e o [bloqueio de recurso](../azure-resource-manager/resource-group-lock-resources.md) no cofre. 
  
 ## <a name="bkmk_KeyVault"></a> Criar um cofre de chaves 
-O Azure Disk Encryption se integra [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) para ajudá-lo a controlar e gerenciar as chaves de criptografia de disco e segredos em sua assinatura do Cofre de chaves. Você pode criar um cofre de chaves ou usar um existente para o Azure Disk Encryption. Para obter mais informações sobre cofres de chaves, consulte [O Que é um Cofre de Chaves do Azure](../key-vault/key-vault-overview.md) e [Proteja seu cofre de chaves](../key-vault/key-vault-secure-your-key-vault.md). Você pode usar um modelo do Resource Manager, o Azure PowerShell ou a CLI do Azure para criar um cofre de chaves. 
+O Azure Disk Encryption se integra [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) para ajudá-lo a controlar e gerenciar as chaves de criptografia de disco e segredos em sua assinatura do Cofre de chaves. Você pode criar um cofre de chaves ou usar um existente para o Azure Disk Encryption. Para obter mais informações sobre cofres-chave, consulte [Introdução ao Cofre de Chaves do Azure](../key-vault/key-vault-get-started.md) e [Proteja seu cofre de chaves](../key-vault/key-vault-secure-your-key-vault.md). Você pode usar um modelo do Resource Manager, o Azure PowerShell ou a CLI do Azure para criar um cofre de chaves. 
 
 
 >[!WARNING]
@@ -142,20 +144,20 @@ O Azure Disk Encryption se integra [Azure Key Vault](https://azure.microsoft.com
 
 ### <a name="bkmk_KVPSH"></a> Criar um cofre de chaves com o PowerShell
 
-Você pode criar um cofre de chaves com o Azure PowerShell usando o [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/New-AzureRmKeyVault) cmdlet. Para outros cmdlets para o Cofre de chaves, consulte [Azurerm](/powershell/module/azurerm.keyvault/). 
+Você pode criar um cofre de chaves com o Azure PowerShell usando o [New-AzKeyVault](/powershell/module/az.keyvault/New-azKeyVault) cmdlet. Para outros cmdlets para o Cofre de chaves, consulte [Az.KeyVault](/powershell/module/az.keyvault/). 
 
 1. Se necessário, [conectar-se à sua assinatura do Azure](azure-security-disk-encryption-appendix.md#bkmk_ConnectPSH). 
-2. Criar um novo grupo de recursos, se necessário, com [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup).  Para listar os locais de centro de dados, use [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation). 
+2. Criar um novo grupo de recursos, se necessário, com [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup).  Para listar os locais de centro de dados, use [Get-AzLocation](/powershell/module/az.resources/get-azlocation). 
      
      ```azurepowershell-interactive
-     # Get-AzureRmLocation 
-     New-AzureRmResourceGroup –Name 'MySecureRG' –Location 'East US'
+     # Get-AzLocation 
+     New-AzResourceGroup –Name 'MyKeyVaultResourceGroup' –Location 'East US'
      ```
 
-3. Criar um novo cofre de chaves usando [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/New-AzureRmKeyVault)
+3. Criar um novo cofre de chaves usando [AzKeyVault novo](/powershell/module/az.keyvault/New-azKeyVault)
     
       ```azurepowershell-interactive
-     New-AzureRmKeyVault -VaultName 'MySecureVault' -ResourceGroupName 'MySecureRG' -Location 'East US'
+     New-AzKeyVault -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -Location 'East US'
      ```
 
 4. Observe a **nome do cofre**, **nome do grupo de recursos**, **ID do recurso**, **URI do cofre**e o **ID de objeto** que são retornados para uso posterior ao criptografar os discos. 
@@ -169,13 +171,13 @@ Você pode gerenciar o Cofre de chaves com CLI do Azure usando os comandos [keyv
      
      ```azurecli-interactive
      # To list locations: az account list-locations --output table
-     az group create -n "MySecureRG" -l "East US"
+     az group create -n "MyKeyVaultResourceGroup" -l "East US"
      ```
 
 3. Crie um novo cofre de chave usando [az keyvault create](/cli/azure/keyvault#az-keyvault-create).
     
      ```azurecli-interactive
-     az keyvault create --name "MySecureVault" --resource-group "MySecureRG" --location "East US"
+     az keyvault create --name "MySecureVault" --resource-group "MyKeyVaultResourceGroup" --location "East US"
      ```
 
 4. Observação o **nome do cofre** (nome), **nome do grupo de recursos**, **ID do recurso** (ID), **URI do cofre**e o **deIDdeobjeto** que são retornados para uso posterior. 
@@ -192,24 +194,24 @@ Você pode criar um cofre de chaves usando o modelo [Resource Manager](https://g
 A plataforma Azure precisa acessar as chaves de criptografia ou os segredos no cofre de chaves para disponibilizá-los para a máquina virtual para inicialização e descriptografar os volumes. Habilite a criptografia de disco no cofre da chave ou as implantações falharão.  
 
 ### <a name="bkmk_KVperPSH"></a> Definir políticas de acesso avançado ao cofre de chaves com o Azure PowerShell
- Use o cmdlet do PowerShell do cofre de chaves [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) para ativar a criptografia de disco para o cofre da chave.
+ Use o cmdlet de PowerShell do Cofre de chaves [AzKeyVaultAccessPolicy conjunto](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) para habilitar a criptografia de disco para o Cofre de chaves.
 
   - **Habilitar o Key Vault para criptografia de disco:** EnabledForDiskEncryption é necessário para o Azure Disk Encryption.
       
      ```azurepowershell-interactive 
-     Set-AzureRmKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MySecureRG' -EnabledForDiskEncryption
+     Set-AzKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -EnabledForDiskEncryption
      ```
 
   - **Habilitar o Key Vault para a implantação, se necessário:** Permite que o provedor de recursos Microsoft.Compute recupere segredos desse cofre de chaves quando esse cofre de chaves é referenciado na criação de recursos, por exemplo, ao criar uma máquina virtual.
 
      ```azurepowershell-interactive
-      Set-AzureRmKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MySecureRG' -EnabledForDeployment
+      Set-AzKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -EnabledForDeployment
      ```
 
   - **Habilitar o Key Vault para implantação de modelo, se necessário:** Permite que o Azure Resource Manager obtenha segredos desse cofre de chaves quando esse cofre de chaves é referenciado em uma implantação de modelo.
 
      ```azurepowershell-interactive             
-     Set-AzureRmKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MySecureRG' -EnabledForTemplateDeployment
+     Set-AzKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -EnabledForTemplateDeployment
      ```
 
 ### <a name="bkmk_KVperCLI"></a> Definir Cofre de chaves avançadas de políticas de acesso usando a CLI do Azure
@@ -218,18 +220,18 @@ Use [atualização de keyvault az](/cli/azure/keyvault#az-keyvault-update) para 
  - **Habilitar o Key Vault para criptografia de disco:** Enabled-for-disk-encryption é necessário. 
 
      ```azurecli-interactive
-     az keyvault update --name "MySecureVault" --resource-group "MySecureRG" --enabled-for-disk-encryption "true"
+     az keyvault update --name "MySecureVault" --resource-group "MyKeyVaultResourceGroup" --enabled-for-disk-encryption "true"
      ```  
 
  - **Habilitar o Key Vault para a implantação, se necessário:** Permite que o provedor de recursos Microsoft.Compute recupere segredos desse cofre de chaves quando esse cofre de chaves é referenciado na criação de recursos, por exemplo, ao criar uma máquina virtual.
 
      ```azurecli-interactive
-     az keyvault update --name "MySecureVault" --resource-group "MySecureRG" --enabled-for-deployment "true"
+     az keyvault update --name "MySecureVault" --resource-group "MyKeyVaultResourceGroup" --enabled-for-deployment "true"
      ``` 
 
  - **Habilitar o Key Vault para implantação de modelo, se necessário:** Permite que o Resource Manager recupere segredos do cofre.
      ```azurecli-interactive  
-     az keyvault update --name "MySecureVault" --resource-group "MySecureRG" --enabled-for-template-deployment "true"
+     az keyvault update --name "MySecureVault" --resource-group "MyKeyVaultResourceGroup" --enabled-for-template-deployment "true"
      ```
 
 
@@ -244,7 +246,9 @@ Use [atualização de keyvault az](/cli/azure/keyvault#az-keyvault-update) para 
 
 
 ## <a name="bkmk_KEK"></a> Configurar uma chave de criptografia de chave (opcional)
-Se você quiser usar uma chave de criptografia (KEK) para uma camada adicional de segurança para chaves de criptografia, adicione uma KEK ao seu cofre de chaves. Use o cmdlet [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurekeyvaultkey) para criar uma chave de criptografia de chave no cofre da chave. Você também pode importar a KEK do HSM do gerenciamento de chaves local. Para obter mais informações, consulte [documentação do cofre de chaves](../key-vault/key-vault-hsm-protected-keys.md). Quando uma chave de criptografia de chave é especificada, o Azure Disk Encryption usa essa chave para agrupar os segredos de criptografia antes de gravar no Key Vault. 
+Se você quiser usar uma chave de criptografia (KEK) para uma camada adicional de segurança para chaves de criptografia, adicione uma KEK ao seu cofre de chaves. Use o [AzKeyVaultKey adicionar](/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet para criar uma chave de criptografia de chave no cofre de chaves. Você também pode importar a KEK do HSM do gerenciamento de chaves local. Para obter mais informações, consulte [documentação do cofre de chaves](../key-vault/key-vault-hsm-protected-keys.md). Quando uma chave de criptografia de chave é especificada, o Azure Disk Encryption usa essa chave para agrupar os segredos de criptografia antes de gravar no Key Vault.
+
+* Ao gerar as chaves, use um tipo de chave RSA. O Azure Disk Encryption ainda não dá suporte usando as chaves de curva elíptica.
 
 * O segredo do cofre de chaves e as URLs KEK devem ter controle de versão. O Azure impõe essa restrição de controle de versão. Para um segredo válido e URLs KEK, confira os seguintes exemplos:
 
@@ -256,39 +260,41 @@ Se você quiser usar uma chave de criptografia (KEK) para uma camada adicional d
   * URL do cofre de chaves inaceitável  *https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
   * URL do cofre de chaves aceitável:  *https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
+
 ### <a name="bkmk_KEKPSH"></a> Configurar uma chave de criptografia chave com o Azure PowerShell 
 Antes de usar o script do PowerShell, você deve estar familiarizado com os pré-requisitos do Azure Disk Encryption para entender as etapas no script. O script de amostra pode precisar de mudanças para seu ambiente. Esse script cria todos os pré-requisitos da criptografia de disco do Azure e criptografa uma VM IaaS existente, envolvendo a chave de criptografia de disco usando uma chave de criptografia de chave. 
 
  ```powershell
  # Step 1: Create a new resource group and key vault in the same location.
-     # Fill in 'MyLocation', 'MySecureRG', and 'MySecureVault' with your values.
-     # Use Get-AzureRmLocation to get available locations and use the DisplayName.
-     # To use an existing resource group, comment out the line for New-AzureRmResourceGroup
+     # Fill in 'MyLocation', 'MyKeyVaultResourceGroup', and 'MySecureVault' with your values.
+     # Use Get-AzLocation to get available locations and use the DisplayName.
+     # To use an existing resource group, comment out the line for New-AzResourceGroup
      
      $Loc = 'MyLocation';
-     $rgname = 'MySecureRG';
+     $KVRGname = 'MyKeyVaultResourceGroup';
      $KeyVaultName = 'MySecureVault'; 
-     New-AzureRmResourceGroup –Name $rgname –Location $Loc;
-     New-AzureRmKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname -Location $Loc;
-     $KeyVault = Get-AzureRmKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname;
-     $KeyVaultResourceId = (Get-AzureRmKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname).ResourceId;
-     $diskEncryptionKeyVaultUrl = (Get-AzureRmKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname).VaultUri;
+     New-AzResourceGroup –Name $KVRGname –Location $Loc;
+     New-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $KVRGname -Location $Loc;
+     $KeyVault = Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $KVRGname;
+     $KeyVaultResourceId = (Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $KVRGname).ResourceId;
+     $diskEncryptionKeyVaultUrl = (Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $KVRGname).VaultUri;
      
  #Step 2: Enable the vault for disk encryption.
-     Set-AzureRmKeyVaultAccessPolicy -VaultName $KeyVaultName -ResourceGroupName $rgname -EnabledForDiskEncryption;
+     Set-AzKeyVaultAccessPolicy -VaultName $KeyVaultName -ResourceGroupName $KVRGname -EnabledForDiskEncryption;
       
- #Step 3: Create a new key in the key vault with the Add-AzureKeyVaultKey cmdlet.
+ #Step 3: Create a new key in the key vault with the Add-AzKeyVaultKey cmdlet.
      # Fill in 'MyKeyEncryptionKey' with your value.
      
      $keyEncryptionKeyName = 'MyKeyEncryptionKey';
-     Add-AzureKeyVaultKey -VaultName $KeyVaultName -Name $keyEncryptionKeyName -Destination 'Software';
-     $keyEncryptionKeyUrl = (Get-AzureKeyVaultKey -VaultName $KeyVaultName -Name $keyEncryptionKeyName).Key.kid;
+     Add-AzKeyVaultKey -VaultName $KeyVaultName -Name $keyEncryptionKeyName -Destination 'Software';
+     $keyEncryptionKeyUrl = (Get-AzKeyVaultKey -VaultName $KeyVaultName -Name $keyEncryptionKeyName).Key.kid;
      
  #Step 4: Encrypt the disks of an existing IaaS VM
-     # Fill in 'MySecureVM' with your value. 
+     # Fill in 'MySecureVM' and 'MyVirtualMachineResourceGroup' with your values. 
      
      $VMName = 'MySecureVM';
-     Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId;
+     $VMRGName = 'MyVirtualMachineResourceGroup';
+     Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGName -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId;
 ```
 
 

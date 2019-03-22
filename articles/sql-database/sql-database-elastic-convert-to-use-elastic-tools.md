@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 8449462f144590e4fe7048366a21090c95a303cb
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 49686e407b2d733c04bad31706c6c4f315bf28bf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455585"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58008669"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Migrar bancos de dados existentes para escalar horizontalmente
 Gerencie com facilidade seus bancos de dados fragmentados e escalonados horizontalmente existentes, usando as ferramentas de banco de dados do Banco de Dados SQL (como a [biblioteca de cliente do Banco de Dados Elástico](sql-database-elastic-database-client-library.md)). Primeiro converta um conjunto existente de bancos de dados para usar o [gerenciador de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md). 
@@ -30,7 +30,7 @@ Para migrar um banco de dados fragmentado existente:
 3. Preparar os fragmentos individuais.  
 4. Adicione os mapeamentos ao mapa de fragmentos.
 
-Essas técnicas podem ser implementadas usando a [biblioteca de cliente do .NET Framework](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) ou os scripts do PowerShell encontrados em [Azure SQL DB – Scripts de ferramentas de Banco de Dados Elástico](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). Os exemplos aqui usam os scripts do PowerShell.
+Essas técnicas podem ser implementadas usando a [biblioteca de cliente do .NET Framework](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) ou os scripts do PowerShell encontrados em [Azure SQL DB – Scripts de ferramentas de Banco de Dados Elástico](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). Os exemplos aqui usam os scripts do PowerShell.
 
 Para saber mais sobre o ShardMapManager, confira [Gerenciamento de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md). Para obter uma visão geral das ferramentas de banco de dados elástico, confira [Visão geral dos recursos do Banco de Dados Elástico](sql-database-elastic-scale-introduction.md).
 

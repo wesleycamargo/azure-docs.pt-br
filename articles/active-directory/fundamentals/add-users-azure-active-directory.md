@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3881026c1877059639b550f3d0342674b2f8b29
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8770648a3683c4f612536c9a04921682a01bcd0c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187195"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089804"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Adicionar ou excluir usuários usando o Azure Active Directory
 Adicione novos usuários ou exclua usuários existentes do locatário do Azure AD (Azure Active Directory).
@@ -37,17 +37,17 @@ Você pode criar um novo usuário usando o portal do Azure Active Directory.
 
     ![Adicionar novo usuário, página do usuário com informações do usuário](media/add-users-azure-active-directory/new-user-user-blade.png)
 
-    - **Nome (obrigatório).** O primeiro e último nome do novo usuário. Por exemplo, Mary Parker.
+   - **Nome (obrigatório).** O primeiro e último nome do novo usuário. Por exemplo, Mary Parker.
 
-    - **Nome de usuário (obrigatório).** O nome de usuário do novo usuário. Por exemplo, mary@contoso.com. 
+   - **Nome de usuário (obrigatório).** O nome de usuário do novo usuário. Por exemplo, mary@contoso.com. 
     
-        A parte do domínio do nome de usuário deve usar o nome de domínio padrão inicial, <_yourdomainname_>. Onmicrosoft.com ou um nome de domínio personalizado, como contoso.com. Para obter mais informações sobre como criar um nome de domínio personalizado, consulte [Como adicionar um nome de domínio personalizado ao Active Directory do Azure](add-custom-domain.md).
+       A parte do domínio do nome de usuário deve usar o nome de domínio padrão inicial, <_yourdomainname_>. Onmicrosoft.com ou um nome de domínio personalizado, como contoso.com. Para obter mais informações sobre como criar um nome de domínio personalizado, consulte [Como adicionar um nome de domínio personalizado ao Active Directory do Azure](add-custom-domain.md).
 
-    - **Perfil.** Opcionalmente, você pode adicionar mais informações sobre o usuário. Você também pode adicionar informações do usuário posteriormente. Para obter mais informações sobre como adicionar informações do usuário, consulte [Como adicionar ou alterar as informações do perfil do usuário](active-directory-users-profile-azure-portal.md).
+   - **Perfil.** Opcionalmente, você pode adicionar mais informações sobre o usuário. Você também pode adicionar informações do usuário posteriormente. Para obter mais informações sobre como adicionar informações do usuário, consulte [Como adicionar ou alterar as informações do perfil do usuário](active-directory-users-profile-azure-portal.md).
 
-    - **Grupos.** Opcionalmente, você pode adicionar o usuário a um ou mais grupos existentes. Você também pode adicionar o usuário aos grupos posteriormente. Para obter mais informações sobre como adicionar usuários a grupos, consulte [Como criar um grupo básico e adicionar membros](active-directory-groups-create-azure-portal.md).
+   - **Grupos.** Opcionalmente, você pode adicionar o usuário a um ou mais grupos existentes. Você também pode adicionar o usuário aos grupos posteriormente. Para obter mais informações sobre como adicionar usuários a grupos, consulte [Como criar um grupo básico e adicionar membros](active-directory-groups-create-azure-portal.md).
 
-    - **Função de diretório.** Opcionalmente, você pode adicionar o usuário a uma função de diretório. Você pode atribuir o usuário a um administrador global ou a uma ou mais das outras funções de administrador no Azure AD. Para mais informações sobre como atribuir funções, consulte [Como atribuir funções aos usuários](active-directory-users-assign-role-azure-portal.md).
+   - **Função de diretório.** Opcionalmente, você pode adicionar o usuário a uma função de diretório. Você pode atribuir o usuário a um administrador global ou a uma ou mais das outras funções de administrador no Azure AD. Para mais informações sobre como atribuir funções, consulte [Como atribuir funções aos usuários](active-directory-users-assign-role-azure-portal.md).
 
 4. Copie a senha gerada automaticamente fornecida na caixa **Senha**. Você precisará fornecer essa senha ao usuário para o processo de logon inicial.
 

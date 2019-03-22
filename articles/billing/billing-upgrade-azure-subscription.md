@@ -5,7 +5,7 @@ keywords: atualização pré-paga
 services: ''
 documentationcenter: ''
 author: bandersmsft
-manager: alherz
+manager: jureid
 editor: ''
 tags: billing
 ms.assetid: 0b4ac8f3-3df0-478a-8a07-b18b40f0cf5f
@@ -14,31 +14,65 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2017
+ms.date: 03/14/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1cb6f2e35062649038ece7cd834c582ca9dccf7b
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: 3e6cb875aa686d9e2d0ba7bf51563d3b51b1572a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54900095"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094221"
 ---
-# <a name="upgrade-your-free-trial-or-microsoft-imagine-azure-subscription-to-pay-as-you-go"></a>Atualizar sua avaliação gratuita ou assinatura do Microsoft Imagine Azure para pré-pago
+# <a name="upgrade-your-free-trial-or-azure-for-students-starter-subscription-to-pay-as-you-go"></a>Atualizar sua avaliação gratuita ou o Azure para assinatura Students Starter para pré-pago
 
-Atualize sua [Avaliação Gratuita](https://azure.microsoft.com/free/) ou assinatura do [Microsoft Imagine](https://azure.microsoft.com/offers/ms-azr-0144p/) para [Pago Conforme o Uso](https://azure.microsoft.com/offers/ms-azr-0003p/) no Centro de Contas do Azure.
+Se você tiver um [avaliação gratuita](https://azure.microsoft.com/free/), você pode atualizar para uma [pré-pago](https://azure.microsoft.com/offers/ms-azr-0003p/) assinatura no portal do Azure. Se você tiver um [do Azure for Students Starter](https://azure.microsoft.com/offers/ms-azr-0144p/) assinatura, você pode atualizar [pré-pago](https://azure.microsoft.com/offers/ms-azr-0003p/) no Centro de contas do Azure.
 
-1. Entre no [Centro de Contas do Azure](https://account.windowsazure.com/subscriptions).
-2. Na seção de status de assinatura, selecione a faixa **Atualizar agora**.
-   
-    ![Captura de tela que mostra onde clicar para atualizar da Avaliação Gratuita para Pré-pago](./media/billing-upgrade-azure-subscription/billpage.png)
-3. Confirme a atualização.
-   
-    ![Captura de tela que mostra o que selecionar para confirmar que você deseja atualizar sua assinatura](./media/billing-upgrade-azure-subscription/Upgrade.png)
+<a id="freetrial"></a>
 
- Ao atualizar de uma assinatura de avaliação gratuita, você mantém o crédito restante pelos 30 dias após ter criado a assinatura. Além disso, também terá acesso a serviços gratuitos por 12 meses.
- 
- Se você quiser [transferir a assinatura](billing-subscription-transfer.md) após o upgrade, será necessário aguardar até que a ID de oferta da assinatura seja alterada para **MS-AZR-003P**. A ID de oferta é alterada quando
+## <a name="upgrade-your-free-trial-to-pay-as-you-go"></a>Atualize sua avaliação gratuita para pré-pago
+
+Ao atualizar de uma assinatura de avaliação gratuita, você mantém o crédito restante pelos 30 dias após ter criado a assinatura. Além disso, também terá acesso a serviços gratuitos por 12 meses.
+
+1. Entre no [Portal do Azure](https://portal.azure.com)
+1. Pesquisar em **gerenciamento + cobrança de custos.**
+
+    ![Captura de tela que mostra a pesquisa](./media/billing-upgrade-azure-subscription/search.png)
+
+1. Selecione sua assinatura de avaliação gratuita.
+1. Na folha de visão geral da assinatura, clique em **atualizar assinatura** na barra de comandos.
+
+    ![Captura de tela que mostra o botão Atualizar](./media/billing-upgrade-azure-subscription/free-upgrade-button.png)
+
+1. Se você ainda não tiver um método de pagamento para a sua assinatura de avaliação gratuita, você será solicitado a adicioná-lo.
+1. Você talvez seja necessário inserir um número de telefone para verificar sua identidade.
+1. Digite um nome para sua assinatura. Por padrão, o nome é *pré-pago.*
+
+     ![Captura de tela que mostra o nome](./media/billing-upgrade-azure-subscription/free-upgrade-name.png)
+
+1. Escolha um plano de suporte para a sua assinatura. Para saber mais sobre planos de suporte, consulte [planos de suporte do Azure](https://azure.microsoft.com/us/support/plans/).
+
+1. Clique em **Atualizar**.
+
+Se você quiser [transferir a assinatura](billing-subscription-transfer.md) após o upgrade, será necessário aguardar até que a ID de oferta da assinatura seja alterada para **MS-AZR-003P**. A ID de oferta é alterada quando:
 
 * Você consome todo o crédito restante ou,
 * 30 dias após o início da avaliação gratuita
+
+<a id="student"></a>
+
+## <a name="upgrade-your-azure-for-students-starter-subscription-to-pay-as-you-go"></a>Atualizar sua assinatura do Azure for Students Starter para pré-pago
+
+1. Entre no [Centro de Contas do Azure](https://account.windowsazure.com/subscriptions).
+1. Selecione sua assinatura do Azure for Students Starter.
+1. Sob **status da assinatura**, clique em **atualizar agora**.
+
+    ![Captura de tela que mostra a atualização para aluno](./media/billing-upgrade-azure-subscription/student-upgrade-button.png)
+
+1. Insira um nome para sua assinatura.
+
+1. Clique em **atualizar agora**.
+
+## <a name="next-steps"></a>Próximas etapas
+
+Agora que você tem uma assinatura pré-paga, consulte [evitar cobranças inesperadas com o gerenciamento de custos e cobrança do Azure.](billing-getting-started.md)

@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: mareat
-ms.openlocfilehash: 9e408b45f47cb86191628916124611735f374d9e
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
-ms.translationtype: HT
+ms.openlocfilehash: 73173c144f979d4a10b90a16aec783fe51a3f90e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51818992"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000390"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Gerenciar e analisar os logs de fluxo do Grupo de Segurança de Rede usando o Observador de Rede e o Grafana
 
 [Os logs de fluxo do NSG (Grupo de Segurança de Rede)](network-watcher-nsg-flow-logging-overview.md) fornecem informações que podem ser usadas para entender a entrada e a saída de tráfego IP em interfaces de rede. Esses logs de fluxo exibem os fluxos de entrada e saída baseados em regras do NSG. A NIC de fluxo se aplica às informações de 5 tuplas sobre o fluxo (IP de Origem/Destino, Porta de Origem/Destino e Protocolo) e se o tráfego foi permitido ou negado.
 
 > [!Warning]  
-> As etapas a seguir funcionam com a versão 1 do fluxo de logs. Para obter detalhes, consulte [Introdução ao log de fluxo dos grupos de segurança da rede](network-watcher-nsg-flow-logging-overview.md). As instruções a seguir não funcionarão com a versão 2 dos arquivos de log, sem modificação.
+> As etapas a seguir funcionam com os logs de fluxo versão 1. Para obter detalhes, consulte [Introdução ao fluxo de log para grupos de segurança de rede](network-watcher-nsg-flow-logging-overview.md). As instruções a seguir não funcionarão com a versão 2 dos arquivos de log, sem modificação.
 
 Você pode ter muitos NSGs em sua rede com o registro em log de fluxo habilitado. Essa quantidade de dados de registro em log torna difícil a análise e a obtenção de insights de seus logs. Este artigo fornece uma solução para gerenciar centralmente esses logs de fluxo do NSG usando o Grafana, uma ferramenta de grafo de software livre, o ElasticSearch, uma pesquisa distribuída e mecanismo de análise e o Logstash, que é um pipeline de processamento de dados do servidor do lado do servidor de software livre.  
 
@@ -182,7 +182,7 @@ sudo dpkg -i grafana_4.5.1_amd64.deb
 sudo service grafana-server start
 ```
 
-Para obter informações adicionais de instalação, consulte [Instalar em Debian/Ubuntu](http://docs.grafana.org/installation/debian/).
+Para obter informações adicionais de instalação, consulte [Instalar em Debian/Ubuntu](https://docs.grafana.org/installation/debian/).
 
 #### <a name="add-the-elasticsearch-server-as-a-data-source"></a>Adicione o servidor do ElasticSearch como uma fonte de dados
 

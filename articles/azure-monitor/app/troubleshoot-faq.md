@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 810a4708974d18a4bba048e3e402a172868178f3
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 400583f50e898bfc750a387bf0ee83a3147e5006
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429682"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57905045"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Perguntas frequentes
 
@@ -257,7 +257,7 @@ Examine nossa lista de serviços e endereços IP [aqui](../../azure-monitor/app/
 
 Permita que o servidor Web envie telemetria para os pontos de extremidade. 
 
-### <a name="proxy-redirect"></a>Redirecionamento de proxy
+### <a name="gateway-redirect"></a>Redirecionamento do gateway
 
 Encaminhe o tráfego de seu servidor para um gateway na sua intranet substituindo pontos de extremidade na sua configuração.
 Se essas propriedades de “Ponto de extremidade” não estiverem presentes na sua configuração, essas classes usarão os valores padrão mostrados abaixo no exemplo ApplicationInsights.config. 
@@ -288,7 +288,19 @@ Seu gateway deve rotear o tráfego para o endereço básico do nosso ponto de ex
 
 _Observe que ApplicationIdProvider está disponível a partir do v2.6.0_
 
+### <a name="proxy-passthrough"></a>Passagem de proxy
 
+Passagem de proxy pode ser obtida por meio da configuração de um nível de máquina ou o nível de aplicativo proxy.
+Para obter mais informações, consulte artigo do dotnet sobre [DefaultProxy](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
+ 
+ Web. config de exemplo:
+ ```xml
+<system.net>
+    <defaultProxy>
+      <proxy proxyaddress="http://xx.xx.xx.xx:yyyy" bypassonlocal="true"/>
+    </defaultProxy>
+</system.net>
+```
  
 
 ## <a name="can-i-run-availability-web-tests-on-an-intranet-server"></a>É possível executar testes na Web de Disponibilidade em um servidor de intranet?

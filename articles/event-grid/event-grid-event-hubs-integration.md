@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: tutorial
 ms.date: 01/13/2019
 ms.author: spelluru
-ms.openlocfilehash: 6e8ca9d3a7fbdf1926ac642ac60a37d298af0129
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: c2c49563bf505ce70c4900c6c0a8e41c0f6ac9c5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54476845"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176609"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Tutorial: Transmitir Big Data para um data warehouse
 A [Grade de Eventos](overview.md) do Azure é um serviço de roteamento de evento inteligente que permite que você reaja às notificações (eventos) de aplicativos e serviços. Por exemplo, ele pode disparar uma função do Azure para processar dados de Hubs de Eventos que foram capturados em um Armazenamento de Blobs do Azure ou Azure Data Lake Storage e migrar os dados para outros repositórios de dados. Este [Exemplo de integração de Hubs de Eventos e Grade de Eventos](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) mostra como usar a Hubs de Eventos com a Grade de Eventos para migrar com perfeição dados dos Hubs de Eventos capturados do Armazenamento de Blobs para um SQL Data Warehouse.
@@ -39,6 +39,9 @@ Neste artigo, você executa as seguintes etapas:
 > * Exiba os dados migrados no data warehouse.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Para concluir este tutorial, você deve ter:
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
@@ -129,7 +132,7 @@ Nesta etapa, você implanta a infraestrutura necessária com um [modelo do Resou
     1. Copie e cole o seguinte comando na janela do Cloud Shell.
 
         ```powershell
-        New-AzureRmResourceGroup -Name rgDataMigration -Location westcentralus
+        New-AzResourceGroup -Name rgDataMigration -Location westcentralus
         ```
     2. Especifique um nome para um novo **grupo de recursos**.
     3. Pressione ENTER. 
@@ -137,7 +140,7 @@ Nesta etapa, você implanta a infraestrutura necessária com um [modelo do Resou
     1. Copie e cole o comando na janela do Cloud Shell. Como alternativa, talvez você queira copiar/colar em um editor de sua escolha, definir valores e, em seguida, copiar o comando para o Cloud Shell. 
 
         ```powershell
-        New-AzureRmResourceGroupDeployment -ResourceGroupName rgDataMigration -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json -eventHubNamespaceName <event-hub-namespace> -eventHubName hubdatamigration -sqlServerName <sql-server-name> -sqlServerUserName <user-name> -sqlServerDatabaseName <database-name> -storageName <unique-storage-name> -functionAppName <app-name>
+        New-AzResourceGroupDeployment -ResourceGroupName rgDataMigration -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json -eventHubNamespaceName <event-hub-namespace> -eventHubName hubdatamigration -sqlServerName <sql-server-name> -sqlServerUserName <user-name> -sqlServerDatabaseName <database-name> -storageName <unique-storage-name> -functionAppName <app-name>
         ```
     2. Especifique valores para as seguintes entidades:
         1. Nome do grupo de recursos criado anteriormente.

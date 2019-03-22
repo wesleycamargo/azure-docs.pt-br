@@ -6,15 +6,15 @@ keywords: segredos
 author: v-steg
 ms.author: v-steg
 ms.date: 10/25/2018
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
-ms.openlocfilehash: 63ac34e184d537eba2b915d4d108c7c1d8368aba
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: 4268356db5f46e92862e19d6391cfe5a94511270
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52891837"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58007474"
 ---
 # <a name="service-fabric-mesh-application-secrets"></a>Segredos do aplicativo de Malha do Fabric Mesh
 A Malha do Service Fabric dá suporte a Segredos como recursos do Azure. Um segredo de Malha do Service Fabric pode ser qualquer informação de texto confidenciais como cadeias de caracteres de conexão de armazenamento, senhas ou outros valores que devem ser armazenados e transmitidos de forma segura.
@@ -25,10 +25,6 @@ A Malha do Service Fabric dá suporte a Segredos como recursos do Azure. Um segr
 Um segredo de aplicativo de Malha consiste em:
 * Um recurso **Segredos**, que é um contêiner que armazena os segredos de texto. Os segredos contidos no recurso **Segredos** são armazenados e transmitidos de forma segura.
 * Um ou mais recursos **Segredos/Valores** que são armazenados no contêiner do recurso **Segredos**. Cada recurso **Segredos/Valores** é diferenciado por um número de versão.
-
-## <a name="inline-or-stored-in-azure-key-vault"></a>Embutido ou armazenado no Azure Key Vault
-- Os aplicativos de malha e os recursos de serviço incluem Managed Service Identity (MSI) com Azure Active Directory (AAD) para acessar os segredos no cofre de chaves do Azure.
-- Os segredos e certificados podem ser autossobrepostos pelas políticas.
 
 ## <a name="next-steps"></a>Próximas etapas 
 Para saber mais sobre os Segredos de Malha do Service Fabric, confira:

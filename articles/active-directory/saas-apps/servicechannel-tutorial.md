@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/3/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7d8f42b49fe3dbdecec163ab47579346b71f0bf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b4be5087af70e10e5a73ea2a183a25b326aea664
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190493"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433460"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicechannel"></a>Tutorial: integração do Azure Active Directory com o ServiceChannel
 
@@ -155,7 +155,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal de Gerenciame
 
     ![Configurar o logon único](./media/servicechannel-tutorial/tutorial_general_400.png)
 
-1. Na seção **Configuração do ServiceChannel**, clique em **Configurar o ServiceChannel** para abrir a janela **Configurar logon**. Copie a **ID da Entidade SAML** da seção **Referência Rápida**.
+1. Na seção **Configuração do ServiceChannel**, clique em **Configurar o ServiceChannel** para abrir a janela **Configurar logon**. Observe que o **ID da entidade SAML** da **referência rápida** seção.
 
 1. Para configurar o logon único no lado de **ServiceChannel**, você precisa enviar o **certificado (Base64)** baixado e a **ID da entidade SAML** para [equipe de suporte do ServiceChannel](https://servicechannel.zendesk.com/hc/en-us). Isso será configurado para que a conexão de SSO do SAML seja definida corretamente em ambos os lados.
 

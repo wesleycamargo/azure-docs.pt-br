@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a707ae6959b035ae0bcc05ead027dabd528e1b59
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 99c6e7dc589a94880976a9c7abcde12377e4e5d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747502"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101526"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Como criar e usar um balanceador de carga interno com um ambiente do Serviço de Aplicativo #
 
@@ -80,11 +80,11 @@ Para criar um ASE ILB:
 
    Você pode [mapear um nome DNS existente para seu aplicativo][customdomain]. O nome de domínio personalizado usado para aplicativos e o nome de domínio usado pelo seu ASE não podem ser os mesmos. Em um ASE ILB com o nome de domínio _contoso.com_, não é possível usar nomes de domínio personalizados para seus aplicativos, como:
 
-    * www.contoso.com
+   * www\.contoso.com
 
-    * abcd.def.contoso.com
+   * abcd.def.contoso.com
 
-    * abcd.contoso.com
+   * abcd.contoso.com
 
    Se você souber os nomes de domínio personalizados dos seus aplicativos, escolha um domínio para o ASE ILB que não seja conflitante com os nomes de domínio personalizados. Neste exemplo, você pode usar algo como *contoso-internal.com* para o domínio do seu ASE porque isso não entra em conflito com os nomes de domínio personalizados que terminam em *.contoso.com*.
 
@@ -222,7 +222,7 @@ Para saber mais sobre como configurar o ASE ILB com um dispositivo WAF, confira 
 ## <a name="get-started"></a>Introdução ##
 
 * Para começar a usar ASEs, confira [Introdução aos ambientes do Serviço de Aplicativo][Intro].
- 
+ 
 
 <!--Image references-->
 [1]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-network.png

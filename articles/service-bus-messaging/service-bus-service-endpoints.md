@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: aschhab
-ms.openlocfilehash: c467c963a558f84a0a08887d3777dccf7cd8554d
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 0801469d586e6f2d6514927cdc7b894900a3aa35
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234060"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57843553"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Usar pontos de extremidade de serviço de Rede Virtual com Barramento de Serviço
 
@@ -48,7 +48,7 @@ O resultado é um relacionamento privado e isolado entre as cargas de trabalho a
 
 ## <a name="enable-service-endpoints-with-service-bus"></a>Habilitar pontos de extremidade de serviço com o Barramento de Serviço
 
-Uma consideração importante ao usar pontos de extremidade de serviço de VNet com o Barramento de Serviço é que você não deve permitir esses pontos de extremidade em aplicativos que combinam os namespaces do Barramento de Serviço de camada Standard e Premium. Como a camada Standard não oferece suporte a VNets, o ponto de extremidade fica restrito apenas a namespaces da camada Premium. A VNet bloqueará o tráfego para o namespace Standard.
+Uma consideração importante ao usar pontos de extremidade de serviço de VNet com o Barramento de Serviço é que você não deve permitir esses pontos de extremidade em aplicativos que combinam os namespaces do Barramento de Serviço de camada Standard e Premium. Como a camada Standard não oferece suporte a VNets, o ponto de extremidade fica restrito apenas a namespaces da camada Premium.
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Cenários avançados de segurança habilitados pela integração de VNet 
 

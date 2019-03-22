@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: ghogen
-ms.openlocfilehash: 237294c1bc603402c349f7a56f20c34ed8d210fe
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
-ms.translationtype: HT
+ms.openlocfilehash: 8a91614e7dfb804e6a902967ce60f898ed0e54ad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42139789"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999740"
 ---
 # <a name="get-started-with-queue-storage-and-visual-studio-connected-services-aspnet-core"></a>Introdução ao armazenamento de filas e aos serviços conectados do Visual Studio (ASP.NET Core)
 
@@ -27,7 +27,7 @@ Este artigo descreve como começar a usar o Armazenamento de Filas do Azure no V
 
 O armazenamento de filas do Azure é um serviço para armazenamento de um grande número de mensagens que podem ser acessadas de qualquer lugar do mundo por meio de chamadas autenticadas usando HTTP ou HTTPS. Uma única mensagem de fila pode ter até 64 KB (kilobytes) de tamanho e uma fila pode conter milhões de mensagens, até o limite de capacidade total de uma conta de armazenamento. Veja também [Introdução ao Armazenamento de Filas do Azure usando .NET](../storage/queues/storage-dotnet-how-to-use-queues.md) para obter detalhes sobre como manipular filas com programação.
 
-Para começar, primeiramente crie uma fila do Azure em sua conta de armazenamento. Este artigo mostrará como criar uma fila no C# e como realizar operações básicas de fila, como adicionar, modificar, ler e remover entidades de fila.  O código usa a Biblioteca de Cliente de Armazenamento do Azure para .NET. Para saber mais sobre ASP.NET, confira [ASP.NET](http://www.asp.net).
+Para começar, primeiramente crie uma fila do Azure em sua conta de armazenamento. Este artigo mostrará como criar uma fila no C# e como realizar operações básicas de fila, como adicionar, modificar, ler e remover entidades de fila.  O código usa a Biblioteca de Cliente de Armazenamento do Azure para .NET. Para saber mais sobre ASP.NET, confira [ASP.NET](https://www.asp.net).
 
 Algumas das APIs de armazenamento do Azure são assíncronas e o código neste artigo supõe que os métodos assíncronos estejam sendo usados. Confira [Programação assíncrona](https://docs.microsoft.com/dotnet/csharp/async) para saber mais.
 
@@ -66,7 +66,7 @@ Para acessar filas em projetos do ASP.NET Core, inclua os itens a seguir em qual
 
 ### <a name="create-a-queue-in-code"></a>Criar uma fila em código
 
-Para criar a fila do Azure no código, chame ``CreateIfNotExistsAsync`:
+Para criar a fila do Azure no código, chame `CreateIfNotExistsAsync`:
 
 ```cs
 // Create the CloudQueue if it does not exist.

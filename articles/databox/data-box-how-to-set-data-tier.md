@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: alkohli
-ms.openlocfilehash: 91cabd6601ca8d0c0eabfdb5726d4bd6b37492a6
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
-ms.translationtype: HT
+ms.openlocfilehash: dc84d5850656a0898fba328b652d86f3d8995bef
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54216078"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118367"
 ---
 # <a name="use-azure-data-box-to-send-data-to-appropriate-azure-storage-blob-tier"></a>Usar o Azure Data Box para enviar dados para a camada do Azure Storage Blob adequada
 
@@ -109,8 +109,8 @@ As etapas a seguir descrevem como você pode definir a camada de blob como Arqui
     >> }
     PS C:\WINDOWS\system32>
     ```
-> [!TIP]
-> Se você desejar que os dados sejam arquivados na ingestão, defina a camada de conta padrão como quente. Se a camada padrão for Fria, haverá uma penalidade de exclusão antecipada de 30 dias se os dados forem movidos para Arquivos imediatamente.
+   > [!TIP]
+   > Se você desejar que os dados sejam arquivados na ingestão, defina a camada de conta padrão como quente. Se a camada padrão for Fria, haverá uma penalidade de exclusão antecipada de 30 dias se os dados forem movidos para Arquivos imediatamente.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,27 +1,28 @@
 ---
-title: 'Início Rápido: enviar um fluxo de trabalho usando várias entradas – Microsoft Genomics'
+title: Enviar um fluxo de trabalho usando várias entradas – Microsoft Genomics
 titleSuffix: Azure
-description: O guia de início rápido pressupõe que você tem o cliente msgen instalado e executou com êxito os dados de exemplo por meio do serviço.
+description: Este artigo demonstra como enviar um fluxo de trabalho para o serviço Microsoft Genomics se seu arquivo de entrada é FASTQ múltiplos ou arquivos BAM provenientes do mesmo exemplo. Você já tiver o cliente msgen instalado e executou com êxito os dados de exemplo por meio do serviço.
 services: genomics
+ms.service: genomics
 author: grhuynh
 manager: cgronlund
 ms.author: grhuynh
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 02/05/2018
-ms.openlocfilehash: 1007d81a73ce9f183f997354188e534274b2fe95
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
-ms.translationtype: HT
+ms.openlocfilehash: 399b1ed735ce1b7a3fca1d27155863f6bfa18776
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730355"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791351"
 ---
 # <a name="submit-a-workflow-using-multiple-inputs-from-the-same-sample"></a>Enviar um fluxo de trabalho usando várias entradas do mesmo exemplo
 
-Este guia de início rápido demonstra como enviar um fluxo de trabalho para o serviço do Microsoft Genomics se seu arquivo for vários arquivos FASTQ ou BAM **vindos do mesmo exemplo**. Por exemplo, se você executou o **mesmo exemplo** em várias rotas no sequenciador, o sequenciador pôde enviar um par de arquivos FASTQ para cada rota. Em vez de concatenar esses arquivos FASTQ antes do alinhamento e análise de variantes, você pode enviar diretamente todas essas entradas para o cliente `msgen`. A saída do cliente `msgen` seria um **conjunto único** de arquivos, incluindo um arquivo .bam, .bai, .vcf. 
+Este artigo demonstra como enviar um fluxo de trabalho para o serviço Microsoft Genomics se seu arquivo de entrada for vários arquivos FASTQ ou BAM **provenientes do mesmo exemplo**. Por exemplo, se você executou o **mesmo exemplo** em várias rotas no sequenciador, o sequenciador pôde enviar um par de arquivos FASTQ para cada rota. Em vez de concatenar esses arquivos FASTQ antes do alinhamento e análise de variantes, você pode enviar diretamente todas essas entradas para o cliente `msgen`. A saída do cliente `msgen` seria um **conjunto único** de arquivos, incluindo um arquivo .bam, .bai, .vcf. 
 
 Lembre-se, no entanto, de que você **não consegue** misturar arquivos FASTQ e BAM no mesmo envio. Além disso, **não é possível** enviar vários arquivos FASTQ ou BAM arquivos a partir de várias pessoas. 
 
-Este artigo pressupõe que você já instalou e executou o cliente `msgen` e está familiarizado sobre como usar o Armazenamento do Azure. Se você enviou, com êxito, um fluxo de trabalho usando os dados de exemplo fornecidos, está pronto para continuar com este guia de início rápido. 
+Este artigo pressupõe que você já instalou e executou o cliente `msgen` e está familiarizado sobre como usar o Armazenamento do Azure. Se você enviou um fluxo de trabalho usando os dados de exemplo fornecidos com êxito, você está pronto para prosseguir com este artigo. 
 
 
 ## <a name="multiple-bam-files"></a>Vários arquivos BAM

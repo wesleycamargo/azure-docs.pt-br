@@ -40,6 +40,8 @@ items:
         href: data-box-gateway-manage-bandwidth-schedules.md
       - name: Acesso, potência, conectividade
         href: data-box-gateway-manage-access-power-connectivity-mode.md
+      - name: Via PowerShell
+        href: data-box-gateway-connect-powershell-interface.md
     - name: Solucionar problemas
       href: data-box-gateway-troubleshoot.md
   - name: Notas de versão
@@ -70,10 +72,26 @@ items:
       href: data-box-edge-system-requirements.md
     - name: Entender os limites
       href: data-box-edge-limits.md
+    - name: Visão geral da segurança
+      href: data-box-edge-security.md
+    - name: Especificações de revisão
+      href: data-box-edge-technical-specifications-compliance.md
   - name: Como
     items:
+    - name: Gerenciar a computação
+      href: data-box-edge-manage-compute.md
     - name: Desenvolver um módulo C#
       href: data-box-edge-create-iot-edge-module.md
+    - name: Gerenciar compartilhamentos
+      href: data-box-edge-manage-shares.md
+    - name: Gerenciar usuários
+      href: data-box-edge-manage-users.md
+    - name: Gerenciar agendas de largura de banda
+      href: data-box-edge-manage-bandwidth-schedules.md
+    - name: Gerenciar energia, acesso, conectividade
+      href: data-box-edge-manage-access-power-connectivity-mode.md
+    - name: Gerenciar via PowerShell
+      href: data-box-edge-connect-powershell-interface.md
 - name: Recursos
   items:
   - name: Exemplos do módulo em C# do Data Box Edge (.NET)
@@ -82,9 +100,9 @@ items:
     href: https://azure.microsoft.com/services/storage/databox/edge/
   - name: Preços
     href: https://azure.microsoft.com/pricing/details/storage/databox/edge/
-ms.openlocfilehash: 447696a07ca7decc2d07d3752e3e6dfe6b6c688b
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: e9a8ba6e284a03b4be085aa59be7fa5ae0ab65e9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55963736"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855105"

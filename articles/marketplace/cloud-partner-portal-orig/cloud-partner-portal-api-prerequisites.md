@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: e6e25424981118363070d42b2fb057b18fdb91a9
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: 0d743d89c344ce9cb6eec116ed9c3e0cbe56f86e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48805437"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878640"
 ---
 <a name="api-prerequisites"></a>Pré-requisitos de API
 ================
@@ -55,7 +55,7 @@ Siga as etapas a seguir para adicionar a entidade de serviço:
 
      ![Adicionar um aplicativo gerenciado ao portal](./media/cloud-partner-portal-api-prerequisites/managedapp.png)
 
-4. Clique em **Adicionar** para adicionar a entidade de serviço à sua conta.
+1. Clique em **Adicionar** para adicionar a entidade de serviço à sua conta.
 
    ![Adicionar uma entidade de serviço](./media/cloud-partner-portal-api-prerequisites/add-service-principal.jpg)
 
@@ -66,7 +66,7 @@ Siga as etapas a seguir para adicionar a entidade de serviço:
 As APIs do Portal do Microsoft Cloud Partner usam os seguintes protocolos e ativos durante a autenticação:
 
 - Um token de portador JWT (Token Web JSON) para solicitar acesso a recursos
-- O protocolo [OIDC](http://openid.net/connect/) (OpenID Connect) para verificar a identidade
+- O protocolo [OIDC](https://openid.net/connect/) (OpenID Connect) para verificar a identidade
 - O [Azure AD (Azure Active Directory)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) como a autoridade de identidade
 
 Há duas abordagens de princípio para adquirir um token JWT de forma programática:

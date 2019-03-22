@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/19/2018
 ms.author: genli
-ms.openlocfilehash: 777d5cb9449bcf9424e2514b2b8f90a9ca6c479c
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
-ms.translationtype: HT
+ms.openlocfilehash: e6685a5e77d92bb9e05ab9578e48c99e80a64b74
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285410"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994619"
 ---
 # <a name="cannot-connect-remotely-to-a-windows-10-or-windows-server-2016-vm-in-azure-because-of-netvscsys"></a>Não é possível se conectar remotamente a uma máquina virtual Windows Server 2016 no Azure por causa de netvsc.sys.
 
@@ -26,9 +26,9 @@ Este artigo explica como solucionar um problema em que não há nenhuma conexão
 
 ## <a name="symptoms"></a>Sintomas
 
-Você não pode se conectar a uma VM do Windows 10 do Azure ou Windows Server 2016 usando o Protocolo RDP Remoto (RDP). Em [Diagnósticos de inicialização](boot-diagnostics.md), a tela mostra uma cruz vermelha sobre a placa de interface de rede (NIC). Isso indica que a VM tem sem conectividade depois que o sistema operacional está totalmente carregado.
+Você não pode se conectar a um Windows 10 do Azure ou VM do Windows Server 2016 usando o protocolo de área de trabalho remota (RDP). Em [Diagnósticos de inicialização](boot-diagnostics.md), a tela mostra uma cruz vermelha sobre a placa de interface de rede (NIC). Isso indica que a VM tem sem conectividade depois que o sistema operacional está totalmente carregado.
 
-Normalmente, esse problema ocorre no Windows [build 14393](http://support.microsoft.com/help/4093120/) e [build 15063](http://support.microsoft.com/help/4015583/). Se a versão do seu sistema operacional é posterior a essas versões, este artigo não se aplica ao seu cenário. Para verificar a versão do sistema, abra uma sessão CMD no [recurso do Serial Access Console](serial-console-windows.md)e, em seguida, execute **Ver**.
+Normalmente, esse problema ocorre no Windows [build 14393](https://support.microsoft.com/help/4093120/) e [build 15063](https://support.microsoft.com/help/4015583/). Se a versão do seu sistema operacional é posterior a essas versões, este artigo não se aplica ao seu cenário. Para verificar a versão do sistema, abra uma sessão CMD no [recurso do Serial Access Console](serial-console-windows.md)e, em seguida, execute **Ver**.
 
 ## <a name="cause"></a>Causa
 
@@ -55,8 +55,8 @@ Conectar-se ao [o Console Serial, abra uma instância do PowerShell](serial-cons
 
 2. Baixe a atualização apropriada para um disco de dados novo ou existente que está anexado a uma VM de trabalho da mesma região:
 
-   - **10.0.14393.594**: [KB4073562](http://support.microsoft.com/help/4073562) ou uma atualização posterior
-   - **10.0.15063.0**: [KB4016240](http://support.microsoft.com/help/4016240) ou uma atualização posterior
+   - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) ou uma atualização posterior
+   - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) ou uma atualização posterior
 
 3. Desanexe o disco do utilitário da VM de trabalho e, em seguida, anexá-o à VM interrompida.
 
@@ -98,22 +98,22 @@ Conectar-se ao [o Console Serial, abra uma instância do PowerShell](serial-cons
 
 12. Faça o download da atualização apropriada:
 
-   - **10.0.14393.594**: [KB4073562](http://support.microsoft.com/help/4073562) ou uma atualização posterior
-   - **10.0.15063.0**: [KB4016240](http://support.microsoft.com/help/4016240) ou uma atualização posterior
+    - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) ou uma atualização posterior
+    - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) ou uma atualização posterior
 
 13. Anexe o disco do sistema como um disco de dados em uma VM de resgate no qual você pode baixar a atualização.
 
 14. Execute o seguinte comando para instalar a máquina virtual:
 
-   ```
-   dism /image:<OS Disk letter>:\ /add-package /packagepath:c:\temp\<KB .msu or .cab>
-   ```
+    ```
+    dism /image:<OS Disk letter>:\ /add-package /packagepath:c:\temp\<KB .msu or .cab>
+    ```
 
 15. Execute o seguinte comando para desmontar os hives:
 
-   ```
-   reg unload HKLM\BROKENSYSTEM
-   ```
+    ```
+    reg unload HKLM\BROKENSYSTEM
+    ```
 
 16. [Desanexar o disco do sistema e criar VM novamente](../windows/troubleshoot-recovery-disks-portal.md).
 

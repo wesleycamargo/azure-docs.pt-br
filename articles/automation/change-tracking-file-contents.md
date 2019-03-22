@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 07/03/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ad011d778ab575c146c202a7940e03a4451979fb
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: dae0ea3e564a3dfafcd7f072f9b0d8854df17ed7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437994"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074736"
 ---
 # <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>Exibir o conteúdo de um arquivo que está sendo controlado com o Controle de Alterações
 
@@ -34,7 +34,7 @@ O controle de conteúdo do arquivo permite que você exiba o conteúdo de um arq
 2. No menu superior, selecione **Editar Configurações**.
 3. Selecione **Conteúdo do Arquivo** e clique em **Link**. Isso abre o painel **Adicionar local de conteúdo para o Controle de Alterações**.
 
-   ![enable](./media/change-tracking-file-contents/enable.png)
+   ![habilitar](./media/change-tracking-file-contents/enable.png)
 
 4. Selecione a assinatura e a conta de armazenamento a serem usadas para armazenar o conteúdo do arquivo. Se você deseja habilitar o controle de conteúdo de arquivo para todos os arquivos controlados existentes, selecione **Habilitado** para **Carregar conteúdo do arquivo para todas as configurações**. Você poderá alterar isso para cada caminho de arquivo mais tarde.
 
@@ -62,11 +62,11 @@ As etapas a seguir mostram como habilitar o Controle de Alterações para um arq
 
 1. Na página **Detalhes da alteração**, veja as informações padrão anteriores e posteriores do arquivo no canto superior esquerdo, clique em **Exibir alterações de conteúdo do arquivo** para ver o conteúdo do arquivo.
 
-  ![detalhes da alteração](./media/change-tracking-file-contents/change-details.png)
+   ![detalhes da alteração](./media/change-tracking-file-contents/change-details.png)
 
 1. A nova página mostra o conteúdo do arquivo em uma exibição lado a lado. Você também pode selecionar **Embutido** para ver uma exibição embutida das alterações.
 
-  ![exibir alterações de arquivo](./media/change-tracking-file-contents/view-file-changes.png)
+   ![exibir alterações de arquivo](./media/change-tracking-file-contents/view-file-changes.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -75,5 +75,5 @@ Visite o tutorial sobre Controle de Alterações para saber mais sobre o uso da 
 > [!div class="nextstepaction"]
 > [Solucionar problemas de alterações em seu ambiente](automation-tutorial-troubleshoot-changes.md)
 
-* Use [Pesquisas de log no Log Analytics](../log-analytics/log-analytics-log-searches.md) para exibir dados detalhados do controle de alterações.
+* Use [pesquisas de Log nos logs do Azure Monitor](../log-analytics/log-analytics-log-searches.md) para exibir dados de rastreamento de alterações detalhado.
 

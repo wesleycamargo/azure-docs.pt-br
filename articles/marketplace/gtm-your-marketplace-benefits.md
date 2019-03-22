@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: ellacroi
-ms.openlocfilehash: 0e324ae82a0223cf48f00b186f46e26840d4d655
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 3fa4fb9fb7accfbe4517e2bf917a3df31ea10fa7
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747516"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887243"
 ---
 # <a name="your-marketplace-benefits"></a>Seus benefícios do Marketplace
 
@@ -63,9 +63,9 @@ Para acessar esses benefícios, você precisará:
 1. Publicar uma oferta no Azure Marketplace ou no AppSource.
 2. Verifique se você inseriu um contato de marketing na parte **informações de contato** de sua oferta. Isso deve ser um recurso de marketing dedicado, em vez de um alias de catch-all. (ou seja, evite usar "suporte\@", "informações\@", "marketing\@”, etc.)
 
-Com base no status da sua solução, você receberá um email com recursos de autoajuda ou um convite para uma chamada de consultoria com um gerenciador de engajamento dedicado. Você não precisará fazer nada para iniciar a chamada — a equipe de integração do Marketplace entrará em contato com você, com base nas informações que você fornecer no [Portal do Cloud Partner](https://cloudpartner.azure.com/).
+Com base no status de sua solução, oferta, sendo a lista, avaliação ou Transact, você receberá um email com recursos de autoajuda ou um convite para uma chamada de consultoria com um gerente de Engagement dedicado. Você não precisará fazer nada para iniciar a chamada — a equipe de integração do Marketplace entrará em contato com você, com base nas informações que você fornecer no [Portal do Cloud Partner](https://cloudpartner.azure.com/).
 
-O escopo das atividades disponíveis para você se expande conforme o crescimento de suas ofertas no Marketplace. Todas as listagens recebem um nível básico de promoção e de recomendações de otimização.  Essas listas também são qualificadas para benefícios de marketing adicionais com base no status da solução, no marketplace escolhido e na conquista de competência do Microsoft Partner. 
+O escopo das atividades disponíveis para você se expande conforme o crescimento de suas ofertas no Marketplace. Todas as listagens recebem um nível básico de promoção e de recomendações de otimização.  Essas listas também são qualificadas para benefícios de marketing adicionais com base no status de solução (lista, avaliação ou Transact), escolhido marketplace e a obtenção de competência de parceiro da Microsoft.
 
 A tabela a seguir resume os requisitos de qualificação:
 

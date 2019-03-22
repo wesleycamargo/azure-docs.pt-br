@@ -3,7 +3,7 @@ title: Agregação de Eventos do Service Fabric do Azure com EventFlow | Microso
 description: Saiba mais sobre a agregação e a coleta de eventos utilizando EventFlow para monitoramento e diagnóstico de clusters do Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/15/2017
-ms.author: dekapur
-ms.openlocfilehash: 829d1ffd1ef75d18f0d87a127c43666703e8a756
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.date: 2/25/2019
+ms.author: srrengar
+ms.openlocfilehash: eee5e71863f9a9195dc1f6f711cbacbc95ab84f2
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497359"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57246756"
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>Agregação e coleta de eventos usando EventFlow
 
@@ -157,5 +157,5 @@ Inicie o serviço e observe a depuração janela saída no Visual Studio. Depois
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Visualização e Análise de Eventos com o Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-* [Visualização e Análise de Eventos com o Log Analytics](service-fabric-diagnostics-event-analysis-oms.md)
+* [Visualização e análise de eventos com os logs do Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md)
 * [Documentação de EventFlow](https://github.com/Azure/diagnostics-eventflow)

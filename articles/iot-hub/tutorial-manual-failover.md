@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: bd9cb76557c65832de5d249cdccdc36101edf646
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: ff8ef576a0dae0f03cc0c80f83ce0c24cf3945a2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821279"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093728"
 ---
 # <a name="tutorial-perform-manual-failover-for-an-iot-hub-public-preview"></a>Tutorial: Executar failover manual para um hub IoT (versão prévia pública)
 
@@ -138,4 +138,4 @@ Neste tutorial, você aprendeu a configurar e executar um failover manual e a so
 Avance para o próximo tutorial para aprender a gerenciar o estado de um dispositivo IoT. 
 
 > [!div class="nextstepaction"]
-[Gerenciar o estado de um dispositivo IoT](tutorial-device-twins.md)
+> [Gerenciar o estado de um dispositivo IoT](tutorial-device-twins.md)

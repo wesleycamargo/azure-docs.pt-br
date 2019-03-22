@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: cc8c10f8a3f515d3401dbb469a7e4a31c4fe3501
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 4ddbec6b163a939c1663630e39e89140ac6f7efe
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329806"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546460"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Usar dados de referência para pesquisas no Stream Analytics
 Dados de referência (também conhecidos como tabela de pesquisa) são um conjunto finito de dados estáticos ou com alteração lenta por natureza, usados para executar uma pesquisa ou para correlacionar com seu fluxo de dados. Por exemplo, em um cenário de IoT, você pode armazenar metadados sobre sensores (que não são alterados com frequência) em dados de referência e uni-los a fluxos de dados de IoT em tempo real. O Azure Stream Analytics carrega dados de referência na memória para obter um processamento de fluxo de baixa latência. Para usar dados de referência no seu trabalho do Azure Stream Analytics geralmente é preciso usar uma [União de dados de referência](https://msdn.microsoft.com/library/azure/dn949258.aspx) em sua consulta. 
@@ -78,7 +78,7 @@ Os dados de referência do Banco de Dados SQL do Azure são recuperados pelo tra
 
 Se os dados de referência forem um conjunto de dados com alteração lenta, você precisará atualizar periodicamente o instantâneo que é usado no trabalho. O Stream Analytics permite que você defina uma taxa de atualização ao configurar a conexão de entrada do Banco de Dados SQL do Azure. O tempo de execução do Stream Analytics consultará o Banco de Dados SQL do Azure no intervalo especificado pela taxa de atualização. A taxa de atualização mais rápida compatível é uma vez por minuto. Para cada atualização, o Stream Analytics armazena um novo instantâneo na conta de armazenamento fornecida.
 
-O Stream Analytics oferece duas opções para consulta do Banco de Dados SQL do Azure. Uma consulta de instantâneo é obrigatória e precisa ser incluída em cada trabalho. O Stream Analytics executa a consulta de instantâneo periodicamente com base no intervalo de atualização e usa o resultado da consulta (o instantâneo) como o conjunto de dados de referência. A consulta de instantâneo deverá se ajustar à maioria dos cenários, mas se você enfrentar problemas de desempenho com conjuntos de dados grandes e taxas de atualização rápidas, use a opção de consulta delta.
+O Stream Analytics oferece duas opções para consulta do Banco de Dados SQL do Azure. Uma consulta de instantâneo é obrigatória e precisa ser incluída em cada trabalho. O Stream Analytics executa a consulta de instantâneo periodicamente com base no intervalo de atualização e usa o resultado da consulta (o instantâneo) como o conjunto de dados de referência. A consulta de instantâneo deverá se ajustar à maioria dos cenários, mas se você enfrentar problemas de desempenho com conjuntos de dados grandes e taxas de atualização rápidas, use a opção de consulta delta. Consultas que levam mais de 60 segundos para retornar o conjunto de dados de referência resultará em um tempo limite.
 
 Com a opção de consulta delta, o Stream Analytics executa a consulta de instantâneo inicialmente para obter um conjunto de dados de referência de linha de base. Em seguida, o Stream Analytics executa a consulta delta periodicamente com base no intervalo de atualização para recuperar alterações incrementais. Essas alterações incrementais são aplicadas continuamente ao conjunto de dados de referência para mantê-lo atualizado. O uso da consulta delta pode ajudar a reduzir o custo de armazenamento e as operações de E/S de rede.
 

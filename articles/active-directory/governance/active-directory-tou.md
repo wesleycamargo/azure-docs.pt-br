@@ -15,12 +15,12 @@ ms.subservice: compliance
 ms.date: 02/09/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 987b2b1ca028b816ed6909781f56c0b5174541bd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8f2de9274e1b6c996e75148d1a1f018d73a721bb
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163760"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443446"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Recurso Termos de uso do Azure Active Directory
 Os Termos de uso do Azure AD fornecem um método simples que as organizações podem usar para apresentar informações aos usuários finais. Essa apresentação faz com que os usuários vejam os avisos de isenção de responsabilidade relevantes para os requisitos de conformidade ou legais. Este artigo descreve como começar a usar os Termos de uso.
@@ -315,7 +315,7 @@ As políticas de acesso condicional entram em vigor imediatamente. Quando isso a
 
 A maioria das organizações tem um processo vigente para que seus funcionários consintam com os Termos de uso e as políticas de privacidade da organização. Mas como você pode impor os mesmos consentimentos para convidados B2B (business-to-business) do Azure AD quando eles forem adicionados por meio do SharePoint ou Teams? Usando o acesso condicional e termos de uso, é possível impor uma política diretamente para os usuários convidados B2B. Durante o fluxo de resgate de convite, o usuário é apresentado aos termos de uso. No momento, esse suporte está na versão prévia.
 
-Termos de uso só serão exibidos quando o usuário tiver uma conta de convidado no Azure AD. Atualmente, o SharePoint Online tem uma [experiência de destinatário de compartilhamento externo ad-hoc](/sharepoint/what-s-new-in-sharing-in-targeted-release) para compartilhar um documento ou uma pasta que não requer que o usuário tenha uma conta de convidado. Nesse caso, um Termos de uso não é exibido.
+Termos de uso só serão exibidos quando o usuário tiver uma conta de convidado no Azure AD. SharePoint Online no momento, tem um [experiência de destinatário compartilhamento externa ad-hoc](/sharepoint/what-s-new-in-sharing-in-targeted-release) para compartilhar um documento ou uma pasta que não requer que o usuário tenha uma conta de convidado. Nesse caso, um Termos de uso não é exibido.
 
 ![Todos os usuários convidados](./media/active-directory-tou/b2b-guests.png)
 

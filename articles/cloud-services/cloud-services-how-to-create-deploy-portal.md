@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: ece3511d0d3c12be13a649385ea9b6dd5c75bfe0
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
-ms.translationtype: HT
+ms.openlocfilehash: a6cf2276da463f71f008c4bfb6eee4c232b18308
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303692"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551689"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Como criar e implantar um serviço de nuvem
-O portal do Azure oferece duas maneiras de criar e implantar um serviço de nuvem: *Criação Rápida* e *Criação Personalizada*.
+O portal do Azure oferece duas maneiras de criar e implantar um serviço de nuvem: *Criação rápida* e *criação personalizada*.
 
 Este artigo explica como usar o método Criação Rápida para criar um novo serviço de nuvem e usar **Carregar** para carregar e implantar um pacote de serviço de nuvem no Azure. Ao usar esse método, o Portal do Azure disponibiliza links convenientes para o cumprimento de todos os requisitos quando você precisar. Se você estiver pronto para implantar o serviço de nuvem ao criá-lo, é possível usar ambos ao mesmo tempo usando a Criação Personalizada.
 
@@ -35,11 +35,11 @@ Este artigo explica como usar o método Criação Rápida para criar um novo ser
 Três componentes são necessários para implantar um aplicativo como um serviço de nuvem no Azure:
 
 * **Definição de serviço**  
-  O arquivo de definição de serviço de nuvem (.csdef) define o modelo de serviço, inclusive o número de funções.
+   O arquivo de definição de serviço de nuvem (.csdef) define o modelo de serviço, inclusive o número de funções.
 * **Configuração de serviço**  
-  O arquivo de configuração de serviço de nuvem (.cscfg) fornece as configurações para o serviço de nuvem e as funções individuais, inclusive o número de instâncias de função.
+   O arquivo de configuração de serviço de nuvem (.cscfg) fornece as configurações para o serviço de nuvem e as funções individuais, inclusive o número de instâncias de função.
 * **Pacote de serviço**  
-  O pacote de serviço (.cspkg) contém o código do aplicativo, as configurações e o arquivo de definição de serviço.
+   O pacote de serviço (.cspkg) contém o código do aplicativo, as configurações e o arquivo de definição de serviço.
 
 Você pode saber mais sobre eles e sobre como criar um pacote [aqui](cloud-services-model-and-package.md).
 
@@ -90,7 +90,7 @@ Se o pacote de implantação tiver sido [configurado para usar certificados](clo
 
     ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy-portal/running.png)
 
-[TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796
+[TFSTutorialForCloudService]: https://go.microsoft.com/fwlink/?LinkID=251796
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Configuração geral do serviço de nuvem](cloud-services-how-to-configure-portal.md).

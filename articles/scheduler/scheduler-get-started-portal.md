@@ -8,19 +8,19 @@ author: derek1ee
 ms.author: deli
 ms.reviewer: klam
 ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: f1f7e67fbd5d8a9ebfae03c00eb0de36e86d9a97
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 3b2cfc932c6322df8237ec7cdf820fc4242bfa72
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949580"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57887214"
 ---
 # <a name="create-and-schedule-your-first-job-with-azure-scheduler---azure-portal"></a>Criar e agendar o primeiro trabalho com o Agendador do Azure – portal do Azure
 
 > [!IMPORTANT]
-> [Aplicativo Lógico do Azure](../logic-apps/logic-apps-overview.md) está substituindo o Agendador do Azure, que está sendo desativado. Para agendar trabalhos, [experimente os Aplicativos Lógicos do Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+> [Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) está substituindo o Agendador do Azure, que está sendo desativado. Para agendar trabalhos, [experimente os Aplicativos Lógicos do Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
 
 Este tutorial mostra como você pode criar e agendar um trabalho e, em seguida, monitorar e gerenciar facilmente esse trabalho. 
 
@@ -28,13 +28,13 @@ Se você não tiver uma assinatura do Azure, <a href="https://azure.microsoft.co
 
 ## <a name="create-job"></a>Criar trabalho
 
-1. Entre no [portal do Azure](https://portal.azure.com/).  
+1. Entre no [Portal do Azure](https://portal.azure.com/).  
 
 1. No menu principal do Azure, selecione **Criar um recurso**. Na caixa de pesquisa, digite "agendador". Na lista de resultados, selecione **Agendador** e, em seguida, escolha **Criar**.
 
    ![Criar recurso do Agendador](./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png)
 
-   Agora, crie um trabalho que envie uma solicitação GET para esta URL: `http://www.microsoft.com/` 
+   Agora, crie um trabalho que envie uma solicitação GET para esta URL: `https://www.microsoft.com/` 
 
 1. Em **Trabalho do Agendador**, insira estas informações:
 
@@ -51,7 +51,7 @@ Se você não tiver uma assinatura do Azure, <a href="https://azure.microsoft.co
    |----------|---------------|-------------| 
    | **Ação** | **Http** | O tipo de ação a ser executada | 
    | **Método** | **Get** | O método a ser chamado | 
-   | **URL** | **http://www.microsoft.com** | A URL de destino | 
+   | **URL** | **https://www.microsoft.com** | A URL de destino | 
    |||| 
    
    ![Definir o trabalho](./media/scheduler-get-started-portal/scheduler-v2-portal-action-settings.png)

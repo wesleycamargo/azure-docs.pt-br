@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1f0b99c3a388dcfd0dabaf874e03f276c494553
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7287616dbad1aa77a6e4aaa110ade39dcea4f195
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176859"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082612"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Cmdlets da versão 2 do Azure Active Directory para gerenciamento de grupos
 
@@ -218,15 +218,15 @@ Para desabilitar a criação de grupos por usuários não administradores:
 
 1. Verifique se os usuários não administradores têm permissão para criar grupos:
    
-  ```
-  PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
-  ```
+   ```
+   PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
+   ```
   
 2. Se retornar `UsersPermissionToCreateGroupsEnabled : True`, os usuários não administradores podem criar grupos. Para desabilitar esse recurso:
   
-  ``` 
-  Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
-  ```
+   ``` 
+   Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
+   ```
   
 ## <a name="manage-owners-of-groups"></a>Gerenciar proprietários de grupos
 Para adicionar proprietários a um grupo, use o cmdlet Add-AzureADGroupOwner:
@@ -251,7 +251,7 @@ Se quiser remover um proprietário de um grupo, use o cmdlet Remove-AzureADGroup
 
 ## <a name="reserved-aliases"></a>Aliases reservados 
 Quando um grupo é criado, certos pontos de extremidade permitem que o usuário final especifique um mailNickname ou o alias a ser usado como parte do endereço de email do grupo. Os grupos com os seguintes aliases de email altamente privilegiados só podem ser criados por um administrador global do Azure AD. 
-  
+  
 * abuso 
 * administrador 
 * administrator 

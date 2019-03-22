@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 199e1dda3e4629c0298d4aae1cb5d09e20e4b3b8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 4e609bf6d96fa9cc3f2dc179157ecd27178608f9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452032"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860340"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>Acessar o Azure Cosmos DB de VNets (redes virtuais)
 
@@ -44,10 +44,10 @@ Depois que o ponto de extremidade de serviço do Azure Cosmos DB é habilitado e
 Apenas a rede virtual e suas sub-redes adicionadas à conta do Azure Cosmos têm acesso. Suas VNets emparelhadas não podem acessar a conta até que as sub-redes em redes virtuais separadas sejam adicionadas à conta.
 
 ### <a name="what-is-the-maximum-number-of-subnets-allowed-to-access-a-single-cosmos-account"></a>Qual é o número máximo de sub-redes com permissão para acessar uma única conta do Cosmos? 
-Atualmente, você pode ter no máximo 64 sub-redes permitidas para uma conta do Azure Cosmos.
+No momento, você pode ter no máximo 64 sub-redes permitidas para uma conta de Cosmos do Azure.
 
 ### <a name="can-i-enable-access-from-vpn-and-express-route"></a>Posso habilitar o acesso da VPN e do Expresso Route? 
-Para acessar a conta do Azure Cosmos pela rota Expressa, você precisaria ativar o emparelhamento da Microsoft. Depois de colocar as regras de firewall de IP ou de acesso à rede virtual, você poderá adicionar os endereços IP públicos usados para o emparelhamento da Microsoft em seu firewall IP da conta do Azure Cosmos para permitir acesso de serviços nas instalações à conta do Azure Cosmos. 
+Para acessar a conta do Azure Cosmos pela rota expressa, de locais, você precisa habilitar o emparelhamento da Microsoft. Depois de colocar as regras de firewall de IP ou de acesso à rede virtual, você poderá adicionar os endereços IP públicos usados para o emparelhamento da Microsoft em seu firewall IP da conta do Azure Cosmos para permitir acesso de serviços nas instalações à conta do Azure Cosmos. 
 
 ### <a name="do-i-need-to-update-the-network-security-groups-nsg-rules"></a>Preciso atualizar as regras do Network Security Groups (NSG)? 
 As regras NSG são usadas para limitar a conectividade de e para uma sub-rede com rede virtual. Quando você adiciona o ponto de extremidade de serviço do Azure Cosmos DB à sub-rede, não há necessidade de abrir a conectividade de saída no NSG para sua conta do Azure Cosmos. 

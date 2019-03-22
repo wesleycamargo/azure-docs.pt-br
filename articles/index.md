@@ -292,7 +292,7 @@ Azure DevOps Projects </a>
                                                 <h3>Desenvolva suas habilidades com o Microsoft Learn</h3>
                                                 <ul class="noBullet">
                                                     <li>
-                                                        <a class="barLink" href="/learn/modules/tour-azure-services-and-features/">
+                                                        <a class="barLink" href="/learn/modules/tour-azure-portal/">
                                                             <img src="https://docs.microsoft.com/learn/achievements/tour-azure-services-and-features.svg" alt="">
 Conheça os recursos e serviços do Azure </a>
                                                     </li>
@@ -1024,6 +1024,21 @@ Automatizar tarefas do Azure usando scripts com o PowerShell </a>
                                             </a>
                                         </li>
                                     </ul>
+                                    <h3>Realidade Misturada</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/digital-twins/">
+                                                <img src="media/index/digital_twin.svg" alt="" />
+                                                <p>Gêmeos Digitais do Azure</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/spatial-anchors/">
+                                                <img src="media/index/spatial_anchors.png" alt="" />
+                                                <p>Âncoras Espaciais do Azure</p>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </li>
                             <li>
@@ -1314,7 +1329,7 @@ Automatizar tarefas do Azure usando scripts com o PowerShell </a>
                                         <li>
                                             <a href="/azure/iot-fundamentals">
                                                 <img src="media/index/IoTHub.svg" alt="" />
-                                                <p>Conceitos básicos de IoT</p>
+                                                <p>IoT do Azure</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1590,6 +1605,12 @@ Automatizar tarefas do Azure usando scripts com o PowerShell </a>
                                             <a href="/azure/role-based-access-control/">
                                                 <img src="media/index/PersonWithFriend.svg" alt="" />
                                                 <p>Controle de acesso baseado em função</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/sentinel/">
+                                                <img src="media/index/sentinel.png" alt="" />
+                                                <p>Azure Sentinel</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -2475,7 +2496,7 @@ Automatizar tarefas do Azure usando scripts com o PowerShell </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/en-us/azure/databox-family/" data-linktype="absolute-path">
+                                <a href="/azure/databox-family/" data-linktype="absolute-path">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2494,7 +2515,7 @@ Automatizar tarefas do Azure usando scripts com o PowerShell </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/en-us/azure/avere-vfxt/" data-linktype="absolute-path">
+                                <a href="/azure/avere-vfxt/" data-linktype="absolute-path">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -3929,12 +3950,12 @@ Automatizar tarefas do Azure usando scripts com o PowerShell </a>
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/iothub.svg" alt="" />
+                                                        <img src="media/index/question-mark-grey.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Conceitos básicos de IoT</h3>
-                                                    <p>Introdução à conexão de dispositivos</p>
+                                                    <h3>Novo no Azure IoT?</h3>
+                                                    <p>Comece aqui para saber qual serviço atende às suas necessidades</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4296,6 +4317,49 @@ Automatizar tarefas do Azure usando scripts com o PowerShell </a>
                                                 <div class="cardText">
                                                     <h3>Azure Sphere</h3>
                                                     <p>Criar dispositivos de MCU altamente seguros e conectados</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#mixed">Realidade Misturada</a>
+                        <ul id="mixed" class="cardsA">
+                            <li>
+                                <a href="/azure/digital-twins/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/digital_twin.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Gêmeos Digitais do Azure</h3>
+                                                    <p>Crie soluções de inteligência espacial de IoT da próxima geração</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/spatial-anchors/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/spatial_anchors.png" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Âncoras Espaciais do Azure</h3>
+                                                    <p>Crie experiências de realidade misturada multiusuário e com reconhecimento espacial</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4729,6 +4793,25 @@ Automatizar tarefas do Azure usando scripts com o PowerShell </a>
                                                 <div class="cardText">
                                                     <h3>Controle de acesso baseado em função</h3>
                                                     <p>Gerenciar o acesso com recursos do Azure</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/sentinel/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/sentinel.png" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Sentinel</h3>
+                                                    <p>Aprenda a usar o SIEM da Microsoft, que fornece análise de segurança inteligente para toda a sua empresa em escala de nuvem</p>
                                                 </div>
                                             </div>
                                         </div>

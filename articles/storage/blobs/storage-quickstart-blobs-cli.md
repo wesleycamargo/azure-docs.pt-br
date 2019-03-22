@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: rogarana
-ms.openlocfilehash: 1819d1dba777d97590c0b02a89cde3b46af78fff
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 11bd639d86c6ad9a9f373ac26dc271817bc46b08
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749228"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57773079"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>Início Rápido: carregar, baixar e listar blobs usando a CLI do Azure
+# <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>Início rápido: carregar, baixar e listar blobs usando a CLI do Azure
 
 A CLI do Azure é a experiência de linha de comando do Azure para gerenciar recursos do Azure. Você pode usá-la em seu navegador com o Azure Cloud Shell. Você também pode instalá-lo no Windows, no Linux ou no macOS e executá-lo na linha de comando. Neste guia de início rápido, você aprende a usar a CLI do Azure para carregar e baixar dados para e do Armazenamento de Blobs do Azure.
 
@@ -60,7 +60,7 @@ Se você tiver usado o método descrito anteriormente para criar um arquivo no A
 ```azurecli-interactive
 az storage blob upload \
     --container-name mystoragecontainer \
-    --name helloworld
+    --name helloworld \
     --file helloworld
 ```
 

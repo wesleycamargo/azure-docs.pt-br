@@ -10,15 +10,15 @@ ms.service: service-bus-relay
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: spelluru
-ms.openlocfilehash: 2937d1f665dae03795892f9ff0e8a93a894e1992
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 47fbce7ea26bcb7224fe2624d593d85cd178d610
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818032"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776301"
 ---
 # <a name="what-is-azure-relay"></a>O que é Retransmissão do Azure?
 O serviço de Retransmissão do Azure permite que você exponha com segurança os serviços que são executados na sua rede corporativa para a nuvem pública. Você pode expor os serviços sem abrir uma porta no seu firewall e realizar alterações invasivas a uma infraestrutura de rede corporativa. 
@@ -82,7 +82,7 @@ O diagrama a seguir mostra como as solicitações de retransmissão de entrada s
 5. O gateway encaminha a solicitação de conexão para o gateway correto mencionado no repositório de gateway. 
 6. O gateway envia uma solicitação para o cliente ouvinte para que ele crie um canal temporário para o nó de gateway mais próximo ao cliente remetente. 
 7. O cliente ouvinte criará um canal temporário para o gateway mais próximo do cliente remetente. Agora que a conexão foi estabelecida entre os clientes por meio de um gateway, os clientes podem trocar mensagens entre si. 
-8. O gateway encaminha qualquer mensagem do cliente que está escutando para o cliente que enviou. 
+8. O gateway encaminha todas as mensagens do cliente de escuta para o aplicativo cliente. 
 9. O gateway encaminha qualquer mensagem do cliente que enviou para o cliente que está escutando.  
 
 ## <a name="next-steps"></a>Próximas etapas

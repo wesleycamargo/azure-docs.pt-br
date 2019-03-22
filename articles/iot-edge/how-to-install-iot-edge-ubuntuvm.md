@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: gregman
-ms.openlocfilehash: 7ff7671425e2a2a5dbebe2d09cadb8ef71bc7c97
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 5b3dcb3abad071cb5d079d6c740cc09e2577a363
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55896524"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116411"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Executar Azure IoT Edge em Máquinas Virtuais do Ubuntu
 
@@ -22,7 +22,7 @@ O tempo de execução do Azure IoT Edge é o que transforma um dispositivo em um
 
 Para saber mais sobre como funciona o tempo de execução do IoT Edge e quais componentes estão incluídos, veja [Entender o tempo de execução do Azure IoT Edge e sua arquitetura](iot-edge-runtime.md).
 
-Este artigo lista as etapas para executar o tempo de execução do Azure IoT Edge em uma Máquina Virtual do Ubuntu 16.04 usando o [Azure IoT Edge na oferta do Azure Marketplace do Ubuntu](http://aka.ms/azure-iot-edge-ubuntuvm) pré-configurado. 
+Este artigo lista as etapas para executar o tempo de execução do Azure IoT Edge em uma Máquina Virtual do Ubuntu 16.04 usando o [Azure IoT Edge na oferta do Azure Marketplace do Ubuntu](https://aka.ms/azure-iot-edge-ubuntuvm) pré-configurado. 
 
 Na primeira inicialização, o Azure IoT Edge na VM do Ubuntu pré-instala a última versão do tempo de execução do Azure IoT Edge. Isso também inclui um script para definir a cadeia de conexão e reiniciar o tempo de execução, que pode ser disparado remotamente por meio do portal da VM do Azure ou da linha de comando do Azure, permitindo configurar e conectar facilmente o dispositivo do IoT Edge sem iniciar uma sessão SSH ou área de trabalho remota. Esse script aguardará para definir a cadeia de conexão até que o cliente do IoT Edge esteja totalmente instalado para que não seja necessário incorporá-lo à automação.
 
@@ -45,48 +45,48 @@ Na primeira inicialização, o Azure IoT Edge na VM do Ubuntu pré-instala a úl
 No portal do Azure, pesquise "Azure IoT Edge" e selecione **Ubuntu Server 16.04 LTS + tempo de execução do Azure IoT Edge** para iniciar o fluxo de trabalho de criação de VM. Em seguida, conclua as etapas 3 e 4 nas instruções "Implantar do Azure Marketplace" acima.
 
 ## <a name="deploy-from-azure-cli"></a>Implantar da CLI do Azure
-1.  Se esta for sua primeira vez implantando uma máquina virtual a partir da CLI, será necessário habilitar a implantação programática para a assinatura do Azure:
-    1. Abrir a oferta do Marketplace [Azure IoT Edge no Ubuntu](https://aka.ms/azure-iot-edge-ubuntuvm)
-    1. Selecione **OBTER AGORA** e **Continuar** na caixa de diálogo subsequente
-    1. Selecione **Deseja implantar programaticamente? Introdução** na parte inferior da caixa de diálogo no portal
-    1. Clique no botão **Habilitar** na página **Configurar Implantação Programática** e, em seguida, clique em **Salvar**
-1.  Se você estiver usando a CLI do Azure na área de trabalho, comece fazendo logon:
+1. Se esta for sua primeira vez implantando uma máquina virtual a partir da CLI, será necessário habilitar a implantação programática para a assinatura do Azure:
+   1. Abrir a oferta do Marketplace [Azure IoT Edge no Ubuntu](https://aka.ms/azure-iot-edge-ubuntuvm)
+   1. Selecione **OBTER AGORA** e **Continuar** na caixa de diálogo subsequente
+   1. Selecione **Deseja implantar programaticamente? Introdução** na parte inferior da caixa de diálogo no portal
+   1. Clique no botão **Habilitar** na página **Configurar Implantação Programática** e, em seguida, clique em **Salvar**
+1. Se você estiver usando a CLI do Azure na área de trabalho, comece fazendo logon:
 
-    ```azurecli-interactive
-    az login
-    ```
+   ```azurecli-interactive
+   az login
+   ```
     
-1.  Se você tiver várias assinaturas, selecione a assinatura que gostaria de usar:
-    1.  Liste suas assinaturas:
+1. Se você tiver várias assinaturas, selecione a assinatura que gostaria de usar:
+   1. Liste suas assinaturas:
     
-       ```azurecli-interactive
-       azure account list --output table
-       ```
+      ```azurecli-interactive
+      az account list --output table
+      ```
     
-    1.  Copie o campo SubscriptionID da assinatura que você quer usar
-    1.  Execute esse comando com a ID que você acabou de copiar:
+   1. Copie o campo SubscriptionID da assinatura que você quer usar
+   1. Execute esse comando com a ID que você acabou de copiar:
     
-       ```azurecli-interactive 
-       az account set -s {SubscriptionId}
-       ```
+      ```azurecli-interactive 
+      az account set -s {SubscriptionId}
+      ```
     
-1.  Crie um novo grupo de recursos (ou especifique um existente nas próximas etapas):
+1. Crie um novo grupo de recursos (ou especifique um existente nas próximas etapas):
 
-    ```azurecli-interactive
-    az group create --name IoTEdgeResources --location westus2
-    ```
+   ```azurecli-interactive
+   az group create --name IoTEdgeResources --location westus2
+   ```
     
-1.  Crie uma nova máquina virtual:
+1. Crie uma nova máquina virtual:
 
-    ```azurecli-interactive
-    az vm create --resource-group IoTEdgeResources --name EdgeVM –image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
-    ```
+   ```azurecli-interactive
+   az vm create --resource-group IoTEdgeResources --name EdgeVM –-image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
+   ```
 
-1.  Defina a cadeia de conexão do dispositivo (você poderá seguir o guia de instruções [Registrar um novo dispositivo do Azure IoT Edge com a CLI do Azure](how-to-register-device-cli.md), se você não estiver familiarizado com esse processo):
+1. Defina a cadeia de conexão do dispositivo (você poderá seguir o guia de instruções [Registrar um novo dispositivo do Azure IoT Edge com a CLI do Azure](how-to-register-device-cli.md), se você não estiver familiarizado com esse processo):
 
-    ```azurecli-interactive
-    az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script '/etc/iotedge/configedge.sh "{device_connection_string}"'
-    ```
+   ```azurecli-interactive
+   az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script '/etc/iotedge/configedge.sh "{device_connection_string}"'
+   ```
 
 Se você quiser SSH nessa VM após a instalação, use o publicIpAddress com o comando: `ssh azureuser@{publicIpAddress}`
 

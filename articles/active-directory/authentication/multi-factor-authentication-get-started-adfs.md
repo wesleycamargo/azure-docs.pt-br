@@ -11,16 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c47b45db95d428e9817220099368c14a31b4a528
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ab1f54ee8c3ebb5ae41d28b70f1cffcb244af39f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192091"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075996"
 ---
 # <a name="getting-started-with-azure-multi-factor-authentication-and-active-directory-federation-services"></a>Introdução ao Autenticação Multifator do Azure e aos Serviços de Federação do Active Directory
 
-<center>![Nuvem](./media/multi-factor-authentication-get-started-adfs/adfs.png)</center>
+<center>
+
+![Nuvem](./media/multi-factor-authentication-get-started-adfs/adfs.png)</center>
 
 Caso organização tenha federado seu Active Directory local com o Azure Active Directory usando o AD FS, existem duas opções para usar a Autenticação Multifator do Azure.
 
@@ -30,7 +32,7 @@ Caso organização tenha federado seu Active Directory local com o Azure Active 
 A tabela a seguir resume a experiência de verificação entre a proteção dos recursos com a Autenticação Multifator do Azure e o AD FS
 
 | Experiência de verificação – Aplicativos baseados em navegador | Experiência de verificação – Aplicativos não baseados em navegador |
-|:--- |:--- |:--- |
+|:--- |:--- |
 | Protegendo os recursos do AD do Azure usando a Autenticação Multifator do Azure |<li>A primeira etapa de verificação é executada localmente usando o AD FS.</li> <li>A segunda etapa é um método baseado em telefone executado com a autenticação na nuvem.</li> |
 | Protegendo recursos do AD do Azure usando os Serviços de Federação do Active Directory |<li>A primeira etapa de verificação é executada localmente usando o AD FS.</li><li>A segunda etapa é realizada localmente, cumprindo a declaração.</li> |
 

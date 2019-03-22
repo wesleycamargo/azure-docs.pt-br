@@ -1,19 +1,20 @@
 ---
 title: Carregar arquivos de dispositivos para o Hub IoT do Azure com Java | Microsoft Docs
 description: Como carregar arquivos de um dispositivo para a nuvem usando o SDK do dispositivo IoT do Azure para Java. Os arquivos carregados são armazenados em um contêiner de Azure Storage Blob.
-author: dominicbetts
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.author: dobett
-ms.openlocfilehash: 11b283bf3557fd14663e1789ce19af48b9aa9db2
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
-ms.translationtype: HT
+ms.openlocfilehash: 3658b57d003ddc5429c6857f88044376fe1aaa93
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824057"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548976"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Carregar arquivos do seu dispositivo para a nuvem com o Hub IoT
 
@@ -144,7 +145,7 @@ Nesta seção, você criará um aplicativo de console Java que receba mensagens 
     ```
 
     > [!NOTE]
-    > Você pode verificar a versão mais recente do **iot-service-client** usando a [pesquisa do Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
+    > Você pode verificar a versão mais recente do **iot-service-client** usando a [pesquisa do Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
 4. Salve e feche o arquivo `pom.xml`.
 

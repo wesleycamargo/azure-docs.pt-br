@@ -1,49 +1,77 @@
 ---
-title: Sobre a Tradução de Fala – Serviços de Fala
+title: Tradução de fala com os serviços de fala do Azure
 titlesuffix: Azure Cognitive Services
-description: A API de Serviço de Fala permite adicionar tradução de ponta a ponta em tempo real e em vários idiomas de fala a seus aplicativos, suas ferramentas e seus dispositivos. A mesma API pode ser usada para a tradução com conversão de fala em fala e de fala em texto.
+description: Os serviços de fala permitem que você adicionar a conversão de ponta a ponta, em tempo real, vários idioma de fala para seus aplicativos, ferramentas e dispositivos. A mesma API pode ser usada para a tradução com conversão de fala em fala e de fala em texto.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: e77bfcdf2e037c7f6221b6761df708dac01924dd
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 95682612b4b0fdb1baa5038039630e74abddb1a9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879234"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890458"
 ---
-# <a name="about-the-speech-translation-api"></a>Sobre a API de Tradução de Fala
+# <a name="what-is-speech-translation"></a>O que é a tradução de fala?
 
-A API de Serviço de Fala permite adicionar tradução de ponta a ponta em tempo real e em vários idiomas de fala a seus aplicativos, suas ferramentas e seus dispositivos. A mesma API pode ser usada para a tradução com conversão de fala em fala e de fala em texto.
+Tradução de fala a fala dos serviços do Azure, permite que a tradução de fala em fala e fala para texto em tempo real e em vários idiomas dos fluxos de áudio. Com o SDK de fala, seus aplicativos, ferramentas e dispositivos têm acesso para transcrições de origem e as saídas de tradução para áudio fornecido. Os resultados intermediários de transcrição e tradução são retornados conforme a fala é detectada e resultados finais podem ser convertidos em voz sintetizada.
 
-Com a API de Tradução de Fala da Microsoft, aplicativos cliente transmitem por streaming áudio de fala para o serviço e recebem de volta um fluxo de resultados. Esses resultados incluem o texto reconhecido no idioma de origem e sua tradução para o idioma de destino. Traduções provisórias podem ser fornecidas até que um enunciado esteja concluído, momento em que a tradução final é fornecida.
+Mecanismo de tradução da Microsoft é alimentado por duas abordagens diferentes: tradução automática estatísticos (SMT) e tradução neural (NMT). SMT usa análises estatísticas avançadas para estimar as traduções possíveis melhor, considerando o contexto de algumas palavras. Com NMT, redes neurais são usadas para fornecer as traduções mais precisas, sonora natural, usando o contexto completo de frases para traduzir palavras.
 
-Opcionalmente, uma versão de áudio sintetizada da tradução final pode ser preparada, possibilitando verdadeira tradução com conversão de fala em fala.
+Atualmente, a Microsoft usa NMT para a tradução para idiomas mais populares. Todos os [idiomas disponíveis para tradução de fala em fala](language-support.md#speech-translation) também são alimentadas por NMT. A tradução com conversão de fala em texto pode usar SMT ou NMT, dependendo do par de idiomas. Quando o idioma de destino é compatível com NMT, a tradução inteira é alimentado por NMT. Quando o idioma de destino não é suportado pelo NMT, a tradução é um híbrido das NMT e SMT, usando o idioma inglês como "dinâmico" entre as duas linguagens.
 
-A API de Tradução de Fala usa o protocolo WebSockets para fornecer um canal de comunicação full duplex entre o cliente e o servidor. Mas você não precisa lidar com WebSockets; o SDK de Fala lida com isso para você.
+## <a name="core-features"></a>Principais recursos
 
-A API de Tradução de Fala utiliza as mesmas tecnologias empregadas em vários produtos e serviços da Microsoft. Esse serviço já é usado por milhares de empresas em todo o mundo em seus aplicativos e fluxos de trabalho.
+Aqui estão os recursos disponíveis por meio do SDK de fala e APIs REST:
 
-## <a name="about-the-technology"></a>Sobre a tecnologia
+| Caso de uso | . | REST |
+|----------|-----|------|
+| Tradução de fala em texto com os resultados de reconhecimento. | Sim | Não  |
+| Tradução de fala a fala. | Sim | Não  |
+| Reconhecimento e tradução os resultados intermediários. | Sim | Não  |
 
-O mecanismo de tradução da Microsoft subjacente consiste em duas abordagens diferentes: SMT (tradução automática estatística) e NMT (tradução automática neural). Esta última, uma abordagem de inteligência artificial empregando redes neurais, é a abordagem mais moderna à tradução automática. A NMT fornece traduções melhores – não apenas mais precisas, mas também mais fluentes e naturais. O motivo principal dessa fluidez é que a NMT usa o contexto completo de uma sentença para traduzir palavras.
+## <a name="get-started-with-speech-translation"></a>Introdução a tradução de fala
 
-Hoje, Microsoft migrou para NMT para os idiomas mais populares, empregando SMT somente para idiomas usados com menor frequência. Todos os [idiomas disponíveis para tradução de fala em fala](language-support.md#speech-translation) também são alimentadas por NMT. A tradução com conversão de fala em texto pode usar SMT ou NMT, dependendo do par de idiomas. Se o idioma de destino é compatível com a NMT, a tradução completa é ativada pela NMT. Se o idioma de destino não é compatível com a NMT, a tradução é uma combinação da NMT e da SMT usando o inglês como o "pivô" entre os dois idiomas.
+Nós oferecemos guias de início rápido foi projetados para ter está executando código em menos de 10 minutos. Essa tabela inclui uma lista dos inícios rápidos de tradução de fala organizados por idioma.
 
-As diferenças entre os modelos são internas ao mecanismo de tradução. Os usuários observam apenas a qualidade da tradução melhor, especialmente para chinês, japonês e árabe.
+| Início rápido | Plataforma | Referência de API |
+|------------|----------|---------------|
+| [C#, .NET Core](quickstart-translate-speech-dotnetcore-windows.md) |  Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C#, .NET Framework](quickstart-translate-speech-dotnetframework-windows.md) |  Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C#, UWP](quickstart-translate-speech-uwp.md) |  Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C++](quickstart-translate-speech-cpp-windows.md) |  Windows | [Browse](https://aka.ms/csspeech/cppref)|
+| [Java](quickstart-translate-speech-java-jre.md) |  Windows | [Browse](https://aka.ms/csspeech/javaref) |
 
-> [!NOTE]
-> Ficou interessado em saber mais sobre a tecnologia por trás do mecanismo de tradução da Microsoft? Veja [Tradução automática](https://www.microsoft.com/en-us/translator/mt.aspx).
+## <a name="sample-code"></a>Exemplo de código
+
+Código de exemplo para o Speech SDK está disponível no GitHub. Esses exemplos abrangem cenários comuns, como ler o áudio de um arquivo ou fluxo, reconhecimento/conversão contínua e a única etapa e trabalhar com modelos personalizados.
+
+* [Exemplos de fala em texto e translação (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+
+## <a name="migration-guides"></a>Guias de migração
+
+> [!WARNING]
+> Tradução de fala será desativada em 15 de outubro de 2019.
+
+Se seus aplicativos, ferramentas ou produtos estiver usando a tradução de fala, criamos guias para ajudá-lo a migrar para os serviços de fala.
+
+* [Migrar da API de tradução de fala para os serviços de fala](how-to-migrate-from-translator-speech-api.md)
+
+## <a name="reference-docs"></a>Documentos de Referência
+
+* [SDK da fala](speech-sdk-reference.md)
+* [SDK de Dispositivos de Fala](speech-devices-sdk.md)
+* [API REST: Speech-to-text](rest-speech-to-text.md)
+* [API REST: Text-to-speech](rest-text-to-speech.md)
+* [API REST: Personalização e transcrição de lote](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Obtenha sua assinatura de avaliação de Fala](https://azure.microsoft.com/try/cognitive-services/)
-* [Veja como a tradução de fala em C#](how-to-translate-speech-csharp.md)
-* [Veja como a tradução de fala em C++](how-to-translate-speech-cpp.md)
-* [Veja como a tradução de fala em Java](how-to-translate-speech-java.md)
+* [Obtenha uma chave de assinatura de serviços de fala gratuitamente](get-started.md)
+* [Obtenha o SDK da fala](speech-sdk.md)

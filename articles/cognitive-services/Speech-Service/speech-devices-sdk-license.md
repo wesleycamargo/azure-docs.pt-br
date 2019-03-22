@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 096bc96558f0fe33f8046622dc2443728674e405
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 825a6035a997eb27a3e8e5833a792bdd985997c9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876839"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084616"
 ---
 # <a name="speech-devices-sdk-license-agreement"></a>Contrato de licença do SDK dos Dispositivos de Fala
 
@@ -52,7 +52,7 @@ e) compartilhar, publicar ou emprestar o software (exceto para qualquer código 
 
 f) você deverá usar o software somente em combinação com o serviço de Fala dos Serviços Cognitivos do Microsoft Azure
 
-**3\. COLETA DE DADOS.** Este software poderá interagir com outros produtos da Microsoft que coletam dados transmitidos à Microsoft. Para saber mais sobre como a Microsoft processa os dados pessoais coletados, confira a Política de Privacidade da Microsoft em http://go.microsoft.com/fwlink/?LinkId=248681.
+**3\. COLETA DE DADOS.** Este software poderá interagir com outros produtos da Microsoft que coletam dados transmitidos à Microsoft. Para saber mais sobre como a Microsoft processa os dados pessoais coletados, confira a Política de Privacidade da Microsoft em https://go.microsoft.com/fwlink/?LinkId=248681.
 
 **4\. SOFTWARE DE PRÉ-LANÇAMENTO.** O software é uma versão de pré-lançamento. Ele pode não funcionar corretamente. Ele pode ser diferente da versão liberada comercialmente.
 
@@ -83,9 +83,9 @@ b) Canadá. Se você tiver adquirido este software no Canadá, você poderá par
 c) Alemanha e Áustria.
 
 > (i) Garantia. O software devidamente licenciado funcionará substancialmente conforme descrito nos materiais da Microsoft que acompanham o software. No entanto, a Microsoft não concederá nenhuma garantia contratual em relação ao software licenciado.
-
+> 
 > (ii) Limitação de responsabilidade. Em caso de conduta intencional, negligência grosseira, queixas baseadas na Lei sobre Responsabilidade por Produtos, bem como em caso de morte ou danos à integridade física ou pessoal, a Microsoft é responsável de acordo com a lei estatutária.
-
+> 
 > Sujeito à cláusula (ii) precedente, a Microsoft somente será responsável por negligência leve se violar tais obrigações contratuais materiais, cujo cumprimento facilite a devida execução deste contrato, violação que poderia colocar em risco o objetivo deste contrato cuja conformidade é constantemente esperada por uma parte (as chamadas "obrigações fundamentais"). A Microsoft não será responsável em todos os outros casos de negligência ligeira.
 
 **15\. AVISO DE ISENÇÃO DE RESPONSABILIDADE DE GARANTIA. O SOFTWARE É LICENCIADO "NO ESTADO EM QUE SE ENCONTRA". VOCÊ É RESPONSÁVEL POR UTILIZÁ-LO. A MICROSOFT NÃO CONCEDE OUTRAS GARANTIAS OU CONDIÇÕES EXPRESSAS. ATÉ A EXTENSÃO MÁXIMA PERMITIDA PELA LEGISLAÇÃO APLICÁVEL, A MICROSOFT EXCLUI TODAS AS GARANTIAS IMPLÍCITAS, INCLUINDO DE COMERCIALIZAÇÃO, ADEQUAÇÃO A UM FIM ESPECÍFICO E NÃO VIOLAÇÃO.**

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/21/2018
 ms.author: sikoo
 ms.subservice: files
-ms.openlocfilehash: e73a11d7849d6e304be0844a55ddad46e6966f6e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: fe363bd6d16d7beea1c8f1e6ec17710975a80924
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470443"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652553"
 ---
 # <a name="cloud-tiering-overview"></a>Visão geral da Camada de Nuvem
 A camada de nuvem é um recurso opcional da Sincronização de Arquivos do Azure em que arquivos acessados frequentemente são armazenados em cache localmente no servidor, enquanto todos os outros arquivos são organizados em camadas para Arquivos do Azure com base nas configurações de política. Quando um arquivo está disposto em camadas, o filtro do sistema de arquivos da Sincronização de Arquivos do Azure (StorageSync.sys) substitui o arquivo localmente por um ponteiro ou ponto de nova análise. O ponto de nova análise representa uma URL para o arquivo nos Arquivos do Azure. Um arquivo em camadas tem o atributo "offline" e o atributo FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS definidos em NTFS, de modo que aplicativos de terceiros podem identificar com segurança os arquivos dispostos em camadas.
@@ -21,9 +21,12 @@ A camada de nuvem é um recurso opcional da Sincronização de Arquivos do Azure
 Quando um usuário abre um arquivo em camadas, a Sincronização de Arquivos do Azure recupera os dados de arquivo diretamente dos Arquivos do Azure, sem que o usuário precise saber que o arquivo está realmente armazenado no Azure. 
  
  > [!Important]  
-    > Importante: A camada de nuvem não dá suporte a pontos de extremidade do servidor nos volumes de sistema do Windows e somente arquivos com tamanho maior que 64 KiB podem ser dispostos em camadas nos Arquivos do Azure.
+ > A camada de nuvem não dá suporte a pontos de extremidade do servidor nos volumes de sistema do Windows e somente arquivos com tamanho maior que 64 KiB podem ser dispostos em camadas nos Arquivos do Azure.
     
 A Sincronização de Arquivos do Azure não dá suporte à disposição em camadas para arquivos menores que 64 KiB, já que a sobrecarga de desempenho causada pela disposição em camadas e subsequente recuperação desses arquivos pequenos seria mais onerosa que a economia de espaço.
+
+ > [!Important]  
+ > Para recuperar arquivos que têm em camadas, a largura de banda de rede deve ser pelo menos 1 Mbps. Se a largura de banda de rede é menos de 1 Mbps, os arquivos podem falhar ao Lembre-se com um erro de tempo limite.
 
 ## <a name="cloud-tiering-faq"></a>Perguntas frequentes das Camadas de Nuvem
 

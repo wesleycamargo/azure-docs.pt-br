@@ -14,21 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 9f5ccccaffbd11b482ed04875563fc33fb054d03
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 7d907e3d06e8c2817b1fc4a30a7f808d06b022ce
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995146"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884703"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>PlayReady offline para Windows 10  
+
+> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> * [Versão 3](../latest/offline-plaready-streaming-for-windows-10.md)
+> * [Versão 2](offline-playready-streaming-windows-10.md)
 
 Os serviços de mídia do Azure dão suporte offline ao download/reprodução com a proteção de DRM. Esse artigo aborda o suporte offline dos Serviços de Mídia do Azure para Windows 10 para os clientes do PlayReady. Você pode ler sobre o suporte ao modo offline para FairPlay/iOS e dispositivos Android/Widevine nos seguintes artigos:
 
 - [Streaming de FairPlay Offline para iOS](media-services-protect-hls-with-offline-fairplay.md)
 - [Streaming offline do Widevine para Android](offline-widevine-for-android.md)
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 Esta seção fornece algumas informações básicas sobre a reprodução de modo offline, especialmente porque:
 
@@ -41,7 +45,7 @@ O desafio que enfrentamos em implementar o modo offline é o seguinte:
 * O Mp4 é compatível com vários jogadores, ferramentas de codificador, mas não há nenhuma associação entre o contêiner MP4 e o DRM;
 * A longo prazo, o CFF com CENC é a melhor opção. No entanto, o ecossistema de suporte de ferramentas/player não ainda existe ainda. Precisamos de uma solução no momento.
  
-A ideia é: formato de arquivo de streaming suave ([PIFF](http://go.microsoft.com/?linkid=9682897)) com H264/AAC que possui uma associação com o PlayReady (AES-128 CTR). O arquivo individual Smooth streaming. ismv (supondo que o áudio está em vídeo) é um fMP4 que pode ser usado para reprodução. Se um conteúdo de streaming suave passar pela criptografia do PlayReady, cada arquivo. ismv se torna um MP4 fragmentado e protegido por PlayReady. Pode-se escolher um arquivo. ismv com a taxa de bits preferencial e renomeá-lo como .mp4 para fazer o download.
+A ideia é: formato de arquivo de streaming suave ([PIFF](https://go.microsoft.com/?linkid=9682897)) com H264/AAC que possui uma associação com o PlayReady (AES-128 CTR). O arquivo individual Smooth streaming. ismv (supondo que o áudio está em vídeo) é um fMP4 que pode ser usado para reprodução. Se um conteúdo de streaming suave passar pela criptografia do PlayReady, cada arquivo. ismv se torna um MP4 fragmentado e protegido por PlayReady. Pode-se escolher um arquivo. ismv com a taxa de bits preferencial e renomeá-lo como .mp4 para fazer o download.
 
 Há duas opções para hospedar o MP4 protegido por PlayReady para fazer o download progressivo:
 
@@ -57,12 +61,12 @@ Abaixo estão dois conjuntos de ativos de teste, o primeiro deles usa a entrega 
 
 Ativo #1:
 
-* Fazer o download progressivo da URL: [http://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](http://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
+* Fazer o download progressivo da URL: [https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
 * PlayReady da LA_URL (Serviços de Mídia do Azure): [https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/](https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/)
 
 Ativo #2:
 
-* Fazer o download progressivo da URL: [http://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](http://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
+* Fazer o download progressivo da URL: [https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
 * PlayReady da LA_URL (local): [https://willzhan12.cloudapp.net/playready/rightsmanager.asmx](https://willzhan12.cloudapp.net/playready/rightsmanager.asmx)
 
 Para reprodução de teste, usei um Aplicativo Universal do Windows no Windows 10. Nas [amostras do Windows 10 Universal](https://github.com/Microsoft/Windows-universal-samples), há um exemplo de player básico chamado [exemplo de Streaming adaptável](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/AdaptiveStreaming). Só é necessário adicionar o código para que seja possível escolher o vídeo que foi feito o download e usá-lo como a origem, em vez da origem de streaming adaptável. As alterações estão acontecem ao clicar no botão manipulador de eventos:

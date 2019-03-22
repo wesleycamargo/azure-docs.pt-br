@@ -1,6 +1,6 @@
 ---
 title: Transmitir dados de monitoramento do Azure para os Hubs de Eventos
-description: Saiba como transmitir todos os dados de monitoramento do Azure para um hub de eventos para colocar os dados em um SIEM ou ferramenta de análise de um parceiro.
+description: Saiba como transmitir os dados de monitoramento do Azure para um hub de eventos para obter os dados em um SIEM de parceiro ou uma ferramenta de análise.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 424dc1611622a1dfc37419fd443d860698020524
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 549ec74514ff03e06ff25893d3fa865f179470e9
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468226"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870679"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Transmitir os dados de monitoramento do Azure para um hub de eventos para consumo por uma ferramenta externa
 
-O Azure Monitor fornece um único pipeline para obter acesso a todos os dados de monitoramento do seu ambiente do Azure, permitindo que você configure facilmente ferramentas de monitoramento e SIEM de parceiro para consumir esses dados. Este artigo orienta você pela configuração de diferentes camadas de dados do seu ambiente do Azure para serem enviados a um único namespace de Hubs de Eventos ou hub de eventos, em que eles podem ser coletados por uma ferramenta externa.
+Este artigo orienta você pela configuração de diferentes camadas de dados do seu ambiente do Azure para serem enviados a um único namespace de Hubs de Eventos ou hub de eventos, em que eles podem ser coletados por uma ferramenta externa.
 
 > [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 
@@ -33,7 +33,7 @@ Em seu ambiente do Azure há várias 'camadas' de dados de monitoramento e o mé
 - **Dados de monitoramento de assinatura do Azure**: dados sobre a operação e o gerenciamento de uma assinatura do Azure, além de dados sobre a integridade e a operação do próprio Azure. O [log de atividades](./../../azure-monitor/platform/activity-logs-overview.md) contém a maioria dos dados de monitoramento de assinatura, como incidentes de integridade de serviço e auditorias do Azure Resource Manager. Você pode coletar esses dados usando um perfil de Log.
 - **Dados de monitoramento de locatário do Azure**: dados sobre a operação de serviços de nível de locatário do Azure, como o Azure Active Directory. As auditorias e logins do Azure Active Directory são exemplos de dados de monitoramento de locatários. Esses dados podem ser coletados usando uma configuração de diagnóstico de locatário.
 
-Dados de qualquer camada podem ser enviados para um hub de eventos, do qual é possível efetuar pull desses dados para uma ferramenta de parceiro. As seções a seguir descrevem como você pode configurar os dados de cada camada para serem transmitidos para um hub de eventos. As etapas pressupõem que você já tem ativos nessa camada a serem monitorados.
+Dados de qualquer camada podem ser enviados para um hub de eventos, do qual é possível efetuar pull desses dados para uma ferramenta de parceiro. Algumas fontes podem ser configurados para enviar dados diretamente para um hub de eventos, enquanto outro processo, como um aplicativo lógico pode ser necessário para recuperar os dados necessários. As seções a seguir descrevem como você pode configurar os dados de cada camada para serem transmitidos para um hub de eventos. As etapas pressupõem que você já tem ativos nessa camada a serem monitorados.
 
 ## <a name="set-up-an-event-hubs-namespace"></a>Configurar um namespace dos Hubs de Eventos
 

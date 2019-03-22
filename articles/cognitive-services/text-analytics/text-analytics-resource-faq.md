@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: bdc8549f5f72d6098bf132d8395c9892170be9b0
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: a85fa543a6b26a5ea6452ce99fb91dc1ce465db7
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245449"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57545287"
 ---
 # <a name="frequently-asked-questions-faq-about-the-text-analytics-cognitive-service"></a>FAQ (perguntas frequentes) sobre o Serviço Cognitivo de Análise de Texto
 
@@ -54,4 +54,4 @@ A sua pergunta é sobre a falta de um recurso ou funcionalidade? Considere solic
 ## <a name="see-also"></a>Consulte também
 
  [Stack Overflow: API de Análise de Texto   
- [Stack Overflow: Serviços Cognitivos](http://stackoverflow.com/questions/tagged/microsoft-cognitive)
+ [Stack Overflow: Serviços Cognitivos](https://stackoverflow.com/questions/tagged/microsoft-cognitive)

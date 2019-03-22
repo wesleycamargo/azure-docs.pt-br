@@ -13,20 +13,50 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1fef19c555b9d2e52d4734a8f7bc5e39183e684
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0594d99874ea9bb83673013a9a03272edcd8ce0b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169302"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897666"
 ---
-# <a name="troubleshooting-dynamic-memberships-for-groups"></a>Solucionando problemas de associações dinâmicas a grupos
+# <a name="troubleshoot-and-resolve-groups-issues"></a>Solucionar problemas e resolver problemas de grupos
 
-**Configurei uma regra em um grupo, mas nenhuma associação foi atualizada no grupo**<br/>Verifique os valores dos atributos de usuário na regra: há usuários que atendem à regra? Se tudo estiver correto, aguarde alguns instantes para que o grupo seja populado. Dependendo do tamanho do seu locatário, o grupo pode levar até 24 horas para ser populado pela primeira vez ou depois de uma alteração de regra.
+## <a name="troubleshooting-group-creation-issues"></a>Solução de problemas de criação de grupo
+**Eu o desabilitei criação do grupo de segurança no portal do Azure, mas ainda podem ser criados grupos por meio do Powershell** as **usuário pode criar grupos de segurança nos portais do Azure** configuração nos controles do portal do Azure ou não não-administrador os usuários podem criar grupos de segurança no painel de acesso ou no portal do Azure. Ele não controla a criação do grupo de segurança por meio do Powershell.
+
+Para desativar a criação de grupo para usuários não administradores no Powershell:
+1. Verifique se os usuários não administradores têm permissão para criar grupos:
+   
+   ```
+   PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
+   ```
+  
+2. Se retornar `UsersPermissionToCreateGroupsEnabled : True`, os usuários não administradores podem criar grupos. Para desabilitar esse recurso:
+  
+   ``` 
+   Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
+   ```
+
+<br/>**Recebi um grupos máximo permitido de erro ao tentar criar um grupo dinâmico no Powershell**<br/>
+Se você receber uma mensagem no Powershell indicando _políticas de grupo dinâmico máx permitidas contagem de grupos atingida_, isso significa que você tenha atingido o limite máximo para grupos dinâmicos no seu locatário. O número máximo de grupos dinâmicos por locatário é 5.000.
+
+Para criar novos grupos de dinâmicos, primeiro será necessário excluir alguns grupos dinâmicos existentes. Não há nenhuma maneira de aumentar o limite.
+
+## <a name="troubleshooting-dynamic-memberships-for-groups"></a>Solucionando problemas de associações dinâmicas a grupos
+
+**Configurei uma regra em um grupo, mas nenhuma associação foi atualizada no grupo**<br/>
+1. Verifique se os valores para atributos de dispositivo na regra ou de usuário. Verifique se há usuários que atendem à regra. Para dispositivos, verifique as propriedades do dispositivo para garantir que todos os atributos sincronizados contêm os valores esperados.<br/>
+2. Verifique a status de processamento de associação para confirmar se ele foi concluído. Você pode verificar a [status de processamento de associação](groups-create-rule.md#check-processing-status-for-a-rule) e a última data de atualização no **visão geral** page do grupo.
+
+Se tudo estiver correto, aguarde alguns instantes para que o grupo seja populado. Dependendo do tamanho do seu locatário, o grupo pode levar até 24 horas para ser populado pela primeira vez ou depois de uma alteração de regra.
 
 **Configurei uma regra, mas agora os membros da regra existentes foram removidos**<br/>Este comportamento é esperado. Membros existentes do grupo são removidos quando uma regra é habilitada ou alterada. Os usuários retornados da avaliação da regra são adicionados como membros ao grupo.
 
 **Não vejo as alterações da associação instantaneamente quando adiciono ou altero uma regra, por que não?**<br/>A avaliação de associação dedicada é feita periodicamente em um processo assíncrono em segundo plano. O tempo que o processo leva é determinado pelo número de usuários no diretório e pelo tamanho do grupo criado como resultado da regra. Normalmente, os diretórios com um pequeno número de usuários verão as alterações de associação de grupo em poucos minutos. Os diretórios com um grande número de usuários podem levar até 30 minutos ou mais para serem populados.
+
+**Como forçar o grupo a ser processada agora?**<br/>
+Atualmente, não há nenhuma maneira para disparar automaticamente o grupo a ser processada sob demanda. No entanto, você pode disparar manualmente o reprocessamento atualizando a regra de associação para adicionar um espaço em branco no final.  
 
 **Eu encontrei uma erro de processamento de regra**<br/>A seguinte tabela relacionará os erros de regra de associação e como corrigi-los.
 

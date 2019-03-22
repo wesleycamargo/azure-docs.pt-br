@@ -13,12 +13,12 @@ ms.date: 09/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1285a9262221dbd8e46d07e384697ddea853f9fc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ee64fe8643362c6a75e288d78e163317fd8a44d8
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163046"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193136"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Roteiro de instalação do Azure AD Connect e do Azure AD Connect Health
 
@@ -46,10 +46,10 @@ Você pode encontrar o download para o Azure AD Connect no [Centro de Download d
 |Instalar usando as Configurações expressas | [Instalação expressa do Azure AD Connect](./how-to-connect-install-express.md)|
 |Instalar usando Configurações personalizadas | [Instalação personalizada do Azure AD Connect](./how-to-connect-install-custom.md)|
 |Atualizar do DirSync | [Atualizar a partir da ferramenta de sincronização do AD do Azure (DirSync)](./how-to-dirsync-upgrade-get-started.md)|
-|Após a instalação | [Verifique a instalação e atribua licenças ](how-to-connect-post-installation.md)|
+|Após a instalação | [Verificar a instalação e atribuir licenças](how-to-connect-post-installation.md)|
 
 ### <a name="learn-more-about-install-azure-ad-connect"></a>Saiba mais sobre como instalar o Azure AD Connect
-Você também deve se preparar para questões [operacionais](how-to-connect-sync-operations.md) . Talvez você queira ter um servidor em espera para que possa fazer failover facilmente em caso de [desastre](how-to-connect-sync-operations.md#disaster-recovery). Se você pretende fazer alterações de configuração frequentes, deve planejar um servidor no [modo de preparo](how-to-connect-sync-operations.md#staging-mode) .
+Você também deve se preparar para questões [operacionais](how-to-connect-sync-operations.md) . Talvez você queira ter um servidor em espera para que possa fazer failover facilmente em caso de [desastre](how-to-connect-sync-staging-server.md#disaster-recovery). Se você pretende fazer alterações de configuração frequentes, deve planejar um servidor no [modo de preparo](how-to-connect-sync-staging-server.md) .
 
 |Tópico |Link|  
 | --- | --- |

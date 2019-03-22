@@ -12,18 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: f5098b2691f7c73be5df6b44479082bf25effde7
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 518cc1d55a83d95daec8f22d0dcfc5db23cc2d38
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998028"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58173831"
 ---
 # <a name="delivering-live-streaming-with-azure-media-services"></a>Fornecendo mídia sob demanda com os Serviços de Mídia do Azure
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 Os Serviços de Mídia do Microsoft Azure oferecem APIs que enviam solicitações aos Serviços de Mídia para iniciar operações (por exemplo: criar, iniciar, interromper ou excluir um canal). Essas operações são de execução longa.
 

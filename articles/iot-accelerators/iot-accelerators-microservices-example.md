@@ -7,12 +7,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: 95bec451c556ff9f3c5bcccee68f900543639733
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 1552c54afe2195d58a032e9cc7bfa5aa70c844b1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978078"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58004115"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>Personalizar e reimplantar um microsserviço
 
@@ -44,7 +44,7 @@ Nesta parte, você deve chamar a API de microsserviço do gerenciador do hub IoT
 
 1. Verifique se a solução de Monitoramento Remoto está sendo executada localmente em seu computador.
 2. Localize onde você baixou o Postman e abra-o.
-3. No Postman, digite o seguinte no GET: http://localhost:8080/iothubmanager/v1/status.
+3. No Postman, digite o seguinte no GET: `http://localhost:8080/iothubmanager/v1/status`.
 4. Exiba o retorno e você deverá ver "Status": "OK: Ativo e em Funcionamento".
 
     ![Mensagem “Alive and Well” do Postman](./media/iot-accelerators-microservices-example/postman-alive-well.png)
@@ -144,7 +144,7 @@ Finalize reimplantando uma instância local da solução de Monitoramento Remoto
     ```
 
 3. Localize onde você baixou o Postman e abra-o.
-4. No Postman, digite a seguinte solicitação no GET: http://localhost:8080/iothubmanager/v1/status. Agora você deverá ver "Status": "OK: Novas Edições Feitas Aqui!".
+4. No Postman, digite a seguinte solicitação no GET: `http://localhost:8080/iothubmanager/v1/status`. Agora você deverá ver "Status": "OK: Novas Edições Feitas Aqui!".
 
 ![Mensagem do Postman New Edits Made Here](./media/iot-accelerators-microservices-example/new-postman-message.png)
 
@@ -197,6 +197,6 @@ O próximo passo para se tentar é [como personalizar o microsserviço do simula
 
 Para obter informações do desenvolvedor sobre a solução de Monitoramento Remoto, confira:
 
-* [Guia de referência do Desenvolvedor](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
+* [Guia de Referência do Desenvolvedor](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 <!-- Next tutorials in the sequence -->
 

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: cb2c548a94a91fe9126f684e382e9626adb93dd6
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.openlocfilehash: ed3d89bc15f960947a48ac4364bd14f3fdf50cc2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "52319055"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853062"
 ---
-# <a name="enable-or-disable-a-firewall-rule-on-a-azure-vm-guest-os"></a>Habilitar ou desabilitar uma regra de firewall em um sistema operacional convidado do Azure VM
+# <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Habilitar ou desabilitar uma regra de firewall em um sistema operacional convidado da VM do Azure
 
 Este artigo fornece uma referência para solucionar uma situação na qual você suspeita que o firewall do sistema operacional convidado está filtrando o tráfego parcial em uma máquina virtual (VM). Isso pode ser útil pelos seguintes motivos:
 
@@ -107,7 +107,7 @@ Se a VM estiver on-line e puder ser acessada em outra VM na mesma rede virtual, 
     
         Em seguida, altere **Ativo = FALSO** para **Ativo = VERDADEIRO** na sequência:
 
-        **v2.22 | Ação = permitir|Active Directory= TRUE|Dir = In|Protocolo=6|Perfil=Domain|Perfil= particular|Perfil=Publico|LPort=3389|App=%SystemRoot%\System32\svchost.exe|SVC=termservice|Nome=@FirewallAPI.dll,-28775|Desc=@FirewallAPI.dll,-28756|EmbedCtxt=@FirewallAPI.dll,-28752|**
+        **v2.22 | Ação = permitir | Active Directory = TRUE | Dir = In | Protocolo = 6 | Perfil = Domain | Perfil = particular | Perfil = Public | LPort = 3389 | App=%SystemRoot%\System32\svchost.exe| SVC = termservice | Nome =\@FirewallAPI,-28775 | Desc =\@FirewallAPI,-28756 | EmbedCtxt =\@FirewallAPI,-28752 |**
     
     * Para desabilitar uma regra, abra o seguinte valor do Registro:
     
@@ -115,7 +115,7 @@ Se a VM estiver on-line e puder ser acessada em outra VM na mesma rede virtual, 
 
         Em seguida, altere **Ativo = VERDADEIRO** para **Ativo = FALSO**:
         
-        **v2.22 | Ação = permitir | Active Directory = FALSE | Dir = In | Protocolo = 6 | Perfil = Domain | Perfil = particular | Perfil = Public | LPort = 3389 | App=%SystemRoot%\System32\svchost.exe| SVC = termservice | Nome =@FirewallAPI.dll,-28775 | Desc =@FirewallAPI.dll,-28756 | EmbedCtxt =@FirewallAPI.dll,-28752 |**
+        **v2.22 | Ação = permitir | Active Directory = FALSE | Dir = In | Protocolo = 6 | Perfil = Domain | Perfil = particular | Perfil = Public | LPort = 3389 | App=%SystemRoot%\System32\svchost.exe| SVC = termservice | Nome =\@FirewallAPI,-28775 | Desc =\@FirewallAPI,-28756 | EmbedCtxt =\@FirewallAPI,-28752 |**
 
 3.  Reinicie a VM para aplicar as alterações.
 
@@ -154,7 +154,7 @@ Antes de seguir estas etapas, tire um instantâneo do disco do sistema da VM afe
         
         Em seguida, altere **Active Directory = FALSO** à **Active = Verdadeiro**.
         
-        **v2.22 | Ação = permitir|Active Directory= TRUE|Dir = In|Protocolo=6|Perfil=Domain|Perfil= particular|Perfil=Publico|LPort=3389|App=%SystemRoot%\System32\svchost.exe|SVC=termservice|Nome=@FirewallAPI.dll,-28775|Desc=@FirewallAPI.dll,-28756|EmbedCtxt=@FirewallAPI.dll,-28752|**
+        **v2.22 | Ação = permitir | Active Directory = TRUE | Dir = In | Protocolo = 6 | Perfil = Domain | Perfil = particular | Perfil = Public | LPort = 3389 | App=%SystemRoot%\System32\svchost.exe| SVC = termservice | Nome =\@FirewallAPI,-28775 | Desc =\@FirewallAPI,-28756 | EmbedCtxt =\@FirewallAPI,-28752 |**
 
     3.  Para desabilitar uma regra, abra a seguinte chave do registro:
 
@@ -162,7 +162,7 @@ Antes de seguir estas etapas, tire um instantâneo do disco do sistema da VM afe
 
         Em seguida, altere **Active Directory = True** à **Active Directory = FALSE**.
         
-        **v2.22 | Ação = permitir | Active Directory = FALSE | Dir = In | Protocolo = 6 | Perfil = Domain | Perfil = particular | Perfil = Public | LPort = 3389 | App=%SystemRoot%\System32\svchost.exe| SVC = termservice | Nome =@FirewallAPI.dll,-28775 | Desc =@FirewallAPI.dll,-28756 | EmbedCtxt =@FirewallAPI.dll,-28752 |**
+        **v2.22 | Ação = permitir | Active Directory = FALSE | Dir = In | Protocolo = 6 | Perfil = Domain | Perfil = particular | Perfil = Public | LPort = 3389 | App=%SystemRoot%\System32\svchost.exe| SVC = termservice | Nome =\@FirewallAPI,-28775 | Desc =\@FirewallAPI,-28756 | EmbedCtxt =\@FirewallAPI,-28752 |**
 
 9.  Realçar **BROKENSYSTEM**e, em seguida, selecione **arquivo** > **Descarregar Hive** no menu.
 

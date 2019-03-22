@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: d4075f644ed1ce42479e35544f0e1442488f78eb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
-ms.translationtype: HT
+ms.openlocfilehash: b0b5e817d5e39dd7800a1482d40c56db5f2be6ff
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29958904"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58115655"
 ---
 1. Entre no [Portal do Azure](https://portal.azure.com).
 
@@ -33,7 +33,7 @@ A folha de Noções básicas solicita informações administrativas da máquina 
 
 2. Insira um **Nome de usuário** e uma **Senha** forte que serão usados para criar uma conta local na VM. A conta local é usada para conectar e gerenciar a VM. Neste exemplo, o nome de usuário é _azureuser_.
 
- A senha deve ter de 8 a 123 caracteres e atender três dos quatro requisitos de complexidade a seguir: um caractere minúsculo, um caractere maiúsculo, um número e um caractere especial. Confira mais sobre os [requisitos de nome de usuário e senha](../articles/virtual-machines/windows/faq.md).
+   A senha deve ter de 8 a 123 caracteres e atender três dos quatro requisitos de complexidade a seguir: um caractere minúsculo, um caractere maiúsculo, um número e um caractere especial. Confira mais sobre os [requisitos de nome de usuário e senha](../articles/virtual-machines/windows/faq.md).
 
 3. A **Assinatura** é opcional. Uma configuração comum é "Pré-pago".
 

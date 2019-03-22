@@ -1,19 +1,18 @@
 ---
 title: Visão geral - Azure Disk Encryption para VMs da IaaS | Microsoft Docs
 description: Este artigo fornece uma visão geral do Microsoft Azure Disk Encryption para VMs IaaS.
-author: mestew
+author: msmbaldwin
 ms.service: security
-ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.author: mstewart
-ms.date: 12/07/2018
+ms.author: mbaldwin
+ms.date: 03/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1674a54ea78e7fea2cc39cb26fefc52b8764bc4c
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: 66d788aec83e3e57a49b063f2ca80484360f639d
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200846"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295276"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms"></a>Azure Disk Encryption para VMs IaaS
 
@@ -72,7 +71,7 @@ A solução dá suporte aos seguintes cenários para VMs IaaS quando habilitadas
    > [!NOTE]
    > Não há suporte para criptografia de unidade do sistema operacional para algumas distribuições do Linux. Para obter mais informações, confira o artigo [Perguntas frequentes sobre o Azure Disk Encryption](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport).
    
-* Ative a criptografia em VMs do Windows que são configurados com Espaços de Armazenamento do Windows.
+* Habilite a criptografia em VMs que são configuradas com a partir de espaços de armazenamento do Windows no Windows Server 2016.
 * Atualize configurações de criptografia para uma VM criptografada de armazenamento Premium e não Premium existente.
 * Faça backup e restauração de VMs criptografada para cenários chave de criptografia de chaves (KEK) e não KEK.
 * Todas as regiões do Público do Azure e Azure Governamental têm suporte.
@@ -82,6 +81,7 @@ A solução não dá suporte aos seguintes cenários, recursos e tecnologia:
 * VMs IaaS da camada Básica.
 * Desabilite a criptografia em uma unidade do sistema operacional para VMs IaaS do Linux.
 * Desabilite criptografia em uma unidade de dados quando a unidade do SO estiver criptografada para VMs de IaaS do Linux.
+* Define a criptografia de unidade do sistema operacional para o dimensionamento de máquinas virtuais do Linux.
 * VMs de IaaS que são criadas usando o método de criação de VM clássico.
 * Habilite a criptografia em imagens personalizadas do cliente em VMs IaaS do Linux.
 * Integração com o sistema de gerenciamento de chaves no local.

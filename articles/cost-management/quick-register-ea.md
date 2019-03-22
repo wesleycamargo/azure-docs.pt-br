@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 03/18/2019
 ms.topic: quickstart
 ms.custom: seodec18
 ms.service: cost-management
 manager: benshy
-ms.openlocfilehash: 7a3ed93814407df8f3adfe7d16ba50258fcb323e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 9f8ef97042d3ff5bbebc299ae212be8ed6c3b25b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082316"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096785"
 ---
 # <a name="register-an-azure-enterprise-agreement-and-view-cost-data"></a>Registrar um Contrato Enterprise do Azure e exibir dados de custo
 
@@ -36,9 +36,9 @@ O Gerenciamento de Custos do Azure oferece uma funcionalidade semelhante ao Clou
 4. Na página de registro de avaliação do portal do Cloudyn, digite o nome de sua empresa e, em seguida, selecione **Administrador de Registro do Azure Enterprise**.  
 5. Insira sua chave de API de registro do Enterprise Portal. Caso não tenha a chave em mãos, clique no link do [Enterprise Portal](https://ea.azure.com) e siga as seguintes etapas:  
     ![Cole sua chave de API na guia Cobrança](./media/quick-register-ea/trial-reg.png)
-  1. Entre no site do Azure Enterprise e clique em **Relatórios**, clique em **Chave de Acesso da API** e, em seguida, copie a chave primária.  
+   1. Entre no site do Azure Enterprise e clique em **Relatórios**, clique em **Chave de Acesso da API** e, em seguida, copie a chave primária.  
     ![Exemplo de uma chave de API de EA no portal do EA](./media/quick-register-ea/ea-key.png)
-  3. Volte para a página de registro e cole-a em sua chave de API.
+   3. Volte para a página de registro e cole-a em sua chave de API.
 6. Concorde com os Termos de Uso e valide a chave. Clique em **Avançar** para autorizar o Cloudyn a coletar dados do recurso do Azure. Os dados coletados incluem dados de uso, desempenho, cobrança e marcação de suas assinaturas.  
     ![Exemplo de uma validação bem-sucedida de chave de API de EA](./media/quick-register-ea/ea-key-validated.png)
 7. Em **Convidar outros stakeholders**, adicione usuários digitando seus endereços de email. Quando concluir, clique em **Avançar**. Dependendo do tamanho do seu registro do Azure, pode levar até 24 horas para todos os seus dados de cobrança serem adicionados ao Cloudyn.

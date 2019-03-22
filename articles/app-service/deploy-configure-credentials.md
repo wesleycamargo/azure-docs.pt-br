@@ -10,26 +10,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 11/22/2018
-ms.author: cephalin
+ms.date: 03/10/2019
+ms.author: cephalin;byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: a92440e97f47f0778eb73b81b239b45476d4e733
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: df874ab77c88f05b048b1f9d10873943b7bebf36
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53550689"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884380"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurar as credenciais de implantação do Serviço de Aplicativo do Azure
-O [Serviço de Aplicativo do Azure](https://go.microsoft.com/fwlink/?LinkId=529714) oferece suporte a dois tipos de credenciais para a [implantação local do Git](deploy-local-git.md) e a [implantação de FTP/S](deploy-ftp.md). Elas não são as mesmas credenciais do Azure Active Directory.
+O [Serviço de Aplicativo do Azure](https://go.microsoft.com/fwlink/?LinkId=529714) oferece suporte a dois tipos de credenciais para a [implantação local do Git](deploy-local-git.md) e a [implantação de FTP/S](deploy-ftp.md). Essas credenciais não são as mesmas credenciais do Active Directory do Azure.
 
-* **Credenciais de nível de usuário**: um conjunto de credenciais para toda a conta do Azure. Ele pode ser usado para implantar no Serviço de Aplicativo para qualquer aplicativo e em qualquer assinatura que a conta do Azure tem permissão para acessar. É o conjunto padrão que aparece na GUI do portal (como a **Visão geral** e **Propriedades** da página de recursos [do aplicativo](../azure-resource-manager/resource-group-portal.md#manage-resources)). Quando um usuário recebe acesso ao aplicativo por meio de RBAC (Controle de Acesso Baseado na Função) ou permissões coadmin, esse usuário pode usar suas próprias credenciais em nível de usuário até que o acesso seja revogado. Não compartilhe essas credenciais com outros usuários do Azure.
+* **Credenciais de nível de usuário**: um conjunto de credenciais para toda a conta do Azure. Ele pode ser usado para implantar no Serviço de Aplicativo para qualquer aplicativo e em qualquer assinatura que a conta do Azure tem permissão para acessar. É o conjunto padrão que aparece na GUI do portal (como a **Visão geral** e **Propriedades** da página de recursos [do aplicativo](../azure-resource-manager/manage-resources-portal.md#manage-resources)). Quando um usuário recebe acesso ao aplicativo por meio de RBAC (Controle de Acesso Baseado na Função) ou permissões coadmin, esse usuário pode usar suas próprias credenciais em nível de usuário até que o acesso seja revogado. Não compartilhe essas credenciais com outros usuários do Azure.
 
 * **Credenciais de nível de aplicativo**: um conjunto de credenciais para cada aplicativo. Podem ser usadas para implantar nesse aplicativo somente. As credenciais de cada aplicativo são geradas automaticamente na criação do aplicativo. Eles não podem ser configurados manualmente, mas podem ser redefinidos a qualquer momento. Para que um usuário tenha acesso às credenciais no nível do aplicativo via (RBAC), esse usuário deve ser colaborador ou superior no aplicativo. Os leitores não têm permissão para publicar e não pode acessar essas credenciais.
 
 ## <a name="userscope"></a>Definir e redefinir credenciais de usuário
 
-Você pode configurar as credenciais de usuário na [página de recursos](../azure-resource-manager/resource-group-portal.md#manage-resources) de qualquer aplicativo. Independentemente de para qual aplicativo você configura essas credenciais, elas se aplicam a todos os aplicativos e a todas as assinaturas na conta do Azure. 
+Você pode configurar as credenciais de usuário na [página de recursos](../azure-resource-manager/manage-resources-portal.md#manage-resources) de qualquer aplicativo. Independentemente de para qual aplicativo você configura essas credenciais, elas se aplicam a todos os aplicativos e a todas as assinaturas na conta do Azure. 
 
 Para configurar as credenciais de usuário:
 
@@ -53,6 +53,12 @@ e o nome de usuário de implantação de *FTP* nas **Propriedades** de seu aplic
 > O Azure não mostra sua senha de implantação de usuário. Se você esquecer a senha, poderá redefinir suas credenciais seguindo as etapas desta seção.
 >
 >  
+
+## <a name="use-user-level-credentials-with-ftpftps"></a>Usar credenciais de usuário com o FTP/FTPS
+
+Fazer a autenticação em um ponto de extremidade FTP/FTPS usando um nome de usuário de requirers de credenciais de usuário no seguinte formato: `<app-name>\<user-name>`
+
+Uma vez que as credenciais de usuário são vinculadas ao usuário e não um recurso específico, o nome de usuário deve estar no seguinte formato para direcionar a ação de sinal para o ponto de extremidade do aplicativo certo.
 
 ## <a name="appscope"></a>Definir e redefinir credenciais de aplicativo
 Para definir e redefinir credenciais de aplicativo:

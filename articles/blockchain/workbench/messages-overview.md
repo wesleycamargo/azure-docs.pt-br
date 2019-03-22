@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 02/01/2019
+ms.date: 02/21/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: fd723304e2219c457e982cbe54529d00afe526f4
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 860c00b876427af7395e3c04e0626131c27aca67
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55896002"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878074"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Integração de mensagens do Azure Blockchain Workbench
 
@@ -375,7 +375,7 @@ Os Tópicos do Barramento de Serviço podem ser usados para notificar os usuári
 
 ## <a name="notification-message-reference"></a>Referência da mensagem de notificação
 
-Dependendo do **OperationName**, as mensagens de notificação serão de um dos seguintes tipos.
+Dependendo de **messageName**, as mensagens de notificação tem um dos seguintes tipos de mensagem.
 
 ### <a name="block-message"></a>Mensagem de bloco
 
@@ -678,7 +678,7 @@ Contém informações sobre quando um aplicativo é carregado no Workbench, como
 | ID | Identificador exclusivo do fluxo de trabalho do aplicativo no Azure Blockchain Workbench |
 | Nome | Nome do fluxo de trabalho do aplicativo |
 | displayName | Nome de exibição do fluxo de trabalho do aplicativo |
-| funções | Coleção de [funções para o fluxo de trabalho do aplicativo ](#workflow-function-information)|
+| funções | Coleção de [funções para o fluxo de trabalho do aplicativo](#workflow-function-information)|
 | estados | Coleção de [estados do fluxo de trabalho do aplicativo](#workflow-state-information) |
 | propriedades | [Informações sobre as propriedades de fluxo de trabalho](#workflow-property-information) do aplicativo |
 

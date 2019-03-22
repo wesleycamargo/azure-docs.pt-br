@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 386662a4e98b881228a82de3777632ed002bb5b0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: d1ecac243ee4cfd3385d0fc69c9ce7c9e2afd95c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989138"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57898832"
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Usar o Azure Webhooks para monitorar as notificações de trabalho dos Serviços de Mídia com o .NET 
 
@@ -49,7 +49,7 @@ Os itens a seguir são necessários para concluir o tutorial:
 
 ## <a name="create-a-function-app"></a>Criar um aplicativo de funções
 
-1. Vá para o [portal do Azure](http://portal.azure.com) e entre com sua conta do Azure.
+1. Vá para o [portal do Azure](https://portal.azure.com) e entre com sua conta do Azure.
 2. Crie um aplicativo de função conforme descrito [aqui](../../azure-functions/functions-create-function-app-portal.md).
 
 ## <a name="configure-function-app-settings"></a>Definir configurações do aplicativo de funções
@@ -379,22 +379,22 @@ Nesta seção, é mostrado o código que adiciona uma notificação webhook a um
 2. Use o [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) para instalar os Serviços de Mídia do Azure.
 3. Atualize o arquivo App.config com valores apropriados: 
     
-    * Informações de conexão dos Serviços de Mídia do Azure, 
-    * a URL de webhook que espera receber as notificações, 
-    * a chave de assinatura que corresponde à chave que o webhook espera. A chave de assinatura é o valor codificado em Base64 de 64 bytes usado para proteger os retornos de chamada de webhooks dos Serviços de Mídia do Azure. 
+   * Informações de conexão dos Serviços de Mídia do Azure, 
+   * a URL de webhook que espera receber as notificações, 
+   * a chave de assinatura que corresponde à chave que o webhook espera. A chave de assinatura é o valor codificado em Base64 de 64 bytes usado para proteger os retornos de chamada de webhooks dos Serviços de Mídia do Azure. 
 
-    ```xml
-            <appSettings>
-                <add key="AMSAADTenantDomain" value="domain" />
-                <add key="AMSRESTAPIEndpoint" value="endpoint" />
+     ```xml
+           <appSettings>
+               <add key="AMSAADTenantDomain" value="domain" />
+               <add key="AMSRESTAPIEndpoint" value="endpoint" />
 
-                <add key="AMSClientId" value="clinet id" />
-                <add key="AMSClientSecret" value="client secret" />
+               <add key="AMSClientId" value="clinet id" />
+               <add key="AMSClientSecret" value="client secret" />
 
-                <add key="WebhookURL" value="https://yourapp.azurewebsites.net/api/functionname?code=ApiKey" />
-                <add key="WebhookSigningKey" value="j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt" />
-            </appSettings>
-    ```
+               <add key="WebhookURL" value="https://yourapp.azurewebsites.net/api/functionname?code=ApiKey" />
+               <add key="WebhookSigningKey" value="j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt" />
+           </appSettings>
+     ```
 
 4. Atualize o arquivo Program.cs com o código a seguir:
 

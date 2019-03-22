@@ -8,12 +8,12 @@ ms.author: viviali
 ms.date: 12/4/2018
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: 9c774a463264a3df859ac097dce4aa21df1c1dd8
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
-ms.translationtype: HT
+ms.openlocfilehash: 6133a7441459072d0c7da1841161da563a28aa31
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163354"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730317"
 ---
 # <a name="build-the-iot-central-device-bridge-to-connect-other-iot-clouds-to-iot-central"></a>Compilar a ponte de dispositivo do IoT Central para conectar outras nuvens de IoT ao IoT Central
 
@@ -26,7 +26,9 @@ A ponte de dispositivo do IoT Central é uma solução de software livre no GitH
 -   Aplicativo Azure Functions
 -   Conta de Armazenamento do Azure
 -   Plano de consumo
--   Azure Key Vault. O aplicativo de funções é a parte crítica da ponte de dispositivo. Ele recebe solicitações HTTP POST de outras plataformas de IoT ou de qualquer plataforma personalizada por meio de uma integração de webhook simples. Nós fornecemos exemplos que mostram como conectar as nuvens Sigfox, Particle e TTN. É possível estender facilmente essa solução para conectar-se à sua nuvem de IoT personalizada, caso sua plataforma possa enviar solicitações de HTTP POST ao aplicativo de funções.
+-   Cofre da Chave do Azure
+
+O aplicativo de funções é a peça crucial da ponte de dispositivo. Ele recebe solicitações HTTP POST de outras plataformas de IoT ou de qualquer plataforma personalizada por meio de uma integração de webhook simples. Nós fornecemos exemplos que mostram como conectar as nuvens Sigfox, Particle e TTN. É possível estender facilmente essa solução para conectar-se à sua nuvem de IoT personalizada, caso sua plataforma possa enviar solicitações de HTTP POST ao aplicativo de funções.
 O aplicativo de funções transforma os dados em um formato aceito pelo IoT Central e os encaminha via APIs de DPS.
 
 ![Captura de tela do Azure Functions](media/howto-build-iotc-device-bridge/azfunctions.png)

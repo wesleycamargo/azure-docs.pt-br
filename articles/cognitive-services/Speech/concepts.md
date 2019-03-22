@@ -10,12 +10,13 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: b5e6853653bab96cd11196ba03fbeadbdc6b337f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: c114c726bea34465972a282acac6b8acbbf9a80f
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816197"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670396"
 ---
 # <a name="basic-concepts"></a>Conceitos básicos
 
@@ -198,7 +199,7 @@ O `detailed` formato contém [valores de melhor N](#n-best-values), além `Recog
 
 ### <a name="n-best-values"></a>Valores de melhor N
 
-Ouvintes, humanos ou máquinas, nunca podem estar certos de que ouviram *exatamente* o que foi dito. Um ouvinte pode atribuir um *probabilidade* apenas para uma interpretação específica de uma expressão. 
+Ouvintes, humanos ou máquinas, nunca podem estar certos de que ouviram *exatamente* o que foi dito. Um ouvinte pode atribuir um *probabilidade* apenas para uma interpretação específica de uma expressão.
 
 Em condições normais, ao falar com outras pessoas com as quais interagem com frequência, as pessoas com uma alta probabilidade de reconhecer as palavras que foram faladas. Ouvintes de fala baseados em máquina se esforçam para alcançar os níveis de precisão semelhantes e, sob as condições, [obtêm paridade com as pessoas](https://blogs.microsoft.com/next/2016/10/18/historic-achievement-microsoft-researchers-reach-human-parity-conversational-speech-recognition/#sm.001ykosqs14zte8qyxj2k9o28oz5v).
 
@@ -308,13 +309,13 @@ O serviço de fala Microsoft reconhece todos os formatos de fala humana, incluin
 
 | *Valor de Obscenidades* | DESCRIÇÃO |
 | - | - |
-| `masked` | Máscaras obscenidades com asteriscos. Esse é o comportamento padrão. | 
+| `masked` | Máscaras obscenidades com asteriscos. Esse é o comportamento padrão. |
 | `removed` | Remove obscenidades de todos os resultados. |
 | `raw` | Reconhece e retorna obscenidades em todos os resultados. |
 
 ### <a name="profanity-value-masked"></a>Valor de obscenidades`Masked`
 
-Para mascarar obscenidades, defina o parâmetro de consulta de  *obscenidades* para o valor mascarado*. Quando o parâmetro de consulta *obscenidades* tiver esse valor ou não for especificado para uma solicitação, o serviço *máscara* as obscenidades. O serviço executa mascaramento, substituindo obscenidades, os resultados do reconhecimento por asteriscos. Quando você especifica o tratamento de mascaramento de obscenidades, o serviço não retorna as mensagens *speech.hypothesis* que contêm obscenidades.
+Para mascarar obscenidades, defina o parâmetro de consulta de  *obscenidades* para o valor *mascarado*. Quando o parâmetro de consulta *obscenidades* tiver esse valor ou não for especificado para uma solicitação, o serviço *máscara* as obscenidades. O serviço executa mascaramento, substituindo obscenidades, os resultados do reconhecimento por asteriscos. Quando você especifica o tratamento de mascaramento de obscenidades, o serviço não retorna as mensagens *speech.hypothesis* que contêm obscenidades.
 
 ### <a name="profanity-value-removed"></a>Valor de obscenidades`Removed`
 
@@ -322,7 +323,7 @@ Quando o parâmetro de consulta de *obscenidades* tem o valor *removido*, o serv
 
 #### <a name="profanity-only-utterances"></a>Somente declarações obscenas
 
-Um usuário pode falar *somente* obscenidades quando um aplicativo tiver configurado o serviço para remover obscenidades. Para este cenário, se o modo de reconhecimento é *ditado* ou for *conversa*, o serviço não retorna um *speech.result*. Se o modo de reconhecimento é *interativo*, o serviço retorna um *speech.result* com o código de status *NoMatch*. 
+Um usuário pode falar *somente* obscenidades quando um aplicativo tiver configurado o serviço para remover obscenidades. Para este cenário, se o modo de reconhecimento é *ditado* ou for *conversa*, o serviço não retorna um *speech.result*. Se o modo de reconhecimento é *interativo*, o serviço retorna um *speech.result* com o código de status *NoMatch*.
 
 ### <a name="profanity-value-raw"></a>Valor de obscenidades`Raw`
 

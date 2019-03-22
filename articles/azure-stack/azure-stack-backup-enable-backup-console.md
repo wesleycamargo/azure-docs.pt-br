@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 1585eb460cc5f8ae437ee59a596dc7a854a108e7
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.lastreviewed: 03/14/2019
+ms.openlocfilehash: 98f793b7d94cd554d426a0eec30d8bb4553d3d81
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995723"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105396"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Habilitar o backup do portal de administração para o Azure Stack
 Habilite o serviço de Backup de infraestrutura por meio do portal de administração para que o Azure Stack pode gerar backups de infraestrutura. O parceiro de hardware pode usar esses backups para restaurar seu ambiente usando a recuperação no caso de nuvem [uma falha catastrófica](./azure-stack-backup-recover-data.md). O objetivo de recuperação de nuvem é garantir que seus operadores e usuários podem fazer logon novamente no portal após a conclusão da recuperação. Os usuários terão suas assinaturas restauradas incluindo permissões de acesso baseado em função e funções, originais planos, ofertas e computação definida anteriormente, armazenamento, cotas de rede e segredos do Key Vault.
@@ -67,12 +67,15 @@ Os administradores e usuários são responsáveis por fazer backup e restaurar o
             -FilePath c:\certs\AzSIBCCert.cer 
     ```
 
-    > [!Note]  
-    > **1901 e acima**: O Azure Stack aceita um certificado para criptografar os dados de backup de infraestrutura. Certifique-se de armazenar o certificado com a chave pública e privada em um local seguro. Por motivos de segurança, não é recomendável que você usa o certificado com as chaves públicas e privadas para definir configurações de backup. Para obter mais informações sobre como gerenciar o ciclo de vida desse certificado, consulte [práticas recomendadas do serviço de Backup de infraestrutura](azure-stack-backup-best-practices.md).
+   > [!Note]
+   > **1901 e acima**: O Azure Stack aceita um certificado para criptografar os dados de backup de infraestrutura. Certifique-se de armazenar o certificado com a chave pública e privada em um local seguro. Por motivos de segurança, não é recomendável que você usa o certificado com as chaves públicas e privadas para definir configurações de backup. Para obter mais informações sobre como gerenciar o ciclo de vida desse certificado, consulte [práticas recomendadas do serviço de Backup de infraestrutura](azure-stack-backup-best-practices.md).
+   > 
+   > **1811 ou anterior**: O Azure Stack aceita uma chave simétrica para criptografar os dados de backup de infraestrutura. Use o [AzsEncryptionKey64 novo cmdlet para criar uma chave](https://docs.microsoft.com/en-us/powershell/module/azs.backup.admin/new-azsencryptionkeybase64). Depois de atualizar do 1811 1901, as configurações de backup manterá a chave de criptografia. Recomendação é atualizar as configurações de backup para usar um certificado. Suporte à criptografia de chave é preterida. Você terá pelo menos 3 versões ao atualizar as configurações para usar um certificado. 
 
 10. Selecione **Okey** para salvar suas configurações de backup do controlador.
 
 ![O Azure Stack - configurações de controlador de Backup](media/azure-stack-backup/backup-controller-settings-certificate.png)
+
 
 ## <a name="start-backup"></a>Iniciar o backup
 Para iniciar um backup, clique em **fazer Backup agora** para iniciar um backup sob demanda. Um backup sob demanda não modificará o tempo para o próximo backup agendado. Depois que a tarefa for concluída, você pode confirmar as configurações no **Essentials**:
@@ -115,7 +118,7 @@ Novos backups serão começar a usar a chave pública no certificado novo. Não 
 ![O Azure Stack - impressão digital do certificado de modo de exibição](media/azure-stack-backup/encryption-settings-thumbprint.png)
 
 ### <a name="backwards-compatibility-mode"></a>Com versões anteriores modo de compatibilidade
-Se você tiver configurado o backup antes de atualizar para 1901, as configurações são transmitidas com nenhuma alteração no comportamento. Nesse caso, chave de criptografia tem suporte para versões anteriores compatibilidade. Você tem a opção atualizar a chave de criptografia ou alternar para usar um certificado. Você terá três versões continuar atualizando a chave de criptografia. Use esse tempo para fazer a transição para um certificado. 
+Se você tiver configurado o backup antes de atualizar para 1901, as configurações são transmitidas com nenhuma alteração no comportamento. Nesse caso, chave de criptografia tem suporte para versões anteriores compatibilidade. Você tem a opção atualizar a chave de criptografia ou alternar para usar um certificado. Você terá pelo menos três versões continuar atualizando a chave de criptografia. Use esse tempo para fazer a transição para um certificado. Para criar um novo uso de chave de criptografia a [cmdlet New-AzsEncryptionKeyBase64](https://docs.microsoft.com/en-us/powershell/module/azs.backup.admin/new-azsencryptionkeybase64).
 
 ![O Azure Stack - usando a chave de criptografia no modo de compatibilidade com versões anteriores](media/azure-stack-backup/encryption-settings-backcompat-encryption-key.png)
 

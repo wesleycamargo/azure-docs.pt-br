@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c6bf2c8ea6a2526f8548a785706e5ed3a7460ff
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 720aafac79a67f64b0974dba0dd60c6aa24a8c54
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455204"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342064"
 ---
 # <a name="set-up-security-info-preview-to-use-your-email-address"></a>Configurar informações de segurança (versão prévia) para usar seu endereço de email
 Você pode seguir estas etapas para adicionar seu método de redefinição de senha. Depois da primeira configuração, você pode retornar para a página **Informações de segurança** a fim de adicionar, atualizar ou excluir suas informações de segurança.
@@ -36,11 +36,11 @@ Dependendo das configurações de sua organização, você poderá usar seu ende
 
 1. Entre em sua conta corporativa ou de estudante e vá para a página https://myprofile.microsoft.com/.
 
-    ![Página Meu Perfil, com links para Informações de segurança em destaque](media/security-info/securityinfo-myprofile.png)
+    ![Página Meu Perfil, com links para Informações de segurança em destaque](media/security-info/securityinfo-myprofile-page.png)
 
 2. Escolha **Informações de segurança** no painel de navegação esquerdo ou pelo link no bloco **Informações de segurança**. Em seguida, escolha **Adicionar método** na página **Informações de segurança**.
 
-    ![Página Informações de segurança com a opção Adicionar método em destaque](media/security-info/securityinfo-myprofile-addmethod.png)
+    ![Página Informações de segurança com a opção Adicionar método em destaque](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
 3. Na página **Adicionar método**, escolha **Email** na lista suspensa e escolha **Adicionar**.
 

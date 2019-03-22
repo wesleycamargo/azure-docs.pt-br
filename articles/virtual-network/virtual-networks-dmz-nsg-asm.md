@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: ed172d552e1e4c9ee27c58abcd7ad2d98df21579
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: HT
+ms.openlocfilehash: 115a459c6a9e4ea96931c89272a49396f0656258
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23125494"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993335"
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-classic-powershell"></a>Exemplo 1 – Criar uma DMZ simples usando NSGs com o PowerShell clássico
 [Voltar à página Práticas recomendadas de limite de segurança][HOME]
@@ -98,15 +98,15 @@ Cada regra é discutida em mais detalhes da seguinte maneira (**Observação**: 
    * “Priority” (Prioridade) define a ordem na qual um fluxo de tráfego é avaliado. Quanto menor o número, maior a prioridade. Assim que uma regra se aplicar a um fluxo de tráfego específico, nenhuma regra adicional será processada. Portanto, se uma regra com prioridade 1 permite o tráfego e uma regra com prioridade 2 impede o tráfego e ambas as regras se aplicam ao tráfego, ele teria o fluxo permitido (já que a regra 1 tinha uma prioridade mais alta, ela vigorou e nenhuma regra adicional foi aplicada).
    * "Action" significa se um tráfego afetado por essa regra é bloqueado ou permitido.
 
-    ```PowerShell    
-    Get-AzureNetworkSecurityGroup -Name $NSGName | `
+     ```PowerShell    
+     Get-AzureNetworkSecurityGroup -Name $NSGName | `
         Set-AzureNetworkSecurityRule -Name "Enable Internal DNS" `
         -Type Inbound -Priority 100 -Action Allow `
         -SourceAddressPrefix VIRTUAL_NETWORK -SourcePortRange '*' `
         -DestinationAddressPrefix $VMIP[4] `
         -DestinationPortRange '53' `
         -Protocol *
-    ```
+     ```
 
 3. Essa regra permite que o tráfego de RDP flua da Internet para a porta RDP em qualquer servidor na sub-rede associada. Essa regra usa dois tipos especiais de prefixos de endereço; “VIRTUAL_NETWORK” e “INTERNET”. Essas marcações são uma maneira fácil de resolver uma categoria maior de prefixos de endereço.
 
@@ -544,7 +544,7 @@ Else { Write-Host "Validation passed, now building the environment." -Foreground
 Salve esse arquivo xml com o local atualizado e adicione o link para esse arquivo à variável $NetworkConfigFile no script anterior.
 
 ```XML
-<NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+<NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
   <VirtualNetworkConfiguration>
     <Dns>
       <DnsServers>
@@ -576,7 +576,7 @@ Salve esse arquivo xml com o local atualizado e adicione o link para esse arquiv
 ```
 
 #### <a name="sample-application-scripts"></a>Scripts de aplicativo de exemplo
-Se você desejar instalar um aplicativo de exemplo para esse e outros Exemplos de DMZ, um deles foi fornecido no seguinte link: [Script de aplicativo de exemplo][SampleApp]
+Se você desejar instalar um aplicativo de exemplo para esse e outros Exemplos de DMZ, um deles foi fornecido no seguinte link: [Script de Aplicativo de Exemplo][SampleApp]
 
 ## <a name="next-steps"></a>Próximas etapas
 * Atualizar e salvar o arquivo XML

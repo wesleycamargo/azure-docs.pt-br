@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: victorh
-ms.openlocfilehash: fa3798a35804998936e0ac166fceff02b01231a0
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
-ms.translationtype: HT
+ms.openlocfilehash: 9d3a62ec1c9ede1f25f2b53f800642a792b3aa28
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171503"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534388"
 ---
 # <a name="overview-of-reverse-dns-and-support-in-azure"></a>Visão geral de DNS reverso e suporte no Azure
 
@@ -109,7 +109,7 @@ O Azure DNS pode ser usado para [hospedar suas zonas de pesquisa inversa e geren
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre DNS reverso, confira [Pesquisa de DNS reverso na Wikipédia](http://en.wikipedia.org/wiki/Reverse_DNS_lookup).
+Para saber mais sobre DNS reverso, confira [Pesquisa de DNS reverso na Wikipédia](https://en.wikipedia.org/wiki/Reverse_DNS_lookup).
 <br>
 Saiba como [hospedar a zona de pesquisa inversa para o intervalo de IP atribuído pelo ISP no DNS do Azure](dns-reverse-dns-for-azure-services.md).
 <br>

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: c247ef748628c14074c2b5ea37df251793840b16
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 6f775ffaf53019cc50bc38c294b4d5f40c8eca90
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876027"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58076744"
 ---
 # <a name="integrate-speech-service-with-your-language-understanding-app"></a>Integrar o Serviço de Fala ao seu aplicativo de Reconhecimento vocal
 O [Serviço de Fala](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) permite que você use uma única solicitação para receber áudio e retornar objetos JSON de previsão LUIS. Neste artigo, você pode baixar e usar um projeto C# no Visual Studio para falar uma expressão em um microfone e receber informações de previsão LUIS. O projeto usa o pacote [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) de Fala, já está incluído como referência. 
@@ -49,11 +49,11 @@ Depois de importar o aplicativo, selecione **Entidades**, em seguida, **Adiciona
 
 3. Na página **Chaves e pontos de extremidade**, atribua a chave do LUIS criada na seção [Criar chave do ponto de extremidade do LUIS](#create-luis-endpoint-key).
 
-  Nessa página, colete a ID do aplicativo, publique a região e a ID de assinatura da chave do LUIS criada na seção [Criar chave do ponto de extremidade do LUIS](#create-luis-endpoint-key). Você precisa modificar o código para usar esses valores posteriormente neste artigo. 
+   Nessa página, colete a ID do aplicativo, publique a região e a ID de assinatura da chave do LUIS criada na seção [Criar chave do ponto de extremidade do LUIS](#create-luis-endpoint-key). Você precisa modificar o código para usar esses valores posteriormente neste artigo. 
   
-  **Não** use a chave gratuita de starter para este exercício. Somente uma chave de **Reconhecimento vocal** criada no portal do Azure funcionará para este exercício. 
+   **Não** use a chave gratuita de starter para este exercício. Somente uma chave de **Reconhecimento vocal** criada no portal do Azure funcionará para este exercício. 
 
-  https://**REGION**.api.cognitive.microsoft.com/luis/v2.0/apps/**APPID**?subscription-key=**LUISKEY**&q=
+   https://**REGION**.api.cognitive.microsoft.com/luis/v2.0/apps/**APPID**?subscription-key=**LUISKEY**&q=
 
 
 4. Publique o aplicativo do LUIS selecionando o botão **Publicar** na barra superior direita. 

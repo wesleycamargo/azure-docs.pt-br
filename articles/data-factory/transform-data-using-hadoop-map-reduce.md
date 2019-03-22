@@ -3,20 +3,20 @@ title: Transformar dados usando a atividade do MapReduce do Hadoop no Azure Data
 description: Saiba como processar dados executando programas MapReduce do Hadoop em um cluster do Azure HDInsight em um Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.author: douglasl
-ms.openlocfilehash: 4543982f731feb44a8f02581c11714dec2b206f9
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
-ms.translationtype: HT
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: ccc194dd4120762a30da3ad28cdabed6faf53ba2
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214497"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576388"
 ---
 # <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>Transformar dados usando a atividade do MapReduce do Hadoop no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -60,19 +60,19 @@ Consulte [Pig](transform-data-using-hadoop-pig.md) e [Hive](transform-data-using
 
 ## <a name="syntax-details"></a>Detalhes da sintaxe
 
-| Propriedade          | DESCRIÇÃO                              | Obrigatório |
+| Propriedade          | Descrição                              | Obrigatório |
 | ----------------- | ---------------------------------------- | -------- |
-| Nome              | Nome da atividade                     | SIM      |
-| Descrição       | Texto que descreve qual a utilidade da atividade | Não        |
-| Tipo              | Para a atividade do MapReduce, o tipo de atividade é HDinsightMapReduce | SIM      |
-| linkedServiceName | Referência ao cluster do HDInsight registrado como um serviço vinculado no Data Factory. Para saber mais sobre esse serviço vinculado, consulte o artigo [Compute linked services](compute-linked-services.md) (Serviços de computação vinculados). | SIM      |
-| className         | Nome da classe a ser executada         | SIM      |
-| jarLinkedService  | Referência a um serviço vinculado do Armazenamento do Azure usado para armazenar os arquivos Jar. Se você não especificar esse serviço vinculado, será usado o serviço vinculado do Armazenamento do Azure definido no serviço vinculado do HDInsight. | Não        |
-| jarFilePath       | Forneça o caminho para os arquivos Jar armazenados no Armazenamento do Azure referenciado por jarLinkedService. O nome do arquivo diferencia maiúsculas de minúsculas. | SIM      |
-| jarlibs           | Matriz de cadeia de caracteres do caminho para os arquivos de biblioteca Jar referenciados pelo trabalho armazenado no Armazenamento do Azure referenciado por jarLinkedService. O nome do arquivo diferencia maiúsculas de minúsculas. | Não        |
-| getDebugInfo      | Especifica quando os arquivos de log são copiados para o Armazenamento do Azure usado pelo cluster do HDInsight (ou) especificado por jarLinkedService. Valores permitidos: Nenhum, Sempre ou Falha. Valor padrão: Nenhuma. | Não        |
-| argumentos         | Especifica uma matriz de argumentos para um trabalho do Hadoop. Os argumentos são passados como argumentos de linha de comando para cada tarefa. | Não        |
-| define           | Especifique parâmetros como pares chave-valor para referências no script do Hive. | Não        |
+| nome              | Nome da atividade                     | Sim      |
+| descrição       | Texto que descreve qual a utilidade da atividade | Não       |
+| tipo              | Para a atividade do MapReduce, o tipo de atividade é HDinsightMapReduce | Sim      |
+| linkedServiceName | Referência ao cluster do HDInsight registrado como um serviço vinculado no Data Factory. Para saber mais sobre esse serviço vinculado, consulte o artigo [Compute linked services](compute-linked-services.md) (Serviços de computação vinculados). | Sim      |
+| className         | Nome da classe a ser executada         | Sim      |
+| jarLinkedService  | Referência a um serviço vinculado do Armazenamento do Azure usado para armazenar os arquivos Jar. Se você não especificar esse serviço vinculado, será usado o serviço vinculado do Armazenamento do Azure definido no serviço vinculado do HDInsight. | Não       |
+| jarFilePath       | Forneça o caminho para os arquivos Jar armazenados no Armazenamento do Azure referenciado por jarLinkedService. O nome do arquivo diferencia maiúsculas de minúsculas. | Sim      |
+| jarlibs           | Matriz de cadeia de caracteres do caminho para os arquivos de biblioteca Jar referenciados pelo trabalho armazenado no Armazenamento do Azure referenciado por jarLinkedService. O nome do arquivo diferencia maiúsculas de minúsculas. | Não       |
+| getDebugInfo      | Especifica quando os arquivos de log são copiados para o Armazenamento do Azure usado pelo cluster do HDInsight (ou) especificado por jarLinkedService. Valores permitidos: Nenhum, Sempre ou Falha. Valor padrão: Nenhum. | Não       |
+| argumentos         | Especifica uma matriz de argumentos para um trabalho do Hadoop. Os argumentos são passados como argumentos de linha de comando para cada tarefa. | Não       |
+| define           | Especifique parâmetros como pares chave-valor para referências no script do Hive. | Não       |
 
 
 

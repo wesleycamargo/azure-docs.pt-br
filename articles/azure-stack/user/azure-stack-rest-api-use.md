@@ -14,12 +14,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 651950cfe6ab1b752c4bcf92c4e2f00591e9eb97
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 1773083a5d02f3bb988ac3e5cef6528a5d49b94e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252091"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100387"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
@@ -66,25 +66,25 @@ grant_type=password
 
 Para cada valor:
 
- - **grant_type**  
-    O tipo de esquema de autenticação, você irá usar. Neste exemplo, o valor é `password`
+- **grant_type**  
+   O tipo de esquema de autenticação, você irá usar. Neste exemplo, o valor é `password`
 
- - **recurso**  
-    O recurso em que o token acessa. Você pode encontrar o recurso consultando o ponto de extremidade de metadados de gerenciamento do Azure Stack. Examine os **audiências** seção
+- **recurso**  
+   O recurso em que o token acessa. Você pode encontrar o recurso consultando o ponto de extremidade de metadados de gerenciamento do Azure Stack. Examine os **audiências** seção
 
- - **O ponto de extremidade do Azure Stack gerenciamento**  
-    ```
-    https://management.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-01
-    ```
+- **O ponto de extremidade do Azure Stack gerenciamento**  
+   ```
+   https://management.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-01
+   ```
 
   > [!NOTE]  
   > Se você for um administrador tentar acessar a API de locatário, em seguida, certifique-se de usar o ponto de extremidade de locatário, por exemplo: `https://adminmanagement.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-011`  
 
   Por exemplo, com o Kit de desenvolvimento do Azure Stack como um ponto de extremidade:
 
-    ```bash
-    curl 'https://management.local.azurestack.external/metadata/endpoints?api-version=2015-01-01'
-    ```
+   ```bash
+   curl 'https://management.local.azurestack.external/metadata/endpoints?api-version=2015-01-01'
+   ```
 
   Resposta:
 
@@ -94,9 +94,9 @@ Para cada valor:
   "graphEndpoint":"https://graph.windows.net/",
   "portalEndpoint":"https://adminportal.local.azurestack.external/",
   "authentication":{
-      "loginEndpoint":"https://login.windows.net/",
-      "audiences":["https://contoso.onmicrosoft.com/4de154de-f8a8-4017-af41-df619da68155"]
-      }
+     "loginEndpoint":"https://login.windows.net/",
+     "audiences":["https://contoso.onmicrosoft.com/4de154de-f8a8-4017-af41-df619da68155"]
+     }
   }
   ```
 

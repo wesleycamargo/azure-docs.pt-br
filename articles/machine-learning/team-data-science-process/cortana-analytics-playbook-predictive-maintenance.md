@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: ebf376f0bdba8c41f88d6f97cef2c17ecd259022
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 0785d0805027dd0bd621203ade7287e5a1840a9a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816638"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57870139"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guia de IA do Azure para soluções de manutenção preditiva
 
@@ -401,13 +401,13 @@ O processo acima é declarado de muitas maneiras na literatura acadêmica e do s
 
 Conforme mencionado anteriormente, a operacionalização de modelo para PdM é diferente de seus colegas. Cenários envolvendo detecção de anomalias e detecção de falha normalmente implementa _pontuação online_ (também chamada de _em pontuação em tempo real_). Aqui, o modelo _pontua_ cada registro de entrada e retorna uma previsão. Para detecção de anomalias, a previsão é uma indicação de que ocorreu uma anomalia (exemplo: uma classe SVM). Para detecção de falha, seria o tipo ou classe de falha.
 
-Em contraparte, a PdM envolve _a pontuação em lote_. Para estar de acordo com a assinatura do modelo, os recursos dos novos dados devem ser feitos da mesma maneira como os dados de treinamento. Para grandes conjuntos de dados que são típicos para novos dados, os recursos são agregados em janelas de tempo e pontuação em lote. A pontuação em lote normalmente é feita em sistemas distribuídos como [Spark](http://spark.apache.org/) ou [lote do Microsoft Azure](https://docs.microsoft.com/azure/batch/batch-api-basics). Há duas alternativas - ambos de qualidade inferior:
+Em contraparte, a PdM envolve _a pontuação em lote_. Para estar de acordo com a assinatura do modelo, os recursos dos novos dados devem ser feitos da mesma maneira como os dados de treinamento. Para grandes conjuntos de dados que são típicos para novos dados, os recursos são agregados em janelas de tempo e pontuação em lote. A pontuação em lote normalmente é feita em sistemas distribuídos como [Spark](https://spark.apache.org/) ou [lote do Microsoft Azure](https://docs.microsoft.com/azure/batch/batch-api-basics). Há duas alternativas - ambos de qualidade inferior:
 - Mecanismos de fluxo de dados oferecem suporte a agregação em janelas na memória. Portanto, poderia argumentar que oferecem suporte a pontuação online. Mas esses sistemas são adequados para dados densos nas janelas estreitas de tempo ou  elementos esparsos em janelas mais ampla. Podem não ser dimensionadas bem para os dados densos sobre janelas de tempo maiores, como visto nos cenários de PdM.
 - Se a pontuação do lote não estiver disponível, a solução é adaptar a pontuação online para lidar com novos dados em lotes pequenos por vez.
 
 ## <a name="solution-templates-for-predictive-maintenance"></a>Modelos de solução para manutenção preventiva
 
-A seção final deste guia fornece uma lista de modelos de solução PdM, tutoriais e experiências implementadas no Azure. Esses aplicativos PdM podem ser implantados em uma assinatura do Azure em minutos em alguns casos. Eles podem ser usados como prova de conceito demonstrações, as áreas restritas para fazer experiências com alternativas ou aceleradores para implementações de produção real. Esses modelos estão localizados na [Galeria dde IA do Azure](http://gallery.azure.ai) ou [Azure GitHub](https://github.com/Azure). Esses exemplos diferentes serão transferidos para esse modelo de solução ao longo do tempo.
+A seção final deste guia fornece uma lista de modelos de solução PdM, tutoriais e experiências implementadas no Azure. Esses aplicativos PdM podem ser implantados em uma assinatura do Azure em minutos em alguns casos. Eles podem ser usados como prova de conceito demonstrações, as áreas restritas para fazer experiências com alternativas ou aceleradores para implementações de produção real. Esses modelos estão localizados na [Galeria dde IA do Azure](https://gallery.azure.ai) ou [Azure GitHub](https://github.com/Azure). Esses exemplos diferentes serão transferidos para esse modelo de solução ao longo do tempo.
 
 | # | Title | DESCRIÇÃO |
 |--:|:------|-------------|
@@ -431,9 +431,9 @@ O Microsoft Azure oferece roteiros de aprendizagem para os conceitos fundamentai
 | [Desenvolvedor de AI no Azure](https://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Público |
 | [Microsoft AI School](https://aischool.microsoft.com/learning-paths) | Público |
 | [Aprendizado do Azure AI do GitHub](https://github.com/Azure/connectthedots/blob/master/readme.md) | Público |
-| [LinkedIn Learning](http://www.linkedin.com/learning) | Público |
-| [Microsoft AI Youtube Webinars](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Público |
-| [Microsoft AI Show](http://channel9.msdn.com/Shows/AI-Show) | Público |
+| [LinkedIn Learning](https://www.linkedin.com/learning) | Público |
+| [Webinars do YouTube de inteligência Artificial da Microsoft](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Público |
+| [Microsoft AI Show](https://channel9.msdn.com/Shows/AI-Show) | Público |
 | [LearnAI@MS](https://learnanalytics.microsoft.com) | Parceiros |
 | [Microsoft Partner Network](https://learningportal.microsoft.com) | Parceiros |
 

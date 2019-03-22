@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: b2bb5e0f9b138af5ff69599b7ba35457788c8a65
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
-ms.translationtype: HT
+ms.openlocfilehash: 64b28fc0db56be77bce9c22f9332110205a42b1d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968440"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437336"
 ---
 # <a name="azure-maps-supported-categories"></a>Categorias com suporte do Azure Mapas
 
@@ -45,7 +45,7 @@ Ao fazer uma [pesquisa por categoria](https://docs.microsoft.com/rest/api/maps/s
 | FACULDADE\_UNIVERSIDADE | faculdade, curso superior, faculdade/universidade, cursinho, universidade, curso preparatório |
 | EDIFÍCIO\_COMERCIAL | edifício de escritórios, sede do parque, edifício comercial |
 | CENTRO\_COMUNITÁRIO | centro comunitário |
-| EMPRESA | eletrônicos, manufatura, serviços de dados do computador, tecnologias de saúde pública, financeiro diversificado, abrigo de animais, companhia aérea, aluguel de equipamento, serviço, entrega de pacote/correspondência/frete, linhas de ônibus, reparo de utensílios domésticos, serviços, oem, serviços fiscais, gás natural combustível, serviços legais, construção, telecomunicações, transporte, produção automóvel, químicos, necrotérios de serviço funerários, operações de túnel e ponte, automóvel, engenharia mecânica, serviços, consultores de investimento, propaganda/marketing, armazenamento móvel, instituição de poupança, seguros, software de computador, fármacos, catering, serviços de casamento, tecnologia agrícola, mercado imobiliário, táxi, serviço de transporte de limousine, locação de ônibus, mineração, tecnologias editoriais, telefone a cabo, distribuição de importação/exportação, empresa, asilo, mina(s) de carvão, propriedade(s), cervejaria, mina(s) de ouro |
+| EMPRESA | eletrônica, manufatura, serviços de dados do computador, as tecnologias de saúde pública, financeiro diversificado, abrigar animal, companhia aérea, aluguel de equipamento, serviço, entrega de pacote/email/frete, linhas de barramento, reparo de página inicial do dispositivo, serviços, oem, a limpeza de imposto serviços, petróleo, gás natural, serviços legais, construção, telecomunicações, transporte, automóveis, elementos químicos, necrotérios de serviço Funerária, operações de túnel de ponte, automóvel, engenharia mecânica, serviços, consultores de investimento, propaganda/marketing, mover o armazenamento de instituição de economia, seguros, software de computador, pharmaceuticals, buffet, serviços de casamento, tecnologia agrícola, imóveis, táxi, serviço de transporte limusines, locações de ESTATUTO, de mineração, a publicação de barramento tecnologias, telefone de cabo, distribuição de importação/exportação, empresa, asylum, mine(s) de Carvão, estate(s), brewery, gold mine(s) |
 | TRIBUNAL | tribunal |
 | CENTRO\_CULTURAL | centro cultural |
 | DENTISTA | dentista |

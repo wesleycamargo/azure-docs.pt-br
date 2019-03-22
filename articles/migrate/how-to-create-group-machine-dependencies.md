@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: e62a792e7503e65ebe008a52430f86f1f3a00006
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 388a0419d5de87c3eb7faff9b556f888e52ac12e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456010"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117363"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Agrupar máquinas usando o mapeamento de dependências da máquina
 
@@ -21,7 +21,7 @@ Este artigo descreve como criar um grupo de máquinas para avaliação das [Migr
 > A funcionalidade de visualização de dependências não está disponível no Azure Governamental.
 
 ## <a name="prepare-for-dependency-visualization"></a>Preparar para visualização de dependências
-As Migrações para Azure utilizam a solução Mapa do Serviço no Log Analytics para habilitar a visualização de dependências dos computadores.
+As migrações para Azure aproveita a solução Mapa do serviço nos logs do Azure Monitor para habilitar a visualização de dependência das máquinas.
 
 ### <a name="associate-a-log-analytics-workspace"></a>Associar um workspace do Log Analytics
 Para aproveitar a visualização de dependência, você precisa associar um workspace novo ou existente do Log Analytics a um projeto das Migrações para Azure. Você só pode criar ou anexar um workspace na mesma assinatura em que o projeto de migração é criado.
@@ -58,7 +58,7 @@ Para instalar o agente em uma máquina com Windows:
 2. Na página de **Boas-vindas**, clique em **Avançar**. Na página **Termos de Licença**, clique em **Concordo** para aceitar a licença.
 3. Em **Pasta de Destino**, mantenha ou modifique a pasta de instalação padrão > **Avançar**.
 4. Em **Opções de Configuração do Agente**, selecione **Azure Log Analytics** > **Avançar**.
-5. Clique em **Adicionar** para adicionar um workspace do Log Analytics. Cole a ID do workspace e a chave que você copiou do portal. Clique em **Próximo**.
+5. Clique em **Adicionar** para adicionar um workspace do Log Analytics. Cole a ID do workspace e a chave que você copiou do portal. Clique em **Avançar**.
 
 Você pode instalar o agente da linha de comando ou usando um método automatizado como DSC de Automação do Azure, System Center Configuration Manager ou com um modelo do Azure Resource Manager se você implantou o Microsoft Azure Stack no seu datacenter. [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) sobre como usar esses métodos para instalar o agente do MMA.
 
@@ -105,8 +105,8 @@ Saiba mais sobre o suporte do agente de Dependência para os sistemas operaciona
 
 4. Você pode procurar por dependências em períodos diferentes clicando no período no rótulo de intervalo de tempo. Por padrão, o intervalo é de uma hora. Você pode modificar o intervalo, ou especificar as datas de início e de término e a duração.
 
-    > [!NOTE]
-      Atualmente, a interface do usuário de visualização de dependência não dá suporte à seleção de um intervalo de tempo maior do que uma hora. Use o Log Analytics para [consultar os dados de dependência](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) por um período mais longo.
+   > [!NOTE]
+   >    Atualmente, a interface do usuário de visualização de dependência não dá suporte à seleção de um intervalo de tempo maior do que uma hora. Registra em log para usar o Azure Monitor [consultar os dados de dependência](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) em um período mais longo.
 
 5. Depois de identificar máquinas dependentes que você deseja agrupar, use Ctrl+Clique para selecionar várias máquinas no mapa e clique em **Agrupar máquinas**.
 6. Especifique um nome de grupo. Verifique se as máquinas dependentes foram descobertas pelas Migrações para Azure.
@@ -119,19 +119,19 @@ Saiba mais sobre o suporte do agente de Dependência para os sistemas operaciona
 
 Após o grupo ser criado, é recomendável instalar agentes em todas as máquinas do grupo e refinar o grupo visualizando a dependência de todo o grupo.
 
-## <a name="query-dependency-data-from-log-analytics"></a>Consultar dados de dependência do Log Analytics
+## <a name="query-dependency-data-from-azure-monitor-logs"></a>Consultar dados de dependência de logs do Azure Monitor
 
-Dados de dependência capturados pelo Mapa do Serviço estão disponíveis para consulta no workspace do Log Analytics associado ao seu projeto de Migrações para Azure. [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) sobre as tabelas de dados do Mapa do Serviço a consultar no Log Analytics. 
+Dados de dependência capturados pelo Mapa do Serviço estão disponíveis para consulta no workspace do Log Analytics associado ao seu projeto de Migrações para Azure. [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) sobre as tabelas de dados de mapa do serviço de consulta no Azure Monitor registra em log. 
 
-Para executar as consultas do Log Analytics:
+Para executar as consultas do Kusto:
 
 1. Depois de instalar os agentes, acesse o portal e clique em **Visão geral**.
 2. Em **visão geral**, acesse a seção **Essentials** do projeto e clique no nome do workspace fornecido, ao lado de **Workspace do OMS**.
 3. Na página do workspace do Log Analytics, clique em **Geral** > **Logs**.
-4. Escreva sua consulta para coletar dados de dependência usando o Log Analytics. Exemplos de consultas para coletar dados de dependência estão disponíveis [aqui](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
+4. Escreva sua consulta para coletar dados de dependência usando os logs do Azure Monitor. Exemplos de consultas para coletar dados de dependência estão disponíveis [aqui](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
 5. Execute a consulta clicando em Executar. 
 
-[Saiba mais](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) sobre como escrever consultas do Log Analytics. 
+[Saiba mais](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) sobre como escrever consultas do Kusto. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

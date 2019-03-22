@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
 ms.author: msfussell
-ms.openlocfilehash: 434f0639baa45dc83ee2fae4ec8b67a80517db14
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
-ms.translationtype: HT
+ms.openlocfilehash: b49df76bc5b9c4d5f469e702b65ffd5762e49a39
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035895"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455829"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Serviço DNS no Azure Service Fabric
 O Serviço DNS é um serviço do sistema opcional que pode ser habilitado no cluster para descobrir outros serviços usando o protocolo DNS. 
@@ -53,7 +53,7 @@ Ao criar cria um cluster usando o portal, o serviço DNS é ativado por padrão 
 Se você não estiver usando o portal para criar o cluster ou se estiver atualizando um cluster existente, será necessário habilitar o serviço DNS em um modelo:
 
 - Para implantar um novo cluster, use os [modelos de exemplo](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) ou crie seu próprio modelo do Resource Manager. 
-- Para atualizar um cluster existente, você pode navegar para o grupo de recursos do cluster no portal e clicar em **script de automação** para trabalhar com um modelo que reflete o estado atual do cluster e outros recursos do grupo. Para saber mais, consulte[Exportar o modelo do grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template#export-the-template-from-resource-group).
+- Para atualizar um cluster existente, você pode navegar para o grupo de recursos do cluster no portal e clicar em **script de automação** para trabalhar com um modelo que reflete o estado atual do cluster e outros recursos do grupo. Para saber mais, consulte[Exportar o modelo do grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template).
 
 Depois de ter um modelo, habilite o serviço DNS com as seguintes etapas:
 

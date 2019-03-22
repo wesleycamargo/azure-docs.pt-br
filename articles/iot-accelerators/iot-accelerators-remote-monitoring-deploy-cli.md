@@ -6,18 +6,18 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 10/30/2018
+ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: 61da17d1dc59a08128671da163d8b3ea27f83994
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: a1e65466bb409007a2f112422f393eee786d7b3c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463211"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182125"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Implantar o acelerador de solução de Monitoramento Remoto usando a CLI
 
-Este guia prático mostra como implantar o acelerador de solução de monitoramento remoto. Implante a solução usando a CLI. Você também pode implementar a solução usando a UI baseada na web em azureiotsuite.com, para conhecer essa opção, consulte o [Implantar o acelerador de solução](quickstart-remote-monitoring-deploy.md) do Remote Monitoring.
+Este guia prático mostra como implantar o acelerador de solução de monitoramento remoto. Implante a solução usando a CLI. Você também pode implantar a solução usando a interface do usuário baseada na web em azureiotsolutions.com, para saber mais sobre essa opção, consulte a [implantar o Acelerador de solução de monitoramento remoto](quickstart-remote-monitoring-deploy.md) guia de início rápido.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -66,7 +66,7 @@ Implantação Basic é voltada para a apresentação da solução. Para reduzir 
 
 Uma implantação básica cria os seguintes serviços em sua assinatura do Azure:
 
-| Contagem | Recurso                       | Tipo         | Usadas para |
+| Contagem | Recurso                       | Type         | Usadas para |
 |-------|--------------------------------|--------------|----------|
 | 1     | [Máquina Virtual Linux](https://azure.microsoft.com/services/virtual-machines/) | Standard D1 V2  | Hospedar microsserviços |
 | 1     | [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/)                  | S1 – Camada Padrão | Comunicação e gerenciamento de dispositivo |

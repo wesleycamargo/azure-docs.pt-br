@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: 6bd8d0cee01853547efd028feef0a97f9398024e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 692113257e483f67eaaee038c07d8702d95a7b31
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015515"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116802"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filtrar a telemetria no aplicativo Web Java
 
@@ -186,12 +186,12 @@ Filtra rastreamentos de log (registrados usando [TrackTrace()](../../azure-monit
 ```
 
 * Os valores válidos de `FromSeverityLevel`são:
- *  DESATIVADO             — filtrar TODOS os rastreamentos
- *  RASTREAMENTO           — sem filtragem. igual a Nível de rastreamento
- *  INFORMAÇÕES            — filtrar nível de RASTREAMENTO
- *  AVISO            — filtrar RASTREAMENTO e INFORMAÇÕES
- *  ERRO           — filtrar AVISO, INFORMAÇÕES, RASTREAMENTO
- *  CRÍTICO        — filtrar todos, menos CRÍTICO
+  *  DESATIVADO             — filtrar TODOS os rastreamentos
+  *  RASTREAMENTO           — sem filtragem. igual a Nível de rastreamento
+  *  INFORMAÇÕES            — filtrar nível de RASTREAMENTO
+  *  AVISO            — filtrar RASTREAMENTO e INFORMAÇÕES
+  *  ERRO           — filtrar AVISO, INFORMAÇÕES, RASTREAMENTO
+  *  CRÍTICO        — filtrar todos, menos CRÍTICO
 
 
 ## <a name="custom-filters"></a>Filtros personalizados
@@ -254,7 +254,7 @@ Em ApplicationInsights.xml:
 
 ```
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 *Meu filtro não está funcionando.*
 

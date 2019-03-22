@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 03/05/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 214abd64232130dd3fd5fdde510f7545732ac82e
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 1dd488c2eb419b5e210a48d7a94f7d0bb423a2b1
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54081449"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731487"
 ---
 # <a name="dynamics-365-for-customer-engagement-technical-info-tab"></a>Guia Informações técnicas do Dynamics 365 for Customer Engagement
 
@@ -58,7 +58,7 @@ A tabela a seguir descreve cada um desses campos.
 |  Nome do arquivo do seu pacote     |  Nome do arquivo do seu pacote (.zip).  Esse nome *não* é público e será usado internamente pela equipe de certificação do Dynamics 365.  |
 |  Url                          |  URL de uma conta de Armazenamento do Azure que contém o arquivo do pacote carregado. Essa URL deve incluir uma chave SAS somente leitura para permitir que a nossa equipe obtenha seu pacote para verificação.  |
 | Mais de um pacote de CRM     | Selecione Sim APENAS se você estiver dando suporte a várias versões de CRM com pacotes diferentes.  Cada versão terá um arquivo de pacote correspondente que você precisa criar individualmente.  |
-| Ativo de cenário e caso de uso   | Habilita o upload de um documento de especificação funcional para seu aplicativo, para uso pela equipe de validação do Dynamics 365.  O formato preferencial dessa especificação é o [Modelo de cenário do usuário E2E](http://download.microsoft.com/download/5/1/8/51812AC9-BCD8-489F-937C-5D439C494EC1/E2E%20User%20Scenario%20Template.docx).  |
+| Ativo de cenário e caso de uso   | Habilita o upload de um documento de especificação funcional para seu aplicativo, para uso pela equipe de validação do Dynamics 365.  O formato preferencial dessa especificação é o [Modelo de cenário do usuário E2E](https://isvdocumentation.blob.core.windows.net/d365documentation/Power%20Platform%20E2E%20document.docx).  |
 |  |  |
 
 

@@ -15,12 +15,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 31aaa24dd6020cb8203e4ab1bfec8ce3e0ffd2b8
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: 268b94cb77c238c0d6e0d3fe51a059e3a6602c80
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299683"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003154"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor"></a>Métricas de Hubs de Eventos do Azure no Azure Monitor
 
@@ -40,7 +40,7 @@ As métricas estão habilitadas por padrão e você pode acessar os dados dos ú
 
 ![Exibir métricas bem-sucedidas][1]
 
-Você também pode acessar as métricas diretamente por meio do namespace. Para fazer isso, selecione seu namespace e clique em **Métricas**. Para exibir as métricas filtradas para o escopo do hub de eventos, selecione o hub de eventos e clique em **Métricas**.
+Você também pode acessar as métricas diretamente por meio do namespace. Para fazer isso, selecione seu namespace e, em seguida, clique em **métricas**. Para exibir as métricas filtradas para o escopo do hub de eventos, selecione o hub de eventos e clique em **Métricas**.
 
 Para métricas com suporte a dimensões, será necessário filtrar o valor da dimensão desejado, como mostrado no exemplo a seguir:
 
@@ -48,7 +48,7 @@ Para métricas com suporte a dimensões, será necessário filtrar o valor da di
 
 ## <a name="billing"></a>Cobrança
 
-O uso de métricas no Azure Monitor atualmente é gratuito. No entanto, se você usar outras soluções que ingerem dados de métricas, você poderá ser cobrado por essas soluções. Por exemplo, você será cobrado pelo Armazenamento do Azure se você arquivar dados de métrica para uma conta de Armazenamento do Azure. Você também será cobrado pelo Azure, se você transmitir dados de métricas para o Log Analytics para análise avançada.
+O uso de métricas no Azure Monitor atualmente é gratuito. No entanto, se você usar outras soluções que ingerem dados de métricas, você poderá ser cobrado por essas soluções. Por exemplo, você será cobrado pelo Armazenamento do Azure se você arquivar dados de métrica para uma conta de Armazenamento do Azure. Você também será cobrado pelo Azure se você transmitir dados de métricas para os logs do Azure Monitor para análise avançada.
 
 As métricas a seguir oferecem uma visão geral da integridade do seu serviço. 
 

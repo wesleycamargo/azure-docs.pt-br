@@ -10,14 +10,14 @@ ms.reviewer: klam, estfan, LADocs
 ms.custom: vs-azure
 ms.topic: article
 ms.date: 03/30/2017
-ms.openlocfilehash: 068e5399073959d2c5aa6c4bbeb0d7bccf7d05e6
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
-ms.translationtype: HT
+ms.openlocfilehash: 9cd1946d8fa670764bcc95b82298d07cc70417bd
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393761"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57191316"
 ---
-# <a name="overview-azure-serverless-with-azure-logic-apps-and-azure-functions"></a>Visão geral: Azure Sem Servidor com os Aplicativos Lógicos do Azure e o Azure Functions
+# <a name="overview-azure-serverless-with-azure-logic-apps-and-azure-functions"></a>Visão geral: Azure Serverless com aplicativos lógicos do Azure e o Azure Functions
 
 [Aplicativos sem servidor](https://azure.microsoft.com/solutions/serverless/) oferecem benefícios de um aumento na velocidade do desenvolvimento, redução no código necessário e simplicidade com escala.  Este artigo aborda os diferentes atributos de soluções sem servidor e ofertas sem servidor do Azure.
 
@@ -41,7 +41,7 @@ Para uma introdução aos Aplicativos Lógicos, comece com [criar seu primeiro a
 
 ## <a name="how-can-i-build-and-deploy-serverless-applications-in-azure"></a>Como criar e implantar aplicativos Serverless no Azure?
 
-O Azure fornece um rico conjunto de ferramentas em desenvolvimento, implantação e gerenciamento de aplicativos Serverless.  Aplicativos podem ser criados diretamente no Portal do Azure ou com [ferramentas do Visual Studio](logic-apps-serverless-get-started-vs.md).  Depois que um aplicativo tiver sido desenvolvido, ele poderá ser [implantado instantaneamente](logic-apps-create-deploy-template.md).  O Azure também fornece monitoramento para aplicativos sem servidor.  Esse monitoramento pode ser acessado no Portal do Azure, por meio da API ou SDKs, ou com ferramentas integradas para Log Analytics e Application Insights.
+O Azure fornece um rico conjunto de ferramentas em desenvolvimento, implantação e gerenciamento de aplicativos Serverless.  Aplicativos podem ser criados diretamente no Portal do Azure ou com [ferramentas do Visual Studio](logic-apps-serverless-get-started-vs.md).  Depois que um aplicativo tiver sido desenvolvido, ele poderá ser [implantado instantaneamente](logic-apps-create-deploy-template.md).  O Azure também fornece monitoramento para aplicativos sem servidor.  Esse monitoramento pode ser acessado do portal do Azure, por meio da API ou SDKs, ou com ferramentas integradas para logs do Azure Monitor e Application Insights.
 
 ## <a name="next-steps"></a>Próximas etapas
 

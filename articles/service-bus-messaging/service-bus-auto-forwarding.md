@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 8b51a4b8690d2184223bf33c7e863287de431d62
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 85ab5e3bb963ee692e5b70af3eb90cc68cec361f
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853146"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593379"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>Encadeando entidades do Barramento de Serviço com o encaminhamento automático
 
-O recurso *encaminhamento automático* do Barramento de Serviço permite encadear uma fila ou assinatura a outra fila ou outro tópico que faz parte do mesmo namespace. Quando o encaminhamento automático está habilitado, o Barramento de Serviço remove automaticamente as mensagens colocadas na primeira fila ou assinatura (origem) e as coloca na segunda fila ou no segundo tópico (destino). Ainda é possível enviar uma mensagem diretamente para a entidade de destino. Além disso, não é possível encadear uma subfila, por exemplo, uma fila de mensagens mortas, em outra fila ou outro tópico.
+O recurso *encaminhamento automático* do Barramento de Serviço permite encadear uma fila ou assinatura a outra fila ou outro tópico que faz parte do mesmo namespace. Quando o encaminhamento automático está habilitado, o Barramento de Serviço remove automaticamente as mensagens colocadas na primeira fila ou assinatura (origem) e as coloca na segunda fila ou no segundo tópico (destino). Ainda é possível enviar uma mensagem diretamente para a entidade de destino.
 
 ## <a name="using-autoforwarding"></a>Usar o encaminhamento automático
 

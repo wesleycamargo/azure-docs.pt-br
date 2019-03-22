@@ -11,12 +11,12 @@ ms.assetid: 71775384-6c3a-482c-a484-6624cbe4fcc7
 ms.topic: article
 tags: connectors
 ms.date: 07/21/2016
-ms.openlocfilehash: 7b1886321ca4afd4b4710bd9fddf16d2d5eb224b
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: c0985df445ae34795d5287144d4664755cc006da
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126580"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182108"
 ---
 # <a name="create-event-based-workflows-or-actions-by-using-webhooks-and-azure-logic-apps"></a>Criar ações ou fluxos de trabalho baseados em evento usando webhooks e os Aplicativos Lógicos do Azure
 
@@ -29,9 +29,9 @@ Saiba mais sobre [como criar APIs personalizadas que dão suporte a um webhook](
 
 ## <a name="use-the-webhook-trigger"></a>Usar o gatilho de webhook
 
-Um [*gatilho*](connectors-overview.md) é um evento que inicia um fluxo de trabalho do aplicativo lógico. Um gatilho de webhook é baseado em evento e não depende de sondagem para novos itens. Assim como o [gatilho de solicitação](connectors-native-reqres.md), o aplicativo lógico é acionado no instante em que um evento ocorre. O gatilho de webhook registra uma *URL de retorno de chamada* em um serviço e usa essa URL para acionar o aplicativo lógico conforme necessário.
+Um [*gatilho*](connectors-overview.md) é um evento que inicia um fluxo de trabalho do aplicativo lógico. O gatilho de webhook é baseado em evento, que não depende de sondagem para novos itens. Quando você salvar seu aplicativo lógico com um gatilho de webhook ou quando você altera seu aplicativo lógico de desabilitado para habilitado, o gatilho de webhook *assina* para o serviço especificado ou o ponto de extremidade, registrando um *deURLderetornodechamada* com o serviço ou ponto de extremidade. O gatilho, em seguida, usa essa URL para executar o aplicativo lógico conforme necessário. Como o [gatilho de solicitação](connectors-native-reqres.md), o aplicativo lógico é acionado imediatamente quando o evento esperado acontece. O disparador *cancela a assinatura* se você remover o gatilho e salva seu aplicativo lógico, ou quando você altera seu aplicativo lógico do habilitado para desabilitado.
 
-Veja um exemplo que mostra como configurar um gatilho HTTP no Designer de Aplicativo Lógico. Essas etapas pressupõem que você já implantou ou está acessando uma API que segue o [padrão de assinatura e cancelamento de assinatura de webhook encontrado nos aplicativos lógicos](../logic-apps/logic-apps-create-api-app.md#webhook-triggers). A chamada à assinatura é feita sempre que um aplicativo lógico é salvo com um novo webhook ou alternado de desabilitado para habilitado. A chamada ao cancelamento da assinatura é feita quando um gatilho de webhook do aplicativo lógico é removido e salvo ou alternado de habilitado para desabilitado.
+Veja um exemplo que mostra como configurar um gatilho HTTP no Designer de Aplicativo Lógico. Essas etapas pressupõem que você já implantou ou está acessando uma API que segue o [padrão de assinatura e cancelamento de assinatura de webhook encontrado nos aplicativos lógicos](../logic-apps/logic-apps-create-api-app.md#webhook-triggers). 
 
 **Para adicionar o gatilho de webhook**
 
@@ -48,9 +48,15 @@ Veja um exemplo que mostra como configurar um gatilho HTTP no Designer de Aplica
 
 ## <a name="use-the-webhook-action"></a>Usar a ação de webhook
 
-Uma [*ação*](connectors-overview.md) é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. Uma ação de webhook registra uma *URL de retorno de chamada* com um serviço e aguarda até que a URL seja chamada antes continuar. ["Enviar Email de Aprovação"](connectors-create-api-office365-outlook.md) é um exemplo de conector que segue esse padrão. Você pode estender esse padrão para qualquer serviço por meio de ação de webhook. 
+Uma [ *ação* ](connectors-overview.md) é uma operação que é definida e o execute por fluxo de trabalho do aplicativo lógico. Quando um aplicativo lógico executa uma ação de webhook, essa ação *assina* para o serviço especificado ou o ponto de extremidade, registrando um *URL de retorno de chamada* com o serviço ou ponto de extremidade. A ação de webhook, em seguida, aguarda até que a URL antes da aplicativo lógico retoma a execução de chamadas de serviço. O aplicativo lógico cancela a assinatura do serviço ou ponto de extremidade nesses casos: 
 
-Veja um exemplo que mostra como configurar uma ação de webhook no Designer de Aplicativo Lógico. Essas etapas pressupõem que você já implantou ou está acessando uma API que segue o [padrão de assinatura e cancelamento de assinatura de webhook usado em aplicativos lógicos](../logic-apps/logic-apps-create-api-app.md#webhook-actions). A chamada à assinatura é feita sempre que um aplicativo lógico executa a ação de webhook. A chamada ao cancelamento da assinatura é feita sempre que uma execução é cancelada enquanto aguarda uma resposta ou antes que o tempo limite do aplicativo lógico seja atingido.
+* Quando a ação de webhook foi concluída com êxito
+* Se a execução do aplicativo lógico for cancelado enquanto aguarda uma resposta
+* Antes da lógica de aplicativo atinge o tempo limite
+
+Por exemplo, o [ **enviar email de aprovação** ](connectors-create-api-office365-outlook.md) ação é um exemplo de ação de webhook que segue este padrão. Você pode estender esse padrão para qualquer serviço por meio de ação de webhook. 
+
+Veja um exemplo que mostra como configurar uma ação de webhook no Designer de Aplicativo Lógico. Essas etapas pressupõem que você já implantou ou está acessando uma API que segue o [padrão de assinatura e cancelamento de assinatura de webhook usado em aplicativos lógicos](../logic-apps/logic-apps-create-api-app.md#webhook-actions). 
 
 **Para adicionar uma ação de webhook**
 
@@ -95,7 +101,7 @@ Um * significa que o campo é obrigatório.
 | URI do Cancelamento da Assinatura* |uri |URI do HTTP a ser usado para solicitação de cancelamento da assinatura |
 | Corpo da Assinatura |corpo |Corpo da solicitação HTTP da assinatura |
 | Cabeçalhos da Assinatura |headers |Cabeçalhos da solicitação HTTP da assinatura |
-| Autenticação da Assinatura |Autenticação |Autenticação HTTP a ser usada para assinatura. [Consulte o conector HTTP](connectors-native-http.md#authentication) para obter detalhes |
+| Autenticação da Assinatura |Autenticação |Autenticação HTTP a ser usada para assinatura. [Confira o artigo sobre o conector HTTP](connectors-native-http.md#authentication) para obter detalhes |
 | Corpo do Cancelamento da Assinatura |body |Corpo da solicitação HTTP do cancelamento da assinatura |
 | Cabeçalhos do Cancelamento da Assinatura |headers |Cabeçalhos da solicitação HTTP do cancelamento da assinatura |
 | Autenticação do Cancelamento da Assinatura |autenticação |Autenticação HTTP a ser usada para cancelamento da assinatura. [Consulte o conector HTTP](connectors-native-http.md#authentication) para obter detalhes |
@@ -131,7 +137,7 @@ Um * significa que o campo é obrigatório.
 | URI do Cancelamento da Assinatura* |uri |URI do HTTP a ser usado para solicitação de cancelamento da assinatura |
 | Corpo da Assinatura |corpo |Corpo da solicitação HTTP da assinatura |
 | Cabeçalhos da Assinatura |headers |Cabeçalhos da solicitação HTTP da assinatura |
-| Autenticação da Assinatura |Autenticação |Autenticação HTTP a ser usada para assinatura. [Consulte o conector HTTP](connectors-native-http.md#authentication) para obter detalhes |
+| Autenticação da Assinatura |Autenticação |Autenticação HTTP a ser usada para assinatura. [Confira o artigo sobre o conector HTTP](connectors-native-http.md#authentication) para obter detalhes |
 | Corpo do Cancelamento da Assinatura |body |Corpo da solicitação HTTP do cancelamento da assinatura |
 | Cabeçalhos do Cancelamento da Assinatura |headers |Cabeçalhos da solicitação HTTP do cancelamento da assinatura |
 | Autenticação do Cancelamento da Assinatura |autenticação |Autenticação HTTP a ser usada para cancelamento da assinatura. [Consulte o conector HTTP](connectors-native-http.md#authentication) para obter detalhes |

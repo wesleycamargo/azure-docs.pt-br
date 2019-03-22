@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 3442ced47e50485da1ffdd475d9649243b1c8583
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 37f85afbdd55d3f14638f0833f69bb1992770449
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116687"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086064"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Início Rápido: Integrar sua assinatura do Azure à Central de Segurança Standard
 A Central de Segurança do Azure fornece um gerenciamento de segurança unificado e proteção contra ameaças nas cargas de trabalho da sua nuvem híbrida. Enquanto a camada Gratuita oferece segurança limitada para somente os recursos do Azure, a camada Standard estende esses recursos para o local e outras nuvens. A Central de Segurança Standard ajuda a localizar e corrigir vulnerabilidades de segurança, aplicar controles de acesso e de aplicativo para bloquear atividades mal-intencionadas, detectar ameaças usando a análise e inteligência e responder rapidamente quando sob ataque. Você pode experimentar a Central de Segurança Standard sem nenhum custo. Para saber mais, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
@@ -37,7 +37,7 @@ Para fazer o upgrade de uma assinatura para a camada Standard, a você deve ser 
 1. Faça logon no [Portal do Azure](https://azure.microsoft.com/features/azure-portal/).
 2. No menu **Microsoft Azure**, selecione **Central de Segurança**. **Central de Segurança - Visão geral** é aberto.
 
- ![Visão geral da Central de Segurança][2]
+   ![Visão geral da Central de Segurança][2]
 
 **Central de Segurança – Visão geral** fornece uma exibição unificada sobre a postura de segurança das cargas de trabalho da sua nuvem híbrida, permitindo que você descubra e avalie a segurança de suas cargas de trabalho e identifique e reduza riscos. A Central de Segurança habilita automaticamente qualquer uma das suas assinaturas do Azure que não estavam incorporadas por você ou por outro usuário da assinatura à camada Gratuita.
 
@@ -55,13 +55,13 @@ Para os guias de início rápido e tutoriais da Central de Segurança, você dev
 
 1. No menu principal da Central de Segurança, selecione **Introdução**.
  
-  ![Introdução][4]
+   ![Introdução][4]
 
 2. Em **Atualização**, a Central de Segurança lista as assinaturas e os workspaces qualificados para a integração. 
    - Você pode clicar em **Aplicar sua avaliação** expansível para ver uma lista de todas as assinaturas e workspaces com seu status de qualificação de avaliação.
    -    Você pode atualizar as assinaturas e os workspaces que não são qualificados para avaliação.
    -    Você pode selecionar workspaces e assinaturas qualificados para iniciar sua avaliação.
-3.  Clique em **Iniciar avaliação** para iniciar sua avaliação das assinaturas selecionadas.
+3. Clique em **Iniciar avaliação** para iniciar sua avaliação das assinaturas selecionadas.
 
 
   ![Alertas de segurança][9]

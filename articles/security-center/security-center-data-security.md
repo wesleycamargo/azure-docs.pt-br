@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: af3cc229482021fe6d5e5c988bc98afe6f7f97ce
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 7a327c963f32d6bf5b0cf7751557c61327fd26e9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114154"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57902783"
 ---
 # <a name="azure-security-center-data-security"></a>Segurança dos Dados da Central de Segurança do Azure
 Para ajudar os clientes a evitarem, detectarem e responderem às ameaças, a Central de Segurança do Azure coleta e processa dados relacionados à segurança, incluindo informações da configuração, metadados, logs de eventos, arquivos de despejo corrompidos e mais. A Microsoft obedece às diretrizes rígidas de conformidade e segurança — da codificação à operação de um serviço.
@@ -38,7 +38,7 @@ A Central de Segurança do Azure analisa os dados das seguintes fontes para forn
 ## <a name="data-protection"></a>Proteção de dados
 **Segregação de dados**: os dados são mantidos separados logicamente em cada componente em todo o serviço. Todos os dados são marcados por organização. Essa marcação persiste em todo o ciclo de vida dos dados e é imposta em cada camada do serviço.
 
-**Acesso a dados**: Para fornecer recomendações de segurança e investigar as possíveis ameaças de segurança, os funcionários da Microsoft podem acessar as informações coletadas ou analisadas pelos serviços do Azure, incluindo arquivos de despejo de memória, eventos de criação do processo, instantâneos de disco da VM e artefatos, que podem incluir, involuntariamente, Dados do Cliente ou dados pessoais de suas máquinas virtuais. Seguimos os [Termos de Serviços e Política de Privacidade do Microsoft Online](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), que determinam que a Microsoft não usará os Dados do Cliente nem obterá as informações para fins comerciais ou de propaganda semelhantes. Somente usamos os Dados do Cliente conforme o necessário para fornecer os serviços do Azure, inclusive para fins compatíveis com o fornecimento desses serviços. Você mantém todos os direitos dos Dados do Cliente.
+**Acesso a dados**: Para fornecer recomendações de segurança e investigar as possíveis ameaças de segurança, os funcionários da Microsoft podem acessar as informações coletadas ou analisadas pelos serviços do Azure, incluindo arquivos de despejo de memória, eventos de criação do processo, instantâneos de disco da VM e artefatos, que podem incluir, involuntariamente, Dados do Cliente ou dados pessoais de suas máquinas virtuais. Seguimos os [Termos de Serviços e Política de Privacidade do Microsoft Online](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), que determinam que a Microsoft não usará os Dados do Cliente nem obterá as informações para fins comerciais ou de propaganda semelhantes. Somente usamos os Dados do Cliente conforme o necessário para fornecer os serviços do Azure, inclusive para fins compatíveis com o fornecimento desses serviços. Você mantém todos os direitos dos Dados do Cliente.
 
 **Uso de dados**: a Microsoft usa os padrões e a inteligência de ameaças vistos em vários locatários para aprimorar os recursos de detecção e prevenção. Fazemos isso de acordo com os compromissos de privacidade descritos em nossa [Política de Privacidade](https://www.microsoft.com/privacystatement/en-us/OnlineServices/Default.aspx).
 
@@ -76,7 +76,7 @@ Se você estiver usando a Central de Segurança do Azure Gratuita, também poder
 Os clientes podem consumir dados relacionados à Central de Segurança de diferentes fluxos de dados, conforme mostrado abaixo:
 
 * **Atividade do Azure**: todos os alertas de segurança, as solicitações [just in time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) aprovadas da Central de Segurança e todos os alertas gerados por [controles de aplicativo adaptável](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application).
-* **Log Analytics**: todos os alertas de segurança.
+* **Os logs do Azure Monitor**: todos os alertas de segurança.
 
 
 > [!NOTE]

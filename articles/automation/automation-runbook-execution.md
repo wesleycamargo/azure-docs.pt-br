@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/10/2019
+ms.date: 03/18/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4e5c64dc43be10eead1da35ec2337aa1f83f2f91
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: a2efc90e14180cd2b26223ef968a7f192b440ebd
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54472119"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287036"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de runbook na Automação do Azure
 
@@ -22,24 +22,20 @@ Quando você inicia um runbook na Automação do Azure, um trabalho é criado. U
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
-O diagrama a seguir mostra o ciclo de vida de um trabalho de runbook para [runbooks gráficos](automation-runbook-types.md#graphical-runbooks) e [runbooks de fluxo de trabalho do PowerShell](automation-runbook-types.md#powershell-workflow-runbooks).
+O diagrama a seguir mostra o ciclo de vida de um trabalho de runbook para [runbooks do PowerShell](automation-runbook-types.md#powershell-runbooks), [runbooks gráficos](automation-runbook-types.md#graphical-runbooks) e [runbooks de fluxo de trabalho do PowerShell](automation-runbook-types.md#powershell-workflow-runbooks).
 
 ![Status de trabalho - Fluxo de trabalho do PowerShell](./media/automation-runbook-execution/job-statuses.png)
-
-O diagrama a seguir mostra o ciclo de vida de um trabalho de runbook para [runbooks do PowerShell](automation-runbook-types.md#powershell-runbooks).
-
-![Status de trabalho - Script do PowerShell](./media/automation-runbook-execution/job-statuses-script.png)
 
 Os trabalhos têm acesso aos recursos do Azure fazendo uma conexão à sua assinatura do Azure. Eles só têm acesso aos recursos no seu data center se estes puderem ser acessados da nuvem pública.
 
 ## <a name="where-to-run-your-runbooks"></a>Onde executar seus runbooks
 
-Os runbooks na Automação do Azure podem ser executados em uma área restrita no Azure ou em um [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md). Uma área restrita é um ambiente compartilhado no Azure que pode ser usado por vários trabalhos. Os trabalhos que usam a mesma área restrita são restringidos pelas limitações de recurso da área restrita. Os Hybrid Runbook Workers podem ser usados para executar runbooks diretamente no computador que está hospedando a função e em relação aos recursos do ambiente para gerenciamento desses recursos locais. Runbooks são armazenados e gerenciados na Automação do Azure e, em seguida, entregues a um ou mais computadores atribuídos. A maioria dos runbooks pode ser executada facilmente em áreas restritas do Azure. Há cenários específicos em que pode ser recomendada a escolha de um Hybrid Runbook ao invés de uma área restrita do Azure para execução do seu runbook. Veja a seguinte tabela com uma lista de alguns exemplos de cenário:
+Os runbooks na Automação do Azure podem ser executados em uma área restrita no Azure ou em um [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md). Uma área restrita é um ambiente compartilhado no Azure que pode ser usado por vários trabalhos. Os trabalhos que usam a mesma área restrita são restringidos pelas limitações de recurso da área restrita. Hybrid Runbook Workers podem executar runbooks diretamente no computador que está hospedando a função e em relação aos recursos no ambiente para gerenciar esses recursos locais. Runbooks são armazenados e gerenciados na Automação do Azure e, em seguida, entregues a um ou mais computadores atribuídos. A maioria dos runbooks facilmente podem ser executados em áreas restritas do Azure. Há cenários específicos em que pode ser recomendada a escolha de um Hybrid Runbook ao invés de uma área restrita do Azure para execução do seu runbook. Veja a seguinte tabela com uma lista de alguns exemplos de cenário:
 
 |Tarefa|Melhor opção|Observações|
 |---|---|---|
 |Integração com serviços do Azure|Área restrita do Azure|Com hospedagem no Azure, a autenticação é mais simples. Se você está usando o Hybrid Runbook Worker em uma VM do Azure, é possível usar [identidades gerenciadas para recursos do Azure](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources)|
-|Desempenho ideal para gerenciar recursos do Azure|Área restrita do Azure|O script é executado no mesmo ambiente que, por sua vez, tem menos latência|
+|Desempenho ideal para gerenciar recursos do Azure|Área restrita do Azure|Script é executado no mesmo ambiente, que por sua vez, tem menos latência|
 |Redução de custos operacionais|Área restrita do Azure|Não há sobrecarga de computação, nem a necessidade de uma VM|
 |Script de execução prolongada|Hybrid Runbook Worker|Áreas restritas do Azure têm [limitação de recursos](../azure-subscription-service-limits.md#automation-limits)|
 |Interação com serviços locais|Hybrid Runbook Worker|Pode ter acesso diretamente ao computador host|
@@ -49,6 +45,8 @@ Os runbooks na Automação do Azure podem ser executados em uma área restrita n
 |Uso de módulos com requisitos específicos| Hybrid Runbook Worker|Alguns exemplos incluem:</br> **WinSCP**: dependência de winscp.exe </br> **IISAdministration**: necessidade de que o IIS seja desabilitado|
 |Instalação do módulo que requer o instalador|Hybrid Runbook Worker|Módulos para a área restrita devem ser xcopyable|
 |Uso de runbooks ou módulos que exigem o .NET Framework diferente da versão 4.7.2|Hybrid Runbook Worker|Áreas restritas da Automação têm o .NET Framework 4.7.2 e não há maneira de atualizá-lo|
+|Scripts que exigem elevação|Hybrid Runbook Worker|As áreas restritas não permitir a elevação. Para resolver isso, use um Hybrid Runbook Worker e você pode desativar o UAC e usar `Invoke-Command` quando executar o comando que exige elevação|
+|Scripts que exigem acesso ao WMI|Hybrid Runbook Worker|Trabalhos em execução em áreas restritas em nuvem [não têm acesso a WMI](#device-and-application-characteristics)|
 
 ## <a name="runbook-behavior"></a>Comportamento do runbook
 
@@ -77,11 +75,11 @@ else
 
 ### <a name="time-dependant-scripts"></a>Scripts dependentes de tempo
 
-É preciso ponderar cuidadosamente ao criar runbooks. Como mencionado anteriormente, os runbooks precisam ser criados de maneira que sejam robustos e possam tratar de erros transitórios que podem fazer com que o runbook reinicie ou falhe. Se um runbook falhar, ele é repetido. Se um runbook é executado normalmente dentro de um limite de tempo, a lógica para verificar o tempo de execução deve ser implementada no runbook de modo a garantir que operações como a inicialização, o desligamento ou a expansão sejam executadas somente durante horários específicos.
+É preciso ponderar cuidadosamente ao criar runbooks. Como mencionado anteriormente, os runbooks precisam ser criados de maneira que sejam robustos e possam tratar de erros transitórios que podem fazer com que o runbook reinicie ou falhe. Se um runbook falhar, ela será repetida. Se um runbook normalmente é executado dentro de uma restrição de tempo, a lógica para verificar o tempo de execução deve ser implementado no runbook para garantir operações como início, desligadas ou escalar horizontalmente são executados somente durante horários específicos.
 
 ### <a name="tracking-progress"></a>Acompanhar o progresso
 
-Uma boa prática é criar runbooks para que sejam modulares por natureza. Isso significa estruturar a lógica no runbook de modo que ele possa ser reutilizado e reiniciado facilmente. Acompanhar o progresso em um runbook é uma maneira de garantir que a lógica em um runbook seja executada corretamente em caso de problemas. Algumas maneiras possíveis de acompanhar o progresso do runbook é usar uma fonte externa, como contas de armazenamento, um banco de dados ou arquivos compartilhados. Ao acompanhar o estado externamente, você pode criar a lógica em seu runbook para verificar primeiro o estado da última ação que o runbook recebeu e, com base nos resultados, ignorar ou continuar tarefas específicas no runbook.
+Uma boa prática é criar runbooks para que sejam modulares por natureza. Isso significa estruturar a lógica no runbook de modo que ele possa ser reutilizado e reiniciado facilmente. Acompanhar o progresso em um runbook é uma boa maneira de garantir que a lógica em um runbook execute corretamente se houver problemas. Algumas maneiras possíveis de acompanhar o progresso do runbook é usar uma fonte externa, como contas de armazenamento, um banco de dados ou arquivos compartilhados. Acompanhando o estado externamente, você pode criar lógica em seu runbook para primeiro verificar o estado da última ação que levou o runbook. Em seguida, com base em resultados, ignorar ou continuar tarefas específicas no runbook.
 
 ### <a name="prevent-concurrent-jobs"></a>Evitar trabalhos simultâneos
 
@@ -113,9 +111,86 @@ If (($jobs.status -contains "Running" -And $runningCount -gt 1 ) -Or ($jobs.Stat
 }
 ```
 
+### <a name="working-with-multiple-subscriptions"></a>Trabalhando com várias assinaturas
+
+Quando se cria runbooks que lidam com várias assinaturas, o runbook precisa usar o [Disable-AzureRmContextAutosave](/powershell/module/azurerm.profile/disable-azurermcontextautosave) cmdlet para garantir que seu contexto de autenticação não é recuperado de outro runbook que pode ser em execução na mesma área de segurança. Em seguida, você precisa usar o `-AzureRmContext` parâmetro no seu `AzureRM` cmdlets e passá-lo em seu contexto adequado.
+
+```powershell
+# Ensures you do not inherit an AzureRMContext in your runbook
+Disable-AzureRmContextAutosave –Scope Process
+
+$Conn = Get-AutomationConnection -Name AzureRunAsConnection
+Connect-AzureRmAccount -ServicePrincipal `
+-Tenant $Conn.TenantID `
+-ApplicationID $Conn.ApplicationID `
+-CertificateThumbprint $Conn.CertificateThumbprint
+
+$context = Get-AzureRmContext
+
+$ChildRunbookName = 'ChildRunbookDemo'
+$AutomationAccountName = 'myAutomationAccount'
+$ResourceGroupName = 'myResourceGroup'
+
+Start-AzureRmAutomationRunbook `
+    -ResourceGroupName $ResourceGroupName `
+    -AutomationAccountName $AutomationAccountName `
+    -Name $ChildRunbookName `
+    -DefaultProfile $context
+```
+
+### <a name="handling-exceptions"></a>Tratamento de exceções
+
+Ao criar scripts, é importante ser capaz de lidar com exceções e falhas potenciais de intermitentes. A seguir está algumas maneiras diferentes para lidar com problemas de intermitentes com seus runbooks ou exceções:
+
+#### <a name="erroractionpreference"></a>$ErrorActionPreference
+
+O [$ErrorActionPreference](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) variável de preferência determina como o PowerShell responde a um erro não fatal. Erros de finalização não são afetados por `$ErrorActionPreference`, eles sempre encerra. Usando `$ErrorActionPreference`, como um erro não fatal normalmente `PathNotFound` do `Get-ChildItem` cmdlet irá parar o runbook de ser concluída. O exemplo a seguir mostra o uso `$ErrorActionPreference`. O último `Write-Output` linha nunca será executado conforme o script será interrompido.
+
+```powershell-interactive
+$ErrorActionPreference = 'Stop'
+Get-Childitem -path nofile.txt
+Write-Output "This message will not show"
+```
+
+#### <a name="try-catch-finally"></a>Try-Catch Finally
+
+[Try Catch](/powershell/module/microsoft.powershell.core/about/about_try_catch_finally) é usado em scripts do PowerShell para ajudá-lo a lidar com erros de finalização. Usando Try Catch, você pode capturar exceções específicas ou exceções gerais. A instrução Catch deve ser usada para rastrear erros ou para tentar tratar o erro. O exemplo a seguir tenta baixar um arquivo que não existe. Ele captura o `System.Net.WebException` exceção, se houver outra exceção, o último valor é retornado.
+
+```powershell-interactive
+try
+{
+   $wc = new-object System.Net.WebClient
+   $wc.DownloadFile("http://www.contoso.com/MyDoc.doc")
+}
+catch [System.Net.WebException]
+{
+    "Unable to download MyDoc.doc from http://www.contoso.com."
+}
+catch
+{
+    "An error occurred that could not be resolved."
+}
+```
+
+#### <a name="throw"></a>Throw
+
+[Lançar](/powershell/module/microsoft.powershell.core/about/about_throw) pode ser usado para gerar um erro de encerramento. Isso pode ser útil ao definir sua própria lógica em um runbook. Se um determinado critério for atendido que deve interromper o script, você pode usar `throw` para interromper o script. A exemplo a seguir mostra um parâmetro de função necessário por meio da máquina `throw`.
+
+```powershell-interactive
+function Get-ContosoFiles
+{
+  param ($path = $(throw "The Path parameter is required."))
+  Get-ChildItem -Path $path\*.txt -recurse
+}
+```
+
 ### <a name="using-executables-or-calling-processes"></a>Usar executáveis ou chamar processos
 
-Os runbooks executados nas áreas restritas do Azure não oferecem suporte à chamada de processos (como .exe ou subprocess.call). Isso porque as áreas restritas do Azure são processos compartilhados executados em contêineres, que podem não ter acesso a todas as APIs subjacentes. Para cenários em que são necessários softwares de terceiros ou a chamada de subprocessos, é recomendável executar o runbook em um [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md).
+Runbooks executados em áreas restritas do Azure não dão suporte a processos de chamada (por exemplo, um .exe ou subprocess.call). Isso ocorre porque as áreas restritas do Azure são processos compartilhados que são executados em contêineres, que podem não ter acesso a todas as APIs subjacentes. Para cenários em que são necessários softwares de terceiros ou a chamada de subprocessos, é recomendável executar o runbook em um [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md).
+
+### <a name="device-and-application-characteristics"></a>Características de dispositivo e aplicativo
+
+Trabalhos de runbook executados em áreas restritas do Azure não tem acesso a quaisquer características de dispositivo ou aplicativo. A API mais comuns usada para métricas de desempenho de consulta no Windows é o WMI. Algumas dessas métricas comuns são o uso da memória e CPU. No entanto, não importa qual API é usada. Trabalhos em execução na nuvem não tem acesso a implementação da Microsoft do Web baseado em Enterprise Management (WBEM), que é construído sobre o Common informações de CIM (modelo), que são os padrões do setor para definir as características de dispositivo e aplicativo.
 
 ## <a name="job-statuses"></a>Status de trabalho
 
@@ -138,7 +213,7 @@ A tabela a seguir descreve os diferentes status possíveis para um trabalho. O P
 
 ## <a name="viewing-job-status-from-the-azure-portal"></a>Exibindo o status do trabalho no portal do Azure
 
-Você pode exibir um status resumido de todos os trabalhos do runbook ou analisar os detalhes de um trabalho específico do runbook no portal do Azure. Você também pode configurar a integração com o seu espaço de trabalho do Log Analytics a fim de encaminhar fluxos de trabalho e status do trabalho do runbook. Para saber mais sobre a integração com o Log Analytics, consulte [Encaminhar status do trabalho e fluxos de trabalho de Automação para Log Analytics](automation-manage-send-joblogs-log-analytics.md).
+Você pode exibir um status resumido de todos os trabalhos do runbook ou analisar os detalhes de um trabalho específico do runbook no portal do Azure. Você também pode configurar a integração com o seu espaço de trabalho do Log Analytics a fim de encaminhar fluxos de trabalho e status do trabalho do runbook. Para obter mais informações sobre a integração com os logs do Azure Monitor, consulte [encaminhar status do trabalho e fluxos de trabalho de automação para logs do Azure Monitor](automation-manage-send-joblogs-log-analytics.md).
 
 ### <a name="automation-runbook-jobs-summary"></a>Resumo dos trabalhos de runbook da Automação
 
@@ -220,11 +295,11 @@ Get-AzureRmLog -ResourceId $JobResourceID -MaxRecord 1 | Select Caller
 
 ## <a name="fair-share"></a>fração justa
 
-Para compartilhar recursos entre todos os runbooks na nuvem, a Automação do Azure descarrega ou interrompe temporariamente qualquer trabalho que tenha sido executado por mais de três horas. Os trabalhos para [runbooks com base em PowerShell](automation-runbook-types.md#powershell-runbooks) e [runbooks Python](automation-runbook-types.md#python-runbooks) são interrompidos e não são reiniciados, e o status do trabalho é mostrado como Parado.
+Para compartilhar recursos entre todos os runbooks na nuvem, a automação do Azure temporariamente descarrega ou interrompe qualquer trabalho que foi executado por mais de três horas. Os trabalhos para [runbooks com base em PowerShell](automation-runbook-types.md#powershell-runbooks) e [runbooks Python](automation-runbook-types.md#python-runbooks) são interrompidos e não são reiniciados, e o status do trabalho é mostrado como Parado.
 
-Para tarefas de execução prolongada, é recomendável usar um [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior). Os Hybrid Runbook Workers não são limitados por fração justa e não limitam o tempo de execução de um runbook. Os outros [limites](../azure-subscription-service-limits.md#automation-limits) do trabalho se aplicam a áreas restritas do Azure e ao Hybrid Runbook Workers. Embora Hybrid Runbook Workers não sejam limitados pelo limite de fração justa de 3 horas, os runbooks executados neles ainda devem ser desenvolvidos para oferecer suporte a comportamentos de reinicialização devido a problemas de infraestrutura local inesperados.
+Para tarefas de execução prolongada, é recomendável usar um [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior). Os Hybrid Runbook Workers não são limitados por fração justa e não limitam o tempo de execução de um runbook. Os outros [limites](../azure-subscription-service-limits.md#automation-limits) do trabalho se aplicam a áreas restritas do Azure e ao Hybrid Runbook Workers. Enquanto o Hybrid Runbook Workers não são limitados pelo limite de fração justa de 3 horas, runbooks executados nesses computadores devem ser desenvolvidos para oferecer suporte a comportamentos de reinicialização de problemas de infraestrutura local inesperada.
 
-Outra opção é otimizar o runbook usando runbooks filho. Se o runbook percorre continuamente a mesma função em diversos recursos, como uma operação de banco de dados em vários bancos de dados, você pode mover essa função para um [runbook filho](automation-child-runbooks.md) e chamá-la com o cmdlet [Start-AzureRMAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook). Cada um desses runbooks filhos será executado em paralelo em processos separados, diminuindo a quantidade total de tempo para que o runbook pai seja concluído. Você poderá usar o cmdlet [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/Get-AzureRmAutomationJob) no seu runbook para verificar o status do trabalho de cada filho se houver operações que precisem ser executadas depois que o runbook filho for concluído.
+Outra opção é otimizar o runbook usando runbooks filho. Se o runbook percorre continuamente a mesma função em diversos recursos, como uma operação de banco de dados em vários bancos de dados, você pode mover essa função para um [runbook filho](automation-child-runbooks.md) e chamá-la com o cmdlet [Start-AzureRMAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook). Cada um desses runbooks filho é executado em paralelo em processos separados. Esse comportamento reduz a quantidade total de tempo para o runbook pai concluir. Você pode usar o [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/Get-AzureRmAutomationJob) cmdlet em seu runbook para verificar o status do trabalho para cada filho, se houver operações que executar após a conclusão do runbook filho.
 
 ## <a name="next-steps"></a>Próximas etapas
 

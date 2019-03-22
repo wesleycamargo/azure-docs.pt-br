@@ -3,23 +3,23 @@ title: Trabalhando com Coleções Confiáveis | Microsoft Docs
 description: Conheça as práticas recomendadas para trabalhar com Reliable Collections.
 services: service-fabric
 documentationcenter: .net
-author: tylermsft
-manager: jeanpaul.connock
+author: aljo-microsoft
+manager: chackdan
 editor: ''
 ms.assetid: 39e0cd6b-32c4-4b97-bbcf-33dad93dcad1
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/12/2019
-ms.author: twhitney
-ms.openlocfilehash: e7f0219919fe0569633cc85b89a1a91b1704b269
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.date: 02/22/2019
+ms.author: aljo
+ms.openlocfilehash: bb99e5984f91edb0cf40f3bdc485624b9ec59833
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114817"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872680"
 ---
 # <a name="working-with-reliable-collections"></a>Trabalhando com Reliable Collections
 O Service Fabric oferece um modelo de programação com estado disponível para desenvolvedores .NET por meio das Reliable Collections. Especificamente, o Service Fabric fornece as classes de dicionário confiável e fila confiável. Quando você usar essas classes, seu estado é particionado (para escalabilidade), replicado (para disponibilidade) e transacionado dentro de uma partição (para semântica ACID). Vejamos um uso típico de um objeto de dicionário confiável para ver o que ele está fazendo realmente.
@@ -143,7 +143,7 @@ using (ITransaction tx = StateManager.CreateTransaction())
 ```
 
 ## <a name="define-immutable-data-types-to-prevent-programmer-error"></a>Definir tipos de dados imutáveis para evitar erro do programador
-O ideal seria que o compilador relatasse erros quando você acidentalmente produzisse código que transforma o estado de um objeto que deve ser considerado imutável. Porém, o compilador C# não consegue fazer isso. Portanto, para evitar possíveis bugs do programador, é altamente recomendável que você defina os tipos usados com coleções confiáveis como tipos imutáveis. Especificamente, isso significa usar apenas tipos de valor principais (como números [Int32, UInt64, etc.], DateTime, Guid, TimeSpan e assim por diante). Você também pode usar String. É melhor evitar propriedades de coleção, pois serializá-las e desserializá-las com frequência pode prejudicar o desempenho. No entanto, se você quiser usar propriedades de coleção, será altamente recomendável usar a biblioteca de coleções imutáveis do .NET ([System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/)). Essa biblioteca está disponível para download de http://nuget.org. Também recomendamos lacrar suas classes e tornar os campos somente leitura sempre que possível.
+O ideal seria que o compilador relatasse erros quando você acidentalmente produzisse código que transforma o estado de um objeto que deve ser considerado imutável. Porém, o compilador C# não consegue fazer isso. Portanto, para evitar possíveis bugs do programador, é altamente recomendável que você defina os tipos usados com coleções confiáveis como tipos imutáveis. Especificamente, isso significa usar apenas tipos de valor principais (como números [Int32, UInt64, etc.], DateTime, Guid, TimeSpan e assim por diante). Você também pode usar String. É melhor evitar propriedades de coleção, pois serializá-las e desserializá-las com frequência pode prejudicar o desempenho. No entanto, se você quiser usar propriedades de coleção, será altamente recomendável usar a biblioteca de coleções imutáveis do .NET ([System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/)). Essa biblioteca está disponível para download de https://nuget.org. Também recomendamos lacrar suas classes e tornar os campos somente leitura sempre que possível.
 
 O tipo de UserInfo abaixo demonstra como definir um tipo imutável tirando proveito das recomendações mencionadas anteriormente.
 
@@ -207,8 +207,7 @@ Além disso, o código de serviço é atualizado em um domínio de atualização
 
 > [!WARNING]
 > Embora seja possível modificar o esquema de uma chave, você deve garantir que o código hash da chave e algoritmos igual a sejam estáveis. Se você alterar como algum desses algoritmos funciona, não será mais possível pesquisar a chave no dicionário confiável.
->
->
+> Cadeias de caracteres do .NET pode ser usadas como uma chave, mas use a cadeia de caracteres como a chave – não use o resultado de String.GetHashCode como a chave.
 
 Como alternativa, você pode executar o que é normalmente conhecido como uma atualização de fase 2. Com uma atualização de fase 2, você atualiza seu serviço de V1 para V2: a V2 contém o código que sabe como lidar com a nova alteração de esquema, mas esse código não é executado. Quando o código V2 lê dados V1, ele opera nele e grava dados de V1. Em seguida, depois que a atualização for concluída em todos os domínios de atualização, você pode sinalizar de alguma forma para as instâncias V2 em execução que a atualização for concluída. Uma forma de sinalizar isso é distribuir uma atualização de configuração; é isso que faz desta uma atualização de fase 2. Agora, as instâncias V2 podem ler dados V1, convertê-los em dados V2, operá-los e gravá-los como dados V2. Quando outras instâncias lerem dados V2, elas não precisarão convertê-lo, elas simplesmente os operam e gravam dados V2.
 

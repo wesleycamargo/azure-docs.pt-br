@@ -1,18 +1,19 @@
 ---
 title: Compreender dispositivos gêmeos no Hub IoT do Azure| Microsoft Docs
 description: Guia de desenvolvedor ‑ use dispositivos gêmeos para sincronizar os dados de estado e de configuração entre os dispositivos e o Hub IoT
-author: fsautomata
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.author: elioda
-ms.openlocfilehash: 606a7c64cc60fa81a71bf40a8087875e08e7c984
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 883e81572218e39d84ad8793423b02468d49d00a
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053016"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294052"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Entender e usar dispositivos gêmeos no Hub IoT
 
@@ -179,44 +180,44 @@ O back-end da solução funciona no dispositivo gêmeo usando as seguintes opera
 
 * **Receba notificações gêmeas**. Esta operação permite que o back-end de solução seja notificado quando o gêmeo é modificado. Para fazer isso, sua solução de IoT precisa para criar uma rota e definir a Fonte de Dados como *twinChangeEvents*. Por padrão, nenhuma dessas rotas existe previamente, então nenhuma notificação gêmea é enviada. Se a taxa de alteração for alta demais ou então por outros motivos como falhas internas, o Hub IoT poderá enviar apenas uma notificação contendo todas as alterações. Portanto, se o aplicativo precisar de auditoria e registro em log confiável de todos os estados intermediários, será necessário usar mensagens de dispositivo para nuvem. A mensagem de notificação gêmea inclui propriedades e corpo.
 
-   - propriedades
+  - propriedades
 
-   | NOME | Valor |
-   | --- | --- |
-   $content-type | aplicativo/json |
-   $iothub-enqueuedtime |  Hora em que a notificação foi enviada |
-   $iothub-message-source | twinChangeEvents |
-   $content-encoding | utf-8 |
-   deviceId | ID do dispositivo |
-   hubName | Nome do Hub IoT |
-   operationTimestamp | Carimbo de data/hora [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) da operação |
-   iothub-message-schema | deviceLifecycleNotification |
-   opType | "replaceTwin" ou "updateTwin" |
+    | NOME | Valor |
+    | --- | --- |
+    $content-type | aplicativo/json |
+    $iothub-enqueuedtime |  Hora em que a notificação foi enviada |
+    $iothub-message-source | twinChangeEvents |
+    $content-encoding | utf-8 |
+    deviceId | ID do dispositivo |
+    hubName | Nome do Hub IoT |
+    operationTimestamp | Carimbo de data/hora [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) da operação |
+    iothub-message-schema | deviceLifecycleNotification |
+    opType | "replaceTwin" ou "updateTwin" |
 
-   As propriedades do sistema de mensagens são fixadas previamente com o símbolo `$`.
+    As propriedades do sistema de mensagens são fixadas previamente com o símbolo `$`.
 
-   - Corpo
+  - Corpo
         
-   Esta seção inclui todas as alterações gêmeas em um formato JSON. Ele usa o mesmo formato que um patch, com as diferenças de que ele pode conter todas as seções gêmeas: marcas, properties.reported, properties.desired e também de que ele contém os elementos "$metadata". Por exemplo,
+    Esta seção inclui todas as alterações gêmeas em um formato JSON. Ele usa o mesmo formato que um patch, com as diferenças de que ele pode conter todas as seções gêmeas: marcas, properties.reported, properties.desired e também de que ele contém os elementos "$metadata". Por exemplo,
 
-   ```json
-   {
-       "properties": {
-           "desired": {
-               "$metadata": {
-                   "$lastUpdated": "2016-02-30T16:24:48.789Z"
-               },
-               "$version": 1
-           },
-           "reported": {
-               "$metadata": {
-                   "$lastUpdated": "2016-02-30T16:24:48.789Z"
-               },
-               "$version": 1
-           }
-       }
-   }
-   ```
+    ```json
+    {
+      "properties": {
+          "desired": {
+              "$metadata": {
+                  "$lastUpdated": "2016-02-30T16:24:48.789Z"
+              },
+              "$version": 1
+          },
+          "reported": {
+              "$metadata": {
+                  "$lastUpdated": "2016-02-30T16:24:48.789Z"
+              },
+              "$version": 1
+          }
+      }
+    }
+    ```
 
 Todas as operações anteriores dão suporte à [Simultaneidade otimista](iot-hub-devguide-device-twins.md#optimistic-concurrency) e exigem a permissão **ServiceConnect**, conforme definido no artigo [Controlar acesso ao Hub IoT](iot-hub-devguide-security.md).
 
@@ -309,7 +310,7 @@ Por exemplo:
             "telemetryConfig": {
                 "sendFrequency": "5m",
                 "status": "success"
-            }
+            },
             "batteryLevel": "55%",
             "$metadata": {
                 "telemetryConfig": {
@@ -318,7 +319,7 @@ Por exemplo:
                         "$lastUpdated": "2016-03-31T16:35:48.789Z"
                     },
                     "$lastUpdated": "2016-03-31T16:35:48.789Z"
-                }
+                },
                 "batteryLevel": {
                     "$lastUpdated": "2016-04-01T16:35:48.789Z"
                 },

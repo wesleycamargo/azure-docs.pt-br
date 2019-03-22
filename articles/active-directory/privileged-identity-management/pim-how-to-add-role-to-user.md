@@ -1,6 +1,6 @@
 ---
-title: Atribuir funções de diretório do Azure AD no PIM | Microsoft Docs
-description: Saiba como atribuir funções do diretório do Azure AD no Azure AD PIM (Privileged Identity Management).
+title: Atribuir funções de administrador do AD do Azure - Privileged Identity Management | Microsoft Docs
+description: Saiba como atribuir funções de administrador do Active Directory do Azure no Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,22 +13,22 @@ ms.subservice: pim
 ms.date: 10/30/2018
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4acabd4b583766ac730558fd07c424ce97a1299a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e3c8a7fb7a94dbca7b0e63ddaf756a536fbd0600
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192499"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000635"
 ---
-# <a name="assign-azure-ad-directory-roles-in-pim"></a>Atribuir funções de diretório do Azure AD no PIM
+# <a name="assign-azure-ad-administrator-roles-in-pim"></a>Atribuir funções de administrador do Azure AD no PIM
 
-Com o Azure AD (Azure Active Directory), um Administrador Global pode tornar atribuições de funções do diretório **permanentes**. Essas atribuições de função podem ser criadas usando o [portal do Azure](../users-groups-roles/directory-assign-admin-roles.md) ou usando [comandos do PowerShell](/powershell/module/azuread#directory_roles).
+Com o Azure Active Directory (Azure AD), um Administrador Global pode fazer **permanente** atribuições de função de administrador do AD do Azure. Essas atribuições de função podem ser criadas usando o [portal do Azure](../users-groups-roles/directory-assign-admin-roles.md) ou usando [comandos do PowerShell](/powershell/module/azuread#directory_roles).
 
-O serviço Azure AD Privileged Identity Management (PIM) permite que os Administradores de Função com Privilégios também tornem atribuições de função do diretório permanentes. Além disso, os Administradores de Função com Privilégios podem tornar os usuários **qualificados** para funções do diretório. Um administrador qualificado pode ativar a função quando necessário e suas permissões expirarão assim que forem feitas.
+O serviço do Azure AD Privileged Identity Management (PIM) também permite que os administradores de função com privilégios criar atribuições de função de administrador permanente. Além disso, os administradores de função com privilégios pode fazer os usuários **qualificados** para funções de administrador do AD do Azure. Um administrador qualificado pode ativar a função quando necessário e suas permissões expirarão assim que forem feitas.
 
 ## <a name="make-a-user-eligible-for-a-role"></a>Qualificar um usuário para uma função
 
-Siga estas etapas para qualificar um usuário para uma função do diretório do AD do Azure.
+Siga estas etapas para tornar um usuário qualificado para uma função de administrador do AD do Azure.
 
 1. Entre no [portal do Azure](https://portal.azure.com/) com um usuário que seja membro da função [Administrador de Funções com Privilégios](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator).
 
@@ -68,7 +68,7 @@ Siga estas etapas para qualificar um usuário para uma função do diretório do
 
 ## <a name="make-a-role-assignment-permanent"></a>Tornar uma atribuição de função permanente
 
-Por padrão, os novos usuários somente são qualificados para uma função do diretório. Siga estas etapas se quiser tornar uma atribuição de função permanente.
+Por padrão, os novos usuários só são elegíveis para uma função de administrador do AD do Azure. Siga estas etapas se quiser tornar uma atribuição de função permanente.
 
 1. Abra o **Azure AD Privileged Identity Management**.
 
@@ -92,7 +92,7 @@ Por padrão, os novos usuários somente são qualificados para uma função do d
 
 É possível remover usuários de atribuições de função, mas certifique-se de que sempre haja pelo menos um usuário que seja um Administrador Global permanente. Se não tiver certeza de quais os usuários ainda precisam das suas atribuições de função, você poderá [iniciar uma revisão de acesso para a função](pim-how-to-start-security-review.md).
 
-Siga estas etapas para remover um usuário específico de uma função do diretório.
+Siga estas etapas para remover um usuário específico de uma função de administrador do AD do Azure.
 
 1. Abra o **Azure AD Privileged Identity Management**.
 
@@ -116,7 +116,7 @@ Siga estas etapas para remover um usuário específico de uma função do diret�
 
 ## <a name="authorization-error-when-assigning-roles"></a>Erro de autorização ao atribuir funções
 
-Se você tiver habilitado recentemente o PIM para uma assinatura e receber um erro de autorização ao tentar tornar um usuário qualificado para uma função do diretório, isso poderá ocorrer porque a entidade de serviço do MS-PIM ainda não tem as permissões apropriadas. A entidade de serviço do MS-PIM precisa ter a função de [Administrador de Acesso do Usuário](../../role-based-access-control/built-in-roles.md#user-access-administrator) para atribuir funções a outros usuários. Em vez de esperar até que o MS-PIM receba a função de Administrador de Acesso do Usuário, atribua-a manualmente.
+Se você habilitou recentemente o PIM para uma assinatura e você receber um erro de autorização ao tentar se tornar um usuário qualificado para uma função de administrador do AD do Azure, ele pode ser porque o princípio de serviço do MS-PIM ainda não tem as permissões apropriadas. A entidade de serviço do MS-PIM precisa ter a função de [Administrador de Acesso do Usuário](../../role-based-access-control/built-in-roles.md#user-access-administrator) para atribuir funções a outros usuários. Em vez de esperar até que o MS-PIM receba a função de Administrador de Acesso do Usuário, atribua-a manualmente.
 
 Siga estas etapas para atribuir a função de Administrador de Acesso do Usuário à entidade de serviço do MS-PIM para uma assinatura.
 
@@ -151,5 +151,5 @@ Siga estas etapas para atribuir a função de Administrador de Acesso do Usuári
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Definir configurações de função do diretório do Azure AD no PIM](pim-how-to-change-default-settings.md)
+- [Definir configurações de função de administrador do AD do Azure no PIM](pim-how-to-change-default-settings.md)
 - [Atribuir funções de recurso do Azure no PIM](pim-resource-roles-assign-roles.md)

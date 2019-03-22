@@ -2,21 +2,21 @@
 title: Usar o Serviço de Migração de Banco de Dados do Azure para monitorar a atividade de migração | Microsoft Docs
 description: Aprenda a usar o Serviço de Migração de Banco de Dados do Azure para monitorar a atividade de migração.
 services: database-migration
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/14/2018
-ms.openlocfilehash: a7fc48c149d488ab7860513b617b8a5806b1feb6
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 325bbee3f3d5ad5097f710cb56fe03baff97388a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721148"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58173848"
 ---
 # <a name="monitor-migration-activity"></a>Monitorar a atividade de migração
 Neste artigo, você aprenderá a monitorar o progresso de uma migração em nível de banco de dados e em nível de tabela.

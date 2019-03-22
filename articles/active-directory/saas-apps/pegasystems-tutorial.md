@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/16/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7a6fd51ad14395b3c195ae1ceb5a188dd2c708c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: fa3a3dbda3f184b0c2541dc9df6c39afa86458e4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162502"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437625"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>Tutorial: Integração do Azure Active Directory ao Pega Systems
 
@@ -170,7 +170,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![Botão Salvar em Configurar Logon Único](./media/pegasystems-tutorial/tutorial_pegasystems_admin.png)
     
-1. Execute as seguintes ações na tela **Criar Serviço de Autenticação**:
+1. Execute as seguintes ações na **criar serviço de autenticação** tela:
 
     ![Botão Salvar em Configurar Logon Único](./media/pegasystems-tutorial/tutorial_pegasystems_admin1.png)
 

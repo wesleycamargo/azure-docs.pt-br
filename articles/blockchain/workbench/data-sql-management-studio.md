@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 32606f988152b061fa1923c409207b2a650e64ba
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: a5554f1fe0a14799a100aefc975a110d3a9a6311
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332448"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088716"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-sql-server-management-studio"></a>Usando os dados do Azure Blockchain Workbench com o SQL Server Management Studio
 
@@ -38,9 +38,9 @@ Microsoft SQL Server Management Studio permite escrever e testar as consultas ra
 
     ![Inserir credenciais de SQL](./media/data-sql-management-studio/sql-creds.png)
 
- 4. O SQL Server Management Studio exibe a lista de bancos de dados, exibições de bancos de dados e procedimentos armazenados no banco de dados do Azure Blockchain Workbench.
+   1. O SQL Server Management Studio exibe a lista de bancos de dados, exibições de bancos de dados e procedimentos armazenados no banco de dados do Azure Blockchain Workbench.
 
-    ![Lista de banco de dados](./media/data-sql-management-studio/db-list.png)
+      ![Lista de banco de dados](./media/data-sql-management-studio/db-list.png)
 
 5. Para exibir os dados associados a qualquer uma das exibições de banco de dados, você poderá gerar automaticamente uma instrução select usando as etapas a seguir.
 6. Clique com o botão direito do mouse em qualquer uma das exibições de banco de dados no Pesquisador de Objetos.

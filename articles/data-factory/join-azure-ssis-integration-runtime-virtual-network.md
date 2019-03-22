@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 8693c5e255020e30c2e8ed52a3199712089e4503
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 6c01232c9bdb685fbc54e5ebe1e1f9fa83073dc2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119077"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107790"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Unir o tempo de execução de integração do Azure-SSIS a uma rede virtual
 Una o IR (tempo de execução de integração) do Azure-SSIS a uma rede virtual do Azure nos cenários a seguir: 
@@ -26,7 +26,7 @@ Una o IR (tempo de execução de integração) do Azure-SSIS a uma rede virtual 
 
 - Você está hospedando o banco de dados do catálogo do SSIS (SQL Server Integration Services) no Banco de Dados SQL do Azure com pontos de extremidade de serviço de rede virtual/Instância Gerenciada. 
 
- O Azure Data Factory permite que você una o tempo de execução de integração do Azure-SSIS a uma rede virtual criada por meio do modelo de implantação clássico ou do modelo de implantação do Azure Resource Manager. 
+  O Azure Data Factory permite que você una o tempo de execução de integração do Azure-SSIS a uma rede virtual criada por meio do modelo de implantação clássico ou do modelo de implantação do Azure Resource Manager. 
 
 > [!IMPORTANT]
 > No momento, a rede virtual clássica está sendo reprovada, portanto, use a rede virtual do Azure Resource Manager.  Se você já usa a rede virtual clássica, mude para usar a rede virtual do Azure Resource Manager assim que possível.
@@ -83,9 +83,9 @@ O usuário que cria o Azure-SSIS Integration Runtime deve ter as seguintes permi
 
 - Se você ingressar no seu SSIS IR em uma rede virtual do Azure Resource Manager, terá duas opções:
 
-  - Use a função interna de *Colaborador de Rede*. Essa função vem com a permissão *Microsoft.Network/\**, que tem um escopo muito maior do que o necessário.
+  - Use a função interna de *Colaborador de Rede*. Essa função vem com a permissão _Microsoft.Network/\*_, que tem um escopo muito maior do que o necessário.
 
-  - Crie uma função personalizada que inclua apenas a permissão *Microsoft.Network/virtualNetworks/\*/join/action*. 
+  - Crie uma função personalizada que inclua apenas a permissão _Microsoft.Network/virtualNetworks/\*/join/action_. 
 
 - Se você estiver ingressando em seu SSIS IR em uma rede virtual clássica, recomendamos usar a função *integrante do Virtual Machine* interna. Caso contrário, você terá que definir uma função personalizada que inclua a permissão para ingressar na rede virtual.
 
@@ -168,7 +168,7 @@ Primeiro você precisa configurar a rede virtual antes de adicionar um IR do Azu
 
 1. Verifique se o provedor do Lote do Azure está registrado na assinatura do Azure que possui a rede virtual. Ou, registre o fornecedor do Lote do Azure. Se você já tiver uma conta de lote do Azure em sua assinatura, sua assinatura está registrada para o lote do Azure. (Se você criar o IR do Azure-SSIS no portal do Azure Data Factory,  o provedor do lote do Microsoft Azure é registrado automaticamente para você.) 
 
-    a. No Portal do Azure, selecione **Assinaturas** no menu esquerdo. 
+   a. No Portal do Azure, selecione **Assinaturas** no menu esquerdo. 
 
    b. Selecione sua assinatura. 
 
@@ -201,7 +201,7 @@ Primeiro você precisa configurar a rede virtual antes de adicionar um IR do Azu
 
 1. Una **MicrosoftAzureBatch** à função **Colaborador da Máquina Virtual Clássica** para a rede virtual. 
 
-     a. Selecione **Controle de Acesso (IAM)** no menu esquerdo e selecione a guia **Atribuições de função**. 
+    a. Selecione **Controle de Acesso (IAM)** no menu esquerdo e selecione a guia **Atribuições de função**. 
 
     !["Controle de Acesso" e botões "Adicionar"](media/join-azure-ssis-integration-runtime-virtual-network/access-control-add.png)
 
@@ -221,7 +221,7 @@ Primeiro você precisa configurar a rede virtual antes de adicionar um IR do Azu
 
 1. Verifique se o provedor do Lote do Azure está registrado na assinatura do Azure que possui a rede virtual. Ou, registre o fornecedor do Lote do Azure. Se você já tiver uma conta de lote do Azure em sua assinatura, sua assinatura está registrada para o lote do Azure. (Se você criar o IR do Azure-SSIS no portal do Azure Data Factory,  o provedor do lote do Microsoft Azure é registrado automaticamente para você.) 
 
-    a. No Portal do Azure, selecione **Assinaturas** no menu esquerdo. 
+   a. No Portal do Azure, selecione **Assinaturas** no menu esquerdo. 
 
    b. Selecione sua assinatura. 
 
@@ -264,7 +264,7 @@ Primeiro você precisa configurar a rede virtual antes de adicionar um IR do Azu
 
 1. Na página **Configurações Avançadas**, faça as ações a seguir: 
 
-    a. Selecione a caixa de seleção para **Selecionar uma VNet para o Tempo de Execução de Integração do Azure-SSIS unir e permitir que os serviços do Azure configurem as permissões/configurações da VNet**. 
+   a. Selecione a caixa de seleção para **Selecionar uma VNet para o Tempo de Execução de Integração do Azure-SSIS unir e permitir que os serviços do Azure configurem as permissões/configurações da VNet**. 
 
    b. Para **Tipo**, selecione se a rede virtual é uma rede virtual clássica ou uma rede virtual do Azure Resource Manager. 
 
@@ -280,6 +280,8 @@ Primeiro você precisa configurar a rede virtual antes de adicionar um IR do Azu
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ### <a name="configure-a-virtual-network"></a>Configurar uma rede virtual
 É necessário configurar uma rede virtual antes de poder ingressar no IR do Azure-SSIS. Para configurar automaticamente as permissões/configurações da rede virtual para o tempo de execução de integração do Azure-SSIS unir a rede virtual, adicione o script a seguir:
 
@@ -289,16 +291,16 @@ if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 {
     # Register to the Azure Batch resource provider
     $BatchApplicationId = "ddbf3205-c6bd-46ae-8127-60eb93363864"
-    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName $BatchApplicationId).Id
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
-    while(!(Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
+    $BatchObjectId = (Get-AzADServicePrincipal -ServicePrincipalName $BatchApplicationId).Id
+    Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
+    while(!(Get-AzResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
     {
     Start-Sleep -s 10
     }
     if($VnetId -match "/providers/Microsoft.ClassicNetwork/")
     {
         # Assign the VM contributor role to Microsoft.Batch
-        New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
+        New-AzRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
     }
 }
 ```
@@ -326,7 +328,7 @@ $SubnetName = "<the name of subnet in your virtual network>"
 Pare o tempo de execução de integração do Azure-SSIS antes de uni-lo a uma rede virtual. Esse comando libera todos os nós e para a cobrança:
 
 ```powershell
-Stop-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+Stop-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                             -DataFactoryName $DataFactoryName `
                                             -Name $AzureSSISName `
                                             -Force 
@@ -339,25 +341,25 @@ if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 {
     # Register to the Azure Batch resource provider
     $BatchApplicationId = "ddbf3205-c6bd-46ae-8127-60eb93363864"
-    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName $BatchApplicationId).Id
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
-    while(!(Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
+    $BatchObjectId = (Get-AzADServicePrincipal -ServicePrincipalName $BatchApplicationId).Id
+    Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
+    while(!(Get-AzResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
     {
         Start-Sleep -s 10
     }
     if($VnetId -match "/providers/Microsoft.ClassicNetwork/")
     {
         # Assign VM contributor role to Microsoft.Batch
-        New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
+        New-AzRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
     }
 }
 ```
 
 ### <a name="configure-the-azure-ssis-ir"></a>Configure o IR do Azure-SSIS
-Para configurar o tempo de execução de integração do Azure-SSIS para unir à rede virtual, execute o comando `Set-AzureRmDataFactoryV2IntegrationRuntime`: 
+Para configurar o tempo de execução de integração do Azure-SSIS para unir à rede virtual, execute o comando `Set-AzDataFactoryV2IntegrationRuntime`: 
 
 ```powershell
-Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                            -DataFactoryName $DataFactoryName `
                                            -Name $AzureSSISName `
                                            -Type Managed `
@@ -369,7 +371,7 @@ Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName
 Para iniciar o tempo de execução de integração do Azure-SSIS, execute o comando a seguir: 
 
 ```powershell
-Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                              -DataFactoryName $DataFactoryName `
                                              -Name $AzureSSISName `
                                              -Force

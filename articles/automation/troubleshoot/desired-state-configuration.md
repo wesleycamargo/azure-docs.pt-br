@@ -9,18 +9,38 @@ ms.author: gwallace
 ms.date: 06/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 997f332e14fd1accf32d8cc3f51557fe005acab5
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: a34dea7e1eb53531db55dc62df8fbad8541f7a35
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421634"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56586793"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Solucionar problemas de configuração de estado desejado (DSC)
 
 Este artigo fornece informações sobre como solucionar problemas com a DSC (Configuração de Estado Desejado).
 
 ## <a name="common-errors-when-working-with-desired-state-configuration-dsc"></a>Erros comuns ao trabalhar com DSC (Configuração de estado desejado)
+
+### <a name="unsupported-characters"></a>Cenário: Uma configuração com caracteres especiais não pode ser excluída do portal
+
+#### <a name="issue"></a>Problema
+
+Ao tentar excluir uma configuração de DSC do portal, você verá o seguinte erro:
+
+```
+An error occured while deleteing the DSC configuration '<name>'.  Error-details: The arguement configurationName with the value <name> is not valid.  Valid configuration names can contain only letters,  numbers, and underscores.  The name must start with a letter.  The length of the name must be between 1 and 64 characters.
+```
+
+#### <a name="cause"></a>Causa
+
+Esse é um problema temporário é planejado para ser resolvido.
+
+#### <a name="resolution"></a>Resolução
+
+* Use o Cmdlet de Az "Remove-AzAutomationDscConfiguration" para excluir a configuração.
+* A documentação para este cmdlet ainda não foi atualizada.  Até lá, consulte a documentação para o módulo AzureRM.
+  * [Remove-AzureRmAutomationDSCConfiguration](https://docs.microsoft.com/en-us/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration?view=azurermps-6.13.0)
 
 ### <a name="failed-not-found"></a>Cenário: O nó está com o status Falha com um erro "Não encontrado"
 

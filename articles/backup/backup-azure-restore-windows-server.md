@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 9/7/2018
 ms.author: saurse
-ms.openlocfilehash: 1e8e9365567c19400b86dc60d966eb965b83591d
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: d58b51f06c21c787e4aa720c803ab6533544d55c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281737"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110810"
 ---
 # <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>Restaurar arquivos no Windows usando o modelo de implantação do Azure Resource Manager
 
@@ -48,14 +48,14 @@ Se você excluiu acidentalmente um arquivo e deseja restaurá-lo para o mesmo co
 
     ![Captura de tela da página Introdução ao Assistente para Recuperar Dados](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
 
-4. Na página **Selecionar Modo de Recuperação**, escolha **Pastas e arquivos individuais** > **Avançar**.
+4. Sobre o **Selecionar modo de recuperação** , escolha **arquivos e pastas individuais** > **próximo**.
 
     ![Captura de tela da página Selecionar Modo de Recuperação do Assistente para Recuperar Dados](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
-  > [!IMPORTANT]
-  > A opção de restauração de arquivos e pastas individuais exige o .NET Framework 4.5.2 ou posterior. Se você não vir a opção **arquivos e pastas individuais**, você deve atualizar o .NET Framework para a versão 4.5.2 ou posterior e tente novamente.
+   > [!IMPORTANT]
+   > A opção de restauração de arquivos e pastas individuais exige o .NET Framework 4.5.2 ou posterior. Se você não vir a opção **arquivos e pastas individuais**, você deve atualizar o .NET Framework para a versão 4.5.2 ou posterior e tente novamente.
 
-  > [!TIP]
-  > A opção **Arquivos e pastas individuais** permite acesso rápido aos dados de ponto de recuperação. Ela é adequada para a recuperação de arquivos individuais, com tamanhos totalizando não mais de 80 GB e ofertas de velocidades de transferência/cópia de até 6 MBps durante a recuperação. A opção **Volume** recupera todos os backups de dados em um volume especificado. Essa opção fornece velocidades de transferência mais rápidas (no máximo 60 MBps), que são ideais para a recuperação de dados grandes ou volumes inteiros.
+   > [!TIP]
+   > A opção **Arquivos e pastas individuais** permite acesso rápido aos dados de ponto de recuperação. Ela é adequada para a recuperação de arquivos individuais, com tamanhos totalizando não mais de 80 GB e ofertas de velocidades de transferência/cópia de até 6 MBps durante a recuperação. A opção **Volume** recupera todos os backups de dados em um volume especificado. Essa opção fornece velocidades de transferência mais rápidas (no máximo 60 MBps), que são ideais para a recuperação de dados grandes ou volumes inteiros.
 
 5. Na página **Selecionar Volume e Data**, selecione o volume que contém os arquivos e pastas que você deseja restaurar.
 

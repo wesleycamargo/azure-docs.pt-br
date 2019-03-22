@@ -10,12 +10,12 @@ ms.subservice: anomaly-detection
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: wenya
-ms.openlocfilehash: 8f087e07bbf5033698b18b4349c4d13e862a1555
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: ba66c96f9129b253fc5897c3a2eaaefb53056cea
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55223333"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548721"
 ---
 # <a name="tutorial-anomaly-detection-with-java-application"></a>Tutorial: Detecção de Anomalias com aplicativo Java
 
@@ -28,7 +28,7 @@ O exemplo envia os dados de série temporal para a API de Detecção de Anomalia
 
 ### <a name="platform-requirements"></a>Requisitos de plataforma
 
-Este tutorial foi desenvolvido usando [IntelliJ IDEA](https://www.jetbrains.com/idea). E também é necessário instalar o [Java Development Kit (JDK)](https://aka.ms/azure-jdks) versão 1.8 + e uma ferramenta de compilação [Maven do Apache](http://maven.apache.org/) atualizada.
+Este tutorial foi desenvolvido usando [IntelliJ IDEA](https://www.jetbrains.com/idea). E também é necessário instalar o [Java Development Kit (JDK)](https://aka.ms/azure-jdks) versão 1.8 + e uma ferramenta de compilação [Maven do Apache](https://maven.apache.org/) atualizada.
 
 ### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Inscrever-se na detecção de anomalias e obter uma chave de assinatura 
 

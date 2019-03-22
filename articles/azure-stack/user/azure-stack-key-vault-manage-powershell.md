@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: sethm
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 4ec662cd60e2ca8e5db76a3fda4c68df6f3164e4
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: b00082ec567d51c320f55210cb38dcab9547e0d9
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893673"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258744"
 ---
 # <a name="manage-key-vault-in-azure-stack-using-powershell"></a>Gerenciar o Key Vault no Azure Stack usando o PowerShell
 
@@ -33,7 +33,7 @@ Você pode gerenciar o Cofre de chaves no Azure Stack usando o PowerShell. Saiba
 * Autorize usuários ou aplicativos para invocar operações no cofre.
 
 >[!NOTE]
->Os cmdlets PowerShell do Cofre de chaves descritos neste artigo são fornecidos no SDK do Azure PowerShell.
+>Os cmdlets do PowerShell do Cofre de chaves descritos neste artigo são fornecidos no SDK do Azure PowerShell.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -92,7 +92,7 @@ New-AzureRmKeyVault -VaultName "Vault01" -ResourceGroupName "VaultRG" -Location 
 
 ![Novo cofre de chaves](media/azure-stack-key-vault-manage-powershell/image4.png)
 
-A saída desse comando mostra as propriedades do Cofre de chaves que você criou. Quando um aplicativo acessa o cofre, ele deve usar o **URI do cofre** propriedade, que é "https://vault01.vault.local.azurestack.external" neste exemplo.
+A saída desse comando mostra as propriedades do Cofre de chaves que você criou. Quando um aplicativo acessa o cofre, ele deve usar o **URI do cofre** propriedade, que é "https:\//vault01.vault.local.azurestack.external" neste exemplo.
 
 ### <a name="active-directory-federation-services-ad-fs-deployment"></a>Implantação do Active Directory Federation Services (AD FS)
 
@@ -127,8 +127,8 @@ O **destino** parâmetro é usado para especificar que a chave é protegida de s
 
 Agora você pode referenciar a chave criada usando seu URI. Se você criar ou importar uma chave que tem o mesmo nome que uma chave existente, a chave original é atualizada com os valores especificados na nova chave. Você pode acessar a versão anterior, usando o URI específica da versão da chave. Por exemplo: 
 
-* Use "https://vault10.vault.local.azurestack.external:443/keys/key01" para sempre obter a versão atual.
-* Use "https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a" para obter essa versão específica.
+* Use "https:\//vault10.vault.local.azurestack.external:443/keys/key01" para sempre obter a versão atual.
+* Use "https:\//vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a" para obter essa versão específica.
 
 ### <a name="get-a-key"></a>Obter uma chave
 

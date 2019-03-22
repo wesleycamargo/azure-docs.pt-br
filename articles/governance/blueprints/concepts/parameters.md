@@ -4,17 +4,17 @@ description: Conheça parâmetros estáticos e dinâmicos e como sua utilizaçã
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9166d5d552df4854a4d00c2211a273a06198877a
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 42a70f7ea21a58f40f7786d6c6f1a51093923f83
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567478"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838010"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Criando blueprints dinâmicos por meio de parâmetros
 
@@ -41,8 +41,13 @@ Essa medida de segurança impede a prática insegura de armazenar segredos junto
 - Nome do segredo do Key Vault
 - Versão do segredo do Key Vault
 
-O serviço solicita, durante a atribuição, as seguintes propriedades do Key Vault por parâmetro seguro detectado:
-Ele também deve ter **Habilitar acesso ao Azure Resource Manager para implantação de modelo** configurada na página **Políticas de Acesso** do Cofre de Chaves. Para obter instruções sobre como habilitar esse recurso, confira [Key Vault – Habilitar implantação de modelo](../../../managed-applications/key-vault-access.md#enable-template-deployment). Para obter mais informações sobre o Azure Key Vault, confira [Visão geral do Key Vault](../../../key-vault/key-vault-overview.md).
+Se usar a atribuição de planta uma **atribuído pelo sistema de identidade gerenciada**, o referenciado Key Vault _deve_ existir na mesma assinatura que a definição de planta é atribuída a.
+
+Se usa a atribuição de planta uma **usuário atribuído a identidade gerenciada**, o referenciado Key Vault _pode_ existe em uma assinatura centralizada. A identidade gerenciada deve receber direitos apropriados no cofre de chaves antes da atribuição de planta.
+
+Em ambos os casos, o Cofre de chaves deve ter **habilitar o acesso ao Azure Resource Manager para implantação de modelo** configurado na **políticas de acesso** página. Para obter instruções sobre como habilitar esse recurso, confira [Key Vault – Habilitar implantação de modelo](../../../managed-applications/key-vault-access.md#enable-template-deployment).
+
+Para obter mais informações sobre o Azure Key Vault, confira [Visão geral do Key Vault](../../../key-vault/key-vault-overview.md).
 
 ## <a name="parameter-types"></a>Tipos de parâmetro
 
@@ -52,11 +57,11 @@ Um valor de parâmetro definido na definição de um blueprint é chamado de **p
 
 #### <a name="setting-static-parameters-in-the-portal"></a>Parâmetros de configuração estáticos no portal
 
-1. Clique em **Todos os serviços** e pesquise e selecione **Política** no painel esquerdo. Sobre a **política** página, clique em **plantas**.
+1. Selecione **Todos os serviços** no painel esquerdo. Pesquise e selecione **Blueprints**.
 
-1. Selecione **Definições do Blueprint** na página à esquerda.
+1. Selecione **Definições do blueprint** na página à esquerda.
 
-1. Clique em um blueprint existente e, em seguida, em **Editar Blueprint** OU clique em **+ Criar Blueprint** e preencha as informações na guia **Básico**.
+1. Clique em um projeto existente e, em seguida, clique em **blueprint de edição** ou clique em **+ criar blueprint** e preencha as informações sobre a **Noções básicas** guia.
 
 1. Clique em **Avançar: Artefatos** OU clique na guia **Artefatos**.
 
@@ -169,13 +174,13 @@ O oposto de um parâmetro estático é um **parâmetro dinâmico**. Esse parâme
 
 #### <a name="setting-dynamic-parameters-in-the-portal"></a>Definindo parâmetros dinâmicos no portal
 
-1. Clique em **Todos os serviços** e pesquise e selecione **Política** no painel esquerdo. Sobre a **política** página, clique em **plantas**.
+1. Selecione **Todos os serviços** no painel esquerdo. Pesquise e selecione **Blueprints**.
 
-1. Selecione **Definições do Blueprint** na página à esquerda.
+1. Selecione **Definições do blueprint** na página à esquerda.
 
-1. Clique com o botão direito do mouse no blueprint que você deseja atribuir. Selecione **Assign Blueprint** OU clique no blueprint que deseja atribuir e, em seguida, clique no botão **Assign Blueprint**.
+1. Clique com o botão direito do mouse no blueprint que você deseja atribuir. Selecione **Assign blueprint** ou clique no plano de gráfico que você deseja atribuir e clique no **atribuir blueprint** botão.
 
-1. Na página **Atribuir blueprint**, localize a seção **Parâmetros do artefato**. Cada artefato com pelo menos um **parâmetro dinâmico** exibe o artefato e as opções de configuração. Forneça os valores necessários aos parâmetros antes de atribuir o blueprint. No exemplo abaixo, _Nome_ é um **parâmetro dinâmico** que deve ser definido para concluir a atribuição do blueprint.
+1. No **Assign blueprint** página, localize o **parâmetros de artefato** seção. Cada artefato com pelo menos um **parâmetro dinâmico** exibe o artefato e as opções de configuração. Forneça os valores necessários aos parâmetros antes de atribuir o blueprint. No exemplo abaixo, _Nome_ é um **parâmetro dinâmico** que deve ser definido para concluir a atribuição do blueprint.
 
    ![Parâmetro dinâmico do blueprint](../media/parameters/dynamic-parameter.png)
 
@@ -236,8 +241,8 @@ Os artefatos de um grupo de recursos são definidos com as propriedades "nome do
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Aprenda sobre o [ciclo de vida do blueprint](lifecycle.md)
-- Aprenda a personalizar a [ordem de sequenciamento de blueprint](sequencing-order.md)
-- Saiba como fazer uso do [bloqueio de recurso de blueprint](resource-locking.md)
-- Saiba como [atualizar atribuições existentes](../how-to/update-existing-assignments.md)
-- Resolver problemas durante a atribuição de blueprint com [solução de problemas gerais](../troubleshoot/general.md)
+- Saiba mais sobre o [ciclo de vida do plano gráfico](lifecycle.md).
+- Aprenda a personalizar o [especificações técnicas de ordem de sequenciamento](sequencing-order.md).
+- Saiba como fazer uso de [recurso de bloqueio do plano gráfico](resource-locking.md).
+- Saiba como [atualizar atribuições existentes](../how-to/update-existing-assignments.md).
+- Resolver problemas durante a atribuição de um plano gráfico com [solução de problemas gerais](../troubleshoot/general.md).

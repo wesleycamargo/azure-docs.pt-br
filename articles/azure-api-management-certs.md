@@ -7,19 +7,19 @@ author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
-ms.service: na
+ms.service: api-management
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 62bc6507e4b56c9df31a561f7677907486b0d562
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.openlocfilehash: 3b6f1a004e4fb69bc08d5163734021bcb2aed9a2
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52421582"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765791"
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>Carregar um Certificado de Gerenciamento de Serviços do Azure
 Os certificados de gerenciamento permitem que você autentique com o modelo de implantação clássico fornecido pelo Azure. Muitos programas e ferramentas (como o Visual Studio ou o SDK do Azure) usam esses certificados para automatizar a configuração e a implantação de diversos serviços do Azure. 
@@ -33,7 +33,7 @@ Se você quiser obter mais informações sobre certificados do Azure (incluindo 
 
 Você também pode usar o [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) para autenticar o código cliente, para fins de automação.
 
-**Observação:** você precisa ser coadministrador da assinatura para realizar operações em Certificados de Gerenciamento. [Saiba mais](https://go.microsoft.com/fwlink/?linkid=849300) sobre como Adicionar ou Remover Coadministradores no novo Portal do Azure 
+**Observação:** Você deve ser um coadministrador na assinatura para realizar operações em certificados de gerenciamento. [Saiba mais](https://go.microsoft.com/fwlink/?linkid=849300) sobre como Adicionar ou Remover Coadministradores no novo Portal do Azure 
 
 ## <a name="upload-a-management-certificate"></a>Carregar um certificado de gerenciamento
 Após criar um certificado de gerenciamento (arquivo .cer somente com a chave pública), você poderá carregá-lo no portal. Quando o certificado estiver disponível no portal, qualquer pessoa com um certificado correspondente (chave privada) pode conectar-se por meio da API de Gerenciamento e acessar os recursos para a assinatura associada.

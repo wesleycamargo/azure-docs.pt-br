@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: szark
-ms.openlocfilehash: 3aa2803550c445e0b30ff998cf3adb779515e487
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: e032f9a9772232d3a57a9672dc6c601354ecad43
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235965"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105515"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informações para distribuições não endossadas
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -144,10 +144,10 @@ Se um kernel personalizado for necessário, é recomendável uma versão recente
 Os seguintes patches devem ser incluídos no kernel. Esta lista não pode ser completa para todas as distribuições.
 
 * [ata_piix: adie os discos para os drivers Hyper-V por padrão](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/ata/ata_piix.c?id=cd006086fa5d91414d8ff9ff2b78fbb593878e3c)
-* [storvsc: conta para pacotes em trânsito no caminho RESET](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c)
+* [storvsc: Conta para os pacotes em trânsito no caminho RESET](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c)
 * [storvsc: evite o uso de WRITE_SAME](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=3e8f4f4065901c8dfc51407e1984495e1748c090)
-* [storvsc: desabilite WRITE SAME para RAID e drivers do adaptador de host virtual](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=54b2b50c20a61b51199bedb6e5d2f8ec2568fb43)
-* [storvsc: correção de desreferência de ponteiro NULL](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=b12bb60d6c350b348a4e1460cd68f97ccae9822e)
+* [storvsc: Desabilite WRITE SAME para RAID e drivers de adaptador de host virtual](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=54b2b50c20a61b51199bedb6e5d2f8ec2568fb43)
+* [storvsc: Correção de desreferência de ponteiro nulo](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=b12bb60d6c350b348a4e1460cd68f97ccae9822e)
 * [storvsc: as falhas do buffer de anéis podem resultar em congelamento de E/S](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=e86fb5e8ab95f10ec5f2e9430119d5d35020c951)
 * [scsi_sysfs: proteger contra a execução dupla de __scsi_remove_device](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/scsi_sysfs.c?id=be821fd8e62765de43cc4f0e2db363d0e30a7e9b)
 
@@ -172,13 +172,13 @@ O [agente Linux do Azure](../extensions/agent-linux.md) `waagent` provisiona uma
     ```
     Inicialização gráfica e silenciosa não é útil em um ambiente de nuvem, onde queremos que todos os logs sejam enviados para a porta serial. A opção `crashkernel` pode ser deixada configurada, se necessário, mas observe que esse parâmetro reduz a quantidade de memória disponível na VM em pelo menos 128 MB, o que pode ser problemático para tamanhos de VM menores.
 
-2. Instale o Agente Linux do Azure.
+1. Instale o Agente Linux do Azure.
   
     O agente Linux do Azure é necessário para garantir o provisionamento de uma imagem Linux no Azure.  Muitas distribuições fornecem o agente como um pacote RPM ou DEB (o pacote geralmente recebe o nome de WALinuxAgent ou walinuxagent).  Você também pode seguir as etapas descritas no [Guia do agente Linux](../extensions/agent-linux.md)para instalar o agente manualmente.
 
-3. Certifique-se de que o servidor SSH está instalado e configurado para iniciar no tempo de inicialização.  Essa configuração geralmente é a padrão.
+1. Certifique-se de que o servidor SSH está instalado e configurado para iniciar no tempo de inicialização.  Essa configuração geralmente é a padrão.
 
-4. Não crie espaço de troca no disco do sistema operacional.
+1. Não crie espaço de troca no disco do sistema operacional.
   
     O Agente Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local que é anexado à VM após o provisionamento no Azure. O disco de recurso local é um disco *temporário* e pode ser esvaziado quando a VM é desprovisionada. Depois de instalar o Agente Linux do Azure (etapa 2 acima), modifique os seguintes parâmetros em /etc/waagent.conf conforme necessário.
     ```  
@@ -188,15 +188,15 @@ O [agente Linux do Azure](../extensions/agent-linux.md) `waagent` provisiona uma
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: Set this to your desired size.
     ```
-* Execute os seguintes comandos para desprovisionar a máquina virtual.
+1. Execute os seguintes comandos para desprovisionar a máquina virtual.
   
-    ```
-    sudo waagent -force -deprovision
-    export HISTSIZE=0
-    logout
-    ```  
-  > [!NOTE]
-  > No Virtualbox você pode ver o seguinte erro após executar `waagent -force -deprovision` que informa `[Errno 5] Input/output error`. Essa mensagem de erro não é crítica e pode ser ignorada.
+     ```
+     sudo waagent -force -deprovision
+     export HISTSIZE=0
+     logout
+     ```  
+   > [!NOTE]
+   > No Virtualbox você pode ver o seguinte erro após executar `waagent -force -deprovision` que informa `[Errno 5] Input/output error`. Essa mensagem de erro não é crítica e pode ser ignorada.
 
 * Desligar a máquina virtual e carregar o VHD no Azure.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: f5713fe3333f291d8d28a6ef3df48572507661be
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 96d84b2328ffb83d5c1ea7218b17314a537fa45b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853197"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904551"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Usar o Barramento de Serviço do .NET com AMQP 1.0
 
@@ -76,10 +76,10 @@ Para facilitar a interoperabilidade com clientes não .NET, use somente tipos .N
 | double |double |Valor do AMQP |
 | decimal |decimal128 |Valor do AMQP |
 | char |char |Valor do AMQP |
-| Datetime | timestamp |Valor do AMQP |
+| DateTime | timestamp |Valor do AMQP |
 | Guid |uuid |Valor do AMQP |
 | byte[] |binário |Valor do AMQP |
-| string |string |Valor do AMQP |
+| cadeia de caracteres |cadeia de caracteres |Valor do AMQP |
 | System.Collections.IList |list |Valor AMQP: os itens contidos na coleção só podem ser aqueles definidos nesta tabela. |
 | System.Array |matriz |Valor AMQP: os itens contidos na coleção só podem ser aqueles definidos nesta tabela. |
 | System.Collections.IDictionary |map |Valor AMQP: os itens contidos na coleção só podem ser aqueles definidos nesta tabela. Observação: apenas as chaves de cadeia de caracteres são suportadas. |
@@ -93,7 +93,7 @@ Para facilitar a interoperabilidade com clientes não .NET, use somente tipos .N
 | --- | --- | --- |
 | Uri |`<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type>` |URI.AbsoluteUri |
 | DateTimeOffset |`<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type>` |DateTimeOffset.UtcTicks |
-| timespan |`<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> ` |TimeSpan.Ticks |
+| TimeSpan |`<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> ` |TimeSpan.Ticks |
 
 ## <a name="behavioral-differences"></a>Diferenças de comportamento
 
@@ -124,7 +124,7 @@ Está pronto(a) para saber mais? Visite os links a seguir:
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azureservicebus-4.0.0
 [Microsoft.ServiceBus.Messaging.MessagingFactory.AcceptMessageSession]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory.acceptmessagesession?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessagingFactory_AcceptMessageSession
 [OperationTimeout]: /dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout
-[NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
+[NuGet]: https://nuget.org/packages/WindowsAzure.ServiceBus/
 [Azure portal]: https://portal.azure.com
 [Visão geral do Barramento de Serviço para AMQP]: service-bus-amqp-overview.md
 [Guia do protocolo AMQP 1.0]: service-bus-amqp-protocol-guide.md

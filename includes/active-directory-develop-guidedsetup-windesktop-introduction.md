@@ -4,22 +4,22 @@ description: Arquivo de inclusão
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/17/2018
+ms.date: 03/20/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: d7f268618888eb1f3fcd98b13b67635d9e2d056d
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: HT
+ms.openlocfilehash: bb28862ad6452eab3130eeb2dc0b4c269839d306
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988168"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203159"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Chamar a API do Microsoft Graph em um aplicativo da Área de Trabalho do Windows
 
@@ -32,7 +32,7 @@ Depois de concluir o guia, seu aplicativo poderá chamar uma API protegida que u
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Como o aplicativo de exemplo gerado por este guia funciona
 
-![Como funciona este guia](./media/active-directory-develop-guidedsetup-windesktop-intro/windesktophowitworks.png)
+![Mostra como o aplicativo de exemplo gerado por esse funciona tutoriais](./media/active-directory-develop-guidedsetup-windesktop-intro/windesktophowitworks-updated.png)
 
 O aplicativo de exemplo que você cria com este guia permite que um aplicativo da Área de Trabalho do Windows consulte a API do Microsoft Graph, ou uma API Web que aceita tokens, de um ponto de extremidade do Azure Active Directory v2.0. Para esse cenário, você adiciona um token às solicitações HTTP por meio do cabeçalho de Autorização. A MSAL (Biblioteca de Autenticação da Microsoft) lida com a aquisição e a renovação de tokens.
 

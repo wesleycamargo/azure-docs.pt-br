@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 5e9104f59173c3d39ef2f2232ed2a9c6864cf84f
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 27028903daeaf62a25584300944538341a861c80
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892551"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905215"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Estrutura de segurança: dados confidenciais | Atenuações 
 | Produto/Serviço | Artigo |
 | --------------- | ------- |
 | **Limite de confiança de computador** | <ul><li>[Garantir que os binários sejam obscurecidos se contiverem informações confidenciais](#binaries-info)</li><li>[Considerar a utilização do sistema de arquivos criptografados (EFS) para proteger dados confidenciais específicos dos usuários](#efs-user)</li><li>[Garantir que os dados confidenciais armazenados pelo aplicativo no sistema de arquivos sejam criptografados](#filesystem)</li></ul> | 
 | **Aplicativo Web** | <ul><li>[Garantir que conteúdos confidenciais não sejam armazenados em cache no navegador](#cache-browser)</li><li>[Criptografar as seções dos arquivos de configuração do aplicativo Web que contêm dados confidenciais](#encrypt-data)</li><li>[Desabilitar explicitamente o atributo HTML de preenchimento automático em formulários e entradas com informações confidenciais](#autocomplete-input)</li><li>[Garantir que os dados confidenciais exibidos na tela do usuário sejam mascarados](#data-mask)</li></ul> | 
-| **Banco de dados** | <ul><li>[Implementar a máscara de dados dinâmicos para evitar a exposição de dados confidenciais a usuários sem privilégios](#dynamic-users)</li><li>[Garantir que as senhas sejam armazenadas em um formato hash salgado](#salted-hash)</li><li>[Garantir que os dados confidenciais nas colunas do banco de dados sejam criptografados](#db-encrypted)</li><li>[Garantir que a criptografia no nível do banco de dados (TDE) esteja habilitada](#tde-enabled)</li><li>[Garantir que os backups de banco de dados estejam criptografados](#backup)</li></ul> | 
+| **Banco de dados** | <ul><li>[Implementar a máscara de dados dinâmicos para evitar a exposição de dados confidenciais a usuários sem privilégios](#dynamic-users)</li><li>[Garantir que as senhas sejam armazenadas em um formato hash salgado](#salted-hash)</li><li>[Certifique-se de que os dados confidenciais nas colunas de banco de dados sejam criptografados](#db-encrypted)</li><li>[Garantir que a criptografia no nível do banco de dados (TDE) esteja habilitada](#tde-enabled)</li><li>[Garantir que os backups de banco de dados estejam criptografados](#backup)</li></ul> | 
 | **API da Web** | <ul><li>[Garantir que os dados confidenciais relevantes para a API Web não sejam salvos no armazenamento do navegador](#api-browser)</li></ul> | 
 | Azure Document DB | <ul><li>[Criptografar dados confidenciais armazenados no Azure Cosmos DB](#encrypt-docdb)</li></ul> | 
 | **Limite de confiança da VM da IaaS do Azure** | <ul><li>[Usar o Azure Disk Encryption para criptografar os discos utilizados por máquinas virtuais](#disk-vm)</li></ul> | 
@@ -34,7 +34,7 @@ ms.locfileid: "55892551"
 | **Dynamics CRM** | <ul><li>[Executar a modelagem de segurança e usar unidades de negócios/equipes onde for necessário](#modeling-teams)</li><li>[Minimizar o acesso ao compartilhamento de recursos em entidades críticas](#entities)</li><li>[Instruir os usuários sobre os riscos associados ao recurso de compartilhamento do Dynamics CRM e as práticas recomendadas de segurança](#good-practices)</li><li>[Incluir uma regra de padrões de desenvolvimento que impeça a exibição dos detalhes de configuração do gerenciamento de exceções](#exception-mgmt)</li></ul> | 
 | **Armazenamento do Azure** | <ul><li>[Usar o Azure Storage Service Encryption (SSE) para dados em repouso (visualização)](#sse-preview)</li><li>[Criptografar o cliente para armazenar dados confidenciais no Armazenamento do Azure](#client-storage)</li></ul> | 
 | **Cliente móvel** | <ul><li>[Criptografar os dados confidenciais ou de informações de identificação pessoal (PII) gravados no armazenamento local de telefones](#pii-phones)</li><li>[Obscurecer os binários gerados antes de distribuir os dispositivos para os usuários finais](#binaries-end)</li></ul> | 
-| **WCF** | <ul><li>[ Definir clientCredentialType para o certificado ou o Windows](#cert)</li><li>[O modo de segurança do WCF não está habilitado](#security)</li></ul> | 
+| **WCF** | <ul><li>[Definir clientCredentialType para Windows ou de certificado](#cert)</li><li>[O modo de segurança do WCF não está habilitado](#security)</li></ul> | 
 
 ## <a id="binaries-info"></a>Garantir que os binários sejam obscurecidos se contiverem informações confidenciais
 
@@ -141,7 +141,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
-| **Referências**              | [MSDN: o atributo de preenchimento automático](https://msdn.microsoft.com/library/ms533486(VS.85).aspx), [Usando o preenchimento automático com HTML](https://msdn.microsoft.com/library/ms533032.aspx), [Vulnerabilidade de limpeza de HTML](https://technet.microsoft.com/security/bulletin/MS10-071), [Preencher automaticamente de novo?](http://blog.mindedsecurity.com/2011/10/autocompleteagain.html) |
+| **Referências**              | [MSDN: o atributo de preenchimento automático](https://msdn.microsoft.com/library/ms533486(VS.85).aspx), [Usando o preenchimento automático com HTML](https://msdn.microsoft.com/library/ms533032.aspx), [Vulnerabilidade de limpeza de HTML](https://technet.microsoft.com/security/bulletin/MS10-071), [Preencher automaticamente de novo?](https://blog.mindedsecurity.com/2011/10/autocompleteagain.html) |
 | **Etapas** | O atributo de preenchimento automático especifica se o preenchimento automático estará ativado ou desativado em um formulário. Quando o preenchimento automático está ativado, o navegador preenche automaticamente o formulário com os valores inseridos pelo usuário em uma ocasião anterior. Por exemplo, quando um novo nome de usuário e senha são inseridos em um formulário e o formulário é enviado, o navegador pergunta se a senha deve ser salva. Da próxima vez que o formulário for exibido, o nome de usuário e a senha serão preenchidos automaticamente ou quando o nome de usuário for digitado. Um invasor com acesso local poderia obter o texto não criptografado da senha pelo cache do navegador. Por padrão, o preenchimento automático está habilitado e deve ser desabilitado explicitamente. |
 
 ### <a name="example"></a>Exemplo
@@ -182,7 +182,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
-| **Referências**              | [Hash de senha usando APIs de criptografia do .NET](http://docs.asp.net/en/latest/security/data-protection/consumer-apis/password-hashing.html) |
+| **Referências**              | [Hash de senha usando APIs de criptografia do .NET](https://docs.asp.net/en/latest/security/data-protection/consumer-apis/password-hashing.html) |
 | **Etapas** | As senhas não devem ser armazenadas em bancos de dados de repositório de usuários personalizados. Os hashes de senha devem ser armazenados com valores de sal em vez disso. Garanta que o valor de sal do usuário seja sempre exclusivo e que você aplique b-crypt, s-crypt ou PBKDF2 antes de armazenar a senha, com uma iteração de fator de trabalho mínima de 150.000 loops para eliminar a possibilidade de forçamento bruto.| 
 
 ## <a id="db-encrypted"></a>Garantir que os dados confidenciais nas colunas do banco de dados sejam criptografados
@@ -399,7 +399,7 @@ Se o aplicativo não for empresarial, use o armazenamento de chaves ou os conjun
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
-| **Referências**              | [Crypto Obfuscator para .NET](http://www.ssware.com/cryptoobfuscator/obfuscator-net.htm) |
+| **Referências**              | [Crypto Obfuscator para .NET](https://www.ssware.com/cryptoobfuscator/obfuscator-net.htm) |
 | **Etapas** | Os binários gerados (assemblies no apk) devem ser ocultados para impedir a engenharia reversa de assemblies. Ferramentas como o `CryptoObfuscator` podem ser usadas para isso. |
 
 ## <a id="cert"></a>Definir clientCredentialType para o certificado ou o Windows
@@ -429,7 +429,7 @@ Defina clientCredentialType para o certificado ou o Windows.
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico, .NET Framework 3 |
 | **Atributos**              | Modo de segurança - Transport, Modo de segurança - Message |
-| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference), [Noções básicas da segurança do WCF (CoDe Magazine)](http://www.codemag.com/article/0611051) |
+| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference), [Noções básicas da segurança do WCF (CoDe Magazine)](https://www.codemag.com/article/0611051) |
 | **Etapas** | Nenhuma segurança foi definida para transporte ou mensagens. Os aplicativos que transmitem mensagens sem segurança de transporte ou de mensagem não podem garantir a integridade ou a confidenciabilidade das mensagens. Quando uma associação de segurança do WCF é definida como None, as seguranças de transporte e de mensagem são desabilitadas. |
 
 ### <a name="example"></a>Exemplo
@@ -453,8 +453,8 @@ Há cinco modos de segurança disponíveis para todas as associações de servi�
 * Both: permite que você defina configurações de transporte e mensagem (somente o MSMQ oferece suporte a esse modo). 
 * TransportWithMessageCredential: as credenciais são transmitidas com a mensagem, e a proteção de mensagem e a autenticação de servidor são fornecidas pela camada de transporte. 
 * TransportCredentialOnly: as credenciais do cliente são transmitidas com a camada de transporte e nenhuma proteção de mensagem é aplicada. Use segurança de transporte e de mensagem para proteger a integridade e a confidencialidade das mensagens. A configuração abaixo solicita que o serviço use a segurança de transporte com as credenciais de mensagem.
-```
-<system.serviceModel>
+  ```
+  <system.serviceModel>
   <bindings>
     <wsHttpBinding>
     <binding name=""MyBinding""> 
@@ -462,5 +462,5 @@ Há cinco modos de segurança disponíveis para todas as associações de servi�
     <message clientCredentialType=""Windows""/> 
     </binding> 
   </bindings> 
-</system.serviceModel> 
-```
+  </system.serviceModel> 
+  ```

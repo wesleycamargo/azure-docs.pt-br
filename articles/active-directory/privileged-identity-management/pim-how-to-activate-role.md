@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/21/2018
+ms.date: 03/05/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0023ac374ef70593d0ab2d9589c99d0f37e19ff8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7fc0a22f4300a06b5c827973ffb2436d0b8cfb36
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189592"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542736"
 ---
 # <a name="activate-my-azure-ad-directory-roles-in-pim"></a>Ativar minhas funções de diretório do Azure AD no PIM
 
@@ -71,25 +71,15 @@ Quando for necessário assumir uma função de diretório do Azure AD, você pod
 
 1. Clique em **Ativar**.
 
-    Se a função não exigir aprovação, ela já estará ativada e a função será exibida na lista de funções ativas. Se você quiser usar a função imediatamente, siga as etapas na próxima seção.
+    Se a função não exigir aprovação, uma **status de ativação** painel será exibido que exibe o status de ativação.
+
+    ![Status de ativação](./media/pim-how-to-activate-role/activation-status.png)
+
+    Depois que todas as etapas forem concluídas, clique no **sair** link para sair do portal do Azure. Quando você entrar no portal, agora você pode usar a função.
 
     Se a [função exigir aprovação](./azure-ad-pim-approval-workflow.md) para ser ativada, uma notificação será exibida no canto superior direito do seu navegador informando que a solicitação está com a aprovação pendente.
 
     ![Notificação de solicitação pendente](./media/pim-how-to-activate-role/directory-roles-activate-notification.png)
-
-## <a name="use-a-role-immediately-after-activation"></a>Usar uma função imediatamente após a ativação
-
-Quando você ativa uma função no PIM, leva pelo menos 10 minutos para acessar o portal administrativo desejado ou executar funções dentro de uma carga de trabalho administrativa específica. Para forçar uma atualização de suas permissões, use a página **Acesso ao aplicativo**, conforme descrito nas etapas a seguir.
-
-1. Abra o Azure AD Privileged Identity Management.
-
-1. Clique na página **Acesso a aplicativos**.
-
-    ![Acesso ao aplicativo PIM](./media/pim-how-to-activate-role/pim-application-access.png)
-
-1. Clique no link **Active Directory do Azure** para reabrir o portal na página **Todos os usuários**.
-
-    Ao clicar nesse link, você invalida seu token atual e força o portal do Azure a obter um novo token que deve conter suas permissões atualizadas.
 
 ## <a name="view-the-status-of-your-requests"></a>Exibir o status de suas solicitações
 
@@ -139,7 +129,7 @@ Caso não precise da ativação de uma função que requer aprovação, você po
 
 ### <a name="permissions-not-granted-after-activating-a-role"></a>Permissões não concedidas depois de ativar uma função
 
-Quando você ativa uma função no PIM, leva pelo menos 10 minutos para acessar o portal administrativo desejado ou executar funções dentro de uma carga de trabalho administrativa específica. Para forçar uma atualização de suas permissões, use a página **Acesso ao aplicativo**, conforme descrito anteriormente em [Use uma função imediatamente após a ativação](#use-a-role-immediately-after-activation).
+Quando você ativa uma função no PIM, leva pelo menos 10 minutos para acessar o portal administrativo desejado ou executar funções dentro de uma carga de trabalho administrativa específica. Quando a ativação for concluída, saia do portal do Azure e entre novamente para começar a usar a função recém-ativado.
 
 Para obter etapas adicionais de solução de problemas, consulte [Solucionando problemas de permissões elevadas](https://social.technet.microsoft.com/wiki/contents/articles/37568.troubleshooting-elevated-permissions-with-azure-ad-privileged-identity-management.aspx).
 

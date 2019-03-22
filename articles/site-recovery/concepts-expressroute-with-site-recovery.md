@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 3/8/2019
 ms.author: mayg
-ms.openlocfilehash: 1fabbe3a9a486abc862bfb6c2671c60d11d8e8c7
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
-ms.translationtype: HT
+ms.openlocfilehash: f8179f5e647039737a59afdd04d345bf465acfdf
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53809923"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57726338"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>ExpressRoute do Azure com recuperação do site do Azure
 
@@ -38,7 +38,7 @@ Saiba mais sobre os domínios de roteamento do ExpressRoute[aqui](../expressrout
 
 O Azure Site Recovery permite a recuperação de desastres e migração para o Azure para o local [máquinas virtuais Hyper-V](hyper-v-azure-architecture.md), [máquinas virtuais VMware](vmware-azure-architecture.md), e [servidores físicos](physical-azure-architecture.md). Para todos os locais para cenários do Azure, os dados de replicação são enviados e armazenados em uma conta de armazenamento do Azure. Durante a replicação, não é necessário pagar todos os encargos de máquina virtual. Ao executar um failover no Azure, o Site Recovery cria automaticamente as máquinas virtuais da IaaS do Azure.
 
-O Site Recovery replica dados para uma conta do Armazenamento do Azure em um ponto de extremidade público. Para usar o ExpressRoute para replicação de recuperação de Site, você pode utilizar [emparelhamento público](../expressroute/expressroute-circuit-peerings.md#publicpeering) ou [emparelhamento da Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering). Emparelhamento da Microsoft é o domínio de roteamento recomendado para replicação. Assegure que os [Requisitos de Rede](vmware-azure-configuration-server-requirements.md#network-requirements) também sejam atendidos para replicação. Após fazer failover das Máquinas Virtuais do Azure, será possível acessá-las, utilizando o [emparelhamento privado](../expressroute/expressroute-circuit-peerings.md#privatepeering). Não há suporte para a replicação sobre emparelhamento privado.
+O Site Recovery replica dados para uma conta do Armazenamento do Azure em um ponto de extremidade público. Para usar o ExpressRoute para replicação do Site Recovery, você pode utilizar [emparelhamento público](../expressroute/expressroute-circuit-peerings.md#publicpeering) (preterido para novas criações) ou [emparelhamento da Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering). Emparelhamento da Microsoft é o domínio de roteamento recomendado para replicação. Assegure que os [Requisitos de Rede](vmware-azure-configuration-server-requirements.md#network-requirements) também sejam atendidos para replicação. Após fazer failover das Máquinas Virtuais do Azure, será possível acessá-las, utilizando o [emparelhamento privado](../expressroute/expressroute-circuit-peerings.md#privatepeering). Não há suporte para a replicação sobre emparelhamento privado.
 
 O cenário combinado é representado no diagrama a seguir: ![Local-para-o Azure com o ExpressRoute](./media/concepts-expressroute-with-site-recovery/site-recovery-with-expressroute.png)
 
@@ -56,4 +56,4 @@ Se você já estiver usando o ExpressRoute para conectar-se de seu datacenter lo
 - Saiba mais sobre os [circuitos do ExpressRoute](../expressroute/expressroute-circuit-peerings.md).
 - Saiba mais sobre os [domínios de roteamento do ExpressRoute](../expressroute/expressroute-circuit-peerings.md#peeringcompare).
 - Saiba mais sobre os [locais do ExpressRoute](../expressroute/expressroute-locations.md).
-- Saiba mais sobre a recuperação de desastres do [máquinas virtuais do Azure com o ExpressRoute ](azure-vm-disaster-recovery-with-expressroute.md).
+- Saiba mais sobre recuperação de desastres do [máquinas virtuais do Azure com o ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md).

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: panarasi
-ms.openlocfilehash: d496801894560310a4225eae8a32fced52bcc428
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
-ms.translationtype: HT
+ms.openlocfilehash: 0a2d964d60d13f0e71de5776112a4edbe3cdcc45
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063533"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993919"
 ---
 # <a name="add-authentication-to-your-xamarinandroid-app"></a>Adicione autenticação ao aplicativo Xamarin.Android
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -57,7 +57,7 @@ O aplicativo é atualizado para exigir que os usuários toquem no botão **Entra
 
 1. Adicione o seguinte código à classe **TodoActivity** :
    
-        // Define a authenticated user.
+        // Define an authenticated user.
         private MobileServiceUser user;
         private async Task<bool> Authenticate()
         {
@@ -96,7 +96,7 @@ O aplicativo é atualizado para exigir que os usuários toquem no botão **Entra
     Isso cria um novo método para autenticar um usuário e um manipulador de método para um novo botão **Entrar** . O usuário no código de exemplo acima é autenticado usando um logon do Facebook. Uma caixa de diálogo é usada para exibir a ID de usuário após a autenticação.
    
    > [!NOTE]
-   > Se estiver usando um provedor de identidade que não seja o Facebook, altere o valor transmitido para **LoginAsync** acima para um dos seguintes: *MicrosoftAccount*, *Twitter*, *Google* ou *WindowsAzureActiveDirectory*.
+   > Se você estiver usando um provedor de identidade diferente do Facebook, altere o valor passado para **LoginAsync** acima para um dos seguintes: *MicrosoftAccount*, *Twitter*, *Google* ou *WindowsAzureActiveDirectory*.
    > 
    > 
 2. No método **OnCreate** , exclua ou comente a linha de código a seguir:

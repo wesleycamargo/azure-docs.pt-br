@@ -13,12 +13,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: 24eb48e47f098b2355c51cb88b162d24f42a9e60
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 32d710464cf61f998e18af28887561cefd2b1b3f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104128"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534885"
 ---
 # <a name="using-akka-streams-with-event-hubs-for-apache-kafka"></a>Usar o Akka Streams com Hubs de Eventos para o Apache Kafka
 Este tutorial mostra como conectar o Akka Streams a Hubs de Eventos habilitados para Kafka sem alterar seus clientes de protocolo ou executar seus próprios clusters. Hubs de Eventos do Azure para Kafka dá suporte para o [Apache Kafka versão 1.0.](https://kafka.apache.org/10/documentation.html)
@@ -42,7 +42,7 @@ Para concluir este tutorial, é necessário atender aos seguintes pré-requisito
 * [JDK (Java Development Kit) 1.8+](https://aka.ms/azure-jdks)
     * No Ubuntu, execute `apt-get install default-jdk` para instalar o JDK.
     * Defina a variável de ambiente JAVA_HOME para apontar para a pasta onde o JDK está instalado.
-* [Baixar](http://maven.apache.org/download.cgi) e [instalar](http://maven.apache.org/install.html) um armazenamento binário Maven
+* [Baixar](https://maven.apache.org/download.cgi) e [instalar](https://maven.apache.org/install.html) um armazenamento binário Maven
     * No Ubuntu, você pode executar `apt-get install maven` para instalar o Maven.
 * [Git](https://www.git-scm.com/downloads)
     * No Ubuntu, você pode executar `sudo apt-get install git` para instalar o Git.

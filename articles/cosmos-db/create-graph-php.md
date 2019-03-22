@@ -8,12 +8,12 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 01/05/2018
 ms.author: lbosq
-ms.openlocfilehash: e7ca026d47952721c7aa28de401738ef50b697c6
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: aace9b61ae7625f1d3bbed5181fd88e367ea8f12
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586709"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58082748"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-php-and-the-azure-portal"></a>Início Rápido: Criar um banco de dados de grafo no Azure Cosmos DB usando PHP e o portal do Azure
 
@@ -239,17 +239,17 @@ Agora, você pode voltar para o Data Explorer, ver os vértices adicionados ao g
 
 12. Agora, você pode conectar rakesh e ashley. Verifique se **ashley** está selecionada na lista **Resultados**, em seguida, clique no botão de edição ao lado de **Destinos** à direita inferior. Talvez seja necessário ampliar a janela para ver a área **Propriedades**.
 
-   ![Alterar o destino de um vértice em um grafo](./media/create-graph-php/azure-cosmosdb-data-explorer-edit-target.png)
+    ![Alterar o destino de um vértice em um grafo](./media/create-graph-php/azure-cosmosdb-data-explorer-edit-target.png)
 
 13. Na caixa **Destino**, digite *rakesh* e na caixa **Rótulo da aresta**, digite *conhece*, em seguida, clique na marca de seleção.
 
-   ![Adicionar uma conexão entre ashley e rakesh no Data Explorer](./media/create-graph-php/azure-cosmosdb-data-explorer-set-target.png)
+    ![Adicionar uma conexão entre ashley e rakesh no Data Explorer](./media/create-graph-php/azure-cosmosdb-data-explorer-set-target.png)
 
 14. Agora, selecione **rakesh** na lista de resultados e veja se ashley e rakesh estão conectados. 
 
-   ![Dois vértices conectados no Data Explorer](./media/create-graph-php/azure-cosmosdb-graph-explorer.png)
+    ![Dois vértices conectados no Data Explorer](./media/create-graph-php/azure-cosmosdb-graph-explorer.png)
 
-   Isso conclui a parte da criação de recursos deste início rápido. Você pode continuar a adicionar vértices ao seu grafo, modificar os vértices existentes ou alterar as consultas. Agora vamos examinar as métricas que o Azure Cosmos DB fornece e, em seguida, limpar os recursos. 
+    Isso conclui a parte da criação de recursos deste início rápido. Você pode continuar a adicionar vértices ao seu grafo, modificar os vértices existentes ou alterar as consultas. Agora vamos examinar as métricas que o Azure Cosmos DB fornece e, em seguida, limpar os recursos. 
 
 ## <a name="review-slas-in-the-azure-portal"></a>Examinar SLAs no Portal do Azure
 

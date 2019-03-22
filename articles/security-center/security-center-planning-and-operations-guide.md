@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7419baf99e4c508806361b408968dbf851a7f76c
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: ece396a85a817df51f650fd1c513085efa3dedf5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343316"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842117"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guia de planejamento e operações da Central de Segurança do Azure
 Este guia destina-se a profissionais de TI (tecnologia da informação), arquitetos de TI, analistas de segurança da informação e administradores de nuvem cujas organizações planejam usar a Central de Segurança do Azure.
@@ -139,7 +139,7 @@ A Central de Segurança cria automaticamente uma política de segurança padrão
 Antes de configurar as políticas de segurança, examine cada uma das [recomendações de segurança](https://docs.microsoft.com/azure/security-center/security-center-recommendations)e determine se essas políticas são apropriadas para suas várias assinaturas e grupos de recursos. Também é importante entender que ação deve ser realizada para lidar com as recomendações de segurança e quem na sua organização será responsável por monitorar novas recomendações e tomar as medidas necessárias.
 
 ## <a name="data-collection-and-storage"></a>Coleta de dados e armazenamento
-A Central de Segurança do Azure usa o Microsoft Monitoring Agent, é o mesmo agente usado pelo serviço do Log Analytics, para coletar dados de segurança de suas máquinas virtuais. Os [dados coletados](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) por esse agente são armazenados nos seus workspaces do Log Analytics.
+Central de segurança do Azure usa o Microsoft Monitoring Agent – este é o mesmo agente usado pelo serviço do Azure Monitor – para coletar dados de segurança de suas máquinas virtuais. Os [dados coletados](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) por esse agente são armazenados nos seus workspaces do Log Analytics.
 
 ### <a name="agent"></a>Agente
 
@@ -227,7 +227,7 @@ Embora este artigo não tenha a intenção de ajudá-lo a criar seu próprio pla
 ![Atividade suspeita](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5-1.png)
 
 > [!NOTE]
-> Você pode usar o [Guia de Tratamento de Incidentes de Segurança do Computador](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf) do NIST (Instituto Nacional de Padrões e Tecnologia) como uma referência para ajudar a criar seu próprio plano.
+> Você pode usar o [Guia de Tratamento de Incidentes de Segurança do Computador](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf) do NIST (Instituto Nacional de Padrões e Tecnologia) como uma referência para ajudar a criar seu próprio plano.
 >
 
 Você pode usar os Alertas da Central de Segurança durante os estágios a seguir:

@@ -16,12 +16,12 @@ ms.date: 02/14/2019
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31e380379b5237f6b1a72b3427eb857f64d55c2e
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: eaaad0d7351c398c9b2cc013f40d62461a2dd3f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269052"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57845523"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Perguntas frequentes sobre o gerenciamento de dispositivos do Azure Active Directory
 
@@ -36,7 +36,7 @@ Apenas os dispositivos a seguir estão listados sob os **dispositivos do usuári
 - Todos os dispositivos não Windows 10 ou Windows Server 2016.
 - Todos os dispositivos não Windows. 
 
---- 
+---
 
 **P: Como saber qual é o estado de registro do dispositivo do cliente?**
 
@@ -86,6 +86,12 @@ Para versões de sistema operacional do Windows de nível inferior que ingressar
 -   Para versões do sistema operacional do Windows de nível inferior que são ingressadas no domínio do Azure Directory local, o registro automático cria um novo registro de dispositivo com o mesmo nome do dispositivo para cada usuário de domínio que entra no dispositivo. 
 
 -   Uma máquina conectada do Azure AD que foi limpa, reinstalada e reunida com o mesmo nome é exibida como outro registro com o mesmo nome de dispositivo.
+
+---
+
+**P: O registro de dispositivos Windows 10 no Azure AD dá suporte à TPMs no modo FIPS?**
+
+**R:** Não, atualmente, o registro de dispositivos no Windows 10 para todos os estados de dispositivo - junção do Azure AD híbrido, ingresso no Azure AD e registrados no Azure AD - não suporta os TPMs no modo FIPS. Para ingressar ou registre-se ao AD do Azure com êxito, o modo FIPS precisa ser desativado para os TPMs nesses dispositivos
 
 ---
 
@@ -231,7 +237,13 @@ O ingresso do Azure AD híbrido tem precedência sobre o estado de registrado pe
 
 **P: Os dispositivos ingressados no Azure AD Híbrido do Windows 10 exigem linha de visão com o controlador de domínio para obter acesso a recursos de nuvem?**
 
-**R:**  Não. Após a conclusão do ingresso no Azure AD Híbrido do Windows 10, quando o usuário tiver se conectado pelo menos uma vez, o dispositivo não exigirá linha de visão com o controlador de domínio para acessar os recursos de nuvem. O Windows 10 pode ter logon único para aplicativos do Azure AD em qualquer lugar onde haja uma conexão com a Internet, exceto em caso de alteração de senha. Se uma senha for alterada fora da rede corporativa (por exemplo, usando o Azure AD SSPR), o usuário precisará ter linha de visão com o controlador de domínio antes de poder se conectar ao dispositivo com a nova senha. Caso contrário, ele só poderá entrar com a senha antiga, que é invalidada pelo Azure AD e impede o logon único. No entanto, esse problema não ocorre quando você usa o Windows Hello para Empresas. Os usuários que entram com o Windows Hello para Empresas continuam a ter logon único para aplicativos do Azure AD após uma alteração de senha, mesmo se não tiverem linha de visão com o controlador de domínio. 
+**R:** Geralmente, não, exceto quando a senha do usuário é alterada. Após a conclusão do ingresso no Azure AD Híbrido do Windows 10, quando o usuário tiver se conectado pelo menos uma vez, o dispositivo não exigirá linha de visão com o controlador de domínio para acessar os recursos de nuvem. O Windows 10 pode ter logon único para aplicativos do Azure AD em qualquer lugar onde haja uma conexão com a Internet, exceto em caso de alteração de senha. Os usuários que entram com o Windows Hello para empresas continuar a obter um único logon para aplicativos do Azure AD mesmo depois que uma alteração de senha, mesmo se eles não têm uma linha de visão para o controlador de domínio. 
+
+---
+
+**P: O que acontece se um usuário altera sua senha e tenta efetuar logon no seu Azure AD híbrido de Windows 10 ingressados no dispositivo fora da rede corporativa?**
+
+**R:** Se uma senha for alterada fora da rede corporativa (por exemplo, usando o Azure AD SSPR), o logon do usuário com a nova senha falhará. Para dispositivos de ingressados no Azure AD híbrido, do Active Directory local é a autoridade principal. Quando um dispositivo não tem linha de visão para o controlador de domínio, é não é possível validar a nova senha. Portanto, o usuário precisa estabelecer conexão com o controlador de domínio (seja via VPN ou sendo na rede corporativa) antes que elas possam entrar para o dispositivo com sua nova senha. Caso contrário, eles só podem entrar com a senha antiga devido à funcionalidade de logon armazenado em cache no Windows. No entanto, a senha antiga é invalidada pelo AD do Azure durante solicitações de token e, portanto, impede que o logon único em e falha quaisquer políticas de acesso condicional com base no dispositivo. Esse problema não ocorre se você usar o Windows Hello para empresas. 
 
 ---
 

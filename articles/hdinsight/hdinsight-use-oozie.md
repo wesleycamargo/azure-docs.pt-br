@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/25/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5048a4ab4db6d4cb168d2a643a412f89273658b4
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: ece621b18c15061ccb559baf9583677dcc848ca4
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984249"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201748"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>Usar o Apache Oozie com o Apache Hadoop para definir e executar um fluxo de trabalho no HDInsight
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
@@ -126,7 +126,7 @@ O RunHiveScript possui várias variáveis. Você passará os valores ao enviar o
 |Variáveis de fluxo de trabalho|DESCRIÇÃO|
 |---|---|
 |${jobTracker}|Especifica a URL do controlador do trabalho do Hadoop. Use **jobtrackerhost: 9010** nas versões 3.0 e 2.1 do HDInsight.|
-|${nameNode}|Especifica a URL do name node do Hadoop. Use o endereço padrão do sistema de arquivos, por exemplo, *wasb://&lt;&gt;containerName@&lt;storageAccountName&gt;.blob.core.windows.net*.|
+|${nameNode}|Especifica a URL do name node do Hadoop. Use o endereço padrão do sistema de arquivos, por exemplo, *wasb://&lt;&gt;containerName\@&lt;storageAccountName&gt;.blob.core.windows.net*.|
 |${queueName}|Especifica o nome da fila para a qual o trabalho é enviado. Use o **padrão**.|
 
 |Variável de ação do Hive|DESCRIÇÃO|
@@ -631,7 +631,6 @@ Neste tutorial, você aprendeu a definir um fluxo de trabalho do Apache Oozie e 
 [hdinsight-versions]:  hdinsight-component-versioning.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
-[hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 
 
 [hdinsight-use-sqoop]:hadoop/hdinsight-use-sqoop.md

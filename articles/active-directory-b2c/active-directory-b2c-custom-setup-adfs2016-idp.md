@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 9a1bd45b9724c2533cfefd1e4b5d89f314177ba8
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 0462ae68194fa22d99339b2ef369e3bbe3deabb2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417611"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077455"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Adicionar ADFS como um provedor de identidade SAML usando políticas personalizadas no Azure Active Directory B2C
 
@@ -64,7 +64,7 @@ Você pode definir uma conta do ADFS como um provedor de declarações adicionan
           <Metadata>
             <Item Key="WantsEncryptedAssertions">false</Item>
             <Item Key="PartnerEntity">https://your-ADFS-domain/federationmetadata/2007-06/federationmetadata.xml</Item>
-            <Item Key=" XmlSignatureAlgorithm">Sha256</Item>
+            <Item Key="XmlSignatureAlgorithm">Sha256</Item>
           </Metadata>
           <CryptographicKeys>
             <Key Id="SamlAssertionSigning" StorageReferenceId="B2C_1A_ADFSSamlCert"/>
@@ -197,7 +197,7 @@ Atualize o arquivo de RP (terceira parte confiável) que iniciará o percurso do
 
 1. Faça uma cópia do *SignUpOrSignIn.xml* no diretório de trabalho e renomeie-a. Por exemplo, renomeie-a para *SignUpSignInADFS.xml*.
 2. Abra o novo arquivo e atualize o valor do atributo **PolicyId** para **TrustFrameworkPolicy** com um valor exclusivo. Por exemplo, `SignUpSignInADFS`.
-3. Atualize o valor de **PublicPolicyUri** com o URI da política. Por exemplo, `http://contoso.com/B2C_1A_signup_signin_adfs">
+3. Atualize o valor de **PublicPolicyUri** com o URI da política. Por exemplo, `http://contoso.com/B2C_1A_signup_signin_adfs`
 4. Atualize o valor do atributo **ReferenceId** em **DefaultUserJourney** para corresponder à ID do novo percurso do usuário que você criou (SignUpSignInADFS).
 5. Salve suas alterações, faça upload do arquivo e, em seguida, selecione a nova política na lista.
 6. Verifique se o aplicativo Azure AD B2C que você criou está selecionado no campo **Selecionar aplicativo** e teste-o clicando em **Executar agora**.

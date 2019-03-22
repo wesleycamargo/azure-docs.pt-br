@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: 88efa6b16e33fe928ad9354b7283f7c651e6710c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: a4c256a6acd8e51986b40e28a6f658f1103ab337
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881293"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877693"
 ---
 # <a name="support-and-help-options"></a>Opções de Ajuda e suporte
 
-Você está apenas começando a explorar a funcionalidade do serviço de fala? Você está implementando um novo recurso para o seu aplicativo? Aqui estão sugestões onde você pode obter ajuda como desenvolvedor.
+Você apenas começando a explorar a funcionalidade dos serviços de fala? Você está implementando um novo recurso para o seu aplicativo? Aqui estão sugestões onde você pode obter ajuda como desenvolvedor.
 
 > [!div class="checklist"]
 > * Mantenha-se informado sobre novos desenvolvimentos dos *Serviços Cognitivos do Azure*, ou localizar as notícias mais recentes relacionadas ao *Serviço de Fala*.
@@ -30,7 +30,7 @@ Você está apenas começando a explorar a funcionalidade do serviço de fala? V
 
 ## <a name="stay-informed"></a>Continue informado
 
-Notícias sobre os serviços Cognitivos são coletadas no [blog de Serviços Cognitivos](https://azure.microsoft.com/blog/topics/cognitive-services/). Para obter as informações mais recentes sobre o serviço de fala, acompanhe o [blog de Serviço de Fala](https://azure.microsoft.com/blog/tag/speech-service/).
+Notícias sobre os serviços Cognitivos são coletadas no [blog de Serviços Cognitivos](https://azure.microsoft.com/blog/topics/cognitive-services/). Para obter as informações mais recentes sobre os serviços de fala, acompanhar os [blog de serviços de fala](https://azure.microsoft.com/blog/tag/speech-service/).
 
 ## <a name="search"></a>Search
 
@@ -61,11 +61,11 @@ Se não conseguir encontrar uma resposta para seu problema por meio da pesquisa,
 
 |Componente/Área  |Marcas  |
 |---------|---------|
-|Reconhecimento de fala |[[microsoft-cognitivas + fala em texto]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
-|Síntese de fala |[[microsoft-cognitivas + texto em fala]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
-|Tradução de Fala |[[microsoft-cognitivas + conversão]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
-|Intenção de fala |[[microsoft-cognitivas + luis]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
-|SDK de fala geral |[[microsoft-cognitivas + microsoft-fala-api]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
+|Reconhecimento de fala |[[microsoft-cognitivas + fala em texto]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
+|Síntese de fala |[[microsoft-cognitivas + texto em fala]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
+|Tradução de Fala |[[microsoft-cognitivas + conversão]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
+|Intenção de fala |[[microsoft-cognitivas + luis]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
+|SDK de fala geral |[[microsoft-cognitivas + microsoft-fala-api]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
 
 > [!TIP]
 > As seguintes postagens do Stack Overflow contêm dicas sobre as perguntas de formulário e adicione o código-fonte. As diretrizes a seguir podem ajudar a aumentar as chances de os membros da comunidade avaliarem e responderem à sua pergunta rapidamente:  

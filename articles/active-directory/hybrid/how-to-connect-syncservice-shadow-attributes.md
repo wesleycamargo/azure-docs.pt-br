@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 564a0948d09e4726800d19858b4c23924fc56973
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 10a4078f49abbdf431f42c6cde7cf882112e5848
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187331"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839161"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Atributos sombra do serviço de sincronização do Azure AD Connect
 A maioria dos atributos é representada da mesma maneira no Azure AD e no Active Directory local. Mas alguns atributos têm tratamentos especiais, e o valor do atributo no Azure AD pode ser diferente do que é sincronizado no Azure AD Connect.
@@ -58,7 +58,7 @@ Para um usuário de caixa de correio, no local ou no Exchange Online, somente os
 | proxyAddresses local | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie.spencer@fabrikam.com</br>smtp:abbie@fabrikamonline.com |
 | proxyAddresses do Exchange Online | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie@fabrikamonline.com</br>SIP:abbie.spencer@fabrikamonline.com |
 
-Nesse caso, **smtp:abbie.spencer@fabrikam.com** foi removido, pois esse domínio não foi verificado. Mas o Exchange também adicionou **SIP:abbie.spencer@fabrikamonline.com**. A Fabrikam não usou o Lync/Skype local, mas o Azure AD e o Exchange Online se preparam para isso.
+Nesse caso **smtp:abbie.spencer\@fabrikam.com** foi removido, pois esse domínio não foi verificado. Mas o Exchange também adicionada **SIP:abbie.spencer\@fabrikamonline.com**. A Fabrikam não usou o Lync/Skype local, mas o Azure AD e o Exchange Online se preparam para isso.
 
 Essa lógica para proxyAddresses é conhecida como **ProxyCalc**. ProxyCalc é invocado a cada alteração em um usuário, quando:
 

@@ -10,15 +10,15 @@ ms.subservice: design
 ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
-ms.openlocfilehash: cede105f0bff9a65f88e06467e4d13419d389f04
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 795facc6148d33592ff8eac5083a273dc3d5cb26
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461552"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314901"
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Roteiro do SQL Data Warehouse do Azure
-Esta folha de referências fornece dicas úteis e melhores práticas para a compilação de suas soluções do SQL Data Warehouse do Azure. Antes da introdução, saiba mais sobre cada etapa detalhadamente, lendo os [Padrões de Carga de Trabalho do SQL Data Warehouse do Azure e Anti-Padrões](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns), que explica o que é SQL Data Warehouse e o que não é.
+Esta folha de referências fornece dicas úteis e melhores práticas para a compilação de suas soluções do SQL Data Warehouse do Azure. Antes da introdução, saiba mais sobre cada etapa detalhadamente, lendo os [Padrões de Carga de Trabalho do SQL Data Warehouse do Azure e Anti-Padrões](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-workload-patterns-and-anti-patterns), que explica o que é SQL Data Warehouse e o que não é.
 
 O gráfico a seguir mostra o processo de criação de um data warehouse:
 
@@ -129,7 +129,7 @@ Dimensione automaticamente no momento que desejar com o Azure Functions:
 
 É recomendável considerar o Banco de Dados SQL e o Azure Analysis Services em uma arquitetura de Hub e Spoke. Essa solução pode fornecer isolamento de carga de trabalho entre diferentes grupos de usuários, além de usar recursos de segurança avançados do Banco de Dados SQL e do Azure Analysis Services. Essa também é uma maneira de fornecer simultaneidade ilimitada para seus usuários.
 
-Saiba mais sobre [arquiteturas típicas que se beneficiam com SQL Data Warehouse](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/common-isv-application-patterns-using-azure-sql-data-warehouse/).
+Saiba mais sobre [arquiteturas típicas que se beneficiam com SQL Data Warehouse](https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/).
 
 Implante com um clique seus spokes nos Bancos de Dados SQL do SQL Data Warehouse:
 
@@ -155,9 +155,9 @@ Implante com um clique seus spokes nos Bancos de Dados SQL do SQL Data Warehouse
 
 
 <!--Other Web references-->
-[typical architectures that take advantage of SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/common-isv-application-patterns-using-azure-sql-data-warehouse/
-[is and is not]:https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns/
-[migração de dados]:https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
+[typical architectures that take advantage of SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/
+[is and is not]:https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-workload-patterns-and-anti-patterns/
+[migração de dados]:https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/
 
 [Azure Data Lake Store]: ../data-factory/connector-azure-data-lake-store.md
 [sys.dm_pdw_nodes_db_partition_stats]: /sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql

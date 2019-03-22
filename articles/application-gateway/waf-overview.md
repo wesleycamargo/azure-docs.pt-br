@@ -4,14 +4,15 @@ description: Este artigo fornece uma visão geral do WAF (Firewall do Aplicativo
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 11/16/2018
+ms.date: 2/22/2019
 ms.author: amsriva
-ms.openlocfilehash: 9bccc9258a6bd9a6fef4956d0f32cb00dd3c542d
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: 914583747d4e0e045d5023d9072451983037e57f
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454252"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790350"
 ---
 # <a name="web-application-firewall-waf"></a>Firewall do aplicativo Web (WAF)
 
@@ -58,19 +59,8 @@ Estes são os principais benefícios fornecidos pelo Gateway de Aplicativo e pel
 - Proteção contra anomalias de protocolo HTTP, como ausência de cabeçalhos de agente de usuário do host e de aceitação
 - Prevenção contra bots, rastreadores e scanners
 - Detecção de configurações incorretas de aplicativos comuns (por exemplo, Apache, IIS e assim por diante)
-
-### <a name="public-preview-features"></a>Recursos da visualização pública
-
-O SKU de visualização pública atual do WAF inclui os seguintes recursos:
-
-- **Solicitar limites de tamanho** - O Firewall do Aplicativo Web permite que os usuários configurem limites de tamanho de solicitação dentro dos limites inferior e superior.
-- **Listas de exclusões** - As listas de exclusão do WAF permitem que os usuários omitam certos atributos de solicitação de uma avaliação do WAF. Um exemplo comum são os tokens inseridos do Active Directory que são usados para autenticação ou campos de senha.
-
-Para obter mais informações sobre a visualização pública do WAF, consulte [Limites de tamanho de solicitação e listas de exclusões de Firewall do Aplicativo Web (visualização pública)](application-gateway-waf-configuration.md).
-
-
-
-
+- Solicitar limites de tamanho - Firewall do aplicativo Web permite aos usuários configurar limites de tamanho de solicitação dentro de limites inferior e superior.
+- Listas de exclusão – listas de exclusão de WAF permitem aos usuários certos atributos de solicitação de uma avaliação de WAF omiti-los. Um exemplo comum são os tokens inseridos do Active Directory que são usados para autenticação ou campos de senha.
 
 ### <a name="core-rule-sets"></a>Conjuntos de regras principais
 
@@ -87,7 +77,6 @@ O firewall de aplicativo Web vem pré-configurado por padrão com o CRS 3.0, ou 
 - Detecção de configurações incorretas de aplicativos comuns (por exemplo, Apache, IIS etc.)
 
 Para obter uma lista mais detalhada de regras e suas proteções, consulte [Conjuntos de regras principais](#core-rule-sets).
-
 
 #### <a name="owasp30"></a>OWASP_3.0
 
@@ -130,6 +119,16 @@ O WAF do Gateway de Aplicativo pode ser configurado para ser executado nestes do
 
 * **Modo de detecção** - Quando configurado para ser executado no modo de detecção, o Gateway de Aplicativo WAF monitora e registra todos os alertas de ameaça em um arquivo de log. O log de diagnóstico para o Gateway de Aplicativo deve estar ativado usando a seção **Diagnóstico**. Você também precisa garantir que o log do WAF esteja selecionado e ativado. Ao ser executado no firewall do aplicativo Web no modo de detecção não bloqueia solicitações de entrada.
 * **Modo de Prevenção** – quando configurado para ser executado no modo de prevenção, o Gateway de Aplicativo bloqueia ativamente invasões e ataques detectados por suas regras. O invasor recebe uma exceção 403 acesso não autorizado e a conexão é encerrada. O modo de Prevenção continua a registrar em log tais ataques nos logs do WAF.
+
+### <a name="anomaly-scoring-mode"></a>Modo de pontuação de anomalias 
+ 
+OWASP tem dois modos para decidir se bloqueando o tráfego ou não. Há um modo tradicional e um modo de pontuação de anomalias. No modo tradicional, qualquer regra de correspondência de tráfego é considerada independentemente se outras regras coincida com muito. Embora seja mais fácil de entender, a falta de informações sobre o número de regras é acionado por uma solicitação específica é uma das limitações desse modo. Portanto, o modo de pontuação de anomalias foi introduzido, que se tornou o padrão com OWASP 3. x. 
+
+No modo de pontuação de anomalias, o fato de que corresponde a uma das regras descritas na seção anterior em relação ao tráfego não imediatamente significa que o tráfego será bloqueado, supondo que o firewall está no modo de prevenção. Regras têm uma severidade específica (crítico, erro, aviso e observe) e, dependendo do que gravidade eles aumentarão a um valor numérico para a solicitação de chamada a pontuação de anomalias. Por exemplo, uma regra de aviso de correspondência contribuirá com um valor de 3, mas uma regra de correspondência crítica contribuirá com um valor de 5. 
+
+Há um limite para a pontuação de anomalias sob a qual o tráfego não é descartado, esse limite é definido como 5. Isso significa que, uma única regra crítica correspondente é o suficiente para que uma solicitação no modo de prevenção bloqueia o WAF do Azure (uma vez que a regra crítica aumenta a pontuação de anomalias, 5, de acordo com o parágrafo anterior). No entanto, uma regra correspondente com um nível de aviso de será apenas aumento da anomalia pontuação por 3. Como 3 é ainda menor do que o limite de 5, nenhum tráfego será bloqueado, mesmo se o WAF está no modo de prevenção. 
+
+Observe que a mensagem registrada quando um tráfego de correspondências de regras WAF incluirá action_s o campo como "Bloqueado", mas que não significa necessariamente que o tráfego realmente foi bloqueado. Uma pontuação de anomalias de 5 ou superior é necessária para bloquear o tráfego.  
 
 ### <a name="application-gateway-waf-reports"></a>Monitoramento de WAF
 

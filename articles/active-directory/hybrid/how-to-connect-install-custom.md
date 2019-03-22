@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 03/20/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91dd25eadd3842cf1a94608a6f0ad9cfcd25039a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: bbfc325d1a33db45afecf30bfa21244e3336961d
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197225"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295480"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Instalação personalizada do Azure AD Connect
 As **Configurações personalizadas** do Azure AD Connect são usadas quando você deseja mais opções para a instalação. Essa opção é usada se você tem várias florestas ou se quer configurar recursos opcionais não incluídos na instalação expressa. Ela é usada em todos os casos em que a opção de [**instalação expressa**](how-to-connect-install-express.md) não satisfaz à sua implantação ou a topologia.
@@ -221,7 +221,7 @@ Para cada floresta que tenha sido adicionada por meio do AD Connect do Azure, vo
 >Você poderá optar por ignorar uma determinada floresta se não desejar usar o Logon Único com essa floresta.
 
 #### <a name="configure-the-intranet-zone-for-client-machines"></a>Configurar a Área da Intranet para computadores cliente
-Para garantir que o cliente entre automaticamente na Área da Intranet, você precisa ter certeza de que as duas URLs fazem parte da Área da Intranet. Isso garante que o computador que ingressou no domínio envia automaticamente um tíquete Kerberos ao Azure AD quando ele estiver conectado à rede corporativa.
+Para garantir que o cliente entradas automaticamente na zona da intranet, você precisa garantir que a URL é parte da zona da intranet. Isso garante que o computador que ingressou no domínio envia automaticamente um tíquete Kerberos ao Azure AD quando ele estiver conectado à rede corporativa.
 Em um computador que tem as ferramentas de Gerenciamento de Política de Grupo.
 
 1.  Abrir as ferramentas de Gerenciamento de Política de Grupo
@@ -365,7 +365,7 @@ A configuração ocorre nesta página.
 
 No modo de preparo, é possível fazer as alterações necessárias no mecanismo de sincronização e examinar o que está prestes a ser exportado. Quando a configuração parecer adequada, execute novamente o assistente de instalação e desabilite o modo de preparo. Agora, os dados são exportados para o AD do Azure deste servidor. Desabilite o outro servidor ao mesmo tempo, para que somente um servidor esteja exportando ativamente.
 
-Para saber mais, confira [Modo de preparo](how-to-connect-sync-operations.md#staging-mode).
+Para saber mais, confira [Modo de preparo](how-to-connect-sync-staging-server.md).
 
 ### <a name="verify-your-federation-configuration"></a>Verificar a configuração de federação
 O Azure AD Connect verificará as configurações de DNS para você quando você clicar no botão Verificar.

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 03/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 10ec490a6fe2044e1845efca94762b4ae1a42752
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 78d82f7604d86b50ee5e05e5c3b5b9802a9559e5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657345"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877931"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Copiar dados de e para um SQL Server usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -56,7 +56,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do SQL Server:
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | Tipo | A propriedade type deve ser definida como: **SqlServer** | Sim |
-| connectionString |Especifique as informações de connectionString necessárias para conexão com o banco de dados do SQL Server usando a autenticação SQL ou a autenticação do Windows. Consulte os exemplos a seguir.<br/>Marque esse campo como SecureString para armazená-lo com segurança no Data Factory. Você também pode colocar uma senha no Azure Key Vault, e se sua autenticação do SQL tirar a configuração da `password` da cadeia de conexão. Veja o exemplo de JSON abaixo da tabela e o artigo [Armazenar credenciais no Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. |Sim |
+| connectionString |Especifique as informações de connectionString necessárias para conexão com o banco de dados do SQL Server usando a autenticação SQL ou a autenticação do Windows. Consulte os exemplos a seguir.<br/>Marque esse campo como SecureString para armazená-lo com segurança no Data Factory. Você também pode colocar uma senha no Azure Key Vault, e se a autenticação for SQL, extraia a `password`configuração da cadeia de conexão. Veja o exemplo de JSON abaixo da tabela e o artigo [Armazenar credenciais no Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. |Sim |
 | userName |Especifique o nome de usuário se você estiver usando a Autenticação do Windows. Exemplo: **domainname\\username**. |Não  |
 | Senha |Especifique a senha da conta de usuário que você especificou para userName. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Não  |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime auto-hospedado ou o Integration Runtime do Azure (se seu armazenamento de dados estiver publicamente acessível). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não  |
@@ -489,7 +489,7 @@ BEGIN
       UPDATE SET State = source.State
   WHEN NOT MATCHED THEN
       INSERT (ProfileID, State, Category)
-      VALUES (source.ProfileID, source.State, source.Category)
+      VALUES (source.ProfileID, source.State, source.Category);
 END
 ```
 
@@ -499,14 +499,11 @@ No banco de dados, defina o tipo de tabela com o mesmo nome que sqlWriterTableTy
 CREATE TYPE [dbo].[MarketingType] AS TABLE(
     [ProfileID] [varchar](256) NOT NULL,
     [State] [varchar](256) NOT NULL，
-    [Category] [varchar](256) NOT NULL，
+    [Category] [varchar](256) NOT NULL
 )
 ```
 
 O recurso de procedimento armazenado se beneficia de [parâmetros com valores de tabela](https://msdn.microsoft.com/library/bb675163.aspx).
-
->[!NOTE]
->Se você gravar no tipo de dados Money / Smallmoney invocando o procedimento armazenado, os valores podem ser arredondados. Especifique o tipo de dados correspondente em TVP como Decimal em vez de Money / Smallmoney para atenuar.
 
 ## <a name="data-type-mapping-for-sql-server"></a>Mapeamento de tipo de dados para o SQL Server
 

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: 2f747eb09fd13647c4b6764ce3cc4fe72c00bcf0
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
-ms.translationtype: HT
+ms.openlocfilehash: b2aa3eb6a117bbbdcf9c4aa44161dc25ddea2f1a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054839"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081212"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Gerenciar o esquema em um aplicativo SaaS usando o padrão de banco de dados por locatário com o Banco de Dados SQL do Azure
  
@@ -28,7 +28,7 @@ Este tutorial explora dois cenários: implantação de atualizações de dados d
 Neste tutorial, você aprenderá a:
 
 > [!div class="checklist"]
-
+> 
 > * Criar um trabalho de agente
 > * Fazer com que os trabalhos de T-SQL sejam executados em todos os bancos de dados de locatário
 > * Atualizar dados de referência em todos os bancos de dados de locatário
@@ -73,7 +73,7 @@ O script *Demo-SchemaManagement.ps1* chama o script *Deploy-SchemaManagement.ps1
 
 ## <a name="create-a-job-to-deploy-new-reference-data-to-all-tenants"></a>Criar um trabalho para implantar novos dados de referência para todos os locatários
 
-No aplicativo Wingtip Tickets, cada banco de dados do locatário inclui um conjunto de tipos de local com suporte. Cada local é de um tipo específico, que define os tipos de evento que podem ser hospedados e determina a imagem de tela de fundo usada no aplicativo. Para o aplicativo dar suporte a novos tipos de eventos, esses dados de referência devem ser atualizados e novos tipos de local devem ser adicionados.  Neste exercício, você implanta uma atualização em todos os bancos de dados de locatário para adicionar dois tipos de local: *Motorcycle Racing* e *Swimming Club*.
+No aplicativo Wingtip Tickets, cada banco de dados do locatário inclui um conjunto de tipos de local com suporte. Cada local é de um tipo específico, que define os tipos de evento que podem ser hospedados e determina a imagem de tela de fundo usada no aplicativo. Para o aplicativo dar suporte a novos tipos de eventos, esses dados de referência devem ser atualizados e novos tipos de local devem ser adicionados.  Neste exercício, você implanta uma atualização para todos os bancos de dados locatários para adicionar dois tipos de local: *Motorcycle Racing* e *Swimming Club*.
 
 Primeiro, revise os tipos de local incluídos em cada banco de dados de locatário. Conecte-se a um banco de dados de locatário no SSMS (SQL Server Management Studio) e verifique a tabela VenueTypes.  Você também pode consultar essa tabela no Editor de consultas no portal do Azure, acessado pela página do banco de dados. 
 
@@ -86,8 +86,8 @@ Para criar um novo trabalho, use um conjunto de trabalhos que os procedimentos a
 
 1. No SSMS, conecte-se ao servidor de catálogo: *catalog-dpt-&lt;user&gt;.database.windows.net* 
 1. No SSMS, abra o arquivo …\\Learning Modules\\Schema Management\\DeployReferenceData.sql
-1. Modifique a instrução: DEFINA @wtpUser = &lt;user&gt; e substitua o valor User usado quando você implantou o aplicativo Banco de Dados por Locatário SaaS Wingtip Tickets
-1. Verifique se você está conectado ao banco de dados _jobaccount_ e pressione **F5** para executar o script
+1. Modifique a instrução: DEFINIR @wtpUser = &lt;usuário&gt; e substitua o valor User usado quando você implantou o aplicativo Wingtip Tickets SaaS Database Per Tenant
+1. Verifique se você está conectado a _jobagent_ banco de dados e pressione **F5** para executar o script
 
 Observe os seguintes elementos no script *DeployReferenceData.sql*:
 * **SP\_add\_target\_group** cria o nome do grupo de destino DemoServerGroup.
@@ -122,12 +122,12 @@ Observe os seguintes elementos no script _OnlineReindex.sql_:
 Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
-
+> 
 > * Criar um trabalho de agente para ser executado em trabalhos de T-SQL de vários bancos de dados
 > * Atualizar dados de referência em todos os bancos de dados de locatário
 > * Criar um índice em uma tabela em todos os bancos de dados de locatário
 
-Em seguida, experimente o [tutorial de relatórios ad hoc](saas-tenancy-cross-tenant-reporting.md) para explorar a execução de consultas distribuídas entre bancos de dados de locatário.
+Em seguida, tente o [tutorial de relatórios Ad hoc](saas-tenancy-cross-tenant-reporting.md) para explorar a execução de consultas distribuídas entre locatários bancos de dados.
 
 
 ## <a name="additional-resources"></a>Recursos adicionais

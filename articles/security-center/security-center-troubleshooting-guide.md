@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2018
 ms.author: rkarlin
-ms.openlocfilehash: af85600593e725f1d90d5fbb3aae2aab6dd3f367
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 658f38e32c2680e7c538147154a004359e431027
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114443"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57246739"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guia de solução de problemas da Central de Segurança do Azure
 Este guia é para os profissionais de TI (tecnologia da informação), analistas de segurança de informações e administradores de nuvem cujas organizações estão usando a Central de Segurança do Azure e precisam solucionar os problemas relacionados a Central de Segurança.
@@ -40,7 +40,7 @@ Este guia explica como solucionar os problemas relacionados à Central de Segura
 O log de auditoria contém todas as operações de gravação (PUT, POST, DELETE) realizadas em seus recursos, mas não inclui operações de leitura (GET).
 
 ## <a name="microsoft-monitoring-agent"></a>Microsoft Monitoring Agent
-A Central de Segurança usa o Microsoft Monitoring Agent. Este é o mesmo agente usado pelo serviço do Log Analytics para coletar dados de segurança de suas máquinas virtuais. Após a coleta de dados estar habilitada e o agente estar instalado corretamente no computador de destino, os processos abaixo deverão estar em execução:
+Central de segurança usa o Microsoft Monitoring Agent – este é o mesmo agente usado pelo serviço do Azure Monitor – para coletar dados de segurança de suas máquinas virtuais do Azure. Após a coleta de dados estar habilitada e o agente estar instalado corretamente no computador de destino, os processos abaixo deverão estar em execução:
 
 * HealthService.exe
 
@@ -67,7 +67,7 @@ Há dois cenários de instalação que podem produzir resultados diferentes ao i
 ## Problemas de integridade do agente de monitoramento <a name="mon-agent"></a>
 O **estado de monitoramento** define o motivo pelo qual a Central de Segurança não consegue monitorar as VMs e os computadores inicializados para o provisionamento automático. A tabela a seguir mostra os valores do **estado de monitoramento**, descrições e as etapas de resolução.
 
-| Estado do monitoramento | DESCRIÇÃO | Etapas de resolução |
+| Estado do monitoramento | Descrição | Etapas de resolução |
 |---|---|---|
 | Instalação do agente pendente | A instalação do Microsoft Monitoring Agent ainda está em execução.  A instalação pode demorar algumas horas. | Aguarde até que a instalação automática seja concluída. |
 | Estado de energia desativado | A máquina virtual está parada.  O Microsoft Monitoring Agent só pode ser instalado em uma VM em execução. | Reinicie a VM. |

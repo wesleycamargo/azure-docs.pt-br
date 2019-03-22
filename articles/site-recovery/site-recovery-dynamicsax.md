@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: c2151be1644cde0e737be7f026bdf63cef0b3686
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: b97bf56c23dfa96acf7cb5af5ac28b4270de117d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221956"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56879774"
 ---
 # <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>Configurar a recuperação de desastre para um aplicativo do Dynamics AX de várias camadas   
 
@@ -45,9 +45,9 @@ Para a finalidade de criação deste artigo, usamos as máquinas virtuais do VMw
 
 **Cenário** | **Para um site secundário** | **Para o Azure**
 --- | --- | ---
-**Hyper-V** | SIM | SIM
-**VMware** | SIM | SIM
-**Servidor físico** | SIM | SIM
+**Hyper-V** | Sim | Sim
+**VMware** | Sim | Sim
+**Servidor físico** | Sim | Sim
 
 ## <a name="enable-disaster-recovery-of-the-dynamics-ax-application-by-using-site-recovery"></a>Habilitar a recuperação de desastre do aplicativo Dynamics AX usando o Site Recovery
 ### <a name="protect-your-dynamics-ax-application"></a>Proteger o aplicativo Dynamics AX
@@ -92,7 +92,7 @@ Você pode selecionar a VM nos itens replicados para definir as configurações 
 
 * Se estiver usando um IP estático, especifique o IP que você deseja que seja usado pela VM na caixa de texto **IP de Destino**.
 
-    ![Configurações de rede ](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png)
+    ![Configurações de rede](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png)
 
 
 ### <a name="5-create-a-recovery-plan"></a>5. Criar um plano de recuperação

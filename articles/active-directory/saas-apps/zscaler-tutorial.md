@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74c1465169ccbd2e6a6901566d8eb4fafb7d5c09
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0264cad4177c5e1abbf3fb18220a6401615ccf69
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182758"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57849152"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler"></a>Tutorial: Integração do Azure Active Directory com Zscaler
 
@@ -126,11 +126,11 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
 6. Na seção **Declarações de Usuário** do diálogo **Atributos de Usuário**, configure o atributo de token SAML conforme mostrado na imagem acima e execute as seguintes etapas:
 
-    | NOME  | Atributo de Origem  |
+    | Nome  | Atributo de Origem  |
     | ---------| ------------ |
     | memberOf     | user.assignedroles |
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](./common/new_save_attribute.png)
     
@@ -151,7 +151,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
 8. Na seção **Configurar Zscaler**, copie a URL apropriada de acordo com suas necessidades.
 
-     a. URL de logon
+    a. URL de Logon
 
     b. Identificador do Azure AD
 
@@ -165,7 +165,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
    
     ![Administração](./media/zscaler-tutorial/ic800206.png "Administração")
 
-     a. Em Tipo de Autenticação, escolha **SAML**.
+    a. Em Tipo de Autenticação, escolha **SAML**.
 
     b. Clique em **Configurar SAML**.
 
@@ -173,7 +173,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
             
     ![Gerenciar usuários e autenticação](./media/zscaler-tutorial/ic800208.png "Gerenciar usuários e autenticação")
     
-     a. Na caixa de texto **URL do Portal SAML**, cole o a **URL de Logon** copiada do portal do Azure.
+    a. Na caixa de texto **URL do Portal SAML**, cole o a **URL de Logon** copiada do portal do Azure.
 
     b. Na caixa de texto **Atributo de Nome de Logon**, insira **NameID**.
 
@@ -193,7 +193,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Administração](./media/zscaler-tutorial/ic800207.png)
 
-     a. Passe o mouse sobre o menu **Ativação** na parte inferior esquerda.
+    a. Passe o mouse sobre o menu **Ativação** na parte inferior esquerda.
 
     b. Clique em **Ativar**.
 
@@ -216,7 +216,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
    
     ![Servidor proxy](./media/zscaler-tutorial/ic769494.png "Servidor proxy")
 
-     a. Selecione **Usar um servidor proxy para LAN**.
+    a. Selecione **Usar um servidor proxy para LAN**.
 
     b. Na caixa de texto Endereço, digite **gateway.zscaler.net**.
 
@@ -246,7 +246,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No **nome de usuário** , digite **brittasimon@yourcompanydomain.extension**  
+    b. No **nome de usuário** , digite **brendafernandes\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **Propriedades**, marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.

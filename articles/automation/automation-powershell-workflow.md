@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 12/14/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7ab6b387a28df06758e5e0c1ce197781fc4be3c5
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: c5764c36a646b9639c0eb6463c39b9f014c4272d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436800"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58168078"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Aprender sobre os principais conceitos de Fluxo de Trabalho do Windows PowerShell para runbooks de Automação
 
@@ -226,7 +226,7 @@ Workflow Copy-Files
 
 ## <a name="checkpoints"></a>Pontos de verificação
 
-Um *ponto de verificação* é um instantâneo do estado atual do fluxo de trabalho que inclui o valor atual de variáveis e as saídas geradas para aquele ponto. Se um fluxo de trabalho terminar com erro ou se for suspenso, na próxima vez que for executado, ele iniciará em seu último ponto de verificação e não no início do fluxo de trabalho.  Você pode definir um ponto de verificação em um fluxo de trabalho com a atividade **Checkpoint-Workflow** .
+Um *ponto de verificação* é um instantâneo do estado atual do fluxo de trabalho que inclui o valor atual de variáveis e as saídas geradas para aquele ponto. Se um fluxo de trabalho terminar com erro ou se for suspenso, na próxima vez que for executado, ele iniciará em seu último ponto de verificação e não no início do fluxo de trabalho.  Você pode definir um ponto de verificação em um fluxo de trabalho com a atividade **Checkpoint-Workflow** . A automação do Azure tem um recurso chamado [justa](automation-runbook-execution.md#fair-share), onde qualquer runbook que é executado por 3 horas é descarregado para permitir que outros runbooks para serem executados. Eventualmente, o runbook descarregado será recarregado e quando ele estiver, ele retomará a execução do último ponto de verificação executada no runbook. Para garantir que o runbook será concluída, você deve adicionar os pontos de verificação em intervalos que são executados por menos de 3 horas. Se durante cada execução de um novo ponto de verificação é adicionado, e se o runbook obtém removido após três horas devido a um erro, em seguida, o runbook será retomado indefinidamente.
 
 No código de exemplo a seguir, uma exceção ocorre após Activity2, fazendo com que o fluxo de trabalho seja encerrado. Quando o fluxo de trabalho é executado novamente, ele começa pela execução de Activity2, já que isso foi logo após o último ponto de verificação definido.
 

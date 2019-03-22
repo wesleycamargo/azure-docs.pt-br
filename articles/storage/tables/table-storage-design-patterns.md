@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 40062cfb2e646fd6befef1e746f9493f3e4b20f9
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: f2f4fb04ac483f7716c0b7a0fb1f87843d8b817f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821347"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995311"
 ---
 # <a name="table-design-patterns"></a>Padrões de design de tabela
 Este artigo descreve alguns padrões adequados para uso com soluções de serviço Tabela. Além disso, você verá como abordar praticamente alguns dos problemas e compensações discutidos em outros artigos de design de armazenamento de Tabela. O diagrama a seguir resume as relações entre os diferentes padrões:  
@@ -588,7 +588,7 @@ var employees = query.Execute();
 
 Observe como a consulta especifica uma **RowKey** e também uma **PartitionKey** para garantir um melhor desempenho.  
 
-O exemplo de código a seguir mostra a funcionalidade equivalente usando a API fluente (para saber mais sobre APIs fluentes em geral, confira [Práticas recomendadas para a criação de uma API fluente](http://visualstudiomagazine.com/articles/2013/12/01/best-practices-for-designing-a-fluent-api.aspx)):  
+O exemplo de código a seguir mostra a funcionalidade equivalente usando a API fluente (para saber mais sobre APIs fluentes em geral, confira [Práticas recomendadas para a criação de uma API fluente](https://visualstudiomagazine.com/articles/2013/12/01/best-practices-for-designing-a-fluent-api.aspx)):  
 
 ```csharp
 TableQuery<EmployeeEntity> employeeQuery = new TableQuery<EmployeeEntity>().Where(

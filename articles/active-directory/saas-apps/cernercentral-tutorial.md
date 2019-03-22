@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/10/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62888afb29c3b721da978c7180b36d62d6a575a8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c097fb045db1afe65a84a2a96dc202c57e8a449e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200557"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57975535"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cerner-central"></a>Tutorial: Integração do Azure Active Directory com o Cerner Central
 
@@ -119,6 +119,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     | `https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/metadata` |
     
     b. Na caixa de texto **URL de Resposta** , digite uma URL nos seguintes padrões:
+    
     | |
     |--|
     | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/sso` |

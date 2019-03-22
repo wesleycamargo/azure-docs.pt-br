@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/27/2017
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df6675c8ed9bc600da5fc054698e6445f31abb1a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 2dee7759dccf3093e9ba9f66bffcceaf603a11d4
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203519"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226871"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-virtual-machine-scale-sets-using-powershell"></a>Configurar identidades gerenciadas para recursos do Azure em conjuntos de escala de máquina virtual usando o PowerShell
 
@@ -54,24 +54,16 @@ Nesta seção, você aprenderá como habilitar e remover uma identidade gerencia
 
 ### <a name="enable-system-assigned-managed-identity-during-the-creation-of-an-azure-virtual-machine-scale-set"></a>Ativar a identidade gerenciada atribuída pelo sistema durante a criação de um conjunto de dimensionamento da máquina virtual do Azure
 
-Para criar um VMSS com a identidade gerenciada atribuída pelo sistema ativada:
+Para criar um conjunto de dimensionamento de máquinas virtuais com a identidade gerenciada atribuída ao sistema habilitada:
 
-1. Consulte o *Exemplo 1* no artigo de referência do cmdlet [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) para criar um VMSS com uma identidade gerenciada atribuída pelo sistema.  Adicione o parâmetro `-IdentityType SystemAssigned` ao cmdlet `New-AzVmssConfig`:
+1. Consulte *exemplo 1* na [New AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) artigo de referência de cmdlet para criar uma escala de máquina virtual é definido com uma identidade gerenciada atribuído pelo sistema.  Adicione o parâmetro `-IdentityType SystemAssigned` ao cmdlet `New-AzVmssConfig`:
 
     ```powershell
     $VMSS = New-AzVmssConfig -Location $Loc -SkuCapacity 2 -SkuName "Standard_A0" -UpgradePolicyMode "Automatic" -NetworkInterfaceConfiguration $NetCfg -IdentityType SystemAssigned`
     ```
+> [!NOTE]
+> Opcionalmente, você pode provisionar as identidades gerenciadas para extensão do conjunto de dimensionamento de máquinas virtuais de recursos do Azure, mas ele será preterido em breve. É recomendável usar o ponto de extremidade do Azure Instance Metadata identidade para autenticação. Para obter mais informações, consulte [parar de usar a extensão de VM e começar a usar o ponto de extremidade de IMDS do Azure para autenticação](howto-migrate-vm-extension.md).
 
-2. (Opcional) Adicione as identidades gerenciadas à extensão do conjunto de dimensionamento de máquinas virtuais de recursos do Azure usando os parâmetros `-Name` e `-Type` no cmdlet [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension). Você pode passar "ManagedIdentityExtensionForWindows" ou "ManagedIdentityExtensionForLinux", dependendo do tipo de conjunto de dimensionamento de máquinas virtuais, e nomeá-lo usando o parâmetro `-Name`. O parâmetro `-Settings` especifica a porta usada pelo ponto de extremidade do token OAuth para aquisição de token:
-
-    > [!NOTE]
-    > Essa etapa é opcional, pois você pode usar o ponto de extremidade de identidade do Serviço de Metadados da Instância do Azure (IMDS) para recuperar também os tokens.
-
-   ```powershell
-   $setting = @{ "port" = 50342 }
-   $vmss = Get-AzVmss
-   Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Setting $settings 
-   ```
 
 ## <a name="enable-system-assigned-managed-identity-on-an-existing-azure-virtual-machine-scale-set"></a>Ativar identidade gerenciada atribuída pelo sistema em um conjunto de dimensionamento de máquina virtual do Azure existente
 
@@ -89,13 +81,8 @@ Se você precisar ativar uma identidade gerenciada atribuída pelo sistema em um
    Update-AzVmss -ResourceGroupName myResourceGroup -Name -myVmss -IdentityType "SystemAssigned"
    ```
 
-3. Adicione as identidades gerenciadas à extensão do VMSS de recursos do Azure usando os parâmetros `-Name` e `-Type` no cmdlet [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension). Você pode passar "ManagedIdentityExtensionForWindows" ou "ManagedIdentityExtensionForLinux", dependendo do tipo de conjunto de dimensionamento de máquinas virtuais, e nomeá-lo usando o parâmetro `-Name`. O parâmetro `-Settings` especifica a porta usada pelo ponto de extremidade do token OAuth para aquisição de token:
-
-   ```powershell
-   $setting = @{ "port" = 50342 }
-   $vmss = Get-AzVmss
-   Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Setting $settings 
-   ```
+> [!NOTE]
+> Opcionalmente, você pode provisionar as identidades gerenciadas para extensão do conjunto de dimensionamento de máquinas virtuais de recursos do Azure, mas ele será preterido em breve. É recomendável usar o ponto de extremidade do Azure Instance Metadata identidade para autenticação. Para obter mais informações, consulte [migrar da extensão de VM para o ponto de extremidade de IMDS do Azure para autenticação](howto-migrate-vm-extension.md).
 
 ### <a name="disable-the-system-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Desativar a identidade gerenciada atribuída pelo sistema de um conjunto de dimensionamento da máquina virtual do Azure
 
@@ -143,7 +130,7 @@ Para atribuir uma identidade gerenciada usuário atribuído a um conjunto de dim
 
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Remover uma identidade gerenciada atribuída pelo usuário de um conjunto de dimensionamento da máquina virtual do Azure
 
-Se o seu conjunto de dimensionamento de máquina virtual tiver várias identidades gerenciadas atribuídas pelo usuário, você poderá remover todas, exceto a última, usando os seguintes comandos. Substitua os valores de parâmetro `<RESOURCE GROUP>` e `<VMSS NAME>` pelos seus próprios valores. O `<USER ASSIGNED IDENTITY NAME>` é a propriedade de nome da identidade gerenciada atribuída pelo usuário, que deve permanecer no conjunto de dimensionamento da máquina virtual. Essas informações podem ser encontradas na seção de identidade do conjunto de dimensionamento de máquinas virtuais usando `az vmss show`:
+Se o seu conjunto de dimensionamento de máquina virtual tiver várias identidades gerenciadas atribuídas pelo usuário, você poderá remover todas, exceto a última, usando os seguintes comandos. Substitua os valores de parâmetro `<RESOURCE GROUP>` e `<VIRTUAL MACHINE SCALE SET NAME>` pelos seus próprios valores. O `<USER ASSIGNED IDENTITY NAME>` é a propriedade de nome da identidade gerenciada atribuída pelo usuário, que deve permanecer no conjunto de dimensionamento da máquina virtual. Essas informações podem ser encontradas na seção de identidade do conjunto de dimensionamento de máquinas virtuais usando `az vmss show`:
 
 ```powershell
 Update-AzVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType UserAssigned -IdentityID "<USER ASSIGNED IDENTITY NAME>"

@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 6f88079c5baac8cef677fd3afc5696cec5c00d92
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: d007f688483366f2f714a78b5bf9b56a67c55490
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653655"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730105"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Solucionar problemas de domínio e de certificado SSL nos Serviço de Aplicativo do Azure
 
@@ -88,13 +88,84 @@ Esse problema pode ocorrer por qualquer um dos seguintes motivos:
 - A assinatura alcançou o limite de compras permitidas em uma assinatura.
 
     **Solução**: certificados do Serviço de Aplicativo têm um limite de 10 compras de certificado para os tipos de assinatura EA e Pagamento Conforme o Uso. Para outros tipos de assinatura, o limite é 3. Para aumentar o limite, contate o [suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-- O certificado de Serviço de Aplicativo foi marcado como fraude. Você recebeu a mensagem de erro a seguir: "Seu certificado foi sinalizado para uma possível fraude. A solicitação está sendo examinada. Se o certificado não se tornar utilizável dentro de 24 horas, entre em contato com o suporte do Azure."
+- O certificado de Serviço de Aplicativo foi marcado como fraude. Você recebeu a mensagem de erro a seguir: "Seu certificado foi sinalizado para uma possível fraude. A solicitação está sendo examinada. Se o certificado se tornar utilizável dentro de 24 horas, contate o suporte do Azure."
 
     **Solução**: Se o certificado estiver marcado como fraude e não for resolvido após 24 horas, siga estas etapas:
 
     1. Entre no [Portal do Azure](https://portal.azure.com).
     2. Vá para **Certificados do Serviço de Aplicativo** e selecione o certificado.
     3. Selecione **Configuração de Certificado** > **Etapa 2: Verificar** > **Verificação de Domínio**. Essa etapa envia uma notificação de email para o provedor de certificados do Azure para resolver o problema.
+
+## <a name="custom-domain-problems"></a>Problemas de domínio personalizado
+
+### <a name="a-custom-domain-returns-a-404-error"></a>Um domínio personalizado retorna um erro 404 
+
+#### <a name="symptom"></a>Sintoma
+
+Ao navegar para o site usando o nome de domínio personalizado, você pode receber a seguinte mensagem de erro:
+
+"Erro 404 - aplicativo Web não encontrado."
+
+#### <a name="cause-and-solution"></a>Causa e solução
+
+**Causa 1** 
+
+O domínio personalizado configurado não tem um registro CNAME ou A. 
+
+**Solução para a causa 1**
+
+- Se você adicionou um registro A, verifique se um registro TXT também foi adicionado. Para obter mais informações, consulte [Criar o registro A](./app-service-web-tutorial-custom-domain.md#create-the-a-record).
+- Se você não precisar usar o domínio raiz para o aplicativo, é recomendável usar um registro CNAME em vez de um registro A.
+- Não use um registro CNAME e um registro A para o mesmo domínio. Esse problema pode causar um conflito e impedir que o domínio que está sendo resolvido. 
+
+**Causa 2** 
+
+O navegador da Internet ainda pode estar armazenando o endereço IP antigo em cache para o domínio. 
+
+**Solução para a Causa 2**
+
+Limpe o navegador. Para dispositivos do Windows, você pode executar o comando `ipconfig /flushdns`. Use [WhatsmyDNS.net](https://www.whatsmydns.net/) para verificar se o domínio aponta para o endereço IP do aplicativo. 
+
+### <a name="you-cant-add-a-subdomain"></a>Não é possível adicionar um subdomínio 
+
+#### <a name="symptom"></a>Sintoma
+
+Não é possível adicionar um novo nome do host a um aplicativo para atribuir um subdomínio.
+
+#### <a name="solution"></a>Solução
+
+- Verifique com o administrador de assinatura para certificar-se de que você tem permissões para adicionar um nome do host ao aplicativo.
+- Se você precisar de mais de subdomínios, é recomendável que você altere o domínio que hospeda para serviço de nome de domínio (DNS) do Azure. Usando o DNS do Azure, será possível adicionar 500 nomes do host ao aplicativo. Para obter mais informações, consulte [Adicionar um subdomínio](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/).
+
+### <a name="dns-cant-be-resolved"></a>DNS não pode ser resolvido
+
+#### <a name="symptom"></a>Sintoma
+
+Você recebeu a mensagem de erro a seguir:
+
+"O registro DNS não pôde ser localizado."
+
+#### <a name="cause"></a>Causa
+Esse problema ocorre por um dos seguintes motivos:
+
+- O período de TTL (vida útil) não expirou. Verifique a configuração de DNS para seu domínio para determinar o valor de TTL e aguarde até que o período expire.
+- A configuração do DNS está incorreta.
+
+#### <a name="solution"></a>Solução
+- Aguarde 48 horas para que esse problema seja resolvido sozinho.
+- Se você puder alterar a configuração de TTL em sua configuração de DNS, altere o valor para 5 minutos para ver se isso resolve o problema.
+- Use [WhatsmyDNS.net](https://www.whatsmydns.net/) para verificar se o domínio aponta para o endereço IP do aplicativo. Se isso não estiver, configure o registro A para o endereço IP correto do aplicativo.
+
+### <a name="you-need-to-restore-a-deleted-domain"></a>É necessário restaurar um domínio excluído 
+
+#### <a name="symptom"></a>Sintoma
+O domínio não está mais visível no portal do Azure.
+
+#### <a name="cause"></a>Causa 
+O proprietário da assinatura pode ter excluído acidentalmente o domínio.
+
+#### <a name="solution"></a>Solução
+Se o domínio foi excluído há menos de sete dias, o domínio ainda não iniciou o processo de exclusão. Nesse caso, você poderá comprar o mesmo domínio novamente no portal do Azure com a mesma assinatura. (Certifique-se de digitar o nome de domínio exato na caixa de pesquisa.) Você não será cobrado novamente por esse domínio. Se o domínio foi excluído há mais de sete dias, entre em contato com [suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para obter ajuda com a restauração do domínio.
 
 ## <a name="domain-problems"></a>Problemas de domínio
 
@@ -199,102 +270,59 @@ Esse problema ocorre por um dos seguintes motivos:
     |TXT|@|<app-name>.azurewebsites.net|
     |CNAME|www|<app-name>.azurewebsites.net|
 
-### <a name="dns-cant-be-resolved"></a>DNS não pode ser resolvido
+## <a name="faq"></a>Perguntas frequentes
 
-#### <a name="symptom"></a>Sintoma
+**É necessário configurar meu domínio personalizado para meu site após adquiri-lo?**
 
-Você recebeu a mensagem de erro a seguir:
+Quando você comprar um domínio do portal do Azure, o aplicativo de serviço de aplicativo é automaticamente configurado para usar esse domínio personalizado. Você não precisa realizar nenhuma etapa adicional. Para obter mais informações, assista [ajuda de autoatendimento do serviço de aplicativo do Azure: Adicionar um nome de domínio personalizado](https://channel9.msdn.com/blogs/Azure-App-Service-Self-Help/Add-a-Custom-Domain-Name) no Channel 9.
 
-"O registro DNS não pôde ser localizado."
+**Pode usar um domínio adquirido no portal do Azure para apontar para uma VM do Azure em vez disso?**
 
-#### <a name="cause"></a>Causa
-Esse problema ocorre por um dos seguintes motivos:
+Sim, você pode apontar o domínio a uma VM, armazenamento etc. Para obter mais informações, consulte [criar um FQDN personalizado no portal do Azure para uma VM do Windows](../virtual-machines/windows/portal-create-fqdn.md).
 
-- O período de TTL (vida útil) não expirou. Verifique a configuração de DNS para seu domínio para determinar o valor de TTL e aguarde até que o período expire.
-- A configuração do DNS está incorreta.
+**Meu domínio está hospedado pelo GoDaddy ou o DNS do Azure?**
 
-#### <a name="solution"></a>Solução
-- Aguarde 48 horas para que esse problema seja resolvido sozinho.
-- Se você puder alterar a configuração de TTL em sua configuração de DNS, altere o valor para 5 minutos para ver se isso resolve o problema.
-- Use [WhatsmyDNS.net](https://www.whatsmydns.net/) para verificar se o domínio aponta para o endereço IP do aplicativo. Se isso não estiver, configure o registro A para o endereço IP correto do aplicativo.
+Domínios do serviço de aplicativo usam GoDaddy para registro de domínio e DNS do Azure para hospedar os domínios. 
 
-### <a name="you-need-to-restore-a-deleted-domain"></a>É necessário restaurar um domínio excluído 
+**Eu tenho a renovação automática habilitada, mas ainda recebeu um aviso de renovação para meu domínio por email. O que devo fazer?**
 
-#### <a name="symptom"></a>Sintoma
-O domínio não está mais visível no portal do Azure.
+Se você tiver a renovação automática habilitada, você não precisa realizar nenhuma ação. O email de notificação é fornecido informar que o domínio está perto de expirar e renovar manualmente se a renovação automática não está habilitado.
 
-#### <a name="cause"></a>Causa 
-O proprietário da assinatura pode ter excluído acidentalmente o domínio.
+**Serei cobrado do DNS do Azure que hospeda meu domínio?**
 
-#### <a name="solution"></a>Solução
-Se o domínio foi excluído há menos de sete dias, o domínio ainda não iniciou o processo de exclusão. Nesse caso, você poderá comprar o mesmo domínio novamente no portal do Azure com a mesma assinatura. (Certifique-se de digitar o nome de domínio exato na caixa de pesquisa.) Você não será cobrado novamente por esse domínio. Se o domínio foi excluído há mais de sete dias, contate o [suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para obter ajuda na restauração do domínio.
+O custo inicial da compra de domínio se aplica a apenas ao registro de domínio. Além do custo do registro, há incorrer em encargos do DNS do Azure com base no seu uso. Para obter mais informações, consulte [preços do DNS do Azure](https://azure.microsoft.com/pricing/details/dns/) para obter mais detalhes.
 
-### <a name="a-custom-domain-returns-a-404-error"></a>Um domínio personalizado retorna um erro 404 
+**Eu adquiridos meu domínio anteriormente do portal do Azure e deseja mover de hospedagem do GoDaddy à hospedagem de DNS do Azure. Como fazer isso?**
 
-#### <a name="symptom"></a>Sintoma
+Não é obrigatório para migrar para a hospedagem de DNS do Azure. Se você quiser migrar para o DNS do Azure, a experiência de gerenciamento de domínio no portal do Azure sobre fornece informações sobre as etapas necessárias para mover para o DNS do Azure. Se o domínio tiver sido adquirido por meio do serviço de aplicativo, migração do GoDaddy hospedagem no Azure DNS é relativamente contínuo procedimento.
 
-Ao navegar para o site usando o nome de domínio personalizado, você pode receber a seguinte mensagem de erro:
+**Eu gostaria de comprar meu domínio do domínio do serviço de aplicativo, mas posso hospedar meu domínio no GoDaddy, em vez de DNS do Azure?**
 
-"Erro 404 - aplicativo Web não encontrado."
+Domínios de serviço de aplicativo comprados no portal da partir de 24 de julho de 2017, são hospedados no DNS do Azure. Se você preferir usar um provedor de hospedagem diferente, você deve ir para seu site para obter um solução de hospedagem do domínio.
 
+**É necessário pagar para proteção de privacidade para meu domínio?**
 
-#### <a name="cause-and-solution"></a>Causa e solução
+Quando você comprar um domínio por meio do portal do Azure, você pode optar por adicionar privacidade sem nenhum custo adicional. Isso é um dos benefícios de comprar o domínio por meio do serviço de aplicativo do Azure.
 
-**Causa 1** 
+**Se eu decidir que não quero mais meu domínio, posso voltar minha dinheiro?**
 
-O domínio personalizado configurado não tem um registro CNAME ou A. 
+Quando você comprar um domínio, você não é cobrado por um período de cinco dias, período durante o qual você pode decidir que você não deseja que o domínio. Se você decidir não domínio dentro desse período de cinco dias, você não será cobrado. (. uk domínios são uma exceção a isso. Se você comprar um domínio. uk, você será cobrado imediatamente e você não pode ser restituído.)
 
-**Solução para a causa 1**
+**Pode usar o domínio em outro aplicativo de serviço de aplicativo do Azure em minha assinatura?**
 
-- Se você adicionou um registro A, verifique se um registro TXT também foi adicionado. Para obter mais informações, consulte [Criar o registro A](./app-service-web-tutorial-custom-domain.md#create-the-a-record).
-- Se você não precisar usar o domínio raiz para o aplicativo, é recomendável usar um registro CNAME em vez de um registro A.
-- Não use um registro CNAME e um registro A para o mesmo domínio. Isso pode causar um conflito e impedir que o domínio seja resolvido. 
+Sim. Quando você acessar a folha de domínios personalizados e SSL no portal do Azure, você verá os domínios que você comprou. Você pode configurar seu aplicativo para usar qualquer um desses domínios.
 
-**Causa 2** 
+**Para transferir um domínio de uma assinatura para outra assinatura?**
 
-O navegador da Internet ainda pode estar armazenando o endereço IP antigo em cache para o domínio. 
+Você pode mover um domínio para outro grupo de recursos/assinatura usando o [Move-AzureRmResource](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Move-AzureRmResource?view=azurermps-6.13.0) cmdlet do PowerShell.
 
-**Solução para a Causa 2**
+**Como posso gerenciar meu domínio personalizado se não tiver um aplicativo de serviço de aplicativo do Azure?**
 
-Limpe o navegador. Para dispositivos do Windows, você pode executar o comando `ipconfig /flushdns`. Use [WhatsmyDNS.net](https://www.whatsmydns.net/) para verificar se o domínio aponta para o endereço IP do aplicativo. 
+Você pode gerenciar seu domínio, mesmo se você não tiver um aplicativo Web do serviço. Domínio pode ser usado para serviços do Azure como a máquina Virtual, armazenamento etc. Se você pretende usar o domínio para aplicativos da Web do serviço, em seguida, você precisa incluir um aplicativo Web que não está no plano de serviço de aplicativo gratuito a fim de associar o domínio ao seu aplicativo web.
 
-### <a name="you-cant-add-a-subdomain"></a>Não é possível adicionar um subdomínio 
+**Posso mover um aplicativo web com um domínio personalizado para outra assinatura ou do ambiente do serviço de aplicativo v1 para V2?**
 
-#### <a name="symptom"></a>Sintoma
+Sim, você pode mover seu aplicativo web entre assinaturas. Siga as orientações [como mover recursos no Azure](../azure-resource-manager/resource-group-move-resources.md). Há algumas limitações ao mover o aplicativo web. Para obter mais informações, consulte [limitações para mover os recursos do serviço de aplicativo](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations
+).
 
-Não é possível adicionar um novo nome do host a um aplicativo para atribuir um subdomínio.
-
-#### <a name="solution"></a>Solução
-
-- Verifique com o administrador de assinatura para certificar-se de que você tem permissões para adicionar um nome do host ao aplicativo.
-- Se você precisar de mais subdomínios, é recomendável alterar a hospedagem de domínio para DNS do Azure. Usando o DNS do Azure, será possível adicionar 500 nomes do host ao aplicativo. Para obter mais informações, consulte [Adicionar um subdomínio](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/).
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Depois de mover o aplicativo web, as associações de nome de host dos domínios dentro dos domínios personalizados definindo devem permanecer o mesmo. Não há etapas adicionais são necessárias para configurar as ligações de nome de host.

@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/12/2018
+ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: d3f8e5ac1f85483d04da99744809f4bc72295024
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: d8344177fc5895451cf876f5aa581baa1fed52e6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54266187"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001858"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Explore os logs de rastreamento de Java no Application Insights
 Se você estiver usando Logback ou Log4J (v 1.2 ou 2.0) para rastreamento, você pode enviar seus logs de rastreamento automaticamente para o Application Insights, no qual você pode explorá-los e pesquisar o conteúdo deles.
@@ -158,7 +158,7 @@ Agora que você configurou o projeto para enviar os rastreamentos para o Applica
 
 Exceções enviadas por meio de agentes serão exibidas no portal como Telemetria de exceção.
 
-![No portal do Application Insights, abra a Pesquisa](./media/java-trace-logs/10-diagnostics.png)
+![No portal do Application Insights, abra a Pesquisa](./media/java-trace-logs/01-diagnostics.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 [Usando a Pesquisa no Application Insights][diagnostic]

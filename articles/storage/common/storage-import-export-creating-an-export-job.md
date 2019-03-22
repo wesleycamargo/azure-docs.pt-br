@@ -8,44 +8,44 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 33234c03a3e691a95e61f825a0351cf481431294
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: e0513bc18f1cf14beb4c1becfc1835235a5ddc96
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731387"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092218"
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Criando um trabalho de exportação para o serviço de Importação/Exportação do Azure
 A criação de um trabalho de exportação do serviço de Importação/Exportação do Microsoft Azure usando a API REST envolve as seguintes etapas:
 
--   Selecionar os blobs a serem exportados.
+- Selecionar os blobs a serem exportados.
 
--   Obter uma localização de envio.
+- Obter uma localização de envio.
 
--   Criar o trabalho de exportação.
+- Criar o trabalho de exportação.
 
--   Enviar as unidades vazias para a Microsoft por meio de um serviço de carrier com suporte.
+- Enviar as unidades vazias para a Microsoft por meio de um serviço de carrier com suporte.
 
--   Atualizar o trabalho de exportação com as informações do pacote.
+- Atualizar o trabalho de exportação com as informações do pacote.
 
--   Receber as unidades de volta da Microsoft.
+- Receber as unidades de volta da Microsoft.
 
- Consulte [Usar o serviço de Importação/Exportação do Microsoft Azure para transferir dados para o Armazenamento de Blobs](storage-import-export-service.md) para obter uma visão geral do serviço de Importação/Exportação e um tutorial que demonstra como usar o [portal do Azure](https://portal.azure.com/) para criar e gerenciar trabalhos de importação e exportação.
+  Consulte [Usar o serviço de Importação/Exportação do Microsoft Azure para transferir dados para o Armazenamento de Blobs](storage-import-export-service.md) para obter uma visão geral do serviço de Importação/Exportação e um tutorial que demonstra como usar o [portal do Azure](https://portal.azure.com/) para criar e gerenciar trabalhos de importação e exportação.
 
 ## <a name="selecting-blobs-to-export"></a>Selecionando os blobs a serem exportados
  Para criar um trabalho de exportação, você precisará fornecer uma lista de blobs que deseja exportar de sua conta de armazenamento. Há algumas maneiras para selecionar os blobs a serem exportados:
 
--   É possível usar um caminho de blob relativo para selecionar um único blob e todos os seus instantâneos.
+- É possível usar um caminho de blob relativo para selecionar um único blob e todos os seus instantâneos.
 
--   É possível usar um caminho de blob relativo para selecionar um único blob, excluindo seus instantâneos.
+- É possível usar um caminho de blob relativo para selecionar um único blob, excluindo seus instantâneos.
 
--   É possível usar um caminho de blob relativo e um tempo de instantâneo para selecionar um único instantâneo.
+- É possível usar um caminho de blob relativo e um tempo de instantâneo para selecionar um único instantâneo.
 
--   É possível usar um prefixo de blob para selecionar todos os blobs e instantâneos com o prefixo especificado.
+- É possível usar um prefixo de blob para selecionar todos os blobs e instantâneos com o prefixo especificado.
 
--   É possível exportar todos os blobs e instantâneos na conta de armazenamento.
+- É possível exportar todos os blobs e instantâneos na conta de armazenamento.
 
- Para obter mais informações sobre como especificar os blobs a serem exportados, consulte a operação [Put Job](/rest/api/storageimportexport/jobs).
+  Para obter mais informações sobre como especificar os blobs a serem exportados, consulte a operação [Put Job](/rest/api/storageimportexport/jobs).
 
 ## <a name="obtaining-your-shipping-location"></a>Obtendo o local de envio
 Antes de criar um trabalho de exportação, você precisa obter um nome e o endereço de uma localização de envio chamando a operação [Get Location](https://portal.azure.com) ou [List Locations](https://docs.microsoft.com/rest/api/storageimportexport/locations/list). `List Locations` retornará uma lista de localizações e seus endereços para correspondência. É possível selecionar uma localização na lista retornada e enviar os discos rígidos para esse endereço. Você também pode usar a operação `Get Location` para obter o endereço para entrega de uma localização específica diretamente.

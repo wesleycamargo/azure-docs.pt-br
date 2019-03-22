@@ -17,17 +17,17 @@ ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: raluthra
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc08710909252c9bcade6177a105684128acc5bf
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: a1cc8a9305103a30fc0ea0fc40c23a522e136d80
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339016"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807177"
 ---
 # <a name="faqs-and-known-issues-with-identity-protection-refreshed-in-azure-active-directory"></a>Perguntas frequentes e problemas conhecidos com o Identity Protection (atualizado) no Azure Active Directory
 
 
-## <a name="dismiss-user-risk"></a>Ignorar o risco de usuário
+## <a name="dismiss-user-risk-known-issues"></a>Ignorar problemas conhecidos de risco do usuário
 
 **Ignorar o risco de usuário** no Identity Protection clássico define o ator no histórico de risco do usuário no Identity Protection (atualizado) para o **Azure AD**.
 
@@ -37,7 +37,7 @@ ms.locfileid: "56339016"
 Há um problema conhecido atual causando latências no fluxo de descarte de risco de usuário. Se você tiver uma "política de risco do usuário", ela deixará de ser aplicada aos usuários descartados alguns minutos após clicar em "Ignorar o risco de usuário". No entanto, há atrasos conhecidos na experiência do usuário que atualizam o "Estado de risco" de usuários descartados. Como alternativa, atualize a página no nível do navegador para ver o "Estado de risco" mais recente do usuário.
 
 
-## <a name="risky-users-report"></a>Relatório de usuários arriscados
+## <a name="risky-users-report-known-issues"></a>Problemas conhecidos de relatório de usuários arriscados
 
 As consultas no campo **nome de usuário** diferenciam maiúsculas de minúsculas, enquanto consultas no campo **nome** não diferenciam.
 
@@ -45,14 +45,10 @@ Ativar/desativar **Mostrar datas como** oculta a coluna **ÚLTIMA ATUALIZAÇÃO 
 
 **Ignorar todos os eventos** no Identity Protection clássico define o status dos eventos de risco para **Fechado (resolvido)**.
 
-Se você tentar acessar o relatório de usuários arriscados clicando em **Relatório de usuários arriscados** dentro de um registro de entrada no relatório de entradas arriscadas, às vezes, ele pode mostrar a mensagem **Algo deu errado. Tente novamente**. Para corrigir isso, clique em **Aplicar** ou **Redefinir** na parte superior da tela e os dados de usuários arriscados serão populados.
 
-
-## <a name="risky-sign-ins-report"></a>Relatório de entradas arriscadas
+## <a name="risky-sign-ins-report-known-issues"></a>Relatório de entradas arriscadas problemas conhecidos
 
 **Resolver** em um evento de risco define o status como **Usuários passaram por MFA orientada por política com base no risco**.
-
-**Redefinir** no relatório **Entradas arriscadas** não limpa o valor do **Tipo de evento de risco**.
 
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes

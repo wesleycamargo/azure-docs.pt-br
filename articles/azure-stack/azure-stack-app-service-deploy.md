@@ -16,12 +16,12 @@ ms.date: 02/27/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: e8028bc9a4a6f3245dca61d6dd30db22dc295a7f
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: d66254cdad596e3b10482b2c937326162e2e075d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992406"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57886823"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Adicionar um provedor de recursos do serviço de aplicativo para o Azure Stack
 
@@ -44,13 +44,13 @@ Você pode dar a seus usuários a capacidade de criar aplicativos web e API. Par
 
 Instalar o provedor de recursos do serviço de aplicativo demora pelo menos uma hora. O período de tempo necessário depende da função quantas instâncias você implantar. Durante a implantação, o instalador executa as seguintes tarefas:
 
- - Crie um contêiner de blob na conta de armazenamento do Azure Stack especificada.
- - Crie uma zona DNS e entradas para o serviço de aplicativo.
- - Registre o provedor de recursos do serviço de aplicativo.
- - Registre os itens de galeria do serviço de aplicativo.
+- Crie um contêiner de blob na conta de armazenamento do Azure Stack especificada.
+- Crie uma zona DNS e entradas para o serviço de aplicativo.
+- Registre o provedor de recursos do serviço de aplicativo.
+- Registre os itens de galeria do serviço de aplicativo.
 
- > [!IMPORTANT]
- > Antes de implantar o provedor de recursos, revise as notas de versão para saber mais sobre a nova funcionalidade, correções e problemas conhecidos que podem afetar sua implantação.
+  > [!IMPORTANT]
+  > Antes de implantar o provedor de recursos, revise as notas de versão para saber mais sobre a nova funcionalidade, correções e problemas conhecidos que podem afetar sua implantação.
 
 Para implantar o provedor de recursos do serviço de aplicativo, siga estas etapas:
 
@@ -74,8 +74,8 @@ Para implantar o provedor de recursos do serviço de aplicativo, siga estas etap
 
      a. Selecione **Connect** ao lado de **assinaturas do Azure Stack**.
 
-     - Se você estiver usando o Azure Active Directory (Azure AD), insira a conta de administrador do Azure AD e a senha que você forneceu quando você implantou o Azure Stack. Selecione **entrar**.
-     - Se você estiver usando os serviços de Federação do Active Directory (AD FS), forneça sua conta de administrador. Por exemplo, cloudadmin@azurestack.local. Insira sua senha e, em seguida, selecione **Sign In**.
+   - Se você estiver usando o Azure Active Directory (Azure AD), insira a conta de administrador do Azure AD e a senha que você forneceu quando você implantou o Azure Stack. Selecione **entrar**.
+   - Se você estiver usando os serviços de Federação do Active Directory (AD FS), forneça sua conta de administrador. Por exemplo, cloudadmin@azurestack.local. Insira sua senha e, em seguida, selecione **Sign In**.
 
    b. Na **assinaturas do Azure Stack**, selecione o **assinatura do provedor padrão**.
 
@@ -243,7 +243,7 @@ Para criar um aplicativo web de teste, siga estas etapas:
 
 1. No portal de locatário do Azure Stack, selecione **+**, vá para o Azure Marketplace, implante um site Django e, em seguida, aguarde a conclusão da implantação. A plataforma de web do Django usa um banco de dados com base no sistema do arquivo. Ele não requer quaisquer provedores de recursos adicionais, como SQL ou MySQL.
 
-2. Se você também implantou um provedor de recursos do MySQL, você pode implantar um site do WordPress no Marketplace. Quando você for solicitado para parâmetros de banco de dados, insira o nome de usuário *User1@Server1*com o nome de usuário e o nome do servidor de sua escolha.
+2. Se você também implantou um provedor de recursos do MySQL, você pode implantar um site do WordPress no Marketplace. Quando você for solicitado para parâmetros de banco de dados, insira o nome de usuário *User1\@Server1*com o nome de usuário e o nome do servidor de sua escolha.
 
 3. Se você também implantou um provedor de recursos do SQL Server, você pode implantar um site do DNN do Marketplace. Quando você for solicitado para parâmetros de banco de dados, escolha um banco de dados no computador executando o SQL Server que está conectado ao seu provedor de recursos.
 

@@ -13,12 +13,12 @@ ms.author: ayolubek
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/12/2019
-ms.openlocfilehash: e16d68f8c30b54c24e091d1b0c7317bf74aadeba
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: b2109afe6760eb87269a33ed74784149c2bf3e03
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234570"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105787"
 ---
 # <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>Início Rápido: Use o editor de consultas SQL do portal do Azure para se conectar e consultar dados
 
@@ -65,8 +65,8 @@ Entre no [Portal do Azure](https://portal.azure.com/).
 Configurar um administrador do AD (Active Directory) permite que você use uma única identidade para entrar no portal do Azure e seu Banco de Dados SQL. Siga as etapas abaixo para configurar um administrador do AD para o SQL Server.
 
 > [!NOTE]
-* Ainda não há suporte para contas de email (por exemplo, outlook.com, gmail.com, yahoo.com e assim por diante) como administradores do AD. Escolha um usuário criado nativamente no Azure AD ou federado no Azure AD.
-* A conexão do administrador do Azure AD não funciona com contas que têm a autenticação de dois fatores habilitada.
+> * Ainda não há suporte para contas de email (por exemplo, outlook.com, gmail.com, yahoo.com e assim por diante) como administradores do AD. Escolha um usuário criado nativamente no Azure AD ou federado no Azure AD.
+> * A conexão do administrador do Azure AD não funciona com contas que têm a autenticação de dois fatores habilitada.
 
 1. Selecione **Todos os Recursos** no menu à esquerda e, em seguida, selecione o SQL Server.
 

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 03/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 372275740b7d4fd757e97a3966e4e87c9d2de940
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.openlocfilehash: 807a6b38b9f2cbe2a3c8787fe09c2ea14106a942
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105382"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57864891"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Copiar dados de um ponto de extremidade REST usando o Azure Data Factory
 
@@ -55,10 +55,10 @@ As seguintes propriedades são suportadas para o serviço vinculado REST:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | O **tipo** propriedade deve ser definida como **HttpServer**. | SIM |
-| url | A URL base do serviço REST. | SIM |
+| Tipo | O **tipo** propriedade deve ser definida como **HttpServer**. | Sim |
+| url | A URL base do serviço REST. | Sim |
 | enableServerCertificateValidation | Se for necessário validar o certificado SSL no lado do servidor ao se conectar ao ponto de extremidade. | Não <br /> (o padrão é **verdadeiro**) |
-| authenticationType | Tipo de autenticação usado para se conectar ao serviço REST. Os valores permitidos são **Anônimo**, **Básico**, **Windows** e **ManagedServiceIdentity**. Consulte respectivamente as seções correspondentes abaixo em mais propriedades e exemplos. | SIM |
+| authenticationType | Tipo de autenticação usado para se conectar ao serviço REST. Os valores permitidos são **Anônimo**, **Básico**, **Windows** e **ManagedServiceIdentity**. Consulte respectivamente as seções correspondentes abaixo em mais propriedades e exemplos. | Sim |
 | connectVia | O [Tempo de Integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Tempo de Execução de Integração do Azure ou um Tempo de Execução de Integração auto-hospedado (se o seu armazenamento de dados estiver localizado em uma rede privada). Se não especificado, essa propriedade usará o tempo de execução de integração do Azure padrão. |Não  |
 
 ### <a name="use-basic-authentication"></a>Usar autenticação básica
@@ -67,8 +67,8 @@ Defina a **authenticationType** na propriedade **Básico**. Além das propriedad
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| userName | O nome de usuário a ser usado para acessar o ponto de extremidade REST. | SIM |
-| Senha | A senha do usuário (o **nome de usuário** valor). Marque esse campo como um tipo **SecureString** para armazená-lo com segurança no Data Factory. Você também pode [referenciar um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | SIM |
+| userName | O nome de usuário a ser usado para acessar o ponto de extremidade REST. | Sim |
+| Senha | A senha do usuário (o **nome de usuário** valor). Marque esse campo como um tipo **SecureString** para armazená-lo com segurança no Data Factory. Você também pode [referenciar um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | Sim |
 
 **Exemplo**
 
@@ -100,10 +100,10 @@ Defina a **authenticationType** na propriedade **AadServicePrincipal**. Além da
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| servicePrincipalId | Especifique a ID do cliente do aplicativo do Azure Active Directory. | SIM |
-| servicePrincipalKey | Especifique a chave do aplicativo do Azure Active Directory. Marque esse campo como **SecureString** para armazená-lo com segurança no Data Factory ou [referencie um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | SIM |
-| locatário | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. Para recuperá-lo, passe o mouse no canto superior direito do portal do Azure. | SIM |
-| aadResourceId | Especifique o recurso do AAD ao qual você está solicitando autorização, exemplo `https://management.core.windows.net`.| SIM |
+| servicePrincipalId | Especifique a ID do cliente do aplicativo do Azure Active Directory. | Sim |
+| servicePrincipalKey | Especifique a chave do aplicativo do Azure Active Directory. Marque esse campo como **SecureString** para armazená-lo com segurança no Data Factory ou [referencie um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | Sim |
+| locatário | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. Para recuperá-lo, passe o mouse no canto superior direito do portal do Azure. | Sim |
+| aadResourceId | Especifique o recurso do AAD ao qual você está solicitando autorização, exemplo `https://management.core.windows.net`.| Sim |
 
 **Exemplo**
 
@@ -137,7 +137,7 @@ Defina a **authenticationType** na propriedade **ManagedServiceIdentity**. Além
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| aadResourceId | Especifique o recurso do AAD ao qual você está solicitando autorização, exemplo `https://management.core.windows.net`.| SIM |
+| aadResourceId | Especifique o recurso do AAD ao qual você está solicitando autorização, exemplo `https://management.core.windows.net`.| Sim |
 
 **Exemplo**
 
@@ -169,7 +169,7 @@ Para copiar dados do REST, há suporte para as seguintes propriedades:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade **tipo** do conjunto de dados deve ser definida como**RestResource**. | SIM |
+| Tipo | A propriedade **tipo** do conjunto de dados deve ser definida como**RestResource**. | Sim |
 | relativeUrl | Uma URL relativa para o recurso que contém os dados. Quando essa propriedade não é especificada, somente o URL especificado na definição de serviço vinculada é usado. | Não  |
 | requestMethod | O método HTTP. Valores permitidos são **Obtenha** (padrão) e **Post**. | Não  |
 | additionalHeaders | Cabeçalhos de solicitação HTTP adicionais. | Não  |
@@ -232,7 +232,7 @@ As propriedades a seguir têm suporte na seção **source** da atividade de cóp
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | O **tipo** de propriedade da fonte da atividade de cópia deve ser definida como: **RestSource**. | SIM |
+| Tipo | O **tipo** de propriedade da fonte da atividade de cópia deve ser definida como: **RestSource**. | Sim |
 | httpRequestTimeout | O tempo limite (o valor **TimeSpan**) para a solicitação HTTP para obter uma resposta. Esse valor é o tempo limite para obter uma resposta, não o tempo limite para ler os dados da resposta. O valor padrão é **01:00:40**.  | Não  |
 | requestInterval | O tempo de espera antes de enviar a solicitação para a próxima página. O valor padrão é **00:00:01** |  Não  |
 
@@ -274,8 +274,8 @@ Normalmente, a API REST limita o seu tamanho de conteúdo de resposta de uma ún
 
 Esse conector genérico REST suporta os seguintes padrões de paginação: 
 
-* Próxima solicitação de URL absoluta = valor de propriedade no corpo de resposta atual
-* Próxima solicitação de URL absoluta = valor de cabeçalho nos cabeçalhos de resposta atuais
+* URL absoluta ou relativa da próxima solicitação = valor da propriedade no corpo de resposta atual
+* URL absoluta ou relativa da próxima solicitação = valor de cabeçalho em cabeçalhos de resposta atual
 * Próxima solicitação de consulta de parâmetro = valor de propriedade no corpo de resposta atual
 * Próxima solicitação de consulta de parâmetro = valor de cabeçalho nos cabeçalhos de resposta atuais
 * Próxima solicitação de cabeçalho = valor de propriedade no corpo de resposta atual
@@ -287,7 +287,7 @@ O **Suporte para chaves** nas regras de paginação:
 
 | Chave | DESCRIÇÃO |
 |:--- |:--- |
-| AbsoluteUrl | Indica a URL para emitir a próxima solicitação. |
+| AbsoluteUrl | Indica a URL para emitir a próxima solicitação. Ele pode ser **URL absoluta ou relativa URL**. |
 | QueryParameters.*request_query_parameter* OU QueryParameters['request_query_parameter'] | O "request_query_parameter" é definido pelo usuário e faz referência a um nome de parâmetro de consulta na URL da próxima solicitação HTTP. |
 | Headers.*request_header* OU Headers['request_header'] | O "request_query_parameter" é definido pelo usuário e faz referência a um nome de parâmetro de cabeçalho da próxima solicitação HTTP. |
 

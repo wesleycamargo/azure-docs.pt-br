@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
-ms.openlocfilehash: 7c12b34f6d735579326d4ccdd95e7831fbb777d6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d9530d35bbaf608ae25e2a753685ee90e9e13501
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181415"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823290"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de preparo no Serviço de Aplicativo do Azure
 <a name="Overview"></a>
@@ -42,7 +42,7 @@ Cada tipo de plano do Serviço de Aplicativo dá suporte a um número diferente 
 ## <a name="add-slot"></a>Adicionar um slot
 O aplicativo precisa estar em execução na camada **Standard**, **Premium** ou **Isolado** para que seja possível habilitar vários slots de implantação.
 
-1. No [Portal do Azure](https://portal.azure.com/), abra a [página de recursos](../azure-resource-manager/resource-group-portal.md#manage-resources) do seu aplicativo.
+1. No [Portal do Azure](https://portal.azure.com/), abra a [página de recursos](../azure-resource-manager/manage-resources-portal.md#manage-resources) do seu aplicativo.
 
 2. No painel de navegação à esquerda, escolha a opção **Slots de implantação (Versão Prévia)** e, em seguida, clique em **Adicionar Slot**.
    
@@ -205,7 +205,9 @@ Ao usar a [Alternância Automática](#Auto-Swap), alguns aplicativos podem exigi
         </applicationInitialization>
     </system.webServer>
 
-Você também pode personalizar o comportamento de aquecimento com uma ou mais das seguintes [configurações do aplicativo](https://github.com/MicrosoftDocs/azure-docs-pr/pull/web-sites-configure.md):
+Para obter mais informações sobre como personalizar o `applicationInitialization` elemento, consulte [falhas de permuta do slot de implantação mais comuns e como corrigi-los](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/).
+
+Você também pode personalizar o comportamento de aquecimento com uma ou mais das seguintes [configurações do aplicativo](web-sites-configure.md):
 
 - `WEBSITE_SWAP_WARMUP_PING_PATH`: O caminho para executar o ping para aquecer seu site. Adicione essa configuração de aplicativo especificando um caminho personalizado que começa com uma barra (“/”) como o valor. Por exemplo, `/statuscheck`. O valor padrão é `/`. 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: Códigos de resposta HTTP válidos para a operação de aquecimento. Adicione essa configuração de aplicativo com uma lista separada por vírgulas dos códigos HTTP. Por exemplo: `200,202`. Se o código de status retornado não estiver na lista, as operações de aquecimento e de troca são interrompidas. Por padrão, todos os códigos de resposta são válidos.

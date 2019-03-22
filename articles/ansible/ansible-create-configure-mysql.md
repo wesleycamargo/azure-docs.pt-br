@@ -1,19 +1,19 @@
 ---
 title: Criar e configurar um servidor do Banco de Dados do Azure para MySQL usando o Ansible
 description: Saiba como usar o Ansible para criar e configurar um servidor do Banco de Dados do Azure para MySQL
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, bash, guia estratégico, mysql, banco de dados
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/23/2018
-ms.openlocfilehash: 85f3957af599c80c46871a126681d29dfa513431
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 63472cf9c4b6b16f74ececfb6c6e61cf5f89ff9d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051009"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095391"
 ---
 # <a name="create-and-configure-an-azure-database-for-mysql-server-by-using-ansible"></a>Criar e configurar um servidor do Banco de Dados do Azure para MySQL usando o Ansible
 O [Banco de Dados do Azure para MySQL](https://docs.microsoft.com/azure/mysql/) é um serviço gerenciado usado para executar, gerenciar e dimensionar Bancos de Dados MySQL altamente disponíveis na nuvem. O Ansible permite que você automatize a implantação e a configuração de recursos em seu ambiente. 
@@ -134,14 +134,14 @@ Você pode [baixar o MySQL](https://dev.mysql.com/downloads/) e instalá-lo em s
 Insira os seguintes comandos: 
 
 1. Conecte-se ao servidor usando a ferramenta de linha de comando do **mysql**:
-```azurecli-interactive
- mysql -h mysqlserveransible.mysql.database.azure.com -u mysqladmin@mysqlserveransible -p
-```
+   ```azurecli-interactive
+   mysql -h mysqlserveransible.mysql.database.azure.com -u mysqladmin@mysqlserveransible -p
+   ```
 
 2. Exiba o status do servidor:
-```sql
- mysql> status
-```
+   ```sql
+   mysql> status
+   ```
 
 Se tudo correr bem, a ferramenta de linha de comando deve gerar o seguinte texto:
 

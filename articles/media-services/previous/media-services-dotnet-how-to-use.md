@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: 36350f8f359c6ad5cc5637ce0ce38838698cd68b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7da57c01b6717b505ea09fa9e6197bab4d4976fd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177437"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57873818"
 ---
 # <a name="media-services-development-with-net"></a>Desenvolvimento de serviços de mídia com o .NET 
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
@@ -45,7 +45,7 @@ Como alternativa, você pode obter os bits mais recentes do SDK do .NET dos Serv
 2. Compilar a solução.
 3. Use o **NuGet** para instalar e adicionar as **Extensões do SDK do .NET dos Serviços de Mídia do Azure** (**windowsazure.mediaservices.extensions**). Instalar esse pacote também instala o **SDK do .NET dos Serviços de Mídia** e adiciona todas as outras dependências necessárias.
    
-    Certifique-se de que você tenha a versão mais recente do NuGet instalada. Para obter mais informações e instruções de instalação, consulte [NuGet](http://nuget.codeplex.com/).
+    Certifique-se de que você tenha a versão mais recente do NuGet instalada. Para obter mais informações e instruções de instalação, consulte [NuGet](https://nuget.codeplex.com/).
 
     1. No Gerenciador de Soluções, clique com o botão direito do mouse no nome do projeto e escolha **Gerenciar Pacotes NuGet**.
 
@@ -54,7 +54,7 @@ Como alternativa, você pode obter os bits mais recentes do SDK do .NET dos Serv
     3. Na Galeria Online, pesquise extensões dos Serviços de Mídia do Azure, escolha **Extensões do SDK do .NET dos Serviços de Mídia** (**windowsazure.mediaservices.extensions**) e, em seguida, clique no botão **Instalar**.
    
     4. O projeto é modificado e faz referência às extensões do SDK do .NET dos Serviços de Mídia, ao SDK do .NET dos Serviços de Mídia e a outros assemblies dependentes adicionados.
-4. Para promover um ambiente de desenvolvimento mais limpo, considere a ativação da restauração de pacote do NuGet. Para obter mais informações, consulte [Restauração do pacote NuGet"](http://docs.nuget.org/consume/package-restore).
+4. Para promover um ambiente de desenvolvimento mais limpo, considere a ativação da restauração de pacote do NuGet. Para obter mais informações, consulte [Restauração do pacote NuGet"](https://docs.nuget.org/consume/package-restore).
 5. Adicionar uma referência ao assembly **System.Configuration** . Este assembly contém a classe System.Configuration.**ConfigurationManager** que é utilizada para acessar arquivos de configuração (por exemplo, App.config).
    
     1. Para adicionar referências usando a caixa de diálogo Gerenciar referências, clique com o botão direito do mouse no nome do projeto no Gerenciador de Soluções. Em seguida, clique em **Adicionar** e em **Referência...**.

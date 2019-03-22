@@ -3,23 +3,23 @@ title: Monitoramento de Integridade de Arquivo na Central de Segurança do Azure
 description: " Saiba como habilitar o Monitoramento de Integridade de Arquivo na Central de Segurança do Azure. "
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
-editor: ''
+editor: monhaber
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
-ms.author: rkarlin
-ms.openlocfilehash: c32dcbac8ebab5fb71839a4525163c0e6cf028ed
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.date: 03/13/2019
+ms.author: monhaber
+ms.openlocfilehash: f8bc10edcdc31dd2ae3995dcb8321a5523e1e51c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310714"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901570"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitoramento de integridade de arquivo na Central de Segurança do Azure
 Saiba como configurar o FIM (Monitoramento de Integridade de Arquivo) na Central de Segurança do Azure usando este passo a passo.
@@ -36,15 +36,12 @@ O Monitoramento de Integridade de Arquivo da Central de Segurança valida a inte
 A Central de Segurança recomenda entidades para serem monitoradas, nas quais você pode facilmente habilitar o FIM. Você também pode definir suas próprias políticas de FIM ou entidades para serem monitoradas. Este passo a passo mostra como fazer isso.
 
 > [!NOTE]
-> O recurso de FIM (Monitoramento de Integridade de Arquivo) funciona para computadores e VMs Windows e Linux e está disponível na camada Standard da Central de Segurança. Confira os [Preços](security-center-pricing.md) para saber mais sobre os tipos de preço da Central de Segurança.
-O FIM carrega dados no workspace do Log Analytics. Encargos de dados se aplicam, com base na quantidade de dados que você carregar. Consulte [Preço do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) para saber mais.
->
->
+> O recurso de FIM (Monitoramento de Integridade de Arquivo) funciona para computadores e VMs Windows e Linux e está disponível na camada Standard da Central de Segurança. Confira os [Preços](security-center-pricing.md) para saber mais sobre os tipos de preço da Central de Segurança. O FIM carrega dados no workspace do Log Analytics. Encargos de dados se aplicam, com base na quantidade de dados que você carregar. Consulte [Preço do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) para saber mais.
+
+O FIM usa a solução de Controle de Alterações do Azure para controlar e identificar as alterações em seu ambiente. Quando o monitoramento de integridade de arquivo está habilitado, você tem um **Change Tracking** recurso do tipo **solução**. Para detalhes de frequência da coleta de dados, consulte [detalhes de coleta de dados de controle de alterações](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) para controle de alterações do Azure.
 
 > [!NOTE]
-> O FIM usa a solução de Controle de Alterações do Azure para controlar e identificar as alterações em seu ambiente. Quando o Monitoramento de Integridade de Arquivo está habilitado, você tem um recurso de **Controle de Alterações** do tipo Solução. Se você remover o recurso de **Controle de Alterações**, desabilitará o recurso de Monitoramento de Integridade de Arquivo na Central de Segurança.
->
->
+> Se você remover o **controle de alterações** recurso, você também desabilitará a integridade do arquivo de recurso na Central de segurança de monitoramento.
 
 ## <a name="which-files-should-i-monitor"></a>Quais arquivos devo monitorar?
 Você deve pensar sobre os arquivos que são críticos para seu sistema e aplicativos ao escolher quais arquivos monitorar. Considere a possibilidade de escolher os arquivos que você não pretende alterar sem planejamento. Escolher arquivos que são alterados com frequência por aplicativos ou sistema operacional (como arquivos de log e arquivos de texto) cria muito ruído que torna difícil de identificar um ataque.
@@ -115,7 +112,7 @@ A guia **Computadores** (mostrada acima) lista todos os computadores que se repo
 
 **Pesquisa de Logs** abre quando você insere o nome de um computador no campo de pesquisa ou seleciona um computador listado na guia Computadores. A Pesquisa de Logs exibe todas as alterações feitas durante o período selecionado para o computador. Você pode expandir uma alteração para obter mais informações.
 
-![Pesquisa de log][8]
+![Pesquisa de Log][8]
 
 A guia **Alterações** (mostrada abaixo) lista todas as alterações no workspace durante o período selecionado. Para cada entidade que foi alterado, o painel lista:
 
@@ -134,15 +131,15 @@ A guia **Alterações** (mostrada abaixo) lista todas as alterações no workspa
 
 1. Volte para o **painel do Monitoramento de Integridade de Arquivo** e selecione **Configurações**.
 
-  ![Configurações][11]
+   ![Configurações][11]
 
-  **Configuração do Espaço de trabalho** é aberta exibindo três guias: **Registro do Windows**, **Arquivos do Windows**, e **Arquivos Linux**. Cada guia lista as entidades que você pode editar nessa categoria. Para cada entidade listada, a Central de Segurança identifica se o FIM está habilitado (true) ou não está habilitado (false).  Editar a entidade permite que você habilite ou desabilite o FIM.
+   **Configuração do Espaço de trabalho** é aberta exibindo três guias: **Registro do Windows**, **Arquivos do Windows**, e **Arquivos Linux**. Cada guia lista as entidades que você pode editar nessa categoria. Para cada entidade listada, a Central de Segurança identifica se o FIM está habilitado (true) ou não está habilitado (false).  Editar a entidade permite que você habilite ou desabilite o FIM.
 
-  ![Configuração do workspace][12]
+   ![Configuração do workspace][12]
 
-2. Selecione uma IdentityProtection. Neste exemplo, selecionamos um item no Registro do Windows. **Editar para Controle de Alterações** é aberto.
+2. Selecione uma proteção de identidade. Neste exemplo, selecionamos um item no Registro do Windows. **Editar para Controle de Alterações** é aberto.
 
-  ![Editar ou controlar alterações][13]
+   ![Editar ou controlar alterações][13]
 
 Em **Editar para Controle de Alterações** você pode:
 
@@ -155,11 +152,11 @@ Em **Editar para Controle de Alterações** você pode:
 1. Volte para o **painel do Monitoramento de integridade de arquivo** e selecione **Configurações** na parte superior. **Configuração do Workspace** é aberto.
 2. Em **Configuração do Workspace**, selecione a guia para o tipo de entidade que você deseja adicionar: Registro do Windows, Arquivos do Windows ou Arquivos do Linux. Neste exemplo, selecionamos **Arquivos do Linux**.
 
-  ![Adicionar um novo item a ser monitorado][14]
+   ![Adicionar um novo item a ser monitorado][14]
 
 3. Selecione **Adicionar**. **Adicionar para Controle de Alterações** é aberto.
 
-  ![Inserir as informações solicitadas][15]
+   ![Inserir as informações solicitadas][15]
 
 4. Na página **Adicionar**, digite as informações solicitadas e selecione **Salvar**.
 
@@ -167,19 +164,19 @@ Em **Editar para Controle de Alterações** você pode:
 1. Retorne para o painel do **Monitoramento de Integridade de Arquivo**.
 2. Selecione um workspace em que o FIM está habilitado no momento. Um workspace estará habilitado para o FIM se o botão Habilitar ou o botão Atualizar Plano estiver ausente.
 
-  ![Selecione um workspace em que o FIM está habilitado][16]
+   ![Selecione um workspace em que o FIM está habilitado][16]
 
 3. Em Monitoramento de Integridade de Arquivo, selecione **Configurações**.
 
-  ![Selecionar configurações][17]
+   ![Selecionar configurações][17]
 
 4. Em **Configuração do Workspace**, selecione um grupo em que **Habilitado** está definido como true.
 
-  ![Configuração do Workspace][18]
+   ![Configuração do Workspace][18]
 
 5. Na janela **Editar para Controle de Alterações**, defina **Habilitado** como False.
 
-  ![Definir Habilitado como false][19]
+   ![Definir Habilitado como false][19]
 
 6. Clique em **Salvar**.
 
@@ -198,7 +195,7 @@ Você pode desabilitar o FIM. O FIM usa a solução de Controle de Alterações 
 2. Selecione um workspace.
 3. Em **Monitoramento de Integridade de Arquivo**, selecione **Desabilitar**.
 
-  ![Desabilitar o FIM][20]
+   ![Desabilitar o FIM][20]
 
 4. Selecione **Remover** para desabilitar.
 

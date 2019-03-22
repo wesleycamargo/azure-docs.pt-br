@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 2b91daf1d8fb692237dd380e19135e63efda3bde
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 9a39c5c7269fabae11d9b7c29a6484dfe5458723
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55854907"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57903837"
 ---
-# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-curl-in-computer-vision"></a>Início rápido: Extrair texto impresso (OCR) usando a API REST e o cURL na Pesquisa Visual Computacional
+# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-curl-in-computer-vision"></a>Início Rápido: Extrair texto impresso (OCR) usando a API REST e o cURL na Pesquisa Visual Computacional
 
 Neste início rápido, você extrairá texto impresso, com OCR (reconhecimento óptico de caracteres) de uma imagem usando a API REST da Pesquisa Visual Computacional. Com o método [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), você pode detectar texto impresso em uma imagem e extrair os caracteres reconhecidos em um fluxo de caracteres utilizável por computador.
 
@@ -147,10 +147,6 @@ Uma resposta com êxito é retornada em JSON. O aplicativo de exemplo analisa e 
   ]
 }
 ```
-
-## <a name="clean-up-resources"></a>Limpar recursos
-
-Quando não for mais necessário, feche a janela do prompt de comando e o editor de texto.
 
 ## <a name="next-steps"></a>Próximas etapas
 

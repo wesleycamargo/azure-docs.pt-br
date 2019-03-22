@@ -11,15 +11,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 02/12/2019
+ms.topic: conceptual
+ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: d3c175bc4d2e5b25c8ce6d4a9b128f961e0af4aa
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 5ad846a3d8a304e01425407cb2bf5297c36615e7
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210740"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58257945"
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Introdução ao fornecimento de conteúdo sob demanda usando o portal do Azure
 
@@ -151,7 +151,7 @@ Algumas considerações se aplicam:
 
 * Para iniciar o streaming, inicie a execução do ponto de extremidade de streaming padrão.
 * Verifique se que o vídeo foi publicado.
-* O player de mídia do Portal do Azure reproduz do ponto de extremidade de streaming padrão. Se você quiser reproduzir de um ponto de extremidade de streaming não padrão, selecione e copie a URL e cole-a em outro player. Por exemplo, você pode testar o vídeo no [Player de Mídia do Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+* O player de mídia do Portal do Azure reproduz do ponto de extremidade de streaming padrão. Se você quiser reproduzir de um ponto de extremidade de streaming não padrão, selecione e copie a URL e cole-a em outro player. Por exemplo, você pode testar o vídeo no [Player de Mídia do Azure](https://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

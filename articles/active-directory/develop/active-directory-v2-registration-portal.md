@@ -18,15 +18,18 @@ ms.author: celested
 ms.reviewer: lenalepa
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 109ababa78292bf8b172144174af3216f3844941
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b77b5185056329113ee1fd17fa3ed3f364380ca2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203651"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095867"
 ---
 # <a name="app-registration-reference"></a>Referência de registro de aplicativo
 Este documento fornece contexto e descrições de vários recursos encontrados no [Portal de Registro de Aplicativo](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/).
+
+> [!NOTE]
+> Nós não oferecerá mais suporte registrar e gerenciar aplicativos do AD convergidos e do Azure na [Portal de registro de aplicativo](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/) começando de maio de 2019. É recomendável que você gerencie seus aplicativos existentes e registre novos aplicativos usando o [registros do aplicativo (visualização)](https://aka.ms/appregistrations) experiência no portal do Azure.
 
 ## <a name="my-applications-or-converged-applications"></a>Meus aplicativos ou Aplicativos convergidos
 Esta lista contém todos os aplicativos registrados para uso com o ponto de extremidade v2.0 do Azure AD. Esses aplicativos permitem que usuários com contas pessoais da Microsoft e contas corporativas/de estudante do Azure Active Directory façam logon. Para saber mais sobre o ponto de extremidade v2.0 do Azure AD, consulte a [Visão geral do v2.0](active-directory-appmodel-v2-overview.md). Esses aplicativos também podem ser usados para integração com o ponto de extremidade de autenticação da conta da Microsoft, `https://login.live.com`.

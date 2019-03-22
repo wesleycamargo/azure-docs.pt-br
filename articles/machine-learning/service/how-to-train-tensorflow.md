@@ -1,7 +1,7 @@
 ---
-title: Treinar modelos com o TensorFlow
+title: Treinar modelos com o TensorFlow & Keras
 titleSuffix: Azure Machine Learning service
-description: Saiba como executar o treinamento distribuído e de nó único de modelos do TensorFlow com o estimador do TensorFlow
+description: Saiba como executar o nó único e distribuída de treinamento de modelos de TensorFlow, Keras com os TensorFlow e Keras estimadores
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
-ms.date: 12/04/2018
+ms.date: 02/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: c76a94695114888ca8946106528fe179ff81c811
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: b41098907f801f7dae839a470249834b02c8d519
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244718"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338545"
 ---
-# <a name="train-tensorflow-models-with-azure-machine-learning-service"></a>Treinar modelos do TensorFlow com o Serviço do Azure Machine Learning
+# <a name="train-tensorflow-and-keras-models-with-azure-machine-learning-service"></a>Treinar modelos de TensorFlow e o Keras com o serviço Azure Machine Learning
 
-Para treinamento de DNN (rede neural profunda) com o TensorFlow, o Azure Machine Learning oferece uma aula `TensorFlow` personalizada do `Estimator`. O Estimador `TensorFlow` do SDK do Azure (não deve ser confundido com a aula [`tf.estimator.Estimator`](https://www.tensorflow.org/api_docs/python/tf/estimator/Estimator)) permite enviar facilmente trabalhos de treinamento do TensorFlow para execuções distribuídas e de nó único na computação do Azure.
+Para treinamento de DNN (rede neural profunda) com o TensorFlow, o Azure Machine Learning oferece uma aula `TensorFlow` personalizada do `Estimator`. O SDK do Azure [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) estimador (para não ser confundida com o [ `tf.estimator.Estimator` ](https://www.tensorflow.org/api_docs/python/tf/estimator/Estimator) classe) permite que você facilmente enviar trabalhos de treinamento de TensorFlow para execuções de nó único e distribuídas no Azure computação.
 
 ## <a name="single-node-training"></a>Treinamento de nó único
 O treinamento com o Estimador do `TensorFlow` é semelhante a usar a [base `Estimator`](how-to-train-ml-models.md), por isso, leia primeiro o artigo de instruções e verifique se você entendeu os conceitos apresentados nele.
@@ -39,7 +39,7 @@ tf_est = TensorFlow(source_directory='./my-tf-proj',
                     script_params=script_params,
                     compute_target=compute_target,
                     entry_script='train.py',
-                    conda_packages=['scikit-learn'],
+                    conda_packages=['scikit-learn'], # in case you need scikit-learn in train.py
                     use_gpu=True)
 ```
 
@@ -60,6 +60,21 @@ Em seguida, envie o trabalho do TensorFlow:
 ```Python
 run = exp.submit(tf_est)
 ```
+
+## <a name="keras-support"></a>Suporte ao Keras
+[Keras](https://keras.io/) é uma API de Python de DNN de alto nível populares que dá suporte a TensorFlow, CNTK ou Theano como back-ends. Se você usar o TensorFlow como back-end, você pode usar facilmente o avaliador de TensFlow para treinar um modelo do Keras. Aqui está um exemplo de um estimador de TensorFlow com o Keras adicionadas a ele:
+
+```Python
+from azureml.train.dnn import TensorFlow
+
+keras_est = TensorFlow(source_directory='./my-keras-proj',
+                       script_params=script_params,
+                       compute_target=compute_target,
+                       entry_script='keras_train.py',
+                       pip_packages=['keras'], # just add keras through pip
+                       use_gpu=True)
+```
+O construtor de estimador de TensorFlow acima instrui o serviço de Azure Machine Learning para instalar a Keras por meio de pip para o ambiente de execução. E seu `keras_train.py` , em seguida, pode importar a API Keras para treinar um modelo do Keras. Para obter um exemplo completo, explore [este bloco de anotações do Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb).
 
 ## <a name="distributed-training"></a>Treinamento distribuído
 O Estimador do TensorFlow também permite treinar modelos em escala em todos os clusters de CPU e GPU das VMs do Azure. O treinamento do TensorFlow pode ser executado facilmente com algumas chamadas à API. Já o Azure Machine Learning gerenciará nos bastidores toda a infraestrutura e a orquestração necessárias para realizar essas cargas de trabalho.
@@ -92,11 +107,11 @@ Parâmetro | DESCRIÇÃO | Padrão
 --|--|--
 `node_count` | O número de nós a serem usados no seu trabalho de treinamento. | `1`
 `process_count_per_node` | Número de processos (ou "trabalhos") a serem executado em cada nó.|`1`
-`distributed_backend` | O back-end para iniciar distribuído treinamento, o que o avaliador de oferece por meio de MPI. Se você quiser realizar treinamentos distribuídos ou paralelos (por exemplo, `node_count`>1 ou `process_count_per_node`>1 ou ambos) com o MPI (e o Horovod), defina `distributed_backend='mpi'`. A implementação de MPI usada pelo Azure Machine Learning é [MPI Aberta](https://www.open-mpi.org/). | `None`
+`distributed_backend` | O back-end para iniciar distribuído treinamento, o que o avaliador de oferece por meio de MPI. Se você quer realizar treinamento paralelo ou distribuído (por exemplo, `node_count`> 1 ou `process_count_per_node`> 1 ou os dois) com MPI (e Horovod), defina `distributed_backend='mpi'`. A implementação de MPI usada pelo Azure Machine Learning é [MPI Aberta](https://www.open-mpi.org/). | `None`
 
 O exemplo acima executará treinamento distribuído com dois trabalhos, um por nó.
 
-O Horovod e suas dependências serão instalados para você, então, basta importá-lo no script de treinamento `train.py`, da seguinte forma:
+Horovod e suas dependências serão instaladas para você, portanto, você poderá importá-lo em seu script de treinamento `train.py` da seguinte maneira:
 
 ```Python
 import tensorflow as tf
@@ -150,7 +165,7 @@ TF_CONFIG='{
 }'
 ```
 
-Se você estiver usando a API [`tf.estimator`](https://www.tensorflow.org/api_docs/python/tf/estimator) de alto nível do TensorFlow, ele analisará essa variável `TF_CONFIG` e criará a especificação de cluster para você. 
+Se você estiver usando um nível alto do TensorFlow [ `tf.estimator` ](https://www.tensorflow.org/api_docs/python/tf/estimator) API, o TensorFlow irá analisar isso `TF_CONFIG` especificação da variável e o cluster de compilação para você. 
 
 Se você estiver usando as APIs principais de treinamento de baixo nível do TensorFlow, será necessário analisar a variável `TF_CONFIG` e criar o `tf.train.ClusterSpec` por conta própria no código do treinamento. [Neste exemplo](https://aka.ms/aml-notebook-tf-ps), você faria isso no **script de treinamento** da seguinte maneira:
 
@@ -173,8 +188,7 @@ run = exp.submit(tf_est)
 
 ## <a name="examples"></a>Exemplos
 
-Para notebooks no aprendizado aprofundado distribuído, consulte:
-* [how-to-use-azureml/training-with-deep-learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
+Explorar várias [notebooks no aprendizado aprofundado distribuído no Github](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

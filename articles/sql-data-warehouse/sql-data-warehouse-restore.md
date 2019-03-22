@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 08/29/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 5de9c674ceeab6d45211b46e2f03d91b943751ac
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: ebbcbcc3d0934800980b7d8e00895b11ff2747b7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246204"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838928"
 ---
 # <a name="restoring-azure-sql-data-warehouse"></a>Restaurar um SQL Data Warehouse do Azure 
 Neste artigo, você aprenderá como fazer o seguinte no portal do Azure e no PowerShell:
@@ -27,15 +27,18 @@ Neste artigo, você aprenderá como fazer o seguinte no portal do Azure e no Pow
 - Criar uma cópia de seu data warehouse de um ponto de restauração definido pelo usuário
 
 ## <a name="before-you-begin"></a>Antes de começar
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 **Verifique sua capacidade de DTU.**  Cada SQL Data Warehouse é hospedado por um servidor SQL (por exemplo, myserver.database.windows.net) que tem uma cota de DTU padrão.  Antes de restaurar um SQL Data Warehouse, verifique se o SQL Server tem cota de DTU suficiente restante para o banco de dados que está sendo restaurado. Para saber como calcular a DTU necessária ou para solicitar mais DTU, veja [Solicitar uma alteração de cota de DTU][Request a DTU quota change].
 
 ## <a name="restore-through-powershell"></a>Restaurar usando o PowerShell
 
 ## <a name="install-powershell"></a>Instalar o PowerShell
-Para usar o Azure PowerShell com o SQL Data Warehouse, você precisará instalar a versão 1.0 ou superior do Azure PowerShell.  Você pode verificar a versão executando **Get-Module -ListAvailable -Name AzureRM**.  A versão mais recente pode ser instalada pelo [Microsoft Web Platform Installer][Microsoft Web Platform Installer].  Para obter mais informações sobre como instalar a versão mais recente, consulte [Como instalar e configurar o Azure PowerShell][How to install and configure Azure PowerShell].
+Para usar o Azure PowerShell com o SQL Data Warehouse, você precisará instalar o Azure PowerShell.  Você pode verificar a versão executando **Get-Module - ListAvailable-nome Az**. Para obter mais informações sobre como instalar a versão mais recente, consulte [Como instalar e configurar o Azure PowerShell][How to install and configure Azure PowerShell].
 
 ## <a name="restore-an-active-or-paused-database-using-powershell"></a>Restaurar um banco de dados ativo ou pausado usando o PowerShell
-Para restaurar um banco de dados de um ponto de restauração, use o cmdlet do PowerShell [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase].
+Para restaurar um banco de dados de um ponto de restauração, use o [restauração AzSqlDatabase] [ Restore-AzSqlDatabase] cmdlet do PowerShell.
 
 1. Abra o Windows PowerShell.
 
@@ -62,24 +65,24 @@ $ServerName="<YourServerNameWithoutURLSuffixSeeNote>"  # Without database.window
 $DatabaseName="<YourDatabaseName>"
 $NewDatabaseName="<YourDatabaseName>"
 
-Connect-AzureRmAccount
-Get-AzureRmSubscription
-Select-AzureRmSubscription -SubscriptionName $SubscriptionName
+Connect-AzAccount
+Get-AzSubscription
+Select-AzSubscription -SubscriptionName $SubscriptionName
 
 # List the last 10 database restore points
-((Get-AzureRMSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName ($DatabaseName)).RestorePointCreationDate)[-10 .. -1]
+((Get-AzSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName ($DatabaseName)).RestorePointCreationDate)[-10 .. -1]
 
 # Or list all restore points
-Get-AzureRmSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
+Get-AzSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
 
 # Get the specific database to restore
-$Database = Get-AzureRmSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
+$Database = Get-AzSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
 
 # Pick desired restore point using RestorePointCreationDate
 $PointInTime="<RestorePointCreationDate>"  
 
 # Restore database from a restore point
-$RestoredDatabase = Restore-AzureRmSqlDatabase –FromPointInTimeBackup –PointInTime $PointInTime -ResourceGroupName $Database.ResourceGroupName -ServerName $Database.ServerName -TargetDatabaseName $NewDatabaseName –ResourceId $Database.ResourceID
+$RestoredDatabase = Restore-AzSqlDatabase –FromPointInTimeBackup –PointInTime $PointInTime -ResourceGroupName $Database.ResourceGroupName -ServerName $Database.ServerName -TargetDatabaseName $NewDatabaseName –ResourceId $Database.ResourceID
 
 # Verify the status of restored database
 $RestoredDatabase.status
@@ -91,7 +94,7 @@ $RestoredDatabase.status
 >
 
 ## <a name="copy-your-data-warehouse-with-user-defined-restore-points-using-powershell"></a>Copiar o data warehouse com pontos de restauração definidos pelo usuário usando o PowerShell
-Para restaurar um banco de dados de um ponto de restauração definido pelo usuário, use o cmdlet do PowerShell [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase].
+Para restaurar um banco de dados de um ponto de restauração definido pelo usuário, use o [restauração AzSqlDatabase] [ Restore-AzSqlDatabase] cmdlet do PowerShell.
 
 1. Abra o Windows PowerShell.
 2. Conecte-se à sua conta do Azure e liste todas as assinaturas associadas à sua conta.
@@ -112,24 +115,24 @@ $DatabaseName="<YourDatabaseName>"
 $TempDatabaseName = "<YourTemporaryDatabaseName>"
 $Label = "<YourRestorePointLabel"
 
-Connect-AzureRmAccount
-Get-AzureRmSubscription
-Select-AzureRmSubscription -SubscriptionName $SubscriptionName
+Connect-AzAccount
+Get-AzSubscription
+Select-AzSubscription -SubscriptionName $SubscriptionName
 
 # Create a restore point of the original database
-New-AzureRmSqlDatabaseRestorePoint -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -RestorePointLabel $Label
+New-AzSqlDatabaseRestorePoint -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -RestorePointLabel $Label
 
 # Rename the database to a temporary name
-Set-AzureRmSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -NewName $TempDatabaseName
+Set-AzSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -NewName $TempDatabaseName
 
 # Get the most recent restore point with the specified label
-$LabelledRestorePoint = Get-AzureRmSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $TempDatabaseName | where {$_.RestorePointLabel -eq $Label} | sort {$_.RestorePointCreationDate} | select -Last 1
+$LabelledRestorePoint = Get-AzSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $TempDatabaseName | where {$_.RestorePointLabel -eq $Label} | sort {$_.RestorePointCreationDate} | select -Last 1
 
 # Get the resource id of the database
-$ResourceId = (Get-AzureRmSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $TempDatabaseName).ResourceId
+$ResourceId = (Get-AzSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $TempDatabaseName).ResourceId
 
 # Restore the database to its original name from the labelled restore point from the temporary database
-$RestoredDatabase = Restore-AzureRmSqlDatabase -FromPointInTimeBackup -ResourceGroupName $ResourceGroupName -ServerName $ServerName -ResourceId $ResourceId -PointInTime $LabelledRestorePoint.RestorePointCreationDate -TargetDatabaseName $DatabaseName
+$RestoredDatabase = Restore-AzSqlDatabase -FromPointInTimeBackup -ResourceGroupName $ResourceGroupName -ServerName $ServerName -ResourceId $ResourceId -PointInTime $LabelledRestorePoint.RestorePointCreationDate -TargetDatabaseName $DatabaseName
 
 # Verify the status of restored database
 $RestoredDatabase.status
@@ -139,7 +142,7 @@ $RestoredDatabase.status
 ```
 
 ## <a name="restore-a-deleted-database-using-powershell"></a>Restaurar um banco de dados excluído usando o PowerShell
-Para restaurar um banco de dados excluído, use o cmdlet [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase].
+Para restaurar um banco de dados, use o [restauração AzSqlDatabase] [ Restore-AzSqlDatabase] cmdlet.
 
 1. Abra o Windows PowerShell.
 2. Conecte-se à sua conta do Azure e liste todas as assinaturas associadas à sua conta.
@@ -155,15 +158,15 @@ $ServerName="<YourServerNameWithoutURLSuffixSeeNote>"  # Without database.window
 $DatabaseName="<YourDatabaseName>"
 $NewDatabaseName="<YourDatabaseName>"
 
-Connect-AzureRmAccount
-Get-AzureRmSubscription
-Select-AzureRmSubscription -SubscriptionName $SubscriptionName
+Connect-AzAccount
+Get-AzSubscription
+Select-AzSubscription -SubscriptionName $SubscriptionName
 
 # Get the deleted database to restore
-$DeletedDatabase = Get-AzureRmSqlDeletedDatabaseBackup -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
+$DeletedDatabase = Get-AzSqlDeletedDatabaseBackup -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
 
 # Restore deleted database
-$RestoredDatabase = Restore-AzureRmSqlDatabase –FromDeletedDatabaseBackup –DeletionDate $DeletedDatabase.DeletionDate -ResourceGroupName $DeletedDatabase.ResourceGroupName -ServerName $DeletedDatabase.ServerName -TargetDatabaseName $NewDatabaseName –ResourceId $DeletedDatabase.ResourceID
+$RestoredDatabase = Restore-AzSqlDatabase –FromDeletedDatabaseBackup –DeletionDate $DeletedDatabase.DeletionDate -ResourceGroupName $DeletedDatabase.ResourceGroupName -ServerName $DeletedDatabase.ServerName -TargetDatabaseName $NewDatabaseName –ResourceId $DeletedDatabase.ResourceID
 
 # Verify the status of restored database
 $RestoredDatabase.status
@@ -174,7 +177,7 @@ $RestoredDatabase.status
 >
 
 ## <a name="restore-from-an-azure-geographical-region-using-powershell"></a>Restaurar um banco de dados excluído usando o PowerShell
-Para recuperar um banco de dados, use o cmdlet [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase].
+Para recuperar um banco de dados, use o [restauração AzSqlDatabase] [ Restore-AzSqlDatabase] cmdlet.
 
 > [!NOTE]
 > Você pode executar uma restauração geográfica para Gen2! Para fazer isso, especifique um ServiceObjectiveName de Gen2 (por exemplo, DW1000**c**) como parâmetro opcional.
@@ -188,15 +191,15 @@ Para recuperar um banco de dados, use o cmdlet [Restore-AzureRmSqlDatabase][Rest
 6. Verifique o status do banco de dados com restauração geográfica.
 
 ```Powershell
-Connect-AzureRmAccount
-Get-AzureRmSubscription
-Select-AzureRmSubscription -SubscriptionName "<Subscription_name>"
+Connect-AzAccount
+Get-AzSubscription
+Select-AzSubscription -SubscriptionName "<Subscription_name>"
 
 # Get the database you want to recover
-$GeoBackup = Get-AzureRmSqlDatabaseGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>"
+$GeoBackup = Get-AzSqlDatabaseGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>"
 
 # Recover database
-$GeoRestoredDatabase = Restore-AzureRmSqlDatabase –FromGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourTargetServer>" -TargetDatabaseName "<NewDatabaseName>" –ResourceId $GeoBackup.ResourceID -ServiceObjectiveName "<YourTargetServiceLevel>"
+$GeoRestoredDatabase = Restore-AzSqlDatabase –FromGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourTargetServer>" -TargetDatabaseName "<NewDatabaseName>" –ResourceId $GeoBackup.ResourceID -ServiceObjectiveName "<YourTargetServiceLevel>"
 
 # Verify that the geo-restored database is online
 $GeoRestoredDatabase.status
@@ -267,8 +270,7 @@ O banco de dados recuperado será habilitado para TDE se o banco de dados de ori
 [Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
 
 <!--MSDN references-->
-[Restore-AzureRmSqlDatabase]: https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase
+[Restore-AzSqlDatabase]: https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase
 
 <!--Other Web references-->
 [Azure Portal]: https://portal.azure.com/
-[Microsoft Web Platform Installer]: https://aka.ms/webpi-azps

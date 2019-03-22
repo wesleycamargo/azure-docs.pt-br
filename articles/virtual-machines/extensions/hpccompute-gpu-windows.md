@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: roiyz
-ms.openlocfilehash: 5adc86b161770f2502b6ef9cf5ec2189ec3d4f99
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 4d3e77ab2ee7f25c9155feb9d40c0870103320d3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977619"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007921"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Extensão de Driver NVIDIA GPU para Windows
 
 ## <a name="overview"></a>Visão geral
 
-Essa extensão instala drivers de GPU NVIDIA em VMs série N do Windows. Dependendo da família VM, a extensão instala drivers CUDA ou grade. Quando você instalar drivers NVIDIA usando esta extensão, estará aceitando e concordando com os termos do [Contrato de Licença de Usuário Final da NVIDIA](https://go.microsoft.com/fwlink/?linkid=874330). Durante o processo de instalação, a VM pode ser reinicializada para concluir a configuração do driver.
+Essa extensão instala drivers de GPU NVIDIA em VMs série N do Windows. Dependendo da família VM, a extensão instala drivers CUDA ou grade. Quando você instalar drivers NVIDIA usando esta extensão, estará aceitando e concordando com os termos do [Contrato de Licença de Usuário Final da NVIDIA](https://developer.download.nvidia.com/compute/cuda/5_5/rel/docs/EULA.pdf). Durante o processo de instalação, a VM pode ser reinicializada para concluir a configuração do driver.
 
 Uma extensão também está disponível para instalar drivers NVIDIA GPU em [VMs da série N do Linux](hpccompute-gpu-linux.md).
 
@@ -74,8 +74,8 @@ O JSON a seguir mostra o esquema para a extensão.
 | NOME | Valor/Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | data |
-| publicador | Microsoft.HpcCompute | string |
-| Tipo | NvidiaGpuDriverWindows | string |
+| publicador | Microsoft.HpcCompute | cadeia de caracteres |
+| Tipo | NvidiaGpuDriverWindows | cadeia de caracteres |
 | typeHandlerVersion | 1.2 | int |
 
 

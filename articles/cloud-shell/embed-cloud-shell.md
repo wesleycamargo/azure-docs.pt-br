@@ -3,7 +3,7 @@ title: Inserir o Azure Cloud Shell | Microsoft Docs
 description: Aprenda a inserir o Azure Cloud Shell.
 services: cloud-shell
 documentationcenter: ''
-author: jluk
+author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
-ms.author: juluk
-ms.openlocfilehash: 37ad0adf01172fadc6d9845576045a4542bdae19
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
-ms.translationtype: HT
+ms.author: damaerte
+ms.openlocfilehash: bbf6c1f3049265961559ea34c8b748b2b4d263b6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46497783"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995972"
 ---
 # <a name="embed-azure-cloud-shell"></a>Inserir o Azure Cloud Shell
 
@@ -49,6 +49,7 @@ O HTML para inserir um pop-up do Azure Cloud Shell é apresentado a seguir:
 ## <a name="customize-experience"></a>Personalizar a experiência
 
 Defina uma experiência de shell específica aumentando a URL.
+
 |Experiência   |URL   |
 |---|---|
 |Shell usado mais recentemente   |[shell.azure.com](https://shell.azure.com)           |

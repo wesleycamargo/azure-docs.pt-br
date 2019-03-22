@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: eaef1c904b5404339c476d86c5b8c2a1740e5a3e
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 0bd19492c844e217dc520ae0c189ca467bb7ac0a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700070"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011091"
 ---
 # <a name="best-practices-for-securing-and-managing-workloads-migrated-to-azure"></a>Melhores práticas para proteger e gerenciar cargas de trabalho migradas para o Azure
 
@@ -267,7 +267,7 @@ Muitas vezes, usar apenas um nome de grupo de recursos relacionado aos recursos 
 
 - [Saiba mais sobre](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) marcação e limitações de marca.
 - [Reveja](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags#powershell) exemplos do PowerShell e da CLI para configurar a marcação e aplicar marcas de um grupo de recursos a seus recursos.
-- [Leia](http://www.azurefieldnotes.com/2016/07/18/azure-resource-tagging-best-practices/) as melhores práticas de marcação do Azure.
+- [Leia](https://www.azurefieldnotes.com/2016/07/18/azure-resource-tagging-best-practices/) as melhores práticas de marcação do Azure.
 
 
 ## <a name="best-practice-implement-blueprints"></a>Melhor prática: implementar blueprints
@@ -588,7 +588,7 @@ Os recursos do Azure geram um número razoável de métricas de registro em log 
 
 - Por padrão, a maioria dos tipos de recurso não tem o log de diagnóstico habilitado.
 - Ao habilitar o log de diagnóstico em seus recursos, você poderá consultar os dados de registro em log e criar alertas e guias estratégicos com base neles.
-- Quando você habilita o log de diagnóstico, cada recurso ganha um conjunto específico de categorias. Selecione uma ou mais categorias de registro em log e um local para os dados de log. Os logs podem ser enviados para uma conta de armazenamento, um hub de eventos ou o Log Analytics. 
+- Quando você habilita o log de diagnóstico, cada recurso ganha um conjunto específico de categorias. Selecione uma ou mais categorias de registro em log e um local para os dados de log. Os logs podem ser enviados para uma conta de armazenamento, hub de eventos ou logs do Azure Monitor. 
 
 
 ![Registro em log de diagnóstico](./media/migrate-best-practices-security-management/diagnostics.png)
@@ -679,7 +679,7 @@ Assim como em qualquer sistema de produção, fazer alterações de qualquer tip
 O Azure tem uma solução de Controle de Alterações na Automação do Azure:
 
 - A solução rastreia as alterações no software e nos arquivos Windows e Linux, nas chaves de registro do Windows, nos serviços Windows e nos daemons do Linux.
-- As alterações nos servidores monitorados são enviadas para o serviço Log Analytics na nuvem para processamento.
+- Alterações nos servidores monitorados são enviadas para o serviço do Azure Monitor na nuvem para processamento.
 - A lógica é aplicada aos dados recebidos e o serviço de nuvem registra os dados.
 - No painel Controle de Alterações, você pode ver facilmente as alterações feitas à sua infraestrutura de servidor.
 

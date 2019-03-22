@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1590a02503a12be870dab14a1ccffdd3cf64a282
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: cdffc339bee1f5456e4eeb619e566b1f9c34b143
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426600"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093170"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Como criar conta autônoma de automação do Azure
 
-Este artigo mostra como criar uma conta da Automação do Azure no portal do Azure. Use a conta de Automação do portal para avaliar e saber mais sobre a Automação sem usar soluções de gerenciamento adicionais ou integração com Azure Log Analytics. Adicione essas soluções de gerenciamento ou integre o Log Analytics para o monitoramento avançado de trabalhos de runbook a qualquer momento no futuro.
+Este artigo mostra como criar uma conta da Automação do Azure no portal do Azure. Você pode usar a conta de automação do portal para avaliar e saber mais sobre a automação sem usar soluções de gerenciamento adicionais ou integração com os logs do Azure Monitor. Você pode adicionar essas soluções de gerenciamento ou integrar logs do Azure Monitor para o monitoramento avançado de trabalhos de runbook a qualquer momento no futuro.
 
 Com uma conta de Automação, você pode autenticar runbooks gerenciando recursos no Azure Resource Manager ou no modelo de implantação clássico. Uma Conta de Automação pode gerenciar recursos em todas as regiões e assinaturas para determinado locatário.
 
@@ -62,12 +62,12 @@ Para criar uma conta da Automação do Azure no portal do Azure, execute as segu
 
 1. Na próxima tela, selecione **Criar**.
 
-  ![Adicionar conta de Automação](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
+   ![Adicionar conta de Automação](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
 
-  > [!NOTE]
-  > Se você receber a mensagem a seguir no painel **Adicionar Conta de Automação**, a sua conta não é membro da função Administradores da assinatura nem um coadministrator da assinatura.
-  >
-  > ![Aviso Adicionar Conta de Automação](media/automation-create-standalone-account/create-account-without-perms.png)
+   > [!NOTE]
+   > Se você receber a mensagem a seguir no painel **Adicionar Conta de Automação**, a sua conta não é membro da função Administradores da assinatura nem um coadministrator da assinatura.
+   >
+   > ![Aviso Adicionar Conta de Automação](media/automation-create-standalone-account/create-account-without-perms.png)
 
 1. No painel **Adicionar Conta de Automação**, na caixa **Nome**, insira um nome para a nova conta de Automação. Esse nome não pode ser alterado depois de ser escolhido. *Nomes de Conta de Automação são exclusivos por grupo de recursos e região. Nomes de contas da Automação que foram excluídos podem não estar disponíveis imediatamente.*
 1. Se você tem mais de uma assinatura, na caixa **Assinatura**, especifique a assinatura que deseja usar para a nova conta.
@@ -75,13 +75,13 @@ Para criar uma conta da Automação do Azure no portal do Azure, execute as segu
 1. Para **Local**, selecione um local de datacenter do Azure.
 1. Para a opção **Criar conta Executar como do Azure**, verifique se a opção **Sim** está marcada e, em seguida, selecione **Criar**.
 
-  > [!NOTE]
-  > Se você optar por não criar a conta Executar como selecionando **Não** em **Criar conta Executar como do Azure**, será exibida uma mensagem no painel **Adicionar Conta de Automação**. Embora a conta seja criada no portal do Azure, ela não tem uma identidade de autenticação correspondente em sua assinatura do modelo de implantação clássico ou no serviço de diretório da assinatura do Azure Resource Manager. Portanto, a conta de Automação não tem acesso aos recursos em sua assinatura. Isso impede que runbooks que referenciam essa conta possam se autenticar e executar tarefas nos recursos nesses modelos de implantação.
-  >
-  > ![Aviso Adicionar Conta de Automação](media/automation-create-standalone-account/create-account-decline-create-runas-msg.png)
-  >
-  > Enquanto a entidade de serviço não for criada, a função Colaborador não será atribuída.
-  >
+   > [!NOTE]
+   > Se você optar por não criar a conta Executar como selecionando **Não** em **Criar conta Executar como do Azure**, será exibida uma mensagem no painel **Adicionar Conta de Automação**. Embora a conta seja criada no portal do Azure, ela não tem uma identidade de autenticação correspondente em sua assinatura do modelo de implantação clássico ou no serviço de diretório da assinatura do Azure Resource Manager. Portanto, a conta de Automação não tem acesso aos recursos em sua assinatura. Isso impede que runbooks que referenciam essa conta possam se autenticar e executar tarefas nos recursos nesses modelos de implantação.
+   >
+   > ![Aviso Adicionar Conta de Automação](media/automation-create-standalone-account/create-account-decline-create-runas-msg.png)
+   >
+   > Enquanto a entidade de serviço não for criada, a função Colaborador não será atribuída.
+   >
 
 1. Para acompanhar o progresso da criação da conta de Automação, no menu, selecione **Notificações**.
 

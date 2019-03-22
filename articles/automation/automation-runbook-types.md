@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/11/2018
+ms.date: 03/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 940a5839fe2c2eea11d9570d3dca48cd514e21af
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 7a3990366814beda83852fc7c07c896445388c23
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417237"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454894"
 ---
 # <a name="azure-automation-runbook-types"></a>Tipos de runbook da Automação do Azure
 
@@ -22,10 +22,10 @@ A Automação do Azure dá suporte a vários tipos de runbooks descritos breveme
 
 | Type | DESCRIÇÃO |
 |:--- |:--- |
-| [Gráfico](#graphical-runbooks) |Com base no Windows PowerShell e criado e editado completamente no editor gráfico do portal do Azure. |
-| [Fluxo de Trabalho Gráfico do PowerShell](#graphical-runbooks) |Com base no Fluxo de Trabalho do Windows PowerShell e criado e editado completamente no editor gráfico do portal do Azure. |
+| [Gráfico](#graphical-runbooks)|Com base no Windows PowerShell e criado e editado completamente no editor gráfico do portal do Azure. |
+| [Fluxo de Trabalho Gráfico do PowerShell](#graphical-runbooks)|Com base no Fluxo de Trabalho do Windows PowerShell e criado e editado completamente no editor gráfico do portal do Azure. |
 | [PowerShell](#powershell-runbooks) |Runbook de texto com base no script do Windows PowerShell. |
-| [Fluxo de Trabalho do PowerShell](#powershell-workflow-runbooks) |Runbook de texto com base no Fluxo de Trabalho do Windows PowerShell. |
+| [Fluxo de Trabalho do PowerShell](#powershell-workflow-runbooks)|Runbook de texto com base no Fluxo de Trabalho do Windows PowerShell. |
 | [Python](#python-runbooks) |Runbook de texto com base em Python. |
 
 ## <a name="graphical-runbooks"></a>Runbooks gráficos
@@ -45,6 +45,7 @@ A Automação do Azure dá suporte a vários tipos de runbooks descritos breveme
 * Não é possível editar um runbook fora do portal do Azure.
 * Pode exigir uma atividade de Código que contenha código do PowerShell para executar lógicas complexas.
 * Não é possível exibir ou editar diretamente o código do PowerShell criado pelo fluxo de trabalho gráfico. Você pode exibir o código criado em todas as atividades de Código.
+* Não pode ser executada em um Hybrid Runbook Worker do Linux
 
 ## <a name="powershell-runbooks"></a>Runbooks do PowerShell
 
@@ -54,6 +55,7 @@ Os runbooks do PowerShell se baseiam no Windows PowerShell.  Você edita o códi
 
 * Implemente toda a lógica complexa com o código do PowerShell sem as complexidades adicionais do Fluxo de Trabalho do PowerShell.
 * O runbook inicia mais rapidamente do que os runbooks do Fluxo de Trabalho do PowerShell, uma vez que não precisa ser compilado antes da execução.
+* Pode ser executado no Azure ou no Linux e Windows Hybrid Runbook Workers
 
 ### <a name="limitations"></a>Limitações
 
@@ -88,6 +90,7 @@ Os runbooks do Fluxo de Trabalho do PowerShell são runbooks de texto baseados n
 * O runbook deve lidar com a complexidade adicional do Fluxo de Trabalho do PowerShell, como [objetos desserializados](automation-powershell-workflow.md#code-changes).
 * O runbook demora mais para iniciar do que os runbooks do PowerShell pois precisa ser compilado antes da execução.
 * Os runbooks do PowerShell só podem ser incluídos como runbooks filho usando o cmdlet Start-AzureAutomationRunbook, que cria um novo trabalho.
+* Não pode ser executada em um Hybrid Runbook Worker do Linux
 
 ## <a name="python-runbooks"></a>Runbooks Python
 
@@ -96,6 +99,7 @@ Compilar runbooks Python em no Python 2.  Você pode editar diretamente o códig
 ### <a name="advantages"></a>Vantagens
 
 * Utilize as robustas bibliotecas do Python.
+* Pode ser executado no Azure ou em ambos os Hybrid Runbook Workers do Linux. Windows Hybrid Runbook Workers são compatíveis com [Python 2.7](https://www.python.org/downloads/release/latest/python2) instalado.
 
 ### <a name="limitations"></a>Limitações
 

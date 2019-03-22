@@ -3,7 +3,7 @@ title: Perguntas frequentes sobre a Central de Segurança do Azure | Microsoft D
 description: Encontre respostas para perguntas frequentes sobre a Central de Segurança do Azure.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: be2ab6d5-72a8-411f-878e-98dac21bc5cb
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/31/2018
-ms.author: rkarlin
-ms.openlocfilehash: 61dac6bea6878630c05339778c717f7818c1c662
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.date: 02/25/2019
+ms.author: monhaber
+ms.openlocfilehash: ad676070bb684e459c0dae648443318199f77b6d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106631"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091521"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Perguntas frequentes sobre a Central de Segurança do Azure
 Estas perguntas frequentes estão relacionadas à Central de Segurança do Azure, um serviço que ajuda você a impedir, detectar e responder a ameaças com maior visibilidade e controle sobre a segurança dos recursos do Microsoft Azure.
@@ -54,8 +54,8 @@ Confira [Permissões na Central de Segurança do Azure](security-center-permissi
 ## <a name="data-collection-agents-and-workspaces"></a>Coleta de dados, agentes e workspaces
 A Central de Segurança coleta dados de suas VMs (máquinas virtuais) do Azure e dos computadores não Azure a fim de monitorar as ameaças e vulnerabilidades de segurança. Os dados são coletados usando o Microsoft Monitoring Agent, que lê várias configurações e logs de eventos relacionados à segurança do computador e copia os dados em seu workspace para serem analisados.
 
-### <a name="am-i-billed-for-log-analytics-on-the-workspaces-created-by-security-center"></a>Sou cobrado pelo Log Analytics nos workspaces criados pela Central de Segurança?
- Não. Os workspaces criados pela Central de Segurança, embora sejam configurados para cobrança de Log Analytics por nó, não incorrerão em encargos do Log Analytics. A cobrança da Central de Segurança sempre tem base em sua política de segurança da Central de Segurança e nas soluções instaladas em um workspace:
+### <a name="am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center"></a>Sou cobrado para logs do Azure Monitor em espaços de trabalho criados pela Central de segurança?
+ Não. Espaços de trabalho criados pela Central de segurança, embora sejam configurados para logs do Azure Monitor por cobrança de nó, não incorrerão em encargos de logs do Azure Monitor. A cobrança da Central de Segurança sempre tem base em sua política de segurança da Central de Segurança e nas soluções instaladas em um workspace:
 
 - **Camada gratuita**: a Central de Segurança instala a solução 'SecurityCenterFree' no workspace padrão. Você não será cobrado pela Camada gratuita.
 - **Camada Standard**: a Central de Segurança habilita a solução 'Security' no workspace padrão.
@@ -63,9 +63,11 @@ A Central de Segurança coleta dados de suas VMs (máquinas virtuais) do Azure e
 Para saber mais sobre preços, confira [preços da Central de Segurança](https://azure.microsoft.com/pricing/details/security-center/). A página de preços aborda as mudanças no armazenamento de dados de segurança e cobrança rateada começando em junho de 2017.
 
 > [!NOTE]
-> O tipo de preço do Log Analytics para workspaces criados pela Central de Segurança não afeta a cobrança da Central de Segurança.
+> O tipo de preço do espaços de trabalho criados pela Central de segurança do log analytics não afeta a cobrança da Central de segurança.
 >
 >
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ### <a name="what-qualifies-a-vm-for-automatic-provisioning-of-the-microsoft-monitoring-agent-installation"></a>O que qualifica uma VM para o provisionamento automático da instalação do Microsoft Monitoring Agent?
 As VMs Windows ou Linux IaaS se qualificam se:
@@ -182,18 +184,18 @@ Você pode remover manualmente o Microsoft Monitoring Agent. Isso não é recome
 
 Para remover manualmente o agente:
 
-1.  No portal, abra o **Log Analytics**.
-2.  Na folha Log Analytics, selecione um workspace:
-3.  Selecione cada VM que você não quer monitorar e selecione **Desconectar**.
+1. No portal, abra o **Log Analytics**.
+2. Na folha Log Analytics, selecione um workspace:
+3. Selecione cada VM que você não quer monitorar e selecione **Desconectar**.
 
    ![Remova o agente][3]
 
 > [!NOTE]
 > Se uma VM do Linux já tiver um agente do OMS, mas não como extensão, a remoção da extensão também removerá o agente, e o cliente precisará reinstalá-lo.
->
->
-### <a name="how-do-i-disable-data-collection"></a>Como desabilitar a coleta de dados?
-O provisionamento automático é desativado por padrão. Você pode desabilitar o provisionamento automático de recursos a qualquer momento, desativando essa configuração na política de segurança. O provisionamento automático é altamente recomendável a fim de obter alertas de segurança e recomendações sobre atualizações do sistema, vulnerabilidades do sistema operacional e proteção do ponto de extremidade.
+> 
+> 
+> ### <a name="how-do-i-disable-data-collection"></a>Como desabilitar a coleta de dados?
+> O provisionamento automático é desativado por padrão. Você pode desabilitar o provisionamento automático de recursos a qualquer momento, desativando essa configuração na política de segurança. O provisionamento automático é altamente recomendável a fim de obter alertas de segurança e recomendações sobre atualizações do sistema, vulnerabilidades do sistema operacional e proteção do ponto de extremidade.
 
 Para desabilitar a coleta de dados, [Entre no portal do Azure](https://portal.azure.com), selecione **Procurar**, **Central de Segurança** e **Selecionar política**. Selecione a assinatura em que você deseja desabilitar o provisionamento automático. Quando você seleciona uma assinatura **Política de segurança - coleta de dados** é exibido. Em **Provisionamento automático**, selecione **Desabilitado**.
 
@@ -217,7 +219,7 @@ O agente consome uma quantidade nominal de recursos do sistema e devem causar po
 ### <a name="where-is-my-data-stored"></a>Onde meus dados são armazenados?
 Os dados coletados desse agente são armazenados no análise de Log workspace do Log Analytics existente associado à sua assinatura do Azure ou a novos workspaces. Para obter mais informações, consulte [Segurança de Dados](security-center-data-security.md).
 
-## Clientes do Log Analytics existentes<a name="existingloganalyticscust"></a>
+## Os clientes de logs existente do Azure Monitor<a name="existingloganalyticscust"></a>
 
 ### <a name="does-security-center-override-any-existing-connections-between-vms-and-workspaces"></a>A Central de Segurança substitui todas as conexões existentes entre as VMs e os workspaces?
 Se uma VM já tiver o Microsoft Monitoring Agent instalado como uma extensão do Azure, a Central de Segurança não substituirá a conexão do workspace existente. Em vez disso, a Central de Segurança usará o workspace existente.
@@ -274,6 +276,9 @@ A Central de Segurança do Azure automaticamente coleta, analisa e funde os dado
 * Malware avançado detectado com o relatório de erros do Windows
 * Ataques por força bruta contra máquinas virtuais
 * Alertas de segurança das soluções de segurança de parceiro integradas, como antimalware ou Firewalls de aplicativo Web
+
+### Por que secure pontuações valores alterados? <a name="secure-score-faq"></a>
+A partir de fevereiro de 2019, a Central de segurança ajustado a pontuação de algumas recomendações para ajustar melhor sua gravidade. Como resultado, esse ajuste pode haver alterações em geral proteger os valores de pontuação.  Para obter mais informações sobre a pontuação segura, consulte [proteger o cálculo de pontuação](security-center-secure-score.md).
 
 ### <a name="whats-the-difference-between-threats-detected-and-alerted-on-by-microsoft-security-response-center-versus-azure-security-center"></a>Qual é a diferença entre ameaças detectadas e alertadas pelo Microsoft Security Response Center versus pela Central de Segurança do Azure?
 O MSRC (Microsoft Security Response Center) executa determinado monitoramento de segurança da rede e da infraestrutura do Azure e recebe reclamações de inteligência e abuso de ameaça de terceiros. Quando o MSRC fica ciente de que os dados do cliente foram acessados por uma pessoa não autorizada ou ilegal ou que o uso do cliente do Azure não está de acordo com os termos de Uso Aceitável, um gerente de incidentes de segurança notifica o cliente. Normalmente, a notificação ocorre com o envio de um email para os contatos de segurança especificados na Central de Segurança do Azure ou para o proprietário da assinatura do Azure, caso um contato de segurança não seja especificado.

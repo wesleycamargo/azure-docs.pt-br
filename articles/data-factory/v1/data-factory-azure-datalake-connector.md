@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8731857d133e60cad4ecdca21874916949e05ff3
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 3bb372c4c3ddb79429df20c24c691c847e927e2a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813510"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57975603"
 ---
 # <a name="copy-data-to-and-from-data-lake-storage-gen1-by-using-data-factory"></a>Copiar dados de/para o Data Lake Storage Gen1 usando o Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -240,7 +240,7 @@ A seção **typeProperties** do conjunto de um conjunto de dados do tipo **Azure
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | **folderPath** |Caminho para o contêiner e a pasta no Data Lake Store. |Sim |
-| **fileName** |O nome do arquivo no Azure Data Lake Store. A propriedade **fileName** é opcional e diferencia maiúsculas de minúsculas. <br/><br/>Caso você especifique um **fileName**, a atividade (incluindo Cópia) funcionará no arquivo específico.<br/><br/>Quando **fileName** não for especificado, a Cópia incluirá todos os arquivos do **folderPath** para o conjunto de dados de entrada.<br/><br/>Quando **fileName** não for especificado para um conjunto de dados de saída e **preserveHierarchy** não for especificado em um coletor de atividade, o nome do arquivo gerado está no formato Data._Guid_.txt`. Por exemplo:  Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. |Não |
+| **fileName** |O nome do arquivo no Azure Data Lake Store. A propriedade **fileName** é opcional e diferencia maiúsculas de minúsculas. <br/><br/>Caso você especifique um **fileName**, a atividade (incluindo Cópia) funcionará no arquivo específico.<br/><br/>Quando **fileName** não for especificado, a Cópia incluirá todos os arquivos do **folderPath** para o conjunto de dados de entrada.<br/><br/>Quando **fileName** não for especificado para um conjunto de dados de saída e **preserveHierarchy** não for especificada no coletor de atividade, o nome do arquivo gerado está no formato `Data._Guid_.txt`. Por exemplo:  Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. |Não  |
 | **partitionedBy** |A propriedade **partitionedBy** é opcional. Você pode usá-la para especificar um caminho de pasta dinâmico e o nome de arquivo para dados de série temporal. Por exemplo, **folderPath** pode ser parametrizado para cada hora dos dados. Para encontrar detalhes e exemplos, confira A propriedade partitionedBy. |Não  |
 | **format** | Há suporte para os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Defina a propriedade **type** sob **format** para um desses valores. Para obter mais informações, consulte as seções [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato ORC](data-factory-supported-file-and-compression-formats.md#orc-format) e [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) no artigo [Formatos de arquivo aos quais o Azure Data Factory dá suporte](data-factory-supported-file-and-compression-formats.md). <br><br> Se você quiser copiar arquivos no estado em que se encontram entre repositórios com base em arquivo (cópia binária), ignore a seção `format` nas duas definições de conjunto de dados de entrada e de saída. |Não  |
 | **compression** | Especifique o tipo e o nível de compactação para os dados. Os tipos com suporte são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. Os níveis de suporte são **Ideal** e **Mais rápido**. Para saber mais, confira [Formatos de arquivo aos quais o Azure Data Factory dá suporte](data-factory-supported-file-and-compression-formats.md#compression-support). |Não  |

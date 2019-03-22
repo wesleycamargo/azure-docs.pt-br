@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 04/20/2018
 ms.author: zhshang
 ms.custom: mvc
-ms.openlocfilehash: 8653d8da8b180fb657169523e83a651d822343e4
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 122b175d026101dd4b15be4458e67ddd8a0d92d6
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605018"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533180"
 ---
 # <a name="create-a-signalr-service"></a>Criar um Serviço SignalR 
 
@@ -56,4 +56,4 @@ Cada comando na tabela redireciona para a documentação específica do comando.
 
 Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](/cli/azure).
 
-Exemplos adicionais de script CLI do Serviço SignalR do Azure podem ser encontrados na [documentação do Serviço SignalR do Azure](../signalr-cli-samples.md).
+Exemplos adicionais de script CLI do Serviço SignalR do Azure podem ser encontrados na [documentação do Serviço SignalR do Azure](../signalr-reference-cli.md).

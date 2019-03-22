@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/28/2016
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: d881a5c0f994b627b4c7c3da362672b3b887cd5e
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: a094369d467b3b1f3d5fe93f870dccc9eae7519c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996150"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547204"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-datadog"></a>(PRETERIDO) Monitorar um cluster de DC/OS do Serviço de Contêiner do Azure com Datadog
 
@@ -23,7 +23,7 @@ ms.locfileid: "52996150"
 Neste artigo, implantaremos agentes do Datadog em todos os nós de agente em seu cluster do Serviço de Contêiner do Azure. Você precisará de uma conta no Datadog para fazer esta configuração. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-[Implantar](container-service-deployment.md) e [conectar](../container-service-connect.md) um cluster configurado pelo Serviço de Contêiner do Azure. Explorar a [interface do usuário do Marathon](container-service-mesos-marathon-ui.md). Vá para [http://datadoghq.com](http://datadoghq.com) para configurar uma conta do Datadog. 
+[Implantar](container-service-deployment.md) e [conectar](../container-service-connect.md) um cluster configurado pelo Serviço de Contêiner do Azure. Explorar a [interface do usuário do Marathon](container-service-mesos-marathon-ui.md). Vá para [https://datadoghq.com](https://datadoghq.com) para configurar uma conta do Datadog. 
 
 ## <a name="datadog"></a>Datadog
 O Datadog é um serviço de monitoramento que reúne dados de monitoramento de seus contêineres em seu cluster do Serviço de Contêiner do Azure. O Datadog tem um Painel de Integração do Docker, onde você pode ver as métricas específicas em seus contêineres. As métricas obtidas de seus contêineres são organizadas por CPU, Memória, Rede e E/S. O Datadog divide as métricas em contêineres e em imagens. A seguir, um exemplo da aparência da interface do usuário de uso da CPU.

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 5403b5506a3758ede5ad06640335b873b6b9aa96
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: a89043f814bc97aeb081789e92d9e4488712a465
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820811"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439019"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Balanceamento de carga com o pacote de entrega de aplicativos do Azure
 
@@ -59,7 +59,7 @@ Ao escolher um balanceador de carga global entre o Gerenciador de Tráfego e o A
 | Gerenciador de Tráfego | Azure Front Door Service |
 | --------------- | ------------------------ |
 |**Qualquer protocolo:** uma vez que o Gerenciador de Tráfego funciona na camada do DNS, você pode rotear qualquer tipo de tráfego de rede: HTTP, TCP, UDP e outros. | **Aceleração de HTTP:** com o Front Door, o tráfego é transmitido por proxy na borda da rede da Microsoft.  Por isso, solicitações HTTP (S) obtêm melhorias de latência e produtividade reduzindo a latência para negociação de SSL e usando conexões quente do AFD para seu aplicativo.|
-|**Roteamento local:** com o roteamento em uma camada do DNS, o tráfego sempre vai de ponto a ponto.  O roteamento da filial para o datacenter local pode seguir um caminho direto, inclusive na sua própria rede, usando o Gerenciador de Tráfego. | **Escalabilidade independente:** como o Front Door funciona com solicitação HTTP, solicitações para diferentes caminhos de URL podem ser roteadas para diferentes pools de serviço regionais/de back-end (microsserviços) com base em regras e na integridade de cada microsserviço de aplicativo.|
+|**Roteamento local:** com o roteamento em uma camada do DNS, o tráfego sempre vai de ponto a ponto.  Roteamento de sua filial para seu datacenter local pode levar um caminho direto; mesmo em sua própria rede usando o Gerenciador de tráfego. | **Escalabilidade independente:** como o Front Door funciona com solicitação HTTP, solicitações para diferentes caminhos de URL podem ser roteadas para diferentes pools de serviço regionais/de back-end (microsserviços) com base em regras e na integridade de cada microsserviço de aplicativo.|
 |**Formato de cobrança:** a cobrança com base no DNS é dimensionada de acordo com seus usuários e, para serviços com mais usuários, atinge um platô para reduzir o custo quando o uso é maior. |**Segurança embutida:** o Front Door habilita regras como limitação de taxa e ACL de IP para permitir que você proteja seus back-ends antes que o tráfego chegue ao aplicativo. 
 
 </br>Devido aos benefícios de desempenho, capacidade de operação e segurança para cargas de trabalho HTTP com o Front Door, é recomendável que os clientes usem o Front Door para suas cargas de trabalho HTTP.    O Gerenciador de Tráfego e o Front Door podem ser usados em paralelo para atender a todo o tráfego para seu aplicativo. 

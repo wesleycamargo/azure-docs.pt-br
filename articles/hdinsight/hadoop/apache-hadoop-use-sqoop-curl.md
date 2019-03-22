@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: a7b657d11e829d636063639e26a90d671a5d1473
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.openlocfilehash: ad716e2ef5e597424c860378e7a63d5c2de53f54
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438346"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834550"
 ---
 # <a name="run-apache-sqoop-jobs-with-hadoop-in-hdinsight-with-curl"></a>Execute tarefas do Apache Sqoop com o Hadoop no HDInsight com Curl
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -27,7 +27,7 @@ Curl é usado para demonstrar como você pode interagir com o HDInsight usando s
 Para concluir as etapas neste artigo, você precisará do seguinte:
 
 
-* Conclua [Usar o Apache Sqoop com o Hadoop no HDInsight](hdinsight-use-sqoop.md#create-cluster-and-sql-database) para configurar um ambiente com um cluster HDInsight e um banco de dados SQL do Azure.
+* Concluída [usar o Apache Sqoop com Hadoop no HDInsight](hdinsight-use-sqoop.md#create-cluster-and-sql-database) para configurar um ambiente com um cluster HDInsight e um banco de dados SQL do Azure.
 * [Curl](https://curl.haxx.se/). Curl é uma ferramenta para transferir dados de ou um cluster HDInsight ou para ele.
 * [jq](https://stedolan.github.io/jq/). O utilitário jq é usado para processar os dados JSON retornados de solicitações REST.
 
@@ -68,19 +68,19 @@ Para concluir as etapas neste artigo, você precisará do seguinte:
 
     Os parâmetros usados nesse comando são os seguintes:
 
-    * **-d** – uma vez que `-G` não é usado; a solicitação padrão é o método POST. `-d` especifica os valores de dados que são enviados com a solicitação.
+   * **-d** – uma vez que `-G` não é usado; a solicitação padrão é o método POST. `-d` especifica os valores de dados que são enviados com a solicitação.
 
-        * **user.name** - o usuário que está executando o comando.
+       * **user.name** - o usuário que está executando o comando.
 
-        * **command** - o comando Sqoop a ser executado.
+       * **command** - o comando Sqoop a ser executado.
 
-        * **statusdir** - o diretório no qual o status deste trabalho será gravado.
+       * **statusdir** - o diretório no qual o status deste trabalho será gravado.
 
-    Esse comando deverá retornar uma ID de trabalho que pode ser usada para verificar o status do trabalho.
+     Esse comando deverá retornar uma ID de trabalho que pode ser usada para verificar o status do trabalho.
 
-        ```json
-        {"id":"job_1415651640909_0026"}
-        ```
+       ```json
+       {"id":"job_1415651640909_0026"}
+       ```
 
 3. Para verificar o status do trabalho, use o comando a seguir. Substitua **JOBID** pelo valor retornado na etapa anterior. Por exemplo, se o valor retornado for **, `{"id":"job_1415651640909_0026"}`JOBID** será `job_1415651640909_0026`.
 

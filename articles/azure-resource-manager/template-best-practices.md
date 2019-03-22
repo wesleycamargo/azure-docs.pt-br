@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2018
+ms.date: 03/05/2019
 ms.author: tomfitz
-ms.openlocfilehash: 9b136c73afc08e05694aed99d57139f77466788d
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: bcc529b02505359e6e4e320d4991a082797c5261
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490372"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440465"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Práticas recomendadas para modelos do Azure Resource Manager
 
@@ -26,10 +26,28 @@ Para obter recomendações sobre como controlar suas assinaturas do Azure, consu
 
 Para obter recomendações sobre como criar modelos que funcionam em todos os ambientes de nuvem do Azure, consulte [Desenvolver modelos do Azure Resource Manager para manter a consistência nuvem](templates-cloud-consistency.md).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+## <a name="template-limits"></a>Limites de modelo
+
+Limite o tamanho de seu modelo em 1 MB e cada arquivo de parâmetro em 64 KB. O limite de 1 MB se aplica para o estado final do modelo depois que ele foi expandido com definições de recurso iterativo e valores para variáveis e parâmetros. 
+
+Você também está limitado a:
+
+* 256 parâmetros
+* 256 variáveis
+* 800 recursos (incluindo a contagem de cópias)
+* 64 valores de saída
+* 24.576 caracteres em uma expressão de modelo
+
+Você pode exceder alguns limites de modelo usando um modelo aninhado. Para saber mais, confira [Uso de modelos vinculados ao implantar recursos do Azure](resource-group-linked-templates.md). Para reduzir o número de parâmetros, variáveis ou saídas, você pode combinar vários valores em um objeto. Para saber mais, veja [Objetos como parâmetros](resource-manager-objects-as-parameters.md).
+
+## <a name="resource-group"></a>Grupo de recursos
+
+Quando você implanta recursos em um grupo de recursos, o grupo de recursos armazena metadados sobre os recursos. Os metadados são armazenados no local do grupo de recursos.
+
+Se a região do grupo de recursos está temporariamente indisponível, você não pode atualizar os recursos no grupo de recursos porque os metadados não estão disponível. Os recursos em outras regiões ainda funcionará conforme o esperado, mas não é possível atualizá-los. Para minimizar o risco, localize seu grupo de recursos e recursos na mesma região.
 
 ## <a name="parameters"></a>parâmetros
-As informações nesta seção podem ser úteis quando você trabalha com [parâmetros](resource-manager-templates-parameters.md).
+As informações nesta seção podem ser úteis quando você trabalha com [parâmetros](resource-group-authoring-templates.md#parameters).
 
 ### <a name="general-recommendations-for-parameters"></a>Recomendações gerais para parâmetros
 
@@ -131,7 +149,7 @@ As informações nesta seção podem ser úteis quando você trabalha com [parâ
 
 ## <a name="variables"></a>variáveis
 
-As seguintes informações podem ser úteis quando você trabalha com [variáveis](resource-manager-templates-variables.md):
+As seguintes informações podem ser úteis quando você trabalha com [variáveis](resource-group-authoring-templates.md#variables):
 
 * Use variáveis para valores que você precisa usar mais de uma vez em um modelo. Se um valor for usado apenas uma vez, um valor embutido em código facilita a leitura do modelo.
 
@@ -155,7 +173,7 @@ Ao decidir quais são as [dependências](resource-group-define-dependencies.md) 
 
 * Defina um recurso filho como dependente do recurso pai.
 
-* Recursos com o [elemento condition](resource-manager-templates-resources.md#condition) definido como false são removidos automaticamente da ordem de dependência. Defina as dependências como se o recurso estivesse sempre implantado.
+* Recursos com o [elemento condition](resource-group-authoring-templates.md#condition) definido como false são removidos automaticamente da ordem de dependência. Defina as dependências como se o recurso estivesse sempre implantado.
 
 * Coloque as dependências em cascata sem defini-las explicitamente. Por exemplo, sua máquina virtual depende de uma interface de rede virtual e a interface de rede virtual depende de uma rede virtual e de endereços IP públicos. Portanto, a máquina virtual é implantados depois que todos os três recursos, mas não definir explicitamente a máquina virtual como todos os três recursos dependentes. Essa abordagem esclarece a ordem de dependência e facilita a alteração do modelo mais tarde.
 
@@ -163,7 +181,7 @@ Ao decidir quais são as [dependências](resource-group-define-dependencies.md) 
 
 ## <a name="resources"></a>Recursos
 
-As seguintes informações podem ser úteis quando você trabalha com [recursos](resource-manager-templates-resources.md):
+As seguintes informações podem ser úteis quando você trabalha com [recursos](resource-group-authoring-templates.md#resources):
 
 * Para ajudar outros colaboradores a entender a finalidade do recurso, especifique **comentários** para cada recurso no modelo:
    
@@ -277,7 +295,7 @@ As seguintes informações podem ser úteis quando você trabalha com [recursos]
 
 ## <a name="outputs"></a>outputs
 
-Se você usar um modelo para criar endereços IP públicos, inclua uma [seção outputs](resource-manager-templates-outputs.md) que retorne detalhes do endereço IP e o FQDN (nome de domínio totalmente qualificado). É possível usar valores de saída para recuperar facilmente detalhes sobre endereços IP públicos e FQDNs após a implantação.
+Se você usar um modelo para criar endereços IP públicos, inclua uma [seção outputs](resource-group-authoring-templates.md#outputs) que retorne detalhes do endereço IP e o FQDN (nome de domínio totalmente qualificado). É possível usar valores de saída para recuperar facilmente detalhes sobre endereços IP públicos e FQDNs após a implantação.
 
 ```json
 "outputs": {

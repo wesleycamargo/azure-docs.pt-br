@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: jeconnoc
-ms.openlocfilehash: cf2fe10d6a0ab81ff71c948ee2defe6bc7edfd70
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
-ms.translationtype: HT
+ms.openlocfilehash: 2a9879ebc55a5f25c1a358e386697dce1c55ec90
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300177"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084337"
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>Configurando SSL para um aplicativo no Azure
 
@@ -40,7 +40,7 @@ O certificado deve atender aos seguintes requisitos para certificados SSL no Azu
 
 * O certificado deve conter uma chave privada.
 * O certificado deve ser criado para troca de chaves, exportável para um arquivo Troca de Informações Pessoais (.pfx).
-* O nome de assunto do certificado deve corresponder ao domínio usado para acessar o serviço de nuvem. Você não pode obter um certificado SSL de uma autoridade de certificação (CA) para o domínio cloudapp.net. Você deve adquirir um nome de domínio personalizado para usar quando acessar o serviço. Quando você solicitar um certificado de uma autoridade de certificação, o nome de assunto do certificado deve corresponder ao nome de domínio personalizado usado para acessar o aplicativo. Por exemplo, se o nome de domínio personalizado for **contoso.com**, você pode solicitar um certificado da autoridade de certificação para ***.contoso.com** ou **www.contoso.com**.
+* O nome de assunto do certificado deve corresponder ao domínio usado para acessar o serviço de nuvem. Você não pode obter um certificado SSL de uma autoridade de certificação (CA) para o domínio cloudapp.net. Você deve adquirir um nome de domínio personalizado para usar quando acessar o serviço. Quando você solicitar um certificado de uma autoridade de certificação, o nome de assunto do certificado deve corresponder ao nome de domínio personalizado usado para acessar o aplicativo. Por exemplo, se o nome de domínio personalizado for **contoso.com** você pode solicitar um certificado da autoridade de certificação para ***. contoso.com** ou **www\.contoso.com**.
 * O certificado deve usar, no mínimo, uma criptografia de 2048 bits.
 
 Para fins de teste, você pode [criar](cloud-services-certs-create.md) e usar um certificado autoassinado. Um certificado autoassinado não é autenticado por meio de uma autoridade de certificação e pode usar o domínio cloudapp.net como a URL do site. Por exemplo, a tarefa a seguir usa um certificado autoassinado na qual o nome comum (CN) utilizado no certificado é **sslexample.cloudapp.net**.
@@ -49,7 +49,7 @@ Em seguida, você deve incluir informações sobre o certificado nos arquivos de
 
 <a name="modify"> </a>
 
-## <a name="step-2-modify-the-service-definition-and-configuration-files"></a>Etapa 2: Modificar a definição de serviço e arquivos de configuração
+## <a name="step-2-modify-the-service-definition-and-configuration-files"></a>Etapa 2: Modifique os arquivos de definição e configuração de serviço
 O aplicativo deve ser configurado para usar o certificado, e um ponto de extremidade HTTPS deve ser adicionado. Dessa forma, os arquivos de definição e configuração do serviço precisam ser atualizados.
 
 1. No ambiente de desenvolvimento, abra o arquivo de definição de serviço (CSDEF), adicione uma seção **Certificados** dentro da seção **WebRole** e inclua as seguintes informações sobre o certificado (e os certificados intermediários):
@@ -155,7 +155,7 @@ Conecte-se ao Portal do Azure e...
 
 4. Forneça o **Arquivo**, **Senha** e clique em **Carregar** na parte inferior da área de entrada de dados.
 
-## <a name="step-4-connect-to-the-role-instance-by-using-https"></a>Etapa 4: Conectar-se à instância da função usando HTTPS
+## <a name="step-4-connect-to-the-role-instance-by-using-https"></a>Etapa 4: Conectar-se à instância de função usando HTTPS
 Agora que sua implantação está ativa e em execução no Azure, você pode se conectar a ela usando HTTPS.
 
 1. Clique na **URL do Site** para abrir o navegador da Web.

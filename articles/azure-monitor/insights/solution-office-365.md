@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: bwren
-ms.openlocfilehash: 92ba185ce3c271284ae20981408b2b12f516e3c8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 6a13988af7a46ff6fafe352e850ee238cda79c08
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999293"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57996702"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solução de gerenciamento do Office 365 no Microsoft Azure | (Versão prévia)
 
@@ -30,6 +30,8 @@ A solução de gerenciamento do Office 365 permite que você monitore o ambiente
 - Detecte e investigue comportamento indesejado do usuário, o que pode ser personalizado para suas necessidades organizacionais.
 - Demonstre auditoria e conformidade. Por exemplo, você pode monitorar as operações de acesso a arquivos em arquivos confidenciais, o que pode ajudá-lo com o processo de conformidade e auditoria.
 - Execute a solução de problemas operacionais usando [consultas de log](../log-query/log-query-overview.md) com base nos dados da atividade do Office 365 de sua organização.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 É necessário o seguinte antes de essa solução ser instalada e configurada.
@@ -69,7 +71,7 @@ A primeira etapa é criar um aplicativo no Azure Active Directory que a soluçã
 1. Clique em **Novo registro de aplicativo**.
 
     ![Adicionar registro do aplicativo](media/solution-office-365/add-app-registration.png)
-1. Insira um **Nome** de aplicativo e **URL de Logon**.  O nome deve ser descritivo.  Use _http://localhost_ para a URL, e mantenha _Aplicativo Web/API_ como o **Tipo de aplicativo**
+1. Insira um **Nome** de aplicativo e **URL de Logon**.  O nome deve ser descritivo.  Use `http://localhost` para a URL e manter _aplicativo Web / API_ para o **tipo de aplicativo**
     
     ![Criar aplicativo](media/solution-office-365/create-application.png)
 1. Clique em **Criar** e valide as informações do aplicativo.
@@ -89,11 +91,11 @@ A primeira etapa é criar um aplicativo no Azure Active Directory que a soluçã
     ![Selecionar API](media/solution-office-365/select-api.png)
 
 1. Em **Selecionar permissões**, escolha as opções a seguir para **Permissões de aplicativo** e **Permissões delegadas**:
-    - Ler informações de integridade do serviço de sua organização
-    - Ler dados de atividade de sua organização
-    - Ler relatórios de atividade de sua organização
+   - Ler informações de integridade do serviço de sua organização
+   - Ler dados de atividade de sua organização
+   - Ler relatórios de atividade de sua organização
 
-    ![Selecionar API](media/solution-office-365/select-permissions.png)
+     ![Selecionar API](media/solution-office-365/select-permissions.png)
 
 1. Clique em **Selecionar** e em **Concluído**.
 1. Clique em **Conceder permissões** e, quando receber uma solicitação de verificação, clique em **Sim**.
@@ -106,7 +108,7 @@ A primeira etapa é criar um aplicativo no Azure Active Directory que a soluçã
 1. Digite uma **Descrição** e a **Duração** da nova chave.
 1. Clique em **Salvar** e, depois, copie o **Valor** gerado.
 
-    ![simétricas](media/solution-office-365/keys.png)
+    ![Chaves](media/solution-office-365/keys.png)
 
 ### <a name="add-admin-consent"></a>Adicionar consentimento do administrador
 Para habilitar a conta administrativa pela primeira vez, forneça consentimento administrativo para o aplicativo. Faça isso com um script do PowerShell. 
@@ -123,10 +125,10 @@ Para habilitar a conta administrativa pela primeira vez, forneça consentimento 
     $option = [System.StringSplitOptions]::RemoveEmptyEntries 
     
     IF ($Subscription -eq $null)
-        {Login-AzureRmAccount -ErrorAction Stop}
-    $Subscription = (Select-AzureRmSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
+        {Login-AzAccount -ErrorAction Stop}
+    $Subscription = (Select-AzSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
     $Subscription
-    $Workspace = (Set-AzureRMOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
+    $Workspace = (Set-AzOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
     $WorkspaceLocation= $Workspace.Location
     $WorkspaceLocation
     
@@ -190,11 +192,11 @@ A última etapa é assinar o aplicativo em seu workspace do Log Analytics. Faça
     $line='#-------------------------------------------------------------------------------------------------------------------------------------------------------------------------'
     $line
     IF ($Subscription -eq $null)
-        {Login-AzureRmAccount -ErrorAction Stop}
-    $Subscription = (Select-AzureRmSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
+        {Login-AzAccount -ErrorAction Stop}
+    $Subscription = (Select-AzSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
     $Subscription
     $option = [System.StringSplitOptions]::RemoveEmptyEntries 
-    $Workspace = (Set-AzureRMOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
+    $Workspace = (Set-AzOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
     $Workspace
     $WorkspaceLocation= $Workspace.Location
     $OfficeClientSecret =[uri]::EscapeDataString($OfficeClientSecret)
@@ -349,7 +351,7 @@ A última etapa é assinar o aplicativo em seu workspace do Log Analytics. Faça
     .\office365_subscription.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631-yyyyyyyyyyyy' -OfficeUsername 'admin@contoso.com' -OfficeTennantID 'ce4464f8-a172-4dcf-b675-xxxxxxxxxxxx' -OfficeClientId 'f8f14c50-5438-4c51-8956-zzzzzzzzzzzz' -OfficeClientSecret 'y5Lrwthu6n5QgLOWlqhvKqtVUZXX0exrA2KRHmtHgQb='
     ```
 
-### <a name="troubleshooting"></a>solução de problemas
+### <a name="troubleshooting"></a>Solução de problemas
 
 Você poderá ver o erro a seguir se o aplicativo já estiver inscrito nesse workspace ou se esse locatário estiver inscrito em outro workspace.
 
@@ -365,12 +367,12 @@ At C:\Users\v-tanmah\Desktop\ps scripts\office365_subscription.ps1:161 char:19
 Você poderá receber o seguinte erro se fornecer valores de parâmetro inválidos.
 
 ```
-Select-AzureRmSubscription : Please provide a valid tenant or a valid subscription.
+Select-AzSubscription : Please provide a valid tenant or a valid subscription.
 At line:12 char:18
-+ ... cription = (Select-AzureRmSubscription -SubscriptionId $($Subscriptio ...
++ ... cription = (Select-AzSubscription -SubscriptionId $($Subscriptio ...
 +                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : CloseError: (:) [Set-AzureRmContext], ArgumentException
-    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.SetAzureRMContextCommand
+    + CategoryInfo          : CloseError: (:) [Set-AzContext], ArgumentException
+    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.SetAzContextCommand
 
 ```
 
@@ -390,11 +392,11 @@ Remova a solução de gerenciamento do Office 365 usando o processo em [Remover 
     
     $line
     IF ($Subscription -eq $null)
-        {Login-AzureRmAccount -ErrorAction Stop}
-    $Subscription = (Select-AzureRmSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
+        {Login-AzAccount -ErrorAction Stop}
+    $Subscription = (Select-AzSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
     $Subscription
     $option = [System.StringSplitOptions]::RemoveEmptyEntries 
-    $Workspace = (Get-AzureRMOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
+    $Workspace = (Set-AzOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
     $Workspace
     $WorkspaceLocation= $Workspace.Location
     
@@ -494,12 +496,12 @@ Clique no bloco **Office 365** para abrir o painel **Office 365**.
 
 O painel inclui as colunas na tabela a seguir. Cada coluna lista os dez principais alertas por contagem que correspondem aos critérios da coluna para o escopo e intervalo de tempo especificados. É possível executar uma pesquisa de log que fornece a lista inteira clicando em Ver todos na parte inferior da coluna ou clicando no cabeçalho de coluna.
 
-| Coluna | DESCRIÇÃO |
+| Coluna | Descrição |
 |:--|:--|
 | Operações | Fornece informações sobre os usuários ativos de todas as suas assinaturas do Office 365 monitoradas. Você também poderá ver o número de atividades que ocorrem ao longo do tempo.
 | Exchange | Mostra a análise das atividades do Exchange Server, como a permissão Add-Mailbox ou Set-Mailbox. |
 | SharePoint | Mostra as principais atividades que os usuários executam em documentos do SharePoint. Quando você faz drill down desse bloco, a página de pesquisa mostra os detalhes dessas atividades, como o documento de destino e o local dessa atividade. Por exemplo, para um evento Arquivo Acessado, você poderá ver o documento que está sendo acessado, o nome da sua conta associada e o endereço IP. |
-| Azure Active Directory | Inclui as principais atividades do usuário, como Tentativas de Logon e de Redefinição de Senha do Usuário. Quando você fizer o drill down, poderá ver os detalhes dessas atividades como o Status do Resultado. Isso é mais útil se você desejar monitorar atividades suspeitas no Azure Active Directory. |
+| Active Directory do Azure | Inclui as principais atividades do usuário, como Tentativas de Logon e de Redefinição de Senha do Usuário. Quando você fizer o drill down, poderá ver os detalhes dessas atividades como o Status do Resultado. Isso é mais útil se você desejar monitorar atividades suspeitas no Azure Active Directory. |
 
 
 
@@ -511,9 +513,9 @@ Todos os registros criados no workspace do Log Analytics no Azure Monitor pela s
 ### <a name="common-properties"></a>Propriedades comuns
 As propriedades a seguir são comuns a todos os registros do Office 365.
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Descrição |
 |:--- |:--- |
-| Type | *OfficeActivity* |
+| Tipo | *OfficeActivity* |
 | ClientIP | O endereço IP do dispositivo que foi usado quando a atividade foi registrada. O endereço IP é exibido no formato de endereço IPv4 ou IPv6. |
 | OfficeWorkload | Serviço Office 365 ao qual o registro se refere.<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
 | Operação | O nome da atividade do usuário ou administrador.  |
@@ -522,13 +524,13 @@ As propriedades a seguir são comuns a todos os registros do Office 365.
 | ResultStatus | Indica se a ação (especificada na propriedade Operation) foi bem-sucedida ou não. Os valores possíveis são Succeeded, PartiallySucceeded ou Failed. Para a atividade de administração do Exchange, o valor é True ou False. |
 | UserId | O nome UPN do usuário que executou a ação que resultou em o registro ser incluído em log. Por exemplo, my_name@my_domain_name. Observe que os registros para a atividade realizada por contas do sistema (como SHAREPOINT\system ou NTAUTHORITY\SYSTEM) também são incluídos. | 
 | UserKey | Uma ID alternativa para o usuário identificado na propriedade UserId.  Por exemplo, essa propriedade é preenchida com a PUID (ID exclusiva do passport) para eventos executadas por usuários no SharePoint, no OneDrive for Business e no Exchange. Essa propriedade também pode especificar o mesmo valor que a propriedade UserID para eventos que ocorrem em outros serviços e eventos executados por contas do sistema|
-| UserType | O tipo de usuário que realizou a operação.<br><br>Administrador<br>Aplicativo<br>DcAdmin<br>Regular<br>Reservado<br>ServicePrincipal<br>Sistema |
+| UserType | O tipo de usuário que realizou a operação.<br><br>Admin<br>Aplicativo<br>DcAdmin<br>Normal<br>Reservado<br>ServicePrincipal<br>Sistema |
 
 
 ### <a name="azure-active-directory-base"></a>Base do Azure Active Directory
 As propriedades a seguir são comuns a todos os registros do Azure Active Directory.
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Descrição |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
@@ -539,7 +541,7 @@ As propriedades a seguir são comuns a todos os registros do Azure Active Direct
 ### <a name="azure-active-directory-account-logon"></a>Logon na Conta do Azure Active Directory
 Esses registros são criados quando um usuário do Active Directory tenta fazer logon.
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Descrição |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectoryAccountLogon |
@@ -549,10 +551,10 @@ Esses registros são criados quando um usuário do Active Directory tenta fazer 
 | UserDomain | As TII (informações de identidade de locatário). | 
 
 
-### <a name="azure-active-directory"></a>Azure Active Directory
+### <a name="azure-active-directory"></a>Active Directory do Azure
 Esses registros são criados quando adições ou alterações são feitas aos objetos do Azure Active Directory.
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Descrição |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
@@ -569,7 +571,7 @@ Esses registros são criados quando adições ou alterações são feitas aos ob
 ### <a name="data-center-security"></a>Segurança do Data Center
 Esses registros são criados de dados de auditoria de Segurança do Data Center.  
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Descrição |
 |:--- |:--- |
 | EffectiveOrganization | O nome do locatário ao qual o cmdlet \elevation foi direcionado. |
 | ElevationApprovedTime | O carimbo de data/hora de quando a elevação foi aprovada. |
@@ -584,7 +586,7 @@ Esses registros são criados de dados de auditoria de Segurança do Data Center.
 ### <a name="exchange-admin"></a>Exchange Admin
 Esses registros são criados quando são feitas alterações à configuração do Exchange.
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Descrição |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeAdmin |
@@ -592,13 +594,13 @@ Esses registros são criados quando são feitas alterações à configuração d
 | ModifiedObjectResolvedName |  Esse é o nome amigável de usuário do objeto modificado pelo cmdlet. Isso é registrado apenas se o cmdlet modificar o objeto. |
 | OrganizationName | O nome do locatário. |
 | OriginatingServer | O nome do servidor do qual o cmdlet foi executado. |
-| parâmetros | O nome e o valor para todos os parâmetros que foram usados com o cmdlet identificado na propriedade Operations. |
+| Parâmetros | O nome e o valor para todos os parâmetros que foram usados com o cmdlet identificado na propriedade Operations. |
 
 
 ### <a name="exchange-mailbox"></a>Caixa de correio do Exchange
 Esses registros são criados quando alterações ou adições são feitas às caixas de correio do Exchange.
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Descrição |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeItem |
@@ -620,11 +622,11 @@ Esses registros são criados quando alterações ou adições são feitas às ca
 ### <a name="exchange-mailbox-audit"></a>Auditoria de Caixa de Correio do Exchange
 Esses registros são criados quando é criada uma entrada de auditoria de caixa de correio.
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Descrição |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeItem |
-| item | Representa o item no qual a operação foi executada | 
+| Item | Representa o item no qual a operação foi executada | 
 | SendAsUserMailboxGuid | O GUID do Exchange da caixa de correio acessada para enviar email como ela. |
 | SendAsUserSmtp | Endereço SMTP do usuário que está sendo representado. |
 | SendonBehalfOfUserMailboxGuid | O GUID do Exchange da caixa de correio acessada para enviar emails em nome dela. |
@@ -634,7 +636,7 @@ Esses registros são criados quando é criada uma entrada de auditoria de caixa 
 ### <a name="exchange-mailbox-audit-group"></a>Grupo de Auditoria da Caixa de Correio do Exchange
 Esses registros são criados quando alterações ou adições são feitas a grupos do Exchange.
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Descrição |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | OfficeWorkload | ExchangeItemGroup |
@@ -652,7 +654,7 @@ Esses registros são criados quando alterações ou adições são feitas a grup
 ### <a name="sharepoint-base"></a>Base do SharePoint
 Essas propriedades são comuns a todos os registros do SharePoint.
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Descrição |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
@@ -668,7 +670,7 @@ Essas propriedades são comuns a todos os registros do SharePoint.
 ### <a name="sharepoint-schema"></a>Esquema do SharePoint
 Esses registros são criados quando são feitas alterações de configuração do SharePoint.
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Descrição |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
@@ -680,7 +682,7 @@ Esses registros são criados quando são feitas alterações de configuração d
 ### <a name="sharepoint-file-operations"></a>Operações de arquivo do SharePoint
 Esses registros são criados em resposta às operações de arquivo no SharePoint.
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Descrição |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePointFileOperation |
@@ -700,10 +702,10 @@ Esses registros são criados em resposta às operações de arquivo no SharePoin
 ## <a name="sample-log-searches"></a>Pesquisas de log de exemplo
 A tabela a seguir fornece pesquisas de log de exemplo para os registros de atualização coletados por essa solução.
 
-| Consultar | DESCRIÇÃO |
+| Consulta | Descrição |
 | --- | --- |
 |Contagem de todas as operações em sua assinatura do Office 365 |OfficeActivity &#124; summarize count() by Operation |
-|Uso de sites do SharePoint|OfficeActivity &#124; where OfficeWorkload =~ "sharepoint" &#124; summarize count() by SiteUrl | classificar por Count asc|
+|Uso de sites do SharePoint|OfficeActivity &#124; onde OfficeWorkload = ~ "sharepoint" &#124; resumem Count () by SiteUrl \| classificar por contagem de asc|
 |Operações de acesso de arquivos por tipo de usuário|search in (OfficeActivity) OfficeWorkload =~ "azureactivedirectory" and "MyTest"|
 |Pesquisar com uma palavra-chave específica|Type=OfficeActivity OfficeWorkload=azureactivedirectory "MyTest"|
 |Monitorar de ações externas no Exchange|OfficeActivity &#124; where OfficeWorkload =~ "exchange" and ExternalAccess == true|

@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 01db1de5c6b533c346ce35c8474d996213873d10
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
-ms.translationtype: HT
+ms.openlocfilehash: fd2614c258aff146397e24e688eae18d84d3cfa6
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002188"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201153"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>Streaming em escala no HDInsight
 
-Soluções de Big Data em tempo real atuam em dados que estão em movimento. Normalmente, esses dados são mais valiosos em seu tempo de chegada. Se o fluxo de dados de entrada tornar-se maior do que pode ser tratado no momento, talvez seja necessário restringir os recursos. Alternativamente, um Cluster HDInsight pode escalar verticalmente para atender sua solução de streaming, adicionando nós sob demanda.
+Soluções de big data em tempo real atuam em dados que estão em movimento. Normalmente, esses dados são mais valiosos em seu tempo de chegada. Se o fluxo de dados de entrada tornar-se maior do que pode ser tratado no momento, talvez seja necessário restringir os recursos. Alternativamente, um Cluster HDInsight pode escalar verticalmente para atender sua solução de streaming, adicionando nós sob demanda.
 
 
 Em um aplicativo de streaming, uma ou mais fontes de dados geram eventos (às vezes em milhões por segundo) que precisam ser ingeridos rapidamente sem remover quaisquer informações úteis. Os eventos de entrada são tratados com *buffer do fluxo*, também chamado de *enfileiramento de eventos*, por um serviço como [Apache Kafka](kafka/apache-kafka-introduction.md) ou [Hubs de Eventos](https://azure.microsoft.com/services/event-hubs/). Após coletar os eventos, será possível analisar os dados usando um sistema de análise em tempo real dentro da camada do *processamento do fluxo* como [Apache Storm](storm/apache-storm-overview.md) ou [Apache Spark Streaming](spark/apache-spark-streaming-overview.md). Os dados processados podem ser armazenados em sistemas de armazenamento em longo prazo, como o [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/) e exibido em tempo real em um painel do business intelligence, como [Power BI](https://powerbi.microsoft.com), Tableau ou uma página da Web personalizada.
@@ -45,7 +45,7 @@ Para obter mais informações, consulte [O que é Apache Spark Streaming?](hdins
 
 ## <a name="scaling-a-cluster"></a>Dimensionamento de um cluster
 
-Embora você possa especificar o número de nós no cluster durante a criação, convém aumentar ou reduzir o cluster de acordo com a carga de trabalho. Todos os Clusters HDInsight permitem que você [altere o número de nós no cluster](hdinsight-administer-use-management-portal.md#scale-clusters). Os clusters do Spark podem ser removidos sem perda de dados, pois todos os dados ficam no Armazenamento do Microsoft Azure ou no Data Lake Storage.
+Embora você possa especificar o número de nós no cluster durante a criação, convém aumentar ou reduzir o cluster de acordo com a carga de trabalho. Todos os Clusters HDInsight permitem que você [altere o número de nós no cluster](hdinsight-administer-use-portal-linux.md#scale-clusters). Os clusters do Spark podem ser removidos sem perda de dados, pois todos os dados ficam no Armazenamento do Microsoft Azure ou no Data Lake Storage.
 
 Há vantagens para as tecnologias de dissociação. Por exemplo, o Kafka é uma tecnologia de buffer de evento e por isso é muito intensivo em E/S e não necessita de muita capacidade de processamento. Em comparação, os processadores de fluxo como o Spark Streaming são computação intensiva, exigindo VMs mais avançadas. Ao ter essas tecnologias separadas em clusters diferentes, você poderá dimensionar independentemente enquanto utiliza as VMs da melhor forma.
 

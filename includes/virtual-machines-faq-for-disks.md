@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/30/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 311ec7bacdfe58982ee670277000d81756f92005
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 03e10497b033fc3d97fde4cd524b358c05fdc943
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55648574"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57457762"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Perguntas frequentes sobre discos de VM IaaS do Azure e discos premium gerenciados e não gerenciados
 
@@ -347,7 +347,7 @@ Para obter a taxa de transferência dos tamanhos de disco grandes do SSD Standar
 
 **Quais regiões são os tamanhos de disco gerenciado maiores do que o suporte para 4 TiB no?**
 
-No momento na versão prévia, os tamanhos de disco gerenciado têm suporte no Centro-oeste dos EUA, Europa Setentrional, Europa Ocidental, Oeste dos EUA 2, Leste dos EUA 2, Leste dos EUA.
+A visualização dos tamanhos de disco gerenciado além dos 4 TiB têm suporte em todas as regiões de produção do Azure, exceto o governo, China e Alemanha. 
 
 **Oferecemos suporte a habilitação do cache de Host sobre os tamanhos de disco mais recentes?**
 

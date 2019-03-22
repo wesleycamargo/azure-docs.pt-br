@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/17/2019
+ms.date: 03/18/2019
 ms.author: cenkdin;juliako
-ms.openlocfilehash: 3f4641f6a97d265bf2c2ad9dadb548ff754ad434
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: 6bec12893591fb36298e9c2f1664646a4d598073
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828104"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57839773"
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>Como executar uma transmissão ao vivo com codificadores locais usando .NET
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ Os itens a seguir são necessários para concluir o tutorial:
 * Uma conta do Azure.
 * Uma conta dos Serviços de Mídia.    Para criar uma conta de Serviços de Mídia, consulte [Como criar uma conta de Serviços de Mídia](media-services-portal-create-account.md).
 * Configure seu ambiente de desenvolvimento. Para obter mais informações, consulte [Configurar seu ambiente](media-services-set-up-computer.md).
-* Uma Webcam. Por exemplo, [Codificador Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm).
+* Uma Webcam. Por exemplo, [Codificador Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm).
 
 É recomendável revisar os seguintes artigos:
 
@@ -50,7 +50,7 @@ Configure seu ambiente de desenvolvimento e preencha o arquivo de configuração
 ## <a name="example"></a>Exemplo
 O exemplo de código a seguir demonstra como concretar as seguintes tarefas:
 
-* Conectar-se aos Serviços de Mídia
+* Conectar aos Serviços de Mídia
 * Criar um canal
 * Atualize o canal
 * Recupere o ponto de extremidade de entrada do canal. O ponto de extremidade de entrada deve ser fornecido ao codificador ativo local. O codificador ativo converte sinais da câmera para fluxos que são enviados ao ponto de extremidade de entrada (ingestão) do canal.

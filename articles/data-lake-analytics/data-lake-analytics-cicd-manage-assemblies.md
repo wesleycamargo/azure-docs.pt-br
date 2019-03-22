@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 10/30/2018
-ms.openlocfilehash: 0d9192e5ca4dba202ca5287481072bb0f8ae5621
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: 27a873fac8bf2b53ee06780b8a348eaaa5c94e97
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53598512"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768018"
 ---
 # <a name="best-practices-for-managing-u-sql-assemblies-in-a-cicd-pipeline"></a>Práticas recomendadas para gerenciar assemblies do U-SQL em um pipeline de CI/CD
 
@@ -56,9 +56,9 @@ Siga estas etapas para criar projetos e adicionar referências.
 
     ![Ferramentas do Data Lake para Visual Studio criam assembly a partir da referência](./media/data-lake-analytics-cicd-manage-assemblies/data-lake-tools-create-assembly-from-reference.png)
 
-7. Adicione **Dependências Gerenciadas** e **Arquivos Adicionais**, se houver. Ao adicionar arquivos adicionais, a ferramenta usará o caminho relativo para garantir que encontrará os assemblies no computador local e no computador de build. 
+7. Adicione **Dependências Gerenciadas** e **Arquivos Adicionais**, se houver. Ao adicionar arquivos adicionais, a ferramenta usará o caminho relativo para garantir que encontrará os assemblies no computador local e no computador de build.
 
-**@_DeployTempDirectory** na janela do editor, na parte inferior, é uma variável predefinida que aponta a ferramenta para a pasta de saída de build. Na pasta de saída de compilação, cada assembly possui uma subpasta nomeada com o nome do assembly. Todas as DLLs e arquivos adicionais estão na subpasta. 
+**\@_DeployTempDirectory** no editor de janela na parte inferior é uma variável predefinida que aponta a ferramenta para a pasta de saída de compilação. Na pasta de saída de compilação, cada assembly possui uma subpasta nomeada com o nome do assembly. Todas as DLLs e arquivos adicionais estão na subpasta.
 
 ## <a name="build-a-u-sql-database-project"></a>Compilar um projeto de banco de dados U-SQL
 

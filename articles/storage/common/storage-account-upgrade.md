@@ -5,24 +5,23 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 02/28/2019
 ms.author: tamram
-ms.openlocfilehash: 500d5217a35cdc569964195558b6e4a2c023c614
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.openlocfilehash: d57023063fe23db9f57d52ab9cdf99e0687c1fdf
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352131"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217284"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Atualizar para uma conta de armazenamento de uso geral v2
 
 As contas de armazenamento para uso geral v2 são compatíveis com os recursos mais recentes do Armazenamento do Azure e incorporam todas as funcionalidades das contas de armazenamento de blobs e para uso geral v1. Contas de uso geral v2 são recomendadas para a maioria dos cenários de armazenamento. As contas de armazenamento para uso geral v2 têm os menores preços de capacidade por gigabyte para o Armazenamento do Azure, bem como os preços de transação competitivos no setor.
 
-A atualização para uma conta de armazenamento de uso geral v2 das suas contas de armazenamento de Blobs ou uso geral v1 é simples. Você pode atualizar usando o portal do Azure, o PowerShell ou a CLI do Azure. 
+A atualização para uma conta de armazenamento de uso geral v2 das suas contas de armazenamento de Blobs ou uso geral v1 é simples. Você pode atualizar usando o portal do Azure, o PowerShell ou a CLI do Azure.
 
-> [!NOTE]
-> A atualização sua conta de armazenamento para uma conta de uso geral v2 é gratuita.
-> A alteração da camada de acesso de armazenamento pode resultar em alterações em sua fatura. Para obter mais informações, confira a seção [Preços e cobrança](#pricing-and-billing).
+> [!IMPORTANT]
+> Atualizar uma conta de armazenamento v1 para v2 de uso geral é permanente e não pode ser desfeita.
 
 ## <a name="upgrade-using-the-azure-portal"></a>Atualizar usando o portal do Azure
 
@@ -68,8 +67,10 @@ Por padrão, uma nova conta de armazenamento é criada na camada de acesso frequ
 
 Em ambos os casos, a prioridade é estimar o custo de armazenar, acessar e operar os dados armazenados em uma conta de armazenamento de uso geral v2 e comparar isso com seus custos atuais.
 
-
 ## <a name="pricing-and-billing"></a>Preços e cobrança
+
+Atualizar uma conta de armazenamento v1 para uma conta de uso geral v2 é gratuito. No entanto, a alteração da camada de acesso de armazenamento pode resultar em alterações à sua fatura. 
+
 Todas as contas de armazenamento usam um modelo de preços para o armazenamento de blobs com base na camada de cada blob. Ao se usar uma conta de armazenamento, as seguintes considerações de cobranças são aplicáveis:
 
 * **Custos de armazenamento**: Além da quantidade de dados armazenados, o custo de armazenamento de dados varia de acordo com a camada de acesso de armazenamento. O custo por gigabyte diminui conforme a camada fica mais esporádica.

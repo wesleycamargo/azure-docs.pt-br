@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: b8bff1ecce7a50f819d00db243eb3e7868c9982e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 5ef7ccb58533161d8397ad42e70de1999908dc36
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869019"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338307"
 ---
 # <a name="keyphrase-prebuilt-entity-for-a-luis-app"></a>Entidade predefinida keyPhrase para um aplicativo LUIS
 A KeyPhrase extrai uma variedade de frases-chave de um enunciado. Não é necessário adicionar expressões que contenham keyPhrase ao aplicativo. A entidade keyPhrase tem suporte em [muitas culturas](luis-language-support.md#languages-supported) como parte dos recursos de [análise de texto](../text-analytics/overview.md). 

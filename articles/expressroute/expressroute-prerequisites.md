@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 03/20/2019
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: 2458dadb8a97deee67a6df9b00ca5390fccb2902
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: afe8d3971a51d57498e3e32b7e1cf5bf5a3263d6
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812269"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295191"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>Pré-requisitos e lista de verificação do ExpressRoute
 Para se conectar aos serviços de nuvem da Microsoft usando o ExpressRoute, você precisa verificar se os requisitos listados nas seções a seguir foram atendidos.
@@ -30,7 +30,8 @@ Para se conectar aos serviços de nuvem da Microsoft usando o ExpressRoute, voc�
 * Se seu provedor não for um parceiro de conectividade do ExpressRoute, você ainda poderá se conectar à nuvem da Microsoft por meio de um [provedor de troca de nuvem](expressroute-locations.md#connectivity-through-exchange-providers).
 
 ## <a name="network-requirements"></a>Requisitos de rede
-* **Conectividade redundante**: não há nenhum requisito de redundância de conectividade física entre você e seu provedor. A Microsoft não exige que sessões BGP redundantes sejam configuradas entre os roteadores da Microsoft e os roteadores emparelhados, mesmo quando você tiver apenas [uma conexão física com uma troca de nuvem](expressroute-faqs.md#onep2plink).
+* **Redundância em cada local de emparelhamento**: A Microsoft requer sessões BGP redundantes para ser definida entre os roteadores da Microsoft e os roteadores emparelhados em cada circuito do ExpressRoute (mesmo quando você tem apenas [uma conexão física para uma troca de nuvem](expressroute-faqs.md#onep2plink)).
+* **Redundância para recuperação de desastres**: Microsoft recomenda que você configurar pelo menos dois circuitos de ExpressRoute em diferentes locais de emparelhamento para evitar um ponto único de falha.
 * **Roteamento**: dependendo de como você se conecta ao Microsoft Cloud, você ou seu provedor precisarão configurar e gerenciar as sessões BGP para [domínios de roteamento](expressroute-circuit-peerings.md). Alguns provedores de conectividade Ethernet ou os provedores de troca de nuvem podem oferecer gerenciamento BGP como um serviço de valor agregado.
 * **NAT**: a Microsoft só aceita endereços IP públicos por meio de emparelhamento da Microsoft. Se você estiver usando endereços IP privados em sua rede local, você ou seu provedor precisará converter os endereços IP privados em endereços IP públicos [usando NAT](expressroute-nat.md).
 * **QoS**: o Skype for Business tem vários serviços (por exemplo: voz, vídeo, texto) que exigem tratamento diferenciado de QoS. Você e seu provedor devem seguir os [requisitos de QoS](expressroute-qos.md).

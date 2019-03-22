@@ -14,15 +14,15 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: microsofthelp@twilio.com
-ms.openlocfilehash: 84c37927eda65be71eb837aef2cb4968a121ee29
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.openlocfilehash: 0d055b1a78622665137a6abad18681a728ae2b30
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426886"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58010553"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-java-application-on-azure"></a>Como fazer uma chamada telefônica usando o Twilio em um aplicativo Java no Azure
-O exemplo a seguir mostra como você pode usar a Twilio para fazer uma chamada de uma página da web hospedada no Azure. O aplicativo resultante solicitará valores de chamada telefônica ao usuário, conforme mostrado na seguinte captura de tela.
+O exemplo a seguir mostra como você pode usar a Twilio para fazer uma chamada de uma página da web hospedada no Azure. O aplicativo resultante solicitará que o usuário para valores de chamada telefônica, conforme mostrado na seguinte captura de tela.
 
 ![Formulário de chamada do Azure usando a Twilio e o Java][twilio_java]
 
@@ -162,7 +162,7 @@ O código a seguir, que é chamado quando o usuário preenche o formulário most
     </body>
     </html>
 
-Além de fazer a chamada, o makecall.jsp exibe o ponto de extremidade da Twilio, a versão da API e o status da chamada. A captura de tela a seguir é um exemplo:
+Além de fazer a chamada, o makecall.jsp exibe o ponto de extremidade da Twilio, a versão da API e o status da chamada. Um exemplo é a seguinte captura de tela:
 
 ![Resposta de chamada do Azure usando a Twilio e o Java][twilio_java_response]
 
@@ -173,7 +173,7 @@ As seguintes são as etapas de alto nível para executar seu aplicativo. Os deta
 2. Modifique o **startup.cmd** para descompactar seu WAR TwilioCloud.
 3. Compile o aplicativo para o emulador de computação.
 4. Inicie a implantação no emulador de computação.
-5. Abra um navegador e acesse **http://localhost:8080/TwilioCloud/callform.jsp**.
+5. Abra um navegador e execute `http://localhost:8080/TwilioCloud/callform.jsp`.
 6. Insira os valores no formulário, clique em **Fazer esta chamada**e, em seguida, veja os resultados em makecall.jsp.
 
 Quando estiver pronto para implantar no Azure, recompile para implantação na nuvem, implante no Azure e execute http://*seu_nome_hospedado*.cloudapp.net/TwilioCloud/callform.jsp no navegador (substitua seu valor por *seu_nome_hospedado*).

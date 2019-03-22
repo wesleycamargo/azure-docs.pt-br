@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: 7e84e8e99000e9d8bd7a21d343588b1df777b56d
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 55b4cf6e621bc1e5bd3d8ba4718e5714ea652c27
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994530"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111473"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referência do desenvolvedor de C# do Azure Functions
 
@@ -50,7 +50,7 @@ Quando você compila o projeto, uma estrutura de pastas semelhante à seguinte �
  | - host.json
 ```
 
-Esse é o diretório implantado no aplicativo de funções no Azure. As extensões de associação necessárias na [versão 2.x](functions-versions.md) do tempo de execução das Funções são [adicionadas ao projeto como pacotes do NuGet](functions-triggers-bindings.md#c-class-library-with-visual-studio-2017).
+Esse é o diretório implantado no aplicativo de funções no Azure. As extensões de associação necessárias na [versão 2.x](functions-versions.md) do tempo de execução das Funções são [adicionadas ao projeto como pacotes do NuGet](./functions-bindings-register.md#c-class-library-with-visual-studio-2017).
 
 > [!IMPORTANT]
 > O processo de compilação cria um arquivo *function.json* para cada função. Esse arquivo *function.json* não deve ser editado diretamente. Você não pode alterar a configuração de associação ou desabilitar a função por meio da edição desse arquivo. Para aprender como desabilitar uma função, consulte [Como desabilitar funções](disable-function.md#functions-2x---c-class-libraries).
@@ -83,7 +83,7 @@ A assinatura do método pode conter parâmetros diferentes daquela usada com o a
 * [Associações de entrada e saída](functions-triggers-bindings.md) marcadas como tal, decorando-os com atributos.  
 * Um `ILogger` ou `TraceWriter` ([versão 1. x somente](functions-versions.md#creating-1x-apps)) parâmetro para [log](#logging).
 * Um parâmetro `CancellationToken` para [desligamento normal](#cancellation-tokens).
-* Parâmetros de [expressões de associação](functions-triggers-bindings.md#binding-expressions-and-patterns) para obter metadados de gatilho.
+* Parâmetros de [expressões de associação](./functions-bindings-expressions-patterns.md) para obter metadados de gatilho.
 
 Não importa a ordem dos parâmetros na assinatura de função. Por exemplo, você pode inserir os parâmetros de gatilho antes ou depois de outras associações e inserir o parâmetro do agente antes ou depois dos parâmetros de gatilho ou associação.
 
@@ -133,7 +133,7 @@ O processo de compilação cria um arquivo *function.json* em uma pasta de funç
 
 O objetivo desse arquivo é fornecer informações para o controlador de escala usado para [dimensionar decisões no plano de consumo](functions-scale.md#how-the-consumption-plan-works). Por esse motivo, o arquivo não tem informações de associações de entrada ou saída, apenas de gatilho.
 
-O arquivo *function.json* gerado inclui uma propriedade `configurationSource` que indica o tempo de execução a ser usado em atributos .NET para associações, em vez da configuração do *function.json*. Aqui está um exemplo:
+O arquivo *function.json* gerado inclui uma propriedade `configurationSource` que indica o tempo de execução a ser usado em atributos .NET para associações, em vez da configuração do *function.json*. Veja um exemplo:
 
 ```json
 {
@@ -173,7 +173,7 @@ O mesmo pacote é usado para a versão 1.x e 2.x do tempo de execução do Funct
 
 ```xml
 <PropertyGroup>
-  <TargetFramework>netstandard2.0</TargetFramework>
+  <TargetFramework>netcoreapp2.1</TargetFramework>
   <AzureFunctionsVersion>v2</AzureFunctionsVersion>
 </PropertyGroup>
 <ItemGroup>
@@ -205,7 +205,7 @@ Cada associação tem seus próprios tipos com suporte. Por exemplo, um atributo
 
 ## <a name="binding-to-method-return-value"></a>Associando ao valor de retorno do método
 
-Você pode usar um valor de retorno do método para uma associação de saída, aplicando o atributo ao valor de retorno do método. Para obter exemplos, consulte [Gatilhos e associações](functions-triggers-bindings.md#using-the-function-return-value). 
+Você pode usar um valor de retorno do método para uma associação de saída, aplicando o atributo ao valor de retorno do método. Para obter exemplos, consulte [Gatilhos e associações](./functions-bindings-return-value.md). 
 
 Use o valor retornado apenas se uma execução de função com êxito sempre resultar em um valor retornado a ser passado para a associação de saída. Caso contrário, use `ICollector` ou `IAsyncCollector`, conforme mostrado na seção a seguir.
 
@@ -231,7 +231,7 @@ public static class ICollectorExample
 }
 ```
 
-## <a name="logging"></a>Registro em log
+## <a name="logging"></a>Registro em Log
 
 A saída de log para logs de streaming em C#, inclue um argumento do tipo [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). É recomendável que você nomeie `log`, conforme mostrado no exemplo a seguir:  
 
@@ -373,7 +373,7 @@ public static class IBinderExample
 
 ### <a name="multiple-attribute-example"></a>Exemplo de atributo múltiplo
 
-O exemplo anterior obtém a configuração do aplicativo para a cadeia de conexão da conta de armazenamento principal do aplicativo de funções (que é `AzureWebJobsStorage`). É possível especificar uma configuração de aplicativo personalizada a ser usada para a conta de armazenamento adicionando [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) e passando a matriz de atributos para `BindAsync<T>()`. Use um parâmetro `Binder`, não `IBinder`.  Por exemplo: 
+O exemplo anterior obtém a configuração do aplicativo para a cadeia de conexão da conta de armazenamento principal do aplicativo de funções (que é `AzureWebJobsStorage`). É possível especificar uma configuração de aplicativo personalizada a ser usada para a conta de armazenamento adicionando [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) e passando a matriz de atributos para `BindAsync<T>()`. Use um parâmetro `Binder`, não `IBinder`.  Por exemplo:
 
 ```cs
 public static class IBinderExampleMultipleAttributes

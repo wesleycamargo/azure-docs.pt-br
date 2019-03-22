@@ -3,7 +3,7 @@ title: Criar soluções de recuperação de desastre – Banco de Dados SQL do A
 description: Aprenda a projetar sua solução de nuvem para recuperação de desastres escolhendo o padrão de failover correto.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-poolss
+ms.subservice: elastic-pools
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 2e1ceda45e756220bf08bc32039da2123f782f4a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 6a332ce265a4bb41a9ad3c0c3a29683187a0f0d4
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454185"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760488"
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Estratégias de recuperação de desastres para aplicativos que usam o Pool Elástico do banco de dados SQL
 

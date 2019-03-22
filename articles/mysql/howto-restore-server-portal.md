@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.openlocfilehash: e1545e830ac04000920c3881486b2add79744201
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: d76a644de8cb55da5e743e482d14946d371c3dfe
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548860"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867219"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Como fazer backup e restaurar um servidor no Banco de Dados do Azure para MySQL usando o Portal do Azure
 
@@ -61,7 +61,7 @@ As etapas a seguir restauram o exemplo de servidor para um ponto anterior:
 
 3. Preencha o formulário Restaurar com as informações necessárias:
 
-   ![Banco de Dados do Azure para MySQL - Informações de restauração ](./media/howto-restore-server-portal/3-restore.png)
+   ![Banco de Dados do Azure para MySQL - Informações de restauração](./media/howto-restore-server-portal/3-restore.png)
    - **Ponto de restauração**: Selecione o ponto no tempo que você quer restaurar.
    - **Servidor de destino**: Forneça um nome para o novo servidor.
    - **Localização**: Não é possível selecionar a região. Por padrão, é o mesmo que o servidor de origem.

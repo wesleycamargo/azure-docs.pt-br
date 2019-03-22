@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 34f994bfca8bdeaffde6732572f47aeaa86b2ac5
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: cc62a6b9f03bdd6dc8671a6cf96113a2234fc092
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818924"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247147"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Solucionar problemas do Stream Analytics do Azure usando logs de diagnóstico
 
@@ -29,7 +29,9 @@ O Stream Analytics oferece dois tipos de logs:
 * [Logs de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) (configuráveis), que fornecem informações mais avançadas sobre tudo o que acontece com um trabalho. Os logs de diagnóstico são iniciados quando o trabalho é criado e terminam quando o trabalho é excluído. Eles abrangem eventos quando o trabalho é atualizado e durante sua execução.
 
 > [!NOTE]
-> Você pode usar serviços como o Armazenamento do Azure, os Hubs de Eventos do Azure e o Azure Log Analytics para analisar dados que não estão em conformidade. Você é cobrado com base no modelo de preço desses serviços.
+> Você pode usar serviços como o armazenamento do Azure, Hubs de eventos do Azure e logs do Azure Monitor para analisar os dados não estão em conformidade. Você é cobrado com base no modelo de preço desses serviços.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="debugging-using-activity-logs"></a>Depurando com o uso de logs de atividades
 
@@ -51,11 +53,11 @@ Os logs de atividades são ativados por padrão e fornecem insights de alto nív
 
 5. Você pode realizar ações corretivas com base na mensagem de erro no JSON. Neste exemplo, será necessário adicionar verificações do valor de latitude entre -90 graus e 90 graus à consulta.
 
-6. Se a mensagem de erro nos logs de atividades não ajudar a identificar a causa raiz, habilite os logs de diagnóstico e use o Log Analytics.
+6. Se a mensagem de erro nos logs de atividade não é útil para identificar a causa raiz, habilitar logs de diagnóstico e usar os logs do Azure Monitor.
 
-## <a name="send-diagnostics-to-log-analytics"></a>Enviar o diagnóstico para o Log Analytics
+## <a name="send-diagnostics-to-azure-monitor-logs"></a>Enviar diagnósticos para logs do Azure Monitor
 
-É altamente recomendável ativar os logs de diagnóstico e enviá-los ao Log Analytics. Os logs de diagnóstico estão **desativados** por padrão. Para ativar os logs de diagnóstico, realize estas etapas:
+Ativar os logs de diagnóstico e enviá-los aos logs do Azure Monitor é altamente recomendável. Os logs de diagnóstico estão **desativados** por padrão. Para ativar os logs de diagnóstico, realize estas etapas:
 
 1.  Entre no portal do Azure e navegue até o trabalho do Stream Analytics. Em **Monitoramento**, selecione **Logs de diagnóstico**. Em seguida, selecione **ativar o diagnóstico**.
 
@@ -67,7 +69,7 @@ Os logs de atividades são ativados por padrão e fornecem insights de alto nív
 
 3. Quando o trabalho do Stream Analytics é iniciado, os logs de diagnóstico são roteados para o seu workspace do Log Analytics. Navegue até o workspace do Log Analytics e escolha **Logs** na seção **Geral**.
 
-   ![Logs do Log Analytics na seção Geral](./media/stream-analytics-job-diagnostic-logs/log-analytics-logs.png)
+   ![Logs de Monitor do Azure, na seção geral](./media/stream-analytics-job-diagnostic-logs/log-analytics-logs.png)
 
 4. Você pode [escrever sua própria consulta](../azure-monitor/log-query/get-started-portal.md) para pesquisar termos, identificar tendências, analisar padrões e fornecer insights com base nos seus dados. Por exemplo, você pode escrever uma consulta para filtrar apenas os logs de diagnóstico com a mensagem "Falha no trabalho de streaming". Os logs de diagnóstico do Azure Stream Analytics são armazenados na tabela **AzureDiagnostics**.
 
@@ -118,7 +120,7 @@ NOME | DESCRIÇÃO
 ------- | -------
 Fonte | Nome da entrada ou saída do trabalho em que ocorreu o erro.
 Mensagem | Mensagem associada ao erro.
-Tipo | Tipo de erro. Por exemplo, **DataConversionError**, **CsvParserError** ou **ServiceBusPropertyColumnMissingError**.
+Type | Tipo de erro. Por exemplo, **DataConversionError**, **CsvParserError** ou **ServiceBusPropertyColumnMissingError**.
 Dados | Contém dados que são úteis para localizar com precisão a origem do erro. Sujeito a truncamento, dependendo do tamanho.
 
 Dependendo do valor de **operationName**, os erros de dados terão o seguinte esquema:
@@ -135,7 +137,7 @@ NOME | DESCRIÇÃO
 -------- | --------
 Erro | (opcional) Informações sobre erros. Normalmente, essas são informações de exceção, se estiverem disponíveis.
 Mensagem| Mensagem de log.
-Tipo | Tipo de mensagem. É mapeado para a categorização interna de erros. Por exemplo, **JobValidationError** ou **BlobOutputAdapterInitializationFailure**.
+Type | Tipo de mensagem. É mapeado para a categorização interna de erros. Por exemplo, **JobValidationError** ou **BlobOutputAdapterInitializationFailure**.
 ID de Correlação | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) que identifica exclusivamente a execução do trabalho. Todas as entradas do log de execução desde a hora em que o trabalho é iniciado até ele ser interrompido têm o mesmo valor de **ID de Correlação**.
 
 ## <a name="next-steps"></a>Próximas etapas

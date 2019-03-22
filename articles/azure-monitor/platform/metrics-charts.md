@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: c71822f50879404ba943ef6e703364a09a80fbf3
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 576a7948d4df7957d934fb4c8888712fa94cb202
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310925"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337067"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure Monitor Metrics Explorer
 
@@ -21,7 +21,7 @@ O Azure Monitor Metrics Explorer é um componente do portal do Microsoft Azure q
 
 ## <a name="metrics-in-azure"></a>Métricas no Azure
 
-[Métricas no Azure Monitor](data-collection.md#metrics) são a série de valores medidos e as contagens coletadas e armazenadas ao longo do tempo. Há métricas padrão (ou da “plataforma”) e métricas personalizadas. As métricas padrão são fornecidas pela própria plataforma Azure. As métricas padrão refletem as estatísticas de uso e integridade dos recursos do Azure. Por outro lado, as métricas personalizadas são enviadas para o Azure por meio de seus aplicativos usando a [API do Application Insights para eventos personalizados](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). As métricas personalizadas são armazenadas nos recursos do Application Insights junto com outras métricas específicas ao aplicativo.
+[Métricas no Azure Monitor](data-collection.md#metrics) são a série de valores medidos e as contagens coletadas e armazenadas ao longo do tempo. Há métricas padrão (ou da “plataforma”) e métricas personalizadas. As métricas padrão são fornecidas pela própria plataforma Azure. As métricas padrão refletem as estatísticas de uso e integridade dos recursos do Azure. Enquanto as métricas personalizadas são enviadas para o Azure por seus aplicativos usando o [API do Application Insights para métricas e eventos personalizados](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics), [Windows Azure extensão WAD (Diagnóstico)](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview), ou pelo [Azure Monitorar REST API](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api).
 
 ## <a name="create-a-new-chart"></a>Criar um gráfico
 
@@ -76,16 +76,16 @@ Aplique filtros aos gráficos que mostram métricas com dimensões. Por exemplo,
 
 5. Repita as etapas 1 a 4 para aplicar vários filtros aos mesmos gráficos.
 
-## <a name="segment-a-chart"></a>Segmentar um gráfico
+## <a name="apply-splitting-to-a-chart"></a>Aplicar a divisão de um gráfico
 
 Divida uma métrica pela dimensão para visualizar uma comparação de diferentes segmentos da métrica em relação um ao outro e identificar os segmentos distantes de uma dimensão. 
 
-### <a name="to-segment-a-chart"></a>Para segmentar um gráfico
+### <a name="to-apply-splitting"></a>Para aplicar a divisão
 
 1. Clique em **Aplica-se a divisão** acima do gráfico.
  
    > [!NOTE]
-   > Você pode ter vários filtros, mas apenas um valor de divisão/segmaentação em um único gráfico.
+   > A divisão não pode ser usada com gráficos que têm várias métricas. Além disso, você pode ter vários filtros, mas apenas uma dimensão de divisão, aplicado a um único gráfico.
 
 2. Escolha uma dimensão na qual você deseja segmentar o gráfico:
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/07/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: fce7beeda352b9add3603fb74c558ad1b64fac2a
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 22b070e6d70208057c85ad6a2322cc440d12a0fa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895509"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58008217"
 ---
 # <a name="azure-data-lake-storage-gen2-security-guide"></a>Guia de segurança do Azure Data Lake Storage Gen2
 
@@ -88,7 +88,7 @@ Veja os principais pontos que você precisa saber sobre como usar o RBAC para ac
 
 As chaves da conta de armazenamento são cadeias de caracteres de 512 bits criadas pelo Azure que, com o nome da conta de armazenamento, podem ser usadas para acessar os objetos de dados armazenados na conta de armazenamento, por exemplo, blobs, entidades em uma tabela, mensagens na fila e arquivos em um compartilhamento de arquivos do Azure. O controle do acesso às chaves da conta de armazenamento controla o acesso ao plano de dados dessa conta de armazenamento.
 
-Cada conta de armazenamento tem duas chaves, conhecidas como "Chave 1" e "Chave 2" no [Portal do Azure](http://portal.azure.com/) e nos cmdlets do PowerShell. Elas podem ser regeneradas manualmente usando um dos vários métodos, incluindo, entre outros, o [Portal do Azure](https://portal.azure.com/), o PowerShell, a CLI do Azure ou, de modo programático, a Biblioteca de Cliente de Armazenamento .NET ou a API REST dos Serviços de Armazenamento do Microsoft Azure.
+Cada conta de armazenamento tem duas chaves, conhecidas como "Chave 1" e "Chave 2" no [Portal do Azure](https://portal.azure.com/) e nos cmdlets do PowerShell. Elas podem ser regeneradas manualmente usando um dos vários métodos, incluindo, entre outros, o [Portal do Azure](https://portal.azure.com/), o PowerShell, a CLI do Azure ou, de modo programático, a Biblioteca de Cliente de Armazenamento .NET ou a API REST dos Serviços de Armazenamento do Microsoft Azure.
 
 Há vários motivos para regenerar suas chaves da conta de armazenamento.
 

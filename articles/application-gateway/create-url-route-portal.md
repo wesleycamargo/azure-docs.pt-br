@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: victorh
-ms.openlocfilehash: 227e09ad087f1ac06f0dbb5b731c68f7c0a6980e
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 4d8c389055b81c355de6e1c9120230e1f04443cf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159767"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087050"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Criar um gateway de aplicativo com regras de roteamentos com base no caminho usando o portal do Azure
 
@@ -49,20 +49,20 @@ Uma rede virtual é necessária para a comunicação entre os recursos que você
 2. Selecione **Rede** e depois **Gateway de Aplicativo** na lista em destaque.
 3. Insira esses valores para o gateway de aplicativo:
 
-    - *myAppGateway* - para o nome do gateway de aplicativo.
-    - *myResourceGroupAG* - para o novo grupo de recursos.
+   - *myAppGateway* - para o nome do gateway de aplicativo.
+   - *myResourceGroupAG* - para o novo grupo de recursos.
 
-    ![Criar novo gateway de aplicativo](./media/create-url-route-portal/application-gateway-create.png)
+     ![Criar novo gateway de aplicativo](./media/create-url-route-portal/application-gateway-create.png)
 
 4. Aceite os valores padrão para as outras configurações e, em seguida, clique em **OK**.
 5. Clique em **Escolher uma rede virtual**, clique em **Criar novo** e insira esses valores para a rede virtual:
 
-    - *myVNet* – para o nome da rede virtual.
-    - *10.0.0.0/16* – para o espaço de endereço da rede virtual.
-    - *myAGSubnet* – para o nome da sub-rede.
-    - *10.0.0.0/24* - para o espaço de endereço da sub-rede.
+   - *myVNet* – para o nome da rede virtual.
+   - *10.0.0.0/16* – para o espaço de endereço da rede virtual.
+   - *myAGSubnet* – para o nome da sub-rede.
+   - *10.0.0.0/24* - para o espaço de endereço da sub-rede.
 
-    ![Criar rede virtual](./media/create-url-route-portal/application-gateway-vnet.png)
+     ![Criar rede virtual](./media/create-url-route-portal/application-gateway-vnet.png)
 
 6. Clique em **OK** para criar a rede virtual e a sub-rede.
 7. Clique em **Escolher um endereço IP público**, clique em **Criar novo** e digite o nome do endereço IP público. Neste exemplo, o endereço IP público é denominado *myAGPublicIPAddress*. Aceite os valores padrão para as outras configurações e, em seguida, clique em **OK**.
@@ -99,6 +99,8 @@ Neste exemplo, você criará três máquinas virtuais a serem usadas como servid
 
 ### <a name="install-iis"></a>Instalar o IIS
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 1. Abra o shell interativo e verifique se ele está definido como **PowerShell**.
 
     ![Instalar a extensão personalizada](./media/create-url-route-portal/application-gateway-extension.png)
@@ -107,7 +109,7 @@ Neste exemplo, você criará três máquinas virtuais a serem usadas como servid
 
     ```azurepowershell-interactive
     $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `
       -ExtensionName IIS `
@@ -118,7 +120,7 @@ Neste exemplo, você criará três máquinas virtuais a serem usadas como servid
       -Settings $publicSettings
     ```
 
-3. Crie duas máquinas virtuais mais e instale o IIS usando as etapas que você acabou de concluir. Insira os nomes *myVM2* e *myVM3* para os nomes e os valores de VMName em Set-AzureRmVMExtension.
+3. Crie duas máquinas virtuais mais e instale o IIS usando as etapas que você acabou de concluir. Insira os nomes dos *myVM2* e *myVM3* para os nomes e os valores de VMName em Set-AzVMExtension.
 
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>Criar pools de back-end com as máquinas virtuais
 

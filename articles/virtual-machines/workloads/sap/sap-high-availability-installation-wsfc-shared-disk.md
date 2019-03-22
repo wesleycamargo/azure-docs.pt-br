@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d5d52653d68c6ebfca7e35a134da263eee99fd3e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 0c87aca6c480d9ebc4add7943a341fe94d640a4c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657070"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58001301"
 ---
 # <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>Instalar a alta disponibilidade do SAP NetWeaver em um cluster de failover do Windows e em um disco compartilhado para uma instância do SAP ASCS/SCS no Azure
 
@@ -41,7 +41,7 @@ ms.locfileid: "34657070"
 
 [deployment-guide]:deployment-guide.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 
@@ -149,11 +149,11 @@ ms.locfileid: "34657070"
 
 Este artigo descreve como instalar e configurar um sistema SAP de alta disponibilidade no Azure usando um cluster de failover do Windows Server e o disco compartilhado de cluster para clustering de uma instância do SAP ASCS/SCS.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar a instalação, analise estes documentos:
 
-* [Clustering de uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando o disco compartilhado de cluster no Azure][sap-high-availability-guide-wsfc-shared-disk]
+* [Guia de arquitetura: agrupar uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando um disco compartilhado de cluster][sap-high-availability-guide-wsfc-shared-disk]
 
 * [Preparar a infraestrutura do Azure para alta disponibilidade do SAP usando o cluster de failover do Windows e o disco compartilhado para a instância SAP ASCS/SCS][sap-high-availability-infrastructure-wsfc-shared-disk]
 
@@ -183,35 +183,35 @@ Instalar o SAP com uma instância ASCS/SCS de alta disponibilidade envolve as se
 
 ### <a name="a97ad604-9094-44fe-a364-f89cb39bf097"></a>Criar um nome de host virtual para a instância clusterizada do SAP ASCS/SCS
 
-1.  No Gerenciador de DNS do Windows, crie uma entrada DNS para o nome de host virtual da instância ASCS/SCS.
+1. No Gerenciador de DNS do Windows, crie uma entrada DNS para o nome de host virtual da instância ASCS/SCS.
 
-  > [!IMPORTANT]
-  > O endereço IP que você atribui ao nome de host virtual da instância ASCS/SCS deve ser o mesmo que o endereço IP que você atribuiu ao Azure Load Balancer (\<SID\>-lb-ascs).  
-  >
-  >
+   > [!IMPORTANT]
+   > O endereço IP que você atribui ao nome de host virtual da instância ASCS/SCS deve ser o mesmo que o endereço IP que você atribuiu ao Azure Load Balancer (\<SID\>-lb-ascs).  
+   >
+   >
 
-  O endereço IP do nome de host virtual do SAP ASCS/SCS (pr1-ascs sap) é o mesmo que o endereço IP do Azure Load Balancer (pr1-lb-ascs).
+   O endereço IP do nome de host virtual do SAP ASCS/SCS (pr1-ascs sap) é o mesmo que o endereço IP do Azure Load Balancer (pr1-lb-ascs).
 
-  ![Figura 1: Definir a entrada DNS para o nome virtual do cluster do SAP ASCS/SCS e endereço TCP/IP][sap-ha-guide-figure-3046]
+   ![Figura 1: Definir a entrada DNS para o nome virtual do cluster do SAP ASCS/SCS e endereço TCP/IP][sap-ha-guide-figure-3046]
 
-  _**Figura 1:** Definir a entrada DNS para o nome virtual do cluster do SAP ASCS/SCS e endereço TCP/IP_
+   _**Figura 1:** Definir a entrada DNS para o nome virtual do cluster do SAP ASCS/SCS e endereço TCP/IP_
 
-2.  Para definir o endereço IP atribuído ao nome de host virtual, selecione **Gerenciador de DNS** > **Domínio**.
+2. Para definir o endereço IP atribuído ao nome de host virtual, selecione **Gerenciador de DNS** > **Domínio**.
 
-  ![Figura 2: Novo nome virtual e endereço TCP/IP para a configuração de cluster do SAP ASCS/SCS][sap-ha-guide-figure-3047]
+   ![Figura 2: Novo nome virtual e endereço TCP/IP para a configuração de cluster do SAP ASCS/SCS][sap-ha-guide-figure-3047]
 
-  _**Figura 2:** Novo nome virtual e endereço TCP/IP para a configuração de cluster do SAP ASCS/SCS_
+   _**Figura 2:** Novo nome virtual e endereço TCP/IP para a configuração de cluster do SAP ASCS/SCS_
 
 ### <a name="eb5af918-b42f-4803-bb50-eff41f84b0b0"></a> Instalar o primeiro nó do cluster do SAP
 
-1.  Execute a primeira opção do nó de cluster no nó A de cluster, por exemplo, no host pr1-ascs-0*.
-2.  Para manter as portas padrão para o balanceador interno de carga do Azure, escolha:
+1. Execute a primeira opção do nó de cluster no nó A de cluster, por exemplo, no host pr1-ascs-0*.
+2. Para manter as portas padrão para o balanceador interno de carga do Azure, escolha:
 
-  * **Sistema ABAP**: número da instância **ASCS** **00**
-  * **Sistema Java**: número da instância **SCS** **01**
-  * **Sistema ABAP + Java**: número da instância **ASCS** **00** e número da instância **SCS** **01**
+   * **Sistema ABAP**: **ASCS** com número de instância **00**
+   * **Sistema Java**: **SCS** com número de instância **01**
+   * **Sistema ABAP+Java**: **ASCS** com número de instância **00** e **SCS** com número de instância **01**
 
-  Para usar números de instância diferentes de 00 para a instância do ASCS ABAP, e 01 para a instância de Java SCS, primeiro, altere as regras de balanceamento de carga padrão do balanceador de carga interno do Azure. Para saber mais, confira [Alterar as regras do balanceamento de carga padrão do ASCS/SCS para o balanceador de carga interno do Azure][sap-ha-guide-8.9].
+   Para usar números de instância diferentes de 00 para a instância do ASCS ABAP, e 01 para a instância de Java SCS, primeiro, altere as regras de balanceamento de carga padrão do balanceador de carga interno do Azure. Para saber mais, confira [Alterar as regras do balanceamento de carga padrão do ASCS/SCS para o balanceador de carga interno do Azure][sap-ha-guide-8.9].
 
 As próximas tarefas não são descritas na documentação de instalação padrão do SAP.
 
@@ -226,20 +226,20 @@ Primeiro, adicione um novo parâmetro de perfil. O parâmetro de perfil impede c
 
 Para modificar o perfil SAP da instância do ASCS/SCS:
 
-1.  Adicione este parâmetro de perfil ao perfil da instância do SAP ASCS/SCS:
+1. Adicione este parâmetro de perfil ao perfil da instância do SAP ASCS/SCS:
 
-  ```
-  enque/encni/set_so_keepalive = true
-  ```
-  Em nosso exemplo, o caminho é:
+   ```
+   enque/encni/set_so_keepalive = true
+   ```
+   Em nosso exemplo, o caminho é:
 
-  `<ShareDisk>:\usr\sap\PR1\SYS\profile\PR1_ASCS00_pr1-ascs-sap`
+   `<ShareDisk>:\usr\sap\PR1\SYS\profile\PR1_ASCS00_pr1-ascs-sap`
 
-  Por exemplo, para o perfil da instância do SAP SCS e o caminho correspondente:
+   Por exemplo, para o perfil da instância do SAP SCS e o caminho correspondente:
 
-  `<ShareDisk>:\usr\sap\PR1\SYS\profile\PR1_SCS01_pr1-ascs-sap`
+   `<ShareDisk>:\usr\sap\PR1\SYS\profile\PR1_SCS01_pr1-ascs-sap`
 
-2.  Para aplicar as alterações, reinicie a instância SAP ASCS/SCS.
+2. Para aplicar as alterações, reinicie a instância SAP ASCS/SCS.
 
 ### <a name="10822f4f-32e7-4871-b63a-9b86c76ce761"></a> Adicionar uma porta de investigação
 
@@ -249,97 +249,97 @@ Use a funcionalidade de investigação do balanceador interno de carga para faze
 
 Para adicionar uma porta de investigação:
 
-1.  Verifique o valor de **ProbePort** atual executando o seguinte comando do PowerShell:
+1. Verifique o valor de **ProbePort** atual executando o seguinte comando do PowerShell:
 
-  ```PowerShell
-  $SAPSID = "PR1"     # SAP <SID>
+   ```PowerShell
+   $SAPSID = "PR1"     # SAP <SID>
 
-  $SAPNetworkIPClusterName = "SAP $SAPSID IP"
-  Get-ClusterResource $SAPNetworkIPClusterName | Get-ClusterParameter
-  ```
+   $SAPNetworkIPClusterName = "SAP $SAPSID IP"
+   Get-ClusterResource $SAPNetworkIPClusterName | Get-ClusterParameter
+   ```
 
    Execute o comando dentro de uma das máquinas virtuais na configuração do cluster.
 
-2.  Defina uma porta de investigação. O número da porta de investigação padrão é 0. Em nosso exemplo, usamos a porta de investigação 62000.
+2. Defina uma porta de investigação. O número da porta de investigação padrão é 0. Em nosso exemplo, usamos a porta de investigação 62000.
 
-  ![Figura 3: A porta de investigação da configuração de cluster é 0 por padrão][sap-ha-guide-figure-3048]
+   ![Figura 3: A porta de investigação da configuração de cluster é 0 por padrão][sap-ha-guide-figure-3048]
 
-  _**Figura 3:** a porta de investigação da configuração de cluster padrão é 0_
+   _**Figura 3:** A porta de investigação da configuração de cluster padrão é 0_
 
-  O número da porta é definido nos modelos do Azure Resource Manager para SAP. Você pode atribuir o número da porta no PowerShell.
+   O número da porta é definido nos modelos do Azure Resource Manager para SAP. Você pode atribuir o número da porta no PowerShell.
 
-  Para definir um novo valor de ProbePort para o recurso de cluster SAP \<SID\> IP, execute o seguinte script do PowerShell para atualizar as variáveis do PowerShell para o seu ambiente:
+   Para definir um novo valor de ProbePort para o recurso de cluster SAP \<SID\> IP, execute o seguinte script do PowerShell para atualizar as variáveis do PowerShell para o seu ambiente:
 
-  ```PowerShell
-  $SAPSID = "PR1"      # SAP <SID>
-  $ProbePort = 62000   # ProbePort of the Azure internal load balancer
+   ```PowerShell
+   $SAPSID = "PR1"      # SAP <SID>
+   $ProbePort = 62000   # ProbePort of the Azure internal load balancer
 
-  Clear-Host
-  $SAPClusterRoleName = "SAP $SAPSID"
-  $SAPIPresourceName = "SAP $SAPSID IP"
-  $SAPIPResourceClusterParameters =  Get-ClusterResource $SAPIPresourceName | Get-ClusterParameter
-  $IPAddress = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "Address" }).Value
-  $NetworkName = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "Network" }).Value
-  $SubnetMask = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "SubnetMask" }).Value
-  $OverrideAddressMatch = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "OverrideAddressMatch" }).Value
-  $EnableDhcp = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "EnableDhcp" }).Value
-  $OldProbePort = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "ProbePort" }).Value
+   Clear-Host
+   $SAPClusterRoleName = "SAP $SAPSID"
+   $SAPIPresourceName = "SAP $SAPSID IP"
+   $SAPIPResourceClusterParameters =  Get-ClusterResource $SAPIPresourceName | Get-ClusterParameter
+   $IPAddress = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "Address" }).Value
+   $NetworkName = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "Network" }).Value
+   $SubnetMask = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "SubnetMask" }).Value
+   $OverrideAddressMatch = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "OverrideAddressMatch" }).Value
+   $EnableDhcp = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "EnableDhcp" }).Value
+   $OldProbePort = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "ProbePort" }).Value
 
-  $var = Get-ClusterResource | Where-Object {  $_.name -eq $SAPIPresourceName  }
+   $var = Get-ClusterResource | Where-Object {  $_.name -eq $SAPIPresourceName  }
 
-  Write-Host "Current configuration parameters for SAP IP cluster resource '$SAPIPresourceName' are:" -ForegroundColor Cyan
-  Get-ClusterResource -Name $SAPIPresourceName | Get-ClusterParameter
+   Write-Host "Current configuration parameters for SAP IP cluster resource '$SAPIPresourceName' are:" -ForegroundColor Cyan
+   Get-ClusterResource -Name $SAPIPresourceName | Get-ClusterParameter
 
-  Write-Host
-  Write-Host "Current probe port property of the SAP cluster resource '$SAPIPresourceName' is '$OldProbePort'." -ForegroundColor Cyan
-  Write-Host
-  Write-Host "Setting the new probe port property of the SAP cluster resource '$SAPIPresourceName' to '$ProbePort' ..." -ForegroundColor Cyan
-  Write-Host
+   Write-Host
+   Write-Host "Current probe port property of the SAP cluster resource '$SAPIPresourceName' is '$OldProbePort'." -ForegroundColor Cyan
+   Write-Host
+   Write-Host "Setting the new probe port property of the SAP cluster resource '$SAPIPresourceName' to '$ProbePort' ..." -ForegroundColor Cyan
+   Write-Host
 
-  $var | Set-ClusterParameter -Multiple @{"Address"=$IPAddress;"ProbePort"=$ProbePort;"Subnetmask"=$SubnetMask;"Network"=$NetworkName;"OverrideAddressMatch"=$OverrideAddressMatch;"EnableDhcp"=$EnableDhcp}
+   $var | Set-ClusterParameter -Multiple @{"Address"=$IPAddress;"ProbePort"=$ProbePort;"Subnetmask"=$SubnetMask;"Network"=$NetworkName;"OverrideAddressMatch"=$OverrideAddressMatch;"EnableDhcp"=$EnableDhcp}
 
-  Write-Host
+   Write-Host
 
-  $ActivateChanges = Read-Host "Do you want to take restart SAP cluster role '$SAPClusterRoleName', to activate the changes (yes/no)?"
+   $ActivateChanges = Read-Host "Do you want to take restart SAP cluster role '$SAPClusterRoleName', to activate the changes (yes/no)?"
 
-  if($ActivateChanges -eq "yes"){
-  Write-Host
-  Write-Host "Activating changes..." -ForegroundColor Cyan
+   if($ActivateChanges -eq "yes"){
+   Write-Host
+   Write-Host "Activating changes..." -ForegroundColor Cyan
 
-  Write-Host
-  write-host "Taking SAP cluster IP resource '$SAPIPresourceName' offline ..." -ForegroundColor Cyan
-  Stop-ClusterResource -Name $SAPIPresourceName
-  sleep 5
+   Write-Host
+   write-host "Taking SAP cluster IP resource '$SAPIPresourceName' offline ..." -ForegroundColor Cyan
+   Stop-ClusterResource -Name $SAPIPresourceName
+   sleep 5
 
-  Write-Host "Starting SAP cluster role '$SAPClusterRoleName' ..." -ForegroundColor Cyan
-  Start-ClusterGroup -Name $SAPClusterRoleName
+   Write-Host "Starting SAP cluster role '$SAPClusterRoleName' ..." -ForegroundColor Cyan
+   Start-ClusterGroup -Name $SAPClusterRoleName
 
-  Write-Host "New ProbePort parameter is active." -ForegroundColor Green
-  Write-Host
+   Write-Host "New ProbePort parameter is active." -ForegroundColor Green
+   Write-Host
 
-  Write-Host "New configuration parameters for SAP IP cluster resource '$SAPIPresourceName':" -ForegroundColor Cyan
-  Write-Host
-  Get-ClusterResource -Name $SAPIPresourceName | Get-ClusterParameter
-  }else
-  {
-  Write-Host "Changes are not activated."
-  }
-  ```
+   Write-Host "New configuration parameters for SAP IP cluster resource '$SAPIPresourceName':" -ForegroundColor Cyan
+   Write-Host
+   Get-ClusterResource -Name $SAPIPresourceName | Get-ClusterParameter
+   }else
+   {
+   Write-Host "Changes are not activated."
+   }
+   ```
 
-  Depois de colocar a função de cluster SAP \<SID\> online, verifique se **ProbePort** está definido como o novo valor.
+   Depois de colocar a função de cluster SAP \<SID\> online, verifique se **ProbePort** está definido como o novo valor.
 
-  ```PowerShell
-  $SAPSID = "PR1"     # SAP <SID>
+   ```PowerShell
+   $SAPSID = "PR1"     # SAP <SID>
 
-  $SAPNetworkIPClusterName = "SAP $SAPSID IP"
-  Get-ClusterResource $SAPNetworkIPClusterName | Get-ClusterParameter
+   $SAPNetworkIPClusterName = "SAP $SAPSID IP"
+   Get-ClusterResource $SAPNetworkIPClusterName | Get-ClusterParameter
 
-  ```
-  Depois que o script é executado, será solicitado que você reinicie o grupo de clusters do SAP para ativar as alterações.
+   ```
+   Depois que o script é executado, será solicitado que você reinicie o grupo de clusters do SAP para ativar as alterações.
 
-  ![Figura 4: Investigar a porta de cluster depois de definir o novo valor][sap-ha-guide-figure-3049]
+   ![Figura 4: Investigar a porta de cluster depois de definir o novo valor][sap-ha-guide-figure-3049]
 
-  _**Figura 4:** Investigar a porta de cluster depois de definir o novo valor_
+   _**Figura 4:** Investigar a porta de cluster depois de definir o novo valor_
 
 ### <a name="4498c707-86c0-4cde-9c69-058a7ab8c3ac"></a> Abrir a porta de investigação do Firewall do Windows
 
@@ -389,41 +389,41 @@ Instale um AAS (Servidor de Aplicativos Adicional) SAP em todas as máquinas vir
 
 O grupo de clusters SAP PR1 está em execução no nó A do cluster. Por exemplo, em pr1-ascs-0. Atribua a unidade de disco compartilhado S, que é parte do grupo de cluster SAP PR1, ao cluster A do nó. A instância ASCS/SCS também usa a unidade de disco S. 
 
-![Figura 6: Gerenciador de Cluster de Failover: o grupo de clusters SAP \<SID\> está em execução no nó A do cluster][sap-ha-guide-figure-5000]
+![Figura 6: Gerenciador de Cluster de Failover: O SAP \<SID\> grupo de cluster está em execução no nó A do cluster][sap-ha-guide-figure-5000]
 
-_**Figura 6:** Gerenciador de Cluster de Failover: o grupo de clusters SAP \<SID\> está em execução no nó A do cluster_
+_**Figura 6:** Gerenciador de Cluster de Failover: O SAP \<SID\> grupo de cluster está em execução no nó A do cluster_
 
 Na ferramenta de Gerenciamento e Configuração do DataKeeper SIOS, você pode ver que os dados do disco compartilhado são replicados de modo síncrono da unidade do volume de origem S em um nó A de cluster para a unidade do volume de destino S no nó B de cluster. Por exemplo, é replicado de pr1-ascs-0 [10.0.0.40] a pr1-ascs-1 [10.0.0.41].
 
-![Figura 7: No SIOS DataKeeper, replique o volume local do nó A do cluster para o nó B de cluster][sap-ha-guide-figure-5001]
+![Figura 7: No SIOS DataKeeper, replique o volume local do nó de cluster A para o nó de cluster B][sap-ha-guide-figure-5001]
 
-_**Figura 7:** No SIOS DataKeeper, replique o volume local do nó A do cluster para o nó B de cluster_
+_**Figura 7:** No SIOS DataKeeper, replique o volume local do nó de cluster A para o nó de cluster B_
 
 ### <a name="5e959fa9-8fcd-49e5-a12c-37f6ba07b916"></a> Failover do nó A para o nó B
 
-1.  Você pode usar estas opções para iniciar um failover do grupo de clusters \<SID\> do SAP do nó A para o nó B de cluster:
-  - Gerenciador de Cluster de Failover  
-  - PowerShell de Cluster de Failover
+1. Você pode usar estas opções para iniciar um failover do grupo de clusters \<SID\> do SAP do nó A para o nó B de cluster:
+   - Gerenciador de Cluster de Failover  
+   - PowerShell de Cluster de Failover
 
-  ```PowerShell
-  $SAPSID = "PR1"     # SAP <SID>
+   ```PowerShell
+   $SAPSID = "PR1"     # SAP <SID>
 
-  $SAPClusterGroup = "SAP $SAPSID"
-  Move-ClusterGroup -Name $SAPClusterGroup
+   $SAPClusterGroup = "SAP $SAPSID"
+   Move-ClusterGroup -Name $SAPClusterGroup
 
-  ```
-2.  Reinicie o nó A do cluster no sistema operacional Windows convidado. Isso iniciará um failover automático do grupo de clusters SAP \<SID\> do nó A para o nó B.  
-3.  Reinicie o nó A do cluster no Portal do Azure. Isso iniciará um failover automático do grupo de clusters SAP \<SID\> do nó A para o nó B.  
-4.  Reinicie o nó A do cluster usando o Azure PowerShell. Isso iniciará um failover automático do grupo de clusters SAP \<SID\> do nó A para o nó B.
+   ```
+2. Reinicie o nó A do cluster no sistema operacional Windows convidado. Isso iniciará um failover automático do grupo de clusters SAP \<SID\> do nó A para o nó B.  
+3. Reinicie o nó A do cluster no Portal do Azure. Isso iniciará um failover automático do grupo de clusters SAP \<SID\> do nó A para o nó B.  
+4. Reinicie o nó A do cluster usando o Azure PowerShell. Isso iniciará um failover automático do grupo de clusters SAP \<SID\> do nó A para o nó B.
 
-  Após o failover, o grupo de clusters SAP \<SID\> está em execução no nó de cluster B. Por exemplo, em pr1-ascs-1.
+   Após o failover, o grupo de clusters SAP \<SID\> está em execução no nó de cluster B. Por exemplo, em pr1-ascs-1.
 
-  ![Figura 8: No Gerenciador de Cluster de Failover, o grupo de clusters SAP \<SID\> está em execução no nó B de cluster][sap-ha-guide-figure-5002]
+   ![Figura 8: No Gerenciador de Cluster de Failover, o SAP \<SID\> grupo de cluster está em execução no nó B do cluster][sap-ha-guide-figure-5002]
 
-  _**Figura 8**: No Gerenciador de Cluster de Failover, o grupo de clusters SAP \<SID\> está em execução no nó B de cluster_
+   _**Figura 8**: No Gerenciador de Cluster de Failover, o SAP \<SID\> grupo de cluster está em execução no nó B do cluster_
 
-  O disco compartilhado agora é montado no nó de cluster B. O SIOS DataKeeper está replicando dados da unidade do volume de origem S no nó de cluster B para a unidade do volume de destino S no nó de cluster A. Por exemplo, ele está replicando pr1-ascs-1 [10.0.0.41] a pr1-ascs-0 [10.0.0.40].
+   O disco compartilhado agora é montado no nó de cluster B. O SIOS DataKeeper está replicando dados da unidade do volume de origem S no nó de cluster B para a unidade do volume de destino S no nó de cluster A. Por exemplo, ele está replicando pr1-ascs-1 [10.0.0.41] a pr1-ascs-0 [10.0.0.40].
 
-  ![Figura 9: o SIOS DataKeeper replica o volume local do nó B de cluster para o nó A de cluster][sap-ha-guide-figure-5003]
+   ![Figura 9: O SIOS DataKeeper replica o volume local do nó de cluster B para o nó de cluster A][sap-ha-guide-figure-5003]
 
-  _**Figura 9:** o SIOS DataKeeper replica o volume local do nó B de cluster para o nó A de cluster_
+   _**Figura 9:** O SIOS DataKeeper replica o volume local do nó de cluster B para o nó de cluster A_

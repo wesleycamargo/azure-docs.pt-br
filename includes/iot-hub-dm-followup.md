@@ -5,15 +5,15 @@ services: iot-hub
 ms.service: iot-hub
 author: dominicbetts
 ms.topic: include
-ms.date: 05/17/2018
+ms.date: 02/17/2019
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 3cdfa74c5f124e57b125399e39b7981b1dfb6d09
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
-ms.translationtype: HT
+ms.openlocfilehash: 69fdc6cf678107ef64ea1fe7b819738fd4a4ff4f
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43100226"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56741080"
 ---
 ## <a name="customize-and-extend-the-device-management-actions"></a>Personalizar e estender as ações de gerenciamento do dispositivo
 
@@ -27,10 +27,6 @@ Normalmente, você pode configurar os dispositivos para executar ações em um h
 
 Neste tutorial, você usou um método direto para disparar uma reinicialização remota em um dispositivo. Você usou as propriedades relatadas para relatar a hora da última reinicialização do dispositivo e consultou o dispositivo gêmeo para descobrir a hora da última reinicialização do dispositivo na nuvem.
 
-Para continuar com a introdução ao Hub IoT e aos padrões de gerenciamento de dispositivo como remoto por meio da atualização de firmware de ar, consulte:
+Para continuar a introdução ao IoT Hub e padrões de gerenciamento de dispositivo como remoto sobre a atualização de firmware de ar, consulte [como fazer uma atualização de firmware](../articles/iot-hub/tutorial-firmware-update.md)
 
-[Tutorial: Como realizar uma atualização de firmware](../articles/iot-hub/tutorial-firmware-update.md)
-
-Para saber como estender sua solução de IoT e agendar chamadas de método em vários dispositivos, veja o tutorial [Agendar e difundir trabalhos](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md).
-
-Para continuar a introdução ao Hub IoT, veja [Introdução ao IoT Edge](../articles/iot-edge/tutorial-simulate-device-linux.md).
+Para saber como estender sua solução e agendar chamadas de método em vários dispositivos de IoT, consulte [agendar e difundir trabalhos](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md).

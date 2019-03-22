@@ -1,5 +1,5 @@
 ---
-title: 'Python: operações de gerenciamento de conta no Azure Data Lake Storage Gen1 | Microsoft Docs'
+title: 'Python: Operações de gerenciamento no Azure Data Lake armazenamento Gen1 de conta | Microsoft Docs'
 description: Saiba como usar o SDK do Python para trabalhar com as operações de gerenciamento de conta do Azure Data Lake Storage Gen1.
 services: data-lake-store
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 0cc5b101e1afb6ea648963188887cf43b65a5afa
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
-ms.translationtype: HT
+ms.openlocfilehash: cc384e9f392aa88342c5b8bd97963bed6d7ee814
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124942"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533309"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-python"></a>Operações de gerenciamento de conta no Azure Data Lake Storage Gen1 usando Python
 > [!div class="op_single_selector"]
@@ -35,15 +35,15 @@ Saiba como usar o SDK do Python do Azure Data Lake Storage Gen1 para executar op
 
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Um grupo de recursos do Azure**. Para obter instruções, veja [Criar um grupo de recursos do Azure](../azure-resource-manager/resource-group-portal.md).
+* **Um grupo de recursos do Azure**. Para obter instruções, veja [Criar um grupo de recursos do Azure](../azure-resource-manager/manage-resource-groups-portal.md).
 
 ## <a name="install-the-modules"></a>Instalar os módulos
 
-Para trabalhar com Data Lake Storage Gen1 usando Python, é necessário instalar três módulos.
+Para trabalhar com o Data Lake Storage Gen1 usando o Python, você precisa instalar três módulos.
 
 * O módulo `azure-mgmt-resource`, que inclui módulos do Azure para o Active Directory etc.
 * O módulo `azure-mgmt-datalake-store`, que inclui as operações de gerenciamento de conta do Azure Data Lake Storage Gen1. Para obter mais informações sobre esse módulo, consulte [Referência do módulo de gerenciamento do Azure Data Lake Storage Gen1](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python).
-* O módulo `azure-datalake-store`, que inclui as operações do sistema de arquivos do Azure Data Lake Storage Gen1. Para obter mais informações sobre esse módulo, consulte [referência do módulo filesystem azure-datalake-store](http://azure-datalake-store.readthedocs.io/en/latest/).
+* O módulo `azure-datalake-store`, que inclui as operações do sistema de arquivos do Azure Data Lake Storage Gen1. Para obter mais informações sobre esse módulo, consulte [referência do módulo filesystem azure-datalake-store](https://azure-datalake-store.readthedocs.io/en/latest/).
 
 Use os comandos a seguir para instalar os módulos.
 
@@ -95,7 +95,7 @@ Nesta seção, falamos sobre as diferentes maneiras de autenticação com o Azur
 
 ## <a name="create-client-and-data-lake-storage-gen1-account"></a>Criar cliente e conta do Data Lake Storage Gen1
 
-O trecho de código a seguir primeiro cria o cliente da conta do Data Lake Storage Gen1. Ele usa o objeto cliente para criar uma conta do Data Lake Storage Gen1. Finalmente, o trecho de código cria um objeto de cliente do sistema de arquivos.
+O trecho de código a seguir primeiro cria o cliente da conta do Data Lake Storage Gen1. Ele usa o objeto cliente para criar uma conta do Data Lake Storage Gen1. Finalmente, o snippet de código cria um objeto de cliente do sistema de arquivos.
 
     ## Declare variables
     subscriptionId = 'FILL-IN-HERE'
@@ -135,5 +135,5 @@ O trecho de código a seguir primeiro cria o cliente da conta do Data Lake Stora
 
 ## <a name="see-also"></a>Consulte também
 
-* [Referência do Python (Filesystem) do azure-datalake-store](http://azure-datalake-store.readthedocs.io/en/latest)
+* [Referência do Python (Filesystem) do azure-datalake-store](https://azure-datalake-store.readthedocs.io/en/latest)
 * [Aplicativos de Big Data de software livre com Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)

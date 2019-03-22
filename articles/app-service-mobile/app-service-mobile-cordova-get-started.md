@@ -13,20 +13,20 @@ ms.service: app-service-mobile
 ms.workload: na
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: crdun
-ms.openlocfilehash: 0c00709417f3b393e8505dc7232abd5541c4e961
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 7014d09bbb62e78c37a9496628e3509b6eaaa4ac
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52954962"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768222"
 ---
 # <a name="create-an-apache-cordova-app"></a>Criar um aplicativo Apache Cordova
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 Este tutorial mostra como adicionar um serviço de back-end baseado em nuvem a um aplicativo Apache Cordova móvel usando um back-end de aplicativo móvel do Azure.  Você criará um novo back-end do aplicativo móvel e um aplicativo Apache Cordova simples com *Lista de tarefas pendentes* que armazena dados de aplicativo no Azure.
 
 A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais do Apache Cordova sobre como usar o recurso de Aplicativos Móveis no Serviço de Aplicativo do Azure.
@@ -51,7 +51,7 @@ Você também pode ignorar o Visual Studio e usar a linha de comando do Apache C
 ## <a name="download-and-run-the-apache-cordova-app"></a>Baixe e execute o aplicativo Apache Cordova
 [!INCLUDE [app-service-mobile-cordova-run-app](../../includes/app-service-mobile-cordova-run-app.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas Etapas
 Agora que você concluiu este tutorial de início rápido, passe para um dos tutoriais a seguir:
 
 * [Adicionar Dados Offline](app-service-mobile-cordova-get-started-offline-data.md) para o aplicativo Apache Cordova.

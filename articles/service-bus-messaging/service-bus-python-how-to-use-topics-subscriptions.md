@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 09/20/2018
 ms.author: aschhab
-ms.openlocfilehash: 280901c4b7af9cc65163ebc453a54fb7ec5d5111
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 476c51d1835a1be0178faf28e6dd8a3c95371929
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849389"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240959"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>Como usar tópicos e assinaturas do Barramento de Serviço com Python
 
@@ -32,12 +32,14 @@ Este artigo descreve como usar tópicos e assinaturas do Barramento de Serviço.
 > [!NOTE] 
 > Se você precisar instalar o Python ou o [pacote do Azure Python][Azure Python package], confira o [Guia de instalação do Python](../python-how-to-install.md).
 
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+
 ## <a name="create-a-topic"></a>Criar um tópico
 
 O objeto **ServiceBusService** permite que você trabalhe com tópicos. Adicione o seguinte código próximo à parte superior de qualquer arquivo Python no qual você deseja acessar o Barramento de Serviço de forma programática:
 
 ```python
-from azure.servicebus import ServiceBusService, Message, Topic, Rule, DEFAULT_RULE_NAME
+from azure.servicebus.control_client import ServiceBusService, Message, Topic, Rule, DEFAULT_RULE_NAME
 ```
 
 O código a seguir cria um objeto **ServiceBusService**. Substitua `mynamespace`, `sharedaccesskeyname` e `sharedaccesskey` pelo namespace real e pelo nome e valor da chave de SAS (Assinatura de Acesso Compartilhado).

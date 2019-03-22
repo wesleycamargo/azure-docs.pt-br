@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/24/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b856227733fcc65e12eb43ea1f6b704502a7b29a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: bd2c4b6102d359aba35c9211fdcc86e3521b4062
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169336"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086115"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-onit"></a>Tutorial: Integração do Azure Active Directory com o Onit
 
@@ -232,11 +232,11 @@ No caso do Onit, o provisionamento é uma tarefa manual.
    
    ![Adicionar Usuário](./media/onit-tutorial/IC791181.png "Adicionar Usuário")
    
-  1. Digite o **Nome** e **Endereço de Email** de uma conta válida do Azure AD que você deseja provisionar nas caixas de texto relacionadas.
-  1. Clique em **Criar**.    
+   1. Digite o **Nome** e **Endereço de Email** de uma conta válida do Azure AD que você deseja provisionar nas caixas de texto relacionadas.
+   1. Clique em **Criar**.    
    
- > [!NOTE]
- > O titular da conta do Azure Active Directory recebe um email e segue um link para confirmar sua conta antes que ela se torne ativa.
+   > [!NOTE]
+   > O titular da conta do Azure Active Directory recebe um email e segue um link para confirmar sua conta antes que ela se torne ativa.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 

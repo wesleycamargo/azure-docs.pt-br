@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: kumud
-ms.openlocfilehash: c378043a9e10a0aed5344ac3182af6163d217c7b
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
-ms.translationtype: HT
+ms.openlocfilehash: 4c948668e355b87026240588c6fac11d86e355b2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140461"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58006571"
 ---
 # <a name="configure-the-performance-traffic-routing-method"></a>Configurar o método de roteamento de tráfego de desempenho
 
@@ -24,7 +24,7 @@ O método de roteamento de tráfego de Desempenho permite direcionar o tráfego 
 
 ##  <a name="to-configure-performance-routing-method"></a>Para configurar o método de roteamento de desempenho
 
-1. Em um navegador, entre no [portal do Azure](http://portal.azure.com). Se você ainda não tiver uma conta, poderá se inscrever para obter uma [avaliação gratuita de um mês](https://azure.microsoft.com/free/). 
+1. Em um navegador, entre no [portal do Azure](https://portal.azure.com). Se você ainda não tiver uma conta, poderá se inscrever para obter uma [avaliação gratuita de um mês](https://azure.microsoft.com/free/). 
 2. Na barra de pesquisa do portal, pesquise os **perfis do Gerenciador de Tráfego** e, em seguida, clique no nome de perfil do qual você deseja configurar o método de roteamento.
 3. Na folha **Perfil do Gerenciador de Tráfego**, verifique se os serviços de nuvem e os sites que você deseja incluir na configuração estão presentes.
 4. Na seção **Configurações**, clique em **Configuração** e, na folha **Configuração**, preencha da seguinte maneira:

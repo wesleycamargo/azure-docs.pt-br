@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 9b8b92b7a672a4d344b17d4ade497749766f8a91
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 7d8a654b6b2f429119323fa5d18eb0596f63e6f0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719686"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105260"
 ---
 # <a name="use-apache-ambari-views-to-debug-apache-tez-jobs-on-hdinsight"></a>Use o Apache Ambari Views para depurar os trabalhos do Apache Tez no HDInsight
 
@@ -90,14 +90,14 @@ Use as etapas a seguir para executar uma consulta do Hive que usa o Tez:
 
 5. As guias desta página permitem que você exiba as seguintes informações:
 
-    * **Detalhes da Consulta**: Detalhes sobre a consulta do Hive.
-    * **Linha do tempo**: Informações sobre quanto tempo durou cada estágio de processamento.
-    * **Configurações**: A configuração usada nesta consulta.
+   * **Detalhes da Consulta**: Detalhes sobre a consulta do Hive.
+   * **Linha do tempo**: Informações sobre quanto tempo durou cada estágio de processamento.
+   * **Configurações**: A configuração usada nesta consulta.
 
-    Em __Detalhes da consulta__, você pode usar os links para encontrar mais informações sobre o __Aplicativo__ ou o __DAG__ para esta consulta.
+     Em __Detalhes da consulta__, você pode usar os links para encontrar mais informações sobre o __Aplicativo__ ou o __DAG__ para esta consulta.
     
-    * O link __Aplicativo__ exibe informações sobre o aplicativo YARN para esta consulta. Aqui você pode acessar os logs de aplicativo YARN.
-    * O link __DAG__ exibe informações sobre o grafo direcionado acíclico para esta consulta. Aqui você pode exibir uma representação gráfica do DAG. Você também pode encontrar informações sobre os vértices no DAG.
+   * O link __Aplicativo__ exibe informações sobre o aplicativo YARN para esta consulta. Aqui você pode acessar os logs de aplicativo YARN.
+   * O link __DAG__ exibe informações sobre o grafo direcionado acíclico para esta consulta. Aqui você pode exibir uma representação gráfica do DAG. Você também pode encontrar informações sobre os vértices no DAG.
 
 ## <a name="next-steps"></a>Próximas etapas
 

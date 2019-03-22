@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2018
 ms.author: magoedte
-ms.openlocfilehash: b462a2baecbaf9aaf3634964ca279b320b77dc1b
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: 16abcd2130e92f182dc129c2d7f5cd07ac04a766
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330668"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313524"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Como interromper o monitoramento do Azure Monitor do Serviço de Kubernetes do Azure (AKS) para contêineres
 
@@ -26,7 +26,7 @@ Após habilitar o monitoramento do cluster do AKS você poderá parar o monitora
 
 
 ## <a name="azure-cli"></a>CLI do Azure
-Use o comando [az aks disable-complementos](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) para desabilitar o Azure Monitor para contêineres. O comando remove o agente do nó de cluster, ele não remove a solução ou os dados já coletados e armazenados no recurso do Log Analytics.  
+Use o comando [az aks disable-complementos](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) para desabilitar o Azure Monitor para contêineres. O comando remove o agente do nó de cluster, ele não remove a solução ou os dados já coletados e armazenados em seu recurso do Azure Monitor.  
 
 ```azurecli
 az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
@@ -134,12 +134,14 @@ ProvisioningState       : Succeeded
 
 ### <a name="remove-the-solution-using-powershell"></a>Remover a solução usando o PowerShell
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Execute os seguintes comandos do PowerShell na pasta que contém o modelo para remover a solução e limpar a configuração do cluster do AKS.    
 
 ```powershell
-Connect-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
-New-AzureRmResourceGroupDeployment -Name opt-out -ResourceGroupName <ResourceGroupName> -TemplateFile .\OptOutTemplate.json -TemplateParameterFile .\OptOutParam.json
+Connect-AzAccount
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
+New-AzResourceGroupDeployment -Name opt-out -ResourceGroupName <ResourceGroupName> -TemplateFile .\OptOutTemplate.json -TemplateParameterFile .\OptOutParam.json
 ```
 
 A alteração da configuração pode levar alguns minutos para ser concluída. Quando estiver concluído, uma mensagem semelhante à seguinte, incluindo o resultado, será retornada:

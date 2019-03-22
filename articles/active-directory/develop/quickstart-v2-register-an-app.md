@@ -18,14 +18,14 @@ ms.author: celested
 ms.reviewer: lenalepa
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0e2980b48a5d9b1f2e9d75e59a27bfceb0d1180
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6221fb7575fc267030929b449cba48cff8563f27
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56195576"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122547"
 ---
-# <a name="quickstart-register-an-app-with-the-azure-active-directory-v20-endpoint"></a>Início rápido: Registrar um aplicativo com o ponto de extremidade v2.0 do Azure Active Directory
+# <a name="quickstart-register-an-app-with-the-azure-active-directory-v20-endpoint"></a>Início Rápido: Registrar um aplicativo com o ponto de extremidade v2.0 do Azure Active Directory
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
@@ -46,7 +46,7 @@ Nem todos os recursos e cenários do Azure Active Directory têm suporte no pont
 
 1. Selecione **Adicionar um aplicativo** e dê um nome a ele.
     O portal atribuirá ao seu aplicativo uma ID de aplicativo globalmente exclusiva que você usará posteriormente em seu código. Se o aplicativo inclui um componente do lado do servidor que precisa de tokens de acesso para chamar as APIs (pense em: Office, Azure ou sua própria API Web), é recomendável criar um **Segredo de Aplicativo** aqui também.
-1. Em seguida, adicione as Plataformas que seu aplicativo usará.
+1. Em seguida, adicione as **Plataformas** que seu aplicativo usará.
     * Para aplicativos baseados na Web, forneça um **URI de Redirecionamento** em que é possível enviar mensagens de entrada.
     * Para aplicativos móveis, copie o URI de redirecionamento criado automaticamente para você.
     * Para APIs da Web, um escopo padrão para acessar a API da Web será criado automaticamente para você.
@@ -61,4 +61,4 @@ Nem todos os recursos e cenários do Azure Active Directory têm suporte no pont
 
 Agora que você tem um aplicativo da Microsoft, poderá concluir um dos nossos guias de início rápido 2 da v2.0. Aqui estão algumas recomendações:
 
-[!INCLUDE [active-directory-v2-quickstart-table](../../../includes/active-directory-v2-quickstart-table.md)]
+[!INCLUDE [active-directory-v2-quickstart-table](~/includes/active-directory-v2-quickstart-table.md)]

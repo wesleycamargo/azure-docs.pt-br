@@ -1,6 +1,6 @@
 ---
-title: Configurar o Cofre de Chaves do Azure com a rotação de chaves e auditoria de ponta a ponta - Azure Key Vault | Microsoft Docs
-description: Use estas instruções para ajudá-lo a concluir a configuração com a rotação de chaves e o monitoramento de logs do Cofre de Chaves.
+title: Configurar o Cofre de Chaves do Azure com a rotação de chaves e auditoria de ponta a ponta | Microsoft Docs
+description: Use este guia de instruções para ajudá-lo a configurar a rotação de chaves e monitore os logs do Cofre de chaves.
 services: key-vault
 documentationcenter: ''
 author: barclayn
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: deb50a71b179c3cb03d5da22e336c42b26fe0bfa
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 68fd33dc3e9def11f72b7aec14f83f86b8bb74d0
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106113"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749692"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Configurar o Azure Key Vault com a rotação de chaves e auditoria
 
@@ -26,31 +26,31 @@ ms.locfileid: "56106113"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Depois de ter um cofre de chaves, você pode começar a usá-lo para armazenar chaves e segredos. Seus aplicativos não precisam manter suas chaves ou segredos, mas podem solicitá-los do cofre conforme necessário. Isso permite que você atualize chaves e segredos sem afetar o comportamento do aplicativo, o que abre uma gama de possibilidades em relação ao gerenciamento de chaves e segredos.
+Depois de ter um cofre de chaves, você pode começar a usá-lo para armazenar chaves e segredos. Seus aplicativos não precisam manter suas chaves ou segredos, mas podem solicitá-los do cofre conforme necessário. Um cofre de chaves permite que você atualize chaves e segredos sem afetar o comportamento do seu aplicativo, que abre uma gama de possibilidades para a sua chave e o gerenciamento de segredos.
 
 >[!IMPORTANT]
-> Os exemplos neste artigo são fornecidos apenas para fins ilustrativos. Eles não se destinam ao uso em produção. 
+> Os exemplos neste artigo são fornecidos apenas para fins ilustrativos. Eles não estiverem se destina para uso em produção. 
 
 Este artigo guia você por:
 
-- Um exemplo de como usar o Azure Key Vault para armazenar um segredo. Neste tutorial, o segredo armazenado é a chave de Conta de Armazenamento do Azure, acessada por um aplicativo. 
-- Ele também demonstra a implementação de uma rotação agendada dessa chave de conta de armazenamento.
-- Ele demonstra como monitorar os logs de auditoria do cofre de chaves e gerar alertas quando solicitações inesperadas são feitas.
+- Um exemplo de como usar o Azure Key Vault para armazenar um segredo. Neste artigo, o segredo armazenado é a chave de conta de armazenamento do Azure acessada por um aplicativo. 
+- Como implementar uma rotação agendada dessa chave de conta de armazenamento.
+- Como a chave de monitorar os logs de auditoria do cofre e gerar alertas quando são feitas solicitações inesperadas.
 
 > [!NOTE]
-> Este tutorial não se destina a explicar em detalhes a configuração inicial do cofre de chaves. Para obter essa informação, confira [O que é o Azure Key Vault?](key-vault-overview.md). Para obter instruções sobre a Interface de Linha de Comando de Plataforma Cruzada, confira [Gerenciar Cofre de Chaves usando a CLI](key-vault-manage-with-cli2.md).
->
->
+> Este artigo não explica em detalhes a configuração inicial do seu Cofre de chaves. Para obter essa informação, confira [O que é o Azure Key Vault?](key-vault-overview.md). Para obter instruções de interface de linha de comando de plataforma cruzada, consulte [Gerenciar cofre de chaves usando a CLI do Azure](key-vault-manage-with-cli2.md).
 
 ## <a name="set-up-key-vault"></a>Configurar o Cofre de Chaves
 
-Para permitir que um aplicativo recupere um segredo do Cofre de Chaves, primeiro crie o segredo e carregue-o no cofre. Isso pode ser feito iniciando uma sessão do Azure PowerShell e entrando em sua conta do Azure com o seguinte comando:
+Para permitir que um aplicativo recupere um segredo do Cofre de Chaves, primeiro crie o segredo e carregue-o no cofre.
+
+Inicie uma sessão do PowerShell do Azure e entre em sua conta do Azure com o seguinte comando:
 
 ```powershell
 Connect-AzAccount
 ```
 
-Na janela pop-up do navegador, insira o nome de usuário e a senha da sua conta do Azure. O PowerShell obterá todas as assinaturas que estão associadas a essa conta. O PowerShell usa a primeira por padrão.
+Na janela pop-up do navegador, insira o nome de usuário e a senha para sua conta do Azure. O PowerShell obterá todas as assinaturas que estão associadas a essa conta. O PowerShell usa a primeira por padrão.
 
 Se tiver várias assinaturas, você terá que especificar a que foi usada para criar o cofre de chaves. Digite o seguinte para ver as assinaturas de sua conta:
 
@@ -58,7 +58,7 @@ Se tiver várias assinaturas, você terá que especificar a que foi usada para c
 Get-AzSubscription
 ```
 
-Para especificar a assinatura associada ao cofre de chaves do qual os logs serão registrados, digite:
+Para especificar a assinatura que está associada com o Cofre de chaves que você vai estar fazendo o logon, digite:
 
 ```powershell
 Set-AzContext -SubscriptionId <subscriptionID>
@@ -70,7 +70,7 @@ Como este artigo demonstra como armazenar uma chave de conta de armazenamento co
 Get-AzStorageAccountKey -ResourceGroupName <resourceGroupName> -Name <storageAccountName>
 ```
 
-Depois de recuperar o segredo, nesse caso, a chave da conta de armazenamento, você deve convertê-lo em uma cadeia de caracteres segura e criar um segredo com esse valor no Cofre de Chaves.
+Depois de recuperar o segredo (no caso, sua chave de conta de armazenamento), você deve converter essa chave em uma cadeia de caracteres segura e, em seguida, criar um segredo com esse valor no cofre de chaves.
 
 ```powershell
 $secretvalue = ConvertTo-SecureString <storageAccountKey> -AsPlainText -Force
@@ -78,7 +78,7 @@ $secretvalue = ConvertTo-SecureString <storageAccountKey> -AsPlainText -Force
 Set-AzKeyVaultSecret -VaultName <vaultName> -Name <secretName> -SecretValue $secretvalue
 ```
 
-Em seguida, obtenha o URI do segredo que você criou. Isso é usado em uma etapa posterior ao chamar o cofre de chaves para recuperar o segredo. Execute o seguinte comando do PowerShell e anote o valor de ID, que é o URI do segredo:
+Em seguida, obtenha o URI do segredo que você criou. Você precisará esse URI em uma etapa posterior ao chamar o Cofre de chaves e recuperar o segredo. Execute o seguinte comando do PowerShell e anote o valor de ID, que é o URI do segredo:
 
 ```powershell
 Get-AzKeyVaultSecret –VaultName <vaultName>
@@ -86,36 +86,36 @@ Get-AzKeyVaultSecret –VaultName <vaultName>
 
 ## <a name="set-up-the-application"></a>Configurar o aplicativo
 
-Agora que tem um segredo armazenado, você pode usar o código para recuperá-lo e usá-lo. Algumas etapas são necessárias para fazer isso. A primeira e mais importante etapa é registrar o aplicativo com o Azure Active Directory e informar ao cofre de chaves as informações do aplicativo para que ele possa permitir solicitações do aplicativo.
+Agora que você tem um segredo armazenado, você pode usar o código para recuperar e usá-lo depois de executar mais algumas etapas.
+
+Primeiro, você deve registrar seu aplicativo com o Azure Active Directory. Em seguida, informar ao Cofre de chaves suas informações de aplicativo para que ele possa permitir solicitações do aplicativo.
 
 > [!NOTE]
 > O aplicativo deve ser criado no mesmo locatário do Azure Active Directory que o cofre de chaves.
->
->
 
-1. Navegue até o Azure Active Directory.
-2. Escolher **Registros de aplicativo** 
-3. Escolha **Novo registro de aplicativo** para adicionar um aplicativo ao Azure Active Directory.
+1. Abra **do Azure Active Directory**.
+2. Selecione **Registros do Aplicativo**. 
+3. Selecione **novo registro de aplicativo** para adicionar um aplicativo ao Azure Active Directory.
 
     ![Abrir os aplicativos no Azure Active Directory](./media/keyvault-keyrotation/azure-ad-application.png)
 
-4. Na seção **Criar**, deixe o tipo de aplicativo como **APLICATIVO WEB E/OU API WEB** e dê um nome ao aplicativo. Dê ao aplicativo uma **URL DE LOGON**. Para os fins desta demonstração, isso pode ser qualquer coisa que você queira.
+4. Sob **Create**, deixe o tipo de aplicativo como **aplicativo Web / API** e dê um nome de seu aplicativo. Dê ao aplicativo uma **URL de logon**. Essa URL pode ser qualquer coisa que você deseja para esta demonstração.
 
     ![Criar registro de aplicativo](./media/keyvault-keyrotation/create-app.png)
 
-5. Depois que o aplicativo for adicionado ao Azure Active Directory, você será levado à página do aplicativo. Selecione **Configurações** e, em seguida, selecione propriedades. Copie o valor de **ID do Aplicativo**. Ele será necessário em etapas posteriores.
+5. Depois que o aplicativo é adicionado ao Azure Active Directory, abre a página do aplicativo. Selecione **as configurações**e, em seguida, selecione **propriedades**. Copie o valor de **ID do Aplicativo**. Você precisará dela em etapas posteriores.
 
-Em seguida, gere uma chave para o aplicativo para que ele possa interagir com o Azure Active Directory. Você pode criar uma chave navegando até a seção **Chaves** em **Configurações**. Anote a chave recém-gerada do aplicativo do Azure Active Directory para uso em uma etapa posterior. Observe que a chave não estará disponível depois que você sair desta seção. 
+Em seguida, gere uma chave para seu aplicativo para que ele possa interagir com o Azure Active Directory. Para criar uma chave, selecione **teclas** sob **configurações**. Anote a chave recém-gerada do aplicativo do Azure Active Directory. Ela será necessária em uma etapa posterior. A chave não estarão disponível depois que você sair desta seção. 
 
-![Chaves de aplicativo do Azure Active Directory](./media/keyvault-keyrotation/create-key.png)
+![Chaves de aplicativo do Active Directory do Azure](./media/keyvault-keyrotation/create-key.png)
 
-Antes de estabelecer as chamadas do aplicativo no cofre de chaves, você deve informar o cofre de chaves sobre o aplicativo e suas permissões. O comando a seguir obtém o nome do cofre e a ID do aplicativo do Azure Active Directory e permite o acesso **Get** ao cofre de chaves para o aplicativo.
+Antes de estabelecer as chamadas do seu aplicativo para o Cofre de chaves, você deve informar o Cofre de chaves sobre seu aplicativo e suas permissões. O comando a seguir usa o nome do cofre e a ID do aplicativo do seu aplicativo do Azure Active Directory para conceder ao aplicativo **obter** acesso ao Cofre de chaves.
 
 ```powershell
 Set-AzKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <clientIDfromAzureAD> -PermissionsToSecrets Get
 ```
 
-Agora você está pronto para começar a criar as chamadas do aplicativo. No aplicativo, você deve instalar primeiro os pacotes NuGet necessários para interagir com o Cofre de Chaves do Azure e o Azure Active Directory. No Visual Studio Package Manager Console, insira os comandos a seguir. Na elaboração deste artigo, a versão atual do pacote do Azure Active Directory é 3.10.305231913. Portanto, convém confirmar a versão mais recente e atualizar da maneira adequada.
+Agora você está pronto para começar a criar as chamadas do aplicativo. Em seu aplicativo, você deve instalar os pacotes do NuGet que são necessários para interagir com o Azure Key Vault e o Azure Active Directory. No Visual Studio Package Manager Console, insira os comandos a seguir. Na elaboração deste artigo, a versão atual do pacote do Azure Active Directory é 3.10.305231913, portanto, confirme se a versão mais recente e atualize conforme necessário.
 
 ```powershell
 Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 3.10.305231913
@@ -123,13 +123,13 @@ Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 3.10.30
 Install-Package Microsoft.Azure.KeyVault
 ```
 
-No código do aplicativo, crie uma classe para manter o método de autenticação do Azure Active Directory. Neste exemplo a classe é chamada **Utils**. Adicione a seguinte instrução usando:
+No código do aplicativo, crie uma classe para manter o método de autenticação do Azure Active Directory. Neste exemplo a classe é chamada **Utils**. Adicione a instrução `using` a seguir:
 
 ```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 ```
 
-Em seguida, adicione o seguinte método para recuperar o token JWT do Azure Active Directory. Para a facilidade de manutenção, convém mover os valores de cadeia de caracteres embutidos no código para a configuração do aplicativo ou Web.
+Em seguida, adicione o seguinte método para recuperar o token JWT do Azure Active Directory. Para facilidade de manutenção, você talvez queira mover os valores de cadeia de caracteres embutida para a configuração da web ou aplicativo.
 
 ```csharp
 public async static Task<string> GetToken(string authority, string resource, string scope)
@@ -148,13 +148,13 @@ public async static Task<string> GetToken(string authority, string resource, str
 }
 ```
 
-Adicione o código necessário para chamar o Cofre de Chaves e recuperar o valor do segredo. Primeiro é necessário adicionar o seguinte usando a instrução:
+Adicione o código necessário para chamar o Cofre de Chaves e recuperar o valor do segredo. Primeiro, você deve adicionar o seguinte `using` instrução:
 
 ```csharp
 using Microsoft.Azure.KeyVault;
 ```
 
-Adicione as chamadas de método para invocar o Cofre de Chaves e recuperar o segredo. Nesse método, você fornece o URI de segredo que salvou na etapa anterior. Observe o uso do método **GetToken** da classe **Utils** criada anteriormente.
+Adicione as chamadas de método para invocar o Cofre de Chaves e recuperar o segredo. Nesse método, você fornece o URI de segredo que salvou na etapa anterior. Observe o uso do **GetToken** método a partir de **Utils** classe criada anteriormente.
 
 ```csharp
 var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetToken));
@@ -166,13 +166,19 @@ Ao executar o aplicativo, agora você deverá se autenticar no Azure Active Dire
 
 ## <a name="key-rotation-using-azure-automation"></a>Rotação de chaves usando a Automação do Azure
 
-Há várias opções para implementar uma estratégia de rotação para valores armazenados como segredos do Cofre de Chaves do Azure. Os segredos podem ser rotacionados como parte de um processo manual, programaticamente usando chamadas à API ou por meio de um script de Automação. Para os fins deste artigo, você usará o Azure PowerShell combinado à Automação do Azure para alterar uma chave de acesso da Conta de Armazenamento do Azure. Em seguida, você atualizará um segredo do cofre de chaves com essa nova chave.
+Agora você está pronto para configurar uma estratégia de rotação para os valores armazenados como segredos do Cofre de chaves. Os segredos podem ser girados de várias maneiras:
 
-Para permitir que a Automação do Azure defina valores de segredo no Cofre de Chaves, você deve obter a ID do cliente para a conexão chamada AzureRunAsConnection, que foi criada ao estabelecer a instância de Automação do Azure. Você pode localizar a ID selecionando **Ativos** da instância da Automação do Azure. Lá, você seleciona **Conexões** e seleciona o princípio de serviço **AzureRunAsConnection**. Anote a **ID do aplicativo**.
+- Como parte de um processo manual
+- Programaticamente, usando chamadas à API
+- Por meio de um script de automação do Azure
+
+Para os fins deste artigo, você usará o PowerShell combinado à automação do Azure para alterar a chave de acesso da conta de armazenamento do Azure. Em seguida, você atualizará um segredo do Cofre de chaves com essa nova chave.
+
+Para permitir que a automação do Azure definir os valores do segredo no cofre de chaves, você deve obter a ID do cliente para a conexão nomeada **AzureRunAsConnection**. Essa conexão foi criada ao estabelecer sua instância de automação do Azure. Para localizar essa ID, selecione **ativos** da sua instância de automação do Azure. A partir daí, selecione **conexões**e, em seguida, selecione o **AzureRunAsConnection** entidade de serviço. Anote o **ApplicationId** valor.
 
 ![ID do cliente da Automação do Azure](./media/keyvault-keyrotation/Azure_Automation_ClientID.png)
 
-Em **Ativos**, escolha **Módulos**. Nos **Módulos**, selecione **Galeria** e pesquise e use a opção **Importar** para as versões atualizadas de cada um dos seguintes módulos:
+Na **ativos**, selecione **módulos**. Selecione **galeria**e, em seguida, procure e importe as versões atualizadas de cada um dos seguintes módulos:
 
     Azure
     Azure.Storage
@@ -181,19 +187,16 @@ Em **Ativos**, escolha **Módulos**. Nos **Módulos**, selecione **Galeria** e p
     AzureRM.Automation
     AzureRM.Storage
 
-
 > [!NOTE]
-> Na elaboração deste artigo, somente os módulos mencionados anteriormente precisaram ser atualizados para o script a seguir. Se achar que o trabalho de automação está falhando, confirme se importou todos os módulos necessários e suas dependências.
->
->
+> Na elaboração deste artigo, somente os módulos mencionados anteriormente precisaram ser atualizados para o script a seguir. Se o trabalho de automação falhar, confirme que você importou todos os módulos necessários e suas dependências.
 
-Depois de recuperar a ID do aplicativo para a conexão da Automação do Azure, você deve informar ao cofre de chaves que o aplicativo tem acesso aos segredos atualizados no cofre. Isso pode ser feito com o seguinte comando do PowerShell:
+Depois que você recuperou a ID do aplicativo para sua conexão de automação do Azure, você deve informar o seu Cofre de chaves que esse aplicativo tem permissão para atualizar os segredos em seu cofre. Use o seguinte comando do PowerShell:
 
 ```powershell
 Set-AzKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <applicationIDfromAzureAutomation> -PermissionsToSecrets Set
 ```
 
-Em seguida, selecione **Runbooks** na instância da Automação do Azure e selecione **Adicionar um Runbook**. Selecione **Criação Rápida**. Atribua um nome ao runbook e selecione **PowerShell** como o tipo do runbook. Você tem a opção de adicionar uma descrição. Por fim, clique em **Criar**.
+Em seguida, selecione **Runbooks** em sua instância de automação do Azure e selecione **adicionar Runbook**. Selecione **Criação Rápida**. Nomeie seu runbook e selecione **PowerShell** como o tipo de runbook. Você pode adicionar uma descrição. Por fim, selecione **Criar**.
 
 ![Criar runbook](./media/keyvault-keyrotation/Create_Runbook.png)
 
@@ -203,7 +206,7 @@ Cole o seguinte script do PowerShell no painel do editor para o novo runbook:
 $connectionName = "AzureRunAsConnection"
 try
 {
-    # Get the connection "AzureRunAsConnection "
+    # Get the connection "AzureRunAsConnection"
     $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
 
     "Logging in to Azure..."
@@ -225,7 +228,7 @@ catch {
     }
 }
 
-#Optionally you may set the following as parameters
+# Optionally you can set the following as parameters
 $StorageAccountName = <storageAccountName>
 $RGName = <storageAccountResourceGroupName>
 $VaultName = <keyVaultName>
@@ -240,12 +243,13 @@ $secretvalue = ConvertTo-SecureString $SAKeys[1].Value -AsPlainText -Force
 $secret = Set-AzKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
 ```
 
-No painel do editor, escolha **Painel de teste** para testar o script. Depois que o script for executado sem erros, você poderá selecionar **Publicar** e poderá aplicar um cronograma ao runbook no painel de configuração.
+No painel do editor, selecione **painel de teste** para testar o script. Depois que o script é executado sem erros, você pode selecionar **publicar**, e, em seguida, você pode aplicar um cronograma ao runbook no painel de configuração.
 
 ## <a name="key-vault-auditing-pipeline"></a>Pipeline de auditoria do Cofre de Chaves
-Ao configurar um cofre de chaves, você pode ativar a auditoria para coletar logs de solicitações de acesso feitas para o cofre de chaves. Esses logs são armazenados em uma conta de armazenamento do Azure designada e podem ser extraídos, monitorados e analisados. O cenário a seguir usa funções do Azure, aplicativos lógicos do Azure e logs de auditoria de cofre de chaves para criar um pipeline para enviar um email quando um aplicativo que corresponde à ID de aplicativo do aplicativo Web recupera segredos do cofre.
 
-Primeiro, você deve habilitar o log no cofre de chaves. Isso pode ser feito por meio dos seguintes comandos do PowerShell (detalhes completos podem ser obtidos em [key-vault-logging](key-vault-logging.md)):
+Ao configurar um cofre de chaves, você pode ativar a auditoria para coletar logs de solicitações de acesso feitas para o cofre de chaves. Esses logs são armazenados em uma conta de armazenamento do Azure designada e podem ser extraídos, monitorados e analisados. O cenário a seguir usa o Azure functions, aplicativos lógicos do Azure e logs de auditoria do Cofre de chaves para criar um pipeline que envia um email quando um aplicativo que não corresponde à ID do aplicativo do aplicativo web recupera segredos do cofre.
+
+Primeiro, você deve habilitar o log no cofre de chaves. Use os seguintes comandos do PowerShell. (Você pode ver os detalhes completos na [deste artigo sobre key-vault-logging](key-vault-logging.md).)
 
 ```powershell
 $sa = New-AzStorageAccount -ResourceGroupName <resourceGroupName> -Name <storageAccountName> -Type Standard\_LRS -Location 'East US'
@@ -253,25 +257,23 @@ $kv = Get-AzKeyVault -VaultName '<vaultName>'
 Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent
 ```
 
-Depois que isso é habilitado, os logs de auditoria iniciam a coleta para a conta de armazenamento designada. Esses logs contêm eventos sobre como e quando os cofres de chaves são acessados e por quem.
+Depois que o log estiver habilitado, os logs de auditoria Iniciar que estão sendo armazenados na conta de armazenamento designada. Esses logs contêm eventos sobre como e quando os cofres de chaves são acessados e por quem.
 
 > [!NOTE]
-> Você pode acessar as informações de log 10 minutos após a operação do cofre de chaves. Geralmente será mais rápido do que isso.
->
->
+> Você pode acessar as informações de log 10 minutos após a operação do cofre de chaves. Ele geralmente estará disponível mais cedo do que isso.
 
-A próxima etapa é [criar uma fila do Barramento de Serviço do Azure](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md). Esse é o local para o qual os logs de auditoria do cofre de chaves são enviados. Quando as mensagens de log de auditoria estão na fila, o aplicativo lógico as obtém e age em relação a elas. Crie um barramento de serviço com as seguintes etapas:
+A próxima etapa é [criar uma fila do Barramento de Serviço do Azure](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md). Essa fila é onde os logs de auditoria do Cofre de chaves são enviados por push. Quando as mensagens de log de auditoria estão na fila, o aplicativo lógico elas serão recolhidas e age sobre eles. Crie uma instância do barramento de serviço com as seguintes etapas:
 
-1. Crie um namespace do Barramento de Serviço (se você já tiver um que deseja usar para isso, vá para a Etapa 2).
-2. Navegue até o barramento de serviço no portal do Azure e selecione o namespace no qual deseja criar a fila.
-3. Selecione **Criar um recurso**, **Enterprise Integration**, **Barramento de Serviço** e, em seguida, insira os detalhes necessários.
-4. Selecione as informações de conexão do Barramento de Serviço escolhendo o namespace e clicando em **Informações de Conexão**. Você precisará dessas informações para a próxima seção.
+1. Crie um namespace do barramento de serviço (se você já tiver um que você deseja usar, pule para a etapa 2).
+2. Navegue até a instância do barramento de serviço no portal do Azure e selecione o namespace que você deseja criar a fila.
+3. Selecione **criar um recurso** > **Enterprise Integration** > **do barramento de serviço**e, em seguida, insira os detalhes necessários.
+4. Localizar as informações de conexão do barramento de serviço selecionando o namespace e, em seguida, selecionando **informações de Conexão**. Você precisará dessas informações para a próxima seção.
 
-Em seguida, [crie uma função do Azure](../azure-functions/functions-create-first-azure-function.md) para sondar os logs do cofre de chaves na conta de armazenamento e obter novos eventos. Essa será uma função disparada em um cronograma.
+Em seguida, [criar uma função do Azure](../azure-functions/functions-create-first-azure-function.md) para sondar os logs do Cofre de chaves na conta de armazenamento e obter novos eventos. Essa função será disparada em uma agenda.
 
-Para criar uma função do Azure, escolha **Criar um recurso**, pesquise no marketplace por _Aplicativo de funções_ e clique em **Criar**. Durante a criação, você pode usar um plano de hospedagem existente ou criar um novo. Você também pode optar pela hospedagem dinâmica. Mais detalhes sobre opções de hospedagem de Função podem ser encontrados em [Como dimensionar as Funções do Azure](../azure-functions/functions-scale.md).
+Para criar um aplicativo de funções do Azure, selecione **criar um recurso**, pesquise no marketplace **aplicativo de funções**e, em seguida, selecione **criar**. Durante a criação, você pode usar um plano de hospedagem existente ou criar um novo. Você também pode optar pela hospedagem dinâmica. Para obter mais informações sobre as opções de hospedagem para o Azure Functions, consulte [como dimensionar o Azure Functions](../azure-functions/functions-scale.md).
 
-Quando a função do Azure for criada, navegue até ela, escolha uma função de timer e C\#. Em seguida, clique em **Criar esta função**
+Depois que o aplicativo de funções do Azure é criado, vá até ele e selecione o **temporizador** cenário e **C\#**  para o idioma. Em seguida, selecione **criar esta função**.
 
 ![Folha de Início das Funções do Azure](./media/keyvault-keyrotation/Azure_Functions_Start.png)
 
@@ -348,7 +350,7 @@ public static void Run(TimerInfo myTimer, TextReader inputBlob, TextWriter outpu
 
             dynamic dynJson = JsonConvert.DeserializeObject(text);
 
-            //required to order by time as they may not be in the file
+            //Required to order by time as they might not be in the file
             var results = ((IEnumerable<dynamic>) dynJson.records).OrderBy(p => p.time);
 
             foreach (var jsonItem in results)
@@ -386,19 +388,20 @@ static string GetContainerSasUri(CloudBlockBlob blob)
 }
 ```
 
-
 > [!NOTE]
-> Substitua as variáveis no código anterior para apontar para sua conta de armazenamento em que os logs do cofre de chaves são gravados, os barramentos de serviço criados anteriormente e o caminho específico para os logs de armazenamento do cofre de chaves.
->
->
+> Altere as variáveis no código anterior para apontar para sua conta de armazenamento onde os logs do Cofre de chaves são gravados, a instância do barramento de serviço que você criou anteriormente e o caminho específico para os logs de armazenamento do Cofre de chaves.
 
-A função obtém o arquivo de log mais recente da conta de armazenamento em que os logs do cofre de chaves são gravados, capta os eventos mais recentes do arquivo e os envia por push para uma fila do Barramento de Serviço. Como um único arquivo pode ter vários eventos, crie um arquivo sync.txt que a função também analisa para determinar o carimbo de data/hora do último evento que foi obtido. Isso garante que você não envie o mesmo evento por push várias vezes. Esse arquivo sync.txt contém um carimbo de data/hora para o último evento encontrado. Os logs, quando carregados, precisam ser classificados com base no carimbo de data/hora para garantir que estão classificados corretamente.
+A função obtém o arquivo de log mais recente da conta de armazenamento em que os logs do cofre de chaves são gravados, capta os eventos mais recentes do arquivo e os envia por push para uma fila do Barramento de Serviço. 
 
-Para essa função, referenciamos algumas bibliotecas adicionais que não estão disponíveis pré-configuradas no Azure Functions. Para incluí-las, precisamos que o Azure Functions as realize o pull usando o NuGet. Escolha a opção **Exibir Arquivos**.
+Como um único arquivo pode ter vários eventos, você deve criar um arquivo Sync txt que a função também analisa para determinar o carimbo de data / hora do último evento que foi obtido. Usando esse arquivo garante que você não envie por push o mesmo evento várias vezes. 
 
-![Opção Exibir Arquivos](./media/keyvault-keyrotation/Azure_Functions_ViewFiles.png)
+O arquivo Sync txt contém um carimbo de hora para o evento encontrado por último. Quando os logs são carregados, eles devem ser classificados com base em seus carimbos de data / hora para garantir que eles são ordenados corretamente.
 
-Adicione um arquivo chamado project.json com o seguinte conteúdo:
+Para essa função, referenciamos algumas bibliotecas adicionais que não estão disponíveis pré-configuradas no Azure Functions. Para incluir essas bibliotecas, precisamos de Azure Functions para recebê-los usando o NuGet. Sob o **código** caixa, selecione **exibir arquivos**.
+
+![Opção "Exibir arquivos"](./media/keyvault-keyrotation/Azure_Functions_ViewFiles.png)
+
+Adicione um arquivo chamado Project. JSON com o seguinte conteúdo:
 
 ```json
     {
@@ -413,38 +416,38 @@ Adicione um arquivo chamado project.json com o seguinte conteúdo:
     }
 ```
 
-Após **Salvar**, as Funções do Azure baixarão os binários necessários.
+Depois de selecionar **salvar**, funções do Azure baixarão os binários necessários.
 
-Mude para a guia **Integrar** e atribua ao parâmetro do temporizador um nome significativo para ser usado na função. No código anterior, ele espera que o timer seja chamado de *myTimer*. Especifique uma [expressão CRON](../app-service/webjobs-create.md#CreateScheduledCRON) da seguinte maneira: 0 \* \* \* \* \* para o temporizador que fará com que a função seja executada uma vez por minuto.
+Mude para a guia **Integrar** e atribua ao parâmetro do temporizador um nome significativo para ser usado na função. No código anterior, a função espera que o temporizador seja chamado *myTimer*. Especifique um [expressão CRON](../app-service/webjobs-create.md#CreateScheduledCRON) do temporizador da seguinte maneira: `0 * * * * *`. Essa expressão fará com que a função seja executada uma vez por minuto.
 
-Na mesma guia **Integrar**, adicione uma entrada do tipo **Armazenamento de Blobs do Azure**. Ela apontará para o arquivo sync.txt que contém o carimbo de data/hora do último evento analisado pela função. Isso será disponibilizado na função pelo nome do parâmetro. No código anterior, a entrada do Armazenamento de Blobs do Azure espera que o nome do parâmetro seja *inputBlob*. Escolha a conta de armazenamento em que o arquivo sync.txt residirá (pode ser a mesma ou outra conta de armazenamento). No campo do caminho, forneça o caminho em que o arquivo reside, no formato {nome-do-contêiner}/caminho/to/sync.txt.
+No mesmo **integrar** guia, adicione uma entrada do tipo **armazenamento de BLOBs do Azure**. Essa entrada irá apontar para o arquivo Sync txt que contém o carimbo de data / hora do último evento analisado pela função. Essa entrada será acessada dentro da função usando o nome do parâmetro. No código anterior, a entrada de armazenamento de BLOBs do Azure espera que o nome do parâmetro seja *inputBlob*. Selecione a conta de armazenamento onde o arquivo Sync estará localizado (ele pode ser o mesmo ou outra conta de armazenamento). No campo caminho, forneça o caminho para o arquivo no formato `{container-name}/path/to/sync.txt`.
 
-Adicione uma saída do tipo *Armazenamento de Blobs do Azure*. Isso apontará para o arquivo sync.txt que você definiu na entrada. Ele é usado pela função para gravar o carimbo de data/hora do último evento analisado. O código anterior espera que esse parâmetro seja chamado de *outputBlob*.
+Adicionar uma saída do tipo **armazenamento de BLOBs do Azure**. Essa saída irá apontar para o arquivo Sync txt que você definiu na entrada. Esta saída é usada pela função para gravar o carimbo de hora do último evento analisado. O código anterior espera que esse parâmetro seja chamado de *outputBlob*.
 
-Neste ponto, a função está pronta. Volte para a guia **Desenvolver** e salve o código. Verifique a janela de saída quanto a quaisquer erros de compilação e corrija-os adequadamente. Se o código for compilado, agora o código deverá verificar os logs do cofre de chaves a cada minuto e enviar os novos eventos para a fila do Barramento de Serviço definido. Você deve ver as informações de log gravadas na janela de log sempre que a função for disparada.
+A função agora está pronta. Volte para a guia **Desenvolver** e salve o código. Verifique a janela Saída para os erros de compilação e corrigi-los conforme necessário. Se o código é compilado, em seguida, o código agora deve ser verificando os logs do Cofre de chaves a cada minuto e enviar os novos eventos na fila do barramento de serviço definida. Você deve ver as informações de log gravadas na janela de log sempre que a função for disparada.
 
 ### <a name="azure-logic-app"></a>Aplicativo lógico do Azure
 
-Em seguida, você deve criar um aplicativo lógico do Azure que obtém os eventos que a função envia à fila do Barramento de Serviço, analisa o conteúdo e envia um email com base em uma condição que está sendo correspondida.
+Em seguida, você deve criar um aplicativo lógico do Azure que obtém os eventos que a função está enviando para a fila do barramento de serviço, analisa o conteúdo e envia um email com base em uma condição que está sendo correspondida.
 
-[Crie um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md) indo até **Novo -> Aplicativo Lógico**.
+[Criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md) , selecionando **criar um recurso** > **integração** > **aplicativo lógico**.
 
-Após o aplicativo lógico ser criado, navegue até ele e selecione **editar**. No editor do aplicativo lógico, escolha **Fila do Barramento de Serviço** e insira as credenciais do Barramento de Serviço para conectá-lo à fila.
+Depois que o aplicativo lógico é criado, vá até ele e selecione **editar**. No editor do aplicativo lógico, selecione **fila do barramento de serviço** e insira suas credenciais do barramento de serviço para conectar-se à fila.
 
 ![Barramento de Serviço de aplicativo lógico do Azure](./media/keyvault-keyrotation/Azure_LogicApp_ServiceBus.png)
 
-Depois, escolha **Adicionar uma condição**. Na condição, mude para o editor avançado e insira o seguinte código, substituindo o APP_ID pelo APP_ID real do aplicativo Web:
+Selecione **Adicionar uma condição**. Na condição, alterne para o editor avançado e insira o código a seguir. Substitua *APP_ID* com a ID do aplicativo real do seu aplicativo web:
 
 ```
 @equals('<APP_ID>', json(decodeBase64(triggerBody()['ContentData']))['identity']['claim']['appid'])
 ```
 
-Essa expressão retornará essencialmente **false** se *appid* do evento recebido (que é o corpo da mensagem do Barramento de Serviço) não for a *appid* do aplicativo.
+Essa expressão retornará essencialmente **falsos** se o *appid* do evento recebido (que é o corpo da mensagem do barramento de serviço) não é o *appid* do aplicativo.
 
-Agora, crie uma ação em **Se não, não faça nada**.
+Agora, crie uma ação sob **se não, não faça NADA**.
 
-![Escolher ação do aplicativo lógico do Azure](./media/keyvault-keyrotation/Azure_LogicApp_Condition.png)
+![Ação de escolha de aplicativos lógicos do Azure](./media/keyvault-keyrotation/Azure_LogicApp_Condition.png)
 
-Para a ação, escolha **Office 365 - send email (Office 365 – enviar email)**. Preencha os campos para criar um email para enviar quando a condição definida retornar **false**. Se você não tiver o Office 365, poderá consultar alternativas para obter os mesmos resultados.
+Para a ação, selecione **Office 365 - enviar email**. Preencha os campos para criar um email para enviar quando a condição definida retornar **false**. Se você não tiver o Office 365, procure alternativas para atingir os mesmos resultados.
 
-Nesse ponto, você tem um pipeline de ponta a ponta que procura novos logs de auditoria do cofre de chaves a cada minuto. Ele envia os novos logs que encontra para uma fila do barramento de serviço. O aplicativo lógico é disparado quando uma nova mensagem chega na fila. Se o *appid* no evento não corresponder à ID do aplicativo de chamada, ele enviará um email.
+Agora você tem um pipeline de ponta a ponta que procura novos logs de auditoria do Cofre de chaves a cada minuto. Ele envia novos logs que encontra para uma fila do barramento de serviço. O aplicativo lógico é disparado quando uma nova mensagem chega na fila. Se o *appid* dentro do evento não corresponde à ID de aplicativo do aplicativo de chamada, ele envia um email.

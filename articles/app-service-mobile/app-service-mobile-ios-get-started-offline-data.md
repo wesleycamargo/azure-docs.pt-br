@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: bc0afcf1ac7d9e7a777d850e1b6df7b915837f3a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 1283f812799fe71ef6987dbc7fab092aed4d3417
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956867"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435126"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Habilitar a sincronização offline com aplicativos móveis do iOS
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -101,7 +101,7 @@ Agora vamos executar a operação de sincronização em si e obter dados do back
 
           if error != nil {
               // A real application would handle various errors like network conditions,
-              // server conflicts, etc via the MSSyncContextDelegate
+              // server conflicts, etc. via the MSSyncContextDelegate
               print("Error: \(error!.description)")
 
               // We will discard our changes and keep the server's copy for simplicity
@@ -159,7 +159,7 @@ Ao usar o recurso de sincronização offline, você define as três tabelas do s
 
 ![Atributos da tabela MS_TableOperations][defining-core-data-tableoperations-entity]
 
-| Atributo | Tipo |
+| Atributo | Type |
 | --- | --- |
 | ID | Número Inteiro 64 |
 | itemId | Cadeia de caracteres |
@@ -172,7 +172,7 @@ Ao usar o recurso de sincronização offline, você define as três tabelas do s
 
  ![Atributos da tabela MS_TableOperationErrors][defining-core-data-tableoperationerrors-entity]
 
-| Atributo | Tipo |
+| Atributo | Type |
 | --- | --- |
 | ID |Cadeia de caracteres |
 | operationId |Número Inteiro 64 |
@@ -183,7 +183,7 @@ Ao usar o recurso de sincronização offline, você define as três tabelas do s
 
  ![][defining-core-data-tableconfig-entity]
 
-| Atributo | Tipo |
+| Atributo | Type |
 | --- | --- |
 | ID |Cadeia de caracteres |
 | chave |Cadeia de caracteres |
@@ -195,7 +195,7 @@ Ao usar o recurso de sincronização offline, você define as três tabelas do s
 
 **TodoItem**
 
-| Atributo | Tipo | Observação |
+| Atributo | Type | Observação |
 | --- | --- | --- |
 | ID | Cadeia de caracteres, marcadas como obrigatórias |Chave primária no repositório remoto |
 | concluído | BOOLEAN | Campo To-do item |

@@ -16,12 +16,12 @@ ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7054946a15ca27f4b5a36d3d2ac712cba2fd68d8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6e79b0fc0ef23287c8871b7a7634d28d129b900e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185121"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101135"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Solução de problemas do Azure Active Directory híbrido ingressado em dispositivos de nível inferior 
 
@@ -85,19 +85,19 @@ Se o dispositivo não tiver ingressado no Azure AD híbrido, você poderá tenta
 
     ![Workplace Join para Windows](./media/troubleshoot-hybrid-join-windows-legacy/02.png)
     
-    - O Autoworkplace.exe não pode autenticar silenciosamente com o Microsoft Azure Active Directory ou o AD FS. Isso pode ser causado pela ausência de AD FS ou sua configuração incorreta (para domínios federados), ou ausência do Logon único contínuo do Azure AD ou sua configuração incorreta (para domínios gerenciados) ou problemas de rede. 
+  - O Autoworkplace.exe não pode autenticar silenciosamente com o Microsoft Azure Active Directory ou o AD FS. Isso pode ser causado pela ausência de AD FS ou sua configuração incorreta (para domínios federados), ou ausência do Logon único contínuo do Azure AD ou sua configuração incorreta (para domínios gerenciados) ou problemas de rede. 
     
-     - É possível que a MFA (autenticação multifator) esteja habilitada/configurada para o usuário e WIAORMUTLIAUTHN não esteja configurada no servidor do AD FS. 
+    - É possível que a MFA (autenticação multifator) esteja habilitada/configurada para o usuário e WIAORMUTLIAUTHN não esteja configurada no servidor do AD FS. 
      
-     - Outra possibilidade é que a página de descoberta de domínio doméstico (HRD) esteja aguardando a interação do usuário, o que evita que o **autoworkplace.exe** solicite silenciosamente um token.
+    - Outra possibilidade é que a página de descoberta de domínio doméstico (HRD) esteja aguardando a interação do usuário, o que evita que o **autoworkplace.exe** solicite silenciosamente um token.
      
-     - É possível que o AD FS e as URLs do Azure AD estejam ausentes na zona de intranet do IE no cliente.
+    - É possível que o AD FS e as URLs do Azure AD estejam ausentes na zona de intranet do IE no cliente.
      
-     - Problemas de conectividade de rede podem estar impedindo o **autoworkplace.exe** de alcançar o AD FS ou as URLs do Azure AD. 
+    - Problemas de conectividade de rede podem estar impedindo o **autoworkplace.exe** de alcançar o AD FS ou as URLs do Azure AD. 
      
-     - O **autoworkplace.exe** exige que o cliente tenha linha de visão direta do cliente até o local do controlador de domínio do AD da organização, o que significa que o ingresso híbrido do Azure AD terá êxito somente quando o cliente estiver conectado à intranet da organização.
+    - **Autoworkplace.exe** requer que o cliente para que a linha de visão direta do cliente para local a organização controlador de domínio do AD, o que significa que unem híbrida do Azure AD terá êxito apenas quando o cliente é conectado à intranet da organização.
      
-     - Sua organização usa o Logon Único Contínuo do Microsoft Azure Active Directory `https://autologon.microsoftazuread-sso.com` ou `https://aadg.windows.net.nsatc.net` não está presente nas configurações de intranet do Internet Explorer do dispositivo, e **Permitir atualizações à barra de status por meio de script** não está habilitada para a zona da Intranet.
+    - Sua organização usa o Logon Único Contínuo do Microsoft Azure Active Directory `https://autologon.microsoftazuread-sso.com` ou `https://aadg.windows.net.nsatc.net` não está presente nas configurações de intranet do Internet Explorer do dispositivo, e **Permitir atualizações à barra de status por meio de script** não está habilitada para a zona da Intranet.
 
 - Você não está conectado como um usuário de domínio
 

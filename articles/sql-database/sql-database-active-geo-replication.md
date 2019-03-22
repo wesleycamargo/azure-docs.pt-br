@@ -11,15 +11,15 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: b39967c071b21978324f205eb62d305011b65fb6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: cb83f0c38f6860340444c15b6c5eef0b990d0ad0
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995043"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295242"
 ---
-# <a name="create-readable-secondary-databases-using-active-geo-replication"></a>Criar bancos de dados secundários legíveis usando a replicação geográfica ativa
+# <a name="creating-and-using-active-geo-replication"></a>Criando e usando a replicação geográfica ativa
 
 Replicação geográfica ativa é o recurso de Banco de Dados SQL do Azure que permite que você crie bancos de dados secundários legíveis com base em bancos de dados individuais em um servidor de Banco de Dados SQL no mesmo data center (região) ou em um data center diferente.
 
@@ -52,9 +52,6 @@ A replicação geográfica ativa aproveita a tecnologia [Always On](https://docs
 > [!IMPORTANT]
 > Para garantir que uma alteração crítica no banco de dados primário seja replicada para um secundário antes do failover, você pode forçar a sincronização para garantir a replicação das alterações críticas (por exemplo, atualizações de senha). A sincronização forçada afeta o desempenho, já que bloqueia o thread de chamada até que todas as transações confirmadas sejam replicadas. Para obter detalhes, veja [sp_wait_for_database_copy_sync](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync). Para monitorar o atraso de replicação entre o banco de dados primário e o geo-secundário, confira [sys.dm_geo_replication_link_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).
 
-
-
-
 A figura a seguir mostra que um exemplo de replicação geográfica ativa configurada com um banco de dados primário na região Centro-Norte dos EUA e um secundário na região Centro-Sul dos EUA.
 
 ![relacionamento de replicação geográfica](./media/sql-database-active-geo-replication/geo-replication-relationship.png)
@@ -72,7 +69,7 @@ Para garantir a continuidade de negócios real, a adição de redundância de ba
 
 - **Replicação assíncrona automática**
 
- Você só pode criar um banco de dados secundário adicionando a um banco de dados existente. O banco de dados secundário só pode ser criado em qualquer servidor de Banco de Dados SQL do Azure. Depois de criado, o banco de dados secundário é preenchido com os dados copiados do banco de dados primário. Este processo é conhecido como propagação. Depois que o banco de dados secundário for criado e propagado, as atualizações para o banco de dados primário serão replicadas de forma assíncrona para o banco de dados secundário automaticamente. A replicação assíncrona significa que as transações são confirmadas no banco de dados primário antes de serem replicadas para o banco de dados secundário.
+  Você só pode criar um banco de dados secundário adicionando a um banco de dados existente. O banco de dados secundário só pode ser criado em qualquer servidor de Banco de Dados SQL do Azure. Depois de criado, o banco de dados secundário é preenchido com os dados copiados do banco de dados primário. Este processo é conhecido como propagação. Depois que o banco de dados secundário for criado e propagado, as atualizações para o banco de dados primário serão replicadas de forma assíncrona para o banco de dados secundário automaticamente. A replicação assíncrona significa que as transações são confirmadas no banco de dados primário antes de serem replicadas para o banco de dados secundário.
 
 - **Bancos de dados secundários legíveis**
 
@@ -110,7 +107,7 @@ Para garantir a continuidade de negócios real, a adição de redundância de ba
 
 - **Manter credenciais e regras de firewall em sincronização**
 
-  É recomendável usar [regras de firewall de banco de dados](sql-database-firewall-configure.md) para bancos de dados com replicação geográfica, de modo que essas regras possam ser replicadas com o banco de dados para garantir que todos os bancos de dados secundários tenham as mesmas regras de firewall que o primário. Essa abordagem elimina a necessidade de os clientes configurarem manualmente e manterem as regras de firewall nos servidores que hospedam os bancos de dados primários e secundários. Da mesma forma, usar [usuários de banco de dados independente](sql-database-manage-logins.md) para o acesso a dados garante que os bancos de dados primários e secundários sempre tenham as mesmas credenciais de usuário para que, durante failovers, não haja interrupções devido à incompatibilidade nos logons e senhas. Com a adição de [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), os clientes podem gerenciar o acesso do usuário aos bancos de dados primários e secundários, eliminando a necessidade de gerenciamento de credenciais em todos os bancos de dados juntos.
+É recomendável usar [regras de firewall IP de nível de banco de dados](sql-database-firewall-configure.md) para replicação geográfica bancos de dados para que essas regras podem ser replicadas com o banco de dados para garantir que todos os bancos de dados secundários tenham as mesmas regras de firewall IP que o primário. Essa abordagem elimina a necessidade de os clientes configurarem manualmente e manterem as regras de firewall nos servidores que hospedam os bancos de dados primários e secundários. Da mesma forma, usar [usuários de banco de dados independente](sql-database-manage-logins.md) para o acesso a dados garante que os bancos de dados primários e secundários sempre tenham as mesmas credenciais de usuário para que, durante failovers, não haja interrupções devido à incompatibilidade nos logons e senhas. Com a adição de [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), os clientes podem gerenciar o acesso do usuário aos bancos de dados primários e secundários, eliminando a necessidade de gerenciamento de credenciais em todos os bancos de dados juntos.
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>Atualizar ou fazer downgrade de um banco de dados primário
 
@@ -119,12 +116,28 @@ Você pode atualizar ou fazer downgrade de um banco de dados primário para um t
 > [!NOTE]
 > Se você tiver criado um banco de dados secundário como parte da configuração do grupo de failover não é recomendável fazer o downgrade do banco de dados secundário. Isso é para garantir que sua camada de dados tenha capacidade suficiente para processar sua carga de trabalho normal após o failover ser ativado.
 
+> [!IMPORTANT]
+> O banco de dados primário em um grupo de failover não pode dimensionar para uma camada superior, a menos que o banco de dados secundário primeiro é dimensionado para o nível superior. Se você tentar expandir o banco de dados primário antes do banco de dados secundário é dimensionado, você poderá receber o seguinte erro:
+>
+> `Error message: The source database 'Primaryserver.DBName' cannot have higher edition than the target database 'Secondaryserver.DBName'. Upgrade the edition on the target before upgrading the source.`
+>
+
 ## <a name="preventing-the-loss-of-critical-data"></a>Evitando a perda de dados críticos
 
 Devido à alta latência das redes de longa distância, a cópia contínua usa um mecanismo de replicação assíncrona. A replicação assíncrona tornará a perda de alguns dados inevitável se ocorrer uma falha. No entanto, alguns aplicativos podem exigir nenhuma perda de dados. Para proteger essas atualizações críticas, um desenvolvedor de aplicativo pode chamar o procedimento de sistema [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) imediatamente após a confirmação da transação. Chamar **sp_wait_for_database_copy_sync** bloqueia o thread de chamada até que a última transação confirmada seja transmitida para o banco de dados secundário. Contudo, a chamada não aguarda as transações transmitidas serem reproduzidas e confirmadas no banco de dados secundário. **sp_wait_for_database_copy_sync** é atribuído a um vínculo de cópia contínua específico. Qualquer usuário com os direitos de conexão para o banco de dados primário pode chamar este procedimento.
 
 > [!NOTE]
 > **sp_wait_for_database_copy_sync** impede a perda de dados depois de um failover, mas não garante a sincronização completa para acesso de leitura. A demora causada por uma chamada de procedimento **sp_wait_for_database_copy_sync** pode ser significativa e depende do tamanho do log de transações no momento da chamada.
+
+## <a name="monitoring-geo-replication-lag"></a>Monitoramento de latência de replicação geográfica
+
+Para monitorar a latência em relação ao RPO, use *replication_lag_sec* coluna da [DM geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) no banco de dados primário. Ele mostra a latência em segundos entre as transações confirmadas no primário e persistidos no secundário. Por exemplo Se o valor da lentidão é 1 segundo, significa que se o primário for afetado por uma interrupção no momento e o failover é iniciada, 1 segundo de transtions o mais recente não serão salvas. 
+
+Para medir a latência com relação às alterações no banco de dados primário que foram aplicados na réplica secundária, ou seja, disponível para leitura do secundário, comparar *last_commit* tempo no banco de dados secundário com o mesmo valor no primário banco de dados.
+
+> [!NOTE]
+> Às vezes *replication_lag_sec* no banco de dados primário tem um valor nulo, o que significa que o primário não atualmente sabe até que ponto o secundário está.   Isso geralmente acontece depois que o processo for reiniciado e deve ser uma condição temporária. Considere o aplicativo de alerta se o *replication_lag_sec* retorna NULL por um longo período de tempo. Ele indicaria que o banco de dados secundário não pode se comunicar com o primário devido a uma falha de conectividade permanente. Também existem condições que poderiam causar a diferença entre *last_commit* tempo na réplica secundária e banco de dados primário se torne grande. Por exemplo Se uma confirmação é feita na primária após um longo período de nenhuma alteração, a diferença será saltar até um grande valor antes de retornar rapidamente a 0. Considere-o uma condição de erro quando a diferença entre esses dois valores permanece grande por um longo tempo.
+
 
 ## <a name="programmatically-managing-active-geo-replication"></a>Gerenciando a replicação geográfica ativa programaticamente
 
@@ -148,13 +161,17 @@ Conforme discutido anteriormente, a replicação geográfica ativa pode ser gere
 
 ### <a name="powershell-manage-failover-of-single-and-pooled-databases"></a>PowerShell: Gerenciar o failover dos bancos de dados individuais e em pool
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> O módulo do PowerShell do Azure Resource Manager ainda é compatível com o banco de dados SQL, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para esses cmdlets, consulte [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
+
 | Cmdlet | DESCRIÇÃO |
 | --- | --- |
-| [Get-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabase) |Obtém um ou mais bancos de dados. |
-| [New-AzureRmSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary) |Cria um banco de dados secundário para um banco de dados existente e inicia a replicação de dados. |
-| [Set-AzureRmSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasesecondary) |Alterna um banco de dados secundário para primário a fim de iniciar o failover. |
-| [Remove-AzureRmSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary) |Encerra uma replicação de dados entre um Banco de Dados SQL e o banco de dados secundário especificado. |
-| [Get-AzureRmSqlDatabaseReplicationLink](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasereplicationlink) |Obtém os links de replicação geográfica entre um Banco de Dados SQL do Azure e um grupo de recursos ou o SQL Server. |
+| [Get-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabase) |Obtém um ou mais bancos de dados. |
+| [New-AzSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabasesecondary) |Cria um banco de dados secundário para um banco de dados existente e inicia a replicação de dados. |
+| [Set-AzSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasesecondary) |Alterna um banco de dados secundário para primário a fim de iniciar o failover. |
+| [Remove-AzSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasesecondary) |Encerra uma replicação de dados entre um Banco de Dados SQL e o banco de dados secundário especificado. |
+| [Get-AzSqlDatabaseReplicationLink](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasereplicationlink) |Obtém os links de replicação geográfica entre um Banco de Dados SQL do Azure e um grupo de recursos ou o SQL Server. |
 |  | |
 
 > [!IMPORTANT]

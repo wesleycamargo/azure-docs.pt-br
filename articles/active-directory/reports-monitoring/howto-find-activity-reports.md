@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ff5b998222f9a7320384edea1ed69e7a65e9139
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 65e803ca373fb9853fc23d17f1a27ecadc6a209c
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171291"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295208"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Localizar relatórios de atividade no Portal do Azure
 
@@ -48,15 +48,46 @@ O relatório de logs de auditoria consolida os seguintes relatórios:
 
 ### <a name="filtering-on-audit-logs"></a>Filtragem em logs de auditoria
 
-É possível usar a filtragem avançada no relatório de auditoria para acessar uma categoria específica de dados de auditoria, especificando-a no filtro **Categoria de atividade**. Por exemplo, para exibir todas as atividades relacionadas à redefinição de senha de autoatendimento, selecione a categoria **Gerenciamento de senha de autoatendimento**. 
+Você pode usar a filtragem avançada no relatório de auditoria para acessar uma categoria específica de dados de auditoria, especificando-na **categoria** filtro. Por exemplo, para exibir todas as atividades relacionadas aos usuários, selecione a **UserManagement** categoria. 
 
-As categorias de atividades incluem:
+As categorias incluem:
 
+- Todos
+- AdministrativeUnit
+- ApplicationManagement
+- Authentication
+- Autorização
+- Contato
+- Dispositivo
+- DeviceConfiguration
+- DirectoryManagement
+- EntitlementManagement
+- GroupManagement
+- Outros
+- Política
+- ResourceManagement
+- RoleManagement
+- UserManagement
+
+Você também pode filtrar em um serviço específico usando o **serviço** filtro de lista suspensa. Por exemplo, para obter todos os eventos de auditoria relacionados ao gerenciamento de senha de autoatendimento, selecione a **gerenciamento de senha de autoatendimento** filtro.
+
+Os serviços incluem:
+
+- Todos
+- Revisões de acesso
+- Provisionamento de conta de usuário 
+- Aplicativo de SSO
+- Métodos de autenticação
+- B2C
+- Acesso Condicional
 - Diretório principal
-- Gerenciamento de senhas de auto-atendimento
+- Gerenciamento de Direitos
+- Identity Protection
+- Usuários Convidados
+- PIM
 - Gerenciamento de grupos de autoatendimento
-- Provisionamento de conta de usuário
-
+- Gerenciamento de senhas de auto-atendimento
+- Termos de Uso
 
 ## <a name="sign-ins-report"></a>Relatório de entradas 
 
@@ -122,11 +153,11 @@ Baixei os logs de atividade (auditoria ou entradas) e não vejo todos os registr
  
 #### <a name="cause"></a>Causa
 
-Ao baixar logs de atividades no portal do Azure, limitamos a escala a 5000 registros, classificados primeiro pelos mais recentes. 
+Quando você baixar os logs de atividade no portal do Azure, limitamos a escala para 250000 registros, classificados pelos mais recentes primeiro. 
 
 #### <a name="resolution"></a>Resolução
 
-Você pode aproveitar as [APIs de relatórios do Azure AD](concept-reporting-api.md) para buscar até um milhões de registros em qualquer momento determinado. Nossa abordagem recomendada é [executar um script com base em agendamento](tutorial-signin-logs-download-script.md) que chame as APIs de relatórios para buscar registros de maneira incremental durante um período de tempo (por exemplo, diariamente ou semanalmente). 
+Você pode aproveitar as [APIs de relatórios do Azure AD](concept-reporting-api.md) para buscar até um milhões de registros em qualquer momento determinado.
 
 ### <a name="missing-audit-data-for-recent-actions-in-the-azure-portal"></a>Dados de auditoria ausentes para ações recentes no portal do Azure
 

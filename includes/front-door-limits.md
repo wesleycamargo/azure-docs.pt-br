@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 9/17/2018
 ms.author: sharadag
 ms.custom: include file
-ms.openlocfilehash: f0c2d1501b9aa19dec8c4ad157e004a57e0e5070
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: e3fa5616518675d8475937ec63afdd8e1742e8c6
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47006462"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553216"
 ---
 | Recurso | Limite padrão |
 | --- | --- |
-| Recursos do Front Door por assinatura | 100 |
-| Hosts de front-end incluindo domínios personalizados por recurso | 100 |
+| Recursos de serviço de porta da frente do Azure por assinatura | 100 |
+| Hosts de front-end, que inclui os domínios personalizados por recurso | 100 |
 | Regras de roteamento por recurso | 100 |
 | Pools de back-end por recurso | 50 |
 | Back-ends por pool de back-end | 100 |
@@ -29,15 +29,16 @@ ms.locfileid: "47006462"
 ### <a name="timeout-values"></a>Valores de tempo limite
 #### <a name="client-to-front-door"></a>Cliente para o Front Door
 - O Front Door tem um tempo limite de conexão TCP ocioso de 61 segundos.
-#### <a name="front-door-to-application-backend"></a>Front Door para o back-end do aplicativo
-- Se a resposta for uma resposta em partes, será retornado 200 se/quando a primeira parte for recebida.
-- Depois que a solicitação HTTP for encaminhada para o back-end, o Front Door aguardará 30 segundos pelo primeiro pacote do back-end, antes de retornar um erro 503 para o cliente.
-- Após o recebimento do primeiro pacote do back-end, o Front Door aguarda 30 segundos (tempo limite ocioso) antes de retornar um erro 503 ao cliente.
-- O tempo limite da sessão do Front Door para o TCP de back-end é de 30 minutos.
 
-### <a name="upload--download-data-limit"></a>Carregar/baixar limite de dados
+#### <a name="front-door-to-application-back-end"></a>Porta da frente para back-end do aplicativo
+- Se a resposta é uma resposta em partes, uma resposta 200 é retornado se ou quando a primeira parte é recebida.
+- Depois que a solicitação HTTP é encaminhada para o back-end, porta da frente aguarda 30 segundos para o primeiro pacote de back-end. Em seguida, ele retorna um erro 503 ao cliente.
+- Depois que o primeiro pacote é recebido do back-end, porta da frente aguarda 30 segundos em um tempo limite de ociosidade. Em seguida, ele retorna um erro 503 ao cliente.
+- Porta da frente para o tempo limite da sessão TCP back-end é de 30 minutos.
 
-|  | Com CTE (Codificação de transferência em bloco) | Sem agrupamento de HTTP |
+### <a name="upload-and-download-data-limit"></a>Carregar e baixar o limite de dados
+
+|  | Com codificação (CTE) de transferência em partes | Sem agrupamento de HTTP |
 | ---- | ------- | ------- |
-| **Baixar** | Não há nenhum limite para o tamanho do download | Não há nenhum limite para o tamanho do download |
-| **Upload** |  Não há limite, desde que cada upload de CTE seja inferior a 28,6 MB | O tamanho não pode ser maior do que 28,6 MB. |
+| **Baixar** | Não há nenhum limite no tamanho do download. | Não há nenhum limite no tamanho do download. |
+| **Upload** |  Não há nenhum limite desde que cada carregamento CTE for inferior a 28,6 MB. | O tamanho não pode ser maior do que 28,6. MB. |

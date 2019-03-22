@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: spelluru
-ms.openlocfilehash: fff484f2ee6722083a34383b8960931cb37b8316
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
-ms.translationtype: HT
+ms.openlocfilehash: 206cca95c590a01f69d3664fb87398bc2fcb4ad9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700439"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445782"
 ---
 # <a name="azure-relay-authentication-and-authorization"></a>Autenticação e autorização da Retransmissão do Azure
 
@@ -29,7 +29,7 @@ Os aplicativos podem autenticar a Retransmissão do Azure usando a autenticaçã
 
 A [autenticação SAS](../service-bus-messaging/service-bus-sas.md) permite que você conceda a um usuário acesso a recursos de Retransmissão do Azure com direitos específicos. A autenticação SAS envolve a configuração de uma chave de criptografia com direitos associados em um recurso. Os clientes podem obter acesso a esse recurso apresentando um token SAS que consiste em acessar o URI de recurso e assinar uma expiração com a chave configurada.
 
-É possível configurar chaves para SAS em um namespace da Retransmissão. Ao contrário do sistema de mensagens do Barramento de Serviço, as [Conexões Híbridas de Retransmissão](relay-hybrid-connections-protocol.md) dão suporte a remetentes anônimos ou não autorizados. Você pode habilitar o acesso anônimo para a entidade quando você a criar, conforme mostrado na seguinte imagem capturada do portal:
+É possível configurar chaves para SAS em um namespace da Retransmissão. Ao contrário do sistema de mensagens do Barramento de Serviço, as [Conexões Híbridas de Retransmissão](relay-hybrid-connections-protocol.md) dão suporte a remetentes anônimos ou não autorizados. Você pode habilitar o acesso anônimo para a entidade quando você criá-lo, conforme mostrado na seguinte captura de tela do portal:
 
 ![][0]
 

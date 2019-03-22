@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 02/22/2019
 ms.author: jingwang
-ms.openlocfilehash: bc7fdbe964269521a049fba8fcb8c37194d60f7c
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 115a02c7f8abee18c226c127fb84b4bb34250cd0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55664192"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456305"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Copiar dados de ou para o Armazenamento de Blobs do Azure usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -24,6 +24,8 @@ ms.locfileid: "55664192"
 Este artigo descreve como usar a Atividade de Cópia no Azure Data Factory para copiar dados de e para o Armazenamento de Blobs do Azure. Ele amplia o artigo [visão geral da Atividade de Cópia](copy-activity-overview.md) que apresenta uma visão geral da Atividade de Cópia.
 
 Para saber mais sobre o Azure Data Factory, leia as [artigo introdutório](introduction.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
@@ -37,7 +39,7 @@ Especificamente, este conector de armazenamento de Blob dá suporte a:
 - Copiar blobs no estado em que se encontram ou analisando ou gerando blobs com os [formatos de arquivo e codecs de compactação com suporte](supported-file-formats-and-compression-codecs.md).
 
 >[!NOTE]
->Se você habilitar a opção _"Permitir que serviços Microsoft confiáveis acessem esta conta de armazenamento"_ nas configurações do firewall do Azure Storage, o uso do Azure Integration Runtime para se conectar ao armazenamento Blob falhará com erro proibido, pois o ADF não é tratado como confiável Microsoft serviço. Por favor, use o Microsoft Integração Runtime Auto-hospedado como conexão via.
+>Se você habilitar a _"Confiável para permitir que serviços da Microsoft para acessar essa conta de armazenamento"_ opção nas configurações de firewall de armazenamento do Azure, usando o Integration Runtime do Azure para se conectar ao armazenamento de BLOBs falhará com um erro "proibido", pois ADF não é tratado como um serviço confiável da Microsoft. Conecte-se por meio de um Integration Runtime auto-hospedado em vez disso.
 
 ## <a name="get-started"></a>Introdução
 
@@ -64,7 +66,7 @@ Para usar a autenticação de chave de conta de armazenamento, há suporte para 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | Tipo | A propriedade de tipo deve ser definida como **AzureBlobStorage** (sugerido) ou **AzureStorage** (consulte as observações abaixo). |Sim |
-| connectionString | Especifique as informações necessárias para se conectar ao Armazenamento para a propriedade connectionString. <br/>Marque esse campo como SecureString para armazená-lo com segurança no Data Factory. Você também pode colocar a chave de conta no Azure Key Vault e efetuar pull da configuração `accountKey` da cadeia de conexão. Consulte os exemplos a seguir e o artigo [Armazenar credenciais no Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. |Sim |
+| connectionString | Especifique as informações necessárias para se conectar ao Armazenamento para a propriedade connectionString. <br/>Marque esse campo como SecureString para armazená-lo com segurança no Data Factory. Você também pode colocar a chave de conta no Azure Key Vault e efetuar pull da configuração `accountKey` da cadeia de conexão. Confira os exemplos a seguir e o artigo [Armazenar credenciais no Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. |Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime do Azure ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver em uma rede privada). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não  |
 
 >[!NOTE]
@@ -130,15 +132,15 @@ Uma assinatura de acesso compartilhado fornece acesso delegado aos recursos da s
 
 > [!TIP]
 > Para gerar uma assinatura de acesso compartilhado de serviço para a conta de armazenamento, você pode executar os comandos a seguir do PowerShell. Substitua os espaços reservados e conceda a permissão necessária.
-> `$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
-> `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
+> `$context = New-AzStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
+> `New-AzStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
 Para usar a autenticação de assinatura de acesso compartilhado, há suporte para as seguintes propriedades:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | Tipo | A propriedade de tipo deve ser definida como **AzureBlobStorage** (sugerido) ou **AzureStorage** (consulte as observações abaixo). |Sim |
-| sasUri | Especifique o URI de assinatura de acesso compartilhado para os recursos de Armazenamento, como blob/contêiner. <br/>Marque esse campo como SecureString para armazená-lo com segurança no Data Factory. Você também pode colocar o token SAS no Azure Key Vault para alavancar a rotação automática e remover a parte do token. Consulte os exemplos a seguir e o artigo [Armazenar credenciais no Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. |Sim |
+| sasUri | Especifique o URI de assinatura de acesso compartilhado para os recursos de Armazenamento, como blob/contêiner. <br/>Marque esse campo como SecureString para armazená-lo com segurança no Data Factory. Você também pode colocar o token SAS no cofre de chaves do Azure para aproveitar a rotação automática e remover a parte do token. Confira os exemplos a seguir e o artigo [Armazenar credenciais no Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. |Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime do Azure ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não  |
 
 >[!NOTE]
@@ -257,13 +259,11 @@ Estas propriedades são suportadas por um serviço vinculado de armazenamento de
 
 ### <a name="managed-identity"></a> Identidades gerenciadas para autenticação de recursos do Azure
 
-Um data factory pode ser associado a uma [identidade gerenciada para recursos do Azure](data-factory-service-identity.md), que representa esse data factory específico. Você pode usar essa identidade de serviço diretamente para a autenticação de armazenamento do Blob da mesma maneira que no uso de sua própria entidade de serviço. Ele permite que este alocador designado acesse e copie dados de/para o seu armazenamento de Blob.
+Um data factory pode ser associado a uma [identidade gerenciada para recursos do Azure](data-factory-service-identity.md), que representa esse data factory específico. Você pode usar essa identidade de gerenciado diretamente para a autenticação de armazenamento de Blob semelhante a usar sua própria entidade de serviço. Ele permite que este alocador designado acesse e copie dados de/para o seu armazenamento de Blob.
 
-Para autenticação de MSI de Armazenamento do Microsoft Azure em geral, consulte [Autenticar o acesso ao Armazenamento do Microsoft Azure usando o Azure Active Directory](../storage/common/storage-auth-aad.md).
+Consulte a [autenticar o acesso ao armazenamento do Azure usando o Azure Active Directory](../storage/common/storage-auth-aad.md) para autenticação de armazenamento do Azure em geral. Para usar identidades gerenciadas para autenticação de recursos do Azure, siga estas etapas:
 
-Para usar identidades gerenciadas para autenticação de recursos do Azure, siga estas etapas:
-
-1. [Recuperar a identidade do serviço de data factory](data-factory-service-identity.md#retrieve-service-identity) copiando o valor de "SERVIÇO DE IDENTIDADE ID DO APLICATIVO" gerado junto com seu alocador.
+1. [Recuperar informações de identidade gerenciada de fábrica de dados](data-factory-service-identity.md#retrieve-managed-identity) copiando o valor de "Serviço de identidade ID do aplicativo" gerado junto com seu alocador.
 
 2. Conceda a permissão adequada de identidade gerenciada no armazenamento do Azure Blob. Consulte [Gerenciar os direitos de acesso aos dados do Armazenamento do Microsoft Azure com o RBAC](../storage/common/storage-auth-aad-rbac.md) com mais detalhes sobre as funções.
 
@@ -331,6 +331,7 @@ Para copiar dados de e para o armazenamento de blob, defina a propriedade type d
         },
         "typeProperties": {
             "folderPath": "mycontainer/myfolder",
+            "fileName": "*",
             "modifiedDatetimeStart": "2018-12-01T05:00:00Z",
             "modifiedDatetimeEnd": "2018-12-01T06:00:00Z",
             "format": {

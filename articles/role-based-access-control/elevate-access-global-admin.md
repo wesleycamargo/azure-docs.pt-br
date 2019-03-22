@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 2a030daa8d9c30add1beb3a2628aa16b2da22dde
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: ede7037aabc85739ee47636f1390c15e0b0d1639
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338845"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106314"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Elevar o acesso para gerenciar todas as assinaturas e grupos de gerenciamento do Azure
 
@@ -227,39 +227,39 @@ Ao chamar `elevateAccess`, você cria uma atribuição de função para si mesmo
     >[!NOTE] 
     >Um administrador de diretório não deve ter muitas atribuições, se a consulta anterior retornar muitas atribuições, você também pode consultar todas as atribuições apenas no nível do escopo do diretório e, em seguida, filtrar os resultados: `GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
         
-    2. As chamadas anteriores retornam uma lista de atribuições de função. Encontre a atribuição de função em que o escopo é `"/"` e o `roleDefinitionId` termina com o ID do nome da função que você encontrou na etapa 1 e `principalId` corresponde ao objectId do administrador de diretório. 
+   1. As chamadas anteriores retornam uma lista de atribuições de função. Encontre a atribuição de função em que o escopo é `"/"` e o `roleDefinitionId` termina com o ID do nome da função que você encontrou na etapa 1 e `principalId` corresponde ao objectId do administrador de diretório. 
     
-    Atribuição de função de amostra:
+      Atribuição de função de amostra:
 
-        ```json
-        {
-          "value": [
-            {
-              "properties": {
-                "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
-                "principalId": "{objectID}",
-                "scope": "/",
-                "createdOn": "2016-08-17T19:21:16.3422480Z",
-                "updatedOn": "2016-08-17T19:21:16.3422480Z",
-                "createdBy": "93ce6722-3638-4222-b582-78b75c5c6d65",
-                "updatedBy": "93ce6722-3638-4222-b582-78b75c5c6d65"
-              },
-              "id": "/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099",
-              "type": "Microsoft.Authorization/roleAssignments",
-              "name": "e7dd75bc-06f6-4e71-9014-ee96a929d099"
-            }
-          ],
-          "nextLink": null
-        }
-        ```
+       ```json
+       {
+         "value": [
+           {
+             "properties": {
+               "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
+               "principalId": "{objectID}",
+               "scope": "/",
+               "createdOn": "2016-08-17T19:21:16.3422480Z",
+               "updatedOn": "2016-08-17T19:21:16.3422480Z",
+               "createdBy": "93ce6722-3638-4222-b582-78b75c5c6d65",
+               "updatedBy": "93ce6722-3638-4222-b582-78b75c5c6d65"
+             },
+             "id": "/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099",
+             "type": "Microsoft.Authorization/roleAssignments",
+             "name": "e7dd75bc-06f6-4e71-9014-ee96a929d099"
+           }
+         ],
+         "nextLink": null
+       }
+       ```
         
-    Novamente, salve a ID do parâmetro `name`, nesse caso: e7dd75bc-06f6-4e71-9014-ee96a929d099.
+      Novamente, salve a ID do parâmetro `name`, nesse caso: e7dd75bc-06f6-4e71-9014-ee96a929d099.
 
-    3. Por fim, use a ID da atribuição de função para remover a atribuição adicionada por `elevateAccess`:
+   1. Por fim, use a ID da atribuição de função para remover a atribuição adicionada por `elevateAccess`:
 
-    ```http
-    DELETE https://management.azure.com/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099?api-version=2015-07-01
-    ```
+      ```http
+      DELETE https://management.azure.com/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099?api-version=2015-07-01
+      ```
 
 ## <a name="next-steps"></a>Próximas etapas
 

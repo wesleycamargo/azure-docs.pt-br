@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 4a7e3e9ff414c8f7ba1c49924f1d8659d72ae3e2
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: c52565403c7fbc80eacbf65428863db07d634030
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158203"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897275"
 ---
 # <a name="azure-api-management-template-resources"></a>Recursos de modelo no Gerenciamento de API do Azure
 O Gerenciamento de API do Azure fornece os tipos de recursos a seguir para uso em modelos de portal do desenvolvedor.  
@@ -459,7 +459,7 @@ O Gerenciamento de API do Azure fornece os tipos de recursos a seguir para uso e
 |WebAuthenticationUserIsNotConfirm|Confirme o seu registro antes de tentar entrar.|  
 |WebAuthenticationInvalidEmailFormated|O e-mail é inválido: {0}|  
 |WebAuthenticationUserNotFound|Usuário não encontrado|  
-|WebAuthenticationTenantNotRegistered|Sua conta pertence a um locatário do Azure Active Directory que não está autorizado a acessar esse portal.|  
+|WebAuthenticationTenantNotRegistered|Sua conta pertence a um locatário do Azure Active Directory que não está autorizado a acessar este portal.|  
 |WebAuthenticationAuthenticationFailed|Falha na autenticação.|  
 |WebAuthenticationGooglePlusNotEnabled|Falha na autenticação. Se você autorizou o aplicativo, entre em contato com o administrador para certificar-se de que a autenticação do Google está configurada corretamente.|  
 |ValidationErrorAllowedTenantIsRequired|Locatário Permitido é obrigatório|  

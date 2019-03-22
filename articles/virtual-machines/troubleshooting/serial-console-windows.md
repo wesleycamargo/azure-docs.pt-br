@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: b280c86b15f7af01b04d41b4c2d625ea4ec4a398
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 57b20f9d694ae0581988762735c35cb65012fd8e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104288"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992368"
 ---
 # <a name="virtual-machine-serial-console-for-windows"></a>Console serial da máquina virtual para Windows
 
@@ -196,14 +196,14 @@ Todos os dados enviados são criptografados na rede.
 ### <a name="audit-logs"></a>Logs de auditoria
 Todo o acesso ao console serial está conectado a logs de [diagnósticos de inicialização](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) da máquina virtual. O acesso a esses logs pertence e é controlado pelo administrador da máquina virtual do Azure.
 
->[!CAUTION]
-Nenhuma senha de acesso para o console seja registrada. No entanto, se comandos executados dentro do console contiverem ou gerarem senhas, segredos, nomes de usuário ou qualquer outra forma de informações de identificação pessoal (PII), eles serão gravados nos logs de diagnóstico de inicialização VM. Eles serão gravados juntamente com todos os outro texto visível, como parte da implementação de scrollback do console serial função. Esses logs são circulares e somente indivíduos com permissões de leitura para a conta de armazenamento de diagnósticos têm acesso a eles. No entanto, recomendamos seguir a melhor prática de usar a Área de Trabalho Remota para qualquer coisa que possa envolver segredos e / ou PII.
+> [!CAUTION]
+> Nenhuma senha de acesso para o console seja registrada. No entanto, se comandos executados dentro do console contiverem ou gerarem senhas, segredos, nomes de usuário ou qualquer outra forma de informações de identificação pessoal (PII), eles serão gravados nos logs de diagnóstico de inicialização VM. Eles serão gravados juntamente com todos os outro texto visível, como parte da implementação de scrollback do console serial função. Esses logs são circulares e somente indivíduos com permissões de leitura para a conta de armazenamento de diagnósticos têm acesso a eles. No entanto, recomendamos seguir a melhor prática de usar a Área de Trabalho Remota para qualquer coisa que possa envolver segredos e / ou PII.
 
 ### <a name="concurrent-usage"></a>Uso simultâneo
 Se um usuário estiver conectado ao console serial e outro usuário solicitar com êxito acesso à mesma máquina virtual, o primeiro usuário será desconectado e o segundo usuário será conectado à mesma sessão.
 
->[!CAUTION]
-Isso significa que um usuário desconectado não será desconectado. A capacidade de impor um logout após a desconexão (usando SIGHUP ou mecanismo similar) ainda está no roteiro. No Windows, há um tempo limite automático ativado no SAC; para Linux, você pode configurar o tempo limite do terminal.
+> [!CAUTION]
+> Isso significa que um usuário desconectado não será desconectado. A capacidade de impor um logout após a desconexão (usando SIGHUP ou mecanismo similar) ainda está no roteiro. No Windows, há um tempo limite automático ativado no SAC; para Linux, você pode configurar o tempo limite do terminal.
 
 ## <a name="accessibility"></a>Acessibilidade
 A acessibilidade é o foco principal do console serial do Azure. Para esse fim, garantimos que o console serial seja acessível aos deficientes visuais e auditivos, bem como às pessoas que talvez não consigam usar o mouse.
@@ -215,6 +215,7 @@ Use a tecla **Tab** no seu teclado para navegar na interface do console serial d
 O console serial possui suporte ao leitor de tela embutido. Navegar ao redor com um leitor de tela ativado permitirá que o texto alternativo do botão atualmente selecionado seja lido em voz alta pelo leitor de tela.
 
 ## <a name="common-scenarios-for-accessing-the-serial-console"></a>Cenários comuns para acessar o console serial
+
 Cenário          | Ações no console serial
 :------------------|:-----------------------------------------
 Regras de firewall incorretas | Acesse regras de firewall de Windows seriais de console e correção.
@@ -254,7 +255,7 @@ O console serial não funciona com um firewall de conta de armazenamento. | Por 
 
 **P. Como posso enviar comentários?**
 
-a. Forneça feedback criando um problema no GitHub em https://aka.ms/serialconsolefeedback. Como alternativa (menos preferencial), você pode enviar comentários por meio azserialhelp@microsoft.com ou na categoria da máquina virtual http://feedback.azure.com.
+a. Forneça feedback criando um problema no GitHub em https://aka.ms/serialconsolefeedback. Como alternativa (menos preferencial), você pode enviar comentários por meio azserialhelp@microsoft.com ou na categoria da máquina virtual https://feedback.azure.com.
 
 **P. O console serial dá suporte para copiar/colar?**
 

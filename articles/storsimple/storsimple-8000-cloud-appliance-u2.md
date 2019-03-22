@@ -9,21 +9,21 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 70a109b9aee46e6b6b65a9a5c139abdf1aa9bab9
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: df7866d4f87f55523e8139232e48d81cb17c80e4
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330589"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57763156"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Como implantar e gerenciar um Dispositivo de Nuvem StorSimple no Azure (Atualização 3 e posteriores)
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 O Dispositivo de nuvem StorSimple Série 8000 é um recurso adicional que acompanha a sua solução Microsoft Azure StorSimple. O Dispositivo de nuvem StorSimple é executado em uma máquina virtual em uma rede virtual do Microsoft Azure e pode ser usado para fazer backup e clonar dados de seus hosts.
 

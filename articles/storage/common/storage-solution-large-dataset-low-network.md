@@ -4,16 +4,16 @@ description: Saiba como escolher uma solução do Azure para transferência de d
 services: storage
 author: alkohli
 ms.service: storage
-ms.subservice: blob
+ms.subservice: blobs
 ms.topic: article
 ms.date: 12/10/2018
 ms.author: alkohli
-ms.openlocfilehash: 54a51f5f124857419727ed7ca574f717e17b125a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
+ms.openlocfilehash: a6505232066d7a2e63c3e9508cb16cb9a31f8e35
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263211"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776658"
 ---
 # <a name="data-transfer-for-large-datasets-with-low-or-no-network-bandwidth"></a>Transferência de dados para conjuntos de dados grandes com largura de banda de rede baixa ou ausente
  
@@ -51,8 +51,8 @@ A tabela a seguir resume as diferenças nas principais funcionalidades.
 |    Tipo de dados                        |    Blobs do Azure                  |    Blobs do Azure<br>Arquivos do Azure                    |    Blobs do Azure<br>Arquivos do Azure            |    Blobs do Azure<br>Arquivos do Azure          |
 |    Fator forma                      |    5 SSDs por pedido             |    1 X 50 lb dispositivo do tamanho da área de trabalho por pedido    |    1 X ~500 lb. dispositivo grande por pedido    |    Até 10 HDDs/SSDs por pedido        |
 |    Tempo de preparação inicial               |    Baixo <br>(15 min)            |    Baixo a moderado <br> (<30 min)               |    Moderado<br>(1 a 2 horas)               |    Moderado a difícil<br>(variável) |
-|    Enviar dados para o Azure               |    SIM                          |    sim                                           |    sim                                   |    SIM                                 |
-|    Exportar dados do Azure           |    Não                            |    Não                                            |    Não                                     |    SIM                                 |
+|    Enviar dados para o Azure               |    Sim                          |    sim                                           |    sim                                   |    Sim                                 |
+|    Exportar dados do Azure           |    Não                            |    Não                                            |    Não                                     |    Sim                                 |
 |    Criptografia                       |    AES 128 bits                  |    AES 256 bits                                   |    AES 256 bits                           |    AES 128 bits                         |
 |    Hardware                         |     Fornecido pela Microsoft          |    Fornecido pela Microsoft                            |    Fornecido pela Microsoft                    |    Fornecido pelo cliente                   |
 |    interface de rede                |    USB 3.1/SATA                 |    RJ 45, SFP+                                   |    RJ-45, QSFP+                           |    SATA II/SATA III                    |

@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 4f60db91a1fb667586287873245fd5face343713
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 9098e92c594a5a6043888042f143cd875b02833d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56427727"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58007762"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-amazon-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e a entrada com a conta da Amazon usando o Azure Active Directory B2C
 
 ## <a name="create-an-amazon-application"></a>Criar um aplicativo da Amazon
 
-Para usar uma conta da Amazon como um [provedor de identidade](active-directory-b2c-reference-oauth-code.md) no Azure AD (Azure Active Directory) B2C, você precisará criar um aplicativo no locatário que o representa. Se ainda não tiver uma conta da Amazon, consiga uma conta em [https://www.amazon.com/](https://www.amazon.com/).
+Para usar uma conta da Amazon como um [provedor de identidade](active-directory-b2c-reference-oauth-code.md) no Azure AD (Azure Active Directory) B2C, você precisará criar um aplicativo no locatário que o representa. Se você ainda não tiver uma conta do Amazon você pode obtê-la em [ https://www.amazon.com/ ](https://www.amazon.com/).
 
 1. Entre no [Centro de Desenvolvedores da Amazon](https://login.amazon.com/) com suas credenciais de conta da Amazon.
 2. Se você ainda não tiver feito isso, clique em **Inscrever-se**, siga as etapas de registro do desenvolvedor e aceite a política.

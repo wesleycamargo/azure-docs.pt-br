@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: c343dfa3c0eac4aeabaa9244c6675b235fc95552
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: c60983dbbe72515fd8f0f4860e169ce1ba69ed45
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311709"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407078"
 ---
 # <a name="deploy-more-than-one-instance-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Implantar mais de uma instância de um recurso ou propriedade nos modelos do Azure Resource Manager
 
-Este artigo mostra como iterar em seu modelo do Azure Resource Manager para criar mais de uma instância de um recurso. Caso precise especificar se um recurso é ou não implantado, confira [Elemento condition](resource-manager-templates-resources.md#condition).
+Este artigo mostra como iterar em seu modelo do Azure Resource Manager para criar mais de uma instância de um recurso. Caso precise especificar se um recurso é ou não implantado, confira [Elemento condition](resource-group-authoring-templates.md#condition).
 
 Para um tutorial, consulte [Tutorial: crie várias instâncias de recursos usando modelos do Resource Manager](./resource-manager-tutorial-create-multiple-instances.md).
 
@@ -272,6 +272,8 @@ Você pode usar iteração de recurso e propriedade juntos. Referência a itera�
 
 Para criar várias instâncias de uma variável, use a propriedade `copy` na seção de variáveis. Crie uma matriz de elementos construídos a partir do valor na propriedade `input`. Você pode usar a propriedade `copy` dentro de uma variável ou no nível superior da seção de variáveis. Ao usar `copyIndex` dentro de uma iteração de variável, você deve fornecer o nome da iteração.
 
+Para obter um exemplo simples de criação de uma matriz de valores de cadeia de caracteres, consulte [modelo de matriz de cópia](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/copy-array/azuredeploy.json).
+
 O exemplo a seguir mostra várias maneiras diferentes de criar variáveis de matriz com elementos construídos dinamicamente. Ele mostra como usar a cópia dentro de uma variável para criar matrizes de objetos e cadeias de caracteres. Ele também mostra como usar a cópia no nível superior para criar matrizes de objetos, cadeias de caracteres e inteiros.
 
 ```json
@@ -344,6 +346,50 @@ O exemplo a seguir mostra várias maneiras diferentes de criar variáveis de mat
     }
   }
 }
+```
+
+O tipo da variável é criada depende o objeto de entrada. Por exemplo, a variável nomeada **superior-nível--matriz de objetos** no exemplo anterior retorna:
+
+```json
+[
+  {
+    "name": "myDataDisk1",
+    "diskSizeGB": "1",
+    "diskIndex": 0
+  },
+  {
+    "name": "myDataDisk2",
+    "diskSizeGB": "1",
+    "diskIndex": 1
+  },
+  {
+    "name": "myDataDisk3",
+    "diskSizeGB": "1",
+    "diskIndex": 2
+  },
+  {
+    "name": "myDataDisk4",
+    "diskSizeGB": "1",
+    "diskIndex": 3
+  },
+  {
+    "name": "myDataDisk5",
+    "diskSizeGB": "1",
+    "diskIndex": 4
+  }
+]
+```
+
+E, a variável nomeada **superior-nível de cadeia de caracteres-matriz** retorna:
+
+```json
+[
+  "myDataDisk1",
+  "myDataDisk2",
+  "myDataDisk3",
+  "myDataDisk4",
+  "myDataDisk5"
+]
 ```
 
 ## <a name="depend-on-resources-in-a-loop"></a>Depender dos recursos em um loop

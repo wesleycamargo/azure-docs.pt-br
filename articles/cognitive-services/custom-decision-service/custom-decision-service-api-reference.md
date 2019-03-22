@@ -10,12 +10,12 @@ ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: slivkins
-ms.openlocfilehash: 2feaa6fa87b6e788683ad543bfb7780b0e517506
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: be9966f5d8e8d94aa3f49aac91b35b105195b108
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867334"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57552054"
 ---
 # <a name="api"></a>API
 
@@ -44,7 +44,7 @@ Insira este snippet no cabeçalho HTML da página frontal (na qual uma lista per
 > A função de retorno de chamada precisa ser definida antes da chamada à API de Classificação.
 
 > [!TIP]
-> Para melhorar a latência, a API de Classificação é exposta por meio de HTTP, em vez de HTTPS, como em `http://ds.microsoft.com/api/v2/<appId>/rank/*`.
+> Para melhorar a latência, a API de Classificação é exposta por meio de HTTP, em vez de HTTPS, como em `https://ds.microsoft.com/api/v2/<appId>/rank/*`.
 > No entanto, um ponto de extremidade HTTPS precisa ser usado se a página frontal é atendida por meio de HTTPS.
 
 Quando não são usados parâmetros, a resposta HTTP da API de Classificação é uma cadeia de caracteres formatada em JSONP:

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: jingwang
-ms.openlocfilehash: ebc0f93055a014888d01fa9bffc7702b99380234
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 553e87cacf407da2333da3105647719679feaabf
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417458"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544198"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copie dados do Armazenamento de blobs do Azure para um banco de dados SQL usando a ferramenta Copy Data
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -54,7 +54,7 @@ Prepare o Armazenamento de blobs e o banco de dados SQL para o tutorial, executa
     Jane|Doe
     ```
 
-1. Crie um contêiner chamado **adfv2tutorial** e carregue o arquivo inputEmp.txt no contêiner. É possível usar várias ferramentas para executar essas tarefas, como o [Azure Storage Explorer](http://storageexplorer.com/).
+1. Crie um contêiner chamado **adfv2tutorial** e carregue o arquivo inputEmp.txt no contêiner. É possível usar várias ferramentas para executar essas tarefas, como o [Azure Storage Explorer](https://storageexplorer.com/).
 
 #### <a name="create-a-sink-sql-table"></a>Criar uma tabela do SQL de coletor
 

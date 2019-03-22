@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10d208cab8b39b777fea7809be418613f17751b1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b35470daf8ef037a72516690c75980a6d07e8e29
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170279"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097159"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Configurar identidades gerenciadas para recursos do Azure em um conjunto de dimensionamento de máquinas virtuais usando chamadas à API REST
 
@@ -72,7 +72,7 @@ Para criar um conjunto de dimensionamento de máquinas virtuais com identidade g
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
    ```
 
-3.  Recupere um token de acesso do Portador, que será usado na próxima etapa no cabeçalho de Autorização para criar o conjunto de dimensionamento de máquinas virtuais com uma identidade gerenciada atribuída ao sistema.
+3. Recupere um token de acesso do Portador, que será usado na próxima etapa no cabeçalho de Autorização para criar o conjunto de dimensionamento de máquinas virtuais com uma identidade gerenciada atribuída ao sistema.
 
    ```azurecli-interactive
    az account get-access-token
@@ -81,23 +81,23 @@ Para criar um conjunto de dimensionamento de máquinas virtuais com identidade g
 4. Crie um conjunto de dimensionamento de máquinas virtuais usando o CURL para chamar o ponto de extremidade REST do Azure Resource Manager. O exemplo a seguir cria um conjunto de dimensionamento de máquinas virtuais nomeado *myVMSS* no *myResourceGroup* com uma identidade gerenciada atribuída ao sistema, conforme identificado no corpo da solicitação pelo valor `"identity":{"type":"SystemAssigned"}`. Substitua `<ACCESS TOKEN>` pelo valor recebido na etapa anterior quando você solicitou um token de acesso de portador e o valor de `<SUBSCRIPTION ID>` apropriado para seu ambiente.
 
    ```bash   
-  curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PUT -d '{"sku":{"tier":"Standard","capacity":3,"name":"Standard_D1_v2"},"location":"eastus","identity":{"type":"SystemAssigned"},"properties":{"overprovision":true,"virtualMachineProfile":{"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"createOption":"FromImage"}},"osProfile":{"computerNamePrefix":"myVMSS","adminUsername":"azureuser","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaceConfigurations":[{"name":"myVMSS","properties":{"primary":true,"enableIPForwarding":true,"ipConfigurations":[{"name":"myVMSS","properties":{"subnet":{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"}}}]}}]}},"upgradePolicy":{"mode":"Manual"}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
-  ```
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PUT -d '{"sku":{"tier":"Standard","capacity":3,"name":"Standard_D1_v2"},"location":"eastus","identity":{"type":"SystemAssigned"},"properties":{"overprovision":true,"virtualMachineProfile":{"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"createOption":"FromImage"}},"osProfile":{"computerNamePrefix":"myVMSS","adminUsername":"azureuser","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaceConfigurations":[{"name":"myVMSS","properties":{"primary":true,"enableIPForwarding":true,"ipConfigurations":[{"name":"myVMSS","properties":{"subnet":{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"}}}]}}]}},"upgradePolicy":{"mode":"Manual"}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
+   ```
 
    ```HTTP
    PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
    ```
 
-  **Cabeçalhos da solicitação**
+   **Cabeçalhos da solicitação**
 
-  |Cabeçalho da solicitação  |DESCRIÇÃO  |
-  |---------|---------|
-  |*Content-Type*     | Obrigatório. Defina como `application/json`.        |
-  |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido. | 
+   |Cabeçalho da solicitação  |DESCRIÇÃO  |
+   |---------|---------|
+   |*Content-Type*     | Obrigatório. Defina como `application/json`.        |
+   |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido. | 
 
-  **Corpo da solicitação**
+   **Corpo da solicitação**
 
-  ```JSON
+   ```JSON
     {
        "sku":{
           "tier":"Standard",
@@ -158,7 +158,7 @@ Para criar um conjunto de dimensionamento de máquinas virtuais com identidade g
           }
        }
     }  
-  ```  
+   ```  
 
 ### <a name="enable-system-assigned-managed-identity-on-a-existing-virtual-machine-scale-set"></a>Habilitar identidade gerenciada atribuída ao sistema em um conjunto de dimensionamento de máquinas virtuais existente
 
@@ -331,7 +331,7 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
    ```
 
-3.  Recupere um token de acesso do Portador, que será usado na próxima etapa no cabeçalho de Autorização para criar o conjunto de dimensionamento de máquinas virtuais com uma identidade gerenciada atribuída ao sistema.
+3. Recupere um token de acesso do Portador, que será usado na próxima etapa no cabeçalho de Autorização para criar o conjunto de dimensionamento de máquinas virtuais com uma identidade gerenciada atribuída ao sistema.
 
    ```azurecli-interactive
    az account get-access-token

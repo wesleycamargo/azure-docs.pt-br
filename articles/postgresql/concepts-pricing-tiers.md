@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 8cc7d7d93f483289ab7faa3f5a7193fc218b57bc
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: a8dbb2c06d3622dcde19f298ee12fa49afb4cd4b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695020"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532041"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Tipos de preço do Banco de Dados do Azure para PostgreSQL
 
@@ -43,35 +43,38 @@ Os recursos de computação são fornecidos como vCores, que representam a CPU l
 
 > [!IMPORTANT]
 > A partir de 12 de dezembro de 2018, novos clientes não poderão provisionar servidores de geração da computação 4 no Sul do Brasil, Canadá Central, Leste do Canadá, Ásia Oriental, Leste dos EUA 2, Índia Central, Índia Ocidental, Oeste do Japão, Centro-Norte dos EUA, Oeste dos EUA. Os servidores da geração da computação 4 criados anteriormente migrarão para a geração da computação 5 a partir de 1º de fevereiro de 2019 nessas regiões.
+>
+> [!IMPORTANT]
+> A partir de 19 de fevereiro de 2019 novos clientes não poderão provisionar servidores de geração 4 de computação no centro dos EUA, Leste dos EUA, Leste do Japão, Europa Setentrional, Centro-Sul dos EUA, Sudeste Asiático, Europa Ocidental. Geração de computação 4 servidores serão migrados para 5, começando em 1 de abril de 2019 nessas regiões de geração de computação foi criado anteriormente.
 
 | **Região do Azure** | **Geração 4** | **Geração 5** |
 |:---|:----------:|:--------------------:|
 | Centro dos EUA |  | X |
 | Leste dos EUA |  | X |
-| Leste dos EUA 2 | X | X |
-| Centro-Norte dos EUA | X | X |
+| Leste dos EUA 2 |  | X |
+| Centro-Norte dos EUA |  | X |
 | Centro-Sul dos Estados Unidos | X | X |
-| Oeste dos EUA | X | X |
+| Oeste dos EUA |  | X |
 | Oeste dos EUA 2 |  | X |
-| Sul do Brasil | X | X |
-| Canadá Central | X | X |
-| Leste do Canadá | X | X |
+| Sul do Brasil |  | X |
+| Canadá Central |  | X |
+| Leste do Canadá |  | X |
 | Norte da Europa | X | X |
 | Europa Ocidental |  | X |
 | França Central |  | X |
 | Sul do Reino Unido |  | X |
 | Oeste do Reino Unido |  | X |
-| Ásia Oriental | X | X |
+| Ásia Oriental |  | X |
 | Sudeste Asiático | X | X |
 | Leste da Austrália |  | X |
 | Austrália Central |  | X |
 | Austrália Central 2 |  | X |
 | Sudeste da Austrália |  | X |
-| Índia Central | X | X |
+| Índia Central |  | X |
 | Sul da Índia |  | X |
-| Índia Ocidental | X | X |
+| Índia Ocidental |  | X |
 | Leste do Japão | X | X |
-| Oeste do Japão | X | X |
+| Oeste do Japão |  | X |
 | Coreia Central |  | X |
 | Sul da Coreia |  | X |
 | Leste da China 1 | X |  |

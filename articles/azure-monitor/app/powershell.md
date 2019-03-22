@@ -12,17 +12,20 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4b633f3294faf11c8ef9d4a4077254c3df5353cf
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: ea4bc61dec59308b2c2311e8300e44aae78fc041
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264846"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313507"
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>Criar recursos do Application Insights usando o PowerShell
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Este artigo mostra como automatizar a criação e atualização de recursos do [Application Insights](../../azure-monitor/app/app-insights-overview.md) automaticamente usando o Gerenciamento de Recursos do Azure. Por exemplo, você pode fazer isso como parte de um processo de compilação. Juntamente com o recurso básico do Application Insights, é possível criar [testes na Web de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md), configurar [alertas](../../azure-monitor/app/alerts.md), definir o [esquema de preços](pricing.md) e criar outros recursos do Azure.
 
-A chave para criar esses recursos são os modelos de JSON para o [Gerenciador de Recursos do Azure](../../azure-resource-manager/powershell-azure-resource-manager.md). Em resumo, o procedimento é: baixar as definições de JSON dos recursos existentes; parametrizar certos valores como nomes; e, em seguida, executar o modelo sempre que você deseja criar um novo recurso. Você pode empacotar vários recursos juntos, criá-los de uma só vez - por exemplo, um monitor de aplicativo com testes de disponibilidade, alertas e armazenamento para exportação contínua. Existem algumas sutilezas para algumas das parametrizações, que vamos explicar aqui.
+A chave para criar esses recursos são os modelos de JSON para o [Gerenciador de Recursos do Azure](../../azure-resource-manager/manage-resources-powershell.md). Em resumo, o procedimento é: baixar as definições de JSON dos recursos existentes; parametrizar certos valores como nomes; e, em seguida, executar o modelo sempre que você deseja criar um novo recurso. Você pode empacotar vários recursos juntos, criá-los de uma só vez - por exemplo, um monitor de aplicativo com testes de disponibilidade, alertas e armazenamento para exportação contínua. Existem algumas sutilezas para algumas das parametrizações, que vamos explicar aqui.
 
 ## <a name="one-time-setup"></a>Configuração única
 Se você nunca usou o PowerShell com sua assinatura do Azure:
@@ -154,12 +157,12 @@ Criar um novo arquivo .json - vamos chamá-lo de `template1.json` neste exemplo.
 ## <a name="create-application-insights-resources"></a>Criar recursos do Application Insights
 1. No PowerShell, entre no Azure:
    
-    `Connect-AzureRmAccount`
+    `Connect-AzAccount`
 2. Execute um comando como este:
    
     ```PS
    
-        New-AzureRmResourceGroupDeployment -ResourceGroupName Fabrikam `
+        New-AzResourceGroupDeployment -ResourceGroupName Fabrikam `
                -TemplateFile .\template1.json `
                -appName myNewApp
 
@@ -175,8 +178,8 @@ Você pode adicionar outros parâmetros – você encontrará suas descrições 
 Depois de criar um recurso de aplicativo, você desejará a chave de instrumentação: 
 
 ```PS
-    $resource = Find-AzureRmResource -ResourceNameEquals "<YOUR APP NAME>" -ResourceType "Microsoft.Insights/components"
-    $details = Get-AzureRmResource -ResourceId $resource.ResourceId
+    $resource = Find-AzResource -ResourceNameEquals "<YOUR APP NAME>" -ResourceType "Microsoft.Insights/components"
+    $details = Get-AzResource -ResourceId $resource.ResourceId
     $ikey = $details.Properties.InstrumentationKey
 ```
 
@@ -189,7 +192,7 @@ Depois de criar um recurso de aplicativo, você desejará a chave de instrumenta
 Para criar um recurso de aplicativo com o plano de preço Enterprise, usando o modelo acima:
 
 ```PS
-        New-AzureRmResourceGroupDeployment -ResourceGroupName Fabrikam `
+        New-AzResourceGroupDeployment -ResourceGroupName Fabrikam `
                -TemplateFile .\template1.json `
                -priceCode 2 `
                -appName myNewApp

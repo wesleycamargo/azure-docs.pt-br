@@ -1,180 +1,148 @@
 ---
-title: 'Exemplo: Detectar faces em imagens – API de Detecção Facial'
+title: Detecte rostos em uma imagem - API de detecção facial
 titleSuffix: Azure Cognitive Services
-description: Use a API de Detecção Facial para detectar faces em imagens.
+description: Saiba como usar vários dados retornados pelo recurso de detecção de face.
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
-ms.topic: sample
-ms.date: 03/01/2018
+ms.topic: conceptual
+ms.date: 02/22/2019
 ms.author: sbowles
-ms.openlocfilehash: 30d5294defe02ca6c8cfd588648429859bdf19ad
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: bf3af8f5d1d2f063199a8275c2f49c70140e8732
+ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55856387"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57588764"
 ---
-# <a name="example-how-to-detect-faces-in-image"></a>Exemplo: Como detectar faces em Imagem
+# <a name="get-face-detection-data"></a>Obter dados de detecção facial
 
-Este guia demonstrará como detectar faces de uma imagem, com atributos faciais como sexo, idade ou pose extraídos. As amostras são gravadas em C# usando a biblioteca de clientes da API de Detecção Facial. 
+Este guia demonstrará como usar a detecção de face para extrair atributos como sexo, idade ou pose de uma determinada imagem. Os trechos de código neste guia são escritos em C# usando a biblioteca de cliente da API de detecção facial, mas a mesma funcionalidade está disponível por meio de [API REST](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
-## <a name="concepts"></a>Conceitos
+Este guia mostrará como fazer para:
 
-Se você não estiver familiarizado com nenhum dos conceitos a seguir apresentados neste guia, consulte as definições no [Glossário](../Glossary.md), a qualquer momento: 
+- Para obter os locais e as dimensões de rostos em uma imagem.
+- Obter os locais de vários pontos de referência (alunos, nariz, boca e assim por diante) em uma imagem.
+- Adivinhe o gênero, idade e emoções e outros atributos de um rosto detectado.
 
-- Detecção facial
-- Pontos de referência facial
-- Pose de cabeça
-- Atributos faciais
+## <a name="setup"></a>Configuração
 
-## <a name="preparation"></a>Preparação
+Este guia pressupõe que você construiu um **[FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet)** objeto, chamado `faceClient`, com uma URL de ponto de extremidade e a chave de assinatura Face. A partir daqui, você pode usar o recurso de detecção de face chamando **[DetectWithUrlAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync?view=azure-dotnet)** (usado neste guia) ou **[DetectWithStreamAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync?view=azure-dotnet)**. Consulte a [detectar Faces quickstart para C# ](../quickstarts/csharp-detect-sdk.md) para obter instruções sobre como configurar isso.
 
-Neste exemplo, demonstraremos os recursos a seguir: 
+Este guia se concentrará nas particularidades da chamada de detectar&mdash;quais argumentos que você pode passar, e o que você pode fazer com os dados retornados. É recomendável consultar apenas os recursos que necessários, conforme cada operação leva mais tempo para concluir.
 
-- Detectar faces de uma imagem e marcá-las usando o enquadramento retangular
-- Analisar os locais das pupilas, nariz ou boca e, em seguida, marcá-los na imagem
-- Analisar a pose de cabeça, gênero e idade da face
+## <a name="get-basic-face-data"></a>Obter dados de face básico
 
-Para executar esses recursos, será necessário preparar uma imagem com pelo menos uma face limpa. 
+Para encontrar rostos e suas localizações em uma imagem, chame o método com o _returnFaceId_ parâmetro definido como **verdadeiro** (padrão).
 
-## <a name="step-1-authorize-the-api-call"></a>Etapa 1: Autorizar a chamada à API
-
-Cada chamada à API de Detecção Facial exige uma chave de assinatura. Essa chave precisa ser passada por um parâmetro de cadeia de caracteres de consulta ou especificada no cabeçalho da solicitação. Para passar a chave de assinatura por meio da cadeia de caracteres de consulta, veja a URL de solicitação para [Face – Detecção](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) como um exemplo:
-
-```
-https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes]
-&subscription-key=<Subscription Key>
+```csharp
+IList<DetectedFace> faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, true, false, null);
 ```
 
-Como alternativa, a chave de assinatura também pode ser especificada no cabeçalho da solicitação HTTP: **ocp-apim-subscription-key: &lt;Chave de Assinatura&gt;** Ao usar uma biblioteca de clientes, a chave de assinatura é passada através do construtor da classe FaceServiceClient. Por exemplo: 
-```CSharp
-faceServiceClient = new FaceServiceClient("<Subscription Key>");
-```
+Retornado **[DetectedFace](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.detectedface?view=azure-dotnet)** objetos podem ser consultados por suas IDs exclusivas e um retângulo que fornece as coordenadas de pixel da face.
 
-## <a name="step-2-upload-an-image-to-the-service-and-execute-face-detection"></a>Etapa 2: Carregar uma imagem para o serviço e executar a detecção facial
-
-A maneira mais básica de realizar a detecção facial é carregar uma imagem diretamente. Isso é feito, enviando uma solicitação "POST" com o tipo de conteúdo application/octet-stream, com os dados lidos de uma imagem JPEG. O tamanho máximo da imagem é de 4 MB.
-
-Usando a biblioteca de clientes, a detecção facial por meio de upload é feita passando em um objeto de Fluxo. Veja o exemplo abaixo:
-
-```CSharp
-using (Stream s = File.OpenRead(@"D:\MyPictures\image1.jpg"))
+```csharp
+foreach (var face in faces)
 {
-    var faces = await faceServiceClient.DetectAsync(s, true, true);
- 
-    foreach (var face in faces)
-    {
-        var rect = face.FaceRectangle;
-        var landmarks = face.FaceLandmarks;
-    }
+    string id = face.FaceId.ToString();
+    FaceRectangle rect = face.FaceRectangle;
 }
 ```
 
-Observe que o método DetectAsync do FaceServiceClient é assíncrono. O método de chamada também deverá ser marcado como assíncrono para usar a cláusula await.
-Se a imagem já estiver na Web e tiver uma URL, a detecção facial poderá ser executada, fornecendo também a URL. Neste exemplo, o corpo da solicitação será uma cadeia de caracteres JSON, que contém a URL.
-Usando a biblioteca de clientes, a detecção facial por meio de uma URL pode ser executada facilmente usando outra sobrecarga do método DetectAsync.
+Ver **[FaceRectangle](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.facerectangle?view=azure-dotnet)** para obter informações sobre como analisar a localização e as dimensões da face. Normalmente, esse retângulo contém os olhos, sobrancelhas, nariz e boca; parte superior do cabeçalho, ouvidos e chin não são necessariamente incluídos. Se você pretende usar o retângulo facial para cortar um cabeçalho completo ou retrato captura intermediário (uma foto ID tipo imagem), você talvez queira expandir o retângulo por uma margem certo em cada direção.
 
-```CSharp
-string imageUrl = "http://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-var faces = await faceServiceClient.DetectAsync(imageUrl, true, true);
- 
+## <a name="get-face-landmarks"></a>Obter pontos de referência
+
+Pontos de referência são um conjunto de pontos de fácil de encontrar no rosto, como os alunos ou a dica de nariz. Você pode obter dados de ponto de referência do rosto, definindo o _returnFaceLandmarks_ parâmetro **verdadeiro**.
+
+```csharp
+IList<DetectedFace> faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, true, true, null);
+```
+
+Por padrão, há 27 pontos de referência facial predefinidos. A figura a seguir mostra todos os pontos de 27:
+
+![Um diagrama de face com todos os pontos de 27 referência rotulada](../Images/landmarks.1.jpg)
+
+Os pontos retornados estão em unidades de pixels, assim como o quadro de retângulo facial. O código a seguir demonstra como você pode recuperar os locais dos alunos e nariz:
+
+```csharp
 foreach (var face in faces)
 {
-    var rect = face.FaceRectangle;
     var landmarks = face.FaceLandmarks;
-}
-``` 
 
-A propriedade FaceRectangle que é retornada com faces detectadas é essencialmente locais na face em pixels. Normalmente, esse retângulo contém os olhos, as sobrancelhas, o nariz e a boca – a parte superior da cabeça, as orelhas e o queixo não estão incluídos. Se você recortar um retrato completo da cabeça ou plano intermediário (uma imagem tipo foto de ID), poderá expandir a área do enquadramento de face retangular, pois a área da face pode ser muito pequena para alguns aplicativos. Localizar uma face com mais precisão, usando pontos de referência facial (localizar recursos faciais ou mecanismos de direção facial) descrito na próxima seção, será útil.
-
-## <a name="step-3-understanding-and-using-face-landmarks"></a>Etapa 3: Compreender e usar pontos de referência de detecção facial
-
-Pontos de referência facial são uma série de pontos detalhados em uma face, normalmente pontos de componentes faciais como as pupilas, canto do olho ou nariz. Os pontos de referência facial são atributos opcionais que podem ser analisados durante a detecção facial. É possível passar 'true' como um valor booliano para o parâmetro de consulta returnFaceLandmarks, ao chamar a [Detecção Facial](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), ou usar o parâmetro opcional returnFaceLandmarks para o método DetectAsync, da classe FaceServiceClient, para incluir os pontos de referência facial nos resultados da detecção.
-
-Por padrão, há 27 pontos de referência facial predefinidos. A figura a seguir mostra como todos os 27 pontos são definidos:
-
-![HowToDetectFace](../Images/landmarks.1.jpg)
-
-Os pontos retornados estão em unidades de pixels, assim como o enquadramento retangular de face. Portanto, é mais fácil marcar pontos de interesse específicos na imagem. O código a seguir demonstra a recuperação dos locais do nariz e pupilas:
-
-```CSharp
-var faces = await faceServiceClient.DetectAsync(imageUrl, returnFaceLandmarks:true);
- 
-foreach (var face in faces)
-{
-    var rect = face.FaceRectangle;
-    var landmarks = face.FaceLandmarks;
- 
     double noseX = landmarks.NoseTip.X;
     double noseY = landmarks.NoseTip.Y;
- 
+
     double leftPupilX = landmarks.PupilLeft.X;
     double leftPupilY = landmarks.PupilLeft.Y;
- 
+
     double rightPupilX = landmarks.PupilRight.X;
     double rightPupilY = landmarks.PupilRight.Y;
 }
-``` 
+```
 
-Além de marcar recursos faciais em uma imagem, os pontos de referência facial também podem ser usados para calcular com precisão a direção facial. Por exemplo, é possível definir a direção facial como um vetor do centro da boca até o centro dos olhos. O código abaixo explica isso em detalhes:
+Dados de pontos de referência de face também podem ser usados para calcular com precisão a direção da face. Por exemplo, podemos definir a rotação da face como um vetor do centro da boca para o centro dos olhos. O código a seguir calcula esse vetor:
 
-```CSharp
-var landmarks = face.FaceLandmarks;
- 
+```csharp
 var upperLipBottom = landmarks.UpperLipBottom;
 var underLipTop = landmarks.UnderLipTop;
- 
+
 var centerOfMouth = new Point(
     (upperLipBottom.X + underLipTop.X) / 2,
     (upperLipBottom.Y + underLipTop.Y) / 2);
- 
+
 var eyeLeftInner = landmarks.EyeLeftInner;
 var eyeRightInner = landmarks.EyeRightInner;
- 
+
 var centerOfTwoEyes = new Point(
     (eyeLeftInner.X + eyeRightInner.X) / 2,
     (eyeLeftInner.Y + eyeRightInner.Y) / 2);
- 
+
 Vector faceDirection = new Vector(
     centerOfTwoEyes.X - centerOfMouth.X,
     centerOfTwoEyes.Y - centerOfMouth.Y);
-``` 
+```
 
-Ao conhecer a direção em que a face está, será possível girar o enquadramento de face retangular para alinhá-lo com a face. É evidente usar pontos de referência facial pode fornecer mais detalhes e utilidade.
+Sabendo que a direção da face, você pode girar o quadro de face retangular para alinhá-lo mais corretamente. Se você quiser cortar rostos em uma imagem, você pode programaticamente girar a imagem para que os rostos aparecem sempre na vertical.
 
-## <a name="step-4-using-other-face-attributes"></a>Etapa 4: Usar outros atributos faciais
+## <a name="get-face-attributes"></a>Obter atributos faciais
 
-Além dos pontos de referência facial, a API de Detecção Facial também pode analisar vários outros atributos em uma face. Esses atributos incluem:
+Além de retângulos faciais e pontos de referência, a API de detecção facial pode analisar vários atributos conceituais de uma face. Estão incluídos:
 
 - Idade
 - Gênero
 - Intensidade do sorriso
 - Pelos faciais
-- Uma pose de cabeça tridimensional
+- Óculos
+- 3D pose principal
+- Emoção
 
-Esses atributos são previstos usando algoritmos estatísticos e nem sempre podem ser 100% precisos. No entanto, ainda são úteis quando você quer classificar faces por esses atributos. Para obter mais informações sobre cada um dos atributos, consulte o [Glossário](../Glossary.md).
+> [!IMPORTANT]
+> Esses atributos são previstos com o uso de algoritmos estatísticos e podem não ser precisos. Tenha cuidado ao tomar decisões com base nos dados de atributo.
+>
 
-Abaixo está um exemplo simples de extração de atributos faciais durante a detecção facial:
+Para analisar atributos faciais, defina as _returnFaceAttributes_ parâmetro a uma lista de **[enumeração FaceAttributeType](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet)** valores.
 
-```CSharp
+```csharp
 var requiredFaceAttributes = new FaceAttributeType[] {
-                FaceAttributeType.Age,
-                FaceAttributeType.Gender,
-                FaceAttributeType.Smile,
-                FaceAttributeType.FacialHair,
-                FaceAttributeType.HeadPose,
-                FaceAttributeType.Glasses
-            };
-var faces = await faceServiceClient.DetectAsync(imageUrl,
-    returnFaceLandmarks: true,
-    returnFaceAttributes: requiredFaceAttributes);
+    FaceAttributeType.Age,
+    FaceAttributeType.Gender,
+    FaceAttributeType.Smile,
+    FaceAttributeType.FacialHair,
+    FaceAttributeType.HeadPose,
+    FaceAttributeType.Glasses,
+    FaceAttributeType.Emotion
+};
+var faces = await faceClient.DetectWithUrlAsync(imageUrl, true, false, requiredFaceAttributes);
+```
 
+Em seguida, obter referências para os dados retornados e fazer mais operações de acordo com suas necessidades.
+
+```csharp
 foreach (var face in faces)
 {
-    var id = face.FaceId;
     var attributes = face.FaceAttributes;
     var age = attributes.Age;
     var gender = attributes.Gender;
@@ -182,15 +150,17 @@ foreach (var face in faces)
     var facialHair = attributes.FacialHair;
     var headPose = attributes.HeadPose;
     var glasses = attributes.Glasses;
+    var emotion = attributes.Emotion;
 }
-``` 
+```
 
-## <a name="summary"></a>Resumo
+Para saber mais sobre cada um dos atributos, consulte o [glossário](../Glossary.md).
 
-Neste guia você aprendeu sobre as funcionalidades de API de [Detecção Facial](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), como é possível detectar faces para imagens carregadas locais ou URLs de imagens na Web, como é possível detectar faces, retornando enquadramentos de face retangulares, bem como analisar pontos de referência facial, poses de cabeça tridimensionais e outros atributos faciais.
+## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre detalhes de API, consulte o guia de referência de API para [Detecção Facial](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+Neste guia, você aprendeu como usar as várias funcionalidades de detecção facial. Em seguida, consulte a [glossário](../Glossary.md) para examinar os dados de face que você recuperou mais detalhada.
 
 ## <a name="related-topics"></a>Tópicos Relacionados
 
-[Como identificar faces em imagem](HowtoIdentifyFacesinImage.md)
+- [Documentação de referência (REST)](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+- [Documentação de referência (SDK do .NET)](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/face?view=azure-dotnet)

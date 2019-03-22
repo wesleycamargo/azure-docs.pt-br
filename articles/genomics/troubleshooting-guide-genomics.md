@@ -7,23 +7,23 @@ services: microsoft-genomics
 author: ruchir
 editor: jasonwhowell
 ms.author: ruchir
-ms.service: microsoft-genomics
+ms.service: genomics
 ms.workload: genomics
 ms.topic: article
 ms.date: 10/29/2018
-ms.openlocfilehash: 2c10259e4b9fa180d09ceef0359e7ec99e8200b1
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
-ms.translationtype: HT
+ms.openlocfilehash: 78084e6beac7b390b1ea1afe888030c5224856b6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239892"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078050"
 ---
 # <a name="troubleshooting-guide"></a>Guia de Solução de Problemas
 
 Confira algumas dicas de solução de problemas comuns que podem acontecer ao usar o serviço do MSGEN, o Microsoft Genomics.
 
  Para ver as perguntas frequentes não relacionadas com a solução de problemas, confira [Perguntas comuns](frequently-asked-questions-genomics.md).
-## <a name="step-1-locate-error-codes-associated-with-the-workflow"></a>Etapa 1: localize os códigos de erro associados com o fluxo de trabalho
+## <a name="step-1-locate-error-codes-associated-with-the-workflow"></a>Etapa 1: Localize os códigos de erro associados com o fluxo de trabalho
 
 É possível localizar as mensagens de erro associadas ao fluxo de trabalho destas formas:
 
@@ -73,8 +73,8 @@ Há três argumentos necessários:
                 Bases Processed : 1,348,613,600 (1 GBase)
         ```
 
- > [!NOTE]
- >  Outra opção é incluir o caminho para o arquivo de configuração em vez de inserir a URL e KEY diretamente. Se você incluir esses argumentos na linha de comando junto com o arquivo de configuração, os argumentos da linha de comando terão precedência.  
+  > [!NOTE]
+  >  Outra opção é incluir o caminho para o arquivo de configuração em vez de inserir a URL e KEY diretamente. Se você incluir esses argumentos na linha de comando junto com o arquivo de configuração, os argumentos da linha de comando terão precedência.  
 
 Para o fluxo de trabalho ID 1001 e o arquivo config.txt localizado no mesmo caminho que o executável msgen, o comando será assim:
 
@@ -93,14 +93,14 @@ Localize o contêiner de saída do fluxo de trabalho em questão. O MSGEN cria u
 Para solucionar o problema, examine o conteúdo de standardoutput.txt e observe todas as mensagens de erro exibidas.
 
 
-## <a name="step-2-try-recommended-steps-for-common-errors"></a>Etapa 2: experimente seguir as etapas recomendadas para erros comuns
+## <a name="step-2-try-recommended-steps-for-common-errors"></a>Etapa 2: Experimente as etapas recomendadas para erros comuns
 
 Esta seção descreve brevemente os erros comuns gerados pelo serviço do msgen (Microsoft Genomics) e as estratégias que você pode usar para resolvê-los. 
 
 O serviço do msgen (Microsoft Genomics) pode gerar dois tipos de erros:
 
-1. Erros de serviço interno: erros internos do serviço que não podem ser resolvidos corrigindo parâmetros ou arquivos de entrada. Às vezes, enviar novamente o fluxo de trabalho pode corrigir esses erros.
-2. Erros de entrada: erros que podem ser resolvidos usando os argumentos corretos ou corrigindo os formatos dos arquivos.
+1. Erros de serviço interno: Erros que são internos ao serviço, que pode não ser resolvido, corrigindo parâmetros ou arquivos de entrada. Às vezes, enviar novamente o fluxo de trabalho pode corrigir esses erros.
+2. Erros de entrada: Formatos de arquivo de erros que podem ser resolvidos usando os argumentos corretos ou correção.
 
 ### <a name="1-internal-service-errors"></a>1. Erros de serviço interno
 
@@ -116,7 +116,7 @@ Esses erros são acionáveis pelo usuário. Com base no tipo de arquivo e o cód
 
 | Tipo de arquivo | Código do erro | Mensagem de erro                                                                           | Etapas de solução de problemas recomendadas                                                                                         |
 |--------------|------------|-----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
-| Qualquer          | 701        | A leitura [readId] tem [numberOfBases] bases, mas o limite é [maxReadLength]           | O motivo mais comum para esse erro é um arquivo corrompido, o que leva à concatenação de duas leituras. Verifique os arquivos de entrada. |                                |
+| Qualquer          | 701        | A leitura [readId] tem [numberOfBases] bases, mas o limite é [maxReadLength]           | O motivo mais comum para esse erro é um arquivo corrompido, o que leva à concatenação de duas leituras. Verifique os arquivos de entrada. |
 | BAM          | 200        |   Não é possível ler o arquivo "[yourFileName]".                                                                                       | Verifique o formato do arquivo BAM. Envie o fluxo de trabalho novamente com um arquivo formatado corretamente.                                                                           |
 | BAM          | 201        |  Não é possível ler o arquivo BAM [File_name].                                                                                      |Verifique o formato do arquivo BAM.  Envie o fluxo de trabalho com um arquivo formatado corretamente.                                                                            |
 | BAM          | 202        | Não é possível ler o arquivo BAM [File_name]. Arquivo muito pequeno e cabeçalho ausente.                                                                                        | Verifique o formato do arquivo BAM.  Envie o fluxo de trabalho com um arquivo formatado corretamente.                                                                            |
@@ -137,7 +137,7 @@ Esses erros são acionáveis pelo usuário. Com base no tipo de arquivo e o cód
 | FASTQ        | 308        |  Erro de leitura do FASTQ. As leituras de ambas as extremidades tiveram respostas diferentes. Você escolheu os arquivos FASTQ corretos?                                                                                       | Corrija o formato do arquivo FASTQ e envie o fluxo de trabalho novamente.                                                                         |
 |        |       |                                                                                        |                                                                           |
 
-## <a name="step-3-contact-microsoft-genomics-support"></a>Etapa 3: entre em contato com o suporte do Microsoft Genomics
+## <a name="step-3-contact-microsoft-genomics-support"></a>Etapa 3: Entre em contato com o suporte do Microsoft Genomics
 
 Se você continuar a ter falhas de trabalho, ou se você tiver outras dúvidas, contate o suporte do Microsoft Genomics a partir do portal do Azure. Informações adicionais sobre como enviar uma solicitação de suporte podem ser encontradas [aqui](file-support-ticket-genomics.md).
 

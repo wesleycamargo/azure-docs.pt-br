@@ -5,21 +5,21 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 03/12/2019
 ms.author: cherylmc
-ms.openlocfilehash: 8d5dca65734640dc9e756f9130e6b362178781f2
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 24956dd51ef4c2544ce28005fa3bff31113e5959
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453504"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848909"
 ---
 # <a name="transition-to-a-public-ca-gateway-certificate-for-p2s"></a>Fazer a transição para um certificado de gateway de autoridade de certificação pública para P2S
 
 O Gateway de VPN do Azure não emite mais certificados autoassinados no nível do Azure para seus gateways em conexões P2S. Os certificados emitidos agora são assinados por uma AC (Autoridade de Certificação) pública. No entanto, alguns gateways mais antigos podem ainda estar usando certificados autoassinados. Esses certificados autoassinados estão próximos de suas datas de validade e será necessário fazer a transição para os Certificados de Autoridade de Certificação públicos.
 
 >[!NOTE]
-> Os certificados autoassinados usados para autenticação do cliente de P2S não são afetados por essa alteração de certificado no nível do Azure. Você pode continuar a emitir e usar certificados autoassinados como de costume.
+> * Os certificados autoassinados usados para autenticação do cliente de P2S não são afetados por essa alteração de certificado no nível do Azure. Você pode continuar a emitir e usar certificados autoassinados como de costume.
 >
 
 Os certificados no contexto em questão são um certificado no nível do Azure adicional. Eles não fazem parte da cadeia confiável que você usa ao gerar seus próprios certificados raiz autoassinados e certificados de cliente para autenticação. Esses certificados não serão afetados e vão expirar nas datas que você estipulou.
@@ -38,7 +38,7 @@ Apenas os gateways mais antigos serão afetados por essa alteração. Se o certi
 >
 > **Todos os demais gateways farão a transição em 12 de março de 2019, a partir das 18:00 UTC**.
 >
-> O processo de transição de gateway levará até 2 horas para ser concluído. Os clientes receberão um email quando o gateway concluir o processo de transição.
+> Os clientes receberão um email quando o gateway concluir o processo de transição.
 > 
 
 ## <a name="1-verify-your-certificate"></a>1. Verificar o certificado
@@ -50,8 +50,8 @@ Apenas os gateways mais antigos serão afetados por essa alteração. Se o certi
 2. Abra ou extraia o arquivo zip e navegue até a pasta "Genérico". Na pasta Genérico você verá dois arquivos, um dos quais é *VPNSettings.xml*.
 3. Abra *VPNSettings.xml* em qualquer editor/visualizador de XML. No arquivo XML, pesquise os seguintes campos:
 
-  * `<ServerCertRootCn>DigiCert Global Root CA</ServerCertRootCn>`
-  * `<ServerCertIssuerCn>DigiCert Global Root CA</ServerCertIssuerCn>`
+   * `<ServerCertRootCn>DigiCert Global Root CA</ServerCertRootCn>`
+   * `<ServerCertIssuerCn>DigiCert Global Root CA</ServerCertIssuerCn>`
 4. Se *ServerCertRotCn* e *ServerCertIssuerCn* estiverem como “DigiCert Global Root CA”, você não será afetado pela atualização e não precisará seguir as etapas descritas neste artigo. No entanto, se exibirem informações diferentes, o certificado do gateway faz parte da atualização e será transitado.
 
 ### <a name="classic"></a>Clássico

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: c3cb9b7988269f394615b6498bbe7af5bb0ab1e1
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
-ms.translationtype: HT
+ms.openlocfilehash: 1e55552e238e16f2221b138b6e12afa5635d2ab2
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743350"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202666"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Usar Assinaturas de Acesso Compartilhado do Armazenamento do Azure para restringir o acesso a dados no HDInsight
 
@@ -163,7 +163,7 @@ Um exemplo de criação de um cluster HDInsight que use a SAS foi incluído no d
     Connect-AzureRmAccount
     ```
 
-    Quando solicitado, faça logon com a conta da sua assinatura do Azure.
+    Quando solicitado, entre com a conta para sua assinatura do Azure.
 
     Se a conta estiver associada a várias assinaturas do Azure, talvez seja necessário utilizar `Select-AzureRmSubscription` para selecionar a assinatura que você deseja usar.
 
@@ -175,7 +175,7 @@ Um exemplo de criação de um cluster HDInsight que use a SAS foi incluído no d
 
     À medida que o script for executado, ele registrará a saída em log do prompt do PowerShell enquanto cria o grupo de recursos e as contas de armazenamento. Ele solicitará que você insira o usuário HTTP para o cluster HDInsight. Essa conta é usada para proteger o acesso HTTP/s ao cluster.
 
-    Se você estiver criando um cluster baseado em Linux, também será solicitado que você forneça um nome de conta de usuário SSH e uma senha. Essa conta é usada para fazer logon remotamente no cluster.
+    Se você estiver criando um cluster baseado em Linux, também será solicitado que você forneça um nome de conta de usuário SSH e uma senha. Essa conta é usada para entrar remotamente no cluster.
 
    > [!IMPORTANT]  
    > Quando o nome de usuário ou a senha HTTP/s ou SSH forem solicitados, você deverá fornecer uma senha que atenda a estes critérios:
@@ -219,13 +219,7 @@ Se você tiver um cluster baseado em Linux existente, poderá adicionar a SAS à
 
 ## <a name="test-restricted-access"></a>Testar o acesso restrito
 
-Para verificar se você tem acesso restrito, use estes métodos:
-
-* Para clusters HDInsight **baseados no Windows** , use a Área de Trabalho Remota para se conectar ao cluster. Para obter mais informações, consulte [Conectar ao HDInsight usando RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
-
-    Uma vez conectado, use o ícone **Linha de Comando do Hadoop** na área de trabalho para abrir um prompt de comando.
-
-* Para clusters HDInsight **baseados em Linux** , use SSH para conectar-se ao cluster. Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+Para verificar se você restringiu o acesso, use SSH para se conectar ao cluster. Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Uma vez conectado ao cluster, use as etapas a seguir para verificar se você só pode ler e listar itens na conta de armazenamento SAS:
 

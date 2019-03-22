@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: ergreenl
-ms.openlocfilehash: d72fa2551eb4db3cb68a52cd8a76dd7b9d27b6f0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: a2abdbf1409564f94356279332d253627c5b447a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55178997"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111915"
 ---
 # <a name="disable-azure-active-directory-domain-services-using-the-azure-portal"></a>Desabilitar o Azure Active Directory Domain Services usando o portal do Azure
 Este artigo mostra como usar o portal do Azure para desabilitar o Azure Active Directory (AD) Domain Services para seu diretório do Azure AD.
@@ -28,12 +28,11 @@ Este artigo mostra como usar o portal do Azure para desabilitar o Azure Active D
 > [!WARNING]
 > **A exclusão é permanente e não pode ser revertida.**
 > Continue com cuidado! Quando você excluir o domínio gerenciado:
-  * Controladores de domínio para o domínio gerenciado são desprovisionados e removidos da rede virtual.
-  * Os dados em um domínio gerenciado serão excluídos permanentemente. Isso inclui UOs, GPOs, registros de DNS personalizados, entidades de serviço, GMSAs e outros itens personalizados que você criou no domínio gerenciado.
-  * Os computadores que ingressaram no domínio gerenciado perdem sua relação de confiança com o domínio e precisam ser retirados do domínio.
-  * Você não pode entrar nesses computadores usando credenciais corporativas do AD. Em vez disso, use as credenciais de administrador local do computador.
-Excluir o domínio gerenciado não exclui seu diretório do Azure AD ou afeta negativamente o diretório.
->
+>   * Controladores de domínio para o domínio gerenciado são desprovisionados e removidos da rede virtual.
+>   * Os dados em um domínio gerenciado serão excluídos permanentemente. Isso inclui UOs, GPOs, registros de DNS personalizados, entidades de serviço, GMSAs e outros itens personalizados que você criou no domínio gerenciado.
+>   * Os computadores que ingressaram no domínio gerenciado perdem sua relação de confiança com o domínio e precisam ser retirados do domínio.
+>   * Você não pode entrar nesses computadores usando credenciais corporativas do AD. Em vez disso, use as credenciais de administrador local do computador.
+> Excluir o domínio gerenciado não exclui seu diretório do Azure AD ou afeta negativamente o diretório.
 
 Execute as seguintes etapas para excluir seu domínio gerenciado do Azure AD Domain Services:
 1. Navegue até a [extensão do Azure AD Domain Services](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) no portal do Azure.

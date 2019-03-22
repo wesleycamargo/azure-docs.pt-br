@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 4/13/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 9522e921b59ddc57a6039c625bf6b0af4c4b4af2
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 9315b3a5e1641098daf2c7dadf9fa4f09d0cb2a7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181802"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438492"
 ---
 # <a name="switching-to-your-azure-ad-b2c-tenant"></a>Alternar para o locatário do Azure AD B2C
 
@@ -37,7 +37,7 @@ O portal do Azure é atualizado.  Agora você está conectado ao portal do Azure
 1. Clique em **Todos os serviços** e, em seguida, pesquise por `Azure AD B2C` no painel de navegação à esquerda.  (Para fixar ao seu quadro inicial à esquerda, clique na estrela à esquerda do Azure AD B2C)
 1. Clique em **Azure AD B2C** para acessar o painel de recursos do B2C.
    
-    ![Captura de tela de Procurar para o painel de recursos do B2C](./media/active-directory-b2c-get-started/b2c-browse.png)
+    ![Captura de tela de navegar até o painel de recursos do B2C](./media/active-directory-b2c-get-started/b2c-browse.png)
 
 > [!IMPORTANT]
 > Você precisa ser um Administrador Global do locatário do B2C para poder acessar o painel de recursos do B2C. Um Administrador Global de qualquer outro locatário ou um Usuário de qualquer outro locatário não pode acessá-la.  Você pode alternar para o locatário B2C usando o seletor de locatário no canto superior direito do portal do Azure.

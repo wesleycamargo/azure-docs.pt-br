@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: 2f7d671dd70571ce167d9c5abd632cdebff329da
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: 63c649f0850c4ffc60ce2087e91f3f69917e4837
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888134"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868537"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema sobre eventos do Log de Atividades do Azure
 O **Log de Atividades do Azure** é um log que fornece informações sobre eventos no nível da assinatura que ocorreram no Azure. Este artigo descreve o esquema de evento por categoria de dados. O esquema dos dados é diferente e depende se você está lendo os dados no portal, no PowerShell, na CLI ou diretamente por meio da API REST comparado à [transmissão dos dados para o armazenamento ou para os Hubs de Eventos usando um Perfil de Log](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). Os exemplos abaixo mostram o esquema disponibilizado por meio do portal, do PowerShell, da CLI e da API REST. Um mapeamento dessas propriedades para o [esquema de logs de diagnóstico do Azure](./diagnostic-logs-schema.md) é fornecido no final do artigo.
@@ -119,10 +119,13 @@ Essa categoria contém o registro de todas as operações de criação, atualiza
 | correlationId |Geralmente, um GUID no formato de cadeia de caracteres. Os eventos que compartilham um correlationId pertencem à mesma ação superior. |
 | Descrição |Descrição de texto estático de um evento. |
 | eventDataId |Identificador exclusivo de um evento. |
+| eventName | Nome amigável do evento administrativo. |
+| categoria | Sempre "administrativa" |
 | httpRequest |Blob que descreve a solicitação Http. Geralmente inclui a “clientRequestId”, o “clientIpAddress” e o “método” (método HTTP. Por exemplo, PUT). |
 | level |Nível do evento. Um dos seguintes valores: "Crítico", "Erro", "Aviso" e "Informativo" |
 | resourceGroupName |Nome do grupo de recursos do recurso afetado. |
 | resourceProviderName |Nome do provedor de recursos do recurso afetado |
+| resourceType | O tipo de recurso que foi afetado por um evento administrativo. |
 | ResourceId |ID de recurso do recurso afetado. |
 | operationId |Um GUID compartilhado entre os eventos que correspondem a uma única operação. |
 | operationName |Nome da operação. |
@@ -134,7 +137,7 @@ Essa categoria contém o registro de todas as operações de criação, atualiza
 | subscriptionId |ID de assinatura do Azure. |
 
 ## <a name="service-health"></a>Integridade do serviço
-Essa categoria contém o registro de qualquer incidente de integridade do serviço ocorrido no Azure. Um exemplo do tipo de evento que você vê nessa categoria é "SQL Azure no Leste dos EUA está passando por tempo de inatividade". Eventos de integridade do serviço são fornecidos em cinco variedades: Ação Necessária, Recuperação Assistida, Incidente, Manutenção, Informações ou Segurança, e só aparecerão se você tiver um recurso na assinatura que seria afetada pelo evento.
+Essa categoria contém o registro de qualquer incidente de integridade do serviço ocorrido no Azure. Um exemplo do tipo de evento que você vê nessa categoria é "SQL Azure no Leste dos EUA está passando por tempo de inatividade". Eventos de integridade do serviço são fornecidos em cinco variedades: (Ação Necessária, Recuperação Assistida, Incidente, Manutenção, Informações ou Segurança) e só aparecerão se você tiver um recurso na assinatura que seria afetada pelo evento.
 
 ### <a name="sample-event"></a>Evento de exemplo
 ```json

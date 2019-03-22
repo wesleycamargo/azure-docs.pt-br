@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: panarasi
-ms.openlocfilehash: f7e500fb5856c7eec48a371042244b44dd944779
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
-ms.translationtype: HT
+ms.openlocfilehash: 1bbd481218128c482769cd6a28910e135c1ce16d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063754"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001038"
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>Adicionar autenticação ao seu aplicativo Xamarin Forms
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 Este tópico mostra como autenticar usuários de um aplicativo móvel do Serviço de Aplicativo em seu aplicativo cliente. Neste tutorial, você adiciona a autenticação ao projeto de início rápido do Xamarin.Forms usando um provedor de identidade com suporte do Serviço de Aplicativo. Depois de ser autenticado e autorizado com êxito pelo Aplicativo Móvel, o valor da ID de usuário é exibido e você poderá acessar dados da tabela restrita.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -132,7 +132,7 @@ Esta seção mostra como implementar a interface **IAuthenticate** no projeto do
         public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity, IAuthenticate
 5. Atualize a classe **MainActivity** adicionando um campo **MobileServiceUser** e um método **Authenticate**, que é necessário para a interface **IAuthenticate**, da seguinte maneira:
 
-        // Define a authenticated user.
+        // Define an authenticated user.
         private MobileServiceUser user;
 
         public async Task<bool> Authenticate()
@@ -188,7 +188,7 @@ Esta seção mostra como implementar a interface **IAuthenticate** no projeto do
     Esse código garante que o autenticador seja inicializado antes que o aplicativo seja carregado.
 8. Recompile o aplicativo, execute-o, entre com o provedor de autenticação escolhido e verifique se você consegue acessar os dados como um usuário autenticado.
 
-### <a name="troubleshooting"></a>solução de problemas
+### <a name="troubleshooting"></a>Solução de problemas
 
 **O aplicativo falhou com `Java.Lang.NoSuchMethodError: No static method startActivity`**
 
@@ -208,7 +208,7 @@ Esta seção mostra como implementar a interface **IAuthenticate** no projeto do
         public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate, IAuthenticate
 5. Atualize a classe **AppDelegate** adicionando um campo **MobileServiceUser** e um método **Authenticate**, que é necessário para a interface **IAuthenticate**, da seguinte maneira:
 
-        // Define a authenticated user.
+        // Define an authenticated user.
         private MobileServiceUser user;
 
         public async Task<bool> Authenticate()
@@ -279,7 +279,7 @@ Esta seção mostra como implementar a interface **IAuthenticate** nos projetos 
         public sealed partial class MainPage : IAuthenticate
 5. Atualize a classe **MainPage** adicionando um campo **MobileServiceUser** e um método **Authenticate**, que é necessário para a interface **IAuthenticate**, da seguinte maneira:
 
-        // Define a authenticated user.
+        // Define an authenticated user.
         private MobileServiceUser user;
 
         public async Task<bool> Authenticate()
@@ -344,7 +344,7 @@ Agora que você concluiu este tutorial de autenticação básica, considere cont
 
 * [Adicionar notificações por push ao aplicativo](app-service-mobile-xamarin-forms-get-started-push.md)
 
-  Saiba como adicionar suporte a notificações por push ao aplicativo e configurar o back-end do Aplicativo Móvel para usar os Hubs de Notificação do Azure para enviar notificações por push.
+   Saiba como adicionar suporte a notificações por push ao aplicativo e configurar o back-end do Aplicativo Móvel para usar os Hubs de Notificação do Azure para enviar notificações por push.
 * [Habilitar sincronização offline para seu aplicativo](app-service-mobile-xamarin-forms-get-started-offline-data.md)
 
   Saiba como adicionar suporte offline ao seu aplicativo usando um back-end de Aplicativo Móvel. A sincronização offline permite que os usuários finais interajam com um aplicativo móvel, exibindo, adicionando ou modificando dados, mesmo quando não há conexão de rede.

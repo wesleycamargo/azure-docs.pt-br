@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec119c9e11b21828b1b056fb97598ca7434cfc68
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9f987c6803f6ca538f4ae7470caaff597c9596c2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197702"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57900736"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-impac-risk-manager"></a>Tutorial: Integração do Azure Active Directory ao IMPAC Risk Manager
 
@@ -114,6 +114,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
      a. Na caixa de texto **Identificador**, digite um valor fornecido pelo IMPAC
 
     b. Na caixa de texto **URL de resposta** , digite uma URL no seguinte padrão:
+
     | Ambiente | Padrão de URL |
     | ---------------|--------------- |    
     | Para produção |`https://www.riskmanager.co.nz/DotNet/SSOv2/AssertionConsumerService.aspx?client=<ClientSuffix>`|
@@ -127,6 +128,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     ![Informações de logon único em Domínio e URLs do IMPAC Risk Manager](./media/impacriskmanager-tutorial/tutorial_impacriskmanager_url1_new.png)
 
     Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão:
+    
     | Ambiente | Padrão de URL |
     | ---------------|--------------- |    
     | Para produção |`https://www.riskmanager.co.nz/SSOv2/<ClientSuffix>`|

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: 748a9c0c583d4e1af9626527a440b19900898b87
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: 9a93786759941def4cf8677509b1b2565cac5090
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600294"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823851"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossário do Microsoft Azure: um dicionário de terminologia de nuvem na plataforma do Azure
 
@@ -147,7 +147,7 @@ Um recurso que implementa comportamentos ou recursos que ajudam outros programas
 Veja [Sobre os recursos e extensões de máquina virtual (Windows)](virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou [Sobre os recursos e extensões de máquina virtual (Linux)](virtual-machines/linux/extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="vnet"></a>rede virtual
-Uma rede que fornece conectividade entre seus recursos do Azure que estão isolados de todos os outros locatários do Azure. Um [Gateway de VPN do Azure](vpn-gateway/vpn-gateway-about-vpngateways.md) lhe permite estabelecer conexões entre redes virtuais e [entre uma rede virtual e uma rede local](vpn-gateway/vpn-gateway-plan-design.md). Você pode controlar os blocos de endereços IP, as configurações de DNS, as políticas de segurança e as tabelas de rotas em uma rede virtual.  
+Uma rede que fornece conectividade entre seus recursos do Azure que estão isolados de todos os outros locatários do Azure. Uma [Gateway de VPN do Azure](vpn-gateway/vpn-gateway-about-vpngateways.md) lhe permite estabelecer conexões entre redes virtuais e entre uma rede virtual e uma rede local. Você pode controlar os blocos de endereços IP, as configurações de DNS, as políticas de segurança e as tabelas de rotas em uma rede virtual.  
 Veja [Visão geral da Rede Virtual](virtual-network/virtual-networks-overview.md)  
 
 ## <a name="web-app"></a>Aplicativo Web

@@ -11,12 +11,12 @@ ms.assetid: 51dd4f22-7dc5-41af-a0a9-e7148378cd50
 tags: connectors
 ms.topic: article
 ms.date: 01/08/2019
-ms.openlocfilehash: a1f89ca6e9dc2d05180df14ff0f4dc52729a7e03
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.openlocfilehash: eb22539d1f433e396935f82e4cb3786d5699d21a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107830"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58083947"
 ---
 # <a name="create-and-run-recurring-tasks-and-workflows-with-azure-logic-apps"></a>Criar e executar tarefas recorrentes e fluxos de trabalho com os Aplicativos Lógicos do Azure
 
@@ -95,10 +95,10 @@ Para disparar seu aplicativo lógico e executar apenas uma vez no futuro, veja [
 
 Você pode configurar essas propriedades para o gatilho de recorrência.
 
-| NOME | Obrigatório | Nome da propriedade | Tipo | DESCRIÇÃO | 
+| NOME | Obrigatório | Nome da propriedade | Type | DESCRIÇÃO | 
 |----- | -------- | ------------- | ---- | ----------- | 
-| **Frequência** | SIM | frequência | Cadeia de caracteres | A unidade de tempo para a recorrência: **Segundo**, **Minuto**, **Hora**, **Dia**, **Semana** ou **Mês** | 
-| **Intervalo** | SIM | intervalo | Número inteiro | Um inteiro positivo que descreve a frequência na qual o fluxo de trabalho é executado com base na frequência. <p>O intervalo padrão é 1. Aqui estão os intervalos mínimos e máximos: <p>- Mês: 1-16 meses </br>- Dia: 1-500 dias </br>- Hora: 1-12.000 horas </br>- Minuto: 1-72.000 minutos </br>- Segundo: 1-9.999.999 segundos<p>Por exemplo, se o intervalo for 6 e a frequência for "Mês", a recorrência será a cada 6 meses. | 
+| **Frequência** | Sim | frequência | Cadeia de caracteres | A unidade de tempo para a recorrência: **Segundo**, **Minuto**, **Hora**, **Dia**, **Semana** ou **Mês** | 
+| **Intervalo** | Sim | intervalo | Número inteiro | Um inteiro positivo que descreve a frequência na qual o fluxo de trabalho é executado com base na frequência. <p>O intervalo padrão é 1. Aqui estão os intervalos mínimos e máximos: <p>- Mês: 1 a 16 meses </br>- Dia: 1 a 500 dias </br>- Hora: 1 a 12.000 horas </br>- Minuto: 1 a 72.000 minutos </br>- Segundo: 1-9.999.999 segundos<p>Por exemplo, se o intervalo for 6 e a frequência for "Mês", a recorrência será a cada 6 meses. | 
 | **Fuso horário** | Não  | timeZone | Cadeia de caracteres | Aplica-se somente quando você especifica uma hora de início, porque o gatilho não aceita [diferença UTC](https://en.wikipedia.org/wiki/UTC_offset). Selecione o fuso horário que você deseja aplicar. | 
 | **Hora de início** | Não  | startTime | Cadeia de caracteres | Forneça uma hora de início neste formato: <p>AAAA-MM-DDThh:mm:ss se você selecionar um fuso horário <p>-ou- <p>AAAA-MM-DDThh:mm:ssZ se você não selecionar um fuso horário <p>Por exemplo, se você quiser 18 de setembro de 2017 às 14h, especifique "2017-09-18T14:00:00" e selecione um fuso horário, como Hora do Pacífico. Ou, especifique "2017-09-18T14:00:00Z" sem um fuso horário. <p>**Observação:** a hora de início deve seguir a [especificação de data e hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) no [formato de data e hora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mas sem uma [diferença UTC](https://en.wikipedia.org/wiki/UTC_offset). Se você não selecionar um fuso horário, será necessário adicionar a letra "Z" no final sem espaços. Essa letra "Z" refere-se ao equivalente em [hora náutica](https://en.wikipedia.org/wiki/Nautical_time). <p>Para agendamentos simples, a hora de início é a primeira ocorrência, enquanto que, para agendamentos complexos, o gatilho não é disparado antes da hora de início. [*Quais são as maneiras que posso usar a data e hora de início?*](#start-time) | 
 | **Nestes dias** | Não  | weekDays | Cadeia de caracteres ou matriz de cadeia de caracteres | Se você selecionar "Semana", poderá selecionar um ou mais dias em que você deseja executar o fluxo de trabalho: **Segunda-feira**, **Terça-feira**, **Quarta-feira**, **Quinta-feira**, **Sexta-feira**, **Sábado** e **Domingo** | 
@@ -202,7 +202,7 @@ Nesse cenário, o mecanismo dos Aplicativos Lógicos calcula as horas de execuç
 | Hora de início | Primeira hora de execução | Horas de execução futuras | 
 | ---------- | ------------ | ---------- | 
 | 2017-09-**07** às 14h | 2017-09-**09** às 14h | 2017-09-**11** às 14h </br>2017-09-**13** às 14h </br>2017-09-**15** às 14h </br>e assim por diante...
-||||| 
+||||
 
 Portanto, neste cenário, não importa o quanto no passado você especifica a hora de início, por exemplo, 2017-09-**05** às 14h ou 2017-09-**01** às 14h, a primeira hora de execução será a mesma.
 

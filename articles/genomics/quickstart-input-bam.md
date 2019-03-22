@@ -1,26 +1,26 @@
 ---
-title: 'Início Rápido: enviar um fluxo de trabalho usando uma entrada de arquivo BAM – Microsoft Genomics'
+title: Enviar um fluxo de trabalho usando um arquivo BAM entrado - Microsoft Genomics
 titleSuffix: Azure
-description: O guia de início rápido pressupõe que você tem o cliente msgen instalado e executou com êxito os dados de exemplo por meio do serviço.
+description: Este artigo pressupõe que você tem o cliente msgen instalado e executou com êxito os dados de exemplo por meio do serviço.
 services: genomics
 author: grhuynh
 manager: cgronlun
 ms.author: grhuynh
 ms.service: genomics
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 12/07/2017
-ms.openlocfilehash: 91bc13dbf024df20ac23ca0ff83a73ed246dce28
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
-ms.translationtype: HT
+ms.openlocfilehash: 329ac374edbffa65a1b654a05a4934828f25d5de
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729497"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435075"
 ---
 # <a name="submit-a-workflow-using-a-bam-file-input"></a>Enviar um fluxo de trabalho usando uma entrada de arquivo do BAM
 
-Este guia de início rápido demonstra como enviar um fluxo de trabalho para o serviço Microsoft Genomics se seu arquivo de entrada é um único arquivo BAM. Este tópico pressupõe que você já instalou e executou o cliente `msgen` e está familiarizado sobre como usar o Armazenamento do Azure. Se você enviou, com êxito, um fluxo de trabalho usando os dados de exemplo fornecidos, está pronto para continuar com este guia de início rápido. 
+Este artigo demonstra como enviar um fluxo de trabalho para o serviço Microsoft Genomics se seu arquivo de entrada é um único arquivo BAM. Este tópico pressupõe que você já instalou e executou o cliente `msgen` e está familiarizado sobre como usar o Armazenamento do Azure. Se você enviou um fluxo de trabalho usando os dados de exemplo fornecidos com êxito, você está pronto para prosseguir com este artigo. 
 
-## <a name="set-up-upload-your-bam-file-to-azure-storage"></a>Configurar: carregar seu arquivo BAM no armazenamento do Azure
+## <a name="set-up-upload-your-bam-file-to-azure-storage"></a>Configurar: Carregar seu arquivo BAM no armazenamento do Azure
 Vamos assumir que você tenha um arquivo BAM, *reads.bam*, e já o carregou na sua conta de armazenamento *myaccount* no Azure como **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/inputs/reads<span></span>.bam<span></span>**. Você tem a URL da API e sua chave de acesso. Você deseja ter saídas em **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>**.
 
 

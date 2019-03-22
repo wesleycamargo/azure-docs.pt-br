@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.openlocfilehash: 58210db585befd7ce915d4579d4d0303eb15bff3
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
-ms.translationtype: HT
+ms.openlocfilehash: 2479db2abcb578eb380655346582392770606b39
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27960554"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57552173"
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>Introdução aos componentes de solicitação e resposta
 Com os componentes de solicitação e resposta em um aplicativo lógico, você pode responder em tempo real a eventos.
@@ -38,7 +38,7 @@ Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho defi
 
 Veja uma sequência de exemplo de como configurar uma solicitação HTTP no Designer de Aplicativo Lógico.
 
-1. Adicione o gatilho **Solicitação — quando uma solicitação HTTP é recebida** no seu aplicativo lógico. Como opção, você pode fornecer um esquema JSON (usando uma ferramenta como [JSONSchema.net](http://jsonschema.net)) para o corpo da solicitação. Isso permite que o designer gere tokens para propriedades na solicitação HTTP.
+1. Adicione o gatilho **Solicitação — quando uma solicitação HTTP é recebida** no seu aplicativo lógico. Como opção, você pode fornecer um esquema JSON (usando uma ferramenta como [JSONSchema.net](https://jsonschema.net)) para o corpo da solicitação. Isso permite que o designer gere tokens para propriedades na solicitação HTTP.
 2. Adicione outra ação para que seja possível salvar o aplicativo lógico.
 3. Depois de salvar o aplicativo lógico, você pode obter a URL da solicitação HTTP do cartão de solicitação.
 4. Um HTTP POST (você pode usar uma ferramenta como [Postman](https://www.getpostman.com/)) para a URL que dispara o aplicativo lógico.

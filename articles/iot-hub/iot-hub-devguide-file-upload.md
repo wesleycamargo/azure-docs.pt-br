@@ -1,19 +1,19 @@
 ---
 title: Entender o upload de arquivo do Hub IoT do Azure | Microsoft Docs
 description: Guia do desenvolvedor ‑ usar o recurso de upload de arquivo do Hub IoT para gerenciar o carregamento de arquivos de um dispositivo para um contêiner de Azure Storage Blob.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 11/07/2018
-ms.author: dobett
-ms.openlocfilehash: 724f655229347aa73747476e6bb4837b30e0fc4f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 7678c50cbda0ea112c737e8230586081efe61081
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838991"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008552"
 ---
 # <a name="upload-files-with-iot-hub"></a>Carregar arquivos com o Hub IoT
 

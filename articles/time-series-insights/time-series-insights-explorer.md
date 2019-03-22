@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.custom: seodec18
-ms.openlocfilehash: d65ce83465f54a30b96bc1ee6644319e1b4fb020
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: 301326f4ba858c7aef6c8bdec8f2cae3ed926847
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556587"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121036"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights Explorer
 Este artigo aborda os vários recursos e opções disponíveis no aplicativo Web do Time Series Insights Explorer. Use o Time Series Insights Explorer no navegador da Web para criar visualizações dos dados.
@@ -91,27 +91,27 @@ Alguns minutos após conectar a origem do evento ao ambiente do Time Series Insi
 
 10. O **Gráfico** permite explorar os dados visualmente. As ferramentas do gráfico incluem:
 
-   - Selecionar/clicar, que possibilita uma seleção de um período de tempo específico ou de uma única série de dados.  
-   - Em uma seleção de intervalo de tempo, você pode ampliar ou explorar eventos.  
-   - Em uma série de dados, você pode dividir a série por outra coluna, adicionar a série como um novo termo, mostrar apenas a série selecionada, excluir a série selecionada, executar ping da série ou explorar eventos da série selecionada.
-   - Na área de filtro à esquerda do gráfico, você pode ver todas as séries de dados exibidas e reordená-las por nome ou valor, exibir todas as séries de dados ou as séries especificamente fixadas ou não fixadas.  Também selecione uma única série de dados e divida a série por outra coluna, adicione a série como um novo termo, mostre apenas a série selecionada, exclua a série selecionada, fixe essa série ou explore eventos da série selecionada.
-   - Ao exibir vários termos simultaneamente, empilhe, desempilhe, consulte dados adicionais sobre uma série de dados e use o mesmo eixo Y em todos os termos com os botões do canto superior direito do gráfico.
+    - Selecionar/clicar, que possibilita uma seleção de um período de tempo específico ou de uma única série de dados.  
+    - Em uma seleção de intervalo de tempo, você pode ampliar ou explorar eventos.  
+    - Em uma série de dados, você pode dividir a série por outra coluna, adicionar a série como um novo termo, mostrar apenas a série selecionada, excluir a série selecionada, executar ping da série ou explorar eventos da série selecionada.
+    - Na área de filtro à esquerda do gráfico, você pode ver todas as séries de dados exibidas e reordená-las por nome ou valor, exibir todas as séries de dados ou as séries especificamente fixadas ou não fixadas.  Também selecione uma única série de dados e divida a série por outra coluna, adicione a série como um novo termo, mostre apenas a série selecionada, exclua a série selecionada, fixe essa série ou explore eventos da série selecionada.
+    - Ao exibir vários termos simultaneamente, empilhe, desempilhe, consulte dados adicionais sobre uma série de dados e use o mesmo eixo Y em todos os termos com os botões do canto superior direito do gráfico.
  
-   ![Ferramentas do gráfico](media/time-series-insights-explorer/explorer5.png) 
+    ![Ferramentas do gráfico](media/time-series-insights-explorer/explorer5.png) 
 
 11. O **mapa de calor** pode ser usado para identificar rapidamente séries de dados exclusivas ou anormais em determinada consulta. Apenas um termo de pesquisa pode ser visualizado como um mapa de calor.    
 
-   ![Mapa de calor](media/time-series-insights-explorer/explorer6.png)
+    ![Mapa de calor](media/time-series-insights-explorer/explorer6.png)
 
 12. **Eventos**:  Quando você escolhe explorar eventos ao selecionar ou clicar com o botão direito do mouse, o painel de eventos é disponibilizado.  Aqui, você pode ver todos os seus eventos brutos e exportá-los como arquivos JSON ou CSV. Observe que o Time Series Insights armazena todos os dados brutos.
 
-   ![Eventos](media/time-series-insights-explorer/explorer7.png)
+    ![Eventos](media/time-series-insights-explorer/explorer7.png)
 
 13. Clique na guia **ESTATÍSTICAS** depois de explorar os eventos para expor os padrões e as estatísticas de coluna.  
 
-   - **Padrões**: esse recurso revela de maneira proativa os padrões estatisticamente significativos em uma região de dados selecionada. Isso libera você da necessidade de examinar milhares de eventos para entender quais padrões garantem mais tempo e energia. Além disso, o Time Series Insights possibilita que você vá diretamente para esses padrões estatisticamente significativos para continuar realizando uma análise. Esse recurso também é útil para investigações post-mortem em dados históricos. 
+    - **Padrões**: esse recurso revela de maneira proativa os padrões estatisticamente significativos em uma região de dados selecionada. Isso libera você da necessidade de examinar milhares de eventos para entender quais padrões garantem mais tempo e energia. Além disso, o Time Series Insights possibilita que você vá diretamente para esses padrões estatisticamente significativos para continuar realizando uma análise. Esse recurso também é útil para investigações post-mortem em dados históricos. 
 
-   - **Estatísticas de Coluna**:  As estatísticas de coluna fornecem gráficos e tabelas que dividem os dados de cada coluna da série de dados selecionada no período de tempo selecionado.  
+    - **Estatísticas de Coluna**:  As estatísticas de coluna fornecem gráficos e tabelas que dividem os dados de cada coluna da série de dados selecionada no período de tempo selecionado.  
  
       ![ESTATÍSTICAS](media/time-series-insights-explorer/explorer8.png) 
 

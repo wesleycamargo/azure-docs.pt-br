@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a07ca553aee2a6267af5a33836e85b2a12d8ae3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c53675c27276fdcf403ca5a6add5d86fc38e410a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182282"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842443"
 ---
 # <a name="problem-adding-a-non-gallery-application"></a>Problema ao adicionar um aplicativo inexistente na galeria
 
@@ -46,20 +46,20 @@ Se você precisar de ajuda para aprender mais sobre aplicativos personalizados, 
 
 Veja os detalhes de qualquer notificação do portal executando as etapas abaixo:
 
-1.  Clique no ícone **Notificações** (o sino) na parte superior direita do Portal do Azure
+1. Clique no ícone **Notificações** (o sino) na parte superior direita do Portal do Azure
 
-2.  Selecione qualquer notificação com estado de **Erro** (aquelas com um (!) vermelho ao lado).
+2. Selecione qualquer notificação com estado de **Erro** (aquelas com um (!) vermelho ao lado).
 
    >[!NOTE]
    >Não é possível clicar em notificações com estado de **Êxito** ou **Em Andamento**.
    >
    >
 
-4.  Use as informações em **Detalhes da Notificação** para saber mais detalhes sobre o problema.
+4. Use as informações em **Detalhes da Notificação** para saber mais detalhes sobre o problema.
 
-5.  Se ainda precisar de ajuda, você também poderá compartilhar essas informações com um engenheiro de suporte ou com o grupo de produtos para obter ajuda com o problema.
+5. Se ainda precisar de ajuda, você também poderá compartilhar essas informações com um engenheiro de suporte ou com o grupo de produtos para obter ajuda com o problema.
 
-6.  Clique no **ícone de cópia** à direita da caixa de texto **Copiar erro** para copiar todos os detalhes da notificação para compartilhar com um engenheiro de suporte ou de grupo de produtos.
+6. Clique no **ícone de cópia** à direita da caixa de texto **Copiar erro** para copiar todos os detalhes da notificação para compartilhar com um engenheiro de suporte ou de grupo de produtos.
 
 ## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Como obter ajuda enviando detalhes da notificação a um engenheiro de suporte
 
@@ -71,63 +71,63 @@ Veja as descrições a seguir para mais detalhes sobre as notificações.
 
 ### <a name="essential-notification-items"></a>Itens de notificação essenciais
 
--   **Título** – o título descritivo da notificação
-   *  Exemplo – **Configurações do proxy do aplicativo**
+- **Título** – o título descritivo da notificação
+  *  Exemplo – **Configurações do proxy do aplicativo**
 
--   **Descrição** – a descrição do que ocorreu como resultado da operação
+- **Descrição** – a descrição do que ocorreu como resultado da operação
 
-   *  Exemplo – **A URL interna inserida já está sendo usada por outro aplicativo**
+  *  Exemplo – **A URL interna inserida já está sendo usada por outro aplicativo**
 
--   **ID da Notificação** – a ID exclusiva da notificação
+- **ID da Notificação** – a ID exclusiva da notificação
 
-   *  Exemplo – **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
+  *  Exemplo – **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
 
--   **ID de Solicitação do Cliente** – a ID de solicitação específica feita por seu navegador
+- **ID de Solicitação do Cliente** – a ID de solicitação específica feita por seu navegador
 
-   *  Exemplo – **302fd775-3329-4670-a9f3-bea37004f0bc**
+  *  Exemplo – **302fd775-3329-4670-a9f3-bea37004f0bc**
 
--   **Carimbo de Data/Hora UTC** – o carimbo de data/hora durante o qual a notificação ocorreu, em UTC
+- **Carimbo de Data/Hora UTC** – o carimbo de data/hora durante o qual a notificação ocorreu, em UTC
 
-   *  Exemplo – **2017-03-23T19:50:43.7583681Z**
+  *  Exemplo – **2017-03-23T19:50:43.7583681Z**
 
--   **ID de Transação Interna** – a ID interna que podemos usar para procurar o erro em nossos sistemas
+- **ID de Transação Interna** – a ID interna que podemos usar para procurar o erro em nossos sistemas
 
-   *  Exemplo – **71a2f329-ca29-402f-aa72-bc00a7aca603**
+  *  Exemplo – **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
--   **UPN** – o usuário que realizou a operação
+- **UPN** – o usuário que realizou a operação
 
-   *  Exemplo – **tperkins@f128.info**
+  *  Exemplo – **tperkins\@f128.info**
 
--   **ID do Locatário** – a ID exclusiva do locatário do qual o usuário que realizou a operação era membro
+- **ID do Locatário** – a ID exclusiva do locatário do qual o usuário que realizou a operação era membro
 
-   *  Exemplo – **7918d4b5-0442-4a97-be2d-36f9f9962ece**
+  *  Exemplo – **7918d4b5-0442-4a97-be2d-36f9f9962ece**
 
--   **ID de objeto de usuário** – a ID exclusiva do usuário que realizou a operação
+- **ID de objeto de usuário** – a ID exclusiva do usuário que realizou a operação
 
- *  Exemplo – **17f84be4-51f8-483a-b533-383791227a99**
+  *  Exemplo – **17f84be4-51f8-483a-b533-383791227a99**
 
 ### <a name="detailed-notification-items"></a>Itens de notificação detalhados
 
--   **Nome de Exibição** – **(pode estar vazio)** um nome de exibição mais detalhado do erro
+- **Nome de Exibição** – **(pode estar vazio)** um nome de exibição mais detalhado do erro
 
   *  Exemplo – **Configurações do proxy do aplicativo**
 
--   **Status** – o status específico da notificação
+- **Status** – o status específico da notificação
 
-   *  Exemplo – **Falha**
+  *  Exemplo – **Falha**
 
--   **ID do Objeto** – **(pode estar vazio)** a ID do objeto em que a operação foi executada
+- **ID do Objeto** – **(pode estar vazio)** a ID do objeto em que a operação foi executada
 
-   *  Exemplo – **8e08161d-f2fd-40ad-a34a-a9632d6bb599**
+  *  Exemplo – **8e08161d-f2fd-40ad-a34a-a9632d6bb599**
 
--   **Detalhes** – a descrição detalhada do que ocorreu como resultado da operação
+- **Detalhes** – a descrição detalhada do que ocorreu como resultado da operação
 
-   *  Exemplo – **URL interna 'https://bing.com/' é inválida porque já está em uso**
+  *  Exemplo – **url interna `https://bing.com/` é inválido, pois ele já está em uso**
 
--   **Copiar erro** – clique no **ícone de cópia** à direita da caixa de texto **Copiar erro** para copiar todos os detalhes de notificação para compartilhar com um suporte ou grupo de produtos 
--   engenheiro
+- **Copiar erro** – clique no **ícone de cópia** à direita da caixa de texto **Copiar erro** para copiar todos os detalhes de notificação para compartilhar com um suporte ou grupo de produtos 
+- engenheiro
 
-   *  Exemplo ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'https://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'https://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
+  *  Exemplo ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'https://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'https://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
 
 
 

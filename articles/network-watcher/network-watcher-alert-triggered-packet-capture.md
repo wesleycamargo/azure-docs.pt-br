@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: fd7e7151d8ec676239ed810fb700149aab0fe0fa
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 71e71b417f12b58fc03c581826c0e5c2412e684b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427395"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57876639"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Usar a captura de pacotes para fazer um monitoramento de rede proativo com alertas e o Azure Functions
 
@@ -77,8 +77,8 @@ A primeira etapa é criar uma função do Azure para processar o alerta e criar 
     |**Nome do aplicativo**|PacketCaptureExample|O nome do aplicativo de funções.|
     |**Assinatura**|[Sua assinatura]A assinatura na qual a criar o aplicativo de funções.||
     |**Grupo de recursos**|PacketCaptureRG|O nome do grupo de recursos para conter o aplicativo de funções.|
-    |**Plano de hospedagem**|Plano de consumo| O tipo de plano de que seu aplicativo de funções usa. As opções são planos de consumo ou planos do serviço de aplicativo do Azure. |
-    |**Localidade**|Centro dos EUA| A região na qual um aplicativo de funções será criado.|
+    |**Plano de hospedagem**|Plano de Consumo| O tipo de plano de que seu aplicativo de funções usa. As opções são planos de consumo ou planos do serviço de aplicativo do Azure. |
+    |**Localidade**|EUA Central| A região na qual um aplicativo de funções será criado.|
     |**Conta de armazenamento**|{gerado automaticamente}| A conta de armazenamento que o Azure Functions usa para armazenamento de finalidade geral.|
 
 3. Na folha **Aplicativos do Functions PacketCaptureExample**, selecione **Functions** > **Função personalizada** >**+**.
@@ -110,13 +110,13 @@ Para usar os cmdlets do PowerShell no Observador de Rede, faça upload do últim
 
     Esse exemplo fornece o caminho local dos módulos do Azure PowerShell. Essas pastas são usadas em uma etapa posterior. Os módulos usados neste cenário são:
 
-    * AzureRM.Network
+   * AzureRM.Network
 
-    * AzureRM.profile
+   * AzureRM.profile
 
-    * AzureRM.Resources
+   * AzureRM.Resources
 
-    ![Pastas do PowerShell][functions5]
+     ![Pastas do PowerShell][functions5]
 
 1. Selecione **Configurações do Aplicativo de funções** > **Ir para o Editor do Serviço de Aplicativo**.
 
@@ -250,7 +250,7 @@ $Encryptedpassword
 
 1. Adicione as variáveis de ambiente e seus valores às configurações do aplicativo e selecione **Salvar**.
 
-    ![Configurações do aplicativo][functions12]
+    ![Configurações de aplicativo][functions12]
 
 ### <a name="add-powershell-to-the-function"></a>Adicione o PowerShell para a função
 
@@ -344,7 +344,7 @@ Vá até uma máquina virtual existente e adicione uma regra de alerta. Mais doc
   |**Configuração** | **Valor** | **Detalhes** |
   |---|---|---|
   |**Nome**|TCP_Segments_Sent_Exceeded|Nome da regra de alerta.|
-  |**Descrição**|Segmentos TCP enviados limite excedido|A descrição para a regra de alerta.||
+  |**Descrição**|Segmentos TCP enviados limite excedido|A descrição para a regra de alerta.|
   |**Métrica**|Segmentos TCP enviados| A métrica para usar para disparar o alerta. |
   |**Condição**|Maior que| A condição para usar ao avaliar a métrica.|
   |**Limite**|100| O valor da métrica que dispara o alerta. Esse valor deve ser definido como um valor válido para o seu ambiente.|
@@ -362,7 +362,7 @@ Após os critérios para os gatilhos de alerta, uma captura de pacote será cria
 
 Se o arquivo de captura for armazenado localmente, você poderá recuperá-lo entrando na máquina virtual.
 
-Para obter instruções sobre como baixar os arquivos das contas de armazenamento do Azure, veja [Introdução ao armazenamento de Blobs do Azure usando o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que você pode usar é o [Gerenciador de armazenamento](http://storageexplorer.com/).
+Para obter instruções sobre como baixar os arquivos das contas de armazenamento do Azure, veja [Introdução ao armazenamento de Blobs do Azure usando o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que você pode usar é o [Gerenciador de armazenamento](https://storageexplorer.com/).
 
 Depois que a captura for baixada, você poderá exibi-la usando qualquer ferramenta que possa ler um arquivo **.cap**. Os links para duas dessas ferramentas são:
 

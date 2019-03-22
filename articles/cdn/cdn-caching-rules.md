@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 03/19/2019
 ms.author: magattus
-ms.openlocfilehash: 10275b2938ce66a2816b1d4a5589a5e88ee22e80
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.openlocfilehash: 3a94b8252feb7c5c345d678579c477fce02d6e03
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093911"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259730"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>Controlar o comportamento de cache da CDN do Azure com regras de cache
 
@@ -27,13 +27,13 @@ ms.locfileid: "49093911"
  
 A CDN (Rede de Distribuição de Conteúdo do Microsoft Azure) oferece duas maneiras de controlar como seus arquivos são armazenados em cache: 
 
-- Regras de cache: esse artigo descreve como é possível utilizar as regras de cache da CDN (rede de distribuição de conteúdo) para definir ou modificar o comportamento de expiração do cache padrão globalmente e com condições personalizadas, como um caminho de URL e extensão de arquivo. CDN do Azure fornece dois tipos de regras de cache:
+- Regras de cache: Este artigo descreve como você pode usar regras de cache da rede de distribuição de conteúdo (CDN) para definir ou modificar o comportamento de expiração de cache padrão globalmente e com condições personalizadas, como uma extensão de arquivo e caminho de URL. CDN do Azure fornece dois tipos de regras de cache:
 
-   - Regras de cache globais: é possível definir uma regra de cache global para cada ponto de extremidade em seu perfil, que afeta todas as solicitações para o ponto de extremidade. A regra de cache global substitui todos os cabeçalhos de diretiva de cache HTTP, se configurado.
+   - Regras de cache globais: Você pode definir uma regra de cache global para cada ponto de extremidade em seu perfil, o que afeta todas as solicitações para o ponto de extremidade. A regra de cache global substitui todos os cabeçalhos de diretiva de cache HTTP, se configurado.
 
-   - Regras de cache personalizadas: é possível definir uma ou mais regras de cache personalizadas para cada ponto de extremidade em seu perfil. As regras de cache personalizadas combinam caminhos específicos e extensões de arquivo, são processadas em ordem e substituem a regra de cache global, se definido. 
+   - Regras de cache personalizadas: Você pode definir as regras de cache personalizadas um ou mais para cada ponto de extremidade em seu perfil. As regras de cache personalizadas combinam caminhos específicos e extensões de arquivo, são processadas em ordem e substituem a regra de cache global, se definido. 
 
-- Cache da cadeia de caracteres de consulta: é possível ajustar a forma como a CDN do Azure trata o armazenamento em cache para solicitações com cadeias de caracteres de consulta. Para obter mais informações, consulte [Controlar o comportamento do cache da CDN do Azure com cadeias de caracteres de consulta](cdn-query-string.md). Se o arquivo não for armazenável em cache, a configuração de cache da cadeia de caracteres de consulta não terá efeito, com base em regras de cache e comportamentos padrão da CDN.
+- Cache de cadeia de caracteres de consulta: Você pode ajustar como a CDN do Azure trata o cache para solicitações com cadeias de caracteres de consulta. Para obter mais informações, consulte [Controlar o comportamento do cache da CDN do Azure com cadeias de caracteres de consulta](cdn-query-string.md). Se o arquivo não for armazenável em cache, a configuração de cache da cadeia de caracteres de consulta não terá efeito, com base em regras de cache e comportamentos padrão da CDN.
 
 Para obter informações sobre o comportamento de cache padrão e os cabeçalhos de diretivas de cache, consulte [Como funciona o cache](cdn-how-caching-works.md). 
 
@@ -54,11 +54,11 @@ Para obter informações sobre o comportamento de cache padrão e os cabeçalhos
 ## <a name="caching-behavior-settings"></a>Configurações de comportamento do cache
 Para regras de cache globais e personalizadas, é possível especificar as seguintes configurações de **Comportamento do cache**:
 
-- **Ignorar cache**: não armazena em cache e ignora os cabeçalhos de diretrizes de cache fornecidos pela origem.
+- **Ignorar cache**: Não armazenar em cache e ignora os cabeçalhos de diretiva de cache fornecidos pela origem.
 
-- **Substituir**: ignora os cabeçalhos de diretivas de cache fornecidos pela origem; em vez disso, utiliza a duração do cache fornecida.
+- **Substituir**: Ignorar a duração de cache fornecidos pela origem; Use a duração do cache fornecida. Isso não substituirá a cache-control: sem cache.
 
-- **Definir se ausente**: aceita os cabeçalhos de diretiva de cache fornecidos pela origem, se existirem; caso contrário, usa a duração do cache fornecida.
+- **Definir se ausente**: Respeitar os cabeçalhos de diretiva de cache fornecidos pela origem, se existirem; Caso contrário, use a duração do cache fornecida.
 
 ![Regras de cache globais](./media/cdn-caching-rules/cdn-global-caching-rules.png)
 
@@ -75,9 +75,9 @@ Para regras de cache globais e personalizadas, é possível especificar a duraç
 
 Para regras de cache personalizadas, há duas condições de correspondência:
  
-- **Caminho**: essa condição corresponde ao caminho da URL, excluindo o nome de domínio e fornece suporte ao símbolo curinga (\*). Por exemplo, _/myfile.html_, _/my/folder/*_ e _/my/images/*.jpg_. O comprimento máximo é de 260 caracteres.
+- **Caminho**: Essa condição corresponde ao caminho da URL, excluindo o nome de domínio e dá suporte ao símbolo curinga (\*). Por exemplo, _/myfile.html_, _/my/folder/*_ e _/my/images/*.jpg_. O comprimento máximo é de 260 caracteres.
 
-- **Extensão**: essa condição corresponde à extensão do arquivo solicitado. Você pode fornecer uma lista de extensões de arquivo separadas por vírgulas para corresponder. Por exemplo, _.jpg_, _.mp3_ ou _.png_. O número máximo de extensões é 50 e o número máximo de caracteres por extensão é 16. 
+- **Extensão**: Essa condição corresponde a extensão de arquivo do arquivo solicitado. Você pode fornecer uma lista de extensões de arquivo separadas por vírgulas para corresponder. Por exemplo, _.jpg_, _.mp3_ ou _.png_. O número máximo de extensões é 50 e o número máximo de caracteres por extensão é 16. 
 
 ## <a name="global-and-custom-rule-processing-order"></a>Ordem de processamento global e personalizado de regras
 As regras de cache personalizadas e globais são processadas na seguinte ordem:
@@ -88,22 +88,22 @@ As regras de cache personalizadas e globais são processadas na seguinte ordem:
 
 **Exemplo**:
 - Regra de cache global: 
-   - Comportamento do cache: **Substituir**
-   - Duração da expiração do cache: 1 dia
+   - Comportamento de cache: **Override**
+   - Duração da expiração de cache: 1 dia
 
 - Regra de cache individual Nº 1:
    - Condição de correspondência: **Caminho**
    - Valor de correspondência: _/home/*_
-   - Comportamento do cache: **Substituir**
-   - Duração da expiração do cache: 2 dias
+   - Comportamento de cache: **Override**
+   - Duração da expiração de cache: 2 dias
 
 - Regra de cache personalizada Nº 2:
    - Condição de correspondência: **Extensão**
    - Valor de correspondência: _.html_
-   - Comportamento do cache: **Definir se ausente**
-   - Duração da expiração do cache: 3 dias
+   - Comportamento de cache: **Definir se ausente**
+   - Duração da expiração de cache: 3 dias
 
-Quando essas regras são definidas, uma solicitação de _&lt;endpoint hostname&gt;_.azureedge.net/home/index.html dispara a regra de cache personalizado nº 2, que está definida para: **Definir se ausente** e 3 dias. Portanto, se o arquivo *index.html* tiver `Cache-Control` ou `Expires` cabeçalhos HTTP, eles serão aceitos; caso contrário, se esses cabeçalhos não estiverem configurados, o arquivo será armazenado em cache por 3 dias.
+Quando essas regras estiverem definidas, uma solicitação para  _&lt;nome do host do ponto de extremidade&gt;_ gatilhos.azureedge.net/home/index.html #2, que é definido como regra de cache personalizada: **Definir se ausente** e 3 dias. Portanto, se o arquivo *index.html* tiver `Cache-Control` ou `Expires` cabeçalhos HTTP, eles serão aceitos; caso contrário, se esses cabeçalhos não estiverem configurados, o arquivo será armazenado em cache por 3 dias.
 
 > [!NOTE] 
 > Os arquivos que são armazenados em cache antes de uma alteração de regra mantêm a configuração da duração do cache de origem. Para reiniciar as durações de cache, será necessário [limpar o arquivo](cdn-purge-endpoint.md). 

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: a056e83a95c711126ee2357d93ba07f154200309
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: d0eda93855c3be66d4c733774a6cc1d5875a8394
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884173"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57998310"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>Tutorial: Criar seu primeiro Azure data factory usando o modelo do Azure Resource Manager
 > [!div class="op_single_selector"]
@@ -44,11 +44,15 @@ O pipeline deste tutorial tem uma atividade: **Atividade do Hive no HDInsight**.
 > O pipeline deste tutorial tem apenas uma atividade do tipo: HDInsightHive. Um pipeline pode ter mais de uma atividade. E você pode encadear duas atividades (executar uma atividade após a outra) definindo o conjunto de dados de saída de uma atividade como o conjunto de dados de entrada da outra atividade. Para saber mais, confira [Agendamento e execução no Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline). 
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 * Leia o artigo [Visão geral do tutorial](data-factory-build-your-first-pipeline.md) e concluir as etapas de **pré-requisito** .
 * Siga as instruções do artigo [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para instalar a última versão do Azure PowerShell no computador.
 * Veja [Criando modelos do Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para saber mais sobre os modelos do Azure Resource Manager. 
 
 ## <a name="in-this-tutorial"></a>Neste tutorial
+
 | Entidade | DESCRIÇÃO |
 | --- | --- |
 | Serviço vinculado de armazenamento do Azure |Vincula sua conta de Armazenamento do Azure Data Factory. A conta do Armazenamento do Azure manterá os dados de entrada e de saída para o pipeline neste exemplo. |
@@ -66,7 +70,7 @@ O modelo do Resource Manager de nível superior para definir um data factory é:
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": { ...
     },
@@ -93,7 +97,7 @@ Crie um arquivo JSON denominado **ADFTutorialARM.json** na pasta **C:\ADFGetStar
 ```json
 {
     "contentVersion": "1.0.0.0",
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "parameters": {
         "storageAccountName": { "type": "string", "metadata": { "description": "Name of the Azure storage account that contains the input/output data." } },
           "storageAccountKey": { "type": "securestring", "metadata": { "description": "Key for the Azure storage account." } },
@@ -314,21 +318,21 @@ Crie um arquivo JSON chamado **ADFTutorialARM-Parameters.json** que contenha os 
 ## <a name="create-data-factory"></a>Criar um data factory
 1. Inicie o **Azure PowerShell** e execute o comando a seguir: 
    * Execute o comando a seguir e insira o nome de usuário e a senha que você usa para entrar no portal do Azure.
-    ```PowerShell
-    Connect-AzureRmAccount
-    ```  
+     ```PowerShell
+     Connect-AzAccount
+     ```  
    * Execute o comando a seguir para exibir todas as assinaturas dessa conta.
-    ```PowerShell
-    Get-AzureRmSubscription
-    ``` 
+     ```PowerShell
+     Get-AzSubscription
+     ``` 
    * Execute o comando a seguir para selecionar a assinatura com a qual deseja trabalhar. Esta assinatura deve ser igual à que você usou no portal do Azure.
-    ```
-    Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext
-    ```   
+     ```
+     Get-AzSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzContext
+     ```   
 2. Execute o comando a seguir para implantar entidades do Data Factory usando o modelo do Resource Manager criado na Etapa 1. 
 
     ```PowerShell
-    New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json -TemplateParameterFile C:\ADFGetStarted\ADFTutorialARM-Parameters.json
+    New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json -TemplateParameterFile C:\ADFGetStarted\ADFTutorialARM-Parameters.json
     ```
 
 ## <a name="monitor-pipeline"></a>Monitorar o pipeline
@@ -438,7 +442,7 @@ Observe os seguintes pontos:
 * Você pode usar **seu próprio cluster do HDInsight** em vez de usar um cluster do HDInsight sob demanda. Confira [Serviço vinculado do HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) para obter detalhes.
 * O cluster HDInsight cria um **contêiner padrão** no armazenamento de blobs especificado no JSON (**nomeServiçoVinculado**). O HDInsight não exclui esse contêiner quando o cluster é excluído. Este comportamento ocorre por design. Com o serviço vinculado HDInsight sob demanda, um cluster HDInsight é criado sempre que uma fatia precisa ser processada, a menos que haja um cluster ativo existente (**timeToLive**), e é excluído quando o processamento é concluído.
   
-    Quanto mais fatias forem processadas, você verá muitos contêineres no armazenamento de blobs do Azure. Se você não precisa deles para solução de problemas dos trabalhos, convém excluí-los para reduzir o custo de armazenamento. Os nomes desses contêineres seguem um padrão: "adf**nomeseudatafactory**-**nomeserviçovinculado**- carimbodatahora". Use ferramentas como o [Gerenciador de Armazenamento da Microsoft](http://storageexplorer.com/) para excluir contêineres do armazenamento de blobs do Azure.
+    Quanto mais fatias forem processadas, você verá muitos contêineres no armazenamento de blobs do Azure. Se você não precisa deles para solução de problemas dos trabalhos, convém excluí-los para reduzir o custo de armazenamento. Os nomes desses contêineres seguem um padrão: "adf**nomeseudatafactory**-**nomeserviçovinculado**- carimbodatahora". Use ferramentas como o [Gerenciador de Armazenamento da Microsoft](https://storageexplorer.com/) para excluir contêineres do armazenamento de blobs do Azure.
 
 Confira [Serviço vinculado do HDInsight sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para obter detalhes.
 
@@ -570,11 +574,11 @@ No tutorial, você criou um modelo para definir entidades de Data Factory e um m
 Exemplo:  
 
 ```PowerShell
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Dev.json
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Dev.json
 
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Test.json
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Test.json
 
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Production.json
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Production.json
 ```
 Observe que o primeiro comando usa o arquivo de parâmetro para o ambiente de desenvolvimento, outro para o ambiente de teste e um terceiro para o ambiente de produção.  
 
@@ -586,7 +590,7 @@ Aqui está um exemplo de modelo do Resource Manager para criar um gateway lógic
 ```json
 {
     "contentVersion": "1.0.0.0",
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "parameters": {
     },
     "variables": {
@@ -618,6 +622,7 @@ Aqui está um exemplo de modelo do Resource Manager para criar um gateway lógic
 O modelo cria um data factory chamado GatewayUsingArmDF com um gateway chamado: GatewayUsingARM. 
 
 ## <a name="see-also"></a>Veja também
+
 | Tópico | DESCRIÇÃO |
 |:--- |:--- |
 | [Pipelines](data-factory-create-pipelines.md) |Este artigo o ajuda a compreender pipelines e atividades no Azure Data Factory e como usá-los para construir fluxos de trabalho orientados a dados de ponta a ponta para seu cenário ou negócio. |

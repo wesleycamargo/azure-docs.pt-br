@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: fbe865a5d9ef6c44b80c811a023c86f6446c3bb8
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: af1e65cc7dfe1a0934056ad141f4c62a96627bbb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233873"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084125"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Configurar a experiência de interface do usuário hospedada
 
@@ -43,10 +43,10 @@ Para configurar uma interface do usuário hospedada para os aplicativos Web, sig
     
 5. Selecione um tema de cor. Personalize as cores de acordo com seu aplicativo clicando em **Personalizar tema**. Para alterar uma cor, insira o valor RGB HEX da cor (por exemplo, `#366eb8`) ou clique na caixa de texto correspondente.
 
-  Você pode visualizar as alterações no lado direito do portal. Ao clicar em **Redefinir para padrão**, suas escolhas voltarão para as cores padrão no tema selecionado.
+   Você pode visualizar as alterações no lado direito do portal. Ao clicar em **Redefinir para padrão**, suas escolhas voltarão para as cores padrão no tema selecionado.
 
-  > [!NOTE]
-  > Considere a acessibilidade ao escolher as cores.
+   > [!NOTE]
+   > Considere a acessibilidade ao escolher as cores.
 
 6. Em **Configurações adicionais**, forneça os valores conforme apropriado para o seu aplicativo. Essas configurações são opcionais. Para ver o efeito da aplicação ou remoção delas, veja o painel de visualização à direita. Há três opções de configuração disponíveis:  
 

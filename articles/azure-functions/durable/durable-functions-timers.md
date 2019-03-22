@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e81e842e059e09f24627138ba9fbf6510a603efe
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.openlocfilehash: d225ece7b8a8841d17f20bc27de3aa640fa7d37b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353287"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436418"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Temporizadores nas Funções Duráveis (Azure Functions)
 
@@ -132,7 +132,7 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 > [!WARNING]
-> Use um `CancellationTokenSource` para cancelar um temporizador durável (C#) ou chamar `cancel()` no `TimerTask` retornado (JavaScript) se seu código não aguardar a conclusão. O Framework de Tarefa Durável não alterará o status de uma orquestração para "concluído" até que todas as tarefas pendentes sejam concluídas ou canceladas.
+> Use um `CancellationTokenSource` para cancelar um temporizador durável (C#) ou chamar `cancel()` no `TimerTask` retornado (JavaScript) se seu código não aguardar a conclusão. O Framework de tarefa durável não alterará o status de uma orquestração para "concluído" até que todas as tarefas pendentes forem concluídas ou canceladas.
 
 Esse mecanismo não encerra a execução de funções de atividade em andamento. Em vez disso, ele simplesmente permite que a função de orquestrador ignore o resultado e prossiga. Se seu aplicativo de funções usar o Plano de Consumo, você ainda será cobrado pelo tempo e pela memória consumida pela função de atividade abandonada. Por padrão, funções em execução pelo Plano de Consumo têm um tempo limite de cinco minutos. Se esse limite for ultrapassado, o host do Azure Functions será reciclado para interromper toda a execução e evitar uma situação de cobrança sem controle. O [tempo limite da função é configurável](../functions-host-json.md#functiontimeout).
 

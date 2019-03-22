@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/12/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0cd3f506205a3ee4f4435b16fd2185eeb20aef3c
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: bb6ef5a87c5610d90188471db961ef20dfb18835
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447217"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895457"
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Usar o Gerenciador de Dispositivos do StorSimple para gerenciar alertas do StorSimple Virtual Array
 
@@ -39,7 +39,7 @@ Você pode escolher se deseja ser notificado por email das condições de alerta
 > [!NOTE]
 > Você pode inserir um máximo de 20 endereços de email por matriz virtual.
 
-Depois de habilitar a notificação por email para uma matriz virtual, os membros da lista de notificação receberão uma mensagem de email sempre que um alerta crítico ocorrer. As mensagens serão enviadas por *storsimple-alerts-noreply@mail.windowsazure.com* e descreverão a condição de alerta. Os destinatários podem clicar em **Cancelar inscrição** para serem removidos da lista de notificação de email.
+Depois de habilitar a notificação por email para uma matriz virtual, os membros da lista de notificação receberão uma mensagem de email sempre que um alerta crítico ocorrer. As mensagens serão enviadas por *storsimple de alertas de noreply\@mail.windowsazure.com* e descreverão a condição de alerta. Os destinatários podem clicar em **Cancelar inscrição** para serem removidos da lista de notificação de email.
 
 #### <a name="to-enable-email-notification-for-alerts"></a>Para habilitar a notificação por email para alertas
 
@@ -53,7 +53,7 @@ Depois de habilitar a notificação por email para uma matriz virtual, os membro
    
    1. No campo **Habilitar notificação por email**, selecione **SIM**.
    2. No campo **Administradores do serviços de email**, selecione **SIM** se deseja que o administrador de serviços e todos os coadministradores recebam as notificações de alerta.
-   3. No campo **Destinatários de email adicionais**, insira os endereços de email de todos os outros destinatários que devem receber as notificações de alerta. Insira os nomes no formato *someone@somewhere.com*. Use ponto e vírgula para separar os endereços de email. Você pode configurar um máximo de 20 endereços de email por dispositivo virtual.
+   3. No campo **Destinatários de email adicionais**, insira os endereços de email de todos os outros destinatários que devem receber as notificações de alerta. Digite os nomes no formato *alguém\@somewhere.com*. Use ponto e vírgula para separar os endereços de email. Você pode configurar um máximo de 20 endereços de email por dispositivo virtual.
       
        ![configuração da notificação de alertas](./media/storsimple-virtual-array-manage-alerts/alerts6.png)
    4. Para enviar uma notificação de email de teste, clique em **Enviar email de teste**. O serviço Gerenciador de Dispositivo do StorSimple exibirá mensagens de status conforme ele encaminha a notificação de teste.
@@ -147,6 +147,7 @@ As tabelas a seguir listam alguns dos alertas do StorSimple que você pode encon
 | A clonagem de <*nome do dispositivo*\> não pôde ser concluída. |Falha no trabalho de clonagem. |Não foi possível criar um clone. Considere o seguinte:<ul><li>sua lista de backup pode não ser válida. Atualize a lista para verificar se ela ainda é válida.</li><li>Problemas de conectividade podem estar impedindo que a operação de clonagem seja concluída com êxito. Certifique-se de que não haja nenhum problema de conectividade.</li><li>Você atingiu o limite de armazenamento disponível. Para liberar espaço, considere a exclusão de todos os backups que não são mais necessários.</li></ul> Resolva os problemas, limpe o alerta e repita a operação. |
 
 ### <a name="networking-alerts"></a>Alertas de rede
+
 | Texto de alerta | Evento | Mais informações / ações recomendadas |
 |:--- |:--- |:--- |
 | Não foi possível se conectar ao serviço de autenticação. |Erro de caminho de dados |A URL usada para autenticação não está acessível. Certifique-se de que as regras de firewall incluam os padrões de URL especificados para o dispositivo StorSimple. Para obter mais informações sobre os padrões de URL no portal do Azure, vá para [Requisitos de rede da Matriz Virtual do StorSimple](storsimple-ova-system-requirements.md#url-patterns-for-firewall-rules).|

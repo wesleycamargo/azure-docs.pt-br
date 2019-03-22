@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/09/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 0182df40a4e7815560a85e60fe9062ccd8001c18
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 5d0e919159569e7512b6e7dc0458a4a3e397943b
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52978794"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57251946"
 ---
 > [!NOTE]
 > - A versão prévia da autenticação do Azure AD para blobs e filas destina-se somente a uso de não produção. SLAs (Contratos de Nível de Serviço) não estão disponíveis atualmente. Se a integração do Azure AD ainda não der suporte para seu cenário, continue usando os tokens SAS ou de autorização de chave compartilhada nos aplicativos.
@@ -22,7 +22,7 @@ ms.locfileid: "52978794"
 >
 > - Para autorizar operações de blob e fila com um token OAuth, você deve usar HTTPS.
 >
-> - O portal do Azure agora suporta o uso de credenciais do Azure AD para ler e gravar dados de blobs e filas, como parte da versão de visualização.
+> - O portal do Azure agora suporta o uso de credenciais do Azure AD para ler e gravar dados de blobs e filas, como parte da versão de visualização. Para acessar dados de blob e fila no portal do Azure, um usuário deve ser atribuído a função de RBAC de leitor do Gerenciador de recursos do Azure, além da função apropriada de visualização para acesso de blob ou fila. Para obter mais informações, consulte [conceder acesso aos contêineres do Azure e filas com o RBAC no portal do Azure (visualização)](../articles/storage/common/storage-auth-aad-rbac.md). 
 > 
 > - [O Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) atualmente usa sua chave de conta de armazenamento para acessar dados de blob e fila. O acesso ao OAuth dá suporte para blobs.
 >

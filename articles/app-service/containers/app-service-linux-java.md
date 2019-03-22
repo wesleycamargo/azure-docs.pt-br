@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 0d24fbe075316e492b638a2877439af270250d70
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: d944a51f7e0ee24d5a3768ba28d7a8294c30b99b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234623"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118758"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Guia do desenvolvedor Java para o Serviço de Aplicativo no Linux
 
@@ -28,7 +28,7 @@ Este guia mostra os principais conceitos e instruções para desenvolvedores de 
 
 ## <a name="deploying-your-app"></a>Implantação do aplicativo
 
-Você pode usar o plug-in do Maven para implantar arquivos .jar e .war. Confira [essa documentação](https://docs.microsoft.com/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme?view=azure-java-stable) para obter mais informações sobre plug-in do Maven. 
+Você pode usar o plug-in do Maven para implantar arquivos .jar e .war. Confira [essa documentação](https://docs.microsoft.com/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme?view=azure-java-stable) para obter mais informações sobre plug-in do Maven.
 
 Se você não estiver usando o Maven, o método de implantação dependerá de seu tipo de arquivos:
 
@@ -45,9 +45,9 @@ Relatórios de desempenho, visualizações de tráfego e verificações de integ
 
 Consulte [Ferramentas de monitoramento de desempenho de aplicativos com aplicativos Java no Serviço de Aplicativo do Azure no Linux](how-to-java-apm-monitoring.md) para obter instruções sobre como configurar o New Relic e o AppDynamics com aplicativos Java executados no Serviço de Aplicativo no Linux.
 
-### <a name="ssh-console-access"></a>Acesso ao console SSH 
+### <a name="ssh-console-access"></a>Acesso ao console SSH
 
-A conectividade do SSH com o ambiente Linux em execução no aplicativo está disponível. Confira [Suporte do SSH para o Serviço de Aplicativo do Azure no Linux](/azure/app-service/containers/app-service-linux-ssh-support) para ver instruções completas sobre como se conectar com o sistema do Linux por meio do navegador da Web ou terminal local.
+Conectividade SSH para o ambiente do Linux que executam seu aplicativo está disponível. Confira [Suporte do SSH para o Serviço de Aplicativo do Azure no Linux](/azure/app-service/containers/app-service-linux-ssh-support) para ver instruções completas sobre como se conectar com o sistema do Linux por meio do navegador da Web ou terminal local.
 
 ### <a name="streaming-logs"></a>Logs de streaming
 
@@ -71,7 +71,7 @@ Para saber mais, confira [Transmitir logs com a CLI do Azure](../troubleshoot-di
 
 Habilite o [registro em log de aplicativos](/azure/app-service/troubleshoot-diagnostic-logs#enablediag) por meio do portal do Azure ou da [CLI do Azure](/cli/azure/webapp/log#az-webapp-log-config) para configurar o Serviço de Aplicativo do Azure para gravar a saída do console padrão do aplicativo e os fluxos de erro do console padrão no sistema de arquivos local ou no Armazenamento de Blobs do Azure. O registro em log na instância do sistema de arquivos do Serviço de Aplicativo local será desabilitado 12 horas após ser configurado. Se você precisar de uma retenção mais longa, configure o aplicativo para gravar a saída em um contêiner do armazenamento de blobs.
 
-Se o aplicativo usar [Logback](https://logback.qos.ch/) ou [Log4j](https://logging.apache.org/log4j) para rastreamento, será possível encaminhá-los para revisão no Azure Application Insights usando as instruções de configuração de estrutura de registros em [Explorar os logs de rastreamento de Java no Application Insights](/azure/application-insights/app-insights-java-trace-logs). 
+Se o aplicativo usar [Logback](https://logback.qos.ch/) ou [Log4j](https://logging.apache.org/log4j) para rastreamento, será possível encaminhá-los para revisão no Azure Application Insights usando as instruções de configuração de estrutura de registros em [Explorar os logs de rastreamento de Java no Application Insights](/azure/application-insights/app-insights-java-trace-logs).
 
 ## <a name="customization-and-tuning"></a>Personalização e ajuste
 
@@ -91,12 +91,12 @@ No portal do Azure, em **Configurações do aplicativo** para o aplicativo Web, 
 Para definir a configuração de aplicativo do plug-in do Maven do Serviço de Aplicativo do Azure no Linux, adicione marcas configuração/valor à seção de plug-in do Azure. O exemplo a seguir define um tamanho de heap de Java específico mínimo e máximo:
 
 ```xml
-<appSettings> 
-    <property> 
-        <name>JAVA_OPTS</name> 
-        <value>$JAVA_OPTS -Xms512m -Xmx1204m</value> 
-    </property> 
-</appSettings> 
+<appSettings>
+    <property>
+        <name>JAVA_OPTS</name>
+        <value>$JAVA_OPTS -Xms512m -Xmx1204m</value>
+    </property>
+</appSettings>
 ```
 
 Os desenvolvedores que executam um único aplicativo com um slot de implantação no Plano do Serviço de Aplicativo podem usar as seguintes opções:
@@ -104,7 +104,6 @@ Os desenvolvedores que executam um único aplicativo com um slot de implantaçã
 - Instâncias B1 e S1: -Xms1024m -Xmx1024m
 - Instâncias B2 e S2: -Xms3072m -Xmx3072m
 - Instâncias B3 e S3: -Xms6144m -Xmx6144m
-
 
 Ao ajustar as configurações de heap do aplicativo, examine os detalhes do Plano do Serviço de Aplicativo e considere os vários aplicativos e slots de implantação necessários para encontrar a alocação de memória ideal.
 
@@ -115,34 +114,34 @@ Ative o suporte para soquetes da Web no portal do Azure, nas **Configurações d
 Ative o suporte para soquete da Web usando a CLI do Azure com o seguinte comando:
 
 ```azurecli-interactive
-az webapp config set -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME} --web-sockets-enabled true 
+az webapp config set -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME} --web-sockets-enabled true
 ```
 
 Depois, reinicie o aplicativo:
 
 ```azurecli-interactive
-az webapp stop -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME} 
+az webapp stop -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME}
 az webapp start -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME}  
 ```
 
-### <a name="set-default-character-encoding"></a>Definir a codificação de caractere padrão 
+### <a name="set-default-character-encoding"></a>Definir a codificação de caractere padrão
 
 No portal do Azure, em **Configurações do aplicativo** para o aplicativo Web, crie uma configuração de aplicativo denominada `JAVA_OPTS` com o valor `$JAVA_OPTS -Dfile.encoding=UTF-8`.
 
-Como alternativa, é possível definir a configuração do aplicativo usando o plug-in do Maven do Serviço de Aplicativo. Adicione as marcas de nome e valor de configuração à configuração do plug-in: 
+Como alternativa, é possível definir a configuração do aplicativo usando o plug-in do Maven do Serviço de Aplicativo. Adicione as marcas de nome e valor de configuração à configuração do plug-in:
 
 ```xml
-<appSettings> 
-    <property> 
-        <name>JAVA_OPTS</name> 
-        <value>$JAVA_OPTS -Dfile.encoding=UTF-8</value> 
-    </property> 
-</appSettings> 
+<appSettings>
+    <property>
+        <name>JAVA_OPTS</name>
+        <value>$JAVA_OPTS -Dfile.encoding=UTF-8</value>
+    </property>
+</appSettings>
 ```
 
 ## <a name="secure-applications"></a>Aplicativos seguros
 
-Os aplicativos Java em execução no Serviço de Aplicativo para Linux têm o mesmo conjunto de [melhores práticas de segurança](/azure/security/security-paas-applications-using-app-services) que outros aplicativos. 
+Os aplicativos Java em execução no Serviço de Aplicativo para Linux têm o mesmo conjunto de [melhores práticas de segurança](/azure/security/security-paas-applications-using-app-services) que outros aplicativos.
 
 ### <a name="authenticate-users"></a>Autenticar usuários
 
@@ -150,18 +149,15 @@ Configure a autenticação de aplicativo no portal do Azure com a opção **Aute
 
 Se você precisar habilitar vários provedores de entrada, siga as instruções no artigo [Personalizar a autenticação do Serviço de Aplicativo](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to).
 
-Os desenvolvedores do Spring Boot podem usar o [inicializador do Spring Boot do Azure Active Directory](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?view=azure-java-stable) para proteger aplicativos usando APIs e anotações conhecidas do Spring Security. Lembre-se de aumentar o tamanho máximo do cabeçalho no arquivo `application.properties`. Sugerimos um valor igual a `16384`. 
+Os desenvolvedores do Spring Boot podem usar o [inicializador do Spring Boot do Azure Active Directory](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?view=azure-java-stable) para proteger aplicativos usando APIs e anotações conhecidas do Spring Security. Lembre-se de aumentar o tamanho máximo do cabeçalho no arquivo `application.properties`. Sugerimos um valor igual a `16384`.
 
 ### <a name="configure-tlsssl"></a>Configurar TLS/SSL
 
 Siga as instruções em [Associar um certificado SSL personalizado existente](/azure/app-service/app-service-web-tutorial-custom-ssl) para carregar um certificado SSL existente e associá-lo ao nome de domínio do aplicativo. Por padrão, o aplicativo ainda permitirá conexões HTTP – siga as etapas específicas no tutorial para impor o SSL e o TLS.
 
-## <a name="tomcat"></a>Tomcat 
+## <a name="data-sources"></a>Fontes de dados
 
-### <a name="connecting-to-data-sources"></a>Conectar-se a fontes de dados
-
->[!NOTE]
-> Se o aplicativo usar o Spring Framework ou o Spring Boot, será possível definir informações de conexão de banco de dados para o Spring Data JPA, como variáveis de ambiente (no arquivo de propriedades do aplicativo). Em seguida, use as [configurações do aplicativo](/azure/app-service/web-sites-configure#app-settings) para definir esses valores para o aplicativo no portal ou na CLI do Azure.
+### <a name="tomcat"></a>Tomcat
 
 Essas instruções se aplicam a todas as conexões de banco de dados. Você precisará preencher os espaços reservados com nome de classe do driver do banco de dados escolhido e o arquivo JAR. É fornecida uma tabela com nomes de classe e downloads de driver para bancos de dados comuns.
 
@@ -174,19 +170,19 @@ Essas instruções se aplicam a todas as conexões de banco de dados. Você prec
 Para configurar o Tomcat para usar a JDBC (Conectividade de Banco de Dados Java) ou a JPA (API de Persistência Java), primeiro personalize a variável de ambiente `CATALINA_OPTS` lida em Tomcat na inicialização do backup. Defina esses valores por meio de uma configuração de aplicativo no [plug-in Maven do Serviço de Aplicativo](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md):
 
 ```xml
-<appSettings> 
-    <property> 
-        <name>CATALINA_OPTS</name> 
-        <value>"$CATALINA_OPTS -Ddbuser=${DBUSER} -Ddbpassword=${DBPASSWORD} -DconnURL=${CONNURL}"</value> 
-    </property> 
-</appSettings> 
+<appSettings>  
+    <property>  
+        <name>CATALINA_OPTS</name>  
+        <value>"$CATALINA_OPTS -Ddbuser=${DBUSER} -Ddbpassword=${DBPASSWORD} -DconnURL=${CONNURL}"</value>  
+    </property>  
+</appSettings>  
 ```
 
 Ou defina as variáveis de ambiente na folha "Configurações de Aplicativo" no portal do Azure.
 
 Em seguida, determine se a fonte de dados deve estar disponível para um aplicativo ou para todos os aplicativos em execução no servlet do Tomcat.
 
-#### <a name="for-application-level-data-sources"></a>Para fontes de dados no nível do aplicativo: 
+#### <a name="application-level-data-sources"></a>Fontes de dados de nível de aplicativo
 
 1. Crie um arquivo `context.xml` no diretório `META-INF/` do seu projeto. Crie o diretório `META-INF/` se ele não existir.
 
@@ -195,11 +191,11 @@ Em seguida, determine se a fonte de dados deve estar disponível para um aplicat
     ```xml
     <Context>
         <Resource
-            name="jdbc/dbconnection" 
+            name="jdbc/dbconnection"
             type="javax.sql.DataSource"
             url="${dbuser}"
             driverClassName="<insert your driver class name>"
-            username="${dbpassword}" 
+            username="${dbpassword}"
             password="${connURL}"
         />
     </Context>
@@ -214,10 +210,11 @@ Em seguida, determine se a fonte de dados deve estar disponível para um aplicat
     </resource-env-ref>
     ```
 
-#### <a name="for-shared-server-level-resources"></a>Para os recursos compartilhados no nível do servidor:
+#### <a name="shared-server-level-resources"></a>Recursos compartilhados, o nível de servidor
 
 1. Copie o conteúdo de `/usr/local/tomcat/conf` para `/home/tomcat/conf` na instância do Serviço de Aplicativo no Linux usando SSH se já não houver uma configuração.
-    ```
+
+    ```bash
     mkdir -p /home/tomcat
     cp -a /usr/local/tomcat/conf /home/tomcat/conf
     ```
@@ -229,11 +226,11 @@ Em seguida, determine se a fonte de dados deve estar disponível para um aplicat
     ...
     <Context>
         <Resource
-            name="jdbc/dbconnection" 
+            name="jdbc/dbconnection"
             type="javax.sql.DataSource"
             url="${dbuser}"
             driverClassName="<insert your driver class name>"
-            username="${dbpassword}" 
+            username="${dbpassword}"
             password="${connURL}"
         />
     </Context>
@@ -250,26 +247,45 @@ Em seguida, determine se a fonte de dados deve estar disponível para um aplicat
     </resource-env-ref>
     ```
 
-#### <a name="finally-place-the-driver-jars-in-the-tomcat-classpath-and-restart-your-app-service"></a>Por fim, coloque os JARs do driver no classpath do Tomcat e reinicie o Serviço de Aplicativo: 
+#### <a name="finally-place-the-driver-jars-in-the-tomcat-classpath-and-restart-your-app-service"></a>Por fim, coloque os JARs de driver no classpath do Tomcat e reinicie o serviço de aplicativo
 
 1. Verifique se os arquivos do driver JDBC estão disponíveis para o carregador de classes do Tomcat colocando-os no diretório `/home/tomcat/lib`. (Crie esse diretório se ele ainda não existir.) Para carregar esses arquivos na instância do Serviço de Aplicativo, siga estas etapas:  
-    1. Instale a extensão de aplicativo Web do Serviço de Aplicativo do Azure:
+   1. Instale a extensão de aplicativo Web do Serviço de Aplicativo do Azure:
 
       ```azurecli-interactive
       az extension add –name webapp
       ```
 
-    2. Execute o seguinte comando de CLI para criar um túnel SSH do sistema local para o Serviço de Aplicativo:
+   1. Execute o seguinte comando de CLI para criar um túnel SSH do sistema local para o Serviço de Aplicativo:
 
       ```azurecli-interactive
       az webapp remote-connection create –g [resource group] -n [app name] -p [local port to open]
       ```
 
-    3. Faça a conexão da porta de túnel local com o cliente SFTP e carregue os arquivos na pasta `/home/tomcat/lib`.
+   1. Faça a conexão da porta de túnel local com o cliente SFTP e carregue os arquivos na pasta `/home/tomcat/lib`.
 
-    Como alternativa, você pode usar um cliente de FTP para carregar o driver JDBC. Siga estas [instruções para obter suas credenciais FTP](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials).
+      Como alternativa, você pode usar um cliente de FTP para carregar o driver JDBC. Siga estas [instruções para obter suas credenciais FTP](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials).
 
 2. Se você tiver uma fonte de dados no nível do servidor, reinicie o aplicativo Linux Serviço de Aplicativo. O Tomcat redefinirá `CATALINA_HOME` como `/home/tomcat/conf` e usará a configuração atualizada.
+
+### <a name="spring-boot"></a>Spring Boot
+
+Para se conectar a fontes de dados em aplicativos Spring Boot, sugerimos criar cadeias de caracteres de conexão e injetando-as em seu `application.properties` arquivo.
+
+1. Na seção "Configurações de aplicativo" da folha de serviço de aplicativo, defina um nome para a cadeia de caracteres, cole a cadeia de conexão JDBC no campo de valor e defina o tipo como "Custom". Opcionalmente, você pode definir essa cadeia de caracteres de conexão como configuração do slot.
+
+    ![Criando uma cadeia de caracteres de conexão no Portal.][1]
+
+    Essa cadeia de caracteres de conexão é acessível ao nosso aplicativo como uma variável de ambiente denominada `CUSTOMCONNSTR_<your-string-name>`. Por exemplo, a cadeia de caracteres de conexão que criamos acima será nomeada `CUSTOMCONNSTR_exampledb`.
+
+2. No seu `application.properties` de arquivos, fazer referência a essa cadeia de caracteres de conexão com o nome da variável de ambiente. Para nosso exemplo, usaríamos a seguir.
+
+    ```yml
+    app.datasource.url=${CUSTOMCONNSTR_exampledb}
+    ```
+
+Consulte a [documentação do Spring Boot no acesso a dados](https://docs.spring.io/spring-boot/docs/current/reference/html/howto-data-access.html
+) e [externalizados configurações](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html) para obter mais informações sobre esse tópico.
 
 ## <a name="docker-containers"></a>Contêineres do Docker
 
@@ -282,7 +298,7 @@ O Serviço de Aplicativo para Linux dá suporte a dois tempos de execução para
 - O [contêiner do servlet do Tomcat](https://tomcat.apache.org/) para execução de aplicativos empacotados como arquivos Web (WAR). As versões com suporte são 8.5 e 9.0.
 - O ambiente de tempo de execução do Java SE para executar aplicativos empacotados como arquivos Java (JAR). A única versão principal com suporte é a Java 8.
 
-## <a name="java-runtime-statement-of-support"></a>Declaração de suporte do tempo de execução do Java 
+## <a name="java-runtime-statement-of-support"></a>Declaração de suporte do tempo de execução do Java
 
 ### <a name="jdk-versions-and-maintenance"></a>Versões e manutenção do JDK
 
@@ -315,3 +331,6 @@ Os desenvolvedores podem [abrir um problema](/azure/azure-supportability/how-to-
 ## <a name="next-steps"></a>Próximas etapas
 
 Acesse a central para [Desenvolvedores do Azure para Java](/java/azure/) para conferir inícios rápidos, tutoriais e documentação de referência do Java.
+
+<!--Image references-->
+[1]: ./media/app-service-linux-java/connection-string.png

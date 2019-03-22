@@ -3,20 +3,19 @@ title: Transformar dados usando a atividade de procedimento armazenado no Azure 
 description: Explica como usar a atividade de procedimento armazenado do SQL Server para invocar um procedimento armazenado em um Banco de Dados SQL/Data Warehouse do Azure de um pipeline do Data Factory.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: douglasl
-ms.openlocfilehash: a56e9c2a7cceed8012f35c9d02e9c3bc5703b31f
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: 806654b7586895b62b014a49b8b3a00fb18f008f
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353202"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57575881"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Transformar dados usando a atividade de procedimento armazenado do SQL Server no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -30,12 +29,12 @@ Use atividades de transformação de dados em um [pipeline](concepts-pipelines-a
 
 Use a Atividade de Procedimento Armazenado para invocar um procedimento armazenado em um dos seguintes armazenamentos de dados em sua empresa ou em uma VM (máquina virtual) do Azure: 
 
-- Banco de Dados SQL do Azure
-- SQL Data Warehouse do Azure
+- Banco de dados SQL do Azure
+- Azure SQL Data Warehouse
 - Banco de Dados do SQL Server.  Se estiver usando o SQL Server, instale o Integration Runtime (auto-hospedado) no mesmo computador que hospeda o banco de dados ou em um computador separado com acesso ao banco de dados. O Integration Runtime (auto-hospedado) é um componente que conecta fontes de dados locais ou em uma VM do Azure aos serviços de nuvem de maneira segura e gerenciada. Consulte o artigo [Self-hosted integration runtime](create-self-hosted-integration-runtime.md) (Integration Runtime auto-hospedado) para obter detalhes.
 
 > [!IMPORTANT]
-> Ao copiar dados para o Banco de Dados SQL do Azure ou o SQL Server, configure o **SqlSink** na atividade de cópia para invocar um procedimento armazenado usando a propriedade **sqlWriterStoredProcedureName**. Para saber mais sobre a propriedade, consulte os seguintes artigos sobre conector: [Banco de Dados SQL do Azure](connector-azure-sql-database.md) e [SQL Server](connector-sql-server.md). Não há suporte para invocar um procedimento armazenado ao copiar dados em um SQL Data Warehouse do Azure usando uma atividade de cópia. Mas, você pode usar a atividade de procedimento armazenado para invocar um procedimento armazenado em um SQL Data Warehouse. 
+> Ao copiar dados para o Banco de Dados SQL do Azure ou o SQL Server, configure o **SqlSink** na atividade de cópia para invocar um procedimento armazenado usando a propriedade **sqlWriterStoredProcedureName**. Para saber mais sobre a propriedade, consulte os seguintes artigos sobre conector: [Banco de Dados SQL do Azure](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md). Não há suporte para invocar um procedimento armazenado ao copiar dados em um SQL Data Warehouse do Azure usando uma atividade de cópia. Mas, você pode usar a atividade de procedimento armazenado para invocar um procedimento armazenado em um SQL Data Warehouse. 
 >
 > Ao copiar dados do Banco de Dados SQL do Azure, do SQL Server ou do SQL Data Warehouse do Azure, configure **SqlSource** na atividade de cópia para invocar um procedimento armazenado para ler dados do banco de dados de origem usando a propriedade **sqlReaderStoredProcedureName**. Para saber mais, consulte os seguintes artigos sobre conector: [Banco de Dados SQL do Azure](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md) e [SQL Data Warehouse do Azure](connector-azure-sql-data-warehouse.md)          
 
@@ -66,14 +65,14 @@ Aqui está o formato JSON para definir uma Atividade de Procedimento Armazenado:
 
 A seguinte tabela descreve essas propriedades JSON:
 
-| Propriedade                  | DESCRIÇÃO                              | Obrigatório |
+| Propriedade                  | Descrição                              | Obrigatório |
 | ------------------------- | ---------------------------------------- | -------- |
-| Nome                      | Nome da atividade                     | SIM      |
-| Descrição               | Texto que descreve qual a utilidade da atividade | Não        |
-| Tipo                      | Para a atividade de procedimento armazenado, o tipo de atividade é **SqlServerStoredProcedure** | SIM      |
-| linkedServiceName         | Referência ao **Banco de Dados SQL do Azure** ou ao **SQL Data Warehouse do Azure** ou ao **SQL Server** registrado como um serviço vinculado no Data Factory. Para saber mais sobre esse serviço vinculado, consulte o artigo [Compute linked services](compute-linked-services.md) (Serviços de computação vinculados). | SIM      |
-| storedProcedureName       | Especifique o nome do procedimento armazenado para invocar. | SIM      |
-| storedProcedureParameters | Especifique os valores para parâmetros de procedimento armazenado. Use `"param1": { "value": "param1Value","type":"param1Type" }` para passar os valores de parâmetro e seu tipo com suporte da fonte de dados. Se você precisar passar null para um parâmetro, use `"param1": { "value": null }` (tudo em letras minúsculas). | Não        |
+| nome                      | Nome da atividade                     | Sim      |
+| descrição               | Texto que descreve qual a utilidade da atividade | Não       |
+| tipo                      | Para a atividade de procedimento armazenado, o tipo de atividade é **SqlServerStoredProcedure** | Sim      |
+| linkedServiceName         | Referência ao **Banco de Dados SQL do Azure** ou ao **SQL Data Warehouse do Azure** ou ao **SQL Server** registrado como um serviço vinculado no Data Factory. Para saber mais sobre esse serviço vinculado, consulte o artigo [Compute linked services](compute-linked-services.md) (Serviços de computação vinculados). | Sim      |
+| storedProcedureName       | Especifique o nome do procedimento armazenado para invocar. | Sim      |
+| storedProcedureParameters | Especifique os valores para parâmetros de procedimento armazenado. Use `"param1": { "value": "param1Value","type":"param1Type" }` para passar os valores de parâmetro e seu tipo com suporte da fonte de dados. Se você precisar passar null para um parâmetro, use `"param1": { "value": null }` (tudo em letras minúsculas). | Não       |
 
 ## <a name="error-info"></a>Informações de Erro
 
