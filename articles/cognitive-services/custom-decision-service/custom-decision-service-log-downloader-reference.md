@@ -10,12 +10,12 @@ ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: marossi
-ms.openlocfilehash: c03278c0d0faced20f4e02fcc1f61531c88ae141
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 8a8f669c33f40fb80dc826ec04203880dee74d82
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869663"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109402"
 ---
 # <a name="logdownloader"></a>LogDownloader
 
@@ -49,7 +49,7 @@ python LogDownloader.py [-h] -a APP_ID -l LOG_DIR [-s START_DATE]
 | `-s START_DATE`, `--start_date START_DATE` | A data de início do download (incluída), no formato *AAAA/MM/DD*. | `None` |
 | `-e END_DATE`, `--end_date END_DATE` | A data de término do download (incluída), no formato *AAAA/MM/DD*. | `None` |
 | `-o OVERWRITE_MODE`, `--overwrite_mode OVERWRITE_MODE` | O modo de substituição para usar. | |
-| | `0`: nunca substitua; pergunte ao usuário se os blobs estão atualmente em uso. | Padrão | |
+| | `0`: nunca substitua; pergunte ao usuário se os blobs estão atualmente em uso. | Padrão |
 | | `1`: pergunte ao usuário como proceder quando os arquivos tiverem tamanhos diferentes ou quando os blobs estiverem sendo usados atualmente. | |
 | | `2`: sempre substitua; baixe os blobs atualmente em uso. | |
 | | `3`: nunca substitua e acrescente se o tamanho for maior sem perguntar; baixe os blobs atualmente em uso. | |

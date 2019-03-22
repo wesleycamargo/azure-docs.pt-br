@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: 93402f9124a5c2f6a251cb0e3b3dab21386fa5ff
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: 9632bd339956aff7558461ed391cdd21c92f06ad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55965249"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995182"
 ---
 # <a name="example-3--build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>Exemplo 3 - Criar uma rede de perímetro para proteger as redes com um Firewall, um UDR e um NSG
 [Voltar à página Práticas recomendadas de limite de segurança][HOME]
@@ -356,7 +356,7 @@ As especificidades de cada regra exigida para a conclusão deste exemplo são de
   
     Essa regra Aprovar permite que qualquer servidor IIS na sub-rede Frontend acesse a AppVM01 (Endereço IP 10.0.2.5) em Qualquer porta, usando todos os Protocolos para acessar dados necessários ao aplicativo Web.
   
-    Nesta captura de tela, um "\<explicit-dest\>" é usado no campo Destino para significar 10.0.2.5 como o destino. Isso poderia ser explícito como mostrado ou um Objeto de Rede nomeado (como feito nos pré-requisitos do servidor DNS). O administrador do firewall decidirá qual método será usado. Para adicionar 10.0.2.5 como um Destino Explícito, clique duas vezes na primeira linha em branco em \<explicit-dest\> e insira o endereço na janela pop-up.
+    Nesta captura de tela um "\<explicit-dest\>" é usado no campo destino para significar 10.0.2.5 como o destino. Isso poderia ser explícito como mostrado ou um Objeto de Rede nomeado (como feito nos pré-requisitos do servidor DNS). O administrador do firewall decidirá qual método será usado. Para adicionar 10.0.2.5 como um destino explícito, clique duas vezes na primeira linha em branco sob \<explicit-dest\> e insira o endereço na janela pop-up.
   
     Com essa regra Aprovar, nenhuma NAT será necessária, já que esse é um tráfego interno e, portanto, o Método de Conexão poderá ser definido como "Sem SNAT".
   
@@ -381,7 +381,7 @@ As especificidades de cada regra exigida para a conclusão deste exemplo são de
   
     ![Regra DNS do firewall][15]
   
-    **Observação**: nesta captura de tela, o Método de Conexão foi incluído. Como essa regra destina-se ao tráfego de endereço IP interno para IP interno, NAT não será necessário; esse Método de Conexão é definido como “Sem SNAT” para essa regra Aprovar.
+    **Observação**: Nesta captura de tela, o método de Conexão está incluído. Como essa regra destina-se ao tráfego de endereço IP interno para IP interno, NAT não será necessário; esse Método de Conexão é definido como “Sem SNAT” para essa regra Aprovar.
 * **Regra de Sub-rede para Sub-rede**: essa regra Aprovar é uma regra padrão ativada e modificada para permitir que todos os servidores da sub-rede de back-end se conectem a qualquer servidor da sub-rede Frontend. Essa regra é para todo o tráfego interno, de forma que o Método de Conexão pode ser definido como Sem SNAT.
   
     ![Regra IntraVNet do firewall][16]
@@ -486,7 +486,7 @@ Lembre-se também de que os Grupos de Segurança de Rede existem para o tráfego
 11. O AppVM01 solicita a senha do nome de usuário
 
 #### <a name="allowed-web-server-dns-lookup-on-dns-server"></a>(Permitido) Pesquisa de DNS do Servidor Web no servidor DNS
-1. O Servidor Web, IIS01, necessita de um feed de dados em www.data.gov, mas precisa resolver o endereço.
+1. Web às necessidades de servidor, IIS01, um feed de dados em www\.data.gov, mas precisa resolver o endereço.
 2. A configuração de rede para a Rede Virtual lista DNS01 (10.0.2.4 na sub-rede Backend), já que o servidor DNS primário, IIS01, envia a solicitação DNS para DNS01
 3. O UDR roteia o tráfego de saída para o firewall como o próximo nó
 4. Nenhuma regra de saída associada à sub-rede Frontend; o tráfego é permitido
@@ -945,7 +945,7 @@ Este script do PowerShell deve ser executado localmente em um computador ou serv
 Salve esse arquivo xml com localização atualizada e adicione o link a esse arquivo à variável $NetworkConfigFile no script acima.
 
 ```xml
-    <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+    <NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
       <VirtualNetworkConfiguration>
         <Dns>
           <DnsServers>

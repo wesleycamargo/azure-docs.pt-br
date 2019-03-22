@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 03/20/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: eae1569cf6f7ada89f64b96fe81b154b84932a12
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: dd89d9645d2054f301ed999121fefc417ea5c6fa
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182839"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293899"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Escala horizontal do Azure Analysis Services
 
@@ -46,6 +46,8 @@ Ao executar uma operação de expansão subsequente, por exemplo, aumentando o n
 * Sincronização é permitida mesmo quando não houver nenhuma réplica no pool de consulta. Se você estiver dimensionando-out de zero a um ou mais réplicas com novos dados de uma operação de processamento no servidor primário, realizar a sincronização pela primeira vez sem réplicas no pool de consulta e, em seguida, escalar horizontalmente. Sincronizando antes de escalar horizontalmente evita hidratação redundante das réplicas recém-adicionado.
 
 * Ao excluir um banco de dados de modelo do servidor primário, ele não automaticamente é excluído do réplicas no pool de consulta. Você deve executar uma operação de sincronização que remove o arquivo/s para o banco de dados do local de armazenamento de blob compartilhado da réplica e, em seguida, exclui o banco de dados do modelo nas réplicas no pool de consulta.
+
+* Ao renomear um banco de dados no servidor primário, há uma etapa adicional necessária para garantir que o banco de dados é sincronizado corretamente para todas as réplicas. Depois de renomear, execute uma sincronização que especifica o `-Database` parâmetro com o nome antigo do banco de dados. Essa sincronização remove os arquivos com o nome antigo e o banco de dados de todas as réplicas. Em seguida, executar outra especificação de sincronização a `-Database` parâmetro com o novo nome de banco de dados. A segunda sincronização copia o banco de dados nomeado recentemente ao segundo conjunto de arquivos e recuperará todas as réplicas. Essas sincronizações não podem ser executadas usando o comando de modelo de sincronizar no portal.
 
 ### <a name="separate-processing-from-query-pool"></a>Separe o processamento do pool de consulta
 

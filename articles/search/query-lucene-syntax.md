@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 59362b28390556f12cce8813635894c9f06b9a20
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: a2576a0489ad62aba0a85a45f110acb8ac220847
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007784"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107178"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Sintaxe de consulta Lucene no Azure Search
 Você pode escrever consultas no Azure Search com base na sintaxe avançada do [Analisador de Consultas do Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) para formulários de consulta especializados: curinga, pesquisa difusa, pesquisa de proximidade, expressões regulares são alguns exemplos. Grande parte da sintaxe do Analisador de Consultas do Lucene é [implementada intacta no Azure Search](search-lucene-query-architecture.md), com exceção das *pesquisas de intervalo* que são construídas na Pesquisa do Azure por meio das expressões `$filter`. 
@@ -41,20 +41,20 @@ O exemplo a seguir localiza os documentos no índice usando a sintaxe de consult
 
 O parâmetro `searchMode=all` é relevante neste exemplo. Sempre que os operadores estiverem na consulta, geralmente você deve definir `searchMode=all` para garantir que *todos* os critérios sejam correspondidos.
 
-```  
-GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2015-02-28&querytype=full  
-```  
+```
+GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2015-02-28&querytype=full
+```
 
  Como alternativa, use POST:  
 
-```  
-POST /indexes/hotels/docs/search?api-version=2015-02-28  
-{  
-  "search": "category:budget AND \"recently renovated\"^3",  
-  "queryType": "full",  
-  "searchMode": "all"  
-}  
-```  
+```
+POST /indexes/hotels/docs/search?api-version=2015-02-28
+{
+  "search": "category:budget AND \"recently renovated\"^3",
+  "queryType": "full",
+  "searchMode": "all"
+}
+```
 
 Para ver mais exemplos, confira [Exemplos de sintaxe de consulta do Lucene para criar consultas no Azure Search](search-query-lucene-examples.md). Para obter detalhes sobre a especificação do contingente completo de parâmetros de consulta, confira [Pesquisar documentos &#40;API REST do Serviço Azure Search&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
 
@@ -65,13 +65,13 @@ Para ver mais exemplos, confira [Exemplos de sintaxe de consulta do Lucene para 
 ##  <a name="bkmk_fields"></a> Consultas com escopo de campo  
  Você pode especificar uma construção `fieldname:searchterm` para definir uma operação de consulta em campo, em que o campo é uma palavra única e o termo de pesquisa também é uma frase ou uma palavra única, opcionalmente com operadores boolianos. Alguns exemplos incluem o seguinte:  
 
--   gênero:jazz NÃO histórico  
+- gênero:jazz NÃO histórico  
 
--   artistas:("Miles Davis" "John Coltrane")
+- artistas:("Miles Davis" "John Coltrane")
 
- Coloque várias cadeias de caracteres entre aspas se quiser que ambas cadeias de caracteres sejam avaliadas como uma única entidade, como neste caso, pesquisar duas cidades distintas no campo `artists`.  
+  Coloque várias cadeias de caracteres entre aspas se quiser que ambas cadeias de caracteres sejam avaliadas como uma única entidade, como neste caso, pesquisar duas cidades distintas no campo `artists`.  
 
- O campo especificado em `fieldname:searchterm` deve ser um campo `searchable`.  Confira [Criar Índice](https://docs.microsoft.com/rest/api/searchservice/create-index) para obter detalhes sobre como os atributos de índice são usados em definições de campo.  
+  O campo especificado em `fieldname:searchterm` deve ser um campo `searchable`.  Confira [Criar Índice](https://docs.microsoft.com/rest/api/searchservice/create-index) para obter detalhes sobre como os atributos de índice são usados em definições de campo.  
 
 ##  <a name="bkmk_fuzzy"></a> Pesquisa difusa  
  Uma pesquisa difusa encontra correspondências em termos com uma construção semelhante. De acordo com a [documentação do Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), as pesquisas imprecisas se baseiam na [distância de Damerau-Levenshtein](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance).  

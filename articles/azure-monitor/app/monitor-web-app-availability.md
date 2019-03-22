@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: d3127b7f9bea9a35d9ac25d0724700cad72fa509
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 9b04ca359a0c71a04e762452fa33345201f37e84
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54857141"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124313"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Monitorar a disponibilidade e a capacidade de resposta de qualquer site
 Após implantar o aplicativo Web ou site em qualquer servidor, você pode configurar testes para monitorar sua disponibilidade e capacidade de resposta. [Application Insights do Azure](../../azure-monitor/app/app-insights-overview.md) envia solicitações da Web ao aplicativo em intervalos regulares de pontos no mundo todo. Ele o alertará se o aplicativo não responder ou responder lentamente.
@@ -92,7 +92,7 @@ Use o Visual Studio Enterprise para registrar uma sessão da Web.
 
     ![No Visual Studio Enterprise Edition, crie um projeto do modelo de Teste de carga e desempenho na Web.](./media/monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
 
- * *Não consegue ver o modelo de Teste de carga e desempenho na Web?* - Feche o Visual Studio Enterprise. Abra o **Instalador do Visual Studio** para modificar a instalação do Visual Studio Enterprise. Em **Componentes Individuais**, selecione **Ferramentas de teste de carga e desempenho na Web**.
+   * *Não consegue ver o modelo de Teste de carga e desempenho na Web?* - Feche o Visual Studio Enterprise. Abra o **Instalador do Visual Studio** para modificar a instalação do Visual Studio Enterprise. Em **Componentes Individuais**, selecione **Ferramentas de teste de carga e desempenho na Web**.
 
 2. Abra o arquivo .webtest e inicie a gravação.
 
@@ -329,7 +329,8 @@ Quando o teste for concluído, você verá os tempos de resposta e as taxas de �
 
 * *Há suporte para HTTPS?*
 
-    Damos suporte a TLS 1.1 e TLS 1.2.
+    Damos suporte a TLS 1.1 e TLS 1.2. Atualmente, não verificamos os erros de certificado HTTPS.  
+
 * *Há diferença entre "testes na Web" e "testes de disponibilidade"?*
 
     Os dois termos podem ser consultados de modo intercambiável. Testes de disponibilidade é um termo mais genérico que inclui os testes de ping de URL individuais, além dos testes na Web de várias etapas.

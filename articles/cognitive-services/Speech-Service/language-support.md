@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/13/2018
+ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 927781c61a9ca2a1ef23db47294468dad7140dff
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3188b5acc00f7f0463ae1154346447bee463e09c
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57885344"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225426"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>Suporte de idioma e região para os serviços de fala
 
@@ -76,13 +76,18 @@ Vozes neurais podem ser usadas para interagir com chatbots e assistentes virtuai
 Para obter uma lista completa de vozes neurais e a disponibilidade regional, consulte [regiões](regions.md#neural-voices).
 
 | Local | Linguagem | Gênero | Mapeamento do nome do serviço|
-|--------|----------|---------|--------------------|
+|--------|----------|--------|---------------------|
+| de-DE | Alemão (Alemanha) | Feminino | "Microsoft Server fala texto para fala voz (de-DE, KatjaNeural)" |
 | en-US | Inglês (EUA) | Masculino | "Conversão de Texto em Fala do Microsoft Server (en-US, GuyNeural)" |
 | en-US | Inglês (EUA) | Feminino | "Conversão de Texto em Fala do Microsoft Server (en-US, JessaNeural)" |
+| it-IT | Italiano (Itália) | Feminino | "Microsoft Server fala texto para fala voz (it-IT, ElsaNeural)" |
 | zh-CN | Chinês | Feminino | "Voz para Conversão de Texto em Fala de Fala do Microsoft Server (zh-CN, XiaoxiaoNeural)" |
 
 > [!IMPORTANT]
 > A Voz para Conversão de Texto em Fala de Fala do Microsoft Server (zh-CN, XiaoxiaoNeural) só está disponível por meio do ponto de extremidade do Sudeste Asiático: https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1.
+
+> [!IMPORTANT]
+> Texto de fala do Microsoft Server a voz de fala (de-DE, KatjaNeural) e o texto de fala do Microsoft Server a voz de fala (it-IT, ElsaNeural) só estão disponíveis por meio do ponto de extremidade da Europa Ocidental: https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1.
 
 ### <a name="standard-voices"></a>Vozes padrão
 

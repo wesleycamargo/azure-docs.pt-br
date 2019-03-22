@@ -16,12 +16,12 @@ ms.date: 03/11/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 2ed9598ecfb45323505e8527cfb3ab9fe7d8b58e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: 1f6edd871d6815dab93bf9e8d582b0cb1ba6c78f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57764720"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109232"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registre-se a pilha do Azure com o Azure
 
@@ -173,7 +173,7 @@ Ambientes conectados podem acessar a internet e o Azure. Para esses ambientes, v
    ```
    Para obter mais informações sobre o cmdlet Set-AzsRegistration, consulte [referência de registro](#registration-reference).
 
-  O processo leva entre 10 e 15 minutos. Quando o comando for concluído, você verá a mensagem **"seu ambiente agora está registrado e ativado usando os parâmetros fornecidos."**
+   O processo leva entre 10 e 15 minutos. Quando o comando for concluído, você verá a mensagem **"seu ambiente agora está registrado e ativado usando os parâmetros fornecidos."**
 
 ## <a name="register-connected-with-capacity-billing"></a>Registre-se conectado com a cobrança de capacidade
 
@@ -210,20 +210,20 @@ Ambientes conectados podem acessar a internet e o Azure. Para esses ambientes, v
 
 5. Inicie o PowerShell ISE como administrador e navegue até a **registro** pasta o **AzureStack-Tools-master** diretório criado quando você baixar as ferramentas do Azure Stack. Importar o **RegisterWithAzure.psm1** módulo usando o PowerShell:
 
-  ```PowerShell  
-  $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
-  $RegistrationName = "<unique-registration-name>"
-  Set-AzsRegistration `
+   ```PowerShell  
+   $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
+   $RegistrationName = "<unique-registration-name>"
+   Set-AzsRegistration `
       -PrivilegedEndpointCredential $CloudAdminCred `
       -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
       -AgreementNumber <EA agreement number> `
       -BillingModel Capacity `
       -RegistrationName $RegistrationName
-  ```
+   ```
    > [!Note]  
    > Você pode desabilitar o uso dos relatórios com o parâmetro UsageReportingEnabled para o **AzsRegistration conjunto** cmdlet, definindo o parâmetro como false. 
    
-  Para obter mais informações sobre o cmdlet Set-AzsRegistration, consulte [referência de registro](#registration-reference).
+   Para obter mais informações sobre o cmdlet Set-AzsRegistration, consulte [referência de registro](#registration-reference).
 
 ## <a name="register-disconnected-with-capacity-billing"></a>Registrar desconectada com a cobrança de capacidade
 

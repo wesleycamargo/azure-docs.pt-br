@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 266d16311115f788283eadc60ca16f95b433d6b0
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: d9d9e68b7e74ba7725e97162d01e1a35314fdd0f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015943"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544947"
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Tutorial: Crie seu primeiro pipeline para transformar dados usando um cluster Hadoop
 > [!div class="op_single_selector"]
@@ -88,7 +88,7 @@ Antes de iniciar este tutorial, você deverá ter os seguintes pré-requisitos:
 3. Faça o download e leia o arquivo de consulta de Hive (**HQL**) localizado em: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). Essa consulta transforma os dados de entrada para gerar dados de saída. 
 4. Faça o download e leia o arquivo de entrada de exemplo (**HQL**) localizado em: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log)
 5. Crie um contêiner de blobs denominado **adfgetstarted** em seu armazenamento de blobs do Azure. 
-6. Execute o arquivo **partitionweblogs.hql** para a pasta **script** do contêiner **adfgetstarted**. Use ferramentas como o [Gerenciador de Armazenamento do Microsoft Azure](http://storageexplorer.com/). 
+6. Execute o arquivo **partitionweblogs.hql** para a pasta **script** do contêiner **adfgetstarted**. Use ferramentas como o [Gerenciador de Armazenamento do Microsoft Azure](https://storageexplorer.com/). 
 7. Carregue o arquivo **input.log** para a pasta **inputdata** do contêiner **adfgetstarted**. 
 
 Depois de concluir os pré-requisitos, selecione uma das seguintes ferramentas/SDKs para fazer o tutorial: 

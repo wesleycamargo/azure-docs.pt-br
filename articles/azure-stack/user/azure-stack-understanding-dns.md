@@ -15,18 +15,18 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 32d00a1c0daf383d41d6bbc7c9fe105b3a2a6ab1
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: ab867af76821f90c6a87c08d42affdef8192e201
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774908"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258132"
 ---
 # <a name="introducing-idns-for-azure-stack"></a>Apresentando os iDNS para o Azure Stack
 
 *Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-iDNS é um recurso de rede do Azure Stack que permite a resolução de nomes DNS externos (por exemplo, https://www.bing.com.) ele também permite que você registre os nomes de rede virtual interna. Ao fazer isso, você pode resolver as VMs na mesma rede virtual por nome em vez de um endereço IP. Essa abordagem elimina a necessidade para fornecer entradas de servidor DNS personalizadas. Para obter mais informações sobre o DNS, consulte o [visão geral do DNS do Azure](https://docs.microsoft.com/azure/dns/dns-overview).
+iDNS é um recurso de rede do Azure Stack que permite a resolução de nomes DNS externos (por exemplo, https:\//www.bing.com.) Ele também permite que você registre os nomes de rede virtual interna. Ao fazer isso, você pode resolver as VMs na mesma rede virtual por nome em vez de um endereço IP. Essa abordagem elimina a necessidade para fornecer entradas de servidor DNS personalizadas. Para obter mais informações sobre o DNS, consulte o [visão geral do DNS do Azure](https://docs.microsoft.com/azure/dns/dns-overview).
 
 ## <a name="what-does-idns-do"></a>O que faz iDNS?
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 47b16966f9e72a43cf4fb934706f7b96becef59a
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 4a6ed900753747c1d5bf394aced54da11177320f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694492"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118384"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-to-azure-vms"></a>Migração para Contoso: Hospedar novamente um aplicativo local para VMs do Azure
 
@@ -168,10 +168,10 @@ Eles configuram estes da seguinte forma:
     - A VM do banco de dados do aplicativo (SQLVM) será migrada para a sub-rede do banco de dados (PROD-DB-EUS2), na rede de produção.
 
 2. Configurar uma conta de armazenamento – a Contoso cria uma conta de armazenamento do Azure (contosovmsacc20180528) na região primária.
-    - A conta de armazenamento deve estar na mesma região do cofre de Serviços de Recuperação.
-    - Eles usam uma conta de propósito geral, com armazenamento padrão e replicação de LRS.
+   - A conta de armazenamento deve estar na mesma região do cofre de Serviços de Recuperação.
+   - Eles usam uma conta de propósito geral, com armazenamento padrão e replicação de LRS.
 
-    ![Armazenamento do Site Recovery](./media/contoso-migration-rehost-vm/asr-storage.png)
+     ![Armazenamento do Site Recovery](./media/contoso-migration-rehost-vm/asr-storage.png)
 
 3. Criar um cofre – com a rede e a conta de armazenamento prontas, a Contoso agora cria um cofre dos Serviços de Recuperação (ContosoMigrationVault) e coloca-o no grupo de recursos ContosoFailoverRG na região Leste dos EUA 2 primária.
 
@@ -221,15 +221,15 @@ Após o failover, a Contoso deseja se conectar a máquinas virtuais do Azure. Pa
 
 1. Para acesso pela internet eles:
 
- - Habilitam o RDP na VM local antes do failover.
- - Assegure-se de que as regras TCP e UDP sejam incluídas para o perfil **Público**.
- - Verifique se o RDP é permitido no **Firewall do Windows**  >  **Aplicativos permitidos** para todos os perfis.
+   - Habilitam o RDP na VM local antes do failover.
+   - Assegure-se de que as regras TCP e UDP sejam incluídas para o perfil **Público**.
+   - Verifique se o RDP é permitido no **Firewall do Windows**  >  **Aplicativos permitidos** para todos os perfis.
 
 2. Para acesso por VPN site-to-site, eles:
 
- - Ative o RDP na máquina no local.
- - Permitir o RDP no **Firewall do Windows**  ->  **Aplicativos e recursos permitidos**, para **Domínio e redes particulares**.
- - Defina a política de SAN do sistema operacional na VM local para **OnlineAll**.
+   - Ative o RDP na máquina no local.
+   - Permitir o RDP no **Firewall do Windows**  ->  **Aplicativos e recursos permitidos**, para **Domínio e redes particulares**.
+   - Defina a política de SAN do sistema operacional na VM local para **OnlineAll**.
 
 Além disso, quando eles executam um failover, precisam verificar o seguinte:
 
@@ -341,10 +341,10 @@ Com tudo pronto, os administradores da Contoso agora podem habilitar a replicaç
 
 4. Eles selecionam a **WebVM** para replicação, verificam a política de replicação e habilitam a replicação.
 
-    - Neste estágio, eles apenas selecionam a WEBVM porque a VNET e a sub-rede precisam ser selecionadas e as VMs do aplicativo serão colocadas em sub-redes diferentes.
-    - O Site Recovery instala automaticamente o serviço de Mobilidade na VM quando a replicação é habilitada.
+   - Neste estágio, eles apenas selecionam a WEBVM porque a VNET e a sub-rede precisam ser selecionadas e as VMs do aplicativo serão colocadas em sub-redes diferentes.
+   - O Site Recovery instala automaticamente o serviço de Mobilidade na VM quando a replicação é habilitada.
 
-    ![Habilitar a replicação](./media/contoso-migration-rehost-vm/enable-replication3.png)
+     ![Habilitar a replicação](./media/contoso-migration-rehost-vm/enable-replication3.png)
 
 5. Eles rastreiam o progresso da replicação em **Trabalhos**. Após o trabalho de **Finalizar Proteção** ser executado, o computador estará pronto para failover.
 6. Em **Essentials** no portal do Azure, eles podem ver a estrutura das VMs que estão sendo replicadas para o Azure.

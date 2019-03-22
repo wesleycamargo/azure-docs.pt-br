@@ -3,7 +3,7 @@ title: Autenticação, solicitações e respostas
 description: Autenticar no AD para usar o Key Vault
 services: key-vault
 documentationcenter: ''
-author: bryanla
+author: msmbaldwin
 manager: barbkess
 tags: azure-resource-manager
 ms.assetid: 4c321939-8a5b-42ca-83c4-2f5f647ca13e
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.author: bryanla
-ms.openlocfilehash: 57f04a79396cd286ea87e6a8cc7b37f5459fa14c
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.author: mbaldwin
+ms.openlocfilehash: 7ca486768cf56059328801b1b4b1036bb8aeece8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111519"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081773"
 ---
 # <a name="authentication-requests-and-responses"></a>Autenticação, solicitações e respostas
 
@@ -31,17 +31,17 @@ Este tópico aborda informações específicas para o serviço do Azure Key Vaul
 
  Para trabalhar com objetos no Azure Key Vault, a seguir estão exemplos de URLs:  
 
--   Para criar (CREATE) uma chave chamada TESTKEY em um Key Vault use - `PUT /keys/TESTKEY?api-version=<api_version> HTTP/1.1`  
+- Para criar (CREATE) uma chave chamada TESTKEY em um Key Vault use - `PUT /keys/TESTKEY?api-version=<api_version> HTTP/1.1`  
 
--   Para importar (IMPORTAR) uma chave chamada IMPORTEDKEY em um Key Vault use - `POST /keys/IMPORTEDKEY/import?api-version=<api_version> HTTP/1.1`  
+- Para importar (IMPORTAR) uma chave chamada IMPORTEDKEY em um Key Vault use - `POST /keys/IMPORTEDKEY/import?api-version=<api_version> HTTP/1.1`  
 
--   Para obter (GET) uma chave chamada MYSECRET em um Key Vault use - `GET /secrets/MYSECRET?api-version=<api_version> HTTP/1.1`  
+- Para obter (GET) uma chave chamada MYSECRET em um Key Vault use - `GET /secrets/MYSECRET?api-version=<api_version> HTTP/1.1`  
 
--   Para assinar (SIGN) uma chave chamada TESTKEY em um Key Vault use - `POST /keys/TESTKEY/sign?api-version=<api_version> HTTP/1.1`  
+- Para assinar (SIGN) uma chave chamada TESTKEY em um Key Vault use - `POST /keys/TESTKEY/sign?api-version=<api_version> HTTP/1.1`  
 
- A autoridade para uma solicitação para um Key Vault sempre é como segue,  `https://{keyvault-name}.vault.azure.net/`  
+  A autoridade para uma solicitação para um Key Vault sempre é como segue,  `https://{keyvault-name}.vault.azure.net/`  
 
- As chaves são sempre armazenadas no caminho /keys, os segredos são sempre armazenados no caminho /secrets.  
+  As chaves são sempre armazenadas no caminho /keys, os segredos são sempre armazenados no caminho /secrets.  
 
 ## <a name="api-version"></a>Versão da API  
  O serviço do Azure Key Vault oferece suporte ao controle de versão de protocolo para fornecer compatibilidade com clientes de nível inferior, embora nem todos os recursos estejam disponíveis para esses clientes. Os clientes devem usar o parâmetro de cadeia de consulta `api-version` para especificar a versão do protocolo que oferece suporte, pois não há nenhum padrão.  
@@ -64,17 +64,17 @@ Este tópico aborda informações específicas para o serviço do Azure Key Vaul
 ## <a name="error-responses"></a>Respostas de erro  
  O tratamento de erros usará códigos de status HTTP. Os resultados normais são:  
 
--   2xx – Êxito: usado para operação normal. O corpo da resposta conterá o resultado esperado  
+- 2xx – Êxito: usado para operação normal. O corpo da resposta conterá o resultado esperado  
 
--   3xx – Redirecionamento: o código 304 “Não modificado” pode ser retornada para preencher um GET condicional. Outros códigos de 3xx podem ser usados no futuro para indicar as alterações de DNS e caminho.  
+- 3xx – Redirecionamento: o código 304 “Não modificado” pode ser retornada para preencher um GET condicional. Outros códigos de 3xx podem ser usados no futuro para indicar as alterações de DNS e caminho.  
 
--   4xx – Erro de Cliente: usado para solicitações inválidas, chaves ausentes, erros de sintaxe, parâmetros inválidos, erros de autenticação, etc. O corpo da resposta conterá explicações detalhadas do erro.  
+- 4xx – Erro de Cliente: usado para solicitações inválidas, chaves ausentes, erros de sintaxe, parâmetros inválidos, erros de autenticação, etc. O corpo da resposta conterá explicações detalhadas do erro.  
 
--   5xx – Erro de Servidor: usado para erros internos do servidor. O corpo da resposta conterá explicações resumidas do erro.  
+- 5xx – Erro de Servidor: usado para erros internos do servidor. O corpo da resposta conterá explicações resumidas do erro.  
 
- O sistema foi projetado para funcionar por trás de um firewall ou proxy. Portanto, um cliente pode receber outros códigos de erro.  
+  O sistema foi projetado para funcionar por trás de um firewall ou proxy. Portanto, um cliente pode receber outros códigos de erro.  
 
- O Azure Key Vault também retorna informações de erro no corpo da resposta quando ocorre um problema. O corpo da resposta é formatado em JSON e assume a forma:  
+  O Azure Key Vault também retorna informações de erro no corpo da resposta quando ocorre um problema. O corpo da resposta é formatado em JSON e assume a forma:  
 
 ```  
 
@@ -92,7 +92,7 @@ Este tópico aborda informações específicas para o serviço do Azure Key Vaul
 ```  
 
 ## <a name="authentication"></a>Authentication  
- Todas as solicitações para o Azure Key Vault DEVEM ser autenticadas. O Azure Key Vault oferece suporte a tokens de acesso do Azure Active Directory que podem ser obtidos usando OAuth2 [[RFC6749](http://tools.ietf.org/html/rfc6749)]. 
+ Todas as solicitações para o Azure Key Vault DEVEM ser autenticadas. O Azure Key Vault oferece suporte a tokens de acesso do Azure Active Directory que podem ser obtidos usando OAuth2 [[RFC6749](https://tools.ietf.org/html/rfc6749)]. 
  
  Para obter mais informações sobre como registrar seu aplicativo e sobre a autenticação para usar o Azure Key Vault, consulte [Registrar seu aplicativo cliente com o Azure AD](https://docs.microsoft.com/rest/api/azure/index#register-your-client-application-with-azure-ad).
  

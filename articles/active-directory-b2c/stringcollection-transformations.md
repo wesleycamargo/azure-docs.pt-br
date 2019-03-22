@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 58773dded162ea51ccc6e502bbbdd4e13965c1d6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: c312433832f7402eaff8b40c4e0a2a61397f6f87
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203481"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123497"
 ---
 # <a name="stringcollection-claims-transformations"></a>Transformações de declarações StringCollection
 
@@ -29,7 +29,7 @@ Adiciona uma declaração de cadeia de caracteres a uma nova declaração string
 
 | item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | item | string | O ClaimType a ser adicionado à declaração de saída. |
+| InputClaim | item | cadeia de caracteres | O ClaimType a ser adicionado à declaração de saída. |
 | InputClaim | collection | stringCollection | [Opcional] Se especificada, a transformação de declarações copiará os itens desta coleção e adicionará o item ao final da declaração da coleção de saída. |
 | OutputClaim | collection | stringCollection | Os ClaimTypes produzidos depois de invocar este ClaimsTransformation. |
 
@@ -52,10 +52,10 @@ A transformação de declarações a seguir adiciona o ClaimType **email** ao Cl
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-    - **collection**: ["someone@outlook.com"]
-    - **item**: "admin@contoso.com"
+  - **collection**: ["someone@outlook.com"]
+  - **item**: "admin@contoso.com"
 - Declarações de saída: 
-    - **collection**: ["someone@outlook.com", "admin@contoso.com"]
+  - **collection**: ["someone@outlook.com", "admin@contoso.com"]
 
 ## <a name="addparametertostringcollection"></a>AddParameterToStringCollection
 
@@ -64,7 +64,7 @@ Adiciona um parâmetro de cadeia de caracteres a uma nova declaração stringCol
 | item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | collection | stringCollection | [Opcional] Se especificada, a transformação de declarações copiará os itens desta coleção e adicionará o item ao final da declaração da coleção de saída. |
-| InputParameter | item | string | O valor a ser adicionado à declaração de saída. |
+| InputParameter | item | cadeia de caracteres | O valor a ser adicionado à declaração de saída. |
 | OutputClaim | collection | stringCollection | Os ClaimTypes que serão produzidos depois de invocar esta ClaimsTransformation. |
 
 Use essa transformação de declaração para adicionar um valor de cadeia de caracteres a uma stringCollection nova ou existente. O exemplo a seguir adiciona um endereço de email constante (admin@contoso.com) à declaração **otherMails**. 
@@ -86,11 +86,11 @@ Use essa transformação de declaração para adicionar um valor de cadeia de ca
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-    - **collection**: ["someone@outlook.com"]
+  - **collection**: ["someone@outlook.com"]
 - Parâmetros de entrada 
-    - **item**: "admin@contoso.com"
+  - **item**: "admin@contoso.com"
 - Declarações de saída:
-    - **collection**: ["someone@outlook.com", "admin@contoso.com"]
+  - **collection**: ["someone@outlook.com", "admin@contoso.com"]
 
 ## <a name="getsingleitemfromstringcollection"></a>GetSingleItemFromStringCollection
 
@@ -99,7 +99,7 @@ Obtém o primeiro item da coleção de cadeia de caracteres fornecida.
 | item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | collection | stringCollection | Os ClaimTypes que são usados pela transformação de declarações para obter o item. |
-| OutputClaim | extractedItem | string | Os ClaimTypes produzidos depois de invocar este ClaimsTransformation. O primeiro item na coleção. |
+| OutputClaim | extractedItem | cadeia de caracteres | Os ClaimTypes produzidos depois de invocar este ClaimsTransformation. O primeiro item na coleção. |
 
 O exemplo a seguir lê a declaração **otherMails** e retorna o primeiro item para a declaração **email**. 
 
@@ -117,7 +117,7 @@ O exemplo a seguir lê a declaração **otherMails** e retorna o primeiro item p
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-    - **collection**: ["someone@outlook.com", "someone@contoso.com"]
+  - **collection**: ["someone@outlook.com", "someone@contoso.com"]
 - Declarações de saída: 
-    - **extractedItem**: "someone@outlook.com"
+  - **extractedItem**: "someone@outlook.com"
 

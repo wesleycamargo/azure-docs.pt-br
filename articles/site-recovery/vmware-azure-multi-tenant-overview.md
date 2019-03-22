@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 2e68ad6d999a5ff003abe35a0cce75bc5f2cebef
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: d227b8d038dd686bde9b031ca2c58adc7dd6d76b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723919"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104447"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>Visão geral do suporte multilocatário para recuperação de desastre do VMware para o Azure com o CSP
 
@@ -75,17 +75,17 @@ Configure o servidor de configuração com uma conta que tem uma função especi
 1. Crie uma nova função clonando a função *Somente leitura* predefinida e dê a ela um nome conveniente (como Azure_Site_Recovery, como mostrado neste exemplo).
 2. Atribua as seguintes permissões a essa função:
 
-    * **Armazenamento de dados**: Alocar espaço, procurar armazenamento de dados, operações de arquivo de baixo nível, remover arquivo, atualizar arquivos de máquina virtual
-    * **Rede**: Atribuição de rede
-    * **Recurso**: Atribuir VM ao pool de recursos, migrar VM desligada, migrar VM ligada
-    * **Tarefas**: Criar tarefa, atualizar tarefa
-    * **VM - Configuração**: Todos
-    - **VM – Interação** > Responder a perguntas, Conexão do dispositivo, Configurar mídia de CD, Configurar mídia de disquete, Desligar, Ligar, Instalação de ferramentas do VMware
-    - **VM – Inventário** > Criar com base em existente, Criar novo, Registrar, Cancelar registro
-    - **VM – Provisionamento** > Permitir download de máquina virtual, Permitir upload de arquivos de máquina virtual
-    - **VM – Gerenciamento de instantâneo** > Remover instantâneos
+   * **Armazenamento de dados**: Alocar espaço, procurar armazenamento de dados, operações de arquivo de baixo nível, remover arquivo, atualizar arquivos de máquina virtual
+   * **Rede**: Atribuição de rede
+   * **Recurso**: Atribuir VM ao pool de recursos, migrar VM desligada, migrar VM ligada
+   * **Tarefas**: Criar tarefa, atualizar tarefa
+   * **VM - Configuração**: Todos
+   * **VM – Interação** > Responder a perguntas, Conexão do dispositivo, Configurar mídia de CD, Configurar mídia de disquete, Desligar, Ligar, Instalação de ferramentas do VMware
+   * **VM – Inventário** > Criar com base em existente, Criar novo, Registrar, Cancelar registro
+   * **VM – Provisionamento** > Permitir download de máquina virtual, Permitir upload de arquivos de máquina virtual
+   * **VM – Gerenciamento de instantâneo** > Remover instantâneos
 
-        ![A caixa de diálogo Editar Função](./media/vmware-azure-multi-tenant-overview/edit-role-permissions.png)
+       ![A caixa de diálogo Editar Função](./media/vmware-azure-multi-tenant-overview/edit-role-permissions.png)
 
 3. Atribua os níveis de acesso à conta do vCenter (usada no servidor de configuração do locatário) a vários objetos, da seguinte maneira:
 

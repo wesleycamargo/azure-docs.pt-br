@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.openlocfilehash: 28019163cfec1a9d2e3c12346a6aba2bd00b30b1
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 085a4ffbe0b615408bfd8aa70c027013e16f0136
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539540"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201425"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referência - Pontos de extremidade do Hub IoT
 
@@ -22,8 +22,6 @@ ms.locfileid: "57539540"
 ## <a name="iot-hub-names"></a>Nomes de Hub IoT
 
 É possível localizar o nome do host do Hub IoT que hospeda os pontos de extremidade no portal na página de **Visão Geral** do hub. Por padrão, o nome DNS de um Hub IoT parece com: `{your iot hub name}.azure-devices.net`.
-
-Você pode usar o DNS do Azure para criar um nome DNS personalizado para o Hub IoT. Para obter mais informações, consulte [Usar o DNS do Azure para fornecer as configurações de domínio personalizadas para um serviço do Azure](../dns/dns-custom-domain.md).
 
 ## <a name="list-of-built-in-iot-hub-endpoints"></a>Lista de pontos de extremidade internos do Hub IoT
 

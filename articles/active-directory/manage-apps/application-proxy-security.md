@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef9dbe1bb0ed9e5aad545453c409b0959bdd3fd4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7bb9fc806779565581fa7667749402f5608edd80
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207221"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438067"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Considerações de segurança para acessar aplicativos remotamente com o Proxy de Aplicativo do Azure AD
 
@@ -69,7 +69,7 @@ Para saber mais sobre conectores, veja [Noções básicas sobre conectores de pr
 
 Obtenha proteção de segurança de ponta.
 
-Como faz parte do Azure Active Directory, o Proxy de Aplicativo pode aproveitar a [Azure AD Identity Protection](../active-directory-identityprotection.md) com dados do Microsoft Security Response Center e da Digital Crimes Unit. Juntos, identificamos proativamente contas comprometidas e oferecemos proteção em conexões de alto risco. Podemos levar em consideração vários fatores para determinar quais tentativas de entrada são de alto risco. Esses fatores incluem a sinalização de dispositivos infectados, anonimização de redes e locais atípicas ou improváveis.
+Como faz parte do Azure Active Directory, o Proxy de Aplicativo pode aproveitar a [Azure AD Identity Protection](../active-directory-identityprotection.md) com dados do Microsoft Security Response Center e da Digital Crimes Unit. Juntos, identificamos proativamente contas comprometidas e oferecemos proteção em conexões de alto risco. Levamos em consideração vários fatores para determinar quais tentativas de entrada são de alto risco. Esses fatores incluem a sinalização de dispositivos infectados, anonimização de redes e locais atípicas ou improváveis.
 
 Muitos desses relatórios e eventos já estão disponíveis por meio de uma API para integração com as informações de segurança e sistemas de gerenciamento (SIEM) do evento.
 

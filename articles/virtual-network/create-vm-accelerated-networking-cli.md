@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 8c913d618313a72f6fb05ea45847a220f6070d42
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: b06bc6b41081f05a7067f82f46affc37d21f50b1
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765731"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213289"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Criar uma máquina virtual Linux com Rede Acelerada
 
@@ -55,7 +55,7 @@ As seguintes distribuições têm suporte imediato da Galeria do Azure:
 ### <a name="supported-vm-instances"></a>Instâncias de VM compatíveis
 A Rede Acelerada é compatível com os tamanhos de instância de uso geral e de computação otimizada com 2 ou mais vCPUs.  Essas séries com suporte são: D/DSv2 e F/Fs
 
-Em instâncias que são compatíveis com hyperthreading, a Rede Acelerada é compatível com instâncias de VM com 4 ou mais vCPUs. Essas séries com suporte são: D/DSv3, E/ESv3, Fsv2 e Ms/Mms.
+Em instâncias que são compatíveis com hyperthreading, a Rede Acelerada é compatível com instâncias de VM com 4 ou mais vCPUs. Essas séries com suporte são: D/DSV3, e/esv3, Fsv2, Lsv2, Ms/Mms e Ms/Mmsv2.
 
 Para obter mais informações sobre instâncias de VM, consulte [Tamanhos de VM do Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -71,9 +71,14 @@ Um tamanho de VM com suporte sem rede acelerada habilitada só pode ter o recurs
 Máquinas virtuais (clássicas) não podem ser implantadas com Rede Acelerada.
 
 ## <a name="create-a-linux-vm-with-azure-accelerated-networking"></a>Criar uma VM do Linux com Rede Acelerada do Azure
+## <a name="portal-creation"></a>Criação de portal
+Embora este artigo forneça etapas para criar uma máquina virtual com a rede acelerada usando a CLI do Azure, você também pode [criar uma máquina virtual com a rede acelerada usando o portal do Azure](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Ao criar uma máquina virtual no portal, nos **criar uma máquina virtual** folha, escolha o **Networking** guia.  Nessa guia, há uma opção para **rede acelerada**.  Se você tiver escolhido um [sistema operacional com suporte](#supported-operating-systems) e [tamanho da VM](#supported-vm-instances), essa opção será preenchido automaticamente para "Ativado".  Caso contrário, ele irá preencher a opção "Desativado" para a rede acelerada e dar ao usuário um motivo por que ele não ainda ser habilitado.   
 
-Embora este artigo forneça etapas para criar uma máquina virtual com a rede acelerada usando a CLI do Azure, você também pode [criar uma máquina virtual com a rede acelerada usando o portal do Azure](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Ao criar uma máquina virtual no portal, em **Configurações**, selecione **Habilitado** em **Rede acelerada**. A opção de habilitar a rede acelerada não aparecerá no portal, a menos que você tenha selecionado um [sistema operacional compatível](#supported-operating-systems) e o [tamanho de VM](#supported-vm-instances). Depois de criar a máquina virtual, você precisa concluir as instruções em [Confirmar se a rede acelerada está habilitada](#confirm-that-accelerated-networking-is-enabled).
+* *Observação:* Apenas sistemas operacionais com suporte pode ser habilitados por meio do portal.  Se você estiver usando uma imagem personalizada e sua imagem oferece suporte a rede acelerada, crie sua VM usando a CLI ou Powershell. 
 
+Depois que a máquina virtual é criada, você pode confirmar a rede acelerada está habilitada, seguindo as instruções de [confirme se a rede acelerada está habilitada](#confirm-that-accelerated-networking-is-enabled).
+
+## <a name="cli-creation"></a>Criação de CLI
 ### <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
 Instale a [CLI do Azure](/cli/azure/install-azure-cli) mais recente do Azure e faça logon em uma conta do Azure usando [az login](/cli/azure/reference-index). Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo com seus próprios valores. Os nomes de parâmetro de exemplo incluem *myResourceGroup*, *myNic* e *myVm*.

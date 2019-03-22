@@ -1,72 +1,80 @@
 ---
-title: Sobre a conversão de texto em fala – Serviço de Fala
+title: Texto em fala com os serviços de fala do Azure
 titleSuffix: Azure Cognitive Services
-description: A API de Conversão de Texto em Fala oferece mais de 75 vozes em mais de 45 idiomas e localidades. Para usar fontes de voz padrão, é necessário somente especificar o nome da voz com alguns outros parâmetros ao chamar o Serviço de Fala.
+description: Texto para fala a fala dos serviços do Azure é um serviço baseado em REST que permite que seus aplicativos, ferramentas ou dispositivos converter texto em fala natural de sintetizada humana. Escolher entre standard e neurais vozes ou criar sua própria voz personalizada exclusivos ao seu produto ou marca. 75 vozes padrão estão disponíveis em mais de 45 idiomas e localidades e vozes neurais 5 estão disponíveis em 4 de idiomas e localidades.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/13/2018
+ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 0836ae4a9041db27cfed35dd0f1fc0df6e541aff
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 05028704c08ebd06f9b9e4e3f45c5137eb1e6b58
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859327"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226905"
 ---
-# <a name="about-the-text-to-speech-api"></a>Sobre a API de conversão de texto em fala
+# <a name="what-is-text-to-speech"></a>O que é o texto em fala?
 
-A API de **TTS** (conversão de texto em fala) converte o texto de entrada em fala com fluência som natural (também chamada *sintetização de fala*).
+Texto para fala a fala dos serviços do Azure é um serviço baseado em REST que permite que seus aplicativos, ferramentas ou dispositivos converter texto em fala natural de sintetizada humana. Escolher entre standard e neurais vozes ou criar seus próprios [voz personalizada](#custom-voice-fonts) exclusivos ao seu produto ou marca. 75 vozes padrão estão disponíveis em mais de 45 idiomas e localidades e vozes neurais 5 estão disponíveis em 4 de idiomas e localidades. Para obter uma lista completa, consulte [idiomas com suporte](language-support.md#text-to-speech).
 
-Para gerar a fala, o aplicativo envia solicitações HTTP POST para a API de conversão de texto em fala. Lá, o texto é sintetizado em voz humana e retornado como um arquivo de áudio. Há suporte para uma variedade de vozes e idiomas.
-
-Cenários nos quais a sintetização de voz está sendo adotada incluem:
-
-* *Melhorando a acessibilidade:* a tecnologia de **conversão de texto em fala** permite que editores e proprietários de conteúdo respondam às diferentes maneiras pelas quais as pessoas interagem com o conteúdo. Pessoas com deficiência visual ou dificuldades de leitura apreciam a capacidade de consumir conteúdo auditivamente. A saída de voz também facilita para as pessoas desfrutarem de conteúdo textual, como jornais ou blogs, em dispositivos móveis enquanto se deslocam ou se exercitam.
-
-* *Respondendo em cenários multitarefas:* a **conversão de texto em fala** permite que as pessoas absorvam informações importantes de maneira rápida e confortável durante a condução ou fora de um ambiente de leitura conveniente. A navegação é um aplicativo comum nesta área.
-
-* *Aprimorando o aprendizado com vários modos:* diferentes pessoas aprendem melhor de maneiras diferentes. Especialistas em aprendizagem online mostraram que fornecer voz e texto juntos pode ajudar a tornar as informações mais fáceis de aprender e serem retidas.
-
-* *Fornecimento de bots ou assistentes intuitivos:* a capacidade de falar pode ser parte integrante de um chat bot inteligente ou um assistente virtual. Mais e mais empresas estão desenvolvendo chat bots para oferecer a seus clientes atrativas experiências de serviço de atendimento ao consumidor. A voz adiciona outra dimensão, permitindo que as respostas do bot sejam recebidas auditivamente (por exemplo, por telefone).
-
-## <a name="voice-support"></a>Suporte de voz
-
-A **Conversão de Texto em Fala** da Microsoft oferece mais de 75 vozes em mais de 45 idiomas e localidades. Para usar essas "fontes de voz" padrão, é necessário somente especificar o nome da voz com alguns outros parâmetros quando chamar a API REST do serviço. Para obter mais informações sobre os idiomas, localidades e vozes com suporte, consulte [idiomas com suporte](language-support.md#text-to-speech).
-
-> [!IMPORTANT]
-> Os custos variam para vozes padrão, personalizadas e neurais. Para saber mais, consulte [Preços](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+Tecnologia de texto para fala permite que os criadores de conteúdo interagir com seus usuários de diferentes maneiras. Texto para fala pode melhorar a acessibilidade, fornecendo aos usuários uma opção para interagir com o conteúdo de forma audível. Se o usuário tem uma deficiência visual, uma deficiência de aprendizagem, ou exige informações de navegação enquanto dirige, uma experiência existente pode melhorar o texto para fala. Texto em fala também é um complemento valioso para bots de voz e assistentes virtuais.
 
 ### <a name="neural-voices"></a>Vozes neurais
 
-A conversão de texto em fala neural pode ser usada para interagir com chatbots e assistentes virtuais de forma mais natural e participativa para converter textos digitais, como livros eletrônicos, em audiolivros, e aprimorar sistemas de navegação de carros. Com a prosódia natural semelhante à humana e a articulação clara das palavras, a TTS neural reduz significativamente a fadiga de escuta quando os usuários interagem com sistemas de inteligência artificial. Para obter mais informações sobre as vozes neurais, consulte [idiomas com suporte](language-support.md#text-to-speech).
+Vozes neurais podem ser usadas para interagir com chatbots e assistentes virtuais de forma mais natural e participativa para converter textos digitais, como livros eletrônicos, em audiolivros, e aprimorar sistemas de navegação de carros. Com a métrica de natural humana e clara Articulação das palavras, vozes Neural reduzem significativamente fadiga escuta ao interagir com sistemas de inteligência Artificial. Para obter mais informações sobre as vozes neurais, consulte [idiomas com suporte](language-support.md#text-to-speech).
 
 ### <a name="custom-voices"></a>Vozes personalizadas
 
-A personalização da voz da conversão de texto em fala permite que você crie uma voz exclusiva e reconhecível para sua marca: uma: *fonte de voz.* Para criar a fonte de voz, você faz uma gravação em estúdio e carrega os scripts associados como os dados de treinamento. Em seguida, o serviço cria um modelo de voz exclusivo ajustado para a gravação. É possível usar essa fonte de voz para a sintetização de voz. Para obter mais informações, consulte [fontes de voz personalizadas](how-to-customize-voice-font.md).
+Personalização de voz lhe permite criar uma voz reconhecível, um de tipo para sua marca. Para criar sua fonte de voz personalizada, você fazer uma gravação studio e carrega os scripts associados como os dados de treinamento. Em seguida, o serviço cria um modelo de voz exclusivo ajustado para a gravação. Você pode usar essa fonte de voz personalizadas para sintetizador de fala. Para obter mais informações, consulte [vozes personalizadas](how-to-customize-voice-font.md).
 
-## <a name="api-capabilities"></a>Recursos de API
+## <a name="core-features"></a>Principais recursos
 
-Muitos dos recursos da API de **conversão de texto em fala**, especialmente em torno da personalização, estão disponíveis via REST. A tabela a seguir resume os recursos de cada método de acesso à API. Para obter uma lista completa de recursos e detalhes da API, consulte [referência ao Swagger](https://westus.cris.ai/swagger/ui/index).
+Esta tabela lista os principais recursos de texto em fala:
 
-| Caso de uso | REST | SDKs |
-|-----|-----|-----|----|
-| Carregar conjuntos de dados para adaptação de voz | Sim | Não  |
-| Criar e gerenciar modelos de fontes de voz | Sim | Não  |
-| Criar e gerenciar implantações de fontes de voz | Sim | Não  |
-| Criar e gerenciar testes de fontes de voz| Sim | Não  |
-| Gerenciar Assinaturas | Sim | Não  |
+| Caso de uso | . | REST |
+|----------|-----|------|
+| Converta texto em fala. | Não  | Sim |
+| Carrega conjuntos de dados para a adaptação de voz. | Não  | Sim\* |
+| Criar e gerenciar modelos de fonte de voz. | Não  | Sim\* |
+| Criar e gerenciar implantações de fonte de voz. | Não  | Sim\* |
+| Criar e gerenciar testes de fonte de voz. | Não  | Sim\* |
+| Gerencie assinaturas. | Não  | Sim\* |
+
+\* *Esses serviços estão disponíveis usando o ponto de extremidade cris.ai. Ver [Swagger referência](https://westus.cris.ai/swagger/ui/index).*
 
 > [!NOTE]
-> A API implementa limitação que limita as solicitações de API a 25 por 5 segundos. Cabeçalhos de mensagens informarão sobre os limites.
+> O ponto de extremidade de texto em fala implementa a limitação que limita as solicitações para 25 por 5 segundos. Quando a limitação ocorre, você será notificado por meio de cabeçalhos de mensagem.
+
+## <a name="get-started-with-text-to-speech"></a>Introdução ao texto em fala
+
+Nós oferecemos guias de início rápido foi projetados para ter está executando código em menos de 10 minutos. Essa tabela inclui uma lista de texto em fala guias de início rápido organizados por idioma.
+
+| Início rápido | Plataforma | Referência de API |
+|------------|----------|---------------|
+| [C#, .NET Core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api) |
+| [Node.js](quickstart-nodejs-text-to-speech.md) | Janela, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api) |
+| [Python](quickstart-python-text-to-speech.md) | Janela, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api) |
+
+## <a name="sample-code"></a>Exemplo de código
+
+Código de exemplo de texto em fala está disponível no GitHub. Esses exemplos abrangem a conversão de texto em fala em linguagens de programação mais populares.
+
+* [Exemplos de texto em fala (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
+
+## <a name="reference-docs"></a>Documentos de Referência
+
+* [SDK da fala](speech-sdk-reference.md)
+* [SDK de Dispositivos de Fala](speech-devices-sdk.md)
+* [API REST: Speech-to-text](rest-speech-to-text.md)
+* [API REST: Text-to-speech](rest-text-to-speech.md)
+* [API REST: Personalização e transcrição de lote](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Obter uma assinatura gratuita dos Serviços de Fala](https://azure.microsoft.com/try/cognitive-services/)
-* [Início Rápido: converter texto em fala, Python](quickstart-python-text-to-speech.md)
-* [Início Rápido: converter texto em fala, .NET Core](quickstart-dotnet-text-to-speech.md)
-* [Referência da API REST](rest-apis.md)
+* [Obter uma assinatura gratuita dos Serviços de Fala](get-started.md)
+* [Criar fontes de voz personalizadas](how-to-customize-voice-font.md)

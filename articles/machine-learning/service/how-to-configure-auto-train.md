@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6bd61923dafb605e09c6ca6ab86dcd85fe60b37c
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 79d013e5836555547cbf254bb25c06add0a717e1
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734650"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295378"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Configurar experimentos de aprendizado de máquina automatizado
 
@@ -120,7 +120,7 @@ y_valid |   Dataframe do Pandas ou matriz Numpy | data_train, rótulo | _Opciona
 sample_weight | Dataframe do Pandas ou matriz Numpy |   data_train, rótulo, colunas| _Opcional_ Um valor de peso para cada amostra. Use quando quiser atribuir pesos diferentes aos pontos de dados
 sample_weight_valid | Dataframe do Pandas ou matriz Numpy | data_train, rótulo, colunas |    _Opcional_ Um valor de peso para cada amostra de validação. Se não for especificado, sample_weight será dividido entre "treinar" e "validar"
 data_train |    Dataframe do Pandas |  X, y, X_valid, y_valid |    Todos os dados (recursos + rótulo) a serem treinados com
-label | string  | X, y, X_valid, y_valid |  Qual coluna em data_train representa o rótulo
+label | cadeia de caracteres  | X, y, X_valid, y_valid |  Qual coluna em data_train representa o rótulo
 colunas | Matriz de cadeias de caracteres  ||  _Opcional_ Lista de permissões de colunas a serem usadas para recursos
 cv_splits_indices   | Matriz de inteiros ||  _Opcional_ Lista de índices para dividir os dados para validação cruzada
 
@@ -396,4 +396,4 @@ RunDetails(local_run).show()
 
 Saiba mais sobre [como e onde implantar um modelo](how-to-deploy-and-where.md).
 
-Saiba mais sobre [como treinar um modelo de classificação com o aprendizado de máquina automatizado](tutorial-auto-train-models.md) ou [como treinar usando o aprendizado de máquina automatizado em um recurso remoto](how-to-auto-train-remote.md).
+Saiba mais sobre [como treinar um modelo de regressão com aprendizado de máquina automatizada](tutorial-auto-train-models.md) ou [como treinar usando automatizada de aprendizado de máquina em um recurso remoto](how-to-auto-train-remote.md).

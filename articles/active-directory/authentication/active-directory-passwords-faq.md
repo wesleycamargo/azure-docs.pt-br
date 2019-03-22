@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6194ed8ffa5732c9f187679e934aad306293d46
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: dcb825a193071d263d800dafdd6296246eb74aec
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186362"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878186"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Perguntas frequentes sobre gerenciamento de senhas
 
@@ -98,12 +98,10 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
 * **P:  Quanto tempo devo aguardar para receber um email, um SMS ou uma chamada telefônica da redefinição de senha?**
 
   > **R:** Emails, mensagens SMS e chamadas telefônicas devem ser recebidos em menos de um minuto. O caso comum é de 5 a 20 segundos.
-    >Se você não receber a notificação nesse período:
-        > * Verifique a pasta Lixo Eletrônico.
-        > * Verifique se o número ou o email de contato é aquele que você espera.
-        > * Verifique se os dados de autenticação no diretório estão formatados corretamente, por exemplo, +1 4255551234 ou *user@contoso.com*. 
-  >
-  >
+  > Se você não receber a notificação nesse período:
+  > * Verifique a pasta Lixo Eletrônico.
+  > * Verifique se o número ou o email de contato é aquele que você espera.
+  > * Verifique se os dados de autenticação no diretório estão corretamente formatado, por exemplo, + 1 4255551234 ou *usuário\@contoso.com*. 
 * **P:  Quais idiomas são compatíveis com a redefinição de senha?**
 
   > **R:** A interface do usuário, as mensagens SMS e as chamadas de voz da redefinição de senha estão localizadas nos mesmos idiomas compatíveis com o Office 365.

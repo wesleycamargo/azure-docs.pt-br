@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 125f1a2a041c8c05289c95bd12c10618bfc622a8
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 40ff2339ad34a72079109317bf0a89dfbc6458e8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246708"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58114586"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Armazenamento Premium de alto desempenho e discos gerenciados para VMs
 
@@ -63,11 +63,11 @@ Aqui estão alguns dos recursos de Armazenamento Premium:
 
     Para começar a usar o Armazenamento Premium, crie uma conta de armazenamento premium para discos não gerenciados. No [portal do Azure](https://portal.azure.com), para criar uma conta de armazenamento premium, escolha o nível de desempenho **Premium**. Selecione a opção de replicação **Armazenamento localmente redundante (LRS)**. Você também pode criar uma conta de armazenamento premium, definindo o nível de desempenho como **Premium_LRS**. Para alterar o nível de desempenho, use uma das seguintes abordagens:
      
-    - [PowerShell para Armazenamento do Azure](../articles/storage/common/storage-powershell-guide-full.md#manage-the-storage-account)
-    - [CLI do Azure para Armazenamento do Azure](../articles/storage/common/storage-azure-cli.md#manage-storage-accounts)
-    - [API REST do Provedor de Recursos do Armazenamento do Azure](https://docs.microsoft.com/rest/api/storagerp) (para implantações do Azure Resource Manager) ou uma das bibliotecas de cliente do provedor de recursos do Armazenamento do Azure
+  - [PowerShell para Armazenamento do Azure](../articles/storage/common/storage-powershell-guide-full.md#manage-the-storage-account)
+  - [CLI do Azure para Armazenamento do Azure](../articles/storage/common/storage-azure-cli.md#manage-storage-accounts)
+  - [API REST do Provedor de Recursos do Armazenamento do Azure](https://docs.microsoft.com/rest/api/storagerp) (para implantações do Azure Resource Manager) ou uma das bibliotecas de cliente do provedor de recursos do Armazenamento do Azure
 
-    Para obter informações sobre limites de conta de armazenamento premium, confira Metas de desempenho e escalabilidade do Armazenamento Premium.
+    Para saber mais sobre limites de conta de armazenamento premium, consulte [metas de desempenho e escalabilidade](#scalability-and-performance-targets).
 
 * **Armazenamento com redundância local Premium**
 
@@ -98,8 +98,6 @@ Estes são alguns dos recursos com suporte em VMs habilitadas para armazenamento
 
     > [!NOTE]
     > Se você distribuir discos de dados de armazenamento premium usando [Espaços de Armazenamento](https://technet.microsoft.com/library/hh831739.aspx), configure espaços de armazenamento com uma coluna para cada disco que será usado. Caso contrário, o desempenho geral do volume distribuído pode ser menor que o esperado devido a uma distribuição irregular de tráfego entre os discos. Por padrão, no Gerenciador de Servidores, você pode configurar colunas para até oito discos. Se você tiver mais de oito discos, use o PowerShell para criar o volume. Especifique manualmente o número de colunas. Caso contrário, a UI do Gerenciador de servidores continuará a usar 8 colunas, mesmo que haja mais discos. Por exemplo, se você tiver 32 discos em um conjunto único de distribuição, especifique 32 colunas. Para especificar o número de colunas que o disco virtual usa, no cmdlet [New-VirtualDisk](https://technet.microsoft.com/library/hh848643.aspx) do PowerShell, use o parâmetro *NumberOfColumns*. Para obter mais informações, confira [Visão geral dos espaços de armazenamento](https://technet.microsoft.com/library/hh831739.aspx) e [Perguntas frequentes de espaços de armazenamento](https://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx).
-    >
-    > 
 
 * **Cache**
 
@@ -160,7 +158,7 @@ Tamanhos demarcados com um asterisco estão atualmente em visualização.
 | Taxa de transferência por disco | 25 MB por segundo | 50 MB por segundo | 100 MB por segundo | 125 MB por segundo | 150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo | 480 MB por segundo | 750 MB por segundo | 750 MB por segundo |
 
 > [!NOTE]
-> Verifique se largura de banda suficiente está disponível na sua VM para direcionar o tráfego de disco, conforme descrito em [Suporte para Armazenamento Premium VMs](). Caso contrário, sua taxa de transferência do disco e o IOPS é restrita a valores mais baixos. A taxa de transferência máxima e IOPS se baseiam nos limites de VM, não nos limites de disco descritos na tabela anterior.  
+> Certifique-se de largura de banda suficiente está disponível em sua VM para direcionar o tráfego de disco, conforme descrito em [VMs com suporte do](#supported-vms). Caso contrário, sua taxa de transferência do disco e o IOPS é restrita a valores mais baixos. A taxa de transferência máxima e IOPS se baseiam nos limites de VM, não nos limites de disco descritos na tabela anterior.  
 > O Azure projetou a plataforma Armazenamento Premium para ser extremamente paralela. Projetar seu aplicativo para ser multi-threaded ajudará a alcançar o destino de alto desempenho oferecido em tamanhos maiores de disco.
 
 Aqui estão algumas coisas importantes a saber sobre metas de desempenho e escalabilidade do Armazenamento Premium:
@@ -294,7 +292,7 @@ Ao usar o Armazenamento Premium, as seguintes considerações de cobrança se ap
 
 * **Tamanho de disco e blob de Armazenamento Premium**
 
-    A cobrança para um disco de armazenamento premium ou blob depende do tamanho do disco ou blob provisionado. O Azure mapeia o tamanho provisionado (arredondado) para a opção de disco de armazenamento premium mais próxima. Para obter detalhes, confira a tabela [Metas de desempenho e escalabilidade do Armazenamento Premium](). Cada disco é mapeado para um tamanho de disco provisionado com suporte e é cobrado de acordo. A cobrança por qualquer disco provisionado é rateada por hora usando o preço mensal para a oferta de Armazenamento Premium. Por exemplo, se você provisionou um disco P10 e ele foi excluído após 20 horas, você será cobrado pela a oferta P10 rateada em 20 horas. Isto é independente da quantidade de dados reais gravados no disco ou do IOPS e taxa de transferência usados.
+    A cobrança para um disco de armazenamento premium ou blob depende do tamanho do disco ou blob provisionado. O Azure mapeia o tamanho provisionado (arredondado) para a opção de disco de armazenamento premium mais próxima. Para obter detalhes, consulte a tabela [metas de desempenho e escalabilidade](#scalability-and-performance-targets). Cada disco é mapeado para um tamanho de disco provisionado com suporte e é cobrado de acordo. A cobrança por qualquer disco provisionado é rateada por hora usando o preço mensal para a oferta de Armazenamento Premium. Por exemplo, se você provisionou um disco P10 e ele foi excluído após 20 horas, você será cobrado pela a oferta P10 rateada em 20 horas. Isto é independente da quantidade de dados reais gravados no disco ou do IOPS e taxa de transferência usados.
 
 * **Instantâneos de discos não gerenciados Premium**
 

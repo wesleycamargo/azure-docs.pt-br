@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 08/30/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: fe1227d91c0d039a94e5b9a3046b879f4f17355a
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 844e4a0d2715799b808f2c7630c201f6e792bd63
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246690"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124367"
 ---
 | Recurso | Basic | Standard | Premium |
-|---|---|---|---|---|
+|---|---|---|---|
 | Armazenamento<sup>1</sup> | 10 GiB | 100 GiB| 500 GiB |
-| Tamanho máximo de camada de imagem | 20 GiB | 20 GiB | 50 GiB |
+| Tamanho da camada de imagem máximo | 20 GiB | 20 GiB | 50 GiB |
 | ReadOps por minuto<sup>2, 3</sup> | 1.000 | 3.000 | 10.000 |
 | WriteOps por minuto<sup>2, 4</sup> | 100 | 500 | 2.000 |
 | MBps de largura de banda de download<sup>2</sup> | 30 | 60 | 100 |
@@ -27,13 +27,13 @@ ms.locfileid: "56246690"
 | Replicação geográfica | N/D | N/D | [Com suporte][geo-replication] |
 | Confiança do conteúdo (versão prévia) | N/D | N/D | [Com suporte][content-trust] |
 
-<sup>1</sup> Os limites de armazenamento especificados são a quantidade de armazenamento *incluída* para cada camada. Será cobrada uma taxa diária adicional por GiB para o armazenamento de imagens acima desses limites. Para obter informações de taxa, consulte [Preço de Registro de Contêiner][pricing].
+<sup>1</sup>os limites de armazenamento especificado são a quantidade de *incluídos* armazenamento para cada camada. Será cobrada uma taxa diária adicional por GiB para o armazenamento de imagens acima desses limites. Para obter informações de taxa, consulte [registro de contêiner do Azure de preços][pricing].
 
-<sup>2</sup> *ReadOps*, *WriteOps* e *Largura de Banda* são estimativas mínimas. O ACR se esforça para melhorar o desempenho conforme os requisitos de uso.
+<sup>2</sup>*ReadOps*, *WriteOps*, e *largura de banda* são estimativas mínimas. O registro de contêiner do Azure se esforça para melhorar o desempenho como requer o uso.
 
-<sup>3</sup> [docker pull](https://docs.docker.com/registry/spec/api/#pulling-an-image) se traduz em várias operações de leitura com base no número de camadas na imagem, além da recuperação do manifesto.
+<sup>3</sup>um [pull do docker](https://docs.docker.com/registry/spec/api/#pulling-an-image) se traduz em várias operações de leitura com base no número de camadas na imagem, além da recuperação do manifesto.
 
-<sup>4</sup> [docker push](https://docs.docker.com/registry/spec/api/#pushing-an-image) se traduz em várias operações de gravação com base no número de camadas que devem ser enviadas por push. Um `docker push` inclui *ReadOps* para recuperar um manifesto para uma imagem existente.
+<sup>4</sup>um [push do docker](https://docs.docker.com/registry/spec/api/#pushing-an-image) se traduz em várias operações de gravação, com base no número de camadas que devem ser enviados por push. Um `docker push` inclui *ReadOps* para recuperar um manifesto para uma imagem existente.
 
 <!-- LINKS - External -->
 [pricing]: https://azure.microsoft.com/pricing/details/container-registry/

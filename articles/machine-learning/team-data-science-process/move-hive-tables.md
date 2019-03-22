@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: be953621dbadee74361b2170c2a532cfec6ef77a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: d67bd26dcb2ac0b3bf909e1ef3d5ca75a0882eb3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477838"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57840640"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Criar tabelas do Hive e carregar dados do Armazenamento de Blobs do Azure
 
@@ -36,7 +36,7 @@ Supomos que os dados de tabelas Hive estejam em formato de tabela **descompactad
 
 Se quiser praticar com os **Dados de viagens de táxi de NYC**, você precisará:
 
-* **baixar** os 24 arquivos de [Dados de viagens de táxi de NYC](http://www.andresmh.com/nyctaxitrips) (12 arquivos de viagens e 12 arquivos de tarifas),
+* **baixar** os 24 arquivos de [Dados de viagens de táxi de NYC](https://www.andresmh.com/nyctaxitrips) (12 arquivos de viagens e 12 arquivos de tarifas),
 * **descompactar** todos os arquivos em arquivos .csv, e
 * **carregue**-os para o padrão (ou o contêiner apropriado) da conta do Armazenamento do Azure; as opções para essa conta aparecem no tópico [Usar o Armazenamento do Azure com clusters do Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-blob-storage.md). O processo para carregar os arquivos .csv para o contêiner padrão na conta de armazenamento pode ser encontrado nesta [página](hive-walkthrough.md#upload).
 

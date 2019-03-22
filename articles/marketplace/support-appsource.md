@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: ellacroi
-ms.openlocfilehash: 447453abb59507e0f3a8505410ceb52640914f22
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
-ms.translationtype: HT
+ms.openlocfilehash: 852d0874a91418bf28e674b02087aeb7edbdd833
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436569"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730504"
 ---
 # <a name="support-for-appsource"></a>Suporte para AppSource  
 As opções de suporte para o AppSource.  
@@ -28,10 +28,10 @@ As opções de suporte para o AppSource.
 
 | Canal de suporte | DESCRIÇÃO |  
 |:--- |:--- |  
-| Formulários MSDN: Active Directory do Azure, localizado em [ social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD ] (https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD " Azure AD nos fóruns do MSDN ") | Fórum Microsoft Developer Network. |  
-| StackOverflow: Active Directory do Azure, localizado em [ stackoverflow.com/questions/tagged/azure-active-directory ] (https://stackoverflow.com/questions/tagged/azure-active-directory " Azure AD em stackoverflow ") | Ambiente de estouro de pilha para obter soluções e fazer perguntas sobre tudo relacionado ao Active Directory do Azure (Azure AD). |  
+| Formulários do MSDN: O Azure Active Directory localizado em [social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD](https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD "do Azure AD nos fóruns do MSDN") | Fórum Microsoft Developer Network. |  
+| StackOverflow: O Azure Active Directory localizado em [stackoverflow.com/questions/tagged/azure-active-directory](https://stackoverflow.com/questions/tagged/azure-active-directory "do Azure AD no stackoverflow") | Ambiente de estouro de pilha para obter soluções e fazer perguntas sobre tudo relacionado ao Active Directory do Azure (Azure AD). |  
 
 ## <a name="next-steps"></a>Próximas etapas
 Visite a página [ do Azure Marketplace e do AppSource Publisher Guide ](./marketplace-publishers-guide.md).  
  
----  
+---

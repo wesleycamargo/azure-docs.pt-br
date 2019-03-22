@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79b40af914cd55ae37205123df595ab177c87752
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: f828ff83e6b9c60eb08edef7f47e88185fb5aef8
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098195"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199674"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>Criar um grupo dinâmico e verificar o status
 
@@ -34,11 +34,11 @@ Para obter exemplos de sintaxe, propriedades com suporte, operadores e valores p
 2. Selecione **Grupos**.
 3. Selecione **Todos os grupos** e selecione **Novo grupo**.
 
-   ![Adicione o novo grupo](./media/groups-create-rule/new-group-creation.png)
+   ![Selecione o comando para adicionar um novo grupo](./media/groups-create-rule/new-group-creation.png)
 
 4. Sobre o **grupo** página, insira um nome e uma descrição para o novo grupo. Selecione uma **tipo de associação** para a usuários ou dispositivos e selecione **adicionar consulta dinâmica**. Você pode usar o construtor de regra para criar uma regra simples, ou [escreve uma regra de associação](groups-dynamic-membership.md).
 
-   ![Adicionar regra de associação dinâmica](./media/groups-create-rule/add-dynamic-group-rule.png)
+   ![Adicionar regra de associação para um grupo dinâmico](./media/groups-create-rule/add-dynamic-group-rule.png)
 
 5. Para ver as propriedades de extensão personalizado disponíveis para a sua consulta de associação
    1. Selecione **obter propriedades de extensão personalizada**
@@ -56,7 +56,7 @@ Quando é criado um novo grupo do Office 365, uma notificação de boas-vinda é
 
 Veja o status do processamento de associação e a data da última atualização na página **Visão Geral** do grupo.
   
-  ![exibição de status do grupo dinâmico](./media/groups-create-rule/group-status.png)
+  ![exibição do status do grupo dinâmico](./media/groups-create-rule/group-status.png)
 
 As seguintes mensagens de status podem ser mostradas para o status **Processamento de associação**:
 
@@ -74,7 +74,7 @@ As seguintes mensagens de status podem ser mostradas para o status da **Última 
 
 Se ocorrer um erro ao processar a regra de associação de um grupo específico, um alerta será mostrado na parte superior da **página Visão Geral** do grupo. Se nenhuma atualização de associação dinâmica pendente puder ser processada de nenhum dos grupos do locatário por mais de 24 horas, um alerta será mostrado na parte superior da **Todos os grupos**.
 
-![mensagem de erro de processamento](./media/groups-create-rule/processing-error.png)
+![alertas de mensagem de erro de processamento](./media/groups-create-rule/processing-error.png)
 
 Esses artigos fornecem mais informações sobre grupos no Azure Active Directory.
 

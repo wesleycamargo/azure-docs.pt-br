@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 7d069d86-660f-4c94-b6e3-0c0f38c52d0e
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: 18b698861a791174f2e254543d5d3b7a54052574
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 4186abd215509e0ae9ced50340fb1f3d3b5f9676
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54854152"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765910"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks"></a>Perfil e ID de usuário do Azure Notebooks
 
@@ -46,7 +46,7 @@ Um comando **Configurar ID de usuário** também aparece ao lado do nome de usu�
 
 Você também pode alterar a ID de usuário a qualquer momento na sua página de perfil.
 
-Uma ID de usuário deve ser composta de pelo menos quatro letras, números e hifens. Nenhum outro caractere é permitido, e a ID de usuário não poderá começar ou terminar com um hífen ou usar vários hífens em uma linha.
+Deve ser composta por uma ID de usuário entre quatro e dezesseis letras, números e hifens. Nenhum outro caractere é permitido, e a ID de usuário não poderá começar ou terminar com um hífen ou usar vários hífens em uma linha. Como as IDs de usuário são exclusivas em todas as contas de blocos de anotações do Azure, você poderá ver a mensagem, "ID de usuário já está em uso." (A mensagem também aparece se você tentar usar uma marca da Microsoft como uma ID de usuário.) Nesses casos, escolha uma ID de usuário diferente.
 
 > [!Important]
 > Alterar sua ID invalidará todas as URLs que você possa ter compartilhado usando a ID anterior. É possível alterar sua ID de volta para a ID anterior para revalidar os links. No entanto, é possível que outro usuário reivindique a ID não utilizada nesse meio tempo.

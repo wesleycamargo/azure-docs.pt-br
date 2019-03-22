@@ -9,18 +9,18 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: d1d515786fde06f4622402f2c1d0c3add7cd8843
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.openlocfilehash: f3d9a2447bdbc2a1a5ce930ffa161d5a9e30069b
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913131"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225052"
 ---
 # <a name="an-introduction-to-apache-hadoop-security-with-enterprise-security-package"></a>Uma introdução à segurança do Apache Hadoop com Enterprise Security Package
 
 No passado, o Azure HDInsight dava suporte apenas a um único usuário: o administrador local. Isso funcionava bem para equipes de aplicativos ou departamentos menores. À medida que as cargas de trabalho com base no Apache Hadoop ganharam mais popularidade no setor empresarial, a necessidade de funcionalidades de nível empresarial, como autenticação baseada no Azure Active Directory, suporte a vários usuários e controle de acesso baseado em função, tornou-se cada vez mais importante. 
 
-Você pode criar um cluster do HDInsight com o ESP (Enterprise Security Package) que é ingressado em um domínio do Active Directory. Em seguida, você poderá configurar uma lista de funcionários da empresa que podem autenticar através do Azure Active Directory para fazer logon no cluster HDInsight. Ninguém de fora da empresa pode fazer logon ou acessar o cluster do HDInsight. 
+Você pode criar um cluster do HDInsight com o ESP (Enterprise Security Package) que é ingressado em um domínio do Active Directory. Em seguida, você pode configurar uma lista de funcionários da empresa que podem se autenticar através do Active Directory do Azure para entrar no cluster HDInsight. Ninguém de fora da empresa podem entrar ou acessar o cluster HDInsight. 
 
 O administrador corporativo pode configurar o RBAC (controle de acesso baseado em função) para segurança do Apache Hive, usando o [Apache Ranger](https://hortonworks.com/apache/ranger/). Configurar RBAC restringe o acesso a dados somente para o que é necessário. Finalmente, o administrador pode auditar o acesso aos dados pelos funcionários e quaisquer alterações feitas para acessar as políticas de controle. O administrador pode, então, alcançar um alto grau de governança dos recursos corporativos.
 
@@ -36,10 +36,10 @@ A segurança de perímetro no HDInsight é obtida por meio de redes virtuais e d
 
 Outra camada de segurança de perímetro é obtida através do serviço de Gateway de VPN. O gateway atua como primeira linha de defesa para qualquer solicitação recebida no cluster HDInsight. Ele aceita a solicitação, valida-a e somente então permitirá que a solicitação passe para os outros nós no cluster. Dessa maneira, o gateway fornece segurança de perímetro para outros nós de nome e dados no cluster.
 
-## <a name="authentication"></a>Autenticação
+## <a name="authentication"></a>Authentication
 Um admin corporativo pode criar um cluster do HDInsight com ESP em uma [rede virtual](https://azure.microsoft.com/services/virtual-network/). Todos os nós do cluster HDInsight são ingressados no domínio que a empresa gerencia. Isso é obtido por meio do uso do [Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md). 
 
-Com essa configuração, funcionários da empresa podem fazer logon nos nós de cluster, usando as credenciais de domínio. Além disso, podem usar suas credenciais de domínio para autenticação com outros pontos de extremidade aprovados como Apache Ambari Views, ODBC, JDBC, PowerShell e API REST para interagir com o cluster. O administrador tem controle total sobre a limitação do número de usuários que interagem com o cluster por meio desses pontos de extremidade.
+Com essa configuração, funcionários da empresa podem entrar para os nós de cluster usando suas credenciais de domínio. Além disso, podem usar suas credenciais de domínio para autenticação com outros pontos de extremidade aprovados como Apache Ambari Views, ODBC, JDBC, PowerShell e API REST para interagir com o cluster. O administrador tem controle total sobre a limitação do número de usuários que interagem com o cluster por meio desses pontos de extremidade.
 
 ## <a name="authorization"></a>Autorização
 Uma melhor prática que a maioria das empresas segue é garantir que nem todos os funcionários tenham acesso a todos os recursos da empresa. Da mesma forma, o administrador pode definir políticas de controle de acesso baseadas em função para os recursos do cluster. 

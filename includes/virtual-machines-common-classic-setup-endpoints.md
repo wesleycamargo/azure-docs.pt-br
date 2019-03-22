@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/23/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: e7dfd7d2a0363a95acb76a5dc214dbd4036de11d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
-ms.translationtype: HT
+ms.openlocfilehash: ee5faedd4f59aa791424a1f178f0462922f21d28
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50973669"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58115891"
 ---
 Cada ponto de extremidade tem uma *porta pública* e uma *porta privada*:
 
@@ -76,7 +76,7 @@ Se a máquina virtual estiver em uma rede virtual do Azure, use grupos de segura
 
 4. Use linhas na lista para adicionar, excluir ou editar regras de uma ACL e alterar sua ordem. O valor de **SUB-REDE REMOTA** é um intervalo de endereços IP para o tráfego de entrada da internet que o balanceador de carga do Azure usa a fim de permitir ou negar o tráfego com base no endereço IP de origem. Especifique o intervalo de endereços IP no formato CIDR (Roteamento entre Domínios sem Classificação), também conhecido como formato de prefixo de endereço. Por exemplo, `10.1.0.0/8`.
 
- ![Nova entrada ACL](./media/virtual-machines-common-classic-setup-endpoints/newaclentry.png)
+   ![Nova entrada ACL](./media/virtual-machines-common-classic-setup-endpoints/newaclentry.png)
 
 
 Você pode usar regras para permitir somente o tráfego de computadores específicos correspondentes aos seus computadores na internet ou negar o tráfego de intervalos de endereços específicos e conhecidos.

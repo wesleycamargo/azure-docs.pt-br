@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: juliako
-ms.openlocfilehash: c4be56b3ee32a5177c66353ba45c6b3647c732f2
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: c446a71a363a9a81eeb7d0dddcdbd90ccee08b7d
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240075"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189352"
 ---
 # <a name="live-events-and-live-outputs"></a>Eventos ao Vivo e Saídas Dinâmicas
 
@@ -32,7 +32,7 @@ O Azure Media Services permite entregar eventos ao vivo para seus clientes na nu
 * [URL de visualização do evento ao vivo](#live-event-preview-url)
 * [Saídas ao vivo](#live-outputs).
 
-## <a name="live-events"></a>Eventos ao vivo
+## <a name="live-events"></a>Eventos ao Vivo
 
 [Eventos ao Vivo](https://docs.microsoft.com/rest/api/media/liveevents) são responsáveis pela ingestão e pelo processamento dos feeds de vídeo ao vivo. Quando você cria um Evento ao vivo, é criado um ponto de extremidade de entrada que pode ser usado para enviar um sinal ao vivo de um codificador remoto. O codificador dinâmico remoto envia o feed de contribuição para esse terminal de entrada usando o protocolo [RTMP](https://www.adobe.com/devnet/rtmp.html) ou [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (fragmented-MP4). Para o protocolo de ingestão Smooth Streaming, os esquemas de URL compatíveis são `http://` ou `https://`. Para o protocolo de ingestão RTMP, os esquemas de URL com suporte são `rtmp://` ou `rtmps://`. 
 
@@ -150,5 +150,4 @@ Para saber mais, confira [Usar o DVR na nuvem](live-event-cloud-dvr.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Eventos ao vivo de streaming](live-streaming-overview.md)
-- [Tutorial de live streaming](stream-live-tutorial-with-api.md)
+[Tutorial de live streaming](stream-live-tutorial-with-api.md)

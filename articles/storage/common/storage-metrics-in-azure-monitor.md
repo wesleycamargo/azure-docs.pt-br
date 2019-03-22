@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: aabd0ab55c061c9d2cdc27b4ab5a241ad9e9793c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: a5ebd50b3a5fe3b611bae28db98979eee40f9490
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811760"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899019"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Métricas do Armazenamento do Azure no Azure Monitor
 
@@ -23,7 +23,7 @@ O Azure Monitor fornece interfaces de usuário unificadas para monitoramento em 
 
 ## <a name="access-metrics"></a>Métricas de acesso
 
-O Azure Monitor fornece várias maneiras de acessar as métricas. Você pode acessá-los da [portal do Azure](https://portal.azure.com), as APIs do Azure Monitor (REST e .Net) e soluções de análise como Hubs de Eventos. Para saber mais, consulte [Métricas do Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+O Azure Monitor fornece várias maneiras de acessar as métricas. Você pode acessá-los da [portal do Azure](https://portal.azure.com), as APIs do Azure Monitor (REST e .NET) e soluções de análise como Hubs de eventos. Para saber mais, consulte [Métricas do Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
 As métricas são ativadas por padrão e você pode acessar os últimos 93 dias de dados. Se você precisar manter os dados por um período de tempo maior, você pode arquivar os dados de métrica em uma conta de Armazenamento do Azure. Isso pode ser configurado em [configurações de diagnóstico](../../azure-monitor/platform/diagnostic-logs-overview.md) no Azure Monitor.
 
@@ -134,13 +134,13 @@ A resposta a seguir contém os valores da métrica no formato JSON:
 
 ```
 
-### <a name="access-metrics-with-the-net-sdk"></a>Acessar métricas com o SDK do .Net
+### <a name="access-metrics-with-the-net-sdk"></a>Acessar métricas com o SDK do .NET
 
-O Azure Monitor fornece [SDK do .Net](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) para ler valores e definição de métricas. O [código de exemplo](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) mostra como usar o SDK com parâmetros diferentes. Você precisa usar `0.18.0-preview` ou versão posterior para métricas de armazenamento. A ID do recurso é usada no SDK do .Net. Para obter mais informações, leia Noções básicas sobre a ID de recurso para serviços no Armazenamento.
+O Azure Monitor fornece [SDK do .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) para ler valores e definição de métrica. O [código de exemplo](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) mostra como usar o SDK com parâmetros diferentes. Você precisa usar `0.18.0-preview` ou versão posterior para métricas de armazenamento. ID do recurso é usada no SDK do .NET. Para obter mais informações, leia Noções básicas sobre a ID de recurso para serviços no Armazenamento.
 
-O exemplo a seguir mostra como usar o SDK do .Net do Azure Monitor para ler a métrica de armazenamento.
+O exemplo a seguir mostra como usar o SDK do .NET do Azure Monitor para ler as métricas de armazenamento.
 
-#### <a name="list-account-level-metric-definition-with-the-net-sdk"></a>Listar a definição de métrica no nível conta com o SDK do .Net
+#### <a name="list-account-level-metric-definition-with-the-net-sdk"></a>Listar a definição de métrica nível conta com o SDK do .NET
 
 O exemplo a seguir mostra como listar a definição de métrica no nível da conta:
 
@@ -177,7 +177,7 @@ O exemplo a seguir mostra como listar a definição de métrica no nível da con
 
 Se você deseja listar as definições de métrica para o blob, tabela, arquivo ou fila, você deve especificar IDs de recurso diferentes para cada serviço com a API.
 
-#### <a name="read-metric-values-with-the-net-sdk"></a>Ler os valores de métrica com o SDK do .Net
+#### <a name="read-metric-values-with-the-net-sdk"></a>Ler valores de métrica com o SDK do .NET
 
 O exemplo a seguir mostra como ler os dados `UsedCapacity` no nível da conta:
 
@@ -227,7 +227,7 @@ O exemplo a seguir mostra como ler os dados `UsedCapacity` no nível da conta:
 
 No exemplo acima, se você deseja ler os valores de métrica para o blob, tabela, arquivo ou fila, você deve especificar IDs de recurso diferentes para cada serviço com a API.
 
-#### <a name="read-multi-dimensional-metric-values-with-the-net-sdk"></a>Ler os valores da métrica multidimensionais com o SDK do .Net
+#### <a name="read-multi-dimensional-metric-values-with-the-net-sdk"></a>Ler os valores de métrica multidimensionais com o SDK do .NET
 
 Para métricas multidimensionais, você precisa definir o filtro de metadados se você quiser ler dados da métrica no valor de dimensão específica.
 

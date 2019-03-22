@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 12/19/2018
 ms.author: wesmc
-ms.openlocfilehash: 2f480fd4d5d7d6261776660f1a7eab587320c849
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: e35e669c4abc4815b932e09d369af28e42617e8c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052495"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535661"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Como conectar o IoT DevKit AZ3166 ao Hub IoT do Azure
 
@@ -88,10 +88,10 @@ Quando a conexão for bem-sucedida, o DevKit reiniciará em alguns segundos. Voc
 
 ![Nome do Wi-Fi e endereço IP](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/wifi-ip.jpg)
 
-> [!NOTE] 
-> O endereço IP exibido na foto pode não corresponder ao endereço IP real atribuído e exibido na tela do Kit de Desenvolvimento. Isso é normal, já que o Wi-Fi usa o DHCP para atribuir IPs dinamicamente.
+> [!NOTE]
+> Você precisará de uma rede de 2,4 GHz para trabalhar de DevKit de IoT. O módulo de Wi-Fi em IoT DevKit não é compatível com a rede de 5GHz. Confira as [Perguntas frequentes](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#wi-fi-configuration) para obter mais detalhes.
 
-Após a configuração do Wi-Fi, suas credenciais persistirão no dispositivo para essa conexão, mesmo que o dispositivo esteja desconectado. Por exemplo, se você configurar o Kit de Desenvolvimento para o Wi-Fi em casa e, em seguida, levar o Kit de Desenvolvimento para o escritório, será necessário reconfigurar o modo AP (começando na etapa na seção "Entrar no modo AP") para conectar o Kit de Desenvolvimento ao Wi-Fi do seu escritório. 
+Após a configuração do Wi-Fi, suas credenciais persistirão no dispositivo para essa conexão, mesmo que o dispositivo esteja desconectado. Por exemplo, se você configurar o Kit de Desenvolvimento para o Wi-Fi em casa e, em seguida, levar o Kit de Desenvolvimento para o escritório, será necessário reconfigurar o modo AP (começando na etapa na seção "Entrar no modo AP") para conectar o Kit de Desenvolvimento ao Wi-Fi do seu escritório.
 
 ## <a name="start-using-the-devkit"></a>Começar a usar o Kit de Desenvolvimento
 
@@ -175,9 +175,9 @@ Siga estas etapas para preparar o ambiente de desenvolvimento do kit de desenvol
 
 ### <a name="install-st-link-drivers"></a>Instalar drivers do ST-Link
 
-[ST-Link/V2](http://www.st.com/en/development-tools/st-link-v2.html) é a interface USB que o kit de desenvolvimento de IoT usa para comunicar-se com seu computador de desenvolvimento. Siga as etapas específicas do sistema operacional para permitir o acesso do computador ao dispositivo.
+[ST-Link/V2](https://www.st.com/en/development-tools/st-link-v2.html) é a interface USB que o kit de desenvolvimento de IoT usa para comunicar-se com seu computador de desenvolvimento. Você precisará instalá-lo no Windows para habilitar o flash o código compilado deivce para o Kit de desenvolvimento. Siga as etapas específicas do sistema operacional para permitir o acesso do computador ao dispositivo.
 
-* **Windows**: baixe e instale o driver USB do [site STMicroelectronics](http://www.st.com/en/development-tools/stsw-link009.html).
+* **Windows**: baixe e instale o driver USB do [site STMicroelectronics](https://www.st.com/en/development-tools/stsw-link009.html).
 * **macOS**: não é necessário nenhum driver para o macOS.
 * **Ubuntu**: Execute o seguinte no terminal e faça logoff e logon para que a alteração do grupo entre em vigor:
     ```bash

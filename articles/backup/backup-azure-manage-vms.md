@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: sogup
-ms.openlocfilehash: 01c3e8072db81620764ccdd3ea99258de4649807
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: aa953440f03137f3359276bc9e06cb0c73f0ab4a
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57858933"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295769"
 ---
 # <a name="manage-azure-vm-backups"></a>Gerenciar backups de VM do Azure
 
@@ -85,7 +85,7 @@ Você pode executar um backup sob demanda de uma VM depois de configurar sua pro
 
 Para disparar um backup sob demanda:
 
-1. Sobre o [painel do item do cofre](#view-vms-in-the-dashboard), em **Item protegido**, selecione **Item de Backup**.
+1. Sobre o [painel do item do cofre](#view-vms-on-the-dashboard), em **Item protegido**, selecione **Item de Backup**.
 
     ![A opção de Backup agora](./media/backup-azure-manage-vms/backup-now-button.png)
 
@@ -112,7 +112,7 @@ Há duas maneiras de interromper a proteção de uma VM:
 
 Para interromper a proteção para uma VM:
 
-1. Sobre o [painel do item do cofre](#view-vms-in-the-dashboard), selecione **parar backup**.
+1. Sobre o [painel do item do cofre](#view-vms-on-the-dashboard), selecione **parar backup**.
 2. Escolha se deseja reter ou excluir os dados de backup e confirme sua seleção, conforme necessário. Se desejar, adicione um comentário. Se você não tiver certeza do nome do item, passe o mouse sobre o ponto de exclamação para exibir o nome.
 
     ![Parar a proteção](./media/backup-azure-manage-vms/retain-or-delete-option.png)
@@ -125,9 +125,9 @@ Se você mantiver os dados de backup quando você interromper a VM, você pode r
 
 Para retomar a proteção para uma VM:
 
-1. Sobre o [painel do item do cofre](#view-vms-in-the-dashboard), selecione **retomar backup**.
+1. Sobre o [painel do item do cofre](#view-vms-on-the-dashboard), selecione **retomar backup**.
 
-2. Siga as etapas em [gerenciar políticas de backup](#manage-backup-policies) para atribuir a política para a VM. Você não precisa escolher a política de proteção inicial da VM.
+2. Siga as etapas em [gerenciar políticas de backup](#manage-backup-policy-for-a-vm) para atribuir a política para a VM. Você não precisa escolher a política de proteção inicial da VM.
 3. Depois de aplicar a política de backup na VM, você verá a seguinte mensagem:
 
     ![Mensagem indicando que uma VM protegida com êxito](./media/backup-azure-manage-vms/success-message.png)
@@ -142,7 +142,7 @@ Você pode excluir dados de backup da VM durante o **parar backup** trabalho ou 
 Depois que você pare ou desabilite o trabalho de backup da VM, você pode excluir os dados de backup:
 
 
-1. Sobre o [painel do item do cofre](#view-vms-in-the-dashboard), selecione **excluir dados de backup**.
+1. Sobre o [painel do item do cofre](#view-vms-on-the-dashboard), selecione **excluir dados de backup**.
 
     ![Selecione Excluir backup](./media/backup-azure-manage-vms/delete-backup-buttom.png)
 

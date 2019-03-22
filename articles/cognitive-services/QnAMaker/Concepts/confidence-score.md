@@ -4,19 +4,19 @@ titleSuffix: Azure
 description: Essa pontuação de confiança indica que a resposta é a correspondência ideal da consulta do usuário.
 services: cognitive-services
 author: tulasim88
-manager: pchoudh
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/13/2019
+ms.date: 02/21/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 757ef07c1268cbf159ce98dfb8ba1980616e4a3a
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: bf254d661f7819114d34631359aaecb97e9d0e0d
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245126"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57403729"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Pontuação de confiança de uma base de dados de conhecimento do QnA Maker
 Quando uma consulta de usuário é comparada com uma base de conhecimento, o QnA Maker retorna respostas relevantes, juntamente com uma pontuação de confiança. Essa pontuação indica a confiança de que a resposta é a correspondência ideal da consulta do usuário. 
@@ -72,9 +72,9 @@ Se você tiver uma base de conhecimento em regiões diferentes, cada região usa
 
 
 ## <a name="no-match-found"></a>Nenhuma correspondência encontrada
-Quando nenhuma boa correspondência for encontrada pelo classificador, a pontuação de confiança 0,0 ou "Nenhuma" é retornada e a resposta padrão é "Nenhuma correspondência boa encontrada na KB". Você pode substituir essa resposta padrão no código do aplicativo ou do bot chamando o ponto de extremidade. Como alternativa, você também pode definir a resposta de substituição no Azure, e isso altera o padrão para todas as bases de dados de conhecimento implantadas em um determinado serviço QnA Maker.
+Quando nenhuma boa correspondência for encontrada pelo classificador, a pontuação de confiança 0,0 ou "Nenhuma" é retornada e a resposta padrão é "Nenhuma correspondência boa encontrada na KB". Você pode substituir isso [resposta padrão](#change-default-answer) no código do bot ou aplicativo chamar o ponto de extremidade. Como alternativa, você também pode definir a resposta de substituição no Azure, e isso altera o padrão para todas as bases de dados de conhecimento implantadas em um determinado serviço QnA Maker.
 
-### <a name="change-default-answer"></a>Alterar a resposta padrão
+## <a name="change-default-answer"></a>Alterar a resposta padrão
 
 1. Vá para o [portal do Azure](https://portal.azure.com) e navegue até o grupo de recursos que representa o serviço QnA Maker que você criou.
 
@@ -94,5 +94,4 @@ Quando nenhuma boa correspondência for encontrada pelo classificador, a pontua�
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]
 > [Fontes de dados com suporte](./data-sources-supported.md)
-## <a name="see-also"></a>Consulte também 
-[Visão geral do QnA Maker](../Overview/overview.md)
+

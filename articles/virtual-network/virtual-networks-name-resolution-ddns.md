@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2017
 ms.author: subsarma
-ms.openlocfilehash: bbbce45b7c321fd4934374c76f2a4421b125d46f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: c2ef842fd62ef060f06536d66387c3facd0627b5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31600947"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994698"
 ---
 # <a name="use-dynamic-dns-to-register-hostnames-in-your-own-dns-server"></a>Usar o DNS dinâmico para registrar os nomes do host em seu próprio servidor DNS
 
@@ -63,7 +63,7 @@ fi
 
 Você também pode usar o comando `nsupdate` para executar atualizações de DDNS seguras. Por exemplo, quando você estiver usando um servidor DNS de associação, um par de chaves públicas-privadas será [gerado](http://linux.yyz.us/nsupdate/). O servidor DNS é [configurado](http://linux.yyz.us/dns/ddns-server.html) com a parte pública da chave para que ele possa verificar a assinatura da solicitação. Para fornecer o par de chaves para `nsupdate`, use a opção `-k` para a solicitação de atualização de DDNS ser assinada.
 
-Quando estiver usando um servidor DNS do Windows, você poderá usar a autenticação Kerberos com o parâmetro `-g` em `nsupdate`, mas não está disponível na versão do Windows de `nsupdate`. Para usar o Kerberos, use `kinit` para carregar as credenciais. Por exemplo, você pode carregar as credenciais de um [arquivo keytab](http://www.itadmintools.com/2011/07/creating-kerberos-keytab-files.html)), em seguida, `nsupdate -g` coleta as credenciais, do cache.
+Quando estiver usando um servidor DNS do Windows, você poderá usar a autenticação Kerberos com o parâmetro `-g` em `nsupdate`, mas não está disponível na versão do Windows de `nsupdate`. Para usar o Kerberos, use `kinit` para carregar as credenciais. Por exemplo, você pode carregar as credenciais de um [arquivo keytab](https://www.itadmintools.com/2011/07/creating-kerberos-keytab-files.html)), em seguida, `nsupdate -g` coleta as credenciais, do cache.
 
 Se necessário, você pode adicionar um sufixo de pesquisa DNS em suas VMs. O sufixo DNS é especificado no arquivo */etc/resolv.conf* . A maioria das distribuições de Linux gerencia automaticamente o conteúdo desse arquivo, então, normalmente você não pode editá-lo. No entanto, você pode substituir o sufixo usando o comando `supersede` do cliente DHCP. Para substituir o sufixo, adicione a linha a seguir ao arquivo */etc/dhcp/dhclient.conf*:
 

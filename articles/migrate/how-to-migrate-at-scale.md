@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 02/07/2019
 ms.author: snehaa
-ms.openlocfilehash: c0fc4fa0bdd58b8ecdf4f26051d60324118c4b21
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 74dabc49dd3d0e38f43dc758204c35ea1c0efd99
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55896515"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438467"
 ---
 # <a name="scale-migration-of-vms-using-azure-site-recovery"></a>Migração de dimensionamento de VMs usando o Azure Site Recovery
 
@@ -30,8 +30,8 @@ Antes de começar, você precisa realizar as seguintes etapas:
 - Certifique-se de que o cofre do Site Recovery foi criado na sua assinatura do Azure
 - Certifique-se de que o Servidor de Configuração e o Servidor de Processo foram instalados no ambiente de origem e o cofre é capaz de descobrir o ambiente
 - Certifique-se de que uma Política de Replicação foi criada e associada com o Servidor de Configuração
-- Certifique-se de que você adicionou a conta de administrador da VM no servidor de configuração (que será usado para replicar as VMs no local)
-- Certifique-se de que foram criados os artefatos de destino no Azure
+- Certifique-se de que você adicionou a conta de administrador VM para o servidor de configuração (que será usado para replicar as VMs locais)
+- Certifique-se de que os artefatos de destino no Azure são criados
     - Grupo de recursos de destino
     - Conta de armazenamento de destino (e seu grupo de recursos)
     - Rede virtual de destino para failover (e seu grupo de recursos)
@@ -59,7 +59,7 @@ Quando o CSV estiver pronto, você poderá executar as etapas abaixo para realiz
 4 | asr_propertiescheck.ps1 | Verificar se as propriedades são atualizadas adequadamente
 5 | asr_testmigration.ps1 |  Iniciar o teste de failover das VMs listadas no csv, o script cria uma saída CSV com os detalhes do trabalho para cada VM
 6 | asr_cleanuptestmigration.ps1 | Depois de validar manualmente as VMs que falharam o teste de failover, você pode usar esse script para limpar as VMs do teste de failover
-7 | asr_migration.ps1 | Realizar um failover não planejado para as VMs listadas no csv, o script cria uma saída CSV com os detalhes do trabalho para cada VM. O script não encerra as VMs no local antes de disparar o failover, para fins de consistência do aplicativo, é recomendável que você desligue manualmente as VMs antes de executar o script.
+7 | asr_migration.ps1 | Realizar um failover não planejado para as VMs listadas no csv, o script cria uma saída CSV com os detalhes do trabalho para cada VM. O script não encerra as VMs locais antes de disparar o failover, para fins de consistência do aplicativo, é recomendável que você manualmente desligar as VMs antes de executar o script.
 8 | asr_completemigration.ps1 | Executar a operação de confirmação nas VMs e excluir as entidades de ASR
 9 | asr_postmigration.ps1 | Se você planeja atribuir grupos de segurança de rede aos NICs após o failover, você pode usar esse script para fazer isso. Ele atribui um NSG a qualquer NIC na VM de destino.
 

@@ -6,22 +6,22 @@ ms.service: automation
 ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/19/2019
+ms.date: 03/05/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 07fd8c41e7817e232513ed9a260c3722a1fdac11
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 74b099c648fa4dd1c735cc76c82efbc102d9843c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429257"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443038"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar alterações no ambiente com a solução Controle de Alterações
 
 Este artigo ajuda você a usar a solução de Controle de Alterações para identificar facilmente as alterações em seu ambiente. A solução controla as alterações no software Windows e Linux, nos arquivos Windows e chaves do Registro, nos serviços Windows e daemons do Linux. Identificar as alterações de configuração pode ajudá-lo a detectar problemas operacionais.
 
-Alterações no software instalado, nos serviços Windows, nos arquivos e registros do Windows e daemons do Linux nos servidores monitorados são enviadas ao serviço do Log Analytics na nuvem para processamento. A lógica é aplicada aos dados recebidos e o serviço de nuvem registra os dados. Usando as informações no painel Controle de Alterações, você pode ver facilmente as alterações feitas à sua infraestrutura de servidor.
+As alterações ao software instalado, serviços do Windows, do registro do Windows e arquivos e daemons do Linux nos servidores monitorados são enviadas para o serviço do Azure Monitor na nuvem para processamento. A lógica é aplicada aos dados recebidos e o serviço de nuvem registra os dados. Usando as informações no painel Controle de Alterações, você pode ver facilmente as alterações feitas à sua infraestrutura de servidor.
 
 ## <a name="supported-windows-operating-systems"></a>Sistemas operacionais Windows compatíveis
 
@@ -155,6 +155,7 @@ Outras limitações:
 Atualmente, a solução Controle de Alterações está enfrentando os seguintes problemas:
 
 * Atualizações de hotfix não são coletadas em computadores Windows Server 2016 Core RS3.
+* Daemons do Linux pode mostrar um estado alterado, mesmo que não houve nenhuma alteração. Isso ocorre devido a como o `SvcRunLevels` campo é capturado.
 
 ## <a name="change-tracking-data-collection-details"></a>Detalhes de coleta de dados do Controle de Alterações
 
@@ -261,7 +262,7 @@ Ao clicar em uma alteração ou evento, as informações detalhadas sobre essa a
 
 ## <a name="search-logs"></a>Pesquisar logs
 
-Além dos detalhes fornecidos no portal, é possível fazer as pesquisas nos logs. Com a página **Controle de Alterações** aberta, clique em **Log Analytics**, isso abrirá a página **Pesquisa de Logs**.
+Além dos detalhes fornecidos no portal, é possível fazer as pesquisas nos logs. Com o **Change Tracking** página aberta, clique em **Log Analytics**, esse procedimento abre a **Logs** página.
 
 ### <a name="sample-queries"></a>Consultas de exemplo
 
@@ -314,5 +315,5 @@ Visite o tutorial sobre Controle de Alterações para saber mais sobre o uso da 
 > [!div class="nextstepaction"]
 > [Solucionar problemas de alterações em seu ambiente](automation-tutorial-troubleshoot-changes.md)
 
-* Use [Pesquisas de log no Log Analytics](../log-analytics/log-analytics-log-searches.md) para exibir dados detalhados do controle de alterações.
+* Use [pesquisas de Log nos logs do Azure Monitor](../log-analytics/log-analytics-log-searches.md) para exibir dados de rastreamento de alterações detalhado.
 

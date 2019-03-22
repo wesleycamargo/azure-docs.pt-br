@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9fc6b9ad5227bc5bffd1f44f664351843896aec
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e8017049218bed5a1b1bd86b68dc4342b4044723
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181602"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109773"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Definir uma home page personalizada para aplicativos publicados usando o Proxy de Aplicativo Azure AD
 
@@ -30,10 +30,10 @@ Este artigo descreve como configurar aplicativos para direcionar os usuários pa
 Quando os usuários iniciam o aplicativo, são direcionados por padrão para a URL de domínio raiz do aplicativo publicado. A página de aterrissagem é normalmente definida como a URL da home page. Use o módulo do PowerShell do Azure AD para definir URLs de página inicial personalizada quando desejar que os usuários do aplicativo acessem uma página específica no aplicativo. 
 
 Aqui está um exemplo de por que uma empresa definiria uma página inicial personalizada:
-- Dentro da rede corporativa, os usuários acessam *https://ExpenseApp/login/login.aspx* para se conectar e acessar seu aplicativo.
-- Como você tem outros ativos como imagens que o Proxy do aplicativo precisa acessar no nível superior da estrutura de pasta, você publica o aplicativo com *https://ExpenseApp* como a URL interna.
-- A URL externa padrão é *https://ExpenseApp-contoso.msappproxy.net*, que não leva os usuários até a página de entrada.  
-- Defina *https://ExpenseApp-contoso.msappproxy.net/login/login.aspx* como a URL da página inicial. 
+- Dentro da rede corporativa, os usuários acessam para `https://ExpenseApp/login/login.aspx` para entrar e acessar seu aplicativo.
+- Como você tem outros ativos como imagens que o Proxy de aplicativo precisa acessar no nível superior da estrutura de pasta, você publica o aplicativo com `https://ExpenseApp` como a URL interna.
+- A URL externa padrão é `https://ExpenseApp-contoso.msappproxy.net`, que não leva os usuários para a página de entrada.  
+- Definir `https://ExpenseApp-contoso.msappproxy.net/login/login.aspx` como a URL da home page. 
 
 >[!NOTE]
 >Quando você conceder aos usuários acesso a aplicativos publicados, os aplicativos são exibidos no [painel de acesso do Azure AD](../user-help/active-directory-saas-access-panel-introduction.md) e [lançador de aplicativo do Office 365](https://blogs.office.com/2016/09/27/introducing-the-new-office-365-app-launcher).
@@ -113,7 +113,7 @@ Crie a URL da página inicial e atualize seu aplicativo com esse valor. Continue
     Get-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4.
     ```
 
- Agora que você confirmou o aplicativo, está pronto para atualizar a home page da seguinte maneira.
+   Agora que você confirmou o aplicativo, está pronto para atualizar a home page da seguinte maneira.
 
 2. Crie um objeto de aplicativo em branco para armazenar as alterações que você deseja fazer. Essa variável contém os valores que você deseja atualizar. Nada é criado nesta etapa.
 

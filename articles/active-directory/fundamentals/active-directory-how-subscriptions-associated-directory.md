@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 262f46b3d0b61923352f3ff98b08cb5e4f6d5e75
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f8c5cb04c17e508409e67f0441daee4bc44c29d5
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993908"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58284999"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associar ou adicionar uma assinatura do Azure ao seu locatário do Azure Active Directory
 
@@ -62,11 +62,10 @@ Antes de associar ou adicionar sua assinatura, você deve executar as seguintes 
 
     O diretório é alterado para a assinatura e você recebe uma mensagem de sucesso.
 
-    ![Mensagem de êxito](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)    
+    ![Mensagem de sucesso sobre alteração de diretório](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)    
+4. Use o **seletor de diretório** para ir para seu novo diretório. Pode levar até 10 minutos para que tudo seja mostrado corretamente.
 
-4. Use o alternador de diretórios para ir para o novo diretório. Pode levar até 10 minutos para que tudo seja mostrado corretamente.
-
-    ![Página do alternador de diretórios](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
+    ![Página do seletor de diretório, com informações de exemplo](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 
 A alteração do diretório de assinatura é uma operação no nível do serviço, portanto, não afeta a propriedade do faturamento da assinatura. O administrador da conta ainda pode alterar o administrador do serviço do [Centro de contas](https://account.azure.com/subscriptions). Para excluir o diretório original, você deve transferir a propriedade de faturamento da assinatura para um novo Administrador de conta. Para saber mais sobre como transferir a propriedade da conta, confira [Transferir a propriedade de uma assinatura do Azure para outra conta](../../billing/billing-subscription-transfer.md). 
 

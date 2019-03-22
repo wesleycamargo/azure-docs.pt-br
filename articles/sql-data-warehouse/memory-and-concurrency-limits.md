@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 10/04/2018
+ms.date: 03/15/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 802408f6ccd0a1cc0ed4f4d87d54a11760cd70fe
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 141112b8b6b44706a750d8a97780e018d96a5006
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473435"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890774"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Memória e limites simultâneos para SQL Data Warehouse do Azure
 Exiba os limites de memória e simultaneidade alocados para os vários níveis de desempenho e classes de recursos no SQL Data Warehouse do Azure. Para obter mais informações e aplicar esses recursos em seu plano de gerenciamento de carga de trabalho, consulte [Classes de recursos para gerenciamento de carga de trabalho](resource-classes-for-workload-management.md). 
@@ -70,7 +70,7 @@ Os níveis de serviço para o intervalo de Gen1 de DW100 a DW6000.
 | DW6000            | 60            | 1                              | 1440                           |
 
 ## <a name="concurrency-maximums"></a>Limites máximos de simultaneidade
-Para garantir que cada consulta tenha recursos suficientes para executar com eficiência, o SQL Data Warehouse rastreia a utilização de recursos, atribuindo slots de simultaneidade a cada consulta. O sistema coloca consultas em uma fila em que elas aguardam até que os [slots de simultaneidade](resource-classes-for-workload-management.md#concurrency-slots) suficientes estejam disponíveis. Slots de simultaneidade também determinam a priorização de CPU. Para saber mais, confira [Analisar sua carga de trabalho](analyze-your-workload.md)
+Para garantir que cada consulta tenha recursos suficientes para executar com eficiência, o SQL Data Warehouse rastreia a utilização de recursos, atribuindo slots de simultaneidade a cada consulta. O sistema coloca consultas em uma fila com base na importância e slots de simultaneidade. Consultas de espera na fila até que slots de simultaneidade suficientes estejam disponíveis. [Importância](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) e slots de simultaneidade determinam a priorização de CPU. Para saber mais, confira [Analisar sua carga de trabalho](analyze-your-workload.md)
 
 ### <a name="gen2"></a>Gen2
  
@@ -78,7 +78,7 @@ Para garantir que cada consulta tenha recursos suficientes para executar com efi
 
 A tabela a seguir mostra o número máximo de consultas simultâneas e slots de simultaneidade para cada [classe de recurso estático](resource-classes-for-workload-management.md).  
 
-| Nível de Serviço | Máximo de consultas simultâneas | Slots de simultaneidade disponíveis |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
+| Nível de Serviço | Máximo de consultas simultâneas | Slots de simultaneidade disponíveis | Slots usados pelo staticrc10 | Slots usados pelo staticrc20 | Slots usados pelo staticrc30 | Slots usados pelo staticrc40 | Slots usados pelo staticrc50 | Slots usados pelo staticrc60 | Slots usados pelo staticrc70 | Slots usados pelo staticrc80 |
 |:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | DW100c        |  4                         |    4                        | 1         | 2          | 4          | 4          | 4         |  4         |  4         |  4         |
 | DW200c        |  8                         |    8                        | 1         | 2          | 4          | 8          |  8         |  8         |  8         |  8        |
@@ -133,7 +133,7 @@ Classes de recursos estáticos
 
 A tabela a seguir mostra o máximo de consultas simultâneas e slots de simultaneidade para cada [classe de recurso estática ](resource-classes-for-workload-management.md) em**Gen1**.
 
-| Nível de serviço | Máximo de consultas simultâneas | Máximo de slots de simultaneidade |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
+| Nível de serviço | Máximo de consultas simultâneas | Máximo de slots de simultaneidade | Slots usados pelo staticrc10 | Slots usados pelo staticrc20 | Slots usados pelo staticrc30 | Slots usados pelo staticrc40 | Slots usados pelo staticrc50 | Slots usados pelo staticrc60 | Slots usados pelo staticrc70 | Slots usados pelo staticrc80 |
 |:-------------:|:--------------------------:|:-------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | DW100         | 4                          |   4                       | 1         | 2          | 4          | 4          |  4         |  4         |  4         |   4        |
 | DW200         | 8                          |   8                       | 1         | 2          | 4          | 8          |  8         |  8         |  8         |   8        |
@@ -156,7 +156,7 @@ Classes de recursos dinâmicos
 
 A tabela a seguir mostra o máximo de consultas simultâneas e slots de simultaneidade para cada[classe de recurso dinâmico](resource-classes-for-workload-management.md) em**Gen1**.
 
-| Nível de serviço | Máximo de consultas simultâneas | Slots de simultaneidade disponíveis | smallrc | mediumrc | largerc | xlargerc |
+| Nível de serviço | Máximo de consultas simultâneas | Slots de simultaneidade disponíveis | Slots usados pelo smallrc | Slots usados pelo mediumrc | Slots usados pelo largerc | Slots usados pelo xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:-------:|:--------:|:-------:|:--------:|
 | DW100         |  4                         |   4                         | 1       |  1       |  2      |   4      |
 | DW200         |  8                         |   8                         | 1       |  2       |  4      |   8      |

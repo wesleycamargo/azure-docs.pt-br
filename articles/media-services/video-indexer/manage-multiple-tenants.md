@@ -12,12 +12,12 @@ ms.topic: article
 ms.custom: ''
 ms.date: 02/10/2019
 ms.author: ikbarmen
-ms.openlocfilehash: 3b6daa60e8c8945d49170a00da5bd3ffb57b48ac
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: e98cf44db01de1f99836e247066ba01006eac97b
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000107"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733292"
 ---
 # <a name="manage-multiple-tenants"></a>Gerenciar vários locatários
 
@@ -56,7 +56,7 @@ Com essa opção, modelos de personalização (Pessoal, Idioma e Marcas) poderã
 
 Ao [carregar vídeos](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?), você poderá especificar um atributo de partição diferente por locatário. Isso permitirá o isolamento na [API de pesquisa](https://api-portal.videoindexer.ai/docs/services/operations/operations/Search-videos?). Ao especificar o atributo de partição na API de pesquisa, você somente obterá os resultados da partição especificada. 
 
- ### <a name="considerations"></a>Considerações
+### <a name="considerations"></a>Considerações
 
 * Capacidade de compartilhar conteúdo e modelos de personalização entre locatários.
 * Um locatário afeta o desempenho de outros locatários.

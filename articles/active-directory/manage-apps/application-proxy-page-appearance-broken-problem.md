@@ -15,12 +15,12 @@ ms.date: 05/21/2018
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c7a6edab1bc63d8cb1ae6f7de43372304e21ed1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 950a349506f32405261d90c05312d24aa3deadc5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170628"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089940"
 ---
 # <a name="application-page-does-not-display-correctly-for-an-application-proxy-application"></a>Página de aplicativo não exibe corretamente para um aplicativo de Proxy de aplicativo
 
@@ -31,7 +31,7 @@ Quando você publica um aplicativo de Proxy de aplicativo, apenas as páginas em
 
 Você pode verificar se os recursos faltantes são o problema, abrindo o rastreador de rede (como o Fiddler ou ferramentas F12 no Internet Explorer/Microsoft Edge), carregando a página e procurando por erros 404. Isso indica as páginas atualmente não podem ser encontradas e que você precisa publicá-las.
 
-Como um exemplo desse caso, suponha que você tenha publicado um aplicativo de despesas usando a URL interna de http://myapps/expenses, mas o aplicativo usa a folha de estilos http://myapps/style.css. Nesse caso, a folha de estilo não é publicada em seu aplicativo, portanto, carregar o aplicativo de despesas gera um erro 404 ao tentar carregar style.css. Nesse exemplo, o problema é resolvido ao publicar o aplicativo com uma URL interna de http://myapp/.
+Como um exemplo desse caso, suponha que você tenha publicado um aplicativo de despesas usando a URL interna de `http://myapps/expenses`, mas o aplicativo usa a folha de estilos `http://myapps/style.css`. Nesse caso, a folha de estilo não é publicada em seu aplicativo, portanto, carregar o aplicativo de despesas gera um erro 404 ao tentar carregar style.css. Nesse exemplo, o problema é resolvido ao publicar o aplicativo com uma URL interna de `http://myapp/`.
 
 ## <a name="problems-with-publishing-as-one-application"></a>Problemas com a publicação como um aplicativo
 

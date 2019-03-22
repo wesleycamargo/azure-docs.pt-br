@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/21/2019
 ms.author: juliako
-ms.openlocfilehash: d49d056ab84b60389df8bcaf1c75d6224633863d
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: cda029dd11e8cb4cb07e9fce7eef95d6d4d78d7e
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56337844"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960201"
 ---
 # <a name="cloud-upload-and-storage"></a>Upload e armazenamento na nuvem
 
@@ -31,14 +31,14 @@ Você deve ter uma conta de armazenamento **Primária**, e pode ter quantas cont
 
 É recomendável que você use GPv2, para que você possa aproveitar a vantagem de escolher entre camadas de armazenamento frequente e esporádico. Para saber mais sobre as contas de armazenamento, consulte [Visão geral da conta de Armazenamento do Microsoft Azure](../../storage/common/storage-account-overview.md). 
 
+Há diferentes SKUs que você pode escolher para sua conta de armazenamento. Para obter mais informações, confira [Contas de armazenamento](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest). Caso deseje fazer experimentos com contas de armazenamento, use `--sku Standard_LRS`. No entanto, ao escolher um SKU para produção, você deverá considerar `--sku Standard_RAGRS`, que fornece replicação geográfica para a continuidade dos negócios. 
+
 ## <a name="assets-in-a-storage-account"></a>Ativos em uma conta de armazenamento
 
-Nos Serviços de Mídia v3, as APIs de Armazenamento são usadas para carregar arquivos.
+Em serviços de mídia v3, as APIs de armazenamento são usadas para carregar arquivos em ativos. Para obter mais informações, consulte [conceito de ativos](assets-concept.md).
 
 > [!Note]
 > Você não deve tentar alterar o conteúdo de contêineres de blob que foram gerados pelo SDK dos Serviços de Mídia sem o uso de APIs de Serviços de Mídia.
-
-Para saber como usar APIs de Armazenamento com os Serviços de Mídia para carregar os arquivos de entrada, confira [Criar uma entrada de trabalho de um arquivo local](job-input-from-local-file-how-to.md). 
  
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: a5033b9eab637a62c6bea4f95f4e604313125994
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 810f9bb81d367cfe70e59d62d81a9e129cf80e6b
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542040"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225972"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Instalar aplicativos Apache Hadoop de terceiros no Azure HDInsight
 
@@ -24,11 +24,11 @@ Um aplicativo do HDInsight é um aplicativo que os usuários podem instalar em u
 
 A lista a seguir mostra os aplicativos publicados:
 
-|Aplicativo |Tipo de cluster (s) | Descrição |
+|Aplicativo |Tipo de cluster (s) | DESCRIÇÃO |
 |---|---|---|
-|Plataforma de inteligência AtScale |Hadoop |AtScale transforma seu cluster do HDInsight em um servidor OLAP de expansão, permitindo que você consultar bilhões de linhas de dados interativamente usando as ferramentas de BI, você já sabe, o proprietário e adora – do Microsoft Excel, Power BI, Tableau Software para QlikView. |
+|Plataforma de inteligência AtScale |O Hadoop |AtScale transforma seu cluster do HDInsight em um servidor OLAP de expansão, permitindo que você consultar bilhões de linhas de dados interativamente usando as ferramentas de BI, você já sabe, o proprietário e adora – do Microsoft Excel, Power BI, Tableau Software para QlikView. |
 |CDAP 4.2, 4.3 para HDInsight |HBase |A CDAP é a primeira plataforma de integração unificada para big data que acelera a implantação para o Hadoop e permite que a TI fornecer dados de autoatendimento. Código-fonte aberto e extensível, a CDAP remove as barreiras à inovação. Requisitos: 4 nós região, min D3 v2. |
-|Datameer |Hadoop |Autoatendimento plataforma escalonável do Datameer de preparação, exploração e que regem seus dados para análise aceleram transformar dados de várias origens complexos em informações valiosas de pronto para os negócios, fornecendo insights mais rápidas e inteligentes em uma escala empresarial. |
+|Datameer |O Hadoop |Autoatendimento plataforma escalonável do Datameer de preparação, exploração e que regem seus dados para análise aceleram transformar dados de várias origens complexos em informações valiosas de pronto para os negócios, fornecendo insights mais rápidas e inteligentes em uma escala empresarial. |
 |DSS do Dataiku no HDInsight |Hadoop, Spark |O DSS do Dataiku em uma plataforma de ciência de dados da empresa que permite aos cientistas de dados e analistas de dados colaborar para criar e executar serviços e novos produtos de dados com mais eficiência, transformar dados brutos em previsões de impacto. |
 |Aplicativo WANdisco Fusion HDI - 2.12.3, 2.12.1, 2.11.2 |Hadoop, Spark,HBase,Storm,Kafka |Mantendo os dados consistentes em um ambiente distribuído é um desafio de operações de dados em massa. O WANdisco Fusion, uma plataforma de software corporativo, resolve esse problema, permitindo que a consistência de dados não estruturados em qualquer ambiente. |
 |H2O SparklingWater para HDInsight |Spark |H2O Sparkling Water dá suporte aos seguintes algoritmos distribuídos: GLM, Naïve Bayes, Distributed Random Forest, máquina de aumento de gradiente, redes neurais profundas, de aprendizado profundo, K-means, o PCA, modelos de classificação baixa generalizada, detecção de anomalias, Autoencoders. |
@@ -36,7 +36,7 @@ A lista a seguir mostra os aplicativos publicados:
 |Jumbune para HDInsight |Hadoop, Spark |Em um alto nível, Jumbune auxilia as empresas em 1. Acelerando o Tez, o mecanismo MapReduce e o Spark com base em Hive, Java, Scala desempenho de carga de trabalho. 2. Cluster de Hadoop proativo de monitoramento, 3. Estabelecendo o gerenciamento de qualidade de dados no sistema de arquivos distribuído. |
 |Kyligence Enterprise |Hadoop,HBase,Spark |Kyligence Enterprise alimentado por tecnologia Apache Kylin, permite que o BI sobre Big Data. Como um mecanismo OLAP do enterprise no Hadoop, Kyligence Enterprise capacita o analista de negócios arquitetar BI no Hadoop com o depósito de dados padrão do setor e a metodologia de BI. |
 |Spark Job Server for KNIME Spark Executor |Spark |Spark Job Server for KNIME Spark Executor é usado para conectar-se a plataforma de análise KNIME aos clusters do HDInsight. |
-|Estrela Presto no Azure HDInsight, Presto estrela (v0.213-e) |Hadoop |Presto é um rápido e escalonável distribuído mecanismo de consulta SQL. Arquitetado para a separação de armazenamento e computação, o Presto é perfeito para consultar dados no Azure Data Lake Storage, no Armazenamento de Blobs do Azure, em bancos de dados SQL e NoSQL e em outras fontes de dados. |
+|Estrela Presto no Azure HDInsight, Presto estrela (v0.213-e) |O Hadoop |Presto é um rápido e escalonável distribuído mecanismo de consulta SQL. Arquitetado para a separação de armazenamento e computação, o Presto é perfeito para consultar dados no Azure Data Lake Storage, no Armazenamento de Blobs do Azure, em bancos de dados SQL e NoSQL e em outras fontes de dados. |
 |Coletor de dados de conjuntos de fluxos para a nuvem do HDInsight |Hadoop,HBase,Spark,Kafka |StreamSets Data Collector é um mecanismo leve e poderoso que transmite dados em tempo real. Use o coletor de dados a rota e processar dados em seus fluxos de dados. Ele vem com uma licença de avaliação de 30 dias. |
 |[Trifacta Wrangler Enterprise](https://www.trifacta.com/) |Hadoop, Spark,HBase |Trifacta Wrangler Enterprise para HDInsight dá suporte a disputa para qualquer escala dos dados de dados de toda a empresa. O custo da execução Trifacta no Azure é uma combinação de Trifacta os custos de assinatura com os custos de infraestrutura do Azure para as máquinas virtuais. |
 |Plataforma de dados do Unifi 3.1 |Hadoop,HBase,Storm,Spark |A plataforma de dados do Unifi é um pacote perfeitamente integrado de ferramentas de dados de autoatendimento projetados para capacitar o usuário para lidar com desafios de negócios que aumentar a receita, reduzir custos ou complexidade operacional. |
@@ -82,13 +82,13 @@ O portal mostra uma lista dos aplicativos do HDInsight instalados para um cluste
     ![Aplicativos instalados de aplicativos do HDInsight](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png)
 5. Selecione um dos aplicativos instalados para mostrar a propriedade. A propriedades lista:
 
-    |Propriedade | Descrição |
+    |Propriedade | DESCRIÇÃO |
     |---|---|
     |Nome do aplicativo |Nome do aplicativo. |
     |Status |Status do aplicativo. |
     |Página da web |A URL do aplicativo Web que você implantou no nó de borda. A credencial é igual às credenciais de usuário HTTP que você configurou para o cluster. |
     |Ponto de extremidade SSH |Você pode usar o SSH para conectar-se ao nó de borda. As credenciais SSH são iguais às credenciais de usuário SSH que você configurou para o cluster. Para obter informações, consulte [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
-    |Descrição | Descrição do aplicativo. |
+    |DESCRIÇÃO | Descrição do aplicativo. |
 
 6. Para excluir um aplicativo, clique nele com o botão direito do mouse e clique em **Excluir** no menu de contexto.
 

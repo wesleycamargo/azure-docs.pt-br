@@ -16,12 +16,12 @@ ms.date: 03/20/2018
 ms.author: anwestg
 ms.reviewer: sethm
 ms.lastreviewed: 03/20/2018
-ms.openlocfilehash: 9288ffa406b0e5765b35fa9b23aa13dee5754e9a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 99b4134f8f2d6ed2f521a7f488c33e06c0f436bb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240014"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58165821"
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>Serviço de aplicativo no Azure Stack update notas de versão 1
 
@@ -58,7 +58,7 @@ Serviço de aplicativo do Azure no Azure Stack Update 1 inclui os seguintes apri
 - As atualizações **aplicativo de locatário de serviço, Admin, portais de funções e ferramentas de Kudu**. Consistente com a versão do SDK do Portal do Azure Stack.
 
 - **Atualizações para os seguintes estruturas de aplicativo e as ferramentas**:
-    - Adicionado **.Net Core 2.0** suporte
+    - Adicionado **.NET Core 2.0** suporte
     - Adicionado **Node. js** versões:
         - 6.11.2
         - 6.11.5

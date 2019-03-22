@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 02/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6307c57f32700c0c2dd2e5da15b98a2a54dbe9c4
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: f795571de275453738d23e80885f4d9006ca3a20
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339321"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804443"
 ---
 # <a name="custom-roles-for-azure-resources"></a>Funções personalizadas para recursos do Azure
 
@@ -43,6 +43,7 @@ A seguir, mostra como uma função personalizada se parece, conforme exibida no 
     "Microsoft.Compute/virtualMachines/start/action",
     "Microsoft.Compute/virtualMachines/restart/action",
     "Microsoft.Authorization/*/read",
+    "Microsoft.ResourceHealth/availabilityStatuses/read",
     "Microsoft.Resources/subscriptions/resourceGroups/read",
     "Microsoft.Insights/alertRules/*",
     "Microsoft.Insights/diagnosticSettings/*",
@@ -65,16 +66,19 @@ Quando você cria uma função personalizada, ela aparece no portal do Azure com
 
 ## <a name="steps-to-create-a-custom-role"></a>Etapas para criar uma função personalizada
 
+1. Decida como você deseja criar a função personalizada
+
+    Você pode criar funções personalizadas usando [Azure PowerShell](custom-roles-powershell.md), [CLI do Azure](custom-roles-cli.md), ou o [API REST](custom-roles-rest.md).
+
 1. Determinar as permissões necessárias
 
-    Ao criar uma função personalizada, você precisa conhecer as operações do provedor de recursos que estão disponíveis para definir suas permissões. Para exibir a lista de operações, você pode usar os comandos [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) ou [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list).
-    Para especificar as permissões para a função personalizada, você adiciona as operações para as propriedades `Actions` ou `NotActions` da [definição de função](role-definitions.md). Se você tiver operações de dados, adicione-as às propriedades `DataActions` ou `NotDataActions`.
+    Ao criar uma função personalizada, você precisa conhecer as operações do provedor de recursos que estão disponíveis para definir suas permissões. Para exibir a lista de operações, consulte o [operações de provedor de recursos do Azure Resource Manager](resource-provider-operations.md). Você adicionará as operações para o `Actions` ou `NotActions` propriedades da [definição de função](role-definitions.md). Se você tiver operações de dados, você irá adicioná-los para o `DataActions` ou `NotDataActions` propriedades.
 
-2. Criar a função personalizada
+1. Criar a função personalizada
 
-    Você pode usar o Azure PowerShell ou a CLI do Azure para criar a função personalizada. Normalmente, você começa com uma função interna existente e depois a modifica conforme suas necessidades. Depois, use os comandos [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) ou [az role definition create](/cli/azure/role/definition#az-role-definition-create) para criar a função personalizada. Para criar uma função personalizada, você precisa ter a permissão `Microsoft.Authorization/roleDefinitions/write` em todo `AssignableScopes`, como [Proprietário](built-in-roles.md#owner) ou [Administrador de Acesso de Usuário](built-in-roles.md#user-access-administrator).
+    Normalmente, você começa com uma função interna existente e depois a modifica conforme suas necessidades. Depois, use os comandos [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) ou [az role definition create](/cli/azure/role/definition#az-role-definition-create) para criar a função personalizada. Para criar uma função personalizada, você precisa ter a permissão `Microsoft.Authorization/roleDefinitions/write` em todo `AssignableScopes`, como [Proprietário](built-in-roles.md#owner) ou [Administrador de Acesso de Usuário](built-in-roles.md#user-access-administrator).
 
-3. Testar a função personalizada
+1. Testar a função personalizada
 
     Quando tiver sua função personalizada, será necessário testá-la para verificar se funciona como o esperado. Se você precisar fazer ajustes mais tarde, você pode atualizar a função personalizada.
 

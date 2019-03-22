@@ -1,6 +1,6 @@
 ---
-title: Versão prévia da proteção por senha do Azure AD
-description: Senhas fracas de vetar no Active Directory local usando a visualização de proteção de senha do AD do Azure
+title: Proteção de senha do Azure AD
+description: Senhas fracas de vetar no Active Directory local por meio da proteção de senha do AD do Azure
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,21 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fdf308ff6178dcb51ec73e46d43b853f62e7777
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: f1b3660d256e4beda948f723035aa75ca8a9ed2e
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57840946"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58284861"
 ---
-# <a name="preview-enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Visualização: Impor a proteção por senha do Azure AD para o Active Directory do Windows Server
+# <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Impor a proteção por senha do Azure AD para o Active Directory do Windows Server
 
-|     |
-| --- |
-| Proteção por senha do Azure Active Directory (Azure AD) e a lista de senhas banidas personalizados são recursos de visualização pública do Azure AD. Para obter informações sobre visualizações, consulte [termos complementares de uso para visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
-
-Proteção por senha do AD do Azure é um novo recurso em visualização pública que aprimora as políticas de senha em uma organização. Proteção de senha de implantação de local usa os dois as globais e personalizadas senha banida listas que são armazenadas no AD do Azure. Ele faz o mesma verificações no local como o Azure AD para alterações com base em nuvem.
+Proteção por senha do AD do Azure é um recurso que aprimora as políticas de senha em uma organização. Proteção de senha de implantação de local usa os dois as globais e personalizadas senha banida listas que são armazenadas no AD do Azure. Ele faz o mesma verificações no local como o Azure AD para alterações com base em nuvem.
 
 ## <a name="design-principles"></a>Princípios de design
 
@@ -62,7 +57,7 @@ Depois que o serviço do agente de controlador de domínio recebe uma nova polí
 
 O serviço do agente de controlador de domínio sempre solicitará uma nova política na inicialização do serviço. Depois que o serviço de agente de controlador de domínio é iniciado, ele verifica a idade da política atual disponível localmente por hora. Se a política é mais de uma hora, o agente de controlador de domínio solicita uma nova política do Azure AD, conforme descrito anteriormente. Se a política atual não for mais de uma hora, o agente de controlador de domínio continua a usar essa política.
 
-Sempre que uma política de senha de proteção de senha do AD do Azure é baixada, essa política é específica para um locatário. Em outras palavras, as políticas de senha são sempre uma combinação de lista de senha banida global do Microsoft e a lista de senha banida personalizada por locatário.
+Sempre que uma política de senha de proteção de senha do Azure AD é baixada, essa política é específica para um locatário. Em outras palavras, as políticas de senha são sempre uma combinação de lista de senha banida global do Microsoft e a lista de senha banida personalizada por locatário.
 
 O agente de controlador de domínio se comunica com o serviço de proxy por meio do RPC sobre TCP. O serviço de proxy ouve essas chamadas em uma porta RPC dinâmica ou estática, dependendo da configuração.
 

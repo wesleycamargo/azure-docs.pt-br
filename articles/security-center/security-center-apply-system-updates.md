@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: afd6ded48bc330032b77be4bc8cd186a6f71ee5f
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: ebd9939128d1f2b870541e82710792d13b69728e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104916"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58098994"
 ---
 # <a name="apply-system-updates-in-azure-security-center"></a>Aplicar atualizações do sistema na Central de Segurança do Azure
 A Central de Segurança do Azure monitora diariamente VMs (máquinas virtuais) e computadores Windows e Linux para saber se faltam atualizações do sistema operacional. A Central de Segurança recupera uma lista de atualizações críticas e de segurança disponíveis no Windows Update ou no WSUS (Windows Server Update Services), dependendo de qual serviço está configurado em um computador Windows. A Central de Segurança também verifica as atualizações mais recentes em sistemas Linux. Se faltar uma atualização do sistema em sua VM ou seu computador, a Central de Segurança recomendará que você aplique as atualizações do sistema.
@@ -43,7 +43,7 @@ Neste exemplo, usaremos **Computação**.
     - O número total de atualizações críticas ausentes em suas VMs e computadores.
     - O número total de atualizações de segurança ausentes em suas VMs e computadores.
 
-  A parte inferior do painel lista todas as atualizações ausentes em suas VMs e computadores e a gravidade da atualização ausente.  A lista inclui:
+   A parte inferior do painel lista todas as atualizações ausentes em suas VMs e computadores e a gravidade da atualização ausente.  A lista inclui:
 
     - NOME: nome da atualização ausente.
     - NÚMERO DE VMs E COMPUTADORES: número total de máquinas virtuais e computadores que não têm essa atualização.
@@ -63,13 +63,13 @@ Neste exemplo, usaremos **Computação**.
 
    ![Atualização de segurança ausente][3]
 
-4. Selecione o ícone **Pesquisar** na faixa de opções superior.  Uma consulta de pesquisa do Log Analytics é aberta, filtrada para os computadores sem a atualização.
+4. Selecione o ícone **Pesquisar** na faixa de opções superior.  Uma consulta de pesquisa de logs do Azure Monitor é aberta, filtrada para os computadores sem a atualização.
 
-   ![Pesquisa de Análise de Log][4]
+   ![Pesquisa de logs do Azure Monitor][4]
 
 5. Selecione um computador da lista para obter mais informações. Outro resultado da pesquisa é aberto com informações filtradas para esse computador.
 
-    ![Pesquisa de Análise de Log][5]
+    ![Pesquisa de logs do Azure Monitor][5]
 
 ## <a name="reboot-after-system-updates"></a>Reinicializar após as atualizações do sistema
 1. Volte para a folha **Recomendações** . Uma nova entrada foi gerada depois que você aplicou atualizações do sistema, chamada **Reinicializar após as atualizações do sistema**. Essa entrada permite que você saiba que é necessário reinicializar a máquina virtual para concluir o processo de aplicação de atualizações de sistema.

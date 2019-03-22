@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 18853d10c4acf1573772d72a8fb2c347cce545df
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: c27244af6da01163fa9ab554b6b9c1d9c99bab23
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730159"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104566"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>Migrar dados do StorSimple séries 5000-7000 para a Sincronização de Arquivos do Azure
 
@@ -57,7 +57,7 @@ Aqui, você encontrará os pré-requisitos de migração para o dispositivo herd
 - O host tem armazenamento local suficiente para armazenar os dados armazenados em cache localmente.
 - Acesso de nível de proprietário à assinatura do Azure que será usada para implantar a Sincronização de Arquivos do Azure. Se você não tiver permissões de nível de proprietário ou administrador, talvez tenha problemas ao criar um ponto de extremidade da nuvem para o grupo de sincronização.
 - Acesso a uma [conta de armazenamento v2 de uso geral](https://docs.microsoft.com/azure/storage/common/storage-account-overview) com um compartilhamento de arquivos do Azure ao qual você deseja sincronizar. Para obter mais informações, consulte [Criar uma conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
- - Como [Criar um Compartilhamento de Arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
+  - Como [Criar um Compartilhamento de Arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 
 ## <a name="migration-process"></a>Processo de migração
 
@@ -87,7 +87,7 @@ Execute as etapas a seguir para migrar o compartilhamento de arquivos do Windows
     Ignore essa etapa e prossiga para a próxima etapa, se estiver usando um host diferente do Windows Server. Se você estiver usando o mesmo servidor de arquivos do Windows para AFS, agora passará por alguns minutos de tempo de inatividade. 
     - **Tempo de inatividade inicia** - Exclua o ponto de extremidade de servidor criado na *etapa 1F*. 
     - Crie um novo ponto de extremidade de servidor com o caminho em que você quer que os dados residam daqui em diante.
-    - Depois que o ponto de extremidade de servidor mostrar como Íntegro (isso poderá demorar alguns minutos), você verá os dados nesse novo local. Agora, é possível configurar o host do Windows Server para servir arquivos desse novo local. - **Tempo de inatividade termina**.
+    - Depois que o ponto de extremidade de servidor mostrar como Íntegro (isso poderá demorar alguns minutos), você verá os dados nesse novo local. Agora, é possível configurar o host do Windows Server para servir arquivos desse novo local. -**Tempo de inatividade termina**.
 5.  Se estiver usando outro servidor de arquivos do Windows para Sincronização de Arquivos do Azure, não haverá nenhum tempo de inatividade. 
     - Adicione outro ponto de extremidade de servidor com o caminho do armazenamento local que está preparado para usar como um cache, em vez do dispositivo StorSimple. 
     - Será possível ver os arquivos no novo servidor em poucos minutos. Você poderá alternar o dispositivo StorSimple para esse novo local no host a qualquer momento.

@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: prchint
 ms.lastreviewed: 09/18/2018
-ms.openlocfilehash: b8bd57953845278aa75e8cbdf41ae28300edad58
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3d825a0f8a23380b4d9cf453076ab4b18ee67831
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184900"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095510"
 ---
 # <a name="azure-stack-capacity-planning"></a>Planejamento de capacidade do Azure Stack
 Ao avaliar uma solução de pilha do Azure, há opções de configuração de hardware que têm um impacto direto na capacidade geral da nuvem do Azure Stack. Essas são as opções clássicas da CPU, densidade de memória, configuração de armazenamento e geral escala da solução ou número de servidores. Ao contrário de uma solução de virtualização tradicionais, não é aplicável a aritmética simple desses componentes para determinar a capacidade utilizável. O primeiro motivo para isso é que o Azure Stack é projetado para hospedar os componentes de infraestrutura ou gerenciamento de dentro da solução em si. O segundo motivo é que alguns de capacidade da solução está reservado para dar suporte à resiliência; a atualização de software da solução de forma a minimizar as interrupções de cargas de trabalho de locatário.
@@ -49,7 +49,7 @@ Uma descrição detalhada das complexidades de cálculos de capacidade é descre
 |     |     |     |     |     |     |     |     |
 
 > <sup>1</sup> VMs padrão D2.
-
+> 
 > <sup>2</sup> núcleo Virtual para a proporção de núcleos físicos.
 
 Conforme mencionado acima, a capacidade VM é determinada pela memória disponível. Os-de núcleos virtuais para núcleos físicos taxas exemplificam como a densidade da VM mudará capacidade disponível da CPU, a menos que a solução é construída com um número maior de núcleos físicos (outra CPU é escolhida). O mesmo é verdadeiro para capacidade de armazenamento e capacidade de armazenamento de cache.

@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 807643146c4f2821cecf60499ea1985f56e9d251
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9fb657d2c2cd4eeae0eb96dd37505a1c47278725
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168588"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103053"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Adicionar identidade visual à página de entrada de sua empresa no Azure Active Directory
 Use o logotipo da organização e os esquemas de cores personalizados para fornecer uma aparência consistente nas páginas de entrada do Azure AD (Azure Active Directory). As páginas de entrada aparecem quando os usuários entram nos aplicativos baseados na Web da organização, como o Office 365, que usam o Azure AD como provedor de identidade.
@@ -29,7 +29,7 @@ Use o logotipo da organização e os esquemas de cores personalizados para forne
 ## <a name="customize-your-azure-ad-sign-in-page"></a>Personalizar a página de entrada do Azure AD
 É possível personalizar as páginas de entrada do Azure AD que aparecem quando os usuários entram nos aplicativos específicos de locatário da organização, como [*https://outlook.com/contoso.com*](https://outlook.com/contoso.com), ou ao passar uma variável de domínio como [*https://passwordreset.microsoftonline.com/?whr=contoso.com*](https://passwordreset.microsoftonline.com/?whr=contoso.com).
 
-A identidade visual personalizada não será exibida imediatamente quando os usuários acessarem sites como www.office.com. Em vez disso, o usuário precisa entrar antes que a identidade visual personalizada seja exibida.
+Sua identidade visual personalizada não aparecerá imediatamente quando os usuários vão para sites, como www\.office.com. Em vez disso, o usuário precisa entrar antes que a identidade visual personalizada seja exibida.
 
 > [!NOTE]
 > Todos os elementos de identidade visual são opcionais. Por exemplo, se você especificar um logotipo do banner sem imagem de plano de fundo, a página de entrada mostrará o logotipo com uma imagem de plano de fundo padrão do site de destino (por exemplo, Office 365).<br><br>Além disso, a marca da página de entrada não é transferida para contas pessoais da Microsoft. Se os usuários ou convidados de negócios entrarem usando uma conta pessoal da Microsoft, a página de entrada não refletirá a identidade visual da organização.
@@ -103,7 +103,7 @@ Após criar a identidade visual personalizada, você poderá retornar e fazer to
 
 4. Clique em **Salvar**.
 
-  Pode demorar até uma hora para que apareçam todas as alterações feitas à identidade visual da página de entrada.
+   Pode demorar até uma hora para que apareçam todas as alterações feitas à identidade visual da página de entrada.
 
 ## <a name="add-language-specific-company-branding-to-your-directory"></a>Adicionar identidade visual da empresa específica a um idioma ao diretório
 Não é possível alterar o idioma da configuração original do idioma padrão. No entanto, se você precisar de uma configuração em um idioma diferente, poderá criar uma nova configuração.

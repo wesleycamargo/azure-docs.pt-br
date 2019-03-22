@@ -4,16 +4,16 @@ ms.service: site-recovery
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: raynew
-ms.openlocfilehash: 8f7eae06947a40117f3952a0a5624c22df750b34
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: 926fb3e9a2c09d30da549330842d8b7e185674ae
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164540"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57908443"
 ---
-* Em **Adicionar vCenter**, especifique um nome amigável para o host vSphere ou servidor vCenter e então especifique o endereço IP ou o FQDN do servidor. Deixe a porta como 443, a menos que os servidores do VMware estejam configurados para escutar solicitações em uma porta diferente. Selecione a conta que deve se conectar ao VMware vCenter ou ao servidor vSphere ESXi. Clique em **OK**.
+Em **Adicionar vCenter**, especifique um nome amigável para o host vSphere ou servidor vCenter e então especifique o endereço IP ou o FQDN do servidor. Deixe a porta como 443, a menos que os servidores do VMware estejam configurados para escutar solicitações em uma porta diferente. Selecione a conta que deve se conectar ao VMware vCenter ou ao servidor vSphere ESXi. Clique em **OK**.
 
     ![VMware](./media/site-recovery-add-vcenter/vmware-server.png)
 
    > [!NOTE]
-   > Se você estiver adicionando o servidor VMware vCenter ou o host VMware vSphere com uma conta que não tem privilégios de administrador no vCenter ou no servidor host, verifique se a conta tem estes privilégios habilitados: Data center, Armazenamento de Dados, Pasta, Host, Rede, Recursos, Máquina virtual e Comutador Distribuído do vSphere. Além disso, o servidor VMware vCenter precisa do privilégio de exibição do Armazenamento habilitado.
+   > Se você estiver adicionando o servidor VMware vCenter ou host VMware vSphere com uma conta que não tem privilégios de administrador no servidor vCenter ou host, certifique-se de que a conta tem estes privilégios habilitados: Datacenter, repositório de dados, pasta, Host, rede, recursos, Máquina Virtual e vSphere Distributed Switch. Além disso, o servidor VMware vCenter precisa do privilégio de exibição do Armazenamento habilitado.

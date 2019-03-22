@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
-ms.openlocfilehash: 54faf8b37afa953aac7d411df2f539188dc5b451
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: f96b4bb75a22e51586820a2e7be08c09cf7b26dd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310198"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104413"
 ---
 # <a name="how-to-improve-your-classifier"></a>Como melhorar o seu classificador
 
@@ -39,7 +39,7 @@ Para corrigir esse problema, use as diretrizes a seguir sobre treinamento com im
 
 ## <a name="data-quantity"></a>Quantidade de dados
 
-O número de imagens de treinamento é o fator mais importante. Recomendamos usar pelo menos 50 imagens por rótulo como um ponto de partida. Com menos imagens, há maior risco de sobreajuste e, enquanto os números de desempenho possam sugerir boa qualidade, seu modelo pode apresentar dificuldades com os dados do mundo real. 
+O número de imagens de treinamento é o fator mais importante. É recomendável usar pelo menos 50 imagens por rótulo como ponto de partida. Com menos imagens, há maior risco de sobreajuste e, enquanto os números de desempenho possam sugerir boa qualidade, seu modelo pode apresentar dificuldades com os dados do mundo real. 
 
 ## <a name="data-balance"></a>Balanceamento de dados
 
@@ -102,4 +102,4 @@ Para inspecionar as previsões de imagem, vá até a guia __Imagens de Treinamen
 Neste guia, você aprendeu várias técnicas para criar tornar seu modelo de classificação de imagem personalizada mais preciso. Em seguida, aprenda a testar imagens programaticamente enviando-as à API de Previsão.
 
 > [!div class="nextstepaction"]
-[Use a API de previsão](use-prediction-api.md)
+> [Use a API de previsão](use-prediction-api.md)

@@ -16,12 +16,12 @@ ms.date: 02/28/2019
 ms.author: sethm
 ms.reviewer: justini
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: fd1e49a8bab3b6133a476bbafaa45e0e61fe1f1b
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 58117bce8de667c9750b2e0c19992b99716945cc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730564"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58124194"
 ---
 # <a name="azure-stack-1809-update"></a>Atualização da pilha 1809 do Azure
 
@@ -63,12 +63,12 @@ Esta atualização inclui os seguintes aprimoramentos para o Azure Stack:
 - Os seguintes problemas de disco gerenciado são corrigidos em 1809 e também são corrigidos no 1808 [do Azure Stack Hotfix 1.1808.9.117](https://support.microsoft.com/help/4481066/): 
 
    <!--  2966665 – IS, ASDK --> 
-   - Corrigido o problema no quais anexados discos de dados SSD para máquinas virtuais de disco gerenciado (DS, DSv2, Fs e Fs_V2) falhou com um erro de tamanho de premium:  *Falha ao atualizar discos para a máquina virtual 'vmname' erro: Operação solicitada não pode ser executada porque o tipo de conta de armazenamento 'Premium_LRS' não é suportado para tamanho de VM ' Standard_DS/Ds_V2/FS/Fs_v2)*. 
+  - Corrigido o problema no quais anexados discos de dados SSD para máquinas virtuais de disco gerenciado (DS, DSv2, Fs e Fs_V2) falhou com um erro de tamanho de premium:  *Falha ao atualizar discos para a máquina virtual 'vmname' erro: Operação solicitada não pode ser executada porque o tipo de conta de armazenamento 'Premium_LRS' não é suportado para tamanho de VM ' Standard_DS/Ds_V2/FS/Fs_v2)*. 
    
-   - Criando uma VM de disco gerenciado usando **createOption**: **Anexar** falha com o seguinte erro: *Operação de execução longa falhou com status 'Failed'. Informações adicionais: 'Ocorreu um erro de execução interna'.*
-   Código de erro: InternalExecutionError ErrorMessage: Erro de execução interno.
+  - Criando uma VM de disco gerenciado usando **createOption**: **Anexar** falha com o seguinte erro: *Operação de execução longa falhou com status 'Failed'. Informações adicionais: 'Ocorreu um erro de execução interna'.*
+    Código de erro: InternalExecutionError ErrorMessage: Erro de execução interno.
    
-   Esse problema foi corrigido.
+    Esse problema foi corrigido.
 
 - <!-- 2702741 -  IS, ASDK --> Corrigido um problema no qual IPs públicos que foram implantados usando a alocação dinâmica o método não eram garantia de ser preservada após a emissão de uma interrupção da desalocação. Agora são preservados.
 
@@ -297,10 +297,10 @@ A seguir estão os problemas conhecidos de pós-instalação para esta versão d
 <!-- TBD - IS ASDK --> 
 - Depois de aplicar o 1809 de atualização, você pode encontrar os seguintes problemas ao implantar VMs com discos gerenciados:
 
-   - Se a assinatura foi criada antes da atualização 1808, implantando uma VM com discos gerenciados pode falhar com uma mensagem de erro interno. Para resolver o erro, siga estas etapas para cada assinatura:
-      1. No portal do locatário, vá para **assinaturas** e localize a assinatura. Clique em **provedores de recursos**, em seguida, clique em **Microsoft. Compute**e, em seguida, clique em **registrar novamente**.
-      2. Sob a mesma assinatura, vá para **controle de acesso (IAM)**, verifique se o **AzureStack-DiskRP-Client** função está listada.
-   2. Se você tiver configurado um ambiente multilocatário, implantar as VMs em uma assinatura associada a um diretório de convidado pode falhar com uma mensagem de erro interno. Para resolver o erro, siga estas etapas no [deste artigo](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) para reconfigurar a cada um dos seus diretórios de convidado.
+  - Se a assinatura foi criada antes da atualização 1808, implantando uma VM com discos gerenciados pode falhar com uma mensagem de erro interno. Para resolver o erro, siga estas etapas para cada assinatura:
+     1. No portal do locatário, vá para **assinaturas** e localize a assinatura. Clique em **provedores de recursos**, em seguida, clique em **Microsoft. Compute**e, em seguida, clique em **registrar novamente**.
+     2. Sob a mesma assinatura, vá para **controle de acesso (IAM)**, verifique se o **AzureStack-DiskRP-Client** função está listada.
+  - Se você tiver configurado um ambiente multilocatário, implantar as VMs em uma assinatura associada a um diretório de convidado pode falhar com uma mensagem de erro interno. Para resolver o erro, siga estas etapas no [deste artigo](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) para reconfigurar a cada um dos seus diretórios de convidado.
 
 - Uma VM do Ubuntu 18.04 criado com autorização SSH habilitada não permitirá que você use as chaves SSH para fazer logon no. Como alternativa, use o acesso de VM para a extensão do Linux para implementar as chaves SSH após o provisionamento ou usar a autenticação baseada em senha.
 

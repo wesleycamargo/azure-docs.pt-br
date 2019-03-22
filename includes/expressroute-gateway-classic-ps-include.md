@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 2457ef2843b0d16359b7e47fc54c58e2ef5e6034
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: HT
+ms.openlocfilehash: 70ac106995324c758bde942d12191a01e3457e6e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53429911"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58115015"
 ---
 > [!NOTE]
 > Esses exemplos não se aplicam a configurações de coexistência de S2S/ExpressRoute.
@@ -28,8 +28,8 @@ Quando você adiciona um gateway para uma rede virtual usando o modelo de recurs
 1. Faça o download do arquivo de configuração de rede usando as etapas no artigo do [arquivo de configuração de rede](../articles/virtual-network/virtual-networks-using-network-configuration-file.md). Abra o arquivo usando um editor de texto.
 2. Adicione um site de rede local para o arquivo. Você pode usar qualquer prefixo de endereço válido. Você pode adicionar qualquer endereço IP válido para o gateway de VPN. Os valores de endereço nesta seção não são usados para operações de ExpressRoute, mas são necessários para a validação do arquivo. No exemplo, "branch1" é o nome do site. Você pode usar um nome diferente, mas não se esqueça de usar o mesmo valor na seção de Gateway do arquivo.
 
-  ```
-  <VirtualNetworkConfiguration>
+   ```
+   <VirtualNetworkConfiguration>
     <Dns />
     <LocalNetworkSites>
       <LocalNetworkSite name="branch1">
@@ -38,15 +38,15 @@ Quando você adiciona um gateway para uma rede virtual usando o modelo de recurs
         </AddressSpace>
         <VPNGatewayAddress>3.2.1.4</VPNGatewayAddress>
     </LocalNetworkSite>
-  ```
+   ```
 3. Navegue até o VirtualNetworkSites e modifique os campos.
 
-  * Verifique se sua rede virtual tem uma sub-rede de gateway. Se isso não acontecer, você pode adicionar um neste momento. O nome deve ser "GatewaySubnet".
-  * Verifique se a seção de Gateway do arquivo existe. Caso contrário, adicione-a. Isso é necessário para associar a rede virtual com o site de rede local (que representa a rede à qual você está se conectando).
-  * Verifique a conexão de tipo = dedicado. Isso é necessário para conexões do ExpressRoute.
+   * Verifique se sua rede virtual tem uma sub-rede de gateway. Se isso não acontecer, você pode adicionar um neste momento. O nome deve ser "GatewaySubnet".
+   * Verifique se a seção de Gateway do arquivo existe. Caso contrário, adicione-a. Isso é necessário para associar a rede virtual com o site de rede local (que representa a rede à qual você está se conectando).
+   * Verifique a conexão de tipo = dedicado. Isso é necessário para conexões do ExpressRoute.
 
-  ```
-  </LocalNetworkSites>
+   ```
+   </LocalNetworkSites>
     <VirtualNetworkSites>
       <VirtualNetworkSite name="myAzureVNET" Location="East US">
         <AddressSpace>
@@ -69,9 +69,9 @@ Quando você adiciona um gateway para uma rede virtual usando o modelo de recurs
         </Gateway>
       </VirtualNetworkSite>
     </VirtualNetworkSites>
-  </VirtualNetworkConfiguration>
-  </NetworkConfiguration>
-  ```
+   </VirtualNetworkConfiguration>
+   </NetworkConfiguration>
+   ```
 4. Salve o arquivo e carregue-o no Azure.
 
 ### <a name="create-the-gateway"></a>Criar o gateway

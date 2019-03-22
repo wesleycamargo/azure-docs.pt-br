@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: e1013047bb66581e7f9d26854f2cd91655c8bd93
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: a249cf96981957de2c445079c0172b9c0c2ce543
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810075"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111881"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Usar o Console Serial para acessar GRUB e Modo de Usuário Único
 O GRUB é o GRand Unified Bootloader. Com o GRUB, você consegue modificar sua configuração de inicialização para inicializar no modo de usuário único, entre outras coisas.
@@ -172,7 +172,7 @@ Você será automaticamente direcionado para o shell de emergência se o SLES n�
 1. Procure a linha de kernel que começa com `linux`
 1. Acrescente `systemd.unit=emergency.target` ao fim da linha
 1. Pressione Ctrl + X para reinicializar com essas configurações e entrar no shell de emergência
-> Observe que ocorrerá a alternância para o shell de emergência com um sistema de arquivos _somente leitura_. Se quiser fazer todas as edições em todos os arquivos, você precisará montar novamente o sistema de arquivos com permissões de leitura-gravação. Para fazer isso, insira `mount -o remount,rw /` no shell
+   > Observe que ocorrerá a alternância para o shell de emergência com um sistema de arquivos _somente leitura_. Se quiser fazer todas as edições em todos os arquivos, você precisará montar novamente o sistema de arquivos com permissões de leitura-gravação. Para fazer isso, insira `mount -o remount,rw /` no shell
 
 ## <a name="access-for-oracle-linux"></a>Acesso para o Oracle Linux
 Muito semelhante ao Red Hat Enterprise Linux, o modo de usuário único no Oracle Linux requer que o GRUB e o usuário raiz estejam habilitados. 

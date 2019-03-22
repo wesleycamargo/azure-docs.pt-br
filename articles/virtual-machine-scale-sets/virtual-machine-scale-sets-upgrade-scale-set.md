@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: manayar
-ms.openlocfilehash: 4e6186310f63fde8648ded03a62b207b5f81a8e2
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 71899a9d6782c4700c287458c85ec83bd1516a4b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984793"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873620"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificar um conjunto de dimensionamento de máquinas virtuais
 
@@ -316,7 +316,7 @@ Para atualizar VMs existentes, você deve fazer uma "atualização manual" de ca
 - Você também pode usar [Azure SDKs](https://azure.microsoft.com/downloads/) específicos do idioma.
 
 >[!NOTE]
-> Clusters do Service Fabric só podem usar o modo *Automático*, mas a atualização é tratada de maneira diferente. Para saber mais, confira [Atualização de aplicativos do Service Fabric](../service-fabric/service-fabric-application-upgrade.md).
+> Clusters do Service Fabric só podem usar o modo *Automático*, mas a atualização é tratada de maneira diferente. Para obter mais informações, consulte [atualizações de aplicativo do Service Fabric](../service-fabric/service-fabric-application-upgrade.md).
 
 Há um tipo de modificação das propriedades globais do conjunto de dimensionamento que não segue a política de atualização. Altera para o conjunto de dimensionamento de perfil de sistema operacional (como o nome de usuário administrador e senha) só pode ser alterado na versão da API *2017-12-01* ou posterior. Essas alterações se aplicam somente a VMs criadas depois da alteração no modelo do conjunto de dimensionamento. Para atualizar VMs existentes, você deve "refazer a imagem" de cada VM existente. Você pode refazer a imagem por meio de:
 

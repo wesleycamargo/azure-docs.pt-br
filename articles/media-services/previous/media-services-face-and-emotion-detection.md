@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: milanga;juliako;
-ms.openlocfilehash: fa51290623f68e94db9cb1b28cd69c88b5d5cf18
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 46e60583da79006c133c8d9fac63e27f28bd699f
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000056"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188179"
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Detectar a face e a emoção com o Azure Media Analytics
 ## <a name="overview"></a>Visão geral
@@ -60,7 +60,7 @@ O Face Detector usa técnicas de fragmentação (em que os metadados podem ser d
 
 ## <a name="face-detection-input-and-output-example"></a>Exemplo de entrada e saída da detecção facial
 ### <a name="input-video"></a>Vídeo de entrada
-[Vídeo de Entrada](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
+[Vídeo de Entrada](https://ampdemo.azureedge.net/azuremediaplayer.html?url=httpss%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
 
 ### <a name="task-configuration-preset"></a>Configuração de tarefa (predefinição)
 Ao criar uma tarefa com o **Azure Media Face Detector**, é necessário especificar uma predefinição de configuração. A predefinição de configuração a seguir serve apenas para detecção de face.
@@ -132,7 +132,7 @@ O exemplo de saída JSON a seguir foi truncado.
 
 ## <a name="emotion-detection-input-and-output-example"></a>Exemplo de entrada e saída da detecção de emoção
 ### <a name="input-video"></a>Vídeo de entrada
-[Vídeo de Entrada](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
+[Vídeo de Entrada](https://ampdemo.azureedge.net/azuremediaplayer.html?url=httpss%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
 
 ### <a name="task-configuration-preset"></a>Configuração de tarefa (predefinição)
 Ao criar uma tarefa com o **Azure Media Face Detector**, é necessário especificar uma predefinição de configuração. A configuração de predefinição a seguir especifica a criação do JSON com base na detecção de emoção.
@@ -522,5 +522,5 @@ namespace FaceDetection
 ## <a name="related-links"></a>Links relacionados
 [Visão geral do Azure Media Services Analytics](media-services-analytics-overview.md)
 
-[Demonstrações do Azure Media Analytics](http://amslabs.azurewebsites.net/demos/Analytics.html)
+[Demonstrações do Azure Media Analytics](https://amslabs.azurewebsites.net/demos/Analytics.html)
 

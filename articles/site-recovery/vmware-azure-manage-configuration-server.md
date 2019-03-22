@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: ramamill
-ms.openlocfilehash: 9aa6b9dc26b53315957b7ddbb113d1d129dcc1da
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: da7750198f76bc9e17c23b1347e9fc78262aa06c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109156"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086948"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>Gerenciar o servidor de configuração para recuperação de desastres de VM do VMware
 
@@ -93,25 +93,25 @@ O modelo Open Virtualization Format (OVF) implanta a VM do servidor de configura
 Você pode registrar novamente o servidor de configuração no mesmo cofre se necessário. Se você tiver uma máquina de servidor de processo adicional, além do servidor de processo padrão em execução na máquina do servidor de configuração, registre novamente em ambos os computadores.
 
 
-  1. No cofre, abra **gerenciar** > **infra-estrutura do Azure Site Recovery** > **Servidores de Configuração**.
-  2. Em **Servidores**, selecione **Baixar a chave de registro** para baixar o arquivo de credenciais do cofre.
-  3. Conecte-se ao computador do servidor de configuração.
-  4. Em **%ProgramData%\ASR\home\svsystems\bin**, abra **cspsconfigtool.exe**.
-  5. Sobre o **registro do cofre** guia, selecione **procurar**e localize o arquivo de credenciais de cofre que você baixou.
-  6. Se necessário, forneça os detalhes do servidor proxy. Em seguida, selecione **Registrar**.
-  7. Abra uma janela de comando do PowerShell de administrador e execute o comando a seguir:
+1. No cofre, abra **gerenciar** > **infra-estrutura do Azure Site Recovery** > **Servidores de Configuração**.
+2. Em **Servidores**, selecione **Baixar a chave de registro** para baixar o arquivo de credenciais do cofre.
+3. Conecte-se ao computador do servidor de configuração.
+4. Em **%ProgramData%\ASR\home\svsystems\bin**, abra **cspsconfigtool.exe**.
+5. Sobre o **registro do cofre** guia, selecione **procurar**e localize o arquivo de credenciais de cofre que você baixou.
+6. Se necessário, forneça os detalhes do servidor proxy. Em seguida, selecione **Registrar**.
+7. Abra uma janela de comando do PowerShell de administrador e execute o comando a seguir:
    ```
-      $pwd = ConvertTo-SecureString -String MyProxyUserPassword
-      Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
+    $pwd = ConvertTo-SecureString -String MyProxyUserPassword
+    Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
    ```
 
-      >[!NOTE]
-      >Para obter os **certificados mais recentes** do servidor de configuração para o servidor de processo de expansão, execute o comando *“<Unidade de Instalação \ Recuperação do Site do Azure do Microsoft \ agent \ cdpcli.exe>" --registermt*
+    >[!NOTE]
+    >Para obter os **certificados mais recentes** do servidor de configuração para o servidor de processo de expansão, execute o comando *“<Unidade de Instalação \ Recuperação do Site do Azure do Microsoft \ agent \ cdpcli.exe>" --registermt*
 
-  8. Finalmente, reinicie o obengine executando o seguinte comando.
-  ```
-          net stop obengine
-          net start obengine
+8. Finalmente, reinicie o obengine executando o seguinte comando.
+   ```
+        net stop obengine
+        net start obengine
    ```
 
 
