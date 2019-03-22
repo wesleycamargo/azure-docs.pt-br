@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
-ms.openlocfilehash: 60f02f0ae92f471718c0c35f8ac833b9ca6c1da4
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.openlocfilehash: e5db2f340917705ec29f7b6db4de40914c66efcd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354981"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863926"
 ---
 # <a name="offer-listing-best-practices"></a>Práticas recomendadas de listagem de ofertas
 
@@ -56,7 +56,7 @@ Ao vincular o selo do AppSource ou do Azure Marketplace no seu site à sua lista
 
 O exemplo de URL a seguir contém os dois parâmetros de consulta anteriores: `https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-8777-f7f482ba8095?src=website&mktcmpid=blogpost_12`
 
-Ao adicionar os parâmetros à URL do seu AppSource, você pode analisar a eficácia de sua campanha no painel de análise no [Portal do Cloud Partner](http://cloudpartner.azure.com/#insights).
+Ao adicionar os parâmetros à URL do seu AppSource, você pode analisar a eficácia de sua campanha no painel de análise no [Portal do Cloud Partner](https://cloudpartner.azure.com/#insights).
 
 ## <a name="next-steps"></a>Próximas etapas
 
