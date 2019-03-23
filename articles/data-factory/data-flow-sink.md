@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: 3829fb3c045b149552d3f022e31f30f9cfae8182
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a56f391aa76bd1216fd51d516adb836a2093bcba
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57852433"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371132"
 ---
 # <a name="mapping-data-flow-sink-transformation"></a>Transformação do Coletor de Fluxo de Dados de Mapeamento
 
@@ -57,7 +57,7 @@ Se você quiser redefinir os mapeamentos de colunas, pressione o botão "Remapea
 ## <a name="file-name-options"></a>Opções de nome de arquivo
 
    * Padrão: Permitir que o Spark nomeie arquivos com base nos padrões de PART
-   * Padrão: Insira um nome para seus arquivos de saída
+   * Padrão: Insira um padrão para os arquivos de saída. Por exemplo, "empréstimos [n]" criará loans1.csv, loans2.csv,...
    * Por partição: Insira um nome de arquivo por partição
    * Como os dados na coluna: Configure o arquivo de saída para o valor de uma coluna
 
@@ -66,11 +66,16 @@ Se você quiser redefinir os mapeamentos de colunas, pressione o botão "Remapea
 
 ## <a name="database-options"></a>Opções de banco de dados
 
-* Permitir a inserção, atualização, exclusão, upserts. O padrão é permitir que inserções. Se você quiser inserir linhas, upsert ou atualização, você deve adicionar primeiro uma transformação de linha de alteração para linhas de marca para essas ações específicas.
+* Permitir a inserção, atualização, exclusão, upserts. O padrão é permitir que inserções. Se você quiser excluir linhas, upsert ou atualização, você deve adicionar primeiro uma transformação de linha de alteração para linhas de marca para essas ações específicas. Desativar "Permitir insert" deixará de ADF insiram novas linhas de sua fonte.
 * Truncar a tabela (remove todas as linhas da sua tabela de destino antes de concluir o fluxo de dados)
 * Recrie a tabela (realiza soltam/criam da sua tabela de destino antes de concluir o fluxo de dados)
 * Tamanho do lote de carregamentos de dados grandes. Insira um número para gravações de bucket em partes
 * Habilite preparo: Isso instruirá o ADF para usar o Polybase ao carregar o Data Warehouse do Azure, como seu conjunto de dados do coletor
+
+> [!NOTE]
+> No fluxo de dados, você pode pedir o ADF para criar uma nova definição de tabela no banco de dados de destino, definindo um conjunto de dados na transformação coletor que tem um novo nome de tabela. No conjunto de dados SQL, clique em "Editar", abaixo do nome da tabela e insira um novo nome de tabela. Em seguida, na transformação de coletor, ative "Permitir que o descompasso do esquema". Seth a configuração "Importar esquema" como None.
+
+![Esquema de fonte de transformação](media/data-flow/dataset2.png "esquema SQL")
 
 ![Opções de coletor do SQL](media/data-flow/alter-row2.png "opções SQL")
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6bd67e500756fe5a7ba5ee29db88b9aedb103e4
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 3e21f7a67b11caf0180959de68d698f0ff4a1af1
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315973"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371852"
 ---
 # <a name="what-are-authentication-methods"></a>Quais são os métodos de autenticação?
 
@@ -26,16 +26,16 @@ Os administradores podem definir na política quais métodos de autenticação e
 
 A Microsoft recomenda que os administradores habilitem os usuários a selecionar mais do que o número mínimo necessário de métodos de autenticação, caso eles não tenham acesso a um.
 
-|Método de Autenticação|Uso|
+|Método de autenticação|Uso|
 | --- | --- |
 | Senha | MFA e o SSPR |
 | Perguntas de segurança | Somente o SSPR |
 | Endereço de email | Somente o SSPR |
 | Aplicativo Microsoft Authenticator | MFA e versão prévia pública para SSPR |
 | Token OATH de hardware | Versão prévia pública para MFA e SSPR |
-| SMS | MFA e o SSPR |
+| sms | MFA e o SSPR |
 | Chamada de voz | MFA e o SSPR |
-| Senhas do aplicativo | MFA somente em determinados casos |
+| Senhas de aplicativo | MFA somente em determinados casos |
 
 ![Métodos de autenticação em uso na tela de login](media/concept-authentication-methods/overview-login.png)
 
@@ -60,15 +60,15 @@ Se você usar perguntas de segurança, é recomendável usá-las em conjunto com
 
 ### <a name="predefined-questions"></a>Perguntas predefinidas
 
-* Em que cidade você conheceu seu primeiro cônjuge?
+* Em qual cidade você conheceu seu primeiro cônjuge/parceiro?
 * Em qual cidade seus pais se conheceram?
 * Em qual cidade seu irmão mais próximo mora?
 * Em qual cidade seu pai nasceu?
 * Em qual cidade você teve seu primeiro emprego?
 * Em qual cidade sua mãe nasceu?
-* Em qual cidade você estava no Ano Novo de 2000?
-* Qual o sobrenome de seu professor favorito no ensino médio?
-* Diga o nome de uma faculdade à qual você se candidatou, mas que não frequentou?
+* Em qual cidade você estava no ano de 2000?
+* Qual era o sobrenome de seu professor favorito no ensino médio?
+* Qual é o nome de uma faculdade que você tentou entrar, mas que não frequentou?
 * Qual é o nome do lugar em que você realizou sua primeira festa de casamento?
 * Qual é o segundo nome de seu pai?
 * Qual é sua comida favorita?
@@ -94,7 +94,7 @@ Se você usar perguntas de segurança, é recomendável usá-las em conjunto com
 * Qual foi seu primeiro emprego?
 * Quais eram os últimos quatro dígitos de seu primeiro número de telefone?
 * Quando criança, o que você queria ser quando crescesse?
-* Qual a pessoa mais famosa que você já conheceu?
+* Quem é a pessoa mais famosa que você já conheceu?
 
 Todas as questões de segurança predefinidas são traduzidas e localizadas no conjunto completo de idiomas do Office 365 com base na localidade do navegador do usuário.
 
@@ -141,7 +141,7 @@ O aplicativo Microsoft Authenticator pode ajudar a impedir o acesso não autoriz
 
 Se você ativar o uso da notificação por meio do aplicativo móvel e do código de verificação do aplicativo para dispositivos móveis, os usuários que registrarem o aplicativo Microsoft Authenticator usando uma notificação poderão usar a notificação e o código para confirmar sua identidade.
 
-### <a name="verification-code-from-mobile-app"></a>Código de verificação do aplicativo móvel
+### <a name="verification-code-from-mobile-app"></a>Código de verificação de aplicativo móvel
 
 O aplicativo Microsoft Authenticator ou outros aplicativos de terceiros podem ser usados como um token de software para gerar um código de verificação OATH. Depois de inserir seu nome de usuário e senha, insira o código fornecido pelo aplicativo na tela de login. O código de verificação oferece uma segunda forma de autenticação.
 
@@ -155,13 +155,13 @@ Os usuários podem ter uma combinação de até 5 tokens OATH de hardware ou apl
 
 O OATH é um padrão livre que especifica os códigos de OTP (senha única) são gerados. O Azure AD será compatível com o uso de tokens OATH-TOTP SHA-1 das variedades de 30 segundos ou 60 segundos. Os clientes podem adquirir esses tokens do fornecedor de sua escolha. Observe que as chaves secretas estão limitadas a 128 caracteres, que podem não ser compatíveis com todos os tokens.
 
-![Carregar tokens OATH para a folha de tokens OATH do MFA Server no portal do Azure](media/concept-authentication-methods/oath-tokens-azure-ad.png)
+![Carregando tokens OATH até a folha de tokens OATH do servidor de MFA](media/concept-authentication-methods/oath-tokens-azure-ad.png)
 
 Os tokens OATH de hardware agora são compatíveis como parte de uma versão prévia pública. Para obter mais informações sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 Depois que os tokens são adquiridos, eles precisam ser carregados em um formato de arquivo de valores separados por vírgulas (CSV) incluindo o UPN, número de série, chave secreta, intervalo de tempo, fabricante e modelo como mostrado no exemplo a seguir.
 
-```
+```csv
 upn,serial number,secret key,timeinterval,manufacturer,model
 Helga@contoso.com,1234567,1234567890abcdef1234567890abcdef,60,Contoso,HardwareKey
 ```
@@ -190,11 +190,11 @@ Para funcionarem adequadamente, os números de telefone devem estar no formato *
 >
 > A redefinição de senha não dá suporte a ramais telefônicos. Mesmo no formato +1 4255551234X12345, as extensões são removidas antes que a chamada seja completada.
 
-### <a name="text-message"></a>Mensagem de texto
+### <a name="text-message"></a>mensagem de texto
 
 Um SMS é enviado para o número do celular que contém um código de verificação. Digite o código de verificação fornecido na interface de login para continuar.
 
-### <a name="phone-call"></a>Telefonema
+### <a name="phone-call"></a>chamada telefônica
 
 Uma chamada de voz automatizada é feita para o número de telefone que você fornece. Atenda a chamada e pressione # no teclado do telefone para autenticar
 
@@ -217,7 +217,7 @@ O atributo de telefone do escritório é gerenciado pelo seu administrador.
 >
 > A redefinição de senha não dá suporte a ramais telefônicos. Mesmo no formato +1 4255551234X12345, as extensões são removidas antes que a chamada seja completada.
 
-## <a name="app-passwords"></a>Senhas de Aplicativo
+## <a name="app-passwords"></a>Senhas de aplicativo
 
 Alguns aplicativos que não são de navegador não oferecem suporte à autenticação de vários fatores. Se um usuário tiver sido habilitado para autenticação de vários fatores e tentar usar aplicativos sem navegador, eles não poderão se autenticar. Uma senha de aplicativo permite que os usuários continuem a autenticar
 

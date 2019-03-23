@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 213a55cb02c718628a4a2d64bdee98ab66af5ce3
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 970e570d9ad27da2690cd38fe480823128322db0
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317044"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370696"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Configurar o Servidor de Autenticação Multifator do Azure para trabalhar com o AD FS no Windows Server
 
@@ -45,30 +45,22 @@ Antes de começar, esteja ciente das seguintes informações:
 2. No console de gerenciamento do Servidor de Autenticação Multifator do Azure, clique no ícone **AD FS**. Selecione as opções **Permitir registro de usuário** e **Permitir que os usuários selecionem o método**.
 3. Selecione as opções adicionais que você deseja especificar para a sua organização.
 4. Clique em **Instalar Adaptador do AD FS**.
-   
-   <center>
-   
-   ![Nuvem](./media/howto-mfaserver-adfs-2012/server.png)</center>
+
+   ![Instalar o adaptador do AD FS no console do servidor de MFA](./media/howto-mfaserver-adfs-2012/server.png)
 
 5. Se a janela do Active Directory for exibida, isso significará duas coisas. O computador faz parte de um domínio e a configuração do Active Directory para proteger a comunicação entre o adaptador do AD FS e o serviço de Autenticação Multifator está incompleta. Clique em **Avançar** para concluir automaticamente essa configuração ou marque a caixa de seleção **Ignorar configuração automática do Active Directory e definir as configurações manualmente**. Clique em **Avançar**.
 6. Se as janelas de Grupo Local forem exibidas, isso significará duas coisas. Seu computador não faz parte de um domínio e a configuração do grupo local para proteger a comunicação entre o adaptador do AD FS e o serviço de Autenticação Multifator está incompleta. Clique em **Avançar** para concluir automaticamente essa configuração ou marque a caixa de seleção **Ignorar configuração automática do Grupo Local e definir as configurações manualmente**. Clique em **Avançar**.
 7. No Assistente de instalação, clique em **Avançar**. O Servidor de Autenticação Multifator do Azure cria o grupo PhoneFactor Admins e adiciona a conta de serviço do AD FS ao grupo PhoneFactor Admins.
-   <center>
-   
-   ![Nuvem](./media/howto-mfaserver-adfs-2012/adapter.png)</center>
 8. Na página **Iniciar Instalador**, clique em **Avançar**.
 9. No instalador do adaptador do AD FS da Autenticação Multifator, clique em **Avançar**.
 10. Clique em **Fechar** quando a instalação for concluída.
-11. Quando o adaptador tiver sido instalado, você deverá registrá-lo no AD FS. Abra PowerShell e execute o seguinte comando:<br>
+11. Quando o adaptador tiver sido instalado, você deverá registrá-lo no AD FS. Abra PowerShell e execute o seguinte comando:
+
     `C:\Program Files\Multi-Factor Authentication Server\Register-MultiFactorAuthenticationAdfsAdapter.ps1`
-    <center>
-    
-    ![Nuvem](./media/howto-mfaserver-adfs-2012/pshell.png)</center>
+
 12. Para usar o adaptador recém-registrado, edite a política de autenticação global no AD FS. No console de gerenciamento do AD FS, vá até o nó **Políticas de Autenticação** . Na seção **Autenticação Multifator**, clique no link **Editar** próximo à seção **Configurações Globais**. Na janela **Editar Política de Autenticação Global**, selecione **Autenticação Multifator** como um método de autenticação adicional e clique em **OK**. O adaptador é registrado como WindowsAzureMultiFactorAuthentication. Reinicie o serviço AD FS para que o registro entre em vigor.
 
-<center>
-
-![Nuvem](./media/howto-mfaserver-adfs-2012/global.png)</center>
+![Editar política de autenticação global](./media/howto-mfaserver-adfs-2012/global.png)
 
 Neste ponto, o Servidor de Autenticação Multifator está configurado para ser um provedor de autenticação adicional a ser usado com o AD FS.
 
@@ -85,6 +77,7 @@ Neste ponto, o Servidor de Autenticação Multifator está configurado para ser 
 5. Clique em **Fechar** quando a instalação for concluída.
 
 ## <a name="edit-the-multifactorauthenticationadfsadapterconfig-file"></a>Editar o arquivo MultiFactorAuthenticationAdfsAdapter.config
+
 Execute estas etapas para editar o arquivo MultiFactorAuthenticationAdfsAdapter.config:
 
 1. Defina o nó **UseWebServiceSdk** como **true**.  
@@ -138,20 +131,22 @@ Para proteger seus recursos de nuvem, configure uma regra de declaração para q
 2. À esquerda, selecione **Relações de Confiança com Terceira Parte Confiável**.
 3. Clique com o botão direito do mouse na **Plataforma de Identidade do Microsoft Office 365** e selecione **Editar Regras de Declaração...**
 
-   ![Nuvem](./media/howto-mfaserver-adfs-2012/trustedip1.png)
+   ![Editar regras de declaração no console do ADFS](./media/howto-mfaserver-adfs-2012/trustedip1.png)
 
 4. Em Regras de Transformação de Emissão, clique em **Adicionar Regra.**
 
-   ![Nuvem](./media/howto-mfaserver-adfs-2012/trustedip2.png)
+   ![Editar regras de transformação no console do ADFS](./media/howto-mfaserver-adfs-2012/trustedip2.png)
 
 5. No Assistente Adicionar Regra de Declaração de Transformação, selecione **Passar ou filtrar uma Declaração de Entrada** na lista e clique em **Avançar**.
 
-   ![Nuvem](./media/howto-mfaserver-adfs-2012/trustedip3.png)
+   ![Adicionar Assistente de regra de declaração de transformação](./media/howto-mfaserver-adfs-2012/trustedip3.png)
 
 6. Dê um nome para a regra.
 7. Selecione **Referências de Métodos de Autenticação** como o tipo de declaração Entrada.
 8. Selecione **Passar todos os valores de declaração**.
+
     ![Assistente para Adicionar Regra de Declaração de Transformação](./media/howto-mfaserver-adfs-2012/configurewizard.png)
+
 9. Clique em **Concluir**. Feche o Console de gerenciamento do AD FS.
 
 ## <a name="troubleshooting-logs"></a>Solucionar problemas de logs

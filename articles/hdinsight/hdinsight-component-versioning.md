@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: kakampf
-ms.openlocfilehash: 0e15f3dc448ba218ebdfe309c4308bbc789ef5be
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 38667bfe1c7c2a23db9375aa50dd328b98735c06
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226255"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361771"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Quais são os componentes e versões do Apache Hadoop disponíveis com o HDInsight?
 
@@ -81,12 +81,12 @@ A tabela a seguir lista as versões do HDInsight que estão disponíveis no port
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 4.0 <br> (Visualização) |HDP 3.0 |Ubuntu 16.0.4 LTS |24 de setembro de 2018 | | |Sim |Sim |
 | HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |4 de abril de 2017 | | |Sim |Sim |
-| HDInsight 3.5 <br> (Spark)* |HDP 2.6 |Ubuntu 16.0.4 LTS |30 de setembro de 2016 |13 de março de 2019 |13 de março de 2019 |Sim |Sim |
+| HDInsight 3.5 <br> (Spark)\* |HDP 2.6 |Ubuntu 16.0.4 LTS |30 de setembro de 2016 |13 de março de 2019 |13 de março de 2019 |Sim |Sim |
 
 *&ast; O suporte ao HDInsight 3.5 foi estendido apenas para tipos de cluster do Spark*
 
 > [!NOTE]  
-> Depois que o suporte para uma versão tiver expirado, ela poderá não estar disponível por meio do Portal do Microsoft Azure. No entanto, as versões do cluster continuarão disponíveis usando o parâmetro `Version` no comando do Windows PowerShell [New-AzureRmHDInsightCluster](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/new-azurermhdinsightcluster) e o SDK .NET até a data de baixa da versão.
+> Depois que o suporte para uma versão tiver expirado, ela poderá não estar disponível por meio do Portal do Microsoft Azure. No entanto, as versões do cluster continuarão disponíveis usando o `Version` parâmetro no Windows PowerShell [AzHDInsightCluster New](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) comando e o SDK .NET até a data de desativação de versão.
 >
 
 ### <a name="retired-versions"></a>Versões desativadas

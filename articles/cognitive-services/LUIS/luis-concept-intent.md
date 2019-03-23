@@ -1,7 +1,7 @@
 ---
-title: Intenções do usuário
+title: Intenções
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Uma intenção representa uma tarefa ou ação que o usuário deseja executar. É uma finalidade ou uma meta expressa no enunciado de um usuário.
+description: Uma tentativa única representa uma tarefa ou ação, o usuário quer executar. É uma finalidade ou uma meta expressa no enunciado de um usuário. Defina um conjunto de intenções que corresponda às ações que os usuários desejem executar em seu aplicativo.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: ae1dd16e3296c11d6bce6ea623f590deaee8f65d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: e635a11cb99d11befc40703d9f5d2abec8559632
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871346"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371104"
 ---
 # <a name="concepts-about-intents-in-your-luis-app"></a>Conceitos sobre intenções em seu aplicativo LUIS
 
@@ -31,7 +31,7 @@ Intenções do aplicativo de viagem   |   Exemplo de enunciados   |
  CheckWeather | "Como está o clima em Boston?" <br/> "Mostre-me a previsão para este fim de semana" |
  Nenhum         | "Encontre uma receita de biscoitos para mim"<br>"Os Lakers venceram?" |
 
-Todos os aplicativos vêm com a intenção predefinida, "[Nenhuma](#none-intent-is-fallback-for-app)" que é a intenção de fallback. 
+Todos os aplicativos são fornecidos com a intenção predefinida, "[None](#none-intent-is-fallback-for-app)", que é a intenção de fallback. 
 
 ## <a name="prebuilt-domains-provide-intents"></a>Domínios predefinidos fornecem intenções
 Além das intenções que você define, é possível usar intenções predefinidas de um dos domínios predefinidos. Para obter mais informações, confira [Usar domínios predefinidos em aplicativos LUIS](luis-how-to-use-prebuilt-domains.md) para saber como personalizar as intenções de um domínio predefinido para uso em seu aplicativo.
@@ -57,7 +57,11 @@ A intenção representa a ação que o chatbot deve executar para o usuário e b
 
 [Domínios predefinidos](luis-how-to-use-prebuilt-domains.md) têm intenções com declarações.  
 
-## <a name="none-intent-is-fallback-for-app"></a>A intenção Nenhum é fallback do aplicativo
+## <a name="none-intent"></a>Intenção None
+
+O **None** intenção é importante para todos os aplicativos e não deve ter zero declarações.
+
+### <a name="none-intent-is-fallback-for-app"></a>A intenção Nenhum é fallback do aplicativo
 A intenção **Nenhum** é uma intenção de fallback ou que captura tudo. Ela é usada para ensinar ao LUIS declarações que não são importantes no domínio de aplicativo (área de assunto). A intenção **Nenhum** deve ter entre 10 e 20 por cento das declarações totais no aplicativo. Não deixe Nenhum vazio. 
 
 ### <a name="none-intent-helps-conversation-direction"></a>A intenção Nenhum ajuda a direção da conversa
@@ -76,6 +80,12 @@ A intenção **None** é uma intenção necessária e não pode ser excluída ne
 
 ## <a name="negative-intentions"></a>Intenções negativas 
 Se desejar determinar intenções negativas e positivas, como "Eu **quero** um carro" e "Eu **não** quero um carro", será possível criar duas intenções (uma positiva e uma negativa) e adicionar declarações adequadas para cada uma. Ou é possível criar uma única intenção e marcar os dois termos positivos e negativos diferentes como uma entidade.  
+
+## <a name="intents-and-patterns"></a>As intenções e padrões
+
+Se você tiver as declarações de exemplo, que podem ser definidas parcialmente ou totalmente como uma expressão regular, considere usar o [entidade de expressão regular](luis-concept-entity-types.md#regular-expression-entity) emparelhado com um [padrão](luis-concept-patterns.md). 
+
+Usando uma entidade de expressão regular garante a extração de dados, de modo que o padrão é correspondido. A correspondência de padrões garante que uma intenção exata é retornada. 
 
 ## <a name="intent-balance"></a>Equilíbrio de intenções
 As intenções do domínio de aplicativo devem ter um equilíbrio de declarações em cada intenção. Não tenha uma intenção com 10 declarações e outra intenção com 500 declarações. Isso não está equilibrado. Se você tiver essa situação, examine a intenção com 500 declarações para ver se muitas intenções podem ser reorganizadas em um [padrão](luis-concept-patterns.md). 
@@ -96,6 +106,8 @@ Saiba como combinar aplicativos LUIS e QnA Maker com o [modelo de expedição](l
 
 ### <a name="request-help-for-apps-with-significant-number-of-intents"></a>Solicite ajuda para aplicativos com quantidades significativas de intenções
 Se a redução do número de intenções ou a divisão das suas intenções em vários aplicativos não funcionar para você, contate o suporte. Se a assinatura do Azure incluir serviços de suporte, contate o [suporte técnico do Azure](https://azure.microsoft.com/support/options/). 
+
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

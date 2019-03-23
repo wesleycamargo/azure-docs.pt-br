@@ -10,36 +10,37 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 01/26/2017
 ms.author: sbowles
-ms.openlocfilehash: ceaffebde65402db385ff8b906d77c2ddadc6f97
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 47ce80e1b0cefc01752d2445b751ebe1c2d65d08
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860943"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351315"
 ---
 # <a name="face-api-frequently-asked-questions"></a>Perguntas frequentes da API de Detecção Facial
 
-### <a name="if-you-cant-find-answers-to-your-questions-in-this-faq-try-asking-the-face-api-community-on-stackoverflowhttpsstackoverflowcomquestionstaggedproject-oxfordormicrosoft-cognitive-or-contact-help-and-support-on-uservoicehttpscognitiveuservoicecom"></a>Se você não conseguir encontrar respostas para suas perguntas nesta FAQ, tente perguntar à comunidade da API de Detecção Facial em [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) ou entre em contato com Ajuda e Suporte em [UserVoice](https://cognitive.uservoice.com/).
+> [!TIP]
+> Se você não conseguir encontrar respostas para suas perguntas nesta FAQ, tente perguntar à comunidade da API de Detecção Facial em [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) ou entre em contato com Ajuda e Suporte em [UserVoice](https://cognitive.uservoice.com/).
 
 -----
-**Pergunta**: Quais fatores podem reduzir a precisão da API de Detecção Facial quanto a Reconhecimento, Verificação ou Encontrar Semelhante?
+**Pergunta**: Quais fatores podem reduzir a precisão da API de detecção facial para reconhecimento, verificação ou localizar Similar?
 
-**Resposta**: Geralmente, esses são os mesmos casos em que os humanos têm dificuldade para identificar alguém, incluindo:
+**Resposta**: Geralmente é os mesmos casos em que as pessoas têm dificuldade identificando alguém incluindo:
 * Obstruções bloqueando um ou ambos os olhos
-* Iluminação adversa, por exemplo, luz de fundo intensa
+* Iluminação Harsh (por exemplo, grave luz de fundo)
 * Alterações no estilo de cabelo ou pelo facial
 * Alterações devido à idade
-* Expressões faciais extremas (por exemplo, gritando)
+* Expressões faciais extremas (por exemplo, sendo também)
 
-A API de Detecção Facial costuma ser bem-sucedida em casos difíceis como esses, mas a precisão pode ser reduzida. Para tornar o reconhecimento mais robusto e enfrentar esses desafios, treine seu Pessoas com fotos que incluem uma diversidade de iluminação e ângulos.
+API de detecção facial costuma ser bem-sucedida em um desafio casos com o mostrado acima, mas precisão pode ser reduzido. Para tornar o reconhecimento mais robusto e enfrentar esses desafios, treine seu Pessoas com fotos que incluem uma diversidade de iluminação e ângulos.
 
 -----
 **Pergunta**:  Estou passando os dados de imagem binária, mas recebo o erro "Imagem de rosto inválida".
 
-**Resposta**:  Isso implica que o algoritmo teve um problema ao analisar a imagem. Entre as causas estão:
+**Resposta**:  Este erro indica que o algoritmo teve um problema ao analisar a imagem. Entre as causas estão:
 * Os formatos de imagem de entrada com suporte incluem JPEG, PNG, GIF (o primeiro quadro), BMP.
-* O tamanho do arquivo de imagem deve ser maior do que 4MB
+* O tamanho do arquivo de imagem não deve ser maior do que 4 MB
 * O intervalo de tamanho de face detectável é de 36x36 a 4096x4096 pixels. As faces fora desse intervalo não serão detectadas
-* Talvez algumas faces não sejam detectadas por questões técnicas; por exemplo, ângulos de face muito grandes (foto de rosto) e oclusão grande. As faces frontais e quase frontais têm os melhores resultados
+* Talvez algumas faces não sejam detectadas devido a desafios técnicos, por exemplo, grandes ângulos de face (head), oclusão grande. As faces frontais e quase frontais têm os melhores resultados
 
 -----

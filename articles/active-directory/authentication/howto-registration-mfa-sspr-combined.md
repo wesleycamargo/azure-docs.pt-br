@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25450d49fd32adf12ac6c8a71671a9cb796b06c4
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: c5d7f9623a7594aaa79c4cff187486360b1befc8
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317435"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369013"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Registro de informações de segurança Enable combinado (visualização)
 
 Antes de habilitar a nova experiência, examine o artigo [combinados de registro de informações de segurança (visualização)](concept-registration-mfa-sspr-combined.md) para garantir que você entende a funcionalidade e o impacto desse recurso.
 
-![Experiência de registro aprimorada de informações de segurança combinada solicitar mais informações na entrada. Mostra da exemplo registrando o aplicativo Microsoft Authenticator como método primeiro.](media/howto-registration-mfa-sspr-combined/combined-security-info-more-required.png)
+![Experiência aprimorada de registro de informações de segurança combinada](media/howto-registration-mfa-sspr-combined/combined-security-info-more-required.png)
 
 |     |
 | --- |
@@ -37,7 +37,7 @@ Conclua as seguintes etapas para habilitar o registro combinado:
 2. Navegue até **Active Directory do Azure** >  **Configurações do usuário** >  **Gerenciar configurações dos recursos de visualização do painel de acesso**.
 3. Sob **os usuários podem usar recursos para registrar e gerenciar informações de segurança de visualização - atualizar**, optar por ativar para um **selecionados** grupo de usuários ou para **todos os** usuários.
 
-![Habilitar a experiência de visualização de informações de segurança combinada para todos os usuários no portal do Azure AD](media/howto-registration-mfa-sspr-combined/combined-security-info-enable.png)
+![Habilitar a experiência de visualização de informações de segurança combinada para todos os usuários](media/howto-registration-mfa-sspr-combined/combined-security-info-enable.png)
 
 > [!IMPORTANT]
 > A partir de março de 2019 as opções de chamada telefônica não estará disponível para os usuários do MFA e o SSPR em locatários gratuitos/avaliação do Azure AD. Mensagens SMS não são afetadas por essa alteração. Chamada telefônica continuará disponível para os usuários no pago locatários do Azure AD. Essa alteração só afeta o locatários gratuitos/avaliação do Azure AD.

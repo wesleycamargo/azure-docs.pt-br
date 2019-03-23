@@ -13,19 +13,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 03/22/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5ff8beb1995359bad93449744718091c338e4994
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 334f69390e4506c6db76c1814f8ec8f1e4417ee9
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226548"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372328"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Como criar uma máquina virtual do Linux com os modelos do Azure Resource Manager
 
-Este artigo mostra como implantar rapidamente uma VM (máquina virtual) do Linux com a CLI do Azure e modelos do Azure Resource Manager. 
+Saiba como criar uma máquina virtual do Linux (VM) usando um modelo do Azure Resource Manager e a CLI do Azure do Azure Cloud shell. Para criar uma máquina virtual do Windows, consulte [criar uma máquina virtual do Windows de um modelo do Resource Manager](../windows/ps-template.md).
 
 ## <a name="templates-overview"></a>Visão geral de modelos
 
@@ -38,7 +38,7 @@ A criação de uma máquina virtual do Azure geralmente inclui duas etapas:
 1. Crie um grupos de recursos. Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Você deve criar um grupo de recursos antes de criar uma máquina virtual.
 1. Crie uma máquina virtual.
 
-O exemplo a seguir cria uma VM a partir [um modelo de início rápido do Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json). Somente a autenticação do SSH é permitida para essa implantação. Mediante solicitação, forneça o valor de sua própria chave pública SSH, como o conteúdo de *~/.ssh/id_rsa.pub*. Se você precisar criar um par de chaves SSH, confira [Como criar um par de chaves SSH para VMs Linux no Azure](mac-create-ssh-keys.md). Aqui está uma cópia do modelo:
+O exemplo a seguir cria uma VM de um [modelo de início rápido do Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json). Somente a autenticação do SSH é permitida para essa implantação. Mediante solicitação, forneça o valor de sua própria chave pública SSH, como o conteúdo de *~/.ssh/id_rsa.pub*. Se você precisar criar um par de chaves SSH, confira [Como criar um par de chaves SSH para VMs Linux no Azure](mac-create-ssh-keys.md). Aqui está uma cópia do modelo:
 
 [!code-json[create-linux-vm](~/quickstart-templates/101-vm-sshkey/azuredeploy.json)]
 
@@ -84,8 +84,8 @@ Neste exemplo, você criou uma VM básica do Linux. Para obter mais modelos do R
 
 Confira a sintaxe e as propriedades do JSON para os tipos de recursos que você implantou para saber mais sobre a criação de modelos:
 
-* [Microsoft.Network/networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups)
-* [Microsoft.Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)
-* [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
-* [Microsoft.Network/networkInterfaces](/azure/templates/microsoft.network/networkinterfaces)
-* [Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines)
+- [Microsoft.Network/networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups)
+- [Microsoft.Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)
+- [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
+- [Microsoft.Network/networkInterfaces](/azure/templates/microsoft.network/networkinterfaces)
+- [Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines)

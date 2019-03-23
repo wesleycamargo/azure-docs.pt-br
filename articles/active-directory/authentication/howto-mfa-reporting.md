@@ -11,23 +11,23 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7dd26bbb06310439aae065349c14c6df1c1c12e6
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 1f78a3135fca290d50370652b33fe0a4d16a6f83
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316925"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369038"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Relatórios na Autenticação Multifator do Azure
 
 A Autenticação Multifator do Azure fornece vários relatórios que podem ser usados por você e sua organização, acessíveis através do portal do Azure. A tabela a seguir lista os relatórios possíveis:
 
-| Relatório | Localizaçãoização | Descrição |
+| Relatório | Local padrão | DESCRIÇÃO |
 |:--- |:--- |:--- |
-| Histórico de Usuários Bloqueados | Microsoft Azure AD > Servidor MFA > Bloquear/desbloquear usuários | Mostra o histórico de solicitações para bloquear ou desbloquear usuários. |
+| Histórico de usuário bloqueado | Microsoft Azure AD > Servidor MFA > Bloquear/desbloquear usuários | Mostra o histórico de solicitações para bloquear ou desbloquear usuários. |
 | Alertas de fraudes e uso | Microsoft Azure AD > Entradas | Fornece informações sobre o uso geral, resumo do usuário e detalhes do usuário, assim como um histórico de alertas de fraude enviados durante o intervalo de datas especificado. |
 | Uso para componentes locais | Microsoft Azure AD > Servidor MFA > Relatórios de Atividade | Fornece informações sobre o uso geral do MFA por meio da extensão do NPS, ADFS e do servidor MFA. |
-| Histórico de Usuários Ignorados | Microsoft Azure AD > Servidor MFA > Bypass avulso | Fornece um histórico de solicitações para ignorar a Autenticação Multifator para um usuário. |
+| Histórico de usuário desviado | Microsoft Azure AD > Servidor MFA > Bypass avulso | Fornece um histórico de solicitações para ignorar a Autenticação Multifator para um usuário. |
 | Status do servidor | Microsoft Azure AD > Servidor MFA > Status do Servidor | Exibe o status dos Servidores de Autenticação Multifator associado à sua conta. |
 
 ## <a name="view-mfa-reports"></a>Exibir relatórios de MFA
@@ -36,9 +36,7 @@ A Autenticação Multifator do Azure fornece vários relatórios que podem ser u
 2. À esquerda, selecione **Azure Active Directory** > **Servidor MFA**.
 3. Selecione o relatório que você deseja exibir.
 
-   <center>
-   
-   ![Nuvem](./media/howto-mfa-reporting/report.png)</center>
+   ![Relatório de status do servidor MFA server no portal do Azure](./media/howto-mfa-reporting/report.png)
 
 ## <a name="azure-ad-sign-ins-report"></a>Relatório de entradas do AD do Azure
 
@@ -55,7 +53,7 @@ O relatório de logins pode fornecer informações sobre o uso de aplicativos ge
 
 Esses dados estão disponíveis por meio do [Portal do Azure](https://portal.azure.com) e da [API de relatórios](../reports-monitoring/concept-reporting-api.md).
 
-![Nuvem](./media/howto-mfa-reporting/sign-in-report.png)
+![Relatório de entradas do Azure AD no portal do Azure](./media/howto-mfa-reporting/sign-in-report.png)
 
 ### <a name="sign-ins-report-structure"></a>Estrutura de relatório de entradas
 
@@ -108,8 +106,8 @@ Os relatórios de atividade de entrada para MFA fornecem acesso às seguintes in
 
 **Método de autenticação do MFA:** O método de autenticação utilizado pelo usuário para concluir o MFA. Os valores possíveis incluem:
 
-- Mensagem de texto
-- Notificação do aplicativo móvel
+- mensagem de texto
+- Notificação de aplicativo móvel
 - Chamada telefônica (telefone de autenticação)
 - Código de verificação do aplicativo móvel
 - Chamada telefônica (telefone comercial)
@@ -122,7 +120,7 @@ Os relatórios de atividade de entrada para MFA fornecem acesso às seguintes in
 - Nome da política
 - Controles de concessão
 - Controles de sessão
-- Resultado
+- Result
 
 ## <a name="powershell-reporting"></a>Relatórios do PowerShell
 

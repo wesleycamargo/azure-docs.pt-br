@@ -11,18 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 580c9080bb2b019e120ea57e5fe4444a71c24e76
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 5a0d7edb6c7faafcad55e827c2d9e3d2eeea40f5
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314783"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371359"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Implantar redefinição de senha sem exigir registro do usuário final
 
 Para implantar a redefinição de senha de autoatendimento (SSPR) do Azure Active Directory (Azure AD), os dados de autenticação precisam estar presentes. Algumas organizações fazem com que seus usuários insiram seus próprios dados de autenticação. Mas muitas organizações preferem a sincronização com os dados que já existem no Active Directory. Os dados sincronizados serão disponibilizados para o Azure AD e SSPR sem a necessidade de interação do usuário se você:
-   * Formatar corretamente os dados em seu diretório local.
-   * Configurar o [Azure AD Connect usando as configurações expressas](../hybrid/how-to-connect-install-express.md).
+
+* Formatar corretamente os dados em seu diretório local.
+* Configurar o [Azure AD Connect usando as configurações expressas](../hybrid/how-to-connect-install-express.md).
 
 Para funcionarem adequadamente, os números de telefone devem estar no formato *+CountryCode PhoneNumber*, por exemplo: +1 4255551234.
 
@@ -35,7 +36,7 @@ Para funcionarem adequadamente, os números de telefone devem estar no formato *
 
 Se você usar as configurações padrão no Azure AD Connect, serão realizados os seguintes mapeamentos:
 
-| Active Directory local | Azure AD |
+| Active Directory local | AD do Azure |
 | --- | --- |
 | telephoneNumber | Telefone comercial |
 | Serviço Móvel | Telefone celular |
@@ -46,7 +47,7 @@ Quando um usuário confirma o número de telefone celular, o campo de telefone e
 
 Um Administrador Global pode definir manualmente as informações de contato de autenticação para um usuário conforme exibido na captura de tela a seguir.
 
-![Contato][Contact]
+![Informações em um usuário de contato de autenticação do AD do Azure][Contact]
 
 Se o campo de telefone for preenchido e o telefone celular estiver habilitado na política de SSPR, o usuário verá o número na página de registro de redefinição de senha e a senha durante a redefinição de fluxo de trabalho.
 
@@ -84,7 +85,7 @@ Para começar, primeiramente é preciso [baixar e instalar o módulo PowerShell 
 
 #### <a name="set-the-authentication-data-with-powershell-version-1"></a>Definir dados de autenticação com o PowerShell versão 1
 
-```
+```PowerShell
 Connect-MsolService
 
 Set-MsolUser -UserPrincipalName user@domain.com -AlternateEmailAddresses @("email@domain.com")
@@ -96,7 +97,7 @@ Set-MsolUser -UserPrincipalName user@domain.com -AlternateEmailAddresses @("emai
 
 #### <a name="read-the-authentication-data-with-powershell-version-1"></a>Ler dados de autenticação com o PowerShell versão 1
 
-```
+```PowerShell
 Connect-MsolService
 
 Get-MsolUser -UserPrincipalName user@domain.com | select AlternateEmailAddresses
@@ -110,7 +111,7 @@ Get-MsolUser | select DisplayName,UserPrincipalName,AlternateEmailAddresses,Mobi
 
 Para ler o **Telefone de Autenticação** e **Email de Autenticação** quando você usa o PowerShell versão 1, use os seguintes comandos:
 
-```
+```PowerShell
 Connect-MsolService
 Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthenticationUserDetails | select PhoneNumber
 Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthenticationUserDetails | select Email
@@ -122,7 +123,7 @@ Para começar, é preciso [baixar e instalar o módulo PowerShell do Azure AD ve
 
 Para instalar rapidamente de versões recentes do PowerShell que dão suporte ao Módulo de instalação, execute os seguintes comandos. (A primeira linha verifica se o módulo já está instalado.)
 
-```
+```PowerShell
 Get-Module AzureADPreview
 Install-Module AzureADPreview
 Connect-AzureAD
@@ -130,7 +131,7 @@ Connect-AzureAD
 
 #### <a name="set-the-authentication-data-with-powershell-version-2"></a>Definir dados de autenticação com o PowerShell versão 2
 
-```
+```PowerShell
 Connect-AzureAD
 
 Set-AzureADUser -ObjectId user@domain.com -OtherMails @("email@domain.com")
@@ -142,7 +143,7 @@ Set-AzureADUser -ObjectId user@domain.com -OtherMails @("emails@domain.com") -Mo
 
 #### <a name="read-the-authentication-data-with-powershell-version-2"></a>Ler dados de autenticação com o PowerShell versão 2
 
-```
+```PowerShell
 Connect-AzureAD
 
 Get-AzureADUser -ObjectID user@domain.com | select otherMails

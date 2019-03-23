@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: ''
-ms.date: 03/13/2019
+ms.date: 03/23/2019
 ms.author: jeffgilb
 ms.reviewer: anwestg
-ms.lastreviewed: 03/13/2019
-ms.openlocfilehash: db95be94028fcf16871a9dcfee5f0d87eb5d2cdc
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.lastreviewed: 03/23/2019
+ms.openlocfilehash: 1c105548f19994c4ca0ce161eedcfe11736864c7
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285659"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370016"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>Implantar o serviço de aplicativo em uma configuração altamente disponível
 
@@ -54,8 +54,7 @@ Antes de usar este modelo, certifique-se de que o seguinte [itens do marketplace
 ### <a name="deploy-the-app-service-infrastructure"></a>Implantar a infraestrutura de serviço de aplicativo
 Use as etapas nesta seção para criar uma implantação personalizada usando o **appservice-compartilhamento de arquivos-sqlserver-ha** modelo de início rápido do Azure Stack.
 
-1. 
-   [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
+1. [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. Selecione **\+** **criar um recurso** > **personalizado**e então **implantação de modelo**.
 
@@ -94,8 +93,7 @@ Certifique-se de que você registre cada um desses valores de saída:
 
 Siga estas etapas para descobrir os valores de saída do modelo:
 
-1. 
-   [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
+1. [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. No portal de administração, selecione **grupos de recursos** e, em seguida, o nome do grupo de recursos que você criou para a implantação personalizada (**app-service-ha** neste exemplo). 
 
@@ -168,9 +166,20 @@ Para implantar o provedor de recursos do serviço de aplicativo, siga estas etap
 
     ![Informações de saída do compartilhamento de arquivo](media/app-service-deploy-ha/07.png)
 
-9. Porque a máquina que está sendo usada para instalar o serviço de aplicativo não está localizada na mesma rede virtual como servidor de arquivos que está sendo usado para hospedar o compartilhamento de arquivos do serviço de aplicativo, você não poderá resolver o nome. Este comportamento é esperado.<br><br>Verifique se as informações inseridas para as informações de contas e o caminho UNC do compartilhamento de arquivos estão corretas e pressione **Sim** na caixa de diálogo alerta para continuar a instalação do serviço de aplicativo.
+9. Porque a máquina que está sendo usada para instalar o serviço de aplicativo não está localizada na mesma rede virtual como servidor de arquivos que está sendo usado para hospedar o compartilhamento de arquivos do serviço de aplicativo, você não poderá resolver o nome. **Esse comportamento é esperado**.<br><br>Verifique se as informações inseridas para as informações de contas e o caminho UNC do compartilhamento de arquivos estão corretas e pressione **Sim** na caixa de diálogo alerta para continuar a instalação do serviço de aplicativo.
 
     ![Caixa de diálogo de erro esperado](media/app-service-deploy-ha/08.png)
+
+    Se você optar por implantar em uma rede virtual existente e um endereço IP interno para se conectar ao seu servidor de arquivos, você deve adicionar uma regra de segurança de saída, permitindo o tráfego entre a sub-rede de trabalho e o servidor de arquivos SMB. Vá para o WorkersNsg no portal de administração e adicionar uma regra de segurança de saída com as seguintes propriedades:
+    - Origem: Qualquer
+    - Intervalo de porta de origem: *
+    - Destino: Endereços IP
+    - Intervalo de endereços IP de destino: Intervalo de IPs para seu servidor de arquivos
+    - Intervalo de porta de destino: 445
+    - Protocolo: TCP
+    - Ação: PERMITIR
+    - Prioridade: 700
+    - Nome: Outbound_Allow_SMB445
 
 10. Forneça a ID do aplicativo de identidade e o caminho e as senhas para os certificados de identidade e clique em **próxima**:
     - Certificado de identidade do aplicativo (no formato **sso.appservice.local.azurestack.external.pfx**)
@@ -189,7 +198,7 @@ Para implantar o provedor de recursos do serviço de aplicativo, siga estas etap
 
     ![Informações de conexão do SQL Server](media/app-service-deploy-ha/10.png)
 
-12. Porque a máquina que está sendo usada para instalar o serviço de aplicativo não está localizada na mesma rede virtual como o SQL server que está sendo usado para hospedar os bancos de dados do serviço de aplicativo, você não poderá resolver o nome.  Este comportamento é esperado.<br><br>Verifique se as informações inseridas para as informações de nome e as contas do SQL Server estão corretas e pressione **Sim** para continuar a instalação do serviço de aplicativo. Clique em **Avançar**.
+12. Porque a máquina que está sendo usada para instalar o serviço de aplicativo não está localizada na mesma rede virtual como o SQL server que está sendo usado para hospedar os bancos de dados do serviço de aplicativo, você não poderá resolver o nome.  **Esse comportamento é esperado**.<br><br>Verifique se as informações inseridas para as informações de nome e as contas do SQL Server estão corretas e pressione **Sim** para continuar a instalação do serviço de aplicativo. Clique em **Avançar**.
 
     ![Informações de conexão do SQL Server](media/app-service-deploy-ha/11.png)
 
@@ -231,3 +240,5 @@ Para implantar o provedor de recursos do serviço de aplicativo, siga estas etap
 [Expansão do serviço de aplicativo](azure-stack-app-service-add-worker-roles.md). Você talvez precise adicionar trabalhadores de função adicionais do serviço de aplicativo infra-estrutura para atender à demanda esperada de aplicativo em seu ambiente. Por padrão, o serviço de aplicativo no Azure Stack dá suporte a camadas de trabalhador gratuitos e compartilhados. Para adicionar outras camadas de trabalho, você precisa adicionar mais funções de trabalho.
 
 [Configurar fontes de implantação](azure-stack-app-service-configure-deployment-sources.md). Configuração adicional é necessária para dar suporte à implantação sob demanda de vários provedores de controle do código-fonte como GitHub, BitBucket, OneDrive e DropBox.
+
+[Fazer backup de serviço de aplicativo](app-service-back-up.md). Depois de implantar com êxito e configurar o serviço de aplicativo, você deve garantir que todos os componentes necessários para recuperação de desastres são feitos para evitar a perda de dados e evitar tempo de inatividade do serviço desnecessárias durante as operações de recuperação.

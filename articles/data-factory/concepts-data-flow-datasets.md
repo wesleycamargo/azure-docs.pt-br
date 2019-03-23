@@ -1,18 +1,18 @@
 ---
 title: Conjuntos de Dados do Fluxo de Dados do Mapeamento do Azure Data Factory
-description: Azure Data Factory de mapeamento de fluxo de dados tem sepecific compatibilidade de conjunto de dados
+description: Azure Data Factory de mapeamento de fluxo de dados tem compatibilidade de conjunto de dados específico
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: ad6cfdad519ab3901c58979970ea07439b3106e9
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 4e36e96947e6a8595230023065eb9f44a5a1f3d2
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726916"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371308"
 ---
 # <a name="mapping-data-flow-datasets"></a>Conjuntos de Dados de Fluxo de Dados de Mapeamento
 
@@ -26,8 +26,8 @@ Conjuntos de dados no fluxo de dados são usados nas transformações do código
 
 No momento no fluxo de dados, você encontrará quatro tipos de conjunto de dados:
 
-* Azure SQL DB
-* SQL DW do Azure
+* BD SQL do Azure
+* Data Warehouse SQL do Azure
 * Parquet (do ADLS e Blob)
 * Texto delimitado (do ADLS e Blob)
 
@@ -42,6 +42,12 @@ Ao criar um novo Conjunto de Dados, há uma caixa de seleção rotulada como "Fl
 ## <a name="import-schemas"></a>Importar esquemas
 
 Ao importar o esquema de conjuntos de dados de Fluxo de Dados, você verá um botão Importar Esquema. Clicar nesse botão apresentará duas opções: Importar da fonte ou importar de um arquivo local. Na maioria dos casos, você importará o esquema diretamente da fonte. No entanto, se você tiver um arquivo de esquema existente (arquivo Parquet ou CSV com cabeçalhos), poderá apontar para o arquivo local e o Data Factory definirá o esquema com base no arquivo de esquema.
+
+## <a name="create-new-table"></a>Criar nova tabela
+
+No fluxo de dados, você pode pedir o ADF para criar uma nova definição de tabela no banco de dados de destino, definindo um conjunto de dados na transformação coletor que tem um novo nome de tabela. No conjunto de dados SQL, clique em "Editar", abaixo do nome da tabela e insira um novo nome de tabela. Em seguida, na transformação de coletor, ative "Permitir que o descompasso do esquema". Seth a configuração "Importar esquema" como None.
+
+![Esquema de fonte de transformação](media/data-flow/dataset2.png "esquema SQL")
 
 ## <a name="delimited-text-dataset"></a>Conjunto de dados de texto delimitado
 

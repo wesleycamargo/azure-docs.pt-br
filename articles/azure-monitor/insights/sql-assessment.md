@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 534307cfd71551de5427a196902b275a15ad44b5
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e8c06f0a3a33133c7b1595db52204d15b03d6aab
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436367"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372464"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Otimize seu ambiente SQL com a solução de Verificação da Integridade do SQL Server no Log Analytics
 
@@ -53,7 +53,7 @@ Para executar a verificação de integridade nos servidores do SQL Server, são 
 
 1. Instale o [MMA (Microsoft Monitoring Agent)](../../azure-monitor/platform/agent-windows.md) se o servidor ainda não for monitorado pelo System Center 2016 - Operations Manager ou Operations Manager 2012 R2.
 2. Se for monitorado com o System Center 2016 – Operations Manager ou Operations Manager 2012 R2, e o grupo de gerenciamento não for integrado com o serviço Log Analytics, o servidor poderá ter hospedagem múltipla com o Log Analytics para coletar dados, encaminhar o serviço e ainda ser monitorado pelo Operations Manager.  
-3. Caso contrário, se seu grupo de gerenciamento Operations Manager for integrado com o serviço, você precisará adicionar controladores de domínio para a coleção de dados pelo serviço seguindo as etapas em [adicionar computadores gerenciados por agente](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-log-analytics) depois de habilitar a solução em seu workspace.  
+3. Caso contrário, se seu grupo de gerenciamento Operations Manager for integrado com o serviço, você precisará adicionar controladores de domínio para a coleção de dados pelo serviço seguindo as etapas em [adicionar computadores gerenciados por agente](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-azure-monitor) depois de habilitar a solução em seu workspace.  
 
 O agente no SQL Server que informa um grupo de gerenciamento Operations Manager, coleta os dados, encaminha para o servidor de gerenciamento atribuído e é enviado diretamente de um servidor de gerenciamento para o serviço Log Analytics.  Os dados não são gravados nos bancos de dados do Operations Manager.  
 

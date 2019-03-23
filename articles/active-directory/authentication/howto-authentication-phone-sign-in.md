@@ -12,18 +12,18 @@ manager: daveba
 ms.reviewer: librown
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26dd1bd6717fe0216545d6b3aa729ac2cb19dc9d
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 47e8541b82a1cd38f07684508a96b9789df20e92
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313321"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370373"
 ---
 # <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Entrada sem senha pelo telefone com o aplicativo Microsoft Authenticator (visualização pública)
 
 O aplicativo Microsoft Authenticator pode ser usado para entrar em qualquer conta do Azure AD sem usar uma senha. Similar à tecnologia do [Windows Hello para Empresas](/windows/security/identity-protection/hello-for-business/hello-identity-verification), o Microsoft Authenticator usa a autenticação baseada em chave para habilitar uma credencial de usuário que esteja associada a um dispositivo e use biometria ou PIN.
 
-![Exemplo de uma entrada por navegador pedindo para o usuário aprovar a tentativa de entrada em seu aplicativo Microsoft Authenticator](./media/howto-authentication-phone-sign-in/phone-sign-in-microsoft-authenticator-app.png)
+![Exemplo de um navegador entrar pedindo para aprovar a entrada do usuário](./media/howto-authentication-phone-sign-in/phone-sign-in-microsoft-authenticator-app.png)
 
 Em vez de ver um prompt de senha após inserir um nome de usuário, uma pessoa que tenha habilitado entrada pelo telefone no aplicativo Microsoft Authenticator verá uma mensagem dizendo para tocar em um número em seu aplicativo. No aplicativo, o usuário deverá indicar o mesmo número, escolher Aprovar, informar o PIN ou biometria e, em seguida, a autenticação será concluída.
 
@@ -33,24 +33,27 @@ Para versão prévia pública, um administrador deve primeiro adicionar uma pol�
 
 ### <a name="tenant-prerequisites"></a>Pré-requisitos do locatário
 
-* Active Directory do Azure
+* Azure Active Directory
 * Usuários finais habilitados para Autenticação Multifator do Azure
 * Os usuários podem registrar seus dispositivos
 
 ### <a name="steps-to-enable"></a>Etapas para habilitar
 
 1. Verifique se você tem a versão mais recente da liberação da Versão Prévia Pública do Módulo do PowerShell do Azure Active Directory V2. Você pode querer desinstalar e reinstalar para confirmar isso, executando os seguintes comandos:
+
     ```powershell
     Uninstall-Module -Name AzureADPreview
     Install-Module -Name AzureADPreview
     ```
 
 2. Autentique-se para o locatário do Azure AD para usar o módulo do PowerShell do Azure AD V2. A conta usada deve ser um Administrador de Segurança ou um Administrador Global.
+
     ```powershell
     Connect-AzureAD
     ```
 
 3. Crie a política de Entrada do Autenticador:
+
     ```powershell
     New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn
     ```

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6f1620c9977f997b4037fbf3f823c429e43b4f6a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.openlocfilehash: 015728a43e091e36dcf02b5cc17f0135a64428ca
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436255"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361941"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-powershell"></a>Executar tarefas do MapReduce com o Apache Hadoop no HDInsight usando o PowerShell
 
@@ -23,6 +23,8 @@ ms.locfileid: "53436255"
 Esse documento fornece um exemplo de uso do PowerShell do Azure para executar um trabalho MapReduce em um Hadoop no cluster HDInsight.
 
 ## <a id="prereq"></a>Pré-requisitos
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * **Um cluster Azure HDInsight (Hadoop no HDInsight)**
 
@@ -37,15 +39,15 @@ O PowerShell do Azure fornece *cmdlets* que permitem executar remotamente trabal
 
 Os cmdlets a seguir são usados ao executar trabalhos MapReduce em um cluster HDInsight remoto.
 
-* **Connect-AzureRmAccount**: Autentica o Azure PowerShell para a assinatura do Azure.
+* **Connect-AzAccount**: Autentica o Azure PowerShell para a assinatura do Azure.
 
-* **New-AzureRmHDInsightMapReduceJobDefinition**: Cria uma nova*definição de trabalho*, usando as informações do MapReduce especificadas.
+* **New-AzHDInsightMapReduceJobDefinition**: Cria uma nova*definição de trabalho*, usando as informações do MapReduce especificadas.
 
-* **Start-AzureRmHDInsightJob**: Envia a definição de trabalho para HDInsight e inicia o trabalho. Um objeto *job* é retornado.
+* **Start-AzHDInsightJob**: Envia a definição de trabalho para HDInsight e inicia o trabalho. Um objeto *job* é retornado.
 
-* **Wait-AzureRmHDInsightJob**: Usa o objeto de trabalho para verificar o status do trabalho. Ele aguarda até que o trabalho seja concluído ou o tempo de espera seja excedido.
+* **Wait-AzHDInsightJob**: Usa o objeto de trabalho para verificar o status do trabalho. Ele aguarda até que o trabalho seja concluído ou o tempo de espera seja excedido.
 
-* **Get-AzureRmHDInsightJobOutput**: Usado para recuperar a saída do trabalho.
+* **Get-AzHDInsightJobOutput**: Usado para recuperar a saída do trabalho.
 
 As etapas a seguir demonstram como usar esses cmdlets para executar um trabalho no seu cluster HDInsight.
 
@@ -92,7 +94,7 @@ Se nenhuma informação for retornada quando o trabalho for concluído, exiba os
 ```powershell
 # Print the output of the WordCount job.
 Write-Host "Display the standard output ..." -ForegroundColor Green
-Get-AzureRmHDInsightJobOutput `
+Get-AzHDInsightJobOutput `
         -Clustername $clusterName `
         -JobId $wordCountJob.JobId `
         -HttpCredential $creds `

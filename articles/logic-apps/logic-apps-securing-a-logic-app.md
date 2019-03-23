@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
 ms.date: 02/05/2019
-ms.openlocfilehash: 34076b790a91b1c0e9d8bee224423aab0db7c8f3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6f878e05255be8f65868d8d1dcdbacb3ccfa2729
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57891800"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369931"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>Proteger o acesso nos Aplicativos Lógicos do Azure
 
@@ -34,7 +34,7 @@ Aqui estão os elementos em seu aplicativo lógico no qual você pode proteger o
 Quando seu aplicativo lógico usa um gatilho baseado em solicitação HTTP, como o gatilho [Solicitação](../connectors/connectors-native-reqres.md) ou [Webhook](../connectors/connectors-native-webhook.md), você pode restringir o acesso para que somente clientes autorizados possam iniciar seu aplicativo lógico. Todas as solicitações recebidas por um aplicativo lógico são criptografadas e protegidas com o protocolo SSL (Secure Sockets Layer). Aqui estão as diferentes maneiras de proteger o acesso a esse tipo de gatilho:
 
 * [Gerar assinaturas de acesso compartilhado](#sas)
-* [Restringir endereços IP de entrada](#restrict-incoming-IP)
+* [Restringir endereços IP de entrada](#restrict-incoming-ip-addresses)
 * [Adicionar Azure Active Directory, OAuth ou outra segurança](#add-authentication)
 
 <a name="sas"></a>

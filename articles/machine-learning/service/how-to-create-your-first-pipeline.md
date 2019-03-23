@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8fe8b365974086ef530b83988c63eda338a6079f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1ace13b8802c86b3ad40725554c698851ff421b0
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014586"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360513"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Criar e executar um pipeline de aprendizado de máquina usando o SDK do Azure Machine Learning
 
@@ -356,7 +356,7 @@ response = requests.post(published_pipeline1.endpoint,
 Confira a lista de todos os seus pipelines e seus detalhes de execução:
 1. Entre no [Portal do Azure](https://portal.azure.com/).  
 
-1. [Exiba seu workspace](how-to-manage-workspace.md#view-a-workspace) para encontrar a lista de pipelines.
+1. [Exiba seu workspace](how-to-manage-workspace.md#view) para encontrar a lista de pipelines.
  ![lista de pipelines do aprendizado de máquina](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
  
 1. Selecione um pipeline específico para ver os resultados da execução.

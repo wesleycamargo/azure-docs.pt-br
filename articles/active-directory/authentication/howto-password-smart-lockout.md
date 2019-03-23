@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 402a2d6afc7b58d4dfc1c9fa67e354b4d157bd4c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 5c81a9f3891130f1c6fc2f1a665d7065fb983227
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310227"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370178"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory Sync smart lockout
 
@@ -40,8 +40,8 @@ Bloqueio inteligente pode ser integrado com implantações híbridas, usando a s
 
 Ao usar [autenticação de passagem](../hybrid/how-to-connect-pta.md), você precisará certificar-se de que:
 
-   * O limite de bloqueio do Azure AD seja **menor** que o limite de bloqueio da conta do Active Directory. Defina os valores de forma que o limite de bloqueio da conta do Active Directory seja pelo menos duas ou três vezes maior do que o limite de bloqueio do Azure AD. 
-   * A duração de bloqueio do Azure AD **em segundos** é **maior** que a duração de redefinir contador de bloqueios de conta após do Active Directory em **minutos**.
+* O limite de bloqueio do Azure AD seja **menor** que o limite de bloqueio da conta do Active Directory. Defina os valores de forma que o limite de bloqueio da conta do Active Directory seja pelo menos duas ou três vezes maior do que o limite de bloqueio do Azure AD. 
+* A duração de bloqueio do Azure AD **em segundos** é **maior** que a duração de redefinir contador de bloqueios de conta após do Active Directory em **minutos**.
 
 > [!IMPORTANT]
 > No momento um administrador não pode desbloquear contas de nuvem dos usuários se eles foram bloqueados fora da funcionalidade do Bloqueio Inteligente. O administrador deve aguardar a duração do bloqueio expirar.
@@ -55,7 +55,7 @@ Use as instruções a seguir para verificar suas políticas de bloqueio de conta
 3. Navegue até **Configuração do Computador** > **Políticas** > **Configurações do Windows** > **Configurações de Segurança** > **Políticas de Conta** > **Política de Bloqueio de Conta**.
 4. Verifique os valores de **Limite de bloqueio de conta** e **Redefinir contador de bloqueios de conta após**.
 
-![Modificar a política de bloqueio de conta do local do Active Directory usando um objeto de diretiva de grupo](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
+![Modificar a política de bloqueio de conta do local do Active Directory](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
 
 ## <a name="manage-azure-ad-smart-lockout-values"></a>Gerenciar valores de bloqueio inteligente do Azure AD
 
@@ -78,9 +78,7 @@ Quando o limite de bloqueio inteligente é disparado, você receberá a seguinte
 
 **Sua conta está temporariamente bloqueada para impedir o uso não autorizado. Tente novamente depois e, se ainda tiver problemas, entre em contato com seu administrador.**
 
-
 ## <a name="next-steps"></a>Próximas etapas
 
-[Descubra como banir senhas ruins na sua organização usando Azure AD.](howto-password-ban-bad.md)
-
-[Configure reset de senhas self-service para permitir usuários desbloquearem suas próprias contas.](quickstart-sspr.md)
+* [Descubra como banir senhas ruins na sua organização usando Azure AD.](howto-password-ban-bad.md)
+* [Configure reset de senhas self-service para permitir usuários desbloquearem suas próprias contas.](quickstart-sspr.md)

@@ -1,7 +1,7 @@
 ---
 title: Tipos de entidade
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Adicione entidades (principais dados no domínio do seu aplicativo) em aplicativos LUIS (Serviço Inteligente de Reconhecimento Vocal).
+description: 'Entidades de extrair dados de declaração. Tipos de entidade oferecem previsível extração de dados. Há dois tipos de entidades: computador aprendeu e não computador aprendeu. É importante saber que tipo de entidade que você está trabalhando com em declarações.'
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: c8d2ccc197eb8818cfe3fc54449ee982bbe0c087
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d12ea20f9f510b0e2d3d3512d8d8c71a3fb96eec
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57844581"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372515"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Tipos de entidade e suas finalidades no LUIS
 
-Entidades são palavras ou frases em declarações que são importantes dados no domínio do seu aplicativo.
+Entidades de extrair dados de declaração. Tipos de entidade oferecem previsível extração de dados. Há dois tipos de entidades: computador aprendeu e não computador aprendeu. É importante saber que tipo de entidade que você está trabalhando com em declarações. 
 
 ## <a name="entity-compared-to-intent"></a>Entidade comparada com a intenção
 
@@ -38,8 +38,8 @@ Entidades são dados que você deseja extrair da declaração. Elas podem ser um
 
 |Enunciado|Entidade|Dados|
 |--|--|--|
-|Comprar três passagens para Nova York|Número predefinido<br>Location.Destination|3<br>Nova York|
-|Comprar uma passagem de Nova York para Londres em 5 de março|Location.Origin<br>Location.Destination<br>datetimeV2 predefinido|Nova York<br>Londres<br>5 de março de 2018|
+|Comprar três passagens para Nova York|Número predefinido<br>Location.Destination|3<br>Nova Iorque|
+|Comprar uma passagem de Nova York para Londres em 5 de março|Location.Origin<br>Location.Destination<br>datetimeV2 predefinido|Nova Iorque<br>Londres<br>5 de março de 2018|
 
 ## <a name="entities-are-optional-but-highly-recommended"></a>As entidades são opcionais, mas altamente recomendadas
 
@@ -86,7 +86,7 @@ As entidades podem ser extraídas com aprendizado de máquina, permitindo que o 
 
 Depois que a entidade é extraída, os dados da entidade podem ser representados como uma única unidade de informação ou combinados com outras entidades para formar uma unidade de informação que o aplicativo cliente pode usar.
 
-|Aprendizado de máquina|Pode marcar|Tutorial|Exemplo<br>Resposta|Tipo de entidade|Finalidade|
+|Aprendizado de máquina|Pode marcar|Tutorial|Exemplo<br>Response|Tipo de entidade|Finalidade|
 |--|--|--|--|--|--|
 |✔|✔|[✔](luis-tutorial-composite-entity.md)|[✔](luis-concept-data-extraction.md#composite-entity-data)|[**Composição**](#composite-entity)|Agrupamento de entidades, independentemente do tipo de entidade.|
 |✔|✔|[✔](luis-quickstart-intent-and-hier-entity.md)|[✔](luis-concept-data-extraction.md#hierarchical-entity-data)|[**Hierárquica**](#hierarchical-entity)|Agrupamento de entidades simples.|
@@ -190,7 +190,7 @@ A entidade é uma boa opção quando:
 
 * Os dados correspondem a um caso de uso comum com suporte por entidades predefinidas para a cultura do idioma. 
 
-As entidades predefinidas podem ser adicionadas e removidas a qualquer momento. Se você localizar uma entidade predefinida detectada em um exemplo de enunciado, impossibilitando a marcação da entidade personalizada, remova a entidade predefinida do aplicativo, marque a entidade e, em seguida, adicione a entidade predefinida de volta. 
+As entidades predefinidas podem ser adicionadas e removidas a qualquer momento.
 
 ![Numerar entidade predefinida](./media/luis-concept-entities/number-entity.png)
 
@@ -198,6 +198,29 @@ As entidades predefinidas podem ser adicionadas e removidas a qualquer momento. 
 [Exemplo de resposta JSON para entidade](luis-concept-data-extraction.md#prebuilt-entity-data)
 
 Algumas dessas entidades predefinidas são definidas no projeto [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) de software livre. Se não houver suporte à sua cultura ou entidade específica, contribua para o projeto. 
+
+### <a name="troubleshooting-prebuilt-entities"></a>As entidades predefinidas de solução de problemas
+
+No portal do LUIS, se uma entidade predefinida é marcada em vez de sua entidade personalizada, você tem algumas opções de como corrigir esse problema.
+
+As entidades predefinidas adicionadas ao aplicativo serão _sempre_ retornado, mesmo se a expressão deve extrair entidades personalizadas para o mesmo texto. 
+
+#### <a name="change-tagged-entity-in-example-utterance"></a>Alterar entidade marcada na expressão de exemplo
+
+Se a entidade predefinida é o mesmo texto ou tokens como a entidade personalizada, selecione o texto na declaração de exemplo e altere a expressão marcada. 
+
+Se a entidade predefinida é marcada com mais texto ou tokens que sua entidade personalizada, você tem algumas opções de como corrigir isso:
+
+* [Remova a expressão de exemplo](#remove-example-utterance-to-fix-tagging) método
+* [Remover entidade predefinida](#remove-prebuilt-entity-to-fix-tagging) método
+
+#### <a name="remove-example-utterance-to-fix-tagging"></a>Remova a expressão de exemplo para corrigir a marcação 
+
+Sua primeira opção é excluir a expressão de exemplo e treinar novamente o aplicativo. Adicione novamente apenas a palavra ou frase que são a entidade como uma expressão de exemplo e marcar a entidade e o treinamento. Adicione novamente a entidade predefinida e a expressão de exemplo original. A entidade personalizada deve continuar a ser marcado como em vez de entidade predefinida. 
+
+#### <a name="remove-prebuilt-entity-to-fix-tagging"></a>Remover entidade predefinida para corrigir a marcação
+
+A segunda opção é remover a entidade predefinida do aplicativo, em seguida, marcar a entidade personalizada na declaração de exemplo, em seguida, adicionar a entidade predefinida volta para o aplicativo. Essa correção pressupõe que a entidade predefinida não faz parte de uma entidade de composição. 
 
 ## <a name="regular-expression-entity"></a>Entidade de expressão regular 
 
@@ -234,7 +257,7 @@ Examine os [limites](luis-boundaries.md#model-boundaries) para entender a quanti
 
 Entidades compostas e hierárquicas têm relações pai-filho e se tratam de aprendizado de máquina. O aprendizado de máquina permite que o LUIS compreenda as entidades baseadas em diferentes contextos (disposição de palavras). Entidades compostas são mais flexíveis, porque permitem tipos de entidade diferente como filhos. Os filhos de uma entidade hierárquica são apenas entidades simples. 
 
-|Tipo|Finalidade|Exemplo|
+|Type|Finalidade|Exemplo|
 |--|--|--|
 |Hierárquico|Pai-filho de entidades simples|Location.Origin=New York<br>Location.Destination=London|
 |Composição|Entidades pai-filho: predefinidas, lista, simples, hierárquicas| number=3<br>list=first class<br>prebuilt.datetimeV2=March 5|

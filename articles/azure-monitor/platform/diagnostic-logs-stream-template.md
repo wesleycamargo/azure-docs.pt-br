@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 3/26/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: e6185a7b62e3c599a7c3588824e3a9c4ac60cb53
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 7edce5175a1dda66abf3316cb8f0eb33e9f64ef7
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467621"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371461"
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Habilitar automaticamente as Configurações de Diagnóstico na criação do recurso usando um modelo do Resource Manager
-Neste artigo, mostramos como você pode usar um [Modelo do Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para definir as Configurações de Diagnóstico em um recurso quando ele é criado. Isso permite iniciar automaticamente o streaming de seus Logs de Diagnóstico e métricas para os Hubs de Eventos, arquivando-os em uma Conta de Armazenamento ou enviando-os para o Log Analytics quando um recurso é criado.
+Neste artigo, mostramos como você pode usar um [Modelo do Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para definir as Configurações de Diagnóstico em um recurso quando ele é criado. Isso permite que você inicie automaticamente o streaming seus Logs de diagnóstico e métricas para os Hubs de eventos, arquivando-os em uma conta de armazenamento ou enviá-los para um espaço de trabalho do Log Analytics quando um recurso é criado.
 
 > [!WARNING]
 > O formato dos dados de log na conta de armazenamento será alterado para Linhas JSON em 1º de novembro de 2018. [Confira este artigo para obter uma descrição do impacto e saber como atualizar suas ferramentas para manipular o novo formato.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
@@ -40,7 +40,7 @@ Abaixo, damos um exemplo de arquivo JSON do modelo que você precisa gerar para 
 ## <a name="non-compute-resource-template"></a>Modelo de recursos de Não Computação
 Para os recursos de Não Computação, você precisará fazer duas coisas:
 
-1. Adicione parâmetros ao blob de parâmetros para o nome da conta de armazenamento, ID da regra de autorização do hub de eventos e/ou ID do workspace do Log Analytics (permitindo o arquivamento dos Logs de Diagnóstico em uma conta de armazenamento, streaming de logs para os Hubs de Eventos e/ou envio de logs para o Log Analytics).
+1. Adicione parâmetros ao blob de parâmetros para o nome da conta de armazenamento, ID de regra de autorização de hub de eventos e/ou ID do espaço de trabalho do Log Analytics (permitindo o arquivamento dos Logs de diagnóstico em uma conta de armazenamento, streaming de logs para os Hubs de eventos e/ou envio de logs para o Azure Monitor).
    
     ```json
     "settingName": {

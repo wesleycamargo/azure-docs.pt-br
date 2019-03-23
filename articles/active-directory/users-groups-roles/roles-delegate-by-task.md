@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e81d5513f43882093883256cf9eab4a22e9ca01
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 59c06ae83327683942885190e4b401617dc020f9
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875267"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361363"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Funções de administrador por tarefa de administrador no Azure Active Directory
 
@@ -235,13 +235,13 @@ Ler todas as configurações | Administrador global |
 
 Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
-Configurar métodos de autenticação | Administrador global | 
-Configurar personalização | Administrador global | 
-Configurar notificação | Administrador global | 
-Configurar integração local | Administrador global | 
-Configurar propriedades de redefinição de senha | Administrador global | 
-Configurar registro | Administrador global | 
-Ler todas as configurações | Administrador da segurança, Administrador de usuários | 
+Configurar métodos de autenticação | Administrador global |
+Configurar personalização | Administrador global |
+Configurar notificação | Administrador global |
+Configurar integração local | Administrador global |
+Configurar propriedades de redefinição de senha | Administrador de usuários | Administrador global
+Configurar registro | Administrador global |
+Ler todas as configurações | Administrador de segurança | Administrador de usuários |
 
 ## <a name="privileged-identity-management"></a>Privileged Identity Management
 

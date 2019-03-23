@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 03/21/2019
 ms.author: diberry
-ms.openlocfilehash: f1bc19833e0e0cc2026ae22977d9a3b371924fe2
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: aed7d4fedd4781eac8c127744e5fe93fb054b99d
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337099"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369710"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o LUIS (Serviço Inteligente de Reconhecimento Vocal)
 
@@ -64,7 +64,12 @@ Os aplicativos pré-compilados da Cortana foram preteridos em 2017. Não há mai
 ### <a name="how-do-i-transfer-ownership-of-a-luis-app"></a>Como fazer para transferir a propriedade de um aplicativo de LUIS?
 Para transferir um aplicativo de LUIS para uma assinatura do Azure diferente, exporte o aplicativo de LUIS e importe-lo usando uma nova conta. Atualize a ID do aplicativo de LUIS no aplicativo cliente que o chama. O novo aplicativo pode retornar pontuações de LUIS ligeiramente diferentes que as do aplicativo original.
 
+### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>Uma entidade predefinida é marcada em uma expressão de exemplo, em vez de minha entidade personalizada. Como corrigir isso? 
+
+Ver [as entidades predefinidas de solução de problemas](luis-concept-entity-types.md#troubleshooting-prebuilt-entities).
+
 ### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>Eu tentei importar um arquivo de aplicativo ou versão, mas recebi um erro, o que aconteceu? 
+
 Leia mais sobre [erros de importação de versão](luis-how-to-manage-versions.md#import-errors) e [erros de importação de aplicativo](luis-how-to-start-new-app.md#import-errors).
 
 <a name="luis-collaborating"></a>
@@ -281,9 +286,9 @@ Sim, você poderá usar o [contêiner](luis-container-howto.md) do LUIS para ess
 
 Os seguintes recursos foram lançados na Conferência Build 2018:
 
-|Nome|Conteúdo|
+|NOME|Conteúdo|
 |--|--|
-|Aprimoramentos|Entidades de [Expressão regular](luis-concept-data-extraction.md##regular-expression-entity-data) e de [Frase-chave](luis-concept-data-extraction.md#key-phrase-extraction-entity-data)
+|Melhorias|Entidades de [Expressão regular](luis-concept-data-extraction.md##regular-expression-entity-data) e de [Frase-chave](luis-concept-data-extraction.md#key-phrase-extraction-entity-data)
 |Padrões|[Conceito](luis-concept-patterns.md), [tutorial](luis-tutorial-pattern.md) e [instruções](luis-how-to-model-intent-pattern.md) de padrões<br>Conceito da entidade [Patterns.Any](luis-concept-entity-types.md) incluindo [Lista explícita](luis-concept-patterns.md#explicit-lists) para exceções<br>Conceito de [Funções](luis-concept-roles.md)|
 |Integrações|Integração de [análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) da [análise de sentimento](luis-how-to-publish-app.md#enable-sentiment-analysis)<br>Integração de [fala](https://docs.microsoft.com/azure/cognitive-services/speech) da preparação de fala junto com o [SDK de Fala](https://aka.ms/SpeechSDK)|
 |Ferramenta de Expedição|Parte de [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools), [ferramenta](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps) de linha de comando de Expedição para combinar vários aplicativos LUIS e QnA Maker em único aplicativo de LUIS para um melhor reconhecimento de intenção em um Bot

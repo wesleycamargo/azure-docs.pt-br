@@ -14,19 +14,21 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 7b4ee33d3e231dc59ce1d7b4ae6337efb11e96bc
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.openlocfilehash: f26597022b89bcd113ee250db75a842c634273eb
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354969"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371376"
 ---
 # <a name="delete-azure-marketplace-and-appsource-offers-or-skus"></a>Excluir SKUs ou ofertas do Azure Marketplace e do AppSource
 
 Por motivos diversos, você pode optar por retirar a oferta do seu Microsoft Marketplace, o que pode ocorrer de duas formas:
 
 - A *remoção de oferta* garante que novos clientes não possam adquirir ou implantar sua oferta, mas não tem impacto sobre clientes existentes, aos quais você precisa dar suporte de acordo com seu contrato de licença e leis pertinentes. 
-- O *encerramento de oferta* é o processo de encerrar o contrato de licenciamento e/ou serviço entre você e seus clientes existentes. Diretrizes e políticas relacionadas à remoção e ao encerramento de ofertas são governadas pelo [Contrato do Publicador do Microsoft Marketplace](https://go.microsoft.com/fwlink/?LinkID=699560) (seção 7) e pelas [Políticas de Participação](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) (seção 6.2). 
+- O *encerramento de oferta* é o processo de encerrar o contrato de licenciamento e/ou serviço entre você e seus clientes existentes. 
+
+Diretrizes e políticas relacionadas à remoção e o término da oferta são governadas pelas [contrato de Editor do Microsoft Marketplace](https://go.microsoft.com/fwlink/?LinkID=699560) (seção 7) e o [políticas de participação](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) (seção [ Oferta de suspensão e remoção](https://docs.microsoft.com/en-us/legal/marketplace/participation-policy#offering-suspension-and-removal)). 
 
 Este artigo aborda os diferentes cenários de exclusão compatíveis e as etapas necessárias para executar cada um deles.  
 

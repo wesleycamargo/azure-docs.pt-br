@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 03/18/2019
+ms.date: 03/22/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 859f0d168dcf1cc999f79ef22b5ba6669da79593
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: e7ab09522184f5c2d1c5168b24b2948f58e5189e
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189556"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368952"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximizando a qualidade do grupo de linhas para o columnstore
 
@@ -67,7 +67,7 @@ from cte;
 ```
 
 O trim_reason_desc informa se o grupo de linhas foi cortado (trim_reason_desc = NO_TRIM implica que não houve corte e grupo de linhas é de melhor qualidade). Os motivos de corte a seguir indicam prematuro corte do grupo de linhas:
-- CARREGAMENTO EM MASSA: Esse motivo de corte é usado quando o lote de entrada de linhas para a carga tinha menos de um milhão de linhas. O mecanismo criará grupos de linhas compactado se houver mais que 100.000 linhas sendo inseridas (em vez de inserir no repositório delta), mas define o motivo do corte para CARREGAMENTO EM MASSA. Nesse cenário, considere aumentar a janela de carga de lote para acumular mais linhas. Além disso, reavalie o esquema de particionamento para garantir que não está muito granular, já que os grupos de linhas não podem abranger os limites de partição.
+- CARREGAMENTO EM MASSA: Esse motivo de corte é usado quando o lote de entrada de linhas para a carga tinha menos de um milhão de linhas. O mecanismo criará grupos de linhas compactado se houver mais que 100.000 linhas sendo inseridas (em vez de inserir no repositório delta), mas define o motivo do corte para CARREGAMENTO EM MASSA. Nesse cenário, considere aumentar a carga de lote para incluir mais linhas. Além disso, reavalie o esquema de particionamento para garantir que não está muito granular, já que os grupos de linhas não podem abranger os limites de partição.
 - MEMORY_LIMITATION: Para criar grupos de linhas com um milhão de linhas, uma determinada quantidade de memória de trabalho é necessária para o mecanismo. Quando a memória disponível da sessão de carregamento é menor do que a memória necessária do trabalho, grupos de linhas são cortados prematuramente. As seções a seguir explicam como estimar a memória necessária e alocar mais memória.
 - DICTIONARY_SIZE: Esse motivo do corte indica que a fragmentação do grupo de linhas ocorreu devido a pelo menos uma coluna de cadeia de caracteres com cadeias de caracteres amplas e/ou de alta cardinalidade. O tamanho do dicionário está limitado a 16 MB de memória e quando esse limite é atingido o grupo de linhas é compactado. Se você se deparar com essa situação, considere isolar a coluna problemática em uma tabela separada.
 

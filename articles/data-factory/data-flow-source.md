@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 20491981cb02e428ff4114b9456d74b0de651be8
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 54302f97913fd01dc8f8e4a8d987a407c8bdf9a7
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569018"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369157"
 ---
 # <a name="mapping-data-flow-source-transformation"></a>Transformação de Fonte de Fluxo de Dados de mapeamento
 
@@ -74,7 +74,7 @@ Você pode optar por particionar as conexões com base em uma consulta. Para ess
 ## <a name="source-file-management"></a>Gerenciamento de arquivos de origem
 ![Novas configurações de fonte](media/data-flow/source2.png "Novas configurações")
 
-* Caminho de caractere curinga para escolher uma série de arquivos da sua pasta de origem que corresponde a um padrão. Isso substituirá qualquer arquivo que você definiu em sua definição de conjunto de dados.
+* Caminho de curinga para escolher uma série de arquivos que correspondem a um padrão de sua pasta de origem. Isso substituirá qualquer arquivo que você definiu em sua definição de conjunto de dados.
 * Lista de Arquivos. Mesmo que um conjunto de arquivos. Aponte para um arquivo de texto que você cria com uma lista de arquivos do caminho relativo para processar.
 * A coluna para armazenar o nome do arquivo armazenará o nome do arquivo da fonte em uma coluna em seus dados. Insira um novo nome para armazenar a cadeia de caracteres de nome de arquivo.
 * Após a conclusão (você pode optar por não fazer nada com o arquivo de origem após a execução de fluxo de dados, excluir os arquivos de origem ou mover os arquivos de origem). Os caminhos para movimentação são caminhos relativos.
@@ -83,7 +83,7 @@ Você pode optar por particionar as conexões com base em uma consulta. Para ess
 
 Quando você estiver usando o BD SQL do Azure ou o DW SQL do Azure como fonte, você terá opções adicionais.
 
-* Consulta: Insira uma consulta SQL para sua fonte. Definir uma consulta substituirá qualquer tabela que você tenha escolhido no conjunto de dados. Observe que as cláusulas Order By não têm suporte aqui.
+* Consulta: Insira uma consulta SQL para sua fonte. Definir uma consulta substituirá qualquer tabela que você tenha escolhido no conjunto de dados. Observe que as cláusulas Order By não têm suporte aqui. No entanto, você pode, definir uma instrução SELECT FROM completa aqui.
 
 * Tamanho do lote: Insira um tamanho de lote para dividir dados grandes em leituras de tamanho de lote.
 

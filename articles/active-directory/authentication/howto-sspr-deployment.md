@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 338032b19d22432c34891de68c6a5ba71de60555
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: cb9333845a78204ea1c6e56e17b3b6f9e5513c9c
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170679"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370663"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Como distribuir com sucesso a redefinição de senha de autoatendimento
 
@@ -49,7 +49,7 @@ Muitos clientes acham que a maneira mais fácil de fazer com que os usuários us
 * **Cartões de mesa da SSPR**: Cartões de mesa que podem ser colocados no refeitório, em salas de conferência ou em mesas para incentivar os usuários a concluírem o registro.
 * **Adesivos da SSPR**: Modelos de adesivos que podem ser personalizados e impressos para serem colocados em laptops, monitores, teclados ou celulares para lembrar como acessar a SSPR.
 
-![Exemplo de email de SSPR][Email]
+![Exemplos de email do SSPR para distribuição aos usuários][Email]
 
 ## <a name="create-your-own-password-portal"></a>Criar seu próprio portal de senha
 

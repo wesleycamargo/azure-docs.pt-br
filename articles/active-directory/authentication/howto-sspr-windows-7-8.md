@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a7752fac54f9dfb2f8fb0aecd3b6249c52c3bcf
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 57d3e955059724756eb7102c1b9fbbf55ed203ab
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316347"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370437"
 ---
 # <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>Como: habilitar a redefinição de senha do Windows 7, 8 e 8.1
 
@@ -46,7 +46,7 @@ Ao contrário dos computadores com Windows 10, os com Windows 7, 8 e 8.1 não t�
 1. Após a reinicialização, na tela de logon, escolha um usuário e clique em "Esqueceu a senha?" para iniciar o fluxo de trabalho de redefinição de senha.
 1. Conclua o fluxo de trabalho seguindo as etapas na tela para redefinir sua senha.
 
-![Exemplo de clique em "Esqueceu a senha?" no Windows 7 Fluxo de autoatendimento de redefinição de senha](media/howto-sspr-windows-7-8/windows-7-sspr.png)
+![Exemplo de clique em "Esqueceu a senha?" no Windows 7 Fluxo de SSPR](media/howto-sspr-windows-7-8/windows-7-sspr.png)
 
 ### <a name="silent-installation"></a>Instalação silenciosa
 
@@ -61,19 +61,17 @@ Ao contrário dos computadores com Windows 10, os com Windows 7, 8 e 8.1 não t�
 
 Usar o aplicativo do Microsoft Authenticator para notificações e códigos para redefinir senhas não funciona nesta versão inicial. Os usuários precisam ter métodos alternativos registrados que cumpram os requisitos da sua política.
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 Os eventos serão registrados no computador e no Azure AD.
 
 Os eventos do Azure AD incluirão informações sobre o endereço IP e o ClientType em que a redefinição de senha ocorreu.
 
-![Exemplo de redefinição de senha na tela de logon do Windows 7 no log de auditoria do Azure AD](media/howto-sspr-windows-7-8/windows-7-sspr-azure-ad-audit-log.png)
+![Exemplo Windows 7 a redefinição de senha no log de auditoria do AD do Azure](media/howto-sspr-windows-7-8/windows-7-sspr-azure-ad-audit-log.png)
 
 Se for necessário outro registro em log, uma chave do Registro no computador poderá ser alterada para habilitar o registro em log detalhado. Habilite o registro detalhado somente para fins de solução de problemas.
 
-```
-HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}
-```
+`HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}`
 
 * Para habilitar o log detalhado, crie REG_DWORD: "EnableLogging" e defina como 1.
 * Para desabilitar o registro em log detalhado, altere o REG_DWORD: “EnableLogging” para 0.
@@ -82,4 +80,4 @@ Se os seus computadores com Windows 7, 8 e 8.1 estiverem atrás de um servidor p
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Habilitar os usuários do Windows 10 a redefinir sua senha na tela de logon](tutorial-sspr-windows.md)
+* [Habilitar os usuários do Windows 10 a redefinir sua senha na tela de logon](tutorial-sspr-windows.md)

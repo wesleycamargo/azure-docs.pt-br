@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 02/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: e6e1b304b90b37c93bed22bcb720a646680ee083
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: c171e35c6542febffc666ad5abfab50e093bb698
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223607"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58359272"
 ---
 # <a name="access-data-from-your-datastores"></a>Acessar dados de seus repositórios de dados
 
@@ -32,7 +32,7 @@ Estas instruções mostram exemplos para as seguintes tarefas:
 
 Para usar armazenamentos de dados, você precisa de uma [espaço de trabalho](concept-azure-machine-learning-architecture.md#workspace) primeiro. 
 
-Início das [criando um novo espaço de trabalho](quickstart-create-workspace-with-python.md) ou recuperar um existente:
+Início das [criando um novo espaço de trabalho](setup-create-workspace.md#sdk) ou recuperar um existente:
 
 ```Python
 import azureml.core
@@ -40,8 +40,6 @@ from azureml.core import Workspace, Datastore
 
 ws = Workspace.from_config()
 ```
-
-Ou, [seguir este início rápido de Python](quickstart-create-workspace-with-python.md) para usar o SDK para criar seu espaço de trabalho e começar a trabalhar.
 
 <a name="access"></a>
 
@@ -74,7 +72,7 @@ Os exemplos a seguir mostram a você registrar um contêiner de Blob do Azure ou
                                                create_if_not_exists=True)
   ```
 
-+ Para um **repositório de dados de compartilhamento de arquivos do Azure**, use [ `register_azure_file_share()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-). Por exemplo: 
++ Para um **repositório de dados de compartilhamento de arquivos do Azure**, use [ `register_azure_file_share()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-). Por exemplo:  
   ```Python
   ds = Datastore.register_azure_file_share(workspace=ws, 
                                            datastore_name='your datastore name', 
@@ -134,7 +132,7 @@ ds.upload(src_dir='your source directory',
 
 Ou faça o upload de uma lista de arquivos individuais para o armazenamento de dados por meio do método `upload_files()` do armazenamento de dados.
 
-### <a name="download"></a>Download
+### <a name="download"></a>Baixar
 Da mesma forma, faça o download dos dados de um armazenamento de dados para o sistema de arquivos local.
 
 ```Python
@@ -153,10 +151,10 @@ A tabela a seguir lista comum [ `DataReference` ](https://docs.microsoft.com/pyt
 
 # #
 
-forma|Método|Descrição
+forma|Método|DESCRIÇÃO
 ----|-----|--------
-Montagem| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--)| Use para montar um armazenamento de dados na computação remota. Modo padrão para armazenamentos de dados.
-Download|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-)|Usar para baixar dados do local especificado por `path_on_compute` em seu armazenamento de dados para a computação remota.
+Montar| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--)| Use para montar um armazenamento de dados na computação remota. Modo padrão para armazenamentos de dados.
+Baixar|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-)|Usar para baixar dados do local especificado por `path_on_compute` em seu armazenamento de dados para a computação remota.
 Carregar|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)| Use para carregar dados para a raiz do seu armazenamento de dados do local especificado por `path_on_compute`.
 
 ```Python

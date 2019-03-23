@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: raynew
-ms.openlocfilehash: b12809627bc7a3ab3f17f4c3b11bc3a899fd0485
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 98ffe145103b4be04014627ed04d04dcf7542015
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849917"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368945"
 ---
 # <a name="azure-backup-architecture"></a>Arquitetura de Backup do Azure
 
@@ -99,10 +99,10 @@ A tabela a seguir resume os recursos com suporte para os diferentes tipos de bac
 
 **Recurso** | **Computadores com Windows Server local (direto)** | **VMs do Azure** | **Computadores ou aplicativos com o MABS/DPM**
 --- | --- | --- | ---
-Fazer backup para o cofre | ![Sim][green] | ![Sim][green] | ![Sim][green] 
+Fazer backup para o cofre | ![Sim][green] | ![sim][green] | ![Sim][green] 
 Fazer backup em disco do MABS/DPM, em seguida, para o Azure | | | ![Sim][green] 
 Compactar os dados enviados para backup | ![Sim][green] | Nenhuma compactação é usada durante a transferência de dados. O armazenamento está um pouco inflado, mas a restauração é mais rápida.  | ![Sim][green] 
-Executa o backup incremental |![Sim][green] |![Sim][green] |![Sim][green] 
+Executa o backup incremental |![Sim][green] |![sim][green] |![Sim][green] 
 Fazer backup de discos com eliminação de duplicação | | | ![Parcialmente][yellow]<br/><br/> Para servidores do MABS/DPM implantados apenas localmente. 
 
 ![Chave de tabela](./media/backup-architecture/table-key.png)
@@ -179,7 +179,7 @@ Para obter mais informações sobre o armazenamento em disco e os tipos de disco
 Você pode fazer backup de máquinas virtuais do Azure usando o armazenamento premium com o Backup do Azure:
 
 - Durante o processo de backup de máquinas virtuais com o armazenamento premium, o serviço de Backup cria um local de preparo temporário, denominado *AzureBackup -*, na conta de armazenamento. O tamanho do local de preparo é igual ao tamanho do instantâneo de ponto de recuperação.
-- Certifique-se de que a conta de armazenamento premium tenha espaço livre suficiente para acomodar o local de preparo temporário. [Saiba mais](../storage/common/storage-scalability-targets.md#premium-storage-account-scale-limits). Não modifique o local de preparo.
+- Certifique-se de que a conta de armazenamento premium tenha espaço livre suficiente para acomodar o local de preparo temporário. [Saiba mais](../storage/common/storage-scalability-targets.md#premium-performance-storage-account-scale-limits). Não modifique o local de preparo.
 - Após a conclusão do trabalho de backup, o local de preparo será excluído.
 - O preço do armazenamento usado para o local de preparo é consistente com os [preços do armazenamento premium](../virtual-machines/windows/disks-types.md#billing).
 

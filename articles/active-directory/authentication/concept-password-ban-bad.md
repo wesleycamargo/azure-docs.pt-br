@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 645dd7fe35ba3e7d83a3ee374d7ab566ad193cc2
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 795abcadb1cee7599665f7bc3b8e0d3e08a3da05
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314120"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369064"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Eliminar senhas incorretas na organização
 
@@ -26,13 +26,13 @@ Os líderes do setor orientam que você não utilize a mesma senha em vários lu
 
 A Microsoft está sempre trabalhando para se manter um passo à frente dos cibercriminosos. Portanto, a equipe do Azure AD Identity Protection procura continuamente por senhas comumente usadas e comprometidas. Em seguida, bloqueiam as senhas consideradas muito comuns na lista de senhas proibidas globalmente. Os criminosos cibernéticos também usam estratégias semelhantes em seus ataques, portanto, a Microsoft não publica o conteúdo dessa lista publicamente. Essas senhas vulneráveis são bloqueadas antes de tornarem-se uma ameaça real aos clientes da Microsoft. Para obter mais informações sobre os esforços atuais de segurança, consulte o [Relatório de inteligência de segurança da Microsoft](https://www.microsoft.com/security/operations/security-intelligence-report).
 
-## <a name="custom-banned-password-list"></a>Lista de senhas proibidas personalizadas
+## <a name="custom-banned-password-list"></a>Lista personalizada de senhas banidas
 
 Algumas organizações podem querer levar a segurança um passo adiante, adicionando suas próprias personalizações no topo da lista de senhas proibidas, em que a Microsoft chama de lista de senhas proibidas personalizada. Os clientes empresariais, como a Contoso, podem optar por bloquear variantes de nomes de marca, termos específicos da empresa ou outros itens.
 
 A lista de senhas proibidas personalizada e a capacidade de habilitar a integração do Active Directory local são gerenciadas usando o portal do Azure.
 
-![Modificar a lista de senhas proibidas personalizada em Métodos de Autenticação no portal do Azure](./media/concept-password-ban-bad/authentication-methods-password-protection.png)
+![Modificar a lista de senhas banidas personalizado em métodos de autenticação](./media/concept-password-ban-bad/authentication-methods-password-protection.png)
 
 ## <a name="on-premises-hybrid-scenarios"></a>Cenários híbridos locais
 
@@ -106,7 +106,7 @@ Após a normalização, essa senha se torna “contosoblankf9!”. O processo de
 
 |   | Proteção por senha do AD do Azure com a lista de senhas banidas global | Proteção por senha do AD do Azure com a lista de senhas banidas personalizado|
 | --- | --- | --- |
-| Usuários somente na nuvem | Azure AD Gratuito | Azure AD Básico |
+| Usuários somente na nuvem | AD do Azure Gratuito | AD Basic do Azure |
 | Os usuários sincronizados no local Windows Server Active Directory | O Azure AD Premium P1 ou P2 | O Azure AD Premium P1 ou P2 |
 
 Informações adicionais sobre licenciamento, incluindo custos, podem ser encontradas no [site de preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).

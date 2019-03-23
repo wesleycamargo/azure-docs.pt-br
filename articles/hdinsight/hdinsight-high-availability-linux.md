@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 84251b16d91ca74e11298c7aa54c9a7a8b7fd6d6
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: ca6b072ba81f55802bc01d61ed44b06680cedbb2
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576711"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361992"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Disponibilidade e confiabilidade dos clusters Apache Hadoop em HDInsight
 
@@ -115,7 +115,7 @@ Há uma série de ícones que podem aparecer ao lado de um serviço para indicar
 
 Os seguintes alertas ajudam a monitorar a disponibilidade de um cluster:
 
-| Nome do Alerta                               | Descrição                                                                                                                                                                                  |
+| Nome do alerta                               | DESCRIÇÃO                                                                                                                                                                                  |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Status do Monitor de métrica                    | Esse alerta indica o status do processo de Monitor de métricas, conforme determinado pelo script de status do monitor.                                                                                   |
 | Pulsação do agente do Ambari                   | Este alerta é disparado se o servidor perdeu contato com um agente.                                                                                                                        |
@@ -248,6 +248,8 @@ Na interface de usuário da Web do Ambari, selecione o serviço do qual você de
 
 ## <a name="how-to-configure-the-node-size"></a>Como configurar o tamanho do nó
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 O tamanho de um nó só pode ser selecionado durante a criação do cluster. Você pode encontrar uma lista de diferentes tamanhos de VM disponíveis para o HDInsight na [página de preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 Ao criar um cluster, você pode especificar o tamanho dos nós. As informações a seguir fornecem orientação sobre como especificar o tamanho usando o [portal do Azure][preview-portal], o [Azure PowerShell][azure-powershell] e a [CLI Clássica do Azure][azure-cli]:
@@ -258,7 +260,7 @@ Ao criar um cluster, você pode especificar o tamanho dos nós. As informações
 
 * **CLI Clássica do Azure**: Ao usar o comando `azure hdinsight cluster create`, é possível definir o tamanho dos nós de cabeçalho, de trabalho e do ZooKeeper usando os parâmetros `--headNodeSize`, `--workerNodeSize` e `--zookeeperNodeSize`.
 
-* **Azure PowerShell**: Ao usar o cmdlet `New-AzureRmHDInsightCluster`, é possível definir o tamanho dos nós de cabeçalho, de trabalho e do ZooKeeper usando os parâmetros `-HeadNodeVMSize`, `-WorkerNodeSize` e `-ZookeeperNodeSize`.
+* **Azure PowerShell**: Ao usar o cmdlet `New-AzHDInsightCluster`, é possível definir o tamanho dos nós de cabeçalho, de trabalho e do ZooKeeper usando os parâmetros `-HeadNodeVMSize`, `-WorkerNodeSize` e `-ZookeeperNodeSize`.
 
 ## <a name="next-steps"></a>Próximas etapas
 

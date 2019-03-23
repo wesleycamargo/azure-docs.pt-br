@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ac30888c9f54c5dc88cb72aeec0f3db81d5a99dc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f88a560d4fa819a055534530ddc0862e4aa330fe
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004938"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351874"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Solução de problemas ponta a ponta usando Métricas de Armazenamento do Azure e Registro em Log, AzCopy e Analisador de Mensagem
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -29,12 +29,12 @@ Este tutorial fornece uma exploração prática de um cenário de solução de p
 Para solucionar problemas de aplicativos cliente que usam o armazenamento do Microsoft Azure, você pode usar uma combinação de ferramentas para determinar quando um problema ocorreu e o que pode ser a causa do problema. Essas ferramentas incluem:
 
 * **Análise de Armazenamento do Azure**. [A Análise de Armazenamento do Azure](/rest/api/storageservices/Storage-Analytics) fornece métricas e registro em log para o Armazenamento do Azure.
-  
+
   * **A métrica de armazenamento** controla as métricas de transação e as métricas de capacidade para sua conta de armazenamento. Usando métricas, você pode determinar o desempenho do seu aplicativo de acordo com uma variedade de medidas diferentes. Consulte o [Esquema da Tabela de Métricas de Análise do Armazenamento](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema) para obter mais informações sobre os tipos de métricas controladas pela Análise de Armazenamento.
   * **O log de armazenamento** registra cada solicitação dos serviços de Armazenamento do Azure em um log do servidor. O log registra dados detalhados para cada solicitação, incluindo a operação executada, o status da operação e informações de latência. Consulte o [Formato do Log de Análise de Armazenamento](/rest/api/storageservices/Storage-Analytics-Log-Format) para obter mais informações sobre os dados de solicitação e resposta gravados nos logs pela Análise de Armazenamento.
 
 * **Portal do Azure**. É possível configurar o log e as métricas da conta de armazenamento no [portal do Azure](https://portal.azure.com). Você também pode exibir grafos que mostram o desempenho do seu aplicativo ao longo do tempo e configurar alertas para notificá-lo se seu aplicativo for executado de forma diferente do esperado para uma métrica especificada.
-  
+
     Consulte [Monitorar uma conta de armazenamento no portal do Azure](storage-monitor-storage-account.md) para obter informações sobre como configurar o monitoramento no portal do Azure.
 * **AzCopy**. Os logs do servidor do Armazenamento do Azure são armazenados como blobs, então você pode usar o AzCopy para copiar os blobs de log para um diretório local para análise usando o Analisador de Mensagem da Microsoft. Confira [Transferir dados com o Utilitário de Linha de Comando AzCopy](storage-use-azcopy.md) para obter mais informações sobre o AzCopy.
 * **Analisador de Mensagem da Microsoft**. O Analisador de Mensagem é uma ferramenta que consome os arquivos de log e exibe dados de log em um formato visual que torna mais fácil a filtragem, pesquisa e agrupamento de dados de log em conjuntos úteis que você pode usar para analisar erros e problemas de desempenho. Consulte o [Guia Operacional do Analisador de Mensagem da Microsoft](https://technet.microsoft.com/library/jj649776.aspx) para obter mais informações sobre o Analisador de Mensagem.
@@ -79,51 +79,7 @@ Neste tutorial, usaremos o Analisador de Mensagem para trabalhar com três tipos
 * O **log de rastreamento de rede HTTP**que coleta dados nos dados de solicitação e resposta HTTP/HTTPS, inclusive para as operações no Armazenamento do Azure. Neste tutorial, vamos gerar o rastreamento de rede por meio do Analisador de Mensagem.
 
 ### <a name="configure-server-side-logging-and-metrics"></a>Configurar o log de servidor e métricas
-Primeiro, precisaremos configurar o log de armazenamento do Azure e suas métricas, para que tenhamos dados do aplicativo cliente para analisar. É possível configurar o log e as métricas de diversas maneiras, por meio do [portal do Azure](https://portal.azure.com), usando o PowerShell ou de forma programática. Consulte [Habilitando as métricas de armazenamento e Exibindo os dados da métrica](https://msdn.microsoft.com/library/azure/dn782843.aspx) e [Habilitando o registro em log de armazenamento e Acessando os dados de log](https://msdn.microsoft.com/library/azure/dn782840.aspx) no MSDN para obter detalhes sobre como configurar o registro em log e as métricas.
-
-**Por meio do portal do Azure**
-
-Para configurar o log e as métricas da conta de armazenamento usando o [portal do Azure](https://portal.azure.com), siga as instruções em [Monitorar uma conta de armazenamento no portal do Azure](storage-monitor-storage-account.md).
-
-> [!NOTE]
-> Não é possível definir métricas por minuto usando o portal do Azure. No entanto, é recomendável que você a defina para os fins deste tutorial e para investigar problemas de desempenho com seu aplicativo. Você pode definir a métrica de minutos usando o PowerShell como mostrado abaixo ou de forma pragmática usando a biblioteca do cliente de armazenamento.
-> 
-> Observe que o portal do Azure não consegue exibir métricas por minuto, apenas métricas por hora.
-> 
-> 
-
-**Por meio do PowerShell**
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-Para começar com o PowerShell do Azure, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
-
-1. Use o cmdlet [Add-AzAccount](/powershell/module/servicemanagement/azure/add-azureaccount) para adicionar sua conta de usuário do Azure à janela do PowerShell:
-   
-    ```powershell
-    Add-AzAccount
-    ```
-
-2. Na janela **Entrar no Microsoft Azure** , digite o endereço de email e a senha associados à sua conta. O Azure autentica e salva as informações de credenciais e, em seguida, fecha a janela.
-3. Defina a conta de armazenamento padrão para a conta de armazenamento que você está usando para o tutorial executar estes comandos na janela do PowerShell:
-   
-    ```powershell
-    $SubscriptionName = 'Your subscription name'
-    $StorageAccountName = 'yourstorageaccount'
-    Set-AzSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
-    ```
-
-4. Habilite log de armazenamento para o serviço Blob:
-   
-    ```powershell
-    Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0
-    ```
-
-5. Habilite as métricas do armazenamento para o serviço Blob, definindo **-MetricsType** para `Minute`:
-   
-    ```powershell
-    Set-AzStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0
-    ```
+Primeiro, precisaremos configurar o log de armazenamento do Azure e métricas, para que tenhamos dados do lado do serviço para analisar. É possível configurar o log e as métricas de diversas maneiras, por meio do [portal do Azure](https://portal.azure.com), usando o PowerShell ou de forma programática. Ver [habilitar as métricas](storage-analytics-metrics.md#enable-metrics-using-the-azure-portal) e [habilitar registro em log](storage-analytics-logging.md#enable-storage-logging) para obter detalhes sobre como configurar o registro em log e métricas.
 
 ### <a name="configure-net-client-side-logging"></a>Configurar o log de cliente .NET
 Para configurar o log do cliente de um aplicativo .NET, habilite o diagnóstico do .NET no arquivo de configuração do aplicativo (Web.config ou App.config). Confira [Registro em log do Cliente usando a Biblioteca do Cliente de Armazenamento do .NET](https://msdn.microsoft.com/library/azure/dn782839.aspx) e [Registro em log do Cliente com o SDK de Armazenamento do Microsoft Azure para Java](https://msdn.microsoft.com/library/azure/dn782844.aspx) no MSDN para obter detalhes.
@@ -159,8 +115,8 @@ Para o tutorial, colete e salve um rastreamento de rede pela primeira vez no Ana
 
 > [!NOTE]
 > Após coletar o rastreamento de rede, é altamente recomendável que você reverta as configurações que possa ter alterado no Fiddler para descriptografar o tráfego HTTPS. Na caixa de diálogo Opções do Fiddler, desmarque as caixas de seleção **Capturar CONEXÕES HTTPS** e **Descriptografar Tráfego HTTPS**.
-> 
-> 
+>
+>
 
 Consulte [Usando os Recursos de Rastreamento de Rede](https://technet.microsoft.com/library/jj674819.aspx) no Technet para obter mais detalhes.
 
@@ -175,8 +131,8 @@ Para obter mais detalhes sobre como adicionar e personalizar gráficos de métri
 
 > [!NOTE]
 > Pode levar algum tempo para que os dados de métricas sejam exibidos no portal do Azure depois que você habilitar a métrica de armazenamento. Isso ocorre porque as métricas por hora da hora anterior só serão exibidas no portal do Azure quando a hora atual tiver decorrido. Além disso, atualmente, as métricas por minuto não são exibidas no portal do Azure. Dessa forma, dependendo de quando você habilitar a métrica, pode levar até duas horas para ver os dados dela.
-> 
-> 
+>
+>
 
 ## <a name="use-azcopy-to-copy-server-logs-to-a-local-directory"></a>Use AzCopy para copiar logs do servidor para um diretório local
 O Armazenamento do Azure grava os dados de log do servidor para blobs, enquanto as métricas são gravadas em tabelas. Os blobs de log estão disponíveis no contêiner `$logs` conhecido para sua conta de armazenamento. Blobs de log são nomeados hierarquicamente por ano, mês, dia e hora, para que você possa localizar facilmente o intervalo de tempo que deseja investigar. Por exemplo, na conta `storagesample`, o contêiner para os blobs de log para 02/01/2015, de 8:00-9:00, é `https://storagesample.blob.core.windows.net/$logs/blob/2015/01/08/0800`. Os blobs individuais nesse contêiner são nomeados em sequência, começando com `000000.log`.
@@ -211,8 +167,8 @@ O Analisador de Mensagem inclui ativos para o Armazenamento do Azure que ajudam 
 
 > [!NOTE]
 > Instale todos os ativos de Armazenamento do Azure mostrados para os fins deste tutorial.
-> 
-> 
+>
+>
 
 ### <a name="import-your-log-files-into-message-analyzer"></a>Importar os arquivos de log para o Analisador de Mensagem
 Você pode importar todos os arquivos de log salvos (do servidor, cliente e rede) para uma única sessão do Analisador de Mensagem da Microsoft para análise.
@@ -255,8 +211,8 @@ A figura abaixo mostra esse modo de exibição de layout aplicado a dados de log
 
 > [!NOTE]
 > Arquivos de log diferentes têm colunas diferentes, portanto, quando dados de vários arquivos de log são exibidos na grade de análise, algumas colunas podem não conter nenhum dado para uma determinada linha. Por exemplo, na figura acima, as linhas de log do cliente não mostram dados para as colunas **Carimbo de data/hora**, **Tempo Decorrido**, **Origem**e **Destino** porque essas colunas não existem no log do cliente, mas existem no rastreamento de rede. Da mesma forma, a coluna **Carimbo de data/hora** exibe os dados do carimbo de data/hora do log do servidor, mas ão há dados exibidos para as colunas **Tempo Decorrido**, **Origem** e **Destino**, que não fazem parte do log do servidor.
-> 
-> 
+>
+>
 
 Além de usar os layouts do modo de Armazenamento do Azure, você também pode definir e salvar seus próprios layouts de exibição. Você também pode selecionar outros campos desejados para o agrupamento de dados e salvar o agrupamento como parte do seu layout personalizado.
 
@@ -289,12 +245,12 @@ Depois de aplicar esse filtro, você verá que são excluídas linhas do log do 
 
 > [!NOTE]
 > Você poderá filtrar na coluna **StatusCode** e ainda exibir os dados de todos os três logs, incluindo o log do cliente, se adicionar uma expressão ao filtro que inclui entradas de log nas quais o código de status é nulo. Para criar esta expressão de filtro, use:
-> 
+>
 > <code>&#42;StatusCode >= 400 or !&#42;StatusCode</code>
-> 
+>
 > Esse filtro retorna todas as linhas de log do cliente e apenas as linhas de log do servidor e log HTTP em que o código de status é maior que 400. Se você aplicá-lo ao layout do modo de exibição agrupado por ID de solicitação do cliente e do módulo, poderá pesquisar ou percorrer as entradas de log para encontrar aqueles em que todos os três logs são representados.   
-> 
-> 
+>
+>
 
 ### <a name="filter-log-data-to-find-404-errors"></a>Filtrar dados de log para localizar erros 404
 Os ativos de armazenamento incluem filtros predefinidos que você pode usar para restringir os dados de log para localizar os erros ou tendências que você está procurando. Em seguida, vamos aplicar dois filtros predefinidos: um que filtra o servidor e os logs de rastreamento de rede para erros 404 e outro que filtra os dados em um intervalo de tempo especificado.

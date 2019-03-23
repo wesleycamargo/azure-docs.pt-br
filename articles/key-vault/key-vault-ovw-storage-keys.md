@@ -6,15 +6,15 @@ ms.topic: conceptual
 services: key-vault
 ms.service: key-vault
 author: prashanthyv
-ms.author: pryerram
+ms.author: prashanthyv
 manager: barbkess
 ms.date: 03/01/2019
-ms.openlocfilehash: c2107e501affd5e3dd22e0fbc83d078b51d414a5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5ec5109aa8079b37015f66443b8ebac905ad2fcb
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57841133"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370545"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>O Azure Key Vault gerenciados a conta de armazenamento – CLI
 
@@ -73,6 +73,8 @@ Nas instruções abaixo, estamos atribuindo Key Vault como um serviço para ter 
 > O Azure Active Directory fornece cada aplicativo registrado com uma **[entidade de serviço](/azure/active-directory/develop/developer-glossary#service-principal-object)**, que serve como a identidade do aplicativo. A ID do aplicativo da entidade de serviço é usada ao dar autorização para acessar outros recursos do Azure, por meio do controle de acesso baseado na função (RBAC). Como o Key Vault é um aplicativo da Microsoft, ele é registrado previamente em todos os locatários do Azure AD com a mesma ID de aplicativo dentro de cada nuvem do Azure:
 > - Locatários do Microsoft Azure Active Directory na nuvem de governo do Azure usam a ID do Aplicativo `7e7c393b-45d0-48b1-a35e-2905ddf8183c`.
 > - Os locatários do Microsoft Azure Active Directory na nuvem pública do Azure e todos os outros usam a ID do Aplicativo`cfa8b339-82a2-471a-a3c9-0fc0be7a4093`.
+
+> - No momento, você pode usar o Principal do usuário para solicitar o Key Vault para gerenciar uma conta de armazenamento e não é uma entidade de serviço
 
 
 1. Depois de criar uma conta de armazenamento, execute o seguinte comando para obter a ID de recurso da conta de armazenamento que você deseja gerenciar

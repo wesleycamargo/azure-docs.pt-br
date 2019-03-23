@@ -11,17 +11,17 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/28/2018
+ms.date: 03/22/2019
 ms.author: magoedte
-ms.openlocfilehash: fa94bffc05879be9d6bbaaa7cd884c36ffe7e0b8
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 41ea6222689516f224fc23ce6a658d17f7f81866
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451267"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372294"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Fontes de dados de syslog no Azure Monitor
-O Syslog é um protocolo de registro de eventos em log que é comum para o Linux.  Os aplicativos enviarão mensagens que podem ser armazenadas no computador local ou entregues a um coletor de Syslog.  Quando o agente do Log Analytics para Linux é instalado, ele configura o daemon do Syslog local para encaminhar mensagens para o agente.  O agente envia a mensagem ao Azure Monitor, onde um registro correspondente é criado.  
+O Syslog é um protocolo de registro de eventos em log que é comum para o Linux. Os aplicativos enviarão mensagens que podem ser armazenadas no computador local ou entregues a um coletor de Syslog. Quando o agente do Log Analytics para Linux é instalado, ele configura o daemon do Syslog local para encaminhar mensagens para o agente. O agente envia a mensagem ao Azure Monitor, onde um registro correspondente é criado.  
 
 > [!NOTE]
 > O Azure Monitor dá suporte à coleta de mensagens enviadas pelo rsyslog ou syslog-ng, em que o rsyslog é o daemon padrão. O daemon syslog padrão na versão 5 do Red Hat Enterprise Linux, CentOS e na versão Oracle Linux (sysklog) não tem suporte para a coleta de eventos de syslog. Para coletar dados de syslog nessa versão das distribuições, o [daemon rsyslog](http://rsyslog.com) deverá ser instalado e configurado para substituir sysklog.
@@ -30,20 +30,38 @@ O Syslog é um protocolo de registro de eventos em log que é comum para o Linux
 
 ![Coleção do Syslog](media/data-sources-syslog/overview.png)
 
+Os recursos a seguir são compatíveis com o coletor de Syslog:
+
+* kerning
+* usuário
+* mail
+* daemon
+* auth
+* syslog
+* lpr
+* news
+* uucp
+* cron
+* authpriv
+* ftp
+* local0-local7
+
+Para qualquer outro recurso [configurar uma fonte de dados de Logs personalizados](data-sources-custom-logs.md) no Azure Monitor.
+ 
 ## <a name="configuring-syslog"></a>Configurando Syslog
-O agente do Log Analytics para Linux coletará apenas eventos com as instalações e as severidades especificadas na configuração.  Você pode configurar o Syslog por meio do Portal do Azure ou gerenciando arquivos de configuração em seus agentes do Linux.
+O agente do Log Analytics para Linux coletará apenas eventos com as instalações e as severidades especificadas na configuração. Você pode configurar o Syslog por meio do Portal do Azure ou gerenciando arquivos de configuração em seus agentes do Linux.
 
 ### <a name="configure-syslog-in-the-azure-portal"></a>Configurar o Syslog no Portal do Azure
-Configure o Syslog no menu [Menu de Dados nas Configurações Avançadas](agent-data-sources.md#configuring-data-sources).  Essa configuração é entregue ao arquivo de configuração em cada agente do Linux.
+Configure o Syslog no menu [Menu de Dados nas Configurações Avançadas](agent-data-sources.md#configuring-data-sources). Essa configuração é entregue ao arquivo de configuração em cada agente do Linux.
 
-Você pode adicionar um novo recurso, digitando seu nome e clicando em **+**.  Para cada recurso, somente mensagens com as severidades selecionadas serão coletados.  Marque as severidades para o recurso específico que você deseja coletar.  Você não pode fornecer quaisquer critérios adicionais para filtrar mensagens.
+Você pode adicionar um novo recurso, digitando seu nome e clicando em **+**. Para cada recurso, somente mensagens com as severidades selecionadas serão coletados.  Marque as severidades para o recurso específico que você deseja coletar. Você não pode fornecer quaisquer critérios adicionais para filtrar mensagens.
 
 ![Configurar Syslog](media/data-sources-syslog/configure.png)
 
-Por padrão, todas as alterações de configuração são automaticamente envidas por push para todos os agentes.  Se você quiser configurar o Syslog manualmente em cada agente do Linux, desmarque a caixa *Aplicar as configurações abaixo aos computadores Linux*.
+Por padrão, todas as alterações de configuração são automaticamente envidas por push para todos os agentes. Se você quiser configurar o Syslog manualmente em cada agente do Linux, desmarque a caixa *Aplicar as configurações abaixo aos computadores Linux*.
 
 ### <a name="configure-syslog-on-linux-agent"></a>Configurar o Syslog no agente do Linux
-Quando o [agente do Log Analytics é instalado em um cliente Linux](../../azure-monitor/learn/quick-collect-linux-computer.md), ele instala um arquivo de configuração syslog padrão que define o recurso e a severidade das mensagens coletadas.  Você pode modificar esse arquivo para alterar a configuração.  O arquivo de configuração é diferente, dependendo do daemon do Syslog que o cliente tem instalado.
+Quando o [agente do Log Analytics é instalado em um cliente Linux](../../azure-monitor/learn/quick-collect-linux-computer.md), ele instala um arquivo de configuração syslog padrão que define o recurso e a severidade das mensagens coletadas. Você pode modificar esse arquivo para alterar a configuração. O arquivo de configuração é diferente, dependendo do daemon do Syslog que o cliente tem instalado.
 
 > [!NOTE]
 > Se você editar a configuração de syslog, deverá reiniciar o daemon syslog para que as alterações entrem em vigor.
@@ -51,7 +69,7 @@ Quando o [agente do Log Analytics é instalado em um cliente Linux](../../azure-
 >
 
 #### <a name="rsyslog"></a>rsyslog
-O arquivo de configuração para rsyslog está localizado em **/etc/rsyslog.d/95-omsagent.conf**.  Seu conteúdo padrão é mostrado abaixo.  Isso coleta mensagens do syslog enviadas do agente local para todos os recursos com um nível de aviso ou superior.
+O arquivo de configuração para rsyslog está localizado em **/etc/rsyslog.d/95-omsagent.conf**. Seu conteúdo padrão é mostrado abaixo. Isso coleta mensagens do syslog enviadas do agente local para todos os recursos com um nível de aviso ou superior.
 
     kern.warning       @127.0.0.1:25224
     user.warning       @127.0.0.1:25224
@@ -71,13 +89,13 @@ O arquivo de configuração para rsyslog está localizado em **/etc/rsyslog.d/95
     local6.warning     @127.0.0.1:25224
     local7.warning     @127.0.0.1:25224
 
-Você pode remover um recurso removendo sua seção do arquivo de configuração.  Você pode limitar as severidades coletadas para um recurso específico, modificando a entrada desse recurso.  Por exemplo, para limitar o recurso do usuário a mensagens com uma severidade de erro ou superior, você modificaria essa linha do arquivo de configuração para o seguinte:
+Você pode remover um recurso removendo sua seção do arquivo de configuração. Você pode limitar as severidades coletadas para um recurso específico, modificando a entrada desse recurso. Por exemplo, para limitar o recurso do usuário a mensagens com uma severidade de erro ou superior, você modificaria essa linha do arquivo de configuração para o seguinte:
 
     user.error    @127.0.0.1:25224
 
 
 #### <a name="syslog-ng"></a>syslog-ng
-O arquivo de configuração para syslog-ng é a localização em **/etc/syslog-ng/syslog-ng.conf**.  Seu conteúdo padrão é mostrado abaixo.  Isso coleta mensagens do syslog enviadas do agente local para todos os recursos e todas as severidades.   
+O arquivo de configuração para syslog-ng é a localização em **/etc/syslog-ng/syslog-ng.conf**.  Seu conteúdo padrão é mostrado abaixo. Isso coleta mensagens do syslog enviadas do agente local para todos os recursos e todas as severidades.   
 
     #
     # Warnings (except iptables) in one file:
@@ -128,7 +146,7 @@ O arquivo de configuração para syslog-ng é a localização em **/etc/syslog-n
     filter f_user_oms { level(alert,crit,debug,emerg,err,info,notice,warning) and facility(user); };
     log { source(src); filter(f_user_oms); destination(d_oms); };
 
-Você pode remover um recurso removendo sua seção do arquivo de configuração.  Você pode limitar as severidades coletadas para um recurso específico, removendo-as de sua lista.  Por exemplo, para limitar o recurso exclusivamente a mensagens críticas e de alerta, você modificaria essa seção do arquivo de configuração para o seguinte:
+Você pode remover um recurso removendo sua seção do arquivo de configuração. Você pode limitar as severidades coletadas para um recurso específico, removendo-as de sua lista.  Por exemplo, para limitar o recurso exclusivamente a mensagens críticas e de alerta, você modificaria essa seção do arquivo de configuração para o seguinte:
 
     #OMS_facility = user
     filter f_user_oms { level(alert,crit) and facility(user); };
@@ -168,7 +186,7 @@ Você pode alterar o número da porta criando dois arquivos de configuração: u
         daemon.warning            @127.0.0.1:%SYSLOG_PORT%
         auth.warning              @127.0.0.1:%SYSLOG_PORT%
 
-* A configuração de syslog-ng deve ser modificada por meio da cópia da configuração de exemplo mostrada abaixo e adicionando as configurações modificadas personalizadas ao final do arquivo de configuração syslog ng.conf localizado em `/etc/syslog-ng/`.  **Não** use o rótulo padrão **% WORKSPACE_ID %_oms** ou **% WORKSPACE_ID_OMS**, defina um rótulo personalizado para ajudar a distinguir as alterações.  
+* A configuração de syslog-ng deve ser modificada por meio da cópia da configuração de exemplo mostrada abaixo e adicionando as configurações modificadas personalizadas ao final do arquivo de configuração syslog ng.conf localizado em `/etc/syslog-ng/`. **Não** use o rótulo padrão **% WORKSPACE_ID %_oms** ou **% WORKSPACE_ID_OMS**, defina um rótulo personalizado para ajudar a distinguir as alterações.  
 
     > [!NOTE]
     > Se você modificar os valores padrão no arquivo de configuração, eles serão substituídos quando o agente aplicar uma configuração padrão.

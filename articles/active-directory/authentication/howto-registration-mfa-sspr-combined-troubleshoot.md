@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f799b671e6216b402aa988aa66da4c2cfc44693
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: d926f7312b62e788289939dfd81c236a33503b43
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317520"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370458"
 ---
 # <a name="troubleshooting-combined-security-information-registration-preview"></a>Solução de problemas combinado de registro de informações de segurança (visualização)
 
@@ -31,31 +31,31 @@ As informações fornecidas neste artigo podem orientar os administradores que e
 
 Os eventos registrados para o registro combinado estão sob a categoria de "Métodos de autenticação" no Azure AD logs de auditoria.
 
-![Interface mostrando algumas segurança eventos de registro de informações para um novo usuário no diretório de logs de auditoria do AD do Azure](media/howto-registration-mfa-sspr-combined-troubleshoot/combined-security-info-audit-log.png)
+![Eventos de registro mostrando interface de logs de auditoria do AD do Azure](media/howto-registration-mfa-sspr-combined-troubleshoot/combined-security-info-audit-log.png)
 
 O exemplo a seguir lista todos os eventos de auditoria gerados por registro combinado:
 
-| Atividade | Status | Motivo | Descrição |
+| Atividade | Status | Motivo | DESCRIÇÃO |
 | --- | --- | --- | --- |
 | O usuário registrou todas as informações de segurança necessárias | Sucesso | O usuário registrou todas as informações de segurança necessárias. | Esse evento ocorre quando um usuário for concluída com êxito o registro.|
-| O usuário registrou todas as informações de segurança necessárias | Falha | O usuário cancelou o registro de informações de segurança. | Esse evento ocorre quando um usuário cancela o registro do modo de interrupção.|
+| O usuário registrou todas as informações de segurança necessárias | Failure | O usuário cancelou o registro de informações de segurança. | Esse evento ocorre quando um usuário cancela o registro do modo de interrupção.|
 | Informações de segurança do usuário registrado | Sucesso | Usuário registrado "método". | Esse evento ocorre quando um usuário registra um método individual. "Método" pode ser um aplicativo de autenticador, telefone, Email, perguntas de segurança, senha de aplicativo, telefone alternativo, etc.| 
 | Informações de segurança do usuário revisada | Sucesso | Usuário analisado com êxito as informações de segurança. | Esse evento ocorre quando um usuário clica em "Boa aparência" na página de revisão de informações de segurança.|
-| Informações de segurança do usuário revisada | Falha | O usuário não pôde analisar as informações de segurança. | Esse evento ocorre quando um usuário clica em "Parece bem" sobre as informações de segurança Revise a página, mas algo falhar no back-end.|
+| Informações de segurança do usuário revisada | Failure | O usuário não pôde analisar as informações de segurança. | Esse evento ocorre quando um usuário clica em "Parece bem" sobre as informações de segurança Revise a página, mas algo falhar no back-end.|
 | Informações de segurança do usuário excluído | Sucesso | Usuário excluído "método". | Esse evento ocorre quando um usuário exclui um método individual. "Método" pode ser um aplicativo de autenticador, telefone, Email, perguntas de segurança, senha de aplicativo, telefone alternativo, etc.|
-| Informações de segurança do usuário excluído | Falha | Usuário não pôde excluir o "método". | Esse evento ocorre quando um usuário tenta excluir um método, mas ele falhar por algum motivo. "Método" pode ser um aplicativo de autenticador, telefone, Email, perguntas de segurança, senha de aplicativo, telefone alternativo, etc.|
+| Informações de segurança do usuário excluído | Failure | Usuário não pôde excluir o "método". | Esse evento ocorre quando um usuário tenta excluir um método, mas ele falhar por algum motivo. "Método" pode ser um aplicativo de autenticador, telefone, Email, perguntas de segurança, senha de aplicativo, telefone alternativo, etc.|
 | Informações de segurança padrão de usuário alterada | Sucesso | O usuário alterou as informações de segurança padrão para o "método". | Esse evento ocorre quando um usuário altera seu método de padrão. "Método" pode ser notificação de aplicativo do autenticador, código do meu aplicativo authenticator ou token, ligue para + X XXXXXXXXXX, texto de um código para + X XXXXXXXXX, etc.|
-| Informações de segurança padrão de usuário alterada | Falha | Usuário não pôde alterar informações de segurança padrão para "método". | Esse evento ocorre quando um usuário tenta alterar o método padrão, mas ele falhar por algum motivo. "Método" pode ser a notificação de aplicativo do autenticador, um código do meu aplicativo authenticator ou token, chamada + X XXXXXXXXXX, texto de um código para + X XXXXXXXXX, etc.|
+| Informações de segurança padrão de usuário alterada | Failure | Usuário não pôde alterar informações de segurança padrão para "método". | Esse evento ocorre quando um usuário tenta alterar o método padrão, mas ele falhar por algum motivo. "Método" pode ser a notificação de aplicativo do autenticador, um código do meu aplicativo authenticator ou token, chamada + X XXXXXXXXXX, texto de um código para + X XXXXXXXXX, etc.|
 
 ## <a name="troubleshooting-interrupt-mode"></a>Solução de problemas de modo de interrupção
 
-| Sintoma | Etapas de solução de problemas |
+| Sintoma | Etapas para solucionar problemas |
 | --- | --- |
 | Os métodos que eu esperava ver não estou vendo. | 1. Verifique se o usuário tem uma função de administrador do AD do Azure. Em caso afirmativo, examine as diferenças de política do administrador SSPR. <br> 2. Determine se o usuário está sendo interrompido devido a imposição de registro MFA ou imposição de registro do SSPR. Examine o fluxograma em modos de registro combinado para determinar quais métodos devem ser mostrados. <br> 3. Determine como recentemente a política de MFA ou SSPR foi alterada. Se a alteração foi recente, ele pode levar algum tempo para que a política atualizada propagar.|
 
 ## <a name="troubleshooting-manage-mode"></a>Gerenciar o modo de solução de problemas
 
-| Sintoma | Etapas de solução de problemas |
+| Sintoma | Etapas para solucionar problemas |
 | --- | --- |
 | Não tenho a opção de adicionar um método específico. | 1. Determine se o método está habilitado para MFA ou para SSPR. <br> 2. Se o método estiver habilitado, as políticas de salvá-la novamente e aguarde 1 a 2 horas antes de testar novamente. <br> 3. Se o método estiver habilitado, certifique-se de que o usuário já não tiver configurado o número máximo do método que eles têm permissão para configurar.|
 
@@ -162,4 +162,4 @@ Os usuários não serão solicitados a registrar-se usando a experiência de vis
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Saiba mais sobre a visualização pública do registro combinado para redefinição de senha de autoatendimento e autenticação multifator do Azure](concept-registration-mfa-sspr-combined.md)
+* [Saiba mais sobre a visualização pública do registro combinado para redefinição de senha de autoatendimento e autenticação multifator do Azure](concept-registration-mfa-sspr-combined.md)

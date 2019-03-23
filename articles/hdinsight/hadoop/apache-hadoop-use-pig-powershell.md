@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 69a45a0c2c21ffafde8a4b366e1f3e90b7c8f59a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bb00f6ccd22be75a235d9cd6fc174741207a76e0
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58012609"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58359153"
 ---
 # <a name="use-azure-powershell-to-run-apache-pig-jobs-with-hdinsight"></a>Usar o Azure PowerShell para executar trabalhos do Apache Pig com o HDInsight
 
@@ -26,6 +26,8 @@ Este documento fornece um exemplo de como usar o Azure PowerShell para enviar tr
 > Esse documento não fornece uma descrição detalhada do que fazem as instruções Pig Latin usadas nos exemplos. Para obter informações sobre o Pig Latin usado neste exemplo, consulte [Usar Apache Pig com Apache Hadoop no HDInsight](hdinsight-use-pig.md).
 
 ## <a id="prereq"></a>Pré-requisitos
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * **Um cluster Azure HDInsight**
 
@@ -40,11 +42,11 @@ O PowerShell do Azure fornece *cmdlets* que permitem executar remotamente trabal
 
 Os seguintes cmdlets são usados ao executar trabalhos do Pig em um cluster HDInsight remoto:
 
-* **Connect-AzureRmAccount**: Autentica o Azure PowerShell à Assinatura do Azure.
-* **New-AzureRmHDInsightPigJobDefinition**: Cria uma *definição de trabalho*, usando as instruções do Pig Latin especificadas.
-* **Start-AzureRmHDInsightJob**: Envia a definição de trabalho para HDInsight e inicia o trabalho. Um objeto *job* é retornado.
-* **Wait-AzureRmHDInsightJob**: Usa o objeto de trabalho para verificar o status do trabalho. Ele aguarda até que o trabalho seja concluído ou que o tempo de espera seja excedido.
-* **Get-AzureRmHDInsightJobOutput**: Usado para recuperar a saída do trabalho.
+* **Connect-AzAccount**: Autentica o Azure PowerShell à Assinatura do Azure.
+* **New-AzHDInsightPigJobDefinition**: Cria uma *definição de trabalho*, usando as instruções do Pig Latin especificadas.
+* **Start-AzHDInsightJob**: Envia a definição de trabalho para HDInsight e inicia o trabalho. Um objeto *job* é retornado.
+* **Wait-AzHDInsightJob**: Usa o objeto de trabalho para verificar o status do trabalho. Ele aguarda até que o trabalho seja concluído ou que o tempo de espera seja excedido.
+* **Get-AzHDInsightJobOutput**: Usado para recuperar a saída do trabalho.
 
 As etapas a seguir demonstram como usar esses cmdlets para executar um trabalho no seu cluster HDInsight.
 
@@ -76,7 +78,7 @@ Se nenhuma informação for retornada quando o trabalho for concluído, exiba os
 
     # Print the output of the Pig job.
     Write-Host "Display the standard error output ..." -ForegroundColor Green
-    Get-AzureRmHDInsightJobOutput `
+    Get-AzHDInsightJobOutput `
             -Clustername $clusterName `
             -JobId $pigJob.JobId `
             -HttpCredential $creds `

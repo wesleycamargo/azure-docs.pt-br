@@ -8,36 +8,21 @@ ms.topic: include
 ms.date: 12/12/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 3ad66d235e00d9866794ca90be9934e174bf4102
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: dd5c0782e1132f8592d9c6381b541c6f1a7d84cd
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553253"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58395662"
 ---
 **Discos gerenciados de HDD padrão**
-
-| Tipo de disco Standard  | S4               | S6               | S10             | S15 | S20              | S30              | S40              | S50              | S60*             | S70*             | S80*             |
-|---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
-| Tamanho do Disk em GiB          | 32             | 64             | 128            | 256  | 512            | 1.024    | 2.048     | 4.095    | 8.192     | 16.384     | 32.767     |
-| IOPS por disco       | Até 500              | Até 500              | Até 500              | Até 500 | Até 500              | Até 500              | Até 500             | Até 500              | Até 1.300              | Até 2.000              | Até 2.000              |
-| Taxa de transferência por disco | Até 60 MiB/s | Até 60 MiB/s | Até 60 MiB/s | Até 60 MiB/s | Até 60 MiB/s | Até 60 MiB/s | Até 60 MiB/s | Até 60 MiB/s| Até 300 MiB/s | Até 500 MiB/s | Até 500 MiB/s |
+[!INCLUDE [disk-storage-standard-hdd-sizes](disk-storage-standard-hdd-sizes.md)]
 
 **SSD Standard managed disks**
-
-| Tipo de disco SSD Standard | E4                | E6                | E10               | E15               | E20             | E30              | E40              | E50              | E60*             | E70*             | E80*             |
-|------------------------|-------------------|-------------------|-------------------|-------------------|-----------------|------------------|------------------|------------------|-------------------|-------------------|-------------------|
-| Tamanho do disco em GiB       | 32                | 64                | 128               | 256               | 512             | 1.024            | 2.048            | 4.095            | 8.192             | 16.384            | 32.767            |
-| IOPS por disco          | Até 120         | Até 240         | Até 500         | Até 500         | Até 500       | Até 500        | Até 500        | Até 500        | Até 1.300       | Até 2.000       | Até 2.000       |
-| Taxa de transferência por disco    | Até 25 MB/s   | Até 50 MB/s   | Até 60 MB/s   | Até 60 MB/s   | Até 60 MB/s | Até 60 MB/s  | Até 60 MB/s  | Até 60 MB/s  | Até 300 MiB/s | Até 500 MiB/s | Até 500 MiB/s |
+[!INCLUDE [disk-storage-standard-ssd-sizes](disk-storage-standard-ssd-sizes.md)]
 
 **Premium SSD discos gerenciados: Limites por disco**
-
-| Tipo de disco Premium  | P4               | P6               | P10             | P15 | P20              | P30              | P40              | P50              | P60*             | P70*             | P80*             |
-|---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
-| Tamanho do disco em GiB           | 32             | 64             | 128            | 256  | 512            | 1.024    | 2.048     | 4.095    | 8.192     | 16.384     | 32.767     |
-| IOPS por disco       | Até 120 | Até 240              | Até 500              | Até 1.100 | Até 2.300              | Até 5.000              | Até 7.500             | Até 7.500              | Até 12.500              | Até 15.000              | Até 20.000              |
-| Taxa de transferência por disco | Até 25 MiB/s | Até 50 MiB/s | Até 100 MiB/s | Até 125 MiB/s | Até 150 MiB/s | Até 200 MiB/s | Até 250 MiB/s | Até 250 MiB/s| Até 480 MiB/s | Até 750 MiB/s | Até 750 MiB/s |
+[!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
 
 **Premium SSD discos gerenciados: Limites por VM**
 

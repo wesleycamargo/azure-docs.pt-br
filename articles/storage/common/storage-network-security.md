@@ -5,21 +5,21 @@ services: storage
 author: cbrooksmsft
 ms.service: storage
 ms.topic: article
-ms.date: 02/22/2019
+ms.date: 03/21/2019
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c7f7768406ae64615b46abeb396b5469caf2f6e9
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: c34af90f946542608eaf20f4f21d4986f3c80e6b
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750643"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369387"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar redes virtuais e firewalls do Armazenamento do Microsoft Azure
 
 O Armazenamento do Microsoft Azure fornece um modelo de segurança em camadas. Esse modelo permite que você proteja suas contas de armazenamento a um conjunto específico de redes com suporte. Quando as regras de rede são configuradas, somente dados de solicitação de aplicativos do conjunto especificado de redes podem acessar uma conta de armazenamento.
 
-Um aplicativo que acessa uma conta de armazenamento quando as regras de rede estão em vigor requer autorização adequada na solicitação. A autorização é compatível com as credenciais do Azure Active Directory (AD) (para blobs e filas) (visualização), uma chave de acesso de conta válida ou um token SAS.
+Um aplicativo que acessa uma conta de armazenamento quando as regras de rede estão em vigor requer autorização adequada na solicitação. Autorização tem suporte com as credenciais do Azure Active Directory (Azure AD) para blobs e filas, com uma chave de acesso de conta válida ou com um token SAS.
 
 > [!IMPORTANT]
 > Ativar regras de firewall para sua conta de armazenamento bloqueia solicitações de entrada para os dados por padrão, a menos que as solicitações sejam provenientes de um serviço que está operando em uma Rede Virtual do Microsoft Azure (VNet). Solicitações que estão bloqueadas incluem as de outros serviços do Azure, do portal do Azure, de registro em log e serviços de métricas e assim por diante.

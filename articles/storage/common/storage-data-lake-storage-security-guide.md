@@ -5,15 +5,15 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 02/07/2019
+ms.date: 03/21/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 22b070e6d70208057c85ad6a2322cc440d12a0fa
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ce01301455c7abcd26006e622fcfbb8127e1c511
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58008217"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372481"
 ---
 # <a name="azure-data-lake-storage-gen2-security-guide"></a>Guia de segurança do Azure Data Lake Storage Gen2
 
@@ -134,7 +134,7 @@ Segurança do Plano de Dados refere-se aos métodos usados para proteger os obje
 Você tem três opções para autorizar o acesso a objetos de dados no Armazenamento do Azure, incluindo:
 
 - Usando o Azure AD para autorizar o acesso a sistemas de arquivos e filas. O Azure AD oferece vantagens em relação a outras abordagens para autorização, incluindo a eliminação da necessidade de armazenar segredos em seu código. Para saber mais, confira [Autenticar o acesso ao Armazenamento do Azure usando o Azure Active Directory](storage-auth-aad.md). 
-- Usar as chaves da conta de armazenamento para autorizar o acesso via Chave Compartilhada. A autorização via Chave Compartilhada requer o armazenamento das chaves da conta de armazenamento em seu aplicativo e, portanto, a Microsoft recomenda usar o Azure AD sempre que possível. Para aplicativos de produção, ou para autorizar o acesso a arquivos e tabelas do Azure, continue usando a Chave Compartilhada enquanto a integração do Azure AD estiver em versão prévia.
+- Usar as chaves da conta de armazenamento para autorizar o acesso via Chave Compartilhada. A autorização via Chave Compartilhada requer o armazenamento das chaves da conta de armazenamento em seu aplicativo e, portanto, a Microsoft recomenda usar o Azure AD sempre que possível.
 - Usar Assinaturas de Acesso Compartilhado para conceder permissões controladas a objetos de dados específicos por um determinado período de tempo.
 
 Além de limitar o acesso por meio da autorização, você também pode usar [Firewalls e redes virtuais](storage-network-security.md) para limitar o acesso à conta de armazenamento com base nas regras de rede.  Essa abordagem permite que você negue o acesso ao tráfego de Internet pública e conceda acesso apenas às Redes Virtuais do Azure ou intervalos de endereços IP da Internet pública específicos.

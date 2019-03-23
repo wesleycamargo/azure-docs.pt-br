@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/22/2018
+ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 647d40db87f76a9e1a13a108c5f55fac40524017
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9f6698eebf184d1df80920b7779512e2fda83a0c
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012782"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369081"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>Usando a API REST de Armazenamento do Azure
 
@@ -266,7 +266,7 @@ Agora que você entende como criar a solicitação, chame o serviço e analise o
 ## <a name="creating-the-authorization-header"></a>Criando o cabeçalho de autorização
 
 > [!TIP]
-> O Armazenamento do Azure agora oferece suporte a integração do Azure Active Directory (Azure AD) para os serviços Blob e fila (versão prévia). O Azure AD oferece uma experiência mais simples para autorizar uma solicitação para o Armazenamento do Azure. Para obter mais informações sobre como usar o Azure AD para autorizar operações REST, consulte [Autenticar com o Azure Active Directory (versão prévia)](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory). Para obter uma visão geral da integração do Azure AD com o Armazenamento do Azure, consulte [Autenticar o acesso ao Armazenamento do Azure usando o Azure Active Directory (versão prévia)](storage-auth-aad.md).
+> O armazenamento do Azure agora dá suporte a integração do Active Directory do Azure (AD Azure) para blobs e filas. O Azure AD oferece uma experiência mais simples para autorizar uma solicitação para o Armazenamento do Azure. Para obter mais informações sobre como usar o Azure AD para autorizar operações REST, consulte [autenticar com o Azure Active Directory](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory). Para obter uma visão geral da integração do Azure AD com o armazenamento do Azure, consulte [autenticar o acesso ao armazenamento do Azure usando o Azure Active Directory](storage-auth-aad.md).
 
 Há um artigo que explica conceitualmente (sem código) como executar a [Autenticação para o serviço Armazenamento do Azure](/rest/api/storageservices/Authorization-for-the-Azure-Storage-Services).
 Vamos ver o artigo até exatamente o for é necessário e mostrar o código.

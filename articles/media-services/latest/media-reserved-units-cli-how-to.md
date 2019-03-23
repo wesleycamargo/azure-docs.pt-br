@@ -11,24 +11,43 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 03/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: b40ab6bcc2f718eda85ff64d69a6689e12d60ab8
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 3f0d3c5748afaac2544232fc1ff84316d9eb7347
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094828"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351058"
 ---
 # <a name="scaling-media-processing"></a>Dimensionamento de processamento de mídia
 
-Os Serviços de Mídia do Azure permitem dimensionar o processamento de mídia em sua conta, gerenciando Unidades Reservadas de Mídia (MRUs). Para uma visão geral detalhada, consulte [Scaling media processing](../previous/media-services-scale-media-processing-overview.md). 
+Os Serviços de Mídia do Azure permitem dimensionar o processamento de mídia em sua conta, gerenciando Unidades Reservadas de Mídia (MRUs). MRUs determinam a velocidade com que suas tarefas de processamento de mídia é processadas. Escolha um entre os seguintes tipos de unidade reservada: **S1**, **S2** ou **S3**. Por exemplo, o mesmo trabalho de codificação é executado mais rapidamente quando você usa o tipo de unidade reservada **S2** em comparação ao tipo **S1**. 
 
-Este artigo mostra como usar o [Serviços de Mídia do Microsoft Azure v3 CLI](https://aka.ms/ams-v3-cli-ref) para dimensionar MRUs.
+Além de especificar o tipo de unidade reservada, você pode especificar o provisionamento da sua conta com unidades reservadas. O número de unidades reservadas provisionadas determina o número de tarefas de mídia que podem ser processadas simultaneamente em uma determinada conta. Por exemplo, se sua conta tiver cinco unidades reservadas, as cinco tarefas de mídia serão executadas simultaneamente enquanto houver tarefas a serem processadas. As tarefas restantes irão aguardar na fila e serão selecionadas para processamento sequencialmente quando uma tarefa em execução for concluída. Se uma conta não tiver nenhuma unidade reservada provisionada, as tarefas serão selecionadas sequencialmente. Nesse caso, o tempo de espera entre a conclusão de uma tarefa e o início da próxima dependerá da disponibilidade dos recursos do sistema.
+
+## <a name="choosing-between-different-reserved-unit-types"></a>Escolha entre tipos diferentes de unidade reservada
+
+A tabela a seguir o ajudará a tomar uma decisão ao escolher entre diferentes velocidades de codificação. Ela também fornece alguns casos de parâmetro de comparação quanto a [um vídeo que você pode baixar](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z) para executar seus próprios testes:
+
+|Tipo de RU|Cenário|Exemplo de resultados para o [7 min 1080p vídeo](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z)|
+|---|---|---|
+| **S1**|Codificação de taxa de bits única. <br/>Arquivos com resoluções SD ou inferiores, não sensível ao tempo, de baixo custo.|Codificação para um único arquivo de MP4 de taxa de bits SD resolução usando "H264 única taxa de bits de SD 16X9" leva 10 minutos.|
+| **S2**|Codificação de taxa de bits única e de taxa de bits múltipla.<br/>Uso normal para codificação SD e HD.|A codificação com a predefinição "H264 Taxa de Bits Única 720p" leva cerca de oito minutos.<br/><br/>A codificação com a predefinição "H264 Taxa de Bits Múltipla 720p" leva cerca de 16,8 minutos.|
+| **S3**|Codificação de taxa de bits única e de taxa de bits múltipla.<br/>Vídeos com resolução Full HD e 4K. Codificação urgente com retorno mais rápido.|A codificação com a predefinição "H264 Taxa de Bits Única 1080p" leva cerca de quatro minutos.<br/><br/>A codificação com a predefinição "H264 Taxas de Bits Múltiplas 1080p" leva aproximadamente oito minutos.|
+
+## <a name="considerations"></a>Considerações
+
+* Para os trabalhos de Análise de Vídeo e Análise de Áudio que são disparados pelos Serviços de Mídia v3 ou pelo Video Indexer, é altamente recomendável o tipo de unidade S3.
+* Se estiver usando o pool compartilhado, ou seja, sem nenhuma unidade reservada, suas tarefas de codificação terão o mesmo desempenho do que com unidades reservadas S1. No entanto, não há nenhum limite superior para o tempo que as Tarefas podem gastar no estado na fila e, a qualquer momento específico, no máximo, apenas uma Tarefa será executada.
+
+O restante do artigo mostra como usar [serviços de mídia v3 CLI](https://aka.ms/ams-v3-cli-ref) dimensionar MRUs.
 
 > [!NOTE]
-> Para os trabalhos de análise de áudio e análise de vídeo acionados pelo Serviços de Mídia do Microsoft Azure v3 ou pelo Video Indexer, é altamente recomendável provisionar sua conta com 10 MRUs do S3. <br/>Se você precisar de mais de 10 MRUs do S3, abra um ticket de suporte usando o [Portal do Microsoft Azure](https://portal.azure.com/).
+> Para os trabalhos de análise de áudio e análise de vídeo acionados pelo Serviços de Mídia do Microsoft Azure v3 ou pelo Video Indexer, é altamente recomendável provisionar sua conta com 10 MRUs do S3. Se você precisar de mais de 10 MRUs do S3, abra um ticket de suporte usando o [Portal do Microsoft Azure](https://portal.azure.com/).
+>
+> Atualmente, é possível usar o portal do Azure para gerenciar os outros recursos v3. Use o [API REST](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), ou um com suporte [SDKs](developers-guide.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
@@ -56,4 +75,5 @@ Você é cobrado com base no número, tipo e quantidade de tempo que os MRUs sã
 
 ## <a name="see-also"></a>Consulte também
 
-[CLI do Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+* [Cotas e limitações](limits-quotas-constraints.md)
+* [CLI do Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)

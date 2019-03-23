@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: 82f54e31b76b2b2f7dbf0afb59fa706e916fe2d0
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 264b4737974010baffd82b38275a8fe56163e1f2
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438517"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361431"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>Criar clusters baseados em Linux no HDInsight usando o Azure PowerShell
 
@@ -26,15 +26,18 @@ O Azure PowerShell é um ambiente de script poderoso que você pode usar para co
 > O Azure PowerShell só está disponível em clientes do Windows. Se você estiver usando um cliente Linux, UNIX ou Mac OS X, veja [Criar um cluster HDInsight baseado em Linux usando a CLI clássica do Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md) para obter informações sobre como usar a CLI clássica para criar um cluster.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Você deve ter o seguinte antes de iniciar este procedimento:
 
 * Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* [PowerShell do Azure](/powershell/azure/azurerm/install-azurerm-ps)
+* [PowerShell do Azure](/powershell/azure/install-Az-ps)
 
     > [!IMPORTANT]  
     > O suporte do Azure PowerShell para gerenciar os recursos do HDInsight usando o Gerenciador de Serviços do Azure está **preterido** e foi removido em 1º de janeiro de 2017. As etapas neste documento usam os novos cmdlets do HDInsight que funcionam com o Azure Resource Manager.
     >
-    > Siga as etapas em [Instalar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) para instalar a versão mais recente do Azure PowerShell. Se você tiver scripts que precisam ser modificados para usar os novos cmdlets que funcionam com o Azure Resource Manager, confira [Migrando para as ferramentas de desenvolvimento baseadas no Azure Resource Manager dos clusters de HDInsight](hdinsight-hadoop-development-using-azure-resource-manager.md) para obter mais informações.
+    > Siga as etapas em [Instalar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) para instalar a versão mais recente do Azure PowerShell. Se você tiver scripts que precisam ser modificados para usar os novos cmdlets que funcionam com o Azure Resource Manager, confira [Migrando para as ferramentas de desenvolvimento baseadas no Azure Resource Manager dos clusters de HDInsight](hdinsight-hadoop-development-using-azure-resource-manager.md) para obter mais informações.
 
 ## <a name="create-cluster"></a>Criar cluster
 
@@ -64,7 +67,7 @@ Pode levar até 20 minutos para criar um cluster.
 
 ## <a name="create-cluster-configuration-object"></a>Criar cluster: Objeto de configuração
 
-Você também pode criar um objeto de configuração de HDInsight usando o cmdlet `New-AzureRmHDInsightClusterConfig`. Será possível, então, modificar esse objeto de configuração para habilitar as opções de configuração adicionais para o cluster. Por fim, use o parâmetro `-Config` do cmdlet `New-AzureRmHDInsightCluster` para usar a configuração.
+Você também pode criar um objeto de configuração de HDInsight usando o cmdlet `New-AzHDInsightClusterConfig`. Será possível, então, modificar esse objeto de configuração para habilitar as opções de configuração adicionais para o cluster. Por fim, use o parâmetro `-Config` do cmdlet `New-AzHDInsightCluster` para usar a configuração.
 
 O script a seguir cria um objeto de configuração para configurar um R Server no tipo de cluster HDInsight. A configuração habilita um nó de borda, RStudio e uma conta de armazenamento adicionais.
 

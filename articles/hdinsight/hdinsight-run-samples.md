@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0a174c3de33b01f936eec599c1de68e2cebbf9c5
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 3d27a9cc8dd4b460a75e2a43106413ed9ee1d559
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820412"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361516"
 ---
 # <a name="run-mapreduce-samples-in-windows-based-hdinsight"></a>Executar exemplos do MapReduce no HDInsight baseado em Windows
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
@@ -42,6 +42,8 @@ Atualmente, muitas pessoas escolhem o Apache Hive e o Apache Pig através do Map
 
 **Pré-requisitos**:
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **um cluster do HDInsight**. Para obter instruções sobre as várias maneiras pelas quais esses clusters podem ser criados, consulte [Criar clusters do Apache Hadoop no HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 * **Uma estação de trabalho com o PowerShell do Azure.**
@@ -68,35 +70,35 @@ Para obter o procedimento de desenvolver um programa MapReduce em Java, consulte
     $resourceGroupName = "<Resource Group Name>"
     $clusterName = "<HDInsight cluster name>"             # HDInsight cluster name
 
-    Select-AzureRmSubscription -SubscriptionName $subscriptionName
+    Select-AzSubscription -SubscriptionName $subscriptionName
 
     # Define the MapReduce job
-    $mrJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
+    $mrJobDefinition = New-AzHDInsightMapReduceJobDefinition `
                                 -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" `
                                 -ClassName "wordcount" `
                                 -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
 
     # Submit the job and wait for job completion
     $cred = Get-Credential -Message "Enter the HDInsight cluster HTTP user credential:"
-    $mrJob = Start-AzureRmHDInsightJob `
+    $mrJob = Start-AzHDInsightJob `
                         -ResourceGroupName $resourceGroupName `
                         -ClusterName $clusterName `
                         -HttpCredential $cred `
                         -JobDefinition $mrJobDefinition
 
-    Wait-AzureRmHDInsightJob `
+    Wait-AzHDInsightJob `
         -ResourceGroupName $resourceGroupName `
         -ClusterName $clusterName `
         -HttpCredential $cred `
         -JobId $mrJob.JobId
 
     # Get the job output
-    $cluster = Get-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
+    $cluster = Get-AzHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
     $defaultStorageAccount = $cluster.DefaultStorageAccount -replace '.blob.core.windows.net'
-    $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount)[0].Value
+    $defaultStorageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount)[0].Value
     $defaultStorageContainer = $cluster.DefaultStorageContainer
 
-    Get-AzureRmHDInsightJobOutput `
+    Get-AzHDInsightJobOutput `
         -ResourceGroupName $resourceGroupName `
         -ClusterName $clusterName `
         -HttpCredential $cred `
@@ -107,8 +109,8 @@ Para obter o procedimento de desenvolver um programa MapReduce em Java, consulte
         -DisplayOutputType StandardError
 
     # Download the job output to the workstation
-    $storageContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccount -StorageAccountKey $defaultStorageAccountKey
-    Get-AzureStorageBlobContent -Container $defaultStorageContainer -Blob example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
+    $storageContext = New-AzStorageContext -StorageAccountName $defaultStorageAccount -StorageAccountKey $defaultStorageAccountKey
+    Get-AzStorageBlobContent -Container $defaultStorageContainer -Blob example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
 
     # Display the output file
     cat ./example/data/WordCountOutput/part-r-00000 | findstr "there"
@@ -138,7 +140,7 @@ Enquanto isso, o redutor coleta a saída orientada a linha de [stdout][stdin-std
 * Execute o procedimento em Contagem de palavras – Java e substitua a definição de trabalho pela seguinte linha:
 
     ```powershell
-    $mrJobDefinition = New-AzureRmHDInsightStreamingMapReduceJobDefinition `
+    $mrJobDefinition = New-AzHDInsightStreamingMapReduceJobDefinition `
                             -Files "/example/apps/cat.exe","/example/apps/wc.exe" `
                             -Mapper "cat.exe" `
                             -Reducer "wc.exe" `
@@ -160,7 +162,7 @@ O script fornecido para este exemplo envia um trabalho jar do Hadoop e está con
 * Execute o procedimento em Contagem de palavras – Java e substitua a definição de trabalho pela seguinte linha:
 
     ```powershell
-    $mrJobJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
+    $mrJobJobDefinition = New-AzHDInsightMapReduceJobDefinition `
                                 -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" `
                                 -ClassName "pi" `
                                 -Arguments "16", "10000000"
@@ -188,17 +190,17 @@ Três tarefas são solicitadas pela amostra, cada uma correspondendo a um dos pr
 * Siga o procedimento em Contagem de palavras – Java e use as seguintes definições de trabalho:
 
     ```powershell
-    $teragen = New-AzureRmHDInsightMapReduceJobDefinition `
+    $teragen = New-AzHDInsightMapReduceJobDefinition `
                                 -JarFile "/example/jars/hadoop-mapreduce-examples.jar" `
                                 -ClassName "teragen" `
                                 -Arguments "-Dmapred.map.tasks=50", "100000000", "/example/data/10GB-sort-input"
 
-    $terasort = New-AzureRmHDInsightMapReduceJobDefinition `
+    $terasort = New-AzHDInsightMapReduceJobDefinition `
                                 -JarFile "/example/jars/hadoop-mapreduce-examples.jar" `
                                 -ClassName "terasort" `
                                 -Arguments "-Dmapred.map.tasks=50", "-Dmapred.reduce.tasks=25", "/example/data/10GB-sort-input", "/example/data/10GB-sort-output"
 
-    $teravalidate = New-AzureRmHDInsightMapReduceJobDefinition `
+    $teravalidate = New-AzHDInsightMapReduceJobDefinition `
                                 -JarFile "/example/jars/hadoop-mapreduce-examples.jar" `
                                 -ClassName "teravalidate" `
                                 -Arguments "-Dmapred.map.tasks=50", "-Dmapred.reduce.tasks=25", "/example/data/10GB-sort-output", "/example/data/10GB-sort-validate"

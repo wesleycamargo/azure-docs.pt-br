@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: prashanthyv
-ms.openlocfilehash: 85bd1858bc3f2d505e1e4d0a88e8c77a46ae4447
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.openlocfilehash: ee4418700cec5de1dc404c3669dd5de315aab983
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57887961"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368603"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Práticas recomendadas para usar o Cofre de chaves
 
@@ -36,7 +36,7 @@ Sugestões enquanto controla o acesso ao seu cofre são da seguinte maneira:
 
 Nossa recomendação é usar um cofre por aplicativo por ambiente (desenvolvimento, pré-produção e produção). Isso ajuda você a compartilhar não segredos em ambientes e também reduz a ameaça em caso de violação.
 
-## <a name="backup-your-vault"></a>Seu Cofre de backup
+## <a name="backup"></a>Backup
 
 Verifique se você regulares voltar cumulativos de atualizações para seu [cofre](https://blogs.technet.microsoft.com/kv/2018/07/20/announcing-backup-and-restore-of-keys-secrets-and-certificates/) em update/delete/criação de objetos dentro de um cofre.
 

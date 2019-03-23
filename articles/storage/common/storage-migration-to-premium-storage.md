@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
 ms.subservice: common
-ms.openlocfilehash: fd72e2a75c00c30fdc5497e0d88e9c83dc5fcad8
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: fdca10c54c798bd47a34eb0f8af091908bcc2711
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317350"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372311"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migrando para o Armazenamento Premium do Azure (Discos não gerenciados)
 
@@ -69,12 +69,12 @@ As contas de Armazenamento Premium têm as seguintes metas de escalabilidade, al
 |:--- |:--- |
 | Capacidade do disco: 35TB<br />Capacidade do instantâneo: 10 TB |Até 50 gigabits para Entrada + Saída |
 
-Para saber mais sobre as especificações do Armazenamento Premium, consulte as [Metas de escalabilidade e desempenho do Armazenamento do Azure](storage-scalability-targets.md#premium-storage-account-scale-limits).
+Para saber mais sobre as especificações do Armazenamento Premium, consulte as [Metas de escalabilidade e desempenho do Armazenamento do Azure](storage-scalability-targets.md#premium-performance-storage-account-scale-limits).
 
 #### <a name="disk-caching-policy"></a>Política de cache de disco
-Por padrão, a política de cache de disco é *Somente leitura* para todos os discos de dados Premium e *Leitura e gravação* para o disco de sistema operacional Premium anexado à VM. Esta definição de configuração é recomendável para atingir o desempenho ideal de E/Ss dos seus aplicativos. Para discos de dados de gravação intensa ou somente gravação (como arquivos de log do SQL Server), desabilite o cache de disco para que possa obter o melhor desempenho do aplicativo. As configurações de cache existentes para os discos de dados podem ser atualizadas usando o [Portal do Azure](https://portal.azure.com) ou o parâmetro *-HostCaching* do cmdlet *Set-AzureDataDisk*.
+Por padrão, a política de cache de disco é *Somente leitura* para todos os discos de dados Premium e *Leitura e gravação* para o disco de sistema operacional Premium anexado à VM. Esta definição de configuração é recomendável para atingir o desempenho ideal de E/Ss dos seus aplicativos. Para discos de dados de gravação intensa ou somente gravação (como arquivos de log do SQL Server), desabilite o cache de disco para que possa obter o melhor desempenho do aplicativo. As configurações de cache para discos de dados existente podem ser atualizadas usando o [portal do Azure](https://portal.azure.com) ou o *- HostCaching* parâmetro do *Set-AzureDataDisk* cmdlet.
 
-#### <a name="location"></a>Local
+#### <a name="location"></a>Local padrão
 Escolha um local onde o Armazenamento do Azure Premium está disponível. Confira [Serviços do Azure por região](https://azure.microsoft.com/regions/#services) para obter informações atualizadas sobre as localizações disponíveis. As máquinas virtuais na mesma região da conta de armazenamento que armazena os discos da VM fornecerão um desempenho muito melhor em relação a estarem em regiões separadas.
 
 #### <a name="other-azure-vm-configuration-settings"></a>Outras definições de configuração da VM do Azure

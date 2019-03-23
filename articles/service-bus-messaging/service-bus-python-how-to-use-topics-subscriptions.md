@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 09/20/2018
 ms.author: aschhab
-ms.openlocfilehash: 476c51d1835a1be0178faf28e6dd8a3c95371929
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: a12288de2f9a7682fb433dd0d5c7905cc76c12b9
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240959"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351653"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>Como usar tópicos e assinaturas do Barramento de Serviço com Python
 
@@ -167,7 +167,7 @@ O Barramento de Serviço proporciona funcionalidade para ajudá-lo a se recupera
 
 Também há um tempo limite associado a uma mensagem bloqueada na assinatura e, se houver falha no processamento da mensagem pelo aplicativo antes da expiração do tempo limite de bloqueio (por exemplo, se o aplicativo travar), o Barramento de Serviço desbloqueará a mensagem automaticamente e a disponibilizará para ser recebida novamente.
 
-Caso o aplicativo falhe após o processamento da mensagem, mas antes que o método `delete` seja chamado, a mensagem será fornecida novamente ao aplicativo quando ele for reiniciado. Esse comportamento é chamado frequentemente de processamento de pelo menos uma vez*, ou seja, cada mensagem será processada pelo menos uma vez, mas, em algumas situações, a mesma mensagem poderá ser entregue novamente. Se o cenário não tolerar o processamento duplicado, os desenvolvedores de aplicativos deverão adicionar lógica extra ao aplicativo para tratar a entrega de mensagem duplicada. Para fazer isso, você pode usar a propriedade **MessageId** da mensagem, que permanece constante nas tentativas de entrega.
+Caso o aplicativo falhe após o processamento da mensagem, mas antes que o método `delete` seja chamado, a mensagem será fornecida novamente ao aplicativo quando ele for reiniciado. Esse comportamento é chamado frequentemente de Processamento de pelo menos uma vez\*; ou seja, cada mensagem é processada pelo menos uma vez, mas em determinadas situações a mesma mensagem poderá ser entregue novamente. Se o cenário não tolerar o processamento duplicado, os desenvolvedores de aplicativos deverão adicionar lógica extra ao aplicativo para tratar a entrega de mensagem duplicada. Para fazer isso, você pode usar a propriedade **MessageId** da mensagem, que permanece constante nas tentativas de entrega.
 
 ## <a name="delete-topics-and-subscriptions"></a>Excluir tópicos e assinaturas
 

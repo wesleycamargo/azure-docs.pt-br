@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/06/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ce9635c108a948b4773c7d27cb254f01d06896f8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ca71fdc8074e56adc8595ee905d5b1db3b60cef1
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544232"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371784"
 ---
 # <a name="azure-storage-account-overview"></a>Visão geral da conta de armazenamento do Azure
 
@@ -84,20 +84,14 @@ O Armazenamento do Azure oferece diferentes opções para acessar dados de blob 
 
 As camadas de acesso disponíveis são:
 
-> [!NOTE]
-> O [camada de acesso de premium (visualização)](../blobs/storage-blob-storage-tiers.md#premium-access-tier), que é otimizado para aplicativos sensíveis ao desempenho, fornece latência baixa e consistente com altas taxas de taxa de transferência e transação. A camada de acesso premium está disponível apenas com contas de armazenamento de Blob de blocos (visualização). Para obter mais informações, consulte [visualização pública do armazenamento de BLOBs do Azure Premium](https://azure.microsoft.com/blog/azure-premium-blob-storage-public-preview/).
-
 * A camada de acesso **quente** é otimizada para acesso frequente a objetos na conta de armazenamento. Acessar dados na camada de acesso quente é mais econômico, pois os custos de armazenamento são um pouco mais altos. Por padrão, as novas contas de armazenamento são criadas na camada de acesso quente.
 * A camada de acesso **frio** é otimizada para armazenar grandes quantidades de dados acessados com menos frequência e armazenados por pelo menos 30 dias. Armazenar dados na camada de acesso frio é mais econômico, mas acessá-los pode ser um pouco mais caro que acessar os dados da camada de acesso quente.
 * A camada de acesso aos **Arquivos** só está disponível para blobs de blocos individuais. Essa camada é otimizada para dados que podem tolerar várias horas de latência de recuperação e permanecerão na camada de acesso aos arquivos por pelo menos 180 dias. A camada de acesso aos arquivos é a opção mais econômica para armazenar dados, mas acessá-los é mais caro que acessar os dados das camadas de acesso quente ou frio. 
 
-
-Se houver uma alteração no padrão de uso dos dados, você poderá alternar entre as camadas de acesso a qualquer momento. Para obter mais informações sobre camadas de acesso, consulte [Armazenamento de Blobs do Azure: camadas de armazenamento Premium (versão prévia), Frequente, Esporádico e Arquivos](../blobs/storage-blob-storage-tiers.md).
+Se houver uma alteração no padrão de uso dos dados, você poderá alternar entre as camadas de acesso a qualquer momento. Para obter mais informações sobre as camadas de acesso, consulte [armazenamento de BLOBs do Azure: quente, frio e arquivar as camadas de acesso](../blobs/storage-blob-storage-tiers.md).
 
 > [!IMPORTANT]
 > Alterar a camada de acesso para uma conta de armazenamento existente ou um blob pode resultar em cobranças adicionais. Para obter mais informações, consulte a [Seção de cobrança de conta de armazenamento](#storage-account-billing).
-
-
 
 ## <a name="replication"></a>Replicação
 
@@ -135,7 +129,7 @@ Todas as solicitações feitas na conta de armazenamento precisam ser autorizada
 
 É possível permitir acesso aos dados da conta de armazenamento usando uma das seguintes abordagens:
 
-- **Azure Active Directory:** use as credenciais do Azure AD (Azure Active Directory) para autenticar um usuário, grupo ou outra identidade para acesso aos dados de blob e fila (versão prévia). Se a autenticação de uma identidade for bem-sucedida, o Azure AD retornará um token para usar ao autorizar a solicitação de acesso ao armazenamento de blobs ou de filas do Azure. Para saber mais, confira [Autenticar o acesso ao Armazenamento do Azure usando o Azure Active Directory (versão prévia)](storage-auth-aad.md).
+- **Azure Active Directory:** Use credenciais do Active Directory do Azure (AD Azure) para autenticar um usuário, grupo ou outra identidade para acesso aos dados de blob e fila. Se a autenticação de uma identidade for bem-sucedida, o Azure AD retornará um token para usar ao autorizar a solicitação de acesso ao armazenamento de blobs ou de filas do Azure. Para saber mais, confira [Autenticar o acesso ao Armazenamento do Azure usando o Azure Active Directory](storage-auth-aad.md).
 - **Autorização de chave compartilhada:** use a chave de acesso da conta de armazenamento para criar uma cadeia de conexão para o aplicativo usar em tempo de execução para acessar o Armazenamento do Azure. Os valores na cadeia de conexão são usados para criar o cabeçalho de *autorização* passado para o Armazenamento do Azure. Para saber mais, confira [Configurar cadeias de conexão do Armazenamento do Azure](storage-configure-connection-string.md).
 - **Assinatura de acesso compartilhado:** use a assinatura de acesso compartilhado para delegar acesso a recursos na conta de armazenamento, caso não esteja usando a autenticação do Azure AD. Uma assinatura de acesso compartilhado é um token que encapsula todas as informações necessárias para autorizar uma solicitação para o Armazenamento do Azure na URL. É possível especificar o recurso de armazenamento, as permissões concedidas e o intervalo em que as permissões serão válidas como parte da assinatura de acesso compartilhado. Para saber mais, confira [Usar SAS (Assinaturas de Acesso Compartilhado)](storage-dotnet-shared-access-signature-part-1.md) para saber mais.
 

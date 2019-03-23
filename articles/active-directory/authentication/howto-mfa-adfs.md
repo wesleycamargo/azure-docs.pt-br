@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f508475166346c56b3bd0c8607c27beb7aba66c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 0abf2eca52616638f0c4dce89691c0d4f7875106
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316466"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371521"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Protegendo os recursos de nuvem usando a Autenticação Multifator do Azure e o AD FS
 
@@ -30,15 +30,15 @@ Para proteger seus recursos de nuvem, configure uma regra de declaração para q
 2. À esquerda, selecione **Relações de Confiança com Terceira Parte Confiável**.
 3. Clique com o botão direito do mouse na **Plataforma de Identidade do Microsoft Office 365** e selecione **Editar Regras de Declaração**.
 
-   ![Nuvem](./media/howto-mfa-adfs/trustedip1.png)
+   ![Console ADFS - relações de confiança de terceira parte confiável](./media/howto-mfa-adfs/trustedip1.png)
 
 4. Em Regras de Transformação de Emissão, clique em **Adicionar Regra**.
 
-   ![Nuvem](./media/howto-mfa-adfs/trustedip2.png)
+   ![Editar as regras de transformação de emissão](./media/howto-mfa-adfs/trustedip2.png)
 
 5. No Assistente Adicionar Regra de Declaração de Transformação, selecione **Passar ou filtrar uma Declaração de Entrada** na lista e clique em **Avançar**.
 
-   ![Nuvem](./media/howto-mfa-adfs/trustedip3.png)
+   ![Assistente para Adicionar Regra de Declaração de Transformação](./media/howto-mfa-adfs/trustedip3.png)
 
 6. Dê um nome para a regra. 
 7. Selecione **Referências de Métodos de Autenticação** como o tipo de declaração Entrada.
@@ -58,15 +58,15 @@ A primeira coisa que precisamos fazer é configurar as declarações do AD FS. C
 
 1. Abra o gerenciamento do AD FS.
 2. À esquerda, selecione **Relações de Confiança com Terceira Parte Confiável**.
-3. Clique com o botão direito do mouse na **Plataforma de Identidade Microsoft Office 365** e selecione **Editar Regras de Declaração...**
-   ![Nuvem](./media/howto-mfa-adfs/trustedip1.png)
-4. Em Regras de Transformação de Emissão, clique em **Adicionar Regra**
-   ![Nuvem](./media/howto-mfa-adfs/trustedip2.png)
+3. Clique duas vezes em **plataforma de identidade do Microsoft Office 365** e selecione **editar regras de declaração... ** 
+    ![Console - editar regras de declaração do ADFS](./media/howto-mfa-adfs/trustedip1.png)
+4. Em regras de transformação de emissão, clique em **Adicionar regra.** 
+    ![Adicionando uma regra de declaração](./media/howto-mfa-adfs/trustedip2.png)
 5. No Assistente Adicionar Regra de Declaração de Transformação, selecione **Passar ou filtrar uma Declaração de Entrada** na lista e clique em **Avançar**.
-   ![Nuvem](./media/howto-mfa-adfs/trustedip3.png)
-6. Na caixa ao lado do nome da regra de declaração, nomeie a regra. Por exemplo: InsideCorpNet.
+   ![Assistente para Adicionar Regra de Declaração de Transformação](./media/howto-mfa-adfs/trustedip3.png)
+6. Na caixa ao lado do nome da regra de declaração, nomeie a regra. Por exemplo:  InsideCorpNet.
 7. Na lista suspensa, ao lado do tipo de declaração de entrada, selecione **Dentro da rede corporativa**.
-   ![Nuvem](./media/howto-mfa-adfs/trustedip4.png)
+   ![Declaração adicionando dentro da rede corporativa](./media/howto-mfa-adfs/trustedip4.png)
 8. Clique em **Concluir**.
 9. Em Regras de Transformação de Emissão, clique em **Adicionar Regra**.
 10. No Assistente Adicionar Regra de Declaração de Transformação, selecione **Enviar Declarações Usando uma Regra Personalizada** da lista suspensa e clique em **Avançar**.
@@ -75,7 +75,7 @@ A primeira coisa que precisamos fazer é configurar as declarações do AD FS. C
 
         c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
             => issue(claim = c);
-    ![Nuvem](./media/howto-mfa-adfs/trustedip5.png)
+    ![Criar declaração personalizada para manter usuários conectados](./media/howto-mfa-adfs/trustedip5.png)
 13. Clique em **Concluir**.
 14. Clique em **Aplicar**.
 15. Clique em **OK**.

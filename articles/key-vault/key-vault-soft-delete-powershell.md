@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d34ef1bb5bea6f5f099f7fa2a24ddec2362b44ea
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: ecc87e03a80ce10bedbe26b3ebb452ec704eefcb
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336177"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368673"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Como usar a exclusão reversível do Key Vault com o PowerShell
 
@@ -38,9 +38,9 @@ Para obter informações de referência específicas do Key Vault para o PowerSh
 
 As operações de Key Vault são gerenciadas separadamente por meio de permissões de RBAC (controle de acesso baseado em função) da seguinte maneira:
 
-| Operação | Descrição | Permissão de usuário |
+| Operação | DESCRIÇÃO | Permissão de usuário |
 |:--|:--|:--|
-|Lista|Lista os cofres de chaves excluídos.|Microsoft.KeyVault/deletedVaults/read|
+|Listar|Lista os cofres de chaves excluídos.|Microsoft.KeyVault/deletedVaults/read|
 |Recuperar|Recupera o cofre de chaves excluído.|Microsoft.KeyVault/vaults/write|
 |Limpar|Remove permanentemente um cofre de chaves excluído e todo o seu conteúdo.|Microsoft.KeyVault/locations/deletedVaults/purge/action|
 
@@ -49,9 +49,6 @@ Para saber mais sobre permissões e controle de acesso, veja [Proteger seu cofre
 ## <a name="enabling-soft-delete"></a>Habilitar a exclusão reversível
 
 Você habilita "exclusão suave" para permitir a recuperação de um cofre de chaves excluído ou objetos armazenados em um cofre de chaves.
-
-> [!IMPORTANT]
-> Habilitar 'exclusão reversível' em um cofre de chaves é uma ação irreversível. Depois que a propriedade de exclusão reversível tiver sido definida como "true", ele não pode ser alterado ou removido.  
 
 ### <a name="existing-key-vault"></a>Cofre de chaves existente
 
@@ -142,7 +139,7 @@ Quando você exclui uma chave em um cofre de chaves com exclusão reversível ha
 
 Assim como os cofres das chaves, uma chave, segredo ou certificado excluído permanecem no estado excluído por até 90 dias, a menos que você os recupere ou purga. 
 
-#### <a name="keys"></a>Chaves
+#### <a name="keys"></a>simétricas
 
 Para recuperar uma chave excluída:
 

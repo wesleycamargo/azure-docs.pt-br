@@ -1,17 +1,17 @@
 ---
 title: Conceitos de alta disponibilidade no Banco de Dados do Azure para MySQL
 description: Este tópico fornece informações de alta disponibilidade ao usar o Banco de Dados do Azure para MySQL
-author: jasonwhowell
-ms.author: jasonh
+author: ajlam
+ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 3f541357d3d45ada694a821b3a3b1474185b6b00
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 055727695bfa1ce8a6bb160a7e071c2a161afb3b
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55691347"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351016"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql"></a>Conceitos de alta disponibilidade no Banco de Dados do Azure para MySQL
 O serviço do Banco de Dados do Azure para MySQL fornece garantia de alto nível de disponibilidade. O SLA (Contrato de Nível de Serviço) com suporte financeiro é 99,99% em disponibilidade geral. Não há praticamente nenhum tempo de inatividade de aplicativo ao usar este serviço.

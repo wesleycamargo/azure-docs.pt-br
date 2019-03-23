@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e9704ce014e520350360c336c7a17940cae95fb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0337f3de40e75ada86c0a5265fc99b34f1c2ecae
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197888"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58367908"
 ---
 # <a name="web-apps"></a>Aplicativos Web
 
@@ -48,7 +48,7 @@ Veja os exemplos de código do navegador da Web para cenários de aplicativo Web
 Para registrar um aplicativo Web, confira [Registrar um aplicativo no ponto de extremidade do Azure AD v1.0](quickstart-v1-add-azure-ad-app.md).
 
 * Locatário único: se você estiver criando um aplicativo apenas para a sua organização, ele deverá ser registrado no diretório da sua empresa usando o portal do Azure.
-* Multilocatário: se você estiver criando um aplicativo que pode ser usado por usuários fora da sua organização, ele deve ser registrado no diretório da sua empresa, mas também deve ser registrado no diretório de cada organização que usará o aplicativo. Para disponibilizar seu aplicativo em seu diretório, você pode incluir um processo de inscrição para os clientes que os permita ter autorização para seu aplicativo. Ao se inscreverem para seu aplicativo, uma caixa de diálogo será apresentada, mostrando as permissões exigidas pelo aplicativo e, em seguida, a opção de consentimento. Dependendo das permissões necessárias, um administrador na outra organização talvez precise dar consentimento. Quando o usuário ou administrador der seu consentimento, o aplicativo é registrado em seu diretório.
+* Multilocatário – Se você estiver criando um aplicativo que pode ser usado por usuários fora da sua organização, ele deverá ser registrado no diretório da sua empresa, mas também deverá ser registrado no diretório de cada organização que usará o aplicativo. Para disponibilizar seu aplicativo em seu diretório, você pode incluir um processo de inscrição para os clientes que os permita ter autorização para seu aplicativo. Ao se inscreverem para seu aplicativo, uma caixa de diálogo será apresentada, mostrando as permissões exigidas pelo aplicativo e, em seguida, a opção de consentimento. Dependendo das permissões necessárias, um administrador na outra organização talvez precise dar consentimento. Quando o usuário ou administrador der seu consentimento, o aplicativo é registrado em seu diretório.
 
 ## <a name="token-expiration"></a>Expiração do token
 

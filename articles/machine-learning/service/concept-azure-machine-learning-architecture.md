@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1640b1cdb9410f33f6556667f36aafcfe575a082
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ec35e383a182cf783c253b9242e6abb73e39385d
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58080315"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361091"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Como funciona o Serviço do Azure Machine Learning: Arquitetura e conceitos
 
@@ -49,7 +49,7 @@ Os modelos são registrados no workspace. Um modelo registrado e scripts de pont
 Você pode criar vários workspaces, e cada workspace pode ser compartilhado por várias pessoas. Ao compartilhar um workspace, controle o acesso ao atribuir as funções a seguir para os usuários:
 
 * Proprietário
-* Contribuidor
+* Colaborador
 * Leitor
 
 Quando você cria um novo workspace, ele automaticamente cria vários recursos do Azure que são usados pelo workspace:
@@ -70,7 +70,7 @@ O diagrama a seguir é uma taxonomia do workspace:
 
 Um experimento é um agrupamento de diversas execuções de um determinado script. Ele sempre pertence a um workspace. Quando você envia uma execução, você pode fornecer um nome de experimento. As informações para a execução são armazenadas nesse experimento. Se você enviar uma execução e especificar um nome de experimento que não existe, um novo experimento com esse nome recém-especificado é criado automaticamente.
 
-Para obter um exemplo do uso de um experimento, consulte o [Início Rápido: Introdução ao Serviço do Azure Machine Learning](quickstart-get-started.md).
+Para obter um exemplo do uso de um experimento, consulte o [Início Rápido: Introdução ao Serviço do Azure Machine Learning](quickstart-run-cloud-notebook.md).
 
 ## <a name="model"></a>Modelo
 
@@ -80,7 +80,7 @@ Um modelo é produzido por uma execução no Azure Machine Learning. Você tamb�
 
 O Serviço do Azure Machine Learning é independente do framework. Você pode usar qualquer estrutura de aprendizado de máquina popular durante a criação de um modelo, como Scikit-learn, XGboost, PyTorch, TensorFlow, Chainer e Microsoft Cognitive Toolkit (o antigo CNTK).
 
-Para obter um exemplo de treinamento de um modelo, consulte o [Início Rápido: Crie um serviço no workspace do Machine Learning](quickstart-get-started.md). 
+Para obter um exemplo de treinamento de um modelo, consulte [Tutorial: Treinar um modelo de classificação de imagem com o serviço do Azure Machine Learning](tutorial-train-models-with-aml.md).
 
 ### <a name="model-registry"></a>Registro de modelo
 
@@ -118,7 +118,7 @@ Um destino de computação é o recurso de computação usado para executar o sc
 | Computação do Azure Machine Learning | ✓ | &nbsp; |
 | Uma VM do Linux no Azure</br>(como a Máquina Virtual de Ciência de Dados) | ✓ | &nbsp; |
 | Azure Databricks | ✓ | &nbsp; |
-| Azure Data Lake Analytics | ✓ | &nbsp; |
+| Análise Azure Data Lake | ✓ | &nbsp; |
 | Apache Spark para HDInsight | ✓ | &nbsp; |
 | Instâncias de Contêiner do Azure | &nbsp; | ✓ |
 | Serviço de Kubernetes do Azure | &nbsp; | ✓ |
@@ -143,7 +143,7 @@ Para obter informações sobre como selecionar um destino de computação para a
 
 Para treinar um modelo, você deve especificar o diretório que contém o script de treinamento e os arquivos associados. Você também pode especificar um nome de experimento, que é usado para armazenar as informações obtidas durante o treinamento. Durante o treinamento, o diretório inteiro é copiado para o ambiente de treinamento (destino de computação) e o script especificado pela configuração de execução é iniciado. Um instantâneo do diretório também é armazenado no experimento no workspace.
 
-Para um exemplo, consulte [Criar um workspace com o Python](quickstart-get-started.md).
+Por exemplo, confira [Tutorial: Treinar um modelo de classificação de imagem com o serviço do Azure Machine Learning](tutorial-train-models-with-aml.md).
 
 ## <a name="run"></a>Executar
 
@@ -156,7 +156,7 @@ Uma execução é um registro que contém as seguintes informações:
 
 Uma execução é produzida quando você envia um script para fazer o treinamento de um modelo. Uma execução pode ter zero ou mais execuções filho. Por exemplo, a execução de nível superior pode ter duas execuções filho, cada uma delas pode ter sua próprias execuções filho.
 
-Para obter um exemplo de execuções de visualização produzido ao fazer o treinamento de um modelo, consulte o [Início Rápido: Introdução ao Serviço do Azure Machine Learning](quickstart-get-started.md).
+Para obter um exemplo de execuções de visualização produzido ao fazer o treinamento de um modelo, consulte o [Início Rápido: Introdução ao Serviço do Azure Machine Learning](quickstart-run-cloud-notebook.md).
 
 ## <a name="snapshot"></a>Instantâneo
 
@@ -206,7 +206,7 @@ Para obter um exemplo de implantação de um modelo como um serviço web, consul
 
 ### <a name="iot-module"></a>Módulo do IoT
 
-Um módulo de IoT implantado é um contêiner do Docker que inclui seu modelo e script ou aplicativo associado e as dependências adicionais. Esses módulos são implantados usando o Azure IoT Edge em dispositivos edge.
+Um módulo de IoT implantado é um contêiner do Docker que inclui seu modelo e script ou aplicativo associado e as dependências adicionais. Você pode implantar esses módulos usando o Azure IoT Edge em dispositivos de borda.
 
 Se você tiver habilitado o monitoramento, o Azure coleta dados de telemetria do modelo de dentro do módulo do Azure IoT Edge. Os dados de telemetria estão acessíveis apenas para você e armazenados em sua instância de conta de armazenamento.
 
@@ -218,7 +218,7 @@ Os pipelines de aprendizado de máquina são usados para criar e gerenciar fluxo
 
 Para obter mais informações sobre os pipelines de aprendizado de máquina com esse serviço, consulte [Pipelines e Azure Machine Learning](concept-ml-pipelines.md).
 
-## <a name="logging"></a>Log
+## <a name="logging"></a>Registro em log
 
 Ao desenvolver sua solução, use o SDK do Python do Azure Machine Learning em seu script de Python para registrar métricas arbitrárias. Após a execução, consulte as métricas para determinar se a execução produziu o modelo que você deseja implantar.
 
@@ -227,6 +227,6 @@ Ao desenvolver sua solução, use o SDK do Python do Azure Machine Learning em s
 Para a Introdução ao Serviço do Azure Machine Learning, consulte:
 
 * [O que é o Serviço do Azure Machine Learning?](overview-what-is-azure-ml.md)
-* [Início Rápido: Criar um workspace com o Python](quickstart-get-started.md)
+* [Criar um espaço de trabalho do serviço de Azure Machine Learning](setup-create-workspace.md)
 * [Tutorial: Treinar um modelo](tutorial-train-models-with-aml.md)
-* [Criar um workspace com um modelo do gerenciador de recursos](how-to-create-workspace-template.md)
+* [Criar um espaço de trabalho com um modelo do Resource Manager](how-to-create-workspace-template.md)

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 114e0b951b2bfe83e8b989646bd07a5fd75b3ee6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0d520a9dc8d60a386d25694d441931fbc3ed38e4
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894403"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58352061"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Introdução ao SDK de Dispositivos de Fala
 
@@ -64,7 +64,7 @@ Antes de iniciar o desenvolvimento com o SDK de Dispositivos de Fala, obtenha as
 
     ![Orientação do kit de desenvolvimento linear](media/speech-devices-sdk/qsg-2.png)
 
-1. Instalar os certificados e o arquivo de tabela (palavra-chave) do word de ativação e defina as permissões do dispositivo de som. Digite os seguintes comandos em uma janela de Prompt de comando:
+1. Instalar os certificados e defina as permissões do dispositivo de som. Digite os seguintes comandos em uma janela de Prompt de comando:
 
    ```
    adb push C:\SDSDK\Android-Sample-Release\scripts\roobo_setup.sh /data/

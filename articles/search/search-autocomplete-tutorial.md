@@ -1,23 +1,25 @@
 ---
-title: Exemplo de como adicionar preenchimento automático para sua caixa de pesquisa - Azure Search
-description: Exemplos de como melhorar a experiência do usuário final de seus aplicativos centrados em dados usando o preenchimento automático do Azure Search e as APIs de sugestões.
+title: Exemplo de preenchimento automático para a adição de digitação antecipada para uma caixa de pesquisa - Azure Search
+description: Habilite ações de consulta de digitação antecipada no Azure Search criando sugestores e formular solicitações que preencham uma caixa de pesquisa com concluído termos ou frases.
 manager: pablocas
 author: mrcarter8
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 03/22/2019
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: b754f00e9bed34717734c4aec81e5489d2c12b63
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: b78fdf0c493e4631e4cdd7e26b154570b6226d1f
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200269"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369558"
 ---
-# <a name="example-add-autocomplete-to-your-search-box-using-azure-search"></a>Exemplo: Adicionar preenchimento automático à caixa de pesquisa usando o Azure Search
+# <a name="example-add-autocomplete-to-partial-term-inputs-in-azure-search"></a>Exemplo: Adicionar preenchimento automático para entradas de termo parcial no Azure Search
+
+Esse recurso de visualização "conclusão" uma entrada de termo parcial, fornecendo um termo completo de documentos no índice de Azure Search. Talvez você tenha percebido esse recurso nos mecanismos de pesquisa comerciais. Agora você pode adicionar esse recurso, atualmente em visualização pública, a uma solução de Azure Search para simplificar a uma entrada de consulta.
 
 Neste exemplo, você aprenderá a usar [sugestões](https://docs.microsoft.com/rest/api/searchservice/suggestions), [AutoCompletar](https://docs.microsoft.com/rest/api/searchservice/autocomplete) e [facetas](search-faceted-navigation.md) no [API REST do Azure Search](https://docs.microsoft.com/rest/api/searchservice/) e [SDK do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet) para criar uma caixa de pesquisa avançada. 
 

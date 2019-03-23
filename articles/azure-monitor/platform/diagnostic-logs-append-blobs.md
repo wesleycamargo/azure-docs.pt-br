@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: f626ef4cfb385a62f68ab611b77dd0c307cd3820
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: ab5fba6bbbf6ade83c7699edec937ba02b222939
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54882372"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370050"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>Preparar a alteração de formato dos logs de diagnóstico do Azure Monitor arquivados em uma conta de armazenamento
 
@@ -24,7 +24,7 @@ ms.locfileid: "54882372"
 
 ## <a name="what-is-changing"></a>O que está mudando
 
-O Azure Monitor oferece uma funcionalidade que permite que você envie dados de diagnóstico de recurso e dados de log de atividades para uma conta de armazenamento do Azure, um namespace dos Hubs de Eventos ou no Log Analytics. Para resolver um problema de desempenho do sistema, em **1º de novembro de 2018 às 24h (meia-noite) UTC**, o formato dos dados de log enviados para o armazenamento de blobs será alterado. Caso tenha ferramentas que leem dados fora do armazenamento de blobs, você precisará atualizá-las para que elas reconheçam o novo formato de dados.
+O Azure Monitor oferece um recurso que permite que você envie dados de diagnóstico de recursos e dados de log de atividade em uma conta de armazenamento do Azure, o namespace de Hubs de eventos, ou em um espaço de trabalho do Log Analytics no Azure Monitor. Para resolver um problema de desempenho do sistema, em **1º de novembro de 2018 às 24h (meia-noite) UTC**, o formato dos dados de log enviados para o armazenamento de blobs será alterado. Caso tenha ferramentas que leem dados fora do armazenamento de blobs, você precisará atualizá-las para que elas reconheçam o novo formato de dados.
 
 * Na quinta-feira, 1º de novembro de 2018 às 24h (meia-noite) UTC, o formato de blob será alterado para [Linhas JSON](http://jsonlines.org/). Isso significa que cada registro será delimitado por uma nova linha, sem nenhuma matriz de registros externa e sem vírgulas entre os registros JSON.
 * O formato de blob é alterado para todas as configurações de diagnóstico em todas as assinaturas ao mesmo tempo. O primeiro arquivo PT1H.json emitido para 1º de novembro usará esse novo formato. Os nomes de blob e de contêiner permanecem os mesmos.

@@ -11,12 +11,12 @@ ms.author: shipatel
 author: shivp950
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: c7dd2fba852881680b43ceabafec2ac6b2751df4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e65f739a9641181381205c7255d0472325e8055c
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839586"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58359879"
 ---
 # <a name="create-and-manage-azure-machine-learning-service-workspaces"></a>Criar e gerenciar espaços de trabalho de serviço do Azure Machine Learning
 
@@ -28,25 +28,20 @@ Para criar um workspace, você precisa de uma assinatura do Azure. Se você não
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## <a name="view-a-workspace"></a>Exibir um workspace
+## <a name="view"></a>Exibir um espaço de trabalho
 
 1. No canto superior esquerdo do portal, selecione **Todos os serviços**. 
 
-1. No campo de filtro em **Todos os serviços**, digite **Espaço de trabalho do Machine Learning**.  
+1. No **todos os serviços** campo de filtro, digite **serviço de aprendizado de máquina**.  
 
-   ![pesquisar espaço de trabalho de serviço do Azure Machine Learning](media/how-to-manage-workspace/allservices-search1.png)
+1. Selecione **espaços de trabalho de serviço de Machine Learning**.
 
-1. Nos resultados do filtro, selecione **Espaço de trabalho do Machine Learning** para exibir uma lista dos espaços de trabalho. 
-
-   ![Lista de espaços de trabalho de Serviço do Azure Machine Learning](media/how-to-manage-workspace/allservices-search.PNG)
+   ![pesquisa do espaço de trabalho de serviço de Azure Machine Learning](media/how-to-manage-workspace/all-services.png)
 
 1. Examine a lista de workspaces encontrada. É possível filtrar com base na assinatura, grupos de recursos e locais.  
 
-   ![Novos workspaces](media/how-to-manage-workspace/allservices_view_workspace.PNG)
-
-1. Selecione o workspace que você acabou de criar para exibir suas propriedades.
-
-   ![Propriedades do workspace](media/how-to-manage-workspace/allservices_view_workspace_full.PNG)
+1. Selecione um espaço de trabalho para exibir suas propriedades.
+   ![Propriedades do espaço de trabalho](media/how-to-manage-workspace/allservices_view_workspace_full.PNG)
 
 ## <a name="delete-a-workspace"></a>Excluir um workspace
 
