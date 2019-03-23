@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 835d1f41ffe940422554a8ca59d0a91ac8e98607
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 50cd5969ce02ee5eea0637c950069d684d67b5d3
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336586"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361448"
 ---
 # <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Métricas de log durante o treinamento é executado no Azure Machine Learning
 
@@ -26,13 +26,13 @@ No serviço do Azure Machine Learning, você pode acompanhar suas experiências 
 
 As métricas a seguir podem ser adicionadas a uma execução durante o treinamento de um experimento. Para exibir uma lista mais detalhada do que pode ser acompanhado em uma execução, veja a [Documentação de referência de classe de execução](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py).
 
-|Digite| Função do Python | Anotações|
+|Type| Função do Python | Observações|
 |----|:----|:----|
 |Valores escalares |Função:<br>`run.log(name, value, description='')`<br><br>Exemplo:<br>run.log("accuracy", 0.95) |Registre um valor numérico ou de string para a execução com o nome dado. Registrar uma métrica em log para uma execução faz essa métrica ser armazenada no registro de execução no experimento.  Você pode registrar em log a mesma métrica várias vezes dentro de uma execução, sendo o resultado considerado um vetor dessa métrica.|
 |Listas|Função:<br>`run.log_list(name, value, description='')`<br><br>Exemplo:<br>run.log_list("accuracies", [0.6, 0.7, 0.87]) | Faça uma lista de valores para a execução com o nome fornecido.|
 |Linha|Função:<br>`run.log_row(name, description=None, **kwargs)`<br>Exemplo:<br>run.log_row("Y over X", x=1, y=0.4) | O uso de *log_row* cria uma métrica com várias colunas, conforme descrito em kwargs. Cada parâmetro nomeado gera uma coluna com o valor especificado.  *log_row* pode ser chamado uma vez para registrar em log uma tupla arbitrária ou várias vezes em loop para gerar uma tabela completa.|
 |Tabela|Função:<br>`run.log_table(name, value, description='')`<br><br>Exemplo:<br>run.log_table("Y over X", {"x":[1, 2, 3], "y":[0.6, 0.7, 0.89]}) | Registre um objeto de dicionário na execução com o nome dado. |
-|Imagens|Função:<br>`run.log_image(name, path=None, plot=None)`<br><br>Exemplo:<br>run.log_image("ROC", plt) | Faça logon uma imagem ao registro de execução. Use log_image para registrar em log um arquivo de imagem ou um gráfico matplotlib para a execução.  Essas imagens serão visíveis e comparáveis no registro de execução.|
+|Imagens|Função:<br>`run.log_image(name, path=None, plot=None)`<br><br>Exemplo:<br>`run.log_image("ROC", plt)` | Faça logon uma imagem ao registro de execução. Use log_image para registrar em log um arquivo de imagem ou um gráfico matplotlib para a execução.  Essas imagens serão visíveis e comparáveis no registro de execução.|
 |Marcar uma execução|Função:<br>`run.tag(key, value=None)`<br><br>Exemplo:<br>run.tag("selected", "yes") | Marque a execução com uma chave de cadeia de caracteres e um valor de cadeia de caracteres opcional.|
 |Carregar arquivo ou diretório|Função:<br>`run.upload_file(name, path_or_stream)`<br> <br> Exemplo:<br>Run.upload_file ("best_model.pkl", ". / pkl") | Carregar um arquivo para o registro de execução. Execuções de capturam automaticamente os arquivos no diretório de saída especificado, cujo padrão é ". /outputs" para a maioria dos tipos de execução.  Use upload_file somente quando arquivos adicionais precisarem ser carregados ou um diretório de saída não for especificado. Sugerimos adicionar `outputs` ao nome para que ele seja carregado para o diretório de saídas. Você pode listar todos os arquivos associados a esse registro de execução pelo `run.get_file_names()` chamado|
 
@@ -48,7 +48,7 @@ Se você quiser acompanhar ou monitorar seu experimento, deverá adicionar códi
 ## <a name="set-up-the-workspace"></a>Configurar o workspace
 Antes de adicionar o registro em log e enviar um experimento, você deve configurar o workspace.
 
-1. Carregar o workspace. Para saber mais sobre como definir a configuração do workspace, siga o [início rápido](https://docs.microsoft.com/azure/machine-learning/service/quickstart-get-started).
+1. Carregar o workspace. Para saber mais sobre como definir a configuração do espaço de trabalho, siga as etapas em [criar um espaço de trabalho do serviço de Azure Machine Learning](setup-create-workspace.md#sdk).
 
    ```python
    from azureml.core import Experiment, Run, Workspace
@@ -218,7 +218,9 @@ Este exemplo expande o modelo básico do sklearn Ridge acima. Ele faz uma limpez
    ```
 
 ## <a name="cancel-a-run"></a>Cancelar uma execução
-Depois que uma execução é enviada, cancelar, mesmo se você tiver perdido a referência de objeto, desde que você conhece o nome do teste e id de execução. 
+
+Uma execução de ALTER for enviada, você poderá cancelá-lo, mesmo se você tiver perdido a referência de objeto, desde que você conhece o nome do teste e executar ID. 
+
 
 ```python
 from azureml.core import Experiment
@@ -239,7 +241,7 @@ print(type(r), r.get_status())
 if r.get_status() not in ['Complete', 'Failed']:
     r.cancel()
 ```
-Observe que, no momento, somente os tipos ScriptRun e PipelineRun oferecem suporte a operações de cancelamento.
+Atualmente, apenas tipos de ScriptRun e PipelineRun dão suporte a operação de cancelamento.
 
 Além disso, você pode cancelar uma execução por meio da CLI usando o seguinte comando:
 ```shell
@@ -261,7 +263,7 @@ Quando você usa o método **ScriptRunConfig** para enviar execuções, pode ins
 
    ![Captura de tela do widget do Jupyter Notebook](./media/how-to-track-experiments/widgets.PNG)
 
-2. **[Para execuções automatizadas do aprendizado de máquina]**  Para acessar os gráficos a partir de uma execução anterior. Substitua `<<experiment_name>>` pelo nome do experimento apropriado:
+2. **[Para execuções automatizadas do aprendizado de máquina]**  Para acessar os gráficos a partir de uma execução anterior. Substitua `<<experiment_name>>` com o nome do teste apropriado:
 
    ``` 
    from azureml.widgets import RunDetails
@@ -344,7 +346,7 @@ Saiba mais sobre:
 
 
 
-### <a name="classification"></a>Classificação
+### <a name="classification"></a>classificação
 
 Para cada modelo de classificação compilado usando os recursos automatizados de aprendizado de máquina do Azure Machine Learning, é possível obter os gráficos a seguir: 
 + [Matriz de confusão](#confusion-matrix)
@@ -420,7 +422,7 @@ Para cada modelo de regressão compilado usando os recursos automatizados de apr
 
 <a name="pvt"></a>
 
-#### <a name="predicted-vs-true"></a>Previsto vs. Verdadeiro
+#### <a name="predicted-vs-true"></a>Previsto vs. True
 
 Previsto vs. “Real” mostra a relação entre um valor previsto e seu valor real de correlação para um problema de regressão. Esse gráfico pode ser usado para medir o desempenho de um modelo que, quanto mais próximos à linha y=x linha estiverem seus valores previstos, melhor será a precisão de um modelo de previsão.
 
