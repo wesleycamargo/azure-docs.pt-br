@@ -10,12 +10,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.workload: identity
 ms.topic: conceptual
-ms.openlocfilehash: 9848ed6baab240556e9eda59fbc3815c0767e899
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: bb5770f4e09c0ed764d17998936c0fe97bdaebfb
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108565"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370628"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Pontos de extremidade de serviço de rede virtual para o Azure Key Vault
 
@@ -55,7 +55,7 @@ Para obter mais informações, consulte [Configurar redes virtuais e firewalls d
 > Esteja ciente das seguintes limitações de configuração:
 > * Um máximo de 127 regras de rede virtual e 127 regras de IPv4 são permitidas. 
 > * Intervalos de endereços pequenos que usam tamanhos de prefixo "/31" ou "/32" não têm suporte. Em vez disso, esses intervalos devem ser configurados usando regras de endereço IP individuais.
-> * Regras de rede IP somente são permitidas para endereços IP públicos. Os intervalos de endereços IP reservados para redes privadas (conforme definido na RFC 1918) não são permitidos em regras de IP. Redes privadas incluem endereços que começam com **10.**, **172.16.** e **192.168.**. 
+> * Regras de rede IP somente são permitidas para endereços IP públicos. Os intervalos de endereços IP reservados para redes privadas (conforme definido na RFC 1918) não são permitidos em regras de IP. Redes privadas incluem endereços que começam com **10.**, **172.16 31**, e **192.168.**. 
 > * Atualmente, somente há suporte para endereços IPv4.
 
 ## <a name="trusted-services"></a>Serviços confiáveis

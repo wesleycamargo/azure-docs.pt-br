@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ed99bd3626bb44bff68e4122d6b50523f19e1797
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 768179f8569eac14166bcbb0a888e1cdbe41d497
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112612"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369693"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrar seu aplicativo Web a uma Rede Virtual do Azure
 Este documento descreve o recurso de visualização de integração de rede virtual do Serviço de Aplicativo do Azure e mostra como configurá-lo com os aplicativos no [Serviço de Aplicativo do Azure](https://go.microsoft.com/fwlink/?LinkId=529714). As VNets ([Redes Virtuais do Azure][VNETOverview]) permitem que você coloque qualquer um dos recursos do Azure em uma rede não roteável para a Internet com acesso controlado. Essas redes podem ser conectadas às redes locais usando tecnologias de VPN. 
@@ -247,7 +247,7 @@ Há três recursos que habilitam o acesso a recursos hospedados em VNet. Eles s�
 
 As conexões híbridas exigem que você instale um agente de retransmissão chamado HCM (gerente de conexões híbridas) na sua rede. O HCM precisa ser capaz de se conectar ao Azure e também a seu aplicativo. Conexões Híbridas não requer um ponto de extremidade de entrada acessível pela Internet para a rede remota, como é necessário para uma conexão VPN. O HCM só é executado no Windows e você pode ter até cinco instâncias em execução para fornecer alta disponibilidade. No entanto, as conexões híbridas só dão suporte a TCP e cada ponto de extremidade de HC tem que corresponder a uma combinação de host:porta específica. 
 
-O recurso Ambiente do Serviço de Aplicativo permite a execução de uma única instância de locatário do Serviço de Aplicativo do Azure em sua VNet. Se os aplicativos estão em um Ambiente do Serviço de Aplicativo, os aplicativos podem acessar recursos na VNet sem nenhuma etapa adicional. Com um Ambiente do Serviço de Aplicativo, seus aplicativos executam em trabalhos mais potentes e podem aumentar para até 100 instâncias de ASP. Os Ambientes do Serviço de Aplicativo funcionam com todos os recursos de rede, incluindo o ExpressRoute e pontos de extremidade de serviço.  
+O recurso Ambiente do Serviço de Aplicativo permite a execução de uma única instância de locatário do Serviço de Aplicativo do Azure em sua VNet. Se os aplicativos estão em um Ambiente do Serviço de Aplicativo, os aplicativos podem acessar recursos na VNet sem nenhuma etapa adicional. Com um ambiente de serviço de aplicativo, seus aplicativos executados nos trabalhos mais potentes e podem escalar verticalmente até 100 instâncias ASP. Os Ambientes do Serviço de Aplicativo funcionam com todos os recursos de rede, incluindo o ExpressRoute e pontos de extremidade de serviço.  
 
 Embora haja sobreposição de caso de uso, nenhum desses recursos pode substituir o outro. Saber qual recurso usar depende de suas necessidades. Por exemplo: 
 

@@ -16,12 +16,12 @@ ms.date: 03/22/2019
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: aff9dade7fe0238c0ea8ccc3ae5bba57437c6f89
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 3d9376ba5945c97d18f6cf68c242d5217beee679
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339528"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58349698"
 ---
 # <a name="quota-types-in-azure-stack"></a>Tipos de cotas no Azure Stack
 
@@ -37,18 +37,21 @@ ms.locfileid: "58339528"
 | Número máximo de núcleos de máquina virtual | 100 | O número máximo de núcleos que pode criar uma assinatura neste local (por exemplo, uma VM A3 tem quatro núcleos). |
 | Número máximo de conjuntos de disponibilidade | 10 | O número máximo de conjuntos de disponibilidade que podem ser criados nesse local. |
 | Define o número máximo de dimensionamento de máquinas virtuais | 100 | O número máximo de conjuntos de dimensionamento de máquinas virtuais que podem ser criados nesse local. |
-| Capacidade máxima (em GB) de disco gerenciado standard | 2048 | A capacidade máxima de discos gerenciados standard que podem ser criados nesse local. |
-| Capacidade máxima (em GB) de disco gerenciado premium | 2048 | A capacidade máxima de premium gerenciados de discos que podem ser criados nesse local. |
+| Capacidade máxima (em GB) de disco gerenciado standard | 2.048 | A capacidade máxima de discos gerenciados standard que podem ser criados nesse local. |
+| Capacidade máxima (em GB) de disco gerenciado premium | 2.048 | A capacidade máxima de premium gerenciados de discos que podem ser criados nesse local. |
 
-## <a name="storage-quota-types"></a>Tipos de cota de armazenamento
+> [!NOTE]  
+> Capacidade máxima de disco não gerenciado (blobs de páginas) é separada da cota de disco gerenciado, ele deve ser definido na cota de armazenamento.
+
+## <a name="storage-quota-types"></a>Tipos de cota de armazenamento 
 
 | **Item** | **Valor padrão** | **Descrição** |
 | --- | --- | --- |
-| Capacidade máxima (GB) |2048 |Capacidade total de armazenamento (incluindo os blobs e todos os instantâneos associados, tabelas, filas) que pode ser consumida por uma assinatura neste local. |
+| Capacidade máxima (GB) |2.048 |Capacidade total de armazenamento (incluindo os blobs e todos os instantâneos associados, tabelas, filas) que pode ser consumida por uma assinatura neste local. |
 | Número total de contas de armazenamento |20 |O número máximo de contas de armazenamento que pode criar uma assinatura neste local. |
 
 > [!NOTE]  
-> Pode levar até duas horas antes de uma cota de armazenamento é imposta.
+> Pode levar até duas horas antes de uma cota de armazenamento é imposta. Capacidade máxima de disco gerenciado é separada da cota de armazenamento total, ele deve ser definido na cota de computação.
 
 ## <a name="network-quota-types"></a>Tipos de cota de rede
 
@@ -66,7 +69,7 @@ ms.locfileid: "58339528"
 
 Há duas maneiras diferentes para exibir uma cota existente:
 
-### <a name="plans"></a>PLANOS
+### <a name="plans"></a>Planos
 
 1. No painel de navegação à esquerda do portal do administrador, selecione **planos**.
 2. Selecione o plano que você gostaria de exibir os detalhes para o, clicando em seu nome.
@@ -75,7 +78,7 @@ Há duas maneiras diferentes para exibir uma cota existente:
 
     [![Cotas](media/azure-stack-quota-types/quotas1sm.png "exibir cotas")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
-### <a name="resource-providers"></a>Provedores de recurso
+### <a name="resource-providers"></a>Provedores de recursos
 
 1. No painel do portal do administrador padrão, localize o **provedores de recursos** lado a lado.
 2. Selecione o serviço com a cota que você deseja exibir, como **Compute**, **rede**, ou **armazenamento**.

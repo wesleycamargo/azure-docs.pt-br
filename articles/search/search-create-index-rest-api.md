@@ -1,6 +1,6 @@
 ---
-title: Criar um índice no código usando o PowerShell e a API REST - Azure Search
-description: Crie um índice de texto completo pesquisável no código usando solicitações HTTP e a API REST do Azure Search.
+title: Criar, carregar e consultar um índice usando o PowerShell e a API REST - Azure Search
+description: Criar, carregar e consultar um índice usando o PowerShell, Invoke-RestMethod e a API REST do Azure Search.
 ms.date: 03/15/2019
 author: heidisteen
 manager: cgronlun
@@ -10,14 +10,14 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 87da5cdd31abb41a774a46d3891006eb58ac5e4d
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 9e1b6fc0dc4e6a6c2c191960fa061c810e3a2e79
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285115"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372107"
 ---
-# <a name="quickstart-create-an-azure-search-index-using-powershell-and-the-rest-api"></a>Início rápido: Criar um índice de Azure Search usando o PowerShell e a API REST
+# <a name="quickstart-create-an-azure-search-index-using-powershell-and-the-rest-api"></a>Início Rápido: Criar um índice de Azure Search usando o PowerShell e a API REST
 > [!div class="op_single_selector"]
 > * [PowerShell (REST)](search-create-index-rest-api.md)
 > * [C#](search-create-index-dotnet.md)
@@ -33,7 +33,7 @@ Este artigo orienta você pelo processo de criar, carregar e consultar uma Azure
 
 [PowerShell 5.1 ou posterior](https://github.com/PowerShell/PowerShell), usando [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) para etapas sequenciais e interativas.
 
-Um ponto de extremidade de URL e o administrador a chave de api do serviço de pesquisa. Um serviço de pesquisa é criado com ambos, portanto, se você adicionou o Azure Search à sua assinatura, siga estas etapas para obter as informações necessárias:
+Obter o ponto de extremidade de URL e o administrador a chave de api do serviço de pesquisa. Um serviço de pesquisa é criado com ambos, portanto, se você adicionou o Azure Search à sua assinatura, siga estas etapas para obter as informações necessárias:
 
 1. No portal do Azure, em seu serviço search **visão geral** de página, obter a URL. Um ponto de extremidade de exemplo pode parecer com https:\//my-service-name.search.windows.net.
 
@@ -371,11 +371,7 @@ Tente adicionar descrições de francês para o índice. O exemplo a seguir incl
         {
             "@search.action": "merge",
             "hotelId": "2",
-            "description_fr": "Hôtel le moins cher en ville",
-        },
-        {
-            "@search.action": "delete",
-            "hotelId": "6"
+            "description_fr": "Hôtel le moins cher en ville"
         }
     ]
 }

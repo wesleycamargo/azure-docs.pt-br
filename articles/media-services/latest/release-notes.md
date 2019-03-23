@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/21/2019
 ms.author: juliako
-ms.openlocfilehash: 236e4e7079da792d055a8de148d03852ca1012ab
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a6746fa193331aff66b8726da1cb3afe49fdc9bf
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57877353"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351534"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de versão dos Serviços de Mídia do Azure v3
 
@@ -34,9 +34,13 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 
 Para obter mais informações, consulte [Guia de migração para migrar do Serviços de Mídia v2 para v3](migrate-from-v2-to-v3.md#known-issues).
 
+## <a name="march-2019"></a>Março de 2019
+
+O empacotamento dinâmico agora dá suporte a Atmos Dolby. Para obter mais informações, consulte [codecs de áudio com suporte pelo empacotamento dinâmico](dynamic-packaging-overview.md#audio-codecs-supported-by-dynamic-packaging).
+
 ## <a name="february-2019"></a>fevereiro de 2019
 
-Os Serviços de Mídia v3 agora têm suporte nas nuvens nacionais do Azure. Nem todos os recursos estão disponíveis em todas as nuvens. Para obter mais detalhes, confira [Nuvens e regiões em que os Serviços de Mídia do Azure v3 existem](azure-clouds-regions.md).
+Agora há suporte para serviços de mídia v3 nuvens nacionais do Azure. Nem todos os recursos estão disponíveis em todas as nuvens. Para obter mais detalhes, confira [Nuvens e regiões em que os Serviços de Mídia do Azure v3 existem](azure-clouds-regions.md).
 
 O evento [Microsoft.Media.JobOutputProgress](media-services-event-schemas.md#monitoring-job-output-progress) foi adicionado aos esquemas da Grade de Eventos do Azure para Serviços de Mídia.
 

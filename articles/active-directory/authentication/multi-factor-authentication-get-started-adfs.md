@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2f5d623c23f2d3dd661f725a8d7999bfbd28377
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 58cfac56af9074e065431f6adbd44496adc7c7a6
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314529"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369676"
 ---
 # <a name="getting-started-with-azure-multi-factor-authentication-and-active-directory-federation-services"></a>Introdução ao Autenticação Multifator do Azure e aos Serviços de Federação do Active Directory
 
 <center>
 
-![Nuvem](./media/multi-factor-authentication-get-started-adfs/adfs.png)</center>
+![Guia de Introdução do ADFS e MFA do Azure](./media/multi-factor-authentication-get-started-adfs/adfs.png)</center>
 
 Caso organização tenha federado seu Active Directory local com o Azure Active Directory usando o AD FS, existem duas opções para usar a Autenticação Multifator do Azure.
 

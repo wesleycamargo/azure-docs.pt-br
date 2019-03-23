@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7243249e7aabf588115ef74f838be8ca67a94c7
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: cda1b1c2a484f3aa627b8b9cf486528d13f27be8
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309479"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369421"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Autenticação baseada em certificado do Azure Active Directory no iOS
 
@@ -35,16 +35,16 @@ Esse recurso está disponível na visualização em planos do governo federal e 
 
 | Aplicativos | Suporte |
 | --- | --- |
-| Aplicativo de Proteção de Informações do Azure |![Verificar][1] |
-| Portal da Empresa do Intune |![Verificar][1] |
-| Microsoft Teams |![Verificar][1] |
-| OneNote |![Verificar][1] |
-| OneDrive |![Verificar][1] |
-| Outlook |![Verificar][1] |
-| Power BI |![Verificar][1] |
-| Skype for Business |![Verificar][1] |
-| Word/Excel/PowerPoint |![Verificar][1] |
-| Yammer |![Verificar][1] |
+| Aplicativo de Proteção de Informações do Azure |![Marca de seleção indicando o suporte para este aplicativo][1] |
+| Portal da Empresa do Intune |![Marca de seleção indicando o suporte para este aplicativo][1] |
+| Equipes da Microsoft |![Marca de seleção indicando o suporte para este aplicativo][1] |
+| OneNote |![Marca de seleção indicando o suporte para este aplicativo][1] |
+| OneDrive |![Marca de seleção indicando o suporte para este aplicativo][1] |
+| Outlook |![Marca de seleção indicando o suporte para este aplicativo][1] |
+| Power BI |![Marca de seleção indicando o suporte para este aplicativo][1] |
+| Skype for Business |![Marca de seleção indicando o suporte para este aplicativo][1] |
+| Word/Excel/PowerPoint |![Marca de seleção indicando o suporte para este aplicativo][1] |
+| Yammer |![Marca de seleção indicando o suporte para este aplicativo][1] |
 
 ## <a name="requirements"></a>Requisitos
 

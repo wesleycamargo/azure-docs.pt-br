@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 9/20/2017
 ms.author: raiye
-ms.openlocfilehash: 6e4a83eb8b3488c4ce2816151ca31b4a594dd742
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: ce66d44c0ddb84ed8c2908d02b8062195d6b461d
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338625"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351007"
 ---
 # <a name="azure-guest-os-supportability-and-retirement-policy"></a>Capacidade de suporte e política de desativação do SO convidado do Azure
 As informações nesta página se relacionam ao sistema operacional convidado do Azure[(SO Convidado)](cloud-services-guestos-update-matrix.md)para serviços de nuvem funções web e de trabalho (PaaS). Não se aplicam às Máquinas Virtuais (IaaS).
@@ -57,7 +57,7 @@ Aos 60 dias da vida útil, uma versão é "*desabilitada*". "Desabilitada" signi
 
 Em algum momento depois de se tornar "desabilitada," a versão do sistema operacional convidado "expirará" e todas as instalações que ainda estiverem executando essa versão expirada estão expostas a problemas de segurança e vulnerabilidade. Em geral, expiração é feita em lotes, portanto, o período de desativação para a validade pode variar.
 
-Os clientes que configurarem seus serviços para atualizar o sistema operacional convidado manualmente, deve garantir que suas implantações estão em execução em um sistema de operacional convidado com suporte. Se um serviço estiver configurado para atualizar o sistema operacional convidado automaticamente, a plataforma subjacente será garantir a conformidade e será atualizado para o sistema operacional convidado mais recente.
+Os clientes que configurarem seus serviços para atualizar o sistema operacional convidado manualmente, deve garantir que seus serviços estão em execução em um sistema de operacional convidado com suporte. Se um serviço estiver configurado para atualizar o sistema operacional convidado automaticamente, a plataforma subjacente será garantir a conformidade e será atualizado para o sistema operacional convidado mais recente.
 
 Esses períodos podem ser mais longos, a critério da Microsoft, para facilitar as transições do cliente. Quaisquer alterações serão comunicadas na [Matriz de compatibilidade do SDK e lançamentos do SO convidado do Azure](cloud-services-guestos-update-matrix.md).
 

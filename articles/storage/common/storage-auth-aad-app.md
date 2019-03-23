@@ -1,27 +1,27 @@
 ---
-title: Autenticar com o Azure Active Directory para acessar dados de blob e fila de dados dos seus aplicativos (visualização) | Microsoft Docs
-description: Use o Azure Active Directory para autenticar a partir de um aplicativo e, em seguida, autorize solicitações a blobs e filas (visualização).
+title: Autenticar com o Azure Active Directory para acessar dados de blob e fila de aplicativos | Microsoft Docs
+description: Use o Azure Active Directory para autenticar a partir de um aplicativo e, em seguida, autorizar solicitações para blobs e filas.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 11/21/2018
+ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 6d283840116a5e1f996602fd792456d3b8e8d9a0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a313061f89d33ee2bf5379dbd37495db06b64440
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456084"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369506"
 ---
-# <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues-preview"></a>Autenticar com o Active Directory do Azure a partir de um aplicativo para acesso a blobs e filas (visualização)
+# <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues"></a>Autenticar com o Azure Active Directory de um aplicativo para acesso a blobs e filas
 
 Uma das principais vantagens de usar o Azure AD (Azure Active Directory) com o Armazenamento do Microsoft Azure é que as credenciais não precisam mais ser armazenadas no código. Em vez disso, é possível solicitar um token de acesso OAuth 2.0 do Azure AD. O Azure AD trata a autenticação da entidade de segurança (um usuário, grupo ou entidade de serviço) executando o aplicativo. Se a autenticação tiver êxito, o Azure AD retornará o token de acesso ao aplicativo e o aplicativo poderá usar o token de acesso para autorizar solicitações ao Armazenamento do Microsoft Azure.
 
 Este artigo mostra como configurar o aplicativo para autenticação com o Azure AD. O exemplo de código apresenta o .NET, mas outras linguagens usam uma abordagem semelhante.
 
-Antes de poder autenticar uma entidade de segurança a partir do aplicativo do Armazenamento do Microsoft Azure, defina as configurações de RBAC (controle de acesso baseado em função) para essa entidade de segurança. O Armazenamento do Microsoft Azure define funções RBAC que abrangem permissões para contêineres e filas. Quando a função RBAC é atribuída a uma entidade de segurança, essa entidade de segurança recebe acesso para esse recurso. Para obter mais informações, consulte [Gerenciar direitos de acesso a dados de armazenamento com RBAC (versão prévia)](storage-auth-aad-rbac.md).
+Antes de poder autenticar uma entidade de segurança a partir do aplicativo do Armazenamento do Microsoft Azure, defina as configurações de RBAC (controle de acesso baseado em função) para essa entidade de segurança. O Armazenamento do Microsoft Azure define funções RBAC que abrangem permissões para contêineres e filas. Quando a função RBAC é atribuída a uma entidade de segurança, essa entidade de segurança recebe acesso para esse recurso. Para obter mais informações, consulte [gerenciar direitos de acesso aos dados do armazenamento com RBAC](storage-auth-aad-rbac.md).
 
 Para obter uma visão geral do fluxo de concessão do código do OAuth 2.0, consulte [Autorizar acesso a aplicativos Web do Azure Active Directory usando o fluxo de concessão do código do OAuth 2.0](../../active-directory/develop/v1-protocols-oauth-code.md).
 
@@ -29,7 +29,7 @@ Para obter uma visão geral do fluxo de concessão do código do OAuth 2.0, cons
 
 ## <a name="assign-an-rbac-role-to-an-azure-ad-security-principal"></a>Atribuir uma função RBAC a uma entidade de segurança do Azure AD
 
-Para autenticar uma entidade de segurança do seu aplicativo de armazenamento do Azure, primeiro configure as configurações de RBAC (controle) de acesso baseado em função para essa entidade de segurança. O Armazenamento do Microsoft Azure define funções RBAC que abrangem permissões para contêineres e filas. Quando a função RBAC é atribuída a uma entidade de segurança, essa entidade de segurança recebe acesso para esse recurso. Para obter mais informações, consulte [Gerenciar direitos de acesso para dados de Blob e fila do Azure com RBAC (visualização)](storage-auth-aad-rbac.md).
+Para autenticar uma entidade de segurança do seu aplicativo de armazenamento do Azure, primeiro configure as configurações de RBAC (controle) de acesso baseado em função para essa entidade de segurança. O Armazenamento do Microsoft Azure define funções RBAC que abrangem permissões para contêineres e filas. Quando a função RBAC é atribuída a uma entidade de segurança, essa entidade de segurança recebe acesso para esse recurso. Para obter mais informações, consulte [gerenciar direitos de acesso a dados do Azure Blob e fila com RBAC](storage-auth-aad-rbac.md).
 
 ## <a name="register-your-application-with-an-azure-ad-tenant"></a>Registre o aplicativo com um locatário do Azure AD
 
@@ -73,7 +73,7 @@ O exemplo de código mostra como obter um token de acesso do Azure AD. O token d
 > [!NOTE]
 > Como proprietário da conta do Armazenamento do Microsoft Azure, você não recebe permissões automaticamente para acessar dados. Você deve atribuir explicitamente a si mesmo uma função RBAC para o Armazenamento do Microsoft Azure. Você pode atribuí-la no nível de assinatura, grupo de recursos, conta de armazenamento ou contêiner ou fila. 
 >
-> Por exemplo, para executar o código de exemplo em uma conta de armazenamento em que você é um proprietário e sob sua própria identidade de usuário, você deverá atribuir a função RBAC para Colaborador de Dados do Blob a si mesmo. Caso contrário, a chamada para criar o blob falhará com o código de status HTTP 403 (Proibido). Para obter mais informações, consulte [Gerenciar direitos de acesso a dados de armazenamento com RBAC (versão prévia)](storage-auth-aad-rbac.md).
+> Por exemplo, para executar o código de exemplo em uma conta de armazenamento em que você é um proprietário e sob sua própria identidade de usuário, você deverá atribuir a função RBAC para Colaborador de Dados do Blob a si mesmo. Caso contrário, a chamada para criar o blob falhará com o código de status HTTP 403 (Proibido). Para obter mais informações, consulte [gerenciar direitos de acesso aos dados do armazenamento com RBAC](storage-auth-aad-rbac.md).
 
 ### <a name="well-known-values-for-authentication-with-azure-ad"></a>Valores conhecidos para autenticação com Azure AD
 
@@ -105,7 +105,7 @@ Para obter a ID de locatário, siga estas etapas:
 
 ### <a name="add-references-and-using-statements"></a>Adicionar referências e usar instruções  
 
-No Visual Studio, instale a versão prévia da biblioteca de clientes do Armazenamento do Microsoft Azure. No menu **Ferramentas**, selecione **Gerenciador de Pacotes do NuGet** e, em seguida, **Console do Gerenciador de Pacotes**. Digite o seguinte comando no console para instalar a versão mais recente da biblioteca de cliente para .NET:
+No Visual Studio, instale a biblioteca de cliente de armazenamento do Azure. No menu **Ferramentas**, selecione **Gerenciador de Pacotes do NuGet** e, em seguida, **Console do Gerenciador de Pacotes**. Digite o seguinte comando no console para instalar a versão mais recente da biblioteca de cliente para .NET:
 
 ```
 Install-Package WindowsAzure.Storage
@@ -187,14 +187,10 @@ x-ms-version: 2017-11-09
 Authorization: Bearer eyJ0eXAiOnJKV1...Xd6j
 ```
 
-Para obter mais informações sobre como autorizar operações de Armazenamento do Azure a partir do REST, consulte [Autenticar com o Azure Active Directory (Visualizar)](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory).
+Para obter mais informações sobre como autorizar as operações de armazenamento do Azure do REST, consulte [autenticar com o Azure Active Directory](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para saber mais sobre as funções RBAC para armazenamento do Azure, consulte [Gerenciar os direitos de acesso aos dados de armazenamento com RBAC (versão prévia)](storage-auth-aad-rbac.md).
-- Para saber mais sobre como usar identidades gerenciadas para recursos do Azure com o Armazenamento do Azure, confira [Autenticar o acesso aos blobs e às filas com as identidades gerenciadas do Azure para Recursos do Azure (versão prévia)](storage-auth-aad-msi.md).
-- Para saber como efetuar logon na CLI do Azure e no PowerShell com uma identidade do Azure AD, consulte [Use uma identidade do Azure AD para acessar o Armazenamento do Microsoft Azure com a CLI ou o PowerShell (versão prévia)](storage-auth-aad-script.md).
-- Para obter informações adicionais sobre a integração do Azure AD para Filas e Blobs do Azure, consulte a postagem no blog da equipe do Armazenamento do Microsoft Azure, [Anunciando a versão prévia de autenticação do Azure AD para Armazenamento do Microsoft Azure](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).
-
-
-
+- Para saber mais sobre as funções RBAC para o armazenamento do Azure, consulte [gerenciar direitos de acesso aos dados do armazenamento com RBAC](storage-auth-aad-rbac.md).
+- Para saber mais sobre como usar identidades gerenciadas de recursos do Azure com o armazenamento do Azure, consulte [autenticar o acesso aos blobs e filas com o Azure as identidades gerenciadas para recursos do Azure](storage-auth-aad-msi.md).
+- Para saber como entrar CLI do Azure e o PowerShell com uma identidade do AD do Azure, consulte [usar uma identidade do AD do Azure para acessar o armazenamento do Azure com a CLI ou o PowerShell](storage-auth-aad-script.md).

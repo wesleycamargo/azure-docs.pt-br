@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.openlocfilehash: cc5aae0e46e181e8063a4e01a832e68eab0eae0e
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 32f96a28e027bfd0e65d934bb47bb98400af459d
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226599"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360710"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Autotreinar um modelo de previsão de série temporal
 
@@ -27,7 +27,7 @@ Neste artigo, você aprenderá a treinar um modelo de regressão previsão de s�
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um workspace de serviço do Azure Machine Learning. Para criar o workspace, consulte [Introdução ao serviço do Azure Machine Learning](quickstart-get-started.md).
+* Um workspace de serviço do Azure Machine Learning. Para criar o espaço de trabalho, consulte [criar um espaço de trabalho do serviço de Azure Machine Learning](setup-create-workspace.md).
 * Este artigo pressupõe familiaridade básica com a configuração de uma experimento de aprendizado de máquina automatizada. Siga as [tutorial](tutorial-auto-train-models.md) ou [instruções](how-to-configure-auto-train.md) para ver a padrões de design do experimento de aprendizado de máquina automatizada básico.
 
 ## <a name="preparing-data"></a>Preparando dados
@@ -79,7 +79,7 @@ Para tarefas de previsão, aprendizado de máquina automatizado usa as etapas de
 
 O `AutoMLConfig` objeto define as configurações e os dados necessários para que uma tarefa de aprendizado de máquina automatizado. Semelhante a um problema de regressão, você define parâmetros de treinamento padrão, como o tipo de tarefa, o número de iterações, dados, de treinamento e o número de validações cruzada. Para tarefas de previsão, há parâmetros adicionais que devem ser definidos que afetam o experimento. A tabela a seguir explica cada parâmetro e seu uso.
 
-| Param | Descrição | Necessário |
+| Param | DESCRIÇÃO | Obrigatório |
 |-------|-------|-------|
 |`time_column_name`|Usado para especificar a coluna de data e hora nos dados de entrada usados para criar a série temporal e inferindo sua frequência.|✓|
 |`grain_column_names`|Nomes de definição de grupos de séries individuais nos dados de entrada. Se o detalhamento não estiver definido, o conjunto de dados é considerado uma série de tempo.||

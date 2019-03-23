@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
 ms.date: 02/20/2019
-ms.openlocfilehash: 8e39734a6f5fa13240d24eb35c431f746e540484
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: ce510168e2aa92758a3468fa55ff7b2a8d39b547
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342115"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360260"
 ---
 # <a name="enable-logging-in-azure-machine-learning-service"></a>Habilitar o registro em log no Serviço do Azure Machine Learning
 
@@ -27,7 +27,7 @@ O SDK do Python do Azure Machine Learning permite que você habilite o registro 
 > * Modelos implantados
 > * Configurações do Python `logging`
 
-Use o [guia](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) para instalar o SDK e a [introdução](https://docs.microsoft.com/azure/machine-learning/service/quickstart-create-workspace-with-python) para usar o SDK e criar um workspace no portal do Azure.
+[Criar um espaço de trabalho do serviço de Azure Machine Learning](setup-create-workspace.md). Use o [guia](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) para obter mais informações o SDK.
 
 ## <a name="training-models-and-compute-target-logging"></a>Modelos de treinamento e registro em log de destino de computação
 

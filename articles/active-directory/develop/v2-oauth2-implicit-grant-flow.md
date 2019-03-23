@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd0ce02a92c0a2e803866b6f070dba113c566f5d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d9ce388c53a28d6b04bf7685da397eade4b1fd94
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112204"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371767"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>Protocolos v2.0 - SPAs que usam o fluxo implícito
 
@@ -55,7 +55,7 @@ O diagrama a seguir mostra a aparência de todo fluxo de entrada implícita e as
 Para autenticar inicialmente o usuário em seu aplicativo, você pode enviar uma solicitação de autorização [OpenID Connect](v2-protocols-oidc.md) e obter um `id_token` do ponto de extremidade v2.0.
 
 > [!IMPORTANT]
-> Para solicitar um token de ID com êxito, o registro do aplicativo no [portal de registro](https://apps.dev.microsoft.com) precisa ter **Permitir Fluxo Implícito** habilitado para o cliente Web. Se não estiver habilitado, um `unsupported_response` erro será retornado: **O valor fornecido para o parâmetro de entrada 'response_type' não é permitido para este cliente. O valor esperado é 'code'**
+> Para solicitar com êxito um token de ID, o registro do aplicativo na [portal do Azure - registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) página deverá ter o fluxo de concessão implícita habilitado corretamente, selecionando **tokens de acesso** e **Tokens de ID** sob o **concessão implícita** seção. Se não estiver habilitado, um `unsupported_response` erro será retornado: **O valor fornecido para o parâmetro de entrada 'response_type' não é permitido para este cliente. O valor esperado é 'code'**
 
 ```
 // Line breaks for legibility only
@@ -77,7 +77,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parâmetro |  | DESCRIÇÃO |
 | --- | --- | --- |
 | `tenant` | obrigatório |O valor `{tenant}` no caminho da solicitação pode ser usado para controlar quem pode entrar no aplicativo. Os valores permitidos são `common`, `organizations`, `consumers` e identificadores de locatário. Para obter mais detalhes, consulte [noções básicas de protocolo](active-directory-v2-protocols.md#endpoints). |
-| `client_id` | obrigatório |A Id de Aplicativo que o portal de registro ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) atribuiu ao aplicativo. |
+| `client_id` | obrigatório |ID do aplicativo (cliente) que o [portal do Azure - registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) atribuída ao seu aplicativo de página. |
 | `response_type` | obrigatório |Deve incluir `id_token` para conexão do OpenID Connect. Também pode incluir o response_type `token`. O uso de `token` aqui permitirá que seu aplicativo receba imediatamente um token de acesso do ponto de extremidade de autorização sem precisar fazer uma segunda solicitação ao ponto de extremidade de autorização. Se você usar o response_type de `token`, o parâmetro `scope` deverá conter um escopo indicando para quais recursos o token será emitido. |
 | `redirect_uri` | recomendável |O redirect_uri do seu aplicativo, onde as respostas de autenticação podem ser enviadas e recebidas pelo aplicativo. Ele deve corresponder exatamente a um dos redirect_uris que você registrou no portal, com exceção de que ele deve ser codificado por url. |
 | `scope` | obrigatório |Uma lista de [escopos](v2-permissions-and-consent.md) separados por espaços. Para o OpenID Connect, é necessário incluir o escopo `openid`, que é traduzido para a permissão "Fazer seu logon" na interface do usuário de consentimento. Como opção, convém incluir os escopos `email` ou `profile` para obter acesso a dados adicionais do usuário. Você também pode incluir outros escopos nessa solicitação a fim de solicitar o consentimento a vários recursos. |

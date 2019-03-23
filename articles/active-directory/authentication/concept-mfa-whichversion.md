@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbbcb46c3449750b6ea9ccdbd9a5103be715d8f7
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: a099fa8d223643e5b339d35c0ff5cf7a5589049c
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312063"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372227"
 ---
 # <a name="which-version-of-azure-mfa-is-right-for-my-organization"></a>Qual versão do Azure MFA é ideal para minha organização?
 
@@ -46,7 +46,7 @@ Em seguida, determine onde estão localizados os usuários da sua organização 
 
 | Local do usuário | MFA na nuvem | Servidor MFA |
 | --- |:---:|:---:|
-| Active Directory do Azure |● | |
+| Azure Active Directory |● | |
 | Azure AD e AD local usando federação com AD FS |● |● |
 | Azure AD e AD local usando o DirSync, o Azure AD Connect - sem sincronização de hash de senha ou autenticação de passagem |● |● |
 | Azure AD e AD local usando o Azure AD Connect - sem sincronização de hash de senha ou autenticação de passagem |● | |
@@ -66,7 +66,7 @@ A tabela a seguir compara os recursos disponíveis com a Autenticação Multifat
 | Senhas de aplicativos para clientes do Office 365 que não oferecem suporte a MFA | ● | |
 | Controle do administrador sobre métodos de autenticação | ● | ● |
 | Modo PIN | | ● |
-| Alertas de Fraude | ● | ● |
+| Alerta de fraude | ● | ● |
 | Relatórios de MFA | ● | ● |
 | Desvio único | | ● |
 | Saudações personalizadas para chamadas telefônicas | ● | ● |
@@ -82,4 +82,4 @@ Agora que você sabe a diferença entre a Autenticação Multifator do Microsoft
 
 <center>
 
-[![MFA na nuvem](./media/concept-mfa-whichversion/cloud2.png)](howto-mfa-getstarted.md) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Servidor MFA ](./media/concept-mfa-whichversion/server2.png)](howto-mfaserver-deploy.md)&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</center>
+[![Escolha para o Azure MFA na nuvem](./media/concept-mfa-whichversion/cloud2.png)](howto-mfa-getstarted.md) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [ ![Escolha  para o servidor Azure MFA local  ](./media/concept-mfa-whichversion/server2.png)](howto-mfaserver-deploy.md) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </center>

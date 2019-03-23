@@ -5,14 +5,14 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 03/05/2019
 ms.author: tamram
-ms.openlocfilehash: d3f6009c77618bc043586771a6f67442533b2a0d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: fa574558afeec5a7706482a142c0187e6a34bdb3
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444048"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370375"
 ---
 # <a name="manage-storage-account-settings-in-the-azure-portal"></a>Gerenciar configurações de conta de armazenamento no portal do Azure
 
@@ -20,9 +20,9 @@ Há uma variedade de configurações para sua conta de armazenamento disponívei
 
 ## <a name="access-control"></a>Controle de acesso
 
-O armazenamento do Azure é compatível com a autenticação com o Azure Active Directory para o Armazenamento de Blobs e o armazenamento de fila (versão prévia) por meio do RBAC (controle de acesso baseado em função). Para obter mais informações sobre a autenticação com o Azure AD, confira [Autenticar o acesso aos blobs e filas do Azure usando o Azure Active Directory (versão prévia)](storage-auth-aad.md).
+O armazenamento do Azure dá suporte à autenticação com o Azure Active Directory para o armazenamento de BLOBs e armazenamento de fila por meio do controle de acesso baseado em função (RBAC). Para obter mais informações sobre a autenticação com o Azure AD, consulte [autenticar o acesso ao Azure blobs e filas usando o Azure Active Directory](storage-auth-aad.md).
 
-As configurações de **Controle de acesso** no portal do Azure oferecem uma maneira simples de atribuir funções de RBAC a usuários, grupos, entidades de serviço e identidades gerenciadas. Para obter mais informações sobre a atribuição de funções de RBAC, confira [Gerenciar os direitos de acesso aos dados de blob e fila com o RBAC (versão prévia)](storage-auth-aad-rbac.md).
+As configurações de **Controle de acesso** no portal do Azure oferecem uma maneira simples de atribuir funções de RBAC a usuários, grupos, entidades de serviço e identidades gerenciadas. Para obter mais informações sobre como atribuir funções RBAC, consulte [gerenciar direitos de acesso a dados de blob e fila com RBAC](storage-auth-aad-rbac.md).
 
 > [!NOTE]
 > Autenticar usuários ou aplicativos usando as credenciais do Azure AD oferece mais segurança e facilidade ao usar os meios de autorização. Enquanto você pode continuar a usar a autorização de chave compartilhada com seus aplicativos, usando o AD do Azure evita a necessidade de armazenar sua chave de acesso da conta com o seu código. Também é possível continuar a usar assinaturas de acesso compartilhado (SAS) para conceder acesso refinado a recursos em sua conta de armazenamento, mas o Azure AD oferece recursos semelhantes sem a necessidade de gerenciar tokens SAS ou se preocupar sobre revogar uma SAS comprometida. 

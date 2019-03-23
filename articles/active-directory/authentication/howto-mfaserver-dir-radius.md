@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34cfd37caf45d709fdc0b3639a218e2e587e8164
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 0c1a05cc25be7a5763a8891b92e870a92792191d
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314341"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372166"
 ---
 # <a name="integrate-radius-authentication-with-azure-multi-factor-authentication-server"></a>Integrar a autenticação RADIUS com o Servidor de Autenticação Multifator do Azure
 
@@ -27,7 +27,7 @@ RADIUS é um protocolo padrão para aceitar solicitações de autenticação e p
 >
 > Os tokens SMS e OATH unidirecionais não funcionam nessa configuração, pois o servidor MFA não pode iniciar uma resposta de desafio de RADIUS bem-sucedida usando protocolos alternativos.
 
-![Autenticação Radius](./media/howto-mfaserver-dir-radius/radius.png)
+![Autenticação de RADIUS no servidor MFA](./media/howto-mfaserver-dir-radius/radius.png)
 
 ## <a name="add-a-radius-client"></a>Adicionar um cliente RADIUS
 
@@ -66,9 +66,10 @@ Repita as etapas 4 à 8 para adicionar tantos clientes RADIUS quanto necessário
 
 Repita essas etapas para adicionar outros servidores RADIUS. Configure a ordem na qual o Servidor MFA do Azure deve chamá-las com os botões **Mover para Cima** e **Mover para Baixo**.
 
-Você configurou o Servidor de Autenticação Multifator do Microsoft Azure. O servidor agora está escutando nas portas configuradas solicitações de acesso RADIUS dos clientes configurados.   
+Você configurou o Servidor de Autenticação Multifator do Microsoft Azure. O servidor agora está escutando nas portas configuradas solicitações de acesso RADIUS dos clientes configurados.
 
 ## <a name="radius-client-configuration"></a>Configuração do cliente RADIUS
+
 Para configurar o cliente RADIUS, use as diretrizes:
 
 * Configure o dispositivo/servidor para autenticar via RADIUS para o endereço IP do Servidor de Autenticação Multifator do Azure, que atua como o servidor RADIUS.

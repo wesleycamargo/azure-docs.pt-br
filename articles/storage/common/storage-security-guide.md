@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 56c09d9c6d1249713de7c6a0428ad2a124eee157
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e0c8d4883bb9183f866450477df972fc66c960c5
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58013078"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369732"
 ---
 # <a name="azure-storage-security-guide"></a>Guia de segurança do Armazenamento do Azure
 
@@ -22,7 +22,7 @@ O Armazenamento do Azure fornece um conjunto abrangente de recursos de seguranç
 - Todos os dados gravados no Armazenamento do Azure são criptografados automaticamente usando a [Criptografia do Serviço de Armazenamento (SSE)](storage-service-encryption.md). Veja mais informações em [Anúncio da criptografia padrão para o armazenamento de Blobs, arquivos, tabelas e filas do Azure](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
 - O Azure AD (Azure Active Directory) e o RBAC (controle de acesso baseado em função) têm suporte para o Armazenamento do Azure em relação a operações de gerenciamento de recursos e operações de dados, da seguinte maneira:   
     - Você pode atribuir funções RBAC, no escopo da conta de armazenamento, a entidades de segurança e usar o Azure AD para autorizar operações de gerenciamento de recursos, por exemplo, gerenciamento de chaves.
-    - A integração com o Azure AD tem suporte na versão prévia para operações de dados nos serviços Blobs e Fila. É possível atribuir funções RBAC, no escopo de uma assinatura, um grupo de recursos, uma conta de armazenamento ou um contêiner individual ou fila, a uma entidade de segurança ou a uma identidade gerenciada para recursos do Azure. Para saber mais, confira [Autenticar o acesso ao Armazenamento do Azure usando o Azure Active Directory (versão prévia)](storage-auth-aad.md).   
+    - Integração do Azure AD é suportada para operações de dados de blob e fila. É possível atribuir funções RBAC, no escopo de uma assinatura, um grupo de recursos, uma conta de armazenamento ou um contêiner individual ou fila, a uma entidade de segurança ou a uma identidade gerenciada para recursos do Azure. Para saber mais, confira [Autenticar o acesso ao Armazenamento do Azure usando o Azure Active Directory](storage-auth-aad.md).   
 - Os dados podem ser protegidos em trânsito, entre um aplicativo e o Azure usando a [Criptografia do cliente](../storage-client-side-encryption.md), HTTPS ou SMB 3.0.  
 - Os discos do SO e de dados usados pelas máquinas virtuais do Azure podem ser criptografados usando o [Azure Disk Encryption](../../security/azure-security-disk-encryption.md). 
 - O acesso delegado aos objetos de dados no Armazenamento do Microsoft Azure pode ser concedido usando [Assinaturas de Acesso Compartilhado](../storage-dotnet-shared-access-signature-part-1.md).
@@ -155,8 +155,8 @@ A Segurança do Plano de Dados refere-se aos métodos usados para proteger os ob
 
 Você tem três opções para autorizar o acesso a objetos de dados no Armazenamento do Azure, incluindo:
 
-- Usar o Azure AD para autorizar o acesso a contêineres e filas (Versão prévia). O Azure AD oferece vantagens em relação a outras abordagens para autorização, incluindo a eliminação da necessidade de armazenar segredos em seu código. Para saber mais, confira [Autenticar o acesso ao Armazenamento do Azure usando o Azure Active Directory (versão prévia)](storage-auth-aad.md). 
-- Usar as chaves da conta de armazenamento para autorizar o acesso via Chave Compartilhada. A autorização via Chave Compartilhada requer o armazenamento das chaves da conta de armazenamento em seu aplicativo e, portanto, a Microsoft recomenda usar o Azure AD sempre que possível. Para aplicativos de produção, ou para autorizar o acesso a arquivos e tabelas do Azure, continue usando a Chave Compartilhada enquanto a integração do Azure AD estiver em versão prévia.
+- Usando o Azure AD para autorizar o acesso aos contêineres e filas. O Azure AD oferece vantagens em relação a outras abordagens para autorização, incluindo a eliminação da necessidade de armazenar segredos em seu código. Para saber mais, confira [Autenticar o acesso ao Armazenamento do Azure usando o Azure Active Directory](storage-auth-aad.md). 
+- Usar as chaves da conta de armazenamento para autorizar o acesso via Chave Compartilhada. A autorização via Chave Compartilhada requer o armazenamento das chaves da conta de armazenamento em seu aplicativo e, portanto, a Microsoft recomenda usar o Azure AD sempre que possível.
 - Usar Assinaturas de Acesso Compartilhado para conceder permissões controladas a objetos de dados específicos por um determinado período de tempo.
 
 Além disso, para o Armazenamento de Blobs, você pode permitir o acesso público aos blobs configurando o nível de acesso para o contêiner que contém os blobs de acordo. Se você definir o acesso de um contêiner para Blob ou Contêiner, isso permitirá acesso público de leitura para os blobs desse contêiner. Isso significa que qualquer pessoa com uma URL apontando para um blob nesse contêiner poderá abri-lo em um navegador sem usar uma Assinatura de Acesso Compartilhado ou sem ter as chaves da conta de armazenamento.

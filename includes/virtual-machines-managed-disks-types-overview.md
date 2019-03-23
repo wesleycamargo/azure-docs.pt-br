@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f36ce51a9f385933cbc21e27280828b0ff0e43e2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6eae536bd19a2c0e5707d8e0b379774b6eb2707a
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58016696"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58395604"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Quais tipos de disco estão disponíveis no Azure?
 
@@ -27,9 +27,9 @@ A tabela a seguir oferece uma comparação entre discos ultra SSD (unidade de es
 |---------|---------|---------|---------|---------|
 |Tipo de disco   |SSD   |SSD   |SSD   |HDD   |
 |Cenário   |Cargas de trabalho de E/S intensiva, como SAP HANA, bancos de dados de camada superior (por exemplo, SQL, Oracle) e outras cargas de trabalho de transações pesadas.   |Cargas de trabalho confidenciais produção e desempenho   |Servidores Web, aplicativos empresariais pouco usados e desenvolvimento/teste   |Backup, não crítico, acesso não frequente   |
-|Tamanho do disco   |65.536 GiB (GibiByte) (versão prévia)   |4.095 GiB (GA), 32.767 GiB (versão prévia)    |4.095 (GA) GiB, 32.767 GiB (versão prévia)   |4.095 GiB (GA), 32.767 GiB (versão prévia)   |
-|Taxa de transferência máxima   |2.000 MiB/s (versão prévia)   |250 MiB/s (GA), 750 MiB/s (versão prévia)   |60 MiB/s (GA), 500 MiB/s (versão prévia)   |60 MiB/s (GA), 500 MiB/s (versão prévia)   |
-|IOPS Máx.   |160.000 (versão prévia)   |7.500 (GA), 20.000 (versão prévia)   |500 (GA), 2.000 (versão prévia)   |500 (GA), 2.000 (versão prévia)   |
+|Tamanho do disco   |65.536 GiB (GibiByte) (versão prévia)   |32,767 GiB    |32,767 GiB   |32,767 GiB   |
+|Taxa de transferência máxima   |2.000 MiB/s (versão prévia)   |900 MiB/s   |750 MiB/s   |500 MiB/s   |
+|IOPS Máxima   |160.000 (versão prévia)   |20.000   |6.000   |2.000   |
 
 ## <a name="ultra-ssd-preview"></a>SSD Ultra (versão prévia)
 

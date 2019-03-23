@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2865c19e747ca1c5b0a6cda84b8be18bfaeb9335
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 536d26abf563f18ed7cec6668fcd1d4223f5a135
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317656"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370152"
 ---
 # <a name="combined-security-information-registration-preview"></a>Registro de informações de segurança combinada (visualização)
 
 Antes do registro combinado, usuários registrados a métodos de autenticação para autenticação de multifator do Azure (MFA) e a redefinição de senha de autoatendimento (SSPR) por meio de duas experiências diferentes. As pessoas estavam confusos que métodos semelhantes foram usados para o Azure MFA e o SSPR, mas eles tinham que se registrar para cada recurso separadamente. Agora, com o registro combinado, os usuários podem registrar uma vez e obter os benefícios do Azure MFA e o SSPR.
 
-![Combinar informações de segurança - Meu perfil mostrando informações de segurança registrada para um usuário, incluindo o Microsoft Authenticator e telefone para um usuário de exemplo no diretório.](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
+![Mostrando meu perfil registrado informações de segurança para um usuário](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
 
 Antes de habilitar a nova experiência, examine esta documentação voltada para administrador e a documentação e focada no usuário para que entender a funcionalidade e o impacto desse recurso. Base seu treinamento na documentação do usuário para preparar seus usuários para a nova experiência e ajudar a garantir uma distribuição bem-sucedida.
 
@@ -36,23 +36,23 @@ Antes de habilitar a nova experiência, examine esta documentação voltada para
 
 As páginas de MyProfile são localizadas com base nas configurações de idioma atual no computador acessando a página. Microsoft armazena a linguagem mais recente utilizada no cache do navegador para que tentativas subsequentes para acessar continue a renderizar no último idioma usado. Limpar o cache fará com que as páginas de renderizar novamente. Se você gostaria de forçar um idioma específico adicionando um `?lng=de-DE` ao final da URL onde `de-DE` é definido para o idioma apropriado código forçará as páginas a serem renderizados no idioma.
 
-![Minha interface de perfil que mostra informações de segurança e capacidade de usuário configurar o SSPR ou outros métodos de verificação de segurança adicional.](media/howto-registration-mfa-sspr-combined/combined-security-info-my-profile.png)
+![SSPR ou outros métodos de verificação de segurança adicionais de instalação](media/howto-registration-mfa-sspr-combined/combined-security-info-my-profile.png)
 
 ## <a name="methods-available-in-converged-registration"></a>Métodos disponíveis no registro convergido
 
 Neste momento, registro combinado suporta os seguintes métodos e as ações para esses métodos:
 
-|   | Registro | Alterar | Excluir |
+|   | Registrar  | Alterar | Excluir |
 | --- | --- | --- | --- |
-| Microsoft Authenticator | Sim (máximo 5) | Não | Sim |
-| Outro aplicativo autenticador | Sim (máximo 5) | Não | Sim |
-| Token de hardware | Não | Não  | Sim |
-| Telefone | Sim | Sim | Sim |
-| Telefone alternativo | Sim | Sim | Sim |
-| Telefone comercial | Não | Não | Não |
-| Email | Sim | Sim | Sim |
+| Microsoft Authenticator | Sim (máximo 5) | Não  | Sim |
+| Outro aplicativo autenticador | Sim (máximo 5) | Não  | Sim |
+| Token de hardware | Não  | Não  | Sim |
+| Telefone | Sim | sim | Sim |
+| Telefone alternativo | Sim | sim | Sim |
+| Telefone comercial | Não  | Não | Não  |
+| Email | Sim | sim | Sim |
 | Perguntas de segurança | Sim | Não  | Sim |
-| Senhas do aplicativo | Sim | Não  | Sim |
+| Senhas de aplicativo | Sim | Não  | Sim |
 
 > [!NOTE]
 > As senhas de aplicativo só estão disponíveis para os usuários que têm sido impostos para MFA. As senhas de aplicativo não estão disponíveis para os usuários que estão habilitados para MFA por meio de uma política de acesso condicional.
@@ -61,8 +61,8 @@ Os usuários podem definir as opções a seguir como o método padrão para o MF
 
 - Microsoft Authenticator – notificação
 - Hardware ou aplicativo autenticador de token – o código
-- Telefonema
-- Mensagem de texto
+- chamada telefônica
+- mensagem de texto
 
 Conforme continuamos a adicionar mais métodos de autenticação tais ao Azure AD, esses métodos estarão disponíveis no registro combinado.
 
@@ -99,7 +99,7 @@ Exemplo:
 
 O fluxograma a seguir descreve quais métodos são mostrados a um usuário quando interrompida para registrar durante a entrada:
 
-![Combinados gráfico de fluxo de informações de segurança explicando o número de métodos necessário quando mais informações são necessárias ao entrar. Isso pode mudar se apenas é necessário o MFA ou somente SSPR](media/concept-registration-mfa-sspr-combined/combined-security-info-flow-chart.png)
+![Gráfico de fluxo de informações de segurança combinada](media/concept-registration-mfa-sspr-combined/combined-security-info-flow-chart.png)
 
 Se você tiver o MFA e o SSPR habilitado, é recomendável que você imponha o registro de MFA.
 

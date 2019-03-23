@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a77c6ce205c40b5814f9b26f9099d868d434d3ce
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: d38d93a1c9716cc3a71d904b7b1a46fb8b1c2ee0
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316435"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369217"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Personalizar a funcionalidade de Autoatendimento de Redefinição de Senha do Azure AD
 
@@ -26,12 +26,12 @@ Os profissionais de TI que desejam implantar a redefinição de senha de autoate
 
 Mesmo que a SSPR não esteja habilitada, os usuários ainda verão um link "Contate o administrador" no portal de redefinição de senha. Se um usuário selecionar este link, ele executará uma das seguintes ações:
 
-   * Enviará um email aos administradores pedindo ajuda para alterar a senha do usuário.
-   * Envia seus usuários a uma URL que você especifica para obter assistência.
+* Enviará um email aos administradores pedindo ajuda para alterar a senha do usuário.
+* Envia seus usuários a uma URL que você especifica para obter assistência.
 
 É recomendável definir esse contato para algo como um endereço de email ou site os quais os usuários já estão acostumados a usar para obter suporte.
 
-![Contato][Contact]
+![Exemplo de solicitação para redefinir o email enviado ao administrador][Contact]
 
 Esse contato é enviado para os seguintes destinatários na seguinte ordem:
 
@@ -68,8 +68,8 @@ Os gráficos que escolher são mostrados nas seguintes circunstâncias:
 
 * Depois que um usuário inserir seu nome de usuário
 * Se o usuário acessar a URL personalizada:
-    * Ao passar o `whr` parâmetro como a senha da página de redefinição, como `https://login.microsoftonline.com/?whr=contoso.com`
-    * Ao passar o `username` parâmetro como a senha da página de redefinição, como `https://login.microsoftonline.com/?username=admin@contoso.com`
+   * Ao passar o `whr` parâmetro como a senha da página de redefinição, como `https://login.microsoftonline.com/?whr=contoso.com`
+   * Ao passar o `username` parâmetro como a senha da página de redefinição, como `https://login.microsoftonline.com/?username=admin@contoso.com`
 
 Encontre detalhes sobre como configurar a identidade visual da empresa no artigo [Adicionar uma identidade visual da empresa à página de entrada do Azure AD](../fundamentals/customize-branding.md).
 

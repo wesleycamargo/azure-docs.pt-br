@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/13/2019
+ms.date: 03/21/2019
 ms.author: juliako
-ms.openlocfilehash: 247d72396d1737d568a89656c544bbe699f11e30
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 8f8af438d4034fc945a717fee0b720e3fe13cf56
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342381"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351993"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Analisando os arquivos de áudio e vídeos
 
@@ -25,7 +25,7 @@ O Azure Media Services v3 permite que você extraia insights de seus arquivos de
 Para analisar o conteúdo usando predefinições do Serviços de Mídia v3, você cria uma **Transformação** e envia um **Trabalho** que usa uma destas predefinições: [VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset) ou **AudioAnalyzerPreset**. O artigo a seguir demonstra como usar **VideoAnalyzerPreset**: [Tutorial: Analisar vídeos com os Serviços de Mídia do Azure](analyze-videos-tutorial-with-api.md).
 
 > [!NOTE]
-> Ao usar as predefinições do Video ou Audio Analyzer, use o portal do Azure para definir sua conta como 10 Unidades Reservada para Mídia S3. Para saber mais, confira [Processamento de mídia de escala](../previous/media-services-scale-media-processing-overview.md).
+> Ao usar as predefinições do Video ou Audio Analyzer, use o portal do Azure para definir sua conta como 10 Unidades Reservada para Mídia S3. Para saber mais, confira [Processamento de mídia de escala](media-reserved-units-cli-how-to.md).
 
 ## <a name="built-in-presets"></a>Predefinições internas
 
