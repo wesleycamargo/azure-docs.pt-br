@@ -1,22 +1,22 @@
 ---
-title: Métodos host de balanceamento de carga do pool (visualização) – Azure
-description: Pool de balanceamento de carga métodos de host para um ambiente de área de trabalho Virtual do Windows.
+title: Visualização de área de trabalho Virtual do Windows pool balanceamento de carga de métodos de host - Azure
+description: Pool de balanceamento de carga métodos de host para um ambiente de visualização de área de trabalho Virtual do Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 0a07406c8bad4ad0bef2949103d1f2c78e7dd8af
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 8b18224339654c067d8ab9b543fa49a9c7d55ddd
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318503"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400174"
 ---
 # <a name="host-pool-load-balancing-methods"></a>Métodos de balanceamento de carga de pool de host
 
-Área de trabalho Virtual do Windows (versão prévia) dá suporte a dois métodos de balanceamento de carga. Cada método determina qual host de sessão irá hospedar uma sessão do usuário quando eles se conectam a um recurso em um pool de host.
+Visualização de área de trabalho Virtual do Windows oferece suporte a dois métodos de balanceamento de carga. Cada método determina qual host de sessão irá hospedar uma sessão do usuário quando eles se conectam a um recurso em um pool de host.
 
 Os seguintes métodos de balanceamento de carga estão disponíveis na área de trabalho Virtual do Windows:
 

@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 03/22/2019
 ms.author: alkohli
-ms.openlocfilehash: e3a24117cfd01c1c0bd0f08e8eca5adddf5ee7b6
-ms.sourcegitcommit: f596d88d776a3699f8c8cf98415eb874187e2a48
+ms.openlocfilehash: 43de22f7e56178559df4fc45980d064962580d2b
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2019
-ms.locfileid: "58119778"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403384"
 ---
-# <a name="data-box-edge-security-and-data-protection-preview"></a>Segurança de borda da caixa de dados e proteção de dados (visualização)
+# <a name="data-box-edge-security-and-data-protection"></a>Segurança de borda da caixa de dados e proteção de dados
 
 Segurança é uma preocupação importante ao adotar uma nova tecnologia, especialmente se a tecnologia é usada com dados confidenciais ou proprietários. Solução de borda da caixa de dados do Microsoft Azure ajuda a garantir que somente entidades autorizadas podem exibir, modificar ou excluir seus dados.
 
@@ -27,9 +27,6 @@ A solução de borda de caixa de dados do Azure consiste em quatro componentes p
 - **O dispositivo de borda da caixa de dados** – o dispositivo de transferência que é enviado a você para importar seus dados locais para o Azure.
 - **Clientes/hosts conectados ao dispositivo** – os clientes em sua infraestrutura que se conectar ao dispositivo de borda da caixa de dados e contêm dados que precisam ser protegidos.
 - **Armazenamento em nuvem** – O local na nuvem do Azure onde os dados são armazenados. Normalmente, esse local é a conta de armazenamento vinculada ao recurso de borda da caixa de dados que você criou.
-
-> [!IMPORTANT]
-> O Data Box Edge está em versão prévia. Antes de pedir e implantar essa solução, examine os [Termos de serviço do Azure para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 
 ## <a name="data-box-edgedata-box-gateway-service-protection"></a>Proteção de serviço de Gateway de caixa de borda/dados de caixa de dados
@@ -44,7 +41,7 @@ O serviço de Gateway de caixa de borda/dados de caixa de dados é um serviço d
 O dispositivo de borda da caixa de dados é um dispositivo local que ajuda a transformar os dados por processá-lo localmente e, em seguida, enviá-la para o Azure. Seu dispositivo:
 
 - Precisa de uma chave de ativação para acessar o serviço de Gateway de caixa de borda/dados de caixa de dados.
-- É sempre protegidas por uma senha de administrador do dispositivo.
+- É sempre protegidas por uma senha de dispositivo.
 - É um dispositivo bloqueado. O dispositivo BMC e BIOS são protegidos por senha com acesso de usuário limitado para o BIOS.
 - Inicialização segura foi habilitada.
 - Executa o Windows Defender Device Guard. Proteção do dispositivo permite que você execute apenas os aplicativos confiáveis que você define em suas políticas de integridade de código. 
@@ -68,14 +65,14 @@ Senhas de garantir que seus dados fiquem acessíveis apenas aos usuários autori
 Você pode:
 
 - Conectar-se para a interface do usuário do dispositivo por meio de um navegador da web local e, em seguida, forneça uma senha para entrar no dispositivo.
-- Conectar-se remotamente à interface do PowerShell do dispositivo via HTTP. Gerenciamento remoto é ativado por padrão. Em seguida, você pode fornecer a senha de administrador do dispositivo para entrar no dispositivo. Para obter mais informações, acesse [conectar remotamente ao seu dispositivo de borda da caixa de dados](data-box-edge-connect-powershell-interface.md#connect-to-the-powershell-interface).
+- Conectar-se remotamente à interface do PowerShell do dispositivo via HTTP. Gerenciamento remoto é ativado por padrão. Em seguida, você pode fornecer a senha do dispositivo para entrar no dispositivo. Para obter mais informações, acesse [conectar remotamente ao seu dispositivo de borda da caixa de dados](data-box-edge-connect-powershell-interface.md#connect-to-the-powershell-interface).
 
 Considere as seguintes práticas recomendadas:
 
 - O serviço de borda da caixa de dados não pode recuperar senhas existentes: ele só poderá redefini-las por meio do portal do Azure. É recomendável armazenar todas as senhas em um local seguro para não precisar redefinir uma senha se ela for esquecida. Se você redefinir uma senha, certifique-se de notificar todos os usuários antes de você redefini-lo.
 - Use o local da web a interface do usuário para [alterar a senha](data-box-gateway-manage-access-power-connectivity-mode.md#manage-device-access). Se você alterar a senha, certifique-se de notificar todos os usuários de acesso remoto para que eles não tenham uma falha de entrada.
 - Você pode acessar a interface do Windows PowerShell de seu dispositivo remotamente por HTTP. Como prática recomendada de segurança, você deve usar HTTP apenas em redes confiáveis.
-- Certifique-se de que as senhas de administrador do dispositivo são fortes e bem protegidas. Siga as [práticas recomendadas de senha](https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices#enable-password-management).
+- Certifique-se de que as senhas do dispositivo são fortes e bem protegidas. Siga as [práticas recomendadas de senha](https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices#enable-password-management).
 
 ## <a name="protect-the-data"></a>Proteger os dados
 
@@ -126,7 +123,7 @@ A borda da caixa de dados / serviço de Gateway da caixa de dados coleta informa
   - Número de telefone
   - Email
   - Endereço
-  - Cidade
+  - City
   - CEP/Código postal
   - Estado
   - Região/País/Região

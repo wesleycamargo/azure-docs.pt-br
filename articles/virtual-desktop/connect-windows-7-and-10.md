@@ -1,24 +1,24 @@
 ---
-title: Conecte-se com o Windows 7 e Windows 10 (versão prévia) – Azure
-description: Como conectar-se para o cliente da web de HTML5 de área de trabalho Virtual do Windows.
+title: Conectar-se para visualização de área de trabalho Virtual do Windows com o Windows 7 e Windows 10 - Azure
+description: Como conectar-se para o cliente de visualização de área de trabalho Virtual do Windows com o Windows 7 ou Windows 10.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 925d762bb065567f6462fdb1614fc308e87b5247
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 644a1d650384f151d9c43b9efa5f47532c58ce14
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318233"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58399739"
 ---
-# <a name="connect-with-windows-7-and-windows-10-preview"></a>Conectar-se com o Windows 7 e Windows 10 (versão prévia)
+# <a name="connect-with-windows-7-and-windows-10"></a>Conectar-se com o Windows 7 e Windows 10
 
-> Aplica-se a: O Windows 7 e Windows 10.
+> Aplicável a O Windows 7 e Windows 10.
 
-Um cliente que pode ser baixado está disponível que fornece acesso aos recursos de área de trabalho Virtual do Windows (visualização) de dispositivos que executam o Windows 7 e Windows 10.
+Um cliente que pode ser baixado está disponível que fornece acesso aos recursos de visualização de área de trabalho Virtual do Windows dos dispositivos que executam o Windows 7 e Windows 10.
 
 ## <a name="install-the-client"></a>Instalar o cliente
 

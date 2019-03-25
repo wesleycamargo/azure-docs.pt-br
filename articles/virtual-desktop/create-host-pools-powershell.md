@@ -1,22 +1,22 @@
 ---
-title: Criar um pool de host com o PowerShell (visualização) – Azure
-description: Como criar um pool de host na área de trabalho Virtual do Windows com os cmdlets do PowerShell.
+title: Criar um pool de host de visualização de área de trabalho Virtual do Windows com o PowerShell – Azure
+description: Como criar um pool de host na visualização de área de trabalho Virtual do Windows com os cmdlets do PowerShell.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 4b65d7614db94a9cc3fdca3f4b784c2c84ebaef8
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 7b9b7ffbb034a7fb1256d9cc44048cfa55b02245
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318533"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402713"
 ---
-# <a name="create-a-host-pool-with-powershell-preview"></a>Criar um pool de host com o PowerShell (versão prévia)
+# <a name="create-a-host-pool-with-powershell"></a>Criar um pool de host com o PowerShell
 
-Pools de host são uma coleção de um ou mais máquinas virtuais idênticas em ambientes de locatário (visualização) da área de trabalho Virtual do Windows. Cada pool de host pode conter um grupo de aplicativos que os usuários podem interagir com o que seria em uma área de trabalho física.
+Pools de host são uma coleção de um ou mais máquinas virtuais idênticas em ambientes de locatário de visualização de área de trabalho Virtual do Windows. Cada pool de host pode conter um grupo de aplicativos que os usuários podem interagir com o que seria em uma área de trabalho física.
 
 ## <a name="use-your-powershell-client-to-create-a-host-pool"></a>Use seu cliente do PowerShell para criar um pool de host
 
@@ -70,12 +70,12 @@ Você pode criar uma máquina virtual de várias maneiras:
 - [Criar uma máquina virtual de uma imagem gerenciada](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-generalized-managed)
 - [Criar uma máquina virtual a partir de uma imagem não gerenciada](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
 
-## <a name="prepare-the-virtual-machines-for-windows-virtual-desktop-agent-installations"></a>Prepare as máquinas virtuais de instalações de agentes da área de trabalho Virtual do Windows
+## <a name="prepare-the-virtual-machines-for-windows-virtual-desktop-preview-agent-installations"></a>Prepare as máquinas virtuais de instalações de agentes de visualização de área de trabalho Virtual do Windows
 
 Você precisa fazer o seguinte para preparar suas máquinas virtuais antes de instalar os agentes da área de trabalho Virtual do Windows e registrar as máquinas virtuais ao pool de host de área de trabalho Virtual do Windows:
 
 - Faça o ingresso no domínio o computador. Isso permite que os usuários recebidos de área de trabalho Virtual do Windows a ser mapeado da sua conta do Active Directory do Azure para sua conta do Active Directory e com êxito o acesso permitido para a máquina virtual.
-- Você deve instalar a função de Host de sessão de área de trabalho remota (RDSH) (versão prévia) se a máquina virtual estiver executando um sistema operacional do Windows Server. A função RDSH permite que os agentes da área de trabalho Virtual do Windows seja instalado corretamente.
+- Se a máquina virtual estiver executando um sistema operacional do Windows Server, você deve instalar a função de Host de sessão de área de trabalho remota (RDSH). A função RDSH permite que os agentes da área de trabalho Virtual do Windows seja instalado corretamente.
 
 Para com êxito ingresso no domínio, faça o seguinte em cada máquina virtual:
 
@@ -85,7 +85,7 @@ Para com êxito ingresso no domínio, faça o seguinte em cada máquina virtual:
 4. Selecione **domínio** e, em seguida, insira o domínio do Active Directory em uma rede virtual.
 5. Autenticar com uma conta de domínio que tenha privilégios para ingressar computadores em domínio.
 
-## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool"></a>Registre as máquinas virtuais ao pool de host de área de trabalho Virtual do Windows
+## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-preview-host-pool"></a>Registre as máquinas virtuais ao pool de host de visualização de área de trabalho Virtual do Windows
 
 Registrar as máquinas virtuais a um pool de host de área de trabalho Virtual do Windows é tão simple quanto instalar os agentes da área de trabalho Virtual do Windows.
 
@@ -114,7 +114,7 @@ Para registrar os agentes da área de trabalho Virtual do Windows, faça o segui
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você criou um pool de host, é hora de preenchê-lo com RemoteApps (visualização). Para saber mais sobre como gerenciar aplicativos na área de trabalho Virtual do Windows, consulte o tutorial de grupos de aplicativo de gerenciar.
+Agora que você criou um pool de host, você pode preenchê-lo com os aplicativos remotos. Para saber mais sobre como gerenciar aplicativos na área de trabalho Virtual do Windows, consulte o tutorial de grupos de aplicativo de gerenciar.
 
 > [!div class="nextstepaction"]
 > [Gerenciar o tutorial de grupos de aplicativo](./manage-app-groups.md)

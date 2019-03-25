@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f4a04f1598b3ab0efd9ff95a707d3837bb37503
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 2fcc400f952cc89f5fb4bf6e8d6f0f331483868e
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56196018"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401306"
 ---
 # <a name="whats-new-for-authentication"></a>Quais são as novidades para autenticação? 
 
@@ -42,6 +42,37 @@ O sistema de autenticação altera e adiciona recursos em uma base contínua par
 ## <a name="upcoming-changes"></a>Alterações futuras
 
 Nenhum agendado neste momento. 
+
+## <a name="march-2019"></a>Março de 2019
+
+### <a name="looping-clients-will-be-interrupted"></a>Os clientes de loop será interrompido
+
+**Data de efetivação**: 25 de março de 2019
+
+**Pontos de extremidade afetados**: v1.0 e v2.0
+
+**Protocolo afetado**: Todos os fluxos
+
+Aplicativos cliente podem, às vezes, inadequados, emitindo centenas da mesma solicitação de logon em um curto período de tempo.  Essas solicitações podem ou não ser bem-sucedida, mas todas elas contribuem para cargas de trabalho avançadas e experiência de usuário insatisfatória para o IDP, aumenta a latência para todos os usuários e reduz a disponibilidade do IDP.  Esses aplicativos estão operando fora dos limites de uso normal e devem ser atualizados para se comportar corretamente.  
+
+Os clientes que emitem solicitações duplicadas várias vezes serão enviados um `invalid_grant` erro: `AADSTS50196: The server terminated an operation because it encountered a loop while processing a request`. 
+
+A maioria dos clientes não precisará alterar o comportamento para evitar esse erro.  Somente os clientes configurados incorretamente (aqueles sem cache de token ou aqueles que apresentam loops prompt já) serão afetados por esse erro.  Os clientes são rastreados em uma base por instância localmente (por meio do cookie) nos seguintes fatores:
+
+* Dica de usuário, se houver
+
+* Escopos ou recurso que está sendo solicitado
+
+* ID do cliente
+
+* URI de redirecionamento
+
+* Modo e o tipo de resposta
+
+Aplicativos fazendo várias solicitações (15 +) em um curto período de tempo (5 minutos) receberão uma `invalid_grant` erro explicando o que eles são um loop.  Os tokens que está sendo solicitados a ter tempos de vida suficientemente longa duração (mínimo de 10 minutos, 60 minutos por padrão), então, repetidas solicitações durante esse período de tempo são desnecessários.  
+
+Todos os aplicativos devem lidar com `invalid_grant` mostrando um prompt interativo, em vez de solicitar silenciosamente um token.  Para evitar esse erro, clientes devem garantir que eles corretamente estiver armazenando em cache os tokens que eles recebem.
+
 
 ## <a name="october-2018"></a>Outubro de 2018
 

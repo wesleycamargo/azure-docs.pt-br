@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: consume
-ms.date: 04/17/2018
+ms.date: 03/22/2019
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 605598d1470cbb535d626c15a5e8e4e08aa4d571
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3a260102e9964cfc248ed3dbabab487bd1c5dfc2
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57883807"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403758"
 ---
 # <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>Usar o Stream Analytics do Azure com o SQL Data Warehouse
 A Stream Analytics do Azure é um serviço completamente gerenciado que oferece baixa latência, alta disponibilidade e processamento escalonável de eventos complexos ao longo do fluxo de dados na nuvem. Você pode aprender as noções básicas lendo [Introdução ao Stream Analytics do Azure][Introduction to Azure Stream Analytics]. Depois, você pode saber como criar uma solução de ponta a ponta com o Stream Analytics seguindo o tutorial [Introdução ao uso do Stream Analytics do Azure][Get started using Azure Stream Analytics].
@@ -34,12 +34,10 @@ Em seguida, crie um banco de dados do SQL Data Warehouse do Azure
 
 ## <a name="specify-job-output-azure-sql-data-warehouse-database"></a>Especifique a saída do trabalho: Banco de dados do SQL Data Warehouse do Azure
 ### <a name="step-1"></a>Etapa 1
-No trabalho Stream Analytics, clique em **SAÍDA** na parte superior da página e depois em **ADICIONAR SAÍDA**.
+No trabalho do Stream Analytics, clique em **saída** na parte superior da página e, em seguida, clique **adicionar**.
 
 ### <a name="step-2"></a>Etapa 2
-Selecione o Banco de Dados SQL e clique em Avançar.
-
-![][add-output]
+Selecione o banco de dados SQL.
 
 ### <a name="step-3"></a>Etapa 3
 Insira os seguintes valores na próxima página:
@@ -62,9 +60,7 @@ Insira os seguintes valores na próxima página:
 ### <a name="step-4"></a>Etapa 4
 Clique no botão de verificação para adicionar essa saída e para verificar se o Stream Analytics pode se conectar com êxito ao banco de dados.
 
-![][test-connection]
-
-Quando a conexão com o banco de dados tiver êxito, você verá uma notificação na parte inferior do portal. Você pode clicar em Testar Conexão na parte inferior para testar a conexão com o banco de dados.
+Quando a conexão ao banco de dados tiver êxito, você verá uma notificação no portal. Você pode clicar em testar para testar a conexão ao banco de dados.
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter uma visão geral da integração, consulte [Visão geral de integração do SQL Data Warehouse][SQL Data Warehouse integration overview].

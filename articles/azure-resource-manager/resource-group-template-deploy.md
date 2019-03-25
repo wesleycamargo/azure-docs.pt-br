@@ -10,38 +10,51 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2019
+ms.date: 03/22/2019
 ms.author: tomfitz
-ms.openlocfilehash: daeff897cf284df6e820afbcdd35ee54bf88db08
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 8005b187f300375b62c254516a61f4993675b0b9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405395"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403101"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Implantar recursos com modelos do Resource Manager e o Azure PowerShell
 
 Saiba como usar o Azure PowerShell com modelos do Resource Manager para implantar seus recursos no Azure. Para saber mais sobre os conceitos de implantação e gerenciamento das soluções do Azure, confira [Visão geral do Azure Resource Manager](resource-group-overview.md).
 
-Para implantar um modelo, normalmente são necessárias duas etapas:
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-1. Crie um grupos de recursos. O grupo de recursos funciona como o contêiner para os recursos implantados. O nome do grupo de recursos pode incluir somente caracteres alfanuméricos, pontos, sublinhados, hifens e parênteses. Pode ter até 90 caracteres. Ele não pode terminar em um período.
-2. Implante um modelo. O modelo define os recursos a serem criados.  A implantação cria os recursos no grupo de recursos especificado.
+## <a name="deployment-scope"></a>Escopo da implantação
 
-Esse método de implantação em duas etapas é usado neste artigo.  A outra opção é implantar um grupo de recursos e os recursos ao mesmo tempo.  Para saber mais, confira [Create resource group and deploy resources](./deploy-to-subscription.md#create-resource-group-and-deploy-resources) (Criar grupo de recursos e implantar recursos).
+Você pode direcionar sua implantação para uma assinatura do Azure ou um grupo de recursos dentro de uma assinatura. Na maioria dos casos, você irá focar a implantação para um grupo de recursos. Use implantações de assinatura para aplicar políticas e as atribuições de função entre a assinatura. Você também pode usar implantações de assinatura para criar um grupo de recursos e implantar recursos nele. Dependendo do escopo da implantação, você deve usar comandos diferentes.
+
+Para implantar em um **grupo de recursos**, use [New AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment):
+
+```azurepowershell
+New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-template>
+```
+
+Para implantar em um **assinatura**, use [New AzDeployment](/powershell/module/az.resources/new-azdeployment):
+
+```azurepowershell
+New-AzDeployment -Location <location> -TemplateFile <path-to-template>
+```
+
+Os exemplos neste artigo usam a implantações do grupo de recursos. Para obter mais informações sobre implantações de assinatura, consulte [criar grupos de recursos e recursos no nível da assinatura](deploy-to-subscription.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
+Você precisa de um modelo para implantar. Se você ainda não tiver um, baixe e salve um [modelo de exemplo](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) do repositório de modelos de início rápido do Azure. O nome do arquivo local usado neste artigo é **c:\MyTemplates\azuredeploy.json**.
+
 A menos que você use o [Azure Cloud Shell](#deploy-templates-from-azure-cloud-shell) para implantar modelos, é necessário instalar o Azure PowerShell e conectar-se ao Azure:
+
 - **Instalar cmdlets do Azure PowerShell em seu computador local.** Para obter mais informações, consulte [Introdução ao Azure PowerShell](/powershell/azure/get-started-azureps).
 - **Conectar-se ao Azure usando [Connect-AZAccount](/powershell/module/az.accounts/connect-azaccount)**. Se você tiver várias assinaturas do Azure, talvez precise executar também [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext). Para saber mais, confira [Use multiple Azure subscriptions](/powershell/azure/manage-subscriptions-azureps) (Usar várias assinaturas do Azure).
-- *Baixe e salve um [modelo de início rápido](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json). O nome do arquivo local usado neste artigo é **c:\MyTemplates\azuredeploy.json**.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+## <a name="deploy-local-template"></a>Implantar o modelo local
 
-## <a name="deploy-templates-stored-locally"></a>Implantar modelos armazenados localmente
-
-O exemplo a seguir cria um grupo de recursos e implanta um modelo do computador local:
+O exemplo a seguir cria um grupo de recursos e implanta um modelo do computador local. O nome do grupo de recursos pode incluir somente caracteres alfanuméricos, pontos, sublinhados, hifens e parênteses. Pode ter até 90 caracteres. Ele não pode terminar em um período.
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -52,11 +65,9 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
   -TemplateFile c:\MyTemplates\azuredeploy.json
 ```
 
-Observe que *c:\MyTemplates\azuredeploy.json* é um modelo de início rápido.  Consulte [Pré-requisitos](#prerequisites).
-
 A implantação pode levar alguns minutos para ser concluída.
 
-## <a name="deploy-templates-stored-externally"></a>Implantar modelos armazenados externamente
+## <a name="deploy-remote-template"></a>Implantar modelo remoto
 
 Em vez de armazenar modelos do Resource Manager no computador local, talvez você prefira armazená-los em um local externo. É possível armazenar modelos em um repositório de controle de código-fonte (como o GitHub). Ou ainda armazená-los em uma conta de armazenamento do Azure para acesso compartilhado na sua organização.
 
@@ -73,7 +84,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
 
 O exemplo anterior requer um URI acessível publicamente para o modelo, que funciona para a maioria dos cenários porque seu modelo não deve incluir dados confidenciais. Se você precisar especificar dados confidenciais (como uma senha de administrador), passe esse valor como um parâmetro seguro. No entanto, se você não quiser que seu modelo seja acessível publicamente, poderá protegê-lo armazenando-o em um contêiner de armazenamento particular. Para obter informações sobre como implantar um modelo que exige um token SAS (assinatura de acesso compartilhado), confira [Implantar modelo particular com o token SAS](resource-manager-powershell-sas-token.md). Para percorrer um tutorial, veja [Tutorial: Integrar o Azure Key Vault na implantação de Modelo do Resource Manager](./resource-manager-tutorial-use-key-vault.md).
 
-## <a name="deploy-templates-from-azure-cloud-shell"></a>Implantar modelos do Azure Cloud Shell
+## <a name="deploy-from-azure-cloud-shell"></a>Implantar o Azure Cloud shell
 
 É possível usar o [Azure Cloud Shell](https://shell.azure.com) para implantar o modelo. Para implantar um modelo externo, forneça o URI do modelo. Para implantar um modelo local, você deve carregar o modelo primeiro para a conta de armazenamento do seu Cloud Shell. Para carregar arquivos para o shell, selecione o ícone de menu **Carregar/Baixar arquivos** na janela do shell.
 
@@ -89,10 +100,6 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
 ```
 
 Para colar o código no shell, clique com o botão direito do mouse dentro do shell e, em seguida, selecione **Colar**.
-
-## <a name="deploy-to-multiple-resource-groups-or-subscriptions"></a>Implantar vários grupos de recursos ou assinaturas
-
-Normalmente, você deve implantar todos os recursos em seu modelo em um único grupo de recursos. No entanto, há cenários em que você deseja implantar um conjunto de recursos de uma vez, mas colocá-los em diferentes grupos de recursos ou assinaturas. Você pode implantar em apenas cinco grupos de recursos em uma única implantação. Para saber mais, confira [Implantar recursos do Azure em mais de uma assinatura ou grupo de recursos](resource-manager-cross-resource-group-deployment.md).
 
 ## <a name="redeploy-when-deployment-fails"></a>Reimplantar quando ocorrer falha na implantação
 

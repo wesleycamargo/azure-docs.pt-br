@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 03/04/2019
 ms.author: alkohli
-ms.openlocfilehash: 757d6aeecc6c97726e890076b0e27a82a1a45d27
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d5af557a62f4bd35c242d334c28a38c3d632f7cf
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57556698"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58404065"
 ---
 1. [Conectar-se à interface do PowerShell](#connect-to-the-powershell-interface).
 2. Use o `Get-HcsApplianceInfo` para obter as informações para seu dispositivo.
@@ -45,7 +45,7 @@ ms.locfileid: "57556698"
 
     Aqui está uma tabela de resumo de algumas das informações importantes de dispositivo:
     
-    | Parâmetro                             | Descrição                                                                                                                                                  |   |
+    | Parâmetro                             | DESCRIÇÃO                                                                                                                                                  |   |
     |--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
     | FriendlyName                   | O nome amigável do dispositivo conforme configurado por meio da interface do usuário da web local durante a implantação do dispositivo. O nome amigável padrão é o número de série do dispositivo.  |   |
     | SerialNumber                   | O número de série do dispositivo é um número exclusivo atribuído na fábrica.                                                                             |   |
@@ -54,5 +54,5 @@ ms.locfileid: "57556698"
     | HcsVersion                     | A versão do software HCS em execução no seu dispositivo. Por exemplo, a versão do software HCS correspondente ao dados de caixa de borda 1902 é 1.4.771.324.            |   |
     | LocalCapacityInMb              | A capacidade total e local do dispositivo em Megabits.                                                                                                        |   |
     | IsRegistered                   | Esse valor indica se o dispositivo é ativado com o serviço.                                                                                         |   |
-    ```
+
 

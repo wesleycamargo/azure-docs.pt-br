@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 02/07/2019
+ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 0ad94799320e25d88f616117f1bfcf9f0513aadf
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: d46d74544181a6b9cbfd049b2f5461b20b928483
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873012"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401439"
 ---
-# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway-preview"></a>Gerenciar o acesso, energia e modo de conectividade para o Azure Data Box Gateway (visualização)
+# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Gerenciar o acesso, a potência e o modo de conectividade para o Gateway de caixa de dados do Azure
 
 Este artigo descreve como gerenciar o modo de acesso, energia e conectividade para o Azure Data Box Gateway. Essas operações são executadas por meio da interface do usuário da web local ou o portal do Azure.
 
@@ -26,16 +26,13 @@ Neste artigo, você aprenderá a:
 > * Gerenciar o modo de conectividade
 > * Gerenciar potência
 
-> [!IMPORTANT]
-> O Data Box Gateway está em versão prévia. Examine os [termos de serviço do Azure para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de solicitar e implantar essa solução.
-
 ## <a name="manage-device-access"></a>Gerenciar o acesso de dispositivo
 
-O acesso ao seu dispositivo de Azure Data Box Gateway é controlado pelo uso de uma senha de administrador do dispositivo. Você pode alterar a senha do administrador por meio da interface do usuário da web local. Você também pode redefinir a senha do administrador do dispositivo no portal do Azure.
+O acesso ao seu dispositivo de Gateway da caixa de dados é controlado pelo uso de uma senha do dispositivo. Você pode alterar a senha por meio da interface do usuário da web local. Você também pode redefinir a senha do dispositivo no portal do Azure.
 
-### <a name="change-device-administrator-password"></a>Alterar senha de administrador do dispositivo
+### <a name="change-device-password"></a>Alterar a senha de dispositivo
 
-Siga estas etapas na interface do usuário local para alterar a senha do administrador do dispositivo.
+Siga estas etapas na interface do usuário local para alterar a senha do dispositivo.
 
 1. Na interface do usuário de web local, vá para **manutenção > alteração de senha**.
 2. Digite a senha atual e, em seguida, a nova senha. A senha fornecida deve ter entre 8 e 16 caracteres. A senha deve ter 3 dos seguintes caracteres: maiúscula, minúscula, numérica e caracteres especiais. Confirme a nova senha.
@@ -44,7 +41,7 @@ Siga estas etapas na interface do usuário local para alterar a senha do adminis
 
 3. Clique em **alterar a senha**.
  
-### <a name="reset-device-administrator-password"></a>Redefinir senha do administrador do dispositivo
+### <a name="reset-device-password"></a>Redefinir senha do dispositivo
 
 O fluxo de trabalho de redefinição não exige que o usuário recupere a senha antiga e é útil quando a senha é perdida. Esse fluxo de trabalho é executado no portal do Azure.
 

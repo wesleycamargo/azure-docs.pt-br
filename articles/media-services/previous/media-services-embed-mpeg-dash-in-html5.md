@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: ff14afc9e438c2b493219e9fa207b2e8793b3c87
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 1390d68a93dd3d80b5977bab6665553ea3f8b398
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189199"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403067"
 ---
 # <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Inserção de um vídeo de streaming adaptável MPEG-DASH em um aplicativo HTML5 com DASH.js  
 
@@ -55,7 +55,7 @@ A primeira etapa é criar uma página padrão HTML contendo o elemento **video**
 ```
 
 ## <a name="adding-the-dashjs-player"></a>Adicionando o player DASH.js
-Para adicionar a implementação de referência do dash.js ao aplicativo, você precisará obter o arquivo dash.all.js da versão 1.0 do projeto dash.js. O arquivo deve ser salvo na pasta JavaScript do seu aplicativo. Esse arquivo é um arquivo de conveniência que reúne todo o código dash.js necessário em um único arquivo. Ao explorar o repositório do dash.js, você encontrará os arquivos individuais, o código de teste e muito mais, mas se tudo o que você quer é usar o dash.js, o arquivo dash.all.js é do que você precisa.
+Para adicionar a implementação de referência do dash. js para o aplicativo, você precisa obter o arquivo dash da versão mais recente do projeto dash. js. O arquivo deve ser salvo na pasta JavaScript do seu aplicativo. Esse arquivo é um arquivo de conveniência que reúne todo o código dash.js necessário em um único arquivo. Ao explorar o repositório do dash.js, você encontrará os arquivos individuais, o código de teste e muito mais, mas se tudo o que você quer é usar o dash.js, o arquivo dash.all.js é do que você precisa.
 
 Para adicionar o player dash.js aos seus aplicativos, adicione uma marca de script à seção de cabeçalho do basicPlayer.html:
 

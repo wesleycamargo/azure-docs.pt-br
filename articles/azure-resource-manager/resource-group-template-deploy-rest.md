@@ -1,6 +1,6 @@
 ---
 title: Implantar recursos com a API REST e o modelo | Microsoft Docs
-description: Use o Azure Resource Manager e a API REST do Resource Manager para implantar recursos no Azure. Os recursos são definidos em um modelo do Resource Manager.
+description: Use o Azure Resource Manager e a REST API do Gerenciador de recursos para implantar recursos no Azure. Os recursos são definidos em um modelo do Resource Manager.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -10,28 +10,30 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/14/2019
+ms.date: 03/22/2019
 ms.author: tomfitz
-ms.openlocfilehash: bd574eb2d3537d3e5c0774f57e37283817cc7879
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3468f5b625911cd637b22e2c1d35a47fb7d7b0e4
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112017"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402823"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>Implantar recursos com modelos do Resource Manager e a API REST do Resource Manager
 
 Este artigo explica como usar a API REST do Resource Manager com modelos do Resource Manager para implantar seus recursos no Azure.  
 
-> [!TIP]
-> Para obter ajuda com a depuração de erros durante a implantação, consulte:
-> 
-> * [Exibir operações de implantação](resource-manager-deployment-operations.md) para saber como obter informações que ajudarão a solucionar o erro
-> * [Solucionar erros comuns ao implantar recursos no Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md) para saber como resolver os erros comuns da implantação
-> 
-> 
-
 Você pode incluir seu modelo no corpo da solicitação ou vinculá-lo a um arquivo. Se optar pelo arquivo, ele poderá ser local ou um arquivo externo disponível por meio de um URI. Quando seu modelo estiver em uma conta de armazenamento, você poderá restringir o acesso a ele e fornecer um token de SAS (Assinatura de Acesso Compartilhado) durante a implantação.
+
+## <a name="deployment-scope"></a>Escopo da implantação
+
+Você pode direcionar sua implantação para uma assinatura do Azure ou um grupo de recursos dentro de uma assinatura. Na maioria dos casos, você irá focar a implantação para um grupo de recursos. Use implantações de assinatura para aplicar políticas e as atribuições de função entre a assinatura. Você também pode usar implantações de assinatura para criar um grupo de recursos e implantar recursos nele. Dependendo do escopo da implantação, você deve usar comandos diferentes.
+
+Para implantar em um **grupo de recursos**, use [implantações - crie](/rest/api/resources/deployments/createorupdate).
+
+Para implantar em um **assinatura**, use [implantações - crie no escopo de assinatura](/rest/api/resources/deployments/createorupdateatsubscriptionscope).
+
+Os exemplos neste artigo usam a implantações do grupo de recursos. Para obter mais informações sobre implantações de assinatura, consulte [criar grupos de recursos e recursos no nível da assinatura](deploy-to-subscription.md).
 
 ## <a name="deploy-with-the-rest-api"></a>Implantar com a API REST
 1. Definir [Parâmetros e cabeçalhos comuns](/rest/api/azure/), incluindo tokens de autenticação.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 5ce816c9e8bec716de840cc5f6fdd546b6abd298
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 2965f72a1f0532cd9e13d5fa03750cf4ed8bab99
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649774"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403452"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Criar um emparelhamento de rede virtual – Resource Manager, assinaturas diferentes
 
@@ -283,7 +283,7 @@ Se as redes virtuais estiverem em diferentes assinaturas e as assinaturas estive
    }
    ```
 
-3. Faça logon no Azure como UserA e implante o modelo usando o [portal](../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template), o [PowerShell](../azure-resource-manager/resource-group-template-deploy.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-templates-stored-locally) ou a [CLI do Azure](../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template). Especifique o nome do arquivo em que você salvou o exemplo de texto json na etapa 2.
+3. Faça logon no Azure como UserA e implante o modelo usando o [portal](../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template), o [PowerShell](../azure-resource-manager/resource-group-template-deploy.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template) ou a [CLI do Azure](../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template). Especifique o nome do arquivo em que você salvou o exemplo de texto json na etapa 2.
 4. Copie o exemplo de json da etapa 2 em um arquivo no computador e faça alterações nas linhas que começam com:
    - **nome**: Altere *myVnetA/myVnetAToMyVnetB* para *myVnetB/myVnetBToMyVnetA*.
    - **id**: Substitua `<subscription ID>` pela ID de assinatura de UserB e altere *myVnetB* para *myVnetA*.

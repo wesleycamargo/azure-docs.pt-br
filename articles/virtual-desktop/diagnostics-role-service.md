@@ -1,22 +1,22 @@
 ---
-title: Identificar problemas com o recurso de diagnóstico (visualização) – Azure
-description: Descreve o recurso de diagnóstico de área de trabalho Virtual do Windows e como usá-lo.
+title: Identificar problemas com o recurso de diagnóstico de visualização de área de trabalho Virtual do Windows - Azure
+description: Descreve o recurso de diagnóstico de visualização de área de trabalho Virtual do Windows e como usá-lo.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: f44f4d632fa1fc607f3933be8e15eb939e20a8ae
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: a9b8be58e8dfb27fbe896cf1c8d8dc0e91e3b24c
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318608"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402840"
 ---
-# <a name="identify-issues-with-the-diagnostics-feature-preview"></a>Identificar problemas com o recurso de diagnóstico (visualização)
+# <a name="identify-issues-with-the-diagnostics-feature"></a>Identificar problemas com o recurso de diagnóstico
 
-Área de trabalho Virtual do Windows (versão prévia) oferece um recurso de diagnóstico (visualização) que permite que o administrador identificar problemas por meio de uma única interface. As funções de área de trabalho Virtual do Windows uma atividade de diagnóstico de log sempre que um usuário interage com o sistema. Cada log contém informações relevantes, como as funções de área de trabalho Virtual do Windows envolvidas na transação, mensagens de erro, informações de locatário e informações do usuário. Atividades de diagnóstico são criadas pelo usuário final e ações administrativas e podem ser categorizadas em três principais buckets:
+Visualização de área de trabalho Virtual do Windows oferece um recurso de diagnóstico que permite ao administrador identificar problemas por meio de uma única interface. As funções de área de trabalho Virtual do Windows uma atividade de diagnóstico de log sempre que um usuário interage com o sistema. Cada log contém informações relevantes, como as funções de área de trabalho Virtual do Windows envolvidas na transação, mensagens de erro, informações de locatário e informações do usuário. Atividades de diagnóstico são criadas pelo usuário final e ações administrativas e podem ser categorizadas em três principais buckets:
 
 * Feed de atividades de assinatura: o usuário final dispara essas atividades, sempre que eles tentarem se conectar ao seu feed por meio de aplicativos de área de trabalho remota Microsoft.
 * Atividades de Conexão: o usuário final dispara essas atividades, sempre que eles tentarem se conectar a uma área de trabalho ou o RemoteApp por meio de aplicativos de área de trabalho remota Microsoft.
@@ -128,7 +128,7 @@ A tabela a seguir lista erros comuns de que seus administradores podem enfrentar
 
 ### <a name="external-management-error-codes"></a>Códigos de erro de gerenciamento externo
 
-|Código numérico|Código de erro|Solução sugerida|
+|Código numérico|Código do erro|Solução sugerida|
 |---|---|---|
 |3|UnauthorizedAccess|O usuário que tentou executar o cmdlet do PowerShell administrativo não tem permissões para fazer isso ou digitado incorretamente o nome de usuário.|
 |1000|TenantNotFound|O nome do locatário que você inseriu não corresponde dos locatários existentes. Examine o nome do locatário para erros de digitação e tente novamente.|
@@ -145,11 +145,11 @@ A tabela a seguir lista erros comuns de que seus administradores podem enfrentar
 |8000|InvalidAuthorizationRoleScope|O nome de função que você inseriu não corresponde ao quaisquer nomes de função existente. Examine o nome da função para erros de digitação e tente novamente. |
 |8001|UserNotFound |O nome de usuário inserido não corresponde a qualquer nome de usuário existente. Examine o nome para erros de digitação e tente novamente.|
 |8005|UserNotFoundInAAD |O nome de usuário inserido não corresponde a qualquer nome de usuário existente. Examine o nome para erros de digitação e tente novamente.|
-|8008|TenantConsentRequired|Siga as instruções [aqui](tenant-setup-azure-active-directory.md#grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-service) para fornecer consentimento para seu locatário.|
+|8008|TenantConsentRequired|Siga as instruções [aqui](tenant-setup-azure-active-directory.md#grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-preview-service) para fornecer consentimento para seu locatário.|
 
 ### <a name="external-connection-error-codes"></a>Códigos de erro de conexão externa
 
-|Código numérico|Código de erro|Solução sugerida|
+|Código numérico|Código do erro|Solução sugerida|
 |---|---|---|
 |-2147467259|ConnectionFailedAdTrustedRelationshipFailure|O host da sessão não seja corretamente associado ao Active Directory.|
 |-2146233088|ConnectionFailedUserHasValidSessionButRdshIsUnhealthy|As conexões falhou porque o host da sessão não está disponível. Verifique a integridade do host da sessão.|
@@ -164,6 +164,6 @@ A tabela a seguir lista erros comuns de que seus administradores podem enfrentar
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre as funções dentro de área de trabalho Virtual do Windows, consulte [ambiente de área de trabalho Virtual do Windows](environment-setup.md).
+Para saber mais sobre as funções dentro de área de trabalho Virtual do Windows, consulte [ambiente de visualização de área de trabalho Virtual do Windows](environment-setup.md).
 
 Para ver uma lista de cmdlets do PowerShell disponíveis para a área de trabalho Virtual do Windows, consulte o [referência do PowerShell](/powershell/windows-virtual-desktop/overview).

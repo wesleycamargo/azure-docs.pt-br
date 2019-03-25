@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 03/21/2019
 ms.author: alkohli
-ms.openlocfilehash: e0aa3468bda9f904d62e9e20545ac5f990cef521
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.openlocfilehash: e0b8b35c654f0716fae1e6ab785f57dcf04e1a5a
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57905276"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400894"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge-preview"></a>Gerenciar o acesso, a potência e o modo de conectividade para sua borda da caixa de dados do Azure (visualização)
 
@@ -31,11 +31,11 @@ Neste artigo, você aprenderá a:
 
 ## <a name="manage-device-access"></a>Gerenciar o acesso de dispositivo
 
-O acesso ao seu dispositivo de borda da caixa de dados é controlado pelo uso de uma senha de administrador do dispositivo. Você pode alterar a senha do administrador por meio da interface do usuário da web local. Você também pode redefinir a senha do administrador do dispositivo no portal do Azure.
+O acesso ao seu dispositivo de borda da caixa de dados é controlado pelo uso de uma senha do dispositivo. Você pode alterar a senha por meio da interface do usuário da web local. Você também pode redefinir a senha do dispositivo no portal do Azure.
 
-### <a name="change-device-administrator-password"></a>Alterar senha de administrador do dispositivo
+### <a name="change-device-password"></a>Alterar a senha de dispositivo
 
-Siga estas etapas na interface do usuário local para alterar a senha do administrador do dispositivo.
+Siga estas etapas na interface do usuário local para alterar a senha do dispositivo.
 
 1. Na interface do usuário de web local, vá para **manutenção > alteração de senha**.
 2. Digite a senha atual e, em seguida, a nova senha. A senha fornecida deve ter entre 8 e 16 caracteres. A senha deve ter 3 dos seguintes caracteres: maiúscula, minúscula, numérica e caracteres especiais. Confirme a nova senha.
@@ -44,7 +44,7 @@ Siga estas etapas na interface do usuário local para alterar a senha do adminis
 
 3. Selecione **Alterar senha**.
  
-### <a name="reset-device-administrator-password"></a>Redefinir senha do administrador do dispositivo
+### <a name="reset-device-password"></a>Redefinir senha do dispositivo
 
 O fluxo de trabalho de redefinição não exige que o usuário recupere a senha antiga e é útil quando a senha é perdida. Esse fluxo de trabalho é executado no portal do Azure.
 
@@ -63,7 +63,7 @@ Além de modo padrão totalmente conectada, o dispositivo também pode executar 
 
 - **Totalmente conectada** -este é o modo padrão normal em que o dispositivo funciona. O upload de nuvem e o download de dados está habilitada neste modo. Você pode usar o portal do Azure ou da interface do usuário da web local para gerenciar o dispositivo.
 
-- **Parcialmente desconectado** - Nesse modo, o dispositivo não pode carregar dados para os compartilhamentos, mas pode ser gerenciado pelo portal do Azure.
+- **Parcialmente desconectado** – nesse modo, o dispositivo não é possível carregar ou baixar qualquer compartilhamento no entanto os dados podem ser gerenciados por meio do portal do Azure.
 
     Esse modo é normalmente usado quando em uma rede de satélite medida e o objetivo é minimizar o consumo de largura de banda da rede. Consumo de rede mínima ainda poderão ocorrer para monitoramento de operações de dispositivo.
 

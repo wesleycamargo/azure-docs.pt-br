@@ -10,24 +10,40 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/14/2019
+ms.date: 03/22/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0c298ba2074a57bd182b23e5fd9bc6b68ee496ad
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: f64a76fa6063ebc5681b546b53fe9d6ca7bc5037
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300442"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400405"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Implantar recursos com modelos do Resource Manager e a CLI do Azure
 
 Este artigo explica como usar a CLI do Azure com modelos do Resource Manager para implantar seus recursos no Azure. Se você não estiver familiarizado com os conceitos de implantação e gerenciamento de soluções do Azure, consulte [Visão geral do Azure Resource Manager](resource-group-overview.md).  
 
-O modelo do Resource Manager que você implanta pode ser um arquivo local do seu computador ou um arquivo externo que está localizado em um repositório como o GitHub. O modelo que você implanta neste artigo está disponível como um [modelo de conta de armazenamento no GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
-
 [!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
 
 Se você não tiver a CLI do Azure instalada, você pode usar o [Cloud Shell](#deploy-template-from-cloud-shell).
+
+## <a name="deployment-scope"></a>Escopo da implantação
+
+Você pode direcionar sua implantação para uma assinatura do Azure ou um grupo de recursos dentro de uma assinatura. Na maioria dos casos, você irá focar a implantação para um grupo de recursos. Use implantações de assinatura para aplicar políticas e as atribuições de função entre a assinatura. Você também pode usar implantações de assinatura para criar um grupo de recursos e implantar recursos nele. Dependendo do escopo da implantação, você deve usar comandos diferentes.
+
+Para implantar em um **grupo de recursos**, use [implantação de grupo az criar](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create):
+
+```azurecli
+az group deployment create --resource-group <resource-group-name> --template-file <path-to-template>
+```
+
+Para implantar em um **assinatura**, use [implantação az criar](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create):
+
+```azurecli
+az deployment create --location <location> --template-file <path-to-template>
+```
+
+Os exemplos neste artigo usam a implantações do grupo de recursos. Para obter mais informações sobre implantações de assinatura, consulte [criar grupos de recursos e recursos no nível da assinatura](deploy-to-subscription.md).
 
 ## <a name="deploy-local-template"></a>Implantar o modelo local
 
@@ -56,7 +72,7 @@ A implantação pode levar alguns minutos para ser concluída. Quando ela for co
 "provisioningState": "Succeeded",
 ```
 
-## <a name="deploy-external-template"></a>Implantar modelo externo
+## <a name="deploy-remote-template"></a>Implantar modelo remoto
 
 Em vez de armazenar modelos do Resource Manager no computador local, talvez você prefira armazená-los em um local externo. É possível armazenar modelos em um repositório de controle de código-fonte (como o GitHub). Ou ainda armazená-los em uma conta de armazenamento do Azure para acesso compartilhado na sua organização.
 
@@ -83,10 +99,6 @@ az group deployment create --resource-group examplegroup \
   --template-uri <copied URL> \
   --parameters storageAccountType=Standard_GRS
 ```
-
-## <a name="deploy-to-more-than-one-resource-group-or-subscription"></a>Implantar em mais de um grupo de recursos ou assinatura
-
-Normalmente, você deve implantar todos os recursos em seu modelo em um único grupo de recursos. No entanto, há cenários em que você deseja implantar um conjunto de recursos de uma vez, mas colocá-los em diferentes grupos de recursos ou assinaturas. Você pode implantar em apenas cinco grupos de recursos em uma única implantação. Para saber mais, consulte [Implantar recursos do Azure em mais de uma assinatura ou grupo de recursos](resource-manager-cross-resource-group-deployment.md).
 
 ## <a name="redeploy-when-deployment-fails"></a>Reimplantar quando ocorrer falha na implantação
 
@@ -196,7 +208,6 @@ az group deployment create \
   --parameters @demotemplate.parameters.json \
   --parameters exampleArray=@arrtest.json
 ```
-
 
 ## <a name="test-a-template-deployment"></a>Testar uma implantação de modelo
 

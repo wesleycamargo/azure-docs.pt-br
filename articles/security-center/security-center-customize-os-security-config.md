@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/26/2018
+ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 15707e9854e79b3aa05ff9024fc5b3c7a38fa8f2
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: c0c37724e61490c8c33b5e2d37879549bbc6d7ce
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106878"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402109"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Personalizar as configurações de segurança do sistema operacional na Central de Segurança do Azure (versão prévia)
 
@@ -112,7 +112,7 @@ Cada categoria tem seu próprio conjunto de atributos. Você pode alterar os seg
 
     - Lista de grupos de usuários permitidos, por exemplo: *Administradores*, *Operadores de Backup*
 
--   **state**: A cadeia de caracteres pode conter as opções *Desabilitado* ou *Habilitado*. Para esta versão prévia privada, a cadeia de caracteres diferencia maiúsculas de minúsculas.
+-   **state**: A cadeia de caracteres pode conter as opções *Desabilitado* ou *Habilitado*. Para esta versão, a cadeia de caracteres diferencia maiusculas de minúsculas.
 
 Esses são os únicos campos que podem ser configurados. Se você violar o tamanho ou o formato do arquivo, não poderá salvar a alteração. Você receberá um erro informando que você precisa fazer upload de um arquivo de configuração JSON válido.
 

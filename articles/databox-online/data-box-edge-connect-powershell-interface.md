@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 03/21/2019
 ms.author: alkohli
-ms.openlocfilehash: b3effdbace2be582bfe85d0402088f8aa0d96fe7
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9b0e94deda205497cda4ebf383f302c6c3bb896a
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57556448"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403588"
 ---
-# <a name="manage-an-azure-data-box-edge-device-via-windows-powershell-preview"></a>Gerenciar um dispositivo de borda de caixa de dados do Azure por meio do Windows PowerShell (versão prévia)
+# <a name="manage-an-azure-data-box-edge-device-via-windows-powershell"></a>Gerenciar um dispositivo de borda de caixa de dados do Azure por meio do Windows PowerShell
 
 Solução de borda da caixa de dados do Azure permite processar dados e enviá-lo pela rede para o Azure. Este artigo descreve algumas das tarefas de configuração e gerenciamento para seu dispositivo de borda da caixa de dados. Você pode usar o portal do Azure, interface do usuário da web local ou a interface do Windows PowerShell para gerenciar seu dispositivo.
 
@@ -32,18 +32,9 @@ Este artigo inclui os seguintes procedimentos:
 - Obter logs de computação
 - Monitorar e solucionar problemas de módulos de computação
 
-> [!IMPORTANT]
-> Borda da caixa de dados do Azure está atualmente em visualização pública.
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
-> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## <a name="connect-to-the-powershell-interface"></a>Conectar-se à interface do PowerShell
 
 [!INCLUDE [Connect to admin runspace](../../includes/data-box-edge-gateway-connect-minishell.md)]
-
-## <a name="start-a-support-session"></a>Iniciar uma sessão de suporte
-
-[!INCLUDE [Connect to support runspace](../../includes/data-box-edge-gateway-connect-support.md)]
 
 ## <a name="create-a-support-package"></a>Criar um pacote de suporte
 
@@ -73,11 +64,15 @@ Se a função de computação é configurada em seu dispositivo, você também p
     ```
     Get-AzureDataBoxEdgeComputeRoleLogs -Path "\\hcsfs\logs\myacct" -Credential "username/password" -RoleInstanceName "IotRole" -FullLogCollection
     ```
-    Aqui está uma descrição dos parâmetros usados para o cmdlet: 
+    Aqui está uma descrição dos parâmetros usados para o cmdlet:
     - `Path`: Forneça um caminho de rede para o compartilhamento no qual você deseja criar o pacote de log de computação.
     - `Credential`: Forneça o nome de usuário e a senha para o compartilhamento de rede.
     - `RoleInstanceName`: Forneça essa cadeia de caracteres `IotRole` para esse parâmetro.
     - `FullLogCollection`: Esse parâmetro garante que o pacote de log conterá todos os logs de computação. Por padrão, o pacote de log contém apenas um subconjunto de logs.
+
+## <a name="monitor-and-troubleshoot-compute-modules"></a>Monitorar e solucionar problemas de módulos de computação
+
+[!INCLUDE [Monitor and troubleshoot compute modules](../../includes/data-box-edge-monitor-troubleshoot-compute.md)]
 
 
 ## <a name="next-steps"></a>Próximas etapas

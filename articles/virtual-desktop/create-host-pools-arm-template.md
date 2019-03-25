@@ -1,22 +1,22 @@
 ---
-title: Criar um pool de host com um modelo do Gerenciador de recursos do Azure (visualização) – Azure
-description: Como criar um pool de host na área de trabalho Virtual do Windows com um modelo do Azure Resource Manager.
+title: Criar um pool de host de visualização de área de trabalho Virtual do Windows com um modelo do Azure Resource Manager - Azure
+description: Como criar um pool de host na visualização de área de trabalho Virtual do Windows com um modelo do Azure Resource Manager.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 7f4849c19d56bb385e7ad3ce0aa95e16d5c53c23
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 262ec35a8a177652dff12bccb3b5435cb5856d81
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318458"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401427"
 ---
-# <a name="create-a-host-pool-with-an-azure-resource-manager-template-preview"></a>Criar um pool de host com um modelo do Azure Resource Manager (versão prévia)
+# <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Criar um pool de host com um modelo do Azure Resource Manager
 
-Pools de host são uma coleção de um ou mais máquinas virtuais idênticas em ambientes de locatário (visualização) da área de trabalho Virtual do Windows. Cada pool de host pode conter um grupo de aplicativos que os usuários podem interagir com o que seria em uma área de trabalho física.
+Pools de host são uma coleção de um ou mais máquinas virtuais idênticas em ambientes de locatário de visualização de área de trabalho Virtual do Windows. Cada pool de host pode conter um grupo de aplicativos que os usuários podem interagir com o que seria em uma área de trabalho física.
 
 Siga as instruções desta seção para criar um pool de host para um locatário de área de trabalho Virtual do Windows com um modelo do Azure Resource Manager fornecido pela Microsoft. Este artigo informa como criar um pool de host na área de trabalho Virtual do Windows, crie um grupo de recursos com as VMs em uma assinatura do Azure, Junte-se nessas VMs ao domínio do AD e registrar as máquinas virtuais com área de trabalho Virtual do Windows.
 

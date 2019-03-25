@@ -1,22 +1,22 @@
 ---
 title: Preparar e personalizar uma imagem de VHD mestre - Azure
-description: Como preparar, personalizar e carregar uma imagem mestre da área de trabalho Virtual do Windows (visualização) no Azure.
+description: Como preparar, personalizar e carregar uma imagem mestre de visualização de área de trabalho Virtual do Windows no Azure.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 53bf33aad6511cc282f53659bbe43873cacfc3ff
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: ca186090f28f04811030e83b159782a9bfeb87f9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318413"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400767"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparar e personalizar uma imagem de VHD mestre
 
-Este artigo informa como preparar uma imagem de disco de rígido virtual (VHD) mestre para carregar no Azure, incluindo como criar máquinas virtuais (VMs) e instale e configure o software neles. Essas instruções são para uma configuração de área de trabalho Virtual do Windows-específica (visualização) que pode ser usada com os processos existentes da sua organização.
+Este artigo informa como preparar uma imagem de disco de rígido virtual (VHD) mestre para carregar no Azure, incluindo como criar máquinas virtuais (VMs) e instale e configure o software neles. Essas instruções são para uma configuração específica de visualização de área de trabalho Virtual do Windows que pode ser usada com os processos existentes da sua organização.
 
 ## <a name="create-a-vm"></a>Criar uma máquina virtual
 
@@ -370,8 +370,8 @@ As instruções a seguir descrevem como carregar sua imagem mestre em uma conta 
 
 Agora que você tem uma imagem, você pode criar ou atualizar grupos de host. Para saber mais sobre como criar e atualizar grupos de host, consulte os seguintes artigos:
 
-- [Criar um pool de host com um modelo do Azure Resource Manager (versão prévia)](create-host-pools-arm-template.md)
-- [Tutorial: Criar um pool de host com o Azure Marketplace (visualização)](create-host-pools-azure-marketplace.md)
-- [Criar um pool de host com o PowerShell (versão prévia)](create-host-pools-powershell.md)
+- [Criar um pool de host com um modelo do Azure Resource Manager](create-host-pools-arm-template.md)
+- [Tutorial: Criar um pool de host com o Azure Marketplace](create-host-pools-azure-marketplace.md)
+- [Criar um pool de host com o PowerShell](create-host-pools-powershell.md)
 - [Configure um compartilhamento de perfil de usuário para um pool de host](create-host-pools-user-profile.md)
 - [Configurar o método de balanceamento de carga de área de trabalho Virtual do Windows](configure-host-pool-load-balancing.md)

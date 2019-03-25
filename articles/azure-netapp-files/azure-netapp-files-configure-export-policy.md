@@ -1,6 +1,6 @@
 ---
-title: Configurar a política de exportação para um volume de Azure NetApp Files | Microsoft Docs
-description: Descreve como configurar a política de exportação para controlar o acesso a um volume de Azure NetApp Files
+title: Configurar a política de exportação para um volume do NFS usando arquivos do Azure NetApp | Microsoft Docs
+description: Descreve como configurar a política de exportação para controlar o acesso a um volume do NFS usando arquivos do Azure NetApp
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/28/2018
+ms.date: 03/20/2019
 ms.author: b-juche
-ms.openlocfilehash: 1098c5c2f42b242b3ba2f68ec7480de90dd7c22e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 8cda5921a1aec86d28beabbd9cea5b07a203a0e8
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766641"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401496"
 ---
-# <a name="configure-export-policy-for-a-volume"></a>Configurar a política de exportação para um volume
+# <a name="configure-export-policy-for-an-nfs-volume"></a>Configurar a política de exportação para um volume do NFS
 
-Opcionalmente, você pode configurar a política de exportação para controlar o acesso a um volume de Azure NetApp Files. 
+Opcionalmente, você pode configurar a política de exportação para controlar o acesso a um volume de Azure NetApp Files. Política de exportação é o suporte somente para volumes do NFS. 
 
 ## <a name="steps"></a>Etapas 
 
@@ -47,7 +47,7 @@ Opcionalmente, você pode configurar a política de exportação para controlar 
 
     * **Protocolos**   
         Especifique o protocolo a ser usado para a política de exportação.   
-        Atualmente, o Azure NetApp Files dá suporte somente a NFSv3.
+        Atualmente, a política de exportação de arquivos do Azure NetApp suporta apenas NFS V3.
 
     ![Exportar política](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
 

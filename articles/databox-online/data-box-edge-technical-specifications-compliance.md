@@ -8,19 +8,16 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 8ef35709e90c0a58cc0ff8df1afb6e864adc0a23
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: ab3d3a13f8bfa69bd9e13dae344cfbcc3731cc77
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57994712"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402585"
 ---
-# <a name="azure-data-box-edge-technical-specifications-preview"></a>Especificações técnicas de borda da caixa de dados do Azure (visualização)
+# <a name="azure-data-box-edge-technical-specifications"></a>Especificações técnicas de borda da caixa de dados do Azure
 
 Os componentes de hardware do seu dispositivo de borda da caixa de dados do Microsoft Azure seguem as especificações técnicas e aos padrões regulatórios descritos neste artigo. As especificações técnicas descrevem as unidades de fonte de alimentação (PSUs), capacidade de armazenamento, compartimentos e padrões ambientais. 
-
-> [!IMPORTANT]
-> O Data Box Edge está em versão prévia. Antes de pedir e implantar essa solução, examine os [Termos de serviço do Azure para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 ## <a name="power-supply-unit-specifications"></a>Especificações de unidade de fonte de alimentação
 
@@ -28,7 +25,7 @@ O dispositivo de borda da caixa de dados tem dois 100 a 240 V Power unidades de 
 
 | Especificação           | 750 W PSU                  |
 |-------------------------|----------------------------|
-| Alimentação de saída máxima    |  750 W                     |
+| Alimentação de saída máxima    | 750 W                     |
 | Frequência               | 50/60 Hz                   |
 | Seleção de faixa de tensão | Variação automática: 100 A 240 V CA |
 | Conectado com a máquina ligada           | Sim                        |

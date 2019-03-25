@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2019
+ms.date: 03/22/2019
 ms.author: banders
-ms.openlocfilehash: dbfb559516177d496f5b16dc31f0ef8d0603cf68
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b37f198052ee927ea986d2a6046bfd93b6ee5d5e
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57904007"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58399967"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gerenciar Reservas para recursos do Azure
 
@@ -28,7 +28,7 @@ Se você comprou Instâncias de Máquinas Virtuais Reservadas do Azure, poderá 
 
 ## <a name="change-the-scope-for-a-reservation"></a>Alterar o escopo de uma reserva
 
- Seu desconto de reserva se aplica a máquinas virtuais, bancos de dados SQL, Azure Cosmos DB ou outros recursos que correspondem à sua reserva e são executados no escopo da reserva. O escopo de uma reserva pode ser a única assinatura ou todas as assinaturas de seu contexto de cobrança. Se você definir o escopo como assinatura única, a reserva será correspondida à execução de recursos na assinatura selecionada. Se você definir o escopo compartilhado, o Azure corresponderá a reserva de recursos que são executados em todas as assinaturas no contexto de cobrança. O contexto de cobrança depende da assinatura usada para comprar a reserva.
+ O desconto de reserva se aplica a máquinas virtuais, bancos de dados SQL, BD Cosmos do Azure ou outros recursos que correspondem à reserva e executados no escopo de reserva. O contexto de cobrança depende da assinatura usada para comprar a reserva.
 
 Para atualizar o escopo de uma reserva:
 
@@ -115,6 +115,10 @@ Para atualizar a configuração de otimização da reserva:
 4. Selecione **Configurações** > **Configuração**.
 5. Altere a configuração **Otimizar para**.
 
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
+
+Se você tiver dúvidas ou precisar de Ajuda, [criar uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre as Reservas do Azure, consulte os seguintes artigos:
@@ -130,7 +134,3 @@ Para saber mais sobre as Reservas do Azure, consulte os seguintes artigos:
 - [Entender o uso de reserva para a sua assinatura paga conforme o uso](billing-understand-reserved-instance-usage.md)
 - [Entender o uso de reserva para seu registro de empresa](billing-understand-reserved-instance-usage-ea.md)
 - [Custos de software do Windows não estão incluídos nas reservas](billing-reserved-instance-windows-software-costs.md)
-
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
-
-Se você tiver dúvidas ou precisar de Ajuda, [criar uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).

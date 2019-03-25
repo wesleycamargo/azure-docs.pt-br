@@ -1,22 +1,22 @@
 ---
-title: Dimensionar automaticamente os hosts de sessão - Azure
-description: Descreve como configurar o script de colocação em escala automática para hosts de sessão de área de trabalho Virtual do Windows (visualização).
+title: Dimensionar automaticamente os hosts de sessão de visualização de área de trabalho Virtual do Windows - Azure
+description: Descreve como configurar o script de colocação em escala automática para hosts de sessão de visualização de área de trabalho Virtual do Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: d800b45310ae476ec0c54460d9719c17e35dfe5a
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: bee02549d68b1dbdba3f0e62477b28bbd475ea32
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318353"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402483"
 ---
 # <a name="automatically-scale-session-hosts"></a>Dimensionar automaticamente os hosts de sessão
 
-Para muitas implantações de área de trabalho Virtual do Windows no Azure, os custos de máquina virtual representam uma parte significativa do custo total de implantação de área de trabalho Virtual do Windows. Para reduzir os custos, é melhor desligar e desalocar a sessão hospedar máquinas virtuais (VMs) durante o horário de pico, reiniciá-los durante horários de pico.
+Para muitas implantações de visualização de área de trabalho Virtual do Windows no Azure, os custos de máquina virtual representam uma parte significativa do custo total de implantação de área de trabalho Virtual do Windows. Para reduzir os custos, é melhor desligar e desalocar a sessão hospedar máquinas virtuais (VMs) durante o horário de pico, reiniciá-los durante horários de pico.
 
 Este artigo usa um script simples de dimensionamento para dimensionar automaticamente as máquinas virtuais de host de sessão em seu ambiente de área de trabalho Virtual do Windows. Para saber mais sobre como funciona o script de colocação em escala, consulte a [como funciona o script de colocação em escala](#how-the-scaling-script-works) seção.
 
@@ -73,7 +73,7 @@ Em seguida, você precisará criar as credenciais armazenadas com segurança:
 
 Insira os valores relevantes para os campos a seguir para atualizar as configurações de script de colocação em escala em config. XML:
 
-| Campo                     | Descrição                    |
+| Campo                     | DESCRIÇÃO                    |
 |-------------------------------|------------------------------------|
 | AADTenantId                   | ID de locatário do AD do Azure que associa a assinatura em que executa o host de sessão de VMs     |
 | AADApplicationId              | ID da entidade de segurança de aplicativo de serviço                                                       |
@@ -82,7 +82,7 @@ Insira os valores relevantes para os campos a seguir para atualizar as configura
 | tenantName                    | Nome do locatário de área de trabalho Virtual do Windows                                                    |
 | hostPoolName                  | Nome do pool de host de área de trabalho Virtual do Windows                                                 |
 | RDBroker                      | URL do serviço WVD, o valor padrão <https://rdbroker.wvd.microsoft.com>             |
-| Nome de usuário                      | A ID de entidade de segurança de aplicativo de serviço (é possível ter a mesma entidade de serviço, conforme mostrado no AADApplicationId) ou o usuário padrão sem a autenticação multifator |
+| Nome de Usuário                      | A ID de entidade de segurança de aplicativo de serviço (é possível ter a mesma entidade de serviço, conforme mostrado no AADApplicationId) ou o usuário padrão sem a autenticação multifator |
 | isServicePrincipal            | Os valores aceitos são **verdadeira** ou **falso**. Indica se o segundo conjunto de credenciais que está sendo usado é uma entidade de serviço ou uma conta padrão. |
 | BeginPeakTime                 | Quando o tempo de uso de pico começa                                                            |
 | EndPeakTime                   | Quando termina o tempo de uso de pico                                                              |

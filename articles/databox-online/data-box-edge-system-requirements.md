@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/04/2019
+ms.date: 03/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 52d2061262fd04e68ed13aac8932c23b7074f83e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 125ad28f049662ae6d91c61bb5ee79c1c1428af5
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113763"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401766"
 ---
-# <a name="azure-data-box-edge-system-requirements-preview"></a>Requisitos do sistema do Azure Data Box Edge (versão prévia)
+# <a name="azure-data-box-edge-system-requirements"></a>Requisitos de sistema de borda da caixa de dados do Azure
 
 Este artigo descreve os requisitos de sistema importantes para a solução do Microsoft Azure Data Box Edge e para os clientes que se conectam ao Azure Data Box Edge. É recomendável que você examine as informações com atenção antes de implantar o Data Box Edge. Você pode consultar novamente a essas informações conforme necessário durante a implantação e operação subsequente.
 
@@ -23,9 +23,6 @@ São requisitos de sistema do Data Box Edge:
 
 - **Requisitos de software para hosts** – descreve as plataformas com suporte, os navegadores da interface do usuário de configuração local, os clientes SMB e requisitos adicionais para os clientes que acessam o dispositivo.
 - **Requisitos de rede para o dispositivo** – fornece informações sobre os requisitos de rede da operação do dispositivo físico.
-
-> [!IMPORTANT]
-> O Data Box Edge está em versão prévia. Examine os [termos de uso para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implantar essa solução.
 
 ## <a name="supported-os-for-clients-connected-to-device"></a>Sistema operacional com suporte para clientes conectados ao dispositivo
 
@@ -63,10 +60,7 @@ Use a tabela a seguir para a configuração de porta dos servidores que hospedam
 
 | Nº da porta | Entrada ou saída | Escopo da porta | Obrigatório | Diretrizes |
 |----------|-----------|------------|----------|----------|
-| TCP 5671 (AMQP)| Saída       | WAN        | Sim      | Protocolo de comunicação padrão do IoT Edge. Precisa estar aberta quando o Azure IoT Edge não está configurado para outros protocolos com suporte ou quando o AMQP é o protocolo de comunicação desejado. <br>Não há suporte para o 5672 para AMQP no IoT Edge. <br>Bloqueie essa porta quando o Azure IoT Edge usar outro protocolo do Hub IoT com suporte. |
-| TCP 443 (HTTPS)| Saída       | WAN        | Sim      | Saída aberta para o provisionamento do IoT Edge. Se você tiver um gateway transparente com dispositivos de folha que possam enviar solicitações de método. Nesse caso, a porta 443 não precisa estar aberta para redes externas para conectar-se ao Hub IoT ou fornecer serviços do Hub IoT por meio do Azure IoT Edge. Assim, a regra de entrada pode ser restrita para abrir somente a entrada da rede interna. |
-| TCP 5671 (AMQP) | No        |            | Não        | As conexões de entrada devem ser bloqueadas.|
-| TCP 443 (HTTPS) | No        |            | Em alguns casos, veja os comentários | As conexões de entrada devem ser abertas somente para cenários específicos. Se protocolos não HTTP, como AMQP e MQTT, não puderem ser configurados, as mensagens poderão ser enviadas por meio de WebSockets usando a porta 443. |
+| TCP 443 (HTTPS)| Saída       | WAN        | Sim      | Saída aberta para o provisionamento do IoT Edge. Essa configuração é necessária ao usar scripts manuais ou o DPS (serviço de provisionamento de dispositivos) do Azure IoT.|
 
 Para todas as informações, acesse [Regras de configuração de firewall e de porta para implantação do IoT Edge](https://docs.microsoft.com/azure/iot-edge/troubleshoot).
 

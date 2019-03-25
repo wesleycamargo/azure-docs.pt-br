@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 03/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 08f84a3e037301837da984b0891d978027dc2e11
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a0a16fbda662ee1d3718dbafc4231de67aab277e
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58083157"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400665"
 ---
 # <a name="tutorial-detect-threats-with-azure-sentinel-preview"></a>Tutorial: Detectar ameaças com a versão prévia do Azure Sentinel
 
@@ -27,18 +27,21 @@ ms.locfileid: "58083157"
 > Sentinela do Azure está atualmente em visualização pública.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Este tutorial ajuda você a detectar ameaças com o Azure Sentinel.
-
 Depois que você [suas fontes de dados conectadas](quickstart-onboard.md) ao Azure Sentinel, você deseja ser notificado quando acontece algo suspeito. Para que você possa fazer isso, Sentinel do Azure permite que você crie regras de alerta, que geram casos em que você pode atribuir e avançadas use profundamente investigar ameaças em seu ambiente e anomalias. 
 
-
+Este tutorial ajuda você a detectar ameaças com o Azure Sentinel.
 > [!div class="checklist"]
 > * Criar regras de detecção
 > * Responda às ameaças
 
 ## <a name="create-detection-rules"></a>Criar regras de detecção
 
-Para investigar os casos, primeiro você precisa criar regras de detecção. Regras de detecção baseiam-se nos tipos de ameaças e anomalias que poderiam ser suspeitas em seu ambiente que você deseja saber sobre imediatamente, garantindo que sejam exibidas, investigados e corrigidos. 
+Para investigar os casos, primeiro você precisa criar regras de detecção. 
+
+> [!NOTE]
+> Alertas gerados no Azure Sentinel estão disponíveis por meio [segurança do Microsoft Graph](https://aka.ms/securitygraphdocs). Consulte a [documentação de alertas de segurança do Microsoft Graph](https://aka.ms/graphsecurityreferencebetadocs) para obter mais detalhes e parceiros de integração.
+
+Regras de detecção baseiam-se nos tipos de ameaças e anomalias que poderiam ser suspeitas em seu ambiente que você deseja saber sobre imediatamente, garantindo que sejam exibidas, investigados e corrigidos. 
 
 1. No portal do Azure em Azure Sentinel, selecione **Analytics**.
 
@@ -87,7 +90,9 @@ Sentinela do Azure oferece duas opções principais para responder às ameaças 
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste tutorial, você aprendeu como começar a usar detecção de ameaças usando o Azure Sentinel. Continue com o tutorial [como responder a ameaças usando as guias estratégicos automatizados](tutorial-respond-threats-playbook.md).
+Neste tutorial, você aprendeu como começar a usar detecção de ameaças usando o Azure Sentinel. 
+
+Para aprender a automatizar suas respostas às ameaças, [como responder a ameaças usando as guias estratégicos automatizados](tutorial-respond-threats-playbook.md).
 > [!div class="nextstepaction"]
 > [Responder a ameaças](tutorial-respond-threats-playbook.md) para automatizar suas respostas às ameaças.
 

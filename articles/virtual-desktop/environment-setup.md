@@ -1,22 +1,22 @@
 ---
-title: Ambiente de área de trabalho Virtual do Windows (visualização) – Azure
-description: Os elementos básicos de um ambiente de área de trabalho Virtual do Windows.
+title: Ambiente de visualização de área de trabalho Virtual do Windows – Azure
+description: Os elementos básicos de um ambiente de visualização de área de trabalho Virtual do Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: c503f665e3e2f99cd59f207c3fc4823b927eaac3
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: ceed6a8bb74206b7c6689ce542482148800e4ba9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318443"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403503"
 ---
-# <a name="windows-virtual-desktop-environment-preview"></a>Ambiente de área de trabalho Virtual do Windows (visualização)
+# <a name="windows-virtual-desktop-preview-environment"></a>Ambiente de visualização de área de trabalho Virtual do Windows
 
-Área de trabalho Virtual do Windows (versão prévia) é um serviço que fornece aos usuários acesso fácil e seguro a suas áreas de trabalho virtualizadas e RemoteApps. Este tópico informa um pouco mais sobre a estrutura geral do ambiente de área de trabalho Virtual do Windows.
+Visualização de área de trabalho Virtual do Windows é um serviço que fornece aos usuários acesso fácil e seguro a suas áreas de trabalho virtualizadas e RemoteApps. Este tópico informa um pouco mais sobre a estrutura geral do ambiente de área de trabalho Virtual do Windows.
 
 ## <a name="tenants"></a>Locatários
 
@@ -57,11 +57,11 @@ Depois de atribuir usuários a seus grupos de aplicativos, eles possam se conect
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre como atribuir funções a usuários e o acesso delegado [delegada acesso na área de trabalho Virtual do Windows](delegated-access-virtual-desktop.md).
+Saiba mais sobre como atribuir funções a usuários e o acesso delegado [acesso delegado na visualização de área de trabalho Virtual do Windows](delegated-access-virtual-desktop.md).
 
-Para saber como configurar seu locatário de área de trabalho Virtual do Windows, consulte [criar um locatário na área de trabalho Virtual do Windows](tenant-setup-azure-active-directory.md).
+Para saber como configurar seu locatário de área de trabalho Virtual do Windows, consulte [criar um locatário na visualização de área de trabalho Virtual do Windows](tenant-setup-azure-active-directory.md).
 
 Para saber como se conectar à área de trabalho Virtual do Windows, consulte um dos seguintes artigos:
 
 - [Conectar-se para o cliente de área de trabalho remota no Windows 7 e Windows 10](connect-windows-7-and-10.md)
-- [Conectar-se para o cliente da web de área de trabalho Virtual do Windows](connect-web.md)
+- [Conectar-se para o cliente da web de visualização de área de trabalho Virtual do Windows](connect-web.md)
