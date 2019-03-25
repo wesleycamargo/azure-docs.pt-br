@@ -24,6 +24,12 @@ items:
       href: azure-to-azure-tutorial-failover-failback.md
     - name: Fazer failback
       href: azure-to-azure-tutorial-failback.md
+  - name: Mover VMs do Azure
+    items:
+    - name: Mover VMs do Azure para outra região
+      href: azure-to-azure-tutorial-migrate.md
+    - name: Mover as VMs do Azure para as Zonas de Disponibilidade
+      href: move-Azure-VMs-AVset-Azone.md
   - name: Recuperação de desastre da VM do VMware para o Azure
     items:
     - name: Preparar o Azure
@@ -60,19 +66,11 @@ items:
       href: migrate-tutorial-windows-server-2008.md
     - name: Migrar instâncias do AWS para o Azure
       href: migrate-tutorial-aws-azure.md
-  - name: Mover VMs do Azure
-    items:
-    - name: Visão geral
-      href: azure-to-azure-move-overview.md
-    - name: Mover VMs do Azure para outra região
-      href: azure-to-azure-tutorial-migrate.md
-    - name: Mover as VMs do Azure para as Zonas de Disponibilidade
-      href: move-Azure-VMs-AVset-Azone.md
 - name: Conceitos
   items:
   - name: Perguntas comuns sobre o Site Recovery
     href: site-recovery-faq.md
-  - name: Sobre a recuperação de desastres da VM do Azure para o Azure
+  - name: Sobre a recuperação de desastre para VMs do Azure
     items:
     - name: Arquitetura do Azure para o Azure
       href: azure-to-azure-architecture.md
@@ -80,12 +78,14 @@ items:
       href: azure-to-azure-common-questions.md
     - name: Matriz de suporte do Azure para o Azure
       href: azure-to-azure-support-matrix.md
+    - name: Usando o Site Recovery com o Backup do Azure
+      href: site-recovery-backup-interoperability.md
     - name: Rede acelerada para recuperação de desastre da VM do Azure
       href: azure-vm-disaster-recovery-with-accelerated-networking.md
     - name: ExpressRoute com a recuperação de desastres de máquinas virtuais do Azure
       href: azure-vm-disaster-recovery-with-expressroute.md
-    - name: Recuperação de desastre de VM do Azure e Interoperabilidade de Backup do Azure
-      href: site-recovery-backup-interoperability.md
+  - name: Sobre como mover VMs do Azure
+    href: azure-to-azure-move-overview.md
   - name: Sobre a recuperação de desastres da VM do VMware para o Azure
     items:
     - name: Visão geral da recuperação de desastres do VMware
@@ -468,9 +468,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Atualizações de serviço
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: 5286e3479561e6effd279978e84f045207a0a7a3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 66b14ba7100b8bd8e4bb3a100e8fd10d226f555e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835292"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317095"

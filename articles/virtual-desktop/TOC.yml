@@ -1,0 +1,57 @@
+items:
+- name: Área de Trabalho Virtual do Windows
+  href: index.yml
+- name: Visão geral
+  items:
+  - name: O que é a Área de Trabalho Virtual do Windows?
+    href: overview.md
+- name: Tutoriais
+  items:
+  - name: 1. Criar um locatário na Área de Trabalho Virtual do Windows
+    href: tenant-setup-azure-active-directory.md
+  - name: 2. Criar um pool de host com o Azure Marketplace
+    href: create-host-pools-azure-marketplace.md
+  - name: 3. Gerenciar grupos de aplicativos
+    href: manage-app-groups.md
+  - name: 4. Criar entidades de serviço e atribuições de função com o PowerShell
+    href: create-service-principal-role-powershell.md
+- name: Instruções
+  items:
+  - name: Conectar-se a recursos de Área de Trabalho Virtual do Windows
+    items:
+    - name: Conectar-se com o Windows 7 e Windows 10
+      href: connect-windows-7-and-10.md
+    - name: Conectar-se ao cliente Web
+      href: connect-web.md
+  - name: Criar um pool de host com um modelo do Azure Resource Manager
+    href: create-host-pools-arm-template.md
+  - name: Criar um pool de host com o PowerShell
+    href: create-host-pools-powershell.md
+  - name: Configurar um compartilhamento de perfil do usuário para um pool de host
+    href: create-host-pools-user-profile.md
+  - name: Configurar o método de balanceamento de carga da Área de Trabalho Virtual do Windows
+    href: configure-host-pool-load-balancing.md
+  - name: Identificar problemas com o recurso de diagnóstico
+    href: diagnostics-role-service.md
+  - name: Preparar e personalizar uma imagem de VHD mestre
+    href: set-up-customize-master-image.md
+  - name: Dimensionar automaticamente hosts da sessão
+    href: set-up-scaling-script.md
+- name: Conceitos
+  items:
+  - name: Ambiente da Área de Trabalho Virtual do Windows
+    href: environment-setup.md
+  - name: Acesso delegado na Área de Trabalho Virtual do Windows
+    href: delegated-access-virtual-desktop.md
+  - name: Métodos de balanceamento de carga de pool de host
+    href: host-pool-load-balancing.md
+- name: Referência
+  items:
+  - name: PowerShell
+    href: /powershell/windows-virtual-desktop/overview
+ms.openlocfilehash: 2f321b25d6ba1ad8545bf161dd37e270890efcec
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318762"

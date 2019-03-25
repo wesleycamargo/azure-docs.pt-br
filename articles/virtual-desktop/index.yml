@@ -1,0 +1,47 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 06b95c24914574a2aea59c6c597e3d9b3d5097cc
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318728"
+documentType: LandingData
+title: Documentação da Área de Trabalho Virtual do Windows
+metadata:
+  title: Documentação da Área de Trabalho Virtual do Windows – Tutoriais, inícios rápidos, referências da API | Microsoft Docs
+  description: A Área de Trabalho Virtual do Windows para Azure é uma experiência multiusuário virtualizada do Windows 10 Enterprise na nuvem.
+  author: Heidilohr
+  manager: dansimp
+  ms.service: virtual-desktop
+  services: virtual-desktop
+  ms.topic: landing-page
+  ms.date: 02/20/2019
+  ms.author: helohr
+abstract:
+  description: Forneça uma experiência de área de trabalho virtual e aplicativos remotos para qualquer dispositivo. Reúna o Microsoft 365 e o Azure para fornecer aos usuários a única experiência de sessão múltipla do Windows 10 – com escala excepcional e custos de TI reduzidos.
+sections:
+- title: Visão geral
+  items:
+  - type: paragraph
+    text: Saiba mais sobre a Área de Trabalho Virtual do Windows e como usá-la. Tutoriais, guias de instruções, conteúdo de referência e muito mais mostram como configurar locatários e pools de host e atribuir funções aos usuários para o seu ambiente de Área de Trabalho Virtual do Windows.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/virtual-desktop/overview">O que é a Área de Trabalho Virtual do Windows? (versão prévia)</a>
+- title: Tutoriais Passo a Passo
+  items:
+  - type: paragraph
+    text: Saiba como instalar e configurar a Área de Trabalho Virtual do Windows e como se conectar ao cliente quando estiver pronto.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/virtual-desktop/tenant-setup-azure-active-directory">Criar um locatário na Área de Trabalho Virtual do Windows</a>
+    - html: <a href="/azure/virtual-desktop/create-host-pools-azure-marketplace">Criar um pool de host com o Azure Marketplace</a>
+    - html: <a href="/azure/virtual-desktop/manage-app-groups">Gerenciar grupos de aplicativos para a Área de Trabalho Virtual do Windows</a>
+    - html: <a href="/azure/virtual-desktop/create-service-principal-role-powershell">Criar entidades de serviço e atribuições de função com o PowerShell</a>
+- title: Referência
+  items:
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/powershell/windows-virtual-desktop/overview">PowerShell (versão prévia)</a>

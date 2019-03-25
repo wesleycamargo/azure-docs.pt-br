@@ -1,0 +1,149 @@
+items:
+- name: Visão geral
+  items:
+  - name: Sobre a Rede do Azure
+    href: networking-overview.md
+  - name: Arquitetura
+    items:
+    - name: Datacenters virtuais
+      href: /azure/architecture/vdc/networking-virtual-datacenter
+    - name: Roteamento assimétrico com vários caminhos de rede
+      href: ../expressroute/expressroute-asymmetric-routing.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Designs de rede segura
+      href: ../best-practices-network-security.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Topologia hub-spoke
+      href: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke
+    - name: Práticas recomendadas de segurança da rede
+      href: ../security/azure-security-network-security-best-practices.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Dispositivos virtuais de rede altamente disponíveis
+      href: https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha
+    - name: Combinar métodos de balanceamento de carga
+      href: ../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Recuperação de desastres usando o DNS do Azure e o Gerenciador de Tráfego
+      href: disaster-recovery-dns-traffic-manager.md
+  - name: Planejar e projetar
+    items:
+    - name: Redes virtuais
+      href: ../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Conectividade entre locais – VPN
+      href: ../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Conectividade entre locais – privada dedicada
+      href: ../expressroute/expressroute-workflows.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Interoperabilidade da conectividade de back-end
+      items:
+      - name: Prefácio e Configuração de Teste
+        href: connectivty-interoperability-preface.md?toc=%2fazure%2fnetworking%2ftoc.json
+      - name: Definição da Configuração de Teste
+        href: connectivty-interoperability-configuration.md?toc=%2fazure%2fnetworking%2ftoc.json
+      - name: Análise do Plano de Controle
+        href: connectivty-interoperability-control-plane.md?toc=%2fazure%2fnetworking%2ftoc.json
+      - name: Análise do Plano de Dados
+        href: connectivty-interoperability-data-plane.md?toc=%2fazure%2fnetworking%2ftoc.json
+  - name: Conceitos
+    items:
+    - name: Redes virtuais
+      href: ../virtual-network/virtual-networks-overview.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Balanceamento de carga de rede
+      href: ../load-balancer/load-balancer-overview.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Balanceamento de carga do aplicativo
+      href: ../application-gateway/overview.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: DNS
+      href: ../dns/dns-overview.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Distribuição de tráfego com base em DNS
+      href: ../traffic-manager/traffic-manager-overview.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Conectar local – VPN
+      href: ../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Conectar local – dedicado
+      href: ../expressroute/expressroute-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json
+- name: Introdução
+  items:
+  - name: Criar sua primeira rede virtual
+    href: ../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+- name: Como
+  items:
+  - name: Conectividade com a Internet
+    items:
+    - name: Servidores públicos de balanceamento de carga de rede
+      href: ../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Servidores públicos de balanceamento de carga do aplicativo
+      href: ../application-gateway/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Proteger aplicativos Web
+      href: ../application-gateway/application-gateway-web-application-firewall-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Distribuir o tráfego entre locais
+      href: ../traffic-manager/traffic-manager-configure-geographic-routing-method.md?toc=%2fazure%2fnetworking%2ftoc.json
+  - name: Conectividade interna
+    items:
+    - name: Servidores privados de balanceamento de carga de rede
+      href: ../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Servidores privados de balanceamento de carga do aplicativo
+      href: ../application-gateway/application-gateway-ilb-arm.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Conectar redes virtuais (mesma localização)
+      href: ../virtual-network/virtual-networks-create-vnetpeering-arm-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Conectar redes virtuais (localizações diferentes)
+      href: ../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+  - name: Conectividade entre locais
+    items:
+    - name: Criar uma conexão VPN S2S (IPsec/IKE)
+      href: ../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Criar uma conexão VPN P2S (SSTP com certificados)
+      href: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Criar uma conexão privada dedicada (ExpressRoute)
+      href: ../expressroute/expressroute-howto-circuit-portal-resource-manager.md?toc=%2fazure%2fnetworking%2ftoc.json
+  - name: Gerenciamento
+    items:
+    - name: Visão geral do monitoramento da rede
+      href: network-monitoring-overview.md
+    - name: Verificar o uso de recursos em relação aos limites do Azure
+      href: check-usage-against-limits.md
+    - name: Exibir topologia de rede
+      href: ../network-watcher/network-watcher-topology-powershell.md?toc=%2fazure%2fnetworking%2ftoc.json
+  - name: Scripts de exemplo
+    items:
+    - name: CLI do Azure
+      href: cli-samples.md
+    - name: Azure PowerShell
+      href: powershell-samples.md
+  - name: Tutoriais
+    items:
+    - name: VMs de balanceamento de carga
+      href: ../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Conectar computador a uma rede virtual
+      href: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+- name: Referência
+  items:
+  - name: CLI do Azure
+    href: https://docs.microsoft.com/cli/azure/network
+  - name: Azure PowerShell
+    href: https://docs.microsoft.com/powershell/module/azurerm.network/?view=azurermps-3.8.0
+  - name: .Net
+    href: https://docs.microsoft.com/dotnet/api/microsoft.azure.management.network?view=azuremgmtnetwork-9.1.0-preview
+  - name: Node.js
+    href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
+  - name: REST
+    href: https://msdn.microsoft.com/library/mt163658.aspx
+- name: Recursos
+  items:
+  - name: Modelos de autor
+    href: /azure/azure-resource-manager/resource-group-authoring-templates?toc=%2fazure%2fnetworking%2ftoc.json
+  - name: Roteiro do Azure
+    href: https://azure.microsoft.com/roadmap/?category=networking
+  - name: Modelos da comunidade
+    href: https://azure.microsoft.com/resources/templates/
+  - name: Blog de rede
+    href: https://azure.microsoft.com/blog/topics/networking
+  - name: Preços
+    href: https://azure.microsoft.com/pricing
+  - name: Calculadora de preço
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Disponibilidade regional
+    href: https://azure.microsoft.com/regions/services/
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-virtual-network
+  - name: vídeos
+    href: https://azure.microsoft.com/resources/videos/index/?services=virtual-network
+ms.openlocfilehash: 2c6eff267e9f612afe9fdc7214a1dc387325d733
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58341247"

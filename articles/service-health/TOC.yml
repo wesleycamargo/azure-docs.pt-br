@@ -1,0 +1,45 @@
+items:
+- name: Integridade do Serviço do Azure
+  href: index.md
+- name: Visão geral
+  items:
+  - name: O que é o status do Azure?
+    href: azure-status-overview.md
+  - name: O que é a Integridade do Serviço?
+    href: service-health-overview.md
+  - name: O que é o Resource Health?
+    href: resource-health-overview.md
+- name: Como
+  items:
+  - name: Configurar alertas para eventos da Integridade do Serviço
+    href: ../azure-monitor/platform/alerts-activity-log-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json
+    items:
+    - name: Exibir as notificações de integridade do serviço usando o Portal do Azure
+      href: ../azure-monitor/platform/service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json
+  - name: Configurar notificações da Integridade do Serviço usando um webhook
+    href: service-health-alert-webhook-guide.md
+    items:
+    - name: Configurar com o ServiceNow
+      href: service-health-alert-webhook-servicenow.md
+    - name: Configurar com o PagerDuty
+      href: service-health-alert-webhook-pagerduty.md
+    - name: Configurar com o OpsGenie
+      href: service-health-alert-webhook-opsgenie.md
+    - name: Recuperar eventos de integridade com REST
+      href: service-health-rest.md
+  - name: Configurar alertas para eventos do Resource Health
+    href: resource-health-alert-arm-template-guide.md
+- name: Recursos
+  items:
+  - name: Perguntas frequentes
+    href: resource-health-faq.md
+  - name: Calculadora de preço
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Tipos de recurso e verificações de integridade disponíveis por meio do Azure Resource Health
+    href: resource-health-checks-resource-types.md
+ms.openlocfilehash: 421b633a68dfcbe5643d3b377615fdf3f8fd2c81
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58340805"

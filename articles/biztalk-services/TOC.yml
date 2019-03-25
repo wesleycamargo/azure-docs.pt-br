@@ -1,0 +1,69 @@
+items:
+- name: Documentação dos Serviços BizTalk
+  href: index.md
+- name: Visão geral
+  items:
+  - name: Edições
+    href: biztalk-editions-feature-chart.md
+- name: Introdução
+  items:
+  - name: Criar Serviços BizTalk
+    href: biztalk-provision-services.md
+- name: Como
+  items:
+  - name: Planejar e projetar
+    items:
+    - name: Lista de tarefas de administrador e desenvolvedor
+      href: biztalk-services-administration-and-development-task-list.md
+  - name: Fazer backup e restauração
+    href: biztalk-backup-restore.md
+  - name: Configurar
+    items:
+    - name: Limitação
+      href: biztalk-throttling-thresholds.md
+    - name: Configurações de serviço e monitoramento
+      href: biztalk-dashboard-monitor-scale-tabs.md
+  - name: Migrar
+    items:
+    - name: Soluções de EDI do BizTalk Server para Serviços BizTalk
+      href: biztalk-migrating-to-edi-guide.md
+  - name: Monitoramento
+    items:
+    - name: Tarefas que dependem de estados de serviço
+      href: biztalk-service-state-chart.md
+  - name: Segurança
+    items:
+    - name: Controle de acesso
+      href: biztalk-issuer-name-issuer-key.md
+  - name: Solucionar problemas
+    href: biztalk-troubleshoot-using-ops-logs.md
+  - name: Conexões Híbridas
+    items:
+    - name: Visão geral
+      href: integration-hybrid-connection-overview.md
+    - name: Criar e gerenciar
+      href: integration-hybrid-connection-create-manage.md
+- name: Recursos
+  items:
+  - name: Roteiro do Azure
+    href: https://azure.microsoft.com/roadmap/
+  - name: Fórum do MSDN
+    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebiztalksvcs
+  - name: Preços
+    href: https://azure.microsoft.com/pricing/details/biztalk-services/
+  - name: Calculadora de preço
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Notas de versão
+    href: biztalk-release-notes.md
+  - name: Atualizações de serviço
+    href: https://azure.microsoft.com/updates/?product=biztalk-services
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/biztalk-services
+  - name: vídeos
+    href: https://azure.microsoft.com/documentation/videos/index/?services=biztalk-services
+ms.openlocfilehash: 75970c0377ccf5ac0aa07cda331b3c4823e464a8
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58340737"
