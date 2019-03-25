@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/23/2018
+ms.date: 03/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 3e11c4dc8aa082723223fb998e599aa514febd3b
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: HT
+ms.openlocfilehash: d2ecebf47c77baa81193939b64c27348541f7686
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369948"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403401"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Conectar o Operations Manager para o Azure Monitor
 
@@ -43,9 +43,10 @@ Se suas políticas de segurança TI não permitirem que os computadores em sua r
 ## <a name="prerequisites"></a>Pré-requisitos 
 Antes de começar, revise os seguintes requisitos.
 
-* O Azure Monitor dá suporte apenas a 1807 do System Center Operations Manager, Operations Manager 1801, Operations Manager 2016, Operations Manager 2012 SP1 UR6 ou posterior e o Operations Manager 2012 R2 UR2 ou posterior. Foi adicionado suporte a proxy ao Operations Manager 2012 SP1 UR7 e Operations Manager 2012 R2 UR3.
+* O Azure Monitor só dá suporte ao System Center Operations Manager 2016 ou posterior, Operations Manager 2012 SP1 UR6 ou posterior e o Operations Manager 2012 R2 UR2 ou posterior. Foi adicionado suporte a proxy ao Operations Manager 2012 SP1 UR7 e Operations Manager 2012 R2 UR3.
+* A integração do System Center Operations Manager 2016 com a nuvem do governo dos EUA exige um pacote de gerenciamento do Advisor atualizado incluído com o Update Rollup 2 ou posterior. System Center Operations Manager 2012 R2 requer um pacote de gerenciamento do Advisor atualizado incluído com o pacote cumulativo de atualizações 3 ou posterior.
 * Todos os agentes do Operations Manager devem atender aos requisitos de suporte mínimos. Verifique se os agentes estão com a atualização mínima, caso contrário, a comunicação do agente do Windows poderá falhar e gerar erros no log de eventos do Operations Manager.
-* Um workspace do Log Analytics. Para mais informações, consulte [Visão geral do espaço de trabalho do Log Analytics](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json).
+* Um workspace do Log Analytics. Para mais informações, consulte [Visão geral do espaço de trabalho do Log Analytics](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json).   
 * Você autentica no Azure com uma conta que seja membro da função [Log Analytics Contributor](../../azure-monitor/platform/manage-access.md#manage-accounts-and-users).  
 
 >[!NOTE]
