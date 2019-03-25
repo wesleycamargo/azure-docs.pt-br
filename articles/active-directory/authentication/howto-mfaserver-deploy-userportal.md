@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbee5316b78838bedc62454e8c1954eb5f9205ff
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 66a75ee7746d0ab04b505544f91f2905fa392902
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317112"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370356"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Portal do usuário para o Servidor de Autenticação Multifator do Azure
 
@@ -28,7 +28,7 @@ Os Administradores do portal do usuário podem receber uma configuração e perm
 
 Dependendo do seu ambiente, convém implantar o portal do usuário no mesmo servidor do Servidor de Autenticação Multifator do Azure ou em outro servidor voltado para a internet.
 
-![Portal do usuário MFA](./media/howto-mfaserver-deploy-userportal/portal.png)
+![Página de logon Portal de usuário do servidor de MFA](./media/howto-mfaserver-deploy-userportal/portal.png)
 
 > [!NOTE]
 > O portal do usuário está disponível apenas com o Servidor de Autenticação Multifator. Se você usar Autenticação Multifator na nuvem, encaminhe os seus usuários para [Configurar sua conta para verificação em duas etapas](../user-help/multi-factor-authentication-end-user-first-time.md) ou [Gerenciar as configurações de verificação em duas etapas](../user-help/multi-factor-authentication-end-user-manage-settings.md).
@@ -118,6 +118,7 @@ Agora que o portal do usuário está instalado, você precisa configurar o Servi
 3. Defina quem devem ser os administradores na guia **Administradores**. Você pode criar permissões administrativas completas usando as listas suspensas e caixas de seleção nas caixas Adicionar/Editar.
 
 Configuração opcional:
+
 - **Perguntas de Segurança**: defina perguntas de segurança aprovadas para seu ambiente e o idioma em que elas aparecem.
 - **Sessões Passadas**: configure a integração do portal do usuário com um site baseado em formulário usando a MFA.
 - **IPs confiáveis**: permita que os usuários ignorem a MFA ao autenticar de uma lista de IPs ou intervalos confiáveis.
@@ -126,24 +127,27 @@ Configuração opcional:
 
 O servidor de Autenticação Multifator do Azure fornece várias opções para o portal do usuário. A tabela a seguir fornece uma lista dessas opções e uma explicação de como elas são usadas.
 
-| Configurações do Portal de Usuário | Descrição |
+| Configurações do Portal de Usuário | DESCRIÇÃO |
 |:--- |:--- |
 | URL do portal do usuário | Insira a URL de onde o portal está sendo hospedado. |
 | Autenticação primária | Especifique o tipo de autenticação a ser usado ao entrar no portal. Autenticação do Windows, Radius ou LDAP. |
 | Permitir que os usuários façam logon | Permita que os usuários insiram um nome de usuário e uma senha na página de entrada para o portal do usuário. Se essa opção não estiver selecionada, as caixas ficarão esmaecidas. |
 | Permitir registro de usuário | Permita que o usuário se registre na Autenticação Multifator levando-os para uma tela de instalação que solicita informações adicionais, como número de telefone. O prompt de telefone de backup permite que os usuários especifiquem um número de telefone secundário. O prompt de token OATH permite que os usuários especifiquem um token OATH de terceiros. |
-| Permitir que usuários iniciem o Bypass Avulso | Permitir que os usuários iniciem um desvio único. Se um usuário definir essa opção, ela terá efeito na próxima vez em que ele entrar. O prompt de ignorar segundos fornece ao usuário uma caixa para que ele possa alterar o padrão de 300 segundos. Caso contrário, o desvio único é válido somente por 300 segundos. |
-| Permitir que usuários selecionem o método | Permita aos usuários especificar o método de contato principal. Esse método pode ser uma chamada telefônica, uma mensagem de texto, um aplicativo móvel ou token OATH. |
-| Permitir que usuários selecionem o idioma | Permita que os usuários alterem o idioma usado para chamada telefônica, mensagem de texto, aplicativo móvel ou token OATH. |
+| Permitir que os usuários iniciem Desvio Único | Permitir que os usuários iniciem um desvio único. Se um usuário definir essa opção, ela terá efeito na próxima vez em que ele entrar. O prompt de ignorar segundos fornece ao usuário uma caixa para que ele possa alterar o padrão de 300 segundos. Caso contrário, o desvio único é válido somente por 300 segundos. |
+| Permitir que os usuários selecionem o método | Permita aos usuários especificar o método de contato principal. Esse método pode ser uma chamada telefônica, uma mensagem de texto, um aplicativo móvel ou token OATH. |
+| Permitir que os usuários selecionem o idioma | Permita que os usuários alterem o idioma usado para chamada telefônica, mensagem de texto, aplicativo móvel ou token OATH. |
 | Permitir que os usuários ativem aplicativos móveis | Permita que os usuários gerem um código de ativação para concluir o processo de ativação de aplicativo móvel que seja usado com o servidor.  Você também pode definir o número de dispositivos em que eles podem ativar o aplicativo, entre 1 e 10. |
 | Usar perguntas de segurança para fallback | Permita perguntas de segurança caso a verificação em duas etapas falhe. Você pode especificar o número de perguntas de segurança que devem ser respondidas com sucesso. |
 | Permitir que os usuários associem token OATH de terceiros | Permita que os usuários especifiquem um token OATH de terceiros. |
 | Usar token OATH para fallback | Permita o uso de um token OATH caso a verificação em duas etapas não seja bem-sucedida. Você também pode especificar o tempo limite da sessão em minutos. |
-| Habilitar registro em log | Habilite o registro em log no portal do usuário. Os arquivos de log estão localizados em: C:\Program Files\Multi-Factor Authentication Server\Logs. |
+| Habilitar o registro em log | Habilite o registro em log no portal do usuário. Os arquivos de log estão localizados em: C:\Program Files\Multi-Factor Authentication Server\Logs. |
+
+> [!IMPORTANT]
+> A partir de março de 2019 as opções de chamada telefônica não estará disponível para os usuários do servidor MFA em locatários gratuitos/avaliação do Azure AD. Mensagens SMS não são afetadas por essa alteração. Chamada telefônica continuará disponível para os usuários no pago locatários do Azure AD. Essa alteração só afeta o locatários gratuitos/avaliação do Azure AD.
 
 Essas configurações se tornarão visíveis para o usuário no portal quando forem habilitadas e ele se conectar ao portal do usuário.
 
-![Configurações do Portal de Usuário](./media/howto-mfaserver-deploy-userportal/portalsettings.png)
+![Gerenciar sua conta do servidor MFA usando o portal do usuário](./media/howto-mfaserver-deploy-userportal/portalsettings.png)
 
 ### <a name="self-service-user-enrollment"></a>Registro de usuário de autoatendimento
 
@@ -159,7 +163,7 @@ Se o usuário for solicitado a usar um PIN quando autenticar, a página também 
 
 Se o usuário selecionar o método de verificação de Mensagem de Texto ou tiver sido pré-configurado para usar esse método, a página solicitará ao usuário seu número de telefone celular. Se o usuário for solicitado a usar um PIN quando autenticar, a página também lhe pedirá para inserir um PIN.  Depois de digitar seu número de telefone e PIN (se aplicável), o usuário clica no botão **Enviar uma Mensagem de Texto para Autenticar**. A Autenticação Multifator do Microsoft Azure envia uma verificação SMS para o celular do usuário. O usuário recebe a mensagem de texto com uma OTP (senha de uso único) e responde à mensagem com esta OTP e seu PIN (se aplicável).
 
-![SMS do portal do usuário](./media/howto-mfaserver-deploy-userportal/text.png)
+![Verificação de portal do usuário usando o SMS](./media/howto-mfaserver-deploy-userportal/text.png)
 
 Se o usuário selecionar o método de verificação de Aplicativo Móvel, a página solicitará que o usuário instale o aplicativo Microsoft Authenticator em seu dispositivo e gere um código de ativação. Depois de instalar o aplicativo, o usuário clica no botão Gerar Código de Ativação.
 

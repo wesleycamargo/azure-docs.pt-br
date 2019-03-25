@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/25/2019
+ms.date: 3/20/2019
 ms.author: monhaber
-ms.openlocfilehash: dd7dad51f29b4b5034c72085cd789077747faa0b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fa664952f3eb7d6f9e611fb87a9e484e97f388a2
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106552"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403826"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Protegendo suas máquinas e aplicativos na Central de Segurança do Azure
-A Central de Segurança do Azure analisa o estado de segurança de seus recursos do Azure. Quando a Central de Segurança identifica possíveis vulnerabilidades de segurança, ela cria recomendações que orientam você durante o processo de configuração dos controles necessários. As recomendações aplicam-se aos tipos de recursos do Azure: VMs (máquinas virtuais) e computadores, aplicativos, rede, SQL e a identidade e acesso.
+A Central de segurança do Azure analisa o estado de segurança de seus recursos do Azure, os servidores não Azure e máquinas virtuais. Quando a Central de Segurança identifica possíveis vulnerabilidades de segurança, ela cria recomendações que orientam você durante o processo de configuração dos controles necessários. As recomendações aplicam-se aos tipos de recursos do Azure: VMs (máquinas virtuais) e computadores, aplicativos, rede, SQL e a identidade e acesso.
 
 Este artigo aborda as recomendações que se aplicam a computadores e aplicativos.
 
@@ -53,7 +53,7 @@ Para continuar, selecione **Computação e aplicativos** em **Higiene de seguran
 Há várias seções em cada guia e, em cada seção, você pode selecionar uma opção individual para ver mais detalhes sobre as etapas recomendadas e resolver esse problema específico.
 
 ### VMs e computadores não monitorados <a name="unmonitored-vms-and-computers"></a>
-As VM ou os computadores não são monitorados pela Central de Segurança quando não estão executando a extensão do Microsoft Monitoring Agent. Um computador pode ter um agente local já instalado, por exemplo, o agente direto do OMS ou o agente do SCOM. Os computadores com esses agentes são identificados como não monitorados porque não há suporte total para esses agentes na Central de Segurança. Para aproveitar ao máximo todos os recursos da Central de Segurança, é necessária a extensão do Microsoft Monitoring Agent.
+As VM ou os computadores não são monitorados pela Central de Segurança quando não estão executando a extensão do Microsoft Monitoring Agent. Um computador pode ter um agente local já instalado, por exemplo o OMS direto agente ou do System Center Operations Manager. Os computadores com esses agentes são identificados como não monitorados porque não há suporte total para esses agentes na Central de Segurança. Para aproveitar ao máximo todos os recursos da Central de Segurança, é necessária a extensão do Microsoft Monitoring Agent.
 
 Você pode instalar a extensão na VM ou no computador não monitorado, além do agente local já instalado. Configure os dois agentes iguais, conectando-os ao mesmo workspace. Isso permite que a Central de Segurança interaja com a extensão do Microsoft Monitoring Agent e colete dados. Consulte [Habilitar a extensão da VM](../azure-monitor/learn/quick-collect-azurevm.md) para obter instruções sobre como instalar a extensão do Microsoft Monitoring Agent.
 
@@ -103,7 +103,7 @@ Há quatro tipos de ícones representados nesta lista:
 ![VM Clássica do Azure](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon3.png) VM Clássica do Azure.
 
 
-![VMs identificadas no workspace](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon4.png) VMs identificadas somente pelo workspace que faz parte da assinatura exibida. Isso inclui VMs de outras assinaturas que se reportam ao workspace nesta assinatura e VMs que foram instaladas com o agente direto SCOM e não têm nenhuma ID de recurso.
+![VMs identificadas no workspace](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon4.png) VMs identificadas somente pelo workspace que faz parte da assinatura exibida. Isso inclui as VMs de outras assinaturas desse relatório no espaço de trabalho nesta assinatura e VMs que foram instaladas com o agente direto do Operations Manager e não ter nenhuma ID de recurso.
 
 O ícone que aparece em cada recomendação ajuda a identificar rapidamente a VM e o computador que precisa de atenção e o tipo de recomendação. Você também pode usar os filtros para pesquisar a lista por **Tipo de recurso** e por **Gravidade**.
 
@@ -172,7 +172,7 @@ Para instalar o Microsoft Monitoring Agent:
 
 Se você quiser definir novos conjuntos de dimensionamento para instalar automaticamente o Microsoft Monitoring Agent:
 1. Vá para Azure Policy e clique em **Definições**.
-2. Procure a política **Implantar o agente do Log Analytics para conjuntos de dimensionamento de VMs do Windows** e clique nela.
+2. Pesquise a política **agente de implantar o Log Analytics para conjuntos de dimensionamento de máquinas virtuais do Windows** e clique nele.
 3. Clique em **Atribuir**.
 4. Defina o **Escopo** e o **workspace do Log Analytics** e clique em **Atribuir**.
 

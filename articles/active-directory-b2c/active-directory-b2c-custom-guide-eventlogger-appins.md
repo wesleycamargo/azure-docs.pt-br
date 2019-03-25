@@ -10,14 +10,16 @@ ms.workload: identity
 ms.date: 10/12/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5bc9e44cc1f1759231d405e64fab097d73d48486
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 51342a7544295b465d1f2dfc3e1b27d8285b3588
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55160518"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403809"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Rastrear o comportamento do usuário no Azure Active Directory B2C usando o Application Insights
+
+[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 Ao usar o B2C do Azure Active Directory (Azure AD) junto com o Azure Application Insights, você pode obter logs de eventos detalhados e personalizados para as jornadas do usuário. Neste artigo, você aprenderá a:
 
@@ -25,9 +27,6 @@ Ao usar o B2C do Azure Active Directory (Azure AD) junto com o Azure Application
 * Solucionar problemas de suas próprias políticas em desenvolvimento ou em produção.
 * Medir o desempenho.
 * Criar notificações do Application Insights.
-
-> [!NOTE]
-> Esse recurso está em visualização.
 
 ## <a name="how-it-works"></a>Como ele funciona
 

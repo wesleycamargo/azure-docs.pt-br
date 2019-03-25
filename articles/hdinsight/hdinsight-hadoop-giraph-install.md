@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 96a334b4bd39513bfad128a8f1b59f319fef013e
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 37e8b0a5cc89eded1890eebbeb93cc82d54c9f05
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317401"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360887"
 ---
 # <a name="install-and-use-apache-giraph-on-windows-based-hdinsight-clusters"></a>Instalar e usar o Apache Giraph em clusters HDInsight baseados no Windows
 
@@ -25,6 +25,8 @@ Saiba como personalizar o cluster HDInsight baseado em Windows com o Apache Gira
 
 
 Você pode instalar o Giraph em qualquer tipo de cluster (Hadoop, Storm, HBase, Spark) no Azure HDInsight usando a *Ação de Script*. Um script de exemplo para instalar o Giraph em um Cluster HDInsight está disponível em um Azure Storage Blob somente leitura em [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1). O script de exemplo funciona apenas com o cluster HDInsight versão 3.1. Para obter mais informações sobre as versões do cluster HDInsight, consulte [Versões do cluster HDInsight](hdinsight-component-versioning.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 **Artigos relacionados**
 
@@ -48,10 +50,10 @@ O <a href="https://giraph.apache.org/" target="_blank">Apache Giraph</a> permite
 
     |Propriedade|Valor|  
     |---|---|  
-    |Nome|Especifique um nome para a ação de script. Por exemplo, **Instalar o Giraph**|
-    |URI de Script|Especifique o URI (Uniform Resource Identifier) do script invocado para personalizar o cluster. Por exemplo, *https:\//hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1*|
-    |Tipo de Nó|Especifique os nós em que o script de personalização deve ser executado. Você pode escolher **Todos os nós**, **Somente nós do cabeçalho** ou **Somente nós de trabalho**.
-    |Parâmetros|Especifique os parâmetros, se exigido pelo script. O script para instalar o Giraph não requer nenhum parâmetro; você pode deixar em branco.|  
+    |NOME|Especifique um nome para a ação de script. Por exemplo, **Instalar o Giraph**|
+    |URI do script|Especifique o URI (Uniform Resource Identifier) do script invocado para personalizar o cluster. Por exemplo, *https:\//hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1*|
+    |Tipo de nó|Especifique os nós em que o script de personalização deve ser executado. Você pode escolher **Todos os nós**, **Somente nós do cabeçalho** ou **Somente nós de trabalho**.
+    |parâmetros|Especifique os parâmetros, se exigido pelo script. O script para instalar o Giraph não requer nenhum parâmetro; você pode deixar em branco.|  
 
     Você pode adicionar mais de uma ação de script para instalar vários componentes no cluster. Depois de adicionar os scripts, clique na marca de seleção para começar a criar o cluster.
 
@@ -121,12 +123,12 @@ Usamos o exemplo SimpleShortestPathsComputation para demonstrar a implementaçã
     Select-AzureSubscription $subscriptionName
 
     # Create the Storage account context object
-    $storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
-    $storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
+    $storageAccountKey = Get-AzStorageKey $storageAccountName | %{ $_.Primary }
+    $storageContext = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
 
     # Download the job output to the workstation
-    Get-AzureStorageBlobContent -Container $containerName -Blob example/output/shortestpaths/part-m-00001 -Context $storageContext -Force
-    Get-AzureStorageBlobContent -Container $containerName -Blob example/output/shortestpaths/part-m-00002 -Context $storageContext -Force
+    Get-AzStorageBlobContent -Container $containerName -Blob example/output/shortestpaths/part-m-00001 -Context $storageContext -Force
+    Get-AzStorageBlobContent -Container $containerName -Blob example/output/shortestpaths/part-m-00002 -Context $storageContext -Force
     ```
 
     Isso criará a estrutura de diretório **example/output/shortestpaths** no diretório atual em sua estação de trabalho e baixará os dois arquivos de saída nesse local.
