@@ -1,22 +1,22 @@
 ---
-title: Conectar-se com o cliente da web (visualização) – Azure
-description: Como conectar-se para o cliente da web de HTML5 de área de trabalho Virtual do Windows.
+title: Conecte-se com o cliente da web de visualização de área de trabalho Virtual do Windows - Azure
+description: Como conectar-se para o cliente da web de HTML5 de visualização de área de trabalho Virtual do Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 23c830549ed2b63eb2330f3e1c0a78bfb236adc1
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 231dc2b777ce7fa37f445215863a55e93562e411
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339441"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403741"
 ---
-# <a name="connect-with-the-web-client-preview"></a>Conectar-se com o cliente da web (visualização)
+# <a name="connect-with-the-web-client"></a>Conecte-se com o cliente da web
 
-O cliente web lhe permite acessar os recursos de área de trabalho Virtual do Windows (versão prévia) em um navegador da web sem o processo de instalação demorada.
+O cliente web lhe permite acessar os recursos de visualização de área de trabalho Virtual do Windows em um navegador da web sem o processo de instalação demorada.
 
 >[!NOTE]
 >O cliente web atualmente não tem sistema operacional móvel que dão suporte.
@@ -25,7 +25,7 @@ O cliente web lhe permite acessar os recursos de área de trabalho Virtual do Wi
 
 Embora qualquer navegador compatível com o HTML5 deve funcionar, oferecemos suporte oficialmente os seguintes sistemas operacionais e navegadores.
 
-| Navegador           | SO com suporte                     | Anotações               |
+| Navegador           | SO com suporte                     | Observações               |
 |-------------------|----------------------------------|---------------------|
 | Microsoft Edge    |  Windows                          |                     |
 | Internet Explorer |  Windows                          |                     |

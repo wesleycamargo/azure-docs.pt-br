@@ -8,14 +8,15 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: f7bfb4f403104bb91fb1a9ba4b70cb164e0738b4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: e9b562cb04bb8916245d9df7b9b6d526bd443a24
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58113292"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58352129"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatíveis com o Azure Monitor
+
 O Azure Monitor fornece várias maneiras de interagir com as métricas, incluindo a criação de gráficos para os mesmos no portal, acessá-las por meio da API REST ou consultá-las usando o PowerShell ou a CLI. Abaixo está uma lista completa de todas as métricas atualmente disponíveis do pipeline de métrica do Azure Monitor. Outras métricas podem estar disponíveis no portal ou usando as APIs herdadas. Essa lista abaixo inclui apenas as métricas disponíveis usando o pipeline de métrica consolidado do Azure Monitor. Para consultar e acessar essas métricas, use [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
 
 > [!NOTE]
@@ -660,7 +661,6 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 | MetadataRequests |    MetadataRequests   |Contagem| Contagem   | Contagem de solicitações de metadados. O Azure Cosmos DB mantém uma coleção de metadados do sistema para cada conta, o que permite que você enumere coleções, bancos de dados, etc. e suas configurações, gratuitamente.    | DatabaseName, CollectionName, Region, StatusCode| Todos|  |Usada para monitorar os limitadores devido a solicitações de metadados.|
 | MongoRequests |   Solicitações do Mongo| Contagem | Contagem|  Número de Solicitações do Mongo Feitas   | DatabaseName, CollectionName, Region, CommandName, ErrorCode| Todos |Taxa de Solicitação de Consulta do Mongo, Taxa de Solicitação de Atualização do Mongo, Taxa de Solicitação de Exclusão do Mongo, Taxa de Solicitação de Inserção do Mongo, Taxa de Solicitação de Contagem do Mongo|   Usada para monitorar os erros de solicitação do Mongo, usos por tipo de comando. |
 
-
 ### <a name="request-unit-metrics"></a>Métricas de unidade de solicitação
 
 |Métrica|Nome de exibição da métrica|Unidade|Tipo de agregação|DESCRIÇÃO|Dimensões| Granularidades de tempo| Mapeamento de métrica herdada | Uso |
@@ -673,7 +673,7 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 
 |Métrica|Nome de exibição da métrica|Unidade|Tipo de agregação|DESCRIÇÃO|Dimensões| Granularidades de tempo| Mapeamento de métrica herdada | Uso |
 |---|---|---|---|---|---| ---| ---| ---|
-| AvailableStorage| Armazenamento disponível   |Bytes| Total|  Armazenamento disponível total relatado na granularidade de 5 minutos por região|   DatabaseName, CollectionName, Region|   5 M| Armazenamento disponível|   Usada para monitorar a capacidade de armazenamento disponível (aplicável apenas para coleções de armazenamento fixas). A granularidade mínima deve ser de 5 minutos.| 
+| AvailableStorage| Armazenamento disponível   |Bytes| Total|  Armazenamento disponível total relatado na granularidade de 5 minutos por região|   DatabaseName, CollectionName, Region|   5 M| Armazenamento disponível|   Usada para monitorar a capacidade de armazenamento disponível (aplicável apenas para coleções de armazenamento fixas). A granularidade mínima deve ser de 5 minutos.|
 | DataUsage |Uso de dados |Bytes| Total   |Uso de dados total relatado na granularidade de 5 minutos por região|    DatabaseName, CollectionName, Region|   5 M  |Tamanho dos dados  | Usada para monitorar o uso total de dados na coleção e na região, a granularidade mínima deve ser 5 minutos.|
 | IndexUsage|   Uso do índice|    Bytes|  Total   |Uso do índice total relatado na granularidade de 5 minutos por região|    DatabaseName, CollectionName, Region|   5 M| Tamanho do Índice| Usada para monitorar o uso total de dados na coleção e na região, a granularidade mínima deve ser 5 minutos. |
 | DocumentQuota|    Cota de documento| Bytes|  Total|  Cota de armazenamento total relatado na granularidade de 5 minutos por região. Aplicável para coleções de armazenamento fixa| DatabaseName, CollectionName, Region|   5 M  |Capacidade de Armazenamento|  Usada para monitorar a cota total na coleção e na região, a granularidade mínima deve ser 5 minutos.|
@@ -805,6 +805,7 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |ScaleActionsInitiated|Ações de Escala Iniciadas|Contagem|Total|A direção da operação de escala.|ScaleDirection|
 
 ## <a name="microsoftinsightscomponents"></a>Microsoft.Insights/Components
+
 (Versão prévia pública)
 
 |Métrica|Nome de exibição da métrica|Unidade|Tipo de agregação|DESCRIÇÃO|Dimensões|
@@ -1224,7 +1225,6 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |Atualizar|Atualizar|Contagem|Média|Atualizar|Computer, Product, Classification, UpdateState, Optional, Approved|
 |Evento|Evento|Contagem|Média|Evento|Source, EventLog, Computer, EventCategory, EventLevel, EventLevelName, EventID|
 
-
 ## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/capacities
 
 |Métrica|Nome de exibição da métrica|Unidade|Tipo de agregação|DESCRIÇÃO|Dimensões|
@@ -1608,7 +1608,7 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |MemoryPercentage|Porcentagem de Memória|Porcentagem|Média|Porcentagem de Memória|Instância|
 
 ## <a name="next-steps"></a>Próximas etapas
+
 * [Leia sobre as métricas no Azure Monitor](../../azure-monitor/platform/data-collection.md)
 * [Criar alertas para métricas](../../azure-monitor/platform/alerts-overview.md)
 * [Exportar as métricas de armazenamento, Hub de eventos ou Log Analytics](../../azure-monitor/platform/diagnostic-logs-overview.md)
-

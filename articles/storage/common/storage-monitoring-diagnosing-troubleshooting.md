@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.subservice: common
-ms.openlocfilehash: 51d8b9bad4bb4a3663b07a711f363b263f5d64db
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
+ms.openlocfilehash: 6edb1abae91a675a3fe47b417a112f0951886aaf
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339679"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351908"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitoramento, diagnóstico e solução de problemas de Armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -246,7 +246,7 @@ A Biblioteca de Clientes de Armazenamento gera automaticamente uma ID de solicit
 >
 
 ### <a name="server-request-id"></a>ID de solicitação do servidor
-O serviço de armazenamento automaticamente gera ids de solicitação do servidor.
+O serviço de armazenamento automaticamente gera IDs de solicitação do servidor.
 
 * No log de armazenamento do lado do servidor, a ID de solicitação do servidor aparece na coluna **Cabeçalho da ID de solicitação**.
 * Em um rastreamento de rede tal como um capturado pelo Fiddler, a ID de solicitação do servidor aparece em mensagens de solicitação como o valor do cabeçalho HTTP **x-ms-request-id**.
@@ -814,9 +814,9 @@ Para obter mais informações sobre a análise no armazenamento do Azure, consul
 * [Monitorar uma conta de armazenamento no portal do Azure](storage-monitor-storage-account.md)
 * [Análise de armazenamento](storage-analytics.md)
 * [Métricas do Storage analytics](storage-analytics-metrics.md)
-* [Esquema de tabela de métricas do Storage analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema.md)
+* [Esquema de tabela de métricas do Storage analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema)
 * [Logs de análise de armazenamento](storage-analytics-logging.md)
-* [Formato de log de análise de armazenamento](/rest/api/storageservices/storage-analytics-log-format.md)
+* [Formato de log de análise de armazenamento](/rest/api/storageservices/storage-analytics-log-format)
 
 <!--Anchors-->
 [Introdução]: #introduction

@@ -13,39 +13,39 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: magoedte
-ms.openlocfilehash: a497662ac7a885b53e69bb8c86a646045bd2eef7
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 47b589d32accc4a699e7260b9e4b2de4cca58f2b
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314663"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369608"
 ---
-# <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway"></a>Conectar computadores sem acesso à internet usando o gateway do Log Analytics
+# <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Conectar computadores sem acesso à internet usando o gateway do Log Analytics no Azure Monitor
 
 >[!NOTE]
 >Como o Microsoft Operations Management Suite (OMS) faz a transição para o Microsoft Azure Monitor, a terminologia está mudando. Este artigo refere-se ao Gateway do OMS como o gateway do Azure Log Analytics. 
 >
 
-Este artigo descreve como configurar a comunicação com a automação do Azure e o Log Analytics usando o gateway do Log Analytics quando os computadores que estão conectados diretamente ou que são monitorados pelo Operations Manager tem sem acesso à internet. 
+Este artigo descreve como configurar a comunicação com a automação do Azure e o Azure Monitor, usando o gateway do Log Analytics quando os computadores que estão conectados diretamente ou que são monitorados pelo Operations Manager tem sem acesso à internet. 
 
-O gateway do Log Analytics é um proxy de encaminhamento de HTTP que dá suporte a túnel HTTP usando o comando HTTP CONNECT. Este gateway pode coletar dados e enviá-lo para automação do Azure e o Log Analytics em nome dos computadores que não estão conectados à internet.  
+O gateway do Log Analytics é um proxy de encaminhamento de HTTP que dá suporte a túnel HTTP usando o comando HTTP CONNECT. Este gateway pode coletar dados e enviá-lo para a automação do Azure e um espaço de trabalho do Log Analytics no Azure Monitor em nome dos computadores que não estão conectados à internet.  
 
 O gateway do Log Analytics dá suporte a:
 
 * Relatório até o mesmo Log Analytics quatro agentes de espaço de trabalho que estão por trás dele e que estão configurados com Hybrid Runbook Workers da automação do Azure.  
-* Computadores Windows no qual o Microsoft Monitoring Agent é conectado diretamente a um espaço de trabalho do Log Analytics.
-* Computadores com Linux no qual um agente do Log Analytics para Linux é conectado diretamente a um espaço de trabalho do Log Analytics.  
+* Computadores Windows no qual o Microsoft Monitoring Agent é conectado diretamente a um espaço de trabalho do Log Analytics no Azure Monitor.
+* Computadores com Linux no qual um agente do Log Analytics para Linux é conectado diretamente a um espaço de trabalho do Log Analytics no Azure Monitor.  
 * System Center Operations Manager 2012 SP1 com UR7, Operations Manager 2012 R2 com UR3 ou um grupo de gerenciamento no Operations Manager 2016 ou posterior que esteja integrado com o Log Analytics.  
 
-Algumas políticas de segurança não permitem a conexão de internet para computadores da rede. Esses computadores não conectadas pode ser o ponto de dispositivos de venda (PDV) ou servidores que oferecem suporte a serviços de TI, por exemplo. Para se conectar a esses dispositivos a automação do Azure ou Log Analytics para que você possa gerenciar e monitorá-los, configurá-los para se comunicar diretamente com o gateway do Log Analytics. O gateway do Log Analytics pode receber informações de configuração e encaminhar os dados em seu nome. Se os computadores estão configurados com o agente do Log Analytics para se conectar diretamente a um espaço de trabalho do Log Analytics, os computadores em vez disso, se comunicar com o gateway do Log Analytics.  
+Algumas políticas de segurança não permitem a conexão de internet para computadores da rede. Esses computadores não conectadas pode ser o ponto de dispositivos de venda (PDV) ou servidores que oferecem suporte a serviços de TI, por exemplo. Para se conectar a esses dispositivos a automação do Azure ou um espaço de trabalho do Log Analytics para que você possa gerenciar e monitorá-los, configurá-los para se comunicar diretamente com o gateway do Log Analytics. O gateway do Log Analytics pode receber informações de configuração e encaminhar os dados em seu nome. Se os computadores estão configurados com o agente do Log Analytics para se conectar diretamente a um espaço de trabalho do Log Analytics, os computadores em vez disso, se comunicar com o gateway do Log Analytics.  
 
 O Log Analytics gateway transfere dados dos agentes para o serviço diretamente. Ele não analisa os dados em trânsito.
 
 Quando um grupo de gerenciamento do Operations Manager é integrado com o Log Analytics, os servidores de gerenciamento podem ser configurados para se conectar ao gateway do Log Analytics para receber informações de configuração e enviar os dados coletados, dependendo da solução que você tiver habilitado .  Agentes do Operations Manager enviam alguns dados para o servidor de gerenciamento. Por exemplo, agentes podem enviar alertas do Operations Manager, os dados de avaliação de configuração, dados de espaço de instância e dados de capacidade. Outros dados de alto volume, como logs de serviços de informações da Internet (IIS), dados de desempenho e eventos de segurança, são enviados diretamente ao gateway do Log Analytics. 
 
-Se um ou mais servidores de Gateway do Operations Manager são implantados para monitorar os sistemas não confiáveis em uma rede de perímetro ou em uma rede isolada, esses servidores não podem se comunicar com um gateway do Log Analytics.  Servidores do Operations Manager Gateway podem relatar somente a um servidor de gerenciamento.  Quando um grupo de gerenciamento do Operations Manager é configurado para se comunicar com o gateway do Log Analytics, as informações de configuração de proxy são distribuídas automaticamente a todos os computadores gerenciados por agente configurados para coletar dados para o Log Analytics, mesmo que a configuração esteja vazia.    
+Se um ou mais servidores de Gateway do Operations Manager são implantados para monitorar os sistemas não confiáveis em uma rede de perímetro ou em uma rede isolada, esses servidores não podem se comunicar com um gateway do Log Analytics.  Servidores do Operations Manager Gateway podem relatar somente a um servidor de gerenciamento.  Quando um grupo de gerenciamento do Operations Manager é configurado para se comunicar com o gateway do Log Analytics, as informações de configuração de proxy é automaticamente distribuídas a todos os computadores gerenciados por agente que está configurado para coletar dados de log do Azure Monitor mesmo se a configuração está vazia.    
 
-Para fornecer alta disponibilidade para diretamente conectado ou grupos de gerenciamento de operações que se comunicam com o Log Analytics por meio do gateway, use a rede balanceamento de carga (NLB) para redirecionar e distribuir tráfego entre vários servidores de gateway. Dessa forma, se um servidor de gateway falhar, o tráfego será redirecionado para outro nó disponível.  
+Para fornecer alta disponibilidade para diretamente conectado ou grupos de gerenciamento de operações que se comunicam com um espaço de trabalho do Log Analytics por meio do gateway, use a rede balanceamento de carga (NLB) para redirecionar e distribuir tráfego entre vários servidores de gateway. Dessa forma, se um servidor de gateway falhar, o tráfego será redirecionado para outro nó disponível.  
 
 O computador que executa o gateway do Log Analytics requer que o agente do Windows do Log Analytics identificar os pontos de extremidade de serviço que precisa se comunicar com o gateway. O agente também precisa direcionar o gateway para relatar para espaços de trabalho do mesmos que os agentes ou grupo de gerenciamento do Operations Manager por trás do gateway são configuradas com. Essa configuração permite que o gateway e o agente se comunique com o seu espaço de trabalho atribuído.
 

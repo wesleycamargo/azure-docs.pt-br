@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f5f190eee473d5eb483f901ada80cb67b4ffedd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bc136cdc88c67e3b26aefc4982f49a2547e456db
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58110504"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370084"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Entrar em suas contas usando o aplicativo Microsoft Authenticator
 O aplicativo Microsoft Authenticator ajuda você a entrar em suas contas quando você usa a verificação de dois fatores. A verificação de dois fatores ajuda você a acessar suas contas com mais segurança, especialmente durante a exibição de informações confidenciais. Como as senhas podem ser esquecidas, roubadas ou comprometidas, a verificação de dois fatores é uma etapa adicional de segurança que ajuda a proteger sua conta, dificultando que ela seja invadida por outras pessoas.
@@ -111,7 +111,7 @@ Para obter as etapas necessárias para entrar em sua conta corporativa ou de est
 |**A entrada com telefone substitui a verificação em duas etapas? Eu deverá desativá-lo?**|A entrada com telefone é um tipo de verificação em duas etapas na qual as duas etapas ocorrem no dispositivo móvel. Você deve manter a verificação em duas etapas ativada para ajudar a fornecer segurança adicional para a sua conta.|
 |**Se eu mantiver a verificação em duas etapas ativada para minha conta, tenho que aprovar duas notificações?**|  Não. Fazer login na sua conta da Microsoft usando seu telefone também é considerado uma verificação em duas etapas, portanto, não é necessária a segunda aprovação.|
 |**E se eu perder meu telefone ou não tiver comigo? Como posso acessar minha conta?**| Você sempre pode selecionar o link Usar uma senha em vez disso na página de login para voltar a usar sua senha. No entanto, se você usar a verificação em duas etapas, ainda precisará usar um segundo método para confirmar sua identidade.<br><br>**Importante**<br>Recomendamos que você verifique se que você tem mais de um método de verificação atualizado, associado à sua conta.<br><br>Você pode gerenciar seus métodos de verificação para contas pessoais na [página Configurações de segurança](https://account.live.com/proofs/manage). Para contas do trabalho ou da escola, você pode acessar a página [Verificação adicional de segurança](https://aka.ms/MFASetup) da sua organização ou a página **Manter sua conta segura**, se o administrador tiver ativado informações de segurança. Para obter mais informações sobre informações de segurança, consulte [visão geral de informações (versão prévia) de segurança](user-help-security-info-overview.md).<br><br>Se você não conseguir gerenciar seus métodos de verificação, deverá entrar em contato com seu administrador.|
-|**Como eu paro de usar esse recurso e volto a usar minha senha?**|Para contas pessoais, selecione o link **Usar uma senha em vez disso** durante a entrada. Sua escolha mais recente é lembrada e oferecida por padrão na próxima vez que você fizer login. Se você quiser voltar a usar a entrada pelo telefone, selecione o link **Usar um aplicativo em vez disso** durante a entrada.<br><br>Para contas corporativas ou de estudante, você precisará acessar a página Verificação de segurança adicional (como https://aka.ms/MFASetup)) e remover o aplicativo Microsoft Authenticator.|
+|**Como eu paro de usar esse recurso e volto a usar minha senha?**|Para contas pessoais, selecione o link **Usar uma senha em vez disso** durante a entrada. Sua escolha mais recente é lembrada e oferecida por padrão na próxima vez que você fizer login. Se você quiser voltar a usar a entrada pelo telefone, selecione o link **Usar um aplicativo em vez disso** durante a entrada.<br><br>Para contas corporativas ou de estudante, você deve também cancelar o registro do dispositivo na **as configurações** página do aplicativo Microsoft Authenticator, ou desabilite o dispositivo da **dispositivos e atividade** área do seu perfil. Para obter mais informações sobre como desabilitar seu dispositivo do seu perfil, consulte [atualizar suas informações de perfil e conta do portal meus aplicativos](my-apps-portal-end-user-update-profile.md#view-your-organization-related-profile-information).|
 |**Por que não posso usar mais de uma conta do trabalho ou da escola para fazer login no telefone?**| Um telefone deve estar registrado em uma única conta de trabalho ou escola. Se você quiser habilitar a entrada pelo telefone para uma conta corporativa ou de estudante, primeiro cancele o registro da conta antiga na página **Configurações**.|
 |**Posso entrar no meu computador usando o meu telefone?**| Para o seu computador, é recomendável entrar usando o Windows Hello no Windows 10. O Windows Hello permite que você use seu rosto, impressão digital ou PIN para fazer login.|
 

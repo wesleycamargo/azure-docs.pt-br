@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 8e41145dd67c61b2e806740265a3f234401aefe1
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 6c38591aa283491369562db8ea840ef7e5b17e6d
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316979"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402619"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com o Azure Functions Core Tools
 
@@ -138,7 +138,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 
 `func init` dá suporte às seguintes opções, que são somente da versão 2.x, a menos que haja outro tipo de orientação:
 
-| Opção     | Descrição                            |
+| Opção     | DESCRIÇÃO                            |
 | ------------ | -------------------------------------- |
 | **`--csx`** | Inicializa um projeto de script (.csx) C#. Você precisam especificar `--csx` nos próximos comandos. |
 | **`--docker`** | Crie um Dockerfile para um contêiner usando uma imagem base que se baseia no `--worker-runtime` escolhido. Use esta opção quando planejar publicar em um contêiner do Linux personalizado. |
@@ -181,7 +181,7 @@ O arquivo local.settings.json armazena as configurações do aplicativo, as cade
 }
 ```
 
-| Configuração      | Descrição                            |
+| Configuração      | DESCRIÇÃO                            |
 | ------------ | -------------------------------------- |
 | **`IsEncrypted`** | Quando definido como `true`, todos os valores são criptografados usando uma chave do computador local. Usado com `func settings` comandos. O valor padrão é `false`. |
 | **`Values`** | Coleção de configurações de aplicativo e cadeias de conexão usadas ao executar localmente. Esses valores correspondem às configurações de aplicativo em seu aplicativo de função no Azure, tais como [ `AzureWebJobsStorage` ]. Vários gatilhos e associações têm uma propriedade que se refere a uma configuração de aplicativo de cadeia de caracteres de conexão, como `Connection` para o [gatilho do armazenamento de Blob](functions-bindings-storage-blob.md#trigger---configuration). Para essas propriedades, você precisa de uma configuração de aplicativo definida na `Values` matriz. <br/>[`AzureWebJobsStorage`] um aplicativo necessário é a configuração de gatilhos diferentes de HTTP. <br/>Versão 2.x do tempo de execução de funções requer o [ `FUNCTIONS_WORKER_RUNTIME` ] configuração, que é gerada para seu projeto pelas ferramentas básicas. <br/> Quando você tiver o [emulador de armazenamento do Azure](../storage/common/storage-use-emulator.md) instalado localmente, você pode definir [ `AzureWebJobsStorage` ] para `UseDevelopmentStorage=true` e ferramentas principais usa o emulador. Isso é útil durante o desenvolvimento, mas você deve testar com uma conexão de armazenamento real antes da implantação. |
@@ -265,7 +265,7 @@ Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\function.json
 
 Você também pode especificar essas opções no comando usando os seguintes argumentos:
 
-| Argumento     | Descrição                            |
+| Argumento     | DESCRIÇÃO                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--csx`** | (Versão 2. x) Gera os mesmos modelos C# (. CSx) de script usados na versão 1. x e no portal. |
 | **`--language -l`**| A linguagem de programação modelo, como C#, F# ou JavaScript. Essa opção é necessária na versão 1.x. Na versão 2.x, não use essa opção nem escolha uma linguagem que corresponda ao tempo de execução do trabalho. |
@@ -296,7 +296,7 @@ O `host` comando apenas é necessário na versão 1. x.
 
 `func host start` dá suporte para as seguintes opções:
 
-| Opção     | Descrição                            |
+| Opção     | DESCRIÇÃO                            |
 | ------------ | -------------------------------------- |
 | **`--no-build`** | Não compile o projeto atual antes da execução. Somente para projetos dotnet. O padrão é definido como false. Versão 2.x somente. |
 | **`--cert`** | O caminho para um arquivo .pfx que contém uma chave privada. Usado somente com `--useHttps`. Versão 2.x somente. |
@@ -388,7 +388,7 @@ Você também pode invocar uma função diretamente usando `func run <FunctionNa
 
 `func run` dá suporte para as seguintes opções:
 
-| Opção     | Descrição                            |
+| Opção     | DESCRIÇÃO                            |
 | ------------ | -------------------------------------- |
 | **`--content -c`** | Conteúdo embutido. |
 | **`--debug -d`** | Anexe um depurador ao processo de host antes de executar a função.|
@@ -428,14 +428,14 @@ O comando `publish` faz upload o conteúdo do diretório do projeto de funções
 
 As opções de publicação do projeto a seguir se aplicam a ambas versões 1.x e 2.x:
 
-| Opção     | Descrição                            |
+| Opção     | DESCRIÇÃO                            |
 | ------------ | -------------------------------------- |
 | **`--publish-local-settings -i`** |  Configurações de publicação em local.settings.json do Azure, a solicitação para substituir se a configuração já existe. Se você estiver usando o emulador de armazenamento, altere a configuração do aplicativo para uma [conexão de armazenamento real](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | Suprima o prompt para substituir as configurações do aplicativo quando `--publish-local-settings -i` for usado.|
 
 As opções de publicação do projeto a seguir têm suporte apenas na versão 2. x:
 
-| Opção     | Descrição                            |
+| Opção     | DESCRIÇÃO                            |
 | ------------ | -------------------------------------- |
 | **`--publish-settings-only -o`** |  Somente publicar as configurações e ignorar o conteúdo. O padrão é solicitado. |
 |**`--list-ignored-files`** | Exibe uma lista de arquivos que são ignorados durante a publicação, que é baseada no arquivo .funcignore. |
@@ -458,7 +458,7 @@ func deploy
 
 As seguintes opções de implantação de contêiner personalizado estão disponíveis:
 
-| Opção     | Descrição                            |
+| Opção     | DESCRIÇÃO                            |
 | ------------ | -------------------------------------- |
 | **`--registry`** | O nome de um Registro do Docker ao qual o usuário atual está conectado. |
 | **`--platform`** | A plataforma de hospedagem do aplicativo de funções. As opções válidas são `kubernetes` |

@@ -1,22 +1,22 @@
 ---
-title: Configure um compartilhamento de perfil de usuário para um grupo de host - Azure
-description: Como configurar um contêiner de perfil FSLogix para um pool de host de área de trabalho Virtual do Windows (visualização).
+title: Configure um compartilhamento de perfil do usuário para um grupo de host de visualização de área de trabalho Virtual do Windows - Azure
+description: Como configurar um contêiner de perfil FSLogix para um pool de host de visualização de área de trabalho Virtual do Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 9dfbda6e17cf954369fd6caa533ba9eef41fd451
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: c9c2ca2cc27c5fa757b8ff6846e0a6a8f7087875
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336007"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403707"
 ---
 # <a name="set-up-a-user-profile-share-for-a-host-pool"></a>Configure um compartilhamento de perfil de usuário para um pool de host
 
-O serviço de área de trabalho Virtual do Windows (versão prévia) oferece FSLogix contêineres de perfil como a solução de perfil do usuário recomendada. Não recomendamos usar a solução de disco de perfil de usuário (UDP), e ele será preterido em versões futuras do Windows de área de trabalho Virtual.
+O serviço de visualização de área de trabalho Virtual do Windows oferece FSLogix contêineres de perfil como a solução de perfil do usuário recomendada. Não recomendamos usar a solução de disco de perfil de usuário (UDP), e ele será preterido em versões futuras do Windows de área de trabalho Virtual.
 
 Esta seção informa como configurar um compartilhamento de contêiner FSLogix perfil para um pool de host.
 
@@ -61,11 +61,11 @@ Para configurar as máquinas virtuais com o software FSLogix, faça o seguinte e
 5. No menu Iniciar, executar **RegEdit** como administrador. Navegue até **computador\\HKEY_LOCAL_MACHINE\\software\\FSLogix\\perfis**
 6. Crie os seguintes valores:
 
-| Nome                | Digite               | Dados/valor                        |
+| NOME                | Type               | Dados/valor                        |
 |---------------------|--------------------|-----------------------------------|
-| Ativado             | DWORD              | 1                                 |
+| habilitado             | DWORD              | 1                                 |
 | VHDLocations        | Valor de cadeia de caracteres múltipla | "Caminho de rede para o compartilhamento de arquivos" |
-| VolumeType          | Cadeia             |  VHDX                              |
+| VolumeType          | Cadeia de caracteres             |  VHDX                              |
 | SizeInMBs           | DWORD              | "inteiro para o tamanho do perfil de"     |
 | IsDynamic           | DWORD              | 1                                 |
 | LockedRetryCount    | DWORD              | 1                                 |

@@ -1,37 +1,60 @@
 ---
-title: Perguntas frequentes sobre o Backup de VM do Azure
-description: 'Respostas para perguntas comuns sobre: como funciona o backup de VM do Azure, limitações e o que acontece quando ocorrem alterações à política'
+title: Perguntas frequentes sobre como fazer backup de VMs do Azure com o Backup do Azure
+description: Respostas para perguntas comuns sobre como fazer backup de VMs do Azure com o Backup do Azure.
 services: backup
 author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/16/2018
+ms.date: 03/22/2019
 ms.author: sogup
-ms.openlocfilehash: 10b49c5ebcd73010a52da1fada32ba55198b287a
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: ef46c37fec3e5438aeb4f9309201d45365a96fdc
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961526"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402058"
 ---
-# <a name="frequently-asked-questions-azure-backup"></a>Perguntas frequentes - Backup do Azure
+# <a name="frequently-asked-questions-back-up-azure-vms"></a>Perguntas frequentes perguntas-fazer backup de VMs do Azure
 
-Este artigo responde às perguntas comuns sobre o serviço de [Backup do Azure](backup-introduction-to-azure-backup.md).
-
-## <a name="general-questions"></a>Perguntas gerais
-
-### <a name="what-azure-vms-can-you-back-up-using-azure-backup"></a>Quais VMs do Azure podem passar por backup usando o Backup do Azure?
-[Analise](backup-azure-arm-vms-prepare.md#before-you-start) os sistemas operacionais e limitações compatíveis.
+Este artigo responde a perguntas comuns sobre como fazer backup de VMs do Azure com o [Backup do Azure](backup-introduction-to-azure-backup.md) service.
 
 
 ## <a name="backup"></a>Backup
 
+### <a name="which-vm-images-can-be-enabled-for-backup-when-i-create-them"></a>Quais imagens VM podem ser habilitadas para backup, quando eu criá-los?
+Quando você cria uma VM, você pode habilitar o backup para VMs em execução [sistemas operacionais com suporte](backup-support-matrix-iaas.md#supported-backup-actions)
+ 
+### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>É o custo de backup incluído no custo da VM? 
+
+ Não. Custos de backup são separados dos custos da VM. Saiba mais sobre [preços de Backup do Azure](https://azure.microsoft.com/pricing/details/backup/).
+ 
+### <a name="which-permissions-are-required-to-enable-backup-for-a-vm"></a>Quais permissões são necessárias para habilitar o backup de uma VM? 
+
+Se você for um colaborador VM, você pode habilitar o backup na VM. Se você estiver usando uma função personalizada, você precisará das seguintes permissões para habilitar o backup na VM: 
+
+- Microsoft.RecoveryServices/Vaults/write 
+- Microsoft.RecoveryServices/Vaults/read 
+- Microsoft.RecoveryServices/locations/* 
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read 
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read 
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write 
+- Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write 
+- Microsoft.RecoveryServices/Vaults/backupPolicies/read 
+- Microsoft.RecoveryServices/Vaults/backupPolicies/write 
+ 
+Se seu Cofre de serviços de recuperação e a VM tiverem grupos de recursos diferentes, certifique-se de que ter permissões de gravação no grupo de recursos para o Cofre de serviços de recuperação.  
+
+
+### <a name="what-azure-vms-can-you-back-up-using-azure-backup"></a>Quais VMs do Azure podem passar por backup usando o Backup do Azure?
+
+Examine os [matriz de suporte](backup-support-matrix-iaas.md) para detalhes de suporte e limitações.
+
 ### <a name="does-an-on-demand-backup-job-use-the-same-retention-schedule-as-scheduled-backups"></a>O trabalho de backup sob demanda usa o mesmo agendamento de retenção que os backups agendados?
- Não. Você deve especificar o período de retenção para um trabalho de backup sob demanda. Por padrão, ele é retido por 30 dias quando disparado de um portal.
+ Não. Especifique o período de retenção para um trabalho de backup sob demanda. Por padrão, ele é retido por 30 dias quando disparado de um portal.
 
 ### <a name="i-recently-enabled-azure-disk-encryption-on-some-vms-will-my-backups-continue-to-work"></a>Eu recentemente habilitei a Criptografia de Disco do Azure em algumas VMs. Meus backups continuarão a funcionar?
-Você precisa conceder permissões para o Backup do Azure acessar o Key Vault. Especifique as permissões no PowerShell, conforme descrito na seção **Habilitar backup** na documentação do [PowerShell do Backup do Azure](backup-azure-vms-automation.md).
+Forneça permissões para o Backup do Azure acessar o Cofre de chaves. Especifique as permissões no PowerShell, conforme descrito na seção **Habilitar backup** na documentação do [PowerShell do Backup do Azure](backup-azure-vms-automation.md).
 
 ### <a name="i-migrated-vm-disks-to-managed-disks-will-my-backups-continue-to-work"></a>Migrei os discos de uma VM para os discos gerenciados. Meus backups continuarão a funcionar?
 Sim, os backups funcionam perfeitamente. Não é necessário reconfigurar nada.
@@ -57,7 +80,7 @@ Usuário precisa remover o bloqueio e limpar a coleção de pontos de restauraç
 O Backup do Azure pode fazer backup de VMs com até 16 discos. Suporte para 16 discos é fornecido na [Restauração Instantânea](backup-instant-restore-capability.md).
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>O backup do Azure oferece suporte ao disco gerenciado SSD Standard?
-O Backup do Azure oferece suporte aos [discos gerenciados SSD Standard](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). Os discos gerenciados SSD fornecem um novo tipo de armazenamento durável para VMs do Azure. Suporte para discos gerenciados SSD é fornecido na [Restauração Instantânea](backup-instant-restore-capability.md).
+O Backup do Azure oferece suporte aos [discos gerenciados SSD Standard](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). Discos gerenciados SSD fornecem um novo tipo de armazenamento durável para VMs do Azure. Suporte para discos gerenciados SSD é fornecido na [Restauração Instantânea](backup-instant-restore-capability.md).
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>Podemos fazer backup de uma VM com um disco ativado pelo Acelerador de Gravação?
 Os instantâneos não podem ser criados no disco habilitado pelo Acelerador de Gravação. No entanto, o serviço de Backup do Azure pode excluir o disco habilitado pelo Acelerador de Gravação do backup. A exclusão de disco para VMs com discos habilitados pelo Acelerador de Gravação só tem suporte para assinaturas atualizadas para a Restauração Instantânea.
@@ -65,17 +88,17 @@ Os instantâneos não podem ser criados no disco habilitado pelo Acelerador de G
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>Tenho uma VM com discos do Acelerador de Gravação e do SAP HANA instalados. Como fazer backup?
 O Backup do Azure não pode fazer backup do disco habilitado pelo Acelerador de Gravação, mas pode excluí-lo do backup. No entanto, o backup não fornecerá a consistência do banco de dados porque não são feitos backups de informações do disco habilitado pelo Acelerador de Gravação. Você pode fazer backup de discos com essa configuração se desejar o backup em disco do sistema operacional e o backup dos discos que não são habilitados pelo Acelerador de Gravação.
 
-Temos uma versão prévia privada para um backup do SAP HANA com um RPO de 15 minutos. Ele é criado de maneira semelhante ao backup do Banco de Dados do SQL e usa a interface backInt para soluções de terceiros certificadas pelo SAP HANA. Se você estiver interessado na versão prévia privada, envie um email para ` AskAzureBackupTeam@microsoft.com ` com o assunto **Inscrever-se para a versão prévia privada para o backup do SAP HANA em VMs do Azure**.
+Estamos executando versão prévia privada para um backup do SAP HANA com um RPO de 15 minutos. Ele é criado de maneira semelhante ao backup do Banco de Dados do SQL e usa a interface backInt para soluções de terceiros certificadas pelo SAP HANA. Se você estiver interessado, envie um email ` AskAzureBackupTeam@microsoft.com ` com o assunto **Inscreva-se para visualização privada para o backup do SAP HANA em VMs do Azure**.
 
 
 ## <a name="restore"></a>Restaurar
 
 ### <a name="how-do-i-decide-whether-to-restore-disks-only-or-a-full-vm"></a>Como faço para decidir se quero restaurar somente a discos ou uma VM completa?
-Pense na restauração da VM como uma opção de criação rápida para uma VM do Azure. Essa opção altera os nomes dos discos, os contêineres usados pelos discos, os endereços IP públicos e os nomes das interfaces de rede. A alteração mantém recursos exclusivos quando uma VM é criada. A VM não é adicionada ao conjunto de disponibilidade.
+Pense na restauração da VM como uma opção de criação rápida para uma VM do Azure. Esta opção altera os nomes de disco, contêineres usados por discos, endereços IP públicos e os nomes de interface de rede. A alteração mantém recursos exclusivos quando uma VM é criada. A VM não é adicionada ao conjunto de disponibilidade.
 
 Você pode usar a opção de disco de restauração se você quer:
-  * Personalizar a VM que é criada. Por exemplo, alterar o tamanho.
-  * Adicionar definições de configurações que não estavam presentes no momento do backup
+  * Personalizar a VM que é criada. Por exemplo, altere o tamanho.
+  * Adicione definições de configuração que não estavam lá no momento do backup.
   * Controlar a convenção de nomenclatura para os recursos que são criados.
   * Adicionar a VM a um grupo de disponibilidade.
   * Adicione qualquer outra configuração que deva ser configurada usando o PowerShell ou um modelo.
@@ -114,6 +137,6 @@ O backup da VM é feito usando as configurações de retenção e agendamento na
 
 1. Pare temporariamente o backup e mantenha os dados de backup.
 2. Mova a VM para o grupo de recursos de destino.
-3. O backup foi reabilitado no mesmo ou no novo cofre.
+3. Backup habilitado novamente no mesmo ou novo cofre.
 
 Você pode restaurar a VM a partir dos pontos de restauração disponíveis que foram criados antes da operação de migração.
