@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5597937ff0bc44b55deb43ccc45b618a1bb8fec
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 82e9941a6c468a3b0ed9d1f22a2970cfa6584617
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186090"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439338"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Substituição de chave de assinatura no Azure Active Directory
 Este artigo aborda o que você precisa saber sobre as chaves públicas que são usadas no Azure Active Directory (Azure AD) para assinar tokens de segurança. É importante observar que essas chaves são substituídas em intervalos periódicos e, em caso de emergência, podem ser substituídas imediatamente. Todos os aplicativos que usam o Azure AD devem ser capazes de manipular programaticamente o processo de substituição de chave ou estabelecer um processo de substituição manual periódica. Continue lendo para entender como funcionam as chaves, como avaliar o impacto de substituição no seu aplicativo e como atualizar seu aplicativo ou estabelecer um processo de substituição manual periódica para tratar a substituição de chave, se necessário.
@@ -278,7 +278,7 @@ Depois que você tiver seguido as etapas, o Web.config do seu aplicativo será a
 
 Siga as etapas abaixo para verificar se a lógica de substituição de chave está funcionando.
 
-1. Após ter verificado que seu aplicativo está usando o código acima, abra o arquivo **Web.config** e navegue até o bloco **<issuerNameRegistry>** procurando especificamente as poucas linhas abaixo:
+1. Depois de ter verificado que seu aplicativo está usando o código acima, abra o **Web. config** de arquivo e navegue até a  **\<issuerNameRegistry >** bloco, procurando especificamente as algumas linhas a seguir:
    ```
    <issuerNameRegistry type="System.IdentityModel.Tokens.ValidatingIssuerNameRegistry, System.IdentityModel.Tokens.ValidatingIssuerNameRegistry">
         <authority name="https://sts.windows.net/ec4187af-07da-4f01-b18f-64c2f5abecea/">
@@ -286,7 +286,7 @@ Siga as etapas abaixo para verificar se a lógica de substituição de chave est
             <add thumbprint="3A38FA984E8560F19AADC9F86FE9594BB6AD049B" />
           </keys>
    ```
-2. Na tabela **<add thumbprint="">** , altere o valor de impressão digital, substituindo um caractere por um diferente. Salve o arquivo **Web.config** .
+2. No  **\<adicionar a impressão digital = "" >** , altere o valor de impressão digital, substituindo qualquer caractere por um diferente. Salve o arquivo **Web.config** .
 3. Crie o aplicativo e o execute. Se você consegue completar o processo de logon, seu aplicativo está atualizando a chave com êxito baixando as informações necessárias do documento de metadados federados do diretório. Se você estiver com problemas para entrar, verifique se as alterações em seu aplicativo estão corretas lendo o artigo [Adicionar logon ao seu aplicativo Web usando o Microsoft Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) ou baixando e inspecionando o seguinte exemplo de código: [Aplicativo de nuvem multilocatário do Microsoft Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
 
 ### <a name="vs2010"></a>Os aplicativos Web que protegem recursos e que foram criados com o Visual Studio 2008 ou 2010 e o Windows Identity Foundation (WIF) v1.0 para .NET 3.5

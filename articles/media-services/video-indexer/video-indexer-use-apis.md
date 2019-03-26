@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: 6a7d79d8a9328eaf0808c79ed359299e1ec37d1a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4c2c22d2d3d68080b1d4e05410121ea1d1be283d
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57862703"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439168"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Tutorial: Usar a API do Video Indexer
 
@@ -42,14 +42,14 @@ Este artigo mostra como os desenvolvedores podem aproveitar a [API do Video Inde
 
     Selecione a guia [Produtos](https://api-portal.videoindexer.ai/products). Em seguida, selecione a autorização e inscrever-se. 
     
-    ![Inscreva-se](./media/video-indexer-use-apis/video-indexer-api02.png)
+    ![Inscrição](./media/video-indexer-use-apis/video-indexer-api02.png)
 
     > [!NOTE]
     > Novos usuários são automaticamente inscritos na Autorização.
     
     Depois de se inscrever, você poderá ver sua assinatura e suas chaves primárias e secundárias. As chaves devem ser protegidas. As chaves só devem ser usadas pelo seu código do servidor. Eles não devem estar disponíveis no lado do cliente (.js, .html, etc.).
 
-    ![Inscreva-se](./media/video-indexer-use-apis/video-indexer-api03.png)
+    ![Inscrição](./media/video-indexer-use-apis/video-indexer-api03.png)
 
 > [!TIP]
 > O usuário do Video Indexer pode usar uma chave de assinatura única para se conectar a várias contas do aplicativo. Depois você pode vincular essas contas do Video Indexer para diferentes contas de Serviços de Mídia.
@@ -73,19 +73,6 @@ Para facilitar, você pode usar a **API de autorização**> **GetAccounts** para
 Os tokens de acesso expiram após 1 hora. Certifique-se de que seu token de acesso seja válido antes de usar a API de operações. Se expirar, chame a API de autorização novamente para obter um novo token de acesso.
  
 Você está pronto para começar a integrar com a API. Encontre [a descrição detalhada de cada API REST do Indexador de Vídeo](https://api-portal.videoindexer.ai/).
-
-## <a name="location"></a>Local
-
-Todas as APIs de operação requerem um parâmetro Location, que indica a região para a qual a chamada deve ser roteada e na qual a conta foi criada.
-
-Os valores descritos na tabela a seguir se aplicam. O **valor Param** é o valor que você passa ao usar a API.
-
-|**Nome**|**Valor do parâmetro**|**Descrição**|
-|---|---|---|
-|Avaliação|trilha|Usado para contas de avaliação.|
-|Oeste dos Estados Unidos|westus2|Usado para a região do Azure Oeste dos EUA 2.|
-|Europa Setentrional |northeurope|Usado para a região do Azure Norte da Europa.|
-|Leste da Ásia|eastasia|Usado para a região do Azure East Asia.|
 
 ## <a name="account-id"></a>ID da Conta 
 
@@ -224,6 +211,6 @@ Debug.WriteLine(playerWidgetLink);
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Examinar os detalhes da saída JSON](video-indexer-output-json-v2.md).
-
-[Visão geral do indexador vídeo](video-indexer-overview.md)
+- [Examinar os detalhes da saída JSON](video-indexer-output-json-v2.md).
+- [Visão geral do indexador vídeo](video-indexer-overview.md)
+- [Regiões](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)

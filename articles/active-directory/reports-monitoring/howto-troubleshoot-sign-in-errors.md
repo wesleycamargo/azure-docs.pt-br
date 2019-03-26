@@ -3,7 +3,7 @@ title: Como solucionar erros de entrada usando relatórios do Active Directory D
 description: Aprenda a solucionar erros de login usando relatórios do Azure Active Directory Domain Services no portal do Azure
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22126114f2d4fcb865485d9cebc69f0e35f70201
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 26a3594b00f19c2790e9dfd5f09fbdc7d73d478f
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198466"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58434884"
 ---
 # <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Como: Solucionar problemas de erros de logon usando relatórios do Azure Active Directory Domain Services
 
@@ -37,17 +37,17 @@ Além disso, o relatório de logins também pode ajudar você a solucionar falha
 Você precisa de:
 
 * Um locatário do Microsoft Azure Active Directory com uma licença premium (P1/P2). Consulte [Introdução ao Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para fazer upgrade da edição do Azure Active Directory.
-* Um usuário, que está na função de **administrador global**, **administrador de segurança**, **leitor de segurança** ou **leitor de relatório** para o locatário. Além disso, qualquer usuário pode acessar suas próprias entradas. 
+* Um usuário, que está no **administrador global**, **administrador de segurança**, **leitor de segurança**, ou **leitor de relatório** função para o locatário. Além disso, qualquer usuário pode acessar suas próprias entradas. 
 
 ## <a name="troubleshoot-sign-in-errors-using-the-sign-ins-report"></a>Solucionar problemas de erros de entrada usando o relatório de entradas
 
 1. Navegue até o [portal do Azure](https://portal.azure.com) e selecione seu diretório.
 2. Selecione **Azure Active Directory** e selecione **Entradas** na seção **Monitoramento**. 
-3. Use os filtros fornecidos para restringir a falha, seja pelo nome de usuário ou identificador de objeto, nome do aplicativo ou data. Além disso, selecione **Falha** na lista suspensa **Status** para exibir apenas os logins com falha. 
+3. Use os filtros fornecidos para restringir a falha, seja pelo nome de usuário ou identificador de objeto, nome do aplicativo ou data. Além disso, selecione **falha** da **Status** lista suspensa para exibir apenas os logons com falha. 
 
     ![Resultados do filtro](./media/howto-troubleshoot-sign-in-errors/filters.png)
         
-4. Identifique o login com falha que você deseja investigar e selecione-o. Isso abrirá a janela de detalhes adicionais com mais informações sobre o login com falha. Anote o **código de erro de login** e **motivo de falha**. 
+4. Identifique com falha na entrada que deseja investigar. Selecione para abrir a janela de detalhes adicionais com mais informações sobre a entrada com falha. Anote o **código de erro de login** e **motivo de falha**. 
 
     ![Selecione o registro](./media/howto-troubleshoot-sign-in-errors/sign-in-failures.png)
         
@@ -55,7 +55,7 @@ Você precisa de:
 
     ![Solução de problemas e suporte](./media/howto-troubleshoot-sign-in-errors/troubleshooting-and-support.png)
 
-6. O motivo da falha descreve o erro. Por exemplo, no cenário acima, o motivo da falha é **Nome de usuário ou senha inválidos ou Nome de usuário ou senha inválida no local**. Isso significa que o usuário digitou um nome de usuário ou senha incorreto para entrar no portal do Azure. A correção é simplesmente entrar novamente com o nome de usuário e a senha corretos.
+6. O motivo da falha descreve o erro. Por exemplo, no cenário acima, o motivo da falha é **Nome de usuário ou senha inválidos ou Nome de usuário ou senha inválida no local**. A correção é simplesmente entrar novamente com o nome de usuário e a senha corretos.
 
 7. Você pode obter informações adicionais, incluindo ideias para correção, pesquisando o código de erro **50126** neste exemplo, na referência de códigos de erro de [log-ins](reference-sign-ins-error-codes.md). 
 

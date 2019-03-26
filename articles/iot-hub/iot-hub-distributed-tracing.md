@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: f685521adbbd8b9be9128ff77ab38b42860518b6
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: fc6db4d02898ea0e8eed3cdf3d0b1a9788d943e9
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351041"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439289"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Rastrear mensagens de dispositivo para a nuvem do IoT do Azure com o rastreamento distribuído (versão prévia)
 
@@ -174,7 +174,7 @@ Essas instruções servem para compilar o exemplo no Windows. Para outros ambien
 
 Ele tem **não trivial** para visualizar o recurso de rastreamento distribuído sem usar o SDK de C. Portanto, essa abordagem não é recomendada.
 
-Primeiro, você deve implementar todas as primitivas de protocolo do IoT Hub em suas mensagens, seguindo o guia de desenvolvimento [criar e ler mensagens do Hub IoT](iot-hub-devguide-messages-construct.md). Em seguida, edite as propriedades de protocolo na adicionar as mensagens de MQTT/AMQP `tracestate` como **propriedade do sistema**. Especificamente:
+Primeiro, você deve implementar todas as primitivas de protocolo do IoT Hub em suas mensagens, seguindo o guia de desenvolvimento [criar e ler mensagens do Hub IoT](iot-hub-devguide-messages-construct.md). Em seguida, edite as propriedades de protocolo nas mensagens adicionar MQTT/AMQP `tracestate` como **propriedade do sistema**. Especificamente:
 
 * Para que o MQTT, adicione `%24.tracestate=timestamp%3d1539243209` para o tópico de mensagem, onde `1539243209` deve ser substituído com a hora de criação da mensagem no formato de carimbo de hora do unix. Por exemplo, se referem à implementação [no SDK do C](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/iothubtransport_mqtt_common.c#L761)
 * Para AMQP, adicione `key("tracestate")` e `value("timestamp=1539243209")` como anotação da mensagem. Para uma implementação de referência, consulte [aqui](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/uamqp_messaging.c#L527).
