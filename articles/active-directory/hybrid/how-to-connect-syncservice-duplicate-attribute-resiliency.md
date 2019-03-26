@@ -16,12 +16,12 @@ ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc27e5cd6af19f06a5eab73e30d3034fada0ccc2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a65af5a5ea0629b617c4e736d8c110cbb9aa540c
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838384"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438294"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Sincronização de identidades e resiliência do atributo duplicado 
 A Resiliência do Atributo Duplicado é um recurso do Azure Active Directory que eliminará o atrito causado por conflitos de **UserPrincipalName** e **ProxyAddress** ao executar uma das ferramentas de sincronização da Microsoft.
@@ -40,7 +40,7 @@ Se houver uma tentativa de provisionar um novo objeto com um valor ProxyAddress 
 
 ## <a name="behavior-with-duplicate-attribute-resiliency"></a>Comportamento com Resiliência do Atributo Duplicado
 Em vez de falhar completamente em provisionar ou atualizar um objeto com um atributo duplicado, o Azure Active Directory "coloca em quarentena" o atributo duplicado que viola a restrição de exclusividade. Se esse atributo for necessário para o provisionamento, como um UserPrincipalName, o serviço atribuirá um valor de espaço reservado. O formato desses valores temporários é  
-"***<OriginalPrefix>+ < 4DigitNumber >\@<InitialTenantDomain>. onmicrosoft.com***".  
+"***\<OriginalPrefix > +\<4DigitNumber >\@\<InitialTenantDomain >. onmicrosoft.com***".  
 Se o atributo não for necessário, como um **ProxyAddress**, o Azure Active Directory simplesmente colocará em quarentena o atributo em conflito e prosseguirá com a criação ou atualização do objeto.
 
 Ao colocar em quarentena o atributo, as informações sobre o conflito são enviadas no mesmo email de relatório de erro usado no antigo comportamento. No entanto, essas informações só aparecem no relatório de erro uma vez, quando ocorre a quarentena; elas não continuam a ser registradas em log em emails futuros. Além disso, uma vez que a exportação deste objeto foi bem-sucedida, o cliente de sincronização não registra em log um erro nem tenta repetir a operação para criar/atualizar nos ciclos de sincronização subsequentes.
@@ -66,7 +66,7 @@ Para verificar se o recurso está habilitado para o seu locatário, você poder�
 > Você não pode mais usar o cmdlet Set-MsolDirSyncFeature para habilitar proativamente o recurso de Duplicar Resiliência de Atributo antes que ele seja ativado para o seu locatário. Para ser capaz de testar o recurso, você precisará criar um novo locatário do Azure Active Directory.
 
 ## <a name="identifying-objects-with-dirsyncprovisioningerrors"></a>Identificação de objetos com DirSyncProvisioningErrors
-Atualmente, existem dois métodos para identificar os objetos que têm esses erros devido a conflitos de propriedade duplicada: o Azure Active Directory PowerShell e o Portal de Administração do Office 365. No futuro, há planos de estender para relatórios adicionais baseados no portal.
+Atualmente, há dois métodos para identificar os objetos que têm esses erros devido a conflitos de propriedade duplicados, o Azure Active Directory PowerShell e o [Centro de administração do Microsoft 365](https://admin.microsoft.com). No futuro, há planos de estender para relatórios adicionais baseados no portal.
 
 ### <a name="azure-active-directory-powershell"></a>Azure Active Directory PowerShell
 Para os cmdlets do PowerShell neste tópico, o seguinte é verdadeiro:
@@ -113,17 +113,17 @@ Para fazer uma pesquisa ampla da cadeia de caracteres, use o sinalizador **-Sear
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -SearchString User`
 
 #### <a name="in-a-limited-quantity-or-all"></a>Em uma Quantidade Limitada ou Todos
-1. **MaxResults<Int>** pode ser usado para limitar a consulta a um número específico de valores.
+1. **MaxResults \<Int >** pode ser usado para limitar a consulta a um número específico de valores.
 2. **All** pode ser usado para garantir que todos os resultados sejam recuperados, no caso de existir um grande número de erros.
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -MaxResults 5`
 
-## <a name="office-365-admin-portal"></a>Portal de administração do Office 365
-Você pode exibir os erros de sincronização de diretórios no centro de administração do Office 365. O relatório no portal do Office 365 exibe apenas os objetos **User** que têm esses erros. Ele não mostra informações sobre conflitos entre **Groups** e **Contacts**.
+## <a name="microsoft-365-admin-center"></a>Centro de administração do Microsoft 365
+Você pode exibir erros de sincronização de diretórios no Centro de administração do Microsoft 365. O relatório em que o administrador do Microsoft 365 center apenas exibe **usuário** objetos que têm esses erros. Ele não mostra informações sobre conflitos entre **Groups** e **Contacts**.
 
 ![Usuários ativos](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/1234.png "Usuários ativos")
 
-Para obter instruções sobre como exibir erros de sincronização de diretórios no centro de administração do Office 365, confira [Identificar erros de sincronização de diretório no Office 365](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067).
+Para obter instruções sobre como exibir erros de sincronização de diretórios no Centro de administração do Microsoft 365, consulte [identificar erros de sincronização de diretório no Office 365](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067).
 
 ### <a name="identity-synchronization-error-report"></a>Relatório de erros de sincronização de identidades
 Quando um objeto com um conflito de atributo duplicado é tratado com esse novo comportamento, uma notificação é incluída no email padrão do Relatório de Erros de Sincronização de Identidades enviado para o contato de Notificação Técnica do locatário. No entanto, há uma alteração importante nesse comportamento. No passado, as informações sobre um conflito de atributo duplicado eram incluídas em todos os relatórios de erro subsequentes até o conflito ser resolvido. Com esse novo comportamento, a notificação de erro para determinado conflito só aparece uma vez, no momento em que o atributo conflitante está de quarentena.

@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: spelluru
-ms.openlocfilehash: 7c38de9c1dbb5e8a286fa1b72d0461dd74ed6f25
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4e1ea3d822c8b032617b7f202f1c176aeb966210
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770520"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436771"
 ---
 # <a name="azure-service-bus-to-azure-event-grid-integration-examples"></a>Exemplos do Barramento de Serviço do Azure para a integração da Grade de Eventos do Azure
 
@@ -27,7 +27,7 @@ Neste artigo, você aprenderá a configurar uma função do Azure e um aplicativ
  
 * Crie um teste de função do Azure simples para depurar e ver o fluxo inicial de eventos na Grade de Eventos. Execute esta etapa, independentemente se você executar as outras.
 * Crie uma função do Azure para receber e processar mensagens do Barramento de Serviço do Azure com base em eventos da Grade de Eventos.
-* Utilize o recurso Aplicativos Lógicos do Serviço de Aplicativo do Azure.
+* Utilize o recurso de aplicativos lógicos do serviço de aplicativo do Azure.
 
 O exemplo que você criar pressupõe que o tópico do Barramento de Serviço tem duas assinaturas. O exemplo também pressupõe que a assinatura da Grade de Eventos foi criada para enviar eventos para apenas uma assinatura do Barramento de Serviço. 
 
@@ -197,7 +197,7 @@ Conecte um aplicativo lógico com o Barramento de Serviço do Azure e a Grade de
 
 1. Adicione suas informações fazendo o seguinte:
 
-    a. Na caixa **Nome do Recurso**, digite seu próprio nome de namespace. 
+     a. Na caixa **Nome do Recurso**, digite seu próprio nome de namespace. 
 
     b. Em **Opções avançadas**, na caixa **Filtro do Sufixo**, insira o filtro para sua assinatura.
 

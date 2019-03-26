@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/30/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 94893a5b5716c9bd207ad2a8bc8ca457974dddd4
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: HT
+ms.openlocfilehash: 233834bd040362e27ffadc3d0003a87827012352
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58395733"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407908"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Perguntas frequentes sobre discos de VM IaaS do Azure e discos premium gerenciados e não gerenciados
 
@@ -300,7 +300,7 @@ Não há nenhuma desvantagem em usar CORTE nos Discos do Azure Premium ou Standa
 
 **Qual é o maior tamanho de disco gerenciado com suporte para o sistema operacional e os discos de dados?**
 
-O tipo de partição a que o Azure dá suporte para um disco do sistema operacional é o MBR (registro mestre de inicialização). O formato do MBR dá suporte a tamanho de disco de até 2 TiB. O maior tamanho a que o Azure dá suporte para um disco do sistema operacional é 2 TiB. O Azure dá suporte a até 32 TB em discos de dados. Tamanhos de disco gerenciados maiores do que 4 TiB estão em visualização. Para obter mais informações sobre eles, consulte nosso [postagem de blog](https://aka.ms/azure-large-disk-32TB-preview-blog).
+O tipo de partição a que o Azure dá suporte para um disco do sistema operacional é o MBR (registro mestre de inicialização). O formato do MBR dá suporte a tamanho de disco de até 2 TiB. O maior tamanho a que o Azure dá suporte para um disco do sistema operacional é 2 TiB. Azure dá suporte a até 32 TiB de discos de dados gerenciados no Azure global, 4 TiB em nuvens soberanas do Azure.
 
 **Qual é o maior tamanho de disco não gerenciado com suporte para o sistema operacional e os discos de dados?**
 
@@ -335,7 +335,7 @@ Você pode tirar um instantâneo dos discos pequenos e criar um disco para alter
 
 **Pode você redimensionar os discos gerenciados existentes tamanhos de menos de 4 tebibytes (TiB) para novos tamanhos de disco recém-introduzidos até 32 TiB?**
 
-Novos tamanhos de disco gerenciado TiB 8, TiB de 16 e 32 TiB estão atualmente em visualização. Ainda não damos suporte redimensionamento de tamanhos de disco existente para os novos tamanhos de disco.
+Sim.
 
 **Quais são os maiores tamanhos de disco com suporte pelo serviço de Backup do Azure e o Azure Site Recovery?**
 
